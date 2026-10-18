@@ -16,133 +16,247 @@
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
         "provides": "Equalizer subgroup of two homomorphisms on an existing group; specializes to the modified-unit fibre product.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:Valuation.Completion",
         "kind": "abbrev",
         "module": "Mathlib/Topology/Algebra/Valued/WithVal.lean",
         "provides": "Completion of the valuation-specific WithVal carrier, so distinct places select their own topology.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:Valued.valuedCompletion",
         "kind": "instance",
         "module": "Mathlib/Topology/Algebra/Valued/ValuedField.lean",
         "provides": "The valuation extends to the completion with the same ordered value-group codomain.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:Valued.valuedCompletion_apply",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Valued/ValuedField.lean",
         "provides": "The extended valuation agrees on embedded field elements; used to restrict the actual diagonal.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:ValuationSubring.unitGroup",
         "kind": "def",
         "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
         "provides": "The subgroup of local field units lying in the valuation ring together with their inverses.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:ValuationSubring.unitGroupToResidueFieldUnits",
         "kind": "def",
         "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
         "provides": "Actual residue-unit homomorphism from the valuation-subring unit subgroup.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:ValuationSubring.surjective_unitGroupToResidueFieldUnits",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
         "provides": "Surjectivity of residue units for any valuation subring of a field.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:RestrictedProduct",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/RestrictedProduct/Basic.lean",
         "provides": "Native cofinite restricted product; all-place specialization is owned by FA.2.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:RestrictedProduct.unitsEquiv",
         "kind": "def",
         "module": "Mathlib/Topology/Algebra/RestrictedProduct/Units.lean",
         "provides": "Algebraic equivalence between units of a restricted product and restricted products of local units.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.ActionCategory",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Action.lean",
         "provides": "Labelled action category, with groupoid instance for group actions; it does not pass to orbit sets.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.ActionCategory.stabilizerIsoEnd",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Action.lean",
         "provides": "An action stabilizer is multiplicatively equivalent to the endomorphism monoid at the corresponding object.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "mathlib:FiniteField.unit_isSquare_iff",
         "kind": "theorem",
         "module": "Mathlib/FieldTheory/Finite/Basic.lean",
         "provides": "For finite fields of characteristic other than two, a unit is square exactly when its half-cardinality power is one.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "tauceti:TauCeti.Place",
         "kind": "structure",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Basic.lean",
         "provides": "Normalized surjective Z-valued places trivial on constants; ord(π)=1.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "tauceti:TauCeti.Place.finite_setOf_ord_ne_zero",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Place/Zeros.lean",
         "provides": "For an algebraic function field, every function has finitely many places of nonzero order; gives actual diagonal restrictedness.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "tauceti:TauCeti.Divisor",
         "kind": "abbrev",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "The native finitely supported signed integer divisor group on normalized places.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree",
         "kind": "def",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/Basic.lean",
         "provides": "Additive degree weighted by residue finrank, including signed coefficients.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "tauceti:TauCeti.Divisor.degree_principal",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
         "provides": "Degree of a principal divisor is zero under IsFunctionField; no rational-point hypothesis.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
         "kind": "abbrev",
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "provides": "Native full subcategory of locally free rank-one scheme modules; morphisms are module maps.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.classGroupToLineBundleClass_injective",
         "kind": "theorem",
         "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LineBundle.lean",
         "provides": "Pinned Noetherian integral DVR-curve divisor-class injection into line-bundle classes; does not supply the completed-lattice or full framed-groupoid comparison.",
-        "checked": "Statement and hypotheses read in the source at the exact pin."
+        "checked": "Statement and hypotheses read in the source at the exact pin.",
+        "independentReview": {
+          "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+          "date": "2026-10-18",
+          "verdict": "confirmed",
+          "note": "Declaration statement and surrounding hypotheses read at the recorded exact commit; provides the stated interface."
+        }
       }
     ]
   },
@@ -160,7 +274,12 @@
         "A.1.6, pp. 517–518, including all of Lemma A.5 and its proof; published page image p. 518 checked for the frame ratio.",
         "§6.2.3, pp. 498–499, signed right quotient, root line and Lemma 6.4 consumer.",
         "A.3.4, Proposition A.12 proof, p. 525, for the inverse-uniformizer character consumer only."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+        "date": "2026-10-18",
+        "read": "Independently read the listed sections; downloaded file hash agrees with the recorded SHA-256. Published p. 518 was also checked as a rendered page image."
+      }
     },
     {
       "id": "YZ19v2",
@@ -172,7 +291,12 @@
       "accessed": "2026-10-18",
       "readSections": [
         "A.1.6 and Lemma A.5, printed pp. 84–85: frame-ratio and inverse-uniformizer collation; no full-paper reading claimed."
-      ]
+      ],
+      "independentReview": {
+        "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+        "date": "2026-10-18",
+        "read": "Independently collated A.1.6 and the complete Lemma A.5 proof, printed pp. 84–85; downloaded file hash agrees with the recorded SHA-256."
+      }
     }
   ],
   "nodes": [
@@ -239,7 +363,10 @@
       "prerequisites": [
         "FunctionFieldArithmeticPartII:GC.0/root-picard",
         "SchemeAndStackFoundations:SF.3/picard-groupoid",
-        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf"
+        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+        "SchemeAndStackFoundations:SF.3/class-group-picard-locally-factorial",
+        "SchemeAndStackFoundations:SF.3/vector-bundle-degree",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
       ],
       "proofSteps": [
         "Add only a generic trivialization to the existing root-line triple; use its existing line-bundle isomorphisms, tensor product and duality.",
@@ -424,7 +551,7 @@
         {
           "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.changeFrames",
           "role": "functoriality",
-          "statement": "For (f,h) with h=(u,v), change τ_η to fτ_η, τ_x to u_x^{-1}τ_x and t_x to v_x^{-1}t_x. The root frame equation is preserved, and the coefficient changes to diag(f) a p(h)."
+          "statement": "For (f,h) with h=(u,v), change τ_η to fτ_η, τ_x to u_x^{-1}τ_x and t_x to v_x^{-1}t_x. The root frame equation is preserved, and the coefficient changes to diag(f) a p(h). This is an action functorial on arrows, with identity and composition laws; forgetLocalFrames intertwines it with changeGenericFrame."
         },
         {
           "name": "TauCeti.RamifiedClassField.FullyFramedRootLine.tensor",
@@ -509,7 +636,7 @@
       ],
       "kind": "comparison",
       "title": "The signed right quotient represents generically framed root lines",
-      "statement": "The inherited right-action groupoid Div^√R(X)=I//H is symmetrically monoidally equivalent to G_R(X). The functor sends a to (L(a),K_R(a),ι(a),τ_η). A labelled arrow h=(u,v):a→b=a p(h) acts by the identity on the rational line and by v_x^{-1} on the standard root lines. Under this equivalence the underlying divisor functor is E:I//H→Discrete(Div(X)), and the line is O_X(−E). The induced functor Q to the inherited double-action presentation sends a to a and h to (1,h). The geometric square with G_R(X)→Pic_X^√R(k) commutes up to a specified monoidal natural isomorphism.",
+      "statement": "The inherited right-action groupoid Div^√R(X)=I//H is symmetrically monoidally equivalent to G_R(X). The functor sends a to (L(a),K_R(a),ι(a),τ_η). A labelled arrow h=(u,v):a→b=a p(h) acts by the identity on the rational line and by v_x^{-1} on the standard root lines. Under this equivalence E:I//H→Discrete(Div(X)) is the negative of the divisor of the rational section sent to 1 by τ_η; the line is O_X(−E). The induced functor Q to the inherited double-action presentation sends a to a and h to (1,h). The geometric square with G_R(X)→Pic_X^√R(k) commutes up to a specified monoidal natural isomorphism.",
       "hypotheses": [
         "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
         "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
@@ -697,7 +824,7 @@
       ],
       "kind": "theorem",
       "title": "The valuation divisor and Picard degree have opposite signs",
-      "statement": "Let Φ:I//(F××H)≃Pic_X^√R(k) be the inherited equivalence with the corrected frame-ratio convention. For a∈I, the ordinary line of Φ(a) is O_X(−E(a)) and deg Φ(a)=−deg E(a)=−Σ_x ord_x(a_x)[κ_x:k]. The same formula holds for Q(a) from the right quotient, is invariant under every labelled double arrow, and defines its integer grading. Tensor product adds this grading; duality negates it. The diagram from I//H to the ordinary divisor groupoid and to Pic_X^√R(k) commutes after applying D↦O_X(−D) with the retained generic/root data. At x∉R, a_x=π_x^{-1}, a_y=1 elsewhere gives E=−[x] and Φ(a)=O_X(x)^♮ of degree [κ_x:k].",
+      "statement": "Let Φ:I//(F××H)≃Pic_X^√R(k) be the inherited equivalence with the corrected frame-ratio convention. For a∈I, the ordinary line of Φ(a) is O_X(−E(a)) and deg Φ(a)=−deg E(a)=−Σ_x ord_x(a_x)[κ_x:k]. The same formula holds for Q(a) from the right quotient, is invariant under every labelled double arrow, and defines its integer grading. Tensor product adds this grading; duality negates it. After forgetting root data to the ordinary Picard groupoid, the square from I//H through E and D↦O_X(−D) commutes. The separate Q-leg retains the root data; for nonempty R the retained root-sign arrows prevent a factorization of the root Picard functor through the discrete ordinary divisor groupoid. At x∉R, a_x=π_x^{-1}, a_y=1 elsewhere gives E=−[x] and Φ(a)=O_X(x)^♮ of degree [κ_x:k].",
       "hypotheses": [
         "k is a finite field of odd characteristic; X/k is a smooth projective geometrically connected curve, F=k(X), and R is a reduced finite closed subscheme, possibly empty.",
         "Places are all closed points of X, including the points outside an affine chart. F_x is the normalized completed valuation field, O_x its valuation ring, and κ_x its residue field. The curve/place and residue identifications use the named suppliers.",
@@ -762,6 +889,7 @@
       "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
       "need": "Specialize the existing curve/place/divisor dictionary to smooth projective geometrically connected X/k. For every signed divisor D, identify the generic fibre of O_X(D) with F and its completed stalk at each closed x with {z∈F_x : z=0 or ord_x(z)≥−D_x}=π_x^{−D_x}O_x as a submodule of F_x, naturally in divisor addition and in multiplication by rational functions. Identify the residue of that completed rank-one lattice with the algebraic fibre. For invertible sheaves with given generic frames, a rational scalar extends to a sheaf map exactly when it carries each completed lattice into the target lattice; the extension is unique. These comparisons must commute with tensor product, duality and the already planned point/place and completed residue-field identifications. This is an exact interface to existing AlgebraicCurves Layer 12D and JacobianChallenge A, not a request to rebuild formal patching, Picard schemes or Riemann–Roch.",
       "neededBy": [
+        "FunctionFieldArithmeticPartII:GC.2/generic-framed-root-picard",
         "FunctionFieldArithmeticPartII:GC.2/fully-framed-root-picard",
         "FunctionFieldArithmeticPartII:GC.2/fully-framed-idele-comparison"
       ]
@@ -794,7 +922,14 @@
         "2026-10-18: compared the published author-hosted page image p. 518 and arXiv:1712.08026v2 pp. 84–85; both retain the conflicting ratio and the inverse-uniformizer test.",
         "2026-10-18: inspected the Annals article page https://annals.math.princeton.edu/2019/189-2/p02 and both authors’ publication entries https://math.mit.edu/~zyun/research.html and https://math.mit.edu/~wz2113/math/pub.html; no correction linked for this ratio was located.",
         "2026-10-18: title/Appendix A/Lemma A.5 correction and erratum searches found no correction. The arXiv listing gives v2 as the latest version. This is a scoped search, not an assertion that no correction exists."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently read the published p. 518 image and the corresponding arXiv v2 pp. 84–85. With the displayed coframe directions, O_X(x) has local coframe multiplication by π_x; the printed ratio gives π_x, whereas Lemma A.5 requires π_x^{-1}. Inverting the ratio and using inverse local/root coframe changes restores that normalization and §6.2.3 p. 498. This corrects the proof convention without changing the stated equivalence.",
+        "by": "REV-FunctionFieldArithmeticPartII--GC.2",
+        "agent": "Codex — codex-6lQJHA",
+        "date": "2026-10-18"
+      }
     }
   ],
   "inheritedSourceIssues": [
@@ -852,5 +987,58 @@
     "granularity": "target",
     "complete": true,
     "note": "Every inherited stage target has an explicit refinement route. Smaller algebraic manipulations remain in proof sketches; the only unresolved supplier interface is named precisely. All nodes remain unchecked."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FunctionFieldArithmeticPartII--GC.2",
+    "date": "2026-10-18",
+    "notes": "Independent target-level review of all nine nodes, three parent imports, all 19 pinned baseline declarations, ordinary suppliers and current upstream ownership. Corrected the ordinary divisor/root-forgetting diagram, made the rational-section sign explicit, completed frame-action laws and direct ordinary prerequisites, repaired reader formulas and removed its incorrect nonsurjectivity claim. EGC2-1 independently confirmed. Complete planning pass accepted; GC.2 remains planned with GC2-COMPLETED-LATTICES open and every implementation unchecked. See the review report for evidence and validation.",
+    "checked": [
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/root-unit-exact-sequence",
+        "verdict": "verified",
+        "note": "Kernel retains all root signs; residue-unit surjectivity gives the stated image and square-class cokernel, including empty R."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/generic-framed-root-picard",
+        "verdict": "corrected",
+        "note": "Definition and four tests verified; ordinary divisor/degree and completed-lattice prerequisites made direct for its API and ordinary-dictionary test."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/fully-framed-root-picard",
+        "verdict": "corrected",
+        "note": "Frame equation, coefficient and four tests verified; added arrow functoriality, action laws and compatibility with forgetting local frames to changeFrames."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/fully-framed-idele-comparison",
+        "verdict": "verified",
+        "note": "Completed-lattice inverse, residue of a lattice basis, contractibility of framed root data and symmetric monoidal compatibility verified subject to the explicit supplier request."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/right-quotient-generic-frame-comparison",
+        "verdict": "corrected",
+        "note": "Label h=(u,v) gives line identity and root scalar v^{-1}; clarified that E is minus the divisor of the rational section defined by the generic frame."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/double-quotient-arrow-descent",
+        "verdict": "verified",
+        "note": "Recovered u=b/(fa), v=ψ^{-1}; square equation, inverse Hom maps, composition and faithful Q checked. Supplier request remains explicit."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/root-divisor-fibres",
+        "verdict": "verified",
+        "note": "Nonempty divisor fibre, square-class torsor and labelled μ₂ stabilizers verified; degree-two F₉ example has two components and two automorphisms."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/picard-stabilizer-extension",
+        "verdict": "verified",
+        "note": "Global-unit restriction, residue-degree parity and exact constant extension verified; F₅ rational-branch extension is C₄→C₂ and does not split."
+      },
+      {
+        "nodeId": "FunctionFieldArithmeticPartII:GC.2/valuation-degree-comparison",
+        "verdict": "corrected",
+        "note": "Negative weighted degree, principal-idele invariance and inverse uniformizer checked; corrected the diagram to forget roots before factoring through ordinary divisors."
+      }
+    ]
   }
 }
