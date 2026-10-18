@@ -1,0 +1,195 @@
+{
+  "id": "AnticyclotomicLocalUnits",
+  "title": "Coleman power series, local units, and cyclotomic-unit quotients, Part II: signed anticyclotomic local units",
+  "area": "iwasawa",
+  "parent": "ColemanPowerSeries",
+  "summary": "This is the Part II of ColemanPowerSeries for the inert, supersingular anticyclotomic tower. Its endpoint is Rubin’s integral signed decomposition and nonvanishing of the matching-parity Coates–Wiles derivatives. The proof combines a plus unit from early CM special values with a primitive local point system from a modular parametrization. It uses no global Heegner-point system. The mathematical targets below are planned; missing foundations and source proofs are explicit interfaces, not claims of formalization.",
+  "readme": "This is the Part II of ColemanPowerSeries for the inert, supersingular anticyclotomic tower. Its endpoint is Rubin’s integral signed decomposition and nonvanishing of the matching-parity Coates–Wiles derivatives. The proof combines a plus unit from early CM special values with a primitive local point system from a modular parametrization. It uses no global Heegner-point system. The mathematical targets below are planned; missing foundations and source proofs are explicit interfaces, not claims of formalization.\n\n- ALU.0: The Lubin–Tate unit tower.\n- ALU.1: Coleman derivatives and signed units.\n- ALU.2: Formal Kummer duality and reciprocity.\n- ALU.3: Signed formal points and annihilators.\n- ALU.4: The early CM optimal unit.\n- ALU.5: A primitive modular formal point.\n- ALU.6: The optimal local trace system.\n- ALU.7: Minus-point cohomology and freeness.\n- ALU.8: Integral decomposition and finite exports.\n\nConventions: p≥5, Φ/ℚ_p unramified quadratic, π=−p. The trivial character has conductor exponent zero and plus parity; unit signs kill opposite parity and point signs kill same parity. Finite signed points are exported as the existing kernels. Inputs for p=3, ramified primes, general (φ,Γ)-modules and a purely local primitive-point construction are outside the targets. All targets, API tests, source locators and gaps are in the accompanying reader and packet.",
+  "prerequisites": [
+    "ColemanPowerSeries",
+    "PadicMeasuresIwasawaAlgebras",
+    "ArithmeticGaloisDuality",
+    "PadicHodgeRegulators",
+    "EllipticCurveModularity",
+    "ModularCurvesPartII",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/ModularCurves"
+  ],
+  "stages": [
+    {
+      "key": "ALU.0",
+      "title": "The Lubin–Tate unit tower",
+      "description": "**Conductor parity of anticyclotomic characters** (`conductor-parity`). For each finite continuous χ:Γ⁻→ℂ_p×, let c(χ)=0 for χ=1 and c(χ)=n+1 when χ first factors through Gal(Ψ_n/Φ), n≥1. Define Ξ⁺ by c even and Ξ⁻ by c odd. These are disjoint and exhaust the finite characters; conductor means the ideal p^c O, not the order of χ.\n\n**The principal-unit limit and its omega component** (`principal-unit-limit`). Put P_n=TauCeti.unitFiltration(Φ_n,1), written additively as a compact ℤ_p-module. Form Ũ∞=lim_N(P_n⊗ℤ_p O) with its inverse-limit topology. Define U∞=e_ω Ũ∞, where e_ω=|Δ|⁻¹Σ_d ω(d)⁻¹d. It is a compact O[[Γ]]-module through the actual Galois action.\n\n**Two-variable omega-unit freeness** (`unit-rank-two`). U∞ is a finite free Λ₂=O[[Γ]]-module of rank two, with its compact module topology.\n\n**The inverse Tate twist** (`inverse-tate-twist`). For a compact O-module M with compatible Galois action, define M*=Hom_O(T,M), with (g·h)(t)=g(h(g⁻¹t)). Evaluation on any O-basis of T identifies M* with M as O-modules; its action is the action on M multiplied by κ⁻¹. In particular U∞*=(Ũ∞*)^Δ.\n\n**The twisted anticyclotomic quotient** (`anticyclotomic-quotient`). For a topological generator σ of Γ⁺, define V∞=U∞/(σ−κ(σ))U∞ and V∞*=U∞*/(σ−1)U∞*. Use the closed images, and the completed quotient action, so V∞ and V∞* are compact finite free Λ=O[[Γ⁻]]-modules of rank two. Inverse twisting commutes with this quotient and the quotients are independent of σ.\n\nOpen input contracts: AnticyclotomicLocalUnits/G1 (Unregistered Lubin–Tate and quasi-canonical supplier), AnticyclotomicLocalUnits/G5 (General unit norm-control theorem used by Wintenberger).",
+      "requires": [
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "PadicMeasuresIwasawaAlgebras:L5",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence"
+      ]
+    },
+    {
+      "key": "ALU.1",
+      "title": "Coleman derivatives and signed units",
+      "description": "**Lubin–Tate Coleman interpolation** (`lubin-tate-coleman`). Given a norm-compatible family u_n∈P_n and a basis v=(v_n) of T_πF, [π]v_(n+1)=v_n, there is a unique Coleman unit f_u∈O[[X]]× with f_u(v_n)=u_n for every n and N_F(f_u)=f_u, where N_F(f)([π]X)=∏_(w∈F[π])f(X[+]_F w). The association is multiplicative, continuous and equivariant; changing v to bv replaces f_u by f_u∘[b⁻¹]_F.\n\n**The Coates–Wiles derivatives** (`coates-wiles-derivatives`). For a pure element x=u⊗a⊗v⁻¹ of U∞*, using the Coleman series relative to v, put δ(x)=a f_u′(0)/f_u(0)∈O and δ_n(x)=a f_u′(v_n)/(λ′(v_n)f_u(v_n))∈Φ_n. Extend O-linearly and continuously. These maps are independent of tensor presentations and Tate basis, δ_n(gx)=gδ_n(x), and δ(gx)=δ(x).\n\n**Character Coates–Wiles derivatives** (`character-derivative`). For a finite character χ of Γ inflated to Gal(Φ_n/Φ), with values in a finite coefficient extension L/Φ and n large enough, define δ_χ(x)=π^(−n−1)Σ_(g∈Gal(Φ_n/Φ)) χ(g) gδ_n(x) in Φ_nL (or its compatible tensor realization). This value is independent of increasing n, is O-linear and satisfies δ_χ(gx)=χ(g)⁻¹δ_χ(x).\n\n**The trivial-character Euler factor and descent** (`trivial-derivative`). At the trivial character, δ_1=(1−π⁻¹)δ=(1+p⁻¹)δ. Each δ_χ for χ on Γ⁻ kills (σ−1)U∞*, and hence descends to V∞*; so does δ. The descended δ is Λ-linear when O is a Λ-module via augmentation.\n\n**Signed anticyclotomic unit modules** (`signed-unit-modules`). For ε∈{+,−}, define V∞*,ε=⋂_(χ∈Ξ^(−ε)) ker δ_χ inside V∞*. These are closed Λ-submodules. In particular the minus module kills the trivial character and lies in ker δ; the plus module is allowed to have a unit δ-value.\n\nOpen input contracts: AnticyclotomicLocalUnits/G1 (Unregistered Lubin–Tate and quasi-canonical supplier), AnticyclotomicLocalUnits/G6 (Height-two Coleman proof input).",
+      "requires": [
+        "AnticyclotomicLocalUnits:ALU.0",
+        "ColemanPowerSeries:L1"
+      ]
+    },
+    {
+      "key": "ALU.2",
+      "title": "Formal Kummer duality and reciprocity",
+      "description": "**Finite formal Kummer and Cartier comparison** (`finite-formal-kummer`). For every finite L/Φ in Θ∞ or Ψ∞ and k≥1, construct 0→F(L)/π^k→H¹(L,F[π^k])→H¹(L,F(Φ̄))[π^k]→0. Identify the finite Cartier dual of F[π^k] with Hom(F[π^k],μ_(p^k)) with its actual action, and compare the cup-product local invariant to the formal Kummer evaluation pairing. After inverse Tate twisting, the resulting limit pairing has values Φ/O.\n\n**Vanishing of universal formal norms** (`formal-norm-vanishing`). For the specified height-two F and each finite base L in Θ∞ or Ψ∞, the inverse limit of F(L′) over finite L′/L in the respective tower, with formal trace transition, is zero. The dual direct limit of the formal Kummer obstruction H¹(L′,F(Φ̄))[π^k] vanishes with the matching transition maps.\n\n**The two-variable Kummer pairing** (`two-variable-kummer-pairing`). Construct a perfect continuous/discrete O-duality F(Θ∞)⊗_O Φ/O ≃ Hom_O,cts(U∞*,Φ/O), equivalently F(Θ∞)⊗Φ/O ≃ Hom_O(U∞,F[π∞]); it is induced by the Kummer map and local reciprocity, not by selecting an arbitrary perfect pairing.\n\n**Descent of Kummer duality to the anticyclotomic tower** (`anticyclotomic-kummer-pairing`). The pairing induces a perfect Γ⁻-equivariant duality D=F(Ψ∞)⊗Φ/O ≃ Hom_O,cts(V∞*,Φ/O). In particular the annihilator of all formal points in V∞* is zero.\n\n**Wiles’s trace formula in the pi normalization** (`wiles-trace-formula`). For y∈F(Ψ_n), x∈V∞*, k≥0 and m sufficiently large relative to y and k, the Kummer pairing is ⟨y⊗π^(−k),x⟩=π^(−m−1−k) Tr_(Φ_m/Φ)(δ_m(x)λ(y)) modulo O. Here δ_m is computed on any lift to U∞*, and the formula is independent of the lift and of admissible m.\n\nOpen input contracts: AnticyclotomicLocalUnits/G1 (Unregistered Lubin–Tate and quasi-canonical supplier), AnticyclotomicLocalUnits/G7 (Finite formal Cartier/Kummer comparison), AnticyclotomicLocalUnits/G8 (Hazewinkel after finite ramified base change), AnticyclotomicLocalUnits/G9 (Original Wiles reciprocity proof unavailable).",
+      "requires": [
+        "AnticyclotomicLocalUnits:ALU.0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "ArithmeticGaloisDuality:R02.1",
+        "PadicMeasuresIwasawaAlgebras:L5",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence",
+        "AnticyclotomicLocalUnits:ALU.1"
+      ]
+    },
+    {
+      "key": "ALU.3",
+      "title": "Signed formal points and annihilators",
+      "description": "**Character logarithms of formal points** (`character-logarithm`). For y∈F(Ψ_n) and a finite χ of Γ⁻, choose m≥n through which χ factors and put λ_χ(y)=p^(−m)Σ_(g∈Gal(Ψ_m/Φ))χ(g)⁻¹ λ(y)^g. This is independent of m. It is O-linear, λ_χ(g y)=χ(g)λ_χ(y), and it vanishes when χ does not factor through the field of definition of y.\n\n**Signed formal-point modules** (`signed-formal-points`). Define A^ε={y∈F(Ψ∞) : λ_χ(y)=0 for every χ∈Ξ^ε}. Thus point signs kill the same parity. Put A_n^ε=A^ε∩F(Ψ_n) and D^ε=A^ε⊗_O Φ/O. Regard D^ε as a submodule of D through the natural tensor map; this map is injective because A^ε is O-saturated in F(Ψ∞).\n\n**Fourier decomposition of finite formal lattices** (`formal-fourier-lattices`). For each n, λ identifies a sufficiently deep finite-index subgroup of F(Ψ_n) with a Γ⁻-stable O-lattice in Ψ_n. By normal basis this rational representation is Φ[Gal(Ψ_n/Φ)]. Each finite character component is nonzero. Character projections split it into the two conductor parities, with integral denominators dividing p^n.\n\n**The sum of the signed divisible-point modules** (`divisible-point-sum`). A⁺∩A⁻=0; for each n, [p^n]F(Ψ_n)⊆A_n⁺+A_n⁻; hence D=D⁺+D⁻. Both A⁺ and A⁻ have infinite O-rank. This stage asserts a sum of divisible submodules, without assuming their intersection is zero.\n\n**Finite-level saturation of formal points** (`finite-formal-saturation`). For each n, F(Ψ_n) is O-saturated in F(Ψ∞), and A_n^ε is O-saturated in A^ε. Consequently F(Ψ_n)⊗Φ/O→D and A_n^ε⊗Φ/O→D^ε are injective.\n\n**The signed annihilator theorem** (`signed-annihilator`). Under the actual Kummer pairing, Ann_(V∞*)(D^ε)=V∞*,ε for each ε. Therefore D^ε≃Hom_O,cts(V∞*/V∞*,ε,Φ/O), with the Γ⁻ action on the dual given by inversion.\n\n**Disjointness and rank upper bounds** (`signed-rank-bounds`). V∞*,+∩V∞*,−=0 and rank_Λ V∞*,ε≤1. Each quotient V∞*/V∞*,ε is O-torsion-free and has positive Λ-rank.\n\nOpen input contracts: AnticyclotomicLocalUnits/G1 (Unregistered Lubin–Tate and quasi-canonical supplier).",
+      "requires": [
+        "AnticyclotomicLocalUnits:ALU.0",
+        "AnticyclotomicLocalUnits:ALU.2",
+        "AnticyclotomicLocalUnits:ALU.1",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ]
+    },
+    {
+      "key": "ALU.4",
+      "title": "The early CM optimal unit",
+      "description": "**An auxiliary CM field and character** (`auxiliary-cm-field`). There exists an imaginary quadratic K with 2 split, p inert and p∤h_K. Choose a canonical Hecke character φ of infinity type (1,0), conductor f supported at ramified primes, φ(pO_K)=−p, W(φ)=+1, a CM elliptic realization over the Hilbert class field H with good reduction at p, and its CM period Ω. There is a split rational prime l≥5, coprime to p h_K N(f), with p∤(l−1).\n\n**Projection of the early CM zeta class** (`projected-cm-class`). For a finite anticyclotomic l-power character ν of conductor l^m, let R contain its values and the CM coefficients. Starting with the early norm-compatible CM zeta class z_(f l^m), define ξ_ν∈U∞*⊗_O R by: the CM coefficient untwist of (3.5); corestriction to H(E[p^(n+1)])L_r, with r chosen by the actual conductor field; localization at the primes above p; identification with the R-group ring of Gal(L_r/K); evaluation at ν; augmentation of R[Gal(H/K)]; projection to Δ-invariants; and the Kummer comparison. The family is compatible in n.\n\n**Wiles reciprocity in dual-exponential form** (`wiles-dual-exponential`). For x∈U∞*⊗R, let x_n be its finite localized Kummer class in H¹(Φ_n,T_φ⁻¹(1)) under the CM comparison of (3.5), with the invariant differential identified with ω. For a finite χ of Γ inflated to Gal(Φ_n/Φ), the χ-weighted semilocal dual-exponential evaluation of x_n is δ_χ(x)ω. The finite local evaluation is normalized so that its coefficient in ω is π^(−n−1)δ_n(x); thus the character sum has exactly the denominator in the definition of δ_χ. The general dual exponential is imported, not reconstructed.\n\n**CM-class derivative values and sign** (`cm-class-values`). With the chosen differential and CM period, δ(ξ_ν)=Ω⁻¹ L_(l^m f)(overline(φ)ν,1) and δ_χ(ξ_ν)=Ω⁻¹ L_(l^m p f)(overline(φ)νχ,1). Subscripts mean omission of those Euler factors. If ε=W(φ), the anticyclotomic image lies in V∞*,ε⊗R. In particular the selected canonical φ gives the plus module.\n\n**A plus unit with unit derivative** (`optimal-unit`). There exists ξ*∈V∞*,+ such that δ(ξ*)∈O×. This existence is obtained before using the integral signed decomposition or assuming that V∞*,+ is free.\n\nOpen input contracts: AnticyclotomicLocalUnits/G2 (Unregistered early CM special-value supplier), AnticyclotomicLocalUnits/G9 (Original Wiles reciprocity proof unavailable), AnticyclotomicLocalUnits/G10 (Auxiliary-field class-number bound).",
+      "requires": [
+        "AnticyclotomicLocalUnits:ALU.0",
+        "AnticyclotomicLocalUnits:ALU.2",
+        "AnticyclotomicLocalUnits:ALU.1",
+        "PadicHodgeRegulators:L1",
+        "AnticyclotomicLocalUnits:ALU.3",
+        "PadicMeasuresIwasawaAlgebras:L5"
+      ]
+    },
+    {
+      "key": "ALU.5",
+      "title": "A primitive modular formal point",
+      "description": "**An auxiliary rational supersingular elliptic curve** (`auxiliary-supersingular-curve`). There is E/ℚ with good reduction at p and a_p(E)=0. At p=5 or 11 choose the j=0 conductor-27 curve, and at p=7 choose the j=1728 conductor-32 curve. It may be chosen optimal in its ℚ-isogeny class without changing good reduction or a_p. Its base change to O has formal group O-isomorphic to F for π=−p.\n\n**The optimal parametrization has separable reduction** (`manin-unit-separability`). For the optimal E of conductor N, p∤N, let f_E:X₀(N)→E be the cusp-normalized modular parametrization. Its pullback of a Néron differential is c_E f(q)dq/q with c_E∈ℤ_p×. It extends to the smooth proper good models over ℤ_p and its reduction is a nonconstant separable map.\n\n**Scalar Frobenius and the corrected Honda sign** (`scalar-frobenius`). If A/𝔽_(p²) has a_(p²)=2εp with ε=±1, its Frobenius endomorphism is [εp]. Every finite subgroup of A(𝔽̄_p), in particular every cyclic subgroup of order prime to p, is Frobenius-stable and defined over 𝔽_(p²). Any elliptic lift over O has formal group Lubin–Tate for parameter εp. Thus a_(p²)=−2p gives the fixed parameter π=−p.\n\n**Supersingular mass and Frobenius classes** (`supersingular-mass-application`). Write p−1=12m+4d+6e with d,e∈{0,1}. There are m+d+e geometric supersingular j-invariants; d records j=0 and e records j=1728. There are m generic invariants. For each generic j there are 𝔽_(p²)-models with a_(p²)=±2p. The number N(t) of 𝔽_(p²)-isomorphism classes with trace t is (p+6−4(−3/p)−3(−1/p))/12 for each t=±2p, is 1−(−3/p) for each t=±p, and is 1−(−1/p) for t=0.\n\n**The ramification bound for the parametrization** (`ramification-bound`). Let μ=N∏_(l|N)(1+1/l)=deg(X₀(N)→X(1)), and g_N be the genus. The number of geometric ramification points of the separable reduced parametrization is at most deg(Different)=2g_N−2≤μ/6.\n\n**The generic supersingular-point bound** (`generic-supersingular-bound`). The number of 𝔽_(p²)-points of X₀(N) above generic supersingular j with a scalar-Frobenius representative is at least μ⌊(p−1)/12⌋. Consequently for every p≥13 at least one is unramified for the parametrization. This stronger count also implies the displayed weaker bound in Lemma 5.2(ii).\n\n**The two exceptional supersingular-point bounds** (`exceptional-supersingular-bounds`). If p≡2 mod 3, the fibre above j=0 contains at least μ/3 rational supersingular points with scalar-Frobenius representatives. If p≡3 mod 4, the fibre above j=1728 contains at least μ/2. Each applicable bound exceeds μ/6 and therefore supplies an unramified point for the parametrization.\n\n**An unramified lift to fine level** (`fine-level-unramified-lift`). Choose an unramified supersingular P̄∈X₀(N)(𝔽_(p²)) as above and a representative Ā with p²-Frobenius −p, changing its quadratic twist if necessary. Take M=p+1 and a rational point of exact order M on Ā. The mixed Γ₀(N),Γ₁(M) problem is fine; its quotient group has order prime to p. Choose P̄′ above P̄ where the forgetful map is unramified. For p=5 or 11 use the optimal j=0 curve of conductor 27; for p=7 use the optimal j=1728 curve of conductor 32. These levels remove the respective elliptic stabilizers.\n\n**A primitive formal CM point** (`primitive-formal-cm-point`). After replacing f_E by [#E(𝔽_(p²))]∘f_E, there is a fine-level O-point P′ reducing to P̄′ and representing A/O such that Q=f_E(P′)∈F(Φ) ∖ [p]F(Φ). The completed map at P̄′ and the origin of E is an isomorphism over O. The formal group Â is Lubin–Tate for π=−p, with a chosen O-module identification.\n\nOpen input contracts: AnticyclotomicLocalUnits/G1 (Unregistered Lubin–Tate and quasi-canonical supplier), AnticyclotomicLocalUnits/G3 (Unregistered supersingular finite-field supplier), AnticyclotomicLocalUnits/G4 (Composite-level integral modular geometry).",
+      "requires": [
+        "EllipticCurveModularity:R29.6",
+        "EllipticCurveModularity:R29.5",
+        "ModularCurvesPartII:R14.5",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-9-γ_h-quotients-quotient-regularity-and-coarse-moduli",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-8-km-chapter-6-cyclicity-and-γ₀n",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-5-affine-fine-modular-curves-after-inverting-n"
+      ]
+    },
+    {
+      "key": "ALU.6",
+      "title": "The optimal local trace system",
+      "description": "**Modular points from quasi-canonical lifts** (`quasicanonical-modular-points`). For the marked A/O and an O-basis t of T_pA, let T_s=p^(−s)ℤ_p t+T_pA, C_s=T_s/T_pA and A_s=A/C_s, with A_0=A. Import the quasi-canonical theory: End(Â_s)=ℤ_p+p^sO, A_s is defined over Ψ′_s, and for s≥1 Gal(Ψ′_s/Φ)=(O/p^sO)×/(ℤ/p^sℤ)× of order p^(s−1)(p+1). Transport the prime-to-p level subgroup to define z_s∈X₀(N)(O_(Ψ′_s)); set x_s=f_E(z_s)∈F(Ψ′_s), with x_0=Q.\n\n**The optimal local-point system** (`optimal-point-system`). Let Δ′ be the subgroup of order p+1 of Gal(Ψ′∞/Φ); its fixed field in Ψ′_(s+1) is Ψ_s. Define y_s=Σ_(d∈Δ′)d x_(s+1)∈F(Ψ_s) for s≥0, with formal addition, and y=[p+1]Q∈F(Φ).\n\n**Hecke neighbours in a two-vector lattice basis** (`hecke-lattice-neighbours`). Choose an O-basis t and θ∈O with O=ℤ_p⊕ℤ_pθ, so T_s=ℤ_p e₁⊕ℤ_p e₂ with e₁=p^(−s)t, e₂=θt. For s≥1 the p forward index-p superlattices are L_a=ℤ_p((e₁+a e₂)/p)+ℤ_p e₂, a∈𝔽_p, and the backward one is L_∞=ℤ_p e₁+ℤ_p(e₂/p), homothetic to T_(s−1). The forward lattices are the Gal(Ψ′_(s+1)/Ψ′_s)-orbit of T_(s+1). Hence on the E-images, T_p x_s=Tr_(Ψ′_(s+1)/Ψ′_s)x_(s+1)+x_(s−1). At s=0, all p+1 neighbours are the Δ′-orbit of x_1.\n\n**The optimal point trace relations** (`optimal-trace-relations`). The system satisfies y∉[p]F(Φ), y_0=0, Tr_(Ψ_1/Φ)y_1=−y, and Tr_(Ψ_(s+1)/Ψ_s)y_(s+1)=−y_(s−1) for every s≥1. The trace is formal-group addition over the actual field embeddings.\n\n**Parity of the optimal points** (`optimal-point-parity`). For every s≥0, y_s∈A_s⁺ if s is even and y_s∈A_s⁻ if s is odd. For odd n≥1, Tr_(Ψ_n/Φ)y_n=(−1)^((n+1)/2) p^((n−1)/2)y.\n\nOpen input contracts: AnticyclotomicLocalUnits/G1 (Unregistered Lubin–Tate and quasi-canonical supplier), AnticyclotomicLocalUnits/G4 (Composite-level integral modular geometry).",
+      "requires": [
+        "AnticyclotomicLocalUnits:ALU.5",
+        "tauceti:TauCetiRoadmap/ModularCurves#layer-8-km-chapter-6-cyclicity-and-γ₀n",
+        "ModularCurvesPartII:R14.5",
+        "AnticyclotomicLocalUnits:ALU.3"
+      ]
+    },
+    {
+      "key": "ALU.7",
+      "title": "Minus-point cohomology and freeness",
+      "description": "**The minus-point Herbrand quotient** (`minus-herbrand-quotient`). For odd n≥1 and G_n=Gal(Ψ_n/Φ), the finite cohomology groups of A_n⁻ satisfy h_n(A_n⁻)=|Ĥ⁰(G_n,A_n⁻)|/|H¹(G_n,A_n⁻)|=p^(n−1).\n\n**Vanishing of minus-point first cohomology** (`minus-first-cohomology`). For odd n≥1, H¹(G_n,A_n⁻)=0. Consequently H¹_cont(Γ⁻,A⁻)=0, with A⁻ given its discrete direct-limit Galois-module structure for this invariant calculation.\n\n**The minus divisible-point invariants** (`minus-divisible-invariants`). (D⁻)^(Γ⁻)=F(Φ)⊗_O Φ/O≃Φ/O, via the actual inclusion of base-field formal points.\n\n**The minus quotient and kernel are free** (`minus-quotient-and-kernel-free`). X⁻=V∞*/V∞*,− is free of rank one over Λ, and V∞*,− is free of rank one. The quotient is taken from V∞* throughout.",
+      "requires": [
+        "AnticyclotomicLocalUnits:ALU.3",
+        "AnticyclotomicLocalUnits:ALU.6",
+        "ArithmeticGaloisDuality:R02.1",
+        "AnticyclotomicLocalUnits:ALU.2",
+        "PadicMeasuresIwasawaAlgebras:L5",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ]
+    },
+    {
+      "key": "ALU.8",
+      "title": "Integral decomposition and finite exports",
+      "description": "**Generation detected by the augmentation derivative** (`augmentation-unit-generation`). Let q:V∞*→X⁻ be the free rank-one quotient. The descended δ:X⁻→O is Λ-linear for augmentation, and q(ξ*) generates X⁻, because δ(ξ*) is a unit. In coordinates X⁻≃Λ, writing q(ξ*)=f(T)e gives δ(q(ξ*))=f(0)δ(e), so f(0) is a unit and f(T) is a unit.\n\n**The integral signed decomposition** (`integral-signed-decomposition`). The inclusion V∞*,+⊕V∞*,−→V∞* is an isomorphism of compact Λ-modules. Each summand is free of rank one; V∞*,+=Λξ*. The inverse twist equivalence transports this to the corresponding twisted local-unit statement. All assertions hold over O and Λ before inverting p.\n\n**Nonzero character derivatives on the full unit module** (`all-character-derivatives-nonzero`). For every finite χ of Γ⁻, δ_χ:V∞*→ℂ_p is nonzero (with a fixed embedding of its coefficient field).\n\n**Every matching-parity derivative of a signed generator is nonzero** (`signed-generator-nonvanishing`). For ε=±, every Λ-generator v_ε of V∞*,ε and every χ∈Ξ^ε satisfy δ_χ(v_ε)≠0. For χ∈Ξ^(−ε), δ_χ(v_ε)=0 by definition. In particular δ(v_+) is a unit for any plus generator.\n\n**Finite signed points and their Kummer images** (`finite-signed-point-export`). For each n and ε, export the existing A_n^ε as {y∈F(Ψ_n):λ_χ(y)=0 for all χ∈Ξ^ε factoring through Gal(Ψ_n/Φ)}. Its image A_n^ε⊗Φ/O in H¹(Ψ_n,F[π∞]) is defined through the actual Kummer map and is injective. Inclusions and formal traces preserve these signed modules; their transition maps agree with restriction and corestriction of the Kummer images. A Selmer consumer imports these carriers and images, rather than defining a second parity condition.",
+      "requires": [
+        "AnticyclotomicLocalUnits:ALU.7",
+        "AnticyclotomicLocalUnits:ALU.4",
+        "AnticyclotomicLocalUnits:ALU.1",
+        "AnticyclotomicLocalUnits:ALU.3",
+        "AnticyclotomicLocalUnits:ALU.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BKO21",
+      "title": "Rubin’s conjecture on local units in the anticyclotomic tower at inert primes",
+      "authors": "Ashay A. Burungale, Shinichi Kobayashi and Kazuto Ota",
+      "edition": "Annals of Mathematics 194 (2021), 943–966; publisher PDF with archive cover",
+      "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf?download=1",
+      "readSections": [
+        "§§1–2, pp.943–950",
+        "§3, Lemma 3.1–Theorem 3.4, pp.950–954",
+        "§4, pp.954–955",
+        "§5, Lemmas 5.1–5.2, Proposition 5.3, Definition 5.4, Theorems 5.5 and 5.8, Corollary 5.6 and Remark 5.7, pp.955–960",
+        "§6.0.1–6.0.3, pp.960–963, to check the export boundary"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e"
+    },
+    {
+      "id": "Rubin87",
+      "title": "Local units, elliptic units, Heegner points and elliptic curves",
+      "authors": "Karl Rubin",
+      "edition": "Inventiones mathematicae 88 (1987), 405–422; Göttingen scan of the published article",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0088/LOG_0026.pdf",
+      "readSections": [
+        "All §§1–10, pp.405–422; in particular Proposition 1.1, Lemma 2.1, Lemmas 4.1–4.4, Proposition 4.5, Lemma 5.1, Propositions 5.2–5.6, Corollaries 5.7–5.8, §§6–7, Proposition 8.1, Theorem 8.4 and Lemma 10.1"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "cda9c336ba0a3eb3017e531d352b9b6d9fa73f0f995c7897ef0e4504f34d3f07"
+    },
+    {
+      "id": "Haz77",
+      "title": "On norm maps for one dimensional formal groups III",
+      "authors": "Michiel Hazewinkel",
+      "edition": "Journal of Pure and Applied Algebra 10 (1977), 305–314",
+      "url": "https://ir.cwi.nl/pub/10014/10014D.pdf",
+      "readSections": [
+        "§§1–4, pp.305–314; Theorem 1.3, Lemmas 2.4 and 3.5 and the proof in §4"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "5bbb94e03c8cbcb82b83bd1dbf28f6a0300a50f18b570668799190f4f268a3c8"
+    },
+    {
+      "id": "Win80",
+      "title": "Structure galoisienne de limites projectives d’unités locales",
+      "authors": "Jean-Pierre Wintenberger",
+      "edition": "Compositio Mathematica 42, no.1 (1980 catalogue; printed 1981), 89–103",
+      "url": "https://www.numdam.org/article/CM_1980__42_1_89_0.pdf",
+      "readSections": [
+        "§§1–4, pp.89–92; §5.1–5.5.3, pp.92–98; remaining proof and unit comparison, pp.98–103"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "416f7390166f381296df594ed2050300aed0f3ecff6415bd8740a2bcc4b2d94f"
+    },
+    {
+      "id": "AU96",
+      "title": "À propos de la conjecture de Manin pour les courbes elliptiques modulaires",
+      "authors": "Ahmed Abbes and Emmanuel Ullmo",
+      "edition": "Compositio Mathematica 103 (1996), 269–286",
+      "url": "https://www.numdam.org/article/CM_1996__103_3_269_0.pdf",
+      "readSections": [
+        "Theorem A, p.269; §§2–3, pp.270–279, especially Lemma 3.2, Propositions 3.3–3.4 and proof of Theorem A, p.279; appendix statement A.1, pp.279–280"
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "73fd473d7822b90b4cc4bebbd2b8ca2a05547b6a13e2c3f99210ef8f2ce83cf2"
+    }
+  ],
+  "status": "draft"
+}
