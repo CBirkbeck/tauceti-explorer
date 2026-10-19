@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ModularIwasawaMainConjectures",
+    "date": "2026-10-19",
+    "notes": "Completed independent fixing review for #10905. Corrected FW suitability and its map direction/dual purity, both Tate-isogeny directions with a proved scaling control, the upward BSD control dependency, exact CGS/KY/BSTW/updated Castella endpoints, current Kato and Selmer interfaces, and the false attribution of a universal deformation zeta map to Kato’s classical twist-one construction. All 46 targets and 90 inherited API names retained. Fifteen seeded public-source locators plus explicit gaps, ten Lean signatures, definition checks, current upstream/library duplication and the adversarial mathematics pass checked. Final Lean elaborates with 24 sorry warnings only. Not draft-ready: exact universal-zeta, arithmetic height/Schneider, integral period, p=3 family, Eisenstein and example-ramification prerequisites remain unclosed, and the outside-CN suppliers need acyclic routing. See the review report for precise resumption conditions and validation."
+  }
+}
