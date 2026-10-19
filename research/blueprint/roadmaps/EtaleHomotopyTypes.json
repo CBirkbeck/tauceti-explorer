@@ -1,0 +1,207 @@
+{
+  "id": "EtaleHomotopyTypes",
+  "title": "Étale homotopy types and pro-spaces",
+  "area": "etale",
+  "parent": null,
+  "summary": "Target-level design of raw étale pro-homotopy, relative pointed mapping classes and complex Betti/p-profinite comparison. Existing topology, ordinary pro-categories, discrete classifying spaces, finite étale fundamental groups and cohomological K(pi,1) examples are imported. Explicit supplier contracts and reading gaps distinguish a complete planning pass from a closed proof plan.",
+  "readme": "This roadmap supplies raw rigid étale pro-homotopy and the p-completed complex comparison used by anabelian geometry and symplectic K-theory. Seven layers distinguish raw pro-homotopy groups, topological groups of materializations and finite-étale profinite groups. Generic Pro categories, ordinary homotopy theory, sheaf descent, analytification and finite-coefficient K(pi,1) scheme applications retain their existing owners. Every target, API, discriminating test and unresolved proof or supplier leaf is stated in research/blueprint/readmes/EtaleHomotopyTypes.md. All layers are planned; the packet is complete as a planning pass with seven explicit gaps, not closed mathematics.",
+  "prerequisites": [
+    "AnabelianGeometryAndNonabelianChabauty",
+    "ComplexComparisonPartII",
+    "DiamondsAndVStacks",
+    "EnhancedDerivedSheaves",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "SchemeAndStackFoundations",
+    "StableHomotopyKTheory",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+  ],
+  "stages": [
+    {
+      "key": "EH.0",
+      "title": "Homotopy theory of pro-spaces",
+      "description": "Homotopy pro-local systems: Specialize D0’s size-controlled Pro category to simplicial sets, with pointed objects represented by compatible actual vertices. A local system on X=(X_i) is a local system on one level, modulo pullback to a later level; its morphisms use the corresponding filtered colimit. The homotopy pro-local system Π_nX consists of the ordinary fundamental-groupoid homotopy local systems on the levels. For a pointed representative put π_n(X,x)=(π_n(X_i,x_i)); π_0 is pro-set-valued, π_1 pro-group-valued, and π_n is pro-abelian for n≥2. Connected means isomorphic to a levelwise connected diagram. This does not mean that its homotopy limit is path-connected. Isaksen homotopy model structure: On Pro(SSet), take weak equivalences to be maps inducing an isomorphism of π_0 and of every homotopy pro-local system Π_nX→f*Π_nY, n≥1. Cofibrations are essentially levelwise monomorphisms, and fibrations have the right lifting property against trivial cofibrations. These classes form Isaksen’s simplicial model structure and induce its pointed model and homotopy categories. Every object is cofibrant. Its strict predecessor instead inverts essentially levelwise ordinary weak equivalences. Factorizations here are not asserted functorial. Properness and strong fibrations: Isaksen’s model structure is left and right proper. A strong fibration is a fibration, and arbitrary fibrations are retracts of suitable strong-fibration presentations. Consequently pullback along a fibration preserves weak equivalences, also for maps over a fixed pro-space. Connected pointed homotopy detection: For connected pointed pro-spaces, a pointed map is an Isaksen weak equivalence exactly when it induces an isomorphism of pro-groups π_n for every n≥1. A pointed morphism whose underlying morphism is an isomorphism in the unpointed homotopy category is an isomorphism in the pointed homotopy category. Local-coefficient detection: A map f:X→Y of pro-spaces is an Isaksen weak equivalence if and only if π_0(f) is a pro-set isomorphism, Π_1X→f*Π_1Y is an isomorphism of pro-local systems, and H^m(Y,L)→H^m(X,f*L) is an isomorphism for every m≥0 and every abelian local system L on Y. Here cohomology for a system represented on Y_i is the filtered colimit over later levels of ordinary cohomology with pulled-back coefficients; finite constant coefficients alone do not state this criterion.",
+      "requires": [
+        "DiamondsAndVStacks:D0",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "EH.1",
+      "title": "Coverings and classifying pro-spaces",
+      "description": "Coverings of pro-spaces: A simplicial covering p:E→X has the unique lifting property for every vertex inclusion Δ[0]→Δ[n], including every choice of vertex. A pro-covering is a pro-morphism isomorphic to a levelwise simplicial covering; connected Galois coverings have a levelwise presentation with E_i/Aut_Xi(E_i)≅X_i. Universal pointed coverings are formed from the levelwise universal simplicial coverings. The deck group is a pro-group, not an unqualified single discrete group. Covering associated to a sub-pro-group: For connected pointed X and a monomorphism U↪π_1(X,x) of pro-groups, construct h:X_U→X in the connected pointed homotopy category. For every connected pointed W, composition with h bijects Hom(W,X_U) with the pointed homotopy classes f:W→X for which π_1(f) factors through U. This universal property specifies X_U over X up to unique isomorphism there. No finite-index hypothesis is imposed on U. Coverings under homotopy equivalence: Pullback along an Isaksen weak equivalence between connected pro-spaces induces an equivalence on their categories of connected coverings. Coverings are pro-fibrations: Every pro-covering is a fibration in Isaksen’s model structure. Base change of homotopy isomorphisms: For maps f:X→W and g:Y→W and an isomorphism γ:X≅Y in Ho(Pro(SSet)) with gγ=f, every pro-covering W′→W admits an isomorphism γ′:X×_W W′≅Y×_W W′ in the homotopy category, compatible with γ and the maps to W′. Choices can be made compatibly with morphisms of the covering. If W′/W is connected Galois, the induced cohomology isomorphisms with any constant abelian group A are equivariant for its deck pro-group action. Existence, rather than uniqueness of γ′, is asserted. Classifying pro-space and fibrant replacement: For a pro-group G=(G_i) use H.1’s discrete nerves BG_i and EG_i levelwise. On a cofinite directed presentation define G_i* = ∏_{j≤i}G_j, embed G_i by all transition maps (including the identity factor), and set B*G_i=E(G_i*)/G_i for the resulting right action. Then BG→B*G is a levelwise ordinary weak equivalence and B*G is fibrant in the Isaksen pointed model. BG is not declared fibrant merely because each level is Kan. Maps into classifying pro-spaces: For connected pointed X and any pro-group G, π_1 induces a natural bijection Hom_Ho(Pro(SSet)_*)(X,BG)≅Hom_Pro(Grp)(π_1(X),G). Full faithfulness of pro-classifying spaces: For pro-groups G,H the nerve map identifies Hom_Pro(Grp)(G,H) with strict pointed pro-simplicial maps BG→BH and with pointed Isaksen homotopy classes BG→BH. The first classifying morphism: For connected pointed X define c_X:X→Bπ_1(X) in the pointed homotopy category as the unique class corresponding to id under pro-BG representability. Call X a raw K(π,1) when π_n(X)=0 for all n≥2. Then c_X is an isomorphism if and only if X is a raw K(π,1). This is a property of the full pro-homotopy type, distinct from a finite- or p-coefficient convention on schemes.",
+      "requires": [
+        "EtaleHomotopyTypes:EH.0",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "StableHomotopyKTheory:H.1",
+        "DiamondsAndVStacks:D0",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
+      ]
+    },
+    {
+      "key": "EH.2",
+      "title": "Materialization and relative monodromy",
+      "description": "Homotopy limit and topological homotopy groups: Let Mat(X) denote the right-derived limit of a small pro-simplicial set, represented by the ordinary homotopy limit of a levelwise Kan diagram. For a pointed X define π_n^top(X,x)=π_n(Mat(X),x), with pointed sets in degree zero. The derived constant/limit adjunction identifies it with Hom_Ho(Pro(SSet)_*)(cS^n,X). Call X path-connected when Mat(X) is path-connected. Its comparison to lim_i π_n(X_i,x_i) is canonical; invertibility requires the separate profiniteness theorem. Vanishing of profinite derived limits: For an inverse system G of finite groups over a small cofiltered category, the nonabelian derived-limit pointed set lim¹G is trivial. For a system A of finite abelian groups, lim^s A=0 for every s≥1. The assertion is invariant under pro-isomorphism, so it applies to profinite pro-groups represented by finite groups, without assuming countable indexing. Homotopy groups of profinite pro-spaces: If pointed X has π_0(X)=* and every π_n(X), n≥1, is a profinite pro-group, then Mat(X) is path-connected and π_n^top(X)→lim π_n(X) is an isomorphism for all n≥1; the degree-zero comparison is a bijection of singleton pointed sets. No finiteness of the whole simplicial sets or uniform Postnikov bound is assumed. Endpoint-preserving pro-cylinders: For a pro-simplicial set X with two distinct specified vertices x_0,x_1, form Cyl₂(X) from X×Δ[1] by collapsing each {x_i}×Δ[1] to its own vertex. The endpoint map X⊔_{ {x_0,x_1} }X→Cyl₂(X) is a cofibration and the projection to X is an Isaksen weak equivalence. These maps form a cylinder in the undercategory of the two-point set. The projection need not be a fibration. Monodromy on pointed mapping classes: For pointed pro-spaces X and two points y_0,y_1 of Y, a path class u:y_0→y_1 in Mat(Y) induces a bijection u_*:Hom_Ho(Pro(SSet)_*)(X,(Y,y_0))→Hom(X,(Y,y_1)). Identity paths act identically and composition of paths composes these bijections. At y_0=y_1 this is the π_1^top(Y,y_0) action. Use the convention for which the induced action on fundamental-group homomorphisms is φ↦αφα⁻¹. Pointed maps modulo monodromy: If Y is path-connected, forgetting points induces a bijection Hom_Ho(Pro(SSet)_*)(X,Y)/π_1^top(Y)≅Hom_Ho(Pro(SSet))(X,Y), for any pointed X. Pointed lifts of unpointed isomorphisms: If pointed X is unpointedly isomorphic to connected pointed Y and every π_n(Y), n≥1, is a profinite pro-group, every such unpointed isomorphism admits a pointed isomorphism lift. Pointed lifting over a base: Let pointed X,Y map to pointed B. If Y and B are path-connected and π_1^top(Y)→π_1^top(B) is surjective, forgetting points gives a surjection from Hom in Ho(Pro(SSet)_*)↓(B,b) to Hom in Ho(Pro(SSet))↓B. These are slices of homotopy categories: their structural triangles commute as morphism classes; no chosen null-homotopy is part of a morphism. Relative isomorphisms lift: Under the hypotheses of relative-surjection, any isomorphism in Ho(Pro(SSet))↓B has a preimage that is an isomorphism in Ho(Pro(SSet)_*)↓(B,b). Stabilizer quotient for relative maps: With the same hypotheses, let S_X⊂π_1^top(B,b) be the stabilizer of the pointed structure class p_X under monodromy, and Δ_XY its preimage under π_1^top(Y,y)→π_1^top(B,b). Monodromy restricts to the pointed relative Hom set, and its Δ_XY-orbits biject with Hom_Ho(Pro(SSet))↓B(X,Y). The whole π_1(Y) need not preserve the relative subset.",
+      "requires": [
+        "EtaleHomotopyTypes:EH.0",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "DiamondsAndVStacks:D0",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations"
+      ]
+    },
+    {
+      "key": "EH.3",
+      "title": "Rigid étale types and finite-cover comparison",
+      "description": "Rigid étale covers: For a locally noetherian scheme X in a fixed universe, a rigid cover is a disjoint union U=∐_x U_x indexed by its geometric points in the chosen small presentation, each U_x connected, étale and separated over X, with a specified lift u_x of x. Morphisms preserve these lifts. The geometric-point presentation and its universe enlargement comparisons are retained. A rigid pullback along f:X→Y uses the component of X×_Y U_f(x) containing the specified lifted point, separately for every x; this may repeat a component of the ordinary pullback. Rigid hypercovers of simplicial schemes: A rigid hypercover U_•→X of a scheme is an augmented simplicial scheme whose map U_n→(cosk^X_{n−1}U)_n is a rigid cover for every n≥0, with U_0→X in degree zero. For simplicial X_• use an augmented bisimplicial U_{a,b}, with U_{a,−1}=X_a, whose rows are rigid hypercovers and whose maps in a preserve the rigid lifts. HRR(X_•) has at most one map between any two objects, is nonempty and cofiltered, and admits rigid pullbacks along simplicial scheme maps. Generic hypercovers and descent remain E2’s construction. Rigid étale topological type: For a degreewise locally noetherian simplicial scheme X_• define Et(X_•) by the pro-system U↦diag π_0(U_{a,b}), U∈HRR(X_•). For an ordinary scheme use its constant simplicial object. A compatible geometric point determines a vertex of this pro-object. Rigid pullback gives functorial maps, compatible with compositions through the rigid universal isomorphisms. Define raw étale π_n by EH.0’s pro-homotopy groups; the finite-étale profinite group is a separate comparison, not its definition. Cohomology of the rigid étale type: For locally noetherian X, the rigid type has H^m(Et(X),L)≅H^m_et(X,L) for locally constant abelian étale sheaves L in the ordinary étale local-system range, naturally in X, L and every m≥0. This includes arbitrary constant abelian groups, not only finite groups. For a degreewise locally noetherian simplicial scheme, constant finite coefficients have the corresponding total/diagonal comparison. It uses the same native sheaf cohomology and the E2 bounded-below descent comparison. Raw and finite étale homotopy groups: For connected locally noetherian X the profinite completion of the raw pro-group π_1(Et(X),x) identifies with IG.0’s finite-étale fundamental group, compatibly with finite-cover fibers. If X is noetherian and geometrically unibranch, each raw π_n, n≥1, is a profinite pro-group, and π_1 itself identifies with that finite-étale group in Pro(Grp). For a field this identifies Et(Spec k) with BG_k in the raw homotopy category. Finite étale base change: For finite étale W′→W between locally noetherian schemes, Et(W′)→Et(W) is a finite pro-covering. For every X→W in this scope the natural map Et(X×_W W′)→Et(X)×_{Et(W)}Et(W′) is an isomorphism of pro-simplicial sets. Consequently a relative homotopy isomorphism Et(X)≅Et(Y) over Et(W) lifts along W′, compatibly with projections, with the existence and deck-equivariance qualifications of EH.1. Galois-equivariant geometric cohomology transport: If k-varieties X,Y have Et(X)≅Et(Y) in Ho(Pro(SSet))↓Et(k), then for every abelian group A and every m≥0 there is an isomorphism H^m_et(Y_kbar,A)→H^m_et(X_kbar,A) of G_k-modules, natural in A. Here kbar is a fixed separable closure (or its algebraic closure with the purely inseparable étale comparison). The isomorphism is induced by the lifted finite-cover system; an abstract group isomorphism alone is insufficient. Étale homotopy sequence for elementary fibrations: Let f:X→Y be an elementary fibration of smooth connected varieties in characteristic zero, with affine curve fibers, and geometric x↦y. Form the cofiltered pointed finite étale Galois cover system 𝒴 of Y and 𝒳=X×_Y𝒴. The geometric fiber, 𝒳 and 𝒴 have the Friedlander homotopy fiber sequence with all primes; finite-cover invariance identifies its higher groups with those of X and Y. This gives …→π_n Et(X_y)→π_n Et(X)→π_n Et(Y)→π_{n−1}Et(X_y)→… in the appropriate pro-group ranges. In particular, when Y is raw K(π,1), its low-degree part is 1→π_1 Et(X_y)→π_1 Et(X)→π_1 Et(Y)→1.",
+      "requires": [
+        "DiamondsAndVStacks:D0",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
+        "SchemeAndStackFoundations:SF.0",
+        "EnhancedDerivedSheaves:E2",
+        "EtaleHomotopyTypes:EH.0",
+        "SchemeAndStackFoundations:SF.2",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "EtaleHomotopyTypes:EH.1",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+      ]
+    },
+    {
+      "key": "EH.4",
+      "title": "Arithmetic relative mapping classes",
+      "description": "Pointed arithmetic lifting: Let X,Y be connected finite-type k-varieties, with Y geometrically connected and geometrically unibranch. Choose geometric points over one separably closed extension of k and its induced separable closure kbar. The forgetful map Hom_Ho(Pro(SSet)_*)↓Et(k)(Et(X),Et(Y))→Hom_Ho(Pro(SSet))↓Et(k)(Et(X),Et(Y)) is surjective. Pointed lifts of arithmetic isomorphisms: Under arithmetic-pointed-lift’s hypotheses, every isomorphism over Et(k) in the unpointed homotopy category has a pointed isomorphism lift over (Et(k),kbar). Geometric monodromy quotient: Under arithmetic-pointed-lift’s hypotheses, π_1^et(Y_kbar,y) acts on pointed relative mapping classes, and forgetting points induces a surjection from its orbit set to the unpointed relative Hom set. This action is through the actual underlying abstract geometric fundamental group identified by EH.2, not through its finite quotients one at a time. Arithmetic orbit bijection: Under arithmetic-pointed-lift’s hypotheses, if every open subgroup of G_k has trivial center, the geometric orbit surjection is bijective. The center condition is the strongly center-free predicate owned by IG.1, with all open subgroups included. Outer fundamental-group map: Under arithmetic-pointed-lift’s hypotheses and strongly center-free G_k, applying π_1 to a pointed relative class and quotienting by target geometric conjugation yields a basepoint-independent map from unpointed relative homotopy classes to Hom_out,Gk(π_1^et(X),π_1^et(Y)). Here π_1^et(X) may first be a raw pro-group; because the target is profinite each map factors uniquely through X’s finite-étale profinite completion. This map agrees with the usual outer arithmetic homomorphism of a scheme map. Open-image orbit bijection: Under arithmetic-pointed-lift’s hypotheses and strongly center-free G_k, the arithmetic orbit bijection restricts to pointed relative classes inducing homomorphisms with open image, modulo π_1(Y_kbar), and unpointed π_1-open relative classes. Openness is tested in the target profinite topology after the finite-étale completion of the source. Maps into products of étale K(pi,1) varieties: Let k have characteristic zero and strongly center-free G_k. Let Y_1,Y_2 be geometrically connected, geometrically unibranch k-varieties whose raw higher étale homotopy pro-groups vanish. For every k-variety X, projections give a bijection Hom_Ho(Pro(SSet))↓Et(k)(Et(X),Et(Y_1×_kY_2))≅Hom(Et(X),Et(Y_1))×Hom(Et(X),Et(Y_2)).",
+      "requires": [
+        "EtaleHomotopyTypes:EH.2",
+        "EtaleHomotopyTypes:EH.3",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "EtaleHomotopyTypes:EH.1",
+        "AnabelianGeometryAndNonabelianChabauty:NC.0"
+      ]
+    },
+    {
+      "key": "EH.5",
+      "title": "Betti realization and analytic descent",
+      "description": "Algebraic evaluation of singular simplices: For compact Hausdorff T put C(T,C) for the existing complex algebra of continuous functions, with the ordinary Euclidean topology on C. For a quasi-projective complex scheme X, evaluation T→Spec(C(T,C))(C) induces a natural bijection Hom_C(Spec C(T,C),X)≅C(T,X(C)_an). It is natural in continuous maps of T and in algebraic maps of X. In particular T=Δⁿ identifies the algebraic formula for singular n-simplices with Mathlib’s native singular simplices, including its universe lift. Betti realization of simplicial varieties: For a simplicial quasi-projective complex scheme X_•, define Sing_an(X_•)=diag([a],[b])↦Sing_b(X_a(C)_an). Equivalently its n-simplices are X_n(C(Δⁿ,C)). Define D(X_•)_n=X_n(C), with discrete complex points in the second direction; constant singular simplices give D(X_•)→Sing_an(X_•). On a constant scheme this is exactly the existing singular functor on its analytification. Betti descent for smooth surjections: For a smooth surjection U→V of smooth quasi-projective complex varieties, let U_n=U×_V⋯×_V U with n+1 factors. Then Sing_an(U_•)→Sing_an(V) is a weak equivalence. More generally the comparison zigzag uses analytic descent for étale hypercovers of complex varieties, including singular varieties; this second assertion uses local analytic homeomorphisms and the imported topological hypercover theorem, not a manifold assertion for singular V.",
+      "requires": [
+        "ComplexComparisonPartII:C0",
+        "EnhancedDerivedSheaves:E2",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+      ]
+    },
+    {
+      "key": "EH.6",
+      "title": "p-completion and Betti–étale comparison",
+      "description": "p-finite spaces: For a prime p, a space is p-finite when π_0 is finite and for every basepoint its positive homotopy groups are finite p-groups and vanish above a uniform finite degree. Regard these as homotopy types, or Kan representatives closed under equivalence. Write Sp_p-fin for their essentially small category and Pro(Sp_p-fin) for its homotopy-coherent pro-category. Arbitrary finite π_1 is not allowed unless it is a p-group; degreewise finiteness of a simplicial model is neither the definition nor a replacement for truncation. p-profinite completion: For a pro-space X, construct X^∧_p in Pro(Sp_p-fin) with a unit X→X^∧_p, characterized by equivalences of derived mapping spaces Map(X^∧_p,K)≃Map(X,K) for every p-finite K. Extend this to all p-profinite targets by their limit formula. On a small cofiltered representative, maps to a constant K are the filtered colimit of derived level mapping spaces. In particular the unit preserves continuous F_p cohomology in every degree. Completion is not materialization and is not defined as levelwise group completion alone. Model for homotopy-coherent p-profinite types: The underlying infinity-category of the K_p-localized strict model of Pro(SSet) is equivalent to Pro(Sp_p-fin). Under this equivalence the derived constant/limit adjunction identifies its materialization with the ordinary homotopy limit of a strict fibrant representative. Thus Lurie’s finite-type comparison can be applied to the completion constructed above. This assertion does not identify the strict model with the Isaksen homotopy-pro-group model. Materialized p-completed étale type: For degreewise locally noetherian simplicial X, put Et_p(X)=Mat(Et(X)^∧_p), an ordinary homotopy type represented by a simplicial set. The projections and completion unit give a canonical map H^m_et(X,F_p)→H^m(Et_p(X),F_p). This map is not asserted to be an isomorphism for arbitrary X. The scheme-functorial construction is a functor of homotopy-coherent types; a strictly functorial chosen simplicial-set model is the separate strictification obligation G7. Finite-type materialization comparison: For a p-profinite space P, assume H⁰_cont(P,F_p)=F_p via the unit, H¹_cont(P,F_p)=0, and every H^m_cont(P,F_p) is finite-dimensional. Then P is simply connected of finite type in Lurie’s sense: all its higher homotopy pro-p groups are topologically finitely generated. The projection map H^m_cont(P,F_p)→H^m(Mat(P),F_p) is an isomorphism for every m. Consequently Et_p(X) computes mod-p étale cohomology whenever X has these cohomological properties. A finite number of components is handled one connected component at a time. Componentwise p-completed realization: Given a specified decomposition X_•=∐_{a∈A}X_•,a by open-and-closed simplicial subschemes preserved by every face and degeneracy, define Et_p^gr(X)=∐_a Et_p(X_a). Maps carry each specified summand into a specified target summand, together with the induced map of grading sets. If each summand has H⁰_et=F_p, H¹_et=0 and degreewise finite-dimensional mod-p cohomology, its comparison is an isomorphism, and the graded coproduct computes the full componentwise cohomology, with products over A in cohomology. This is a construction on specified graded objects and does not assert such a decomposition exists functorially for every simplicial scheme. Betti–étale comparison zigzag: For a simplicial quasi-projective C-scheme X and its rigid hypercovers U, set Z_X=holim_U Sing_an(U), where the analytic realization of U uses the diagonal of all its simplicial directions. There is a natural zigzag Sing_an(X)←Z_X→Et_p(X); the left arrow is a weak equivalence. The right arrow is induced by the component map of every connected singular simplex and the completion unit. For a specified grading use the coproduct of these zigzags on the grades. The resulting homotopy-category map is independent of cofinal refinements. Mod-p Betti–étale comparison: For simplicial quasi-projective X over C, assume H⁰_et(X,F_p)=F_p, H¹_et(X,F_p)=0 and degreewise finite-dimensional mod-p étale cohomology. Then the comparison zigzag induces an isomorphism on mod-p cohomology and homology in every degree. The statement also holds for a specified open-and-closed simplicial grading with these hypotheses on each grade, using Et_p^gr. Finite constant-coefficient Artin comparison and the analytic sheaf/singular comparison are the existing suppliers; no unrestricted infinite-coefficient analytic comparison is used. Field-automorphism naturality of discrete points: For any σ∈Aut(C) and a σ-semilinear morphism f:X→X′ of simplicial quasi-projective C-schemes, the composite D(X)→Et_p(X) from the comparison zigzag is natural after twisting by σ, as a map of homotopy types. The same holds on specified gradings carried by f. The intervening Sing_an map is required only for continuous σ, namely identity and complex conjugation. For a simplicial scheme over Q this gives an Aut(C)-action on its p-realization in the homotopy-coherent sense and equivariance of its discrete-point map. Strict point-set action and functorial chosen models are G7, not an implementation claim.",
+      "requires": [
+        "EtaleHomotopyTypes:EH.0",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+        "EnhancedDerivedSheaves:E0",
+        "DiamondsAndVStacks:D0",
+        "EtaleHomotopyTypes:EH.2",
+        "EtaleHomotopyTypes:EH.3",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+        "EtaleHomotopyTypes:EH.5",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+        "ComplexComparisonPartII:C5",
+        "EnhancedDerivedSheaves:E2",
+        "ComplexComparisonPartII:C0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "SS",
+      "title": "Anabelian geometry with étale homotopy types",
+      "authors": "Alexander Schmidt; Jakob Stix",
+      "edition": "Annals of Mathematics 184 (2016), 817–868; published PDF",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf",
+      "accessed": "2026-10-18",
+      "sha256": "6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759",
+      "readSections": [
+        "§§2.1–2.3, pp. 822–829",
+        "Appendix A.1–A.3, pp. 852–866",
+        "Lemma 6.3 and projection-family proof, pp. 847–849, for the geometric ownership boundary"
+      ]
+    },
+    {
+      "id": "FGV",
+      "title": "The Galois action on symplectic K-theory",
+      "authors": "Tony Feng; Søren Galatius; Akshay Venkatesh",
+      "edition": "Inventiones Mathematicae 230 (2022), 225–319; published PDF",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-022-01127-8.pdf",
+      "accessed": "2026-10-18",
+      "sha256": "5da9a2b28d13b2b22a262a81650188025020d92238ec2b47404d177ef91d7b4d",
+      "readSections": [
+        "Appendix A.2.1–A.2.3, pp. 304–310",
+        "Example A.10, p. 311; consumer interfaces in A.3–A.5"
+      ]
+    },
+    {
+      "id": "I01",
+      "title": "A model structure on the category of pro-simplicial sets",
+      "authors": "Daniel C. Isaksen",
+      "edition": "arXiv:math/0106152v1, 18 June 2001; author pagination, not journal pagination",
+      "url": "https://arxiv.org/pdf/math/0106152v1",
+      "accessed": "2026-10-18",
+      "sha256": "69c32950e1ec896ee87b93f20e069421530b79c287e34818dffdd11d9f625907",
+      "readSections": [
+        "§§4–8, pp. 6–16: local systems, model structure, detection, homotopy limit",
+        "Target statements in §§15–18, pp. 25–36; proof of §18 and the properness discussion in §17 inspected; the later properness correction is unread."
+      ]
+    },
+    {
+      "id": "IEt",
+      "title": "Etale realization on the A1-homotopy theory of schemes",
+      "authors": "Daniel C. Isaksen",
+      "edition": "arXiv:math/0106158v2, 10 February 2003; author pagination",
+      "url": "https://arxiv.org/pdf/math/0106158v2",
+      "accessed": "2026-10-18",
+      "sha256": "d0b6a79eec8f8983115279bd41016c214aa90dcd148b5443b476593066f6fe0d",
+      "readSections": [
+        "§§2–3, pp. 4–10",
+        "§§5–6, pp. 13–20: rigid covers, pullbacks, rigid limits and finite-degree cofinality"
+      ]
+    },
+    {
+      "id": "IC",
+      "title": "Completions of pro-spaces",
+      "authors": "Daniel C. Isaksen",
+      "edition": "arXiv:math/0404303v1, 16 April 2004; author pagination; published Math. Z. 250 (2005), 113–143",
+      "url": "https://arxiv.org/pdf/math/0404303v1",
+      "accessed": "2026-10-18",
+      "sha256": "ef7fcadbdf16679d73e0107e3e3e3f43985549035874ad57179a17aef91b53d5",
+      "readSections": [
+        "Theorem 2.2, pp. 4–5; Definition 3.1 and Theorem 3.3, pp. 5–6",
+        "§§5–6, pp. 9–13, coefficient-versus-homology distinctions and localization statements"
+      ]
+    },
+    {
+      "id": "BHH",
+      "title": "Pro-categories in homotopy theory",
+      "authors": "Ilan Barnea; Yonatan Harpaz; Geoffroy Horel",
+      "edition": "author postprint, 77 pages; locators use internal pages; published AGT 17 (2017), 567–643",
+      "url": "https://www.math.univ-paris13.fr/~harpaz/pro_categories.pdf",
+      "accessed": "2026-10-18",
+      "sha256": "cf032b5690844434137945f34a7d82da0673468b83461872dda72bb4f241237b",
+      "readSections": [
+        "§7.1, Theorem 7.1.2, pp. 62–64",
+        "§7.3, Definition 7.3.1 and Corollary 7.3.8, pp. 68–71; §6 Theorem 6.0.5, pp. 60–61 inspected for boundary"
+      ]
+    },
+    {
+      "id": "DAG13",
+      "title": "Derived Algebraic Geometry XIII: Rational and p-adic Homotopy Theory",
+      "authors": "Jacob Lurie",
+      "edition": "15 December 2011; author pagination",
+      "url": "https://www.math.ias.edu/~lurie/papers/DAG-XIII.pdf",
+      "accessed": "2026-10-18",
+      "sha256": "75a4d6d9e5e22c8f1261a09e499c6668ceacb90d6cfaf4a2de4a10e2fe0cd535",
+      "readSections": [
+        "§3.3, Definition 3.3.2, Proposition 3.3.8, pp. 82–86",
+        "§3.4, Corollary 3.4.10 and Theorem 3.4.12, pp. 91–93"
+      ]
+    }
+  ],
+  "status": "draft"
+}
