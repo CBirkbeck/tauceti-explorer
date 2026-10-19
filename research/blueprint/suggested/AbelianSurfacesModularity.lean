@@ -198,6 +198,32 @@ example : weilQuartic 3 (-1) 4 = (X ^ 2 + X + 3) * (X ^ 2 - 2 * X + 3) := by
   simp only [weilQuartic, map_neg, map_one, map_mul, map_pow, map_ofNat]
   ring
 
+/-- The scalar `+1` seed is the quadratic twist, with traces `1` and `−2` (p. 204). -/
+example : weilQuartic 3 1 4 = (X ^ 2 - X + 3) * (X ^ 2 + 2 * X + 3) := by
+  simp only [weilQuartic, map_one, map_mul, map_pow, map_ofNat]
+  ring
+
+/-- The scalar `+1` product has 18 rational points over `F₃`, a multiple of 9. -/
+example : (weilQuartic 3 1 4).eval 1 = 18 := by
+  norm_num [weilQuartic]
+
+/-- The two product seeds have opposite scalar eigenvalues on their étale 3-torsion:
+the nonzero roots modulo 3 are `−1` and `+1`, respectively. -/
+example :
+    (weilQuartic 3 (-1) 4).map (Int.castRingHom (ZMod 3)) = X ^ 2 * (X + 1) ^ 2 ∧
+    (weilQuartic 3 1 4).map (Int.castRingHom (ZMod 3)) = X ^ 2 * (X - 1) ^ 2 := by
+  have h3 : (3 : Polynomial (ZMod 3)) = 0 := by
+    simpa only [map_ofNat, map_zero, map_one, map_neg] using congrArg (C : ZMod 3 → Polynomial (ZMod 3)) (show (3 : ZMod 3) = 0 by decide)
+  have h4 : (4 : Polynomial (ZMod 3)) = 1 := by
+    simpa only [map_ofNat, map_zero, map_one, map_neg] using congrArg (C : ZMod 3 → Polynomial (ZMod 3)) (show (4 : ZMod 3) = 1 by decide)
+  have h9 : (9 : Polynomial (ZMod 3)) = 0 := by
+    simpa only [map_ofNat, map_zero, map_one, map_neg] using congrArg (C : ZMod 3 → Polynomial (ZMod 3)) (show (9 : ZMod 3) = 0 by decide)
+  have h2 : (2 : Polynomial (ZMod 3)) = -1 := by
+    simpa only [map_ofNat, map_neg, map_one] using
+      congrArg (C : ZMod 3 → Polynomial (ZMod 3)) (show (2 : ZMod 3) = -1 by decide)
+  constructor <;> norm_num [weilQuartic] <;> simp only [h3, h4, h9] <;> ring_nf <;>
+    simp only [h2] <;> ring
+
 /-! ## Arithmetic identities of §§9–10 -/
 
 /-- The sizes of the ten outer classes of `PGSp₄(F₃)` add up to `|PSp₄(F₃)|` (Lemma 9.1.3). -/

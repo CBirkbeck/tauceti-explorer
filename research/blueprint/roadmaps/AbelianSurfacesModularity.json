@@ -35,7 +35,7 @@
   {
    "key": "AM.0",
    "title": "Conventions, modularity and the analytic consequences",
-   "description": "Fix the normalizations of BCGP25 §1.8 that the endpoint uses and define what is proved. **Targets:** the definition of a modular (automorphic) abelian surface or genus-two curve over a number field by an isobaric factorization of L(s, H¹(A)) into cuspidal GL_{n_i} L-functions (Definition 1.8.25), compared with the stronger GSp₄ notion of BCGP21; p-distinguished ordinary abelian surfaces over Q_p and over F_p (Definition 9.1.2, with Definition 1.8.10); and the theorem that a weight-2 cuspidal GSp₄ witness of general type for an absolutely irreducible ρ_{A,p} gives modularity with r = 1, ρ_{A,ℓ} ≅ ρ_{π,ℓ} for all ℓ, full local–global compatibility, entire continuation and the functional equation Λ(s) = ±Λ(2 − s) of L(s, H¹(A)) (Remarks 1.8.20, 1.8.26, §1.8.22). Inputs: the GSp₄–GL₄ transfer (EndoscopicTransferAndUnitaryTraceComparison ET.4), Godement–Jacquet (AutomorphicLFunctionsAndLocalFactors AL.2), Galois representations of weight-2 forms (AbelianSurfacesPotentialModularity AP.0), Tate modules and local factors (NeronModelsAndSemistableAbelianVarieties R11.5).",
+   "description": "Fix the normalizations of BCGP25 §1.8 that the endpoint uses and define what is proved. **Targets:** the definition of a modular (automorphic) abelian surface or genus-two curve over a number field by an isobaric factorization of L(s, H¹(A)) into cuspidal GL_{n_i} L-functions (Definition 1.8.25), compared with the stronger GSp₄ notion of BCGP21; p-distinguished ordinary abelian surfaces over Q_p and over F_p (Definition 9.1.2, with Definition 1.8.10); and the theorem that a weight-2 cuspidal GSp₄ witness of general type for an absolutely irreducible ρ_{A,p} gives modularity with r = 1, an automorphic compatible system (with ordinary GSp₄ attachment at each prime where the requested ordinary local adapter applies), full local–global compatibility, entire continuation and the functional equation Λ(s) = ±Λ(2 − s) of L(s, H¹(A)) (Remarks 1.8.20, 1.8.26, §1.8.22). Inputs: the GSp₄–GL₄ transfer (EndoscopicTransferAndUnitaryTraceComparison ET.4), Godement–Jacquet (AutomorphicLFunctionsAndLocalFactors AL.2), Galois representations of weight-2 forms (AbelianSurfacesPotentialModularity AP.0), Tate modules and local factors (NeronModelsAndSemistableAbelianVarieties R11.5).",
    "requires": [
     "AbelianSchemesAndArithmeticModuli:A4",
     "AbelianSchemesAndArithmeticModuliPartII:F3",
@@ -48,7 +48,10 @@
     "LocalGaloisDeformationRings:L7",
     "ModularityAndLanglandsExtensions:ML.0",
     "NeronModelsAndSemistableAbelianVarieties:R11.5",
-    "NeronModelsAndSemistableAbelianVarieties:R11.6"
+    "NeronModelsAndSemistableAbelianVarieties:R11.6",
+    "AutomorphicLFunctionsAndLocalFactors:AL.3",
+    "AutomorphicLFunctionsAndLocalFactors:AL.4",
+    "ArithmeticGaloisRepresentations:G7"
    ]
   },
   {
@@ -97,7 +100,9 @@
     "ModularityAndLanglandsExtensions:ML.3",
     "ModularityAndLanglandsExtensions:ML.5",
     "NeronModelsAndSemistableAbelianVarieties:R11.5",
-    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
+    "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "AbelianSurfacesPotentialModularity:AP.0"
    ]
   },
   {
@@ -170,13 +175,15 @@
     "LocalGaloisDeformationRings:R08.2",
     "ModularityAndLanglandsExtensions:ML.0",
     "NeronModelsAndSemistableAbelianVarieties:R11.5",
-    "NeronModelsAndSemistableAbelianVarieties:R11.6"
+    "NeronModelsAndSemistableAbelianVarieties:R11.6",
+    "AbelianSchemesAndArithmeticModuli:A2",
+    "AbelianSurfacesPotentialModularity:AP.0"
    ]
   },
   {
    "key": "AM.8",
    "title": "Complements",
-   "description": "**Targets:** the density 5551/46656 of the local conditions in coefficient boxes and positive-proportion applicability (§10.1); applicability to 11743 of the 66158 curves of the 2024 LMFDB snapshot (Table 10.1.1); automorphy of odd potentially abelian GSp₄ representations (Lemma 10.2.5) and of every abelian surface over Q of Galois type other than A and B[C₂] (Theorem 10.2.1); the rational parameter space Z(ρ̄) of genus-two curves with fixed 2-torsion (§10.3.5); the obstruction for trivial Frobenius at 3 (Remark 10.3.8); the realization of an ordinary Cartier self-dual mod-2 representation by a good surface (Lemma 10.3.6, with the corrected local seed at 3); and ordinary residual modularity mod 2 (Theorem 10.3.9). The conditional implication 'regular-weight Serre for GSp₄ implies modularity of all abelian surfaces over Q' (Lemma 10.4.1) is ModularityAndLanglandsExtensions ML.0/regular-weight-serre-implies-abelian-surface-modularity and is not planned here.",
+   "description": "**Targets:** the density 5551/46656 of the local conditions in coefficient boxes and positive-proportion applicability (§10.1); applicability to 11743 of the 66158 curves of the 2024 LMFDB snapshot (Table 10.1.1); automorphy of odd potentially abelian GSp₄ representations (Lemma 10.2.5) and of every abelian surface over Q of Galois type other than A and B[C₂] (Theorem 10.2.1); the rational parameter space Z(ρ̄) of genus-two curves with fixed 2-torsion (§10.3.5), enlarged to Z⁺(ρ̄) = Z(ρ̄) × G_m to retain local quadratic twists; the obstruction for trivial Frobenius at 3 (Remark 10.3.8); the realization of an ordinary Cartier self-dual mod-2 representation by a good surface (Lemma 10.3.6, with the corrected local seed at 3); and ordinary residual modularity mod 2 (Theorem 10.3.9). The conditional implication 'regular-weight Serre for GSp₄ implies modularity of all abelian surfaces over Q' (Lemma 10.4.1) is ModularityAndLanglandsExtensions ML.0/regular-weight-serre-implies-abelian-surface-modularity and is not planned here.",
    "requires": [
     "AbelianSchemesAndArithmeticModuli:A3",
     "AbelianSchemesAndArithmeticModuli:A4",
@@ -202,7 +209,8 @@
     "NeronModelsAndSemistableAbelianVarieties:R11.6",
     "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
     "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
-    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial"
+    "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial",
+    "AbelianSurfacesPotentialModularity:AP.0"
    ]
   }
  ],
@@ -223,6 +231,17 @@
     "§9 (pp. 186–209)",
     "§10 (pp. 209–222); read 2026-10-18"
    ]
+  },
+  {
+   "id": "ZARHIN00",
+   "title": "Hyperelliptic jacobians without complex multiplication",
+   "authors": "Yuri G. Zarhin",
+   "edition": "arXiv:math/9909052v2, 12 September 1999; published Math. Res. Lett. 7 (2000), 123–132",
+   "url": "https://arxiv.org/abs/math/9909052v2",
+   "readSections": [
+    "§2, Theorems 2.1 and 2.4 (pp. 2–3), §3 and Lemma 3.1 (pp. 3–4), §4 and Theorem 4.1 (pp. 4–5); preprint page numbers; independently read 2026-10-19"
+   ],
+   "sha256": "73c57928ed276a80852aac041357e1f19e320a2c62db9b18e12e287cf7625fe8"
   }
  ],
  "status": "draft"
