@@ -1,0 +1,1757 @@
+{
+ "roadmapId": "RankZeroOneBSD",
+ "protocol": "blueprint-v1",
+ "part": "BSD.9",
+ "scope": [
+  "RankZeroOneBSD:BSD.9"
+ ],
+ "status": "complete",
+ "summary": "Follow-up of the accepted BSD.7 packet for stage BSD.9, reading its remaining work under the maintainer's 2026-10-16 decision that explicit curve data are hypotheses and computations are not targets. It plans the four public endpoints (rank equality, finite Ш, the p-part as a named proposition PrimePartFormula, and the full formula from a complete certificate) and proves that the roadmap's L-function, rank and quotient meet the statement-only BSD milestone of EllipticCurves Layer 7. On the analytic side it plans the coefficient bound |a_n| ≤ σ₀(n)√n, series and inequalities for the exponential integral (on QSeries QM.3's incomplete gamma), an explicit nonvanishing criterion turning a finite-sum inequality into analytic rank 0 or 1, Manin's closing-the-path formula with the denominator 2(1 + p − a_p), and the exact rank-zero quotient from a denominator and an enclosure. On the arithmetic side it checks the named branches' side conditions in general (rational p-torsion forces an ordinary Eisenstein prime outside CGS but inside Keller–Yin; CM curves meet no BSD.6 branch; no branch reaches p = 2) and proves odd-primary Ш vanishing from a Heegner index, with Gross's X₀(37)/w₃₇ example. Applications to 11a3, 37a1 and 32a2 take all numerical and descent data as hypotheses.",
+ "continues": "research/blueprint/packets/RankZeroOneBSD--BSD.7.json",
+ "baseline": {
+  "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+  "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+  "declarations": [
+   {
+    "ref": "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+    "kind": "theorem",
+    "module": "Mathlib/Analysis/Analytic/Uniqueness.lean",
+    "provides": "Two functions analytic on a preconnected set U that agree near a point of U agree on U.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:ArithmeticFunction.sigma",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+    "provides": "The divisor-power-sum functions σ_k; σ 0 n counts the divisors of n.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:ArithmeticFunction.sigma_zero_apply_prime_pow",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+    "provides": "σ 0 (p^i) = i + 1 for p prime.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:MeasureTheory.integral",
+    "kind": "irreducible_def",
+    "module": "Mathlib/MeasureTheory/Integral/Bochner/Basic.lean",
+    "provides": "The Bochner integral; set integrals over Set.Ioi x are its restrictions.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:ModularForm.levelOne_weight_two_rank_zero",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean",
+    "provides": "The space of level-one modular forms of weight two is zero.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Module.finrank",
+    "kind": "def",
+    "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
+    "provides": "Rank of a free module as a natural number (zero for infinite rank).",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Nat.Coprime.card_divisors_mul",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+    "provides": "For coprime m, n the number of divisors of m·n is the product of the numbers of divisors.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Real.eulerMascheroniConstant",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+    "provides": "Euler's constant γ, the limit of the sequence H_n − log n.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Real.eulerMascheroniConstant_eq_neg_deriv",
+    "kind": "lemma",
+    "module": "Mathlib/NumberTheory/Harmonic/GammaDeriv.lean",
+    "provides": "γ = −Γ′(1), the derivative of the real Gamma function at 1.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Real.eulerMascheroniConstant_lt_two_thirds",
+    "kind": "lemma",
+    "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+    "provides": "γ < 2/3.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Real.exp",
+    "kind": "def",
+    "module": "Mathlib/Analysis/Complex/Exponential.lean",
+    "provides": "The real exponential function.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Real.log",
+    "kind": "def",
+    "module": "Mathlib/Analysis/SpecialFunctions/Log/Basic.lean",
+    "provides": "The real logarithm.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Real.one_half_lt_eulerMascheroniConstant",
+    "kind": "lemma",
+    "module": "Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+    "provides": "1/2 < γ.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Real.pi",
+    "kind": "def",
+    "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Basic.lean",
+    "provides": "The real number π.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:Real.sqrt",
+    "kind": "def",
+    "module": "Mathlib/Analysis/Real/Sqrt.lean",
+    "provides": "The real square root.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Affine.Point",
+    "kind": "inductive",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+    "provides": "Points of the affine model: zero and nonsingular affine solutions, with the chord-tangent group law.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.LFunction",
+    "kind": "def",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+    "provides": "The L-function of a Weierstrass curve over a number field as an Euler product of local factors, a formal ArithmeticFunction ℤ.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.localPolynomial",
+    "kind": "def",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+    "provides": "Local polynomial: 1 − aT + qT² (good), 1 − T (split multiplicative), 1 + T (nonsplit multiplicative), 1 (additive), via the minimal model and its reduction.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:orderOf",
+    "kind": "def",
+    "module": "Mathlib/GroupTheory/OrderOfElement.lean",
+    "provides": "Order of a group element (zero for infinite order); the additive version addOrderOf is generated from it.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:padicValRat",
+    "kind": "def",
+    "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+    "provides": "Integer-valued valuation of a rational number at a prime: numerator valuation minus denominator valuation, zero at 0.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:padicValRat.div",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+    "provides": "For nonzero q, r: padicValRat p (q/r) = padicValRat p q − padicValRat p r.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:padicValRat.mul",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+    "provides": "For nonzero q, r: padicValRat p (q*r) = padicValRat p q + padicValRat p r.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "mathlib:padicValRat.pow",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+    "provides": "For nonzero q: padicValRat p (q^k) = k·padicValRat p q.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.Affine.PointModTorsion",
+    "kind": "abbrev",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
+    "provides": "The Mordell–Weil group modulo its ℤ-torsion submodule.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   },
+   {
+    "ref": "tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
+    "kind": "theorem",
+    "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+    "provides": "For an elliptic W with finitely generated points modulo torsion of rank zero, the (pinned, halved-pairing) regulator equals 1.",
+    "checked": "Statement read in the source file at the pinned commit on 2026-10-19."
+   }
+  ]
+ },
+ "sources": [
+  {
+   "id": "roadmap",
+   "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory",
+   "authors": "Tau Ceti Atlas",
+   "edition": "content/campaign/RankZeroOneBSD/README.md at the atlas snapshot",
+   "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/main/content/campaign/RankZeroOneBSD/README.md",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "BSD.0–BSD.9 stage texts",
+    "Source and review contracts",
+    "September 2026 implementation handoff"
+   ]
+  },
+  {
+   "id": "ec-upstream",
+   "title": "Roadmap: elliptic curves (TauCetiRoadmap EllipticCurves README)",
+   "authors": "Tau Ceti contributors",
+   "edition": "TauCetiRoadmap main at 34dcf0e2b60d68a705742ee408e5392ddabbd00a (2026-10-19)",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/34dcf0e2b60d68a705742ee408e5392ddabbd00a/TauCetiRoadmap/EllipticCurves/README.md",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Layer 6 (Mordell–Weil, canonical-height normalisation, torsion and Nagell–Lutz)",
+    "Layer 7 (Selmer, Sha, BSD quotient and statement-only milestone)",
+    "Layer 8",
+    "Worked examples"
+   ]
+  },
+  {
+   "id": "cremona2",
+   "title": "Algorithms for Modular Elliptic Curves, Chapter II: Modular symbol algorithms",
+   "authors": "John E. Cremona",
+   "edition": "Second edition (1997), corrected author online edition",
+   "url": "https://johncremona.github.io/book/fulltext/chapter2.pdf",
+   "sha256": "432fa5290b2b2ac0d623169e9198d928e5dd75acb490db2d58775630d0f6ea94",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§2.8 pp.29–31",
+    "§2.11 pp.37–38",
+    "§2.12 pp.41–42",
+    "§2.13 pp.42–44"
+   ]
+  },
+  {
+   "id": "cremona-examples",
+   "title": "Algorithms for Modular Elliptic Curves: worked examples",
+   "authors": "John E. Cremona",
+   "edition": "Second edition (1997), corrected author online edition",
+   "url": "https://johncremona.github.io/book/fulltext/examples.pdf",
+   "sha256": "20a4118e6cd82e9d9adc59070fa039594f09888f26a1259e1ebe18426484878c",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "N = 11 and N = 37 examples (comparison data only)"
+   ]
+  },
+  {
+   "id": "cremona-table1",
+   "title": "Algorithms for Modular Elliptic Curves: Table 1",
+   "authors": "John E. Cremona",
+   "edition": "Second edition (1997), corrected author online edition",
+   "url": "https://johncremona.github.io/book/fulltext/table1.pdf",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "rows 11A3, 37A1, 32A2 and class 32A, as already registered by the BSD.7 packet; comparison data, not proofs"
+   ]
+  },
+  {
+   "id": "gross",
+   "title": "Kolyvagin's work on modular elliptic curves",
+   "authors": "Benedict H. Gross",
+   "edition": "L-functions and Arithmetic (Durham, 1989), LMS Lecture Note Series 153 (1991), 235–256; scanned copy",
+   "url": "https://wstein.org/papers/bib/gross-kolyvagins_work_on_modular_elliptic_curves.pdf",
+   "sha256": "60b310c58a3494860c5967a03569a7d30033e9074d9d3d9a0d5bc2dfedd46b32",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1 pp.235–237 (Conjecture 1.2, Theorem 1.3, the X₀(37)/w₃₇ example)",
+    "§2 opening and Proposition 2.1, p.237"
+   ]
+  },
+  {
+   "id": "ky",
+   "title": "On the anticyclotomic Iwasawa theory of newforms at Eisenstein primes of semistable reduction",
+   "authors": "Timo Keller, Mulun Yin",
+   "edition": "arXiv:2402.12781v2 (30 October 2024)",
+   "url": "https://arxiv.org/pdf/2402.12781v2",
+   "sha256": "bb64820b49aa1eb2574c912c0d03067f904e52b9bf71f441fda78bb6dba9c90a",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Introduction §§0.1–0.3 pp.2–6 (Theorems B, C, D; examples)",
+    "§4.2 Theorem 4.2.1 and its proof, pp.42–43"
+   ]
+  },
+  {
+   "id": "cgs",
+   "title": "Mazur's main conjecture at Eisenstein primes",
+   "authors": "Francesc Castella, Giada Grossi, Christopher Skinner",
+   "edition": "arXiv:2303.04373v2 (15 October 2025)",
+   "url": "https://arxiv.org/pdf/2303.04373v2",
+   "sha256": "5046d7571ed3a1b13baa56b2c94186d9c9488d76181062f4ba82b8ab5158af90",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1 Theorem A, p.2",
+    "§1.2 Theorem D and the examples, pp.4–5"
+   ]
+  },
+  {
+   "id": "dlmf6",
+   "title": "NIST Digital Library of Mathematical Functions, Chapter 6: Exponential, Logarithmic, Sine, and Cosine Integrals",
+   "authors": "N. M. Temme (chapter author); F. W. J. Olver et al. (eds.)",
+   "edition": "online edition, §§6.6 and 6.8 as served on 2026-10-19",
+   "url": "https://dlmf.nist.gov/6.6",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§6.6 power series, equation 6.6.2 (page SHA-256 c3456db84f1daac38a2c036ddf94e15759cf1aa3630c842d88a7cc04c70ebaff)",
+    "§6.8 inequalities 6.8.1–6.8.3, https://dlmf.nist.gov/6.8 (page SHA-256 84aed707eca909906a8abb8ed0e90d410162a33dd68bca5057f7e0af99171383)"
+   ]
+  },
+  {
+   "id": "mathlib-lfunction",
+   "title": "The L-function of a Weierstrass curve",
+   "authors": "Thomas Browning (Mathlib)",
+   "edition": "Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "localPolynomial, localEulerFactor, LFunction, LSeries"
+   ]
+  },
+  {
+   "id": "mathlib-arith-misc",
+   "title": "Arithmetic functions: σ and divisor counts",
+   "authors": "Mathlib contributors",
+   "edition": "Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "sigma_zero_apply, sigma_zero_apply_prime_pow, Nat.Coprime.card_divisors_mul"
+   ]
+  },
+  {
+   "id": "mathlib-euler-mascheroni",
+   "title": "The Euler–Mascheroni constant",
+   "authors": "Mathlib contributors",
+   "edition": "Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Harmonic/EulerMascheroni.lean",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "eulerMascheroniConstant and its bounds; GammaDeriv.lean eulerMascheroniConstant_eq_neg_deriv"
+   ]
+  },
+  {
+   "id": "mathlib-levelone",
+   "title": "Dimension formula for level-one modular forms",
+   "authors": "Mathlib contributors",
+   "edition": "Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "levelOne_weight_two_rank_zero, dimension_level_one"
+   ]
+  },
+  {
+   "id": "mathlib-analytic-uniqueness",
+   "title": "Uniqueness of analytic continuation",
+   "authors": "Mathlib contributors",
+   "edition": "Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174",
+   "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Analysis/Analytic/Uniqueness.lean",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq"
+   ]
+  }
+ ],
+ "nodes": [
+  {
+   "id": "RankZeroOneBSD:BSD.9/prime-part-formula",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "The p-part of the Birch–Swinnerton-Dyer formula",
+   "kind": "definition",
+   "statement": "For an elliptic curve E/ℚ with h : analyticRank E ≤ 1 and a natural prime p, PrimePartFormula E h p is the proposition padicValRat p (bsdDefect E) = 0, where bsdDefect E ∈ ℚ_{>0} is the rational BSD defect of BSD.5 (leading term times #E(ℚ)_tors² divided by Ω_E·Reg_BSD(E/ℚ)·#Ш(E/ℚ)·∏_ℓ c_ℓ(E)). Unfolded, it says v_p(L*/(Ω_E Reg_BSD)) = v_p(∏_ℓ c_ℓ(E)) + v_p(#Ш(E/ℚ)) − 2·v_p(#E(ℚ)_tors), where L*/(Ω_E Reg_BSD) is the positive rational number of BSD.5 and L* = leadingTerm E. It concerns one prime only: it is not the full formula, and at p = 2 it depends on using Reg_BSD (the x-height normalisation) rather than the pinned halved regulator.",
+   "hypotheses": [
+    "E/ℚ is elliptic and analyticRank E ≤ 1, so that bsdDefect E is defined and Ш(E/ℚ) is finite (BSD.4).",
+    "p is a natural prime; the regulator is GZ.0's Reg_BSD and the period is the full real Néron period."
+   ],
+   "proofSteps": [
+    "Define the proposition by the valuation of BSD.5's bsdDefect; no new arithmetic object is introduced.",
+    "Unfold with padicValRat.mul, padicValRat.div and padicValRat.pow, using that every factor of the defect is a nonzero rational (positivity from BSD.5/leading-term-positivity, finiteness from BSD.4); this gives the valuation identity and its equivalence with the printed form of Keller–Yin Theorem C and CGS Theorem D, since v_p(#Ш(E/ℚ)) = v_p(#Ш(E/ℚ)[p^∞]).",
+    "Isogeny invariance: BSD.5/defect-isogeny-invariance gives equal defects for ℚ-isogenous curves.",
+    "Full formula: positive-rational-reconstruction (BSD.8) gives (∀ p prime, PrimePartFormula E h p) ↔ bsdDefect E = 1."
+   ],
+   "acceptance": [
+    "The torsion order enters squared: a definition with #E(ℚ)_tors to the first power fails the 11a3 data check.",
+    "The statement at all odd primes does not imply the statement at 2 (dyadic-gate countermodels)."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.5/rational-bsd-defect",
+    "RankZeroOneBSD:BSD.4/analytic-rank-at-most-one-theorem",
+    "RankZeroOneBSD:BSD.5/defect-isogeny-invariance",
+    "RankZeroOneBSD:BSD.5/leading-term-positivity",
+    "RankZeroOneBSD:BSD.8/positive-rational-reconstruction",
+    "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+    "mathlib:padicValRat",
+    "mathlib:padicValRat.mul",
+    "mathlib:padicValRat.div",
+    "mathlib:padicValRat.pow"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/Endpoints",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "ky",
+     "locator": "Theorem C, p.5; Theorem 4.2.1, p.42",
+     "match": "The p-part of BSD is printed as an equality of p-adic valuations of L*/(Ω Reg) and of Tam·#Ш[p^∞]/#tors²; the definition is that equality, transported to the rational defect."
+    },
+    {
+     "sourceId": "cgs",
+     "locator": "Theorem D, pp.4–5",
+     "match": "The same p-adic valuation identity, with the Néron period over all of E(ℝ) and without a torsion term because the local exclusion makes the torsion order prime to p."
+    },
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, first paragraph",
+     "match": "A fixed-prime leading-term formula is one of the four separate public signatures."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "WeierstrassCurve.BSD.PrimePartFormula",
+     "role": "data",
+     "statement": "PrimePartFormula E h p :⇔ padicValRat p (bsdDefect E) = 0, for h : analyticRank E ≤ 1 and p prime."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_iff_valuation",
+     "role": "characterisation",
+     "statement": "PrimePartFormula E h p ↔ v_p(L*/(Ω_E Reg_BSD)) = v_p(∏c_ℓ) + v_p(#Ш(E/ℚ)) − 2·v_p(#E(ℚ)_tors)."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_iff_primary",
+     "role": "compatibility",
+     "statement": "PrimePartFormula E h p ↔ v_p(L*/(Ω_E Reg_BSD)) = v_p(Tam(E)·#Ш(E/ℚ)[p^∞]/#E(ℚ)_tors²), the form printed by Keller–Yin Theorem C and, for p prime to the torsion, CGS Theorem D."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_of_isogenous",
+     "role": "functoriality",
+     "statement": "If E and E′ are ℚ-isogenous then PrimePartFormula E h p ↔ PrimePartFormula E′ h′ p."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.forall_primePartFormula_iff",
+     "role": "characterisation",
+     "statement": "(∀ p prime, PrimePartFormula E h p) ↔ bsdDefect E = 1."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_of_bsdDefect_eq_one",
+     "role": "simp",
+     "statement": "bsdDefect E = 1 → PrimePartFormula E h p for every prime p."
+    }
+   ],
+   "uses": [
+    {
+     "where": "RankZeroOneBSD BSD.6 and BSD.7 branch theorems",
+     "how": "each concludes v_p(bsdDefect E) = 0 for one named range of primes; the public fixed-prime endpoint restates these conclusions as PrimePartFormula."
+    },
+    {
+     "where": "RankZeroOneBSD:BSD.8/source-qualified-prime-part-dispatch",
+     "how": "dispatches a prime to the branch whose hypotheses it satisfies."
+    },
+    {
+     "where": "Keller–Yin Theorem C; CGS Theorem D",
+     "how": "the printed conclusions are this proposition."
+    },
+    {
+     "where": "PeriodsAndSpecialValues (consumer named in the roadmap's handoff)",
+     "how": "re-exports named p-part results separately from rank equality and the full formula."
+    }
+   ],
+   "tests": [
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_test_torsion_square",
+     "kind": "computation",
+     "statement": "If L*/(Ω_E Reg_BSD) = 1/25, #E(ℚ)_tors = 5, ∏c_ℓ = 1 and #Ш(E/ℚ) = 1 (the 11a3 data), then PrimePartFormula E h 5 holds: −2 = 0 + 0 − 2. With #tors instead of #tors² the two sides would be −2 and −1."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_test_away_from_support",
+     "kind": "degenerate",
+     "statement": "If p divides neither numerator nor denominator of L*/(Ω_E Reg_BSD) and divides none of ∏c_ℓ, #Ш(E/ℚ), #E(ℚ)_tors, then PrimePartFormula E h p holds."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_test_odd_not_full",
+     "kind": "non-example",
+     "statement": "The positive rational 2 has valuation zero at every odd prime and valuation one at 2: a proposition defined as 'the defect is a 2-power' or 'all odd p-parts hold' is strictly weaker than bsdDefect E = 1."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_test_ky_form",
+     "kind": "compatibility",
+     "statement": "primePartFormula_iff_primary: the definition agrees with the printed Keller–Yin identity, in which #Ш[p^∞] replaces #Ш."
+    },
+    {
+     "name": "WeierstrassCurve.BSD.primePartFormula_test_dyadic_regulator",
+     "kind": "non-example",
+     "statement": "In rank one, replacing Reg_BSD by the pinned regulator (half of it) changes v_2 of the left side by one and leaves every odd valuation unchanged; the dyadic formula must use Reg_BSD."
+    }
+   ],
+   "planet": {
+    "name": "p-part of the BSD formula"
+   }
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/ec-bsd-statement-compatibility",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "The roadmap's L-function, rank and quotient against the EllipticCurves BSD statement",
+   "kind": "comparison",
+   "statement": "Let E/ℚ be elliptic. (i) ellipticL E is entire and equals E.LSeries on Re s > 3/2, so it is an admissible analytic hypothesis of the statement-only Birch–Swinnerton-Dyer milestone of EllipticCurves Layer 7 (an analytic function on a connected open set containing s = 1 and part of the half-plane of convergence, agreeing with the actual Dirichlet series there). (ii) Every admissible continuation G on a connected open set U equals ellipticL E on U, so the order of vanishing and the leading coefficient L^{(r)}(1)/r! of that statement are analyticRank E and leadingTerm E. (iii) If analyticRank E ≤ 1, BSD.4 discharges the statement's finiteness hypothesis on Ш(E/ℚ); the statement's quotient Ω(E)·Reg(E/ℚ)·#Ш·∏_p c_p/#E(ℚ)_tors², with Layer 7's explicit-integral period and Layer 6's x-height regulator, is the denominator Ω_E·Reg_BSD·#Ш·∏c_ℓ/#tors² of BSD.5's defect. Hence the statement's rank equality holds for E, and its leading-coefficient identity holds if and only if bsdDefect E = 1.",
+   "hypotheses": [
+    "E/ℚ elliptic; (iii) assumes analyticRank E ≤ 1.",
+    "Normalisation: Layer 6 of current EllipticCurves fixes ĥ(P) = lim h(x(nP))/n², whose regulator is Reg_BSD. At the Tau Ceti pin f790474 the canonical height is half of that; a statement instantiated with the pinned regulator differs by the factor 2^r (GZ.0/height-convention-dictionary)."
+   ],
+   "proofSteps": [
+    "(i) BSD.0/actual-l-function: entire, and equal to E.LSeries for Re s > 3/2; that half-plane lies in the half-plane of absolute convergence, and ℂ is connected.",
+    "(ii) On its half-plane of convergence the Dirichlet series is analytic and, by the identity theorem from Re s > 3/2, equals ellipticL E there. G agrees with the series on a nonempty open subset of U, so Mathlib's AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq gives G = ellipticL E on U; orders at 1 and iterated derivatives at 1 coincide.",
+    "(iii) BSD.4/analytic-rank-at-most-one-theorem gives finiteness and the rank equality; GZ.0/real-period-components identifies Layer 7's integral 2∫_{D_W>0}dx/√D_W with the full Néron period; GZ.0/bsd-regulator identifies the x-height regulator with Reg_BSD; compare with the definition of bsdDefect."
+   ],
+   "acceptance": [
+    "An arbitrary analytic germ at s = 1 is not admissible: two germs can differ while only ellipticL E agrees with the Dirichlet series.",
+    "Counting c∞ again on top of Layer 7's period would divide the quotient by 2 on curves with Δ > 0."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.0/actual-l-function",
+    "RankZeroOneBSD:BSD.0/analytic-rank",
+    "RankZeroOneBSD:BSD.4/analytic-rank-at-most-one-theorem",
+    "RankZeroOneBSD:BSD.5/rational-bsd-defect",
+    "GrossZagierAndArithmeticHeights:GZ.0/real-period-components",
+    "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+    "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary",
+    "mathlib:AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/Endpoints",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "ec-upstream",
+     "locator": "Layer 7, the stretch item on the BSD quotient and the statement-only milestone",
+     "match": "The upstream statement fixes the analytic hypothesis as a continuation of the actual Dirichlet series on a connected open set and the quotient with the explicit-integral period; this node shows the roadmap's objects meet it."
+    },
+    {
+     "sourceId": "ec-upstream",
+     "locator": "Layer 6, the canonical-height milestone",
+     "match": "Upstream pins ĥ(P) = lim h(x(nP))/n² and states the regulator and BSD quotient against it."
+    },
+    {
+     "sourceId": "mathlib-analytic-uniqueness",
+     "locator": "AnalyticOnNhd.eqOn_of_preconnected_of_eventuallyEq",
+     "match": "Two analytic functions on a preconnected open set that agree near one point agree everywhere on it."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/public-rank-endpoint",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Public endpoint: rank equals analytic rank",
+   "kind": "application",
+   "statement": "For every elliptic curve E/ℚ with analyticRank E ≤ 1, Module.finrank ℤ (E(ℚ)/E(ℚ)_tors) = analyticRank E; equivalently the rank-equality conclusion of EllipticCurves Layer 7's BSD statement holds for E. The declaration takes no hypothesis on Ш, Tamagawa numbers, periods, torsion, Heegner indices or prime-valuation certificates.",
+   "hypotheses": [
+    "E/ℚ elliptic with analyticRank E ≤ 1; nothing else."
+   ],
+   "proofSteps": [
+    "Apply BSD.4/analytic-rank-at-most-one-theorem and read it through ec-bsd-statement-compatibility (ii)."
+   ],
+   "acceptance": [
+    "A missing dyadic or other exceptional prime-part input leaves this endpoint unchanged (dyadic-branch-exclusion).",
+    "With root number −1 and L′(E,1) > 0 (the 37a1 data) it gives rank one; with L(E,1) > 0 it gives rank zero."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.4/analytic-rank-at-most-one-theorem",
+    "RankZeroOneBSD:BSD.9/ec-bsd-statement-compatibility",
+    "tauceti:WeierstrassCurve.Affine.PointModTorsion",
+    "mathlib:Module.finrank"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/Endpoints",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, first paragraph",
+     "match": "Analytic-rank equality is a separate public signature."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/public-sha-endpoint",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Public endpoint: Ш is finite",
+   "kind": "application",
+   "statement": "For every elliptic curve E/ℚ with analyticRank E ≤ 1, the whole group Ш(E/ℚ) is finite; so EllipticCurves Layer 7's BSD quotient of E is defined without its finiteness hypothesis. The conclusion contains no cardinality, exponent or annihilator of Ш.",
+   "hypotheses": [
+    "E/ℚ elliptic with analyticRank E ≤ 1; nothing else."
+   ],
+   "proofSteps": [
+    "Apply the finiteness half of BSD.4/analytic-rank-at-most-one-theorem; ec-bsd-statement-compatibility (iii) identifies the group with Layer 7's Ш."
+   ],
+   "acceptance": [
+    "The endpoint does not supply #Ш: exact orders need the separate arguments of odd-sha-from-heegner-index, a prime-part formula or a descent hypothesis.",
+    "A missing dyadic input leaves this endpoint unchanged."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.4/analytic-rank-at-most-one-theorem",
+    "RankZeroOneBSD:BSD.9/ec-bsd-statement-compatibility",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/Endpoints",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, first paragraph",
+     "match": "Finite Sha is a separate public signature."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/public-fixed-prime-endpoint",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Public endpoint: the formula at one prime",
+   "kind": "application",
+   "statement": "Let E/ℚ be elliptic with h : analyticRank E ≤ 1 and p prime. Each of the following, with exactly the hypotheses of its node, proves PrimePartFormula E h p: the rank-zero ordinary/multiplicative branch, the rank-zero supersingular branch, the Jetchev–Skinner–Wan rank-one branch, Castella's Theorem A′ and the BSTW rank-one branch (BSD.6), the Castella–Grossi–Skinner and Keller–Yin good Eisenstein branches (BSD.7), and an exceptional-prime computation of v_p(bsdDefect E) (BSD.8). There is one public declaration per branch; no public signature takes a disjunction of branches whose hypotheses could be discharged by an unproved claim that p is good, large or irreducible.",
+   "hypotheses": [
+    "E/ℚ elliptic, analyticRank E ≤ 1, p prime, plus the full hypothesis list of the chosen branch."
+   ],
+   "proofSteps": [
+    "For each branch, compose its conclusion v_p(bsdDefect E) = 0 with the definition of PrimePartFormula.",
+    "The dispatch BSD.8/source-qualified-prime-part-dispatch already proves the conclusion branch by branch; this node fixes the public names and signatures."
+   ],
+   "acceptance": [
+    "At p = 2 none of the seven named branches applies (dyadic-branch-exclusion).",
+    "On curves with rational p-torsion at a good odd p only the Keller–Yin branch applies at p (rational-torsion-eisenstein-ordinary)."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/prime-part-formula",
+    "RankZeroOneBSD:BSD.8/source-qualified-prime-part-dispatch",
+    "RankZeroOneBSD:BSD.6/rank-zero-ordinary-multiplicative-p-part",
+    "RankZeroOneBSD:BSD.6/rank-zero-supersingular-p-part",
+    "RankZeroOneBSD:BSD.6/jsw-rank-one-p-part",
+    "RankZeroOneBSD:BSD.6/castella-multiplicative-rank-one-p-part",
+    "RankZeroOneBSD:BSD.6/bstw-rank-one-p-part",
+    "RankZeroOneBSD:BSD.7/cgs-eisenstein-prime-bsd",
+    "RankZeroOneBSD:BSD.7/ky-eisenstein-prime-bsd",
+    "RankZeroOneBSD:BSD.8/exceptional-prime-part-adapter"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/Endpoints",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, first paragraph",
+     "match": "A fixed-prime leading-term formula is a separate public signature, and each source's side conditions are proved before its theorem is applied."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/public-full-endpoint",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Public endpoint: the full leading-term formula from a complete certificate",
+   "kind": "application",
+   "statement": "Let E/ℚ be elliptic with h : analyticRank E ≤ 1, and let c be a Rat.PrimeValuationCertificate for bsdDefect E. Then both conclusions of EllipticCurves Layer 7's BSD statement hold for E: the rank equality and the identity leadingTerm E = Ω_E·Reg_BSD(E/ℚ)·#Ш(E/ℚ)·∏_ℓ c_ℓ(E)/#E(ℚ)_tors². Equivalently PrimePartFormula E h p for every prime p.",
+   "hypotheses": [
+    "E/ℚ elliptic, analyticRank E ≤ 1, a complete finite certificate for the actual defect."
+   ],
+   "proofSteps": [
+    "BSD.8/elliptic-endpoint gives the real identity; ec-bsd-statement-compatibility (iii) identifies it with Layer 7's leading-coefficient identity; public-rank-endpoint gives the other conclusion.",
+    "BSD.8/certificate-all-primes gives v_p(bsdDefect E) = 0 at every prime, i.e. the equivalent form."
+   ],
+   "acceptance": [
+    "The rank and Ш endpoints do not consume this one; deleting the certificate's dyadic entry blocks only this endpoint (missing-exception-fixture).",
+    "With supplied data giving bsdDefect E = 1 exactly, the canonical certificate ofAllPrimes applies (conditional-full-formula)."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/ec-bsd-statement-compatibility",
+    "RankZeroOneBSD:BSD.9/prime-part-formula",
+    "RankZeroOneBSD:BSD.9/public-rank-endpoint",
+    "RankZeroOneBSD:BSD.8/elliptic-endpoint",
+    "RankZeroOneBSD:BSD.8/certificate-all-primes"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/Endpoints",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, first paragraph; BSD.8",
+     "match": "The full leading-term formula is exposed only under a complete certificate."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/coefficient-bound",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Coefficient bound for the L-series of an elliptic curve",
+   "kind": "lemma",
+   "statement": "For E/ℚ elliptic and every n ≥ 1, the coefficient a_n = E.LFunction n of Mathlib's formal Euler product satisfies |a_n| ≤ σ₀(n)·√n, where σ₀(n) is the number of divisors of n. Since σ₀(n) ≤ 2√n, also |a_n| ≤ 2n.",
+   "hypotheses": [
+    "E/ℚ elliptic; a_n is Mathlib's coefficient, defined through the minimal model and its reductions."
+   ],
+   "proofSteps": [
+    "The Euler product makes n ↦ a_n multiplicative, and σ₀ is multiplicative (Nat.Coprime.card_divisors_mul).",
+    "Good p: the local factor is 1 − a_pT + pT²; with the roots α, β of X² − a_pX + p one has a_{p^k} = Σ_{i=0}^k α^iβ^{k−i}, and the Hasse bound |a_p| ≤ 2√p (EllipticCurves Layer 3) gives |α| = |β| = √p, so |a_{p^k}| ≤ (k+1)p^{k/2} = σ₀(p^k)p^{k/2} (ArithmeticFunction.sigma_zero_apply_prime_pow).",
+    "Bad p: the local factor is 1 − T, 1 + T or 1, so a_{p^k} = a_p^k with a_p ∈ {1, −1, 0} and |a_{p^k}| ≤ 1.",
+    "Multiply over the prime powers of n. For σ₀(n) ≤ 2√n pair each divisor d ≤ √n with n/d."
+   ],
+   "acceptance": [
+    "Equality |a_p| = σ₀(p)√p is impossible for an integer a_p and p prime; the bound is attained only up to the Hasse slack (e.g. a_2 = −2 for 37a1, where 2√2 ≈ 2.83).",
+    "The weaker |a_n| ≤ √n fails: a_2 = −2 for 11a3."
+   ],
+   "prerequisites": [
+    "mathlib:WeierstrassCurve.LFunction",
+    "mathlib:WeierstrassCurve.localPolynomial",
+    "mathlib:ArithmeticFunction.sigma",
+    "mathlib:ArithmeticFunction.sigma_zero_apply_prime_pow",
+    "mathlib:Nat.Coprime.card_divisors_mul",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/CentralValues",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "mathlib-lfunction",
+     "locator": "WeierstrassCurve.localPolynomial and WeierstrassCurve.LFunction",
+     "match": "The local polynomial is 1 − aT + qT² at good reduction and 1 − T, 1 + T, 1 at split, nonsplit and additive reduction; the L-function is the Euler product of their inverses."
+    },
+    {
+     "sourceId": "cremona2",
+     "locator": "§2.8, equation (2.8.3), p.29",
+     "match": "The Dirichlet series of a rational newform has the Euler product with good and bad factors of this shape."
+    },
+    {
+     "sourceId": "mathlib-arith-misc",
+     "locator": "sigma_zero_apply_prime_pow; Nat.Coprime.card_divisors_mul",
+     "match": "σ₀(p^i) = i + 1 and σ₀ is multiplicative."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/exponential-integral-bounds",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Series and inequalities for the exponential integral",
+   "kind": "lemma",
+   "statement": "For x > 0 let E₁(x) = Γ(0, x) = ∫_x^∞ e^{−t}t^{−1} dt, the upper incomplete gamma function of QSeriesPartitionsAndMockModularForms QM.3 at s = 0. Then: (i) E₁(x) = −γ − log x + Σ_{n≥1} (−1)^{n+1}x^n/(n·n!), the series converging absolutely, with γ Euler's constant; (ii) for K ≥ x the terms x^n/(n·n!) decrease for n ≥ K, so truncating the series after any n ≥ K errs by at most the first omitted term; (iii) x/(x+1) < x·e^x·E₁(x) < (x+1)/(x+2) and ½·log(1+2/x) < e^x E₁(x) < log(1+1/x); in particular e^{−x}/(x+1) < E₁(x) < e^{−x}/x; (iv) E₁ is positive and strictly decreasing on (0, ∞). With Mathlib's bounds 1/2 < γ < 2/3 and its monotone sequences converging to γ, (i)–(iii) bound E₁ at a positive real argument between explicit elementary expressions.",
+   "hypotheses": [
+    "x > 0 real. The function is QM.3's Γ(0, ·); no second exponential-integral carrier is introduced."
+   ],
+   "proofSteps": [
+    "(i) Put Ein(x) = Σ_{n≥1}(−1)^{n+1}x^n/(n·n!) = ∫_0^x (1 − e^{−t})t^{−1}dt (termwise integration). The function E₁(x) + log x − Ein(x) has derivative zero on (0, ∞), and its limit at 0⁺ is −γ by the integral representation of γ (Mathlib's eulerMascheroniConstant via the derivative of Γ at 1, Real.eulerMascheroniConstant_eq_neg_deriv).",
+    "(ii) The ratio of consecutive terms is x·n/((n+1)²) ≤ x/(n+1) < 1 once n + 1 > x; apply the alternating-series estimate.",
+    "(iii) e^x E₁(x) = ∫_0^∞ e^{−u}/(x+u) du; Jensen's inequality for the convex u ↦ 1/(x+u) against the probability density e^{−u} gives the lower bound 1/(x+1); the remaining two-sided bounds are DLMF 6.8.1–6.8.3.",
+    "(iv) The integrand is positive and the derivative is −e^{−x}/x < 0."
+   ],
+   "acceptance": [
+    "At x = 1: the bounds give 0.1839 < E₁(1) < 0.2707 (from (iii), first form), consistent with E₁(1) = 0.21938…",
+    "Dropping the minus sign in front of γ in (i) changes E₁(x) by 2γ > 1 and violates (iii) at x = 1."
+   ],
+   "prerequisites": [
+    "QSeriesPartitionsAndMockModularForms:QM.3/upper-incomplete-gamma",
+    "mathlib:Real.eulerMascheroniConstant",
+    "mathlib:Real.one_half_lt_eulerMascheroniConstant",
+    "mathlib:Real.eulerMascheroniConstant_lt_two_thirds",
+    "mathlib:Real.eulerMascheroniConstant_eq_neg_deriv",
+    "mathlib:MeasureTheory.integral",
+    "mathlib:Real.exp",
+    "mathlib:Real.log"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/CentralValues",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "dlmf6",
+     "locator": "§6.6, equation 6.6.2",
+     "match": "The power series of E₁ about 0, with the −γ − ln z leading terms."
+    },
+    {
+     "sourceId": "dlmf6",
+     "locator": "§6.8, inequalities 6.8.1–6.8.3",
+     "match": "Two-sided bounds for e^x E₁(x) and x e^x E₁(x) for real x > 0."
+    },
+    {
+     "sourceId": "cremona2",
+     "locator": "§2.13, equation (2.13.3), p.43",
+     "match": "G₁(x) is the exponential integral, evaluated by this series for small x and a continued fraction for large x."
+    },
+    {
+     "sourceId": "mathlib-euler-mascheroni",
+     "locator": "one_half_lt_eulerMascheroniConstant; eulerMascheroniConstant_lt_two_thirds",
+     "match": "Explicit bounds on γ."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/explicit-nonvanishing-criterion",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Explicit nonvanishing criterion for L(E,1) and L′(E,1)",
+   "kind": "theorem",
+   "statement": "Let E/ℚ be elliptic of conductor N, β = 2π/√N, ρ = e^{−β}, a_n = E.LFunction n and M ≥ 1. Put S₀(M) = 2Σ_{n≤M}(a_n/n)e^{−βn}, S₁(M) = 2Σ_{n≤M}(a_n/n)E₁(βn), T₀(M) = 4ρ^{M+1}/(1−ρ) and T₁(M) = 4ρ^{M+1}/(β(M+1)(1−ρ)). (i) If rootNumber E = 1 then |ellipticL E 1 − S₀(M)| ≤ T₀(M); if moreover |S₀(M)| > T₀(M), then analyticRank E = 0 and leadingTerm E lies in [S₀(M) − T₀(M), S₀(M) + T₀(M)]. (ii) If rootNumber E = −1 then ellipticL E 1 = 0 and |deriv (ellipticL E) 1 − S₁(M)| ≤ T₁(M); if moreover |S₁(M)| > T₁(M), then analyticRank E = 1 and leadingTerm E lies in [S₁(M) − T₁(M), S₁(M) + T₁(M)]. (iii) An inequality |S| + T < δ bounds the value by δ and never proves vanishing. The theorem contains no computation: its hypothesis is an inequality between explicit real numbers, which outward rational bounds on e^{−βn} and on E₁(βn) (exponential-integral-bounds) reduce to finitely many rational inequalities.",
+   "hypotheses": [
+    "E/ℚ elliptic; N its conductor (the level of F_E, R29.4/exact-conductor); rootNumber E the sign of BSD.0's functional equation; M ≥ 1."
+   ],
+   "proofSteps": [
+    "Mellin expressions: BSD.9/mellin-central-tail-bounds (Cremona Propositions 2.11.1 and 2.13.1) gives L(E,1) = 2Σ_{n≥1}(a_n/n)e^{−βn} when the sign is +1 and L′(E,1) = 2Σ_{n≥1}(a_n/n)E₁(βn) when it is −1; BSD.0/root-number-parity gives L(E,1) = 0 in the second case.",
+    "Tails: by coefficient-bound |a_n/n| ≤ 2, so the value tail is at most 2Σ_{n>M}2ρ^n = 4ρ^{M+1}/(1−ρ); by exponential-integral-bounds E₁(βn) < e^{−βn}/(βn) ≤ ρ^n/(β(M+1)) for n > M, so the derivative tail is at most 4ρ^{M+1}/(β(M+1)(1−ρ)).",
+    "If |S| > T, the true value lies in [S − T, S + T], which excludes 0; BSD.0's analyticRank_eq_zero_iff and analyticRank_eq_one_iff give the order, and leadingTerm E is the value or the first derivative."
+   ],
+   "acceptance": [
+    "Diagnostic values (not proofs) with M = 5 and a_n from point counts: conductor 11 (11a3, sign +1): S₀ ≈ 0.25384, T₀ ≈ 5.4·10⁻⁵; conductor 37 (37a1, sign −1): S₁ ≈ 0.30544, T₁ ≈ 2.0·10⁻³; conductor 32 (32a2, sign +1): S₀ ≈ 0.65554, T₀ ≈ 7.6·10⁻³. The hypothesis |S| > T holds in each case with a wide margin.",
+    "Using the value formula when the sign is −1 is not licensed: the theorem has no conclusion there, and L(E,1) = 0 comes from the sign alone."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/mellin-central-tail-bounds",
+    "RankZeroOneBSD:BSD.9/coefficient-bound",
+    "RankZeroOneBSD:BSD.9/exponential-integral-bounds",
+    "RankZeroOneBSD:BSD.0/analytic-rank",
+    "RankZeroOneBSD:BSD.0/root-number-parity",
+    "RankZeroOneBSD:BSD.0/completed-l-function",
+    "EllipticCurveModularity:R29.4/exact-conductor",
+    "mathlib:Real.exp",
+    "mathlib:Real.sqrt",
+    "mathlib:Real.pi"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/CentralValues",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "cremona2",
+     "locator": "Proposition 2.11.1, p.37; Proposition 2.13.1 and (2.13.3), p.43",
+     "match": "The value series when the Fricke eigenvalue gives sign +1, and the r-th derivative series with G_r; G₁ is the exponential integral."
+    },
+    {
+     "sourceId": "cremona2",
+     "locator": "§2.13, p.44",
+     "match": "Cremona notes that a sufficiently precise evaluation decides r = 1 when L(f,1) = 0, while no approximation by itself proves vanishing."
+    },
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, second paragraph",
+     "match": "Rigorous tails and approximation bounds, then a certified nonzero enclosure; numerical evidence is not a proof."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Explicit nonvanishing criterion for L(E,1)"
+   }
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/manin-closing-the-path",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Manin's closing-the-path formula for L(E,1)/Ω",
+   "kind": "theorem",
+   "statement": "Let E/ℚ be elliptic of conductor N with newform F_E = Σ a_n qⁿ, ω_f = 2πi F_E(z)dz, Λ_f ⊂ ℂ the lattice of periods of ω_f over H₁(X₀(N),ℤ), Ω₀ its least positive real element and Ω(f) = 2Ω₀ if Λ_f is rectangular and Ω₀ otherwise. Then: (i) L(E,1) = ⟨{0,∞}, ω_f⟩, the integral of ω_f along the imaginary axis; (ii) for every prime p ∤ N, (1 + p − a_p)·L(E,1) = Σ_{k=0}^{p−1}⟨{0, k/p}, ω_f⟩, where each {0, k/p} is a closed cycle on X₀(N), so the right side is a real element of Λ_f; (iii) 1 + p − a_p > 0 by the Hasse bound. Consequently L(E,1)/Ω(f) ∈ (1/(2(1 + p − a_p)))·ℤ for every p ∤ N, and L(E,1)/Ω(f) ∈ (1/D)·ℤ with D = 2·gcd_{p∈S}(1 + p − a_p) for any finite nonempty set S of primes not dividing N.",
+   "hypotheses": [
+    "E/ℚ elliptic; p prime with p ∤ N. Ω(f) is the period of the newform, not of E: the two are compared through the Manin constant (exact-rank-zero-quotient)."
+   ],
+   "proofSteps": [
+    "(i) Mellin transform at s = 1: the twisted Mellin formula of ModularSymbolsPadicLFunctions L1 with trivial character and j = 0, together with R29.6/l-function-continuation (L(E,s) = L(F_E,s)).",
+    "(ii) The Hecke operator T_p on modular symbols (L0/hecke-operators) sends {0,∞} to (1 + p){0,∞} minus the sum of the {0, k/p}; integrating ω_f, which is a T_p-eigendifferential with eigenvalue a_p, gives the identity. For p ∤ N the cusps k/p are Γ₀(N)-equivalent to 0, so each path closes up and its period lies in Λ_f (L0/period-symbol).",
+    "Reality: the involution at infinity (L0/involution-at-infinity) sends {0, k/p} to {0, (p−k)/p} and the period to its complex conjugate, so the sum is real; Λ_f ∩ ℝ = ℤΩ₀ and Ω(f) ∈ {Ω₀, 2Ω₀}.",
+    "(iii) a_p = a_p(E) at p ∤ N (R29.4/bad-euler-factors) and |a_p| ≤ 2√p < p + 1."
+   ],
+   "acceptance": [
+    "For 11a1 and p = 2: a_2 = −2, so 1 + p − a_p = 5 and L(E,1)/Ω(f) ∈ (1/10)ℤ; the value is 1/5.",
+    "For conductor 32 and p = 3: a_3 = 0, so L(E,1)/Ω(f) ∈ (1/8)ℤ."
+   ],
+   "prerequisites": [
+    "ModularSymbolsPadicLFunctions:L0/period-symbol",
+    "ModularSymbolsPadicLFunctions:L0/hecke-operators",
+    "ModularSymbolsPadicLFunctions:L0/involution-at-infinity",
+    "ModularSymbolsPadicLFunctions:L1/twisted-mellin-formula",
+    "EllipticCurveModularity:R29.3/newform-of-E",
+    "EllipticCurveModularity:R29.4/bad-euler-factors",
+    "EllipticCurveModularity:R29.6/l-function-continuation",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/CentralValues",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "cremona2",
+     "locator": "§2.8, (2.8.7)–(2.8.9), p.30, and (2.8.10), p.31",
+     "match": "L(f,1) is the period of the modular symbol {0,∞}; applying T_p and integrating gives (1 + p − a_p)L(f,1) as a sum of integral real periods, whence L(f,1)/Ω(f) = n/(2(1 + p − a_p)) with n an integer."
+    },
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, second paragraph",
+     "match": "A modular-symbol expression for the actual central value."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Manin's closing-the-path formula"
+   }
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/exact-rank-zero-quotient",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "An exact value of L(E,1)/Ω_E from a denominator and an enclosure",
+   "kind": "theorem",
+   "statement": "Let E/ℚ be elliptic of conductor N, φ: X₀(N) → E an optimal modular parametrisation with Manin constant c_φ (φ*ω_E = c_φ·ω_f), and S a finite nonempty set of primes not dividing N; put D = 2|c_φ|·gcd_{p∈S}(1 + p − a_p). Then Ω_E = |c_φ|·Ω(f) and L(E,1)/Ω_E ∈ (1/D)·ℤ. Hence, if rationals a < b satisfy b − a ≤ 1/D and a < L(E,1)/Ω_E < b, then L(E,1)/Ω_E is the unique element of (1/D)ℤ in the open interval (a, b). For a curve E′ that is ℚ-isogenous to E, L(E′,1) = L(E,1), and L(E′,1)/Ω_{E′} is obtained from L(E,1)/Ω_E by the rational period ratio Ω_E/Ω_{E′}.",
+   "hypotheses": [
+    "φ optimal (φ_* : H₁(X₀(N),ℤ) → H₁(E(ℂ),ℤ) surjective); c_φ the Manin constant of GZ.3; Ω_E the full real Néron period.",
+    "For E′ the period ratio is a supplied comparison (BSD.8/local-isogeny-certificate-adapter, BSD.9/fixture-11-isogeny-period), not deduced from the isogeny degree alone."
+   ],
+   "proofSteps": [
+    "Optimality gives Λ_E = c_φ·Λ_f for the period lattice of the Néron differential, so the rectangularity and the least real periods correspond and Ω_E = |c_φ|·Ω(f) (GZ.0/real-period-components for the full period).",
+    "Apply manin-closing-the-path for each p ∈ S and take the gcd.",
+    "Two distinct elements of (1/D)ℤ differ by at least 1/D ≥ b − a, so at most one lies in (a, b).",
+    "Isogenous curves have the same L-function (BSD.0 ellipticL_eq_of_isogenous)."
+   ],
+   "acceptance": [
+    "For 11a1 (optimal; c_φ = 1) and S = {2}: D = 10, and any enclosure of width at most 1/10 around 0.2 gives L(11a1,1)/Ω = 1/5. With Ω(11a3) = 5Ω(11a1) this gives L(11a3,1)/Ω(11a3) = 1/25.",
+    "Without the Manin constant the denominator can be wrong by c_φ: the theorem does not apply to a non-optimal parametrisation without its own index."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/manin-closing-the-path",
+    "GrossZagierAndArithmeticHeights:GZ.3/manin-constant",
+    "GrossZagierAndArithmeticHeights:GZ.3/manin-integrality-and-p-unit",
+    "EllipticCurveModularity:R29.5/modular-parametrisation",
+    "GrossZagierAndArithmeticHeights:GZ.0/real-period-components",
+    "RankZeroOneBSD:BSD.5/rank-zero-rationality",
+    "RankZeroOneBSD:BSD.0/actual-l-function"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/CentralValues",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "cremona2",
+     "locator": "§2.8, (2.8.10), p.31, and the discussion following it",
+     "match": "For the optimal curve the rational number L(f,1)/Ω(f) has the displayed denominator; the curve's own period differs by the Manin constant."
+    },
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9 and BSD.5",
+     "match": "Rationality with an explicit denominator turns an enclosure into an exact value."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/rational-torsion-eisenstein-ordinary",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Rational p-torsion at a good odd prime",
+   "kind": "theorem",
+   "statement": "Let E/ℚ be elliptic, p an odd prime of good reduction and P ∈ E(ℚ) of order p. Then: (i) reduction modulo p is injective on E(ℚ)[p], so p divides #Ẽ(𝔽_p) = p + 1 − a_p, hence a_p ≡ 1 (mod p) and E is ordinary at p; (ii) ⟨P⟩ is the kernel of a cyclic ℚ-rational p-isogeny with trivial kernel character, and by the Weil pairing E[p]^ss ≅ 𝔽_p ⊕ 𝔽_p(ω), so E[p] is reducible and p is an Eisenstein prime; (iii) every cyclic ℚ-rational p-isogeny of E has kernel character 1 or ω (a kernel other than ⟨P⟩ is a complement of ⟨P⟩, isomorphic to μ_p), so the hypothesis φ|G_p ≠ 1, ω of BSD.7/cgs-eisenstein-prime-bsd fails for every choice; (iv) the hypotheses of BSD.7/ky-eisenstein-prime-bsd hold whenever analyticRank E ≤ 1, while no BSD.6 branch applies at p: the irreducible-residual branches fail by (ii), the supersingular ones by (i), and Castella's needs multiplicative reduction at p.",
+   "hypotheses": [
+    "E/ℚ elliptic, p odd prime, E has good reduction at p, P ∈ E(ℚ) of exact order p."
+   ],
+   "proofSteps": [
+    "(i) The reduction-injectivity theorem of EllipticCurves Layer 6 (torsion injects at good odd p); then a_p = p + 1 − #Ẽ(𝔽_p) ≡ 1 mod p, and a_p ≢ 0 mod p means ordinary.",
+    "(ii) EllipticCurves Layer 1 constructs the isogeny with kernel ⟨P⟩; the Galois group acts trivially on the rational points; the Weil pairing (Layer 2) has determinant ω, so the quotient character is ω.",
+    "(iii) If C ≠ ⟨P⟩ is another rational cyclic subgroup, E[p] = ⟨P⟩ ⊕ C and C ≅ E[p]/⟨P⟩ has character ω.",
+    "(iv) Compare with the hypothesis lists of the BSD.6 and BSD.7 nodes."
+   ],
+   "acceptance": [
+    "11a3 and p = 5: a_5 = 1 ≡ 1 mod 5 and #Ẽ(𝔽_5) = 5; Keller–Yin applies, CGS does not.",
+    "Keller–Yin §0.3 lists the smallest examples 19a3 (p = 3), 11a3 (p = 5) and 26b2 (p = 7)."
+   ],
+   "prerequisites": [
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+    "RankZeroOneBSD:BSD.7/cgs-eisenstein-prime-bsd",
+    "RankZeroOneBSD:BSD.7/ky-eisenstein-prime-bsd",
+    "mathlib:WeierstrassCurve.Affine.Point",
+    "mathlib:orderOf"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/SourceRanges",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "ky",
+     "locator": "Theorem C, p.5, and §0.3, p.5",
+     "match": "Theorem C needs only a good prime p > 2 and a cyclic p-isogeny; the examples have rational p-torsion and lie outside the earlier local hypothesis."
+    },
+    {
+     "sourceId": "cgs",
+     "locator": "Theorem A, p.2, and Theorem D, pp.4–5",
+     "match": "The isogeny character must satisfy φ|G_p ≠ 1, ω, which rational p-torsion violates."
+    },
+    {
+     "sourceId": "ec-upstream",
+     "locator": "Layer 6, torsion subgroup item",
+     "match": "Torsion injects into the reduction at a good odd prime."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/cm-branch-range",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Which named branches can apply to a CM curve",
+   "kind": "theorem",
+   "statement": "Let E/ℚ be elliptic with complex multiplication (End_ℚ̄(E) ≠ ℤ). Then j(E) ∈ ℤ, E has potentially good reduction at every prime and multiplicative reduction at none, and E has at least one prime of bad reduction, which is therefore additive; so E is not semistable, and no quadratic twist of E is semistable. Consequently, at every prime p, none of the five BSD.6 branches applies to E (each needs semistability, a twist of a semistable curve, or a multiplicative prime), and the BSD.7 branches apply only at good odd primes p where E has a rational p-isogeny. For 32a2 (y² = x³ − x, CM by ℤ[i], additive at 2), whose ℚ-isogeny class has only isogenies of 2-power degree, no named branch applies at any prime: its full formula can only come from an exact computation of the whole defect.",
+   "hypotheses": [
+    "E/ℚ elliptic with CM. The statement about 32a2 additionally uses its isogeny class, a supplied datum."
+   ],
+   "proofSteps": [
+    "CM j-invariants are algebraic integers (CM.3/integrality), hence in ℤ for E/ℚ; v_p(j) ≥ 0 at every p is potential good reduction (CM.5/cm-reduction-dictionary; EllipticCurves Layer 4), which excludes multiplicative reduction.",
+    "A bad prime exists: by R29.3/R29.4 the newform F_E has level N equal to the conductor; if N = 1 then F_E would be a nonzero weight-2 form of level one, contradicting Mathlib's ModularForm.levelOne_weight_two_rank_zero.",
+    "A quadratic twist of E also has CM, so the same argument shows it is not semistable.",
+    "Compare with the hypotheses of the BSD.6 and BSD.7 nodes; for 32a2 the absence of an odd-degree rational isogeny makes E[p] irreducible at every odd p."
+   ],
+   "acceptance": [
+    "The automorphism (x, y) ↦ (−x, iy) of y² = x³ − x over ℚ(i) squares to [−1] (parent node fixture-32-cm-additive).",
+    "A CM curve can satisfy a BSD.7 branch: if E has a rational p-isogeny at a good odd p (as some CM curves do), the Keller–Yin hypotheses can hold."
+   ],
+   "prerequisites": [
+    "ComplexMultiplicationAndExplicitReciprocity:CM.3/integrality",
+    "ComplexMultiplicationAndExplicitReciprocity:CM.5/cm-reduction-dictionary",
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+    "EllipticCurveModularity:R29.3/newform-of-E",
+    "EllipticCurveModularity:R29.4/exact-conductor",
+    "mathlib:ModularForm.levelOne_weight_two_rank_zero",
+    "RankZeroOneBSD:BSD.6/rank-zero-ordinary-multiplicative-p-part",
+    "RankZeroOneBSD:BSD.6/rank-zero-supersingular-p-part",
+    "RankZeroOneBSD:BSD.6/jsw-rank-one-p-part",
+    "RankZeroOneBSD:BSD.6/castella-multiplicative-rank-one-p-part",
+    "RankZeroOneBSD:BSD.6/bstw-rank-one-p-part",
+    "RankZeroOneBSD:BSD.7/cgs-eisenstein-prime-bsd",
+    "RankZeroOneBSD:BSD.7/ky-eisenstein-prime-bsd",
+    "RankZeroOneBSD:BSD.9/fixture-32"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/SourceRanges",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, first paragraph",
+     "match": "A CM curve and a nonsemistable curve are among the tests, and each source's side conditions are checked before its theorem is applied."
+    },
+    {
+     "sourceId": "mathlib-levelone",
+     "locator": "ModularForm.levelOne_weight_two_rank_zero",
+     "match": "Modular forms of weight two and level one are zero."
+    },
+    {
+     "sourceId": "cremona-table1",
+     "locator": "Table 1, class 32A, p.111",
+     "match": "The class of 32a2 consists of curves linked by isogenies of degree 2 and 4 (comparison data, not a proof)."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/dyadic-branch-exclusion",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "No named branch reaches the prime 2",
+   "kind": "lemma",
+   "statement": "Each of the seven named prime-part branches (five in BSD.6, two in BSD.7) requires p ≥ 3. Hence, for every E/ℚ with analyticRank E ≤ 1, PrimePartFormula E h 2 can come only from an exact dyadic computation (BSD.8/exceptional-prime-part-adapter) or from a proof that bsdDefect E = 1. By dyadic-gate, PrimePartFormula at every odd prime does not imply the full formula. The rank and Ш endpoints are unaffected: an unproved dyadic part blocks only the full-formula endpoint.",
+   "hypotheses": [
+    "E/ℚ elliptic with analyticRank E ≤ 1."
+   ],
+   "proofSteps": [
+    "Read p ≥ 3 (or p > 3, p ≥ 5) from the hypotheses of the seven branch nodes.",
+    "Combine with BSD.8/source-qualified-prime-part-dispatch, whose only remaining case is the exceptional-prime adapter, and with dyadic-gate."
+   ],
+   "acceptance": [
+    "11a3 (good at 2), 37a1 (good at 2) and 32a2 (additive at 2) all need a separate dyadic input for the full formula.",
+    "The public rank and Ш endpoints have no dyadic hypothesis."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/prime-part-formula",
+    "RankZeroOneBSD:BSD.9/public-rank-endpoint",
+    "RankZeroOneBSD:BSD.9/public-sha-endpoint",
+    "RankZeroOneBSD:BSD.9/dyadic-gate",
+    "RankZeroOneBSD:BSD.8/source-qualified-prime-part-dispatch",
+    "RankZeroOneBSD:BSD.8/exceptional-prime-part-adapter",
+    "RankZeroOneBSD:BSD.6/rank-zero-ordinary-multiplicative-p-part",
+    "RankZeroOneBSD:BSD.6/rank-zero-supersingular-p-part",
+    "RankZeroOneBSD:BSD.6/jsw-rank-one-p-part",
+    "RankZeroOneBSD:BSD.6/castella-multiplicative-rank-one-p-part",
+    "RankZeroOneBSD:BSD.6/bstw-rank-one-p-part",
+    "RankZeroOneBSD:BSD.7/cgs-eisenstein-prime-bsd",
+    "RankZeroOneBSD:BSD.7/ky-eisenstein-prime-bsd"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/SourceRanges",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, last sentence of the second paragraph",
+     "match": "An unproved residual 2-part prevents full-formula assembly while leaving rank equality and finite Sha unaffected."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/odd-sha-from-heegner-index",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Odd primary Sha vanishing from the Heegner index",
+   "kind": "theorem",
+   "statement": "Let E/ℚ be elliptic of conductor N with a fixed modular parametrisation, K imaginary quadratic with D_K ∉ {−3, −4} and every prime dividing N split in K, y_K ∈ E(K) the Heegner point (HE.1), of infinite order, and I_K = [E(K) : ℤy_K]. Let ℓ be an odd prime with ℓ ∤ I_K. (a) If E has no CM and Gal(ℚ(E[ℓ])/ℚ) ≅ GL₂(𝔽_ℓ), then Ш(E/K)[ℓ] = 0. (b) In general, if ℓ ∈ B(E) (the odd primes not dividing the discriminant of End_ℚ̄(E) at which the ℓ-adic image is as large as possible, HE.7), then v_ℓ(#Ш(E/K)) ≤ 2·v_ℓ(I_K) = 0. In either case Ш(E/K)[ℓ^∞] = 0, hence Ш(E/ℚ)[ℓ^∞] = 0 and Ш(E^K/ℚ)[ℓ^∞] = 0.",
+   "hypotheses": [
+    "The classical Heegner hypotheses of HE.7/classical-full-sha-finiteness; y_K non-torsion; ℓ odd with ℓ ∤ I_K.",
+    "(a) needs no CM and surjective mod-ℓ image; (b) needs ℓ ∈ B(E)."
+   ],
+   "proofSteps": [
+    "ℓ ∤ I_K implies y_K ∉ ℓE(K): if y_K = ℓQ then Q has order ℓ in E(K)/ℤy_K, because y_K has infinite order.",
+    "(a) HE.6/gross-clean-mod-p-descent: Sel_ℓ(E/K) is generated by the Kummer image of y_K, so Ш(E/K)[ℓ] = 0.",
+    "(b) HE.7/classical-square-index-error-bound: #Ш(E/K) divides d_E·I_K² with v_ℓ(d_E) = 0 for ℓ ∈ B(E).",
+    "A torsion ℓ-primary group with no element of order ℓ is zero; BSD.1/odd-selmer-sha-decomposition splits Ш(E/K)[ℓ^∞] as Ш(E/ℚ)[ℓ^∞] ⊕ Ш(E^K/ℚ)[ℓ^∞]."
+   ],
+   "acceptance": [
+    "If ℓ | I_K the theorem gives nothing at ℓ: the index bound is only an upper bound (Gross Conjecture 1.2 is not used).",
+    "The prime 2 is excluded: the 2-primary part needs a separate argument (a 2-descent or the comparison BSD.1/two-primary-comparison)."
+   ],
+   "prerequisites": [
+    "HeegnerPointEulerSystems:HE.6/gross-clean-mod-p-descent",
+    "HeegnerPointEulerSystems:HE.7/classical-square-index-error-bound",
+    "HeegnerPointEulerSystems:HE.7/classical-full-sha-finiteness",
+    "HeegnerPointEulerSystems:HE.1/heegner-points-of-conductor-m-and-the-modular-parametrisation",
+    "RankZeroOneBSD:BSD.5/heegner-index",
+    "RankZeroOneBSD:BSD.1/odd-selmer-sha-decomposition"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/ComparisonExamples",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "gross",
+     "locator": "Theorem 1.3, p.236; Proposition 2.1, p.237",
+     "match": "Kolyvagin's bound of #Ш(E/K) by an exceptional integer times I_K², and the clean statement that Ш(E/K) has no ℓ-torsion when the mod-ℓ image is GL₂ and ℓ does not divide y_K."
+    },
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9 and BSD.8",
+     "match": "Whole-Sha conclusions need a proved annihilator; here the annihilator is a power of 2 at the primes covered."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/gross-37a-sha-vanishing",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Sha of the curve X₀(37)/w₃₇ from a Heegner point of index one",
+   "kind": "theorem",
+   "statement": "Let E: y² + y = x³ − x (37a1, the quotient X₀(37)/w₃₇) and P = (0, 0). Assume: (h1) E(ℚ) = ℤP; (h2) there is an imaginary quadratic K with D_K ∉ {−3, −4} in which 37 splits whose Heegner index I_K = [E(K) : ℤy_K] is a power of 2 (for instance y_K = ±P with [E(K) : E(ℚ)] a power of 2; Gross writes y_K = m_K·P and I_K = ±m_K); (h3) Gal(ℚ(E[ℓ])/ℚ) ≅ GL₂(𝔽_ℓ) for ℓ = 3, 5, 7; (h4) Ш(E/ℚ)[2] = 0. Then Ш(E/ℚ) = 0. If in addition E(ℚ)_tors = 0, c₃₇ = 1 and analyticRank E = 1, then bsdDefect E = L′(E,1)/(Ω_E·ĥ_x(P)), and the full formula for E is the single real identity L′(E,1) = Ω_E·ĥ_x(P), with ĥ_x the x-height canonical height.",
+   "hypotheses": [
+    "The four hypotheses (h1)–(h4) are supplied data, not computations of this roadmap; Gross reports (h1) and that y_K ∈ E(ℚ) for this curve.",
+    "For ℓ ≥ 11 the mod-ℓ image is GL₂(𝔽_ℓ) because E is semistable (Mazur's theorem, quoted by Gross p.237); (h3) covers the remaining odd primes."
+   ],
+   "proofSteps": [
+    "Every odd ℓ satisfies ℓ ∤ I_K by (h2); E has no CM (j = 110592/37 ∉ ℤ); odd-sha-from-heegner-index (a) gives Ш(E/ℚ)[ℓ^∞] = 0 for every odd ℓ.",
+    "From (h4), the 2-primary part is zero: a nonzero element of a 2-primary torsion group has a multiple of order 2.",
+    "With (h1), Reg_BSD(E/ℚ) = ĥ_x(P) (GZ.0/bsd-regulator); substitute #Ш = 1, #tors = 1 and c₃₇ = 1 in BSD.5's defect."
+   ],
+   "acceptance": [
+    "Gross records c = 1 and m₃₇ = 1 for this curve, so his Conjecture 1.2 predicts #Ш(E/K) = I_K²; Kolyvagin's refinement (t_{E/K} a power of 2, equal to 1 when I_K is odd) is reported there and is not used here.",
+    "If y_K = ±3P instead, the theorem gives nothing at ℓ = 3."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/odd-sha-from-heegner-index",
+    "RankZeroOneBSD:BSD.5/heegner-index",
+    "RankZeroOneBSD:BSD.5/rational-bsd-defect",
+    "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator",
+    "RankZeroOneBSD:BSD.9/point-37"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/ComparisonExamples",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "gross",
+     "locator": "Example after Theorem 1.3, p.236, and its continuation on p.237",
+     "match": "For X₀(37)/w₃₇ with the degree-two parametrisation, c = 1 and m₃₇ = 1; y_K lies in E(ℚ), which is infinite cyclic generated by (0,0); writing y_K = m_K·P gives I_K = ±m_K."
+    },
+    {
+     "sourceId": "gross",
+     "locator": "Proposition 2.1 and the paragraph before it, p.237",
+     "match": "The clean odd-prime descent under a GL₂ mod-ℓ image, and Mazur's theorem for semistable curves at ℓ ≥ 11."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "planet": {
+    "name": "Sha of X₀(37)/w₃₇ from the Heegner index"
+   }
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/conditional-fixture-ranks",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Ranks and finite Sha of the three test curves from analytic data",
+   "kind": "application",
+   "statement": "Let E₁₁: y² + y = x³ − x² (11a3), E₃₇: y² + y = x³ − x (37a1) and E₃₂: y² = x³ − x (32a2, the parent's fixture32). Assume their conductors are 11, 37, 32 and their root numbers +1, −1, +1, and assume for some M ≥ 1 the finite-sum inequalities |S₀(M)| > T₀(M), |S₁(M)| > T₁(M), |S₀(M)| > T₀(M) of explicit-nonvanishing-criterion respectively (or directly L(E₁₁,1) > 0, L′(E₃₇,1) > 0, L(E₃₂,1) > 0). Then the analytic ranks are 0, 1, 0, the ranks of the Mordell–Weil groups are 0, 1, 0, and each Ш(E/ℚ) is finite. For the two semistable curves the root numbers follow from a₁₁(E₁₁) = 1 (split) and a₃₇(E₃₇) = −1 (nonsplit) by the local formula of BSD.0; for E₃₂ the sign is a supplied datum.",
+   "hypotheses": [
+    "The conductor, root-number and inequality data are hypotheses; their computation is not a target of this roadmap."
+   ],
+   "proofSteps": [
+    "explicit-nonvanishing-criterion gives the analytic ranks; public-rank-endpoint and public-sha-endpoint give the rest.",
+    "BSD.0's rootNumber_eq_prod_local: for prime conductor ℓ with multiplicative reduction the sign is a_ℓ."
+   ],
+   "acceptance": [
+    "M = 5 suffices for all three numerically (values listed in explicit-nonvanishing-criterion).",
+    "An interval containing 0, or root number −1 without a nonzero derivative, establishes neither rank."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/explicit-nonvanishing-criterion",
+    "RankZeroOneBSD:BSD.9/public-rank-endpoint",
+    "RankZeroOneBSD:BSD.9/public-sha-endpoint",
+    "RankZeroOneBSD:BSD.0/completed-l-function",
+    "RankZeroOneBSD:BSD.9/fixture-32"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/ComparisonExamples",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "cremona-examples",
+     "locator": "Worked examples for N = 11 and N = 37",
+     "match": "The two semistable curves, their signs and approximate central values or derivatives (comparison data)."
+    },
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, first paragraph",
+     "match": "Rank-zero and rank-one curves; numerical evidence of analytic rank is not a proof of a nonzero derivative."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/conditional-eisenstein-five",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "The 5-part on 11a3 through Keller–Yin",
+   "kind": "application",
+   "statement": "For E₁₁ (11a3): good reduction at 5 (Δ = −11), a rational point of order 5 (the EllipticCurves worked example E(ℚ)_tors ≅ ℤ/5), and analyticRank E₁₁ = 0 (conditional-fixture-ranks) give, by rational-torsion-eisenstein-ordinary, an ordinary Eisenstein prime 5 at which Keller–Yin applies and CGS does not; hence PrimePartFormula E₁₁ h 5. With the additional data L(E₁₁,1)/Ω = 1/25 (exact-rank-zero-quotient), #E₁₁(ℚ)_tors = 5 and c₁₁ = 1, the formula gives v₅(#Ш(E₁₁/ℚ)) = 0, i.e. Ш(E₁₁/ℚ)[5^∞] = 0.",
+   "hypotheses": [
+    "The torsion point, the reduction type at 5 and 11, and the exact quotient are supplied data or upstream results; no point count or isogeny construction is a target here."
+   ],
+   "proofSteps": [
+    "Apply rational-torsion-eisenstein-ordinary with p = 5, then public-fixed-prime-endpoint with the Keller–Yin branch.",
+    "primePartFormula_iff_valuation: −2 = 0 + v₅(#Ш) − 2."
+   ],
+   "acceptance": [
+    "The trivial kernel character equals 1 at G₅, so the CGS branch cannot be used.",
+    "Replacing #tors² by #tors would predict v₅(#Ш) = −1, which is impossible; the torsion square is essential."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/rational-torsion-eisenstein-ordinary",
+    "RankZeroOneBSD:BSD.9/public-fixed-prime-endpoint",
+    "RankZeroOneBSD:BSD.9/prime-part-formula",
+    "RankZeroOneBSD:BSD.9/conditional-fixture-ranks",
+    "RankZeroOneBSD:BSD.9/exact-rank-zero-quotient",
+    "RankZeroOneBSD:BSD.7/ky-eisenstein-prime-bsd",
+    "RankZeroOneBSD:BSD.9/fixture-11-isogeny-period"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/ComparisonExamples",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "ky",
+     "locator": "§0.3, p.5",
+     "match": "11a3 is the smallest example with rational 5-torsion and rank zero covered by Theorem C."
+    },
+    {
+     "sourceId": "ec-upstream",
+     "locator": "Worked examples, torsion and rank on named curves",
+     "match": "E(ℚ)_tors ≅ ℤ/5 for 11.a3 is certified upstream by Nagell–Lutz."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/conditional-sha-vanishing-fixtures",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "Ш = 0 for the three test curves under explicit hypotheses",
+   "kind": "application",
+   "statement": "Under the following supplied hypotheses, #Ш(E/ℚ) = 1 for the three curves. E₃₇: (h1)–(h4) of gross-37a-sha-vanishing. E₁₁: the data of conditional-eisenstein-five (giving the 5-part); a Heegner field K for E₁₁ whose Heegner point has index I_K prime to every odd ℓ ≠ 5; surjective mod-ℓ image for the odd ℓ ≠ 5 (for ℓ ≥ 11 Mazur's theorem, E₁₁ being semistable); and Ш(E₁₁/ℚ)[2] = 0. E₃₂ (CM by ℤ[i]): a Heegner field K (2 split, D_K ≡ 1 mod 8) whose Heegner index is a power of 2; every odd ℓ in B(E₃₂); and Ш(E₃₂/ℚ)[2] = 0. The analytic hypotheses of conditional-fixture-ranks and these arithmetic hypotheses are distinct inputs: neither implies the other.",
+   "hypotheses": [
+    "All index, image and 2-descent statements are supplied data."
+   ],
+   "proofSteps": [
+    "E₃₇: gross-37a-sha-vanishing.",
+    "E₁₁ at 5: conditional-eisenstein-five. At odd ℓ ≠ 5: odd-sha-from-heegner-index (a) for E₁₁ (5 is excluded from (a) because E₁₁[5] is reducible). At 2: the descent hypothesis.",
+    "E₃₂ at odd ℓ: odd-sha-from-heegner-index (b), since E₃₂ has CM. At 2: the descent hypothesis.",
+    "Combine the primary parts; finiteness is public-sha-endpoint."
+   ],
+   "acceptance": [
+    "The analytic enclosure of conditional-fixture-ranks gives no information on #Ш; a 2-Selmer computation alone gives no odd primary part.",
+    "For E₁₁ the odd-prime Heegner argument cannot reach ℓ = 5; Keller–Yin is needed there."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/gross-37a-sha-vanishing",
+    "RankZeroOneBSD:BSD.9/odd-sha-from-heegner-index",
+    "RankZeroOneBSD:BSD.9/conditional-eisenstein-five",
+    "RankZeroOneBSD:BSD.9/public-sha-endpoint",
+    "RankZeroOneBSD:BSD.1/odd-selmer-sha-decomposition"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/ComparisonExamples",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "gross",
+     "locator": "Theorem 1.3, p.236; Proposition 2.1, p.237",
+     "match": "The index bound reduces the odd part of Ш to the Heegner index and the exceptional primes."
+    },
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.9, second paragraph",
+     "match": "Keep the analytic certificate distinct from the arithmetic descent certificate."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  },
+  {
+   "id": "RankZeroOneBSD:BSD.9/conditional-full-formula",
+   "parentStageId": "RankZeroOneBSD:BSD.9",
+   "realises": [
+    "RankZeroOneBSD:BSD.9"
+   ],
+   "title": "The full formula for the three test curves under explicit data",
+   "kind": "application",
+   "statement": "Assume for E₁₁, E₃₇, E₃₂: rational leading quotients L*/(Ω Reg_BSD) = 1/25, 1, 1/8; torsion orders 5, 1, 4; Tamagawa products 1, 1, 2; #Ш = 1, 1, 1 (conditional-sha-vanishing-fixtures); full real Néron periods; regulators 1, ĥ_x(P), 1 (P the saturated generator of E₃₇(ℚ)). Then bsdDefect = (1/25)·25/1 = 1, 1·1/1 = 1 and (1/8)·16/2 = 1, so PrimeValuationCertificate.ofAllPrimes applies and public-full-endpoint gives the full formula for each curve. The quotient data may be supplied by exact-rank-zero-quotient (rank zero) and by an exact value of L′(E₃₇,1)/(Ω ĥ_x(P)).",
+   "hypotheses": [
+    "Every numerical entry is a hypothesis about the actual invariant, not its definition and not a computation target."
+   ],
+   "proofSteps": [
+    "Substitute in BSD.5's definition of bsdDefect; build the certificate with BSD.8/certificate-from-all-primes; apply public-full-endpoint.",
+    "In rank zero the regulator is the empty determinant 1 (Tau Ceti regulator_eq_one_of_finrank_eq_zero and GZ.0/bsd-regulator)."
+   ],
+   "acceptance": [
+    "With quotient 1/2 on E₃₂ the defect is 4; with torsion order counted once on E₁₁ it is 1/5; counting c∞ again on E₃₇ halves it. Each wrong input is detected by the defect itself.",
+    "Rank equality and finite Ш do not imply these data."
+   ],
+   "prerequisites": [
+    "RankZeroOneBSD:BSD.9/public-full-endpoint",
+    "RankZeroOneBSD:BSD.9/conditional-sha-vanishing-fixtures",
+    "RankZeroOneBSD:BSD.9/exact-rank-zero-quotient",
+    "RankZeroOneBSD:BSD.5/rational-bsd-defect",
+    "RankZeroOneBSD:BSD.8/certificate-from-all-primes",
+    "RankZeroOneBSD:BSD.9/fixture-period-height-comparisons",
+    "tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
+    "GrossZagierAndArithmeticHeights:GZ.0/bsd-regulator"
+   ],
+   "library": {
+    "module": "TauCeti/NumberTheory/BSD/ComparisonExamples",
+    "namespace": "WeierstrassCurve.BSD"
+   },
+   "sources": [
+    {
+     "sourceId": "cremona-table1",
+     "locator": "Table 1, rows 11A3, 37A1, 32A2",
+     "match": "Torsion orders, Tamagawa numbers and ranks used as comparison data for the hypotheses."
+    },
+    {
+     "sourceId": "roadmap",
+     "locator": "BSD.8–BSD.9",
+     "match": "Full-formula corollaries only under a complete certificate."
+    }
+   ],
+   "implementationStatus": "unchecked"
+  }
+ ],
+ "requests": [
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+   "need": "The cyclic ℚ-rational isogeny with a given rational kernel, and the dual isogeny.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.9/rational-torsion-eisenstein-ordinary"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+   "need": "The Weil pairing with determinant the cyclotomic character, and the torsion subgroup API.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.9/rational-torsion-eisenstein-ordinary"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
+   "need": "The Hasse bound |a_p| ≤ 2√p for the Frobenius trace a_p = p + 1 − #Ẽ(𝔽_p), and finite-field point counts.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.9/coefficient-bound",
+    "RankZeroOneBSD:BSD.9/manin-closing-the-path",
+    "RankZeroOneBSD:BSD.9/rational-torsion-eisenstein-ordinary"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+   "need": "Reduction types (good, split and nonsplit multiplicative, additive) and potential good reduction ⇔ v_p(j) ≥ 0.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.9/cm-branch-range"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+   "need": "Reduction-injectivity of the rational torsion at good odd primes; the x-height canonical height and regulator normalisation.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.9/ec-bsd-statement-compatibility",
+    "RankZeroOneBSD:BSD.9/rational-torsion-eisenstein-ordinary"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+   "need": "Ш(E/ℚ), the BSD quotient with the explicit-integral real period, and the statement-only BSD milestone over ℚ with its analytic hypothesis.",
+   "neededBy": [
+    "RankZeroOneBSD:BSD.9/ec-bsd-statement-compatibility",
+    "RankZeroOneBSD:BSD.9/public-sha-endpoint"
+   ]
+  }
+ ],
+ "coverage": [
+  {
+   "stageId": "RankZeroOneBSD:BSD.9",
+   "status": "planned",
+   "remaining": [
+    "At assembly, apply supersededNodes and refinementEdges to the BSD.7 packet's BSD.9 nodes: drop analytic-fixture-enclosures (and with it the ComputationalNumberTheory:CN.4 prerequisite) and fixture-finite-arithmetic, and re-point rank-equality-example, whole-sha-finiteness-example, fixture-11-good-five and full-bsd-example as listed."
+   ]
+  }
+ ],
+ "gaps": [],
+ "sourceIssues": [],
+ "inheritedTargets": [
+  {
+   "node": "RankZeroOneBSD:BSD.9/away-from-prime",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/prime-obstruction",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/dyadic-gate",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-11",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-11-discriminant",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-11-elliptic",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-37",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-37-discriminant",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-37-elliptic",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-32",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-32-discriminant",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-32-elliptic",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/point-11",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/point-11-order",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/point-37",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/point-37-order",
+   "disposition": "retained as cited; the package defers it to the EllipticCurves worked examples (11.a3 torsion, 37.a1 rank)"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/point-32",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/point-32-order",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-11-good-five",
+   "disposition": "retained with computational inputs restated as hypotheses"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-32-cm-additive",
+   "disposition": "retained with computational inputs restated as hypotheses"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-period-height-comparisons",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/mellin-central-tail-bounds",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/analytic-fixture-enclosures",
+   "disposition": "superseded"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-finite-arithmetic",
+   "disposition": "superseded"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-11-isogeny-period",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/rank-equality-example",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/whole-sha-finiteness-example",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixed-prime-example",
+   "disposition": "retained unchanged"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/full-bsd-example",
+   "disposition": "retained with computational inputs restated as hypotheses"
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/missing-exception-fixture",
+   "disposition": "retained unchanged"
+  }
+ ],
+ "supersededNodes": [
+  {
+   "node": "RankZeroOneBSD:BSD.9/analytic-fixture-enclosures",
+   "by": [
+    "RankZeroOneBSD:BSD.9/explicit-nonvanishing-criterion",
+    "RankZeroOneBSD:BSD.9/conditional-fixture-ranks"
+   ],
+   "reason": "Its target is a replayed numerical interval computation resting on ComputationalNumberTheory CN.4, which the maintainer dropped on 2026-10-16; the mathematics is the general criterion, and the three curves' inequalities become hypotheses."
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-finite-arithmetic",
+   "by": [
+    "RankZeroOneBSD:BSD.9/odd-sha-from-heegner-index",
+    "RankZeroOneBSD:BSD.9/gross-37a-sha-vanishing",
+    "RankZeroOneBSD:BSD.9/conditional-sha-vanishing-fixtures"
+   ],
+   "reason": "Finite descents, saturation searches and annihilator replays are computations, not targets (maintainer decision 2026-10-16); the general Heegner-index and prime-part theorems that turn such data into Ш orders are planned here, the data become hypotheses."
+  }
+ ],
+ "partiallyRestatedNodes": [
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-11-good-five",
+   "by": [
+    "RankZeroOneBSD:BSD.9/rational-torsion-eisenstein-ordinary",
+    "RankZeroOneBSD:BSD.9/conditional-eisenstein-five"
+   ],
+   "reason": "Keep the statement; its point count mod 5 and isogeny construction become hypotheses, and the range test is the general rational-torsion theorem."
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/fixture-32-cm-additive",
+   "by": [
+    "RankZeroOneBSD:BSD.9/cm-branch-range",
+    "RankZeroOneBSD:BSD.9/conditional-full-formula"
+   ],
+   "reason": "Keep the model facts; the dyadic Tate-algorithm trace, conductor and torsion become hypotheses of the conditional applications, and the branch consequences of CM are the general theorem cm-branch-range."
+  },
+  {
+   "node": "RankZeroOneBSD:BSD.9/full-bsd-example",
+   "by": [
+    "RankZeroOneBSD:BSD.9/conditional-full-formula"
+   ],
+   "reason": "Its inputs become the explicit data hypotheses of conditional-full-formula; replace its prerequisite fixture-finite-arithmetic accordingly."
+  }
+ ],
+ "refinementEdges": [
+  {
+   "input": "RankZeroOneBSD:BSD.9/coefficient-bound",
+   "consumer": "RankZeroOneBSD:BSD.9/mellin-central-tail-bounds",
+   "note": "Promotes the coefficient estimate used in the parent's tail proof to its own lemma."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/exponential-integral-bounds",
+   "consumer": "RankZeroOneBSD:BSD.9/mellin-central-tail-bounds",
+   "note": "Supplies the bound E₁(x) < e^{−x}/x used in the derivative tail."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/conditional-fixture-ranks",
+   "consumer": "RankZeroOneBSD:BSD.9/rank-equality-example",
+   "note": "Replaces the prerequisite analytic-fixture-enclosures."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/conditional-fixture-ranks",
+   "consumer": "RankZeroOneBSD:BSD.9/whole-sha-finiteness-example",
+   "note": "Replaces the prerequisite analytic-fixture-enclosures."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/conditional-fixture-ranks",
+   "consumer": "RankZeroOneBSD:BSD.9/fixture-11-good-five",
+   "note": "Replaces the prerequisite analytic-fixture-enclosures."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/conditional-eisenstein-five",
+   "consumer": "RankZeroOneBSD:BSD.9/fixed-prime-example",
+   "note": "The general range test and the Keller–Yin instance."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/conditional-sha-vanishing-fixtures",
+   "consumer": "RankZeroOneBSD:BSD.9/full-bsd-example",
+   "note": "Replaces the prerequisite fixture-finite-arithmetic."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/conditional-full-formula",
+   "consumer": "RankZeroOneBSD:BSD.9/full-bsd-example",
+   "note": "The explicit-data form of the application."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/exact-rank-zero-quotient",
+   "consumer": "RankZeroOneBSD:BSD.9/fixture-11-isogeny-period",
+   "note": "Supplies the exact N = 11 modular-symbol ratio L(11a1,1)/Ω = 1/5 that the parent imports."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/cm-branch-range",
+   "consumer": "RankZeroOneBSD:BSD.9/fixture-32-cm-additive",
+   "note": "The CM and nonsemistability consequences for the named branches."
+  },
+  {
+   "input": "RankZeroOneBSD:BSD.9/dyadic-branch-exclusion",
+   "consumer": "RankZeroOneBSD:BSD.9/missing-exception-fixture",
+   "note": "Shows that no named branch can supply the deleted dyadic entry."
+  }
+ ],
+ "planetProposals": [
+  {
+   "node": "RankZeroOneBSD:BSD.9/analytic-fixture-enclosures",
+   "proposal": "Its planet 'Certified rank zero and one examples' leaves the atlas with the node; the layer's analytic planet is now 'Explicit nonvanishing criterion for L(E,1)'. With this packet's four planets and the parent's two remaining BSD.9 planets (fixture-11-good-five, fixture-32-cm-additive) the layer shows six."
+  }
+ ],
+ "decisions": [
+  {
+   "topic": "Computations are not targets",
+   "detail": "The maintainer's decision of 2026-10-16 (research/blueprint/upstream/drops.json; FIX-PKG-RankZeroOneBSD~adv2 instructions) drops ComputationalNumberTheory CN.4 and makes the explicit modular-curve and 32a2 data hypotheses of the final theorems. The parent's remaining item 'supply/replay all stated rigorous central-value enclosures and finite arithmetic, local, period, saturation and whole-Sha certificates' is therefore read as: plan the general theorems those replays would use, and restate the applications with the data as hypotheses."
+  },
+  {
+   "topic": "Exponential integral",
+   "detail": "E₁ = Γ(0, ·) is imported from QSeriesPartitionsAndMockModularForms QM.3/upper-incomplete-gamma, which plans the upper incomplete gamma for every real s; no second carrier is defined here."
+  },
+  {
+   "topic": "Kolyvagin's dyadic refinement for 37a",
+   "detail": "Gross reports that for X₀(37)/w₃₇ Kolyvagin shows t_{E/K} = 1 when I_K is odd; Kolyvagin's paper was not read, so the 2-primary part is a stated descent hypothesis instead."
+  }
+ ],
+ "upstreamNotes": [
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+   ],
+   "note": "Layer 7's statement-only BSD milestone and Layer 6's x-height regulator are met by RankZeroOneBSD's ellipticL, analyticRank, leadingTerm and Reg_BSD (ec-bsd-statement-compatibility); at the pinned Tau Ceti the canonical height is half the upstream normalisation, so an instance at the pin carries the factor 2^r."
+  }
+ ]
+}
