@@ -5,8 +5,8 @@
  "scope": [
   "MotivesAndAlgebraicCycles:MC.4"
  ],
- "status": "complete",
- "summary": "Follow-up part of the blueprint of Algebraic cycles, pure and mixed motives for its layer MC.4 (geometric mixed motives and motivic cohomology). The accepted base packet left MC.4 partial with three source gaps: the Friedlander-Voevodsky duality and shifting theorems were cited without proof, the Gysin triangle and smooth blow-up formula were proved only under resolution of singularities, the functor from Chow motives was asserted but not constructed, and the transfers and functoriality of the sheaves of equidimensional cycles were left as an exercise. This part reads the four papers of Cycles, Transfers and Motivic Homology Theories that those statements rest on (Suslin-Voevodsky on relative cycles, Voevodsky on presheaves with transfers and on triangulated categories of motives, Friedlander-Voevodsky on bivariant cycle cohomology) and Friedlander-Lawson's moving lemma, and plans the missing mathematics in 17 nodes: the transfers, pushforward, flat pullback, exterior product and duality embedding of z_equi; bivariant cycle cohomology with its localisation, the moving lemma for bounded families, the two duality theorems, the comparison of naive and cdh groups, the duality, suspension and Gysin theorems, and the identification of morphisms into motives with compact support, which proves the shifting and duality statements MVW cite; the functor from Chow motives with its full faithfulness; the smooth blow-up triangle, the blow-up formula with the Gysin map and the Gysin triangle over every perfect field, including the layer's acceptance test at a closed point of a curve; and, answering requests from PeriodsAndSpecialValues:PS.9 and LogicAndDefinabilityInNumberTheory:LD.3, the category of Tate motives, the Grothendieck ring of varieties and the motivic measure given by motives with compact support. Cdh topology, relative cycles, resolution of singularities, etale coordinates for smooth pairs and Chow varieties over infinite fields are requested from their owners. MC.4 is planned; what remains is a finite-field gap in the moving lemma, the requests, and rewiring the base packet's nodes onto these. Nothing is claimed formalised.",
+ "status": "partial",
+ "summary": "Complete independent review pass of the 17-node MC.4 follow-up, accepted with partial layer coverage. The packet plans equidimensional-cycle transfers and external products, bivariant cycle cohomology and duality, a Chow-motive functor, perfect-field blow-up and Gysin targets, Tate motives, the variety scissor ring and compact-support motivic measure. Corrections distinguish independent-base tensor pairings from same-base transfer products, admissible Chow parameters from all Chow morphisms, positive moving families from signed operations, spectra from complex descent, general fields from algebraically closed intersection statements, integral divisor sequences from derived coefficient change, and categorical Gysin normalization from Chow specialization. Triangulated K_0 and its additive API are already at the pinned Tau Ceti commit and are imported. Finite-field moving descent, effective-family realization, Gysin normalization, seven supplier interfaces and base-packet rewiring remain precise obligations. No motivic target is claimed implemented; MC.5-MC.7 are outside this part.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -15,7 +15,7 @@
     "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
-    "provides": "Proper pushforward of algebraic cycles along a quasi-compact morphism with dimension weights; the cycle-level pushforward used for z_equi.",
+    "provides": "Weighted pushforward of locally finite algebraic cycles along a quasi-compact morphism, with supplied dimension weights and residue degrees. This is raw cycle infrastructure; proper pushforward functoriality, relative-cycle compatibility and passage to Chow groups still come from SF.5 and the relative-cycle request.",
     "checked": "Statement read at the pinned commit, Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean:69."
    },
    {
@@ -57,7 +57,7 @@
     "ref": "mathlib:FreeAbelianGroup",
     "kind": "def",
     "module": "Mathlib/GroupTheory/FreeAbelianGroup.lean",
-    "provides": "The free abelian group on a type; underlies K_0(Var_k) and the Grothendieck group of a triangulated category.",
+    "provides": "The free abelian group on a type; used for the new variety-scissor quotient. Generic triangulated K_0 is imported from Tau Ceti rather than rebuilt with this definition.",
     "checked": "Statement read at the pinned commit, Mathlib/GroupTheory/FreeAbelianGroup.lean:96."
    },
    {
@@ -78,8 +78,50 @@
     "ref": "mathlib:Localization",
     "kind": "abbrev",
     "module": "Mathlib/GroupTheory/MonoidLocalization/Basic.lean",
-    "provides": "The localisation of a commutative monoid (ring) at a submonoid.",
+    "provides": "The commutative-monoid localisation carrier, an Ore localisation. The commutative-ring structure and its universal property are consumed through Mathlib ring-localisation instances and IsLocalization.lift, not supplied by this abbreviation alone.",
     "checked": "Statement read at the pinned commit, Mathlib/GroupTheory/MonoidLocalization/Basic.lean:210."
+   },
+   {
+    "ref": "tauceti:TauCeti.TriangulatedK0",
+    "kind": "def",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+    "provides": "Grothendieck group of an essentially small pretriangulated preadditive category with zero object and additive integer shifts. Its universe is controlled by EssentiallySmall; it is already the quotient by distinguished-triangle relations.",
+    "checked": "Statement and all surrounding typeclass hypotheses read at Tau Ceti f790474, TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean:138; independently checked in this review."
+   },
+   {
+    "ref": "tauceti:TauCeti.TriangulatedK0.of",
+    "kind": "def",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+    "provides": "Class map from objects into the existing triangulated Grothendieck group.",
+    "checked": "Statement and all surrounding typeclass hypotheses read at Tau Ceti f790474, TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean:146; independently checked in this review."
+   },
+   {
+    "ref": "tauceti:TauCeti.TriangulatedK0.of_distTriang",
+    "kind": "theorem",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+    "provides": "For T distinguished, the class of T.obj2 is the sum of the classes of T.obj1 and T.obj3.",
+    "checked": "Statement and all surrounding typeclass hypotheses read at Tau Ceti f790474, TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean:153; independently checked in this review."
+   },
+   {
+    "ref": "tauceti:TauCeti.TriangulatedK0.of_eq_sub_of_distTriang",
+    "kind": "theorem",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+    "provides": "For T distinguished, the class of its third object is the class of its second minus its first.",
+    "checked": "Statement and all surrounding typeclass hypotheses read at Tau Ceti f790474, TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean:168; independently checked in this review."
+   },
+   {
+    "ref": "tauceti:TauCeti.TriangulatedK0.of_shift",
+    "kind": "theorem",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+    "provides": "For every integer n, the class of X shifted by n is (-1)^n times the class of X. In particular shifting by two preserves the class.",
+    "checked": "Statement and all surrounding typeclass hypotheses read at Tau Ceti f790474, TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean:200; independently checked in this review."
+   },
+   {
+    "ref": "tauceti:TauCeti.TriangulatedK0.liftEquiv",
+    "kind": "def",
+    "module": "TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean",
+    "provides": "Triangle-additive, isomorphism-invariant object assignments with values in an additive commutative group G correspond to additive homomorphisms out of TriangulatedK0 C.",
+    "checked": "Statement and all surrounding typeclass hypotheses read at Tau Ceti f790474, TauCeti/CategoryTheory/GrothendieckGroup/Triangulated.lean:277; independently checked in this review."
    }
   ]
  },
@@ -89,7 +131,7 @@
    "title": "Triangulated categories of motives over a field",
    "authors": "Vladimir Voevodsky",
    "edition": "In E. M. Friedlander, A. Suslin, V. Voevodsky, Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 188-238. Read in the author's preprint posted on his IAS publications page (56 pages); page numbers in locators are those of the preprint.",
-   "url": "http://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s5_0.pdf",
+   "url": "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s5_0.pdf",
    "accessed": "2026-10-19",
    "sha256": "b15df626bd9e0bc41080dc7712ae8bab8bc8cd2ad8d20bf668593ce87eee70ad",
    "readSections": [
@@ -106,7 +148,7 @@
    "title": "Bivariant cycle cohomology",
    "authors": "Eric M. Friedlander and Vladimir Voevodsky",
    "edition": "In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 138-187. Read in the preprint posted on Voevodsky's IAS publications page (55 pages); page numbers in locators are those of the preprint.",
-   "url": "http://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s4.pdf",
+   "url": "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s4.pdf",
    "accessed": "2026-10-19",
    "sha256": "c5edd97134be2d8e3d625b54e604739e6a25590ce686acc8a71a316cfa104554",
    "readSections": [
@@ -124,7 +166,7 @@
    "title": "Relative cycles and Chow sheaves",
    "authors": "Andrei Suslin and Vladimir Voevodsky",
    "edition": "In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 10-86. Read in the preprint posted on Voevodsky's IAS publications page (86 pages); page numbers in locators are those of the preprint.",
-   "url": "http://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s2.pdf",
+   "url": "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s2.pdf",
    "accessed": "2026-10-19",
    "sha256": "4f2cfb7162e9ca5febd9010ffca3a3d1ebe3e34b7031c6d514bd02b00e53ce92",
    "readSections": [
@@ -139,7 +181,7 @@
    "title": "Cohomological theory of presheaves with transfers",
    "authors": "Vladimir Voevodsky",
    "edition": "In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 87-137. Read in the K-theory preprint archive copy (preprint 0368, file s3.pdf, 56 pages) retrieved through the Internet Archive; page numbers in locators are those of that copy.",
-   "url": "https://web.archive.org/web/2016/http://www.math.uiuc.edu/K-theory/0368/s3.pdf",
+   "url": "https://web.archive.org/web/20160101000000id_/http://www.math.uiuc.edu/K-theory/0368/s3.pdf",
    "accessed": "2026-10-19",
    "sha256": "5072e58b964d8883e76f2e0f98ba9c73ecf8f43b6ab88129caae8294699434aa",
    "readSections": [
@@ -178,6 +220,18 @@
     "Lecture 16, Definition 16.1, Exercise 16.3, Theorems 16.22 and 16.24, Corollary 16.23",
     "Lecture 20, Proposition 20.1 and Remark 20.2"
    ]
+  },
+  {
+   "id": "Bittner.2001",
+   "title": "The universal Euler characteristic for varieties of characteristic zero",
+   "authors": "Franziska Bittner",
+   "edition": "arXiv:math/0111062v1, 7 November 2001. The conventions on p. 2 assume characteristic zero and reduced varieties; only the scissor-ring definition before Theorem 3.1 is used. The elementary construction here is given for any field and permits nonreduced schemes, whose classes reduce by scissors.",
+   "url": "https://arxiv.org/pdf/math/0111062v1",
+   "accessed": "2026-10-19",
+   "sha256": "484d2c3586977503dc6f1b43fca158af059cd0f9c5322731d0ebae6d643e160c",
+   "readSections": [
+    "Conventions (p. 2); section 3, the scissor-ring definition immediately before Theorem 3.1 (p. 3). No use of the characteristic-zero blow-up presentation."
+   ]
   }
  ],
  "nodes": [
@@ -189,19 +243,19 @@
    ],
    "title": "Transfers, pushforward, flat pullback and products on the sheaves of equidimensional cycles",
    "kind": "construction",
-   "statement": "Let k be a field, X a scheme of finite type over k and r >= 0, and let z_equi(X, r) be the presheaf on Sm/k of MotivesAndAlgebraicCycles:MC.4/equidimensional-cycle-sheaves, whose restriction maps are the base changes cycl(f) of relative cycles. (i) Transfers. For smooth schemes U', U and an elementary finite correspondence W in Cor_k(U', U) (an integral closed W in U' x U, finite and surjective over a component of U'), the transfer W^*: z_equi(X, r)(U) -> z_equi(X, r)(U') sends a cycle Z on U x X, equidimensional of relative dimension r over U, to the pushforward along the finite map W x X -> U' x X of the base change cycl(W -> U)(Z) of Z along the composite W -> U' x U -> U; extended linearly, these maps make z_equi(X, r) a presheaf with transfers whose underlying presheaf is the given one (the transfer along the graph of f: U' -> U is cycl(f)); it is a Nisnevich, indeed etale, sheaf with transfers. For X proper and r = 0 it is the representable sheaf with transfers Z_tr(X), transfers included. (ii) Proper pushforward. For p: X -> Y proper, pushforward of cycles p_*: z_equi(X, r) -> z_equi(Y, r) is a morphism of presheaves with transfers, with (p'p)_* = p'_* p_*. (iii) Flat pullback. For q: W -> X flat and equidimensional of relative dimension n, flat pullback q^*: z_equi(X, r) -> z_equi(W, r + n) is a morphism of presheaves with transfers, with (q q')^* = q'^* q^*. (iv) Base change. For a cartesian square with q flat equidimensional and p proper, q^* p_* = p'_* q'^*. (v) Exterior product. Fibre product over the base gives z_equi(X, r)(U) x z_equi(Y, s)(U) -> z_equi(X x Y, r + s)(U), bilinear, natural in U and compatible with transfers in each variable, hence a morphism z_equi(X, r) tensor_tr z_equi(Y, s) -> z_equi(X x Y, r + s) of presheaves with transfers; for r = s = 0 it is the map M^c(X) tensor M^c(Y) -> M^c(X x Y) used in MC.4/compact-support-kunneth. (vi) Duality embedding. For U smooth and equidimensional of dimension n, write z_equi(U, X, r) for the presheaf V -> z_equi(X, r)(U x V); regarding a cycle on X x U x V as a cycle over V gives an injective morphism of presheaves with transfers D: z_equi(U, X, r) -> z_equi(X x U, r + n), compatible with p_* and q^* in X.",
+   "statement": "Let k be a field, X a scheme of finite type over k and r >= 0, and let z_equi(X, r) be the presheaf on Sm/k of MotivesAndAlgebraicCycles:MC.4/equidimensional-cycle-sheaves, whose restriction maps are the base changes cycl(f) of relative cycles. (i) Transfers. For smooth schemes U', U and an elementary finite correspondence W in Cor_k(U', U) (an integral closed W in U' x U, finite and surjective over a component of U'), the transfer W^*: z_equi(X, r)(U) -> z_equi(X, r)(U') sends a cycle Z on U x X, equidimensional of relative dimension r over U, to the pushforward along the finite map W x X -> U' x X of the base change cycl(W -> U)(Z) of Z along the composite W -> U' x U -> U; extended linearly, these maps make z_equi(X, r) a presheaf with transfers whose underlying presheaf is the given one (the transfer along the graph of f: U' -> U is cycl(f)); it is a Nisnevich, indeed etale, sheaf with transfers. For X proper and r = 0 it is the representable sheaf with transfers Z_tr(X), transfers included. (ii) Proper pushforward. For p: X -> Y proper, pushforward of cycles p_*: z_equi(X, r) -> z_equi(Y, r) is a morphism of presheaves with transfers, with (p'p)_* = p'_* p_*. (iii) Flat pullback. For q: W -> X flat and equidimensional of relative dimension n, flat pullback q^*: z_equi(X, r) -> z_equi(W, r + n) is a morphism of presheaves with transfers, with (q q')^* = q'^* q^*. (iv) Base change. For a cartesian square with q flat equidimensional and p proper, q^* p_* = p'_* q'^*. (v) Exterior product. Independent parameter schemes U and V give bilinear maps z_equi(X, r)(U) x z_equi(Y, s)(V) -> z_equi(X x Y, r + s)(U x V), natural for independent finite correspondences alpha and beta through alpha box beta. They induce z_equi(X, r) tensor_tr z_equi(Y, s) -> z_equi(X x Y, r + s) for the Day tensor product of presheaves with transfers. The same-base product is its restriction along the diagonal U -> U x U; it is natural for ordinary morphisms, but is not separately compatible with transfers on the same base. For r = s = 0 the external product induces the compact-support Kuenneth map. (vi) Duality embedding. For U smooth and equidimensional of dimension n, write z_equi(U, X, r) for the presheaf V -> z_equi(X, r)(U x V); regarding a cycle on X x U x V as a cycle over V gives an injective morphism of presheaves with transfers D: z_equi(U, X, r) -> z_equi(X x U, r + n), compatible with p_* and q^* in X.",
    "hypotheses": [
     "k is any field; X, Y, W are of finite type over k; U, U', V are smooth over k.",
-    "Every base of a relative cycle used here is smooth, hence regular, so base change of equidimensional cycles has integral coefficients and needs no inverted characteristic (Suslin-Voevodsky, Relative cycles and Chow sheaves, Proposition 3.3.15 and Corollary 3.4.5; MVW Theorems 1A.6, 1A.8 and 1A.10). That theory of relative cycles is requested from MotivicEtaleKTheory:M.5a, which owns relative cycles for finite correspondences.",
+    "The initial parameter U is smooth, hence regular. SV Proposition 3.3.15 and Corollary 3.4.5 give universal integrality of its relative cycles: pullback remains integral even along a singular correspondence support W -> U. No characteristic is inverted. This relative-cycle theory is requested from MotivicEtaleKTheory:M.5a.",
     "For (iii) and (iv), q is flat and every fibre of q has pure dimension n."
    ],
    "proofSteps": [
     "Presheaf structure: by SV Theorem 3.4.2 and Corollary 3.4.5 a cycle on U x X equidimensional of relative dimension r over the regular scheme U is a relative cycle in SV's sense with universally integral base changes (SV Proposition 3.3.15); SV Theorem 3.3.1 gives cycl(f) for every f: U' -> U and its functoriality (imported from M.5a by request).",
-    "Transfers: in SV's notation W^*(Z) is the correspondence homomorphism Cor(cycl(pr)(Z), [W]) of SV section 3.7. SV Theorem 3.7.3 shows that it is a relative cycle of relative dimension r over U' and that it commutes with base change in U', so W^* is natural in U'; SV Proposition 3.7.7 and Corollary 3.7.8 (associativity of correspondence homomorphisms) give (W' o W)^* = W^* W'^* for the composition of finite correspondences of M.5a/finite-correspondence, which MVW Definition 1A.11 identifies with the correspondence composition; for the graph of f the correspondence homomorphism is cycl(f) (MVW 1A.11, last paragraph). The sheaf property is the one recorded after MVW Definition 16.1.",
+    "Transfers: in SV's notation W^*(Z) is the correspondence homomorphism Cor(cycl(pr)(Z), [W]) of SV section 3.7. SV Theorem 3.7.3 shows that it is a relative cycle of relative dimension r over U' and that it commutes with base change in U', so W^* is natural in U'; SV Proposition 3.7.7 and Corollary 3.7.8 (associativity of correspondence homomorphisms) give for W: U' -> U and W': U'' -> U', (W o W')^* = W'^* o W^* for the composition of finite correspondences of M.5a/finite-correspondence, which MVW Definition 1A.11 identifies with the correspondence composition; for the graph of f the correspondence homomorphism is cycl(f) (MVW 1A.11, last paragraph). The sheaf property is the one recorded after MVW Definition 16.1.",
     "Proper case: for X proper a closed subvariety of U x X quasi-finite and proper over U is finite (MVW Example 16.2, SV Corollary 3.4.6), so z_equi(X, 0)(U) = Cor_k(U, X); both transfer structures are correspondence homomorphisms, hence equal.",
     "Pushforward: SV Proposition 3.6.2 shows that p_* of a relative cycle is relative and commutes with base change, and SV Corollary 3.6.3 gives functoriality; compatibility with transfers is SV Proposition 3.7.6 (FV Proposition 5.8(1)).",
     "Flat pullback: SV Lemma 3.6.4 (relative cycles pull back with the dimension shift, compatibly with base change; FV Proposition 2.1); compatibility with transfers by SV Lemma 3.7.2; base change square by SV Proposition 3.6.5.",
-    "Exterior product: SV, end of section 3.7, defines it as cycl(p_Y) followed by the correspondence homomorphism; its naturality and transfer compatibility follow from SV 3.7.3 and 3.7.7; a family of pairings natural in both variables and compatible with transfers in each variable is the same as a morphism out of the tensor product of presheaves with transfers (M.5a/tensor-product-transfers, MVW Definition 8.2 and Lemma 8.3).",
+    "Exterior product: use independent parameter bases U and V and the external product of relative cycles (SV section 3.7, pp. 54-55). SV 3.7.3 and 3.7.7 give (alpha box beta)^*(a box b) = alpha^*a box beta^*b. This is the pairing required by the Day tensor universal property (M.5a/tensor-product-transfers, MVW Definition 8.2 and Lemma 8.3). Restricting to a common base does not give separate transfer linearity: for the point and alpha = d times the identity, transferring a product gives d ab, whereas multiplying both transferred factors gives d^2 ab.",
     "Duality embedding: SV Theorem 3.7.3 gives cycl(f)(Z) = cycl(id_U x f)(Z) for f: V' -> V (FV p. 5), so D is a morphism of presheaves; it is a morphism of presheaves with transfers by FV Proposition 5.8(3), and injectivity is clear on cycles."
    ],
    "acceptance": [
@@ -264,7 +318,7 @@
     {
      "name": "zEqui.transfer_comp",
      "role": "functoriality",
-     "statement": "(W' o W)^* = W^* o W'^* for composable finite correspondences, and the identity correspondence acts as the identity."
+     "statement": "For W: U' -> U and W': U'' -> U', (W o W')^* = W'^* o W^*; the identity correspondence acts as the identity."
     },
     {
      "name": "zEqui.toPST",
@@ -294,7 +348,7 @@
     {
      "name": "zEqui.extProduct",
      "role": "structure",
-     "statement": "The exterior product z_equi(X, r) tensor_tr z_equi(Y, s) -> z_equi(X x Y, r + s), associative, commutative up to the swap of factors, and unital with unit the class of Spec k in z_equi(Spec k, 0)."
+     "statement": "The independent-base pairing on U,V, natural for alpha box beta, induces z_equi(X,r) tensor_tr z_equi(Y,s) -> z_equi(X x Y,r+s). It is associative, symmetric under swapping both sets of factors, and unital with the point class. Diagonal restriction is natural for morphisms, not separately for same-base transfers."
     },
     {
      "name": "zEqui.dualityEmbedding",
@@ -347,12 +401,17 @@
     {
      "name": "zEqui_pushforward_needs_proper",
      "kind": "non-example",
-     "statement": "For the non-proper projection A^1_t -> Spec k, pushing forward the hyperbola st = 1 in z_equi(A^1_t, 0)(A^1_s) gives the cycle G_m x Spec k on A^1_s, which is not closed in A^1_s; so there is no pushforward along non-proper maps."
+     "statement": "For the non-proper projection A^1_t -> Spec k, pushing forward the hyperbola st = 1 in z_equi(A^1_t, 0)(A^1_s) gives the cycle G_m x Spec k on A^1_s, which is not closed in A^1_s; so an unrestricted pushforward of these presheaves cannot be defined for arbitrary non-proper maps."
     },
     {
      "name": "zEqui_extProduct_points",
      "kind": "computation",
      "statement": "The exterior product of the classes of closed points x of X and y of Y with k(x) = k(y) = k is the class of the point (x, y) of X x Y."
+    },
+    {
+     "name": "zEqui_external_transfer_degree",
+     "kind": "non-example",
+     "statement": "For X = Y = U = V = Spec k, alpha = d id and beta = id, independent-base transfer sends a box b to d ab. With d = 2 and a = b = 1 this is 2; multiplying two same-base transferred factors gives 4 and must not be the external-product naturality law."
     }
    ],
    "implementationStatus": "unchecked"
@@ -552,14 +611,14 @@
    "statement": "Let k be an infinite field, X in P^N a smooth projective equidimensional scheme of dimension m over k, and d, e, r, s >= 0 with r + s >= m. There are homomorphisms of abelian monoids H^+_U, H^-_U: z^eff_equi(X, r)(U) -> z^eff_equi(X, r)(U x A^1), defined for all smooth schemes U over k, such that: (1) they are natural in U (H_{U'} cycl(f) = cycl(f x id) H_U for f: U' -> U); (2) for every geometric point xbar of U x {0} and every Z in z^eff_equi(X, r)(U) of degree <= d, cycl(xbar)(H^+(Z)) = cycl(xbar)(H^-(Z)) + cycl(xbar)(Z), and the components of excess dimension of the intersection of either cycl(xbar)(H^{+-}(Z)) with an effective s-cycle W of degree <= e lie in Supp(cycl(xbar)Z) cap Supp(W); (3) for every geometric point xbar of U x (A^1 - {0}) and every such Z and W, the cycles cycl(xbar)(H^{+-}(Z)) meet W properly. Here z^eff_equi(X, r)(U) is the monoid of effective cycles of z_equi(X, r)(U) and the degree is taken in the fibres.",
    "hypotheses": [
     "k is infinite. Friedlander and Lawson prove their moving lemma when k is infinite or a finite field that is large enough for the given degrees; Friedlander-Voevodsky state the presheaf form over an arbitrary field (MotivesAndAlgebraicCycles/E101).",
-    "Chow varieties C_{r,d}(X) of effective r-cycles of degree d on X over k, their monoid C_r(X), continuous algebraic maps between them, and the comparison of z^eff_equi(X, r)(U) with morphisms U -> C_r(X) for U smooth quasi-projective (FV Proposition 2.3, from Friedlander 1991, 1.4) are requested from AlgebraicModuliForArithmeticGeometry:R09.1, whose R09.1/chow-parameters supplies them over algebraically closed fields of characteristic zero."
+    "Chow parameters over general infinite fields are requested from AlgebraicModuliForArithmeticGeometry:R09.1. FV Proposition 2.3 (pp. 6-8) sends every effective relative cycle over smooth quasi-projective U to a Chow morphism. The converse requires that the generic cycle have field of definition equal to the residue field of the Chow point; arbitrary morphisms to the Chow monoid need not lift. The requested operations must preserve this admissible locus. R09.1/chow-parameters currently assumes an algebraically closed characteristic-zero field and does not supply this generality."
    ],
    "proofSteps": [
     "Projective cones (FL section 1, FV Proposition 6.2): for a generic family F of m + 1 forms of a large degree D, the projection p_F: X -> P^m is finite and flat, and R_F(Z) = p_F^* p_{F*}(Z) - Z has excess intersections with every effective s-cycle of degree <= e only inside the ramification locus of p_F (FL Theorem 1.7, Proposition 1.9); R_F is a morphism of presheaves built from flat pullback and proper pushforward (MC.4/equidimensional-cycles-transfers (ii), (iii)).",
     "Iterating m + 1 generic projections writes every effective r-cycle as an alternating sum of pullbacks of cycles from P^m and a cycle R_{F_m} ... R_{F_0}(Z) meeting every effective s-cycle of degree <= e properly (FL formula (1.9.1)).",
     "Moving in P^m (FL section 2): linear projections from (t - 1)-planes L_j of P^{m+t} give continuous algebraic maps Theta_N on C_r(P^m) x l^o, with l^o open in a line, whose values at t != 0 meet every cycle of degree <= e properly and whose value at 0 is a fixed multiple of the identity (FL Propositions 2.3-2.5, Theorem 2.6); k-rational points avoiding the finitely many bad loci exist because k is infinite.",
-    "Combine (FL Theorem 3.1), choosing two sequences of degrees with coprime products M + 1 and M, to obtain Psi^{+-} on C_r(X) x O with O open in P^1, and extend O to A^1 by a finite map g: P^1 -> P^1 (FL Theorem 3.8).",
-    "Presheaf form (FV Theorems 6.1 and 6.3): through FV Proposition 2.3 the continuous algebraic maps act on z^eff_equi(X, r)(U) for U smooth; the extension from an open V of A^1 to A^1 is the composite of flat pullback with the transfer along the finite correspondence Gamma = m Gamma_u + n Gamma_w over A^1 (MC.4/equidimensional-cycles-transfers (i)), and properties (1)-(3) are checked fibrewise."
+    "Combine the two coprime-degree projection constructions as in FL Theorem 3.1 (pp. 19-22), obtaining positive monoid maps Psi^+, Psi^- on an open O in P^1 containing 0. Use FL Theorem 3.8 (pp. 25-26) to extend to A^1: choose finite g: O -> A^1 with 0 a simple point of g^{-1}(0). Define H^+ by the positive finite pushforward of Psi^+ plus the constant family obtained by summing Psi^- over the nonzero part of g^{-1}(0); define H^- with signs exchanged. The extra constant families cancel the unwanted zero-fibre contributions, leaving H^+_0 - H^-_0 = Z. They already meet the bounded test cycles properly, since their parameter points are nonzero. Multiplicities and residue degrees in every sum are those of finite pushforward.",
+    "To obtain effective relative families, realize the Chow constructions on the field-of-definition locus of FV Proposition 2.3 and verify compatibility with relative-cycle base change, first for quasi-projective U and then by Zariski gluing. This realization is an explicit remaining request to R09.1, not an identification of every Chow morphism with a relative cycle. FV Theorem 6.1 instead extends using a signed correspondence m Gamma_u + n Gamma_w (pp. 31-33); that gives an additive-group operation but does not establish preservation of the effective monoid when a coefficient is negative (E107). The positive FL extension supplies the route; its family realization remains open in this plan."
    ],
    "acceptance": [
     "For U = Spec k and t = 0 the two moved cycles differ by Z itself; for t != 0 they meet every effective s-cycle of degree <= e properly.",
@@ -577,18 +636,18 @@
    "sources": [
     {
      "sourceId": "FL.Moving",
-     "locator": "Theorem 1.7 (preprint p. 10), Proposition 1.9 (p. 12), Propositions 2.3-2.5 and Theorem 2.6 (pp. 15-18), Theorem 3.1 (p. 19) and Theorem 3.8 (p. 25)",
+     "locator": "Theorem 1.7 (preprint pp. 10-12), Proposition 1.9 (p. 12), Propositions 2.3-2.5 and Theorem 2.6 (pp. 15-19), Theorem 3.1 (pp. 19-22), Theorem 3.8 and its positive-sum proof (pp. 25-26)",
      "match": "The projective cone construction, moving in projective space by linear projections, the moving lemma for cycles of bounded degree over an infinite or sufficiently large finite field, and its extension to A^1."
     },
     {
      "sourceId": "FV.BivCycl",
      "locator": "Section 6: Theorem 6.1 (preprint p. 30), Proposition 6.2 (p. 33), Theorem 6.3 (p. 34)",
-     "match": "The moving lemma recast as natural maps of presheaves of effective equidimensional cycles, with the transfer argument extending the parameter to A^1."
+     "match": "Presheaf moving targets, restricted here to infinite fields; the signed extension in the proof of 6.1 does not by itself preserve effective cycles. The positive FL 3.8 construction and its relative-family realization are distinguished in the proof plan."
     },
     {
      "sourceId": "FV.BivCycl",
      "locator": "Section 2, Chow varieties and Proposition 2.3 (preprint pp. 6-8)",
-     "match": "Effective equidimensional cycles over a smooth quasi-projective U and morphisms from U to the Chow monoid."
+     "match": "Effective relative cycles determine Chow morphisms; the reverse direction is conditional on the generic cycle field of definition. No unconditional parametrization bijection is imported."
     }
    ],
    "implementationStatus": "unchecked"
@@ -607,8 +666,8 @@
     "X and Y are smooth and projective; no resolution of singularities is used."
    ],
    "proofSteps": [
-    "Embed X x Y in some P^N, fix e bounding the degrees of the fibres {x} x Y, and for each d take H = H^+ - H^- from MC.4/bounded-family-moving-lemma applied to X x Y with the dimensions r + dim Y and dim Y.",
-    "Apply FV Lemma 6.6 with F = z_equi(X x Y, r + dim Y), F_d its cycles of degree <= d and G the image of D: H commutes with base change (property (1)), at t = 0 it is the identity up to the moved difference (property (2b)), and at t = 1 it lands in G because a cycle on X x Y x U equidimensional over U lies in the image of D as soon as each geometric fibre is equidimensional over X (FV Proposition 6.4, effective cycles; property (3)); property (2a) shows that H preserves G cap F_d.",
+    "Embed X x Y in P^N and bound the degrees of the fibres X x {y} of the projection to Y. Apply the bounded-family moving lemma to cycles of dimension r + dim Y and test cycles of dimension dim X, so the expected intersection dimension is r. This corrects the X/Y swap in the IAS proof of FV Theorem 7.1 (p. 38; E106).",
+    "Apply FV Lemma 6.6 with F = z_equi(X x Y, r + dim Y), F_d its cycles of degree <= d and G the image of D: H commutes with base change (property (1)), at t = 0 it is the identity up to the moved difference (property (2b)), and at t = 1 it lands in G because a cycle on X x Y x U equidimensional over U lies in the image of D as soon as each geometric fibre is equidimensional over Y (FV Proposition 6.4, effective cycles; property (3)); property (2a) shows that H preserves G cap F_d.",
     "FV Lemma 6.6 then makes C_*(G) -> C_*(F) a quasi-isomorphism of complexes of presheaves; D is injective, so this is the statement on h_i (FV Theorem 7.1).",
     "For r = 0, z_equi(X, 0)(Y x V) = Cor_k(Y x V, X) because X is proper (MC.4/equidimensional-cycles-transfers), so h_0(z_equi(Y, X, 0))(Spec k) = h_0(Y, X); and h_0(z_equi(T, s))(Spec k) is CH_s(T) (FV Theorem 4.2(1): a rational equivalence on T is a cycle on T x P^1, restricted to T x A^1 after moving the two fibres to 0 and 1)."
    ],
@@ -626,7 +685,7 @@
    "sources": [
     {
      "sourceId": "FV.BivCycl",
-     "locator": "Proposition 6.4 (preprint p. 35), Lemma 6.6 (p. 36), Theorem 7.1 with its proof (p. 37)",
+     "locator": "Proposition 6.4 (preprint p. 35), Lemma 6.6 (pp. 36-37), Theorem 7.1 and proof (pp. 37-38)",
      "match": "Fibrewise criterion for lying in the image of D, the homotopy lemma, and the duality theorem for smooth projective X and Y over a field."
     },
     {
@@ -696,12 +755,12 @@
    "statement": "Let k be an infinite field admitting resolution of singularities, X a scheme of finite type over k, U a smooth quasi-projective scheme over k and r >= 0. The natural maps h_i(z_equi(X, r))(U) -> A_{r,i}(U, X) of MotivesAndAlgebraicCycles:MC.4/bivariant-cycle-cohomology are isomorphisms for all i in Z. In particular for X proper and r = 0: A_{0,0}(U, X) = h_0(U, X) = coker(Cor_k(U x A^1, X) -> Cor_k(U, X)).",
    "hypotheses": [
     "k is an infinite field admitting resolution of singularities in the sense of Friedlander-Voevodsky, Definition 3.4, for example any field of characteristic zero (FV Proposition 3.5); infinite because the duality theorems rest on the moving lemma (MotivesAndAlgebraicCycles/E101).",
-    "Brown-Gersten descent for presheaves of complexes with the Mayer-Vietoris property on a Noetherian space of finite dimension is SchemeKTheoryOperations:S.4/brown-gersten-vanishing.",
+    "The complex-valued Brown-Gersten theorem needed here is MVW Theorem 19.11 (p. 162), for a complex of presheaves with the Zariski Mayer-Vietoris property. S.4/brown-gersten-vanishing is spectra-valued; its complex specialization, or the requisite Eilenberg-Mac Lane comparison, is requested explicitly from SchemeKTheoryOperations:S.4.",
     "The comparison of Zariski and cdh hypercohomology of C_*(F) on smooth schemes for a presheaf with transfers F (FV Theorem 5.5(1)) is requested from MotivicEtaleKTheory:M.5a."
    ],
    "proofSteps": [
     "For V smooth of pure dimension n and a Zariski cover V = V_1 union V_2 with V_3 = V_1 cap V_2, the sequence 0 -> C_*z_equi(X, r)(V) -> C_*z_equi(X, r)(V_1) + C_*z_equi(X, r)(V_2) -> C_*z_equi(X, r)(V_3) is, by MC.4/duality-for-equidimensional-cycles, quasi-isomorphic to the value at Spec k of the Mayer-Vietoris triangle of MC.4/equidimensional-cycle-localisation for the cover X x V = (X x V_1) union (X x V_2); so V -> C_*z_equi(X, r)(V) has the Mayer-Vietoris property on quasi-projective smooth schemes ('pseudo-flasque').",
-    "Brown-Gersten (S.4/brown-gersten-vanishing) then gives H^{-i}_Zar(U, C_*z_equi(X, r)_Zar) = h_i(z_equi(X, r))(U).",
+    "Apply the requested complex-valued Brown-Gersten theorem (MVW 19.11, p. 162), giving H^{-i}_Zar(U, C_*z_equi(X,r)_Zar) = h_i(z_equi(X,r))(U). The existing spectra-valued S.4/brown-gersten-vanishing is context for this request, not a direct application to a complex.",
     "FV Theorem 5.5(1) identifies the left side with H^{-i}_cdh(U, pi^* C_*z_equi(X, r)) = A_{r,i}(U, X) (FV Theorem 8.1)."
    ],
    "acceptance": [
@@ -714,13 +773,19 @@
     "MotivesAndAlgebraicCycles:MC.4/equidimensional-cycle-localisation",
     "MotivesAndAlgebraicCycles:MC.4/bivariant-cycle-cohomology",
     "SchemeKTheoryOperations:S.4/brown-gersten-vanishing",
-    "MotivicEtaleKTheory:M.5a"
+    "MotivicEtaleKTheory:M.5a",
+    "SchemeKTheoryOperations:S.4"
    ],
    "sources": [
     {
      "sourceId": "FV.BivCycl",
      "locator": "Theorem 8.1 with its proof (preprint pp. 42-43)",
      "match": "The natural maps from the naive groups to the bivariant groups are isomorphisms for U smooth quasi-projective, by duality, localisation and Brown-Gersten."
+    },
+    {
+     "sourceId": "MVW.2006",
+     "locator": "Definition 19.10 and Theorem 19.11 (printed p. 162)",
+     "match": "The Mayer-Vietoris condition and Zariski descent for complexes, rather than only spectra."
     }
    ],
    "implementationStatus": "unchecked"
@@ -828,7 +893,7 @@
    ],
    "title": "Morphisms into motives with compact support are bivariant cycle cohomology",
    "kind": "theorem",
-   "statement": "Let k be an infinite field admitting resolution of singularities, X and Y schemes of finite type over k, r >= 0 and i in Z. Write C_*(Y) for the Suslin complex of Z_tr(Y), which is M(Y) for Y smooth, and M^c(X) = C_*z_equi(X, 0) (MotivesAndAlgebraicCycles:MC.4/motives-with-compact-support). There are canonical isomorphisms Hom_{DM^eff,-_Nis(k)}(C_*(Y)(r)[2r + i], M^c(X)) = A_{r,i}(Y, X), and globally RHom(Z(r)[2r], M^c(X)) = C_*z_equi(X, r) in DM^eff,-_Nis(k). Consequences: (a) shifting: Hom(A(1)[2], C_*z_equi(X, r)) = Hom(A, C_*z_equi(X, r + 1)) for every A in DM^eff,-_Nis(k), and Hom(A(r)[2r], M^c(X)) = Hom(A, C_*z_equi(X, r)); (b) duality: for T smooth of pure dimension d and every n, Hom(M(X x T)[n], M^c(Y)) = Hom(M(X)(d)[2d + n], M^c(T x Y)); (c) flat pullback: a flat equidimensional f: X -> Y of relative dimension n induces f^*: M^c(Y)(n)[2n] -> M^c(X); (d) for X smooth, CH^i(X) = Hom(M(X), Z(i)[2i]); (e) for X and Y smooth proper, Hom(M(X), M(Y)) = CH_{dim X}(X x Y) and Hom(M(X), M(Y)[i]) = 0 for i > 0.",
+   "statement": "Let k be an infinite field admitting resolution of singularities, X and Y schemes of finite type over k, r >= 0 and i in Z. Write C_*(Y) for the Suslin complex of Z_tr(Y), which is M(Y) for Y smooth, and M^c(X) = C_*z_equi(X, 0) (MotivesAndAlgebraicCycles:MC.4/motives-with-compact-support). There are canonical isomorphisms Hom_{DM^eff,-_Nis(k)}(C_*(Y)(r)[2r + i], M^c(X)) = A_{r,i}(Y, X), and globally RHom(Z(r)[2r], M^c(X)) = C_*z_equi(X, r) in DM^eff,-_Nis(k). Consequences: (a) shifting: Hom(A(1)[2], C_*z_equi(X, r)) = Hom(A, C_*z_equi(X, r + 1)) for every A in DM^eff,-_Nis(k), and Hom(A(r)[2r], M^c(X)) = Hom(A, C_*z_equi(X, r)); (b) duality: for T smooth of pure dimension d and every n, Hom(C_*(X x T)[n], M^c(Y)) = Hom(C_*(X)(d)[2d + n], M^c(T x Y)); (c) flat pullback: a flat equidimensional f: X -> Y of relative dimension n induces f^*: M^c(Y)(n)[2n] -> M^c(X); (d) for X smooth, CH^i(X) = Hom(M(X), Z(i)[2i]); (e) for X and Y smooth proper, Hom(M(X), M(Y)) = CH_{dim X}(X x Y) and Hom(M(X), M(Y)[i]) = 0 for i > 0.",
    "hypotheses": [
     "k is an infinite field admitting resolution of singularities in the sense of Friedlander-Voevodsky, Definition 3.4, for example any field of characteristic zero (FV Proposition 3.5); infinite because the duality theorems rest on the moving lemma (MotivesAndAlgebraicCycles/E101).",
     "The comparison Hom(C_*(Y)[i], C_*(F)) = H^{-i}_cdh(Y, pi^* C_*(F)) (Voevodsky, Triangulated categories of motives, Theorem 4.1.10) and the internal Hom RHom(A, -) for A a summand of a motive of a smooth scheme (MVW 14.12) come from MotivicEtaleKTheory:M.5a (the latter is the rhom item of M.5a/effective-motives)."
@@ -837,7 +902,7 @@
     "r = 0: z_equi(X, 0) is L^c(X), so Hom(C_*(Y)[i], M^c(X)) = A_{0,i}(Y, X) by MC.4/bivariant-cycle-cohomology (homEquiv).",
     "Induction on r: Z(1)[2] is the summand of M(P^1) cut out by the projector id - (P^1 -> Spec k -> P^1) (MC.4/motive-of-projective-space), and C_*(Y x P^1) = C_*(Y) tensor M(P^1) (Kuenneth for Suslin complexes of schemes of finite type, MVW 14.2 for Y smooth and the abstract blow-up triangle MC.4/blow-up-triangle-and-formula with resolution in general); so C_*(Y)(r)[2r] is the corresponding summand of C_*(Y x P^1)(r - 1)[2r - 2], and the cosuspension isomorphism of MC.4/bivariant-suspension-and-gysin (3) identifies the summands (Voevodsky, Proposition 4.2.3).",
     "Global form: by M.5a's internal Hom, RHom(Z(r)[2r], M^c(X)) is the summand of R p_* p^* C_*z_equi(X, 0) on (P^1)^r cut out by the projector; the morphism C_*z_equi((P^1)^r, X, 0) -> R p_* p^* C_*z_equi(X, 0) is a quasi-isomorphism by MC.4/naive-bivariant-comparison, and pushforward along (P^1)^r x U x X -> U x X maps z_equi((P^1)^r, X, 0) to z_equi(X, r), giving the isomorphism (Voevodsky, Proposition 4.2.8).",
-    "(a) is the global form with adjunction; it is the theorem MVW cite as Theorem 16.22. (b): Hom(M(X x T)[n], M^c(Y)) = A_{0,n}(X x T, Y) = A_{d,n}(X, Y x T) by MC.4/bivariant-duality = Hom(M(X)(d)[2d + n], M^c(T x Y)); this is the theorem MVW cite as Theorem 16.24.",
+    "(a) is the global form with adjunction; it is the theorem MVW cite as Theorem 16.22. (b): Hom(C_*(X x T)[n], M^c(Y)) = A_{0,n}(X x T, Y) = A_{d,n}(X, Y x T) by MC.4/bivariant-duality = Hom(C_*(X)(d)[2d + n], M^c(T x Y)); this is the theorem MVW cite as Theorem 16.24.",
     "(c): flat pullback C_*z_equi(Y, 0) -> C_*z_equi(X, n) (MC.4/equidimensional-cycles-transfers (iii)) composed with the global form for r = n is adjoint to M^c(Y)(n)[2n] -> M^c(X) (Voevodsky, Corollary 4.2.4; MVW Corollary 16.23).",
     "(d): Z(i)[2i] = M^c(A^i) (MC.4/motives-with-compact-support), so Hom(M(X), Z(i)[2i]) = A_{0,0}(X, A^i) = A_{dim X,0}(Spec k, A^i x X) = CH^i(A^i x X) = CH^i(X) by MC.4/bivariant-duality, MC.4/bivariant-suspension-and-gysin (1) and homotopy invariance (Voevodsky, Corollary 4.2.5); it agrees with MC.4/motivic-cohomology-higher-chow.",
     "(e): Hom(M(X), M(Y)[i]) = A_{0,-i}(X, Y) = A_{dim X,-i}(Spec k, Y x X) = h_{-i}(z_equi(Y x X, dim X))(Spec k), zero for i > 0 and CH_{dim X}(X x Y) for i = 0 (Voevodsky, Corollary 4.2.6)."
@@ -862,12 +927,12 @@
    "sources": [
     {
      "sourceId": "V.DM",
-     "locator": "Proposition 4.2.3, Corollaries 4.2.4-4.2.7 (preprint pp. 47-48), Proposition 4.2.8 (p. 48)",
+     "locator": "Proposition 4.2.3 and Corollaries 4.2.4-4.2.7 (preprint pp. 47-48), Proposition 4.2.8 and proof (pp. 48-49)",
      "match": "Hom groups into the motive with compact support are bivariant cycle cohomology, with the flat pullback, Chow groups, morphisms between motives of smooth proper schemes, and the global form RHom(Z(r)[2r], C^c_*(X)) = C_*z_equi(X, r)."
     },
     {
      "sourceId": "MVW.2006",
-     "locator": "Lecture 16, Theorems 16.22 and 16.24, Corollary 16.23",
+     "locator": "Theorems 16.22 and 16.24, Corollary 16.23 (printed pp. 130-131)",
      "match": "The shifting and duality theorems that MVW cite without proof; (a), (b) and (c) are these statements, now proved from Friedlander-Voevodsky."
     }
    ],
@@ -891,7 +956,7 @@
     "For X, Y smooth projective, a finite correspondence W in Cor_k(X, Y) gives M(W): M(X) -> M(Y) (M.5a/effective-motives, M is a functor on Cor_k).",
     "M(W) depends only on the class of W in h_0(X, Y) = coker(Cor_k(X x A^1, Y) -> Cor_k(X, Y)): the two restrictions of a correspondence on X x A^1 differ by a map through M(X x A^1) -> M(X), an isomorphism (MC.4/homotopy-invariance-and-mayer-vietoris).",
     "h_0(X, Y) = CH_{dim X}(X x Y) by MC.4/projective-duality-for-equidimensional-cycles; define Phi on Hom groups as the inverse of this isomorphism followed by W -> M(W), tensored with R.",
-    "Composition: the composite of finite correspondences is the pushforward of an intersection product of properly meeting cycles (M.5a/finite-correspondence), and for properly meeting cycles Fulton's intersection product used for Chow correspondences is computed by the same multiplicities (SF.5/tor-intersection, SF.5/smooth-intersection); since every Chow class is the class of a finite correspondence, Phi preserves composition and identities. Voevodsky's proof of his Proposition 2.1.4 calls this sufficient without writing it (MotivesAndAlgebraicCycles/E104).",
+    "Composition requires the general-field identification of relative pullback with the Serre/Fulton Tor-intersection formula, then proper pushforward. MVW Examples 1A.13-1A.14 (p. 11; citing SV 3.5.8) explain this identification for regular bases; apply it to the diagonal of the smooth middle scheme in X x Y x Z. Since every Chow class has a finite-correspondence representative by projective duality, the resulting equality on representatives proves composition and identities. SF.5/tor-intersection is stated over an algebraically closed field, so the required general-field compatibility is requested from SF.5 rather than silently weakening the present theorem. This is the missing check in E104.",
     "Tensor structure: the exterior product of correspondences maps to the exterior product of cycles (SF.5/exterior-product) and M(X x Y) = M(X) tensor M(Y) (M.5a/effective-motives); the symmetry constraints correspond.",
     "Extend to the idempotent completion by Mathlib's karoubiUniversal, DM^eff_gm(k, R) being closed under retracts (MC.4/effective-geometric-motives); the projector Delta - P^1 x {x0} cuts out R(1)[2] of M(P^1) (MC.4/motive-of-projective-space).",
     "Full faithfulness under resolution: Hom(M(X), M(Y)) = CH_{dim X}(X x Y) and positive Ext vanish by MC.4/hom-into-motives-with-compact-support (e); the identification sends the class of a finite correspondence W to M(W), because for X smooth quasi-projective and Y proper Hom(M(X), M(Y)) = A_{0,0}(X, Y) = h_0(X, Y) (MC.4/naive-bivariant-comparison), the class of W corresponding to M(W).",
@@ -900,7 +965,7 @@
    "acceptance": [
     "Phi(Spec k) = R with End = R.",
     "Phi sends the decomposition of P^1 into its two projectors to M(P^1) = R + R(1)[2].",
-    "Under resolution, End(M(P^1)) = CH_1(P^1 x P^1) = Z^2."
+    "Under resolution, End(M(P^1)) = CH_1(P^1 x P^1) tensor R = R^2; for R = Z this is Z^2."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.4/projective-duality-for-equidimensional-cycles",
@@ -915,9 +980,9 @@
     "MotivicEtaleKTheory:M.5a/finite-correspondence",
     "MotivicEtaleKTheory:M.5a/effective-motives",
     "SchemeAndStackFoundations:SF.5/exterior-product",
-    "SchemeAndStackFoundations:SF.5/tor-intersection",
     "SchemeAndStackFoundations:SF.5/smooth-intersection",
-    "mathlib:CategoryTheory.Idempotents.karoubiUniversal"
+    "mathlib:CategoryTheory.Idempotents.karoubiUniversal",
+    "SchemeAndStackFoundations:SF.5"
    ],
    "sources": [
     {
@@ -932,8 +997,13 @@
     },
     {
      "sourceId": "MVW.2006",
-     "locator": "Lecture 20, Proposition 20.1 and Remark 20.2",
+     "locator": "Proposition 20.1 and Remark 20.2 (printed pp. 167-168)",
      "match": "The bijections of Hom groups and the functor that MVW assert; this node constructs the functor."
+    },
+    {
+     "sourceId": "MVW.2006",
+     "locator": "Examples 1A.13-1A.14 (printed p. 11), with the reference to SV 3.5.8",
+     "match": "Over a general field, relative-cycle composition agrees with finite-correspondence composition and regular-base pullback agrees with the alternating Tor formula. This specifies the requested compatibility for the Chow functor."
     }
    ],
    "api": [
@@ -1025,7 +1095,7 @@
     {
      "name": "chowToDM_needs_projective",
      "kind": "non-example",
-     "statement": "For the smooth non-projective A^1, CH_1(A^1 x A^1) = 0 while Hom(M(A^1), M(A^1)) = Hom(Z, Z) = Z: the description of Hom groups by Chow groups fails off smooth projective schemes."
+     "statement": "With integral coefficients and X = A^1, CH_1(A^1 x A^1) = 0 whereas End(M(A^1)) = End(Z) = Z. The smooth-projective Hom description cannot be extended to all smooth schemes."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1044,6 +1114,7 @@
     "Z is smooth, so E is the projective bundle P(N_{Z/X}) of the normal bundle, Zariski locally trivial over Z (SchemeAndStackFoundations:SF.5/normal-deformation and SF.5/normal-cone, the blow-up itself coming from Tau Ceti's StableReduction Layer 4)."
    ],
    "proofSteps": [
+    "First split off any connected component of X contained in Z. On such a component the blow-up and exceptional divisor are empty and the triangle is the identity triangle of M(Z). For the remaining components Z has positive codimension; its exceptional projective bundle has positive rank and the local-surjectivity argument below applies. Treat varying positive codimensions componentwise.",
     "Let Phi be the complex R_tr(E) -> R_tr(Z) + R_tr(X_Z) -> R_tr(X); it suffices that Phi is zero in DM^eff,-_Nis(k, R), i.e. that Hom(Phi, F[n]) = 0 for every homotopy invariant Nisnevich sheaf with transfers F and every n, these F[n] detecting A^1-local objects (M.5a/effective-motives, MVW 14.8 and 14.11; Voevodsky, Theorem 3.2.6).",
     "Replace the sheaves with transfers by the free Nisnevich sheaves Z_Nis(-) without transfers: for a smooth T, Ext^n(R_tr(T), F) = H^n_Nis(T, F) = Ext^n(Z_Nis(T), F) (M.5a/presheaf-with-transfers; Voevodsky, Proposition 3.1.8).",
     "The complex Z_Nis(E) -> Z_Nis(Z) + Z_Nis(X_Z) -> Z_Nis(X) is exact except at its right end: Z_Nis(E) -> Z_Nis(Z) is surjective because E -> Z is Zariski locally trivial, and ker Z_Nis(q) = ker Z_Nis(p) because X_Z x_X X_Z is the union of the diagonal and E x_Z E (CTP Proposition 5.19). So Hom(Phi, F[n]) = Ext^n(coker Z_Nis(p), F).",
@@ -1099,7 +1170,7 @@
     "M(id x {0}) = M(id x {1}) is an isomorphism (MC.4/homotopy-invariance-and-mayer-vietoris), and id x {1} lifts to the blow-up since Z x {0} misses X x {1}; this splits the right column, hence its middle map onto M(X x A^1).",
     "P(N) -> P(N + O) is a split monomorphism on motives with canonical splitting (MC.4/projective-bundle-theorem); composing splits M(E) -> M(Z) + M(X_Z) and hence M(X_Z) -> M(X) (exists_iso_binaryBiproduct_of_distTriang); insert M(E) = sum for n < c of M(Z)(n)[2n] (MC.4/projective-bundle-theorem) to obtain (1).",
     "Gysin map (Voevodsky p. 37): the difference of the split map M(X) -> M(Z x 0) + M((X x A^1)_{Z x 0}) and the lift of id x {1} maps to zero in M(X x A^1), so lifts to M(P(N + O)); project to the top summand M(Z)(c)[2c] of the projective bundle formula. Naturality for smooth maps and products holds because every step does.",
-    "(3), asserted without proof by Voevodsky (MotivesAndAlgebraicCycles/E103): apply Hom(-, R(c)[2c]) and identify motivic cohomology of smooth schemes with Chow groups (MC.4/motivic-cohomology-higher-chow); the lift through P(N + O) is the specialisation of [Z x A^1] in the deformation space (SF.5/specialization), whose restriction to P(N + O) is the class of the zero section, and in the projective bundle formula for Chow groups (SF.5/projective-bundle-formula) that class has coefficient 1 on the top summand."
+    "Remaining bridge for (3): prove that the categorical Gysin map constructed from the deformation triangles induces the Chow specialization/zero-section class under motivic-cohomology comparison. SF.5/specialization and the Chow projective-bundle formula describe operations on Chow groups; neither identifies them with this categorical lift. Once that compatibility is proved, the top projective-bundle coefficient is 1 and (3) follows. For purity alone it suffices to prove the more specific normalization alpha(A^c,0) is the canonical quotient isomorphism (MVW Exercise 15.14, p. 124). Neither identification is claimed established here (E103)."
    ],
    "acceptance": [
     "For the blow-up of a smooth surface at a rational point (c = 2), M(X_Z) = M(X) + R(1)[2], matching CH^1(X_Z) = CH^1(X) + Z.",
@@ -1124,8 +1195,8 @@
     },
     {
      "sourceId": "MVW.2006",
-     "locator": "Lecture 15, Corollary 15.13",
-     "match": "The same decomposition, proved there through the abstract blow-up triangle and hence under resolution of singularities."
+     "locator": "Corollary 15.13 (printed p. 123) and Exercise 15.14 (p. 124)",
+     "match": "Blow-up decomposition via the abstract blow-up triangle under resolution; Exercise 15.14 isolates the Gysin normalization still required in this plan."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1138,24 +1209,26 @@
    ],
    "title": "The Gysin triangle over a perfect field and the boundary map at a closed point of a curve",
    "kind": "theorem",
-   "statement": "Let k be a perfect field, R a commutative ring, X a smooth scheme over k and Z a smooth closed subscheme of pure codimension c. There is a canonical distinguished triangle M(X - Z) -> M(X) -> M(Z)(c)[2c] -> M(X - Z)[1] in DM^eff,-_Nis(k, R), with first map induced by the open immersion and second map the Gysin map g_Z of MotivesAndAlgebraicCycles:MC.4/blow-up-formula-over-a-perfect-field; it is natural for smooth morphisms X' -> X with Z' = Z x_X X' and compatible with products with smooth Y. For X a smooth curve and x a closed point, k(x) is finite separable over k, Spec k(x) is smooth, and the triangle reads M(X - x) -> M(X) -> M(Spec k(x))(1)[2] -> M(X - x)[1]; applying Hom(-, R(i)[n]) gives the exact localisation sequence ... -> H^{n-2,i-1}(k(x), R) -> H^{n,i}(X, R) -> H^{n,i}(X - x, R) -> H^{n-1,i-1}(k(x), R) -> ..., whose last map is the boundary map at x. In weight i = 1 it is 0 -> O(X)^x -> O(X - x)^x -> Z -> Pic(X) -> Pic(X - x) -> 0 tensored with R, the boundary map being the valuation ord_x and Z -> Pic(X) sending 1 to the class of x.",
+   "statement": "Let k be a perfect field, R a commutative ring, X a smooth scheme over k and Z a smooth closed subscheme of pure codimension c. There is a canonical distinguished triangle M(X - Z) -> M(X) -> M(Z)(c)[2c] -> M(X - Z)[1] in DM^eff,-_Nis(k, R), with first map induced by the open immersion and second map the Gysin map g_Z of MotivesAndAlgebraicCycles:MC.4/blow-up-formula-over-a-perfect-field; it is natural for smooth morphisms X' -> X with Z' = Z x_X X' and compatible with products with smooth Y. For X a smooth curve and x a closed point, k(x) is finite separable over k, Spec k(x) is smooth, and the triangle reads M(X - x) -> M(X) -> M(Spec k(x))(1)[2] -> M(X - x)[1]; applying Hom(-, R(i)[n]) gives the exact localisation sequence ... -> H^{n-2,i-1}(k(x), R) -> H^{n,i}(X, R) -> H^{n,i}(X - x, R) -> H^{n-1,i-1}(k(x), R) -> ..., whose last map is the boundary map at x. For integral coefficients R = Z, the weight-one part is 0 -> O(X)^x -> O(X - x)^x -> Z -> Pic(X) -> Pic(X - x) -> 0, with boundary ord_x and 1 mapping to the divisor class of x. For flat Z-algebras R this sequence may be tensored termwise with R. For arbitrary R retain the derived motivic-cohomology long exact sequence: H^{1,1}(X,R) can contain Tor_1^Z(Pic(X),R) and need not equal O(X)^x tensor R.",
    "hypotheses": [
     "k perfect; no resolution of singularities. This replaces the resolution hypothesis of MC.4/gysin-triangle (MotivesAndAlgebraicCycles/E21).",
     "Etale coordinates for the smooth pair (X, Z): locally on X there is an etale f: X -> A^d with Z = f^{-1}(A^{d-c}) (EGA IV 17.12.2); requested from SchemeAndStackFoundations:SF.0, whose SF.0/etale-coordinates gives the absolute case.",
-    "The sign of the boundary map is fixed by the convention of the cone in the triangle; with the convention of MC.4/motive-of-projective-space it is +ord_x."
+    "The boundary sign must be checked against the cone and Gysin normalization: t on (A^1,0) must map to +1. This remains part of the normalization gap, rather than following from a freely chosen sign convention."
    ],
    "proofSteps": [
+    "For codimension zero the smooth closed Z is a union of components, and the triangle is the split decomposition of X. In the remaining proof assume c > 0.",
     "Write M(X/(X - Z)) for the cone of M(X - Z) -> M(X), the class of C_*(Z_tr(X)/Z_tr(X - Z)); it suffices to give an isomorphism alpha(X, Z): M(X/(X - Z)) -> M(Z)(c)[2c] through which g_Z factors.",
     "Run the deformation diagram of MC.4/blow-up-formula-over-a-perfect-field for the relative objects M(X_Z/(X_Z - E)) and M(X/(X - Z)); as there, M(X_Z/(X_Z - E)) = M(X/(X - Z)) + sum for 1 <= n < c of M(Z)(n)[2n] compatibly with the triangles, and g_Z factors through alpha(X, Z), which is natural for smooth maps and products (Voevodsky pp. 37-38).",
     "alpha is compatible with the Mayer-Vietoris triangles of an open cover of X and of the induced cover of Z (MC.4/homotopy-invariance-and-mayer-vietoris), so being an isomorphism is local on X.",
     "Locally choose etale coordinates f: X -> A^d with Z = f^{-1}(A^{d-c}); in Y = X x_{A^d} (Z x A^c) the diagonal copy of Z is open and closed in the preimage of Z, and on the open X' = Y - (the other components) Nisnevich excision (CTP Proposition 5.18, M.5a/presheaf-with-transfers) gives isomorphisms M(X'/(X' - Z')) -> M(X/(X - Z)) and M(X'/(X' - Z')) -> M(Z x A^c/(Z x A^c - Z x 0)). By naturality and the product compatibility it suffices that alpha(A^c, 0), equivalently alpha(P^c, pt), is an isomorphism.",
-    "Normalisation, which Voevodsky says follows easily from the construction (MotivesAndAlgebraicCycles/E103): P^c - pt is a line bundle over P^{c-1} (MC.4/vector-bundle-invariance), so M(P^c/(P^c - pt)) = M(P^c/P^{c-1}) = R(c)[2c] (MC.4/projective-space-quotient), and alpha(P^c, pt) is an endomorphism of R(c)[2c], i.e. an element of R by cancellation (M.5a/cancellation); by part (3) of MC.4/blow-up-formula-over-a-perfect-field it is the coefficient of the class of a point in CH^c(P^c) tensor R = R, namely 1.",
-    "Curve case: c = 1 and Spec k(x) is smooth as k is perfect; apply Hom(-, R(i)[n]), cancellation and representability H^{n,i}(T, R) = Hom(M(T), R(i)[n]) (M.5a/effective-motives); in weight one H^{1,1} = O^x and H^{2,1} = Pic (MotivicEtaleKTheory:M.4/weight-zero-and-one with MC.4/motivic-cohomology-higher-chow), and the boundary is ord_x, as one checks on X = A^1, x = 0, where M(G_m) = R + R(1)[1] and the coordinate t has ord_0(t) = 1."
+    "Normalization still required (E103): the projective-space quotient identifies M(P^c/(P^c - pt)) with R(c)[2c], but identifying alpha(P^c,pt) with multiplication by 1 uses the unresolved cycle-class compatibility of the preceding node. Alternatively prove directly that alpha(A^c,0) agrees with the canonical quotient isomorphism of MVW Exercise 15.14 (p. 124). An arbitrary endomorphism of the Tate object need not be a unit. Purity for the constructed map is therefore a recorded gap, not inferred from the existence of the blow-up splitting alone.",
+    "Curve case, after normalization: apply Hom(-,R(i)[n]) and cancellation to the distinguished triangle. For R = Z use the weight-one comparison H^{1,1}(X,Z) = O(X)^x and H^{2,1}(X,Z) = Pic(X), and check the residue of t at (A^1,0) is +1. Flat coefficients preserve the integral exact sequence. For arbitrary coefficients use derived coefficient change; the universal-coefficient contribution Tor_1(Pic(X),R) prevents the asserted termwise tensor formula in general."
    ],
    "acceptance": [
     "For X = P^1 and a rational point x, M(A^1) -> M(P^1) -> R(1)[2] -> recovers M(A^1) = R from M(P^1) = R + R(1)[2].",
     "For X = A^1 over Q and x = V(t^2 + 1), the third term is M(Spec Q(i))(1)[2], not R(1)[2]; the boundary map O(A^1 - x)^x -> H^{0,0}(Spec Q(i)) = Z sends t^2 + 1 to 1.",
-    "The triangle exists over every perfect field, including finite fields and their algebraic closures, which is what the norm residue arguments of MotivicEtaleKTheory:M.5c need in characteristic different from l."
+    "The triangle exists over every perfect field, including finite fields and their algebraic closures, which is what the norm residue arguments of MotivicEtaleKTheory:M.5c need in characteristic different from l.",
+    "Coefficient test: if Pic(X) has nonzero n-torsion and R = Z/n, the universal-coefficient exact sequence for H^{1,1}(X,R) has quotient Tor_1(Pic(X),Z/n) = Pic(X)[n]. A units-only formula for this group fails; the integral divisor sequence remains the acceptance test for ord_x."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.4/blow-up-formula-over-a-perfect-field",
@@ -1186,8 +1259,8 @@
     },
     {
      "sourceId": "MVW.2006",
-     "locator": "Lecture 15, Theorem 15.15",
-     "match": "The same triangle, proved there from Corollary 15.13 and hence under resolution of singularities."
+     "locator": "Exercise 15.14 and Theorem 15.15 (printed p. 124)",
+     "match": "The normalization exercise and the resulting Gysin triangle under the hypotheses of Lecture 15. The perfect-field proof here retains its separate normalization gap."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1209,13 +1282,14 @@
     "Take the Mathlib triangulated envelope of the object property 'isomorphic to some R(n)' in DM_gm(k, R) and the full subcategory on it, as for MC.4/effective-geometric-motives.",
     "Tensor stability: R(a) tensor R(b) = R(a + b), and the class of objects A with A tensor R(b) in DTM is thick and contains the generators, so it is everything; repeat in the other variable.",
     "Hom groups for q >= p: by cancellation Hom(R(p), R(q)[m]) = Hom(R, R(q - p)[m]) (MC.4/tate-stabilised-motives, hom_mk), which is H^{m,q-p}(Spec k, R) by representability (M.5a/effective-motives).",
-    "Vanishing for q < p: reduce by cancellation to Hom(R(n), R[m]) with n > 0, and then to n = 1: R(1)[1] is the reduced motive of G_m, so Hom(R(1), R[m]) is the cokernel of H^{m+1,0}(Spec k, R) -> H^{m+1,0}(G_m, R), which vanishes because weight-zero motivic cohomology is the Zariski cohomology of the constant sheaf R (MotivicEtaleKTheory:M.4/weight-zero-and-one (a)).",
-    "Membership: M(A^n) = R, M(G_m) = R + R(1)[1] and M(P^n) = sum of R(i)[2i] (MC.4/motive-of-projective-space)."
+    "For q < p reduce to Hom(R(n),R[m]) with n > 0. The object R(n)[n] is the fully reduced summand of M(G_m^n), cut out by the product of complements of the n coordinate unit-section projectors. In every degree the weight-zero cohomology of G_m^n is R in degree 0 and zero otherwise, as for Spec k; each coordinate projector acts as the identity on it. The fully reduced projector therefore acts as zero, so Hom(R(n)[n],R[j]) = 0 for every j. This proves all negative weights at once; reducing n > 1 to n = 1 without an argument would not suffice.",
+    "Membership: M(A^n) = R, M(G_m) = R + R(1)[1] and M(P^n) = sum of R(i)[2i] (MC.4/motive-of-projective-space).",
+    "For rational coefficients identify nonnegative-weight motivic cohomology with CH^{q-p}(k,2(q-p)-m) tensor Q by MC.4/motivic-cohomology-higher-chow (MVW Theorem 19.1, p. 159)."
    ],
    "acceptance": [
     "Hom(Q(0), Q(1)[1]) = H^{1,1}(Spec k, Q) = k^x tensor Q.",
     "Hom(Q(0), Q(0)[m]) is Q for m = 0 and 0 otherwise.",
-    "DTM(k, R) contains R(-1), which is not in the thick subcategory generated by the effective Tate objects R(n), n >= 0."
+    "When R is nonzero, R(-1) belongs to DTM(k,R) but not to the thick subcategory generated by effective Tate objects R(n), n >= 0. The exclusion is not asserted for the zero ring."
    ],
    "prerequisites": [
     "MotivesAndAlgebraicCycles:MC.4/tate-stabilised-motives",
@@ -1225,7 +1299,8 @@
     "MotivicEtaleKTheory:M.5a/effective-motives",
     "MotivicEtaleKTheory:M.4/weight-zero-and-one",
     "mathlib:CategoryTheory.ObjectProperty.triangEnvelope",
-    "mathlib:CategoryTheory.ObjectProperty.triangEnvelope_le_iff"
+    "mathlib:CategoryTheory.ObjectProperty.triangEnvelope_le_iff",
+    "MotivesAndAlgebraicCycles:MC.4/motivic-cohomology-higher-chow"
    ],
    "sources": [
     {
@@ -1237,6 +1312,11 @@
      "sourceId": "MVW.2006",
      "locator": "Lecture 14, Definition 14.1 and the paragraph after Definition 14.2",
      "match": "The geometric and Tate-stabilised categories in which the thick envelope is taken."
+    },
+    {
+     "sourceId": "MVW.2006",
+     "locator": "Theorem 19.1 and Vanishing Theorem 19.3 (printed p. 159)",
+     "match": "Higher-Chow interpretation and the degree range; negative weights are proved separately using reduced powers of G_m."
     }
    ],
    "api": [
@@ -1319,7 +1399,7 @@
     {
      "name": "dtm_needs_negative_twists",
      "kind": "non-example",
-     "statement": "R(-1) lies in DTM(k, R), but not in the thick subcategory generated by the R(n) with n >= 0: every object A there has Hom(A, R(-1)[m]) = 0, because Hom(R(n), R(-1)[m]) = Hom(R(n + 1), R[m]) = 0, while the identity of R(-1) is nonzero."
+     "statement": "Assume R is nonzero. R(-1) is in DTM(k,R) and outside the thick envelope of R(n), n >= 0: that envelope is left orthogonal to all R(-1)[m] by negative-weight vanishing, while End(R(-1)) = R has nonzero identity. For R = 0 this non-example is inapplicable."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1334,12 +1414,13 @@
    "kind": "definition",
    "statement": "Let k be a field. K_0(Var_k) is the quotient of the free abelian group on the isomorphism classes [X] of separated schemes of finite type over k by the scissor relations [X] = [Z] + [X - Z] for every closed subscheme Z of X; it is a commutative ring with [X] [Y] = [X x_k Y] and unit [Spec k]. The Lefschetz class is L = [A^1]. Consequences: [X] = [X_red], [empty] = 0, [A^n] = L^n, [P^n] = 1 + L + ... + L^n, [G_m] = L - 1, and an assignment X -> phi(X) in a commutative ring that is constant on isomorphism classes, satisfies the scissor relations, is multiplicative and sends Spec k to 1 factors uniquely through a ring homomorphism K_0(Var_k) -> A.",
    "hypotheses": [
-    "k a field; schemes are separated of finite type; the scissor relation uses reduced or arbitrary closed subschemes indifferently, since [X] = [X_red] follows from it with Z = X_red."
+    "k a field; schemes are separated of finite type; the scissor relation uses reduced or arbitrary closed subschemes indifferently, since [X] = [X_red] follows from it with Z = X_red.",
+    "Fix a universe and a small model for the essentially small category of separated finite-type k-schemes before forming its set of isomorphism classes. The quotient is independent up to its class-preserving universal isomorphism. No extra relation for arbitrary universal homeomorphisms is imposed."
    ],
    "proofSteps": [
     "Define the free abelian group on isomorphism classes (Mathlib FreeAbelianGroup on the quotient type of isomorphism classes) and quotient by the subgroup generated by the scissor relations.",
     "The product is well defined: for Z in X closed, (X x Y) = (Z x Y) union ((X - Z) x Y) with Z x Y closed, so the relations form an ideal; associativity, commutativity and unit come from those of the fibre product over k.",
-    "Consequences: Z = X_red gives [X] = [X_red] + [empty] and [empty] = 0 from X = empty; A^n is stratified by the A^j; P^n = A^n union P^{n-1}; G_m = A^1 - {0}.",
+    "Consequences: X_red closed with empty complement gives [X] = [X_red], and the empty scissor relation gives [empty] = 0. The product decomposition A^n = (A^1)^n gives [A^n] = L^n; the standard stratification P^n = A^n union P^{n-1} gives its geometric sum; G_m = A^1 - {0}. These arguments work over any field and do not use Bittner Theorem 3.1.",
     "Universal property: by the universal property of the free abelian group and of the quotient."
    ],
    "acceptance": [
@@ -1353,9 +1434,9 @@
    ],
    "sources": [
     {
-     "sourceId": "V.DM",
-     "locator": "Section 2.2, motives with compact support, item 2 (preprint p. 9)",
-     "match": "The localisation triangle for motives with compact support, the property that makes [X] -> [M^c(X)] respect the scissor relations; the ring K_0(Var_k) is the source of that assignment."
+     "sourceId": "Bittner.2001",
+     "locator": "Conventions (p. 2) and section 3, definition before Theorem 3.1 (p. 3)",
+     "match": "The free abelian scissor quotient and product-induced ring. The source assumes characteristic zero throughout; the elementary quotient and product argument here explicitly works for every field, without importing the characteristic-zero alternative presentation."
     }
    ],
    "api": [
@@ -1440,6 +1521,11 @@
      "name": "k0var_not_disjoint_union_only",
      "kind": "non-example",
      "statement": "In the group completion of isomorphism classes under disjoint union alone, [A^1] and [G_m] + [Spec k] are distinct (A^1 is connected and not isomorphic to G_m disjoint union a point); the scissor relation identifies them, and without it the Lefschetz class would not satisfy [P^1] = 1 + L."
+    },
+    {
+     "name": "k0var_nilpotents",
+     "kind": "compatibility",
+     "statement": "For X = Spec(k[epsilon]/(epsilon^2)), the closed reduced point has empty complement, so [X] = 1. This detects failure to impose the closed-subscheme scissor relations."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1452,17 +1538,19 @@
    ],
    "title": "The motivic measure given by motives with compact support",
    "kind": "construction",
-   "statement": "Let k be an infinite field admitting resolution of singularities. Let K_0(DM_gm(k, R)) be the Grothendieck group of the triangulated category DM_gm(k, R): the free abelian group on isomorphism classes [A] modulo [B] = [A] + [C] for every distinguished triangle A -> B -> C -> A[1]; it is a commutative ring under the tensor product, [A[1]] = -[A], and [R(1)] is a unit with inverse [R(-1)]. The assignment X -> [M^c(X)] defines a ring homomorphism chi_c: K_0(Var_k) -> K_0(DM_gm(k, Z)) with chi_c(L) = [Z(1)] = [Z(1)[2]] and chi_c(X) = [M(X)] for X proper. Hence chi_c extends uniquely to K_0(Var_k)[L^{-1}], and, after tensoring with Q and inverting the elements 1 - [Q(-i)], i >= 1, to a ring homomorphism K_0(Var_k)[L^{-1}, (1 - L^{-i})^{-1}] -> K_0(DM_gm(k, Q))[(1 - [Q(-i)])^{-1} : i >= 1], the named localised Grothendieck ring of motives. For X smooth projective chi_c(X) is the class of the image of the Chow motive of X under MotivesAndAlgebraicCycles:MC.4/chow-motives-functor.",
+   "statement": "Let k be an infinite field admitting resolution of singularities. For a commutative coefficient ring R, write K_0(DM_gm(k,R)) for the existing TauCeti.TriangulatedK0 specialized to an essentially small model of DM_gm(k,R). Its group, class map, triangle relations and shift signs are library imports. Equip it with the ring induced by the exact tensor product; the general ring descent is requested as a GrothendieckEulerForms, Part II extension, and [R(1)] is a unit with inverse [R(-1)]. Then X -> [M^c(X)] gives a ring homomorphism chi_c: K_0(Var_k) -> K_0(DM_gm(k,Z)), with chi_c(L) = [Z(1)] = [Z(1)[2]] and chi_c(X) = [M(X)] for X proper. It extends uniquely after inverting L. Derived coefficient extension DM_gm(k,Z) -> DM_gm(k,Q) induces a ring map on K_0, giving chi_c,Q. After localizing its target at 1 - [Q(-i)] for i >= 1, chi_c,Q extends to K_0(Var_k)[L^{-1}, (1 - L^{-i})^{-1} : i >= 1]. For X smooth projective, chi_c(X) is the class of the image of its Chow motive. No identification of K_0(DM_gm(k,Q)) with K_0(DM_gm(k,Z)) tensor Q is asserted.",
    "hypotheses": [
     "k is infinite and admits resolution of singularities, for example of characteristic zero: M^c(X) is geometric (MC.4/compact-support-geometric), has the localisation triangle (MC.4/compact-support-localisation-triangle) and the Kuenneth isomorphism (MC.4/compact-support-kunneth), all under resolution.",
-    "The localisations are those of Mathlib's Localization, at the submonoids generated by the listed elements."
+    "The localisations are those of Mathlib's Localization, at the submonoids generated by the listed elements.",
+    "The geometric motive categories must be essentially small in the selected universe, with additive shifts and an exact symmetric tensor product, so the pinned TriangulatedK0 hypotheses hold. Generic ring descent and its behavior under exact tensor functors are requested from GrothendieckEulerForms, Part II; motivic coefficient extension is derived tensor with Q, not scalar extension of an abstract K_0 group.",
+    "Resolution in FV Definition 3.4 already implies that k is perfect (FV p. 10), so the base Tate-stabilized DM_gm construction applies; perfection is not silently deduced from infinitude."
    ],
    "proofSteps": [
-    "K_0 of the triangulated category: the quotient of the free abelian group on isomorphism classes by the triangle relations; the tensor product is exact in each variable (tensor triangulated category), so it descends to a commutative ring structure with unit [Z]; rotation of triangles gives [A[1]] = -[A].",
+    "Import TauCeti.TriangulatedK0, of, of_distTriang, of_shift and liftEquiv. Do not reconstruct their quotient or universal property. Apply the requested exact-tensor ring extension to DM_gm(k,R); exactness in each tensor variable makes the triangle relations multiplicative, with tensor-unit class as 1.",
     "Scissors: the triangle M^c(Z) -> M^c(X) -> M^c(X - Z) -> gives [M^c(X)] = [M^c(Z)] + [M^c(X - Z)]; isomorphic schemes have isomorphic M^c.",
     "Products: M^c(X x Y) = M^c(X) tensor M^c(Y) (MC.4/compact-support-kunneth, whose natural map is the exterior product of MC.4/equidimensional-cycles-transfers (v)); M^c(Spec k) = Z.",
     "So K0Var.lift (MC.4/grothendieck-ring-of-varieties) gives chi_c. M^c(A^1) = Z(1)[2] (MC.4/motives-with-compact-support), so chi_c(L) = [Z(1)[2]] = [Z(1)], a unit because Z(1) tensor Z(-1) = Z in DM_gm (MC.4/tate-stabilised-motives).",
-    "The extensions are the universal property of localisation (Mathlib IsLocalization.lift): the images of L and of 1 - L^{-i} are [Z(1)] and 1 - [Z(-i)], units in the target.",
+    "L maps to the unit [Z(1)], so IsLocalization.lift gives the first extension. Derived coefficient extension to Q is exact and symmetric monoidal and hence induces a K_0 ring map by the requested functorial ring API. Compose chi_c with this map and then the target localization. Only there are the elements 1 - [Q(-i)] units, by definition of that localization; IsLocalization.lift gives the remaining extension. Rational coefficients in a motivic category do not entail that its K_0 group is a rational vector space.",
     "For X proper M^c(X) = M(X); for X smooth projective, M(X) is the image of its Chow motive."
    ],
    "acceptance": [
@@ -1480,9 +1568,15 @@
     "MotivesAndAlgebraicCycles:MC.4/motive-of-projective-space",
     "MotivesAndAlgebraicCycles:MC.4/equidimensional-cycles-transfers",
     "MotivesAndAlgebraicCycles:MC.4/chow-motives-functor",
-    "mathlib:FreeAbelianGroup",
     "mathlib:IsLocalization.lift",
-    "mathlib:Localization"
+    "mathlib:Localization",
+    "tauceti:TauCeti.TriangulatedK0",
+    "tauceti:TauCeti.TriangulatedK0.of",
+    "tauceti:TauCeti.TriangulatedK0.of_distTriang",
+    "tauceti:TauCeti.TriangulatedK0.of_eq_sub_of_distTriang",
+    "tauceti:TauCeti.TriangulatedK0.of_shift",
+    "tauceti:TauCeti.TriangulatedK0.liftEquiv",
+    "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups"
    ],
    "sources": [
     {
@@ -1493,27 +1587,27 @@
    ],
    "api": [
     {
-     "name": "K0Tri",
+     "name": "MotivicK0",
      "role": "data",
-     "statement": "The Grothendieck ring K_0(DM_gm(k, R)) of the tensor triangulated category."
+     "statement": "Specialize the existing TauCeti.TriangulatedK0 to the essentially small DM_gm(k,R), using the requested tensor-induced ring structure. No new generic Grothendieck-group datatype is planned."
     },
     {
-     "name": "K0Tri.mk_triangle",
+     "name": "MotivicK0.triangle",
      "role": "relation",
-     "statement": "[B] = [A] + [C] for a distinguished triangle A -> B -> C -> A[1]."
+     "statement": "Imported TauCeti.TriangulatedK0.of_distTriang: [B] = [A] + [C] for a distinguished triangle A -> B -> C -> A[1]."
     },
     {
-     "name": "K0Tri.mk_shift",
+     "name": "MotivicK0.shift",
      "role": "simp",
-     "statement": "[A[1]] = -[A], hence [A[2]] = [A]."
+     "statement": "Imported TauCeti.TriangulatedK0.of_shift: [A[n]] = (-1)^n [A], in particular [A[2]] = [A]."
     },
     {
-     "name": "K0Tri.mk_tensor",
+     "name": "MotivicK0.tensor",
      "role": "simp",
      "statement": "[A tensor B] = [A] [B] and [Z] = 1."
     },
     {
-     "name": "K0Tri.isUnit_tate",
+     "name": "MotivicK0.isUnit_tate",
      "role": "other",
      "statement": "[R(1)] is a unit with inverse [R(-1)]."
     },
@@ -1535,7 +1629,12 @@
     {
      "name": "chiC.localized",
      "role": "universal-property",
-     "statement": "The unique extension K_0(Var_k)[L^{-1}, (1 - L^{-i})^{-1}] -> K_0(DM_gm(k, Q))[(1 - [Q(-i)])^{-1}] of chi_c tensor Q."
+     "statement": "The unique extension of chi_c,Q, formed by the K_0 map induced by derived rational coefficient extension, into K_0(DM_gm(k,Q))[(1 - [Q(-i)])^{-1} : i >= 1]. The domain inverts L and 1 - L^{-i}; the target localization, not the unlocalized target, supplies these latter units."
+    },
+    {
+     "name": "MotivicK0.changeCoefficients",
+     "role": "functoriality",
+     "statement": "The exact symmetric monoidal functor - tensor^L Q induces K_0(DM_gm(k,Z)) -> K_0(DM_gm(k,Q)); on class generators it sends [A] to [A tensor^L Q]."
     }
    ],
    "uses": [
@@ -1567,7 +1666,12 @@
     {
      "name": "chiC_not_motive",
      "kind": "non-example",
-     "statement": "The assignment X -> [M(X)] (motive without compact support) is not a motivic measure compatible with the Lefschetz class: scissors would force [M(P^1)] = [M(A^1)] + [M(Spec k)] = 2, whereas [M(P^1)] = 1 + [Z(1)], so it would send L to 1 and make the localisation at 1 - L^{-1} the zero ring."
+     "statement": "Any putative measure agreeing with X -> [M(X)] on smooth schemes sends L to [M(A^1)] = 1. Therefore it cannot extend across inversion of 1 - L^{-1} into any nonzero target: the denominator would map to 0. This obstruction does not require an unproved inequality [Z(1)] != 1 in the motivic Grothendieck group."
+    },
+    {
+     "name": "chiC_localization_denominators",
+     "kind": "compatibility",
+     "statement": "In the localized rational target, the image of 1 - L^{-i} is 1 - [Q(-i)] and is a unit for every i >= 1. The test does not assert it was a unit before localization, nor that rational coefficient change is tensoring K_0 with Q."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1576,12 +1680,13 @@
  "coverage": [
   {
    "stageId": "MotivesAndAlgebraicCycles:MC.4",
-   "status": "planned",
-   "note": "Together with the 31 MC.4 nodes of the base packet, every target of the narrowed layer is planned with chains ending in the libraries, other roadmaps' nodes, requested stages or the recorded gap: the Tate-stabilised category and its geometric subcategory; homotopy invariance, the projective bundle formula and the motives of A^1, G_m and P^n; the localisation (Gysin) triangle and the boundary map at a closed point of a smooth curve, now over every perfect field (MC.4/gysin-triangle-over-a-perfect-field); and the comparison with higher Chow groups. The base packet's four MC.4 gaps are closed by nodes of this part: Friedlander-Voevodsky's Theorems 8.2 and 8.3 are MC.4/bivariant-duality and MC.4/bivariant-suspension-and-gysin, and with MC.4/hom-into-motives-with-compact-support they prove the shifting and duality statements behind the base nodes on duals, rigidity, the Kuenneth isomorphism and Chow motives; Voevodsky's Gysin triangle and smooth blow-up formula over a perfect field are MC.4/smooth-blow-up-triangle, MC.4/blow-up-formula-over-a-perfect-field and MC.4/gysin-triangle-over-a-perfect-field; the functor from Chow motives is MC.4/chow-motives-functor; the transfers and functoriality of z_equi are MC.4/equidimensional-cycles-transfers, from Relative cycles and Chow sheaves. The two nodes the base coverage asked to delete (cancellation-over-a-perfect-field and nisnevich-versus-etale-and-rational-coefficients) are no longer in the base packet.",
+   "status": "partial",
+   "note": "This completed independent review checks all 17 targets of the MC.4 follow-up and their relation to the base packet. The layer remains partial: moving-family realization, categorical Gysin normalization, precise supplier extensions and base rewiring remain explicit obligations. The perfect-field Gysin and blow-up targets keep their intended generality; no proof closure is inferred from their statements. Generic triangulated K_0 is already implemented and is imported. MC.5-MC.7 are outside this part.",
    "remaining": [
-    "Rewire the base packet's MC.4 nodes onto this part, in a fix of the base packet: MC.4/gysin-triangle and MC.4/blow-up-smooth-centre-and-gysin-map are superseded by MC.4/gysin-triangle-over-a-perfect-field and MC.4/blow-up-formula-over-a-perfect-field (no resolution hypothesis); MC.4/friedlander-voevodsky-duality and MC.4/bivariant-shifting-theorem take MC.4/hom-into-motives-with-compact-support and MC.4/bivariant-duality as prerequisites in place of the gap; MC.4/compact-support-kunneth takes its natural map from MC.4/equidimensional-cycles-transfers; MC.4/chow-motives-into-geometric-motives takes its functor from MC.4/chow-motives-functor; MC.4/equidimensional-cycle-sheaves takes its transfers from MC.4/equidimensional-cycles-transfers; the base gaps on these points are then closed.",
-    "The moving lemma for bounded families and the duality for equidimensional cycles over finite fields (MotivesAndAlgebraicCycles/E101): the plan states them over infinite fields (gap).",
-    "Requests: MotivicEtaleKTheory:M.5a (cdh topology, cdh vanishing theorem, relative cycles), SchemeAndStackFoundations:SF.4 (resolution of singularities as a hypothesis, Nagata compactification), SchemeAndStackFoundations:SF.0 (etale coordinates for smooth pairs) and AlgebraicModuliForArithmeticGeometry:R09.1 (Chow varieties over infinite fields)."
+    "Implement the field-of-definition-compatible, effective-family moving construction over infinite fields (R09.1 request, E107); extend the route to finite fields separately (E101).",
+    "Prove categorical Gysin/deformation cycle-class compatibility and alpha(A^c,0) normalization, including the positive valuation sign; these are needed for the perfect-field purity target (E103).",
+    "Discharge the seven precise supplier requests: M.5a cdh/relative cycles; SF.4 resolution and compactification; SF.0 smooth-pair coordinates; R09.1 general-field Chow families; S.4 complex-valued descent; SF.5 general-field intersection compatibility; GrothendieckEulerForms Part II exact-tensor ring descent.",
+    "Apply the seven base-node rewiring proposals in a separately authorized base-packet fix, preserving all recorded gaps until their bridges are proved. The current review does not edit the base packet."
    ]
   }
  ],
@@ -1593,7 +1698,32 @@
     "MotivesAndAlgebraicCycles:MC.4/projective-duality-for-equidimensional-cycles",
     "MotivesAndAlgebraicCycles:MC.4/chow-motives-functor"
    ],
-   "detail": "Friedlander-Voevodsky state Theorems 6.1, 6.3 and 7.1 over an arbitrary field, but prove them from Friedlander-Lawson's moving lemma, which needs k-rational points avoiding finitely many bad loci and is proved only for infinite fields and for finite fields large enough for the degrees involved (FL p. 17 and Theorem 3.1). Lemma 6.6 needs the moving maps for every degree bound over the fixed field, so a fixed finite field is not covered (MotivesAndAlgebraicCycles/E101). The nodes are stated over infinite fields. A route for finite fields: base change to two finite extensions of coprime degrees, where the maps exist for the degrees at hand, and use that the homology presheaves of the cone are presheaves with transfers, so pushforward after pullback is multiplication by each degree; the cone's homology at U is then killed by two coprime integers. Friedlander-Lawson use this device for their Theorem 3.4 (pp. 23-24) but not for the moving maps, and no source read applies it to the duality theorem; it is not planned here."
+   "detail": "The IAS preprint states the moving maps and projective duality over any field, but the cited FL construction uses rational points in open parameter loci and only supplies infinite or degree-dependent sufficiently large finite fields. This review confirms a missing argument in that preprint, not a false theorem or an error established in the published chapter. Keep the infinite-field targets; a finite-field extension needs a compatible transfer descent on the homology of the cone using two coprime extension degrees, not just the rational-equivalence argument of FL 3.4."
+  },
+  {
+   "title": "Effective relative-family realization of the positive moving construction",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.4/bounded-family-moving-lemma",
+    "MotivesAndAlgebraicCycles:MC.4/projective-duality-for-equidimensional-cycles"
+   ],
+   "detail": "Implement the precise R09.1 request on the generic field-of-definition locus of FV 2.3. The signed parameter extension of FV 6.1 is insufficient for monoid-valued H^+,H^-; use FL 3.8 positive pushforward and crossed constants and prove they give natural effective relative families. The argument is planned but not discharged by the present suppliers."
+  },
+  {
+   "title": "Compatibility and normalization of the categorical Gysin map",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.4/blow-up-formula-over-a-perfect-field",
+    "MotivesAndAlgebraicCycles:MC.4/gysin-triangle-over-a-perfect-field"
+   ],
+   "detail": "Relate the categorical deformation lift to the Chow specialization/zero-section class to prove the cycle-class clause. For the purity isomorphism it suffices instead to establish alpha(A^c,0) as the canonical quotient isomorphism of MVW Exercise 15.14, p. 124. Verify the +ord_x residue sign on t. Chow specialization alone and a blow-up splitting do not establish these identifications."
+  },
+  {
+   "title": "Supplier interfaces beyond the statements currently available",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.4/naive-bivariant-comparison",
+    "MotivesAndAlgebraicCycles:MC.4/chow-motives-functor",
+    "MotivesAndAlgebraicCycles:MC.4/compactly-supported-motivic-measure"
+   ],
+   "detail": "Discharge the explicit S.4 complex-descent, SF.5 general-field Tor/composition and GrothendieckEulerForms Part II tensor-ring requests. Their current cited nodes cover spectra, an algebraically closed field, and an additive triangulated K_0 respectively; none can silently supply the stronger interface."
   }
  ],
  "requests": [
@@ -1628,9 +1758,30 @@
   },
   {
    "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
-   "need": "Chow varieties over an arbitrary infinite field: for X in P^N projective over k, the closed subscheme C_{r,d}(X) of the projective space of Chow forms whose geometric points are the effective r-cycles of degree d on X, the Chow monoid C_r(X), continuous algebraic maps between Chow varieties (Friedlander, Algebraic cycles, Chow varieties and Lawson homology, 1991), and the comparison of effective cycles over a smooth quasi-projective U, equidimensional of relative dimension r, with morphisms U -> C_r(X) (FV Proposition 2.3). R09.1/chow-parameters supplies Chow parameters over algebraically closed fields of characteristic zero.",
+   "need": "General-infinite-field Chow parameters and their admissible relative-cycle locus: FV Proposition 2.3 (pp. 6-8) requires equality of the generic cycle field of definition with the residue field of the Chow point for the converse construction. Supply this comparison with smooth quasi-projective parameter schemes, plus Zariski gluing to arbitrary smooth parameters, and show the projection, residual-cycle and positive FL 3.8 finite-pushforward/crossed-constant operations preserve the locus, commute with relative-cycle base change and preserve effective monoids. This extends, rather than reuses unchanged, R09.1/chow-parameters over algebraically closed characteristic-zero fields.",
    "neededBy": [
     "MotivesAndAlgebraicCycles:MC.4/bounded-family-moving-lemma"
+   ]
+  },
+  {
+   "supplier": "SchemeKTheoryOperations:S.4",
+   "need": "Complex-valued Brown-Gersten descent: for a complex C of abelian presheaves on the small Zariski site of a finite-dimensional Noetherian scheme, satisfying C(empty) acyclic and binary Zariski Mayer-Vietoris for every open, prove H^j(C(U)) = H^j_Zar(U,C_Zar) naturally in U,j (MVW Definition 19.10 and Theorem 19.11, p. 162). The existing spectra-valued brown-gersten-vanishing is not yet this theorem; provide the complex form or its Eilenberg-Mac Lane comparison.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.4/naive-bivariant-comparison"
+   ]
+  },
+  {
+   "supplier": "SchemeAndStackFoundations:SF.5",
+   "need": "Extend the algebraically-closed-field tor-intersection interface to smooth schemes over a general infinite field, or provide the precise relative-cycle pullback/Serre Tor compatibility of MVW Examples 1A.13-1A.14 (p. 11, citing SV 3.5.8). In X x Y x Z, restriction to the regular diagonal of smooth Y followed by proper pushforward must agree with composition of finite correspondences, after passage to Chow groups, and commute with exterior products. This is needed for the R-linear symmetric monoidal Chow functor without narrowing k to an algebraically closed field.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.4/chow-motives-functor"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/GrothendieckEulerForms#layer-2-split-exact-abelian-and-triangulated-grothendieck-groups",
+   "need": "GrothendieckEulerForms, Part II: tensor ring descent on the already implemented TauCeti.TriangulatedK0 of an essentially small symmetric tensor triangulated category, whose tensor is exact in each variable. Supply [A tensor B] = [A][B], tensor-unit class = 1, and the induced ring homomorphism for an exact symmetric monoidal functor. Reuse the pinned group, shifts, triangle relations and universal property; do not re-plan them. Split/exact monoidal K_0 in the current library is not a substitute for distinguished-triangle relations.",
+   "neededBy": [
+    "MotivesAndAlgebraicCycles:MC.4/compactly-supported-motivic-measure"
    ]
   }
  ],
@@ -1737,25 +1888,25 @@
   {
    "kind": "base-node-rewiring",
    "stageId": "MotivesAndAlgebraicCycles:MC.4",
-   "reason": "This part closes the base packet's MC.4 gaps with new nodes; the base nodes still cite the gaps or the resolution hypothesis. A fix of research/blueprint/packets/MotivesAndAlgebraicCycles.json should apply these replacements.",
+   "reason": "Proposed base-packet rewiring to the more detailed targets of this part; it requires a separately authorized base-packet edit. Retain the partial-coverage gaps and coefficient/field restrictions until their proof bridges are supplied.",
    "replacements": [
     {
      "node": "MotivesAndAlgebraicCycles:MC.4/gysin-triangle",
      "action": "supersede",
      "by": "MotivesAndAlgebraicCycles:MC.4/gysin-triangle-over-a-perfect-field",
-     "detail": "Drop the resolution hypothesis and the gap; keep the base id as a corollary or retire it in favour of the new node, moving its consumers (MotivicEtaleKTheory:M.5c/hilbert-ninety-implies-beilinson-lichtenbaum, MC.4/geometric-motives-generated-by-smooth-projective)."
+     "detail": "Point to the perfect-field target, but retain the categorical normalization gap E103 and integral/flat coefficient qualifications for the divisor sequence. Do not mark the proof closed."
     },
     {
      "node": "MotivesAndAlgebraicCycles:MC.4/blow-up-smooth-centre-and-gysin-map",
      "action": "supersede",
      "by": "MotivesAndAlgebraicCycles:MC.4/blow-up-formula-over-a-perfect-field",
-     "detail": "Same statement over every perfect field."
+     "detail": "Use the perfect-field blow-up splitting and Gysin-map target. The cycle-class clause still depends on the recorded deformation compatibility gap."
     },
     {
      "node": "MotivesAndAlgebraicCycles:MC.4/friedlander-voevodsky-duality",
      "action": "add prerequisites",
      "by": "MotivesAndAlgebraicCycles:MC.4/hom-into-motives-with-compact-support",
-     "detail": "Its statement is part (b) of the new node; add it and MC.4/bivariant-duality as prerequisites and remove the proof gap."
+     "detail": "Add the Hom/bivariant comparison and bivariant-duality nodes, keeping the infinite-field restriction and the moving-family, cdh and complex-descent obligations."
     },
     {
      "node": "MotivesAndAlgebraicCycles:MC.4/bivariant-shifting-theorem",
@@ -1773,13 +1924,13 @@
      "node": "MotivesAndAlgebraicCycles:MC.4/chow-motives-into-geometric-motives",
      "action": "add prerequisites",
      "by": "MotivesAndAlgebraicCycles:MC.4/chow-motives-functor",
-     "detail": "The functor of Remark 20.2 is constructed there; the gap E24 closes."
+     "detail": "Import the functor target and its convention comparison. Keep the general-field Tor/composition request, moving-family gap and the resolution hypothesis for full faithfulness."
     },
     {
      "node": "MotivesAndAlgebraicCycles:MC.4/equidimensional-cycle-sheaves",
      "action": "add prerequisites",
      "by": "MotivesAndAlgebraicCycles:MC.4/equidimensional-cycles-transfers",
-     "detail": "The transfers and the flat and proper functoriality are constructed there; the gap on Exercise 16.3 closes. To avoid a cycle, move the transfer and functoriality items of the base node to the new node and keep the base node as the bare presheaf of cycles."
+     "detail": "Retain the bare relative-cycle presheaf here and move transfer/functoriality clauses to the new node, preventing a dependency cycle. Construction remains conditional on the M.5a relative-cycle request."
     }
    ]
   }
@@ -1791,14 +1942,19 @@
    "kind": "gap",
    "locator": "Theorems 6.1 and 6.3 (preprint pp. 30, 34) and Theorem 7.1 (p. 37), in the IAS preprint; the proofs cite Friedlander-Lawson [9, 3.1] and [9, 3.2]",
    "printed": "The presheaf forms of the moving lemma and the duality theorem for smooth projective varieties are stated over an arbitrary field k.",
-   "correction": "State them over an infinite field (or a finite field large enough for the given degree bounds), or add an argument for finite fields, for example a transfer argument with two finite extensions of coprime degrees.",
+   "correction": "In the proof plan retain infinite fields, or supply a finite-field descent argument compatible with the presheaf homology. A degree-dependent large finite field does not provide one fixed field for every bound. This finding alone does not establish that the stated theorem is false.",
    "reason": "Friedlander-Lawson prove the moving lemma when k is infinite or a sufficiently large finite field (Theorem 3.1, p. 19, and the discussion of finite fields before Proposition 2.5, p. 17), the size depending on the degree bounds; for an arbitrary finite field they use two extensions of coprime degrees only in Theorem 3.4 (pp. 23-24), on rational equivalence of intersection products, not for the moving maps themselves. FV Lemma 6.6, used for Theorem 7.1, needs the moving maps over the fixed field k for every degree bound d, which a fixed finite field does not provide.",
-   "affects": "a stated result",
-   "known": "new",
+   "affects": "the proof",
+   "known": "No correction found in the public author versions checked; finding scoped to the IAS preprint. The published chapter was not collated.",
    "searched": [
     "Friedlander-Lawson, authors' preprint on Friedlander's USC page",
     "the Friedlander-Voevodsky preprint on Voevodsky's IAS publications page and the notes attached to it there"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed only as an incomplete finite-field route in the IAS proof. No counterexample or finding about the uncollated published chapter is inferred.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.4"
+   }
   },
   {
    "id": "MotivesAndAlgebraicCycles/E102",
@@ -1812,7 +1968,12 @@
    "known": "new",
    "searched": [
     "the Voevodsky preprint on his IAS publications page and the notes attached to it there"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed: both deformation columns use the smooth-centre blow-up triangle, Proposition 3.5.2, not the resolution-dependent 4.1.3.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.4"
+   }
   },
   {
    "id": "MotivesAndAlgebraicCycles/E103",
@@ -1820,14 +1981,19 @@
    "kind": "gap",
    "locator": "Construction of g_Z after Proposition 3.5.3 (preprint p. 37) and last step of the proof of Proposition 3.5.4 (p. 39)",
    "printed": "The composite of the Gysin map with the projection to Z(c)[2c] is stated to be the class of Z, and the isomorphism property of alpha(P^c, point) is said to follow easily from the construction, with a reference to Homology of schemes.",
-   "correction": "Both need an argument: the cycle-class identification through the deformation to the normal cone and the projective bundle formula for Chow groups, and then the normalisation alpha(P^c, point) = 1 in End(Z(c)[2c]) = Z by evaluating on CH^c(P^c).",
-   "reason": "No proof is written in the source, and the reference is to a different category (DM_h of Homology of schemes). MVW leave the analogous identification for (A^c, 0) as Exercise 15.14.",
+   "correction": "Supply the categorical deformation/Chow-class compatibility and prove that alpha(A^c,0) is the canonical quotient isomorphism, or compute alpha(P^c,pt) as multiplication by 1 with a justified cycle-class comparison. The normalization and sign are explicit remaining gaps in this plan.",
+   "reason": "The source does not give this comparison; its reference to Homology of schemes uses another motivic category and is not by itself a proof in the category here. MVW Exercise 15.14 isolates the corresponding local normalization. This records an omitted argument, not a counterexample to purity.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "the Voevodsky preprint on his IAS publications page",
     "MVW, Lecture 15 and the authors' list of corrections (Internet Archive copy)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an omitted categorical normalization/comparison argument. The former packet had restated this bridge as proved; it is now an explicit gap.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.4"
+   }
   },
   {
    "id": "MotivesAndAlgebraicCycles/E104",
@@ -1841,49 +2007,100 @@
    "known": "new",
    "searched": [
     "the Voevodsky preprint on his IAS publications page"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed as an omitted functoriality check. MVW 1A.13-1A.14 supplies the precise general-field comparison to request; this is not a false-functor finding.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.4"
+   }
   },
   {
    "id": "MotivesAndAlgebraicCycles/E105",
    "source": "V.CTP",
    "kind": "error",
    "locator": "Proposition 4.23 with its one-line proof (preprint p. 34), used for Theorem 4.27 and, through its proof, Theorem 5.6",
-   "printed": "For every Zariski cover W = U union V of a smooth semi-local scheme, the Mayer-Vietoris sequence of a homotopy invariant pretheory is asserted to be short exact, by reference to Lemma 4.6 and the proof of Proposition 4.17.",
+   "printed": "Proposition 4.23 asserts a short exact Mayer-Vietoris sequence for any pretheory on any two-open cover of a smooth semilocal scheme, citing Lemma 4.6 and the proof of Proposition 4.17.",
    "correction": "MVW Lemma 22.10: given S = U_0 union V there is an open U in U_0 with S = U union V for which the sequence is exact; the argument must pass from U_0 to such a U. In this packet homotopy invariance of Nisnevich cohomology is imported from MotivicEtaleKTheory:M.5a/homotopy-invariant-sheaves (MVW Theorem 13.8, completed in Lectures 22-24) instead of CTP Theorem 5.6.",
-   "reason": "MVW state after Lemma 22.10 (pp. 185-186) that it corrects this result of Cohomological theory, which omitted the passage from U_0 to a smaller U; Voevodsky also said publicly that the proof of this key lemma is wrong (quoted on his IAS publications page).",
+   "reason": "MVW state after Lemma 22.10 (pp. 185-186) that it corrects this result of Cohomological theory, which omitted the passage from U_0 to a smaller U; Voevodsky also said publicly that the proof of this key lemma is wrong (acknowledged on his IAS publications page).",
    "affects": "the proof",
    "known": "MVW Lemma 22.10 and the remark after it (pp. 185-186); Voevodsky's statement on the IAS publications page (https://www.math.ias.edu/Voevodsky/voevodsky-publications_abstracts.html, entry for Cohomological theory of presheaves with transfers)",
    "searched": [
     "Voevodsky's IAS publications page",
     "MVW Lecture 22"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed against CTP p. 34 and MVW 22.10 with the following remark (pp. 185-186). The packet uses the corrected homotopy-invariant-sheaf route rather than silently inheriting CTP 5.6.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.4"
+   }
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E106",
+   "source": "FV.BivCycl",
+   "kind": "misprint",
+   "locator": "IAS preprint, Theorem 7.1 (p. 37) and proof (p. 38)",
+   "printed": "The proof switches the order of the variables in the source of D and tests fibres with the other factor fixed, while the stated map has source z_equi(Y,X,r).",
+   "correction": "For the stated D, use the projection X x Y -> Y and the test fibres X x {y}, of dimension dim X. Apply the moving theorem with cycle dimension r + dim Y and test dimension dim X.",
+   "reason": "Its expected intersection dimension is r, precisely the criterion for relative dimension r over Y in FV Proposition 6.4. Testing {x} x Y instead addresses the transposed duality map.",
+   "affects": "nothing",
+   "known": "No correction found in the public IAS version; not collated against the published chapter.",
+   "searched": [
+    "IAS preprint, statement and proof of 7.1 and Proposition 6.4",
+    "Voevodsky IAS publications page"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed by comparing the stated D with Proposition 6.4: the base is Y, so the tested fibres must be X x {y}.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.4"
+   }
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E107",
+   "source": "FV.BivCycl",
+   "kind": "gap",
+   "locator": "IAS preprint, Theorem 6.1 (p. 30), parameter-extension proof (pp. 31-33)",
+   "printed": "The theorem asks for maps of effective-cycle monoids, while the extension from an open parameter uses an integral linear combination of two finite correspondences whose degrees have greatest common divisor one.",
+   "correction": "A signed correspondence gives an operation on cycle groups but need not preserve effective monoids. Use the positive finite-pushforward and crossed-constant construction of FL Theorem 3.8 (pp. 25-26), with its relative-family and field-of-definition checks.",
+   "reason": "The Bezout coefficients can include a negative integer. Linearity of transfers proves no positivity statement. FL 3.8 provides a positive route; this is a gap in the presented extension argument, not a claim that the moving theorem is false.",
+   "affects": "the proof",
+   "known": "No correction found in the IAS version checked; FL 3.8 provides an alternative positive extension. Published FV chapter not collated.",
+   "searched": [
+    "FV IAS preprint, proof of Theorem 6.1",
+    "FL author preprint, Theorem 3.8 and proof",
+    "Voevodsky IAS publications page"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed narrowly: the displayed signed extension does not prove effective-monoid preservation. The positive FL 3.8 route still requires the explicit family-realization checks.",
+    "by": "REV-MotivesAndAlgebraicCycles--MC.4"
+   }
   }
  ],
  "sourceVersions": [
   {
    "kind": "preprint",
-   "url": "http://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s5_0.pdf",
+   "url": "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s5_0.pdf",
    "read": "2026-10-19",
    "sha256": "b15df626bd9e0bc41080dc7712ae8bab8bc8cd2ad8d20bf668593ce87eee70ad",
    "citation": "Vladimir Voevodsky, Triangulated categories of motives over a field; In E. M. Friedlander, A. Suslin, V. Voevodsky, Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 188-238. Read in the author's preprint posted on his IAS publications page (56 pages); page numbers in locators are those of the preprint."
   },
   {
    "kind": "preprint",
-   "url": "http://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s4.pdf",
+   "url": "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s4.pdf",
    "read": "2026-10-19",
    "sha256": "c5edd97134be2d8e3d625b54e604739e6a25590ce686acc8a71a316cfa104554",
-   "citation": "Eric M. Friedlander and Vladimir Voevodsky, Bivariant cycle cohomology; In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 138-187. Read in the preprint posted on Voevodsky's IAS publications page (55 pages); page numbers in locators are those of the preprint."
+   "citation": "Eric M. Friedlander and Vladimir Voevodsky, Bivariant cycle cohomology; In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 138-187. Read in the preprint posted on Voevodsky's IAS publications page (55 pages); page numbers in locators are those of the preprint. Independent review findings E101, E106 and E107 concern this IAS preprint. The published chapter was not available for collation in this run; no conclusion about corrections there is made."
   },
   {
    "kind": "preprint",
-   "url": "http://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s2.pdf",
+   "url": "https://www.math.ias.edu/vladimir/sites/math.ias.edu.vladimir/files/s2.pdf",
    "read": "2026-10-19",
    "sha256": "4f2cfb7162e9ca5febd9010ffca3a3d1ebe3e34b7031c6d514bd02b00e53ce92",
    "citation": "Andrei Suslin and Vladimir Voevodsky, Relative cycles and Chow sheaves; In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 10-86. Read in the preprint posted on Voevodsky's IAS publications page (86 pages); page numbers in locators are those of the preprint."
   },
   {
    "kind": "preprint",
-   "url": "https://web.archive.org/web/2016/http://www.math.uiuc.edu/K-theory/0368/s3.pdf",
+   "url": "https://web.archive.org/web/20160101000000id_/http://www.math.uiuc.edu/K-theory/0368/s3.pdf",
    "read": "2026-10-19",
    "sha256": "5072e58b964d8883e76f2e0f98ba9c73ecf8f43b6ab88129caae8294699434aa",
    "citation": "Vladimir Voevodsky, Cohomological theory of presheaves with transfers; In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 87-137. Read in the K-theory preprint archive copy (preprint 0368, file s3.pdf, 56 pages) retrieved through the Internet Archive; page numbers in locators are those of that copy."
@@ -1901,6 +2118,106 @@
    "read": "2026-10-19",
    "sha256": "1197e239873e2a7f7f4dcbd1d115af67281a6d0867eff8816cc630b86b67f020",
    "citation": "Carlo Mazza, Vladimir Voevodsky and Charles Weibel, Lecture Notes on Motivic Cohomology; Clay Mathematics Monographs 2, American Mathematical Society and Clay Mathematics Institute, 2006; the freely posted Clay PDF."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/math/0111062v1",
+   "read": "2026-10-19",
+   "sha256": "484d2c3586977503dc6f1b43fca158af059cd0f9c5322731d0ebae6d643e160c",
+   "citation": "Franziska Bittner, The universal Euler characteristic for varieties of characteristic zero, arXiv:math/0111062v1 (2001), conventions p. 2 and section 3 p. 3."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-MotivesAndAlgebraicCycles--MC.4",
+  "date": "2026-10-19",
+  "notes": "All 17 nodes and all 16 pinned declarations checked. Corrected in place and accepted as a complete review pass with partial MC.4 coverage and four precise gaps, seven supplier requests and seven proposed base-node rewires. No new theorem node or motivic implementation is claimed. All seven source findings have independent verdicts; findings about IAS proofs are scoped to the versions read. The packet status is partial as well, so the under-budget checker does not equate a finished review with a fully planned stage.",
+  "checked": [
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/equidimensional-cycles-transfers",
+    "verdict": "corrected",
+    "note": "Corrected universal-integrality hypotheses and independent-base tensor pairing; added a degree-two transfer test."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/bivariant-cycle-cohomology",
+    "verdict": "verified",
+    "note": "Verified integral cdh grading, variance, point evaluation and naive definition against FV 4.2-4.5 and the M.5a request."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/equidimensional-cycle-localisation",
+    "verdict": "verified",
+    "note": "Verified localization, Mayer-Vietoris and abstract blow-up triangles under resolution, using the requested cdh vanishing and flattening interfaces."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/bounded-family-moving-lemma",
+    "verdict": "corrected",
+    "note": "Corrected Chow field-of-definition restriction and signed-positivity claim; planned the positive FL 3.8 route with an explicit family-realization gap."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/projective-duality-for-equidimensional-cycles",
+    "verdict": "corrected",
+    "note": "Corrected the fibre labels and dimensions in projective duality; retained infinite fields and effective-family prerequisites."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/duality-for-equidimensional-cycles",
+    "verdict": "verified",
+    "note": "Verified the quasi-projective/resolution induction and the fact that the general embedding is tested at Spec k, not claimed a presheaf quasi-isomorphism."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/naive-bivariant-comparison",
+    "verdict": "corrected",
+    "note": "Corrected spectra/complex mismatch with a precise complex-valued Brown-Gersten request and direct MVW 19.11 locator."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/bivariant-duality",
+    "verdict": "verified",
+    "note": "Verified FV 8.2 dimensions, first/second variables and infinite-field/resolution restrictions."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/bivariant-suspension-and-gysin",
+    "verdict": "verified",
+    "note": "Verified all four FV 8.3 shifts, homotopy and Gysin indices; corrected-sheaf route retained."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/hom-into-motives-with-compact-support",
+    "verdict": "corrected",
+    "note": "Corrected singular-scheme notation to C_*(X) and completed the locator for the internal-Hom proof; verified the signs and positive-Ext direction."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/chow-motives-functor",
+    "verdict": "corrected",
+    "note": "Corrected general-field intersection supplier boundary and R^2 example; verified homological covariance and transpose/twist comparison with MC.1."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/smooth-blow-up-triangle",
+    "verdict": "corrected",
+    "note": "Verified the perfect-field excision proof using corrected homotopy-invariant sheaves, and added the codimension-zero component case before using projective-bundle surjectivity."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/blow-up-formula-over-a-perfect-field",
+    "verdict": "corrected",
+    "note": "Kept the perfect-field blow-up target but replaced an unsupported cycle-class identification by an explicit categorical compatibility gap."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/gysin-triangle-over-a-perfect-field",
+    "verdict": "corrected",
+    "note": "Corrected integral versus arbitrary coefficients, Tor contribution and residue normalization; retained perfect-field target with an honest purity gap."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/tate-motives",
+    "verdict": "corrected",
+    "note": "Corrected negative-weight proof for every n>0 and required nonzero R in the non-effectivity test; added direct higher-Chow prerequisite."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/grothendieck-ring-of-varieties",
+    "verdict": "corrected",
+    "note": "Replaced a non-definition citation with the direct Bittner scissor-ring definition, explaining its characteristic-zero convention and the independent all-field construction; corrected affine-space computation and smallness."
+   },
+   {
+    "nodeId": "MotivesAndAlgebraicCycles:MC.4/compactly-supported-motivic-measure",
+    "verdict": "corrected",
+    "note": "Removed duplicate generic triangulated K_0 planning; imported pinned APIs, requested the ring extension from its owner, and corrected rational coefficient change and denominator units."
+   }
+  ]
+ }
 }
