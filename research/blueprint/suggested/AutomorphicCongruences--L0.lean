@@ -1,7 +1,7 @@
 /-
 Copyright (c) 2026 The Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: Claude (session claude-zBc10c)
+Authors: Claude (session claude-zBc10c); independent review by Codex (codex-K1c0KG)
 -/
 import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.RingTheory.Ideal.Operations
@@ -14,8 +14,8 @@ import Mathlib.NumberTheory.LegendreSymbol.JacobiSymbol
 import Mathlib.Data.ZMod.Basic
 
 /-!
-This file is not the roadmap and is not exhaustive. The roadmap document
-(`research/blueprint/readmes/AutomorphicCongruences--L0.md`) is definitive. The statements
+This file is not the roadmap and is not exhaustive. The corrected blueprint packet and independent review are the current contracts.
+The reader document must be synchronized with them during packaging. The statements
 suggest Lean forms so that contributors and reviewers converge on names and signatures.
 Nothing here claims implementation.
 
@@ -114,13 +114,13 @@ open Polynomial
 variable {R : Type*} [CommRing R]
 
 /-- AutomorphicCongruences:L0/primitive-imprimitive-comparison: the Euler polynomial
-`P_ℓ(X) = det(1 − Frob_ℓ X | T^{I_ℓ})` of a rank-two `T` unramified at `ℓ`, with trace `a`
-and determinant `d` of Frobenius: `1 − a X + d X²`. -/
+`P_ℓ(X) = det(1 − Frob_ℓ⁻¹ X | (T ⊗ Frac A)^{I_ℓ})` in SU, with trace `a`
+and determinant `d` of that inverse Frobenius: `1 − a X + d X²`. -/
 noncomputable def eulerPolyUnramified (a d : R) : R[X] :=
   1 - C a * X + C d * X ^ 2
 
 /-- The Euler polynomial at a prime where the inertia invariants have rank one (Steinberg
-or its unramified twist), with Frobenius eigenvalue `α` on them: `1 − α X`. -/
+or its unramified twist), with the chosen source-normalized Frobenius eigenvalue `α` on them: `1 − α X`. -/
 noncomputable def eulerPolySteinberg (α : R) : R[X] :=
   1 - C α * X
 
@@ -141,17 +141,26 @@ example (aℓ : ℤ) (ℓ : ℕ) :
 example : eulerPolySteinberg (1 : ℤ) = 1 - X := by
   sorry
 
+-- A residual Euler factor can be nonzero as a polynomial and vanish at augmentation.
+-- Thus zero augmentation cannot justify discarding it as a unit in a local Iwasawa ring.
+example : (1 - X : (ZMod 5)[X]) ≠ 0 ∧ (1 - X : (ZMod 5)[X]).eval 1 = 0 := by
+  sorry
+
 end EulerFactors
 
 /-! ## L2 and L5a. Splitting conditions on the auxiliary quadratic fields -/
 
 section AuxiliaryFields
 
-/-- An odd prime `p ∤ D` splits in `ℚ(√D)` iff the Jacobi symbol `(D/p)` is `1`. -/
-def SplitsInQuadratic (D : ℤ) (p : ℕ) : Prop := jacobiSym D p = 1
+/-- Splitting test for an unramified prime and a quadratic fundamental discriminant `D`.
+At `p = 2`, odd `D` splits precisely when `D ≡ 1 mod 8`; the Jacobi criterion is for odd primes. -/
+def SplitsInQuadratic (D : ℤ) (p : ℕ) : Prop :=
+  if p = 2 then D % 8 = 1 else jacobiSym D p = 1
 
-/-- An odd prime `p ∤ D` is inert in `ℚ(√D)` iff `(D/p) = −1`. -/
-def InertInQuadratic (D : ℤ) (p : ℕ) : Prop := jacobiSym D p = -1
+/-- Inertia test for an unramified prime and a quadratic fundamental discriminant `D`.
+At `p = 2`, odd `D` is inert precisely when `D ≡ 5 mod 8`. -/
+def InertInQuadratic (D : ℤ) (p : ℕ) : Prop :=
+  if p = 2 then D % 8 = 5 else jacobiSym D p = -1
 
 /-- BCS's condition (disc) on the discriminant of `K`: odd and different from `−3`. -/
 def BCSDisc (DK : ℤ) : Prop := Odd DK ∧ DK ≠ -3
@@ -175,6 +184,11 @@ example : SplitsInQuadratic (-7) 11 := by
 -- p = 5 is inert in ℚ(√13): (13/5) = (3/5) = −1, as condition (i) of Prop. 5.2.1 asks.
 example : InertInQuadratic 13 5 := by
   sorry
+
+-- The prime 2 may divide N: it splits for D = −7 and is inert for D = 13.
+example : SplitsInQuadratic (-7) 2 ∧ InertInQuadratic 13 2 ∧ ¬ SplitsInQuadratic 13 2 := by
+  change (-7 : ℤ) % 8 = 1 ∧ (13 : ℤ) % 8 = 5 ∧ ¬ (13 : ℤ) % 8 = 1
+  decide
 
 -- (disc) excludes ℚ(√−3) and accepts ℚ(√−7).
 example : ¬ BCSDisc (-3) ∧ BCSDisc (-7) := by
@@ -201,278 +215,2234 @@ end FamilyRing
 end AutomorphicCongruences
 
 /-!
-## Register of README targets
+## Register of roadmap targets
 
-Every node of the packet, with the API items and unit tests of each definition and
-construction, under the names the packet gives them. Entries marked [prototyped] have
-Lean signatures above; the others are README targets whose carriers are not at the pins.
+These are mathematical contracts, not declarations over substitute carriers.
+All targets, hypotheses, APIs and tests below match the corrected packet.
+Missing proof inputs remain explicit in its gaps/coverage records.
 
-* AutomorphicCongruences:L0/sigma-primitive-selmer (construction): Σ-primitive ordinary Selmer groups over Iwasawa towers.
-  Planet: Σ-primitive Selmer groups.
-  - API SigmaSelmer.mk (constructor): Sel^Σ_F(T,(T_v)) as an A-submodule of H¹(F, T ⊗_A A^∨), defined by the local conditions above.
-  - API SigmaSelmer.dual (data): X^Σ_F = Hom_A(Sel^Σ_F, A^∨), finitely generated over A.
-  - API SigmaSelmer.mono (functoriality): Σ ⊆ Σ′ gives an inclusion Sel^Σ ⊆ Sel^{Σ′} and a surjection X^{Σ′} → X^Σ.
-  - API SigmaSelmer.shapiro (equivalence): Sel^Σ_{F_∞}(T) ≅ Sel^Σ_F(T ⊗_A Λ_{F,A}(ε_F^{-1})) as Λ_{F,A}-modules, compatibly with the local conditions.
-  - API SigmaSelmer.charIdeal (data): Ch^Σ_{F,A}(T) := charIdeal of X^Σ over noetherian normal A, with Ch = Char(A/Ft).
-  - API SigmaSelmer.baseChange (compatibility): For an ideal 𝔞 with A/𝔞 profinite, the natural map X^Σ(T)/𝔞 → X^Σ(T/𝔞T) (an isomorphism under L0/selmer-specialization-control).
-  - API SigmaSelmer.of_upstream (coercion): Agreement with the upstream galois-selmer-group for the Selmer structure (relaxed at Σ, unramified, Greenberg at p).
-  - test sigmaSelmer_full_relaxed (degenerate): If T_v = T for every v | p and Σ contains every place of ramification, Sel^Σ_F = H¹(G_{F,Σ}, T ⊗ A^∨); a definition imposing a condition at Σ fails this.
-  - test sigmaSelmer_trivial_coefficients (computation): For F = ℚ, A = ℤ_p, T = ℤ_p with trivial action, T_p = 0 and Σ = ∅, Sel^∅_{ℚ_∞} = Hom(Gal(L_∞/ℚ_∞), ℚ_p/ℤ_p) for L_∞ the maximal unramified abelian pro-p extension of ℚ_∞, which is ℚ_∞ itself; so X = 0 and Ch = Λ.
-  - test sigmaSelmer_strict_is_not_ordinary (non-example): Taking T_v = 0 at v | p (the strict condition) gives a different module from the ordinary one for an ordinary modular T; the two differ by H¹(I_v, T_v ⊗ A^∨).
-  - test sigmaSelmer_upstream_agreement (agreement): For the relaxed/unramified/Greenberg structure, SigmaSelmer.of_upstream identifies the module with SelmerIwasawaCohomology:L2/galois-selmer-group.
-* AutomorphicCongruences:L0/primitive-imprimitive-comparison (theorem): Primitive against Σ-primitive Selmer groups and the removed Euler factors.
-* AutomorphicCongruences:L0/selmer-specialization-control (theorem): Specializing Σ-primitive Selmer groups and their characteristic ideals.
-* AutomorphicCongruences:L0/eisenstein-ideal (definition) [prototyped]: The Eisenstein ideal of an Eisenstein family.
-  Planet: Eisenstein ideal.
-  - API EisensteinIdeal.hecke (constructor) [prototyped]: I_E ⊆ 𝕋 generated by t − λ(t), t ∈ 𝒯.
-  - API EisensteinIdeal.base (constructor) [prototyped]: E_E := ker(Λ → 𝕋/I_E).
-  - API EisensteinIdeal.quotientEquiv (equivalence) [prototyped]: Λ/E_E ≃ 𝕋/I_E as Λ-algebras when the structure map is onto.
-  - API EisensteinIdeal.localize (functoriality) [prototyped]: Formation of I_E and E_E commutes with localization at a height-one prime P of Λ and completion.
-  - API EisensteinIdeal.proper_iff (characterisation) [prototyped]: E_E ≠ Λ iff some cuspidal eigensystem is congruent to λ modulo the maximal ideal.
-  - API EisensteinIdeal.mono (functoriality) [prototyped]: Enlarging 𝒯 enlarges I_E; restricting to a direct factor of 𝕋 enlarges E_E.
-  - test eisensteinIdeal_ramanujan_level1 (computation) [prototyped]: For weight 12, level 1 cusp forms over ℤ_691 with E = E_12 (λ(T_ℓ) = 1 + ℓ^{11}), 𝕋 = ℤ_691 and E_E = (691), since τ(ℓ) ≡ 1 + ℓ^{11} mod 691 and the numerator of B_12/24 has 691-adic valuation one.
-  - test eisensteinIdeal_no_congruence (degenerate) [prototyped]: If no cusp form is congruent to E, then I_E = 𝕋 and E_E = Λ (for example weight 12 at p = 5).
-  - test eisensteinIdeal_mazur (agreement): For weight two, level a prime N and p ∣ numerator((N − 1)/12), E_E is Mazur's Eisenstein ideal localised at p: generated by T_ℓ − 1 − ℓ and 1 + w_N.
-  - test eisensteinIdeal_not_congruence_ideal (non-example): E_E differs from the congruence ideal of a cuspidal eigenform: for weight 12, level 1 and p = 691 the congruence ideal of Δ in the cuspidal Hecke algebra is the unit ideal (𝕋 = ℤ_p), while E_E = (691).
-* AutomorphicCongruences:L0/su-lattice-datum (definition): The Skinner–Urban lattice datum.
-  - API LatticeDatum.chiPrime (projection): χ′ = νχ^{-c}.
-  - API LatticeDatum.trace_congr (characterisation): tr σ ≡ χ′ + tr ρ + χ modulo I.
-  - API LatticeDatum.residualProjectors (data): The elements x_1, x_2 ∈ R[G] separating the residually disjoint constituents (SU Lemma 4.1.3).
-  - API LatticeDatum.localize (functoriality): Base change along A_0 → Â_{0,P} and R_0 → R̂_{0,Q} preserves the datum.
-  - API LatticeDatum.localData (structure): The D-stable summands M^±, V^± with the congruence of characteristic polynomials and its consequence for the quotients.
-  - API LatticeDatum.toGMA (coercion): The R[G]-span of a lattice in M carries a generalized-matrix-algebra structure of type (1, n, 1) relative to the residual decomposition.
-  - test latticeDatum_ribet_case (degenerate): With n = 0 (no ρ), the datum is a two-character Ribet datum and LatticeDatum.toGMA recovers IHG.6's distinct-character set-up.
-  - test latticeDatum_su_instance (computation): In SU 7.3.2, χ = σ_{χ̄_f,0}σ^c_ψ ε^{-3}, ρ_0 = ρ_f ⊗ σ_{χ̄_f,0}σ^{-c}_ξ σ^c_ψ ε^{-2}, χ′ = σ_{χ̄_f,0}ε^{-1}det ρ_f σ^{-1}_{ξ′}σ^c_ψ, and ν is fixed by χ^cχ′ = σ^2_{χ̄_f,0}ε^{-7}ε_ℚ^{-2}; these satisfy χ′ = νχ^{-c}, and the trace of ρ_D in (6.5.2.a) is χ + tr ρ_0 + χ′.
-  - test latticeDatum_requires_distinct (non-example): If χ̄ = ν̄χ̄^{-c} then condition (2) fails; SU (dist) and CLW's ξ_p ≢ ξ_p̄ are exactly what rule this out.
-  - test latticeDatum_gma_agreement (agreement): For a lattice datum with σ residually multiplicity free, LatticeDatum.toGMA agrees with IntegralHeckeAndGaloisDeterminants:IHG.1/generalized-matrix-algebra.
-* AutomorphicCongruences:L0/lattice-construction (theorem): The lattice construction: Eisenstein ideals bound Selmer groups.
-  Planet: Lattice construction.
-* AutomorphicCongruences:L0/extension-class-local-conditions (theorem): Local conditions satisfied by the automorphic extension classes.
-* AutomorphicCongruences:L0/canonical-period-congruence-number (comparison): Canonical periods, Petersson norms and the congruence number.
-* AutomorphicCongruences:L0/hida-tilouine-anticyclotomic (theorem): The Hida–Tilouine anticyclotomic main conjecture for CM fields (one divisibility and equality).
-* AutomorphicCongruences:L1/gu22-ordinary-hermitian-forms (construction): Ordinary p-adic Hermitian modular forms on GU(2,2) and their Hecke algebra.
-  - API GU22Forms.space (constructor): V^q_{a,ord}(K′; Λ_2) and M^q_{a,ord}(K′; Λ_2) for q ∈ {0, 1} (cusp forms, all forms).
-  - API GU22Forms.qExp (projection): The q-expansion at a cusp x: Σ_{β ∈ S(ℚ), β ≥ 0} c(β, x) q^β, injective on V^q_{a,ord} (q-expansion principle).
-  - API GU22Forms.hecke (data): The Hecke operators T_v, Z_{ℓ,0}, Z^{(i)}_{ℓ,0} and u_t, commuting, with e the ordinary projector.
-  - API GU22Forms.specialize (functoriality): Specialization at an arithmetic weight φ lands in classical holomorphic ordinary forms of weight φ for sufficiently regular φ.
-  - API GU22Forms.siegelOperator (projection): The Siegel operator Φ to the boundary, fitting in the exact sequence of Cor. 5.5.9 and Thm 6.3.10.
-  - API GU22Forms.heckeAlgebra (data): h_{Σ,0}(K′; Λ) := the Λ-algebra generated by the Hecke operators acting on ordinary cusp forms; finite and reduced over Λ_D after base change.
-  - test gu22Forms_degree_one (agreement): For n = 1 the same construction for GU(1,1) gives ordinary p-adic elliptic modular forms twisted by Hecke characters of K, with Hida's ordinary projector.
-  - test gu22Forms_qexp_injective (characterisation): A form whose q-expansions vanish at every cusp x with x_p ∈ Q(ℤ_p) is zero (q-expansion principle on each connected component).
-  - test gu22Forms_eisenstein_not_cuspidal (non-example): The Λ_D-adic Eisenstein series E_D has nonzero Siegel-operator image, so it is not in V^0_{a,ord}.
-  - test gu22Forms_projector_idempotent (computation): e ∘ e = e and e commutes with every T_v; on a classical form of weight a whose u_t-eigenvalue is a p-adic unit, e acts as the identity.
-* AutomorphicCongruences:L1/gu22-hida-control (theorem): Hida theory for GU(2,2): freeness, control and the boundary sequence.
-  Planet: Hida theory for GU(2,2).
-* AutomorphicCongruences:L1/eisenstein-datum (definition): The p-adic Eisenstein datum and its Eisenstein ideal.
-  Planet: Skinner–Urban Eisenstein ideal.
-  - API EisensteinDatum.lambdaD (data): Λ_D = 𝕀[[Γ^-_K × Γ_K]] with its Λ_2-algebra structure via α ⊗ β.
-  - API EisensteinDatum.rhoD (data): The semisimple G_K-representation ρ_D of (6.5.2.a), unramified outside Σ, with det(1 − ρ_D(g)X) ∈ Λ_D[X].
-  - API EisensteinDatum.heckeIdeal (constructor): I_D ⊆ h_D generated as in SU 6.5.3.
-  - API EisensteinDatum.ideal (constructor): E_D := ker(Λ_D → h_D/I_D).
-  - API EisensteinDatum.quotientEquiv (equivalence): Λ_D/E_D ≃ h_D/I_D (6.5.3.a).
-  - API EisensteinDatum.LD (data): L_D = L^Σ_{𝐟,K,ξ}·L^Σ_{χ̄_𝐟ξ̄′} ∈ Λ_D.
-  - API EisensteinDatum.specialize (compatibility): At an arithmetic φ ∈ X^a_D with an associated Eisenstein series, φ(ρ_D) is that series' Galois representation and φ(Q_{v,D}) its Hecke polynomial.
-  - test eisensteinDatum_trace_shape (computation): tr ρ_D is the sum of two characters and the trace of a twist of ρ_𝐟; its reduction modulo the maximal ideal is the residual trace used in Thm 7.3.1, with exactly one irreducible two-dimensional constituent under (irred)_𝐟.
-  - test eisensteinDatum_proper (characterisation): E_D ≠ Λ_D exactly when some cuspidal ordinary eigensystem is residually congruent to the eigensystem of ρ_D.
-  - test eisensteinDatum_rank_count (degenerate): If 𝕀 = A (a single form, no weight variable) then Λ_D = A[[Γ^-_K × Γ_K]] ≅ A[[X_1, X_2, X_3]] has Krull dimension 4, one more than the number of Iwasawa variables.
-  - test eisensteinDatum_not_gl2 (non-example): Replacing h_D by the GL₂ Hecke algebra of 𝐟 does not give an Eisenstein ideal of this datum: ρ_D has rank four and its Hecke polynomials Q_v have degree four.
-* AutomorphicCongruences:L1/klingen-eisenstein-series (construction): Klingen Eisenstein series on GU(2,2) as pullbacks of Siegel Eisenstein series on GU(3,3).
-  - API KlingenEisenstein.series (constructor): E(Z, x; F) on GU(2,2) from (f, ψ, ξ, Σ, local sections).
-  - API KlingenEisenstein.pullback (characterisation): E is the pairing of the pullback of E^{Sieg}_{GU(3,3)} with f (doubling identity).
-  - API KlingenEisenstein.fourierCoeff (data): c(β, x) as a product of local Whittaker integrals with the values of SU Cor. 11.7.5–11.7.6.
-  - API KlingenEisenstein.singular_dvd (characterisation): For det β = 0, c(β, x) is a multiple of L^Σ_K(f, χ̄_fξ, κ−1)·L^Σ(χ̄_fξ̄′, κ−2) divided by the period.
-  - API KlingenEisenstein.hecke (characterisation): E is a Hecke eigenform with Hecke polynomials Q_{v,D} at v ∉ Σ and the U_p-eigenvalues ∏β_i^{a_i}.
-  - API KlingenEisenstein.siegelOperator (projection): The Siegel-operator image of E at each boundary component is f (or 0) times the constant-term L-value.
-  - test klingen_constant_term_divisible (characterisation): The Siegel-operator image of E at the standard boundary component equals the L-value product times f, up to the explicit nonzero archimedean constant of SU §11.
-  - test klingen_weight_range (degenerate): For κ ≤ 6 the defining series does not converge absolutely and SU's construction does not apply; the family is built only from κ > 6.
-  - test klingen_not_siegel (non-example): The Siegel Eisenstein series on GU(2,2) itself (induced from the Siegel parabolic) has Hecke polynomials of a different shape (four characters, no two-dimensional constituent) and is not E.
-  - test klingen_hecke_matches_rhoD (agreement): At v ∉ Σ, the Hecke polynomial of E equals φ(Q_{v,D}), the characteristic polynomial of Frob_v on the specialization of ρ_D (L1/eisenstein-datum).
-* AutomorphicCongruences:L1/su-padic-l-function (theorem): The Skinner–Urban three-variable p-adic L-function.
-  Planet: Skinner–Urban p-adic L-function.
-* AutomorphicCongruences:L1/padic-eisenstein-family (theorem): The Λ_D-adic Klingen Eisenstein family and its constant terms.
-  Planet: Klingen Eisenstein family.
-* AutomorphicCongruences:L1/nonsingular-coefficient-coprimality (theorem): A nonsingular Fourier coefficient is prime to the p-adic L-function.
-* AutomorphicCongruences:L1/gu22-galois-pseudocharacter (construction): The four-dimensional pseudo-character of the ordinary GU(2,2) Hecke algebra.
-  - API GU22PseudoChar.T (constructor): T^S_{K^p}: G_K → h_{S,0}(K^p), a continuous four-dimensional pseudo-representation.
-  - API GU22PseudoChar.specialize (characterisation): λ^{ord}_π ∘ T = tr R_p(π) for every ordinary cuspidal π of level K^p.
-  - API GU22PseudoChar.frob (characterisation): T(frob_v) = T_v for v ∉ S ∪ {p}; the characteristic polynomial of frob_v is the Hecke polynomial Q_v.
-  - API GU22PseudoChar.polarization (characterisation): T(c g c) = T(g^{-1})·(similitude character) — the polarization inherited from each R_p(π).
-  - API GU22PseudoChar.components (structure): Dichotomy of Thm 7.3.1 for components J of 𝕋_D.
-  - API GU22PseudoChar.residual (characterisation): T_D modulo the maximal ideal is tr ρ̄_D.
-  - test gu22PseudoChar_dimension (computation): T(1) = 4.
-  - test gu22PseudoChar_eisenstein_point (agreement): At a point of h_D through which λ_D factors, T_D specializes to tr ρ_D of the Eisenstein datum.
-  - test gu22PseudoChar_not_gl2 (non-example): A pseudo-character of dimension two (the GL₂ one of 𝐟) does not satisfy GU22PseudoChar.specialize: its value at 1 is 2.
-  - test gu22PseudoChar_cap_excluded (characterisation): No component J has R_J = character ⊕ character ⊕ irreducible two-dimensional (the CAP shape), under (irred)_𝐟 and (dist)_𝐟.
-* AutomorphicCongruences:L1/su-selmer-lower-bound (theorem): The Skinner–Urban Selmer lower bound from the Eisenstein ideal.
-* AutomorphicCongruences:L1/su-two-variable-theorem (theorem): Skinner–Urban's two-variable divisibility over K.
-  Planet: Skinner–Urban two-variable theorem.
-* AutomorphicCongruences:L1/su-cyclotomic-divisibility (theorem): Skinner–Urban's cyclotomic divisibility.
-  Planet: Skinner–Urban cyclotomic divisibility.
-* AutomorphicCongruences:L2s/semi-ordinary-weight-space (definition): The semi-ordinary weight space and projector for GU(3,1).
-  Planet: Semi-ordinary projector.
-  - API SemiOrd.torus (data): T_so(ℤ_p) ⊂ T(ℤ_p), the two-dimensional torus of weights (0,0,t^+;t^-), and Λ_so.
-  - API SemiOrd.Up (data): U_p = U^+_{p,2}U^+_{p,3}U^-_{p,1} acting on p-adic forms.
-  - API SemiOrd.proj (constructor): e_so = lim U_p^{r!}, an idempotent commuting with the Hecke operators away from p.
-  - API SemiOrd.proj_idem (simp): e_so ∘ e_so = e_so.
-  - API SemiOrd.ord_le_so (relation): e_so ∘ e_ord = e_ord: ordinary forms are semi-ordinary.
-  - API SemiOrd.weight (projection): The weight map from Λ_so-families to characters (τ^+, τ^-) of T_so(ℤ_p).
-  - test semiOrd_projector_eigenvalue (computation): On a classical eigenform whose U_p-eigenvalue is a p-adic unit u, U_p^{r!}f = u^{r!}f → f because u^{r!} → 1 in ℤ_p^× along r!; on an eigenform with U_p-eigenvalue in pℤ_p the limit is 0.
-  - test semiOrd_nonordinary_survives (characterisation): A semi-ordinary classical form of weight (0,0,t^+;t^-) whose GL_2(ℚ_p) constituent is unramified with Satake parameters of valuation ±1/2 is fixed by e_so and killed by the ordinary projector (CLW (8.2.4)–(8.2.5) shape).
-  - test semiOrd_two_dimensional (degenerate): The weight space of Λ_so-families has dimension two, not three: specializations fix a_1 = a_2 = 0.
-  - test semiOrd_not_ordinary_projector (non-example): Using the ordinary projector in place of e_so on the weight-two forms of a supersingular π gives zero, so it cannot produce the Klingen family of L2s/semi-ordinary-klingen-family.
-* AutomorphicCongruences:L2s/semi-ordinary-hida-theory (theorem): Semi-ordinary Hida theory and the fundamental exact sequence.
-  Planet: Semi-ordinary Hida theory.
-* AutomorphicCongruences:L2s/semi-ordinary-klingen-family (construction): The semi-ordinary Klingen Eisenstein family on GU(3,1).
-  Planet: Semi-ordinary Klingen family.
-  - API SemiOrdKlingen.family (constructor): E^{Kling}_φ ∈ Meas(Γ_K, e_so V_{GU(3,1),ξ} ⊗̂ Ô^{ur}_L).
-  - API SemiOrdKlingen.specialize (characterisation): Its value at τ is e_so of the holomorphic Klingen Eisenstein series of weight given by ξτ (∞-type (0,k), k ≥ 6).
-  - API SemiOrdKlingen.constantTerm (characterisation): Φ_g(E^{Kling}_φ)(g′) ∈ (L_{ξ,ℚ}·L_{π,K,ξ}) for every cusp label g and g′ (CLW Thm 6.1.1).
-  - API SemiOrdKlingen.hecke (characterisation): E^{Kling}_φ is an eigenvector for the unramified Hecke operators and U_p, with eigensystem λ_{π,ξ} defining the Eisenstein ideal E_{π,ξ}.
-  - API SemiOrdKlingen.fourierJacobi (projection): Its Fourier–Jacobi coefficients along the Klingen parabolic, valued in sections of line bundles on the boundary abelian scheme.
-  - API SemiOrdKlingen.sharedData (data): The local sections and auxiliary characters, shared with L2's general-weight family.
-  - test semiOrdKlingen_weight_range (degenerate): Only τ with ξτ of ∞-type (0,k), k ≥ 6 even, are interpolation points; at k < 6 the classical series is not in the convergent range.
-  - test semiOrdKlingen_constant_term (characterisation): At an interpolation point the constant term at the standard cusp is the product of L^{Σ∪{∞,p,ℓ,ℓ′}}(k−2, ξ^ℚ_0τ^ℚ_0) and the base-change value L^{Σ∪{∞,p,ℓ,ℓ′}}((k−1)/2, BC(π) × ξ_0τ_0), up to the archimedean and p-local factors of (6.1.1)–(6.1.2).
-  - test semiOrdKlingen_eigen_shape (computation): The Galois representation of an interpolation point is ρ_π|_{G_K} twisted, plus two characters: three constituents of dimensions 2, 1, 1.
-  - test semiOrdKlingen_not_ordinary_family (non-example): For a supersingular π (a_p = 0) the ordinary-projected Klingen family vanishes, while E^{Kling}_φ does not.
-* AutomorphicCongruences:L2s/fourier-jacobi-primitivity (theorem): A Fourier–Jacobi coefficient of the semi-ordinary Klingen family is a unit.
-* AutomorphicCongruences:L2s/clw-eisenstein-congruence (theorem): The CLW Eisenstein ideal is bounded by the p-adic L-functions.
-* AutomorphicCongruences:L2s/cap-exclusion (theorem): Irreducibility of the GU(3,1) pseudo-character: excluding CAP components.
-* AutomorphicCongruences:L2s/clw-main-divisibility (theorem): The Castella–Liu–Wan divisibility over the cyclotomic-localized ring.
-  Planet: Castella–Liu–Wan divisibility.
-* AutomorphicCongruences:L2s/clw-integrality-and-p-inverted (theorem): Integrality of the CLW p-adic L-function and the p-inverted divisibility.
-* AutomorphicCongruences:L2/general-weight-semi-ordinary-control (theorem): Semi-ordinary Hida theory on GU(3,1) in general weight.
-* AutomorphicCongruences:L2/vector-valued-klingen-family (theorem): The vector-valued Klingen Eisenstein family and the Greenberg p-adic L-function.
-* AutomorphicCongruences:L2/greenberg-function-factorization (comparison): Factorization of the Greenberg function into Hida and Katz factors.
-* AutomorphicCongruences:L2/fw-fourier-jacobi-unit (theorem): The Fouquet–Wan Fourier–Jacobi coefficient and the Eisenstein ideal bound.
-* AutomorphicCongruences:L2/fw-greenberg-divisibility (theorem): Fouquet–Wan's GU(3,1) divisibility for the Greenberg main conjecture.
-  Planet: Fouquet–Wan GU(3,1) divisibility.
-* AutomorphicCongruences:L2/exceptional-height-one-primes (theorem): Removing the excluded height-one primes.
-* AutomorphicCongruences:L2/auxiliary-field-selection (application): Choosing the auxiliary imaginary quadratic field for the Fouquet–Wan route.
-* AutomorphicCongruences:L2/klz-beilinson-flach-classes (construction): Λ-adic Beilinson–Flach classes for a Hida family and the CM family.
-  Planet: Beilinson–Flach classes.
-  - API BF.lambdaAdic (constructor): BF_{𝐟,g} ∈ H¹(ℚ, T_𝐟 ⊗̂ T_g ⊗̂ Λ_Γ).
-  - API BF.overK (equivalence): Shapiro identifies BF_{𝐟,g} with BF ∈ H¹(K, T), T = T_𝐟 ⊗ 𝕀[[Γ_K]]-coinduced.
-  - API BF.twisted (data): BF† = tw_{Θ^{-1}}(BF) ∈ H¹(K, T†).
-  - API BF.mem_selmer (characterisation): BF† ∈ Sel^{Gr,∅}(K, T†): Greenberg at one prime above p, relaxed at the other, unramified away from p (KLZ17 Prop. 8.1.7).
-  - API BF.normRelation (characterisation): Tame norm relations with Euler factors P_ℓ(Frob_ℓ^{-1}) and p-power norm compatibility.
-  - API BF.specialize (functoriality): Specialization along arithmetic points of 𝕀 and of Γ_K commutes with Shapiro and the twist.
-  - API BF.loc_nontorsion (characterisation): loc_v(BF†) is non-torsion over 𝕀[[Γ_K]] for each v | p (CW Thm 3.6, last sentence).
-  - test bf_rank_one_specialization (computation): At a weight-two point of 𝐟 and the trivial point of g, BF specializes to a class whose image under the Coleman map at v̄ is a nonzero multiple of L_p(f, g) at that point (via L2/bf-explicit-reciprocity).
-  - test bf_selmer_condition (characterisation): loc_{v_0}(BF†) satisfies the Greenberg condition, while loc_{v̄_0}(BF†) is unrestricted (relaxed).
-  - test bf_not_kato (non-example): Kato's zeta element of f alone (KatoEulerSystems:L2) is a class for T_f over ℚ_∞, not for T_𝐟 ⊗ T_g over the two-variable tower; replacing BF by Kato's class fails BF.overK.
-  - test bf_cm_family_shapiro (agreement): With g the canonical CM family, T_g ≅ Ind^ℚ_K ℤ_p[[Γ_p]] (BST19), and Shapiro gives the identification BF.overK used by Castella–Wan.
-* AutomorphicCongruences:L2/bf-explicit-reciprocity (theorem): Explicit reciprocity for Beilinson–Flach classes.
-* AutomorphicCongruences:L2/castella-wan-equivalence (theorem): Greenberg and Beilinson–Flach main conjectures over K are equivalent.
-* AutomorphicCongruences:L2/unramified-exponential-boundedness (theorem): Boundedness of the Bloch–Kato exponential along unramified extensions.
-* AutomorphicCongruences:L2/fw-crystalline-main-conjecture (theorem): Fouquet–Wan's main conjecture at crystalline short points.
-  Planet: Fouquet–Wan crystalline theorem.
-* AutomorphicCongruences:L2/fw-ordinary-reverse-bound (theorem): The Fouquet–Wan ordinary reverse divisibility (Theorem 1.6 by §4.8).
-  Planet: Fouquet–Wan ordinary reverse divisibility.
-* AutomorphicCongruences:L2/wan-rankin-selberg-divisibility (theorem): Wan's ordinary GU(3,1) Rankin–Selberg divisibility.
-* AutomorphicCongruences:L3/fw-residual-hypotheses (definition): The residual hypotheses of the Fouquet–Wan and Nakamura theorems.
-  - API FWResidual.A21 (constructor): Assumption 2.1 as a predicate on ρ̄.
-  - API FWResidual.A35 (constructor): Assumption 3.5.
-  - API FWResidual.A37 (constructor): Assumption 3.7 (a prime ℓ ∥ N with one-dimensional inertia invariants).
-  - API FWResidual.T17 (constructor): The two residual hypotheses of FW Thm 1.7 / Thm 5.1.
-  - API FWResidual.Nakamura (constructor): Nakamura's (N1)–(N5).
-  - API FWResidual.scalar_endomorphisms (characterisation): A21 implies End_{𝔽[G_{ℚ_p}]}(ρ̄|_{G_{ℚ_p}}) = 𝔽 unless (ρ̄|_{G_{ℚ_p}})^{ss} ≅ χ̄ ⊕ χ̄.
-  - API FWResidual.twist_invariant (compatibility): Each predicate is invariant under twisting ρ̄ by a character, and A21 depends only on ρ̄ up to isomorphism.
-  - test fwResidual_A21_quadratic (computation): For p = 5 and ρ̄ induced from a character of G_{ℚ(√5)} (dihedral with respect to ℚ(√p*)), A21 fails while ρ̄ itself is absolutely irreducible.
-  - test fwResidual_T17_excludes_cyclotomic (non-example): For E/ℚ with good ordinary reduction at p, (ρ̄_{E,p}|_{G_{ℚ_p}})^{ss} = u ⊕ u^{-1}χ̄_cyc with u unramified, u(Frob_p) = a_p mod p; this has the form χ̄ ⊕ χ̄χ̄_cyc exactly when a_p ≡ ±1 mod p, and then the first clause of T1.7 fails.
-  - test fwResidual_A37_steinberg (agreement): For E/ℚ with split multiplicative reduction at ℓ and p ∤ ord_ℓ(Δ_E), ρ̄_{E,p} is ramified at ℓ with dim ρ̄^{I_ℓ} = 1, so A37 holds for ℓ ∥ N (Tate curve).
-  - test fwResidual_scalar_case (degenerate): If (ρ̄|_{G_{ℚ_p}})^{ss} ≅ χ̄ ⊕ χ̄, the endomorphism algebra of a split ρ̄|_{G_{ℚ_p}} is M_2(𝔽), so N3 fails.
-* AutomorphicCongruences:L3/universal-deformation-ring-structure (theorem): The universal deformation ring is a reduced complete intersection, finite free over Λ, and equal to the Hecke algebra.
-  Planet: Universal deformation ring.
-* AutomorphicCongruences:L3/smooth-classical-points (theorem): Classical points of good reduction type exist and are dense.
-* AutomorphicCongruences:L3/fundamental-line (construction): Fundamental lines over the deformation ring and its quotients.
-  Planet: Fundamental line.
-  - API FundLine.partial (constructor): Δ_Σ(T) = Det^{-1}RΓ_et(ℤ[1/Σ], T) ⊗ Det^{-1}T(−1)^+, a graded invertible A-module.
-  - API FundLine.full (constructor): Δ(T) = Δ_Σ(T) ⊗ ⊗_ℓ (X_ℓ(T) ⊗ Det^{-1}RΓ(G_{ℚ_ℓ}, T)) for A a domain.
-  - API FundLine.eulerFactorLine (data): X_ℓ(T), with X_ℓ(T) = Det[A →(1−α_ℓ) A] when rank T^{I_ℓ} = 1.
-  - API FundLine.baseChange_partial (compatibility): Δ_Σ(T) ⊗_A A′ ≅ Δ_Σ(T ⊗ A′) for every ring map A → A′.
-  - API FundLine.baseChange_full (compatibility): Δ(T) ⊗_{A,ψ} A′ ≅ Δ(T′) for ψ Iwasawa-suitable (FW Prop. 3.20).
-  - API FundLine.compare_p (equivalence): Δ_A(T) ≅ Det^{-1}RΓ_et(ℤ[1/p], T) ⊗ Det^{-1}T(−1)^+ when the latter is defined.
-  - API FundLine.trivial_of_torsion (characterisation): Over a regular domain, a trivialization of Δ inside Frac A is A itself iff the corresponding characteristic ideals agree (with ModularIwasawaMainConjectures:L0/zeta-basis-characteristic-equivalence pointwise).
-  - test fundLine_rank (computation): For A = O_Iw and T = T(f)_Iw with H¹ free of rank one and H² torsion, Δ_Σ(T) is concentrated in degree zero and is a free O_Iw-module of rank one.
-  - test fundLine_eulerFactor_rank_one (computation): If T^{I_ℓ} has rank one with Frobenius eigenvalue α_ℓ, X_ℓ(T) is the determinant of the two-term complex [A → A] with differential 1 − α_ℓ, which after inverting 1 − α_ℓ is the invertible sub-line (1 − α_ℓ)^{±1}A of Frac A, the sign fixed by the determinant convention; it is A itself when 1 − α_ℓ is a unit.
-  - test fundLine_base_change (agreement): For ψ: 𝕋 → R(𝔞) the base change of Δ_Σ(T_Σ) is Δ_Σ(T(𝔞)) — the left column of FW (1.2.2).
-  - test fundLine_not_fitting (non-example): The Fitting ideal of H² does not commute with the identification Δ_A(T) ≅ Δ_{A′}(T′) when H¹ has torsion; replacing Δ by Fitt(H²) breaks FundLine.baseChange_partial.
-* AutomorphicCongruences:L3/completed-homology-factorization (comparison): Completed (co)homology localized at ρ̄ and its local–global factorization.
-* AutomorphicCongruences:L3/equivariant-zeta-morphism-completed-homology (construction): The G_Σ-equivariant zeta morphism on completed homology.
-  - API CompZeta.finiteLevel (constructor): z^{Iw}_{N,n}(k, −), ℤ_p[GL_2(ℤ/N)]-linear, valued in the Q_{k,n}-localized Iwasawa cohomology.
-  - API CompZeta.integral (characterisation): After localization at ρ̄ the map is integral (no Q_{k,n}-denominators).
-  - API CompZeta.limit (constructor): z^{Iw}_{Σ,n,ρ̄} on H̃^{BM}_{1,ρ̄,Σ}, continuous and 𝕋_{ρ̄,Σ}[G_Σ]-linear.
-  - API CompZeta.conj (characterisation): z(τv) = σ_{−1}z(v) for complex conjugation τ.
-  - API CompZeta.norm (characterisation): Cor ∘ z_{Σ,nl} = z_{Σ,n} if l | n and P_l(σ_l^{-1})z_{Σ,n} if (l, n) = 1, l ∉ Σ.
-  - API CompZeta.weight (compatibility): id_W ⊗ z^{Iw}_{N_0p^∞,n,ρ̄} = z^{Iw}_{N,n,ρ̄}(k, −) under W ⊗ H̃^{BM}_1[1/p] ≅ H¹(Y(N), 𝒱^*_{k/E})_ρ̄(1).
-  - test compZeta_weight_two (degenerate): For k = 2, W is trivial and CompZeta.weight is the identity.
-  - test compZeta_norm_l_divides (computation): For l | n, corestriction from level nl to n is the identity on the zeta morphism (no Euler factor).
-  - test compZeta_eisenstein_not_integral (non-example): Without localization at a non-Eisenstein ρ̄ the map has denominators from the smoothing factors (c² − c^{2−j}σ_c), so CompZeta.integral fails for the Eisenstein part.
-  - test compZeta_kato_agreement (agreement): At finite level N and weight k the map agrees with KatoEulerSystems:L2/full-level-hecke-linear-zeta-classes after removing the smoothing factors.
-* AutomorphicCongruences:L3/nakamura-universal-zeta-morphism (construction): Nakamura's universal zeta morphism.
-  Planet: Nakamura's universal zeta morphism.
-  - API NakamuraZeta.map (constructor): z_{Σ,n}(ρ^u): (ρ^u)^* → H¹_Iw(ℤ[1/Σn, ζ_n], (ρ^u)^*(1)), R_{ρ̄,Σ}-linear.
-  - API NakamuraZeta.conj (characterisation): z(τv) = σ_{−1}z(v); hence R ⊗̂ Λ_n-linearity on (ρ^u)^* ⊗̂_{ℤ_p[±1]} Λ_n.
-  - API NakamuraZeta.norm (characterisation) [prototyped]: The Euler-system norm relations in n.
-  - API NakamuraZeta.specialize (compatibility): Base change along x: R_{ρ̄,Σ} → A commutes with Iwasawa cohomology (perfect complexes) and gives z_{Σ,n}(ρ_x).
-  - API NakamuraZeta.changeSigma (compatibility): For Σ ⊂ Σ′, z_{Σ′,n}(ρ^m_{Σ′}) ⊗ id = ∏_{l∈Σ′∖Σ} P_l(σ_l^{-1})·z_{Σ,n}(ρ^m_Σ) (Nakamura (79)).
-  - API NakamuraZeta.classical (characterisation): At a newform point, z_{Σ,1}(f) = ∏_{l∈Σ_0} P_{f,l}(σ_l^{-1})·z(f) (Thm 4.3).
-  - test nakamuraZeta_norm_coprime (computation): For l ∉ Σ, (l, n) = 1, Cor ∘ z_{Σ,nl} = P_l(σ_l^{-1})·z_{Σ,n} with P_l(u) = det(1 − Frob_l u | ρ^u) of degree two in u.
-  - test nakamuraZeta_sigma_p_only (degenerate): If Σ = {p} (ρ̄ unramified outside p), the Euler factor in NakamuraZeta.classical is empty and z_{Σ,1}(f) = z(f).
-  - test nakamuraZeta_kato_point (agreement): At a weight-two newform of an elliptic curve E of conductor N, the specialization is ∏_{l | N} P_{E,l}(σ_l^{-1}) times Kato's zeta morphism of E (KatoEulerSystems:L2/nakamura-twisted-zeta-morphism).
-  - test nakamuraZeta_needs_irreducible (non-example): For residually reducible ρ̄ (Eisenstein) the construction is not available: Emerton's factorization and Kato's Λ-freeness of H¹_Iw are only known for absolutely irreducible ρ̄ (Nakamura Remark 1.2).
-* AutomorphicCongruences:L3/nakamura-specialization-theorem (theorem): The universal zeta morphism specializes to Kato's.
-  Planet: Specialization to Kato's zeta morphism.
-* AutomorphicCongruences:L3/zeta-trivialization (construction): The zeta trivialization of the fundamental line.
-  Planet: Zeta trivialization.
-  - API ZetaTriv.map (constructor): triv_{z_Σ}: Δ_Σ(T_Σ) ↪ Q(𝕋), injective, image an invertible fractional ideal (x/y)𝕋.
-  - API ZetaTriv.overLambda (constructor): triv_{z_Σ,Λ}: Δ_Σ(T_Σ) ↪ Frac Λ, viewing T_Σ over Λ.
-  - API ZetaTriv.specialize (compatibility): Diagram (1.2.2) for 𝕋 → R(𝔞) and (1.2.3) for R(𝔞) → O_Iw.
-  - API ZetaTriv.full (compatibility): For Iwasawa-suitable λ, the analogous diagram for the full lines Δ with Euler-factor lines X_ℓ.
-  - API ZetaTriv.image (projection): The fractional ideal (x/y) ⊂ Q(𝕋) (resp. α Λ ⊂ Frac Λ) that the main conjecture predicts to be the unit ideal.
-  - API ZetaTriv.pointwise (compatibility): At a classical point, triv_{z(f)_Iw} is Kato's trivialization of Δ(f)_Iw (FW Thm 3.4).
-  - test zetaTriv_unit_iff_mc (characterisation): At a classical point with O_Iw regular, triv_{z(f)_Iw}(Δ) = O_Iw iff char H² = char(H¹/z(f)_Iw) (Kato's main conjecture).
-  - test zetaTriv_eisenstein_excluded (non-example): For residually reducible ρ̄ no z_Σ is available and ZetaTriv.map is undefined.
-  - test zetaTriv_base_change_point (computation): For λ: Λ → O at a point étale over Λ with fibre S_x, the specialization of α Λ is the product over ψ ∈ S_x of the pointwise images (FW proof of Prop. 5.7).
-  - test zetaTriv_regular_vs_deformation_ring (degenerate): If the deformation problem is unobstructed, 𝕋 = Λ is itself a power series ring and ZetaTriv.map and ZetaTriv.overLambda coincide.
-* AutomorphicCongruences:L3/kato-generalized-main-conjecture (definition): Kato's generalized main conjecture for the universal family and its specializations.
-  - API GenMC.point (constructor): Conj. 3.24/3.25 for an Iwasawa-suitable λ: the proposition triv_{z(λ)}(Δ(T_λ)) = S.
-  - API GenMC.component (constructor): Conj. 3.27 for R(𝔞).
-  - API GenMC.family (constructor): Conj. 3.30 over Λ.
-  - API GenMC.familyOverT (constructor): Conj. 3.26 over 𝕋, a separate and stronger proposition.
-  - API GenMC.familyOverT_imp_family (relation): GenMC.familyOverT → GenMC.family.
-  - API GenMC.point_iff_kato (equivalence): At a classical point, GenMC.point is Kato's main conjecture char H² = char(H¹/z(f)_Iw) (ModularIwasawaMainConjectures:L0/zeta-basis-characteristic-equivalence).
-  - test genMC_trivial_family (degenerate): If 𝕋 = Λ (unobstructed), GenMC.familyOverT and GenMC.family are the same proposition.
-  - test genMC_point_kato (agreement): At λ(f)_Iw with f of weight two attached to E/ℚ with L(E,1) ≠ 0, GenMC.point specializes at the trivial character to the p-part of the BSD formula (FW Cor. 5.4).
-  - test genMC_fitting_not_enough (non-example): Replacing 'image is the unit ideal' by 'the Fitting ideal of H² contains the image' is strictly weaker when H² has a nonzero pseudo-null submodule.
-  - test genMC_component_vs_point (characterisation): GenMC.component for 𝔞 implies GenMC.point at every classical point of R(𝔞) that is Iwasawa-suitable, by ZetaTriv.specialize.
-* AutomorphicCongruences:L4/integrality-of-universal-trivialization (theorem): The zeta trivialization over Λ is integral.
-* AutomorphicCongruences:L4/etale-point-descent (theorem): From pointwise main conjectures at an étale point to the family over Λ.
-* AutomorphicCongruences:L4/fw-universal-family-theorem (theorem): Fouquet–Wan's universal-family main conjecture.
-  Planet: Fouquet–Wan universal-family theorem.
-* AutomorphicCongruences:L4/family-to-point-limit (theorem): From the family over Λ to every classical point.
-* AutomorphicCongruences:L4/fw-pointwise-theorem (theorem): Fouquet–Wan's main conjecture at every point of the family.
-  Planet: Fouquet–Wan pointwise theorem.
-* AutomorphicCongruences:L4/derived-specialization-corrections (comparison): Euler factors, Tor terms and the regular subring in specialization.
-* AutomorphicCongruences:L4/zeta-morphism-congruences (theorem): Congruences between Kato's zeta morphisms.
-* AutomorphicCongruences:L4/residual-zeta-morphism (construction): The residual zeta morphism and the space of points X(ρ̄).
-  - API ResZeta.map (constructor): z_{Σ,n}(ρ̄): ρ̄^* ⊗_{𝔽[±1]} Λ_{n,𝔽} → H¹_Iw(ℤ[1/Σn, ζ_n], ρ̄^*(1)).
-  - API ResZeta.changeSigma (compatibility): z_{Σ′,n}(ρ̄) = ∏_{l∈Σ′∖Σ} P̄_l(σ_l^{-1})·z_{Σ,n}(ρ̄) for Σ_ρ̄ ⊆ Σ ⊆ Σ′.
-  - API ResZeta.points (data): X(ρ̄) = ∪_Σ Spec(𝕋_{ρ̄,Σ})(ℤ̄_p) and the modular subset X(ρ̄)^{mod}.
-  - API ResZeta.etaPart (projection): The η-component z_{Σ,1}(ρ̄)^η for a character η of Δ.
-  - API ResZeta.reduction (compatibility): For x ∈ X(ρ̄), z_{Σ,1}(ρ_x) mod ϖ = z_{Σ,1}(ρ̄).
-  - test resZeta_reduction_of_point (agreement): For x_f modular, z_{Σ,1}(ρ̄) is the reduction modulo ϖ of ∏_{l∈Σ_0}P_{f,l}(σ_l^{-1})·z(f) (Thm 4.3 mod ϖ).
-  - test resZeta_minimal_sigma (degenerate): For Σ = Σ_ρ̄, ResZeta.changeSigma is the identity.
-  - test resZeta_vanishing_iff_mu (characterisation): z_{Σ_ρ̄,1}(ρ̄)^η ≠ 0 iff µ(H¹_Iw/Im z_1(f)^η) = 0 at one (equivalently every) modular point (Nakamura Thm 5.7).
-  - test resZeta_not_kato_lattice (non-example): Reducing Kato's rational zeta morphism of f without the Euler factors at Σ_0 does not give ResZeta.map for Σ ⊋ Σ_ρ̄: the factors P̄_l(σ_l^{-1}) can vanish modulo ϖ.
-* AutomorphicCongruences:L4/nakamura-residual-structure (theorem): Residual nonvanishing, µ = 0 and the structure of residual Iwasawa cohomology.
-* AutomorphicCongruences:L4/nakamura-lambda-defect (theorem): The λ-defect is constant on the family and Kato's main conjecture propagates along congruences.
-* AutomorphicCongruences:L5/ordinary-elliptic-refinement-aggregate (application): The ordinary elliptic-curve refinement: aggregate of the endpoints.
-* AutomorphicCongruences:L5a/ordinary-two-variable-equivalence (comparison): Interface: the ordinary two-variable Perrin-Riou/Greenberg equivalence (BCS Theorem 4.1.3, Corollary 4.1.4).
-* AutomorphicCongruences:L5a/quartic-cm-selmer-restriction (theorem): Restricting the quartic-CM characteristic ideal to K.
-* AutomorphicCongruences:L5a/quartic-cm-l-function-factorization (theorem): The quartic-CM p-adic L-function restricted to K.
-* AutomorphicCongruences:L5a/auxiliary-field-existence (theorem): Existence of the auxiliary fields K and F.
-* AutomorphicCongruences:L5a/greenberg-mu-vanishing (theorem): Vanishing of the µ-invariant of the Greenberg function.
-* AutomorphicCongruences:L5a/two-variable-product-containment (theorem): Burungale–Castella–Skinner's two-variable product divisibility.
-  Planet: BCS two-variable product divisibility.
+* AutomorphicCongruences:L0/sigma-primitive-selmer (construction): Σ-primitive ordinary Selmer
+    groups over Iwasawa towers
+
+  Statement: Let F be a number field, A a profinite ℤ_p-algebra, T a free A-module of finite rank
+    with a continuous A-linear G_F-action, and for each place v | p a G_{F_v}-stable A-direct
+    summand T_v ⊆ T with T/T_v free. For a finite set Σ of finite places, Sel^Σ_F(T,(T_v)) is the
+    kernel of the restriction from H¹(F, T ⊗_A A^∨) (A^∨ the Pontryagin dual) to the product over v
+    ∉ Σ, v ∤ p of H¹(I_v, T ⊗ A^∨) and over v | p of H¹(I_v, (T/T_v) ⊗ A^∨): no condition at Σ away
+    from p, unramified elsewhere away from p, and the ordinary (Greenberg) condition at p. Its dual
+    X^Σ_F = Hom_A(Sel^Σ_F, A^∨) is finitely generated over A. For an extension E/F inside a
+    ℤ_p^d-tower, Sel^Σ_E is the direct limit over finite subextensions and X^Σ_E the inverse limit,
+    and Shapiro's lemma identifies Sel^Σ_{F_∞}(T) with Sel^Σ_F(T ⊗_A Λ_{F,A}(ε_F^{-1})) as
+    Λ_{F,A}-modules, where Λ_{F,A} = A ⊗̂ ℤ_p[[Gal(F_∞/F)]] and ε_F is the tautological character.
+    When A is noetherian and normal, Ch^Σ_{F,A}(T) denotes the characteristic ideal of X^Σ_F(T) and
+    Ft^Σ_{F,A}(T) its Fitting ideal. The p-condition is imposed for every v|p regardless of
+    membership in Σ. For torsion X, Ch means the divisorial ideal of its length divisor; noetherian
+    normal does not imply principal. Use SU’s zero characteristic-ideal convention if X is not
+    torsion.
+
+  Hypothesis: T free of finite rank over the profinite ℤ_p-algebra A, with a continuous action of
+    G_F; T_v free direct summands with free quotients for v | p.
+
+  Hypothesis: Σ is finite. If S contains Σ, p and the ramification of T, the same kernel may be
+    computed using H¹(G_{F,S},−); membership of p in Σ does not remove its local condition.
+
+  Hypothesis: The characteristic ideal is used only over noetherian normal A, as the divisorial
+    ideal of height-one lengths.
+
+  API SigmaSelmer.mk (constructor): Sel^Σ_F(T,(T_v)) as an A-submodule of H¹(F, T ⊗_A A^∨), defined
+    by the local conditions above.
+
+  API SigmaSelmer.dual (data): X^Σ_F = Hom_A(Sel^Σ_F, A^∨), finitely generated over A.
+
+  API SigmaSelmer.mono (functoriality): Σ ⊆ Σ′ gives an inclusion Sel^Σ ⊆ Sel^{Σ′} and a surjection
+    X^{Σ′} → X^Σ.
+
+  API SigmaSelmer.shapiro (equivalence): Sel^Σ_{F_∞}(T) ≅ Sel^Σ_F(T ⊗_A Λ_{F,A}(ε_F^{-1})) as
+    Λ_{F,A}-modules, compatibly with the local conditions.
+
+  API SigmaSelmer.charIdeal (data): For finite torsion X over a noetherian normal domain, Ch is the
+    divisorial ideal corresponding to div(X). In a UFD this agrees with PMIA’s native charIdeal. Its
+    comparison with the divisorial hull of Fitt uses the finite-presentation/normal-ring theorem
+    requested below.
+
+  API SigmaSelmer.baseChange (compatibility): For an ideal 𝔞 with A/𝔞 profinite, the natural map
+    X^Σ(T)/𝔞 → X^Σ(T/𝔞T) (an isomorphism under L0/selmer-specialization-control).
+
+  API SigmaSelmer.of_upstream (coercion): Agreement with the imported Selmer kernel whose local
+    conditions are relaxed at non-p places of Σ, unramified at other non-p places and Greenberg at
+    every p-place.
+
+  API SigmaSelmer.ext (extensionality): Two classes in Sel^Σ are equal iff their images in global H¹
+    agree; membership is exactly the vanishing of the stated localization maps.
+
+  Test sigmaSelmer_full_relaxed (degenerate): With T_v=T and Σ containing all non-p ramification,
+    Sel^Σ_F is full H¹(G_{F,Σ∪p},T⊗A^∨).
+
+  Test sigmaSelmer_trivial_coefficients (computation): For the zero coefficient module T=0 all
+    local/global groups and X vanish; Ch=(1). This rejects a construction that inserts a
+    coefficient-independent local summand.
+
+  Test sigmaSelmer_strict_is_not_ordinary (non-example): With T_v=0 the condition is unramified at
+    p, not strict zero: for trivial Q_p/Z_p coefficients at Q_p, a nonzero unramified homomorphism
+    G_Qp/I_p→Q_p/Z_p belongs to this local kernel. A strict zero local condition excludes it.
+
+  Test sigmaSelmer_upstream_agreement (agreement): For the relaxed/unramified/Greenberg structure,
+    SigmaSelmer.of_upstream identifies the module with
+    SelmerIwasawaCohomology:L2/galois-selmer-group.
+
+  Source: SU-2014, §3.1.3, p. 18
+
+  Source: SU-2014, §3.1.8, pp. 20–21, and Prop. 3.2.3, p. 21
+
+  Source: CLW-v1, (1.0.1)–(1.0.2) p. 3 and proof of Thm 8.2.1, p. 79
+
+* AutomorphicCongruences:L0/primitive-imprimitive-comparison (theorem): Primitive against
+    Σ-primitive Selmer groups and the removed Euler factors
+
+  Statement: Let T, (T_v) and A be as in L0/sigma-primitive-selmer with A noetherian normal, F any
+    number field, and S a finite set of finite places not above p at which T is unramified,
+    contained in Σ. Then (i) Ch^Σ_{F,A}(T) ⊇ Ch^{Σ∖S}_{F,A}(T) · ∏_{v∈S} det_A(1 − q_v^{-1}
+    frob_v^{-1} | T) (SU Lemma 3.2.15, Cor. 3.2.16); (ii) over ℚ_∞, the Pontryagin dual of H¹_Σ(ℚ_∞,
+    T ⊗ A^∨) = ∏_{v∈Σ, v∤p} H¹(ℚ_{∞,v}, T ⊗ A^∨) is a finitely generated torsion Λ_{ℚ,A}-module with
+    no nonzero pseudo-null submodule, and its characteristic ideal is generated by ∏_{ℓ∈Σ}
+    P_{T,ℓ}(ℓ^{-1} ε_ℚ(frob_ℓ)), P_{T,ℓ}(X) = det(1 − X frob_ℓ^{-1} | (T⊗_A Frac A)^{I_ℓ}) (SU Lemma
+    3.2.17); (iii) when the primitive dual is torsion and the global-to-local map is surjective
+    (Greenberg–Vatsal), Ch^Σ = Ch^∅ · ∏_{ℓ∈Σ} P_{T,ℓ}(ℓ^{-1}ε(frob_ℓ)) (SU Prop. 3.2.18). On the
+    analytic side the Σ-imprimitive p-adic L-functions are defined by multiplying the primitive ones
+    by the same Euler-factor elements, so every removed factor is matched by the identical element
+    of Λ.
+
+  Hypothesis: For (i), A is noetherian normal and T is unramified at S, a finite set away from p.
+    For the local cyclotomic module in (ii), use the compact finite-type coefficients of SU §3.2.2;
+    the characteristic-divisor assertion also requires normal noetherian A.
+
+  Hypothesis: For the exact sequence in (iii), A admits decreasing ideals I_n with intersection zero
+    and each A/I_n finite free over Z_p; the primitive X_Q∞(T,T_p) is Λ_Q,A-torsion; T* (the
+    Pontryagin dual in SU §3.1.3) has no nonzero A-submodule with trivial G_Q action; Σ∪{p} contains
+    ram(T). For every finite Σ′⊂Σ, localization onto H¹_{Σ\Σ′} is then surjective (SU Prop. 3.2.18).
+
+  Hypothesis: The Euler polynomial of Lemma 3.2.17 uses inverse frob_ℓ on rational inertia
+    invariants. A rank-one invariant space gives 1−αX, where α is the eigenvalue of that precise
+    inverse Frobenius. Integral lattices and analytic conventions must be compared explicitly.
+
+  Source: SU-2014, Lemma 3.2.15 and Cor. 3.2.16, author-copy p. 26; Lemma 3.2.17, pp. 26–27; Prop.
+    3.2.18, p. 27
+
+  Source: CLW-v1, proof of Thm 8.2.1, p. 79
+
+* AutomorphicCongruences:L0/selmer-specialization-control (theorem): Specializing Σ-primitive Selmer
+    groups and their characteristic ideals
+
+  Statement: Let F_∞ be ℚ_∞, K_∞ or K^+_∞, A a profinite ℤ_p-algebra, 𝔞 ⊂ A an ideal and T as in
+    L0/sigma-primitive-selmer. Assume the explicit SU Prop. 3.2.8 hypotheses below, so that
+    X^Σ_{F_∞}(T)/𝔞 ≅ X^Σ_{F_∞}(T/𝔞T). Then (i) Ft^Σ_{F,A/𝔞}(T/𝔞T) = Ft^Σ_{F,A}(T) mod 𝔞; (ii) if A
+    and A/𝔞 are noetherian normal domains and (f) ⊇ Ch^Σ_{F,A}(T) is principal, then f mod 𝔞 divides
+    Ch^Σ_{F,A/𝔞}(T/𝔞T); in particular when A is factorial Ch^Σ_{F,A}(T) mod 𝔞 divides
+    Ch^Σ_{F,A/𝔞}(T/𝔞T). (iii) For the descent K_∞ → K^+_∞ along I^- = ker(Λ_K → Λ_ℚ),
+    X^Σ_{K_∞}(T)/I^- ≅ X^Σ_{K^+_∞}(T), and when A is factorial Ch^Σ_{K_∞}(T) mod I^- divides
+    Ch^Σ_{K^+_∞}(T).
+
+  Hypothesis: In SU Prop. 3.2.8, inertia at p acts on T/T_p through Γ_Q; Σ∪{p} contains ram(T); F∞
+    is Q∞, K∞ or K⁺∞; T* (the Pontryagin dual in SU §3.1.3) has no nonzero A-subquotient on which
+    G_F acts trivially. These hypotheses apply for every ideal 𝔞 under consideration, not merely a
+    presumed control isomorphism.
+
+  Hypothesis: The control isomorphism for a general ideal 𝔞 of the coefficient ring is SU Prop.
+    3.2.8 and is owned here; the upstream derived control (SelmerIwasawaCohomology:L3) covers the
+    specialization to finite layers of a one-variable tower and is used only there. The control
+    isomorphism needs SU Prop. 3.2.8's hypotheses; without them only a map with kernel and cokernel
+    controlled by H⁰ and local terms exists.
+
+  Hypothesis: Characteristic ideals do not commute with base change in general; only the principal
+    majorant transfers (ii). A specialization at which f vanishes gives no information.
+
+  Source: SU-2014, Prop. 3.2.8, p. 23; Cor. 3.2.9, Prop. 3.2.11, p. 24
+
+  Source: BCS-v2, proof of Lemma 5.1.1, p. 9
+
+* AutomorphicCongruences:L0/eisenstein-ideal (definition): The Eisenstein ideal of an Eisenstein
+    family
+
+  Statement: Let Λ be a noetherian complete local domain, 𝕋 a reduced finite Λ-algebra generated
+    over Λ by the images of a set 𝒯 of Hecke operators acting on a space of Λ-adic cusp forms, and
+    λ: 𝒯 → Λ the system of eigenvalues of a Λ-adic Eisenstein family E (a Λ-algebra homomorphism
+    from the abstract Hecke algebra). The Eisenstein ideal I_E ⊆ 𝕋 is the ideal generated by t −
+    λ(t) for t ∈ 𝒯; when the structure map Λ → 𝕋/I_E is surjective, the Eisenstein ideal of Λ is its
+    kernel E_E, so that Λ/E_E ≅ 𝕋/I_E. When I_E is proper, 𝕋_E denotes the localization of 𝕋 at the
+    maximal ideal containing I_E.
+
+  Hypothesis: 𝕋 is generated over Λ by 𝒯 together with the U_p-operators, so Λ → 𝕋/I_E is
+    surjective; otherwise E_E is defined as the kernel on the image.
+
+  Hypothesis: The Hecke operators are those at primes outside a fixed finite set Σ, the
+    U_p-operators, and the central or diamond operators used by the source.
+
+  API EisensteinIdeal.hecke (constructor): I_E ⊆ 𝕋 generated by t − λ(t), t ∈ 𝒯.
+
+  API EisensteinIdeal.base (constructor): E_E := ker(Λ → 𝕋/I_E).
+
+  API EisensteinIdeal.quotientEquiv (equivalence): Λ/E_E ≃ 𝕋/I_E as Λ-algebras when the structure
+    map is onto.
+
+  API EisensteinIdeal.localize (functoriality): Formation of I_E and E_E commutes with localization
+    at a height-one prime P of Λ and completion.
+
+  API EisensteinIdeal.proper_iff (characterisation): For a unital structure map, E_E≠⊤ iff I_E≠⊤.
+    For finite local Λ-algebras, this is equivalent to existence of a residue-field cuspidal
+    eigensystem satisfying the specified congruences.
+
+  API EisensteinIdeal.mono (functoriality): Enlarging 𝒯 enlarges I_E; restricting to a direct factor
+    of 𝕋 enlarges E_E.
+
+  API EisensteinIdeal.ext (extensionality): Equality of the generated Hecke ideals implies equality
+    of their contractions; membership in E is equivalent to the image in 𝕋/I being zero.
+
+  Test eisensteinIdeal_ramanujan_level1 (computation): For weight 12, level 1 cusp forms over ℤ_691
+    with E = E_12 (λ(T_ℓ) = 1 + ℓ^{11}), 𝕋 = ℤ_691 and E_E = (691), since τ(ℓ) ≡ 1 + ℓ^{11} mod 691
+    and the numerator of B_12/24 has 691-adic valuation one.
+
+  Test eisensteinIdeal_no_congruence (degenerate): If no cusp form is congruent to E, then I_E = 𝕋
+    and E_E = Λ (for example weight 12 at p = 5).
+
+  Test eisensteinIdeal_mazur (agreement): In a weight-two prime-level Mazur setting, I_E in the
+    cuspidal Hecke algebra is generated by the appropriate T_ℓ−1−ℓ and 1+w_N. E_E is its contraction
+    along Λ→𝕋, an ideal in Λ; it is not identified with that Hecke ideal.
+
+  Test eisensteinIdeal_not_congruence_ideal (non-example): E_E differs from the congruence ideal of
+    a cuspidal eigenform: for weight 12, level 1 and p = 691 the congruence ideal of Δ in the
+    cuspidal Hecke algebra is the unit ideal (𝕋 = ℤ_p), while E_E = (691).
+
+  Source: SU-2014, §6.5.3, pp. 97–98, (6.5.3.a)
+
+  Source: FW-v3, Def. 7.30, p. 96
+
+  Source: CLW-v1, proof of Thm 8.2.1, p. 79
+
+* AutomorphicCongruences:L0/su-lattice-datum (definition): The Skinner–Urban lattice datum
+
+  Statement: Let H = G ⋊ {1, c} with c of order two, A a complete discrete valuation ring with
+    fraction field F and maximal ideal m, and R a local reduced finite flat A-algebra with R/M =
+    A/m. A lattice datum consists of: (1) a character ν: H → A^×; (2) a character χ: G → A^× with χ̄
+    ≠ ν̄χ̄^{-c}, and χ′ := νχ^{-c}; (3) a representation ρ: G → Aut_A(V), V ≅ A^n, with ρ^c ≅ ρ^∨ ⊗
+    ν, ρ̄ absolutely irreducible and ρ residually disjoint from χ and χ′ (some x ∈ A[G] has coprime
+    residual characteristic polynomials); (4) a representation σ: G → Aut_{R⊗F}(M), M ≅ (R ⊗
+    F)^{n+2}, with σ^c ≅ σ^∨ ⊗ ν, tr σ(G) ⊆ R and finitely generated R[G]-orbits; (5) a proper ideal
+    I ⊂ R with J := A ∩ I ≠ 0, A/J ≅ R/I and tr σ ≡ χ′ + tr ρ + χ mod I. Local data at a subgroup D
+    ⊂ G: a D-stable free summand M^+ ⊆ M with free quotient, a D-stable free summand V^+ ⊆ V, and
+    the congruence Ch(M^+, x, T) ≡ Ch(V^+, x, T)(1 − Tχ(x)) mod I for x ∈ R[D]. The datum is
+    ν-polarized when ν is compatible (Φ^t = −ν(c)Φ) with the polarization of ρ.
+
+  Hypothesis: The polarization conditions are those of SU 4.2.2; residual disjointness is in the
+    sense of SU 4.1.2.
+
+  Hypothesis: In applications G = G_{K,Σ}, H = G_{ℚ,Σ}, D a decomposition group at a prime above p,
+    A the completion of a localization of a two-variable Iwasawa algebra at a height-one prime P,
+    and R a completed local Hecke algebra.
+
+  Hypothesis: SU §4.3 requires the common residue field κ to have at least n+2 nonzero elements. To
+    deduce compatibility of ν with σ from Lemma 4.3.3, require char κ≠2 and absolute irreducibility
+    of every field factor σ_i; otherwise compatibility with σ is a separate hypothesis of the Selmer
+    consequence.
+
+  Hypothesis: SU Ch(θ,x,T)=det(1−Tθ(x)); convert Mathlib’s det(TI−θ(x)) before invoking polynomial
+    congruences.
+
+  API LatticeDatum.chiPrime (projection): χ′ = νχ^{-c}.
+
+  API LatticeDatum.trace_congr (characterisation): tr σ ≡ χ′ + tr ρ + χ modulo I.
+
+  API LatticeDatum.residualProjectors (data): The elements x_1, x_2 ∈ R[G] separating the residually
+    disjoint constituents (SU Lemma 4.1.3).
+
+  API LatticeDatum.localize (functoriality): Given descent data satisfying SU §4.4 and the
+    freeness/residual conditions, localization and completion produce the datum; preservation of
+    absolute irreducibility and disjointness must be checked, not inferred for arbitrary base
+    change.
+
+  API LatticeDatum.localData (structure): The D-stable summands M^±, V^± with the congruence of
+    characteristic polynomials and its consequence for the quotients.
+
+  API LatticeDatum.toGMA (coercion): The R[G]-span of a lattice in M carries a
+    generalized-matrix-algebra structure of type (1, n, 1) relative to the residual decomposition.
+
+  API LatticeDatum.mk (constructor): Construct from the five SU §4.2.3 fields, compatibility with ρ,
+    and the explicitly specified local data.
+
+  API LatticeDatum.ext (extensionality): Isomorphisms of the coefficient representations preserving
+    χ,ν,I and the chosen local summands transport the datum and its trace/polynomial identities.
+
+  Test latticeDatum_ribet_case (degenerate): Rank n=0 is excluded by the absolutely irreducible
+    middle-constituent requirement. A bare two-character Ribet datum cannot be passed to this
+    constructor; the rank-two Ribet theorem is a distinct supplier contract.
+
+  Test latticeDatum_su_instance (computation): In SU 7.3.2, χ = σ_{χ̄_f,0}σ^c_ψ ε^{-3}, ρ_0 = ρ_f ⊗
+    σ_{χ̄_f,0}σ^{-c}_ξ σ^c_ψ ε^{-2}, χ′ = σ_{χ̄_f,0}ε^{-1}det ρ_f σ^{-1}_{ξ′}σ^c_ψ, and ν is fixed
+    by χ^cχ′ = σ^2_{χ̄_f,0}ε^{-7}ε_ℚ^{-2}; these satisfy χ′ = νχ^{-c}, and the trace of ρ_D in
+    (6.5.2.a) is χ + tr ρ_0 + χ′.
+
+  Test latticeDatum_requires_distinct (non-example): If χ̄ = ν̄χ̄^{-c} then condition (2) fails; SU
+    (dist) and CLW's ξ_p ≢ ξ_p̄ are exactly what rule this out.
+
+  Test latticeDatum_gma_agreement (agreement): For a lattice datum with σ residually multiplicity
+    free, LatticeDatum.toGMA agrees with
+    IntegralHeckeAndGaloisDeterminants:IHG.1/generalized-matrix-algebra.
+
+  Source: SU-2014, §4.1.2, Lemma 4.1.3, p. 48; §4.2.1–4.2.3, pp. 48–49; §4.5.1–4.5.3, p. 59
+
+  Source: CLW-v1, proof of Thm 8.2.1, p. 79
+
+  Source: WAN-RS, introduction, p. 4
+
+* AutomorphicCongruences:L0/lattice-construction (theorem): The lattice construction: Eisenstein
+    ideals bound Selmer groups
+
+  Statement: Let (ν, χ, ρ, σ, I) be a ν-polarized lattice datum (L0/su-lattice-datum) with H =
+    G_{ℚ,Σ}, G = G_{K,Σ}, local data at D = G_{K,p} satisfying SU 4.5.1–4.5.3, with V^+_0 ⊕ A(χ) and
+    V^-_0 ⊕ A(χ′) residually disjoint modulo P, where A = Â_{0,P} for a height-one prime P of a
+    noetherian normal domain A_0, and J = A ∩ I. Then (i) ord_P Ch^Σ_ℚ(ψν) ≥ ℓ_P(L(χ′)/J(χ′)); (ii)
+    ord_P Ch^Σ_K(ρ_0 ⊗ χ^{-1}) ≥ ℓ_P(N/N′), and in particular ord_P Ch^Σ_K(ρ_0 ⊗ χ^{-1}) ≥ ord_P(J)
+    when N′ = 0 (SU Prop. 4.5.6); (iii) if ord_P Ch^Σ_ℚ(ψν) = 0 then ord_P Ch^Σ_K(ρ_0 ⊗ χ^{-1}) ≥
+    ord_P(J) (SU Cor. 4.5.7); (iv) under SU Lemma 4.3.11, if ord_P(J) > ord_P Ch^Σ_ℚ(ψν) then ord_P
+    Ch^Σ_K(ρ_0 ⊗ χ^{-1}) ≥ 1 (SU Prop. 4.5.8). Here the Selmer groups are the Σ-primitive ones of
+    L0/sigma-primitive-selmer for the pairs (A_0(ψν), 0) and (V_0(χ^{-1}), V^+_0(χ^{-1})). The
+    variant of Wan20 Prop. 9.2 replaces the irreducibility of σ by condition (9): every
+    specialization σ_λ is absolutely irreducible or contains an absolutely irreducible
+    two-dimensional subrepresentation with trace ≡ χ + χ′ modulo I.
+
+  Hypothesis: P is a height-one prime of A_0 with A_0 noetherian normal; the polarization ν is
+    compatible with the polarization of ρ (4.5.5.a).
+
+  Hypothesis: The bound concerns the Σ-primitive groups; primitive versions follow by
+    L0/primitive-imprimitive-comparison.
+
+  Hypothesis: The excluded case ord_P Ch^Σ_ℚ(ψν) > 0 is where the abelian Selmer group may absorb
+    the extensions; CLW and Wan exclude such P explicitly.
+
+  Hypothesis: Use SU §4.4 descent: A_0 is a profinite Krull domain with height-one P and completion
+    A; R_0 is a reduced local finite A_0-algebra with Q over P and completed R; ρ descends to the
+    free A_0-representation V_0, σ has trace in R_0 and finite R_0[G]-orbits, and I_0,J_0 are the
+    contractions. G,H are profinite and representations continuous.
+
+  Hypothesis: For SU §4.5.5 require ν compatible with the polarization Φ of σ, and V⁺_0 an A_0-free
+    direct summand stable under G_Qp. This compatibility follows from Lemma 4.3.3 only in odd
+    residue characteristic with each σ_i absolutely irreducible.
+
+  Hypothesis: The Wan20 Prop. 9.2 variant requires all its setup (1)–(9), including a rank-one local
+    M⁺ character congruence and disjoint M⁻ constituent. Its condition (9) permits a two-dimensional
+    absolutely irreducible subrepresentation whose trace is congruent to χ+χ′, not χ+χ^{-c} unless
+    ν=1. The auxiliary one-dimensional Selmer factor must have valuation zero for the full
+    length-of-J bound.
+
+  Source: SU-2014, §4.3–4.5, Props 4.4.4–4.4.5, 4.5.4, 4.5.6, Cor. 4.5.7, Prop. 4.5.8, pp. 52–61
+
+  Source: CLW-v1, proof of Thm 8.2.1, pp. 79–80
+
+  Source: FW-v3, proof of Thm 7.32, pp. 96–97
+
+  Source: WAN-RS, §9, setup (1)–(9) and Prop. 9.2, PDF pp. 93–94
+
+* AutomorphicCongruences:L0/extension-class-local-conditions (theorem): Local conditions satisfied
+    by the automorphic extension classes
+
+  Statement: In the situation of L0/lattice-construction, the classes [c_φ] obtained from the
+    off-diagonal blocks of σ satisfy, after multiplication by an element t ∉ P: (a) at every place v
+    ∉ Σ they are unramified, since σ is unramified outside Σ; (b) at the primes above p they lie in
+    the kernel of restriction to H¹(D, V^-_0 ⊗ A_0^∨(χ^{-1})) for D = G_{K,p} (the ordinary
+    condition), and by the polarization the corresponding statement holds at G_{K,p̄}; (c) at places
+    v ∈ Σ, v ∤ p, no condition is imposed (Σ-primitive). At a Steinberg place, pass between
+    Σ-primitive and primitive objects using the precise Euler element of
+    primitive-imprimitive-comparison; residual ramification alone does not make that element a unit.
+
+  Hypothesis: The residual disjointness of V^+ ⊕ A(χ) and V^- ⊕ A(χ′) modulo P (SU (7.3.3.a)) is
+    what produces the D-projector; it is verified in each instance (SU proof of Thm 7.3.5, CLW and
+    FW checks).
+
+  Source: SU-2014, Prop. 4.5.4, pp. 59–60; proof of Thm 7.3.5, p. 107
+
+  Source: FW-v3, Thm 1.6(2), p. 6; Assumption 3.7, p. 25
+
+* AutomorphicCongruences:L0/canonical-period-congruence-number (comparison): Canonical periods,
+    Petersson norms and the congruence number
+
+  Statement: For the p-stabilized ordinary newform f over a finite integral Z_p-algebra R satisfying
+    (irred) and (dist), SU Lemma 12.2.2 gives η_f = u_f·2^{-3}(2i)^{κ+1}
+    S(f)·⟨f,f^c|W_{p^rM}⟩/(Ω_f^+Ω_f^-), with u_f∈R^× and S(f) the explicit stabilization correction
+    of SU (11.7.3.b). Under the stated integral/Gorenstein hypotheses η_f generates the congruence
+    ideal. For a primitive ordinary family over an integral finite Λ-algebra I satisfying
+    (irred),(dist), the family congruence generator η_I specializes to the η_f choices (SU pp.
+    194–195); Lemma 12.2.7 supplies the integral functional used in the canonical-period-normalized
+    Eisenstein coefficients. No canonical/Gross period comparison or unproved identification of EPW
+    homology and SU cohomology period lattices is used.
+
+  Hypothesis: (irred) and (dist) for f, which give the freeness of the relevant Hecke modules and
+    the Gorenstein property used to make the congruence module cyclic.
+
+  Hypothesis: The unit u_{f_φ} in SU Thm 12.3.1(ii) depends only on f_φ and is not specified
+    further.
+
+  Source: SU-2014, Thm 12.3.1 (i)–(ii), p. 199; Thm 12.4.1, pp. 202–203
+
+  Source: FW-v3, remark before Thm 1.6, p. 6
+
+  Source: SU-2014, Lemma 12.2.2 and family discussion, author-copy pp. 194–195; Lemma 12.2.7, pp.
+    197–198; (11.7.3.b)
+
+* AutomorphicCongruences:L0/hida-tilouine-anticyclotomic (comparison): The Hida–Tilouine
+    anticyclotomic main conjecture for CM fields (one divisibility and equality)
+
+  Statement: Required CM-theta congruence comparison: in CLW Thm 8.2.1(2), K is imaginary quadratic,
+    p splits, ξ has the stated infinity type and ξ_p is not congruent to ξ_p̄ modulo m. The
+    associated ordinary CM theta family is residually irreducible and distinguished. The
+    Hida–Tilouine/Hida comparison for this CM family, combined with Hida’s Rankin–Selberg
+    construction, gives the integral normalization L^{Hida}_{π,K,ξ} used in CLW’s proof on PDF p.
+    81. This node records that source-qualified input and its comparison contract. It asserts no
+    general CM-field characteristic-ideal equality: the exact HT hypotheses and congruence-ideal map
+    remain the named gap and supplier request.
+
+  Hypothesis: All hypotheses of CLW Thm 8.2.1(2), in particular ξ_p≢ξ_p̄; the CM Rankin function and
+    its congruence-ideal denominator are supplied with compatible Katz normalization.
+
+  Hypothesis: The exact HT93/HT94/Hid06 theorem and integral comparison map must be obtained before
+    this contract is discharged. Those papers were not read, and no unspecified list of their
+    hypotheses is treated as a proved theorem.
+
+  Source: CLW-v1, proof of Thm 8.2.1(2), p. 81
+
+  Source: WAN-RS, Thm 1.1 and the remark after Thm 1.2, pp. 2–3
+
+* AutomorphicCongruences:L1/gu22-ordinary-hermitian-forms (construction): Ordinary p-adic Hermitian
+    modular forms on GU(2,2) and their Hecke algebra
+
+  Statement: Let K be an imaginary quadratic field in which p splits, G = G_2 = GU(2,2) the unitary
+    similitude group of the skew-Hermitian form w_2 = (0 1_2; −1_2 0) over O_K, and K′ ⊂ G(𝔸^p_f) a
+    neat open compact subgroup. On the ordinary locus of the integral model of the Shimura variety
+    S_G(K′K_p) (with its toroidal and minimal compactifications), and over its Igusa tower, define
+    the space V^q_{a,ord} (dual of the ordinary p-adic Hermitian modular forms; q = 0 for cusp
+    forms, q = 1 for all forms) of weight a with coefficients in Λ_2 = ℤ_p[[Γ_2]], Γ_2 = (1 +
+    pℤ_p)^4 ⊂ T_2(ℤ_p), with the q-expansions at the cusps x = diag(u, t ū^{-1}), the Hecke
+    operators at unramified places, the U_p-operators u_t for t = diag(p^{a_1},…,p^{a_4}), the
+    ordinary projector e = lim u_t^{n!}, and the universal ordinary cuspidal Hecke algebra
+    h_{Σ,0}(K′; Λ). Specializations at arithmetic weights are classical holomorphic Hermitian
+    modular forms of weight (κ, κ; 0, 0)-type when the weight is sufficiently regular. Write
+    M^q=Hom_Λ(V^q,Λ) for the module of forms carrying q-expansions: V and M are dual carriers and
+    are not identified without a pairing.
+
+  Hypothesis: p splits in K; K′K_p neat; the p-adic weights are characters of T_2(ℤ_p) through Γ_2
+    and µ_{p−1}^4.
+
+  Hypothesis: The Shimura variety, its compactifications, the automorphic bundles and the ordinary
+    Igusa tower are imported from AutomorphicPadicLFunctions:L4 (unitary PEL data) and
+    AutomorphicBundles; this node instantiates them for GU(2,2) in SU's normalization.
+
+  API GU22Forms.space (constructor): V^q_{a,ord}(K′; Λ_2) and M^q_{a,ord}(K′; Λ_2) for q ∈ {0, 1}
+    (cusp forms, all forms).
+
+  API GU22Forms.qExp (projection): The cusp q-expansion of a form in M^q=Hom_Λ(V^q,Λ), with
+    injectivity on M^q by the q-expansion principle; it is not a q-expansion map on the compact dual
+    V^q.
+
+  API GU22Forms.hecke (data): The Hecke operators T_v, Z_{ℓ,0}, Z^{(i)}_{ℓ,0} and u_t, commuting,
+    with e the ordinary projector.
+
+  API GU22Forms.specialize (functoriality): Specialization at an arithmetic weight φ lands in
+    classical holomorphic ordinary forms of weight φ for sufficiently regular φ.
+
+  API GU22Forms.siegelOperator (projection): The Siegel operator Φ to the boundary, fitting in the
+    exact sequence of Cor. 5.5.9 and Thm 6.3.10.
+
+  API GU22Forms.heckeAlgebra (data): h_{Σ,0}(K′; Λ) := the Λ-algebra generated by the Hecke
+    operators acting on ordinary cusp forms; finite and reduced over Λ_D after base change.
+
+  API GU22Forms.ext (extensionality): Forms in M^q are equal when every coefficient at every
+    permitted cusp agrees.
+
+  Test gu22Forms_degree_one (agreement): For n = 1 the same construction for GU(1,1) gives ordinary
+    p-adic elliptic modular forms twisted by Hecke characters of K, with Hida's ordinary projector.
+
+  Test gu22Forms_qexp_injective (characterisation): A form whose q-expansions vanish at every cusp x
+    with x_p ∈ Q(ℤ_p) is zero (q-expansion principle on each connected component).
+
+  Test gu22Forms_eisenstein_not_cuspidal (non-example): For the Eisenstein family with nonzero
+    boundary value, ℰ_D belongs to M^1 and not M^0. This rejects confusing the boundary kernel with
+    the full space or the forms with their compact duals.
+
+  Test gu22Forms_projector_idempotent (computation): e ∘ e = e and e commutes with every T_v; on a
+    classical form of weight a whose u_t-eigenvalue is a p-adic unit, e acts as the identity.
+
+  Source: SU-2014, §5 (groups G_n §5.1, Shimura varieties §5.2, cusps and boundary §5.4–5.5, Cor.
+    5.5.9), pp. 61–80; §6.1–6.2, pp. 81–91
+
+  Source: SU-2014, §6.3–6.4 (Thms 6.3.3, 6.3.10, 6.4.1), pp. 91–95
+
+* AutomorphicCongruences:L1/gu22-hida-control (theorem): Hida theory for GU(2,2): freeness, control
+    and the boundary sequence
+
+  Statement: For n = 2 and q = 0 (cusp forms) or q = 1 (all forms): (i) V^q_{a,ord} is free of
+    finite rank over Λ_n, and its specializations at finite-order characters ψ of level s have rank
+    independent of ψ and of the weight (SU Thm 6.3.3); (ii) for any Λ_n-algebra A there is a short
+    exact sequence 0 → M^0_{a,ord}(K^p, A) → M^1_{a,ord}(K^p, A) →Φ ⊕_{[g] ∈ C_{n−1}(K)}
+    M^0_{a′,ord}(K^p_{n−1,g}, Λ_{n−1}) ⊗ A → 0, Φ the sum of the Siegel operators to the boundary
+    components (cusp forms on G_{n−1} = GU(1,1)) (SU Thm 6.3.10, from Cor. 5.5.9); (iii) for every
+    sufficiently regular algebraic dominant weight k the canonical surjection h^{S,q}(K^p; Λ_n) ⊗
+    Λ_n/P_k ↠ h^{S,q}_{k,ord}(K) has nilpotent kernel, so every ℚ̄_p-valued character of the Λ-adic
+    Hecke algebra at P_k comes from a classical ordinary eigenform of weight k (SU Thm 6.4.1).
+    Consequently h_{Σ,0}(K′; Λ) is finite over Λ_2 and its arithmetic points of regular weight are
+    Zariski dense.
+
+  Hypothesis: Weights sufficiently regular in the sense of SU 6.2; neat level; p split in K.
+
+  Source: SU-2014, Thm 6.3.3, p. 91; Thm 6.3.10 and Thm 6.4.1, p. 95; Cor. 5.5.9, p. 78
+
+* AutomorphicCongruences:L1/eisenstein-datum (definition): The p-adic Eisenstein datum and its
+    Eisenstein ideal
+
+  Statement: A p-adic Eisenstein datum D = (A, 𝕀, 𝐟, ψ, ξ, Σ) consists of the ring of integers A of
+    a finite extension of ℚ_p containing ℤ[µ_{M_D p}, i, D_K^{1/2}], a normal domain 𝕀 finite over
+    Λ_{W,A}, an 𝕀-adic ordinary eigenform 𝐟 of tame level M, finite idele class characters ψ and ξ
+    of 𝔸_K^× (ψ|_{𝔸^×} = χ_𝐟), and a finite set of primes Σ containing those dividing M p D_K and
+    the ramification of ξ. Put Λ_D = 𝕀[[Γ^-_K × Γ_K]], a finite local reduced Λ_2-algebra via α ⊗ β
+    (SU 6.5.1), the characters σ_ψ, σ_ξ, σ_{ξ′} = σ_ξσ^c_ξ, and the semisimple representation ρ_D =
+    σ_{χ̄_f,0}σ^c_ψε^{-3} ⊕ (ρ_𝐟 ⊗ σ_{χ̄_f,0}σ^{-c}_ξσ^c_ψε^{-2}) ⊕ σ_{χ̄_f,0}ε^{-1}det ρ_𝐟
+    σ^{-1}_{ξ′}σ^c_ψ of G_K over Frac Λ_D (6.5.2.a). The Eisenstein ideal I_D ⊆ h_D = h_{Σ,0}(K′;
+    Λ_D) is generated by the coefficients of Q_v(X) − Q_{v,D}(X) (v ∉ Σ), the relations u_t −
+    ∏β_i^{a_i} for the U_p-operators with the prescribed (β_1,…,β_4), and the central operators
+    Z_{ℓ,0}, Z^{(i)}_{ℓ,0} minus their values on the Eisenstein characters; E_D ⊆ Λ_D is the kernel
+    of Λ_D → h_D/I_D, so Λ_D/E_D ≅ h_D/I_D (6.5.3.a), and 𝕋_D is the localization of h_D at the
+    maximal ideal containing I_D. The two p-adic L-functions attached to D are L^Σ_{𝐟,K,ξ} ∈
+    𝕀[[Γ_K]] (L1/su-padic-l-function) and L^Σ_{χ̄_𝐟ξ̄′}, the image of the Kubota–Leopoldt function
+    of the Dirichlet character χ̄_𝐟ξ̄′; their product is L_D.
+
+  Hypothesis: ψ exists with ψ|_{𝔸^×} = χ_𝐟 and unramified outside Σ (SU Thm 12.3.1 hypothesis);
+    (irred)_𝐟 and (dist)_𝐟 when 𝕋_D is used.
+
+  API EisensteinDatum.lambdaD (data): Λ_D = 𝕀[[Γ^-_K × Γ_K]] with its Λ_2-algebra structure via α ⊗
+    β.
+
+  API EisensteinDatum.rhoD (data): The semisimple G_K-representation ρ_D of (6.5.2.a), unramified
+    outside Σ, with det(1 − ρ_D(g)X) ∈ Λ_D[X].
+
+  API EisensteinDatum.heckeIdeal (constructor): I_D ⊆ h_D generated as in SU 6.5.3.
+
+  API EisensteinDatum.ideal (constructor): E_D := ker(Λ_D → h_D/I_D).
+
+  API EisensteinDatum.quotientEquiv (equivalence): Λ_D/E_D ≃ h_D/I_D (6.5.3.a).
+
+  API EisensteinDatum.LD (data): L_D = L^Σ_{𝐟,K,ξ}·L^Σ_{χ̄_𝐟ξ̄′} ∈ Λ_D.
+
+  API EisensteinDatum.specialize (compatibility): At an arithmetic φ ∈ X^a_D with an associated
+    Eisenstein series, φ(ρ_D) is that series' Galois representation and φ(Q_{v,D}) its Hecke
+    polynomial.
+
+  API EisensteinDatum.ext (extensionality): Transport of A,I, the family and characters preserving
+    their stated identities transports ρ_D, I_D and E_D; equality of all generator eigenvalues
+    identifies the ideals.
+
+  Test eisensteinDatum_trace_shape (computation): tr ρ_D is the sum of two characters and the trace
+    of a twist of ρ_𝐟; its reduction modulo the maximal ideal is the residual trace used in Thm
+    7.3.1, with exactly one irreducible two-dimensional constituent under (irred)_𝐟.
+
+  Test eisensteinDatum_proper (characterisation): E_D ≠ Λ_D exactly when some cuspidal ordinary
+    eigensystem is residually congruent to the eigensystem of ρ_D.
+
+  Test eisensteinDatum_rank_count (degenerate): At an arithmetic quotient I→O of a genuine finite
+    Iwasawa branch, Λ_D⊗_I O≅O[[Γ_K^-×Γ_K]] has three Iwasawa variables and Krull dimension four.
+    The original I still has its weight variable; I=O is not a finite extension of O[[W]].
+
+  Test eisensteinDatum_not_gl2 (non-example): Replacing h_D by the GL₂ Hecke algebra of 𝐟 does not
+    give an Eisenstein ideal of this datum: ρ_D has rank four and its Hecke polynomials Q_v have
+    degree four.
+
+  Source: SU-2014, §6.5.1–6.5.3, pp. 96–98
+
+* AutomorphicCongruences:L1/klingen-eisenstein-series (construction): Klingen Eisenstein series on
+    GU(2,2) as pullbacks of Siegel Eisenstein series on GU(3,3)
+
+  Statement: For a cuspidal eigenform f on GU(1,1) (from an elliptic newform and a character ψ), a
+    character ξ of 𝔸_K^× and a choice of local sections at the places of Σ and at p, construct the
+    holomorphic Klingen-type Eisenstein series E(Z, x; F) on GU(2,2), induced from the Klingen
+    parabolic with Levi GU(1,1) × Res_{K/ℚ}𝔾_m, of weight κ > 6 (SU §9, 'good Eisenstein series'
+    Prop. 9.3.3), its Hecke eigenvalues and Satake parameters (SU §9.5–9.6), and its expression
+    through the pullback of a Siegel Eisenstein series on GU(3,3) along GU(2,2) × GU(1,1) ↪ GU(3,3)
+    paired against f (SU §11, Prop. 11.2.3). The local sections at p and at Σ are chosen as in SU
+    §11.4, so that the Fourier coefficients c(β, x) are products of local Whittaker integrals with
+    explicit values (SU Cor. 11.7.5–11.7.6, §11.8), the singular ones (det β = 0) being multiples of
+    the L-values L^Σ_K(f, χ̄_fξ, κ − 1)·L^Σ(χ̄_fξ̄′, κ − 2).
+
+  Hypothesis: κ > 6 for the absolutely convergent range; the sections at p have conductor dividing p
+    as in (12.4.2.a) when the family is formed.
+
+  Hypothesis: The doubling/pullback formalism, the Siegel Eisenstein series on unitary groups and
+    the local doubling integrals are imported; this node owns the Klingen-specific choices and
+    coefficient formulas.
+
+  API KlingenEisenstein.series (constructor): E(Z, x; F) on GU(2,2) from (f, ψ, ξ, Σ, local
+    sections).
+
+  API KlingenEisenstein.pullback (characterisation): E is the pairing of the pullback of
+    E^{Sieg}_{GU(3,3)} with f (doubling identity).
+
+  API KlingenEisenstein.fourierCoeff (data): c(β, x) as a product of local Whittaker integrals with
+    the values of SU Cor. 11.7.5–11.7.6.
+
+  API KlingenEisenstein.singular_dvd (characterisation): For det β = 0, c(β, x) is a multiple of
+    L^Σ_K(f, χ̄_fξ, κ−1)·L^Σ(χ̄_fξ̄′, κ−2) divided by the period.
+
+  API KlingenEisenstein.hecke (characterisation): E is a Hecke eigenform with Hecke polynomials
+    Q_{v,D} at v ∉ Σ and the U_p-eigenvalues ∏β_i^{a_i}.
+
+  API KlingenEisenstein.siegelOperator (projection): The Siegel-operator image of E at each boundary
+    component is f (or 0) times the constant-term L-value.
+
+  API KlingenEisenstein.ext (compatibility): Equality follows from equality of all q-expansion
+    coefficients at the specified cusps; compatible coefficient extension carries the local-section
+    integrals and their eigenvalues to the extended series.
+
+  Test klingen_constant_term_divisible (characterisation): The Siegel-operator image of E at the
+    standard boundary component equals the L-value product times f, up to the explicit nonzero
+    archimedean constant of SU §11.
+
+  Test klingen_not_siegel (non-example): The Siegel Eisenstein series on GU(2,2) itself (induced
+    from the Siegel parabolic) has Hecke polynomials of a different shape (four characters, no
+    two-dimensional constituent) and is not E.
+
+  Test klingen_hecke_matches_rhoD (agreement): At v ∉ Σ, the Hecke polynomial of E equals
+    φ(Q_{v,D}), the characteristic polynomial of Frob_v on the specialization of ρ_D
+    (L1/eisenstein-datum).
+
+  Source: SU-2014, §9 (Props 9.2.6, 9.3.3, 9.5.3, 9.6.1, 9.6.2), pp. 113–135
+
+  Source: SU-2014, §11 (Prop. 11.2.3; Props 11.4.13–11.4.23; Props 11.6.1–11.6.2; Cor. 11.6.3; Props
+    11.7.1–11.7.4; Cors 11.7.5–11.7.6; Prop. 11.8.2), pp. 140–190
+
+* AutomorphicCongruences:L1/su-padic-l-function (theorem): The Skinner–Urban three-variable p-adic
+    L-function
+
+  Statement: Let A, 𝕀, 𝐟, ξ and Σ be as in a p-adic Eisenstein datum, and suppose there is a finite
+    A-valued idele class character ψ with ψ|_{𝔸^×} = χ_𝐟, unramified outside Σ. (i) There is
+    L̃^Σ_{𝐟,K,ξ} ∈ Frac(𝕀) ⊗_𝕀 𝕀_K whose value at every φ ∈ X_{𝕀_K,A}(𝐟, ψ, ξ) is the
+    Petersson-normalized algebraic part of L^Σ_K(f_φ, χ̄_{f_φ}ξ_φ, κ_φ − 1) (SU Thm 12.3.1(i)); (ii)
+    under (irred)_𝐟 and (dist)_𝐟 there is L^Σ_{𝐟,K,ξ} ∈ 𝕀_K whose value at φ is u_{f_φ} times the
+    same L-value normalized by the canonical periods Ω^+_{f_φ}Ω^-_{f_φ}, u_{f_φ} a p-adic unit (SU
+    Thm 12.3.1(ii)). (iii) If moreover χ_𝐟 = 1, ξ = ξ̄^c with conductor dividing (p), (M, D_K) = 1,
+    M = M^+M^- with M^- squarefree with an odd number of primes, all inert in K, and ρ̄_𝐟 ramified
+    at every ℓ | M^-, then L^Σ_{𝐟,K,ξ} lies in no prime of 𝕀[[Γ_K]] of the form Q·𝕀[[Γ_K]] with Q a
+    height-one prime of 𝕀[[Γ^+_K]] (SU Prop. 12.3.6, from Vatsal's µ = 0). Precisely, the common
+    numerator at φ is a(p,f_φ)^{-ord_p Nm(f_{χ̄_f ξ_φ})}·((κ_φ−2)!)²·g(χ̄_f
+    ξ_φ)·Nm(f_{ξ_φ}d)^{κ_φ−2}·L_K^Σ(f_φ,χ̄_f ξ_φ,κ_φ−1). In (i) divide it by
+    (−2πi)^{2κ_φ−2}·2^{-3}(2i)^{κ_φ+1}S(f_φ)⟨f_φ,f_φ^c|W_{N_φ}⟩; in (ii) divide by
+    (−2πi)^{2κ_φ−2}Ω^+_{f_φ}Ω^-_{f_φ} and multiply by u_{f_φ}.
+
+  Hypothesis: As stated; the interpolation set X_{𝕀_K,A}(𝐟, ψ, ξ) is defined in SU §12.3 (conductor
+    conditions at p).
+
+  Hypothesis: A contains i, sqrt(D_K), and the local Gauss sums g(ξ_ℓ^c,a_ℓδ_K), g(χ̄_f,ℓ
+    ξ_ℓ^c,b_ℓδ_K), g(χ_f,ℓ ξ̄′_ℓ) for ℓ∈Σ\{p}, with conductors as in Prop. 12.2.5.
+
+  Hypothesis: In (iii), every prime of M⁺ splits in K; the stated inert conditions apply to M⁻.
+
+  Source: SU-2014, Thm 12.3.1, p. 199; Prop. 12.3.6, p. 202
+
+  Source: SU-2014, Prop. 12.2.5, author-copy p. 196; Thm 12.3.1, p. 199
+
+* AutomorphicCongruences:L1/padic-eisenstein-family (theorem): The Λ_D-adic Klingen Eisenstein
+    family and its constant terms
+
+  Statement: Let D be a p-adic Eisenstein datum with cond(ψ_p), cond(ξ_p) | p, (irred)_𝐟 and
+    (dist)_𝐟, and K′ ⊆ K′_D with K′K_p neat. (i) There is ℰ_D ∈ M^{a,ord}(K′; Λ_D) whose
+    specialization at every φ ∈ X″_D is u_φ·G_{D_φ}/(Ω^+_{f_φ}Ω^-_{f_φ}) with |u_φ|_p = 1, G_{D_φ}
+    the classical Klingen Eisenstein series (SU Thm 12.4.2(i), Thm 12.4.1); (ii) for x with x_p ∈
+    Q(ℤ_p) and det β = 0, the β-Fourier coefficient c_D(β, x) lies in L^Σ_{𝐟,K,ξ}·L^Σ_{χ̄_𝐟ξ̄′}·Λ_D
+    (Thm 12.4.2(ii)); (iii) The full ordinary Hecke algebra h_D^full acting on all forms has the
+    Eisenstein eigencharacter λ_D^full:h_D^full→Λ_D. The cuspidal Hecke algebra h_D^cusp only
+    acquires this eigensystem modulo E_D, through Λ_D/E_D≅h_D^cusp/I_D. SU uses h_D for the full
+    algebra on p. 204 and the cuspidal algebra in §6.5.3. Consequently, if P ⊂ Λ_D is a height-one
+    prime with ℰ_D ≢ 0 modulo P, then ord_P(E_D) ≥ ord_P(L_D) (SU Thm 6.5.4): subtracting a lift of
+    ℰ_D's constant terms produces a cuspidal family congruent to ℰ_D modulo L_D. Here ℰ_D denotes
+    the Eisenstein form and E_D the coefficient-ring ideal; a hypothesis that the form is nonzero
+    modulo P concerns ℰ_D.
+
+  Hypothesis: (irred)_𝐟, (dist)_𝐟; A satisfies the hypotheses of SU Prop. 12.2.5; conductor
+    condition (12.4.2.a) at p.
+
+  Hypothesis: The conclusion of Thm 6.5.4 is conditional on E_D being nonzero modulo P;
+    L1/nonsingular-coefficient-coprimality supplies this.
+
+  Source: SU-2014, Thms 12.4.1–12.4.2, pp. 202–203; Thm 6.5.4 and the paragraph before it, p. 98
+
+* AutomorphicCongruences:L1/nonsingular-coefficient-coprimality (theorem): A nonsingular Fourier
+    coefficient is prime to the p-adic L-function
+
+  Statement: Let A be the ring of integers of a finite extension of ℚ_p, 𝕀 a domain finite over
+    Λ_{W,A}, 𝐟 ∈ M^{ord}(M, 1; 𝕀) an 𝕀-adic newform with (irred)_𝐟 and (dist)_𝐟, and Σ_0 ⊇ {ℓ |
+    pMD_K}. There is a finite Σ ⊇ Σ_0 such that for D = (A, 𝕀, 𝐟, 1, 1, Σ) the set C_D of
+    nonsingular coefficients c_D(β_i, x) of E_D satisfies: (i) every height-one prime of Λ_D
+    containing C_D is of the form PΛ_D with P a height-one prime of 𝕀[[Γ^+_K]]; (ii) if M = M^+M^-
+    with M^- squarefree with an odd number of prime factors, all inert in K, and ρ̄_𝐟 ramified at
+    every ℓ | M^-, then no height-one prime of Λ_D contains both L^Σ_{𝐟,K,1} and C_D (SU Prop.
+    13.4.1).
+
+  Hypothesis: The hypotheses of SU Prop. 12.2.5 on A; the auxiliary primes of Prop. 13.2.5 (a set of
+    primes split in K not dividing the level) are part of the choice of Σ.
+
+  Source: SU-2014, Prop. 13.4.1 and the paragraph before it, p. 217; Props 13.2.5, 13.3.4, pp.
+    210–213
+
+  Source: SU-2014, §1.4.5, p. 9
+
+* AutomorphicCongruences:L1/gu22-galois-pseudocharacter (construction): The four-dimensional
+    pseudo-character of the ordinary GU(2,2) Hecke algebra
+
+  Statement: For a neat K = K^0_pK^p ⊂ G(𝔸_f) and a finite set S of primes containing p and the
+    primes where K_ℓ is not hyperspecial, there is a pseudo-representation T^S_{K^p}: G_K →
+    h_{S,0}(K^p) of dimension four such that tr R_p(π) = λ^{ord}_π ∘ T^S_{K^p} for every p-ordinary
+    cuspidal π of weight k with π_f^{K^p} ≠ 0 (SU Prop. 7.2.1), where R_p(π) is the four-dimensional
+    Galois representation attached to π (imported from AutomorphicGaloisRepresentationsPartII:
+    polarized, unramified outside S, crystalline at p when π_p is unramified, with the ordinary
+    filtration at the primes above p). For a datum D, T_D is its composite with h_D, R_D the
+    semisimple representation over the total fraction ring of h_D with trace T_D, and for each
+    irreducible component J, R_J is either absolutely irreducible or, over a finite extension of
+    Frac J, R_1 ⊕ R_2 with two-dimensional R_i satisfying R_i^c ≅ R_i^∨ ⊗ ε^{-3}ω^{1+c}_{K′} (SU Thm
+    7.3.1).
+
+  Hypothesis: k regular for the attachment of R_p(π) (SU Thm 7.1.1, from Morel and Shin as explained
+    in Skinner 2010); (irred)_𝐟 and (dist)_𝐟 for Thm 7.3.1.
+
+  Hypothesis: The Galois representations of cuspidal representations of GU(2,2) and their
+    local–global compatibility at p are imported (RT-AREA-iwasawa-1/6), not constructed here.
+
+  API GU22PseudoChar.T (constructor): T^S_{K^p}: G_K → h_{S,0}(K^p), a continuous four-dimensional
+    pseudo-representation.
+
+  API GU22PseudoChar.specialize (characterisation): λ^{ord}_π ∘ T = tr R_p(π) for every ordinary
+    cuspidal π of level K^p.
+
+  API GU22PseudoChar.frob (characterisation): T(frob_v) = T_v for v ∉ S ∪ {p}; the characteristic
+    polynomial of frob_v is the Hecke polynomial Q_v.
+
+  API GU22PseudoChar.polarization (characterisation): T(c g c) = T(g^{-1})·(similitude character) —
+    the polarization inherited from each R_p(π).
+
+  API GU22PseudoChar.components (structure): Dichotomy of Thm 7.3.1 for components J of 𝕋_D.
+
+  API GU22PseudoChar.residual (characterisation): T_D modulo the maximal ideal is tr ρ̄_D.
+
+  API GU22PseudoChar.ext (extensionality): Continuous pseudocharacters agreeing at all unramified
+    Frobenius classes agree by Chebotarev density; compatible Hecke quotient maps transport the
+    pseudocharacter.
+
+  Test gu22PseudoChar_dimension (computation): T(1) = 4.
+
+  Test gu22PseudoChar_eisenstein_point (agreement): The cuspidal pseudocharacter modulo I_D agrees
+    with tr ρ_D modulo E_D through Λ_D/E_D≅h_D^cusp/I_D. It need not admit an Eisenstein
+    eigencharacter into Λ_D itself.
+
+  Test gu22PseudoChar_not_gl2 (non-example): A pseudo-character of dimension two (the GL₂ one of 𝐟)
+    does not satisfy GU22PseudoChar.specialize: its value at 1 is 2.
+
+  Test gu22PseudoChar_cap_excluded (characterisation): No component J has R_J = character ⊕
+    character ⊕ irreducible two-dimensional (the CAP shape), under (irred)_𝐟 and (dist)_𝐟.
+
+  Source: SU-2014, Thm 7.1.1, p. 99; Prop. 7.2.1 and its proof, p. 101
+
+  Source: SU-2014, Thm 7.3.1 and its proof, pp. 103–105
+
+* AutomorphicCongruences:L1/su-selmer-lower-bound (theorem): The Skinner–Urban Selmer lower bound
+    from the Eisenstein ideal
+
+  Statement: Assume (irred)_𝐟, (dist)_𝐟 and 𝕀 integrally closed. Let T = (T_𝐟 ⊗_𝕀 𝕀[[Γ_K]])(det
+    ρ_𝐟^{-1}σ^{-c}_ξε^{-c}_K) with its ordinary summand T^+, and Ch^Σ_K(ρ_𝐟 ⊗ σ_ξε_K) ⊆ 𝕀[[Γ_K]] the
+    characteristic ideal of X^Σ_K(T, T^+). For a height-one prime P_0 ⊂ 𝕀[[Γ_K]] with P = P_0Λ_D
+    such that the four G_{K,p}-characters of SU (7.3.3.a) are residually distinct modulo P: (i) if
+    ord_P(L^Σ_{χ̄_𝐟ξ̄′}) = 0 then ord_{P_0}(Ch^Σ_K(ρ_𝐟 ⊗ σ_ξε_K)) ≥ ord_P(E_D) (SU Thm 7.3.3); (ii)
+    if ℰ_D ≢ 0 modulo P and ord_P(L^Σ_{𝐟,K,ξ}) ≥ 1, then ord_P(Ch^Σ_K) ≥ 1, and if moreover
+    ord_P(L^Σ_{χ̄_𝐟ξ̄′}) = 0 then ord_P(Ch^Σ_K) ≥ ord_P(L^Σ_{𝐟,K,ξ}) (SU Thm 7.3.5).
+
+  Hypothesis: Residual disjointness (7.3.3.a) is verified in the proof of Thm 7.3.5: the four
+    characters δ²_fσ^{-1}_{χ_f}ε_Wε, δ_fσ^{-1}_{χ_f}σ_ξε_W, δ_fσ^{-1}_{χ_f}σ^c_ξε_W,
+    σ_{χ_f}ε^{-1}_Wσ^{-1}_{ξ′}ε are not ≡ 1 modulo P, by (dist)_𝐟 and a codimension count.
+
+  Source: SU-2014, §7.3.2 set-up, Thm 7.3.3, p. 105; Thm 7.3.5 and proof, pp. 107–108
+
+* AutomorphicCongruences:L1/su-two-variable-theorem (theorem): Skinner–Urban's two-variable
+    divisibility over K
+
+  Statement: Let L ⊆ ℚ̄_p be a finite extension of ℚ_p containing ℚ[µ_{Np}, i, D_K^{1/2}], 𝕀 a
+    normal domain finite over Λ_{W,O_L}, and 𝐟 an 𝕀-adic ordinary eigenform of tame level N with χ_𝐟
+    = 1. Suppose N = N^+N^- with N^+ divisible only by primes split in K and N^- only by primes
+    inert in K, N^- squarefree with an odd number of prime factors, (irred)_𝐟 and (dist)_𝐟, and ρ̄_𝐟
+    ramified at every ℓ | N^-. For every finite Σ containing the primes dividing ND_K, Ch^Σ_{K_∞}(𝐟)
+    ⊆ (L^Σ_{𝐟,K}) (SU Thm 3.6.1). For a classical p-ordinary eigenform f ∈ S_k(Np^r, χ; L), k ≥ 2,
+    with χ = ω^{k−2}χ_1 (χ_1 of p-power order and conductor) and the same hypotheses,
+    Ch^Σ_{K_∞,L}(f) ⊆ (L^Σ_{f,K}) (SU Cor. 3.6.2).
+
+  Hypothesis: As stated; the hypotheses on N^- and ρ̄_𝐟|_{I_ℓ} enter through Vatsal's theorem
+    (L1/su-padic-l-function (iii)); χ_𝐟 = 1 enters there and in the Galois argument; Σ ⊇ primes
+    dividing ND_K avoids local–global compatibility away from p (SU remarks (i)–(v) after Thm
+    3.6.1).
+
+  Source: SU-2014, Thm 3.6.1 and remarks (i)–(v), pp. 41–42; Cor. 3.6.2 and proof, p. 42; end of §7,
+    p. 108
+
+* AutomorphicCongruences:L1/su-cyclotomic-divisibility (theorem): Skinner–Urban's cyclotomic
+    divisibility
+
+  Statement: Let f ∈ S_k(Np^r, χ; L), k ≥ 2, be a p-ordinary cuspidal eigenform with (irred) and
+    (dist) for ρ_f, χ = ω^{k−2}χ_1 with χ_1 of p-power order and conductor, and a prime q ≠ p with q
+    ∥ N at which ρ̄_f is ramified; choose an imaginary quadratic K in which p splits, every prime
+    dividing N/q splits and q is inert, so N^- = q. Then for every finite set of primes Σ,
+    Ch^Σ_{ℚ_∞,L}(f)·Ch^Σ_{ℚ_∞,L}(f ⊗ χ_K) ⊆ (L^Σ_f·L^Σ_{f⊗χ_K}) (SU Cor. 3.6.3). This is the reverse
+    divisibility exported to ModularIwasawaMainConjectures:L1/su-ordinary-theorem, in the
+    normalization of the Σ-imprimitive ordinary Selmer dual and the canonical-period p-adic
+    L-function; the equality (SU Thm 3.6.4, with Kato) is assembled there, not here.
+
+  Hypothesis: As stated; the integral containment needs only these hypotheses. The integral equality
+    additionally uses Kato's image condition (a basis with image containing SL₂(ℤ_p)), owned by the
+    consumer.
+
+  Hypothesis: The identification with ModularIwasawaMainConjectures:L0's ordinary Selmer dual and
+    canonical-period p-adic L-function is made in that roadmap's range (trivial character, p ∤ N,
+    the range of SU Thm 3.6.4); outside it the statement is about SU's own Σ-primitive Selmer group
+    and L^Σ_f.
+
+  Source: SU-2014, Cor. 3.6.3 and proof, p. 42; proof of Thm 3.6.4 (choice of K), p. 43
+
+* AutomorphicCongruences:L2s/semi-ordinary-weight-space (definition): The semi-ordinary weight space
+    and projector for GU(3,1)
+
+  Statement: Let K be imaginary quadratic with p = v_0v̄_0 split, and GU(3,1) the unitary similitude
+    group of signature (3,1), so that GU(3,1)(ℚ_p) ≅ GL_4(ℚ_p) × ℚ_p^× and the diagonal torus of the
+    p-adic group gives a four-coordinate p-adic weight space (after fixing the similitude character)
+    of characters (a_1, a_2, a_3; b_1). The semi-ordinary torus T_so(ℤ_p) ⊂ T(ℤ_p) is the
+    two-dimensional subtorus of weights (0, 0, t^+; t^-), with Iwasawa algebra Λ_so =
+    ℤ_p[[T_so(1+pℤ_p)]]. On the p-adic forms V on the Igusa tower put U_p :=
+    U^+_{p,2}U^+_{p,3}U^-_{p,1}; for every f ∈ V the limit e_so f := lim_{r→∞} U_p^{r!} f exists and
+    defines the semi-ordinary projector e_so. A classical form is semi-ordinary if it is fixed by
+    e_so; this asks unit U_p-eigenvalues only in the two directions of T_so, so it allows forms
+    whose GL_2 part at p is not ordinary (a_p = 0 is allowed). Keep the finite character of
+    T_so(ℤ_p)/T_so(1+pℤ_p) when using the full group algebra; it is not another power-series
+    variable.
+
+  Hypothesis: p ≥ 3 split in K; the operators U^±_{p,i} are those of CLW (3.0.7)–(3.0.8) on
+    p-integral forms.
+
+  Hypothesis: The convergence of U_p^{r!} on every f uses the finiteness property (F) of CLW Thm
+    4.6.1, proved there; the generic profinite projector is imported.
+
+  API SemiOrd.torus (data): The two-dimensional torus T_so; Λ_so=Z_p[[T_so(1+pZ_p)]] and its
+    finite-character components inside Z_p[[T_so(Z_p)]].
+
+  API SemiOrd.Up (data): U_p = U^+_{p,2}U^+_{p,3}U^-_{p,1} acting on p-adic forms.
+
+  API SemiOrd.proj (constructor): e_so = lim U_p^{r!}, an idempotent commuting with the Hecke
+    operators away from p.
+
+  API SemiOrd.proj_idem (simp): e_so ∘ e_so = e_so.
+
+  API SemiOrd.ord_le_so (relation): e_so ∘ e_ord = e_ord: ordinary forms are semi-ordinary.
+
+  API SemiOrd.weight (projection): The weight map from Λ_so-families to characters (τ^+, τ^-) of
+    T_so(ℤ_p).
+
+  API SemiOrd.ext (extensionality): Two semi-ordinary forms are equal iff their ambient forms are
+    equal; membership is e_so(f)=f. The projector transports along equivariant maps.
+
+  Test semiOrd_projector_eigenvalue (computation): On a classical eigenform whose U_p-eigenvalue is
+    a p-adic unit u, U_p^{r!}f = u^{r!}f → f because u^{r!} → 1 in ℤ_p^× along r!; on an eigenform
+    with U_p-eigenvalue in pℤ_p the limit is 0.
+
+  Test semiOrd_nonordinary_survives (characterisation): In the unitary normalization, a good
+    supersingular weight-two GL₂ constituent has Satake valuations 0,0. It can occur in CLW’s
+    semi-ordinary Klingen family although its classical GL₂ U_p roots have valuation 1/2,1/2. The
+    extreme unitary valuations ±1/2 describe the ordinary case; they are not the supersingular
+    example.
+
+  Test semiOrd_two_dimensional (degenerate): After fixing a_1=a_2=0, Λ_so has two weight variables
+    and Krull dimension three over Z_p; the finite torus character is retained separately. The
+    unfixed weight tuple has four coordinates.
+
+  Test semiOrd_not_ordinary_projector (non-example): Using the ordinary projector in place of e_so
+    on the weight-two forms of a supersingular π gives zero, so it cannot produce the Klingen family
+    of L2s/semi-ordinary-klingen-family.
+
+  Source: CLW-v1, Thm 2.9.1(1), p. 13; Thm 4.6.1 and proof, p. 29
+
+  Source: CLW-v1, §1, p. 3
+
+* AutomorphicCongruences:L2s/semi-ordinary-hida-theory (theorem): Semi-ordinary Hida theory and the
+    fundamental exact sequence
+
+  Statement: With e_so as in L2s/semi-ordinary-weight-space: (1) the duals V^{0,*}_so = Hom(e_so
+    V^0, ℚ_p/ℤ_p) and V^*_so = Hom(e_so V, ℚ_p/ℤ_p) are free of finite rank over Λ_so (vertical
+    control, CLW Thm 3.0.7 for cusp forms, Thm 4.6.1 for all forms); (2) the spaces of Λ_so-families
+    of tame level K^p_f, M^0_so = Hom_{Λ_so}(V^{0,*}_so, Λ_so) and M_so = Hom_{Λ_so}(V^*_so, Λ_so),
+    specialize isomorphically at every weight (τ^+, τ^-) with 0 ≥ t^+ ≥ −t^- + 4 onto the limits of
+    e_so-parts of mod p^m forms of that weight, and classical semi-ordinary forms embed into the
+    specialization after inverting p (CLW (2.9.1)); (3) Thm 2.9.1(4) gives the exact sequence
+    0→M_so^0→M_so→⊕_g M_(0,0)(K′_{f,g};Z_p)⊗_Zp Z_p[[T_so(Z_p)]]→0. Thus the boundary uses the full
+    torus group algebra, with its finite-character action. Only after the specified ξ/Γ_K base
+    change does one obtain the boundary form used in Thm 8.1.1. Thm 2.9.1(3) gives surjectivity onto
+    classical cuspidal forms for t^-≥A(t^+); this extra condition is not automatic from the cone in
+    (2).
+
+  Hypothesis: The weights in (2) satisfy 0 ≥ t^+ ≥ −t^- + 4; for the Klingen family, 0 ≫ t^+ ≫ −t^-.
+
+  Hypothesis: The Shimura variety of GU(3,1), its toroidal and minimal compactifications, the Igusa
+    tower and the boundary strata are imported from AutomorphicPadicLFunctions:L4 and
+    AutomorphicBundles.
+
+  Hypothesis: Retain the finite torus character when passing from Λ_so to the full boundary group
+    algebra. Classical cusp-surjectivity additionally requires t^-≥A(t^+).
+
+  Source: CLW-v1, Thm 2.9.1, PDF pp. 13–14; Thm 3.0.7, p. 19; Prop. 4.4.1, p. 24; Thm 4.6.1, p. 29
+
+  Source: CLW-v1, proof of Thm 8.1.1, p. 77
+
+* AutomorphicCongruences:L2s/semi-ordinary-klingen-family (construction): The semi-ordinary Klingen
+    Eisenstein family on GU(3,1)
+
+  Statement: Let π and ξ satisfy CLW §5.2: π is weight two, each π_v is unramified, Steinberg or its
+    unramified quadratic twist, π_p is unramified, some nonsplit q has π_q ramified, π is ramified
+    at 2 if 2 is nonsplit, ρ̄_π|G_K is irreducible, and ξ has infinity type (0,k_0) with k_0 even.
+    CLW addendum Thm 4.0.1 constructs two families E^{Kling}_i (i=1,2) in the specified space of ♮
+    semi-ordinary measures tensored with Q. They use different auxiliary data, have the same
+    unramified/U_p eigensystem, and specialize to the semi-ordinary holomorphic Klingen series at ξτ
+    of type (0,k), k≥6 even. Every constant term of either family is divisible by
+    L^{Σ∪{ℓ,ℓ′}}_{ξ,Q}L^{Σ∪{ℓ,ℓ′}}_{π,K,ξ} in R[1/p], R=O_L^{ur}[[Γ_K]]. No integral unscaled
+    measure or single-family unit coefficient is asserted.
+
+  Hypothesis: Use the two auxiliary data sets of CLW addendum §3, not the original simultaneous-unit
+    choice. The weakened ℓ-tower nonvanishing and the additional finite-set avoidance there are
+    required.
+
+  Hypothesis: The Siegel Eisenstein measures on unitary groups, the pullback formula and the local
+    doubling integrals are imported from AutomorphicPadicLFunctions:L4 and L4e (Eischen–Wan's
+    ordinary U(3,1) family is their r = 2 case); CLW's semi-ordinary sections at p, which replace
+    Eischen–Wan's ordinary ones, and the Klingen choices are owned here.
+
+  API SemiOrdKlingen.family (constructor): An indexed pair E_i in the ♮ semi-ordinary measure space
+    tensored with Q, as in CLW addendum Thm 4.0.1; no unscaled integral measure is claimed.
+
+  API SemiOrdKlingen.specialize (characterisation): Its value at τ is e_so of the holomorphic
+    Klingen Eisenstein series of weight given by ξτ (∞-type (0,k), k ≥ 6).
+
+  API SemiOrdKlingen.constantTerm (characterisation): For i=1,2 every constant term is divisible by
+    L_{ξ,Q}L_{π,K,ξ} in R[1/p].
+
+  API SemiOrdKlingen.hecke (characterisation): E^{Kling}_φ is an eigenvector for the unramified
+    Hecke operators and U_p, with eigensystem λ_{π,ξ} defining the Eisenstein ideal E_{π,ξ}.
+
+  API SemiOrdKlingen.fourierJacobi (projection): Its Fourier–Jacobi coefficients along the Klingen
+    parabolic, valued in sections of line bundles on the boundary abelian scheme.
+
+  API SemiOrdKlingen.sharedData (data): Both families share π,ξ and the eigensystem; their auxiliary
+    characters and local sections are indexed by i. A general-weight adaptation must retain that
+    index.
+
+  API SemiOrdKlingen.ext (extensionality): Equality of measure-valued forms follows from all
+    permitted cusp Fourier–Jacobi expansions; integrating a character and extracting a coefficient
+    commute wherever the construction is defined.
+
+  Test semiOrdKlingen_weight_range (degenerate): The interpolation theorem asserts the convergent
+    holomorphic construction at type (0,k) with k≥6 even. It makes no assertion of nonexistence or
+    nonconvergence at every smaller weight.
+
+  Test semiOrdKlingen_constant_term (characterisation): At an interpolation point of either indexed
+    family, its standard constant term has the complex L-value factors and local normalizations of
+    CLW (6.1.1)–(6.1.2). On the family their divisibility is in R[1/p], not an unproved integral
+    measure lattice.
+
+  Test semiOrdKlingen_eigen_shape (computation): The Galois representation of an interpolation point
+    is ρ_π|_{G_K} twisted, plus two characters: three constituents of dimensions 2, 1, 1.
+
+  Test semiOrdKlingen_not_ordinary_family (non-example): For a supersingular π (a_p = 0) the
+    ordinary-projected Klingen family vanishes, while E^{Kling}_φ does not.
+
+  Source: CLW-v1, §5.2–5.4, p. 31; Thm 5.5.1, p. 34; Prop. 5.6.1 and §5.6, pp. 35–36; Thm 5.9.1, p.
+    42; Prop. 5.10.1, p. 44
+
+  Source: CLW-v1, §6.1, (6.1.1)–(6.1.2) and Thm 6.1.1, p. 46
+
+  Source: CLW-addendum, §§2–3, pp. 2–3; Thm 4.0.1, pp. 4–5
+
+* AutomorphicCongruences:L2s/fourier-jacobi-primitivity (theorem): Joint height-one coprimality of
+    two semi-ordinary Fourier–Jacobi families
+
+  Statement: For the pair E_i of semi-ordinary-klingen-family, let J⊂R[1/p] be the ideal generated
+    by all β=1 Fourier–Jacobi functional values indexed by i and the permitted (g,u) of CLW addendum
+    Thm 4.0.1. Then J is contained in no height-one prime of R[1/p]. This does not assert that
+    either single family has a unit coefficient or that J is the unit ideal. The local expansions,
+    triple-product identities and Rallis pairings are those of CLW §7; the addendum replaces the
+    original auxiliary-unit choice.
+
+  Hypothesis: Use precisely the two auxiliary data sets of addendum §3. Its first set makes L_5,L_6
+    units with L_1 nonzero; its second makes L_1,L_5 units with L_6 nonzero, while L_2 remains a
+    fixed nonzero scalar.
+
+  Hypothesis: Ichino's triple product formula for definite U(2) / D^× and the local triple product
+    integrals at nonsplit places are inputs (requested from
+    AutomorphicLFunctionsAndLocalFactors:AL.3; gap 'ichino-triple-product').
+
+  Source: CLW-v1, §7: Prop. 7.4.2 p. 57, Prop. 7.6.1 p. 61, Prop. 7.7.1 p. 64, Prop. 7.9.1 p. 67,
+    Props 7.11.1–7.11.3 pp. 68–73, Prop. 7.12.1 p. 73
+
+  Source: WAN-RS, introduction, steps (1)–(5), pp. 5–6
+
+  Source: CLW-addendum, §3, pp. 2–3; Thm 4.0.1 and proof, pp. 4–5
+
+* AutomorphicCongruences:L2s/clw-eisenstein-congruence (theorem): The CLW Eisenstein ideal is
+    bounded by the p-adic L-functions
+
+  Statement: Let ϕ be as in CLW Prop. 7.11.2 and E_{π,ξ} ⊆ Ô^{ur}_L[[Γ_K]] the Eisenstein ideal
+    (L0/eisenstein-ideal) of the semi-ordinary cuspidal Hecke algebra 𝕋^0_{so,ξ,Γ_K} for the
+    eigensystem of E^{Kling}_ϕ. For every height-one prime P of Ô^{ur}_L[[Γ_K]] with P ∩ Ô^{ur}_L =
+    0, ord_P(L^{Σ∪{ℓ,ℓ′}}_{π,K,ξ}·L^{Σ∪{ℓ,ℓ′}}_{ξ,ℚ}) ≤ ord_P(E_{π,ξ}) (CLW Thm 8.1.1).
+
+  Hypothesis: P not containing p (P ∩ Ô^{ur}_L = 0).
+
+  Source: CLW-v1, Thm 8.1.1 and proof, p. 77
+
+  Source: CLW-addendum, Thm 5.0.1, PDF p. 6
+
+* AutomorphicCongruences:L2s/cap-exclusion (theorem): Irreducibility of the GU(3,1)
+    pseudo-character: excluding CAP components
+
+  Statement: Let 𝕋 be the semi-ordinary (or ordinary) cuspidal Hecke algebra of GU(3,1) localized at
+    the Eisenstein maximal ideal, T: G_K → 𝕋 its four-dimensional pseudo-character (built as in
+    L1/gu22-galois-pseudocharacter from the Galois representations of cuspidal representations of
+    U(3,1)), and suppose ρ̄_π|_{G_K} is irreducible. Then for every Frac(A)-algebra map λ: 𝕋 ⊗
+    Frac(A) → K′, the representation σ_λ is absolutely irreducible or contains an absolutely
+    irreducible two-dimensional subrepresentation whose trace is ≡ χ + χ′ (with χ′=χ^{-c} here
+    because ν=1) modulo I — Wan20's property (9) (CLW proof of Thm 8.2.1). If instead T = δ_1 + δ_2
+    + δ_3 with δ_3 two-dimensional and residually tr ρ̄_π, then at an arithmetic point x of weight
+    (0,0,t^+;t^-) with 0 ≫ t^+ ≫ −t^-, a twist of the specialization of δ_3 descends to a
+    G_ℚ-representation ρ′_{3,x} which is modular (ordinary case: as in SU Thm 7.3.1; non-ordinary
+    case: ρ_Π|_{G_{K,p}} is crystalline by a Jacquet-module argument and the semi-ordinary slopes,
+    and Kisin's theorem applies; in general weight FW uses Pan's theorem), so Π is CAP, which
+    Harris's Thm 2.5.6 excludes in these weights.
+
+  Hypothesis: ρ̄_π|_{G_K} irreducible; arithmetic points in the absolutely convergent range of
+    sufficiently regular weight.
+
+  Hypothesis: The unitary forms and Hecke operators are the AutomorphicPadicLFunctions:L4 carriers;
+    the semi-ordinary projector is L2s's own, since L4 plans only the ordinary one.
+
+  Hypothesis: Harris (1984) Thm 2.5.6 (no holomorphic CAP forms of these weights on U(3,1)) is an
+    input not planned in the atlas (gap 'harris-cap').
+
+  Source: CLW-v1, proof of Thm 8.2.1, property (9), pp. 79–80
+
+  Source: FW-v3, proof of Thm 7.32, p. 97
+
+* AutomorphicCongruences:L2s/clw-main-divisibility (theorem): The Castella–Liu–Wan divisibility over
+    the cyclotomic-localized ring
+
+  Statement: Let K be imaginary quadratic, p ≥ 3 split in K, and π, ξ as in CLW §5.2. Let Γ^+_K ⊂
+    Γ_K be the rank-one ℤ_p-submodule on which complex conjugation acts by +1 and R :=
+    O^{ur}_L[[Γ_K]] ⊗_{O_L[[Γ^+_K]]} Frac(O_L[[Γ^+_K]]), the localization inverting every nonzero
+    element of the cyclotomic coefficient subring O_L[[Γ^+_K]]. Then, as fractional ideals of R,
+    (L_{π,K,ξ}) ⊇ char_R(X^{ur}_{π,K,ξ} ⊗_{A} R), where X_{π,K,ξ} is the dual of the Selmer group of
+    T_{π,K,ξ} = T_π(ε^2_{cyc})|_{G_K}(ξ^{-1}) ⊗ ℤ_p[[Γ_K]](Ψ^{-1}_K) with relaxed condition at p,
+    unramified condition at p̄, and unramified conditions at every place away from p (CLW Thm
+    8.2.1(1)). The localization is in the cyclotomic subring; it is not the inversion of p. Here
+    A=O_L^{ur}[[Γ_K]] and X^{ur} denotes extension to A first. The final tensor is over A; tensoring
+    the A-module X again over the smaller cyclotomic subring would duplicate variables. This
+    localization also inverts p, but inverts many additional elements.
+
+  Hypothesis: CLW §5.2; the excluded height-one primes are exactly those with P ∩ O_L[[Γ^+_K]] ≠ 0
+    (pulled back from the cyclotomic line) — in particular primes where (X_{ξ∘Nm} ⊗ ℚ)_P ≠ 0 may be
+    among them.
+
+  Hypothesis: If X_{π,K,ξ} is not torsion its characteristic ideal is 0 and the statement is empty.
+
+  Source: CLW-v1, Thm 8.2.1(1), p. 78; proof pp. 79–81
+
+  Source: CLW-v1, (1.0.1)–(1.0.2), p. 3
+
+  Source: CLW-addendum, Thm 5.0.2, PDF p. 6
+
+* AutomorphicCongruences:L2s/clw-integrality-and-p-inverted (theorem): Integrality of the CLW p-adic
+    L-function and the p-inverted divisibility
+
+  Statement: In the setting of L2s/clw-main-divisibility: (a) if ξ_p ≢ ξ_p̄ modulo the maximal ideal
+    of O_L, then L_{π,K,ξ} ∈ O^{ur}_L[[Γ_K]]; (b) if moreover ξ|_{𝔸_ℚ^×} = ω² (ω the Teichmüller
+    character) with k_0 ≡ 0 mod 2(p − 1), the local base-change root number ε_v(1/2, BC(π) × ξ_0)
+    equals 1 at every finite place v nonsplit in K, and the conductor of ξ is divisible only by
+    primes split in K, then (L_{π,K,ξ}) ⊇ char_{O^{ur}_L[[Γ_K]] ⊗ ℚ}(X_{π,K,ξ} ⊗ ℚ) (CLW Thm
+    8.2.1(2)): the containment holds after inverting p, without the cyclotomic localization. This is
+    the source-qualified input that RankZeroOneBSD:BSD.6a imports for its supersingular branch; it
+    is not a nonordinary equality.
+
+  Hypothesis: (a) needs residual distinctness ξ_p ≢ ξ_p̄, which gives (irred) and (dist) for the CM
+    form σ_ξ.
+
+  Hypothesis: (b) adds the four listed conditions; the containment is only after ⊗ ℚ.
+
+  Source: CLW-v1, Thm 8.2.1(2), p. 78; proof of (2), p. 81
+
+  Source: WAN-RS, Thm 1.1, pp. 2–3
+
+  Source: CLW-addendum, Thm 5.0.2, PDF p. 6
+
+* AutomorphicCongruences:L2/general-weight-semi-ordinary-control (theorem): Semi-ordinary Hida
+    theory on GU(3,1) in general weight
+
+  Statement: For f a normalized cuspidal eigenform of even weight k ≥ 2 and the vector-valued
+    semi-ordinary forms on GU(3,1) of weight k = (a_1, a_2, a_3; b_1) in the family set X_ρ of
+    Fouquet–Wan: the semi-ordinary parts e_α·V_k(K_0(p,p^n)) are p-divisible with uniformly bounded
+    classical dimensions (Props 7.9–7.10); for each weight k = (a_1, a_2, a_3; b_1) ∈ X_ρ there is
+    A(a) such that, for b_1 large compared with A(a), the restriction e_α M_k(K_0(p), O) ⊗ ℚ_p/ℤ_p →
+    e_α·V_k(K_0(p)) is an isomorphism (FW Thm 7.11); for q = 0 or ∅ the Λ̃-adic families V^q_so are
+    free of finite rank and M^q_so(K, Λ̃) ⊗ Λ̃/P_k ≅ e_α M^q_k(K, O) at such weights (Thm 7.12),
+    with Thm 7.15 and the weight-k boundary sequence of Thm 7.17; and the short sequence of cusp
+    forms, forms and boundary forms is exact (Thm 7.18). These extend L2s/semi-ordinary-hida-theory
+    (CLW, weight two) to general weight and are the only new Hida-theoretic input L2 owns.
+
+  Hypothesis: Weights in FW's set X_ρ; level K_0(p, p^n); the unitary Shimura data and Igusa
+    varieties as in FW §7.3.1–7.3.3, imported from AutomorphicPadicLFunctions:L4.
+
+  Hypothesis: Fix ρ=(a_1,a_2). The full torus algebra has four variables; the fixed-ρ family varies
+    (a_3,b_1). Thm 7.11 requires b_1>A(a,n); Thm 7.12 identifies classical specializations only in
+    its sufficiently regular range.
+
+  Hypothesis: Prop. 7.13 additionally assumes ρ̄_f|G_Qp irreducible, a_1=a_2=0, a_3≡b_1≡0 mod p−1,
+    and a_2−a_3 and a_3+b_1 sufficiently large; its conclusion gives the required unramified
+    principal-series points.
+
+  Source: FW-v3, §7.3.4–7.3.5: Props 7.5, 7.7–7.10, Thms 7.11, 7.12, Prop. 7.13, Thms 7.15, 7.17,
+    7.18, pp. 83–88
+
+  Source: FW-v3, §7.1, p. 80
+
+* AutomorphicCongruences:L2/vector-valued-klingen-family (theorem): The vector-valued Klingen
+    Eisenstein family and the Greenberg p-adic L-function
+
+  Statement: Let π = π_f be the unitary automorphic representation of a weight-k form f and Σ a
+    finite set containing the bad primes. (i) There is L^Σ_{f,K,ξ_0} ∈ Λ_{K,O^{ur}} ⊗ ℚ_p
+    interpolating, at characters ξ_φ of Γ_K that are avatars of Hecke characters of conductor p and
+    infinity type (κ_φ/2 + m_φ, −κ_φ/2 − m_φ) with κ_φ ≥ 6 even and m_φ ≥ (k−2)/2, the values
+    L^Σ(π̃, ξ_φ, (κ_φ − 1)/2) times the stated periods and local factors (FW Prop. 7.19(i), from
+    Eischen–Wan Thm 1.2); (ii) there is a family of formal q-expansions E_{f,ξ_0} whose
+    specializations at a Zariski-dense set of arithmetic points are the Fourier–Jacobi expansions of
+    the highest weight vectors of the holomorphic vector-valued Klingen Eisenstein series on GU(3,1)
+    built by the pullback formula, eigen for U_{t+} with nonzero eigenvalue (Prop. 7.19(ii)); (iii)
+    the constant terms a_{t,[g]}(0) are divisible by L^Σ_{f,K,ξ_0}·L^Σ_{τ̄′} (Prop. 7.19(iii)).
+    After the reparametrization t^{-c}_{ξ′_0}, L^{Gr,Σ}_{f,K} := t^{-c}_{ξ′_0}(L_{f,K,ξ_0}) is the
+    Greenberg Rankin–Selberg p-adic L-function, it equals L^{Hida}_{f⊗g}·L^{Katz}_K·h_K (FW Cor.
+    7.21, L2/greenberg-function-factorization) and lies in O^{ur}[[Γ_K]] (FW Lemma 7.22). The
+    multiplier in Prop. 7.19(i) is Ω_p^{4m+2κ}/Ω_∞^{4m+2κ} · c′_φ · p^{κ−3} · g(ξ_{φ,2})² ·
+    ∏_{i=1}²(χ_i^{-1}ξ_{φ,2}^{-1})(p), where Lemma 7.20 gives
+    c′_φ=Γ(κ+m−k/2)Γ(κ+m+k/2−1)2^{−3κ−4m+1}π^{1−2κ−2m}i^{k−κ−2m−1}. The highest weight is
+    (m+(k−2)/2,m−(k−2)/2,0;κ); after reparametrization it is ((k−2)/2,−(k−2)/2,−m;κ+m).
+
+  Hypothesis: Eischen–Wan's distinct-Satake-parameter assumption is unnecessary in the U(2) case (FW
+    remark after Prop. 7.19).
+
+  Hypothesis: The Klingen family of Eischen–Wan (AutomorphicPadicLFunctions:L4e) is the analytic
+    carrier; FW's reparametrization, the Ikeda-type archimedean factorization and the integrality
+    are owned here.
+
+  Source: FW-v3, Prop. 7.19 and the reparametrization after it, p. 88; Cor. 7.21 and Lemma 7.22, p.
+    89
+
+  Source: FW-v3, Lemma 7.20 and Cor. 7.21, PDF p. 89
+
+* AutomorphicCongruences:L2/greenberg-function-factorization (comparison): Factorization of the
+    Greenberg function into Hida and Katz factors
+
+  Statement: With the normalizations of FW §4.5.2 and Appendix B, the Greenberg Rankin–Selberg
+    p-adic L-function of f over K factors as L^{Gr}_K(f) = L^{Hida}_{f⊗g}·L^{Katz}_K·h_K, where
+    L^{Hida}_{f⊗g} is Hida's Rankin–Selberg p-adic L-function of f against the canonical CM Hida
+    family g, L^{Katz}_K is Katz's p-adic L-function of K restricted to the relevant line and h_K
+    the class number factor (FW Cor. 7.21, with Prop. 4.35 for the Katz normalization). The
+    factorization is an identity in Frac(O^{ur}[[Γ_K]]) obtained by comparing interpolation formulas
+    on a Zariski-dense set; it carries the class-number, period and local factors explicitly and is
+    not routed to L5a.
+
+  Hypothesis: Interpolation formulas of FW Prop. 7.19 and Prop. 4.35 on both sides; the set of
+    comparison points is Zariski dense.
+
+  Source: FW-v3, Cor. 7.21 and the lemma before it, p. 89; Prop. 4.35, p. 57
+
+* AutomorphicCongruences:L2/fw-fourier-jacobi-unit (theorem): General-weight Fourier–Jacobi
+    comparison and its auxiliary repair contract
+
+  Statement: Conditional original formula: with the auxiliary data of FW Prop. 7.29, if L_1,L_5,L_6
+    are simultaneously units and L_2 is a fixed nonzero scalar, FJ_{h,β,θ⋆}(E^{Kling}) is a unit
+    times an element of Q̄_p^×. This only excludes height-one primes away from p. Together with Thm
+    7.18, the original argument yields ord_P(L^{Gr,Σ}_{f,K})≤ord_P(E_D) for the admissible P≠(p) of
+    Lemma 7.31. The cited auxiliary nonvanishing no longer proves the simultaneous-unit hypothesis:
+    the CLW addendum replaces it in weight two by two families whose functional values jointly avoid
+    every height-one prime of R[1/p]. A vector-valued, general-weight version of that repair is
+    required here; it is an explicit gap, not a consequence of the scalar weight-two theorem.
+
+  Hypothesis: The local Fourier–Jacobi and triple-product identities of FW §7.4, including all
+    normalizations. The original simultaneous-unit choice is a conditional hypothesis only. The
+    weakened auxiliary ℓ-tower nonvanishing must instead be used in a general-weight version of the
+    CLW two-family argument.
+
+  Hypothesis: When π_ℓ is supercuspidal the local computation of FW Prop. 7.27 / Cor. 7.28 is used,
+    which removes the squarefree-conductor assumption of earlier work.
+
+  Source: FW-v3, §7.4.2, Props 7.27, Cor. 7.28, Prop. 7.29, Def. 7.30, Lemma 7.31, pp. 90–96
+
+  Source: FW-v3, §1.2.1, p. 11
+
+  Source: CLW-addendum, §1, p. 1; Thms 4.0.1 and 5.0.1, pp. 4–6
+
+* AutomorphicCongruences:L2/fw-greenberg-divisibility (theorem): Fouquet–Wan's GU(3,1) divisibility
+    for the Greenberg main conjecture
+
+  Statement: Let f be a normalized cuspidal eigenform of even weight k, trivial character and
+    conductor N prime to p, such that either ρ̄_f|_{G_{ℚ_p}} is absolutely irreducible or f is
+    ordinary at p; suppose every prime q | N nonsplit in K satisfies q ∥ N and there is at least one
+    such q, that 2 ∥ N if 2 is nonsplit in K, and that ρ̄_f is absolutely irreducible over G_K. Then
+    char_{O^{ur}[[Γ_K]]}(X^{Gr}_K(f) ⊗_O O^{ur}) ⊆ (L^{Gr}_K(f)) up to height-one primes pulled back
+    from O[[Γ^+]]; if moreover every ℓ | N nonsplit in K is ramified in K with π_ℓ the Steinberg
+    representation twisted by the unramified character sending ℓ to −ℓ^{k/2−1}, the whole
+    containment holds (FW Thm 7.32 = Thm 4.41 = Thm 1.12). Here X^{Gr}_K(f) is the dual of the
+    Greenberg Rankin–Selberg Selmer group (FW Def. 4.39: Greenberg condition at v_0, strict at v̄_0,
+    unramified-quotient conditions away from p).
+
+  Hypothesis: As stated; ρ_f|_{G_{ℚ_p}} crystalline in Thm 4.41's form.
+
+  Hypothesis: The first containment excludes height-one primes pulled back from O[[Γ^+]]; the second
+    needs the Steinberg-twist hypothesis to invoke the anticyclotomic µ = 0 theorem.
+
+  Hypothesis: This is the source theorem target. The roadmap proof remains partial pending
+    general-weight-nonvanishing-repair; the later scalar CLW repair alone does not discharge it.
+
+  Source: FW-v3, Thm 7.32 and proof, pp. 96–97; Thm 4.41 and Def. 4.39, pp. 58–59; Thm 1.12, pp.
+    10–11
+
+* AutomorphicCongruences:L2/exceptional-height-one-primes (theorem): Removing the excluded
+    height-one primes
+
+  Statement: Let L ∈ O^{ur}[[Γ_K]] be L^{Gr}_K(f) (or Wan's L_{f,K,ξ}). If the anticyclotomic
+    restriction of L has vanishing µ-invariant — which holds when every prime ℓ | N nonsplit in K is
+    ramified in K with π_ℓ the appropriately twisted Steinberg representation and the residual and
+    conductor hypotheses of Hsieh's Theorem B are met — then L lies in no height-one prime of
+    O^{ur}[[Γ_K]] of the form Q·O^{ur}[[Γ_K]] with Q a height-one prime of O[[Γ^+]]; hence it is
+    prime to the cyclotomic Dirichlet factor L^Σ_{τ̄′} of the constant terms, and a divisibility
+    proved up to those pulled-back primes extends over them (any independent p-power ambiguity must
+    also be removed). For a Hida family, Wan20 Lemma 9.3 gives the same conclusion; for a single
+    form outside the µ = 0 range the exceptional primes remain excluded.
+
+  Hypothesis: Hypotheses of AutomorphicPadicLFunctions:L3h/theorem-b (Hsieh's µ = 0) for the
+    anticyclotomic specialization; the auxiliary-field choice of L2/auxiliary-field-selection must
+    preserve them (no nonsplit-prime or minimality condition dropped).
+
+  Hypothesis: The CLW addendum weakens the auxiliary ℓ-tower nonvanishing used for Fourier–Jacobi
+    choices, not Hsieh’s p-tower µ=0 theorem. Do not replace one by the other.
+
+  Source: FW-v3, proof of Thm 7.32, last paragraph, p. 97
+
+  Source: CLW-v1, proof of Thm 8.2.1(1), p. 81
+
+* AutomorphicCongruences:L2/auxiliary-field-selection (application): Choosing the auxiliary
+    imaginary quadratic field for the Fouquet–Wan route
+
+  Statement: Let f ∈ S_k(Γ_0(N)), p ∤ N, k ≥ 2 even, satisfy the hypotheses of FW Thm 1.6 (ρ̄_f
+    absolutely irreducible; some ℓ ∥ N with dim ρ̄^{I_ℓ}_f = 1 and dim ρ̄^{G_ℓ}_f = 0; ordinary with
+    χ̄_1 ≠ χ̄_2). Then there is an imaginary quadratic K with p split, the chosen ℓ inert in K (so ℓ
+    is a nonsplit prime with ℓ ∥ N), every other prime dividing N split in K, 2 split or
+    ramified-Steinberg as required, and ρ̄_f|_{G_K} absolutely irreducible; for such K all
+    hypotheses of L2/fw-greenberg-divisibility (first containment) and of
+    L2/castella-wan-equivalence hold, and no nonsplit-prime or minimality condition is dropped in
+    passing from f to f over K.
+
+  Hypothesis: Only the hypotheses of FW Thm 1.6 on f; the conditions on K are finitely many local
+    conditions at finitely many primes plus the avoidance of the finitely many quadratic subfields
+    of the splitting field of ρ̄_f.
+
+  Source: FW-v3, §4.8, p. 68; Thm 1.6, pp. 6–7
+
+  Source: SU-2014, proof of Thm 3.6.4, p. 43
+
+* AutomorphicCongruences:L2/klz-beilinson-flach-classes (construction): Λ-adic Beilinson–Flach
+    classes for a Hida family and the CM family
+
+  Statement: Let 𝐟 be a Hida family with coefficient ring 𝕀 and g the canonical CM Hida family of K
+    (with T_g ≅ Ind^ℚ_K ℤ_p[[Γ_p]]). The Kings–Loeffler–Zerbes Beilinson–Flach class BF_{𝐟,g} ∈
+    H¹(ℚ, T_𝐟 ⊗̂ T_g ⊗̂ Λ_Γ), obtained from Rankin–Eisenstein classes on products of modular curves
+    (diagonal pushforward of Eisenstein classes, Siegel units) with tame and p-power norm relations,
+    defines through Shapiro's lemma a class BF ∈ H¹(K, T) and, after the twist tw_{Θ^{-1}}, a class
+    BF† ∈ Sel^{Gr,∅}(K, T†) (Greenberg condition at one prime above p, relaxed at the other) over
+    𝕀[[Γ_K]] (CW Thm 3.6, from KLZ17 Def. 8.1.1 with m = 1 and LLZ14 Lemma 6.8.9 to remove the
+    auxiliary c; membership in the Selmer group by KLZ17 Prop. 8.1.7). Specializations at weight-k
+    points give the classes used in FW §4.4 and §4.8.
+
+  Hypothesis: 𝐟 an ordinary Hida family (or a point of weight k in the crystalline setting of FW
+    §4.4 via analytic families of Beilinson–Flach elements); p split in K.
+
+  Hypothesis: KLZ17 and LLZ14 were not read for this packet: the construction is stated through CW
+    Thm 3.6 and FW §4.4 (gap 'klz-not-read').
+
+  API BF.lambdaAdic (constructor): BF_{𝐟,g} ∈ H¹(ℚ, T_𝐟 ⊗̂ T_g ⊗̂ Λ_Γ).
+
+  API BF.overK (equivalence): Shapiro identifies BF_{𝐟,g} with BF ∈ H¹(K, T), T = T_𝐟 ⊗
+    𝕀[[Γ_K]]-coinduced.
+
+  API BF.twisted (data): BF† = tw_{Θ^{-1}}(BF) ∈ H¹(K, T†).
+
+  API BF.mem_selmer (characterisation): BF† belongs to Sel^{Gr,∅}: Greenberg at p, relaxed at p̄,
+    and the specified unramified conditions away from p (CW Thm 3.6).
+
+  API BF.normRelation (characterisation): Tame norm relations with Euler factors P_ℓ(Frob_ℓ^{-1})
+    and p-power norm compatibility.
+
+  API BF.specialize (functoriality): Specialization along arithmetic points of 𝕀 and of Γ_K commutes
+    with Shapiro and the twist.
+
+  API BF.loc_nontorsion (characterisation): loc_v(BF†) is non-torsion over 𝕀[[Γ_K]] for each v | p
+    (CW Thm 3.6, last sentence).
+
+  API BF.ext (extensionality): Under Shapiro and the critical-twist isomorphism two BF classes are
+    equal iff their inverse images are equal; the distinguished class includes its norm-compatible
+    construction, not just its local images.
+
+  Test bf_rank_one_specialization (computation): The universal class satisfies both Coleman
+    reciprocity identities in their specified fractional congruence-ideal targets. Specialization
+    commutes wherever defined; a specialized L-value may vanish, so no fixed
+    weight-two/trivial-character value is required to be nonzero.
+
+  Test bf_selmer_condition (characterisation): loc_{v_0}(BF†) satisfies the Greenberg condition,
+    while loc_{v̄_0}(BF†) is unrestricted (relaxed).
+
+  Test bf_not_kato (non-example): Kato's zeta element of f alone (KatoEulerSystems:L2) is a class
+    for T_f over ℚ_∞, not for T_𝐟 ⊗ T_g over the two-variable tower; replacing BF by Kato's class
+    fails BF.overK.
+
+  Test bf_cm_family_shapiro (agreement): With g the canonical CM family, T_g ≅ Ind^ℚ_K ℤ_p[[Γ_p]]
+    (BST19), and Shapiro gives the identification BF.overK used by Castella–Wan.
+
+  Source: CW-v1, Thm 3.6 and its proof, p. 15
+
+  Source: FW-v3, §4.4 (Prop. 4.22, §4.4.2), pp. 49–51
+
+* AutomorphicCongruences:L2/bf-explicit-reciprocity (theorem): Explicit reciprocity for
+    Beilinson–Flach classes
+
+  Statement: Over I[[Γ_K]], CW Thm 3.6 gives injections with pseudo-null cokernel
+    Col^{(1),†}:H¹(K_p̄,F^-T†)→I_f⊗_I I[[Γ_K]] and Col^{(2),†}:H¹(K_p,F^+T†)→I_g⊗̂_Zp I[[Γ_K]].
+    Their images on loc_p̄(BF†) and loc_p(BF†) are respectively tw_{Θ^{-1}}L_p(f,g) and
+    tw_{Θ^{-1}}L_p(g,f). The targets I_f and I_g are the specified fractional congruence ideals, not
+    units that may be silently discarded. The maps are obtained by pairing the family Perrin–Riou
+    logarithm with η_f⊗ω_g and η_g⊗ω_f. Each universal localization of BF† is non-torsion; this does
+    not require every arithmetic specialization to be nonzero.
+
+  Hypothesis: As in L2/klz-beilinson-flach-classes; the big logarithm in families is imported.
+
+  Source: CW-v1, Thm 3.6 and proof, p. 15
+
+  Source: FW-v3, §4.4.2 and §4.5, pp. 51–57
+
+* AutomorphicCongruences:L2/castella-wan-equivalence (theorem): Greenberg and Beilinson–Flach main
+    conjectures over K are equivalent
+
+  Statement: Let 𝐟 be a Hida family with ρ_𝐟|_{G_K} irreducible. The following are equivalent, up to
+    powers of p: (i) X^{Gr,0}(K_∞, A†_𝐟) is 𝕀[[Γ_K]]-torsion, Sel^{Gr,∅}(K, T†) has rank one, and
+    char(X^{Gr,0}) = char(Sel^{Gr,∅}(K,T†)/𝕀[[Γ_K]]·BF†); (ii) X^{∅,0}(K_∞, A†_𝐟) and Sel^{0,∅}(K,
+    T†) are torsion and char(X^{∅,0})·𝕀^{ur}[[Γ_K]] = (tw_{Θ^{-1}}(L_p(𝐟/K))) (CW Thm 3.8). The same
+    argument holds for a weight-k specialization with the Greenberg main conjecture supplied by
+    L2/fw-greenberg-divisibility in place of the weight-two input (FW §4.8). Each divisibility
+    direction in (ii) corresponds to the same direction in (i).
+
+  Hypothesis: ρ_𝐟|_{G_K} irreducible; the comparison is up to powers of p, so it does not by itself
+    remove a power of p.
+
+  Source: CW-v1, Thm 3.8, p. 16
+
+  Source: FW-v3, §4.8, p. 68
+
+* AutomorphicCongruences:L2/unramified-exponential-boundedness (theorem): Boundedness of the
+    Bloch–Kato exponential along unramified extensions
+
+  Statement: Under FW Assumption 4.1 (short crystalline V with irreducible residual representation)
+    and for a chosen lattice T, Prop. 4.12 gives a fixed m such that
+    exp(W(F̄_p)·ω_V)⊂p^{-m}H¹(I_p,T). Cor. 4.13 gives its Yager-module description after the
+    unramified twist ρ(Frob)=1+x with v_p(x)>0. In Cor. 4.14 assume every unramified specialization
+    V′ satisfies D_crys(V′)^{φ=1}=0. The exponential line is then a rank-one direct summand after
+    inverting p; after a fixed rescaling b∈E^× it determines the saturated integral local line. The
+    raw exponential is not asserted integral. Keep the constants b_p,d_p of Def. 4.15 in subsequent
+    comparisons. The Yager and unramified-by-cyclotomic regulator construction is requested through
+    GH.7’s local Part II checkpoint; it is not already implemented there.
+
+  Hypothesis: FW Assumption 4.1, the unramified twist of Cor. 4.13, and the φ=1 exclusion at every
+    unramified specialization in Cor. 4.14.
+
+  Hypothesis: The separate local Part II Yager/regulator supplier must be supplied; GH.7 currently
+    records a checkpoint/request for it.
+
+  Source: FW-v3, §4.2.1 Prop. 4.12, p. 43; §4.2.2 (Yager modules after Loeffler–Zerbes §3.2), p. 43;
+    §4.2.3 Cors 4.13–4.14, pp. 44–45
+
+  Source: FW-v3, §1.2.1, pp. 11–12
+
+* AutomorphicCongruences:L2/fw-crystalline-main-conjecture (theorem): Fouquet–Wan's main conjecture
+    at crystalline short points
+
+  Statement: Let f ∈ S_k(Γ_0(N)) be a normalized eigencuspform of weight k ≥ 2 with ρ_f|_{G_{ℚ_p}}
+    crystalline (p ∤ N) and short, ρ̄_f|_{G_{ℚ_p}} absolutely irreducible, and some ℓ ∥ N with dim
+    ρ̄^{I_ℓ} = 1 and dim ρ̄^{G_{ℚ_ℓ}} = 0. Then Kato's main conjecture holds for M(f): char
+    H²(ℤ[1/p], T ⊗ Λ_Iw) = char H¹(ℤ[1/p], T ⊗ Λ_Iw)/Λ_Iw·z(f)_Iw (FW Thm 4.51 = Thm 1.13; Thm 4.38
+    under the residual hypothesis of Thm 1.7). The proof first gives the equalities of Prop. 4.42
+    after inverting p (through Pottharst's analytic Iwasawa theory and Selmer complexes over ΛK,∞),
+    then removes the power of p by the unramified local theory along the line through the point
+    (§4.6.3, Prop. 4.48), and treats equal Satake parameters through the Bianchi three-variable
+    p-adic L-function of Betina–Williams (§4.7).
+
+  Hypothesis: As stated; the distinct-Satake-parameter case first, then §4.7 for the p-irregular
+    case.
+
+  Hypothesis: Kato's one-sided bound (KatoEulerSystems:L4) supplies the divisibility F_1 | F of the
+    proof of Thm 4.51.
+
+  Hypothesis: The source theorem is the target; general-weight-nonvanishing-repair and the regulator
+    supplier are unresolved proof inputs. Kato’s integral bound must be applied with its actual free
+    rank-one τ-quotient condition, not merely residual irreducibility.
+
+  Source: FW-v3, Thm 4.38 p. 58; Prop. 4.42 p. 59; §4.6.3 and Thm 4.51 with proof pp. 61–65; §4.7
+    Prop. 4.53 pp. 66–67
+
+  Source: FW-v3, §1.2.1, pp. 11–12
+
+* AutomorphicCongruences:L2/fw-ordinary-reverse-bound (theorem): The Fouquet–Wan ordinary reverse
+    divisibility (Theorem 1.6 by §4.8)
+
+  Statement: Let f ∈ S_k(Γ_0(N)), p ∤ N, k ≥ 2, be an eigencuspform with (1) ρ̄_f absolutely
+    irreducible; (2) some ℓ ∥ N with dim_𝔽 ρ̄^{I_ℓ}_f = 1 and dim_𝔽 ρ̄^{G_ℓ}_f = 0; (3)
+    ρ_f|_{G_{ℚ_p}} an extension 0 → χ_1 → ρ_f|_{G_{ℚ_p}} → χ_2 → 0 with χ̄_1 ≠ χ̄_2. Then
+    char_{Λ_Iw} H¹(ℤ[1/p], T ⊗ Λ_Iw)/Λ_Iw·z(f)_Iw divides char_{Λ_Iw} H²(ℤ[1/p], T ⊗ Λ_Iw) (FW Thm
+    1.6). The route is FW §4.8, not SU plus a period lemma: over an auxiliary K
+    (L2/auxiliary-field-selection) prove the two-variable Greenberg Rankin–Selberg main conjecture
+    divisibility by L2/fw-greenberg-divisibility, transfer it through L2/castella-wan-equivalence to
+    the Beilinson–Flach formulation, descend to the cyclotomic line, separate the twist factor f ⊗
+    χ_K, and remove the power of p by a §4.6.3-type integral argument that uses Kato's one-sided
+    bound. No comparison of canonical and Gross periods is used.
+
+  Hypothesis: Hypotheses (1)–(3) of FW Thm 1.6 exactly; trivial character, even weight for the
+    GU(3,1) input.
+
+  Hypothesis: FW §4.8 only indicates this argument (the weight-two details are referred to
+    Castella–Wan Thm 3.8); the p-power step in the ordinary case is not written out in the source
+    (gap 'fw-4-8-sketch').
+
+  Hypothesis: The source theorem is the target; general-weight-nonvanishing-repair and the regulator
+    supplier are unresolved proof inputs. Kato’s integral bound must be applied with its actual free
+    rank-one τ-quotient condition, not merely residual irreducibility.
+
+  Source: FW-v3, Thm 1.6 and the remark before it, pp. 6–7; §4.8, p. 68
+
+  Source: CW-v1, Thm 3.8, p. 16
+
+* AutomorphicCongruences:L2/wan-rankin-selberg-divisibility (theorem): Wan's ordinary GU(3,1)
+    Rankin–Selberg divisibility
+
+  Statement: Let K be imaginary quadratic with p = v_0v̄_0 split, f_0 a weight-two form of trivial
+    character and square-free tame level N in an ordinary Hida family 𝐟, and ξ a Hecke character of
+    infinity type (κ/2, −κ/2), κ ≥ 6 even, with ord_{v_0}, ord_{v̄_0} of its conductor ≤ 1. (Thm
+    1.1) If p ≥ 5, ξ|_{𝔸^×_ℚ} = ω∘Nm with κ ≡ 0 mod 2(p − 1), ρ̄_𝐟|_{G_K} irreducible, some q | N
+    nonsplit in K with ρ̄_𝐟 ramified at q, the CM form g_ξ satisfies (dist) and (irred), every local
+    root number ε(π_{f,v}, ξ_v, 1/2) = 1 at nonsplit v, and the conductor of ξ is divisible only by
+    split primes, then L^{Hida}_{𝐟,ξ,K} ∈ Î^{ur}[[Γ_K]] and (L^{Hida}_{𝐟,ξ,K}) ⊇ char(X_{𝐟,K,ξ}).
+    (Thm 1.2) For the single form f_0, if p ≥ 5, the p-adic avatar of ξ|·|^{κ/2}(ω^{-1}∘Nm) factors
+    through Γ_K with κ ≡ 0 mod 2(p − 1), ρ̄_{f}|_{G_K} is irreducible and some q ∥ N is nonsplit in
+    K, then (L_{f,ξ,K}) ⊇ char(X_{f,K,ξ}) as fractional ideals of Ô^{ur}_L[[Γ_K]] ⊗ L, allowing both
+    global root numbers; this p-inverted, imprimitive two-variable bound (with the exceptional-prime
+    and normality arguments of Wan20 §9) is the input exported to RankOneConverse.
+
+  Hypothesis: As stated in Wan20 Thms 1.1–1.2; the published ordinary theorem (arXiv:1408.4044,
+    Algebra Number Theory 2020), not the withdrawn arXiv:1412.1767 nor the nonordinary replacement
+    (L2s).
+
+  Source: WAN-RS, Thms 1.1–1.2 and the discussion after them, pp. 2–4; outline pp. 4–6
+
+* AutomorphicCongruences:L3/fw-residual-hypotheses (definition): The residual hypotheses of the
+    Fouquet–Wan and Nakamura theorems
+
+  Statement: For an odd prime p, a finite field 𝔽 of characteristic p and an odd absolutely
+    irreducible continuous ρ̄: G_ℚ → GL_2(𝔽) unramified outside a finite set Σ ∋ p, define the
+    predicates: (A2.1) ρ̄|_{G_{ℚ(√p*)}} is absolutely irreducible (p* = (−1)^{(p−1)/2}p), and if
+    ρ̄|_{G_{ℚ_p}} is an extension of χ_2 by χ_1 then χ_1^{-1}χ_2 ∉ {1, χ̄_cyc} (FW Assumption 2.1);
+    (A3.5) if (ρ̄|_{G_{ℚ_p}})^{ss} = χ̄_1 ⊕ χ̄_2 then χ̄_1^{-1}χ̄_2 ≠ χ̄_cyc (FW Assumption 3.5);
+    (A3.7) there is ℓ ∥ N, ℓ ≠ p, with dim_𝔽 ρ̄^{I_ℓ} = 1 (FW Assumption 3.7); (T1.7)
+    (ρ̄|_{G_{ℚ_p}})^{ss} ≠ χ̄ ⊕ χ̄χ̄_cyc for every character χ̄, and there is ℓ ∤ p with
+    ρ̄|_{G_{ℚ_ℓ}} a ramified extension 0 → µχ^{1−k/2}_cyc → ρ̄|_{G_{ℚ_ℓ}} → µχ^{−k/2}_cyc → 0, µ the
+    nontrivial unramified quadratic character (FW Thm 1.7); and Nakamura's (N1) p ≥ 5, (N2)
+    ρ̄|_{G_{ℚ(ζ_p)}} absolutely irreducible, (N3) End_{𝔽[G_{ℚ_p}]}(ρ̄_p) = 𝔽, (N4) ρ̄_p not of the
+    form (1 ∗; 0 ε^{±1}) ⊗ χ, (N5) ρ̄_p not of the form (1 ∗; 0 1) ⊗ χ (Nakamura Thm 1.1). Define
+    T5.1 separately: the same global irreducibility, local semisimple exclusion and ramified
+    Steinberg-shape witness, but µ may be trivial when ρ̄|G_Qp is reducible; it must be nontrivial
+    when that local representation is irreducible. The pointwise and family theorems of §5 use T5.1,
+    not an identification of these two predicates.
+
+  Hypothesis: The predicates are on the residual representation only; the scalar exclusion
+    (ρ̄|_{G_{ℚ_p}})^{ss} ≠ χ̄ ⊕ χ̄ is part of A2.1 through its second clause and the endomorphism
+    remark after it (FW p. 17).
+
+  API FWResidual.A21 (constructor): Assumption 2.1 as a predicate on ρ̄.
+
+  API FWResidual.A35 (constructor): Assumption 3.5.
+
+  API FWResidual.A37 (constructor): Assumption 3.7 (a prime ℓ ∥ N with one-dimensional inertia
+    invariants).
+
+  API FWResidual.T17 (constructor): The residual hypotheses of FW Thm 1.7, with nontrivial µ in
+    every case.
+
+  API FWResidual.Nakamura (constructor): Nakamura's (N1)–(N5).
+
+  API FWResidual.scalar_endomorphisms (characterisation): A21 implies End_{F[G_Qp]}(ρ̄_p)=F, without
+    an additional exception.
+
+  API FWResidual.twist_invariant (compatibility): A21, A35 and the Nakamura exclusions are invariant
+    under character twists. A37 is preserved by a twist unramified at its chosen witness ℓ. The
+    specified Steinberg shape and µ in T17/T51 are not invariant under arbitrary twists.
+
+  API FWResidual.T51 (constructor): The residual hypotheses of FW Thm 5.1, with µ allowed trivial
+    only when ρ̄_p is reducible.
+
+  API FWResidual.ext (extensionality): Each predicate transports under an isomorphism of residual
+    representations; predicates including a witness retain the chosen prime and its local
+    characters.
+
+  Test fwResidual_A21_quadratic (computation): For p = 5 and ρ̄ induced from a character of
+    G_{ℚ(√5)} (dihedral with respect to ℚ(√p*)), A21 fails while ρ̄ itself is absolutely
+    irreducible.
+
+  Test fwResidual_T17_excludes_cyclotomic (non-example): For E/ℚ with good ordinary reduction at p,
+    (ρ̄_{E,p}|_{G_{ℚ_p}})^{ss} = u ⊕ u^{-1}χ̄_cyc with u unramified, u(Frob_p) = a_p mod p; this has
+    the form χ̄ ⊕ χ̄χ̄_cyc exactly when a_p ≡ ±1 mod p, and then the first clause of T1.7 fails.
+
+  Test fwResidual_A37_steinberg (agreement): For E/ℚ with split multiplicative reduction at ℓ and p
+    ∤ ord_ℓ(Δ_E), ρ̄_{E,p} is ramified at ℓ with dim ρ̄^{I_ℓ} = 1, so A37 holds for ℓ ∥ N (Tate
+    curve).
+
+  Test fwResidual_scalar_case (degenerate): If (ρ̄|_{G_{ℚ_p}})^{ss} ≅ χ̄ ⊕ χ̄, the endomorphism
+    algebra of a split ρ̄|_{G_{ℚ_p}} is M_2(𝔽), so N3 fails.
+
+  Test fwResidual_T17_vs_T51 (characterisation): For a reducible-at-p residual representation with
+    the required ramified local Steinberg shape and µ=1, that witness is allowed by T51 and excluded
+    by T17. This distinguishes the two source statements rather than conflating their µ hypotheses.
+
+  Source: FW-v3, Assumption 2.1, p. 17; Assumption 3.5, p. 24; Assumption 3.7, p. 25; Thm 1.7, p. 7;
+    Thm 5.1, p. 68
+
+  Source: NAK-v2, Thm 1.1 (1)–(5) and Remark 1.2, pp. 4–5
+
+* AutomorphicCongruences:L3/universal-deformation-ring-structure (theorem): The universal
+    deformation ring is a reduced complete intersection, finite free over Λ, and equal to the Hecke
+    algebra
+
+  Statement: Under FW Assumption 2.1 (L3/fw-residual-hypotheses), the universal deformation ring
+    R_Σ(ρ̄) of ρ̄ unramified outside Σ is a flat O-algebra which is a complete intersection of Krull
+    dimension 4 (FW Prop. 2.4); there is a Zariski-dense open X^sm ⊂ Spec R_Σ(ρ̄) containing every
+    point that is ordinary up to twist (if ρ̄|_{G_{ℚ_p}} is reducible) or crystalline and short up
+    to twist (if irreducible), at which Spec R^χ_Σ(ρ̄) → Spec O is formally smooth, and R_Σ(ρ̄) is
+    reduced (Cor. 2.5); the classical points (up to twist) are Zariski dense, so the surjection
+    R_Σ(ρ̄) → 𝕋^Σ_{m_ρ̄} is an isomorphism (Prop. 2.6); and there is a regular sequence (x_1, x_2,
+    x_3) in 𝕋^Σ_{m_ρ̄} making it a finite free module over Λ = O[[X_1, X_2, X_3]], such that
+    classical points with the same image in Spec Λ are all crystalline-short (resp. ordinary) up to
+    twist or none are (Cor. 2.7). Finite flatness over the regular ring Λ does not make R_Σ(ρ̄)
+    regular; the main conjecture over R_Σ(ρ̄) is formulated through perfect complexes and the
+    regular subring Λ.
+
+  Hypothesis: FW Assumption 2.1; p odd; Σ finite containing p and the ramification of ρ̄.
+
+  Hypothesis: The existence of a classical point of the Serre weight (FW cites
+    Edixhoven/Gross–Coleman–Voloch-type results [31]) and the local deformation rings at p (ordinary
+    or crystalline-short) are inputs.
+
+  Hypothesis: The complete-intersection and density proof here is FW Prop. 2.4–2.6 with its local
+    hypotheses. Do not replace it by the supplier’s unobstructed-ring hypothesis or assume all such
+    rings regular.
+
+  Source: FW-v3, Prop. 2.4 and proof, p. 18; Cor. 2.5, p. 19; Prop. 2.6 and Cor. 2.7 with proofs, p.
+    20
+
+  Source: FW-v3, §1.2, p. 9; §1.2.2, p. 14
+
+* AutomorphicCongruences:L3/smooth-classical-points (theorem): Classical points of good reduction
+    type exist and are dense
+
+  Statement: Under FW Assumption 2.1: (i) if ρ̄|_{G_{ℚ_p}} is irreducible there is a crystalline and
+    short classical point λ_f with R_Σ(ρ̄) ≅ R_Σ(ρ̄_f) (FW Lemma 2.2), and in general a point of
+    Spec 𝕋^Σ_{m_ρ̄} that is crystalline-short, crystalline-short up to the quadratic twist
+    ω^{(p−1)/2}, good ordinary, or good ordinary up to a quadratic twist (FW Lemma 2.8, used in the
+    proof of Thm 5.1); (ii) X^sm is Zariski dense and the set of specializations that are not
+    Iwasawa-suitable, or at which Spec 𝕋 is not étale over Spec Λ, is contained in a locus of
+    codimension at least one (FW Props 2.6, 3.16).
+
+  Hypothesis: As stated; Iwasawa-suitable in the sense of FW Def. 3.19.
+
+  Source: FW-v3, Lemma 2.2 and proof, p. 17; proof of Thm 5.1 (Lemma 2.8), p. 73; Prop. 2.6, p. 20;
+    §3.2.2 (Prop. 3.16), p. 29
+
+* AutomorphicCongruences:L3/fundamental-line (construction): Fundamental lines over the deformation
+    ring and its quotients
+
+  Statement: Let A be a quotient of 𝕋^Σ_{m_ρ̄} or of Λ (for example 𝕋, R(𝔞) = 𝕋/𝔞 for a minimal
+    prime 𝔞, Λ, O_Iw or O) and T := T_Σ ⊗ A. The complexes RΓ_et(ℤ[1/Σ], T) and RΓ(G_{ℚ_ℓ}, T) are
+    perfect and commute with derived base change (FW Lemma 3.17). The Σ-partial fundamental line is
+    the graded invertible A-module Δ_Σ(T) := Det^{-1}_A RΓ_et(ℤ[1/Σ], T) ⊗_A Det^{-1}_A T(−1)^+ (FW
+    Def. 3.18); for A a domain and ℓ ∈ Σ prime to p put X_ℓ(T) := Det_A RΓ(G_{ℚ_ℓ}/I_ℓ, T^{I_ℓ}) if
+    rank T^{I_ℓ} ≠ 1 and Det_A[A —(1−α_ℓ)→ A] if rank T^{I_ℓ} = 1, and the fundamental line Δ(T) :=
+    Δ_Σ(T) ⊗ ⊗_{ℓ∈Σ∖{p}}(X_ℓ(T) ⊗ Det^{-1}_A RΓ(G_{ℚ_ℓ}, T)). Any ψ: A → A′ induces Δ_A(T) ⊗_A A′ ≅
+    Δ_{A′}(T′) for the Σ-partial line, and for the full line when ψ is Iwasawa-suitable; when both
+    are defined, Δ_A(T) ≅ Det^{-1}RΓ_et(ℤ[1/p], T) ⊗ Det^{-1}T(−1)^+ (FW Prop. 3.20). In the
+    rank-one correction [A→(1−α_ℓ)A], the two terms are in degrees 0 and 1. Under the acyclic
+    trivialization its determinant basis maps to 1−α_ℓ; the inverse determinant gives (1−α_ℓ)^{-1}.
+    No local X_p is used.
+
+  Hypothesis: Use the requested Knudsen–Mumford graded determinant functor on perfect complexes,
+    owned by PadicMeasuresIwasawaAlgebras:L5 but not present in the current upstream checkout;
+    T(−1)^+ is the complex-conjugation + part.
+
+  API FundLine.partial (constructor): Δ_Σ(T) = Det^{-1}RΓ_et(ℤ[1/Σ], T) ⊗ Det^{-1}T(−1)^+, a graded
+    invertible A-module.
+
+  API FundLine.full (constructor): Δ_Σ(T) tensored with X_ℓ(T)⊗Det^{-1}RΓ(G_Qℓ,T) for ℓ∈Σ∖{p}.
+
+  API FundLine.eulerFactorLine (data): X_ℓ=Det[A→(1−α_ℓ)A] in degrees 0,1 in rank one. Its acyclic
+    trivialization has image (1−α_ℓ)A when 1−α_ℓ≠0.
+
+  API FundLine.baseChange_partial (compatibility): Δ_Σ(T) ⊗_A A′ ≅ Δ_Σ(T ⊗ A′) for every ring map A
+    → A′.
+
+  API FundLine.baseChange_full (compatibility): Δ(T) ⊗_{A,ψ} A′ ≅ Δ(T′) for ψ Iwasawa-suitable (FW
+    Prop. 3.20).
+
+  API FundLine.compare_p (equivalence): Δ_A(T) ≅ Det^{-1}RΓ_et(ℤ[1/p], T) ⊗ Det^{-1}T(−1)^+ when the
+    latter is defined.
+
+  API FundLine.trivial_of_torsion (characterisation): Over a regular domain, a trivialization of Δ
+    inside Frac A is A itself iff the corresponding characteristic ideals agree (with
+    ModularIwasawaMainConjectures:L0/zeta-basis-characteristic-equivalence pointwise).
+
+  API FundLine.ext (extensionality): The determinant functor transports isomorphisms of perfect
+    complexes and their distinguished-triangle identifications; specified trivializations agree iff
+    their generic maps agree.
+
+  Test fundLine_rank (computation): For A = O_Iw and T = T(f)_Iw with H¹ free of rank one and H²
+    torsion, Δ_Σ(T) is concentrated in degree zero and is a free O_Iw-module of rank one.
+
+  Test fundLine_eulerFactor_rank_one (computation): For [A→d A] in degrees 0,1 with d≠0, the
+    standard determinant basis maps to d, giving the fractional lattice dA; Det^{-1} gives d^{-1}A.
+    For d a unit both are A. This fixes the sign rather than leaving ±1 unspecified.
+
+  Test fundLine_base_change (agreement): For ψ: 𝕋 → R(𝔞) the base change of Δ_Σ(T_Σ) is Δ_Σ(T(𝔞)) —
+    the left column of FW (1.2.2).
+
+  Test fundLine_not_fitting (non-example): Take A=k[[x,y]] and M=A/(x,y). M has finite projective
+    dimension two, characteristic divisor zero and divisorial characteristic ideal A, but
+    Fitt₀(M)=(x,y), which is not invertible. Replacing its perfect-complex determinant by this
+    Fitting ideal loses invertibility even though Fitting ideals themselves commute with module base
+    change.
+
+  Source: FW-v3, §3.3: Lemma 3.17, Defs 3.18–3.19, Prop. 3.20 and proof, pp. 31–32
+
+  Source: FW-v3, §1.2.2, pp. 12–14
+
+* AutomorphicCongruences:L3/completed-homology-factorization (comparison): Completed (co)homology
+    localized at ρ̄ and its local–global factorization
+
+  Statement: Under Nakamura (N1),(N3),(N4), use the intrinsic BM co-Whittaker factor B_{Σ_0} and its
+    smooth dual B^∨_{Σ_0}. In NAK-v2 Cor. 2.5 (p. 25), completed Borel–Moore homology factors as
+    (π_p^m)^*⊗(ρ^m)^*⊗B_{Σ_0}; the factor is the untilde π of that version. NAK-v2 Thm 2.2 (p. 20)
+    describes completed cohomology using the smooth-dual factor, denoted tilde π there. The
+    published version reverses these notational roles. The zeta construction uses the BM factor as
+    in NAK-v2 (47), p. 63; do not identify B with B^∨. In the GL₂ families used by FW Props 6.7–6.9,
+    the specified essential-vector level has free rank-one invariants with the stated classical base
+    change. This last property uses the explicit GL₂ classification, not merely the rank-one top
+    derivative in the definition of co-Whittaker.
+
+  Hypothesis: (N1), (N3), (N4); in particular p ≥ 5, which is the range of
+    PadicLocalLanglandsForGL2Qp:R30.5's nodes. FW's extension to p = 3 rests on Paškūnas–Tung's
+    generalization (FW remark after Thm 3.6), which the imported nodes do not cover; the request to
+    R30.5 asks for it. The co-Whittaker families exist (Helm's local Langlands in families,
+    conditional in general in SmoothRepresentationsOfLocalGroups:SR.5, proved in the GL_2 cases
+    needed by FW Prop. 6.8).
+
+  Source: NAK-v2, Thm 2.2, p. 20; Cor. 2.5 (§2.3), p. 25; §4.1 (47), p. 63
+
+  Source: FW-v3, Props 6.7–6.9, pp. 77–78; Thm 6.10, p. 79
+
+* AutomorphicCongruences:L3/equivariant-zeta-morphism-completed-homology (construction): The
+    G_Σ-equivariant zeta morphism on completed homology
+
+  Statement: For N ≥ 3, n ≥ 1 with prime(Np) = Σ and (n, Σ) = 1, Nakamura constructs from Kato's
+    full-level Hecke-linear zeta classes a ℤ_p[GL_2(ℤ/N)]-linear map z^{Iw}_{N,n}(k, −): H¹(Y(N),
+    𝒱^*_k)(1) → H¹_Iw(ℤ[1/Σ_n, ζ_n], H¹(X(N), j_*𝒱^*_k(2)))_{Q_{k,n}} (Prop. 3.8, Q_{k,n} the
+    multiplicative set of the smoothing factors); after localizing at the non-Eisenstein ideal of ρ̄
+    it lands in the unlocalized Iwasawa cohomology of H¹(Y(N), 𝒱^*_k)_ρ̄(2) (Cor. 3.14, Prop. 3.15);
+    the limits over p-power level define a continuous 𝕋_{ρ̄,Σ}[G_Σ]-linear map z^{Iw}_{Σ,n,ρ̄}:
+    H̃^{BM}_{1,ρ̄,Σ} → H¹_Iw(ℤ[1/Σ_n, ζ_n], H̃^{BM}_{1,ρ̄,Σ}(1)) with z(τv) = σ_{−1}z(v) and the
+    Euler-system norm relations (Thm 3.16); and the weight-k maps are recovered from weight two by
+    tensoring over O[[K_m]] with W = Sym^{k−2}(O²)^* (Prop. 3.17).
+
+  Hypothesis: Localization at the non-Eisenstein maximal ideal of ρ̄ (absolutely irreducible) is
+    what makes H¹(X(N), j_*𝒱) and H¹(Y(N), 𝒱) agree and the map integral.
+
+  API CompZeta.finiteLevel (constructor): z^{Iw}_{N,n}(k, −), ℤ_p[GL_2(ℤ/N)]-linear, valued in the
+    Q_{k,n}-localized Iwasawa cohomology.
+
+  API CompZeta.integral (characterisation): After localization at ρ̄ the map is integral (no
+    Q_{k,n}-denominators).
+
+  API CompZeta.limit (constructor): z^{Iw}_{Σ,n,ρ̄} on H̃^{BM}_{1,ρ̄,Σ}, continuous and
+    𝕋_{ρ̄,Σ}[G_Σ]-linear.
+
+  API CompZeta.conj (characterisation): z(τv) = σ_{−1}z(v) for complex conjugation τ.
+
+  API CompZeta.norm (characterisation): Cor ∘ z_{Σ,nl} = z_{Σ,n} if l | n and P_l(σ_l^{-1})z_{Σ,n}
+    if (l, n) = 1, l ∉ Σ.
+
+  API CompZeta.weight (compatibility): Use the completed tensor W⊗_{O[[K_m]]}H̃^{BM}_1[1/p] in
+    NAK-v2 Prop. 3.17, not a plain tensor over O. It is identified with the indicated finite-level
+    weight-k cohomology, and the induced zeta maps commute.
+
+  API CompZeta.ext (extensionality): The continuous limit map is determined by its finite-level
+    compatible maps. Its weight maps retain the K_m coinvariants.
+
+  Test compZeta_weight_two (degenerate): At k=2, W is the trivial representation, so tensoring over
+    O[[K_m]] takes K_m-coinvariants and gives the finite-level comparison. It does not identify the
+    entire infinite-level homology with a finite-level group by an ordinary tensor.
+
+  Test compZeta_norm_l_divides (computation): For l | n, corestriction from level nl to n is the
+    identity on the zeta morphism (no Euler factor).
+
+  Test compZeta_eisenstein_not_integral (non-example): For j=0 and the trivial cyclotomic character,
+    the augmentation of c²−c^{2−j}σ_c is zero, so the smoothing element cannot be inverted
+    integrally there. This rejects a universal unsmoothing-by-unit argument; it does not assert
+    nonintegrality of every Eisenstein component.
+
+  Test compZeta_kato_agreement (agreement): At finite level N and weight k the map agrees with
+    KatoEulerSystems:L2/full-level-hecke-linear-zeta-classes after removing the smoothing factors.
+
+  Source: NAK-v2, §3.2 Prop. 3.8 (p. 48), Cors 3.10–3.11 (p. 52); §3.3 Cor. 3.14, Prop. 3.15 (p.
+    56); §3.4 Thm 3.16 (p. 60), Prop. 3.17 (p. 61) — statements
+
+* AutomorphicCongruences:L3/nakamura-universal-zeta-morphism (construction): Nakamura's universal
+    zeta morphism
+
+  Statement: Let ρ̄: G_ℚ → GL_2(𝔽) satisfy (N1)–(N5) of L3/fw-residual-hypotheses (or (N1), (N3),
+    (N4) with R_{ρ̄,Σ} replaced by the promodular ring 𝕋_{ρ̄,Σ}), with universal deformation ρ^u
+    over R_{ρ̄,Σ}. There is a family of R_{ρ̄,Σ}-linear maps z_{Σ,n}(ρ^u): (ρ^u)^* → H¹_Iw(ℤ[1/Σn,
+    ζ_n], (ρ^u)^*(1)), n ≥ 1 prime to Σ, such that (i) z_{Σ,n}(ρ^u)(τv) = σ_{−1}z_{Σ,n}(ρ^u)(v) for
+    complex conjugation τ; (ii) Cor ∘ z_{Σ,nl}(ρ^u) = z_{Σ,n}(ρ^u) if l | n and
+    P_l(σ_l^{-1})·z_{Σ,n}(ρ^u) if (l, n) = 1; (iii) at every point x_f of Spec R_{ρ̄,Σ}(ℚ̄_p)
+    attached to a newform f, z_{Σ,1}(f) = ∏_{l∈Σ∖{p}} P_{f,l}(σ_l^{-1})·z(f) with P_{f,l}(u) = det(1
+    − Frob_l u | ρ_f^{I_l}) (Nakamura Thm 1.1, Cor. 4.2, Thm 4.3). Condition (i) makes z_{Σ,n}(ρ^u)
+    an R ⊗̂ Λ_n-linear map on (ρ^u)^* ⊗̂_{ℤ_p[±1]} Λ_n (Remark 1.2). It is defined by transporting
+    z^{Iw}_{Σ,n,ρ̄} along φ_1 (L3/completed-homology-factorization), factoring out the projective
+    envelope P̃ and applying the Whittaker functor Ψ_{Σ_0} at the primes of Σ_0 (§4.1, Lemma 4.1).
+
+  Hypothesis: (N1)–(N5); FW's version (FW Thm 3.6) works under Assumptions 2.1 and 3.5 and removes p
+    ≥ 5 via Paškūnas–Tung's generalization of the relevant local results (FW remark after Thm 3.6).
+
+  API NakamuraZeta.map (constructor): z_{Σ,n}(ρ^u): (ρ^u)^* → H¹_Iw(ℤ[1/Σn, ζ_n], (ρ^u)^*(1)),
+    R_{ρ̄,Σ}-linear.
+
+  API NakamuraZeta.conj (characterisation): z(τv) = σ_{−1}z(v); hence R ⊗̂ Λ_n-linearity on (ρ^u)^*
+    ⊗̂_{ℤ_p[±1]} Λ_n.
+
+  API NakamuraZeta.norm (characterisation): The Euler-system norm relations in n.
+
+  API NakamuraZeta.specialize (compatibility): Base change along x: R_{ρ̄,Σ} → A commutes with
+    Iwasawa cohomology (perfect complexes) and gives z_{Σ,n}(ρ_x).
+
+  API NakamuraZeta.changeSigma (compatibility): For Σ ⊂ Σ′, z_{Σ′,n}(ρ^m_{Σ′}) ⊗ id = ∏_{l∈Σ′∖Σ}
+    P_l(σ_l^{-1})·z_{Σ,n}(ρ^m_Σ) (Nakamura (77)).
+
+  API NakamuraZeta.classical (characterisation): At a newform point, z_{Σ,1}(f) = ∏_{l∈Σ_0}
+    P_{f,l}(σ_l^{-1})·z(f) (Thm 4.3).
+
+  API NakamuraZeta.ext (extensionality): The map is uniquely specified by the equivariant
+    completed-homology construction after the projective-envelope and Whittaker identifications;
+    compatible changes of those identifications give the same transported morphism.
+
+  Test nakamuraZeta_norm_coprime (computation): For l ∉ Σ, (l, n) = 1, Cor ∘ z_{Σ,nl} =
+    P_l(σ_l^{-1})·z_{Σ,n} with P_l(u) = det(1 − Frob_l u | ρ^u) of degree two in u.
+
+  Test nakamuraZeta_sigma_p_only (degenerate): If Σ = {p} (ρ̄ unramified outside p), the Euler
+    factor in NakamuraZeta.classical is empty and z_{Σ,1}(f) = z(f).
+
+  Test nakamuraZeta_kato_point (agreement): At a weight-two newform of an elliptic curve E of
+    conductor N, the specialization is ∏_{l | N} P_{E,l}(σ_l^{-1}) times Kato's zeta morphism of E
+    (KatoEulerSystems:L2/nakamura-twisted-zeta-morphism).
+
+  Test nakamuraZeta_needs_irreducible (non-example): For residually reducible ρ̄ (Eisenstein) the
+    construction is not available: Emerton's factorization and Kato's Λ-freeness of H¹_Iw are only
+    known for absolutely irreducible ρ̄ (Nakamura Remark 1.2).
+
+  Source: NAK-v2, Thm 1.1 and Remark 1.2, pp. 4–5; §4.1 (47)–(48), Lemma 4.1 and the construction,
+    pp. 63–65; Cor. 4.2, p. 65
+
+  Source: FW-v3, §3.2.1, Assumption 3.5 and Thm 3.6, p. 24
+
+* AutomorphicCongruences:L3/nakamura-specialization-theorem (theorem): The universal zeta morphism
+    specializes to Kato's
+
+  Statement: Under the assumptions of Nakamura §4 ((N1), (N3), (N4)), for every modular point x_f ∈
+    Spec(𝕋_{ρ̄,Σ})(E) attached to a newform f ∈ S_k(Γ_1(N_f))^{new} of weight k ≥ 2 and every n ≥ 1
+    prime to Σ, z_{Σ,n}(f) = ∏_{l∈Σ_0} P_{f,l}(σ_l^{-1})·z_n(f) as maps V′_1(f)_E → H¹_Iw(ℤ[1/Σn,
+    ζ_n], V′_1(f)_E(1)) under V′_1(f)_E ≅ ρ_f^* (55), where z_n(f) is Kato's (Nakamura-twisted) zeta
+    morphism and Σ_0 = Σ ∖ {p}; the equality does not depend on the choice of (55) since
+    End_{E[G_ℚ]}(ρ_f) = E (Nakamura Thm 4.3, Remark 4.4). In particular the morphism specializes to
+    the Kato class used in KatoEulerSystems:L3–L4.
+
+  Hypothesis: (N1), (N3), (N4); x_f modular.
+
+  Source: NAK-v2, Thm 4.3 and Remark 4.4, PDF p. 66; Cor. 4.8 and Prop. 4.9, pp. 69–70; motivic
+    comparison in §4.4, pp. 70–74
+
+  Source: FW-v3, Thm 3.6, p. 24
+
+* AutomorphicCongruences:L3/zeta-trivialization (construction): The zeta trivialization of the
+    fundamental line
+
+  Statement: Let z_Σ: T_Σ(−1)^+ → H¹_et(ℤ[1/Σ], T_Σ) be Nakamura's zeta morphism (FW Thm 3.6). Since
+    H²_et(ℤ[1/Σ], T_Σ) is torsion and H¹ has generic rank equal to that of T_Σ(−1)^+ over 𝕋 (or over
+    Λ), z_Σ determines an injective trivialization triv_{z_Σ}: Δ_Σ(T_Σ) ↪ Q(𝕋^Σ_{m_ρ̄}),
+    equivalently an isomorphism Δ_Σ ≅ (x/y)𝕋 for an invertible fractional ideal (FW (1.2.1)); over Λ
+    it gives triv_{z_Σ}: Δ_Σ(T_Σ) ↪ Frac Λ (Conj. 3.30's map). For every specialization λ: 𝕋 → R(𝔞)
+    to a minimal prime and every classical point λ_f: R(𝔞) → O_Iw there are commutative diagrams
+    relating triv_{z_Σ}, triv_{z(𝔞)} and triv_{z(f)_Iw} (FW (1.2.2), (1.2.3), Props 3.22–3.23), and
+    for Iwasawa-suitable λ the same holds for the full fundamental lines with Euler factors. The
+    Λ-valued map is obtained by the determinant after restriction of scalars; it is the norm
+    construction, not an identification Q(T)=Frac Λ. Define the dual trivialization t^∨ on Δ_Σ^{-1};
+    if t^∨(Δ_Σ^{-1})=αΛ then t(Δ_Σ)=α^{-1}Λ. FW Prop. 5.5 proves integrality for this dual image.
+
+  Hypothesis: FW Assumptions 2.1, 3.5; the specializations in the diagrams with full lines are
+    Iwasawa-suitable (Def. 3.19).
+
+  API ZetaTriv.map (constructor): triv_{z_Σ}: Δ_Σ(T_Σ) ↪ Q(𝕋), injective, image an invertible
+    fractional ideal (x/y)𝕋.
+
+  API ZetaTriv.overLambda (constructor): Apply determinant after restricting the finite free
+    T-representation to Λ; generically this is the determinant norm from the finite Λ-algebra. It
+    does not identify its total fraction algebra with Frac Λ.
+
+  API ZetaTriv.specialize (compatibility): Diagram (1.2.2) for 𝕋 → R(𝔞) and (1.2.3) for R(𝔞) → O_Iw.
+
+  API ZetaTriv.full (compatibility): For Iwasawa-suitable λ, the analogous diagram for the full
+    lines Δ with Euler-factor lines X_ℓ.
+
+  API ZetaTriv.image (projection): Keep t(Δ_Σ)=α^{-1}Λ and t^∨(Δ_Σ^{-1})=αΛ distinct. Both are unit
+    lattices exactly when α∈Λ^×.
+
+  API ZetaTriv.pointwise (compatibility): At a classical point, triv_{z(f)_Iw} is Kato's
+    trivialization of Δ(f)_Iw (FW Thm 3.4).
+
+  API ZetaTriv.ext (extensionality): Two trivializations of the same invertible module agreeing
+    after extension to the total fraction algebra agree; scalar extension uses the determinant norm.
+
+  Test zetaTriv_unit_iff_mc (characterisation): At a classical point with O_Iw regular,
+    triv_{z(f)_Iw}(Δ) = O_Iw iff char H² = char(H¹/z(f)_Iw) (Kato's main conjecture).
+
+  Test zetaTriv_eisenstein_excluded (non-example): For residually reducible ρ̄ no z_Σ is available
+    and ZetaTriv.map is undefined.
+
+  Test zetaTriv_base_change_point (computation): At the finite étale fiber used in FW Prop. 5.7, the
+    dual αΛ specializes to the product of the dual pointwise lattices. The primal lattice
+    specializes to the inverse product; this detects swapping Δ and Δ^{-1}.
+
+  Test zetaTriv_regular_vs_deformation_ring (degenerate): If the deformation problem is
+    unobstructed, 𝕋 = Λ is itself a power series ring and ZetaTriv.map and ZetaTriv.overLambda
+    coincide.
+
+  Source: FW-v3, §1.2.2 (1.2.1)–(1.2.3), pp. 13–14; §3.3 Props 3.22–3.23, p. 33; Conj. 3.30, p. 36
+
+  Source: FW-v3, Def. 3.19, p. 31; Props 3.14–3.16, pp. 27–29
+
+* AutomorphicCongruences:L3/kato-generalized-main-conjecture (definition): Kato's generalized main
+    conjecture for the universal family and its specializations
+
+  Statement: For an Iwasawa-suitable λ:T→S, FW Conj. 3.25 is the proposition that the Σ-partial zeta
+    trivialization on the cyclotomic deformation T_{λ,Iw} has image S_Iw in Q(S_Iw). When S is a
+    domain it also asserts the corresponding full-line trivialization Δ_{S_Iw}(T_{λ,Iw})≅S_Iw. The
+    coefficient ring is S_Iw, not S. At a classical point Conj. 3.24 is the full O_Iw-line
+    statement, equivalent to Kato’s characteristic-ideal equality. Conj. 3.27 states the
+    minimal-component full-line assertion. Conj. 3.30 is the Σ-partial Λ-line statement for the
+    regular subring Λ=O[[X_1,X_2,X_3]]; Conj. 3.26 is the separate stronger assertion over T itself.
+
+  Hypothesis: The propositions are stated, not assumed; Λ-structure as in
+    L3/universal-deformation-ring-structure.
+
+  API GenMC.point (constructor): Conj. 3.25 for λ:T→S is the Σ-partial S_Iw assertion, with its
+    full-line version when S is a domain. At λ(f)_Iw use Conj. 3.24 over O_Iw.
+
+  API GenMC.component (constructor): Conj. 3.27 for R(𝔞).
+
+  API GenMC.family (constructor): Conj. 3.30 over Λ.
+
+  API GenMC.familyOverT (constructor): Conj. 3.26 over 𝕋, a separate and stronger proposition.
+
+  API GenMC.familyOverT_imp_family (relation): GenMC.familyOverT → GenMC.family.
+
+  API GenMC.point_iff_kato (equivalence): At a classical point, GenMC.point is Kato's main
+    conjecture char H² = char(H¹/z(f)_Iw)
+    (ModularIwasawaMainConjectures:L0/zeta-basis-characteristic-equivalence).
+
+  API GenMC.ext (extensionality): These are propositions attached to a specified representation,
+    zeta morphism and trivialization; isomorphisms preserving those data preserve the propositions.
+
+  Test genMC_trivial_family (degenerate): If 𝕋 = Λ (unobstructed), GenMC.familyOverT and
+    GenMC.family are the same proposition.
+
+  Test genMC_point_kato (agreement): For a weight-two GL₂-type abelian variety with L(A,1)≠0 and
+    every hypothesis of FW Thm 5.1 satisfied, Cor. 5.4 deduces the p-part BSD formula from the full
+    O_Iw main conjecture. The L-value and residual hypotheses cannot be dropped.
+
+  Test genMC_fitting_not_enough (non-example): For A=k[[x,y]], M=A/(x,y) has Fitt₀(M)=(x,y) but zero
+    characteristic divisor. Its determinant comparison is divisorial; replacing the zeta-basis
+    assertion by a bare Fitting containment confuses these different invariants.
+
+  Test genMC_component_vs_point (characterisation): GenMC.component for 𝔞 implies GenMC.point at
+    every classical point of R(𝔞) that is Iwasawa-suitable, by ZetaTriv.specialize.
+
+  Source: FW-v3, Conjs 3.24–3.27, p. 34; Conj. 3.30, p. 36; Conj. 1.5, p. 6; Thm 1.8, p. 8
+
+* AutomorphicCongruences:L4/integrality-of-universal-trivialization (theorem): The zeta
+    trivialization over Λ is integral
+
+  Statement: Under the hypotheses of FW Thm 5.1, let t_Λ:Δ_Σ(T_Σ)↪Frac Λ be the zeta trivialization
+    and t_Λ^∨:Δ_Σ(T_Σ)^{-1}↪Frac Λ its dual. FW Prop. 5.5 gives t_Λ^∨(Δ_Σ^{-1})=αΛ with α∈Λ.
+    Equivalently the primal image is α^{-1}Λ. This is an integrality bound on the dual lattice;
+    equality with Λ still requires the seed-point argument.
+
+  Hypothesis: FW Thm 5.1's residual hypotheses; Λ = O[[X_1, X_2, X_3]] factorial and regular.
+
+  Hypothesis: The integral Kato bound needs its actual lattice/image hypotheses at the chosen
+    classical points; this is part of kato-integral-quotient-witness, not supplied by residual
+    irreducibility alone.
+
+  Source: FW-v3, Prop. 5.5 and proof, pp. 70–71
+
+* AutomorphicCongruences:L4/etale-point-descent (theorem): From pointwise main conjectures at an
+    étale point to the family over Λ
+
+  Statement: Suppose there is a point x: Λ → O at which Spec 𝕋^Σ_{m_ρ̄} → Spec Λ is étale and every
+    point ψ: 𝕋 → O above x satisfies Kato's main conjecture (FW Conj. 3.24). Then triv_{z_Σ}:
+    Δ_Σ(T_Σ) ↪ Frac(Λ) is an isomorphism onto Λ (FW Prop. 5.7).
+
+  Hypothesis: As stated; all λ_Iw above x are Iwasawa-suitable because of étaleness.
+
+  Source: FW-v3, Prop. 5.7 and proof, pp. 71–72
+
+* AutomorphicCongruences:L4/fw-universal-family-theorem (theorem): Fouquet–Wan's universal-family
+    main conjecture
+
+  Statement: Let p ≥ 3 and ρ̄: G_ℚ → GL_2(𝔽) satisfy the hypotheses of FW Thm 5.1 (absolutely
+    irreducible; (ρ̄|_{G_{ℚ_p}})^{ss} ≠ χ̄ ⊕ χ̄χ̄_cyc; a prime ℓ ∤ p with ρ̄|_{G_{ℚ_ℓ}} a ramified
+    extension of µχ^{−k/2}_cyc by µχ^{1−k/2}_cyc, µ unramified and nontrivial if ρ̄|_{G_{ℚ_p}} is
+    irreducible). For Σ finite, viewing the universal deformation T_Σ as a free module over Λ ≅
+    O[[X_1, X_2, X_3]], the zeta morphism z_Σ induces an isomorphism triv_{z_Σ}: Δ_Σ(T_Σ) ≅ Λ (FW
+    Thm 5.2 = Thm 1.8; Kato's Conjecture 3.2.2 for (Spec ℤ[1/Σ], Λ, T_Σ)). The statement is over the
+    regular subring Λ; the stronger statement over 𝕋 ≅ R_Σ(ρ̄) itself is not asserted.
+
+  Hypothesis: FW Thm 5.1’s T51 residual hypotheses. For the even-weight Γ₀ modular normalization,
+    the scalar local semisimplification is automatically excluded by the determinant parity argument
+    of FW p. 69; see fw-pointwise-theorem.
+
+  Hypothesis: The proof imports the ordinary/crystalline seed targets, whose general-weight
+    nonvanishing, regulator and integral Kato-witness gaps remain explicit. No stronger theorem over
+    the nonfactorial deformation ring is asserted.
+
+  Source: FW-v3, Thm 5.2, p. 69; Thm 1.8, p. 8; Prop. 5.6, p. 71; proof of Thm 5.1, p. 73
+
+* AutomorphicCongruences:L4/family-to-point-limit (theorem): From the family over Λ to every
+    classical point
+
+  Statement: Assume the family Σ-partial trivialization is an isomorphism over Λ. FW Prop. 5.8 gives
+    the corresponding Σ-partial trivialization at every classical point, including points ramified
+    over Λ. Its morphism is the Euler-corrected z_Σ(f)_Iw. With the full-line local correction
+    comparison of §§3.3–3.4 this yields Conj. 3.24 for the full line and Kato’s z(f)_Iw. Keep these
+    two lines and their morphisms distinct; a specialized Euler factor that vanishes cannot simply
+    be cancelled.
+
+  Hypothesis: As stated; the Σ-partial lines and the Euler-factor-corrected morphisms are used,
+    which both commute with specialization at a classical point even if it is ramified over Λ.
+
+  Source: FW-v3, Prop. 5.8 and proof, pp. 72–73
+
+* AutomorphicCongruences:L4/fw-pointwise-theorem (theorem): Fouquet–Wan's main conjecture at every
+    point of the family
+
+  Statement: Let p ≥ 3 and f ∈ S_k(Γ_0(Np^r)) a normalized eigencuspform of weight k ≥ 2 whose
+    residual representation satisfies the hypotheses of FW Thm 5.1 (L3/fw-residual-hypotheses, T51),
+    with the auxiliary prime ℓ satisfying ℓ ∥ N. Then the zeta morphism gives an isomorphism
+    triv_{z(f)_Iw}: Δ_{O_Iw}(T(f)_Iw) ≅ O_Iw (FW Thm 5.1; Thm 1.7 is its narrower nontrivial-µ
+    formulation); equivalently char_{Λ_Iw}H²(ℤ[1/p], T ⊗ Λ_Iw) = char_{Λ_Iw}H¹(ℤ[1/p], T ⊗
+    Λ_Iw)/Λ_Iw·z(f)_Iw. This covers non-ordinary and bad-reduction points at p (π(f)_p principal
+    series, Steinberg or supercuspidal) and needs no µ-invariant hypothesis. Consequences: Sel_ℚ(f)
+    is finite iff L(f, k/2) ≠ 0 (Cor. 5.3), and for an abelian variety of GL_2-type with L(A,1) ≠ 0
+    satisfying the hypotheses, the p-part of the BSD formula holds (Cor. 5.4).
+
+  Hypothesis: All hypotheses of FW Thm 5.1, including the global Γ₀ form, even k, and ℓ∥N. The Thm
+    1.7 formulation additionally requires µ nontrivial even in the reducible-at-p case.
+
+  Hypothesis: The scalar local semisimplification is automatically impossible: det ρ̄_f|I_p=ω^{k−1}
+    with k−1 odd; a scalar semisimplification would give ω^{2a} for some integer a, contradicting
+    2a≡k−1 mod p−1 because p is odd. Thus no additional scalar exclusion is missing from the
+    displayed theorem (FW p. 69).
+
+  Hypothesis: For the normalized residual representation in the proof on p. 73, the ramified
+    Steinberg witness also excludes quadratic-induced restriction exceptions: its nontrivial
+    unipotent p-element cannot occur in an induction from the index-two quadratic cyclotomic field,
+    since ℓ≠p is unramified there and prime-to-p characters have no such inertia image. Together
+    with the local exclusion, this supplies the A21/A35 dictionary; preserve the source’s critical
+    twist.
+
+  Source: FW-v3, Thm 5.1, p. 68; Thm 1.7, p. 7; Cors 5.3–5.4, p. 69; proof of Thm 5.1, p. 73
+
+  Source: FW-v3, Remark after Thm 5.1, PDF p. 69; proof of Thm 5.1, p. 73
+
+* AutomorphicCongruences:L4/derived-specialization-corrections (comparison): Euler factors, Tor
+    terms and the regular subring in specialization
+
+  Statement: For a specialization λ: A → A′ between quotients of 𝕋^Σ_{m_ρ̄} or Λ: (i) the Σ-partial
+    fundamental line commutes with every base change, Δ_Σ(T) ⊗ A′ ≅ Δ_Σ(T′); (ii) the full
+    fundamental line commutes with λ when λ is Iwasawa-suitable, the Euler-factor lines X_ℓ(T)
+    specializing to X_ℓ(T′) because the ranks of inertia invariants and the eigenvalues α_ℓ are
+    preserved (FW Prop. 3.20); otherwise the rank of T^{I_ℓ} can jump and the comparison acquires
+    the factor relating X_ℓ(T) ⊗ A′ and X_ℓ(T′); (iii) Nakamura's change-of-Σ formula z_{Σ′,n} ⊗ id
+    = ∏_{l∈Σ′∖Σ} P_l(σ_l^{-1})·z_{Σ,n} matches the passage from Δ_{Σ′} to Δ_Σ with the Euler factors
+    P_l; (iv) a statement over the regular subring Λ (FW Thm 1.8) is a statement about T_Σ as a
+    Λ-module of rank 2d, and at a point x of Λ it is a statement about the product over all points
+    of 𝕋 above x — it implies the statement over 𝕋 only at points étale over Λ, and at ramified
+    points only through L4/family-to-point-limit.
+
+  Hypothesis: As stated; Iwasawa-suitable as in FW Def. 3.19.
+
+  Source: FW-v3, Lemma 3.17, Prop. 3.20, pp. 31–32; Props 5.7–5.8, pp. 71–73; §1.2.2, p. 14
+
+  Source: NAK-v2, §5.3: (77), PDF p. 78; (78)–(79), p. 80
+
+* AutomorphicCongruences:L4/zeta-morphism-congruences (theorem): Congruences between Kato's zeta
+    morphisms
+
+  Statement: Let f, g be normalized newforms with coefficients in E, ρ̄_f absolutely irreducible,
+    and the assumptions of Nakamura §4 holding for ρ̄ = ρ̄_f. If f ≡ g modulo ϖ^m (Hecke eigenvalues
+    congruent at all but finitely many primes), then ∏_{l∈Σ_0} P_{f,l}(σ_l^{-1})·z_n(f) ≡ ∏_{l∈Σ_0}
+    P_{g,l}(σ_l^{-1})·z_n(g) modulo ϖ^m as maps ρ^*_{f,m} → H¹_Iw(ℤ[1/Σ_n, ζ_n], ρ^*_{f,m}(1))
+    (Nakamura Cor. 5.6).
+
+  Hypothesis: Nakamura §4 assumptions ((N1), (N3), (N4)); Σ containing the levels of f and g and p.
+
+  Source: NAK-v2, Cor. 5.6, p. 77 (published §5.2, Cor. 5.6, pp. 255–256)
+
+* AutomorphicCongruences:L4/residual-zeta-morphism (construction): The residual zeta morphism and
+    the space of points X(ρ̄)
+
+  Statement: Let Σ_ρ̄ = {p} ∪ ram(ρ̄). For Σ_ρ̄ ⊆ Σ ⊆ Σ′, ρ^m_{Σ′} ⊗ 𝕋_{ρ̄,Σ} ≅ ρ^m_Σ and
+    z_{Σ′,n}(ρ^m_{Σ′}) ⊗ id = ∏_{l∈Σ′∖Σ} P_l(σ_l^{-1})·z_{Σ,n}(ρ^m_Σ) (Nakamura (77)). The residual
+    zeta morphism z_{Σ,n}(ρ̄) is the base change of z_{Σ,n}(ρ^m) to 𝔽, a Λ_{n,𝔽}-linear map ρ̄^*
+    ⊗_{𝔽[±1]} Λ_{n,𝔽} → H¹_Iw(ℤ[1/Σn, ζ_n], ρ̄^*(1)). Put X(ρ̄) = ∪_Σ Spec(𝕋_{ρ̄,Σ})(ℤ̄_p) with its
+    modular points X(ρ̄)^{mod}, and for a character η of Δ = Gal(ℚ(ζ_p)/ℚ) consider η-components
+    over Λ^η.
+
+  Hypothesis: Nakamura §4 assumptions; absolute irreducibility of ρ̄.
+
+  API ResZeta.map (constructor): z_{Σ,n}(ρ̄): ρ̄^* ⊗_{𝔽[±1]} Λ_{n,𝔽} → H¹_Iw(ℤ[1/Σn, ζ_n], ρ̄^*(1)).
+
+  API ResZeta.changeSigma (compatibility): z_{Σ′,n}(ρ̄) = ∏_{l∈Σ′∖Σ} P̄_l(σ_l^{-1})·z_{Σ,n}(ρ̄) for
+    Σ_ρ̄ ⊆ Σ ⊆ Σ′.
+
+  API ResZeta.points (data): X(ρ̄) = ∪_Σ Spec(𝕋_{ρ̄,Σ})(ℤ̄_p) and the modular subset X(ρ̄)^{mod}.
+
+  API ResZeta.etaPart (projection): The η-component z_{Σ,1}(ρ̄)^η for a character η of Δ.
+
+  API ResZeta.reduction (compatibility): For x ∈ X(ρ̄), z_{Σ,1}(ρ_x) mod ϖ = z_{Σ,1}(ρ̄).
+
+  API ResZeta.ext (extensionality): The residual map is the reduction of the universal map;
+    compatible coefficient and Σ maps give the same reduction. Equality is tested on the residual
+    source module, with its η projection.
+
+  Test resZeta_reduction_of_point (agreement): For x_f modular, z_{Σ,1}(ρ̄) is the reduction modulo
+    ϖ of ∏_{l∈Σ_0}P_{f,l}(σ_l^{-1})·z(f) (Thm 4.3 mod ϖ).
+
+  Test resZeta_minimal_sigma (degenerate): For Σ = Σ_ρ̄, ResZeta.changeSigma is the identity.
+
+  Test resZeta_vanishing_iff_mu (characterisation): z_{Σ_ρ̄,1}(ρ̄)^η ≠ 0 iff µ(H¹_Iw/Im z_1(f)^η) =
+    0 at one (equivalently every) modular point (Nakamura Thm 5.7).
+
+  Test resZeta_not_kato_lattice (non-example): The residual Euler element 1−γ in F[[γ−1]] equals
+    −(γ−1): it is nonzero and is not a unit. Therefore an Euler-corrected residual map cannot be
+    replaced by the uncorrected Kato map by discarding this factor, even though the formal factor
+    has not vanished.
+
+  Source: NAK-v2, §5.3, (77) and the residual definitions, PDF p. 78; Thm 5.7, p. 79
+
+* AutomorphicCongruences:L4/nakamura-residual-structure (theorem): Residual nonvanishing, µ = 0 and
+    the structure of residual Iwasawa cohomology
+
+  Statement: Fix a character η of Δ. (i) The following are equivalent: z_{Σ_ρ̄,1}(ρ̄)^η ≠ 0;
+    µ(H¹_Iw(ℤ[1/Σ_f], ρ_f^*(1))^η/Im(z_1(f)^η)) = 0 for some x_f ∈ X(ρ̄)^{mod}; the same for all x_f
+    ∈ X(ρ̄)^{mod} (Nakamura Thm 5.7; the published version adds Conj. 5.8 that these always hold).
+    (ii) Assume X(ρ̄)^{mod}_a ≠ ∅ (modular points with Nakamura's condition (a)) and (i) holds for
+    η. Then H¹_Iw(ℤ[1/Σ_ρ̄], ρ̄^*(1))^η is free of rank one over Λ^η_𝔽, and
+    H¹_Iw/Im(z_{Σ_ρ̄,1}(ρ̄)^η) and H²_Iw(ℤ[1/Σ_ρ̄], ρ̄^*(1))^η are finite-dimensional (arXiv Thm 5.8
+    = published Thm 5.9); the η-part of Kato's main conjecture for ρ̄ is the equality of their
+    dimensions (arXiv Conj. 5.9 = published 5.10). (iii) For every x ∈ Spec(𝕋_{ρ̄,Σ})(O) ⊂ X(ρ̄):
+    H¹_Iw(ℤ[1/Σ], ρ_x^*(1))^η is free of rank one over Λ^η_O; the quotient by Im z_{Σ,1}(ρ_x)^η and
+    H²_Iw are torsion with µ = 0; and if x is modular, or there is τ ∈ Gal(ℚ̄/ℚ(ζ_{p^∞})) with
+    (ρ_x/(τ−1)ρ_x)[1/p] one-dimensional, then Char(H¹_Iw/Im z^η) ⊆ Char(H²_Iw^η) (arXiv Thm 5.10 =
+    published Thm 5.11).
+
+  Hypothesis: Nakamura §4 assumptions. In (ii)–(iii), assume both residual nonvanishing in the
+    selected η-component and existence of a modular point satisfying condition (a) of NAK-v2 Thm
+    5.2: there is τ∈Gal(Q̄/Q(ζ_p∞)) such that ρ_f/(τ−1)ρ_f is O-free of rank one. A quotient of
+    rational dimension one alone does not meet this integral condition.
+
+  Hypothesis: Under these inputs, rank-one freeness, torsion and µ=0 hold at all promodular points.
+    The characteristic-ideal containment in (iii) additionally needs modularity or the weaker
+    rational condition (b); do not infer it at every promodular point.
+
+  Source: NAK-v2, Thm 5.2(a),(b), PDF p. 75; Thms 5.7–5.8, Conj. 5.9 and Thm 5.10, p. 79; proofs pp.
+    80–84 (published numbers after 5.7 are shifted by one)
+
+* AutomorphicCongruences:L4/nakamura-lambda-defect (theorem): The λ-defect is constant on the family
+    and Kato's main conjecture propagates along congruences
+
+  Statement: Under the assumptions of L4/nakamura-residual-structure (ii), for every x ∈ X(ρ̄):
+    λ(H¹_Iw(ℤ[1/Σ], ρ_x^*(1))^η/Im z_{Σ,1}(ρ_x)^η) − λ(H²_Iw(ℤ[1/Σ], ρ_x^*(1))^η) equals
+    dim_𝔽(H¹_Iw(ℤ[1/Σ_ρ̄], ρ̄^*(1))^η/Im z_{Σ_ρ̄,1}(ρ̄)^η) − dim_𝔽 H²_Iw(ℤ[1/Σ_ρ̄], ρ̄^*(1))^η,
+    hence is independent of x (arXiv Thm 5.13 = published Thm 5.14); consequently the η-part of
+    Kato's main conjecture for ρ̄ holds iff the weak (λ-) version holds for some x iff it holds for
+    all x (arXiv Cor. 5.14 = published Cor. 5.15). In particular (Nakamura Thm 1.4): if g_1, g_2,
+    g_3 are congruent to f with (1) some τ ∈ Gal(ℚ̄/ℚ(ζ_{p^∞})) making ρ_{g_1}/(τ − 1)ρ_{g_1} free
+    of rank one over O, (2) µ = 0 for g_2, and (3) Kato's main conjecture for g_3, then µ = 0 and
+    Kato's main conjecture hold for f.
+
+  Hypothesis: As in L4/nakamura-residual-structure; the proof's last display prints H¹ for H²
+    (PAPER-NAKAMURA-23/E12, corrected).
+
+  Source: NAK-v2, Thm 5.13 and Cor. 5.14, PDF p. 80; proof pp. 80–84; Thm 1.4, pp. 6–7 (published
+    Thm 5.14/Cor. 5.15)
+
+* AutomorphicCongruences:L5/ordinary-elliptic-refinement-aggregate (application): The ordinary
+    elliptic-curve refinement: aggregate of the endpoints
+
+  Statement: For an elliptic curve E/ℚ and a prime p of good ordinary reduction, stage L5 collects,
+    without a second proof, the two reverse-divisibility endpoints planned in this roadmap: (a)
+    Burungale–Castella–Skinner's cyclotomic theorem — for p > 3 with E[p] irreducible, X_ord(E/ℚ_∞)
+    is Λ-torsion and char_Λ X_ord(E/ℚ_∞) = (L_p(E/ℚ)) in Λ ⊗ ℚ_p, with equality in Λ under the
+    rank-one image condition (im) (BCS Thm 1.1.2), proved in L5b from L5a's early product input and
+    four Kato bounds; and (b) Fouquet–Wan's cohomological theorem at good ordinary points
+    (L4/fw-pointwise-theorem, through L2/fw-ordinary-reverse-bound). The scalar ordinary main
+    conjecture with canonical periods, the curve-to-form lattice and Manin-constant transport and
+    the final assembly are ModularIwasawaMainConjectures L1–L3's, which import the endpoints
+    directly from L5b and L4.
+
+  Hypothesis: Hypotheses are those of each endpoint; nothing is added or removed here.
+
+  Hypothesis: RS-11: L5 is an aggregate only; it is not a prerequisite of
+    ModularIwasawaMainConjectures:L3 (the requested cut C.L5 → I.L3).
+
+  Source: BCS-v2, Thm 1.1.2 and Remark 1.1.3, p. 2; proof of Thm 1.1.2, p. 10
+
+  Source: FW-v3, Thm 1.6, Thm 1.7, pp. 6–7
+
+* AutomorphicCongruences:L5a/ordinary-two-variable-equivalence (comparison): Interface: the ordinary
+    two-variable Perrin-Riou/Greenberg equivalence (BCS Theorem 4.1.3, Corollary 4.1.4)
+
+  Statement: Let g ∈ S_2(Γ_0(N)) be an elliptic newform, p ∤ 2N an ordinary prime for g, and K
+    imaginary quadratic with p split (spl), (D_K, N) = 1 and ρ̄_g irreducible over G_K (irr_K). The
+    following are equivalent: (i) X_ord(g/K_∞) is Λ_K-torsion and (L^{PR}_p(g/K)) ⊇
+    ch_{Λ_K}(X_ord(g/K_∞)) in Λ_K ⊗ ℚ_p; (ii) X_Gr(g/K_∞) is Λ_K-torsion and (L^{Gr}_p(g/K)) ⊇
+    ch_{Λ_K}(X_Gr(g/K_∞)) in Λ^{ur}_K ⊗ ℚ_p; the same holds for the opposite divisibilities and
+    before inverting p (BCS Thm 4.1.3, from BSTW §9.3.2). For two newforms g, g′ with p ∤ 2NN′
+    ordinary for both and K satisfying (spl), (D_K, NN′) = 1 and (irr_K) for both, the product
+    statements (L^{PR}_p(g/K)·L^{PR}_p(g′/K)) ⊇ ch(X_ord(g/K_∞))·ch(X_ord(g′/K_∞)) and
+    (L^{Gr}_p(g/K)·L^{Gr}_p(g′/K)) ⊇ ch(X_Gr(g/K_∞))·ch(X_Gr(g′/K_∞)) are equivalent, in either
+    direction (BCS Cor. 4.1.4). This node states the exact contract L5a consumes; its proof (the
+    ordinary BSTW two-variable zeta element, both explicit reciprocity laws, and the two four-term
+    Poitou–Tate sequences) belongs to the planned owner KatoEulerSystems L5 of RS-11, which does not
+    yet exist.
+
+  Hypothesis: BCS Thm 4.1.3 has (irr_K), which implies H⁰(K,g[p])=0 and hence the van_K condition
+    needed in the integral comparison. The source asserts both directions, including the integral
+    version under these hypotheses. No claim is made about what survives if van_K is removed outside
+    this setting.
+
+  Hypothesis: BCS cite the theorem as Proposition 4.1.3 in the proof of Prop. 5.2.1; it is Thm 4.1.3
+    in v2 (RT-AREA-iwasawa-1/29).
+
+  Source: BCS-v2, Thm 4.1.3 and proof, Cor. 4.1.4, p. 8
+
+* AutomorphicCongruences:L5a/quartic-cm-selmer-restriction (theorem): Restricting the quartic-CM
+    characteristic ideal to K
+
+  Statement: Let g ∈ S_2(Γ_0(N)) be an elliptic newform, p > 3 a good ordinary prime with ρ̄_g
+    irreducible, F a real quadratic field, K imaginary quadratic, M = FK the quartic CM field, K̃_∞
+    = FK_∞, Λ̃_K = O[[Gal(K̃_∞/M)]] ≅ Λ_K and π_K: Λ_M → Λ̃_K ≅ Λ_K induced by Gal(M_∞/M) ↠
+    Gal(K̃_∞/M). Then π_K(ch_{Λ_M}(X_ord(g/M_∞))) ⊇ ch_{Λ_K}(X_ord(g/K_∞))·ch_{Λ_K}(X_ord(g^F/K_∞))
+    in Λ_K, where g^F is the twist of g by the quadratic character of F/ℚ (BCS Lemma 5.1.1).
+
+  Hypothesis: As in BCS §5; the containment is integral and in the stated direction only.
+
+  Source: BCS-v2, Lemma 5.1.1 and proof, p. 9
+
+* AutomorphicCongruences:L5a/quartic-cm-l-function-factorization (theorem): The quartic-CM p-adic
+    L-function restricted to K
+
+  Statement: In the setting of L5a/quartic-cm-selmer-restriction, (π_K(L_p(g^F/M))) =
+    (L^{PR}_p(g/K)·L^{PR}_p(g^F/K)) in Λ_K ⊗ ℚ_p, where L_p(g^F/M) is Wan's p-adic L-function of the
+    base change g_F over M (BCS Lemma 5.1.2).
+
+  Hypothesis: The identity is only after inverting p (the comparison of interpolation properties
+    involves periods whose p-integral comparison is open — BCS Remark 1.1.3(ii)).
+
+  Source: BCS-v2, Lemma 5.1.2 and proof, p. 9; §2 (p-adic L-functions), p. 6
+
+* AutomorphicCongruences:L5a/auxiliary-field-existence (theorem): Existence of the auxiliary fields
+    K and F
+
+  Statement: Let g ∈ S_2(Γ_0(N)) be an elliptic newform and p ≥ 5 a prime of good ordinary reduction
+    with ρ̄_g irreducible over G_ℚ. There exist an imaginary quadratic K satisfying (disc) (D_K odd,
+    D_K ≠ −3), (Heeg) (every ℓ | N splits in K), (spl) (p splits in K) and (irr_K), and a real
+    quadratic F with (i) p inert in F, (ii) D_F odd with every prime dividing D_F split in K, (iii)
+    every ℓ | N inert in F if ℓ ≡ −1 mod p and split otherwise, (iv) (irr_M) for M = FK, (v)
+    ρ̄_g|_{G_{F(ζ_p)}} irreducible, (vi) F ≠ ℚ(ζ_5)^+ if p = 5 (BCS Lemma 5.2.3). Moreover such M/F
+    satisfies (pN, D_F) = 1, (N O_F, D_{M/F}) = 1, (spl_F) and (Δ), and n^- = O_F, so the hypotheses
+    of Wan's theorem (L5w) other than Hypothesis 3.1.1 hold, and (H1)–(H3) follow from (v), (vi),
+    the minimal-lift argument and (iii) (proof of BCS Prop. 5.2.1).
+
+  Hypothesis: As stated; the conditions are independent splitting conditions satisfied by a positive
+    proportion of quadratic fields.
+
+  Source: BCS-v2, Lemma 5.2.3 and proof, p. 10; conditions (i)–(vi) of Prop. 5.2.1, p. 9; proof of
+    Prop. 5.2.1 (hypothesis checks), p. 10
+
+* AutomorphicCongruences:L5a/greenberg-mu-vanishing (theorem): Vanishing of the µ-invariant of the
+    Greenberg function
+
+  Statement: Let g ∈ S_2(Γ_0(N)) be an elliptic newform with good reduction at p > 2 and K
+    satisfying (disc), (Heeg), (spl) and (irr_K). Then µ(L^{Gr}_p(g/K)) = µ(L^{BDP}_p(g/K)) = 0 (BCS
+    Prop. 4.2.2). Here L_p^{BDP} is BCS §2’s normalized BDP function, which already interpolates the
+    squared quantity. The comparison of principal ideals in Prop. 4.2.2 introduces no additional
+    square.
+
+  Hypothesis: As stated; the projection comparison is CGS23 Prop. 1.4.5 (Lemma 2.4.4/Prop. 2.4.5 in
+    a later version), which needs Rubin's main conjecture and the Hida–Tilouine input for the CM
+    factor.
+
+  Source: BCS-v2, Prop. 4.2.2 and proof, p. 9
+
+* AutomorphicCongruences:L5a/two-variable-product-containment (theorem):
+    Burungale–Castella–Skinner's two-variable product divisibility
+
+  Statement: Let g ∈ S_2(Γ_0(N)) be an elliptic newform, p ≥ 5 a good ordinary prime, K satisfying
+    (disc), (Heeg), (spl), (irr_K), and F a real quadratic field satisfying (i)–(vi) of
+    L5a/auxiliary-field-existence. Then (L^{PR}_p(g/K)·L^{PR}_p(g^F/K)) ⊇
+    ch_{Λ_K}(X_ord(g/K_∞))·ch_{Λ_K}(X_ord(g^F/K_∞)) in Λ_K, and (L^{Gr}_p(g/K)·L^{Gr}_p(g^F/K)) ⊇
+    ch_{Λ_K}(X_Gr(g/K_∞))·ch_{Λ_K}(X_Gr(g^F/K_∞)) in Λ^{ur}_K (BCS Prop. 5.2.1). Both containments
+    are integral.
+
+  Hypothesis: As stated; Wan's quartic-CM theorem (BCS Thm 3.2.1) is imported from L5w with its
+    hypotheses discharged by L5a/auxiliary-field-existence.
+
+  Source: BCS-v2, Prop. 5.2.1 and proof, pp. 9–10
+
 -/
