@@ -9,7 +9,6 @@
     "AutomorphicLFunctionsAndLocalFactors",
     "AutomorphicSpectralTheory",
     "EndoscopicTransferAndUnitaryTraceComparison",
-    "ExceptionalThetaCorrespondencesForG2",
     "MetaplecticAutomorphicForms",
     "ModularityAndLanglandsExtensions",
     "ReductiveGroupsPartII",
@@ -116,14 +115,13 @@
     {
       "key": "EX.6",
       "title": "Auxiliary restrictions, finiteness and dichotomy",
-      "description": "Import the already owned orthogonal-minimal theta input; identify its exceptional comparison and mixed Mp₂–G₂ module, prove noncuspidal finiteness in both E₇ directions and establish the division/PGSp₆ dichotomy. Targets: The mixed Mp₂×G₂ minimal module; Comparison with the owned orthogonal theta input; The A₅ minimal restriction to Sp₆; Noncuspidal finiteness in both E₇ directions; Finite length for nongeneric inputs; The exceptional theta dichotomy; The two E₇ Whittaker fibers. The reader gives every statement, hypothesis, construction API and acceptance check.",
+      "description": "Import the orthogonal-minimal lift and the restricted Mp₂ × G₂ oscillator owned by MetaplecticAutomorphicForms (§§3.38a–3.39); identify their exceptional comparison and the supercuspidal lifts through that oscillator, prove noncuspidal finiteness in both E₇ directions and establish the division/PGSp₆ dichotomy. Targets: Supercuspidal lifts through the restricted Mp₂ × G₂ oscillator; Comparison with the owned orthogonal theta input; The A₅ minimal restriction to Sp₆; Noncuspidal finiteness in both E₇ directions; Finite length for nongeneric inputs; The exceptional theta dichotomy; The two E₇ Whittaker fibers. The reader gives every statement, hypothesis, construction API and acceptance check.",
       "requires": [
         "ExceptionalThetaCorrespondencesForG2:EX.0",
         "ExceptionalThetaCorrespondencesForG2:EX.2",
         "ExceptionalThetaCorrespondencesForG2:EX.3",
         "ExceptionalThetaCorrespondencesForG2:EX.4",
         "ExceptionalThetaCorrespondencesForG2:EX.5",
-        "MetaplecticAutomorphicForms:MP.2",
         "MetaplecticAutomorphicForms:MP.3",
         "SmoothRepresentationsOfLocalGroups:SR.2",
         "SmoothRepresentationsOfLocalGroups:SR.2a",
@@ -250,7 +248,8 @@
       "sha256": "2b23947ca82319f80d94098f1510c3d884e9a5dae4462408584612c9cd8931b3",
       "accessed": "2026-10-19",
       "readSections": [
-        "Chapter V §3, Lemma 3.4 pp. 197–198; §4 Proposition 4.5 p. 202 and Corollary 4.9 pp. 203–204"
+        "Chapter 5, introduction (0.1)–(0.2), pp. 193–194; §3, Lemma 3.4, pp. 197–198; §4, Proposition 4.5, p. 200, and Corollary 4.9, pp. 203–204",
+        "Chapter 6, §2, Lemma 2.9, p. 213"
       ]
     },
     {
@@ -262,7 +261,7 @@
       "sha256": "dff45355ce0fdaad7562ab6fb854bd8f36cb41cbe348f144368732de90ffe46d",
       "accessed": "2026-10-19",
       "readSections": [
-        "§§1–2 pp. 183–186; §4.1 pp. 189–191; §6.2 Theorem 6.4 and proof pp. 198–200"
+        "§§1–2 pp. 183–186; §4.1 (Lemma 4.1, Corollary 4.2, Proposition 4.3) pp. 189–191; §4.2, the remark after Corollary 4.6, p. 192; Proposition 6.3 and proof p. 197; §6.2 Theorem 6.4 and proof pp. 198–200"
       ]
     },
     {
@@ -274,7 +273,7 @@
       "sha256": "142564ec5842860f4c638ec9ae7ebaaa802dc8a81910dd1d52cb261c14aced1b",
       "accessed": "2026-10-19",
       "readSections": [
-        "Introduction pp. 1–3; §3 statement of generic dichotomy; §4.4 Lemma 4.5 and Proposition 4.6 pp. 36–37; §5 Theorem 5.3 pp. 37–38"
+        "Introduction pp. 1–3; §3 (the dichotomy map) pp. 16–27; Proposition 4.6 p. 37; Theorem 5.3 pp. 37–38"
       ]
     },
     {
@@ -286,7 +285,7 @@
       "sha256": "1a8aa3b7a1598d93b98b78fa2e8b36ef9ac74742c488a9b946138dca37a8329a",
       "accessed": "2026-10-19",
       "readSections": [
-        "§§1–6, pp. 393–400"
+        "§3 (Theorem 3.4), pp. 396–397; §§5–6, pp. 398–400"
       ]
     },
     {
@@ -322,7 +321,7 @@
       "sha256": "03fc2d55c66195a409a841440c904483f635c8074ac18fdc929dbf2591f39619",
       "accessed": "2026-10-19",
       "readSections": [
-        "§8 Propositions 8.1, 8.3, 8.4 pp. 27–28; §9 Theorem 9.1 and Lemma 9.4 pp. 33–36"
+        "§8 Propositions 8.1, 8.3, 8.4 pp. 27–28; §9 Theorem 9.1 and its proof, including §9.5, pp. 33–37; Lemma 9.4 pp. 34–36"
       ]
     },
     {
@@ -335,7 +334,8 @@
       "accessed": "2026-10-19",
       "readSections": [
         "§1 pp. 167–169; §3 Theorem 3 and proof p. 174"
-      ]
+      ],
+      "note": "The independent review could not fetch this file (the author page did not respond); the node citing it gives the statement as GS cite it in the proof of Proposition 8.4."
     }
   ],
   "status": "draft",

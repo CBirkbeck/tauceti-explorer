@@ -8,22 +8,33 @@ Unless explicitly stated otherwise, F is a nonarchimedean local field of charact
 
 Write G=G₂(F), H=PGSp₆(F), and H₃=PGL₃(F)⋊C₂. The cubic division algebra D in the E₆ correspondence has degree three. In the quaternion relative-model layer D instead has degree two; its pointwise stabilizer is denoted GD. Characters on maximal unipotents are denoted ψV for G and ψV′ for H, to avoid confusing either with the nonmaximal radicals N and U of the two G parabolics.
 
-The standard G₂ roots are α short and β long. P stabilizes a null plane and Q a null line. Opposite radicals carry a bar. For GL₂ data, I_P(s,τ)=Ind_P^G(|det|^s τ), and similarly for Q and the indexed H parabolics; a one-dimensional input χ means χ∘det. A standard Langlands quotient is denoted J and a discrete-series submodule δ. In the PGSp₆ Siegel Levi the GL₃ coordinate acts on the three exterior-square basis vectors; its lattice is not the unmodified standard GL₃ block lattice.
+The standard G₂ roots are α short and β long. P stabilizes a null plane and Q a null line. Opposite radicals carry a bar. For GL₂ data, `I_P(s,τ) = Ind_P^G(|det|^s τ)`, and similarly for Q and the indexed H parabolics; a one-dimensional input χ means χ∘det. A standard Langlands quotient is denoted J and a discrete-series submodule δ. In the PGSp₆ Siegel Levi the GL₃ coordinate acts on the three exterior-square basis vectors; its lattice is not the unmodified standard GL₃ block lattice.
 
-The roadmap constructs the three exceptional correspondences and the inputs for globalization. It imports general smooth representation theory, classical theta, exceptional Lie/Albert constructions, compact branching, local class field theory and GLₙ/Jacquet–Langlands parameters. It does not assume the downstream local Langlands correspondence for G₂. A complete packet is a complete planning pass: every stage below is planned and remains open for the precise obligations listed at the end.
+The roadmap constructs the three exceptional correspondences and the inputs for globalization. It does not assume the downstream local Langlands correspondence for G₂, which belongs to the roadmap LocalLanglandsCorrespondenceForG2 (not yet designed) and consumes this one. A complete packet is a complete planning pass: every stage below is planned and remains open for the precise obligations listed at the end.
+
+Boundaries with the neighbouring roadmaps, all of which are TauCetiRoadmap pull requests or Tau Ceti roadmaps:
+
+- **SmoothRepresentationsOfLocalGroups** (pull request #785) supplies the smooth category, induction, Jacquet functors, second adjointness, the Langlands classification, cuspidal splitting and Whittaker functionals, with Whittaker multiplicity one only for GL₂. Whittaker multiplicity one for quasi-split groups, Prasad’s GL₃ ↓ GL₂ theorem, the Mœglin–Waldspurger degenerate-Whittaker comparison, the Harish-Chandra–Silberger reducibility criterion and two isotypic-quotient identities are requested from its undesigned Part II. The Schwartz-algebra Ext comparison and discrete-series projectivity used in EX.4 are the SR packet’s own Part II nodes. Its accepted Part II on the unitary dual (SmoothRepresentationsOfLocalGroupsPartII) owns the Fell-topology results of Gan–Savin’s Appendix B, which this roadmap does not use.
+- **MetaplecticAutomorphicForms** (pull request #1063) owns the classical inputs of Gan–Savin’s proof: the rank-one oscillator constituents (§3.37, GS §8.4), the GL₂–GSO₄ correspondence (§3.38, GS Lemma 13.2), the restricted Mp₂ × G₂ oscillator with its Jacquet sequence and cuspidal injectivity (§3.38a, Gan–Gurevich), the minimal orthogonal lift (§3.39, GS Proposition 14.2) and the division ternary lift σ\_ρ (§3.40). They are imported here and never planned again; EX.6 plans only the description of the supercuspidal lifts through the restricted oscillator. The Saito–Kurokawa lift τ\_ρ and Howe–Li low rank are requested from its undesigned Part II.
+- **ModularityAndLanglandsExtensions** (pull request #1180) §3.5 supplies the Gan–Takeda correspondence for GSp₄, whose part (vi) on Plancherel measures handles the nongeneric τ\_ρ in EX.1.
+- **AutomorphicLFunctionsAndLocalFactors**, **AutomorphicFormsOnReductiveGroups**, **AutomorphicSpectralTheory**, **EndoscopicTransferAndUnitaryTraceComparison** and **ReductiveGroupsPartII** supply local factors, automorphic forms, Eisenstein series, the GLₙ correspondence and dual groups; the Langlands–Shahidi spin factor of PGSp₆ and Salamanca-Riba’s range theorem are requested from undesigned Part IIs.
+- The Tau Ceti roadmaps **ReductiveGroups**, **RepresentationTheory/LieHighestWeight**, **RepresentationTheory/SpinRepresentations**, **RepresentationTheory/ClassicalGroups** and **ClassFieldTheory** supply group schemes, the split exceptional Lie algebras, triality, branching and the Weil group.
+
+The complex L-parameters and component groups of EX.0 are general notions; the packet’s restructure proposal records that they should move to their most foundational owner once one is planned.
 
 ## Baseline and dependency audit
 
-The baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The actual octonion declarations were read at these pins. Tau Ceti supplies the Zorn carrier, multiplicative norm, quadratic identity and seven-dimensional imaginary submodule. Its associative algebra-equivalence carrier is unsuitable for octonion automorphisms; the suggested file uses a multiplication-preservation predicate on an existing linear equivalence.
+The baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The actual octonion and Albert-algebra declarations were read at these pins. Tau Ceti supplies the Zorn carrier, multiplicative norm, quadratic identity and seven-dimensional imaginary submodule, and the split Albert algebra carrier without its Jordan identity. Its associative algebra-equivalence carrier is unsuitable for octonion automorphisms; the suggested file uses a multiplication-preservation predicate on an existing linear equivalence.
 
-The reviewed atlas library audit and current upstream main were also checked. The upstream roadmap commit is `0d144d044dacebca17b654695b6f1ad58f159b27`; the current library commit is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The nine roadmaps absent from the old snapshot were inspected for overlaps. The LieHighestWeight exceptional Lie and Albert targets, SpinRepresentations triality, ClassicalGroups compact branching and ClassFieldTheory local Weil carrier are imported rather than reconstructed. Metaplectic MP.3 already owns the lower orthogonal-minimal finiteness theorem; its import below is deliberate.
+The reviewed atlas library audit and current upstream main were also checked. The upstream roadmap commit is `0d144d044dacebca17b654695b6f1ad58f159b27`; the current library commit is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The nine roadmaps absent from the old snapshot were inspected for overlaps. The supplier pull requests were read at their current heads: #785 at `1e875b1`, #1063 at `f91c5dd`, #1180 at `c316a1b`, #924 at `4ed76a2`, #1037 at `dc45964`, #925 at `b34d8a7` and #999 at `080ed77`.
 
 | Baseline reference | Verified contribution |
 |---|---|
 | tauceti:TauCeti.Octonion | The split Zorn octonion carrier with its nonassociative multiplication, trace, norm and imaginary submodule. |
 | tauceti:TauCeti.Octonion.norm_mul | The octonion norm is multiplicative. |
-| tauceti:TauCeti.Octonion.mul_self | The octonion quadratic identity x²=trace(x)·x−norm(x)·1. |
-| tauceti:TauCeti.Octonion.finrank_imaginary | The trace-zero submodule has finrank seven in characteristic zero. |
+| tauceti:TauCeti.Octonion.mul_self | The octonion quadratic identity x² = trace(x)·x − norm(x)·1. |
+| tauceti:TauCeti.Octonion.finrank_imaginary | The trace-zero submodule has finrank seven over every commutative ring with the strong rank condition. |
+| tauceti:TauCeti.AlbertAlgebra | The split Albert algebra over a commutative ring with 2 invertible, with its symmetrized product, unit, trace and dimension 27; the Jordan identity is not proved there. |
 
 The algebraic `Representation` carrier in Mathlib has no smoothness or admissibility condition. It is therefore not cited as supplying p-adic representation theory. The cited statements were checked in source and also resolved against the supplied baseline declaration index. No declaration is claimed implemented by this plan.
 
@@ -41,7 +52,7 @@ For a characteristic-zero field F, define Aut(O) on the existing split Octonion 
 
 Hypotheses: The algebraic construction is over a characteristic-zero field unless a complex dual group is specified; orbit statements use the split octonion algebra. Local absolute values and smooth modules refer to the fixed p-adic convention.
 
-Inputs: tauceti:TauCeti.Octonion; tauceti:TauCeti.Octonion.norm_mul; tauceti:TauCeti.Octonion.mul_self; tauceti:TauCeti.Octonion.finrank_imaginary; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ; tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components; tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly.
+Inputs: tauceti:TauCeti.Octonion; tauceti:TauCeti.Octonion.norm\_mul; tauceti:TauCeti.Octonion.mul\_self; tauceti:TauCeti.Octonion.finrank\_imaginary; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ; tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components; tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly.
 
 Proof or construction:
 
@@ -50,16 +61,20 @@ Proof or construction:
 
 API:
 
-- `octonionAut_mul`: Composition and inverse preserve the unit and ordered multiplication, giving a group functor.
-- `octonionAut_trace_norm`: Every automorphism preserves TauCeti.Octonion.trace and norm and hence the imaginary submodule.
-- `octonionAut_chevalley`: The pinned comparison with the split G₂ group identifies its torus, roots and 7-dimensional representation.
-- `octonionAut_ext`: Automorphisms agreeing on a basis of O are equal.
+- `IsOctonionAutomorphism`: The predicate on an F-linear equivalence g of Octonion F: g fixes 1 and g(xy) = g(x)g(y) for all x, y. The group of F-points of Aut(O) is the set of linear equivalences satisfying it.
+- `IsOctonionAutomorphism.comp`: The composite of two octonion automorphisms is an octonion automorphism, and the identity is one.
+- `IsOctonionAutomorphism.symm`: The inverse of an octonion automorphism is an octonion automorphism.
+- `automorphism_preserves_trace`: An octonion automorphism preserves TauCeti.Octonion.trace.
+- `automorphism_preserves_norm`: An octonion automorphism preserves TauCeti.Octonion.norm.
+- `automorphism_preserves_imaginary`: An octonion automorphism maps TauCeti.Octonion.imaginary onto itself.
+- `octonionAut_ext`: Two octonion automorphisms that agree on a spanning set of Octonion F are equal.
+- `octonionAut_chevalley`: The pinned comparison of the represented group Aut(O) with the split Chevalley group of type G₂ identifies its torus, root subgroups and the 7-dimensional representation on the imaginary octonions (a README target: the group scheme is not available at the pins).
 
 Discriminating tests:
 
-- `identity`: The identity linear equivalence is an octonion automorphism.
-- `conjugation`: The linear involution conjugation fixes 1 and N but fails multiplicativity on two noncommuting Zorn basis elements.
-- `long_root_diagonal`: The long-root SL₃ element diag(2,1/2,1) sends the top-right vector e₁ to 2e₁ and is an automorphism.
+- `octonionAut_refl` (degenerate): The identity linear equivalence is an octonion automorphism.
+- `octonionAut_conj_not` (non-example): The linear involution conjugation fixes 1 and N but fails multiplicativity on two noncommuting Zorn basis elements.
+- `octonionAut_longRootDiagonal` (computation): The long-root SL₃ element diag(2,1/2,1) sends the top-right vector e₁ to 2e₁ and is an automorphism.
 
 Uses:
 
@@ -68,7 +83,9 @@ Uses:
 
 Check: Check that conjugation is not an automorphism although it preserves the norm.
 
-Source: GS, §§2.1–2.3, pp. 6–7.
+Source: GS, §§2.1–2.3, pp. 6–7. GS introduces the split octonion algebra with its conjugation, norm and trace, defines G₂ as its automorphism group, records that this group is split of rank two and both simply connected and adjoint, and fixes simple roots and a torus coordinate. The representability, the pinned comparison with the Chevalley group and the identification of the 7-dimensional module with the trace-zero part are the construction this node adds on the Tau Ceti carrier.
+
+Planet: G₂ as octonion automorphisms.
 
 ### Null subspaces of the imaginary octonions
 
@@ -87,17 +104,21 @@ Proof or construction:
 
 API:
 
-- `null_le_imaginary`: A null subspace lies in the pinned imaginary submodule.
-- `null_norm_zero`: Every vector in a null subspace has norm zero and square zero.
-- `null_map_aut`: Octonion automorphisms map null subspaces to null subspaces, preserving dimension and incidence.
-- `null_dim_orbits`: Positive-dimensional null subspaces have dimension 1 or 2; each dimension is a single G₂(F)-orbit.
+- `IsNullSubspace`: A submodule W of Octonion F is null when W ≤ imaginary F and xy = 0 for all x, y in W.
+- `null_le_imaginary`: A null subspace lies in the imaginary octonions.
+- `null_mul_eq_zero`: The product of two elements of a null subspace is zero.
+- `null_norm_eq_zero`: Every element of a null subspace has norm zero (by TauCeti.Octonion.mul\_self with trace zero).
+- `null_finrank_le_two`: A null subspace has dimension at most two.
+- `null_map_automorphism`: The image of a null subspace under an octonion automorphism is null.
+- `null_subspace_transitive`: Two null subspaces of the same positive dimension are conjugate by an octonion automorphism; null lines and null planes therefore form single G₂(F)-orbits.
 
 Discriminating tests:
 
-- `zero`: The zero subspace is null.
-- `plane`: The span of top-right e₁ and bottom-left e₂ is a two-dimensional null subspace.
-- `unit`: The line F·1 is not null.
-- `isotropic_nonexample`: The Zorn idempotent with diagonal (1,0) has norm zero, but its line is not null because its trace is 1.
+- `isNullSubspace_bot` (degenerate): The zero subspace is null.
+- `isNullSubspace_plane` (computation): The span of top-right e₁ and bottom-left e₂ is a two-dimensional null subspace.
+- `not_isNullSubspace_unit` (non-example): The line F·1 is not null.
+- `not_isNullSubspace_idempotent` (non-example): The Zorn idempotent with diagonal (1,0) has norm zero, but its line is not null because its trace is 1.
+- `isNullSubspace_line` (computation): The line spanned by the Zorn vector with top-right entry e₁ and all other entries zero is a null subspace.
 
 Uses:
 
@@ -105,7 +126,12 @@ Uses:
 
 Check: A norm-isotropic subspace containing an idempotent is rejected.
 
-Source: GS, §2.4, pp. 7–8; HKT A.1, pp. 22–24.
+Sources:
+
+- GS, §2.4, p. 7; §13.4, p. 44: GS takes subspaces of the trace-zero octonions on which multiplication vanishes identically, of dimensions one and two, and on p. 44 notes that such nonzero null spaces have dimension one or two.
+- HKT, Appendix A.1, pp. 22–23: Savin's appendix shows from the multiplication table that a trace-zero subspace with trivial multiplication has dimension at most two, describes the null planes containing a given null vector, and notes that G₂ is transitive on nonzero trace-zero norm-zero vectors; transitivity on null planes and flags follows from their description as G₂/P and G₂/Q.
+
+Planet: Null octonion subspaces.
 
 ### The two G₂ parabolics and their radicals
 
@@ -124,13 +150,15 @@ Proof or construction:
 
 Check: Verify the central layer has dimension 2 for U and dimension 1 for N.
 
-Source: GS, §2.4 pp. 7–8; §11.2 p. 34.
+Source: GS, §2.4, pp. 7–8; §11.2, p. 34. GS defines P and Q as the stabilizers of a null plane and a null line, with Borel intersection, Levi factors GL₂, modulus characters det³ and det⁵, the 5-dimensional Heisenberg radical of P with centre the highest root group and quotient Sym³ twisted by det⁻¹, and the three-step filtration of the radical of Q with its graded pieces. The node adds the centre of U and the correction that U/Z(U) is the Heisenberg quotient (packet E12).
+
+Planet: G₂ parabolic geometry.
 
 ### Cubic étale Fourier data
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.0/cubic-characters` (definition).
 
-Identify generic characters of N(F) trivial on its center with nonzero-discriminant binary cubics using ψ and the dual of Sym³(F²)⊗det⁻¹. Their M(F)-orbits correspond to cubic étale F-algebras E. Choose ψE in each orbit; π_(N,ψE) is the existing twisted coinvariant quotient and W_E(π)=Hom_N(π,ψE). The choice is transported by conjugation, not made into a canonical basis.
+Identify generic characters of N(F) trivial on its center with nonzero-discriminant binary cubics using ψ and the dual of Sym³(F²)⊗det⁻¹. Their M(F)-orbits correspond to cubic étale F-algebras E. Choose ψE in each orbit; π\_(N,ψE) is the existing twisted coinvariant quotient and W\_E(π)=Hom\_N(π,ψE). The choice is transported by conjugation, not made into a canonical basis.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -143,14 +171,14 @@ Proof or construction:
 API:
 
 - `cubicCoeff_conjugate`: M-conjugate characters give naturally transported coinvariant and functional spaces.
-- `cubicCoeff_dual`: The full algebraic dual of π_(N,ψE) identifies with W_E(π).
+- `cubicCoeff_dual`: The full algebraic dual of π\_(N,ψE) identifies with W\_E(π).
 - `cubicCoeff_exact`: Twisted coinvariants are exact for these unipotent groups over C.
 
 Discriminating tests:
 
-- `split`: The algebra F³ gives a nondegenerate split binary-cubic orbit.
-- `partial_split`: F×K for quadratic field K is distinct from a cubic field and from F³.
-- `zero_character`: The trivial character has discriminant zero and is not indexed by a cubic étale E.
+- `cubicCoeff_split` (computation): The algebra F³ gives a nondegenerate split binary-cubic orbit.
+- `cubicCoeff_partialSplit` (characterisation): F×K for quadratic field K is distinct from a cubic field and from F³.
+- `cubicCoeff_trivial_not` (non-example): The trivial character has discriminant zero and is not indexed by a cubic étale E.
 
 Uses:
 
@@ -159,7 +187,9 @@ Uses:
 
 Check: Check the three cubic splitting types and the contragredient character.
 
-Source: GS, §3.5 p. 14; §5.4 p. 18.
+Source: GS, §2.4, p. 7; §3.5, p. 14; §5.4, p. 18. GS states that the generic M-orbits on characters of N trivial on its centre are indexed by cubic étale algebras E, fixes a representative character for each, and uses the twisted Jacquet modules along N and their duals Hom\_N(π, ψ\_E) in the restriction formula of §5.4.
+
+Planet: Cubic Fourier coefficients.
 
 ### Long-root SL₃ and unitary stabilizers
 
@@ -177,13 +207,13 @@ Proof or construction:
 
 Check: Separate pointwise from setwise stabilizers and the split from nonsplit quadratic algebra.
 
-Source: GS, §2.5 p. 8.
+Source: GS, §2.5, p. 8. GS identifies the long-root subgroup with SL₃, the pointwise stabilizer of a split quadratic subalgebra, with normalizer SL₃ ⋊ Z/2Z acting by a pinned outer automorphism; for a quadratic field it gives the quasi-split SU₃ and its semidirect product with Z/2Z.
 
 ### Exceptional inclusions of complex dual groups
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.0/dual-embeddings` (theorem).
 
-Using the existing dual root datum construction, identify G₂∨=G₂(C), PGL₃∨=SL₃(C), and PGSp₆∨=Spin₇(C). Construct SL₃→G₂→Spin₇ compatibly with the octonion 7-module and spin 8-module. In G₂, the centralizers Z_G₂(SL₃)=μ₃ and Z_G₂(SO₃)=μ₃⋊C₂=S₃; the commuting long- and short-root SL₂ factors give (SL₂,l×SL₂,s)/μ₂=SO₄.
+Using the existing dual root datum construction, identify G₂∨=G₂(C), PGL₃∨=SL₃(C), and PGSp₆∨=Spin₇(C). Construct SL₃→G₂→Spin₇ compatibly with the octonion 7-module and spin 8-module. In G₂, the centralizers Z\_G₂(SL₃)=μ₃ and Z\_G₂(SO₃)=μ₃⋊C₂=S₃; the commuting long- and short-root SL₂ factors give (SL₂,l×SL₂,s)/μ₂=SO₄.
 
 Hypotheses: The algebraic construction is over a characteristic-zero field unless a complex dual group is specified; orbit statements use the split octonion algebra. Local absolute values and smooth modules refer to the fixed p-adic convention.
 
@@ -195,13 +225,15 @@ Proof or construction:
 
 Check: The dual of PGSp₆ is Spin₇, so its center μ₂ must remain visible.
 
-Source: GS, §2.6 p. 8; §15 p. 52.
+Source: GS, §2.6, p. 8; §15.1, p. 52. GS records the subgroups SO₃ ⊂ SL₃ ⊂ SL₃ ⋊ Z/2Z ⊂ G₂(ℂ), the centralizers μ₃ and S₃, the mutually centralizing long- and short-root SL₂ subgroups and the resulting SO₄; on p. 52 it composes parameters with G₂(ℂ) ⊂ Spin₇(ℂ). The node uses the corrected SO₄ statement (packet E1).
+
+Planet: Exceptional dual-group embeddings.
 
 ### Complex local parameters
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.0/complex-parameters` (definition).
 
-For a split connected reductive group with pinned dual Ĝ, a complex L-parameter is a Ĝ-conjugacy class of homomorphisms W_F×SL₂(C)→Ĝ(C), continuous on W_F with finite inertia image, semisimple on Frobenius and algebraic on SL₂; the two restrictions commute. Tempered means bounded Weil image; discrete means not contained in any proper Levi. Use the existing topological Weil group; |w|=q^(−deg w) for arithmetic Frobenius degree 1. This is not an integral parameter stack and is not a proof of LLC.
+For a split connected reductive group with pinned dual Ĝ, a complex L-parameter is a Ĝ-conjugacy class of homomorphisms W\_F×SL₂(C)→Ĝ(C), continuous on W\_F with finite inertia image, semisimple on Frobenius and algebraic on SL₂; the two restrictions commute. Tempered means bounded Weil image; discrete means not contained in any proper Levi. Use the existing topological Weil group; |w|=q^(−deg w) for arithmetic Frobenius degree 1. This is not an integral parameter stack and is not a proof of LLC.
 
 Hypotheses: F is a nonarchimedean characteristic-zero local field and the dual algebraic group is over C; the topological local Weil group is the imported one.
 
@@ -217,12 +249,13 @@ API:
 - `lParameter_conjugate`: Temperedness and discreteness descend to Ĝ-conjugacy classes.
 - `lParameter_comp`: An algebraic dual-group homomorphism transports a parameter when its image is Frobenius-semisimple; boundedness is preserved.
 - `lParameter_wd`: The chosen geometric-reciprocity WD dictionary preserves inertia, Frobenius semisimplicity and monodromy.
+- `lParameter_wd_compat_stack`: After a field isomorphism of ℂ with an algebraic closure of ℚ\_ℓ, the Weil–Deligne form of a complex parameter is a Weil–Deligne parameter in the sense of LanglandsParameterStacks:LP1/weil-deligne-parameters with the same Frobenius normalization; the two definitions are compared, not merged.
 
 Discriminating tests:
 
-- `trivial`: The trivial parameter is tempered but is not discrete for a split group of positive semisimple rank; for a torus the discreteness condition is vacuous.
-- `steinberg`: The principal SL₂ parameter is discrete; erasing SL₂ destroys that property.
-- `nonunitary`: The GL₁ character w↦|w| is not tempered, unlike the trivial character.
+- `lParameter_trivial` (degenerate): The trivial parameter is tempered but is not discrete for a split group of positive semisimple rank; for a torus the discreteness condition is vacuous.
+- `lParameter_principal_discrete` (computation): The principal SL₂ parameter is discrete; erasing SL₂ destroys that property.
+- `lParameter_abs_not_tempered` (non-example): The GL₁ character w↦|w| is not tempered, unlike the trivial character.
 
 Uses:
 
@@ -231,13 +264,18 @@ Uses:
 
 Check: Steinberg parameters have nontrivial Deligne SL₂ even when their Weil part is unramified.
 
-Source: GS, LL §1 p. 2; GS §3.4 pp. 12–14.
+Sources:
+
+- LL, §1, p. 2: Gan–Savin define, for a split group, L-parameters as G∨-conjugacy classes of homomorphisms from W\_F × SL₂(ℂ) to the dual group and state the shape of the local Langlands conjecture.
+- GS, §3.4, pp. 12–14: GS recalls L-parameters of G₂ as admissible homomorphisms of the Weil–Deligne group to G₂(ℂ) up to conjugacy, together with tempered and discrete parameters and their component groups.
+
+Planet: Complex L-parameters.
 
 ### Raw and fixed-split component groups
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.0/component-groups` (definition).
 
-For a complex parameter φ put Sraw(φ)=π₀Z_Ĝ(im φ) and Ssplit(φ)=π₀(Z_Ĝ(im φ)/Z(Ĝ)). Retain the raw group and the map to the quotient. Enhancements for the split form have trivial action on the image of the dual center; a specified inner form instead imposes its Kottwitz central character on the appropriate refined centralizer. For G₂ the center is trivial; for PGSp₆ explicitly divide by Z(Spin₇)=μ₂. This definition fixes bookkeeping, not an unproved parametrization of packets for all groups.
+For a complex parameter φ put Sraw(φ)=π₀Z\_Ĝ(im φ) and Ssplit(φ)=π₀(Z\_Ĝ(im φ)/Z(Ĝ)). Retain the raw group and the map to the quotient. Enhancements for the split form have trivial action on the image of the dual center; a specified inner form instead imposes its Kottwitz central character on the appropriate refined centralizer. For G₂ the center is trivial; for PGSp₆ explicitly divide by Z(Spin₇)=μ₂. This definition fixes bookkeeping, not an unproved parametrization of packets for all groups.
 
 Hypotheses: The algebraic construction is over a characteristic-zero field unless a complex dual group is specified; orbit statements use the split octonion algebra. Local absolute values and smooth modules refer to the fixed p-adic convention.
 
@@ -255,9 +293,9 @@ API:
 
 Discriminating tests:
 
-- `pgl3_steinberg`: The principal SL₂ in SL₃ has raw centralizer μ₃, while the fixed-split component group is trivial.
-- `g2_subregular`: The subregular SL₂ in G₂ has component group S₃, with all three irreducible enhancements available.
-- `pgsp6_center`: For the principal parameter in Spin₇, the raw μ₂ disappears in the split quotient; counting two split Steinberg representations is rejected.
+- `component_pgl3_principal` (computation): The principal SL₂ in SL₃ has raw centralizer μ₃, while the fixed-split component group is trivial.
+- `component_g2_subregular` (computation): The subregular SL₂ in G₂ has component group S₃, with all three irreducible enhancements available.
+- `component_pgsp6_principal` (non-example): For the principal parameter in Spin₇, the raw μ₂ disappears in the split quotient; counting two split Steinberg representations is rejected.
 
 Uses:
 
@@ -265,13 +303,16 @@ Uses:
 
 Check: Do not assign every raw character to a fixed split PGL₃ packet.
 
-Source: GS, LL §1 p. 2 and Main Theorem (vii) p. 4.
+Sources:
+
+- LL, Main Theorem (vii), p. 4: Gan–Savin index the fibre of their correspondence for G₂ over a parameter φ by the irreducible characters of the component group of the centralizer of φ in G₂(ℂ), for p ≠ 3 and, for p = 3, outside the parameters coming from discrete parameters of PGL₃.
+- GS, §3.4(2), pp. 12–13: GS computes the component group S₃ of the subregular parameter with trivial Weil restriction and lists the three members of its packet.
 
 ### The 15-dimensional PGSp₆ Jordan model
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-geometry` (theorem).
 
-Let V=F⁶ with symplectic pairs (1,6),(2,5),(3,4). Put J=∧²V⊗ν⁻¹ with its Pfaffian cubic, unit e=x16+x25+x34, and structure group SL₆/μ₂. The unit stabilizer is PGSp₆. The stabilizers P_i of standard isotropic i-planes have M₃≅GL₃ via its action on ⟨x12,x13,x23⟩, M₂≅(GL₂×GL₂)/{(z,z⁻¹)}, M₁≅GSp₄, M₁₃≅GL₂×GL₁. Their moduli are |det|², |det α det β|⁵ and |ν|³ respectively.
+Let V=F⁶ with symplectic pairs (1,6),(2,5),(3,4). Put J=∧²V⊗ν⁻¹ with its Pfaffian cubic, unit e=x16+x25+x34, and structure group SL₆/μ₂. The unit stabilizer is PGSp₆. The stabilizers P\_i of standard isotropic i-planes have M₃≅GL₃ via its action on ⟨x12,x13,x23⟩, M₂≅(GL₂×GL₂)/{(z,z⁻¹)}, M₁≅GSp₄, M₁₃≅GL₂×GL₁. Their moduli are |det|², |det α det β|⁵ and |ν|³ respectively.
 
 Hypotheses: The algebraic construction is over a characteristic-zero field unless a complex dual group is specified; orbit statements use the split octonion algebra. Local absolute values and smooth modules refer to the fixed p-adic convention.
 
@@ -283,7 +324,10 @@ Proof or construction:
 
 Check: Scalar z on V acts on ∧²V by z² and ν⁻¹ by z⁻², so the action descends to PGSp₆.
 
-Source: GS, §9 pp. 29–31; §13.4 p. 44.
+Sources:
+
+- GS, §9, pp. 29–31: GS fixes the symplectic basis pairs, realises PGSp₆ inside SL₆/μ₂ as the stabilizer of the unit of the 15-dimensional space of 2-vectors with its trilinear form, identifies the Levi factors of P₃, P₁₃ and P₂ with their actions and records the moduli |det|² and |det(αβ)|⁵. The node uses the ν⁻¹ twist and similitude corrections of packet E10.
+- GS, §13.4, p. 44: GS gives the Levi GSp₄ of P₁ with its similitude character and modulus |ν|³.
 
 ### The PGSp₆ Weyl chamber
 
@@ -301,7 +345,7 @@ Proof or construction:
 
 Check: Check all nine hyperplanes, including 2s₁+s₂+s₃=0, and invariance under the third reflection.
 
-Source: GS, §9 p. 30.
+Source: GS, §9, p. 30. GS gives the three simple coroots on the GL₃ torus, the Weyl action on characters including the non-permutation third reflection, and the positive chamber; its displayed invariant form and root-hyperplane list are corrected in the node (packet E10, checked by applying the third reflection).
 
 Stage status: planned. ExceptionalThetaCorrespondencesForG2/G1: Octonion algebraic comparison and rational descent Discharge the exact supplier contracts and inherited open obligations before closing this stage.
 
@@ -315,7 +359,7 @@ Dependencies: EndoscopicTransferAndUnitaryTraceComparison:ET.6; ExceptionalTheta
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-supercuspidal` (theorem).
 
-For unitary supercuspidal τ of GL₂ and real s, I_P(s,τ) reduces precisely when τ≅τ∨ and either ωτ=1, s=±1/2, or ωτ≠1, s=0. At +1/2 there is a nonsplit sequence δP(τ)→I_P→JP with δP generic discrete series. At 0 the two constituents are a direct sum, exactly one generic.
+For unitary supercuspidal τ of GL₂ and real s, I\_P(s,τ) reduces precisely when τ≅τ∨ and either ωτ=1, s=±1/2, or ωτ≠1, s=0. At +1/2 there is a nonsplit sequence δP(τ)→I\_P→JP with δP generic discrete series. At 0 the two constituents are a direct sum, exactly one generic.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -327,13 +371,13 @@ Proof or construction:
 
 Check: The negative point −1/2 must not be omitted; a nonselfdual τ has no reducibility point.
 
-Source: GS, Proposition 3.1(i), pp. 8–9.
+Source: GS, Proposition 3.1(i), pp. 8–9. GS lists the reducibility of P-induction from unitary supercuspidal GL₂ data: only for self-dual τ, at s = 1/2 with a nonsplit sequence whose submodule is a generic discrete series when the central character is trivial, and at s = 0 as a generic plus nongeneric sum otherwise. The source omits the point −1/2, which the node includes (packet E2).
 
 ### P-series with Steinberg inducing data
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-steinberg` (theorem).
 
-For τ=st⊗χ∘det and unitary χ, reducibility occurs only as follows: χ=1 at s=±3/2,±1/2; nontrivial χ²=1 or χ³=1 at s=±1/2. At +3/2 for χ=1 the submodule is St_G and quotient JP(3/2,st). At +1/2 for χ=1 the length-three series has bottom πgen[1], middle JQ(1/2,st), top JP(1/2,st). For nontrivial quadratic or cubic χ the length-two sequence has bottom generic discrete series πgen[χ] and top JP(1/2,stχ); cubic inversion gives πgen[χ]=πgen[χ⁻¹].
+For τ=st⊗χ∘det and unitary χ, reducibility occurs only as follows: χ=1 at s=±3/2,±1/2; nontrivial χ²=1 or χ³=1 at s=±1/2. At +3/2 for χ=1 the submodule is St\_G and quotient JP(3/2,st). At +1/2 for χ=1 the length-three series has bottom πgen[1], middle JQ(1/2,st), top JP(1/2,st). For nontrivial quadratic or cubic χ the length-two sequence has bottom generic discrete series πgen[χ] and top JP(1/2,stχ); cubic inversion gives πgen[χ]=πgen[χ⁻¹].
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -345,13 +389,13 @@ Proof or construction:
 
 Check: At χ=1,s=1/2 the length is 3, not 2; the cubic DS label is invariant under χ↦χ⁻¹.
 
-Source: GS, Proposition 3.1(ii), p. 9.
+Source: GS, Proposition 3.1(ii), p. 9. GS gives the reducibility points and composition series of P-induction from twisted Steinberg data: the Steinberg submodule at 3/2, length three at 1/2 for trivial twist, and generic discrete-series submodules for nontrivial quadratic and cubic twists.
 
 ### P-series with one-dimensional inducing data
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-characters` (theorem).
 
-For unitary χ, I_P(s,χ∘det) is reducible only at χ=1,s=±3/2,±1/2 and nontrivial χ²=1 or χ³=1,s=±1/2. At +3/2 the sequence is JQ(5/2,st)→I_P→1. At +1/2 and χ=1 its bottom is πdeg[1], middle JQ(1/2,st), top JQ(1,π(1,1)). For quadratic χ the sequence is JQ(1/2,stχ)→I_P→JQ(1,π(1,χ)); for cubic χ it is JP(1/2,stχ⁻¹)→I_P→JQ(1,π(χ,χ⁻¹)). Here π(a,b) denotes normalized GL₂ principal series, and negative parameters are dual statements.
+For unitary χ, I\_P(s,χ∘det) is reducible only at χ=1,s=±3/2,±1/2 and nontrivial χ²=1 or χ³=1,s=±1/2. At +3/2 the sequence is JQ(5/2,st)→I\_P→1. At +1/2 and χ=1 its bottom is πdeg[1], middle JQ(1/2,st), top JQ(1,π(1,1)). For quadratic χ the sequence is JQ(1/2,stχ)→I\_P→JQ(1,π(1,χ)); for cubic χ it is JP(1/2,stχ⁻¹)→I\_P→JQ(1,π(χ,χ⁻¹)). Here π(a,b) denotes normalized GL₂ principal series, and negative parameters are dual statements.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -363,13 +407,13 @@ Proof or construction:
 
 Check: All the final Q quotients in this node have exponent 1, not 1/2; the cubic middle term is induced from a character, not stχ.
 
-Source: GS, Proposition 3.1(iii), p. 9.
+Source: GS, Proposition 3.1(iii), p. 9. GS gives the reducibility of P-induction from characters and the composition series at 3/2 and 1/2. The node uses the corrected quotient exponent 1 and the corrected cubic middle term (packet E2).
 
 ### Q-series with supercuspidal inducing data
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.1/g2-q-supercuspidal` (theorem).
 
-For unitary supercuspidal τ, I_Q(s,τ) reduces precisely when τ≅τ∨ and one of: ωτ=1,s=±1/2; ωτ≠1 with im φτ≅S₃,s=±1; ωτ≠1 with im φτ not S₃,s=0. At positive nonzero s it has generic discrete-series submodule δQ(τ) or πgen[τ] respectively, and Langlands quotient JQ. At 0 it is the direct sum of generic and nongeneric irreducibles.
+For unitary supercuspidal τ, I\_Q(s,τ) reduces precisely when τ≅τ∨ and one of: ωτ=1,s=±1/2; ωτ≠1 with im φτ≅S₃,s=±1; ωτ≠1 with im φτ not S₃,s=0. At positive nonzero s it has generic discrete-series submodule δQ(τ) or πgen[τ] respectively, and Langlands quotient JQ. At 0 it is the direct sum of generic and nongeneric irreducibles.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -381,13 +425,13 @@ Proof or construction:
 
 Check: The S₃ point is 1, unlike the determinant-trivial point 1/2.
 
-Source: GS, Proposition 3.2(i), pp. 10–11.
+Source: GS, Proposition 3.2(i), pp. 10–11. GS lists the reducibility of Q-induction from unitary supercuspidal data: ±1/2 for trivial central character, ±1 when the parameter has image S₃, and 0 otherwise for self-dual τ, with generic discrete-series submodules at the nonzero points.
 
 ### Q-series with Steinberg or character data
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.1/g2-q-segments` (theorem).
 
-For stχ, reducibility occurs at χ=1,s=±5/2,±1/2 and nontrivial quadratic χ,s=±1/2. At χ=1,+5/2 the bottom is St_G; at +1/2 the bottom is πgen[1]⊕πdeg[1] and top JQ(1/2,st). For quadratic χ the bottom is πgen[χ] and top JQ(1/2,stχ). For χ∘det the same χ,s list applies: at χ=1,+5/2 the sequence is JP(3/2,st)→I_Q→1; at χ=1,+1/2 the length-three bottom, middle and top are JQ(1/2,st), JP(1/2,st), JQ(1,π(1,1)); for quadratic χ the sequence is JP(1/2,stχ)→I_Q→JQ(1,π(1,χ)).
+For stχ, reducibility occurs at χ=1,s=±5/2,±1/2 and nontrivial quadratic χ,s=±1/2. At χ=1,+5/2 the bottom is St\_G; at +1/2 the bottom is πgen[1]⊕πdeg[1] and top JQ(1/2,st). For quadratic χ the bottom is πgen[χ] and top JQ(1/2,stχ). For χ∘det the same χ,s list applies: at χ=1,+5/2 the sequence is JP(3/2,st)→I\_Q→1; at χ=1,+1/2 the length-three bottom, middle and top are JQ(1/2,st), JP(1/2,st), JQ(1,π(1,1)); for quadratic χ the sequence is JP(1/2,stχ)→I\_Q→JQ(1,π(1,χ)).
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -399,13 +443,13 @@ Proof or construction:
 
 Check: The Q-induced st at 1/2 has two discrete-series submodules; its character-induced counterpart does not.
 
-Source: GS, Proposition 3.2(ii)–(iii), pp. 10–11.
+Source: GS, Proposition 3.2(ii)–(iii), pp. 10–11. GS gives the composition series of Q-induction from twisted Steinberg and from characters, including the two discrete-series submodules at 1/2 for the Steinberg case and the length-three series for the trivial character; the node uses the corrected quotient exponent for quadratic χ (packet E2).
 
 ### Borel series and opposite embeddings
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.1/g2-borel` (theorem).
 
-Write χᵢ for the character values on the three long coroots with χ₁χ₂χ₃=1. Borel induction is irreducible unless some χᵢ=|·|^±1, some χᵢ/χⱼ=|·|^±1, or χ₁,χ₂,χ₃ are the three distinct nontrivial quadratics. In the last case it is generic⊕nongeneric. A Langlands quotient attached to exponents s₁≥s₂≥0 embeds in the opposite principal series; if χ₁=χ₂ and s₁=s₂+1≥1 its smaller P embedding is I_P(−s₁+1/2,χ₁⁻¹).
+Write χᵢ for the character values on the three long coroots with χ₁χ₂χ₃=1. Borel induction is irreducible unless some χᵢ=|·|^±1, some χᵢ/χⱼ=|·|^±1, or χ₁,χ₂,χ₃ are the three distinct nontrivial quadratics. In the last case it is generic⊕nongeneric. A Langlands quotient attached to exponents s₁≥s₂≥0 embeds in the opposite principal series; if χ₁=χ₂ and s₁=s₂+1≥1 its smaller P embedding is I\_P(−s₁+1/2,χ₁⁻¹).
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -417,7 +461,7 @@ Proof or construction:
 
 Check: The exceptional quadratic triple splits; the formula contains s₁, not an unbound s.
 
-Source: GS, Proposition 3.3 and following paragraph, p. 11.
+Source: GS, §3.3 and Proposition 3.3, p. 11. GS embeds a Borel Langlands quotient into the opposite principal series, identifies the exceptional P-embedding when the two exponents differ by one, and states the irreducibility criterion for Borel induction in terms of the three long-coroot characters, with the generic plus nongeneric splitting for three distinct quadratic characters. The node uses s₁ in the exceptional embedding (packet E2).
 
 ### Nontempered G₂ normal forms
 
@@ -435,7 +479,9 @@ Proof or construction:
 
 Check: Boundary s₂=0 belongs to a tempered-Levi family, not the third family.
 
-Source: GS, §13.2, pp. 41–42.
+Source: GS, §13.2, pp. 41–42. GS enumerates the irreducible nontempered representations of G₂ as the unique quotients of three families of induced representations: from Q and from P with positive twists of tempered GL₂ data, and from P with the quotient of a strictly ordered pair of characters.
+
+Planet: G₂ Langlands normal forms.
 
 ### Unipotent depth-zero supercuspidals
 
@@ -453,7 +499,7 @@ Proof or construction:
 
 Check: Do not identify πsc[1] with the two nontrivial-cubic lifts or silently choose an ordering of ω,ω².
 
-Source: GS, §3.4(2), pp. 12–13; Proposition 7.1(iii), p. 23.
+Source: GS, §3.4(2), pp. 12–13; Proposition 7.1(iii), p. 23. GS describes π\_sc[1], π\_sc[ω] and π\_sc[ω²] as depth-zero supercuspidals induced from cuspidal unipotent representations of G₂(F\_q) inflated to a hyperspecial subgroup, and Proposition 7.1(iii) identifies the lifts of the nontrivial unramified cubic characters with the latter two. The node keeps the two cubic labels unordered (packet E9).
 
 ### The parameter labels needed by theta
 
@@ -471,13 +517,13 @@ Proof or construction:
 
 Check: A conjectural full G₂ LLC is not used to prove its own theta input.
 
-Source: GS, §3.4, pp. 12–14.
+Source: GS, §3.4, pp. 12–14. GS explains how the local Langlands correspondences of the Levi factors assign parameters to nontempered and to tempered non-discrete representations, notes that the tempered packets have size one or two with a unique generic member, and lists the non-supercuspidal members of the discrete packets by the image of SL₂.
 
 ### Finite cubic models for nongeneric G₂
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.1/cubic-finiteness` (theorem).
 
-If π is irreducible, infinite-dimensional and nongeneric, W_E(π) is finite-dimensional for every cubic étale E and nonzero for at least one E. No such nonzero assertion is made for the trivial representation. The proof must include the nilpotent-wavefront reduction to the subregular orbit and the p-adic local character-expansion/degenerate-Whittaker comparison, including residual characteristic 2 and 3.
+If π is irreducible, infinite-dimensional and nongeneric, W\_E(π) is finite-dimensional for every cubic étale E and nonzero for at least one E. No such nonzero assertion is made for the trivial representation. The proof must include the nilpotent-wavefront reduction to the subregular orbit and the p-adic local character-expansion/degenerate-Whittaker comparison, including residual characteristic 2 and 3.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -489,13 +535,15 @@ Proof or construction:
 
 Check: The trivial representation is an excluded degenerate case; finite dimension is required before comparing period dimensions.
 
-Source: GS, Lemma 3.4 and proof, p. 14.
+Source: GS, Lemma 3.4 and proof, p. 14. GS states that a nongeneric infinite-dimensional irreducible representation has a nonzero, and always finite-dimensional, twisted Jacquet module along N for some cubic étale E, deducing it from the subregular support of the wave-front set and the results of Mœglin–Waldspurger and of Varma in residue characteristic 2, which it cites.
+
+Planet: Finite cubic models.
 
 ### PGSp₆ P₂ and P₁₃ series
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.1/pgsp-p2-p13` (theorem).
 
-For unitary supercuspidal τ of GL₂, I₂(s,τ⊗τ) has the same reducibility cases as I_Q(s,τ): determinant-trivial at ±1/2 with generic DS δ₂(τ), S₃ dihedral at ±1 with generic DS σgen[τ], and other selfdual determinant-nontrivial at 0 with generic⊕nongeneric splitting. For τ=stχ, I₂ reduces only for χ=1 at ±5/2,±1/2 and nontrivial quadratic χ at ±1/2. At +5/2 the bottom is St_H; at χ=1,+1/2 it is I₃(St)gen; at quadratic χ,+1/2 it is DS σgen[χ], always with standard quotient on top. I₁₃(s,τ⊗1) for supercuspidal τ reduces only for selfdual τ with ωτ=1,s=±1/2 (length four, unique generic DS submodule δ₁₃(τ)), or ωτ≠1,im φτ≠S₃,s=0 (two summands).
+For unitary supercuspidal τ of GL₂, I₂(s,τ⊗τ) has the same reducibility cases as I\_Q(s,τ): determinant-trivial at ±1/2 with generic DS δ₂(τ), S₃ dihedral at ±1 with generic DS σgen[τ], and other selfdual determinant-nontrivial at 0 with generic⊕nongeneric splitting. For τ=stχ, I₂ reduces only for χ=1 at ±5/2,±1/2 and nontrivial quadratic χ at ±1/2. At +5/2 the bottom is St\_H; at χ=1,+1/2 it is I₃(St)gen; at quadratic χ,+1/2 it is DS σgen[χ], always with standard quotient on top. I₁₃(s,τ⊗1) for supercuspidal τ reduces only for selfdual τ with ωτ=1,s=±1/2 (length four, unique generic DS submodule δ₁₃(τ)), or ωτ≠1,im φτ≠S₃,s=0 (two summands).
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -507,7 +555,7 @@ Proof or construction:
 
 Check: Length four at I₁₃(1/2,τ⊗1) is not replaced by a length-two sequence.
 
-Source: GS, Propositions 10.1–10.2, pp. 31–32.
+Source: GS, Propositions 10.1–10.2, pp. 31–32. GS gives the reducibility points and constituents of P₂-induction from τ⊗τ (supercuspidal and Steinberg τ) and of P₁₃-induction from τ⊗1 for supercuspidal τ, with the discrete-series constituents δ₂(τ), σ\_gen[τ], σ\_gen[χ] and δ₁₃(τ).
 
 ### Siegel induction on PGSp₆
 
@@ -525,7 +573,7 @@ Proof or construction:
 
 Check: Selfdual discrete-series induction splits even though nonselfdual induction is irreducible.
 
-Source: GS, Proposition 10.3, pp. 32–33.
+Source: GS, Proposition 10.3, pp. 32–33. GS states that Siegel induction from a discrete-series GL₃ representation with trivial central character is irreducible unless τ is self-dual, when it splits as a generic plus a nongeneric summand, and gives the corresponding statements for Borel data.
 
 ### P₁ reducibility including the nongeneric SK case
 
@@ -535,18 +583,19 @@ Let τ be a supercuspidal representation of GSp₄ with trivial central characte
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
-Inputs: ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-geometry; ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-root-coordinates; SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction; SmoothRepresentationsOfLocalGroups:SR.3/langlands-classification; ModularityAndLanglandsExtensions:ML.4.
+Inputs: ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-geometry; ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-root-coordinates; SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction; SmoothRepresentationsOfLocalGroups:SR.3/langlands-classification; ModularityAndLanglandsExtensions:ML.4; SmoothRepresentationsOfLocalGroups:SR.3.
 
 Proof or construction:
 
-1. Compute the generic Plancherel scalar by the standard factor.
-2. For τρ prove equality of the rank-one Plancherel measure with that of its generic packet companion, or give a direct induced-module computation; apply the square-integrability criterion to the submodule.
+1. For generic τ compute the rank-one Plancherel measure of I₁(s, τ) from the standard and twisted factors of its parameter and apply the Harish-Chandra–Silberger criterion for reducibility of rank-one supercuspidal induction.
+2. For the nongeneric τ\_ρ use part (vi) of the Gan–Takeda correspondence (ModularityAndLanglandsExtensions §3.5): the Plancherel measures of a nongeneric supercuspidal agree with those attached to its parameter, hence with those of the generic member of its packet; the same criterion then gives reducibility exactly at ±1/2. Shahidi’s generic local-coefficient theorem is not applied to τ\_ρ directly.
+3. Apply the square-integrability criterion to the submodule at +1/2.
 
-Check: A proof accepting nongeneric τ directly into Shahidi’s generic local coefficient is rejected.
+Check: A proof accepting nongeneric τ directly into Shahidi’s generic local coefficient is rejected; the Plancherel comparison of Gan–Takeda (vi) is the route.
 
-Source: GS, Proposition 10.4 p. 33; Proposition 15.6 pp. 54–55.
+Source: GS, Proposition 10.4, p. 33; Proposition 15.6 and proof, pp. 54–55. GS states that P₁-induction from a supercuspidal GSp₄ representation whose standard parameter contains 1 reduces exactly at ±1/2, with a discrete-series submodule δ₁(τ), and applies this to the nongeneric τ\_ρ in Proposition 15.6. The node separates the nongeneric case, which GS justifies by generic reducibility theory (packet E11).
 
-Stage status: planned. ExceptionalThetaCorrespondencesForG2/G3: Residual-characteristic wavefront argument ExceptionalThetaCorrespondencesForG2/G4: Rank-one reducibility source chain ExceptionalThetaCorrespondencesForG2/G5: Finite-field cuspidal labels and examples Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0
+Stage status: planned. ExceptionalThetaCorrespondencesForG2/G3: Residual-characteristic wavefront argument ExceptionalThetaCorrespondencesForG2/G4: Rank-one reducibility source chain ExceptionalThetaCorrespondencesForG2/G5: Finite-field cuspidal labels and examples Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0 Requests to the undesigned Part II of SmoothRepresentationsOfLocalGroups (Whittaker multiplicity one for quasi-split groups, Mœglin–Waldspurger comparison, Harish-Chandra–Silberger criterion).
 
 ## EX.2. Exceptional ambient groups and minimal models
 
@@ -558,7 +607,7 @@ Dependencies: ExceptionalThetaCorrespondencesForG2:EX.0; MetaplecticAutomorphicF
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.2/jordan-freudenthal` (construction).
 
-For J=F, a cubic étale E, D⁺ for a degree-three central simple D, or Herm₃(Bsplit) of dimension 15, use the existing unital cubic Jordan structure and its norm, adjoint and trace form. Form g_J=sl₃⊕Lie(MJ)⊕(F³⊗J)⊕(F³⊗J)* with the Jordan bracket. Identify types G₂,D₄,E₆,E₇ and prove compatibility with the fixed LieHighestWeight models; the embedded g₂ uses F³⊗1_J and its dual.
+For J = F, a cubic étale algebra E, the Jordan algebra D⁺ of a degree-three central simple algebra D (or its split form M₃(F)⁺), or the 15-dimensional algebra H₃(B) of Hermitian 3 × 3 matrices over a quaternion algebra B, equip J with its cubic norm, adjoint and trace form; these cubic norm structures are constructed here. Form g\_J = sl₃ ⊕ Lie(M\_J) ⊕ (F³ ⊗ J) ⊕ (F³ ⊗ J)\* with the Freudenthal bracket, and identify its type as G₂, D₄, E₆ or E₇ for dim J = 1, 3, 9, 15, compatibly with the split exceptional Lie algebras of LieHighestWeight Layer 8; the embedded g₂ is sl₃ ⊕ (F³ ⊗ 1\_J) ⊕ (F³ ⊗ 1\_J)\*.
 
 Hypotheses: The algebraic construction is over a characteristic-zero field unless a complex dual group is specified; orbit statements use the split octonion algebra. Local absolute values and smooth modules refer to the fixed p-adic convention.
 
@@ -566,19 +615,20 @@ Inputs: tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the
 
 Proof or construction:
 
-1. Import the generic exceptional Lie constructions and verify this family’s twists, cubic forms and bracket normalizations rather than rebuild the split Albert algebra.
+1. Construct the cubic norm, adjoint and trace of each J from the norm of E, the reduced norm of D and the quaternion norm of B, and check the Jordan adjoint identities.
+2. Define the bracket on g\_J, verify the Jacobi identity from those identities, and compare root systems and dimensions with the LieHighestWeight Layer 8 models after extending scalars to an algebraic closure.
 
 API:
 
 - `freudenthal_type`: Dimensions 1,3,9,15 yield the stated four absolute types.
-- `freudenthal_unit_g2`: The summands sl₃,(F³⊗1_J),(F³⊗1_J)* give the already fixed g₂ embedding.
+- `freudenthal_unit_g2`: The summands sl₃,(F³⊗1\_J),(F³⊗1\_J)\* give the already fixed g₂ embedding.
 - `freudenthal_baseChange`: Jordan isomorphisms and scalar extension transport the Lie bracket and both commuting factors.
 
 Discriminating tests:
 
-- `dimension_one`: J=F yields g₂ of dimension 14, with trivial connected HJ.
-- `matrix_jordan`: J=M₃(F)⁺ gives split E₆ and connected automorphism factor PGL₃.
-- `dimension_fifteen`: J=Herm₃(Bsplit) yields E₇ and HJ=PGSp₆, not a 27-dimensional Albert module.
+- `freudenthal_dim_one` (degenerate): J=F yields g₂ of dimension 14, with trivial connected HJ.
+- `freudenthal_matrix` (computation): J=M₃(F)⁺ gives split E₆ and connected automorphism factor PGL₃.
+- `freudenthal_dim_fifteen` (computation): J=Herm₃(Bsplit) yields E₇ and HJ=PGSp₆, not a 27-dimensional Albert module.
 
 Uses:
 
@@ -586,7 +636,9 @@ Uses:
 
 Check: An arbitrary cubic polynomial without the Jordan adjoint identities is not admissible input.
 
-Source: GS, §4.1–§4.2, p. 15.
+Source: GS, §§4.1–4.2, pp. 15–16. GS attaches to a Freudenthal–Jordan algebra J the Lie algebra sl₃ ⊕ Lie(M\_J) ⊕ (F³⊗J) ⊕ (F³⊗J)\* of type G₂, D₄, E₆ or E₇ for dim J = 1, 3, 9, 15, describes J in each case (cubic étale, 9-dimensional from a central simple algebra with involution of the second kind, Hermitian 3×3 matrices over a quaternion algebra), and identifies the centralizer of Aut(J) with the J = F algebra g₂ (with the dual summand of packet E3).
+
+Planet: Freudenthal–Jordan dual pairs.
 
 ### The three exceptional group dual pairs
 
@@ -604,13 +656,13 @@ Proof or construction:
 
 Check: For a division D, an outer automorphism of geometric E₆ does not automatically provide an F-rational outer automorphism of D.
 
-Source: GS, §§4.2–4.4, pp. 15–16.
+Source: GS, §§4.2–4.4, pp. 15–16. GS forms the dual pairs G₂ × Aut(J) in Aut(G\_J), notes the disconnected Aut(J) when dim J = 9, and tabulates H\_J = PD×, PGL₃ ⋊ Z/2Z and PGSp₆ for the three J used.
 
 ### Cubic triality and the exceptional see-saw
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.2/triality-see-saw` (theorem).
 
-A cubic étale E with its permutation Galois action on three embeddings defines the trialitarian Spin₈^E. For an embedding i:E→J construct HJ,E=Aut(i) and the commuting pair HJ,E×Spin₈^E inside GJ. Identify HJ,E as PE× for division D, PE×⋊C₂ for M₃, and the algebraic quotient Res_E/F SL₂/μ₂ for J of dimension 15. The resulting square with G₂×HJ gives the see-saw on the same minimal representation. Do not replace rational points of a central quotient by a quotient of rational points without checking its H¹ obstruction.
+A cubic étale E with its permutation Galois action on three embeddings defines the trialitarian Spin₈^E. For an embedding i:E→J construct HJ,E=Aut(i) and the commuting pair HJ,E×Spin₈^E inside GJ. Identify HJ,E as PE× for division D, PE×⋊C₂ for M₃, and the algebraic quotient Res\_E/F SL₂/μ₂ for J of dimension 15. The resulting square with G₂×HJ gives the see-saw on the same minimal representation. Do not replace rational points of a central quotient by a quotient of rational points without checking its H¹ obstruction.
 
 Hypotheses: The algebraic construction is over a characteristic-zero field unless a complex dual group is specified; orbit statements use the split octonion algebra. Local absolute values and smooth modules refer to the fixed p-adic convention.
 
@@ -622,7 +674,9 @@ Proof or construction:
 
 Check: For E=F³ recover split Spin₈; for E a cubic field the division centralizer is the anisotropic torus PE×.
 
-Source: GS, §§4.3–4.4, diagram (4.1), p. 16.
+Source: GS, §§4.3–4.4 and diagram (4.1), p. 16. GS fixes an embedding of a cubic étale algebra E in J, forms Aut(i: E → J) commuting with the quasi-split Spin₈ attached to E, draws the see-saw with G₂ × Aut(J), and tabulates the groups H\_{J,E} for the three J. The node uses Spin₈^E for the misprinted group symbol (packet E3).
+
+Planet: The triality see-saw.
 
 ### Local minimal representations
 
@@ -646,9 +700,9 @@ API:
 
 Discriminating tests:
 
-- `spherical_line`: For split E₆/E₇ the chosen hyperspecial fixed line is one-dimensional with the specified Satake parameter.
-- `division_model`: The E₆^D model has no isotropic nilpotent vectors coming from D; its G₂ Jacquet modules differ from split E₆.
-- `evaluation_zero`: The evaluation-at-zero quotient is nonzero, so replacing the model by only its open-orbit compact functions fails.
+- `minimal_spherical_line` (characterisation): For split E₆/E₇ the chosen hyperspecial fixed line is one-dimensional with the specified Satake parameter.
+- `minimal_division_not_split` (non-example): The E₆^D model has no isotropic nilpotent vectors coming from D; its G₂ Jacquet modules differ from split E₆.
+- `minimal_evaluation_zero_ne` (non-example): The evaluation-at-zero quotient is nonzero, so replacing the model by only its open-orbit compact functions fails.
 
 Uses:
 
@@ -657,7 +711,14 @@ Uses:
 
 Check: The model is a constructed representation, rather than an arbitrary representation declared to satisfy desired Jacquet formulas.
 
-Source: GS, GS §1 p. 1 and §4–§5 pp. 15–17; GS04 §5 pp. 797–798; MS Theorem 1.1 pp. 3–4.
+Sources:
+
+- GS, §1, p. 1; §§4–5, pp. 15–17: GS restricts the minimal representation of the adjoint exceptional group (cited from Gan–Savin 2005) to the three dual pairs and uses its Jacquet modules throughout.
+- Sav, §3, pp. 396–397 (Theorem 3.4): Savin constructs the minimal representation of the E₆ form attached to a cubic division algebra and records, after Rumelhart, that it is minimal.
+- GS04, §5, pp. 797–798: Gan–Savin 2004 recall the minimal representation of split E₆ used for the pair PGL₃ × G₂.
+- MS, Theorem 1.1, pp. 3–4: Magaard–Savin give, for the minimal representation of a group of type D, E₆ or E₇ and a maximal parabolic with commutative unipotent radical N, an exact sequence with the compactly supported functions on the open orbit as submodule and the N-coinvariants, a twisted minimal representation of the Levi plus a character, as quotient.
+
+Planet: Minimal representations.
 
 ### Exceptional big and small theta modules
 
@@ -675,15 +736,15 @@ Proof or construction:
 
 API:
 
-- `exceptionalTheta_hom`: Hom_H(ΘJ(π),τ) identifies with Hom_G×H(ΠJ,π⊗τ) for irreducible admissible π,τ with the fixed dual convention.
-- `exceptionalTheta_seesaw`: The triality square identifies HJ,E-periods on ΘJ(π) with Hom_G₂(RJ(E),π∨), with both duals recorded.
+- `exceptionalTheta_hom`: Hom\_H(ΘJ(π),τ) identifies with Hom\_G×H(ΠJ,π⊗τ) for irreducible admissible π,τ with the fixed dual convention.
+- `exceptionalTheta_seesaw`: The triality square identifies HJ,E-periods on ΘJ(π) with Hom\_G₂(RJ(E),π∨), with both duals recorded.
 - `exceptionalTheta_conjugate`: Unitarity gives conjugation compatibility; for tempered irreducibles conjugation is smooth contragredience.
 
 Discriminating tests:
 
-- `zero_occurrence`: If Hom_G×H(ΠJ,π⊗τ)=0 for every τ, no nonzero finite-length small lift can be assigned.
-- `trivial_hj`: For J=F, specializing the construction recovers restriction to G₂ rather than a classical symplectic oscillator.
-- `dual_character`: Twisted ψE coefficients of a contragredient use conjugate ψE; replacing ψE by itself without transport fails for general ψ.
+- `exceptionalTheta_zero` (degenerate): If Hom\_G×H(ΠJ,π⊗τ)=0 for every τ, no nonzero finite-length small lift can be assigned.
+- `exceptionalTheta_trivial_hj` (degenerate): For J=F, specializing the construction recovers restriction to G₂ rather than a classical symplectic oscillator.
+- `exceptionalTheta_dual_character` (non-example): Twisted ψE coefficients of a contragredient use conjugate ψE; replacing ψE by itself without transport fails for general ψ.
 
 Uses:
 
@@ -692,7 +753,9 @@ Uses:
 
 Check: A nonzero big module need not be declared irreducible before the finite-length and uniqueness targets.
 
-Source: GS, §1 p. 1; §5.1 p. 16; §6.4 p. 21.
+Source: GS, §1, p. 1; §5.1, p. 16; §6.4, pp. 20–21. GS writes the maximal π-isotypic quotient of the minimal representation as π ⊗ Θ(π), takes θ(π) as its cosocle, states the see-saw identity between H\_{J,E}-periods of Θ(π) and Hom\_{G₂}(R\_J(E), π), and uses complex conjugation of the real-defined minimal representation to compare Θ of conjugate and contragredient representations.
+
+Planet: Exceptional theta modules.
 
 ### The spherical extension across the E₆ involution
 
@@ -710,7 +773,7 @@ Proof or construction:
 
 Check: Changing the extension by the sign character interchanges plus/minus labels and is detected by the Whittaker coefficient.
 
-Source: GS, §8.1–§8.2, p. 24.
+Source: GS, §8 introduction and §8.1, p. 24. GS extends the split E₆ minimal representation to E₆ ⋊ Z/2Z so that Z/2Z fixes the spherical vector, and realises the outer involution on GL₃ as transpose-inverse conjugated by the antidiagonal matrix with entries 1, −1, 1.
 
 Stage status: planned. ExceptionalThetaCorrespondencesForG2/G1: Octonion algebraic comparison and rational descent ExceptionalThetaCorrespondencesForG2/G2: Primary minimal-model inputs not obtained Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0
 
@@ -724,7 +787,7 @@ Dependencies: ExceptionalThetaCorrespondencesForG2:EX.0; ExceptionalThetaCorresp
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/ambient-parabolics` (theorem).
 
-The two fundamental G₂ cocharacters define E₇ parabolics with derived Levi types D₆ and A₁A₅. The three PGSp₆ cocharacters define ambient derived Levi types E₆,D₆,A₁D₅ for P₃,P₁,P₂ respectively. Construct their intersections with both dual-pair factors, opposite radicals, central characters and projections Π_Nsmall→Π_𝒩ambient. In every top-piece formula it is the ambient-radical quotient Π_𝒩 that occurs, not a second copy of the small-radical quotient.
+The two fundamental G₂ cocharacters define E₇ parabolics with derived Levi types D₆ and A₁A₅. The three PGSp₆ cocharacters define ambient derived Levi types E₆,D₆,A₁D₅ for P₃,P₁,P₂ respectively. Construct their intersections with both dual-pair factors, opposite radicals, central characters and projections Π\_Nsmall→Π\_𝒩ambient. In every top-piece formula it is the ambient-radical quotient Π\_𝒩 that occurs, not a second copy of the small-radical quotient.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -736,7 +799,9 @@ Proof or construction:
 
 Check: Verify the five derived Levi types and the inclusions of small radicals into ambient radicals.
 
-Source: GS, §13.1 p. 40 and §13.4 pp. 43–46.
+Source: GS, §13.1, p. 40; §13.4, p. 43. GS obtains parabolics of E₇ from the fundamental cocharacters of G₂ with Levi types D₆ and A₁ × A₅, and from those of PGSp₆ maximal parabolics with Levi types D₆, A₁ × D₅ and E₆.
+
+Planet: Exceptional Jacquet gradings.
 
 ### Rank-one and rank-two octonion orbit kernels
 
@@ -754,13 +819,13 @@ Proof or construction:
 
 Check: The split P₂ calculation contains an extra middle piece; omitting it gives the nonsplit answer.
 
-Source: GS, §13.4 Cases P₁ and P₂, pp. 44–47.
+Source: GS, §13.4, Cases P₁ and P₂, pp. 44–47. GS describes the kernel of the projection to the ambient Jacquet module by null octonion quadruples with x ∧ x′ + y ∧ y′ = 0, splits them by span dimension, and for P₂ introduces an undetermined twist δ′; the node computes each stratum separately (packet E15).
 
 ### Raw E₆ Jacquet input and noncuspidal finiteness
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/e6-jacquet-finiteness` (theorem).
 
-Construct the two outer-related PGL₃ maximal-parabolic Jacquet filtrations of Π_E6 with bottom regular GL₂ piece, middle regular GL₁ piece, and top D₅-minimal plus trivial pieces, and the G₂-P filtration with two GL₂ regular pieces, a GL₁ piece and A₅-minimal plus trivial top. In GS04 notation P₂=our P and P₁=our Q; retain its normalized determinant factors. Deduce finite length of the noncuspidal part of every theta lift in either direction without invoking full E₆ Howe duality.
+Construct the two outer-related PGL₃ maximal-parabolic Jacquet filtrations of Π\_E6 with bottom regular GL₂ piece, middle regular GL₁ piece, and top D₅-minimal plus trivial pieces, and the G₂-P filtration with two GL₂ regular pieces, a GL₁ piece and A₅-minimal plus trivial top. In GS04 notation P₂=our P and P₁=our Q; retain its normalized determinant factors. Deduce finite length of the noncuspidal part of every theta lift in either direction without invoking full E₆ Howe duality.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -768,18 +833,21 @@ Inputs: ExceptionalThetaCorrespondencesForG2:EX.2/minimal-models; ExceptionalThe
 
 Proof or construction:
 
-1. For PGL₃→G₂, normalize the bottom and middle terms by |det|^(3/2), the top by |det|^(1/2)Π_D5⊕|det|^(3/2). For G₂-P, use |det|^(1/2) on both regular strata and Π_A5⊕|det|^(1/2) on top.
+1. For PGL₃→G₂, normalize the bottom and middle terms by |det|^(3/2), the top by |det|^(1/2)Π\_D5⊕|det|^(3/2). For G₂-P, use |det|^(1/2) on both regular strata and Π\_A5⊕|det|^(1/2) on top.
 2. Apply second adjointness to finite-length Jacquet modules, regular-isotypic quotients and finite-length parabolic induction; retain the torus characters of every boundary stratum.
 
 Check: Noncuspidal finiteness is available before the uniqueness proof, rather than inferred from that proof.
 
-Source: GS04, GS04 Propositions 4–6, pp. 798–799; GS §6.1 p. 19.
+Sources:
+
+- GS04, Propositions 4–6, pp. 798–799: Gan–Savin 2004 give three-step filtrations of the Jacquet modules of the split E₆ minimal representation along a maximal parabolic of PGL₃ (Proposition 4) and along the parabolic of G₂ stabilizing a 2-dimensional null subalgebra (Proposition 6), with their minimal, trivial and regular pieces and determinant twists; Proposition 5 describes a quotient of the Jacquet module along the Borel of PGL₃.
+- GS, Lemma 6.2 and proof, p. 19: GS deduces from these computations, citing Gan–Savin 2004 for the split E₆ case, that the noncuspidal part of each big theta lift has finite length.
 
 ### The G₂-P Jacquet filtration
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/e7-g2-p-jacquet` (theorem).
 
-The normalized rP(Π_E7) has three graded pieces, from top to bottom: |det|^(1/2)Π_D6⊕|det|^(3/2)1; Ind_(Bbar×P₂)^(GL₂×H)(δ⊗Cc(GL₁)), δ=|·|^(−1/2)×|·|; and Ind_P₁₃^H Cc(GL₂). The central GL₂ acts trivially on the untwisted minimal/trivial top factors. Regular GL₂ spaces have left translation by the G₂ Levi and right translation by the partner Levi; GL₁ uses determinant on the G₂ factor and the indicated (1,1) entry on a lower Borel. All inductions in these filtrations are normalized.
+The normalized rP(Π\_E7) has three graded pieces, from top to bottom: |det|^(1/2)Π\_D6⊕|det|^(3/2)1; Ind\_(Bbar×P₂)^(GL₂×H)(δ⊗Cc(GL₁)), δ=|·|^(−1/2)×|·|; and Ind\_P₁₃^H Cc(GL₂). The central GL₂ acts trivially on the untwisted minimal/trivial top factors. Regular GL₂ spaces have left translation by the G₂ Levi and right translation by the partner Levi; GL₁ uses determinant on the G₂ factor and the indicated (1,1) entry on a lower Borel. All inductions in these filtrations are normalized.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -789,15 +857,15 @@ Proof or construction:
 
 1. Apply the ambient D₆ evaluation sequence, intersect the highest-weight orbit with trace-zero octonions, then compute stabilizers and all half-modulus corrections.
 
-Check: The top uses Π_𝒩ambient; scalar z in M acts on N/[N,N] by z.
+Check: The top uses Π\_𝒩ambient; scalar z in M acts on N/[N,N] by z.
 
-Source: GS, Proposition 13.1, p. 40.
+Source: GS, Proposition 13.1, p. 40. GS states, after Magaard–Savin, the three-step filtration of the normalized P-Jacquet module of the E₇ minimal representation: the twisted D₆-minimal and trivial top, the middle induced from the lower Borel with the displayed character, and the bottom induced from P₁₃.
 
 ### The G₂-Q Jacquet filtration
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/e7-g2-q-jacquet` (theorem).
 
-The normalized rQ(Π_E7) has top |det|^(3/2)Π_A5⊕|det|²Π_A1; middle Ind_(Bbar×P₂)^(GL₂×H)(δ⊗Cc(GL₁)) with δ=|·|^(1/2)×|·|; bottom Ind_P₂^H W, where W is the imported GL₂×GSO₄ similitude Weil representation. Top factors are trivial on the central GL₂ before twisting. Regular GL₂ spaces have left translation by the G₂ Levi and right translation by the partner Levi; GL₁ uses determinant on the G₂ factor and the indicated (1,1) entry on a lower Borel. All inductions in these filtrations are normalized.
+The normalized rQ(Π\_E7) has top |det|^(3/2)Π\_A5⊕|det|²Π\_A1; middle Ind\_(Bbar×P₂)^(GL₂×H)(δ⊗Cc(GL₁)) with δ=|·|^(1/2)×|·|; bottom Ind\_P₂^H W, where W is the imported GL₂×GSO₄ similitude Weil representation. Top factors are trivial on the central GL₂ before twisting. Regular GL₂ spaces have left translation by the G₂ Levi and right translation by the partner Levi; GL₁ uses determinant on the G₂ factor and the indicated (1,1) entry on a lower Borel. All inductions in these filtrations are normalized.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -810,13 +878,13 @@ Proof or construction:
 
 Check: The middle exponents are 1/2 and 1; the comparison must not depend on the theorem it is used to prove.
 
-Source: GS, Proposition 13.3, p. 41.
+Source: GS, Proposition 13.3 and proof, p. 41. GS states the three-step filtration of the normalized Q-Jacquet module, with A₅-minimal and A₁ principal-series top, the middle with the displayed lower-Borel character and the bottom induced from P₂ of the GL₂ × GSO₄ similitude Weil representation, and determines the middle character by an exercise (packet E15 for the missing orbit calculation).
 
 ### The PGSp₆-P₃ Jacquet filtration
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/e7-h-p3-jacquet` (theorem).
 
-The normalized rP₃(Π_E7), as G₂×GL₃ module, has top Π_E6⊕|det|1, middle Ind_(Q×Q₁)^(G₂×GL₃)(δ⊗Cc(GL₁)), δ(g₁,g₂)=|g₁|^(−1/2)|det g₂|^(1/2), and bottom Ind_(P×Q₂)^(G₂×GL₃) Cc(GL₂). Here Qᵢ are the row-subspace stabilizers in GL₃, with Levi factor GLᵢ acting by right translation on Cc(GLᵢ).
+The normalized rP₃(Π\_E7), as G₂×GL₃ module, has top Π\_E6⊕|det|1, middle Ind\_(Q×Q₁)^(G₂×GL₃)(δ⊗Cc(GL₁)), δ(g₁,g₂)=|g₁|^(−1/2)|det g₂|^(1/2), and bottom Ind\_(P×Q₂)^(G₂×GL₃) Cc(GL₂). Here Qᵢ are the row-subspace stabilizers in GL₃, with Levi factor GLᵢ acting by right translation on Cc(GLᵢ).
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -828,13 +896,13 @@ Proof or construction:
 
 Check: The quotient is the full E₆ minimal representation on the top; the middle and bottom pieces remain present.
 
-Source: GS, Proposition 13.5, pp. 43–44.
+Source: GS, Proposition 13.5, pp. 43–44. GS gives the filtration of the P₃-Jacquet module as a G₂ × GL₃-module: E₆-minimal plus twisted trivial top, a middle piece induced from Q × Q₁ with the displayed character, and a bottom piece induced from P × Q₂.
 
 ### The PGSp₆-P₁ Jacquet filtration
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/e7-h-p1-jacquet` (theorem).
 
-The normalized rP₁(Π_E7), as G₂×GSp₄ module, has top |ν|^(1/2)Π_D6⊕|ν|^(3/2)1, middle Ind_(Q×Q₁)(δ⊗Cc(GL₁)) with δ(g₁,g₂)=|g₁|^(−1/2)|det g₂|^(1/2), and bottom Ind_(P×Q₂) Cc(GL₂). On the row-stabilizer Levis of GSp₄, Q₁ has coordinates (g₁,g₂)∈GL₁×GL₂ with ν=det g₂ and δQ₁=|g₁|^(−4)|det g₂|²; Q₂ has (g₂,g₁) with ν=g₁ and δQ₂=|det g₂|^(−3)|g₁|³.
+The normalized rP₁(Π\_E7), as G₂×GSp₄ module, has top |ν|^(1/2)Π\_D6⊕|ν|^(3/2)1, middle Ind\_(Q×Q₁)(δ⊗Cc(GL₁)) with δ(g₁,g₂)=|g₁|^(−1/2)|det g₂|^(1/2), and bottom Ind\_(P×Q₂) Cc(GL₂). On the row-stabilizer Levis of GSp₄, Q₁ has coordinates (g₁,g₂)∈GL₁×GL₂ with ν=det g₂ and δQ₁=|g₁|^(−4)|det g₂|²; Q₂ has (g₂,g₁) with ν=g₁ and δQ₂=|det g₂|^(−3)|g₁|³.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -846,13 +914,13 @@ Proof or construction:
 
 Check: Check ν on both row Levis: it is not the GL₁ coordinate in the Q₁ convention.
 
-Source: GS, Proposition 13.6 and preceding orbit calculation, pp. 44–45.
+Source: GS, Proposition 13.6 and the preceding Case P₁, pp. 44–45. GS gives the three-step filtration of the P₁-Jacquet module as a G₂ × GSp₄-module with the row-stabilizer moduli δ\_{Q₁} and δ\_{Q₂}, noting that the computation is not in the literature (packet E15).
 
 ### The PGSp₆-P₂ Jacquet filtration
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/e7-h-p2-jacquet` (theorem).
 
-The normalized rP₂(Π_E7), as G₂×M₂ module, has four pieces from top down: |det|^(1/2)Π_D5⊕|det|^(3/2)Π_A1; Ind_(Q×(Bbar×Bbar)/Gm)(δ⊗Cc(GL₁)), where δ on each Bbar is |·|^(1/2)×|·|; Ind_(P×Bbar₂) Cc(GL₂), where GL₂,1 acts by right regular translation and Bbar₂ by right scalar (1,1)-translation; and Ind_Q^G₂ W. In the top each semisimple factor acts trivially on the other factor’s summand.
+The normalized rP₂(Π\_E7), as G₂×M₂ module, has four pieces from top down: |det|^(1/2)Π\_D5⊕|det|^(3/2)Π\_A1; Ind\_(Q×(Bbar×Bbar)/Gm)(δ⊗Cc(GL₁)), where δ on each Bbar is |·|^(1/2)×|·|; Ind\_(P×Bbar₂) Cc(GL₂), where GL₂,1 acts by right regular translation and Bbar₂ by right scalar (1,1)-translation; and Ind\_Q^G₂ W. In the top each semisimple factor acts trivially on the other factor’s summand.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -865,13 +933,15 @@ Proof or construction:
 
 Check: The Bbar in piece three belongs to the second GL₂ factor, a distinction essential in the reverse exponent calculation.
 
-Source: GS, Proposition 13.7, pp. 46–47.
+Source: GS, Proposition 13.7 and notes, pp. 46–47. GS gives the four-piece filtration of the P₂-Jacquet module as a G₂ × M₂-module, with D₅-minimal and A₁ top, two regular middle pieces and the Weil-representation bottom; the node derives the twists of the middle pieces separately and places the lower Borel of piece three in the second GL₂ factor (packet E15, E16).
+
+Planet: Exceptional Jacquet filtrations.
 
 ### Forward positive-exponent lift control
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/nontempered-forward` (theorem).
 
-For π=JQ(τ) in EX.1, Θ_H(π) is a nonzero quotient of I₂(τ⊗τ). For π=JP(τ) in either P family, it is a nonzero quotient of I₁₃(τ⊗1). These statements concern full big modules. Prove their nonvanishing from the appropriate bottom piece and the induced-module universal property.
+For π=JQ(τ) in EX.1, Θ\_H(π) is a nonzero quotient of I₂(τ⊗τ). For π=JP(τ) in either P family, it is a nonzero quotient of I₁₃(τ⊗1). These statements concern full big modules. Prove their nonvanishing from the appropriate bottom piece and the induced-module universal property.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -884,13 +954,13 @@ Proof or construction:
 
 Check: Do not apply a semisimplicity argument to arbitrary GL₂ isotypic quotients.
 
-Source: GS, Lemma 13.4, pp. 42–43.
+Source: GS, Lemma 13.4 and proof, pp. 42–43; Theorem 14.1(a)–(b), p. 48. GS shows that for nontempered π contained in I\_Q(τ∨) or I\_P(τ∨) the big lift is a quotient of I₂(τ⊗τ) or I₁₃(τ⊗1), and Theorem 14.1 records the nonvanishing of these big lifts.
 
 ### All reverse Langlands-chamber cases
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/nontempered-reverse` (theorem).
 
-For a nontempered σ of H, Θ_G₂(σ)=0 unless σ is J₂(τ⊗τ) or J₁₃(τ⊗1) attached to the EX.1 families. In these cases Θ_G₂(σ) is a nonzero quotient of IQ(τ) or IP(τ), respectively. Prove this for all seven proper standard Levi types P₁,P₂,P₃,P₁₂,P₁₃,P₂₃,P₁₂₃, with strictly positive real Langlands exponents and the actual M₂ coordinate order.
+For a nontempered σ of H, Θ\_G₂(σ)=0 unless σ is J₂(τ⊗τ) or J₁₃(τ⊗1) attached to the EX.1 families. In these cases Θ\_G₂(σ) is a nonzero quotient of IQ(τ) or IP(τ), respectively. Prove this for all seven proper standard Levi types P₁,P₂,P₃,P₁₂,P₁₃,P₂₃,P₁₂₃, with strictly positive real Langlands exponents and the actual M₂ coordinate order.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -899,18 +969,18 @@ Inputs: ExceptionalThetaCorrespondencesForG2:EX.3/nontempered-forward; Exception
 Proof or construction:
 
 1. Write the full exponent table for every standard Levi using s₁>s₂>|s₃| and its boundary chambers.
-2. In the P₂ case use r_B on the second GL₂ in piece three. For P₂₃ kill that piece by the second-torus exponent; for P₁₂ exchange the two inducing factors before using the same argument.
+2. In the P₂ case use r\_B on the second GL₂ in piece three. For P₂₃ kill that piece by the second-torus exponent; for P₁₂ exchange the two inducing factors before using the same argument.
 3. For P₁,P₃,P₁₃ and Borel cases use the D₆/E₆ top factors and regular lower factors explicitly; identify surviving supports and compare them with the forward result.
 
 Check: A proof with only the P₂ case and a claim that the other cases are similar does not close this target.
 
-Source: GS, Lemma 13.8, pp. 47–48.
+Source: GS, Lemma 13.8 and proof, pp. 47–48. GS shows that a nontempered σ of PGSp₆ has zero G₂ lift unless it is one of the representations of Lemma 13.4, treating the P₂ case and leaving the other standard Levis to the reader; the node requires every case and the corrected GL₂ factor (packet E16).
 
 ### Temperedness and the positive-exponent correspondence
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.3/tempered-compatibility` (theorem).
 
-For any irreducible pair π⊗σ occurring as a quotient of Π_E7, π is nontempered exactly when σ is nontempered. Nontempered π has a nonzero H lift. For the E₆ pairs, positive-exponent Jacquet analysis likewise preserves temperedness on nonzero irreducible theta quotients. These implications are available before the global finite-length theorem.
+For any irreducible pair π⊗σ occurring as a quotient of Π\_E7, π is nontempered exactly when σ is nontempered. Nontempered π has a nonzero H lift. For the E₆ pairs, positive-exponent Jacquet analysis likewise preserves temperedness on nonzero irreducible theta quotients. These implications are available before the global finite-length theorem.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -922,9 +992,9 @@ Proof or construction:
 
 Check: Use this result in preliminary uniqueness without importing final Howe duality.
 
-Source: GS, Lemma 6.3 p. 20; Theorem 14.1 pp. 48–49.
+Source: GS, Lemma 6.3 and proof, p. 20; Theorem 14.1, pp. 48–49. GS states that in each pair π is tempered exactly when its partner is and that nontempered π lift nontrivially to PGSp₆, citing Savin and Gan–Savin 2004 for the E₆ pairs and Theorem 14.1 for E₇.
 
-Stage status: planned. ExceptionalThetaCorrespondencesForG2/G2: Primary minimal-model inputs not obtained ExceptionalThetaCorrespondencesForG2/G9: Split Jacquet orbit twists ExceptionalThetaCorrespondencesForG2/G10: Reverse exponent cases and both finiteness directions Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.2
+Stage status: planned. ExceptionalThetaCorrespondencesForG2/G2: Primary minimal-model inputs not obtained ExceptionalThetaCorrespondencesForG2/G9: Split Jacquet orbit twists ExceptionalThetaCorrespondencesForG2/G10: Reverse exponent cases and both finiteness directions Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.2 The isotypic-quotient identity for parabolic induction (Gan–Gurevich Lemma 9.4), requested from the SmoothRepresentationsOfLocalGroups Part II.
 
 ## EX.4. Triality periods and preliminary uniqueness
 
@@ -936,7 +1006,7 @@ Dependencies: ExceptionalThetaCorrespondencesForG2:EX.0; ExceptionalThetaCorresp
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.4/spin8-degenerate-series` (construction).
 
-For cubic étale E let P_E be the Heisenberg parabolic of Spin₈^E with Levi GL₂(E)^0 (the three determinant coordinates descend to one F× value). Define I_E(s)=Ind_P_E^Spin₈^E |det|^s by normalized induction. For each embedding E→J set RJ(E)=Θ_J(1_HJ,E) on Spin₈^E. Identify it with its natural image in I_E(sJ), with sJ=−1/2 for dim J=9 and +1/2 for dim J=15.
+For cubic étale E let P\_E be the Heisenberg parabolic of Spin₈^E with Levi GL₂(E)^0 (the three determinant coordinates descend to one F× value). Define I\_E(s)=Ind\_P\_E^Spin₈^E |det|^s by normalized induction. For each embedding E→J set RJ(E)=Θ\_J(1\_HJ,E) on Spin₈^E. Identify it with its natural image in I\_E(sJ), with sJ=−1/2 for dim J=9 and +1/2 for dim J=15.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -949,14 +1019,14 @@ Proof or construction:
 API:
 
 - `spin8_series_equivariance`: The induced module has the normalized smooth Spin₈^E action and commutes with cubic-algebra isomorphism.
-- `rj_period_hom`: Hom_G₂(RJ(E),π∨) is the HJ,E-invariant period on the corresponding exceptional theta module.
-- `rj_induced_embedding`: The embedding of RJ(E) in I_E(sJ) respects both the group action and the chosen normalization.
+- `rj_period_hom`: Hom\_G₂(RJ(E),π∨) is the HJ,E-invariant period on the corresponding exceptional theta module.
+- `rj_induced_embedding`: The embedding of RJ(E) in I\_E(sJ) respects both the group action and the chosen normalization.
 
 Discriminating tests:
 
-- `split_levi`: For E=F³ the Levi consists of triples of GL₂ matrices with equal determinants.
-- `division_nonembedding`: If E is not a field there is no embedding in cubic division D and RD(E)=0.
-- `parameter_sign`: The division and split-matrix images occur at −1/2, while the 15-dimensional image occurs at +1/2; interchanging these signs fails the exact sequences.
+- `spin8_split_levi` (computation): For E=F³ the Levi consists of triples of GL₂ matrices with equal determinants.
+- `rj_division_nonfield` (degenerate): If E is not a field there is no embedding in cubic division D and RD(E)=0.
+- `rj_parameter_sign` (non-example): The division and split-matrix images occur at −1/2, while the 15-dimensional image occurs at +1/2; interchanging these signs fails the exact sequences.
 
 Uses:
 
@@ -965,13 +1035,15 @@ Uses:
 
 Check: Use a common determinant in GL₂(E)^0; ordinary Res GL₂ has too large a center.
 
-Source: GS, §5.1–§5.2, pp. 16–17.
+Source: GS, §§5.1–5.2 and Proposition 5.2, pp. 16–17. GS defines R\_J(E) as the big theta lift of the trivial representation of H\_{J,E}, the Heisenberg parabolic of Spin₈^E with Levi GL₂(E)⁰ and the degenerate series I\_E(s), and states that R\_J(E) embeds in I\_E(s\_J) with s\_J = −1/2 for D⁺ and M₃(F)⁺ and 1/2 for H₃(M₂(F)).
+
+Planet: Trialitarian degenerate series.
 
 ### The triality exact sequences
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.4/spin8-constituents` (theorem).
 
-I_E(1/2) has length three for E a field and length two otherwise, with irreducible socle V. There are exact sequences 0→R15(E)→I_E(1/2)→RD(E)→0 and 0→V→R15(E)→RM3(E)→0. RD(E)=0 if E is not a field. Every constituent is tracked as a smooth G₂ module after restriction, while its Spin₈^E structure controls the extensions.
+I\_E(1/2) has length three for E a field and length two otherwise, with irreducible socle V. There are exact sequences 0→R15(E)→I\_E(1/2)→RD(E)→0 and 0→V→R15(E)→RM3(E)→0. RD(E)=0 if E is not a field. Every constituent is tracked as a smooth G₂ module after restriction, while its Spin₈^E structure controls the extensions.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -981,15 +1053,15 @@ Proof or construction:
 
 1. Compute the degenerate intertwiner image and kernel, identify the Jordan-rank orbit pieces and spherical quotient, and check the field/nonfield length distinction.
 
-Check: For nonfield E the first exact sequence identifies R15 with all of I_E(1/2).
+Check: For nonfield E the first exact sequence identifies R15 with all of I\_E(1/2).
 
-Source: GS, Proposition 5.2, p. 17.
+Source: GS, Proposition 5.2, p. 17. GS states that I\_E(1/2) has length three when E is a field and two otherwise, with unique irreducible submodule V and the two exact sequences relating R\_{H₃(M₂(F))}(E), R\_{M₃(F)}(E) and R\_D(E).
 
 ### The division-period Ext obstruction
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.4/division-ext-vanishing` (theorem).
 
-For a cubic field E, Ext¹_G₂(RD(E),π)=0 when π is tempered or when π has supercuspidal support other than that of πdeg[1]. The ambient Ext is in the full smooth category. In the tempered case use the exact supplier comparison between smooth Ext and Schwartz Ext and discrete-series projectivity in the tempered Schwartz category; never assert that every discrete series is projective among all smooth representations.
+For a cubic field E, Ext¹\_G₂(RD(E),π)=0 when π is tempered or when π has supercuspidal support other than that of πdeg[1]. The ambient Ext is in the full smooth category. In the tempered case use the exact supplier comparison between smooth Ext and Schwartz Ext and discrete-series projectivity in the tempered Schwartz category; never assert that every discrete series is projective among all smooth representations.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1001,13 +1073,13 @@ Proof or construction:
 
 Check: The proof must name the category of each Ext and the direction of the comparison.
 
-Source: GS, Proposition 5.3 and proof, pp. 17–18.
+Source: GS, Proposition 5.3 and proof, pp. 17–18. GS shows that Ext¹\_{G₂}(R\_D(E), π) vanishes for E a field and π tempered or with cuspidal support different from that of π\_deg[1], using the decomposition of R\_D(E) from Savin and the projectivity of discrete series in the tempered category.
 
-### The G₂ restriction of I_E(s)
+### The G₂ restriction of I\_E(s)
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.4/triality-mackey` (theorem).
 
-I_E(s)|G₂ has an open piece c-Ind_N^G₂ conjugate(ψE) and four boundary pieces J₁=IP(s/2+1/4,Cc(PGL₂)), J₂=mE·IP(s/2+1/4,c-Ind_N₂^PGL₂ ψ), J₃=mE·IQ(s+1,1), J₄=IP(s+1,1), with mE=3,1,0 for E=F³,F×K,cubic field. J₁,J₂ form a submodule and J₃,J₄ the remaining quotient of the boundary module; the filtration order and extension data must be proved.
+I\_E(s)|G₂ has an open piece c-Ind\_N^G₂ conjugate(ψE) and four boundary pieces J₁=IP(s/2+1/4,Cc(PGL₂)), J₂=mE·IP(s/2+1/4,c-Ind\_N₂^PGL₂ ψ), J₃=mE·IQ(s+1,1), J₄=IP(s+1,1), with mE=3,1,0 for E=F³,F×K,cubic field. J₁,J₂ form a submodule and J₃,J₄ the remaining quotient of the boundary module; the filtration order and extension data must be proved.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1015,18 +1087,18 @@ Inputs: ExceptionalThetaCorrespondencesForG2:EX.4/spin8-degenerate-series; Excep
 
 Proof or construction:
 
-1. Classify G₂ orbits on Spin₈^E/P_E via cubic flags, choose representatives and calculate stabilizers.
+1. Classify G₂ orbits on Spin₈^E/P\_E via cubic flags, choose representatives and calculate stabilizers.
 2. Compute restrictions of |det|^s and relative half-moduli on each orbit; prove the open embedding and the boundary exact sequence.
 
 Check: The multiplicity mE counts F factors of E, rather than its total dimension.
 
-Source: GS, Proposition 5.4, p. 18.
+Source: GS, Proposition 5.4, p. 18. GS states, without proof, a five-step G₂-filtration of I\_E(s): the compact induction of the conjugate cubic character at the bottom and four induced pieces, the second and third occurring with multiplicity m\_E = 3, 1, 0 according as E = F³, F × K or a field (packet E4 records the missing proof).
 
 ### Restriction to the open cubic orbit
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.4/triality-restriction-hom` (theorem).
 
-For tempered π and s=1/2, restriction induces Hom_G₂(I_E(1/2),π)≅Hom_N(π∨,ψE). The same conclusion holds for π with Q-supercuspidal support. Prove vanishing of the required Hom and Ext groups of all four boundary pieces. In the Q-support case use nonassociation of P and Q and Bernstein separation of the toral J₃ piece.
+For tempered π and s=1/2, restriction induces Hom\_G₂(I\_E(1/2),π)≅Hom\_N(π∨,ψE). The same conclusion holds for π with Q-supercuspidal support. Prove vanishing of the required Hom and Ext groups of all four boundary pieces. In the Q-support case use nonassociation of P and Q and Bernstein separation of the toral J₃ piece.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1039,13 +1111,13 @@ Proof or construction:
 
 Check: The Q-supercuspidal-support case cannot be inferred from a genericity assertion.
 
-Source: GS, Proposition 5.5 and Lemma 5.6, pp. 18–19.
+Source: GS, Proposition 5.5 and Lemma 5.6 with proofs, pp. 18–19. GS proves that for tempered π, or π with cuspidal support along Q, Hom\_{G₂}(I\_E(1/2), π) is Hom\_N(π∨, ψ\_E), by showing that all Ext groups from the four boundary pieces vanish through central-exponent comparisons; the Q-support case is completed in the node (packet E4).
 
 ### Cubic coefficients of exceptional minimal models
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.4/cubic-minimal-coefficients` (theorem).
 
-For E embedded in J, (ΠJ)_(N,ψE) is c-Ind_HJ,E^HJ 1 with the chosen period convention. If E has no embedding in J the coefficient is zero. In particular a division E₆ lift has no nonfield cubic coefficients. The isomorphism is constructed on the rank-one orbit fiber and commutes with HJ.
+For E embedded in J, (ΠJ)\_(N,ψE) is c-Ind\_HJ,E^HJ 1 with the chosen period convention. If E has no embedding in J the coefficient is zero. In particular a division E₆ lift has no nonfield cubic coefficients. The isomorphism is constructed on the rank-one orbit fiber and commutes with HJ.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1057,13 +1129,16 @@ Proof or construction:
 
 Check: An E selected for a nonzero division lift is automatically a field; the Ext theorem is never applied to nonfield E.
 
-Source: GS, Lemma 6.4 proof, p. 21; §7 p. 23.
+Sources:
+
+- GS, proof of Lemma 6.4, p. 21; Proposition 7.1(iv), p. 23: GS uses that the twisted Jacquet module of the minimal representation along N for ψ\_E is compactly induced from H\_{J,E} to H\_J, and records the division-algebra case as Hom\_N(Θ(τ), ψ\_E) ≅ Hom\_{PE×}(τ, ℂ).
+- GrS, Chapter 6, §2, Lemma 2.9, p. 213: Gross–Savin compute a twisted Jacquet module of the minimal representation along the Heisenberg radical as a compactly induced module; GS cites this lemma for the identification in Lemma 6.4.
 
 ### The finite cubic period chain
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.4/cubic-period-chain` (theorem).
 
-Suppose tempered π⊗τ is a quotient of ΠJ and E embeds in J. There are natural injections W_E(π)→W_E(ΘJ(τ))≅Hom_HJ,E(τ∨,1)→Hom_HJ,E(ΘJ(π∨),1)≅Hom_G₂(RJ(E),π∨). If any one of these spaces is finite-dimensional, all have that finite dimension, by comparison with Hom(I_E(1/2),π∨) and the triality exact sequences. The statement retains the conjugate character when replacing π by π∨.
+Suppose tempered π⊗τ is a quotient of ΠJ and E embeds in J. There are natural injections W\_E(π)→W\_E(ΘJ(τ))≅Hom\_HJ,E(τ∨,1)→Hom\_HJ,E(ΘJ(π∨),1)≅Hom\_G₂(RJ(E),π∨). If any one of these spaces is finite-dimensional, all have that finite dimension, by comparison with Hom(I\_E(1/2),π∨) and the triality exact sequences. The statement retains the conjugate character when replacing π by π∨.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1076,7 +1151,9 @@ Proof or construction:
 
 Check: The finite-dimensional hypothesis is checked via nongeneric cubic finiteness, not assumed for arbitrary irreducibles.
 
-Source: GS, Lemma 6.4, p. 21.
+Source: GS, Lemma 6.4 and proof, p. 21. GS gives the chain of inclusions from Hom\_N(π, ψ\_E) through the cubic coefficients of Θ(τ) and the H\_{J,E}-periods to Hom\_{G₂}(R\_J(E), π∨), and shows they are equalities when one space is finite-dimensional, using Propositions 5.3 and 5.5.
+
+Planet: Cubic period comparison.
 
 ### Preliminary nongeneric uniqueness
 
@@ -1094,13 +1171,15 @@ Proof or construction:
 
 Check: No hypothesis that the full big theta module already has finite length enters this argument.
 
-Source: GS, Propositions 6.6–6.7, p. 22.
+Source: GS, Propositions 6.6–6.7, p. 22. GS proves that a tempered nongeneric quotient of Θ\_J(τ) is its unique irreducible tempered quotient, and that Θ\_J(π) for nongeneric tempered π has at most one tempered irreducible quotient, by counting cubic period dimensions.
+
+Planet: Nongeneric tempered uniqueness.
 
 ### Existence before exclusion
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.4/weak-existence` (theorem).
 
-Every nongeneric infinite-dimensional tempered π has at least one nonzero theta lift to PD× or PGSp₆. Choose a nonzero cubic coefficient, use the open-orbit restriction and 0→R15→I_E→RD→0 to obtain a nonzero map from one of the two RJ modules, then apply the see-saw. This gives existence only; mutual exclusion is proved after noncuspidal finiteness.
+Every nongeneric infinite-dimensional tempered π has at least one nonzero theta lift to PD× or PGSp₆. Choose a nonzero cubic coefficient, use the open-orbit restriction and 0→R15→I\_E→RD→0 to obtain a nonzero map from one of the two RJ modules, then apply the see-saw. This gives existence only; mutual exclusion is proved after noncuspidal finiteness.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1108,11 +1187,11 @@ Inputs: ExceptionalThetaCorrespondencesForG2:EX.1/cubic-finiteness; ExceptionalT
 
 Proof or construction:
 
-1. Apply Hom_G₂(−,π) to the exact sequence and use the nonzero Hom of I_E provided by the chosen coefficient.
+1. Apply Hom\_G₂(−,π) to the exact sequence and use the nonzero Hom of I\_E provided by the chosen coefficient.
 
 Check: When E is not a field, RD=0 and the surviving lift is necessarily the 15-dimensional one.
 
-Source: GS, §6.3, pp. 20–21.
+Source: GS, §6.3, p. 20. GS shows that a nongeneric tempered π lifts to PD× or PGSp₆ by choosing a nonzero cubic coefficient, applying Propositions 5.5 and 5.3 and then the see-saw identity.
 
 Stage status: planned. ExceptionalThetaCorrespondencesForG2/G3: Residual-characteristic wavefront argument ExceptionalThetaCorrespondencesForG2/G6: Triality structure and omitted Mackey proof ExceptionalThetaCorrespondencesForG2/G7: Schwartz Ext supplier obligations Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.3
 
@@ -1139,7 +1218,12 @@ Proof or construction:
 
 Check: Nonvanishing for every τ is not asserted here at residue characteristic 3.
 
-Source: GS, Theorem 7.2 and proof, pp. 23–24; Sav §5 pp. 398–399.
+Sources:
+
+- GS, Proposition 7.1 and Theorem 7.2 with proof, p. 23: GS recalls Savin's results for PD× × G₂ (the lift of the trivial representation is π\_deg[1], other lifts are nongeneric supercuspidal of finite length, and cubic coefficients are PE×-periods) and proves that nonzero lifts are irreducible and determine τ; the injection of all of Irr(PD×) needs p ≠ 3 (see EX.5/division-nonvanishing).
+- Sav, §5, pp. 398–399: Savin computes the Jacquet modules of the minimal representation of the division E₆ form along the G₂ parabolics, giving the supercuspidality of Θ(τ) for nontrivial τ.
+
+Planet: The division correspondence.
 
 ### The residue-characteristic bound for division nonvanishing
 
@@ -1158,13 +1242,16 @@ Proof or construction:
 
 Check: The prime-degree theorem needs a primary proof audit; its stated coprimality hypothesis is retained.
 
-Source: GS, Proposition 7.1(iii) and Theorem 7.2(iii), p. 23; Sav §6, pp. 399–400.
+Sources:
+
+- GS, Proposition 7.1(iii) and Theorem 7.2(iii) with proof, p. 23: GS identifies the lifts of the nontrivial unramified cubic characters with π\_sc[ω] and π\_sc[ω²] and, for p ≠ 3, deduces nonvanishing of every lift from the theorem of Lonka–Tandon that every irreducible τ has a PE×-period for some cubic field E. The third part is misprinted as (ii) (packet E6).
+- Sav, §6, pp. 399–400: Savin proves supercuspidality and identifies the depth-zero lifts of the unramified cubic characters through minimal types.
 
 ### Opposite division algebras and contragredients
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.5/opposite-division-compatibility` (theorem).
 
-For degree-three central simple D, the identity on its vector space identifies the Jordan algebras D⁺ and (Dop)⁺, while x↦x⁻¹ identifies PD× with P(Dop)×. Under this identification and the imported Jacquet–Langlands normalization, θ(JL_D(τ))≅θ(JL_Dop(τ∨)). In the sequel’s enhancement construction, nonvanishing is available for all enhancements at p≠3; at p=3 use only the trivial enhancement or subregular-SL₂ cases proved there.
+For degree-three central simple D, the identity on its vector space identifies the Jordan algebras D⁺ and (Dop)⁺, while x↦x⁻¹ identifies PD× with P(Dop)×. Under this identification and the imported Jacquet–Langlands normalization, θ(JL\_D(τ))≅θ(JL\_Dop(τ∨)). In the sequel’s enhancement construction, nonvanishing is available for all enhancements at p≠3; at p=3 use only the trivial enhancement or subregular-SL₂ cases proved there.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1176,13 +1263,13 @@ Proof or construction:
 
 Check: This target compares already defined local theta modules; it does not construct G₂ LLC.
 
-Source: LL, LL §3.5, p. 15.
+Source: LL, §3.5, pp. 14–15. Gan–Savin note that the Jordan algebras of D\_j and D\_{−j} are isomorphic, with x ↦ x⁻¹ inducing PD\_j× ≅ PD\_{−j}×, so that the theta lift of a Jacquet–Langlands transfer through D\_j agrees with that of the contragredient through D\_{−j}; nonvanishing uses p ≠ 3.
 
 ### PGL₃ outer extensions and their signs
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-clifford-labels` (definition).
 
-Put H₃=PGL₃⋊⟨ι⟩ with the pinned involution in EX.2. For nonselfdual irreducible τ, τ+=Ind_PGL₃^H₃ τ is irreducible and is unchanged by τ↦τ∨. For selfdual τ there are two extensions τ±. If τ is generic, τ+ is the unique extension supporting ψ_U⊗1 on U⋊C₂. For nongeneric selfdual τ (including 1 and the quadratic Borel Langlands quotients), choose the unique extension occurring in Π_E6 as plus, using the independent E₆ model classification; minus has zero lift.
+Put H₃=PGL₃⋊⟨ι⟩ with the pinned involution in EX.2. For nonselfdual irreducible τ, τ+=Ind\_PGL₃^H₃ τ is irreducible and is unchanged by τ↦τ∨. For selfdual τ there are two extensions τ±. If τ is generic, τ+ is the unique extension supporting ψ\_U⊗1 on U⋊C₂. For nongeneric selfdual τ (including 1 and the quadratic Borel Langlands quotients), choose the unique extension occurring in Π\_E6 as plus, using the independent E₆ model classification; minus has zero lift.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1195,14 +1282,14 @@ Proof or construction:
 API:
 
 - `pgl3_outer_restrict`: Restriction of τ+ is τ⊕τ∨ in the nonselfdual case and τ in either selfdual extension.
-- `pgl3_outer_generic_plus`: For generic selfdual τ the plus extension has a one-dimensional ψ_U⊗1 space and the minus extension has none.
+- `pgl3_outer_generic_plus`: For generic selfdual τ the plus extension has a one-dimensional ψ\_U⊗1 space and the minus extension has none.
 - `pgl3_outer_dual`: Transport by ι matches the contragredient and identifies the nonselfdual induced labels.
 
 Discriminating tests:
 
-- `nonselfdual`: A GL₃ parameter not isomorphic to its dual yields only one H₃ irreducible above its two-element orbit.
-- `steinberg`: The two extensions of St_PGL₃ are distinct and only plus has the trivial C₂ action on its Whittaker line.
-- `nongeneric_trivial`: The plus extension of the trivial PGL₃ module must be determined by the E₆ model; a Whittaker-based definition alone cannot label it.
+- `pgl3_outer_nonselfdual` (computation): A GL₃ parameter not isomorphic to its dual yields only one H₃ irreducible above its two-element orbit.
+- `pgl3_outer_steinberg` (characterisation): The two extensions of St\_PGL₃ are distinct and only plus has the trivial C₂ action on its Whittaker line.
+- `pgl3_outer_trivial` (non-example): The plus extension of the trivial PGL₃ module must be determined by the E₆ model; a Whittaker-based definition alone cannot label it.
 
 Uses:
 
@@ -1211,13 +1298,19 @@ Uses:
 
 Check: For nonselfdual τ there is one induced representation, not two arbitrarily signed extensions.
 
-Source: GS, §8.1, p. 24; Theorem 8.2, pp. 25–26; GS04 §§6–8, pp. 800–803.
+Sources:
+
+- GS, §8.1, p. 24: GS realises the outer Z/2Z on PGL₃ by a pinned automorphism, distinguishes the two extensions of a Whittaker character, defines τ⁺ for nonself-dual τ and, for self-dual generic τ, as the extension with a Z/2Z-trivial Whittaker functional, and defines the plus extension of the nongeneric self-dual Langlands quotients through their lift. The node adds the trivial representation to that list (packet E7).
+- GS, Theorem 8.2, pp. 25–26: GS records which extensions lift nontrivially.
+- GS04, §8, Theorem 11, pp. 799–801: Gan–Savin 2004 determine the lifts of the non-square-integrable representations of PGL₃, which include the nongeneric self-dual Langlands quotients whose lifts GS §8.1 uses to define their plus extensions.
+
+Planet: The PGL₃ outer signs.
 
 ### E₆ Whittaker, cubic and oscillator fibers
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.5/e6-coefficient-models` (theorem).
 
-For the fixed outer extension, Π_(V,ψV)=c-Ind_(U⋊C₂)^H₃(ψU⊗1); its cubic coefficients are c-Ind_(PE×⋊C₂)^H₃ 1. The [U,U]-twisted quotient with nontrivial central character is the oscillator module c-Ind_(GL₂⋊C₂)^H₃ Cc(M₂(F)), where GL₂ occupies the first and third coordinates and C₂ acts by the orthogonal involution prescribed by the model. Prove that each indicated disconnected stabilizer has trivial fiber character.
+For the fixed outer extension, Π\_(V,ψV)=c-Ind\_(U⋊C₂)^H₃(ψU⊗1); its cubic coefficients are c-Ind\_(PE×⋊C₂)^H₃ 1. The [U,U]-twisted quotient with nontrivial central character is the oscillator module c-Ind\_(GL₂⋊C₂)^H₃ Cc(M₂(F)), where GL₂ occupies the first and third coordinates and C₂ acts by the orthogonal involution prescribed by the model. Prove that each indicated disconnected stabilizer has trivial fiber character.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1230,7 +1323,7 @@ Proof or construction:
 
 Check: Knowing the connected coefficient is insufficient to determine the sign of the disconnected extension.
 
-Source: GS, Lemma 8.1, pp. 24–25; Lemma 8.3, p. 26; GS04 §6, p. 800.
+Source: GS, Lemma 8.1, pp. 24–25; Lemma 8.3, p. 26. GS states, as a summary of elementary computations, that the G₂-Whittaker coefficient of the E₆ ⋊ Z/2Z minimal representation is compactly induced from the trivial-sign extension of the PGL₃ Whittaker character, gives the cubic coefficients as PE× ⋊ Z/2Z-periods, and computes the [U,U]-twisted coefficient as an induced Weil representation on C\_c(M₂(F)). Packet E8 records the missing proofs of the outer signs.
 
 ### The generic supercuspidal precursor
 
@@ -1248,13 +1341,13 @@ Proof or construction:
 
 Check: Do not cite the final E₇ Howe theorem to supply this earlier injectivity input.
 
-Source: SW, §3 generic dichotomy; Proposition 4.6, pp. 36–37.
+Source: SW, Introduction, pp. 1–2; §3 (construction of the dichotomy map), pp. 16–27; Proposition 4.6, p. 37. Savin–Weissman attach to each generic supercuspidal of G₂ either a generic supercuspidal of PGSp₆ whose spin L-function has a pole at 0 or a contragredient pair of generic supercuspidals of PGL₃, prove injectivity for all p, and in Proposition 4.6 show that a generic supercuspidal of PGSp₆ lifts to G₂ exactly when it has a Shalika functional, the lift being generic supercuspidal.
 
 ### Nonzero minus lift for selfdual supercuspidals
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-minus-supercuspidal` (theorem).
 
-For selfdual supercuspidal τ of PGL₃, Θ(τ−) is nonzero, nongeneric and supercuspidal. Produce a nonzero oscillator-model Hom from τ|GL₂ using a generic GL₂ quotient and classical theta, then split the resulting map by supercuspidal projectivity in its compact-center block.
+For selfdual supercuspidal τ of PGL₃, Θ(τ−) is nonzero, nongeneric and supercuspidal. Produce a nonzero oscillator-model Hom from τ|GL₂ using a generic GL₂ quotient and classical theta, then split the resulting map by supercuspidal projectivity in its compact-center block. Self-dual supercuspidal representations of PGL₃ exist only in residue characteristic 2.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1268,17 +1361,20 @@ Proof or construction:
 
 Check: Finite-dimensional algebraic GL₃ branching is not a substitute for the smooth p-adic restriction theorem.
 
-Source: GS, Proposition 8.4 and proof, pp. 26–27; Pra Theorem 3, p. 174.
+Sources:
+
+- GS, Proposition 8.4 and proof, pp. 26–27: GS proves that the minus extension of a self-dual supercuspidal of PGL₃ (which exists only when p = 2) has nonzero lift, using Lemma 8.3, a generic GL₂ quotient of the restriction of τ and the rank-one O₃ theta lifts with conjugate character (packet E9).
+- Pra, Theorem 3, p. 174 (as cited by GS in the proof of Proposition 8.4): Prasad's theorem on generic GL₂ quotients of the restriction of a generic GL₃ representation; the file could not be fetched for this review, so the statement is taken as GS cite it.
 
 ### The split-E₆ lift table
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-explicit-lifts` (theorem).
 
-For nonselfdual τ of PGL₃, θ(τ+) is nonzero and has the same tempered/discrete-series status as τ. For selfdual τ: a parameter containing 1 has only a nonzero plus lift, which is not discrete series; St_PGL₃ has plus lift πgen[1] and minus lift πsc[1]; a selfdual supercuspidal has generic supercuspidal plus lift and nongeneric supercuspidal minus lift; a tempered GL₂-induced selfdual parameter with nontrivial determinant gives the generic/degenerate pair in the P-series; the distinct nontrivial quadratic triple gives πgen[χ₁,χ₂] and πdeg[χ₁,χ₂]. For nongeneric selfdual τ only the plus extension lifts. State genericity of the small lift of a generic input only in the tempered cases of this table.
+For nonselfdual τ of PGL₃, θ(τ+) is nonzero and has the same tempered/discrete-series status as τ. For selfdual τ: a parameter containing 1 has only a nonzero plus lift, which is not discrete series; St\_PGL₃ has plus lift πgen[1] and minus lift πsc[1]; a selfdual supercuspidal has generic supercuspidal plus lift and nongeneric supercuspidal minus lift; a tempered GL₂-induced selfdual parameter with nontrivial determinant gives the generic/degenerate pair in the P-series; the distinct nontrivial quadratic triple gives πgen[χ₁,χ₂] and πdeg[χ₁,χ₂]. For nongeneric selfdual τ only the plus extension lifts. State genericity of the small lift of a generic input only in the tempered cases of this table.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
-Inputs: ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-clifford-labels; ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-minus-supercuspidal; ExceptionalThetaCorrespondencesForG2:EX.5/e6-coefficient-models; ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-supercuspidal; ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-steinberg; ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-characters; ExceptionalThetaCorrespondencesForG2:EX.1/g2-q-supercuspidal; ExceptionalThetaCorrespondencesForG2:EX.1/g2-q-segments; ExceptionalThetaCorrespondencesForG2:EX.1/g2-borel; ExceptionalThetaCorrespondencesForG2:EX.1/partial-g2-packets; SmoothRepresentationsOfLocalGroups:SR.3/langlands-classification; EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-correspondence; ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-supercuspidal.
+Inputs: ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-clifford-labels; ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-minus-supercuspidal; ExceptionalThetaCorrespondencesForG2:EX.5/e6-coefficient-models; ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-supercuspidal; ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-steinberg; ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-characters; ExceptionalThetaCorrespondencesForG2:EX.1/g2-q-supercuspidal; ExceptionalThetaCorrespondencesForG2:EX.1/g2-q-segments; ExceptionalThetaCorrespondencesForG2:EX.1/g2-borel; ExceptionalThetaCorrespondencesForG2:EX.1/partial-g2-packets; SmoothRepresentationsOfLocalGroups:SR.3/langlands-classification; EndoscopicTransferAndUnitaryTraceComparison:ET.6/full-wd-correspondence.
 
 Proof or construction:
 
@@ -1288,7 +1384,12 @@ Proof or construction:
 
 Check: The nontempered generic-input assertion in the v1 prose must not be used without this distinction.
 
-Source: GS, Theorem 8.2 pp. 25–26 and Proposition 8.4 p. 28; GS04 §§7–11 pp. 801–806.
+Sources:
+
+- GS, Theorem 8.2, pp. 25–26; Theorem 8.5(i) and proof, pp. 27–28: GS lists the lifts from PGL₃ ⋊ Z/2Z: nonself-dual τ⁺ lifts irreducibly preserving its type, self-dual parameters containing 1 give only a plus lift which is not discrete series, and the self-dual cases without 1 split into a generic and a nongeneric lift (St⁺ ↦ π\_gen[1], St⁻ ↦ π\_sc[1] on p. 28). The node restricts genericity preservation to the tempered cases (packet E7).
+- GS04, §§8–9 and 11 (Theorems 11, 14, 15 and 21), pp. 799–807: Gan–Savin 2004 determine the lifts of the non-square-integrable representations, the twisted Steinberg representations and the Steinberg representation of PGL₃, and show that the lift of a supercuspidal is supercuspidal with a unique generic summand, irreducible when the input is not self-dual; they leave its explicit identification open.
+
+Planet: The split-E₆ lift table.
 
 ### Howe duality for split E₆
 
@@ -1308,35 +1409,42 @@ Proof or construction:
 
 Check: The dependency graph must not return from this theorem to final E₇ finiteness.
 
-Source: GS, Theorem 8.5 and proof, pp. 27–29.
+Source: GS, Theorem 8.5 and proof, pp. 27–29. GS proves that for every irreducible τ^ε the big lift has finite length with unique irreducible quotient if nonzero, completes the nonvanishing cases, and deduces Howe duality for the pair, using Savin–Weissman for generic supercuspidals and Proposition 6.6 for nongeneric tempered inputs.
 
-Stage status: planned. ExceptionalThetaCorrespondencesForG2/G5: Finite-field cuspidal labels and examples ExceptionalThetaCorrespondencesForG2/G8: Exceptional raw coefficient proofs ExceptionalThetaCorrespondencesForG2/G11: Prime-degree torus distinction primary proof ExceptionalThetaCorrespondencesForG2/G12: Savin–Weissman supercuspidal and spin-factor proof audit Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.3, ExceptionalThetaCorrespondencesForG2:EX.4
+Planet: Howe duality for split E₆.
+
+Stage status: planned. ExceptionalThetaCorrespondencesForG2/G5: Finite-field cuspidal labels and examples ExceptionalThetaCorrespondencesForG2/G8: Exceptional raw coefficient proofs ExceptionalThetaCorrespondencesForG2/G11: Prime-degree torus distinction primary proof ExceptionalThetaCorrespondencesForG2/G12: Savin–Weissman supercuspidal and spin-factor proof audit Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.3, ExceptionalThetaCorrespondencesForG2:EX.4 Prasad’s GL₃ ↓ GL₂ theorem, requested from the SmoothRepresentationsOfLocalGroups Part II.
 
 ## EX.6. Auxiliary restrictions, finiteness and dichotomy
 
-Import the already owned orthogonal-minimal theta input; identify its exceptional comparison and mixed Mp₂–G₂ module, prove noncuspidal finiteness in both E₇ directions and establish the division/PGSp₆ dichotomy.
+Import the orthogonal-minimal lift and the restricted Mp₂ × G₂ oscillator owned by MetaplecticAutomorphicForms (§§3.38a–3.39); identify their exceptional comparison and the supercuspidal lifts through that oscillator, prove noncuspidal finiteness in both E₇ directions and establish the division/PGSp₆ dichotomy.
 
-Dependencies: ExceptionalThetaCorrespondencesForG2:EX.0; ExceptionalThetaCorrespondencesForG2:EX.2; ExceptionalThetaCorrespondencesForG2:EX.3; ExceptionalThetaCorrespondencesForG2:EX.4; ExceptionalThetaCorrespondencesForG2:EX.5; MetaplecticAutomorphicForms:MP.2; MetaplecticAutomorphicForms:MP.3; SmoothRepresentationsOfLocalGroups:SR.2; SmoothRepresentationsOfLocalGroups:SR.2a; SmoothRepresentationsOfLocalGroups:SR.3.
+Dependencies: ExceptionalThetaCorrespondencesForG2:EX.0; ExceptionalThetaCorrespondencesForG2:EX.2; ExceptionalThetaCorrespondencesForG2:EX.3; ExceptionalThetaCorrespondencesForG2:EX.4; ExceptionalThetaCorrespondencesForG2:EX.5; MetaplecticAutomorphicForms:MP.3; SmoothRepresentationsOfLocalGroups:SR.2; SmoothRepresentationsOfLocalGroups:SR.2a; SmoothRepresentationsOfLocalGroups:SR.3.
 
-### The mixed Weil Mp₂×G₂ module
+### Supercuspidal lifts through the restricted Mp₂ × G₂ oscillator
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.6/mixed-mp2-g2-module` (theorem).
 
-Restrict the classical Weil representation for Mp₂×SO₇ to Mp₂×G₂ and denote it Ω. For the upper unipotent N of Mp₂ its unnormalized Jacquet module fits 0→|a|^(7/2)χψ(a)·Ind_(T×Q)^(T×G₂) S(F×)→Ω_N→|a|^(7/2)χψ(a)→0, with T acting on φ by φ(ax) and Q by inverse determinant. For a genuine supercuspidal σ not in the odd Weil exception and with zero SO₃ first lift, ΘΩ(σ) is irreducible nongeneric supercuspidal, FJψ recovers σ∨, and distinct σ give distinct G₂ lifts.
+Let Ω be the restriction to Mp₂ × G₂ of the oscillator representation of Mp₂ × SO₇, as constructed in MetaplecticAutomorphicForms §3.38a with its Jacquet sequence along the unipotent radical of Mp₂ and its cuspidal injectivity. For a genuine supercuspidal σ of Mp₂ that is not an odd Weil representation and whose lift to the split SO₃ vanishes, the small lift θ\_Ω(σ) to G₂ is an irreducible nongeneric supercuspidal representation and its Fourier–Jacobi model FJ\_ψ(θ\_Ω(σ)) is σ∨; in particular σ is determined by θ\_Ω(σ).
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
-Inputs: ExceptionalThetaCorrespondencesForG2:EX.0/parabolics; MetaplecticAutomorphicForms:MP.3/division-ternary-theta; MetaplecticAutomorphicForms:MP.2; SmoothRepresentationsOfLocalGroups:SR.2/jacquet-module.
+Inputs: ExceptionalThetaCorrespondencesForG2:EX.0/parabolics; MetaplecticAutomorphicForms:MP.3; MetaplecticAutomorphicForms:MP.3/division-ternary-theta; SmoothRepresentationsOfLocalGroups:SR.2/jacquet-module.
 
 Proof or construction:
 
-1. Derive the evaluation-at-zero sequence and all unnormalized torus weights.
-2. Use first occurrence and the Fourier–Jacobi model to identify the supercuspidal quotient and its inverse functor.
-3. Keep the odd Weil case separate: its big lift has an additional nongeneric Steinberg constituent.
+1. Import the restricted oscillator, its Jacquet exact sequence and the cuspidal injectivity of MetaplecticAutomorphicForms §3.38a (Gan–Gurevich Proposition 8.1 and Theorem 9.1(c,d)); do not construct them again.
+2. Follow Gan–Gurevich §9.5: their Proposition 8.3 gives FJ\_ψ(θ(σ)) = σ∨ when the SO₃ lift vanishes; Proposition 8.3(i) with Proposition 6.9(iv) shows the centre coinvariants vanish, so θ(σ) is nongeneric and supercuspidal; irreducibility of the Fourier–Jacobi module with Propositions 7.5, 7.7 and Corollary 8.2 excludes a second summand.
+3. Keep the odd Weil case and the case of nonzero SO₃ lift separate; they contribute a Langlands quotient from P₂.
 
-Check: Forgetting the T action destroys the exponent argument; the odd Weil exception cannot be suppressed.
+Check: The theorem is stated for the restricted oscillator, which is not a type-I dual pair; the module itself is MetaplecticAutomorphicForms §3.38a.
 
-Source: GG, GG Propositions 8.1, 8.3–8.4 pp. 27–28; Theorem 9.1 pp. 33–35.
+Sources:
+
+- GG, Theorem 9.1(d), p. 33, and its proof in §9.5, pp. 36–37: Gan–Gurevich show that for a genuine supercuspidal σ of the metaplectic SL₂ other than an odd Weil representation, with vanishing lift to the split SO₃, the lift θ(σ) to G₂ through the restricted 7-dimensional oscillator is an irreducible nongeneric supercuspidal whose Fourier–Jacobi model recovers σ∨, so that σ is determined by θ(σ).
+- GG, Propositions 8.1, 8.3–8.4, pp. 27–28: Gan–Gurevich compute the Jacquet module of the restricted oscillator along the unipotent radical of the metaplectic Borel and its Fourier–Jacobi coefficients; these inputs are owned by MetaplecticAutomorphicForms §3.38a.
+
+Planet: Metaplectic lifts to G₂.
 
 ### Comparison with the owned orthogonal theta input
 
@@ -1355,7 +1463,7 @@ Proof or construction:
 
 Check: A map into a full algebraic dual is not an isomorphism with a smooth contragredient by default.
 
-Source: GS, Proposition 14.2 and identity (14.3), pp. 50–51; §14.3, pp. 51–52.
+Source: GS, Proposition 14.2 and identity (14.3), pp. 50–51; §14.3, pp. 51–52. GS shows that for tempered π of G₂ the lift through the minimal representation of SO(2n), n = 5, 6, to SO(2n−7) has finite length, using the see-saw (14.3) with the metaplectic SL₂ and the Weil representation of the metaplectic SL₂ × SO₇ restricted to G₂ (for which it cites Gan–Gurevich), and in §14.3 uses these minimal factors to bound the noncuspidal part on the PGSp₆ side.
 
 ### The A₅ minimal restriction to Sp₆
 
@@ -1373,7 +1481,7 @@ Proof or construction:
 
 Check: The inducing character is a calculation to supply; finite length cannot be asserted from transitivity alone.
 
-Source: GS, §14.3, second case, p. 52.
+Source: GS, §14.3, second case, p. 52. GS observes that Sp₆ acts transitively on the relevant lines, so that the restriction of the A₅-minimal factor to Sp₆ is a degenerate principal series and hence of finite length.
 
 ### Noncuspidal finiteness in both E₇ directions
 
@@ -1393,7 +1501,9 @@ Proof or construction:
 
 Check: No proof may replace the top-piece checks with an unproved assertion of finite multiplicities.
 
-Source: GS, Lemma 6.2, p. 19; §§14.2–14.3, pp. 49–52.
+Source: GS, Lemma 6.2, p. 19; §§14.2–14.3, pp. 49–52. GS states that the noncuspidal part of each big theta lift has finite length and proves the E₇ case in §14 from the Jacquet filtrations of §13 and the finiteness of the minimal-factor lifts; packet E16 records the compressed non-top pieces.
+
+Planet: Noncuspidal theta finiteness.
 
 ### Finite length for nongeneric inputs
 
@@ -1411,7 +1521,10 @@ Proof or construction:
 
 Check: The splitting supplier is used only for the supercuspidal summand.
 
-Source: GS, Corollary 6.8, p. 22; §§14.2–14.3, pp. 49–52.
+Sources:
+
+- GS, Proposition 6.6 and Corollary 6.8, p. 22: GS combines the noncuspidal finiteness with the uniqueness of tempered quotients to show that Θ\_J(π) has finite length with a unique, tempered, irreducible quotient for nongeneric tempered π, and that such quotients determine π; the τ-side statement follows from Proposition 6.6 with Lemma 6.3(i).
+- GS, §§14.2–14.3, pp. 49–52: GS supplies the E₇ noncuspidal finiteness used in this deduction.
 
 ### The exceptional theta dichotomy
 
@@ -1425,19 +1538,21 @@ Inputs: ExceptionalThetaCorrespondencesForG2:EX.4/weak-existence; ExceptionalThe
 
 Proof or construction:
 
-1. For a hypothetical nongeneric tempered lift to both targets choose a nonzero cubic field model of dimension d. The exact sequence for I_E and the Ext vanishing identify the two terminal period contributions with d+d, while the open-orbit Hom space has dimension d; deduce d=0, a contradiction.
+1. For a hypothetical nongeneric tempered lift to both targets choose a nonzero cubic field model of dimension d. The exact sequence for I\_E and the Ext vanishing identify the two terminal period contributions with d+d, while the open-orbit Hom space has dimension d; deduce d=0, a contradiction.
 2. Prove the generic PGSp₆ occurrence from the minimal Whittaker fiber, independently of its full Howe theorem.
 3. Use the full nontempered quotient result and the division discrete-series property for the other cases.
 
 Check: Explicitly construct the dimension identity; an inequality coming only from two separate injections does not prove exclusion.
 
-Source: GS, Theorem 1.1, p. 2; Theorem 6.1, p. 19; §6.5, p. 21.
+Source: GS, Theorem 1.1, p. 2; Theorem 6.1 and §§6.2–6.5, pp. 19–21. GS states that every irreducible representation of G₂ lifts nontrivially to exactly one of PD× and PGSp₆, reduces to nongeneric tempered π (nontempered and generic π lift only to PGSp₆), proves existence by the triality sequence and excludes double lifting by the period-dimension count 2d = d.
+
+Planet: Exceptional theta dichotomy.
 
 ### The two E₇ Whittaker fibers
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.6/minimal-whittaker-fibers` (theorem).
 
-For the fixed minimal representation Π, its generic G₂ coinvariant is c-Ind_S^H ψS and its generic H coinvariant is c-Ind_V^G₂ ψV. Consequently a generic G₂ representation has a nonzero H lift and a nongeneric G₂ input cannot pair with a generic H quotient. These are concrete fiber computations before full Howe duality.
+For the fixed minimal representation Π, its generic G₂ coinvariant is c-Ind\_S^H ψS and its generic H coinvariant is c-Ind\_V^G₂ ψV. Consequently a generic G₂ representation has a nonzero H lift and a nongeneric G₂ input cannot pair with a generic H quotient. These are concrete fiber computations before full Howe duality.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1449,7 +1564,10 @@ Proof or construction:
 
 Check: Identify which group’s character is taken on each side of the two identities.
 
-Source: GS, Corollary 11.2, p. 34; Proposition 11.5, p. 37; HKT Theorem A.7, pp. 25–27.
+Sources:
+
+- GS, Proposition 11.1 and Corollary 11.2, p. 34; Proposition 11.5, p. 37: GS recalls from Gan–Savin 2004 that the PGSp₆-Whittaker coefficient of the E₇ minimal representation is the G₂ Gelfand–Graev module, deduces that a generic π has a big lift with one-dimensional Whittaker space and that nongeneric π cannot pair with generic τ, and states that the G₂-Whittaker coefficient is the Shalika-induced module of PGSp₆.
+- HKT, Theorem A.7 and proof, pp. 25–27: Savin's appendix computes the twisted Jacquet module of the E₇ minimal representation for the PGSp₆ Whittaker character as the G₂ Gelfand–Graev representation.
 
 Stage status: planned. ExceptionalThetaCorrespondencesForG2/G7: Schwartz Ext supplier obligations ExceptionalThetaCorrespondencesForG2/G10: Reverse exponent cases and both finiteness directions Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.3, ExceptionalThetaCorrespondencesForG2:EX.4, ExceptionalThetaCorrespondencesForG2:EX.5
 
@@ -1463,7 +1581,7 @@ Dependencies: ExceptionalThetaCorrespondencesForG2:EX.0; ExceptionalThetaCorresp
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.7/fourier-jacobi-period` (definition).
 
-For Q=LU in G₂ put Z=Z(U), let U/Z be its three-dimensional Heisenberg quotient, and let Lder≅SL₂. Set J=Lder⋉U. The oscillator representation ρψ of U/Z extends to Mp₂⋉U; for a genuine Mp₂ module Iψ(s) form I_conjugateψ(s)⊗ρψ, whose two genuine signs cancel so it descends to J. Define its Fourier–Jacobi period on π by Hom_J(π,I_conjugateψ(s)⊗ρψ), with the normalized genuine principal series and the stated additive-character convention.
+For Q=LU in G₂ put Z=Z(U), let U/Z be its three-dimensional Heisenberg quotient, and let Lder≅SL₂. Set J=Lder⋉U. The oscillator representation ρψ of U/Z extends to Mp₂⋉U; for a genuine Mp₂ module Iψ(s) form I\_conjugateψ(s)⊗ρψ, whose two genuine signs cancel so it descends to J. Define its Fourier–Jacobi period on π by Hom\_J(π,I\_conjugateψ(s)⊗ρψ), with the normalized genuine principal series and the stated additive-character convention.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1481,9 +1599,9 @@ API:
 
 Discriminating tests:
 
-- `central_sign`: Either genuine factor alone fails to descend to SL₂; their tensor descends.
-- `wrong_quotient`: For nontrivial ψ the oscillator has nontrivial center on U/Z and cannot be a representation of U/[U,U].
-- `conjugation`: Replacing ψ by conjugate ψ dualizes the oscillator and conjugates the principal-series character; retaining only one change gives a different period.
+- `fj_genuine_descent` (characterisation): Either genuine factor alone fails to descend to SL₂; their tensor descends.
+- `fj_wrong_quotient` (non-example): For nontrivial ψ the oscillator has nontrivial center on U/Z and cannot be a representation of U/[U,U].
+- `fj_conjugate_character` (non-example): Replacing ψ by conjugate ψ dualizes the oscillator and conjugates the principal-series character; retaining only one change gives a different period.
 
 Uses:
 
@@ -1492,13 +1610,15 @@ Uses:
 
 Check: The oscillator does not factor through U/[U,U], which is abelian.
 
-Source: GS, §11.1–§11.2, pp. 33–34.
+Source: GS, §11.2, p. 34. GS introduces the Jacobi group J = [L,L]U for the three-step parabolic, the representation ρ\_ψ of its two-fold cover, the genuine principal series I\_ψ(s) of the metaplectic SL₂, and defines the Fourier–Jacobi period of π with respect to σ as Hom\_J(π, σ ⊗ ρ\_ψ). The node uses the centre of U/Z(U) (packet E12).
+
+Planet: Fourier–Jacobi periods.
 
 ### The PGSp₆ Shalika period
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.7/shalika-period` (definition).
 
-Let N₂ be the radical of P₂ in H and choose the generic ψ₂ whose stabilizer in M₂ is diagonal PGL₂. Set S=PGL₂^Δ⋉N₂ and extend ψ₂ trivially to ψS on the diagonal factor. Define the Shalika coinvariant π_(S,ψS) and its algebraic-dual functional space Hom_S(π,ψS). Distinguish these dual spaces in every period identity.
+Let N₂ be the radical of P₂ in H and choose the generic ψ₂ whose stabilizer in M₂ is diagonal PGL₂. Set S=PGL₂^Δ⋉N₂ and extend ψ₂ trivially to ψS on the diagonal factor. Define the Shalika coinvariant π\_(S,ψS) and its algebraic-dual functional space Hom\_S(π,ψS). Distinguish these dual spaces in every period identity.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1516,9 +1636,9 @@ API:
 
 Discriminating tests:
 
-- `diagonal_center`: The anti-diagonal central Gm quotient in M₂ acts trivially and the stabilizer is PGL₂, not an extra GL₂ center.
-- `trivial_module`: A trivial H module has zero Shalika period because ψS is nontrivial.
-- `conjugate`: Contragredient period identities use conjugate ψS; an assertion with an unchanged arbitrary unitary ψS fails.
+- `shalika_stabilizer` (computation): The anti-diagonal central Gm quotient in M₂ acts trivially and the stabilizer is PGL₂, not an extra GL₂ center.
+- `shalika_trivial` (degenerate): A trivial H module has zero Shalika period because ψS is nontrivial.
+- `shalika_conjugate` (non-example): Contragredient period identities use conjugate ψS; an assertion with an unchanged arbitrary unitary ψS fails.
 
 Uses:
 
@@ -1527,7 +1647,9 @@ Uses:
 
 Check: This is the P₂ Shalika subgroup of PGSp₆, not the Siegel Shalika subgroup of GL₆.
 
-Source: GS, §11.3, pp. 36–37.
+Source: GS, §11.3, pp. 36–37. GS defines the Shalika subgroup S of PGSp₆ from the radical of P₂ and the diagonal PGL₂ stabilizing a generic character ψ₂, extends ψ₂ trivially to ψ\_S, and takes the Shalika period as the (S, ψ\_S)-coinvariants.
+
+Planet: The PGSp₆ Shalika model.
 
 ### Root exchange with compact integration
 
@@ -1545,13 +1667,13 @@ Proof or construction:
 
 Check: State and verify the fixed-central-character and support hypotheses each time root exchange is used.
 
-Source: GS, Lemma 11.4 and proof, pp. 35–36.
+Source: GS, Lemma 11.4 and proof, pp. 35–36. GS proves that for a smooth module of a Heisenberg group with nontrivial central character and two maximal abelian subgroups X, Y, integration over the complementary root group gives an isomorphism Hom\_X(π, ψ\_X) ≅ Hom\_Y(π, ψ\_Y), and uses it with root groups of G₂ (packet E12 for the lower-central filtration).
 
 ### Enhanced Fourier–Jacobi multiplicity one
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.7/fourier-jacobi-uniqueness` (theorem).
 
-If π is generic irreducible and either tempered or supported on a Q-supercuspidal Bernstein component, then for real s<1/2 the space Hom_J(π,I_conjugateψ(s)⊗ρψ) has dimension one. In particular the value at s=−1/2 needed by the period chain is one-dimensional. This includes the Q-support case independently of temperedness.
+If π is generic irreducible and either tempered or supported on a Q-supercuspidal Bernstein component, then for real s<1/2 the space Hom\_J(π,I\_conjugateψ(s)⊗ρψ) has dimension one. In particular the value at s=−1/2 needed by the period chain is one-dimensional. This includes the Q-support case independently of temperedness.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1565,13 +1687,13 @@ Proof or construction:
 
 Check: The strict inequality s<1/2 and the second support case must both remain visible.
 
-Source: GS, Proposition 11.1 and Lemmas 11.2–11.3, pp. 33–36.
+Source: GS, Lemma 11.3 and proof, pp. 34–36. GS proves that for generic π which is tempered or has cuspidal support on Q the enhanced Fourier–Jacobi space Hom\_G₂(π, Ind\_J(I\_ψ̄(s) ⊗ ρ\_ψ)) is one-dimensional for every s < 1/2, by reducing to a twisted Jacquet functional on T\_β N and exchanging roots.
 
 ### The Shalika fiber of the minimal representation
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.7/minimal-shalika-fiber` (theorem).
 
-With J and S as above, Π_(N₂,ψ₂) is c-Ind_J^G₂(Cc(M₂(F)^0)⊗ρψ) with the commuting diagonal PGL₂ action, and Π_(S,ψS) is c-Ind_J^G₂(I_conjugateψ(1/2)⊗ρψ). In the second formula determine the genuine principal-series normalization by the PGL₂-trivial isotypic quotient of the classical oscillator. The underlying coefficient spaces and actions must be constructed explicitly.
+With J and S as above, Π\_(N₂,ψ₂) is c-Ind\_J^G₂(Cc(M₂(F)^0)⊗ρψ) with the commuting diagonal PGL₂ action, and Π\_(S,ψS) is c-Ind\_J^G₂(I\_conjugateψ(1/2)⊗ρψ). In the second formula determine the genuine principal-series normalization by the PGL₂-trivial isotypic quotient of the classical oscillator. The underlying coefficient spaces and actions must be constructed explicitly.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1580,17 +1702,17 @@ Inputs: ExceptionalThetaCorrespondencesForG2:EX.2/minimal-models; ExceptionalThe
 Proof or construction:
 
 1. Compute the N₂ character fiber in the E₇ rank-one model, identify its stabilizer and verify the action on the traceless-matrix Schrödinger space.
-2. Take diagonal PGL₂ coinvariants using the classical oscillator’s exact sequence and the required Ext¹_PGL₂(1,1)=0; commute this particular quotient with compact induction by the appropriate supplier lemma.
+2. Take diagonal PGL₂ coinvariants using the classical oscillator’s exact sequence and the required Ext¹\_PGL₂(1,1)=0; commute this particular quotient with compact induction by the appropriate supplier lemma.
 
 Check: The compact-induction step needs its own hypotheses and is not justified by the different general parabolic-induction identity.
 
-Source: GS, Lemma 11.6 and Proposition 11.7, pp. 37–38.
+Source: GS, §11.4, Lemma 11.6 and Proposition 11.7, pp. 37–38. GS states the N₂-twisted coefficient of the E₇ minimal representation as a compact induction from J of C\_c(M₂°(F)) ⊗ ρ\_ψ (without proof, packet E13), proves that compact induction commutes with maximal isotypic quotients when Ext¹(τ, τ) = 0, and deduces that the Shalika coefficient is compactly induced from I\_ψ̄(1/2) ⊗ ρ\_ψ.
 
 ### The one-dimensional generic period chain
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.7/generic-period-chain` (theorem).
 
-For tempered π and τ with π⊗τ a quotient of Π, if π is generic then all spaces in the Whittaker–Shalika–Fourier–Jacobi chain of Lemma 12.1 have dimension one. Use Π_(V,ψV)=c-Ind_S ψS and Π_(U,ψU)=c-Ind_V ψV, the Shalika fiber at +1/2, the contragredient/intertwiner to the enhanced period at −1/2, and enhanced multiplicity one. Include the Q-support variant used for generic supercuspidal first occurrence.
+For tempered π and τ with π⊗τ a quotient of Π, if π is generic then all spaces in the Whittaker–Shalika–Fourier–Jacobi chain of Lemma 12.1 have dimension one. Use Π\_(V,ψV)=c-Ind\_S ψS and Π\_(U,ψU)=c-Ind\_V ψV, the Shalika fiber at +1/2, the contragredient/intertwiner to the enhanced period at −1/2, and enhanced multiplicity one. Include the Q-support variant used for generic supercuspidal first occurrence.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1602,7 +1724,9 @@ Proof or construction:
 
 Check: A chain of injections without the nonzero endpoint and the upper dimension bound is insufficient.
 
-Source: GS, Lemma 12.1 and proof, pp. 38–39.
+Source: GS, Lemma 12.1 and proof, pp. 38–39. GS forms the chain of Whittaker, Shalika and Fourier–Jacobi period spaces for a tempered pair π ⊗ τ in the minimal representation and shows they are all one-dimensional when π is generic, using Propositions 11.5 and 11.7 and Lemma 11.3 at s = −1/2.
+
+Planet: The generic period comparison.
 
 ### Uniqueness for generic tempered quotients
 
@@ -1620,7 +1744,7 @@ Proof or construction:
 
 Check: The uniqueness proof must bound the supercuspidal part as well as the noncuspidal part.
 
-Source: GS, Propositions 12.2–12.3, p. 39.
+Source: GS, Propositions 12.2–12.3 and the remark after 12.2, p. 39. GS deduces that Θ(τ) for tempered τ cannot have two tempered generic irreducible quotients and that Θ(π) for tempered generic π cannot have two tempered irreducible quotients; the remark attributing the result to Savin–Weissman is limited to supercuspidal τ (packet E14).
 
 ### Tempered Howe duality in E₇
 
@@ -1638,9 +1762,11 @@ Proof or construction:
 
 Check: Neither an unproved finite-length hypothesis nor a classical oscillator Howe theorem can replace the exceptional argument.
 
-Source: GS, Theorem 12.4, p. 39; §§14.2–14.3, pp. 49–52.
+Source: GS, Theorem 12.4 and proof, p. 39; §§14.2–14.3, pp. 49–52. GS concludes Howe duality for tempered representations of G₂ in G₂ × PGSp₆ (finite length, unique tempered quotient, injectivity) from the uniqueness results and the noncuspidal finiteness of §14; the node also records the PGSp₆ side.
 
-Stage status: planned. ExceptionalThetaCorrespondencesForG2/G8: Exceptional raw coefficient proofs Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.3, ExceptionalThetaCorrespondencesForG2:EX.4, ExceptionalThetaCorrespondencesForG2:EX.5, ExceptionalThetaCorrespondencesForG2:EX.6
+Planet: Tempered exceptional Howe duality.
+
+Stage status: planned. ExceptionalThetaCorrespondencesForG2/G8: Exceptional raw coefficient proofs Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.3, ExceptionalThetaCorrespondencesForG2:EX.4, ExceptionalThetaCorrespondencesForG2:EX.5, ExceptionalThetaCorrespondencesForG2:EX.6 The compact-induction isotypic lemma (GS Lemma 11.6), requested from the SmoothRepresentationsOfLocalGroups Part II.
 
 ## EX.8. Full Howe duality and explicit lift tables
 
@@ -1664,7 +1790,7 @@ Proof or construction:
 
 Check: Use positive real exponents and the correct P₁₃/P₂ Levi conventions, including the character-induction P cases.
 
-Source: GS, Theorem 14.1, pp. 48–49; Theorem 15.1, p. 52.
+Source: GS, Theorem 14.1, pp. 48–49; Theorem 15.1, p. 52. GS determines the lifts of nontempered representations: J\_Q(τ) ↦ J₂(τ⊗τ) and J\_P(τ) ↦ J₁₃(τ⊗1), with finite-length big lifts, and these are the only nontempered PGSp₆ representations with nonzero lift.
 
 ### Howe duality for all three exceptional pairs
 
@@ -1682,7 +1808,12 @@ Proof or construction:
 
 Check: This does not assert surjectivity onto Irr(H), and it does not assert PD× surjectivity at p=3.
 
-Source: GS, Theorem 1.2, pp. 2–3; Theorems 7.2, 8.5, 15.1; LL Theorem 2.1, pp. 7–8.
+Sources:
+
+- GS, Theorems 1.2–1.3, pp. 2–3; Theorem 7.2, p. 23; Theorem 8.5, p. 27; Theorem 15.1, p. 52: GS states Howe duality for the three dual pairs, the preservation of temperedness and the inclusion of the PGL₃ domain in the PGSp₆ domain, and the injection of Irr(PD×) for p ≠ 3.
+- LL, Theorem 2.1, p. 8: Gan–Savin restate these results as the input of the local Langlands correspondence for G₂.
+
+Planet: Exceptional Howe duality.
 
 ### The E₆-to-E₇ tempered Siegel table
 
@@ -1700,7 +1831,9 @@ Proof or construction:
 
 Check: The parameter-contains-1 case has only the plus E₆ lift; it is not a two-sign splitting.
 
-Source: GS, Theorem 15.2, p. 52.
+Source: GS, Theorem 15.2, pp. 52–53. GS gives the PGSp₆ lifts of the tempered lifts from PGL₃: the irreducible Siegel induction I₃(τ) for nonself-dual τ and for self-dual parameters containing 1, and the generic and nongeneric summands of I₃(τ) for the other self-dual cases.
+
+Planet: The tempered Siegel lift table.
 
 ### The remaining tempered non-supercuspidal lifts
 
@@ -1718,7 +1851,7 @@ Proof or construction:
 
 Check: Both supercuspidal and Steinberg-twist GL₂ input families, including the exceptional quadratic entries, are accounted for.
 
-Source: GS, Theorem 15.3, p. 53.
+Source: GS, Theorem 15.3, p. 53. GS lists the lifts of the remaining tempered non-supercuspidal representations: I\_Q(τ) ↦ I₂(τ⊗τ) with matching summands, δ\_Q(τ) ↦ δ₂(τ), δ\_P(τ) ↦ δ₁₃(τ), π\_gen[τ] ↦ σ\_gen[τ], π\_gen[χ] ↦ σ\_gen[χ] and Steinberg to Steinberg (packet E18 for the missing derivations).
 
 ### The nongeneric πρ family
 
@@ -1728,21 +1861,27 @@ For a supercuspidal ρ of PGL₂ let σρ be its classical theta lift on Mp₂ t
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
-Inputs: ExceptionalThetaCorrespondencesForG2:EX.6/mixed-mp2-g2-module; MetaplecticAutomorphicForms:MP.3/division-ternary-theta; ExceptionalThetaCorrespondencesForG2:EX.5/division-correspondence; ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-howe-duality.
+Inputs: ExceptionalThetaCorrespondencesForG2:EX.6/mixed-mp2-g2-module; MetaplecticAutomorphicForms:MP.3/division-ternary-theta; ExceptionalThetaCorrespondencesForG2:EX.5/division-correspondence; ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-howe-duality; MetaplecticAutomorphicForms:MP.3.
 
 Proof or construction:
 
 1. Use the imported division-ternary theta theorem and the mixed-module first-occurrence criterion, then recover σρ from the Fourier–Jacobi module and ρ from the classical inverse correspondence.
+2. Nonvanishing, irreducibility and injectivity of σ ↦ θ(σ) on genuine supercuspidals are MetaplecticAutomorphicForms §3.38a; this node adds the description of the family π\_ρ and its exhaustion property (GS Lemma 15.4(iii)).
 
 Check: Do not infer irreducibility for the excluded odd Weil module from the supercuspidal case.
 
-Source: GS, Lemma 15.4, p. 54; GG Theorem 9.1(d), p. 33.
+Sources:
+
+- GS, §15.1 and Lemma 15.4, p. 54: GS defines σ\_ρ as the metaplectic lift of the Jacquet–Langlands transfer of ρ to the anisotropic PB× and π\_ρ as its lift to G₂, and recalls from Gan–Gurevich that π\_ρ is irreducible supercuspidal, that ρ ↦ π\_ρ is injective, and that these exhaust the supercuspidals lifting to the metaplectic SL₂ but not from PGL₃ or PD×. The node reads "anisotropic" for the misprinted "isotropic" (packet E6).
+- GG, Theorem 9.1(d), p. 33: Gan–Gurevich give the nongenericity of these lifts.
+
+Planet: The πρ family.
 
 ### The πρ lift to the D₆ factor
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.8/rho-sk-comparison` (theorem).
 
-Let τρ be the nongeneric supercuspidal Saito–Kurokawa representation of PGSp₄ attached by classical theta to σρ. Then Θ_D6(πρ)=τρ under the orthogonal-minimal comparison. Specify the same additive character and dual convention throughout.
+Let τρ be the nongeneric supercuspidal Saito–Kurokawa representation of PGSp₄ attached by classical theta to σρ. Then Θ\_D6(πρ)=τρ under the orthogonal-minimal comparison. Specify the same additive character and dual convention throughout.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1754,7 +1893,7 @@ Proof or construction:
 
 Check: An equality of semisimplified small modules is not silently promoted to equality of big modules.
 
-Source: GS, Lemma 15.5, p. 54.
+Source: GS, Lemma 15.4 (definition of τ\_ρ) and Lemma 15.5 with proof, p. 54. GS defines τ\_ρ as the lift of σ\_ρ to SO₅, a nongeneric supercuspidal in a Saito–Kurokawa packet, and proves through the see-saw (14.3) that the SO₁₂-minimal lift of π\_ρ to SO₅ is τ\_ρ.
 
 ### The remaining PGSp₆ supercuspidal-input table
 
@@ -1772,7 +1911,7 @@ Proof or construction:
 
 Check: The nongeneric rank-one Plancherel calculation is a named unresolved obligation, not an application of the generic Shahidi theorem.
 
-Source: GS, Proposition 15.6, pp. 54–55.
+Source: GS, Proposition 15.6 and proof, pp. 54–55. GS shows that for supercuspidal π not lifted from PGL₃ or PD× the PGSp₆ lift is the discrete-series submodule δ₁(τ\_ρ) of I₁(1/2, τ\_ρ) when π = π\_ρ and is supercuspidal otherwise, using the P₁ Jacquet filtration and Lemma 15.5.
 
 ### The discrete-series trichotomy
 
@@ -1790,7 +1929,12 @@ Proof or construction:
 
 Check: The three alternatives count discrete-series target lifts, not all nonzero lifts to all three groups.
 
-Source: GS, Corollary 15.7, p. 55; LL Proposition 2.3 p. 8 and §5.2 p. 20.
+Sources:
+
+- GS, Theorem 1.3, p. 3; Corollary 15.7, p. 55: GS states that every discrete series of G₂ lifts to a discrete series of exactly one of PD×, PGL₃ ⋊ Z/2Z and PGSp₆, the PGSp₆ lift being generic exactly when π is (packet E6 for the group name).
+- LL, Proposition 2.3, p. 8; §5.2, p. 20: Gan–Savin restate the trichotomy and use the generic discrete-series lifts to PGSp₆ in their spin-lifting argument.
+
+Planet: Discrete-series theta trichotomy.
 
 ### The supercuspidal spin-pole criterion
 
@@ -1808,7 +1952,7 @@ Proof or construction:
 
 Check: Only Shahidi’s supercuspidal generic factor is used; do not replace it with an unconstructed G₂ LLC factor.
 
-Source: SW, SW Proposition 4.6 pp. 36–37 and Theorem 5.3 pp. 37–38.
+Source: SW, Proposition 4.6, p. 37; Theorem 5.3, pp. 37–38. Savin–Weissman prove that a generic supercuspidal σ of PGSp₆ with trivial central character lifts to G₂ exactly when it has a Shalika functional, the lift then being generic supercuspidal, and that the Shalika functional exists exactly when the spin L-function of σ has a pole at s = 0.
 
 ### A generic depth-zero lift example
 
@@ -1826,9 +1970,12 @@ Proof or construction:
 
 Check: This example is a target with a finite-group source-verification gap; the p≥5 hypothesis of the different GS04 example cannot supply an all-primes theorem.
 
-Source: LL, LL §8.4, p. 25; §10.3, p. 30, citing Gan’s finite-field exceptional correspondence.
+Sources:
 
-Stage status: planned. ExceptionalThetaCorrespondencesForG2/G4: Rank-one reducibility source chain ExceptionalThetaCorrespondencesForG2/G5: Finite-field cuspidal labels and examples ExceptionalThetaCorrespondencesForG2/G12: Savin–Weissman supercuspidal and spin-factor proof audit Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.3, ExceptionalThetaCorrespondencesForG2:EX.5, ExceptionalThetaCorrespondencesForG2:EX.6, ExceptionalThetaCorrespondencesForG2:EX.7
+- LL, §8.4, pp. 24–25; §10.3, pp. 29–30: Gan–Savin use generic depth-zero supercuspidals of G₂ whose lifts to PGSp₆ are generic supercuspidal, citing Gan's exceptional correspondence over finite fields for their existence.
+- GS04, §12, p. 807: Gan–Savin 2004 give a separate depth-zero example under p ≥ 5, which does not supply the representations used here (gap G5).
+
+Stage status: planned. ExceptionalThetaCorrespondencesForG2/G4: Rank-one reducibility source chain ExceptionalThetaCorrespondencesForG2/G5: Finite-field cuspidal labels and examples ExceptionalThetaCorrespondencesForG2/G12: Savin–Weissman supercuspidal and spin-factor proof audit Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.1, ExceptionalThetaCorrespondencesForG2:EX.3, ExceptionalThetaCorrespondencesForG2:EX.5, ExceptionalThetaCorrespondencesForG2:EX.6, ExceptionalThetaCorrespondencesForG2:EX.7 The Langlands–Shahidi spin factor of PGSp₆ and the Saito–Kurokawa lift τ\_ρ, requested from Part IIs of AutomorphicLFunctionsAndLocalFactors and MetaplecticAutomorphicForms.
 
 ## EX.9. Quaternion relative models
 
@@ -1858,9 +2005,9 @@ API:
 
 Discriminating tests:
 
-- `split`: For D=M₂(F), GD≅SL₂(F), which is noncompact for nonarchimedean F.
-- `division`: For division D over a nonarchimedean F, GD is compact.
-- `real`: For the real division octonions and D=Hamilton quaternions, GD is SU₂, not SO₄.
+- `quaternionStabilizer_split` (computation): For D=M₂(F), GD≅SL₂(F), which is noncompact for nonarchimedean F.
+- `quaternionStabilizer_division_compact` (characterisation): For division D over a nonarchimedean F, GD is compact.
+- `quaternionStabilizer_real` (non-example): For the real division octonions and D=Hamilton quaternions, GD is SU₂, not SO₄.
 
 Uses:
 
@@ -1869,13 +2016,15 @@ Uses:
 
 Check: D is quaternion here; it is unrelated to the degree-three division algebra of EX.5.
 
-Source: LL, LL §10.1, p. 27.
+Source: LL, §10.1, p. 27. Gan–Savin take the pointwise stabilizer G\_D of a quaternion subalgebra D of the octonions and identify it with the norm-one group of D.
+
+Planet: Quaternion stabilizers.
 
 ### Siegel character orbits and quaternion coefficients
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.9/siegel-quaternion-coefficients` (theorem).
 
-For H=PGSp₆, the open orbits of its Siegel Levi M₃ on the character space of N₃ are indexed by quaternion F-algebras D. The stabilizer of a representative ψD is Aut(D). For Π_E7 restricted to Aut(O)×H, Π_(N₃,ψD)=c-Ind_GD^Aut(O)1 when D embeds in O and is zero otherwise.
+For H=PGSp₆, the open orbits of its Siegel Levi M₃ on the character space of N₃ are indexed by quaternion F-algebras D. The stabilizer of a representative ψD is Aut(D). For Π\_E7 restricted to Aut(O)×H, Π\_(N₃,ψD)=c-Ind\_GD^Aut(O)1 when D embeds in O and is zero otherwise.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1888,13 +2037,18 @@ Proof or construction:
 
 Check: The Levi stabilizer and the G₂ coefficient stabilizer are different groups.
 
-Source: LL, LL §10.1, p. 27; GrS Chapter V §3, Lemma 3.4 case (4), pp. 197–198.
+Sources:
+
+- LL, §10.1, p. 27: Gan–Savin state that the Siegel Levi of PGSp₆ has open orbits on characters of the Siegel radical indexed by quaternion algebras D, with stabilizer Aut(D), and that the corresponding twisted Jacquet module of the E₇ minimal representation is compactly induced from G\_D (packet E19 for the omitted orbit label).
+- GrS, Chapter 5, §3, Lemma 3.4 and case (4) of its proof, pp. 197–198: Gross–Savin show that the rational points of G act transitively on the rank-one elements of the relevant type with stabilizer the norm-one group of D; Gan–Savin cite case (4) of the proof for the local identification of the twisted Jacquet module with compact induction from G\_D.
+
+Planet: Quaternion Fourier coefficients.
 
 ### Tempered lifts have quaternion relative models
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.9/tempered-relative-quotient` (theorem).
 
-If θH(π) is nonzero tempered, then for some quaternion D⊂O the representation π is a quotient of c-Ind_GD^G1. A tempered H representation has a nonzero full-rank Siegel coefficient: otherwise its restriction to Sp₆ has rank at most two and belongs to a classical O(m) theta image with m≤2, which is non-tempered.
+If θH(π) is nonzero tempered, then for some quaternion D⊂O the representation π is a quotient of c-Ind\_GD^G1. A tempered H representation has a nonzero full-rank Siegel coefficient: otherwise its restriction to Sp₆ has rank at most two and belongs to a classical O(m) theta image with m≤2, which is non-tempered.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1906,13 +2060,16 @@ Proof or construction:
 
 Check: The rank-at-most-two argument must not assume exact rank two.
 
-Source: LL, LL Lemma 10.1 and proof, p. 27.
+Sources:
+
+- LL, Lemma 10.1 and proof, p. 27: Gan–Savin prove that if θ(π) is tempered then π is a quotient of compact induction from G\_D for some quaternion D, because a tempered PGSp₆ representation with no full-rank Siegel coefficient would have Howe N-rank at most two and come from a small orthogonal group by Li's classification (packet E20 for 'at most two').
+- GrS, Chapter 5, §3, Lemma 3.4 and case (4) of its proof, pp. 197–198: The orbit and stabilizer computation that Gan–Savin cite for the twisted Jacquet module used in the proof.
 
 ### Supercuspidal relative embeddings
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.9/supercuspidal-relative-submodule` (theorem).
 
-If π is supercuspidal with θH(π)≠0, then π embeds in c-Ind_GD^G1 for a suitable quaternion D⊂O. Tempered compatibility supplies the relative quotient and supercuspidal projectivity for the compact-center group splits it.
+If π is supercuspidal with θH(π)≠0, then π embeds in c-Ind\_GD^G1 for a suitable quaternion D⊂O. Tempered compatibility supplies the relative quotient and supercuspidal projectivity for the compact-center group splits it.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1924,13 +2081,13 @@ Proof or construction:
 
 Check: This splitting does not claim projectivity for arbitrary discrete series.
 
-Source: LL, LL Corollary 10.2, p. 27.
+Source: LL, Corollary 10.2 and proof, p. 27. Gan–Savin deduce, by projectivity of supercuspidals, that a supercuspidal π with nonzero lift is a submodule of compact induction from G\_D for some D.
 
 ### The Steinberg relative discrete summand
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.9/steinberg-relative-square-integrability` (theorem).
 
-For split p-adic G₂ and division quaternion D, St_G₂ is a Hilbert direct summand of L²(GD∖G₂). Its H lift is St_H, whose restriction to a maximal unipotent has the required regular model; hence its ψD Siegel coefficient is nonzero. Since GD is compact, a GD-fixed vector and square-integrable matrix coefficients give the closed relative embedding.
+For split p-adic G₂ and division quaternion D, St\_G₂ is a Hilbert direct summand of L²(GD∖G₂). Its H lift is St\_H, whose restriction to a maximal unipotent has the required regular model; hence its ψD Siegel coefficient is nonzero. Since GD is compact, a GD-fixed vector and square-integrable matrix coefficients give the closed relative embedding.
 
 Hypotheses: Local convention: F is a nonarchimedean local field of characteristic zero, coefficients are complex, and ψ is a fixed nontrivial unitary additive character, unless a different field is specified.
 
@@ -1942,7 +2099,9 @@ Proof or construction:
 
 Check: Compactness of GD is essential to the displayed Hilbert argument.
 
-Source: LL, LL Lemma 10.3 and proof, pp. 27–28.
+Source: LL, Lemma 10.3 and proof, pp. 27–28. Gan–Savin show that for a division quaternion D the Steinberg representation is a direct summand of L²(G\_D∖G), using that its lift is the Steinberg representation of PGSp₆, the restriction of Steinberg to a maximal unipotent subgroup, and the anisotropy of G\_D.
+
+Planet: The relative Steinberg summand.
 
 ### Every compact real G₂ representation has an SU₂ period
 
@@ -1960,9 +2119,9 @@ Proof or construction:
 
 Check: This imports the algebraic/compact Gelfand–Tsetlin rule and is distinct from p-adic GL₃↓GL₂ generic restriction.
 
-Source: LL, LL Lemma 10.4 and proof, p. 28.
+Source: LL, Lemma 10.4 and proof, p. 28. Gan–Savin show that every irreducible representation of the compact real G₂ has nonzero vectors fixed by the stabilizer of the real quaternion division algebra, hence embeds in L² of the quotient, by branching through SU₃ and SU₂.
 
-Stage status: planned. ExceptionalThetaCorrespondencesForG2/G1: Octonion algebraic comparison and rational descent Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.8
+Stage status: planned. ExceptionalThetaCorrespondencesForG2/G1: Octonion algebraic comparison and rational descent Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.8 Howe’s N-rank and Li’s low-rank classification for Sp₆ and the Steinberg restriction to a maximal unipotent, requested from Part IIs of MetaplecticAutomorphicForms and SmoothRepresentationsOfLocalGroups.
 
 ## EX.10. Global exceptional lifts and real matching
 
@@ -1978,15 +2137,21 @@ For a number field k and octonion O/k, use the existing Albert algebra J₃(O) a
 
 Hypotheses: k is a number field; O/k is an octonion algebra.
 
-Inputs: tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ; ExceptionalThetaCorrespondencesForG2:EX.2/exceptional-group-pairs; AutomorphicFormsOnReductiveGroups:AF.2/restricted-tensor-product.
+Inputs: tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly; tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ; ExceptionalThetaCorrespondencesForG2:EX.2/exceptional-group-pairs; AutomorphicFormsOnReductiveGroups:AF.2/restricted-tensor-product; tauceti:TauCeti.AlbertAlgebra.
 
 Proof or construction:
 
-1. Apply the generic Albert construction already owned by LieHighestWeight, determine the commuting action on its off-diagonal entries, and compare root lattices and localization.
+1. For split O start from the split Albert algebra carrier TauCeti.AlbertAlgebra (its Jordan identity is a LieHighestWeight Layer 8 target) and the split E₇ Lie algebra of that layer; for a totally definite O over a totally real k construct J₃(O), its Koecher–Tits group and the commuting action of Aut(O) × PGSp₆ here.
+2. Determine the commuting action on the off-diagonal entries, compare root lattices and localizations, and compute the k-rank from the definite octonion norm.
 
 Check: The rank-three assertion belongs to the totally definite case; it is not asserted for the split global pair.
 
-Source: LL, LL §10.2, pp. 28–29; HKT A.2, p. 24.
+Sources:
+
+- LL, §10.2, pp. 28–29: Gan–Savin take a totally real field and a totally definite octonion algebra, form the adjoint group of type E₇ and k-rank 3 attached to J₃(O) by the Koecher–Tits construction, and use the dual pair G × PGSp₆ inside it (packet E19 for the definiteness hypothesis).
+- HKT, Appendix A.2, p. 24: Savin's appendix constructs split adjoint E₇ from the split Albert algebra by the Koecher–Tits construction and describes its Siegel parabolic.
+
+Planet: The global exceptional pair.
 
 ### The global minimal residual representation
 
@@ -2005,13 +2170,19 @@ Proof or construction:
 
 Check: The minimal residue is at 5 in this normalization; calling the last pole 9 minimal is incorrect.
 
-Source: HS, HS §6.2, Theorem 6.4 and proof, pp. 198–200; §4.1 normalization pp. 189–191.
+Sources:
+
+- HS, §6.2, Theorem 6.4 and proof, pp. 198–200: Hanzer–Savin show that for J\_r(D) with d ≡ 0 mod 4 (automatic for r ≥ 3) the degenerate Eisenstein series has simple poles at 1, 1 + d/2, …, 1 + (r−1)d/2 with square-integrable residues equal to the co-socle of the degenerate principal series; for r = 3, d = 8 these are 1, 5, 9.
+- HS, §4.1, Lemma 4.1, Corollary 4.2 and Proposition 4.3, pp. 190–191; remark after Corollary 4.6, p. 192; proof of Proposition 6.3, p. 197: Hanzer–Savin compute the local c-function and reducibility points of the degenerate series, describe the spherical quotients, identify the quotient at 1 + (r−2)d/2 as a minimal representation in the quaternion case d = 4, and identify the trivial representation as the residue at the last pole. The identification of the minimal residue at 5 for d = 8 is part of gap G13.
+- LL, §10.2, p. 29: Gan–Savin take the global minimal representation of the rank-three E₇ from Hanzer–Savin Theorem 6.4.
+
+Planet: The minimal Eisenstein residue.
 
 ### The global exceptional theta lift
 
 Target: `ExceptionalThetaCorrespondencesForG2:EX.10/global-exceptional-theta-kernel` (construction).
 
-For a cusp form φ on G=Aut(O) and f in the global minimal automorphic representation, define Θ(f,φ)(h)=∫_[G] f(gh)overline(φ(g))dg. Prove absolute convergence, smoothness, automorphy, moderate growth and compatibility with the local theta quotient at every place. In the anisotropic case [G] is compact; for split G prove the estimates from cusp-form rapid decay and the minimal kernel’s growth. Define the global lift as the span of these functions, not as a presumed irreducible representation.
+For a cusp form φ on G=Aut(O) and f in the global minimal automorphic representation, define Θ(f,φ)(h)=∫\_[G] f(gh)overline(φ(g))dg. Prove absolute convergence, smoothness, automorphy, moderate growth and compatibility with the local theta quotient at every place. In the anisotropic case [G] is compact; for split G prove the estimates from cusp-form rapid decay and the minimal kernel’s growth. Define the global lift as the span of these functions, not as a presumed irreducible representation.
 
 Hypotheses: k is a number field; φ is a cuspidal automorphic form with the fixed unitary central conventions and f is a smooth automorphic minimal vector.
 
@@ -2029,9 +2200,9 @@ API:
 
 Discriminating tests:
 
-- `zero_vector`: The lift vanishes for a zero input; bilinearity is linear in f and conjugate-linear in φ.
-- `anisotropic`: For totally definite O the compact quotient supplies absolute convergence without a truncation term.
-- `local_obstruction`: If one local exceptional theta module of an irreducible cuspidal input is zero, no nonzero global theta constituent can occur.
+- `globalTheta_zero` (degenerate): The lift vanishes for a zero input; bilinearity is linear in f and conjugate-linear in φ.
+- `globalTheta_anisotropic_convergence` (characterisation): For totally definite O the compact quotient supplies absolute convergence without a truncation term.
+- `globalTheta_local_obstruction` (compatibility): If one local exceptional theta module of an irreducible cuspidal input is zero, no nonzero global theta constituent can occur.
 
 Uses:
 
@@ -2040,7 +2211,12 @@ Uses:
 
 Check: A classical global oscillator integral does not define this exceptional kernel.
 
-Source: HKT, GrS Chapter V §4 pp. 200–204; HKT A.8–A.10, pp. 27–30.
+Sources:
+
+- GrS, Chapter 5, introduction, (0.1)–(0.2), pp. 193–194; §§3–4, pp. 196–204: Gross–Savin define the global lift from the anisotropic G₂ over ℚ to the rank-three E₇ partner by integrating an automorphic form against Kim's automorphic realization of the minimal representation, note convergence over the compact quotient, and compute its Fourier coefficients and cuspidality.
+- HKT, Appendix A.8–A.10, pp. 27–30: Savin's appendix defines the global lift for split G₂, notes absolute convergence from the cusp-form decay and moderate growth of the output, and unfolds its Whittaker coefficient.
+
+Planet: The global exceptional theta lift.
 
 ### A quaternion period forces global nonvanishing
 
@@ -2058,7 +2234,10 @@ Proof or construction:
 
 Check: A bare statement that the Q proof is unchanged does not establish the number-field extension.
 
-Source: GrS, GrS Chapter V, Proposition 4.5, p. 202; LL proof of Corollary 10.6, p. 29.
+Sources:
+
+- GrS, Chapter 5, §4, Proposition 4.5 and proof, p. 200: Gross–Savin show over ℚ that a nonzero period over the centralizer of a quaternion subalgebra is equivalent to the nonvanishing of the corresponding Fourier coefficient of the global lift.
+- LL, Corollary 10.6 and proof, p. 29: Gan–Savin apply this over a totally real field to obtain nonzero global lifts; the node records the extension from ℚ as an obligation (gap G13).
 
 ### Cuspidality from Steinberg or regular compact weight
 
@@ -2076,7 +2255,10 @@ Proof or construction:
 
 Check: Verify all three maximal constant terms and the extension from Q to totally real k.
 
-Source: LL, LL Corollary 10.6 and proof, p. 29; GrS Chapter V, Corollary 4.9, pp. 203–204.
+Sources:
+
+- LL, Corollary 10.6 and proof, p. 29: Gan–Savin state that the global lift is cuspidal if the input has a Steinberg component at a finite place or regular highest weight at a real place.
+- GrS, Chapter 5, §4, Corollary 4.9 and proof, pp. 203–204: Gross–Savin prove the corresponding cuspidality statement over ℚ.
 
 ### Generic global nonvanishing
 
@@ -2096,7 +2278,12 @@ Proof or construction:
 
 Check: The local supercuspidal-lift condition is required for the cuspidality clause.
 
-Source: HKT, HKT Theorem A.9 and Lemma A.10, pp. 27–30; LL §10.3 proof of Lemma 10.8, p. 30.
+Sources:
+
+- HKT, Theorem A.9 and Lemma A.10, pp. 28–30: Savin's appendix shows that a cusp form on split G₂ with nonzero Whittaker coefficient has a global lift with nonzero Whittaker coefficient, using the unramified local computation of Lemma A.10.
+- LL, §10.3, proof of Lemma 10.8, p. 30: Gan–Savin use this together with a supercuspidal local lift to obtain globally generic cuspidal lifts.
+
+Planet: Generic global nonvanishing.
 
 ### Real infinitesimal-character matching
 
@@ -2114,30 +2301,30 @@ Proof or construction:
 
 Check: The exact central-character map and distance-from-walls bound remain source-verification gaps; no unverified coordinate formula is inserted.
 
-Source: LL, LL §8.4, p. 25, citing Huang–Pandžić–Savin, New dual pair correspondences (1996).
+Source: LL, §8.4, p. 25. Gan–Savin invoke the matching of infinitesimal characters for the real dual pair (citing Huang–Pandžić–Savin) and the fact that unitary representations with discrete-series infinitesimal character sufficiently far from the walls are discrete series.
 
-Stage status: planned. ExceptionalThetaCorrespondencesForG2/G2: Primary minimal-model inputs not obtained ExceptionalThetaCorrespondencesForG2/G13: Global residue and number-field unfolding ExceptionalThetaCorrespondencesForG2/G14: Real central-character source and range Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.6, ExceptionalThetaCorrespondencesForG2:EX.8, ExceptionalThetaCorrespondencesForG2:EX.9
+Stage status: planned. ExceptionalThetaCorrespondencesForG2/G2: Primary minimal-model inputs not obtained ExceptionalThetaCorrespondencesForG2/G13: Global residue and number-field unfolding ExceptionalThetaCorrespondencesForG2/G14: Real central-character source and range Discharge the exact supplier contracts and inherited open obligations before closing this stage. Inherited own-stage inputs: ExceptionalThetaCorrespondencesForG2:EX.0, ExceptionalThetaCorrespondencesForG2:EX.2, ExceptionalThetaCorrespondencesForG2:EX.6, ExceptionalThetaCorrespondencesForG2:EX.8, ExceptionalThetaCorrespondencesForG2:EX.9 Salamanca-Riba’s range theorem, requested from the AutomorphicFormsOnReductiveGroups Part II.
 
 ## Supplier contracts
 
-A request is a proof boundary, not a claim that the supplier has already been implemented. Exact supplier nodes are cited directly in the targets; stage requests specify the missing general API.
+A request is a proof boundary, not a claim that the supplier has already been implemented. Exact supplier nodes are cited directly in the targets; each stage request below says what the supplier states as it stands at its pull-request head and what is requested from an undesigned Part II.
 
-- `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`: Use the early smooth abelian category over C, admissibility, smooth vectors and contragredients only; no enhanced derived category is needed. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.2/minimal-models`, `ExceptionalThetaCorrespondencesForG2:EX.2/exceptional-theta-modules`.
-- `SmoothRepresentationsOfLocalGroups:SR.2a`: The general identity commuting a maximal irreducible-isotypic quotient with normalized parabolic induction, proved by second adjointness as in GG Lemma 9.4, pp. 35–36. This identity does not require Ext¹(τ,τ)=0. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.3/nontempered-forward`, `ExceptionalThetaCorrespondencesForG2:EX.3/nontempered-reverse`, `ExceptionalThetaCorrespondencesForG2:EX.6/e7-noncuspidal-finiteness`.
-- `SmoothRepresentationsOfLocalGroups:SR.2`: The compact-induction/isotypic lemma with Ext¹_L(τ,τ)=0 (GS Lemma 11.6, p. 37), applied specifically to L=PGL₂ and τ=1; also prove Ext¹_PGL₂(1,1)=0 in the smooth complex category. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.7/minimal-shalika-fiber`.
-- `SmoothRepresentationsOfLocalGroups:SR.3`: Supply: uniqueness of generic Whittaker functionals for quasi-split p-adic groups; the generic GL₃↓GL₂ quotient theorem of Prasad Theorem 3 p. 174; local character-expansion/degenerate-Whittaker comparison with its residual-characteristic range; the Steinberg restriction to maximal unipotent used in LL Lemma 10.3. These are smooth representation results, not finite-dimensional branching. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.1/cubic-finiteness`, `ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-minus-supercuspidal`, `ExceptionalThetaCorrespondencesForG2:EX.7/fourier-jacobi-uniqueness`, `ExceptionalThetaCorrespondencesForG2:EX.9/steinberg-relative-square-integrability`.
-- `MetaplecticAutomorphicForms:MP.2`: Schrödinger Weil representations, their metaplectic cocycles, Heisenberg central-character Fourier inversion and the explicit rank-one models used in the exceptional comparisons. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.5/e6-coefficient-models`, `ExceptionalThetaCorrespondencesForG2:EX.6/mixed-mp2-g2-module`, `ExceptionalThetaCorrespondencesForG2:EX.7/fourier-jacobi-period`, `ExceptionalThetaCorrespondencesForG2:EX.7/root-exchange`, `ExceptionalThetaCorrespondencesForG2:EX.7/minimal-shalika-fiber`.
-- `MetaplecticAutomorphicForms:MP.3`: The classical nongeneric supercuspidal Saito–Kurokawa lift τρ from division-ternary σρ with its character convention, and the Howe–Li rank-at-most-two classification for Sp₆, including m=0,1,2 and non-temperedness. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.8/rho-sk-comparison`, `ExceptionalThetaCorrespondencesForG2:EX.9/tempered-relative-quotient`.
-- `ModularityAndLanglandsExtensions:ML.4`: Use the existing GSp₄ local parameter normalization and standard five-dimensional composition. Extend the supplier only if its statement does not include the nongeneric SK packet needed by EX.1; do not assume generic Shahidi reducibility covers it. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.1/pgsp-p1`, `ExceptionalThetaCorrespondencesForG2:EX.8/rho-sk-comparison`.
-- `AutomorphicLFunctionsAndLocalFactors:AL.4`: Provide the generic Langlands–Shahidi spin local factor for PGSp₆ and its supercuspidal pole criterion, with the degree-eight Spin₇ representation and additive-character normalization; GLₙ Rankin–Selberg factors alone are insufficient. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.8/spin-pole-criterion`.
-- `AutomorphicFormsOnReductiveGroups:AF.1`: The real unitary-dual assertion sufficiently far inside discrete-series infinitesimal-character chambers, with an explicit range and compatible Harish–Chandra normalization; the infinitesimal-character definition alone is not this theorem. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.10/real-infinitesimal-character-matching`.
-- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`: The topological local Weil group and its degree map; no replacement by a bare abstract group or integral parameter stack. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/complex-parameters`.
-- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`: Algebraic centralizers, subgroup schemes, component groups, central quotients and descent with rational-point H¹ obstructions retained. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/octonion-group`, `ExceptionalThetaCorrespondencesForG2:EX.0/quadratic-stabilizers`, `ExceptionalThetaCorrespondencesForG2:EX.0/component-groups`, `ExceptionalThetaCorrespondencesForG2:EX.2/exceptional-group-pairs`, `ExceptionalThetaCorrespondencesForG2:EX.2/triality-see-saw`, `ExceptionalThetaCorrespondencesForG2:EX.9/quaternion-pointwise-stabilizer`.
-- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`: Pinned split Chevalley group schemes, their root groups, pinnings and parabolic cocharacters; exceptional-specific comparisons are constructed here. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/octonion-group`, `ExceptionalThetaCorrespondencesForG2:EX.0/parabolics`, `ExceptionalThetaCorrespondencesForG2:EX.0/quadratic-stabilizers`, `ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-geometry`, `ExceptionalThetaCorrespondencesForG2:EX.1/depth-zero-unipotent`, `ExceptionalThetaCorrespondencesForG2:EX.2/jordan-freudenthal`, `ExceptionalThetaCorrespondencesForG2:EX.2/exceptional-group-pairs`, `ExceptionalThetaCorrespondencesForG2:EX.8/depth-zero-spherical-example`, `ExceptionalThetaCorrespondencesForG2:EX.10/global-exceptional-pair`.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-6-branching-rules-and-gelfand-tsetlin-bases`: The finite-dimensional GL₃↓GL₂ Gelfand–Tsetlin interlacing rule and compact U₃/U₂ realization, applied here only to SU₃↓SU₂. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.9/compact-real-relative-model`.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly`: The existing exceptional Lie algebra, cubic Jordan/Albert and Koecher–Tits algebraic constructions; this roadmap owns only the particular twisted forms and group-level dual-pair comparisons. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/octonion-group`, `ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-geometry`, `ExceptionalThetaCorrespondencesForG2:EX.2/jordan-freudenthal`, `ExceptionalThetaCorrespondencesForG2:EX.3/ambient-parabolics`, `ExceptionalThetaCorrespondencesForG2:EX.9/quaternion-pointwise-stabilizer`, `ExceptionalThetaCorrespondencesForG2:EX.10/global-exceptional-pair`.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations`: The existing spin/half-spin carriers and highest-weight descriptions used to derive the exceptional orbit equations. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/dual-embeddings`, `ExceptionalThetaCorrespondencesForG2:EX.3/ambient-parabolics`, `ExceptionalThetaCorrespondencesForG2:EX.3/orbit-kernels`.
-- `tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈`: The existing split Spin₈ triality automorphisms and their central lattices; the cubic-étale twist and exceptional see-saw are targets here. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/dual-embeddings`, `ExceptionalThetaCorrespondencesForG2:EX.2/triality-see-saw`.
+- `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`: Cited as it stands (TauCetiRoadmap pull request #785, head 1e875b1): SR.0.2, the abelian category of smooth complex representations, and SR.0.4, admissibility, smooth vectors and smooth contragredients. Nothing beyond these is needed. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.2/minimal-models`, `ExceptionalThetaCorrespondencesForG2:EX.2/exceptional-theta-modules`.
+- `SmoothRepresentationsOfLocalGroups:SR.2a`: Cited as it stands (TauCetiRoadmap pull request #785, head 1e875b1): SR.2a.1, second adjointness over ℂ. Requested from "Smooth representations of local groups, Part II" (not yet designed), because the upstream README does not state it: for connected reductive G and H over F, a parabolic P = MN of G, a smooth representation W of H × M and an irreducible smooth τ of H with maximal τ-isotypic quotient τ ⊗ V of W, the maximal τ-isotypic quotient of the normalized induction I\_P^G(W) is τ ⊗ I\_P^G(V) (Gan–Gurevich Lemma 9.4, pp. 34–36). No Ext¹ hypothesis on τ is needed. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.3/nontempered-forward`, `ExceptionalThetaCorrespondencesForG2:EX.3/nontempered-reverse`, `ExceptionalThetaCorrespondencesForG2:EX.6/e7-noncuspidal-finiteness`.
+- `SmoothRepresentationsOfLocalGroups:SR.2`: Cited as it stands (TauCetiRoadmap pull request #785, head 1e875b1): SR.2.1, smooth and compact induction with Frobenius reciprocity. Requested from "Smooth representations of local groups, Part II" (not yet designed): for closed H ⊂ G, a smooth H × L-module W and irreducible τ of L with Ext¹\_L(τ, τ) = 0, the maximal τ-isotypic quotient of c-Ind\_H^G W is c-Ind\_H^G of that of W (GS Lemma 11.6, p. 37, proved there from the decomposition of K-invariants of c-Ind\_H^G W over the double cosets H∖G/K); and Ext¹(1, 1) = 0 for smooth complex representations of PGL₂(F), which holds because PGL₂(F) has no nonzero continuous homomorphism to ℂ. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.7/minimal-shalika-fiber`.
+- `SmoothRepresentationsOfLocalGroups:SR.3`: Cited as it stands (TauCetiRoadmap pull request #785, head 1e875b1): SR.2.3 whittaker-functionals (Whittaker functionals, twisted coinvariants, and multiplicity one for GL₂ only) and SR.3.4 steinberg. The general-linear case of Whittaker multiplicity one is AutomorphicLFunctionsAndLocalFactors, generic finite-place newforms. Requested from "Smooth representations of local groups, Part II" (not yet designed), since neither upstream README states them: (a) multiplicity one of Whittaker functionals for irreducible smooth representations of quasi-split groups over F, applied to G₂, PGSp₆ and PGL₃ ⋊ Z/2Z; (b) Prasad’s theorem on generic GL₂ quotients of generic GL₃ representations (Prasad 1993, Theorem 3, p. 174, as cited in GS Proposition 8.4); (c) the Mœglin–Waldspurger comparison of degenerate Whittaker models with the leading terms of the Harish-Chandra–Howe character expansion, with Varma’s extension to residue characteristic 2 (as cited in GS Lemma 3.4); (d) the restriction of the Steinberg representation to a maximal unipotent subgroup used in the proof of LL Lemma 10.3; (e) the Harish-Chandra–Silberger criterion: for a maximal parabolic and unitary supercuspidal inducing data, reducibility of I\_P(s, τ) at real s ≠ 0 occurs exactly at the poles of the rank-one Plancherel measure. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.1/cubic-finiteness`, `ExceptionalThetaCorrespondencesForG2:EX.1/pgsp-p1`, `ExceptionalThetaCorrespondencesForG2:EX.5/pgl3-minus-supercuspidal`, `ExceptionalThetaCorrespondencesForG2:EX.7/fourier-jacobi-uniqueness`, `ExceptionalThetaCorrespondencesForG2:EX.9/steinberg-relative-square-integrability`, `ExceptionalThetaCorrespondencesForG2:EX.8/depth-zero-spherical-example`.
+- `MetaplecticAutomorphicForms:MP.2`: Cited as it stands (TauCetiRoadmap pull request #1063, head f91c5dd): §§0.15–0.17 (Schrödinger models), §1.1 (smooth Stone–von Neumann), §§2.4a–2.5 (Rao factor set, metaplectic double cover, genuine Weil representation and its operator formulas) and §2.7 (change of additive character). Consumers: `ExceptionalThetaCorrespondencesForG2:EX.5/e6-coefficient-models`, `ExceptionalThetaCorrespondencesForG2:EX.7/fourier-jacobi-period`, `ExceptionalThetaCorrespondencesForG2:EX.7/root-exchange`, `ExceptionalThetaCorrespondencesForG2:EX.7/minimal-shalika-fiber`.
+- `MetaplecticAutomorphicForms:MP.3`: Cited as it stands (TauCetiRoadmap pull request #1063, head f91c5dd): §3.38a, the restriction of the Mp₂ × SO₇ oscillator to Mp₂ × G₂ with its Jacquet exact sequence and the injectivity, nonvanishing and irreducibility of its supercuspidal lifts (Gan–Gurevich Proposition 8.1 and Theorem 9.1(c,d)); §§3.39–3.40 (the minimal orthogonal lift and the division ternary lift σ\_ρ). Requested from "Metaplectic groups, Weil representations and automorphic theta kernels, Part II" (not yet designed), since the upstream README does not state them: (a) the lift τ\_ρ of σ\_ρ to SO₅ ≅ PGSp₄ is a nongeneric supercuspidal representation in a Saito–Kurokawa packet, with the ψ of GS §15.1; (b) Howe’s N-rank for the Siegel unipotent radical of Sp₆ and Li’s classification: an irreducible unitary representation of Sp₆(F) of N-rank at most two is a classical theta lift from an orthogonal group O(m) with m ≤ 2, and is not tempered (LL proof of Lemma 10.1). Consumers: `ExceptionalThetaCorrespondencesForG2:EX.6/mixed-mp2-g2-module`, `ExceptionalThetaCorrespondencesForG2:EX.8/rho-supercuspidal-family`, `ExceptionalThetaCorrespondencesForG2:EX.8/rho-sk-comparison`, `ExceptionalThetaCorrespondencesForG2:EX.9/tempered-relative-quotient`.
+- `ModularityAndLanglandsExtensions:ML.4`: Cited as it stands (TauCetiRoadmap pull request #1180, head c316a1b): §3.5, the Gan–Takeda local Langlands correspondence for GSp₄, including part (vi) (the Plancherel measures of a nongeneric supercuspidal agree with those of its parameter) and the standard five-dimensional parameter. Nothing beyond §3.5 is requested. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.1/pgsp-p1`, `ExceptionalThetaCorrespondencesForG2:EX.8/rho-sk-comparison`.
+- `AutomorphicLFunctionsAndLocalFactors:AL.4`: AL.4 (TauCetiRoadmap pull request #924, head 4ed76a2) states unramified L-group factors only, cited for the unramified degree-eight spin factor. Requested from "Automorphic L-functions and local factors, Part II" (not yet designed): the Langlands–Shahidi local coefficient and the resulting spin γ-, L- and ε-factors of generic representations of PGSp₆ for the degree-eight representation of Spin₇, with the additive-character normalization, and the criterion of Savin–Weissman Theorem 5.3 relating a pole at s = 0 to Shalika functionals for generic supercuspidals. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.8/spin-pole-criterion`.
+- `AutomorphicFormsOnReductiveGroups:AF.1`: Cited as it stands (TauCetiRoadmap pull request #1037, head dc45964): infinitesimal characters, Casselman–Wallach globalization and the unitarity of A\_q(λ) in the weakly fair range. Requested from "Automorphic forms on reductive groups, Part II" (not yet designed): Salamanca-Riba’s theorem that an irreducible unitary (𝔤, K)-module whose infinitesimal character is real, integral and sufficiently regular is an A\_q(λ), in the form used by LL §8.4 (a unitary representation with discrete-series infinitesimal character far enough from the walls is a discrete series), with an explicit bound. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.10/real-infinitesimal-character-matching`.
+- `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`: The topological local Weil group, its degree map and Frobenius elements, cited as they stand. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/complex-parameters`.
+- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`: Algebraic centralizers and stabilizer subgroup schemes, component groups and central quotients, cited as they stand; the rational-point descent with its H¹ obstruction is carried out where used here. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/octonion-group`, `ExceptionalThetaCorrespondencesForG2:EX.0/quadratic-stabilizers`, `ExceptionalThetaCorrespondencesForG2:EX.0/component-groups`, `ExceptionalThetaCorrespondencesForG2:EX.2/exceptional-group-pairs`, `ExceptionalThetaCorrespondencesForG2:EX.2/triality-see-saw`, `ExceptionalThetaCorrespondencesForG2:EX.9/quaternion-pointwise-stabilizer`.
+- `tauceti:TauCetiRoadmap/ReductiveGroups#layer-9-pinned-chevalleydemazure-group-schemes-over-ℤ`: Pinned split Chevalley–Demazure group schemes, root subgroup maps and base change, cited as they stand; the exceptional comparisons are constructed here. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/octonion-group`, `ExceptionalThetaCorrespondencesForG2:EX.0/parabolics`, `ExceptionalThetaCorrespondencesForG2:EX.0/quadratic-stabilizers`, `ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-geometry`, `ExceptionalThetaCorrespondencesForG2:EX.1/depth-zero-unipotent`, `ExceptionalThetaCorrespondencesForG2:EX.2/jordan-freudenthal`, `ExceptionalThetaCorrespondencesForG2:EX.2/exceptional-group-pairs`, `ExceptionalThetaCorrespondencesForG2:EX.8/depth-zero-spherical-example`, `ExceptionalThetaCorrespondencesForG2:EX.10/global-exceptional-pair`.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-6-branching-rules-and-gelfand-tsetlin-bases`: The GLₙ ↓ GLₙ₋₁ interlacing branching rule for rational representations, cited as it stands; this roadmap restricts it to SU₃ ⊃ SU₂ by Zariski density of SU₃ in SL₃(ℂ). Consumers: `ExceptionalThetaCorrespondencesForG2:EX.9/compact-real-relative-model`.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly`: The split octonions, G₂ = Der(𝕆) with its 7-dimensional representation, the split Albert algebra, and the E₆ and E₇ Lie algebras with their 27- and 56-dimensional representations, as Lie-algebra constructions over a field of characteristic zero, cited as they stand. The Freudenthal–Jordan family of EX.2, the Lie algebras g\_J, the twisted forms and the group-level comparisons are constructed here. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/octonion-group`, `ExceptionalThetaCorrespondencesForG2:EX.0/pgsp-geometry`, `ExceptionalThetaCorrespondencesForG2:EX.2/jordan-freudenthal`, `ExceptionalThetaCorrespondencesForG2:EX.3/ambient-parabolics`, `ExceptionalThetaCorrespondencesForG2:EX.9/quaternion-pointwise-stabilizer`, `ExceptionalThetaCorrespondencesForG2:EX.10/global-exceptional-pair`.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations`: The spin and half-spin representations with their highest weights, cited as they stand. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/dual-embeddings`, `ExceptionalThetaCorrespondencesForG2:EX.3/ambient-parabolics`, `ExceptionalThetaCorrespondencesForG2:EX.3/orbit-kernels`.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-8-triality-for-spin₈`: The triality automorphism of Spin₈ and its permutation of the three 8-dimensional representations, cited as they stand; the cubic-étale twist Spin₈^E and the exceptional see-saw are constructed here. Consumers: `ExceptionalThetaCorrespondencesForG2:EX.0/dual-embeddings`, `ExceptionalThetaCorrespondencesForG2:EX.2/triality-see-saw`.
 
 ## Open obligations
 
@@ -2163,7 +2350,7 @@ Consumers: `ExceptionalThetaCorrespondencesForG2:EX.1/cubic-finiteness`, `Except
 
 ### ExceptionalThetaCorrespondencesForG2/G4. Rank-one reducibility source chain
 
-The rank-one intertwining and R-group arguments for the complete G₂/PGSp₆ tables require their cited primary reducibility proofs and exact normalized exponents. In particular supply an independent proof for nongeneric SK τρ, for which generic Shahidi theory is inadequate.
+The rank-one intertwining and R-group arguments for the complete G₂ and PGSp₆ tables need their cited primary reducibility proofs (Muić for G₂, Shahidi and Gan–Takeda for the PGSp₆ Levis) with exact normalized exponents. For the nongeneric τ\_ρ the route is fixed: Gan–Takeda part (vi) (ModularityAndLanglandsExtensions §3.5) gives its Plancherel measure, and the Harish-Chandra–Silberger criterion (requested from the SmoothRepresentationsOfLocalGroups Part II) turns it into reducibility; what remains is to carry out that comparison.
 
 Consumers: `ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-supercuspidal`, `ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-steinberg`, `ExceptionalThetaCorrespondencesForG2:EX.1/g2-p-characters`, `ExceptionalThetaCorrespondencesForG2:EX.1/g2-q-supercuspidal`, `ExceptionalThetaCorrespondencesForG2:EX.1/g2-q-segments`, `ExceptionalThetaCorrespondencesForG2:EX.1/g2-borel`, `ExceptionalThetaCorrespondencesForG2:EX.1/pgsp-p2-p13`, `ExceptionalThetaCorrespondencesForG2:EX.1/pgsp-p3`, `ExceptionalThetaCorrespondencesForG2:EX.1/pgsp-p1`, `ExceptionalThetaCorrespondencesForG2:EX.8/remaining-supercuspidal-lifts`.
 
@@ -2217,7 +2404,7 @@ Consumers: `ExceptionalThetaCorrespondencesForG2:EX.5/generic-supercuspidal-prec
 
 ### ExceptionalThetaCorrespondencesForG2/G13. Global residue and number-field unfolding
 
-Check non-spherical local identification of the minimal residue, all analytic interchanges in the exceptional kernel, and the full-rank coefficient and all three constant terms over a general totally real field. Gross–Savin’s read proof is over Q; its extension needs these explicit arithmetic and measure checks.
+Check non-spherical local identification of the minimal residue, all analytic interchanges in the exceptional kernel, and the full-rank coefficient and all three constant terms over a general totally real field. Gross–Savin’s read proof is over Q; its extension needs these explicit arithmetic and measure checks. For d = 8 Hanzer–Savin do not say which residue of Theorem 6.4 is the minimal representation; identify it at s = 5 (their remark on p. 192 does this for d = 4, and the trivial representation is the residue at s = 9).
 
 Consumers: `ExceptionalThetaCorrespondencesForG2:EX.10/global-minimal-residue`, `ExceptionalThetaCorrespondencesForG2:EX.10/global-exceptional-theta-kernel`, `ExceptionalThetaCorrespondencesForG2:EX.10/global-period-nonvanishing`, `ExceptionalThetaCorrespondencesForG2:EX.10/global-cuspidality-criteria`.
 
@@ -2226,6 +2413,31 @@ Consumers: `ExceptionalThetaCorrespondencesForG2:EX.10/global-minimal-residue`, 
 The Huang–Pandžić–Savin primary real correspondence paper was not obtained. Supply its precise central-character polynomial map, shifts and real-form hypotheses; obtain the separate Vogan unitary range theorem before using the claimed discrete-series conclusion.
 
 Consumers: `ExceptionalThetaCorrespondencesForG2:EX.10/real-infinitesimal-character-matching`.
+
+## Mistakes in the sources
+
+The packet’s sourceIssues record the mistakes in the sources that this plan corrects, each checked at its locator by the independent review; the nodes use the corrected statements. They consolidate the confirmed findings of the two paper extractions (PAPER-GAN-SAVIN-23/E1–E52 and PAPER-GAN-SAVIN-23-B/E1–E17).
+
+- E1 (error, GS, arXiv v1 §2.1 p. 6; §2.6 p. 8; §3.4 p. 14): The introductory quadratic-subalgebra sentence lacks the trace-zero restriction; the commuting SL₂ quotient and a short-root label also have inconsistent forms. Correction: Use the trace-zero quadratic identity, the diagonal μ₂ quotient giving SO₄, and the short-root SL₂ in the indicated packet label. Review: Confirmed at GS pp. 6 and 8: the rank statement on p. 6 is for general elements (PAPER-GAN-SAVIN-23/E23), and p. 8 writes SL₂,r for the short-root factor of SO₄ (E1); the short-root label on p. 14 is E2. The extraction review confirmed each.
+- E2 (error, GS, arXiv v1 Propositions 3.1–3.2 pp. 9–11): Several character-induced middle terms and Q-standard quotient exponents do not agree with their Borel supports; the negative P point is omitted. Correction: Use the corrected P-character middle term, Q quotient exponent 1, all negative dual points and the Steinberg-twist submodule stated in EX.1. Review: Confirmed at GS pp. 9–11: the cubic middle term I\_P(1/2, st\_χ) and the quotient exponents 1/2 in Propositions 3.1(iii) and 3.2(iii) contradict induction in stages, the ± is missing at 1/2 in 3.1(i), and §3.3 writes s for s₁ (extraction E3, E24–E27, all confirmed).
+- E3 (misprint, GS, arXiv v1 §§4.1–4.4 pp. 15–16): The Jordan involution, distinguished unit tensor summand and trialitarian group symbol are inconsistent. Correction: Use the same Jordan involution throughout, F³⊗1\_J in the G₂ embedding, and Spin₈^E for the cubic triality group. Review: Confirmed at GS pp. 15–16: τ for ι in §4.1, F³ ⊗ 1\_J written twice for the dual summand in §4.2, and Spin₄^E for Spin₈^E in diagram (4.1) (extraction E4, E5, E28).
+- E4 (gap, GS, arXiv v1 Proposition 5.4 p. 18; Proposition 5.5 pp. 18–19): The orbit proof of the restriction filtration is suppressed and the Q-supercuspidal support application is not stated in its generality needed. Correction: Supply every orbit stabilizer and half-modulus; add the Q-support Hom/Ext vanishing by nonassociation and Bernstein separation. Review: Confirmed at GS p. 18: Proposition 5.4 is stated without proof, and Proposition 5.5 assumes the Q-support case which the proof of Lemma 5.6 does not treat (extraction E20, E35).
+- E5 (gap, GS, arXiv v1 Lemma 6.4 and §6.5 p. 21; Propositions 6.6–6.7 p. 22): The selected cubic algebra and contragredient character are not consistently tracked through the period comparison. Correction: For a division lift choose an embedded cubic field using the zero coefficient for nonembeddings; select the dual representation and character so the Hom dimensions match. Review: Confirmed at GS pp. 21–22: §6.5 chooses E for π but applies Lemma 6.4 in the form for π∨, and the lemma silently needs E embedded in J (extraction E33, E34).
+- E6 (misprint, GS, arXiv v1 §§7–8 pp. 23–29; §15 pp. 52–55): Several part numbers, cited uniqueness results, group names and generic/degenerate labels do not match the objects being discussed. Correction: Use Theorem 7.2(iii), Lemma 8.1(i), Proposition 6.6 for minus uniqueness, the degenerate minus constituent and H₃ as the target of the reverse E₆ finite-length theorem. Use the anisotropic ternary JL direction in §15. Review: Confirmed at GS pp. 23, 28–29, 52, 54–55: Theorem 7.2 labels its third part (ii) (checked by the review on p. 23), and the part numbers, names and the isotropic/anisotropic slip on p. 54 are as listed in extraction E6–E8, E17–E19, E31, E32, E51, E52.
+- E7 (error, GS, arXiv v1 §8.1 p. 24; Theorems 8.2(i) and 8.5(iii) pp. 25,27): The nongeneric selfdual list misses the trivial input, and a generic input is said to have a generic small quotient without a tempered restriction. Correction: Include the trivial plus/minus convention. Restrict generic small-quotient preservation to tempered inputs or an irreducible corresponding standard module; retain the unrestricted converse. Review: Confirmed at GS pp. 24–27: §8.1 omits the trivial representation from the nongeneric self-dual list, and Theorems 8.2(i) and 8.5(iii) assert genericity of θ(τ⁺) for generic nontempered τ, which fails for a reducible generic standard module (extraction E29, E30).
+- E8 (gap, GS, arXiv v1 Lemmas 8.1 and 8.3 pp. 24–26): The disconnected E₆ coefficient computations are given without proving the fiber signs. Correction: Compute the pinned outer involution on each Whittaker, cubic and oscillator fiber and identify the full disconnected stabilizer character. Review: Confirmed at GS pp. 24–26: Lemma 8.1 and Lemma 8.3 are summarized as elementary or routine computations without proof (extraction E21).
+- E9 (misprint, GS, arXiv v1 proof of Proposition 8.4 p. 27; Proposition 7.1(iii) p. 23): An oscillator additive character is not conjugated in a dual comparison, and the two cubic-character output labels require care. Correction: Use the conjugate-character rank-one oscillator lifts. Identify the two distinct cubic outputs as an unordered pair until the eigenvalue convention is fixed. Review: Confirmed at GS pp. 23 and 27: the proof of Proposition 8.4 uses ρ\_ψ where the dual comparison needs the conjugate character, and Proposition 7.1(iii) assigns π\_sc[χ] and π\_sc[χ²] without the eigenvalue convention of §3.4 (extraction E36, E37).
+- E10 (error, GS, arXiv v1 §9 pp. 29–31): The Jordan multiplier, invariant form, root hyperplanes and a similitude description use incompatible coordinate conventions. Correction: Twist ∧²F⁶ by ν⁻¹, use the character-space invariant q(s)=Σsᵢ²+(Σsᵢ)², and use the nine hyperplanes and M₂ similitude action stated in EX.0. Review: Confirmed at GS pp. 29–31; the review re-derived the invariant form: applying the third simple reflection (s₁, s₂, s₃) ↦ (s₁+s₂+s₃, −s₃, −s₂) to Σsᵢ² + c(Σsᵢ)² preserves it only for c = 1, so the printed −¼ (with s₃³) is wrong, and the nine coroot kernels include sᵢ + s₁ + s₂ + s₃ = 0 (extraction E9, E38–E41).
+- E11 (gap, GS, arXiv v1 Proposition 10.4 p. 33; Proposition 15.6 pp. 54–55): Generic Shahidi reducibility is used for a nongeneric SK inducing representation. Correction: Prove parameter invariance of the relevant Plancherel scalar or compute the SK rank-one induction directly. Review: Confirmed at GS pp. 31 and 33: Proposition 10.4 rests on Shahidi’s generic theory while being applied to the nongeneric τ\_ρ (extraction E42). The review adds the route through Gan–Takeda part (vi) to EX.1/pgsp-p1.
+- E12 (error, GS, arXiv v1 §11.2 pp. 34–36): The oscillator center and one auxiliary root-group filtration are described using the wrong quotient. Correction: Use the center of U/Z(U), and the corrected lower-central root filtration in the root-exchange argument. Review: Confirmed at GS pp. 34 and 36: the centre of U/[U,U] is used for the Heisenberg quotient U/Z(U), and the lower-central filtration in the proof of Lemma 11.3 is misdescribed (extraction E43, E44).
+- E13 (gap, GS, arXiv v1 §11.4 p. 37): The E₇ N₂ generic-character module is asserted without an orbit proof. Correction: Construct its rank-one fiber and stabilizer action before applying the compact-induction/isotypic lemma. Review: Confirmed at GS p. 37: the N₂-twisted coefficient of the E₇ minimal representation is asserted without proof (extraction E10).
+- E14 (misprint, GS, arXiv v1 Theorem 12.4 p. 39; remark after Proposition 12.2 p. 39): One temperedness reference has the wrong part number, and the previous Shalika uniqueness result is described too broadly. Correction: Use Lemma 6.3(i). Treat the Savin–Weissman uniqueness input as supercuspidal; the remaining tempered case needs the new enhanced-period proof. Review: Confirmed at GS p. 39: the proof of Theorem 12.4(i) cites Lemma 6.3(ii) for 6.3(i), and the remark after Proposition 12.2 overstates the scope of Savin–Weissman’s Shalika uniqueness, which is for supercuspidals (extraction E11, E45).
+- E15 (gap, GS, arXiv v1 §13.4 pp. 44–47; Proposition 13.3 p. 41): The split Q orbit calculation and P₁ filtration proof are missing; a single unspecified P₂ twist is used for incompatible strata. Correction: Compute all orbit stabilizer densities separately, retaining the displayed four-piece P₂ filtration. Review: Confirmed at GS pp. 41 and 44–47: the split Q orbit calculation and the P₁ filtration are not proved, and no single character δ′ of M₂ yields both P₂ actions (extraction E13, E47, E50).
+- E16 (error, GS, arXiv v1 Lemma 13.8 pp. 47–48; §14.3 p. 51): The reverse calculation takes a Jacquet module on the wrong GL₂ factor and omits several Levi cases and lower finiteness pieces. Correction: Use the second factor in P₂ piece three; redo P₂₃ by its torus exponent and P₁₂ with inducing factors exchanged. Supply every missing chamber and lower piece. Review: Confirmed at GS pp. 47–48 and 51: Lemma 13.8 puts the lower Borel in the first GL₂ factor where Proposition 13.7 has it in the second, and leaves the other Levi cases and the non-top pieces to the reader (extraction E12, E49).
+- E17 (misprint, GS, arXiv v1 Propositions 13.3,13.7 and Theorem 14.1 pp. 41,46–49): Some quotient modules, ambient Levi factors, representation letters and similitude labels are interchanged. Correction: Use rQ(Π), the ambient D₅×A₁ Levi, GSp₄ multiplier ν, the actual JP(τ₂) quotient and the pair π⊗σ. Review: Confirmed at GS pp. 41, 44, 46–49: the quotient r\_{P₂}(Π) for r\_Q(Π), the ambient Levi, the GSp₄ similitude, J\_P(τ₁) for J\_P(τ₂) and π ⊗ τ for π ⊗ σ (extraction E14–E16, E46, E48).
+- E18 (gap, GS, arXiv v1 Theorems 15.2–15.3 pp. 52–53): The explicit tempered lift table is stated without its constituent-by-constituent derivation. Correction: Use the raw Jacquet support, established nonvanishing, genericity and uniqueness to identify every entry, including all discrete-series GL₂ inputs. Review: Confirmed at GS pp. 52–53: Theorems 15.2 and 15.3 are stated after listing four facts, without the case analysis (extraction E22).
+- E19 (misprint, LL, published §3.3 p. 11; §10.1 p. 27): The octonion definiteness hypothesis and a quaternion orbit label are omitted in two sentences. Correction: Use totally definite O in the compact-real globalization and parameterize the open Siegel orbit by its quaternion D. Review: Confirmed at LL pp. 11 and 27: §3.3 says definite octonion algebra over F where it must be over k, and §10.1 omits the orbit label D (PAPER-GAN-SAVIN-23-B/E6, E10).
+- E20 (gap, LL, published proof of Lemma 10.1 p. 27): The low-rank reduction names only exact rank two. Correction: Use rank at most two and include classical O(m) first occurrences for m=0,1,2. Review: Confirmed at LL p. 27: the proof of Lemma 10.1 says N-rank 2 and O(2), where N-rank at most two and O(m), m ≤ 2, are needed (PAPER-GAN-SAVIN-23-B/E11).
 
 ## Routed-item coverage
 
@@ -2303,7 +2515,7 @@ This is an identifier-to-target audit of the two routed extractions, not a repro
 | PAPER-GAN-SAVIN-23/lemma-13-8 | ExceptionalThetaCorrespondencesForG2:EX.3/nontempered-reverse |
 | PAPER-GAN-SAVIN-23/thm-14-1 | ExceptionalThetaCorrespondencesForG2:EX.8/nontempered-explicit-lifts |
 | PAPER-GAN-SAVIN-23/prop-14-2 | MetaplecticAutomorphicForms:MP.3/minimal-orthogonal-theta, ExceptionalThetaCorrespondencesForG2:EX.6/orthogonal-restriction-comparison |
-| PAPER-GAN-SAVIN-23/gan-gurevich | ExceptionalThetaCorrespondencesForG2:EX.6/mixed-mp2-g2-module |
+| PAPER-GAN-SAVIN-23/gan-gurevich | ExceptionalThetaCorrespondencesForG2:EX.6/mixed-mp2-g2-module, MetaplecticAutomorphicForms:MP.3 |
 | PAPER-GAN-SAVIN-23/thm-15-1 | ExceptionalThetaCorrespondencesForG2:EX.8/three-howe-theorems, ExceptionalThetaCorrespondencesForG2:EX.8/nontempered-explicit-lifts, ExceptionalThetaCorrespondencesForG2:EX.6/theta-dichotomy |
 | PAPER-GAN-SAVIN-23/thm-15-2 | ExceptionalThetaCorrespondencesForG2:EX.8/e6-e7-siegel-table |
 | PAPER-GAN-SAVIN-23/thm-15-3 | ExceptionalThetaCorrespondencesForG2:EX.8/remaining-nonsupercuspidal-table |
@@ -2353,19 +2565,19 @@ Every statement above is written for its mathematical role in the construction. 
 - GS: Wee Teck Gan; Gordan Savin, [Howe duality and dichotomy for exceptional theta correspondences](https://arxiv.org/pdf/2102.00372v1). arXiv:2102.00372v1 (2021), 56 pages; published Invent. Math. 232 (2023), 1–78 not served by publisher. Read 2026-10-19: §§1–15, pp. 1–55; references p. 56; all local target statements and their proofs.
 - LL: Wee Teck Gan; Gordan Savin, [The local Langlands conjecture for G₂](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2479D805B0F248C91A33671F3A03752E/S2050508623000276a.pdf/the-local-langlands-conjecture-for-dollarg2dollar.pdf). Forum Math. Pi 11 (2023), e28, published PDF. Read 2026-10-19: §§1–2 pp. 1–8; §3.5 p. 15; §§5–6 pp. 20–22; §8.4 p. 25; §10 pp. 27–30.
 - HKT: Gordan Savin (appendix to Michael Harris; Chandrashekhar Khare; Jack Thorne), [A local Langlands parameterization for generic supercuspidal representations of p-adic G₂: Appendix A](https://arxiv.org/pdf/1909.05933). arXiv:1909.05933, Appendix A, PDF pp. 22–30. Read 2026-10-19: Appendix A.1–A.10, pp. 22–30.
-- GrS: Benedict Gross; Gordan Savin, [Motives with Galois group of type G₂: an exceptional theta correspondence](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/E242459F743917A019C0726055551FF5/S0010437X98000645a.pdf/div-class-title-motives-with-galois-group-of-type-g-2-an-exceptional-theta-correspondence-div.pdf). Compositio Math. 114 (1998), 153–217. Read 2026-10-19: Chapter V §3, Lemma 3.4 pp. 197–198; §4 Proposition 4.5 p. 202 and Corollary 4.9 pp. 203–204.
-- HS: Marcela Hanzer; Gordan Savin, [Eisenstein series arising from Jordan algebras](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AE032F11A3717F7175A486BBE537549F/S0008414X18000615a.pdf/eisenstein_series_arising_from_jordan_algebras.pdf). Canad. J. Math. 72 (2020), 183–201. Read 2026-10-19: §§1–2 pp. 183–186; §4.1 pp. 189–191; §6.2 Theorem 6.4 and proof pp. 198–200.
-- SW: Gordan Savin; Martin Weissman, [Dichotomy for generic supercuspidal representations of G₂](https://arxiv.org/pdf/0908.3340v2). arXiv:0908.3340v2, 48-page preprint. Read 2026-10-19: Introduction pp. 1–3; §3 statement of generic dichotomy; §4.4 Lemma 4.5 and Proposition 4.6 pp. 36–37; §5 Theorem 5.3 pp. 37–38.
-- Sav: Gordan Savin, [A class of supercuspidal representations of G₂(k)](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/CE9F949BF8D96C551E8C40D7EA71DC42/S0008439500010699a.pdf/a-class-of-supercuspidal-representations-of-g2k.pdf). Canad. Math. Bull. 42 (1999), 393–400. Read 2026-10-19: §§1–6, pp. 393–400.
+- GrS: Benedict Gross; Gordan Savin, [Motives with Galois group of type G₂: an exceptional theta correspondence](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/E242459F743917A019C0726055551FF5/S0010437X98000645a.pdf/div-class-title-motives-with-galois-group-of-type-g-2-an-exceptional-theta-correspondence-div.pdf). Compositio Math. 114 (1998), 153–217. Read 2026-10-19: Chapter 5, introduction (0.1)–(0.2), pp. 193–194; §3, Lemma 3.4, pp. 197–198; §4, Proposition 4.5, p. 200, and Corollary 4.9, pp. 203–204; Chapter 6, §2, Lemma 2.9, p. 213.
+- HS: Marcela Hanzer; Gordan Savin, [Eisenstein series arising from Jordan algebras](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AE032F11A3717F7175A486BBE537549F/S0008414X18000615a.pdf/eisenstein_series_arising_from_jordan_algebras.pdf). Canad. J. Math. 72 (2020), 183–201. Read 2026-10-19: §§1–2 pp. 183–186; §4.1 (Lemma 4.1, Corollary 4.2, Proposition 4.3) pp. 189–191; §4.2, the remark after Corollary 4.6, p. 192; Proposition 6.3 and proof p. 197; §6.2 Theorem 6.4 and proof pp. 198–200.
+- SW: Gordan Savin; Martin Weissman, [Dichotomy for generic supercuspidal representations of G₂](https://arxiv.org/pdf/0908.3340v2). arXiv:0908.3340v2, 48-page preprint. Read 2026-10-19: Introduction pp. 1–3; §3 (the dichotomy map) pp. 16–27; Proposition 4.6 p. 37; Theorem 5.3 pp. 37–38.
+- Sav: Gordan Savin, [A class of supercuspidal representations of G₂(k)](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/CE9F949BF8D96C551E8C40D7EA71DC42/S0008439500010699a.pdf/a-class-of-supercuspidal-representations-of-g2k.pdf). Canad. Math. Bull. 42 (1999), 393–400. Read 2026-10-19: §3 (Theorem 3.4), pp. 396–397; §§5–6, pp. 398–400.
 - MS: Kay Magaard; Gordan Savin, [Exceptional Θ-correspondences I](https://arxiv.org/pdf/math/9505209). arXiv:math/9505209 preprint. Read 2026-10-19: Theorem 1.1 pp. 3–4; §4 Theorem 4.3 p. 10; §5 Theorem 5.3 pp. 14–15.
 - GS04: Wee Teck Gan; Gordan Savin, [Endoscopic lifts from PGL₃ to G₂](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/2CE451D8C1AC7635396F547CB323BE65/S0010437X03000678a.pdf/endoscopic_lifts_from_pgl3_to_g2.pdf). Compositio Math. 140 (2004), 793–808. Read 2026-10-19: §§1–11 pp. 793–806; §12 p. 807 (depth-zero example has p≥5).
-- GG: Wee Teck Gan; Nadya Gurevich, [Non-tempered A-packets of G₂: liftings from SL₂](https://math.bgu.ac.il/~ngur/Publications/sl2g2.pdf). author preprint, 81 PDF pages; published Amer. J. Math. 128 (2006), 1105–1185. Read 2026-10-19: §8 Propositions 8.1, 8.3, 8.4 pp. 27–28; §9 Theorem 9.1 and Lemma 9.4 pp. 33–36.
-- Pra: Dipendra Prasad, [On the decomposition of a representation of GL(3) restricted to GL(2) over a p-adic field](https://www.math.iitb.ac.in/~dprasad/1077293429.pdf). Duke Math. J. 69 (1993), 167–177, author-hosted published PDF. Read 2026-10-19: §1 pp. 167–169; §3 Theorem 3 and proof p. 174.
+- GG: Wee Teck Gan; Nadya Gurevich, [Non-tempered A-packets of G₂: liftings from SL₂](https://math.bgu.ac.il/~ngur/Publications/sl2g2.pdf). author preprint, 81 PDF pages; published Amer. J. Math. 128 (2006), 1105–1185. Read 2026-10-19: §8 Propositions 8.1, 8.3, 8.4 pp. 27–28; §9 Theorem 9.1 and its proof, including §9.5, pp. 33–37; Lemma 9.4 pp. 34–36.
+- Pra: Dipendra Prasad, [On the decomposition of a representation of GL(3) restricted to GL(2) over a p-adic field](https://www.math.iitb.ac.in/~dprasad/1077293429.pdf). Duke Math. J. 69 (1993), 167–177, author-hosted published PDF. Read 2026-10-19: §1 pp. 167–169; §3 Theorem 3 and proof p. 174. The independent review could not fetch this file (the author page did not respond); the node citing it gives the statement as GS cite it in the proof of Proposition 8.4.
 
-The packet’s sourceIssues records the mathematical corrections and omitted proofs used by this plan, in our own words. The existing paper-extraction issue IDs identify the earlier findings. Primary access is still missing for the minimal-model inputs, Lonka–Tandon’s proof, the finite-field example and the real infinitesimal-character formula; those gaps have named consumers above. No uncleared book was used.
+Primary access is still missing for the minimal-model paper of Gan–Savin 2005, Lonka–Tandon’s proof, Gan’s finite-field example and the real infinitesimal-character formula of Huang–Pandžić–Savin; those gaps have named consumers above. No uncleared book was used.
 
 ## Suggested Lean and acceptance
 
-The compact suggested file contains only the two light predicates on the pinned octonion carrier and their milestone statements and examples. The heavy group, smooth-module, minimal-representation and global-kernel definitions require new carriers and remain fully specified in this document, as required by the roadmap shape rule. It has no assumed theta structures and no data definition with an unproved body. It was checked with the shared pinned Lean build; only expected unproved-statement warnings occurred.
+The compact suggested file contains the two light predicates on the pinned octonion carrier, `IsOctonionAutomorphism` and `IsNullSubspace`, with the API items and unit tests the packet names for them (each test is an `example` labelled by its packet name). The heavy group, smooth-module, minimal-representation and global-kernel definitions require new carriers and remain fully specified in this document, as required by the roadmap shape rule; their API items and tests are targets of this document only. The file has no assumed theta structures and no data definition with an unproved body. It elaborates in the shared pinned Lean build with placeholder-proof warnings only.
 
 Acceptance requires the packet checker to report no errors, exact coverage of all 87 main-paper and 25 sequel routed items, an acyclic prerequisite graph and at most six planets per stage. Mathematical closure additionally requires every open obligation above to be discharged and every supplier hypothesis matched.
