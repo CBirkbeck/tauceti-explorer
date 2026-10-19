@@ -65,7 +65,7 @@
     {
       "key": "RT.4",
       "title": "Circle formula and explicit mapping tori",
-      "description": "Compare the pinned spinor norm with the bilinear convention; prove the Zassenhaus and circle formulas in every odd characteristic; compute mapping-torus torsion, a genus-two cocycle model and the nonsquare Gaussian example.",
+      "description": "Compare the pinned spinor norm with the bilinear convention; prove the Zassenhaus and circle formulas in every odd characteristic using the alternating cross pairing P(x,(1−A)y); compute mapping-torus torsion, a genus-two cocycle model and the nonsquare Gaussian example.",
       "requires": [
         "SymplecticReidemeisterTorsionModSquares:RT.2",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
