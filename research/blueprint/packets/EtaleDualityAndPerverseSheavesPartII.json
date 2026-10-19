@@ -24,105 +24,105 @@
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FiniteType.lean",
     "provides": "Morphisms of schemes locally of finite type.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsReduced",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Properties.lean",
     "provides": "Reduced schemes.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Etale",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
     "provides": "Étale morphisms of schemes.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsProper",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
     "provides": "Proper morphisms of schemes.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:ValuationRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/Valuation/ValuationRing.lean",
     "provides": "Valuation rings: domains whose ideals (equivalently principal ideals) are totally ordered by inclusion.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:IsAdicComplete",
     "kind": "class",
     "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
     "provides": "A module that is I-adically Hausdorff and precomplete; for the maximal ideal of a local ring, completeness.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:MvPowerSeries",
     "kind": "def",
     "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
     "provides": "Multivariate formal power series, the carrier of k⟦t_1, …, t_d⟧.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:IsReduced",
     "kind": "class",
     "module": "Mathlib/Algebra/GroupWithZero/Basic.lean",
     "provides": "Rings without nonzero nilpotents.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:ringKrullDim",
     "kind": "def",
     "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
     "provides": "Krull dimension of a commutative ring as WithBot ℕ∞.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:IsLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
     "provides": "Local rings.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
     "provides": "The étale topology on the small étale site of a scheme.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:CategoryTheory.Triangulated.TStructure",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Triangulated/TStructure/Basic.lean",
     "provides": "t-structures on pretriangulated categories, with le/ge predicates and heart.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:IsRegularLocalRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
     "provides": "Noetherian local rings whose maximal ideal is generated by ringKrullDim elements.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:PreTilt",
     "kind": "def",
     "module": "Mathlib/RingTheory/Perfection.lean",
-    "provides": "The perfection of O/p, the tilt of a p-adically complete ring.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "provides": "The perfection of O/p. For a perfectoid completion the Q5 comparison identifies this carrier with the multiplicative tilt; PreTilt alone asserts no perfectoid hypothesis or sharp-quotient theorem.",
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    },
    {
     "ref": "mathlib:HenselianRing",
     "kind": "class",
     "module": "Mathlib/RingTheory/Henselian.lean",
     "provides": "Henselian pairs (R, I): simple roots modulo I lift, and I lies in the Jacobson radical.",
-    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19."
+    "checked": "Name, kind and module confirmed in the pinned declaration index and the statement read in the source at Mathlib 082e2d3 on 2026-10-19. Independently read at the same pin for REV-DESIGN-EtaleDualityAndPerverseSheavesPartII; its statement supplies the indicated substrate with the stated conventions."
    }
   ]
  },
@@ -137,17 +137,17 @@
    "readSections": [
     "Exposé 0 (Introduction), pp. 1–6",
     "Exposé II, §§1–4, pp. 23–34",
-    "Exposé III, §§5–6, pp. 41–45",
-    "Exposé IV, Théorèmes 2.1.1, 2.2.2, 3.1.2, 4.2.2, 4.3.1 and the structure of their proofs",
+    "Exposé III, §§1–6, pp. 35–45",
+    "Exposé IV, §§1–4, pp. 47–61",
     "Exposé V, §§1–3, pp. 63–68",
     "Exposé VII, pp. 81–83",
-    "Exposé IX, Théorèmes 1.1–1.2 and §2 statements, pp. 131–134",
+    "Exposé IX, §§1–2, pp. 131–134",
     "Exposé XI, §§1–2, pp. 171–179",
     "Exposé XII, §§1–2, pp. 189–194",
     "Exposé XIII, §§1–3, pp. 195–204",
     "Exposé XIV, pp. 207–218",
     "Exposé XV, pp. 219–224",
-    "Exposé XVII, introduction and statements of §§1–6, pp. 257–300",
+    "Exposé XVII, §§0–6, pp. 257–300; Proposition 7.5.1.1, pp. 308–309; Proposition 7.6.3, p. 311; §§9.1–9.2, pp. 323–324",
     "Exposé XVIII-A, pp. 331–334"
    ]
   },
@@ -159,10 +159,10 @@
    "url": "https://arxiv.org/abs/1912.10932v3",
    "sha256": "2f9d3ee868c244a7ddd6579a5dafed10a7ac9eb8b2ffe840db9f2bc115cd6ed4",
    "readSections": [
-    "§2.2 Tilting étale cohomology algebraically, pp. 18–22",
-    "§2.1.7 and (2.1.7.2), p. 13",
+    "§§2.1.1–2.1.7, pp. 10–13",
+    "§2.2, pp. 19–22",
     "§3.1, pp. 29–32",
-    "§3.2 through Theorem 3.2.4, pp. 32–34"
+    "§3.2 through Theorem 3.2.4, pp. 32–33"
    ]
   },
   {
@@ -170,9 +170,79 @@
    "title": "Families of curves and alterations",
    "authors": "A. Johan de Jong",
    "edition": "Annales de l'Institut Fourier 47 (1997), no. 2, 599–621 (Numdam)",
-   "url": "http://www.numdam.org/item/AIF_1997__47_2_599_0/",
+   "url": "https://www.numdam.org/item/AIF_1997__47_2_599_0/",
    "readSections": [
-    "§2, Situation 2.1, Definitions 2.2, Remarks 2.3, Theorem 2.4 and Remark 2.5, pp. 600–603"
+    "§2, Situation 2.1, Definitions 2.2, Remarks 2.3, Theorem 2.4 and Remarks 2.5–2.6, pp. 600–604"
+   ]
+  },
+  {
+   "id": "G04",
+   "title": "Notes on some t-structures",
+   "authors": "Ofer Gabber",
+   "edition": "Geometric aspects of Dwork theory (2004), 711–734; public author PDF, whose own page numbers are used",
+   "url": "https://www.ihes.fr/~gabber/t-str.pdf",
+   "readSections": [
+    "§§1–6, pp. 1–8; §8, pp. 10–12"
+   ]
+  },
+  {
+   "id": "SGA4half",
+   "title": "Cohomologie étale",
+   "authors": "Pierre Deligne",
+   "edition": "Lecture Notes in Mathematics 569 (1977), [Th. finitude]; published scan on the IAS publications site",
+   "url": "https://publications.ias.edu/sites/default/files/Number32.pdf",
+   "readSections": [
+    "[Th. finitude] Théorème 1.9, p. 236; proof §2, pp. 238–241"
+   ]
+  },
+  {
+   "id": "K10",
+   "title": "A correction to Epp’s paper “Elimination of wild ramification”",
+   "authors": "Franz-Viktor Kuhlmann",
+   "edition": "arXiv:1003.5687v1 (29 March 2010 upload); locators use the three-page arXiv PDF",
+   "url": "https://arxiv.org/abs/1003.5687v1",
+   "readSections": [
+    "pp. 1–3 (entire correction)"
+   ]
+  },
+  {
+   "id": "ILO-final-II",
+   "title": "Topologies adaptées à l’uniformisation locale",
+   "authors": "Fabrice Orgogozo",
+   "edition": "Astérisque 363–364 (2014), Exposé II, pp. 21–36; published Numdam scan",
+   "url": "https://www.numdam.org/item/AST_2014__363-364__21_0/",
+   "readSections": [
+    "§4.2, Théorème 4.2.1 and Remarque 4.2.2, pp. 33–34; §4.3, pp. 34–35"
+   ]
+  },
+  {
+   "id": "ILO-final-IX",
+   "title": "Uniformisation locale première à ℓ",
+   "authors": "Luc Illusie",
+   "edition": "Astérisque 363–364 (2014), Exposé IX, pp. 161–165; published Numdam scan",
+   "url": "https://www.numdam.org/item/AST_2014__363-364__161_0/",
+   "readSections": [
+    "§1, Théorèmes 1.1–1.2 and their reductions, pp. 161–163"
+   ]
+  },
+  {
+   "id": "ILO-final-XII",
+   "title": "Descente cohomologique orientée",
+   "authors": "Fabrice Orgogozo",
+   "edition": "Astérisque 363–364 (2014), Exposé XII-A, pp. 235–249; published Numdam scan",
+   "url": "https://www.numdam.org/item/AST_2014__363-364__235_0/",
+   "readSections": [
+    "§§1.1–1.4, pp. 235–241; §2.2, pp. 242–244"
+   ]
+  },
+  {
+   "id": "ILO-final-XIV",
+   "title": "Fonctions de dimension",
+   "authors": "Vincent Pilloni and Benoît Stroh",
+   "edition": "Astérisque 363–364 (2014), Exposé XIV, pp. 277–292; published Numdam scan",
+   "url": "https://www.numdam.org/item/AST_2014__363-364__277_0/",
+   "readSections": [
+    "Corollaire 2.5.2, p. 289 (collation of the induced-dimension formula)"
    ]
   }
  ],
@@ -233,6 +303,11 @@
      "name": "AltCat.test_alteration_compat",
      "kind": "compatibility",
      "statement": "For S integral and X → S proper, surjective and integral, X is an object of alt/S exactly when X → S is an alteration (PA.0/alteration)."
+    },
+    {
+     "name": "AltCat.test_affine_line_not_object",
+     "kind": "non-example",
+     "statement": "For S = Spec k, T = 𝔸¹_k has T^md = T but is not in alt/S: its generic field k(t) is not finite over k. Taking the md part does not impose generic finiteness."
     }
    ],
    "prerequisites": [
@@ -251,7 +326,7 @@
     {
      "name": "AltCat.md",
      "role": "constructor",
-     "statement": "The functor T ↦ T^md from finite-type S-schemes to alt/S, right adjoint to the inclusion."
+     "statement": "The functor T ↦ T^md on finite-type S-schemes is right adjoint to the inclusion of reduced maximally dominant finite-type S-schemes. Its value lies in alt/S when T has finite generic fibres; no generic-finiteness assertion holds for arbitrary T (ILO II 1.2.5)."
     },
     {
      "name": "AltCat.hasPullbacks",
@@ -272,6 +347,11 @@
      "name": "MaximallyEllPrimeFinite",
      "role": "data",
      "statement": "The predicate of maximal ℓ′-finiteness of a morphism, stable under base change in alt (ILO II 1.2.7) and composition."
+    },
+    {
+     "name": "AltCat.md_lift",
+     "role": "universal-property",
+     "statement": "For reduced maximally dominant U of finite type over S, every S-map U → T factors uniquely through T^md → T. This gives the fibre-product universal property after applying md to an ordinary product of objects of alt/S."
     }
    ],
    "library": {
@@ -295,7 +375,7 @@
    ],
    "title": "The topology of ℓ′-alterations",
    "kind": "definition",
-   "statement": "Let S be noetherian and ℓ as in EQ.0/alteration-category. An étale covering (X_i → X) is ℓ′-decomposed if every point x of X lifts to a point x_i of some X_i with [κ(x_i) : κ(x)] ∈ ℓ′ (for ℓ = 1 an ordinary étale covering, for ℓ = ∞ a Nisnevich covering). The topology alt_ℓ′ of ℓ′-alterations on alt/S is the Grothendieck topology generated by (i) ℓ′-decomposed étale coverings and (ii) single morphisms that are proper, surjective and maximally ℓ′-finite. alt_1′ is the alteration topology alt. A hypercovering for alt_ℓ′ of X is a simplicial object X_• of alt/X whose maps X_{n+1} → (cosk_n X_•)_{n+1} are alt_ℓ′-coverings.",
+   "statement": "Let S be noetherian and ℓ as in EQ.0/alteration-category. An étale covering (X_i → X) is ℓ′-decomposed if every point x of X lifts to a point x_i of some X_i with [κ(x_i) : κ(x)] ∈ ℓ′ (for ℓ = 1 an ordinary étale covering, for ℓ = ∞ a Nisnevich covering). The topology alt_ℓ′ of ℓ′-alterations on alt/S is the Grothendieck topology generated by (i) ℓ′-decomposed étale coverings and (ii) single morphisms that are proper, surjective and maximally ℓ′-finite. alt_1′ is the alteration topology alt. A hypercovering for alt_ℓ′ of X is a simplicial object X_• of alt/X with X_0 → X an alt_ℓ′-covering and whose maps X_{n+1} → (cosk_n X_•)_{n+1} are alt_ℓ′-coverings.",
    "hypotheses": [
     "The generating families are not closed under composition (ILO II 2.3.2); the topology is the one they generate.",
     "Condition (i) is imposed at every point, condition (ii) only at maximal points."
@@ -388,7 +468,7 @@
     {
      "name": "AltHypercover",
      "role": "data",
-     "statement": "Hypercoverings X_• → X for alt_ℓ′, with the truncation to degrees ≤ N."
+     "statement": "An augmented simplicial object of alt/X with X_0 → X covering and every matching map X_{n+1} → (cosk_n X_•)_{n+1} covering, for n ≥ 0."
     }
    ],
    "library": {
@@ -461,8 +541,9 @@
     "X noetherian; V ranges over valuation rings with the stated fraction fields; the map Spec V → X is maximally dominant."
    ],
    "proofSteps": [
-    "Necessity: by EQ.0/standard-form-covers reduce to Y → X proper surjective; lift the generic point by the Nullstellensatz and extend by the valuative criterion of properness.",
-    "Sufficiency: reduce to X affine integral and Y affine with a compactification; use quasi-compactness of the Riemann–Zariski space of X (AdicCoefficientsAndComparisonsPartII PA.1/riemann-zariski-space and PA.1/rz-compact-valuative) to find finitely many lifts of the geometric generic point covering it, and conclude that Y → X is refined by a Zariski covering of a proper surjective X-scheme."
+    "Necessity: proper surjective generators lift over a valuation ring with algebraically closed fraction field by the valuative criterion and lifting of the generic point; an étale cover lifts because such a valuation ring is strictly henselian (ILO II 4.2.1).",
+    "Sufficiency: normalize integral components, use the quasi-compact Riemann–Zariski space to select finitely many local lifts, and descend these lifts from the algebraic closure of the generic field to a finite extension and a proper modification. Their finite open covering gives an alteration refinement (published ILO II 4.2.1, pp. 33–34). This argument does not assume quasi-excellence.",
+    "For the prime-to-ℓ variant use the fixed field of an ℓ-Sylow subgroup of the absolute Galois group and the same argument, as in II 4.2.2."
    ],
    "acceptance": [
     "The open immersion 𝔾_m → 𝔸¹ fails the criterion: a valuation ring centred at the origin does not lift; Spec ℤ[i] → Spec ℤ satisfies it for alt.",
@@ -470,7 +551,6 @@
    ],
    "prerequisites": [
     "EtaleDualityAndPerverseSheavesPartII:EQ.0/ell-prime-alteration-topology",
-    "EtaleDualityAndPerverseSheavesPartII:EQ.0/standard-form-covers",
     "AdicCoefficientsAndComparisonsPartII:PA.1/riemann-zariski-space",
     "AdicCoefficientsAndComparisonsPartII:PA.1/rz-compact-valuative",
     "mathlib:ValuationRing"
@@ -484,6 +564,11 @@
      "sourceId": "ILO14",
      "locator": "Exposé II, Théorème 4.2.1 and Remarque 4.2.2, p. 32 (printed), after Goodwillie–Lichtenbaum, Theorem 3.5",
      "match": "An object of alt/X is an alteration covering exactly when it is valuatively surjective for valuation rings with algebraically closed fraction field; the prime-to-ℓ variant uses pro-ℓ Galois groups."
+    },
+    {
+     "sourceId": "ILO-final-II",
+     "locator": "Théorème 4.2.1 and Remarque 4.2.2, pp. 33–34",
+     "match": "The published statement uses an algebraically closed fraction field; its Riemann–Zariski proof covers noetherian bases without quasi-excellence."
     }
    ],
    "implementationStatus": "unchecked"
@@ -498,7 +583,7 @@
    "kind": "theorem",
    "statement": "Let A be an excellent henselian noetherian local ring with completion Â, S = Spec A, Ŝ = Spec Â, and write Ŝ = lim_α S_α with S_α smooth over S (Popescu). Let X be of finite type over Ŝ with a model X_{α0} over S_{α0}. There are α1 ≥ α0 and integers n0 ≥ c > 0 such that for every n ≥ n0, α ≥ α1 and every section u of S_α → S that is (n+1)-close to the canonical map Ŝ → S_α, the pulled-back scheme X_u over S is (n+1−c)-isomorphic to X above the closed fibre (an approximation of order n − c). If X and Y are a-close at a point x of their common closed fibre, then (i) for a ≥ 1 they have the same dimension at x, and (ii) for a ≥ 2, X is regular at x iff Y is; (iii) if X is regular, every sufficiently fine approximation X_u is regular in an open neighbourhood of its closed fibre.",
    "hypotheses": [
-    "A excellent henselian noetherian local; closeness is measured by agreement of associated graded rings up to the stated order (ILO III, Definitions 2.1–2.2, 4.2)."
+    "A excellent henselian noetherian local. For the closed-fibre ideals I and J, an a-isomorphism identifies the (a−1)-st infinitesimal fibres and the graded algebras gr^a_n = I^n/I^{n+a} and J^n/J^{n+a} for all integer n, taking I^n = O for n ≤ 0 (ILO III 4.2, p. 39). Agreement of a truncated ordinary associated graded alone is insufficient."
    ],
    "proofSteps": [
     "Popescu's theorem writes the regular map A → Â as a filtered colimit of smooth A-algebras (SchemeAndStackFoundations §0.15, Néron–Popescu desingularization).",
@@ -507,7 +592,7 @@
    ],
    "acceptance": [
     "For X = Ŝ itself, every approximation X_u is S, and the closed fibres agree to all orders.",
-    "For X = Spec Â[t]/(t² − a) with a a unit and 2 invertible, the approximations Spec A[t]/(t² − a_u) with a_u close to a are étale over S, hence regular."
+    "For X = Spec Â[t]/(t² − a) with a a unit and 2 invertible, the approximations Spec A[t]/(t² − a_u) with a_u close to a are étale over S. If A is also regular they are regular; étaleness alone does not make a singular base regular."
    ],
    "planet": {
     "name": "Approximation theorem"
@@ -525,7 +610,7 @@
    "sources": [
     {
      "sourceId": "ILO14",
-     "locator": "Exposé III, Théorème 5.1, Définition 5.2 and Corollaire 5.4, pp. 41–43 (printed)",
+     "locator": "Exposé III, Définition 4.2, Théorème 5.1, Définition 5.2 and Corollaire 5.4, pp. 39, 41–43 (printed)",
      "match": "States the approximation theorem for finite-type schemes over the completion of an excellent henselian local ring and the comparison of dimension and regularity for schemes that are close to sufficient order."
     }
    ],
@@ -664,16 +749,17 @@
    ],
    "title": "Equivariant Cohen–Gabber theorem",
    "kind": "theorem",
-   "statement": "Let A be a complete noetherian local reduced ring of equal characteristic, of dimension d, with residue field κ, and let a finite group G act on A with |G| invertible in κ. There is a G-equivariant finite generically étale morphism κ⟦t_1, …, t_d⟧ → A, where κ → A lifts the identity of κ and G acts trivially on the t_i.",
+   "statement": "Let A be a complete noetherian local reduced ring of equal characteristic, of dimension d, with residue field κ, and let a finite group G act on A with |G| invertible in κ. There is a G-equivariant finite generically étale morphism κ⟦t_1, …, t_d⟧ → A, where κ → A lifts the identity of κ and G acts trivially on the t_i. Here generic étaleness means étaleness over a dense open of the power-series target; lower-dimensional components of Spec A can disappear over that open.",
    "hypotheses": [
     "|G| invertible in κ; equal characteristic (A contains a field)."
    ],
    "proofSteps": [
-    "Pass to the invariant ring B = A^G, which is complete local noetherian and over which A is finite (ILO IV Proposition 2.2.3).",
-    "Apply EQ.1/cohen-gabber-equal-characteristic (or Cohen's theorem in characteristic 0) to B, and use that A is generically étale over B because |G| is invertible."
+    "Set B = A^G and λ = κ^G; B is complete local noetherian and A is finite over B (ILO IV 2.2.3). Its dimension is d, but B need not be equidimensional.",
+    "Let I be the intersection of the minimal primes of B having dimension d. Apply the non-equivariant theorem to the reduced equidimensional quotient B/I (or Cohen structure in characteristic zero). Lift its coefficient field and parameters to B, as in IV 2.2.4–2.2.5, obtaining a finite parametrization generically étale over its target.",
+    "Extend λ to the finite separable residue extension κ, lift this extension étale-locally with its G-action, and map κ⟦t_1,…,t_d⟧ equivariantly into A. The generic field extensions of A over the invariants are separable; the resulting parametrization is finite and étale over a dense target open (IV 2.2.6, pp. 54–55)."
    ],
    "acceptance": [
-    "For G trivial this is the non-equivariant theorem.",
+    "For G trivial and A equidimensional in positive characteristic, this is the non-equivariant theorem; the general reduced case uses its maximal-dimensional quotient.",
     "For A = k⟦x⟧ with G = μ_2 acting by x ↦ −x (char k ≠ 2), one can take t = x²: the map k⟦t⟧ → A is finite, equivariant and étale where x ≠ 0."
    ],
    "prerequisites": [
@@ -687,7 +773,7 @@
    "sources": [
     {
      "sourceId": "ILO14",
-     "locator": "Exposé IV, Théorème 2.2.2 and Proposition 2.2.3, p. 53 (printed)",
+     "locator": "Exposé IV, Théorème 2.2.2 and §§2.2.3–2.2.6, pp. 53–55 (printed)",
      "match": "Gives a G-equivariant finite generically étale power-series parametrisation of a complete local reduced equicharacteristic ring when the order of G is invertible."
     }
    ],
@@ -707,7 +793,8 @@
    ],
    "proofSteps": [
     "Epp's proof (Invent. Math. 19 (1973), Theorem 1.9) reduces to the case of a ramified Artin–Schreier tower and kills wild ramification by a suitable finite extension of the base; ILO IV §3 records the statement and the sorites used.",
-    "Remark: in mixed characteristic the fibre product is flat over S′ with reduced generic fibre, hence reduced (ILO IV Remarque 3.1.3)."
+    "Remark: in mixed characteristic the fibre product is flat over S′ with reduced generic fibre, hence reduced (ILO IV Remarque 3.1.3).",
+    "The equal-characteristic p-cyclic step must include Kuhlmann’s correction: transformed Artin–Schreier terms can acquire equal exponents and cancel, so iterate after recombination until the finite set of offending coefficients shrinks to the required case (K10, pp. 1–3). This does not replace reading Epp’s remaining proof; gap EPP-1973 stays open."
    ],
    "acceptance": [
     "If T → S is unramified with separable residue field extension, S′ = S works.",
@@ -726,6 +813,11 @@
      "sourceId": "ILO14",
      "locator": "Exposé IV, Théorème 3.1.2 and Remarque 3.1.3, p. 55 (printed), citing Epp 1973, Theorem 1.9",
      "match": "States Epp's theorem: after a finite extension of the base trait, the normalised reduced base change of a dominant map of complete traits has reduced special fibre."
+    },
+    {
+     "sourceId": "K10",
+     "locator": "pp. 1–3, correction to the equal-characteristic case of Epp’s Theorem 1.3",
+     "match": "Repairs the possible cancellation of leading Artin–Schreier terms by iteration; the main elimination theorem survives."
     }
    ],
    "implementationStatus": "unchecked"
@@ -816,7 +908,7 @@
     {
      "name": "PartiallyAlgebraizable.test_graph",
      "kind": "computation",
-     "statement": "In A = k⟦x, y⟧ the ideal (y − exp-like series f(x)) is extended from C_𝔫 with C = k⟦x⟧[y], since y − f(x) ∈ C."
+     "statement": "In A = k⟦x,y⟧ the ideal (y − x²) is extended from C_𝔫 for C = k⟦x⟧[y] and 𝔫 = (x,y). More generally the same presentation works for (y − f(x)) with any f(x) ∈ k⟦x⟧."
     },
     {
      "name": "PartiallyAlgebraizable.test_not_finite_type_over_A",
@@ -851,12 +943,12 @@
     {
      "name": "PartiallyAlgebraizable.dim_lt",
      "role": "projection",
-     "statement": "The base B of a presentation has dim B < dim A; C has relative dimension ≥ 1 at 𝔫 when A ≠ 0."
+     "statement": "Every presentation has dim B < dim A."
     },
     {
      "name": "PartiallyAlgebraizable.geometric",
      "role": "characterisation",
-     "statement": "Equivalently X = Spec A is the completion of a finite-type scheme over a complete regular local scheme of smaller dimension at a closed point of its closed fibre, with the closed subsets V(I_e) coming from closed subsets (ILO V 3.1.3)."
+     "statement": "Equivalently Spec A is the completion at a closed point of the closed fibre of a finite-type scheme over a complete noetherian local base of smaller dimension, with each V(I_e) induced from a closed subset. Under the reduced equal-characteristic or normal mixed-characteristic hypotheses of V 3.1.3–3.1.4, the algebraization theorems give a regular base of dimension dim A − 1, after the stated finite prime-to-ℓ extension in mixed characteristic; regularity is an extra theorem, not part of this equivalence."
     }
    ],
    "library": {
@@ -920,7 +1012,7 @@
    ],
    "title": "Partial algebraization prime to ℓ in mixed characteristic",
    "kind": "theorem",
-   "statement": "Let A be a complete noetherian local normal ring of mixed characteristic (0, p) and dimension d ≥ 2, and ℓ ≠ p a prime. There is a finite injective A → A′ of generic degree prime to ℓ with A′ normal integral such that every finite family of ideals of A′ is partially algebraizable. Geometrically: for a complete noetherian local X of mixed characteristic and dimension d ≥ 2, finitely many closed subsets Z_i ⊂ X and ℓ invertible on X, there are a complete regular local scheme S of mixed characteristic and dimension d − 1, a local normal X′ with a finite π : X′ → X of generic degree prime to ℓ, a finite-type f : Y → S and an isomorphism a of X′ with the completion of Y at a closed point of its special fibre, and closed F_i ⊂ Y with π^{-1}(Z_i) = a^{-1}(F_i). In equal characteristic the same holds with X′ = X.",
+   "statement": "Let A be a complete noetherian local normal ring of mixed characteristic (0, p) and dimension d ≥ 2, and ℓ ≠ p a prime. There is a finite injective A → A′ of generic degree prime to ℓ with A′ normal integral such that every finite family of ideals of A′ is partially algebraizable. Geometrically: for a complete noetherian local normal X of mixed characteristic and dimension d ≥ 2, finitely many closed subsets Z_i ⊂ X and ℓ invertible on X, there are a complete regular local scheme S of mixed characteristic and dimension d − 1, a local normal X′ with a finite π : X′ → X of generic degree prime to ℓ, a finite-type f : Y → S and an isomorphism a of X′ with the completion of Y at a closed point of its special fibre, and closed F_i ⊂ Y with π^{-1}(Z_i) = a^{-1}(F_i). For X reduced of equal characteristic and not a field, the analogous presentation over a complete regular local base of dimension dim X − 1 holds with X′ = X (V 3.1.4).",
    "hypotheses": [
     "Mixed characteristic (0, p), d ≥ 2, ℓ ≠ p; finitely many closed subsets."
    ],
@@ -960,9 +1052,9 @@
    ],
    "title": "de Jong's equivariant nodal-curve alteration over an excellent base",
    "kind": "theorem",
-   "statement": "Let f : X → Y be a proper morphism of excellent integral noetherian schemes and Z ⊂ X a nowhere dense closed subscheme, with η the generic point of Y, such that X_η is smooth, irreducible and of dimension 1 and Z_η is étale over η. There are a finite group G, a commutative square of G-schemes with f′ : X′ → Y′ over f, alterations a : X′ → X and b : Y′ → Y, an effective G-equivariant divisor D ⊂ X′ and a nowhere dense G-stable closed T′ ⊂ Y′ such that: f′ is projective; G acts trivially on X and Y and freely on Y′ − T′; a and b are projective generically étale alterations and Y′/G → Y (resp. X′/G → X) is an isomorphism at η (resp. at the generic point of X_η); f′ is a nodal curve, smooth outside T′; D is étale over Y′ and contained in the smooth locus of f′; and a^{-1}(Z) ⊂ D ∪ f′^{-1}(T′).",
+   "statement": "Let f : X → Y be a proper morphism of excellent integral noetherian schemes and Z ⊂ X a nowhere dense closed subscheme, with η the generic point of Y, such that X_η is smooth, geometrically irreducible and of dimension 1 and Z_η is étale over η. There are a finite group G, a commutative square of G-schemes with f′ : X′ → Y′ over f, alterations a : X′ → X and b : Y′ → Y, an effective G-equivariant divisor D ⊂ X′ and a nowhere dense G-stable closed T′ ⊂ Y′ such that: f′ is projective; G acts trivially on X and Y and freely on Y′ − T′; a and b are projective generically étale alterations and Y′/G → Y (resp. X′/G → X) is an isomorphism at η (resp. at the generic point of X_η); f′ is a nodal curve, smooth outside T′; D is étale over Y′ and contained in the smooth locus of f′; and a^{-1}(Z) ⊂ D ∪ f′^{-1}(T′).",
    "hypotheses": [
-    "Y excellent integral noetherian; X_η smooth irreducible of dimension 1; Z_η étale over η.",
+    "Y excellent integral noetherian; X_η smooth geometrically irreducible of dimension 1; Z_η étale over η.",
     "A nodal curve is flat with geometrically connected one-dimensional fibres whose only singularities are ordinary double points."
    ],
    "proofSteps": [
@@ -971,7 +1063,8 @@
    ],
    "acceptance": [
     "If f is already a smooth projective curve with Z a union of disjoint sections, G trivial and a, b identities work.",
-    "For Y a trait and X a regular model with nodal special fibre, T′ is the closed point after base change."
+    "For Y a trait and X a regular model with nodal special fibre, T′ is the closed point after base change.",
+    "The geometric hypothesis is necessary for the quotient conclusion: for a nontrivial finite separable extension L/K, ℙ¹_L → Spec K is smooth and irreducible but not geometrically irreducible. A nodal model with geometrically connected fibres has generic constants from its new base; compatibility with a birational quotient of ℙ¹_L would force the base quotient to have constants L, contradicting birationality over K."
    ],
    "planet": {
     "name": "de Jong's nodal-curve alteration"
@@ -990,12 +1083,17 @@
     {
      "sourceId": "DJ97",
      "locator": "Theorem 2.4 and Remark 2.5, pp. 602–603",
-     "match": "For a family of curves over an integral excellent base with a group action and a marked closed subset, there is an equivariant alteration making the family a projective semistable curve with smooth generic fibre and disjoint sections in its smooth locus through the marked set, with optional stability or birationality of the generic fibre."
+     "match": "For a family of curves over an integral excellent base with a group action and a marked closed subset, there is an equivariant alteration making the family a projective semistable curve with smooth generic fibre and disjoint sections in its smooth locus through the marked set, with optional stability or birationality of the generic fibre. The birational quotient clause 2.4(iv) assumes geometric irreducibility (Situation 2.1.5)."
     },
     {
      "sourceId": "ILO14",
      "locator": "Exposé IX, Théorème 1.2, p. 131 (printed)",
      "match": "Records the weak form of de Jong's theorem used in the uniformization proofs: a projective nodal curve after an equivariant generically étale alteration, with the marked subset inside an étale divisor and the degenerate locus."
+    },
+    {
+     "sourceId": "ILO-final-IX",
+     "locator": "Théorème 1.2, p. 161",
+     "match": "The published theorem explicitly assumes geometric irreducibility of the generic fibre, correcting arXiv v1."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1296,12 +1394,12 @@
    ],
    "title": "The oriented alteration topology on diagrams X → S ← Y",
    "kind": "definition",
-   "statement": "Let B be the category of diagrams (X → S ← Y) of noetherian schemes, with morphisms the commutative ladders; finite limits and coproducts in B are computed termwise. The oriented alteration topology on B is generated by the families: (i) (X → S ← Y_i) → (X → S ← Y) for an alteration covering (Y_i → Y); (ii) (X_i → S ← Y) → (X → S ← Y) for an alteration covering (X_i → X); (iii) (X ×_S S_i → S_i ← Y ×_S S_i) → (X → S ← Y) for an alteration covering (S_i → S); (iv) (X → S′ ← Y ×_S S′) → (X → S ← Y) for S′ → S proper through which X → S factors; (v) (X ×_S S′ → S′ ← Y) → (X → S ← Y) for S′ → S étale through which Y → S factors (ILO XII 2.1.1–2.1.2). An oriented alteration hypercovering of (X → S ← Y) is a simplicial object (X_• → S_• ← Y_•) of B whose coskeleton maps are coverings for this topology; its augmentation induces ←ε : Y_• ←×_{S_•} X_• → Y ←×_S X.",
+   "statement": "Fix a noetherian base S₀. Let B be the category of diagrams (X → S ← Y) of finite-type S₀-schemes, with morphisms the commutative S₀-ladders; finite limits and finite coproducts in B are computed termwise. The oriented alteration topology on B is generated by the families: (i) (X → S ← Y_i) → (X → S ← Y) for an alteration covering (Y_i → Y); (ii) (X_i → S ← Y) → (X → S ← Y) for an alteration covering (X_i → X); (iii) (X ×_S S_i → S_i ← Y ×_S S_i) → (X → S ← Y) for an alteration covering (S_i → S); (iv) (X → S′ ← Y ×_S S′) → (X → S ← Y) for S′ → S proper through which X → S factors; (v) (X ×_S S′ → S′ ← Y) → (X → S ← Y) for S′ → S étale through which Y → S factors (ILO XII 2.1.1–2.1.2). An oriented alteration hypercovering of (X → S ← Y) is a simplicial object (X_• → S_• ← Y_•) of B whose degree-zero augmentation and all positive-degree matching maps are coverings for this topology; its augmentation induces ←ε : Y_• ←×_{S_•} X_• → Y ←×_S X.",
    "hypotheses": [
-    "Noetherian schemes; X → S coherent; the families are stable under base change in B."
+    "All diagrams are finite type over a fixed noetherian S₀; covering families lie in this category. Each application may take S₀ to be its original base. Strict henselizations in stalk computations are handled by limits of étale neighbourhoods, not asserted to be objects of B."
    ],
    "proofSteps": [
-    "Define B and the five families; check stability under base change (ILO XII 2.1.2).",
+    "Restrict the diagram category and the five generating families of ILO XII 2.1.1–2.1.2 to finite-type S₀-schemes. Finite limits remain noetherian and the families remain stable under base change. Arbitrary products of noetherian schemes need not be noetherian.",
     "Define hypercoverings and the induced morphism of oriented products by functoriality (EQ.3/oriented-product-topos)."
    ],
    "acceptance": [
@@ -1337,7 +1435,7 @@
     {
      "name": "OrientedAltSite.test_not_cover",
      "kind": "non-example",
-     "statement": "For a closed immersion Y′ → Y that is not surjective, (X → S ← Y′) → (X → S ← Y) is not covering: the points of the oriented product over Y − Y′ are missed."
+     "statement": "Take S = X = Spec k with k algebraically closed, Y = 𝔸¹_k and Y′ = {0}. Then Y ←×_S X = Y_ét, and the single map (X → S ← Y′) → (X → S ← Y) is not covering: points over Y − {0} are missed."
     }
    ],
    "prerequisites": [
@@ -1348,7 +1446,7 @@
     {
      "name": "OrientedAltSite",
      "role": "data",
-     "statement": "The category B of diagrams X → S ← Y with the oriented alteration topology."
+     "statement": "The category B of finite-type S₀-diagrams X → S ← Y, for a fixed noetherian S₀, with the oriented alteration topology."
     },
     {
      "name": "OrientedAltSite.ofAltHypercover",
@@ -1387,13 +1485,13 @@
    ],
    "title": "Oriented acyclicity of proper morphisms",
    "kind": "theorem",
-   "statement": "Let S be a coherent scheme, g : Y → S, π : S′ → S proper, a : X → S′ coherent, b = π a, Y′ = Y ×_S S′ with g′ : Y′ → S′ and ρ : Y′ → Y. The induced morphism ←ρ : Y′ ←×_{S′} X → Y ←×_S X of oriented products is acyclic for torsion sheaves: for every torsion abelian sheaf (more generally bounded below torsion complex) F on Y ←×_S X, F → R←ρ_* ←ρ^* F is an isomorphism; and it is 1-acyclic for ind-finite stacks.",
+   "statement": "Let S be a coherent scheme, g : Y → S, π : S′ → S proper, a : X → S′ coherent, b = π a, Y′ = Y ×_S S′ with g′ : Y′ → S′ and ρ : Y′ → Y. The induced morphism ←ρ : Y′ ←×_{S′} X → Y ←×_S X of oriented products is acyclic for torsion sheaves: for every torsion abelian sheaf (more generally bounded below torsion complex) F on Y ←×_S X, F → R←ρ_* ←ρ^* F is an isomorphism. The companion assertion of 1-acyclicity for ind-finite stacks is recorded with proof gap NONABELIAN-ORIENTED-LIMIT; the abelian theorem does not depend on it.",
    "hypotheses": [
     "π proper; coefficients torsion; schemes coherent."
    ],
    "proofSteps": [
     "Reduce by the tube base change theorem (EQ.3/tube-base-change) to a statement on strictly henselian local bases.",
-    "Conclude by proper base change for torsion coefficients (EtaleCohomologyFoundations §F.2, through EtaleDualityAndPerverseSheaves EDC.0) and Gabber's affine proper base change for henselian pairs (ArcTopologyAndDescent AT.8/gabber-affine-proper-base-change) (ILO XII 1.2.1–1.2.2)."
+    "Apply ordinary proper base change for torsion sheaves to the strictly local fibre and use the section determined by the lifted geometric point to identify the adjunction map (ILO XII 1.2.1–1.2.2). Gabber’s affine proper base change is not needed for this step."
    ],
    "acceptance": [
     "For π an isomorphism, ←ρ is an equivalence.",
@@ -1402,7 +1500,6 @@
    "prerequisites": [
     "EtaleDualityAndPerverseSheavesPartII:EQ.3/tube-base-change",
     "EtaleDualityAndPerverseSheavesPartII:EQ.3/oriented-product-topos",
-    "ArcTopologyAndDescent:AT.8/gabber-affine-proper-base-change",
     "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category"
    ],
    "library": {
@@ -1412,8 +1509,13 @@
    "sources": [
     {
      "sourceId": "ILO14",
-     "locator": "Exposé XII, Théorèmes 1.2.1–1.2.2, p. 189 (printed)",
-     "match": "The morphism of oriented products induced by a proper base change is acyclic for torsion sheaves and 1-acyclic for ind-finite stacks."
+     "locator": "Exposé XII, Théorèmes 1.2.1–1.2.2 and §1.3.4, pp. 189–190 (printed)",
+     "match": "Proves torsion abelian acyclicity. The ind-finite-stack extension is stated separately in §1.3.4 with a warning about the limit argument, retained in the published version as §1.4."
+    },
+    {
+     "sourceId": "ILO-final-XII",
+     "locator": "§1.4, p. 241",
+     "match": "The published discussion still identifies the missing reference for the non-abelian passage to limits."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1426,9 +1528,9 @@
    ],
    "title": "Oriented cohomological descent",
    "kind": "theorem",
-   "statement": "Let (X_• → S_• ← Y_•) → (X → S ← Y) be a hypercovering for the oriented alteration topology, with augmentation ←ε : T_• = Y_• ←×_{S_•} X_• → T = Y ←×_S X. For every bounded below torsion complex K on T, the adjunction K → R←ε_* ←ε^* K is an isomorphism; for every ind-finite stack C on T, C → ←ε_* ←ε^* C is an equivalence.",
+   "statement": "Let (X_• → S_• ← Y_•) → (X → S ← Y) be a hypercovering for the oriented alteration topology, with augmentation ←ε : T_• = Y_• ←×_{S_•} X_• → T = Y ←×_S X. For every bounded below torsion complex K on T, the adjunction K → R←ε_* ←ε^* K is an isomorphism; the companion descent assertion for ind-finite stacks C, namely C → ←ε_* ←ε^* C, requires the limit input recorded in gap NONABELIAN-ORIENTED-LIMIT.",
    "hypotheses": [
-    "Noetherian schemes; torsion coefficients; bounded below complexes."
+    "Diagrams finite type over a fixed noetherian S₀ as in EQ.3/oriented-alteration-topology; torsion coefficients; bounded below complexes."
    ],
    "proofSteps": [
     "By general descent theory (Deligne, Hodge III 5.3.5) reduce to 0-coskeleta of single covering families of types (i)–(v), and to Zariski coverings or proper surjections for the alteration coverings (ILO XII 2.3.1).",
@@ -1454,8 +1556,8 @@
    "sources": [
     {
      "sourceId": "ILO14",
-     "locator": "Exposé XII, Théorème 2.2.1 and §2.3, pp. 191–194 (printed)",
-     "match": "The augmentation of an oriented alteration hypercovering is of cohomological descent for bounded below torsion complexes and of descent for ind-finite stacks."
+     "locator": "Exposé XII, Théorème 2.2.1 and §2.3, including §2.3.8, pp. 191–194 (printed)",
+     "match": "Proves oriented descent for bounded below torsion abelian complexes. Its non-abelian companion refers to the limit issue of §1.3.4, so it remains an explicit proof gap here."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1468,9 +1570,9 @@
    ],
    "title": "Base change formula for alteration hypercoverings",
    "kind": "theorem",
-   "statement": "Let X —f→ S ←g— Y be noetherian schemes and ε : S_• → S an alteration hypercovering, with f_• : X_• = X ×_S S_• → S_•, g_• : Y_• = Y ×_S S_• → S_• and ε_Y : Y_• → Y. For every bounded below torsion complex K on X, the natural map g^*Rf_*K → Rε_{Y*}(g_•^*Rf_{•*}(K|X_•)) is an isomorphism; for every ind-finite stack C on X, g^*f_*C → ε_{Y*}(g_•^*f_{•*}(C|X_•)) is an isomorphism.",
+   "statement": "Let X —f→ S ←g— Y be finite-type morphisms of noetherian schemes and ε : S_• → S an alteration hypercovering, with f_• : X_• = X ×_S S_• → S_•, g_• : Y_• = Y ×_S S_• → S_• and ε_Y : Y_• → Y. For every bounded below torsion complex K on X, the natural map g^*Rf_*K → Rε_{Y*}(g_•^*Rf_{•*}(K|X_•)) is an isomorphism. The corresponding ind-finite-stack assertion g^*f_*C → ε_{Y*}(g_•^*f_{•*}(C|X_•)) remains conditional on gap NONABELIAN-ORIENTED-LIMIT.",
    "hypotheses": [
-    "Noetherian schemes; torsion coefficients."
+    "S noetherian, X and Y of finite type over S; torsion coefficients. The noetherian source theorem is used here in this finite-type scope, which suffices for the applications to open and closed immersions."
    ],
    "proofSteps": [
     "Express both sides through oriented products with EQ.3/tube-base-change and apply EQ.3/oriented-cohomological-descent to the induced oriented hypercovering (EQ.3/oriented-alteration-topology) (ILO XII 2.4).",
@@ -1513,8 +1615,8 @@
    "proofSteps": [
     "Classical reductions (SGA 4 XVI 4.5): to F = ℤ/ℓ constant (SGA 4 IX 2.14 and the trace method) and to f an open immersion j : U → X (ILO XIII 2.1.1–2.1.2).",
     "By the constructibility criterion (SGA 4 IX 2.4 (v)) it suffices that for every closed immersion g : Z → X, g^*R^q j_*ℤ/ℓ is constructible over a dense open of Z.",
-    "Take an alteration hypercovering X_• → X regular with snc preimage of Z in degrees ≤ q + 1 (EQ.2/regular-alteration-hypercover); absolute purity (LefschetzPencilsAndVanishingCycles §0.10) makes g_•^*Rj_{•*}ℤ/ℓ constructible in those degrees.",
-    "Deligne's generic constructibility (SGA 4½ [Th. finitude] 1.9 (i)) applied to the proper maps Z_p → Z gives a dense open of Z where the truncated descent complex is constructible, and the base change formula EQ.3/alteration-hypercover-base-change identifies it with g^*Rj_*ℤ/ℓ (ILO XIII 2.2.3)."
+    "Take an alteration hypercover X_• → X regular with snc preimage of the boundary X − U in degrees ≤ q + 1 (EQ.2/regular-alteration-hypercover). Absolute purity makes Rj_{p*}ℤ/ℓ constructible on X_p, hence so is its restriction to Z_p = Z ×_X X_p; no snc condition on the test-closed subset Z is required.",
+    "Apply Deligne’s generic constructibility over the noetherian base Z (SGA 4½ [Th. finitude] 1.9(i), p. 236) to the finite-type maps ε_p : Z_p → Z and the finitely many constructible cohomology sheaves needed in total degree q. These maps need not be proper. A common dense open of Z works, and oriented hypercover base change identifies the truncated descent complex with g^*Rj_*ℤ/ℓ (ILO XIII 2.2.3). The general-base supplier extension is requested from EDC.0."
    ],
    "acceptance": [
     "For X of finite type over a field this recovers Deligne's finiteness theorem of SGA 4½ for open immersions.",
@@ -1537,6 +1639,11 @@
      "sourceId": "ILO14",
      "locator": "Exposé XIII, §2 (2.1–2.2, Théorème 2.2.2), pp. 195–197 (printed)",
      "match": "Proves constructibility of the higher direct images using only weak local uniformization, absolute purity, Deligne's generic constructibility and oriented cohomological descent."
+    },
+    {
+     "sourceId": "SGA4half",
+     "locator": "[Th. finitude] Théorème 1.9(i), p. 236; proof §2, pp. 238–241",
+     "match": "For finite-type X → Y over a noetherian S and a constructible torsion sheaf with invertible torsion, a dense base open has constructible, eventually vanishing higher direct images."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1554,7 +1661,7 @@
     "X noetherian quasi-excellent (possibly of infinite Krull dimension); n invertible on X."
    ],
    "proofSteps": [
-    "Part (i) is EQ.4/constructibility-via-weak-uniformization; the proof of both parts at once proceeds by induction on c of the statement (P_c): for an open immersion j : U → X and K ∈ D^b_c(U), Rj_*K is constructible and bounded outside a closed subset of codimension ≥ c (ILO XIII 3.1).",
+    "Part (i) is EQ.4/constructibility-via-weak-uniformization; the proof of both parts at once proceeds by induction on c of the statement (P_c): for an open immersion j : U → X and K ∈ D^b_c(U), Rj_*K is constructible and bounded outside a closed subset of codimension > c (ILO XIII 3.1).",
     "Inductive step: by prime-to-ℓ uniformization (EQ.2/prime-to-ell-local-uniformization) in the standard form of EQ.0/standard-form-covers (proper birational, Nisnevich, finite flat of degree prime to ℓ), compare the defect complexes ψ along the three kinds of maps; the finite flat step is split by the trace since the degree is prime to ℓ (ILO XIII 3.2–3.5).",
     "On the regular schemes with snc boundary at the top, Rj_*Λ is constructible and bounded by absolute purity (ILO XIII 3.6.2); reduce from K to constant coefficients (ILO XIII 3.7)."
    ],
@@ -1679,7 +1786,7 @@
     {
      "name": "DimensionFunction.ofStrictLocal",
      "role": "constructor",
-     "statement": "On a strictly local X with closed point x, t ↦ dim of the closure of t is the unique dimension function vanishing at x (ILO XIV 2.4.5)."
+     "statement": "For X strictly local, noetherian and universally catenary, δ(t) = dim closure{t} is the normalized dimension function with δ(closed point) = 0 (ILO XIV 2.4.5). This applies to strictly local quasi-excellent schemes by XIV 2.4.4."
     },
     {
      "name": "DimensionFunction.negCodim",
@@ -1765,7 +1872,7 @@
    ],
    "proofSteps": [
     "(1) Reduce to X, Y integral and f dominant; X is universally catenary by EQ.5/dimension-function-existence, so δ_X = −dim O_X + const, and the dimension formula (Matsumura 14.C) gives δ_Y = −dim O_Y + trdeg(κ(Y)/κ(X)) + const (ILO XIV 2.5.1–2.5.2).",
-    "(2) Work strictly locally; δ_Y minus any dimension function on Y is constant on the regular, hence connected (EQ.5/regular-base-change applied to H⁰), fibres, and constant along immediate specializations of X by the Hauptidealsatz (ILO XIV 2.5.4)."
+    "(2) Reduce to a local regular map between strictly local excellent schemes. The regular fibres are universally catenary. On each fibre the difference between the displayed function and an existing dimension function is locally constant; regular base change on H⁰ shows that these fibres are connected in this strictly local situation. The difference therefore descends to X, where the Hauptidealsatz makes it constant along immediate specializations (ILO XIV 2.5.3–2.5.4, pp. 217–218)."
    ],
    "acceptance": [
     "For f : 𝔸¹_k → Spec k with δ = 0 on the base, (1) gives δ(η) = 1 and δ(closed point) = 0.",
@@ -1773,7 +1880,8 @@
    ],
    "prerequisites": [
     "EtaleDualityAndPerverseSheavesPartII:EQ.5/dimension-function",
-    "EtaleDualityAndPerverseSheavesPartII:EQ.5/dimension-function-existence"
+    "EtaleDualityAndPerverseSheavesPartII:EQ.5/dimension-function-existence",
+    "EtaleDualityAndPerverseSheavesPartII:EQ.5/regular-base-change"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Etale/QuasiExcellent",
@@ -1805,13 +1913,15 @@
     "Smooth base change (SGA 4 XVI 1.2; EtaleCohomologyFoundations §F.2) along each S_i → S and passage to the limit in étale cohomology (SGA 4 VII 5.11; SchemeAndStackFoundations §2.15) (ILO XIV 2.5.3)."
    ],
    "acceptance": [
-    "For S′ = Spec Â → S = Spec A the completion of an excellent local ring, the cohomology of an open U ⊂ Spec A agrees with that of U ×_A Â for coefficients invertible on A (used in ILO XV 1.2.5).",
-    "For g smooth this is smooth base change."
+    "For A strictly henselian excellent local and an open U ⊆ Spec A, regular base change evaluated at the closed point identifies H^q(U,F) with H^q(U ×_A Â,F). Strict locality is needed for this global-cohomology deduction (ILO XV 1.2.5).",
+    "For g smooth this is smooth base change.",
+    "Without henselianity global cohomology can change: over A = k[t]_(t), char k ≠ 2, the étale cover z² = 1+t has no section over A but has a section over k⟦t⟧. The regular-base-change sheaf assertion is unaffected."
    ],
    "prerequisites": [
     "SchemeAndStackFoundations:SF.0",
     "SchemeAndStackFoundations:SF.2",
-    "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category"
+    "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
+    "EtaleDualityAndPerverseSheaves:EDC.0"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Etale/QuasiExcellent",
@@ -2006,17 +2116,17 @@
    ],
    "title": "Transition morphisms for specializations",
    "kind": "construction",
-   "statement": "Let n ≥ 2, Λ = ℤ/n and X a noetherian excellent ℤ[1/n]-scheme. For a geometric point x̄ over x ∈ X and K ∈ D⁺(X_ét, Λ) put RΓ_x̄(K) := (i_x^!(K|X_(x)))_x̄, the cohomology with supports in the closed point of the strict localization, with cohomology H^i_x̄(K). For every specialization ȳ ⇝ x̄ of codimension c there is a transition morphism sp_{ȳ→x̄} : RΓ_ȳ(K) → RΓ_x̄(K)(c)[2c] in D⁺(Λ), natural in K. For c = 1 it is defined on the normalisation of the closure of ȳ in X_(x̄), a strictly henselian trait with tame inertia G ≅ Ẑ′(1): RΓ_s(K) is computed by the complex K_s → K_η̄^S → Hom_{Λ⟦G⟧}(I_G, K_η̄^S) (S the wild inertia, I_G the augmentation ideal, free of rank one on 1 − σ), and the map K_η̄(−1) ≅ Hom(G, K_η̄) → Hom(I_G, K_η̄^S) given by evaluation at σ defines sp, independently of the topological generator σ. For general c the morphisms are compatible with composition of specializations and with finite morphisms.",
+   "statement": "Let n ≥ 2, Λ = ℤ/n and X be noetherian excellent over ℤ[1/n]. For K ∈ D⁺(X_ét,Λ), write RΓ_x̄(K) for cohomology on X_(x̄) with supports in its closed point. A specialization ȳ ⇝ x̄ of codimension c = 0 or 1 gives a natural map sp : RΓ_ȳ(K) → RΓ_x̄(K)(c)[2c] in D⁺(Λ). For c = 0 it is transport along the corresponding geometric-point isomorphism. On a strictly henselian trait, first project the generic stalk to its wild-inertia invariants K_η̄^S (averaging is available for the invertible torsion coefficients); the tame-inertia evaluation construction then gives the codimension-one map independently of the generator. For an integral one-dimensional strict localization, use its normalization and multiply the trait map by 1/[s̃:s], the inverse purely inseparable residue degree. Closed-support adjunction gives the map for every immediate specialization. Higher-codimension transitions will be constructed on cohomology groups in EQ.6/top-degree-local-class; no derived map in arbitrary codimension is asserted.",
    "hypotheses": [
     "X noetherian excellent over ℤ[1/n] (quasi-excellent suffices étale-locally, ILO XVII 3.1.3); Λ = ℤ/n."
    ],
    "proofSteps": [
-    "Trait case: identify RΓ_s(K) with the complex F(K) (ILO XVII Proposition 1.2.2.1) and define sp by the evaluation map (Définition 1.2.3.1), checking independence of σ.",
-    "Codimension one in general: pull back to the normalised closure of ȳ in X_(x̄) and compose with the finite trace (ILO XVII §1).",
-    "Higher codimension: use EQ.6/top-degree-local-class to define sp for normal strictly henselian targets and extend by finite morphisms and composition (ILO XVII Théorème 3.1.2, Proposition 3.5.4)."
+    "On a strictly henselian trait compute RΓ_s(K) by the complex F(K) of XVII 1.2.2.1. The map from K_η̄(−1) first uses K_η̄ → K_η̄^S and then tame evaluation; the generator-change homotopy makes the induced derived map independent of the choice (1.2.3.1–1.2.3.2, pp. 260–262).",
+    "For an integral strictly local excellent curve normalize to a strictly henselian trait and insert the factor 1/[s̃:s] (1.3.1, p. 262). For an immediate specialization on X use the closure of the generizing point and i^! (1.4.1).",
+    "Codimension-zero transport and immediate maps compose when the total codimension is at most one (1.4.2, p. 263). The higher group maps and their general composition law belong to the joint induction of 3.1.1–3.1.2 in the subsequent node."
    ],
    "acceptance": [
-    "On a strictly henselian trait with K = Λ, sp_{η̄→s} : Λ → H²_s(Λ(1))[2] is the isomorphism given by the Kummer class of a uniformizer.",
+    "On a strictly henselian trait with K = Λ, the derived map Λ → RΓ_s(Λ(1))[2] induces the Kummer isomorphism Λ → H²_s(Λ(1)).",
     "For c = 0 (an isomorphism of strict localizations) sp is the identity."
    ],
    "uses": [
@@ -2041,9 +2151,9 @@
      "statement": "For the identity specialization (c = 0), sp is the identity of RΓ_x̄(K)."
     },
     {
-     "name": "TransitionMorphism.test_composition",
-     "kind": "characterisation",
-     "statement": "For X = Spec of a strictly henselian regular local ring of dimension 2 and K = Λ, composing two immediate specializations η̄ → ȳ → x̄ gives the isomorphism Λ → H⁴_x̄(Λ(2)) of absolute purity."
+     "name": "TransitionMorphism.test_wild_projection",
+     "kind": "computation",
+     "statement": "On a trait with residue characteristic p ≠ ℓ, let a finite p-quotient of wild inertia act on an ℓ-primary generic stalk M with M^S = 0. The transition for j_!M vanishes. This detects omission of the averaging projection M → M^S."
     },
     {
      "name": "TransitionMorphism.test_skyscraper",
@@ -2063,7 +2173,7 @@
     {
      "name": "TransitionMorphism",
      "role": "data",
-     "statement": "sp_{ȳ→x̄} : RΓ_ȳ(K) → RΓ_x̄(K)(c)[2c] for a specialization of codimension c."
+     "statement": "The natural derived map RΓ_ȳ(K) → RΓ_x̄(K)(c)[2c] for codimension c = 0 or 1."
     },
     {
      "name": "TransitionMorphism.natural",
@@ -2073,17 +2183,17 @@
     {
      "name": "TransitionMorphism.comp",
      "role": "relation",
-     "statement": "sp_{x̄→w̄} ∘ sp_{ȳ→x̄} = sp_{ȳ→w̄} (with the twists and shifts added) for composable specializations."
+     "statement": "Immediate and codimension-zero derived maps compose when the total codimension is at most one. For arbitrary total codimension the cohomology-group composition law is the joint theorem EQ.6/top-degree-local-class (ILO XVII 3.1.2)."
     },
     {
      "name": "TransitionMorphism.finite",
      "role": "compatibility",
-     "statement": "Compatibility with finite morphisms X′ → X via the trace (ILO XVII 3.3.1, 3.5.4)."
+     "statement": "For finite maps, compatibility of immediate transitions with the trace, including the inseparable residue-degree normalization (ILO XVII 3.3.1)."
     },
     {
      "name": "TransitionMorphism.trait",
      "role": "characterisation",
-     "statement": "On a strictly henselian trait, sp is induced by evaluation at a topological generator of tame inertia and does not depend on it."
+     "statement": "On a strictly henselian trait first project to wild-inertia invariants, then apply tame-inertia evaluation; the result is independent of the tame generator."
     },
     {
      "name": "TransitionMorphism.etale",
@@ -2098,8 +2208,8 @@
    "sources": [
     {
      "sourceId": "ILO14",
-     "locator": "Exposé XVII, §1 (Définitions 1.1.1–1.1.2, Proposition 1.2.2.1, Définition 1.2.3.1), pp. 258–261, and Théorème 3.1.2, p. 268 (printed)",
-     "match": "Defines local cohomology at geometric points, the codimension-one transition morphism through the tame inertia description of cohomology with supports on a strictly henselian trait, and extends it to specializations of arbitrary codimension compatibly with composition and finite maps."
+     "locator": "Exposé XVII, §§1.2–1.4, especially Définitions 1.2.3.1, 1.3.1, 1.4.1 and Remarque 1.4.2, pp. 260–263 (printed)",
+     "match": "Constructs derived transitions in codimensions zero and one. Remarque 1.4.2 explicitly reserves the higher-codimension construction for cohomology groups only."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2110,27 +2220,32 @@
    "realises": [
     "EtaleDualityAndPerverseSheavesPartII:EQ.6"
    ],
-   "title": "Top-degree local cohomology of normal strictly henselian schemes",
+   "title": "Higher transitions and top-degree local cohomology",
    "kind": "theorem",
-   "statement": "Let X be a normal strictly henselian excellent local ℤ[1/n]-scheme of dimension d with closed point x. Then H^q_x(X, Λ(d)) = 0 for q > 2d, and there is an isomorphism [x] : Λ → H^{2d}_x(X, Λ(d)) compatible with the transition morphisms of immediate specializations.",
+   "statement": "Let X be a normal strictly henselian excellent local ℤ[1/n]-scheme of dimension d with closed point x. Then H^q_x(X, Λ(d)) = 0 for q > 2d, and there is an isomorphism [x] : Λ → H^{2d}_x(X, Λ(d)) compatible with the transition morphisms of immediate specializations. Jointly, for every noetherian excellent ℤ[1/n]-scheme, K ∈ D⁺(X_ét,Λ) and specialization ȳ ⇝ x̄ of codimension c, there are natural group maps sp : H^i_ȳ(K) → H^{i+2c}_x̄(K(c)), extending the codimension-zero and codimension-one derived transitions. They compose along specializations and commute with finite trace. These are maps of cohomology groups; the theorem makes no arbitrary-codimension derived-map assertion.",
    "hypotheses": [
-    "X normal, strictly henselian, excellent, of dimension d; Λ = ℤ/n with n invertible."
+    "For the top class X is normal strictly local excellent of dimension d; for group transitions X is any noetherian excellent scheme. In both cases Λ = ℤ/n with n invertible."
    ],
    "proofSteps": [
-    "Vanishing above 2d: cohomological dimension bounds deduced from the affine Lefschetz theorem (EQ.5/affine-lefschetz-local; ILO XVII 3.2.1–3.2.2).",
-    "Dimension 2: resolve the excellent surface (AdicCoefficientsAndComparisonsPartII PA.0/resolvability-excellent-dimension-two) and compute H⁴_x through the exceptional curves and absolute purity, defining the generator [x] (ILO XVII 3.4.1).",
-    "General d: reduce to dimension 2 along finite morphisms and compositions of specializations, checking compatibility with sp (ILO XVII 3.5–3.6)."
+    "Use the affine Lefschetz cohomological bounds for vanishing above 2d (ILO XVII 3.2). Prove the top-class generator in dimension two by resolving an excellent surface and computing the exceptional-curve cohomology with absolute purity (§3.4).",
+    "Construct arbitrary-codimension group transitions by chains of immediate specializations. The surface computation and connectedness arguments give independence of the chain and finite-map compatibility (§3.5). This is part of the simultaneous induction proving Theorems 3.1.1 and 3.1.2, rather than an invocation of the final top-class theorem in the immediate-transition construction.",
+    "For higher-dimensional normal strict local X, coniveau and the lower-dimensional classes show that [x] generates H^{2d}_x (§3.6.2). Formal base change reduces injectivity to complete X. Embed complete X in a regular complete local scheme using Cohen structure; exceptional pullback of the already constructed regular potential complex supplies the putative pinnings and their immediate compatibility (2.4.4.1). The normal-scheme lemma Λ ≅ τ_{≤0}K and the transition square force [x] to be injective (§3.6.3–3.6.4, pp. 279–280). This uses the regular case, not general existence of potential dualizing complexes."
    ],
    "acceptance": [
     "For X regular, [x] is the fundamental class of the closed point given by absolute purity.",
-    "For d = 1 (a strictly henselian trait), [x] is the Kummer class Λ → H²_x(Λ(1))."
+    "For d = 1 (a strictly henselian trait), [x] is the Kummer class Λ → H²_x(Λ(1)).",
+    "For a regular strictly henselian surface and constant Λ, two successive immediate maps on cohomology give Λ → H⁴_x(Λ(2)), the absolute-purity isomorphism; different saturated chains give the same group map."
    ],
    "prerequisites": [
     "EtaleDualityAndPerverseSheavesPartII:EQ.6/transition-morphism",
     "EtaleDualityAndPerverseSheavesPartII:EQ.5/affine-lefschetz-local",
     "AdicCoefficientsAndComparisonsPartII:PA.0/resolvability-excellent-dimension-two",
     "LefschetzPencilsAndVanishingCycles:LPV.0",
-    "EtaleDualityAndPerverseSheaves:EDC.3/fundamental-class"
+    "EtaleDualityAndPerverseSheaves:EDC.3/fundamental-class",
+    "EtaleDualityAndPerverseSheavesPartII:EQ.6/regular-potential-dualizing",
+    "ArcTopologyAndDescent:AT.8/open-henselian-completion",
+    "DeformationAndDerivedPatchingAlgebra:R03.1/cohen-structure-and-compatible-coefficients",
+    "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/exceptional-inverse-image"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Etale/QuasiExcellent",
@@ -2139,8 +2254,8 @@
    "sources": [
     {
      "sourceId": "ILO14",
-     "locator": "Exposé XVII, Théorème 3.1.1 and §§3.2–3.6, pp. 268–280 (printed)",
-     "match": "On a normal strictly henselian excellent local scheme of dimension d, local cohomology of Λ(d) vanishes above degree 2d and is canonically Λ in degree 2d, compatibly with transition morphisms."
+     "locator": "Exposé XVII, Théorèmes 3.1.1–3.1.2 and §§3.2–3.6, pp. 268–280 (printed)",
+     "match": "Jointly proves the top-degree local class and all-codimension cohomology-group transitions, with independence of chains, composition and finite-trace compatibility."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2158,7 +2273,7 @@
     "X noetherian excellent over ℤ[1/n]; δ a dimension function; Λ = ℤ/n."
    ],
    "proofSteps": [
-    "Definition (ILO XVII 2.1.2); étale localisation, quasi-finite exceptional pullback and finite pushforward preserve putative structures (ILO XVII 2.2.1, 2.4.3.1, 2.4.3.3)."
+    "Definition (ILO XVII 2.1.2). Étale restriction and quasi-finite exceptional pullback transport putative structures (2.2.1, 2.4.3.1). For f finite surjective, a putative K is potential iff f^!K with its induced pinnings is potential (2.4.3.3). Finite pushforward does not preserve rank-one pinnings: two points over a point would give Λ²."
    ],
    "acceptance": [
     "On a strictly henselian trait with δ(s) = 0, δ(η) = 1, K = Λ(1)[2] with the Kummer pinning at s is potential.",
@@ -2319,8 +2434,9 @@
     "X noetherian; p monotone along specializations; Λ = ℤ/n."
    ],
    "proofSteps": [
-    "Gabber, Notes on some t-structures (2004): build truncations stratum by stratum by noetherian induction using the localization triangles (EtaleDualityAndPerverseSheaves EDC.1:biduality/recollement-adjunctions) and pass to the limit over finite stratifications; recalled in ILO XVII §5.2.",
-    "Étale descent for the heart: negative Ext vanish between objects of the heart (ILO XVII Proposition 5.2.2)."
+    "Use Gabber’s weak-perversity construction, valid for noetherian X with p monotone under specialization. Iteratively modify a Godement resolution by the sheaf of sections with supports in the specialization-closed families determined by p; the depth estimates and truncation arguments give orthogonality and the truncation triangle (G04 §§4–6, pp. 3–8). This construction covers perversities that do not come from a finite constructible stratification.",
+    "Stalk and local-support conditions are étale-local, so restriction is t-exact. Descent for derived étale sheaves together with vanishing of negative Hom between heart objects makes the heart an ordinary étale stack (ILO XVII 5.2.1, p. 287). Proposition 5.2.2 concerns pseudo-open immersions and perverse adjoints, not stack descent.",
+    "For the finite-type-field middle-perversity comparison use the owner’s EDC.5 contract. Constructibility requires its separate hypotheses; G04 §8, Théorème 8.2, pp. 10–12 treats the constructible restriction. No general constructibility assertion for an arbitrary p is made."
    ],
    "acceptance": [
     "For X a point and p ≡ 0 this is the standard t-structure.",
@@ -2364,9 +2480,9 @@
    "prerequisites": [
     "EtaleDualityAndPerverseSheaves:EDC.0/etale-derived-category",
     "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/local-cohomology-identification",
-    "EtaleDualityAndPerverseSheaves:EDC.1:biduality/recollement-adjunctions",
     "mathlib:CategoryTheory.Triangulated.TStructure",
-    "EtaleDualityAndPerverseSheaves:EDC.5"
+    "EtaleDualityAndPerverseSheaves:EDC.5",
+    "EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports"
    ],
    "api": [
     {
@@ -2407,8 +2523,13 @@
    "sources": [
     {
      "sourceId": "ILO14",
-     "locator": "Exposé XVII, §5.2 (5.2.1–5.2.2), pp. 287–288 (printed), recalling Gabber, Notes on some t-structures (2004)",
-     "match": "Recalls Gabber's t-structures on D⁺(X_ét, Λ) defined pointwise by a perversity function, through restrictions to points and local cohomology at points, and the étale gluing of the heart."
+     "locator": "Exposé XVII, §5.2.1, p. 287 (printed)",
+     "match": "Recalls the pointwise t-structure and the étale-stack property of its heart. The construction itself is read in G04."
+    },
+    {
+     "sourceId": "G04",
+     "locator": "§§1, 4–6, pp. 1, 3–8; §8, Théorème 8.2, pp. 10–12",
+     "match": "Builds the pointwise t-structure for weak perversities using supported Godement resolutions and proves the constructible restriction under additional hypotheses."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2421,14 +2542,14 @@
    ],
    "title": "Existence and uniqueness of potential dualizing complexes",
    "kind": "theorem",
-   "statement": "Let X be an excellent ℤ[1/n]-scheme with a dimension function δ. Then (X, δ) admits a potential dualizing complex K_X, unique up to unique isomorphism, the canonical map Λ → τ_{≤0}RHom(K_X, K_X) is an isomorphism, and K_X ∈ Perv^{−2δ}(X, Λ).",
+   "statement": "Let X be an excellent ℤ[1/n]-scheme with a dimension function δ. Then (X, δ) admits a potential dualizing complex K_X, unique up to unique isomorphism preserving all pinnings, the canonical map Λ → τ_{≤0}RHom(K_X, K_X) is an isomorphism, and K_X ∈ Perv^{−2δ}(X, Λ).",
    "hypotheses": [
     "X noetherian excellent over ℤ[1/n] with a global dimension function."
    ],
    "proofSteps": [
     "Uniqueness and the τ_{≤0} statement: two potential dualizing complexes lie in Perv^{−2δ} and isomorphisms between them form an étale sheaf with a unique section compatible with pinnings (EQ.6/gabber-perverse-t-structure; ILO XVII 5.2–5.3).",
-    "Existence for normal X: glue local potential complexes built from EQ.6/top-degree-local-class (ILO XVII Proposition 5.3.1).",
-    "General X: descend along the normalisation, a finite surjective map, using quasi-finite i^! and finite trace (ILO XVII 5.4)."
+    "For normal X, let j : U → X be a dense regular open. With the normalized generic dimension, use the perverse extension T = j_*^φΛ for φ(x) = max(0, 2 codim(x) − 2). The localization triangle and the top local class identify its stalks and local supports with the prescribed pinnings; compatibility with immediate transitions proves potentiality (ILO XVII 5.3.1). Twists and shifts handle other dimension functions.",
+    "For general reduced X use finite normalization X̃ → X and a closed complement Z of the normal locus. Combine the potential complexes on X̃, Z and X̃ ×_X Z by the explicit cone construction of XVII 5.4.1; finite-surjective shriek detection verifies the pinnings and their compatibility. Nilpotents do not change the étale topos. Étale descent in the perverse heart glues the resulting local objects. This is not a claim that pushing a potential complex forward along normalization preserves it."
    ],
    "acceptance": [
     "For X regular with δ = −codim, K_X = Λ (EQ.6/regular-potential-dualizing).",
@@ -2508,7 +2629,7 @@
     "X noetherian over ℤ[1/n]; constructible bounded complexes."
    ],
    "proofSteps": [
-    "Definition (ILO XVII 0.8); uniqueness up to tensoring with an invertible object (ILO XVII Proposition 9.2)."
+    "Definition (ILO XVII 0.8). For two dualizing objects, comparison of the two duality equivalences makes their difference tensor-invertible (7.5.1.1, pp. 308–309). For Λ = ℤ/n apply self-injectivity and finite-module biduality to each prime-power factor and then the Chinese remainder decomposition."
    ],
    "acceptance": [
     "Λ on Spec of a separably closed field is dualizing.",
@@ -2544,6 +2665,11 @@
      "name": "IsDualizingComplex.test_finite_type",
      "kind": "compatibility",
      "statement": "For X separated of finite type over a field, the complex a^!Λ of EtaleDualityAndPerverseSheaves EDC.1:adjoint/dualizing-complex is dualizing in this sense."
+    },
+    {
+     "name": "IsDualizingComplex.test_composite_shifts",
+     "kind": "computation",
+     "statement": "At a geometric point with Λ = ℤ/6, L = 𝔽₂ ⊕ 𝔽₃[1] is invertible with inverse 𝔽₂ ⊕ 𝔽₃[−1]. Tensoring a dualizing object with L remains dualizing, although L is not Λ[k] for a single k."
     }
    ],
    "prerequisites": [
@@ -2551,7 +2677,8 @@
     "EtaleDualityAndPerverseSheaves:EDC.0/derived-tensor-and-internal-hom",
     "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/verdier-dual",
     "EtaleDualityAndPerverseSheaves:EDC.1:biduality/self-injective-coefficients",
-    "EtaleDualityAndPerverseSheaves:EDC.1:biduality/constructible-biduality"
+    "EtaleDualityAndPerverseSheaves:EDC.1:biduality/constructible-biduality",
+    "EtaleDualityAndPerverseSheaves:EDC.1"
    ],
    "api": [
     {
@@ -2572,17 +2699,17 @@
     {
      "name": "IsDualizingComplex.restrictOpen",
      "role": "functoriality",
-     "statement": "For j : U → X open, j^*K = j^!K is dualizing on U and Rj_* D_U ≅ D_X j_! (SGA 5 I 1.12 (a))."
+     "statement": "For j : U → X open, j^*K is dualizing and Rj_* RHom_U(F,j^*K) ≅ RHom_X(j_!F,K). The latter follows from extension-by-zero tensor compatibility and j_! ⊣ j^*; biduality gives preservation and open restriction (ILO XVII 7.6.3, p. 311). This general-base formal interface is requested from EDC.1."
     },
     {
      "name": "IsDualizingComplex.unique",
      "role": "extensionality",
-     "statement": "Two dualizing complexes differ by tensoring with an invertible object of D^b_c (locally Λ[k]) (ILO XVII 9.2)."
+     "statement": "Two dualizing complexes differ by tensoring with an invertible object (ILO XVII 7.5.1.1). Étale-locally an invertible object has one rank-one shifted factor Λ_ℓ[k_ℓ] for each prime-power factor Λ_ℓ = ℤ/ℓ^{v_ℓ(n)}; the shifts can differ with ℓ. A single local form Λ[k] is valid for prime-power n, not for arbitrary composite n (XVII 9.1–9.2)."
     },
     {
      "name": "IsDualizingComplex.sga5",
      "role": "compatibility",
-     "statement": "K has finite quasi-injective dimension iff X has finite Krull dimension, and then K is dualizing in the sense of SGA 5 I 1.7 (ILO XVII 6.1.1)."
+     "statement": "For a potential dualizing complex on a noetherian excellent scheme with dimension function, finite quasi-injective dimension holds iff X has finite Krull dimension; in that case it satisfies the stronger SGA 5 definition (ILO XVII 6.1.1). This criterion is stated with those geometric hypotheses."
     }
    ],
    "library": {
@@ -2594,6 +2721,11 @@
      "sourceId": "ILO14",
      "locator": "Exposé XVII, Définition 0.8, p. 257 (printed)",
      "match": "A dualizing complex is a constructible bounded complex whose duality functor preserves constructible bounded complexes and satisfies biduality; finite quasi-injective dimension is not imposed."
+    },
+    {
+     "sourceId": "ILO14",
+     "locator": "Exposé XVII, Proposition 7.5.1.1, pp. 308–309; Proposition 7.6.3, p. 311; Propositions 9.1–9.2, pp. 323–324",
+     "match": "Provides uniqueness via an invertible object, open restriction/formal exchange, and the componentwise shifted rank-one description of invertibles over general coefficient rings."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2710,7 +2842,7 @@
     "EtaleDualityAndPerverseSheavesPartII:EQ.6/gabber-biduality-theorem",
     "EtaleDualityAndPerverseSheavesPartII:EQ.6/potential-dualizing-complex",
     "LefschetzPencilsAndVanishingCycles:LPV.0",
-    "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/formal-duality-exchange",
+    "EtaleDualityAndPerverseSheaves:EDC.1",
     "EtaleDualityAndPerverseSheaves:EDC.1:biduality/one-dimensional-dualizing-base"
    ],
    "library": {
@@ -2760,7 +2892,8 @@
     "EtaleDualityAndPerverseSheavesPartII:EQ.6/dualizing-complex",
     "EtaleDualityAndPerverseSheavesPartII:EQ.6/potential-dualizing-complex",
     "EtaleDualityAndPerverseSheaves:EDC.1:biduality/self-injective-coefficients",
-    "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/local-cohomology-identification"
+    "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/local-cohomology-identification",
+    "EtaleDualityAndPerverseSheaves:EDC.1"
    ],
    "library": {
     "module": "TauCeti/AlgebraicGeometry/Etale/QuasiExcellent",
@@ -2793,7 +2926,7 @@
     "R regular local (not necessarily excellent); |G| invertible in R."
    ],
    "proofSteps": [
-    "The local-to-global spectral sequence H^p(R/𝔪, ℋ^q_𝔪(G)) ⇒ H^{p+q}_𝔪(R, G) (SGA 4 V 6.4) reduces to the strictly henselian case, where G ≅ ⊕ ℤ/n_i is constant.",
+    "By the local-to-global spectral sequence for supports reduce to strict henselizations. Compare cohomology with supports with that of the maximal-ideal completion using CS24 Lemma 3.1.2 (AT.8/open-henselian-completion). The completed regular local ring is excellent, so absolute purity applies with no missing excellence assumption on the original R.",
     "Absolute cohomological purity for the regular closed point x ∈ Spec R of codimension d = dim R: Ri_x^!ℤ/n ≅ ℤ/n(−d)[−2d] (LefschetzPencilsAndVanishingCycles §0.10, Riou's proof of Gabber's theorem), so H^i_𝔪(R, ℤ/n) = 0 for i ≠ 2d.",
     "Česnavičius–Scholze give a second proof by tilting (EQ.8/tilting-supports) to equal characteristic, where SGA 4 XVI 3.7 applies (CS24 3.1.3 proof)."
    ],
@@ -2874,13 +3007,12 @@
    ],
    "title": "Vanishing for principal punctured opens",
    "kind": "theorem",
-   "statement": "Let R be a strictly henselian regular local ring of dimension d, f ∈ 𝔪 and ℓ a prime invertible in R. Then H^i(Spec R[1/f], ℤ/ℓ) = 0 for i > d.",
+   "statement": "Let R be a strictly henselian excellent regular local ring of dimension d, f ∈ 𝔪 and ℓ a prime invertible in R. Then H^i(Spec R[1/f], ℤ/ℓ) = 0 for i > d.",
    "hypotheses": [
-    "R strictly henselian regular local (completion excellent); f ∈ 𝔪; ℓ invertible."
+    "R strictly henselian excellent regular local, dim R = d, f ∈ 𝔪 and ℓ invertible in R."
    ],
    "proofSteps": [
-    "R is f-henselian with no f-torsion, so RΓ(R[1/f], ℤ/ℓ) ≅ RΓ(R̂[1/f], ℤ/ℓ) for the completion (CS24 Lemma 3.1.2; ArcTopologyAndDescent AT.8/open-henselian-completion); R̂ is strictly henselian, regular, complete, hence excellent, of dimension d.",
-    "Apply the local affine Lefschetz theorem to the affine open D(f) (EQ.5/affine-lefschetz-local; ILO XV 1.2.4)."
+    "Apply EQ.5/affine-lefschetz-local directly to the affine open Spec R[1/f] of the excellent strictly local scheme Spec R. If f = 0 the open is empty and the conclusion is immediate. In CS24 Lemma 3.2.3 this bound is used after completion, when excellence is automatic; no comparison of this punctured-open cohomology for an arbitrary R with its maximal-ideal completion is asserted."
    ],
    "acceptance": [
     "For d = 1 and f a uniformizer, Spec R[1/f] is the generic point and H^i = 0 for i > 1.",
@@ -2917,7 +3049,7 @@
     "R regular local; f ∈ 𝔪; ℓ invertible."
    ],
    "proofSteps": [
-    "Reduce to R strictly henselian (local-to-global spectral sequence) and complete (CS24 Lemma 3.1.2), hence excellent.",
+    "Reduce to strictly henselian R and apply the supported clause of CS24 Lemma 3.1.2 to the constructible sheaf j_!ℤ/ℓ and the maximal-ideal completion. This compares H^i_𝔪(R,j_!ℤ/ℓ) with the same supported cohomology on the complete regular local ring; it does not first compare H^i(R[1/f],ℤ/ℓ). If f = 0 then j_!ℤ/ℓ = 0. Otherwise the complete ring is excellent and the remaining duality argument applies.",
     "With K = Λ(d)[2d] (EQ.6/regular-local-dualizing-complex), D(j_!Λ) = Rj_*(K|_U), whose stalk at the closed point is RΓ(R[1/f], Λ(d)[2d]); by EQ.7/punctured-affine-vanishing, H^{−i}(D(j_!Λ))_x̄ = 0 for −i + 2d > d, i.e. for i < d.",
     "Local duality (EQ.6/local-duality) gives H^i_𝔪(R, j_!Λ) ≅ Hom(H^{−i}(D(j_!Λ))_x̄, Λ) = 0 for i < d."
    ],
@@ -2994,16 +3126,16 @@
    ],
    "title": "Matched punctured opens of a henselian perfectoid pair and its tilt",
    "kind": "construction",
-   "statement": "Let p be a prime, A a ring and ϖ ∈ A with ϖ^p | p such that A is ϖ-henselian with bounded ϖ^∞-torsion and its ϖ-adic completion Â is (integral) perfectoid. Put A^♭ = lim_{a ↦ a^p} A/ϖA (the tilt of Â) and choose ϖ^♭ ∈ A^♭ with (ϖ^♭)^♯ a unit multiple of ϖ. The isomorphism A^♭/ϖ^♭ ≅ Â/ϖ = A/ϖ (CS24 (2.1.2.2)) identifies Spec(A/ϖ) with Spec(A^♭/ϖ^♭). A matched pair of punctured opens is a pair (U, U^♭) of opens Spec A[1/ϖ] ⊆ U ⊆ Spec A and Spec A^♭[1/ϖ^♭] ⊆ U^♭ ⊆ Spec A^♭ whose closed complements, subsets of V(ϖ) and V(ϖ^♭), correspond under this identification. U ↦ U^♭ is an order isomorphism between the two sets of such opens.",
+   "statement": "Let p be a prime, A a ring and ϖ ∈ A with ϖ^p | p such that A is ϖ-henselian with bounded ϖ^∞-torsion and its ϖ-adic completion Â is (integral) perfectoid. Put A^♭ = lim_{a ↦ a^p} A/ϖA (the tilt of Â) and choose ϖ^♭ ∈ A^♭ with (ϖ^♭)^♯ a unit multiple of ϖ. The isomorphism A^♭/ϖ^♭ ≅ Â/ϖ = A/ϖ (the unpowered consequence of CS24 (2.1.2.2)–(2.1.2.3)) identifies Spec(A/ϖ) with Spec(A^♭/ϖ^♭). A matched pair of punctured opens is a pair (U, U^♭) of opens Spec A[1/ϖ] ⊆ U ⊆ Spec A and Spec A^♭[1/ϖ^♭] ⊆ U^♭ ⊆ Spec A^♭ whose closed complements, subsets of V(ϖ) and V(ϖ^♭), correspond under this identification. U ↦ U^♭ is an order isomorphism between the two sets of such opens.",
    "hypotheses": [
     "ϖ^p | p; A ϖ-henselian with bounded ϖ^∞-torsion; Â perfectoid; ϖ^♭ chosen with (ϖ^♭)^♯ a unit multiple of ϖ."
    ],
    "proofSteps": [
-    "The quotient identification is the sharp-quotient isomorphism of PerfectoidQuotientsPartII Q5/sharp-quotient-isomorphisms; closed subsets of V(ϖ) are closed subsets of Spec A/ϖ, and opens containing the generic part correspond to their complements."
+    "The supplier Q5 gives A^♭/(ϖ^♭)^p ≅ Â/ϖ^p. Frobenius gives isomorphisms from Â/ϖ to Â/ϖ^p and from A^♭/ϖ^♭ to A^♭/(ϖ^♭)^p; composing the latter with the sharp-quotient map and the inverse of the former gives the unpowered quotient isomorphism (CS24 2.1.2.2–2.1.2.3). Bounded torsion gives Â/ϖ ≅ A/ϖ. The quotient spectra identify the closed subsets of V(ϖ) and V(ϖ^♭), and taking complements gives the order isomorphism."
    ],
    "acceptance": [
     "(Spec A, Spec A^♭) and (Spec A[1/ϖ], Spec A^♭[1/ϖ^♭]) are matched.",
-    "For A = W(k)⟦x^{1/p^∞}⟧/(p − x) (p-adically completed) and ϖ = x^{1/p}, A^♭ ≅ k⟦t^{1/p^∞}⟧ and Spec A/ϖ is a point, so only these two pairs exist."
+    "For k = 𝔽̄_p and A = W(k)⟦x^{1/p^∞}⟧/(p − x) (p-adically completed) and ϖ = x^{1/p}, A^♭ ≅ k⟦t^{1/p^∞}⟧ and Spec A/ϖ is a point, so only these two pairs exist."
    ],
    "uses": [
     {
@@ -3029,7 +3161,7 @@
     {
      "name": "MatchedPuncturedOpen.test_point_fibre",
      "kind": "computation",
-     "statement": "For A = W(k)⟦x^{1/p^∞}⟧/(p − x)^∧ with ϖ = x^{1/p}, there are exactly two matched pairs."
+     "statement": "For k = 𝔽̄_p and A = W(k)⟦x^{1/p^∞}⟧/(p − x)^∧ with ϖ = x^{1/p}, there are exactly two matched pairs."
     },
     {
      "name": "MatchedPuncturedOpen.test_not_arbitrary_open",
@@ -3073,7 +3205,12 @@
     {
      "name": "MatchedPuncturedOpen.completion",
      "role": "compatibility",
-     "statement": "The pair is unchanged when A is replaced by its ϖ-adic completion."
+     "statement": "Pullback along Spec Â → Spec A identifies the posets of opens containing D(ϖ), because their complements are closed subsets of the common quotient spectrum Spec A/ϖ. Corresponding opens need not be isomorphic schemes."
+    },
+    {
+     "name": "MatchedPuncturedOpen.ext",
+     "role": "extensionality",
+     "statement": "Two matched pairs with the same A-open U have the same tilt-open U^♭; equivalently, equality of their closed complements in the common quotient spectrum determines the pair."
     }
    ],
    "library": {
@@ -3083,7 +3220,7 @@
    "sources": [
     {
      "sourceId": "CS24",
-     "locator": "Theorem 2.2.7 (hypotheses), p. 21; §2.1.2, equation (2.1.2.2), pp. 10–11",
+     "locator": "Theorem 2.2.7 (hypotheses), p. 21; §2.1.2, equations (2.1.2.2)–(2.1.2.3), pp. 10–11",
      "match": "The opens between the generic fibre and the whole spectrum, on the ring and on its tilt, with complements identified through the isomorphism of A/ϖ with A^♭/ϖ^♭."
     }
    ],
@@ -3106,7 +3243,7 @@
     "A p-power compatible sequence in A[1/ϖ] therefore has ϖ^N times its terms in Ā for one N; combine with lim_{a↦a^p} A ≅ A^♭ (PerfectoidQuotientsPartII Q5/tilt-inverse-limit-monoid) after inverting ϖ^♭ (CS24 (2.1.7.2))."
    ],
    "acceptance": [
-    "For A = 𝒪_C with C a perfectoid field and ϖ = p^{1/p}, this is the multiplicative bijection C ≅ lim_{x↦x^p} C = C^♭.",
+    "For a mixed-characteristic perfectoid field C and A = 𝒪_C, choose ϖ with ϖ^p | p. The assertion identifies C^♭ with lim_{x↦x^p} C as multiplicative monoids; it makes no identification of C itself with C^♭.",
     "For A of characteristic p (A = A^♭), both maps are the identity."
    ],
    "prerequisites": [
@@ -3352,7 +3489,7 @@
   },
   {
    "supplier": "EtaleDualityAndPerverseSheaves:EDC.0",
-   "need": "Deligne's generic constructibility and generic base change (SGA 4½ [Th. finitude] 1.9 (i)) for a finite-type morphism f : X → S over an arbitrary noetherian base S and constructible F with coefficients invertible on S: there is a dense open of S over which the R^q f_*F are constructible and commute with base change. EtaleCohomologyFoundations §F.3 (TauCetiRoadmap pull request #938), which EDC.0 imports, states generic local acyclicity only over a base of finite type over a field; the general noetherian base is requested there.",
+   "need": "Deligne’s generic constructibility and generic base change (SGA 4½ [Th. finitude] Théorème 1.9(i)–(ii), p. 236, proof §2, pp. 238–241): for a finite-type S-morphism f : X → Y of finite-type S-schemes over a noetherian S, and a constructible ℤ/n-sheaf F with n invertible on S, there is a dense open V ⊆ S such that the R^q f_*F over V are constructible, eventually zero, and commute with every base change S′ → V. The application takes Y = S = Z and X = Z_p, with Z_p → Z finite type, not necessarily proper. The proof was read in the public published scan. EtaleCohomologyFoundations §F.3 currently restricts its generic local acyclicity statement to field bases; request the general-noetherian contract through its existing owner, without replanning it here.",
    "neededBy": [
     "EtaleDualityAndPerverseSheavesPartII:EQ.4/constructibility-via-weak-uniformization"
    ]
@@ -3362,6 +3499,15 @@
    "need": "Imported: the middle perverse t-structure on D^b_c of separated finite-type schemes over a field with δ(x) = dim of the closure of x, to which Gabber's pointwise perverse t-structure for p = −δ restricts.",
    "neededBy": [
     "EtaleDualityAndPerverseSheavesPartII:EQ.6/gabber-perverse-t-structure"
+   ]
+  },
+  {
+   "supplier": "EtaleDualityAndPerverseSheaves:EDC.1",
+   "need": "General-base formal open duality, for an open j : U → X of noetherian schemes and torsion Λ: j_! is exact, j_! ⊣ j^*, and RHom_X(j_!F,K) ≅ Rj_*RHom_U(F,j^*K), naturally in bounded constructible F and K where the derived expressions exist. Extension-by-zero tensor compatibility and adjunction prove this without a duality theorem; if K is dualizing, biduality then gives that j^*K is dualizing and the corresponding exchange D_X Rj_* ≅ j_!D_U. The current EDC.1:adjoint/formal-duality-exchange node is field-based, so it is not cited as the general theorem. The ambient general recollement is already EtaleCohomologyFoundations §0.7 and EnhancedDerivedSheaves §0.4, imported in the EDC README; confirm this specialization at the owner (ILO XVII Proposition 7.6.3, p. 311).",
+   "neededBy": [
+    "EtaleDualityAndPerverseSheavesPartII:EQ.6/dualizing-complex",
+    "EtaleDualityAndPerverseSheavesPartII:EQ.6/regular-local-dualizing-complex",
+    "EtaleDualityAndPerverseSheavesPartII:EQ.6/local-duality"
    ]
   }
  ],
@@ -3378,7 +3524,7 @@
    "status": "planned",
    "remaining": [
     "At lemma level, plan the differential criterion of ILO IV 2.1.4–2.1.11 (p-bases, completed differentials of generic rank d) and the Weierstrass and Elkik steps of ILO V 2.2 and 3.2.",
-    "Read Epp 1973 (gap EPP-1973)."
+    "Read Epp 1973 §§1–2 together with Kuhlmann’s correction (gap EPP-1973)."
    ]
   },
   {
@@ -3392,7 +3538,8 @@
    "stageId": "EtaleDualityAndPerverseSheavesPartII:EQ.3",
    "status": "planned",
    "remaining": [
-    "At lemma level, plan the five descent propositions of ILO XII §2.3 and the coherence lemma XI 2.5."
+    "At lemma level, plan the five descent propositions of ILO XII §2.3 and the coherence lemma XI 2.5.",
+    "Resolve NONABELIAN-ORIENTED-LIMIT before asserting the ind-finite-stack companions; the torsion abelian targets are planned independently."
    ]
   },
   {
@@ -3400,7 +3547,7 @@
    "status": "planned",
    "remaining": [
     "At lemma level, plan the defect complexes ψ and Propositions 3.4.2, 3.5.3–3.5.4, 3.6.2 and Lemma 3.7.3 of ILO XIII §3.",
-    "Resolve gap GENERIC-CONSTRUCTIBILITY with its owner."
+    "Supply the exact general-noetherian generic constructibility/base-change contract requested from EDC.0; its SGA 4½ proof has now been read."
    ]
   },
   {
@@ -3415,8 +3562,8 @@
    "stageId": "EtaleDualityAndPerverseSheavesPartII:EQ.6",
    "status": "planned",
    "remaining": [
-    "Read Gabber 2004 (gap GABBER-2004).",
-    "At lemma level, plan ILO XVII §3.4 (dimension two with exceptional curves), §5.3–5.4, §6.2–6.5 and the coefficient extensions of §7 if a consumer needs coefficients other than ℤ/n."
+    "At lemma level, plan ILO XVII §3.4 (dimension two with exceptional curves), §5.3–5.4, §6.2–6.5 and the coefficient extensions of §7 if a consumer needs coefficients other than ℤ/n.",
+    "Confirm the general-base open tensor–Hom/duality interface requested from EDC.1; the formal adjunction proof is included at EQ.6/dualizing-complex."
    ]
   },
   {
@@ -3444,28 +3591,22 @@
    "detail": "The statement is planned from ILO XV Remarque 1.1.3 and §3.3.2, which cite Illusie, Perversité et variation, Manuscripta Math. 112 (2003), 271–295, Théorème 2.4, for Gabber's 1994 proof. No free copy was found (author page and web search on 2026-10-19). The proof sketch records the expected route (de Jong semistable alteration over the trait, absolute purity, descent); a follow-up must read Illusie 2003 §2 and confirm the prerequisites, in particular whether proper cohomological descent along semistable alterations (SchemeAndStackFoundations §2.16) and LefschetzPencilsAndVanishingCycles nearby-cycle inputs are all that is used."
   },
   {
-   "id": "EtaleDualityAndPerverseSheavesPartII/gap/GABBER-2004",
-   "title": "Gabber's construction of perverse t-structures not read",
-   "neededBy": [
-    "EtaleDualityAndPerverseSheavesPartII:EQ.6/gabber-perverse-t-structure"
-   ],
-   "detail": "The statement is planned from ILO XVII §5.2, which recalls Gabber, Notes on some t-structures, in Geometric aspects of Dwork theory, de Gruyter (2004), 711–734. That text is not freely available; the construction by noetherian induction over stratifications and the étale gluing of the heart (ILO XVII Proposition 5.2.2) are recorded as the route. A follow-up must read Gabber 2004 for the hypotheses on the perversity function (weak versus strong monotonicity) under which the pointwise conditions define a t-structure on D⁺(X_ét, Λ)."
-  },
-  {
    "id": "EtaleDualityAndPerverseSheavesPartII/gap/EPP-1973",
    "title": "Epp's theorem: proof source not read",
    "neededBy": [
     "EtaleDualityAndPerverseSheavesPartII:EQ.1/epp-theorem"
    ],
-   "detail": "Epp, Eliminating wild ramification, Invent. Math. 19 (1973), 235–249, Theorem 1.9 (freely available from GDZ) was not read in this pass; the statement is taken from ILO IV 3.1.2. A follow-up reads Epp's §§1–2 and records its proof route and the generalisation to non-complete T (ILO IV Remarque 3.1.3)."
+   "detail": "Epp, Eliminating wild ramification, Invent. Math. 19 (1973), 235–249, Theorem 1.9 (freely available from GDZ) was not read in this pass; the statement is taken from ILO IV 3.1.2. A follow-up reads Epp's §§1–2 and records its proof route and the generalisation to non-complete T (ILO IV Remarque 3.1.3). Kuhlmann’s correction (arXiv:1003.5687v1, pp. 1–3) was independently read: the equal-characteristic Artin–Schreier reduction must recombine terms and iterate when leading exponents coincide and cancel. The follow-up must audit the original proof with that correction, not use Epp’s original p-cyclic argument unchanged."
   },
   {
-   "id": "EtaleDualityAndPerverseSheavesPartII/gap/GENERIC-CONSTRUCTIBILITY",
-   "title": "Generic constructibility over an arbitrary noetherian base",
+   "id": "EtaleDualityAndPerverseSheavesPartII/gap/NONABELIAN-ORIENTED-LIMIT",
+   "title": "Passage to limits for ind-finite stacks in oriented descent",
    "neededBy": [
-    "EtaleDualityAndPerverseSheavesPartII:EQ.4/constructibility-via-weak-uniformization"
+    "EtaleDualityAndPerverseSheavesPartII:EQ.3/oriented-proper-acyclicity",
+    "EtaleDualityAndPerverseSheavesPartII:EQ.3/oriented-cohomological-descent",
+    "EtaleDualityAndPerverseSheavesPartII:EQ.3/alteration-hypercover-base-change"
    ],
-   "detail": "Deligne's generic constructibility, SGA 4½ [Th. finitude] 1.9 (i), over an arbitrary noetherian base is used in ILO XIII 2.2.3. EtaleCohomologyFoundations §F.3 states only the field-base case; the request to EtaleDualityAndPerverseSheaves EDC.0 records the exact statement. SGA 4½ was not read in this pass (no free copy cleared); the statement is taken from its use in ILO XIII 2.2.3 and 2.3.1."
+   "detail": "ILO arXiv v1 XII §1.3.4 and §2.3.8 (pp. 190, 194), referring to XI §2.8, flag an unpublished justification for the limit calculation of fibres for ind-finite stacks. The published XII-A §1.4, p. 241, retains this qualification. Supply a precise limit theorem with the required hypotheses, or leave the non-abelian companions outside the accepted abelian statements. No abelian or Česnavičius–Scholze consumer here uses this input."
   }
  ],
  "sourceIssues": [
@@ -3473,7 +3614,7 @@
    "id": "EtaleDualityAndPerverseSheavesPartII/E1",
    "source": "ILO14",
    "kind": "misprint",
-   "locator": "Exposé XIV, Corollaire 2.5.2, p. 216 (printed), arXiv v1",
+   "locator": "Exposé XIV, Corollaire 2.5.2, p. 216 (printed), arXiv v1; published Exposé XIV, Corollaire 2.5.2, p. 289",
    "printed": "The induced dimension function along a finite-type morphism f : Y → X is written with the transcendence degree of κ(f(y)) over κ(y).",
    "correction": "The transcendence degree is that of κ(y) over κ(f(y)): δ_Y(y) = δ_X(f(y)) + trdeg(κ(y)/κ(f(y))).",
    "reason": "κ(f(y)) ⊆ κ(y), so the printed degree is zero or undefined; the proof (via the dimension formula of Proposition 2.5.1), Exposé 0 (after Théorème 7) and Exposé XVII Proposition 4.1.2 all use trdeg(κ(y)/κ(f(y))). For 𝔸¹_k → Spec k the corrected formula gives δ = 1 at the generic point, as a dimension function must.",
@@ -3481,22 +3622,34 @@
    "known": "new",
    "searched": [
     "arXiv:1207.3648 (only v1 exists)",
-    "the Astérisque 363–364 table of contents on the SMF site (no errata listed)"
-   ]
+    "the Astérisque 363–364 table of contents on the SMF site (no errata listed)",
+    "Published Exposé XIV, Numdam AST_2014__363-364__277_0, p. 289: the reversed residue extension persists."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read both the v1 and published formulas. Both reverse the residue extension; the dimension formula immediately above and the affine-line calculation require κ(y)/κ(f(y)). No correction was found in the versions checked.",
+    "by": "REV-DESIGN-EtaleDualityAndPerverseSheavesPartII"
+   }
   },
   {
    "id": "EtaleDualityAndPerverseSheavesPartII/E2",
    "source": "ILO14",
    "kind": "misprint",
-   "locator": "Exposé IX, §1, sentence before Théorème 1.1, p. 131 (printed); Exposé 0, before Théorème 2, p. 1",
+   "locator": "Exposé IX, §1, sentence before Théorème 1.1, p. 131 (printed); Exposé 0, before Théorème 2, p. 1; published Exposé IX, §1, p. 161",
    "printed": "The prime-to-ℓ uniformization theorem is referred to as II-4.3.1.",
    "correction": "The prime-to-ℓ statement is II-4.3.2; II-4.3.1 is the weak (alteration-topology) version.",
    "reason": "Exposé II states the weak version as Théorème 4.3.1 and the prime-to-ℓ version as Théorème 4.3.2 (p. 33); Exposé VII proves II-4.3.1.",
    "affects": "nothing",
    "known": "new",
    "searched": [
-    "arXiv:1207.3648 (only v1 exists)"
-   ]
+    "arXiv:1207.3648 (only v1 exists)",
+    "Published Exposé IX, p. 161, and Exposé II, pp. 34–35: the IX cross-reference still points to the weak statement."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The v1 IX/Introduction cross-references are incorrect. The published IX preface retains II-4.3.1, while published II separates weak 4.3.1 (p. 34) from prime-to-ℓ 4.3.2 (p. 35).",
+    "by": "REV-DESIGN-EtaleDualityAndPerverseSheavesPartII"
+   }
   },
   {
    "id": "EtaleDualityAndPerverseSheavesPartII/E3",
@@ -3507,10 +3660,77 @@
    "correction": "V ranges over valuation rings whose fraction field is algebraically closed, as in Goodwillie–Lichtenbaum 3.5.",
    "reason": "The proof lifts the generic point of Spec V using that κ(η_V) is algebraically closed, and Remarque 4.2.2 speaks of the fraction field. With only the residue field algebraically closed, necessity fails: V = W(F̄_p) maps maximally dominantly to Spec ℤ_p but does not lift to the alteration covering Spec ℤ_p[√p] → Spec ℤ_p, since √p ∉ V.",
    "affects": "nothing",
-   "known": "new",
+   "known": "Corrected in published ILO Exposé II, Théorème 4.2.1, p. 33 (2014): algebraically closed fraction field.",
    "searched": [
-    "arXiv:1207.3648 (only v1 exists)"
-   ]
+    "arXiv:1207.3648 (only v1 exists)",
+    "Published Exposé II, Numdam AST_2014__363-364__21_0, p. 33."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The v1 residue-field hypothesis is wrong, as shown by the ramified quadratic alteration of Spec ℤ_p. The published theorem has the fraction-field hypothesis, so this is an already corrected preprint issue.",
+    "by": "REV-DESIGN-EtaleDualityAndPerverseSheavesPartII"
+   }
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheavesPartII/E4",
+   "source": "ILO14",
+   "kind": "error",
+   "locator": "arXiv v1 Exposé IX, Théorème 1.2, p. 131; compare published Exposé IX, Théorème 1.2, p. 161",
+   "printed": "The generic curve is required to be smooth and irreducible, while the conclusions include birationality of both equivariant quotients.",
+   "correction": "Require the generic fibre to be geometrically irreducible, as in the published statement and de Jong 1997, Situation 2.1.5 and Theorem 2.4(iv).",
+   "reason": "For a nontrivial finite separable L/K, ℙ¹_L over K is smooth and irreducible. A nodal model with geometrically connected fibres has the generic constant field of its new base. The compatible G-action and birational curve quotient would force the invariant base field to be L, contradicting the demanded birational base quotient over K.",
+   "affects": "a stated result",
+   "known": "Corrected in published ILO Exposé IX, Théorème 1.2, p. 161 (2014).",
+   "searched": [
+    "de Jong 1997, §2, pp. 600–603",
+    "ILO arXiv:1207.3648v1, Exposé IX, p. 131",
+    "Published ILO Exposé IX, p. 161"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read the original de Jong hypothesis and both ILO versions. The published theorem supplies geometric irreducibility, which is needed precisely for the birational quotient clause.",
+    "by": "REV-DESIGN-EtaleDualityAndPerverseSheavesPartII"
+   }
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheavesPartII/E5",
+   "source": "ILO14",
+   "kind": "gap",
+   "locator": "arXiv v1 Exposé XII, §§1.3.4 and 2.3.8, pp. 190, 194; published Exposé XII-A, §1.4, p. 241",
+   "printed": "The non-abelian analogue is proposed using proper base change for ind-finite stacks, with the fibre calculation requiring passage to a limit whose published justification is not supplied.",
+   "correction": "Supply the required continuity theorem for ind-finite stacks, or retain this qualification on the non-abelian acyclicity and descent companions.",
+   "reason": "The source itself identifies the missing reference for this limit calculation, referring back to XI §2.8. The published version retains the qualification. The torsion abelian proof uses established continuity and is independent of this step.",
+   "affects": "the proof",
+   "known": "Explicitly acknowledged in ILO XII v1 §1.3.4 and published XII-A §1.4; no resolution is claimed here.",
+   "searched": [
+    "ILO arXiv v1 XI §2.8 and XII §§1.3.4, 2.3.8",
+    "Published ILO XII-A §1.4, p. 241"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "This records the authors’ stated qualification, rather than alleging a false non-abelian theorem. The packet now carries the corresponding proof gap separately from its abelian targets.",
+    "by": "REV-DESIGN-EtaleDualityAndPerverseSheavesPartII"
+   }
+  },
+  {
+   "id": "EtaleDualityAndPerverseSheavesPartII/E6",
+   "source": "ILO14",
+   "kind": "misprint",
+   "locator": "arXiv v1 Exposé XII, §1.3.2, p. 190",
+   "printed": "The base-change step attributes properness to a : X → S′, which was only assumed coherent.",
+   "correction": "Use properness of π : S′ → S in the displayed base-change square, applied to Ra_*G.",
+   "reason": "The hypotheses of XII §1.1 make π proper. The displayed comparison has Rπ_* and its base change Rρ_*, so ordinary proper base change applies to π and does not require a proper.",
+   "affects": "nothing",
+   "known": "The published XII-A proof is rewritten; §1.3.2, p. 238, correctly invokes the proper base morphism r.",
+   "searched": [
+    "ILO arXiv v1 XII §§1.1, 1.3.2",
+    "Published ILO XII-A §1.3.2, p. 238"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The displayed v1 exchange and the theorem’s hypotheses identify π as the proper morphism. The rewritten published proof uses its corresponding proper base morphism.",
+    "by": "REV-DESIGN-EtaleDualityAndPerverseSheavesPartII"
+   }
   }
  ],
  "sourceVersions": [
@@ -3528,8 +3748,51 @@
   },
   {
    "kind": "published",
-   "url": "http://www.numdam.org/item/AIF_1997__47_2_599_0.pdf",
-   "read": "2026-10-19"
+   "url": "https://www.numdam.org/item/10.5802/aif.1575.pdf",
+   "read": "2026-10-19",
+   "sha256": "caf07fbacaea01f0fc9bba14aad435d23f2fe2b847f1607baf6f2a3f874e4854"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.ihes.fr/~gabber/t-str.pdf",
+   "read": "2026-10-19",
+   "sha256": "fff66a4a8a8a3ca5883f1d6f949a8c994a18e2f017670374881afcdcfd8bb7b3"
+  },
+  {
+   "kind": "published",
+   "url": "https://publications.ias.edu/sites/default/files/Number32.pdf",
+   "read": "2026-10-19",
+   "sha256": "fb2939521f4c0ea0cdd55a90bec2e618e32fb433c78b194e705c6d989f4e42a6"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1003.5687v1",
+   "read": "2026-10-19",
+   "sha256": "02f56a9475986bca19c541edc11cb670d18dd9d9ef339ac651401d32004fe30f"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/AST_2014__363-364__21_0.pdf",
+   "read": "2026-10-19",
+   "sha256": "54c3a21f9d38e5e10de48389954299ad77be0ec514bced40cbb7edf839922e9f"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/AST_2014__363-364__161_0.pdf",
+   "read": "2026-10-19",
+   "sha256": "ae6115b0d6f2b050aabad4ff3fae3f442d55e44593911b3c00cc10d2acc03a09"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/AST_2014__363-364__235_0.pdf",
+   "read": "2026-10-19",
+   "sha256": "f599b2fbcd642dfc2848e10c986c71eeb27979f8e4e32a2c5a1b67141cd31ec9"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/AST_2014__363-364__277_0.pdf",
+   "read": "2026-10-19",
+   "sha256": "e2ebd32e160e8b000a18f8506d9ee60c4e0ed63168419d6f8fe58d59f8fda520"
   }
  ],
  "restructure": [
@@ -3586,6 +3849,13 @@
     "tauceti:TauCetiRoadmap/EtaleCohomologyFoundations"
    ],
    "note": "EtaleDualityAndPerverseSheaves (pull request #1040, 'Scope and ownership') says general Gabber absolute purity needs a separate extension; LefschetzPencilsAndVanishingCycles §0.10 plans it, and the quasi-excellent finiteness, affine Lefschetz and duality theorems are planned in the atlas Part II EtaleDualityAndPerverseSheavesPartII. EtaleCohomologyFoundations §F.3 (pull request #938) states generic local acyclicity only over a field base; Deligne's generic constructibility over an arbitrary noetherian base (SGA 4½ [Th. finitude] 1.9) is used by Gabber's finiteness theorem."
+  },
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/EtaleDualityAndPerverseSheaves",
+    "tauceti:TauCetiRoadmap/EtaleCohomologyFoundations"
+   ],
+   "note": "Independent review checked EDC pull request #1040 at 9829f0a0dddbfcf532e86072e385ee98c90129a1 and ECF #938 at d4865f2ea953651ee8991076ef0e503bed478fca. ECF §§F.2.1–F.2.2 already supply general proper/smooth base change and §0.7 supplies general open–closed localization. The general-noetherian generic constructibility and formal open duality requests are specializations/extensions at these owners, not new parallel layers."
   }
  ],
  "routeCoverage": [
@@ -3673,5 +3943,298 @@
    "nodes": [],
    "note": "Ind-constructibles direction: proposed split (restructure 1), not planned here."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-EtaleDualityAndPerverseSheavesPartII",
+  "date": "2026-10-19",
+  "notes": "Independent target-level review of all 57 nodes, all 15 pinned baseline declarations, all external prerequisite contracts, the 11 definition/construction APIs and tests, the planets and all source issues. Corrected hypotheses, examples, transition scope and the joint duality proof, closure and version-specific source findings; read public Gabber and Deligne sources. All nine stages remain planned, with three explicit proof gaps and seven supplier contracts; complete means a finished planning pass, not closure or implementation. Reader, roadmap and suggested signatures synchronized. Lean validation is recorded in the review report.",
+  "checked": [
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.0/alteration-category",
+    "verdict": "corrected",
+    "note": "Corrected the md functor codomain and made its adjunction explicit; added the affine-line non-example."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.0/ell-prime-alteration-topology",
+    "verdict": "corrected",
+    "note": "Added the missing degree-zero covering condition in the hypercover definition."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.0/standard-form-covers",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé II, Proposition 3.1.1, Théorèmes 3.2.1 and 3.2.3, pp. 28–31 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.0/valuative-alteration-covers",
+    "verdict": "corrected",
+    "note": "Confirmed the corrected fraction-field hypothesis in published ILO II 4.2.1; replaced the quasi-excellent-only standard-form argument by the general Riemann–Zariski argument."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.0/artin-popescu-approximation",
+    "verdict": "corrected",
+    "note": "Specified the stronger a-graded comparison and required a regular base in the étale quadratic example."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.0/uniformization-henselian-reduction",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé II, Théorèmes 4.3.1–4.3.2 and Proposition 4.3.3, p. 33 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.0/complete-local-reduction",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé III, Théorème 6.1 and Proposition 6.2, p. 43 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.1/cohen-gabber-equal-characteristic",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé IV, Théorème 2.1.1 and its proof §§2.1.3–2.1.12, pp. 50–53 (printed); Gabber 2005a, Lemma 8.1. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.1/cohen-gabber-equivariant",
+    "verdict": "corrected",
+    "note": "Repaired the invariant-ring reduction when the invariant ring is not equidimensional; clarified generic étaleness over the target."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.1/epp-theorem",
+    "verdict": "corrected",
+    "note": "Kept the exact ILO restatement and the original-proof gap, adding Kuhlmann’s published correction to the proof obligations."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.1/cohen-gabber-mixed-characteristic",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé IV, Théorèmes 4.2.2 and 4.3.1, pp. 58–60 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.1/partially-algebraizable",
+    "verdict": "corrected",
+    "note": "Removed the unsupported relative-dimension clause and distinguished the definition’s arbitrary complete base from the stronger regular-base presentations."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.1/partial-algebraization-equal-characteristic",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé V, Théorème 2.1.2 and §2.2, pp. 64–66 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.1/partial-algebraization-mixed-characteristic",
+    "verdict": "corrected",
+    "note": "Restored normality in the geometric mixed-characteristic restatement and reducedness/non-field hypotheses in the equal-characteristic comparison."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.2/de-jong-nodal-curve-alteration",
+    "verdict": "corrected",
+    "note": "Added geometric irreducibility, needed for the birational quotient conclusions; the published ILO statement already corrects the preprint."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.2/weak-local-uniformization",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé VII, Théorème 1.1 and §§2–4, pp. 81–83 (printed); Exposé II, Théorème 4.3.1, p. 33. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.2/prime-to-ell-local-uniformization",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé IX, Théorème 1.1 and §2 (Théorème 2.3), pp. 131–134 (printed); Exposé II, Théorème 4.3.2, p. 33; Exposé 0, Théorème 2. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.2/regular-alteration-hypercover",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XIII, Théorème 2.2.2, p. 196 (printed); Exposé XV, 3.1.2, p. 222 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.3/oriented-product-topos",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XI, §1 (1.1–1.9, Définition 1.7), pp. 171–176 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.3/tube-base-change",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XI, Théorème 2.4 and Lemme 2.5, pp. 178–179 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.3/oriented-alteration-topology",
+    "verdict": "corrected",
+    "note": "Chose a finite-limit-closed ambient category, added the degree-zero cover, and replaced the overgeneral non-cover example."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.3/oriented-proper-acyclicity",
+    "verdict": "corrected",
+    "note": "Removed an unnecessary affine proper-base-change prerequisite and marked the source’s non-abelian limit argument as an explicit gap."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.3/oriented-cohomological-descent",
+    "verdict": "corrected",
+    "note": "Aligned the finite-type diagram scope and separated the abelian theorem from the source’s unresolved non-abelian limit input."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.3/alteration-hypercover-base-change",
+    "verdict": "corrected",
+    "note": "Aligned the application with the finite-type diagram site and made the non-abelian companion conditional on the recorded limit gap."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.4/constructibility-via-weak-uniformization",
+    "verdict": "corrected",
+    "note": "Corrected the snc boundary to X minus U and the descent maps to finite-type maps; checked generic constructibility directly in Deligne."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.4/gabber-finiteness-theorem",
+    "verdict": "corrected",
+    "note": "Corrected the codimension threshold in the induction property P_c."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.5/dimension-function",
+    "verdict": "corrected",
+    "note": "Added universal catenarity to the normalized strictly local construction."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.5/dimension-function-existence",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XIV, Théorèmes 2.2.1 and 2.3.1, Propositions 2.2.2, 2.2.6, 2.3.3, pp. 212–214 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.5/induced-dimension-function",
+    "verdict": "corrected",
+    "note": "Restricted the connected-fibre argument to the strictly local reduction, as in the source."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.5/regular-base-change",
+    "verdict": "corrected",
+    "note": "Required strict locality for the global cohomology/completion check; ordinary regular base change remains a sheaf statement."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.5/gabber-trait-affine-lefschetz",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XV, Remarque 1.1.3 and §3.3.2, pp. 219 and 224 (printed), citing Illusie 2003, 2.4. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.5/affine-lefschetz-theorem",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XV, Théorème 1.1.2 and §§1.2–3, pp. 219–224 (printed); Exposé 0, Théorème 7. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.5/affine-lefschetz-local",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XV, Corollaire 1.2.2 and Corollaire 1.2.4, p. 220 (printed); Exposé 0, Corollaire 8, p. 5. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.5/gabber-cohomological-dimension-bound",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XVIII-A, Théorème 1.1, Corollaires 1.2 and 1.4, Lemmes 2.1–2.2, pp. 331–334 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/transition-morphism",
+    "verdict": "corrected",
+    "note": "Restricted derived maps to codimensions zero and one, corrected the wild-inertia projection and inseparable normalization factor, and moved arbitrary codimension to the subsequent joint theorem."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/top-degree-local-class",
+    "verdict": "corrected",
+    "note": "Recorded the jointly proved higher group transitions and top class, including the surface step, coniveau surjectivity and complete-local embedding argument; removed the hidden dependence cycle."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/potential-dualizing-complex",
+    "verdict": "corrected",
+    "note": "Replaced false preservation under finite pushforward with the actual finite-surjective exceptional-pullback detection criterion."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/regular-potential-dualizing",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XVII, Propositions 2.4.1.1, 2.4.2.1 and 2.4.4.1, pp. 264–267 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/gabber-perverse-t-structure",
+    "verdict": "corrected",
+    "note": "Read Gabber’s public construction; replaced the unsupported finite-stratification limit proof, removed field-only recollement, and corrected the ILO stack-descent locator."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/potential-dualizing-existence",
+    "verdict": "corrected",
+    "note": "Made the normal-case perverse extension and the normalization/conductor gluing construction explicit; uniqueness always respects pinnings."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/potential-dualizing-functoriality",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XVII, Propositions 4.1.1–4.1.2, Remarque 4.1.3 and §4.2, pp. 280–284 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/dualizing-complex",
+    "verdict": "corrected",
+    "note": "Corrected the uniqueness citation and the description of invertible complexes for composite coefficients; supplied general-base open restriction by formal adjunction."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/gabber-biduality-theorem",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XVII, Théorème 6.1.1 and §§6.2–6.5, pp. 293–300 (printed). Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/gabber-duality-theorem",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at ILO14, Exposé XVII, Théorème 0.9, p. 257 (printed) (cited as Théorème 0.2 by Česnavičius–Scholze, following the Astérisque numbering); Exposé 0, (c), p. 6. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/regular-local-dualizing-complex",
+    "verdict": "corrected",
+    "note": "Replaced the field-only formal-duality-exchange citation by a precise general-base EDC.1 request; the source statement and the local duality calculation are unchanged."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.6/local-duality",
+    "verdict": "corrected",
+    "note": "Replaced the field-only formal-duality-exchange citation by a precise general-base EDC.1 request; the source statement and the local duality calculation are unchanged."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.7/local-absolute-purity",
+    "verdict": "corrected",
+    "note": "Made the completion reduction explicit before importing purity, so no excellence hypothesis is silently dropped."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.7/sheafified-local-purity",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at CS24, Remarks 3.1.4, p. 31. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.7/punctured-affine-vanishing",
+    "verdict": "corrected",
+    "note": "Restricted this auxiliary affine-Lefschetz consequence to excellent strictly henselian regular local rings; removed the invalid completion comparison for punctured-open cohomology."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.7/extension-by-zero-local-vanishing",
+    "verdict": "corrected",
+    "note": "Applied the henselian completion theorem to local cohomology with supports before invoking the excellent affine-Lefschetz and duality results."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.7/local-lefschetz-hyperplane-theorem",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at CS24, Lemma 3.2.3 and its proof, p. 33. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.8/matched-punctured-opens",
+    "verdict": "corrected",
+    "note": "Distinguished powered sharp quotients from their unpowered corollary, specified the perfect residue field in the example and clarified completion compatibility."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.8/punctured-multiplicative-tilt",
+    "verdict": "corrected",
+    "note": "Corrected the example: the tilt is the p-power inverse limit of the field, not the field itself."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.8/tilting-idempotents",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at CS24, Theorem 2.2.7 and its proof (first part), pp. 21–22. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.8/valuation-product-tilting",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at CS24, Lemma 2.2.4, pp. 19–20, and proof of Theorem 2.2.7 (product case), pp. 21–22. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.8/tilting-etale-cohomology",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at CS24, Theorem 2.2.7 and its proof, pp. 21–22; Theorem 2.2.5, p. 20. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   },
+   {
+    "nodeId": "EtaleDualityAndPerverseSheavesPartII:EQ.8/tilting-supports",
+    "verdict": "verified",
+    "note": "Statement, hypotheses, acceptance checks and proof route verified at CS24, Theorem 2.2.7, equation (2.2.7.1), p. 21. Direct supplier statements and pinned substrate checked; recorded proof gaps remain explicit."
+   }
+  ]
+ }
 }
