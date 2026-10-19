@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T17:00Z",
+  "updated": "2026-10-19T17:10Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -179,7 +179,7 @@
         814
       ],
       "note": "Suggested.lean compacted 2026-10-12 (real-bodied definitions and statable end theorems only); README restored to full detail the same day; citation locators repaired 2026-10-12 after a source sweep (README only); two targets now cite the student roadmap RigidAnalyticGeometry (W. Coram) as supplier, 2026-10-13; 2026-10-13: two targets cite RigidAnalyticGeometry (W. Coram); stale AdicSpacesPartII citations repointed; rebased onto the updated adic stack; restacked onto main 2026-10-16 after #817 merged (own commits unchanged)",
-      "head": "4ecc75b",
+      "head": "8557b31",
       "review": {
         "recommendation": "approve",
         "current": false,
@@ -340,7 +340,7 @@
     "ArithmeticGaloisRepresentations": {
       "stage": "pr",
       "pr": 856,
-      "head": "daad202",
+      "head": "01ad443",
       "depends_on": [
         789,
         785
@@ -350,7 +350,8 @@
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 01ad443; confirmation pass pending"
       }
     },
     "CrystallineCohomology": {
@@ -455,7 +456,7 @@
     "ArithmeticLocallySymmetricSpaces": {
       "stage": "pr",
       "pr": 871,
-      "head": "c98d3d1",
+      "head": "d824ab9",
       "depends_on": [
         792,
         793,
@@ -572,7 +573,7 @@
     "ModularCurvesPartII": {
       "stage": "pr",
       "pr": 913,
-      "head": "4183737",
+      "head": "5eb074a",
       "note": "N3 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "approve",
@@ -627,7 +628,7 @@
     "LocalGaloisDeformationRings": {
       "stage": "pr",
       "pr": 923,
-      "head": "75c4593",
+      "head": "2ddf094",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
       "review": {
         "recommendation": "approve",
@@ -651,7 +652,7 @@
     "AutomorphicSpectralTheory": {
       "stage": "pr",
       "pr": 925,
-      "head": "d077025",
+      "head": "8e0edb5",
       "note": "N3 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "changes",
@@ -1032,7 +1033,7 @@
     "ShimuraData": {
       "stage": "pr",
       "pr": 1038,
-      "head": "bf2c1dd",
+      "head": "286dffa",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 24); red team running",
       "review": {
         "recommendation": "approve",
@@ -1080,7 +1081,7 @@
     "ColemanIntegration": {
       "stage": "pr",
       "pr": 1043,
-      "head": "2318cc6",
+      "head": "aa83660",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
       "review": {
         "recommendation": "changes",
@@ -1092,7 +1093,7 @@
     "AInfCohomology": {
       "stage": "pr",
       "pr": 1044,
-      "head": "c0bc673",
+      "head": "839809f",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
       "review": {
         "recommendation": "approve",
@@ -1128,7 +1129,7 @@
     "ShimuraCompactifications": {
       "stage": "pr",
       "pr": 1053,
-      "head": "ee6deac",
+      "head": "b5675ac",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 46); red team running",
       "review": {
         "recommendation": "changes",
@@ -1164,7 +1165,7 @@
     "MetaplecticAutomorphicForms": {
       "stage": "pr",
       "pr": 1063,
-      "head": "f91c5dd",
+      "head": "297a40c",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 70); red team running",
       "review": {
         "recommendation": "changes",
@@ -1272,7 +1273,7 @@
     "PotentialAutomorphyInfrastructure": {
       "stage": "pr",
       "pr": 1081,
-      "head": "2b9a4b0",
+      "head": "2dd9543",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
       "review": {
         "recommendation": "changes",
