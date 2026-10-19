@@ -1781,7 +1781,8 @@
    "acceptance": [
     "The volume is positive for a positively oriented tetrahedron (P.1/bloch-wigner-positivity) and changes sign under an odd permutation of the vertices.",
     "The regular ideal tetrahedron, with cross-ratio a primitive sixth root of unity, has the maximal volume D(exp(i pi/3)) = 1.01494160640965...",
-    "The subdivision identity is the five-term relation."
+    "The subdivision identity is the five-term relation.",
+    "Same ordered vertices test: for T = (0, infinity, 1, i), r(T) = -i and the supplier oriented volume is D(-i) = -D(i) < 0. Exchanging the first two vertices gives r = i and positive D(i). A consumer normalized by cr(0, infinity, 1, z) = z must account for this sign or explicitly transport the orientation; it cannot identify the two signed volumes on identical ordered vertices."
    ],
    "prerequisites": [
     "Polylogarithms:P.1/bloch-wigner-five-term",
@@ -6860,10 +6861,10 @@
   }
  ],
  "review": {
-   "status": "accepted",
-   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
-   "date": "2026-10-19",
-   "notes": "Independent bounded continuation by Codex, session codex-YFJHa3, following checkpoint PR #10442; entire predecessor review preserved once in reviewHistory. /7: Confirmed the single tetrahedron owner and retained geometric/calibration gaps against Zagier I.3 equation (5), p.11, I.4 equations (7)-(9), pp.13-14 and current GT 7/8. The missing direct QT.5 prerequisite has no reverse path in the current 37,754-node graph. This is not a new whole-plan audit or a claim of roadmap implementation. All seven packets validate; all seven suggested files elaborate with only their remaining admitted-declaration warnings. Completion is blocked by four queue-required packet pairs omitted from the live issue scope; no excluded file was edited. Current AT README 8.1 still restricts NDR while its signatures allow arbitrary based pairs; that upstream documentation reconciliation remains open. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  "status": "accepted",
+  "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+  "date": "2026-10-19",
+  "notes": "Independent bounded review by Codex, session codex-RhP4EX, following independent-review-REV-FIX-RT-AREA-topology~4; the complete predecessor object is preserved once in reviewHistory. /7: Checked the ordered cross-ratio and single tetrahedron owner against Zagier I.3 (5), p.11 and I.4 (7)-(9), pp.13-14. Added the explicit same-vertex sign check T=(0,infinity,1,i), r(T)=-i and Vol_P(T)=-D(i); exchanging the first two vertices reverses it. Existing geometric-carrier and regulator-calibration gaps remain. QT must specify the conversion from its reciprocal Neumann shape before importing positive D(n); that consumer is outside the live issue scope. This reviews the assigned fixes, not the whole plan or its implementation. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
  },
  "reviewHistory": [
   {
@@ -7428,6 +7429,12 @@
      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
      "date": "2026-10-19",
      "notes": "Independent bounded fix review by Codex, session codex-waB1gJ, following codex-sP1hgJ checkpoint PR #10426; complete predecessor review preserved in reviewHistory. Rechecked /7 against Zagier I.3 equation (5), p.11 and I.4 equations (7)-(9), pp.13-14, and current GT 7/8 owners. The tetrahedron/manifold ownership split, orientation tests and geometric/calibration gaps remain correct. No mathematical edit to this packet. All seven queue packets pass check_blueprint with zero errors/warnings; all seven suggested files elaborate serially with only admitted-declaration warnings. This is not a new whole-plan audit or a claim of formalisation. Completion remains blocked by four packet pairs required by the queue but omitted from the live issue. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
-   }
+   },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-19",
+   "notes": "Independent bounded continuation by Codex, session codex-YFJHa3, following checkpoint PR #10442; entire predecessor review preserved once in reviewHistory. /7: Confirmed the single tetrahedron owner and retained geometric/calibration gaps against Zagier I.3 equation (5), p.11, I.4 equations (7)-(9), pp.13-14 and current GT 7/8. The missing direct QT.5 prerequisite has no reverse path in the current 37,754-node graph. This is not a new whole-plan audit or a claim of roadmap implementation. All seven packets validate; all seven suggested files elaborate with only their remaining admitted-declaration warnings. Completion is blocked by four queue-required packet pairs omitted from the live issue scope; no excluded file was edited. Current AT README 8.1 still restricts NDR while its signatures allow arbitrary based pairs; that upstream documentation reconciliation remains open. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  }
  ]
 }

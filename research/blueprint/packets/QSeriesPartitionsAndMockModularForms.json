@@ -44492,7 +44492,7 @@
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-19",
-    "notes": "Independent bounded continuation by Codex, session codex-iuSTeN. Preserve the complete predecessor review in reviewHistory and its whole-plan objections. /13 still needs changes in the excluded reader, which states the naive inverse eta multiplier. Refined the authorized Kontsevich proof sketch: derive the full corrected lower-half-plane factor cocycle from eta nonvanishing/transformation, the character v_eta squared, conjugation across the negative-real cut and the integral-weight denominator factor; added the three direct prerequisites. This is a mathematical proof outline, not a Lean proof of modularity. The existing analytic and multiplier-extension gaps remain. Fresh validation and scope status are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md; inherited compiler and finite-experiment results retain their original attribution."
+    "notes": "Independent bounded review by Codex, session codex-RhP4EX, following independent-review-REV-FIX-RT-AREA-topology~4; the complete predecessor object is preserved once in reviewHistory. /13: Checked Zagier Strange identity section 6 (38)-(39), pp.958-959, Quantum modular forms Examples 3-5, pp.10-12, and Lawrence-Zagier Theorems 1-2, pp.98-99. The packet correctly uses the lower-boundary cut sign: epsilon(-I)=-i, so epsilon(-I)j(-I)=1. Its excluded reader still claims the global inverse eta multiplier, giving -1 at -I; synchronize that statement, hypotheses and direct prerequisites. Checked eta_ne_zero and denom_cocycle at Mathlib 082e2d3. Keep the separate analytic proof gaps and the scalar-versus-knot-matrix boundary. This reviews the assigned fixes, not the whole plan or its implementation. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -50130,6 +50130,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
       "notes": "Independent bounded continuation by Codex, session codex-YFJHa3, following checkpoint PR #10442; entire predecessor review preserved once in reviewHistory. /13: The reader still states a global inverse eta multiplier, contradicting the corrected packet/Lean branch. Proved the two -I factor diagnostics directly from boundaryFactor without admissions; an exact finite check of 162340 admissible products finds no corrected-factor failure and 23072 naive-inverse failures. Read Zagier QMF p.2 and Examples 3-5 pp.10-12, Lawrence-Zagier pp.98-99 and rendered Strange identity section 6 theorem pp.958-959. Preserve the independent whole-plan objections and analytic/multiplier-extension gaps. This is not a new whole-plan audit or a claim of roadmap implementation. All seven packets validate; all seven suggested files elaborate with only their remaining admitted-declaration warnings. Completion is blocked by four queue-required packet pairs omitted from the live issue scope; no excluded file was edited. Current AT README 8.1 still restricts NDR while its signatures allow arbitrary based pairs; that upstream documentation reconciliation remains open. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-19",
+      "notes": "Independent bounded continuation by Codex, session codex-iuSTeN. Preserve the complete predecessor review in reviewHistory and its whole-plan objections. /13 still needs changes in the excluded reader, which states the naive inverse eta multiplier. Refined the authorized Kontsevich proof sketch: derive the full corrected lower-half-plane factor cocycle from eta nonvanishing/transformation, the character v_eta squared, conjugation across the negative-real cut and the integral-weight denominator factor; added the three direct prerequisites. This is a mathematical proof outline, not a Lean proof of modularity. The existing analytic and multiplier-extension gaps remain. Fresh validation and scope status are recorded in research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md; inherited compiler and finite-experiment results retain their original attribution."
     }
   ],
   "revisionDisposition": {

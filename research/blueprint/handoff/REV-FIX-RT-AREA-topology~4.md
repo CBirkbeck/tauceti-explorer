@@ -1,60 +1,68 @@
-# REV-FIX-RT-AREA-topology~4: authorize four packet paths before resuming
+# REV-FIX-RT-AREA-topology~4: scope authorization required
 
-Refs #6521. Codex, session `codex-eRZ2jm`, 19 October 2026;
-branch `codex-eRZ2jm-review-topology-fixes`, input
-`e64000122f079671a31ac872c29c8d8c71139a69`.
-Bot [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6260107342).
+Refs #6521. Codex, session `codex-RhP4EX`, 19 October 2026;
+branch `codex-RhP4EX-review-topology-fixes`, input
+`474bd10b3e20d05f17fe2108bd67c895dec94385`.
+Bot [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6260779943).
 Only this job was claimed. **Blocked checkpoint; the job is not complete.**
 
-## Required scope repair
+## What this session completed
 
-The live issue names only this job's report and the Polylogarithms,
-HabiroNahmSeries and QSeries parent packet/suggested pairs: seven outputs.
-The queue requires those plus four other pairs: fifteen outputs.
-[WORKERS.md](../WORKERS.md), Doing the work, says “Edit only the files the issue
-names, plus your own scratch space.” Requested authorization for the four
-additional packet paths below; none arrived before submission. No excluded
-canonical path, queue entry, predicate or label was changed.
+Reviewed all 27 assigned finding claims, verified evidence and fix dispositions;
+read the affected contracts, seven public source PDFs, actual pinned eta and
+denominator statements, reviewed library-coverage entries and current read-only
+AT/DG/GT owners and relevant Tau Ceti geometry APIs. The
+[review report](../reviews/REV-FIX-RT-AREA-topology~4.md) gives every disposition,
+source locators and the limits of this bounded review.
 
-The actual unchanged `issues.deliverables_complete` function returns false.
-All three permitted parents already identify this review job. Only these four
-packet review objects fail its reviewer-identity test; their current statuses
-are accepted under their separate whole-plan review jobs. The queue already
-allows their packet paths at intake. **Synchronize the issue with the queue,
-or expressly authorize these four JSON paths, before another dispatch.**
-No additional suggested-file edits are presently needed. A needs_changes
-verdict can complete a review; excluded reader corrections do not prevent
-finishing a negative review.
+Updated all three issue-authorized packet reviews with this session's judgments,
+archiving each complete predecessor once. Polylogarithms and HabiroNahmSeries
+are accepted; QSeries needs_changes because its excluded reader still states
+the old inverse eta multiplier. Added a concrete same-vertex sign check at
+`Polylogarithms:P.2/hyperbolic-volume`: T=(0,infinity,1,i) has r(T)=-i and
+supplier signed volume -D(i); swapping the first two vertices gives r=i.
+This follows from the existing supplier convention. No other mathematical
+payload changed, and no suggested Lean file changed.
 
-## Work done and revised bounded judgment
+## Blocking scope discrepancy — resolve before redispatch
 
-Re-read the assigned 27 findings, verification, fix and earlier reviews;
-inspected the affected parent and omitted-packet contracts, their earlier
-whole-plan audits, seven public source PDFs, actual pinned eta/denominator
-statements and current read-only AT/DG/GT owners and Tau Ceti geometry APIs.
-The consolidated [report](../reviews/REV-FIX-RT-AREA-topology~4.md) gives every
-finding's disposition and the exact public-source locators. No new correction
-to a permitted packet was established.
+The live issue permits the report and three parent packet/suggested pairs:
+seven outputs. Its queue entry requires those plus four more pairs: fifteen
+outputs. [WORKERS.md](../WORKERS.md), Doing the work, says “Edit only the files
+the issue names, plus your own scratch space.” Asked the user to authorize the
+four extra JSON paths below; no authorization arrived at this checkpoint.
+No excluded packet/reader, queue entry, predicate or label was changed.
 
-The preceding handoff proposed needs_changes for ArithmeticQuantumTopology
-because G4/G5 remain open. That rationale was too broad: PROTOCOL section 0
-allows planned target coverage ending in explicit gaps, and the later
-REV-ArithmeticQuantumTopology~2 review accepted that boundary. This session
-found a separate concrete omission in the volume import: Neumann's shape and
-P.2's cross-ratio are reciprocal for identical ordered vertices, and their
-signed orientation conventions require an explicit comparison. The prepared
-QT verdict is therefore needs_changes for this conversion, rather than for
-having declared gaps. The helper adds the missing direct prerequisite; it does
-not silently resolve the orientation comparison. Preserve all eight gaps and
-nineteen requests, and the entire original whole-plan review and checked array
-once in reviewHistory before recording this bounded review.
+The actual unchanged `issues.deliverables_complete` returns false. All three
+permitted packet reviews identify this job. Precisely these four additional
+packet reviews still identify their separate whole-plan reviewers:
 
-The four complete proposed review objects follow. They have not been applied.
-A read-only in-memory substitution of these four proposed packets, including
-the direct edge below, makes the actual completion function return true.
-The canonical function still returns false. Rechecking the current explicit
-graph gave 40,331 node IDs, 30 references reachable from the P.2 supplier and
-no reverse path from that supplier to QT.5's volume comparison.
+- `research/blueprint/packets/ArithmeticQuantumTopology.json`
+- `research/blueprint/packets/Polylogarithms--P.2.json`
+- `research/blueprint/packets/HabiroNahmSeries--HB.4.json`
+- `research/blueprint/packets/HabiroNahmSeries--HB.10.json`
+
+**Synchronize the issue with the queue or expressly authorize these four paths
+before another dispatch.** Their paths already pass queue-based intake, but
+that is not permission to exceed the issue. No additional suggested-file edits
+are currently needed. Reader corrections outside both scopes can remain
+needs_changes; negative reviews can finish the review job.
+
+## Prepared continuation, preserved with attribution
+
+The four proposed reviews and guarded helper below were prepared by preceding
+session `codex-eRZ2jm` and remain unapplied. This session verified their four
+input hashes still match and rechecked the concrete volume-convention omission;
+it did not repeat the predecessor's intercepted-write experiment, graph count
+or four-part whole-plan audits. Before application, record the authorized
+reviewer's own date/session and bounded assessment, retain complete previous
+review objects and checked arrays, and rerun validation and actual completion.
+
+QT needs_changes is for its missing orientation/carrier conversion and direct
+formula import, not merely for having explicit G4/G5 gaps. PROTOCOL section 0
+permits planned targets ending in named gaps. Preserve all eight gaps and
+nineteen requests and the original 106-node whole-plan review. The prepared
+part-packet reviews are bounded /7 or /11 assessments, not fresh full audits.
 
 <!-- proposed-review-objects -->
 ```json
@@ -224,26 +232,26 @@ reported through needs_changes without editing them in this job.
   citation around line 3223, GSWZ v2 Theorem 3 equation (38) is on printed p.14,
   not p.13. Keep Theorem 8 pp.35–36 and its auxiliary-order/completion conditions.
 
-## Validation and inherited evidence
+## Validation and provenance
 
-Fresh checks of the three permitted parent packets with the pinned declaration
-index report zero errors and zero warnings. Their node/gap/request counts are
-P 75/19/21, HB 109/22/9, QSeries 537/24/27. Intake file checks and whitespace
-checks pass for this report and handoff. No packet or Lean file changed, no
-reviewHistory entry was added, and no Lean compile or language server was
-started. The helper and proposed review objects are instructions in this
-handoff, not mutations of the excluded packets.
+Fresh checks of the three changed parents using `scripts/check_blueprint.py`
+with the supplied pinned declaration index report zero errors and zero warnings.
+Node/gap/request counts remain P 75/19/21, HB 109/22/9, QSeries 537/24/27.
+Semantic comparison proves that packet changes are exactly the one P.2 acceptance
+item, three reviews and their complete predecessor archives. All other payloads
+are unchanged. Intake file checks and whitespace checks pass. The actual
+completion function remains false for the four paths listed above.
 
-Earlier serial lean-check successes retain their original authorship: parent
-P/HB/QSeries had 462/442/1491 admitted-declaration warnings; P.2/QT/HB.4/HB.10
-had 52/65/31/28. Those files import only Mathlib, so those results do not
-establish the build's Tau Ceti revision. Recompile only when a Lean change or
-new unresolved concern warrants it. No process was left running.
+No Lean file changed or compile was started. Prior serial lean-check results
+remain attributed to the earlier sessions: parent P/HB/QSeries had
+462/442/1491 sorry warnings; P.2/QT/HB.4/HB.10 had 52/65/31/28. These are
+inherited results, not this session's validation. Current installed library
+HEADs are newer than the audit pins; this worker used `git show` for the two
+Mathlib declaration checks and did not claim a new pinned Tau Ceti build.
+Current hyperbolic-model/volume APIs were read only to avoid duplicate planning.
 
-Public PDFs, rendered pages and scratch logs are removed after submission.
-The report's URLs and locators, proposed objects and guarded procedure above
-contain everything needed to resume. The original reports, finite experiment
-and preceding factor-cocycle proof remain in git history at the input commit;
-the current report distinguishes those inherited results from this session's
-checks. Await scope authorization rather than dispatching another identical
-blocked review.
+Public PDFs, rendered pages and scratch logs are removed after opening the PR.
+The report's source URLs/locators and this guarded continuation contain what the
+next worker needs. No compiler, language server or background task is left
+running. Do not run another identical review merely to refresh this checkpoint;
+resolve the scope discrepancy first.

@@ -1,55 +1,51 @@
 # Independent review of topology fix round 4
 
-Refs #6521. Codex, session `codex-eRZ2jm`, 19 October 2026;
-branch `codex-eRZ2jm-review-topology-fixes`, input
-`e64000122f079671a31ac872c29c8d8c71139a69`.
-The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6260107342).
-This session authored neither the fixes nor their preceding reviews and claimed
+Refs #6521. Codex, session `codex-RhP4EX`, 19 October 2026;
+branch `codex-RhP4EX-review-topology-fixes`, input
+`474bd10b3e20d05f17fe2108bd67c895dec94385`.
+The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6260779943).
+This session authored neither the fixes nor their preceding reviews and took
 no second job.
 
-## Blocked scope and concrete completion proposal
+## Verdict and scope blocker
 
-The live issue permits this report and three parent packet/suggested pairs.
-Its unchanged queue entry requires seven pairs. Executing
-`issues.deliverables_complete` returns **false**: precisely four omitted packets
-still identify their separate whole-plan reviewers. [WORKERS.md](../WORKERS.md),
-Doing the work, requires: “Edit only the files the issue names, plus your own
-scratch space.” Requested authorization for the four additional packet paths;
-none received before this checkpoint. No excluded canonical file was edited.
+**Blocked checkpoint.** The independent review of the issue's three named
+packets is recorded under this session: Polylogarithms and HabiroNahmSeries
+accepted; QSeriesPartitionsAndMockModularForms needs_changes for its inconsistent
+reader multiplier. Each complete predecessor review is archived once in
+`reviewHistory`. Added a same-vertex sign acceptance check to
+`Polylogarithms:P.2/hyperbolic-volume`; no definition, theorem statement,
+prerequisite, gap, request, coverage or suggested Lean declaration changed.
 
-Read affected contracts in those four packets and their preceding whole-plan reviews to prepare
-bounded dispositions. The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md)
-contains the exact proposed review objects, input hashes, the direct-prerequisite
-repair and an application procedure for use **after authorization**. An in-memory
-read substitution of those four proposed packets makes the actual unchanged
-completion function return **true**. This diagnoses the minimum scope repair;
-it does not mark the canonical job complete. No queue, predicate or label was
-changed.
+The live issue names this report and three parent packet/suggested pairs,
+whereas the queue requires seven pairs. The actual unchanged
+`issues.deliverables_complete` returns **false**. Exactly four queue-required
+packet reviewers still name separate whole-plan reviews:
+ArithmeticQuantumTopology, Polylogarithms--P.2, HabiroNahmSeries--HB.4 and
+HabiroNahmSeries--HB.10. [WORKERS.md](../WORKERS.md), Doing the work, says
+“Edit only the files the issue names, plus your own scratch space.” Asked the
+user to authorize those four JSON paths; no authorization received at this
+checkpoint. The queue already permits them at intake, but that does not remove
+the live issue's narrower work instruction. Neither the queue nor completion
+predicate nor excluded packets/readers were changed.
 
-The guarded application helper was also exercised with every write intercepted.
-All four proposed packets pass the real packet checker with the pinned index,
-zero errors/warnings. The archived reviews retain their 106, 14, 13 and 14
-checked entries; gaps, requests, coverage and baseline records are unchanged.
-
-The preceding proposal rejected ArithmeticQuantumTopology merely because
-G4/G5 remain open. That rationale is too broad: [PROTOCOL.md §0](../PROTOCOL.md#0-the-standard-to-meet)
-permits planned coverage with named gaps, and its later whole-plan review
-accepted that boundary. This session instead found a specific unresolved
-orientation conversion at the QT/P.2 volume import, described below. The
-prepared QT verdict is **needs_changes** for that conversion, with the missing
-direct formula prerequisite repaired separately. All eight gaps, nineteen
-requests and the earlier 106-node audit remain intact. QSeries also still needs
-its separate reader correction; a negative review can complete this job after
-the four paths are authorized.
+The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) retains the predecessor's
+four proposed bounded reviews and guarded application helper. All four input
+hashes still match. Those proposals are unapplied and retain their original
+authorship; they are instructions for an authorized continuation. A negative
+review is a completed review once all required review objects are authorized
+and recorded. Open mathematical gaps alone are not a reason to keep this
+review job unfinished: PROTOCOL section 0 permits planned targets ending in
+explicit gaps. Scope authorization is the present completion blocker.
 
 ## Findings reviewed
 
-Read all 27 assigned claims, evidence and verifier reasons, the round-four fix
-report, round-three review, current report/handoff and affected supplier
-contracts. The following are bounded fix/routing verdicts. Acceptance of a
-supplier contract does not assert that a requested construction or proof exists.
-No additional mathematical correction to the three authorized packets was
-established; their existing review objects retain their authorship.
+Read all 27 assigned claims, their evidence and verifier reasons, the full
+round-four fix report, the round-three review, previous report/handoff and the
+affected contracts. The table judges the fixes and routing within that task;
+it does not reopen the independent whole-plan audits or certify that a routed
+proof has been implemented. The /1–/16 consumer handoffs and the eleven
+upstream-only notes remain obligations of their owners.
 
 | Finding | Verdict and reason |
 |---|---|
@@ -59,7 +55,7 @@ established; their existing review objects retain their authorship.
 | /4 | Accept allocation. General Lie type needs its general quantum-group and admissible-root inputs rather than a rank-one substitution. |
 | /5 | Accept the comparison obligation. Color, framing, variable and unknot conventions must accompany the Jones owner import. |
 | /6 | Accept the P.1/P.2 and V.3/V.4/V.6 supplier split. Additional premises require an explicit mathematical use. |
-| /7 | Accept the P.2 repair with its geometry and calibration gaps. QT needs changes: its signed-volume import lacks the direct formula prerequisite and an explicit conversion from Neumann's reciprocal shape/orientation convention. Both excluded-path obligations are specified below and in the handoff. |
+| /7 | Accept the P.2 repair with its geometry and calibration gaps. QT needs changes: its signed-volume import lacks the direct formula prerequisite and an explicit conversion from Neumann's reciprocal shape/orientation convention. Added a concrete same-vertex sign acceptance check to the permitted P.2 parent; the QT corrections remain outside scope. |
 | /8 | Accept the extension request. Early ideal-boundary/region geometry precedes P.2; complete cusped manifolds and ideal triangulations are stronger QT inputs. |
 | /9 | Accept the separate extended-Bloch contract. Flattenings, lifted Rogers descent and complex-volume periods do not follow from an ordinary Bloch class or a canonical Suslin lift. |
 | /10 | Accept the conditional NZ bridge. Integral unimodular B, parity, nondegeneracy and normalization remain actual hypotheses. |
@@ -81,11 +77,12 @@ established; their existing review objects retain their authorship.
 | /103 | Accept reuse of DG's forms, exterior derivative, orientations and Stokes with their support, regularity and boundary conventions. |
 | /105 | Accept explicit four-dimensional handle, Spin-c, intersection/signature and grading suppliers; correction terms retain rational-homology-sphere scope. |
 
-## Independent source and library checks
+## Source and library checks
 
-Read the relevant passages of the following seven public PDFs on 19 October 2026.
-The descriptions here are paraphrases supporting the assigned boundaries;
-no downloaded source or source passage is committed.
+Read the relevant portions of seven public PDFs in scratch. Inspected rendered
+pages 958–959 of the strange-identity paper because its extracted formula text
+is unreliable. The locators below identify the source support for the bounded
+judgments; no downloaded source or source passage is committed.
 
 | Source and exact locator | What the bounded review checked |
 |---|---|
@@ -97,84 +94,92 @@ no downloaded source or source passage is committed.
 | [Lawrence–Zagier](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf), Theorems 1–2 and periodic mean-zero proposition, pp.98–99 | Poincaré-sphere WRT values require the analytic radial-limit and asymptotic comparison, beyond formal root evaluation. |
 | [Zagier, Strange identity](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf), §6, (38)–(39) and theorem, pp.958–959 | Inspected the rendered theorem as well as extracted text: the principal-power scalar transformation and smooth period function have the stated scope. The paper's proof indication does not close the packet's remaining analytic obligations. |
 
-For the **same ordered quadruple** T, let n be Neumann's shape and r the
-P.2/Zagier cross-ratio. Their homogeneous determinant formulas give r=1/n,
-so D(r)=-D(n). In particular T=(0,infinity,1,i) gives n=i and r=-i. This
-session evaluated both homogeneous formulas on that example; it is an exact
-coordinate/sign diagnostic, not a Lean theorem. P.2's ordered volume is
-Vol_P(T)=D(r), whereas QT calls Im(n)>0 positive and imports Vol(n)=D(n).
-The latter can be valid with a specified reversal of the supplier's ordered
-orientation or an explicit vertex relabelling and transport law. The current
-QT import states neither comparison. Adding only its prerequisite edge cannot
-establish equality of those signed-volume carriers. Its figure-eight test
-computes 2D(z_6) from abstract shapes and does not test this same-vertex
-comparison. The omission is in the consumer boundary; it does not require
-replanning the P.2 formula or alleging an error in either source.
+## Convention checks and correction
 
-The figure-eight all-ones 2-by-2 matrix annihilates (1,-1), so it cannot
-instantiate the positive-definite analytic theorem. Formal precision Lambda
-can instead be symmetric invertible over a rational algebra. When Lambda is
-real positive definite, its Gaussian integral has determinant factor
-`det(Lambda)^(-1/2)`, whereas the probability-density normalization uses
-`det(Lambda)^(1/2)`. For Lambda=-1 the formal second moment at h=1 is -1,
-while the corresponding growing exponential has no real Gaussian integral.
-The HB reader's unqualified analytic comparison and (38) page locator remain
-excluded follow-ups, precisely specified in the handoff.
+For the identical ordered vertices T=(0,infinity,1,i), homogeneous determinant
+cross-ratios give the P.2/Zagier value r(T)=-i and Neumann's value n(T)=i.
+Generally r=1/n, so the Bloch–Wigner inversion identity gives D(r)=-D(n).
+Exchanging the first two vertices gives r=i and reverses the supplier's signed
+volume. This session evaluated both formulas and that swap independently.
+The new P.2 acceptance check records precisely this diagnostic. It follows
+from the supplier's existing convention, rather than changing its volume
+normalization. It is a roadmap check, not an implemented geometric test.
 
-Inspected `ModularForm.eta_ne_zero` in `DedekindEta.lean` and
-`UpperHalfPlane.denom_cocycle` in `MoebiusAction.lean` at the actual Mathlib
-pin `082e2d37e8b0463410cdb532e111cd43d5a66174`. The former assumes the
-upper half-plane; the latter assumes a non-real complex argument and gives
-the denominator product in the order the proof uses. They support the existing
-Kontsevich factor proof outline, not a formalized modularity theorem.
+QT's `ideal-tetrahedron-and-shape` calls Im(n)>0 positive, while its
+`volume-and-chern-simons` imports Vol(n)=D(n) without the orientation/carrier
+comparison or direct `Polylogarithms:P.2/hyperbolic-volume` prerequisite.
+Specify an orientation reversal or an odd vertex relabelling with its transport
+law before using the supplier. The abstract figure-eight value 2D(zeta_6)
+does not exercise identical ordered vertices. This is a consumer omission;
+neither cited source is alleged to be wrong. The handoff preserves the precise
+unapplied consumer correction and needs_changes proposal.
 
-For clarity, the preceding codex-iuSTeN argument remains valid. Set
-D_gamma(z)=cz+d and v_gamma=v_eta(gamma). On the upper half-plane,
-A_gamma=v_gamma^(-1)D_gamma^(-1/2)=eta(z)/eta(gamma z) is multiplicative;
-squaring the eta law makes v_gamma^2 a character. Conjugate A to the lower
-half-plane. Its factor is s_gamma v_gamma D_gamma^(-1/2), where s_gamma=-1
-exactly for c=0,d<0, and otherwise 1. Multiplying by the character
-v_gamma^(-2) and the integral factor D_gamma^(-1) yields the corrected
-s_gamma v_gamma^(-1)D_gamma^(-3/2). Boundary limits away from poles give
-the desired factor law. At -I the boundary power is i and corrected multiplier
-is -i, so the product is 1; the naive inverse eta multiplier would give -1.
-This is a mathematical outline inherited and checked here, not a new Lean proof
-of the analytic transformation.
+For /11, GZ's analytic input is symmetric positive definite. Its Gaussian
+precision Lambda is the inverse covariance: the unnormalized integral uses
+(2*pi)^(N/2)*det(Lambda)^(-1/2), and the normalized density uses its reciprocal.
+The formal bracket already has constant moment 1. The packet correctly allows
+symmetric invertible precision over a rational algebra without positivity,
+subject to its completed domain. At Lambda=-1 its formal second moment is -1,
+whereas exp(x^2/2) is not integrable on the real line. The figure-eight all-ones
+matrix kills (1,-1), so the positive-definite radial theorem does not apply.
+An exact rational calculation also checks inverse off-diagonal entry -1/3 for
+Lambda=((2,1),(1,2)). These diagnostics confirm distinctions already stated in
+the packet; preserve the normalization, uniform-regularity, coefficientwise
+Kummer, coefficient-extension and all-order-gluing gaps. The excluded HB
+reader still needs the analytic-positivity qualification and the Theorem 3
+(38) locator changed to printed p.14.
 
-Read the reviewed P.2/HB.4/HB.10/QM.5 entries in `data/library-coverage.json`
-and the relevant current read-only AT, DG and GT contracts. DG already owns
-forms, orientations, Stokes, abstract boundary (5.5) and finite-dimensional
-boundaryless homogeneity (3.3). Current Tau Ceti also has the upper-half-space
-metric and Riemannian-volume interfaces; its inspected hyperbolic-volume API
-does not by itself construct the requested ideal-tetrahedron region. These
-existing foundations must be consumed. No upstream tree was edited or built.
+For /13, rechecked the preceding factor-cocycle argument. Eta nonvanishing and
+its upper-half-plane transformation make
+A_gamma=v_eta(gamma)^(-1)*(cz+d)^(-1/2) multiplicative. Squaring the eta law
+shows v_eta squared is a character. Conjugation to the lower half-plane adds
+a sign s_gamma=-1 exactly for c=0,d<0. Multiplying the conjugate factor by
+v_eta^(-2) and the integral-weight denominator inverse yields
+s_gamma*v_eta^(-1)*(cz+d)^(-3/2); its boundary values give the corrected factor.
+At -I the lower-boundary power is i and epsilon=-i, giving product 1; the naive
+inverse eta multiplier gives -1. This checks consistency of the convention,
+not the analytic transformation theorem. The existing analytic proof gaps
+remain. The excluded QSeries reader still says the multiplier is globally the
+inverse eta multiplier; its statement, hypotheses and direct prerequisites
+must be synchronized with the corrected packet.
 
-A fresh traversal found **40,331 distinct packet node IDs**, with 30 references
-reachable from `Polylogarithms:P.2/hyperbolic-volume` and no reverse path to
-`ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`. The proposed direct
-prerequisite therefore introduces no cycle in the explicit graph checked.
-This supersedes the earlier graph count, without asserting a geometric theorem.
+Read the actual statements of `ModularForm.eta_ne_zero` and
+`UpperHalfPlane.denom_cocycle` with `git show` at Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`: the first assumes the upper
+half-plane and the second a complex argument with nonzero imaginary part.
+The current installed library is newer, so its working-tree HEAD was not used
+as evidence of this pin. The nodes' historical baseline remains unchanged.
 
-## Validation and provenance
+Read the P.2, HB.4, HB.8, HB.10 and QM.5 entries of the reviewed library audit,
+and current read-only AT/DG/GT contracts. In the current upstream roadmaps DG
+already owns forms, exterior derivative, orientations and Stokes, its 5.5 the
+abstract boundary, and 3.3 finite-dimensional boundaryless homogeneity.
+These are imports, not candidates for a second owner. Current Tau Ceti's
+upper-half-space file supplies an analytic metric and homogeneity but explicitly
+leaves completeness and constant curvature unproved. Its compact hyperbolic
+volume file assumes `IsMostowRigid` for metric-independence. Neither inspected
+API supplies P.2's ideal-tetrahedron region/integration proof. Those modern
+interfaces were read for ownership only; they were not asserted to exist at
+the older baseline pin. No upstream tree was edited or built.
 
-All three authorized parent packets pass `scripts/check_blueprint.py` against
-the supplied pinned declaration index: **zero errors and zero warnings**.
+## Validation and remaining work
 
-| Parent packet | Nodes | Gaps | Requests | Existing bounded verdict |
+Fresh `scripts/check_blueprint.py` checks with the supplied pinned declaration
+index give **zero errors and zero warnings** for each changed parent packet:
+
+| Packet | Nodes | Gaps | Requests | Verdict |
 |---|---:|---:|---:|---|
-| Polylogarithms | 75 | 19 | 21 | accepted, /7 |
-| HabiroNahmSeries | 109 | 22 | 9 | accepted, /11 |
-| QSeriesPartitionsAndMockModularForms | 537 | 24 | 27 | needs_changes, /13 |
+| Polylogarithms | 75 | 19 | 21 | accepted |
+| HabiroNahmSeries | 109 | 22 | 9 | accepted |
+| QSeriesPartitionsAndMockModularForms | 537 | 24 | 27 | needs_changes |
 
-No packet, suggested file, node, gap, request or earlier review object changed
-in this checkpoint. No Lean compilation was needed for these report/handoff
-changes; no compiler or language server was started. Previous serial lean-check
-results (462, 442 and 1491 sorry warnings for the parents) belong to the earlier
-sessions. In particular, codex-YFJHa3 supplied the two proved central-element
-Lean diagnostics and finite exact cocycle experiment; they were not repeated
-here. Their evidence is preserved in the
-[preceding report at the input commit](https://github.com/CBirkbeck/tauceti-explorer/blob/e64000122f079671a31ac872c29c8d8c71139a69/research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md).
-The report is consolidated here to keep the current verdicts and remaining
-scope repair readable. The handoff retains all unapplied corrections needed
-after authorization. File-scope intake and whitespace checks pass for both
-changed deliverables. The canonical completion predicate remains false.
+Semantic comparison with the input verifies that only the P.2 acceptance item,
+three top-level review objects and their complete predecessor archives changed
+in the packets. No link map or restructuring result is under review here.
+Suggested files are unchanged, so no Lean compile was needed or started.
+Earlier compiler results belong to their original sessions and are not fresh
+validation by this worker. No language server or background compiler was
+started. Intake file checks and whitespace checks pass. The canonical
+completion result is still false for exactly the four excluded packet reviews.
+Resume only after scope authorization or synchronization of the issue and
+queue; the handoff identifies the minimum remaining edits and their limits.
