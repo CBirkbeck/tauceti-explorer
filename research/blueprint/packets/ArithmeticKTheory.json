@@ -24,31 +24,31 @@
         "ref": "mathlib:Set.integer",
         "module": "Mathlib/RingTheory/DedekindDomain/SInteger.lean",
         "provides": "S-integer subalgebra: integrality at every height-one prime outside S.",
-        "checked": "Actual statement read at the pinned source, lines 65–70, 2026-10-19. Tau Ceti source compared with git show at f790474; Mathlib source tree has HEAD 082e2d37."
+        "checked": "Independent review, 2026-10-19: declaration statement read; source file byte-compared with git show at the exact cited pin. Its hypotheses and conventions provide precisely the stated baseline input."
       },
       {
         "ref": "mathlib:Module.End.eigenspace",
         "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
         "provides": "The native eigenspace submodule of a linear endomorphism, defined by f(x)=a•x.",
-        "checked": "Actual statement read at the pinned source, lines 424–429, 2026-10-19. Tau Ceti source compared with git show at f790474; Mathlib source tree has HEAD 082e2d37."
+        "checked": "Independent review, 2026-10-19: declaration statement read; source file byte-compared with git show at the exact cited pin. Its hypotheses and conventions provide precisely the stated baseline input."
       },
       {
         "ref": "mathlib:bernoulli",
         "module": "Mathlib/NumberTheory/Bernoulli.lean",
         "provides": "Arithmetic Bernoulli convention with B1 = −1/2.",
-        "checked": "Actual statement read at the pinned source, lines 195–196, 2026-10-19. Tau Ceti source compared with git show at f790474; Mathlib source tree has HEAD 082e2d37."
+        "checked": "Independent review, 2026-10-19: declaration statement read; source file byte-compared with git show at the exact cited pin. Its hypotheses and conventions provide precisely the stated baseline input."
       },
       {
         "ref": "mathlib:NumberField.classNumber",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "Finite class-group cardinal for a number field.",
-        "checked": "Actual statement read at the pinned source, lines 64–65, 2026-10-19. Tau Ceti source compared with git show at f790474; Mathlib source tree has HEAD 082e2d37."
+        "checked": "Independent review, 2026-10-19: declaration statement read; source file byte-compared with git show at the exact cited pin. Its hypotheses and conventions provide precisely the stated baseline input."
       },
       {
         "ref": "tauceti:Set.unit_fg_of_units",
         "module": "TauCeti/RingTheory/DedekindDomain/SInteger/Unit.lean",
         "provides": "Finite S and finitely generated R-units imply Group.FG (S.unit K); no rank formula is asserted.",
-        "checked": "Actual statement read at the pinned source, lines 207–210, 2026-10-19. Tau Ceti source compared with git show at f790474; Mathlib source tree has HEAD 082e2d37."
+        "checked": "Independent review, 2026-10-19: declaration statement read; source file byte-compared with git show at the exact cited pin. Its hypotheses and conventions provide precisely the stated baseline input."
       }
     ]
   },
@@ -85,7 +85,7 @@
       "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
       "readSections": [
-        "Fresh inspection of V.6.6–6.8.2, book pp. 409–413; VI.1.7–2.4, book pp. 468–473; VI.3.1, book p. 475; VI.8.1–8.4, book pp. 513–514; VI.9.1–9.5, book pp. 517–519. The inherited source records retain the other locators; this pass does not claim fresh full readings of their original proof sources."
+        "Independent review: III.2.5, book p.194; III.6.2.3–6.2.4, pp.232–233; V.6.6–6.8.2, pp.409–413; VI.1.7–2.4, pp.468–473; VI.3.1, p.475; VI.7.3–7.5, pp.509–510; VI.8.1–8.8, pp.513–516; VI.9.1–9.12, pp.517–525; VI.10.1–10.10, pp.527–533. Original Harris–Segal, Keune, Kummer and Herbrand–Ribet proof sources remain the recorded gaps; reading the K-book statements does not close them."
       ],
       "accessed": "2026-10-19"
     }
@@ -572,7 +572,8 @@
         "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
         "ArithmeticKTheory:N.5/totally-imaginary-integral-structure",
         "ArithmeticKTheory:N.5/soule-theorem",
-        "ArithmeticKTheory:N.4/w2-of-the-rationals-and-the-divisibility-tests"
+        "ArithmeticKTheory:N.4/w2-of-the-rationals-and-the-divisibility-tests",
+        "ArithmeticKTheory:N.7/w-invariant"
       ],
       "sources": [
         {
@@ -611,10 +612,23 @@
         "ArithmeticKTheory:N.1"
       ],
       "contractRevision": {
-        "statement": "For a number field F and S a set of finite primes, the determinant identifies K1(O_(F,S)) with O_(F,S)^×, compatibly with inclusion into F^× and with N.1’s transfer norm. Import the Bass–Milnor–Serre determinant theorem from KTheoryLowDegrees U.4/U.6; N.1 supplies the arithmetic S-integer specialization and comparisons. Finite generation of units requires finite S.",
-        "reason": "The low-degree calculation is owned by KTheoryLowDegrees; use the pinned Set.integer and Set.unit carriers.",
+        "statement": "For a number field F and S a finite set of finite primes, the determinant identifies K1(O_(F,S)) with O_(F,S)^×, compatibly with inclusion into F^× and with N.1’s transfer norm. Import the Bass–Milnor–Serre determinant theorem from KTheoryLowDegrees U.4/U.6; N.1 supplies the arithmetic S-integer specialization and comparisons. Finite generation of units requires finite S.",
+        "reason": "REV-ArithmeticKTheory makes the retained finite-S hypothesis explicit and lists the determinant/transfer suppliers actually used. Arbitrary S remains allowed for the localization-presentation nodes.",
         "proofSteps": [
           "Import the determinant and SK1=0 from U.4/U.6, then identify its codomain with the existing S-unit carrier. Finite generation is Tau Ceti’s unit_fg_of_units when S is finite. Use N.1’s explicit extension and relative norm comparisons for the two functorial maps."
+        ],
+        "prerequisites": [
+          "KTheoryLowDegrees:U.4",
+          "KTheoryLowDegrees:U.3",
+          "mathlib:Set.unit",
+          "mathlib:Set.unitEquivUnitsInteger",
+          "tauceti:Set.unit_fg_of_units",
+          "mathlib:NumberField.Units.rank",
+          "mathlib:NumberField.Units.torsion",
+          "mathlib:padicValRat",
+          "mathlib:Nat.exists_infinite_primes",
+          "KTheoryLowDegrees:U.6",
+          "ArithmeticKTheory:N.1/transfer-and-norm-on-units"
         ]
       }
     },
@@ -666,7 +680,7 @@
         "ArithmeticKTheory:N.2"
       ],
       "contractRevision": {
-        "statement": "For O_(F,S)⊂F use SchemeKTheoryOperations:S.3/dedekind-localisation-sequence with residues at the finite primes outside S. Its boundary in degree one is the divisor map, and the class map sends e_p to [p]^(−1). N.2 adds arithmetic finite support, field-extension compatibilities and degree-specific injectivity; it does not reconstruct the general sequence.",
+        "statement": "For a Dedekind domain R with fraction field F import S.3’s sequence …→⊕_p K_n(k(p))→K_n(R)→K_n(F)→⊕_p K_(n−1)(k(p))→…, terminating K_1(F)→⊕_p Z→K_0(R)→Z→0. The degree-one boundary is the divisor map and the class map sends e_p to (0,[p]^(−1)) under rank and determinant. In the arithmetic specialization R=O_(F,S), reindex residues by the finite primes outside S. N.2 adds arithmetic finite support, field-extension compatibility and degree-specific injectivity; it does not reconstruct the general sequence. If R is a field the residue sums vanish and the sequence is trivial.",
         "reason": "RT-AREA-ktheory-2/42 assigns the general sequence to S.3.",
         "prerequisites": [
           "SchemeKTheoryOperations:S.3/dedekind-localisation-sequence",
@@ -674,6 +688,10 @@
         ],
         "proofSteps": [
           "Apply S.3’s exact sequence to the existing Dedekind S-integer ring. Identify its closed points with the primes outside S using the pinned spectrum equivalence. Import the divisor and tame-symbol boundary normalizations; prove arithmetic finite support in the separate N.2 target."
+        ],
+        "hypotheses": [
+          "R is a Dedekind domain with compatible fraction field F; K is the connective Quillen K-theory of projectives. Import the regular K/G comparison and the general sequence from S.3.",
+          "For R=O_(F,S), use the existing S-integer ring and its spectrum equivalence; S need not be finite for this specialization."
         ]
       }
     },
@@ -722,6 +740,10 @@
         ],
         "proofSteps": [
           "For transfer, use restriction of scalars and residue-field transfer under dévissage. For pullback, use the five ramified follow-up targets: the pullback of a residue module has length e(q/p), so the q-coordinate is e(q/p) times residue scalar extension. The tensor filtrations and their additive K-theory maps give the commuting square."
+        ],
+        "hypotheses": [
+          "E/F is a finite extension of number fields, S a finite set of finite primes of F, and T its full inverse image in E. The map O_(F,S)→O_(E,T) is finite projective.",
+          "Transfer uses residue restriction of scalars; restriction uses e(q/p) times residue scalar extension. The five N.2 follow-up targets supply the latter argument, replacing the old ramification gap."
         ]
       }
     },
@@ -819,6 +841,10 @@
         ],
         "proofSteps": [
           "Specialize R.1/steinberg-duality-finiteness to the order O_F in F and the actual projective lattice P. That theorem supplies the orientation twist and finite-index descent, including the nonfree case. Use its finitely generated homology groups as the coefficients in Quillen’s rank spectral sequence."
+        ],
+        "hypotheses": [
+          "F a number field, A = 𝓞_F, n = rank P ≥ 1; the identification St(V) ≅ St_n(F) is induced by the chosen basis and is equivariant for Aut_A(P) → GL_n(F).",
+          "Use R.1/steinberg-duality-finiteness with its integral orientation twist and finite-index descent. That supplier includes nonfree projective lattices and rank one; N.3 does not claim these steps as new arithmetic foundations."
         ]
       }
     },
@@ -976,7 +1002,30 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.5"
-      ]
+      ],
+      "contractRevision": {
+        "hypotheses": [
+          "Import L.1’s finite-coefficient objects, Bott elements and safe-modulus products, together with the coefficient localization and boundary projection formula requested from K.7 in R-K7-coefficients. No ring structure on the mod-3 Moore spectrum is assumed.",
+          "The analogue for n = 1 fails exactly when Pic(R)/ℓ ≠ 0 (the source says it is false; sourceIssues)."
+        ],
+        "proofSteps": [
+          "By the Chinese remainder decomposition reduce to a prime-power modulus m. Choose a higher prime power M divisible by m with the safe product supplied by L.1 (at 3 take M≥9, at 2 take M≥16). Prove surjectivity at M. In every residue field k, K_(2i−1)(k;Z/m)=K_(2i−1)(k)/m since the preceding positive even K-group vanishes, and K_0(k) is torsion-free when i=1. The quotient reduction from M to m is onto; naturality of the localization boundary descends surjectivity to m.",
+          "For n=2 the coefficient sequence, determinant K_1(R)=R× and K_0(R)=Z⊕Pic(R) identify K_1(R;Z/M) with the Kummer group of elements of F× having valuations divisible by M outside S, modulo M-th powers. This embeds in F×/M=K_1(F;Z/M); exactness gives boundary surjectivity. Use IV.2.3 and the low-degree localization maps, rather than asserting that R×/M is all of K_1(R;Z/M).",
+          "For n=2i after adjoining ζ_M, finite-field Bott periodicity makes multiplication by β^(i−1) onto the residue sum from its K_1/M row (residue characteristics dividing M contribute zero). Lift that row by n=2 and apply K.7’s boundary projection formula at the safe modulus M.",
+          "For general F use its cyclotomic extension F(ζ_M), the integral closure of R, and the natural transfer square of coefficient localization sequences. Each residue has a prime above it and the finite-field transfer in positive odd degree is onto. Descend the lifted finite-support class by transfer, then reduce from M to m as in the first step."
+        ],
+        "prerequisites": [
+          "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+          "ArithmeticKTheory:N.2/localisation-sequence-and-finite-extensions",
+          "KTheoryFiniteLocalFields:L.1",
+          "ArithmeticKTheory:N.1/S-integers-in-a-finite-extension",
+          "KTheoryFiniteLocalFields:L.1/k-theory-mod-m",
+          "KTheoryFiniteLocalFields:L.1/bott-element",
+          "GeneralAlgebraicKTheory:K.7",
+          "ArithmeticKTheory:N.1/K1-of-S-integers-and-the-determinant"
+        ],
+        "reason": "REV-ArithmeticKTheory replaces the obsolete unowned-coefficient claim and unsafe product reduction by L.1/K.7 suppliers, safe higher prime-power reduction, and the Kummer interpretation of the degree-one coefficient injection."
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.5/e-invariant",
@@ -1000,7 +1049,20 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.5"
-      ]
+      ],
+      "contractRevision": {
+        "statement": "Let F be a number field with r_1 real and r_2 complex places, O_S a ring of S-integers in F, and ℓ a prime; if ℓ = 2 suppose F totally imaginary. For every n = 2i − 1 ≥ 3 the localisation of K_n(O_S) at ℓ is K_n(O_S)_(ℓ) ≅ ℤ_(ℓ)^{r_2} ⊕ ℤ/w_i^{(ℓ)}(F) when i is even and ℤ_(ℓ)^{r_1+r_2} ⊕ ℤ/w_i^{(ℓ)}(F) when i is odd. Equivalently the ℓ-primary torsion K_n(O_S){ℓ} is cyclic of order w_i^{(ℓ)}(F), and it is identified with H^0_et(O_S[1/ℓ]; ℚ_ℓ/ℤ_ℓ(i)) = W_i(F){ℓ} through K_{2i−1}(R){ℓ} ≅ K_{2i}(R; ℚ_ℓ/ℤ_ℓ) ≅ H^0(R; ℚ_ℓ/ℤ_ℓ(i)), R = O_S[1/ℓ]; these identifications are induced by the comparison maps of MotivicEtaleKTheory M.7 through its coefficient-compatible early descent edge and are natural for O_S ⊂ O_{S'}. The free summand is not canonical.",
+        "prerequisites": [
+          "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+          "KTheoryFiniteLocalFields:L.1",
+          "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+          "StableHomotopyKTheory:H.6",
+          "MotivicEtaleKTheory:M.7",
+          "ArithmeticKTheory:N.4/the-w-invariant",
+          "mathlib:AddCommGroup.equiv_free_prod_directSum_zmod"
+        ],
+        "reason": "REV-ArithmeticKTheory removes the residual full-M.8 backedge. R-M7-edges supplies the early coefficient-colimit edge; G-Coefficient records that exact proof obligation."
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
@@ -1168,7 +1230,11 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.2"
-      ]
+      ],
+      "contractRevision": {
+        "statement": "For the data above define ρ_n^{B/A}: ⊕_p K_n(k(p)) → ⊕_q K_n(k(q)) as the unique additive homomorphism sending ι_p(x) to Σ_{q|p} ι_q(e(q/p)·res_{k(q)/k(p)}x), with e(q/p)=q.ramificationIdx A. Integer multiples mean repeated addition in the abelian K-group; on K_1(k)=k× this is an e-th power. A prime of B has one contracted prime; each prime of A has finitely many primes above it. The same direct-sum assembly is planned for any family of additive groups and homomorphisms over finite fibres. Its full API and tests are specified here; it is not declared in the main suggested Lean file.",
+        "reason": "REV-ArithmeticKTheory: Removed a stale claim that the current suggested file declares the ramified direct-sum construction. Its mathematical statement, native direct-sum API and six tests are unchanged."
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.2/ramification-weighted-devissage",
@@ -1256,7 +1322,35 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.3:finite-generation"
-      ]
+      ],
+      "contractRevision": {
+        "hypotheses": [
+          "CW type is furnished by nerve realization, with basepoint the zero projective.",
+          "Simple means π_1 is abelian and its action on each higher homotopy group is trivial; simple does not mean simply connected.",
+          "The general Serre theorem is a recorded requested extension of H.3, not a declaration found in the baseline or a theorem explicitly stated in H.3’s present atlas text."
+        ],
+        "proofSteps": [
+          "Use GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups for exact direct sum, H.1/classifying-space-prod-compactly-generated for the realization/product comparison, and H.1/natural-transformations-adjoints-contractibility for the unit, associativity and symmetry homotopies. Work with compactly generated realizations and their CW models; for number rings a countable skeleton also gives the ordinary product comparison. H.1/classifying-space-cw-structure and H.1/homology-of-small-categories supply the CW and integral simplicial/singular homology inputs. Q(P(A)) is connected through its maps from zero.",
+          "The unit, associativity and symmetry isomorphisms give the H-space properties. The connected H-space simplicity theorem is part of the explicit H.3 extension request.",
+          "Apply Serre’s finite-type theorem as requested from the homotopy supplier. Concretely, π_1 X=H_1 X is finitely generated abelian; its classifying-space homology is finitely generated. IV.3 Proposition 3 trivializes its action on universal-cover homology. III.1 Proposition 1(b), interpreted on the covering fibration over Bπ_1, makes the simply connected universal cover have finite-type homology. V.2 Proposition 1 then gives finite generation of its higher homotopy groups. The singular-complex interpretation in V.1 footnote 6 removes the original ULC regularity restriction. Use K_n=π_{n+1} BQ.",
+          "Specialize to O_F using the arithmetic inputs in the previous node. Preserve the predecessor’s endpoint IDs for consumers."
+        ],
+        "prerequisites": [
+          "ArithmeticKTheory:N.3:finite-generation/rank-filtration-homology-finite-type",
+          "GeneralAlgebraicKTheory:K.1/elementary-properties-of-K-groups",
+          "GeneralAlgebraicKTheory:K.1/K-groups-of-exact-categories",
+          "StableHomotopyKTheory:H.1/classifying-space-cw-structure",
+          "StableHomotopyKTheory:H.1/classifying-space-prod-compactly-generated",
+          "StableHomotopyKTheory:H.1/natural-transformations-adjoints-contractibility",
+          "StableHomotopyKTheory:H.1/homology-of-small-categories",
+          "StableHomotopyKTheory:H.3",
+          "mathlib:NumberField.RingOfIntegers",
+          "mathlib:SSet.toTop",
+          "mathlib:HomotopyGroup.Pi",
+          "mathlib:HSpace"
+        ],
+        "reason": "REV-ArithmeticKTheory routes the connected H-space Serre finite-type theorem to the exact early H.3 supplier in R-H3-finite-type. H.6 retains the separate homotopy-orbit and coefficient requests."
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.3:finite-generation/s-localization-finite-defect",
@@ -1601,7 +1695,36 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.7"
-      ]
+      ],
+      "contractRevision": {
+        "hypotheses": [
+          "k is a natural number; the numbers are rational.",
+          "Mathlib supplies the arithmetic and primed conventions and their comparison. Only the light translation bernoulliTop k=(−1)^(k+1)bernoulli(2k) is introduced here; k≥1 is required for the positive-source convention.",
+          "The denominator of B_(2k) uses pinned von Staudt–Clausen. Its divided-number refinement for B_(2k)/k needs the Kummer-congruence input requested in R-Iwasawa-cyclotomic. No closed formula for the numerator is asserted."
+        ],
+        "proofSteps": [
+          "Import the two pinned definitions and the conversion lemma, and fix the arithmetic convention as this roadmap's default.",
+          "Read the pinned von Staudt–Clausen declarations for the denominator and squarefreeness of B_(2k). Import the divided-number refinement separately from R-Iwasawa-cyclotomic; it remains in G-RegularProofs.",
+          "For p−1 not dividing 2k, the denominator of arithmetic B_{2k}/k is prime to p even if p divides k. At p=k=5, arithmetic B_10=5/66 has numerator divisible by5, while B_10/5=1/66 has neither numerator nor denominator divisible by5.",
+          "Keep arithmetic indices and the positive, reindexed source numbers distinct. The primed convention differs only at index one; it does not implement the source’s reindexing or alternating sign."
+        ],
+        "reason": "REV-ArithmeticKTheory distinguishes the two existing conventions from the light source-convention adapter; no new Bernoulli sequence is planned.",
+        "statement": "Fix the ARITHMETIC convention: Mathlib's bernoulli, defined by the generating series t/(e^t − 1), so B_1 = −1/2, B_2 = 1/6 and B_n = 0 for odd n > 1. Mathlib's bernoulli' (B_1 = +1/2) differs from it only at index one (bernoulli_eq_bernoulli'_of_ne_one). The SOURCE uses neither: Weibel's K-book uses the topologists' numbers B_k^top = (−1)^(k+1) B_{2k} = |B_{2k}| (k ≥ 1), all positive, with B_1^top = 1/6, B_5^top = 5/66 and B_6^top = 691/2730. Every formula quoted from the source is therefore re-indexed here by k ↦ 2k: the source's B_k is the arithmetic B_{2k} up to sign. The denominator facts are von Staudt–Clausen, which the pinned Mathlib proves: for k ≥ 1 the denominator of B_{2k} is the product of the primes p with (p − 1) | 2k, hence squarefree and divisible by 6 (Bernoulli.vonStaudt_clausen, dvd_den_bernoulli, not_sq_dvd_den_bernoulli). Separately, the source’s Kummer-congruence refinement says that if (p − 1) ∤ 2k then p does not divide the denominator of B_{2k}/k even when p | k. This refinement is an R-Iwasawa-cyclotomic/G-RegularProofs input, not a consequence already supplied by the cited pinned denominator declarations.",
+        "prerequisites": [
+          "mathlib:bernoulli",
+          "mathlib:bernoulli'",
+          "mathlib:bernoulli_eq_bernoulli'_of_ne_one",
+          "mathlib:bernoulli_one",
+          "mathlib:bernoulli'_one",
+          "mathlib:Polynomial.bernoulli",
+          "mathlib:Bernoulli.vonStaudt_clausen",
+          "mathlib:Bernoulli.dvd_den_bernoulli",
+          "mathlib:Bernoulli.not_sq_dvd_den_bernoulli",
+          "mathlib:bernoulli_eq_zero_of_odd",
+          "mathlib:bernoulli_two",
+          "IntegralIwasawaTheory:L3"
+        ]
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.7/w-invariant",
@@ -1617,7 +1740,11 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.7"
-      ]
+      ],
+      "contractRevision": {
+        "statement": "A prime p is IRREGULAR when it divides the class number of the p-th cyclotomic field, that is the order of the Picard group of the ring of integers of the field obtained by adjoining a primitive p-th root of unity; otherwise p is REGULAR. Iwasawa's equivalent form concerns the whole cyclotomic tower: p is regular exactly when, for every ν ≥ 1, the Picard group of the ring of integers of Q(μ_{p^ν}) has no p-torsion. The 2013 source lists the smallest irregular primes are 37, 59, 67, 101, 103, 131 and 149, and reports that Siegel conjectured that asymptotically about 39 per cent of primes are irregular, a proportion its historical numerical evidence up to four million matches. The definition is about the class number and nothing else: no statement of this roadmap may fold Vandiver's conjecture, or any other class-group hypothesis, into the word regular.",
+        "reason": "REV-ArithmeticKTheory dates the numerical report and includes the quoted Iwasawa tower equivalence in G-RegularProofs; neither is asserted as a proved library result."
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.7/kummer-criterion",
@@ -1657,7 +1784,28 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.7"
-      ]
+      ],
+      "contractRevision": {
+        "prerequisites": [
+          "ArithmeticKTheory:N.7/tame-kernel-vanishing-at-a-regular-prime",
+          "ArithmeticKTheory:N.7/w-invariant",
+          "ArithmeticKTheory:N.5/harris-segal-summand",
+          "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two",
+          "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
+          "ArithmeticKTheory:N.6/even-groups-modulo-l",
+          "KTheoryFiniteLocalFields:L.1/k-theory-mod-m",
+          "KTheoryFiniteLocalFields:L.1/bott-element",
+          "GeneralAlgebraicKTheory:K.7",
+          "MotivicEtaleKTheory:M.7"
+        ],
+        "proofSteps": [
+          "For R=Z[ζ_l,1/l], regularity kills Pic(R)/l. The Kummer sequence and the one-inverted-prime Brauer calculation give H²(R,Z/l(i+1))=0. The N.6 even comparison and finiteness imply K_(2i)(R){l}=0 for i≥1. Restriction to R followed by transfer has degree l−1, a unit at l, so the same vanishing holds for Z[1/l] and Z in positive even degrees.",
+          "Combine N.5 odd torsion and N.4 cyclotomic exponents: the remaining l-primary torsion of K_(2i−1)(Z) is cyclic of order w_i(Q){l}, nonzero exactly when l−1 divides i. Harris–Segal identifies the detected summand, with its separate G-HarrisSegal proof boundary.",
+          "Use the coefficient Bockstein sequence and the cyclotomic-unit character decomposition. The Galois invariants of β^a occur precisely when l−1 divides a. In odd degrees take the invariant classes v=[ζ]β^(l−2) and y_k=x_k β^(2k), 0≤k≤(l−3)/2, together with the unit. Descent gives the stated free module, conditional on the character and Bott-action arguments requested in G-RegularProofs. At l=3 this is a coherent module action; no ring structure on the mod-3 Moore spectrum is inferred.",
+          "Check l=5: the four generators have degrees 0,1,5,7 modulo8. For Z rather than Z[1/l], replace y_0 by y_0 β^(l−1); do not identify their degree-one groups."
+        ],
+        "reason": "REV-ArithmeticKTheory removes the V.5 backedge and gives the actual transfer/coefficient proof route, keeping the open cyclotomic and Bott-action supplier contracts explicit."
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.7/vandiver-separation",
@@ -1665,7 +1813,59 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.7"
-      ]
+      ],
+      "contractRevision": {
+        "statement": "Import Vandiver(l) from its single owner IntegralIwasawaTheory L3: for a prime l it is nondivisibility by l of the class number of Q(mu_l)^+, identified with the pinned maximal real subfield of CyclotomicField l Q. This node does not define a second predicate. Vandiver's conjecture asserts that for an irregular prime l the Picard group of the ring of integers of the maximal real subfield of the l-th cyclotomic field has no l-torsion; equivalently, that the representation of the Galois group on the modulo-l Picard group of the full cyclotomic field is a sum of odd twists of the roots of unity, which says that complex conjugation acts as minus one on the l-torsion. The 2013 source reports verification for all primes up to a hundred and sixty-three million and treats the global conjecture as open; this is historical source evidence, not a claim about the latest verification bound or current status. Under the global hypothesis Vandiver(l) for every odd prime l, put c_j=|num(B_(2j)/(4j))| in the arithmetic convention. For n≥2 the eight rows are: K_(8a+1)(Z)=Z⊕Z/2 (a≥1); K_(8a+2)(Z)=Z/(2c_(2a+1)); K_(8a+3)(Z)=Z/(2w_(4a+2)(Q)); K_(8a+4)(Z)=0; K_(8a+5)(Z)=Z; K_(8a+6)(Z)=Z/c_(2a+2); K_(8a+7)(Z)=Z/w_(4a+4)(Q); K_(8a+8)(Z)=0 (a≥0 for the last seven rows). These are abstract group isomorphisms, with no chosen generators. In particular the groups K_{4i}(Z) with 4i ≥ 8 vanish (K_4(Z) = 0 is a theorem, of Rognes); the 2013 source states unconditionally that those higher groups have order a product of irregular primes greater than ten to the eighth, and their joint vanishing for all i ≥ 2 is equivalent to the global Vandiver conjecture at every odd prime. Every statement of this roadmap that uses the conjecture says so in its hypotheses, and no definition of regularity contains it.",
+        "hypotheses": [
+          "For the predicate comparison l is an odd prime (regular primes satisfy Vandiver automatically). For the complete K-group table and joint vanishing assume Vandiver(l) for every odd prime l; a hypothesis at one irregular prime does not suffice.",
+          "The equivalence between the two forms of the conjecture uses that complex conjugation is the unique element of order two in the Galois group, which the source records.",
+          "The conditional table is the source's Theorem 10.2 and is quoted as conditional.",
+          "The predicate and its transport to the intrinsic maximal-real-subfield model are supplied by IntegralIwasawaTheory L3; the equivalence and conditional K-theory consequences, not that definition, are owned here."
+        ],
+        "proofSteps": [
+          "Import IntegralIwasawaTheory L3's predicate, whose exact contract is l not dividing the class number of the maximal real subfield of Q(mu_l). Prove the comparison to the odd-character condition on the full cyclotomic class group; do not introduce a second definition.",
+          "Record the verification bound as historical to the 2013 source, without claiming it is the current bound, and the historical remark that the statement was discussed by Kummer and Kronecker long before Vandiver.",
+          "Combine N.5’s odd rows with N.6’s even 2-primary calculation and the special-value order formula for Z. Under global Vandiver, the cyclotomic reflection/cyclicity theorem makes the odd-primary K_(4j−2)(Z) cyclic of order c_j, while the even-character vanishing kills all K_(4j)(Z). The additional 2-part occurs in residue two, giving the explicit eight rows above. The reflection/cyclicity and order-formula proof imports remain G-RegularProofs and the SpecialValuesBirchTate:B.8/higher-values-real-abelian contract; do not present them as elementary consequences of regularity.",
+          "State the unconditional order restriction for K_{4i}(Z), i≥2, and the equivalence of their joint vanishing with the global Vandiver conjecture at every odd prime. A hypothesis at one irregular prime is not the global conjecture; K_4(Z)=0 is an unconditional imported result.",
+          "State the discipline: a theorem conditional on the conjecture is labelled conditional, and the definition of a regular prime does not mention it."
+        ],
+        "prerequisites": [
+          "ArithmeticKTheory:N.7/regular-prime",
+          "ArithmeticKTheory:N.7/eigenspaces-and-herbrand-ribet",
+          "ArithmeticKTheory:N.7/regular-prime-torsion-consequences",
+          "IntegralIwasawaTheory:L3",
+          "mathlib:NumberField.maximalRealSubfield",
+          "mathlib:NumberField.of_subfield",
+          "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
+          "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
+          "ArithmeticKTheory:N.6/the-two-primary-corrections",
+          "ArithmeticKTheory:N.7/w-invariant",
+          "SpecialValuesBirchTate:B.8/higher-values-real-abelian"
+        ],
+        "reason": "REV-ArithmeticKTheory states the missing conditional table, separates local from global hypotheses, and names the reflection/cyclicity and special-value proof inputs. The source VI.10.1(6) index is corrected using Table10.2.1.",
+        "sources": [
+          {
+            "sourceId": "Kbook.2013",
+            "locator": "VI.10.8 (Vandiver's Conjecture 10.8), printed p. 532 (PDF p. 540)",
+            "match": "The conjecture and the equivalence"
+          },
+          {
+            "sourceId": "Kbook.2013",
+            "locator": "VI.10.1, the paragraph before Table 10.1.1, printed p. 527 (PDF p. 535)",
+            "match": "The unconditional statement and the equivalence"
+          },
+          {
+            "sourceId": "Kbook.2013",
+            "locator": "VI.10.8.2 (Historical Remark 10.8.2), printed p. 532 (PDF p. 540)",
+            "match": "The historical remark"
+          },
+          {
+            "sourceId": "Kbook.2013",
+            "locator": "VI.10.2 and Table 10.2.1, book pp. 528–529 (PDF pp. 536–537); VI.10.9–10.10, book p. 533 (PDF p. 541)",
+            "match": "The eight conditional group rows and the reflection/cyclicity inputs. The row in degree 8a+6 uses c_(2a+2), correcting the separate index misprint in VI.10.1(6)."
+          }
+        ]
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.8/certified-example-format",
@@ -1723,7 +1923,18 @@
       "role": "inherited",
       "realises": [
         "ArithmeticKTheory:N.8"
-      ]
+      ],
+      "contractRevision": {
+        "proofSteps": [
+          "Small representatives. For π ≠ 0 every residue class mod π contains an r with 2N(r) ≤ N(π): round x/π to the nearest Gaussian integer, with error at most 1/2 in each coordinate. This is the intermediate bound normSq ≤ normSq(1/2 + i/2) = 1/2 in the proof of mathlib:GaussianInt.normSq_div_sub_div_lt_one, whose stated conclusion is only < 1; this roadmap requires the stronger factor-two bound as a proof step, without claiming a declaration in the main suggested Lean file.",
+          "Places of norm at least 5. Let v = v_m = (π), U = U_{m−1} = ⟨i⟩ × ∏_{j<m} π_j^ℤ. Put C = G = {c ∈ ℤ[i] : c ≠ 0, 2N(c) ≤ N v} and W = {i, π₁, …, π_{m−1}}, which generates U. Each c ∈ C has N(c) < N v, so its prime factors precede v and C ⊆ U ∩ ℤ[i]; and β(C) = k(v)^× by step 1.",
+          "Check (1)–(3) of N.8/tate-criterion with its part (b) in the form |a| + |b| < N v. (3): 1 ∈ C, and for c ∈ C ∩ ker β, |c| + 1 ≤ √(N v/2) + 1 < N v. (2): for c, c′ ∈ C choose c″ ∈ C with β(c″) = β(cc′); then |cc′| + |c″| ≤ N v/2 + √(N v/2) < N v because N v > 2. (1): for w ∈ W choose c ∈ C with β(c) = β(w); then |c| + |w| ≤ (1 + 1/√2)·√(N v) < N v because N v ≥ 5 > (1 + 1/√2)² ≈ 2.91. So ∂_v is bijective.",
+          "The place 1 + i. Here N v = 2, U = ⟨i⟩ and k(v)^× = 1. Take W = {i} and C = G = {1}: i = 1 + (1 + i)·i lies in (1 + πU) ∩ U ⊆ U₁, so (1)–(3) hold and ∂_{v₁} is bijective, that is K₂^{S_1}(F) = K₂^{S_0}(F). Directly: the Steinberg identity {i, 1 − i} = 1, 1 − i = −i(1 + i) and {i, −i} = 1 give {i, 1 + i} = 1.",
+          "Step 0. K₂^{S_0}(F) is generated by {i, i}, and {i, i} = {i, −1} = {i, i²} = {i, i}² (K2SymbolsBrauer T.2/symbol-consequences), so {i, i} = 1 and K₂^{S_0}(F) = 1.",
+          "By N.8/tate-criterion (c) with m₀ = 0, K₂(ℤ[i]) = K₂^{S_0}(F) = 1."
+        ],
+        "reason": "REV-ArithmeticKTheory: Removed a stale claim that gaussian_two_mul_norm_mod_le occurs in the current suggested file. The rounding proof and its stronger factor-two norm bound remain the explicit roadmap proof step."
+      }
     },
     {
       "ref": "ArithmeticKTheory:N.8/gaussian-and-imaginary-quadratic",
@@ -1861,7 +2072,8 @@
       "consumers": [
         "ArithmeticKTheory:N.5/e-invariant-descent-edge",
         "ArithmeticKTheory:N.5/edge-normalised-chern-torsion",
-        "ArithmeticKTheory:N.6/bott-adams-edge-splitting"
+        "ArithmeticKTheory:N.6/bott-adams-edge-splitting",
+        "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two"
       ],
       "status": "open"
     },
@@ -1898,10 +2110,13 @@
     {
       "id": "R-Iwasawa-cyclotomic",
       "supplier": "IntegralIwasawaTheory:L0",
-      "need": "Export proved Kummer criterion/congruences and the finite cyclotomic Herbrand–Ribet character statement needed in N.7, with arithmetic Bernoulli indices: for even a, 2≤a≤p−3, p|num B_a iff the mod-p class-group eigenspace ω^(1−a) is nonzero. The denominator 1/(p−1) of the character projector is a unit modulo p; integral projectors without this inversion are not supplied. Washington is not a source obtained in this run; use a freely available original or a maintainer-cleared copy.",
+      "need": "Export proved Kummer criterion/congruences and the finite cyclotomic Herbrand–Ribet character statement needed in N.7, with arithmetic Bernoulli indices: for even a, 2≤a≤p−3, p|num B_a iff the mod-p class-group eigenspace ω^(1−a) is nonzero. The denominator 1/(p−1) of the character projector is a unit modulo p; integral projectors without this inversion are not supplied. Washington is not a source obtained in this run; use a freely available original or a maintainer-cleared copy. Include the Iwasawa regularity equivalence at every p-power cyclotomic level and, under Vandiver, the reflection theorem proving cyclicity of the odd character components. These are required for N.7’s quoted tower equivalence and complete conditional K-group table, not supplied by the finite Herbrand–Ribet nonvanishing criterion alone. Include the divided Bernoulli denominator refinement: for k≥1 and p−1 not dividing 2k, p does not divide den(B_(2k)/k), including p dividing k. Route the finite-class-group and Vandiver comparisons through the existing L3 owner, reusing its vandiver-condition and vandiver-plus-part-tower targets; L0 supplies the cyclotomic foundations.",
       "consumers": [
         "ArithmeticKTheory:N.7/kummer-criterion",
-        "ArithmeticKTheory:N.7/eigenspaces-and-herbrand-ribet"
+        "ArithmeticKTheory:N.7/eigenspaces-and-herbrand-ribet",
+        "ArithmeticKTheory:N.7/regular-prime",
+        "ArithmeticKTheory:N.7/vandiver-separation",
+        "ArithmeticKTheory:N.7/bernoulli-conventions"
       ],
       "status": "open"
     }
@@ -1934,7 +2149,8 @@
         "ArithmeticKTheory:N.6/ordinary-to-bott-comparison-range",
         "ArithmeticKTheory:N.6/bott-adams-edge-splitting",
         "ArithmeticKTheory:N.5/soule-mod-l-surjectivity",
-        "ArithmeticKTheory:N.5/edge-normalised-chern-torsion"
+        "ArithmeticKTheory:N.5/edge-normalised-chern-torsion",
+        "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two"
       ]
     },
     {
@@ -1968,11 +2184,14 @@
     {
       "id": "ArithmeticKTheory/G-RegularProofs",
       "title": "Cyclotomic proof and regular-prime coefficient module",
-      "detail": "N.7 states the finite Kummer and Herbrand–Ribet targets, but the original proof sources remain unread; Washington is not in the cleared library index. R-Iwasawa-cyclotomic is the exact supplier boundary. The L.1 finite-coefficient objects do not themselves prove the free Bott-module decomposition and its (p+3)/2 generator degrees. Preserve the N.7 proof gap until that argument is supplied.",
+      "detail": "N.7 states the finite Kummer and Herbrand–Ribet targets, but the original proof sources remain unread; Washington is not in the cleared library index. R-Iwasawa-cyclotomic is the exact supplier boundary. The L.1 finite-coefficient objects do not themselves prove the free Bott-module decomposition and its (p+3)/2 generator degrees. Preserve the N.7 proof gap until that argument is supplied. The Iwasawa tower equivalence, Vandiver reflection/cyclicity and the special-value order-formula input of the explicit conditional table are retained as proof imports, not inferred from regularity or character nonvanishing. The divided Bernoulli denominator refinement is also a Kummer-congruence input; pinned von Staudt–Clausen alone is not cited as its proof.",
       "affects": [
         "ArithmeticKTheory:N.7/kummer-criterion",
         "ArithmeticKTheory:N.7/eigenspaces-and-herbrand-ribet",
-        "ArithmeticKTheory:N.7/regular-prime-torsion-consequences"
+        "ArithmeticKTheory:N.7/regular-prime-torsion-consequences",
+        "ArithmeticKTheory:N.7/regular-prime",
+        "ArithmeticKTheory:N.7/vandiver-separation",
+        "ArithmeticKTheory:N.7/bernoulli-conventions"
       ]
     },
     {
@@ -1986,7 +2205,7 @@
     {
       "id": "ArithmeticKTheory/G-ChernBoundary",
       "title": "Inherited Chern-family dependency cycle",
-      "detail": "The earlier parts record N.5→M.8→R.7→Polylogarithms P.2→K3BlochGroups V.3→V.2→N.5. This pass imports M.7’s early edge rather than M.8 for the arithmetic table, and proposes that V.2’s rank input use N.3 finite generation plus Borel R.3. The other packets are outside the allowed edits. The full inherited world is not claimed globally acyclic until the maintainer applies the boundary change.",
+      "detail": "The earlier parts record N.5→M.8→R.7→Polylogarithms P.2→K3BlochGroups V.3→V.2→N.5. This pass imports M.7’s early edge rather than M.8 for the arithmetic table, and proposes that V.2’s rank input use N.3 finite generation plus Borel R.3. The other packets are outside the allowed edits. The full inherited world is not claimed globally acyclic until the maintainer applies the boundary change. REV-ArithmeticKTheory also removes the residual M.8 edge from the inherited odd-torsion contract and V.5 from regular-prime-torsion-consequences; outside packets still need the documented boundary changes.",
       "affects": [
         "ArithmeticKTheory:N.5/edge-normalised-chern-torsion",
         "ArithmeticKTheory:N.5/the-real-case-modulo-eight"
@@ -2134,7 +2353,88 @@
       "searched": [
         "Published Springer article page and PDF DOI 10.1007/s00222-022-01127-8, 2026-10-19.",
         "arXiv:2007.15078 abstract/version record and author publication page; title plus corrigendum search, 2026-10-19; no correction notice found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified the source and multiplier twists in the published proof. Weight addition gives 2k, consistent with Lemma2.11; only that proof label changes.",
+        "by": "REV-ArithmeticKTheory"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory/E-REV-CDH1",
+      "source": "CDH.III.v4",
+      "kind": "misprint",
+      "locator": "Corollary 1.2.12 proof, arXiv v4 p.18, final sentence.",
+      "printed": "The final injectivity range replaces the parameter m by n in the inequality n≤2n−3.",
+      "correction": "The intended range is n≤2m−3, as in the corollary and the preceding injectivity argument.",
+      "reason": "The proof assumes n≤2m−3 and explicitly computes its connectivity bound from m. For m=0 the corollary includes negative n≤−3, which the last printed inequality would exclude.",
+      "affects": "the proof",
+      "known": "No verified correction located; finding is restricted to the exact version recorded in sourceVersions.",
+      "searched": [
+        "arXiv:2009.07225 version record and v4 PDF; Annals article listing and title/corrigendum search, 2026-10-19. No verified correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof assumes n≤2m−3 and explicitly computes its connectivity bound from m. For m=0 the corollary includes negative n≤−3, which the last printed inequality would exclude.",
+        "by": "REV-ArithmeticKTheory"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory/E-REV-FGV2",
+      "source": "FGV.2022",
+      "kind": "misprint",
+      "locator": "Remark 2.13, published p.246 (PDF p.22), displayed degree-zero coefficient group.",
+      "printed": "The middle expression for finite-coefficient K0 retains an infinite free Z summand and the unreduced Picard group.",
+      "correction": "Use Z/q⊕Pic(O′_q)/q for K0(O′_q;Z/q).",
+      "reason": "The connective coefficient sequence identifies K0 with K0(O′_q)/q. Rank is reduced modulo q, and so is Pic. For q=3 the printed infinite rank summand already contradicts that sequence. The following finite-coefficient comparison argument is valid after this correction.",
+      "affects": "the proof",
+      "known": "No verified correction located; finding is restricted to the exact version recorded in sourceVersions.",
+      "searched": [
+        "Published Springer article and PDF; arXiv:2007.15078 version record, author publication page, and title/corrigendum search, 2026-10-19. No verified correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The connective coefficient sequence identifies K0 with K0(O′_q)/q. Rank is reduced modulo q, and so is Pic. For q=3 the printed infinite rank summand already contradicts that sequence. The following finite-coefficient comparison argument is valid after this correction.",
+        "by": "REV-ArithmeticKTheory"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory/E-REV-KBOOK1",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "VI.10.1(6), author combined draft book p.527 (PDF p.535).",
+      "printed": "The order in degree 8k+6 uses the numerator c_(2k+1).",
+      "correction": "The index is c_(2k+2), in the source convention c_j=|num(B_(2j)/(4j))|.",
+      "reason": "The even degree 8k+6 is 4(2k+2)−2. Table10.1.1 on the next page and the conditional Table10.2.1 use the corrected index. At k=2, K22 has order691=c6, whereas the printed c5 is1.",
+      "affects": "a stated result",
+      "known": "No verified correction located; finding is restricted to the exact version recorded in sourceVersions.",
+      "searched": [
+        "Author K-book page and linked Kbook.errata.pdf (the link returned 404); indexed errata metadata and searches for Theorem10.1/c2k+1 corrections, 2026-10-19. No verified correction located. The printed edition was not collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The even degree 8k+6 is 4(2k+2)−2. Table10.1.1 on the next page and the conditional Table10.2.1 use the corrected index. At k=2, K22 has order691=c6, whereas the printed c5 is1.",
+        "by": "REV-ArithmeticKTheory"
+      }
+    },
+    {
+      "id": "ArithmeticKTheory/E-REV-KBOOK2",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "Paragraph preceding VI.10.6, author combined draft book p.531 (PDF p.539).",
+      "printed": "The parity conditions for a trivial constituent of R×⊗μ_l^(i−1) are reversed, and the restricted congruence is shifted.",
+      "correction": "For odd i there is one trivial constituent. For even i it occurs only if i≡0 mod(l−1).",
+      "reason": "VI.10.4.2 gives R×/l=μ_l⊕μ_l^0⊕μ_l^2⊕…⊕μ_l^(l−3). After twisting by i−1 the root term is invariant exactly if l−1 divides i; among the remaining terms exactly one is invariant when i is odd. For l=5, degrees3 and5 of Z[1/5] with these coefficients have ranks0 and1, respectively. Theorem10.6 has the right generator degrees.",
+      "affects": "the proof",
+      "known": "No verified correction located; finding is restricted to the exact version recorded in sourceVersions.",
+      "searched": [
+        "Author K-book page, linked errata PDF (404), and searches for the parity correction around VI.10.6, 2026-10-19. No verified correction located. The printed edition was not collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "VI.10.4.2 gives R×/l=μ_l⊕μ_l^0⊕μ_l^2⊕…⊕μ_l^(l−3). After twisting by i−1 the root term is invariant exactly if l−1 divides i; among the remaining terms exactly one is invariant when i is odd. For l=5, degrees3 and5 of Z[1/5] with these coefficients have ranks0 and1, respectively. Theorem10.6 has the right generator degrees.",
+        "by": "REV-ArithmeticKTheory"
+      }
     }
   ],
   "planetSelection": {
@@ -2151,122 +2451,242 @@
         {
           "id": "ArithmeticKTheory/E1",
           "locator": "III.2.5 (Bass–Milnor–Serre), PDF p. 202 (book p. 194)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: At I=0 the displayed order formula predicts the roots-of-unity order, whereas relative SK1(R,0)=0. At I=R its minimum is over an empty set; the absolute SK1 theorem is separate. The nonzero proper ideal restriction is needed for that formula.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E2",
           "locator": "V.6.6, Dedekind Domains, PDF p. 417 (book p. 409)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: In V.6.6 the conjunction is printed where the verb asserting regularity of R and F belongs. This grammatical slip does not change the localization theorem.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E3",
           "locator": "V.6.6.1, the paragraph after (6.6.1), PDF p. 417 (book p. 409)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: After (6.6.1) the preposition is printed where the verb asserting K*(R)-linearity of the boundary belongs. The right-module convention remains unchanged.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E4",
           "locator": "V.6.8, proof of Theorem 6.8, PDF p. 420 (book p. 412)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The finite-generation step in the proof requires finite S; arbitrary S can give non-finitely-generated units. The retained arithmetic theorem uses finite S.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E5",
           "locator": "V.6.8, the remark after Proposition 6.8.1, PDF p. 420 (book p. 412)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The degree-one coefficient boundary is the divisor map modulo m; its cokernel is Pic(R)/m. It is onto exactly when that quotient vanishes, rather than never onto.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E6",
           "locator": "V.6.8.1, proof, second paragraph, PDF p. 421 (book p. 413)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The Bott products land in finite-coefficient K-groups, not integral groups, and the boundary of the product uses the boundary of its degree-two lift s. The residue-characteristic component vanishes rather than giving a uniform Z/l summand.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E7",
           "locator": "V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413), in the author-hosted combined draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The claimed raw/divisibility equality conflates two kernels. The special-field symbol kernel can have quotient Z/2 over divisible elements; the higher raw comparison remains separately conditional.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E8",
           "locator": "VI.2.1.1, Example 2.1.1, PDF p. 478 (book p. 470), author-hosted draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The formula w_i(F_q)=q^i−1 is valid for positive i only. W_0(F_q) is infinite, and negative twists have the same finite orders as their positive opposites.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E9",
           "locator": "VI.2.1.2, Example 2.1.2, PDF p. 478 (book p. 470), author-hosted draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The cyclotomic exponent calculation gives w10(Q)=8·3·11=264. A factor5 would require 4 dividing10 and does not occur.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E10",
           "locator": "VI.2.1.3, Remark 2.1.3, PDF p. 478 (book p. 470), author-hosted draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: In degree8k+4, real-to-complex Bott comparison doubles the integral generator. Treating it as an isomorphism loses the real extension factor.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E11",
           "locator": "VI.2.2.1, proof of Lemma 2.2.1, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: Cyclotomic invariance requires the Galois exponent to divide i, rather than to equal i. For example an exponent2 action fixes the fourth twist.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E12",
           "locator": "VI.2, the paragraph after Example 2.2.2, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The discussion of the 2-adic cyclotomic action must distinguish the three involution possibilities recorded in the earlier finding.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E13",
           "locator": "VI.2, the paragraph after Proposition 2.3, PDF p. 479 (book p. 471), author-hosted draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: Under the printed noncyclic-Galois definition, R is not exceptional: its finite cyclotomic Galois groups have order at most2. The number-field restriction is essential to the subsequent shortcut.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E14",
           "locator": "VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513); published GSM 145, p. 564",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The S-unit rank is r1+r2+|S|−1; Q with S empty has unit rank0. Omitting r1 gives a negative rank there.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E15",
           "locator": "VI.8.1, Classical Data 8.1, PDF p. 521 (book p. 513), author-hosted draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The finite even group in this arithmetic statement is K_(2i)(O_S) for finite S, not K_(2i)(F), which has the infinite residue quotient.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E16",
           "locator": "VI.8.1, the sequence (8.1.1) (PDF p. 521; book p. 513)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The displayed sum of local invariants is onto Q/Z only when a finite place is inverted. For Q with S empty the finite group Z/2 cannot surject onto Q/Z; the corrected Brauer contract separates that case.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E17",
           "locator": "VI.8.2, proof (PDF p. 521; book p. 513)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The localization from O_S to O_S[1/l] uses residue fields O_S/p at primes over l. Those primes have already disappeared from the localized ring R, so R/p is not the required residue-field term.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E18",
           "locator": "VI.8.6, Birch–Tate Conjecture 8.6, PDF p. 523 (book p. 515); also the remark after Theorem 8.7 on the same page, author-hosted draft of 29 August 2013",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: At these negative odd integers the complex-place contribution gives a zero of order r2, not a pole. The node formulas keep the totally real hypothesis.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E19",
           "locator": "VI.8.8, proof (PDF p. 524; book p. 516)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The dyadic part of the order formula uses O_F[1/2], rather than the odd prime inverted in the preceding paragraph.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E20",
           "locator": "VI.9.4, Theorem 9.4, row n = 8k (PDF p. 527; book p. 519)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The coefficient table uses the 2-primary w-value; in degree0 its value is Q2/Z2, not a finite cyclic group. The retained M.7 contract preserves this boundary.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E21",
           "locator": "VI.9.11, proof (PDF p. 532; book p. 524)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: For the row n=2i+2 the cohomological twist is i+2, as the actual degree-to-twist substitution shows.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E22",
           "locator": "VI.9.11, proof (PDF pp. 532–533; book pp. 524–525)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The real restriction map in this Bockstein argument starts from Q2/Z2-coefficient H1, not Z2-coefficient H1.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E23",
           "locator": "VI.9.12, proof (PDF p. 533; book p. 525)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The exceptional even-group row has order h2/2^r1. Using h1 contradicts its H2-kernel description.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E24",
           "locator": "VI.9.12, proof (PDF p. 533; book p. 525)",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The cited exercise assumes an odd prime; it cannot itself justify the dyadic step. The corrected real restriction and coefficient argument is retained.",
+            "by": "REV-ArithmeticKTheory"
+          }
         }
       ]
     },
@@ -2276,27 +2696,52 @@
         {
           "id": "ArithmeticKTheory/E2",
           "locator": "V.6.6, standalone Chapter V, printed p. 41",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: In V.6.6 the conjunction is printed where the verb asserting regularity of R and F belongs. This grammatical slip does not change the localization theorem.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E3",
           "locator": "V.6.6.1, standalone Chapter V, printed p. 41",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: After (6.6.1) the preposition is printed where the verb asserting K*(R)-linearity of the boundary belongs. The right-module convention remains unchanged.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E4",
           "locator": "V.6.8 proof, standalone Chapter V, printed p. 44",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The finite-generation step in the proof requires finite S; arbitrary S can give non-finitely-generated units. The retained arithmetic theorem uses finite S.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E5",
           "locator": "V.6.8.1 remark, standalone Chapter V, printed p. 44",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The degree-one coefficient boundary is the divisor map modulo m; its cokernel is Pic(R)/m. It is onto exactly when that quotient vanishes, rather than never onto.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E6",
           "locator": "V.6.8.1 proof, standalone Chapter V, printed pp. 44–45",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The Bott products land in finite-coefficient K-groups, not integral groups, and the boundary of the product uses the boundary of its degree-two lift s. The residue-characteristic component vanishes rather than giving a uniform Z/l summand.",
+            "by": "REV-ArithmeticKTheory"
+          }
         }
       ]
     },
@@ -2306,7 +2751,12 @@
         {
           "id": "ArithmeticKTheory/E27",
           "locator": "§2.2.3, p.9, arXiv:1108.2441v3 (2 July 2014); also p.9 of the author-hosted January 2014 copy.",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: In section2.2.3 the coefficient functor is defined on D and augments to the constant one-object functor there. Its augmentation target is therefore the chains of D; the printed C has no role in this formula.",
+            "by": "REV-ArithmeticKTheory"
+          }
         }
       ]
     },
@@ -2316,12 +2766,22 @@
         {
           "id": "ArithmeticKTheory/E25",
           "locator": "arXiv:1108.2441v3, Proposition 4.2.4 proof, p. 16, paragraph beginning On the other hand; rendered page checked.",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: In Proposition4.2.4 the generic fibre of E intersected with F_K is F_K, not E_K. Taking E=O_X and F=0 disproves the printed ambient-letter equality and confirms the retained correction.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E26",
           "locator": "arXiv:1108.2441v3, §4.3.4 Vogel argument, p. 18, first paragraph; rendered page checked.",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The spelling correction in the Vogel paragraph is present in arXiv v3; it has no mathematical consequence.",
+            "by": "REV-ArithmeticKTheory"
+          }
         }
       ]
     },
@@ -2331,17 +2791,32 @@
         {
           "id": "ArithmeticKTheory/E-N6-1",
           "locator": "Lemma 4.4, preprint p.12, author PDF dated 23 July 2004; publication inaccessible and not collated.",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The rendered preprint Lemma4.4 allows independent ideal-class and norm-residue prescriptions. For Q(i), modulus4 and residue3, every odd prime-ideal norm is1 modulo4, giving the retained counterexample and G-WildExceptional.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E-N6-2",
           "locator": "Paragraph following (8.2), preprint p.20, author PDF dated 23 July 2004; publication inaccessible and not collated.",
-          "verdict": "rejected"
+          "verdict": "rejected",
+          "review": {
+            "verdict": "rejected",
+            "reason": "Fresh locator check of the retained version: Rendered preprint p.20 already defines the signature defect by the cokernel of real restriction. The allegation that it used the kernel is false.",
+            "by": "REV-ArithmeticKTheory"
+          }
         },
         {
           "id": "ArithmeticKTheory/E-N6-3",
           "locator": "Example 1.1.1, preprint p.5, author PDF dated 23 July 2004; publication inaccessible and not collated.",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: Rendered preprint p.5 labels the classical K2 case by i=2. Since its parameter is K_(2i), that case requires i=1.",
+            "by": "REV-ArithmeticKTheory"
+          }
         }
       ]
     },
@@ -2351,7 +2826,12 @@
         {
           "id": "ArithmeticKTheory/E1",
           "locator": "VI.8.1 (Classical Data 8.1), printed p. 513 (PDF p. 521); identical in the chapter file Kbook.VI.pdf of 18 September 2012",
-          "verdict": "confirmed"
+          "verdict": "confirmed",
+          "review": {
+            "verdict": "confirmed",
+            "reason": "Fresh locator check of the retained version: The S-unit rank is r1+r2+|S|−1; Q with S empty has unit rank0. Omitting r1 gives a negative rank there.",
+            "by": "REV-ArithmeticKTheory"
+          }
         }
       ]
     }
@@ -2406,14 +2886,744 @@
       "TauCetiRoadmap/GlobalNumberFields/README.md",
       "TauCetiRoadmap/ProfiniteCohomology/README.md"
     ],
-    "currentLibraryDifference": "Current Tau Ceti differs from the pins; current source search is not used as evidence that a declaration existed at the pins."
+    "currentLibraryDifference": "Current Tau Ceti differs from the pins; current source search is not used as evidence that a declaration existed at the pins.",
+    "currentUpstreamInspection": "Independent review searched Suggested.lean in all nine newer roadmap directories, including all eight OperatorTheory components, and current Tau Ceti. Their existing field/cyclotomic/local-Galois and quadratic-form carriers are imports; no higher arithmetic K/GW target here duplicates a current declaration."
   },
   "leanValidation": {
     "file": "research/blueprint/suggested/ArithmeticKTheory.lean",
     "status": "passed",
     "policy": "Only light definitions on pinned carriers, layer milestones expressible at the pins, and a few examples. No constructed higher K, GW, spectral-sequence, or coefficient carrier and no placeholder data definition.",
     "command": "lean-check research/blueprint/suggested/ArithmeticKTheory.lean",
-    "result": "Exit 0 at the pinned shared build, 2026-10-19; only the 20 intended proof-placeholder warnings. Six light real-bodied definitions, no placeholder data, 198 lines."
+    "result": "Exit 0 at the pinned shared build, 2026-10-19; only the nine intended theorem proof-placeholder warnings. Six light real-bodied definitions, no placeholder data, 207 lines. All example declarations are proved; no admitted example is counted as a passing test."
   },
-  "inheritancePolicy": "The checker forbids declaring a node ID in two packets of the same roadmap. This main continuation therefore lists all 130 prior IDs, with exact contract revisions where required, and declares only nine new IDs. The effective reader uses these revisions; earlier packets and their independent reviews remain untouched. The three curve extensions are historical, outside this scope. An assembly must apply the contractRevision records instead of concatenating stale statements or prerequisite lists."
+  "inheritancePolicy": "The checker forbids declaring a node ID in two packets of the same roadmap. This main continuation therefore lists all 130 prior IDs, with exact contract revisions where required, and declares only nine new IDs. The effective reader uses these revisions; earlier packets and their independent reviews remain untouched. The three curve extensions are historical, outside this scope. An assembly must apply the contractRevision records instead of concatenating stale statements or prerequisite lists.",
+  "sourceVersions": [
+    {
+      "sourceId": "CDH.III.v4",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.07225v4",
+      "read": "2026-10-19",
+      "sha256": "1e4b6720055ebdce0012f5780bfc7cdb5b853e32f29b17224a1be0bc676f770c",
+      "scope": "Findings refer to arXiv v4. The Annals version of record was not collated; no allegation is made about its text."
+    },
+    {
+      "sourceId": "FGV.2022",
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-022-01127-8.pdf",
+      "read": "2026-10-19",
+      "sha256": "5da9a2b28d13b2b22a262a81650188025020d92238ec2b47404d177ef91d7b4d",
+      "scope": "The published Springer PDF was read, including rendered p.246."
+    },
+    {
+      "sourceId": "Kbook.2013",
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "read": "2026-10-19",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "scope": "Findings refer only to the author-hosted combined 29 August 2013 draft. The printed GSM 145 edition was not collated; its pages and wording must not be inferred from this draft. The author errata link returned 404."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticKTheory",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of nine new and 130 inherited effective targets: 125 verified, 14 corrected, none added or unverifiable. All five direct pinned baseline citations confirmed. Checked source locators, supplier statements, ownership, eight red-team findings, APIs/tests, planets and the synchronized reader. Five main source findings confirmed; 36 retained finding records rechecked (35 confirmed, one rejected). Ten stages are planned, none closed; nine explicit gaps and nine requests remain open. Acceptance certifies the corrected plan, not proof closure, formalization or a globally acyclic unmodified atlas. Suggested Lean elaborates in 207 lines with nine theorem proof-placeholder warnings and ten proved examples. See reviews/REV-ArithmeticKTheory.md and handoff/REV-ArithmeticKTheory.md for the exact validation and external boundary work.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/number-ring-l-finite-generation",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary 2.3.16 and proof, pp. 47–48 (PDF pages 47–48). Verified as a planned contract with G-Hermitian open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/genuine-l-finite-generation",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary 2.3.18, p. 48; Corollaries 1.2.12 and 1.3.9, pp. 18 and 31. Verified as a planned contract with G-Hermitian open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/classical-gw-finite-generation",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary 8, p. 5; Corollaries 2.3.18–2.3.19 and proofs, p. 48. Verified as a planned contract with G-Hermitian open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/bott-cohomology-slot",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemmas 2.11 and 2.14, pp. 244 and 246; descent (2.6), pp. 241–242. The API and 4 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/bott-adams-edge-splitting",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Proofs of Lemmas 2.11 and 2.14, pp. 244–247. The API and 4 tests distinguish the intended definition from its stated nonexamples. Verified as a planned contract with G-Coefficient open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/cyclotomic-bott-cohomology",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemma 2.11 and proof, pp. 244–245."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/rational-bott-cohomology",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemma 2.14 and proof, pp. 246–247."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/ordinary-to-bott-comparison-range",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Proposition 2.9 and Lemma 2.10, pp. 242–243; final assertions of Lemmas 2.11 and 2.14, pp. 244–247. Verified as a planned contract with G-Coefficient open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/arithmetic-k3-examples",
+        "verdict": "corrected",
+        "note": "Added the direct N.7 w-invariant prerequisite needed for w2(Q(i))=24. The arithmetic K3 groups supply V.5 rather than depending on its decomposable/indecomposable analysis."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.1/S-integers-as-a-localisation",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Ex. I.3.8, Relative Class groups (PDF p. 37; book p. 29)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.1/K1-of-S-integers-and-the-determinant",
+        "verdict": "corrected",
+        "note": "Aligned the statement with its finite-S hypothesis and made U.6 and the arithmetic transfer/norm target direct prerequisites. The imported determinant theorem supplies SK1=0; pinned unit_fg_of_units supplies finite generation, not the unit rank."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.1/norms-transfers-and-pullbacks",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Ex. II.2.2, Projection Formula (PDF p. 86; book p. 78); Ex. II.2.2(b) (PDF p. 86; book p. 78); V.6.6.3 (PDF p. 418; book p. 410)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.1/S-integers-localisation-of-torsion-class-group",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against I.3, Dedekind domains (PDF p. 30; book p. 22); VI.8.2, proof (PDF p. 521; book p. 513)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.1/S-integers-monotone",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.9.4 (PDF p. 527; book p. 519); VI.8.2, proof (PDF p. 521; book p. 513)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.1/S-integers-in-a-finite-extension",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.6.3 (PDF p. 418; book p. 410); I.3, Dedekind domains (PDF p. 29; book p. 21)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.1/transfer-and-norm-on-units",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Ex. II.2.2(b) (PDF p. 86; book p. 78); V.6.6.3 (PDF p. 418; book p. 410)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/localisation-sequence-for-a-dedekind-domain",
+        "verdict": "corrected",
+        "note": "Restored the general Dedekind-domain import, its field boundary case and inverse-ideal class-map convention from S.3; kept the arithmetic reindexing as a specialization."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/finite-support",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.4.4, Application 4.4 (PDF p. 409; book p. 401); V.4.3, Application 4.3 (PDF p. 409; book p. 401); V.6.1.2 (PDF p. 414; book p. 406)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/the-three-classical-rows",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.6 (PDF p. 417; book p. 409); V.6.6.1 (PDF p. 417; book p. 409); V.6.1.2 (PDF p. 414; book p. 406)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/localisation-sequence-and-finite-extensions",
+        "verdict": "corrected",
+        "note": "Replaced the stale ramification-gap hypothesis by finite S, full inverse-image T and finite-projective extension. The five existing ramified targets supply the e(q/p)-weighted pullback."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/S-unit-and-class-group-sequence",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Ex. I.3.8(a) (PDF p. 37; book p. 29); V.6.6 (PDF p. 417; book p. 409)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/even-degree-injectivity",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.8, proof (PDF p. 420; book p. 412); V.6.6 (PDF p. 417; book p. 409); III.1.5.4 (PDF p. 193; book p. 185)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/finite-generation-of-K-of-S-integers",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against IV.6.9 (PDF p. 333; book p. 325); V.6.1, Application 6.1 and (6.1.1) (PDF p. 414; book p. 406); IV.1.13 (PDF p. 277; book p. 269)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/rank-filtration",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325); 4.1 (arXiv:1108.2441v3, p. 15); 4.1, after (4.1) is introduced (arXiv:1108.2441v3, p. 15); 2.3.2, Definition (arXiv:1108.2441v3, p. 10). The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/layer-poset",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against p. 5 (arXiv:1604.04700v1); 4.3.2 (arXiv:1108.2441v3, p. 17). The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/comma-category-is-the-layer-poset",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against 4.2.4, Proposition (arXiv:1108.2441v3, p. 16); 4.2.6, Corollary, with its proof (arXiv:1108.2441v3, p. 16); 4.2.7, Example (arXiv:1108.2441v3, p. 17); §4.1, 'Subspace stabilizers and projective modules' (arXiv:1909.01217v4, p. 17)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/layer-poset-is-the-suspended-building",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against 4.3.1 (arXiv:1108.2441v3, p. 17); p. 6 (arXiv:1604.04700v1); §1, 'Special linear group and the Steinberg module' (arXiv:1909.01217v4, p. 3)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/rank-spectral-sequence",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against 4.3.3, Theorem (arXiv:1108.2441v3, p. 17); 2.4.1, Theorem (arXiv:1108.2441v3, p. 12); 4.3.4, Remark (arXiv:1108.2441v3, p. 17); Introduction (arXiv:1108.2441v3, p. 1)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/quillen-finiteness-criterion",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against IV.6.8–6.9, the paragraph between Bass' Conjecture 6.8 and Theorem 6.9 (PDF p. 333; book p. 325); Introduction (arXiv:1108.2441v3, p. 1); p. 7 (arXiv:1604.04700v1)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/steinberg-homology-of-automorphism-groups",
+        "verdict": "corrected",
+        "note": "Removed the stale assertion that nonfree lattices and rank one lack a supplier. The read R.1 contract includes both, with the integral orientation twist and finite-index descent."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/quillen-finite-generation-theorem",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against IV.6.9 (PDF p. 333; book p. 325); IV.6.8–6.9, the sentence before Theorem 6.9 (PDF p. 333)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:ranks/borel-rank-theorem",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against IV.1.18 (PDF p. 279; book p. 271); IV.1.17 (PDF p. 279; book p. 271); Before IV.1.17 (PDF p. 279); Before IV.1.18 (PDF p. 279); IV.1.18.2, Example 1.18.2 (PDF p. 280; book p. 272)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:ranks/even-K-groups-of-S-integers-are-finite",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against IV.1.18, last sentence (PDF p. 279; book p. 271); VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:ranks/even-K-groups-of-the-field-are-infinite-torsion",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.8, Theorem 6.8 (PDF p. 420; book p. 412); IV.1.18, last sentence (PDF p. 279)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/finiteness-and-ranks-combined",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.1, Classical Data 8.1 (PDF p. 521; book p. 513); IV.1.18, last sentence (PDF p. 279; book p. 271)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.4/the-w-invariant",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.1.7, Definition 1.7 (PDF p. 476; book p. 468); VI.2, before Definition 2.1 (PDF p. 477; book p. 469); VI.2.1, Definition 2.1, second half (PDF p. 477); VI.2.1.1 (PDF p. 478; book p. 470); VI.2.1.2 (PDF p. 478). The API and 8 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.4/computing-w-from-the-cyclotomic-character",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2.2, Proposition 2.2 (PDF pp. 478–479; book pp. 470–471); VI.2.2, the proof (PDF p. 479); VI.2.2.2, Example 2.2.2 (PDF p. 479)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.4/exceptional-fields-at-two",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2, after Example 2.2.2 (PDF p. 479; book p. 471); VI.2, after Proposition 2.3 (PDF p. 479). The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.4/w2-of-the-rationals-and-the-divisibility-tests",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2.1.2, Example 2.1.2 (PDF p. 478; book p. 470); VI.2.4, Lemma 2.4 (PDF p. 480; book p. 472); VI.2, before Lemma 2.4 (PDF p. 480); VI.8.6, after Birch-Tate Conjecture 8.6 (PDF p. 523; book p. 515)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.4/exponent-criterion",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2.2.1, Lemma 2.2.1 (PDF p. 479; book p. 471); VI.2.2.1, the proof (PDF p. 479)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.4/finiteness-of-the-w-invariant",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2, Exercise 2.1 (PDF p. 482; book p. 474); VI.2.1, Definition 2.1, second half (PDF p. 477)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.4/two-primary-w-invariant",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2.3, Proposition 2.3 (PDF p. 479; book p. 471); VI.2.3, Proposition 2.3 (PDF p. 479); VI.2.3, after the proposition (PDF p. 479); VI.2, Exercise 2.2 (PDF p. 483; book p. 475)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/totally-imaginary-integral-structure",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.4, Theorem 8.4 (PDF p. 522; book p. 514); VI.8.4, proof (PDF p. 522; book p. 514); VI.8.4, the sentence before the theorem (PDF p. 522; book p. 514); VI.9.5, Theorem 9.5, opening and part (a) (PDF p. 527; book p. 519); VI, Exercise 8.5 (PDF p. 524; book p. 516)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/the-real-case-modulo-eight",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.9.5, Theorem 9.5, opening and part (a) (PDF p. 527; book p. 519); VI.9.5, Theorem 9.5(b) (PDF p. 527; book p. 519); VI.9.5, the remark after the theorem (PDF p. 527; book p. 519); VI.9.5, proof (PDF p. 528; book p. 520); VI.9.5.1, Example 9.5.1 (PDF p. 528; book p. 520); VI.2.3, Proposition 2.3(b) and the remark after it (PDF p. 479; book p. 471); VI.2.1.2, Example 2.1.2, second paragraph (PDF p. 478; book p. 470). Verified as a planned contract with G-ChernBoundary open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/soule-theorem",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.8 (PDF p. 420; book p. 412); V.6.8, proof (PDF p. 420; book p. 412)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/soule-mod-l-surjectivity",
+        "verdict": "corrected",
+        "note": "Replaced the obsolete coefficient boundary by L.1/K.7. Explained safe higher-prime-power products, reduction on the finite-field odd quotient, the Kummer interpretation including Pic[M], and transfer descent; G-Coefficient remains open."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/e-invariant",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2.1, Definition 2.1, first half (PDF p. 477; book p. 469); VI.1.7.1 (PDF p. 476; book p. 468); VI.2.1.2 (PDF p. 478). The API and 4 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/harris-segal-summand",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2.5, Harris-Segal Theorem 2.5 (PDF p. 481; book p. 473); VI.2.5, Harris-Segal Theorem 2.5, continued (PDF p. 481); VI.2.5, the proof (PDF p. 481); VI.1.5.2 (PDF p. 475; book p. 467); VI.2.5.1, Remark 2.5.1 (PDF p. 482; book p. 474); VI.2.6, Theorem 2.6 (PDF p. 482). Verified as a planned contract with G-HarrisSegal open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/odd-torsion-at-a-prime-where-cd-is-two",
+        "verdict": "corrected",
+        "note": "Removed the full-M.8 backedge and specified the early M.7 coefficient-colimit edge with its exact R-M7-edges/G-Coefficient boundary. The natural torsion identification is distinct from a noncanonical free splitting."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/even-groups-at-odd-primes",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.2, Theorem 8.2, the even row (PDF p. 521; book p. 513); VI.8.2, proof, first paragraph (PDF p. 521; book p. 513); VI.8.2, proof, last paragraph (PDF p. 522; book p. 514); VI.8.2, proof, second paragraph (PDF p. 521; book p. 513); VI.8.3.2, Example 8.3.2 (PDF p. 522; book p. 514)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/the-two-primary-corrections",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.9.11, Theorem 9.11, hypotheses (PDF p. 532; book p. 524); VI.9.11, Theorem 9.11, the eight rows (PDF p. 532; book p. 524); VI.9, the sentence before Theorem 9.4 (PDF p. 526; book p. 518); VI.9.11, proof (PDF p. 532; book p. 524); VI.9.11, end of the proof (PDF p. 533; book p. 525); VI.9.10, Corollary 9.10 and the definition of ρ (PDF p. 531; book p. 523); VI.9.10.1, Example 9.10.1, continued (PDF p. 532; book p. 524); VI.9.9.2, Example 9.9.2, last paragraph (PDF p. 531; book p. 523); VI.9.8, Corollary 9.8, the table (PDF p. 530; book p. 522)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/tame-and-wild-kernels",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413). The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/order-certificate",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against III.5.2.2, Example 5.2.2 (PDF p. 226; book p. 218); III.6.2.1, Example 6.2.1 (PDF p. 240; book p. 232). The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/certificate-driven-computation",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.2, Theorem 8.2, the even row (PDF p. 521; book p. 513); VI.9.11, Theorem 9.11, the eight rows (PDF p. 532; book p. 524); VI.8.7, Theorem 8.7 (PDF p. 523; book p. 515); VI.8.8, Theorem 8.8 (PDF p. 523; book p. 515). The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/even-groups-of-a-totally-imaginary-field",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.4, Theorem 8.4 (PDF p. 522; book p. 514); VI, Exercise 8.4 (PDF p. 524; book p. 516)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/even-groups-modulo-l",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.3, Corollary 8.3 with its proof (PDF p. 522; book p. 514); VI.9.8, Corollary 9.8, the table (PDF p. 530; book p. 522); VI.8.1, the sequence (8.1.1) (PDF p. 521; book p. 513)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/l-rank-from-class-group-data",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.3.1, Example 8.3.1 (PDF p. 522; book p. 514); VI.8.3.1, Example 8.3.1, conclusion (PDF p. 522; book p. 514); VI.8.1, the sequence (8.1.1) (PDF p. 521; book p. 513); VI.8.3.2, Example 8.3.2 (PDF p. 522; book p. 514)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/signature-defect",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.9.6.1, Definition 9.6.1 (PDF p. 528; book p. 520); VI.9.6, before (9.6) (PDF p. 528; book p. 520); VI.9.6.2, after (9.6.2) (PDF p. 529; book p. 521); VI.9.10.1, Example 9.10.1 (PDF p. 532; book p. 524); VI.9.8, proof (PDF p. 530; book p. 522). The API and 6 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/order-ratio-for-totally-real-fields",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.9.12, Theorem 9.12 (PDF p. 533; book p. 525); VI.9.12, proof (PDF p. 533; book p. 525); VI.9.12, proof, second paragraph (PDF p. 533; book p. 525); VI, Exercise 8.3 (PDF p. 524; book p. 516); VI.8.8, Theorem 8.8 (PDF p. 523; book p. 515)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/divisible-subgroup",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413). The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/divisible-subgroup-and-the-wild-kernel",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.8.2, Wild Kernels 6.8.2 (PDF p. 421; book p. 413). Verified as a planned contract with G-WildHigher open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/function-field-steinberg-finiteness",
+        "verdict": "verified",
+        "note": "Checked the retained historical contract and its source locator in the predecessor packet. This curve/function-field extension is outside the current number-field scope, absent from the 136-card reader and not newly planned here; retain only its manifest provenance and existing owner."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/affine-curve-finite-generation",
+        "verdict": "verified",
+        "note": "Checked the retained historical contract and its source locator in the predecessor packet. This curve/function-field extension is outside the current number-field scope, absent from the 136-card reader and not newly planned here; retain only its manifest provenance and existing owner."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/proper-curve-finite-generation",
+        "verdict": "verified",
+        "note": "Checked the retained historical contract and its source locator in the predecessor packet. This curve/function-field extension is outside the current number-field scope, absent from the 136-card reader and not newly planned here; retain only its manifest provenance and existing owner."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/keune-cyclotomic-picard-injection",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemma 3.5 and proof, PDF p.20. Verified as a planned contract with G-Keune open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/ramified-residue-pullback",
+        "verdict": "corrected",
+        "note": "Removed a stale claim that the current suggested file declares the ramified direct-sum construction. Its mathematical statement, native direct-sum API and six tests are unchanged."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/ramification-weighted-devissage",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.1.8, printed p. 9, proof; V.4.2.1, printed p. 34; V.4.3, printed p. 34; Mathlib/NumberTheory/RamificationInertia/Basic.lean, quotientRangePowQuotSuccInclusionEquiv (line 425) and quotientToQuotientRangePowQuotSuccAux (line 329)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/finite-extension-restriction-compatibility",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.5.1, printed pp. 35–37; V.6.6, printed p. 41."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/low-degree-ramified-restriction",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.6.1, printed p. 41; V.6.6.3–6.6.4, printed p. 42; Mathlib/NumberTheory/RamificationInertia/Valuation.lean, HeightOneSpectrum.valuation_liesOver (line 57); Mathlib/RingTheory/RamificationInertia/Ramification.lean, Ideal.ramificationIdx'_eq_ramificationIdx (line 156)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.2/s-integer-restriction-compatibility",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against SInteger/Spectrum.lean, overview; V.6.6.3, printed p. 42."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/relative-rank-homology-comparison",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary 2.3.7, p.12; §§4.3.1–4.3.4, pp.17–18; Theorem 3, printed p.181, PDF p.189."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/rank-homology-stability",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary (Stability), printed p.182, PDF p.190."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/rank-filtration-homology-finite-type",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Proof of Theorem 1, printed pp.184–185, PDF pp.192–193; IV.6.8–6.9, PDF p.59, book p.325."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/quillen-homotopy-finite-type",
+        "verdict": "corrected",
+        "note": "Routed the connected H-space Serre theorem to H.3, matching R-H3-finite-type. Read the covering-space, finite-type and singular-complex arguments in Serre; nonzero fundamental group remains in the explicit supplier request."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3:finite-generation/s-localization-finite-defect",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §1 Remark (2), printed pp.179–180, PDF pp.187–188."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/finite-rank-Q-homology",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §1, proof of Theorem 1, pp. 184–185, displayed (2) and (3) (scan PDF pp. 192–193). Verified as a planned contract with G-Homotopy open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/rank-filtration-homology-stability",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §1, Corollary (Stability), p. 182 (scan PDF p. 190); Theorem 3, p. 181; §§4.3.3–4.3.4, p. 17 (Vogel proof continues on p. 18), with §2.4.1."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/stable-Q-homology-finite-type",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §1, conclusion of proof of Theorem 1, p. 185 (scan PDF p. 193)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/finite-S-localisation-defect",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188); V.6.1–6.1.1, book p. 406 (PDF p. 414), and IV.1.13, book p. 269 (PDF p. 277)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/canonical-rational-S-integer-equivalence",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188); IV.1.17, book p. 271 (PDF p. 279); V.6.6, book p. 409 (PDF p. 417). The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/canonical-rational-equivalence-map",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §1, Theorem 1, Remark (2), pp. 179–180 (scan PDF pp. 187–188)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.3/rational-localisation-extension-transfer",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.6.3–6.6.4, book p. 410 (PDF p. 418); IV.6.3–6.3.2, book p. 320 (PDF p. 328), natural-isomorphism invariance and projective-module transfer."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/primary-bockstein-localisation",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against IV.2.5 and Exercise IV.2.6, printed pp. 280, 284; VI.8.2 proof, printed p. 513 (combined PDF pp. 288, 292, 521)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/e-invariant-descent-edge",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §1, paragraph following Example 1.6, printed p. 8; VI.1.6–1.7.1, printed pp. 467–468; VI.8.2–8.3, printed pp. 513–514 (PDF pp. 475–476, 521–522)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/diagonal-extension-normal-form",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Proof of Theorem 6.7, final paragraph, printed p. 33."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/real-e-invariant-extension",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Theorem 6.7, printed pp. 32–33 (final proof paragraph p. 33); Theorem 6.9, pp. 33–34; VI.3.1 and Table 3.1.1, printed p. 475; VI.9.4 proof, printed pp. 519–520 (PDF pp. 483, 527–528)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/e-invariant-kernel-cokernel",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.9.4–9.5, printed pp. 519–521 (PDF pp. 527–529); VI.2.6, printed p. 474 (PDF p. 482)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.5/edge-normalised-chern-torsion",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §5.4, printed pp. 153–154; §5.7, Theorem 73, printed pp. 167–169; §1, paragraph after Example 1.6, printed p. 8. Verified as a planned contract with G-Coefficient, G-ChernBoundary open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/arithmetic-mod-two-dimensions",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.9.6–9.6.2, book pp. 520–521, PDF pp. 528–529."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/modified-mod-two-dimensions",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemma VI.9.6.3, book p. 521, PDF p. 529."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/mod-two-coefficient-orders",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Theorem VI.9.7, book pp. 521–522, PDF pp. 529–530."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/even-two-rank-function",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary VI.9.9, book p. 522, PDF p. 530. The API and 4 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/even-two-ranks-from-arithmetic",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary VI.9.9 and its proof, book pp. 522–523, PDF pp. 530–531."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/finite-coefficient-divisibility-kernel",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.8.2, book pp. 412–413, PDF pp. 420–421."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/stabilisation-of-primary-kernels",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary 4.6 and proof, preprint p. 13."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/positive-even-k-subgroup",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Notation after Definition 0.2, preprint p. 2. The API and 3 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/local-symbol-family",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Dwyer–Friedlander maps preceding Definition 0.2, preprint p. 2; VI.2.3(c), Example VI.2.3.1 and Proposition VI.7.3, book pp. 471, 509, PDF pp. 479, 517. The API and 4 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/symbol-wild-kernel",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Definition 0.2, preprint p. 2. The API and 3 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/global-moore-sequence",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemma 0.3 and proof, preprint pp. 2–3."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/primary-s-integer-moore-sequence",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary 0.4 and proof, preprint pp. 2–3."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/orders-of-symbol-wild-kernels",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Corollary 0.4; index formula in its proof, preprint p. 3."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/cohomological-wild-kernel",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Equation (0.5), notation (0.6) and discussion, preprint p. 3. The API and 3 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/symbol-cohomological-comparison",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Proposition 8.1, equation (8.2), and final diagram, preprint pp. 20–21."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/special-number-fields",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Definition 5.2 and Remark 5.2.1, preprint p. 14. The API and 4 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/special-dyadic-decomposition",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Remark 5.2.1, Lemma 5.4, and Corollary 3.7, preprint pp. 10, 14."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/twisted-residue-norm-test",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemma 3.2, Lemma 3.4, and Remark 3.4.1, preprint p. 9."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/hilbert-local-norm-certification",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Example III.6.2.3 and Theorem III.6.2.4, book pp. 232–233, PDF pp. 240–241."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/cyclotomic-class-group-descent",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Proposition 4.1, Application 4.2, Proposition 6.8, equation (6.9), preprint pp. 11, 16."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/cyclotomic-divisible-image",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Theorem 4.5, Corollary 4.6, Theorem 6.11 and Corollary 7.5, preprint pp. 12–13, 17–18. Verified as a planned contract with G-WildExceptional open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/imaginary-nonexceptional-comparison",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Proposition 4.7, Theorem 5.5(1), Remarks 4.3.1 and 4.6.1, preprint pp. 11, 13–14."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/imaginary-special-obstruction",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemma 5.4 and Theorem 5.5(2), preprint p. 14. Verified as a planned contract with G-WildExceptional open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/real-motivic-obstruction",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Theorem B and Propositions 7.6, 7.8, preprint pp. 3, 19. Verified as a planned contract with G-WildExceptional open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/hidden-real-k-classes-are-divisible",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Proposition 8.4, Lemmas 8.5–8.6, Theorem 8.7, preprint pp. 20–21."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/weibel-symbol-divisibility-theorem",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Theorem A, preprint p. 1; proof §§4–8, pp. 11–21. Verified as a planned contract with G-WildExceptional open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/raw-and-symbol-kernel-boundary",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against V.6.8.2, book p. 413, PDF p. 421; VI.7.3 and Warning VI.7.5, book pp. 509–510, PDF pp. 517–518; Moore’s Theorem III.6.2.4, book p. 233, PDF p. 241. Verified as a planned contract with G-WildHigher open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.6/arithmetic-evidence-for-certificates",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.9.9–9.11, book pp. 522–525, PDF pp. 530–533."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/bernoulli-conventions",
+        "verdict": "corrected",
+        "note": "Reused the pinned arithmetic and primed Bernoulli sequences; kept only the light source-index adapter. Separated pinned von Staudt–Clausen from the divided-number Kummer-congruence refinement in G-RegularProofs."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/w-invariant",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2.4 (Lemma 2.4) and the recall of 2.1.2 before it, printed p. 472 (PDF p. 480); VI.2.1.2 (Example 2.1.2), printed p. 470 (book PDF p. 478); author chapter VI PDF p. 7. The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/regular-prime",
+        "verdict": "corrected",
+        "note": "Marked the numerical search bound as historical to the read 2013 source and kept the Iwasawa tower equivalence as an explicit G-RegularProofs/R-Iwasawa-cyclotomic import."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/kummer-criterion",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.2.4.1, printed p. 472 (PDF p. 480); VI.2.4.1, the sentence after the criterion, printed p. 472 (PDF p. 480); VI.2.4.1, the historical remark, printed p. 472 (PDF p. 480). Verified as a planned contract with G-RegularProofs open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/eigenspaces-and-herbrand-ribet",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.10.8.1 (Remark 10.8.1), printed p. 532 (PDF p. 540); VI.10.4.2 (Example 10.4.2), printed p. 530 (PDF p. 538). Verified as a planned contract with G-RegularProofs open, not as a completed proof."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/residue-field-units-prime-to-l",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.3.2 (Example 8.3.2), printed p. 514 (PDF p. 522); cyclotomic prime arithmetic in the pinned Mathlib declarations listed as prerequisites."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/tame-kernel-vanishing-at-a-regular-prime",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.3.2 (Example 8.3.2), printed p. 514 (PDF p. 522); VI.8.1 (Classical Data), (8.1.1), printed p. 513 (PDF p. 521); VI.10.5 (Proposition 10.5), printed p. 530 (PDF p. 538)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/regular-prime-torsion-consequences",
+        "verdict": "corrected",
+        "note": "Removed the V.5 backedge; supplied the transfer, Galois-weight and coefficient/Bott proof route. Checked generator degrees 0,1,5,7 at l=5 and the module-only interpretation at l=3; retained G-RegularProofs."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.7/vandiver-separation",
+        "verdict": "corrected",
+        "note": "Added all eight conditional K-group rows with global Vandiver hypotheses, corrected the degree-8a+6 Bernoulli index, and named reflection/cyclicity plus B.8 special-value inputs. The L3 predicate is reused, not redefined."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/certified-example-format",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.6, the worked case of the rationals, printed p. 515 (PDF p. 523). The API and 6 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/k-groups-of-the-integers",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.10.1.1 (Table 10.1.1) and its note, printed p. 528 (PDF p. 536)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/tate-norm-filtration",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against II §3, Theorem 3.1 and Lemma 3.2, article pp. 403–407 (internal pp. 56–60; volume PDF pp. 413–417); Appendix A2, p. 430 (PDF p. 440); §2, Lemma 7, pp. 1446, 1448–1449. The API and 5 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/tate-criterion",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Appendix, Proposition 1 and its proof, pp. 430–431 (A2–A3; PDF pp. 440–441); II §3, proof of Lemma 3.4, Claim 2, pp. 410–411 (internal pp. 63–64; PDF pp. 420–421); II §3, Theorem 3.1, p. 403, and Appendix A1, p. 429 (PDF pp. 413, 439)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/gaussian-tame-kernel-vanishes",
+        "verdict": "corrected",
+        "note": "Removed a stale claim that gaussian_two_mul_norm_mod_le occurs in the current suggested file. The rounding proof and its stronger factor-two norm bound remain the explicit roadmap proof step."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/gaussian-and-imaginary-quadratic",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.5.3 (Corollary 5.3), printed p. 488 (PDF p. 496); III.5.2.2 (Example 5.2.2), printed p. 218 (PDF p. 226)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/s-integer-sequence-for-one-inverted-prime",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against VI.8.1 (Classical Data), printed p. 513 (PDF p. 521); III.6.5.1 (Application 6.5.1), printed p. 236 (PDF p. 244); V.6.1, Application 6.1 and (6.1.1) (PDF p. 414; book p. 406)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/the-rationals-infinite-against-finite",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against III.6.5.1 (Application 6.5.1), printed p. 236 (PDF p. 244)."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/golden-congruence-lattices",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Lemma 6, pp. 1447–1448; Lemma 9, p. 1450; Lemma 12, p. 1453. The API and 4 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/golden-residue-section",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §3, Proposition 10 and definition of γ, pp. 1450–1451. The API and 4 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/golden-large-prime-cutoff",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against §4, p. 1451; §6, pp. 1452–1453; Lemma 12 and Proposition 13, p. 1453; Theorems 14–15, pp. 1454–1455."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/golden-finite-prime-certificates",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Appendix Proposition 1, pp. 430–431 (PDF pp. 440–441); II §3, Lemma 3.2, pp. 404–407; §2, Lemma 7 and quotient triangle, pp. 1448–1449. The API and 4 tests distinguish the intended definition from its stated nonexamples."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/real-quadratic-upper-generation",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against II §3, Lemma 3.2, pp. 404–407; Appendix A1–A3, pp. 429–431; Theorems 14–15, pp. 1454–1455."
+      },
+      {
+        "nodeId": "ArithmeticKTheory:N.8/real-quadratic-example-and-birch-tate",
+        "verdict": "verified",
+        "note": "Checked the effective statement, hypotheses, proof route, direct imports and boundary tests against Ex. III.6.4 (PDF p. 251; book p. 243); VI.8.6 (Birch-Tate Conjecture 8.6), printed p. 515 (PDF p. 523)."
+      }
+    ]
+  }
 }
