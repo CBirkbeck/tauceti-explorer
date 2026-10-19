@@ -19,7 +19,7 @@
     "declarations": [
       {
         "ref": "mathlib:Finsupp",
-        "kind": "def",
+        "kind": "structure",
         "module": "Mathlib/Data/Finsupp/Defs.lean",
         "provides": "Finite coefficient vectors on an existing index type, with exact nonzero support.",
         "checked": "Declaration statement read in the source at the pinned commit on 2026-10-19; the reviewed declaration index was also checked. Independently re-read at the same pin by REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII on 2026-10-19; confirmed for the generic interface described in provides."
@@ -2263,7 +2263,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII",
     "date": "2026-10-19",
-    "notes": "Independent review by Codex session codex-od7Jbq of the design by session codex-s6reGX. Read all five exact public source versions, all node locators and cited pinned declarations; rechecked current upstream ownership. Corrected supplier precision, BG1 ownership, the distribution-model boundary, normalization names and the HKW Appendix C description. Removed three satisfied stage requests, confirmed both inherited source issues and added independently confirmed HKW rho misprint E3. The 28 targets are justified conditionally on the three explicit gaps; all seven stages are planned and none closed. Accepted as a finished target-level planning pass, not as an implementation or a claim that G1–G3 are discharged. The unchanged suggested Lean file elaborates with only its 13 expected proof-placeholder warnings.",
+    "notes": "Independent review by Codex session codex-od7Jbq of the design by session codex-s6reGX. Read all five exact public source versions, all node locators and cited pinned declarations; rechecked current upstream ownership. Corrected supplier precision, BG1 ownership, the distribution-model boundary, normalization names and the HKW Appendix C description. Removed three satisfied stage requests, confirmed both inherited source issues and added independently confirmed HKW rho misprint E3. The 28 targets are justified conditionally on the three explicit gaps; all seven stages are planned and none closed. Accepted as a finished target-level planning pass, not as an implementation or a claim that G1–G3 are discharged. The unchanged suggested Lean file elaborates with only its 13 expected proof-placeholder warnings. Corrected the baseline declaration-kind label for Finsupp from def to structure; the cited name, module and provided interface are unchanged.",
     "checked": [
       {
         "nodeId": "ExcursionOperatorsAndSpectralActionPartII:SC0/stable-center",

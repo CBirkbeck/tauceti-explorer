@@ -54,7 +54,7 @@ The sign correction E3 also has a concrete check: for split GL_2 and its quatern
 
 ## Baseline, reuse and scope
 
-All 16 cited declaration statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` or Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. No citation was removed or replaced:
+All 16 cited declaration statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` or Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The `Finsupp` declaration-kind label was corrected from `def` to `structure` after checking its declaration at line 88 of the pinned module. No citation was removed or replaced:
 
 - Finite supports and subobjects: `Finsupp`, `Finsupp.mem_support_iff`, `Submodule`, `Subalgebra`.
 - Finite averages and Fourier algebra: `Finset.expect`, `Fintype.expect_eq_sum_div_card`, `AddChar.complexBasis`, `AddChar.wInner_cWeight_eq_boole`.
