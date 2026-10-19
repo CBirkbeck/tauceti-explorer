@@ -13,11 +13,11 @@
     "EulerSystemsAndKolyvaginSystems:ES.7",
     "EulerSystemsAndKolyvaginSystems:ES.8"
   ],
-  "status": "partial",
-  "summary": "Whole-roadmap plan of Euler systems, Kolyvagin systems and higher-rank descent, layers ES.0–ES.8. It imports the 124 targets of the ES.0 part (ES.0–ES.7) and the ES.8 part by node id, and adds 21 targets. The additions complete the sources the maintainer added: Rubin's steps behind the local behaviour of derivative classes (unramifiedness away from pr with a bounded factor, the local lifts at ramified primes, the lifted telescoping identity and the key norm relation, the multiplicative-group example of the congruence, and the derivative classes under the alternative rigidity conditions); the existence of abundant tuples of Liu–Tian–Xiao–Zhang–Zhu under its corrected span hypothesis; and Castella–Grossi–Lee–Skinner's error constants, Chebotarev selection with error terms, module lemmas and rank-one theorem. They also plan the consumer requests addressed to this roadmap: Zhang's residual two-class detection; Nekovář–Castella–Hsieh ring-class anticyclotomic Euler systems with their derivative classes and rational descent; the uniform near-trivial Kolyvagin bound of Castella–Grossi–Skinner and Burungale–Castella–Grossi–Skinner; Zanarella's rigidity, divisibility profile and exact structure theorem for self-dual Kolyvagin systems (with BCGS's 2(M₀ − M_∞) form); Zanarella's equality in Howard's Λ-adic bound for Λ-primitive systems; and the Λ-adic divisibility at the augmentation prime. Every routed item of the four added sources is mapped to the targets that state it (routedItemCoverage). Two clauses of the imported ES.1/selmer-field-saturation are reconciled with confirmed source corrections (assembly.importedNodeCorrections). All nine layers are planned at target level; none is closed.",
-  "agent": "Claude (Opus 5.5)",
-  "session": "claude-Tq5V20",
-  "job": "BP-EulerSystemsAndKolyvaginSystems",
+  "status": "complete",
+  "summary": "Whole-roadmap target-level plan for Euler systems, Kolyvagin systems and higher-rank descent, ES.0–ES.8: 124 pinned imported targets and 27 local targets, 151 altogether. Revision 2 adds five targets for selected bounded descent, uniform relative restriction, the divided Frobenius-operator relation, residual unramified μ-vanishing, and the ordinary coefficient-prime comparison. It repairs general-character rational descent and replaces the missing coefficient-prime specialization estimate by an explicit arithmetic μ=0 input and two Poitou–Tate comparisons. All nine layers are planned; none is closed. External supplier contracts, the late Eisenstein application bundle/Part II decision, the two recorded source/application gaps and formal implementation remain explicit. A fresh independent review is required.",
+  "agent": "Codex",
+  "session": "codex-F2G2WN",
+  "job": "BP-EulerSystemsAndKolyvaginSystems~2",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -77,6 +77,20 @@
         "module": "Mathlib/Algebra/Polynomial/Div.lean",
         "provides": "Division by a monic polynomial, used to write Q_q = (P − P(1)) /ₘ (X − 1)",
         "checked": "statement read at the pinned commit 082e2d3"
+      },
+      {
+        "ref": "mathlib:LinearMap.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+        "provides": "The ker submodule of a (semi)linear map; specialized here to R-linear maps over a commutative ring.",
+        "checked": "Declaration and variable hypotheses read at pinned Mathlib082e2d3 on2026-10-19."
+      },
+      {
+        "ref": "mathlib:LinearMap.range",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Range.lean",
+        "provides": "The range submodule of a (semi)linear map; specialized here to R-linear maps over a commutative ring.",
+        "checked": "Declaration and variable hypotheses read at pinned Mathlib082e2d3 on2026-10-19."
       }
     ]
   },
@@ -113,6 +127,9 @@
       "readSections": [
         "§3.1–§3.3 (pp. 16–26): definitions, Theorem 3.2.1, Lemmas 3.3.1–3.3.4, Remark 3.3.5, Proposition 3.3.6 with proof, Corollary 3.3.7, Theorem 3.3.8 with proof, Lemmas 3.3.9–3.3.10, Proposition 3.3.11 with proof",
         "§3.4 statements (pp. 26–27)"
+      ],
+      "revisionReadSections": [
+        "2026-10-19: arXivv2 §1.4 pp.10–11, §3.4 pp.24–25 and Proposition4.2.1 pp.28–29; the latter is rational and is not used as an integral comparison."
       ]
     },
     {
@@ -147,6 +164,9 @@
       "sha256": "bb64820b49aa1eb2574c912c0d03067f904e52b9bf71f441fda78bb6dba9c90a",
       "readSections": [
         "§3 opening (pp. 34–37): Theorems 3.0.1–3.0.2, Lemma 3.0.3, Remark 3.0.4, Theorem 3.0.5"
+      ],
+      "revisionReadSections": [
+        "2026-10-19: v2 §§1.2–1.5 pp.13–31 and §3 pp.34–40, focusing on residual μ=0, local correction groups and the integral claim."
       ]
     },
     {
@@ -160,6 +180,9 @@
         "Hypothesis (H) (p. 1 and §6, p. 26)",
         "§4.1 hypotheses (Heeg), (can)",
         "§7 (pp. 28–37): §7.1–§7.4 in full, §7.5 Lemmas 7.10–7.16 and the descent argument"
+      ],
+      "revisionReadSections": [
+        "2026-10-19: author version2July2022 §4.4 Lemma4.7 pp.18–19 and §7 pp.28–38; rational/local Frobenius conventions checked against page images."
       ]
     },
     {
@@ -415,6 +438,9 @@
       "readSections": [
         "§6 restriction and derivative construction; §§9–10 local formula, printed pp.12–13,18–20",
         "§12 image and prime-selection lemmas, printed pp.22–23"
+      ],
+      "revisionReadSections": [
+        "2026-10-19: §§6–10 printed pp.11–20; page images printed pp.18–20 checked. No comparison with the1992 version of record is claimed."
       ]
     }
   ],
@@ -1605,7 +1631,7 @@
       "planet": {
         "name": "Anticyclotomic Euler system over ring class fields"
       },
-      "statement": "Let f be a newform of weight 2r and level N, p ∤ 2(2r − 1)!Nφ(N), K an imaginary quadratic field in which every prime dividing N splits, with |D_K| > 3 odd (the canonical CM setting of Castella–Hsieh §4.1), T the G_ℚ-stable O-lattice in the self-dual twist V of the p-adic representation of f with its G_ℚ-equivariant perfect pairing T × T → O(1), and χ : Gal(K_{c_o p^∞}/K) → O^× a locally algebraic anticyclotomic character of infinity type (j, −j) and conductor cO_K, c = c_o p^s with (c_o, pN) = 1. Let 𝒦 be the set of squarefree products of primes ℓ inert in K with ℓ ∤ 2pNc_o, K_n the ring class field of conductor n, τ complex conjugation and w_f the Atkin–Lehner sign; choose 𝔑 ⊆ O_K of norm N and let σ_𝔑 be its Artin element. Cohomology is unramified outside the places above pNc_on as in §7.1. An anticyclotomic Euler system for (T, χ) is a family c = (c_n)_{n∈𝒦} with c_n ∈ H¹(K_{cn}, T ⊗ χ^{-1}) such that for every n = mℓ ∈ 𝒦: (E1) cor_{K_{cn}/K_{cm}}(c_n) = a_ℓ(f)·c_m; (E2) loc_ℓ(c_n) = res(loc_ℓ(c_m)^{Frob_ℓ}) along K_{cm,λ} ⊆ K_{cn,λ}; (E3) if χ² = 1, c_n^τ = w_f χ(σ_𝔑)·c_n^{σ_𝔑}. The bottom class is c_K = cor_{K_c/K}(c_1) ∈ H¹(K, T ⊗ χ^{-1}). The families form an O-submodule of ∏_{n∈𝒦} H¹(K_{cn}, T ⊗ χ^{-1}). This is Nekovář's notion, distinct from Rubin's χ-anticyclotomic Euler systems (ES.2/rigidity-variants(c)): the norm relation carries the Hecke eigenvalue a_ℓ(f) of an inert prime, and the tower is the ring class tower rather than ray class fields.",
+      "statement": "Let f be a newform of weight 2r and level N, p ∤ 2(2r − 1)!Nφ(N), K an imaginary quadratic field in which every prime dividing N splits, with |D_K| > 3 odd (the canonical CM setting of Castella–Hsieh §4.1), T the G_ℚ-stable O-lattice in the self-dual twist V of the p-adic representation of f with its G_ℚ-equivariant perfect pairing T × T → O(1), and χ : Gal(K_{c_o p^∞}/K) → O^× a locally algebraic anticyclotomic character of infinity type (j, −j) and conductor cO_K, c = c_o p^s with (c_o, pN) = 1. Let 𝒦 be the set of squarefree products of primes ℓ inert in K with ℓ ∤ 2pNc_o, K_n the ring class field of conductor n, τ complex conjugation and w_f the Atkin–Lehner sign; choose 𝔑 ⊆ O_K of norm N and let σ_𝔑 be its Artin element. Cohomology is unramified outside the places above pNc_on as in §7.1. An anticyclotomic Euler system for (T, χ) is a family c = (c_n)_{n∈𝒦} with c_n ∈ H¹(K_{cn}, T ⊗ χ^{-1}) such that for every n = mℓ ∈ 𝒦: (E1) cor_{K_{cn}/K_{cm}}(c_n) = a_ℓ(f)·c_m; (E2) loc_ℓ(c_n) = res(loc_ℓ(c_m)^{Frob_ℓ}) along K_{cm,λ} ⊆ K_{cn,λ}; (E3) if χ² = 1, c_n^τ = w_f χ(σ_𝔑)·c_n^{σ_𝔑}. The bottom class is c_K = cor_{K_c/K}(c_1) ∈ H¹(K, T ⊗ χ^{-1}). The families form an O-submodule of ∏_{n∈𝒦} H¹(K_{cn}, T ⊗ χ^{-1}). This is Nekovář's notion, distinct from Rubin's χ-anticyclotomic Euler systems (ES.2/rigidity-variants(c)): the norm relation carries the Hecke eigenvalue a_ℓ(f) of an inert prime, and the tower is the ring class tower rather than ray class fields. In (E2), use rational arithmetic Frobenius on the locally untwisted T, as in Lemma4.7 pp.18–19; evaluation on finite H¹ uses its square, the Frobenius of K_λ. This convention is part of the definition.",
       "hypotheses": [
         "f a newform of weight 2r and level N prime to p; T the Nekovář lattice with its perfect pairing",
         "χ anticyclotomic of conductor c_o p^s with (c_o, pN) = 1",
@@ -1613,7 +1639,8 @@
       ],
       "proofSteps": [
         "The conditions (E1)–(E3) are O-linear equations in the product of the cohomology groups, so the families form a submodule (an equaliser of the corestriction, localisation and conjugation maps).",
-        "The bottom class is the corestriction of c_1; under (E1) it agrees with cor_{K_{cn}/K}(c_n)/∏_{ℓ|n} a_ℓ(f) whenever the a_ℓ(f) are invertible, which is not assumed."
+        "The bottom class is the corestriction of c_1; under (E1) it agrees with cor_{K_{cn}/K}(c_n)/∏_{ℓ|n} a_ℓ(f) whenever the a_ℓ(f) are invertible, which is not assumed.",
+        "The character is locally trivial at an inert auxiliary prime: its unramified Frobenius value on the principal ideal (ℓ) is 1. Lemma4.7 therefore defines the rational Frobenius action after forgetting the locally trivial character line; it is not a global action on a nonquadratic twist."
       ],
       "acceptance": [
         "Generalised Heegner classes z_{f,χ^{-1},nc} satisfy (E1)–(E3) (Castella–Hsieh, Proposition 7.4), and so do their Iwasawa-theoretic specialisations (Proposition 7.8).",
@@ -1653,7 +1680,7 @@
         {
           "name": "TauCeti.EulerSystems.RingClassEulerSystem.loc_eval",
           "role": "relation",
-          "statement": "(E2): loc_ℓ(c_n) = res(loc_ℓ(c_m)^{Frob_ℓ})."
+          "statement": "(E2): loc_ℓ(c_n) = res(loc_ℓ(c_m)^{Frob_ℓ}). Here Frob_ℓ is rational Frobenius on the locally untwisted T; Fr_λ=Frob_ℓ² is used for finite evaluation."
         },
         {
           "name": "TauCeti.EulerSystems.RingClassEulerSystem.conj_eval",
@@ -1696,6 +1723,11 @@
           "name": "RingClassEulerSystem.heegner_weight_two",
           "kind": "compatibility",
           "statement": "For r = 1 and χ = 1, the Kummer images of Heegner points y_n ∈ E(K_n) satisfy (E1) with a_ℓ(f) = a_ℓ(E)."
+        },
+        {
+          "name": "RingClassEulerSystem.frobenius_square",
+          "kind": "non-example",
+          "statement": "At an M-admissible inert ℓ, rational Frobenius J has eigenvalues +1 and −1 modulo π^M, whereas Fr_λ=J² acts as 1. Substituting Fr_λ for rational Frobenius in (E2) changes its action on the negative eigenspace."
         }
       ],
       "prerequisites": [
@@ -1714,6 +1746,11 @@
           "sourceId": "ch",
           "locator": "§7.3, Proposition 7.4, p. 31 (author's version)",
           "match": "verifies (E1)–(E3) for the χ^{-1}-components of the generalised Heegner classes"
+        },
+        {
+          "sourceId": "ch",
+          "locator": "§4.4, Lemma4.7 and proof, pp.18–19",
+          "match": "Pins rational Frobenius in the local norm congruence, independently of the square used to evaluate finite cohomology."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1730,17 +1767,18 @@
       ],
       "title": "Derivative classes of ring-class anticyclotomic Euler systems and their local conditions at p",
       "kind": "construction",
-      "statement": "Let c be an anticyclotomic Euler system for (T, χ) in the sense of ES.2/ring-class-anticyclotomic-euler-system, π a uniformiser of O, O_M = O/π^M, T_M = T/π^M T. Fix ν ≥ 0 such that p^ν kills (i) the kernel and cokernel of res : H¹(K, T_M ⊗ χ^{-1}) → H¹(K_n, T_M ⊗ χ^{-1})^{Δ_n} for all n and M (Δ_n = Gal(K_n/K)) and (ii) H¹(K_v, T_M ⊗ χ^{-1}) for all v | c_oN, and require the same kernel/cokernel bound for res_{K_c,K_{cn}} for all n and M; put B₁ = min{ord_π(x − 1) : x·I₂ ∈ ρ*_f ⊗ χ^{-1}(G_K), x ∈ ℤ_p^×}. A prime ℓ is M-admissible if ℓ ∤ 2cNp is inert in K, a_ℓ(f) ≡ ℓ + 1 ≡ 0 mod π^M and π^{M+B₁+1} ∤ ℓ + 1 ± a_ℓ(f)ℓ^{1−r}; 𝒦_M is the set of squarefree products of M-admissible primes. For n ∈ 𝒦_M, G_n = Gal(K_{nc}/K_c) = ∏_{ℓ|n} G_ℓ with G_ℓ cyclic of order ℓ + 1 and chosen generators σ_ℓ; D_ℓ = Σ_{i=1}^{ℓ} iσ_ℓ^i and D_n = ∏_{ℓ|n} D_ℓ. Writing x = D_n c_n modulo π^M, choose b ∈ H¹(K_c, T_M ⊗ χ^{-1}) with res(b) = p^ν x and define D_M(n) = p^{2ν}b. This selected descent is independent of b and has res(D_M(n)) = p^{3ν}x; it is not asserted to be the unique preimage of p^{3ν}x, and the derivative class is κ(n) = cor_{K_c/K}(D_M(n)) ∈ H¹(K, T_M ⊗ χ^{-1}). Given a Φ-subspace F ⊆ H¹(K ⊗ ℚ_p, V ⊗ χ^{-1}) with orthogonal complement F* (F* = F if χ² = 1), F_M the image of its inverse image in H¹(K ⊗ ℚ_p, T ⊗ χ^{-1}), and the n-imprimitive Selmer group Sel^{(n)}_F(K, T_M ⊗ χ^{-1}) (finite at v ∤ pn, in F_M at p when p ∤ n), the space ES(T, χ, F) consists of the systems with (E4) c_K ∈ Sel_F(K, T ⊗ χ^{-1}) and c_K^τ ∈ Sel_{F*}(K, T ⊗ χ), and (E5) κ(n) ∈ Sel^{(n)}_F(K, T_M ⊗ χ^{-1}) for all M and n ∈ 𝒦_M. The classes satisfy (K1) κ(n) ∈ Sel^{(np)}_F(K, T_M ⊗ χ^{-1}) and κ(1) ≡ p^{3ν}c_K mod π^M; (K2) when χ²=1, for M-admissible ℓ | n, with φ_ℓ : H¹_f(K_λ, T_M ⊗ χ^{-1}) → H¹_s(K_λ, T_M ⊗ χ^{-1}) the finite-to-singular isomorphism (evaluation at Frob_ℓ, then inverse of evaluation at a generator of tame inertia), ((−1)^{r−1}ε_n a_ℓ(f)ℓ^{1−r}/π^M − (ℓ + 1)/π^M)·φ_ℓ(loc_ℓ κ(n/ℓ)) = ((ℓ + 1)/π^M·ε_n − a_ℓ(f)ℓ^{1−r}/π^M)·∂_ℓ(κ(n)), the coefficients read in O; (K3) κ(n)^τ = ε_n κ(n) if χ² = 1, where ε_n = χ(σ_𝔑)w_f(−1)^{ω(n)}.",
+      "statement": "Let c be an anticyclotomic Euler system for (T, χ) in the sense of ES.2/ring-class-anticyclotomic-euler-system, π a uniformiser of O, O_M = O/π^M, T_M = T/π^M T. Fix ν ≥ 0 such that p^ν kills (i) the kernel and cokernel of res : H¹(K, T_M ⊗ χ^{-1}) → H¹(K_n, T_M ⊗ χ^{-1})^{Δ_n} for all n and M (Δ_n = Gal(K_n/K)) and (ii) H¹(K_v, T_M ⊗ χ^{-1}) for all v | c_oN, and require the same kernel/cokernel bound for res_{K_c,K_{cn}} for all n and M; put B₁ = min{ord_π(x − 1) : x·I₂ ∈ ρ*_f ⊗ χ^{-1}(G_K), x ∈ ℤ_p^×}. A prime ℓ is M-admissible if ℓ ∤ 2cNp is inert in K, a_ℓ(f) ≡ ℓ + 1 ≡ 0 mod π^M and π^{M+B₁+1} ∤ ℓ + 1 ± a_ℓ(f)ℓ^{1−r}; 𝒦_M is the set of squarefree products of M-admissible primes. For n ∈ 𝒦_M, G_n = Gal(K_{nc}/K_c) = ∏_{ℓ|n} G_ℓ with G_ℓ cyclic of order ℓ + 1 and chosen generators σ_ℓ; D_ℓ = Σ_{i=1}^{ℓ} iσ_ℓ^i and D_n = ∏_{ℓ|n} D_ℓ. Writing x = D_n c_n modulo π^M, choose b ∈ H¹(K_c, T_M ⊗ χ^{-1}) with res(b) = p^ν x and define D_M(n) = p^{2ν}b. This selected descent is independent of b and has res(D_M(n)) = p^{3ν}x; it is not asserted to be the unique preimage of p^{3ν}x, and the derivative class is κ(n) = cor_{K_c/K}(D_M(n)) ∈ H¹(K, T_M ⊗ χ^{-1}). Given a Φ-subspace F ⊆ H¹(K ⊗ ℚ_p, V ⊗ χ^{-1}) with orthogonal complement F* (F* = F if χ² = 1), F_M the image of its inverse image in H¹(K ⊗ ℚ_p, T ⊗ χ^{-1}), and the n-imprimitive Selmer group Sel^{(n)}_F(K, T_M ⊗ χ^{-1}) (finite at v ∤ pn, in F_M at p when p ∤ n), the space ES(T, χ, F) consists of the systems with (E4) c_K ∈ Sel_F(K, T ⊗ χ^{-1}) and c_K^τ ∈ Sel_{F*}(K, T ⊗ χ), and (E5) κ(n) ∈ Sel^{(n)}_F(K, T_M ⊗ χ^{-1}) for all M and n ∈ 𝒦_M. The classes satisfy (K1) κ(n)∈Sel_F^{(np)}(K,T_M⊗χ⁻¹) and κ(1)=p^{3ν}c_K modulo π^M; (K2-op) A_ℓβ_ℓ(∂_ℓκ(n))=B_ℓα_ℓ(loc_ℓκ(n/ℓ)) with the integral divided Frobenius operators and bounded kernels/cokernels of ring-class-local-operator; and (K3) κ(n)^τ=ε_nκ(n) only if χ²=1, ε_n=χ(σ_𝔑)w_f(−1)^{ω(n)}. For general χ the coefficient transport under τ is between the χ⁻¹ and χ modules. E5 is an additional local condition on the Euler system, not a consequence of the norm relations.",
       "hypotheses": [
         "c an anticyclotomic Euler system for (T, χ) over ring class fields",
         "ν exists (Nekovář's Proposition 6.3, Corollary 6.4 and Lemma 10.1, cited by the source) and B₁ < ∞ (ρ*_f absolutely irreducible with open image)",
-        "For the selected descent: p^ν kills the kernel and cokernel of restriction from K_c to K_{cn}. The source states the bound from K to K_n; the relative bound and the identification of the selected lift with the classes in (K1)–(K3) must be proved, not inferred from that wording.",
-        "The displayed scalar ε_n finite–singular formula (K2), like (K3), is asserted here only for χ²=1. For nonquadratic χ, complex conjugation transports T⊗χ⁻¹ to T⊗χ; a separate operator-valued/paired relation and its coefficient transport are required (E906)."
+        "Use the single ν from ring-class-uniform-restriction for all intermediate ring-class fields, enlarged to annihilate the indicated bad local groups.",
+        "The local Frobenius convention is rational Frobenius on T after the character is locally trivialized; finite evaluation uses its square. No scalar conjugation sign is imposed when χ²≠1."
       ],
       "proofSteps": [
-        "The identity (σ_ℓ − 1)D_ℓ = ℓ + 1 − N_ℓ and (E1) make x = D_n c_n invariant modulo π^M. The cokernel bound gives a preimage b of p^νx. Two choices differ by a kernel element killed by p^ν, so p^{2ν}b is canonical and restricts to p^{3ν}x. If x already comes from y, this selected lift is p^{3ν}y. The printed uniqueness claim in Castella–Hsieh p. 29 needs this selection or injectivity, not just an annihilated kernel (E904). The relative restriction bound and compatibility with Nekovář’s local formula remain explicit proof obligations.",
-        "For the canonical classes in the untwisted setting, Nekovář’s MPIM1990-78 Proposition10.2, printed pp.19–20, proves the unramifiedness and finite–singular formulas using the local comparison of §9. It does not identify the selected bounded lift above with those classes for an arbitrary χ. In the quadratic case (E3) supplies the scalar eigensign. Nonquadratic coefficient transport and the corresponding finite–singular operator remain obligations.",
-        "Membership (E5) at p is an extra condition that must be verified for each arithmetic system; for generalised Heegner classes the source verifies it through Bloch–Kato finite parts and corestriction along unramified extensions, and its Lemma 7.5 step needs the correction recorded below."
+        "The derivative identity and (E1) make x=D_nc_n invariant. Apply selected-bounded-descent to the restriction map with a=p^ν. It yields D_M(n)=a²b, independent of b, restricting to a³x. At n=1 choose b=a c_1; corestriction gives κ(1)=a³c_K.",
+        "The uniform restriction lemma proves the relative bound, including every intermediate K_{cm}; it is not an extra unverified hypothesis. For n=mℓ, comparison with the cyclic cocycle before localization is the factorisation identity res_{K_{cm}}D_M(n)=a³z in ring-class-local-operator. This supplies the canonical local relation and transversality for arbitrary χ.",
+        "At good primes outside np, both the class and field extension are unramified, so the restriction to inertia is zero. At places dividing c_oN the chosen a kills the local cohomology and the selected class already contains a². This proves (K1) away from p. At p, (E5) is exactly the required extra hypothesis; for generalized cycles its arithmetic verification must use the correction to Proposition7.8, footnote5.",
+        "For χ²=1, conjugating D_n changes it by (−1)^{ω(n)} modulo norm terms, which vanish by (E1) and admissibility. The selected linear map respects this conjugation and (E3) gives (K3). For nonquadratic χ retain the two coefficient modules and the operator relation; no ε_n-eigenspace claim is made."
       ],
       "acceptance": [
         "κ(1) ≡ p^{3ν}c_K modulo π^M, so c_K ≠ 0 in H¹(K, V ⊗ χ^{-1}) gives κ(1) ≠ 0 for M large.",
@@ -1785,7 +1823,7 @@
         {
           "name": "TauCeti.EulerSystems.RingClassEulerSystem.finiteSingular",
           "role": "relation",
-          "statement": "For χ²=1, (K2) is the displayed finite–singular relation at each M-admissible ℓ|n. A nonquadratic relation must retain the conjugation/operator and coefficient transport, and is not supplied by that scalar formula."
+          "statement": "For every χ, A_ℓβ_ℓ(∂_ℓκ(n))=B_ℓα_ℓ(loc_ℓκ(n/ℓ)) with operators defined in ring-class-local-operator; their kernels/cokernels are killed by π^{B₁} when M>B₁. Keep both global twists under conjugation."
         },
         {
           "name": "TauCeti.EulerSystems.RingClassEulerSystem.derivative_conj",
@@ -1830,7 +1868,10 @@
         "EulerSystemsAndKolyvaginSystems:ES.3/derivative-operators",
         "EulerSystemsAndKolyvaginSystems:ES.1/finite-singular-comparison",
         "SelmerIwasawaCohomology:L2/selmer-data",
-        "tauceti:TauCeti.ContCohomology.H1"
+        "tauceti:TauCeti.ContCohomology.H1",
+        "EulerSystemsAndKolyvaginSystems:ES.3/selected-bounded-descent",
+        "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-uniform-restriction",
+        "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-local-operator"
       ],
       "sources": [
         {
@@ -1850,8 +1891,8 @@
         },
         {
           "sourceId": "nekovar-kuga-preprint",
-          "locator": "§§6,9–10, Propositions6.3 and10.2, Corollary6.4 and Lemma10.1, printed pp.12–13,18–20 (MPIM1990-78)",
-          "match": "Bounded restriction and local formulas for the canonical untwisted Kuga–Sato classes; the quadratic/general-character identification is a further obligation."
+          "locator": "§6, Proposition6.3 and Corollary6.4, printed pp.11–12; §§7,9, printed pp.12–19; Proposition10.2 proof, printed p.20 (MPIM1990-78)",
+          "match": "The restriction, cyclic cocycle and local norm computations; the explicit selected-lift comparison and coefficient transport are supplied by the new prerequisites."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2239,25 +2280,26 @@
       "statement": "In the setting of ES.3/ring-class-derivative-classes, assume Hypothesis (H)(a)–(c) of Castella–Hsieh §6: p ∤ 2(2r − 1)!Nφ(N); every prime dividing N splits in K, and, if r > 1, either |D_K| > 3 is odd or 8 | D_K (existence of a canonical CM elliptic curve); and (c_o, N) = 1. (a) If c ∈ ES(T, χ, F) has c_K ≠ 0 in H¹(K, V ⊗ χ^{-1}), then Sel_{F*}(K, V ⊗ χ) = Φ·c_K^τ, Φ = O[1/p]: the Selmer group of V ⊗ χ with local condition F* at p is the line spanned by the conjugate of the bottom class. (b) (Complementary local class.) Suppose further that p = 𝔭𝔭̄ splits in K, f is ordinary at p and χ has infinity type (j, −j) with j ≥ r, and let z^χ be the χ-specialisation of the Iwasawa class of generalised Heegner cycles. If loc_p(z^{χ^{-1}}) ≠ 0, then the Bloch–Kato Selmer group Sel(K, V ⊗ χ) vanishes. The statement is rational: it bounds the Φ-dimension, not the length of an integral Selmer module.",
       "hypotheses": [
         "Castella–Hsieh Hypothesis (H)(a)–(c): p ∤ 2(2r − 1)!Nφ(N); every prime dividing N splits in K, with |D_K| > 3 odd or 8 | D_K when r > 1; (c_o, N) = 1",
-        "c ∈ ES(T, χ, F) with c_K non-torsion; for (b) additionally p split in K, f ordinary, j ≥ r",
-        "This is a conditional descent target: the canonical selected derivative’s relative restriction control and (K1)–(K3) compatibility, including the nonquadratic paired local relation, must first be proved. The class construction is not claimed complete by this node."
+        "c ∈ ES(T, χ, F) with c_K non-torsion; for (b) additionally p split in K, f ordinary, j ≥ r"
       ],
       "proofSteps": [
         "Image lemmas: with H♭ the maximal pro-p subextension of K_{c_o} in the ring class field cutting out χ mod π^M, ℚ^{ker ρ*_f} ∩ H♭ = ℚ (a p-ramified abelian subextension of K_{c_o p^∞} is ℚ or ℚ(√p*)), so ρ*_f(G_ℚ) = ρ*_f(G_{H♭}); B₂ = min{n : π^n M₂(O) ⊆ O[ρ*_f(G_ℚ)]} bounds the failure of R_ρ-submodules to be large, and Nekovář's lemmas give π^{(2^{s+1}−2)B₂}V_S ⊆ O[G_S] for the Galois group cut out by an s-generated submodule S.",
         "Prime selection: π^{B₁} kills H¹(Gal(L/K), T_M ⊗ χ^{-1}) (a scalar in the image), and Chebotarev gives infinitely many inert ℓ with prescribed Frobenius g ∈ G_S^+ that are M-admissible.",
-        "Descent: with B₃ the divisibility of c_K, B₄ = 0 if χ² = 1 and min ord_π(χ²(σ) − 1) otherwise, C₁ = 6B₂ + B₁ + B₃ + B₄ and M > 2C₁ + 2B₁, choose ℓ₁ with ord_π α_{ℓ₁}(κ(1)) ≤ C₁ and then a second prime making the pair (κ(1), κ(ℓ₁)) large; the relations (K1)–(K3) and global duality bound Sel_{F*}(K, T_M ⊗ χ)/(O·κ(1)^τ) by a constant independent of M, which gives (a) after inverting p.",
+        "Descent: retain the paired classes with coefficients T_M⊗χ⁻¹ and T_M⊗χ. The image and Chebotarev arguments of CH Lemmas7.10–7.16 use B₁,B₂, the bottom divisibility B₃ and B₄=min ord_π(χ²(σ)−1) for χ²≠1 (zero otherwise). Replace the printed scalar (K2) by ring-class-local-operator. On each of the two auxiliary primes its two operators have π^{B₁}-scaled inverses. Thus local orders change by at most B₁; when two finite vectors span up to π^d, the singular vectors span up to π^{d+2B₁}. Enlarge the fixed constants in the prime selection and CH Lemma7.18 by these losses and by 3ν·ord_π(p) from the selected bottom class. These are fixed in M and in the number of selected primes (at most two in this argument). Local Tate duality pairs the opposite twists, and the global reciprocity sum gives a fixed π-power annihilator of Sel_{F*}(K,T_M⊗χ)/(O·κ(1)^τ). Let M tend to infinity and invert π to obtain (a). The numerical C₁ from the printed scalar proof is not asserted unchanged.",
         "(b): apply (a) to the specialisations of the Iwasawa classes, with F the orthogonal complement of the line spanned by loc_v(z^χ) at v | p, and use the Poitou–Tate sequence; for j ≥ r the Bloch–Kato condition is relaxed at one prime above p and strict at the other. The verification that these classes satisfy (E5) uses a corestriction step that the authors correct in the footnote to Proposition 7.8."
       ],
       "acceptance": [
         "For χ = 1, r = 1 and Heegner points, (a) is the rational form of Kolyvagin's theorem: a non-torsion Heegner point spans the Selmer group of V = V_pE over Φ.",
         "If c_K is torsion the theorem gives nothing; the integral exponent bound needs the error-tolerant theory of this layer.",
-        "(b) concludes vanishing from the nonvanishing of a local class, not of c_K itself: it is the rank-zero companion of (a)."
+        "(b) concludes vanishing from the nonvanishing of a local class, not of c_K itself: it is the rank-zero companion of (a).",
+        "For χ²≠1, the argument pairs the χ⁻¹ and χ Selmer modules. It never takes a τ-eigenspace in either one; only their locally identified T_M values are acted on by J."
       ],
       "prerequisites": [
         "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-derivative-classes",
         "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality",
         "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
-        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-local-operator"
       ],
       "sources": [
         {
@@ -2636,16 +2678,17 @@
       ],
       "title": "Λ-adic divisibility including the augmentation prime",
       "kind": "theorem",
-      "statement": "Let E/ℚ, p ∤ 2N good ordinary, K imaginary quadratic with (D_K, Np) = 1, every prime dividing N split in K, p split in K, and E(K)[p] = 0, Λ the anticyclotomic Iwasawa algebra with augmentation ideal (γ − 1), 𝐓 = T_pE ⊗ Λ with the ordinary Selmer structure F_Λ, X = H¹_{F_Λ}(K, M_E)^∨ and S = H¹_{F_Λ}(K, 𝐓). If κ ∈ KS(𝐓, F_Λ, 𝓛_E) has κ₁ ≠ 0, then S has Λ-rank one and there is a finitely generated torsion Λ-module M with X ∼ Λ ⊕ M ⊕ M and char_Λ(M) dividing char_Λ(S/Λκ₁) in Λ[1/p]: unlike ES.8/error-tolerant-self-dual-lambda-adic-bound, the prime (γ − 1) is not inverted. For the higher-weight setting listed below, Keller–Yin Theorem3.0.5 asserts the integral divisibility in Λ. This plan establishes its away-from-(π) argument; the integral branch is a conditional target until a uniform-error argument at (π), or a compatible µ(M)=0 comparison, is supplied.",
+      "statement": "Let E/ℚ, p ∤ 2N good ordinary, K imaginary quadratic with (D_K, Np) = 1, every prime dividing N split in K, p split in K, and E(K)[p] = 0, Λ the anticyclotomic Iwasawa algebra with augmentation ideal (γ − 1), 𝐓 = T_pE ⊗ Λ with the ordinary Selmer structure F_Λ, X = H¹_{F_Λ}(K, M_E)^∨ and S = H¹_{F_Λ}(K, 𝐓). If κ ∈ KS(𝐓, F_Λ, 𝓛_E) has κ₁ ≠ 0, then S has Λ-rank one and there is a finitely generated torsion Λ-module M with X ∼ Λ ⊕ M ⊕ M and char_Λ(M) dividing char_Λ(S/Λκ₁) in Λ[1/p]: unlike ES.8/error-tolerant-self-dual-lambda-adic-bound, the prime (γ − 1) is not inverted. For the higher-weight Eisenstein setting below, the same divisibility holds integrally in Λ, using residual-unramified-mu-zero and ordinary-coefficient-prime-comparison at (π). The arithmetic finite-character μ=0 theorem is an explicit supplier input, separate from the Kolyvagin-system error estimate.",
       "hypotheses": [
         "E/ℚ, p ∤ 2N good ordinary, (D_K, Np) = 1, E(K)[p] = 0; every prime dividing N and p split in K",
         "κ ∈ KS(𝐓, F_Λ, 𝓛_E) with κ₁ ≠ 0",
-        "For the higher-weight branch: f is a normalized weight-2r newform of trivial nebentype, p∤2N is ordinary and Eisenstein, O is the coefficient completion, T is its chosen self-dual-twist lattice with H⁰(K,T/πT)=0, every prime dividing N splits in K, p splits in K, and D_K is odd, prime to Np and not −3 (Keller–Yin introduction and §3)."
+        "For the higher-weight branch: f is a normalized weight-2r newform of trivial nebentype, p∤2N is ordinary and Eisenstein, O is the coefficient completion, T is its chosen self-dual-twist lattice with H⁰(K,T/πT)=0, every prime dividing N splits in K, p splits in K, and D_K is odd, prime to Np and not −3 (Keller–Yin introduction and §3).",
+        "For the integral higher-weight branch use the finite-character anticyclotomic μ=0 input of KY Theorem1.2.2 (including locally 1 and ω) with the exact residual-character and lattice conventions of residual-unramified-mu-zero. The full/zero, unramified and ordinary local dictionaries at (π) are those in ordinary-coefficient-prime-comparison; no μ statement is transferred by nomenclature alone."
       ],
       "proofSteps": [
         "At height-one primes 𝔓 ≠ (p), (γ − 1) the argument of ES.8/error-tolerant-self-dual-lambda-adic-bound applies: specialise at 𝔔_m = (g + p^m) and use ES.4/howard-descent-with-errors with error E_α bounded in m.",
         "At 𝔓 = (γ − 1) the specialisations are characters α_m ≡ 1 mod p^m, where E_α grows with m; replace that input by ES.4/uniform-near-trivial-bound(a), whose error is independent of m, so ord_{(γ−1)} char(M) ≤ ord_{(γ−1)} char(S/Λκ₁).",
-        "For higher weight, the same argument proves the divisibility in Λ[1/π]. For the integral claim, perturb (π) by (π+T^m). The coefficient order has O-rank m, so an error known only to depend on rank_O(R) can grow with m and cannot be discarded after division by m. Howard’s clean finite-level bound has zero error, whereas Keller–Yin §3 only states errors depending on that rank. The plan must provide a uniform (or o(m)) error along these quotients, or a proved µ(M)=0 result together with its ordinary Selmer dictionary. The cited sentence in Theorem3.0.5 is not that missing argument; this review leaves the integral branch unresolved, without declaring its conclusion false."
+        "For higher weight, specialization gives divisibility at every height-one prime other than (π), including augmentation via the uniform near-trivial bound. At (π), apply residual-unramified-mu-zero using the finite-character μ=0 input and H⁰(K,T/πT)=0. Then ordinary-coefficient-prime-comparison makes X_ord torsion-free at (π), hence M_{(π)}=0. The coefficient-prime inequality is 0≤length_{Λ_(π)}(S/Λκ₁)_(π), so the characteristic-ideal divisibility holds in Λ. This proof does not divide a rank-dependent error by the rank along π+T^m. It applies to arbitrary nonzero κ₁ once these arithmetic Selmer hypotheses hold, and does not rely on a main conjecture for f."
       ],
       "acceptance": [
         "If moreover H¹_F(K, E[p^∞]) has ℤ_p-corank one, the error-tolerant theorem already gave the divisibility at (γ − 1); this theorem removes that corank hypothesis.",
@@ -2655,7 +2698,9 @@
         "EulerSystemsAndKolyvaginSystems:ES.8/error-tolerant-self-dual-lambda-adic-bound",
         "EulerSystemsAndKolyvaginSystems:ES.4/uniform-near-trivial-bound",
         "EulerSystemsAndKolyvaginSystems:ES.8/specialization-control",
-        "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems"
+        "EulerSystemsAndKolyvaginSystems:ES.8/lambda-adic-kolyvagin-systems",
+        "EulerSystemsAndKolyvaginSystems:ES.8/residual-unramified-mu-zero",
+        "EulerSystemsAndKolyvaginSystems:ES.8/ordinary-coefficient-prime-comparison"
       ],
       "sources": [
         {
@@ -2667,6 +2712,11 @@
           "sourceId": "ky",
           "locator": "§3, Theorem 3.0.5 and its proof, pp. 36–37 (arXiv v2)",
           "match": "the weight-2r version, with the remark that the divisibility holds without inverting p"
+        },
+        {
+          "sourceId": "ky",
+          "locator": "§1.2, Theorem1.2.2, pp.13–14; §1.4, Theorem1.4.1, pp.24–25",
+          "match": "Arithmetic μ=0 input for the coefficient-prime repair, through the explicit ordinary comparison node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2769,6 +2819,287 @@
         "module": "TauCeti/NumberTheory/EulerSystems/OrderPairing",
         "namespace": "TauCeti.KolyvaginSystems"
       }
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems:ES.3/selected-bounded-descent",
+      "parentStageId": "EulerSystemsAndKolyvaginSystems:ES.3",
+      "realises": [
+        "EulerSystemsAndKolyvaginSystems:ES.3"
+      ],
+      "title": "Selected descent through a map with bounded kernel and cokernel",
+      "kind": "construction",
+      "statement": "Let R be commutative, A and B R-modules, f:A→ₗ[R]B, and a∈R annihilate ker(f) and coker(f). For x∈B choose b with f(b)=a x and set d_a(x)=a²b. This defines an R-linear map B→A, independent of b, with f(d_a(x))=a³x and d_a(f(y))=a³y. It is a selected scaled inverse, not a uniqueness assertion about all preimages. If f factors as A —r→ C —s→ B, a kills ker(s), and z∈C satisfies s(z)=x, then r(d_a(x))=a³z.",
+      "proofSteps": [
+        "The cokernel condition supplies b. If b and b′ work, a(b−b′)=0; hence a²b=a²b′. Choose sums and scalar multiples of witnesses to prove linearity. For x=f(y), take b=a y.",
+        "For the factorisation identity s(r(b)−a z)=0. Thus a r(b)=a²z, and multiplying once more by a gives r(a²b)=a³z. This is the compatibility needed for a cyclic cochain lift; no injectivity of a local restriction is assumed."
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap.ker",
+        "mathlib:LinearMap.range"
+      ],
+      "sources": [
+        {
+          "sourceId": "ch",
+          "locator": "§7.2, p.29, bounded restriction and the printed uniqueness claim",
+          "match": "Motivation for the corrected selection; the module calculation here supplies the missing comparison, rather than attributing it to the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EulerSystems/RingClass",
+        "namespace": "TauCeti.EulerSystems"
+      },
+      "api": [
+        {
+          "name": "TauCeti.EulerSystems.selectedDescent",
+          "role": "constructor",
+          "statement": "The linear map d_a(x)=a²b for f(b)=a x."
+        },
+        {
+          "name": "TauCeti.EulerSystems.selectedDescent_spec",
+          "role": "relation",
+          "statement": "f∘d_a=a³ id and d_a∘f=a³ id."
+        },
+        {
+          "name": "TauCeti.EulerSystems.selectedDescent_factor",
+          "role": "functoriality",
+          "statement": "If a kills ker(s) and s(z)=x, then r(d_a(x))=a³z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "selected_identity",
+          "kind": "compatibility",
+          "statement": "For f=id, d_a is multiplication by a³; it is id when a=1."
+        },
+        {
+          "name": "selected_zero",
+          "kind": "degenerate",
+          "statement": "The zero target class has selected descent zero even when ker(f) is nonzero."
+        },
+        {
+          "name": "selected_nonunit",
+          "kind": "computation",
+          "statement": "Over ℤ, f:ℤ→ℤ is multiplication by 5, a=5. A witness for x is b=x, so d_5(x)=25x and f(d_5(x))=125x."
+        },
+        {
+          "name": "selected_kernel_not_unique",
+          "kind": "non-example",
+          "statement": "For ℤ/25→ℤ/5 and a=5, d_a=0, while zero has five preimages. The selected element is canonical but the full fibre is not a singleton."
+        }
+      ],
+      "hypotheses": [
+        "R commutative; A and B R-modules; a annihilates ker(f) and coker(f).",
+        "For the factorisation assertion f=s∘r, the same a annihilates ker(s)."
+      ],
+      "acceptance": [
+        "The choice is independent of a witness but is not unique in the full fibre of a³x.",
+        "Comparison is made in the intermediate global cohomology group before localizing; local restriction need not have a uniform kernel."
+      ],
+      "uses": [
+        {
+          "where": "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-local-operator",
+          "how": "Identifies the selected global descent with a³ times the cyclic cocycle over each intermediate ring-class field."
+        }
+      ]
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-uniform-restriction",
+      "parentStageId": "EulerSystemsAndKolyvaginSystems:ES.3",
+      "realises": [
+        "EulerSystemsAndKolyvaginSystems:ES.3"
+      ],
+      "title": "Uniform restriction control throughout the ring-class tower",
+      "kind": "lemma",
+      "statement": "Put U=T⊗χ⁻¹, W=(U⊗_O Φ)/U and U_M=U/π^M. For the ring-class fields F=K_{cm}⊆L=K_{cn} with m|n and (n,cpN)=1, there is a single p-power a=p^ν, independent of m,n,M, annihilating W(F), W(L), and the kernel and cokernel of H¹(F,U_M)→H¹(L,U_M)^{Gal(L/F)}. Increase ν to include the finite local groups at places dividing c_oN. The same restriction bound holds for K⊆K_{cn}.",
+      "proofSteps": [
+        "The field cutting out U_M is unramified outside pNc_o. Its intersection with K_{cn}, viewed as an abelian extension of K, is unramified at every auxiliary prime dividing n. The conductor description of ring-class fields therefore puts the intersection inside K_c. Consequently U_M^{G_{K_{cn}}}=U_M^{G_{K_c}} for all n and M; the same equality holds with cm in place of cn.",
+        "The invariant group W(K_c) is finite: choose a good prime of K_c at which the pure weight-one representation U has no eigenvalue 1, and use the determinant of Fr−1 to bound W-invariants. The anticyclotomic character is pure of weight zero, so twisting preserves this argument. A fixed p^ν kills these invariants. Do not infer a uniform bound from finiteness separately at each M.",
+        "In inflation–restriction both the kernel and cokernel are subquotients of H¹ and H² of Gal(L/F) with coefficients U_M^{G_L}. These coefficients are killed by a; their entire cochain complexes, hence their cohomology, are killed by a. This works for every intermediate field and does not multiply the bound by the number of auxiliary primes.",
+        "For restriction from K the same intersection argument bounds U_M^{G_{K_{cn}}}. For the finitely many places over c_oN use the finite local-invariant and local-dual-invariant bounds in CH §7.2 and Nekovář Lemma10.1, enlarging the single ν."
+      ],
+      "prerequisites": [
+        "EulerSystemsAndKolyvaginSystems:ES.2/ring-class-anticyclotomic-euler-system",
+        "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients",
+        "SelmerIwasawaCohomology:L4/uniform-away-p-bound",
+        "SelmerIwasawaCohomology:L2"
+      ],
+      "sources": [
+        {
+          "sourceId": "nekovar-kuga-preprint",
+          "locator": "§6, Proposition6.3 and Corollary6.4, printed pp.11–12 (MPIM1990-78)",
+          "match": "Intersection-of-ramification-fields and invariant-coefficient proof of restriction control; the same proof is applied here over each intermediate ring-class field."
+        },
+        {
+          "sourceId": "ch",
+          "locator": "§7.1–7.2, p.29; §6, p.28, purity discussion",
+          "match": "The coefficient twist, restricted ramification and pure weight needed to extend the argument to χ."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EulerSystems/RingClass",
+        "namespace": "TauCeti.EulerSystems"
+      },
+      "hypotheses": [
+        "The lattice and χ are those of the ring-class Euler-system definition; in particular U is unramified outside pNc_o, and its rational representation is pure of weight one.",
+        "Auxiliary conductors are squarefree and prime to cpN."
+      ],
+      "acceptance": [
+        "The same bound holds for K_c→K_{cn} and K_{cm}→K_{cn}; it is independent of the number of prime factors of n.",
+        "The argument uses one finite W(K_c), not an unbounded collection of finite groups."
+      ]
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-local-operator",
+      "parentStageId": "EulerSystemsAndKolyvaginSystems:ES.3",
+      "realises": [
+        "EulerSystemsAndKolyvaginSystems:ES.3"
+      ],
+      "title": "The finite–singular relation with its Frobenius operator",
+      "kind": "theorem",
+      "statement": "For n=mℓ and D_M(t)=a²b_t, res(b_t)=aD_tc_t modulo π^M, a=p^ν, and κ(t)=cor_{K_c/K}D_M(t), let λ|ℓ. The anticyclotomic character χ is trivial on G_{K_λ}, so the underlying basis of its character line identifies both U_M and (T⊗χ)_M locally with T_M. Let Φ_ℓ=ρ_T(Fr_ℓ) for rational arithmetic Frobenius, N_ℓ=ℓ+1, h_ℓ=a_ℓ(f)ℓ^{1−r}. Thus Φ_ℓ²−h_ℓΦ_ℓ+ℓ=0. Write u=α_ℓ(loc_ℓκ(m)) and v=β_ℓ(∂_ℓκ(n)), using evaluation at Fr_ℓ² on the finite part and at the chosen tame generator on the singular part. On T_M put A_ℓ=(h_ℓ/π^M)Φ_ℓ−(N_ℓ/π^M)id and B_ℓ=(a_ℓ(f)/π^M)id−(N_ℓ/π^M)Φ_ℓ; the divisions are performed integrally before reduction. Then A_ℓ v=B_ℓ u. The localization of κ(n) is transverse. If M>B₁, both A_ℓ and B_ℓ have kernels and cokernels annihilated by π^{B₁}. The identical operator relation holds for the conjugate character; it does not identify the two global twists.",
+      "proofSteps": [
+        "Use selected-bounded-descent and ring-class-uniform-restriction with a=p^ν. Over F=K_{cm}, y=D_m c_n modulo π^M has corestriction zero by (E1), since a_ℓ(f)∈π^MO. The cyclic cocycle of Nekovář §7 gives z∈H¹(F,U_M) restricting to D_ℓy=D_nc_n. If b is the witness chosen over K_c, res_F(b)−a z is in the kernel of restriction to K_{cn}; that kernel is killed by a. Therefore res_F(D_M(n))=a³z exactly. This compares global classes before localization and avoids any false boundedness assertion for local restriction at ℓ. Formally take the intermediate module to be the inverse image, under restriction from F, of H¹(K_{cn},U_M)^{G_n}; z belongs to it. The factorisation then lands in the same invariant target as the original restriction map.",
+        "The inert principal prime λ splits in K_{cm}/K and K_c/K, while K_{cn}/K_{cm} is totally ramified at λ with cyclic group of order N_ℓ. Local triviality of χ follows from its unramifiedness at λ and χ(Fr_λ)=χ((ℓ))=1. Use the local extension of T to G_{ℚ_ℓ} to define rational Frobenius. This uses the local character line, not a nonexistent global G_ℚ-action on U.",
+        "Work first with the integral cocycles x=D_m c_m and y=D_m c_n. Choose t with cor(y)−a_ℓ(f)x=δt. The cyclic cocycle has tame value −t modulo π^M, after the common a³ scaling. If x₀,y₀ are unramified local values, restriction of this coboundary identity gives N_ℓ y₀−a_ℓ(f)x₀=(Φ_ℓ²−1)(t+π^M w). The local norm congruence (E2) gives y₀=Φ_ℓx₀ modulo π^M and the unramified coboundary ambiguity. The calculation is componentwise on semilocal cohomology and commutes with D_m: transport the local Frobenius to each conjugate place before summing. Divide the displayed integral identity by π^M and reduce; Φ_ℓ²−1∈π^M End_O(T) kills the w term. Substituting v=−a³t, u=a³x₀ gives A_ℓv=B_ℓu. The cyclic cocycle restricts trivially to the unramified subgroup at λ, giving transversality. Corestriction from K_c sums these componentwise identities.",
+        "Modulo π^M, J=Φ_ℓ satisfies J²=1. Since p is odd, (1±J)/2 split T_M into its two rank-one summands. The eigenvalues of A_ℓ are (±h_ℓ−N_ℓ)/π^M. Those of B_ℓ are (a_ℓ(f)∓N_ℓ)/π^M. Since ℓ≡−1 modulo π^M, a_ℓ(f)/π^M≡(−1)^{r−1}h_ℓ/π^M modulo π^M; admissibility therefore bounds all four valuations by B₁. Each operator has a π^{B₁}-scaled inverse. This supplies bounded comparison, without cancelling a nonunit scalar.",
+        "For conjugation use the coefficient map T⊗χ⁻¹→T⊗χ induced by ρ_T(τ), together with g↦τgτ⁻¹. On local finite values rational Frobenius acts by J, and on singular values by −J because it inverts tame inertia modulo π^M. Pair χ⁻¹ and χ through T×T→O(1). Only when χ²=1 does (E3) additionally give an eigensign on one global module. No ε_n is substituted into the general-character relation."
+      ],
+      "prerequisites": [
+        "EulerSystemsAndKolyvaginSystems:ES.3/selected-bounded-descent",
+        "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-uniform-restriction",
+        "EulerSystemsAndKolyvaginSystems:ES.2/ring-class-anticyclotomic-euler-system",
+        "SelmerIwasawaCohomology:L2",
+        "HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients"
+      ],
+      "sources": [
+        {
+          "sourceId": "nekovar-kuga-preprint",
+          "locator": "§7, printed pp.12–14; §9, printed pp.16–19; Proposition10.2 proof, printed p.20 (MPIM1990-78)",
+          "match": "Cyclic cocycle, integral local norm identity and application with x=D_m y_m, y=D_m y_n. The operator formula here is derived from the cochain identity rather than quoting the scalar eigenspace formula."
+        },
+        {
+          "sourceId": "ch",
+          "locator": "§4.4, Lemma4.7 and its proof, pp.18–19; §7.2, pp.29–30",
+          "match": "Local triviality of the character and the rational Frobenius congruence; §7.1 uses ambiguous Frobenius wording, so the rational operator and its square are distinguished here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EulerSystems/RingClass",
+        "namespace": "TauCeti.EulerSystems"
+      },
+      "acceptance": [
+        "For h_ℓ=a_ℓ(f), B_ℓ=J A_ℓ and the relation becomes A_ℓ(v−Ju)=0. It only forces π^{B₁}(v−Ju)=0; cancelling A_ℓ without a unit hypothesis is invalid.",
+        "For a nonquadratic χ, τ² still identifies the two successive coefficient transports with identity, but τ is not an endomorphism of H¹(K,T_M⊗χ⁻¹).",
+        "If u₁,u₂ span a submodule containing π^dT_M and A_ℓv_i=B_ℓu_i, then the v_i span a submodule containing π^{d+2B₁}T_M. Indeed B_ℓ span(u_i) contains π^{d+B₁}T_M; compare A_ℓ on π^{d+B₁}T_M with A_ℓ span(v_i), and kill its kernel by π^{B₁}. This is the span estimate used by descent."
+      ],
+      "hypotheses": [
+        "The selected formula, ring-class norm relations and M-admissibility of every auxiliary prime.",
+        "p is odd; ν has the uniform relative restriction property; χ is anticyclotomic and unramified at ℓ.",
+        "For the bounded-kernel/cokernel assertion M>B₁."
+      ]
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems:ES.8/residual-unramified-mu-zero",
+      "parentStageId": "EulerSystemsAndKolyvaginSystems:ES.8",
+      "realises": [
+        "EulerSystemsAndKolyvaginSystems:ES.8"
+      ],
+      "title": "Residual transfer of anticyclotomic μ-vanishing",
+      "kind": "theorem",
+      "statement": "In the higher-weight Eisenstein setting of augmentation-prime-divisibility, put A=T⊗_OΛ^∨, with inverse tautological action. Choose the residual extension 0→k(φ)→T/πT→k(ψ)→0, φψ=ω, and suppose H⁰(K,T/πT)=0. Let S contain the primes away from p of the level and residual conductors, all split in K. Assume the one-dimensional anticyclotomic unramified Selmer duals of the Teichmüller lifts of φ and ψ are Λ-torsion with μ=0. Define F_nr by full local condition at 𝔭 and ker[H¹(K_{𝔭̄},A)→H¹(I_{𝔭̄},A)] at 𝔭̄, and the analogous unramified conditions away from p; its S-imprimitive version omits those away-p conditions. Then both X_nr and X_nr^S are Λ-torsion with μ=0. The same conclusion holds with 𝔭 and 𝔭̄ exchanged. The one-dimensional μ=0 input is the arithmetic theorem KY1.2.2, not the ordinary rank-one Selmer statement.",
+      "proofSteps": [
+        "For each residual character, the μ=0 input makes its π-torsion Selmer group finite. Relaxing at S adds local terms with μ=0: at a split prime away from p the decomposition group has finite index and the local Euler polynomial is nonzero modulo π. Kummer comparison between the residual group and π-torsion has only finite kernel/cokernel from H⁰ and local restriction; keep the trivial-character terms.",
+        "Apply the global and strict-at-𝔭̄ local cohomology sequences to the residual extension. The strict residual Selmer group for A[π] lies between the two finite character Selmer groups, up to finite H⁰ terms, hence is finite. Passing from strict to unramified at 𝔭̄ adds the residual local restriction kernel. KY Lemma1.3.6 bounds this by a finite k-space, including φ|G_p=ω and ψ|G_p=1. Thus the residual unramified Selmer group is finite.",
+        "Since H⁰(K,T/πT)=0, global Kummer comparison has zero invariant obstruction; the local invariant and restriction kernels remain finite, as in the diagrams on KY pp.24–25. Consequently Sel_nr^S(K,A)[π] is finite. The structure theorem for finitely generated Λ-modules says finiteness of the quotient of its dual by π is equivalent to Λ-torsion and μ=0. The primitive dual is a quotient, so it has the same vanishing property. Conjugation interchanges the two primes and twists Γ by inversion, preserving (π).",
+        "The nonexceptional local-character case is CGLS Proposition1.4.2, p.11; its argument only uses the residual extension and these local comparisons. KY Theorem1.4.1, pp.24–25, supplies the previously excluded 1/ω case. The exact λ formula, including its extra 1 in the globally trivial case, is unnecessary here."
+      ],
+      "prerequisites": [
+        "CMAllPrimeMainConjectures:CZ.3",
+        "SelmerIwasawaCohomology:L2",
+        "SelmerIwasawaCohomology:L3",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ],
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "§1.2, Theorem1.2.2 and Proposition1.2.5, pp.13–17; §1.3, Lemma1.3.6, pp.21–23; §1.4, Theorem1.4.1, pp.23–25",
+          "match": "The finite-character μ input, exceptional local comparison and residual proof of unramified μ=0."
+        },
+        {
+          "sourceId": "cgls",
+          "locator": "§1.4, Proposition1.4.2, p.11; §1.5, Theorem1.5.1, p.12 (arXiv v2)",
+          "match": "Nonexceptional local characters and the same residual transfer argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EulerSystems/Iwasawa",
+        "namespace": "TauCeti.EulerSystems"
+      },
+      "acceptance": [
+        "The group here is full/unramified at the two p-adic primes; it is not the ordinary/ordinary Selmer group.",
+        "If one residual character is globally trivial, an extra finite k-space changes λ but does not give a Λ/(π) summand.",
+        "The result uses the selected lattice with no global residual invariants; it does not assert lattice independence of an ordinary μ-invariant."
+      ],
+      "hypotheses": [
+        "The ordinary Eisenstein lattice with no global residual invariants and residual extension specified in the statement.",
+        "The finite-character full/unramified μ=0 supplier, in both p-adic orientations and including locally 1 and ω.",
+        "All away-p bad primes split in K; p>2 splits in K."
+      ]
+    },
+    {
+      "id": "EulerSystemsAndKolyvaginSystems:ES.8/ordinary-coefficient-prime-comparison",
+      "parentStageId": "EulerSystemsAndKolyvaginSystems:ES.8",
+      "realises": [
+        "EulerSystemsAndKolyvaginSystems:ES.8"
+      ],
+      "title": "From unramified μ-vanishing to the ordinary coefficient-prime bound",
+      "kind": "theorem",
+      "statement": "Use the lattice, Γ-action and ordinary filtration of the higher-weight branch; write Λ=O[[Γ]], R=Λ_{(π)}, S_ord for the compact ordinary Selmer group and X_ord for the dual discrete ordinary group. Assume rank_Λ S_ord=rank_Λ X_ord=1, H⁰(K,T/πT)=0, and μ(X_nr)=0 for the full/unramified group of residual-unramified-mu-zero in both orientations. Assume the finite local comparisons below for this actual filtration. Then (X_ord)_{(π)} is free of rank one over R. In particular μ((X_ord)_tors)=0 and μ(M)=0 for X_ord∼Λ⊕M⊕M. No specialization at π+T^m is used.",
+      "proofSteps": [
+        "First fix the local dictionary at (π). At a p-adic prime, the difference between the unramified kernel and zero is the image of H¹(Fr,M_f^{I}); its dual is O-finite by KY Lemma1.3.6 and hence vanishes over R. Away from p the strict/unramified differences have μ=0, using the local Euler polynomial at a split prime. Thus X_nr localized at (π) is the dual for the full/zero Selmer condition; μ=0 makes it zero. The conjugate zero/full dual is also zero, since conjugation preserves (π).",
+        "The ordinary filtration is 0→T⁺→T→T⁻→0 with both graded pieces rank one, dual to each other up to (1). For weight 2r>2 retain the cyclotomic twist on T⁻. The local invariant groups of A⁺ and A⁻ over the anticyclotomic local tower are O-finite, so their duals and the local H² obstruction vanish at (π). Local Euler characteristic and Tate duality then give free R-modules of rank one L_o=H¹_ord(K_{𝔭̄},𝐓)_R and L_q=[H¹(K_𝔭,𝐓)/H¹_ord(K_𝔭,𝐓)]_R, with exact orthogonal ordinary conditions. These are statements at (π); they do not assert integral freeness at every height-one prime.",
+        "Write S_{a,b} and X_{a,b} for compact Selmer and dual discrete Selmer modules with local conditions a at 𝔭, b at 𝔭̄, a,b∈{0,o,f}, retaining dual away-p conditions. Duality interchanges 0/f and fixes o, with the Λ-involution ι. At R all modules are identified with their appropriately involuted duals. The zero/full duals vanish; their compact counterparts have rank zero by the core-rank-zero Euler characteristic, and are zero because compact H¹ is torsion-free. Hence S_{0,f}=S_{f,0}=S_{o,0}=0.",
+        "For (o,0)⊂(f,0), Poitou–Tate gives 0→L_q→(X_{o,f})_R→(X_{0,f})_R→0, so (X_{o,f})_R≅L_q is free. For (o,0)⊂(o,o), it gives 0→(S_ord)_R→L_o→(X_{o,f})_R→(X_ord)_R→0. The first arrow is an injection between rank-one modules. Its cokernel is torsion over the DVR R, so its image in the free module (X_{o,f})_R is zero. Therefore (X_ord)_R≅(X_{o,f})_R is free. This proves ordinary μ-vanishing without assuming a regulator index is a unit.",
+        "For X_ord∼Λ⊕M⊕M, localization at (π) is an isomorphism up to pseudo-null modules. The torsion part has length 2 length_R M_R; freeness forces M_R=0. All other height-one divisibilities were proved by specialization with bounded errors. Since ord_{(π)}char(M)=0 and ord_{(π)}char(S_ord/Λκ₁)≥0, the missing coefficient-prime inequality follows."
+      ],
+      "prerequisites": [
+        "EulerSystemsAndKolyvaginSystems:ES.8/residual-unramified-mu-zero",
+        "SelmerIwasawaCohomology:L2/selmer-structure-poitou-tate",
+        "SelmerIwasawaCohomology:L3",
+        "SelmerIwasawaCohomology:L4/ordinary-finite-comparison",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ],
+      "sources": [
+        {
+          "sourceId": "ky",
+          "locator": "§1.3, Proposition1.3.4, Lemmas1.3.5–1.3.6, pp.19–23; §1.4, pp.23–25; §3, pp.34–37",
+          "match": "Local invariant finiteness, unramified μ-vanishing and the self-dually twisted ordinary filtration. The two Poitou–Tate sequences here give the missing ordinary coefficient-prime comparison."
+        },
+        {
+          "sourceId": "cgls",
+          "locator": "§3.4, pp.24–25; §4.2, Proposition4.2.1, pp.28–29",
+          "match": "Ordinary lattice/discrete conventions and the full/zero versus ordinary comparison. The cited proposition only proves a rational formulation equivalence; it is not used as an integral μ theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/EulerSystems/Iwasawa",
+        "namespace": "TauCeti.EulerSystems"
+      },
+      "acceptance": [
+        "Over R, multiplication by π has a torsion cokernel while multiplication by T=γ−1 is invertible. An O-finite local correction vanishes at (π), even though it can affect the augmentation prime.",
+        "A single full/zero μ=0 assertion does not replace both orientations: conjugation and the ι-twist must be recorded.",
+        "If L_q had R-torsion or a zero/full dual survived at (π), the first exact sequence would no longer make X_{o,f} free. These hypotheses cannot be replaced by a comparison valid only after inverting π."
+      ],
+      "hypotheses": [
+        "The actual self-dually twisted ordinary filtration, not an assumed unramified quotient in higher weight.",
+        "Compact and dual discrete ordinary groups have rank one; compact global H¹ is torsion-free.",
+        "The unramified Selmer dual has μ=0 in both orientations; the O-finite local correction and local freeness/duality properties are precisely those in the statement and proof."
+      ]
     }
   ],
   "requests": [
@@ -2994,6 +3325,21 @@
       "neededBy": [
         "EulerSystemsAndKolyvaginSystems:ES.1/abundant-tuple-existence"
       ]
+    },
+    {
+      "supplier": "CMAllPrimeMainConjectures:CZ.3",
+      "need": "Part II of the existing anticyclotomic θ-component input: for O containing the Teichmüller values of any residual character θ of G_K whose conductor is supported at primes split in K (p split, p>2), the dual of the full/unramified Selmer group for O(θ)⊗Λ^∨ is Λ-torsion with μ=0, in either p-adic orientation. Include θ locally 1 or ω and globally trivial; keep the trivial-character augmentation factor. KY1.2.2 pp.13–14 proves exactly this using Rubin1991 Theorem4.1 (and Rubin1994 to remove class-number restrictions), the Katz measure and Hida μ-vanishing. CZ.3 already owns the nonexceptional θ case; extend that owner rather than introduce a second CM main-conjecture construction here. This supplier is arithmetic input to the late Eisenstein application, not a prerequisite of the generic ES.8 Rubin bound. The node-level order and package bundle proposal below are essential: a roadmap-level cycle must not be silently introduced.",
+      "neededBy": [
+        "EulerSystemsAndKolyvaginSystems:ES.8/residual-unramified-mu-zero"
+      ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L3",
+      "need": "Part II local and change-of-condition interface at R=O[[Γ]]_(π) for the anticyclotomic tower and a rank-two ordinary self-dual modular lattice with H⁰(K,T/πT)=0: compact H¹ torsion-free, balanced full/zero compact/discrete Selmer ranks equal, local invariant and H² obstruction modules vanish at R, ordinary local group and full/ordinary quotient free of R-rank one, and Poitou–Tate exact sequences for (o,0)⊂(f,0) and (o,0)⊂(o,o) with dual structures (o,f),(0,f),(o,o) and involution ι. Include the higher-weight cyclotomic twist on T⁻. Primitive/unramified/strict local correction duals away from p have μ=0 at split primes, and the unramified/zero correction at the strict p-adic prime is O-finite (KY1.3.4–1.3.6 pp.19–23). The new ES.8 comparison proves μ(X_ord,tors)=0 from these sequences; do not assume that conclusion as supplier data.",
+      "neededBy": [
+        "EulerSystemsAndKolyvaginSystems:ES.8/ordinary-coefficient-prime-comparison",
+        "EulerSystemsAndKolyvaginSystems:ES.8/residual-unramified-mu-zero"
+      ]
     }
   ],
   "coverage": [
@@ -3011,13 +3357,7 @@
         "EulerSystemsAndKolyvaginSystems:ES.0/core-rank",
         "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-independence-of-modulus",
         "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
-        "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula",
-        "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
-        "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2016",
-        "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-implications",
-        "EulerSystemsAndKolyvaginSystems:ES.0/example-cyclotomic-twist",
-        "EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic",
-        "EulerSystemsAndKolyvaginSystems:ES.0/non-example-inadmissible"
+        "EulerSystemsAndKolyvaginSystems:ES.0/core-rank-formula"
       ],
       "remaining": [
         "Implement the general-R duality and compact/discrete coefficient adapters of the SelmerIwasawaCohomology L2 request (carried from the ES.0 part).",
@@ -3028,6 +3368,12 @@
       "stageId": "EulerSystemsAndKolyvaginSystems:ES.1",
       "status": "planned",
       "targets": [
+        "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2004",
+        "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-mr2016",
+        "EulerSystemsAndKolyvaginSystems:ES.0/hypotheses-implications",
+        "EulerSystemsAndKolyvaginSystems:ES.0/example-cyclotomic-twist",
+        "EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic",
+        "EulerSystemsAndKolyvaginSystems:ES.0/non-example-inadmissible",
         "EulerSystemsAndKolyvaginSystems:ES.1/ray-class-tower",
         "EulerSystemsAndKolyvaginSystems:ES.1/conductor-ideal",
         "EulerSystemsAndKolyvaginSystems:ES.1/kolyvagin-primes",
@@ -3038,7 +3384,6 @@
         "EulerSystemsAndKolyvaginSystems:ES.1/transverse-duality",
         "EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-nonvanishing",
         "EulerSystemsAndKolyvaginSystems:ES.1/chebotarev-prescribed-kernels",
-        "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
         "EulerSystemsAndKolyvaginSystems:ES.1/reducibility-depth",
         "EulerSystemsAndKolyvaginSystems:ES.1/selmer-field-saturation",
         "EulerSystemsAndKolyvaginSystems:ES.1/abundant-tuples",
@@ -3075,7 +3420,7 @@
     },
     {
       "stageId": "EulerSystemsAndKolyvaginSystems:ES.3",
-      "status": "partial",
+      "status": "planned",
       "targets": [
         "EulerSystemsAndKolyvaginSystems:ES.3/derivative-operators",
         "EulerSystemsAndKolyvaginSystems:ES.3/derivative-invariance",
@@ -3093,17 +3438,20 @@
         "EulerSystemsAndKolyvaginSystems:ES.3/local-lifts",
         "EulerSystemsAndKolyvaginSystems:ES.3/key-relation",
         "EulerSystemsAndKolyvaginSystems:ES.3/congruence-units-example",
-        "EulerSystemsAndKolyvaginSystems:ES.3/rigidity-variant-derivative-classes"
+        "EulerSystemsAndKolyvaginSystems:ES.3/rigidity-variant-derivative-classes",
+        "EulerSystemsAndKolyvaginSystems:ES.3/selected-bounded-descent",
+        "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-uniform-restriction",
+        "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-local-operator"
       ],
       "remaining": [
-        "Lemma level: Mazur–Rubin 2004 Appendix A (Lemma A.6 to Proposition A.15).",
-        "Prove relative K_c→K_{cn} restriction bounds and identify the selected p^{2ν} lift with the canonical classes in the local formulas. The MPIM1990-78 proof was read, but its untwisted Proposition10.2 does not establish the general-character scalar relation; retain χ²=1 for that displayed formula and prove the nonquadratic operator transport. The 1992 published version has not been compared. This is a target-level construction gap, not a request to split the proof into lemmas."
+        "Lemma level: Mazur–Rubin 2004 Appendix A (Lemma A.6 to Proposition A.15)."
       ]
     },
     {
       "stageId": "EulerSystemsAndKolyvaginSystems:ES.4",
-      "status": "partial",
+      "status": "planned",
       "targets": [
+        "EulerSystemsAndKolyvaginSystems:ES.1/rubin-prime-selection",
         "EulerSystemsAndKolyvaginSystems:ES.4/selmer-sheaf",
         "EulerSystemsAndKolyvaginSystems:ES.4/sheaf-monodromy",
         "EulerSystemsAndKolyvaginSystems:ES.4/vertex-step",
@@ -3126,7 +3474,6 @@
       ],
       "remaining": [
         "Lemma level: Mazur–Rubin 2004 Lemmas 4.3.8–4.3.9, Propositions 4.3.10–4.3.11, Theorem 4.3.12, Theorem 4.4.3 and Appendix B; Rubin Chapter V §2 general case of Lemma 2.5.",
-        "Prove the ring-class selected-descent/local compatibility before applying the rational anticyclotomic target.",
         "CA.7 Part II maximal-order/Morita facts and HE.1/HE.2 CM geometry dictionary remain supplier contracts; the generic pairing theorem is now explicitly owned by ES.4.",
         "The classical square-index constant independent of K remains outside this completed target pass."
       ]
@@ -3192,7 +3539,7 @@
     },
     {
       "stageId": "EulerSystemsAndKolyvaginSystems:ES.8",
-      "status": "partial",
+      "status": "planned",
       "targets": [
         "EulerSystemsAndKolyvaginSystems:ES.8/admissible-zp-d-extension",
         "EulerSystemsAndKolyvaginSystems:ES.8/iwasawa-large-image-hypotheses",
@@ -3230,13 +3577,15 @@
         "EulerSystemsAndKolyvaginSystems:ES.8/self-dual-lambda-adic-kolyvagin-bound",
         "EulerSystemsAndKolyvaginSystems:ES.8/error-tolerant-self-dual-lambda-adic-bound",
         "EulerSystemsAndKolyvaginSystems:ES.8/self-dual-lambda-primitivity-equality",
-        "EulerSystemsAndKolyvaginSystems:ES.8/augmentation-prime-divisibility"
+        "EulerSystemsAndKolyvaginSystems:ES.8/augmentation-prime-divisibility",
+        "EulerSystemsAndKolyvaginSystems:ES.8/residual-unramified-mu-zero",
+        "EulerSystemsAndKolyvaginSystems:ES.8/ordinary-coefficient-prime-comparison"
       ],
       "remaining": [
         "Lemma level: Rubin Chapter VII §§5–7 (Propositions 5.1–5.2, Lemmas 6.1–6.3, Lemma 7.1–Proposition 7.7).",
         "The comparison of Kato's H²(T)_0 with X_∞ (no public source found; carried from the ES.8 part).",
         "The rank-two conjugate-self-dual ordinary bound requested by RankZeroOneBSD BSD.0 is served by error-tolerant-self-dual-lambda-adic-bound and augmentation-prime-divisibility; the higher-weight image constants stay with BSD.6a.",
-        "Keller–Yin3.0.5 pp.36–37 asserts the integral conclusion, but the plan has no uniform-error specialization argument at (π). Along π+T^m the coefficient rank grows with m; an error allowed to depend on that rank need not vanish after dividing by m. Supply a uniform/o(m) bound or a proved µ(M)=0 comparison with the correct ordinary Selmer structures. Away-from-(π) and the augmentation-prime argument are verified."
+        "Before packaging the late Eisenstein application, implement the expanded CM CZ.3 finite-character μ=0 supplier and resolve the explicit bundle/Part II proposal. The generic ES.8 theory has no backwards CM dependency."
       ]
     }
   ],
@@ -3257,21 +3606,6 @@
       "detail": "HeegnerPointEulerSystems requests from ES.4 Kolyvagin's Theorem A as quoted in Kolyvagin 1991 (#Ш(E/K) divides d_E·[E(K) : ℤy_K]² with d_E independent of K). Its original proof is not publicly available and was not read; Nekovář's uniform exponent bound (ES.4/nekovar-all-prime-descent) and the self-dual structure theorem (ES.5/self-dual-structure-theorem) do not give the length statement with the stated d_E at every prime. The request stays open.",
       "neededBy": [
         "HeegnerPointEulerSystems:HE.7/classical-square-index-error-bound"
-      ]
-    },
-    {
-      "title": "Selected ring-class descent and nonquadratic local compatibility",
-      "detail": "Prove relative K_c→K_{cn} restriction bounds and identify the selected p^{2ν} lift with the canonical classes in the local formulas. The MPIM1990-78 proof was read, but its untwisted Proposition10.2 does not establish the general-character scalar relation; retain χ²=1 for that displayed formula and prove the nonquadratic operator transport. The 1992 published version has not been compared. This is a target-level construction gap, not a request to split the proof into lemmas.",
-      "neededBy": [
-        "EulerSystemsAndKolyvaginSystems:ES.3/ring-class-derivative-classes",
-        "EulerSystemsAndKolyvaginSystems:ES.4/rational-anticyclotomic-descent"
-      ]
-    },
-    {
-      "title": "Integral higher-weight divisibility at the coefficient prime",
-      "detail": "Keller–Yin3.0.5 pp.36–37 asserts the integral conclusion, but the plan has no uniform-error specialization argument at (π). Along π+T^m the coefficient rank grows with m; an error allowed to depend on that rank need not vanish after dividing by m. Supply a uniform/o(m) bound or a proved µ(M)=0 comparison with the correct ordinary Selmer structures. Away-from-(π) and the augmentation-prime argument are verified.",
-      "neededBy": [
-        "EulerSystemsAndKolyvaginSystems:ES.8/augmentation-prime-divisibility"
       ]
     }
   ],
@@ -3513,7 +3847,7 @@
       "kind": "error",
       "locator": "§7.2 p.29, author version dated2July2022",
       "printed": "Bounded kernel and cokernel of restriction are used to assert a unique class descending p^{3ν} times the derivative.",
-      "correction": "Choose a preimage of p^ν times the derivative and multiply that preimage by p^{2ν}; prove compatibility of this selected descent with the local formulas separately.",
+      "correction": "Choose a preimage of p^ν times the derivative and multiply that preimage by p^{2ν}; prove compatibility of this selected descent with the local formulas separately. Revision2 supplies the factorisation comparison with the cyclic cocycle in selected-bounded-descent and ring-class-local-operator.",
       "reason": "For ℤ/p²→ℤ/p the kernel and cokernel are annihilated by p but zero has p distinct preimages. An annihilated kernel gives independence after the prescribed scaling, not uniqueness among all solutions of the restriction identity.",
       "affects": "a stated result",
       "known": "No correction identified in the version comparisons and searches recorded here.",
@@ -3533,7 +3867,7 @@
       "kind": "error",
       "locator": "§7.2(K2) p.30, author version dated2July2022",
       "printed": "The scalar ε_n=χ(σ_𝔑)w_f(−1)^ω(n) is used as a conjugation sign in the finite–singular relation for general anticyclotomic χ.",
-      "correction": "Restrict this scalar eigenspace formula to χ²=1, or give the operator-valued formula transporting the χ⁻¹ and χ coefficient modules.",
+      "correction": "Restrict this scalar eigenspace formula to χ²=1, or give the operator-valued formula transporting the χ⁻¹ and χ coefficient modules. Revision2 uses the integral divided Frobenius operators from the local norm cocycle identity, with separate global χ⁻¹ and χ transports, rather than substituting any scalar ε_n in the general-character formula.",
       "reason": "Conjugation sends T⊗χ⁻¹ to T⊗χ; for nonquadratic χ it is not an involution on that single coefficient module. χ(σ_𝔑) need not lie in {±1}. Nekovář’s untwisted Proposition10.2 uses actual ± eigenspaces and does not supply the displayed general-character scalar replacement.",
       "affects": "a stated result",
       "known": "No correction identified in the version comparisons and searches recorded here.",
@@ -3870,6 +4204,16 @@
       ],
       "detail": "The generic maximal-order pairing bound is an ES.4 target used by all-prime descent and already requested by the HE.0 blueprint. Importing HE.7 as the source of geometric inputs to ES.4 would re-import a later descent application.",
       "proposal": "ES.4 owns maximal-order-evaluation-bound; CA.7 Part II owns its noncommutative order/Morita inputs. Move the CM tensor-variety and polarization input dictionary to HE.1/HE.2, retaining HE.7 as the consumer of the bound. Update the imported part requests/prerequisites using the explicit whole-roadmap overlays; do not treat CA.7 existence-of-maximal-orders alone as the pairing theorem."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "EulerSystemsAndKolyvaginSystems",
+        "CMAllPrimeMainConjectures"
+      ],
+      "title": "Place the late Eisenstein coefficient-prime application after the CM character μ input",
+      "detail": "The generic ES.8 Rubin Iwasawa bound supplies CMAllPrimeMainConjectures CZ.2; the CM θ-component μ=0 theorem then supplies the late ES.8 Eisenstein coefficient-prime application. This is acyclic on targets but cyclic on unsplit roadmap names. Keep generic ES.0–ES.8 theory independent of CM μ-vanishing. Package its late arithmetic application together with the CM CZ.3 input as a bundle, or place that application in a later Part II after CM CZ.3. The proposed order is generic ES.8 Rubin theory → CM CZ.2/CZ.3 → residual-unramified-mu-zero → ordinary-coefficient-prime-comparison → higher-weight integral augmentation-prime-divisibility. This proposal is for the maintainer; no campaign graph or CM packet is edited.",
+      "proposal": "Preserve CM ownership of elliptic units, Katz measures and finite-character μ=0; ES owns the generic selected descent, Frobenius-operator descent and ordinary Selmer comparison. Higher arithmetic roadmaps import these generic bounds and verify their lattice and residual-character hypotheses. The integral application cannot be packaged before its arithmetic supplier."
     }
   ],
   "assembly": {
@@ -3894,7 +4238,7 @@
         "reviewDate": "2026-10-06"
       }
     ],
-    "meaning": "The whole roadmap logically consists of the pinned124 imported nodes, the22 local nodes, string-leaf corrections, field additions and explicit prerequisite additions/removals. Apply corrections before additions; do not rewrite either source part. The reader renders that resulting node set. Import hashes are current at review; the latest ES.0 ~3 review is a shape-only needs_changes verdict, not an independent mathematical certification. The whole Suggested.lean has its own compact statement-only shape. Whole requests is the complete corrected supplier contract union. After prerequisite edits, apply importedStageAssignments to each named imported record: set parentStageId and its realises list to that stage; keep its stable node ID unchanged. These seven whole-reader placements remove the forward layer dependencies without changing either source part.",
+    "meaning": "The whole roadmap logically consists of the pinned 124 imported nodes, the 27 local nodes, string-leaf corrections, field additions and explicit prerequisite additions/removals. Apply corrections before additions; do not rewrite either source part. The reader renders that resulting node set. Import hashes are current at review; the latest ES.0 ~3 review is a shape-only needs_changes verdict, not an independent mathematical certification. The whole Suggested.lean has its own compact statement-only shape. Whole requests is the complete corrected supplier contract union. After prerequisite edits, apply importedStageAssignments to each named imported record: set parentStageId and its realises list to that stage; keep its stable node ID unchanged. These seven whole-reader placements remove the forward layer dependencies without changing either source part.",
     "importedPrerequisiteAdditions": {
       "EulerSystemsAndKolyvaginSystems:ES.3/derivative-local-properties": [
         "EulerSystemsAndKolyvaginSystems:ES.3/derivative-classes-unramified",
@@ -5015,21 +5359,21 @@
   ],
   "inventory": {
     "importedTargets": 124,
-    "newTargets": 22,
-    "combinedTargets": 146,
+    "newTargets": 27,
+    "combinedTargets": 151,
     "kinds": {
       "definition": 41,
-      "lemma": 10,
-      "theorem": 66,
+      "lemma": 11,
+      "theorem": 69,
       "application": 7,
-      "construction": 19,
+      "construction": 20,
       "comparison": 3
     },
-    "apiItems": 424,
-    "unitTests": 218,
+    "apiItems": 427,
+    "unitTests": 223,
     "planets": 45
   },
-  "review": {
+  "previousReview": {
     "status": "needs_changes",
     "reviewer": "independent-review-REV-EulerSystemsAndKolyvaginSystems",
     "date": "2026-10-14",
@@ -5766,5 +6110,11 @@
         "note": "Checked the source statement, exact coefficient hypotheses and target-level proof against the direct suppliers; Sources: rubin-euler-systems-1999 Ch. VII §4, Lemma 4.1 and proof, p. 110"
       }
     ]
+  },
+  "review": {
+    "status": "pending",
+    "reviewer": null,
+    "date": null,
+    "notes": "Revision BP-EulerSystemsAndKolyvaginSystems~2 by Codex codex-F2G2WN. The prior independent review is preserved in previousReview. All new arguments and the arithmetic supplier/bundle contract require a fresh independent review."
   }
 }

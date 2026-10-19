@@ -1,4 +1,12 @@
-import Mathlib
+import Mathlib.Algebra.MonoidAlgebra.Basic
+import Mathlib.Algebra.Polynomial.Div
+import Mathlib.Algebra.Polynomial.Reverse
+import Mathlib.Data.ENat.Lattice
+import Mathlib.Data.ZMod.Basic
+import Mathlib.LinearAlgebra.Charpoly.Basic
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
+import Mathlib.Tactic.Ring
 import TauCeti.RepresentationTheory.Homological.ContCohomology.Shapiro
 
 /-!
@@ -212,6 +220,68 @@ theorem subsingleton_H1_discreteCoind_bot (G : Type*) [Group G] [TopologicalSpac
 
 end KolyvaginSystems
 
+namespace EulerSystems
+
+/-! ## Layer 3: the selected bounded descent
+
+For a linear restriction map `f` whose kernel and cokernel are killed by `a`, the
+selected class is `a² • b`, where `f b = a • x`. The factorization statement compares
+it with the cyclic cocycle in an intermediate *global* cohomology group. It does not
+assume that restriction at a ramified local prime has a bounded kernel.
+-/
+
+section SelectedDescent
+
+variable {R A B C : Type*} [CommRing R]
+  [AddCommGroup A] [AddCommGroup B] [AddCommGroup C]
+  [Module R A] [Module R B] [Module R C]
+
+/-- A choice-based formula over existing modules; independence is a theorem below. -/
+noncomputable def selectedDescent (f : A →ₗ[R] B) (a : R)
+    (hc : ∀ x : B, ∃ b : A, f b = a • x) (x : B) : A :=
+  a ^ 2 • Classical.choose (hc x)
+
+/-- A witness gives the same selected element when `a` kills the kernel. -/
+theorem selectedDescent_eq (f : A →ₗ[R] B) (a : R)
+    (hc : ∀ x : B, ∃ b : A, f b = a • x)
+    (hk : ∀ y : A, f y = 0 → a • y = 0)
+    (x : B) (b : A) (hb : f b = a • x) :
+    selectedDescent f a hc x = a ^ 2 • b := by
+  sorry
+
+/-- Restriction of the selected class has the prescribed cubic scale. -/
+theorem selectedDescent_spec (f : A →ₗ[R] B) (a : R)
+    (hc : ∀ x : B, ∃ b : A, f b = a • x) (x : B) :
+    f (selectedDescent f a hc x) = a ^ 3 • x := by
+  sorry
+
+/-- The cyclic class `z` need not be selected uniquely; the cubic scale agrees. -/
+theorem selectedDescent_factor (r : A →ₗ[R] C) (s : C →ₗ[R] B) (a : R)
+    (hc : ∀ x : B, ∃ b : A, (s.comp r) b = a • x)
+    (hs : ∀ y : C, s y = 0 → a • y = 0)
+    (x : B) (z : C) (hz : s z = x) :
+    r (selectedDescent (s.comp r) a hc x) = a ^ 3 • z := by
+  sorry
+
+example (x : A) :
+    selectedDescent (LinearMap.id : A →ₗ[R] A) 1
+      (fun y => ⟨y, by simp⟩) x = x := by
+  sorry
+
+example : selectedDescent (5 • LinearMap.id : ℤ →ₗ[ℤ] ℤ) 5
+    (fun y => ⟨y, by simp⟩) 3 = 75 := by
+  sorry
+
+example (f : A →ₗ[R] B) (a : R)
+    (hc : ∀ x : B, ∃ b : A, f b = a • x)
+    (hk : ∀ y : A, f y = 0 → a • y = 0) :
+    selectedDescent f a hc 0 = 0 := by
+  sorry
+
+end SelectedDescent
+
+end EulerSystems
+
 namespace ErrorTolerant
 
 /-! ## Layer 4: bounded-image matrices over a truncated discrete valuation ring
@@ -236,6 +306,29 @@ end ErrorTolerant
 The core-vertex criterion therefore uses residual localization. -/
 example : (5 : ZMod 25) ≠ 0 ∧ (5 : ZMod 25) * 5 = 0 := by
   decide
+
+namespace IwasawaComparison
+
+/-! ## Layer 8: a milestone for the coefficient-prime Poitou–Tate comparison
+
+The README supplies the arithmetic Selmer carriers and the two exact sequences.
+After the first identifies the middle dual with a free local module, the second
+has this elementary form. `hfull` expresses that the first local cokernel is torsion.
+-/
+
+theorem comparison_bijective
+    {R P L Y X : Type*} [CommRing R] [IsDomain R]
+    [AddCommGroup P] [AddCommGroup L] [AddCommGroup Y] [AddCommGroup X]
+    [Module R P] [Module R L] [Module R Y] [Module R X]
+    [NoZeroSMulDivisors R Y]
+    (loc : P →ₗ[R] L) (f : L →ₗ[R] Y) (g : Y →ₗ[R] X)
+    (hfull : ∀ l : L, ∃ (a : R) (s : P), a ≠ 0 ∧ loc s = a • l)
+    (hcomp : f.comp loc = 0)
+    (hex : ∀ y : Y, g y = 0 ↔ ∃ l : L, f l = y)
+    (hsur : Function.Surjective g) : Function.Bijective g := by
+  sorry
+
+end IwasawaComparison
 
 /- Further arithmetic definitions and constructions specified in the README:
 KolyvaginSystems.SelmerTriple, KolyvaginSystems.QuotCat, KolyvaginSystems.IsCartesian,
