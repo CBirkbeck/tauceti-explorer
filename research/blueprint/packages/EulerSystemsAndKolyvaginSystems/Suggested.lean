@@ -13,6 +13,19 @@ namespace TauCetiRoadmap.EulerSystemsAndKolyvaginSystems
 
 open Polynomial
 
+namespace FiniteSelmerDuality
+
+/-! ## Layer 0: the finite self-injective trace pairing -/
+
+/-- Over the dual numbers in characteristic two, the socle-coefficient trace has perfect
+multiplication matrix, while the constant-coefficient functional is degenerate. -/
+example : Matrix.det (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) (ZMod 2)) = 1 ∧
+    Matrix.det (!![1, 0; 0, 0] : Matrix (Fin 2) (Fin 2) (ZMod 2)) = 0 := by
+  norm_num [Matrix.det_fin_two]
+  decide
+
+end FiniteSelmerDuality
+
 namespace ErrorTolerant
 
 /-! ## Layer 1: exponents, orders and the abundance exponent of Liu–Tian–Xiao–Zhang–Zhu
@@ -115,6 +128,17 @@ theorem eulerPoly_id_rank_one [Nontrivial R] : eulerPoly (LinearMap.id : Module.
   sorry
 
 end EulerPolynomial
+
+/-- In the χ-ray example with `Q=2`, `eχ=3` and `P=1+X`, the ordinary numerator's
+linear coefficient is not divisible by the ray degree. -/
+example : ¬ (3 : ℤ) ∣ ((1 + X : ℤ[X]) - (1 + C 2 * X)).coeff 1 := by
+  norm_num
+
+/-- Replacing `Q` by `Q²` repairs that denominator but changes the annihilating argument:
+for rational Frobenius `F=-2`, `P(2/F)=0` while `P(4/F)=-1`. -/
+example : (1 + X : ℚ[X]).eval (2 / (-2)) = 0 ∧
+    (1 + X : ℚ[X]).eval (4 / (-2)) = -1 := by
+  norm_num
 
 /-- The polynomial identity behind Rubin's Example IV.8.2 (`T = ℤ_p(1)`, `P(x) = 1 − x`):
 `P(x) − P(N x) = (N − 1) x`. -/
@@ -341,6 +365,13 @@ EulerSystem.locSingularInf, EulerSystem.eval, EulerSystem.evalAt, EulerSystem.aT
 KolyvaginSystem.LambdaSelmerStructure, KolyvaginSystem.lambdaKSBar,
 KolyvaginSystem.bottomClass, KolyvaginSystem.specRep, KolyvaginSystem.specialize,
 KolyvaginSystem.perturb, KolyvaginSystem.indKS and KolyvaginSystem.IsLambdaPrimitive.
+FiniteSelmerDuality.traceComparison, FiniteSelmerDuality.pairing,
+FiniteSelmerDuality.orthogonal_propagate, FiniteSelmerDuality.selmer_change,
+FiniteSelmerDuality.coefficient_naturality, EulerSystems.ChiRayLocalData,
+KolyvaginSystems.MR16Hypotheses.frobeniusRefinement,
+KolyvaginSystems.MR16Hypotheses.detect, SharpConductorEvaluation,
+OrdinaryCoefficientPrime.local, OrdinaryCoefficientPrime.corrections and
+OrdinaryCoefficientPrime.change also have arithmetic carriers specified in the README.
 The arithmetic Iwasawa comparison of Layer 8, the coinduced Euler-system lift,
 and the higher-rank regulator also remain README targets. Their coefficient,
 local-duality and geometric carriers are supplied by the named
