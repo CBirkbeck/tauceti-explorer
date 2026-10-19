@@ -127,7 +127,7 @@
       "url": "https://mathweb.tifr.res.in/~eghate/Deligne.pdf",
       "read": "2026-10-19",
       "readSections": [
-        "§§0.2–0.4, PDF pp. 3–4; §1, pp. 6–8; §§2.3–2.8, pp. 10–12; §§3–5.3, pp. 13–18; §§6.3–6.7, pp. 20–21; §7.8, p. 25"
+        "§§0.2–0.4, PDF pp. 3–4; §1, pp. 6–8; §§2.3–2.8, pp. 10–12; §§3–5.3, pp. 13–18; §§6.3–6.7, pp. 20–22; §7.8, p. 25"
       ],
       "sha256": "08fbc56b42d829e3fc16067217001351962690921a7ffd20895b7ac1d9fac7f7"
     },
@@ -135,7 +135,7 @@
       "id": "HMS",
       "title": "On the relation between Nori motives and Kontsevich periods",
       "authors": "Annette Huber and Stefan Müller-Stach",
-      "edition": "arXiv:1105.0865v5 (2013)",
+      "edition": "arXiv:1105.0865v5 (21 May 2014)",
       "url": "https://arxiv.org/pdf/1105.0865v5",
       "read": "2026-10-19",
       "readSections": [
@@ -147,11 +147,11 @@
       "id": "BCGP",
       "title": "Abelian surfaces over totally real fields are potentially modular",
       "authors": "George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni",
-      "edition": "arXiv:1812.09269 downloaded 2026-10-19, published-format preprint; not independently collated with the publisher version",
-      "url": "https://arxiv.org/pdf/1812.09269",
+      "edition": "arXiv:1812.09269v3 (28 November 2021); not independently collated with the publisher version",
+      "url": "https://arxiv.org/pdf/1812.09269v3",
       "read": "2026-10-19",
       "readSections": [
-        "Conjecture 1.1.1, pp. 1–2; §2.8, pp. 35–38, especially (2.8.4)–(2.8.5), Conjecture 2.8.6 and Corollary 2.8.7",
+        "Conjecture 1.1.1, pp. 3–4; §2.8, pp. 35–38, especially (2.8.4)–(2.8.5), Conjecture 2.8.6 and Corollary 2.8.7",
         "§2.5 purity definition, p. 31; compatible-system coefficient closures visually checked on p. 35."
       ],
       "sha256": "7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed"
@@ -164,7 +164,7 @@
       "url": "https://numdam.org/article/SDPP_1969-1970__11_2_A4_0.pdf",
       "read": "2026-10-19",
       "readSections": [
-        "§§3.1–3.3 and §4.1, pp. 11–14; Conjecture C9, pp. 13–14"
+        "§§3.1–3.3, printed pp. 19-10–19-11 (PDF pp. 11–12); §4.1, printed pp. 19-11–19-13 (PDF pp. 12–14), especially (26)–(29), (5)–(7) and Conjecture C9."
       ],
       "sha256": "7ed71db99ff8cf5e24d2c45056048dadfc29ce4b2e3a387061ccfb7baa875754"
     },
@@ -196,11 +196,12 @@
       "id": "BV",
       "title": "On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory",
       "authors": "David Burns and Otmar Venjakob",
-      "edition": "Documenta Mathematica extra volume (2006), pp. 165–209; author final PDF has internal pages 1–45",
+      "edition": "Documenta Mathematica extra volume Coates (2006), pp. 165–209; author final with internal pages 1–45, independently collated with the published EMIS copy at the locators below",
       "url": "https://www.mathi.uni-heidelberg.de/~otmar/papervenjakob/bock-final.pdf",
       "read": "2026-10-19",
       "readSections": [
-        "§§4.2–4.3, internal pp. 19–21 (published pp. 183–185), Conjecture 4.1; §§5.1–5.3, internal pp. 21–27 (published pp. 185–191), hypotheses, Theorem 5.5 and Corollary 5.7"
+        "Author final §§4.2–4.3, internal pp. 19–21; §§5.1–5.3, internal pp. 21–27. Published §§4.2–4.3, pp. 186–188, especially (17)–(18) and Conjecture 4.1; §5 setup, p. 189; Theorem 5.5 p. 193, Remark 5.6/proof pp. 194–196, Corollary 5.7 p. 196.",
+        "Published Definition 2.5 pp. 170–171, Definition 3.7/Proposition 3.8 pp. 177–178, used to check the determinant domains against Conjecture 4.1 and Remark 5.6."
       ],
       "sha256": "3b59955e39bf8d432aab1a413b992e3ee31222b5cc9fe07a5ada3af1e294e84c"
     },
@@ -221,11 +222,11 @@
       "id": "LTXZZ",
       "title": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
       "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu",
-      "edition": "Inventiones Mathematicae 228 (2022), pp. 107–375; maintainer-cleared published NSF copy read in place",
-      "url": "https://doi.org/10.1007/s00222-021-01088-4",
+      "edition": "Inventiones Mathematicae 228 (2022), pp. 107–375; published NSF Public Access Repository copy, DOI 10.1007/s00222-021-01088-4",
+      "url": "https://par.nsf.gov/servlets/purl/10323568",
       "read": "2026-10-19",
       "readSections": [
-        "§1.1, Definitions 1.1.3–1.1.4, Theorems 1.1.5 and 1.1.9, pp. 109–113; downstream proof gates imported from PAPER-LIU-ETAL-22, not independently re-proved here"
+        "§1.1, Definition 1.1.3, Remark 1.1.4 and Theorems 1.1.5/1.1.9, pp. 109–113; strong coefficient field, Definition 3.2.5 p. 145; full admissibility, Definition 8.1.1 pp. 303–304; Conjecture 8.3.1 and Theorem 8.3.2 pp. 315–316. Downstream proof gates are imported from PAPER-LIU-ETAL-22, not independently re-proved here."
       ]
     },
     {
@@ -434,6 +435,16 @@
           "name": "period_class.at_embedding",
           "role": "projection",
           "statement": "Evaluation at σ descends to C×/σ(E×)."
+        },
+        {
+          "name": "period_class.one",
+          "role": "simp",
+          "statement": "The class of the constant tuple 1 is the multiplicative identity."
+        },
+        {
+          "name": "period_class.inverse",
+          "role": "compatibility",
+          "statement": "Dualizing the comparison line inverts its period class; multiplication by this class gives the identity."
         }
       ],
       "tests": [
@@ -475,14 +486,14 @@
       ],
       "title": "Deligne plus and minus periods",
       "kind": "construction",
-      "statement": "For a pure realization for which the middle Hodge summand H^{w/2,w/2}, if present, has scalar F∞, choose the filtration cuts F⁺,F⁻ of dimensions d⁺=dim_E B⁺ and d⁻=dim_E B⁻ as in Deligne §1.5. Put D^±=D/F^∓. Whenever the induced I^±:B^±⊗C→D^±⊗C are isomorphisms, define c^±(M)=det(I^±), as nonzero elements of their determinant lines and then period classes. Record δ(M)=det I separately. A rank-zero sign has determinant one.",
+      "statement": "For a pure realization for which the middle Hodge summand H^{w/2,w/2}, if present, has scalar F∞, choose the filtration cuts F⁺,F⁻ of dimensions d⁺=dim_E B⁺ and d⁻=dim_E B⁻ as in Deligne §1.7. Put D^±=D/F^∓. Whenever the induced I^±:B^±⊗C→D^±⊗C are isomorphisms, define c^±(M)=det(I^±), as nonzero elements of their determinant lines and then period classes. Record δ(M)=det I separately. A rank-zero sign has determinant one.",
       "hypotheses": [
         "The precise Hodge-filtration cuts exist with the stated dimensions and induced comparisons are isomorphisms; equal dimensions alone do not suffice.",
         "For a critical twist M(m), these conditions follow from the Hodge criterion, not from general analytic continuation."
       ],
       "proofSteps": [
         "Use real-infinity to form E-linear eigenspaces.",
-        "Apply the actual filtration quotient maps and check the Hodge criterion of Deligne §1.6.",
+        "Apply the actual filtration quotient maps and check the Hodge criterion of Deligne §1.7.",
         "Take determinants using the common grading convention and period-class construction."
       ],
       "prerequisites": [
@@ -571,7 +582,7 @@
       "kind": "application",
       "statement": "Choose the counterclockwise loop on Gm and the form dz/z. Integration on Q(−1)=H¹(Gm) is 2πi, so Deligne’s I has δ(Q(n))=(2πi)^n, F∞=(−1)^n and type (−n,−n). For an elliptic curve E/R with oriented integral cycles γ₁,γ₂ and an algebraic de Rham basis ω,η, write the integration matrix B=(∫γᵢωⱼ)_{i,j}; the column-coordinate comparison is β=Bᵗ and I=(Bᵗ)⁻¹. The all-components real Néron period is the number of components times the positive identity-component integral. Relating it to a primitive B⁺ cycle requires the integral index at 2, not only a rational eigenspace. In the concrete curve y²=x(1−x)(1−x/2), take ω=dx/(2y), η=xω. Let γ_a traverse [0,1] with y positive and return on the opposite sheet, and γ_b traverse [1,2] with y=−i√(x(x−1)(1−x/2)) and return on the other sheet. Put K=∫₀¹dt/√((1−t²)(1−t²/2)), J=∫₀¹t²dt/√((1−t²)(1−t²/2)), H=∫₁²x dx/(2√(x(x−1)(1−x/2))). Then the row-cycle integration matrix is B=[[2K,2J],[2iK,2iH]], with the positive-imaginary γ_b orientation and the complementary-modulus identity at 1/2. Its column comparison is (Bᵗ)⁻¹; equivalently if a=2K,b=2J,c=2iK,d=2iH, it is (ad−bc)⁻¹[[d,−c],[−b,a]]. No numerical approximation is used to assert this equality.",
       "hypotheses": [
-        "Elliptic uniformization, minimal invariant differential and actual integration supplied by the existing EllipticCurves and ComplexComparison roadmaps.",
+        "Import the algebraic elliptic curve and invariant differential from EllipticCurves, and the actual proper-curve de Rham/integration comparison from C5. EllipticCurves does not supply complex uniformization. For the explicit example, identify xω as a second-kind de Rham class and the displayed closed paths as the chosen homology basis; this geometric comparison is an explicit C5 contract.",
         "The basis matrix is nonsingular; orientation and form/cycle order fixed."
       ],
       "proofSteps": [
@@ -589,7 +600,8 @@
         "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
         "ComplexComparisonPartII:C5/multiplicative-period-interface",
         "ComplexComparisonPartII:C5/regular-singular-de-rham-comparison",
-        "ComplexComparisonPartII:C5/curve-residue-localization"
+        "ComplexComparisonPartII:C5/curve-residue-localization",
+        "ComplexComparisonPartII:C5"
       ],
       "sources": [
         {
@@ -723,7 +735,7 @@
       ],
       "title": "Archimedean factors and completion",
       "kind": "construction",
-      "statement": "For a pure Hodge realization over Q, use Γ_R(s)=π^(−s/2)Γ(s/2). A real conjugate pair (p,q),(q,p), p<q, contributes Γ_C(s−p)^{h^{p,q}}. A middle (p,p) block on which F∞=(−1)^{p+ε}, ε∈{0,1}, contributes Γ_R(s+ε−p) to its dimension. In Deligne convention Γ_C,D(s)=2(2π)^(−s)Γ(s); in BCGP convention Γ_C,B(s)=(2π)^(−s)Γ(s). At a complex place use the supplied Hodge factors for each (p,q) at the chosen embedding. Define Λ=L_fin·L_∞, with no conductor half-power absorbed. If b is the total number of complex gamma blocks counted with multiplicity, Λ_D=2^bΛ_B. Export this normalization map before transporting any value or epsilon factor.",
+      "statement": "For a pure Hodge realization over Q, use Γ_R(s)=π^(−s/2)Γ(s/2). A real conjugate pair (p,q),(q,p), p<q, contributes Γ_C(s−p)^{h^{p,q}}. A middle (p,p) block on which F∞=(−1)^{p+ε}, ε∈{0,1}, contributes Γ_R(s+ε−p) to its dimension. In Deligne convention Γ_C,D(s)=2(2π)^(−s)Γ(s); in BCGP convention Γ_C,B(s)=(2π)^(−s)Γ(s). At a complex place v, choose one embedding above v and use ∏_{p,q}Γ_C(s−min(p,q))^{h_v^{p,q}}, counting each ordered Hodge type at that embedding once; do not count its conjugate embedding again. Define Λ=L_fin·L_∞, with no conductor half-power absorbed. If b is the total number of complex gamma blocks counted with multiplicity, Λ_D=2^bΛ_B. Export this normalization map before transporting any value or epsilon factor.",
       "hypotheses": [
         "Actual Hodge data and infinity action from PS.0; complex-place factors obey the chosen field restriction convention.",
         "Gamma poles and continuations are the analytic functions, not values of Mathlib’s totalized Gamma at poles."
@@ -752,14 +764,15 @@
         },
         {
           "sourceId": "Serre",
-          "locator": "§§3.1–3.3, pp. 11–12",
+          "locator": "§§3.1–3.3, printed pp. 19-10–19-11 (PDF pp. 11–12)",
           "match": "Archimedean factors attached to real and complex Hodge structures."
         }
       ],
       "acceptance": [
         "For Q(0), L_∞=Γ_R(s), with a pole at s=0.",
         "For H¹ of an abelian surface over totally real F, BCGP has Γ_C,B(s)^2 per real place and Λ_D/Λ_B=2^(2[F:Q]).",
-        "A (0,0) block with F∞=−1 has Γ_R(s+1), not Γ_R(s)."
+        "A (0,0) block with F∞=−1 has Γ_R(s+1), not Γ_R(s).",
+        "At one complex place, Hodge types (0,1) and (1,0), each of multiplicity one, contribute Γ_C(s)^2; using a single real-pair block loses a factor."
       ],
       "implementationStatus": "unchecked",
       "api": [
@@ -804,6 +817,11 @@
           "name": "archimedean_completion.diagonal_sign",
           "kind": "characterisation",
           "statement": "A (0,0) block with F∞=−1 has Γ_R(s+1), not Γ_R(s)."
+        },
+        {
+          "name": "archimedean_completion.complex_place",
+          "kind": "computation",
+          "statement": "At one complex place, Hodge types (0,1) and (1,0), each of multiplicity one, contribute Γ_C(s)^2; using a single real-pair block loses a factor."
         }
       ],
       "uses": [
@@ -922,7 +940,7 @@
       ],
       "title": "Deligne normalized-value predicate",
       "kind": "definition",
-      "statement": "For a critical m, a supplied meromorphic continuation regular at m, and simultaneous coefficient-embedding values L_fin^*(M,m)∈E⊗C, let DeligneAlgebraic(M,m) mean L_fin^*(M,m)/c⁺(M(m)) lies in the diagonal image of E. Its nonzero refinement requires this ratio in E×. Use the finite value, the plus period of the twisted motive and its induced sign, not Λ(M,m). The predicate includes that a single coefficient element realizes all embedding components; it is invariant under E-basis changes. General Deligne algebraicity and any nonvanishing assertion are separate conjectural assumptions.",
+      "statement": "For a critical m, a supplied meromorphic continuation regular at m, and simultaneous coefficient-embedding values L_fin^*(M,m)∈E⊗C, where the star here denotes the tuple of ordinary finite values, allowing zero, rather than a nonzero leading coefficient, let DeligneAlgebraic(M,m) mean L_fin^*(M,m)/c⁺(M(m)) lies in the diagonal image of E. Its nonzero refinement requires this ratio in E×. Use the finite value, the plus period of the twisted motive and its induced sign, not Λ(M,m). The predicate includes that a single coefficient element realizes all embedding components; it is invariant under E-basis changes. General Deligne algebraicity and any nonvanishing assertion are separate conjectural assumptions.",
       "hypotheses": [
         "All realizations and periods are from PS.0; analytic continuation and regularity are supplied or separately assumed.",
         "Periods are nonzero; a chosen representative is recorded for exact scalar formulas."
@@ -1038,7 +1056,7 @@
       "sources": [
         {
           "sourceId": "Deligne",
-          "locator": "§3.1–3.2, pp. 13–14; §§6.3–6.7, pp. 20–21 (English translation PDF pages)",
+          "locator": "§3.1–3.2, pp. 13–14; §§6.3–6.7, pp. 20–22 (English translation PDF pages)",
           "match": "Tate powers and Artin period/Gauss normalization; analytic identities are imported from their owners."
         }
       ],
@@ -1216,12 +1234,12 @@
       "sources": [
         {
           "sourceId": "BCGP",
-          "locator": "§2.8, pp. 36–38, Conjecture 2.8.6 and Corollary 2.8.7; Conjecture 1.1.1, pp. 1–2",
+          "locator": "§2.8, pp. 36–38, Conjecture 2.8.6 and Corollary 2.8.7; Conjecture 1.1.1, pp. 3–4",
           "match": "Abelian Hasse–Weil functions and the general smooth-projective conjectural statement."
         },
         {
           "sourceId": "Serre",
-          "locator": "§4.1, Conjecture C9, pp. 13–14",
+          "locator": "§4.1, (26)–(29), (5)–(7) and Conjecture C9, printed pp. 19-12–19-13 (PDF pp. 13–14)",
           "match": "Cohomological continuation and functional-equation conjecture."
         }
       ],
@@ -1364,6 +1382,11 @@
           "name": "integration_evaluation.unique_extension",
           "role": "universal-property",
           "statement": "Any Q-algebra map agreeing with per_eff and inverting L equals per."
+        },
+        {
+          "name": "integration_evaluation.linear",
+          "role": "simp",
+          "statement": "For a,b∈Q and localized periods x,y, per(ax+by)=a per(x)+b per(y); in particular per(0)=0 and per(1)=1."
         }
       ],
       "tests": [
@@ -1503,7 +1526,7 @@
         },
         {
           "sourceId": "BV",
-          "locator": "§4.3, internal p. 20 (published p. 184)",
+          "locator": "§4.3, author final internal p. 20; published p. 187, definition of Δ and (17)",
           "match": "The opposite fundamental-line orientation Δ."
         }
       ],
@@ -1839,7 +1862,7 @@
         },
         {
           "sourceId": "BV",
-          "locator": "§4.3, internal p. 20 (published p. 184), (14)",
+          "locator": "§4.3, author final internal p. 20, (14); published p. 187, (18)",
           "match": "The inverse-line p-adic period–regulator comparison."
         }
       ],
@@ -1934,7 +1957,7 @@
       "sources": [
         {
           "sourceId": "BF",
-          "locator": "§3.3, Lemma 5, pp. 526–528; §3.2, (24), pp. 521–522",
+          "locator": "§3.4, Lemma 5 and its proof, pp. 526–528; §3.2, (24), pp. 521–522",
           "match": "Lattice invariance and the distinction between the termwise and acyclic trivializations."
         }
       ],
@@ -2035,7 +2058,8 @@
       "statement": "Let A be a finite-dimensional semisimple Q-algebra and O⊂A an order with a projective O-structure on M. Under BF finiteness, real exactness and coherence, form RΩ(M,O)=[Ξ_O(M),θ_∞] in K₀(O,R), in its locally free class subgroup Cl(O,R). Use the extended boundary δ̂:ζ(A_R)×→Cl(O,R) of BF Lemma 9: a rational central multiplier λ makes λx a reduced norm, and the resulting correction is independent of λ. With L* in the real center define TΩ(M,O)=δ̂(L*)+RΩ(M,O). The ordinary noncommutative K₁/reduced-norm/SK₁ data are imported; scalar units alone do not define the equivariant obstruction.",
       "hypotheses": [
         "The selected order’s projective structures and global coherence, or an explicitly substituted local formulation of BF Conjecture 5/6.",
-        "L* has nonzero components and the reality condition needed for ζ(A_R)×; the extended boundary is the actual supplied relative-K map."
+        "L* has nonzero components and the reality condition needed for ζ(A_R)×; the extended boundary is the actual supplied relative-K map.",
+        "For the actual finite semisimple Q-algebra A, supply the reduced norm on K₁, its real quaternion positivity constraints and the rational norm/sign theorem used by BF Lemma 9. The dimension-one Iwasawa quotient theorem in NE.3 does not establish this coefficient-algebra contract."
       ],
       "proofSteps": [
         "Import the relative K-group and integral fundamental object, then pair it with θ_∞.",
@@ -2046,7 +2070,7 @@
         "PeriodsAndSpecialValues:PS.4/integral-fundamental-line",
         "PeriodsAndSpecialValues:PS.3/leading-term-line",
         "GeneralAlgebraicKTheory:KU-fundamental",
-        "NoncommutativeAndEquivariantIwasawa:NE.3/reduced-norm-sk1-comparison"
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/azumaya-determinant"
       ],
       "sources": [
         {
@@ -2218,33 +2242,36 @@
       ],
       "title": "Zeta-isomorphism orientation adapter",
       "kind": "comparison",
-      "statement": "Import the FK zeta-isomorphism conjecture from NE.7, not a second definition: ζ_Λ(T):1_Λ→d_ΛRΓ_c(U,T)⁻¹, with T=Λ⊗Z_p T_p and g(x⊗y)=x ḡ⁻¹⊗g(y). Under specialization by a motivic representation ρ, use the dual twist M(ρ*) and the supplied generalized base change. With Δ=Ξ⁻¹, ζ_E:1→Δ has θ_∞,FK(ζ_E)=L*, while θ_λ identifies Δ_λ with dRΓ_c(V)⁻¹. Prove that these identifications yield the BF vanishing equation with its chosen sign. Local epsilon isomorphisms and duality are additional imported conjectural/theorem data, not consequences of the bare existence of a scalar L-value.",
+      "statement": "Import the FK zeta-isomorphism conjecture from NE.7, not a second definition: ζ_Λ(T):1_Λ→d_ΛRΓ_c(U,T)⁻¹, with T=Λ⊗Z_p T_p and g(x⊗y)=x ḡ⁻¹⊗g(y). Under specialization by a motivic representation ρ, use the dual twist M(ρ*) and the supplied generalized base change. With Δ=Ξ⁻¹, ζ_E:1→Δ has θ_∞,FK(ζ_E)=L*, while θ_λ identifies Δ_λ with dRΓ_c(V)⁻¹. Prove that these identifications yield the BF vanishing equation with its chosen sign. Local epsilon isomorphisms and duality are additional imported conjectural/theorem data, not consequences of the bare existence of a scalar L-value. This finite-level determinant comparison does not by itself define the BV normalized Iwasawa leading term: its pair [C,a] requires a:1→d(C), whereas the displayed global ζ has target d(C)⁻¹. A supplied shifted/dual complex comparison must resolve this domain mismatch before any BV interpolation identity is used; simply inverting ζ changes its normalization.",
       "hypotheses": [
         "p odd in the BV/NE formulation; all NE.7 arithmetic perfectness and base-change hypotheses.",
-        "The original Fukaya–Kato proof text was not acquired; this target uses the precise BV restatement and the existing NE supplier, with a collation gap."
+        "The original Fukaya–Kato proof text was not acquired; this target uses the precise BV restatement and the existing NE supplier, with a collation gap.",
+        "The NE.7 review leaves the normalized global leading-term comparison unresolved. Require its explicit shifted/dual complex, correctly typed ζ and Bockstein trivialization, with recomputed r_G, relative boundary and c_γ factor; existence of the inverse-line FK map alone is insufficient."
       ],
       "proofSteps": [
         "Match each factor of Δ with the inverse BF object, then match the real and p-adic trivializations.",
         "Check the diagonal Galois action and the appearance of ρ*, rather than ρ.",
-        "Apply the supplier’s determinant/zeta-to-relative-boundary comparison and retain the local epsilon/duality normalization."
+        "For the finite-level BF comparison use the actual real and p-adic determinant identifications. For normalized Iwasawa interpolation first discharge the separately requested NE.7 orientation comparison, then retain its local epsilon/duality normalization."
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.5/etnc-predicate",
         "PeriodsAndSpecialValues:PS.3/rational-fundamental-line",
         "NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism",
-        "NoncommutativeAndEquivariantIwasawa:NE.7/local-epsilon-isomorphism"
+        "NoncommutativeAndEquivariantIwasawa:NE.7/local-epsilon-isomorphism",
+        "NoncommutativeAndEquivariantIwasawa:NE.7"
       ],
       "sources": [
         {
           "sourceId": "BV",
-          "locator": "§4.3, Conjecture 4.1, internal pp. 20–21 (published pp. 184–185)",
-          "match": "The inverse fundamental line, dual specialization and leading-term normalization."
+          "locator": "§4.3, author final Conjecture 4.1, internal pp. 20–21; published (17)–(18) p. 187 and Conjecture 4.1 p. 188. Leading-term domain check: published Definition 2.5 pp. 170–171, Definition 3.7 p. 177, Remark 5.6/proof pp. 194–195",
+          "match": "The inverse fundamental line, dual specialization and finite-level normalization; normalized Iwasawa leading terms require the separate orientation comparison recorded in E5."
         }
       ],
       "acceptance": [
         "The zeta target is dRΓ_c⁻¹, not dRΓ_c.",
         "Specialization produces M(ρ*), and the Galois action contains ḡ⁻¹.",
-        "The commutative comparison recovers δ̂(L*)+RΩ=0 in BF orientation."
+        "The commutative comparison recovers δ̂(L*)+RΩ=0 in BF orientation.",
+        "The unshifted BV pair [RΓ_c,ζ] is rejected when ζ has inverse-determinant target; no untyped composition or automatic inversion supplies a normalized leading term."
       ],
       "implementationStatus": "unchecked"
     },
@@ -2256,15 +2283,17 @@
       ],
       "title": "Scoped Tate, Artin and abelian adapters",
       "kind": "comparison",
-      "statement": "For any supplied proved ETNC case, transport the full relative class through BF Theorems 3.1 and 4.1 (coefficient extension, restriction and Morita equivalence), recording motive, order, localization and reduced-norm ambiguity. The abelian Tate test family is L/Q finite abelian, K⊂L and r≤0 with pair (h⁰(Spec L)(r), Z[1/2][Gal(L/K)]); its proof is requested from the integral-Iwasawa owner with the original Burns–Greither theorem and all descent hypotheses, rather than inferred from Dirichlet algebraicity. For BV Theorem 5.5 use the exact NE.7 Tate interpolation contract including the p-adic Stark assumption and existence of ζ; it is a conditional comparison. For Corollary 5.7 retain the supplier’s Q-valued-character restriction, Leopoldt and the exponent n_ρ; permutation characters have n_ρ=1. No arbitrary Artin, dyadic or noncommutative ETNC theorem is deduced.",
+      "statement": "For any supplied proved ETNC case, transport the full relative class through BF Theorems 3.1 and 4.1 (coefficient extension, restriction and Morita equivalence), recording motive, order, localization and reduced-norm ambiguity. The abelian Tate test family is L/Q finite abelian, K⊂L and r≤0 with pair (h⁰(Spec L)(r), Z[1/2][Gal(L/K)]); its proof is requested from the integral-Iwasawa owner with the original Burns–Greither theorem and all descent hypotheses, rather than inferred from Dirichlet algebraicity. For BV Theorem 5.5 use the exact NE.7 Tate interpolation contract including p odd, the totally real p-adic Lie extension, the finite Galois field E/Q, the global and local cyclotomic-disjointness conditions, the p-adic Stark assumption, and existence of ζ; it is a conditional comparison. For Corollary 5.7 retain the supplier’s Q-valued-character restriction, Leopoldt and the exponent n_ρ; permutation characters have n_ρ=1. No arbitrary Artin, dyadic or noncommutative ETNC theorem is deduced. Both BV interpolation targets additionally require the reviewed shifted/dual determinant comparison from the preceding node. Their normalized formulas are not available theorem imports while that supplier gap remains. The sufficient condition that a character is permutation must not be replaced by the false converse that every integral combination of permutation characters is permutation.",
       "hypotheses": [
         "Each arithmetic theorem is imported with its exact statement/proof gate; BF Remark 10 alone is a bibliographic lead for the Burns–Greither case.",
-        "An annihilator or Fitting-ideal theorem does not supply a relative determinant equality without the integral-Iwasawa comparison."
+        "An annihilator or Fitting-ideal theorem does not supply a relative determinant equality without the integral-Iwasawa comparison.",
+        "BF restriction functoriality requires the specified projectivity over the smaller coefficient algebra/order; Morita transport carries its actual bimodule equivalence. No unrestricted restriction map is asserted.",
+        "A p-adic regulator is used as an isomorphism only with its nonzero-regulator/Leopoldt premise. The Q-valued restriction in the published Corollary 5.7 corrects the author final; it does not resolve the determinant-domain gap."
       ],
       "proofSteps": [
         "Import the exact Tate/abelian theorem and compare its determinant orientation/order/localization.",
         "Use BF functoriality to transport its class, retaining any kernel of the map.",
-        "For the NE Tate interpolation cases apply only the supplier’s actual hypotheses, without treating conjectural zeta or Stark inputs as established."
+        "For NE Tate interpolation require both the full arithmetic hypotheses and an explicit witness resolving its determinant-domain gap; only then apply the conditional normalized identity."
       ],
       "prerequisites": [
         "PeriodsAndSpecialValues:PS.5/zeta-orientation-adapter",
@@ -2275,19 +2304,20 @@
       "sources": [
         {
           "sourceId": "BF",
-          "locator": "Theorems 3.1/4.1, pp. 529–533 and 538–541; Remark 10, p. 537",
+          "locator": "Theorem 3.1, p. 531, and Theorem 4.1, p. 539 (proofs pp. 531–533 and 539–541); Remark 10, p. 537",
           "match": "Functoriality and the exact known abelian Tate range; the original arithmetic proof is an explicit supplier obligation."
         },
         {
           "sourceId": "BV",
-          "locator": "Theorem 5.5 and Corollary 5.7, internal pp. 25–27 (published pp. 189–191)",
+          "locator": "Author final Theorem 5.5/Remark 5.6, internal pp. 25–26, Corollary 5.7 p. 27; published Theorem 5.5 p. 193, Remark 5.6/proof pp. 194–196, corrected Corollary 5.7 p. 196",
           "match": "Conditional interpolation and its character/exponent qualifications."
         }
       ],
       "acceptance": [
         "For r=0 in the abelian Tate family retain Z[1/2][G], without claiming the omitted dyadic component.",
         "For a permutation character the exponent is 1; a general rational character may only give an n_ρ-th-power identity.",
-        "An SK₁ ambiguity cannot be removed just by comparing scalar Artin evaluations."
+        "An SK₁ ambiguity cannot be removed just by comparing scalar Artin evaluations.",
+        "The sign character of C₂ is the difference of two permutation characters but is not itself permutation; n_ρ=1 in an integer-combination formula does not characterize permutation characters."
       ],
       "implementationStatus": "unchecked"
     },
@@ -2747,7 +2777,7 @@
         {
           "name": "rankin_bbk_prediction.class_gate",
           "role": "relation",
-          "statement": "Δ_λ≠0 is a separate supplied assertion; converting it to L′≠0 requires the stated height and injectivity conjectures."
+          "statement": "A nonzero Δ_λ is separate from L′≠0. The route from derivative to a usable nonzero Abel–Jacobi class needs Conjecture 8.3.1, injectivity and the theorem’s actual geometric-level conditions; no converse is supplied."
         }
       ],
       "tests": [
@@ -2789,10 +2819,11 @@
       ],
       "title": "Rankin rank-zero and rank-one import gates",
       "kind": "comparison",
-      "statement": "For the preceding Π₀,Π₁ with F⁺≠Q and λ admissible in the full LTXZZ Definition 8.1.1 sense (all L1–L7, not merely λ∤conductor), the published statements are: Theorem 1.1.5/8.2.2, nonzero central value gives H_f¹(F,V_λ)=0; Theorem 1.1.9/8.3.2, Δ_λ≠0 gives dim H_f¹=1. Import either as an unconditional theorem only after the arithmetic level-raising/Euler-system owner resolves its recorded proof gates. PAPER-LIU-ETAL-22 records unresolved issues in these routes, so the present plan uses them only through an explicit supplier witness. Upgrading the rank-one class premise to L′≠0 additionally requires the height formula of Conjecture 8.3.1 and Beilinson Abel–Jacobi injectivity. No all-λ, all-prime or integral equality follows.",
+      "statement": "For the preceding Π₀,Π₁ with F⁺≠Q and λ admissible in the full LTXZZ Definition 8.1.1 sense (all L1–L7, not merely λ∤conductor), the published statements are: Theorem 1.1.5/8.2.2, nonzero central value gives H_f¹(F,V_λ)=0; Theorem 1.1.9/8.3.2, Δ_λ≠0 gives dim H_f¹=1. Import either as an unconditional theorem only after the arithmetic level-raising/Euler-system owner resolves its recorded proof gates. PAPER-LIU-ETAL-22 records unresolved issues in these routes, so the present plan uses them only through an explicit supplier witness. To deduce the rank-one conclusion from L′≠0, first use the cycle-nonvanishing prediction of Conjecture 8.3.1 and a separately supplied Abel–Jacobi injectivity statement to obtain a nonzero class satisfying the theorem’s geometric level and transferability conditions. No converse from a nonzero class to L′≠0 is asserted. No all-λ, all-prime or integral equality follows.",
       "hypotheses": [
         "The supplying Part II of SelmerIwasawaCohomology, routed as ArithmeticLevelRaisingAndBipartiteEulerSystems, must provide the actual class construction and reviewed proof-route contracts.",
-        "The n=2/F⁺=Q relaxation in Remark 1.1.10 has its own proof route and is not inferred from the displayed F⁺≠Q statements."
+        "The n=2/F⁺=Q relaxation in Remark 1.1.10 has its own proof route and is not inferred from the displayed F⁺≠Q statements.",
+        "For the detailed Theorem 8.3.2 route retain Hypothesis 3.2.10 for n and n+1, the standard indefinite hermitian data and levels, and transferability at the specified bad places; F⁺≠Q permits the introductory theorem route, not omission of these geometric class contracts."
       ],
       "proofSteps": [
         "Match the full admissibility predicate and the precise Π/Galois normalization.",
@@ -2806,7 +2837,7 @@
       "sources": [
         {
           "sourceId": "LTXZZ",
-          "locator": "Theorems 1.1.5 and 1.1.9; Remark 1.1.10, published pp. 111–113",
+          "locator": "Theorems 1.1.5 and 1.1.9, Remark 1.1.10, pp. 111–113; Definition 3.2.5 p. 145; Definition 8.1.1 pp. 303–304; Conjecture 8.3.1 and Theorem 8.3.2 pp. 315–316",
           "match": "Exact ranks, coefficient-prime scope and the distinct derivative-versus-cycle premise."
         }
       ],
@@ -3212,7 +3243,7 @@
     },
     {
       "supplier": "GeneralAlgebraicKTheory:KU-fundamental",
-      "need": "Relative K₀(O,A_R), its triple presentation, K₁ boundary, scalar-extension/restriction maps and exact sequence for projective order-structures, through the native K.3–K.5 owners aggregated at this checkpoint. No generic determinant functor is requested here.",
+      "need": "Relative K₀(O,A_R), its triple presentation, K₁ boundary, scalar-extension/restriction maps and exact sequence for projective order-structures, through the native K.3–K.5 owners aggregated at this checkpoint. No generic determinant functor is requested here. For the finite-dimensional semisimple Q-algebra A used here, also supply the passage from component Azumaya reduced norms to K₁(A) and K₁(A_R), compatibility of their relative boundaries, and the sign-corrected δ̂ of BF Lemma 9 with multiplier independence. The rational norm-image/real-positivity theorem is a separate arithmetic prerequisite to this construction, not a consequence of the Iwasawa dimension-one quotient interface.",
       "neededBy": [
         "PeriodsAndSpecialValues:PS.5/equivariant-obstruction"
       ]
@@ -3235,9 +3266,10 @@
     },
     {
       "supplier": "ComplexComparisonPartII:C5",
-      "need": "Extend the proper smooth and curve comparison interfaces to the relative algebraic pairs used by MC.6 formal symbols, with naturality for pair morphisms, connecting maps/Stokes and relative products, and equality with integration. Existing proper and regular-singular curve nodes alone do not supply general singular pairs.",
+      "need": "Extend the proper smooth and curve comparison interfaces to the relative algebraic pairs used by MC.6 formal symbols, with naturality for pair morphisms, connecting maps/Stokes and relative products, and equality with integration. Existing proper and regular-singular curve nodes alone do not supply general singular pairs. For PS.0’s explicit elliptic matrix also identify the regular form ω and second-kind form xω in proper-curve de Rham cohomology, the two displayed closed paths in singular homology, and the comparison entries as their integrals. No complex-uniformization theorem is imported from EllipticCurves.",
       "neededBy": [
-        "PeriodsAndSpecialValues:PS.2/integration-evaluation"
+        "PeriodsAndSpecialValues:PS.2/integration-evaluation",
+        "PeriodsAndSpecialValues:PS.0/tate-elliptic-normalizations"
       ]
     },
     {
@@ -3275,6 +3307,49 @@
       "neededBy": [
         "PeriodsAndSpecialValues:PS.6/rankin-bbk-prediction"
       ]
+    },
+    {
+      "supplier": "NoncommutativeAndEquivariantIwasawa:NE.7",
+      "need": "Resolve the reviewed BV global determinant-domain gap for Tate interpolation: specify the shifted/dual perfect complex C′, an actual comparison d(C′)≅d(RΓ_c)⁻¹, the map a:1→d(C′), its Bockstein trivialization and compatibility with ζ. Recompute r_G, relative boundary and the c_γ factor and prove the normalized Theorem 5.5/Corollary 5.7 statements with all arithmetic hypotheses. Neither inversion of ζ alone nor its existence supplies this witness. Retain nonzero-regulator hypotheses and the published Q-valued-character correction.",
+      "neededBy": [
+        "PeriodsAndSpecialValues:PS.5/zeta-orientation-adapter",
+        "PeriodsAndSpecialValues:PS.5/proved-case-adapters"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "need": "Consume the existing invariant differential, functorial pullback and equation-level normalization from this layer; the proper-curve integration/path comparison is requested separately from C5. No new upstream target is requested.",
+      "neededBy": [
+        "PeriodsAndSpecialValues:PS.0/tate-elliptic-normalizations"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "need": "Consume the existing Tate module, Weil pairing and duality identification for the elliptic H¹(1) realization. No new upstream target is requested.",
+      "neededBy": [
+        "PeriodsAndSpecialValues:PS.6/elliptic-fundamental-adapter"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "Consume the existing point-level reduction, component group and local Tamagawa number for the chosen minimal differential/model. No generic local L-function or new upstream target is requested.",
+      "neededBy": [
+        "PeriodsAndSpecialValues:PS.4/local-correction-adapter"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "need": "Consume the existing canonical-height pairing, its nondegeneracy assumptions and Mordell–Weil regulator, with the index-squared basis law. No new upstream target is requested.",
+      "neededBy": [
+        "PeriodsAndSpecialValues:PS.6/elliptic-fundamental-adapter"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "need": "Consume the existing elliptic Selmer/Sha carriers and conditional arithmetic BSD quotient over Q with its full real-period convention. Its general number-field or complex-uniformization extension is not assumed.",
+      "neededBy": [
+        "PeriodsAndSpecialValues:PS.6/elliptic-fundamental-adapter"
+      ]
     }
   ],
   "gaps": [
@@ -3290,9 +3365,10 @@
       "title": "Relative-pair integration comparison",
       "neededBy": [
         "PeriodsAndSpecialValues:PS.2/integration-evaluation",
-        "PeriodsAndSpecialValues:PS.2/torsor-integration-comparison"
+        "PeriodsAndSpecialValues:PS.2/torsor-integration-comparison",
+        "PeriodsAndSpecialValues:PS.0/tate-elliptic-normalizations"
       ],
-      "detail": "C5’s present proper smooth and curve contracts do not cover every singular algebraic pair in the MC.6 presentation. Its requested relative/Stokes/product comparison is an explicit prerequisite before descent of the actual integral evaluation can be completed."
+      "detail": "C5’s present proper smooth and curve contracts do not cover every singular algebraic pair in the MC.6 presentation. Its requested relative/Stokes/product comparison is an explicit prerequisite before descent of the actual integral evaluation can be completed. The explicit elliptic example additionally needs the second-kind de Rham classes and homology-path identification under this integration comparison; its elementary integral substitutions do not replace that geometric input."
     },
     {
       "title": "Integral real dyadic determinant",
@@ -3308,7 +3384,7 @@
         "PeriodsAndSpecialValues:PS.5/zeta-orientation-adapter",
         "PeriodsAndSpecialValues:PS.5/proved-case-adapters"
       ],
-      "detail": "The original Fukaya–Kato formulation was not acquired; the orientation uses BV §4.3 and the reviewed NE.7 interface. Original Burns–Greither proof and exact theorem locator for the BF Remark 10 abelian Tate family remain an I.7 supplier obligation; this pass does not count that family as a proved ETNC import. BV Theorem 5.5 remains conditional and the corrected NE.7 Corollary 5.7 scope is retained."
+      "detail": "The original Fukaya–Kato formulation was not acquired; the inverse-line convention is checked against both BV versions. NE.7 is reviewed needs_changes: its normalized Tate leading terms require a typed shifted/dual determinant comparison and recomputation of r_G, boundary and c_γ before use (E5). Original Burns–Greither proof and exact theorem locator for the BF Remark 10 abelian Tate family remain an I.7 obligation; this pass does not count that family as a proved ETNC import. BV Theorem 5.5 and published Corollary 5.7 remain conditional targets with their full hypotheses and orientation gate."
     },
     {
       "title": "Rankin proof-route and derivative comparison gates",
@@ -3324,6 +3400,13 @@
         "PeriodsAndSpecialValues:PS.1/deligne-algebraicity"
       ],
       "detail": "The English translation revised 2018 was read; the original IAS file refused download. Collate original Proposition–Definition 2.3(ii), and the critical-period locators, before attributing E2 to the published French article. The corrected simultaneous dual regularity agrees with Definition 1.3 and the unit-motive test in the translation itself."
+    },
+    {
+      "title": "Finite semisimple coefficient norm and sign comparison",
+      "neededBy": [
+        "PeriodsAndSpecialValues:PS.5/equivariant-obstruction"
+      ],
+      "detail": "IHG.0 supplies the Azumaya reduced-norm law. Its passage to the finite semisimple K₁/boundary maps and the rational norm-image theorem with real quaternion sign constraints needed by BF Lemma 9 must be supplied before the extended boundary is implemented. NE.3 currently concerns dimension-one Iwasawa quotient algebras and cannot replace this contract. The KU-fundamental request records the needed comparison; the generic arithmetic norm theorem needs routing to the central-simple-algebra direction."
     }
   ],
   "coverage": [
@@ -3366,7 +3449,8 @@
       "stageId": "PeriodsAndSpecialValues:PS.5",
       "status": "planned",
       "remaining": [
-        "Acquire original FK/Burns–Greither locators and reviewed theorem-scope witnesses; discharge relative K-group/order-structure contracts. General ETNC remains a predicate."
+        "Acquire original FK/Burns–Greither locators and reviewed theorem-scope witnesses; discharge relative K-group/order-structure contracts. General ETNC remains a predicate.",
+        "Discharge the NE.7 shifted/dual determinant and normalized interpolation comparison, and the finite semisimple reduced-norm/sign contract; do not import the unresolved BV leading terms as proved formulas."
       ]
     },
     {
@@ -3403,6 +3487,16 @@
       ],
       "detail": "LTXZZ was routed to a Part II named ArithmeticLevelRaisingAndBipartiteEulerSystems, whose atlas stage ids are not registered here.",
       "proposal": "Register the routed Part II and retarget the present L4 request to its admissibility, diagonal-class and rank-zero/one theorem nodes. PS.6 keeps only the common BBK prediction and source-qualified special-value adapters; level-raising and Euler-system proofs stay in that Part II."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "PeriodsAndSpecialValues",
+        "GeneralAlgebraicKTheory",
+        "IntegralHeckeAndGaloisDeterminants"
+      ],
+      "detail": "The NE.3 dimension-one quotient reduced-norm interface does not supply the finite semisimple rational coefficient sign theorem of BF Lemma 9.",
+      "proposal": "Reuse IHG.0 Azumaya reduced norms and KU relative K-groups. Route the missing rational norm-image/real-positivity theorem to the generic central-simple-algebra direction (the current upstream boundary names AlgebrasWithInvolution); attach its actual theorem node to the KU boundary comparison when that owner is registered. PS keeps only the arithmetic obstruction adapter."
     }
   ],
   "sourceVersions": [
@@ -3418,15 +3512,15 @@
       "sourceId": "HMS",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1105.0865v5",
-      "citation": "arXiv:1105.0865v5 (2013)",
+      "citation": "arXiv:1105.0865v5 (21 May 2014)",
       "read": "2026-10-19",
       "sha256": "e55d85bf168c4eedb79949c37d648ea5c071af50d18a2c7ccc316d460e96c563"
     },
     {
       "sourceId": "BCGP",
       "kind": "preprint",
-      "url": "https://arxiv.org/pdf/1812.09269",
-      "citation": "arXiv:1812.09269 downloaded 2026-10-19, published-format preprint; not independently collated with the publisher version",
+      "url": "https://arxiv.org/pdf/1812.09269v3",
+      "citation": "arXiv:1812.09269v3 (28 November 2021); not independently collated with the publisher version",
       "read": "2026-10-19",
       "sha256": "7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed"
     },
@@ -3458,7 +3552,7 @@
       "sourceId": "BV",
       "kind": "author copy",
       "url": "https://www.mathi.uni-heidelberg.de/~otmar/papervenjakob/bock-final.pdf",
-      "citation": "Documenta Mathematica extra volume (2006), pp. 165–209; author final PDF has internal pages 1–45",
+      "citation": "Documenta Mathematica extra volume Coates (2006), pp. 165–209; author final with internal pages 1–45, independently collated with the published EMIS copy at the locators below",
       "read": "2026-10-19",
       "sha256": "3b59955e39bf8d432aab1a413b992e3ee31222b5cc9fe07a5ada3af1e294e84c"
     },
@@ -3473,8 +3567,8 @@
     {
       "sourceId": "LTXZZ",
       "kind": "published",
-      "url": "https://doi.org/10.1007/s00222-021-01088-4",
-      "citation": "Inventiones Mathematicae 228 (2022), pp. 107–375; maintainer-cleared published NSF copy read in place",
+      "url": "https://par.nsf.gov/servlets/purl/10323568",
+      "citation": "Inventiones Mathematicae 228 (2022), pp. 107–375; published NSF Public Access Repository copy, DOI 10.1007/s00222-021-01088-4",
       "read": "2026-10-19"
     },
     {
@@ -3484,6 +3578,14 @@
       "citation": "arXiv:1802.07942v1 (2018)",
       "read": "2026-10-19",
       "sha256": "64abe78ce44e513bacf764e205f5f4eb728e6c6a0c79dc1a114b2cbfb44aae78"
+    },
+    {
+      "sourceId": "BV",
+      "kind": "published",
+      "url": "https://ftp.gwdg.de/pub/misc/EMIS/journals/DMJDMV/vol-coates/burns_venjakob.pdf",
+      "citation": "Documenta Mathematica extra volume Coates (2006), pp. 165–209; published text collated separately from the author final.",
+      "read": "2026-10-19",
+      "sha256": "2da5c1f39c60fe84aed79ad02a69d8ae81ba77013462763ef744d68dd56413ce"
     }
   ],
   "sourceIssues": [
@@ -3500,7 +3602,12 @@
       "searched": [
         "Existing PAPER-BOXER-CALEGARI-GEE-PILLONI-21 extraction and errata record",
         "arXiv:1812.09269 version opened 2026-10-19; publisher version not independently collated"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PeriodsAndSpecialValues--PS.0",
+        "reason": "Read the v3 display after (2.8.5), p. 37: the sign uses s. The elliptic point-count identity instead requires cohomological degree i; the finding remains scoped to the checked preprint."
+      }
     },
     {
       "id": "PeriodsAndSpecialValues/E2",
@@ -3516,7 +3623,112 @@
         "Translator’s mathematics page and revised-2018 translation link, accessed 2026-10-19; no identified correction of this sign",
         "IAS Deligne publication listing/original Valeurs de file attempted; download refused, so no assertion about the published French wording",
         "Definition 1.3 and the Tate critical-value examples within the translation"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-PeriodsAndSpecialValues--PS.0",
+        "reason": "Read translation Proposition–Definition 2.3(ii), PDF p. 10, and Definition 1.3. At n=−1 the unit-motive dual factor must be Γ_R(2); the printed positive argument gives Γ_R(0). This confirms the sign error only in this translation."
+      }
+    },
+    {
+      "id": "PeriodsAndSpecialValues/E3",
+      "source": "BF",
+      "kind": "misprint",
+      "locator": "Publisher PDF, Remark 7, printed p. 534",
+      "printed": "The displayed local L-factor is the characteristic polynomial P_v evaluated at (Nv)^−s, without a reciprocal.",
+      "correction": "Use L_v(M,s)=P_v(M,(Nv)^−s)^−1, consistently with §3.2 and the Euler product convention.",
+      "reason": "The unit realization has P_v(T)=1−T and local factor (1−(Nv)^−s)^−1. The displayed polynomial itself gives the opposite Euler factor. The surrounding intended convention fixes the missing reciprocal.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Publisher PDF and EMS article page, accessed 2026-10-19",
+        "Bounded title/Remark 7/erratum search; no identified correction; no claim of an exhaustive search"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The unit realization has P_v(T)=1−T and local factor (1−(Nv)^−s)^−1. The displayed polynomial itself gives the opposite Euler factor. The surrounding intended convention fixes the missing reciprocal.",
+        "by": "REV-PeriodsAndSpecialValues--PS.0"
+      }
+    },
+    {
+      "id": "PeriodsAndSpecialValues/E4",
+      "source": "BV",
+      "kind": "error",
+      "locator": "Author final Corollary 5.7/proof, internal p. 27; compare published Corollary 5.7 p. 196",
+      "printed": "The author final extends the permutation-character induction argument to Q_p-valued characters.",
+      "correction": "Use Q-valued characters, as the published version already does.",
+      "reason": "For C₃ and p=7 a nontrivial character is Q₇-valued but not Q-valued. No positive multiple is an integer combination of permutation characters, whose values are rational integers. Both versions were compared at this locator.",
+      "affects": "a stated result",
+      "known": "Corrected in published Corollary 5.7 p. 196; independently recorded by NoncommutativeAndEquivariantIwasawa/E12.",
+      "searched": [
+        "NE source issue E12 and its independent review",
+        "Author final internal p. 27 and published EMIS p. 196, collated 2026-10-19"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For C₃ and p=7 a nontrivial character is Q₇-valued but not Q-valued. No positive multiple is an integer combination of permutation characters, whose values are rational integers. Both versions were compared at this locator.",
+        "by": "REV-PeriodsAndSpecialValues--PS.0"
+      }
+    },
+    {
+      "id": "PeriodsAndSpecialValues/E5",
+      "source": "BV",
+      "kind": "gap",
+      "locator": "Published Definition 2.5 pp. 170–171, Definition 3.7 p. 177, Conjecture 4.1 p. 188 and Remark 5.6/proof pp. 194–195; author final internal pp. 6, 10, 20–21, 25–26",
+      "printed": "The inverse-determinant global ζ is used to form a leading-term pair for the unshifted compact-support complex.",
+      "correction": "Supply the actual shifted/dual perfect complex, its determinant identification and typed Bockstein composition, then recompute order, boundary and normalization. Until then retain the interpolation identity only as a supplier target.",
+      "reason": "The pair [C,a] requires a:1→d(C), and t(C) starts from d(C). Conjecture 4.1 gives ζ:1→d(RΓ_c)⁻¹, while Remark 5.6 uses [RΓ_c,ζ]; (25) and (28) also present the Bockstein source in the inverse orientation. No comparison resolving these different domains is supplied at these locators. This is an interface/proof gap, not a counterexample to the intended arithmetic identity.",
+      "affects": "the proof",
+      "known": "Independently recorded in NoncommutativeAndEquivariantIwasawa/E28; the published text retains this domain mismatch.",
+      "searched": [
+        "NE source issue E28 and independent review",
+        "Author final and published EMIS copies at the stated locators; no additional correction established"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The pair [C,a] requires a:1→d(C), and t(C) starts from d(C). Conjecture 4.1 gives ζ:1→d(RΓ_c)⁻¹, while Remark 5.6 uses [RΓ_c,ζ]; (25) and (28) also present the Bockstein source in the inverse orientation. No comparison resolving these different domains is supplied at these locators. This is an interface/proof gap, not a counterexample to the intended arithmetic identity.",
+        "by": "REV-PeriodsAndSpecialValues--PS.0"
+      }
+    },
+    {
+      "id": "PeriodsAndSpecialValues/E6",
+      "source": "BV",
+      "kind": "error",
+      "locator": "Author final Corollary 5.7 proof, internal p. 27; published proof p. 196",
+      "printed": "The proof characterizes permutation characters by admitting an integer combination of permutation characters with multiplier n_ρ=1.",
+      "correction": "Permutation characters are actual permutation representations; an integer combination may have negative coefficients. Keep the corollary’s sufficient implication for permutation characters, without that converse.",
+      "reason": "For C₂ the sign character equals the regular permutation character minus the trivial one, but its value at the nonidentity element is −1. A permutation character has nonnegative fixed-point counts. The same proof sentence is present in both checked versions.",
+      "affects": "the proof",
+      "known": "Independently recorded in NoncommutativeAndEquivariantIwasawa/E32; retained in the published proof.",
+      "searched": [
+        "NE source issue E32 and independent review",
+        "Author final and published Corollary 5.7 proofs, collated 2026-10-19"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For C₂ the sign character equals the regular permutation character minus the trivial one, but its value at the nonidentity element is −1. A permutation character has nonnegative fixed-point counts. The same proof sentence is present in both checked versions.",
+        "by": "REV-PeriodsAndSpecialValues--PS.0"
+      }
+    },
+    {
+      "id": "PeriodsAndSpecialValues/E7",
+      "source": "BV",
+      "kind": "gap",
+      "locator": "Author final §5.2, map following (19), internal p. 24; published §5.2, map following (23), p. 193",
+      "printed": "The map µ_p induced by the p-adic logarithmic regulator is presented as an isomorphism before a nonzero-regulator hypothesis is imposed.",
+      "correction": "Require its nonzero determinant, equivalently the relevant Leopoldt premise, before using µ_p as an isomorphism. Conjecture 5.2 and the corollary have additional premises that must be retained.",
+      "reason": "Factoring the logarithmic localization map through the trace-zero subspace supplies the map and equal dimensions, but not injectivity. Remark 5.4 separately identifies the missing regulator nonvanishing with Leopoldt in the permutation cases. This does not assert that Leopoldt is false.",
+      "affects": "the proof",
+      "known": "Independently recorded in NoncommutativeAndEquivariantIwasawa/E27; the published formulation retains the unsupported isomorphism.",
+      "searched": [
+        "NE source issue E27 and independent review",
+        "Author final §5.2 and published p. 193 including Remark 5.4, collated 2026-10-19"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Factoring the logarithmic localization map through the trace-zero subspace supplies the map and equal dimensions, but not injectivity. Remark 5.4 separately identifies the missing regulator nonvanishing with Leopoldt in the permutation cases. This does not assert that Leopoldt is false.",
+        "by": "REV-PeriodsAndSpecialValues--PS.0"
+      }
     }
   ],
   "libraryAudit": {
@@ -3526,6 +3738,210 @@
       "taucetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
       "mathlibCommit": "6b7abb3c7686292736be2955bd3eb9ebf63b456a"
     },
-    "result": "Current Hodge Tate objects, actual matrix/localization/integration library inputs, EllipticCurves and IntegralLattices targets are imported. No new integral-lattice, elliptic, Hodge, formal-period-algebra, generic determinant or BSD reconstruction theory is planned here."
+    "result": "Current Hodge Tate objects, actual matrix/localization/integration library inputs, EllipticCurves and IntegralLattices targets are imported. No new integral-lattice, elliptic, Hodge, formal-period-algebra, generic determinant or BSD reconstruction theory is planned here.",
+    "independentReview": "All 14 baseline declarations checked at the full recorded SHAs in eight source files; all 76 distinct atlas supplier prerequisites plus five current upstream layer exports read after replacing the scope-mismatched NE.3 norm import by IHG.0/azumaya-determinant and adding the explicit NE.7 request. Current upstream Hodge, EllipticCurves, IntegralLattices, DifferentialGeometry and completed integration/restricted-product boundaries were screened separately. No current upstream construction is planned again."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PeriodsAndSpecialValues--PS.0",
+    "date": "2026-10-19",
+    "notes": "Independent complete target-level review of 39 nodes, all 14 pinned baseline declarations, 76 atlas supplier prerequisite statements and five current upstream exports, APIs/tests/planets, source locators and the suggested Lean sketch. Corrected source versions/locators and complex gamma/cycle wording; recorded finite-coefficient norm and normalized BV determinant leaves explicitly. All eight stages remain planned, none closed; accepted as an honest plan with supplier gaps, not as an implementation or proof of its conjectural targets. Seven source findings independently confirmed. See the review report for evidence, checks and reader synchronization instructions.",
+    "checked": [
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.0/comparison-period-line",
+        "verdict": "verified",
+        "note": "Checked inverse-integration convention, Hom(det B,det D), zero rank and determinant basis covariance."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.0/real-infinity",
+        "verdict": "verified",
+        "note": "Checked E-linear geometric infinity involution and its distinction from semilinear Hodge conjugation."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.0/period-class",
+        "verdict": "corrected",
+        "note": "Added the identity and dual/inverse operations to the simultaneous coefficient-unit quotient API."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.0/deligne-periods",
+        "verdict": "corrected",
+        "note": "Corrected the filtration-cut and quotient-isomorphism route to Deligne §1.7; checked the sign-swapping twist formula (5.1.8)."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.0/tate-elliptic-normalizations",
+        "verdict": "corrected",
+        "note": "Checked the inverse-transpose matrix and both elementary substitutions. Removed the false attribution of complex uniformization to EllipticCurves and attached the second-kind de Rham/path identification to the explicit C5 contract."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.1/motivic-euler-product",
+        "verdict": "verified",
+        "note": "Checked BCGP strict compatibility including coefficient primes, (ker N)^I, purity convergence and exact conductor request."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.1/archimedean-completion",
+        "verdict": "corrected",
+        "note": "Specified the complex-place min(p,q) product and added its two-block regression; corrected Serre page conventions."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.1/critical-integer",
+        "verdict": "verified",
+        "note": "Checked simultaneous dual regularity and both Hodge-block criteria; unit/modular tests detect omitted dual factors."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.1/deligne-algebraicity",
+        "verdict": "corrected",
+        "note": "Clarified that the starred tuple means ordinary finite values, including zero; the leading-coefficient notation in PS.3 is distinct."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.1/dirichlet-tate-adapter",
+        "verdict": "corrected",
+        "note": "Corrected the Deligne §6.7 proof locator through PDF p. 22; the actual Gauss-sum/geometric comparison remains a recorded supplier gap."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.1/modular-period-adapter",
+        "verdict": "verified",
+        "note": "Checked Deligne §7.8 and AL.5 scope; actual geometric modular period identification is a recorded gap."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.1/serre-system-predicate",
+        "verdict": "verified",
+        "note": "Checked BCGP epsilon/conductor normalization and Tate measure scaling; dual composition gives εε∨=N."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.1/hasse-weil-predicates",
+        "verdict": "corrected",
+        "note": "Corrected the BCGP Conjecture 1.1.1 and Serre C9 locators; checked alternating signs, all cohomological degrees and conductor normalization."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.2/integration-evaluation",
+        "verdict": "corrected",
+        "note": "Added the linear/simp evaluation API; independently confirmed localized inverse evaluation and the actual relative-pair supplier gap."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.2/torsor-integration-comparison",
+        "verdict": "verified",
+        "note": "Checked HMS localized algebra and both torsor actions; MC.6 owns the algebra/torsor, PS only matches actual integration."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.2/tate-torsor-test",
+        "verdict": "verified",
+        "note": "Checked Q[t,t⁻¹] versus effective Q[t], inverse evaluation and the noninjective-point counterexample."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.3/rational-fundamental-line",
+        "verdict": "corrected",
+        "note": "Corrected the published BV locator; checked all six BF exponents and Δ=Ξ⁻¹."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.3/real-regulator-trivialization",
+        "verdict": "verified",
+        "note": "Checked BF exact sequence, period map and height nondegeneracy as supplied/conjectural data."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.3/leading-term-line",
+        "verdict": "verified",
+        "note": "Checked meromorphic order including poles, factorial normalization and rational versus integral membership."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.3/regulator-specializations",
+        "verdict": "verified",
+        "note": "Read Borel R.7 and ER.5 contracts; retained Borel factor 2 and exact CM sign/index qualifications."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.4/integral-fundamental-line",
+        "verdict": "corrected",
+        "note": "Corrected BV published equation (18), p. 187; checked odd-prime/perfectness/coherence gates and acyclic two-term lattice."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.4/finite-lattice-correction",
+        "verdict": "corrected",
+        "note": "Corrected BF Lemma 5 to §3.4; checked the alternating cohomology-length exponent and the inverse L3 supplier orientation."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.4/local-correction-adapter",
+        "verdict": "verified",
+        "note": "Checked the away-p two-term map, crystalline/tangent alternative and zero-factor order changes."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.4/real-dyadic-gate",
+        "verdict": "verified",
+        "note": "Checked the two periodic C₂ Tate complexes; no determinant of the unbounded integral tail is inferred."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.5/equivariant-obstruction",
+        "verdict": "corrected",
+        "note": "Replaced the dimension-one Iwasawa norm import by generic IHG Azumaya norms; made the finite semisimple K₁/sign theorem and boundary comparison explicit leaves."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.5/etnc-predicate",
+        "verdict": "verified",
+        "note": "Checked BF four-part conjecture and scalar inverse-line generator specialization, with localization preserving the omitted prime 2."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.5/zeta-orientation-adapter",
+        "verdict": "corrected",
+        "note": "Retained the correct inverse FK line, and added the unresolved normalized leading-term domain gate, precise NE.7 request and failure test."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.5/proved-case-adapters",
+        "verdict": "corrected",
+        "note": "Retained full conditional arithmetic scope, published Q-valued correction, projectivity for restriction and the shifted/dual determinant gate; corrected BV locators and rejected the false permutation converse."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.6/bloch-kato-motivic-pair",
+        "verdict": "verified",
+        "note": "Checked all P1–P4 quantifiers, Fontaine–Laffaille small weights, real weight condition and actual triple comparisons."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.6/bloch-kato-points-and-measure",
+        "verdict": "verified",
+        "note": "Checked BK local/global points, good mass P_p(V,1), probability normalization, product formula and the exact Sha kernel."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.6/elliptic-fundamental-adapter",
+        "verdict": "verified",
+        "note": "Checked conditional weight −1/BSD height formulation, all-components Ω, MW index square and separate dyadic gate."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.6/bsd-prime-assembly",
+        "verdict": "verified",
+        "note": "Read BSD.8 all-prime valuation certificate; no new prime-dispatch theory or missing-prime conclusion is introduced."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.6/bloch-kato-tamagawa",
+        "verdict": "verified",
+        "note": "Checked original weight≤−3, dual-torsion numerator, total Sha finiteness and distinction from fixed-prime formulations."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.6/rankin-bbk-prediction",
+        "verdict": "corrected",
+        "note": "Corrected the API’s derivative-to-cycle direction; Conjecture 8.3.1 and injectivity do not supply a converse."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.6/rankin-proved-scope",
+        "verdict": "corrected",
+        "note": "Replaced the erroneous height-formula description by the cycle-nonvanishing prediction; retained Hypothesis 3.2.10, admissibility and actual geometric-level contracts."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.7/period-quadrature",
+        "verdict": "verified",
+        "note": "Checked the geometric-series remainder, rational endpoint substitution, positive radicand and midpoint/rounding budgets; generic quadrature is imported."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.7/normalized-enclosure",
+        "verdict": "verified",
+        "note": "Checked finite-value/derivative normalization, strict denominator separation and exact-membership recognition gate."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.7/normalization-covariance",
+        "verdict": "verified",
+        "note": "Checked determinant, regulator, MW-index, gamma-convention and Haar scaling factors."
+      },
+      {
+        "nodeId": "PeriodsAndSpecialValues:PS.7/period-conjecture-boundary",
+        "verdict": "verified",
+        "note": "Checked that injective numerical evaluation is additional to HMS formal/torsor comparison and independent of special-value conjectures."
+      }
+    ]
   }
 }
