@@ -149765,6 +149765,44 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-BorelRegulators~adv.md"
+  },
+  {
+   "id": "DESIGN-EisensteinIdealAndRationalTorsion",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EisensteinIdealAndRationalTorsion"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/EisensteinIdealAndRationalTorsion.json",
+    "research/blueprint/packets/EisensteinIdealAndRationalTorsion.json",
+    "research/blueprint/readmes/EisensteinIdealAndRationalTorsion.md",
+    "research/blueprint/suggested/EisensteinIdealAndRationalTorsion.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-EisensteinIdealAndRationalTorsion.md"
+  },
+  {
+   "id": "DESIGN-RelativeJacobiansAndIntegralCurveModels",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RelativeJacobiansAndIntegralCurveModels"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/RelativeJacobiansAndIntegralCurveModels.json",
+    "research/blueprint/packets/RelativeJacobiansAndIntegralCurveModels.json",
+    "research/blueprint/readmes/RelativeJacobiansAndIntegralCurveModels.md",
+    "research/blueprint/suggested/RelativeJacobiansAndIntegralCurveModels.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-RelativeJacobiansAndIntegralCurveModels.md"
   }
  ]
 }
