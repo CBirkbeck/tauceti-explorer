@@ -9,7 +9,7 @@
   "IntegralIwasawaTheory:L4"
  ],
  "status": "complete",
- "summary": "Follow-up plan for layers L1–L4 of Arithmetic Iwasawa theory, continuing the accepted I.8 packet, whose 26 L1–L4 nodes keep their ids. It discharges every remaining item of that packet's coverage: the Iwasawa modules X and Y get a definition with API and tests, RJW's principal closures and sequence (13-1) are identified with I.2's global–local sequence and with Coleman's real principal towers, and limit exactness and topological Nakayama are bound to the merged PadicMeasuresIwasawaAlgebras §5.2. L2 adds ℤ_p-extensions, their ramification theorem, the tower invariants μ, λ, ν, the discharge of the growth cutoff, coinvariant evaluation with both twist conventions, and descent of μ = 0 along finite extensions. L3 proves the one-prime hypotheses for the real cyclotomic tower, the Vandiver/plus-part/regularity comparison, and one normalisation of ζ_p. L4 moves the Leopoldt defect to I.2, extends Baker–Brumer to arbitrary algebraic numbers, and closes the parent's gap G3 except at the dyadic plus part: Sinnott's Γ-transform proof gives analytic μ = 0 at every p, the relative class number formula gives μ^- = 0 at every p, and Leopoldt's mirror inequality gives μ^+ = 0 for p odd. It also plans Washington's theorem on the prime-to-p part of class numbers.",
+ "summary": "Follow-up plan for layers L1–L4 of Arithmetic Iwasawa theory, continuing the accepted I.8 packet, whose 26 L1–L4 nodes keep their ids. It discharges every remaining item of that packet's coverage: the Iwasawa modules X and Y get a definition with API and tests, RJW's principal closures and sequence (13-1) are identified with I.2's global–local sequence and with Coleman's real principal towers, and limit exactness and topological Nakayama are bound to the merged PadicMeasuresIwasawaAlgebras §5.2. L2 adds ℤ_p-extensions, their ramification theorem, the tower invariants μ, λ, ν, the discharge of the growth cutoff, coinvariant evaluation with both twist conventions, and descent of μ = 0 along finite extensions. L3 proves the one-prime hypotheses for the real cyclotomic tower, the Vandiver/plus-part/regularity comparison, and one normalisation of ζ_p. L4 moves the Leopoldt defect to I.2, extends Baker–Brumer to arbitrary algebraic numbers, and closes the parent's gap G3: Sinnott's Γ-transform proof gives analytic μ = 0 at every p, the relative class number formula gives relative μ = 0 at every p, Leopoldt's mirror inequality handles odd p, and Ferrero's subexponential-rank argument handles p = 2. It also plans Washington's theorem on the prime-to-p part of class numbers.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -125,7 +125,9 @@
    "readSections": [
     "§7, Theorem 7.1, pp. 154–155",
     "§13.1–13.4, pp. 189–195",
-    "Appendix A, pp. 199–207"
+    "Appendix A, pp. 199–207",
+    "Definition 5.18 and Remark 5.21, pp. 147–148",
+    "Theorem 12.23, pp. 188–189"
    ]
   },
   {
@@ -138,7 +140,7 @@
    "readSections": [
     "Theorem 1.3.16, pp. 19–20",
     "Theorem 1.5.17, p. 33",
-    "§2.4, Propositions 2.4.10–2.4.12, pp. 56–58",
+    "§2.4, Propositions 2.4.10–2.4.12, pp. 56–59",
     "§3.1–3.4, pp. 75–92",
     "§4.4, Theorem 4.4.2 and Corollaries 4.4.4–4.4.5, pp. 111–113",
     "§6.1 end and §6.2, pp. 160–164"
@@ -182,12 +184,45 @@
    "id": "TCR-PMIA",
    "title": "Roadmap: p-adic measures, completed group algebras, and characteristic ideals",
    "authors": "Tau Ceti roadmap contributors",
-   "edition": "TauCetiRoadmap main at commit 34dcf0e2b60d68a705742ee408e5392ddabbd00a (merged roadmap)",
-   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/34dcf0e2b60d68a705742ee408e5392ddabbd00a/TauCetiRoadmap/PadicMeasuresIwasawaAlgebras/README.md",
+   "edition": "TauCetiRoadmap main at commit c785fa3b983754f0dbcc49492d92fd770e3adba6 (merged roadmap), independently read during review",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/c785fa3b983754f0dbcc49492d92fd770e3adba6/TauCetiRoadmap/PadicMeasuresIwasawaAlgebras/README.md",
    "readSections": [
     "Layer 4 introduction",
     "§4.7 Cyclotomic polynomials and growth, including the Euler quotient",
     "§5.2 Compact inverse systems and topological Nakayama"
+   ]
+  },
+  {
+   "id": "WASHINGTON-1975",
+   "title": "Class numbers and ℤ_p-extensions",
+   "authors": "Lawrence C. Washington",
+   "edition": "Mathematische Annalen 214 (1975), 177–193; GDZ scan, printed pages",
+   "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0214/LOG_0030.pdf",
+   "sha256": "cece2c207dfff554523b6d8aac4e734166890cfb3563238481fc37ebe77ea493",
+   "readSections": [
+    "Lemma 1, p. 179; §IV through Theorem 3, pp. 179–187, read from page images"
+   ]
+  },
+  {
+   "id": "FERRERO-1978",
+   "title": "Iwasawa invariants of abelian number fields",
+   "authors": "Bruce Ferrero",
+   "edition": "Mathematische Annalen 234 (1978), 9–24; GDZ scan, printed pages",
+   "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0234/LOG_0010.pdf",
+   "sha256": "4bf69f09bea8bcac069f31b3da775766fd305e802b1ca43b70c72417b32304db",
+   "readSections": [
+    "§1, pp. 9–12; beginning of §2, p. 13, read from page images"
+   ]
+  },
+  {
+   "id": "GREITHER-1992",
+   "title": "Class groups of abelian fields, and the main conjecture",
+   "authors": "Cornelius Greither",
+   "edition": "Annales de l’Institut Fourier 42 (1992), 449–499; printed pages",
+   "url": "https://www.numdam.org/article/AIF_1992__42_3_449_0.pdf",
+   "sha256": "8e4db974556923a9532151657039d50b34028254f13fc2f1541f449bb50623da",
+   "readSections": [
+    "§4, pp. 482–483 and 492–493"
    ]
   }
  ],
@@ -226,6 +261,27 @@
    "citation": "Washington, Invent. Math. 49 (1978), GDZ scan",
    "read": "2026-10-19",
    "sha256": "b0954600a0ad5fd1e6ccfce57640378ba7ce34c330bb0b599e880fd255caefb6"
+  },
+  {
+   "kind": "published",
+   "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0214/LOG_0030.pdf",
+   "citation": "Lawrence C. Washington, Class numbers and ℤ_p-extensions",
+   "read": "2026-10-19",
+   "sha256": "cece2c207dfff554523b6d8aac4e734166890cfb3563238481fc37ebe77ea493"
+  },
+  {
+   "kind": "published",
+   "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0234/LOG_0010.pdf",
+   "citation": "Bruce Ferrero, Iwasawa invariants of abelian number fields",
+   "read": "2026-10-19",
+   "sha256": "4bf69f09bea8bcac069f31b3da775766fd305e802b1ca43b70c72417b32304db"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/article/AIF_1992__42_3_449_0.pdf",
+   "citation": "Cornelius Greither, Class groups of abelian fields, and the main conjecture",
+   "read": "2026-10-19",
+   "sha256": "8e4db974556923a9532151657039d50b34028254f13fc2f1541f449bb50623da"
   }
  ],
  "nodes": [
@@ -239,13 +295,12 @@
    "title": "The Iwasawa modules X and Y of an arithmetic tower",
    "statement": "Let k be a number field inside a fixed algebraic closure, p a prime, and F_∞/k a Galois extension that is the increasing union of finite Galois extensions F_n/k and contains the cyclotomic ℤ_p-extension of F_1; write G = Gal(F_∞/k). Using I.2's maximal abelian pro-p extensions, put M(F) = M_S(F) with S the places above p and ∞ (the p-ramified extension, with I.2's archimedean convention) and L(F) = M_∅(F) (the unramified one), for F equal to F_∞ or to a layer F_n. Define X(F_∞) = Gal(M(F_∞)/F_∞) and Y(F_∞) = Gal(L(F_∞)/F_∞), and at finite level X_n = Gal(M(F_n)/F_n) and Y_n = Gal(L(F_n)/F_n) ≅ Cl(F_n) ⊗ ℤ_p. X(F_∞) and Y(F_∞) are compact ℤ_p⟦G⟧-modules for the conjugation action of the parent L1/conjugation-completed-action. The notation is RJW's: X is p-ramified and Y unramified. I.2 and Sharifi write X (or X_∞) for the unramified module and 𝔛 for the p-ramified one, and Greither writes Y for the p-ramified module; every comparison names the convention it uses. RJW's main case is k = ℚ, F_n = ℚ(μ_{p^n}) for n ≥ 1, p odd, together with the real tower F_n^+.",
    "hypotheses": [
-    "p is a prime; for p = 2 the archimedean places in S follow I.2's convention (real places may ramify only if listed).",
-    "F_∞ ⊇ F_1 is Galois over k and contains the cyclotomic ℤ_p-extension of F_1, so F_∞/F_n is abelian pro-p and unramified outside p for n ≥ 1 in RJW's case."
+    "p is a prime; for p = 2 the archimedean places in S follow I.2's convention (real places may ramify only if listed)."
    ],
    "proofSteps": [
     "Specialise I.2/maximal-abelian-pro-p-extensions at E = F_∞ and at E = F_n; no second construction of a maximal extension is made.",
     "Transport the conjugation action and its completed extension from the parent node L1/conjugation-completed-action.",
-    "Identify Y_n with the p-part of the class group by I.2/class-field-identification and Y(F_∞) with lim Y_n along norms; in I.2's letters Y is X(F_∞) and X is 𝔛_S(F_∞)."
+    "Identify Y_n with the p-part of the class group by I.2/class-field-identification and, when F_∞ is a cyclotomic ℤ_p-extension of a finite layer, Y(F_∞) with lim Y_n along norms; in I.2's letters Y is X(F_∞) and X is 𝔛_S(F_∞)."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:I.2/maximal-abelian-pro-p-extensions",
@@ -387,8 +442,6 @@
     "IntegralIwasawaTheory:I.2/semilocal-principal-units",
     "IntegralIwasawaTheory:I.2/global-local-unit-sequence",
     "IntegralIwasawaTheory:I.2/leopoldt-map-and-defect",
-    "IntegralIwasawaTheory:L1/principal-global-unit-closures",
-    "IntegralIwasawaTheory:L1/finite-ray-principal-sequence",
     "IntegralIwasawaTheory:L0/cyclotomic-unit-group"
    ],
    "sources": [
@@ -567,13 +620,13 @@
    ],
    "kind": "comparison",
    "title": "Ray class limits, split-prime quotients and ambiguous classes",
-   "statement": "Let F be a number field, p a prime and F_∞/F its cyclotomic ℤ_p-extension with Γ = Gal(F_∞/F) and generator γ, T = γ − 1. (a) For each n, Gal(M(F_n)/F_n) is the inverse limit over ν of the p-parts of the ray class groups of F_n of conductor p^ν (with I.2's archimedean convention), and restriction gives an exact sequence 0 → X(F_∞)_{Γ_n} → Gal(M(F_n)/F_n) → Γ_n → 0, Γ_n = Γ^{p^n}. (b) If F is totally real and Leopoldt holds for F (for instance F abelian, by L4), then X(F_∞)_Γ is finite and is isomorphic to the torsion subgroup of Gal(M(F)/F); Greither's A′(F) ≅ X/TX must be read with A′(F) the torsion part, the free ℤ_p summand mapping onto Γ. (c) With L′(F_∞) ⊆ L(F_∞) the maximal subextension in which the primes above p split completely, Gal(L′(F_∞)/F_∞) ≅ Y(F_∞)/D_∞, where D_∞ is the closed submodule generated by the decomposition groups of the finitely many primes above p. (d) For a cyclic extension E/F with group G and inertia groups I_v, Sharifi's nine-term sequence relates ker j_{E/F}, H^1(G, O_E^×), the ambiguous ideal classes Cl_E^G, O_F^×/N O_E^×, ker Σ and coker Σ for Σ: ⊕ I_v → G; Chevalley's ambiguous class number formula #Cl_E^G = h_F·∏_v e_v /([E:F]·[O_F^× : O_F^× ∩ N_{E/F}E^×]) follows.",
+   "statement": "Let F be a number field, p a prime and F_∞/F its cyclotomic ℤ_p-extension with Γ = Gal(F_∞/F) and generator γ, T = γ − 1. (a) For each n, Gal(M(F_n)/F_n) is the inverse limit over ν of the p-parts of the ray class groups of F_n of conductor p^ν (with I.2's archimedean convention), and restriction gives an exact sequence 0 → X(F_∞)_{Γ_n} → Gal(M(F_n)/F_n) → Γ_n → 0, Γ_n = Γ^{p^n}. (b) If F is totally real and Leopoldt holds for F (for instance F abelian, by L4), then X(F_∞)_Γ is finite and is isomorphic to the torsion subgroup of Gal(M(F)/F); Greither's A′(F) is the full ray-class limit, not its torsion subgroup, and fits 0 → X(F_∞)_Γ → A′(F) → Γ → 0. If F/ℚ is real abelian with tame subgroup Δ_0 and e_0 its trivial-character idempotent, Δ_0 acts trivially on Γ, so (1−e_0)A′(F) ≅ (1−e_0)X(F_∞)_Γ. This is the projected identity needed in Greither's Theorem 4.11. (c) With L′(F_∞) ⊆ L(F_∞) the maximal subextension in which the primes above p split completely, Gal(L′(F_∞)/F_∞) ≅ Y(F_∞)/D_∞, where D_∞ is the closed submodule generated by the decomposition groups of the finitely many primes above p. (d) For a cyclic extension E/F with group G and inertia groups I_v, Sharifi's nine-term sequence relates ker j_{E/F}, H^1(G, O_E^×), the ambiguous ideal classes Cl_E^G, O_F^×/N O_E^×, ker Σ and coker Σ for Σ: ⊕ I_v → G; Chevalley's ambiguous class number formula #Cl_E^G = h_F·∏_v e_v /([E:F]·[O_F^× : O_F^× ∩ N_{E/F}E^×]) follows.",
    "hypotheses": [
     "For (b), F totally real and δ(F, p) = 0; for (d), E/F cyclic of number fields."
    ],
    "proofSteps": [
     "(a) is I.2/class-field-identification (c) at the layer F_n together with Galois theory of F_∞ ⊆ M(F_n); the quotient Γ_n is ℤ_p-free, so the sequence splits as ℤ_p-modules.",
-    "(b) Leopoldt gives rank_{ℤ_p} Gal(M(F)/F) = 1 + r_2(F) = 1 for F totally real, so X(F_∞)_Γ has rank 0, is finite, and is the torsion of a split extension by ℤ_p.",
+    "(b) Leopoldt gives rank_{ℤ_p} Gal(M(F)/F) = 1 + r_2(F) = 1 for F totally real, so X(F_∞)_Γ has rank 0, is finite, and is the torsion of a split extension by ℤ_p. For real abelian F, the cyclotomic extension is abelian over ℚ, so tame conjugation on Γ is trivial; the exact projector 1−e_0 kills this quotient. No definition of A′ is changed.",
     "(c) is I.2/class-field-identification (b) with S the primes above p (X′_S), Galois theory and finiteness of the set of primes of F_∞ above p (I.1/tower-ramification).",
     "(d) Sharifi Theorem 1.3.16 gives the exact sequence; the ambiguous class number formula is its order count, using the Herbrand quotient of units for cyclic groups, the norm index theorem (ClassFieldTheory layer 12) and Hasse's norm theorem for cyclic extensions (layer 13)."
    ],
@@ -591,11 +644,17 @@
      "sourceId": "SHARIFI",
      "locator": "Theorem 1.3.16, p. 19; Proposition 3.2.19, p. 83; proof of Theorem 3.3.3, p. 84",
      "match": "Gives the cyclic-extension class group sequence with ambiguous classes, the split-prime unramified module and the coinvariant sequence for the p-ramified module."
+    },
+    {
+     "sourceId": "GREITHER-1992",
+     "locator": "§4, definition of A′(F), p. 492; Theorem 4.11 and proof, p. 493",
+     "match": "The consumer uses the nontrivial tame-character part. The full ray limit retains a free Γ quotient."
     }
    ],
    "acceptance": [
     "For F = ℚ and p odd: Gal(M(ℚ)/ℚ) ≅ ℤ_p and X(ℚ_∞)_Γ = 0.",
-    "The split-prime quotient divides by decomposition groups, not by inertia groups."
+    "The split-prime quotient divides by decomposition groups, not by inertia groups.",
+    "For F=ℚ and p odd, the full A′(ℚ)≅ℤ_p while X(ℚ_∞)_Γ=0. Their unprojected identification is false; the nontrivial tame projection kills Γ."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -795,7 +854,8 @@
     "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-8",
     "IntegralIwasawaTheory:L2/class-module-finiteness-torsion",
     "IntegralIwasawaTheory:L2/arithmetic-class-number-growth",
-    "IntegralIwasawaTheory:L2/zp-extension"
+    "IntegralIwasawaTheory:L2/zp-extension",
+    "IntegralIwasawaTheory:L2/inertia-kernel-norm-relation"
    ],
    "sources": [
     {
@@ -847,6 +907,11 @@
      "name": "TauCeti.IntegralIwasawa.towerInvariants_generator_indep",
      "role": "other",
      "statement": "The invariants do not depend on the topological generator of Γ."
+    },
+    {
+     "name": "TauCeti.IntegralIwasawa.towerMu_eq_zero_iff_rank_subexponential",
+     "role": "characterisation",
+     "statement": "For the arithmetic layer groups A_n, μ = 0 iff p^(−n) r_p(A_n) tends to zero; the elementary-module proof of the bounded-p-rank criterion gives this equivalent form."
     }
    ],
    "tests": [
@@ -897,13 +962,13 @@
    ],
    "kind": "lemma",
    "title": "Arithmetic towers satisfy the growth and Nakayama hypotheses",
-   "statement": "Let F_∞/F be a ℤ_p-extension and m as in L2/zp-extension-ramification, and H_m = ker(Y_∞ → Cl(F_m) ⊗ ℤ_p). Then H_m/ν_{n,m}H_m is finite for every n ≥ m, with #Cl(F_n)⊗ℤ_p = #Cl(F_m)⊗ℤ_p · #(H_m/ν_{n,m}H_m); hence the finiteness hypothesis of PadicMeasuresIwasawaAlgebras' growth theorem (finiteness of M/ν_{n,n₀}M for n ≥ n₀) holds for M = H_m with n₀ = m, and the cyclotomic cutoff of H_m is at most m − 1. In the one-prime totally ramified case, Y_∞/ω_nY_∞ ≅ Cl(F_n) ⊗ ℤ_p is finite for all n, so the cutoff of Y_∞ is −1. Y_∞ and H_m are compact, so topological Nakayama applies to them.",
+   "statement": "Let F_∞/F be a ℤ_p-extension and m as in L2/zp-extension-ramification, and H_m = ker(Y_∞ → Cl(F_m) ⊗ ℤ_p). Then H_m/ν_{n,m}H_m is finite for every n ≥ m, with #Cl(F_n)⊗ℤ_p = #Cl(F_m)⊗ℤ_p · #(H_m/ν_{n,m}H_m); hence the finiteness hypothesis of PadicMeasuresIwasawaAlgebras' growth theorem (finiteness of M/ν_{n,n₀}M for n ≥ n₀) holds for M = H_m with n₀ = m + 1: PMIA uses growthTransition(n,n₀) = ω_n/ω_{n₀−1}, whereas the arithmetic ν_{n,m} is ω_n/ω_m. Thus its cutoff parameter is c = m and d(H_m) ≤ m. In the one-prime totally ramified case, Y_∞/ω_nY_∞ ≅ Cl(F_n) ⊗ ℤ_p is finite for all n, so the cutoff of Y_∞ is −1. Y_∞ and H_m are compact, so topological Nakayama applies to them.",
    "hypotheses": [
     "m beyond eventual total ramification; Y_∞ with the inverse-limit topology."
    ],
    "proofSteps": [
     "The norm relation H_n = ν_{n,m}H_m and the order formula are the parent L2/inertia-kernel-norm-relation; finiteness of class groups gives finiteness.",
-    "The growth theorem of PadicMeasuresIwasawaAlgebras §4.7 is stated with ν_{n,n₀} and hypothesis hfin; the arithmetic H_m with n₀ = m discharges it.",
+    "PMIA §4.7 uses growthTransition(n,n₀) = ω_n/ω_{n₀−1}. Set n₀ = m + 1 (c = m), so its hfin hypothesis for n ≥ m + 1 is supplied by the stronger arithmetic finiteness for n ≥ m. This gives d(H_m) ≤ m, with no claim that d(H_m) ≤ m − 1.",
     "Compactness: Y_∞ is an inverse limit of finite groups; PadicMeasuresIwasawaAlgebras §5.2 states Nakayama for compact modules."
    ],
    "prerequisites": [
@@ -927,7 +992,9 @@
     }
    ],
    "acceptance": [
-    "The ω_n quotients of Y_∞ can be infinite in a tower with two totally ramified primes; the ν_{n,m} quotients of H_m are finite."
+    "The ω_n quotients of Y_∞ can be infinite in a tower with two totally ramified primes; the ν_{n,m} quotients of H_m are finite.",
+    "For M = Λ/(T) and m = 0, ω_n/ω_0 acts as p^n, so its quotients are finite although d(M) = 0. This rules out the erroneous cutoff −1 for this transition convention.",
+    "For M = Λ/(ξ_1), d(M) = 1: ω_n/ω_0 gives an infinite quotient for n ≥ 1, while ω_n/ω_1 gives finite quotients. The one-prime ω_n case still has c = −1 and n₀ = 0."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -950,7 +1017,7 @@
    "proofSteps": [
     "Apply the Euler quotient at depth n = 0 of PadicMeasuresIwasawaAlgebras §4.7: #M_{Γ}/#M^{Γ} = q^{μ}·#(O/Res(F_M, T)) = #(O/f(0)O), since Res(F_M, T) = ±F_M(0) and f = ϖ^μ F_M up to a unit.",
     "Twists: I.1/iwasawa-algebra-coordinate gives char(M ⊗ ℤ_p(n)) = Tw_{−n}(char M), and Tw_{−n} sends T to κ(γ)^{−n}(1+T) − 1.",
-    "Duals: the double dual returns the compact module, so the contragredient convention gives the twist X(−n); in Kolster's covariant convention the action is multiplied by u = κ(γ), the twist by −1 in the same formula. The involution ι of I.1 enters only when the dual of a compact module itself is compared with the module."
+    "Duals: contragredient double duality gives X(−n). For Kolster's covariant dual B = Hom(A, ℚ_p/ℤ_p), (γφ)(a) = φ(γa), the covariant dual of 𝒯 ⊗ A has γ-action u times that on B, hence is B(+1) in the action convention of this node and has series f(u^(−1)(1+T) − 1). Kolster's label (−1) for this construction is translated by its action, not carried over as the same twist label. The involution ι enters when comparing a dual with the original compact module."
    ],
    "prerequisites": [
     "PadicMeasuresIwasawaAlgebras:L4/finite-coinvariants-euler-characteristic",
@@ -974,7 +1041,8 @@
    "acceptance": [
     "For M = Λ/(T − p) over ℤ_p, p odd: #M_Γ = p and M^Γ = 0.",
     "For M = Λ/(T): M_Γ is infinite, so the formula does not apply; f(0) = 0.",
-    "For M = ℤ_p(1) as a Λ-module (f = T − (κ(γ) − 1)): #M_Γ = p^{v_p(κ(γ)−1)}, while the twist M(−1) is the trivial module ℤ_p with infinite coinvariants."
+    "For M = ℤ_p(1) as a Λ-module (f = T − (κ(γ) − 1)): #M_Γ = p^{v_p(κ(γ)−1)}, while the twist M(−1) is the trivial module ℤ_p with infinite coinvariants.",
+    "For B = ℤ_p with γ acting by a ∈ 1+qℤ_p, the covariant dual of 𝒯⊗A has action ua, characteristic series T−(ua−1), and evaluation ratio v_p(ua−1). Replacing it by action u^(−1)a gives a different ratio and can give infinite coinvariants when a=u."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -1133,14 +1201,14 @@
    ],
    "kind": "comparison",
    "title": "One normalisation of ζ_p for the Vandiver isomorphism",
-   "statement": "Let p be odd, G^+ = Gal(ℚ(μ_{p^∞})^+/ℚ) ≅ ℤ_p^×/{±1} by the cyclotomic character, and I(G^+) its augmentation ideal. The ideal I(G^+)ζ_p of RJW Theorems 11.9 and 13.8 equals ColemanPowerSeries' I(G^+)ζ_p^+ (the image of the real principal cyclotomic limit under the Coleman map) and the even part of the Kubota–Leopoldt pseudo-measure of DirichletPadicLFunctions L1 (I.3's dictionary), as ideals of Λ(G^+). Under the decomposition Λ(G^+) ≅ ⊕_χ O_χ⟦T⟧ over even characters χ of Δ = Gal(ℚ(μ_p)/ℚ), the χ ≠ 1 component of I(G^+)ζ_p is generated by f_χ with f_χ(u^s − 1) = L_p(χ, s) (I.3's Iwasawa power series), and the χ = 1 component by the pole-cleared trivial branch. Through L1/coleman-real-closure-comparison, the parent's isomorphism X_∞^+ ≅ U_∞^+/C_∞^+ ≅ Λ(G^+)/I(G^+)ζ_p is Coleman's quotient map read at RJW's levels.",
+   "statement": "Let p be odd, u = κ(γ), and G^+ = Gal(ℚ(μ_{p^∞})^+/ℚ). The Coleman image is the integral ideal I(G^+)ζ_p, using RJW's even zeta pseudomeasure, rather than the pseudomeasure alone. Write Z_χ(T) for its even tame χ-component, with σ_a evaluated by χ(a). RJW's Mellin convention is Z_χ(u^a−1) = L_p(χ,1−a). If f_χ(S) is I.3's analytic series with f_χ(u^s−1) = L_p(χ,s), put a(T) = u(1+T)^(−1)−1. For χ ≠ 1, Z_χ(T) = f_χ(a(T)), so this component of Iζ_p is generated by f_χ∘a. For χ = 1, I.3 uses f_1(S) = (1−u/(1+S))F_1(S), with F_1(u^s−1) = ζ_p(s); then f_1(a(T)) = −T Z_1(T), which generates the trivial component of Iζ_p. Thus U_∞^+/C_∞^+ ≅ Λ(G^+)/Iζ_p unconditionally; the further identification X_∞^+ ≅ U_∞^+/C_∞^+ requires Vandiver(p).",
    "hypotheses": [
-    "p odd; u = κ(γ) for the chosen generator γ of 1 + pℤ_p; character components use their unramified coefficient rings."
+    "p odd; the same generator u and the same character evaluation σ_a ↦ χ(a) on both sides; tame character rings are unramified. Vandiver is required only for the final X_∞^+ identification."
    ],
    "proofSteps": [
-    "Coleman's real image theorem gives I(G^+)ζ_p^+ with his pseudo-measure; I.3/kubota-leopoldt-stickelberger-dictionary identifies it with the Kubota–Leopoldt pseudo-measure and Iwasawa's series.",
-    "Compare the augmentation factors: on χ ≠ 1 the augmentation ideal is the unit ideal, on χ = 1 it is (T).",
-    "Compose with the root-indexing shift of L1/coleman-real-closure-comparison."
+    "RJW Definition 5.18 integrates χ(x)⟨x⟩^(1−s) against ζ_p. Consequently the group-algebra variable evaluates at exponent 1−s; the involution a(T) translates it to I.3's exponent s.",
+    "The substitution a is a continuous integral automorphism with a(a(T))=T. On χ≠1, the augmentation ideal is the whole component; on χ=1 it is (T), and substituting into I.3's prescribed clearing factor gives 1−u/(1+a(T)) = −T.",
+    "Apply Coleman's real image theorem, then L1/coleman-real-closure-comparison for the shift of levels. Apply the global–local sequence and Vandiver vanishing only for the identification with X_∞^+."
    ],
    "prerequisites": [
     "ColemanPowerSeries:L4/real-cyclotomic-coleman-image",
@@ -1152,18 +1220,14 @@
    "sources": [
     {
      "sourceId": "RJW",
-     "locator": "Theorem 11.9, Theorem 13.8 and Theorem 13.11 with its proof, pp. 176–195",
-     "match": "Uses the ideal I(Γ^+)ζ_p as the analytic side and proves X_∞^+ ≅ Λ(Γ^+)/I(Γ^+)ζ_p under Vandiver."
-    },
-    {
-     "sourceId": "SHARIFI",
-     "locator": "§6.1, p. 160",
-     "match": "Identifies the χ-components of the Coleman image with Iwasawa's power series, with T times it on the trivial component."
+     "locator": "Definition 5.18 and Remark 5.21, pp. 147–148; Theorem 12.23, pp. 188–189; Theorem 13.11 and proof, pp. 192–195",
+     "match": "Fixes the Mellin exponent 1−s, the Coleman quotient and the Vandiver hypothesis on the arithmetic isomorphism."
     }
    ],
    "acceptance": [
-    "The trivial component is pole-cleared; no comparison divides by the value of ζ_p at the trivial character.",
-    "Coleman's and RJW's levels differ by one."
+    "For χ≠1, Z_χ(0)=L_p(χ,1), whereas f_χ(0)=L_p(χ,0); identifying the two series without the involution fails this check.",
+    "The analytic trivial branch has its pole at S=u−1, whereas Z_1 has its augmentation pole at T=0. Multiplying by I clears the latter.",
+    "At p=37 Vandiver holds but regularity fails. The arithmetic quotient isomorphism uses Vandiver, not regularity; its statement must retain that hypothesis."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -1179,7 +1243,7 @@
    ],
    "kind": "comparison",
    "title": "Abelian Leopoldt in I.2's form, and the logarithmic defect",
-   "statement": "For a number field E and prime p, let δ(E, p) = rank_{ℤ_p} ker(ι_E: O_E^× ⊗ ℤ_p → ∏_{v|p} U^1(E_v)) be I.2's Leopoldt defect and δ_log(E, p) = dim_{ℚ_p} ker(ℓ_{E,p}) the logarithmic defect of the parent L4/leopoldt-defect, ℓ_{E,p} = (log_p ∘ ι_E) ⊗ ℚ_p. Then δ_log = δ. Consequently the parent L4/abelian-leopoldt states I.2's LeopoldtConjecture(E, p) for every finite abelian E/ℚ and every p, and the principal closure of global units of F_n^+ has ℤ_p-rank [F_n^+:ℚ] − 1. The parent L4/leopoldt-defect is a characterisation of I.2's definition, not a second definition.",
+   "statement": "For a number field E and prime p, let δ(E, p) = rank_{ℤ_p} ker(ι_E: O_E^× ⊗ ℤ_p → ∏_{v|p} U^1(E_v)) be I.2's Leopoldt defect and δ_log(E, p) = dim_{ℚ_p} ker(ℓ_{E,p}) the logarithmic defect, defined here as a comparison with I.2, ℓ_{E,p} = (log_p ∘ ι_E) ⊗ ℚ_p. Then δ_log = δ. Consequently the parent L4/abelian-leopoldt states I.2's LeopoldtConjecture(E, p) for every finite abelian E/ℚ and every p, and the principal closure of global units of F_n^+ has ℤ_p-rank [F_n^+:ℚ] − 1. The parent L4/leopoldt-defect is a characterisation of I.2's definition, not a second definition.",
    "hypotheses": [
     "E a number field, p any prime including 2; log_p is Iwasawa's logarithm on principal units."
    ],
@@ -1190,7 +1254,6 @@
    "prerequisites": [
     "IntegralIwasawaTheory:I.2/leopoldt-map-and-defect",
     "IntegralIwasawaTheory:I.2/semilocal-principal-units",
-    "IntegralIwasawaTheory:L4/leopoldt-defect",
     "IntegralIwasawaTheory:L4/abelian-leopoldt"
    ],
    "sources": [
@@ -1256,7 +1319,7 @@
    ],
    "kind": "definition",
    "title": "The Γ-transform of a measure",
-   "statement": "Let o be the ring of integers of a finite extension of ℚ_p with uniformiser π, and α an o-valued measure on ℤ_p. Write ℤ_p^× = V × U with V the roots of unity in ℤ_p (μ_{p−1} for p odd, {±1} for p = 2) and U = 1 + qℤ_p (q = p or 4), x = ω(x)⟨x⟩, and fix a topological generator u of U. The Γ-transform of α is Γ_α(s) = ∫_{ℤ_p^×} ⟨x⟩^s dα(x) for s ∈ ℤ_p. It is an Iwasawa function: Γ_α(s) = G_α(u^s − 1) with G_α ∈ o⟦T⟧ the Amice transform of the pushforward to ℤ_p, through y ↦ u^y, of the restriction to U of β = Σ_{η∈V} α∘η. Define μ(Γ_α) = μ(G_α), the least π-adic valuation of a coefficient.",
+   "statement": "Let o be the ring of integers of a finite extension of ℚ_p with uniformiser π, and α an o-valued measure on ℤ_p. Write ℤ_p^× = V × U with V the roots of unity in ℤ_p (μ_{p−1} for p odd, {±1} for p = 2) and U = 1 + qℤ_p (q = p or 4), x = ω(x)⟨x⟩, and fix a topological generator u of U. The Γ-transform of α is Γ_α(s) = ∫_{ℤ_p^×} ⟨x⟩^s dα(x) for s ∈ ℤ_p. It is an Iwasawa function: Γ_α(s) = G_α(u^s − 1) with G_α ∈ o⟦T⟧ the Amice transform of the pushforward to ℤ_p, through y ↦ u^y, of the restriction to U of β = Σ_{η∈V} α∘η. Define μ(Γ_α) = μ(G_α), the least π-adic valuation of a coefficient. For the zero series the content is ∞, so μ takes values in ℕ∪{∞}. If e = ord_π(p), Sinnott's p-normalised content is μ/e; both normalisations vanish simultaneously.",
    "hypotheses": [
     "o-valued measures on ℤ_p are identified with o⟦T⟧ by the Amice transform (PadicMeasuresIwasawaAlgebras layer 2); Sinnott writes T for 1 + T."
    ],
@@ -1309,7 +1372,7 @@
     {
      "name": "TauCeti.IntegralIwasawa.gammaMu",
      "role": "data",
-     "statement": "μ(Γ_α) = min_n ord_π of the coefficients of G_α."
+     "statement": "μ(Γ_α) = min_n ord_π of the coefficients of G_α. Set μ(0)=∞; converting to the normalisation v_p(p)=1 divides finite values by e=ord_π(p)."
     },
     {
      "name": "TauCeti.IntegralIwasawa.gammaMu_generator_indep",
@@ -1326,7 +1389,7 @@
     {
      "name": "gammaTransform_supported_pZp",
      "kind": "degenerate",
-     "statement": "If α is supported on pℤ_p, then Γ_α = 0."
+     "statement": "If α is supported on pℤ_p, then Γ_α = 0. Its μ is ∞, not zero."
     },
     {
      "name": "gammaSeries_dirac",
@@ -1337,6 +1400,11 @@
      "name": "gammaTransform_not_injective",
      "kind": "non-example",
      "statement": "α and α∘η (η ∈ V, η ≠ 1) have the same Γ-transform; the transform is not injective on measures on ℤ_p^×."
+    },
+    {
+     "name": "gammaMu_ramified_scalar",
+     "kind": "computation",
+     "statement": "For α=πδ_1, G_α=π and μ_π=1, while μ_p=1/e. At p=2, α=2δ_1 has μ_π=e."
     }
    ],
    "uses": [
@@ -1368,7 +1436,7 @@
    ],
    "proofSteps": [
     "(a) Enlarge k to contain an element t of infinite order; take a minimal nonconstant relation, choose integers b_i killing the exponent vector of Y_1 but not of Y_2, apply X_i ↦ X_i t^{b_i} and subtract to get a shorter relation.",
-    "(b) A polynomial relation Σ b_D (1+T)^{d·a} = 0 survives every continuous substitution (1+T) ↦ (1+T)^x, x ∈ ℤ_p; the exponents d·a are distinct, and Artin's independence of characters x ↦ (1+T)^{x·c} kills every b_D.",
+    "(b) Apply the injective continuous Laurent-series substitution (1+T) ↦ (1+T)^x for x∈ℤ_p\\{0}. This gives the polynomial relation among the characters x↦(1+T)^(xc) for nonzero x; continuity of these power series extends it to x=0. Artin's independence of the distinct characters (distinct c=d·a) forces every coefficient to vanish. Substitution at x=0 is not used as a field endomorphism of F((T)).",
     "(c) Choose a ℤ-basis a_1, …, a_n of the additive group generated by V and representatives η_1, …, η_m of V/±1; the (1+T)^{η_j} are pairwise independent monomials in the algebraically independent X_i = (1+T)^{a_i}, and apply (a) to r_{η_j}(Z) + r_{−η_j}(Z^{−1})."
    ],
    "prerequisites": [
@@ -1405,7 +1473,7 @@
     "Valid for every prime p, including p = 2; o the integers of a finite extension of ℚ_p."
    ],
    "proofSteps": [
-    "Reduce to α supported on ℤ_p^×, even and not divisible by π (replacing α by α* + α*∘(−1) doubles Γ_α and scaling by π lowers both μ-invariants equally); then μ(2α) = 0 for p odd and 1 for p = 2.",
+    "Reduce to α supported on ℤ_p^×, even and not divisible by π (replacing α by α* + α*∘(−1) doubles Γ_α and scaling by π lowers both μ-invariants equally); then μ_π(2α) = ord_π(2), which is 0 for odd p and e=ord_π(2) at p=2. Sinnott uses v_p(p)=1; multiply his finite μ-values by e. Treat zero symmetrisation separately: its Γ-transform is zero.",
     "p odd: if G ∈ πo⟦T⟧ then β|_U ∈ πΛ; translating with the rational series F_η of α|_{ηU} (rational by restriction, Sinnott Lemma 1.1) gives Σ_η F_η((1+T)^{η^{−1}} − 1) ≡ 0 mod π, so by L4/sinnott-independence (c) F_η + F_{−η}∘inv ≡ c_η, forcing 2α|_{ηU} ∈ πΛ and contradicting the hypothesis.",
     "p = 2: β = 2α gives G ∈ 2o⟦T⟧; if ½G ≡ 0 mod π then α|_U and α|_{−U} lie in πΛ, again a contradiction."
    ],
@@ -1422,7 +1490,7 @@
     }
    ],
    "acceptance": [
-    "For α = δ_1 + δ_{−1}: α* + α*∘(−1) = 2α and Γ_α = 2, so for p = 2 both sides have μ = 1.",
+    "For α = δ_1 + δ_{−1}: α* + α*∘(−1) = 2α and Γ_α = 2, so for p = 2 both sides have μ_π = ord_π(2), equal to 1 only in the unramified case.",
     "Rationality of the power series is essential: the theorem is not claimed for arbitrary measures."
    ],
    "implementationStatus": "unchecked",
@@ -1447,9 +1515,9 @@
     "θ odd, primitive, first kind; θω ≠ 1; c prime to p f_θ; the variable conventions of Sinnott (T ↦ 1 + T) are converted."
    ],
    "proofSteps": [
-    "Integrality: (1 − (1+T)^{gc})/(1 − (1+T)^g)·F ∈ o[T] because exactly one of a + bg is divisible by c, and that factor is a unit since p ∤ c.",
-    "Moments: ∫x^k dα = L(−k, ε) = (1 − θ(c)c^{k+1})L(−k, θ) by the Hurwitz formula; interpolate along k ≡ 0 mod p − 1 to get the Γ-transform formula.",
-    "Write the factor 1 − θ(c)c⟨c⟩^s = H(u^s − 1) with μ(H) = 0, so μ(g) = μ(G_α) = μ(Γ_α) = μ(α* + α*∘(−1)) by L4/sinnott-mu-theorem; ε is odd so α∘(−1) = α and the sum is 2α*.",
+    "Put g=f_θ (the conductor) and f=gc; replace f by a p-multiple if needed in the final restriction formula. The quotient (1−(1+T)^(gc))/(1−(1+T)^g) has constant term c, a unit. Multiplying F by it yields a polynomial, because each residue class modulo g has exactly one representative divisible by c; this proves integrality.",
+    "Moments give ∫x^k dα=L(−k,ε)=(1−θ(c)c^(k+1))L(−k,θ). Take integers k→s p-adically and k→∞ in the ordinary sense, with k≡0 mod(p−1) at odd p. The contribution from pℤ_p tends uniformly to zero and the unit integrands converge to ⟨x⟩^s. At p=2 take even k, initially obtaining the identity on 2ℤ_2; both sides are analytic in s on ℤ_2, so the power-series identity principle extends it to all ℤ_2 (Sinnott Proposition 4.1, p. 281). Continuity alone on the even integers would not prove the dyadic extension.",
+    "Put ι(T)=(1+T)^(−1)−1. The interpolation is L_p(−s,θω)=g(u^(−s)−1,θ), so G_α(T)=H(T)g(ι(T),θ), with H(T)=1−θ(c)c(1+T)^t and ⟨c⟩=u^t. Here t≠0; even if t is divisible by p, the reduction of (1+T)^t is nonconstant (its first nonzero exponent is p^(v_p(t))), so μ_π(H)=0. Inversion ι preserves content. Sinnott gives μ_π(g)=μ_π(2α*)=ord_π(2)+μ_π(α*), hence μ_π(½g)=μ_π(α*).",
     "With f divisible by p, (1 − (1+T)^f)·F*(T) = Σ_{p∤a} ε(a)(1+T)^a; as a polynomial in 1 + T its coefficient of (1+T)^1 is ε(1) = 1, so α* is not divisible by π."
    ],
    "prerequisites": [
@@ -1485,18 +1553,20 @@
    ],
    "kind": "theorem",
    "title": "Analytic μ-vanishing for Kubota–Leopoldt branches (Ferrero–Washington, Sinnott)",
-   "statement": "For every prime p, including p = 2, and every odd primitive Dirichlet character θ of the first kind with θω nontrivial, μ(½g(T, θ)) = 0; equivalently, every Kubota–Leopoldt branch L_p(s, χ), χ = θω even of the first kind and nontrivial, has integral power series of μ-invariant 0 after the factor ½ at p = 2. For the trivial character, the pole-cleared branch (the zeta pseudo-measure times a clearing factor vanishing simply at s = 1) takes at s = 1 the residue 1 − p^{−1} times ±log_p(u), a p-adic unit for p odd and twice a unit for p = 2, so its μ-invariant (after ½ at p = 2) is also 0.",
+   "statement": "For every prime p, including p = 2, and every odd primitive Dirichlet character θ of the first kind with θω nontrivial, μ(½g(T, θ)) = 0; equivalently, every Kubota–Leopoldt branch L_p(s, χ), χ = θω even of the first kind and nontrivial, has integral power series of μ-invariant 0 after the factor ½ at p = 2. For the trivial character use precisely P(S)=(1+S−u)F_1(S), where F_1(u^s−1)=ζ_p(s). The canonical integral series is P for odd p and ½P for p=2 (equivalently use I.3's clearing factor, which differs by the unit 1+S). At S=u−1, P has value u log_p(u)(1−p^(−1)); this is a unit for odd p and twice a unit for p=2. Thus the canonical cleared series also has μ=0. An arbitrary simple-zero factor is insufficient, since it could be multiplied by p.",
    "hypotheses": [
     "μ is the π-adic content of the integral series in the normalisation of DirichletPadicLFunctions; no main conjecture is used."
    ],
    "proofSteps": [
     "Nontrivial branches: L4/kubota-leopoldt-gamma-transform gives μ(½g) = μ(α*) and α* ≢ 0 mod π, so μ = 0.",
-    "Trivial branch: the residue of ζ_p at s = 1 is 1 − p^{−1} (RJW Theorem 7.1(ii)); multiply by the pole factor and use v_p(log_p u) = 1 (p odd, u = 1 + p) or 2 (p = 2, u = 5)."
+    "I.3's prescribed integral f_1=(1−u/(1+S))F_1 gives P=(1+S)f_1, with ½f_1 integral at p=2. DirichletPadicLFunctions:L3/rjw2-principal-residue gives the all-prime residue 1−p^(−1) in the s-coordinate. Since d(u^s−1)/ds at s=1 is u log_p u, evaluation of P at S=u−1 gives the displayed value. Use v_p(log_p u)=1 for odd p and 2 for p=2; after the prescribed dyadic ½, this value is a unit."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:L4/kubota-leopoldt-gamma-transform",
     "DirichletPadicLFunctions:L2",
-    "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants"
+    "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants",
+    "IntegralIwasawaTheory:I.3/kubota-leopoldt-stickelberger-dictionary",
+    "DirichletPadicLFunctions:L3/rjw2-principal-residue"
    ],
    "sources": [
     {
@@ -1507,7 +1577,7 @@
     {
      "sourceId": "RJW",
      "locator": "Theorem 7.1, p. 154",
-     "match": "ζ_p has a simple pole at the trivial character with residue 1 − p^{−1}."
+     "match": "For odd p, proves the residue 1−p^(−1). The all-prime residue and prescribed integral clearing factor are imported from the analytic owner, not from this odd-prime statement."
     },
     {
      "sourceId": "OESTERLE",
@@ -1532,16 +1602,16 @@
     "IntegralIwasawaTheory:L4"
    ],
    "kind": "theorem",
-   "title": "The minus class-group μ-invariant is analytic, at every prime",
-   "statement": "Let p be a prime, q = p (p odd) or 4 (p = 2), and k an imaginary abelian field containing μ_q whose conductor is not divisible by qp, with cyclotomic ℤ_p-tower k_n and relative class numbers h_n^- = h(k_n)/h(k_n^+). Then v_p(h_n^-) = μ^-p^n + λ^-n + ν^- for n large, with μ^- = Σ_θ μ_p(½g(T, θ)), the sum over the odd characters θ ≠ ω^{−1} of k (all of the first kind), μ_p being the least p-adic valuation (a rational number) of the coefficients; the character θ = ω^{−1} contributes the μ-invariant of the pole-cleared trivial branch, since its factors L_p(0, ψ) for ψ ≠ 1 of the second kind are values of the pseudo-measure away from its pole. By L4/analytic-mu-vanishing-dirichlet, μ^- = 0 for every p. For p odd this is μ(Y_∞^-) = 0; for p = 2, with I.2's norm-kernel minus part A_n^- = ker(N: A(k_n) → A(k_n^+)), #A_n^- = 2^{v_2(h_n^-)} and μ(lim A_n^-) = μ((A_∞^-)^∨) = 0.",
+   "title": "Relative class-number μ vanishes at every prime",
+   "statement": "Let p be a prime, q=p for odd p and q=4 for p=2, and let k be an imaginary abelian field containing μ_q with qp not dividing its conductor. For its cyclotomic layers k_n, put h_n^−=h(k_n)/h(k_n^+). The eventual formula v_p(h_n^−)=μ_rel^−p^n+λ_rel^−n+ν_rel^− has μ_rel^−=Σ_θ μ_p(½g(T,θ)), summed over the odd first-kind characters θ of k other than ω^(−1). Here μ_p uses v_p(p)=1, hence equals μ_π/e in a ramified coefficient ring. The exceptional θ=ω^(−1) contributes only O(n), after its pole factor and the roots-of-unity factor are accounted for. All summands vanish by L4/analytic-mu-vanishing-dirichlet, so μ_rel^−=0 for every p. For odd p this is μ(Y_∞^−)=0. At p=2 it gives v_2(#A_n^−)=O(n) for the norm-kernel minus groups; the dual-limit μ assertion follows later from L4/dyadic-relative-to-full-mu, not from restricting a full-module pseudo-isomorphism.",
    "hypotheses": [
-    "k imaginary abelian, μ_q ⊆ k, qp ∤ conductor; the reduction of a general abelian field to this case uses L2/norm-prank-descent."
+    "k imaginary abelian, μ_q⊆k, qp∤conductor. For a general abelian E, choose m prime to p with E⊆ℚ(μ_{mqp^a}). Then E_∞⊆K_∞ for K=ℚ(μ_{mq}), and K_∞/E_∞ has bounded finite degree. It is not necessary that E be contained in K."
    ],
    "proofSteps": [
-    "Relative class number formula h_n^- = Q_n w_n ∏_{χ odd of k_n} (−½B_{1,χ}), with Q_n ∈ {1, 2}; the odd characters of k_n are θψ with ψ of the second kind of conductor dividing qp^n.",
+    "Relative class number formula h_n^- = Q_n w_n ∏_{χ odd of k_n} (−½B_{1,χ}), with Q_n ∈ {1, 2}; the odd characters of k_n are θψ with ψ of the second kind of conductor dividing qp^n. Obtain this exact ordinary-class formula by dividing the analytic class-number formulas for k_n and k_n^+, using the CM regulator quotient with Hasse unit index Q_n≤2. I.6 owns this input; its current modified-class statement only specifies equality up to a power of 2, so request the explicit all-prime ordinary-class formula below rather than infer dyadic valuations from that weaker statement.",
     "Interpolation: for ψ ≠ 1 of the second kind, θψ(p) = 0, so −B_{1,θψ} = L_p(0, θωψ) = g(ζ_ψ − 1, θ) up to the root-of-unity normalisation of ψ, ζ_ψ a primitive p-power root of unity (I.3's dictionary).",
-    "The product of g(ζ − 1) over primitive p^n-th roots ζ is Res(g, ω_n)/Res(g, ω_{n−1}); its valuation is μ(g)φ(p^n) + λ(g) for n large (PadicMeasuresIwasawaAlgebras §4.7 cyclotomic growth step). w_n contributes only to λ^- and ν^-.",
-    "p = 2: the norm Cl(k_n) → Cl(k_n^+) is surjective because k_n/k_n^+ is ramified at the archimedean places and the wide Hilbert class field of k_n^+ is totally real; so #A_n^- is the 2-part of h_n^-, and I.2/iwasawa-finiteness (c) passes to the Pontryagin dual."
+    "For a nonexceptional θ, use the canonical integral series ½g and the cyclotomic resultant growth formula. Sum the valuations over p-power roots of unity to obtain μ_p(½g)p^n+O(n). The finitely many initial values and Q_n∈{1,2} affect only bounded terms. In the exceptional branch use the prescribed pole-cleared series; the denominator and w_n have valuations O(n), so do not contribute to μ_rel^− (Ferrero §§1.2–1.4).",
+    "For p=2, the class norm onto the real subfield is surjective by wide class field theory and ramification at real places. Indeed the wide Hilbert class field of the real field is totally real, so its intersection with the quadratic CM extension is the real base; norm compatibility of Artin reciprocity makes the class norm onto. Thus #A_n^− is the 2-part of h_n^−. This is a statement about finite-layer orders; no minus-part duality at 2 is inferred here."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:L4/analytic-mu-vanishing-dirichlet",
@@ -1552,7 +1622,8 @@
     "IntegralIwasawaTheory:I.2/cm-minus-class-modules",
     "IntegralIwasawaTheory:I.2/iwasawa-finiteness",
     "IntegralIwasawaTheory:L2/tower-iwasawa-invariants",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+    "IntegralIwasawaTheory:I.6"
    ],
    "sources": [
     {
@@ -1569,11 +1640,16 @@
      "sourceId": "SHARIFI",
      "locator": "Proposition 6.2.4, pp. 160–161",
      "match": "For ℚ(μ_p), p odd, μ(X_∞^-) > 0 iff some Iwasawa power series is divisible by p."
+    },
+    {
+     "sourceId": "FERRERO-1978",
+     "locator": "§1.1 formulas (1.1b)–(1.1c), p. 10; Theorem 1.2, Lemma 1.3 and Theorem 1.4, p. 11; §1.8, p. 12",
+     "match": "Records the all-prime analytic formula for relative μ, excluding the exceptional character, and the reduction by a shift of cyclotomic levels."
     }
    ],
    "acceptance": [
     "For p odd and k = ℚ(μ_p), μ^- = Σ_{k even, 2 ≤ k ≤ p−3} μ(f_{ω^k}) = 0.",
-    "At p = 2 the statement is about the norm-kernel minus part, not about a minus eigenspace (which does not exist)."
+    "At p=2 use the norm kernel. The negative eigenspace exists, but is not an exact direct-summand functor; finite-layer order growth alone is not asserted to identify inverse and direct minus limits."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -1591,7 +1667,7 @@
    "title": "Leopoldt's mirror inequality and the plus part of μ, for odd p",
    "statement": "Let p be odd and E a CM field containing μ_p. Then r_p(A(E)^+) ≤ r_p(A(E)^-) + 1, where A = Cl ⊗ ℤ_p and ± are the eigenspaces of complex conjugation. Consequently, for the cyclotomic ℤ_p-extension E_∞/E, μ(Y_∞) = 0 if and only if μ(Y_∞^-) = 0.",
    "hypotheses": [
-    "p odd, μ_p ⊆ E, E CM; the dyadic analogue (E ⊇ μ_4) is not established here (gap G-L4-DYADIC-MIRROR)."
+    "p odd, μ_p⊆E, E CM. The dyadic argument is L4/dyadic-relative-to-full-mu and uses a different inequality."
    ],
    "proofSteps": [
     "Apply Sharifi Theorem 4.4.2 with F = E^+ and χ = ω|_{G_F}, which is the sign character of E/E^+: its first inequality with δ_χ ≤ 1 gives r_p(A^+) − 1 ≤ r_p(A^-).",
@@ -1620,7 +1696,57 @@
    ],
    "acceptance": [
     "For E = ℚ(μ_p): r_p(A^+) ≤ r_p(A^-) + 1; Vandiver's condition A^+ = 0 is not implied.",
-    "The inequality is for p-ranks, not orders; the plus order can be larger than the minus order only within the rank bound."
+    "This bounds p-ranks, not orders. A cyclic group ℤ/p^a has rank one for arbitrarily large a, so no order bound is inferred from a rank comparison."
+   ],
+   "implementationStatus": "unchecked",
+   "library": {
+    "module": "TauCeti/NumberTheory/Iwasawa/L4",
+    "namespace": "TauCeti.IntegralIwasawa"
+   }
+  },
+  {
+   "id": "IntegralIwasawaTheory:L4/dyadic-relative-to-full-mu",
+   "parentStageId": "IntegralIwasawaTheory:L4",
+   "realises": [
+    "IntegralIwasawaTheory:L4"
+   ],
+   "kind": "theorem",
+   "title": "Dyadic relative μ implies full μ and the minus dual conclusion",
+   "statement": "Let k be an imaginary abelian field, p=2, k_n its cyclotomic layers, A_n=Cl(k_n){2}, B_n=Cl(k_n^+){2}, and A_n^−=ker(N:A_n→B_n). Write e_n^−=v_2(h(k_n)/h(k_n^+)). Then r_2(B_n)≤e_n^−+1 and r_2(A_n)≤2e_n^−+1. Consequently μ_rel^−=0 implies μ(k_∞/k)=0: e_n^−=O(n), so 2^(−n)r_2(A_n)→0, which excludes every vertical elementary Λ-summand. If μ_4⊆k, the compact inverse norm-kernel module and the contragredient dual of the direct norm-kernel limit both have μ=0. General abelian E reduces to a first-kind cyclotomic K after a fixed shift of layers and finite-degree norm descent.",
+   "hypotheses": [
+    "k imaginary abelian; the final direct norm-kernel limit uses the μ_4 tower convention of I.2. No direct-summand decomposition at 2 is used."
+   ],
+   "proofSteps": [
+    "Norm A_n→B_n is onto. For the extension map j:B_n→A_n, I.2's CM unit argument bounds #ker j by 2, and Nj=2. Hence #B_n/2B_n divides [A_n:jB_n]≤2#A_n^−, giving r_2(B_n)≤e_n^−+1. Exactness gives r_2(A_n)≤r_2(A_n^−)+r_2(B_n)≤2e_n^−+1.",
+    "By L4/minus-mu-from-analytic, e_n^−=O(n). In the elementary-module proof of L2/bounded-p-rank-mu-zero, each Λ/(2^a) contributes 2^n+O(1) to the arithmetic layer 2-rank (after an index shift), whereas horizontal and finite error terms contribute O(1). Therefore r_2(A_n)/2^n→0 forces no vertical summands and μ=0 (Ferrero Lemma 1.6 and Theorem 1.8). An O(n) bound is sufficient; it is not called bounded rank.",
+    "Full μ=0 makes Y_∞ finitely generated over ℤ_2. Its inverse norm-kernel submodule is therefore finitely generated over ℤ_2. I.2/iwasawa-finiteness(c) makes the full direct-limit dual pseudo-isomorphic to Y_∞^ι, hence also finitely generated over ℤ_2. The dual of the direct norm-kernel limit is a quotient of that full dual (Pontryagin duality is exact), so is finitely generated over ℤ_2 and has μ=0. This uses full μ=0 before passing to minus, avoiding an unjustified dyadic restriction of pseudo-isomorphisms.",
+    "For general abelian E, conductor decomposition embeds E in some layer K_a of K=ℚ(μ_{mq}), (m,p)=1. Thus K_∞=E_∞K_a. Apply the result to K and descend via L2/norm-prank-descent with the finite extension EK_a/E; K itself need not contain E."
+   ],
+   "prerequisites": [
+    "IntegralIwasawaTheory:L4/minus-mu-from-analytic",
+    "IntegralIwasawaTheory:L2/bounded-p-rank-mu-zero",
+    "IntegralIwasawaTheory:L2/norm-prank-descent",
+    "IntegralIwasawaTheory:I.2/cm-minus-class-modules",
+    "IntegralIwasawaTheory:I.2/iwasawa-finiteness",
+    "PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+   ],
+   "sources": [
+    {
+     "sourceId": "WASHINGTON-1975",
+     "locator": "Lemma 4 and proof, p. 184",
+     "match": "Bounds 2^(r_2(B_n)) by twice the relative class number using norm and extension."
+    },
+    {
+     "sourceId": "FERRERO-1978",
+     "locator": "Lemmas 1.5–1.7 and Theorem 1.8 with proof, pp. 11–12",
+     "match": "Uses subexponential p-rank to pass from relative μ=0 to full μ=0, including p=2; reduces conductor by shifted layers."
+    }
+   ],
+   "acceptance": [
+    "The inequality at 2 is r_2(B_n)≤e_n^−+1; it is not the odd-prime assertion r_2(B_n)≤r_2(A_n^−)+1.",
+    "An abstract family (ℤ/2)^(n+1) has unbounded rank but rank/2^n→0. The dyadic proof uses the latter limit and the arithmetic control theorem, not an assertion that O(n) means bounded.",
+    "For a vertical Λ/(4), μ=2 but the leading 2-rank coefficient is one. The proof only needs its positivity, not equality with μ."
    ],
    "implementationStatus": "unchecked",
    "library": {
@@ -1679,12 +1805,13 @@
     "k abelian over ℚ; cyclotomic tower only (Washington exhibits non-cyclotomic ℤ_p-extensions where e_n(ℓ) is unbounded)."
    ],
    "proofSteps": [
-    "Reduce to the minus part and to p ≥ 3: for k imaginary, h_n = h_n^+h_n^- and it suffices that e_n^-(ℓ) is bounded; the case p = 2 and this reduction are Washington 1975 (Math. Ann. 214), cited on p. 88 and not read here (gap G-L4-W75).",
+    "First arrange qp∤conductor by Washington 1975 Lemma 1 (p. 179): split each finite character into its first-kind and cyclotomic parts; the original and first-kind towers have the same sufficiently high fields after a fixed shift. Washington 1975 Theorem 2 (p. 183) supplies bounded relative ℓ-part for p=2 (also p=3). For all p, Proposition 2 (p. 186) reduces full boundedness to relative boundedness after adjoining μ_ℓ; this extension has degree prime to ℓ, so class-group extension is injective.",
     "Use the relative class number formula with characters χψ_n^j, ψ_n of conductor p^{n+1}, and the trace formula of Lemma 1 (pp. 89–90) expressing T_{n,m}(½ψ_n(α)^{−1}B_{1,χψ_n}) through p-adic digit sums s_{n−m}(αη), η in the sign-arranged representative set E.",
     "Choose m_1 with all primes above ℓ inert in F_∞/F_{m_1}; a vanishing B_{1,χψ_n} mod a prime above ℓ for infinitely many n forces the trace congruence for all α.",
     "Proposition 1 (statement p. 91, proof §4, pp. 95–97): for ℚ-independent β_j ∈ ℤ_p, given residues g_j mod d (p ∤ d), targets x_j and ε, for all large n some α ≡ 1 mod p^M has s_n(αβ_j) ≡ g_j mod d and |p^{−n−1}s_n(αβ_j) − x_j| < ε. The proof stores every finite digit pattern inside the expansions of a jointly normal family {γβ_j}; joint normality for almost every γ is Proposition 4 (p. 95), which Washington takes from Ferrero–Washington and which is the parent L4/fw-digit-equidistribution.",
     "Case p ∤ f_χ (pp. 91–94): Proposition 2, with L4/torsion-root-sign-arrangement, gives α_1, α_2 whose digit sums agree except for η_0, where they differ by a carry; subtracting the two instances of Lemma 1 leaves −p^{n−m}ζ_0^{−1} ≢ 0 mod the prime above ℓ, contradicting the congruence.",
-    "Case p | f_χ (pp. 94–95): Proposition 3, the same construction with residues a and a − p modulo pd, leaves −χ(a − p)ζ_0^{−1}p^{n−m′}, nonzero because (a − p, pd) = 1."
+    "Case p | f_χ (pp. 94–95): Proposition 3, the same construction with residues a and a − p modulo pd, leaves −χ(a − p)ζ_0^{−1}p^{n−m′}, nonzero because (a − p, pd) = 1.",
+    "Reduction to the full class number (Washington 1975, Lemmas 4–6 and Propositions 1–2, pp. 184–186): if ℓ=2 use r_2(A_n^+)≤1+v_2(h_n^−); if ℓ is odd, use the Kummer pairing to get r_ℓ(A_n^+)≤r_ℓ(A_n^−)+1. Bounded relative orders therefore bound plus ranks. In a ℤ_p-tower with ℓ≠p, equal adjacent ℓ-ranks force equal ℓ-class groups: norm is onto and the order-p action on A_n/ℓA_n becomes trivial, then on A_n. Any strict increase has a faithful cyclic p^n action on a subquotient over 𝔽_ℓ, whose dimension is at least ord_(p^n)(ℓ), tending to infinity. Thus bounded rank forces eventual constancy. For real base fields, pass to an imaginary quadratic CM extension and descend using the surjective class norm."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:L4/torsion-root-sign-arrangement",
@@ -1692,13 +1819,20 @@
     "IntegralIwasawaTheory:I.6/minus-class-number-formula",
     "IntegralIwasawaTheory:L2/zp-extension",
     "mathlib:NumberField.classNumber",
-    "mathlib:DirichletCharacter"
+    "mathlib:DirichletCharacter",
+    "IntegralIwasawaTheory:I.2/cm-minus-class-modules",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
    ],
    "sources": [
     {
      "sourceId": "WASHINGTON-1978",
      "locator": "Theorem, p. 87; §2 and Lemma 1, pp. 88–90; §3, Propositions 1–3 and the two cases, pp. 91–95; §4, proof of Proposition 1, pp. 95–97",
      "match": "States and proves boundedness of the ℓ-part of h_n in the cyclotomic ℤ_p-extension of an abelian field, ℓ ≠ p, for p ≥ 3, citing Washington 1975 for p = 2 and the reduction to the minus part."
+    },
+    {
+     "sourceId": "WASHINGTON-1975",
+     "locator": "Lemma 1, p. 179; Theorem 2, p. 183; Lemmas 4–6, Propositions 1–2, pp. 184–186; Theorem 3, p. 187",
+     "match": "Supplies the conductor shift, dyadic case, relative-to-full reduction and eventual constancy from bounded prime-to-p rank."
     }
    ],
    "acceptance": [
@@ -1779,11 +1913,13 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
-   "need": "Compatibility of the Artin map with norms of ideals (artinMap_norm) and class fields of subextensions (Tau Ceti ClassFieldTheory layer 13).",
+   "need": "Compatibility of the Artin map with norms of ideals (artinMap_norm) and class fields of subextensions (Tau Ceti ClassFieldTheory layer 13). Also norm-surjectivity for CM to real wide class groups and the Kronecker–Weber/conductor description for finite abelian extensions.",
    "neededBy": [
     "IntegralIwasawaTheory:L2/norm-prank-descent",
     "IntegralIwasawaTheory:L4/minus-mu-from-analytic",
-    "IntegralIwasawaTheory:L1/greither-module-dictionary"
+    "IntegralIwasawaTheory:L1/greither-module-dictionary",
+    "IntegralIwasawaTheory:L4/dyadic-relative-to-full-mu",
+    "IntegralIwasawaTheory:L4/washington-non-p-part"
    ],
    "status": "existing supplier"
   },
@@ -1794,6 +1930,14 @@
     "IntegralIwasawaTheory:L1/compact-limit-exactness-application"
    ],
    "status": "existing supplier"
+  },
+  {
+   "supplier": "IntegralIwasawaTheory:I.6",
+   "need": "Exact ordinary relative class-number formula h(k_n)/h(k_n^+)=Q_n w_n ∏_(χ odd)(−B_(1,χ)/2), with Q_n∈{1,2}, w_n the roots-of-unity order, and the wide CM-to-real norm comparison at 2. Refine the existing minus-class-number-formula owner: its modified-class equality up to an unspecified power of 2 alone does not supply the dyadic valuation. Sources: Washington 1978 §2 p. 88 and Ferrero 1978 §1.1 p. 10.",
+   "neededBy": [
+    "IntegralIwasawaTheory:L4/minus-mu-from-analytic"
+   ],
+   "status": "requested refinement of existing owner"
   }
  ],
  "coverage": [
@@ -1826,31 +1970,13 @@
    "stageId": "IntegralIwasawaTheory:L4",
    "status": "planned",
    "remaining": [
-    "G-L4-DYADIC-MIRROR: the plus part of μ at p = 2 (mirror inequality for E ⊇ μ_4).",
-    "G-L4-W75: Washington 1975 (reduction to the minus part, and p = 2) for the ℓ-part theorem.",
-    "Instantiate the parent refinement edges at assembly."
+    "Instantiate the corrected parent refinement edges at assembly.",
+    "Obtain I.6’s exact ordinary relative class-number interface, including the bounded Hasse unit index at 2; do not substitute its weaker modified-class equality up to a power of 2."
    ],
-   "note": "G3 of the parent is resolved except for the dyadic mirror: the analytic adapter by Sinnott's proof (all p), the dependent-root lattice step by Washington 1978 Proposition 2, and the odd-prime arithmetic passage by Sharifi's mirror theorem."
+   "note": "The analytic adapter, relative class-number passage and both odd and dyadic full μ arguments are specified. Washington 1975 supplies the conductor shift, dyadic prime-to-p case and relative-to-full reduction. Both former L4 gaps are discharged; generic arithmetic carriers remain with their existing owners."
   }
  ],
- "gaps": [
-  {
-   "id": "G-L4-DYADIC-MIRROR",
-   "title": "Dyadic mirror inequality for the plus part of μ",
-   "neededBy": [
-    "IntegralIwasawaTheory:L4/fw-arithmetic-mu-zero"
-   ],
-   "detail": "For p = 2 and an imaginary abelian k containing μ_4, Ferrero–Washington needs μ^+ ≤ μ^- (or r_2(A_n^+) bounded by r_2(A_n^-) + O(1)). Oesterlé, p. 174, states it for k containing the 2p-th roots of unity, citing Ferrero (Amer. J. Math. 102 (1980), the case p = 2, 3) and Washington; neither proof was read. Sharifi's Theorem 4.4.2 and Proposition 3.4.3 assume p odd. The minus part μ^- = 0 at p = 2 is closed (L4/minus-mu-from-analytic), so SpecialValuesBirchTate's request is met; only the full dyadic arithmetic μ = 0 waits on this input."
-  },
-  {
-   "id": "G-L4-W75",
-   "title": "Washington 1975: reduction to the minus part and the case p = 2",
-   "neededBy": [
-    "IntegralIwasawaTheory:L4/washington-non-p-part"
-   ],
-   "detail": "Washington 1978, p. 88, uses from Washington, Class numbers and ℤ_p-extensions, Math. Ann. 214 (1975), 177–193, that boundedness of e_n^-(ℓ) suffices and that the case p = 2 was proved there. That paper (free on GDZ) was not read in this job; read it and record the reduction (an ℓ-adic plus/minus comparison) before calling the theorem closed."
-  }
- ],
+ "gaps": [],
  "sourceIssues": [
   {
    "id": "IntegralIwasawaTheory/E94",
@@ -1865,7 +1991,12 @@
    "searched": [
     "the 189-page PDF read on 2026-10-19 (no errata section)",
     "the atlas source-issue register data/source-issues.json"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read Proposition 2.4.10 on printed p. 58 and both references in the proof of Proposition 3.4.3 on p. 91: the cited bounded-rank criterion is a proposition, not a lemma.",
+    "by": "REV-IntegralIwasawaTheory--L1"
+   }
   }
  ],
  "continues": {
@@ -2096,10 +2227,11 @@
   {
    "parentId": "IntegralIwasawaTheory:L4/fw-bernoulli-obstruction",
    "newNodes": [
-    "IntegralIwasawaTheory:L4/minus-mu-from-analytic"
+    "IntegralIwasawaTheory:L4/dyadic-relative-to-full-mu",
+    "IntegralIwasawaTheory:L4/mirror-inequality-odd"
    ],
    "imports": [],
-   "resolution": "Replaced on the main route by L4/minus-mu-from-analytic, which works with Iwasawa's series and needs no digit obstruction."
+   "resolution": "Retain the legacy implication as a vacuous consequence of fw-arithmetic-mu-zero. Replace its old proof prerequisites by that theorem only; the new proof of fw-arithmetic-mu-zero does not depend on this obstruction or digit separation."
   },
   {
    "parentId": "IntegralIwasawaTheory:L4/fw-analytic-mu-zero",
@@ -2117,10 +2249,11 @@
     "IntegralIwasawaTheory:L4/minus-mu-from-analytic",
     "IntegralIwasawaTheory:L4/mirror-inequality-odd",
     "IntegralIwasawaTheory:L2/norm-prank-descent",
-    "IntegralIwasawaTheory:L4/analytic-mu-vanishing-dirichlet"
+    "IntegralIwasawaTheory:L4/analytic-mu-vanishing-dirichlet",
+    "IntegralIwasawaTheory:L4/dyadic-relative-to-full-mu"
    ],
    "imports": [],
-   "resolution": "Closed for p odd: reduce to k = k′(μ_{2p}) by L2/norm-prank-descent, μ^- = 0 by L4/minus-mu-from-analytic, μ^+ = 0 by L4/mirror-inequality-odd. For p = 2, μ^- = 0 is closed and the plus part waits on the dyadic mirror inequality (gap G-L4-DYADIC-MIRROR)."
+   "resolution": "Closed for every prime: the relative class-number formula and analytic μ=0 give relative μ=0; odd-prime reflection or the dyadic subexponential-rank argument gives full μ=0; shifted conductor reduction and finite-degree norm descent reach every abelian field."
   },
   {
    "parentId": "IntegralIwasawaTheory:L4/greenberg-p-primary-formulation",
@@ -2143,7 +2276,11 @@
    "input": "IntegralIwasawaTheory:L4/minus-mu-from-analytic",
    "consumer": "IntegralIwasawaTheory:L4/fw-arithmetic-mu-zero",
    "status": "proposal",
-   "note": "Add when assembling; the accepted I.8 packet is not edited by this job."
+   "note": "Replace the old Bernoulli-obstruction/digit route by relative class numbers, odd reflection and the dyadic rank argument. Retain bounded-p-rank-mu-zero and the class-field supplier.",
+   "removeInputs": [
+    "IntegralIwasawaTheory:L4/fw-bernoulli-obstruction",
+    "IntegralIwasawaTheory:L4/fw-digit-separation"
+   ]
   },
   {
    "input": "IntegralIwasawaTheory:L4/mirror-inequality-odd",
@@ -2161,7 +2298,11 @@
    "input": "IntegralIwasawaTheory:L4/analytic-mu-vanishing-dirichlet",
    "consumer": "IntegralIwasawaTheory:L4/fw-analytic-mu-zero",
    "status": "proposal",
-   "note": "Sinnott's route replaces the G3 coefficient adapter."
+   "note": "Replace the old digit proof by the all-prime Sinnott adapter, including the exact principal-residue node below it.",
+   "removeInputs": [
+    "IntegralIwasawaTheory:L4/fw-digit-separation",
+    "DirichletPadicLFunctions:L3"
+   ]
   },
   {
    "input": "IntegralIwasawaTheory:L4/torsion-root-sign-arrangement",
@@ -2210,6 +2351,19 @@
    "consumer": "IntegralIwasawaTheory:L2/general-inertia-control",
    "status": "proposal",
    "note": "The eventual-ramification part."
+  },
+  {
+   "input": "IntegralIwasawaTheory:L4/dyadic-relative-to-full-mu",
+   "consumer": "IntegralIwasawaTheory:L4/fw-arithmetic-mu-zero",
+   "status": "proposal",
+   "note": "Use the dyadic norm/extension inequality and subexponential-rank criterion; no odd-prime projector at 2."
+  },
+  {
+   "input": "IntegralIwasawaTheory:L4/fw-arithmetic-mu-zero",
+   "consumer": "IntegralIwasawaTheory:L4/fw-bernoulli-obstruction",
+   "status": "proposal",
+   "replaceAllPrerequisites": true,
+   "note": "The legacy implication has impossible hypothesis μ>0 by Ferrero–Washington. Keep its statement, replace its old proof by this consequence, and remove the reverse obstruction-to-Ferrero–Washington edge."
   }
  ],
  "planetProposals": [
@@ -2263,8 +2417,8 @@
     "IntegralIwasawaTheory:L1/iwasawa-rank-theorem",
     "IntegralIwasawaTheory:L2/one-prime-inertia-control"
    ],
-   "status": "met with a reading",
-   "note": "Greither's A′(F) ≅ Y/TY is met with A′(F) read as the torsion part of the ray-class limit; Washington's Lemma 13.14 sequence is the one-prime commutator description (RJW Proposition A.5)."
+   "status": "met on the nontrivial tame component",
+   "note": "Greither's full A′(F) retains Γ. The identity with p-ramified coinvariants is valid after applying 1−e_0, exactly as needed in Theorem 4.11; A′ is never redefined as torsion. The one-prime commutator sequence is RJW Proposition A.5."
   },
   {
    "from": "EulerSystemsCyclotomicMainConjecture:L4 (coinvariant lemma and Washington pp. 277–278)",
@@ -2283,8 +2437,8 @@
    "answer": [
     "IntegralIwasawaTheory:L4/washington-non-p-part"
    ],
-   "status": "met, with gap G-L4-W75",
-   "note": "Adds the edge IntegralIwasawaTheory:L4 → R21.5 requested by RT-AREA-langlands-2/32."
+   "status": "met",
+   "note": "Washington 1975 supplies the dyadic case and relative-to-full reduction; Washington 1978 proves the remaining cases. The requested L4 → R21.5 edge is justified."
   },
   {
    "from": "Polylogarithms:P.6",
@@ -2316,10 +2470,11 @@
    "from": "SpecialValuesBirchTate:B.5/federer-conjecture-for-abelian-fields",
    "supplier": "IntegralIwasawaTheory:L4",
    "answer": [
-    "IntegralIwasawaTheory:L4/minus-mu-from-analytic"
+    "IntegralIwasawaTheory:L4/minus-mu-from-analytic",
+    "IntegralIwasawaTheory:L4/dyadic-relative-to-full-mu"
    ],
    "status": "met",
-   "note": "μ of the norm-kernel minus module at p = 2 vanishes; no dyadic mirror is needed for the minus part."
+   "note": "First prove relative μ=0, then full dyadic μ=0 by the subexponential-rank argument. The norm-kernel inverse limit is a submodule of the full norm limit; the direct norm-kernel dual is a quotient of the full direct dual. Both have μ=0. No dyadic minus pseudo-isomorphism is assumed."
   }
  ],
  "upstreamNotes": [
@@ -2328,6 +2483,19 @@
     "tauceti:TauCetiRoadmap/PadicMeasuresIwasawaAlgebras"
    ],
    "note": "§5.2 cites RJW Proposition 13.13 for limit exactness; this packet instantiates it on RJW's sequence (13-1). No change requested."
+  },
+  {
+   "roadmaps": [
+    "tauceti:TauCetiRoadmap/PadicMeasuresIwasawaAlgebras"
+   ],
+   "note": "Review checked current main c785fa3b983754f0dbcc49492d92fd770e3adba6, §4.7 and §5.2, including Suggested.lean: growthTransition(n,n₀)=ω_n/ω_{n₀−1}. The arithmetic adapter is corrected to n₀=m+1. No upstream change requested. Current Tau Ceti already supplies generic procyclic and completed-group-algebra infrastructure; all such work remains imported."
   }
- ]
+ ],
+ "assemblySemantics": "inheritedTargets.newNodes records which refinements discuss each inherited target; it does not add prerequisite edges. Apply only refinementEdges, with their stated replacements, and supersededNodes. In particular never add tower-iwasawa-invariants as an input of arithmetic-class-number-growth: the definition imports that theorem. Never add rjw-iwasawa-modules as an input of cyclotomic-class-field-specialization or the real-tower application as an input of the general one-prime control theorem. removeInputs deletes the listed old prerequisites before adding input; replaceAllPrerequisites makes that input the sole prerequisite. Apply these replacements before checking cycles. In particular the legacy Bernoulli obstruction follows from Ferrero–Washington only after its old reverse edge is removed.",
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-IntegralIwasawaTheory--L1",
+  "date": "2026-10-19",
+  "notes": "Independent review corrected the cutoff, dependency cycles, twist and Coleman coordinates, Greither ray-class convention, coefficient normalization and dyadic class-group passage; supplied Washington 1975 and Ferrero 1978 proofs to discharge both L4 gaps. Accepted at target-level planned coverage, with external arithmetic interfaces and parent assembly explicitly recorded; no implementation claim."
+ }
 }
