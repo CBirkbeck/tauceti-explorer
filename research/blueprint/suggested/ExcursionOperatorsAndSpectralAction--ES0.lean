@@ -1,38 +1,29 @@
-/-
-This file is not the roadmap and is not exhaustive. The mathematical roadmap
-in ../readmes/ExcursionOperatorsAndSpectralAction--ES0.md is definitive.
-These are suggested statements for contributors; proof placeholders do not
-certify any implementation.
+import Mathlib
 
-The enhanced stable categories, condensed Hecke families, stacky Perf and
-coherent action anima used in ES0–ES4 are README targets. Their carriers are
-not supplied at the library pins. The declarations here concern reduced
-central support after passing to an actual preadditive homotopy category.
-They do not replace the enhanced constructions by ordinary projections.
+/-!
+# Excursion operators and the spectral action: representative target signatures
 
-Mathlib's CatCenter, its ring laws and its scalar map are imported. The three
-light definitions below use those existing carriers. The end theorems and
-examples state the generic support results and their hypothesis checks.
+The roadmap in `../readmes/ExcursionOperatorsAndSpectralAction--ES0.md` is
+definitive and this file is not exhaustive. It records definitions and theorem
+signatures statable against the pinned APIs; proof placeholders certify no
+implementation.
+
+Enhanced centers, condensed Hecke families, stacky Perf and coherent action
+anima remain targets in the roadmap. Here reduced central support is expressed
+on an actual preadditive homotopy category using Mathlib's ordinary CatCenter.
+The scalar-extension theorem distinguishes flatness from the identity-preserving
+endomorphism comparison, and the localization criterion concerns ideals only.
 -/
-
-import Mathlib.CategoryTheory.Center.Linear
-import Mathlib.CategoryTheory.Preadditive.AdditiveFunctor
-import Mathlib.RingTheory.Spectrum.Prime.Basic
-import Mathlib.RingTheory.Spectrum.Prime.RingHom
-import Mathlib.RingTheory.Ideal.Maps
-import Mathlib.RingTheory.Flat.Basic
-import Mathlib.CategoryTheory.Triangulated.Pretriangulated
-import Mathlib.Algebra.Category.ModuleCat.Basic
-import Mathlib.Algebra.DualNumber
-import Mathlib.Data.ZMod.Basic
 
 open CategoryTheory
 open scoped IsMulCommutative
 open scoped TensorProduct
 
-namespace TauCetiBlueprint.Excursion
+namespace TauCetiRoadmap.ExcursionOperatorsAndSpectralAction
 
 universe u v w
+
+/-! ## ES4: reduced central support and its operations -/
 
 section CentralSupport
 variable {R : Type w} [CommRing R]
@@ -54,25 +45,42 @@ def centralAnnihilator (a : R →+* CatCenter C) (X : C) : Ideal R :=
 def centralSupport (a : R →+* CatCenter C) (X : C) : Set (PrimeSpectrum R) :=
   PrimeSpectrum.zeroLocus (centralAnnihilator a X : Set R)
 
+/-- Annihilation means vanishing of the evaluated central endomorphism. -/
 theorem centralAnnihilator_mem (a : R →+* CatCenter C) (X : C) (r : R) :
     r ∈ centralAnnihilator a X ↔ (a r).app X = 0 := by
   sorry
 
+/-- A prime lies in the support precisely when it contains the annihilator. -/
 theorem centralSupport_mem (a : R →+* CatCenter C) (X : C) (x : PrimeSpectrum R) :
     x ∈ centralSupport a X ↔ centralAnnihilator a X ≤ x.asIdeal := by
   sorry
 
+/-- Central support is invariant under isomorphism of objects. -/
 theorem centralSupport_iso (a : R →+* CatCenter C) {X Y : C} (e : X ≅ Y) :
     centralSupport a X = centralSupport a Y := by
   sorry
 
--- centralSupport_zero: a zero object is expressed by id_X=0 in a preadditive category.
+-- Scalar evaluation fixes the normalization of the light evaluation map.
+example [Linear R C] (X : C) (r : R) :
+    centerEvaluation X (Linear.toCatCenter R C r) = r • 𝟙 X := rfl
+
+-- An annihilator contains the unit exactly for a zero object.
+example (a : R →+* CatCenter C) (X : C) :
+    (1 : R) ∈ centralAnnihilator a X ↔ 𝟙 X = 0 := by
+  change ((centerEvaluation X).comp a) 1 = 0 ↔ _
+  simp only [map_one, End.one_def]
+
+-- centralSupport_zero: a zero object is expressed by id_X=0.
 example (a : R →+* CatCenter C) (X : C) (h : 𝟙 X = 0) :
     centralSupport a X = ∅ := by
-  sorry
+  have ha : centralAnnihilator a X = ⊤ := by
+    rw [Ideal.eq_top_iff_one]
+    change ((centerEvaluation X).comp a) 1 = 0
+    simpa only [map_one, End.one_def] using h
+  simp [centralSupport, ha]
 
--- The faithful-action support criterion.
-example (a : R →+* CatCenter C) (X : C)
+/-- An injective evaluated central action has full reduced support. -/
+theorem centralSupport_of_faithful_action (a : R →+* CatCenter C) (X : C)
     (h : Function.Injective ((centerEvaluation X).comp a)) :
     centralSupport a X = Set.univ := by
   sorry
@@ -148,6 +156,7 @@ end SupportComparisons
 section IdempotentSupport
 variable {C : Type*} [Category C] [Preadditive C]
 
+/-- Complementary scalar projectors constrain support to complementary loci. -/
 theorem centralSupport_idempotent {R : Type*} [CommRing R]
     (a : R →+* CatCenter C) (e : R) (he : e * e = e) (X Y : C)
     (hX : (a e).app X = 𝟙 X) (hY : (a e).app Y = 0) :
@@ -160,16 +169,16 @@ end IdempotentSupport
 section ModuleSupportExamples
 variable (R : Type u) [CommRing R]
 
--- centralSupport_free: the concrete rank-one scalar module computation.
-example : centralAnnihilator (Linear.toCatCenter R (ModuleCat R)) (ModuleCat.of R R) = ⊥ ∧
+/-- The scalar action on the rank-one free module is faithful and has full support. -/
+theorem centralSupport_free : centralAnnihilator (Linear.toCatCenter R (ModuleCat R)) (ModuleCat.of R R) = ⊥ ∧
     centralSupport (Linear.toCatCenter R (ModuleCat R)) (ModuleCat.of R R) = Set.univ := by
   sorry
 
 variable (k : Type u) [Field k]
 
--- centralSupport_nilpotent: degree-zero observation of k compact in Perf(k).
--- The scalar category is ModuleCat k; k is not asserted to be perfect over k[ε].
-example :
+/-- The dual-number residue action has nonzero annihilator but full reduced support.
+This is a degree-zero computation in ModuleCat k, without claiming k is perfect over k[ε]. -/
+theorem centralSupport_nilpotent :
     let a : DualNumber k →+* CatCenter (ModuleCat k) :=
       (Linear.toCatCenter k (ModuleCat k)).comp (TrivSqZeroExt.fstHom k k k).toRingHom
     centralAnnihilator a (ModuleCat.of k k) = Ideal.span ({DualNumber.eps} : Set (DualNumber k)) ∧
@@ -178,20 +187,18 @@ example :
 
 end ModuleSupportExamples
 
--- support_coefficient_change_requires_End_comparison: even for the flat identity
--- ring map, replacing the scalar module by zero changes its annihilator.
--- The additive zero functor is compatible with scalar actions. Thus those
--- hypotheses alone cannot imply equality, without the endomorphism comparison.
-example :
+/-- Under the flat identity map on ℤ, the scalar module and zero have different
+annihilators despite their compatibility through the additive zero functor.
+Thus flatness and compatible actions alone do not imply annihilator equality. -/
+theorem support_coefficient_change_requires_End_comparison :
     centralAnnihilator (Linear.toCatCenter ℤ (ModuleCat ℤ)) (ModuleCat.of ℤ ℤ) = ⊥ ∧
     centralAnnihilator (Linear.toCatCenter ℤ (ModuleCat ℤ))
       (ModuleCat.of ℤ (Fin 0 → ℤ)) = ⊤ := by
   sorry
 
--- support_coefficient_change_requires_flatness: ℚ tensored with ℤ/2 is zero.
--- Its degree-zero End tensor comparison is therefore an equivalence to End(0)
--- preserving the identity, yet the annihilator grows from zero to the unit ideal.
-example :
+/-- The nonflat map ℤ → ℤ/2 kills ℚ. The End tensor comparison preserves the
+identity, yet the annihilator grows from zero to the unit ideal. -/
+theorem support_coefficient_change_requires_flatness :
     let X := ModuleCat.of ℚ ℚ
     let Y := ModuleCat.of (ZMod 2) (Fin 0 → ZMod 2)
     let a : ℤ →+* CatCenter (ModuleCat ℚ) :=
@@ -205,4 +212,4 @@ example :
       centralAnnihilator b Y := by
   sorry
 
-end TauCetiBlueprint.Excursion
+end TauCetiRoadmap.ExcursionOperatorsAndSpectralAction
