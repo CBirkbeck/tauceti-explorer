@@ -146,13 +146,18 @@ example : 53 ∣ 211 + 1 ∧ 2 < (211 + 1) / 53 := by decide
 
 /-! ## SP.13: the Bertrand step of the induction on `n` -/
 
-/-- For `n > 5` there is a prime `p` with `n = p + r`, `0 < r < p` and `p ≥ 5`, so `SP_n` follows
-from `SP_{r-1}, SP_r, SP_{r+1}, SP_{p-r}` (Newton–Thorne 2026 Theorem 6.4). -/
+/-- For `n > 5` there is a prime `p` with `n = p + r`, `0 < r < p` and `p ≥ 5`.
+The induction uses `SP_r`, `SP_{r+1}`, `SP_{p-r}` and, when `r > 1`, `SP_{r-1}`.
+For `r = 1` the tensor branch is direct and uses no `SP_0`
+(Newton–Thorne 2026 Theorem 6.4, p. 50). -/
 theorem exists_bertrand_split {n : ℕ} (hn : 5 < n) :
     ∃ p r : ℕ, p.Prime ∧ n = p + r ∧ 0 < r ∧ r < p ∧ 5 ≤ p := by
   sorry
 
 example : (7 : ℕ).Prime ∧ 12 = 7 + 5 ∧ 0 < 5 ∧ 5 < 7 := by norm_num
+
+/-- The first induction step has `r = 1`; no rank-zero statement is needed. -/
+example : (5 : ℕ).Prime ∧ 6 = 5 + 1 ∧ 0 < 1 ∧ 1 < 5 := by norm_num
 
 /-- The residual block sizes of `Sym^{p+r-1}` modulo `p`: `2r` and `p - r` add up to `p + r`. -/
 example (p r : ℕ) (h : r < p) : 2 * r + (p - r) = p + r := by omega
