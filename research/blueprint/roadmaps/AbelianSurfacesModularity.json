@@ -14,6 +14,7 @@
   "AutomorphicFormsOnReductiveGroups",
   "AutomorphicGaloisRepresentationsPartII",
   "AutomorphicLFunctionsAndLocalFactors",
+  "ClassicalSerreModularity",
   "EllipticCurveModularity",
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
   "EndoscopicTransferAndUnitaryTraceComparison",
@@ -29,7 +30,8 @@
   "PotentialAutomorphyInfrastructurePartII",
   "tauceti:TauCetiRoadmap/AlgebraicCurves",
   "tauceti:TauCetiRoadmap/EllipticCurves",
-  "tauceti:TauCetiRoadmap/PolynomialGaloisGroups"
+  "tauceti:TauCetiRoadmap/PolynomialGaloisGroups",
+  "tauceti:TauCetiRoadmap/StableReduction"
  ],
  "stages": [
   {
@@ -44,9 +46,9 @@
     "AutomorphicLFunctionsAndLocalFactors:AL.2",
     "EllipticCurveModularity:R29.6",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
     "LocalGaloisDeformationRings:L7",
     "ModularityAndLanglandsExtensions:ML.0",
+    "ModularityAndLanglandsExtensions:ML.4",
     "NeronModelsAndSemistableAbelianVarieties:R11.5",
     "NeronModelsAndSemistableAbelianVarieties:R11.6"
    ]
@@ -72,7 +74,6 @@
     "AbelianSchemesAndArithmeticModuli:A3",
     "ArithmeticGaloisRepresentations:G7",
     "GL2AutomorphicRepresentationsAndTransfer:R17.5",
-    "GlobalGaloisDeformations:G7",
     "PotentialAutomorphyInfrastructurePartII:PL.4",
     "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
     "tauceti:TauCetiRoadmap/PolynomialGaloisGroups#layer-0-the-permutation-representation-of-a-polynomial"
@@ -96,7 +97,7 @@
     "ModularityAndLanglandsExtensions:ML.1",
     "ModularityAndLanglandsExtensions:ML.3",
     "ModularityAndLanglandsExtensions:ML.5",
-    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.2"
    ]
   },
@@ -118,7 +119,8 @@
     "NeronModelsAndSemistableAbelianVarieties:R11.5",
     "NeronModelsAndSemistableAbelianVarieties:R11.6",
     "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
-    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+    "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs"
    ]
   },
   {
@@ -169,8 +171,10 @@
     "LocalGaloisDeformationRings:L7",
     "LocalGaloisDeformationRings:R08.2",
     "ModularityAndLanglandsExtensions:ML.0",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3",
     "NeronModelsAndSemistableAbelianVarieties:R11.5",
-    "NeronModelsAndSemistableAbelianVarieties:R11.6"
+    "NeronModelsAndSemistableAbelianVarieties:R11.6",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs"
    ]
   },
   {
@@ -189,8 +193,10 @@
     "AbelianSurfacesModularity:AM.6",
     "AbelianSurfacesModularity:AM.7",
     "AbelianSurfacesPotentialModularity:AP.6",
+    "AbelianSurfacesPotentialModularity:AP.7",
     "ArithmeticGaloisRepresentations:G7",
     "ArithmeticGaloisRepresentations:R01.5",
+    "ClassicalSerreModularity:R27.6",
     "EllipticCurveModularity:R29.6",
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
@@ -198,6 +204,7 @@
     "GL2AutomorphicRepresentationsAndTransfer:R17.5",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
     "ModularityAndLanglandsExtensions:ML.1",
+    "ModularityAndLanglandsExtensions:ML.3",
     "ModularityAndLanglandsExtensions:ML.5",
     "NeronModelsAndSemistableAbelianVarieties:R11.6",
     "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
