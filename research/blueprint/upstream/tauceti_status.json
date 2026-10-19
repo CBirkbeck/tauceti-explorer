@@ -438,7 +438,7 @@
     "NeronModelsAndSemistableAbelianVarietiesPartII": {
       "stage": "pr",
       "pr": 870,
-      "head": "105c9fa",
+      "head": "00b3781",
       "depends_on": [
         852,
         779,
@@ -449,8 +449,9 @@
       "review": {
         "recommendation": "changes",
         "head": "105c9fa",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 00b3781; confirmation pass pending"
       }
     },
     "ArithmeticLocallySymmetricSpaces": {
