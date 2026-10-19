@@ -1,0 +1,242 @@
+{
+  "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity",
+  "title": "Exotic symmetric monoidal structures and abstractly automorphic representations for GL(2)",
+  "area": "automorphic",
+  "parent": null,
+  "summary": "Construct the triality kernel for GL₂ over a nonarchimedean field, identify its Kirillov spectral action and use it to define an exotic symmetric monoidal structure on smooth representations. Over global function fields, use the theta functional to construct the compact automorphic algebra and its fully faithful category of modules. Include spin-dependent spherical convolution and the sequel’s automorphic induction, restriction, component decomposition and irreducible comparison, with every unresolved proof and supplier extension explicitly recorded.",
+  "readme": "Build the local triality and Whittaker tensor before the Bernstein and spherical comparisons, then descend the uniquely compatible associator. Globalize with explicit restricted tensor reference data, build the theta multiplication and compact automorphic ideal, and form its module category. Treat spin convolution and normalized parabolic induction as two further consumers. Smooth representation theory, general Fourier analysis, metaplectic representations, function-field arithmetic and line bundles are supplier material. The companion reader contains full statements, APIs, Checks, tests and the 47-item routing map.",
+  "prerequisites": [
+    "AutomorphicLFunctionsAndLocalFactors",
+    "FunctionFieldArithmetic",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "MetaplecticAutomorphicForms",
+    "SmoothRepresentationsOfLocalGroups"
+  ],
+  "stages": [
+    {
+      "key": "EX.0",
+      "title": "Triality kernel and explicit Weil operators",
+      "description": "Determinant pairing: For matrices m,n ∈ M₂(F), put B(m,n)=tr(m)tr(n)−tr(mn). This is the symmetric nondegenerate bilinear polarization det(m+n)−det(m)−det(n). On M₂(F)⊗F² use B(m,n)·(v∧v′) as the alternating form.\n\nTriality symplectic action: Let H={(g₁,g₂,g₃)∈G³ | det(g₁)det(g₂)det(g₃)=1}. On M₂(F)⊗F² let H act by m⊗v↦g₁mg₃ᵀ⊗g₂v. The identification with a triple tensor of two-dimensional spaces extends this to a symplectic action of S₃⋉H; (13) sends m⊗v to mᵀ⊗v.\n\nRigidified triality lift: There is exactly one lift of the preceding S₃⋉H action to the scalar ℂ× metaplectic extension whose operator for (13) on S(M₂(F)) is transpose. Its restriction to SL₂(F)³ is the Weil lift; the determinant-one torus and the order-three permutation obey the semidirect relations.\n\nTriality kernel: Construct the smooth S₃⋉G³-module Y=S(M₂(F)×F×) by induction of the lifted H action. With D=det(g₁g₂g₃), its action on Φ(m)f(y) is |D| times the H-operator (g₁,diag(y,1)g₂diag(y⁻¹D⁻¹,1),g₃) on Φ, multiplied by f(yD). In particular outer actions give Ψ(g₁⁻¹mg₃⁻ᵀ,y det(g₁g₃)); middle [[a,b],[0,1]] gives |a|e(by det m)Ψ(m,ay); middle w=[[0,−1],[1,0]] gives |y|²∫Ψ(n,y)e(−yB(m,n))dn.\n\nOpen triality kernel: Let Y°=S(G×F×), embedded in Y by extension by zero. It is stable under the two outer copies of G and the middle mirabolic subgroup, and generates Y under the middle G action. It is not asserted to be a middle G submodule.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "MetaplecticAutomorphicForms:MP.1",
+        "MetaplecticAutomorphicForms:MP.2",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "EX.1",
+      "title": "Spectral rigidification and local zeta integrals",
+      "description": "Threefold Bernstein balance: Every element of the Bernstein centre of SmoothRepℂ(G) acts identically through each of the three G actions on Y. The resulting equality also holds after applying smooth balanced tensor products.\n\nSingular orbit comparison: For a smooth V such that neither V nor its smooth contragredient Ṽ admits an SL₂(F)-invariant linear functional, the singular quotient satisfies Ṽ⊗G S({det m=0}×F×)⊗G V ≅ Jac(Ṽ)⊗T Jac(V), with T=F××F× and unnormalized Jacquet functors.\n\nOpen spectral integral: For generic irreducible V and β(g)=⟨ṽ,π(g)v⟩, the formula μ(β⊗Ψ)(y)=∫G β(g)Ψ(g,y/det g)d×g descends to an isomorphism Ṽ⊗G Y°⊗G V→S(F×). The Haar measure gives GL₂(O) volume 1.\n\nKirillov spectral extension: For every generic irreducible V, μ extends uniquely to a middle G-equivariant isomorphism ν:Ṽ⊗G Y⊗G V≅K(V(−1))(1). Here V(t)=V⊗|det|ᵗ and K denotes the Kirillov realization with its full G action. The uniqueness of the middle action is relative to this open-part rigidification for all such V.\n\nLocal zeta comparison: Let Ψ(m,y)=Φ(m)f(y), with Φ∈S(M₂(F)), f∈S(F×), and β a matrix coefficient of generic irreducible V. With j the natural identification of K(V(−1))(1) with the underlying Kirillov-function space of V, ZJL(jν(β⊗Ψ),s)=ZGJ(β,Φ,s)·∫F×f(y)|y|^{s+1/2}d×y. ZGJ uses |det g|^{s+1/2} and ZJL uses |y|^{s−1/2}; initially take a common domain of absolute convergence and then the supplied meromorphic extensions.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "EX.2",
+      "title": "Exotic product and Whittaker unit",
+      "description": "Transpose right action: For a smooth left G-module (V,ρ), define IRL(V) as the right module v·g=ρ(gᵀ)v. Its inverse uses transpose again. This is an equivalence between the left and right smooth representation categories, not the contragredient functor.\n\nExotic tensor product: For smooth left modules M,N define M⊛N=(IRL(M)⊗ℂ IRL(N))⊗G×G Y using the first and third kernel actions, retaining the middle action. For morphisms use the descended tensor map. Transpose of m defines a natural involutive symmetry; the product preserves colimits separately and is right exact. The ordinary tensor product of G representations is not used as the output product.\n\nWeak symmetric tensor data: A weak symmetric tensor structure consists of a bifunctor, an object Iunit, a natural involutive symmetry s, and natural left unit isomorphisms λ:Iunit⊛X≅X, with λIunit compatible with sIunit,Iunit. It contains no associator. A weak symmetric monoidal functor carries product and unit isomorphisms compatible with s and λ, without asserting pentagon or hexagon axioms.\n\nWhittaker unit: For U={u(b)} and θ(u(b))=e(b), let Iunit be the quotient of S(G) by the span of f(u·)−θ(u)f, with G acting by right translation. Identify it with c-IndU^G θ. There is a natural isomorphism λV:Iunit⊛V≅V, obtained from the middle θ-coinvariants of Y≅S(G). Its representative formula is φ(f⊗Ψ)(g)=∫G f(h)(w h⁻ᵀ·Ψ)(g⁻¹,−det g)d×h.\n\nWhittaker trace and symmetry: Transpose is the identity on the double θ-coinvariants of Y for its outer actions. Consequently the braiding on Iunit⊛Iunit is identity and the preceding data define a weak symmetric tensor structure. Moreover Φ⁻(M⊛N)≅IRL(M)⊗G N naturally and EndG(Iunit) is commutative.",
+      "requires": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "EX.3",
+      "title": "Degeneracy-free representations and the centre",
+      "description": "Degeneracy-free representations: A representation D is degenerate if Φ⁻D=0. A representation N is degeneracy-free if HomG(N,D)=0 and Ext¹G(N,D)=0 for every degenerate D. This quantifies over all degenerate objects, not just irreducible ones.\n\nLocally unital Bernstein modules: Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. The finite-support enriched Hom is underlineHom(M,N)=⊕c Hom(Mc,Nc). In particular underlineEnd(Iunit)=Z; the full End(Iunit) is the product ∏c Zc.\n\nEnhanced Whittaker adjunction: The Whittaker functor refines to Φ⁻enh:Mod(G)→Modfirm(Z), and F(N)=N⊗Z Iunit is its left adjoint. The unit N→Φ⁻enhF(N) is invertible; thus F is fully faithful. The tensor and unit comparisons make F weak symmetric monoidal.\n\nDegeneracy-free equivalence: F gives an equivalence Modfirm(Z)≅Moddf(G). Its image is also the smallest full subcategory containing Iunit and closed under colimits. The usual symmetric monoidal structure on firm Z-modules transfers to a uniquely compatible symmetric monoidal structure on this image.",
+      "requires": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "EX.4",
+      "title": "Spherical generator and centre equivalence",
+      "description": "Spherical generator: Set K=GL₂(O) and E=c-IndK^G S(O×), where K acts on S(O×) through determinant and translation. Equivalently E=c-IndSL₂(O)^G 1. Define Modsph(G) as the full colimit closure of E, and Zsph as the direct sum of Bernstein centres of blocks containing a one-dimensional representation.\n\nSpherical counit and comultiplication: Let ν be the largest integer with e(π⁻νO)=1, q=|O/πO|, h=diag(1,−π^ν). Define ε:E→Iunit from the rough distribution f(u(b)hk)=e(b)δ1(det k), k∈K, zero off UhK. Define Δ:E→E⊛E from q⁻ν·1M₂(O)(m)δπ⁻ν(y), interpreted in the roughening of Y. Both maps are specified as equivariant maps out of compact induction, with exact normalization fixed by ε and the two unit equations.\n\nSpherical centre equivalence: The maps ε and Δ satisfy both counit equations, and Δ is an isomorphism. E is projective and each block piece compact; underlineEnd(E)=Zsph. The functor N↦N⊗Zsph E is fully faithful with image Modsph(G) and preserves tensor products and symmetry. Its domain unit Zsph maps to E, so the comparison is not a unit-preserving functor to the ambient category with unit Iunit.\n\nWhittaker and spherical generation: The functor Modfirm(Z)×Modfirm(Zsph)→Mod(G), (M,N)↦M⊗Z Iunit⊕N⊗Zsph E, is faithful and weak symmetric monoidal for the pair-category tensor used in EX.5. Its image generates Mod(G) under Z-linear colimits. This assertion is joint generation; it does not place every generic irreducible in the degeneracy-free subcategory.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ]
+    },
+    {
+      "key": "EX.5",
+      "title": "Associativity, trace and local convolution",
+      "description": "Idempotent coherence theorem: In a category with a tensor bifunctor and a pentagon associator α, let θ:P⊗P≅P. Define a:P≅P by a∘θ∘(θ⊗id)=θ∘(id⊗θ)∘α. If θ∘(a⊗id)=a∘θ=θ∘(id⊗a), then a=id. The dual form applies to an invertible comultiplication after its compatibility equations have been proved from the two counit laws.\n\nExotic symmetric monoidal structure: There exists exactly one associator on ⊛ making the given symmetry and unit into a symmetric monoidal structure and making Modfirm(Z)→Mod(G) weak symmetric monoidal with its specified comparisons. It restricts to the ordinary tensor associators on the Iunit- and E-generated parts under their respective comparisons.\n\nFrobenius category trace: In the symmetric monoidal 2-category of presentable ℂ-linear categories with colimit-preserving functors and its relative tensor product, (Mod(G),⊛,Iunit) is a commutative algebra whose trace is Φ⁻. The pairing (M,N)↦Φ⁻(M⊛N)≅IRL(M)⊗G N is a categorical self-duality.\n\nGeneric idempotent algebras: For generic irreducible V, choose a nonzero generator of its one-dimensional Whittaker multiplicity space and the resulting epimorphism Iunit→V. There is a unique commutative unital ⊛-algebra on V with this unit, and its multiplication V⊛V→V is invertible. Without choosing a generator there is instead a canonical isomorphism V⊛V≅V⊗ℂ HomG(Iunit,V).\n\nSpherical algebra of invariants: After EX.5/associator, (E,Δ,ε) is a cocommutative counital coalgebra. For any commutative ⊛-algebra A, the finite-support Hom underlineHom(E,A), identified with the firm part of A^SL₂(O) and with compact coinvariants by averaging, is an ordinary quasi-unital commutative Zsph-algebra: f⋆g=mA∘(f⊛g)∘Δ. Enhanced Φ⁻A is a firm Z-algebra and composition with ε relates the two.",
+      "requires": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "SmoothRepresentationsOfLocalGroups:SR.1"
+      ]
+    },
+    {
+      "key": "EX.6",
+      "title": "Adelic product and theta multiplication",
+      "description": "Adelic exotic tensor product: Form YA=⊗′vYv with reference vector yv=1M₂(Ov)·1Ov×. The local products, symmetry, unitors and associators respect the reference data outside finitely many v, giving a colimit-preserving symmetric monoidal product on smooth GL₂(A)-modules and unit IunitA=c-IndU(A)^G θ.\n\nCompact automorphic function space: Let S=S(Γ\\G) be locally constant functions with compact support on Γ\\G, acted on by right translation. Its transpose dual S̃=Dτ(S), where Dτ(V)=D(V)∘τ, D is the ordinary smooth contragredient and τ(g)=g⁻ᵀ, identifies with all smooth functions on Γ\\G via the bilinear pairing B(f,f′)=∫Γ\\G f(g)f′(g⁻ᵀ)d×g and a fixed quotient Haar measure. The inclusion S→S̃ is injective, not claimed to be surjective. The pairing is balanced on IRL(S)⊗G S and realizes the right-regular function model of Dτ(S).\n\nTriality theta functional: For Ψ∈YA define Θ(Ψ)=Σξ∈M₂(F),q∈F× Ψ(ξ,q). This finite sum is invariant under S₃⋉Γ³. Invariance of the middle Weyl action uses self-dual Poisson summation on M₂(A), rationality of q, and the product formula.\n\nTheta multiplication: The rational invariance of Θ induces m:S⊛S→S̃, characterized by evaluation at the identity quotient using Θ and equivariance; at g its value is the corresponding middle translate Θ(g·Ψ). The output is initially the smooth dual, without a compact-support claim.\n\nFunction-field zeta comparison: For φ,φ′∈S and Ψ(m,y)=Φ(m)f(y)∈YA, put φ′′=m(φ′⊗Ψ⊗φ)∈S̃. Then ZJL(φ′′,s)=ZGJ(φ′,φ,Φ,s)·∫A×f(y)|y|^{s+1/2}d×y. Here ZGJ=∫G(∫Γ\\G φ′(h⁻ᵀ)φ(hg)dh)Φ(g)|det g|^{s+1/2}d×g, and ZJL=∫A×Wφ′′(diag(y,1))|y|^{s−1/2}d×y, with Wφ′′(g)=∫U(F)\\U(A)φ′′(ug)θ(u)du and quotient volume 1. Interpret equality first on the common absolute-convergence domain and then wherever the supplied continuations are defined; the multiplicative integrals run over A×.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5",
+        "FunctionFieldArithmetic:FA.2",
+        "FunctionFieldArithmetic:FA.6",
+        "MetaplecticAutomorphicForms:MP.4",
+        "MetaplecticAutomorphicForms:MP.5",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "EX.7",
+      "title": "The compact automorphic algebra",
+      "description": "Poincaré unit map: Define eA:IunitA→S by eA(W)(g)=Σγ∈U(F)\\Γ W(γg). This is a finite sum on compact-mod-U representatives and gives a smooth function compact modulo Γ. Its smooth dual is the Whittaker map S̃→IunitÃ with the specified θ convention.\n\nPetersson unit identity: The theta product satisfies m∘(eA⊛idS):IunitA⊛S→S̃ equal to S≅IunitA⊛S followed by the Petersson inclusion S→S̃. Equivalently the theta trilinear pairing with one Poincaré input gives B on the other two inputs.\n\nAutomorphic ideal: Let p:S(Γ\\G)→S(F×\\A×) be the pushforward along determinant, integrating over the SL₂ quotient fibres with the compatible quotient measures. Define I=ker p. Then im(eA)=I, so IunitA↠I→S→S(F×\\A×)→0 is exact at S and I is orthogonal under the quotient pairing to determinant characters. I includes noncuspidal functions.\n\nAutomorphic commutative algebra: The theta product restricts to mI:I⊛I→I, with unit the epimorphism IunitA↠I. It is a commutative unital associative algebra in the exotic category. The restricted Petersson pairing obeys B(x,mI(y,z))=B(mI(x,y),z); this invariance does not assert I≅Ĩ.\n\nAutomorphic ambient module: S carries a canonical I-module structure induced by theta multiplication. The map IunitA→I determines every I-module action uniquely, and the theta trilinear pairing is balanced for this action; the smooth dual of S inherits the dual action.",
+      "requires": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6",
+        "FunctionFieldArithmetic:FA.2",
+        "FunctionFieldArithmetic:FA.6",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "EX.8",
+      "title": "Abstract automorphic modules",
+      "description": "Abstractly automorphic representations: Define Modaut(G)=ModI(Mod(G)) using the exotic commutative algebra I. Its realization functor forgets the I action. A smooth G-module V lies in its image exactly when the inverse unitor IunitA⊛V→V factors through eA⊛id:IunitA⊛V↠I⊛V; the descended action is then unique.\n\nFully faithful automorphic realization: The realization Modaut(G)→Mod(G) is fully faithful; its essential image is closed under subobjects, quotients, arbitrary limits and colimits, and the smooth transpose dual Dτ. It contains every irreducible classically automorphic representation, meaning a smooth irreducible subquotient of S̃. Extension closure is not asserted.\n\nAutomorphic matrix Schwartz module: The smooth module S(M₂(A))Γ, coinvariants under the specified outer rational action, is abstractly automorphic. More precisely its kernel realization is S⊛S(T\\G), where T={diag(a,1):a∈A×}; the balanced S action factors through I.",
+      "requires": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.7",
+        "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "EX.9",
+      "title": "Spin structures and spherical convolution",
+      "description": "Unramified spin structure: On the smooth proper curve C of F, an unramified spin structure is a line bundle L with an isomorphism η:L⊗L≅ΩC. For a nonzero rational section s, set ω=η(s⊗s), use its residue character eω on A/F, and define the O_A-lattice Λω by self-duality under eω. Every local order of ω is even; this gives a unique such fractional O_A-lattice. The general line-bundle, tensor and canonical-sheaf carriers are imported, not defined here.\n\nGlobal spherical coalgebra: For fixed spin data and rational s, let EA=c-IndSL₂(O_A)^G1. The distribution 1M₂(Λω)(m)δ1(y) defines ΔA:EA→EA⊛EA. Construct εA:EA→IunitA as the restricted tensor of transported local counits, with local h_v satisfying h_vK_vh_v⁻¹∩U_v=u(π_v⁻ν_vO_v) and the lattice transport required by Λω. Prove both counit identities, ΔA invertible, symmetry and coassociativity.\n\nSpin spherical convolution: Put H=SL₂(O_A) and C=I_H≅I^H, using compact averaging over ℂ. Identify C with the smooth part underlineHomG(EA,I): inside full Hom, take the union of the images of precomposition by the normalized averaging idempotents eJ, for compact open J containing H. For the corresponding maps f,g define f⋆g=mI(f⊛g)ΔA. This preserves C and makes it a commutative quasi-unital algebra for ordinary tensor: multiplication induces C⊗C C≅C. The scalar centre is explicitly ZG=End(IdMod(G)); z acts by zI∘f. No identification with a spectral function space is required.\n\nSpin convolution invariance: For a fixed spin structure, changing the nonzero rational section s leaves the spherical convolution unchanged after the canonical transport of additive-character data. The map ι(f)(g)=|det g|⁻² f(g⁻ᵀ) is an involutive algebra automorphism of this convolution.",
+      "requires": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.4",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.7",
+        "FunctionFieldArithmetic:FA.1",
+        "FunctionFieldArithmetic:FA.2",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "EX.10",
+      "title": "Normalized parabolic induction",
+      "description": "Parabolic normalization module: For local F as in EX.0, T=F××F×, let Lnorm=S(F × F×), with first coordinate additive and including 0. Set ((a,d)·f)(λ,y)=|a/d| f(d⁻¹λ,ady). The torus tensor unit is 1T=S(T). There is a canonical injection η:1T→Lnorm defined for λ≠0 by (ηf)(λ,y)=|λ²y|⁻¹ f(λy,λ⁻¹), extended by zero at λ=0. The normalized Weyl twist is V(w)(a,d)=|a/d|·V(d,a).\n\nNormalized induction and restriction: Let i be unnormalized smooth parabolic induction from the upper Borel, r its left adjoint of U-coinvariants. Define î(V)=i(underlineHomT(Lnorm,V)) and r̂(W)=Lnorm⊗T r(W), so r̂⊣î. The output category uses ⊛ and the input firm torus category uses ⊗T. This normalization is different from multiplying induction by δB^{1/2}.\n\nRank-one induction multiplication: Restriction Ψ↦((λ,y)↦Ψ(diag(0,λ),y)) identifies the quotient of Uᵀ×U×Uᵀ-coinvariants of Y, twisted by ((1,−1),(0,0),(1,−1)) and then balanced to identify the three T actions, with Lnorm. Consequently there is a universal natural map i(A)⊛i(B)→i(Lnorm⊗T A⊗T B), and evaluation of Lnorm against its internal Hom yields î(A)⊛î(B)→î(A⊗T B).\n\nLax symmetric induction: The canonical multiplication on î is associative and symmetric, making î nonunital lax symmetric monoidal. After the tensor-compatible localization inverting η:1T→Lnorm, it has a canonical unit and is lax symmetric monoidal. Before localization no such unit structure exists in general.\n\nNormalization-aware intertwiner: The trace Φ⁻î(A)=underlineHomT(Lnorm,A) and multiplication define M:î(A)→î(Lnorm⊗T A(w)). Its double composite equals the map induced by η⊗η(w), it preserves the trace and the unit image, and is multiplicative with the extra normalization factor. After inverting both η and η(w), M gives an involutive algebra-compatible self-duality.",
+      "requires": [
+        "AutomorphicLFunctionsAndLocalFactors:AL.0",
+        "AutomorphicLFunctionsAndLocalFactors:AL.1",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "EX.11",
+      "title": "Automorphic adjunctions and components",
+      "description": "Automorphic torus category: Let T=T(A) and T(F) its rational subgroup. Modaut(T) is the category of smooth T/T(F)-modules, equivalently modules over IT=S(T(F)\\T) with convolution inside smooth T-modules. The realization is inflation and is fully faithful. Its monoidal product is the smooth relative tensor over T/T(F), equivalently the IT-module relative tensor.\n\nAutomorphic induction adjunction: Globalize Lnorm and î using S(A×A×) where the first A is additive. Invert the local maps ηv by tensor-compatible localization; there is no assumed global η respecting reference vectors. Then î maps Modaut(T) into Modaut(G), and its restriction îaut has left adjoint r̂aut(V)=(r̂V)T(F). The unit-factorization map I→î(IT[ηv⁻¹]) is the constant term. Choosing a trivialization of Lnorm also gives ordinary iaut; the canonical normalization remains îaut.\n\nCuspidal and Eisenstein components: Let Icusp be the kernel of the constant term on I and IEis its Petersson orthogonal complement inside I. They are complementary ideals, I≅Icusp×IEis. Define Ccusp as cuspidal automorphic irreducibles modulo unramified norm twists and CEis as automorphic torus characters modulo independent norm twists and the normalized global Weyl action. For each c∈CEis, define Ic as the pullback of the c component of î(IT[ηv⁻¹]) along IEis→î(IT[ηv⁻¹]); use the induced cuspidal family algebra for c∈Ccusp.\n\nAutomorphic component decomposition: The component ideals yield a canonical symmetric monoidal equivalence Modaut(G)≅∏c∈Ccusp⊔CEis Modautc(G). Cuspidal components are killed by r̂aut, while some nonzero Eisenstein objects are killed as well. The key lifting statement is surjectivity from compact torus functions invariant under each separate local normalized Weyl involution to automorphic torus functions invariant under the simultaneous global Weyl involution.\n\nIrreducible automorphic equivalence: Realization induces a bijection between irreducible objects of Modaut(G) and irreducible classically automorphic smooth G-modules, understood as subquotients of S̃. For a local generic irreducible W with a specified unit quotient Iunit↠W, every irreducible W-module is isomorphic to W; this includes Steinberg and is stronger than agreement of central characters.\n\nFinite-length automorphic restriction: The normalized automorphic parabolic restriction r̂aut sends finite-length objects to finite-length objects. On an irreducible Eisenstein object its underlying torus module is a quotient of an extension of an automorphic character χ by χ(w), hence has dimension at most two. It is zero on cuspidal components.\n\nLocal Weyl invariant lifting: Periodization S(T(A))→S(T(F)\\T(A)) maps the subspace invariant under every separate local normalized Weyl involution onto the subspace invariant under the simultaneous global normalized Weyl involution.",
+      "requires": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.10",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.7",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.8",
+        "FunctionFieldArithmetic:FA.2",
+        "FunctionFieldArithmetic:FA.5",
+        "FunctionFieldArithmetic:FA.6",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+        "SmoothRepresentationsOfLocalGroups:SR.1",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Dor23",
+      "title": "Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)",
+      "authors": "Gal Dor",
+      "edition": "Forum of Mathematics, Pi 11 (2023), e20, pp. 1–52, version of record",
+      "url": "https://doi.org/10.1017/fmp.2023.18",
+      "sha256": "26fcef221b09f6a472b0d0073efe2ab327fdbc6ac9db6674004ca6e32ddd3589",
+      "read": "2026-10-19",
+      "readSections": [
+        "§§2.1–2.3, pp. 7–17",
+        "§§3.1–3.6, pp. 18–38",
+        "§§4.1–4.6, pp. 38–49",
+        "Appendix A, pp. 50–51"
+      ]
+    },
+    {
+      "id": "Dor21",
+      "title": "Global Parabolic Induction and Abstract Automorphicity",
+      "authors": "Gal Dor",
+      "edition": "arXiv:2102.11820v1 (23 February 2021), 55 pp. plus references",
+      "url": "https://arxiv.org/abs/2102.11820v1",
+      "sha256": "0fbe7c89db6ecefabdf10e069a1968dc024dba73bd9dbcf520bbaae0c9427507",
+      "read": "2026-10-19",
+      "readSections": [
+        "§A.1, pp. 4–10",
+        "§§B.2–B.6, pp. 15–33",
+        "§B.7, pp. 33–40, constructions and proofs used for the normalization-aware intertwiner",
+        "§§C.2–C.5, pp. 42–55"
+      ]
+    },
+    {
+      "id": "GH11",
+      "title": "The categorical Weil representation",
+      "authors": "Shamgar Gurevich and Ronny Hadani",
+      "edition": "arXiv:1108.0351v1 (1 August 2011)",
+      "url": "https://arxiv.org/abs/1108.0351v1",
+      "sha256": "2091beae8c99cc1fce8398da756ff5c614d75a402e90bfe91efef23504482404",
+      "read": "2026-10-19",
+      "readSections": [
+        "§3.1, Theorem 3.1.2, pp. 10–11",
+        "Appendix A, proof of Theorem 3.1.2, p. 15"
+      ]
+    },
+    {
+      "id": "Dor20Z",
+      "title": "Modules of Zeta Integrals for GL(1)",
+      "authors": "Gal Dor",
+      "edition": "arXiv:2012.03068v1 (5 December 2020)",
+      "url": "https://arxiv.org/abs/2012.03068v1",
+      "sha256": "72c6f95148b83f020ae1a9633c8e9252204e11bba1c0e108a31df72418b1f6a3",
+      "read": "2026-10-19",
+      "readSections": [
+        "Appendix A, Theorem A.1 and Claim A.2, p. 25, statements and local reduction",
+        "Appendix A, Claim A.3 and its proof, p. 26, nonarchimedean local module freeness"
+      ]
+    }
+  ],
+  "status": "draft"
+}
