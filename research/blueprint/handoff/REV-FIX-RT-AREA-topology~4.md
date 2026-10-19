@@ -1,111 +1,124 @@
-# REV-FIX-RT-AREA-topology~4: reconcile scope before another worker run
+# REV-FIX-RT-AREA-topology~4: scope reconciliation required
 
-Refs #6521. Codex, `codex-waB1gJ`, 19 October 2026;
-branch `codex-waB1gJ-review-topology-fixes`, input
-`02e5b6234120d209864ffe0796ba11042c07d8bd`.
-Bot [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6256730699).
-This session authored neither the fixes nor the plans and claimed no second job.
+Refs #6521. Codex, session `codex-YFJHa3`, 19 October 2026;
+branch `codex-YFJHa3-review-topology-fixes`, input
+`dfa7cb015f9004325762f89eafc1eec20f6c93f9`.
+Bot [claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6256990517).
+This reviewer authored neither the fixes nor their plans and claimed no second job.
 
-The [report](../reviews/REV-FIX-RT-AREA-topology~4.md) contains all 27 finding
-verdicts, public-source URLs/locators and fresh validation of all seven packet
-and suggested-file pairs. The three issue-listed review objects are updated,
-with each complete predecessor review appended once to history. Clarified
-the parent HB formal/analytic Gaussian comparison and the
-precision/covariance normalization, with a negative-precision example. Added
-a QSeries central-element acceptance check and two corresponding suggested
-examples. Every other mathematical payload and every pre-existing Lean
-declaration is unchanged. P /7 and HB /11 are accepted within the bounded ownership/export review; QSeries /13 remains
-needs_changes for the inconsistent reader multiplier. Earlier whole-plan
-reviews and gaps remain in force.
+This is a **blocked checkpoint**, not a completed job. The
+[report](../reviews/REV-FIX-RT-AREA-topology~4.md) gives all 27 finding verdicts,
+source URLs and theorem/section/page locators, current-owner corrections and
+fresh validation. Parent P /7 and HB /11 retain bounded accepted verdicts;
+QSeries /13 remains needs_changes. Complete preceding reviews are archived
+once in each parent's reviewHistory; separate whole-plan audits remain in force.
 
-## Blocking scope discrepancy
+## New work in this continuation
 
-The live issue, re-read after claim confirmation, names three packets and
-three suggested files plus the report. `queue.json` requires **seven packets,
-seven suggested files and the report, 15 outputs**. The actual unchanged
-`issues.deliverables_complete` returns false because four packets still name
-their separate whole-plan reviewers. A needs_changes verdict is allowed and
-does not cause this blocker.
+- Replaced the two QSeries -I slash-factor examples' sorry proofs with proofs
+  from the actual boundaryFactor definition. A private lemma evaluates its
+  weight-3/2 value as i using pinned Mathlib complex-exponential identities.
+  Neither proof uses an admitted modularity or eta-multiplier theorem. These
+  prove the branch diagnostics only, not any whole roadmap theorem.
+- Independently checked the corrected multiplier with exact rational phases
+  and Dedekind sums: all 116 determinant-one matrices whose entries lie in
+  [-3,3], all ordered pairs and x=n/3 for -6<=n<=6, excluding intermediate
+  and product poles. The 162,340 admissible cases give 0 corrected-factor
+  failures and 23,072 naive-inverse failures. This is a finite diagnostic,
+  not a general theorem. The report specifies a distinguishing failed case.
+- Corrected /23's current-owner disposition: AT Suggested.lean lines 341–343
+  accepts every BasedTopPair, but README Stage 8.1 lines 385–387 still imposes
+  NDR/cofibration on the definition. The README must be reconciled; the
+  signature generality alone did not resolve the finding. No upstream edit.
+- Rechecked the assigned source boundaries and current prerequisites.
+  The proposed P.2-to-QT.5 direct input has no reverse path in the current
+  37,754-node graph (30 references in the supplier closure).
+
+No new mathematical JSON statement, node, gap or request was changed. The
+previous Gaussian clarification and negative-precision diagnostic remain intact.
+The three parent review objects record this bounded continuation without
+claiming to supersede the whole-plan audits. No source passages or downloads
+are committed.
+
+## Blocker: issue scope versus required outputs
+
+The issue, read again after claim confirmation, authorizes three packet pairs
+and the report (7 outputs). The unchanged queue requires seven pairs and the
+report (15 outputs). The actual issues.deliverables_complete predicate is false
+because four excluded packets still name their whole-plan reviewers. A completed
+needs_changes verdict is allowed; it is not the cause of incompletion.
 
 [WORKERS.md, Doing the work](../WORKERS.md) says “Edit only the files the issue
-names, plus your own scratch space.” Requested authorization to include the
-eight omitted queue paths and two readers below; no answer arrived. The
-maintainer must update the live issue or expressly authorize those edits.
-Do not repeat a metadata-only checkpoint before resolving this. Do not
-remove queue outputs, alter the predicate or change labels to force completion.
+names, plus your own scratch space.” Explicit authorization for the eight
+omitted paths and the two readers was requested; none arrived during this run.
+Those files were not edited. **Reconcile the live issue and queue, or expressly
+authorize the missing packet paths, before assigning another worker.** Do not
+send another worker merely to refresh review metadata. Do not change completion
+code, remove outputs or edit issue labels to bypass the mismatch.
 
-All omitted paths below are relative to `research/blueprint/`:
+The readers below are outside both the issue and queue. Worker authorization
+alone would not make them pass the present intake's deliverable-path check;
+assign them as deliverables before including them in this PR, or keep them as
+an explicit follow-up and record a completed negative review instead. There is
+no need to repair an excluded reader to issue a needs_changes verdict.
 
-| Packet | Suggested file |
-|---|---|
-| packets/Polylogarithms--P.2.json | suggested/Polylogarithms--P.2.lean |
-| packets/ArithmeticQuantumTopology.json | suggested/ArithmeticQuantumTopology.lean |
-| packets/HabiroNahmSeries--HB.4.json | suggested/HabiroNahmSeries--HB.4.lean |
-| packets/HabiroNahmSeries--HB.10.json | suggested/HabiroNahmSeries--HB.10.lean |
+## Work ready after scope reconciliation
 
-Reader paths: `readmes/QSeriesPartitionsAndMockModularForms.md` and
-`readmes/HabiroNahmSeries.md`. The exact unapplied patch below preserves
-the concrete remaining edits; no
-scratch artifact or downloaded source is needed.
+All paths in this section are relative to research/blueprint/.
 
-## Exact work after authorization
+| Packet | Suggested file | Bounded review to record |
+|---|---|---|
+| packets/Polylogarithms--P.2.json | suggested/Polylogarithms--P.2.lean | Accept /7, preserving the accepted 14-node audit, 2 gaps/3 requests and geometric/calibration qualifications. |
+| packets/ArithmeticQuantumTopology.json | suggested/ArithmeticQuantumTopology.lean | Needs_changes /1–/16 for G4/G5 and geometric/comparison obligations; preserve the accepted 106-node audit, 8 gaps/19 requests. |
+| packets/HabiroNahmSeries--HB.4.json | suggested/HabiroNahmSeries--HB.4.lean | Accept qualified /11, retaining positivity, odd coprime orders, strong remainder, branches, Kummer/rational-data gaps; preserve the 13-node audit, 3 gaps/1 request. |
+| packets/HabiroNahmSeries--HB.10.json | suggested/HabiroNahmSeries--HB.10.lean | Accept qualified /11, retaining finite-etale scalar change, specified K3 lift, tame primes, restricted roots, HB.9 gluing and global-line/cohomology gaps; preserve the 14-node audit, 5 gaps/3 requests. |
 
-1. Add `Polylogarithms:P.2/hyperbolic-volume` to the direct prerequisites of
-   `ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`. Its statement
-   already imports that formula. Check for a reverse path before adding the
-   edge. Retain the separate manifold-volume, extended-lift and period/sign
-   comparisons and the G4/G5 gaps.
-2. In the QSeries reader's `QM.5/kontsevich-quantum-modular` statement and
-   ambient hypotheses, replace the global inverse-eta assertion by inverse
-   eta for `c != 0` or `d > 0`, and **minus** inverse eta for `c=0,d<0`.
-   The negative control has been added to the packet and suggested file;
-   synchronize it in the reader: `j_(3/2)(-I,x)=i`, corrected epsilon is `-i`,
-   so the slash factor is 1; the naive inverse produces -1. The packet and
-   Lean already carry this convention. Reassess the bounded /13 verdict after
-   synchronization; preserve codex-jnfi6H's separate whole-plan objections
-   in REV-QSeriesPartitionsAndMockModularForms~2 (#6469).
-3. In the HB reader's `HB.8/identification-theorem`, correct GSWZ v2 Theorem
-   3's introduction locator from p.13 to **printed p.14, equation (38)**.
-   Also synchronize the formal-Gaussian statement, normalization proof step
-   and tests with the explicit positive-definite analytic comparison now in
-   the parent packet; the new test uses precision -1 to distinguish the
-   purely formal bracket. Keep Theorem 8 pp.35–36, the coefficient ring
-   `Q[zeta]((x))[[t]]` and
-   the coprime auxiliary-order restriction inherited from equation (126).
-4. Record bounded fix-review objects in all four omitted packets, reviewer
-   `independent-review-REV-FIX-RT-AREA-topology~4`, actual new date/session.
-   Append each entire prior review, including its checked array, once to
-   `reviewHistory`. Do not replace a whole-plan audit with an alleged new one:
+For each packet, append its entire existing review once to reviewHistory, then
+record reviewer independent-review-REV-FIX-RT-AREA-topology~4, actual date/session
+and the bounded finding-specific disposition. Do not imply a new whole-plan
+audit or erase the old checked arrays. The four suggested files need no further
+edit on the evidence established so far.
 
-   | Packet | Bounded disposition and qualifications to preserve |
-   |---|---|
-   | Polylogarithms--P.2 | Accept /7. Preserve its accepted 14-node audit, 2 gaps/3 requests. The analytic Milnor target does not construct ideal regions, signed integration or regulator calibration. |
-   | ArithmeticQuantumTopology | Needs_changes /1–/16 until its geometric/comparison obligations are addressed. Preserve the **accepted** 106-node whole-plan audit by codex-qw7qpA (REV-ArithmeticQuantumTopology~2), 8 gaps/19 requests. Add only the concrete premise above unless a further correction is established. |
-   | HabiroNahmSeries--HB.4 | Accept qualified /11 export. Preserve its accepted 13-node audit, 3 gaps/1 request. Retain positive definiteness, odd coprime orders, strong cancellation-safe remainder, branch choices, coefficientwise Kummer and rational-data normalization gaps. |
-   | HabiroNahmSeries--HB.10 | Accept qualified /11 export. Preserve its accepted 14-node audit, 5 gaps/3 requests. Keep finite étale scalar change, specified K3 lift, tame-kernel primes, restricted orders, HB.9 local-section/arbitrary-rank gluing inputs, global-line/completion and cohomology comparison gaps. |
+The unapplied patch below is retained from PR #10442 and still passes
+`git apply --check`. It contains three concrete corrections:
 
-The parent HB export also explicitly retains HB.8 refined-Gaussian prefactor
-and uniform-t-regularity gaps, HB.9 Kummer/gluing obligations and HB.4
-coefficientwise descent. Do not erase these because the signatures compile.
-No further suggested-file edit is currently required. The parent HB and
-QSeries files now contain their new diagnostic examples; the four omitted
-suggested files elaborate unchanged. The proposed QT edge has no reverse
-path in the known node-prerequisite graph (37,080 node IDs, 30 supplier-closure
-references); retain the separately requested stage-level geometric inputs.
+1. Add Polylogarithms:P.2/hyperbolic-volume directly to QT.5's
+   volume-and-chern-simons prerequisites. The statement already uses the formula.
+   Check the reverse path again if the graph has changed; retain G4/G5.
+2. In readmes/QSeriesPartitionsAndMockModularForms.md, synchronize the
+   statement/hypotheses with inverse eta for c!=0 or d>0 and minus inverse
+   for c=0,d<0. Retain the analytic/multiplier-extension gaps and the independent
+   whole-plan objections in REV-QSeriesPartitionsAndMockModularForms~2 (#6469).
+3. In readmes/HabiroNahmSeries.md, synchronize the formal/positive-definite
+   Gaussian comparison, precision versus covariance normalization and negative
+   precision diagnostic; correct GSWZ v2 Theorem 3 equation (38) to printed p.14.
+   Preserve Theorem 8 pp.35–36, Q[zeta]((x))[[t]] and the auxiliary-order
+   restriction inherited from equation (126).
 
-## Fresh validation and current owners
+## Validation and resumption
 
-All seven canonical packets pass `scripts/check_blueprint.py`: zero errors
-and warnings with the declaration index. Nodes/gaps/requests remain
+All seven canonical packets pass scripts/check_blueprint.py with 0 errors and
+0 warnings, including declaration-index checks. Node/gap/request counts:
 P 75/19/21; HB 109/22/9; QSeries 537/24/27; P.2 14/2/3;
 QT 106/8/19; HB.4 13/3/1; HB.10 14/5/3.
-All seven suggested files elaborate serially through `lean-check`, exit 0,
-with only sorry warnings: respectively 462, 442, 1493, 52, 65, 31 and 28.
-Memory was checked before each invocation. No compiler is left running.
-The exact Mathlib pin was verified in the shared build. Every file imports
-only Mathlib; elaboration makes no new Tau Ceti baseline claim.
+All seven suggested files elaborate serially through lean-check, exit 0, with
+only sorry warnings: respectively 462, 442, 1491, 52, 65, 31 and 28. The QSeries
+count fell by two because the diagnostics are now proved. Memory was checked
+before every compile; the shared build's Mathlib HEAD is the exact pin. All
+seven files import only Mathlib. No compiler or language server remains running.
+Intake file checks and git diff --check pass for this checkpoint.
 
-After the authorized edits, run the packet/file checks and the actual predicate:
+Current roadmap HEAD is 0d144d044dacebca17b654695b6f1ad58f159b27;
+current Tau Ceti HEAD is a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039.
+Audit pins remain Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174
+and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Read current
+owners before adding any plan: DG already owns forms/orientation/Stokes,
+abstract boundary and finite-dimensional boundaryless homogeneity; GT 7 imports
+the connection and existing Riemannian measure; AT's pair signature/README
+mismatch is described above. Never run Lake in the read-only checkouts.
+
+After the authorized packet corrections, rerun their checkers and the actual
+unchanged predicate:
 
 ```python
 import importlib.util
@@ -120,29 +133,10 @@ assert len(job["outputs"]) == 15
 assert issues.deliverables_complete(job)
 ```
 
-Current roadmap HEAD `0d144d044dacebca17b654695b6f1ad58f159b27`;
-current Tau Ceti HEAD `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-Audit pins stay Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`
-and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
-Read current owners before planning anything further: DG forms/orientation,
-Stokes and abstract boundary already exist as plans; DG 3.3 homogeneity is
-scoped to connected finite-dimensional boundaryless manifolds; AT already
-states relative homotopy for arbitrary based pairs; GT 7 consumes the shared
-connection and existing Riemannian measure. Stronger isotopy/collar/gluing
-and ideal-region contracts remain requests. Never run Lake in the read-only
-trees or edit upstream/generated atlas outputs in this job.
+The scratch directory and public-source downloads are deleted when this run
+ends; all information needed to resume is in this handoff and report.
 
-## Concrete continuation patch — apply only after authorization
-
-The patch below was generated against this checkpoint and passes
-`git apply --check`. It is **unapplied** because all three paths are excluded
-from the live issue. It adds the direct tetrahedron-formula prerequisite,
-synchronizes both readers and adds no node or gap. It does not alter the
-four separate whole-plan reviews: after authorization, preserve each whole
-review once in history and record the bounded disposition in the table above.
-Then update this report, re-run the seven packet checks and the actual
-completion predicate. The two suggested files changed by this checkpoint
-already elaborate with the new diagnostics.
+## Unapplied excluded-path patch — scope authorization required
 
 ```diff
 --- a/research/blueprint/packets/ArithmeticQuantumTopology.json
