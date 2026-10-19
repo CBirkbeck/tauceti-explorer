@@ -1,5 +1,4 @@
-import Mathlib.Algebra.Field.Rat
-import Mathlib.Data.Nat.Factorial.Basic
+import Mathlib
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document
@@ -11,23 +10,28 @@ The compact shape prescribed by WORKERS.md (2026-10-12) keeps only light,
 real-bodied definitions on carriers at the pins. There is no pinned carrier for
 actual higher scheme K-theory, motivic cohomology or the supported relative
 universal character. Their mathematical statements, API and tests are in the
-reader. This file neither invents carriers for them nor assumes their
+reader. The headline identifies actual universal and edge characters; it cannot
+be stated on the pinned carriers yet. As in the current JacobianChallenge
+roadmap, keep that headline as a reader target until its types exist. The
+normalization milestones below are the strongest available statements.
+This file neither invents carriers for them nor assumes their
 construction as a parameter.
 
 README target catalogue, all with prefix MotivicEtaleKTheory:M.6/:
 * universal-motivic-chern: motivicChern, motivicChern_degreeZero,
   motivicChern_pullback, motivicChern_add_positive, motivicChern_units,
-  motivicChern_relative. Tests: chern_line, chern_trivial, chern_unit,
+  motivicChern_relative, motivicChern_whitney, motivicChern_universal. Tests: chern_line, chern_trivial, chern_unit,
   chern_symbol_sign, chern_not_additive_zero.
 * higher-chern-normalization: motivicChernCharacter,
   motivicChernCharacter_positive, motivicChernCharacter_zero,
   motivicChernCharacter_finite, higherChernCoefficient and
-  higherChernCoefficient_cancel. Tests: coefficient_small, character_rank,
+  higherChernCoefficient_cancel, higherChernCoefficient_recurrence.
+  Tests: coefficient_small, character_rank,
   character_line, character_symbol_three, character_units,
   character_no_integral_division. Only its scalar arithmetic is typed below.
 * higher-character-structure: products, pullback and Adams compatibility.
 * gamma-homotopy-coniveau-comparison: equality of rational filtrations.
-* relative-cycle-normalization: the actual composite ch after cyc is identity.
+* relative-cycle-normalization: ch after the weight-projected cyc is identity.
 * chern-character-edge-comparison: universal, edge and S.7 gamma maps agree.
 * chern-localization-residue: localization and the codimension-one weight shift.
 
@@ -55,17 +59,12 @@ theorem higherChernCoefficient_recurrence (j : ℕ) (hj : 1 ≤ j) :
     (j : ℚ) * higherChernCoefficient (j + 1) = -higherChernCoefficient j := by
   sorry
 
--- coefficient_small: degenerate value and the first four positive weights.
-example : higherChernCoefficient 0 = 0 := by sorry
-example : higherChernCoefficient 1 = 1 := by sorry
-example : higherChernCoefficient 2 = -1 := by sorry
-example : higherChernCoefficient 3 = (1 : ℚ) / 2 := by sorry
-example : higherChernCoefficient 4 = -(1 : ℚ) / 6 := by sorry
+-- The double-symbol Chern factor is -1; normalization must give +1.
+example : higherChernCoefficient 2 * (-1) = 1 := by
+  norm_num [higherChernCoefficient, Nat.factorial]
 
--- character_symbol_three: the +2 Chern coefficient cancels, giving +1.
-example : higherChernCoefficient 3 * 2 = 1 := by sorry
-
--- character_no_integral_division: the scalar is genuinely rational.
-example : higherChernCoefficient 3 ≠ 1 := by sorry
+-- The triple-symbol Chern factor is +2, fixing the sign in E-M6-1.
+example : higherChernCoefficient 3 * 2 = 1 := by
+  norm_num [higherChernCoefficient, Nat.factorial]
 
 end TauCeti.MotivicKTheory
