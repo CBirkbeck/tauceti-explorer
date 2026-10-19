@@ -1,0 +1,13 @@
+# Handoff: REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex
+
+Issue #11130. Codex session codex-4iuk8j. Independent review of the package written by codex-xcfnZg. Completed, accepted with fixes; no checkpoint or second job.
+
+The review report records all 28 accepted nodes, the 90-item API comparison, the random 15-locator source sample, additional source checks, current-library/upstream duplication audit, adversarial instances and exact pins. The issue-referenced earlier report and review.json were absent on starting main; this was a full independent audit. The erroneous Mordell/Lawrence–Venkatesh parenthetical was not used to redirect the job.
+
+README fixes: properness localization; arbitrary separated-target quotient factorization; flat trait base change of P/E; rigidificator section and closed-immersion criteria; the componentwise marked modular normalization comparison. New boundary findings: current relative Cartier divisor notion/functor; ModularCurves 0A's fibre criterion, finite-flat degree and operations; AlgebraicVectorBundles L1 relative Spec; AlgebraicModuliForArithmeticGeometry's sectionPicardSplit. Rank-annihilation is routed to ModularCurves 0B, separately from finite-flat étaleness/full faithfulness. The modular comparison uses the actual prime N ≥ 5 diamond-quotient supplier range and does not assume its irreducibility. BLR §8.3 Theorem 1/Remark 2 now cites printed p. 223.
+
+These are removals of duplicated subtargets into existing supplier contracts, not omissions of accepted mathematics. The arbitrary-fibre Hilbert open locus, finite-flat rigidification, normal-model separated quotient, imperfect-residue component normalization and multiplicity-gcd-greater-than-one Greenberg step remain fully specified. Suggested.lean and metadata.toml required no edits.
+
+Checks: `lean-check` exited 0, with only its three theorem-admission warnings; all eleven declarations inspected. The accepted packet checker exited 0 with no errors or warnings. Intake file validation and whitespace validation passed. The worked elliptic point multiples, invariants, good-prime counts, bad-prime tangent slopes and lattice convention checks were recomputed independently.
+
+Nothing remains for this job. For the eventual upstream draft, use the corrected package and preserve its exact supplier ordering, including JacobianChallengePartII and the finite-flat/Néron roadmaps; the review does not claim those prerequisites implemented. No atlas packets or other roadmaps were modified. No suspicious source instructions were encountered. No background compilation remains running.

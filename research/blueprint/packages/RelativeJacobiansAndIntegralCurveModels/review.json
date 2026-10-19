@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex",
+    "date": "2026-10-19",
+    "notes": "Independent review against all 28 accepted nodes and 90 API items; direct random sample of 15 BLR locators plus additional source checks, adversarial mathematical pass, and pinned/current library and upstream duplication audit. Corrected properness localization, largest separated-target factorization, flat trait base change, rigidificator APIs and componentwise marked modular normalization. Routed existing Cartier, relative-Spec, section-Picard and rank-annihilation results to their exact suppliers; refined BLR p. 223 locator. Suggested.lean unchanged: lean-check exit 0 with only the three theorem-admission warnings; all eleven declarations inspected. No unresolved defects."
+  }
+}
