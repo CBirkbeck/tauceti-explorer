@@ -1,0 +1,200 @@
+{
+ "id": "PurityForFlatCohomology",
+ "title": "Purity for flat cohomology and the conjectures of Gabber",
+ "area": "algebraicgeometry",
+ "parent": null,
+ "summary": "Purity for flat cohomology after Česnavičius and Scholze: for a Noetherian local complete intersection R and a commutative finite flat R-group G, flat cohomology with supports at the closed point vanishes below dim R, and up to dim R when R is regular. The proof passes through virtual dimension and étale depth, a root-extraction lemma in positive characteristic, prismatic Dieudonné modules and a key formula expressing flat cohomology of perfectoid rings by A_inf-cohomology. Consequences are global purity, Gabber's conjectures on local Picard and Brauer groups of complete intersections, purity for groups of multiplicative type, and Česnavičius's purity for the Brauer group of regular schemes with its codimension-one and residue descriptions.",
+ "readme": "This roadmap plans Česnavičius–Scholze, Purity for flat cohomology (Ann. of Math. 199 (2024)), together with Česnavičius, Purity for the Brauer group (Duke 2019). It starts from the punctured spectrum and fppf cohomology with supports (PF.0), proves the étale-depth bound by virtual dimension and Zariski–Nagata purity for vdim ≥ 3 (PF.1), the positive-characteristic case (PF.2), the key formula and purity for perfectoid rings (PF.3), the main theorems for complete intersections and regular rings (PF.4), global purity and Gabber's conjectures (PF.5) and purity for the Brauer group and for tori (PF.6). Reader document: research/blueprint/readmes/PurityForFlatCohomology.md. Scheme and site foundations, Brauer groups of schemes, complete intersections, absolute purity, Zariski–Nagata purity for regular rings and local Grothendieck–Lefschetz are imported from TauCetiRoadmap (SchemeAndStackFoundations, DeformationAndDerivedPatchingAlgebra, LefschetzPencilsAndVanishingCycles, LocalPurity); arc descent, perfectoid algebra and prismatic Dieudonné theory from ArcTopologyAndDescent, PerfectoidQuotients and PrismaticCohomologyPartII. Flat cohomology over animated rings, perfectoid towers and the local Lefschetz theorem belong to the pending Part II designs of SchemeAndStackFoundations, PerfectoidQuotients and EtaleDualityAndPerverseSheaves and are recorded gaps.",
+ "prerequisites": [
+  "SchemeAndStackFoundations",
+  "DeformationAndDerivedPatchingAlgebra",
+  "LefschetzPencilsAndVanishingCycles",
+  "ArcTopologyAndDescent",
+  "PerfectoidQuotients",
+  "PrismaticCohomology",
+  "PrismaticCohomologyPartII",
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "DerivedDeRhamCohomology",
+  "InverseGaloisAndArithmeticFundamentalGroups"
+ ],
+ "stages": [
+  {
+   "key": "PF.0",
+   "title": "Punctured spectra, flat cohomology with supports and Hartogs extension",
+   "description": "Define the punctured spectrum U_R of a semilocal ring and fppf cohomology with supports H^i_Z(X, F) for abelian sheaves on the big fppf site, with its long exact sequences, excision, Mayer–Vietoris, finite flat descent spectral sequence, limit formula and the étale local-to-global spectral sequence E_2^{ij} = H^i_ét(X, ℋ^j_Z(−, F)) ⇒ H^{i+j}_Z(X, F) (Česnavičius–Scholze Lemma 7.1.1). Prove that a weakly M-regular sequence a_1, …, a_d vanishing on Z kills H^i_Z(Spec A, M~) for i < d over any ring, and the non-Noetherian Hartogs lemma: regular elements (resp. regular pairs) in the local rings along Z give injectivity (resp. bijectivity) of Y(X) → Y(X ∖ Z) for separated (resp. X-affine) Y (Česnavičius–Scholze Lemma 7.2.7).",
+   "requires": [
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.2",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ]
+  },
+  {
+   "key": "PF.1",
+   "title": "Virtual dimension, étale depth and Zariski–Nagata purity",
+   "description": "Define the virtual dimension vdim(R) = dim R̃ − μ(I) of a Noetherian local ring with R̂ ≅ R̃/I (SGA 2 XIV 5.2–5.5): independence of the presentation, vdim ≤ dim with equality exactly for complete intersections, invariance under completion, henselization and strict henselization, additivity along flat local maps (Avramov), and its incomparability with depth. Prove Gabber's bound H^i_𝔪(R, G) = 0 for i < vdim(R) for finite étale G of invertible order (Česnavičius–Scholze Theorem 3.2.4) from absolute purity and the local Lefschetz theorem, and Zariski–Nagata purity for finite étale covers of U_R when vdim(R) ≥ 2 (full faithfulness) and vdim(R) ≥ 3 (equivalence, π_1^ét(U_R) ≅ π_1^ét(R)) (Theorem 3.3.1).",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "ArcTopologyAndDescent:AT.8",
+    "LefschetzPencilsAndVanishingCycles:LPV.0",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.4",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0"
+   ]
+  },
+  {
+   "key": "PF.2",
+   "title": "Purity in positive characteristic",
+   "description": "Prove vanishing of H^i_𝔪(R, 𝔾_a), H^i_𝔪(R, α_p) and H^i_𝔪(R, ℤ/p) below the depth (Example 4.1.10); the root-extraction lemma comparing H^i_I(A/(f_1, …, f_m), G) with H^i_I(A/(f_1^{1/n_1}, …, f_m^{1/n_m}), G) for a regular sequence f and smooth or finite locally free G, injective for i < d and bijective for i < d − 1 (Lemma 4.1.11, where the complete-intersection hypothesis enters); passage to finite flat local covers of complete intersections (Lemma 4.1.12); and purity H^i_𝔪(R, G) = 0 for i < dim R for complete complete-intersection 𝔽_p-algebras with perfect residue field and G of p-power order (Proposition 4.1.13), through the crystalline key formula of SchemeAndStackFoundationsPartII.",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PurityForFlatCohomology:PF.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "PrismaticCohomologyPartII:PD.6",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  },
+  {
+   "key": "PF.3",
+   "title": "Perfectoid rings: Dieudonné modules and the key formula",
+   "description": "Define the Dieudonné side RΓ_Z(A_inf(A), 𝕄(G))^{V=1} for perfectoid A and G of p-power order. Prove G(A) ≅ 𝕄(G)^{V=1}, H^1(A, G) ≅ 𝕄(G)/(V − 1) and H^{≥2}(A, G) = 0 (Proposition 4.2.4); p-complete arc hyperdescent of the Dieudonné side (Proposition 4.2.7) and of flat cohomology with supports on perfectoid algebras (Theorem 5.5.1); the product lemmas 4.2.8–4.2.9, Katz's lemma on Frobenius-fixed vectors and the analysis over products of perfectoid valuation rings with algebraically closed fraction fields (Proposition 4.2.10). Conclude the key formula RΓ_Z(A, G) ≅ RΓ_Z(A_inf(A), 𝕄(G))^{V=1} (Theorem 6.1.1) and purity for perfectoid rings: H^i_Z(A, G) = 0 below the length of a regular sequence vanishing on Z (Theorem 6.1.2).",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PrismaticCohomologyPartII:PD.6",
+    "PrismaticCohomology:PR.0",
+    "ArcTopologyAndDescent:AT.6",
+    "ArcTopologyAndDescent:AT.8",
+    "ArcTopologyAndDescent:AT.11",
+    "ArcTopologyAndDescent:AT.12",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  },
+  {
+   "key": "PF.4",
+   "title": "Purity for complete intersections and regular local rings",
+   "description": "Prove the main theorem of Česnavičius–Scholze: for a Noetherian local complete intersection (R, 𝔪) and a commutative finite flat R-group G, H^i_𝔪(R, G) = 0 for i < dim R (Theorem 6.2.3), by completion, residue and perfectoid towers, André's lemma and the root-extraction lemma; its virtual-dimension form H^i_𝔪(R, G) = 0 for i < vdim(R) for all finite étale G (Theorem 6.2.4), with the counterexample 𝔽_p⟦x, y, z, t⟧/(x^2, y^2, xz − yt) showing that vdim cannot replace dim for α_p (Remark 6.2.6); and the sharpening H^i_𝔪(R, G) = 0 for i ≤ dim R for regular R not a field (Theorem 6.2.7). Includes the completion lemma for regular sequences with bounded torsion (Lemma 6.2.2).",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PurityForFlatCohomology:PF.1",
+    "PurityForFlatCohomology:PF.2",
+    "PurityForFlatCohomology:PF.3",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidQuotients:Q3",
+    "DeformationAndDerivedPatchingAlgebra:R03.1",
+    "DeformationAndDerivedPatchingAlgebra:R03.3",
+    "DerivedDeRhamCohomology:DD.1",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+    "PrismaticCohomologyPartII:PD.6",
+    "LefschetzPencilsAndVanishingCycles:LPV.0"
+   ]
+  },
+  {
+   "key": "PF.5",
+   "title": "Global purity and the conjectures of Gabber",
+   "description": "Prove global purity H^i(X, G) ≅ H^i(X ∖ Z, G) for i < d − 1 and injectivity for i < d along complete intersections of dimension ≥ d or regular rings of dimension ≥ max(d − 1, 1) (Theorem 7.1.2, corrected), Moret-Bailly's purity for torsors and gerbes under finite locally free groups over regular schemes (Theorem 7.1.3, with Auslander's freeness criterion), Gabber's local Picard conjecture Pic(U_R)_tors = 0 for complete intersections of dimension ≥ 3 (Theorem 7.2.1) with its Cohen–Macaulay counterexample and the global Picard corollary for complete intersections in ℙ^n (Corollary 7.2.3), Gabber's local Brauer conjecture Br(R) ≅ Br(U_R) for complete intersections of dimension ≥ 4 or regular of dimension ≥ 2 (Theorem 7.2.5) with its sharpness (Remark 7.2.6), and purity for groups of multiplicative type (Theorems 7.2.8–7.2.9). Defines parafactorial and geometrically parafactorial local rings and states Grothendieck's torsion and dimension-two results.",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PurityForFlatCohomology:PF.4",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.2",
+    "DeformationAndDerivedPatchingAlgebra:R03.3"
+   ]
+  },
+  {
+   "key": "PF.6",
+   "title": "Purity for the Brauer group and for tori on regular schemes",
+   "description": "Prove Česnavičius's purity for the Brauer group: H^2(U_R, 𝔾_m) = 0 for strictly henselian regular R of dimension ≥ 2 (Theorem 5.3), the vanishing of H^1 and H^2 of tori on U_R for henselian regular R with residue field of dimension ≤ 1 (Theorem 1.4), H^q_Z(X, T) = 0 for q ≤ 3 and the resulting isomorphisms H^q(X, T) ≅ H^q(X ∖ Z, T) for q ≤ 2 with injectivity for q = 3 along regular local rings of dimension ≥ 2 (Theorem 6.1), Theorem 1.1 for 𝔾_m on locally Noetherian schemes, the coniveau spectral sequence, the codimension-one intersection formula for H^2 of tori with generically injective H^2 and for the Brauer group (Theorems 6.2, 1.2), flasque tori and the norm-one-torus counterexample (Remark 6.3), and the residue sequences for discrete valuation rings and regular integral schemes with the imperfect-residue exclusion (Remark 6.4).",
+   "requires": [
+    "PurityForFlatCohomology:PF.0",
+    "PurityForFlatCohomology:PF.4",
+    "PurityForFlatCohomology:PF.5",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.2"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "CS24",
+   "title": "Purity for flat cohomology",
+   "authors": "Kęstutis Česnavičius and Peter Scholze",
+   "edition": "arXiv:1912.10932v3 (26 April 2023, final version); Annals of Mathematics 199 (2024), no. 1, 51–180",
+   "url": "https://arxiv.org/abs/1912.10932v3",
+   "sha256": "2f9d3ee868c244a7ddd6579a5dafed10a7ac9eb8b2ffe840db9f2bc115cd6ed4",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1.1–1.4, pp. 3–8",
+    "§3 (3.1–3.3), pp. 29–35",
+    "§4.1–4.2, pp. 36–45",
+    "§5.4–5.5 statements and proofs of Theorems 5.5.1–5.5.2, pp. 68–70",
+    "§6, pp. 82–86",
+    "§7, pp. 86–93",
+    "References, pp. 93–97"
+   ]
+  },
+  {
+   "id": "C19",
+   "title": "Purity for the Brauer group",
+   "authors": "Kęstutis Česnavičius",
+   "edition": "arXiv:1711.06456v4 (1 December 2018); Duke Mathematical Journal 168 (2019), no. 8, 1461–1486",
+   "url": "https://arxiv.org/abs/1711.06456v4",
+   "sha256": "a62a12bbe26595aec89d31d24d46774a1ee3eff73c08da0febf5a2b472118709",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§1, pp. 1–3",
+    "§2, pp. 3–6",
+    "§3, pp. 6–7",
+    "§5, pp. 11–13",
+    "§6, pp. 13–14",
+    "Appendix A, p. 15",
+    "References, pp. 16–17"
+   ]
+  },
+  {
+   "id": "SGA2",
+   "title": "Cohomologie locale des faisceaux cohérents et théorèmes de Lefschetz locaux et globaux (SGA 2)",
+   "authors": "Alexander Grothendieck (augmented edition by Yves Laszlo)",
+   "edition": "arXiv:math/0511279v1, Documents Mathématiques 4, SMF 2005",
+   "url": "https://arxiv.org/abs/math/0511279v1",
+   "sha256": "41ad02c57321a8d2200ff32a929bc93adbc3de0d59dcd5a284d28d859fb87a90",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Exposé X §3, p. 94 (Définitions 3.1–3.2, Théorème 3.4)",
+    "Exposé XIV §5, pp. 198–200 (Proposition 5.2 to Théorème 5.6)",
+    "Exposé XI §3, pp. 101–102 (Définitions 3.1–3.2, Lemme 3.6)",
+    "Exposé XI, Théorème 3.13, p. 105",
+    "Exposé XII, Corollaire 3.7, p. 121"
+   ]
+  },
+  {
+   "id": "EGA44",
+   "title": "Éléments de géométrie algébrique IV. Étude locale des schémas et des morphismes de schémas, quatrième partie",
+   "authors": "Alexander Grothendieck (with Jean Dieudonné)",
+   "edition": "Publications Mathématiques de l'IHÉS 32 (1967); Numdam copy",
+   "url": "http://www.numdam.org/item/PMIHES_1967__32__5_0/",
+   "sha256": "b4277fb99c6edf8feec5b01f54368e4b8521bcd52871316c0edf6ff4ae69389e",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§21.13, pp. 314–321 (Corollaire 21.13.3 to Remarque 21.13.13)"
+   ]
+  },
+  {
+   "id": "Poo17",
+   "title": "Rational points on varieties",
+   "authors": "Bjorn Poonen",
+   "edition": "Graduate Studies in Mathematics 186, AMS 2017; author's unofficial version of 18 December 2018",
+   "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+   "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "§6.8, pp. 196–198 (Proposition 6.8.1 to Corollary 6.8.5)"
+   ]
+  }
+ ],
+ "status": "draft"
+}
