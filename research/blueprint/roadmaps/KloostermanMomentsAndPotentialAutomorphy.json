@@ -1,0 +1,212 @@
+{
+  "id": "KloostermanMomentsAndPotentialAutomorphy",
+  "title": "Symmetric power moments of Kloosterman sums",
+  "area": "motives",
+  "parent": null,
+  "summary": "Construct Kloosterman sums, sheaves and connections in every rank, then study the motives defined by symmetric-power moments of the rank-two object. Explicit de Rham bases and compactifications determine their Hodge numbers. Local degeneration calculations give Euler factors and conductors, and regular polarized compatible systems yield potential automorphy, meromorphic continuation and functional equations.",
+  "readme": "The definitive target statements, APIs and discriminatory examples are in research/blueprint/readmes/KloostermanMomentsAndPotentialAutomorphy.md. The roadmap owns Kloosterman-specific objects and applications. Generic Hodge modules, six operations, weights, motives, local epsilon factors and potential automorphy are imported or identified as precise supplier gaps. All-rank normalized foundations serve KloostermanSheavesAndBesselIsocrystals; arithmetic moment theorems here concern rank two.",
+  "prerequisites": [
+    "ArithmeticGaloisRepresentations",
+    "CohomologyComparisons",
+    "DeligneWeightsAndPurity",
+    "EtaleDualityAndPerverseSheaves",
+    "LefschetzPencilsAndVanishingCycles",
+    "ModularityAndLanglandsExtensions",
+    "MotivesAndAlgebraicCycles",
+    "PadicDifferentialEquationsAndRigidCohomology",
+    "PadicHodgeTheory",
+    "SchemeAndStackFoundations"
+  ],
+  "stages": [
+    {
+      "key": "KM.0",
+      "title": "Finite sums and symmetric-power moments",
+      "description": "Define the raw all-rank finite-field Kloosterman sum, symmetric traces, rank-two moments and their formal generating series. Pin the negative trace convention and distinguish k=0 from k≥1.",
+      "requires": []
+    },
+    {
+      "key": "KM.1",
+      "title": "Kloosterman sheaves and normalized monodromy",
+      "description": "Construct all-rank Deligne sheaves, their weight-zero twists, local structure and normalized monodromy groups. Identify rank-two moment series with Frobenius determinants and prove integrality and polynomiality for k≥1.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.0",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "DeligneWeightsAndPurity:DWP.7",
+        "EtaleDualityAndPerverseSheaves:EDC.5"
+      ]
+    },
+    {
+      "key": "KM.2",
+      "title": "Connections in every rank",
+      "description": "Construct exponential direct-image connections, cyclic covers and symmetric powers. Prove the hypergeometric, local and differential-Galois descriptions and give the Bessel sign dictionary.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.0"
+      ]
+    },
+    {
+      "key": "KM.3",
+      "title": "Exponential cohomology and middle extensions",
+      "description": "Construct tensor potentials and the signed symmetric projector; prove Thom–Sebastiani, de Rham concentration, duality and support-to-ordinary middle identifications. Construct the Kloosterman inverse Fourier objects using imported holonomic and Hodge-module formalism.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.2",
+        "EtaleDualityAndPerverseSheaves:EDC.5"
+      ]
+    },
+    {
+      "key": "KM.4",
+      "title": "Classical Hodge structures and moment motives",
+      "description": "Prove classicality and weight bounds, define the zero-locus hypersurface and its Nori middle motive, and identify de Rham, finite-field étale and rigid realizations, including inseparable-cover cases.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.3",
+        "MotivesAndAlgebraicCycles:MC.5",
+        "DeligneWeightsAndPurity:DWP.7",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.1",
+        "EtaleDualityAndPerverseSheaves:EDC.1",
+        "EtaleDualityAndPerverseSheaves:EDC.2",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6"
+      ]
+    },
+    {
+      "key": "KM.5",
+      "title": "Rank-two local structure and explicit bases",
+      "description": "Compute the symmetric-power connection, its formal type and intermediate extensions, inverse Fourier local structure, cohomological dimensions and explicit de Rham bases.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.2",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.3"
+      ]
+    },
+    {
+      "key": "KM.6",
+      "title": "Compactifications and Hodge numbers",
+      "description": "Construct the signed-permutation fan and the Kloosterman compactifications. Compute Newton weights and filtered bases, then the complete Hodge-number tables on the double cover and the original torus.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.4",
+        "tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.3",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.5"
+      ]
+    },
+    {
+      "key": "KM.7",
+      "title": "Arithmetic models and Galois realizations",
+      "description": "Verify the integral boundary geometry, classify bad-prime quadratic points, construct the even-degree resolution, and define continuous Galois realizations of the middle motive.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.6",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.4",
+        "LefschetzPencilsAndVanishingCycles:LPV.2",
+        "EtaleDualityAndPerverseSheaves:EDC.4",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.3",
+        "SchemeAndStackFoundations:SF.2"
+      ]
+    },
+    {
+      "key": "KM.8",
+      "title": "Local factors and conductors",
+      "description": "Define the finite-field middle polynomial. Compute its degree and trivial factors, the odd/even local Galois structures, exact bad-prime Euler factors, and conductors, retaining the unknown even factor at two.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.1",
+        "SchemeAndStackFoundations:SF.2",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.7",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.4",
+        "LefschetzPencilsAndVanishingCycles:LPV.2",
+        "ArithmeticGaloisRepresentations:R01.3"
+      ]
+    },
+    {
+      "key": "KM.9",
+      "title": "p-adic comparison and compatible systems",
+      "description": "Establish the Kloosterman p-adic comparison and Newton bounds using geometric suppliers, and prove the purity, regularity, polarizations and weak compatibility needed for potential automorphy.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.7",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.4",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.7",
+        "CohomologyComparisons:CP.2",
+        "CohomologyComparisons:CP.3",
+        "CohomologyComparisons:CP.4",
+        "PadicHodgeTheory:R06.2",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.6",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.8",
+        "ArithmeticGaloisRepresentations:G7",
+        "ModularityAndLanglandsExtensions:ML.2"
+      ]
+    },
+    {
+      "key": "KM.10",
+      "title": "Gamma factors and completion",
+      "description": "Compute determinant characters, real signs, normalized archimedean factors and epsilon factors; define Euler products and completed functions with the paper and standard gamma normalizations distinguished.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.9",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.6",
+        "ArithmeticGaloisRepresentations:R01.5",
+        "ModularityAndLanglandsExtensions:ML.0",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.8",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.3"
+      ]
+    },
+    {
+      "key": "KM.11",
+      "title": "Potential automorphy and functional equations",
+      "description": "Apply the imported Patrikis–Taylor theorem, transport local factors through semisimplification, establish the odd root number, and deduce the odd and even meromorphic functional equations. Keep conductor and sign predictions at two outside the proved even target.",
+      "requires": [
+        "KloostermanMomentsAndPotentialAutomorphy:KM.9",
+        "ModularityAndLanglandsExtensions:ML.2",
+        "ArithmeticGaloisRepresentations:R01.2",
+        "ArithmeticGaloisRepresentations:R01.3",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.6",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.8",
+        "PadicHodgeTheory:R06.2",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.4",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.7",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.10"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "FSY",
+      "title": "Hodge theory of Kloosterman connections",
+      "authors": "Javier Fresán, Claude Sabbah, Jeng-Daw Yu",
+      "edition": "Duke Mathematical Journal 171 (2022), 1649–1747; arXiv:1810.06454v5, 13 June 2022. All page numbers below are the 75-page arXiv v5 pagination.",
+      "url": "https://arxiv.org/pdf/1810.06454v5",
+      "sha256": "835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§1.1–1.3, pp. 1–8: target statements and conventions",
+        "§§2.1–2.3, pp. 9–18: connections, tensor powers and Fourier transforms",
+        "§§3.1–3.2, pp. 18–25: classical Hodge structures, motives and realizations",
+        "§§4.1–4.3, pp. 26–38: explicit bases, compactifications and Hodge filtration",
+        "§§5.1–5.3, pp. 39–59: local realizations, conductors, comparison and automorphy",
+        "Appendix A.1–A.7, pp. 59–72: holonomic operations, Hodge modules, exponential projection and the product-potential criterion"
+      ]
+    },
+    {
+      "id": "XZ",
+      "title": "Bessel F-isocrystals for reductive groups",
+      "authors": "Daxin Xu, Xinwen Zhu",
+      "edition": "Inventiones Mathematicae 227 (2022), 997–1092; arXiv:1910.13391v2, 19 December 2019. Locators use the 71-page preprint, not journal pagination.",
+      "url": "https://arxiv.org/pdf/1910.13391v2",
+      "sha256": "b8d153ef1822a20e8179005d4775e43fc3af7430d840d2b077b45cb8583667cd",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1.1.1–1.1.2, pp. 2–4: Bessel equations, normalized sheaves and monodromy table",
+        "§2.1.5, p. 10 and §4.1.13, p. 42: exponential and Dwork sign conventions"
+      ]
+    },
+    {
+      "id": "Serre",
+      "title": "On the mod p reduction of orthogonal representations",
+      "authors": "Jean-Pierre Serre",
+      "edition": "arXiv:1708.00046v3, 8 August 2018; preprint pagination 1–13.",
+      "url": "https://arxiv.org/pdf/1708.00046v3",
+      "sha256": "d7dd0dd3ec4b26513f9785a0acae39df55d4b9f52c34a07fe818ce3ab1fb4ae0",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4.1–4.2, pp. 9–10: finite-dimensional modules over an algebra with involution, Theorem 4.2.1 and Lemma 4.2.4, including their proofs"
+      ]
+    }
+  ],
+  "status": "draft"
+}
