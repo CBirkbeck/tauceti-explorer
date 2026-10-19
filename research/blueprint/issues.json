@@ -5102,5 +5102,9 @@
  "BP-MotivesAndAlgebraicCycles--MC.6": 10832,
  "BP-MotivesAndAlgebraicCycles--MC.7": 10833,
  "BP-NoncommutativeAndEquivariantIwasawa~2": 10835,
- "BP-OverconvergentAutomorphicForms": 10836
+ "BP-OverconvergentAutomorphicForms": 10836,
+ "BP-QSeriesPartitionsAndMockModularForms~3": 10879,
+ "PKG-AutomorphicPadicLFunctions~codex": 10881,
+ "PKG-HabiroNahmSeries~codex": 10882,
+ "REV-QSeriesPartitionsAndMockModularForms~3": 10883
 }
