@@ -257655,9 +257655,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
    "citation": "Jean-Louis Colliot-Thélène; Claire Voisin, Cohomologie non ramifiée et conjecture de Hodge entière, Author preprint dated 13 June 2011; locators are printed preprint pages, not journal pages",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.0",
+   "reviewReason": "Confirmed in both identified preprints: the displayed pushforward lands on Y×Z while the printed ambient base is X×Y. Replacing only that base restores the type; no claim is made about the uncollated journal PDF."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E49",
@@ -257676,9 +257676,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
    "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Parameter spaces for algebraic equivalence, Author revision dated 11 July 2017; proposition numbering refers to this revision",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.0",
+   "reviewReason": "Confirmed in the July revision, publisher HTML formula (3.2), and current author formula (3.6). Rank N+1−g gives exponents through N−g, and dimension i+N forces W_j to have dimension i+g+j. The parameter-space theorem survives both corrections."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E50",
@@ -257697,9 +257697,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
    "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Decomposition of the diagonal, intermediate Jacobians, and universal codimension-2 cycles in positive characteristic, Astérisque 455 (2025), DOI 10.24033/ast.1244; publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.0",
+   "reviewReason": "Confirmed in the publisher PDF and current author copy. On P¹ the omitted endpoint is point×P¹, needed for identity on CH⁰; the full diagonal sum has r+1 terms."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E51",
@@ -257718,9 +257718,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
    "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Parameter spaces for algebraic equivalence, Author revision dated 11 July 2017; proposition numbering refers to this revision",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.0",
+   "reviewReason": "Confirmed in all three recorded algebraic-equivalence versions. Substituting the two marked pairs into the printed effective family gives the negative fibre difference. Interchanging the two projections preserves effectivity and flatness and restores the sign."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E52",
@@ -257739,9 +257739,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
    "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Decomposition of the diagonal, intermediate Jacobians, and universal codimension-2 cycles in positive characteristic, Astérisque 455 (2025), DOI 10.24033/ast.1244; publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.0",
+   "reviewReason": "Confirmed in the publisher and current author diagonal texts. The identity action belongs to Δ, and multiplication by N belongs to NΔ; the subsequent bounded-exponent equation must retain N."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E53",
@@ -257760,9 +257760,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
    "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Decomposition of the diagonal, intermediate Jacobians, and universal codimension-2 cycles in positive characteristic, Astérisque 455 (2025), DOI 10.24033/ast.1244; publisher PDF",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.0",
+   "reviewReason": "Confirmed for the stated arbitrary coefficient rings. The action equation implies only N-torsion of the difference of degree-N classes. In the recorded F₂, N=2 elliptic example, a half of the generic point would give a rational self-map with 4·deg φ=1, so the degree-two class has nonzero mod-two image despite the zero strict decomposition. This refutes the arbitrary-ring uniqueness claim, without affecting the N=1 consequence."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E48",
@@ -257780,9 +257780,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.2.json",
    "citation": "Pierre Deligne and James S. Milne, Hodge cycles on abelian varieties (notes by J. S. Milne), Author’s revised TeX copy, 1 October 2018; checked against the author-hosted original 1982 article where indicated",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.2",
+   "reviewReason": "Independently compared the revised first-Chern paragraph (p.10) with the original scan, printed p.20/PDF p.12: only the transcription makes the stronger claim. Pic(P¹)=Z versus rational H², and Pic⁰ of an elliptic curve, give counterexamples to that claim."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E49",
@@ -257801,9 +257801,9 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.2.json",
    "citation": "Pierre Deligne and James S. Milne, Hodge cycles on abelian varieties (notes by J. S. Milne), Author’s revised TeX copy, 1 October 2018; checked against the author-hosted original 1982 article where indicated",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.2",
+   "reviewReason": "Independently inspected the original displayed formula on printed p.20/PDF p.12 and Grothendieck 1958 §4.3 (15)–(16), pp.150–151. The complete-intersection point on P² has c2([O_z])=−h² and positive cycle class h², so the missing alternating factor is required."
   },
   {
    "id": "MotivesAndAlgebraicCycles/E50",
@@ -257822,6 +257822,104 @@
    "owner": "MotivesAndAlgebraicCycles",
    "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.2.json",
    "citation": "The Stacks Project Authors, Weil Cohomology Theories, Chapter PDF, version ed88ff78, compiled 14 July 2026",
+   "status": "confirmed",
+   "reviewedBy": "REV-MotivesAndAlgebraicCycles--MC.2",
+   "reviewReason": "Independently read the hashed chapter’s axioms and pp.55–56, plus the live 0FIT/0FIU proofs and empty comment areas on 19 October 2026. The proof uses j_*(1)=cl[E] by A9 while the statements list A1–A8. Confirmed as a proof-dependency gap, without asserting the weaker-hypothesis theorem false."
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E101",
+   "kind": "gap",
+   "locator": "Theorems 6.1 and 6.3 (preprint pp. 30, 34) and Theorem 7.1 (p. 37), in the IAS preprint; the proofs cite Friedlander-Lawson [9, 3.1] and [9, 3.2]",
+   "printed": "The presheaf forms of the moving lemma and the duality theorem for smooth projective varieties are stated over an arbitrary field k.",
+   "correction": "State them over an infinite field (or a finite field large enough for the given degree bounds), or add an argument for finite fields, for example a transfer argument with two finite extensions of coprime degrees.",
+   "reason": "Friedlander-Lawson prove the moving lemma when k is infinite or a sufficiently large finite field (Theorem 3.1, p. 19, and the discussion of finite fields before Proposition 2.5, p. 17), the size depending on the degree bounds; for an arbitrary finite field they use two extensions of coprime degrees only in Theorem 3.4 (pp. 23-24), on rational equivalence of intersection products, not for the moving maps themselves. FV Lemma 6.6, used for Theorem 7.1, needs the moving maps over the fixed field k for every degree bound d, which a fixed finite field does not provide.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Friedlander-Lawson, authors' preprint on Friedlander's USC page",
+    "the Friedlander-Voevodsky preprint on Voevodsky's IAS publications page and the notes attached to it there"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
+   "citation": "Eric M. Friedlander and Vladimir Voevodsky, Bivariant cycle cohomology, In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 138-187. Read in the preprint posted on Voevodsky's IAS publications page (55 pages); page numbers in locators are those of the preprint.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E102",
+   "kind": "misprint",
+   "locator": "Proof of Proposition 3.5.3, preprint p. 36",
+   "printed": "The vertical triangles of the deformation diagram are said to be distinguished by Proposition 4.1.3.",
+   "correction": "They are distinguished by Proposition 3.5.2, the blow-up triangle for a smooth centre over a perfect field.",
+   "reason": "Both columns are blow-ups of smooth schemes along smooth centres (Z in X and Z x 0 in X x A^1), to which Proposition 3.5.2 applies; Proposition 4.1.3 rests on Theorem 4.1.2 and so on resolution of singularities, which section 3.5 does not assume.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "the Voevodsky preprint on his IAS publications page and the notes attached to it there"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
+   "citation": "Vladimir Voevodsky, Triangulated categories of motives over a field, In E. M. Friedlander, A. Suslin, V. Voevodsky, Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 188-238. Read in the author's preprint posted on his IAS publications page (56 pages); page numbers in locators are those of the preprint.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E103",
+   "kind": "gap",
+   "locator": "Construction of g_Z after Proposition 3.5.3 (preprint p. 37) and last step of the proof of Proposition 3.5.4 (p. 39)",
+   "printed": "The composite of the Gysin map with the projection to Z(c)[2c] is stated to be the class of Z, and the isomorphism property of alpha(P^c, point) is said to follow easily from the construction, with a reference to Homology of schemes.",
+   "correction": "Both need an argument: the cycle-class identification through the deformation to the normal cone and the projective bundle formula for Chow groups, and then the normalisation alpha(P^c, point) = 1 in End(Z(c)[2c]) = Z by evaluating on CH^c(P^c).",
+   "reason": "No proof is written in the source, and the reference is to a different category (DM_h of Homology of schemes). MVW leave the analogous identification for (A^c, 0) as Exercise 15.14.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the Voevodsky preprint on his IAS publications page",
+    "MVW, Lecture 15 and the authors' list of corrections (Internet Archive copy)"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
+   "citation": "Vladimir Voevodsky, Triangulated categories of motives over a field, In E. M. Friedlander, A. Suslin, V. Voevodsky, Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 188-238. Read in the author's preprint posted on his IAS publications page (56 pages); page numbers in locators are those of the preprint.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E104",
+   "kind": "gap",
+   "locator": "Proof of Proposition 2.1.4, preprint pp. 6-7",
+   "printed": "The proof says it is clearly sufficient to give, for smooth projective X and Y, a canonical homomorphism from cycles of dimension dim X on X x Y modulo rational equivalence to Hom(M(X), M(Y)).",
+   "correction": "A functor also needs compatibility with composition and with the tensor product: composition of finite correspondences agrees with composition of Chow correspondences because both are computed by intersection multiplicities of properly meeting cycles, and every Chow class is the class of a finite correspondence by the duality theorem.",
+   "reason": "The homomorphism alone does not make a functor; the compatibility is not stated.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "the Voevodsky preprint on his IAS publications page"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
+   "citation": "Vladimir Voevodsky, Triangulated categories of motives over a field, In E. M. Friedlander, A. Suslin, V. Voevodsky, Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 188-238. Read in the author's preprint posted on his IAS publications page (56 pages); page numbers in locators are those of the preprint.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E105",
+   "kind": "error",
+   "locator": "Proposition 4.23 with its one-line proof (preprint p. 34), used for Theorem 4.27 and, through its proof, Theorem 5.6",
+   "printed": "For every Zariski cover W = U union V of a smooth semi-local scheme, the Mayer-Vietoris sequence of a homotopy invariant pretheory is asserted to be short exact, by reference to Lemma 4.6 and the proof of Proposition 4.17.",
+   "correction": "MVW Lemma 22.10: given S = U_0 union V there is an open U in U_0 with S = U union V for which the sequence is exact; the argument must pass from U_0 to such a U. In this packet homotopy invariance of Nisnevich cohomology is imported from MotivicEtaleKTheory:M.5a/homotopy-invariant-sheaves (MVW Theorem 13.8, completed in Lectures 22-24) instead of CTP Theorem 5.6.",
+   "reason": "MVW state after Lemma 22.10 (pp. 185-186) that it corrects this result of Cohomological theory, which omitted the passage from U_0 to a smaller U; Voevodsky also said publicly that the proof of this key lemma is wrong (quoted on his IAS publications page).",
+   "affects": "the proof",
+   "known": "MVW Lemma 22.10 and the remark after it (pp. 185-186); Voevodsky's statement on the IAS publications page (https://www.math.ias.edu/Voevodsky/voevodsky-publications_abstracts.html, entry for Cohomological theory of presheaves with transfers)",
+   "searched": [
+    "Voevodsky's IAS publications page",
+    "MVW Lecture 22"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.4.json",
+   "citation": "Vladimir Voevodsky, Cohomological theory of presheaves with transfers, In Cycles, Transfers, and Motivic Homology Theories, Annals of Mathematics Studies 143, Princeton University Press, 2000, pp. 87-137. Read in the K-theory preprint archive copy (preprint 0368, file s3.pdf, 56 pages) retrieved through the Internet Archive; page numbers in locators are those of that copy.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
