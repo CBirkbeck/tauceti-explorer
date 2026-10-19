@@ -23081,7 +23081,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticKTheory",
    "prompt": "research/blueprint/prompts/REV-ArithmeticKTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10779"
   },
   {
    "id": "BP-ArithmeticLocallySymmetricSpaces",
@@ -25352,8 +25353,9 @@
    ],
    "avoidAccountOf": "BP-ExcursionOperatorsAndSpectralAction--ES6",
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10781"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10781",
+   "finishedAt": "2026-10-19T16:35:39Z"
   },
   {
    "id": "BP-FaltingsFinitenessAndIsogenyTheorems",
@@ -26811,8 +26813,9 @@
    ],
    "avoidAccountOf": "BP-IntegralIwasawaTheory--L1",
    "prompt": "research/blueprint/prompts/REV-IntegralIwasawaTheory--L1.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10784"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10784",
+   "finishedAt": "2026-10-19T16:35:43Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.1",
@@ -27070,8 +27073,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--Z.6",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10793"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10793",
+   "finishedAt": "2026-10-19T16:35:46Z"
   },
   {
    "id": "BP-KatoEulerSystems",
@@ -27671,7 +27675,8 @@
    ],
    "avoidAccountOf": "BP-MotivicEtaleKTheory--M.6b",
    "prompt": "research/blueprint/prompts/REV-MotivicEtaleKTheory--M.6b.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10796"
   },
   {
    "id": "BP-NeronModelsAndSemistableAbelianVarieties",
@@ -36969,8 +36974,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.3-localization-comparison",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.3-localization-comparison.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10786"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10786",
+   "finishedAt": "2026-10-19T16:35:51Z"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.3-symbols",
@@ -37397,8 +37403,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--Z.4",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10791"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10791",
+   "finishedAt": "2026-10-19T16:35:55Z"
   },
   {
    "id": "BP-KTheoryLowDegrees--Z.5",
@@ -37444,8 +37451,9 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--Z.5",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--Z.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10792"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10792",
+   "finishedAt": "2026-10-19T16:35:59Z"
   },
   {
    "id": "BP-ModularCurvesPartII--R13.3",
@@ -37683,7 +37691,8 @@
    ],
    "avoidAccountOf": "BP-MotivicEtaleKTheory--M.6",
    "prompt": "research/blueprint/prompts/REV-MotivicEtaleKTheory--M.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10794"
   },
   {
    "id": "BP-MotivicEtaleKTheory--M.6a",
@@ -37729,7 +37738,8 @@
    ],
    "avoidAccountOf": "BP-MotivicEtaleKTheory--M.6a",
    "prompt": "research/blueprint/prompts/REV-MotivicEtaleKTheory--M.6a.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10795"
   },
   {
    "id": "BP-PotentialModularityAndCompatibleSystems--R24.3",
@@ -39951,8 +39961,9 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.3-2",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.3-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10785"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10785",
+   "finishedAt": "2026-10-19T16:36:03Z"
   },
   {
    "kind": "design",
@@ -44125,8 +44136,9 @@
     "BP-NoncommutativeAndEquivariantIwasawa~2"
    ],
    "prompt": "research/blueprint/prompts/REV-NoncommutativeAndEquivariantIwasawa~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10805"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10805",
+   "finishedAt": "2026-10-19T16:36:07Z"
   },
   {
    "kind": "blueprint",
@@ -59893,8 +59905,9 @@
     "PKG-PhiGammaModulesAndIwasawaCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PhiGammaModulesAndIwasawaCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10908"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10908",
+   "finishedAt": "2026-10-19T16:36:14Z"
   },
   {
    "id": "PKG-PolynomialGaloisGroupsPartII",
@@ -148981,9 +148994,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-BorelRegulators~codex.md",
-   "note": "claimed on GitHub issue #10744"
+   "note": "deliverables arrived from an external worker on issue #10744",
+   "finishedAt": "2026-10-19T16:36:22Z"
   },
   {
    "id": "PKG-EllipticKTheory~codex",
@@ -149001,8 +149015,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-EllipticKTheory~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-EllipticKTheory~codex.md",
+   "note": "claimed on GitHub issue #10745"
   },
   {
    "id": "PKG-EllipticRegulators~codex",
@@ -149020,8 +149035,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-EllipticRegulators~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-EllipticRegulators~codex.md",
+   "note": "claimed on GitHub issue #10746"
   },
   {
    "id": "PKG-KTheoryFiniteLocalFields~codex",
@@ -149060,9 +149076,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-SchemeKTheoryOperations~codex.md",
-   "note": "claimed on GitHub issue #10751"
+   "note": "deliverables arrived from an external worker on issue #10751",
+   "finishedAt": "2026-10-19T16:36:26Z"
   },
   {
    "id": "PKG-Polylogarithms~codex",
@@ -149384,7 +149401,7 @@
     "research/blueprint/handoff/BP-ExcursionOperatorsAndSpectralAction--ES0~4.md"
    ],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0~4.md",
    "scope": [
     "ExcursionOperatorsAndSpectralAction:ES0",
@@ -149401,7 +149418,8 @@
     "REV-ExcursionOperatorsAndSpectralAction--ES0~3"
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES0",
-   "note": "claimed on GitHub issue #10952"
+   "note": "deliverables arrived from an external worker on issue #10952",
+   "finishedAt": "2026-10-19T16:36:31Z"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES0~4",
@@ -149446,9 +149464,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~adv.md",
-   "note": "claimed on GitHub issue #10958"
+   "note": "deliverables arrived from an external worker on issue #10958",
+   "finishedAt": "2026-10-19T16:36:33Z"
   },
   {
    "id": "FIX-PKG-SpecialValuesBirchTate~adv",
