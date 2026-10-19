@@ -3,6 +3,9 @@ import Mathlib
 /-!
 # IntegralIwasawaTheory, part I.1: representative target signatures
 
+Independent review: several README proof contracts remain open. No theorem below asserts
+the unresolved real-place comparison or the dyadic local-Ribet supplier extension.
+
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/IntegralIwasawaTheory--I.1.md` is definitive; the statements below
 suggest Lean forms so that contributors and reviewers converge on names and signatures.
@@ -16,8 +19,8 @@ modules, Stickelberger elements over a general totally real field, Selmer and Ri
 modules and the main theorems are README targets: their carriers are not at the pins.
 
 Design choices made explicit:
-* the cyclotomic character is Mathlib's `cyclotomicCharacter`, applied to the ring
-  automorphisms of `AlgebraicClosure K`;
+* the algebraic cyclotomic character is Mathlib's `cyclotomicCharacter`, applied to the ring
+  automorphisms of `AlgebraicClosure K`; its continuity is a separate README target;
 * the Z_p-extension is the fixed field of the elements whose cyclotomic character is torsion,
   so its layers are indexed by the Z_p-layer n and not by a cyclotomic exponent;
 * Stickelberger elements use the inverse-character convention χ(Θ) = L(χ⁻¹, s), i.e. the
@@ -99,7 +102,12 @@ noncomputable def omega (p n : ℕ) [Fact p.Prime] : Polynomial ℤ_[p] :=
 
 /-- `ω_0 = X`, the augmentation element. -/
 example (p : ℕ) [Fact p.Prime] : omega p 0 = Polynomial.X := by
-  sorry
+  simp [omega]
+
+/-- At the dyadic first layer, the linear term survives: `ω₁ = X² + 2X`. -/
+example : omega 2 1 = Polynomial.X ^ 2 + Polynomial.C (2 : ℤ_[2]) * Polynomial.X := by
+  simp only [omega, pow_one, Polynomial.C_ofNat]
+  ring
 
 /-- `ω_n` is distinguished of degree `p^n` at `(p)`. -/
 theorem omega_isDistinguishedAt (p n : ℕ) [Fact p.Prime] :
@@ -149,6 +157,11 @@ noncomputable abbrev minusRing (c : G) : Type _ :=
 
 /-- For `G = (ℤ/3)ˣ` and `c = -1`, the integral minus ring is `ℤ`, with `c ↦ -1`. -/
 example : Nonempty (minusRing ℤ (ZMod 3)ˣ (-1) ≃+* ℤ) := by
+  sorry
+
+/-- If the distinguished element is `1`, the minus quotient reduces the coefficient ring
+modulo `2`; it need not be zero. This checks the integral quotient convention. -/
+example : Nonempty (minusRing ℤ (ZMod 3)ˣ 1 ≃+* MonoidAlgebra (ZMod 2) (ZMod 3)ˣ) := by
   sorry
 
 end GroupRing
