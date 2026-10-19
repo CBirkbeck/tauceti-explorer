@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T00:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T00:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -30,12 +30,12 @@ Generated 2026-10-19T00:10Z from the README supplier graph of every open pull re
 - #953 ComplexKahlerGeometry (kim-em, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1103 PurityOfBranchLocus (tdupu, other author)
-- #1104 AbhyankarLemma (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
+- #1104 AbhyankarLemma (tdupu, other author)
 
 ## Wave 4
 - #815 AdicSpacesPartIV — draft; waits on #813, #814, #818
@@ -196,3 +196,4 @@ Generated 2026-10-19T00:10Z from the README supplier graph of every open pull re
 
 ## Wave 33
 - #1180 ModularityAndLanglandsExtensions — draft; waits on #1006, #1007, #1018, #1019, #1020, #1034, #1036, #1037, #1046, #1063, #1071, #1075, #1081, #1084, #1090, #1126, #1171, #785, #792, #820, #854, #856, #858, #871, #879, #908, #913, #920, #922, #923, #924, #925, #927, #931, #938, #964, #965, #999
+- #1182 CrystallineLocalGlobalCompatibilityCM — draft; waits on #1006, #1019, #1034, #1035, #1062, #1075, #1081, #1090, #785, #856, #871, #920, #923
