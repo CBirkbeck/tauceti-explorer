@@ -1,0 +1,158 @@
+{
+  "id": "EndoscopicTransferAndUnitaryTraceComparisonPartII",
+  "title": "Endoscopic transfer and unitary trace comparison, Part II: unitary Friedberg–Jacquet relative endoscopy",
+  "area": "modular",
+  "parent": "EndoscopicTransferAndUnitaryTraceComparison",
+  "summary": "Build relative endoscopy for the off-diagonal representation of two equal-dimensional unitary groups, starting from ordinary unitary endoscopy. Contraction transports rational orbit data and orbital integrals to Hermitian endomorphisms. Spherical Hermitian functions, quadratic base change, nilpotent germs and the Weil representation reduce the lattice unit theorem to an independently supplied Jacquet–Rallis product-group comparison. The unrestricted smooth-transfer and full spherical-factor questions are stated separately with their precise missing inputs.",
+  "readme": "The definitive roadmap reader is research/blueprint/readmes/EndoscopicTransferAndUnitaryTraceComparisonPartII.md. FJ.0 constructs the symmetric representation and its quotient; FJ.1 defines relative transfer; FJ.2 imports spherical Levi descent and builds the full Hermitian spherical module; FJ.3 specifies local comparison reductions; FJ.4 concludes the relative unit theorem; FJ.5 records the conjectural full transfer boundary and constructs the precise Fourier extension. The packet’s split proposal preserves all eight source routes across four programmes. Every source statement is restated in the worker’s own words with versioned theorem and page locators.",
+  "prerequisites": [
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "SmoothRepresentationsOfLocalGroups",
+    "AdelicAlgebraicGroups",
+    "SchemeAndStackFoundations"
+  ],
+  "stages": [
+    {
+      "key": "FJ.0",
+      "title": "The symmetric representation and contraction",
+      "description": "Construct the off-diagonal representation for two equal-dimensional Hermitian spaces, its two adjoint contractions and affine invariant quotient. Prove regular semisimple elements are invertible, identify stabilizer tori and rational-class kernels under contraction, and compare relative orbital integrals with ordinary Hermitian orbital integrals through a correctly supported pushforward.",
+      "requires": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "AdelicAlgebraicGroups:AA.2",
+        "SchemeAndStackFoundations:SF.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.2b"
+      ]
+    },
+    {
+      "key": "FJ.1",
+      "title": "Relative endoscopic matching",
+      "description": "Construct relative endoscopic data, their infinitesimal symmetric spaces, contraction-defined matching and transfer factors, finite kappa-weighted orbital sums, and the transfer relation including zero on unmatched orbits. Establish transfer for functions supported away from the singular locus. State the contraction-independence comparison with its required normalization transport.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparisonPartII:FJ.0",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3"
+      ]
+    },
+    {
+      "key": "FJ.2",
+      "title": "Spherical Hermitian functions and Hecke maps",
+      "description": "Build the spherical module on all invertible Hermitian matrices, Hironaka’s normalized Fourier isomorphism and its rank 2^n consequence. Import the determinant-twisted Levi Hecke map and its Satake substitution from SR.4; prove its compatibility with quadratic base change. Keep its cyclic submodule distinct from the full spherical module.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparisonPartII:FJ.0",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3"
+      ]
+    },
+    {
+      "key": "FJ.3",
+      "title": "Local comparison reductions",
+      "description": "Use Xiao’s pure-inner-form torsor, norm characters, regularized orbital distributions and germ identity to compare the endoscopic and Jacquet–Rallis transfer diagrams. Give additive Lie parabolic descent and its lattice/Jacobian computation. Deduce spherical endoscopic transfer from augmented Jacquet–Rallis transfer, and augmented transfer from the rank-shifted group comparison by the Weil representation. The local Jacquet–Rallis and Weil inputs have the explicit unresolved supplier contracts in the packet.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparisonPartII:FJ.1",
+        "EndoscopicTransferAndUnitaryTraceComparisonPartII:FJ.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+        "SmoothRepresentationsOfLocalGroups:SR.4"
+      ]
+    },
+    {
+      "key": "FJ.4",
+      "title": "The unit fundamental lemma",
+      "description": "Deduce the rank-shifted spherical comparison from the product-group base-change fundamental lemma and its orbital-integral contraction formulas. Establish augmented transfer and cyclic spherical endoscopic transfer. Decompose the contracted lattice indicator by determinant valuation, prove the degree identities, and conclude the relative unit fundamental lemma, including vanishing for every other pair of Hermitian forms and residue characteristic two.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparisonPartII:FJ.3",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ]
+    },
+    {
+      "key": "FJ.5",
+      "title": "Full transfer and the spherical extension",
+      "description": "Specify the full relative smooth-transfer conjecture, construct the Fourier-defined extension of the Levi Hecke map to the whole Hermitian spherical module, and isolate the open orbital-integral characterization of that extension. The source does not specify the required augmented transfer factors; no full spherical fundamental lemma is asserted without that missing specification.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparisonPartII:FJ.1",
+        "EndoscopicTransferAndUnitaryTraceComparisonPartII:FJ.2",
+        "EndoscopicTransferAndUnitaryTraceComparisonPartII:FJ.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Leslie25",
+      "authors": "Spencer Leslie",
+      "title": "The endoscopic fundamental lemma for unitary Friedberg–Jacquet periods",
+      "edition": "Annals of Mathematics 201 (2025), 551–645; statements checked in arXiv:1911.07907v3, accepted version, 12 March 2025, 89 pages",
+      "url": "https://arxiv.org/abs/1911.07907v3",
+      "sha256": "167574c84c7a7e9bed4be72ca08be2769dd1442741fe7ffa6d1024627b682b76",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Sections 1.2–1.5, pp. 3–6, 10–12",
+        "Part 1, Sections 2–5, pp. 13–43, read in full",
+        "Sections 7.1–7.2.2, pp. 47–51, for the requested contraction contracts",
+        "Theorem 11.1 and Lemma 11.2, pp. 78–79; Section 11.2, p. 86",
+        "References, pp. 87–89; the intervening global proof is a separately owned, unread dependency"
+      ],
+      "versionPolicy": "Every locator below uses the printed arXiv-v3 page. The supplied cleared copy was read in place. No published-PDF comparison was made; findings do not assert the same wording occurs in the published edition."
+    },
+    {
+      "id": "Leslie19",
+      "authors": "Spencer Leslie",
+      "title": "Endoscopy for unitary symmetric spaces",
+      "edition": "arXiv:1910.09685v2, 6 April 2020, 27 pages",
+      "url": "https://arxiv.org/pdf/1910.09685v2",
+      "sha256": "8374f66a25bd34419b17ea83c7a842e2a76ecb8811cfa6fa592819dc13a56329",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition 1.3, p. 4",
+        "Section 3.2, Lemmas 3.6–3.9, pp. 12–13",
+        "Section 4.2, Conjecture 4.4 and Proposition 4.5, pp. 14–15",
+        "Appendix A, Propositions A.1 and A.3 and Corollary A.2, pp. 25–26"
+      ]
+    },
+    {
+      "id": "Xiao18",
+      "authors": "Jingwei Xiao",
+      "title": "Endoscopic transfer for unitary Lie algebras",
+      "edition": "arXiv:1802.07624v1, 21 February 2018",
+      "url": "https://arxiv.org/pdf/1802.07624v1",
+      "sha256": "8dafe949c5b654866aae0a8a108b298a6582908cea8407898be6789499b3e39c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Section 2.1, equation (2), Lemma 2.1, pp. 3–5",
+        "Section 3.2, Proposition 3.8, pp. 11–12",
+        "Sections 4.1–4.5, pp. 15–21",
+        "Section 5, Lie descent, pp. 21–22",
+        "Section 6, Theorem 6.1 and proof, pp. 23–24"
+      ]
+    },
+    {
+      "id": "Hironaka99",
+      "authors": "Yumiko Hironaka",
+      "title": "Spherical functions and local densities on Hermitian forms",
+      "edition": "Journal of the Mathematical Society of Japan 51 (1999), 553–581",
+      "url": "https://www.jstage.jst.go.jp/article/jmath1948/51/3/51_3_553/_pdf/-char/en",
+      "sha256": "8889093dd918ea04ffd946a91a24435d7647d60189ff0738d35b052fefc5e84c",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, pp. 553–554",
+        "Section 2, normalization on pp. 570–571 and Theorem 2, p. 571"
+      ]
+    },
+    {
+      "id": "BP21",
+      "authors": "Raphaël Beuzart-Plessis",
+      "title": "A new proof of Jacquet–Rallis’ fundamental lemma",
+      "edition": "Duke Mathematical Journal 170 (2021), no. 12; read arXiv:1901.02653v3, December 2020",
+      "url": "https://arxiv.org/pdf/1901.02653v3",
+      "sha256": "27fc28404ef150760f7b85da367aaffb367851d851b791e279d10d3ab47d3ce6",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Sections 1–4 and references, pp. 1–9; Lemma 1, pp. 3–5, Fourier formulas pp. 5–6, Proposition 1, p. 7, proof on p. 8"
+      ]
+    }
+  ],
+  "status": "draft"
+}
