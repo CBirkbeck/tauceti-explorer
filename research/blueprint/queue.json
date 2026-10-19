@@ -151937,6 +151937,25 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/PKG-CyclotomicClassGroupsAndStickelberger~codex.md",
    "note": "claimed on GitHub issue #11246"
+  },
+  {
+   "id": "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4.md",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/review.json",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/README.md",
+    "research/blueprint/packages/EulerSystemsAndKolyvaginSystems/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4.md"
   }
  ]
 }
