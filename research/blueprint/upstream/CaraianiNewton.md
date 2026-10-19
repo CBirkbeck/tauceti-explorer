@@ -99,7 +99,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 - **CompletedCohomologyPartII** — Completed cohomology, homology and arithmetic towers — Part II. Plan 3/3 accepted · package not yet · CN needs 9/9 layers · **Tau Ceti: pull request #1035 open** · reviewer recommends approval · cites outside the 94: NoncommutativeAndEquivariantIwasawa (6)
 - **WeightsInEtaleCohomology** — Weights and purity in étale cohomology. Plan 1/1 accepted · package accepted · CN needs 3/6 layers · **Tau Ceti: pull request #1001 open** · reviewer recommends approval · move down: AutomorphicGaloisRepresentations (8), PotentialModularityAndCompatibleSystems (4), HilbertModularVarietiesAndShimuraCurves (3), CohomologyComparisons (2), PadicHodgeTheory (1) · cites outside the 94: GeneralizedHeegnerCycles (1)
 - **PadicDifferentialEquationsAndRigidCohomology** — P-adic differential equations, rigid cohomology and p-adic weights. Plan 9/9 accepted · package not yet · CN needs 3/8 layers · **Tau Ceti: pull request #1002 open** · move down: PadicHodgeTheory (1) · cites outside the 94: WeilConjectures (1)
-- **DiamondSixOperations** — Six operations, cohomological smoothness and biduality. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #927 open** · reviewer recommends approval
+- **DiamondSixOperations** — Six operations, cohomological smoothness and biduality. Plan 1/1 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #927 open** · reviewer recommends approval (at earlier head bdf0f73; current head f557f7e)
 
 ## Tier 13
 
