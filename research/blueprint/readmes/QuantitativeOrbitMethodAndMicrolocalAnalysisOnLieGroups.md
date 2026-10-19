@@ -10,7 +10,7 @@ The mathematical specification is this document. The [packet](../packets/Quantit
 
 Write \(\mathfrak g^\wedge=\operatorname{Hom}_{\mathbb R}(\mathfrak g,i\mathbb R)\), and identify an imaginary linear functional with its additive unitary character. The basic calculus uses a finite-dimensional **unimodular** real Lie group and a strongly continuous unitary Hilbert representation. No irreducibility is needed until orbital traces and infinitesimal characters. A real reductive group here is the full group of real points of a connected reductive algebraic group, with its real Lie topology; it need not be topologically connected. A complex algebraic group is regarded as a real Lie group. Nonarchimedean fields have characteristic zero.
 
-Fix a basis of \(\mathfrak g\), Euclidean norms, compatible Haar measures and an exponential chart once for each group. Constants can depend on these fixed data. A parameter \(h\) lies in an arbitrary subset of \((0,1]\) accumulating at zero. Families of symbols, representations and operators need no measurability or continuity in \(h\). A uniform assertion means that each requested output seminorm is bounded by a fixed finite list of input seminorms with a constant independent of \(h\) and the representations. An \(h\)-uniformly continuous family can lose a fixed finite power of \(h\) in each such estimate. Every negligible remainder has every prescribed power of \(h\) in every stated smoothing seminorm.
+Fix a basis of \(\mathfrak g\), Euclidean norms, compatible Haar measures and an exponential chart once for each group. Constants can depend on these fixed data. The norm used for the exact identity \(\operatorname{Op}(1+|\xi|^2)=\Delta\) is the dual norm of the basis defining \(\Delta\); other Euclidean norms give equivalent estimates, not that exact identity. A parameter \(h\) lies in an arbitrary subset of \((0,1]\) accumulating at zero. Families of symbols, representations and operators need no measurability or continuity in \(h\). A uniform assertion means that each requested output seminorm is bounded by a fixed finite list of input seminorms with a constant independent of \(h\) and the representations. An \(h\)-uniformly continuous family satisfies that same bound uniformly in \(h\), using the indicated domain and codomain seminorms. Polynomial losses arise when comparing these seminorms with unscaled ones, as in Lemma 5.3; they are not part of the definition of uniform continuity. Every negligible remainder has every prescribed power of \(h\) in every stated smoothing seminorm.
 
 Use \(\langle\xi\rangle=(1+|\xi|^2)^{1/2}\). Symbol orders are real, operator Sobolev shifts are integral, and all statements involving a finite negative order specify a sufficiently large integral order. The notation \(d\) always means **half the maximal real coadjoint-orbit dimension** for the group in question. It retains that value if a limiting regular multiorbit is empty. In the product-group reduction its value is \(d_M=\dim S\).
 
@@ -45,7 +45,7 @@ The [OperatorTheory/OperatorIdeals roadmap](https://github.com/TauCetiProject/Ta
 
 The [OrthogonalSpinGroups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/OrthogonalSpinGroups), Layers 1E, 2F–2H and 3, owns the Spin kernel, real and Qp local-image tables, and localization. Import those targets. For definite real SO the spinor image is trivial; for indefinite real SO it is all real square classes. For a binary anisotropic Qp-space it is a quadratic norm subgroup; for dimension at least three over Qp it is all square classes. The extension to arbitrary completions of a number field and the rational global-image equality are explicit supplier refinements in G19. The abstract Spin-kernel theorem alone proves neither assertion.
 
-The current [LieGroups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/RepresentationTheory/LieGroups) owns exponential, adjoint, BCH, real-form and KAK data. Its current BCH implementation is existing work. `AutomorphicFormsOnReductiveGroups:AF.1/infinitesimal-character` supplies the reductive Harish–Chandra map; `LieHighestWeightPartII:N0/jacobson-morozov` supplies algebraically closed adapted triples. Their quantitative real-form consequences requested here do not redefine either construction.
+The current [LieGroups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/RepresentationTheory/LieGroups) owns exponential, adjoint, BCH, real-form and KAK data. Its current BCH implementation is existing work. [LieHighestWeight Layer 3](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ) owns the concrete PBW theorem; BCH does not supply it. `AutomorphicFormsOnReductiveGroups:AF.1/infinitesimal-character` supplies the reductive Harish–Chandra map; `LieHighestWeightPartII:N0/jacobson-morozov` supplies algebraically closed adapted triples. Their quantitative real-form consequences requested here do not redefine either construction.
 
 The following distinction matters at every import: an exact external node is used for the statement it actually has; a supplier stage is accompanied by a precise contract; a missing or narrower supplier is recorded as a named obligation. In particular, `GanGrossPrasadConjecturesForClassicalGroups` and `AutomorphicSpectralTheoryPartIISchwartzMultipliers` have no defined stages supplying the required contracts. G8 and G6 record those needs without inventing stage identifiers. The GLn-only concrete centre nodes in the current smooth-representation packet cannot supply the general classical-group centre required here.
 
@@ -166,7 +166,7 @@ Fix the imaginary dual, dual Haar measures and exponential cutoff. Construct the
 
 ### Commutator operator classes — QO.0/operator-order
 
-**Definition.** An operator T from Pi-infinity to Pi-minus-infinity lies in Psi^m if every iterated commutator theta_(X1...Xr)(T) extends boundedly Pi^s to Pi^(s-m) for all integers s and words. The topology uses these operator norms. Define Psi-minus-infinity as the intersection over m and Psi-infinity as the union. Define family Psi_delta^m by uniform boundedness of h^(delta r) times each such commutator norm, with arbitrary Pi(h); h-infinity Psi-minus-infinity means every power of h in every smoothing seminorm.
+**Definition.** For integral order m, an operator T from Pi-infinity to Pi-minus-infinity lies in Psi^m if every iterated commutator theta_(X1...Xr)(T) extends boundedly Pi^s to Pi^(s-m) for all integers s and words. The topology uses these operator norms. Define Psi-minus-infinity as the intersection over integral m and Psi-infinity as the union. For 0<=delta<1, define family Psi_delta^m by uniform boundedness of h^(delta r) times each such commutator norm, with arbitrary Pi(h); h-infinity Psi-minus-infinity means every power of h in every smoothing seminorm.
 
 **Dependencies.** [QO.0/sobolev-scale](#qo-0-sobolev-scale), `mathlib:UniversalEnvelopingAlgebra`.
 
@@ -291,7 +291,7 @@ Fix the imaginary dual, dual Haar measures and exponential cutoff. Construct the
 
 Prove the BCH symbol expansion, including mixed subalgebras, localized remainder estimates, order-zero bounds, polynomial quantization, cutoff independence and the rescaled calculus. Control both the symbol order and every prescribed power of the semiclassical parameter.
 
-**Inputs.** `QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad`.
+**Inputs.** `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`, `QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad`.
 
 **Layer acceptance.** Every requested pair of remainder parameters M,N must be controlled by a finite expansion length. Test the abelian and proper-subalgebra cases, and preserve the strong Cotlar convergence mode.
 
@@ -394,14 +394,15 @@ Prove the BCH symbol expansion, including mixed subalgebras, localized remainder
 
 - **localizedSupport** (data): Each a_omega is supported in its declared U_omega.
 - **localizedFourier** (compatibility): The modulation, A^n Jacobian and A^-r Fourier moments are explicit.
-- **planckReconstruction** (structure): The localized sum reconstructs a in symbol topology with controlled locally finite sums.
+- **planckReconstruction** (structure): The locally finite sum equals a pointwise and in C-infinity on compact sets, with uniform weighted derivative bounds for the sum and its localized pieces. Finite partial sums need not converge in the original S_delta^m topology.
 - **planckOverlap** (characterisation): Overlap and weight comparison constants depend only on the fixed dimension and localization choices.
 
 **Unit tests.**
 
 - **deltaZeroRadius** (computation): At delta=0 the ball radius is comparable to <omega>, not h<omega>.
 - **originScaling** (computation): For omega=0 the inverse-transform width is h^(1-delta), and its amplitude scales by h^(-n(1-delta)).
-- **countingGrowth** (non-example): The number of centers in a fixed compact set grows like a power of h^-1; it is not bounded independently of h.
+- **countingGrowth** (non-example): For delta>0 and nonzero dual dimension, the number of centers needed to cover a fixed compact set with nonempty interior grows polynomially in h^-1; it is not bounded independently of h. At delta=0 no such growth is required.
+- **constantTail** (non-example): For a=1 on a nonzero-dimensional dual, any finite sum of the compactly supported partition pieces is zero sufficiently far out. Its S^0 sup-norm distance from 1 is at least one, so convergence in the original symbol topology is false.
 
 **Uses.** QO.1 composition estimates: Reduces global remainder bounds to localized pairs. QO.1 order-zero bound: Supplies the almost-orthogonal family for Cotlar–Stein.
 
@@ -411,13 +412,13 @@ Prove the BCH symbol expansion, including mixed subalgebras, localized remainder
 2. Rescale a fixed bump partition and normalize its sum, keeping all derivative bounds.
 3. Change variables in Fourier inversion and integrate by parts for weighted Fourier moment estimates.
 
-**Check.** Verify every listed API law and run the discriminating examples below, including: The number of centers in a fixed compact set grows like a power of h^-1; it is not bounded independently of h.
+**Check.** Verify every listed API law and run the discriminating examples below, including: For delta>0 and nonzero dual dimension, the number of centers needed to cover a fixed compact set with nonempty interior grows polynomially in h^-1; it is not bounded independently of h. At delta=0 no such growth is required.
 
 <a id="qo-1-localized-remainders"></a>
 
 ### Localized star remainder bounds — QO.1/localized-remainders
 
-**Theorem.** For subalgebras g1+g2=g, admissible orders and delta1+delta2<1, localized input pairs have remainder after J BCH terms bounded in every output derivative by h^N<zeta>^-N times polynomial input weights, provided J is large in terms of N and the derivative order. If one input weight dominates the other, nonstationary phase yields arbitrary decay in the larger weight; when weights are comparable the expansion gains h^((1-delta1-delta2)J) and J symbol orders. These bounds sum to the mixed symbol expansion.
+**Theorem.** Let g1+g2=g, 0<=delta1,delta2<1 and delta1+delta2<1. Let a in S_delta1^0(g1*) and b in S_delta2^0(g2*) be localized at omega1 and omega2. For each N>=0 and output multi-index gamma, choose J and M sufficiently large in terms of these fixed data. The remainder r=a star_h b-sum_(j<J) h^j C_j(a,b) satisfies |partial^gamma r(zeta)|<=C h^N <zeta>^-N <omega1>^M <omega2>^M. If g1=g replace the second weight by <omega2>^-N; if g2=g replace the first weight by <omega1>^-N; if both equal g both weights are negative powers. Constants use finitely many bounded localized input seminorms and are independent of h, zeta and the centers. General input orders are restored by the partition weights.
 
 **Dependencies.** [QO.1/oscillatory-estimates](#qo-1-oscillatory-estimates), [QO.1/planck-partition](#qo-1-planck-partition).
 
@@ -425,10 +426,10 @@ Prove the BCH symbol expansion, including mixed subalgebras, localized remainder
 
 **Proof route.**
 
-1. Insert the explicit localized Fourier formula; separate comparable and separated input centers.
+1. Insert the localized Fourier formulas and treat the four full-algebra versus proper-subalgebra cases of Proposition 7.13 separately.
 2. For comparable centers use the Taylor remainder, spending derivative losses h^-delta1 and h^-delta2.
-3. For separated centers use nonstationary phase before summing; choose extra decay to pay for the polynomial number of centers.
-4. Record the four weight regimes as implementation lemmas with the exact inequalities in Proposition 7.13; the target here is the summable global conclusion, not an unspecified pairwise O(h^N).
+3. For separated centers use nonstationary phase with the full-algebra hypotheses required for each negative center weight; proper-subalgebra inputs retain the stated polynomial weights.
+4. For Theorem 7.4, sum case (d) for two full algebras. In the full/proper cases use the negative order required on the full-algebra input to absorb its remaining polynomial center weight. For two proper algebras both orders are minus-infinity, so choose each order sufficiently negative to sum the two polynomial weights from case (a).
 
 **Check.** Choose J from the desired output derivative and h exponent before estimating input centers; check all four weight regimes and absolute summability of the center sum.
 
@@ -527,9 +528,9 @@ Prove the BCH symbol expansion, including mixed subalgebras, localized remainder
 
 ### Polynomial quantization — QO.1/polynomial-quantization
 
-**Theorem.** For polynomial p on the imaginary dual, Op(p,chi)=dPi(sym p), independent of chi. A linear symbol xi(X) quantizes to dPi(X), and p=1+|xi|^2 quantizes to Delta. Higher powers p^N do not in general quantize to Delta^N without lower-order noncommutative corrections.
+**Theorem.** For polynomial p on the imaginary dual, Op(p,chi)=dPi(sym p), independent of chi. A linear symbol xi(X) quantizes to dPi(X). When |xi| is the dual norm of the basis used in Delta=1-sum_X dPi(X)^2, p=1+|xi|^2 quantizes to Delta. Higher powers p^N do not in general quantize to Delta^N without lower-order noncommutative corrections.
 
-**Dependencies.** [QO.0/quantization](#qo-0-quantization), `mathlib:UniversalEnvelopingAlgebra`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff`.
+**Dependencies.** [QO.0/quantization](#qo-0-quantization), `mathlib:UniversalEnvelopingAlgebra`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`.
 
 **Source.** [Nelson–Venkatesh (NV21)](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2021/0226/0001/ACTA-2021-0226-0001-a001.pdf), Lemma 5.1, p. 37; proof in §8.1, pp. 56–57.
 
@@ -538,7 +539,7 @@ Prove the BCH symbol expansion, including mixed subalgebras, localized remainder
 1. The inverse Fourier transform of a polynomial is a derivative of the point mass at zero.
 2. Evaluate it on the smooth matrix coefficient and use chi=1 near zero; polarize to obtain symmetrization.
 
-**Check.** On the line xi=i t, quantize xi(X) to i t and 1+|xi|^2 to 1+t^2. In a nonabelian algebra compute the lower-order discrepancy between Op(p^2) and Op(p)^2.
+**Check.** On the line xi=i t, quantize xi(X) to i t and 1+|xi|^2 to 1+t^2. For the Heisenberg algebra [X,Y]=Z with orthonormal basis X,Y,Z, verify sym(p^2)=Delta^2-Z^2 in U(g), so equality of the two powers fails when dPi(Z) is nonzero.
 
 <a id="qo-1-cutoff-covariance"></a>
 
@@ -1985,7 +1986,7 @@ Combine positive period Parseval, a polynomial weak Weyl bound and microlocal sp
 
 ### Smooth period Parseval and weak Weyl bound — QO.9/period-parseval
 
-**Theorem.** For smoothly trace-class T, integral_[H][T]=sum_Sigma P_Sigma(T), with absolute convergence and compatibility with smooth differentiation at the fixed auxiliary level. The number of Sigma contributing nonzero periods with |lambda_sigma|<=x is O((1+x)^C) for a group- and level-dependent C. Positivity gives monotone summation for positive T; general T uses smooth trace estimates.
+**Theorem.** For a smoothing operator T in Psi-minus-infinity, integral_[H][T]=sum_Sigma P_Sigma(T), with absolute convergence and compatibility with smooth differentiation at the fixed auxiliary level. The number of Sigma contributing nonzero periods with |lambda_sigma|<=x is O((1+x)^C) for a group- and level-dependent C. Positivity gives monotone summation for positive T; general smoothing T uses the smooth two-variable kernel and its spectral expansion.
 
 **Dependencies.** [QO.9/period-functional](#qo-9-period-functional), [QO.8/operator-state](#qo-8-operator-state), `AutomorphicSpectralTheory:AS.4`.
 
@@ -1995,7 +1996,7 @@ Combine positive period Parseval, a polynomial weak Weyl bound and microlocal sp
 
 1. Use compact-quotient automorphic spectral decomposition, elliptic Sobolev bounds and a polynomial eigenvalue-counting estimate supplied by AS.4.
 2. Apply Parseval to each rank-one restricted vector and then sum the auxiliary finite family.
-3. Use sufficiently high Sobolev powers to dominate the spectral tail uniformly and extend from finite rank to smoothly trace class.
+3. Use the smooth two-variable kernel supplied for Psi-minus-infinity and sufficiently high elliptic Sobolev powers to dominate its spectral tail uniformly, extending from finite rank to smoothing operators. Smoothness of only the diagonal for a smoothly trace-class operator is not this kernel assertion.
 
 **Check.** Count spectral multiplicity and prove the polynomial bound at the fixed auxiliary level. For positive finite-rank T compare directly with Parseval on each restricted vector before extending by trace estimates.
 
@@ -2011,10 +2012,10 @@ Combine positive period Parseval, a polynomial weak Weyl bound and microlocal sp
 
 **Proof route.**
 
-1. For large h lambda_sigma apply joint localization with arbitrarily strong spectral decay and sum using the weak Weyl bound.
+1. Choose a relatively compact open U0 inside U containing the invariant-parameter image of the projected compact symbol supports. Outside U0, apply joint localization with arbitrarily strong spectral decay and sum using the weak Weyl bound. This first truncation is valid even when the stated U is unbounded.
 2. For a tempered orbit missing W choose b=1 on the projected symbol support and supported in W; factor the relative operator through sigma quantizations.
 3. Use |tr(T1 T2)|^2<=tr(T1* T1)tr(T2* T2), with the first trace negligible by the orbit trace formula and the second polynomially bounded.
-4. Sum these estimates after choosing the h-gain larger than the counting exponent and take the limit-state subsequence.
+4. Inside U0 the weak Weyl bound gives only polynomially many terms in h^-1. Sum the orbit-missing estimates after choosing the h-gain larger than that exponent and take the limit-state subsequence. The terms in U outside U0 were already controlled by spectral decay.
 
 **Check.** Treat the large-parameter tail and the tempered orbit-missing tail separately. In Hilbert-Schmidt Cauchy-Schwarz the negligible first factor is tr(T1* T1), never tr(T1* T2).
 
@@ -2095,7 +2096,7 @@ For an anisotropic binary \(V_H\), the spinor image is the norm subgroup for \(K
 
 ## Suggested Lean coverage
 
-Four light, real-bodied definitions use only existing Mathlib carriers. **symbolRescale** is \(a( h\xi)\); its API records the one, zero, composition and product laws, with square-polynomial, zero-scale and constant-symbol examples. **lineQuantization** is the additive-line integral of an inverse-Fourier amplitude; its API records zero, addition under integrability hypotheses, scalar multiplication, conjugation, a Schwartz norm bound and the zero-scale identity, with three character/cutoff examples. **jointFibre** is the simultaneous inverse image; its API gives membership, pair-preimage and swapping, with the three computed fibres above. **finiteDiagonalState** is the finite weighted squared-norm sum; its API gives positivity, weight addition and the integral normalization, with the empty, one-index and two-index computations above.
+Four light, real-bodied definitions use only existing Mathlib carriers. **symbolRescale** is \(a( h\xi)\); its API records the one, zero, composition and product laws, with square-polynomial, zero-scale and constant-symbol examples. **lineQuantization** is the additive-line integral of an inverse-Fourier amplitude; its API records zero, addition under integrability hypotheses, scalar multiplication, conjugation, a Schwartz norm bound and the zero-scale identity, with four character/cutoff examples. The fourth uses the inverse phase on [0,1] at h=t=1 and has value one; reversing the character sign fails this check. **jointFibre** is the simultaneous inverse image; its API gives membership, pair-preimage and swapping, with the three computed fibres above. **finiteDiagonalState** is the finite weighted squared-norm sum; its API gives positivity, weight addition and the integral normalization, with the empty, one-index and two-index computations above.
 
 Representation Sobolev scales, smooth Schatten refinements, coadjoint multiorbits, scheme torsors, local relative characters and the arithmetic endpoint need carriers or interface contracts absent at the pins. They remain exact mathematical targets here. The suggested file introduces no substitute representation, arbitrary proposition field, or admitted data definition. Its admitted proofs state interfaces and examples; they do not establish the analytic theorems.
 
@@ -2105,18 +2106,20 @@ These are the precise requested stage contracts. Exact external nodes used elsew
 
 1. **tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-0-the-exponential-map-and-one-parameter-subgroups**: Lie exponential chart, inversion and Haar density near identity; no new Lie-group exponential is planned. Consumers: [QO.0/fourier-conventions](#qo-0-fourier-conventions), [QO.0/nelson-laplacian](#qo-0-nelson-laplacian).
 2. **tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad**: Smooth adjoint/coadjoint actions, differential at identity and coadjoint tangent map. Consumers: [QO.0/quantization](#qo-0-quantization), [QO.3/orbital-measure](#qo-3-orbital-measure), [QO.5/fibral-forms](#qo-5-fibral-forms).
-3. **tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff**: Analytic BCH map and its convergent expansion, including the enveloping symmetrization/PBW bridge already assigned to Lie theory. Consumers: [QO.1/bch-coefficients](#qo-1-bch-coefficients), [QO.1/cutoff-star](#qo-1-cutoff-star), [QO.1/polynomial-quantization](#qo-1-polynomial-quantization).
+3. **tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff**: Analytic BCH map and its convergent local expansion; the concrete PBW theorem is supplied separately by LieHighestWeight Layer 3. Consumers: [QO.1/bch-coefficients](#qo-1-bch-coefficients), [QO.1/cutoff-star](#qo-1-cutoff-star).
 4. **tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions**: KAK decomposition, root-exponential Haar estimates and polynomial volume growth for an algebraic group norm. Consumers: [QO.5/stable-properness](#qo-5-stable-properness), [QO.4/uniform-k-types](#qo-4-uniform-k-types).
 5. **SmoothRepresentationsOfLocalGroups:SR.1**: Integrated locally constant Hecke action, convolution, involution and normalized compact-open projector. Consumers: [QO.4/padic-plancherel](#qo-4-padic-plancherel).
 6. **SmoothRepresentationsOfLocalGroups:SR.2**: Normalized parabolic induction and Casselman Jacquet-module lifting at a good compact open level, for every irreducible constituent. Consumers: [QO.7/good-level-invariants](#qo-7-good-level-invariants).
 7. **SmoothRepresentationsOfLocalGroups:SR.3**: General characteristic-zero complex Bernstein centre, conjugate-dual real involution, supercuspidal support and square-integrable tempered inducing classification with its finite constituent data. Existing GLn-only centre nodes are insufficient for classical GGP groups. Consumers: [QO.7/l-components](#qo-7-l-components), [QO.7/central-approximation](#qo-7-central-approximation), [QO.4/padic-plancherel](#qo-4-padic-plancherel).
 8. **SmoothRepresentationsOfLocalGroups:SR.3a**: Uniform fixed-J dimension bounds and finite visible inertial/tempered inducing families; preserve the early proof order without assuming Bernstein-centre finiteness as input to itself. Consumers: [QO.7/good-level-invariants](#qo-7-good-level-invariants), [QO.7/l-components](#qo-7-l-components), [QO.7/cuspidal-allowability](#qo-7-cuspidal-allowability).
-9. **AutomorphicSpectralTheory:AS.4**: Compact-quotient discrete automorphic decomposition with multiplicity, smooth absolute spectral expansion, polynomial elliptic eigenvalue counting and smooth restriction estimates at fixed level. Consumers: [QO.9/period-functional](#qo-9-period-functional), [QO.9/period-parseval](#qo-9-period-parseval).
+9. **AutomorphicSpectralTheory:AS.4**: Compact-quotient discrete automorphic decomposition with multiplicity from AS.4/compact-quotient-spectrum. In addition request smooth absolute two-variable spectral expansion, polynomial elliptic eigenvalue counting and differentiated restriction estimates at fixed central quotient and auxiliary level; these extensions are G20, not consequences claimed from the existing supplier statement. Consumers: [QO.9/period-functional](#qo-9-period-functional), [QO.9/period-parseval](#qo-9-period-parseval).
 10. **AdelicAlgebraicGroups:AA.2**: Tamagawa/Haar quotient measures on the specific anisotropic GGP groups and compatibility with restriction to H. Consumers: [QO.8/global-equidistribution](#qo-8-global-equidistribution).
 11. **AdelicAlgebraicGroups:AA.3**: Anisotropic quotient compactness and finite arithmetic connected-component decomposition at fixed auxiliary level. Consumers: [QO.8/operator-state](#qo-8-operator-state), [QO.8/global-equidistribution](#qo-8-global-equidistribution).
 12. **AdelicAlgebraicGroups:AA.4**: Strong approximation for simply connected almost-simple factors noncompact at q, with products and the exact adelic component consequence. Consumers: [QO.8/unipotent-invariant-measures](#qo-8-unipotent-invariant-measures), [QO.8/component-comparison](#qo-8-component-comparison).
 13. **tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-7-complexification-and-real-forms**: Real forms and comparison with complex algebraic point groups; Cartan connectedness for algebraically simply connected semisimple real groups is a separate local target here. Consumers: [QO.8/real-algebraic-connectedness](#qo-8-real-algebraic-connectedness).
 14. **LieHighestWeightPartII:N0**: Use the exact Jacobson–Morozov and adapted-triple construction over the algebraic closure; the regular-real-nilpotent simple-root criterion and centralizer rigidity are the local targets in QO.8. Consumers: [QO.8/regular-nilpotent-rigidity](#qo-8-regular-nilpotent-rigidity).
+
+15. **tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ**: Concrete PBW filtration, associated-graded generator identification and ordered-monomial basis over a field, from LieHighestWeight Layer 3. Over R or C derive the factorial-normalized symmetrization isomorphism used in polynomial quantization; do not import PBW from the BCH layer. Consumer: [QO.1/polynomial-quantization](#qo-1-polynomial-quantization).
 
 ## Named proof obligations and closure
 
@@ -2274,11 +2277,19 @@ Import the current OrthogonalSpinGroups Layer2F–2H tables for R and Qp without
 
 **Direct consumers.** [QO.8/component-comparison](#qo-8-component-comparison).
 
+<a id="g20"></a>
+
+### G20. Smooth compact-quotient spectral estimates
+
+AS.4/compact-quotient-spectrum supplies a discrete Hilbert sum with finite multiplicities and smooth convolution kernels. Its statement does not yet give the arbitrary smooth two-variable absolute spectral expansion, polynomial elliptic eigenvalue counting and differentiated restriction estimates required in NV §29.1–§29.2 pp.189–190. The AS.4 supplier packet itself leaves compact-quotient Sobolev trace-class input open. Request these precise estimates as an AutomorphicSpectralTheory extension, with a fixed central quotient and fixed finite auxiliary level, before closing the period Parseval or truncation argument.
+
+**Direct consumers.** [QO.9/period-parseval](#qo-9-period-parseval), [QO.9/spectral-truncation](#qo-9-spectral-truncation).
+
 ## Source discipline and corrected statements
 
 The primary source is Paul D. Nelson and Akshay Venkatesh, *The orbit method and analysis of automorphic forms*, Acta Mathematica **226** (2021), 1–209, [DOI](https://doi.org/10.4310/ACTA.2021.v226.n1.a1), [published PDF](https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2021/0226/0001/ACTA-2021-0226-0001-a001.pdf). All page numbers in this document are printed page numbers. Statements, normalizations and proof sketches are in the roadmap's own words.
 
-The packet's `sourceIssues` records each correction with its locator, reason, provenance and search record. The main statement changes are strong Cotlar convergence (Lemma 8.10), the missing derivative scaling in Lemma 8.1(ii), positive powers in the cutoff Taylor formula (Lemma 7.14), the full division recursions (Lemma 10.1 and §8.8.6), the h-powers and auxiliary mass in the relative trace expansion (Theorem 19.4 and Lemma 19.5), the inverse-branching remainder and support margin (Theorem 22.2), and the binary spinor obstruction (Lemma 27.3, Theorems 27.1 and 30.1). The corrected right-division recursion is obtained by equating every coefficient, not by repeatedly dividing only the first term. The corrected nonstationary-phase proof differentiates the formal adjoint of its first-order vector field.
+The packet's `sourceIssues` records each correction with its locator, reason, provenance and search record. Independent review narrows E10: the partition works at delta=1, although the calculus uses delta<1. E36 records the noncommutative power error in §8.7 p.63: use the inverse-PBW polynomial for Delta^N, not an uncorrected power of the quadratic symbol. The Heisenberg calculation in QO.1/polynomial-quantization detects it. The main statement changes are strong Cotlar convergence (Lemma 8.10), the missing derivative scaling in Lemma 8.1(ii), positive powers in the cutoff Taylor formula (Lemma 7.14), the full division recursions (Lemma 10.1 and §8.8.6), the h-powers and auxiliary mass in the relative trace expansion (Theorem 19.4 and Lemma 19.5), the inverse-branching remainder and support margin (Theorem 22.2), and the binary spinor obstruction (Lemma 27.3, Theorems 27.1 and 30.1). The corrected right-division recursion is obtained by equating every coefficient, not by repeatedly dividing only the first term. The corrected nonstationary-phase proof differentiates the formal adjoint of its first-order vector field.
 
 The positivity assertions retain their scope: the archimedean relative character is Hermitian in the construction, while its general positivity is not supplied there. The global nonnegative period norm provides the positivity used in the final averaging argument. The p-adic allowability theorem covers cuspidal-type components and requires a separately supplied GGP positivity/nonvanishing contract. The complex Plancherel scaling lemma retains its complex-group restriction and its missing positive Tauberian argument as G12.
 

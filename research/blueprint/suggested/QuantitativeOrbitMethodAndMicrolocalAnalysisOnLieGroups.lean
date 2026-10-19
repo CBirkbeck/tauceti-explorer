@@ -114,6 +114,14 @@ example (h t : ℝ) (a : ℝ → ℂ) :
       lineQuantization 1 (h * t) (fun _ => 1) a := by
   sorry
 
+/-- Opposite phases cancel on a unit interval. Reversing the character sign
+changes this value, unlike the zero-scale and reparametrization examples. -/
+example :
+    lineQuantization 1 1 (fun _ => 1)
+      ((Set.Icc (0 : ℝ) 1).indicator
+        (fun x => Complex.exp (-Complex.I * (x : ℂ)))) = 1 := by
+  sorry
+
 /-- One ambient point satisfies both invariant equations
 (QO.5/relative-fibres). -/
 def jointFibre {E A B : Type*} (q : E → A) (r : E → B)
