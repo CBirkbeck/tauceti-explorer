@@ -1,6 +1,6 @@
 # Roadmap: general algebraic K-theory
 
-Build algebraic K-theory of small exact and Waldhausen categories, compare the Q, plus and S constructions, and prove additivity, resolution, localization and approximation. For associative rings, develop products, transfers, relative and nonunital theory, the ring projective line, Nil terms and the Bass Fundamental Theorem. Construct the nonconnective theories of rings and Frobenius models, compare them through finite domination, and identify precisely which enhancements are required for derived invariance.
+**Summary.** Build algebraic K-theory of small exact and Waldhausen categories, compare the Q, plus and S constructions, and prove additivity, resolution, localization and approximation. For associative rings, develop products, transfers, relative and nonunital theory, the ring projective line, Nil terms and the Bass Fundamental Theorem. Construct the nonconnective theories of rings and Frobenius models, compare them through finite domination, and identify precisely which enhancements are required for derived invariance.
 
 ## Scope and ownership
 
@@ -13,6 +13,8 @@ AlgebraicTopology Stages 2, 4 and 8 supply local coefficient complexes, CW attac
 DGAInfinity Layers 5–7 own perfect differential graded models, pretriangulated hulls, derived Morita theory and differential graded quotients. Layer 13 uses these carriers only to compare K-theory under an actual map of enhanced models. Triangulated structures, Verdier localization and idempotent completion are supplied category theory. The K-theoretic dense-class and completion criteria here add their Euler-class and boundary conclusions.
 
 KTheoryLowDegrees consumes the degree-zero and degree-one adapters and stable matrices here. K2SymbolsBrauer owns field-specific symbol presentations, including Matsumoto’s theorem. K3BlochGroups owns the infinite-field indecomposable K₃ comparison. No Bloch-group presentation of K₃ for arbitrary rings is claimed. Scheme K-theory, descent, arithmetic calculations, topological K-theory and a general theory of commutative ring spectra remain separate directions; the projective-line construction here is stated directly for rings.
+
+AlgebraicVectorBundles Layer 0B supplies the finite-projective/finite-locally-free comparison over affine commutative schemes, and its later layers own projective bundles as schemes. The gluing category in Layer 9 instead admits associative noncommutative coefficient rings and adds the K-theory splitting; it does not rebuild that affine equivalence or scheme theory.
 
 ## Conventions
 
@@ -38,6 +40,8 @@ For a Serre object property P, use `P.isoModSerre.Localization` and its functor 
 
 For rings and modules use `ModuleCat`, finite generation and projectivity, finite `Matrix.GeneralLinearGroup`, elementary matrix algebra, `RingHom.pullback`, `Polynomial`, `LaurentPolynomial`, `IsNilpotent`, tensor products and `Unitization ℤ I`. Commutative `ModuleCat.extendScalars` is used in its actual commutative scope; Layer 3 supplies the general associative bimodule extension. Use `MoritaEquivalence` for an R-linear module equivalence over a commutative base semiring R, and `ModuleCat.matrixEquivalence` for rings and a finite nonempty matrix index. Stable GL and its Whitehead subgroup theorem are new.
 
+`Module.Finite.exists_comp_eq_id_of_projective` supplies the finite-free retraction for a finite projective module. `Module.finrank_mul_finrank` supplies the tower dimension identity for free scalar extensions; the finite-field degree-zero transfer calculation uses that identity rather than introducing another dimension theorem.
+
 ### From Tau Ceti
 
 Use `TauCeti.ExactStructure`, its `Conflation`, `IsInflation`, `IsDeflation`, exact base-change axioms and `IsConflationExact`. An additive functor preserving conflations is the exact-functor input. Use `ExactStructure.transport` for the supplied exact-structure transport. `ConflationCategory` and its three evaluation functors supply the underlying category in §4.2.
@@ -50,7 +54,7 @@ The current `CategoryTheory.Equivalence.finiteProjectiveModulesEquivalence` and 
 
 ### From TauCetiRoadmap
 
-AlgebraicTopology Stage 2 supplies local coefficient chain complexes and their homology, Stage 4 the CW constructions and replacements, and Stage 8 relative homotopy exactness, Hurewicz and simply connected Whitehead. Plus uniqueness with a nontrivial fundamental group is proved here using universal covers and pulled-back local coefficients, rather than being inferred from ordinary integral homology alone.
+AlgebraicTopology Stage 2 supplies local coefficient chain complexes and their homology, Stage 4 the CW constructions and replacements, and Stage 8 relative homotopy exactness, Hurewicz and simply connected Whitehead. Completed UniversalCovers Stages 0–3 supply universal covers, the subgroup/cover correspondence and covering invariance of higher homotopy groups for connected, locally path-connected, semilocally simply connected spaces; connected CW realizations satisfy these hypotheses. Plus uniqueness with a nontrivial fundamental group is proved here using those covers and pulled-back local coefficients, rather than being inferred from ordinary integral homology alone.
 
 GrothendieckEulerForms Layer 2 supplies degree-zero exact Euler relations and Layer 3 the resolving-subcategory Euler comparison. DGAInfinity Layer 5 supplies perfect/pretriangulated differential graded models, Layer 6 their derived Morita comparison and Layer 7 the differential graded quotient. The higher and nonconnective K-comparison requires an enhanced functor satisfying approximation or the Frobenius-pair derived-equivalence theorem; it does not follow from these suppliers’ bare triangulated equivalences.
 
@@ -62,7 +66,7 @@ Layer 1 supplies homotopy tools for Q-theory (Layer 2) and the ring/plus compari
 
 ### 1.1 Homotopies from functors
 
-For small C,D, set BC=|nerve C|. A natural transformation F→G gives BF≃BG through C×[1]; equivalences realize to homotopy equivalences. Initial, terminal, or nonempty filtered categories have contractible realization; finite diagrams have cones in the filtered case. Prove composition, finite-product and opposite comparisons, and filtered continuity on homotopy groups. Prove finite-poset detection: if every finite-poset functor into C realizes to a nullhomotopic map, BC is contractible, by finite sphere triangulations, face-poset subdivision and CW Whitehead.
+For small C,D, define `classifyingSpace C` as BC=|nerve C| and `classifyingSpaceMap F` by realization of the nerve map. A natural transformation F→G gives a homotopy BF≃BG through C×[1]; equivalences realize to homotopy equivalences. Initial, terminal, or nonempty filtered categories have contractible realization; finite diagrams have cones in the filtered case. Prove composition, finite-product and opposite comparisons, and filtered continuity on homotopy groups. Prove `classifyingSpace_finitePosetDetection`: for nonempty C, if every functor from a finite poset into C realizes to a nullhomotopic map, BC is contractible, by finite sphere triangulations, face-poset subdivision and CW Whitehead. Here a nullhomotopy includes its constant value; it is not merely vanishing of positive homotopy groups.
 
 (Weibel IV, §3.1–3.3, pp.IV.24–27;§6.4, pp.IV.55–56;Schlichting 2003, Appendix A.10, p.27.)
 
@@ -73,11 +77,14 @@ Use:
 - `classifyingSpace_filtered`: Nonempty filtered categories have contractible realization.
 - `classifyingSpace_product`: comparison for a finite product is a homotopy equivalence.
 - `classifyingSpace_op`: Reversing simplices gives the opposite-category comparison.
+- `classifyingSpaceMap_id`, `classifyingSpaceMap_comp`: realization preserves identity and composition.
+- `classifyingSpace_filteredColimit_pi`: filtered diagrams of small categories give the corresponding filtered-colimit comparison on based homotopy groups, with compatible basepoints.
 
 **Checks.**
 
 - A one-object category with only its identity realizes to a point.
 - The discrete category on two objects has two components and is not contractible.
+- The empty category realizes to the empty space, which is not contractible; the nonempty hypothesis cannot be discarded from the finite-poset criterion by interpreting nullhomotopy as a statement only about positive homotopy groups.
 - For [1], either endpoint inclusion is a homotopy equivalence; a category with a zero object is therefore contractible even if it has many morphisms.
 
 *Needs:* Mathlib nerve, realization, paths and homotopy groups; the space-level suppliers in Scope and ownership.
@@ -107,7 +114,7 @@ Use:
 
 Compare diagonal and iterated bisimplicial realization. Level weak equivalences induce total weak equivalences, hence homotopy equivalences for CW realizations. For a map to a category nerve, constant in the second direction, base-change equivalences identify the fibres with realized homotopy fibres. Define edgewise subdivision by [n]↦[n]^op⋆[n] and prove its realization homeomorphism. The horizontal-isomorphism/all-vertical-map double nerve realizes equivalently to the ordinary nerve by contracting the isomorphism direction. For proper simplicial CW spaces, prove the connected realization-fibration criterion used by relative S: level fibre squares have connected bases and totals, with coherent fibre identifications.
 
-(Weibel IV, D 3.6 and T 3.6.1, pp.IV.29–30;Example 3.10.1, pp.IV.33–34;§8.5.1, pp.IV.69–70;Waldhausen, §1.6, pp.343–346;§1.5, proof of the relative-S delooping, pp.339–341.)
+(Weibel IV, D 3.6 and T 3.6.1, pp.IV.29–30;Examples 3.10.1–3.10.2, pp.IV.33–34 and E 3.13, p.IV.35;§8.5.1, pp.IV.69–70;Waldhausen, §1.6, pp.343–346;§1.5, proof of the relative-S delooping, pp.339–341.)
 
 Use:
 
@@ -127,6 +134,8 @@ Use:
 ### 1.4 Comma categories and Quillen’s criteria
 
 For F:C→D, contractible d↓F for every d implies BF is a homotopy equivalence (A). If every d→d′ gives an equivalence B(d′↓F)→B(d↓F), B(d↓F) computes the fibre over d (B). Prove dual F↓d criteria. Cartesian lifts of a prefibred functor identify strict fibres with comma categories; fibre base changes must be equivalences to conclude fibration. Strict-fibre contractibility alone does not suffice.
+
+The named targets are `QuillenA`, `QuillenB`, `QuillenA_dual`, `QuillenB_dual` with the hypotheses and conclusions above.
 
 (Weibel IV, T 3.7 and 3.8, C 3.7.4, pp.IV.30–32;Quillen, §1, T A and B, pp.93–97.)
 
@@ -176,7 +185,7 @@ Use:
 **Checks.**
 
 - For the discrete monoid ℕ, π₀ of its completion is ℤ, so the map on components is not an equivalence.
-- For a group viewed as a discrete monoidal groupoid, inversion changes no components.
+- For an abelian group G viewed as a discrete symmetric monoidal groupoid, the completion map on components is G→G, g↦g. For G=ℤ it sends 1 to 1, and introduces no new components.
 - Finite free objects in projectives over k×k have diagonal degree-zero image in ℤ², despite positive cofinality.
 
 *Needs:* §1.1–1.4; Mathlib symmetric monoidal categories, group completion and categorical localization.
@@ -216,11 +225,14 @@ Use:
 - `PrespectrumPairing`: levelwise smash maps and their suspension coherence.
 - `PrespectrumPairing.product`: bilinear degree-adding product on stable groups.
 - `PrespectrumPairing.symmetry`: sphere-interchange identity, including negative integer degrees.
+- `sphereInterchangeSign i j`: the arithmetic unit (−1)^(ij) in ℤ×; its zero-degree, symmetry and degree-addition formulas are the sign API used in the pairing identities.
 
 **Checks.**
 
 - Exchanging two one-spheres acts by −1 on their two-sphere smash.
 - Exchanging a one-sphere and a two-sphere acts by +1.
+- `sphereInterchangeSign (−1) 1=−1`, so the formula uses integer degrees and not truncated natural subtraction.
+- In characteristic two, the integer sign maps to −1=1 in 𝔽₂, as checked in Suggested.lean.
 - An odd-degree square is annihilated by 2; it is not asserted to be zero without excluding 2-torsion.
 
 *Needs:* §1.7; the degree computation for sphere interchange in this target; Mathlib tensor products of abelian groups.
@@ -291,6 +303,8 @@ Use:
 
 Extend Q, BQ and the higher K-groups to essentially small exact categories by applying them to a small exact model. Prove independence of that model, and naturality for squares commuting up to an exact natural isomorphism. An additive equivalence preserving and reflecting conflations induces a Q-equivalence and a homotopy equivalence of classifying spaces. The result concerns Q and higher homotopy, beyond the algebraic transport of exact K₀.
 
+The named targets are `SmallExactModel`, `qConstruction_model_independent` with the hypotheses and conclusions above.
+
 For essentially w-small C, transport conflations to a w-small model; its Q, nerve, realization and groups are w-small. Ring projective models are u-small for R:Type u.
 
 (Weibel IV, D 6.3.1 and the surrounding remark, p.IV.55.)
@@ -301,9 +315,17 @@ For essentially w-small C, transport conflations to a w-small model; its Q, nerv
 
 Prove that BQ(E) is connected and that π₁(BQ(E),0) is the ExactK₀(E). The class of A is the loop that follows the inflation 0→A and returns along the reverse of the Q-arrow associated with A↠0. The triangle relations in the nerve impose [B]=[A]+[C] for each conflation A↣B↠C. Construct inverse using ExactK₀’s universal property and the covering associated with the functor from Q(E) to its one-object Grothendieck-group category; prove both composites on generators.
 
+The named targets are `twoEdgeLoop`, `pi1QEquivExactK0` with the hypotheses and conclusions above.
+
 E is small, or transported by §2.3. Inflation followed by reversed deflation gives the positive loop; reversing both edges negates its class.
 
 (Weibel IV, P 6.2 and proof, Example 6.2.3, p.IV.54;Quillen, §2, pp.99–104.)
+
+**Checks.**
+
+- The zero object gives the constant loop and class zero.
+- For finite-dimensional k-spaces, the stated loop for k has class +1; traversing it backwards gives −1. The arithmetic direction is the same 1−0 versus 0−1 tested in Suggested.lean.
+- The split conflation k↣k²↠k gives the relation 2=1+1; treating the positive loop as a difference of the two identical legs would incorrectly give zero.
 
 *Needs:* §2.2; §2.3; Layer 1; `ExactK0`; `ExactK0.of`; `ExactK0.of_conflation`; `ExactK0.AdditiveInvariant`; `ExactK0.lift`; `ExactK0.liftEquiv`; `ExactK0.hom_ext`; `ExactK0.transportEquiv`; `CategoryTheory.nerve`; `SSet.toTop`; `HomotopyGroup`.
 
@@ -336,6 +358,8 @@ Use:
 ### 2.6 Elementary properties: opposites, finite products and filtered colimits
 
 Show that finite products of exact categories give products of Q-categories and K-groups, and that reversing the exact category leaves its K-groups unchanged. For a small filtered diagram of exact categories and exact functors, give its colimit the conflations that descend from a stage and prove continuity of K_n. Direct sum makes BQ a homotopy-commutative H-space; prove that its induced addition agrees with the homotopy-group operation. The colimit argument descends finite spans, their equations and finite representatives of homotopies to one stage.
+
+The named targets are `kGroup_op`, `kGroup_finiteProduct`, `kGroup_filteredColimit` with the hypotheses and conclusions above.
 
 Products are finite; check the filtered-colimit conflations against the exact axioms and exact-functor preservation.
 
@@ -411,7 +435,7 @@ Use:
 
 ### 3.3 Stable matrices and elementary transformations
 
-Starting from the finite general linear groups, form GL(R)=colim_n GL_n(R) under g↦diag(g,1). Define e_ij(a)=1+aE_ij for i≠j and E(R) as the subgroup generated by their stabilized images. Construct block sum and ring-map functoriality. Prove e_ij(a)e_ij(b)=e_ij(a+b), e_ij(a)⁻¹=e_ij(−a), and [e_ij(a),e_jk(b)]=e_ik(ab) for pairwise distinct indices. Define the classical additive K₁ as Additive(GL(R)/E(R)), after the normality theorem below.
+Starting from the finite general linear groups, form GL(R)=colim_n GL_n(R) under g↦diag(g,1). Define e_ij(a)=1+aE_ij for i≠j and E(R) as the subgroup generated by their stabilized images. Construct block sum and ring-map functoriality. Prove e_ij(a)e_ij(b)=e_ij(a+b), e_ij(a)⁻¹=e_ij(−a), and [e_ij(a),e_jk(b)]=e_ik(ab) for pairwise distinct indices, with [g,h]=ghg⁻¹h⁻¹. Define the classical additive K₁ as Additive(GL(R)/E(R)), after the normality theorem below.
 
 (Weibel III, D 1.1–1.2, equation (1.3.1), pp.III.1–4.)
 
@@ -427,6 +451,7 @@ Use:
 
 - Stabilizing the 1×1 matrix (u) gives diag(u,1), so the identity unit gives the identity stable matrix.
 - e₁₂(a)e₁₂(−a)=1; using +a for the inverse fails over ℤ at a=1.
+- Over ℤ in rank 3, [e₁₂(1),e₂₃(1)]=e₁₃(1), with the displayed commutator order; the finite matrix example in Suggested.lean checks the sign and entry.
 - Over 𝔽₂, GL₂ has order 6 and its elementary subgroup is not perfect; the third distinct index is necessary for the commutator proof.
 
 *Needs:* Mathlib Matrix.GeneralLinearGroup and finite matrix algebra; group colimits and subgroup closure.
@@ -455,7 +480,7 @@ Use:
 
 For an additive multiplicative map h:A→B between unital rings, put e=h(1), prove e²=e and h(a)e=eh(a)=h(a), and define the exact right-projective functor P↦P⊗_A eB. The module eB is the image of the idempotent left-multiplication map on B, hence finite projective, and tensoring a finite-projective A-summand preserves that property. Construct block tensor comparison under ℤ⋉A≅ℤ×A and ℤ⋉B≅ℤ×B; Layer 8 uses it to identify the connective fibre map. This supplies nonunital corner maps before the Bass axioms. For the zero map e=0 the functor is zero, while for a unital map e=1 it is ordinary scalar extension.
 
-(Weibel, §II.2.7.2, p.76;§IV.6.3.5–6.4, p.321;elementary bimodule calculation above.)
+(Weibel, Additive Functors II.2.8, p.II.12, and Example 2.8.1, p.II.13;IV.6.3.2 and finite-product property 6.4, pp.IV.55–56;I Exercise 1.10, p.I.5;the idempotent bimodule and block tensor calculations above.)
 
 Use:
 
@@ -546,6 +571,8 @@ Use:
 
 For split exact A, prove B(S⁻¹S)→B(S⁻¹E_C) is a homotopy equivalence. In the action-localization fibration, the third term is the realization of the translation-action category. Its product is connected and homotopy associative; the diagonal supplies id≃2·id. The H-space inverse then cancels one copy and contracts this third term. Track the map as the one induced by η_C.
 
+The named targets are `ExtFibre.localized_action_equivalence` with the hypotheses and conclusions above.
+
 Core(A) acts faithfully on E_C. The action fibration and CW realization of §1.6 apply; H-space cancellation needs connectedness.
 
 (Weibel IV, P 7.6, p.IV.63.)
@@ -555,6 +582,8 @@ Core(A) acts faithfully on E_C. The action fibration and CW realization of §1.6
 ### 3.10 The localised extension category fibres over Q
 
 Prove that every base change between the localized extension fibres is a homotopy equivalence: compare the lift along each inflation and reversed deflation with the split-extension functor. Theorem B then gives B(S⁻¹S)→B(S⁻¹ExtQ(A))→BQA as a homotopy-fibre sequence over zero.
+
+The named targets are `ExtQ.localized_baseChange_equivalence`, `ExtQ.localized_fibration` with the hypotheses and conclusions above.
 
 A is split exact; cartesian lifts respect the faithful action, with coherent comparison isomorphisms.
 
@@ -566,6 +595,8 @@ A is split exact; cartesian lifts respect the faithful action, with coherent com
 
 Contract BExtQ(A) for any small exact A by the extension diagrams and the inflation subcategory of QA. For split exact A, prove that localization by its S-action leaves the total category contractible. The fibre sequence of §3.10 identifies B(S⁻¹S) with ΩBQA. The localization invariance concerns this action on this contractible model, not arbitrary localization of categories.
 
+The named targets are `ExtQ.contractible`, `ExtQ.localized_contractible` with the hypotheses and conclusions above.
+
 The inflation category has zero as initial object. Use subdivision and the action-localization comparison of §1.3 and §1.6.
 
 (Weibel IV, Proof of T 7.1 and E 7.3, pp.IV.64–65.)
@@ -575,6 +606,8 @@ The inflation category has zero as initial object. Use subdivision and the actio
 ### 3.12 The plus-equals-Q theorem
 
 For a small split exact category A, prove ΩBQA≃B(S⁻¹S), where S=Core(A) with direct sum. Localize the Q-extension fibres by the S-action, prove the base-change equivalences, and use Theorem B together with contractibility of the localized total category. For P(R), identify the zero component with BGL(R)⁺ and obtain the plus/Q comparison in every positive degree. After choices of component translations this gives K(R)≃K₀(R)_discrete×BGL(R)⁺ as spaces.
+
+The named targets are `plusEqualsQ`, `stableGL_plus_comparison` with the hypotheses and conclusions above.
 
 The action is faithful and A split exact. Ring maps and block sum preserve the zero-component comparison; §3.15 controls other component translations.
 
@@ -586,6 +619,8 @@ The action is faithful and A split exact. Ring maps and block sum preserve the z
 
 Apply the monoidal cofinality theorem to finite free modules inside finite projectives. A finite projective P admits a finite-projective complement P′ with P⊕P′ finite free, so the inclusion induces isomorphisms on all positive K-groups and an injection on K₀. This explains why stable GL detects the positive groups while its free-module components need not account for all of K₀. Use §1.6, rather than the later Waldhausen cofinality theorem, in the plus comparison.
 
+The named targets are `cofinalFreeComparison` with the hypotheses and conclusions above.
+
 The subgroupoid on finite free modules is full, and finite extensions split. No invariant-basis-number assumption is needed.
 
 (Weibel IV, Cofinality T 4.11;its proof, and the paragraph before C 4.11.1, pp.IV.44–45.)
@@ -596,6 +631,8 @@ The subgroupoid on finite free modules is full, and finite extensions split. No 
 
 Prove natural comparison π₀K(R)≃ExactK₀(P(R)) and the zero-component comparison π₁K(R)≃GL(R)/E(R). The latter sends a stabilized projective automorphism to its loop under the group-completion and plus/Q comparisons. Check block-sum compatibility and functoriality for scalar extension. This supplies the low-degree adapter needed by relative triples and Laurent-unit multiplication; it makes no Bloch-group assertion.
 
+The named targets are `ringKGroup.zeroEquiv`, `ringKGroup.oneEquiv` with the hypotheses and conclusions above.
+
 GL is the stable colimit under diagonal stabilization, E the stable elementary subgroup. The comparisons use the split exact structure on P(R).
 
 (Weibel IV, D 1.1–1.1.2, pp.IV.2–3;T 7.1, C 7.2 and E 7.9, pp.IV.61–65.)
@@ -605,6 +642,8 @@ GL is the stable colimit under diagonal stabilization, E the stable elementary s
 ### 3.15 What the product description does not say
 
 The comparison K(R) ≃ K₀(R)_discrete × BGL(R)⁺ is an equivalence of spaces after choosing a point in every component. These points represent virtual classes [P] − [Q]; they cannot in general be chosen as projective modules. Translations identify each component with the component of zero, but are not naturally chosen in R. Keep the canonical plus comparison with the zero component separate from this product description. No splitting of the connective spectrum into its degree-zero and positive parts follows.
+
+The named targets are `ringKSpace.componentwise_product` with the hypotheses and conclusions above.
 
 R is unital, with no invariant-basis-number hypothesis. The group K₀ has the discrete topology. The infinite-loop structure is the one constructed from the S-deloopings.
 
@@ -631,6 +670,8 @@ Layers 1–2, finite-projective exact categories, tensor products and finite mat
 ### 4.1 The 3×3 lemma for exact categories
 
 Establish intrinsic 3×3 lemma for E-conflations. In a commutative three-row, three-column diagram with conflation columns, a conflation middle row and either outer row force the other outer row to be a conflation. If both outer rows are conflations, the middle row is a conflation provided its two maps compose to zero. Prove these statements through admissible pullback–pushout squares and kernel–cokernel universality, without an ambient abelian category.
+
+The named targets are `exactCategory_threeByThree` with the hypotheses and conclusions above.
 
 Use the exact axioms and their duals. The second implication requires zero composite in addition to diagram commutativity.
 
@@ -671,6 +712,8 @@ Use:
 
 For the componentwise exact category of conflations, prove that (s,q):QConf(A)→QA×QA realizes to a homotopy equivalence. Therefore a pointwise conflation F′↣F↠F″ of exact functors satisfies K(F)≃K(F′)+K(F″), with the homotopy compatible with the H-space structures. Iterate to a finite admissible filtration with exact quotient functors. For a bounded admissibly exact sequence of exact functors, the alternating sum of induced maps vanishes.
 
+The named targets are `exactCategory_additivity`, `exactFunctor_filtration_additivity` with the hypotheses and conclusions above.
+
 Categories are essentially small. Every functor, including each filtration quotient, is exact.
 
 (Weibel V, Additivity T 1.2;its proof, p.V.2;Extension T 1.3 and its proof for exact categories, pp.V.2–4;C 1.2.1 and P 1.8, pp.V.2 and V.9.)
@@ -680,6 +723,8 @@ Categories are essentially small. Every functor, including each filtration quoti
 ### 4.4 Length-one resolution comparison
 
 Let P be a replete full exact subcategory of H, closed under extensions and under kernels of admissible epimorphisms between its objects. Assume that every X ∈ H admits a conflation P₁ ↣ P₀ ↠ X with P₀,P₁ ∈ P. Prove that QP → QH induces a homotopy equivalence. Use the full subcategory of QH on P-objects only as an intermediate comma model: it need not have the same morphisms as QP. Contract the comma categories by comparing length-one resolutions and their common refinements.
+
+The named targets are `resolution_lengthOne` with the hypotheses and conclusions above.
 
 Use induced exact structures and essentially small categories; length ≤1 resolution is stronger than a P-cover.
 
@@ -697,15 +742,25 @@ Use induced exact structures and essentially small categories; length ≤1 resol
 
 For a resolving P ⊂ H, let H_n be the full subcategory of objects with admissible P-resolution length at most n. Prove extension closure and the admissible-kernel closure needed for H_n ⊂ H_{n+1}; every object of H_{n+1} has a length-one H_n-resolution. Apply the preceding comparison successively. If every H-object has finite P-resolution, the filtered union of the H_n is H and finite-data continuity gives K(P) ≃ K(H).
 
+The named targets are `resolutionSubcategory`, `resolutionSubcategory_successor` with the hypotheses and conclusions above.
+
 P is replete, full, extension closed and closed under admissible kernels between P-objects. Resolutions are finite and admissible.
 
 (Quillen, §4 C 1 and its three-inequality proof, pp.109–111.)
+
+**Checks.**
+
+- H₀=P; a zero object has resolution length zero.
+- For P=P(ℤ), ℤ/2 has a length-one resolution and belongs to H₁ but not H₀.
+- For dual numbers k[ε]/ε², the simple module k has infinite projective dimension and belongs to none of the H_n; omitting the finite-resolution hypothesis would change the union.
 
 *Needs:* §4.4; §2.6.
 
 ### 4.6 The Resolution theorem
 
 For a resolving full exact P⊂H, assume every H-object has a finite admissible P-resolution. The inclusion then induces K(P)≃K(H), and hence isomorphisms in all connective degrees. Prove this using the bounded-resolution subcategories and §4.4–4.5. For a ring, compare its finite projectives with the finitely generated modules admitting finite projective resolutions; in the finite-global-dimension noetherian scope this identifies K-theory with G-theory. The new assertion is the higher-space comparison; the degree-zero resolution comparison is a supplier.
+
+The named targets are `exactCategory_resolution` with the hypotheses and conclusions above.
 
 P⊂H is replete, full, extension closed and admissible-kernel closed. H is essentially small and every H-object has finite admissible P-resolution. For rings use finite projectives and modules finitely resolved by them; left noetherian finite-left-global-dimension rings suffice. Scheme resolution is separate.
 
@@ -717,6 +772,8 @@ P⊂H is replete, full, extension closed and admissible-kernel closed. H is esse
 
 In the dévissage comma model, an object is an admissible layer L⊂M⊂X with M/L in B. Given one fixed layer L₀⊂M₀, intersections with L₀ and M₀ provide functorial comparisons of layer posets. Show that the resulting finite zigzag contracts the comma category when X has a finite B-filtration. Intersections and quotient stability are essential: the filtration is used to reduce to one B-layer, not to manufacture exact successive-quotient functors.
 
+The named targets are `devissage_layer_contraction` with the hypotheses and conclusions above.
+
 B is a full exact abelian subcategory, stable under subobjects and quotients in A. Objects of A have finite B-filtrations.
 
 (Quillen, §5 T 4 full proof, pp.112–113.)
@@ -727,6 +784,8 @@ B is a full exact abelian subcategory, stable under subobjects and quotients in 
 
 Let B⊂A be a full exact abelian subcategory stable under subobjects and quotients, and assume every A-object has a finite filtration with quotients in B. Prove K(B)≃K(A) by the contracted layer comma categories and Theorem A. For a nilpotent ideal I in a noetherian ring, the filtration by powers of I identifies G(R/I) with G(R). For the category of modules killed by a power of a central element, use its filtered union of finite-exponent subcategories and the same argument.
 
+The named targets are `exactCategory_devissage` with the hypotheses and conclusions above.
+
 A,B are essentially small; B need not be extension closed. Successive quotients need not give exact functors, so use dévissage rather than functor-filtration additivity.
 
 (Weibel V, Devissage T 4.1;proof, p.V.33;Open Problem 4.1.1, p.V.33.)
@@ -736,6 +795,8 @@ A,B are essentially small; B need not be extension closed. Successive quotients 
 ### 4.9 Isomorphic quotient comma models
 
 Let B be a Serre subcategory of a small abelian A, let q:A→A/B be the exact quotient, and fix L∈A/B. Inside L↓Qq retain those (X,u) for which u:L→qX is an isomorphism. Prove its inclusion is a realization equivalence by contracting the refinement comma categories using representatives of quotient subobjects. At L=0 this model identifies with QB: qX=0 means X∈B, and the induced Q-morphisms are precisely those of B.
+
+The named targets are `LocalizationModel.isoComma_equivalence` with the hypotheses and conclusions above.
 
 Use the abelian Serre quotient and fractions whose kernels and cokernels lie in B.
 
@@ -773,6 +834,8 @@ Use:
 
 Prove Bk′_N:B(E′_N)→BQB is an equivalence. Factor a Q-arrow in the two possible orders available in an abelian category; push out its kernel inflation to obtain compatible epimorphic models. Apply Theorem A to the resulting comma categories, contracting them through their common pushout refinements.
 
+The named targets are `LocalizationModel.epi_kernel_equivalence` with the hypotheses and conclusions above.
+
 Use E′_N from §4.10 and the admissible Q-span composition, not ordinary maps of kernels alone.
 
 (Weibel V, Claim5.1.4, p.V.36;Quillen, §5 T 5 and L 1–5, pp.113–116.)
@@ -782,6 +845,8 @@ Use E′_N from §4.10 and the admissible Q-span composition, not ordinary maps 
 ### 4.12 Epimorphic models suffice
 
 For N_i⊂N with N/N_i∈B, pull the epimorphic model over N_i into E_N. Their union compares E′_N with E_N by common image refinements. Prove B(E′_N)→B(E_N) and Bk_N are equivalences. If qg is invertible, the comparison for g_* commutes with the kernel equivalences and is also an equivalence.
+
+The named targets are `LocalizationModel.epi_inclusion_equivalence` with the hypotheses and conclusions above.
 
 The subobject indexing category includes N and is directed under sums. B is closed under subobjects, quotients and extensions.
 
@@ -793,15 +858,25 @@ The subobject indexing category includes N and is directed under sums. B is clos
 
 For L∈A/B, organize representatives (N,qN≅L) and their maps over L into the quotient refinement category. Prove it is filtered by clearing the finitely many denominators of each finite diagram and equality. The isomorphic comma model is the filtered union of the E_N models; finite-data realization continuity makes each comparison a weak equivalence. Identify the base-change map for 0↣L with these comparisons and conclude the homotopy-fibre criterion for Qq.
 
+Use `LocalizationModel.quotientRefinement L` for this category, with `representative` its forgetful functor to A and `quotientIso` the specified natural isomorphism from its composite with q to the constant L-functor. Identity and composition are inherited from A subject to that commuting equation; `LocalizationModel.refinement_filtered` supplies finite cocones and equality refinements.
+
 Refinements preserve qN≅L; use quotient fractions and §1.1, §4.9–4.12.
 
 (Weibel V, Claim5.1.7 and conclusion of T 5.1, p.V.37;Quillen, §5 T 5 and L 1–5, pp.113–116.)
+
+**Checks.**
+
+- For B=0, q is an equivalence and the representative category over L is equivalent to a point.
+- For B=A and L=0, every object is a representative and the zero object is terminal; it is not an empty refinement category.
+- In finitely generated abelian groups modulo finite groups, identify L with ℚ. Representatives (ℤ,1/2) and (ℤ,1/3) admit a common target (ℤ,1/6) with maps multiplication by 3 and 2. Restricting refinement maps to integral isomorphisms would lose this cocone.
 
 *Needs:* §4.9; §4.12; §2.1; Layer 1.
 
 ### 4.14 Serre localization
 
 For a Serre subcategory B of a small abelian A, prove K(B)→K(A)→K(A/B) is a homotopy-fibre sequence. Construct nullhomotopy from the quotient functor, and identify the fibre by the localization models of §4.9–4.13. Obtain the natural exact sequence K₁(A/B)→K₀(B)→K₀(A)→K₀(A/B)→0 and its higher terms. Exact functors of Serre pairs preserve the boundary. An arbitrary exact subcategory does not satisfy this theorem’s hypotheses.
+
+The named targets are `serreLocalization` with the hypotheses and conclusions above.
 
 B is full, subobject-, quotient- and extension-closed. The quotient is abelian Serre, distinct from the additive ideal quotient.
 
@@ -823,12 +898,14 @@ Use:
 - `ClassicalRelativeK0`: abelian group presented by triple sum and composition relations.
 - `ClassicalRelativeK0.difference`: map to split K0(C),[(P,α,Q)]↦[P]−[Q].
 - `ClassicalRelativeK0.map`: Maps from additive commuting squares with a specified comparison isomorphism.
+- `relativeDifference a b=a−b` in any abelian group records the orientation; prove the zero, diagonal and swap formulas used by `ClassicalRelativeK0.difference`.
 
 **Checks.**
 
 - [P,id,P]=0 follows from the composition relation.
 - [P,α,Q]=−[Q,α⁻¹,P], so the difference map changes sign under inversion.
 - For C=finite-dimensional k-spaces and D=0, the group is ℤ and [k,unique,0] maps to +1; for T=id the relative group is zero.
+- In ℤ, `relativeDifference 2 1=1`, `relativeDifference 1 2=−1` and `relativeDifference 1 1=0`; these distinguish the orientation from its negative and from a sum.
 
 *Needs:* the layer prerequisites.
 
@@ -862,6 +939,8 @@ Use:
 ### 4.17 The classical five-term sequence of an additive functor
 
 For additive T dense up to summands, prove K₁^cl(C)→K₁^cl(D)→K₀^cl(T)→K₀^split(C)→K₀^split(D) is exact at the three interior groups. The middle maps are δ and the triple difference. Establish naturality and complement stability by the triple relations; there is no surjectivity assertion onto the last group.
+
+The named targets are `ClassicalRelativeK0.fiveTerm_exact` with the hypotheses and conclusions above.
 
 C,D are small additive and every D-object is a summand of T(P). Karoubi applications use completion-corrected split K₀.
 
@@ -937,6 +1016,8 @@ Use:
 
 An exact natural isomorphism between functors of categories with cofibrations induces a simplicial homotopy on δC=Ob(S_•C), not only a homotopy of ordinary nerves. Prove that δC→nerve(iS_•C) induces a homotopy equivalence on realization by the resulting contraction of the isomorphism direction.
 
+The named targets are `SConstruction.natIso_homotopy` with the hypotheses and conclusions above.
+
 The natural-transformation components are invertible and all functors preserve cofibration pushouts.
 
 (Waldhausen, L 1.4.1 and its corollary, pp.335–336.)
@@ -970,6 +1051,8 @@ Use:
 
 For v:[m]→[1], replace u(j) by n at indices with v(j)=1, leaving the other indices unchanged. The monotone comparison u≤ū induces u*y→ū*y, and cobase change of the fibre extension defines a simplicial homotopy id_{F_y}≃q_yp_y. Prove its endpoint formulas, simplicial compatibility, constancy on the section, and preservation of the quotient B. p_y and q_y are homotopy inverses.
 
+The named targets are `AdditivityFibre.pushout_contraction` with the hypotheses and conclusions above.
+
 Choose pushouts coherently to obtain simplicial S-diagrams.
 
 (Waldhausen, Proof of the sublemma–L 1.4.3, pp.339–340.)
@@ -979,6 +1062,8 @@ Choose pushouts coherently to obtain simplicial S-diagrams.
 ### 5.6 Object S-additivity
 
 Prove |δS₂C|≃|δC|×|δC| through the subobject and quotient maps, using the simplex-fibre contractions and the simplicial version of Theorem B. This is an additivity theorem already for categories with cofibrations, before choosing weak equivalences.
+
+The named targets are `SConstruction.object_additivity` with the hypotheses and conclusions above.
 
 C is small with cofibrations. No saturation, cylinder or extension axiom is involved.
 
@@ -1039,6 +1124,8 @@ Use:
 
 Combine the degreewise edgewise equivalence of §5.8 with subdivision invariance and the isomorphism-double-nerve comparison to obtain |iS_•A|≃BQA. Prove naturality for exact functors and identify the loop representing an automorphism with its Q representative. This construction precedes additivity and uses neither relative delooping nor a spectrum.
 
+The named targets are `sEqualsQ` with the hypotheses and conclusions above.
+
 A is small exact, with inflations as cofibrations and isomorphisms as weak equivalences.
 
 (Weibel IV, §8.6, p.IV.69;E 8.5(c) and the opening of E 8.6, p.IV.74;Waldhausen, §1.9, pp.375–376.)
@@ -1048,6 +1135,8 @@ A is small exact, with inflations as cofibrations and isomorphisms as weak equiv
 ### 5.10 Additivity for Waldhausen categories
 
 For small Waldhausen C, prove |wS_•S₂C|→|wS_•C|×|wS_•C|, induced by subobject and quotient, is a homotopy equivalence. Pass from object-S additivity to the weak-map nerve direction using the gluing axiom. A cofibration sequence of exact functors induces a homotopy K(F)≃K(F′)+K(F″). When a cylinder satisfying its axiom is present, apply this to identity, cone and suspension to obtain K(cone)≃0 and K(Σ)≃−id.
+
+The named targets are `WaldhausenCategory.additivity` with the hypotheses and conclusions above.
 
 Functor cofibrations satisfy the pushout comparison condition. Additivity needs no cylinder, saturation or extension; cone/suspension consequences use a cylinder.
 
@@ -1059,9 +1148,17 @@ Functor cofibrations satisfy the pushout comparison condition. Additivity needs 
 
 For an exact F:B→C, define S_nF=S_nB×_{S_nC}S_{n+1}C, using ∂₀ on the last factor; equality in this pullback can be replaced by compatible isomorphism data. The fibre over the zero B-diagram includes C through constant filtrations. Degreewise additivity yields the relative sequence |wS_•C|→|wS_•(S_•F)|→|wS_•(S_•B)|. Prove its realization is a homotopy fibration: its level bases and total spaces are connected, and the nerve realizations have cellular degeneracies. For F=id the relative simplicial path object is contractible by its extra degeneracy; its degree-zero category is not generally zero. It gives |wS^rC|≃Ω|wS^{r+1}C| for r≥1. Assemble the spaces K(C), |wS_•C|, |wS²C|,… into the connective Ω-spectrum using §1.7. Define relative K(F)=Ω²|wS_•(S_•F)|, with its compatible fibre comparison.
 
+The named targets are `relativeS`, `relativeS_delooping`, `iteratedS_spectrum` with the hypotheses and conclusions above.
+
 B,C are small Waldhausen and F exact. The realization-fibration argument uses connected proper simplicial CW spaces.
 
 (Weibel V, P 1.7;its proof, p.V.8;E 1.7, p.V.10;Weibel IV, Relative K-theory spaces 8.5.3 and L 8.5.4, p.IV.69;Infinite Loop Structure 8.5.5, p.IV.69.)
+
+**Checks.**
+
+- For F=id_C, the relative K-space is contractible.
+- For 0→C, the fibre is ΩK(C), so double looping of the relative-S model is required.
+- For C→0, the fibre is K(C); the relative-S component correction in degree −1 is zero.
 
 *Needs:* §5.10; §5.2; §5.7; Layer 1.
 
@@ -1115,6 +1212,8 @@ Use:
 
 For a wide subcategory A⊂B, form the double category of commuting squares, with vertical arrows in A and horizontal arrows in B. Prove that the inclusion of constant vertical strings from nerve B induces a realization equivalence: an n-string has a contraction to its first term in the horizontal direction. Apply this to weak-map diagrams of S_nC, eliminating an extra nerve direction in the stabilized pairing.
 
+The named targets are `weakDoubleNerve_swallowing` with the hypotheses and conclusions above.
+
 All objects occur in both A and B, identities belong to A, and square compositions stay in the classes. Use the diagonal/iterated realization comparison.
 
 (Waldhausen, Swallowing L 1.6.5, p.352/PDF35;pairing paragraph p.342/PDF25.)
@@ -1135,6 +1234,8 @@ Layers 1–2 and exact additivity from Layer 4; finite ordinal diagrams, pushout
 
 In a saturated Waldhausen category with a cylinder satisfying its axiom, prove B(cof∩w)→B(wC) is a homotopy equivalence. Both categories have all C-objects. Factor a weak map by its cylinder and use the resulting functorial zigzags to contract the relevant comma categories. The maps from both cylinder ends are cofibrations, and saturation makes the required ones weak equivalences.
 
+The named targets are `trivialCofibration_comparison` with the hypotheses and conclusions above.
+
 Use the natural cylinder with its pushout cofibrations, weak projection and saturation; §6.13 handles existential factorizations.
 
 (Weibel IV, E 8.15, p.IV.75;Waldhausen L 1.6.3 proof is the same cylinder contraction.)
@@ -1144,6 +1245,8 @@ Use the natural cylinder with its pushout cofibrations, weak projection and satu
 ### 6.2 Relative S-localization comparison
 
 For v⊂w and F:(C^w,v)→(C,v), identify S_nF with the category of length-n strings of w-cofibrations by forgetting the chosen quotient data. In the extra S_m direction, identify the v-map diagrams. Prove these are equivalences of the relative diagrams, natural in both indices, and hence |vS_•S_•F|≃|v·co_w,•S_•C|, preserving the inclusion of |vS_•C|.
+
+The named targets are `relativeS_localization_comparison` with the hypotheses and conclusions above.
 
 C^w has 0→X∈w. The v,w structures share cofibrations; saturation and extension characterize w-cofibrations by w-acyclic quotient.
 
@@ -1155,6 +1258,8 @@ C^w has 0→X∈w. The v,w structures share cofibrations; saturation and extensi
 
 Let v⊂w be weak equivalences on the same category with cofibrations. If the w-structure is saturated, satisfies extension, and has a cylinder satisfying its axiom, prove K(C^w,v)→K(C,v)→K(C,w) is a homotopy-fibre sequence. Identify the nullhomotopy through the w-acyclic objects and use the relative-S comparison and trivial-cofibration nerve theorem. The sequence includes the higher boundary and the right-exact ending K₀(C^w,v)→K₀(C,v)→K₀(C,w)→0.
 
+The named targets are `WaldhausenCategory.fibration` with the hypotheses and conclusions above.
+
 Use inherited cofibrations and v-equivalences on C^w. Saturation, extension and the cylinder axiom concern w.
 
 (Weibel V, Waldhausen Localization T 2.1, p.V.12;T 2.6.3 and Caveat 7.1.1, pp.V.17 and V.52.)
@@ -1164,6 +1269,8 @@ Use inherited cofibrations and v-equivalences on C^w. Saturation, extension and 
 ### 6.4 Approximation lifts filtered objects
 
 For an exact F:A→B satisfying approximation, lift a map from F of a finite filtration by induction on its length. At each step use a cofibration factorization from App2, then pushout and gluing to extend the comparisons to all quotient squares. Prove S_nF reflects weak equivalences and has App2 for every n.
+
+The named targets are `approximation_filtered_lift` with the hypotheses and conclusions above.
 
 App1 says a map is weak exactly when its F-image is weak. App2 factors any F(A)→B as F of a cofibration followed by a weak equivalence. Weak maps in S_n are objectwise.
 
@@ -1199,6 +1306,8 @@ Use:
 
 Extend the iterated-cylinder diagram on the faces of a finite nonsingular simplicial set X to its finite simplicial subsets. In F↓B, inclusions become cofibrations and unions become pushouts. Prove in particular t(∂x)↣t(x) is a cofibration for every nondegenerate simplex x. The extension is constructed in F↓B; unions need not retain the weak-equivalence map to B required in wF↓B.
 
+The named targets are `IteratedCylinder.boundary_extension` with the hypotheses and conclusions above.
+
 Use the cylinder pushout cofibration axiom and the finite face-poset induction. Nonsingularity prevents repeated vertices from invalidating that poset model.
 
 (Waldhausen, Proof of the sublemma–T 1.6.7, pp.357–358.)
@@ -1208,6 +1317,8 @@ Use the cylinder pushout cofibration axiom and the finite face-poset induction. 
 ### 6.7 Cylinder comma contractions
 
 For F with approximation and a source cylinder, contract B(wF↓B) for each B-object. Represent a map of a finite subdivided sphere through a nonsingular finite face poset, apply the cylinder-boundary construction to extend it over a cone, and compare the extension with the original weak diagram. Simplicial approximation and CW Whitehead conclude contractibility.
+
+The named targets are `approximation_cylinder_comma_contractible` with the hypotheses and conclusions above.
 
 A,B are saturated; F is exact and satisfies App1/App2; A has a cylinder satisfying its axiom. Comma comparisons F(A)→B are weak.
 
@@ -1219,6 +1330,8 @@ A,B are saturated; F is exact and satisfies App1/App2; A has a cylinder satisfyi
 
 If an exact F:A→B reflects weak equivalences and satisfies App2, between saturated small Waldhausen categories, and A has a cylinder satisfying its axiom, prove |wS_•F| and K(F) are homotopy equivalences. Apply the contracted weak comma categories first to wF and then to S_nF. The source cylinder hypothesis is part of the theorem, rather than inferred from App2.
 
+The named targets are `WaldhausenCategory.approximation` with the hypotheses and conclusions above.
+
 App2 permits a cofibration A↣A′ and a weak equivalence F(A′)→B whose composite is the given F(A)→B. The saturated structures are both named.
 
 (Weibel V, Waldhausen Approximation T 2.4;its proof, p.V.15;Changing cofibrations 2.5.1, p.V.16;Waldhausen, T 1.6.7, pp.354–359.)
@@ -1228,6 +1341,8 @@ App2 permits a cofibration A↣A′ and a weak equivalence F(A′)→B whose com
 ### 6.9 The Gillet-Waldhausen comparison
 
 Let E be a full extension-closed subcategory of an abelian M, closed under kernels of M-surjections between E-objects, with its induced exact structure. The inclusion in bounded complexes concentrated at degree zero induces K(E)≃K(Chᵇ(E),qis). Cofibrations are degreewise admissible inflations, and quasi-isomorphisms are computed in M. Prove comparison with the mapping cylinder and the fibration/approximation results. Its acyclic complexes agree with admissibly exact complexes under this closure hypothesis.
+
+The named targets are `gilletWaldhausen` with the hypotheses and conclusions above.
 
 Use an explicit ambient abelian category and induced exact structure, with quasi-isomorphisms. Neither an embedding of every exact category nor replacement by chain homotopy equivalences is assumed.
 
@@ -1239,6 +1354,8 @@ Use an explicit ambient abelian category and induced exact structure, with quasi
 
 Assume C has factorization. A map X→Y of arbitrary diagrams on a finite poset factors as a relative latching cofibration X↣Z followed by a pointwise weak equivalence Z→Y. Construct Z inductively from relative latching colimits. The relative construction does not require existence of each predecessor colimit of X separately; the theorem does not assume X is a cofibrant diagram.
 
+The named targets are `finitePoset_factorization` with the hypotheses and conclusions above.
+
 P is finite and factorization existential; this gives neither functorial factorization nor a Waldhausen structure on all C^P.
 
 (Schlichting 2003, Appendix A.9 p.26.)
@@ -1248,6 +1365,8 @@ P is finite and factorization existential; this gives neither functorial factori
 ### 6.11 Contract the approximation comma categories
 
 For saturated A,B, an exact F with App1/App2 and factorization in A has contractible weak comma categories wF↓B. Replace a finite-poset diagram X there by a cofibrant Y→X. Its colimit exists and F preserves it. Apply App2 to F(colim Y)→B, obtaining F(Z)→B weak. Reflection and saturation make Y→const Z pointwise weak. Thus X←Y→const Z contracts the diagram; finite-poset detection contracts the comma realization.
+
+The named targets are `approximation_factorization_comma_contractible` with the hypotheses and conclusions above.
 
 Factorization is required only in A. App2 uses the source cofibrations and a weak map to the B-object; saturation controls all comparison arrows.
 
@@ -1259,6 +1378,8 @@ Factorization is required only in A. App2 uses the source cofibrations and a wea
 
 Under App1/App2 and saturation, with factorization in the source, an exact F induces realization equivalences on wA→wB and wS_•A→wS_•B, hence on K-spaces. Prove S_n version using §6.4 and finite-poset factorization. No functorial cylinder or factorization in the target is required.
 
+The named targets are `WaldhausenCategory.approximation_factorization` with the hypotheses and conclusions above.
+
 A and B are small Waldhausen with saturated weak equivalences. The source has the existential factorization property of §5.12.
 
 (Schlichting 2003, Appendix A.2 p.24 and its proof pp.26–27.)
@@ -1269,6 +1390,8 @@ A and B are small Waldhausen with saturated weak equivalences. The source has th
 
 For saturated C with factorization, prove B(cof∩w)→B(wC) is a homotopy equivalence. The proof uses finite-poset replacements and the comma contraction, allowing independent choices for each finite diagram. Thus it extends §6.1 to structures with no specified cylinder functor.
 
+The named targets are `trivialCofibration_comparison_factorization` with the hypotheses and conclusions above.
+
 C is saturated and has existential factorization. The conclusion is realization equivalence, not equality of morphism classes.
 
 (Schlichting 2003, Appendix A.11 p.27.)
@@ -1278,6 +1401,8 @@ C is saturated and has existential factorization. The conclusion is realization 
 ### 6.14 Fibration with factorizations
 
 Replace the cylinder hypothesis in §6.3 by factorization in (C,w). With saturation and extension for w, prove K(C^w,v)→K(C,v)→K(C,w) is a homotopy-fibre sequence and that K₀(C,v)→K₀(C,w) is onto. Use §6.13 in the relative-S proof; v-factorizations are unnecessary.
+
+The named targets are `WaldhausenCategory.fibration_factorization` with the hypotheses and conclusions above.
 
 v⊂w give small Waldhausen structures on the same cofibration category. The acyclic subcategory is defined by 0→X∈w, with the inherited v-structure.
 
@@ -1313,6 +1438,8 @@ Use:
 
 Send a length-n S-filtration to the n successive increments of its p-class in G^n. Prove w_pS_nC→G^n has contractible fibres and realizes to a homotopy equivalence. The face maps add adjacent increments or remove an end, and degeneracies insert zero; hence these equivalences identify |w_pS_•C| with BG.
 
+The named targets are `classWeakS_realization` with the hypotheses and conclusions above.
+
 Use the surjective p and source factorization of §6.15. G^n is discrete, and this is a statement about every degree before the total realization.
 
 (Thomason–Trobaugh, T 1.10.1 and full proof, pp.275–277/PDF15–16.)
@@ -1323,6 +1450,8 @@ Use the surjective p and source factorization of §6.15. G^n is discrete, and th
 
 Apply factorization fibration to v⊂w_p. Looping the BG comparison gives K(C₀,v)→K(C,v)→G_discrete as a homotopy-fibre sequence. Thus K_i(C₀,v)→K_i(C,v) is an isomorphism for i>0 and K₀(C₀,v) identifies with ker p. Use complements to recover the general cofinal-subcategory statement and retain its degree-zero correction.
 
+The named targets are `WaldhausenCategory.cofinality_factorization` with the hypotheses and conclusions above.
+
 C,p,G and C₀ satisfy §6.15. The discrete target carries its abelian group structure, and its map on components is exactly p.
 
 (Thomason–Trobaugh, T 1.10.1 and full proof, pp.275–277/PDF15–16.)
@@ -1331,7 +1460,9 @@ C,p,G and C₀ satisfy §6.15. The discrete target carries its abelian group str
 
 ### 6.18 Cofinality and K₀
 
-For an extension-closed full exact subcategory A⊂B that is cofinal under direct sum, identify BQA with the covering of BQB associated with K₀(A)⊂K₀(B). On K_n the induced map is an isomorphism for n>0 and injective for n=0. In the Waldhausen setting the fibre sequence ends in the discrete quotient K₀(B)/K₀(A). For A→A^♮ this proves positive-degree invariance but retains the possible proper degree-zero subgroup.
+For an extension-closed full exact subcategory A⊂B that is cofinal under direct sum, prove BQA is homotopy equivalent over BQB to the covering associated with K₀(A)⊂K₀(B). The realization of the original inclusion is not asserted to be literally a covering map. On K_n the induced map is an isomorphism for n>0 and injective for n=0. In the Waldhausen setting the fibre sequence ends in the discrete quotient K₀(B)/K₀(A). For A→A^♮ this proves positive-degree invariance but retains the possible proper degree-zero subgroup.
+
+The named targets are `exactCategory_cofinality` with the hypotheses and conclusions above.
 
 Every B-object has a B-complement with sum in A. Waldhausen versions retain saturation, weak-equivalence closure and the cylinder/factorization requirements of §6.17.
 
@@ -1376,6 +1507,8 @@ Use:
 
 Realize the double S-grid, remove its redundant weak direction by §5.14, and pass through the two delooping maps to obtain a stable pairing K(A)∧K(B)→K(C). Prove independence of the chosen representing S-levels and bilinearity of the induced K_i(A)⊗K_j(B)→K_{i+j}(C). On object classes its value is [F(A,B)].
 
+The named targets are `biexactPairing_stabilize` with the hypotheses and conclusions above.
+
 Use small Waldhausen inputs and the complete biexactness data. No direct one-fold Q functor is substituted for the double construction.
 
 (Waldhausen, §1.5 pairing paragraph, p.342/PDF25.)
@@ -1385,6 +1518,8 @@ Use small Waldhausen inputs and the complete biexactness data. No direct one-fol
 ### 7.3 Transport biexact natural isomorphisms to pairing homotopies
 
 An exact natural isomorphism of biexact composites gives a homotopy of the associated stable pairings. Transport the associator, unit and symmetry diagrams of the input functors through the S-grid, and prove their coherence under further iteration. Sphere interchange contributes (−1)^{ij} on degree-i and degree-j classes. A binary symmetry homotopy by itself is insufficient for an E∞ assertion.
+
+The named targets are `biexactPairing_natIso_homotopy` with the hypotheses and conclusions above.
 
 The diagrams of input natural isomorphisms, not only their existence, are part of the coherence data. Use §1.8 for suspension and sphere signs.
 
@@ -1424,6 +1559,8 @@ Use:
 
 For a commutative ring R, use the symmetry homotopy of its tensor pairing and the interchange of the degree-p and degree-q spheres to prove xy=(−1)^{pq}yx on connective K-groups. The sign is forced by that sphere interchange. In degree one, products of unit classes anticommute; this does not force their squares to vanish in a group with 2-torsion. The nonconnective extension uses the Bass spectrum and the compatible extended pairing of §13.7.
 
+The named targets are `ringKGroup.graded_commutative` with the hypotheses and conclusions above.
+
 R is commutative and p,q≥0 for the connective statement. Tensor coherence is part of the construction, rather than an extra unproved commutativity assertion.
 
 (Weibel, IV.1.10 (T 1.10, Loday), p.266;V.8.2, p.430.)
@@ -1439,6 +1576,8 @@ R is commutative and p,q≥0 for the connective statement. Tensor coherence is p
 ### 7.6 Units and the K₀ tensor comparison
 
 Compare the degree-zero tensor pairing with the split K₀ multiplication by checking the value [P⊗_R Q] on projective generators. For u∈R×, stabilization of the one-by-one invertible matrix gives [u]∈K₁(R); multiplication by it maps K_n(R) to K_{n+1}(R). Since [u⁻¹]=−[u], the inverse unit gives the negative degree-raising map, rather than an inverse operator.
+
+The named targets are `ringKGroup.unit`, `ringKGroup.zero_tensorComparison` with the hypotheses and conclusions above.
 
 R is commutative and P,Q finite projective; unit classes use GL₁→GL→GL/E.
 
@@ -1456,15 +1595,25 @@ R is commutative and P,Q finite projective; unit classes use GL₁→GL→GL/E.
 
 Let f:R→S have S as a left R-module with a finite resolution by finite projectives. Restriction carries modules with finite finite-projective resolutions over S into the analogous R-category. Compose that exact functor with the two resolution equivalences to define Tr_f:K_n(S)→K_n(R). Prove composition when both restrictions have this finiteness property. For commutative rings and x∈K_i(R), y∈K_j(S), prove Tr_f(f^*x·y)=x·Tr_f(y) by the tensor/restriction comparison. This statement uses the full connective pairing, not just the K₀ action.
 
+The named targets are `transfer`, `transfer_projectionFormula` with the hypotheses and conclusions above.
+
 i,j≥0; resolutions have finitely generated terms, stronger than finite projective dimension. The internal projection formula needs commutativity.
 
 (Weibel V, V.3.2 and V.3.3.2, p.V.21;V.3.3.2, p.V.21, projection-formula paragraph.)
+
+**Checks.**
+
+- For a finite field extension E/F of degree d, the degree-zero transfer sends 1 to d, including inseparable extensions.
+- For f=id_R, the transfer and its projection formula are identities.
+- For the quotient ℤ→𝔽₂, [𝔽₂] transfers to [ℤ]−[ℤ]=0; its finite resolution permits transfer although restriction does not itself land in projective ℤ-modules.
 
 *Needs:* §4.6; §4.3; §2.6; §7.4.
 
 ### 7.8 Base change of a finite field transfer through an Artin algebra
 
 For finite E/F and any field extension F′/F, write E⊗_F F′=∏_j B_j with residue fields E_j and lengths ℓ_j=length_{B_j}B_j. Prove res_{F′/F}∘Tr_{E/F}=Σ_j ℓ_j Tr_{E_j/F′}∘res_{E_j/E} on K_n, n≥0. The tensor/restriction square gives the base-change functor, and a composition series of each B_j gives its multiplicity by additivity. Nilpotence exponents are not substituted for the module lengths.
+
+The named targets are `transfer_field_baseChange` with the hypotheses and conclusions above.
 
 B is finite-dimensional over F′ and may be nonreduced. F′/F may be infinite or transcendental. E→E_j is the induced field map.
 
@@ -1511,6 +1660,8 @@ Use:
 
 Distinguish the fibre of K(R)→K(R/I) from a localization fibre supported on a closed subset. The relative space has a component map into K₀(R) with image ker(K₀(R)→K₀(R/I)); its components fit into the full exact sequence containing K₁(R/I). In general K₀(R)→K₀(R/I) need not be onto. A Serre or Waldhausen localization has its own acyclic category as fibre, under its named hypotheses; a ring quotient by an ideal alone does not supply that category or its equivalence to the relative fibre.
 
+The named targets are `relativeK.components_image`, `supportK_localization_distinction` with the hypotheses and conclusions above.
+
 I is two-sided. There is no regularity, idempotent-lifting or localization assumption.
 
 (Weibel V, T 2.6.3, p.V.17;Caveat 7.1.1, p.V.52.)
@@ -1529,7 +1680,7 @@ Use the canonical augmentation ℤ⋉I→ℤ to define connective K-theory of a 
 
 Nonunital maps preserve addition and multiplication; ideals are two-sided. Use Unitization ℤ I.
 
-(Weibel IV, Absolute Excision 1.11.2, p.IV.9.)
+(Weibel I, Exercise 1.10, p.I.5;IV, Absolute Excision 1.11.2, p.IV.9, and finite-product property 6.4, pp.IV.55–56. The unital product identification is the displayed ring isomorphism.)
 
 Use:
 
@@ -1572,6 +1723,8 @@ Use:
 
 For B=S×_C T with φ:S→C onto, prove exactness of K₁(B)→K₁(S)⊕K₁(T)→K₁(C) at the middle term. The maps are the two projections and (x,y)↦φ_*x−ψ_*y. Stabilize representatives so their images agree, lift the required elementary correction through φ, and patch the matching invertible matrices to B. Use the stable GL/E model and its Q comparison.
 
+The named targets are `milnorK1_exact` with the hypotheses and conclusions above.
+
 Only φ must be onto. Equality in stable K₁ requires stabilization, not equality of finite matrices.
 
 (Weibel III, Proof of T 2.6, the last step, p.III.15.)
@@ -1581,6 +1734,8 @@ Only φ must be onto. Equality in stable K₁ requires stabilization, not equali
 ### 8.6 Milnor Mayer–Vietoris
 
 Prove natural exact sequence K₁(B)→K₁(S)⊕K₁(T)→K₁(C)→K₀(B)→K₀(S)⊕K₀(T)→K₀(C) at its four interior positions. The middle boundary sends a gluing matrix a to [FreePatch(a)]−n[B], with φ(s)=aψ(t) as the patch convention. Both difference maps use the S-image minus the T-image. Prove representative independence, elementary invariance and additivity of the boundary using projective patching; then prove the remaining exactness with stabilization. Neither exactness to the left of K₁(B) nor surjectivity onto K₀(C) is asserted.
+
+The named targets are `milnorMayerVietoris` with the hypotheses and conclusions above.
 
 The square is a pullback of unital associative rings with one map onto C. Use projective patching in §8.4, the stable K₁ adapter in §3.14, and the compatible-pair exact functors.
 
@@ -1592,9 +1747,15 @@ The square is a pullback of unital associative rings with one map onto C. Use pr
 
 For f:R→S, identify the relative split triple group of f_!:P(R)→P(S) with π₀RelK(f). Map (P,α,Q) to [P]−[Q] together with the path from its scalar extension to zero furnished by α. Use stabilized virtual-projective representatives for surjectivity and paths representing stable automorphisms for injectivity. Compare the automorphism boundary with the connecting map from K₁(S).
 
-f is a unital map of associative rings. Only relative degree zero is compared; the degree-one congruence-group comparison is outside this assertion.
+f is a unital map of associative rings. This triple comparison concerns degree zero. Separately, for a quotient R→R/I, prove `relativeK.one_eq_classical`: π₁RelK(R,I) is the classical relative K₁ congruence group, compatibly with ideal maps and the low-degree exact sequence. Use the relative plus-construction model of IV.1.11.1 and its comparison with classical K₁ in Exercise IV.1.15. This additional adapter is used in §10.12 and makes no assertion of higher excision.
 
-(Weibel II, D 2.10,pp.II.13–14;E 2.17,p.II.17;IV E 1.16,p.IV.16.)
+(Weibel II, D 2.10,pp.II.13–14;E 2.17,p.II.17;IV E 1.16,p.IV.16;IV.1.11.1, pp.IV.8–9 and E 1.15, p.IV.16 for the relative K₁ adapter.)
+
+**Checks.**
+
+- For f=id_R the relative space is contractible and its triple group is zero.
+- For R→0 the relative components are K₀(R); a triple (P,unique,0) maps to [P].
+- For I=0 the quotient map is the identity and both classical and spectral relative K₁ are zero.
 
 *Needs:* §8.1; §4.17; §3.14.
 
@@ -1602,15 +1763,25 @@ f is a unital map of associative rings. Only relative degree zero is compared; t
 
 For a two-sided I⊂R, let R⋉I be the ring on R×I with (r,i)(s,j)=(rs,rj+is+ij). Its projections p₀(r,i)=r and p₁(r,i)=r+i make it the pullback R×_{R/I}R. Milnor patching identifies K₀^cl(R→R/I) with ker(p₀*:K₀(R⋉I)→K₀(R)); the second projection recovers the triple’s difference map. Prove compatibility with automorphism boundaries and ideal maps.
 
+The named targets are `idealK0_augmentedRing_kernel` with the hypotheses and conclusions above.
+
 For I is two-sided. Use the split projective groups, the two specified projections and their common diagonal section.
 
 (Weibel, E II.2.3(c), p.78;IV.1.15, p.274;§II.2.10, p.77.)
+
+**Checks.**
+
+- For I=0, R⋉I=R and p₀=p₁=id, so the kernel model is zero.
+- For I=R, (r,i)↦(r,r+i) identifies R⋉R with R×R and the p₀-kernel is K₀(R).
+- For I²=0, the product retains the terms rj+is; using coordinatewise multiplication on R×I would not give the pullback ring.
 
 *Needs:* §8.7; §8.6.
 
 ### 8.9 Degree-zero ideal excision
 
 If a unital f:R→S identifies I with a two-sided ideal J⊂S, prove RelK₀(R,I)≃RelK₀(S,J). Use the augmented-ring kernel model and the split Milnor square to construct inverse patching maps. Naturality gives independence of the chosen ambient ring. This argument uses only relative components and the low-degree patching sequence, without a relative K₁ comparison.
+
+The named targets are `relativeK.zero_excision` with the hypotheses and conclusions above.
 
 f|I is bijective onto J. The result is an isomorphism in degree zero, with no implied higher excision.
 
@@ -1622,9 +1793,11 @@ f|I is bijective onto J. The result is an isomorphism in degree zero, with no im
 
 Define absolute excision in degree n by requiring K_n(ℤ⋉I,I)→K_n(R,I) to be an isomorphism for every embedding of I as a two-sided ideal in a unital ring R. Degree zero always satisfies excision. For n≥1, the criterion is Tor_i^{ℤ⋉I}(ℤ,ℤ)=0 for 1≤i≤n. Tor₁=I/I², so degree-one absolute excision is equivalent to I=I². Call the all-degree condition Tor-unitality. The integral criterion is Suslin’s; the rational comparison and the plus model for the relative space have their separate Suslin–Wodzicki hypotheses. A bar-homology formulation over a base ring requires its own flatness comparison and is not silently substituted for the integral Tor criterion.
 
+The named targets are `AbsoluteExcision`, `absoluteExcision_iff_tor`, `TorUnital` with the hypotheses and conclusions above.
+
 I is associative nonunital and n>0. Tor uses augmentation modules and the assertion ranges over every unital ambient ring.
 
-(Weibel IV, Absolute Excision 1.11.2, p.IV.9.)
+(Weibel I, Exercise 1.10, p.I.5;IV, Absolute Excision 1.11.2, p.IV.9, and finite-product property 6.4, pp.IV.55–56. The unital product identification is the displayed ring isomorphism.)
 
 **Checks.**
 
@@ -1640,6 +1813,8 @@ For a Serre subcategory B⊂A, let α:X→X be a morphism whose image is inverti
 
 The quotient automorphism supplies the K₁ class. Its kernel/cokernel belong to B; use coker−ker. Noetherianness ensures finite-generation of the ring-example kernel.
 
+Define the convention helper `indexClass ker coker=coker−ker` for any abelian group. Its API is the diagonal-zero formula, additivity in pairs and `indexClass k c=−indexClass c k`. This arithmetic helper does not construct the localization boundary.
+
 (Weibel V, E 5.1 and Example 6.1.2, p.V.38;Weibel IV, E 7.9, p.IV.65.)
 
 **Checks.**
@@ -1647,12 +1822,15 @@ The quotient automorphism supplies the K₁ class. Its kernel/cokernel belong to
 - Over a DVR, multiplication by π has kernel zero and cokernel k, giving +[k].
 - For a unit, both kernel and cokernel are zero and the boundary vanishes.
 - For multiplication by ε on k[ε]/(ε²), kernel and cokernel are both k; their difference is zero. Dropping the kernel term gives a false answer.
+- The two-term class calculations are `indexClass 0 1=1`, `indexClass 1 0=−1` and `indexClass 1 1=0` in ℤ.
 
 *Needs:* §4.14; §2.4.
 
 ### 8.12 The DVR boundary is the normalized valuation
 
 For a DVR O with fraction field F, residue field k and uniformizer π, identify the boundary K₁(F)=F×→K₀(k)=ℤ with the normalized valuation. The class of π maps to [k]=1 by cokernel-minus-kernel; a unit maps to zero, and multiplicativity then gives ∂(π^m u)=m for every integer m. This fixes the degree-one sign for all subsequent Laurent and tame-boundary comparisons.
+
+The named targets are `localizationBoundary_DVR_valuation` with the hypotheses and conclusions above.
 
 Use the finite-length torsion Serre subcategory and dévissage. Normalize v(π)=1, and transport projective K-theory by the DVR resolution equivalence.
 
@@ -1664,7 +1842,11 @@ Use the finite-length torsion Serre subcategory and dévissage. Normalize v(π)=
 
 For a biexact pairing A×C→A′ taking B×C into B′, compare the localization fibres and show ∂(x·y)=∂x·y for x∈K_i(A/B), y∈K_j(C). For the left pairing the sphere suspension gives ∂(y·x)=(−1)^j y·∂x. Thus a uniformizer-last normalization in degree n is δ_n=(−1)^{n−1}∂_n. This is a module boundary identity, not a derivation identity for products of two arbitrary quotient classes.
 
+The named targets are `localizationBoundary_product` with the hypotheses and conclusions above.
+
 i≥1 and j≥0; the uniformizer-last formula has n≥1. B⊂A and B′⊂A′ are Serre subcategories; the pairing preserves them and is exact in each variable. The right-module suspension convention is fixed by ∂[π]=+[k].
+
+Define `uniformizerLastSign n=(−1)^(n−1)` in ℤ× for natural n; only n≥1 is used by the boundary theorem. Its API gives value 1 at n=1, negation on each positive successor and period two. This function records the normalization, not a degree-zero boundary.
 
 (Weibel V, E 5.3, p.V.38;§6.6.1, pp.V.41–42;Weibel IV, E 1.23, p.IV.17.)
 
@@ -1705,6 +1887,7 @@ Use:
 - `ProjectiveLine.koszul`: Exact 0→F(−2)→F(−1)²→F→0.
 - `ProjectiveLine.directImage`: H⁰=ker(d), H¹=coker(d), d(x,y)=α(x)−y.
 - `ProjectiveLine.map`: Exact unital bundle base change, compatible with u_i, twists, identity and composition.
+- `twistExponent i n=i−n` for integers i,n: the zero-twist and successive-twist identities encode the exponent calculation in `ProjectiveLine.u_twist`.
 
 **Checks.**
 
@@ -1713,6 +1896,7 @@ Use:
 - R¹π_*(u_2(R)) ≅ R and π_*(u_2(R)) = 0.
 - For R = 0 the category VB(P¹_0) is zero, so K(P¹_0) is contractible.
 - u_i(P)(n) ≅ u_{i−n}(P) for all integers i and n, naturally in P.
+- The computed exponents are `twistExponent 0 1=−1`, `twistExponent 1 1=0` and `twistExponent 2 (−1)=3`.
 
 *Needs:* §3.2; §3.1; §2.5; `ModuleCat`; `Polynomial`; `LaurentPolynomial`.
 
@@ -1720,7 +1904,17 @@ Use:
 
 For every gluing module F and integer n, prove 0→F(n−2)→F(n−1)²→F(n)→0 is exact, using (X₁,−X₀) and (X₀,X₁). On the plus chart these are (t,−1) and (1,t); their composite is zero and the second map is split onto. On the minus chart use the analogous central t⁻¹ calculation. For vector bundles the sequence is a VB-conflation, natural in F.
 
+The named targets are `ProjectiveLine.koszul_exact` with the hypotheses and conclusions above.
+
 Use the central-variable right-module convention of §9.1 for arbitrary unital associative R. No commutative scheme result is needed.
+
+For the chart calculation define `koszulLeft t x=(t*x,−x)` and `koszulRight t (a,b)=a+t*b` on any ring. Prove `koszulRight_left` (zero composite), `koszulLeft_zero` and `koszulRight_zero`; the chart maps of a general module use its scalar action. These helpers fix the signs without asserting exactness from a zero composite alone.
+
+**Checks.**
+
+- Over ℤ, `koszulLeft 2 1=(2,−1)` and `koszulRight 2 (2,−1)=0`; replacing −1 by +1 gives 4.
+- `koszulLeft 0 1=(0,−1)` and `koszulLeft 2 0=(0,0)`; the first map is not zero when t=0.
+- `koszulRight 0 (2,3)=2` and `koszulRight 2 (0,1)=2`; the second map retains both summands and is onto, including in characteristic two.
 
 (Quillen, §8.3, p.135/PDF59, displayed sequence after T 3.1.)
 
@@ -1730,7 +1924,9 @@ Use the central-variable right-module convention of §9.1 for arbitrary unital a
 
 For a vector bundle F, find n₀ such that, for every n≥n₀ and every left R-module N, H¹(F(n)⊗_R N)=0 and H⁰(F(n))⊗_R N→H⁰(F(n)⊗_R N) is an isomorphism. Prove H⁰(F(n)) is finite projective as a right R-module. Bound the finitely many powers appearing in the gluing matrix and its inverse, and use split polynomial projectives and the resulting universal cohomology calculation.
 
-For F has finite-projective charts. The bound depends on F, while the cohomology statement is uniform in N.
+The named targets are `ProjectiveLine.eventually_regular`, `ProjectiveLine.sections_projective` with the hypotheses and conclusions above.
+
+Require F to have finite-projective charts. The bound depends on F, while the cohomology statement is uniform in N.
 
 (Quillen, §8.1 L 1.1(d), p.130/PDF54;L 1.12;proof, p.133/PDF57;§8.3 p.135/PDF59.)
 
@@ -1740,9 +1936,17 @@ For F has finite-projective charts. The bound depends on F, while the cohomology
 
 Call F regular when H¹(F(−1))=0. Prove H¹(F(k))=0 for every k≥−1, and that evaluation u₀(H⁰F)→F is onto. On conflations of regular vector bundles, H⁰ is exact. For regular VB-objects, H⁰(F(k)) is finite projective for all k≥−1. Use the Koszul sequence, the two-chart cohomology exact sequence and the finite-projective criterion; regularity does not mean regularity of the ring.
 
+The named targets are `ProjectiveLine.IsRegular`, `ProjectiveLine.regular_globalGeneration` with the hypotheses and conclusions above.
+
 Use the gluing category of §9.1 over arbitrary unital associative R. The evaluation and cohomology maps use the twist convention.
 
 (Quillen, §8.1 L 1.2,1.3,1.7, p.131/PDF55;L 1.13 p.133/PDF57;§8.3 p.135/PDF59.)
+
+**Checks.**
+
+- u₀(P) is regular: H¹(u₀(P)(−1))=H¹(u₁(P))=0.
+- For nonzero P, u₁(P) is not regular: H¹(u₁(P)(−1))=H¹(u₂(P))=P.
+- For u₋₁(P), evaluation from u₀(P²) is onto with kernel u₁(P); regularity of the target does not force regularity of this kernel.
 
 *Needs:* §9.2; §9.3.
 
@@ -1775,15 +1979,25 @@ Use:
 
 Let MR(n) contain F with F(−n) regular. Prove MR(n)→MR(n−1) induces a K-equivalence, by the canonical-resolution comma argument and twist. Eventual regularity expresses VB as the filtered union of these subcategories as n decreases, so MR→VB is a K-equivalence. The direction of the filtration follows from regularity persisting after positive twists.
 
+The named targets are `ProjectiveLine.regular_filtration_equivalence` with the hypotheses and conclusions above.
+
 For the exact structures are induced from VB. Use finite-data continuity and §9.2–9.5.
 
 (Quillen, §8.2 L 2.2;proof, p.134/PDF58;§8.3 p.135/PDF59.)
+
+**Checks.**
+
+- u₀(P) belongs to MR(0) for every finite projective P.
+- For P≠0 it does not belong to MR(1), because u₀(P)(−1)=u₁(P) is not regular.
+- A sufficiently positive twist F(r) is regular, so F belongs to MR(−r); the filtered union is taken as the index decreases.
 
 *Needs:* §9.4; §4.3; §2.6.
 
 ### 9.7 The K-theory of the projective line over a ring: K(R) × K(R) ≃ K(P¹_R)
 
 Prove (u₀,u₁):K(R)×K(R)→K(VB(P¹_R)) is a homotopy equivalence in the connective theory. On MR use the canonical resolution to express the identity as u₀T₀−u₁T₁, then transport through the regular filtration and verify the inverse on u₀ and u₁. The Koszul sequence gives 2(u_{i+1})_*=(u_i)_*+(u_{i+2})_* for every integer i. Equivalently (u₀,u₀−u₁) is an equivalence; keep this basis for the localization argument.
+
+The named targets are `ProjectiveLine.kTheory_splitting` with the hypotheses and conclusions above.
 
 This is the ring gluing theorem in connective degrees; the general projective-bundle theorem for schemes belongs to its scheme owner.
 
@@ -1844,7 +2058,15 @@ Use:
 
 ### 9.10 Contractibility of the resolution fibres
 
-For M∈H₁,t, contract the category of VB-deflations V↠M and admissible inflation comparisons over M by common resolution refinements. Segal subdivision identifies this category with the homotopy-fibre model for h. Deduce that h, and its localization by Core(VB), induce realization equivalences.
+For M∈H₁,t, contract the category of VB-deflations V↠M and admissible inflation comparisons over M as follows. Fix q₀:V₀↠M; send q:V↠M to [q,q₀]:V⊕V₀↠M. The two summand inclusions give natural transformations from the identity and the constant V₀ functor to this sum functor, and are admissible inflations. These are the arrows the resolution category requires. Pullback projections are generally deflations and cannot replace those inclusions. Segal subdivision identifies this category with the homotopy-fibre model for h. Deduce that h, and its localization by Core(VB), induce realization equivalences.
+
+The named targets are `P1.resolutionFibre_contractible`, `P1.localisationModels_h_equivalence` with the hypotheses and conclusions above.
+
+**Checks.**
+
+- For M=0 and q=q₀:R→0, the sum is R⊕R→0; both summand inclusions are split monomorphisms.
+- With M=0 and V=V₀=R≠0, the projection V×_M V₀=R²→R has nonzero kernel, so is not an allowable inflation comparison.
+- For the zero bundle and zero target, the sum contraction stays at zero and the resolution category has a point as its realization.
 
 M has a length-one bundle resolution. Use G from §9.9 and compatible subdivision quotient choices.
 
@@ -1854,17 +2076,27 @@ M has a length-one bundle resolution. Use G from §9.9 and compatible subdivisio
 
 ### 9.11 Directed bundle lattices
 
-For a split minus-chart extension A₋↣V₋↠Q₋ and a chosen extending bundle Q, show its compatible vector-bundle lattices inside the chart extension are nonempty and directed. Bound denominators and enlarge finitely many lattices to a common one; compatibility with the fixed quotient is retained in this enlargement. The contractible poset supplies the fibre-comma comparison for f.
+For a split minus-chart extension A₋↣V₋↠Q₋ and a chosen extending bundle Q, show its compatible vector-bundle lattices inside the chart extension are nonempty and directed. Bound denominators in the chart gluing matrices and their inverses and enlarge finitely many lattices to a common one. For lattices P,P′ with the fixed quotient Q and kernel lattices K,K′, clear the finitely many denominators in P′ modulo P and enlarge the kernel to t⁻ʳK for sufficiently large r. The sum P+t⁻ʳK still maps onto precisely Q and is finite projective: the chosen quotient is projective on the affine chart, so the kernel extension splits there. The finitely many central-variable bounds make the gluing compatible on the other chart. This is the module calculation extending the scheme-language argument of V.7.8.1 to associative rings; no noncommutative scheme is invoked. The contractible poset supplies the fibre-comma comparison for f.
+
+The named targets are `P1.bundleLattices`, `P1.bundleLattices_directed` with the hypotheses and conclusions above.
 
 The target bundle Q and its gluing data are fixed; arbitrary choices of polynomial submodules would not satisfy the quotient condition.
 
 (Weibel V, V.7.3.2 p.54/PDF54;L 7.8.1;proof of7.6.1 pp.57–58/PDF57–58.)
+
+**Checks.**
+
+- For zero quotient, kernel lattices t⁻ʳP form common enlargements after denominator bounds.
+- For V=P⊕Q with fixed quotient Q, enlarging P to t⁻ʳP leaves the image exactly Q; enlarging Q instead would violate the defining condition.
+- For the zero extension and zero quotient, the lattice poset has the zero object and is contractible.
 
 *Needs:* §9.9; Layer 1.
 
 ### 9.12 Projective-line localization
 
 Prove localized h and f of §9.9 are realization equivalences, using resolution fibres and directed lattices. Track the fibre map into QVB through the canonical H₁,t→H₁ inclusion and the resolution equivalence. The diagram initially gives its additive inverse; invert on the fibre to orient the sequence as the canonical inclusion. Obtain K(H₁,t)→K(VB)→K(P) as a homotopy-fibre sequence with that chosen nullhomotopy.
+
+The named targets are `P1.localisationModels_f_equivalence`, `P1.localization` with the hypotheses and conclusions above.
 
 All models use the same right-module gluing and exact structures. The sign adjustment is checked on the two-term characteristic resolution of §9.8.
 
@@ -1876,6 +2108,8 @@ All models use the same right-module gluing and exact structures. The sign adjus
 
 For T={t^r} in R[t], prove K(H₁,T(R[t]))→K(R[t])→K(R[t,t⁻¹]) is a homotopy-fibre sequence, where H₁,T has finite-projective resolution length at most one. Identify H₁,T with H₁,t by M↦(M,0,0), and obtain K(H₁,T)→K(VB(P¹_R))→K(R[t⁻¹]) from the chart comparison. Restricting to the plus chart gives a map between these sequences that is the identity on the fibre. Through the Nil equivalence this fibre is K(R)×Nil(R). The final K₀ map in the first sequence need not be surjective.
 
+The named targets are `polynomial_t_localization`, `nilCategory_torsion_equivalence` with the hypotheses and conclusions above.
+
 t is central and a nonzerodivisor in R[t]. H₁,T resolves all T-torsion modules with finite finite-projective resolutions. Central zero divisors require a perfect-support model.
 
 (Weibel, V.7.1 and the paragraph after it, pp.420–421;V.7.1.1 (Caveat 7.1.1), p.421;E V.3.14, p.399;II.7.7.3, p.137;E V.3.13, p.399;E V.7.5, p.429;E V.7.5(b)–(c), p.429.)
@@ -1885,6 +2119,8 @@ t is central and a nonzerodivisor in R[t]. H₁,T resolves all T-torsion modules
 ### 9.14 The Nil inclusion factors through the forgetful map on K-theory
 
 Compute the map from NilCat(R) into H₁(P¹_R), (P,ν)↦(P_ν,0,0), after the VB-resolution comparison. Its characteristic resolution gives K(I)≃(u₀−u₁)∘K(forget). Hence its restriction to the reduced Nil fibre is nullhomotopic. Prove compatibility of this calculation with the sign-adjusted chart-fibre comparison.
+
+The named targets are `nilInclusion_factorization` with the hypotheses and conclusions above.
 
 ν is nilpotent and the module conventions are those of §9.1 and §9.8. The computation is of maps of K-spaces, and not only their K₀ values.
 
@@ -1896,6 +2132,8 @@ Compute the map from NilCat(R) into H₁(P¹_R), (P,ν)↦(P_ν,0,0), after the 
 
 For n≥0, identify Nil_n(R) naturally with NK_{n+1}(R)=coker(K_{n+1}(R)→K_{n+1}(R[t])). Split the chart localization sequence by the projective-line equivalence and the forgetful calculation: the K_n(R) summand enters by u₀−u₁ while the reduced Nil summand enters by zero. The residual quotient gives the stated isomorphism. Evaluation at zero splits the polynomial injection, so its cokernel also identifies with the evaluation kernel.
 
+The named targets are `nilGroup_eq_NK` with the hypotheses and conclusions above.
+
 R is unital associative, and the Nil index is nonnegative. Changing t to t⁻¹ gives the second polynomial-chart version. No negative-index NilCat homotopy group is defined here.
 
 (Weibel, T V.8.1 and proof, p.430;III.3.5.3, p.205.)
@@ -1905,6 +2143,8 @@ R is unital associative, and the Nil index is nonnegative. Changing t to t⁻¹ 
 ### 9.16 The positive Fundamental Theorem
 
 For n≥1, prove 0→K_n(R)→K_n(R[t])⊕K_n(R[t⁻¹])→K_n(R[t,t⁻¹])→K_{n−1}(R)→0 is exact. The first map is diagonal scalar extension, the second is the difference of the chart maps, and the boundary is t-localization followed by the forgetful retraction from K_{n−1}NilCat(R). Combine the two chart sequences and the projective-line basis (u₀,u₀−u₁). Evaluation at t=1 splits the constant terms; multiplication by [t] supplies the boundary splitting in §9.17.
+
+The named targets are `fundamentalTheorem_positive` with the hypotheses and conclusions above.
 
 Use the finite-resolution transfer of 0→R[t] --t→R[t]→R→0. Layer 10 proves degree zero.
 
@@ -1916,9 +2156,17 @@ Use the finite-resolution transfer of 0→R[t] --t→R[t]→R→0. Layer 10 prov
 
 For x∈K_n(R), n≥0, use the external pairing with [t]∈K₁(ℤ[t,t⁻¹]) in the first factor to define {t,x}∈K_{n+1}(R[t,t⁻¹]). Prove torsion-category boundary is (x,0)∈K_n(R)⊕Nil_n(R), by the product-boundary formula and the characteristic resolution for the zero endomorphism. Thus ∂{t,x}=x after forgetting the Nil coordinate, and this is the natural right inverse in the Fundamental Theorem. The sign is fixed by ∂[t]=+[R[t]/t].
 
+The named targets are `laurentTSection`, `laurentTSection_boundary` with the hypotheses and conclusions above.
+
 R need not be commutative: tensoring over ℤ gives the external biexact pairing. Keep [t] first; moving it to the second factor changes the sign according to the degree of x.
 
 (Weibel, V.8.2, proof, the splitting, p.431;E V.8.1, p.434;E IV.1.23, p.276.)
+
+**Checks.**
+
+- For x=[R] in K₀(R), {t,x} has boundary [R], fixing the positive sign.
+- For x=0 the section is zero by bilinearity.
+- Over a field, {t,[R²]} has boundary 2; replacing t by t⁻¹ negates that value.
 
 *Needs:* §7.4; §9.13; §9.8; §9.16; §3.1–3.5, §8.4; §3.12; Layer 1.
 
@@ -1963,6 +2211,8 @@ For F from unital rings to abelian groups, define NF(R)=coker(F(R)→F(R[t])) an
 
 R is associative unital and the polynomial variable is central. The diagonal, difference and cokernel maps are part of the data, as is naturality of the section.
 
+The convention helper `chartDifference : A×A→A` is the homomorphism (a,b)↦a−b for an abelian group A. Its API is vanishing on the diagonal, compatibility with homomorphisms and negation on exchanging the factors. In the Laurent sequence the two chart images are first mapped into the common target before taking this difference.
+
 (Weibel, III.4.1.1, p.210.)
 
 Use:
@@ -1980,6 +2230,7 @@ Use:
 - The diagonal sends 1 to (1,1) and the chart difference sends (a,b) to a−b; replacing the difference by sum makes their composite 2 at a=b=1.
 - For F=K₀ and a field k, NK₀(k)=LK₀(k)=0; the Laurent sequence reduces to ℤ→ℤ²→ℤ with diagonal and difference.
 - Evaluation at t=0 identifies NF with the kernel of evaluation, so an element coming from F(R) has zero N-class.
+- In ℤ, `chartDifference (1,1)=0`, `chartDifference (1,0)=1` and `chartDifference (0,1)=−1`.
 
 *Needs:* §10.1; `Polynomial`; `LaurentPolynomial`.
 
@@ -2013,6 +2264,8 @@ Use:
 
 Prove K₀ is contracted and LK₁≅K₀. Obtain the degree-zero natural section by applying the degree-one Fundamental Theorem in a second variable and passing to its cokernel. Prove N/L interchange needed for iteration. It follows inductively that every K_{−n} is contracted and LK_{−n}≅K_{−n−1}. The Laurent decomposition has four terms K_{−n}(R), K_{−n−1}(R), and the two chart NK_{−n}(R) terms.
 
+The named targets are `negativeK_contracted`, `contraction_K1_equiv_K0` with the hypotheses and conclusions above.
+
 Use the central two-variable square, its commuting specializations and the connective K₁ adapter. Sections are natural in rings and in the chosen variable.
 
 (Weibel, T III.3.6–3.7 and proofs, pp.205–206;III.4.1.1–4.1.2, p.210;III.4.2, p.211.)
@@ -2022,6 +2275,8 @@ Use the central two-variable square, its commuting specializations and the conne
 ### 10.5 The Fundamental Theorem with Nil terms, in every degree
 
 Combine the positive-degree theorem with contractedness to obtain the diagonal/difference split exact sequence in every integer degree. Thus K_j(R[t,t⁻¹])≅K_j(R)⊕K_{j−1}(R)⊕NK_j(R)⊕NK_j(R). For j≥1 the section is x↦{t,x}; for j≤0 use the contraction section, later identified with the extended spectrum product. In the overlap NK_{n+1}≅Nil_n for n≥0, use the precise reduced Nil definition of Layer 9. A two-term decomposition requires the NK terms to vanish.
+
+The named targets are `fundamentalTheorem_allDegrees` with the hypotheses and conclusions above.
 
 NilCat homotopy is only nonnegative; no negative Nil_n is introduced by this formula. Scheme projective-bundle results are downstream.
 
@@ -2059,7 +2314,7 @@ Define negative-theory data on associative possibly nonunital rings: functors E_
 
 Ideals are two-sided. The finite corner maps and their union are nonunital and use the idempotent-extension functors introduced in Layer 3. Flasqueness includes its bimodule data.
 
-(Weibel, III.4.4, p.213;III.4.4, axioms (3)–(4), p.213;III.4.4.1, p.214.)
+(Weibel, Definition III.4.4, its axioms (3)–(4) and Example 4.4.1, p.III.32.)
 
 Use:
 
@@ -2083,15 +2338,19 @@ Use:
 
 For every theory satisfying §10.7, the exact sequence M∞R→C(R)→S(R), cone vanishing and matrix invariance identify E_j(S(R))≅E_{j−1}(R), j≤0. Iterate these boundary isomorphisms from the E₀≅K₀ to construct a unique natural comparison with Bass groups. Prove it preserves ideal boundaries by the commuting cone/ideal diagrams. The word unique is relative to the fixed degree-zero identification and boundary data.
 
+The named targets are `NegativeKTheory.uniqueness` with the hypotheses and conclusions above.
+
 Use the row-and-column-finite cone, its finite-support ideal and the nonunital maps, not an incorrectly unital matrix union.
 
-(Weibel, §III.4.4 and T III.4.5, pp.213–214.)
+(Weibel, Definition III.4.4 and Theorem 4.5 with its proof, p.III.32.)
 
 *Needs:* §10.7.
 
 ### 10.9 Mayer–Vietoris for a Milnor square, continued into negative degrees
 
 For a Milnor pullback square with one quotient map surjective, extend the K₁–K₀ patching sequence downward in Bass degrees. Contract the polynomial-chart versions of the patching sequence and their compatible boundaries. For every j≤0 obtain exactness K_j(R)→K_j(R₁)⊕K_j(R₂)→K_j(S)→K_{j−1}(R), with the chart difference convention and its continuation. The common ideal need not be Tor-unital. No K₂ or higher Milnor excision is inferred.
+
+The named targets are `negativeK_milnorMayerVietoris` with the hypotheses and conclusions above.
 
 The square is a pullback of associative unital rings and at least one map to S is onto. Use projective patching and the nonunital negative groups for the common two-sided ideal.
 
@@ -2126,7 +2385,15 @@ Use:
 
 ### 10.11 The homotopy groups of the Bass spectrum are the K-groups and Bass's negative groups
 
-Prove K(R)→Kᴮ(R) is an isomorphism on π_j for j≥0, and π_{−n}Kᴮ(R)≅LⁿK₀(R) for n≥1. At the first newly exposed degree identify the cokernel in the cofiber exact sequence with the Bass contraction; use the product-induced section and then induction. Sequential homotopy-colimit continuity makes these stage comparisons isomorphisms for the final spectrum. Prove naturality and agreement of the spectrum boundaries with the contraction boundaries.
+Prove K(R)→Kᴮ(R) is an isomorphism on π_j for j≥0, and π_{−n}Kᴮ(R)≅LⁿK₀(R) for n≥1. More precisely, the r-th stage ΛʳK(R), r≥0, has π_j=K_j(R) for j≥−r and π_j=0 for j<−r. Its transition is an isomorphism in degrees j≥−r; degree −r−1 first appears at the next stage. At that first newly exposed degree identify the cokernel in the cofiber exact sequence with the Bass contraction; use the product-induced section and then induction. Sequential homotopy-colimit continuity makes these stage comparisons isomorphisms for the final spectrum. Prove naturality and agreement of the spectrum boundaries with the contraction boundaries.
+
+The named targets are `bassSpectrum_stage_pi`, `bassSpectrum_pi` with the hypotheses and conclusions above.
+
+**Checks.**
+
+- At stage r=0, π₋₁K(R)=0, even for a ring with nonzero Bass K₋₁; that group cannot already be identified with the connective stage.
+- At stage r=1, π₋₁ΛK(R)=LK₀(R), while π₋₂ΛK(R)=0.
+- For a regular noetherian ring of finite global dimension the new negative groups are zero at every stage, consistently with §10.13.
 
 Integer indexing and the tail range of each Λ-stage are explicit; no negative homotopy group of a space is used.
 
@@ -2136,17 +2403,21 @@ Integer indexing and the tail range of each Λ-stage are explicit; no negative h
 
 ### 10.12 Nonpositive Milnor excision
 
-For a unital f:R→S identifying a two-sided ideal I with J⊂S, the map fib(Kᴮ(R)→Kᴮ(R/I))→fib(Kᴮ(S)→Kᴮ(S/J)) induces isomorphisms in every degree j≤0. At degree zero use the relative-triple patching comparison; contract it compatibly to reach negative degrees. The birelative fibre has π_j=0 for j≤−1. Its π₀ can still contain the cokernel of the relative π₁ map; no stronger connectivity claim is needed here. Applied to ℤ⋉I→R, the nonpositive relative groups depend only on I.
+For a unital f:R→S identifying a two-sided ideal I with J⊂S, prove the map fib(Kᴮ(R)→Kᴮ(R/I))→fib(Kᴮ(S)→Kᴮ(S/J)) induces isomorphisms in every degree j≤0 and a surjection in degree 1. At degree zero use the relative-triple patching comparison; contract it compatibly to reach negative degrees. First compare the connective relative fibre with the Bass relative fibre: the natural map is an isomorphism on π_j for j≥1, by §10.11 and the long exact sequences of the two fibres. In particular, for degree 1 use this comparison, `relativeK.one_eq_classical` and classical relative K₁ surjectivity for a map identifying the ideals. Thus its birelative fibre has π_j=0 for all j≤0, by the long exact sequence. Applied to ℤ⋉I→R, the nonpositive relative groups depend only on I. No integral positive-degree equivalence follows without the excision hypotheses of §8.10.
+
+The named targets are `bassSpectrum_nonpositive_excision` with the hypotheses and conclusions above.
 
 The square is Milnor with S→S/J onto. No Tor-unitality is needed; classical relative K₁ surjectivity requires an adapter to spectrum π₁.
 
-(Weibel, IV.10.1, p.349;E IV.10.1, p.351;III.2.2.1 (Remark 2.2.1), p.193;Clausen–Mathew–Morrow, T 4.33, p.35;P 4.34, proof, p.35;arXiv:1803.10897v2 p35.)
+(Weibel, IV.10.1, p.349;E IV.10.1, p.351;III Remark 2.2.1, p.III.13, and IV E 1.15, p.IV.16;Clausen–Mathew–Morrow, proof of P 4.34, arXiv:1803.10897v2 p.35, recalling the nonconnective K-theory connectivity assertion. Their T 4.33 concerns the cyclotomic-trace fibre and is not the K-theory excision theorem.)
 
-*Needs:* §10.11; §10.10; §10.5; §10.4; §10.2; §10.9; §8.10; §8.1; §8.3; §8.6; Layer 1; §8.9.
+*Needs:* §10.11; §10.10; §10.5; §10.4; §10.2; §10.9; §8.10; §8.1; §8.3; §8.6; Layer 1; §8.9; §8.7.
 
 ### 10.13 Vanishing of the negative K-groups for a regular noetherian ring
 
 For a left noetherian ring of finite left global dimension, prove K_{−n}(R)=0 for every n>0. Resolution identifies projective K₀ with module G₀; polynomial homotopy invariance in the degree-zero resolution argument kills the contraction terms, and iteration gives the result. The analogous right-module formulation is transported through opposite-ring duality. This supplies a sufficient regular noetherian scope without defining regularity by a claim about arbitrary infinite modules. The absence of negative homotopy in the connective spectrum is not evidence for this vanishing theorem.
+
+The named targets are `negativeK_regular_vanishing` with the hypotheses and conclusions above.
 
 Use the stated finite-global-dimension noetherian scope and Bass negative groups, or their identified nonconnective homotopy groups. No converse for singular rings is asserted.
 
@@ -2191,11 +2462,19 @@ Use:
 
 ### 11.2 Existential factorization in a Frobenius pair
 
-For a Frobenius pair, factor any map by an inflation followed by a weak equivalence, using enough injectives and a graph map into an injective summand. Construct dual deflation factorization using enough projectives. These choices prove existence and supply both orientations of the factorization-based Waldhausen apparatus; a functorial choice of projective-injectives is unnecessary.
+For a Frobenius pair, factor any map by an inflation followed by a weak equivalence, using an inflation i:A↣I into a projective-injective and the graph inflation (f,i):A↣B⊕I. Projection B⊕I→B is the weak equivalence; its target summand must be B, not A. Construct dual deflation factorization using enough projectives. These choices prove existence and supply both orientations of the factorization-based Waldhausen apparatus; a functorial choice of projective-injectives is unnecessary.
+
+The named targets are `FrobeniusPair.factorization` with the hypotheses and conclusions above.
 
 Use the Frobenius axioms, including both enough-projective and enough-injective fields. Weak equivalences are inverted in the pair’s derived quotient.
 
 (Schlichting 2003, Remark11.2, p.20/PDF20;Appendix A.5, p.25.)
+
+**Checks.**
+
+- For f:A→B, the factorization uses (f,i):A↣B⊕I and projection onto B.
+- For f:A→0, it is the chosen inflation A↣I followed by I→0, a weak equivalence because I is projective-injective.
+- For f=id_A one may use i:A↣I; projection A⊕I→A is a stable equivalence even though it need not be an isomorphism.
 
 *Needs:* §11.1; §5.12.
 
@@ -2225,6 +2504,8 @@ Use:
 ### 11.4 The K-zero criterion for a dense triangulated subcategory
 
 Prove X∈A exactly when [X] belongs to im(K₀A→K₀T). Conversely, for each subgroup H⊂K₀T the strictly full objects whose classes lie in H form a dense triangulated subcategory. These assignments are inverse and K₀A→K₀T is injective. Use the preceding stabilized-object quotient to realize Euler equalities, rather than inferring object membership from an arbitrary equality in a Grothendieck group.
+
+The named targets are `DenseClasses.membership_iff`, `DenseClasses.classification` with the hypotheses and conclusions above.
 
 Use the dense triangulated hypotheses of §11.3 and the Euler K₀ presentation. A non-dense triangulated subcategory need not be determined by its K₀ image.
 
@@ -2289,6 +2570,8 @@ Use:
 
 For an exact sequence of setup models, construct the boundary by lifting a class through the flasque enlargement, and prove independence of the lift. Obtain the exact nonpositive sequence through IK₀ and all negative groups. A cofinal derived functor induces isomorphisms on these groups. Relate vanishing of IK₋₁(M) to idempotent completeness of the quotient between idempotent-completed derived categories in every exact sequence beginning at M, using the object-lifting obstruction in the first boundary.
 
+The named targets are `negativeIK_localization` with the hypotheses and conclusions above.
+
 The Verdier quotient comparison need only be cofinal. Localization applies to exact model sequences, not arbitrary triangulated functors.
 
 (Schlichting 2003, L 1.6, T 1.7, C 1.8 and Remark 1.9, pp.5–6;§5.5, p.11.)
@@ -2298,6 +2581,8 @@ The Verdier quotient comparison need only be cofinal. Localization applies to ex
 ### 11.8 Additivity and filtered colimits for the negative groups
 
 For a conflation F₀↣F₁↠F₂ of model maps, prove (F₁)_*=(F₀)_*+(F₂)_* on every IK_j, j≤0. The componentwise inflation and its quotient must again be model maps. Prove filtered continuity in these degrees: compare the colimit of the flasque envelopes with an envelope of the colimit and use the swindle and localization to identify the groups. Apply this to exact-category models with compatible induced structures.
+
+The named targets are `negativeIK_additivity`, `negativeIK_filteredColimit` with the hypotheses and conclusions above.
 
 The indexing category is small filtered. A mere natural transformation has no additivity conclusion without the conflation hypotheses.
 
@@ -2333,6 +2618,8 @@ Use:
 
 Prove replacement projection C→B reflects weak equivalences and satisfies dual approximation. For c=(a,b,i) and a map b′→b, represent its derived lift using the equivalence of derived categories, replace its roof by an admissible deflation, and pull back to obtain c₃↠c with a weak map b′→pr_B(c₃) over b. Check exactness and the weak condition after the pullback. The construction supplies the actual diagram required by App2, beyond fullness in the Verdier quotient.
 
+The named targets are `FrobeniusReplacement.dual_approximation` with the hypotheses and conclusions above.
+
 Use the exact pair map of §11.9 and factorization in both orientations; an abstract triangulated equivalence does not supply these data.
 
 (Schlichting 2003, P 11.15, diagram11.16 and the pullback proof, p.23/PDF23;Thomason–Trobaugh, 1.9.8.3–1.9.8.4, pp.272–274/PDF14–15.)
@@ -2342,6 +2629,8 @@ Use the exact pair map of §11.9 and factorization in both orientations; an abst
 ### 11.11 Derived invariance through the replacement and approximation
 
 Apply factorization-based approximation to the target projection of the replacement, in the opposite category when using the dual form. Combine it with the source projection equivalence to prove K(A)≃K(B) for a pair map with derived equivalence. Envelope functoriality and countably compact generation preserve that hypothesis after each suspension, giving a stable equivalence IK(A)≃IK(B).
+
+The named targets are `IK_derivedEquivalence` with the hypotheses and conclusions above.
 
 F is an exact pair map preserving projective-injectives and inducing a derived equivalence.
 
@@ -2353,6 +2642,8 @@ F is an exact pair map preserving projective-injectives and inducing a derived e
 
 For an exact pair map inducing a fully faithful cofinal derived functor, identify its source with the target objects whose K₀ classes lie in the source image, using dense triangulated classification. Apply factorization cofinality to prove an isomorphism on π_jK for j≥1 and an injection on π₀K. The missing π₀ classes form the explicitly retained quotient; completing idempotents is not claimed to preserve connective K₀.
 
+The named targets are `FrobeniusPair.cofinality` with the hypotheses and conclusions above.
+
 Cofinality is summand density and full faithfulness in the derived quotient. Use §11.4 and the factorization cofinality targets of Layer 6.
 
 (Schlichting 2003, P 11.17, pp.23–24;Facts1.2, p.4;Appendix A.4, p.25.)
@@ -2362,6 +2653,8 @@ Cofinality is summand density and full faithfulness in the derived quotient. Use
 ### 11.13 Fibration for nested Frobenius weak classes
 
 For D₀⊂D₁ thick triangulated subcategories of the stable category of B, let B_i be their inverse-image exact subcategories. The two nested weak-equivalence classes give K(B₁,B₀)→K(B,B₀)→K(B,B₁) as a homotopy-fibre sequence. Check extension, saturation and acyclic factorization through the stable triangulated conditions, then apply the factorization fibration theorem with its chosen nullhomotopy.
+
+The named targets are `FrobeniusPair.nestedWeak_fibration` with the hypotheses and conclusions above.
 
 The D_i contain zero and are closed under summands as well as triangles. B and B_i satisfy the Frobenius-pair conditions.
 
@@ -2373,6 +2666,8 @@ The D_i contain zero and are closed under summands as well as triangles. B and B
 
 Inside the envelope FA retain objects killed in D(SA), producing a completion pair Â. Prove D(Â)≃D(A)^♮ by countably compact generation. The nested weak fibration and envelope swindle give K(Â)≃ΩK(SA). These completed levels form an Ω-spectrum stably equivalent to the uncompleted suspension prespectrum. Compute π_jIK(A)=π_jK(A) for j>0, π₀IK(A)=K₀(D(A)^♮), and π_{−n}IK(A)=K₀(D(SⁿA)^♮) for n≥1.
 
+The named targets are `FrobeniusPair.completion_equivalence`, `IK_pi` with the hypotheses and conclusions above.
+
 The stable comparison is a spectrum comparison; the degree-zero completion can change K₀. Use §11.5, §11.12 and §11.13.
 
 (Schlichting 2003, T 11.7 proof, pp.21–22/PDF21–22.)
@@ -2383,6 +2678,8 @@ The stable comparison is a spectrum comparison; the degree-zero completion can c
 
 An exact sequence of Frobenius pairs induces a homotopy-fibre sequence of their IK spectra. Apply the nested weak fibration at the completed envelope levels, and use model cofinality to compare the actual third pair with the quotient model. On the Ω-spectrum levels this identifies the fibre, including its specified nullhomotopy. Deduce the integer-graded localization sequence with the completion-corrected degree-zero term.
 
+The named targets are `IK_localization` with the hypotheses and conclusions above.
+
 Exactness means fully faithful derived first map and cofinal Verdier quotient map. All pair maps preserve projective-injectives. Saturation is inherited from derived isomorphisms.
 
 (Schlichting 2003, T 11.10 proof, p.22/PDF22, and saturation qualification.)
@@ -2392,6 +2689,8 @@ Exactness means fully faithful derived first map and cofinal Verdier quotient ma
 ### 11.16 Exact-category spectra and invariance
 
 For the IK spectrum of §11.5, identify its envelope structure maps with those from localization. The preceding completed-level equivalence computes its groups; spectrum localization supplies exactness; and a derived equivalence induced by a pair map supplies stable invariance. For exact categories use their bounded-complex Frobenius model with the acyclic subpair. Its positive groups recover Quillen K, while its degree zero is K₀ of the idempotent-completed derived category.
+
+The named targets are `IK_exactCategory_comparison` with the hypotheses and conclusions above.
 
 Use split-complex Frobenius structures, ℤ-indexed complexes and Gillet–Waldhausen. The acyclic subpair is thick and contains projective-injectives.
 
@@ -2437,6 +2736,8 @@ Use:
 
 For the completed quotient functor U^♮→(U/A)^♮, identify its relative triple group with K₀(A^♮). A quotient automorphism gives an index in that group by lifting its matrix to a split decomposition and comparing its finite defect summands. The relative-triple five-term sequence becomes K₁ᶜˡ(U)→K₁ᶜˡ(U/A)→K₀(A^♮)→K₀(U^♮)→K₀((U/A)^♮). For a flasque U, additivity annihilates its absolute K₀ and K₁ᶜˡ, making the index boundary an isomorphism.
 
+The named targets are `KaroubiFiltration.finiteDefectIndex`, `KaroubiFiltration.relativeK0Equiv` with the hypotheses and conclusions above.
+
 Use the classical stabilized additive-category automorphism K₁ and relative triples of Layer 4. This argument does not require the later relative ring π₁ adapter. Without these completions A=U would yield K₀(A), which can be smaller than K₀(A^♮).
 
 (Karoubi 1970, §2 T 2.13 proof,P 2.16,PDF36–40;§3 swindle and boundary,PDF50–51.)
@@ -2477,6 +2778,8 @@ Use:
 
 For A=P(R), identify the cone-derived groups Kar_{−n}(A) with LⁿK₀(R). Use the discrete norm to identify the source’s summable polynomial series with finite central polynomials, verify the four negative axioms for the cone theory, and invoke cone uniqueness. Prove compatibility with polynomial and Laurent chart maps and their boundaries. The source’s positive superscript Kⁿ denotes the present degree −n.
 
+The named targets are `KaroubiNegative_eq_Bass` with the hypotheses and conclusions above.
+
 For n≥0. The comparison is algebraic and in nonpositive degrees; no topological Bott periodicity is asserted.
 
 (Karoubi 1971, §II.2.1–2.7,pp.66–72;§III.3.2 and preceding construction,pp.73–74.)
@@ -2512,6 +2815,8 @@ From a finite domination form the corrected idempotent p on F=⊕D_i using the a
 
 Use the source homotopy convention throughout. Correct fg to an actual p; shifting once negates Euler class.
 
+For a ring element p put `topProjector n p=p` for even n and `1−p` for odd n; prove the even/odd evaluation and two-step parity formulas, and idempotence when p²=p. This arithmetic function does not turn a homotopy idempotent into an idempotent. For an abelian group put `twoTermEuler a b=a−b`; its API gives the zero-term formulas, sum compatibility and sign change on swapping degrees.
+
 (Ranicki, P 3.1 full proof,pp118–122/PDF14–18;P 3.2,123/PDF19.)
 
 Use:
@@ -2526,6 +2831,8 @@ Use:
 - If f,g split strictly and D has only degree0, p=fg is the usual projector.
 - For identity domination the Euler class is the usual alternating sum of D_i.
 - At top degree 1 with p=1, the complementary projector 1−p is 0; using p would give 1.
+- `topProjector 0 1=1`, `topProjector 1 1=0`, and `topProjector 2 0=0` over ℤ test both parity branches and the zero projector.
+- The two-term Euler values in ℤ are `twoTermEuler 2 3=−1`, `twoTermEuler 0 1=−1`, `twoTermEuler 1 0=1`; the boundary index uses the opposite order.
 
 *Needs:* §12.5.
 
@@ -2533,15 +2840,25 @@ Use:
 
 A bounded A^♮-complex is homotopy equivalent to a bounded A-complex exactly when its Euler class lies in im(K₀A→K₀A^♮). Prove this by adding complementary elementary complexes and moving the last remaining summand to a single degree. For A⊂U put H=(K₀A^♮→K₀U^♮)⁻¹(im K₀U). An A-dominated U-complex has a finite model over A^H, the full objects whose classes lie in H, after adjoining those objects to U. This is the restricted completion needed in the quotient fibre.
 
+The named targets are `restrictedCompletion_eulerCriterion` with the hypotheses and conclusions above.
+
 Take the image in K₀(U^♮). The obstruction is membership in that image, not zero in the ambient group.
 
 (Ranicki, P 2.1, pp.115–116;P 3.2, pp.122–123;Cárdenas–Pedersen, §5 and §7.4, pp.10–14, 20–21.)
+
+**Checks.**
+
+- A complex concentrated in degree zero at an A-object passes the image criterion.
+- For A=finite free (k×k)-modules, the projective (k,0) has class (1,0), outside the diagonal image; it cannot return to an A-complex.
+- A contractible two-term identity complex on (k,0) has Euler class zero and returns to the zero A-complex, despite its individual terms being outside A.
 
 *Needs:* §12.6.
 
 ### 12.8 Lift a quotient complex through a Karoubi filtration
 
 For a direct A-filtration of U, lift a bounded U/A-complex to a bounded U-complex up to isomorphism in the quotient. Lift finitely many differential representatives, factor their finitely many nonzero composites through a common A-summand, and enlarge the complex by contractible summands to correct d² to zero. Similarly, lift a quotient contraction after a common refinement. A bounded U-complex becomes contractible in U/A precisely when it is A-dominated.
+
+The named targets are `KaroubiFiltration.liftComplex` with the hypotheses and conclusions above.
 
 Use simultaneous source/target factorizations, with A additive and containing zero; arbitrary quotient lifts need not square to zero.
 
@@ -2553,6 +2870,8 @@ Use simultaneous source/target factorizations, with A additive and containing ze
 
 On bounded U-complexes take degreewise split inflations as cofibrations and chain-homotopy equivalences as ordinary weak equivalences. Enlarge weak equivalences to maps becoming homotopy equivalences over U/A. Corrected quotient lifting and the standard mapping cylinder prove approximation to C(U/A). Its acyclic fibre is K-equivalent to C(A^H), using finite domination and restricted completion. The same corrections identify the associated Verdier quotient after the restricted completion.
 
+The named targets are `KaroubiFiltration.complex_approximation` with the hypotheses and conclusions above.
+
 H is the preimage subgroup of §12.7. All complexes are bounded and all mapping-cylinder and quotient maps are explicit.
 
 (Cárdenas–Pedersen, §§4–6 and §7.1–7.9, pp.9–24;Schlichting 2003, T 7.1, pp.14–15.)
@@ -2563,6 +2882,8 @@ H is the preimage subgroup of §12.7. All complexes are bounded and all mapping-
 
 For small idempotent-complete additive A with its split exact structure, apply the bounded-complex Frobenius construction to A→CA→SA. The controlled filtration, corrected complex lifting and restricted-completion approximation prove this is an exact sequence of the needed pair models. The cone swindle and IK localization identify IK_{−n}(A)≅K₀((SⁿA)^♮). For A=P(R), the Karoubi–Bass comparison identifies these groups with Bass K_{−n}(R), naturally and with the same cone boundary.
 
+The named targets are `KaroubiNegative_eq_negativeIK` with the hypotheses and conclusions above.
+
 At later suspensions retain the idempotent-completion convention. For non-idempotent-complete A the degree-zero term is completion-corrected.
 
 (Schlichting 2003, T 7.1;proof, pp.14–15;Cárdenas–Pedersen, §7.1–7.9, pp.18–24.)
@@ -2571,7 +2892,9 @@ At later suspensions retain the idempotent-completion convention. For non-idempo
 
 ### 12.11 Agreement and vanishing
 
-Complete the natural comparison among the Bass, controlled-cone and Frobenius negative groups for rings, and between the cone and Frobenius groups for additive categories. For a small exact E, present IK₋₁(E) as the direct-sum monoid of idempotents in the unbounded derived category, modulo those that split; prove IK₋₁(E)=0 exactly when D(E) is idempotent complete. Prove IK₋₁=0 for every small abelian category, and IK_{−n}=0 for every n≥1 for a small noetherian abelian category. regular noetherian rings in the finite-global-dimension scope have zero negative groups. General abelian all-negative vanishing is false: Neeman gives an abelian category with nonzero K₋₂.
+Complete the natural comparison among the Bass, controlled-cone and Frobenius negative groups for rings, and between the cone and Frobenius groups for additive categories. For a small exact E, present IK₋₁(E) as the direct-sum monoid of idempotents in the unbounded derived category, modulo those that split; prove IK₋₁(E)=0 exactly when D(E) is idempotent complete. Prove IK₋₁=0 for every small abelian category, and IK_{−n}=0 for every n≥1 for a small noetherian abelian category. Regular noetherian rings in the finite-global-dimension scope have zero negative groups. General abelian all-negative vanishing is false: Neeman gives an abelian category with nonzero K₋₂.
+
+The named targets are `negativeK_comparisons`, `negativeIK_idempotentObstruction`, `negativeIK_abelian_vanishing` with the hypotheses and conclusions above.
 
 The all-negative abelian claim requires every object noetherian. The unbounded derived model uses admissible acyclicity and actual idempotents; the 2003 conjecture is not assumed.
 
@@ -2595,7 +2918,7 @@ Define Kᴮ_nu(I)=fib(Kᴮ(ℤ⋉I)→Kᴮ(ℤ)), functorially for nonunital hom
 
 The fibre is a spectrum fibre and uses the canonical augmentation. I need not have an identity.
 
-(Weibel, §II.2.7.2, p.76;§IV.6.3.5–6.4, p.321;§IV.10.4, p.350.)
+(Weibel I Exercise 1.10, p.I.5;IV.1.11.2, p.IV.9;IV.6.4, pp.IV.55–56;IV.10.4, p.IV.80. The product decomposition and split-fibre comparison are the calculations above.)
 
 Use:
 
@@ -2615,9 +2938,11 @@ Use:
 
 For an additive multiplicative h:A→B between unital rings, put e=h(1). Under the unital fibre identifications, the map of nonunital Bass spectra agrees with the map induced by P↦P⊗_A eB on right finite projectives. Prove this at the connective projective-functor level using the unitization block decomposition, then at each Λ-stage by naturality. The earlier group-level corner adapter is thereby promoted to a spectrum comparison.
 
+The named targets are `NonunitalBass.idempotentBaseChange_comparison` with the hypotheses and conclusions above.
+
 h need not preserve one. Since e²=e and h(a)e=eh(a)=h(a), eB is a unital left A-module and a finite projective right B-module.
 
-(Weibel, §II.2.7.2, p.76;§IV.6.3.5–6.4, p.321;block tensor calculation in §3.5.)
+(Weibel, Additive Functors II.2.8, p.II.12;IV.6.3.2 and finite-product property 6.4, pp.IV.55–56;the block tensor calculation in §3.5 and naturality of the Bass construction.)
 
 *Needs:* §13.1; §10.6; §3.2.
 
@@ -2625,15 +2950,27 @@ h need not preserve one. Since e²=e and h(a)e=eh(a)=h(a), eB is a unital left A
 
 For n≥1 and the upper-left corner h_n:M_nR→M_{n+1}R, compose its idempotent-extension functor with the standard column-bimodule Morita functors. The composite identifies naturally with the same finite-projective R-module. Deduce that Kᴮ_nu(h_n) becomes id on Kᴮ(R), coherently for any number of corner steps. In unitization coordinates the map is (z,c)↦(z,diag(c,z)); diag(c,0) is the nonunital corner map before that coordinate change.
 
+The named targets are `NonunitalBass.corner_morita` with the hypotheses and conclusions above.
+
 The matrix index is finite nonempty. Specify both maps and their Morita comparisons.
 
-(Weibel, §II.2.7.1–2.7.2, p.76;§III.4.4, pp.213–214.)
+For the two-by-two integer test define `cornerUnitizationSecond z c=diag(c,z)`. Its API is additivity, multiplicativity on coordinatewise products and preservation of the pair (1,1). It tests the coordinate change in the general unitization map, not a unital structure on the original corner embedding.
+
+**Checks.**
+
+- `cornerUnitizationSecond 1 1=I₂`; using diag(c,0) would fail preservation of one.
+- `cornerUnitizationSecond 1 0=diag(0,1)`, so the augmentation coordinate survives even at c=0.
+- `cornerUnitizationSecond 0 1=diag(1,0)`, recovering the nonunital corner on the augmentation kernel.
+
+(Weibel, Corollary II.2.7.1 and Example 2.7.2, p.II.12;Definition III.4.4, p.III.32;the unitization coordinate calculation above.)
 
 *Needs:* §13.2; §10.6.
 
 ### 13.4 Filtered continuity and products
 
 Extend the early connective finite-product and filtered-colimit comparisons to Kᴮ in every integer degree. Central polynomial and Laurent extensions commute with filtered colimits; finite direct sums and cokernels preserve them, so all Bass groups do too. The canonical spectrum maps are equivalences by their homotopy-group isomorphisms. Finite ring products give finite products of Kᴮ spectra. For the nonunital matrix union use §13.5; no assertion about infinite ring products follows.
+
+The named targets are `bassSpectrum_filteredColimit`, `bassSpectrum_finiteProduct` with the hypotheses and conclusions above.
 
 Ring diagrams and filtered indexing categories are small. Product cardinality is finite. Frobenius nonpositive continuity is already §11.8.
 
@@ -2645,6 +2982,8 @@ Ring diagrams and filtered indexing categories are small. Product cardinality is
 
 For a small filtered nonunital-ring diagram I_a, prove hocolim_a Kᴮ_nu(I_a)≃Kᴮ_nu(colim_a I_a). Unitization commutes with its filtered colimit; unital Kᴮ continuity and exactness of filtered spectrum colimits allow passage through the augmentation fibre. Apply this to the finite corner diagram, using its coherent Morita comparisons, to identify Kᴮ_nu(M∞R) with Kᴮ(R) under the actual corner inclusion.
 
+The named targets are `NonunitalBass.filteredColimit` with the hypotheses and conclusions above.
+
 Use finite-data descent at each Bass stage to establish unital continuity first. Transition maps may be noninjective and need not preserve an identity.
 
 (Weibel IV, §6.4, pp.IV.55–56;§10.4, p.IV.80;augmentation-fibre argument.)
@@ -2655,6 +2994,8 @@ Use finite-data descent at each Bass stage to establish unital continuity first.
 
 For DG perfect-module categories supplied by the DG roadmap, an exact DG model map inducing the derived perfect equivalence gives a K-equivalence when carried by its Waldhausen or Frobenius models. For a Morita bimodule equivalence use its derived tensor model and inverse; roof strictification or approximation provides the connective comparison and the pair-map theorem the nonconnective comparison. Record the enhancement and actual model functor as hypotheses. A bare equivalence of triangulated perfect categories does not supply these data.
 
+The named targets are `IK_enhancedDerivedInvariance` with the hypotheses and conclusions above.
+
 DGAInfinity Layers 5–7 supply perfect modules, Morita bimodules and DG quotients. Apply the bounded/exact model comparisons of Layers 6,11; general stable-∞ K-theory is separate.
 
 (Schlichting 2003, D 11.1 and P 11.15, pp.20, 22–23;Keller, L 11.7 and T 12.1, pp.15–16.)
@@ -2664,6 +3005,8 @@ DGAInfinity Layers 5–7 supply perfect modules, Morita bimodules and DG quotien
 ### 13.7 Relative and transfer compatibility
 
 Extend the ring-spectrum pairing through the Λ tower, checking its two central-variable suspension squares and sphere interchanges. This induces integer-graded products, fibre-module products for relative spectra, and graded commutativity for commutative rings. For a localization sequence prove ∂(y·x)=(−1)^deg(y)y·∂x and ∂(x·y)=∂x·y in the chosen right-module convention. Transfer compatibility follows from the natural tensor/restriction isomorphism; finite-resolution transfers require the same resolving hypotheses as Layer 7. The negative Laurent contraction section is multiplication by [t] first.
+
+The named targets are `bassSpectrum_pairing`, `bassSpectrum_relativePairing`, `bassSpectrum_transfer_projectionFormula` with the hypotheses and conclusions above.
 
 Relative products require a compatible biexact square. Boundaries have signed module linearity; no fibre-product derivation law is asserted. Retain connective units and coherence.
 
@@ -2699,6 +3042,8 @@ Use:
 
 Compare the isomorphism and stable weak-equivalence classes on the finite-module model. Factorization fibration, dévissage to 𝔽_p, and the projective acyclic fibre give K(R)→K(𝔽_p)→K(mM(R)). Its homotopy sequence and K₄(𝔽_p)=0 identify K₄(mM(R)) with ker(K₃R→K₃𝔽_p). This reduces the counterexample to the numerical finite-ring groups used below.
 
+The named targets are `ArtinStableModel.kTheory_fibration` with the hypotheses and conclusions above.
+
 Use the opposite factorization apparatus when needed. The symbol mM specifies the category with stable weak equivalences, rather than the stable quotient as a bare category.
 
 (Schlichting 2002, §§1.5–1.6,pp.113–114.)
@@ -2708,6 +3053,8 @@ Use the opposite factorization apparatus when needed. The symbol mM specifies th
 ### 13.10 A triangulated-invariance counterexample
 
 Apply the preceding fibre computation and Schlichting’s published finite-ring counterexample proposition. For odd p, the p-primary part of K₄(mM(ℤ/p²)) is cyclic of order p², whereas that of K₄(mM(𝔽_p[ε]/ε²)) is (ℤ/p)². The two model K-theories are inequivalent despite the triangulated equivalence of their stable categories. At p=3 an element of order 9 exists on the first side and no such element exists on the second, so an abstract group comparison already distinguishes them.
+
+The named targets are `ArtinStableModel.noninvariance` with the hypotheses and conclusions above.
 
 Use published Proposition 1.7 and its cited finite-ring K₃ calculations, for odd p only; no new general Artin K₃ calculation is asserted.
 
@@ -2729,9 +3076,9 @@ KTheoryLowDegrees uses the ring K₀/K₁ comparisons, stable matrices, relative
 
 ## References
 
-In locators, T/P/D/C/E/L mean theorem/proposition/definition/corollary/exercise/lemma; numbers retain the source numbering. Page numbers prefixed II, III, IV or V refer to the author’s separately paginated chapter PDFs. Page numbers without a chapter prefix refer to the combined 2013 K-book, unless the reference explicitly identifies another paper or a preprint. Quillen and Waldhausen locators use the printed proceedings pages. A PDF-page locator is used for Karoubi’s scanned thesis, whose copy has several pagination systems.
+In locators, T/P/D/C/E/L mean theorem/proposition/definition/corollary/exercise/lemma; numbers retain the source numbering. Page numbers prefixed I, II, III, IV or V refer to the author’s separately paginated chapter PDFs. Page numbers without a chapter prefix refer to the combined 2013 K-book, unless the reference explicitly identifies another paper or a preprint. Quillen and Waldhausen locators use the printed proceedings pages. A PDF-page locator is used for Karoubi’s scanned thesis, whose copy has several pagination systems.
 
-- Weibel, [The K-book](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), combined draft dated 29 August 2013; separately paginated chapters [II](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf), [III](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf), [IV](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), [V](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf).
+- Weibel, [The K-book](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), combined draft dated 29 August 2013; separately paginated chapters [I](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.I.pdf), [II](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.II.pdf), [III](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf), [IV](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), [V](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf).
 - Quillen, [Higher algebraic K-theory I](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf), LNM 341 (1973), 85–147.
 - Waldhausen, [Algebraic K-theory of spaces](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/kspaces.pdf), LNM 1126 (1985), 318–419.
 - Bühler, [Exact categories](https://arxiv.org/pdf/0811.1480v2), version 2.
