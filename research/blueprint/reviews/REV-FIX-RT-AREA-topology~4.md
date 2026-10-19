@@ -1,16 +1,17 @@
 # Independent review of topology fix round 4
 
-Refs #6521. Codex, session `codex-Mhwk6K`, 19 October 2026;
-branch `codex-Mhwk6K-review-topology-6521`, input `ec91f49b4983370d356ab6f21d464fe5188db1e5`.
-The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6265171646).
+Refs #6521. Codex, session `codex-GM2T4V`, 19 October 2026;
+branch `codex-GM2T4V-review-topology-fixes`, input `7a2bae6dd7dc92c69f445dc6f3f0518970699e4e`.
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6266345625).
 This worker did not author the fixes and claimed no second job.
 
 ## Recorded verdicts and completion blocker
 
 The three files named by the live issue now record this session's bounded
 review: **Polylogarithms accepted**, **HabiroNahmSeries accepted**, and
-**QSeriesPartitionsAndMockModularForms needs_changes**. Each complete preceding
-review, by `codex-nZ8NW8`, is preserved once in `reviewHistory`. This review
+**QSeriesPartitionsAndMockModularForms needs_changes**. This continuation follows
+`codex-Mhwk6K`; existing whole-plan reviews and `reviewHistory` are preserved
+without appending another copy of this same job's bounded verdict. This review
 covers the assigned fixes, rather than repeating those packets' whole-plan
 source audits. Their mathematical payloads and suggested signatures are
 unchanged. All implementation statuses and existing gaps remain intact.
@@ -23,9 +24,9 @@ discharged by a correct topology export.
 three packet/suggested pairs, while its queue requires seven pairs. The actual,
 unchanged `issues.deliverables_complete` returns false because four packet
 reviews still identify their separate whole-plan reviews. WORKERS' issue-only
-edit rule excludes those paths. Authorization was requested for the four JSON
-files; it is still pending. The concrete, guarded proposals in the handoff
-remain unapplied. WORKERS.md says “Edit only the files the issue names,”
+edit rule excludes those paths. Authorization was requested in this session for
+the four JSON files; it is still pending. The freshly validated, guarded proposals
+in the handoff remain unapplied. WORKERS.md says “Edit only the files the issue names,”
 so the queue output list alone does not authorize these changes. The
 [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) records the precise continuation,
 including guarded inputs and bounded verdicts. Neither the queue nor its
@@ -184,8 +185,9 @@ warnings. This does not authorize applying them. The actual repository
 completion predicate remains false. No link map or restructuring-result file
 is under review, so their checkers do not apply.
 
-Semantic comparison confirms that only the three authorized review objects
-and their histories changed in the packets. No excerpt keys occur in them.
+Semantic comparison confirms that only the current notes in the three
+authorized review objects changed in the packets. Their histories are unchanged.
+No excerpt keys occur in them.
 No suggested Lean file changed. Fresh compilation results through the supplied
 `lean-check` wrapper are recorded below and in the handoff. No language server,
 `lake build`, update or cache process was started. The report and handoff
@@ -204,7 +206,7 @@ These results check elaboration, not the source theorems or the missing proofs.
 The four extra suggested files were not recompiled in this run.
 
 The repository changes are limited to the three live-issue packet reviews,
-this report and the handoff. Each packet's prior bytes outside its review
-replacement and appended predecessor review are preserved. The four guarded
+this report and the handoff. Each packet's prior bytes outside its current
+review notes are preserved. The four guarded
 candidates and diagnostic script were scratch work only. The candidate
 projection changes no completion code and makes no repository mutation.
