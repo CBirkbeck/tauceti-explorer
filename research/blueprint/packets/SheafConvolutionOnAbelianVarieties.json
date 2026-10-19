@@ -29,7 +29,7 @@
       },
       {
         "ref": "mathlib:Finset.card_powersetCard",
-        "kind": "def",
+        "kind": "theorem",
         "module": "Mathlib/Data/Finset/Powerset.lean",
         "provides": "Its cardinality is Nat.choose of the cardinality of the original set and k.",
         "checked": "Actual declaration body and hypotheses read in the pinned source tree on 2026-10-18."
@@ -50,7 +50,7 @@
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
-        "kind": "def",
+        "kind": "structure",
         "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
         "provides": "A proper geometrically integral group scheme over a field, with commutativity, smoothness and base-change interface. These objects are imported, never rebuilt here.",
         "checked": "Actual declaration body and hypotheses read in the pinned source tree on 2026-10-18."
@@ -78,17 +78,38 @@
       },
       {
         "ref": "mathlib:CategoryTheory.ObjectProperty.SerreClassLocalization.preservesFiniteLimits",
-        "kind": "def",
+        "kind": "lemma",
         "module": "Mathlib/CategoryTheory/Abelian/SerreClass/Localization.lean",
         "provides": "The additive Serre-class localization preserves finite limits, assuming it is a localization at P.isoModSerre.",
         "checked": "Actual declaration body and hypotheses read in the pinned source tree on 2026-10-18."
       },
       {
         "ref": "mathlib:CategoryTheory.ObjectProperty.SerreClassLocalization.preservesFiniteColimits",
-        "kind": "def",
+        "kind": "lemma",
         "module": "Mathlib/CategoryTheory/Abelian/SerreClass/Localization.lean",
         "provides": "The same additive localization preserves finite colimits; together these results give exactness.",
         "checked": "Actual declaration body and hypotheses read in the pinned source tree on 2026-10-18."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "GL n R as the units of the n×n matrix ring, the carrier for finite linear groups in Jordan’s theorem.",
+        "checked": "Declaration (line 43) read at the pinned commit by REV-DESIGN-SheafConvolutionOnAbelianVarieties, 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Subgroup.index",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Index.lean",
+        "provides": "The index of a subgroup as Nat.card of the quotient, zero when infinite; finite for subgroups of a finite group.",
+        "checked": "Declaration (line 57) read at the pinned commit by REV-DESIGN-SheafConvolutionOnAbelianVarieties, 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Subgroup.Normal",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Group/Subgroup/Defs.lean",
+        "provides": "Normality of a subgroup: closed under conjugation.",
+        "checked": "Declaration (line 604) read at the pinned commit by REV-DESIGN-SheafConvolutionOnAbelianVarieties, 2026-10-19."
       }
     ]
   },
@@ -146,7 +167,7 @@
       "accessed": "2026-10-18",
       "readSections": [
         "§1, Definition 1.2.2 and Example 1.3.2, pp. 7–9",
-        "§2, Definition 2.1.1 and Theorem 2.3.1",
+        "§2, Definition 2.2.1, p. 13, and Theorem 2.3.1, p. 15",
         "§5, Lemma 5.2.2, pp. 25–26",
         "§6, Proposition 6.1.1 and Theorem 6.2.1, pp. 29–32"
       ]
@@ -210,6 +231,18 @@
       "accessed": "2026-10-18",
       "readSections": [
         "Eulerian recurrence and all comparison routines, including verify_bound_m1a_final and verify_bound_m1b_mult1a"
+      ]
+    },
+    {
+      "id": "BR",
+      "title": "An exposition of Jordan’s original proof of his theorem on finite subgroups of GL_n(C)",
+      "authors": "Emmanuel Breuillard",
+      "edition": "Author notes, 6 pages",
+      "url": "https://www.imo.universite-paris-saclay.fr/~emmanuel.breuillard/Jordan.pdf",
+      "sha256": "262d34715361673ac9ef892f1e3441250d1f85d996d154bea8340e0c8c9efa76",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1, Theorem 1.1 and the discussion of the Bieberbach–Frobenius proof, p. 1"
       ]
     }
   ],
@@ -275,17 +308,17 @@
       "tests": [
         {
           "name": "characterSpace_point",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For A of dimension zero the character space has one element and no proper T_B occurs."
         },
         {
           "name": "characterSpace_full_kernel",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For dim A>0, B=A gives T_A={1}; B=0 is excluded because its kernel would be the whole character space."
         },
         {
           "name": "characterSpace_diagonal",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For c=2 the diagonal locus χ₁=χ₂ is an allowed proper restriction kernel on A²; coordinate-only exceptions miss it."
         }
       ],
@@ -360,17 +393,17 @@
       "tests": [
         {
           "name": "characterSheaf_unit",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The unit character gives the constant sheaf with trivial Galois origin fibre."
         },
         {
           "name": "characterSheaf_no_false_descent",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "A character moved by Galois has no descent of the prescribed normalized kind."
         },
         {
           "name": "characterSheaf_arithmetic_twist",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "Tensoring a normalized descent by a nontrivial Galois character preserves geometric monodromy but fails the normalization."
         }
       ],
@@ -411,8 +444,13 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemma 2.1, p. 14; Weissauer, rigidity Proposition, pp. 1–2",
-          "match": "The source gives the convolution dual via Verdier duality and inversion. The rigidity argument is additional to ordinary symmetric monoidality."
+          "locator": "Lemma 2.1 and its proof, p. 14",
+          "match": "States that convolution is rigid symmetric monoidal with unit the skyscraper at 0 and dual [−1]*D, citing Weissauer for rigidity, over an arbitrary field."
+        },
+        {
+          "sourceId": "W",
+          "locator": "Unnumbered Proposition and its proof, pp. 1–2",
+          "match": "Proves rigidity by constructing the adjunction between convolution with M and with [−1]*D(M), via proper base change along the difference map."
         }
       ],
       "acceptance": [
@@ -448,17 +486,17 @@
       "tests": [
         {
           "name": "convolution_points",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Two skyscrapers supported at x and y convolve to one at x+y, not at x−y."
         },
         {
           "name": "convolution_unit",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "Convolution with δ₀ preserves an arbitrary complex; convolution with the constant sheaf is not the unit operation."
         },
         {
           "name": "convolution_shift_sign",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Exchanging two copies shifted by one introduces the negative Koszul sign."
         }
       ],
@@ -470,13 +508,6 @@
         {
           "where": "LS, Lemma 3.11",
           "how": "Determine the orthogonal or symplectic duality sign."
-        }
-      ],
-      "additionalSources": [
-        {
-          "sourceId": "W",
-          "locator": "Unnumbered Proposition, pp. 1–2",
-          "match": "Constructs duality data and proves the rigidity identities for convolution."
         }
       ]
     },
@@ -505,8 +536,13 @@
       "sources": [
         {
           "sourceId": "KW",
-          "locator": "KW, Theorem 1.1, p. 2; Lemma 11.2(c), p. 25",
-          "match": "These two statements have different generality. The torsion conclusion is not part of the arbitrary-perverse version."
+          "locator": "Theorem 1.1, p. 2; Lemma 11.2(b)–(c), pp. 25–26",
+          "match": "Theorem 1.1 gives vanishing outside a finite union of translates of proper subtori for any perverse sheaf; Lemma 11.2(b) describes the exceptional set of a semisimple sheaf as such a union and (c) makes the translating characters torsion for geometric origin."
+        },
+        {
+          "sourceId": "LS",
+          "locator": "§4, p. 30, paragraph before Lemma 4.4",
+          "match": "LS cite the KW lemma for generic vanishing; their description with torsion translates for an arbitrary perverse sheaf is corrected in finding E4."
         }
       ],
       "acceptance": [
@@ -544,8 +580,13 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemma 2.2(1)–(5), p. 15; KW, Proposition 10.1 and Lemma 13.1, pp. 21–22 and 29–30",
-          "match": "The thick derived ideal is defined by all perverse cohomology, not by cancellation in the total Euler characteristic."
+          "locator": "Lemma 2.2(1)–(5), p. 15",
+          "match": "Nonnegativity of perverse Euler characteristics, thickness of N and of Dᵇ(N), the convolution ideal property and negligibility of nonzero perverse degrees of a convolution of perverse sheaves."
+        },
+        {
+          "sourceId": "KW",
+          "locator": "Proposition 10.1 and the preceding paragraph, pp. 21–22; Lemma 13.1, pp. 29–30",
+          "match": "Nonnegativity (via Franecki–Kapranov), the classification of simple perverse sheaves of Euler characteristic zero, and stability of the quotient under convolution."
         }
       ],
       "acceptance": [
@@ -581,17 +622,17 @@
       "tests": [
         {
           "name": "negligible_point",
-          "kind": "example",
+          "kind": "computation",
           "statement": "A rank-one skyscraper has Euler characteristic 1 and is not negligible."
         },
         {
           "name": "negligible_constant",
-          "kind": "example",
+          "kind": "computation",
           "statement": "On a positive-dimensional abelian variety the shifted constant perverse sheaf F[n] is negligible."
         },
         {
           "name": "negligible_no_cancellation",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "δ₀⊕δ₀[1] has total Euler characteristic zero but is not in D_N because its nonzero perverse cohomology contains δ₀."
         }
       ],
@@ -632,8 +673,13 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemma 2.2(6)–(9), p. 15; KW, §§12–13, pp. 26–30",
-          "match": "The heart embeds in the Verdier quotient as the tensor-stable Serre quotient; it need not equal the whole Verdier quotient."
+          "locator": "Lemma 2.2(6)–(9), p. 15",
+          "match": "Convolution descends to the Verdier quotient by Dᵇ(N); the image of P there is P/N, is stable under convolution, and is rigid symmetric monoidal abelian."
+        },
+        {
+          "sourceId": "KW",
+          "locator": "Lemmas 12.2–12.3, pp. 28–29; Lemma 13.1, pp. 29–30",
+          "match": "The heart of the induced t-structure on the Verdier quotient is the abelian quotient, Serre subcategories pass to the quotient, and the Euler quotient is a rigid symmetric monoidal subcategory."
         }
       ],
       "acceptance": [
@@ -669,17 +715,17 @@
       "tests": [
         {
           "name": "quotient_kills_constant",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For dim A>0, the image of F[n] is zero."
         },
         {
           "name": "quotient_keeps_point",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The image of δ₀ is a nonzero tensor unit with endomorphism field F."
         },
         {
           "name": "quotient_extra_degrees",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "Negligible higher perverse cohomology of K*L disappears, even if the original convolution was not perverse."
         }
       ],
@@ -718,8 +764,13 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Definition before Lemma 2.5 and Lemma 2.5(1)–(2), p. 16; KW, Theorem 13.2, p. 30",
-          "match": "The condition includes all geometric subquotients, not just the whole sheaf."
+          "locator": "Definition of P^χ before Lemma 2.5, and Lemma 2.5(1)–(2), p. 16",
+          "match": "The condition is imposed on every geometric subquotient; the quotient by N^χ embeds in P/N and is closed under the unit, convolution and duality."
+        },
+        {
+          "sourceId": "KW",
+          "locator": "§13, definition of P^χ before Theorem 13.2, and Theorem 13.2, p. 30",
+          "match": "Defines the subcategory by vanishing on all simple subquotients and proves it is a rigid symmetric monoidal subcategory of the quotient."
         }
       ],
       "acceptance": [
@@ -755,17 +806,17 @@
       "tests": [
         {
           "name": "admissible_skyscraper",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "Every skyscraper δₓ is admissible for every character."
         },
         {
           "name": "admissible_bad_constant",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For dim A>0, F[n] is not admissible for χ=1."
         },
         {
           "name": "admissible_good_constant",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For a nontrivial geometric rank-one character on a complex abelian variety, F[n] has zero twisted cohomology and is admissible; it becomes zero in the quotient."
         }
       ],
@@ -805,8 +856,13 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemma 2.5(3)–(4), p. 16; KW, Theorem 13.2, p. 30",
-          "match": "Twisted cohomology neutralizes the good quotient, rather than furnishing a faithful functor on all perverse sheaves."
+          "locator": "Lemma 2.5(3)–(4), p. 16",
+          "match": "Twisted degree-zero cohomology is an exact tensor functor on P^χ/N^χ, and the category with this functor is neutral Tannakian."
+        },
+        {
+          "sourceId": "KW",
+          "locator": "Theorem 13.2, p. 30",
+          "match": "Uses H⁰ of the χ-twist as fibre functor, well defined because it vanishes on the negligible part."
         }
       ],
       "acceptance": [
@@ -842,17 +898,17 @@
       "tests": [
         {
           "name": "fiber_point",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "ωχ(δ₀)=F, with the prescribed unit identification."
         },
         {
           "name": "fiber_nonfaithful_before_quotient",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "A negligible admissible shifted constant object has zero fibre, so faithfulness before quotienting is false."
         },
         {
           "name": "fiber_tensor_rank",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The fibre of δₓ*δᵧ has dimension 1, equal to the product of the two fibre dimensions."
         }
       ],
@@ -930,17 +986,17 @@
       "tests": [
         {
           "name": "group_unit",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "The tensor category generated by δ₀ has trivial group."
         },
         {
           "name": "group_negligible",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "A negligible generator has zero distinguished fibre and cannot yield a positive-rank monodromy group."
         },
         {
           "name": "group_same_summand",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "K⊕K gives a diagonal copy of G(K) in G(K)², rather than automatically the full product."
         }
       ],
@@ -1012,8 +1068,13 @@
       "sources": [
         {
           "sourceId": "KW",
-          "locator": "KW, Proposition 10.1(b), pp. 21–22; LS, proof of Lemma 4.1, p. 29",
-          "match": "This is the support-theoretic interpretation of a one-dimensional tensor factor used by the translation argument."
+          "locator": "Proposition 10.1(b), pp. 21–22",
+          "match": "A simple perverse sheaf has Euler characteristic one exactly when it is a rank-one skyscraper."
+        },
+        {
+          "sourceId": "LS",
+          "locator": "proofs of Lemma 3.11, p. 24, and Lemma 4.1, p. 29",
+          "match": "Both proofs identify a one-dimensional representation with a skyscraper and convolution with it with translation."
         }
       ],
       "acceptance": [
@@ -1032,17 +1093,18 @@
       "kind": "construction",
       "statement": "Fix χ∈Π(A). Let C_ar be the full subcategory of Pχ/Nχ represented by geometrically semisimple perverse sheaves on A. Let C_geo be the full subcategory on A_k̄ consisting of direct summands of pullbacks of these objects. Both, with ωχ, are neutral Tannakian. For geometrically semisimple representatives K,L the quotient Hom is Hom_P(K,L) modulo maps factoring through N. C_geo is deliberately the category generated by arithmetic pullbacks, rather than the entire geometric perverse quotient.",
       "hypotheses": [
-        "k has characteristic zero. Geometric semisimplicity is imposed on pullbacks, not on the arithmetic representation at the origin."
+        "k has characteristic zero. Geometric semisimplicity is imposed on pullbacks, not on the arithmetic representation at the origin. LS state Lemma 2.7 for every geometrically semisimple object; its closure under convolution then needs Kashiwara’s conjecture (request R3). Restricted to objects of geometric origin, which contain every object used in SC.3–SC.9, the decomposition theorem EDC.7/decomposition-theorem-complex suffices."
       ],
       "prerequisites": [
         "SheafConvolutionOnAbelianVarieties:SC.1/admissible-perverse",
         "SheafConvolutionOnAbelianVarieties:SC.1/fibre-functor",
         "EtaleDualityAndPerverseSheaves:EDC.7",
-        "MotivesAndAlgebraicCycles:MC.3/tannakian-category"
+        "MotivesAndAlgebraicCycles:MC.3/tannakian-category",
+        "EtaleDualityAndPerverseSheaves:EDC.7/decomposition-theorem-complex"
       ],
       "proofSteps": [
         "Split each geometrically semisimple object into its negligible and nonnegligible geometric parts; Galois-stable isotypic projectors descend. This proves the Hom formula without asserting it for arbitrary objects.",
-        "Use the requested characteristic-zero proper-direct-image semisimplicity theorem for convolution. Semisimplicity then makes kernels, cokernels and geometric subobjects summands of arithmetic pullbacks."
+        "Convolution is proper pushforward along addition. For objects of geometric origin the decomposition theorem EDC.7/decomposition-theorem-complex makes the convolution of geometrically semisimple objects geometrically semisimple; for arbitrary geometrically semisimple objects, as LS state it, this is Kashiwara’s conjecture, request R3. Semisimplicity then makes kernels, cokernels and geometric subobjects summands of arithmetic pullbacks."
       ],
       "sources": [
         {
@@ -1084,17 +1146,17 @@
       "tests": [
         {
           "name": "arithmetic_origin_extension",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "A nonsplit extension of trivial Galois representations at the origin is geometrically semisimple, so arithmetic semisimplicity cannot be substituted."
         },
         {
           "name": "geometric_origin_trivial",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The pullback of δ₀⊗V is a direct sum of dim V copies of the tensor unit."
         },
         {
           "name": "geometric_not_every_object",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "No object lacking an arithmetic-pullback summand presentation is admitted merely because it is a geometric perverse sheaf."
         }
       ],
@@ -1132,8 +1194,13 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemma 2.8, p. 18; EHS, Theorem A.1, pp. 20–21",
-          "match": "The five categorical checks yield group-scheme exactness; the Galois term is explicitly a Tannaka envelope."
+          "locator": "Lemma 2.8 and its proof, p. 18",
+          "match": "Verifies the five categorical criteria for the sequence of Tannaka groups, with the Galois term the group of the category of Galois representations."
+        },
+        {
+          "sourceId": "EHS",
+          "locator": "Appendix A, Theorem A.1, pp. 20–21",
+          "match": "Gives the categorical criteria for a sequence of affine group schemes to be exact: faithful flatness, closed immersion and exactness in the middle."
         }
       ],
       "acceptance": [
@@ -1319,17 +1386,17 @@
       "tests": [
         {
           "name": "distinguished_curve",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For n=2 the perverse shift is [1]; the dimension is 2d despite the negative topological Euler characteristic."
         },
         {
           "name": "distinguished_threefold",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For n=3,d=1, dim V_H=6 and the relevant cohomology degree is 2."
         },
         {
           "name": "distinguished_wrong_shift",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "i_*F[n] is not in the perverse heart; its degree-zero fibre cannot be substituted for V_H."
         }
       ],
@@ -1410,8 +1477,13 @@
       "sources": [
         {
           "sourceId": "K2",
-          "locator": "K2, Definition 1.2.2 and Example 1.3.2, pp. 7–9; LS, proof of Lemma 3.9, p. 22",
-          "match": "The clean convolution is a cycle operation; retaining pushforward multiplicities is essential to its degree formula."
+          "locator": "Definition 1.2.2, p. 8, and Example 1.3.2, p. 9",
+          "match": "Clean cycles are cycles all of whose components dominate the cotangent fibre; their product is defined over a common open of the fibre on which both supports are finite and flat, by pushforward along addition and closure."
+        },
+        {
+          "sourceId": "LS",
+          "locator": "proof of Lemma 3.9, p. 22",
+          "match": "Reviews clean cycles, their Gauss degree and the multiplicativity of the degree under the product."
         }
       ],
       "acceptance": [
@@ -1447,17 +1519,17 @@
       "tests": [
         {
           "name": "clean_point_product",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Λₓ◦Λᵧ=Λₓ₊ᵧ, with Gauss degree 1."
         },
         {
           "name": "clean_zero_section",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For n>0 the zero section has clean part zero since its image in V is {0}."
         },
         {
           "name": "clean_multiplicity",
-          "kind": "example",
+          "kind": "computation",
           "statement": "(2Λₓ)◦(3Λᵧ)=6Λₓ₊ᵧ; replacing the product by its reduced support fails this test."
         }
       ],
@@ -1487,17 +1559,28 @@
       "prerequisites": [
         "SheafConvolutionOnAbelianVarieties:SC.4/clean-cycle-ring",
         "EtaleDualityAndPerverseSheaves:EDC.6/complex-analytic-comparison",
-        "ComplexComparisonPartII:C5"
+        "ComplexComparisonPartII:C5",
+        "SpringerResolutionAndCharacteristicCycles:D/characteristic-cycle"
       ],
       "proofSteps": [
-        "Import the requested regular-holonomic/constructible RH and microlocal index interfaces; use their compatibility with proper direct image to compare convolution.",
+        "Import the characteristic cycle of a coherent D-module from SpringerResolutionAndCharacteristicCycles:D/characteristic-cycle, and the regular-holonomic Riemann–Hilbert correspondence, Kashiwara’s index theorem and the direct-image, external-product and isogeny compatibilities requested in R8; use the direct-image compatibility to compare convolution.",
         "Pass to the clean part. Its Gauss degree gives the index formula; negligible components are exactly those discarded from the Euler-characteristic calculation."
       ],
       "sources": [
         {
           "sourceId": "K2",
-          "locator": "K2, Definition 2.1.1 and §2, pp. 9–13; LS, proof of Lemma 3.9, p. 22",
-          "match": "The application needs actual characteristic cycles and the index theorem, not only the existing regular-singular flat-connection equivalence on a smooth open."
+          "locator": "§2, Definition 2.2.1, p. 13, with §§2.1–2.2, pp. 12–14 (arXiv v2 numbering; LS p. 22 cites it as Definition 2.1.1)",
+          "match": "Defines the clean characteristic cycle of a holonomic module by discarding the components with nondominant Gauss map, and relates it to the Tannakian dictionary."
+        },
+        {
+          "sourceId": "KW",
+          "locator": "proof of Proposition 10.1, p. 22",
+          "match": "The microlocal index formula writes the Euler characteristic of a perverse sheaf as the sum of the multiplicities times the Gauss degrees of the conormal components."
+        },
+        {
+          "sourceId": "LS",
+          "locator": "proof of Lemma 3.9, p. 22",
+          "match": "Uses the clean characteristic cycle of the hypersurface sheaf, which is the reduced conormal of H."
         }
       ],
       "acceptance": [
@@ -1533,17 +1616,17 @@
       "tests": [
         {
           "name": "characteristicCycle_point",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The cycle of δₓ is a reduced conormal of degree 1."
         },
         {
           "name": "characteristicCycle_constant",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For dim A>0, CC(F[n]) is the zero section with multiplicity one, whereas cc(F[n])=0."
         },
         {
           "name": "characteristicCycle_rank",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "A rank-two constant sheaf on a smooth support has multiplicity two, rather than a reduced cycle."
         }
       ],
@@ -1583,8 +1666,8 @@
       "sources": [
         {
           "sourceId": "K2",
-          "locator": "K2, Theorem 2.3.1; Lemma 5.2.2, pp. 25–26; Proposition 6.1.1, pp. 29–30",
-          "match": "This criterion, rather than the symmetric-divisor theorem 6.2.1, supplies the input for the nonsymmetric hypersurface argument."
+          "locator": "Theorem 2.3.1, p. 15; Lemma 5.2.2, p. 25; Proposition 6.1.1, pp. 29–30",
+          "match": "A tensor factorization of a representation of an isogenous cover is realized by clean cycles after pushforward by an isogeny; if the Lie algebra is not simple modulo its centre for a simple module with trivial stabilizer, the pushed cycle is a product of two effective clean cycles of degree greater than one; a multiplicity-one component of a product of conormals has dominant rational maps to both supports."
         }
       ],
       "acceptance": [
@@ -1611,7 +1694,8 @@
       "prerequisites": [
         "SheafConvolutionOnAbelianVarieties:SC.3/distinguished-representation",
         "SheafConvolutionOnAbelianVarieties:SC.4/characteristic-cycle",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles"
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+        "LieHighestWeightPartII:N2"
       ],
       "proofSteps": [
         "Compute the smooth characteristic cycle with shift [n−1] and use the index to show it is clean.",
@@ -1620,8 +1704,13 @@
       "sources": [
         {
           "sourceId": "K1",
-          "locator": "K1, Corollary 1.10, p. 12; LS, Lemma 3.8, p. 21",
-          "match": "The current K1 locator is Corollary 1.10; the citation “1.0” in LS is corrected. The representation is of the connected group, not of a Lie algebra called H."
+          "locator": "Corollary 1.10 and the table before it, p. 12",
+          "match": "If the characteristic cycle is one irreducible Lagrangian not stable under translation, modulo degenerate components, the representation of the identity component is minuscule."
+        },
+        {
+          "sourceId": "LS",
+          "locator": "Lemma 3.8 and its proof, p. 21",
+          "match": "Applies the criterion to the smooth hypersurface, whose characteristic cycle is its reduced conormal."
         }
       ],
       "acceptance": [
@@ -1658,8 +1747,13 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemma 3.9 and its proof, pp. 21–24",
-          "match": "The proof adapts microlocal factorization using smoothness and the Albanese isomorphism; n=2 is outside the supplied proof."
+          "locator": "Lemma 3.9 and its proof, pp. 21–23",
+          "match": "Proves simplicity modulo the centre for n>2 by adapting Krämer’s argument to nonsymmetric smooth divisors; the full-preimage step is repaired as in finding E5."
+        },
+        {
+          "sourceId": "K2",
+          "locator": "Proposition 6.1.1, pp. 29–30; Lemma 5.2.2, p. 25; proof of Theorem 6.2.1, p. 30",
+          "match": "The factorization criterion and the symmetric-divisor argument that LS restate without the symmetry hypothesis."
         }
       ],
       "acceptance": [
@@ -1690,17 +1784,18 @@
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations"
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations",
+        "LieHighestWeightPartII:N2"
       ],
       "proofSteps": [
-        "Use the complete requested minuscule table, including types A–D and E₆,E₇ and the nonexistence in the remaining exceptional types.",
-        "Apply Weyl dimensions or the spin supplier. For n≥3, divisibility by 6 rules out powers of 2, 27 and 56. Keep the standard representations and interior exterior powers."
+        "Use the minuscule table requested from LieHighestWeightPartII:N2 (R18), including types A–D, E₆ and E₇ and the absence of minuscule weights in the remaining exceptional types.",
+        "Apply the Weyl dimension formula and the spin and exceptional dimensions of the Tau Ceti layers cited as they stand. For n≥3, divisibility by 6 rules out powers of 2, 27 and 56. Keep the standard representations and interior exterior powers."
       ],
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemmas 3.10 and 3.12, pp. 24–25",
-          "match": "The dimension restriction is a hypersurface application of the imported classification; it is not a second highest-weight roadmap."
+          "locator": "Lemma 3.10, p. 23, and Lemma 3.12, p. 24",
+          "match": "Lists the minuscule images of a simple group and excludes the spin and exceptional ones for n>2 because 6 divides N."
         }
       ],
       "acceptance": [
@@ -1814,22 +1909,22 @@
       "tests": [
         {
           "name": "wedge_count_repeated",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For four weights all zero, the multiplicity at k=2,t=0 is 6, not 1 or 12."
         },
         {
           "name": "wedge_count_empty",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For m=0,k=0 there is one empty subset of weight zero; all other weights have multiplicity zero."
         },
         {
           "name": "wedge_count_excess",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For m=2,k=3 every multiplicity vanishes."
         },
         {
           "name": "wedge_count_signed",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For weights −1,0,1 and k=2 the multiplicities at −1,0,1 are all 1."
         }
       ],
@@ -1903,17 +1998,17 @@
       "tests": [
         {
           "name": "pell_initial",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "P₀=(1,5)."
         },
         {
           "name": "pell_second",
-          "kind": "example",
+          "kind": "computation",
           "statement": "P₁=(5,20), not (5,19); the affine +1 term is necessary."
         },
         {
           "name": "pell_third",
-          "kind": "example",
+          "kind": "computation",
           "statement": "P₂=(20,76); swapping the two prior terms changes the answer."
         }
       ],
@@ -1988,17 +2083,17 @@
       "tests": [
         {
           "name": "exceptional_degree_first",
-          "kind": "example",
+          "kind": "computation",
           "statement": "D₁=binom(25,5)/6=8855."
         },
         {
           "name": "exceptional_dimension_first",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "6D₁=53130; a definition returning 53130 for d fails."
         },
         {
           "name": "exceptional_index_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "D₀=1 is computed but is excluded from the geometric exception set because its exponent is 1."
         }
       ],
@@ -2038,6 +2133,7 @@
       "proofSteps": [
         "Choose a finite-order good character and a finitely generated field of definition. Spread the finite normalizer tensor constraints and specialize to a number-field point, retaining the inclusion of the arithmetic image in the exterior-power normalizer.",
         "Use the requested Hodge–Tate cocharacter in the Zariski closure of the Galois image. Compare its graded fibre functor with the ordinary fibre functor over C_p; this comparison is required and is not a canonical equality of fibres.",
+        "The normalizer of the image of SL_m in GL(∧^k) has identity component the image of GL_m (its centralizer is scalar by Schur’s lemma, and every scalar is a k-th power), the kernel of GL_m on ∧^k is μ_k, and its component group has order at most two, nontrivial only when m=2k, since an outer automorphism exchanges ∧^k with ∧^(m−k).",
         "The connected cocharacter lands in the connected exterior-power normalizer. After pulling it back by t↦t^k, lift to GL_m. The lifted standard weights are congruent modulo k because their differences are adjoint weights. Remove their common fractional part into an integral central shift s. Reverse signs to match the native weights −q with the source’s q labels.",
         "Count k-subsets of the resulting integer weights and apply the Hodge–Tate row. For complementary exponent use W-complement and A(n,q)=A(n,n−1−q)."
       ],
@@ -2433,7 +2529,7 @@
       ],
       "title": "Classical convolution monodromy",
       "kind": "theorem",
-      "statement": "Let A/C have dimension n>2, and H⊂A be smooth ample with trivial translation stabilizer. Write d=[H]^n/n! and N=n!d. If n=3 assume d≠D_j for every j≥1; for n≥4 impose no additional numerical exception. Then G_H contains as a normal subgroup SL_N when H is not a translate of [−1]H; if it is such a translate, the normal subgroup is Sp_N for even n and SO_N for odd n. Equivalently these are the connected derived images G_H*. The printed n=2,d=28 exception in Theorem 3.5 is vacuous under n>2 and is not used to infer a surface theorem.",
+      "statement": "Let A/C have dimension n>2, and H⊂A be smooth ample with trivial translation stabilizer. Write d=[H]^n/n! and N=n!d. If n=3 assume d≠D_j for every j≥1; for n≥4 impose no additional numerical exception. Then G_H contains as a normal subgroup SL_N when H is not a translate of [−1]H; if it is such a translate, the normal subgroup is Sp_N for even n and SO_N for odd n. Equivalently these are the connected derived images G_H*. The printed n=2,d=28 exception in Theorem 3.5 is vacuous under n>2 (finding E22) and is not used to infer a surface theorem.",
       "hypotheses": [
         "Coefficients F=Q̄_ℓ; group comparisons are up to inner conjugacy; all characteristic-zero extensions use the SC.2 comparison."
       ],
@@ -2526,7 +2622,7 @@
       ],
       "proofSteps": [
         "A common quotient of the two generated groups would give isomorphic objects supported on the two different axes. Their common support is the origin, so the common quotient is trivial.",
-        "Apply induction on c. For a constant constituent nontrivial on a coordinate G*, twist generically and push to that coordinate. Proper base change preserves constancy, contradicting constant-part-rigidity. The required exact tensor pushforward restriction is included in the EDC.6 request."
+        "Apply induction on c. For a homomorphism p:A^c→A, proper base change along the group laws makes Rp_* a tensor functor for convolution, and the projection formula gives Rp_*(K⊗p*Lχ)≅(Rp_*K)⊗Lχ; restricted to the good subcategory of a generic character, twisting and pushing to a coordinate is the exact faithful tensor functor of LS Corollary 4.3. A constant constituent nontrivial on a coordinate G* would push to a constant constituent nontrivial on G*, contradicting constant-part-rigidity."
       ],
       "sources": [
         {
@@ -2562,7 +2658,7 @@
         "SheafConvolutionOnAbelianVarieties:SC.0/rank-one-local-system",
         "EtaleDualityAndPerverseSheaves:EDC.5/fibre-dimension-perverse-amplitude",
         "EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension",
-        "EtaleDualityAndPerverseSheaves:EDC.7"
+        "EtaleDualityAndPerverseSheaves:EDC.7/decomposition-theorem-complex"
       ],
       "proofSteps": [
         "Spread K to K′ on A×X with K′[dim X] perverse. First exclude the bad loci of K and of the finitely many perverse cohomology objects of Rπ_*K′ for π:A×X→A.",
@@ -2586,6 +2682,58 @@
       }
     },
     {
+      "id": "SheafConvolutionOnAbelianVarieties:SC.7/jordan-finite-linear-groups",
+      "parentStageId": "SheafConvolutionOnAbelianVarieties:SC.7",
+      "realises": [
+        "SheafConvolutionOnAbelianVarieties:SC.7"
+      ],
+      "title": "Jordan’s theorem on finite linear groups",
+      "kind": "theorem",
+      "statement": "For every n≥1 there is an integer J(n) with the following property. If F is a field of characteristic zero and Γ⊂GL_n(F) is a finite subgroup, then Γ has an abelian normal subgroup of index at most J(n). Consequently, if F is algebraically closed of characteristic zero, V is an n-dimensional F-vector space and B⊂GL(V) is a subgroup whose image in PGL(V) is finite, then B has an abelian normal subgroup of index at most J(n), and every irreducible finite-dimensional representation of B over F has dimension at most J(n).",
+      "hypotheses": [
+        "Characteristic zero is essential: in characteristic p the groups SL_2(F_q)⊂GL_2(F̄_p) have no abelian subgroups of index bounded independently of q."
+      ],
+      "proofSteps": [
+        "The entries of a finite Γ generate a finitely generated field, which embeds in ℂ, so assume F=ℂ. Averaging a Hermitian form over Γ conjugates Γ into U(n).",
+        "Commutators shrink near the identity: for g,h∈U(n), ‖[g,h]−1‖≤2‖g−1‖‖h−1‖. Hence the elements of Γ within a fixed small distance of 1 generate an abelian normal subgroup, and a volume-packing count of its cosets in U(n) bounds the index in terms of n alone (the Bieberbach–Frobenius argument).",
+        "For B finite modulo scalars, Γ₁=(F^×B)∩SL(V) is finite (its image in PGL(V) is finite and its kernel is μ_n) and F^×B=F^×Γ₁. If A₁⊲Γ₁ is abelian of index at most J(n), then B∩F^×A₁ is abelian, normal in B and of index at most J(n). On an irreducible representation W, a common eigenvector of this abelian normal subgroup and its translates by coset representatives span a B-stable subspace of dimension at most J(n), so dim W≤J(n)."
+      ],
+      "acceptance": [
+        "For n=1 every finite subgroup is abelian, so J(1)=1 works.",
+        "The quaternion group Q₈⊂GL₂(ℂ) is not abelian; its cyclic subgroup of order 4 is abelian, normal and of index 2.",
+        "The dihedral groups of order 2q in GL₂(ℂ) have their rotation subgroup of index 2 for every q: the bound depends on n only.",
+        "The statement fails in characteristic p for SL₂(F_q)⊂GL₂(F̄_p), so the characteristic-zero hypothesis cannot be dropped."
+      ],
+      "uses": [
+        {
+          "where": "LS, proof of Lemma 4.5, p. 32",
+          "how": "bounds the dimension of irreducible representations of a subgroup of N(G*) that is finite modulo scalars, ruling out irreducible action on a large test representation W"
+        }
+      ],
+      "planet": {
+        "name": "Jordan’s theorem on finite linear groups"
+      },
+      "prerequisites": [
+        "mathlib:Matrix.GeneralLinearGroup",
+        "mathlib:Subgroup.index",
+        "mathlib:Subgroup.Normal"
+      ],
+      "sources": [
+        {
+          "sourceId": "BR",
+          "locator": "Theorem 1.1, p. 1, with the account of the Bieberbach–Frobenius proof on p. 1",
+          "match": "States Jordan’s theorem for finite subgroups of GL_n(ℂ) and describes the unitary-trick, commutator-shrinking and packing proof."
+        },
+        {
+          "sourceId": "LS",
+          "locator": "proof of Lemma 4.5, p. 32",
+          "match": "Invokes the Jordan–Schur bound for subgroups of N(G*) finite modulo scalars."
+        }
+      ],
+      "addedBy": "REV-DESIGN-SheafConvolutionOnAbelianVarieties",
+      "implementationStatus": "unchecked"
+    },
+    {
       "id": "SheafConvolutionOnAbelianVarieties:SC.7/detecting-representations",
       "parentStageId": "SheafConvolutionOnAbelianVarieties:SC.7",
       "realises": [
@@ -2602,11 +2750,12 @@
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
         "MordellLawrenceVenkatesh:LV.0/lie-algebra-goursat",
-        "MordellLawrenceVenkatesh:LV.0/two-factor-lie-goursat"
+        "MordellLawrenceVenkatesh:LV.0/two-factor-lie-goursat",
+        "SheafConvolutionOnAbelianVarieties:SC.7/jordan-finite-linear-groups"
       ],
       "proofSteps": [
-        "Use the requested Jordan bound and arbitrarily large normalizer-extendible irreducibles. No invariants in the two endomorphism tests makes each coordinate projection act irreducibly on W and on the adjoint module.",
-        "The projection Lie algebra either contains Lie(G*) or is central. In the second case Jordan’s theorem contradicts irreducibility on W with dimension >J.",
+        "Take J from Jordan’s theorem, SC.7/jordan-finite-linear-groups. For W take the Cartan component of highest weight rλ in Sym^r V for large r, where λ is the highest weight of V: it is irreducible under G*, stable under N because N fixes the isomorphism class of V and hence λ, and its dimension grows without bound by the Weyl dimension formula (Tau Ceti LieHighestWeight Layer 6, cited as it stands). No invariants in the two endomorphism tests makes each coordinate projection act irreducibly on W and on the adjoint module.",
+        "The projection Lie algebra either contains Lie(G*) or is central. In the second case the projection is finite modulo scalars, so by Jordan’s theorem its irreducible representations have dimension at most J, contradicting irreducibility on W.",
         "Pairwise Lie-Goursat detects any remaining graph relation. Such a graph creates an invariant in a cross-coordinate adjoint tensor, so all projections together contain the full connected product."
       ],
       "sources": [
@@ -2650,17 +2799,17 @@
       "tests": [
         {
           "name": "tests_product",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "For B=(G*)^c all invariants in the test list vanish."
         },
         {
           "name": "tests_diagonal",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For c=2 and B=diagonal G*, the identity intertwiner gives a nonzero cross-adjoint invariant."
         },
         {
           "name": "tests_trivial",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For B=1 a nonzero test representation has fixed vectors; the trivial subgroup is rejected."
         }
       ],
@@ -2688,12 +2837,12 @@
         "SheafConvolutionOnAbelianVarieties:SC.7/relative-generic-vanishing",
         "SheafConvolutionOnAbelianVarieties:SC.7/detecting-representations",
         "SheafConvolutionOnAbelianVarieties:SC.2/galois-normalization",
-        "EtaleDualityAndPerverseSheaves:EDC.7"
+        "EtaleDualityAndPerverseSheaves:EDC.7/decomposition-theorem-complex"
       ],
       "proofSteps": [
         "First remove concentration failures for the c twists. Arithmetic normalization places the simultaneous monodromy group inside N(G*)^c.",
         "Realize the finite detecting tensor representations by geometrically semisimple perverse objects in the arithmetic axis-generated category. Their geometric constituents have no constant part by independent-coordinate-factors.",
-        "Apply relative-generic-vanishing to all those objects. The requested proper-direct-image semisimplicity gives a reductive monodromy group. The finite test battery forces product containment; the normalizer inclusion makes the contained product normal."
+        "Apply relative-generic-vanishing to all those objects. For torsion characters the sheaves g*Lχ have geometric origin, so the decomposition theorem EDC.7/decomposition-theorem-complex makes the local systems semisimple and the monodromy group reductive. The finite test battery forces product containment; the normalizer inclusion makes the contained product normal."
       ],
       "sources": [
         {
@@ -2770,7 +2919,8 @@
       ],
       "proofSteps": [
         "Take the finite Galois/cyclotomic conjugate closure of the torsion-coset data, using finite fields of definition of abelian subvarieties and translating torsion characters.",
-        "Among characters of order dividing ℓ^r, the total count is ℓ^(2nr). A restriction kernel from a positive-dimensional abelian subvariety has at most a fixed multiple of ℓ^(2(n−1)r) points. For large r the finite exceptional union cannot exhaust all characters."
+        "Among characters of order dividing ℓ^r, the total count is ℓ^(2nr). A restriction kernel from a positive-dimensional abelian subvariety has at most a fixed multiple of ℓ^(2(n−1)r) points. For large r the finite exceptional union cannot exhaust all characters.",
+        "The source counts ℓ^(2kn) characters of order dividing ℓ^k but calls them ℓ^(2k)-torsion; the count used is for ℓ^k-torsion (finding E23)."
       ],
       "sources": [
         {
@@ -2890,17 +3040,17 @@
       "tests": [
         {
           "name": "period_fixed_picard",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "Translation by x preserves M’s line bundle condition only when x lies in the finite kernel of φ_L."
         },
         {
           "name": "period_m_one",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "At m=1 the deck decomposition has only the trivial character."
         },
         {
           "name": "period_no_ns_substitution",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "Replacing Pic(A) by NS(A) makes all translations preserve the parameter condition and destroys the intended finiteness test."
         }
       ],
@@ -2932,7 +3082,8 @@
         "StableReductionPartII:MC.4/fine-level-scheme",
         "StableReductionPartII:MC.6/torelli-finite-fibres",
         "StableReductionPartII:MC.6",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+        "JacobianChallengePartII:JC2"
       ],
       "proofSteps": [
         "Use adjunction and the SC.3 Euler calculation to obtain g=1+d. A polarized integral weight-one Hodge structure determines the principally polarized Jacobian. The full-level Torelli theorem gives finite geometric fibres from the moduli of genus-g curves to the moduli of their polarized Jacobians.",
@@ -2943,8 +3094,13 @@
       "sources": [
         {
           "sourceId": "JV",
-          "locator": "Milne, Proposition 6.1, pp. 19–20, and Theorem 12.1, pp. 38–39; application to LS Proposition 4.11, pp. 37–38",
-          "match": "The Jacobian universal property and Torelli are imported. The rigidity-plus-fixed-line-bundle argument is a separate deduction for this parameter space, rather than a claimed extension of Lemma 3.9."
+          "locator": "Proposition 6.1 and its proof, pp. 19–20; Theorem 12.1, p. 38",
+          "match": "The pointed Abel–Jacobi map has the Albanese universal property for maps to abelian varieties; Torelli recovers a curve, up to the stated sign and translation, from its canonically polarized Jacobian."
+        },
+        {
+          "sourceId": "LS",
+          "locator": "Proposition 4.11, pp. 37–38",
+          "match": "States quasi-finiteness for n≥2; its proof invokes Lemma 3.9, which needs n>2, so the surface case is supplied separately here (finding E18)."
         }
       ],
       "acceptance": [
@@ -2986,8 +3142,13 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Proposition 4.11, pp. 37–38; CDK, Theorem 1.1 and Corollary 1.3, PDF p. 2",
-          "match": "The precise CDK finite theorem supplies the closedness interface. The surface case has a separate Torelli route; the higher-dimensional marked-period argument retains G3."
+          "locator": "Proposition 4.11 and its proof, pp. 37–38",
+          "match": "Uses closed projected identity Hodge loci, their stabilization along divisibility and the big monodromy theorem to contradict a positive-dimensional fibre."
+        },
+        {
+          "sourceId": "CDK",
+          "locator": "Theorem 1.1 and Corollary 1.3, p. 2",
+          "match": "The locus of integral (0,0) classes of bounded polarization norm is algebraic and finite over the base; the points where some determination of a flat integral section is of type (0,0) form an algebraic subvariety."
         }
       ],
       "acceptance": [
@@ -3005,7 +3166,7 @@
     {
       "id": "R1",
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.6",
-      "need": "For characteristic-zero abelian varieties with F=Q̄_ℓ coefficients: (a) coherent proper base change, projection formula, external Künneth, and π₁-product comparisons on bounded constructible adic objects; (b) lisse rank-one sheaves versus continuous characters, origin-section descent, and multiplicative coherence; (c) algebraically closed base extension is fully faithful on constructible Hom and preserves simple perverse constituents for tensor constructions of a fixed descended object; (d) exact tensor pushforward to a coordinate after restricting to its generic-acyclic good subcategory. Keep the integral-lattice essential image in analytic comparison; do not assert equivalence with all analytic adic objects. These are extensions/receipts of EDC.6, not a new six-operation theory here.",
+      "need": "Part II (EtaleDualityAndPerverseSheavesPartII, not yet designed). EtaleDualityAndPerverseSheaves is TauCetiRoadmap pull request #1040 (README at head 88b1212); it takes proper and smooth base change, the projection formula and Künneth from EtaleCohomologyFoundations §§F.0–F.3, cited as they stand, but does not state the following, which this roadmap needs for F=Q̄_ℓ coefficients on abelian varieties in characteristic zero: (a) lisse rank-one sheaves versus continuous characters of the geometric fundamental group, the origin-section descent of a Galois-invariant character, and multiplicative coherence; (b) for an extension of algebraically closed characteristic-zero fields, pullback is fully faithful on constructible Hom and preserves the simple perverse constituents of tensor constructions of an object defined over the smaller field; (c) the Künneth comparison π₁(A×A′)=π₁(A)×π₁(A′) of geometric fundamental groups. Keep the integral-lattice essential image of EDC.6/complex-analytic-comparison; do not assert equivalence with all analytic adic objects.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.0/character-space",
         "SheafConvolutionOnAbelianVarieties:SC.0/rank-one-local-system",
@@ -3019,7 +3180,7 @@
     {
       "id": "R2",
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.5",
-      "need": "For a bounded t-structure with heart P and Serre subcategory N, let D_N be the full thick subcategory of objects whose every t-cohomology belongs to N. Prove the induced functor P/N→D/D_N is fully faithful with essential image the image of P; give its t-exact truncation comparisons. Use Mathlib’s existing additive Serre localization for the abelian quotient, rather than re-plan it. Apply the result to the middle-perverse heart.",
+      "need": "Part II (EtaleDualityAndPerverseSheavesPartII, not yet designed); the README of TauCetiRoadmap pull request #1040 has abstract hearts and recollement (Layer 2), including the identification of the quotient by objects supported on a closed subset with the category on the open complement, but no comparison for a general Serre subcategory. For a bounded t-structure with heart P and a Serre subcategory N, let D_N be the full thick subcategory of objects whose every t-cohomology lies in N. Prove that the induced functor P/N→D/D_N is fully faithful with essential image the image of P, and give the t-exact truncation comparisons. Use Mathlib’s additive Serre localization for the abelian quotient. Apply the result to the middle perverse heart.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.0/quotient-convolution"
       ]
@@ -3027,11 +3188,9 @@
     {
       "id": "R3",
       "supplier": "EtaleDualityAndPerverseSheaves:EDC.7",
-      "need": "Supply characteristic-zero geometric semisimplicity of proper direct images of semisimple perverse sheaves (the arbitrary local-system form used in LS Lemma 2.7), and the spreading/complex comparison and intermediate-extension/decomposition compatibility for geometrically semisimple objects of geometric origin used in LS Lemma 4.4 and Theorem 4.7. Existing finite-field pure decomposition nodes alone do not give this. Include reductivity of the smooth-proper monodromy representations after the admitted rank-one twists.",
+      "need": "Part II (EtaleDualityAndPerverseSheavesPartII, not yet designed): Kashiwara’s conjecture in characteristic zero, that proper direct images of semisimple perverse Q̄_ℓ-sheaves, with arbitrary semisimple local-system constituents rather than only those of geometric origin, are semisimple and split into shifted perverse cohomology (Drinfeld with Gaitsgory for ℓ-adic coefficients; Mochizuki for complex ones), as LS Lemma 2.7 uses it. For objects of geometric origin, which include every object in SC.3–SC.9, the existing node EDC.7/decomposition-theorem-complex (upstream §5.10) suffices: it makes the local systems R^(n−1)f_*(g*Lχ) semisimple for torsion χ, so their monodromy groups are reductive in characteristic zero; those uses cite it directly.",
       "neededBy": [
-        "SheafConvolutionOnAbelianVarieties:SC.2/arithmetic-geometric-categories",
-        "SheafConvolutionOnAbelianVarieties:SC.7/relative-generic-vanishing",
-        "SheafConvolutionOnAbelianVarieties:SC.7/generic-big-monodromy"
+        "SheafConvolutionOnAbelianVarieties:SC.2/arithmetic-geometric-categories"
       ]
     },
     {
@@ -3046,7 +3205,7 @@
     {
       "id": "R5",
       "supplier": "AbelianSchemesAndArithmeticModuli:A2",
-      "need": "For a smooth ample divisor H in an abelian variety A in characteristic zero with dim A>2, identify Alb(H)→A as an isomorphism by weak Lefschetz; extend rational maps from smooth proper H to an abelian variety to morphisms; prove that an ample divisor has finite translation stabilizer. For an isogeny g and a divisor with trivial stabilizer, g|H is generically injective. For the family period argument, quotient a family by its fixed finite generic translation stabilizer after shrinking, preserving smooth ample descent. These general abelian-geometric facts extend A2; the conormal factorization application is SC.4.",
+      "need": "Extension of the AbelianSchemesAndArithmeticModuli direction, not yet designed: neither TauCetiRoadmap pull request #849 (head 8c67a7e) nor the accepted AbelianSchemesAndArithmeticModuliPartII states it. (a) For a smooth ample divisor H in an abelian variety A over an algebraically closed field of characteristic zero with dim A≥3, the map Alb(H)→A is an isomorphism (weak Lefschetz on first homology); (b) the field case of Weil’s extension theorem, that a rational map from a smooth variety to an abelian variety extends to a morphism (upstream §A1.8 states extension only relative to a Dedekind base and uses the field case inside its proof); (c) a family of smooth ample divisors whose geometric generic member has a nontrivial finite translation stabilizer is, after shrinking the base, pulled back from a family of smooth ample divisors on the quotient abelian variety with trivial generic stabilizer. Finiteness of the translation stabilizer of an ample divisor H is cited as it stands: it lies in K(O(H)), which is finite of rank χ(O(H))² by upstream §§A2.4 and A3.6(3); generic injectivity of an isogeny on a divisor with trivial stabilizer is proved inside SC.4/almost-simple.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.4/almost-simple",
         "SheafConvolutionOnAbelianVarieties:SC.9/finite-period-detection"
@@ -3055,7 +3214,7 @@
     {
       "id": "R6",
       "supplier": "AbelianSchemesAndArithmeticModuli:A3",
-      "need": "Make explicit the finite étale multiplication-by-m cover in characteristic zero, its deck group A[m], the character idempotent decomposition after coefficient extension, the dual torsion-line-bundle correspondence, and pullback/trace composition for m|m′. The integer m need not be prime to the cohomological prime in characteristic zero. Import the existing relative-isogeny and dual-isogeny nodes rather than rebuild them.",
+      "need": "Extension of the AbelianSchemesAndArithmeticModuli direction, not yet designed; TauCetiRoadmap pull request #849 supplies multiplication maps, torsion and Cartier-dual Weil pairings (§§A3.2, A3.5) and makes every isogeny, in particular [m], a torsor under its kernel (§§A3.1, A3.3), cited as they stand. Needed in addition: in characteristic zero, the decomposition of [m]_* of the constant sheaf into the character sheaves Lχ for χ of order dividing m after coefficient extension, the corresponding torsion line bundles on the dual, and the pullback/trace compatibilities for m|m′. The integer m need not be prime to the cohomological prime in characteristic zero.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.0/character-space",
         "SheafConvolutionOnAbelianVarieties:SC.3/torsion-twist-hodge-tate",
@@ -3065,7 +3224,7 @@
     {
       "id": "R7",
       "supplier": "SchemeAndStackFoundations:SF.5",
-      "need": "Supply algebraic cycle operations with multiplicities: conormal cycles on a smooth variety, generic degree and finite-flat fibre-product pushforward, and compatibility with isogenies. For SC.3 also supply Hirzebruch–Riemann–Roch for coherent Ω-powers, the conormal exact sequence/exterior-power resolution, and algebraic/topological Chern–Gauss–Bonnet comparison on smooth proper complex varieties. Abelian line-bundle Riemann–Roch is already A2’s input.",
+      "need": "SchemeAndStackFoundations is merged in TauCetiRoadmap (#779). Cited as it stands: its Layer 5 (Chow groups, proper pushforward with degrees, Chern classes, intersection products and Grothendieck–Riemann–Roch) and the conormal sheaf of a regular immersion. Not stated there, extension not yet designed: the comparison of the topological Euler characteristic of a smooth proper complex variety with the degree of the top Chern class of its tangent bundle (Chern–Gauss–Bonnet), and the conormal cycle of a closed subvariety of A as a cycle in T*A=A×V with its Gauss-map degree.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.3/hypersurface-euler-characteristics",
         "SheafConvolutionOnAbelianVarieties:SC.4/clean-cycle-ring"
@@ -3074,7 +3233,7 @@
     {
       "id": "R8",
       "supplier": "ComplexComparisonPartII:C5",
-      "need": "Extend the existing regular-singular connection comparison on a smooth open to regular-holonomic D-modules versus perverse constructible sheaves, with characteristic cycles, smooth rank multiplicities, the microlocal index theorem, and proper-direct-image/external-product/isogeny compatibility. Include independence of the integral cycle from a coefficient-field realization. C5 owns this general comparison; SC.4 owns clean convolution and the abelian microlocal applications.",
+      "need": "Extension of ComplexComparisonPartII, not yet designed; TauCetiRoadmap pull request #848 treats regular singular connections and Deligne’s Riemann–Hilbert correspondence (C5.6) but not holonomic modules. Needed: regular holonomic D-modules on smooth complex varieties and the de Rham functor as an equivalence with perverse sheaves (Kashiwara, Mebkhout); Kashiwara’s index theorem for the Euler characteristic in terms of the characteristic cycle; compatibility of characteristic cycles with proper direct image, external product and isogenies; independence of the integral cycle from the coefficient field realization. The characteristic cycle of a coherent D-module itself is planned in SpringerResolutionAndCharacteristicCycles:D/characteristic-cycle and is imported from there; SC.4 owns clean convolution and the abelian microlocal applications.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.4/characteristic-cycle"
       ]
@@ -3082,7 +3241,7 @@
     {
       "id": "R9",
       "supplier": "PadicHodgeTheory:R06.2",
-      "need": "For a Hodge–Tate p-adic representation V with Zariski closure B, construct the Hodge–Tate cocharacter in B_Cp, well defined up to conjugacy, by tensor-comparing the graded fibre functor and the ordinary fibre functor over C_p. Use the native convention HT(Q_p(1))=+1, and do not assume all extensions of Hodge–Tate representations are Hodge–Tate. The fixed crystalline-G-torsor interface does not supply this general result.",
+      "need": "Part II (PadicHodgeTheoryPartII, not yet designed); TauCetiRoadmap pull request #1062 (head f089495) has no Hodge–Tate cocharacter of a Zariski closure. For a Hodge–Tate p-adic representation V with Zariski closure B of its Galois image, construct the Hodge–Tate cocharacter of B over C_p, well defined up to conjugacy, by comparing the graded fibre functor D_HT and the forgetful fibre functor over C_p on the Tannakian category generated by V. Use the native convention HT(Q_p(1))=+1, and do not assume all extensions of Hodge–Tate representations are Hodge–Tate.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.5/hodge-wedge-constraint"
       ]
@@ -3090,7 +3249,7 @@
     {
       "id": "R10",
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Supply for the normalizer N_GL(V)(G*) of a connected simple irreducible faithful image: finite outer quotient and scalar connected centralizer, a Jordan bound for subgroups finite modulo scalars, and reductive-group/Lie-algebra containment comparisons. These are generic group inputs to the finite detection battery, not repeated reductive-group foundations.",
+      "need": "Existing Tau Ceti layer, cited as it stands, with Layers 6 and 9 of the same roadmap: centre, derived group and central isogenies (Layer 6); Borel subgroups, maximal tori and their conjugacy, root datum and Weyl group (Layer 7); the isomorphism theorem for pinned groups (Layer 9), under which diagram automorphisms become group automorphisms. Together they show that automorphisms modulo inner ones embed in the finite automorphism group of the based root datum. With Schur’s lemma these give that the normalizer of a connected simple irreducible G*⊂GL(V) has identity component scalars·G* and finite component group. Jordan’s theorem on finite linear groups is not in these layers and is planned here as SC.7/jordan-finite-linear-groups.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.1/convolution-group",
         "SheafConvolutionOnAbelianVarieties:SC.4/microlocal-factorization",
@@ -3103,7 +3262,7 @@
     {
       "id": "R11",
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
-      "need": "Provide the complete minuscule highest-weight table for all simple types (including E₆ and E₇ and the absence for E₈,F₄,G₂), faithful-image/central-isogeny conventions, and arbitrarily large normalizer-extendible irreducible representations as used in LS Lemma 4.5. Use the existing highest-weight classification and current library, with no duplicate classification in this roadmap.",
+      "need": "Existing Tau Ceti layer, cited as it stands: finite-dimensional irreducible representations are classified by their dominant integral highest weights. The list of minuscule weights is not in that roadmap and is requested from LieHighestWeightPartII:N2 (R18).",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.4/microlocal-factorization",
         "SheafConvolutionOnAbelianVarieties:SC.4/minuscule",
@@ -3114,7 +3273,7 @@
     {
       "id": "R12",
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
-      "need": "Specialize the existing Weyl character/dimension formula to minuscule exterior powers: weights are sums of distinct standard weights, dimension is binom(m,k), the interior-power normalizer has connected component GL_m/μ_k and at most the duality outer component at m=2k, and cocharacters lift after power pullback with the common central fractional weight retained. Also supply dimensions/unbounded highest-weight families required by the finite detection construction.",
+      "need": "Existing Tau Ceti layer, cited as it stands: the Weyl character and dimension formulas and the definition of minuscule weights with the minuscule Pieri rule. The weights of ∧^k of the standard representation, the exterior-power normalizer and the unbounded Cartan powers used in SC.5 and SC.7 are derived from it inside those nodes.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.4/minuscule-alternatives",
         "SheafConvolutionOnAbelianVarieties:SC.5/hodge-wedge-constraint",
@@ -3124,7 +3283,7 @@
     {
       "id": "R13",
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly",
-      "need": "From the existing exceptional root data and highest-weight theory, identify the two E₆ minuscule dimensions as 27 and the E₇ minuscule dimension as 56, with the relevant image conventions. This is a requested table specialization, not a new exceptional-groups development.",
+      "need": "Existing Tau Ceti layer, cited as it stands: the explicit E₆ and E₇ with their 27- and 56-dimensional fundamental representations, the smallest nontrivial ones.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.4/minuscule-alternatives"
       ]
@@ -3132,7 +3291,7 @@
     {
       "id": "R14",
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations",
-      "need": "Expose the already-planned spin/half-spin dimensions as powers of two with precise type/rank ranges and their central-image comparison, so the 6|N hypersurface exclusion can consume them without re-planning Clifford or spin representations.",
+      "need": "Existing Tau Ceti layer, cited as it stands: the spin module ⋀W of a maximal isotropic W, of dimension 2^l, and in even dimension its two half-spin summands of dimension 2^(l−1).",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.4/minuscule-alternatives"
       ]
@@ -3156,7 +3315,24 @@
     {
       "id": "R17",
       "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
-      "need": "Expose the existing pointed curve Abel–Jacobi universal property in families after trivializing a constant curve: any morphism C×T→A with the chosen C-point sent to zero factors uniquely through J(C)×T by a homomorphism of abelian schemes, compatibly with base change. Use the existing generic Albanese universal-property carrier in the current Tau Ceti library rather than defining a second one.",
+      "need": "Existing Tau Ceti layer, cited as it stands: the Abel–Jacobi morphism of a pointed smooth projective curve over a field and its universal property for pointed maps to abelian varieties, with base change along field extensions. The relative form over a parameter space is requested from JacobianChallengePartII:JC2 (R19).",
+      "neededBy": [
+        "SheafConvolutionOnAbelianVarieties:SC.9/surface-period-finiteness"
+      ]
+    },
+    {
+      "id": "R18",
+      "supplier": "LieHighestWeightPartII:N2",
+      "need": "The classification of minuscule dominant weights of the simple Lie algebras over an algebraically closed field of characteristic zero, with dimensions: A_r, the fundamental weights ω_k with dimension binom(r+1,k); B_r, the spin weight, 2^r; C_r, ω₁, 2r; D_r, ω₁ with 2r and the two half-spin weights with 2^(r−1); E₆, ω₁ and ω₆, 27; E₇, ω₇, 56; none for E₈, F₄ and G₂. The Tau Ceti LieHighestWeight roadmap defines minuscule weights but does not list them; this is a highest-weight addition in the direction of that Part II.",
+      "neededBy": [
+        "SheafConvolutionOnAbelianVarieties:SC.4/minuscule",
+        "SheafConvolutionOnAbelianVarieties:SC.4/minuscule-alternatives"
+      ]
+    },
+    {
+      "id": "R19",
+      "supplier": "JacobianChallengePartII:JC2",
+      "need": "Relative pointed Abel–Jacobi universal property for a constant curve: for a smooth projective curve C of genus g≥1 over a field with a point c₀, a reduced connected base T and a morphism f:C×T→A×T over T to a constant abelian scheme with f(c₀,t)=0, there is a unique homomorphism of abelian schemes J(C)×T→A×T with f=φ∘(aj×id), compatibly with base change in T. The Tau Ceti JacobianChallenge Layer F gives this over a field only.",
       "neededBy": [
         "SheafConvolutionOnAbelianVarieties:SC.9/surface-period-finiteness"
       ]
@@ -3167,58 +3343,51 @@
       "stageId": "SheafConvolutionOnAbelianVarieties:SC.0",
       "status": "planned",
       "remaining": [
-        "R1: exact supplier contract at EtaleDualityAndPerverseSheaves:EDC.6",
-        "R2: exact supplier contract at EtaleDualityAndPerverseSheaves:EDC.5",
-        "R6: exact supplier contract at AbelianSchemesAndArithmeticModuli:A3"
+        "R1: supplier contract at EtaleDualityAndPerverseSheaves:EDC.6",
+        "R2: supplier contract at EtaleDualityAndPerverseSheaves:EDC.5",
+        "R6: supplier contract at AbelianSchemesAndArithmeticModuli:A3"
       ]
     },
     {
       "stageId": "SheafConvolutionOnAbelianVarieties:SC.1",
       "status": "planned",
       "remaining": [
-        "R1: exact supplier contract at EtaleDualityAndPerverseSheaves:EDC.6",
-        "R4: exact supplier contract at MotivesAndAlgebraicCycles:MC.6",
-        "R10: exact supplier contract at tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+        "R1: supplier contract at EtaleDualityAndPerverseSheaves:EDC.6",
+        "R4: supplier contract at MotivesAndAlgebraicCycles:MC.6"
       ]
     },
     {
       "stageId": "SheafConvolutionOnAbelianVarieties:SC.2",
       "status": "planned",
       "remaining": [
-        "R1: exact supplier contract at EtaleDualityAndPerverseSheaves:EDC.6",
-        "R3: exact supplier contract at EtaleDualityAndPerverseSheaves:EDC.7",
-        "R4: exact supplier contract at MotivesAndAlgebraicCycles:MC.6"
+        "R1: supplier contract at EtaleDualityAndPerverseSheaves:EDC.6",
+        "R3: supplier contract at EtaleDualityAndPerverseSheaves:EDC.7",
+        "R4: supplier contract at MotivesAndAlgebraicCycles:MC.6"
       ]
     },
     {
       "stageId": "SheafConvolutionOnAbelianVarieties:SC.3",
       "status": "planned",
       "remaining": [
-        "R6: exact supplier contract at AbelianSchemesAndArithmeticModuli:A3",
-        "R7: exact supplier contract at SchemeAndStackFoundations:SF.5"
+        "R6: supplier contract at AbelianSchemesAndArithmeticModuli:A3",
+        "R7: supplier contract at SchemeAndStackFoundations:SF.5"
       ]
     },
     {
       "stageId": "SheafConvolutionOnAbelianVarieties:SC.4",
       "status": "planned",
       "remaining": [
-        "R5: exact supplier contract at AbelianSchemesAndArithmeticModuli:A2",
-        "R7: exact supplier contract at SchemeAndStackFoundations:SF.5",
-        "R8: exact supplier contract at ComplexComparisonPartII:C5",
-        "R10: exact supplier contract at tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "R11: exact supplier contract at tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
-        "R12: exact supplier contract at tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
-        "R13: exact supplier contract at tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-8-the-exceptional-lie-algebras-explicitly",
-        "R14: exact supplier contract at tauceti:TauCetiRoadmap/RepresentationTheory/SpinRepresentations#layer-4-the-spin-and-half-spin-representations"
+        "R5: supplier contract at AbelianSchemesAndArithmeticModuli:A2",
+        "R7: supplier contract at SchemeAndStackFoundations:SF.5",
+        "R8: supplier contract at ComplexComparisonPartII:C5",
+        "R18: supplier contract at LieHighestWeightPartII:N2"
       ]
     },
     {
       "stageId": "SheafConvolutionOnAbelianVarieties:SC.5",
       "status": "planned",
       "remaining": [
-        "R9: exact supplier contract at PadicHodgeTheory:R06.2",
-        "R10: exact supplier contract at tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "R12: exact supplier contract at tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas"
+        "R9: supplier contract at PadicHodgeTheory:R06.2"
       ]
     },
     {
@@ -3232,11 +3401,7 @@
       "stageId": "SheafConvolutionOnAbelianVarieties:SC.7",
       "status": "planned",
       "remaining": [
-        "R1: exact supplier contract at EtaleDualityAndPerverseSheaves:EDC.6",
-        "R3: exact supplier contract at EtaleDualityAndPerverseSheaves:EDC.7",
-        "R10: exact supplier contract at tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "R11: exact supplier contract at tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
-        "R12: exact supplier contract at tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas"
+        "R1: supplier contract at EtaleDualityAndPerverseSheaves:EDC.6"
       ]
     },
     {
@@ -3249,11 +3414,11 @@
       "status": "planned",
       "remaining": [
         "G3: Trace-compatible stabilized period relations",
-        "R5: exact supplier contract at AbelianSchemesAndArithmeticModuli:A2",
-        "R6: exact supplier contract at AbelianSchemesAndArithmeticModuli:A3",
-        "R15: exact supplier contract at HodgeStructuresPartII:H.7",
-        "R16: exact supplier contract at StableReductionPartII:MC.6",
-        "R17: exact supplier contract at tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+        "R5: supplier contract at AbelianSchemesAndArithmeticModuli:A2",
+        "R6: supplier contract at AbelianSchemesAndArithmeticModuli:A3",
+        "R15: supplier contract at HodgeStructuresPartII:H.7",
+        "R16: supplier contract at StableReductionPartII:MC.6",
+        "R19: supplier contract at JacobianChallengePartII:JC2"
       ]
     }
   ],
@@ -3294,7 +3459,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read at pp. 21–23 of v5: the characteristic-cycle sentences use i_*Q[n], Lemma 3.8 speaks of the Lie algebra of H, the K1 citation reads Corollary 1.0 (it is Corollary 1.10, p. 12, of K1 v3), and [m] is called multiplication by n.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E2",
@@ -3311,7 +3481,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 3.10 (p. 23) assumes only trivial stabilizer, but its proof starts from Lemma 3.9, which assumes n>2; no separate surface argument is given.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E3",
@@ -3328,7 +3503,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On p. 25 the displays defining weights and multiplicities omit the twist C_p(q) that the sentence introduces, and the Hodge–Tate condition adds weights where the multiplicities should be summed.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E4",
@@ -3338,14 +3518,19 @@
       "printed": "The arbitrary-perverse vanishing statement is described using torsion translates.",
       "correction": "Use arbitrary character translates in general and torsion translates for the semisimple geometric-origin case, as in KW Lemma 11.2(c).",
       "reason": "For a rank-one character of infinite order, its inverse is the exceptional character of the corresponding shifted rank-one sheaf; this point need not be torsion.",
-      "affects": "a stated result",
+      "affects": "nothing",
       "known": "No published correction located in the searches recorded here; finding scoped to the version actually read.",
       "searched": [
         "https://arxiv.org/abs/2004.09046 (version history; v5 is the latest listed version on 2026-10-18)",
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 30 attributes torsion translates to an arbitrary perverse sheaf; KW Lemma 11.2(b) gives arbitrary translates for semisimple sheaves and (c) torsion ones only for geometric origin. For L_ψ[n] with ψ of infinite order on a simple A the exceptional set is the single point ψ⁻¹, which lies in no finite union of torsion translates of proper subtori. Every use in LS (Lemma 4.4, Theorem 4.7, Lemma 3.14) concerns sheaves of geometric origin, so no stated result changes; affects corrected from \"a stated result\" to \"nothing\".",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E5",
@@ -3362,7 +3547,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 23: from H⊂g₁⁻¹Z₁ and maximality of a hypersurface the proof concludes H=g₁⁻¹Z₁, but H can be one irreducible component of a reducible preimage (for an isogeny with kernel κ the preimage is the union of the translates H+κ). The repair (the connected kernel stabilizes H, so g₁ is an isogeny; trivial stabilizer makes g₁|H birational onto Z₁, preserving the Gauss degree) is correct and suffices.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E6",
@@ -3379,7 +3569,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The argument on pp. 34–35 uses that Frob_p^m acts on Π(A) with Weil-number eigenvalues and on values by p^m; both hold on prime-to-p torsion only: a lift of Frobenius acts on p-power roots of unity and on the p-adic Tate module through inertia-dependent elements, so no eigenvalue argument is available there. Choosing ℓ≠p in Corollary 4.10 keeps every conjugate prime to p, so the restricted form suffices.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E7",
@@ -3396,7 +3591,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 93 makes binom(n,q) vanish for q≥n, which would give binom(n,n)=0; the endpoint occupancies of Lemmas B.4–B.9 use binom(h,h)=1.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E8",
@@ -3406,14 +3606,19 @@
       "printed": "The adjacent-ratio product is asserted strictly smaller than h(v−1)h(v+1) without positivity of those factors.",
       "correction": "Assert ≤ always, and < when h(v−1)h(v+1)>0.",
       "reason": "Take n=2,k=3,h(0)=5,h(1)=1,d=10. The valid row is (10,10), but R_a=0,R_b=1 and the product comparison has both sides zero.",
-      "affects": "a stated result",
+      "affects": "the proof",
       "known": "No published correction located in the searches recorded here; finding scoped to the version actually read.",
       "searched": [
         "https://arxiv.org/abs/2004.09046 (version history; v5 is the latest listed version on 2026-10-18)",
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The product of the two ratios is h(w−1)h(w+1) times (h(w)−m₀(w))m₀(w)/((m₀(w)+1)(h(w)−m₀(w)+1)), so equality 0=0 occurs when h(w−1)h(w+1)=0; the n=2 example 5[0]+[1], k=3 shows it. The counterexample lies outside the standing n≥5 assumption of §B.2, and the root bounds stated in the lemma follow from the non-strict form, so the defect is in the lemma as an internal step of the proof of Proposition B.1; affects corrected from \"a stated result\" to \"the proof\".",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E9",
@@ -3430,7 +3635,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 111: the line before has N(m_b4)/N(m_0); the next display divides by N(m_b1) instead. N(m_0)=d by (12), so the intended denominator is d.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E10",
@@ -3447,7 +3657,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 113: the bound N(m_a2)/N(m_0)≤(n−1)A(n,1)/2 is proved, but the final sum is labelled a,b,c and uses nA(n,1)/2. Exact computation at n=5 (A(5,·)=1,26,66,26,1) gives 71 with n and 58 with n−1, against A(5,2)=66.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E11",
@@ -3464,7 +3679,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 114, proof of Lemma B.28: the offsets are written w≤q≤w+r−1 and q=w+r, while q in (13) is the offset from s; the derivation of h(w+i)=dA(n,i) and of the q=r equation uses 0≤q≤r−1 and q=r.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E12",
@@ -3481,7 +3701,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 114: N(m_{3r−2})/N(m_0) equals A(n,r−1)(dA(n,r−1)−1)h(w−r)/2, since h(w)−m₀(w)+1=d; the printed expression divides once more by d, and the stated lower bound follows only from the corrected one.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E13",
@@ -3498,7 +3723,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma C.4 (p. 117) is stated for 3≤r≤n−2, while Lemma B.30 applies it for every r≥3 and r can be n−1. At r=n−1 and n≥5, A(n,3r−2)=0 and A(n,n−2)=A(n,1)≥26, so the contradiction is immediate; an exact check for 5≤n≤260 also found the inequality true at r=n−1.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E14",
@@ -3515,7 +3745,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma B.4 writes binom(m_S(w),k) where the histogram value m_H(w) is meant; Lemmas B.3–B.9 write dE(n,q) for dA(n,q); in the case (0,m−3,3,0,0) of Lemma B.9 all four equations carry dE(4,0) on the right although their values are d,11d,11d,d.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E15",
@@ -3525,14 +3760,19 @@
       "printed": "Some numerical inequalities are described as valid for every natural n.",
       "correction": "Restrict the recorded comparisons to n≥5, exactly the consuming range of Appendix B.2–B.4, and prove that range by G1’s certificates.",
       "reason": "For instance at n=1, 78nA(n,4)<(A(n,1)−1)^3 reads 0<−1.",
-      "affects": "a stated result",
+      "affects": "nothing",
       "known": "No published correction located in the searches recorded here; finding scoped to the version actually read.",
       "searched": [
         "https://arxiv.org/abs/2004.09046 (version history; v5 is the latest listed version on 2026-10-18)",
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Exact computation: 78nA(n,4)<(A(n,1)−1)³ fails at n=1,2; 10A(n,2)<A(n,1)² and 341A(n,5)<A(n,1)³ fail at n=1; (A(n,2)−1)²>100A(n,6) fails at n=3. All uses are in §§B.2–B.5 with n≥5, where every listed comparison holds for 5≤n≤260 by exact check, so the intended mathematics is unaffected; affects corrected from \"a stated result\" to \"nothing\".",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E16",
@@ -3549,7 +3789,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In verify_bound_m1a_final the n≥20 branch computes bde but sums only the a,b,c,d terms (with bdb left over from the first loop), so the five-term inequality is not tested there.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E17",
@@ -3566,7 +3811,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In verify_bound_m1b_mult1a the n≥20 branch adds log n to the right side of A(n,4)<A(n,1)³/(200n), testing a bound larger by n² than the one printed.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E18",
@@ -3583,7 +3833,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Proposition 4.11 is stated for n≥2, but its proof (p. 38) obtains simplicity of G* from Lemmas 3.8 and 3.9, and Lemma 3.9 assumes n>2. The separate Torelli route of SC.9/surface-period-finiteness covers n=2.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E19",
@@ -3600,7 +3855,12 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 26: the proof asks for cohomology of H with coefficients in Lχ concentrated in degree 0, but uses H^(n−1)(H,Lχ); degree 0 is right only for the perverse object i_*F[n−1] on A.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     },
     {
       "id": "SheafConvolutionOnAbelianVarieties/E20",
@@ -3617,7 +3877,92 @@
         "https://annals.math.princeton.edu/2025/202-3/p01 (publisher landing page and correction search; publisher text was not collated)",
         "https://williamsawin.com/ (author page; no separately identified correction located)",
         "Existing atlas PAPER-LAWRENCE-SAWIN-25 extraction and algebraicgeometry red-team findings, treated as leads and checked against v5"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "P. 35: the first count bounds the tuples that do not lie in T+ξ by (|S|+1)^(c−1), while the final paragraph proves that bound for the tuples that do lie in it, and only that direction gives (|S|+1)^c−|S|(|S|+1)^(c−1)>0.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
+    },
+    {
+      "id": "SheafConvolutionOnAbelianVarieties/E21",
+      "source": "LS",
+      "kind": "misprint",
+      "locator": "Appendix B, Lemmas B.11–B.31, and Appendix C, Lemma C.4, pp. 101–117, references to the ancillary program (arXiv:2004.09046v5 and its ancillary eulerian.py)",
+      "printed": "The appendices refer to the numerical checks by labels bound-A3a to bound-A3h, bound-A4a, bound-A4b, bound-A5a to bound-A5f and bound-B.",
+      "correction": "None of these labels occurs in the v5 ancillary file, whose checks are labelled bound_2_11f, bound-1111-4x, bound-1111-7, bound-m1a-final, …, bound-rr-3r. The correspondence must be reconstructed by matching the inequalities (for instance the C.4 check is bound-rr-3r and the B.23 check is m1b-mult1a).",
+      "reason": "A text search of the ancillary file finds none of the cited labels.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/2004.09046 (versions v1–v5; v5 is the latest, checked 2026-10-19)",
+        "Existing findings E1–E20 of this packet and the atlas extraction PAPER-LAWRENCE-SAWIN-25 (no corresponding entry)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review after searching the ancillary file for each cited label.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
+    },
+    {
+      "id": "SheafConvolutionOnAbelianVarieties/E22",
+      "source": "LS",
+      "kind": "misprint",
+      "locator": "Theorem 3.5 and Remark 3.6, p. 21 (arXiv:2004.09046v5, not collated with the version of record)",
+      "printed": "Theorem 3.5 assumes n>2 and then excludes the case n=2 with d=28; Remark 3.6 describes E₇ in its 56-dimensional representation as the alternative in that case.",
+      "correction": "Under the hypothesis n>2 the exception n=2, d=28 is vacuous. For n=2 the method would leave further alternatives (spin representations, and the interior exterior powers with d=binom(2k−1,k) of Proposition 3.15(2)), so the clause is not a surface theorem either.",
+      "reason": "The hypothesis and the excluded case are incompatible; Lemmas 3.9, 3.12 and Proposition 3.15 show what the n=2 analysis would have to exclude.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/2004.09046 (versions v1–v5; v5 is the latest, checked 2026-10-19)",
+        "Existing findings E1–E20 of this packet and the atlas extraction PAPER-LAWRENCE-SAWIN-25 (no corresponding entry)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review from the statement on p. 21; the n>2 theorem is unaffected.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
+    },
+    {
+      "id": "SheafConvolutionOnAbelianVarieties/E23",
+      "source": "LS",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 4.9, p. 36 (arXiv:2004.09046v5, not collated with the version of record)",
+      "printed": "The total number of characters in the count is given as ℓ^(2kn) ℓ^(2k)-torsion characters.",
+      "correction": "There are ℓ^(2kn) characters of order dividing ℓ^k; the comparison with ℓ^(2k(n−1)) per proper subtorus then needs ℓ^(2k) larger than the number of tori, as stated.",
+      "reason": "The ℓ^(2k)-torsion characters number ℓ^(4kn); the conclusion of the proof produces an ℓ^k-torsion character.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/2004.09046 (versions v1–v5; v5 is the latest, checked 2026-10-19)",
+        "Existing findings E1–E20 of this packet and the atlas extraction PAPER-LAWRENCE-SAWIN-25 (no corresponding entry)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review from the page image of p. 36.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
+    },
+    {
+      "id": "SheafConvolutionOnAbelianVarieties/E24",
+      "source": "LS",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.14, p. 26, and proof of Theorem 4.7, p. 34 (arXiv:2004.09046v5, not collated with the version of record)",
+      "printed": "Both proofs cite Lemma 2.9(2), and the proof of Theorem 4.7 cites Lemma 4.3.",
+      "correction": "Lemma 2.9 has no numbered parts; the normalization statement is Lemma 2.9 itself. The result cited as Lemma 4.3 is Corollary 4.3.",
+      "reason": "Lemma 2.9 (p. 18) is a single statement, and §4 has Lemma 4.2 followed by Corollary 4.3 (p. 30).",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "https://arxiv.org/abs/2004.09046 (versions v1–v5; v5 is the latest, checked 2026-10-19)",
+        "Existing findings E1–E20 of this packet and the atlas extraction PAPER-LAWRENCE-SAWIN-25 (no corresponding entry)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by this review from pp. 18, 26, 30 and 34.",
+        "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+      }
     }
   ],
   "sourceVersions": [
@@ -3689,6 +4034,13 @@
       "url": "https://annals.math.princeton.edu/2025/202-3/p01",
       "citation": "Publisher landing page only; bibliographic metadata checked. The 144-page version of record was not read or collated. Every mathematical finding above is restricted to the identified 121-page v5 preprint or its ancillary program.",
       "read": "2026-10-18"
+    },
+    {
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~emmanuel.breuillard/Jordan.pdf",
+      "citation": "Breuillard, exposition of Jordan’s theorem, 6 pages; read for Theorem 1.1 only",
+      "read": "2026-10-19",
+      "sha256": "262d34715361673ac9ef892f1e3441250d1f85d996d154bea8340e0c8c9efa76"
     }
   ],
   "upstreamNotes": [
@@ -3696,7 +4048,336 @@
     "All Appendix C Eulerian objects, C.1–C.5 and their generic inequalities already belong to ClassicalArithmeticCompletion:CA.2. SC.6 owns only Appendix B’s bespoke consuming comparisons and occupancy arguments.",
     "The routed extraction suggests a downstream Lawrence–Venkatesh Part II Hodge cocharacter input. Its general Hodge–Tate fibre-functor comparison belongs to the lower PadicHodgeTheory:R06.2; request R9 moves that input down. Point downstream consumers at this owner rather than creating an upward dependency.",
     "The routed brief confuses the signed topological Euler characteristic with the positive representation dimension and conflates d with N for the first threefold exception. Nodes use N=n!d>0 and d=8855, N=53130. It also abbreviates the independent-axis group; the correct group is G^c.",
-    "The all-p-primary form of LS Lemma 4.8 is not exported. SC.8’s prime-to-p form, combined with an order prime ℓ≠p, retains the uniform orbit consequence required downstream. The surface period case is supplied by Torelli and rigid Hom spaces, with contracts R16–R17. The higher-dimensional period route retains G3."
+    "The all-p-primary form of LS Lemma 4.8 is not exported. SC.8’s prime-to-p form, combined with an order prime ℓ≠p, retains the uniform orbit consequence required downstream. The surface period case is supplied by Torelli and rigid Hom spaces, with contracts R16–R17. The higher-dimensional period route retains G3.",
+    "Review REV-DESIGN-SheafConvolutionOnAbelianVarieties: EtaleDualityAndPerverseSheaves (#1040), AbelianSchemesAndArithmeticModuli (#849), ComplexComparisonPartII (#848) and PadicHodgeTheory (#1062) are TauCetiRoadmap pull requests and SchemeAndStackFoundations is merged (#779). Requests R1–R3 and R5–R9 now say what each upstream README already states (cited as it stands) and route the rest to a not-yet-designed Part II or extension of that direction, at the supplier stage id.",
+    "Characteristic cycles of coherent D-modules are planned in SpringerResolutionAndCharacteristicCycles:D/characteristic-cycle (DESIGN under review, #3617). SC.4/characteristic-cycle imports that node instead of asking ComplexComparisonPartII for it; the D-module notion should keep that single owner, or move together with R8 to a more foundational D-module roadmap."
   ],
-  "restructure": []
+  "restructure": [
+    {
+      "action": "part-ii",
+      "kind": "part-ii",
+      "parent": "EtaleDualityAndPerverseSheaves",
+      "title": "Étale duality and perverse sheaves, Part II: character sheaves, quotient hearts and Kashiwara’s conjecture",
+      "requests": [
+        "R1",
+        "R2",
+        "R3"
+      ],
+      "need": "Rank-one character sheaves and their origin-normalized descent, full faithfulness of pullback along algebraically closed extensions, the Künneth formula for geometric fundamental groups (R1); the Serre-quotient comparison of a heart with the Verdier quotient (R2); Kashiwara’s conjecture for arbitrary semisimple perverse sheaves in characteristic zero (R3). The parent is TauCetiRoadmap pull request #1040.",
+      "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+    },
+    {
+      "action": "part-ii",
+      "kind": "extension",
+      "parent": "AbelianSchemesAndArithmeticModuli",
+      "title": "Abelian schemes: divisors, Albanese maps and isogeny covers (beyond #849 and AbelianSchemesAndArithmeticModuliPartII)",
+      "requests": [
+        "R5",
+        "R6"
+      ],
+      "need": "Albanese of a smooth ample divisor in dimension at least three, extension of rational maps to abelian varieties, quotients of divisor families by finite translation stabilizers (R5); the deck-character decomposition of [m] in characteristic zero with pullback and trace compatibilities (R6).",
+      "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+    },
+    {
+      "action": "part-ii",
+      "kind": "extension",
+      "parent": "SchemeAndStackFoundations",
+      "title": "Scheme foundations: Chern–Gauss–Bonnet and conormal cycles",
+      "requests": [
+        "R7"
+      ],
+      "need": "Topological Euler characteristic of a smooth proper complex variety as the degree of the top Chern class; conormal cycles in T*A with Gauss-map degree. The parent is merged in TauCetiRoadmap (#779).",
+      "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+    },
+    {
+      "action": "part-ii",
+      "kind": "extension",
+      "parent": "ComplexComparisonPartII",
+      "title": "Complex comparison: regular holonomic D-modules and the index theorem",
+      "requests": [
+        "R8"
+      ],
+      "need": "Regular holonomic Riemann–Hilbert, Kashiwara’s index theorem and the compatibilities of characteristic cycles with direct image, external product and isogenies. The D-module characteristic cycle is planned in SpringerResolutionAndCharacteristicCycles:D/characteristic-cycle; a single owner should be chosen for both.",
+      "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+    },
+    {
+      "action": "part-ii",
+      "kind": "part-ii",
+      "parent": "PadicHodgeTheory",
+      "title": "p-adic Hodge theory, Part II: Hodge–Tate cocharacters of Galois images",
+      "requests": [
+        "R9"
+      ],
+      "need": "The Hodge–Tate cocharacter of the Zariski closure of the image of a Hodge–Tate representation, from the comparison of the graded and forgetful fibre functors over C_p. The parent is TauCetiRoadmap pull request #1062.",
+      "by": "REV-DESIGN-SheafConvolutionOnAbelianVarieties"
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-SheafConvolutionOnAbelianVarieties",
+    "date": "2026-10-19",
+    "notes": "Independent review of the DESIGN-SheafConvolutionOnAbelianVarieties planning pass (Codex codex-00yeZm, PR #10441) by Claude session claude-DGRXf2. Sources re-downloaded (LS v5 and its ancillary eulerian.py, KW v6, K1 v3, K2 v2, W, EHS, CDK, Milne JV); all nine SHA-256 fingerprints match. LS §§2–4 were read in full and Appendices B–C at every cited lemma; every node was checked at its locator. Corrections: (1) all 52 unit tests had the invalid kind \"example\"; each now has one of the five protocol kinds. (2) Locators: the clean characteristic cycle is K2 Definition 2.2.1, p. 13 (arXiv v2), not 2.1.1; page ranges corrected for SC.4/clean-cycle-ring, almost-simple and minuscule-alternatives; second-source citations split into their own entries in twelve nodes, and the nonstandard additionalSources field removed. (3) Suppliers: EtaleDualityAndPerverseSheaves (#1040), AbelianSchemesAndArithmeticModuli (#849), ComplexComparisonPartII (#848) and PadicHodgeTheory (#1062) are TauCetiRoadmap pull requests and SchemeAndStackFoundations is merged (#779); their READMEs were read at the current heads. Requests R1–R3 and R5–R9 now say what is already stated upstream (cited as it stands) and route the rest to a not-yet-designed Part II or extension; the geometric-origin uses of the decomposition theorem cite EDC.7/decomposition-theorem-complex directly, so R3 asks only for Kashiwara’s conjecture (used by LS Lemma 2.7 for arbitrary semisimple objects). Requests to Tau Ceti layers R10–R14 and R17 now cite those layers as they stand; what they lack moved: the minuscule table to LieHighestWeightPartII:N2 (new R18), the relative Abel–Jacobi property to JacobianChallengePartII:JC2 (new R19), and Jordan’s theorem on finite linear groups, which no roadmap owns, is added as SC.7/jordan-finite-linear-groups (Breuillard’s exposition, Theorem 1.1) and stated in the suggested file. The D-module characteristic cycle is imported from SpringerResolutionAndCharacteristicCycles:D/characteristic-cycle (design under review, #3617) instead of being requested. The coordinate pushforward of LS Corollary 4.3 and the exterior-power normalizer of Lemma 3.14 are now proof steps. (4) Source findings: E1–E20 confirmed at their locators, with affects corrected for E4 (nothing: every use is of geometric origin), E8 (the proof: the counterexample is outside §B.2’s n≥5) and E15 (nothing: all uses have n≥5); new E21 (the appendix labels bound-A3a…bound-B do not occur in the ancillary file), E22 (Theorem 3.5’s vacuous n=2, d=28 clause), E23 (ℓ^(2k)- for ℓ^k-torsion in Lemma 4.9) and E24 (Lemma 2.9(2), Lemma 4.3). A Sonnet cross-check of every claim the rewritten requests make about upstream documents found no contradiction; five imprecise citations it flagged were corrected (R2 recollement quotient, R5 Weil extension and stabilizer finiteness via A2.4/A3.6, R6 torsor via A3.1/A3.3, R3 reductivity wording, R10 layer numbers). Checks: every SC.6 comparison holds for 5≤n≤260 by exact arithmetic, and C.4 also at r=n−1; the light Lean definitions evaluate correctly on all examples. Baseline: the ten declarations re-read at Mathlib 082e2d3 and Tau Ceti f790474 (all exist and provide what is claimed; the recorded kinds of card_powersetCard, AbelianVariety and the two Serre-localization lemmas corrected); Matrix.GeneralLinearGroup, Subgroup.index and Subgroup.Normal added for Jordan’s theorem. The suggested file elaborates under lean-check with 23 placeholder-proof warnings and nothing else. All ten stages remain planned; gaps G1 (uniform Eulerian certificates) and G3 (trace-compatible period relations) and the open supplier contracts are recorded honestly in the remaining lists. This is the first review of the packet.",
+    "checked": [
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.0/character-space",
+        "verdict": "corrected",
+        "note": "Restriction kernels and torsion cosets match LS p. 30 and Lemmas 4.8–4.9; test kinds corrected."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.0/rank-one-local-system",
+        "verdict": "corrected",
+        "note": "Definitions 2.3–2.4 (p. 15) checked: descent normalized by the trivial Galois action on the stalk at 0."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.0/derived-convolution",
+        "verdict": "corrected",
+        "note": "Lemma 2.1 and Weissauer’s rigidity proposition checked; the W citation moved from a nonstandard additionalSources field into sources."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.0/generic-vanishing",
+        "verdict": "corrected",
+        "note": "KW Theorem 1.1 is for any perverse sheaf, Lemma 11.2(b) for semisimple ones and (c) gives torsion translates for geometric origin; locator extended to 11.2(b)–(c), LS p. 30 citation added (E4)."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.0/negligible-perverse",
+        "verdict": "corrected",
+        "note": "LS Lemma 2.2(1)–(5) and KW 10.1, 13.1 checked; second-source citation split."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.0/quotient-convolution",
+        "verdict": "corrected",
+        "note": "LS Lemma 2.2(6)–(9); KW Lemmas 12.2–12.3 give the heart of the quotient t-structure; second-source citation split."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.1/admissible-perverse",
+        "verdict": "corrected",
+        "note": "Definition before Lemma 2.5 and KW §13 checked; all four tests are correct; kinds corrected."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.1/fibre-functor",
+        "verdict": "corrected",
+        "note": "Lemma 2.5(3)–(4) and KW Theorem 13.2 checked; citation split."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.1/convolution-group",
+        "verdict": "corrected",
+        "note": "One-generator image of a proalgebraic group, reductive for geometrically semisimple generators in characteristic zero; tests checked."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.1/character-independence",
+        "verdict": "verified",
+        "note": "P. 16: LS invoke Deligne–Milne 3.2; the finite-type restriction for rational torsor points is a needed precision."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.1/euler-one-skyscraper",
+        "verdict": "corrected",
+        "note": "KW Proposition 10.1(b) checked; LS uses it in the proofs of Lemmas 3.11 and 4.1, now cited."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.2/arithmetic-geometric-categories",
+        "verdict": "corrected",
+        "note": "Lemmas 2.6–2.7 checked. LS’s convolution step uses Kashiwara’s conjecture; the geometric-origin case now cites EDC.7/decomposition-theorem-complex, and R3 asks only for the general case."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.2/arithmetic-exact-sequence",
+        "verdict": "corrected",
+        "note": "Lemma 2.8 and EHS Theorem A.1 (pp. 20–21) checked; citation split."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.2/galois-normalization",
+        "verdict": "verified",
+        "note": "Lemma 2.9 checked: normalization of the whole geometric image, then of its connected derived subgroup."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.2/algebraically-closed-extension",
+        "verdict": "verified",
+        "note": "An unstated comparison that LS use in Lemmas 3.14, 4.1 and 4.4; correctly recorded as a target with request R1(b)."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.3/hypersurface-euler-characteristics",
+        "verdict": "verified",
+        "note": "Lemmas 3.1–3.4 checked; the n=2,3,4 rows recomputed (−d,d; d,−4d,d; d,11d,11d,d)."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.3/distinguished-representation",
+        "verdict": "corrected",
+        "note": "Lemma 3.7 and the shift n−1 checked (E1); tests correct; kinds corrected."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.3/torsion-twist-hodge-tate",
+        "verdict": "verified",
+        "note": "Lemma 3.13 checked; the sign translation to HT(Q_p(1))=+1 matches PadicHodgeTheory:R06.2/hodge-tate-weight-convention."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.4/clean-cycle-ring",
+        "verdict": "corrected",
+        "note": "K2 Definition 1.2.2 (p. 8) and Example 1.3.2 (p. 9); page range corrected and LS citation split."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.4/characteristic-cycle",
+        "verdict": "corrected",
+        "note": "The clean characteristic cycle is K2 Definition 2.2.1 (p. 13) in arXiv v2, not 2.1.1; the D-module cycle is now imported from SpringerResolutionAndCharacteristicCycles:D/characteristic-cycle and R8 narrowed to Riemann–Hilbert and the index theorem; KW’s index formula cited."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.4/microlocal-factorization",
+        "verdict": "corrected",
+        "note": "K2 Proposition 6.1.1, Theorem 2.3.1 and Lemma 5.2.2 checked, with page numbers added. Lemma 5.2.2 needs finite stabilizers of the supports, which degree >1 forces."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.4/minuscule",
+        "verdict": "corrected",
+        "note": "K1 Corollary 1.10 (p. 12) checked; LS’s “Corollary 1.0” is E1. Minuscule table now requested from LieHighestWeightPartII:N2 (R18)."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.4/almost-simple",
+        "verdict": "corrected",
+        "note": "Lemma 3.9 proof checked line by line; the repair of E5 (isogeny, birational restriction, Gauss degree preserved) is correct. Locator corrected to pp. 21–23; K2 citation added."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.4/minuscule-alternatives",
+        "verdict": "corrected",
+        "note": "Lemmas 3.10 (p. 23) and 3.12 (p. 24); locator corrected; minuscule table routed to R18, E₆/E₇ dimensions to the Tau Ceti Layer 8 as it stands."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.4/inversion-duality",
+        "verdict": "verified",
+        "note": "Lemma 3.11 checked; sign (−1)^(n−1) from the shift; ∧²SL₄=SO₆ requires a symmetric H, consistent with Theorem 3.5."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.5/wedge-multiplicity",
+        "verdict": "corrected",
+        "note": "Light definition checked in Lean on the examples; tests correct; kinds corrected."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.5/exceptional-pairs",
+        "verdict": "corrected",
+        "note": "Lemma B.7 descent checked; first pairs and Pell invariant verified by evaluation for j<6."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.5/exceptional-degree",
+        "verdict": "corrected",
+        "note": "binom(25,5)/6=8855 and exactness of the division verified for 1≤j<6; matches Theorem 3.5(2) and Theorem 1.2’s d(2)=53130 as N."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.5/hodge-wedge-constraint",
+        "verdict": "corrected",
+        "note": "Lemma 3.14 checked (E19, E24). The exterior-power normalizer computation that LS state without proof is now a proof step."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.5/extremal-width",
+        "verdict": "verified",
+        "note": "Lemmas B.2–B.3 checked."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.5/surface-classification",
+        "verdict": "verified",
+        "note": "Lemma B.4 checked (E14); examples d=10 and d=3 recomputed."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.5/threefold-classification",
+        "verdict": "verified",
+        "note": "Lemmas B.5–B.8 checked; the histogram 1,23,1 with k=5 recomputed in Lean."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.5/fourfold-impossibility",
+        "verdict": "verified",
+        "note": "Lemma B.9 checked case by case, including the values 11/4, 11/10 and 55."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.6/ratio-identities",
+        "verdict": "verified",
+        "note": "Formulas of §B.2 and Lemma B.10 checked; the non-strict product bound is right (E8)."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.6/eulerian-comparisons",
+        "verdict": "verified",
+        "note": "All listed comparisons checked with exact arithmetic for 5≤n≤260; they hold. G1 is the honest status for the infinite range."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.6/first-ratio-exclusion",
+        "verdict": "verified",
+        "note": "Lemmas B.11–B.18 (pp. 101–107) located; argument structure as summarized."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.6/large-k-exclusion",
+        "verdict": "verified",
+        "note": "Lemmas B.19–B.21 (pp. 108–110) located."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.6/second-ratio-exclusion",
+        "verdict": "verified",
+        "note": "Lemmas B.22–B.31 checked (E9–E13, E15); the r=n−1 endpoint is handled."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.6/exterior-power-classification",
+        "verdict": "verified",
+        "note": "Proposition 3.15/B.1 checked against the case split."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.6/classical-monodromy",
+        "verdict": "corrected",
+        "note": "Theorem 3.5 and its proof (p. 27) checked; the vacuous n=2 clause is now finding E22."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.7/constant-part-rigidity",
+        "verdict": "verified",
+        "note": "Lemma 4.1 checked, including the outer-automorphism step over X^m."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.7/independent-coordinate-factors",
+        "verdict": "corrected",
+        "note": "Lemma 4.2 and Corollary 4.3 checked; the tensor pushforward to a coordinate is now proved in the node (proper base change and projection formula) instead of being requested."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.7/relative-generic-vanishing",
+        "verdict": "corrected",
+        "note": "Lemma 4.4 checked; its decomposition-theorem input is EDC.7/decomposition-theorem-complex (geometric origin)."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.7/jordan-finite-linear-groups",
+        "verdict": "added",
+        "note": "Added: Jordan’s theorem, used in LS Lemma 4.5 (“Jordan–Schur”) and owned by no roadmap; with the scalar reduction to subgroups finite modulo scalars."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.7/detecting-representations",
+        "verdict": "corrected",
+        "note": "Lemma 4.5 checked; Jordan input now the added node; W constructed as a Cartan power; tests correct; kinds corrected."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.7/generic-big-monodromy",
+        "verdict": "corrected",
+        "note": "Theorem 4.7 checked; reductivity from the decomposition theorem for the geometric-origin sheaves g*Lχ."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.8/frobenius-avoidance",
+        "verdict": "verified",
+        "note": "Lemma 4.8 checked; the prime-to-p restriction is justified (E6) and the count corrected (E20)."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.8/galois-orbit-character",
+        "verdict": "corrected",
+        "note": "Lemma 4.9 checked; misprint in the torsion count recorded as E23."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.8/uniform-orbit-monodromy",
+        "verdict": "verified",
+        "note": "Corollary 4.10 checked; the choice ℓ≠p keeps every conjugate prime to p."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.9/linear-system-period",
+        "verdict": "corrected",
+        "note": "Proposition 4.11 setup checked; tests on Pic versus NS correct; kinds corrected."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.9/surface-period-finiteness",
+        "verdict": "corrected",
+        "note": "Milne Proposition 6.1 (pp. 19–20) and Theorem 12.1 (p. 38) checked; the Torelli and rigidity route is sound; relative universal property routed to JacobianChallengePartII:JC2 (R19)."
+      },
+      {
+        "nodeId": "SheafConvolutionOnAbelianVarieties:SC.9/finite-period-detection",
+        "verdict": "corrected",
+        "note": "Proposition 4.11 and CDK Theorem 1.1, Corollary 1.3 (p. 2) checked; G3 records the unproved trace compatibility; citation split."
+      }
+    ]
+  }
 }
