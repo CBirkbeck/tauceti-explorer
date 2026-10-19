@@ -5212,5 +5212,7 @@
  "FIX-PKG-BorelRegulators~adv2": 11139,
  "FIX-PKG-KTheoryFiniteLocalFields~adv2": 11140,
  "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex": 11142,
- "FIX-PKG-ExcursionOperatorsAndSpectralAction~adv": 11148
+ "FIX-PKG-ExcursionOperatorsAndSpectralAction~adv": 11148,
+ "FIX-PKG-Polylogarithms~adv": 11149,
+ "REV-PKG-MotivicEtaleKTheory~adv": 11150
 }
