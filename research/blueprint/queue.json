@@ -151467,6 +151467,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-EisensteinIdealAndRationalTorsion~codex.md"
+  },
+  {
+   "id": "REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RelativeJacobiansAndIntegralCurveModels"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex.md",
+    "research/blueprint/packages/RelativeJacobiansAndIntegralCurveModels/review.json",
+    "research/blueprint/packages/RelativeJacobiansAndIntegralCurveModels/README.md",
+    "research/blueprint/packages/RelativeJacobiansAndIntegralCurveModels/Suggested.lean",
+    "research/blueprint/packages/RelativeJacobiansAndIntegralCurveModels/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex.md"
   }
  ]
 }
