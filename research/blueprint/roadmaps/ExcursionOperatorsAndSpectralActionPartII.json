@@ -1,0 +1,187 @@
+{
+  "id": "ExcursionOperatorsAndSpectralActionPartII",
+  "title": "Excursion operators and the spectral action, Part II: stability of the Fargues–Scholze center",
+  "area": "langlands",
+  "parent": "ExcursionOperatorsAndSpectralAction",
+  "summary": "Plan the proof that the Fargues–Scholze spectral center acts by very stable distributions for every connected reductive group over a p-adic field. Quantitative Hecke averaging gives stability and atomic-parameter constancy; basic-inner-form detection constructs a surjection between the FS image centers and establishes compatibility with Levi restriction, stable character transfer and matching test functions. Harmonic analysis and local-shtuka trace theorems are separate imported continuations, with precise missing supplier contracts.",
+  "readme": "This continuation starts with the already planned spectral-center map, semisimple parameters, normalized parabolic compatibility and coherent Hecke family. Its seven layers prove very stability by quantitative elliptic averaging and compare the FS image centers across extended pure inner forms. The reader gives exact hypotheses, all definition APIs and discriminating tests, supplier contracts G1–G3, and the stronger FS conjecture as a boundary. The full plan is research/blueprint/readmes/ExcursionOperatorsAndSpectralActionPartII.md. Every layer is planned; none is claimed closed or implemented.",
+  "prerequisites": [
+    "ExcursionOperatorsAndSpectralAction",
+    "SmoothRepresentationsOfLocalGroups",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "HeckeStacksAndLocalShtukas",
+    "BunGAndNewtonStrata",
+    "GeometricSatakeAndFusion",
+    "LanglandsParameterStacks",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+  ],
+  "stages": [
+    {
+      "key": "SC0",
+      "title": "Stable central distributions",
+      "description": "Define the stable central submodule and very stable central subalgebra; prove their action relation, the stable-character criterion for very stability and faithfulness on stable tempered virtual characters. Import stable delta_1 and harmonic-analysis separation through G1.",
+      "requires": [
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1"
+      ]
+    },
+    {
+      "key": "SC1",
+      "title": "Hecke operators on character spaces",
+      "description": "Construct Euler-class Hecke operators on finite virtual character spaces using shriek basic-stratum extensions. Prove commutation with the FS central action, stable scalar action modulo induced characters, both directed inner-form operators, their central intertwining and their e(G)e(G_b) elliptic formula. G2 supplies all finite-length and extension-convention comparisons.",
+      "requires": [
+        "HeckeStacksAndLocalShtukas:HS1",
+        "HeckeStacksAndLocalShtukas:HS3",
+        "BunGAndNewtonStrata:BG0",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+        "ExcursionOperatorsAndSpectralAction:ES0:classical-center",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0"
+      ]
+    },
+    {
+      "key": "SC2",
+      "title": "Quantitative stable averaging",
+      "description": "Construct the finite elliptic stable average, the dual-root sequence mu_m=4m rho_dual and normalized weight multiplicity kernels. Use the existing Weyl formula and finite Fourier basis to prove a group-uniform O(1/m) kernel error, then the discriminant-weighted compact-uniform character averaging estimate.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+        "ExcursionOperatorsAndSpectralActionPartII:SC1"
+      ]
+    },
+    {
+      "key": "SC3",
+      "title": "Stability of the FS center",
+      "description": "Prove the compact stable-representative lemma and O(1/m) convergence of normalized Hecke pairings against cuspidal test functions. Deduce Hansen Theorem 1.1 by semisimple-rank induction: the FS center image lies in the very stable subalgebra for arbitrary connected reductive p-adic G.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "ExcursionOperatorsAndSpectralActionPartII:SC2",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+        "ExcursionOperatorsAndSpectralActionPartII:SC0",
+        "ExcursionOperatorsAndSpectralActionPartII:SC1",
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+        "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "SC4",
+      "title": "Atomic characters and packet parameters",
+      "description": "Define atomic stability by nonzero arbitrary-coefficient support minimality. Prove scalar rigidity and constancy of the FS semisimple parameter conjugacy class on atomic supports. Plan the regular supercuspidal packet corollary under Hansen’s exact tame and p-Weyl hypotheses, retaining G3 as the unresolved atomicity source input.",
+      "requires": [
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+        "ExcursionOperatorsAndSpectralActionPartII:SC0",
+        "ExcursionOperatorsAndSpectralActionPartII:SC3",
+        "ExcursionOperatorsAndSpectralAction:ES5",
+        "LanglandsParameterStacks:LP2:semisimple-characters"
+      ]
+    },
+    {
+      "key": "SC5",
+      "title": "Centers of extended pure inner forms",
+      "description": "For a basic extended pure inner form of a quasi-split G*, prove ker(Psi_G*) <= ker(Psi_G). Construct the unique surjective spectral-algebra map tau_G between the FS image centers, and prove its compatibility with normalized Levi restriction. The center maps are not asserted to identify whole stable Bernstein centers.",
+      "requires": [
+        "ExcursionOperatorsAndSpectralActionPartII:SC0",
+        "ExcursionOperatorsAndSpectralActionPartII:SC3",
+        "ExcursionOperatorsAndSpectralActionPartII:SC1",
+        "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
+        "BunGAndNewtonStrata:BG0",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "ExcursionOperatorsAndSpectralAction:ES1:spectral-center"
+      ]
+    },
+    {
+      "key": "SC6",
+      "title": "Stable transfer compatibility",
+      "description": "Prove tau_G intertwines the FS center action with stable tempered character transfer using elliptic reverse-Hecke comparisons modulo induced characters and rank induction. Deduce that convolution preserves matching stable orbital integrals for compactly supported smooth test functions, with transfer factor e(G), including irrelevant-class vanishing.",
+      "requires": [
+        "ExcursionOperatorsAndSpectralActionPartII:SC3",
+        "ExcursionOperatorsAndSpectralActionPartII:SC5",
+        "ExcursionOperatorsAndSpectralActionPartII:SC1",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.3",
+        "ExcursionOperatorsAndSpectralActionPartII:SC0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "H26",
+      "title": "Excursion operators and the stable Bernstein center",
+      "authors": "David Hansen",
+      "edition": "Forum of Mathematics, Pi 14 (2026), e10, pp. 1–14; version of record",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AB00A1DF177B6DAB542489D58DA1C8AD/S2050508626100286a.pdf/excursion-operators-and-the-stable-bernstein-center.pdf",
+      "sha256": "30f08ae39b020187b8368d4096411527f64555923232e6d42c3b21e314396936",
+      "read": "2026-10-19",
+      "readSections": [
+        "Entire article, pp. 1–14: definitions, Lemmas 2.1–2.6, Propositions 2.5 and 2.7, proofs of Theorems 1.1 and 1.4, and Corollaries 1.2–1.3"
+      ]
+    },
+    {
+      "id": "FU25",
+      "title": "Stability of elliptic Fargues–Scholze L-packets",
+      "authors": "Chenji Fu",
+      "edition": "arXiv:2501.00652v1 (1 January 2025)",
+      "url": "https://arxiv.org/pdf/2501.00652v1",
+      "sha256": "f77b54a8526888c95c2cf0d32e158a38040cd28c4021e9c2c7df1b9abb169524",
+      "read": "2026-10-19",
+      "readSections": [
+        "§§3.1–3.3, pp. 18–21: dual-root product, finite H_g, Fourier growth",
+        "§4.2, pp. 24–25: invariant fibers, especially Lemma 4.2.7",
+        "§4.3, pp. 26–27: proof of Theorem 4.3.1 and equidistribution"
+      ]
+    },
+    {
+      "id": "HKW22",
+      "title": "On the Kottwitz conjecture for local shtuka spaces",
+      "authors": "David Hansen, Tasho Kaletha and Jared Weinstein",
+      "edition": "Forum of Mathematics, Pi 10 (2022), e13, pp. 1–79; version of record",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/33A94496879999F3D63C2997F2D50D9D/S2050508622000075a.pdf/div-class-title-on-the-kottwitz-conjecture-for-local-shtuka-spaces-div.pdf",
+      "sha256": "d05a7f84ce98862d470d114946b7002e8d5ab1df3c4d77fb4851ff45f5d80049",
+      "read": "2026-10-19",
+      "readSections": [
+        "§3.1, pp. 12–13: rational torus finiteness and class topology",
+        "§3.2, pp. 14–16: inv[b], uniqueness and torus fibers",
+        "§3.3, pp. 17–18: Equation (3.3.3) sign",
+        "§6.4, pp. 61–62: finite length and the stated star-extension Mant functor",
+        "§6.5, pp. 65–66: Theorem 6.5.2",
+        "Appendix C, p. 75: finiteness theorem C.1.1"
+      ]
+    },
+    {
+      "id": "FS24",
+      "title": "Geometrization of the local Langlands correspondence",
+      "authors": "Laurent Fargues and Peter Scholze",
+      "edition": "arXiv:2102.13459v4 (2024)",
+      "url": "https://arxiv.org/pdf/2102.13459v4",
+      "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+      "read": "2026-10-19",
+      "readSections": [
+        "§I.9, pp. 34–35: Definition I.9.2, Proposition I.9.3, Conjecture I.9.5 and the separate following stable-center expectation"
+      ]
+    },
+    {
+      "id": "FKS21v2",
+      "title": "A twisted Yu construction, Harish-Chandra characters, and endoscopy",
+      "authors": "Jessica Fintzen, Tasho Kaletha and Loren Spice",
+      "edition": "arXiv:2106.09120v2 (3 September 2021); preprint of Duke Mathematical Journal 172 (2023), pp. 2241–2301. Published full text not retrieved.",
+      "url": "https://arxiv.org/pdf/2106.09120v2",
+      "sha256": "126958839c2203b485d22ec960f8e0f6a795d00103adadb6c184aa6edb75b51a",
+      "read": "2026-10-19",
+      "readSections": [
+        "Introduction, pp. 2–4: scope and field restrictions",
+        "§4.3, pp. 19–23: especially assumptions on p and exponential convergence on p. 20",
+        "§4.4, pp. 24–26: regular packets, stable sums, Theorem 4.4.4"
+      ]
+    }
+  ],
+  "status": "draft"
+}
