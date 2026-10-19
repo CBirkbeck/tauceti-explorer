@@ -1,0 +1,340 @@
+{
+  "id": "GrossZagierAndArithmeticHeightsPartII",
+  "title": "Gross–Zagier formulas and arithmetic heights, Part II: unitary cycles and the AFL",
+  "area": "arithmeticgeometry",
+  "parent": "GrossZagierAndArithmeticHeights",
+  "summary": "Extend the point-height and Shimura-curve Gross–Zagier direction to higher-dimensional unitary special cycles. Organize unramified, almost self-dual, exotic smooth and Krämer intersection identities, the arithmetic Siegel–Weil formulas, and the global-to-local proof of the strongly regular arithmetic fundamental lemma. Keep exact residue sizes, duality conventions and measure factors, and expose source proof obligations and shared-foundation extensions.",
+  "readme": "The authoritative reader is research/blueprint/readmes/GrossZagierAndArithmeticHeightsPartII.md. Fifteen layers separate the local models, strata, Fourier identities, global special and fat CM cycles, and two global comparison arguments. Independent inner-product, GSpin, p-adic and higher-Green continuations are allocated in the split proposals. Generic lattices, supported K theory, Fourier analysis and good-prime PEL theory are imported from their existing owners.",
+  "prerequisites": [
+    "ArakelovGeometryAndAbelianHeights",
+    "AutomorphicSpectralTheory",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "GrossZagierAndArithmeticHeights",
+    "MetaplecticAutomorphicForms",
+    "MotivesAndAlgebraicCycles",
+    "PELModuli",
+    "SchemeAndStackFoundations",
+    "SchemeKTheoryOperationsPartII"
+  ],
+  "stages": [
+    {
+      "key": "U0",
+      "title": "Unramified special cycles and derived intersections",
+      "description": "Over an odd-residue-characteristic unramified quadratic local extension, define liftability cycles on the signature (1,n−1) Rapoport–Zink functor, their derived classes and Euler intersections. Prove Cartierness, basis independence, proper full-rank support, cancellation and the rank-one normalization. Generic formal K theory and the RZ representability input are imported contracts.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "PELModuli:M3",
+        "PELModuli:M6",
+        "SchemeKTheoryOperationsPartII:FK.1",
+        "SchemeKTheoryOperationsPartII:FK.2",
+        "SchemeKTheoryOperationsPartII:FK.3",
+        "SchemeKTheoryOperationsPartII:FK.4"
+      ]
+    },
+    {
+      "key": "U1",
+      "title": "Unramified strata and horizontal cycles",
+      "description": "Identify odd-type vertex strata with unitary Deligne–Lusztig varieties, their incidence and special-cycle support. Classify primitive horizontal cycles by type-at-most-one overlattices, prove Tate-module lifting criteria and compute quasi-canonical degrees; give low-rank vertical checks.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GrossZagierAndArithmeticHeightsPartII:U0",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "SchemeKTheoryOperationsPartII:FK.0",
+        "SchemeKTheoryOperationsPartII:FK.2",
+        "SchemeKTheoryOperationsPartII:FK.3"
+      ]
+    },
+    {
+      "key": "U2",
+      "title": "Tate classes and local modularity",
+      "description": "Calculate Frobenius eigenspaces on unitary Deligne–Lusztig strata, prove boundary generation of Tate classes and numerical reduction of vertical intersections to curves. Establish curve Fourier identities, corrected Chern-character formulas and higher K-theoretic local modularity without an unjustified global formal filtration theorem.",
+      "requires": [
+        "GrossZagierAndArithmeticHeightsPartII:U1",
+        "MetaplecticAutomorphicForms:MP.0",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeKTheoryOperationsPartII:FK.3",
+        "SchemeKTheoryOperationsPartII:FK.4"
+      ]
+    },
+    {
+      "key": "U3",
+      "title": "Unramified analytic and local identities",
+      "description": "Import normalized unramified Siegel polynomials and their overlattice formula. Define horizontal and vertical density functions, prove analytic regularity and the restricted negative-norm Fourier vanishing, and close the local identity by induction on the difference and an uncertainty principle. Normalize the Whittaker derivative explicitly.",
+      "requires": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "GrossZagierAndArithmeticHeightsPartII:U0",
+        "GrossZagierAndArithmeticHeightsPartII:U1",
+        "GrossZagierAndArithmeticHeightsPartII:U2",
+        "MetaplecticAutomorphicForms:MP.0",
+        "MetaplecticAutomorphicForms:MP.2"
+      ]
+    },
+    {
+      "key": "U4",
+      "title": "Almost self-dual comparison",
+      "description": "Define original almost self-dual Y-cycles and auxiliary pulled-back cycles separately. Prove the finite-flat exceptional-divisor comparison using Li–Rapoport–Zhang’s model theorem, identify the two model conventions, and derive both local density identities including the correction term and degree q+1.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GrossZagierAndArithmeticHeightsPartII:U0",
+        "GrossZagierAndArithmeticHeightsPartII:U3",
+        "PELModuli:M6",
+        "SchemeKTheoryOperationsPartII:FK.3",
+        "SchemeKTheoryOperationsPartII:FK.4"
+      ]
+    },
+    {
+      "key": "U5",
+      "title": "Exotic smooth geometry",
+      "description": "For even rank and ramified quadratic extensions, use the exotic smooth RZ model with its scaled special Hom form and trace duality. Define the zero-vector Koszul complex and modular line, prove linear invariance and Cartierness, describe even-type strata and their Tate classes, and compute the rank-two and component normalizations.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GrossZagierAndArithmeticHeightsPartII:U0",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "PELModuli:M6",
+        "SchemeKTheoryOperationsPartII:FK.1"
+      ]
+    },
+    {
+      "key": "U6",
+      "title": "Exotic analytic formula and induction",
+      "description": "Consume ramified trace-dual density polynomials and their finite overlattice formula. Define analytic and geometric horizontal/vertical parts, prove the lattice-extension cancellation and Fourier bounds, and close the exotic local identity with the special two-overlattice induction. Export the relative/absolute cycle comparison.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "GrossZagierAndArithmeticHeightsPartII:U3",
+        "GrossZagierAndArithmeticHeightsPartII:U5",
+        "MetaplecticAutomorphicForms:MP.0",
+        "MetaplecticAutomorphicForms:MP.2",
+        "SchemeKTheoryOperationsPartII:FK.0",
+        "SchemeKTheoryOperationsPartII:FK.2",
+        "SchemeKTheoryOperationsPartII:FK.4"
+      ]
+    },
+    {
+      "key": "U7",
+      "title": "Krämer model geometry and horizontal correction",
+      "description": "On the ramified Krämer model of either hermitian sign, construct special cycles, type-zero exceptional projective spaces and positive-type symplectic incidence strata. Prove the corrected incidence relations and deformation properties, classify horizontal lattices and define the exceptional-line correction in the graded derived cycle. Establish the parity-corrected cancellation and geometric Fourier bounds.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GrossZagierAndArithmeticHeightsPartII:U0",
+        "GrossZagierAndArithmeticHeightsPartII:U1",
+        "GrossZagierAndArithmeticHeightsPartII:U2",
+        "MetaplecticAutomorphicForms:MP.0",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "PELModuli:M6",
+        "SchemeKTheoryOperationsPartII:FK.2",
+        "SchemeKTheoryOperationsPartII:FK.4"
+      ]
+    },
+    {
+      "key": "U8",
+      "title": "Krämer density correction and proof obligation",
+      "description": "Import ramified density polynomials with −2 derivative normalization and the uniquely determined dual-vertex correction coefficients. State primitive density products, analytic partial-integral bounds and the horizontal identity. Isolate the false negative-norm vanishing and the missing isolated odd-top induction case; the full Krämer identity is a target with this explicit proof gap.",
+      "requires": [
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "GrossZagierAndArithmeticHeightsPartII:U7",
+        "MetaplecticAutomorphicForms:MP.0"
+      ]
+    },
+    {
+      "key": "U9",
+      "title": "Local AFL geometry and rank reduction",
+      "description": "Define strongly regular group and semi-Lie intersections on unramified RZ spaces, their proper support and orbit invariance. Compare graph pullbacks through the relative Cayley map, prove rank and norm-unit reductions with residue-size bounds, and prove fixed-g and joint local constancy using higher local modularity. Import the distinct Jacquet–Rallis analytic transfer contract.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "GrossZagierAndArithmeticHeightsPartII:U0",
+        "GrossZagierAndArithmeticHeightsPartII:U1",
+        "GrossZagierAndArithmeticHeightsPartII:U2",
+        "MetaplecticAutomorphicForms:MP.0",
+        "SchemeKTheoryOperationsPartII:FK.3",
+        "SchemeKTheoryOperationsPartII:FK.4"
+      ]
+    },
+    {
+      "key": "U10",
+      "title": "Global special cycles and local degrees",
+      "description": "Construct generic and integral unitary KR cycles and their derived K-classes on the source-admissible RSZ models, identify uniformizations and local Euler sums with their log-residue and reflex-degree normalizations, and compare with Li–Liu’s cycle interfaces. Keep the integral model hypotheses explicit at every bad place.",
+      "requires": [
+        "GrossZagierAndArithmeticHeightsPartII:U0",
+        "GrossZagierAndArithmeticHeightsPartII:U4",
+        "GrossZagierAndArithmeticHeightsPartII:U6",
+        "PELModuli:M1",
+        "PELModuli:M3",
+        "PELModuli:M6",
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeKTheoryOperationsPartII:FK.1",
+        "SchemeKTheoryOperationsPartII:FK.2",
+        "SchemeKTheoryOperationsPartII:FK.4"
+      ]
+    },
+    {
+      "key": "U11",
+      "title": "Fat CM and derived Hecke cycles",
+      "description": "Define the possibly nonmaximal CM order, twisted fat CM moduli and their derived Hecke realization. Prove finite unramified forgetfulness, properness, good-order étaleness, characteristic-polynomial decomposition and formal orbit uniformization; realize the derived class as a proper one-cycle via its virtual filtration, without asserting actual dimension one.",
+      "requires": [
+        "GrossZagierAndArithmeticHeightsPartII:U10",
+        "GrossZagierAndArithmeticHeightsPartII:U9",
+        "PELModuli:M4",
+        "PELModuli:M6",
+        "SchemeAndStackFoundations:SF.5",
+        "SchemeKTheoryOperationsPartII:FK.1",
+        "SchemeKTheoryOperationsPartII:FK.2",
+        "SchemeKTheoryOperationsPartII:FK.4"
+      ]
+    },
+    {
+      "key": "U12",
+      "title": "Modular divisors, Green functions and AFL pairings",
+      "description": "Construct Chow and arithmetic-divisor series with their nonzero and Hodge-line constant terms, complex orbit formulas and Green metrics. Prove the source-scoped modularity and Green comparison over Q, pair with the proper derived CM one-cycle, and derive finite inert and archimedean orbit formulas with the correct factor two and normalization.",
+      "requires": [
+        "ArakelovGeometryAndAbelianHeights:R35.1",
+        "GrossZagierAndArithmeticHeightsPartII:U10",
+        "GrossZagierAndArithmeticHeightsPartII:U11",
+        "GrossZagierAndArithmeticHeightsPartII:U9",
+        "MetaplecticAutomorphicForms:MP.2",
+        "PELModuli:M3",
+        "PELModuli:M6",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "U13",
+      "title": "Arithmetic Siegel–Weil identities",
+      "description": "Specialize the unitary Siegel section and incoherent Diff-set factorization, state source-admissible global model conditions, and prove semi-global and global coefficient identities. Construct Green star products and arithmetic degrees with the half-archimedean normalization. State the unramified full formula and the modified ramified formula with its inherited Krämer proof obligation.",
+      "requires": [
+        "ArakelovGeometryAndAbelianHeights:R35.1",
+        "AutomorphicSpectralTheory:AS.1",
+        "AutomorphicSpectralTheory:AS.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "GrossZagierAndArithmeticHeightsPartII:U10",
+        "GrossZagierAndArithmeticHeightsPartII:U12",
+        "GrossZagierAndArithmeticHeightsPartII:U3",
+        "GrossZagierAndArithmeticHeightsPartII:U4",
+        "GrossZagierAndArithmeticHeightsPartII:U8",
+        "MetaplecticAutomorphicForms:MP.3",
+        "PELModuli:M4",
+        "PELModuli:M6",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "U14",
+      "title": "Global comparison and strongly regular AFL",
+      "description": "Consume source-scoped Jacquet–Rallis transfer, Gaussian and fundamental-lemma inputs; define the corrected holomorphic derivative and compare it with the modular CM series over Q. Separate local logarithms, isolate a strongly regular orbit and perform the final induction for the published Q_p range. Record the q=n Cayley boundary proof obligation and retain arbitrary regular semisimple AFL only as a conjecture.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "GrossZagierAndArithmeticHeightsPartII:U0",
+        "GrossZagierAndArithmeticHeightsPartII:U12",
+        "GrossZagierAndArithmeticHeightsPartII:U9",
+        "MetaplecticAutomorphicForms:MP.0",
+        "MetaplecticAutomorphicForms:MP.2",
+        "MetaplecticAutomorphicForms:MP.3"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "LZ",
+      "title": "Kudla–Rapoport cycles and derivatives of local densities",
+      "authors": "Chao Li and Wei Zhang",
+      "edition": "arXiv:1908.01701v3, 2 December 2020; journal JAMS 35 (2022), 705–797",
+      "url": "https://arxiv.org/pdf/1908.01701v3",
+      "sha256": "7db1843f90c3e79741f8d58d92b6bb42b0a3b7ae001c8f9419f43b08c2119d49",
+      "readSections": [
+        "Conventions and §§1–8; selected counting arguments in §7.4",
+        "§§9.1–9.2, 10–15"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "Z",
+      "title": "Weil representation and Arithmetic Fundamental Lemma",
+      "authors": "Wei Zhang",
+      "edition": "Annals of Mathematics 193 (2021), 863–978, DOI 10.4007/annals.2021.193.3.5",
+      "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf",
+      "sha256": "6f8ac537b4f95cf26ba907dc1d25c1b9d9157a3a4006a311b114a522177d3b45",
+      "readSections": [
+        "§§2.3, 3–5, 7–10, 14–15, Appendix A",
+        "§§11–13: analytical input statements and vanishing criterion; proof leaves requested from the relative trace comparison owner"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "LL1",
+      "title": "Chow groups and L-derivatives of automorphic motives for unitary groups, I",
+      "authors": "Chao Li and Yifeng Liu",
+      "edition": "Author final, 20 October 2021; Annals 194 (2021), 817–901",
+      "url": "https://www.math.columbia.edu/~chaoli/AIPF.pdf",
+      "sha256": "6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566",
+      "readSections": [
+        "Definition 5.3 and Lemma 5.4, pp.26–27",
+        "§§8–9 local cycle construction and local identity interfaces"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "LL2",
+      "title": "Chow groups and L-derivatives of automorphic motives for unitary groups, II",
+      "authors": "Chao Li and Yifeng Liu",
+      "edition": "Author copy, 16 January 2022, 72 pages; Forum Math. Pi 10 (2022), e5 has different pagination",
+      "url": "https://www.math.columbia.edu/~chaoli/AIPF2.pdf",
+      "sha256": "ebc12f4ddc2dc8b998f91bbfa3329364b075240c4ee53be1bf409a4361be7d88",
+      "readSections": [
+        "§2.1–2.7, including proofs of lattice parametrization and induction",
+        "§2.8, Corollaries 2.65–2.66"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "K",
+      "title": "A proof of Kudla–Rapoport conjecture for Krämer models",
+      "authors": "Qiao He, Chao Li, Yousheng Shi and Tonghai Yang",
+      "edition": "Author final, 21 July 2023, 82 pages; Inventiones 234 (2023), 721–817, publisher copy not collated",
+      "url": "https://www.math.columbia.edu/~chaoli/Kramer.pdf",
+      "sha256": "a29d282011c4972663376d1dd86c40d8dc494d259c82d6d652e23bd1fffc8623",
+      "readSections": [
+        "§§1–4 including all of §3",
+        "§7.1 primitive formulas; §§8–10 including §9 induction",
+        "§§5–7 remaining density combinatorics are supplier inputs, not independently verified proofs"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "LRZ",
+      "title": "Quasi-canonical AFL and arithmetic transfer conjectures at parahoric levels",
+      "authors": "Chao Li, Michael Rapoport and Wei Zhang",
+      "edition": "arXiv:2404.02214v2, May 2026",
+      "url": "https://arxiv.org/pdf/2404.02214v2",
+      "sha256": "4e687dfc505fb8555f0155c486ec849508f7c1af384446ed155c506a894a1bba",
+      "readSections": [
+        "§§14.1–14.6, pp.55–61",
+        "§§16.1–16.5, pp.65–71"
+      ],
+      "accessed": "2026-10-19"
+    },
+    {
+      "id": "MZ",
+      "title": "On the Arithmetic Fundamental Lemma conjecture over a general p-adic field",
+      "authors": "Andreas Mihatsch and Wei Zhang",
+      "edition": "Journal of the European Mathematical Society, DOI 10.4171/JEMS/1375",
+      "url": "https://ems.press/content/serial-article-files/31452",
+      "sha256": "67c39ae1e0109162aba0e25aff25e6dfa4aa944eb68ca3ada7109a16583ca76e",
+      "readSections": [
+        "§3.6 footnote 3, p.18; §6.6 footnote 4, p.37",
+        "§7.2 Proposition 7.4 and footnote 5, p.48",
+        "§8.5, pp.56–57, normalized Fourier coefficients"
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}
