@@ -181,8 +181,8 @@
         "ref": "mathlib:Algebra.Etale.iff_exists_algEquiv_prod",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Etale/Field.lean",
-        "provides": "An etale algebra over a field is a finite product, possibly empty, of finite separable field extensions.",
-        "checked": "Statement read in the source at the pinned commit; not inferred from its name."
+        "provides": "For an essentially finite-type algebra over a field, formal etaleness is equivalent to a finite product, possibly empty, of separable field extensions. In this finite-type setting those field factors are finite-dimensional; apply after the supplier has established etaleness of the localized algebra.",
+        "checked": "Independent review read the exact EssFiniteType and FormallyEtale hypotheses at the pin, including the finite_of_free argument used in the proof; the SF.0 field-base algebra is finitely presented."
       },
       {
         "ref": "mathlib:MvPolynomial.pderiv",
@@ -2064,5 +2064,143 @@
       "item": "PAPER-COUVEIGNES-20/discriminant-count-bound",
       "node": "EffectiveBoundsPartII:EB.5/discriminant-count-bound"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EffectiveBoundsPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 26 nodes against the published Couveignes paper and all 25 baseline declarations at the exact pins. Read the named GN, GI, SF and ST supplier statements and current upstream reuse boundaries. Clarified the essentially finite-type/formally-etale hypotheses in one baseline annotation; no mathematical target, prerequisite, API, test, planet or coverage status needed correction. Complete planning pass accepted with two explicit open supplier requests, no gaps, and EB.3–EB.5 still planned. Suggested Lean elaborates with only intended proof-placeholder warnings. See the review report for source, baseline and validation receipts.",
+    "checked": [
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.0/measure-normalization",
+        "verdict": "verified",
+        "note": "§2 p. 489: complex-coordinate scaling has real determinant 2^r₂. The house body has weighted volume 2^r₁(2π)^r₂; its gauge remains distinct from the weighted Euclidean norm. Four tests detect these conventions."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.0/discriminant-covolume",
+        "verdict": "verified",
+        "note": "§2 p. 490 and the pinned mixedEmbedding covolume theorem agree after multiplying standard volume by 2^r₂. Nonzero integral discriminant gives delta≥1."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.0/half-small-integers",
+        "verdict": "verified",
+        "note": "§2 p. 490: imported second Minkowski and attaining witnesses yield the product bound; m=floor(n/2)+1 gives exponent n/(2(n+1−m))≤1, including even n and n=1. Witnesses need not be an integral basis."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.0/product-span",
+        "verdict": "verified",
+        "note": "§2 p. 490: if a nonzero functional kills all products, multiplication embeds V into its annihilator, contradicting 2 dim(V)>n. The strict inequality and field hypothesis are essential."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.0/short-integers",
+        "verdict": "verified",
+        "note": "Proposition 1 p. 490: products of the m short elements span K, and n independent products have house≤delta². This provides an integral rational basis, with no maximal-order index claim."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.1/parameterized-generators",
+        "verdict": "verified",
+        "note": "§3 pp. 491–492: the rational-basis embedding matrix is invertible by separability and the discriminant identity. Columnwise complex substitution preserves a nonzero interpolation minor; the integral finite sum has the stated nD delta² bound."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.1/bounded-parameter-choice",
+        "verdict": "verified",
+        "note": "§3 pp. 491–492: GI.5 supplies generic jets for r≥1,d≥5,M≥n(r+1). The minor pulls back over C, with individual degrees≤D=dn(r+1); the pinned grid theorem applies to D+1 complex grid values. Distinctness follows from surjective jets."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.1/value-surjectivity",
+        "verdict": "verified",
+        "note": "§3 p. 492: projecting jets gives full value rank over C, hence rank n for the rational evaluation matrix. Full rational algebra evaluation is onto; the integral image may have positive index."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.2/relation-lattice",
+        "verdict": "verified",
+        "note": "§3 p. 493: kernel in the native bounded-degree module is saturated because the target is torsion-free. Clearing denominators and scalar extension identify its rank M−n and full complex value kernel. Four tests distinguish degree, integrality and metric conventions."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.2/dual-image",
+        "verdict": "verified",
+        "note": "§3 p. 493: the transpose image is a rank-n finite-index sublattice of the integral orthogonal; dual restriction identifies its index with the integral evaluation index. Read GN.0 saturation/primitive-covolume contracts and the pinned intrinsic index formula. The inequality points toward the larger transpose covolume."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.2/gram-discriminant-identity",
+        "verdict": "verified",
+        "note": "§3 pp. 493–494: V=AB with a genuine integral basis gives det(VV*)=|disc K| det(BBᵗ). The rows of B form a basis of the transpose image, so its intrinsic squared covolume is det(BBᵗ). Complex conjugation and the discriminant denominator are retained."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.2/evaluation-height",
+        "verdict": "verified",
+        "note": "§3 pp. 493–494: C0≥1 includes the constant monomial; M bounded monomials give diagonal Gram entries≤G=M C0^(2d). The root-discriminant powers are 2d in H0 and 4d in G."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.2/relation-covolume-bound",
+        "verdict": "verified",
+        "note": "§3 p. 494: primitive orthogonal equality, finite-index comparison and the imported Hermitian Hadamard bound yield covol(L)≤G^(n/2)/sqrt(|disc K|). All covolumes are intrinsic in the appropriate span."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.3/independent-short-relations",
+        "verdict": "verified",
+        "note": "§3 p. 494: the requested intrinsic ell-ball volume bound cancels the 2^ell in second Minkowski, giving product≤ell^(ell/2)covol(L). Nonzero integer coefficient vectors have norm≥1. Closure remains conditional on the explicit GN.1 request."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.3/truncate-relations",
+        "verdict": "verified",
+        "note": "§3 p. 494: retaining ell+1−n vectors leaves a tail of at least n factors at every retained index. The ordered-product bound gives ell^(ell/(2n))sqrt(G) and codimension exactly n−1."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.3/gradient-surjectivity",
+        "verdict": "verified",
+        "note": "§3 p. 494: read GI.1 derivative-on-kernel and jet-kernel-split. Surjective first jets give the joint derivative map onto all n blocks from the entire complex relation kernel, as required before truncation."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.3/one-full-gradient-block",
+        "verdict": "verified",
+        "note": "§3 p. 494: a quotient cannot increase codimension. If every block projection were proper, n independent block-supported functionals would annihilate the image, contradicting codimension≤n−1. No unproved Galois transitivity is used."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.3/common-jacobian-minor",
+        "verdict": "verified",
+        "note": "§3 pp. 494–495: a full block selects r of the original integer equations. The resulting determinant is one element of K, whose nonzero value remains nonzero under every field embedding, including for nonnormal fields."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.4/jacobian-open",
+        "verdict": "verified",
+        "note": "Proposition 2 p. 495 and §3 pp. 492,494: vanishing equations and nonzero Jacobian extend the actual rational evaluation through quotient and localization. Read the exact SF.0 field-base contract; its finite-product classification makes the compatible surjection a component projection. Empty and multiple factors are tested."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.4/explicit-small-model",
+        "verdict": "verified",
+        "note": "Proposition 2 p. 495: substituting G gives precisely ell^(ell/(2n))sqrt(M)[n²d(r+1)]^d delta^(2d). Degree, arithmetic vanishing, full evaluation and the same nonzero Jacobian all come from the selected tuple. Only the Jacobian-open locus is claimed finite etale."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.5/central-binomial-choice",
+        "verdict": "verified",
+        "note": "§4 p. 495 equation (1): Catalan ratio 2(2r+1)/(r+2)<4 and minimality give M≤4n(r+1); exponential growth gives eventual logarithmic r. Tests r(1)=1,r(2)=2,r(14)=4,r(15)=5 check minimality and the d≥5 threshold."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.5/asymptotic-small-model",
+        "verdict": "verified",
+        "note": "Theorem 1 p. 487 and §4 pp. 495–496: d=r(n) is eventually≥5 and uniform for all fields of degree n. The logarithm of the coefficient bound is O((log n)²+log n log delta); one enlarged Q covers constants and thresholds."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.5/bounded-equation-systems",
+        "verdict": "verified",
+        "note": "§4 p. 496: the native ordered polynomial tuples correspond to rM independent integer coefficient slots. Four tests cover zero variables, constants, zero height and total degree versus coordinatewise degree. No new polynomial or field-class carrier is introduced."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.5/coefficient-box",
+        "verdict": "verified",
+        "note": "§4 p. 496: each integer slot has 2C+1 possibilities, hence exact cardinality (2C+1)^(rM). Taking the natural floor of a nonnegative real bound is compatible with absolute integer coefficients."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.5/components-to-classes",
+        "verdict": "verified",
+        "note": "§4 p. 496 and Theorem 2 p. 488: isolated-point Bezout bounds the sum of field-factor degrees, hence the number of factors, by d^r. The image of pairs (tuple,factor) counts unweighted Q-isomorphism classes. The open arbitrary-dimensional SF.5 request is necessary; plane-only Bezout is not used."
+      },
+      {
+        "nodeId": "EffectiveBoundsPartII:EB.5/discriminant-count-bound",
+        "verdict": "verified",
+        "note": "Theorem 2 p. 488 and §4 pp. 495–496: fixed-Qbar Hermite finiteness passes to ST.0 classes. Uniform r(n), delta≤H^(1/n), rM=O(n(log n)²) and the coefficient box give the stated n and H exponents. The argument includes H=1 without dividing by log H."
+      }
+    ]
+  }
 }

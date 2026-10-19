@@ -1012,3 +1012,10 @@ Completing the roadmap requires every target, API and Check in EB.0–EB.5, toge
 - Tau Ceti commit `f790474821cf4256814db967cb154e7af3d0c369`: `NumberTheory/EffectiveBounds/HermiteCount/Basic.lean`. The explicit fixed-ambient count and `hermiteCountBound` are already available.
 - Current upstream **Completed/EffectiveBounds**, **GlobalNumberFields**, and the relevant **IntegralLattices** suggested covolume statement were checked for the arithmetic and metric boundaries. The current Tau Ceti effective-bounds implementation was also read. None of these existing targets is planned again.
 - The auxiliary Minkowski, interpolation, Jacobian-open and intersection proofs are imported from the named owner roadmaps. In particular this document does not claim an independent read of Siegel’s book, Martinet’s book or Fulton’s refined-intersection proof. Their precise consequences used here are stated at the supplier boundaries above; the two missing finer interfaces are recorded explicitly.
+
+
+## Independent review
+
+The [independent review](../reviews/REV-DESIGN-EffectiveBoundsPartII.md), completed on 19 October 2026, accepts this target-level planning pass. All 26 targets and 25 pinned baseline declarations were checked. The finite-product baseline uses an essentially finite-type algebra and formal etaleness; the imported Jacobian-open algebra over Q is finitely presented and etale, so these hypotheses hold.
+
+EB.0–EB.2 remain closed at target level. EB.3–EB.5 remain planned, with the intrinsic unit-ball estimate and arbitrary-dimensional isolated-point Bézout interface still requested from their existing owners. Acceptance establishes the plan's consistency and coverage; the selected Lean signatures elaborate with only proof placeholders. Every implementation status remains unchecked.
