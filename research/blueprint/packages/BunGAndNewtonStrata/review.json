@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-BunGAndNewtonStrata",
+    "date": "2026-10-19",
+    "notes": "Accepted with fixes applied: sourced the flagged elliptic-torus input; corrected torus-resolution, crossed-module and adjoint-torsor locators and hypotheses; supplied the smooth tensor-orbit lift and the period-boundary route for equal-characteristic topology; removed upstream fundamental-group and weight-space duplicates; proved all retained Lean examples and named the remaining boundary theorem targets. See the independent report for source sampling, duplication receipts, signature comparisons and the adversarial mathematics pass."
+  }
+}
