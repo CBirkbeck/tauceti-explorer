@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T10:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T10:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -20,7 +20,7 @@ Generated 2026-10-19T10:40Z from the README supplier graph of every open pull re
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 
 ## Wave 2
 - #814 AdicEtaleGeometry — maintainer approved; waits on #813
@@ -28,7 +28,7 @@ Generated 2026-10-19T10:40Z from the README supplier graph of every open pull re
 - #859 BanachAlgebras (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814
@@ -40,7 +40,7 @@ Generated 2026-10-19T10:40Z from the README supplier graph of every open pull re
 
 ## Wave 4
 - #815 AdicSpacesPartIV — draft; waits on #813, #814, #818
-- #820 DiamondsAndVStacks — draft; waits on #813, #814, #818
+- #820 DiamondsAndVStacks — draft; waits on #1199, #813, #814, #818
 - #908 EnhancedDerivedSheaves — ready (approved at an earlier head); waits on #818
 - #896 CharacteristicClasses (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
@@ -62,12 +62,12 @@ Generated 2026-10-19T10:40Z from the README supplier graph of every open pull re
 - #857 CrystallineCohomology — draft; waits on #813, #814, #815, #818, #820, #868, #908, #940, #1102, #1103, #1104
 
 ## Wave 9
-- #853 AlgebraicModuliForArithmeticGeometry — ready; waits on #785, #813, #857, #908, #899
+- #853 AlgebraicModuliForArithmeticGeometry — ready (approved at an earlier head); waits on #1199, #785, #813, #857, #908, #899
 - #854 LocallyAnalyticDistributions — draft; waits on #785, #813, #815, #857
 - #1042 PerfectoidQuotients — ready (approved at an earlier head); waits on #818, #857, #868, #908
 
 ## Wave 10
-- #848 ComplexComparisonPartII — draft; waits on #853, #857, #868, #908, #938, #1056, #279, #887, #896, #918, #953, #954, #973, #992
+- #848 ComplexComparisonPartII — draft; waits on #1199, #853, #857, #868, #908, #938, #1056, #279, #887, #896, #918, #953, #954, #973, #992
 
 ## Wave 11
 - #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #848, #853, #857, #908, #938, #280
