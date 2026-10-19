@@ -4,7 +4,7 @@
   "area": "padic",
   "parent": "ClassicalAdicEtaleCohomology",
   "summary": "This continuation proves Poincaré duality for mod-p étale cohomology of smooth proper rigid spaces over mixed-characteristic fields, starting from formal canonical sheaves and integral Faltings traces. A second route proves proper-smooth relative torsion finiteness and uses it to obtain Zariski-constructible proper base change with all torsion coefficients. Derived integral duality, local-system coefficients and constant cohomology sheaves are included with their precise hypotheses.",
-  "readme": "See research/blueprint/readmes/ClassicalAdicEtaleCohomologyPartII.md for conventions, all targets, API outlines, discriminating tests, source locators, supplier contracts and the five explicit proof-closure gaps.",
+  "readme": "See research/blueprint/readmes/ClassicalAdicEtaleCohomologyPartII.md for conventions, all targets, API outlines, discriminating tests, source locators, supplier contracts and the five explicit proof-closure gaps. Independently reviewed by REV-DESIGN-ClassicalAdicEtaleCohomologyPartII; see its review report for corrections and follow-up contracts.",
   "prerequisites": [
     "ClassicalAdicEtaleCohomology",
     "AInfCohomology",
@@ -41,7 +41,7 @@
     {
       "key": "PD.1",
       "title": "Formal canonical sheaves and traces",
-      "description": "Construct coherent formal dualizing complexes as derived inverse limits, with canonical flat bottom sheaf and finite-level reduction. Prove étale/algebraic comparison and Hartogs gluing for geometrically reduced residue fibres. Construct bottom traces, the generic top-differential identification and model-independent coherent traces on equal-dimensional smooth rigid spaces. G1 and G2 supply the valuation-base geometry.",
+      "description": "Construct coherent formal dualizing complexes as derived inverse limits, with canonical flat bottom sheaf and finite-level reduction. Prove étale/algebraic comparison and Hartogs gluing for geometrically reduced residue fibres. Construct bottom traces, the generic top-differential identification and model-independent coherent traces on equal-dimensional smooth rigid spaces. G1 and G2 supply the valuation-base geometry. The generic identification and coherent rigid trace construction use algebraically closed C; separatedness is explicit for formal duality.",
       "requires": [
         "AInfCohomology:AI.1",
         "AdicSpacesPartII:F0",
@@ -129,12 +129,13 @@
         "ClassicalAdicEtaleCohomology:H3",
         "DiamondEtaleCohomology:C1",
         "DiamondsAndVStacks:D1",
-        "DiamondsAndVStacks:D3",
         "EnhancedDerivedSheaves:E2",
         "PadicHodgeTheory:P8",
         "PerfectoidSpaces:P0",
         "PerfectoidSpaces:P3",
-        "SchemeAndStackFoundations:SF.0"
+        "SchemeAndStackFoundations:SF.0",
+        "PerfectoidSpaces:P5",
+        "PerfectoidSpaces:P6"
       ]
     },
     {
@@ -205,7 +206,7 @@
       "edition": "arXiv:2101.09759v2, 22 September 2021; preprint page numbers. Compositio Mathematica 158 (2022), 437–482.",
       "url": "https://arxiv.org/pdf/2101.09759v2",
       "readSections": [
-        "§1 definitions; §2.3, Theorems 2.27 and 2.29, pp. 13–14; §§3.1–3.3, pp. 14–20; §3.5, Lemma 3.25 and its proof, p. 25."
+        "Introduction and Definition 3.1; §2.3, Theorems 2.27 and 2.29, pp. 13–14; §§3.1–3.3, pp. 14–20; §3.5, Lemma 3.25 and its proof, p. 25."
       ],
       "accessed": "2026-10-19",
       "sha256": "2dccae2b3f1eb298ce429a5d80fd284e16ef721072dbed0a5136fbac205cc3c8"
@@ -214,10 +215,10 @@
       "id": "H",
       "title": "A p-adic Simpson correspondence for smooth proper rigid varieties",
       "authors": "Ben Heuer",
-      "edition": "Inventiones Mathematicae 242 (2025), 267–357; published open-access PDF.",
+      "edition": "Inventiones Mathematicae 240 (2025), 261–312; published open-access PDF.",
       "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf",
       "readSections": [
-        "Conventions on the algebraically closed field, §1; §2.6, Proposition 2.18 and proof, pp. 278–279."
+        "Conventions on the algebraically closed field, §1; §2.6, Proposition 2.18 and proof, p. 279."
       ],
       "accessed": "2026-10-19",
       "sha256": "7608fff18ccbc47b96bd54cfe01f31f8ccd9953889834cc9f6c39787563175cd"
