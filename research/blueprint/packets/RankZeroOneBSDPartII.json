@@ -130,7 +130,7 @@
       ],
       "title": "The fixed-isogeny converse hypotheses",
       "kind": "definition",
-      "statement": "EisensteinConverseData(E,p,ι) records precisely the good odd prime, the actual rational cyclic degree-p isogeny and the local exclusion in the standing hypothesis. The character is the Galois action on ker ι, not an arbitrarily selected semisimple constituent. Reuse upstream isogeny, residual-character, reduction and conductor carriers; this is a hypothesis bundle, not a second elliptic-curve structure.",
+      "statement": "EisensteinConverseData(E,p,ι) records precisely the good odd prime, the actual rational cyclic degree-p isogeny and the local exclusion in the standing hypothesis. The character is the Galois action on ker ι, not an arbitrarily selected semisimple constituent. Reuse upstream isogeny, residual-character, reduction and conductor carriers; this is a Prop-valued hypothesis bundle, not a second elliptic-curve structure. Witness equality is inherited from proof irrelevance; no separate extensionality theorem is needed.",
       "hypotheses": [
         "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹."
       ],
@@ -173,6 +173,11 @@
       ],
       "api": [
         {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.mk",
+          "role": "constructor",
+          "statement": "For fixed E,p,ι, proofs that p is prime and odd, E is good at p, ι is rational cyclic of degree p, and its actual kernel character avoids 1 and ω locally construct EisensteinConverseData(E,p,ι). No freely chosen residual character is an extra field."
+        },
+        {
           "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.good_odd",
           "role": "projection",
           "statement": "p>2 is prime, E has good reduction at p, and degree(ι)=p."
@@ -191,6 +196,16 @@
           "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.transport",
           "role": "functoriality",
           "statement": "An isomorphism of rational isogeny diagrams transports the bundle and its actual kernel character."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.transport_refl",
+          "role": "simp",
+          "statement": "Transport along the identity isogeny diagram is the identity on the hypothesis bundle."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.transport_trans",
+          "role": "functoriality",
+          "statement": "Transport along a composite of rational isogeny-diagram isomorphisms equals successive transport, with the canonical identifications of kernel characters."
         }
       ],
       "tests": [
@@ -718,6 +733,11 @@
           "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_local",
           "role": "characterisation",
           "statement": "A₃ is the inverse image of a subset of the four local squareclasses ℚ₃ˣ/ℚ₃ˣ²."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.mem_admissibleTwists_iff_converseData",
+          "role": "compatibility",
+          "statement": "For every squareclass d, d∈A₃(E,ι) iff EisensteinConverseData(E^d,3,ι^d). This supplies the hypothesis bundle used by the finite-Selmer converse directly from family membership, and conversely constructs membership from the bundle."
         }
       ],
       "tests": [
@@ -1262,7 +1282,12 @@
         "arXiv:2008.02571v2, §5.2, pp.31–32; version history checked2026-10-19",
         "https://web.math.ucsb.edu/~castella/ — publication listing checked2026-10-19; no separate correction linked for this paper",
         "https://link.springer.com/article/10.1007/s00222-021-01072-y — publication page checked2026-10-19; no correction link found"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CGLS Corollary 5.2.3, p.575, and arXiv v2 p.32. The proof invokes a converse whose standing hypothesis is good reduction at p (published pp.518–519). The rational flex on y²+xy+3y=x³ supplies a 3-isogeny, while its twist-invariant j has v₃=−3. Thus character twisting alone cannot put every family inside that converse. This confirms a proof gap, not falsity of the qualitative density theorem.",
+        "by": "REV-DESIGN-RankZeroOneBSDPartII"
+      }
     },
     {
       "id": "RankZeroOneBSDPartII/E2",
@@ -1279,7 +1304,12 @@
         "arXiv:2008.02571v2, Remark5.2.4, p.32, collated2026-10-19",
         "https://web.math.ucsb.edu/~castella/ — publication listing checked2026-10-19",
         "https://link.springer.com/article/10.1007/s00222-021-01072-y — publication page checked2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at CGLS Remark 5.2.4, p.575, against BKLOS Theorem 2.5 and §9.2 (author pp.4,14). For the displayed 19a3 kernel, admissible twists have d≡2 mod3 and signed-squarefree density 3/8. The 41.6% transfer cannot follow solely from a conversion available on a set of upper density 37.5%; the 25% transfer likewise needs the restricted intersection. No counterexample to the actual full-family analytic-rank proportions is claimed.",
+        "by": "REV-DESIGN-RankZeroOneBSDPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -1389,5 +1419,98 @@
         "RankZeroOneBSDPartII:EC.5/no-good-three-twist"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-RankZeroOneBSDPartII",
+    "date": "2026-10-19",
+    "notes": "Independently read all 17 nodes and their public source locators, all 13 pinned declaration statements, direct supplier contracts, reviewed audit and current upstream overlap. Corrected two definition interfaces (four API items added), synchronized the reader and confirmed both source proof-scope findings. All six layers remain planned, all implementations unchecked, with ten requests and GAP-CT retained honestly. The unchanged suggested file elaborates at the pins with zero errors and ten proof-placeholder warnings. See the independent review report for checks and handoff.",
+    "checked": [
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+        "verdict": "corrected",
+        "note": "Checked CGLS good odd-prime/local-character scope, nonsplit residual allowance and dual symmetry. Made the bundle Prop-valued and added constructor and transport identity/composition APIs."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.0/small-selmer-corank",
+        "verdict": "verified",
+        "note": "Verified coefficient comparison and the paired finite-primary contribution modulo divisible Sha. GAP-CT is an explicit supplier frontier; full Sha finiteness is not assumed."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.1/auxiliary-fields",
+        "verdict": "verified",
+        "note": "Checked both branches in CGLS Theorem 5.2.1 pp.574–575 and the parity/nonvanishing supplier contracts; splitting includes p and all level primes, with odd D<−4."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.1/selmer-corank-over-k",
+        "verdict": "verified",
+        "note": "Verified forward theorem is applied first only to the known complementary twist, then odd-primary decomposition gives corank one and split-p local torsion vanishes."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.2/augmentation-control",
+        "verdict": "verified",
+        "note": "Checked Corollary 3.4.2 p.566, SI kernel/derived-control contracts and the ordinary-instantiation request. The rank-one DVR argument uses rational coinvariants and retains compact cokernel errors; augmentation is not inverted."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.2/heegner-specialization-factor",
+        "verdict": "verified",
+        "note": "Checked Remark 4.1.3 equations (4.4)–(4.5) pp.568–569: traced stabilization, u_K, α, β and Howard comparison. Local exclusion makes the displayed scalar factors units."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.2/heegner-point-nontorsion",
+        "verdict": "verified",
+        "note": "Verified use of the parent Corollary 4.2.3 equality at P₀, compact injection and exact factor, followed by positive height and the general classical Gross–Zagier specialization. No rank-one BSD control hypothesis is imported."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.3/p-converse",
+        "verdict": "verified",
+        "note": "Checked both complementary-twist subtractions in Theorem 5.2.1 pp.574–575 and the shared p-converse predicate. No irreducibility or p≥5 restriction is introduced."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.3/rank-and-sha",
+        "verdict": "verified",
+        "note": "Verified forward analytic-rank-at-most-one supplier yields arithmetic rank and full Sha finiteness only after the analytic converse."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.3/mod-p-converse",
+        "verdict": "verified",
+        "note": "Checked Corollary 5.2.2 p.575 and the necessary paired-primary comparison, with GAP-CT inherited explicitly and p=3 retained."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.4/admissible-twists",
+        "verdict": "corrected",
+        "note": "Verified squareclass invariance, actual twisted kernel, duality, local dependence and all four tests. Added the membership/converse-hypothesis compatibility API."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.4/admissible-ratio-strata",
+        "verdict": "verified",
+        "note": "Checked BKLOS local ratios pp.14–17 and §11 p.18: hold the admissible 3-class fixed, choose cℓ=1 away from3, and vary the real sign to obtain zero and odd signed strata. Positive-density counting remains a precise supplier request."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.4/relative-proportion-bounds",
+        "verdict": "verified",
+        "note": "Checked restricted ST.5 supplier statements against BKLOS §9.2 p.14. The 1/2 and 5/6 bounds use the same local subfamilies, actual stratum masses and lower limits."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.4/positive-twist-proportions",
+        "verdict": "verified",
+        "note": "Verified existence of a good-at-3 twist is retained, so the two admissible ratio strata support positive absolute lower proportions via the finite-Selmer converse."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.5/nineteen-a3-model",
+        "verdict": "verified",
+        "note": "Verified all pinned carriers/invariants, five API signatures and four tests, including the two-parameter twist scaling and integral-coefficient reduction modulo3. Lean elaborates with proof placeholders."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.5/nineteen-a3-admissibility",
+        "verdict": "verified",
+        "note": "Recomputed rational flex, Δ=−19, six points over F₃, a₃=−2, permitted class d≡2 mod3 and signed-squarefree mass3/8. The method ceiling is distinguished from a disproof of full-family density claims."
+      },
+      {
+        "nodeId": "RankZeroOneBSDPartII:EC.5/no-good-three-twist",
+        "verdict": "verified",
+        "note": "Recomputed rational flex, Δ=−2160, c₄=−71 and v₃(j)=−3. Twist invariance of j and good reduction imply the admissible family is empty."
+      }
+    ]
+  }
 }
