@@ -85,13 +85,24 @@ volume. Statements and proof routes below are in our own words.
   ideal decompositions and their classification; Example 4.6, printed p. 71
   (PDF p. 73), for ℚ(√−5); §5, S-units, printed p. 90 (PDF p. 92), for the
   valuation-defined ring and the use of principal powers of primes.
+* Henri Cohen, [*Advanced Computational Algebraic Number Theory*, author
+  manuscript, 11 July 2001](https://www.math.utoronto.ca/~ila/Cohen%20--%20Advanced%20topics%20in%20computational%20number%20theory.pdf),
+  independently read for this review: Corollary 1.2.11, printed p. 5
+  (PDF p. 19); Theorem 1.2.19 and Lemma 1.2.20, pp. 9–10 (PDF pp. 23–24);
+  Corollaries 1.2.24–1.2.27, pp. 11–12 (PDF pp. 25–26); Definition 1.2.33
+  and Theorem 1.2.35, pp. 15–16 (PDF pp. 29–30); relative integral
+  pseudo-bases, p. 77 (PDF p. 91); Definition 2.2.11 and Propositions
+  2.2.12–2.2.13, pp. 80–82 (PDF pp. 94–96); Exercise 2.22, p. 130
+  (PDF p. 144). The packet records the exact version and hash.
 
 The imported nodes retain their independently reviewed source provenance,
-including their Cohen locators. No Cohen book or manuscript was read for this
-pass, and no new claim about a Cohen version is made. The determinant/norm
-comparison below can be checked directly against the imported proof and pinned
-ideal-norm declarations. It is a mathematical derivation, not an assertion that
-Weibel or Milne states that comparison in this exact form.
+including their Cohen locators. The original standalone pass inherited that
+evidence; the independent review now checks the cited public manuscript too.
+The determinant/norm comparison below is a derivation from the index-ideal
+argument and pinned ideal-norm declarations. Cohen's arithmetic statements
+motivate it; the finite-injective Dedekind-domain generality is justified by
+the local proof below. No comparison against a published book edition is
+claimed.
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. The reviewed `AUDIT-29` row calls Z.4
@@ -682,8 +693,16 @@ pullback after transfer is always degree multiplication on K₀(B) (E16).
 The Dedekind paragraph in I §3, p. 18, needs nonzero ideals for its Picard
 representatives (E18). These are existing findings in the owner packet,
 not newly duplicated errata records or claims about a printed edition.
-The imported Cohen corrections E6, E17 and E29 retain their previous review
-provenance; the source was not inspected in this pass.
+The independent review also confirms the imported Cohen corrections in the
+11 July 2001 manuscript. Lemma 1.2.20, p. 9 (PDF p. 23), needs a nonzero
+scaling scalar (E6). Theorem 1.2.19 on that page needs the rank-zero exception
+that its proof treats separately on p. 10 (E17). Proposition 2.2.13, p. 82
+(PDF p. 96), must first clear denominators for a fractional ideal: for
+I=(1/2)ℤ over ℚ its prescribed integral element would need negative valuation
+at 2 (E29). Apply the integral-ideal proof to δI and divide the resulting
+element norms by N(δ). The theorem remains valid. All seven confirmations are
+recorded under `sourceIssueImports.checked`; their original review and novelty
+search provenance is retained in the owner packet.
 
 Every target of Z.4 is supplied by the 43 imported nodes. Their dependency
 closure has no unresolved stage leaves and meets none of the three gaps in
