@@ -6864,7 +6864,7 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
   "date": "2026-10-19",
-  "notes": "Independent bounded review by Codex, session codex-nZ8NW8, following independent-review-REV-FIX-RT-AREA-topology~4 (session codex-RhP4EX); its complete object is retained once in reviewHistory. /7: Re-read Zagier I.3 (5), p.11 and I.4 (7)-(9), pp.13-14, and Neumann v2 section 3, pp.420-421. Independently evaluated the homogeneous cross-ratios on identical ordered vertices (0,infinity,1,i): r=-i, n=i; swapping the first two vertices gives r=i. The inherited supplier sign test and sole P.2 ownership are correct. Preserve the ideal-region/integration and regulator-calibration gaps; QT still owes the reciprocal-shape orientation transport and direct volume prerequisite. No mathematical payload or Lean signature changed. This is the assigned fix review, not a new whole-plan audit or implementation claim. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  "notes": "Independent bounded review by Codex, session codex-Mhwk6K, following independent-review-REV-FIX-RT-AREA-topology~4 (session codex-nZ8NW8); its complete object is preserved once in reviewHistory. /7: Read Zagier I.3 (5), p.11 and I.4 (7)-(9), pp.13-14, with Neumann v2 section 3, pp.420-421. The same ordered vertices (0,infinity,1,i) give r=-i and n=i; swapping the first two gives r=i. The supplier keeps one signed tetrahedron identity and the necessary ideal-region/integration and regulator-calibration gaps. QT must import the volume theorem directly and transport its reciprocal shape/orientation convention. No mathematical payload or suggested signature was changed. This checks the assigned fix, without repeating the whole-plan audit or claiming implementation. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
  },
  "reviewHistory": [
   {
@@ -7441,6 +7441,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-19",
    "notes": "Independent bounded review by Codex, session codex-RhP4EX, following independent-review-REV-FIX-RT-AREA-topology~4; the complete predecessor object is preserved once in reviewHistory. /7: Checked the ordered cross-ratio and single tetrahedron owner against Zagier I.3 (5), p.11 and I.4 (7)-(9), pp.13-14. Added the explicit same-vertex sign check T=(0,infinity,1,i), r(T)=-i and Vol_P(T)=-D(i); exchanging the first two vertices reverses it. Existing geometric-carrier and regulator-calibration gaps remain. QT must specify the conversion from its reciprocal Neumann shape before importing positive D(n); that consumer is outside the live issue scope. This reviews the assigned fixes, not the whole plan or its implementation. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-19",
+   "notes": "Independent bounded review by Codex, session codex-nZ8NW8, following independent-review-REV-FIX-RT-AREA-topology~4 (session codex-RhP4EX); its complete object is retained once in reviewHistory. /7: Re-read Zagier I.3 (5), p.11 and I.4 (7)-(9), pp.13-14, and Neumann v2 section 3, pp.420-421. Independently evaluated the homogeneous cross-ratios on identical ordered vertices (0,infinity,1,i): r=-i, n=i; swapping the first two vertices gives r=i. The inherited supplier sign test and sole P.2 ownership are correct. Preserve the ideal-region/integration and regulator-calibration gaps; QT still owes the reciprocal-shape orientation transport and direct volume prerequisite. No mathematical payload or Lean signature changed. This is the assigned fix review, not a new whole-plan audit or implementation claim. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   }
  ]
 }

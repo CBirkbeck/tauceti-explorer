@@ -1,8 +1,8 @@
 # Independent review of topology fix round 4
 
-Refs #6521. Codex, session `codex-nZ8NW8`, 19 October 2026;
-branch `codex-nZ8NW8-review-topology`, input `3e0797a48`.
-The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6263868470).
+Refs #6521. Codex, session `codex-Mhwk6K`, 19 October 2026;
+branch `codex-Mhwk6K-review-topology-6521`, input `ec91f49b4983370d356ab6f21d464fe5188db1e5`.
+The bot [confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6265171646).
 This worker did not author the fixes and claimed no second job.
 
 ## Recorded verdicts and completion blocker
@@ -10,17 +10,23 @@ This worker did not author the fixes and claimed no second job.
 The three files named by the live issue now record this session's bounded
 review: **Polylogarithms accepted**, **HabiroNahmSeries accepted**, and
 **QSeriesPartitionsAndMockModularForms needs_changes**. Each complete preceding
-review, by `codex-RhP4EX`, is preserved once in `reviewHistory`. This review
+review, by `codex-nZ8NW8`, is preserved once in `reviewHistory`. This review
 covers the assigned fixes, rather than repeating those packets' whole-plan
 source audits. Their mathematical payloads and suggested signatures are
 unchanged. All implementation statuses and existing gaps remain intact.
+QSeries also retains its unaccepted whole-plan review
+`REV-QSeriesPartitionsAndMockModularForms~2`: its no-ghost, alternation,
+invariant-form, Serre/radical and quantitative-Stirling obligations are not
+discharged by a correct topology export.
 
 **The queue-level job remains blocked.** The live issue names this report and
 three packet/suggested pairs, while its queue requires seven pairs. The actual,
 unchanged `issues.deliverables_complete` returns false because four packet
 reviews still identify their separate whole-plan reviews. WORKERS' issue-only
 edit rule excludes those paths. Authorization was requested for the four JSON
-files; none had arrived when this checkpoint was prepared. The
+files; it is still pending. The concrete, guarded proposals in the handoff
+remain unapplied. WORKERS.md says “Edit only the files the issue names,”
+so the queue output list alone does not authorize these changes. The
 [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) records the precise continuation,
 including guarded inputs and bounded verdicts. Neither the queue nor its
 completion predicate was edited. Negative verdicts can finish a review; the
@@ -76,7 +82,7 @@ pp.958–959 because text extraction loses its branch notation.
 | [Zagier, The Dilogarithm Function](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf), I.3 (5), p.11; I.4 (7)–(9), pp.13–14 | The ordered cross-ratio and Bloch–Wigner symmetries determine the sign in the tetrahedron formula. P.2 supplies that formula, while QT supplies the manifold comparison. |
 | [Neumann v2](https://arxiv.org/pdf/math/0307092v2), §3 pp.420–421 and Theorem 2.6 p.420 | Its normalized vertex order is (0,infinity,1,z). Its convention is internally consistent; a consumer must compare it with P.2's reciprocal shape and orientation. |
 | [Garoufalidis–Zagier v1](https://arxiv.org/pdf/1812.07690v1), datum pp.2–3, (13)–(14) p.4, Theorem 3.1 pp.5–6 | The analytic theorem assumes positive-definite rational data and the stated odd, denominator-coprime root order. Formal moments do not remove those assumptions. Existing prefactor/remainder corrections remain necessary. |
-| [GSWZ v2](https://arxiv.org/pdf/2412.04241v2), Theorems 3/5, (38)/(42), p.14; §1.8 pp.15–17; Definition 2.11 pp.29–30; Theorem 8, (163)–(166), pp.35–36; Remark 4.2 p.48 | The formal completion and auxiliary-order restrictions matter. Module membership fixes a nondegenerate solution, coefficient extension, class index and allowed root orders. The NZ application is conditional, and the displayed figure-eight matrix is singular. |
+| [GSWZ v2](https://arxiv.org/pdf/2412.04241v2), Theorems 3/5, (38)/(42), p.14; §1.8 pp.15–17; (110)–(111) p.28; Definition 2.11 pp.29–30; Theorem 8, (163)–(166), pp.35–36; Remark 4.2 p.48 | The formal completion and auxiliary-order restrictions matter. Module membership fixes a nondegenerate solution, coefficient extension, class index and allowed root orders. The NZ application is conditional, and the displayed figure-eight matrix is singular. |
 | [Zagier, Quantum modular forms](https://people.mpim-bonn.mpg.de/zagier/files/qmf/fulltext.pdf), definition p.2; Examples 3–5 pp.10–12 | Canonical scalar quantum modularity requires real-analytic errors away from finitely many points. The knot cocycle in Example 5 has a different regularity property. |
 | [Lawrence–Zagier](https://people.mpim-bonn.mpg.de/zagier/files/ajm/3-1/fulltext.pdf), Theorems 1–2 and periodic mean-zero proposition, pp.98–99 | WRT evaluation uses the analytic radial-limit and asymptotic comparison, beyond a formal root evaluation. |
 | [Zagier, Strange identity](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1016/S0040-9383%2800%2900005-7/fulltext.pdf), §6, (38)–(39) and theorem, pp.958–959 | The scalar law uses the indicated principal power and a smooth period function, analytic away from zero. The source's proof indication does not discharge the packet's remaining analytic obligations. |
@@ -134,7 +140,8 @@ These are convention diagnostics, not proofs of the analytic transformation.
 The excluded QSeries reader's Kontsevich theorem, hypotheses and direct
 prerequisites still need synchronization with the corrected packet. Existing
 analytic/source-proof gaps and the whole-plan review's unresolved obligations
-are retained.
+are retained. This latter condition independently prevents a bounded fix
+review from accepting and promoting the entire QSeries packet.
 
 ## Library ownership and validation
 
@@ -179,8 +186,25 @@ is under review, so their checkers do not apply.
 
 Semantic comparison confirms that only the three authorized review objects
 and their histories changed in the packets. No excerpt keys occur in them.
-No suggested Lean file changed; no fresh compile, language server or background
-compiler was started. Earlier compile results belong to their original workers.
-The report and handoff replace the inherited continuation notes with this
-session's checks and remaining actions. Submission validation and the final
-completion result are recorded in the handoff.
+No suggested Lean file changed. Fresh compilation results through the supplied
+`lean-check` wrapper are recorded below and in the handoff. No language server,
+`lake build`, update or cache process was started. The report and handoff
+record this session's checks and the exact administrative continuation.
+The live issue scope, queue and completion predicate were not changed.
+
+
+## Fresh Lean checks and submission scope
+
+All three issue-named suggested files elaborated successfully, serially through
+`lean-check`, in the supplied shared build at pinned Mathlib. Available memory
+exceeded 20 GB before every invocation. The only warnings were admitted
+declarations (`sorry`): 462 for Polylogarithms, 442 for HabiroNahmSeries and
+1,491 for QSeriesPartitionsAndMockModularForms. Exit status was zero each time.
+These results check elaboration, not the source theorems or the missing proofs.
+The four extra suggested files were not recompiled in this run.
+
+The repository changes are limited to the three live-issue packet reviews,
+this report and the handoff. Each packet's prior bytes outside its review
+replacement and appended predecessor review are preserved. The four guarded
+candidates and diagnostic script were scratch work only. The candidate
+projection changes no completion code and makes no repository mutation.
