@@ -1,23 +1,27 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
-Refs #5542. Codex, session `codex-WBAmLh`, 19 October 2026.
-The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258124657)
-was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258126178).
+Refs #5542. Continuation: Codex, session `codex-6SZXyE`, 19 October 2026.
+Earlier review work below remains attributable to Codex `codex-WBAmLh` and the
+preceding reviewers named in the report.
+The current [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258844279)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258845908).
 No second job was claimed.
 
 ## Checkpoint blocker
 
 The live issue still names seven packet/Lean pairs. The real queue job names
-nineteen pairs. [WORKERS.md](../WORKERS.md), “Doing the work”, says “Edit only
-the files the issue names.” Expanded authorization was requested; no reply
-arrived before submission. The seven authorized reviews are complete,
+seventeen pairs (counted directly in the current queue).
+[WORKERS.md](../WORKERS.md), “Doing the work”, says “Edit only the files the issue
+names.” Expanded authorization was requested again from the operator in this
+continuation; no authorizing reply has arrived. The live issue was re-read and
+remains unchanged. The seven authorized reviews are complete,
 including the negative K.1/K.6 outcomes; the real queue completion predicate
-is false because twelve additional pairs lack this area-review stamp.
+is false because ten additional pairs lack this area-review stamp.
 The scratch diagnostic restricted to the issue's seven pairs returns true.
 Do not alter queue outputs or stamp unchecked suppliers to bypass this.
 
 Reconcile the issue with the queue, or obtain expanded authorization, before
-editing the following additional basenames. Each has a packet in `packets/`
+editing the following ten additional basenames. Each has a packet in `packets/`
 and a Lean companion in `suggested/`:
 
 1. `BorelRegulators`
@@ -29,14 +33,37 @@ and a Lean companion in `suggested/`:
 7. `MotivicEtaleKTheory--M.5d`
 8. `SchemeKTheoryOperations`
 9. `KTheoryLowDegrees--U.4`
-10. `K2SymbolsBrauer--T.1-classical`
-11. `K3BlochGroups--V.1`
-12. `KTheoryFiniteLocalFields`
+10. `KTheoryFiniteLocalFields`
 
-The obsolete 22-packet list is not the current assignment. In particular,
+Neither the older 22-packet list nor the previous checkpoint’s 19-packet list
+is the current assignment. T.1-classical and V.1 are no longer queue outputs. In particular,
 N.2, N.3-finite-generation, N.5 and Z.3 are not current queue outputs.
 
-## Completed in this run
+## Completed in this continuation
+
+- Corrected the stale count to seventeen queue pairs and ten outstanding area
+  verdicts in the report, handoff and the seven issue-listed review notes.
+  Those inherited mathematical verdicts were preserved, not renewed.
+- Reduced K.1’s Lean companion from 817 to 45 lines: one import block and
+  standard note, the same three examples over pinned carriers, no future-carrier
+  pseudocode. Its full plan remains in the existing reader and packet.
+- Read the five pinned ExactK₀/projective exact-structure statements supporting
+  those examples; inspected current upstream ownership read-only.
+- Recompiled only the changed K.1 file with `lean-check`: exit zero, no warnings
+  or errors, after checking 78 GB memory available.
+- Ran `check_blueprint.py` on all seventeen current queue packets: zero errors
+  or warnings. Extra packet checks remain read-only schema validation.
+- Recomputed the real queue completion predicate: false because exactly the ten
+  packets above lack this job’s review. No negative verdict was treated as an
+  incomplete review. No queue scope or external verdict was altered.
+
+The previously downloaded source texts and exploratory notes are disposable.
+No continuation-critical result depends on scratch. Extra Lean companions were
+inventoried read-only: U.1 has 9,098 lines, SchemeKTheoryOperations 20,089 and
+KTheoryFiniteLocalFields 5,900. All exceed the current 5,000-line shape limit;
+this is a resumption lead, not a completed source/Lean review of those files.
+
+## Work inherited from the previous checkpoint
 
 - Reviewed all 38 confirmed area findings (/1–/37 and /39), distinguishing
   acceptance of a correction contract from an unfinished supplier.
@@ -51,10 +78,11 @@ N.2, N.3-finite-generation, N.5 and Z.3 are not current queue outputs.
 - All seven authorized companions elaborate serially with `lean-check` at
   the shared pins, with sorry as their only warning. Counts: N.1 10,
   K.1 0, T.3 30, N.7 27, K.6 3, T.1 8, K3 10. K.1's commented future
-  signatures are not type checked. Comment-stripped data-body diagnostics
+  signatures were not type checked and have now been removed. Comment-stripped data-body diagnostics
   give zero hits for all seven; changed definitions were inspected manually.
-- All nineteen queue packets pass `check_blueprint.py`, zero errors/warnings.
-  Additional supplier schema checks are not independent review acceptances.
+- The previous checkpoint reported schema checks of its nineteen-pair inventory.
+  The fresh seventeen-pair check is recorded above; supplier schema checks are
+  not independent review acceptances.
 - Independently verified all eleven golden-field finite certificates,
   173 relation witnesses, 23 selected determinants and residue generation;
   a corrupted witness was rejected. The report records exact arithmetic
@@ -103,7 +131,7 @@ and exceeded 5,000 lines; this run did not repair or rerun that extra file.
 
 ## Resume
 
-After scope reconciliation, review the twelve pairs against the findings
+After scope reconciliation, review the ten pairs against the findings
 mapped in the report and their latest independent reviews, then replace each
 review only after actual assessment. Apply the current Lean shape rule from
 the start: unsupported carriers/constructions stay in the reader; Lean has
