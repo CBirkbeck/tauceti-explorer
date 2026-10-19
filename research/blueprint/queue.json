@@ -151784,6 +151784,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-BorelRegulators~codex.md"
+  },
+  {
+   "id": "REV-PKG-KTheoryFiniteLocalFields~codex",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "KTheoryFiniteLocalFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-KTheoryFiniteLocalFields~codex.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/review.json",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/README.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/Suggested.lean",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex.md"
   }
  ]
 }
