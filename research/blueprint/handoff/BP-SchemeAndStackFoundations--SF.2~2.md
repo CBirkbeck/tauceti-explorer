@@ -1,6 +1,50 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-CUrOeX, 2026-10-19
+## Current run — Codex session codex-WdBC7t, 2026-10-19
+
+Blocked checkpoint. The bot confirmed this session's claim in
+[comment 6265036311](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6265036311).
+I read the issue body before claiming but missed the maintainer's
+[prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+in its comment history. That was a selection error. I then read the complete
+history: no later maintainer instruction reopens the superseded revision.
+The availability label and automatic claim confirmation conflict with that
+instruction and do not supply a distinct mathematical scope.
+
+Fresh GitHub API reads confirm that upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) merged on
+2026-10-14 at `d23fdaf388733bd9bcb0dc9b7963cc336f21461d` and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) merged on
+2026-10-16 at `d2081398eedfbd4153d3067aa98a21b5a5270957`.
+I read the relevant ownership statements in the upstream
+[README at main commit 69bd802](https://github.com/TauCetiProject/TauCetiRoadmap/blob/69bd802abd021be5efb158896d7c4930bd0775b0/TauCetiRoadmap/SchemeAndStackFoundations/README.md):
+Layer 2, its boundary in §2.4, Nisnevich foundations in §§2.12–2.13,
+derived quasi-coherent categories and coherent duality in §§2.18–2.19,
+and the Brauer and equivariant targets in §§2.22–2.23. I also read the
+Nisnevich interfaces in its Suggested.lean. These targets already have an
+upstream owner; WORKERS.md and PROTOCOL.md §15 prohibit re-planning them.
+The exclusion of general banded-gerbe classification in §2.4 does not reopen
+this revision. The supplied read-only roadmap checkout lacks this directory;
+current GitHub main supplies the ownership evidence. The supplied current
+Tau Ceti affine-cohomology declaration was read as well. Neither shared
+checkout was changed or built.
+
+Only this handoff changes. Packet and SF.2 coverage remain partial:
+85 nodes (7 definitions, 17 constructions, 49 theorems, 5 lemmas,
+7 comparisons), 160 API items, 87 definition/construction tests, 3 planets,
+89 baseline declarations, 11 gaps and 9 requests. The packet checker reports
+zero errors and zero warnings; whitespace and intake-file checks pass.
+The suggested Lean file was neither changed nor compiled. No mathematical
+revision, supplier request or ownership move is claimed.
+
+Resume only after the maintainer reconciles queue eligibility and explicitly
+specifies an extension beyond upstream's targets. The packet and independent
+review retain the unresolved worklist. In particular, another automatic
+return to available does not authorize a claim. This run submits the blocked
+handoff required by its stopping instructions and stops without claiming a
+second issue. No scratch material is needed to resume.
+
+## Earlier run — Codex session codex-CUrOeX, 2026-10-19
 
 Blocked checkpoint. The bot confirmed this run's claim in
 [comment 6263741609](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6263741609).
