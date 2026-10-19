@@ -11,7 +11,7 @@
   "FiniteFieldsAndCharacterSums:FF.5"
  ],
  "status": "complete",
- "summary": "Assembly of the reviewed parent and FF.1–FF.4 follow-ups; mathematical closure is not claimed. The parent retains its 354 declaration-sized nodes, 562 API items, 377 tests, 461 baseline declarations and source-version records. Its 27 selected planets combine with five follow-up planets to give at most six per layer across the complete roadmap. The five packets together contain 452 targets, 691 API items and 475 tests. Exact cross-part edges connect the parent milestones to their reviewed completion routes; seven parent gaps and thirty parent supplier requests remain, alongside the follow-ups’ more precise obligations. The FF.1 two-point interpolation and FF.3 squarefree/hyperelliptic counting targets are supplied by their follow-ups. The dyadic principal-unit torsion argument is supplied in FF.4; Hasse–Davenport analytic inputs, family cohomology, geometric conductors, uniform Lang–Weil, executable algorithm semantics and norm-one/spectral interfaces retain explicit frontiers. The linearized-evaluation target is generalized to compatible commutative coefficient algebras and requires independent re-review. Existing review verdicts are preserved as provenance, not extended to the assembly edits. No mathematical closure or formalization is claimed.",
+ "summary": "Assembly revised for RT-AREA-finitefields round 2: 346 parent targets, 527 API items and 357 unit tests, plus 98 targets in the four unchanged reviewed follow-ups. Sixteen elementary census targets and seven shared linearized-polynomial targets are assigned to FF.0 with stable legacy IDs; the missing intermediate-field/divisor correspondence is stated explicitly. Nine BKK integer-measure and Laurent-completion targets are removed and handed to their owners. Structural finite-field and quadratic-reciprocity results are baseline imports. Exact finite-field factorization/certificate imports remain distinct from point-count bounds. The cohomological, operational and registered-stage frontiers remain explicit; no mathematical closure or formalization is claimed. Existing independent verdicts are preserved and do not cover these fixes.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -276,11 +276,25 @@
     "checked": "statement read at the pinned commit (Mathlib/RingTheory/Norm/Basic.lean, line 65)"
    },
    {
+    "ref": "mathlib:Algebra.TensorProduct.comm",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+    "provides": "For R-algebras A and B with the pinned semiring hypotheses, A ⊗[R] B ≃ₐ[R] B ⊗[R] A, swapping pure tensors. Used to put L on the left before the simple-extension base-change equivalence.",
+    "checked": "Actual declaration, body and ambient variables independently read at the pinned commit (line 376); module SHA256 fc220b078f4ffbbe51eef6ed20b3a12bcccd3830279a7ad7bacfbeb54b5fb9d2."
+   },
+   {
     "ref": "mathlib:Algebra.TensorProduct.productMap",
     "kind": "def",
     "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
     "provides": "The algebra hom A ⊗[R] B → S from two commuting algebra homs into S.",
     "checked": "statement read at the pinned commit (Mathlib/RingTheory/TensorProduct/Maps.lean, line 806)"
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.rid",
+    "kind": "def",
+    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+    "provides": "For the pinned commutative-semiring scalar tower R → S → A, the S-algebra equivalence A ⊗[R] R ≃ₐ[S] A; on a ⊗ r it is r • a. In particular L ⊗[F] F ≃ₐ[L] L is the coefficient-ring adapter for AdjoinRoot.tensorAlgEquiv.",
+    "checked": "Actual declaration, body and ambient variables independently read at the pinned commit (line 276); module SHA256 fc220b078f4ffbbe51eef6ed20b3a12bcccd3830279a7ad7bacfbeb54b5fb9d2."
    },
    {
     "ref": "mathlib:Algebra.linearMap",
@@ -435,6 +449,13 @@
     "module": "Mathlib/FieldTheory/Finite/Extension.lean",
     "provides": "For a finite field k of characteristic p and n > 0 (the pinned [NeZero n] guard), a noncanonically chosen extension of degree n of k.",
     "checked": "statement read at the pinned commit (Mathlib/FieldTheory/Finite/Extension.lean, line 48)"
+   },
+   {
+    "ref": "mathlib:FiniteField.Extension.exists_frob_pow_eq",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/Finite/Extension.lean",
+    "provides": "For the chosen degree-n extension of a finite field k of characteristic p, with n nonzero, each k-automorphism is a power of its Frobenius, with exponent less than n.",
+    "checked": "Statement read at the pinned commit, Mathlib/FieldTheory/Finite/Extension.lean, line 120; Codex — codex-pwZxBT, 2026-10-19."
    },
    {
     "ref": "mathlib:FiniteField.X_pow_card_pow_sub_X_natDegree_eq",
@@ -869,6 +890,34 @@
     "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
     "provides": "[K(x) : K] = deg minpoly_K x for integral x.",
     "checked": "statement read at the pinned commit (line 489)"
+   },
+   {
+    "ref": "mathlib:IntermediateField.finrank_dvd_of_le_right",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/IntermediateField/Algebraic.lean",
+    "provides": "For intermediate fields K1 ≤ K2 in a finite-dimensional extension, [K1:F] divides [K2:F].",
+    "checked": "Statement read at the pinned commit, Mathlib/FieldTheory/IntermediateField/Algebraic.lean, line 129; Codex — codex-pwZxBT, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:IntermediateField.finrank_fixedField_eq_card",
+    "kind": "theorem",
+    "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+    "provides": "For E finite-dimensional over F, [E:E^H] equals Nat.card H; this is the relative degree above the fixed field.",
+    "checked": "Statement read at the pinned commit, Mathlib/FieldTheory/Galois/Basic.lean, line 222; Codex — codex-pwZxBT, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:IntermediateField.fixedField",
+    "kind": "def",
+    "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+    "provides": "The intermediate field fixed by a subgroup of Gal(E/F).",
+    "checked": "Statement read at the pinned commit, Mathlib/FieldTheory/Galois/Basic.lean, line 210; Codex — codex-pwZxBT, 2026-10-19."
+   },
+   {
+    "ref": "mathlib:IntermediateField.mem_fixedField_iff",
+    "kind": "lemma",
+    "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+    "provides": "Membership in a subgroup fixed field is pointwise fixedness under every member of the subgroup.",
+    "checked": "Statement read at the pinned commit, Mathlib/FieldTheory/Galois/Basic.lean, line 213; Codex — codex-pwZxBT, 2026-10-19."
    },
    {
     "ref": "mathlib:Irreducible",
@@ -2194,6 +2243,13 @@
     "checked": "statement read at the pinned commit (line 681)"
    },
    {
+    "ref": "mathlib:WeierstrassCurve.Affine.Point.add_self_of_Y_ne",
+    "kind": "lemma",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
+    "provides": "The actual affine point-group doubling formula away from the opposite/two-torsion case; requires nonsingularity and y≠negY.",
+    "checked": "Exact pinned statement and ambient binders personally read by independent REV-FiniteFieldsAndCharacterSums; module SHA256 77b0dd8038c9a4cb198b23a411ba637911a3183f1092f38ecaf48760ab9c4ed9."
+   },
+   {
     "ref": "mathlib:WeierstrassCurve.Affine.Point.map",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
@@ -2241,6 +2297,13 @@
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Formula.lean",
     "provides": "The slope of the chord or tangent.",
     "checked": "statement read at the pinned commit (line 175)"
+   },
+   {
+    "ref": "mathlib:WeierstrassCurve.Affine.slope_of_Y_ne",
+    "kind": "lemma",
+    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Formula.lean",
+    "provides": "The tangent slope when x-coordinates agree and y≠negY; includes the general a₂ coefficient.",
+    "checked": "Exact pinned statement and ambient binders personally read by independent REV-FiniteFieldsAndCharacterSums; module SHA256 3a7f24ed020bfb7f3a0011a70a06d9c7a4cea0c7956908b157b77058d3743682."
    },
    {
     "ref": "mathlib:WeierstrassCurve.IsCharNeTwoNF",
@@ -2677,6 +2740,13 @@
     "checked": "statement read at the pinned commit (Mathlib/NumberTheory/JacobiSum/Basic.lean, line 103)"
    },
    {
+    "ref": "mathlib:legendreSym.quadratic_reciprocity",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean",
+    "provides": "For distinct odd primes p and q, (q|p)(p|q) = (−1)^((p/2)(q/2)), with the two Legendre symbols in the pinned argument order.",
+    "checked": "Statement read at the pinned commit, Mathlib/NumberTheory/LegendreSymbol/QuadraticReciprocity.lean, line 107; Codex — codex-pwZxBT, 2026-10-19."
+   },
+   {
     "ref": "mathlib:linearIndependent_iff_card_eq_finrank_span",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/Dimension/OrzechProperty.lean",
@@ -2759,6 +2829,13 @@
     "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
     "provides": "The quadratic character of a finite field, as a MulChar F ℤ.",
     "checked": "statement read at the pinned commit (Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean, line 120)"
+   },
+   {
+    "ref": "mathlib:quadraticChar_card_card",
+    "kind": "theorem",
+    "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/GaussSum.lean",
+    "provides": "For finite fields F and F′ of distinct odd characteristics, quadraticChar F (#F′) = quadraticChar F′ (quadraticChar F (−1) · #F); the theorem has decidable equality on both fields.",
+    "checked": "Statement read at the pinned commit, Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/GaussSum.lean, line 77; Codex — codex-pwZxBT, 2026-10-19."
    },
    {
     "ref": "mathlib:quadraticChar_card_sqrts",
@@ -2992,6 +3069,13 @@
     "checked": "statement read at the pinned commit (TauCeti/FieldTheory/Finite/MinpolyOrbit.lean, line 156)"
    },
    {
+    "ref": "tauceti:TauCeti.FiniteField.pow_card_eq_self_iff_mem_range_algebraMap",
+    "kind": "theorem",
+    "module": "TauCeti/FieldTheory/Finite/FrobeniusFixed.lean",
+    "provides": "For finite field K, domain L with a K-algebra structure, a^#K = a exactly when a is in the image of algebraMap K L.",
+    "checked": "Statement read at the pinned commit, TauCeti/FieldTheory/Finite/FrobeniusFixed.lean, line 77; Codex — codex-pwZxBT, 2026-10-19."
+   },
+   {
     "ref": "tauceti:TauCeti.IsFunctionField",
     "kind": "def",
     "module": "TauCeti/FieldTheory/FunctionField/Basic.lean",
@@ -3214,34 +3298,6 @@
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/DivisionPolynomial/ZSMul.lean",
     "provides": "Audit register: the division-polynomial formula for n P (Tau Ceti has division polynomials).",
     "checked": "statement read at the pinned commit (line 1013)"
-   },
-   {
-    "ref": "mathlib:Algebra.TensorProduct.rid",
-    "kind": "def",
-    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
-    "provides": "For the pinned commutative-semiring scalar tower R → S → A, the S-algebra equivalence A ⊗[R] R ≃ₐ[S] A; on a ⊗ r it is r • a. In particular L ⊗[F] F ≃ₐ[L] L is the coefficient-ring adapter for AdjoinRoot.tensorAlgEquiv.",
-    "checked": "Actual declaration, body and ambient variables independently read at the pinned commit (line 276); module SHA256 fc220b078f4ffbbe51eef6ed20b3a12bcccd3830279a7ad7bacfbeb54b5fb9d2."
-   },
-   {
-    "ref": "mathlib:Algebra.TensorProduct.comm",
-    "kind": "def",
-    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
-    "provides": "For R-algebras A and B with the pinned semiring hypotheses, A ⊗[R] B ≃ₐ[R] B ⊗[R] A, swapping pure tensors. Used to put L on the left before the simple-extension base-change equivalence.",
-    "checked": "Actual declaration, body and ambient variables independently read at the pinned commit (line 376); module SHA256 fc220b078f4ffbbe51eef6ed20b3a12bcccd3830279a7ad7bacfbeb54b5fb9d2."
-   },
-   {
-    "ref": "mathlib:WeierstrassCurve.Affine.Point.add_self_of_Y_ne",
-    "kind": "lemma",
-    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
-    "provides": "The actual affine point-group doubling formula away from the opposite/two-torsion case; requires nonsingularity and y≠negY.",
-    "checked": "Exact pinned statement and ambient binders personally read by independent REV-FiniteFieldsAndCharacterSums; module SHA256 77b0dd8038c9a4cb198b23a411ba637911a3183f1092f38ecaf48760ab9c4ed9."
-   },
-   {
-    "ref": "mathlib:WeierstrassCurve.Affine.slope_of_Y_ne",
-    "kind": "lemma",
-    "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Formula.lean",
-    "provides": "The tangent slope when x-coordinates agree and y≠negY; includes the general a₂ coefficient.",
-    "checked": "Exact pinned statement and ambient binders personally read by independent REV-FiniteFieldsAndCharacterSums; module SHA256 3a7f24ed020bfb7f3a0011a70a06d9c7a4cea0c7956908b157b77058d3743682."
    }
   ]
  },
@@ -4954,6 +5010,111 @@
    "planet": {
     "name": "Frobenius normal basis"
    }
+  },
+  {
+   "id": "FiniteFieldsAndCharacterSums:FF.0/intermediate-field-divisor-correspondence",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
+   "realises": [
+    "FiniteFieldsAndCharacterSums:FF.0"
+   ],
+   "title": "Intermediate fields and divisors of the extension degree",
+   "kind": "theorem",
+   "statement": "Let F be a finite field of cardinality q, E/F a finite field extension of degree n, and σ its relative q-power Frobenius. The map K ↦ [K:F] is a bijection from IntermediateField F E to the positive divisors of n. Its inverse sends d ∣ n to the fixed field of the subgroup generated by σ^d, equivalently {x ∈ E : x^(q^d) = x}. This field has q^d elements. Under the bijection, K ≤ L if and only if [K:F] divides [L:F]; the divisor set is ordered by divisibility, not by the usual order on natural numbers.",
+   "hypotheses": [
+    "F and E are fields; F is finite; E is a finite-dimensional F-algebra. Set q = #F and n = Module.finrank F E > 0.",
+    "Divisors are positive (equivalently d ∣ n, since n > 0). All subfields contain the specified image of F."
+   ],
+   "proofSteps": [
+    "Use the existing relative Frobenius automorphism and its order n. For d ∣ n take IntermediateField.fixedField of the subgroup generated by σ^d; its elements are precisely the roots of X^(q^d) − X.",
+    "Shoup Theorem 19.4 and the splitting of X^(q^n) − X show that X^(q^d) − X splits in E with q^d distinct roots. Thus the fixed field has degree d. This is a finite-field specialization of the existing Galois fixed-field API, not a new Galois correspondence.",
+    "For an intermediate K, the tower degree formula gives [K:F] ∣ n. Apply the existing Frobenius fixed-point criterion to E/K: K consists exactly of the roots of X^(#K) − X. This proves both inverse laws and uniqueness.",
+    "If d ∣ e then every root of X^(q^d) − X is a root of X^(q^e) − X. Conversely K ≤ L implies degree divisibility by the tower formula."
+   ],
+   "acceptance": [
+    "For an extension of degree 6, the intermediate degrees are exactly 1, 2, 3, 6; the degree-2 and degree-3 fields are incomparable.",
+    "For degree 1 the only intermediate field is both bottom and top.",
+    "Degree 4 in a degree-6 extension is rejected, even though 4 ≤ 6."
+   ],
+   "prerequisites": [
+    "mathlib:FiniteField.frobeniusAlgEquivOfAlgebraic",
+    "mathlib:FiniteField.orderOf_frobeniusAlgHom",
+    "mathlib:IntermediateField.fixedField",
+    "mathlib:IntermediateField.mem_fixedField_iff",
+    "mathlib:IntermediateField.finrank_fixedField_eq_card",
+    "mathlib:IntermediateField.finrank_dvd_of_le_right",
+    "mathlib:Module.card_eq_pow_finrank",
+    "tauceti:TauCeti.FiniteField.pow_card_eq_self_iff_mem_range_algebraMap"
+   ],
+   "sources": [
+    {
+     "sourceId": "SHOUP.V2",
+     "locator": "§19.3, Theorem 19.13 and proof, printed p. 515; Theorem 19.4, p. 510",
+     "match": "The explicit divisor correspondence, its inverse and the fixed-field degree; the divisibility-order clause follows by the tower formula and the displayed fixed-point description."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/FieldTheory/Finite/IntermediateFields",
+    "namespace": "TauCeti.FiniteFieldSums"
+   },
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "FiniteFieldsAndCharacterSums:FF.0/factorization-over-extension",
+     "how": "Select the unique common subfield of degree gcd(m,n) in a common finite extension."
+    },
+    {
+     "where": "FiniteFieldsAndCharacterSums:FF.4/galois-subrings-of-galois-ring",
+     "how": "Classify the residue subfields by divisors before lifting Teichmüller representatives."
+    },
+    {
+     "where": "DrinfeldModulesAndTModules:DM.0",
+     "how": "Identify coefficient subfields fixed by iterates of the relative Frobenius; no second subfield classification is planned there."
+    }
+   ],
+   "api": [
+    {
+     "name": "intermediateFieldDegreeEquiv",
+     "role": "equivalence",
+     "statement": "An equivalence IntermediateField F E ≃ {d : ℕ // d ∣ n}, sending K to [K:F]."
+    },
+    {
+     "name": "intermediateFieldDegreeEquiv_symm_mem",
+     "role": "characterisation",
+     "statement": "For d ∣ n, x belongs to the inverse image field if and only if x^(q^d) = x."
+    },
+    {
+     "name": "intermediateFieldDegreeEquiv_le_iff_dvd",
+     "role": "relation",
+     "statement": "K ≤ L if and only if [K:F] ∣ [L:F]."
+    },
+    {
+     "name": "existsUnique_intermediateField_finrank",
+     "role": "universal-property",
+     "statement": "For every d ∣ n there exists a unique K : IntermediateField F E with [K:F] = d."
+    }
+   ],
+   "tests": [
+    {
+     "name": "intermediateFields_degree_six",
+     "kind": "computation",
+     "statement": "If [E:F] = 6, the degree map has image {1,2,3,6}, with exactly one field for each value."
+    },
+    {
+     "name": "intermediateFields_degree_one",
+     "kind": "degenerate",
+     "statement": "If E = F as an F-algebra, IntermediateField F E has one element and its degree is 1."
+    },
+    {
+     "name": "intermediateFields_not_natural_order",
+     "kind": "non-example",
+     "statement": "In degree 6, the degree-2 field is not contained in the degree-3 field, and no degree-4 field exists."
+    },
+    {
+     "name": "intermediateField_fixed_q",
+     "kind": "compatibility",
+     "statement": "The inverse at d = 1 is bottom and its membership condition agrees with TauCeti.FiniteField.pow_card_eq_self_iff_mem_range_algebraMap."
+    }
+   ]
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.1/canonical-additive-character",
@@ -7190,825 +7351,6 @@
    }
   },
   {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/fourier-transform-of-integer-measure",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "The Fourier transform of a probability measure on ℤ",
-   "kind": "definition",
-   "statement": "For a probability mass function μ on ℤ (μ(a) ≥ 0, Σ_a μ(a) = 1) its Fourier transform is μ̂ : ℝ/ℤ → ℂ, μ̂(θ) = Σ_{a ∈ ℤ} μ(a)·e(aθ), e(x) = exp(2πix) (intMeasureFourier μ). The series converges absolutely; μ̂(0) = 1, |μ̂(θ)| ≤ 1, μ̂(−θ) = conj μ̂(θ); translating μ by b multiplies μ̂ by e(bθ); at rational frequencies μ̂(k/Q) = Σ_{r ∈ ℤ/Q} μ_Q(r)·e(kr/Q), where μ_Q is the image of μ in ℤ/Q, i.e. μ̂(k/Q) = (ZMod.dft μ_Q)(−k) in Mathlib's sign convention (dft Φ k = Σ_j e(−jk/Q)Φ(j)); and μ̂(θ) is Mathlib's characteristic function of μ pushed to ℝ, evaluated at 2πt for any real lift t of θ; the integer-supported measure makes this independent of the lift.",
-   "hypotheses": [
-    "μ a probability mass function on ℤ (PMF ℤ); θ ∈ AddCircle (1 : ℝ).",
-    "Pinned convention: e(+aθ) (BKK), which is the complex conjugate of Mathlib's dft kernel; the transform is unnormalised on ℤ/Q (no 1/Q).",
-    "For the charFun comparison choose a real representative t with (t : AddCircle 1) = θ. The characteristic-function argument is real, not a quotient-circle element; the suggested signature already states this correctly."
-   ],
-   "proofSteps": [
-    "Absolute convergence: |μ(a)e(aθ)| = μ(a) and Σ μ(a) = 1; well-defined on ℝ/ℤ since e(a(θ + 1)) = e(aθ) (AddCircle.toCircle).",
-    "Bounds: |μ̂(θ)| ≤ Σ μ(a) = 1; μ̂(0) = 1.",
-    "Rational frequencies: e(ak/Q) depends only on a mod Q; group the sum by residues.",
-    "charFun: MeasureTheory.charFun ν t = ∫ exp(i t x) dν for ν = μ mapped to ℝ; at t = 2πθ this is Σ μ(a) e(aθ)."
-   ],
-   "acceptance": [
-    "δ_b ↦ e(bθ).",
-    "μ uniform on {0, 1}: μ̂(1/2) = (1 + e(1/2))/2 = 0."
-   ],
-   "prerequisites": [
-    "mathlib:AddCircle.toCircle",
-    "mathlib:AddCircle.toCircle_add",
-    "mathlib:ZMod.dft",
-    "mathlib:MeasureTheory.charFun",
-    "mathlib:PMF.toMeasure"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§2.4, p. 13",
-     "match": "The definition (item 8 of the paper extraction)."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/IntegerMeasureFourier",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked",
-   "uses": [
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, Proposition 2.3 and Theorem 7 (p. 13)",
-     "how": "the hypotheses Σ_{k mod Q}|µ̂_j(k/Q + ℓ/R)|^s ≤ (1 − n^(−1/10))Q^(1−γ) are on this transform at rational frequencies"
-    },
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, Lemma 4.1 (4.3)",
-     "how": "the characteristic function of a random polynomial factors into µ̂_j(ψ_P(T^jX))"
-    },
-    {
-     "where": "FiniteFieldsAndCharacterSums:FF.1/fourier-gap-from-residue-anticoncentration",
-     "how": "the Fourier gap bound"
-    },
-    {
-     "where": "ArithmeticStatisticsPartIIRandomPolynomials (paper route 1)",
-     "how": "the random-polynomial Part II consumes µ̂ with this convention"
-    }
-   ],
-   "api": [
-    {
-     "name": "intMeasureFourier",
-     "role": "constructor",
-     "statement": "intMeasureFourier μ θ = Σ' a, μ(a) · e(aθ) ∈ ℂ."
-    },
-    {
-     "name": "intMeasureFourier_zero",
-     "role": "simp",
-     "statement": "intMeasureFourier μ 0 = 1."
-    },
-    {
-     "name": "norm_intMeasureFourier_le_one",
-     "role": "other",
-     "statement": "‖intMeasureFourier μ θ‖ ≤ 1."
-    },
-    {
-     "name": "intMeasureFourier_neg",
-     "role": "relation",
-     "statement": "intMeasureFourier μ (−θ) = conj (intMeasureFourier μ θ)."
-    },
-    {
-     "name": "intMeasureFourier_translate",
-     "role": "relation",
-     "statement": "The transform of μ(· − b) is e(bθ) · μ̂(θ)."
-    },
-    {
-     "name": "intMeasureFourier_ratCast",
-     "role": "compatibility",
-     "statement": "μ̂(k/Q) = Σ_{r : ZMod Q} μ_Q(r) · e(kr/Q) = ZMod.dft μ_Q (−k)."
-    },
-    {
-     "name": "intMeasureFourier_eq_charFun",
-     "role": "compatibility",
-     "statement": "For t ∈ ℝ: μ̂((t : AddCircle 1)) = charFun (μ mapped to ℝ) (2πt)."
-    },
-    {
-     "name": "intMeasureFourier_dirac",
-     "role": "example",
-     "statement": "The transform of δ_b is e(bθ)."
-    }
-   ],
-   "tests": [
-    {
-     "name": "test_intMeasureFourier_dirac",
-     "kind": "computation",
-     "statement": "intMeasureFourier (PMF.pure b) θ = e(bθ)."
-    },
-    {
-     "name": "test_intMeasureFourier_uniform_half",
-     "kind": "computation",
-     "statement": "For μ uniform on {0, 1}: intMeasureFourier μ (1/2) = 0."
-    },
-    {
-     "name": "test_intMeasureFourier_zero",
-     "kind": "degenerate",
-     "statement": "intMeasureFourier μ 0 = 1."
-    },
-    {
-     "name": "test_intMeasureFourier_conj",
-     "kind": "characterisation",
-     "statement": "intMeasureFourier μ (−θ) = conj (intMeasureFourier μ θ)."
-    },
-    {
-     "name": "test_intMeasureFourier_not_normalised",
-     "kind": "non-example",
-     "statement": "For μ = δ_0 and Q ≥ 2: μ̂(k/Q) = 1 ≠ 1/Q; the normalised finite transform (1/Q)Σ differs by the factor Q."
-    }
-   ]
-  },
-  {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/fourier-gap-from-residue-anticoncentration",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "A Fourier gap from anticoncentration in residue classes",
-   "kind": "theorem",
-   "statement": "Let η > 0, P ≥ 2 an integer and μ a probability measure on ℤ with Σ_{a ≡ b (mod p)} μ(a) ≤ 1 − η for every prime p ∣ P and every b ∈ ℤ. Then |μ̂(k/P)| ≤ 1 − 4η/P² for every integer k not divisible by P.",
-   "hypotheses": [
-    "η > 0, P ≥ 2; the anticoncentration hypothesis is imposed only at the primes dividing P."
-   ],
-   "proofSteps": [
-    "|μ̂(θ)|² = Σ_{a,b} μ(a)μ(b) cos(2π(a − b)θ), so 1 − |μ̂(θ)|² = Σ_{a,b} μ(a)μ(b)(1 − cos(2π(a − b)θ)) ≥ 8 Σ_{a,b} μ(a)μ(b)‖(a − b)θ‖², using 1 − cos(2πy) = 2 sin²(πy) ≥ 8y² for |y| ≤ 1/2 (Jordan's inequality Real.mul_le_sin).",
-    "Write k/P = m/Q in lowest terms, Q > 1, Q ∣ P; for a ≢ b (mod Q), ‖(a − b)θ‖ ≥ 1/Q. So 1 − |μ̂|² ≥ (8/Q²)Σ_{a ≢ b (mod Q)} μ(a)μ(b) = (8/Q²)Σ_j t_j(1 − t_j), with t_j the mass of the residue class j mod Q.",
-    "For a prime p ∣ Q, t_j ≤ mass of the class of j mod p ≤ 1 − η; hence Σ_j t_j(1 − t_j) ≥ η Σ_j t_j = η.",
-    "1 − |μ̂| ≥ (1 − |μ̂|²)/2 ≥ 4η/Q² ≥ 4η/P²."
-   ],
-   "acceptance": [
-    "μ uniform on {0, 1}, P = 2: η = 1/2 is admissible and the bound gives |μ̂(1/2)| ≤ 1/2 (actual value 0).",
-    "μ = δ_0 violates the hypothesis for every η > 0 and has |μ̂| ≡ 1: the hypothesis cannot be dropped."
-   ],
-   "prerequisites": [
-    "FiniteFieldsAndCharacterSums:FF.1/fourier-transform-of-integer-measure",
-    "mathlib:Real.mul_le_sin"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "Lemma 3.6 and its proof, pp. 24–25",
-     "match": "The theorem (item 25); the maximum over 1 ≤ k ≤ P − 1 is the statement for all k with P ∤ k by periodicity."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/IntegerMeasureFourier",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "The residue character of F_q((1/T))",
-   "kind": "definition",
-   "statement": "Let F be a finite field of characteristic p. Model F((1/T)) as Mathlib's LaurentSeries F in the variable u = 1/T: X = Σ_j c_j T^j corresponds to Σ_j c_j u^(−j). The embedding F[T] → F((1/T)) is the F-algebra map T ↦ u^(−1) (laurentOfPoly). The residue res X := c_(−1), the coefficient of T^(−1), is the coefficient of u^(+1) (not of u^(−1)); it is F-linear. The residue character is ψ_∞ : F((1/T)) → ℝ/ℤ, ψ_∞(X) := val(Tr_{F/F_p}(res X))/p mod 1 (residueChar), whose exponential e(ψ_∞(X)) is the canonical character ψ_F of res X; for F = F_p it is BKK's ψ_p(X) = res(X)/p mod 1. For a finite set ℙ of primes, F_ℙ((1/T)) := ∏_{p ∈ ℙ} F_p((1/T)) and ψ_ℙ(X) := Σ_p ψ_p(X_p) (residueCharMulti). ψ_∞ is additive and vanishes on F[T]; for distinct primes, ψ_ℙ(X) = 0 iff res X_p = 0 for all p ∈ ℙ.",
-   "hypotheses": [
-    "F finite with its ZMod p-algebra structure.",
-    "Pinned convention: variable u = 1/T; res = coefficient of u^1; the sign of the character is +."
-   ],
-   "proofSteps": [
-    "laurentOfPoly := Polynomial.aeval (HahnSeries.single (−1) 1): T ↦ u^(−1).",
-    "res is the coefficient functional X ↦ X.coeff 1, F-linear.",
-    "Vanishing on polynomials: a polynomial Σ a_i T^i maps to Σ a_i u^(−i), whose coefficient at u^1 is 0 (HahnSeries.coeff_single).",
-    "Additivity of ψ_∞: res and Tr are additive, and x ↦ val(x)/p mod 1 is an additive map ZMod p → ℝ/ℤ (ZMod.toAddCircle).",
-    "Distinct primes: Σ_p r_p/p ∈ ℤ with 0 ≤ r_p < p forces every r_p = 0 (multiply by ∏_{p' ≠ p} p' and reduce modulo p).",
-    "Compatibility: AddCircle.toCircle (residueChar X) = canonicalAddChar F p (res X) (FiniteFieldsAndCharacterSums:FF.1/canonical-additive-character)."
-   ],
-   "acceptance": [
-    "ψ_p(T^(−1)) = 1/p for F = F_p; ψ_p(1) = 0; ψ_p(A) = 0 for A ∈ F_p[T]."
-   ],
-   "prerequisites": [
-    "mathlib:LaurentSeries",
-    "mathlib:HahnSeries.single",
-    "mathlib:HahnSeries.coeff_single",
-    "mathlib:Polynomial.aeval",
-    "mathlib:ZMod.toAddCircle",
-    "mathlib:AddCircle.toCircle",
-    "FiniteFieldsAndCharacterSums:FF.1/canonical-additive-character"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§4, p. 28",
-     "match": "The residue; the node transports it to LaurentSeries in u = 1/T."
-    },
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§4, pp. 28–29",
-     "match": "The character (item 13)."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/FunctionFieldTorus",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked",
-   "uses": [
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, (4.1)–(4.2) and Lemma 4.1",
-     "how": "Fourier inversion over F_p[T]/(D) and the characteristic function of random polynomials use e(ψ_P(AB/D))"
-    },
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, Lemmas 5.1, 6.1–6.3",
-     "how": "pointwise and L¹ bounds on σ_P(n; X) = ∏|µ̂_j(ψ_P(T^jX))|"
-    },
-    {
-     "where": "FunctionFieldArithmetic:FA.2",
-     "how": "the general local residue characters of a function field; for F_q(T) at ∞ with the differential −dT this is ψ_∞, and FA.2 cites this special case"
-    },
-    {
-     "where": "FiniteFieldsAndCharacterSums:FF.1/residue-pairing-duality",
-     "how": "the characters of F[T]/(D) are A ↦ e(ψ_∞(AB/D))"
-    }
-   ],
-   "api": [
-    {
-     "name": "laurentOfPoly",
-     "role": "data",
-     "statement": "The F-algebra map F[T] →ₐ[F] LaurentSeries F, T ↦ u^(−1)."
-    },
-    {
-     "name": "residueInfty",
-     "role": "constructor",
-     "statement": "The F-linear map LaurentSeries F →ₗ[F] F, X ↦ X.coeff 1 (the coefficient of T^(−1))."
-    },
-    {
-     "name": "residueInfty_laurentOfPoly",
-     "role": "simp",
-     "statement": "residueInfty (laurentOfPoly A) = 0."
-    },
-    {
-     "name": "residueInfty_T_inv",
-     "role": "simp",
-     "statement": "residueInfty (HahnSeries.single 1 1) = 1: the residue of T^(−1) is 1."
-    },
-    {
-     "name": "residueChar",
-     "role": "constructor",
-     "statement": "residueChar : LaurentSeries F →+ AddCircle (1 : ℝ), X ↦ val(Tr(res X))/p."
-    },
-    {
-     "name": "residueChar_laurentOfPoly",
-     "role": "simp",
-     "statement": "residueChar (laurentOfPoly A) = 0."
-    },
-    {
-     "name": "residueChar_toCircle",
-     "role": "compatibility",
-     "statement": "AddCircle.toCircle (residueChar X) = canonicalAddChar F p (residueInfty X)."
-    },
-    {
-     "name": "residueCharMulti",
-     "role": "data",
-     "statement": "For ℙ a finite set of primes: Σ_{p∈ℙ} residueChar_p (X_p)."
-    },
-    {
-     "name": "residueCharMulti_eq_zero_iff",
-     "role": "characterisation",
-     "statement": "residueCharMulti X = 0 ↔ ∀ p ∈ ℙ, residueInfty (X p) = 0."
-    }
-   ],
-   "tests": [
-    {
-     "name": "test_residueChar_T_inv",
-     "kind": "computation",
-     "statement": "For F = ZMod p: residueChar (HahnSeries.single 1 1) = (1/p : AddCircle 1)."
-    },
-    {
-     "name": "test_residueChar_one",
-     "kind": "degenerate",
-     "statement": "residueChar 1 = 0."
-    },
-    {
-     "name": "test_residueChar_poly",
-     "kind": "characterisation",
-     "statement": "residueChar (laurentOfPoly A) = 0 for every A ∈ F[T]."
-    },
-    {
-     "name": "test_residueInfty_wrong_variable",
-     "kind": "non-example",
-     "statement": "For X = laurentOfPoly T (= u^(−1)): residueInfty X = 0 although X.coeff (−1) = 1; reading the coefficient of u^(−1) would reverse BKK's convention."
-    },
-    {
-     "name": "test_residueChar_compat",
-     "kind": "compatibility",
-     "statement": "AddCircle.toCircle (residueChar X) = canonicalAddChar F p (residueInfty X)."
-    }
-   ],
-   "planet": {
-    "name": "Residue character of F_q((1/T))"
-   }
-  },
-  {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/residue-pairing-duality",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "Residue-pairing duality for F[T]/(D)",
-   "kind": "lemma",
-   "statement": "Let F be a finite field with q elements and D ∈ F[T] monic of degree ℓ ≥ 0. The pairing F[T]/(D) × F[T]/(D) → ℂˣ, (A, B) ↦ e(ψ_∞(AB/D)) (AB/D computed in F((1/T))) is well defined and nondegenerate; hence B ↦ (A ↦ e(ψ_∞(AB/D))) is an isomorphism from F[T]/(D) onto the character group of its additive group, and (1/q^ℓ)·Σ_{B mod D} e(ψ_∞(AB/D)) = 1 if D ∣ A and 0 otherwise. For a finite set of primes ℙ and D = (D_p) monic, (1/‖D‖_ℙ)Σ_{B mod D} e(ψ_ℙ(AB/D)) = 1_{A ≡ 0 (mod D)}, with ‖D‖_ℙ = ∏_p p^(deg D_p).",
-   "hypotheses": [
-    "D monic (so that 1/D exists in F((1/T)) and F[T]/(D) has q^ℓ elements)."
-   ],
-   "proofSteps": [
-    "Well defined: if D ∣ A or D ∣ B then AB/D ∈ F[T] and ψ_∞ vanishes on F[T] (FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity).",
-    "Nondegenerate: if D ∤ A write A = QD + R with 0 ≤ deg R < deg D; then R/D = c·T^(deg R − deg D) + lower terms with c ≠ 0 (BKK Remark 6.1); for j = deg D − deg R − 1 ≥ 0, res(T^j·R/D) = c ≠ 0, and choosing b ∈ F with Tr(bc) ≠ 0 (FiniteField.trace_to_zmod_nondegenerate) makes B = bT^j pair nontrivially with A.",
-    "The map B ↦ character is an injective homomorphism into AddChar (F[T]/(D)) ℂ, which has q^ℓ elements (AddChar.card_eq), so it is bijective.",
-    "Inversion formula: Σ_B e(ψ_∞(AB/D)) is the sum of the character B ↦ e(ψ_∞(AB/D)), which is trivial iff D ∣ A (nondegeneracy); AddChar.sum_eq_ite.",
-    "Several primes: product over p ∈ ℙ of the one-prime statements."
-   ],
-   "acceptance": [
-    "ℓ = 0 (D = 1): the sum is 1 and every A is ≡ 0.",
-    "D = T, F = F_p: B ↦ e(bA(0)/p), the standard characters of F_p."
-   ],
-   "prerequisites": [
-    "FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity",
-    "mathlib:FiniteField.trace_to_zmod_nondegenerate",
-    "mathlib:AddChar.card_eq",
-    "mathlib:AddChar.sum_eq_ite"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§4, p. 29",
-     "match": "The duality, stated without proof in the source; the proof steps supply it."
-    },
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "(4.1), p. 29",
-     "match": "The inversion formula."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/FunctionFieldTorus",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/negative-power-torus",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "The torus of negative-power Laurent series",
-   "kind": "definition",
-   "statement": "Let F be a finite field with q elements. T_F := {X ∈ F((1/T)) : c_j(X) = 0 for all j ≥ 0}, the Laurent series Σ_{j ≤ −1} c_j T^j (in u = 1/T: coefficients vanish at u^j, j ≤ 0) — an additive subgroup, closed under multiplication, not containing 1 (the maximal ideal uF[[u]], not a unital subring). Every Y ∈ F((1/T)) decomposes uniquely as Y = A + {Y} with A ∈ F[T] (polynomialPart) and {Y} ∈ T_F (fractionalPart). The norm ‖Y‖_T := q^(−m), m ≥ 1 least with c_(−m)({Y}) ≠ 0, and ‖Y‖_T = 0 if {Y} = 0. The coordinates T_F ≃+ (ℕ → F), X ↦ (i ↦ c_(−(i+1))(X)), identify T_F with a product of copies of F. For A, B ∈ F[T], B ∤ A: ‖A/B‖_T = q^(deg R − deg B) with R = A mod B.",
-   "hypotheses": [
-    "F finite with q elements.",
-    "BKK's ‖·‖ uses p = q; the node uses q for general F."
-   ],
-   "proofSteps": [
-    "The subgroup property and closure under products are coefficientwise; 1 has c_0 = 1.",
-    "Decomposition: truncate the Laurent series at the u-exponent 0 (finitely many nonpositive exponents: Laurent series have bounded-below support).",
-    "Coordinates: a sequence (c_(−1), c_(−2), …) defines the HahnSeries Σ_i c_(−(i+1)) u^(i+1), whose support ⊆ ℕ+ is well-founded; the map is an additive bijection.",
-    "Remark 6.1: A/B = Q + R/B, and R/B = T^(deg R − deg B)·(r_0 + …)(b_0 + …)^(−1) with r_0, b_0 ≠ 0, so the leading fractional coefficient sits at T^(deg R − deg B)."
-   ],
-   "acceptance": [
-    "Polynomials have norm 0; ‖T^(−r)‖_T = q^(−r); ‖X‖_T < q^(−m) iff c_(−1) = ⋯ = c_(−m) = 0."
-   ],
-   "prerequisites": [
-    "mathlib:LaurentSeries",
-    "mathlib:HahnSeries.single",
-    "FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§6, p. 31",
-     "match": "The carrier and the decomposition (item 14; 'subring' in the non-unital sense, see the source issue)."
-    },
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§6, p. 31, and Remark 6.1, p. 32",
-     "match": "The norm and Remark 6.1."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/FunctionFieldTorus",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked",
-   "uses": [
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, §6",
-     "how": "T_p with its Haar measure is the 'continuous' side of the L¹ bounds"
-    },
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, Lemma 6.2",
-     "how": "balls of radius p^(−2ℓ) around Farey fractions are disjoint in T_p"
-    },
-    {
-     "where": "FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus",
-     "how": "the measure is transported along the coordinates"
-    }
-   ],
-   "api": [
-    {
-     "name": "negPowerTorus",
-     "role": "constructor",
-     "statement": "The AddSubgroup of LaurentSeries F of series with coeff j = 0 for all j ≤ 0 (in u)."
-    },
-    {
-     "name": "fractionalPart",
-     "role": "projection",
-     "statement": "LaurentSeries F →+ negPowerTorus F."
-    },
-    {
-     "name": "polynomialPart",
-     "role": "projection",
-     "statement": "LaurentSeries F →+ F[T] (the part with u-exponents ≤ 0)."
-    },
-    {
-     "name": "laurentOfPoly_polynomialPart_add_fractionalPart",
-     "role": "characterisation",
-     "statement": "Y = laurentOfPoly (polynomialPart Y) + fractionalPart Y, uniquely."
-    },
-    {
-     "name": "fractionalPart_laurentOfPoly",
-     "role": "simp",
-     "statement": "fractionalPart (laurentOfPoly A) = 0."
-    },
-    {
-     "name": "torusCoords",
-     "role": "equivalence",
-     "statement": "negPowerTorus F ≃+ (ℕ → F), X ↦ (i ↦ X.coeff (i + 1))."
-    },
-    {
-     "name": "torusNorm",
-     "role": "data",
-     "statement": "‖Y‖_T = q^(−m) for the first nonzero fractional coefficient, 0 if none."
-    },
-    {
-     "name": "torusNorm_T_inv_pow",
-     "role": "example",
-     "statement": "torusNorm (T^(−r)) = q^(−r) for r ≥ 1."
-    },
-    {
-     "name": "torusNorm_div",
-     "role": "relation",
-     "statement": "For B ∤ A: torusNorm (A/B) = q^(deg (A mod B) − deg B)."
-    },
-    {
-     "name": "torusNorm_lt_iff",
-     "role": "characterisation",
-     "statement": "torusNorm X < q^(−m) ↔ the first m fractional coefficients vanish."
-    }
-   ],
-   "tests": [
-    {
-     "name": "test_torusNorm_poly",
-     "kind": "degenerate",
-     "statement": "torusNorm (laurentOfPoly A) = 0."
-    },
-    {
-     "name": "test_torusNorm_T_inv_pow",
-     "kind": "computation",
-     "statement": "torusNorm (HahnSeries.single r 1) = q^(−r) for r ≥ 1."
-    },
-    {
-     "name": "test_torusNorm_ball",
-     "kind": "characterisation",
-     "statement": "torusNorm X < q^(−m) iff X.coeff 1 = ⋯ = X.coeff m = 0 (the first m coefficients, not m − 1)."
-    },
-    {
-     "name": "test_negPowerTorus_not_unital",
-     "kind": "non-example",
-     "statement": "(1 : LaurentSeries F) ∉ negPowerTorus F: the torus is not a unital subring."
-    },
-    {
-     "name": "test_torusCoords_T_inv",
-     "kind": "compatibility",
-     "statement": "torusCoords (T^(−1)) = Pi.single 0 1."
-    }
-   ]
-  },
-  {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "The Haar probability measure on the negative-power torus",
-   "kind": "definition",
-   "statement": "The Haar probability measure dX on T_F is the image, under the coordinate isomorphism (ℕ → F) ≃ T_F, of the infinite product of uniform probability measures on F (MeasureTheory.Measure.infinitePi of PMF.uniformOfFintype F) (torusHaar). It is a translation-invariant probability measure (the normalised Haar measure of the compact group T_F with the product topology), each coordinate c_(−i) is uniformly distributed on F, the cylinder {c_(−1) = a_1, …, c_(−m) = a_m} has measure q^(−m), and the ball {X : ‖X‖_T < q^(−m)} has measure q^(−m). For a finite set of primes, T_ℙ = ∏_p T_(F_p) carries the product measure.",
-   "hypotheses": [
-    "F finite with q elements, with the discrete measurable space."
-   ],
-   "proofSteps": [
-    "infinitePi of probability measures is a probability measure; its value on a cylinder is the finite product (MeasureTheory.Measure.infinitePi_pi), q^(−m).",
-    "Translation invariance: translation by Y acts coordinatewise by translations of F, which preserve the uniform measure; the product of invariant measures is invariant (determined by cylinders).",
-    "Balls are cylinders with a_1 = ⋯ = a_m = 0 (FiniteFieldsAndCharacterSums:FF.1/negative-power-torus, torusNorm_lt_iff)."
-   ],
-   "acceptance": [
-    "Total mass 1; μ{c_(−1) = 0} = 1/q; μ{‖X‖ < q^(−m)} = q^(−m)."
-   ],
-   "prerequisites": [
-    "mathlib:MeasureTheory.Measure.infinitePi",
-    "mathlib:MeasureTheory.Measure.infinitePi_pi",
-    "mathlib:PMF.uniformOfFintype",
-    "mathlib:PMF.toMeasure",
-    "mathlib:MeasureTheory.IsProbabilityMeasure",
-    "FiniteFieldsAndCharacterSums:FF.1/negative-power-torus"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§6, p. 32",
-     "match": "The measure (item 14); the node constructs it as the product of uniform coordinate measures."
-    },
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "Proof of Lemma 6.1, p. 32",
-     "match": "The ball measure used as API."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/FunctionFieldTorus",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked",
-   "uses": [
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, Lemmas 6.1–6.2",
-     "how": "integration of functions of finitely many coordinates over T_p"
-    },
-    {
-     "where": "FiniteFieldsAndCharacterSums:FF.1/torus-character-orthogonality",
-     "how": "the continuous orthogonality relation"
-    },
-    {
-     "where": "FunctionFieldArithmetic:FA.2",
-     "how": "self-dual Haar measures on completions of function fields; FA.2 cites this normalisation at ∞ for F_q(T)"
-    }
-   ],
-   "api": [
-    {
-     "name": "torusHaar",
-     "role": "constructor",
-     "statement": "The measure on ℕ → F (coordinates of T_F): infinitePi of uniform measures."
-    },
-    {
-     "name": "isProbabilityMeasure_torusHaar",
-     "role": "instance",
-     "statement": "torusHaar is a probability measure."
-    },
-    {
-     "name": "torusHaar_cylinder",
-     "role": "characterisation",
-     "statement": "torusHaar {c | ∀ i < m, c i = a i} = q^(−m)."
-    },
-    {
-     "name": "torusHaar_map_add",
-     "role": "other",
-     "statement": "Translation invariance: (torusHaar).map (· + y) = torusHaar."
-    },
-    {
-     "name": "torusHaar_coord",
-     "role": "compatibility",
-     "statement": "Each coordinate is uniformly distributed on F: (torusHaar).map (· i) = uniform."
-    },
-    {
-     "name": "torusHaar_ball",
-     "role": "example",
-     "statement": "torusHaar {X : torusNorm X < q^(−m)} = q^(−m)."
-    }
-   ],
-   "tests": [
-    {
-     "name": "test_torusHaar_univ",
-     "kind": "degenerate",
-     "statement": "torusHaar univ = 1."
-    },
-    {
-     "name": "test_torusHaar_first_coord_zero",
-     "kind": "computation",
-     "statement": "torusHaar {c | c 0 = 0} = 1/q."
-    },
-    {
-     "name": "test_torusHaar_ball",
-     "kind": "computation",
-     "statement": "torusHaar {c | ∀ i < m, c i = 0} = q^(−m) (BKK's ball of strict radius p^(−m))."
-    },
-    {
-     "name": "test_torusHaar_not_counting",
-     "kind": "non-example",
-     "statement": "torusHaar {c | c 0 = 0} ≠ 1 : a Dirac or counting measure on the coordinates would fail the uniform-coordinate test."
-    },
-    {
-     "name": "test_torusHaar_translate",
-     "kind": "compatibility",
-     "statement": "torusHaar is invariant under translation by Pi.single 0 1 (translation by T^(−1))."
-    }
-   ]
-  },
-  {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/reduced-polynomial-fractions",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "Reduced polynomial fractions and their separation",
-   "kind": "definition",
-   "statement": "Let F be a finite field with q elements and ℓ ≥ 0. A reduced fraction of denominator degree ℓ is a pair (G, H) of polynomials with H monic of degree ℓ, deg G < ℓ and gcd(G, H) = 1 (for ℓ = 0 the only one is (0, 1)); it is viewed as G/H ∈ T_F (zero polynomial part). Distinct reduced fractions of denominator degree ℓ satisfy ‖G/H − G'/H'‖_T ≥ q^(−2ℓ), so the balls {Y : ‖Y − G/H‖_T < q^(−2ℓ)} are pairwise disjoint. If T ∤ H, multiplication by T^j permutes the reduced residues G mod H; for T ∣ H (e.g. 1/T) it does not.",
-   "hypotheses": [
-    "H monic; gcd(G, H) = 1; the T-shift statement needs T ∤ H."
-   ],
-   "proofSteps": [
-    "G/H ∈ T_F since deg G < deg H (Remark 6.1).",
-    "Separation: G/H − G'/H' = (GH' − G'H)/(HH'), with HH' of degree 2ℓ and GH' − G'H ≠ 0 (distinct reduced fractions), so by Remark 6.1 its norm is q^(deg R − 2ℓ) ≥ q^(−2ℓ), R the remainder (FiniteFieldsAndCharacterSums:FF.1/negative-power-torus, torusNorm_div).",
-    "Shift: T is a unit modulo H iff T ∤ H; then G ↦ T^jG is a bijection of (F[T]/H)ˣ."
-   ],
-   "acceptance": [
-    "ℓ = 0: only 0/1.",
-    "ℓ = 1: c/(T − a) for c ≠ 0, pairwise at distance ≥ q^(−2)."
-   ],
-   "prerequisites": [
-    "mathlib:IsCoprime",
-    "mathlib:Polynomial.Monic",
-    "FiniteFieldsAndCharacterSums:FF.1/negative-power-torus"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§4, p. 30",
-     "match": "The reduced fractions (item 15)."
-    },
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "Proof of Lemma 6.2, p. 33",
-     "match": "The separation API."
-    },
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "Proof of Lemma 6.3, p. 33",
-     "match": "The T-shift API and its hypothesis."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/FunctionFieldTorus",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked",
-   "uses": [
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, (4.6)–(4.7)",
-     "how": "δ_P(n; ℓ) sums σ_P over reduced fractions G/H"
-    },
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, Lemma 6.2 (routed to SieveMethodsAndPrimePatterns:SV.2)",
-     "how": "the polynomial Farey large sieve uses the disjoint balls"
-    },
-    {
-     "where": "Bary-Soroker–Koukoulopoulos–Kozma, Lemma 5.1",
-     "how": "for a reduced G/H with T ∤ H, every window of ℓ consecutive shifts T^jG/H has nonzero residue"
-    }
-   ],
-   "api": [
-    {
-     "name": "ReducedFraction",
-     "role": "structure",
-     "statement": "A pair (G, H) with H monic of degree ℓ, deg G < ℓ, IsCoprime G H."
-    },
-    {
-     "name": "ReducedFraction.toTorus",
-     "role": "data",
-     "statement": "The element G/H of negPowerTorus F."
-    },
-    {
-     "name": "ReducedFraction.zero",
-     "role": "example",
-     "statement": "The unique reduced fraction of denominator degree 0 is 0/1."
-    },
-    {
-     "name": "ReducedFraction.torusNorm_sub_ge",
-     "role": "relation",
-     "statement": "Distinct reduced fractions of degree ℓ are at torus distance ≥ q^(−2ℓ)."
-    },
-    {
-     "name": "ReducedFraction.torusNorm_toTorus",
-     "role": "compatibility",
-     "statement": "torusNorm (G/H) = q^(deg G − ℓ) for G ≠ 0."
-    },
-    {
-     "name": "ReducedFraction.mulTPow_bijective",
-     "role": "other",
-     "statement": "If ¬ T ∣ H: G ↦ T^j G mod H is a bijection of the reduced residues mod H."
-    }
-   ],
-   "tests": [
-    {
-     "name": "test_reducedFraction_zero",
-     "kind": "degenerate",
-     "statement": "Every reduced fraction of denominator degree 0 is (0, 1)."
-    },
-    {
-     "name": "test_reducedFraction_T",
-     "kind": "non-example",
-     "statement": "(1, T) is a reduced fraction but T ∣ T, and multiplication by T is not injective on residues mod T (it sends 1 to 0)."
-    },
-    {
-     "name": "test_reducedFraction_linear_sep",
-     "kind": "computation",
-     "statement": "For a ≠ b in F: torusNorm (1/(T − a) − 1/(T − b)) = q^(−2)."
-    },
-    {
-     "name": "test_reducedFraction_norm",
-     "kind": "compatibility",
-     "statement": "torusNorm (1/(T − a)) = q^(−1)."
-    }
-   ]
-  },
-  {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/torus-character-orthogonality",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "Orthogonality of the residue characters on the torus",
-   "kind": "theorem",
-   "statement": "Let F be a finite field. For A ∈ F[T]: ∫_{T_F} e(ψ_∞(A·X)) dX = 1 if A = 0 and 0 otherwise, with dX the Haar probability measure. For a finite set of primes ℙ and A = (A_p) ∈ ∏_p F_p[T]: ∫_{T_ℙ} e(ψ_ℙ(AX)) dX = 1_{A = 0}.",
-   "hypotheses": [
-    "The integrand is a function of finitely many coordinates, bounded by 1."
-   ],
-   "proofSteps": [
-    "res(AX) = Σ_i a_i c_(−1−i)(X) for A = Σ a_i T^i, so e(ψ_∞(AX)) = ∏_i ψ_F(a_i c_(−1−i)) depends on the coordinates c_(−1), …, c_(−1−deg A).",
-    "By FiniteFieldsAndCharacterSums:FF.1/torus-finite-coordinate-integral (or directly from the product structure of torusHaar), the integral equals ∏_i (1/q)Σ_{c ∈ F} ψ_F(a_i c).",
-    "For A ≠ 0 some a_i ≠ 0 and Σ_c ψ_F(a_i c) = 0 (ψ_F primitive: AddChar.sum_mulShift); for A = 0 the integrand is 1.",
-    "Several primes: the measure is a product and the integrand factors over p."
-   ],
-   "acceptance": [
-    "A = 0: integral 1.",
-    "A = 1: the integrand is ψ_F(c_(−1)), integral 0."
-   ],
-   "prerequisites": [
-    "FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity",
-    "FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus",
-    "FiniteFieldsAndCharacterSums:FF.1/torus-finite-coordinate-integral",
-    "mathlib:AddChar.sum_mulShift",
-    "FiniteFieldsAndCharacterSums:FF.1/canonical-additive-character"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "§6, p. 32",
-     "match": "The theorem (item 20)."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/FunctionFieldTorus",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked"
-  },
-  {
-   "id": "FiniteFieldsAndCharacterSums:FF.1/torus-finite-coordinate-integral",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.1",
-   "realises": [
-    "FiniteFieldsAndCharacterSums:FF.1"
-   ],
-   "title": "Integrals over the torus of functions of finitely many residues",
-   "kind": "theorem",
-   "statement": "Let F be a finite field of characteristic p with q elements, m ≥ 0 and f_0, …, f_(m−1) : ℝ/ℤ → ℂ. Then ∫_{T_F} ∏_{j<m} f_j(ψ_∞(T^j X)) dX = p^(−m)·∏_{j<m} Σ_{ξ ∈ ℤ/p} f_j(ξ/p). For F = F_p this is BKK's Lemma 6.1; for general F the trace is equidistributed (each value of Tr_{F/F_p} is taken q/p times), which gives the same right side.",
-   "hypotheses": [
-    "No regularity is needed on the f_j: the integrand takes finitely many values on cylinders."
-   ],
-   "proofSteps": [
-    "ψ_∞(T^j X) = val(Tr(c_(−1−j)(X)))/p, so the integrand depends only on c_(−1), …, c_(−m) (FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity).",
-    "By the cylinder formula (FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus), the integral is q^(−m)Σ_{c ∈ F^m} ∏_j f_j(Tr(c_j)/p) = ∏_j (1/q)Σ_{c ∈ F} f_j(Tr(c)/p).",
-    "Tr : F → ZMod p is surjective and ZMod p-linear, so each ξ ∈ ZMod p has q/p preimages (Algebra.trace_surjective); (1/q)Σ_c f(Tr(c)/p) = (1/p)Σ_ξ f(ξ/p)."
-   ],
-   "acceptance": [
-    "m = 0: both sides 1.",
-    "f_0 = e(·): ∫ e(ψ(X)) dX = (1/p)Σ_ξ e(ξ/p) = 0."
-   ],
-   "prerequisites": [
-    "FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus",
-    "FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity",
-    "mathlib:Algebra.trace_surjective",
-    "mathlib:MeasureTheory.Measure.infinitePi_pi"
-   ],
-   "sources": [
-    {
-     "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
-     "locator": "Lemma 6.1, p. 32",
-     "match": "The theorem for F = F_p (item 21)."
-    }
-   ],
-   "library": {
-    "module": "TauCeti/NumberTheory/FiniteField/FunctionFieldTorus",
-    "namespace": "TauCeti.FiniteFieldSums"
-   },
-   "implementationStatus": "unchecked"
-  },
-  {
    "id": "FiniteFieldsAndCharacterSums:FF.2/additive-companion-sum",
    "parentStageId": "FiniteFieldsAndCharacterSums:FF.2",
    "realises": [
@@ -8232,10 +7574,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.2",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.2",
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The finite set of monic polynomials of a given degree",
    "kind": "construction",
@@ -10664,9 +10005,10 @@
    ],
    "title": "Degenerate case: g = c·h^e gives no cancellation for a character of order e",
    "kind": "theorem",
-   "statement": "Let χ have order e ≥ 2, c ∈ F^× and h ∈ F[X] nonzero, g = c·h^e. Then for every finite extension L: S̃_L(g, χ) = χ(c)^{[L:F]}·(|L| − #{x ∈ L : h(x) = 0}); in particular |Σ_{x∈F} χ(g(x))| ≥ q − deg h. Z(g, χ; T) = Π_{π | h}(1 − (χ(c)T)^{deg π}) / (1 − χ(c)qT), not a polynomial. Conversely a polynomial g ∈ F[X] of the form c′·k^e with c′ ∈ F̄ and k ∈ F̄[X] can be written c·h^e with c ∈ F^×, h ∈ F[X] monic.",
+   "statement": "Let χ have order e ≥ 2, c ∈ F^× and h ∈ F[X] nonzero, g = c·h^e. Then for every finite extension L: S̃_L(g, χ) = χ(c)^{[L:F]}·(|L| − #{x ∈ L : h(x) = 0}); in particular |Σ_{x∈F} χ(g(x))| ≥ q − deg h. Z(g, χ; T) = Π_{π | h}(1 − (χ(c)T)^{deg π}) / (1 − χ(c)qT), not a polynomial. Conversely a nonzero polynomial g ∈ F[X] of the form c′·k^e with c′ ∈ F̄ and k ∈ F̄[X] can be written c·h^e with c ∈ F^×, h ∈ F[X] monic.",
    "hypotheses": [
-    "χ of exact order e; the degeneracy condition is 'constant times an e-th power', not 'perfect power': g = X² is not degenerate for a cubic χ, and g = c·h^e with c not an e-th power is degenerate."
+    "χ of exact order e; the degeneracy condition is 'constant times an e-th power', not 'perfect power': g = X² is not degenerate for a cubic χ, and g = c·h^e with c not an e-th power is degenerate.",
+    "The converse excludes g = 0; nonzero constants are included by h = 1."
    ],
    "proofSteps": [
     "χ(h(x)^e) = χ(h(x))^e = 1 when h(x) ≠ 0 and 0 otherwise; N_{L/F}(c h(x)^e) = c^{[L:F]} N(h(x))^e.",
@@ -12127,10 +11469,11 @@
    ],
    "title": "Weil's bound |Σ χ(g(x))| ≤ (m − 1)√q when g is not a constant times an ord(χ)-th power",
    "kind": "theorem",
-   "statement": "Let χ be a multiplicative character of F of order e ≥ 2 and g ∈ F[X] not of the form c·h^e with c ∈ F̄, h ∈ F̄[X]; let m be the number of distinct roots of g in F̄. Then |Σ_{x∈F} χ(g(x))| ≤ (m − 1)√q, and |S̃_L(g, χ)| ≤ (m − 1)|L|^{1/2} for every finite extension L.",
+   "statement": "Let χ be a multiplicative character of F of order e ≥ 2 and nonzero g ∈ F[X] not of the form c·h^e with c ∈ F̄, h ∈ F̄[X]; let m be the number of distinct roots of g in F̄. Then |Σ_{x∈F} χ(g(x))| ≤ (m − 1)√q, and |S̃_L(g, χ)| ≤ (m − 1)|L|^{1/2} for every finite extension L.",
    "hypotheses": [
     "χ of exact order e ≥ 2 (the trivial character is excluded: Mathlib's trivial MulChar would count the non-roots of g).",
-    "The degenerate polynomials are the c·h^e, including c not an e-th power (FF.2/multiplicative-perfect-power-sum); a perfect power h^k with e ∤ k is not degenerate."
+    "The degenerate polynomials are the c·h^e, including c not an e-th power (FF.2/multiplicative-perfect-power-sum); being a power h^k with e ∤ k does not by itself decide degeneracy; X² is nondegenerate for a cubic character, whereas (X³)² is degenerate.",
+    "g ≠ 0; geometric degeneracy is tested after mapping to F̄[X]. χ(0) = 0, including the trivial MulChar convention."
    ],
    "proofSteps": [
     "Z(g, χ; T) is a polynomial of degree ≤ m − 1 (FF.2/multiplicative-l-function-is-polynomial).",
@@ -12140,7 +11483,9 @@
    "acceptance": [
     "χ quadratic, g = X³ + aX + b squarefree: |Σ χ(g(x))| ≤ 2√q (Hasse).",
     "χ cubic, g = X²: m = 1, the bound gives 0, and indeed Σ χ(x²) = 0.",
-    "χ quadratic, g = c(X² + 1)² with c a non-square: degenerate, |Σ| = q − #{x² + 1 = 0} (not bounded by (m − 1)√q)."
+    "χ quadratic, g = c(X² + 1)² with c a non-square: degenerate, |Σ| = q − #{x² + 1 = 0} (not bounded by (m − 1)√q).",
+    "Over F_7 choose χ(3)=exp(2πi/3), an exact cubic character. The six nonzero values of χ(x²) have each cubic root of unity twice, so the sum is zero: X² is not geometrically a cube.",
+    "For the same χ, Σ_x χ(3x³) = 6χ(3), of modulus 6. The scalar 3 is not a cube in F_7, but 3X³ is geometrically a scalar times a cube and must be excluded."
    ],
    "prerequisites": [
     "FiniteFieldsAndCharacterSums:FF.2/multiplicative-l-function-is-polynomial",
@@ -13082,9 +12427,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The monic irreducible polynomials of a given degree",
    "kind": "construction",
@@ -13179,9 +12524,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/count-of-irreducible-polynomials",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The number Π_F(n) of monic irreducible polynomials of degree n",
    "kind": "definition",
@@ -13305,9 +12650,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/partition-by-minimal-polynomials",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "Counting the elements of an extension by their minimal polynomials",
    "kind": "lemma",
@@ -13349,9 +12694,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/gauss-product-formula",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "Gauss's product formula for X^(q^n) − X",
    "kind": "theorem",
@@ -13397,9 +12742,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "Gauss's count q^n = Σ_{d|n} d Π_F(d)",
    "kind": "theorem",
@@ -13434,9 +12779,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/moebius-formula-for-irreducible-count",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The Möbius formula for Π_F(n)",
    "kind": "theorem",
@@ -13473,9 +12818,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The upper bound n Π_F(n) ≤ q^n",
    "kind": "theorem",
@@ -13513,9 +12858,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-lower-bound",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The lower bound q^n ≤ n Π_F(n) + 2 q^{⌊n/2⌋}",
    "kind": "theorem",
@@ -13557,9 +12902,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/prime-polynomial-theorem",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The prime polynomial theorem with explicit error",
    "kind": "theorem",
@@ -13604,9 +12949,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/irreducible-density-lower-bound",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "Shoup's density bound q^n ≤ 2n Π_F(n)",
    "kind": "theorem",
@@ -13643,9 +12988,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-with-constant-coefficient",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The number of monic irreducibles with prescribed constant coefficient",
    "kind": "definition",
@@ -13732,9 +13077,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/norm-from-minimal-polynomial",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The norm of an element from its minimal polynomial",
    "kind": "lemma",
@@ -13772,9 +13117,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-norm-fibre-identity",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The norm-fibre identity for constant coefficients",
    "kind": "theorem",
@@ -13816,9 +13161,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-count-bounds",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "Two-sided bound for irreducibles with prescribed constant coefficient",
    "kind": "theorem",
@@ -13855,9 +13200,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.3/irreducible-polynomials-with-prescribed-constant-coefficient",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.3",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.3"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "Irreducible polynomials with prescribed constant coefficient",
    "kind": "theorem",
@@ -20059,7 +19404,7 @@
    ],
    "proofSteps": [
     "S^{σ^e} is a finite local ring with maximal ideal p·S^{σ^e} (fixed points of an automorphism of a local ring whose Teichmüller coordinates are fixed coordinatewise) and residue field F_{p^e}; by galois-ring-uniqueness it is GaloisRing p n e.",
-    "Conversely a subring R' local with 𝔪 = pR' has residue field a subfield F_{p^e} of F_{p^r}; R' contains the Teichmüller lifts of that subfield (they are the roots of X^{p^e} − X lifting it, unique by finite-local-ring-is-henselian) and is generated by them over ZMod p^n, so R' = S^{σ^e}.",
+    "Conversely a subring R' local with 𝔪 = pR' has residue field the unique subfield F_{p^e} of F_{p^r} for some e ∣ r, by the FF.0 intermediate-field/divisor correspondence; R' contains the Teichmüller lifts of that subfield (they are the roots of X^{p^e} − X lifting it, unique by finite-local-ring-is-henselian) and is generated by them over ZMod p^n, so R' = S^{σ^e}.",
     "The counterexample: ZMod 4 + 2·GaloisRing 2 2 2 is closed under multiplication, contains 1 and has 4·4/2 = 8 elements, while GaloisRing 2 2 e has 4 or 16 elements."
    ],
    "acceptance": [
@@ -20070,7 +19415,8 @@
     "FiniteFieldsAndCharacterSums:FF.4/frobenius-of-galois-ring",
     "FiniteFieldsAndCharacterSums:FF.4/galois-ring-uniqueness",
     "FiniteFieldsAndCharacterSums:FF.4/galois-group-of-galois-ring",
-    "FiniteFieldsAndCharacterSums:FF.4/finite-local-ring-is-henselian"
+    "FiniteFieldsAndCharacterSums:FF.4/finite-local-ring-is-henselian",
+    "FiniteFieldsAndCharacterSums:FF.0/intermediate-field-divisor-correspondence"
    ],
    "sources": [
     {
@@ -20139,15 +19485,15 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.4",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.4"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "q-linearized (additive) polynomials",
    "kind": "definition",
    "statement": "Let K be a commutative semiring and q a natural number. A polynomial L ∈ K[X] is q-linearized (a q-polynomial), written Polynomial.IsLinearized q L, if every exponent in its support is a power of q, i.e. L = ∑_i a_i X^{q^i}. The constructor linearizedOf q a := ∑_i C (a i) · X^{q^i} turns a finitely supported coefficient sequence a : ℕ →₀ K into a q-polynomial; its q-degree is the largest i with a_i ≠ 0. Convention (pinned): exponents are q^i with i ≥ 0, so X = X^{q^0} is linearized and, for q≥2, nonzero constants are not; q ≥ 2 in every theorem.",
    "hypotheses": [
-    "K is a commutative semiring for the definition; the linearity theorems assume K is a field of characteristic p and q = p^e with e ≥ 1."
+    "K is a commutative semiring for the support definition. Evaluation linearity uses a finite field F with #F = q and compatible commutative coefficient and target F-algebras, as in linearized-polynomial-eval-linear; fields are not required there."
    ],
    "proofSteps": [
     "Define IsLinearized q L :↔ ∀ n ∈ L.support, ∃ i, n = q^i.",
@@ -20156,7 +19502,8 @@
     "Composition closure and linearity of evaluation are separate nodes (linearized-polynomial-comp, linearized-polynomial-eval-linear)."
    ],
    "acceptance": [
-    "X^q − X, X and 0 are q-linearized; X² + X is 2-linearized over ZMod 2; X² + 1 and X³ are not 2-linearized."
+    "X^q − X, X and 0 are q-linearized; X² + X is 2-linearized over ZMod 2; X² + 1 and X³ are not 2-linearized.",
+    "Over F_q, X^q − X is a nonzero q-linearized polynomial whose evaluation function is zero. Polynomial laws are not identified merely because their values on the finite base field agree."
    ],
    "prerequisites": [
     "mathlib:Polynomial.support",
@@ -20270,9 +19617,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.4",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.4"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "Evaluation of a q-polynomial is F_q-linear",
    "kind": "lemma",
@@ -20309,9 +19656,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-comp",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.4",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.4"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "q-polynomials are closed under composition",
    "kind": "lemma",
@@ -20356,9 +19703,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.4/roots-of-linearized-polynomial",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.4",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.4"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The roots of a q-polynomial form an F_q-subspace",
    "kind": "theorem",
@@ -20400,9 +19747,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-separable-iff",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.4",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.4"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "A q-polynomial is separable iff its coefficient of X is nonzero",
    "kind": "theorem",
@@ -20448,9 +19795,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.4",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.4"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "The subspace polynomial of a finite F_q-subspace",
    "kind": "construction",
@@ -20563,9 +19910,9 @@
   },
   {
    "id": "FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial-is-linearized",
-   "parentStageId": "FiniteFieldsAndCharacterSums:FF.4",
+   "parentStageId": "FiniteFieldsAndCharacterSums:FF.0",
    "realises": [
-    "FiniteFieldsAndCharacterSums:FF.4"
+    "FiniteFieldsAndCharacterSums:FF.0"
    ],
    "title": "Subspace polynomials are q-linearized",
    "kind": "theorem",
@@ -25839,10 +25186,11 @@
  "requests": [
   {
    "supplier": "WeilConjectures:WC.3",
-   "need": "The Riemann hypothesis for curves in its all-conjugates form: for a smooth projective geometrically connected curve C over F_q of genus g (in particular the curve attached, through the function-field/curve dictionary, to a one-variable function field over F_q with exact constant field F_q), Z(C, T) = P₁(T)/((1 − T)(1 − qT)) with P₁ ∈ ℤ[T] of degree 2g and P₁(0) = 1, and every reciprocal root α of P₁, counted with multiplicity, is an algebraic integer with |ι(α)| = q^{1/2} for every field embedding ι : ℚ̄ → ℂ. FF.2 uses it only for the Artin–Schreier and Kummer curves y^q − y = f(x), y^d = g(x).",
+   "need": "The Riemann hypothesis for curves in its all-conjugates form: for a smooth projective geometrically connected curve C over F_q of genus g (in particular the curve attached, through the function-field/curve dictionary, to a one-variable function field over F_q with exact constant field F_q), Z(C, T) = P₁(T)/((1 − T)(1 − qT)) with P₁ ∈ ℤ[T] of degree 2g and P₁(0) = 1, and every reciprocal root α of P₁, counted with multiplicity, is an algebraic integer with |ι(α)| = q^{1/2} for every field embedding ι : ℚ̄ → ℂ. FF.2 uses it only for the Artin–Schreier and Kummer curves y^q − y = f(x), y^d = g(x). In particular, for every r ≥ 1 this gives |#C(F_(q^r)) − (q^r + 1)| ≤ 2g q^(r/2), by summing the 2g reciprocal roots. FF.3 imports this curve statement; affine-model counts still need their explicit projective-boundary comparison. For general geometrically irreducible varieties use FF.2/lang-weil-estimate with its geometric compact-support Betti constant, not the genus coefficient 2g.",
    "neededBy": [
     "FiniteFieldsAndCharacterSums:FF.2/additive-l-function-purity",
-    "FiniteFieldsAndCharacterSums:FF.2/multiplicative-l-function-purity"
+    "FiniteFieldsAndCharacterSums:FF.2/multiplicative-l-function-purity",
+    "FiniteFieldsAndCharacterSums:FF.3/weil-error-bound-for-hyperelliptic-counts"
    ]
   },
   {
@@ -26126,14 +25474,16 @@
  "coverage": [
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.0",
-   "status": "source_decomposed",
-   "note": "Every FF.0 target that RS-03 keeps is planned from Shoup (Chapters 19–20, §18.6) and Conrad's handouts: the Frobenius power residue, Rabin's criterion and its certificate (ids fixed by the coordinator), certified presentations with explicit inverse, root-certificate embeddings and change-of-presentation isomorphisms, factorisation over an extension, the tensor-product decomposition, and normal elements with the Frobenius normal basis. The built targets (classification, cardinality, Frobenius with explicit exponents, subfields and embedding counts, trace and norm formulas and surjectivity, the normal basis theorem) are baseline citations. DELIGNE contributes nothing to FF.0. Independent review checks all eleven nodes and their cited pinned declarations; the built results remain baseline imports, not new planned nodes.",
-   "remaining": []
+   "status": "planned",
+   "note": "FF.0 contains the existing eleven presentation/comparison targets, the intermediate-field/divisor theorem, the sixteen elementary monic/irreducible census targets and the seven shared linearized-polynomial targets. Structural Frobenius, trace/norm, embeddings and normal-basis existence remain named baseline imports. Legacy FF.2/FF.3/FF.4 node IDs are preserved for consumers; parentStageId and realises determine the new ownership. The single Ore/composition comparison is already planned in the FF.4 follow-up and needs its early parent binding as recorded in restructure and the fix report.",
+   "remaining": [
+    "Bind the existing follow-up Frobenius Ore/composition comparison to FF.0; no duplicate construction is added."
+   ]
   },
   {
    "stageId": "FiniteFieldsAndCharacterSums:FF.1",
    "status": "partial",
-   "note": "The field Fourier transport, all-character boundary coefficients, projective two-point interpolation and finite-product Gauss factorization are supplied by the FF.1 follow-up. Hasse–Davenport has one exact-Gamma proof route with the two explicit Dwork inputs still recorded as supplier obligations.",
+   "note": "The field Fourier transport, all-character boundary coefficients, projective two-point interpolation and finite-product Gauss factorization are supplied by the FF.1 follow-up. Hasse–Davenport has one exact-Gamma proof route with the two explicit Dwork inputs still recorded as supplier obligations. The BKK integer-law Fourier and Laurent-completion targets are removed and handed to PM.0, AC.0 and FA.2; only the elementary census and prescribed-constant-coefficient case remain finite-field contributions, in FF.0.",
    "remaining": [
     "The inspected L3/robert-gross-koblitz-comparison requires both the coefficient bound and the actual chosen-root trace-character splitting equality. RD.6/dwork-isocrystal does not export either precise native coefficient interface. The exact Gamma multiplication import resolves the arbitrary-root ambiguity, but it does not prove these analytic inputs. The two requests spell out K, its normalized Q_p embedding, actual formal coefficients, compatible pi and zeta, Teichmuller lifts, trace, sign and binary boundary. Until supplied the unconditional product target has a recorded dependency gap; no source closure is claimed."
    ]
@@ -26161,7 +25511,8 @@
    "note": "The follow-up supplies the unique monic squarefree-times-square decomposition, exact monic squarefree and hyperelliptic presentation counts, all-extension certificate reconstruction interface and separated Schoof cost target. The operational CN.0 and general WC.5 model-comparison inputs remain precise requests, together with the prime-product estimate.",
    "remaining": [
     "General-model certificate comparison: WC.5 states the required all-extension bounds, but the accepted FF.3 certificate prototype is for affine y²=f and Schoof is elliptic. Extension to arbitrary smooth projective models needs a concrete computable rational-point representation, inclusion of points at infinity and its cardinality comparison with WC.5 N_r. The WC.5 request pins that contract; the parent algorithms are not advertised as general-variety algorithms.",
-    "Schoof prime-growth estimate and instantiated operational cost model: Schoof §5 invokes a weak prime-number theorem to obtain O(log q) auxiliary primes of size O(log q). The pinned citations and the precise CN.0 supplier stage do not provide that quantitative prime-product estimate. Import it from its owner or prove/source its exact elementary Chebyshev version, excluding char(F), before closing this cost target. CN.0 is an explicit requested bit/randomness model, not an already exported operation counter; the listed polynomial-time cost remains a target-level contract against that model, not a theorem about an arbitrary supplied count field."
+    "Schoof prime-growth estimate and instantiated operational cost model: Schoof §5 invokes a weak prime-number theorem to obtain O(log q) auxiliary primes of size O(log q). The pinned citations and the precise CN.0 supplier stage do not provide that quantitative prime-product estimate. Import it from its owner or prove/source its exact elementary Chebyshev version, excluding char(F), before closing this cost target. CN.0 is an explicit requested bit/randomness model, not an already exported operation counter; the listed polynomial-time cost remains a target-level contract against that model, not a theorem about an arbitrary supplied count field.",
+    "Register the elementary/bound-dependent stage split described in restructure; the target-level imports do not certify a corrected atlas depth."
    ]
   },
   {
@@ -26174,7 +25525,8 @@
     "Odd-characteristic spherical normalization and exhaustiveness: Read the complete odd-q Evans/Kuang representation-theoretic derivation, match adjacency to the parent distance a and root δ, and establish that every nontrivial spherical summand is exactly, up to sign, Jχ or the stated Soto–Andrade sum, including the quadratic twist of Steinberg. Kuang’s brief preprint and the q=3 computation do not certify this exhaustive transfer. The inherited Kuang normalization source issue E748 remains owned by the parent.",
     "Native Hermitian model export: The AC layer-10 request requires actual coordinate functions, places and pole orders on a native function field, rather than a structure with asserted curve facts. The affine polynomial code and its elementary length/message dimension are independently defined. The Riemann–Roch comparison and distance route consume the requested geometric export.",
     "Bent-character cyclotomic transport: For a prime output field, export the native cyclotomic automorphism sending ζ_p to ζ_p^a, prove that it commutes with complex conjugation on character sums, and transports an integral squared norm. This is the exact use of GK09 Lemma 3.2.12. The suggested prime-character signature is stated; a proved transport API was not established. No claim is made for an arbitrary extension output field.",
-    "Source collation at the versions of record: Public GK09/GK11 drafts and WU12 v2 were read and compared at the locators recorded in sourceIssues. The Cambridge 2012 text and Wu–Liu version of record were not served in the bounded publisher search; do not promote draft findings to published errata. Parent Shallue/Bluher and other preprint collation remains owned by its earlier coverage. The ECT25 finding is scoped to the recorded 2025 draft; the 2026 accessibility revision was read and the same formula persists; neither is a publisher version of record."
+    "Source collation at the versions of record: Public GK09/GK11 drafts and WU12 v2 were read and compared at the locators recorded in sourceIssues. The Cambridge 2012 text and Wu–Liu version of record were not served in the bounded publisher search; do not promote draft findings to published errata. Parent Shallue/Bluher and other preprint collation remains owned by its earlier coverage. The ECT25 finding is scoped to the recorded 2025 draft; the 2026 accessibility revision was read and the same formula persists; neither is a publisher version of record.",
+    "Register the elementary/bound-dependent stage split described in restructure; the target-level imports do not certify a corrected atlas depth."
    ]
   },
   {
@@ -26238,6 +25590,14 @@
     "FiniteFieldsAndCharacterSums:FF.3/schoof-algorithm-cost"
    ],
    "detail": "Schoof §5 invokes a weak prime-number theorem to obtain O(log q) auxiliary primes of size O(log q). The pinned citations and the precise CN.0 supplier stage do not provide that quantitative prime-product estimate. Import it from its owner or prove/source its exact elementary Chebyshev version, excluding char(F), before closing this cost target. CN.0 is an explicit requested bit/randomness model, not an already exported operation counter; the listed polynomial-time cost remains a target-level contract against that model, not a theorem about an arbitrary supplied count field."
+  },
+  {
+   "title": "Registered elementary stage refinements and early Ore export",
+   "neededBy": [
+    "FiniteFieldsAndCharacterSums:FF.3",
+    "FiniteFieldsAndCharacterSums:FF.4"
+   ],
+   "detail": "The atlas still has the coarse FF.2 → FF.3 → FF.4 chain. This fix corrects the target graph and proposes the exact split; atlas registration/edge changes are outside its deliverables. The follow-up FF.4/frobenius-ore-polynomial-comparison remains in its own accepted packet pending a parent-stage move to FF.0. Its construction is the single shared owner, not permission for a second DM.0 Ore/composition theory."
   }
  ],
  "sourceIssues": [
@@ -27935,8 +27295,8 @@
    "roadmaps": [
     "FiniteFieldsAndCharacterSums"
    ],
-   "detail": "FF.1 now holds 42 nodes in four groups that share few prerequisites: characters, conventions and elementary sums; the Hasse–Davenport relations; Stickelberger's congruence and the prime factorisation of Gauss and Jacobi sums; and harmonic analysis on F_q((1/T)) with measures on ℤ (the BKK route). For the atlas the layer reads better as four sub-layers (PROTOCOL §14).",
-   "proposal": "FF.1a Characters and conventions: canonical-additive-character, additive-characters-are-shifts, norm-lift-of-a-multiplicative-character, trace-lift-of-an-additive-character, trivial-character-conventions, gauss-sum-transport, gauss-sum-galois-conjugation, gauss-sum-absolute-value, jacobi-sum-absolute-value, mulchar-column-orthogonality, power-count-via-characters, fourier-expansion-of-multiplicative-character, gauss-sum-frobenius-invariance, gauss-sum-duplication-formula. FF.1b Hasse–Davenport: hasse-davenport-weight, hasse-davenport-degree-sums, polynomial-euler-product-recurrence, hasse-davenport-orbit-sum, hasse-davenport-lifting, hasse-davenport-lifting-for-jacobi-sums, hasse-davenport-product-relation. FF.1c Stickelberger: teichmuller-character, prime-above-p-in-cyclotomic-compositum, multi-jacobi-sum, gauss-sum-product-and-multi-jacobi-sum, multinomial-coefficient-congruences, jacobi-sum-teichmuller-congruence, gauss-sum-teichmuller-base-congruence, stickelberger-congruence, gauss-sum-valuation-digit-sum, prime-factorisation-of-gauss-sums, stickelberger-relation, prime-factorisation-of-jacobi-sums. FF.1d Harmonic analysis on F_q((1/T)): fourier-transform-of-integer-measure, fourier-gap-from-residue-anticoncentration, residue-character-at-infinity, residue-pairing-duality, negative-power-torus, haar-measure-on-negative-power-torus, reduced-polynomial-fractions, torus-character-orthogonality, torus-finite-coordinate-integral."
+   "detail": "FF.1 retains field characters, conventions, elementary Gauss–Jacobi adapters, Hasse–Davenport and Stickelberger targets. The nine BKK measure/completion targets have different owners and are removed from this packet (RT-AREA-finitefields/18).",
+   "proposal": "FF.1a Characters and conventions: canonical-additive-character, additive-characters-are-shifts, norm-lift-of-a-multiplicative-character, trace-lift-of-an-additive-character, trivial-character-conventions, gauss-sum-transport, gauss-sum-galois-conjugation, gauss-sum-absolute-value, jacobi-sum-absolute-value, mulchar-column-orthogonality, power-count-via-characters, fourier-expansion-of-multiplicative-character, gauss-sum-frobenius-invariance, gauss-sum-duplication-formula. FF.1b Hasse–Davenport: hasse-davenport-weight, hasse-davenport-degree-sums, polynomial-euler-product-recurrence, hasse-davenport-orbit-sum, hasse-davenport-lifting, hasse-davenport-lifting-for-jacobi-sums, hasse-davenport-product-relation. FF.1c Stickelberger: teichmuller-character, prime-above-p-in-cyclotomic-compositum, multi-jacobi-sum, gauss-sum-product-and-multi-jacobi-sum, multinomial-coefficient-congruences, jacobi-sum-teichmuller-congruence, gauss-sum-teichmuller-base-congruence, stickelberger-congruence, gauss-sum-valuation-digit-sum, prime-factorisation-of-gauss-sums, stickelberger-relation, prime-factorisation-of-jacobi-sums."
   },
   {
    "action": "rescope",
@@ -27945,14 +27305,14 @@
     "FiniteFieldsAndCharacterSums"
    ],
    "detail": "The Grothendieck–Ogg–Shafarevich Euler characteristic formula for lisse sheaves on curves is used by FF.2 (conductor bounds, the curve bound (3.5.2), Weil I 8.11) and by the proposed KloostermanMomentsAndPotentialAutomorphy, and no atlas stage states it (RT-AREA-finitefields/3, confirmed). It is a theorem about étale cohomology of curves, not about finite-field sums.",
-   "proposal": "Add a sub-stage EtaleDualityAndPerverseSheaves:EDC.2:euler-characteristic after EDC.2 (inputs EDC.2 and the local Swan conductor of ArithmeticGaloisRepresentations:R01.3 in equal characteristic): χ_c(X, F) = rk F · χ_c(X) − Σ_s Sw_s(F) for F lisse on a dense open X of a smooth projective connected curve over an algebraically closed field, with χ_c = χ, sourced to Raynaud's Séminaire Bourbaki 286 or SGA 5 X. Link it to FiniteFieldsAndCharacterSums:FF.2. FF.2 keeps the local computation Sw_x(L_ψ(f)) = v*_x(f)."
+   "proposal": "Register one Part II extension after EtaleDualityAndPerverseSheaves:EDC.2 for Grothendieck–Ogg–Shafarevich. For C smooth projective connected of genus g over an algebraically closed field of characteristic p, U=C∖D with D finite, ℓ≠p and a lisse E_λ-sheaf F on U, export χ_c(U,F)=rk(F)(2−2g−#D)−Σ_(x∈D) Sw_x(F). The local conductor input must cover geometric equal-characteristic fields such as F̄_q((t)). Supply the finite-torsion-to-E_λ passage as part of that extension. Link the single owner to FF.2 and the Kloosterman consumers; FF.2 owns only the Artin–Schreier reduced-pole calculation. This is a registration request, not an available EDC.2 sub-stage."
   },
   {
    "action": "split",
    "roadmaps": [
     "FiniteFieldsAndCharacterSums"
    ],
-   "detail": "FF.2 has 88 nodes along four lines of development that read as separate stars in the atlas.",
+   "detail": "FF.2 has elementary, curve-theoretic, sheaf-theoretic and Fourier/point-count routes along four lines of development that read as separate stars in the atlas.",
    "proposal": "Divide FF.2 into sub-layers (parentStageId unchanged until the division is accepted): FF.2a 'One-variable L-functions and Stepanov's method' (additive-companion-sum, multiplicative-companion-sum, monic-l-series, monic-l-series-log-derivative, root-sum-additive-character, root-sum-multiplicative-character, additive-l-function, multiplicative-l-function, root-sum-additive-top-coefficients, additive-l-function-is-polynomial, root-sum-multiplicative-periodicity, multiplicative-l-function-is-polynomial, l-function-reciprocal-roots, primitive-ring-gauss-sum-norm, multiplicative-l-function-leading-coefficient, multiplicative-l-function-functional-equation, mixed-l-function-is-polynomial, trace-kernel-artin-schreier, artin-schreier-point-count-average, kummer-point-count-average, the Stepanov nodes stepanov-curve-ring … stepanov-bound-artin-schreier-curve, additive-l-function-root-bound, multiplicative-l-function-root-bound-coprime, weil-bound-additive, weil-bound-multiplicative-coprime-degree, and the degenerate-case nodes artin-schreier-reduced-form, artin-schreier-invariance, artin-schreier-trivial-sum, weil-bound-additive-reduced, multiplicative-perfect-power-sum); FF.2b 'Curves' (artin-schreier-function-field, artin-schreier-curve-point-count, artin-schreier-zeta-factorization, additive-l-function-purity, kummer-function-field, kummer-curve-point-count, kummer-zeta-factorization, multiplicative-l-function-purity); FF.2c 'Trace functions and Deligne bounds' (artin-schreier-sheaf, kummer-sheaf, character-sheaf-trace-formula, homotopy-invariance-of-endomorphism-action, character-sheaf-cohomology-vanishes, translation-cancellation, trace-function, lisse-sheaf-extremal-cohomology-on-curve, modified-pole-order, swan-conductor-of-artin-schreier-sheaf, h1c-conductor-bound, deligne-bound-for-trace-functions, deligne-estimate-for-character-sums, affine-concentration-criterion, rank-one-sheaf-l-function, rank-one-sheaf-root-bound, weil-bound-multiplicative, weil-bound-mixed, artin-schreier-sum-on-curve-bound, involution-eigenvalue-pairing, kloosterman-sum, kloosterman-l-function, kloosterman-bound, gauss-sum-frobenius-eigenvalue, hypersurface-through-all-rational-points, elementary-n-variable-bound, deligne-cohomology-of-polynomial-sheaf, deligne-duality-for-polynomial-sheaf, deligne-n-variable-bound); FF.2d 'Fourier–Deligne transform and Lang–Weil' (fourier-deligne-transform, fourier-deligne-inversion, fourier-input-for-one-modulus, lang-weil-estimate, uniform-lang-weil-estimate, dimension-from-point-counts, geometric-chebotarev). Dependencies run FF.2a → FF.2b, FF.2a → FF.2c → FF.2d."
   },
   {
@@ -27961,16 +27321,26 @@
     "FiniteFieldsAndCharacterSums",
     "DrinfeldModulesAndTModules"
    ],
-   "detail": "The reviewed audit flags that DrinfeldModulesAndTModules:DM.0 again constructs additive polynomials as the Ore ring L{τ} of F_q-linear endomorphisms of G_a, FF.4's additive-polynomial target.",
-   "proposal": "FF.4 owns the polynomial-level theory of q-linearized polynomials over fields of characteristic p (FF.4 nodes linearized-polynomial, linearized-polynomial-eval-linear, linearized-polynomial-comp, roots-of-linearized-polynomial, linearized-polynomial-separable-iff, subspace-polynomial, subspace-polynomial-is-linearized, linearized-q-associate and the permutation criteria). DM.0 keeps the Ore ring L{τ} over F_q-algebras, its identification with FF.4's composition ring of q-polynomials (Wu–Liu Theorem 2.1) and Drinfeld modules, and imports the FF.4 nodes through a link FF.4 → DM.0."
+   "detail": "The shared q-linearized polynomial core is elementary and must precede both the specialized FF.4 applications and DM.0. Mathlib already owns the general SkewPolynomial carrier. Polynomial laws under composition must be distinguished from their evaluations on a finite field.",
+   "proposal": "FF.0 now owns the seven parent targets linearized-polynomial, linearized-polynomial-eval-linear, linearized-polynomial-comp, roots-of-linearized-polynomial, linearized-polynomial-separable-iff, subspace-polynomial and subspace-polynomial-is-linearized. Their legacy FF.4 IDs remain stable. Move the existing follow-up target FF.4/frobenius-ore-polynomial-comparison into the same early layer, retaining its ID and reusing Mathlib SkewPolynomial; do not define it again in DM.0. That follow-up file is outside this fix’s deliverables, so its parent-stage correction is handed to its owner. DM.0 imports the shared comparison and keeps Drinfeld modules. Finite-field function quotients and the specialized trace/Dickson/permutation applications remain FF.4. Add FF.0 → DM.0 only after the early comparison has been bound to FF.0."
   },
   {
    "action": "split",
    "roadmaps": [
     "FiniteFieldsAndCharacterSums"
    ],
-   "detail": "FF.4 has 91 declaration-level nodes in five independent topics; the atlas would show it more legibly as sub-layers (parent nodes of the same roadmap), without changing the stage id or its edges.",
-   "proposal": "Sub-layers of FF.4: (a) Galois rings: finite-local-ring-is-henselian … trace-of-galois-ring (16 nodes); (b) linearized and permutation polynomials: linearized-polynomial … dickson-permutation-criterion (22 nodes); (c) linear recurring sequences and correlation: least-period-of-sequence … decimation-cross-correlation-character-sum (17 nodes); (d) evaluation, BCH and algebraic geometry codes: singleton-bound … residue-code-parameters (23 nodes); (e) the finite upper half-plane and Hecke operators: finite-upper-half-plane … terras-graph-ramanujan (13 nodes)."
+   "detail": "After moving the seven shared polynomial targets to FF.0, FF.4 retains Galois rings, specialized polynomial/function algebras, sequences, codes and finite-plane applications. Separate their elementary, curve-theoretic and cohomological inputs instead of imposing all of FF.2 on the algebraic core.",
+   "proposal": "Retain separate groups for Galois rings; specialized linearized/permutation applications; recurrences and correlations; evaluation/cyclic/BCH/AG codes; and the finite upper half-plane. Generic cyclic ideals, BCH, Singleton and RS bounds use the elementary route. AG codes import native divisors, Riemann–Roch and residue duality. The Terras Ramanujan bound, character-sum correlation bounds and other weight-dependent applications retain their exact FF.2/DWP prerequisites. The atlas’s coarse FF.3 → FF.4 edge must be replaced by the registered refinements described in the fix report, not simply deleted while leaving every target on one stage."
+  },
+  {
+   "action": "split",
+   "roadmaps": [
+    "FiniteFieldsAndCharacterSums",
+    "ComputationalNumberTheory",
+    "FunctionFieldArithmetic"
+   ],
+   "detail": "RT-AREA-finitefields/1: the registered FF.2 → FF.3 → FF.4 chain wrongly puts elementary factorization, Hensel lifting and finite algebra after Weil II. Exact target prerequisites already separate these proof routes.",
+   "proposal": "Register distinct elementary algorithm and point-counting/bound refinements of FF.3, and elementary finite-algebra/code and bound-dependent application refinements of FF.4. Bind squarefree/DDF/EDF/Berlekamp/Rabin/certificate/Hensel targets to the elementary algorithm refinement, supplied by FF.0 and CN.0. Keep exact point enumeration and certificate soundness elementary; attach geometric comparisons and Hasse/Weil/Schoof reconstruction bounds only where used. Bind CN.1 to the elementary factorization refinement and CN.3 / FA.7 to their exact point-count contracts. Do not replace the FF.2 prerequisite of all FF.3 by all of WC.5: that still delays CN.1. Until the maintainer registers the refinements and changes atlas edges, consumers use the named target imports below and the coarse stage-depth defect remains explicitly outstanding."
   }
  ],
  "sourceVersions": [
@@ -28604,6 +27974,41 @@
    "readBy": "Codex — codex-a71f92, independent REV-FiniteFieldsAndCharacterSums",
    "sha256": "2f130ecff3ffaeabd5d66f7402a30880c817640745d3d692599f32e6d7923019",
    "provenance": "Fresh acquisition; Selected complete corresponding 2011 author statements/proofs, not a whole-book or2012 published-edition collation. E506/E744 corrected, E512 partly corrected; omitted proof passages E736–E738 do not establish repairs. No 2012 publisher-edition collation."
+  },
+  {
+   "sourceId": "SHOUP.V2",
+   "kind": "author copy",
+   "url": "https://shoup.net/ntb/ntb-v2.pdf",
+   "read": "2026-10-19",
+   "readBy": "Codex — codex-pwZxBT",
+   "provenance": "Fresh browser reading of §19.1 Theorem 19.4 with proof, printed p. 510; §19.2 Theorems 19.10–19.12, pp. 513–514; Exercise 19.1 and §19.3 Theorems 19.13–19.14 with proofs, pp. 515–516. This receipt has no fresh file hash. The earlier comprehensive chapter receipts remain attributed to their readers."
+  },
+  {
+   "sourceId": "DELIGNE-WEIL-I",
+   "kind": "published",
+   "url": "https://www.numdam.org/item/PMIHES_1974__43__273_0/",
+   "read": "2026-10-19",
+   "readBy": "Codex — codex-pwZxBT",
+   "sha256": "8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5",
+   "provenance": "Fresh published Numdam PDF reading of 8.4–8.13, printed pp. 302–306, to check the hypotheses and compactification, relative-family, concentration and duality proof frontier. No fresh reading of the other chapters or of Weil II is claimed."
+  },
+  {
+   "sourceId": "wu-liu-linearized",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1211.5475v2",
+   "read": "2026-10-19",
+   "readBy": "Codex — codex-pwZxBT",
+   "sha256": "d12dc047c1dd936a5453a07089c3a7e4d1d485e522ac3dae95772a1bffd626b2",
+   "provenance": "Fresh arXiv v2 reading of §2.1, Theorems 2.1–2.2, pp. 5–6: the formal skew/composition algebra and the separate quotient giving finite-field functions. The general commutative coefficient-algebra comparison in the existing follow-up is a proof target, not claimed to follow in full generality from the finite-field theorem alone."
+  },
+  {
+   "sourceId": "bary-soroker-koukoulopoulos-kozma-2023",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/2007.14567v3",
+   "read": "2026-10-19",
+   "readBy": "Codex — codex-pwZxBT",
+   "sha256": "adb1359df46f92d608009b32f45939672e08b1e3fe052587b035431e70d5d3e1",
+   "provenance": "Fresh v3 reading of §2.4 p. 13; §3.1 proof of Lemma 3.2 p. 20; §§4–6 pp. 28–33; §8 Proposition 8.1 p. 39; §11 Lemma 11.1 pp. 54–55, for the ownership routing and elementary modulus-T exception. This is the arXiv text, not fresh collation of the publisher version. Inherited source corrections and proof receipts are preserved."
   }
  ],
  "planningPass": {
@@ -30430,5 +29835,53 @@
    "leanVersion": "Lean (version 4.34.0-rc2, x86_64-unknown-linux-gnu, commit 6a10ac8c22beadecabdbb0919c2b50214762f91d, Release)"
   },
   "sourceScope": "Personal readings are scoped in sourceVersions; no whole-book or publisher-edition collation is inferred from metadata or matching hashes."
+ },
+ "fixAudit": {
+  "job": "FIX-RT-AREA-finitefields~2",
+  "issue": 6208,
+  "by": "Codex — codex-pwZxBT",
+  "date": "2026-10-19",
+  "status": "awaiting-independent-review",
+  "removedMisroutedTargets": [
+   "FiniteFieldsAndCharacterSums:FF.1/fourier-transform-of-integer-measure",
+   "FiniteFieldsAndCharacterSums:FF.1/fourier-gap-from-residue-anticoncentration",
+   "FiniteFieldsAndCharacterSums:FF.1/residue-character-at-infinity",
+   "FiniteFieldsAndCharacterSums:FF.1/residue-pairing-duality",
+   "FiniteFieldsAndCharacterSums:FF.1/negative-power-torus",
+   "FiniteFieldsAndCharacterSums:FF.1/haar-measure-on-negative-power-torus",
+   "FiniteFieldsAndCharacterSums:FF.1/reduced-polynomial-fractions",
+   "FiniteFieldsAndCharacterSums:FF.1/torus-character-orthogonality",
+   "FiniteFieldsAndCharacterSums:FF.1/torus-finite-coordinate-integral"
+  ],
+  "reparentedToFF0": [
+   "FiniteFieldsAndCharacterSums:FF.2/monic-polynomials-of-degree",
+   "FiniteFieldsAndCharacterSums:FF.3/monic-irreducible-polynomials-of-degree",
+   "FiniteFieldsAndCharacterSums:FF.3/count-of-irreducible-polynomials",
+   "FiniteFieldsAndCharacterSums:FF.3/partition-by-minimal-polynomials",
+   "FiniteFieldsAndCharacterSums:FF.3/gauss-product-formula",
+   "FiniteFieldsAndCharacterSums:FF.3/gauss-count-formula",
+   "FiniteFieldsAndCharacterSums:FF.3/moebius-formula-for-irreducible-count",
+   "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-upper-bound",
+   "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-lower-bound",
+   "FiniteFieldsAndCharacterSums:FF.3/prime-polynomial-theorem",
+   "FiniteFieldsAndCharacterSums:FF.3/irreducible-density-lower-bound",
+   "FiniteFieldsAndCharacterSums:FF.3/irreducible-count-with-constant-coefficient",
+   "FiniteFieldsAndCharacterSums:FF.3/norm-from-minimal-polynomial",
+   "FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-norm-fibre-identity",
+   "FiniteFieldsAndCharacterSums:FF.3/constant-coefficient-count-bounds",
+   "FiniteFieldsAndCharacterSums:FF.3/irreducible-polynomials-with-prescribed-constant-coefficient",
+   "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial",
+   "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-eval-linear",
+   "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-comp",
+   "FiniteFieldsAndCharacterSums:FF.4/roots-of-linearized-polynomial",
+   "FiniteFieldsAndCharacterSums:FF.4/linearized-polynomial-separable-iff",
+   "FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial",
+   "FiniteFieldsAndCharacterSums:FF.4/subspace-polynomial-is-linearized"
+  ],
+  "addedTargets": [
+   "FiniteFieldsAndCharacterSums:FF.0/intermediate-field-divisor-correspondence"
+  ],
+  "reviewBoundary": "Earlier verdicts are retained as provenance. This revision requires REV-FIX-RT-AREA-finitefields~2; it does not extend those verdicts or claim mathematical closure.",
+  "sourceReadings": "Four fresh scoped primary-source receipts are appended to sourceVersions. Other inherited receipts retain their original attribution; source breadth is not claimed as a fresh proof audit."
  }
 }

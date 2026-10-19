@@ -49,7 +49,9 @@ import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.FieldTheory.Finite.Extension
 import Mathlib.FieldTheory.Finite.GaloisField
 import Mathlib.FieldTheory.Finite.Trace
+import Mathlib.FieldTheory.Galois.Basic
 import Mathlib.FieldTheory.Galois.NormalBasis
+import Mathlib.FieldTheory.IntermediateField.Algebraic
 import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
 import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.FieldTheory.Minpoly.Basic
@@ -72,7 +74,6 @@ import Mathlib.LinearAlgebra.Matrix.Rank
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.QuadraticForm.Basic
 import Mathlib.LinearAlgebra.Vandermonde
-import Mathlib.MeasureTheory.Measure.CharacteristicFunction.Basic
 import Mathlib.NumberTheory.ArithmeticFunction.Moebius
 import Mathlib.NumberTheory.Cyclotomic.Gal
 import Mathlib.NumberTheory.GaussSum
@@ -171,6 +172,95 @@ theorem normal_iff_forall_irreducible_factor (E : Type*) [Field E] [Algebra F E]
 example : frobResidue (X ^ 2 + X + 1 : (ZMod 2)[X]) 1 = X + 1 := by sorry
 example (k : ℕ) : frobResidue (X : F[X]) k = 0 := by sorry
 end FF0
+
+/-! ## FF.0. Intermediate fields and elementary polynomial counts.
+Legacy FF.2/FF.3 census IDs stay stable in the reader; ownership is FF.0.
+These targets use finite algebra, not character-sum estimates. -/
+section IntermediateFields
+variable (F E : Type*) [Field F] [Fintype F] [Field E] [Algebra F E]
+variable [FiniteDimensional F E]
+
+theorem intermediateField_divisor_correspondence :
+    ∃ e : IntermediateField F E ≃ {d : ℕ // d ∣ Module.finrank F E},
+      (∀ K, (e K).val = Module.finrank F K) ∧
+      (∀ d x, x ∈ e.symm d ↔ x ^ (Fintype.card F ^ d.val) = x) ∧
+      ∀ K L, K ≤ L ↔ (e K).val ∣ (e L).val := by sorry
+
+theorem existsUnique_intermediateField_finrank {d : ℕ} (hd : d ∣ Module.finrank F E) :
+    ∃! K : IntermediateField F E, Module.finrank F K = d := by sorry
+
+-- Divisibility is the order here: 2 ≤ 3 does not imply degree-2 containment in degree 3.
+example (h : Module.finrank F E = 6) :
+    ¬ ∃ K : IntermediateField F E, Module.finrank F K = 4 := by sorry
+example (h : Module.finrank F E = 1) :
+    ∃! K : IntermediateField F E, Module.finrank F K = 1 := by sorry
+end IntermediateFields
+
+section ElementaryCensus
+variable (F : Type*) [Field F] [Fintype F] [DecidableEq F]
+def monicOfDegree (n : ℕ) : Finset F[X] := by
+  classical
+  exact Finset.univ.image fun v : Fin n → F =>
+    X ^ n + ((degreeLTEquiv F n).symm v : F[X])
+
+def monicIrreducibles (n : ℕ) : Finset F[X] := by
+  classical
+  exact (monicOfDegree F n).filter Irreducible
+
+theorem gauss_product_formula (n : ℕ) (hn : 0 < n) :
+    ∏ d ∈ n.divisors, ∏ f ∈ monicIrreducibles F d, f =
+      X ^ (Fintype.card F ^ n) - X := by sorry
+
+theorem gauss_count_formula (n : ℕ) (hn : 0 < n) :
+    ∑ d ∈ n.divisors, d * (monicIrreducibles F d).card = Fintype.card F ^ n := by sorry
+
+theorem irreducible_count_bounds (n : ℕ) (hn : 0 < n) :
+    (Fintype.card F : ℚ) ^ n / (2 * n) ≤ ((monicIrreducibles F n).card : ℚ) ∧
+      ((monicIrreducibles F n).card : ℚ) ≤ (Fintype.card F : ℚ) ^ n / n := by sorry
+
+theorem card_monic_prescribed_constant (n : ℕ) (b : F) :
+    ((monicOfDegree F n).filter fun f => f.coeff 0 = b).card =
+      if n = 0 then (if b = 1 then 1 else 0) else Fintype.card F ^ (n - 1) := by
+  sorry
+
+example : monicIrreducibles (ZMod 2) 2 = {X ^ 2 + X + 1} := by sorry
+example : (monicIrreducibles (ZMod 2) 1).card = 2 := by sorry
+example : monicIrreducibles (ZMod 2) 0 = ∅ := by sorry
+example : ((monicOfDegree (ZMod 3) 0).filter fun f => f.coeff 0 = 0).card = 0 := by sorry
+end ElementaryCensus
+
+/-! ## FF.0. Shared linearized polynomials over commutative finite-field algebras. -/
+def _root_.Polynomial.IsLinearized {K : Type*} [CommSemiring K] (q : ℕ) (L : K[X]) : Prop :=
+  ∀ n ∈ L.support, ∃ i, n = q ^ i
+
+noncomputable def _root_.Polynomial.linearizedOf {K : Type*} [CommSemiring K] (q : ℕ) (a : ℕ →₀ K) :
+    K[X] :=
+  a.sum fun i c => C c * X ^ (q ^ i)
+
+section Linearized
+variable {F K E : Type*} [Field F] [Fintype F] [CommRing K] [CommRing E]
+variable [Algebra F K] [Algebra K E] [Algebra F E] [IsScalarTower F K E]
+
+def _root_.Polynomial.IsLinearized.toLinearMap {L : K[X]}
+    (hL : L.IsLinearized (Fintype.card F)) : E →ₗ[F] E where
+  toFun x := aeval x L
+  map_add' := by sorry
+  map_smul' := by sorry
+
+-- The statement has general coefficient rings; Frobenius invertibility is unnecessary.
+theorem linearized_comp {L M : K[X]} (hL : L.IsLinearized (Fintype.card F))
+    (hM : M.IsLinearized (Fintype.card F)) :
+    (L.comp M).IsLinearized (Fintype.card F) := by sorry
+end Linearized
+
+/-! The one Ore/composition comparison is a reader construction awaiting its early FF.0 binding;
+finite-field function quotients remain FF.4 targets;
+there is no admitted Frobenius action or admitted ring/equivalence data here. -/
+
+-- Distinguish a polynomial law from its values on the finite base field.
+example : (X ^ 2 - X : (ZMod 2)[X]) ≠ 0 := by sorry
+example (x : ZMod 2) : (X ^ 2 - X : (ZMod 2)[X]).eval x = 0 := by sorry
+example : (0 : (ZMod 2)[X]).IsLinearized 2 := by sorry
 
 /-! ## FF.1. Character conventions, Fourier transport and Gauss identities. -/
 section CanonicalCharacter
@@ -352,15 +442,10 @@ example {F : Type*} [Field F] [Fintype F] (ψ : AddChar F ℂ) (hψ : ψ ≠ 1) 
     hyperKloosterman ψ 2 0 = -1 := by sorry
 end FF2
 
-/-! ## FF.3. Exact polynomial censuses.
+/-! ## FF.3. Squarefree/hyperelliptic censuses and algorithm consumers.
 Executable programs/cost semantics and general point-model comparisons remain reader targets. -/
 section PolynomialCounts
 variable (F : Type*) [Field F] [Fintype F] [DecidableEq F]
-def monicOfDegree (n : ℕ) : Finset F[X] := by
-  classical
-  exact Finset.univ.image fun v : Fin n → F =>
-    X ^ n + ((degreeLTEquiv F n).symm v : F[X])
-
 def monicSquarefreeOfDegree (n : ℕ) : Finset F[X] := by
   classical
   exact (monicOfDegree F n).filter Squarefree
@@ -394,42 +479,9 @@ theorem card_hyperellipticPolynomials (g : ℕ) :
         (Fintype.card F ^ (2 * g + 2) - Fintype.card F ^ (2 * g)) := by
   sorry
 
-theorem card_monic_prescribed_constant (n : ℕ) (b : F) :
-    ((monicOfDegree F n).filter fun f => f.coeff 0 = b).card =
-      if n = 0 then (if b = 1 then 1 else 0) else Fintype.card F ^ (n - 1) := by
-  sorry
-
 example : (monicSquarefreeOfDegree (ZMod 2) 2).card = 2 := by sorry
-example : ((monicOfDegree (ZMod 3) 0).filter fun f => f.coeff 0 = 0).card = 0 := by sorry
 example : (hyperellipticPolynomials (ZMod 3) 0).card = 18 := by sorry
 end PolynomialCounts
-
-/-! ## FF.4. Linearized polynomials over commutative finite-field algebras. -/
-def _root_.Polynomial.IsLinearized {K : Type*} [CommSemiring K] (q : ℕ) (L : K[X]) : Prop :=
-  ∀ n ∈ L.support, ∃ i, n = q ^ i
-
-noncomputable def _root_.Polynomial.linearizedOf {K : Type*} [CommSemiring K] (q : ℕ) (a : ℕ →₀ K) :
-    K[X] :=
-  a.sum fun i c => C c * X ^ (q ^ i)
-
-section Linearized
-variable {F K E : Type*} [Field F] [Fintype F] [CommRing K] [CommRing E]
-variable [Algebra F K] [Algebra K E] [Algebra F E] [IsScalarTower F K E]
-
-def _root_.Polynomial.IsLinearized.toLinearMap {L : K[X]}
-    (hL : L.IsLinearized (Fintype.card F)) : E →ₗ[F] E where
-  toFun x := aeval x L
-  map_add' := by sorry
-  map_smul' := by sorry
-
--- The statement has general coefficient rings; Frobenius invertibility is unnecessary.
-theorem linearized_comp {L M : K[X]} (hL : L.IsLinearized (Fintype.card F))
-    (hM : M.IsLinearized (Fintype.card F)) :
-    (L.comp M).IsLinearized (Fintype.card F) := by sorry
-end Linearized
-
-/-! The native Ore/composition algebra and its reductions are full reader constructions;
-there is no admitted Frobenius action or admitted ring/equivalence data here. -/
 
 /-! ## FF.4. Reed–Solomon codes on the existing linear-code carrier. -/
 section Codes
