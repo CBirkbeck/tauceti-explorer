@@ -7,7 +7,9 @@ The baseline is Tau Ceti f790474 with Mathlib 082e2d3. Completed group rings,
 relative K-groups, determinant categories and the arithmetic complexes are
 README targets: their carriers are absent at these pins. Current upstream
 lower-p series and completed group algebras are imported in the roadmap, not
-redeclared here. The definitions below have real bodies over existing carriers;
+redeclared here; so are the uniform, local, noetherian and Auslander theorems of
+CompletedCohomologyPartII (TauCetiRoadmap #1035) and the finite integral group
+logarithm of ClassicalArithmeticCompletion, Layer 7. The definitions below have real bodies over existing carriers;
 the milestone statements use sorry and are not claims of formalisation.
 -/
 import TauCeti.Topology.Algebra.Group.Profinite.ProP.Basic
@@ -21,6 +23,10 @@ import Mathlib.Algebra.Polynomial.Basic
 import Mathlib.Algebra.Polynomial.Coeff
 import Mathlib.Data.Rat.Defs
 import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.MonoidAlgebra.Basic
+import Mathlib.Algebra.CharP.Algebra
+import Mathlib.RingTheory.SimpleRing.Basic
+import Mathlib.FieldTheory.Finite.Basic
 import Mathlib.Data.Fintype.Prod
 import Mathlib.Tactic.NormNum
 
@@ -52,6 +58,21 @@ example [Fact p.Prime] [CompactSpace G] [T2Space G] [TotallyDisconnectedSpace G]
   sorry
 
 end Groups
+
+/-! NE.0/iwasawa-local-iff-pro-p and NE.1/nilpotent-transition-kernel: the base step of
+the induction showing that the augmentation ideal of `𝔽_p[Δ]` is nilpotent for a finite
+p-group Δ. For a central `z` of order p this makes `(z - 1)𝔽_p[Δ]` a nilpotent two-sided
+ideal. Over `ℤ_p` the same element is not nilpotent. -/
+section Augmentation
+variable (p : ℕ) [Fact p.Prime] {Δ : Type*} [Group Δ]
+
+theorem of_sub_one_pow_char (z : Δ) (hz : z ^ p = 1) :
+    (MonoidAlgebra.of (ZMod p) Δ z - 1) ^ p = 0 := by
+  have : CharP (MonoidAlgebra (ZMod p) Δ) p :=
+    charP_of_injective_algebraMap (algebraMap (ZMod p) (MonoidAlgebra (ZMod p) Δ)).injective p
+  rw [sub_pow_char_of_commute p (Commute.one_right _), ← map_pow, hz, map_one, one_pow, sub_self]
+
+end Augmentation
 
 /-! NE.1/canonical-ore-set: a light definition over arbitrary ring/module carriers.
 The group hypotheses required for regularity and the Ore theorem are in the
