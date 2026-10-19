@@ -7,9 +7,9 @@ This session wrote none of the original fixes being reviewed.
 
 **Checkpoint: the seven authorized pairs are reviewed and their fixable Lean
 shape defects are corrected.** The live issue names seven packet/Lean pairs,
-whereas `queue.json` requires nineteen. WORKERS.md permits edits only to
+whereas the current `queue.json` requires seventeen. WORKERS.md permits edits only to
 issue-named files. Expanded authorization was requested but has not arrived.
-The remaining twelve pairs were inspected read-only; their other independent
+The remaining ten pairs were inspected read-only; their other independent
 reviews were preserved. Their missing area-review verdicts make the actual
 queue job incomplete. A negative review is itself a completed review outcome;
 the negative K.1/K.6 verdicts do not cause this completion-predicate failure.
@@ -207,8 +207,8 @@ the correction and its explicit boundary; it does not certify its supplier.
 
 ## Validation and its limits
 
-All nineteen current queue packets pass `scripts/check_blueprint.py` with zero
-errors/warnings; the twelve additional passes are read-only schema checks,
+All seventeen current queue packets pass `scripts/check_blueprint.py` with zero
+errors/warnings; the ten additional passes are read-only schema checks,
 not independent review acceptances. There are no separate link-map or
 restructuring-proposal deliverables in this issue, so their standalone
 checkers are inapplicable; embedded proposal fields are checked as packet data.
@@ -223,7 +223,7 @@ Git revision of that source snapshot.
 | Suggested basename | Lines | Errors | Sorry warnings | Admitted-data diagnostic |
 | --- | ---: | ---: | ---: | ---: |
 | ArithmeticKTheory--N.1 | 124 | 0 | 10 | 0 |
-| GeneralAlgebraicKTheory--K.1 | 817 | 0 | 0 | 0 |
+| GeneralAlgebraicKTheory--K.1 | 45 | 0 | 0 | 0 |
 | K2SymbolsBrauer--T.3 | 605 | 0 | 30 | 0 |
 | ArithmeticKTheory--N.7 | 551 | 0 | 27 | 0 |
 | GeneralAlgebraicKTheory--K.6 | 65 | 0 | 3 | 0 |
@@ -233,8 +233,8 @@ Git revision of that source snapshot.
 Only sorry warnings occur. The data-body check was run on scratch copies
 with nested block and line comments removed, preserving line numbers,
 and the changed definitions were inspected manually. The heuristic alone is
-not a complete shape proof. K.1's commented future signatures do not elaborate
-and its zero-warning result certifies only its actual pinned-library examples.
+not a complete shape proof. K.1's former future signatures were comments; the continuation below removes
+them. Its zero-warning result certifies only its actual pinned-library examples.
 The four rewritten files contain no chains developing unsupported theory.
 
 Fresh pinned statements read include `Set.integer`, `HeightOneSpectrum`,
@@ -247,8 +247,63 @@ No private source was copied or newly quoted.
 
 The prior session's U.1 nine-error elaboration result and supplier observations
 are retained as attributed earlier evidence, not rerun or repaired outside
-scope. The actual queue completion predicate remains false because twelve
+scope. The actual queue completion predicate remains false because ten
 outputs lack this job's review. A scratch-only diagnostic limited to the live
 issue's seven pairs returns true. No queue scope was changed to obtain that
 result. Resume only after the issue is reconciled with the queue or expanded
 scope is explicitly authorized.
+
+
+## Continuation by Codex codex-6SZXyE, 19 October 2026
+
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258844279)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258845908).
+This continuation preserves the predecessor's seven mathematical verdicts and
+source-reading attribution. It does not stamp any additional packet.
+
+The current queue contains **seventeen** packet/Lean pairs. Exactly seven
+already carry this job's review; the other **ten**, listed in the handoff,
+retain their distinct independent reviews. The previous checkpoint's nineteen/
+twelve inventory was stale. The live issue was re-read after the claim and still
+lists seven pairs. Scope clarification has been requested from the operator;
+permission to edit the extra pairs has not been received.
+
+K.1's companion is reduced from 817 to **45 lines**. It retains exactly the
+three active examples over the pinned exact-category substrate, one import
+block and the standard definitive-reader note. Commented pseudocode using
+unavailable Q-construction, higher-K, Waldhausen and relative carriers was
+removed. The existing reader already states these targets with their API and
+checks; the packet's mathematical nodes, hypotheses, sources, dependencies,
+tests and verdict are unchanged. No claim that these future carriers elaborate
+is made.
+
+For this change, the actual pinned statements of `ExactK0`,
+`ExactK0.of_conflation`, `finiteProjectiveModulesExactStructure`,
+`finiteProjectiveModulesExactStructure_eq_split` and
+`finiteProjectiveModulesExactStructure_conflation_iff` were read in their
+source files. The current upstream GrothendieckEulerForms and AlgebraicTopology
+roadmaps were inspected read-only for their ownership boundaries. The examples
+consume their existing substrate; no replacement exact structure or K₀ is
+introduced.
+
+Fresh checks in this continuation:
+
+- `check_blueprint.py` on all **seventeen** queue packets: zero errors and
+  zero warnings. The extra ten passes are read-only schema checks, not review
+  verdicts.
+- `lean-check` on the changed K.1 companion: exit zero, no warnings or errors;
+  78 GB available memory before the check. The other six companions were not
+  changed or recompiled; their earlier results remain attributed above.
+- `intake.py check-files` on all ten changed deliverables/handoff files: zero
+  problems; `git diff --check` also passes.
+- The real `deliverables_complete` predicate is **false**, with precisely the
+  ten unstamped queue packets identified in the handoff. A negative review
+  still counts as a completed review outcome; K.1/K.6's negative verdicts are
+  not the reason for this failure.
+
+This submission is a **blocked checkpoint**, not a completed seventeen-packet
+review. The blocking instruction is [WORKERS.md, Doing the work](../WORKERS.md):
+“Edit only the files the issue names.” The live issue must be reconciled with
+the queue, or expanded scope explicitly authorized, before those ten reviews
+can be written. No issue body, queue, atlas, supplier packet or review verdict
+was changed to bypass that boundary.
