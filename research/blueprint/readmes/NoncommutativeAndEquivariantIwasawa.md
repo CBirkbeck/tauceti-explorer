@@ -221,7 +221,7 @@ For a pro-p group G, Λ(G) is a compact local ring whose maximal ideal is the ke
 
 - [LAZARD-1965](#source-lazard-1965), Chap. II, (2.2.2), p. 59: Lazard II.2.2.2.
 - [CFKSV-2005](#source-cfksv-2005), §2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162): The maximal ideal as CFKSV use it.
-- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §4.1, Theorem (2), p. 9 (arXiv v1): The equivalence.
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §4.1, Theorem (2), p. 9 (arXiv v1): The equivalence. The geometric-series proof in §3.1 needs zero constant coefficient, as recorded in E39; the theorem statement is retained.
 
 <a id="ne0-zariskian-noetherian"></a>
 
@@ -239,7 +239,7 @@ For a complete separated nonnegative adic filtration with F¹R⊆Jac(R) and left
 **Construction or proof.**
 
 1. Lift a finite homogeneous generating set of each graded ideal by successive approximation, using completeness.
-2. Use the Zariskian filtered resolution and filtered Ext comparison of Venjakob Theorems 3.19–3.21 for the global-dimension and Auslander clauses.
+2. Use the Zariskian filtered resolution and filtered Ext comparison of Venjakob Definition 3.19, Lemma 3.20 and Theorem 3.21 for the global-dimension and Auslander clauses.
 3. Do not infer primality in the absence of a suitable filtered primeness theorem; only the domain implication is used here.
 
 **Check.**
@@ -251,7 +251,7 @@ For a complete separated nonnegative adic filtration with F¹R⊆Jac(R) and left
 
 **Sources.**
 
-- [VENJAKOB-2002](#source-venjakob-2002), Theorems 3.19–3.21, pp. 16–17: Gives the filtered transfer hypotheses needed in the Iwasawa application. Refers to Björk for the general filtered theorem, recorded as a gap.
+- [VENJAKOB-2002](#source-venjakob-2002), Definition 3.19, Lemma 3.20 and Theorem 3.21, pp. 16–17: Gives the filtered transfer hypotheses needed in the Iwasawa application. Refers to Björk for the general filtered theorem, recorded as a gap.
 
 <a id="ne0-compact-nakayama"></a>
 
@@ -1524,7 +1524,7 @@ For a regular two-sided Ore localization Λ→Λ_S, K₀(Λ,Λ_S) is represented
 
 **Sources.**
 
-- [KAKDE-2011](#source-kakde-2011), §1, pp. 6–8, relative triples and Lemma 5: Gives the relative triple model and boundary formula even when G has p-torsion.
+- [KAKDE-2011](#source-kakde-2011), §2.2, pp. 6–8, relative triples and Lemma 5: Gives the relative triple model and boundary formula even when G has p-torsion.
 - [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §2.2, pp. 6–7; Proposition 3.8, pp. 10–11: Determines the opposite sign of the characteristic map associated with a determinant trivialization.
 
 **Atlas planet:** Relative perfect classes.
@@ -2594,7 +2594,7 @@ Let p be odd, F∞/F a Galois compact p-adic Lie extension containing the cyclot
 **Sources.**
 
 - [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §4, pp. 20–21; §6, pp. 28–36: Uses compactly supported and Selmer determinant complexes with specified local conditions.
-- [KAKDE-2011](#source-kakde-2011), §1, pp. 3–5, especially base change (1): The totally real dual complex is the specialized arithmetic input; its comparison with compact support must include duality and shifts.
+- [KAKDE-2011](#source-kakde-2011), §2.3, p. 11, especially base change (1): The totally real dual complex is the specialized arithmetic input; its comparison with compact support must include duality and shifts.
 
 **Atlas planet:** Equivariant compact support.
 
@@ -2629,7 +2629,7 @@ Let p be odd and G have no element of order p. If the equivariant compact-suppor
 
 **Sources.**
 
-- [KAKDE-2011](#source-kakde-2011), §1, pp. 3–5, equation (1); Lemma 9, pp. 10–11: States the dual complex’s perfectness and quotient base change and gives the μ=0 finiteness input.
+- [KAKDE-2011](#source-kakde-2011), §2.3, Lemma 9 and equation (1), pp. 10–11: States the dual complex’s perfectness and quotient base change and gives the μ=0 finiteness input.
 - [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §4, pp. 20–21; Lemma 6.2, pp. 29–30: Uses precisely the perfect arithmetic complexes required by determinant descent; the Fukaya–Kato proof is a recorded gap.
 
 <a id="ne4-real-two-primary-correction"></a>
@@ -2951,7 +2951,7 @@ Let a quotient G→G/N or an open subgroup U⊆G induce a compatible localizatio
 
 **Sources.**
 
-- [KAKDE-2011](#source-kakde-2011), §1, equation (1), pp. 3–5; §4, pp. 17–30; Proposition 95, pp. 67–69: Uses quotient base change, subgroup norms and induction of Artin L-values.
+- [KAKDE-2011](#source-kakde-2011), §2.3, equation (1), p. 11; §4, pp. 17–30; Proposition 95, pp. 67–69: Uses quotient base change, subgroup norms and induction of Artin L-values.
 - [CFKSV-2005](#source-cfksv-2005), Theorem 3.10, pp. 183–184: Supplies the determinant/induction convention for the evaluation comparison.
 
 <a id="ne5-abelian-normalization-comparison"></a>
@@ -3027,7 +3027,7 @@ Let F_∞/F be admissible with μ = 0 and Gal(F_∞/F) = G × Δ, G abelian and 
 
 **Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching` · lemma.
 
-Let 𝒞 be a family of pairs (U, V), U open in G and V closed normal in U with U/V admissible, and θ = (θ_{U,V}) : K′₁(Λ(G)) → ∏_𝒞 K′₁(Λ(U/V)), θ_S the same on the localisations, each θ_{U,V} the norm to U followed by the quotient map. Suppose θ is an isomorphism onto a subgroup Φ, θ_S lands in a subgroup Φ_S with Φ_S ∩ ∏ K′₁(Λ(U/V)) = Φ, MC holds for every F_∞^V/F_∞^U with (ζ_{U,V}) ∈ Φ_S, and every Artin character of G is a ℤ-combination of characters induced or inflated from the U/V. Then MC(F_∞/F) holds, and K′₁(Λ(G)) → K′₁(Λ(G)_S) is injective when each K′₁(Λ(U/V)) → K′₁(Λ(U/V)_S) is.
+Let 𝒞 be a family of pairs (U, V), U open in G and V closed normal in U with U/V admissible, and θ = (θ_{U,V}) : K′₁(Λ(G)) → ∏_𝒞 K′₁(Λ(U/V)), θ_S the same on the localisations, each θ_{U,V} the norm to U followed by the quotient map. Suppose each component localization map K′₁(Λ(U/V)) → K′₁(Λ(U/V)_S) is injective, θ is an isomorphism onto a subgroup Φ, θ_S lands in a subgroup Φ_S with Φ_S ∩ ∏ K′₁(Λ(U/V)) = Φ, MC holds for every F_∞^V/F_∞^U with (ζ_{U,V}) ∈ Φ_S, and every Artin character of G is a ℤ-combination of characters induced or inflated from the U/V. Then MC(F_∞/F) holds, and K′₁(Λ(G)) → K′₁(Λ(G)_S) is injective.
 
 **Hypotheses.**
 
@@ -3037,8 +3037,8 @@ Let 𝒞 be a family of pairs (U, V), U open in G and V closed normal in U with 
 **Construction or proof.**
 
 1. Choose f ∈ K′₁(Λ(G)_S) with ∂f = −[C(F_∞/F)] (boundary-surjective-p-torsion); θ_S(f) has components f_{U,V} with ∂f_{U,V} = −[C(F_∞^V/F_∞^U)] by base change (totally-real-iwasawa-complex).
-2. u_{U,V} = ζ_{U,V} f_{U,V}^{−1} has ∂ = 0, so lies in K′₁(Λ(U/V)); (u_{U,V}) ∈ Φ_S ∩ ∏ K′₁ = Φ, so u_{U,V} = θ(u)_{U,V} for a unique u, and ζ = uf.
-3. ∂ζ = −[C]; interpolation by writing ρ = Σ n_i Ind/Inf ρ_i and using the norm and inflation compatibilities of evaluation (Kakde §2.4 (i)–(iii)); uniqueness and injectivity by the same diagram.
+2. u_{U,V} = ζ_{U,V} f_{U,V}^{−1} has boundary zero, so it is in the image of integral K′₁. Component injectivity identifies its unique integral preimage with that image. Thus (u_{U,V}) ∈ Φ_S ∩ ∏ K′₁ = Φ, and θ has a unique preimage u; put ζ=uf.
+3. The boundary is −[C]. Interpolation follows by expressing ρ as an integer combination of induced/inflated component characters and using Kakde §2.4 (i)–(iii). If an integral class dies after localization, each component dies, hence is 1 by component injectivity, so the class is 1 by injectivity of θ. For uniqueness, the ratio of two candidates is integral by exactness; component main-conjecture uniqueness and the two injectivities then make it 1.
 
 **Check.**
 
@@ -3288,7 +3288,7 @@ Let R = Λ_𝒪(Z) or Λ̂_𝒪(Z)_{(p)}. For P ≤ Ḡ, t^G_P : R[Conj Ḡ]^τ 
 
 **Construction or proof.**
 
-1. Lemma 60, A1: tr^{P′}_P ∘ t^G_{P′} = π^{P′}_P ∘ t^G_P, since both send [h] to [P′ : P]·h for h ∈ P and to 0 otherwise; apply η_P when P is cyclic; if P < P′ are both cyclic, β^G_{P′}([g]) involves only generators of P′, whose traces to P vanish.
+1. Lemma 60, A1: reindex coset representatives of P in Ḡ through P′. Both tr^{P′}_P ∘ t^G_{P′} and π^{P′}_P ∘ t^G_P sum the same conjugates lying in P, with the same multiplicities, in the common quotient. For a basis element h of P′ the relative trace is [P′:P]·h if h∈P and zero otherwise, since P contains [P′,P′]. Apply η_P when P is cyclic; if P<P′ are cyclic, β^G_{P′} has only generator-labelled terms and their relative traces vanish.
 2. Lemma 60, A2: transport coset representatives, t^G_{g₁Pg₁⁻¹}([g]) = g₁t^G_P([g])g₁⁻¹. A3: t^G_P = t^{N_ḠP}_P ∘ t^G_{N_ḠP}, and t^{N_ḠP}_P([g]) = Σ_{x∈W_ḠP} x⁻¹gx ∈ T_{P,R} for g ∈ P.
 3. Lemma 62: for P = ⟨g⟩ and its conjugates P′, δ(β([g])) = ([Ḡ : P])⁻¹ Σ_{P′}[N_ḠP′ : P′][g] = [g].
 
@@ -3532,7 +3532,7 @@ Define v^G_P on ∏_C F⟦Z⟧[C^ab] by v^G_P((x_C)) = Σ_{P′} ([P′ : P′^p
 **Sources.**
 
 - [KAKDE-2011](#source-kakde-2011), §5.7, Lemmas 85–89, pp.58–65 (arXiv v3): The corrected statement and kernel/cokernel reconstruction replace the defective scalar embedding and cokernel computation; E21–E22 retain the original-version findings.
-- [SCHNEIDER-VENJAKOB-AFTER-KAKDE](#source-schneider-venjakob-after-kakde), §4, Lemmas 4.7–4.9, pp. 26–30: The abelianized logarithm, torsion-free quotient and trace-rigidity proof provide the replacement route. Their α_Z=x_Z^p/ϕ(x_Z) absorbs the extra central factor that Kakde writes separately; their untruncated top map must not be identified with cyclic β_Ḡ.
+- [SCHNEIDER-VENJAKOB-AFTER-KAKDE](#source-schneider-venjakob-after-kakde), §4, Lemmas 4.7–4.9, pp. 26–30: The abelianized logarithm, torsion-free quotient and trace-rigidity proof provide the replacement route. Their α_Z=x_Z^p/ϕ(x_Z) absorbs the extra central factor that Kakde writes separately; their untruncated top map must not be identified with cyclic β_Ḡ. Its noncyclic kernel proof drops the central factor and makes a false intermediate torsion claim (E37); the reconstruction above retains φ(x_1)^p and uses the torsion-free quotient instead.
 
 <a id="ne6-main-algebraic-theorems"></a>
 
@@ -4045,7 +4045,7 @@ Let p be odd and F_∞/F an admissible p-adic Lie extension satisfying μ = 0, w
 
 **Sources.**
 
-- [KAKDE-2011](#source-kakde-2011), §1, Theorem 11, p. 11 (arXiv v3); proof completed on p. 90: Theorem 11 gives the target. This revision preserves that statement and replaces the cyclic-overgroup analytic branch in its proof.
+- [KAKDE-2011](#source-kakde-2011), §2.5, Theorem 11, p. 13 (arXiv v3); proof completed on p. 90: Theorem 11 gives the target. This revision preserves that statement and replaces the cyclic-overgroup analytic branch in its proof.
 - [RITTER-WEISS-2010](#source-ritter-weiss-2010), Propositions 3 and 6, pp.2–3; §§4–5, pp.13–22: Replacement analytic/completed proof in the dimension-one p-elementary case.
 
 **Atlas planet:** Kakde's main conjecture for totally real fields.
@@ -5498,7 +5498,7 @@ Current Tau Ceti and ProfiniteArithmetic already own pLowerCentralSeries and IsP
 
 ### Obligation 9. Filtered Auslander transfer and ramified coefficient proof leaves
 
-Venjakob Theorems 3.19–3.22 and 3.26–3.30 provide the precise filtered and Iwasawa statements. The general Björk filtered Auslander transfer cited there was not read independently, nor was the Brumer coefficient generalization. For ramified O, prove the finite-free coefficient comparison and run the DVR filtered argument; do not deduce regularity merely from module finiteness or quote a commutative flatness instance.
+Venjakob Definition 3.19, Lemma 3.20 and Theorems 3.21–3.22 and 3.26–3.30 provide the precise filtered and Iwasawa statements. The general Björk filtered Auslander transfer cited there was not read independently, nor was the Brumer coefficient generalization. For ramified O, prove the finite-free coefficient comparison and run the DVR filtered argument; do not deduce regularity merely from module finiteness or quote a commutative flatness instance.
 
 **Needed by:** [NE.0/zariskian-noetherian](#ne0-zariskian-noetherian), [NE.0/iwasawa-auslander-regularity](#ne0-iwasawa-auslander-regularity), [NE.0/iwasawa-finite-global-dimension](#ne0-iwasawa-finite-global-dimension), [NE.0/rational-iwasawa-global-dimension](#ne0-rational-iwasawa-global-dimension).
 
@@ -5620,511 +5620,601 @@ The suggested Lean file retains five light definitions with real bodies and two 
 
 ## Source corrections used by the targets
 
-Every finding is scoped to the version actually read. The independent review confirms the findings below; the search lists are bounded checks for existing corrections, rather than claims that none can exist.
+Each entry identifies the text actually checked. Confirming a finding does not assert that its paper’s main theorem is false. All source assertions here are paraphrased.
 
 ### E1. KAKDE-2011, Definition 49, p. 34 (arXiv v3)
 
-**Kind:** misprint. **Source assertion:** The abbreviation for the completed trace ideal refers to an unrelated second subgroup.
+**Kind:** misprint. **Source assertion (paraphrased):** The abbreviation for the completed trace ideal refers to an unrelated second subgroup.
 
 **Correction:** Use the completed trace from P to its normalizer N_G P, consistently with the two uncompleted abbreviations.
 
 **Reason:** T_P is the N_GP-trace image in all three settings, as the first two entries and the uses of pT̂_P in Definition 51 (M4) and Lemma 118 show; P′ is not bound in that sentence.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Checked Definition 49, p. 34: the completed trace abbreviation binds P, not P′; the normalizer target follows the two preceding abbreviations.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The completed abbreviation in Definition 49, p.34, leaves P′ unbound. Taking the normalizer gives the intended one-index notation.
 
 ### E2. KAKDE-2011, §5.3.1, p. 36; also Remark 59 (p. 38), the proof of Lemma 63 (p. 41), and pp. 47–51 (arXiv v3)
 
-**Kind:** misprint. **Source assertion:** Several domains of the additive maps use an undefined conjugacy-class label.
+**Kind:** misprint. **Source assertion (paraphrased):** Several domains of the additive maps use an undefined conjugacy-class label.
 
 **Correction:** Use the free module on Conj(G), as in Definition 55 and Theorem 58.
 
 **Reason:** Only Conj(G) is defined (Remark 42, Lemma 43); the same map is written with Conj(G) in Definition 55 and Theorem 58.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Checked the indicated domains against Definition 55 and Theorem 58. Conj is the defined conjugacy-class carrier; Cong is not a second defined carrier.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The domains and targets in §5.3 and pp.47–51 are conjugacy-class modules. Conj is defined; Cong is a spelling slip.
 
 ### E3. KAKDE-2011, Proof of Proposition 74, p. 50 (arXiv v3)
 
-**Kind:** misprint. **Source assertion:** The Frobenius terms in the expanded logarithm do not carry the successive powers of v.
+**Kind:** misprint. **Source assertion (paraphrased):** The Frobenius terms in the expanded logarithm do not carry the successive powers of v.
 
 **Correction:** The degree-k term of the second sum is ϕ(v^k)/(pk), because ϕ is applied to the logarithm series.
 
 **Reason:** L = log − (ϕ/p)log and log(1 − v) = −Σ_k v^k/k, so the second sum is (1/p)Σ_k ϕ(v^k)/k; the next line of the proof, Σ_k (v^{pk} − ϕ(v^k))/(pk), uses this corrected form.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Expanded log(1−v) before applying the additive Frobenius. The degree-k term necessarily contains ϕ(v^k); the subsequent numerator uses that corrected term.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. Expanding log(1−v) and then applying additive Frobenius requires φ(v^k) in the k-th term. The p-power divisibility induction uses that same corrected exponent.
 
 ### E4. KAKDE-2011, Corollary 90, p. 65 (arXiv v3)
 
-**Kind:** gap. **Source assertion:** Corollary 90 states injection of integral K′₁ into localized K′₁ for general compact analytic G.
+**Kind:** gap. **Source assertion (paraphrased):** Corollary 90 states injection of integral K′₁ into localized K′₁ for general compact analytic G.
 
 **Correction:** Reconstruct the proof by Theorems 52–53 in the pro-p dimension-one case, the three elementary reductions, and Corollary 20 for the inverse limit. The unramified coefficient extension needs the reductions over O, not only their printed Z_p case.
 
 **Reason:** For G that is not pro-p of dimension one, the statement needs the §4 reductions and a limit argument, which the text does not spell out; the plan records the reconstruction in node NE.6/k1-injects-localisation.
 
-**Effect:** the proof. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** the proof. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Checked Corollary 90 and the domains of the earlier dimension-one theorems and reductions. This is a reconstruction gap for the asserted generality, especially O coefficients, rather than a counterexample to injectivity.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. Corollary 90, p.65, does not give the reduction or coefficient argument for its full compact-analytic scope. This confirms the proof-audit gap, not a counterexample to the theorem.
 
 ### E5. KAKDE-2011, Proof of Proposition 104, display (21) and the next line, p. 74 (arXiv v3)
 
-**Kind:** misprint. **Source assertion:** The transfer pullback is attached to the wrong smoothed partial-zeta term in display (21).
+**Kind:** misprint. **Source assertion (paraphrased):** The transfer pullback is attached to the wrong smoothed partial-zeta term in display (21).
 
 **Correction:** Evaluate the P-term on δ(y) and the P′-term on δ(y) composed with transfer, preserving the arguments 1−k and 1−pk respectively.
 
 **Reason:** (19) has Δ^{u^p}_P(δ(y), 1 − k) and (20) has Δ^u_{P′}(δ(y)∘ver^{P′}_P, 1 − pk); δ(y)∘ver^{P′}_P is a function on U_{P′}^ab, so it cannot be the argument of Δ_P. The orbit computation two lines later uses the corrected form.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Compared (19), (20) and (21), p. 74. The transferred function has the P′ domain, so putting it on the P term is ill-typed.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. In Proposition 104 (21), the transferred function has the P′ domain. The P and P′ terms must be composed as in the corrected formula.
 
 ### E6. KAKDE-2011, Proof of Proposition 106, the W_GP-orbit sum, p. 75 (arXiv v3)
 
-**Kind:** misprint. **Source assertion:** An orbit-sum L-value is evaluated with the prime p in place of the varying weight.
+**Kind:** misprint. **Source assertion (paraphrased):** An orbit-sum L-value is evaluated with the prime p in place of the varying weight.
 
 **Correction:** Use the argument 1−k, consistently with display (23) and the next application of Lemma 103.
 
 **Reason:** The terms come from (23), where the value is at 1 − k; the next line of the proof, after Lemma 103, has Δ^v_P(δ(y), 1 − k).
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Compared (23) and its orbit sum, p. 75. The varying Eisenstein weight is k and the argument is 1−k.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The Eisenstein weight varying in Proposition 106 is k; its smoothed special value has argument 1−k.
 
 ### E7. KAKDE-2011, Proofs of Propositions 116 (p. 84) and 117 (p. 85) (arXiv v3)
 
-**Kind:** error. **Source assertion:** The proof uses a congruence modulo the full integer r_P and then only a size comparison with a stabilizer.
+**Kind:** error. **Source assertion (paraphrased):** The proof uses a congruence modulo the full integer r_P and then only a size comparison with a stabilizer.
 
 **Correction:** Use the congruence modulo p^v_p(r_P); the stabilizer order divides this p-part. The exponent difference (r_P/p)(p−1) is divisible by the corresponding Euler totient. The full modulus is false, for p=3 and r_P=15, since 2^10=4 modulo 15.
 
 **Reason:** The congruence modulo r_P fails when r_P has a prime factor other than p: for [F : ℚ] = 5, p = 3 and d_P = 3, r_P = 15 and 2^{−15} ≡ 2^{−5} (mod 15) would need 2^{10} ≡ 1 (mod 15), but 2^{10} ≡ 4. An inequality r_P ≥ |(W_GP)_y| does not give a congruence modulo |(W_GP)_y| in any case. The p-part version suffices for the conclusion.
 
-**Effect:** the proof. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** the proof. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Computed 2^10=1024≡4 mod 15. The full-modulus assertion is false, while the p-primary modulus and stabilizer divisibility give the needed weaker statement.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. For p=3 and r_P=15, 2^10 is 4 modulo 15. Only the p-primary divisibility can be used; stabilizer divisibility supplies it.
 
 ### E8. KAKDE-2011, Proof of Proposition 117, the constant-term identity, p. 85 (arXiv v3)
 
-**Kind:** misprint. **Source assertion:** The constant-term comparison omits the weight from a norm exponent and omits the pullback in the second partial-zeta term.
+**Kind:** misprint. **Source assertion (paraphrased):** The constant-term comparison omits the weight from a norm exponent and omits the pullback in the second partial-zeta term.
 
 **Correction:** The norm exponent contains pd_(P′)k, and the P′-term is evaluated on δ(y) composed with ϕ, matching the second Eisenstein series.
 
 **Reason:** E has weight pd_{P′}k, and the second Eisenstein series in E is G_{pk,δ(y)∘ϕ}, as in the definition of E and in (28).
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Checked the common weight and the definition of the second Eisenstein input on p. 85. The k and the pullback are required by those definitions.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. Proposition 117 must retain k in the second relative weight and the pullback in its second Eisenstein input. Otherwise the common-weight and domain conditions fail.
 
 ### E9. KAKDE-2011, §6.13.3, second congruence of the logarithm computation, p. 89 (arXiv v3)
 
-**Kind:** misprint. **Source assertion:** The second congruence in the logarithm calculation loses Frobenius inside the character operator.
+**Kind:** misprint. **Source assertion (paraphrased):** The second congruence in the logarithm calculation loses Frobenius inside the character operator.
 
 **Correction:** Each term has ω_P^k applied to ϕ(ζ_(P′)); the following summation starts at k=0.
 
 **Reason:** The step replaces pζ_P − Σ_kω^k_P(ζ_P) using (34), whose right side involves ω^k_P(ϕ(ζ_{P′})); the third line combines the two fractions with numerator pϕ(ζ_{P′}) − Σ_kω^k_P(ϕ(ζ_{P′})).
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Compared the use of (34) with all three lines on p. 89. Frobenius must remain inside the character operator; the final combined numerator retains it.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The character projection must act on the Frobenius image in the use of (34). Removing φ before the projection changes the expression.
 
 ### E10. KAKDE-2011, §6.13, the construction of F̃_∞ (pp. 86–87, arXiv v3)
 
-**Kind:** gap. **Source assertion:** The auxiliary enlarged extension is used under admissibility and μ=0 without justifying those hypotheses.
+**Kind:** gap. **Source assertion (paraphrased):** The auxiliary enlarged extension is used under admissibility and μ=0 without justifying those hypotheses.
 
 **Correction:** Check total reality using the odd degree of the cyclotomic subfield, enlarge Σ by the auxiliary prime, and import the finite p-extension μ=0 transfer theorem before applying Proposition 93.
 
 **Reason:** §6.13.1 defines F̃ = KF and F̃_∞ = F̃F_∞ and states the Galois group, but gives no argument for admissibility (total reality of F̃) or for the μ = 0 hypothesis (Definition 8) for F̃_∞/F, both of which Proposition 93 needs.
 
-**Effect:** the proof. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** the proof. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
 - Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Read the enlarged-field construction on pp. 86–87. Its odd-degree total-reality and finite-p-extension μ transfer inputs are used without the required arguments; those remain explicit proof obligations.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The enlarged extension construction uses total reality of its odd-degree cyclic field and transfer of μ=0 through a finite p-extension. Those arguments are not supplied at pp.86–87.
 
 ### E11. BURNS-VENJAKOB-2006, §2.2, p. 6, and Definition 3.14, p. 14 (arXiv v2); published §2.2 pp.170–171, Remark3.5 p.175 and Definition3.14 p.181
 
-**Kind:** error. **Source assertion:** The category generated by a semisimple complex is taken closed under extensions, and then asserted to remain semisimple.
+**Kind:** error. **Source assertion (paraphrased):** The category generated by a semisimple complex is taken closed under extensions, and then asserted to remain semisimple.
 
 **Correction:** Generate it using quasi-isomorphisms, shifts and direct sums. Semisimple complexes are not extension closed: the upper triangular matrix with diagonal T and upper entry 1 has cokernel Λ/T², whose Bockstein differential vanishes, although its two diagonal pieces are semisimple.
 
 **Reason:** Σ^{ss} is not closed under extensions (the source itself notes it fails (iv), Remark 3.5). For R = Λ(Γ) and A· = [R --T--> R] (semisimple, the example in the proof of Proposition 3.8), B· = [R² --M--> R²] with M = ((T, 1), (0, T)) is an extension 0 → A· → B· → A· → 0, so B· ∈ Σ_{A·}; but H^0(B·) ≅ R/T², κ_0 : (R/T²)^Γ → (R/T²)_Γ is zero, and the Bockstein complex of B· is ℤ_p in degrees 0 and 1 with zero differential, so B· ∉ Σ^{ss}.
 
-**Effect:** a stated result. **Correction status:** Published §2.2 p.170 repairs the general category condition to (iv′), but the definition of Σ_C on p.171 still uses (iv), and Definition3.14 p.181 still asserts Σ_A⊂Σ_ss−ρ. The latter defect remains..
+**Effect:** a stated result. **Correction status:** Published §2.2 p.170 repairs the general category condition to (iv′), but the definition of Σ_C on p.171 still uses (iv), and Definition3.14 p.181 still asserts Σ_A⊂Σ_ss−ρ. The latter defect remains.
 
 - Input-worker search: arXiv math/0511672v2 (20 January 2006); the independent review subsequently compared the published EMIS text.
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 - The author final bock-final.pdf was independently collated at this locator; its content agrees with arXiv v2. The published EMIS text was subsequently compared as recorded below.
 - 2026-10-19: published EMIS mirror independently opened and compared at published §2.2 pp.170–171, Remark3.5 p.175 and Definition3.14 p.181. Earlier access failures describe the historical search, not the present access status.
 
-**Independent review:** confirmed. Checked arXiv v2 and the author final pp. 6, 9–10, 14. The extension matrix with off-diagonal 1 has cokernel Λ/T²; its rational Bockstein is zero, so the extension-closed claim fails. Published §2.2 weakens the general K₁ category condition to direct sums, but retains extension-closed Σ_C and the false inclusion in Definition3.14; the same counterexample applies.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The extension represented by [[T,1],[0,T]] has cokernel Λ/T² and zero rational Bockstein, although its two T-block pieces are semisimple. The published direct-sum repair does not repair the extension-closed Σ_C used in Definition 3.14.
 
 ### E12. BURNS-VENJAKOB-2006, arXiv v2 and the authors' final version, §5.3, Corollary 5.7 and proof, p. 27; published Corollary5.7 and proof p.196
 
-**Kind:** error. **Source assertion:** Corollary 5.7 applies permutation-character induction to every Q_p-valued character.
+**Kind:** error. **Source assertion (paraphrased):** Corollary 5.7 applies permutation-character induction to every Q_p-valued character.
 
 **Correction:** Restrict this proof to Q-valued characters. For C₃ and p≡1 modulo 3, a nonrational character takes values in Q_p but no positive multiple is an integer combination of rational-valued permutation characters.
 
 **Reason:** Every permutation character Ind_H 1_H is ℚ-valued, so an integer combination of them is ℚ-valued; a character of ℤ/3 with values in ℚ(ζ₃) ⊂ ℚ_p (p ≡ 1 mod 3) is ℚ_p-rational but n·ρ is never ℚ-valued. Artin's theorem as cited (Tate, Chapitre II, Théorème 1.2) concerns ℚ-rational characters.
 
-**Effect:** a stated result. **Correction status:** Corrected in the published Corollary5.7 and proof, p.196, which use Q-rational characters. The finding is retained against arXiv v2 and the author final only..
+**Effect:** a stated result. **Correction status:** Corrected in the published Corollary5.7 and proof, p.196, which use Q-rational characters. The finding is retained against arXiv v2 and the author final only.
 
 - 2026-09-29: arXiv math/0511672 (v1, v2 listed); the authors' final version on O. Venjakob's page (sha 3b59955e…) has the same wording; the Documenta Math. article page now redirects to EMS Press and could not be fetched.
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 - The author final bock-final.pdf was independently collated at this locator; its content agrees with arXiv v2. The published EMIS text was subsequently compared as recorded below.
 - 2026-10-19: published EMIS mirror independently opened and compared at published Corollary5.7 and proof p.196. Earlier access failures describe the historical search, not the present access status.
 
-**Independent review:** confirmed. Checked both accessible versions at Corollary 5.7. For C₃ and p=7, a nontrivial character is Q₇-valued but not Q-valued; a positive multiple cannot be a sum of permutation characters with integer coefficients. The published text changes Q_p-rational to Q-rational and removes this defect.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. A nontrivial C_3-character at p=7 is Q_7-valued and not Q-valued. Integer combinations of permutation characters remain rational. The published Corollary 5.7 correctly assumes Q-rationality.
 
 ### E13. BURNS-VENJAKOB-2006, arXiv v2 and the authors' final version, §6.1, definition of Γ^*, p. 28; published §6.1 pp.196–197
 
-**Kind:** misprint. **Source assertion:** The Gamma-star definition puts the negated integer on the left but evaluates the Gamma function or residue at the unnegated integer on the right.
+**Kind:** misprint. **Source assertion (paraphrased):** The Gamma-star definition puts the negated integer on the left but evaluates the Gamma function or residue at the unnegated integer on the right.
 
 **Correction:** Index Γ*(j) at j: it is (j−1)! for j>0 and (−1)^j/((−j)!) for j≤0. This agrees with the subsequent Hodge-factor product.
 
 **Reason:** The right-hand sides are functions of j (and the residue formula is the residue of Γ at s = j ≤ 0), and the next line uses Γ^*(j) in Γ_L(V) = ∏Γ^*(j)^{−h(−j)}; with the printed left-hand side, Γ^*(−j) for j > 0 would be (j − 1)!, contradicting the residue at negative arguments.
 
-**Effect:** nothing. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches..
+**Effect:** nothing. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches.
 
 - 2026-09-29: as for E12.
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 - The author final bock-final.pdf was independently collated at this locator; its content agrees with arXiv v2. The published EMIS text was subsequently compared as recorded below.
 - 2026-10-19: published EMIS mirror independently opened and compared at published §6.1 pp.196–197. Earlier access failures describe the historical search, not the present access status.
 
-**Independent review:** confirmed. Checked the author final p. 28 as well as v2. The residual Gamma values at j=0,−1,−2 are 1,−1,1/2, consistent with indexing Γ*(j), not the printed negated index. The published EMIS copy retains the same defect at published §6.1 pp.196–197.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The residues of Γ(s) at 0,−1,−2 are 1,−1,1/2. These match Γ*(j) at j, not Γ*(−j); the published formula retains the indexing slip.
 
 ### E14. BURNS-VENJAKOB-2006, arXiv v2 and the authors' final version, §6.3, Proposition 6.6, p. 32; published Lemma6.7 pp.202–203
 
-**Kind:** misprint. **Source assertion:** Both parts of Proposition 6.6 have the same enumeration label.
+**Kind:** misprint. **Source assertion (paraphrased):** Both parts of Proposition 6.6 have the same enumeration label.
 
 **Correction:** Number the second assertion (ii).
 
 **Reason:** Two consecutive items are numbered (i).
 
-**Effect:** nothing. **Correction status:** Corrected and reorganized in published Lemma6.7, pp.202–203, whose two claims are numbered(i) and(ii). The finding is retained against the preprint/author-final numbering..
+**Effect:** nothing. **Correction status:** Corrected and reorganized in published Lemma6.7, pp.202–203, whose two claims are numbered(i) and(ii). The finding is retained against the preprint/author-final numbering.
 
 - 2026-09-29: as for E12.
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 - The author final bock-final.pdf was independently collated at this locator; its content agrees with arXiv v2. The published EMIS text was subsequently compared as recorded below.
 - 2026-10-19: published EMIS mirror independently opened and compared at published Lemma6.7 pp.202–203. Earlier access failures describe the historical search, not the present access status.
 
-**Independent review:** confirmed. Checked Proposition 6.6 in both accessible versions: two consecutive parts have the same label. This changes no mathematical assertion. Published Lemma6.7 has distinct(i)/(ii) labels.
+**Reported by:** Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The two consecutive parts of preprint Proposition 6.6 have the same label. Published Lemma 6.7 uses distinct labels, so this is version-specific typography.
 
 ### E15. KAKDE-2011, §5.1.2, p. 31 (arXiv v3), carry cocycle assertions
 
-**Kind:** error. **Source assertion:** The cocycle assertions include inverse-pair normalization and literal independence from the selected generator.
+**Kind:** error. **Source assertion (paraphrased):** The cocycle assertions include inverse-pair normalization and literal independence from the selected generator.
 
 **Correction:** For the displayed fixed section, τ(γ̄,γ̄⁻¹)=γ^(p^e) when p^e>1. Retain normalization at the identity, compute basis inverses with this carry factor, and express a changed section by the induced cohomologous presentation.
 
 **Reason:** Take G=Γ and Z=Γ^(p^e). The representatives of γ̄ and γ̄⁻¹ have exponents 1 and p^e−1; their sum crosses exactly one central period.
 
-**Effect:** a stated result. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated..
+**Effect:** a stated result. **Correction status:** No correction located in the bounded search; finding scoped to arXiv v3. The Inventiones version was not served by the publisher DOI endpoint and is not collated.
 
 - arXiv 1008.0142v3, §5.1.2 and its carry formula checked 2026-10-19; no accessible published correction established.
 - 2026-10-19 independent review: bounded title/erratum/corrigendum searches, arXiv version pages and relevant author pages; no matching accessible correction located. This is not a claim of an exhaustive search.
 
-**Independent review:** confirmed. Checked the carry formula p. 31 directly: exponents 1 and p^e−1 give one central carry. The basis inverse requires its inverse; change of section is a cohomology relation, not literal invariance.
+**Reported by:** Codex codex-pjS4kZ.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The selected exponents 1 and p^e−1 have sum p^e. Their inverse-pair carry is γ^(p^e), so normalization at the identity does not make inverse-pair carries equal to 1.
 
 ### E16. CFKSV-2005, Published Numdam version, §4, equation (94) and its use, pp. 196–197
 
-**Kind:** misprint. **Source assertion:** The displayed character-twist substitution uses the inverse of η(γ), under the ring-map convention Φ_ρ(g)=ρ(g)ḡ.
+**Kind:** misprint. **Source assertion (paraphrased):** The displayed character-twist substitution uses the inverse of η(γ), under the ring-map convention Φ_ρ(g)=ρ(g)ḡ.
 
 **Correction:** For a=η(γ), use Φ′_(ρη)(ξ)(T)=Φ′_ρ(ξ)(a(1+T)−1). A pole at α is detected by a=1+α.
 
 **Reason:** For ξ=[γ] and trivial ρ, the defining ring map gives Φ′_η(ξ)=a(1+T). The inverse substitution gives a⁻¹(1+T), so it fails whenever a²≠1. This exact matrix identity must be checked before passing to any quotient by units.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: published Numdam article/DOI record, arXiv math/0404297 page and bounded author/title + erratum/corrigendum searches; no accessible matching correction found.
 
-**Independent review:** confirmed. For ξ=[γ] and trivial ρ, the defining ring map gives Φ′_η(ξ)=a(1+T). The inverse substitution gives a⁻¹(1+T), so it fails whenever a²≠1. This exact matrix identity must be checked before passing to any quotient by units.
+**Affected targets:** [NE.3/characteristic-element-integrality-conjecture](#ne3-characteristic-element-integrality-conjecture).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. For ξ=[γ] and a=η(γ), the defining evaluation gives a(1+T). The inverse substitution gives a^−1(1+T), which differs when a²≠1.
 
 ### E17. KAKDE-2011, arXiv v3, Definition 57 (A1), p. 37
 
-**Kind:** misprint. **Source assertion:** The cyclic-upper-subgroup branch of A1 asserts trace zero without excluding P=P′.
+**Kind:** misprint. **Source assertion (paraphrased):** The cyclic-upper-subgroup branch of A1 asserts trace zero without excluding P=P′.
 
 **Correction:** Impose that zero condition only for the strict inclusion P<P′ when P′ is cyclic; equality imposes no vanishing.
 
 **Reason:** For Ḡ=P=P′=1, β is the identity on R and the trace is the identity. The unrestricted zero condition would force every image coefficient to vanish, contradicting Lemma 60.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. For Ḡ=P=P′=1, β is the identity on R and the trace is the identity. The unrestricted zero condition would force every image coefficient to vanish, contradicting Lemma 60.
+**Affected targets:** [NE.6/additive-map-beta](#ne6-additive-map-beta), [NE.6/additive-theorem](#ne6-additive-theorem).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. For P=P′=1, β and the relative trace are identities. Requiring that trace to vanish would kill every coefficient; strict inclusion is essential in the cyclic case.
 
 ### E18. KAKDE-2011, arXiv v3, Definition 55, the character-averaging reformulation, p. 37
 
-**Kind:** misprint. **Source assertion:** The reformulation by an order-p character is stated for cyclic P without separating the trivial group.
+**Kind:** misprint. **Source assertion (paraphrased):** The reformulation by an order-p character is stated for cyclic P without separating the trivial group.
 
 **Correction:** Keep η_P defined by projection to generators; η_1=id. The order-p character averaging formula applies only to nontrivial cyclic P.
 
 **Reason:** The identity generates the trivial group. An averaging expression using a trivial character would instead give η_1=0 and break δβ=id for Ḡ=1.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. The identity generates the trivial group. An averaging expression using a trivial character would instead give η_1=0 and break δβ=id for Ḡ=1.
+**Affected targets:** [NE.6/additive-map-beta](#ne6-additive-map-beta).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The identity generates the trivial cyclic group, so η_1 is the identity. Applying the nontrivial-character averaging formula at 1 would make it zero and contradict δβ=id.
 
 ### E19. KAKDE-2011, arXiv v3, §5.1.2, Lemma 37 and coefficient convention, p. 31
 
-**Kind:** error. **Source assertion:** The central denominator set is the complement of pR while the coefficient ring is also allowed to be a finite direct sum of unramified integer rings.
+**Kind:** error. **Source assertion (paraphrased):** The central denominator set is the complement of pR while the coefficient ring is also allowed to be a finite direct sum of unramified integer rings.
 
 **Correction:** For R=∏_i R_i use T=∏_i(R_i∖pR_i) and take the componentwise localizations. For a coefficient domain the original complement is correct.
 
 **Reason:** In a two-factor coefficient product (1,0) and (0,1) lie outside pR, but their product is zero. Thus the literal complement is neither multiplicative nor regular; reduction to each coefficient domain requires changing the denominator set.
 
-**Effect:** a stated result. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** a stated result. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. In a two-factor coefficient product (1,0) and (0,1) lie outside pR, but their product is zero. Thus the literal complement is neither multiplicative nor regular; reduction to each coefficient domain requires changing the denominator set.
+**Affected targets:** [NE.6/twisted-group-ring-presentation](#ne6-twisted-group-ring-presentation).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. In a two-factor ring, (1,0) and (0,1) both lie outside pR and multiply to zero. The regular central denominator set must be formed componentwise.
 
 ### E20. KAKDE-2011, arXiv v3, proof of Lemma 72, p. 49
 
-**Kind:** misprint. **Source assertion:** The mod-p quotient of the p-adically completed localization at (p) is identified with a formal power-series ring.
+**Kind:** misprint. **Source assertion (paraphrased):** The mod-p quotient of the p-adically completed localization at (p) is identified with a formal power-series ring.
 
 **Correction:** The quotient is F_q((T)), the Laurent series field. Frobenius is still coefficient Frobenius together with T↦T^p.
 
 **Reason:** T is already inverted when localizing O[[T]] at (p); reduction gives the fraction field of F_q[[T]]. Completion in p does not remove that inverse.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. T is already inverted when localizing O[[T]] at (p); reduction gives the fraction field of F_q[[T]]. Completion in p does not remove that inverse.
+**Affected targets:** [NE.6/integral-logarithm](#ne6-integral-logarithm).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. Inverting the central denominators of O[[T]] inverts T modulo p and gives F_q((T)). Completing in p preserves this inverse.
 
 ### E21. KAKDE-2011, arXiv v3, Lemma 86 and the embedding in Lemma 88, pp. 61–62
 
-**Kind:** misprint. **Source assertion:** The scalar root-of-unity factor is embedded identically into every norm component.
+**Kind:** misprint. **Source assertion (paraphrased):** The scalar root-of-unity factor is embedded identically into every norm component.
 
 **Correction:** In the P component send (ζ,g) to ζ^[G:U_P]·ver^G_(U_P)(g), as required by the K₁ norm.
 
 **Reason:** The determinant of multiplication by a central scalar on a free module of rank [G:U_P] is that scalar to this rank. For p=3 and O unramified of degree 2, a Teichmüller unit of order 8 has rank-3 norm ζ³≠ζ.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. The determinant of multiplication by a central scalar on a free module of rank [G:U_P] is that scalar to this rank. For p=3 and O unramified of degree 2, a Teichmüller unit of order 8 has rank-3 norm ζ³≠ζ.
+**Affected targets:** [NE.6/phi-integral-log-sequence](#ne6-phi-integral-log-sequence).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The norm of a scalar on a rank-[G:U_P] module is its corresponding power. A Teichmüller unit of order 8 at p=3 distinguishes ζ³ from ζ.
 
 ### E22. KAKDE-2011, arXiv v3, proof of Lemma 88, formula for ω on p. 64, compared with Lemma 87, p. 61
 
-**Kind:** error. **Source assertion:** The map ω on additive tuples is recovered from the component a_Ḡ alone.
+**Kind:** error. **Source assertion (paraphrased):** The map ω on additive tuples is recovered from the component a_Ḡ alone.
 
 **Correction:** Define ω_ψ=ω_A∘δ, as forced by the additive isomorphism and Lemma 87. Reprove the exactness calculation with the untruncated abelian trace in the cyclic case.
 
 **Reason:** For G=Γ, Z=Γ^p, Ḡ=C_p and a=z=γ^p in the central coefficient ring, β_Ḡ(a)=0 because η_Ḡ deletes the identity-labelled basis term, whereas ω_A(a)=z≠1. The displayed formula is incompatible with ω_ψβ=ω_A.
 
-**Effect:** the proof. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** the proof. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. For G=Γ, Z=Γ^p, Ḡ=C_p and a=z=γ^p in the central coefficient ring, β_Ḡ(a)=0 because η_Ḡ deletes the identity-labelled basis term, whereas ω_A(a)=z≠1. The displayed formula is incompatible with ω_ψβ=ω_A.
+**Affected targets:** [NE.6/phi-integral-log-sequence](#ne6-phi-integral-log-sequence).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. For G=Γ, Z=Γ^p and a=z, the generator projection at G/Z deletes the identity-labelled coefficient, but ω_A(a)=z is nontrivial. The correct cokernel map uses δ and the untruncated abelianization.
 
 ### E23. KAKDE-2011, arXiv v3, proof of Lemma 114, p. 82
 
-**Kind:** misprint. **Source assertion:** The coset-orbit length used in the transfer product is the order of g rather than its order modulo P.
+**Kind:** misprint. **Source assertion (paraphrased):** The coset-orbit length used in the transfer product is the order of g rather than its order modulo P.
 
 **Correction:** Use m=ord(gP) in N/P. Since P is normal in N, these are the lengths of the g-orbits on N/P.
 
 **Reason:** If g∈P is nontrivial, its action on N/P is trivial, so the orbit length is 1 even though ord(g)>1. The printed representative list therefore repeats cosets.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. If g∈P is nontrivial, its action on N/P is trivial, so the orbit length is 1 even though ord(g)>1. The printed representative list therefore repeats cosets.
+**Affected targets:** [NE.6/transfer-image-not-generator](#ne6-transfer-image-not-generator).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. If a nontrivial g belongs to P, it fixes N/P, so its orbit has length 1 regardless of the order of g. Transfer representatives use ord(gP).
 
 ### E24. KAKDE-2011, arXiv v3, §6.13.3, first logarithm congruence, p. 88
 
-**Kind:** misprint. **Source assertion:** The first-order logarithm of the ratio r is replaced by 1−r.
+**Kind:** misprint. **Source assertion (paraphrased):** The first-order logarithm of the ratio r is replaced by 1−r.
 
 **Correction:** Use log(r)≡r−1 modulo (r−1)². Negate the subsequent first-order expressions consistently; the final ideal membership is unchanged.
 
 **Reason:** The formal series is log(1+x)=x+O(x²). At odd p its first-order term cannot be −x. All later divisibility claims survive multiplying the expression by −1.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. The formal series is log(1+x)=x+O(x²). At odd p its first-order term cannot be −x. All later divisibility claims survive multiplying the expression by −1.
+**Affected targets:** [NE.6/m4-from-basic-congruences](#ne6-m4-from-basic-congruences).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The linear term of log(1+x) is x. Thus the displayed congruence must use r−1, not 1−r; its divisibility consequence is unaffected.
 
 ### E25. BURNS-VENJAKOB-2006, arXiv v2 and author final, §6.2, condition (DP), p. 29; published condition(DP) pp.197–198
 
-**Kind:** misprint. **Source assertion:** The indicated ordinary subrepresentation is required to identify its degree-zero Hodge filtration with the de Rham quotient of W.
+**Kind:** misprint. **Source assertion (paraphrased):** The indicated ordinary subrepresentation is required to identify its degree-zero Hodge filtration with the de Rham quotient of W.
 
 **Correction:** Require the natural map D_dR(Ŵ)→t_p(W) to be an isomorphism; then Fil⁰D_dR(Ŵ)=0 and t_p(W̃)=0. The superscript zero on the first de Rham term is misplaced.
 
 **Reason:** The following sentence requires that very Fil⁰ term to vanish. For W=Q_p(1), the intended Ŵ=W has zero Fil⁰ but a one-dimensional t_p(W), so the literal condition contradicts the standard example.
 
-**Effect:** nothing. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches..
+**Effect:** nothing. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches.
 
 - 2026-10-19: arXiv math/0511672 version history (v2 latest), O. Venjakob’s author final bock-final.pdf and bounded title + erratum/correction search; no accessible matching correction found.
 - The author final was collated at the cited locator; its SHA is in sourceVersions. The later published-text comparison is recorded below.
 - 2026-10-19: published EMIS mirror independently opened and compared at published condition(DP) pp.197–198. Earlier access failures describe the historical search, not the present access status.
 
-**Independent review:** confirmed. The following sentence requires that very Fil⁰ term to vanish. For W=Q_p(1), the intended Ŵ=W has zero Fil⁰ but a one-dimensional t_p(W), so the literal condition contradicts the standard example. The published EMIS copy retains the same defect at published condition(DP) pp.197–198.
+**Affected targets:** [NE.7/dabrowski-panchishkin-selmer-complexes](#ne7-dabrowski-panchishkin-selmer-complexes).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. For W=Q_p(1), Fil^0 D_dR(W)=0 while t_p(W) is one-dimensional. The intended Panchishkin comparison uses D_dR(Ŵ)→t_p(W), with zero Fil^0, as the following text requires.
 
 ### E26. KAKDE-2011, arXiv v3, proofs of Propositions 115–117, pp. 83–86; compare §6.7, p. 78
 
-**Kind:** gap. **Source assertion:** The restriction to a normalizer fixed field is assigned weight using d_P=[F_P:F], and its cusp is chosen with unchanged Artin symbol u.
+**Kind:** gap. **Source assertion (paraphrased):** The restriction to a normalizer fixed field is assigned weight using d_P=[F_P:F], and its cusp is chosen with unchanged Artin symbol u.
 
 **Correction:** The weight factor is the relative degree [N_ḠP:P]. To obtain the stated smoothing exponents choose the cusp Artin symbol u^(d_P/[N_ḠP:P]) (and the analogous P′ version). Verify these corrections through the cusp/Hecke and orbit calculations.
 
 **Reason:** Section 6.7 multiplies the weight by the relative extension degree. If N_ḠP is proper in Ḡ, [F_P:F_(N_ḠP)] differs from [F_P:F]. For a noncentral order-3 subgroup in the order-27 Heisenberg group the factors are 3 and 9. The stated weight and cusp identity then do not follow from Lemma 109. The necessary proof repair remains explicit rather than asserting a counterexample to the final congruences.
 
-**Effect:** the proof. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** the proof. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: arXiv 1008.0142 version history (v3 latest), Mahesh Kakde’s publication page/CV, bounded title + erratum/corrigendum searches; no accessible matching correction found.
 - The publisher DOI 10.1007/s00222-012-0436-x was not accessible through the browsing tool. This finding is against arXiv v3 only, not a claim about the uncollated version of record.
 
-**Independent review:** confirmed. Section 6.7 multiplies the weight by the relative extension degree. If N_ḠP is proper in Ḡ, [F_P:F_(N_ḠP)] differs from [F_P:F]. For a noncentral order-3 subgroup in the order-27 Heisenberg group the factors are 3 and 9. The stated weight and cusp identity then do not follow from Lemma 109. The necessary proof repair remains explicit rather than asserting a counterexample to the final congruences.
+**Affected targets:** [NE.6/basic-congruence-values](#ne6-basic-congruence-values).
 
-**Revision 2 resolution:** Revision 2 replaces the analytic branch by the full relative-weight Möbius proof at special cusps. It does not claim the old cyclic-overgroup argument is repaired; E33 gives a stronger obstruction.
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. Restriction multiplies Hilbert weight by the relative field degree. A proper normalizer changes that degree from [G:P] to [N:P], and its cusp norm must carry exactly the same exponent.
 
 ### E27. BURNS-VENJAKOB-2006, arXiv v2 and author final, §5.2, map following (19), p. 24; published §5.2 p.193
 
-**Kind:** gap. **Source assertion:** The p-adic logarithm map μ_p is declared an isomorphism immediately from its factorization through the trace-zero space.
+**Kind:** gap. **Source assertion (paraphrased):** The p-adic logarithm map μ_p is declared an isomorphism immediately from its factorization through the trace-zero space.
 
 **Correction:** It is a linear map; isomorphism is precisely the appropriate Leopoldt nonvanishing input. A quotient by its determinant needs that nonvanishing as an explicit assumption or as part of the conjectural predicate.
 
 **Reason:** Factorization fixes the codomain but does not prove injectivity. The later permutation-character discussion on p. 25 explicitly makes the nonzero p-adic regulator equivalent to Leopoldt. This is a missing hypothesis/proof, not a known counterexample to Leopoldt.
 
-**Effect:** the proof. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches..
+**Effect:** the proof. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches.
 
 - 2026-10-19: arXiv math/0511672 version history (v2 latest), O. Venjakob’s author final bock-final.pdf and bounded title + erratum/correction search; no accessible matching correction found.
 - The author final was collated at the cited locator; its SHA is in sourceVersions. The later published-text comparison is recorded below.
 - 2026-10-19: published EMIS mirror independently opened and compared at published §5.2 p.193. Earlier access failures describe the historical search, not the present access status.
 
-**Independent review:** confirmed. Factorization fixes the codomain but does not prove injectivity. The later permutation-character discussion on p. 25 explicitly makes the nonzero p-adic regulator equivalent to Leopoldt. This is a missing hypothesis/proof, not a known counterexample to Leopoldt. The published EMIS copy retains the same defect at published §5.2 p.193.
+**Affected targets:** [NE.7/padic-stark-conjecture](#ne7-padic-stark-conjecture).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. Factoring through the named quotient gives a regulator map, not an isomorphism. Its nonzero determinant is the Leopoldt input in the permutation case; the source cannot supply it unconditionally.
 
 ### E28. BURNS-VENJAKOB-2006, arXiv v2 and author final, Remark 5.6 p. 25, (21)–(24) p. 26; (36)–(37) p. 33 and proof p. 35; published Conjecture4.1 p.188, Remark5.6/proof pp.194–195, (38)–(39) pp.201–202 and proof p.204
 
-**Kind:** gap. **Source assertion:** The inverse global compact-support determinant is inserted into a leading-term pair for the unshifted complex; the Selmer construction also switches determinant orientation between its definition and the evaluation proof.
+**Kind:** gap. **Source assertion (paraphrased):** The inverse global compact-support determinant is inserted into a leading-term pair for the unshifted complex; the Selmer construction also switches determinant orientation between its definition and the evaluation proof.
 
 **Correction:** Give the typed shifted/dual complex comparison, map into its determinant and Bockstein trivialization, recomputing order and boundary signs. The interpolation formulas are left as conditional targets until that comparison is supplied.
 
 **Reason:** Definition 2.5 requires a:1→d(C), and Definition 3.4 gives t(C):d(C)_Q→1. The global ζ in Conjecture 4.1 and (21) has codomain d(C)⁻¹; (24) then treats t(C) as though it started from that inverse line. Likewise p. 33 uses d(SC_U), while p. 35 uses its inverse. Composition inverse and monoidal inverse are distinguished by Remark 2.2 but no typed identification resolving this switch is given.
 
-**Effect:** the proof. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches..
+**Effect:** the proof. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches.
 
 - 2026-10-19: arXiv math/0511672 version history (v2 latest), O. Venjakob’s author final bock-final.pdf and bounded title + erratum/correction search; no accessible matching correction found.
 - The author final was collated at the cited locator; its SHA is in sourceVersions. The later published-text comparison is recorded below.
 - 2026-10-19: published EMIS mirror independently opened and compared at published Conjecture4.1 p.188, Remark5.6/proof pp.194–195, (38)–(39) pp.201–202 and proof p.204. Earlier access failures describe the historical search, not the present access status.
 
-**Independent review:** confirmed. Definition 2.5 requires a:1→d(C), and Definition 3.4 gives t(C):d(C)_Q→1. The global ζ in Conjecture 4.1 and (21) has codomain d(C)⁻¹; (24) then treats t(C) as though it started from that inverse line. Likewise p. 33 uses d(SC_U), while p. 35 uses its inverse. Composition inverse and monoidal inverse are distinguished by Remark 2.2 but no typed identification resolving this switch is given. The published EMIS copy retains the same defect at published Conjecture4.1 p.188, Remark5.6/proof pp.194–195, (38)–(39) pp.201–202 and proof p.204.
+**Affected targets:** [NE.7/tate-motive-interpolation](#ne7-tate-motive-interpolation), [NE.7/critical-motive-interpolation](#ne7-critical-motive-interpolation).
 
-**Revision 2 resolution:** Revision 2 supplies D=C[1] and SC[1], their transported maps, inverse Bockstein trivializations, boundary signs and orders. See E35–E36 for the resulting scalar corrections. The previous review object is preserved as a verdict on its earlier input.
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The global map lands in d(C)^−1 while [C,a] requires a:1→d(C); the two Selmer formulas likewise use opposite lines. The explicit C[1] transport in the revised target supplies the missing typing.
 
 ### E29. CFKSV-2005, Published Numdam version, proof of Lemma 3.7, last displayed right action, p. 179
 
-**Kind:** misprint. **Source assertion:** The row-vector right action multiplies by the transpose of ρ(g).
+**Kind:** misprint. **Source assertion (paraphrased):** The row-vector right action multiplies by the transpose of ρ(g).
 
 **Correction:** The Morita row module induced by Φ_ρ(g)=ρ(g)ḡ acts as v·g=ḡ·vρ(g). Passing from right to left modules introduces the inverse transpose contragredient on the module twist.
 
 **Reason:** For rows, successive multiplication by ρ(g)^t and ρ(h)^t gives ρ(g)^tρ(h)^t=(ρ(h)ρ(g))^t rather than ρ(gh)^t. It is not a right group action for a noncommuting representation. Using ρ(g) is associative and agrees with the stated ring map.
 
-**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed..
+**Effect:** nothing. **Correction status:** No correction located in the bounded search; scope limited to the versions listed.
 
 - 2026-10-19: published Numdam article/DOI record, arXiv math/0404297 page and bounded author/title + erratum/corrigendum searches; no accessible matching correction found.
 
-**Independent review:** confirmed. For rows, successive multiplication by ρ(g)^t and ρ(h)^t gives ρ(g)^tρ(h)^t=(ρ(h)ρ(g))^t rather than ρ(gh)^t. It is not a right group action for a noncommuting representation. Using ρ(g) is associative and agrees with the stated ring map.
+**Affected targets:** [NE.3/evaluation-akashi-diagram](#ne3-evaluation-akashi-diagram).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. For row vectors, multiplying successively by ρ(g)^t and ρ(h)^t reverses the matrix product after transposition. The untwisted row action uses ρ(g); the left dual uses the inverse transpose.
 
 ### E30. BURNS-VENJAKOB-2006, Remark6.8, p.33, arXiv v2 and author final; published Remark6.6 p.202
 
-**Kind:** misprint. **Source assertion:** The exceptional-zero discussion permits P_(L,p)(W,0)=0 when (B1) fails.
+**Kind:** misprint. **Source assertion (paraphrased):** The exceptional-zero discussion permits P_(L,p)(W,0)=0 when (B1) fails.
 
 **Correction:** The possible zero is at u=1, the point corresponding to s=0 under u=p^s; the constant term at u=0 is always1. Failure of (B1) can arise from W or its dual Z, so retain that distinction.
 
 **Reason:** The definition is P_(L,p)(W,u)=det(1−φ_p u|D_cris(W)); substituting u=0 gives det(1)=1. The continuation on p.34 evaluates the local factor at u=1.
 
-**Effect:** nothing. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches..
+**Effect:** nothing. **Correction status:** Retained at the listed published locator; no correction found in the bounded paper-level version, author-page and erratum searches.
 
 - Burns–Venjakob arXiv version list and author final PDF, checked2026-10-19; both contain the argument0.
 - Paper-title erratum/correction search and Venjakob author publication page checked2026-10-19; no matching correction found.
 - 2026-10-19: published EMIS mirror independently opened and compared at published Remark6.6 p.202. Earlier access failures describe the historical search, not the present access status.
 
-**Independent review:** confirmed. Direct substitution in the defined determinant gives P(W,0)=1; both checked PDFs use0 at this locator but their following formula uses1. The published EMIS copy retains the same defect at published Remark6.6 p.202.
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The defined local polynomial is det(1−φT), so its value at 0 is 1. The condition needed by the following Euler-factor formula is at 1.
 
 ### E31. BURNS-VENJAKOB-2006, Example6.3, p.31 arXiv v2 / author final; published Example6.3 p.200
 
-**Kind:** error. **Source assertion:** A split multiplicative elliptic curve is presented as failing(B1).
+**Kind:** error. **Source assertion (paraphrased):** A split multiplicative elliptic curve is presented as failing(B1).
 
 **Correction:** For trivial ρ and W=V_p(E), (B1) holds and (C1) fails. Keep the Frobenius factor of the full representation distinct from that of its ordinary quotient.
 
 **Reason:** Berger §§II.4.2–II.4.4 pp.17–19 gives W as 0→Q_p(1)→W→Q_p→0 and φ-eigenvalues p⁻¹,1 on D_st(W). Since Ny=v_p(q)x≠0, D_cris(W)=kerN has only the p⁻¹ eigenvalue. The Weil pairing identifies Z=W*(1) with W. Thus the two B1 factors equal1−p⁻¹≠0, whereas both C1 quotients are Q_p and have factor0.
 
-**Effect:** a stated result. **Correction status:** No correction found in the bounded paper-level search; present in the checked preprint/author final and published EMIS text..
+**Effect:** a stated result. **Correction status:** No correction found in the bounded paper-level search; present in the checked preprint/author final and published EMIS text.
 
 - 2026-10-19: arXiv version list, author final and published EMIS mirror compared at this locator.
 - 2026-10-19: bounded paper-title erratum/correction searches and author publication page; no matching correction found.
 
-**Independent review:** confirmed. Berger §§II.4.2–II.4.4 pp.17–19 gives W as 0→Q_p(1)→W→Q_p→0 and φ-eigenvalues p⁻¹,1 on D_st(W). Since Ny=v_p(q)x≠0, D_cris(W)=kerN has only the p⁻¹ eigenvalue. The Weil pairing identifies Z=W*(1) with W. Thus the two B1 factors equal1−p⁻¹≠0, whereas both C1 quotients are Q_p and have factor0.
+**Affected targets:** [NE.7/dabrowski-panchishkin-selmer-complexes](#ne7-dabrowski-panchishkin-selmer-complexes).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. For the Tate curve, Berger gives D_cris(W)=ker N with Frobenius p^−1, while the ordinary quotient has Frobenius 1. The B1 factors are nonzero and the C1 quotient factors vanish. Thus the cited example fails C1, rather than B1.
 
 ### E32. BURNS-VENJAKOB-2006, Corollary5.7 proof, p.27 arXiv v2 / author final; published Corollary5.7 proof p.196
 
-**Kind:** error. **Source assertion:** The proof identifies permutation characters with characters admitting an integral linear combination of subgroup permutation characters.
+**Kind:** error. **Source assertion (paraphrased):** The proof identifies permutation characters with characters admitting an integral linear combination of subgroup permutation characters.
 
 **Correction:** An integral combination is a virtual permutation character. A permutation representation gives such a combination, which is all this part of the proof requires; the converse is false.
 
 **Reason:** For C₂ the sign character is Ind_1^C₂(1)−1 and is the character of an actual one-dimensional representation. Its value at the nonidentity element is−1, while every permutation character counts fixed points and is nonnegative. Thus n_ρ=1 in the displayed integer-combination formula does not characterize permutation characters.
 
-**Effect:** nothing. **Correction status:** No correction found in the bounded paper-level search; present in the checked preprint/author final and published EMIS text..
+**Effect:** nothing. **Correction status:** No correction found in the bounded paper-level search; present in the checked preprint/author final and published EMIS text.
 
 - 2026-10-19: arXiv version list, author final and published EMIS mirror compared at this locator.
 - 2026-10-19: bounded paper-title erratum/correction searches and author publication page; no matching correction found.
 
-**Independent review:** confirmed. For C₂ the sign character is Ind_1^C₂(1)−1 and is the character of an actual one-dimensional representation. Its value at the nonidentity element is−1, while every permutation character counts fixed points and is nonnegative. Thus n_ρ=1 in the displayed integer-combination formula does not characterize permutation characters.
+**Affected targets:** [NE.7/tate-motive-interpolation-rational](#ne7-tate-motive-interpolation-rational).
+
+**Reported by:** Codex codex-1gPjeG, independent review.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The C_2 sign character equals regular minus trivial but has negative value at the nonidentity element. It is a virtual integer combination of permutation characters and is not itself a permutation character.
 
 ### E33. KAKDE-2011, arXiv:1008.0142v3, Proposition 98, (12), p.69; Proposition 116, pp.84–85
 
@@ -6134,14 +6224,16 @@ Every finding is scoped to the version actually read. The independent review con
 
 **Reason:** Take G=C_{p²}×Γ, Z=Γ^p and P=pC_{p²}×0 in G/Z. The p distinct cyclic overgroups P′=〈(1,t)〉, t∈C_p, all satisfy P′^p=P. Since G is abelian, T_P=p²Λ(U_P)_S, and M3 gives φ(ζ_{P′})≡ζ_P modulo p for each P′. Reducing (12) modulo p would give ζ_P≡pζ_P=0, impossible for a unit. This setting is realized by the compositum of the cyclotomic tower of Q and a disjoint cyclic degree-p² totally real abelian extension; its μ vanishes. In the proposed fixed-pair proof, the pair (β, b)=(a,O_L) at rational positive a, with identity Artin coset, is fixed by the whole group and contributes multiplicity 1−p modulo p rather than 0.
 
-**Effect:** a stated result. **Correction status:** No matching correction established in the bounded search; newly recorded here and awaiting independent verification.
+**Effect:** a stated result. **Correction status:** No matching correction established in the bounded search; independently confirmed in revision-2 review.
 
 - 2026-10-19: arXiv:1008.0142 version page (v3 read), Kakde author publication records and bounded title + erratum/corrigendum searches. No accessible matching correction established. The publisher endpoint did not provide a readable copy, so no claim about the version of record is made.
 - Compared the author-hosted Congruences between abelian p-adic zeta functions chapter, Proposition 13.4 and proof pp.22–23; the cyclic-overgroup sum and pair argument recur. This is a separate readable preprint, not a comparison with the Inventiones version of record.
 
 **Affected targets:** [NE.6/basic-congruences](#ne6-basic-congruences), [NE.6/basic-congruence-values](#ne6-basic-congruence-values), [NE.6/m4-from-basic-congruences](#ne6-m4-from-basic-congruences).
 
-**Reported by:** Codex codex-tsn0Xi, revision 2; independent verification pending.
+**Reported by:** Codex codex-tsn0Xi, revision 2.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. Enumerating the cyclic lifts in C_(p²)×C_p gives p overgroups of P. Each term reduces to the same unit modulo p, while their sum is zero there. The fixed identity-ideal pair is fixed by all overgroups and has residual multiplicity 1−p. This verifies the defect against v3, without extending it to the unread Inventiones text.
 
 ### E34. KAKDE-2011, arXiv:1008.0142v3, Propositions 115–117, pp.83–86, especially the use of E−E|g_u and the final omitted (29) argument
 
@@ -6151,7 +6243,7 @@ Every finding is scoped to the version actually read. The independent review con
 
 **Reason:** The U-operator formula at the standard cusp does not imply its constant-term formula at an arbitrary cusp. RW Congruences II, p.3 and Lemma 10 pp.10–11, identifies this issue in the method and proves a sufficient special-cusp comparison. Together with the false fixed-pair cancellation in E33, correcting only relative weights cannot verify the old analytic branch.
 
-**Effect:** the proof. **Correction status:** No matching correction established in the bounded search; newly recorded here and awaiting independent verification.
+**Effect:** the proof. **Correction status:** No matching correction established in the bounded search; independently confirmed in revision-2 review.
 
 - 2026-10-19: arXiv:1008.0142 version page (v3 read), Kakde author publication records and bounded title + erratum/corrigendum searches. No accessible matching correction established. The publisher endpoint did not provide a readable copy, so no claim about the version of record is made.
 - Compared the author-hosted Congruences between abelian p-adic zeta functions chapter, Proposition 13.4 and proof pp.22–23; the cyclic-overgroup sum and pair argument recur. This is a separate readable preprint, not a comparison with the Inventiones version of record.
@@ -6159,7 +6251,9 @@ Every finding is scoped to the version actually read. The independent review con
 
 **Affected targets:** [NE.6/basic-congruence-values](#ne6-basic-congruence-values), [NE.6/basic-congruence-reduction](#ne6-basic-congruence-reduction).
 
-**Reported by:** Codex codex-tsn0Xi, revision 2; independent verification pending.
+**Reported by:** Codex codex-tsn0Xi, revision 2.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The standard-cusp U formula does not compute a constant term at a general cusp. RW II p.3 explicitly identifies the missing comparison, and Lemma 10 computes the needed special cusp. The revised proof uses that restricted construction.
 
 ### E35. BURNS-VENJAKOB-2006, arXiv v2, Proposition 6.6 and Theorem 6.7, pp.32–33; published Lemma 6.7(ii), pp.202–203, and Theorem 6.5, p.201
 
@@ -6169,13 +6263,15 @@ Every finding is scoped to the version actually read. The independent review con
 
 **Reason:** Under (D2) the special fiber is concentrated in degrees 1,2 and the height B¹ is an isomorphism. Over the T-adic DVR, semisimplicity decomposes the torsion complex into T-blocks in degrees 1,2; each has ordinary cohomology only in degree 2 and contributes (−1)^{2+1}=−1 to BV Definition 3.2. Thus h such blocks have r=−h. Equivalently SC=[R --T→R] in degrees 1,2 has characteristic T⁻¹ with the identity trivialization, so its order is −1, not +1. Shifting negates it.
 
-**Effect:** a stated result. **Correction status:** No matching correction established in the bounded search; newly recorded here and awaiting independent verification.
+**Effect:** a stated result. **Correction status:** No matching correction established in the bounded search; independently confirmed in revision-2 review.
 
 - 2026-10-19: arXiv math/0511672v2 and published EMIS mirror compared at the stated locators; author publication page and bounded title + erratum/correction searches found no accessible matching correction. This is a bounded check, not an exhaustive claim.
 
 **Affected targets:** [NE.7/height-pairing-bockstein](#ne7-height-pairing-bockstein), [NE.7/critical-motive-interpolation](#ne7-critical-motive-interpolation).
 
-**Reported by:** Codex codex-tsn0Xi, revision 2; independent verification pending.
+**Reported by:** Codex codex-tsn0Xi, revision 2.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. Over the T-adic DVR the semisimple Selmer block is [R --T→R] in degrees 1,2. Its sole ordinary cohomology is in degree 2, contributing −1 to the source order; h blocks give −h and shifting gives +h.
 
 ### E36. BURNS-VENJAKOB-2006, arXiv v2, Theorem 5.5 (20), Remark 5.6 and (21)–(25), pp.25–27; published Theorem 5.5 (24), p.193, Remark 5.6 and proof pp.194–196
 
@@ -6185,13 +6281,87 @@ Every finding is scoped to the version actually read. The independent review con
 
 **Reason:** For rank one let B²=−ℓ/c_γ in bases of H²_c,H³_c. In the inverse line the Bockstein trivialization is −c_γ/ℓ. Formula (21) gives ζ=L^*_S(1,1)ℓ in these same bases. The leading sign is −1, so the pair on D has coefficient c_γ L^*_S(1,1); normalization needs c_γ⁻¹. More generally its value scales by a^m when γ changes to γ^a, while the normalized p-adic residue is generator independent. A factor c_γ^m would scale by a^{2m}. This is the consequence of repairing E28 with the specified shift, not a claim about an already well-typed alternative convention.
 
-**Effect:** a stated result. **Correction status:** No matching correction established in the bounded search; newly recorded here and awaiting independent verification.
+**Effect:** a stated result. **Correction status:** No matching correction established in the bounded search; independently confirmed in revision-2 review.
 
 - 2026-10-19: arXiv math/0511672v2 and published EMIS mirror compared at the stated locators; author publication page and bounded title + erratum/correction searches found no accessible matching correction. This is a bounded check, not an exhaustive claim.
 
 **Affected targets:** [NE.7/tate-motive-interpolation](#ne7-tate-motive-interpolation), [NE.7/tate-motive-interpolation-rational](#ne7-tate-motive-interpolation-rational).
 
-**Reported by:** Codex codex-tsn0Xi, revision 2; independent verification pending.
+**Reported by:** Codex codex-tsn0Xi, revision 2.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. For B²=−ℓ/c_γ, the inverse determinant has trivialization −c_γ/ℓ. Composing the given ζ=L*ℓ with it and the leading sign yields c_γL*, requiring normalization c_γ^−1. Generator change γ→γ^a scales the raw rank-m term by a^m, confirming the exponent after the stated shift.
+
+### E37. SCHNEIDER-VENJAKOB-AFTER-KAKDE, Author final congruences-final.pdf, Lemma 4.9, pp.28–29; compare the definition of ℒ_V, p.19, and Proposition 4.4, p.22
+
+**Kind:** error. **Source assertion (paraphrased):** The noncyclic kernel calculation removes the central factor from the denominator, deduces x_U^(p²|U/Z|)=1 and then concludes x_U=1.
+
+**Correction:** Keep φ_Z(x_Z^p) in the denominator. After the nontrivial cyclic α factors become 1, the equation is x_U^(p²|U/Z|)=φ_Z(x_Z^p). It implies membership in μ(O)×U^ab using the torsion-free quotient of the abelian unit group, not that x_U is torsion or equals 1.
+
+**Reason:** Let G=C_p×Γ and Z=Γ^p, with p odd. The tuple θ(γ) is in ker ℒ because the integral logarithm kills group units. The top subgroup G/Z=C_p² is noncyclic and its component is γ, which has infinite order. The retained-factor equation reads γ^(p⁴)=φ_Z((γ^(p²))^p), which holds; the printed conclusion does not.
+
+**Effect:** the proof. **Correction status:** No matching correction established in the bounded search; recorded in this independent review.
+
+- 2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version.
+
+**Affected targets:** [NE.6/phi-integral-log-sequence](#ne6-phi-integral-log-sequence).
+
+**Reported by:** Codex codex-YQPq9s.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The definition of ℒ on p.19 retains φ_Z(x_Z^p); it disappears only in the later kernel display. θ(γ) for C_p×Γ is a kernel element with noncyclic top component γ of infinite order, so the conclusion x_U=1 is false. The revised target keeps the factor and uses the valid quotient argument.
+
+### E38. SCHNEIDER-VENJAKOB-AFTER-KAKDE, Author final congruences-final.pdf, §5, p.30, the reduction of B(Z) modulo p
+
+**Kind:** misprint. **Source assertion (paraphrased):** The residue of the completed localization B(Z) is identified with O/(p)[[Z]], without localizing the residue ring.
+
+**Correction:** For a generator z of Z and T=z−1, B(Z)/pB(Z)=Frac(F_q[[T]])=F_q((T)). The Frobenius statement remains true on this Laurent series field.
+
+**Reason:** The central denominator T is regular modulo p and is already inverted in A(Z), hence in its p-adic completion B(Z). Its inverse cannot lie in F_q[[T]]. This is the same missing localization as E20, now at a separate source locator.
+
+**Effect:** the proof. **Correction status:** No matching correction established in the bounded search; recorded in this independent review.
+
+- 2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version.
+
+**Affected targets:** [NE.6/integral-logarithm](#ne6-integral-logarithm).
+
+**Reported by:** Codex codex-YQPq9s.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The unit T^−1 persists in B(Z)/pB(Z). Thus the identified residue is Laurent rather than a power-series ring; Frobenius still acts by the p-th power on the corrected field.
+
+### E39. ARDAKOV-BROWN-2006, arXiv:math/0511345v1, §3.1, Corollary proof, p.5; author IwasawaSurvey.pdf, §3.1, p.5; published Documenta Math. Extra Volume Coates (2006), §3.1, p.11
+
+**Kind:** misprint. **Source assertion (paraphrased):** The geometric series 1+c+c²+⋯ is asserted to invert 1−c when the constant coefficient c_0 is nonzero.
+
+**Correction:** That geometric-series argument requires c_0=0. A general series with nonzero constant coefficient is a unit by first dividing by that coefficient and applying the corrected argument to its augmentation-zero part.
+
+**Reason:** Set c=1. Its constant coefficient is nonzero, but 1−c=0 is not invertible. If c_0=0, powers of c tend to zero in the complete augmentation filtration, giving the claimed inverse and the intended radical description.
+
+**Effect:** nothing. **Correction status:** The same sign occurs in all three accessible copies compared; no matching correction established in the bounded search.
+
+- 2026-10-19: compared arXiv v1, the Ardakov author-hosted IwasawaSurvey.pdf and the published EMIS mirror. Checked the author publication page and bounded paper-title + erratum/correction searches; no accessible correction found.
+
+**Affected targets:** [NE.0/iwasawa-local-iff-pro-p](#ne0-iwasawa-local-iff-pro-p).
+
+**Reported by:** Codex codex-YQPq9s.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The page images and the published copy have c_0≠0. Substituting c=1 disproves the printed unit claim. Changing it to c_0=0 gives a convergent geometric series and the intended proof.
+
+### E40. SCHNEIDER-VENJAKOB-AFTER-KAKDE, Author final congruences-final.pdf, Lemma 4.9 proof, p.29, trace decomposition after the representatives R are chosen
+
+**Kind:** misprint. **Source assertion (paraphrased):** The difference g−h is equated to its own index-p trace before that trace is expanded using the coefficients a_u of a chosen preimage.
+
+**Correction:** Apply the trace to the chosen preimage Σ_u a_u u, as in the hypothesis of that paragraph and the expansion that follows.
+
+**Reason:** The invariant difference has trace p(g−h), so the printed equality is not the consequence of invariance. The preceding choice says g−h=σ(Σ_u a_u u), and the subsequent coefficient sum expands exactly this latter expression. The finite-quotient two-point support argument in the corrected target avoids the erroneous display.
+
+**Effect:** nothing. **Correction status:** No matching correction established in the bounded search; recorded in this independent review.
+
+- 2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version.
+
+**Affected targets:** [NE.6/phi-integral-log-sequence](#ne6-phi-integral-log-sequence).
+
+**Reported by:** Codex codex-YQPq9s.
+
+**Independent review (REV-NoncommutativeAndEquivariantIwasawa~2):** confirmed. The equality to the trace of g−h conflicts with invariance, which gives p(g−h). The following sum is the trace of the previously chosen preimage, so replacing that argument repairs the display.
 
 ## References
 
@@ -6205,7 +6375,7 @@ Public-source SHA-256: `c0955aa2b2f15cfc68f9e136cccae41d71935bb3b2b0566ecea6021f
 
 <a id="source-ardakov-brown-2006"></a>
 
-**ARDAKOV-BROWN-2006.** Konstantin Ardakov and Kenneth A. Brown, [Ring-theoretic properties of Iwasawa algebras: a survey](https://arxiv.org/pdf/math/0511345v1). arXiv:math/0511345v1 (14 November 2005), 27 pages; published in Documenta Math. Extra Volume Coates (2006), 7–33.
+**ARDAKOV-BROWN-2006.** Konstantin Ardakov and Kenneth A. Brown, [Ring-theoretic properties of Iwasawa algebras: a survey](https://arxiv.org/pdf/math/0511345v1). arXiv:math/0511345v1 (14 November 2005), 27 pages; published in Documenta Math. Extra Volume Coates (2006), 7–33. The revision-2 review also collated the [author copy](https://people.maths.ox.ac.uk/ardakov/IwasawaSurvey.pdf) and [published EMIS copy](https://ftp.gwdg.de/pub/misc/EMIS/journals/DMJDMV/vol-coates/ardakov_brown.pdf) at §3.1 (preprint/author p.5, published p.11); all three retain the geometric-series slip recorded in E39. Their version hashes are in the packet.
 
 Public-source SHA-256: `a665d599485fdbf33a550393731f51fdf733bbd0d5be5c71e443e55ae8d81668`.
 
@@ -6316,6 +6486,8 @@ The target-level pass covers every NE.0–NE.7 layer, with 136 targets and every
 - **NE.6** (planned): Audit the finite Oliver/Wall and earlier RW logarithm/trace suppliers and the finite-p-extension μ transfer proof. The finite-conductor Möbius calculation is checked; the uniform-g assertion is retained as the exact RW theorem with its own proof-audit leaf, and the completed-to-canonical comparison is specified explicitly. Check the RW2026 division-algebra classification and GP minus-module comparison supplier; conditional SK₁ vanishing remains a hypothesis.
 - **NE.7** (planned): Resolve determinant, local epsilon, Nekovář height and noncommutative Fitting-order proof leaves. Prove arithmetic semisimplicity/local factorization in each exceptional-zero application; no extra vanishing theorem is inferred.
 
-Claude Code cc-39fac3 supplied the retained CFKSV, Kakde and Burns–Venjakob analysis and E1–E14. Codex codex-pjS4kZ supplied the Fu/CDT, recent-theorem and Fitting extensions, ownership reconciliation, sign and cocycle corrections, and the compact Lean sketch. Codex codex-1gPjeG independently reviewed all then-existing nodes, corrected this document and the packet, and added E16–E32. Its **needs_changes** verdict and six unverifiable checks describe the pre-revision input and remain unchanged historical records.
+Claude Code cc-39fac3 supplied the retained CFKSV, Kakde and Burns–Venjakob analysis and E1–E14. Codex codex-pjS4kZ supplied the Fu/CDT, recent-theorem and Fitting extensions, ownership reconciliation, sign and cocycle corrections, and the compact Lean sketch. Codex codex-1gPjeG independently reviewed all then-existing nodes, corrected this document and the packet, and added E16–E32. Its **needs_changes** report and six unverifiable checks describe the pre-revision input and remain historical records in that report. The current packet review records the new verdict.
 
-Codex codex-tsn0Xi supplied revision 2: the corrected multiplicative exactness proof, the full Möbius/special-cusp analytic route and completed-to-canonical comparison, and the shifted global determinant formulas and scalar tests. E33–E36 are new source findings awaiting independent verification. This revision awaits independent review; no implementation or source-leaf closure is claimed.
+Codex codex-tsn0Xi supplied revision 2: the corrected multiplicative exactness proof, the full Möbius/special-cusp analytic route and completed-to-canonical comparison, and the shifted global determinant formulas and scalar tests. E33–E36 were independently confirmed in the revision-2 review. No implementation or source-leaf closure is claimed.
+
+Codex codex-YQPq9s independently reviewed all 136 targets, all 35 pinned baseline statements, the planning API and tests, and the revision’s source and ownership boundaries. The target-level plan is **accepted**, with eight planned layers and the recorded source/supplier obligations still open. This review makes the patching component injections explicit, corrects source locators and a relative-trace proof sentence, and records E37–E40. The logarithm-kernel reconstruction retains the central factor omitted by the replacement source. The suggested Lean file elaborates with its eight expected `sorry` warnings only.
