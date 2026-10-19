@@ -25,6 +25,11 @@ CG18 Theorem 3.11, p. 328, and Lemma 3.16, p. 332. The selected-root injection
 from CG20 Lemma 8.14, pp. 865–866, is a reader target because its geometric
 carriers are absent at the pins. These statements use Mathlib's determinant,
 characteristic polynomial and Cayley–Hamilton; they do not rebuild those APIs.
+
+The matrix calculation first applies over B = A[T_p]. It does not itself show
+that T_p belongs to the p-anaemic weight-one image A. The reader's D1.2 target
+proves B = A separately using the high-weight ordinary Galois Frobenius trace,
+before using quadratic freeness over A in the weight-one unramifiedness proof.
 -/
 
 namespace TauCeti.ModularityLifting.DefectOne.Suggested

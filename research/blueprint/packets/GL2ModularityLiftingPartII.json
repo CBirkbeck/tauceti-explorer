@@ -70,7 +70,7 @@
       "readSections": [
         "Introduction, pp. 297–306",
         "§2, pp. 306–312 (supplier boundary)",
-        "§§3.1–3.9, pp. 312–354",
+        "§§3.1–3.9, pp. 310–354",
         "§4.1, Theorem 4.8 and proof, pp. 361–366",
         "§4.2 and §5, pp. 366–382",
         "Lemma 4.2, p. 355, and Lemma 4.4 statement/proof, pp. 356–357, for imported CM-type hypotheses"
@@ -98,7 +98,7 @@
       ],
       "title": "Weight-one level data",
       "kind": "definition",
-      "statement": "For p≥3, O the integers of a finite extension K/Q_p, uniformizer π and residue field k, fix odd absolutely irreducible continuous barρ:G_Q→GL₂(k), unramified at p, with prime-to-p Artin conductor N. A level datum consists of the conductor-level fine curve X, a fixed auxiliary prime r≥5 away from Np with r≢1 mod p and residual Frobenius eigenvalue ratio different from r and r⁻¹, a finite set Q disjoint from Npr, chosen distinct residual roots α_x,β_x for x∈Q, and a p-power quotient Δ of ∏_{x∈Q}(Z/xZ)×. Write X₀(Q), X₁(Q), X_Δ(Q) for the corresponding imported curves over O. The prime r is removed only by the selected-oldform comparison; it is not a Taylor–Wiles variable. At each ramified x with barρ|D_x reducible require barρ^{I_x}≠0, the standing hypothesis of §3.1. At conductor level quotient Γ₁(N) by the p-primary diamond subgroup H_N; use its genuine Katz/descent object, not a coarse Hodge line without descent. The fine rigidified model has extra Γ₁(r) level, denoted X^(r). Statements at conductor level mean the module recovered from this model by the harmless-prime comparison (one or two old copies); the fine model and the conductor object are not identified.",
+      "statement": "For p≥3, O the integers of a finite extension K/Q_p, uniformizer π and residue field k, fix odd absolutely irreducible continuous barρ:G_Q→GL₂(k), unramified at p, with prime-to-p Artin conductor N. A level datum consists of the conductor-level Katz/descent object X, a fixed auxiliary prime r≥5 away from Np with r≢1 mod p and residual Frobenius eigenvalue ratio different from r and r⁻¹, a finite set Q disjoint from Npr, chosen distinct residual roots α_x,β_x for x∈Q, and a p-power quotient Δ of ∏_{x∈Q}(Z/xZ)×. Write X₀(Q), X₁(Q), X_Δ(Q) for the corresponding imported curves over O. The prime r is removed only by the selected-oldform comparison; it is not a Taylor–Wiles variable. At each ramified x with barρ|D_x reducible require barρ^{I_x}≠0, the standing hypothesis of §3.1. At conductor level quotient Γ₁(N) by the p-primary diamond subgroup H_N; use its genuine Katz/descent object, not a coarse Hodge line without descent. The fine rigidified model has extra Γ₁(r) level, denoted X^(r). Statements at conductor level mean the module recovered from this model by the harmless-prime comparison (one or two old copies); the fine model and the conductor object are not identified.",
       "hypotheses": [
         "O is the ring of integers in a finite extension of Q_p, p≥3, with uniformizer π, fraction field K and finite residue field k; all CNL maps are continuous local O-algebra maps inducing the identity on k.",
         "The weight-one residual representation is continuous, odd, absolutely irreducible and unramified at p; at a ramified reducible decomposition group its inertia invariants are nonzero. Determinant-normalized minimal lifts have Teichmüller determinant."
@@ -110,7 +110,7 @@
         "Use the R15.1 representability/descent contract and the D1.1 harmless-prime comparison to transport conclusions to conductor level. A repeated auxiliary root gives two old copies; divide the defect inequality by two, rather than calling this a one-copy selected factor."
       ],
       "acceptance": [
-        "Q=∅ and Δ=1 recover the fixed conductor-level fine curve, not a second cover.",
+        "Q=∅ and Δ=1 recover the conductor Katz/descent object; its fine proof model still has the separate rigidifying r-level.",
         "The coarse level-one curve at p=3 is not accepted as fine Hodge data without rigidification/descent.",
         "If barρ(Frob_r) has eigenvalue ratio r, reject r even when r∤Np."
       ],
@@ -123,17 +123,22 @@
         {
           "name": "WeightOneLevelData.curves",
           "role": "data",
-          "statement": "Return the imported X, X₀(Q), X₁(Q), X_Δ(Q), their finite maps, ω and C."
+          "statement": "Return the conductor Katz/descent object X and its level variants, separately from the fine rigidified curves X^(r), X₀^(r)(Q), X₁^(r)(Q), X_Δ^(r)(Q), with finite maps, ω and C on the fine models."
         },
         {
           "name": "WeightOneLevelData.deck",
           "role": "characterisation",
-          "statement": "X_Δ(Q)→X₀(Q) has deck group Δ; the interior is a torsor and cusp stabilizers remain explicit."
+          "statement": "On the fine models, X_Δ^(r)(Q)→X₀^(r)(Q) has deck group Δ; specify the induced descent module at conductor level and retain any cusp stabilizers."
         },
         {
           "name": "WeightOneLevelData.change",
           "role": "functoriality",
-          "statement": "For Q⊂Q′ and compatible Δ′→Δ, identify level-forgetting maps and the pulled-back Hodge bundle."
+          "statement": "For Q⊂Q′ and compatible Δ′→Δ, identify level-forgetting maps and the Hodge pullback on the fine models, compatibly with conductor descent."
+        },
+        {
+          "name": "WeightOneLevelData.rigidification",
+          "role": "compatibility",
+          "statement": "Compare two admissible fine rigidifications through a common refinement; the descended conductor module and its away-r Hecke action are independent of the proof model, with the stated one- or two-copy multiplicity."
         }
       ],
       "uses": [
@@ -146,7 +151,7 @@
         {
           "name": "emptyAuxiliary",
           "kind": "degenerate",
-          "statement": "Q=∅ and Δ=1 recover the fixed conductor-level fine curve, not a second cover."
+          "statement": "Q=∅ and Δ=1 recover the conductor Katz/descent object; its fine proof model still has the separate rigidifying r-level."
         },
         {
           "name": "smallCoarseLevel",
@@ -219,6 +224,11 @@
           "name": "WeightOneHeckeData.reduce",
           "role": "compatibility",
           "statement": "Reduction and change of coefficient quotient commute with the represented action, using image-to-image surjections rather than flat base change."
+        },
+        {
+          "name": "WeightOneHeckeData.lift",
+          "role": "universal-property",
+          "statement": "A map from the displayed abstract operator algebra into B factors uniquely through the represented image exactly when it kills the kernel of its action on the specified module; maps out of the image agree if they agree on the displayed generators."
         }
       ],
       "uses": [
@@ -350,6 +360,11 @@
           "name": "CoherentHomology.hecke",
           "role": "compatibility",
           "statement": "The action of a correspondence is the transpose of its adjoint, including its degree and diamond normalization."
+        },
+        {
+          "name": "CoherentHomology.coefficients",
+          "role": "functoriality",
+          "statement": "A map of coefficient sheaves gives the corresponding covariant homology map by double contravariance. For an exact finite-coefficient sequence retain the derived long exact sequence; do not assert arbitrary tensor base change for torsion homology."
         }
       ],
       "uses": [
@@ -441,12 +456,13 @@
       ],
       "title": "Normalized weight-one degeneracy maps",
       "kind": "construction",
-      "statement": "For x∤Npr and π₁,π₂:X₀(x)→X, put V_x=φ₁₂π₂*, ψ(f,g)=π₁*f+V_xg and ψ^∨=(trπ₁,trπ₁W_x)/x. In column coordinates on the source, ψ^∨ψ=[[x⁻¹(x+1),T_x],[T_x,(x+1)⟨x⟩]], and U_x acts as [[T_x,x⟨x⟩],[−x⁻¹,0]]. These are identities of the imported geometric correspondences on weight-one sections.",
+      "statement": "For a base level L prime to p and x∤Lp, work on an imported fine model (or its genuine Katz/descent object) X and the degeneracy maps π₁,π₂:X₀(x)→X. Put V_x=φ₁₂π₂*, ψ(f,g)=π₁*f+V_xg and ψ^∨=(trπ₁,trπ₁W_x)/x. In column coordinates on the source, ψ^∨ψ=[[x⁻¹(x+1),T_x],[T_x,(x+1)⟨x⟩]], and U_x acts as [[T_x,x⟨x⟩],[−x⁻¹,0]]. These are identities of the imported geometric correspondences on weight-one sections.",
       "hypotheses": [
         "O is the ring of integers in a finite extension of Q_p, p≥3, with uniformizer π, fraction field K and finite residue field k; all CNL maps are continuous local O-algebra maps inducing the identity on k.",
         "The weight-one residual representation is continuous, odd, absolutely irreducible and unramified at p; at a ramified reducible decomposition group its inertia invariants are nonzero. Determinant-normalized minimal lifts have Teichmüller determinant."
       ],
       "proofSteps": [
+        "Allow x=r when removing the rigidifying prime: in that application the base is level N, not level Nr. Make the correspondence calculation on a common fine refinement and descend it through R15.1.",
         "Define pullback using the universal isogeny and trace using the finite map; normalize both maps consistently.",
         "Compute U_xπ₁*=π₁*T_x−x⁻¹V_x and U_xV_x=x⟨x⟩π₁*.",
         "Prove π₁*trπ₁W_x=xU_x+W_x directly by summing the cyclic subgroups in the moduli correspondence. No cancellation of a possibly noninjective π₁* is used."
@@ -460,7 +476,8 @@
         "GL2ModularityLiftingPartII:D1.0/weight-one-hecke-data",
         "GL2ModularityLiftingPartII:D1.0/dual-coherent-homology",
         "mathlib:Matrix.det_fin_two",
-        "AlgebraicModularFormsAndSerreWeights:R15.2"
+        "AlgebraicModularFormsAndSerreWeights:R15.2",
+        "AlgebraicModularFormsAndSerreWeights:R15.1"
       ],
       "api": [
         {
@@ -477,6 +494,11 @@
           "name": "Oldform.upMatrix",
           "role": "compatibility",
           "statement": "U_x intertwines ψ with the displayed column matrix; its characteristic polynomial is X²−T_xX+⟨x⟩."
+        },
+        {
+          "name": "Oldform.characterisation",
+          "role": "extensionality",
+          "statement": "The linear degeneracy map is determined by its two columns π₁* and V_x; coefficient maps preserve both columns and their trace adjoints, with x retained as a unit."
         }
       ],
       "uses": [
@@ -570,7 +592,7 @@
       ],
       "title": "Harmless-prime oldform multiplicity",
       "kind": "theorem",
-      "statement": "Let x∤Npr, with residual Frobenius eigenvalues α,β satisfying α/β∉{x,x⁻¹}. In the U_x=α local factor of level X₀(x), the localized weight-one module has one copy of the base module if α≠β and two copies if α=β. The two-copy assertion is about the same local factor in the repeated-root case, not about two idempotent factors.",
+      "statement": "Let x∤Lp for the base level L, with residual Frobenius eigenvalues α,β satisfying α/β∉{x,x⁻¹}. As modules for the away-x Hecke algebra, the U_x=α local factor at level X₀(x) is one copy of the base weight-one module if α≠β and two copies if α=β. The repeated-root factor need not have scalar U_x action and is not a pair of idempotent factors. To remove r from a fine Γ₁(r) model of conductor N, take L=N and x=r, first taking invariants under the full r-diamond group (of order r−1, a unit in O) to reach Γ₀(r). The conductor object and its comparison are supplied by genuine small-level descent.",
       "hypotheses": [
         "O is the ring of integers in a finite extension of Q_p, p≥3, with uniformizer π, fraction field K and finite residue field k; all CNL maps are continuous local O-algebra maps inducing the identity on k.",
         "The weight-one residual representation is continuous, odd, absolutely irreducible and unramified at p; at a ramified reducible decomposition group its inertia invariants are nonzero. Determinant-normalized minimal lifts have Teichmüller determinant."
@@ -578,13 +600,16 @@
       "proofSteps": [
         "The determinant is x⁻¹(α−xβ)(β−xα), hence invertible under the stated ratio condition.",
         "Eliminate the complement using W_x and the same forbidden-ratio argument.",
-        "Separate the two residual roots only when their difference is invertible."
+        "Separate the two residual roots only when their difference is invertible.",
+        "For x=r use exact prime-to-p diamond invariants and the R15.1 common-fine-refinement descent; the hypothesis x∤Lp now permits the required comparison.",
+        "If the repeated-root comparison gives two old copies, transport balancedness by additivity of d_S under direct sums and divide the resulting inequality by two. Rank and freeness conclusions concern the conductor module; the auxiliary U_r is omitted from that comparison algebra."
       ],
       "acceptance": [
         "Allow a repeated residual root at a harmless x≢1 and recover two old copies in its single local factor."
       ],
       "prerequisites": [
-        "GL2ModularityLiftingPartII:D1.1/oldform-degeneracy"
+        "GL2ModularityLiftingPartII:D1.1/oldform-degeneracy",
+        "AlgebraicModularFormsAndSerreWeights:R15.1"
       ],
       "api": [],
       "uses": [],
@@ -616,7 +641,7 @@
         "The weight-one residual representation is continuous, odd, absolutely irreducible and unramified at p; at a ramified reducible decomposition group its inertia invariants are nonzero. Determinant-normalized minimal lifts have Teichmüller determinant."
       ],
       "proofSteps": [
-        "Use coherent descent for the actual finite cover and sheaf, including its cartesian degeneracy squares. This coherent statement is a requested extension of the finite-cover descent supplier.",
+        "Use R15.1 coherent descent for the actual compactified finite étale diamond cover and Hodge sheaf, with its equivariant cohomology action and compatible degeneracy correspondences. This is a coherent Cartan–Leray statement on modular curves, not a specialization of topological local-system homology.",
         "Dualize the first-quadrant cohomological descent sequence with exact Pontryagin duality.",
         "Extract total degrees zero and one; do not replace the displayed right-exact segment by a short exact sequence."
       ],
@@ -626,7 +651,7 @@
       "prerequisites": [
         "GL2ModularityLiftingPartII:D1.0/dual-coherent-homology",
         "GL2ModularityLiftingPartII:D1.1/oldform-degeneracy",
-        "ArithmeticLocallySymmetricSpaces:ALS.6"
+        "AlgebraicModularFormsAndSerreWeights:R15.1"
       ],
       "api": [],
       "uses": [],
@@ -732,6 +757,11 @@
           "name": "HasseDoubling.coefficients",
           "role": "compatibility",
           "statement": "Changing the coefficient quotient commutes with ψ after using compatible powers of A; changing A does not change the q-expansion-defined map modulo π^m."
+        },
+        {
+          "name": "HasseDoubling.characterisation",
+          "role": "extensionality",
+          "statement": "The q-expansion principle at all cusps characterizes the two columns, including the diamond on the q↦q^p column. Equality of their expansions gives equality of the finite-coefficient maps."
         }
       ],
       "uses": [
@@ -875,7 +905,7 @@
       ],
       "title": "Ordinary high-weight image algebras",
       "kind": "definition",
-      "statement": "For a sufficiently large n as above, let T_n be the anaemic localized weight-n Hecke algebra and let T̃_{n,α} be its ordinary factor after adjoining U_p and selecting α. Define A_n=im(T_n→T̃_{n,α}), using the actual image, with a quotient map to the corresponding finite weight-one algebra induced by the Hasse subquotient. Write T̃_n=T̃_{n,α}. Do not identify A_n with T_n unless injectivity has been proved.",
+      "statement": "For a sufficiently large n as above, let T_n be the localized high-weight Hecke image generated by good-prime T_x, diamonds and the chosen Q-level U_x, omitting U_p. Thus it is p-anaemic; the smaller good-prime-only image is kept distinct. Let T̃_{n,α} be the ordinary factor after adjoining U_p and selecting α. Define A_n=im(T_n→T̃_{n,α}) and write T̃_n=T̃_{n,α}. The injected finite weight-one Hasse subquotient induces a quotient map from A_n to its p-anaemic image A. Do not identify A_n with T_n without a kernel calculation. The weight-one operator T_p exists on the forms but is not assumed to belong to A; initially write B=A[T_p] as an endomorphism algebra.",
       "hypotheses": [
         "O is the ring of integers in a finite extension of Q_p, p≥3, with uniformizer π, fraction field K and finite residue field k; all CNL maps are continuous local O-algebra maps inducing the identity on k.",
         "The weight-one residual representation is continuous, odd, absolutely irreducible and unramified at p; at a ramified reducible decomposition group its inertia invariants are nonzero. Determinant-normalized minimal lifts have Teichmüller determinant."
@@ -887,7 +917,7 @@
       ],
       "acceptance": [
         "For B=O×O with projection to the first factor, the image is O, not an injective copy of B.",
-        "An endomorphism acting nontrivially on a π-torsion Hasse subquotient remains in the image even if all characteristic-zero traces vanish.",
+        "On the finite module O/π², multiplication by π is a nonzero image operator although it reduces to zero on the mod-π fibre; reduction of traces alone does not determine the finite-quotient image.",
         "If the selected factor is already the whole Hecke algebra, A_n equals that algebra through the range isomorphism."
       ],
       "prerequisites": [
@@ -907,12 +937,17 @@
         {
           "name": "OrdinaryImage.weightOneQuotient",
           "role": "projection",
-          "statement": "The anaemic action on the weight-one Hasse subquotient is a quotient of A_n."
+          "statement": "The p-anaemic action A on the injected finite weight-one Hasse subquotient is a quotient of A_n, retaining the chosen Q-level U_x and diamonds but not assuming T_p∈A."
         },
         {
           "name": "OrdinaryImage.galois",
           "role": "compatibility",
           "statement": "The high-weight Galois representation over A_n specializes to all trace-compatible finite quotients, including nonreduced ones."
+        },
+        {
+          "name": "OrdinaryImage.kernel",
+          "role": "universal-property",
+          "statement": "The kernel of T_n→A_n is exactly the kernel of its action on the selected high-weight factor. Maps from T_n descend uniquely to A_n if and only if they kill that kernel; the finite quotient A can have a larger kernel."
         }
       ],
       "uses": [
@@ -930,7 +965,7 @@
         {
           "name": "nilpotentAction",
           "kind": "comparison",
-          "statement": "An endomorphism acting nontrivially on a π-torsion Hasse subquotient remains in the image even if all characteristic-zero traces vanish."
+          "statement": "On the finite module O/π², multiplication by π is a nonzero image operator although it reduces to zero on the mod-π fibre; reduction of traces alone does not determine the finite-quotient image."
         },
         {
           "name": "singleFactor",
@@ -962,22 +997,26 @@
       ],
       "title": "Quadratic Hecke doubling",
       "kind": "theorem",
-      "statement": "In the repeated-root ordinary local factor, the U_p-stable Hecke algebra acting on ψ(M²) is A[U_p]≅A[X]/(X²−T_pX+⟨p⟩), finite free of rank two over its anaemic image A. The analogous statement holds before separating the two distinct-root factors; an individual distinct-root factor has rank one. The coefficient −1 in the doubling matrix forces 1,U_p to be linearly independent over A.",
+      "statement": "Let M be the finite weight-one module, A its faithful p-anaemic image and B=A[T_p] its image after adjoining the already-defined weight-one operator T_p. On the full doubled space ψ(M²), the U_p-stable image is first B[U_p]≅B[X]/(X²−T_pX+⟨p⟩), finite free of rank two over B. In the repeated-root case this is the selected ordinary local factor; with distinct roots it is the whole two-factor algebra before projection. The high-weight Galois Frobenius trace then proves T_p∈A, so B=A and the quadratic algebra is free rank two over A. Only after that identification may one use this rank-two statement over the p-anaemic image. A single distinct-root factor has rank one.",
       "hypotheses": [
         "O is the ring of integers in a finite extension of Q_p, p≥3, with uniformizer π, fraction field K and finite residue field k; all CNL maps are continuous local O-algebra maps inducing the identity on k.",
         "The weight-one residual representation is continuous, odd, absolutely irreducible and unramified at p; at a ramified reducible decomposition group its inertia invariants are nonzero. Determinant-normalized minimal lifts have Teichmüller determinant."
       ],
       "proofSteps": [
-        "Cayley–Hamilton supplies the quadratic relation.",
-        "If a+bU_p annihilates the doubled module, the lower-left matrix entry gives bM=0 and then aM=0; the image algebra A acts faithfully.",
-        "Conclude that the polynomial quotient maps isomorphically, and preserve the two-factor distinction."
+        "Work first over B=A[T_p]. The corrected column matrix gives U_p²−T_pU_p+⟨p⟩=0, and ⟨p⟩ is a unit.",
+        "If a+bU_p with a,b∈B annihilates ψ(M²), the lower-left entry gives bM=0 and then aM=0. Since B is the image on M, it acts faithfully. This proves B[U_p]≅B[X]/(X²−T_pX+⟨p⟩) without assuming T_p∈A.",
+        "Use the R19.5 ordinary triangular description and the R19.6 integral high-weight representation: its trace at a p-Frobenius lift maps to U_p+⟨p⟩U_p⁻¹=T_p on this finite quotient. The cyclotomic factor is trivial there by the chosen high weight (one may choose a lift with ε(Frob_p)=1). That trace comes from T_n and therefore lands in its image A. This uses ordinary local compatibility, not the later conclusion that the weight-one representation is unramified.",
+        "Conclude B=A. Preserve the full doubled module for the rank-two argument; select distinct-root factors only afterwards, when each has rank one."
       ],
       "acceptance": [
-        "A selected distinct-root factor has rank one, so it must fail the repeated-root rank-two contract."
+        "A selected distinct-root factor has rank one, so it must fail the repeated-root rank-two contract.",
+        "The proof must establish B=A[T_p] first and T_p∈A by high-weight traces; using the D1.3 weight-one unramifiedness theorem here would be circular."
       ],
       "prerequisites": [
         "GL2ModularityLiftingPartII:D1.2/ordinary-image-algebras",
-        "GL2ModularityLiftingPartII:D1.2/doubling-injective"
+        "GL2ModularityLiftingPartII:D1.2/doubling-injective",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "AutomorphicGaloisRepresentations:R19.6"
       ],
       "api": [],
       "uses": [],
@@ -989,8 +1028,8 @@
       "sources": [
         {
           "sourceId": "cg18",
-          "locator": "Lemma 3.16 and its proof, pp. 332–333",
-          "match": "Doubling is genuine rank-two freeness, and detects U_p rather than merely its trace."
+          "locator": "Lemma 3.16 and the following Frobenius-trace paragraph, pp. 332–333",
+          "match": "First double over A[T_p], then descend T_p using the integral ordinary representation; the selected distinct-root factors are not individually doubled."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1083,6 +1122,11 @@
           "name": "GlobalDoublingIdeal.localContainment",
           "role": "compatibility",
           "statement": "The map R̃†⊗_{R†}A_n↠T̃_n implies J_loc⊂J_glob."
+        },
+        {
+          "name": "GlobalDoublingIdeal.largest",
+          "role": "universal-property",
+          "statement": "J_glob is the largest ideal of R† annihilating the relative module T̃_n/A_n. An R† action on this module factors through R†/I exactly when I⊂J_glob."
         }
       ],
       "uses": [
@@ -1320,6 +1364,11 @@
           "name": "WeightOnePatchingSystem.augmentation",
           "role": "compatibility",
           "statement": "The inertia/diamond map factors S_a→R_{Q_a}, and augmentation specializes it to the minimal deformation ring."
+        },
+        {
+          "name": "WeightOnePatchingSystem.transition",
+          "role": "compatibility",
+          "statement": "Record compatibility of the finite coefficient and diamond quotients with the A_∞ actions and selected residual roots; any system comparison used in patching must preserve the coinvariant identification with the same H."
         }
       ],
       "uses": [
@@ -1352,7 +1401,7 @@
       "sources": [
         {
           "sourceId": "cg18",
-          "locator": "Theorem 3.26, pp. 339–340; Propositions 3.2–3.3, pp. 312–313",
+          "locator": "Theorem 3.26, pp. 339–340; Propositions 3.2–3.3, pp. 311–312",
           "match": "These are the arithmetic hypotheses of the existing balanced patching engine."
         }
       ],
@@ -1590,6 +1639,11 @@
           "name": "VexingDatum.empty",
           "role": "compatibility",
           "statement": "For T=∅ the coefficient type and quotient G are trivial and recover the no-vexing datum."
+        },
+        {
+          "name": "VexingDatum.latticeChange",
+          "role": "functoriality",
+          "statement": "An isomorphism of the chosen integral G-lattices induces compatible coefficient-bundle isomorphisms. A mere characteristic-zero isomorphism does not identify two integral lattices."
         }
       ],
       "uses": [
@@ -1673,6 +1727,11 @@
           "name": "VexingBundle.subInclusion",
           "role": "structure",
           "statement": "The cusp-ideal inclusion induces L_σ^sub↪L_σ and is an isomorphism away from C_U."
+        },
+        {
+          "name": "VexingBundle.coefficientMap",
+          "role": "functoriality",
+          "statement": "A G-equivariant O-linear map W→W′ induces full and subcuspidal bundle maps, compatible with identity, composition and the cusp inclusion. After the local-freeness theorem these commute with arbitrary O-base change."
         }
       ],
       "uses": [
@@ -1889,6 +1948,11 @@
           "name": "TypeHecke.transpose",
           "role": "characterisation",
           "statement": "The trace-pairing adjoint of T_x is ⟨x⁻¹⟩T_x, including the same 1/x normalization."
+        },
+        {
+          "name": "TypeHecke.coefficientMap",
+          "role": "compatibility",
+          "statement": "Equivariant maps of the integral type lattice intertwine the descended Hecke actions and their transpose pairings at every level and coefficient quotient."
         }
       ],
       "uses": [
@@ -2148,7 +2212,6 @@
         "GL2ModularityLiftingPartII:D1.4/minimal-weight-one-lifting",
         "GL2ModularityLiftingPartII:D1.4/minimal-complete-local-finite-image",
         "AutomorphicGaloisRepresentations:R19.1",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
       ],
       "api": [],
@@ -2209,6 +2272,11 @@
           "name": "MultiplicityDatum.twist",
           "role": "compatibility",
           "statement": "Twisting by φ carries S₁ to S_{φ²}; T_ℓ scales by φ(ℓ), diamonds by φ(d)², and conductor is preserved under the stated harmless hypothesis."
+        },
+        {
+          "name": "MultiplicityDatum.twistComposition",
+          "role": "simp",
+          "statement": "The trivial character acts as the identity; twisting successively by φ and ψ equals twisting by φψ on the matched levels, and its inverse is twisting by φ⁻¹. These identities include the squared diamond character."
         }
       ],
       "uses": [
@@ -2359,7 +2427,7 @@
       "proofSteps": [
         "The group algebra O[Φ] is finite flat Gorenstein; tensoring preserves canonical-module type three. Hence Hom_Zp(T_m,Z_p)/m has residue dimension three.",
         "The Gross sequence gives dim_k G⁰[m]=3 and dim_k Gᵉ[m]=1, but m-torsion is only left exact. It yields 3≤dim_k G[m]≤4.",
-        "Residual absolute irreducibility and the Jacobian realization give barρ-isotypy, so dim_k G[m] is even. Thus it is four and the multiplicity is two.",
+        "Import the Jacobian residual-isotypy theorem from R20.3: at this full non-Eisenstein Hecke ideal, J₁(N*)[m] is a direct sum of copies of the absolutely irreducible barρ. This requires the Jacobian/Eichler–Shimura annihilator input, not merely reconstruction of one rank-two representation over the Hecke ring. Its dimension is even, hence four and the multiplicity is two.",
         "Do not assert that the full Tate module is free of rank two over the non-Gorenstein Hecke algebra."
       ],
       "acceptance": [
@@ -2370,7 +2438,8 @@
         "GL2ModularityLiftingPartII:D1.7/scalar-global-cm-type",
         "SerreWeightAndLevelOptimisation:R20.3/gross-ordinary-tate-sequence",
         "DeformationAndDerivedPatchingAlgebra:R03.3",
-        "AutomorphicGaloisRepresentations:R19.6"
+        "AutomorphicGaloisRepresentations:R19.6",
+        "SerreWeightAndLevelOptimisation:R20.3"
       ],
       "api": [],
       "uses": [],
@@ -2475,6 +2544,11 @@
           "name": "BianchiMinimalDatum.augmentation",
           "role": "compatibility",
           "statement": "At a Taylor–Wiles x, the selected eigenline inertia character defines O[Δ_Q]→R_Q; quotient by augmentation is R_min."
+        },
+        {
+          "name": "BianchiMinimalDatum.coefficientMap",
+          "role": "functoriality",
+          "statement": "Local coefficient maps carry strict-equivalence classes of lifts to lifts with the same fixed determinant and local conditions; the representing-ring equivalence is natural in every Artinian coefficient algebra."
         }
       ],
       "uses": [
@@ -2560,6 +2634,11 @@
           "name": "BianchiLevel.minimalType",
           "role": "compatibility",
           "statement": "The integral type projector, when supplied, commutes with the Q-cover and Hecke correspondences, and selects exactly the prescribed local deformation types in characteristic zero."
+        },
+        {
+          "name": "BianchiLevel.typeComparison",
+          "role": "compatibility",
+          "statement": "For a supplied integral minimal-type model, specify the comparison with each characteristic-zero local selector and its actual dimension. No canonical integral projector is inferred from characteristic-zero type decomposition alone."
         }
       ],
       "uses": [
@@ -2644,6 +2723,11 @@
           "name": "BianchiHecke.uniformizer",
           "role": "compatibility",
           "statement": "Replacing π_x by uπ_x multiplies U_x by the diamond ⟨u⟩, hence preserves its residual eigenvalue exactly when that diamond is residually trivial."
+        },
+        {
+          "name": "BianchiHecke.lift",
+          "role": "universal-property",
+          "statement": "The represented Hecke image is the abstract operator algebra modulo the kernel of its action on the specified homology. A homomorphism descends exactly when it kills that kernel, and is determined by the displayed operators and diamonds."
         }
       ],
       "uses": [
@@ -2729,6 +2813,11 @@
           "name": "ConjectureA.coefficientPrime",
           "role": "compatibility",
           "statement": "The finite-flat and ordinary implications are conditioned on the residual representation; finite flat is over O_{F_v}."
+        },
+        {
+          "name": "ConjectureA.quotient",
+          "role": "compatibility",
+          "statement": "Base change of a supplied representation to a finite local quotient retains the good-prime polynomials and the specified local identities; keep all Artinian finite-flat conditions. This does not supply the contract at a different auxiliary level Q."
         }
       ],
       "uses": [
@@ -2857,6 +2946,11 @@
           "name": "BianchiDiamondCover.change",
           "role": "functoriality",
           "statement": "Quotients Δ↠Δ′ induce the expected covering transfer maps and augmenting to Δ′=1 recovers base level."
+        },
+        {
+          "name": "BianchiDiamondCover.augmentation",
+          "role": "simp",
+          "statement": "Under the Shapiro equivalence, the map to base level uses the coefficient-sum augmentation S→O: every deck basis element [δ] maps to 1, including in residue characteristic dividing |Δ|."
         }
       ],
       "uses": [
@@ -3089,6 +3183,11 @@
           "name": "BianchiPatchingSystem.diamond",
           "role": "compatibility",
           "statement": "The group-ring action is induced by the selected Galois inertial characters, and augmentation gives the fixed-determinant minimal problem."
+        },
+        {
+          "name": "BianchiPatchingSystem.coefficientChange",
+          "role": "compatibility",
+          "statement": "Keep finite-coefficient and deck-quotient transition maps compatible with the chosen U_x factors and A_∞ action; the base H is the same minimal-level module for every patching index."
         }
       ],
       "uses": [
@@ -3356,11 +3455,14 @@
   "requests": [
     {
       "supplier": "AlgebraicModularFormsAndSerreWeights:R15.1",
-      "need": "Supply conductor and fine-rigidified Katz modular curves, Hodge bundle, cusp ideal and Kodaira–Spencer Ω¹=ω²(−C), with genuine small-level descent. Verify the Remark 3.10 harmless-prime repair on cohomology: distinct roots give one chosen old copy, repeated roots two copies, and the arithmetic conductor module is recovered without descending a nonexistent coarse Hodge bundle. For G-equivariant finite covers provide sheaf pushforward/invariants, finite étale descent and tame-cusp completed rings used by the coefficient bundles.",
+      "need": "Supply conductor and fine-rigidified Katz modular curves, Hodge bundle, cusp ideal and Kodaira–Spencer Ω¹=ω²(−C), with genuine small-level descent. Verify the Remark 3.10 harmless-prime repair on cohomology: distinct roots give one chosen old copy, repeated roots two copies, and the arithmetic conductor module is recovered without descending a nonexistent coarse Hodge bundle. For G-equivariant finite covers provide sheaf pushforward/invariants, finite étale descent and tame-cusp completed rings used by the coefficient bundles. For removal of r, include exact invariants for Γ₁(r)→Γ₀(r), the common-fine-refinement comparison with base conductor N, and transport of correspondence identities; the comparison algebra omits U_r. Supply coherent Cartan–Leray descent for the compactified finite étale p-power diamond cover and Hodge sheaf, including the first-quadrant cohomology spectral sequence, finite/divisible coefficient compatibility, commuting normalized Hecke action and the low-degree Tor sequence after Pontryagin duality. This modular-curve coherent input is owned here; ALS.6 supplies the distinct orbifold/group-homology cover theorem.",
       "neededBy": [
         "GL2ModularityLiftingPartII:D1.0/weight-one-level-data",
         "GL2ModularityLiftingPartII:D1.5/vexing-coefficient-bundles",
-        "GL2ModularityLiftingPartII:D1.5/bundle-local-freeness-base-change"
+        "GL2ModularityLiftingPartII:D1.5/bundle-local-freeness-base-change",
+        "GL2ModularityLiftingPartII:D1.1/oldform-degeneracy",
+        "GL2ModularityLiftingPartII:D1.1/harmless-prime-comparison",
+        "GL2ModularityLiftingPartII:D1.1/coherent-cover-descent"
       ]
     },
     {
@@ -3410,9 +3512,8 @@
     },
     {
       "supplier": "ArithmeticLocallySymmetricSpaces:ALS.6",
-      "need": "Supply Hochschild–Serre for finite normal orbifold covers with the exact low-degree Tor edge maps, Hecke and coefficient compatibility, using group homology at non-neat levels. The coherent-cover specialization requested here includes equivariant coherent cohomology, Pontryagin duality and the cartesian Hodge/degeneracy squares of CG18 Proposition 3.8; if not in this stage, route that geometric specialization to R15.1 without creating a second generic spectral sequence.",
+      "need": "Supply Hochschild–Serre for finite normal orbifold covers with the exact low-degree Tor edge maps, Hecke and coefficient compatibility, using group homology at non-neat levels.",
       "neededBy": [
-        "GL2ModularityLiftingPartII:D1.1/coherent-cover-descent",
         "GL2ModularityLiftingPartII:D1.9/bianchi-diamond-cover",
         "GL2ModularityLiftingPartII:D1.9/bianchi-balancedness"
       ]
@@ -3433,7 +3534,8 @@
         "GL2ModularityLiftingPartII:D1.2/ordinary-image-algebras",
         "GL2ModularityLiftingPartII:D1.3/scalar-local-comparison",
         "GL2ModularityLiftingPartII:D1.3/three-unramified-cases",
-        "GL2ModularityLiftingPartII:D1.10/minimal-semistable-bianchi-lifting"
+        "GL2ModularityLiftingPartII:D1.10/minimal-semistable-bianchi-lifting",
+        "GL2ModularityLiftingPartII:D1.2/quadratic-doubling"
       ]
     },
     {
@@ -3444,7 +3546,8 @@
         "GL2ModularityLiftingPartII:D1.3/scalar-local-comparison",
         "GL2ModularityLiftingPartII:D1.3/three-unramified-cases",
         "GL2ModularityLiftingPartII:D1.6/type-weight-one-galois",
-        "GL2ModularityLiftingPartII:D1.7/scalar-multiplicity-two"
+        "GL2ModularityLiftingPartII:D1.7/scalar-multiplicity-two",
+        "GL2ModularityLiftingPartII:D1.2/quadratic-doubling"
       ]
     },
     {
@@ -3554,9 +3657,10 @@
     },
     {
       "supplier": "SerreWeightAndLevelOptimisation:R20.3",
-      "need": "Supply the exact known multiplicity-one cases of CG18 Remark 4.9 and the Carayol diamond-quotient comparison for Remark 4.12, with its p≠3 and Q(√−3)-induction exclusions. The new scalar type-three argument is owned by this Part II.",
+      "need": "Supply the exact known multiplicity-one cases of CG18 Remark 4.9 and the Carayol diamond-quotient comparison for Remark 4.12, with its p≠3 and Q(√−3)-induction exclusions. The new scalar type-three argument is owned by this Part II. Also supply Jacobian residual isotypy at the full non-Eisenstein ideal m: J₁(N*)[m] is a direct sum of barρ, with the Eichler–Shimura annihilator/Galois-module argument at this exact level and ideal. Rank-two Hecke-valued reconstruction by itself does not imply this assertion for all Jacobian m-torsion.",
       "neededBy": [
-        "GL2ModularityLiftingPartII:D1.7/multiplicity-one-and-quotients"
+        "GL2ModularityLiftingPartII:D1.7/multiplicity-one-and-quotients",
+        "GL2ModularityLiftingPartII:D1.7/scalar-multiplicity-two"
       ]
     },
     {
@@ -3763,11 +3867,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E6"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The introductory theorem omits a normalization that is explicitly present in §3.1; the finite-order twist repair changes the relevant conductor problem.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E2",
@@ -3783,11 +3893,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E9"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equality of invariant dimensions does not fix inertial characters or determinant: a new p-primary ramified character can preserve that dimension.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E3",
@@ -3803,11 +3919,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E21"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The isogeny scalar is raised to the nth tensor power on ωⁿ; the weight-independent display fails outside n=1.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E4",
@@ -3823,11 +3945,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E22"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed construction is an operator on sections of a single auxiliary curve; its changed cohomological degree and mixed level label have no corresponding map.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E5",
@@ -3843,12 +3971,18 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E23",
         "PAPER-CALEGARI-GERAGHTY-18/E66"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Diamonds preserve cusp types rather than acting transitively on all cusps. The two-character reducible trace is enough for the stated localized boundary vanishing.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E6",
@@ -3864,14 +3998,20 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E24",
         "PAPER-CALEGARI-GERAGHTY-18/E25",
         "PAPER-CALEGARI-GERAGHTY-18/E28",
         "PAPER-CALEGARI-GERAGHTY-18/E29"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two correspondence identities force upper-right x⟨x⟩ and lower-left −x⁻¹, with determinant ⟨x⟩; the source also changes the domain of the coordinate pair.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E7",
@@ -3887,11 +4027,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E26"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The K/O module is not of finite O-length. The finite π-power pieces have finite length and their compatible equalities pass to the union.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E8",
@@ -3907,11 +4053,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E27"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Functorial faithfulness does not allow cancellation of this map on cohomology; the cyclic-subgroup computation proves the necessary correspondence identity directly.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E9",
@@ -3927,13 +4079,19 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E30",
         "PAPER-CALEGARI-GERAGHTY-18/E31",
         "PAPER-CALEGARI-GERAGHTY-18/E33"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The low-degree Tor edge map fixes the quadrant after Pontryagin duality, and the rank comparison is a dimension over K on both sides.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E10",
@@ -3949,11 +4107,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E32"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Genus zero controls H⁰(Ω¹)=H⁰(ω²(−C)), not the full Eisenstein-containing weight-two section space.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E11",
@@ -3969,11 +4133,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E34"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A determinant field does not determine the residual Frobenius eigenvalue ratio. The full residual fixed field is the required Chebotarev input.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E12",
@@ -3989,11 +4159,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E35"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Distinct roots alone do not exclude ratio x or x⁻¹. Norm x≡1 mod p does exclude these ratios and is the intended Taylor–Wiles hypothesis.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E13",
@@ -4009,11 +4185,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E37"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "With the stated ordered columns the second column is the diamond times V_p, yielding [[T_p,⟨p⟩],[−1,0]]. The printed entries use a different convention.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E14",
@@ -4029,11 +4211,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E38"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Selecting one ordinary factor can kill other high-weight components. Repeated residual roots in that factor do not prove injectivity from the original image algebra.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E15",
@@ -4049,13 +4237,19 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E39",
         "PAPER-CALEGARI-GERAGHTY-18/E40",
         "PAPER-CALEGARI-GERAGHTY-18/E42"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The character used to specialize U_p must be defined on the eigenvalue-adorned algebra. Q diamonds allow determinant ramification at Q, so the displayed range must exclude Q.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E16",
@@ -4071,11 +4265,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E41"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The ε^(n−1) factor in the ordinary subcharacter is ramified in characteristic zero; it disappears only after the specified finite-coefficient specialization.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E17",
@@ -4091,11 +4291,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E43"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "After Hensel separation a chosen distinct-root factor has rank one. The rank-two quadratic argument needs the repeated-root factor or both factors together.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E18",
@@ -4111,11 +4317,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E44"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The scalar residual representation must first be twisted by the residual Frobenius scalar, lifted by c²=⟨p⟩; the eigenvalue parameter then maps to c⁻¹U_p.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E19",
@@ -4131,11 +4343,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E45"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An invertible scalar operator is decomposable. The nonzero nilpotent part of the doubled Jordan block supplies the indecomposability actually used.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E20",
@@ -4151,11 +4369,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E48"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Good-prime trace generation alone omits chosen bad U_x. The diamond-image condition suffices for patching, while the full surjection needs the specified local compatibility.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E21",
@@ -4171,12 +4395,18 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E49",
         "PAPER-CALEGARI-GERAGHTY-18/E50"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Wild ramification can give conductor exponent above one with a one-dimensional invariant line. Integral Frobenius/newvector compatibility must use invariant dimension.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E22",
@@ -4192,11 +4422,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E51"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed level would specialize to the wrong diamond quotient when there are no vexing primes; retaining the p-primary lower-right subgroup restores the minimal problem.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E23",
@@ -4212,7 +4448,8 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E52",
@@ -4220,7 +4457,12 @@
         "PAPER-CALEGARI-GERAGHTY-18/E54",
         "PAPER-CALEGARI-GERAGHTY-18/E55",
         "PAPER-CALEGARI-GERAGHTY-18/E56"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checking each sheaf domain in §3.9.1 exhibits the missing cusp ideal and mismatched level/tensor bases. The independently defined invariant pushforwards fix the domains.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E24",
@@ -4236,11 +4478,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E57"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The G-torsor trivializes the pullback of the associated bundle. Its descent can have nontrivial monodromy and need not be globally trivial.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E25",
@@ -4256,11 +4504,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E58"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A finite algebra over a Zariski local ring need not split into its fibre factors; henselization or completion gives that decomposition and faithfully flat descent recovers local freeness.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E26",
@@ -4276,11 +4530,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E60"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The local exponent calculation requires a cusp point; at an interior point the finite map is an étale torsor and gives no cusp correction.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E27",
@@ -4296,11 +4556,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E61"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Dualizing the CDT section selector takes W_σ to W_σ*, and the Hecke transpose inverts diamonds; retaining the same type/ideal without this transport is unjustified.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E28",
@@ -4316,7 +4582,8 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E62",
@@ -4328,27 +4595,38 @@
         "PAPER-CALEGARI-GERAGHTY-18/E69",
         "PAPER-CALEGARI-GERAGHTY-18/E70",
         "PAPER-CALEGARI-GERAGHTY-18/E223"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The listed formulas require the sheaf on its actual Q,Δ level, the good-prime operator range, inverse-diamond adjoints and retained Q ramification.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E29",
       "source": "cg18",
-      "kind": "gap",
+      "kind": "error",
       "locator": "Lemma 4.2, p. 355 (published author PDF)",
       "printed": "Completed tensoring with an arbitrary complete-intersection O-algebra is claimed to preserve the Cohen–Macaulay property and type.",
       "correction": "Add O-Tor independence, for example O-flatness of at least one factor, before transporting the regular sequence.",
-      "reason": "For B=C=O/π, the claimed tensor regular-sequence argument loses regularity.",
+      "reason": "Take B=O[[x]]/(πx), a Cohen–Macaulay hypersurface of dimension one, and C=O/π², a complete intersection. Their completed tensor product is D=O[[x]]/(πx,π²). It still has dimension one, but its nonzero element π is annihilated by the maximal ideal (π,x), so depth D=0. Thus even Cohen–Macaulayness fails without Tor independence; B=C=O/π only invalidated the printed proof and was not a counterexample to the conclusion.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E72"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Take B=O[[x]]/(πx), a Cohen–Macaulay hypersurface of dimension one, and C=O/π², a complete intersection. Their completed tensor product is D=O[[x]]/(πx,π²). It still has dimension one, but its nonzero element π is annihilated by the maximal ideal (π,x), so depth D=0. Thus even Cohen–Macaulayness fails without Tor independence; B=C=O/π only invalidated the printed proof and was not a counterexample to the conclusion.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E30",
@@ -4359,16 +4637,22 @@
       "correction": "Equality implies regularity. The reverse direction needs the specified homogeneous associated-graded situation, as the following paragraph itself explains.",
       "reason": "A regular element can have nonregular initial form in the associated graded. This is an input-owner correction, not a new local-ring plan here.",
       "affects": "a stated result",
-      "known": "new",
+      "known": "The paragraph following the proof of Lemma 4.4, CG18 pp. 357–358, explicitly gives the nongraded counterexample and the required graded qualification.",
       "searched": [
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E75"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The first equivalence is contradicted by the explicit nongraded example immediately following its proof. The paper itself records the graded qualification; this is not an unreported correction.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E31",
@@ -4384,11 +4668,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E85"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For a ramified residual self-extension at norm one, the ψ and ψ⁻¹ characteristic-zero branches may coincide after determinant normalization. The proposed fixed-determinant comparison therefore lacks injectivity; Gap M is retained.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E32",
@@ -4404,12 +4694,18 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E89",
         "PAPER-CALEGARI-GERAGHTY-18/E224"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At residual ramified Steinberg type and norm −1, additional supercuspidal lift components are not conductor-minimal. A matching comparison must use the stated Steinberg/unipotent quotient.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E33",
@@ -4425,7 +4721,8 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E86",
@@ -4434,7 +4731,12 @@
         "PAPER-CALEGARI-GERAGHTY-18/E91",
         "PAPER-CALEGARI-GERAGHTY-18/E92",
         "PAPER-CALEGARI-GERAGHTY-18/E93"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The calculation continues through the character-twisting and Gross-sequence paragraph. Its local factors include unipotent inertia and roots of every nontrivial p-power order, with the indicated intermediate subscripts.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E34",
@@ -4450,11 +4752,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E94"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A generic-fibre isomorphism between torsion-free orders need not have index one. Squared diamonds generate O[Φ] because Φ has odd order, allowing an integral generator proof.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E35",
@@ -4470,11 +4778,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E95"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The m-torsion functor is left exact. The Gross sequence only bounds dimension between three and four; Jacobian residual isotypy supplies the missing evenness.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E36",
@@ -4490,7 +4804,8 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E96",
@@ -4498,7 +4813,12 @@
         "PAPER-CALEGARI-GERAGHTY-18/E98",
         "PAPER-CALEGARI-GERAGHTY-18/E99",
         "PAPER-CALEGARI-GERAGHTY-18/E100"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A zero-dimensional noetherian generic fibre is Artinian; finite-group H¹ vanishing gives restriction injectivity. The class-field argument concerns an extension unramified at every place above p.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E37",
@@ -4514,13 +4834,19 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E101",
         "PAPER-CALEGARI-GERAGHTY-18/E102",
         "PAPER-CALEGARI-GERAGHTY-18/E103"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The local classification is an absolute one after enlarging coefficients; residual and lifted characters/representations cannot be interchanged. Quadratic-twisted nontrivial unipotent inertia is not semisimple P.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E38",
@@ -4536,7 +4862,8 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E104",
@@ -4549,7 +4876,12 @@
         "PAPER-CALEGARI-GERAGHTY-18/E114",
         "PAPER-CALEGARI-GERAGHTY-18/E119",
         "PAPER-CALEGARI-GERAGHTY-18/E122"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The simultaneous prime-selection element must fix the specified cyclotomic roots. The quotient and Hecke formulas then need finite adeles, PGL₂ local groups and the actual prime/empty-level labels.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E39",
@@ -4565,11 +4897,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E106"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The full-conductor Γ_p space need not have the prescribed minimal principal inertial type. The half-conductor character or twisted-spherical selector addresses the characteristic-zero defect; its integral version remains Gap P.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E40",
@@ -4585,13 +4923,19 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E111",
         "PAPER-CALEGARI-GERAGHTY-18/E113",
         "PAPER-CALEGARI-GERAGHTY-18/E226"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At norm one the distinct-root polynomial has simple roots not equal to ±1; those conditions make Hensel selection valid. Residual diamonds must be trivial for the claimed uniformizer independence.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E41",
@@ -4607,11 +4951,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E115"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Flatness of the residual representation is the antecedent of the finite-flat implication. The intended Artinian lift condition is over the local integer ring O_(F_v), not the coefficient ring.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E42",
@@ -4627,11 +4977,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E116"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The raw noncompact-manifold H₃ argument does not apply to mod-3 group homology with order-three stabilizers. This confirms a failure of the proof, not a counterexample to localized vanishing; the missing localized statement remains Gap O.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E43",
@@ -4647,12 +5003,18 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E117",
         "PAPER-CALEGARI-GERAGHTY-18/E118"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The coefficient sequence for homology has H₃(μ/π) mapping to H₂(μ)[π]. Hecke correspondences can permute components; component-preserving primes suffice for the boundary Eisenstein argument.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E44",
@@ -4668,12 +5030,18 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E120",
         "PAPER-CALEGARI-GERAGHTY-18/E123"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preceding dual-Selmer formula contains ad⁰barρ(1). The cover Tor functor also requires its augmentation argument O; both disappear in the printed patching display.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E45",
@@ -4689,11 +5057,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E121"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Automorphic multiplicity one counts representations, not the dimension of π_f^K. Printed Γ_p levels admit several prime-to-p diamond vectors, so the universal rank-one claim is too strong.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E46",
@@ -4709,11 +5083,17 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E124"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For a class of order h=p^b the lifting obstruction is h-divisibility in the residue unit group. p-divisibility alone cannot split the extension if b>1.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E47",
@@ -4722,18 +5102,24 @@
       "locator": "Coefficient bundles at new levels, §3.9.1, pp. 344–345 (published author PDF)",
       "printed": "An identification with plain pullback of the compactified base type bundle is used without accounting for cusp ramification.",
       "correction": "Define each new-level coefficient bundle by invariant pushforward from its own V-level; use the natural inclusion from pullback and the level-V trace for Hecke operators.",
-      "reason": "Pullback can be a proper subsheaf at doubly ramified cusps.",
+      "reason": "Flat base change does not identify the normalization of the ramified cusp fibre product with the fibre product. For example take tame indices e=5 and f=7, parameters t=q⁵=u⁷ and normalized parameter w with q=w⁷,u=w⁵. An old character line generated by q pulls back to w⁷O[[u]], whereas its independently normalized character line is w²O[[u]]; the former is u times the latter. Thus the full coefficient extension, as well as the subcuspidal one, can change at a doubly ramified cusp.",
       "affects": "the proof",
       "known": "new",
       "searched": [
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E221"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Flat base change does not identify the normalization of the ramified cusp fibre product with the fibre product. For example take tame indices e=5 and f=7, parameters t=q⁵=u⁷ and normalized parameter w with q=w⁷,u=w⁵. An old character line generated by q pulls back to w⁷O[[u]], whereas its independently normalized character line is w²O[[u]]; the former is u times the latter. Thus the full coefficient extension, as well as the subcuspidal one, can change at a doubly ramified cusp.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     },
     {
       "id": "GL2ModularityLiftingPartII/E48",
@@ -4749,7 +5135,8 @@
         "Published author PDF CG.pdf, target sections and proofs, read 2026-10-19",
         "Author research page https://math.uchicago.edu/~fcale/research.html and author preprint merge.pdf, target comparisons, read 2026-10-19",
         "Publisher article https://doi.org/10.1007/s00222-017-0749-x and its linked Correction, Invent. Math. 227 (2022), 855–856, read 2026-10-19",
-        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19"
+        "Primary-source web searches for the title with correction, Theorem 4.8 twisting, and Lemma 5.9 p=3, on 2026-10-19",
+        "Independent review reread the individual CG18 locators, complete 2022 Correction, author research listing and targeted merge.pdf passages; title/errata and Lemma 3.16/4.8/5.9 primary-source searches, 2026-10-19. No additional author/publisher correction was located in these searches."
       ],
       "extractionLeads": [
         "PAPER-CALEGARI-GERAGHTY-18/E36",
@@ -4757,7 +5144,12 @@
         "PAPER-CALEGARI-GERAGHTY-18/E59",
         "PAPER-CALEGARI-GERAGHTY-18/E71",
         "PAPER-CALEGARI-GERAGHTY-18/E88"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The complete published correction lists the lost double brackets. It concerns formal completions and q-series, not a need to complete every finite group algebra.",
+        "by": "REV-DESIGN-GL2ModularityLiftingPartII"
+      }
     }
   ],
   "routedItems": [
@@ -5538,7 +5930,9 @@
       "Read current Chebotarev and LocalGaloisGroups reader documents, and the relevant modular-form, modular-curve, class-field and integral-Hecke targets. Searched the newer roadmap signatures for the arithmetic objects here.",
       "Existing generic vector-bundle descent, Galois groups/reciprocity, modular curves/forms and Hecke-image/local-factor constructions are imported; this packet does not plan them again.",
       "Current ClassFieldTheory Layer 7 supplies the geometric/arithmetic inversion, Layer 12 the ray-class argument.",
-      "Current IHG.2 already owns finite torsion Hecke images and local factors. No new generic Hecke-algebra carrier is introduced."
+      "Current IHG.2 already owns finite torsion Hecke images and local factors. No new generic Hecke-algebra carrier is introduced.",
+      "Independent review read the current Chebotarev and ProfiniteArithmetic readers in full, the LocalGaloisGroups and ModularForms scope/contracts, ClassFieldTheory Layers 7 and 12, and IntegralHeckeAndGaloisDeterminants IHG.2 finite-image/local-factor targets. It searched Suggested files (including split OperatorTheory files) in all nine post-snapshot roadmaps for balanced/doubling/vexing/Bianchi/weight-one/ordinary-eigenvalue/Hasse/canonical-module/Hecke/Shapiro/duality/descent/Artin targets.",
+      "Specific current-library searches for BalancedModule, Wiese, vexing, Bianchi, HasseDoubling, DoublingIdeal, WeightOne, OrdinaryRing and EigenvalueRing found unrelated weight-one Hodge structures, differential-geometric Bianchi identities and divisor-degree comparisons, not these modularity-lifting carriers. Generic vector bundles, Galois/reciprocity and Hecke images remain imports."
     ]
   },
   "upstreamNotes": [
@@ -5554,8 +5948,296 @@
         "AlgebraicModularFormsAndSerreWeights",
         "ArithmeticLocallySymmetricSpaces"
       ],
-      "note": "The coherent-cover specialization in the ALS.6 request is geometrically different from a topological local-system cover. Route its modular-curve/coherent part to R15.1 if necessary, retaining a single owner for each spectral-sequence input."
+      "note": "Independent review assigns the coherent Cartan–Leray input of D1.1 to R15.1, with sheaf and Hecke compatibility specified there. ALS.6 retains only the distinct orbifold/group-homology cover contract used by D1.9; there is no conditional double ownership."
     }
   ],
-  "restructure": []
+  "restructure": [],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GL2ModularityLiftingPartII",
+    "date": "2026-10-19",
+    "notes": "Independently checked all 56 targets, 18 definition/construction APIs and their 54 tests, five declarations at the exact pins, ten exact supplier nodes, 27 precise supplier requests, source locators and all 48 source findings. Corrected the doubling dependency, conductor/fine-level and auxiliary-prime comparisons, explicit residual-isotypy input, coherent-descent ownership, API uniqueness/compatibility and source-issue evidence. All eleven layers remain planned, none closed; Gaps M/O/P and Conjecture A are explicit limitations. This accepts a complete planning pass, not mathematical implementation or gap closure.",
+    "checked": [
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.0/weight-one-level-data",
+        "verdict": "corrected",
+        "note": "Separated the conductor Katz/descent object from its fine r-model, and corrected the empty-Q test and level API; §3.1 and Remark 3.10 supply the intended normalization."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.0/weight-one-hecke-data",
+        "verdict": "corrected",
+        "note": "Checked the represented operator set and nonflat finite images in §3.2.4; added the image-kernel universal property, without adjoining T_p prematurely."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.0/coherent-boundary-vanishing",
+        "verdict": "verified",
+        "note": "Checked the two cusp characters and reducible eigentraces in Remark 3.4; localization is at the full non-Eisenstein residual ideal."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.0/dual-coherent-homology",
+        "verdict": "corrected",
+        "note": "Verified the K/O duality degree reversal and retention of torsion; added functorial coefficient maps without a false tensor-base-change assertion."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.0/weight-one-hecke-duality",
+        "verdict": "verified",
+        "note": "Read the exact R15.3 twisted-duality supplier, including x^(1−n), W_ζ and cusp twist; generic rank equality is descended, not integral self-duality at arbitrary weight."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.1/oldform-degeneracy",
+        "verdict": "corrected",
+        "note": "Checked all entries of the oldform pairing and U_x matrix in Lemma 3.5; generalized the base level so x=r is allowed, imported common-fine descent, and added column extensionality."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.1/selected-root-oldform-comparison",
+        "verdict": "verified",
+        "note": "At x≡1 mod p the determinant is a unit for distinct roots; finite π-power lengths and the W_x complement argument give the selected factor in Lemmas 3.5–3.6."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.1/harmless-prime-comparison",
+        "verdict": "corrected",
+        "note": "Made the harmless comparison an away-x module statement, explicitly permitted removal of r from base N, and supplied the prime-to-p diamond and repeated-copy defect arguments."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.1/coherent-cover-descent",
+        "verdict": "corrected",
+        "note": "Checked the homological Tor edge segment and coherent coefficient conventions; assigned coherent Cartan–Leray descent directly to R15.1 rather than an optional extension of the topological ALS.6 supplier."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.1/coherent-balancedness",
+        "verdict": "verified",
+        "note": "Checked Proposition 3.8 with K/O coefficients, O-free H₁, the Tor/augmentation formula and equal generic ranks; no O-flatness of H₀ is used."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.2/hasse-doubling-map",
+        "verdict": "corrected",
+        "note": "Checked finite-quotient Hasse powers, both q-expansion columns and the corrected U_p matrix; added characterization by all-cusp expansions."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.2/doubling-injective",
+        "verdict": "verified",
+        "note": "Katz theta gives injectivity, and the field-valued R20.3 theorem supplies the residual roots without importing the later torsion-Hecke result circularly."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.2/ordinary-projection-injective",
+        "verdict": "verified",
+        "note": "Read CG20 Lemma 8.14 and its socle reduction: each distinct-root projection of Hasse multiplication is injective; this is not injectivity of the entire doubled space into one factor."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.2/ordinary-image-algebras",
+        "verdict": "corrected",
+        "note": "Distinguished the p-anaemic high-weight image including Q operators from the smaller good-prime image and from its selected factor; corrected the finite-image test and added its kernel property."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.2/quadratic-doubling",
+        "verdict": "corrected",
+        "note": "Removed the unproved assumption T_p∈A: first double over B=A[T_p], then use the integral ordinary Frobenius trace to prove B=A; added the direct R19.5/R19.6 contracts."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.3/wiese-doubling-criterion",
+        "verdict": "verified",
+        "note": "The Wiese criterion keeps free rank-two modules, R-splitting and indecomposability of the residual quotient; checked Lemma 3.17, including its submodule/quotient convention."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.3/global-doubling-ideal",
+        "verdict": "corrected",
+        "note": "Verified Definition 3.25 uses a relative module rather than a ring quotient, checked containment from the local tensor surjection, and added the largest-annihilator property."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.3/scalar-local-comparison",
+        "verdict": "verified",
+        "note": "Read the exact L7 and L8 statements: after c-normalization the eigenvalue sends to c^(-1)U_p; J_loc=I_unr kills inertia on the faithful relative quotient."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.3/three-unramified-cases",
+        "verdict": "verified",
+        "note": "Checked the three separate ordinary arguments in §§3.5–3.7; distinct roots use both projections, repeated nonscalar uses Wiese, scalar uses the local annihilator."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.3/weight-one-galois-representation",
+        "verdict": "verified",
+        "note": "Theorem 3.11 needs actual integral GL₂ reconstruction and the ratio restriction at Q; determinant normalization and inverse-limit continuity retain the specified local conditions."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.4/weight-one-patching-system",
+        "verdict": "corrected",
+        "note": "Checked q≥1, q−1 variables, augmentation and image conditions against the exact R03.5 patching theorem; fixed Proposition 3.2/3.3 pages and added transition compatibility."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.4/minimal-weight-one-rt",
+        "verdict": "verified",
+        "note": "Theorem 3.26 follows from the nonzero minimal Katz witness, selected coinvariants and balanced patching; faithful Hecke action gives R=T, including torsion."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.4/no-vexing-rank-one",
+        "verdict": "verified",
+        "note": "Checked mod-π q-expansion duality, the invariant-line rather than conductor-exponent bad-prime split, and Nakayama over the complete local ring; the R19.4 integral input is explicit."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.4/minimal-weight-one-lifting",
+        "verdict": "verified",
+        "note": "An O-valued minimal lift is a point of the same R_min; characteristic-zero Katz forms give the weight-one Artin representation through the requested R16.6/R19.1 bridge."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.4/minimal-complete-local-finite-image",
+        "verdict": "verified",
+        "note": "Read Lemma 4.14 and the ray-class argument: generic fibre is Artinian, restriction on characteristic-zero H¹ is injective, and a p-unramified Z_p^r extension is impossible."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.5/vexing-level-data",
+        "verdict": "corrected",
+        "note": "Read the exact CDT supplier and the extra minimal-selector request; added invariance under integral lattice isomorphism, not just characteristic-zero type equivalence."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.5/vexing-coefficient-bundles",
+        "verdict": "corrected",
+        "note": "Checked the sheafwise full/subcuspidal invariant pushforwards separately at each level; added functoriality in integral coefficient lattices and checked the three cusp tests."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.5/bundle-local-freeness-base-change",
+        "verdict": "verified",
+        "note": "Completed tame cusp character summands prove local freeness and arbitrary coefficient base change; the open part uses torsor descent, not division by |G|."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.5/bundle-cusp-duality",
+        "verdict": "verified",
+        "note": "The q^i and q^(e−i) cusp calculation proves the contragredient subcuspidal identities; the unrestricted full dual comparison is only an inclusion."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.5/type-high-weight-vanishing",
+        "verdict": "verified",
+        "note": "Corollary 3.29 uses duality and nonpositive-weight cusp vanishing: n>1 for full bundles, n>2 for subcuspidal bundles; weight-one torsion is preserved."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.5/type-hecke-correspondences",
+        "verdict": "corrected",
+        "note": "Checked upstairs equivariant pull/isogeny/trace, cusp extension and inverse-diamond transpose; added compatibility with coefficient-lattice maps."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.6/type-boundary-and-degeneracy",
+        "verdict": "verified",
+        "note": "Checked Theorem 3.30 boundary and oldform arguments with invariant pushforwards and corrected adjoints; finite-length comparisons do not assume exact G-invariants."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.6/type-balancedness",
+        "verdict": "verified",
+        "note": "The homological type is contragredient to the section type and duality changes the residual ideal; balancedness uses the same right-exact edge bound after those corrections."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.6/type-weight-one-galois",
+        "verdict": "verified",
+        "note": "Hasse multiplication, projection, q-expansion and local doubling carry over upstairs G-equivariantly; the full integral R19.6 contract is still required."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.6/minimal-vexing-weight-one-rt",
+        "verdict": "verified",
+        "note": "The exact R03.5 theorem applies to the type-coefficient system with selected coinvariants and nonzero minimal witness; it does not create a new patching theorem."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.6/vexing-minimal-finite-image",
+        "verdict": "corrected",
+        "note": "Verified finite-order twisting and determinant square-root normalization before applying the minimal theorem; removed a duplicated class-field prerequisite."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.7/multiplicity-character-data",
+        "verdict": "corrected",
+        "note": "Checked N*=N or Np, minimality among local twists and the harmless character subgroup; added identity/composition/inverse laws for the squared-diamond twist action."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.7/scalar-global-cm-type",
+        "verdict": "verified",
+        "note": "Read Theorem 4.8 proof and exact L7 type-three theorem; the conductor-compatible R22.4 comparison remains an explicit contract, and the nonharmless collision remains Gap M."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.7/integral-character-twisting",
+        "verdict": "verified",
+        "note": "The integral identity requires actual generators: squared diamonds recover the group ring because p is odd, then untwist good and bad operators; a generic-fibre equality alone is insufficient."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.7/scalar-multiplicity-two",
+        "verdict": "corrected",
+        "note": "Gross m-torsion is only left exact; dimensions lie between three and four. Added the exact R20.3 Jacobian-isotypy contract that forces evenness, rather than relying on rank-two reconstruction alone."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.7/multiplicity-one-and-quotients",
+        "verdict": "verified",
+        "note": "Read Remark 4.9 and Remark 4.12: multiplicity-one alternatives are imports, and the quotient-Jacobian claim keeps both the p≠3 and exceptional induced-representation restrictions."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.8/bianchi-minimal-datum",
+        "verdict": "corrected",
+        "note": "Checked the S/P/M/H absolute local conditions and finite-flat precedence over O_(F_v); added naturality of the representing problem in Artinian coefficients."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.8/bianchi-level-and-type-spaces",
+        "verdict": "corrected",
+        "note": "Checked projective levels, determinant components and genuine group homology; added the exact characteristic-zero type-comparison API while retaining the missing integral P package as Gap P."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.8/bianchi-hecke-data",
+        "verdict": "corrected",
+        "note": "Verified finite possibly nonflat Hecke images, proper residual modularity ideal and diamond-dependent uniformizer changes; added the represented-image universal property."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.8/bianchi-conjecture-a-contract",
+        "verdict": "corrected",
+        "note": "Read all Conjecture A clauses and reciprocity conventions; the contract supplies an actual representation at every Q, includes residual-conditioned flatness, and now records coefficient quotient compatibility."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.8/bianchi-galois-surjection",
+        "verdict": "verified",
+        "note": "At norm one distinct roots have α≠±1. Hensel selection and the local diamond character give the full R_Q-to-Hecke surjection rather than just good-prime traces."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.9/bianchi-diamond-cover",
+        "verdict": "corrected",
+        "note": "Checked the normal intermediate orbifold cover and Shapiro using the actual deck group; added the coefficient-sum augmentation rule and retained p-divisible deck groups."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.9/bianchi-selected-root-comparison",
+        "verdict": "verified",
+        "note": "Lemma 5.8 is the selected-root comparison, not a rank-one assertion for the entire oldspace; direct minimal-type summands require the stated compatibility."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.9/bianchi-localized-amplitude",
+        "verdict": "verified",
+        "note": "Checked Lemma 5.9 with finite coefficients, boundary localization and the homology coefficient sequence; p≥5 removes stabilizer p-torsion, while the p=3 extension remains Gap O."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.9/bianchi-balancedness",
+        "verdict": "verified",
+        "note": "Checked Proposition 5.10 using the low-degree Tor sequence, O-free H₂ and Poincaré/Borel–Moore rank equality, including the dual Hecke ideal."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.10/bianchi-patching-system",
+        "verdict": "corrected",
+        "note": "Checked the dual-Selmer Tate twist, q≥1, q−1 variables, selected factors and all-Q Conjecture A; added finite-coefficient/deck transition compatibility."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.10/minimal-bianchi-rt",
+        "verdict": "verified",
+        "note": "Theorem 5.11 uses the same exact balanced engine with nonzero H, not an O-flatness hypothesis. General P levels and p=3 are explicitly conditional on Gaps P and O."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.10/bianchi-dimension-zero-ci",
+        "verdict": "verified",
+        "note": "In dimension zero the q equations in the q-dimensional regular power-series ring are a parameter sequence, hence regular; the conclusion is not extended to positive-dimensional Hecke rings."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.10/bianchi-generic-rank",
+        "verdict": "verified",
+        "note": "Checked global multiplicity one against actual local invariant dimensions: S-only Γ₀ has rank one, while printed P/M/H levels can carry multiple diamond vectors."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.10/minimal-semistable-bianchi-lifting",
+        "verdict": "verified",
+        "note": "The introductory lifting theorem is restricted to p≥5 and residual minimal modularity, fixed ε and minimal local conditions; regular algebraic transfer is an explicit supplier contract."
+      },
+      {
+        "nodeId": "GL2ModularityLiftingPartII:D1.10/gl-pgl-class-group-obstruction",
+        "verdict": "verified",
+        "note": "The class-group paragraph states only the proved group-algebra obstruction, not the heuristic automorphic equality; the ray-class repair uses the full p^b-th-power Kummer condition."
+      }
+    ]
+  }
 }
