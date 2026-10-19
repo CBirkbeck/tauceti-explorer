@@ -1,110 +1,101 @@
-# Review #6217: scope drift reproduced at current main
+# Review #6217: issued scope and queue still disagree
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-mFu2rq**, 19 October 2026. Input commit `2432b6dd277d7824449e26d8e7815aaef5ac2cb4`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6258801622)
-confirms this session's claim comment 6258799959. This session wrote none of the fixes.
+Codex — **codex-2jxtZG**, 19 October 2026.
+Input commit `84c400fa116c1f6ec339db0fcd9a4843fef7e88d`.
+[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6259371234)
+identifies this session's claim comment 6259369975. This session did not
+write the fixes or their earlier mathematical reviews.
 
-**Blocked checkpoint.** The published issue assigns the HE.0 packet, its
-suggested file and this report. Its independent mathematical review is
-already accepted. The generated queue now assigns **12 packets and 25
-outputs**, compared with ten packets and 21 outputs in the previous
-checkpoint. A new mathematical audit of the unchanged HE.0 fixes would not
-resolve this mismatch. No new verdict or mathematical correction is claimed.
+**Blocked checkpoint.** The issue permits the HE.0 packet, its suggested
+file and this report. That packet already has this job's accepted,
+attributed mathematical verdict. The checked-in queue requires twelve
+packets and 25 outputs. Its completion predicate therefore cannot finish
+this job from the issued assignment. No new mathematical verdict is
+claimed, and no queue state, review, packet or Lean file was changed.
 
-The scope restriction is explicit: [WORKERS.md](../WORKERS.md), “Doing the
-work”, says “Edit only the files the issue names, plus your own scratch
-space.” The queue and generator are outside that assignment and intake's
-allowed output paths. I requested authorization to apply the existing
-concrete repair through the session's clarification interface. No reply
-had arrived when preparing this checkpoint; the repair remains unapplied.
-This is a file-scope blocker, not an automatic approval-review rejection.
+[WORKERS.md](../WORKERS.md), “Doing the work”, explicitly requires:
+“Edit only the files the issue names, plus your own scratch space.”
+The concrete repair changes `queue.json` and `make_queue.py`, neither of
+which the issue permits. Both also fail intake's output-path gate.
+Authorization to apply the already specified repair was requested through
+the session clarification interface; no answer had arrived when this
+checkpoint was prepared. This is an unresolved scope restriction, not an
+automatic approval-review rejection.
 
 ## Mathematical work preserved
 
-The packet's attributed review of findings /2, /8, /9 and /10 remains
-accepted. The level-raising, period/transfer, open-image and self-dual
-Kolyvagin-system contracts retain their explicit supplier boundaries.
-The accepted planning pass has 78 nodes, 21 gaps, 63 requests and eight
-planned stages; implementation status remains unchecked.
+The current packet's accepted review of findings /2, /8, /9 and /10 is
+unchanged. Those concern level raising, Zhang's transfer/period and
+rank-zero inputs, open-image ownership, and Howard's self-dual theory.
+It retains 78 nodes, 21 gaps, 63 requests and eight planned stages;
+implementation status remains unchecked. No verdict is assigned to the
+other eleven packets in the queue.
 
-The [previous report](https://github.com/CBirkbeck/tauceti-explorer/blob/a5059ebb8/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
-and the [mathematical review](https://github.com/CBirkbeck/tauceti-explorer/blob/508e89592/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
-preserve the earlier reviewers' source evidence and attribution. This
-session did not repeat their primary-source audit or replace their review.
+The [source-based review](https://github.com/CBirkbeck/tauceti-explorer/blob/508e89592/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
+and [previous checkpoint](https://github.com/CBirkbeck/tauceti-explorer/blob/2432b6dd277d7824449e26d8e7815aaef5ac2cb4/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
+retain the earlier evidence and attribution. This continuation read the
+issue, confirmed findings /2, /8, /9 and /10 and their verification,
+round-two fix report, current packet's verdict and earlier handoff. It did
+not repeat the primary-source mathematical audit.
 
-## Fresh checks and new evidence
+## Fresh checks
 
-- The assigned packet passes `scripts/check_blueprint.py` with **zero
-  errors and warnings**: 78 nodes, 24 API items, 18 tests, 13 baseline
-  declarations and eight planned stages.
-- `issues.deliverables_complete` returns **false** for the current queue
-  record and **true** for an in-memory copy limited to the published three
-  outputs. No queue or job state was changed to obtain either result.
-- The existing red-team queue, issue and follow-up tests run **59 tests**,
-  with one skipped and no failures. Temporary test directories stayed in
-  scratch.
-- No Lean file changed. This session did not rerun Lean. The preceding
-  checkpoint records exit 0 and 114 admission warnings on the same file;
-  that is historical evidence, not a fresh compilation claim.
-
-The two additional packet assignments since the preceding checkpoint are
-`ModularIwasawaMainConjectures.json` and `AutomorphicPadicLFunctions.json`.
-All eleven additional packets currently required by the queue are:
-
-- `HeegnerPointEulerSystems--HE.8c.json`
-- `HeegnerPointEulerSystems--HE.8.json`
-- `GrossZagierAndArithmeticHeights.json`
-- `HeightsRationalPointsAndObstructions.json`
-- `ModularIwasawaMainConjectures.json`
-- `RankZeroOneBSD--BSD.0.json`
-- `HeegnerPointEulerSystems--HE.8b.json`
-- `AutomorphicPadicLFunctions.json`
-- `EulerSystemsAndKolyvaginSystems.json`
-- `SelmerIwasawaCohomology.json`
-- `KatoEulerSystems.json`
+- `python3 scripts/check_blueprint.py research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json`:
+  zero errors and warnings; 78 nodes, 24 API items, 18 tests,
+  thirteen baseline declarations and eight planned stages.
+- `TMPDIR=<scratch> python3 -m unittest tests.test_redteam_queue tests.test_issues tests.test_followups`:
+  59 tests, one skipped, no failures. Temporary directories stayed in scratch.
+- The real `issues.deliverables_complete` returns **false** for the current
+  queue record and **true** for an in-memory copy restored to the published
+  three outputs. Only the issued fix and review output arrays are restored;
+  every other queue field is asserted unchanged.
+- The repair's two paths fail `intake.file_problems` as outside swarm
+  output paths, and neither belongs to this review's `intake.own_files`.
+- Lean was not rerun: no mathematical or Lean statement changed. The
+  attributed previous review records successful elaboration with 114
+  admission warnings; that remains historical evidence only.
 
 ## Full generator replay
 
-I reran the actual generator twice against this input tree, with only the
-two historical output arrays restored in memory from commit `88f9bcd44`.
-One run used the current selector and the other used the one-line candidate.
-The generator's final dry-run return exposed its merged jobs and prompts;
-queue reads were intercepted, directory creation suppressed, repository
-writes prohibited and the lock redirected to scratch. No generated output
-was installed.
+Both replays ran the actual generator against the input tree, restoring
+only the two historical output arrays in memory from `88f9bcd44`.
+The candidate replaces the following-round selector with
+`made = previous_jobs.get(following)`. Repository writes were prohibited,
+queue reads intercepted, directory creation suppressed, and the queue
+lock redirected to scratch. The actual dry-run return exposed its merged
+jobs and prompts for assertions. Nothing generated was installed.
 
-| Replay | Generated jobs | Fix-round-two outputs | Review-round-two outputs |
+| Selector | Generated jobs | Fix-round-two outputs | Review-round-two outputs |
 | --- | ---: | ---: | ---: |
-| Current selector, restored arrays | 6,318 | 31 | 17 |
-| Candidate selector, restored arrays | 6,340 | 4 | 3 |
+| Current | 6,338 | 34 | 19 |
+| Candidate | 6,362 | 4 | 3 |
 
-Thus restoring the queue alone is still undone by regeneration. Relative
-to the unmodified-selector replay, the candidate changes 48 existing
-records, all exclusively in their output arrays, adds 22 and removes none.
-Assertions verify that all 48 candidate arrays equal their input arrays:
-the two restored assignments and the other 46 already issued assignments.
-The affected rounds retain their states and other metadata. Each new review
-follows its new fix and lists that fix under `independentOf`.
+Compared with the current-selector replay, the candidate preserves 50
+existing assignments: only their output arrays differ, and every candidate
+array equals its input array. It adds 24 jobs and removes none. Each added
+review depends on its fix and names that fix under `independentOf`.
+The new Iwasawa round three follows the completed round-two fix and
+receives every newly routed output that the current selector instead
+added to round two; the old report is replaced by the round-three report.
 
-The additions are the same eleven fix/review pairs recorded in the
-preceding checkpoint: automorphic-1 round 7; combinatorics, etale,
-geomlanglands, iwasawa-1, ktheory-1 and ktheory-2 round 3; langlands-1 round
-3; langlands-2 round 5; padic-1 and padic-2 round 5.
+This last assertion compares the **freshly routed** outputs from the two
+replays, rather than the already stale expanded queue arrays: the current
+routing also reconciles assembled documents and their source parts.
+It does not certify that the newly assigned mathematics is correct.
 
-This validates the proposed scheduling behavior. It gives no mathematical
-verdict on the additional assignments. The whole regenerated queue must
-not replace the checked-in queue as part of this narrow repair.
+The twelve fix/review pairs are automorphic-1 round 7; combinatorics,
+etale, geomlanglands, iwasawa-1, ktheory-1 and ktheory-2 round 3;
+iwasawa-3 round 5; langlands-1 round 3; langlands-2 round 5; padic-1 and
+padic-2 round 5. The iwasawa-3 pair and two additional preserved assignments
+are new relative to the previous checkpoint's replay.
 
 ## Resume condition
 
-The [handoff](../handoff/REV-FIX-RT-AREA-iwasawa-1~2.md) contains a refreshed
-patch against this input commit. Unlike the previous patch, it also removes
-the two newly accumulated packet assignments from round two. It changes
-only the two output arrays and the selector; no state or review verdict.
-
-The maintainer must authorize the scope extension and apply/review that
-patch through maintainer intake, or publish an expanded mathematical
-assignment naming the additional fixes. Then reconcile the issue and queue.
-Another review of HE.0 cannot finish the current expanded record. No
-background process or disposable scratch artifact is needed to resume.
+The [handoff](../handoff/REV-FIX-RT-AREA-iwasawa-1~2.md) retains the exact
+unapplied patch and a standalone read-only reproducer. The maintainer must
+authorize and apply/review the narrow repair through maintainer intake,
+or replace the published issue with an explicit expanded mathematical
+assignment. Reconcile the issue and queue after that decision.
+Do not install the whole regenerated queue or repeat the accepted HE.0
+review to try to satisfy unrelated packet requirements.
