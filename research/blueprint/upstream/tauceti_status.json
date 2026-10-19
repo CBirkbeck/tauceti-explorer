@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T23:10Z",
+  "updated": "2026-10-19T23:20Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -577,7 +577,7 @@
     "ModularCurvesPartII": {
       "stage": "pr",
       "pr": 913,
-      "head": "469ab5b",
+      "head": "27ac927",
       "note": "N3 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "approve",
@@ -1353,13 +1353,14 @@
     "AnalyticNumberTheoryPartI": {
       "stage": "pr",
       "pr": 1126,
-      "head": "069b1e4",
+      "head": "d8d39e4",
       "note": "ported 2026-10-18 from the accepted explorer package (tier 38); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at d8d39e4; confirmation pass pending"
       }
     },
     "InductionRestrictionPartII": {
@@ -1473,7 +1474,7 @@
     "ArithmeticStatisticsPartVIII": {
       "stage": "pr",
       "pr": 1179,
-      "head": "ec33c75",
+      "head": "c0911f4",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VIII of the ArithmeticStatistics split); red team running",
       "review": {
         "recommendation": null,
@@ -1625,7 +1626,7 @@
     "GeometricSatakeAndFusion": {
       "stage": "pr",
       "pr": 1235,
-      "head": "aeb8fc1",
+      "head": "a16b9d2",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running"
     },
     "BunGAndNewtonStrata": {
