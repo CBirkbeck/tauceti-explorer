@@ -94,6 +94,12 @@ The adapter's API is:
 | `unitPart_change_uniformizer` | U_(cπ)(f)=c^−a(f)U_π(f) for c∈Rˣ. |
 | `unitPart_residue_bridge` | Under `unitGroupMulEquiv`, reduction of this native unit is the existing `unitGroupToResidueFieldUnits` value. |
 
+These names belong to `TauCeti.T3Native`. Each has a signature in the suggested
+file, including separate multiplication and integer-power laws. In the
+change-of-parameter signature, π′ is an actual field unit with an order-one
+proof and an equality identifying it with cπ. No parameter is represented by
+an abstract substitute for a missing theory.
+
 Checks that distinguish the intended adapter:
 
 1. At ord₅ on ℚ, U₅(10)=2 and U₅(1/25)=1. Returning f, or removing only a
@@ -102,6 +108,14 @@ Checks that distinguish the intended adapter:
    Unit parts depend on the uniformizer.
 3. Every native unit u is fixed, and U_π(π^−2)=1. The codomain is the native
    ring-unit type, with its defining inverse equations.
+
+The corresponding suggested examples are `unit_part_at_5`, `unit_part_change`
+and `unit_part_existing_unit`. The rational examples use the existing
+`Rat.padicValuation` and `Rat.surjective_padicValuation`; order-one proofs for
+5 and 10 are explicit constructor inputs. The residue value 3 is stated after
+any ring map from the native residue field to `ZMod 5`, avoiding a second
+residue-field carrier. These are admitted test statements, not executed proofs
+of the numerical values.
 
 The tame pairing retains the owner `T.3/tame-symbol`. For a=a(f), b=a(g), define
 
@@ -505,8 +519,12 @@ closure claim:
   product contracts, while respecting AlgebraicCurves' existing completion
   ownership.
 - `G-T3-field-comparison`: T.1 and T.2's actual symbol/plus comparisons retain
-  their inherited stable-presentation and root-coordinate proof inputs. The
-  elementary native pairing is independent of those comparison gaps.
+  their inherited stable-presentation and root-coordinate proof inputs.
+  T.1/k2-pi2 also retains `G-cover-Hurewicz`: the explicit BE(F)-plus universal
+  cover and natural Hurewicz comparison must be supplied, compatibly with the
+  chosen plus/Q comparison, by their existing K.2:plus and homotopy-theory
+  owners. The elementary native pairing is independent of those comparison
+  gaps.
 
 Completion requires the actual map equalities (1)–(12), the specified APIs and
 worked values, the finite-support hypothesis at each family application, and
