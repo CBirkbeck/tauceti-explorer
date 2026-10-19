@@ -516,14 +516,14 @@
    ],
    "title": "The unit-closure exact sequence of the ray-class limit",
    "kind": "theorem",
-   "statement": "With 𝔫 prime to p, let E_+(𝔫) be the group of totally positive units of O_F congruent to 1 modulo 𝔫, embedded diagonally in U_p := (O_F ⊗ ℤ_p)^×, and let Ē_+(𝔫) be the topological closure of its image. There is an exact sequence of profinite groups 1 → Ē_+(𝔫) → U_p → Cl⁺_F(𝔫p^∞) → Cl⁺_F(𝔫) → 1, where the middle map sends a p-adic unit to the class of the idele that is it at p and 1 elsewhere. The closure is essential: with the bare image E_+(𝔫) the kernel would not be closed when the unit rank is positive. Choosing representatives a_y for Cl⁺_F(f) (f ∣ p^∞, f divisible by every prime above p) gives the homeomorphism Cl⁺_F(𝔫p^∞) ≅ ⊔_{y∈Cl⁺_F(f)} G_y with each G_y ≅ {z ∈ U_p : z ≡ 1 mod f}/Ē_+(f𝔫) by multiplication by a_y^{-1}.",
+   "statement": "With 𝔫 prime to p, let E_+(𝔫) be the group of totally positive units of O_F congruent to 1 modulo 𝔫, embedded diagonally in U_p := (O_F ⊗ ℤ_p)^×, and let Ē_+(𝔫) be the topological closure of its image. There is an exact sequence of profinite groups 1 → Ē_+(𝔫) → U_p → Cl⁺_F(𝔫p^∞) → Cl⁺_F(𝔫) → 1, where the middle map sends a p-adic unit to the class of the idele that is it at p and 1 elsewhere. The closure is essential: with the bare image E_+(𝔫) the kernel would not be closed when the unit rank is positive. Choosing representatives a_y for Cl⁺_F(𝔫f) (f ∣ p^∞, f divisible by every prime above p) gives the homeomorphism Cl⁺_F(𝔫p^∞) ≅ ⊔_{y∈Cl⁺_F(𝔫f)} G_y, G_y the fibre over y, with each G_y ≅ {z ∈ U_p : z ≡ 1 mod f}/Ē_+(𝔫f) by multiplication by a_y^{-1}; for 𝔫 = (1) this is BSW’s decomposition over Cl⁺_F(f).",
    "hypotheses": [
     "𝔫 prime to p; totally positive units; the closure is taken in the p-adic topology of U_p."
    ],
    "proofSteps": [
     "At each finite level the Tau Ceti exact sequence O_F^× → (O_F/𝔫p^m)^× × signs → Cl_F(𝔫p^m) → Cl_F → 1 (mulExact_unitsResidueSignHom_residueSignRayClass, mulExact_residueSignRayClass_rayClassToClassGroup) restricts on totally positive units to E_+(𝔫) → (O_F/𝔫p^m)^× → Cl⁺_F(𝔫p^m) → Cl⁺_F(𝔫) → 1 after quotienting the tame part.",
     "Pass to the inverse limit over m: the terms are finite, so the limit of the exact sequences is exact; the limit of the images of E_+(𝔫) is the closure of its image in U_p (an inverse limit of finite images is closed and contains E_+ densely).",
-    "The decomposition into fibres G_y follows by fixing the image in Cl⁺_F(f) and translating by a_y^{-1}."
+    "The decomposition into fibres G_y follows by fixing the image in Cl⁺_F(𝔫f) and translating by a_y^{-1}; the kernel of {z ≡ 1 mod f} → Cl⁺_F(𝔫p^∞) is Ē_+(𝔫) ∩ (1 + f) = Ē_+(𝔫f), the closure meeting the open subgroup 1 + f in the closure of E_+(𝔫f)."
    ],
    "acceptance": [
     "F = ℚ: Ē_+ is trivial (the only totally positive unit is 1) and the sequence reads 1 → ℤ_p^× → Cl⁺(p^∞) → 1.",
@@ -578,7 +578,7 @@
     "F = ℚ: d = 1 (Δ = (ℤ/p)^× for p odd).",
     "F imaginary quadratic: d = 2 (r₂ = 1, no units of infinite order).",
     "F totally real satisfying Leopoldt at p: d = 1; abelian F satisfies Leopoldt (IntegralIwasawaTheory:L4/abelian-leopoldt).",
-    "BSW's example F = ℚ(∛2): the units have rank 1, U_p has rank 3, and d = 2 (assuming the defect is zero), so ray-class distributions grow in two directions while the critical Hecke characters are only parallel."
+    "BSW's example F = ℚ(∛2): the units have rank 1, U_p has rank 3, and d = 2 (the defect vanishes here: the unit rank is 1 and the p-adic logarithm of a unit of infinite order is nonzero), so ray-class distributions grow in two directions while the critical Hecke characters are only parallel."
    ],
    "prerequisites": [
     "AutomorphicPadicLFunctions:L0/ray-class-unit-sequence",
@@ -788,7 +788,7 @@
    ],
    "title": "Locally algebraic characters of the ray-class limit are avatars",
    "kind": "theorem",
-   "statement": "The map ϕ ↦ ϕ_{p-fin} is a bijection from algebraic Hecke characters of F of conductor dividing 𝔫p^∞ (with values read through ι_∞) onto continuous characters χ : Cl⁺_F(𝔫p^∞) → ℂ_p^× that are locally algebraic, i.e. agree with z ↦ z^r for some r ∈ ℤ[Σ] on an open subgroup of the image of U_p. The weight r must be an admissible infinity type: r + c·r is parallel (c complex conjugation), and when F has a real place r is parallel; conversely every admissible r occurs (Weil).",
+   "statement": "The map ϕ ↦ ϕ_{p-fin} is a bijection from algebraic Hecke characters of F of conductor dividing 𝔫p^∞ (with values read through ι_∞) onto continuous characters χ : Cl⁺_F(𝔫p^∞) → ℂ_p^× that are locally algebraic, i.e. agree with z ↦ z^r for some r ∈ ℤ[Σ] on an open subgroup of the image of U_p. The weight r must lie in Weil’s set Ξ of admissible infinity types: r + c·r parallel (c complex conjugation) is necessary but not sufficient in general, and when F has a real place only parallel r occur; conversely every r ∈ Ξ occurs (Weil; BSW Proposition 1.2).",
    "hypotheses": [
     "Embeddings fixed as in hecke-character-avatar."
    ],
@@ -953,7 +953,7 @@
    ],
    "proofSteps": [
     "The functional equation (AL.1/hecke-l-functional-equation) relates L(χ, 0) to L(χ̄, 1) times Γ-factors; for χ totally odd the archimedean factors are Γ_ℝ(s+1) at each real place, which have no pole or zero at s = 0, and the ε-factor is nonzero.",
-    "L(χ̄, 1) ≠ 0 for a nontrivial finite-order Hecke character (nonvanishing on Re s = 1).",
+    "L(χ̄, 1) ≠ 0 for a nontrivial finite-order Hecke character (nonvanishing on Re s = 1, AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one).",
     "The statement about L* is the definition of depletion."
    ],
    "acceptance": [
@@ -963,7 +963,8 @@
    "prerequisites": [
     "AutomorphicPadicLFunctions:L0/gauss-sum-and-depleted-l-function",
     "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
-    "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory"
+    "AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory",
+    "AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one"
    ],
    "sources": [
     {
@@ -982,13 +983,13 @@
    ],
    "title": "Locally analytic distributions on the ray-class limit and their descent",
    "kind": "definition",
-   "statement": "Let L ⊂ ℂ_p be a complete extension of ℚ_p. D(Cl⁺_F(𝔫p^∞), L) is the strong dual of the space A(Cl⁺_F(𝔫p^∞), L) of locally analytic L-valued functions, for the analytic structure of leopoldt-dimension-formula: the distributions on a compact analytic manifold of LocallyAnalyticDistributions:L0/locally-analytic-dual-nuclear, a nuclear Fréchet space. Measures (bounded distributions) form the subalgebra identified with the completed group algebra (PadicMeasuresIwasawaAlgebras:L1). For f ∣ p^∞ divisible by every prime above p and representatives a_y of Cl⁺_F(f), a function φ on Cl⁺_F(𝔫p^∞) is the same as the family φ_{a_y}(z) := φ(a_y z) of functions on {z ∈ U_p : z ≡ 1 mod f} invariant under Ē_+(f) (forward chart; see sourceIssues E1); a distribution is determined by its values on the clopen pieces G_y. The Mellin transform identifies D(Cl⁺_F(𝔫p^∞), L) with bounded-below analytic functions on the character space (LocallyAnalyticDistributions:L3).",
+   "statement": "Let L ⊂ ℂ_p be a complete extension of ℚ_p. D(Cl⁺_F(𝔫p^∞), L) is the strong dual of the space A(Cl⁺_F(𝔫p^∞), L) of locally analytic L-valued functions, for the analytic structure of leopoldt-dimension-formula: the distributions on a compact analytic manifold of LocallyAnalyticDistributions:L0/locally-analytic-dual-nuclear, a nuclear Fréchet space. Measures (bounded distributions) form the subalgebra identified with the completed group algebra (PadicMeasuresIwasawaAlgebras:L1). For f ∣ p^∞ divisible by every prime above p and representatives a_y of Cl⁺_F(𝔫f), a function φ on Cl⁺_F(𝔫p^∞) is the same as the family φ_{a_y}(z) := φ(a_y z) of functions on {z ∈ U_p : z ≡ 1 mod f} invariant under Ē_+(𝔫f) (forward chart; see sourceIssues E1); a distribution is determined by its values on the clopen pieces G_y. The Mellin transform identifies D(Cl⁺_F(𝔫p^∞), L) with the ring of rigid analytic functions on the character space (LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism), measures corresponding to the bounded functions.",
    "hypotheses": [
     "L contains the values needed (the images of the embeddings of F and the character values); the analytic structure comes from the chart Δ × ℤ_p^d, and the space does not depend on the chart."
    ],
    "proofSteps": [
     "Transport the definitions of LocallyAnalyticDistributions L0 along the analytic chart of leopoldt-dimension-formula.",
-    "Descent: precomposition with the open map U_p → G_y ⊂ Cl⁺_F(𝔫p^∞) identifies locally analytic functions on G_y with Ē_+-invariant locally analytic functions on the congruence subgroup; by unit-invariance-closure, invariance under E_+(f) suffices.",
+    "Descent: precomposition with the open map U_p → G_y ⊂ Cl⁺_F(𝔫p^∞) identifies locally analytic functions on G_y with Ē_+-invariant locally analytic functions on the congruence subgroup; by unit-invariance-closure, invariance under E_+(𝔫f) suffices.",
     "Clopen decomposition of distributions along Cl⁺_F(𝔫p^∞) = ⊔ G_y (PadicMeasuresIwasawaAlgebras:L0/clopen-decomposition-equivalence for measures, the same argument for distributions).",
     "Mellin transform: LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism on the chart."
    ],
@@ -1056,7 +1057,7 @@
     {
      "name": "RayClassDistribution.ofUnitInvariant",
      "role": "universal-property",
-     "statement": "A family of distributions on the congruence subgroups of U_p, each invariant under E_+(f) and supported on z ≡ 1 mod f, glues to a unique distribution on Cl⁺_F(𝔫p^∞)."
+     "statement": "A family of distributions on the congruence subgroups of U_p, each invariant under E_+(𝔫f) and supported on z ≡ 1 mod f, glues to a unique distribution on Cl⁺_F(𝔫p^∞)."
     },
     {
      "name": "RayClassDistribution.mellin",
@@ -1667,7 +1668,7 @@
     "f integral; π_f the finite idele with components π_w^{-v_w(f)} at w | f (BSW Definition 1.6)."
    ],
    "proofSteps": [
-    "Well-definedness: for γ ∈ F^×, u ∈ U(f), r ∈ F_∞¹, η(γxur) = γ·η(x)·(u, ((u−1)π_f^{-1}); 0, 1)·(r, 0; 0, 1) with the middle factor in Ω₁(𝔫) and the last in the centre-times-K_∞⁺ part (BSW eq. (6)).",
+    "Well-definedness: for γ ∈ F^×, u ∈ U(f), r ∈ F_∞¹, η(γxur) = (γ 0; 0 1)·η(x)·(u, ((u−1)π_f^{-1}); 0, 1)·(r, 0; 0, 1) with (γ 0; 0 1) ∈ GL₂(F), the third factor in Ω₁(𝔫) and the last in the centre-times-K_∞⁺ part (BSW eq. (6)).",
     "Component statement: det η_f(x) = x.",
     "The fibre description is the isomorphism (7) of BSW §4.2.2."
    ],
@@ -2197,7 +2198,10 @@
      "kind": "non-example",
      "statement": "ρ is surjective but not injective: its kernel contains the image of the theta maps (Proposition 8.6) and is infinite-dimensional."
     }
-   ]
+   ],
+   "planet": {
+    "name": "Overconvergent modular symbols over F"
+   }
   },
   {
    "id": "AutomorphicPadicLFunctions:L2/up-compactness",
@@ -2207,7 +2211,7 @@
    ],
    "title": "Compactness of the operators at p (corrected BSW Lemma 6.7)",
    "kind": "theorem",
-   "statement": "Let η ∈ GL₂(F) ∩ Σ₀(p) whose lower-right entry d lies in p(O_F ⊗ ℤ_p), for example η = (1 0; 0 p). Then the action of η on D_λ(L) is compact in the sense of BSW Definition 6.6: it factors through D_λ(L) → D_{n−1,λ}(L) → D_{n,λ}(L) for every n, because z ↦ (b + dz)/(a + cz) maps each closed disc of radius |p|^{n−1} into one of radius |p|^n. Consequently the lift of U_p := ∏_{𝔭|p} U_𝔭^{e_𝔭} (the operator of (1 0; 0 p)) to a finite complex of copies of D_λ(L) computing H^•_c(Y₁(𝔫), L₂(D_λ(L))) is compact. An arbitrary element of GL₂(F) ∩ Σ₀(p), for example the identity, does not act compactly.",
+   "statement": "Let η ∈ GL₂(F) ∩ Σ₀(p) whose lower-right entry d lies in p(O_F ⊗ ℤ_p), for example η = (1 0; 0 p). Then the action of η on D_λ(L) is compact in the sense of BSW Definition 6.6: it factors through D_λ(L) → D_{n−1,λ}(L) → D_{n,λ}(L) for every n, because z ↦ (b + dz)/(a + cz) maps each closed disc of radius |p|^{n−1} into one of radius |p|^n. Consequently the lift of the operator U_p of the double coset of (1 0; 0 p) at all primes above p (which agrees with ∏_{𝔭|p} U_𝔭^{e_𝔭} up to the action of the unit p·∏_𝔭π_𝔭^{−e_𝔭} of O_F ⊗ ℤ_p) to a finite complex of copies of D_λ(L) computing H^•_c(Y₁(𝔫), L₂(D_λ(L))) is compact. An arbitrary element of GL₂(F) ∩ Σ₀(p), for example the identity, does not act compactly.",
    "hypotheses": [
     "d ∈ p(O_F ⊗ ℤ_p) (radius improvement in every coordinate); for a single U_𝔭 the improvement is only in the 𝔭-coordinates."
    ],
@@ -2661,9 +2665,6 @@
      "statement": "The variant z^{k+v}ψ(z) fails weightedInversion_translate: with ψ(z) = z and u = 4 on ℚ_3 units the two sides differ by 1/16."
     }
    ],
-   "planet": {
-    "name": "Weighted inversion"
-   },
    "library": {
     "module": "TauCeti/NumberTheory/ModularForms/GL2F/Evaluation",
     "namespace": "TauCeti.GL2F"
@@ -3094,7 +3095,7 @@
     "General f (Lemma 10.5): pass to f′ = f∏_{𝔭∈B}𝔭, use integral-formula’s change of conductor (Corollary 4.8) and the identity π_𝔭^{j+v} = ϕ_{p-fin}(π_𝔭)ϕ(𝔭)^{-1} to turn ∏(ϕ(𝔭)λ_𝔭 − 1) into ∏λ_𝔭Z_𝔭."
    ],
    "acceptance": [
-    "F = ℚ, ϕ = 1 (f = (1), B = {p}, λ_(1) = 1, ε_ϕ = +): µ_Φ(1) = (−1)^{k}·(1 − λ_p^{-1})·Λ(Φ, 1)/Ω⁺_Φ, the familiar factor (1 − α^{-1}) at the trivial character.",
+    "F = ℚ, ϕ = 1 (f = (1), B = {p}, λ_(1) = 1, ε_ϕ = +): µ_Φ(1) = (−1)^{k}·(1 − λ_p^{-1})·Λ(Φ, 1)/Ω⁺_Φ, the factor (1 − α^{-1}) at the trivial character; Λ(Φ, 1) is the L-value of the level-𝔫 eigenform Φ itself, so for the p-stabilisation of a newform of level prime to p it already contains the second Euler factor (1 − β/p), and the product is Mazur–Tate–Teitelbaum’s (1 − α^{-1})(1 − β/p).",
     "F imaginary quadratic: compare Williams Theorem 7.4 (formula with 2ψ_f(x_f)λ_f^{-1}/(ψ(x_f)Dwτ(ψ^{-1})))."
    ],
    "prerequisites": [
@@ -3163,15 +3164,15 @@
    ],
    "title": "Growth and uniqueness when F is totally real or imaginary quadratic",
    "kind": "theorem",
-   "statement": "(a) F imaginary quadratic, Φ of weight (k, k) with U_𝔭-eigenvalues a_𝔭, v(a_𝔭) < (k + 1)/e_𝔭 for every 𝔭 | p: the p-adic L-function is (h_𝔭)_{𝔭|p}-admissible with h_𝔭 = v_p(a_𝔭), and hence is the unique such distribution with the interpolation values (Williams, Theorem 7.4). (b) F totally real, (π, α) a non-critical p-refinement of a cohomological cuspidal representation (unramified principal series at 𝔭 | p): the p-adic L-function L^ε_p(π, α) has growth bounded by Σ_{v|p}e_v v_p(α_v) + Σ_σ (κ_σ − w)/2, and if the Leopoldt defect of F at p is zero it is uniquely determined by its support, growth, interpolation and variation properties (Bergdall–Hansen, Theorem 1.1.2(c),(f)). In both cases the BSW distribution µ_Φ agrees with these, so its uniqueness holds under the same hypotheses; the slope conditions are those of the cited theorems.",
+   "statement": "(a) F imaginary quadratic, Φ of weight (k, k) with U_𝔭-eigenvalues a_𝔭, v(a_𝔭) < (k + 1)/e_𝔭 for every 𝔭 | p: the p-adic L-function is (h_𝔭)_{𝔭|p}-admissible with h_𝔭 = v_p(a_𝔭), and hence is the unique such distribution with the interpolation values (Williams, Theorem 7.4). (b) F totally real, (π, α) a non-critical p-refinement of a cohomological cuspidal representation (unramified principal series at 𝔭 | p): the p-adic L-function L^ε_p(π, α) has growth bounded by Σ_{v|p}e_v v_p(α_v) + Σ_σ (κ_σ − w)/2, and if the Leopoldt defect of F at p is zero it is uniquely determined by its support, growth, interpolation and variation properties (Bergdall–Hansen, Theorem 1.1.2(c),(f)); with vanishing defect the group is one-dimensional, so in small slope a distribution of the same growth is already determined by its critical values (Amice–Vélu, Bergdall–Hansen §1.8). In case (a) the BSW distribution µ_Φ is Williams’ (BSW §12), so it is unique. In case (b) µ_Φ equals L^ε_p(π, α) under vanishing defect once µ_Φ is known to have growth below the critical range; that growth bound for the overconvergent-cycle construction over totally real F is due to Barrera Salazar (cited by BSW §12 and Bergdall–Hansen §1.8), is proved neither by BSW nor by Bergdall–Hansen, and is a recorded gap here. The slope conditions are those of the cited theorems.",
    "hypotheses": [
     "(a): F imaginary quadratic, parallel weight, small slope at each prime above p.",
-    "(b): F totally real, Leopoldt defect zero for uniqueness, non-critical refinement (implied by small slope)."
+    "(b): F totally real, Leopoldt defect zero for uniqueness, non-critical refinement (implied by small slope); the growth bound for µ_Φ itself is the gap on Barrera Salazar’s admissibility."
    ],
    "proofSteps": [
-    "(a) Admissibility of slope-h eigensymbol values (Williams Definition 5.10 and the lemma after it) and Amice–Vélu–Vishik uniqueness in the two-dimensional group (LocallyAnalyticDistributions:L2/tensor-multidegree-extension).",
+    "(a) Admissibility of slope-h eigensymbol values (Williams Definition 5.10 and Proposition 5.13; Definition 6.14 and Proposition 6.15 when p splits) and Amice–Vélu–Vishik uniqueness in the two-dimensional group (LocallyAnalyticDistributions:L2/tensor-multidegree-extension).",
     "(b) Growth from the period maps of Bergdall–Hansen §7.4; uniqueness from Amice–Vélu in the one-dimensional group given by Leopoldt (LocallyAnalyticDistributions:L2/amice-velu-vishik).",
-    "Agreement with µ_Φ: both satisfy the interpolation of bsw-interpolation and the growth bound; apply uniqueness (L0/conditional-evaluation-principle) — for (b) this is an identification of BSW’s evaluation-map construction with Bergdall–Hansen’s period-map construction on the common critical characters, which Bergdall–Hansen leave open without Leopoldt (§1.8)."
+    "Agreement with µ_Φ: in (a) µ_Φ is Williams’ distribution (the cycle is the path from 0 to ∞); in (b) both satisfy the interpolation of bsw-interpolation, and once µ_Φ has the growth bound (Barrera Salazar, gap) uniqueness (L0/conditional-evaluation-principle) identifies BSW’s evaluation-map construction with Bergdall–Hansen’s period-map construction; Bergdall–Hansen leave this identification open without Leopoldt (§1.8)."
    ],
    "acceptance": [
     "F = ℚ(i), p split, weight (0, 0), ordinary at both primes: µ is a measure, unique."
@@ -3187,13 +3188,13 @@
    "sources": [
     {
      "sourceId": "WIL-2017",
-     "locator": "Definition 5.10 p. 28; Theorem 7.4 p. 40",
+     "locator": "Definition 5.10 p. 28; Definition 6.14 and Proposition 6.15, p. 35; Theorem 7.4 p. 40",
      "match": "Williams proves that his Bianchi p-adic L-function is (h_𝔭)-admissible with h_𝔭 = v_p(a_𝔭) and hence unique."
     },
     {
      "sourceId": "BH-2017",
      "locator": "Theorem 1.1.2(c),(f), pp. 4–5; §1.8, pp. 11–12",
-     "match": "Bergdall–Hansen give the growth bound and uniqueness under vanishing Leopoldt defect for Hilbert modular forms, and note that without Leopoldt the comparison with other constructions is not settled."
+     "match": "Bergdall–Hansen give the growth bound and uniqueness under vanishing Leopoldt defect for Hilbert modular forms, and note that without Leopoldt the comparison with other constructions is not settled, while attributing the correct growth of the overconvergent-cycle construction over totally real F to Barrera Salazar’s thesis."
     },
     {
      "sourceId": "BSW-2017-v3",
@@ -3465,7 +3466,7 @@
    ],
    "title": "Hilbert Eisenstein series G_{k,ε} and E_k(ψ, 1)",
    "kind": "construction",
-   "statement": "Let k ≥ 1 and ε : I → ℂ a Schwartz function on the finite ideles with parity (−1)^k, supported on Â and defined modulo the conductor f. There is a Hilbert modular form G_{k,ε} ∈ M_k(Γ₀₀(f), ℂ) whose q-expansion at the cusp determined by α ∈ K̂^× is, for k > 1, N𝔞^k times the series with constant term 2^{-r}L(1−k, ε_c) and q^µ-coefficient (µ ≫ 0) the finite sum over ideals x ⊆ 𝔅𝔞² of ε_c(µx^{-1})N(µx^{-1})^{k−1}, with 𝔞 = (α) and c ∈ G the class defined by α (DR (2.23)), and for k = 1 the constant term is 2^{-r}(L(0, ε_c) + L(0, ε̃_c)) with ε̃ the modification of ε. In Dasgupta–Kakde’s normalisation, for k ≥ 1 odd and ψ a totally odd character of conductor dividing n, the S-stabilised Eisenstein series E_k(ψ_S, 1) ∈ M_k(n, ψ) has c(m, E_k(ψ_S, 1)) = Σ_{r|m} ψ_S(m/r)Nr^{k−1}, eigenvalue ψ(l) + Nl^{k−1} for T_l (l ∤ n) and Nl^{k−1} for U_l (l | n), and constant term c_λ(0) = (1/2^n)ψ^{-1}(λ)L(ψ^{-1}, 1 − k) at ∞ when k > 1 (n = [F:ℚ]); the group-ring version E_k(ψ, 1) has coefficients Σ_{r|m,(m/r,n)=1}ψ(m/r)Nr^{k−1} in R.",
+   "statement": "Let k ≥ 1 and ε : I → ℂ a Schwartz function on the finite ideles with parity (−1)^k, supported on Â and defined modulo the conductor f. There is a Hilbert modular form G_{k,ε} ∈ M_k(Γ₀₀(f), ℂ) whose q-expansion at the cusp determined by α ∈ K̂^× is, for k > 1, N𝔞^k times the series with constant term 2^{-r}L(1−k, ε_c) and q^µ-coefficient (µ ≫ 0) the finite sum over ideals x ⊆ 𝔅𝔞² of ε_c(µx^{-1})N(µx^{-1})^{k−1}, with 𝔞 = (α) and c ∈ G the class defined by α (DR (2.23)), and for k = 1 the constant term is 2^{-r}(L(0, ε_c) + L(0, ε̃_c)) with ε̃ the modification of ε. In Dasgupta–Kakde’s normalisation, for k ≥ 1 odd and ψ a totally odd character of conductor dividing n, the S-stabilised Eisenstein series E_k(ψ_S, 1) ∈ M_k(n, Frac O, ψ) has c(m, E_k(ψ_S, 1)) = Σ_{r|m} ψ_S(m/r)Nr^{k−1}, eigenvalue ψ(l) + Nl^{k−1} for T_l (l ∤ n) and Nl^{k−1} for U_l (l | n), and, for k > 1, constant terms c_λ(0) = 0 at the cusps (1, λ) when the level n is not (1) and c_λ(0) = 2^{−[F:ℚ]}ψ^{-1}(λ)L(ψ^{-1}, 1 − k) when n = (1) (DK write n both for [F:ℚ] and for the level); for k = 1 they are 2^{−[F:ℚ]}L(ψ_S, 0) if n ≠ (1) and 2^{−[F:ℚ]}(L(ψ, 0) + ψ^{-1}(λ)L(ψ^{-1}, 0)) if n = (1) (DK (98)); the group-ring version E_k(ψ, 1) has coefficients Σ_{r|m,(m/r,n)=1}ψ(m/r)Nr^{k−1} in R.",
    "hypotheses": [
     "F totally real of degree r (= n in DK); ε has parity (−1)^k; for DK’s version k ≥ 1 odd and ψ totally odd."
    ],
@@ -3776,10 +3777,10 @@
     "N ≥ 3 prime to p; ordinary locus; p arbitrary."
    ],
    "proofSteps": [
-    "Reduce to surjectivity of the monodromy character ρ : π₁(𝓜°₁, m) → (O/p^n)^× after a finite extension F_q; since the component group is permuted by GL(2, O/N), the level structure can be ignored.",
-    "Use Frobenius elements at closed points: at an ordinary point x over F_{q^b} with CM, the Frobenius acts on the multiplicative part by the unit part of a Frobenius endomorphism (ShimuraVarieties:V5/cm-frobenius), and ρ(F_x) is the image of that unit.",
-    "Choose ordinary CM points whose Frobenius units generate (O/p^n)^* (Chebotarev density, tauceti:Chebotarev layer 9); the powers cover the base change (DR’s base change step).",
-    "Conclude geometric irreducibility over each component."
+    "Reduce to the surjectivity of the monodromy character ρ : π₁(𝓜°₁, m) → (O/p^nO)^* on each geometric connected component, after a finite extension F_q of F_p (DR p. 256); GL(2, O/NO) permutes the components, so the level-N structure can be handled by enlarging N.",
+    "At a closed point x over F_{q^b} the Frobenius endomorphism of the formal group of X_x is q^b·u with u ∈ (O ⊗ ℤ_p)^*, and ρ of the Frobenius element at x is the image of u in (O/p^nO)^* (DR p. 256).",
+    "It therefore suffices to produce, for each ū ∈ (O/p^nO)^*, an ordinary HBAV over some F_{q^b} with a level-N structure, Frobenius unit mapping to ū and prescribed polarisation module. DR construct it from Deligne’s equivalence between ordinary abelian varieties over a finite field and lattices with a Frobenius endomorphism (Deligne 1969, cited by DR as [4]; recorded gap: no layer of the atlas plans it): take the O-lattice of K[x]/(x² + cx + d) with Frobenius x, where d = q^b, c² − 4q^b is totally negative, c is a p-adic unit and N | (2 + c), N² | (1 + q^b + c); then u^{-1} ≡ −c mod q^b, and the polarisation module is corrected by an isogeny (DR p. 257).",
+    "Choosing c by approximation realises every ū, so ρ is surjective on every component and the covering is geometrically irreducible. Chebotarev density enters DR’s text only as a heuristic for why the theorem should hold, not as an input."
    ],
    "acceptance": [
     "F = ℚ: Igusa’s theorem that the Igusa curve over the ordinary locus of X(N)_{F_p} is irreducible."
@@ -3787,16 +3788,13 @@
    "prerequisites": [
     "AutomorphicPadicLFunctions:L3/padic-hilbert-modular-forms",
     "HilbertModularVarietiesAndShimuraCurves:H2",
-    "HilbertModularVarietiesAndShimuraCurves:H2/ordinary-rapoport",
-    "ShimuraVarieties:V5/cm-frobenius",
-    "ShimuraVarieties:V5/cm-potential-good-reduction",
-    "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev"
+    "HilbertModularVarietiesAndShimuraCurves:H2/ordinary-rapoport"
    ],
    "sources": [
     {
      "sourceId": "DR-1980",
      "locator": "§4, Theorem (4.5) and its proof, pp. 255–257",
-     "match": "Deligne–Ribet prove that the covering 𝓘[𝒫, N, p^n] of 𝓜°[𝒫, p] is geometrically irreducible, reducing to surjectivity of the monodromy character and computing it at Frobenius elements of ordinary points."
+     "match": "Deligne–Ribet prove that the covering 𝓘[𝒫, N, p^n] of 𝓜°[𝒫, p] is geometrically irreducible, reducing to surjectivity of the monodromy character, computing it at Frobenius elements of ordinary points and constructing the needed ordinary points through Deligne’s description of ordinary abelian varieties over finite fields (p. 257)."
     }
    ],
    "implementationStatus": "unchecked"
@@ -4287,7 +4285,7 @@
     "Dependence on the differential is the scaling rule (Katz remark after (5.3.7))."
    ],
    "acceptance": [
-    "M = ℚ(i), p ≡ 1 mod 4: Ω_∞ is a real multiple of Γ(1/4)²/√(2π) (the lemniscate period), and Ω_p a p-adic unit."
+    "M = ℚ(i), p ≡ 1 mod 4: Ω_∞ is a nonzero algebraic multiple of Γ(1/4)²/√(2π) (the lemniscate period), and Ω_p a p-adic unit."
    ],
    "prerequisites": [
     "AutomorphicPadicLFunctions:L3/cm-points-and-canonical-trivialisations",
@@ -4623,7 +4621,7 @@
    ],
    "title": "Katz’s p-adic L-function for CM fields (Theorem (5.3.0))",
    "kind": "theorem",
-   "statement": "Let M be a CM field with p-ordinary CM type Σ, δ as in cm-type-p-ordinary, and ω(O_M), Ω ∈ (F ⊗ ℂ)^×, c ∈ (O ⊗ D_p)^× the periods of cm-periods (Katz writes K for the totally real field F and L for M). There is a D_p-valued p-adic measure µ on Gal(M(p^∞)/M) (M(p^∞) the maximal abelian extension unramified outside p) such that for every A₀-Grössencharacter χ of M of conductor dividing p^∞ and infinity type −kΣ_σσ − Σ_σd(σ)(σ − σ̄) with k ≥ 1 and all d(σ) ≥ 0: (A) L_µ(χ_p)/∏_σc(σ)^{k+2d(σ)} lies in incl(p)(ℚ̄); (B) Local(χ, Σ, δ)·[O_M^×:O_F^×]·∏_𝔓((1 − χ̌(𝔓))(1 − χ(𝔓̄))) (χ̌ the dual character of (5.3.7), χ̌(𝔄) = 1/(χ(𝔄̄)N(𝔄)))·(−1)^{kg}(π)^{Σd(σ)}∏_σΓ(k + d(σ))/(√d_F∏_σIm(σ(δ))^{d(σ)}∏_σΩ(σ)^{k+2d(σ)})·L_∞(χ) lies in incl(∞)(ℚ̄); and (A) = (B) under incl(p)^{-1} and incl(∞)^{-1}. Here L_µ(χ_p) = ∫χ_pdµ, the product is over the primes 𝔓 of Σ_p, and Local(χ, Σ, δ) is Katz’s local term at p (§5.2).",
+   "statement": "Let M be a CM field with p-ordinary CM type Σ, δ as in cm-type-p-ordinary, and ω(O_M), Ω ∈ (F ⊗ ℂ)^×, c ∈ (O ⊗ D_p)^× the periods of cm-periods (Katz writes K for the totally real field F and L for M). There is a D_p-valued p-adic measure µ on Gal(M(p^∞)/M) (M(p^∞) the maximal abelian extension unramified outside p) such that for every A₀-Grössencharacter χ of M of conductor dividing p^∞ and infinity type −kΣ_σσ − Σ_σd(σ)(σ − σ̄) with k ≥ 1 and all d(σ) ≥ 0: (A) L_µ(χ_p)/∏_σc(σ)^{k+2d(σ)} lies in incl(p)(ℚ̄); (B) Local(χ, Σ, δ)·[O_M^×:O_F^×]·∏_𝔓((1 − χ̌(𝔓̄))(1 − χ(𝔓̄))) (χ̌ the dual character of (5.3.7), χ̌(𝔄) = 1/(χ(𝔄̄)N(𝔄)), so χ̌(𝔓̄) = 1/(χ(𝔓)N(𝔓)))·(−1)^{kg}(π)^{Σd(σ)}∏_σΓ(k + d(σ))/(√d_F∏_σIm(σ(δ))^{d(σ)}∏_σΩ(σ)^{k+2d(σ)})·L_∞(χ) lies in incl(∞)(ℚ̄); and (A) = (B) under incl(p)^{-1} and incl(∞)^{-1}. Here L_µ(χ_p) = ∫χ_pdµ, the product is over the primes 𝔓 of Σ_p, and Local(χ, Σ, δ) is Katz’s local term at p (§5.2).",
    "hypotheses": [
     "(ord): Σ p-ordinary; conductor of χ dividing p^∞ (tame conductor 1); the critical range k ≥ 1, d(σ) ≥ 0.",
     "Not asserted for nonordinary primes or outside this infinity-type range."
@@ -4696,7 +4694,7 @@
    ],
    "title": "The Katz–Hida–Tilouine measure with tame conductor",
    "kind": "theorem",
-   "statement": "Fix an O_M-ideal C prime to p, decomposed C = 𝔉𝔉^c𝔍 with 𝔉𝔉^c split and 𝔍 inert or ramified over F, and δ satisfying (d1)–(d2) with c prime to pCC^c. There is a unique measure φ on the ray class group Z(C) of M modulo Cp^∞ such that for every Hecke character λ modulo Cp^∞ whose conductor is divisible by every prime factor of 𝔉 and whose infinity type is kΣ + κ(1 − c) with κ = Σκ_σσ and either k > 0, κ ≥ 0 or k ≤ 1, κ ≥ 1 − k: ∫λ̂ dφ/Ω_p^{kΣ+2κ} = (O^×:O_F^×)W_p(λ)·(−1)^{kΣ}Γ_Σ(kΣ + κ)/(√|D_F|·Im(δ)^κ·Ω_∞^{kΣ+2κ})·∏_{𝔏|𝔉}(1 − λ(𝔏))∏_{𝔓∈Σ_p}(1 − λ(𝔓^c))(1 − λ^∨(𝔓^c))·L(0, λ), with W_p(λ) the root number at Σ_p of (1.2) and L the primitive L-function. It satisfies a functional equation relating φ on Z(C) and φ^c on Z(C^c) with the factor N(c^{-1})W′(λ). For C = 1 it is Katz’s measure.",
+   "statement": "Fix an O_M-ideal C prime to p, decomposed C = 𝔉𝔉^c𝔍 with 𝔉𝔉^c split and 𝔍 inert or ramified over F, and δ satisfying (d1)–(d2) with c prime to pCC^c. There is a unique measure φ on the ray class group Z(C) of M modulo Cp^∞ such that for every Hecke character λ modulo Cp^∞ whose conductor is divisible by every prime factor of 𝔉 and whose infinity type is kΣ + κ(1 − c) with κ = Σκ_σσ and either k > 0, κ ≥ 0 or k ≤ 1, κ ≥ 1 − k: ∫λ̂ dφ/Ω_p^{kΣ+2κ} = (O^×:O_F^×)W_p(λ)·(−1)^{kΣ}π^κΓ_Σ(kΣ + κ)/(√|D_F|·Im(δ)^κ·Ω_∞^{kΣ+2κ})·∏_{𝔏|C}(1 − λ(𝔏))·∏_{𝔓∈Σ_p}(1 − λ(𝔓^c))(1 − λ*(𝔓^c))·L(0, λ), with W_p(λ) the root number at Σ_p of (1.2), λ*(x) = λ(x^c)^{-1}|x|_{A_M} the dual character, λ(𝔏) = 0 for 𝔏 dividing the conductor of λ, and L the primitive L-function. It satisfies a functional equation relating φ on Z(C) and φ^c on Z(C^c) with the factor N(c^{-1})W′(λ). For C = 1 it is Katz’s measure.",
    "hypotheses": [
     "Σ p-ordinary; C prime to p; the hypotheses (i)–(ii) on λ."
    ],
@@ -5306,9 +5304,9 @@
    ],
    "title": "Mod-p nonvanishing of central values with ℓ-power anticyclotomic twists (Hsieh Theorem C, Theorem 7.1)",
    "kind": "theorem",
-   "statement": "Let ℓ ≠ p be a prime, 𝔩 a prime of F above ℓ, Γ⁻_𝔩 the Galois group of the anticyclotomic pro-ℓ extension in the ray class field of M of conductor 𝔩^∞, X⁰_𝔩 its finite-order characters, and χ a Hecke character of infinity type (k/2 + m, −k/2 − m) and conductor c_χ. Assume (ord), (sf), Hypothesis A, (pl, n c_χ D_{M/F}) = 1, ρ̄_p(π_M) absolutely irreducible, and p ∤ ∏_{v(c⁻_χ)=1}#∆_{χ,v} (Theorem 7.1: µ_p(Ψ_{π,χ,v}) = 0 for v | c⁻_χ). Then for almost all φ ∈ X⁰_𝔩, [O_M^×:O_F^×]²·Γ_Σ(k+m)Γ_Σ(m+1)/((Im δ)^{k+2m}(4π)^{k+2m+1·Σ})·L(1/2, π_M ⊗ χφ)/Ω_M^{2(k+2m)} ≢ 0 mod m_p. ‘Almost all’ means all but finitely many φ if dim_{ℚ_ℓ}F_𝔩 = 1, and a Zariski-dense subset if dim_{ℚ_ℓ}F_𝔩 > 1.",
+   "statement": "Let ℓ ≠ p be a prime, 𝔩 a prime of F above ℓ, Γ⁻_𝔩 the Galois group of the anticyclotomic pro-ℓ extension in the ray class field of M of conductor 𝔩^∞, X⁰_𝔩 its finite-order characters, and χ a Hecke character of infinity type (k/2 + m, −k/2 − m) and conductor c_χ. Assume (ord), (sf), Hypothesis A, p unramified in F, (pl, n c_χ D_{M/F}) = 1, ρ̄_p(π_M) absolutely irreducible, and p ∤ ∏_{v(c⁻_χ)=1}#∆_{χ,v} (Theorem 7.1: µ_p(Ψ_{π,χ,v}) = 0 for v | c⁻_χ). Then for almost all φ ∈ X⁰_𝔩, [O_M^×:O_F^×]²·Γ_Σ(k+m)Γ_Σ(m+1)/((Im δ)^{k+2m}(4π)^{k+2m+1·Σ})·L(1/2, π_M ⊗ χφ)/Ω_M^{2(k+2m)} ≢ 0 mod m_p. ‘Almost all’ means all but finitely many φ if dim_{ℚ_ℓ}F_𝔩 = 1, and a Zariski-dense subset if dim_{ℚ_ℓ}F_𝔩 > 1.",
    "hypotheses": [
-    "The conductor conditions of Theorem C, separate from those of Theorem B; the two meanings of ‘almost all’ are distinct and must be kept."
+    "The conductor conditions of Theorem C, separate from those of Theorem B, and p unramified in F, which Theorem C as printed omits but Theorem 7.1 (through Theorem 6.2) assumes (sourceIssues E6); the index c⁻_χ in the local condition follows Theorem 7.1 (sourceIssues E7); the two meanings of ‘almost all’ are distinct and must be kept."
    ],
    "proofSteps": [
     "Hida’s method (Hsieh §7.1): express the algebraic L-values as a p-adic measure on the ℓ-adic anticyclotomic class group Cl⁻_{𝔩^∞} given by evaluating the toric form at CM points (Hsieh’s Proposition 7.3, Lemma 7.4).",
@@ -5548,7 +5546,7 @@
     {
      "sourceId": "HSIEH-2014",
      "locator": "Introduction pp. 713–714",
-     "match": "Hsieh explains that his Theorem C is used by Wan for Fourier–Jacobi coefficients on U(3,1), alongside [Hsi12]."
+     "match": "Hsieh lists [Hsi12] among the earlier mod-p nonvanishing results (p. 713) and explains that his Theorem C is used by Wan for Fourier–Jacobi coefficients on U(3,1) (p. 714)."
     }
    ],
    "implementationStatus": "unchecked"
@@ -5561,7 +5559,7 @@
    ],
    "title": "Finis’ divisibility of anticyclotomic L-values and Vatsal’s nonvanishing",
    "kind": "theorem",
-   "statement": "Let M be imaginary quadratic, p an odd prime split in M, ℓ an odd prime different from p, k, d positive integers and Ω_∞ a complex CM period. (1) If ℓ splits in M, then for all but finitely many anticyclotomic Hecke characters λ of M of conductor dividing dD_Mp^∞, infinity type (−k, k − 1) and global root number W(λ) = +1, v_ℓ(Ω_∞^{1−2k}(k−1)!(2π/√D)^{k−1}W(λ)L(0, λ)) = Σ_{q inert}µ_ℓ(λ_q). (2) If ℓ is inert or ramified and k = 1, the analogous equality holds with the extra term b_ℓ(λ_ℓ, w(λ)). The left side is always at least the right side. Vatsal’s nonvanishing of central L-values of weight-two forms twisted by anticyclotomic characters modulo p (Duke 116 (2003)) is the GL₂ counterpart; it is not read here and is recorded as an import for the consumers.",
+   "statement": "Let M be imaginary quadratic, p an odd prime split in M, ℓ an odd prime different from p, k, d positive integers and Ω_∞ a complex CM period. (1) If ℓ splits in M, then for all but finitely many anticyclotomic Hecke characters λ of M of conductor dividing dD_Mp^∞, infinity type (−k, k − 1) and global root number W(λ) = +1, v_ℓ(Ω_∞^{1−2k}(k−1)!(2π/√D)^{k−1}W_ℓ(λ)L(0, λ)) = Σ_{q inert}µ_ℓ(λ_q), where W_ℓ(λ) = N(l)^{−e(l)}G(δ, λ_l) is the ℓ-adic root number (l the prime of M above ℓ fixed by i_ℓ, e(l) the exponent of l in the conductor) and µ_ℓ(λ_q) the local invariant at an inert q. (2) If ℓ is inert or ramified and k = 1, v_ℓ(Ω_∞^{-1}D^{1/4}L(0, λ)) = Σ_{q ≠ ℓ inert}µ_ℓ(λ_q) + b_ℓ(λ_ℓ, w(λ)) for all but finitely many such λ of infinity type (−1, 0). For every anticyclotomic λ of these infinity types the left side is at least the right side, except possibly for M = ℚ(√−3) and ℓ = 3. Vatsal’s nonvanishing of central L-values of weight-two forms twisted by anticyclotomic characters modulo p (Duke 116 (2003)) is the GL₂ counterpart; it is not read here and is recorded as an import for the consumers.",
    "hypotheses": [
     "M imaginary quadratic, p odd split, ℓ odd ≠ p (Finis’ ℓ plays the role of the residue characteristic of the valuation)."
    ],
@@ -5764,7 +5762,7 @@
     {
      "name": "EHLS.ordinary_control",
      "role": "compatibility",
-     "statement": "Specialisation of the Λ-adic ordinary module at classical weights gives S^κ_ord."
+     "statement": "For κ sufficiently regular, T_π ⊗_{Λ^o_π} Λ^o_π/I_κ ≅ T_{K^pr,κ,O_π} (EHLS Theorem 7.3.1(ii)), so specialisation of the Λ-adic ordinary module at such κ gives S^κ_ord."
     }
    ],
    "tests": [
@@ -5803,7 +5801,7 @@
     "Stated as propositions (Prop-valued) on the datum; no constructor asserts them."
    ],
    "proofSteps": [
-    "Each is a property of the objects of ehls-ordinary-forms-hecke; EHLS discuss when they can be verified (Taylor–Wiles methods for Gorenstein, Remark 9.3.1; multiplicity one when the bad places split and the base change is cuspidal, p. 100)."
+    "Each is a property of the objects of ehls-ordinary-forms-hecke; EHLS discuss when they can be verified (Taylor–Wiles methods for Gorenstein, Remark 9.3.1; the stronger multiplicity-one Hypothesis 6.6.4 is expected when the bad places split and the base change is cuspidal, p. 100; Hypothesis 7.3.3 is noted on p. 110 to follow from Mok and Kaletha–Mínguez–Shin–White, whose proofs rest partly on announced results of Arthur, so it stays a stated hypothesis here)."
    ],
    "acceptance": [
     "When the residual Galois representation has large image, Gorenstein can often be verified by Taylor–Wiles (Remark 9.3.1); it is certainly not valid in complete generality."
@@ -5865,7 +5863,7 @@
     {
      "name": "ehls_multiplicity_one_split",
      "kind": "computation",
-     "statement": "If all bad places split in K/K⁺ and the base change to GL_n/K is cuspidal, global multiplicity one holds (EHLS §6.6, p. 100)."
+     "statement": "Hypothesis 7.3.3 asks for multiplicity one of each π′ in the cuspidal spectrum and is weaker than Hypothesis 6.6.4, which asks that no other holomorphic cuspidal π′ of the same type share the prime-to-p Hecke eigensystem of π; a second π′ ≠ π with λ^p_{π′} = λ^p_π, each of multiplicity one, violates 6.6.4 but not 7.3.3 (EHLS pp. 99–100, 110)."
     },
     {
      "name": "ehls_gorenstein_dual_free",
@@ -7024,7 +7022,7 @@
     {
      "sourceId": "CGLS-2022",
      "locator": "Introduction p. 4; §2.1.2, Theorem 2.1.2, p. 13",
-     "match": "Castella–Grossi–Lee–Skinner work with Σ-imprimitive anticyclotomic Katz p-adic L-functions, obtained from the primitive ones by removing Euler factors at the primes in Σ."
+     "match": "Castella–Grossi–Lee–Skinner work with Σ-imprimitive anticyclotomic Katz p-adic L-functions (p. 4); in Theorem 2.1.2 the removed Euler factors appear as the factors (1 − θ(ℓ)ξ(w)ℓ^{-1}) over ℓ | C."
     },
     {
      "sourceId": "DR-1980",
@@ -7196,8 +7194,8 @@
     },
     {
      "sourceId": "PAN-1994",
-     "locator": "§4.1, pp. 999–1001",
-     "match": "Panchishkin places all p-adic L-functions of motives over totally real fields on the single group Gal_p with its character space X_p."
+     "locator": "§4.1, pp. 999–1001; Conjecture 6.2, p. 1006",
+     "match": "Panchishkin defines Gal_p and its character space X_p in §4.1 and, in Conjecture 6.2, places the p-adic L-function of every motive over a totally real field on X_p."
     },
     {
      "sourceId": "KATZ-1978",
@@ -7215,7 +7213,7 @@
    ],
    "title": "The Coates–Perrin-Riou/Panchishkin existence proposition",
    "kind": "definition",
-   "statement": "Let M be a pure motive of weight w and rank d over a totally real field F with coefficients in a number field T, given through explicit realisation data (SelmerIwasawaCohomology:L4/period-realization, L4/archimedean-realization) with a critical twist (L4/criticality). For a sign ε₀ = (ε_{0,σ}) ∈ {±1}^{J_F}, periods c^±(σ, M) (determined modulo T^×) and Ω(ε₀, M) = (1 ⊗ (2πi))^{r(M)}∏_σc^{ε_{0,σ}}(σ, M), the Newton and Hodge polygons P_Newton,σ(u, M), P_Hodge,σ(u, M) at the embeddings σ above p, the integer h = max_σ(P_Newton,σ(d^±) − P_Hodge,σ(d^±)) + 1 (h = 1 when M is admissible at p: the polygons meet at d^±), and the modified p-Euler factors A_p(M(χ), s) built from the inverse roots α_i(𝔭) ordered by valuation, the proposition CPRP(M, ε₀) asserts: there is a ℂ_p-analytic function L^{ε₀}_{(p)} on the character space X_p of Gal_p = Gal(F(p^∞)/F) such that (i) for all but finitely many (m, χ) with M(χ)(m) critical at 0 and sign ε₀, L^{ε₀}_{(p)}(χx_p^m) equals the explicit product of i^{…}, G(χ)^{d^{ε₀}}, ∏_{𝔭|p}A_p(M(χ)(m), 0) and the critical value L(M(χ)(m), 0)/Ω(ε₀, M) (read p-adically); (ii) it is holomorphic if M^{…} = 0 and otherwise has poles only at a finite explicit set; (iii) the holomorphic function in (ii) is bounded if h = 1 and of order log^{h−1} otherwise (the Mellin transform of an h-admissible measure). No constructor asserts CPRP; it is a proposition about the data, satisfied in the cases constructed in this roadmap.",
+   "statement": "Let M be a pure motive of weight w and rank d over a totally real field F with coefficients in a number field T, given through explicit realisation data (SelmerIwasawaCohomology:L4/period-realization, L4/archimedean-realization) with a critical twist (L4/criticality). For a sign ε₀ = (ε_{0,σ}) ∈ {±1}^{J_F}, periods c^±(σ, M) (determined modulo T^×) and Ω(ε₀, M) = (1 ⊗ (2πi))^{r(M)}∏_σc^{ε_{0,σ}}(σ, M), the Newton and Hodge polygons P_Newton,σ(u, M), P_Hodge,σ(u, M) at the embeddings σ above p, the positive integer h = max_σ[P_Newton,σ(d^±) − P_Hodge,σ(d^±)] + 1 with [·] the integer part (so h = 1 when M is admissible at p, i.e. P_Newton,σ(d^±) = P_Hodge,σ(d^±) for all σ, and also whenever the gap at d^± is less than 1), and the modified p-Euler factors A_p(M(χ), s) built from the inverse roots α_i(𝔭) ordered by valuation, the proposition CPRP(M, ε₀) asserts: there is a ℂ_p-analytic function L^{ε₀}_{(p)} on the character space X_p of Gal_p = Gal(F(p^∞)/F) such that (i) for all but finitely many (m, χ) with M(χ)(m) critical at 0 and sign ε₀, L^{ε₀}_{(p)}(χx_p^m) equals the explicit product of i^{…}, G(χ)^{d^{ε₀}}, ∏_{𝔭|p}A_p(M(χ)(m), 0) and the critical value L(M(χ)(m), 0)/Ω(ε₀, M) (read p-adically); (ii) it is holomorphic if M^{…} = 0 and otherwise has poles only at a finite explicit set; (iii) the holomorphic function in (ii) is bounded if M is admissible at p; (iv) in general it is of type o(log_p^h) and is the Mellin transform of an h-admissible measure; (v) if h ≤ m* − m_* + 1 (the width of the critical strip) it is uniquely determined by (i)–(ii) (Panchishkin Conjecture 6.2). No constructor asserts CPRP; it is a proposition about the data, satisfied in the cases constructed in this roadmap.",
    "hypotheses": [
     "M given by explicit realisation and criticality data from SelmerIwasawaCohomology L4; periods fixed modulo T^×; the conjecture on factorisation of periods (Panchishkin §2.3) is part of the data, not proved."
    ],
@@ -7225,7 +7223,7 @@
    ],
    "acceptance": [
     "M = ℚ(1) over ℚ (Tate motive), p odd: admissible and ordinary, h = 1, and CPRP is the existence of the Kubota–Leopoldt measure (DirichletPadicLFunctions).",
-    "M = h¹(E)(1) for an elliptic curve with good supersingular reduction at p ≥ 5: h = 2 (Newton polygon of slope 1/2), and CPRP asks for an order-one (log-growth) distribution, matching the Pollack–Stevens/Amice–Vélu construction."
+    "M = h¹(E)(1) for an elliptic curve with good supersingular reduction at p ≥ 5: d^± = 1, P_Newton(1) − P_Hodge(1) = 1/2, so h = [1/2] + 1 = 1 but M is not admissible at p; clause (iv) asks for a function of type o(log_p), matching the order-1/2 distributions of Amice–Vélu and Višik constructed by Pollack–Stevens."
    ],
    "prerequisites": [
     "SelmerIwasawaCohomology:L4/period-realization",
@@ -7239,7 +7237,7 @@
    "sources": [
     {
      "sourceId": "PAN-1994",
-     "locator": "§3.2, pp. 998–999; §4.2, Definition 4.2, p. 1001; §5, Definitions 5.2–5.5 and the integer h, pp. 1002–1005; §6.1–6.2, Conjecture 6.2, pp. 1005–1006",
+     "locator": "§3.2, pp. 998–999; §4.2, Definition 4.2, p. 1001; §5, Definitions 5.2–5.5 and the integer h, pp. 1002–1005; §6.1–6.2, Conjecture 6.2 (i)–(v), pp. 1005–1006",
      "match": "Panchishkin defines the periods Ω(ε₀, M), h-admissible measures, the Newton and Hodge polygons, the admissibility condition, the integer h and the modified p-Euler factors, and states the conjecture on the existence of p-adic L-functions of motives over totally real fields."
     },
     {
@@ -7282,7 +7280,7 @@
     {
      "name": "CPRP.admissibility",
      "role": "constructor",
-     "statement": "h(M) = max_σ(P_Newton − P_Hodge)(d^±) + 1."
+     "statement": "h(M) = max_σ[P_Newton,σ(d^±) − P_Hodge,σ(d^±)] + 1 ([·] the integer part), and the admissibility predicate P_Newton,σ(d^±) = P_Hodge,σ(d^±) for all σ (Panchishkin Definition 5.5), which implies h = 1 but is not implied by it."
     },
     {
      "name": "CPRP.modifiedEulerFactor",
@@ -7302,7 +7300,7 @@
     {
      "name": "CPRP.of_measure",
      "role": "compatibility",
-     "statement": "A measure (h = 1) or h-admissible distribution on Gal_p with the interpolation (i) gives CPRP via the Mellin transform."
+     "statement": "For M admissible at p, a measure on Gal_p with the interpolation (i) gives CPRP via the Mellin transform; in general an h-admissible distribution with (i) does."
     }
    ],
    "tests": [
@@ -7317,9 +7315,9 @@
      "statement": "If M is p-ordinary (Newton = Hodge) then h = 1 and the predicted function is bounded."
     },
     {
-     "name": "cprp_supersingular_h_two",
+     "name": "cprp_supersingular_not_admissible",
      "kind": "non-example",
-     "statement": "For h¹(E)(1) with E supersingular at p, h = 2; asking for a bounded measure is wrong (no bounded measure has the predicted values)."
+     "statement": "For h¹(E)(1) with E supersingular at p, h = 1 although M is not admissible at p (the Newton polygon lies 1/2 above the Hodge polygon at d^± = 1); a definition that took h = 1 to mean bounded, or that dropped the integer part and set h = 3/2, gets the predicted growth wrong: no bounded measure has the predicted values, and the function is of type o(log_p)."
     },
     {
      "name": "cprp_no_constructor",
@@ -7421,13 +7419,6 @@
    ]
   },
   {
-   "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-9-abelian-chebotarev",
-   "need": "Import (existing Tau Ceti layer): abelian Chebotarev density, used to find ordinary CM points with prescribed Frobenius units in Deligne–Ribet’s irreducibility theorem (4.5).",
-   "neededBy": [
-    "AutomorphicPadicLFunctions:L3/igusa-irreducibility"
-   ]
-  },
-  {
    "supplier": "SmoothRepresentationsOfLocalGroups:SR.4",
    "need": "Unramified principal series of GL_n over p-adic fields, Iwahori-fixed vectors and the U_t-operators (Casselman’s basis), for the stabilised vectors of Eischen–Wan and the Panchishkin eigenlines of Disegni–Liu.",
    "neededBy": [
@@ -7477,6 +7468,20 @@
     "AutomorphicPadicLFunctions:L3/katz-functional-equation"
    ],
    "detail": "Hida–Tilouine (Ann. Sci. ÉNS 26 (1993)) is stated through Hida 2010 §1 (1.3); Katz’s proof sections §§5.4–5.6 were located but only the statements (5.3.0)–(5.3.7), (4.2.x) and (2.4.5), (2.5.8), (2.6.7) were read. The local term Local(χ, Σ, δ) of Katz §5.2 must be transcribed from (5.2.30)–(5.2.38) when the node is refined."
+  },
+  {
+   "title": "Barrera Salazar’s growth bound for the totally real construction not read",
+   "neededBy": [
+    "AutomorphicPadicLFunctions:L2/growth-uniqueness-totally-real-imaginary-quadratic"
+   ],
+   "detail": "BSW §12 (p. 39) and Bergdall–Hansen §1.8 (p. 12) attribute to Barrera Salazar (thesis, Lille 2013; Ann. Inst. Fourier 68 (2018)) the admissibility of the overconvergent-cycle p-adic L-function over a totally real field. Neither BSW nor Bergdall–Hansen proves it, and it was not read; the identification of µ_Φ with Bergdall–Hansen’s L^ε_p(π, α) under vanishing Leopoldt defect rests on it. The exact growth exponent and slope range must be taken from that source before the node is refined."
+  },
+  {
+   "title": "Deligne’s equivalence for ordinary abelian varieties over finite fields not planned",
+   "neededBy": [
+    "AutomorphicPadicLFunctions:L3/igusa-irreducibility"
+   ],
+   "detail": "Deligne–Ribet prove (4.5) by constructing ordinary Hilbert–Blumenthal abelian varieties over finite fields with prescribed Frobenius unit, level structure and polarisation module from Deligne’s equivalence between ordinary abelian varieties over F_q and finite free ℤ-modules with a Frobenius endomorphism (Deligne, ‘Variétés abéliennes ordinaires sur un corps fini’, Invent. Math. 8 (1969); DR p. 257). No layer of the atlas plans it: AbelianSchemesAndArithmeticModuliPartII F3 has the Honda–Tate classification only. A finite-field layer of that roadmap is the natural owner; until it is planned, the node rests on this gap."
   }
  ],
  "coverage": [
@@ -7503,7 +7508,8 @@
    "status": "planned",
    "remaining": [
     "Growth for general F is an open statement, not a target: BSW prove choice-independence only (bsw-choice-independence); growth and uniqueness are planned for F totally real (Bergdall–Hansen, under Leopoldt) and imaginary quadratic (Williams).",
-    "Families over general F are not a BSW target; a family statement needs the eigenvariety and control hypotheses of PadicFamilies:L2a and is not claimed here."
+    "Families over general F are not a BSW target; a family statement needs the eigenvariety and control hypotheses of PadicFamilies:L2a and is not claimed here.",
+    "Barrera Salazar’s growth bound for µ_Φ over totally real F is a recorded gap; the identification with Bergdall–Hansen under vanishing Leopoldt defect rests on it."
    ],
    "note": "Narrowed by RS-14 (generic Fredholm and slope theory from LocallyAnalyticDistributions L4; rational case from ModularSymbolsPadicLFunctions L2). The seven nodes of the 2026-09-26 checkpoint are kept with their ids and rewritten at target level; the twelve lemma nodes are folded into API items (retiredDraftNodes)."
   },
@@ -7513,7 +7519,8 @@
    "remaining": [
     "Transcribe Katz’s local term Local(χ, Σ, δ) ((5.2.30)–(5.2.38)) into katz-padic-l-function.",
     "A Shintani-cone computation of the Deligne–Ribet values is permitted by the stage text but not needed by any target; it is not planned.",
-    "Greenberg’s p-adic Artin L-functions by Brauer induction and Colmez’s residue formula are requested by consumers (requestLedger) and are not planned in this abelian layer."
+    "Greenberg’s p-adic Artin L-functions by Brauer induction and Colmez’s residue formula are requested by consumers (requestLedger) and are not planned in this abelian layer.",
+    "Deligne’s equivalence for ordinary abelian varieties over finite fields, used in Deligne–Ribet (4.5), is a recorded gap with no planned owner."
    ],
    "note": "Narrowed by RS-14: rational pseudo-measures and Eisenstein measures from DirichletPadicLFunctions L1/L2/L4, CM theory from ShimuraVarieties V5 and ComplexMultiplicationAndExplicitReciprocity CM.0/CM.4, expansions from AutomorphicBundles B5. Hilbert Igusa inputs come from HodgeTateAndCanonicalSubgroups:T5 and HilbertModularVarietiesAndShimuraCurves H2, not IgusaVarietiesAndTorsionConcentration:IG.1 (RT-AREA-langlands-1/8)."
   },
@@ -7565,7 +7572,12 @@
    "searched": [
     "arXiv:1602.06244 versions v1–v3 listing and abstract page",
     "Canadian Journal of Mathematics 71 (2019) article page (metadata only; the journal text was not obtained)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked in arXiv v3, §9.2.1–9.2.2 and the proofs of Propositions 9.6 and 9.9 (pp. 30–34): §9.2.1 identifies G_y with G by multiplication by a_y^{-1}, so the fibre function of φ is z ↦ φ(a_y z), while §9.2.2 prints φ(a_y^{-1}z). With the weight action (u 0; 0 1)·f(z) = u^{k+v}f(u^{-1}z) the identity ϕ*_{a′_y} = (ũ 0; 0 1)·ϕ*_{a_y} used in Proposition 9.6, the restriction identity in Proposition 9.9 and equation (13) all hold for the forward chart and fail for the printed one; Proposition 9.3 as printed is the backward-chart rule, so it must be read as ϕ_{a′_y}(z) = ϕ_{a_y}(ũz). Results unaffected.",
+    "by": "REV-AutomorphicPadicLFunctions"
+   }
   },
   {
    "id": "AutomorphicPadicLFunctions/E2",
@@ -7581,7 +7593,12 @@
     "arXiv:1602.06244 versions listing",
     "Urban, Eigenvarieties for reductive groups, Lemma 3.2.8 (as cited by BSW; not re-read)",
     "Canadian Journal of Mathematics article page (metadata only)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at Lemma 6.7, p. 22: the identity matrix lies in GL₂(F) ∩ Σ₀(p) (c = 0, a = 1) and is not compact in the sense of Definition 6.6, so the lemma as stated is false; the proof of Theorem 7.3 uses only coset representatives of (1 0; 0 p), whose lower-right entry lies in p, and these do improve the radius.",
+    "by": "REV-AutomorphicPadicLFunctions"
+   }
   },
   {
    "id": "AutomorphicPadicLFunctions/E3",
@@ -7596,7 +7613,12 @@
    "searched": [
     "arXiv:1602.06244 versions listing",
     "Canadian Journal of Mathematics article page (metadata only)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at Lemma 8.1(iii), p. 24: the hypothesis asks only for an O_L-submodule of the elements of nonnegative norm stable under L[U_i]; stability under L-scalars forces such a submodule to be 0, and the proof needs to rescale an eigenvector into the submodule, so an open bounded lattice stable under the integral Hecke algebra is required. Corollary 8.4 supplies one (integral distributions and the renormalised U′_𝔭).",
+    "by": "REV-AutomorphicPadicLFunctions"
+   }
   },
   {
    "id": "AutomorphicPadicLFunctions/E4",
@@ -7611,7 +7633,12 @@
    "searched": [
     "arXiv:1602.06244 versions listing",
     "Canadian Journal of Mathematics article page (metadata only)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at §9.2.1, p. 30, and §12, p. 39: the quotients are written as (O_F ⊗ ℤ_p)^×/E(1) and {z ≡ 1 mod f}/E(f) with E the image of the units; for positive unit rank the image is not closed, and the kernel of the map to the profinite group Cl⁺_F(p^∞) is its closure (Katz (5.4.6), p. 275, divides by the closure).",
+    "by": "REV-AutomorphicPadicLFunctions"
+   }
   },
   {
    "id": "AutomorphicPadicLFunctions/E5",
@@ -7626,7 +7653,53 @@
    "searched": [
     "arXiv:1404.7153 versions listing",
     "Journal of the Institute of Mathematics of Jussieu 15 (2016) article page (metadata only)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked at Corollary 5.9, p. 37: the justification cites Proposition 4.17; the paper has no Proposition 4.17, and Lemma 4.17 (p. 29) is the Klingen constant-term statement the argument needs.",
+    "by": "REV-AutomorphicPadicLFunctions"
+   }
+  },
+  {
+   "id": "AutomorphicPadicLFunctions/E6",
+   "source": "HSIEH-2014",
+   "kind": "error",
+   "locator": "Theorem C, p. 713 (published Documenta Math. 19 (2014)); also Theorem C in arXiv:1112.1580v3; compare Theorem 7.1, p. 759, and Theorem 6.2, p. 757",
+   "printed": "Theorem C lists as hypotheses (ord), (sf), Hypothesis A, the coprimality (pl, n c_χ D_{K/F}) = 1, absolute irreducibility of the residual representation restricted to G_K and the local character-image condition, and does not require p to be unramified in F.",
+   "correction": "Add the hypothesis that p is unramified in F. Theorem 7.1, which proves Theorem C, assumes the hypotheses of Theorem 6.2, and these include p unramified in F.",
+   "reason": "The proof of Theorem 7.1 goes through the µ-invariant criterion Theorem 6.1, Hida’s linear independence (Hida 2010, Theorem 3.20, Corollary 3.21) and Hida’s density theorems (Hida 2004), each stated or used under p unramified in F; Theorem C as printed claims the conclusion without that hypothesis, which is not what is proved.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "arXiv:1112.1580v3 (the preprint of the paper): its Theorem C also omits the hypothesis",
+    "Documenta Mathematica volume 19 contents (no erratum listed)",
+    "arXiv listing of M.-L. Hsieh’s papers (no correction found)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found by this review: Theorem 7.1 (p. 759) begins ‘With the same assumptions in Theorem 6.2’, and Theorem 6.2 (p. 757) assumes p unramified in F; Theorem C (p. 713) does not list it. Node L3h/theorem-c now carries the hypothesis.",
+    "by": "REV-AutomorphicPadicLFunctions"
+   }
+  },
+  {
+   "id": "AutomorphicPadicLFunctions/E7",
+   "source": "HSIEH-2014",
+   "kind": "misprint",
+   "locator": "Theorem C, condition (3), p. 713 (published version only)",
+   "printed": "Condition (3) of Theorem C asks that p not divide the product of the orders #(∆_{χ,v}) over the places v with v(c⁻_λ) = 1, indexing by the conductor of λ while the groups belong to χ.",
+   "correction": "Index by the conductor of χ: the product runs over v with v(c⁻_χ) = 1, matching Theorem 7.1(2) (µ_p(Ψ_{π,χ,v}) = 0 for v | c⁻_χ) and the arXiv version’s condition over v | c⁻_χ.",
+   "reason": "Theorem C concerns twists of χ, whose ramification at the nonsplit places is what the local invariants µ_p(Ψ_{π,χ,v}) of Theorem 7.1 measure; λ plays no role in Theorem C, and the arXiv v3 statement indexes by c⁻_χ.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "arXiv:1112.1580v3 Theorem C (indexes by c⁻_χ)",
+    "Documenta Mathematica volume 19 contents (no erratum listed)"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Found by this review, comparing the published Theorem C (p. 713) with Theorem 7.1 (p. 759) and arXiv v3.",
+    "by": "REV-AutomorphicPadicLFunctions"
+   }
   }
  ],
  "sourceVersions": [
@@ -7643,6 +7716,20 @@
    "read": "2026-10-19",
    "sha256": "df523d74a0bdf668ea619e82074721ca953874331a3289784bd94ad197a9f40e",
    "citation": "Eischen–Wan, arXiv v2; the published version (J. Inst. Math. Jussieu 15 (2016)) was not obtained, so E5 is scoped to v2."
+  },
+  {
+   "kind": "published",
+   "url": "https://emis.muni.cz/journals/DMJDMV/vol-19/24.pdf",
+   "read": "2026-10-19",
+   "sha256": "a662df673725f6abbdb5b3ee272e78973c125cbc5d6fd0ba9307c790e8070718",
+   "citation": "Hsieh, Documenta Math. 19 (2014), 709–767; E6 and E7 are stated against this version."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1112.1580v3",
+   "read": "2026-10-19",
+   "sha256": "2b28135cee2f2d704b4f90df04c6bf1298a70669597634ebadb100a0bb1042a0",
+   "citation": "Hsieh, arXiv:1112.1580v3 (23 August 2012), consulted to compare Theorem C: it also omits p unramified in F (E6) and indexes condition (3) by c⁻_χ (so E7 is a slip of the published version)."
   }
  ],
  "restructure": [
@@ -7748,7 +7835,7 @@
   },
   {
    "finding": "RT-AREA-iwasawa-1/33",
-   "disposition": "The growth target is split: L2/bsw-choice-independence states BSW’s independence of choices for general F and records per-place growth as an open statement, not a target; L2/growth-uniqueness-totally-real-imaginary-quadratic gives growth and uniqueness for F imaginary quadratic (Williams, Theorem 7.4) and F totally real under vanishing Leopoldt defect (Bergdall–Hansen, Theorem 1.1.2(c),(f)). L0’s uniqueness clause is conditional on a growth theorem.",
+   "disposition": "The growth target is split: L2/bsw-choice-independence states BSW’s independence of choices for general F and records per-place growth as an open statement, not a target; L2/growth-uniqueness-totally-real-imaginary-quadratic gives growth and uniqueness for F imaginary quadratic (Williams, Theorem 7.4) and F totally real under vanishing Leopoldt defect (Bergdall–Hansen, Theorem 1.1.2(c),(f)). L0’s uniqueness clause is conditional on a growth theorem. The review adds that the growth of µ_Φ itself over totally real F is Barrera Salazar’s admissibility result (cited by BSW §12 and Bergdall–Hansen §1.8), recorded as a gap.",
    "nodes": [
     "AutomorphicPadicLFunctions:L2/bsw-choice-independence",
     "AutomorphicPadicLFunctions:L2/growth-uniqueness-totally-real-imaginary-quadratic",
@@ -8399,5 +8486,538 @@
    "status": "answered",
    "note": "One Deligne–Ribet object exported; I.3 owns the Stickelberger dictionary and KU-brumerstark the cusp-form construction."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-AutomorphicPadicLFunctions",
+  "date": "2026-10-19",
+  "notes": "Independent review REV-AutomorphicPadicLFunctions (Claude, session claude-HjdCBb) of the complete target-level pass BP-AutomorphicPadicLFunctions (PR #10463); first review of this packet. Sources: all 17 downloaded and matched to the recorded SHA-256; BSW v3 read in full; Deligne–Ribet §§0, 1, 4–6, 8 and Katz §§2.4–2.6, 4.2, 5.3–5.4 read on page images; Hsieh 2014 introduction, §§6–7; Hida 2010 §1 and §3.5; Hsieh 2012 (both); EHLS Theorems 4.3.10, 4.6.1, 7.3.1–7.3.3, Main Theorem 9.2.2; Eischen–Wan Theorem 1.2, §1.3, Corollary 5.9, Lemma 4.17; Disegni–Liu Theorem 3.37, Proposition 3.39; Dasgupta–Kakde §§7.2–7.3, Proposition 8.4 (page image), 8.14, Lemma 8.16, Corollary 8.19; DKV §1; CGLS §2.1; Panchishkin §§5–6 (page images); Finis Theorem 1.1; Williams Definitions 5.10, 6.14, Theorems 6.10, 7.4; Bergdall–Hansen Theorem 1.1.2 and §1.8. The remaining 80 text-layer locators were cross-checked mechanically; 77 matched and the three flags were re-read and fixed (two match texts, one Panchishkin locator). Baseline: all 16 declarations read in the pinned trees (Tau Ceti ray-class files, Mathlib Subgroup.topologicalClosure, Set.EqOn.closure, ProfiniteGrp.limit, NumberField.Units.rank and finrank_modTorsion, ContinuousMonoidHom, gaussSum, NumberField.IsCMField); none removed. Corrections (24 nodes): tame-level fibre indexing and the Mellin image in L0; Weil's admissible set; a missing supplier for line-one nonvanishing (AnalyticNumberTheory:AN.4); the growth of µ_Φ over totally real F (Barrera Salazar, new gap); Dasgupta–Kakde's constant term only at level one; Deligne–Ribet (4.5) rests on Deligne's equivalence for ordinary abelian varieties over finite fields, not Chebotarev (prerequisites and request removed, new gap); Katz's Euler factor χ̌(𝔓̄); Hida's (1.3) constants; Finis's ℓ-adic root number; Hsieh's Theorem C needs p unramified in F; EHLS multiplicity one and control regularity; Panchishkin's integer h and boundedness for admissible motives. Source issues E1–E5 confirmed at their locators; new E6 (Hsieh Theorem C omits p unramified in F) and E7 (index misprint in its condition (3)). Red-team findings automorphic-1/13, iwasawa-1/7, 1/11, 1/32, 1/33, 1/34, langlands-1/8 and ktheory-2/26 checked against their verified claims: all handled, 1/33 completed by the Barrera Salazar gap. Planet moved from the weighted inversion to overconvergent modular symbols (22 planets, at most 5 per layer). The L3m sub-layer proposal lists its six nodes explicitly and is sound. Suggested file: one test renamed; lean-check at the pins elaborates with admitted-proof warnings only (18), and all 436 packet API and test names occur in it. Reader re-rendered from the corrected packet by a renderer that reproduces all 105 node sections and the generated tail sections of the committed reader byte for byte. check_blueprint: 0 errors, 0 warnings. Gaps (6) and requests (12) are recorded honestly; every stage stays planned.",
+  "checked": [
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/unit-invariance-closure",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Katz scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/ray-class-tower",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Deligne–Ribet scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/ray-class-unit-sequence",
+    "verdict": "corrected",
+    "note": "With a tame modulus 𝔫 the fibres of Cl⁺_F(𝔫p^∞) are indexed by Cl⁺_F(𝔫f), with G_y ≅ {z ≡ 1 mod f}/Ē_+(𝔫f); the statement indexed them by Cl⁺_F(f). Statement and proof step corrected (BSW §9.2.1 is the case 𝔫 = (1))."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/leopoldt-dimension-formula",
+    "verdict": "corrected",
+    "note": "Acceptance: for ℚ(∛2) the Leopoldt defect is automatically zero (unit rank 1), so the parenthetical assumption was removed."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/ray-class-reciprocity",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/hecke-character-avatar",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/locally-algebraic-characters",
+    "verdict": "corrected",
+    "note": "Weil's admissible set Ξ: BSW §1.2.1 (p. 6) says r + c·r parallel is necessary but not sufficient; the statement read as if it defined admissibility. Reworded."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/gauss-sum-and-depleted-l-function",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Dasgupta–Kakde–Ventullo §1 read; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/odd-character-l-zero-nonvanishing",
+    "verdict": "corrected",
+    "note": "The proof uses L(χ̄, 1) ≠ 0, which no prerequisite supplied; added AnalyticNumberTheory:AN.4/hecke-nonvanishing-on-line-one (accepted) as prerequisite and in the proof step. DKV §1 checked."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/ray-class-distributions",
+    "verdict": "corrected",
+    "note": "Same tame-level correction in the fibre description, the descent step and the gluing API; the Mellin image was stated as 'bounded-below analytic functions' and is the ring of rigid analytic functions on the character space, as the cited LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism states."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/evaluation-norm-twist-maps",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Deligne–Ribet scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/conditional-evaluation-principle",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Panchishkin §§4–6 read on page images; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/admissible-weight-coefficients",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Williams read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/cusp-forms-and-twisted-l-functions",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/eichler-shimura-harder",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Williams read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/hida-period-algebraicity",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/period-normalised-symbol",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/automorphic-cycles",
+    "verdict": "corrected",
+    "note": "BSW eq. (6) (p. 15) has the matrix (γ 0; 0 1) ∈ GL₂(F), not γ; proof step corrected."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/classical-evaluation-maps",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/integral-formula",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Williams read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/critical-value-formula",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L1/rational-modular-symbol-comparison",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Williams read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/locally-analytic-coefficients",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/overconvergent-modular-symbols",
+    "verdict": "corrected",
+    "note": "Checked against BSW Definition 6.5, §3.2.1, Definition 7.2 and the proof of Corollary 8.4; given the layer's planet 'Overconvergent modular symbols over F'."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/up-compactness",
+    "verdict": "corrected",
+    "note": "U_p of the double coset of (1 0; 0 p) agrees with ∏U_𝔭^{e_𝔭} only up to the action of a unit at p; statement made precise. Corrected compactness statement (E2) checked against Lemma 6.7 and Definition 6.6."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/slope-decomposition",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/negative-slope-vanishing",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/theta-maps-partial-classicality",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/control-theorem",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Williams read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/small-slope-eigenlift",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/overconvergent-evaluation",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/inversion-weight-twist",
+    "verdict": "corrected",
+    "note": "Formula and tests checked against BSW Definition 9.4 (p. 31) and the proofs of Propositions 9.6 and 9.9; planet removed (a technical device, not a key definition) and moved to L2/overconvergent-modular-symbols."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/finite-evaluation",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/finite-evaluation-representative",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/refinement-eigenvalue",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/norm-relation",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/normalised-evaluation",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/normalised-evaluation-common-level",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/classical-overconvergent-compatibility",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/bsw-interpolation",
+    "verdict": "corrected",
+    "note": "Formula checked against BSW Theorem 11.1 and Lemma 10.5 (pp. 38–39). Acceptance clarified: Λ(Φ, 1) is the L-value of the level-𝔫 eigenform, so for a p-stabilised newform the second Euler factor is inside it."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/bsw-choice-independence",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/growth-uniqueness-totally-real-imaginary-quadratic",
+    "verdict": "corrected",
+    "note": "Case (b) claimed that µ_Φ agrees with Bergdall–Hansen's function; that needs a growth bound for µ_Φ over totally real F, which neither BSW nor Bergdall–Hansen proves (both attribute it to Barrera Salazar). Statement, hypotheses, proof steps and sources corrected; gap added. Williams' split-case admissibility (Definition 6.14, Proposition 6.15, p. 35) added to the locators."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L2/specialisations-q-hilbert-bianchi",
+    "verdict": "verified",
+    "note": "BSW v3 read in full; statement, hypotheses and locator agree with the cited definitions and theorems; Williams read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/partial-zeta-distributions",
+    "verdict": "verified",
+    "note": "Deligne–Ribet scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/hilbert-cusp-combinatorics",
+    "verdict": "verified",
+    "note": "Dasgupta–Kakde v3 §§7–8 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/hilbert-eisenstein-series",
+    "verdict": "corrected",
+    "note": "DK §7.3 (p. 49): for k > 1 the constant term of E_k(ψ_S, 1) at the cusps (1, λ) is 0 unless the level is (1); the statement gave the level-one value unconditionally. Corrected, with the k = 1 values of DK (98) and the coefficient field Frac O. DR Theorem (6.1) checked on the page image."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/eisenstein-constant-terms",
+    "verdict": "verified",
+    "note": "Dasgupta–Kakde v3 §§7–8 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/siegel-klingen-rationality",
+    "verdict": "verified",
+    "note": "Deligne–Ribet scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/padic-hilbert-modular-forms",
+    "verdict": "verified",
+    "note": "Deligne–Ribet scan pages rendered and read at the cited statements; Katz scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/igusa-irreducibility",
+    "verdict": "corrected",
+    "note": "DR (4.5) checked on the page images (pp. 255–257): the surjectivity of the monodromy is proved by constructing ordinary HBAVs over finite fields from Deligne's equivalence for ordinary abelian varieties over F_q; Chebotarev enters only as a heuristic. Proof steps rewritten; the Chebotarev, CM-Frobenius and CM good-reduction prerequisites (and the Chebotarev request) removed; the unplanned Deligne equivalence recorded as a gap."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/padic-q-expansion-principle",
+    "verdict": "verified",
+    "note": "Deligne–Ribet scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/deligne-ribet-measure",
+    "verdict": "verified",
+    "note": "Deligne–Ribet scan pages rendered and read at the cited statements; Dasgupta–Kakde v3 §§7–8 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/deligne-ribet-pseudomeasure",
+    "verdict": "verified",
+    "note": "Deligne–Ribet scan pages rendered and read at the cited statements; Dasgupta–Kakde–Ventullo §1 read; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/deligne-ribet-rational-comparison",
+    "verdict": "verified",
+    "note": "Deligne–Ribet scan pages rendered and read at the cited statements; Dasgupta–Kakde–Ventullo §1 read; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/cm-type-p-ordinary",
+    "verdict": "verified",
+    "note": "Katz scan pages rendered and read at the cited statements; Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/cm-points-and-canonical-trivialisations",
+    "verdict": "verified",
+    "note": "Katz scan pages rendered and read at the cited statements; Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/cm-periods",
+    "verdict": "corrected",
+    "note": "Acceptance: Ω_∞ for ℚ(i) is a nonzero algebraic (not merely real) multiple of the lemniscate value. Katz (5.3.0) choices and the rescaling remark after (5.3.7) checked."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/katz-differential-operators",
+    "verdict": "verified",
+    "note": "Katz scan pages rendered and read at the cited statements; Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/katz-cm-algebraicity",
+    "verdict": "verified",
+    "note": "Katz scan pages rendered and read at the cited statements; Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/katz-eisenstein-measure",
+    "verdict": "verified",
+    "note": "Katz scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/katz-padic-l-function",
+    "verdict": "corrected",
+    "note": "Katz (5.3.5) (p. 274) has the Euler factors (1 − χ̌(𝔓̄))(1 − χ(𝔓̄)); the statement had χ̌(𝔓). Corrected, with χ̌(𝔓̄) = 1/(χ(𝔓)N𝔓). Rest of (5.3.0)–(5.3.6) checked."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/katz-functional-equation",
+    "verdict": "verified",
+    "note": "Katz scan pages rendered and read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/katz-hida-tilouine-tame",
+    "verdict": "corrected",
+    "note": "Hida 2010 (1.3) (p. 44) checked on the page: the interpolation constant has a factor π^κ, the Euler product runs over all 𝔏 | C (over 𝔉 it is empty by condition (i)), and the second Σ_p factor uses the dual λ*. Corrected."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3/group-ring-eisenstein-families",
+    "verdict": "verified",
+    "note": "Dasgupta–Kakde v3 §§7–8 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/hsieh-setting",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/explicit-waldspurger",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/toric-test-vectors",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/anticyclotomic-distribution",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/theorem-a",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/cm-integrality-criterion",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/theorem-b",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/theorem-c",
+    "verdict": "corrected",
+    "note": "Checked against Hsieh Theorem C (p. 713), Theorem 7.1 (p. 759) and Theorem 6.2 (p. 757): Theorem 7.1 assumes p unramified in F, which Theorem C omits (new sourceIssues E6); the condition indexing follows Theorem 7.1 (E7). The hypothesis is now in the statement."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/bdp-castella-hsieh-specialisation",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; Castella–Grossi–Lee–Skinner §2.1 read; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/mod-p-nonvanishing",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/hida-linear-independence",
+    "verdict": "verified",
+    "note": "Hida, Annals 2010, read at the cited statements; Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/hida-cm-density",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/hida-katz-mu-vanishing",
+    "verdict": "verified",
+    "note": "Hida, Annals 2010, read at the cited statements; Hsieh 2012 (µ-invariant) Theorems A, B and 6.5 read; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/hsieh-hecke-nonvanishing",
+    "verdict": "corrected",
+    "note": "Hsieh 2012 (non-vanishing) Theorems A and B, Theorem 6.8 and Remark 6.9 checked; the Hsieh 2014 match overstated a link to [Hsi12] on p. 714 and was made precise."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L3h/finis-divisibility",
+    "verdict": "corrected",
+    "note": "Finis Theorem 1.1 (p. 769): equation (1) has the ℓ-adic root number W_ℓ(λ), not the global W(λ) (which is +1 by hypothesis); (2) has its own left side Ω_∞^{-1}D^{1/4}L(0, λ); the inequality excludes ℚ(√−3) with ℓ = 3. Corrected."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/ehls-unitary-datum",
+    "verdict": "verified",
+    "note": "EHLS v5 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/ehls-ordinary-forms-hecke",
+    "verdict": "corrected",
+    "note": "Theorem 7.3.1 (p. 110) checked: the control isomorphism (ii) needs κ sufficiently regular; API item corrected."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/ehls-hypotheses",
+    "verdict": "corrected",
+    "note": "Hypotheses 7.3.2–7.3.3, Proposition–Hypothesis 7.3.5 and Remark 9.3.1 checked. The test claimed multiplicity one holds when the bad places split and the base change is cuspidal; EHLS p. 100 only expects this (for Hypothesis 6.6.4), and p. 110 derives 7.3.3 from Mok and Kaletha–Mínguez–Shin–White. Test replaced by one separating 7.3.3 from 6.6.4; proof step corrected."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/ehls-differential-operators",
+    "verdict": "verified",
+    "note": "EHLS v5 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/ehls-eisenstein-measure",
+    "verdict": "verified",
+    "note": "EHLS v5 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/doubling-global-identity",
+    "verdict": "verified",
+    "note": "EHLS v5 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/local-zeta-at-p",
+    "verdict": "verified",
+    "note": "EHLS v5 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/archimedean-zeta-integral",
+    "verdict": "verified",
+    "note": "EHLS v5 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/ehls-main-theorem",
+    "verdict": "verified",
+    "note": "EHLS v5 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/dl-siegel-hermitian-varieties",
+    "verdict": "verified",
+    "note": "Disegni–Liu v3 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/dl-big-cell-sections",
+    "verdict": "verified",
+    "note": "Disegni–Liu v3 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/dl-eisenstein-family",
+    "verdict": "verified",
+    "note": "Disegni–Liu v3 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/panchishkin-unramified",
+    "verdict": "verified",
+    "note": "Disegni–Liu v3 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/dl-local-doubling-at-p",
+    "verdict": "verified",
+    "note": "Disegni–Liu v3 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/dl-padic-l-function",
+    "verdict": "verified",
+    "note": "Disegni–Liu v3 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4/dl-vanishing-order-parity",
+    "verdict": "verified",
+    "note": "Disegni–Liu v3 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4e/ew-setting",
+    "verdict": "verified",
+    "note": "Eischen–Wan v2 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4e/ew-siegel-eisenstein-measure",
+    "verdict": "verified",
+    "note": "Eischen–Wan v2 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4e/ew-pullback-and-local-computations",
+    "verdict": "verified",
+    "note": "Eischen–Wan v2 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4e/klingen-family",
+    "verdict": "verified",
+    "note": "Eischen–Wan v2 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4e/ew-padic-l-function",
+    "verdict": "verified",
+    "note": "Eischen–Wan v2 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L4e/constant-term-divisibility",
+    "verdict": "verified",
+    "note": "Eischen–Wan v2 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L0/euler-factor-elements",
+    "verdict": "corrected",
+    "note": "Construction and evaluation formula checked; CGLS p. 4 and Theorem 2.1.2 (p. 13) read and the match made precise (the removed Euler factors are the factors over ℓ | C)."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L5/normalisation-comparisons",
+    "verdict": "verified",
+    "note": "Hsieh, Documenta Math. 2014, read at the cited statements; EHLS v5 read at the cited statements; prerequisites resolve to accepted packets, requested stages or confirmed pinned declarations."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L5/evaluation-principle-instances",
+    "verdict": "corrected",
+    "note": "Each listed construction checked against its node; the Panchishkin locator now includes Conjecture 6.2 (p. 1006), where the p-adic L-functions are placed on X_p."
+   },
+   {
+    "nodeId": "AutomorphicPadicLFunctions:L5/cpr-panchishkin-proposition",
+    "verdict": "corrected",
+    "note": "Checked against Panchishkin §5.5 and Conjecture 6.2 on the page images (pp. 1004–1006): h is max_σ[Newton − Hodge at d^±] + 1 with the integer part, boundedness is predicted for admissible M (not for h = 1), and in general the growth is o(log_p^h) with a uniqueness clause (v). Statement, acceptance, API and the supersingular test (h = 1, not 2; renamed cprp_supersingular_not_admissible here and in the suggested file) corrected."
+   }
+  ]
+ }
 }
