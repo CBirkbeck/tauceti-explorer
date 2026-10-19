@@ -141,4 +141,12 @@ example : (40 : ZMod 65)^2 + 40^2 + 40^2 = 3 * 40 * 40 * 40 := by
 example : (55 : ZMod 65)^2 + 55^2 + 55^2 = 55 * 55 * 55 := by
   sorry
 
+/-- MD.5/reducing-functions, E14: the terminal quotient cannot be treated by
+the proposed comparison of ratios of least prime factors. -/
+example :
+    (3 : ℚ) / 5 <
+      (min (Nat.minFac 1) (Nat.minFac 3) : ℚ) /
+        (min (Nat.minFac 1) (Nat.minFac 5) : ℚ) := by
+  sorry
+
 end TauCeti.ArithmeticDynamicsPartII
