@@ -54,7 +54,7 @@
     {
       "key": "EX.3",
       "title": "Degeneracy-free representations and the centre",
-      "description": "Degeneracy-free representations: A representation D is degenerate if Φ⁻D=0. A representation N is degeneracy-free if HomG(N,D)=0 and Ext¹G(N,D)=0 for every degenerate D. This quantifies over all degenerate objects, not just irreducible ones.\n\nLocally unital Bernstein modules: Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. The finite-support enriched Hom is underlineHom(M,N)=⊕c Hom(Mc,Nc). In particular underlineEnd(Iunit)=Z; the full End(Iunit) is the product ∏c Zc.\n\nEnhanced Whittaker adjunction: The Whittaker functor refines to Φ⁻enh:Mod(G)→Modfirm(Z), and F(N)=N⊗Z Iunit is its left adjoint. The unit N→Φ⁻enhF(N) is invertible; thus F is fully faithful. The tensor and unit comparisons make F weak symmetric monoidal.\n\nDegeneracy-free equivalence: F gives an equivalence Modfirm(Z)≅Moddf(G). Its image is also the smallest full subcategory containing Iunit and closed under colimits. The usual symmetric monoidal structure on firm Z-modules transfers to a uniquely compatible symmetric monoidal structure on this image.",
+      "description": "Degeneracy-free representations: A representation D is degenerate if Φ⁻D=0. A representation N is degeneracy-free if HomG(N,D)=0 and Ext¹G(N,D)=0 for every degenerate D. This quantifies over all degenerate objects, not just irreducible ones.\n\nLocally unital Bernstein modules: Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. For block-decomposed smooth representations define finite-support enriched Hom by underlineHom(M,N)=⊕c HomG(Mc,Nc), with blockwise composition and evaluation. Full Hom permits a product over blocks. The endomorphism calculation for Iunit is the separate theorem EX.3/whittaker-centre.\n\nWhittaker unit and Bernstein centre: Evaluation of a natural central transformation on Iunit gives an isomorphism ∏c Zc≅EndG(Iunit). On each block it is Zc≅EndG(Iunit,c); consequently finite-support underlineEndG(Iunit)≅⊕c Zc=Z. These are algebra isomorphisms with the stated evaluation and composition, rather than a definition of either centre.\n\nEnhanced Whittaker adjunction: The Whittaker functor refines to Φ⁻enh:Mod(G)→Modfirm(Z), and F(N)=N⊗Z Iunit is its left adjoint. The unit N→Φ⁻enhF(N) is invertible; thus F is fully faithful. The tensor and unit comparisons make F weak symmetric monoidal.\n\nDegeneracy-free equivalence: F gives an equivalence Modfirm(Z)≅Moddf(G). Its image is also the smallest full subcategory containing Iunit and closed under colimits. The usual symmetric monoidal structure on firm Z-modules transfers to a uniquely compatible symmetric monoidal structure on this image.",
       "requires": [
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1",
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2",
@@ -176,7 +176,8 @@
         "GL2AutomorphicRepresentationsAndTransfer:R16.4",
         "SmoothRepresentationsOfLocalGroups:SR.1",
         "SmoothRepresentationsOfLocalGroups:SR.2",
-        "SmoothRepresentationsOfLocalGroups:SR.3"
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "FunctionFieldArithmetic:FA.4"
       ]
     }
   ],

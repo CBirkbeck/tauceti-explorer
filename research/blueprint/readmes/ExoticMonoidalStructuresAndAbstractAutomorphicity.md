@@ -35,7 +35,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 The current AlgebraicVectorBundles roadmap owns the line-bundle and tensor carriers used by spin data; FA.1 imports them. The completed RestrictedProducts roadmap owns topological restricted products and their coordinate/change-of-reference operations; FA.2 imports them. Neither direction is replanned here. The current Tau Ceti library search found no triality/exotic-product or abstract automorphic-module implementation.
 
-Exact imports include the smooth category, its abelian structure and smooth dual from `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `/smooth-rep-abelian` and `/smooth-dual`; Ext from `SR.0:derived-extension/derived-smooth-category`; the Schwartz, locally unital, induction and Bernstein targets listed in the individual dependencies; and the completed adele, residue-character, self-dual Haar and Poisson nodes of FA.2. The degree-sensitive Chebotarev receipt `FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev` imports `DeligneWeightsAndPurity:DWP.3/function-field-chebotarev` unchanged. It includes the constant-field degree restriction.
+Exact imports include the smooth category, its abelian structure and smooth dual from `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `/smooth-rep-abelian` and `/smooth-dual`; Ext from `SR.0:derived-extension/derived-smooth-category`; the Schwartz, locally unital, induction and Bernstein targets listed in the individual dependencies; and the completed adele, residue-character, self-dual Haar and Poisson nodes of FA.2. The degree-sensitive Chebotarev receipt `FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev` imports `DeligneWeightsAndPurity:DWP.3/function-field-chebotarev` unchanged. It includes the constant-field degree restriction. EX.11 also imports the finite degree-zero ray class group and ray class fields from `FunctionFieldArithmetic:FA.4/ray-class-and-generalized-picard` and `/global-abelian-existence`; a prime in an arbitrary fixed-degree class is not assumed.
 
 The remaining supplier contracts are collected after the layers. The function-field metaplectic and twisted spherical-centre extensions have already been routed to Part II directions. Their stage ids are unassigned, so the base-stage requests explicitly name those extensions. No nonexistent Part II stage is used as a dependency.
 
@@ -166,7 +166,7 @@ Build the matrix symplectic representation and lift its triality symmetries befo
 
 **Construction or proof.** 1. Use openness of det≠0 to extend compactly supported locally constant functions. 2. For generation apply exact mirabolic functors Φ⁺Φ⁻: their image in Y is exactly the functions supported on invertible matrices, and use the Weyl element.
 
-**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), §2.1, equations (2.1)–(2.2), p. 8; Lemma 2.19, p. 15.
+**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), §2.1, equations (2.1)–(2.2), p. 8; Lemma 2.19, p. 15; Remark 2.22, p. 17.
 
 **Uses.** [EX.1/open-spectral](#EX-1-open-spectral): Its regular bimodule part provides the integral rigidification. [EX.1/kirillov-extension](#EX-1-kirillov-extension): Middle generation makes extension of the rigidified action unique.
 
@@ -213,7 +213,7 @@ Rigidify the middle action spectrally using the open integral, then compare its 
 
 **Dependencies:** [EX.0/open-kernel](#EX-0-open-kernel), `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension`, `GL2AutomorphicRepresentationsAndTransfer:R16.2`.
 
-**Construction or proof.** 1. Separate the rank-zero and rank-one strata. Describe the rank-one stabilizer and apply induction/coinvariant adjunctions. 2. Use the two-step smooth Tor spectral sequence to control the connecting term; the degree-one vanishing required in the source is an explicit verification debt G1, not an assumed flatness theorem. 3. Apply the hypothesis to remove the zero orbit and identify the residual torus balance.
+**Construction or proof.** 1. Separate the rank-zero and rank-one strata. The zero stratum is Q=S(F×), on which each outer G acts through determinant; the hypotheses imply V_SL₂=Ṽ_SL₂=0. 2. Apply the smooth two-group spectral sequence E²_i,j=Tor^G_i(Ṽ,Tor^G_j(V,Q))⇒Tor^(G×G)_(i+j)(Ṽ⊗V,Q). Since Tor^G_0(V,Q)=0, the terms (0,0) and (1,0) vanish. 3. The residual outer action on Tor^G_1(V,Q) still factors through determinant: every SL₂ element induces the identity on Q, hence the identity on its derived tensor by functoriality. Thus E²_0,1=Ṽ⊗G Tor^G_1(V,Q)=0, using Ṽ_SL₂=0. This proves the required total-degree-one vanishing without flatness. 4. The long exact sequence now identifies the rank-one balanced tensor with the full singular quotient. Compute its stabilizer and use induction/coinvariant adjunctions to obtain the two unnormalized Jacquet modules balanced over T.
 
 **Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Lemma 2.20 and proof, pp. 16–17.
 
@@ -270,7 +270,7 @@ Rigidify the middle action spectrally using the open integral, then compare its 
 
 **Acceptance.** The Mellin exponent s+1/2 is preserved. A change of twist convention requires a corresponding change of j, not a change of the theorem without explanation.
 
-**Check EX.1.** Check supercuspidal, irreducible principal-series and Steinberg cases with the same open integral. Identify the exact smooth Tor edge term in G1. Preserve both zeta exponents and the Mellin factor.
+**Check EX.1.** Check supercuspidal, irreducible principal-series and Steinberg cases with the same open integral. Check the residual determinant action on Tor¹ and the vanishing of all total-degree-one edge terms. Preserve both zeta exponents and the Mellin factor.
 
 
 <a id="ex-2"></a>
@@ -358,8 +358,8 @@ Form the balanced tensor and compute its Whittaker unit and trace. The weak stru
 **Unit tests.**
 
 - `weak-symmetric.1`: The usual tensor of complex vector spaces supplies such data.
-- `weak-symmetric.2`: There is no associator field from which a pentagon could be inferred.
-- `weak-symmetric.3`: Changing λ by a scalar while keeping a functor unit comparison fixed must be tested by the unit compatibility square.
+- `weak-symmetric.2`: For every c∈ℂ×, replacing the usual vector-space left unitor by cλ while retaining the usual tensor and flip still satisfies both weak symmetry equations, including λI∘sI,I=λI.
+- `weak-symmetric.3`: From the usual vector-space weak structure to the one with unitor cλ, the identity functor with identity product comparison satisfies the unit square with unit comparison c·idℂ. Keeping its unit comparison equal to idℂ fails that square when c≠1.
 
 <a id="EX-2-whittaker-unit"></a>
 ### Whittaker unit
@@ -396,7 +396,7 @@ Form the balanced tensor and compute its Whittaker unit and trace. The weak stru
 
 **Construction or proof.** 1. Compute the double θ-coinvariants by rank-two Bruhat cells, rank one and rank zero; check transpose on each surviving orbit. 2. Use the kernel-unit comparison to identify the trace and to verify the unit symmetry axiom. 3. Apply the unit/symmetry Eckmann–Hilton argument without assuming an associator.
 
-**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Claim 3.18, p. 24; Corollaries 3.20–3.21, p. 25.
+**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Remark 3.17, p. 23; Claim 3.18, p. 24; Corollaries 3.20–3.21, p. 25.
 
 **Acceptance.** Transpose is the identity on the double θ-coinvariants of Y for its outer actions. Consequently the braiding on Iunit⊛Iunit is identity and the preceding data define a weak symmetric tensor structure. Moreover Φ⁻(M⊛N)≅IRL(M)⊗G N naturally and EndG(Iunit) is commutative.
 
@@ -417,7 +417,7 @@ Separate the Whittaker-generated category from the class of generic irreducibles
 
 **Dependencies:** [EX.2/trace-symmetry](#EX-2-trace-symmetry), `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-abelian`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-dual`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-smooth-category`.
 
-**Construction or proof.** 1. Use the smooth abelian category and its Ext¹, with Φ⁻ as an exact functor. 2. Define the full subcategory by the simultaneous right-orthogonality conditions and establish invariance under isomorphism.
+**Construction or proof.** 1. Use the smooth abelian category and its Ext¹, with Φ⁻ as an exact functor. 2. Define the full subcategory by the simultaneous left-orthogonality conditions HomG(N,D)=Ext¹G(N,D)=0 for every degenerate D, and establish invariance under isomorphism.
 
 **Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Definitions 3.22–3.23, Warning 3.25, p. 25.
 
@@ -440,7 +440,7 @@ Separate the Whittaker-generated category from the class of generic irreducibles
 <a id="EX-3-bernstein-firm"></a>
 ### Locally unital Bernstein modules
 
-**Target EX.3/bernstein-firm (definition).** Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. The finite-support enriched Hom is underlineHom(M,N)=⊕c Hom(Mc,Nc). In particular underlineEnd(Iunit)=Z; the full End(Iunit) is the product ∏c Zc.
+**Target EX.3/bernstein-firm (definition).** Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. For block-decomposed smooth representations define finite-support enriched Hom by underlineHom(M,N)=⊕c HomG(Mc,Nc), with blockwise composition and evaluation. Full Hom permits a product over blocks. The endomorphism calculation for Iunit is the separate theorem EX.3/whittaker-centre.
 
 **Dependencies:** `SmoothRepresentationsOfLocalGroups:SR.1`, `SmoothRepresentationsOfLocalGroups:SR.3`, [EX.1/central-balance](#EX-1-central-balance), `SmoothRepresentationsOfLocalGroups:SR.1/locally-unital-algebra`, `SmoothRepresentationsOfLocalGroups:SR.3/bernstein-decomposition`, `SmoothRepresentationsOfLocalGroups:SR.3/bernstein-centre-blocks`.
 
@@ -455,7 +455,7 @@ Separate the Whittaker-generated category from the class of generic irreducibles
 | `bernsteinFirmModule` | The firm module condition is the invertibility of the multiplication map Z⊗Z M→M. |
 | `bernsteinFiniteHom` | Finite sums of block-supported morphisms, with evaluation and composition. |
 | `bernsteinFirm_block` | Firm modules correspond to block families with direct-sum underlying vector space. |
-| `bernsteinFiniteHom_endUnit` | underlineEnd(Iunit)=Z, whereas full End(Iunit)=∏c Zc. |
+| `bernsteinFiniteHom_comp` | Composition and evaluation are blockwise; morphisms between different Bernstein blocks vanish, and any finite sum is supported by its finite block idempotent. |
 
 **Unit tests.**
 
@@ -463,14 +463,31 @@ Separate the Whittaker-generated category from the class of generic irreducibles
 - `bernstein-firm.2`: For infinitely many nonzero blocks, a vector with infinitely many nonzero coordinates in ∏c Zc is not fixed by a finite block idempotent.
 - `bernstein-firm.3`: A map supported on one block belongs to underlineHom; the identity of Iunit need not belong to it.
 
+<a id="EX-3-whittaker-centre"></a>
+### Whittaker unit and Bernstein centre
+
+**Target EX.3/whittaker-centre (theorem).** Evaluation of a natural central transformation on Iunit gives an isomorphism ∏c Zc≅EndG(Iunit). On each block it is Zc≅EndG(Iunit,c); consequently finite-support underlineEndG(Iunit)≅⊕c Zc=Z. These are algebra isomorphisms with the stated evaluation and composition, rather than a definition of either centre.
+
+**Dependencies:** [EX.3/bernstein-firm](#EX-3-bernstein-firm), [EX.2/whittaker-unit](#EX-2-whittaker-unit), [EX.2/trace-symmetry](#EX-2-trace-symmetry), [EX.1/central-balance](#EX-1-central-balance).
+
+**Construction or proof.** 1. A central natural transformation z acts on Iunit. For f∈EndG(Iunit), define ψ(f)_X=λX∘(f⊛idX)∘λX⁻¹. Bifunctoriality makes ψ(f) natural in X and makes ψ an algebra homomorphism. 2. The symmetry sIunit,Iunit is the identity because λIunit∘sIunit,Iunit=λIunit. Symmetry naturality and unitor naturality therefore give ψ(f)_Iunit=f, proving surjectivity of central evaluation. 3. Central balance gives zIunit⊛idX=idIunit⊛zX. Conjugating by λX identifies both with zX. Thus zIunit=0 forces zX=0 for every X, proving injectivity. 4. Restrict the algebra isomorphism to each block. Bernstein orthogonality identifies full endomorphisms with the product and the finite-support enrichment with the direct sum.
+
+**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Claim 3.32 proof, p. 29; Remark 3.29, p. 27; Lemma 2.17, pp. 14–15.
+
+| Declaration | Specification |
+|---|---|
+| `bernsteinFiniteHom_endUnit` | underlineEnd(Iunit)=Z, whereas full End(Iunit)=∏c Zc. |
+
+**Acceptance.** Check both inverse composites of central evaluation and ψ, including the unit and composition. Distinguish the full product from its finite-support subalgebra; an infinite family of block identities is not an element of Z.
+
 <a id="EX-3-enhanced-whittaker"></a>
 ### Enhanced Whittaker adjunction
 
 **Target EX.3/enhanced-whittaker (construction).** The Whittaker functor refines to Φ⁻enh:Mod(G)→Modfirm(Z), and F(N)=N⊗Z Iunit is its left adjoint. The unit N→Φ⁻enhF(N) is invertible; thus F is fully faithful. The tensor and unit comparisons make F weak symmetric monoidal.
 
-**Dependencies:** [EX.3/bernstein-firm](#EX-3-bernstein-firm), [EX.2/whittaker-unit](#EX-2-whittaker-unit), `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.3`, `SmoothRepresentationsOfLocalGroups:SR.1/hecke-module-equivalence`.
+**Dependencies:** [EX.3/bernstein-firm](#EX-3-bernstein-firm), [EX.2/whittaker-unit](#EX-2-whittaker-unit), `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.3`, `SmoothRepresentationsOfLocalGroups:SR.1/hecke-module-equivalence`, [EX.3/whittaker-centre](#EX-3-whittaker-centre).
 
-**Construction or proof.** 1. Prove the blockwise roughening/smoothing comparison of Lemma 3.35, using compact projective generators from the supplier. 2. Identify underlineEnd(Iunit) with Z. Construct the adjunction by the enriched tensor-Hom correspondence. 3. Compute the unit and the product comparison on Z and extend by colimits.
+**Construction or proof.** 1. Prove the blockwise roughening/smoothing comparison of Lemma 3.35, using compact projective generators from the supplier. 2. Use EX.3/whittaker-centre to identify underlineEndG(Iunit) with Z. Construct the adjunction by the enriched tensor-Hom correspondence. 3. Compute the unit and the product comparison on Z and extend by colimits.
 
 **Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Claims 3.30, 3.32–3.33 and Lemma 3.35, pp. 27–29.
 
@@ -503,7 +520,7 @@ Separate the Whittaker-generated category from the class of generic irreducibles
 
 **Acceptance.** F gives an equivalence Modfirm(Z)≅Moddf(G). Its image is also the smallest full subcategory containing Iunit and closed under colimits. The usual symmetric monoidal structure on firm Z-modules transfers to a uniquely compatible symmetric monoidal structure on this image.
 
-**Check EX.3.** Test the trivial representation, Steinberg and the two orientations of their nonsplit extension. Check the adjunction on a single block and on an infinite direct sum. Distinguish Z from the product centre.
+**Check EX.3.** Test the trivial representation, Steinberg and the two orientations of their nonsplit extension. Check both inverse composites of central evaluation and ψ. Check the adjunction on a single block and on an infinite direct sum. Distinguish Z from the product centre.
 
 
 <a id="ex-4"></a>
@@ -648,9 +665,9 @@ Descend the associator from the faithful pair functor by proving naturality for 
 
 **Target EX.5/generic-algebra (construction).** For generic irreducible V, choose a nonzero generator of its one-dimensional Whittaker multiplicity space and the resulting epimorphism Iunit→V. There is a unique commutative unital ⊛-algebra on V with this unit, and its multiplication V⊛V→V is invertible. Without choosing a generator there is instead a canonical isomorphism V⊛V≅V⊗ℂ HomG(Iunit,V).
 
-**Dependencies:** [EX.5/associator](#EX-5-associator), [EX.2/trace-symmetry](#EX-2-trace-symmetry), `GL2AutomorphicRepresentationsAndTransfer:R16.2`, `mathlib:CategoryTheory.CommMon`.
+**Dependencies:** [EX.5/associator](#EX-5-associator), [EX.2/trace-symmetry](#EX-2-trace-symmetry), `GL2AutomorphicRepresentationsAndTransfer:R16.2`, `mathlib:CategoryTheory.CommMon`, [EX.1/kirillov-extension](#EX-1-kirillov-extension).
 
-**Construction or proof.** 1. Use right exactness and the unit quotient to descend the algebra structure. 2. Use the spectral identity to prove idempotence and track the one-dimensional multiplicity line under rescaling of the unit.
+**Construction or proof.** 1. Use right exactness and the unit quotient to descend the algebra structure. 2. Apply the Kirillov spectral identity from EX.1/kirillov-extension to identify V⊛V with the single copy of V selected by the unit quotient. If that quotient is scaled by c, multiplication scales by c⁻¹, so the tensor of the multiplication with its generator gives the canonical multiplicity-line-valued comparison.
 
 **Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Example 3.55, p. 35; Remark 2.6, p. 10.
 
@@ -841,7 +858,7 @@ The Poincaré map is the proposed unit. Its pairing identity identifies its imag
 
 **Construction or proof.** 1. Prove local finiteness from rational discreteness and compact support modulo U. 2. Show compactness of the image support modulo Γ. 3. Change variables to compute the dual and normalize vol(U(F)\U(A))=1.
 
-**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Construction 4.13 and Claim 4.14, p. 45.
+**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Construction 4.13, Claim 4.14 and Construction 4.15, p. 45.
 
 **Uses.** [EX.7/petersson-unit](#EX-7-petersson-unit): Unfolding one Poincaré input produces the Petersson pairing. [EX.7/automorphic-ideal](#EX-7-automorphic-ideal): Its image identifies the determinant kernel as a quotient of the exotic unit.
 
@@ -894,8 +911,8 @@ The Poincaré map is the proposed unit. Its pairing identity identifies its imag
 **Unit tests.**
 
 - `automorphic-ideal.1`: Every Poincaré sum from IunitA has p=0.
-- `automorphic-ideal.2`: A nonzero function pulled back from the determinant quotient need not belong to I.
-- `automorphic-ideal.3`: The definition is not the kernel of the constant-term map; its Eisenstein part need not vanish.
+- `automorphic-ideal.2`: A nonzero nonnegative locally constant function supported in a compact open subset of Γ\G has a nonzero determinant pushforward: it is not in I. A determinant pullback need not have compact quotient support and is not used as a test element of S.
+- `automorphic-ideal.3`: In the Eisenstein summand IEis, choose a nonzero compact function with nonzero constant term; its determinant pushforward is nevertheless zero. Thus I is larger than the cuspidal constant-term kernel.
 
 <a id="EX-7-automorphic-algebra"></a>
 ### Automorphic commutative algebra
@@ -968,7 +985,7 @@ Define abstract automorphicity through the actual module-object category and its
 
 **Construction or proof.** 1. Use Mathlib module objects once the ambient smooth exotic monoidal category has been built. 2. The factorization is unique by the epi unit. Check the action axioms by precomposing with that epi in each input.
 
-**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Claim 4.28 and Definition 4.29, pp. 48–49.
+**Source:** [Dor23](https://doi.org/10.1017/fmp.2023.18), Claim 4.28 and Definition 4.29, pp. 48–49; Remark 4.30, p. 49.
 
 **Uses.** [EX.8/fully-faithful](#EX-8-fully-faithful): The factorization criterion tests maps, subquotients and duals. [EX.11/automorphic-adjunction](#EX-11-automorphic-adjunction): Normalized induction must land in this specific full subcategory.
 
@@ -1299,13 +1316,13 @@ Globalize normalized induction without postulating a global η. The automorphic 
 
 **Target EX.11/weyl-lifting (theorem).** Periodization S(T(A))→S(T(F)\T(A)) maps the subspace invariant under every separate local normalized Weyl involution onto the subspace invariant under the simultaneous global normalized Weyl involution.
 
-**Dependencies:** [EX.11/torus-automorphic](#EX-11-torus-automorphic), [EX.10/normalization-line](#EX-10-normalization-line), `FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev`, `FunctionFieldArithmetic:FA.2`, `FunctionFieldArithmetic:FA.2/projective-ideles`.
+**Dependencies:** [EX.11/torus-automorphic](#EX-11-torus-automorphic), [EX.10/normalization-line](#EX-10-normalization-line), `FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev`, `FunctionFieldArithmetic:FA.2`, `FunctionFieldArithmetic:FA.2/projective-ideles`, `FunctionFieldArithmetic:FA.4/ray-class-and-generalized-picard`, `FunctionFieldArithmetic:FA.4/global-abelian-existence`.
 
-**Construction or proof.** 1. Express a smooth compact quotient function by finitely many two-coset symmetric generators at a compact level. 2. Choose a place representing the required ray class by Chebotarev with its constant-field degree condition. 3. Lift each generator to a pair of adelic compact cosets that is invariant under the local Weyl action at that place and fixed under the others. 4. Check periodization including the |a/d| weight.
+**Construction or proof.** 1. Choose a compact open unit level K for the target and refine to a ray level stable under swapping the two coordinates. Put C=F×\A×/K. Conjugation by the multiplicative character |a/d|^(1/2) changes normalized Weyl symmetry to ordinary swap and commutes with periodization and convolution. Use Haar-normalized coset functions, so the fixed-level quotient algebra is ℂ[C×C]. 2. Let R be the image of the separately local-swap-invariant compact functions. It is a convolution subalgebra. Write D(u,v)=[u]⊗[v] and S(u,v)=D(u,v)+D(v,u). The diagonals D(z,z), including D(z⁻¹,z⁻¹), lie in R. If u/v is represented by a single prime away from the modulus, S(u,v) lies in R: choose identical local representatives outside that prime and symmetrize the two cosets there. Normalize by the finite rational stabilizer when periodizing. 3. Use finiteness of C⁰ and a degree-splitting idele from FA.4/ray-class-and-generalized-picard. Its finite quotient by the degree generator has a class field by FA.4/global-abelian-existence. Apply degree-sensitive Chebotarev to this finite extension: every ray class of sufficiently large positive degree contains a prime away from the modulus, with the constant-field condition retained. The bound is uniform over the finite degree-zero classes. 4. For arbitrary u,v choose z of sufficiently large degree that z, uz/v and uz²/v all have such prime representatives. The already lifted functions satisfy S(uz,v)S(1,z)=D(z,z)S(u,v)+S(uz²,v). Hence S(u,v)=D(z⁻¹,z⁻¹)(S(uz,v)S(1,z)−S(uz²,v)) lies in R. These generators span all swap invariants, with diagonal generators divided by 2 over ℂ. 5. Undo the character conjugation to restore the |a/d| weight. The argument covers u/v of degree zero or negative without requiring a prime in that original class.
 
 **Source:** [Dor21](https://arxiv.org/abs/2102.11820v1), Lemma C.4.9 and Remark C.4.10, pp. 51–52.
 
-**Acceptance.** Periodization S(T(A))→S(T(F)\T(A)) maps the subspace invariant under every separate local normalized Weyl involution onto the subspace invariant under the simultaneous global normalized Weyl involution.
+**Acceptance.** Periodization S(T(A))→S(T(F)\T(A)) maps the subspace invariant under every separate local normalized Weyl involution onto the subspace invariant under the simultaneous global normalized Weyl involution. Work at a fixed ray level and account for the finite stabilizer in coset periodization. Check the displayed convolution identity on the four basis terms and apply it to ratios of degree zero and negative degree.
 
 <a id="EX-11-component-algebras"></a>
 ### Cuspidal and Eisenstein components
@@ -1341,7 +1358,7 @@ Globalize normalized induction without postulating a global η. The automorphic 
 
 **Dependencies:** [EX.11/component-algebras](#EX-11-component-algebras), `FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev`, `SmoothRepresentationsOfLocalGroups:SR.3`, [EX.11/weyl-lifting](#EX-11-weyl-lifting).
 
-**Construction or proof.** 1. Prove the Weyl-invariant lifting statement by generators supported on two torus cosets, choosing a prime in the required ray class using function-field Chebotarev with its degree compatibility. 2. Use the lifting to realize Eisenstein projections by the smooth Bernstein centre, so the image IEis is stable under each projection. 3. Use local finiteness at fixed level and bounded norm on the cuspidal side to obtain the algebra decomposition. Interpret products in the smooth category; do not identify all underlying vector-space products with direct sums. 4. Pass from complementary locally unital ideals to module categories and check the relative monoidal product.
+**Construction or proof.** 1. Apply EX.11/weyl-lifting, including its large-degree convolution repair, to the two-coset symmetric generators. A prime in an arbitrary fixed-degree ray class cannot be assumed. 2. Use the lifting to realize Eisenstein projections by the smooth Bernstein centre, so the image IEis is stable under each projection. 3. Use local finiteness at fixed level and bounded norm on the cuspidal side to obtain the algebra decomposition. Interpret products in the smooth category; do not identify all underlying vector-space products with direct sums. 4. Pass from complementary locally unital ideals to module categories and check the relative monoidal product.
 
 **Source:** [Dor21](https://arxiv.org/abs/2102.11820v1), Lemma C.4.9 and Remark C.4.10, pp. 51–52; Theorem C.4.12, p. 52; Warning A.1.19, p. 9.
 
@@ -1365,7 +1382,7 @@ Globalize normalized induction without postulating a global η. The automorphic 
 
 **Target EX.11/restriction-finite (theorem).** The normalized automorphic parabolic restriction r̂aut sends finite-length objects to finite-length objects. On an irreducible Eisenstein object its underlying torus module is a quotient of an extension of an automorphic character χ by χ(w), hence has dimension at most two. It is zero on cuspidal components.
 
-**Dependencies:** [EX.11/component-decomposition](#EX-11-component-decomposition), [EX.11/irreducible-equivalence](#EX-11-irreducible-equivalence), `SmoothRepresentationsOfLocalGroups:SR.2`.
+**Dependencies:** [EX.11/component-decomposition](#EX-11-component-decomposition), [EX.11/irreducible-equivalence](#EX-11-irreducible-equivalence), `SmoothRepresentationsOfLocalGroups:SR.2`, [EX.11/weyl-lifting](#EX-11-weyl-lifting).
 
 **Construction or proof.** 1. Use right exactness to reduce to an irreducible object. 2. Describe the local Jacquet modules and their distinguished cyclic vectors; their restricted tensor is covered by the torus module induced from the separately Weyl-invariant Hecke algebra. 3. Use the lifting theorem to pass to the global Weyl-invariant algebra, and its rank-two quotient bound. Apply rational coinvariants to get dimension at most two.
 
@@ -1373,7 +1390,7 @@ Globalize normalized induction without postulating a global η. The automorphic 
 
 **Acceptance.** The normalized automorphic parabolic restriction r̂aut sends finite-length objects to finite-length objects. On an irreducible Eisenstein object its underlying torus module is a quotient of an extension of an automorphic character χ by χ(w), hence has dimension at most two. It is zero on cuspidal components.
 
-**Check EX.11.** Use the separate-local to simultaneous-global Weyl lifting with Chebotarev degree compatibility. Check the anomalous Eisenstein example, the local Steinberg-module lemma, the classical irreducible comparison and the dimension-at-most-two restriction bound.
+**Check EX.11.** Use the separate-local to simultaneous-global Weyl lifting, including the large-degree convolution identity. Test degree-zero and negative-degree ratios as well as prime classes. Check the anomalous Eisenstein example, the local Steinberg-module lemma, the classical irreducible comparison and the dimension-at-most-two restriction bound.
 
 ## Supplier contracts
 
@@ -1453,7 +1470,7 @@ Consumed by: [EX.6/theta-functional](#EX-6-theta-functional).
 
 ### SmoothRepresentationsOfLocalGroups:SR.0:derived-extension
 
-Smooth Tor derived from the actual smooth balanced tensor and the two-group spectral sequence Tor^G_i(Ṽ,Tor^G_j(V,S))⇒Tor^(G×G)_(i+j)(Ṽ⊗V,S); do not substitute algebraic group homology without a comparison.
+Smooth Tor derived from the actual smooth balanced tensor and the two-group spectral sequence Tor^G_i(Ṽ,Tor^G_j(V,S))⇒Tor^(G×G)_(i+j)(Ṽ⊗V,S); do not substitute algebraic group homology without a comparison. Retain the functorial residual commuting-group action on each Tor group: an identity endomorphism of the coefficient bimodule induces the identity on Tor. This is the input used to discharge the singular-stratum calculation.
 
 Consumed by: [EX.1/singular-orbits](#EX-1-singular-orbits).
 
@@ -1485,13 +1502,7 @@ The AL.0/AL.1 extension is proposed for **Automorphic L-functions and local fact
 
 ## Proof obligations and acceptance boundaries
 
-All twelve layers have target coverage **planned**. Four explicit gaps prevent a closure claim. A target depending on a gap inherits its proof obligation, including through intermediate layers. A proof outline states the desired construction; it is not evidence that its unresolved step is settled.
-
-### G1: singular-stratum smooth Tor calculation
-
-Dor23 Lemma 2.20 uses a degree-one vanishing in the rank-zero/rank-one comparison. Identify the exact smooth Tor groups and connecting map under the stated no-SL₂-invariant-functional hypotheses, prove the needed vanishing or refine the hypothesis. The smooth Tor machinery itself is requested from SR.0:derived-extension; that machinery is not a proof of this calculation.
-
-Affected targets: [EX.1/singular-orbits](#EX-1-singular-orbits), [EX.1/kirillov-extension](#EX-1-kirillov-extension).
+All twelve layers have target coverage **planned**. Three explicit gaps prevent a closure claim. A target depending on a gap inherits its proof obligation, including through intermediate layers. A proof outline states the desired construction; it is not evidence that its unresolved step is settled.
 
 ### G2: presentable linear category self-duality
 
@@ -1515,11 +1526,11 @@ Affected targets: [EX.9/spin-independence](#EX-9-spin-independence).
 
 The companion suggested file follows the fixed WORKERS roadmap shape. It contains one light real definition on native two-by-two matrices, the determinant-pairing milestones and four examples, and the full general idempotent-coherence theorem on Mathlib monoidal categories. Its namespace is `TauCeti.ExoticGL2`. It elaborates at the pinned Mathlib with only proof-placeholder warnings; this is a signature check, not a formal proof.
 
-The remaining 55 targets stay in this reader because their actual carriers require smooth balanced tensor, enriched firm-module Hom, the triality kernel, the exotic category or the relevant adelic/spin construction. Mathlib's SymmetricCategory presupposes the associator that EX.5 is to construct. CommMon and Mod can be applied once that category exists; they cannot be used to assume its construction. In particular no carrier is replaced by a record of its desired conclusions. The presentable-category target also requires the specific missing 2-categorical infrastructure in G2. Every API and test for these targets is specified above.
+The remaining 56 targets stay in this reader because their actual carriers require smooth balanced tensor, enriched firm-module Hom, the triality kernel, the exotic category or the relevant adelic/spin construction. Mathlib's SymmetricCategory presupposes the associator that EX.5 is to construct. CommMon and Mod can be applied once that category exists; they cannot be used to assume its construction. In particular no carrier is replaced by a record of its desired conclusions. The presentable-category target also requires the specific missing 2-categorical infrastructure in G2. Every API and test for these targets is specified above.
 
 ## Sources and corrections
 
-Page numbers below are the printed article/preprint page numbers. Statements, proof sketches and corrections are in this roadmap's own words. The spin assertions and the singular Tor calculation retain their stated verification debts.
+Page numbers below are the printed article/preprint page numbers. Statements, proof sketches and corrections are in this roadmap's own words. The spin assertions retain G3–G4; the singular Tor calculation is explained above. The categorical infrastructure remains G2. Every source issue below has an independent review verdict.
 
 - **Dor23.** Gal Dor, [Exotic Monoidal Structures and Abstractly Automorphic Representations for GL(2)](https://doi.org/10.1017/fmp.2023.18). Forum of Mathematics, Pi 11 (2023), e20, pp. 1–52, version of record. Read 19 October 2026: §§2.1–2.3, pp. 7–17; §§3.1–3.6, pp. 18–38; §§4.1–4.6, pp. 38–49; Appendix A, pp. 50–51.
 - **Dor21.** Gal Dor, [Global Parabolic Induction and Abstract Automorphicity](https://arxiv.org/abs/2102.11820v1). arXiv:2102.11820v1 (23 February 2021), 55 pp. plus references. Read 19 October 2026: §A.1, pp. 4–10; §§B.2–B.6, pp. 15–33; §B.7, pp. 33–40, constructions and proofs used for the normalization-aware intertwiner; §§C.2–C.5, pp. 42–55.
@@ -1528,18 +1539,19 @@ Page numbers below are the printed article/preprint page numbers. Statements, pr
 
 The sequel provides proofs for PAPER-DOR-23/048, which the published article announces. The categorical idempotent theorem is read in GH11 rather than imported without its compatibility hypotheses. No published correction was located in the Cambridge/arXiv records or the title/author correction search on 19 October 2026.
 
-- **E1 (Dor23, misprint), Published Proposition 2.12 proof, p. 13.** The torus parameters in the displayed lift use a repeated letter in the domain condition. The parameter set is triples (a,b,c) with abc=1. The three determinant factors must multiply to 1; this is the domain of H.
-- **E2 (Dor23, misprint), Published Proposition 4.9 proof, p. 43.** The final Fourier integral is written over the rational matrix space. Use M₂(A) with its self-dual additive Haar measure. Poisson summation transforms an adelic Schwartz function; the rational field is the lattice being summed.
-- **E3 (Dor23, misprint), Published Construction 4.15, p. 45.** The displayed Petersson integral omits the rational quotient from its domain. Integrate over Γ\G. The functions are Γ-invariant; the unquotiented integral repeats infinitely many rational translates.
-- **E4 (Dor23, misprint), Published Claim 4.3 proof, p. 41.** The distinguished unit vector is denoted as the characteristic function of the entire local group. It is the class of 1GL₂(O_v) in the unit quotient. A characteristic function of noncompact G_v is not in S(G_v).
-- **E5 (Dor23, misprint), Published Warning 3.25, p. 25.** The discussion uses the trivial representation name where Steinberg is intended in its generic example. Use St for the generic representation, and keep 0→1G→Eext→St→0 distinct from its reverse extension. The trivial representation has zero nontrivial Whittaker coinvariants and cannot be the claimed generic example.
-- **E6 (Dor23, misprint), Published §3.3.2 heading, p. 21.** The heading has a duplicated character in the adjective for the weak symmetric monoidal structure. The heading refers to the weak symmetric monoidal structure. This is a typographic heading slip with no mathematical consequence.
-- **E7 (Dor23, gap), Published Claim A.6 proof and Construction A.5, p. 51.** Counitality is used after only the global generator and comultiplication have been described. Construct εA and check the transports, reference vectors, both counit identities and invertibility as in G3. An adelic coalgebra needs an actual map to the unit. Local counits do not automatically form a restricted tensor map.
-- **E8 (Dor23, error), Published Remark 3.47, p. 33.** The condition on h identifies a conjugated compact-open unipotent intersection with ker θ. Use the conductor lattice u(π⁻νO), not the full additive-character kernel. The left side is compact. In F_q((t)), the character kernel can contain elements of arbitrarily negative valuation, so it need not be compact.
-- **E9 (Dor21, misprint), arXiv:2102.11820v1, Theorem C.2.1, p. 43.** The stated domain and codomain of î are reversed. The functor is î:Mod(T)→Mod(G), as defined immediately before the theorem. The explicit definition is parabolic induction after torus internal Hom, so it has that direction.
-- **E10 (Dor21, gap), arXiv:2102.11820v1, Remark C.4.5 and Proposition C.4.6 proof, p. 49.** The coordinate argument chooses a place of degree one without assuming that the curve has such a place. Choose an idele generating the image of the norm map, using a finite integral combination of place degrees; reformulate induction from G¹ using that idele. A smooth proper curve over a finite field need not have a rational point. The norm splitting needs an idele, not a uniformizer at a degree-one place.
-- **E11 (Dor23, gap), Lemma 2.20 proof, p. 17.** The spectral-sequence argument deduces all degree-one edge terms from vanishing of degree-zero balanced tensors. Identify and calculate the (0,1) edge term or the corresponding connecting map in the smooth category, as required by G1. Right exactness and vanishing of Tor degree zero do not by themselves imply the mixed first-Tor term vanishes.
-- **E12 (Dor23, gap), Construction A.7 and Remark A.8, p. 51.** Section independence and the weighted inverse-transpose algebra involution are asserted without the transport calculations. Verify the coalgebra and theta-product transformations and their modulus factors as specified in G4. A spectral heuristic does not prove equality of the explicitly constructed products.
+- **E1 (Dor23, misprint, confirmed), Published Proposition 2.12 proof, p. 14.** The displayed domain for (a,b,c) has ambient F× instead of (F×)³. Use {(a,b,c)∈(F×)³ | abc=1}. The displayed variables form a triple, and the adjacent exact sequence and splitting use all three coordinates.
+- **E2 (Dor23, misprint, confirmed), Published Proposition 4.9 proof, p. 43.** The final Fourier integral is written over the rational matrix space. Use M₂(A) with its self-dual additive Haar measure. Poisson summation transforms an adelic Schwartz function; the rational field is the lattice being summed.
+- **E3 (Dor23, misprint, confirmed), Published Petersson pairing following Construction 4.15, p. 45.** The displayed Petersson integral omits the rational quotient from its domain. Integrate over Γ\G. The functions are Γ-invariant; the unquotiented integral repeats infinitely many rational translates.
+- **E4 (Dor23, misprint, confirmed), Published Claim 4.3 proof, p. 41.** The distinguished unit vector is denoted as the characteristic function of the entire local group. It is the class of 1GL₂(O_v) in the unit quotient. A characteristic function of noncompact G_v is not in S(G_v).
+- **E5 (Dor23, misprint, confirmed), Published Warning 3.25, p. 25.** Inside the extension description, St is called trivial although the preceding sentence specifies the Steinberg representation. Read St as the Steinberg quotient in 0→1G→Eext→St→0; the subrepresentation 1G is the trivial representation. The trivial representation has zero nontrivial Whittaker coinvariants and cannot be the claimed generic example.
+- **E6 (Dor23, rejected report), Published §3.3.2 heading, p. 21.** The published §3.3.2 heading on p. 21 reads correctly. No duplicated character was found in the version of record; extraction or rendering artifacts are not a source misprint.
+- **E7 (Dor23, gap, confirmed), Published Claim A.6 proof and Construction A.5, p. 51.** Counitality is used after only the global generator and comultiplication have been described. Construct εA and check the transports, reference vectors, both counit identities and invertibility as in G3. An adelic coalgebra needs an actual map to the unit. Local counits do not automatically form a restricted tensor map.
+- **E8 (Dor23, error, confirmed), Published Remark 3.47, p. 33.** The condition on h identifies a conjugated compact-open unipotent intersection with ker θ. Use the conductor lattice u(π⁻νO), not the full additive-character kernel. The left side is compact. In F_q((t)), the character kernel can contain elements of arbitrarily negative valuation, so it need not be compact.
+- **E9 (Dor21, misprint, confirmed), arXiv:2102.11820v1, Theorem C.2.1, p. 43.** The stated domain and codomain of î are reversed. The functor is î:Mod(T)→Mod(G), as defined immediately before the theorem. The explicit definition is parabolic induction after torus internal Hom, so it has that direction.
+- **E10 (Dor21, gap, confirmed), arXiv:2102.11820v1, Remark C.4.5 and Proposition C.4.6 proof, p. 49.** The coordinate argument chooses a place of degree one without assuming that the curve has such a place. Choose an idele generating the image of the norm map, using a finite integral combination of place degrees; reformulate induction from G¹ using that idele. A smooth proper curve over a finite field need not have a rational point. The norm splitting needs an idele, not a uniformizer at a degree-one place.
+- **E11 (Dor23, rejected report), Lemma 2.20 proof, p. 17.** Rejected: both outer SL₂ actions on Q are trivial. The residual action on Tor¹ stays trivial by functoriality, so Ṽ_SL₂=0 kills E²_0,1; Tor⁰=0 kills E²_1,0. The full argument is now in the node and G1 is removed.
+- **E12 (Dor23, gap, confirmed), Construction A.7 and Remark A.8, p. 51.** Section independence and the weighted inverse-transpose algebra involution are asserted without the transport calculations. Verify the coalgebra and theta-product transformations and their modulus factors as specified in G4. A spectral heuristic does not prove equality of the explicitly constructed products.
+- **E13 (Dor21, gap, confirmed), arXiv:2102.11820v1, Lemma C.4.9 proof and Remark C.4.10, pp. 51–52.** The proof chooses a prime representing an arbitrary fixed ray class of an idele ratio. Use the large-degree convolution identity in EX.11/weyl-lifting. Choose prime representatives only for the three shifted positive-degree classes, then recover the arbitrary symmetric generator by convolution and subtraction. Degree is unchanged by principal ideles and compact unit level. Every prime has positive degree, so a degree-zero or negative-degree ray class has no prime representative. Constant-field compatibility alone does not remove this obstruction.
 
 ## Routing coverage
 
@@ -1563,7 +1575,7 @@ All 47 items routed to this roadmap are accounted for. The indices refer to PAPE
 | 020 | [EX.2/trace-symmetry](#EX-2-trace-symmetry) |
 | 021 | [EX.2/trace-symmetry](#EX-2-trace-symmetry) |
 | 022 | [EX.3/degeneracy](#EX-3-degeneracy) |
-| 023 | [EX.3/bernstein-firm](#EX-3-bernstein-firm) |
+| 023 | [EX.3/bernstein-firm](#EX-3-bernstein-firm), [EX.3/whittaker-centre](#EX-3-whittaker-centre) |
 | 024 | [EX.3/enhanced-whittaker](#EX-3-enhanced-whittaker) |
 | 025 | [EX.3/degeneracy-equivalence](#EX-3-degeneracy-equivalence) |
 | 026 | [EX.4/spherical-generator](#EX-4-spherical-generator) |
