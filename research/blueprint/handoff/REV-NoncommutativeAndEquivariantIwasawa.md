@@ -1,0 +1,25 @@
+# Handoff: REV-NoncommutativeAndEquivariantIwasawa
+
+Finished independent review for issue #521, Codex session codex-1gPjeG, 2026-10-19. This is **not a checkpoint**. The packet records `needs_changes`, with 84 verified, 45 corrected and 6 unverifiable node verdicts. All 135 nodes, 35 baseline references, 50 definition/construction APIs and tests, 33 planets and 15 inherited source findings were checked. Clear corrections were applied to 51 nodes and synchronized in the reader. E16–E32 add 17 independently confirmed source findings; all 32 have reviews. No nodes added or removed, no library code implemented.
+
+Read [the independent report](../reviews/REV-NoncommutativeAndEquivariantIwasawa.md) and the packet’s per-node `review.checked` ledger. It records every node field changed. The reader contains the full mathematical specification, 28 supplier contracts and 22 gaps. Every stage remains planned, none closed; the complete-pass status is retained under PROTOCOL §0. The negative verdict concerns the following concrete unresolved claims, not the mere existence of open source leaves.
+
+## Mathematical work to resume in a revision
+
+1. **Global determinant orientation:** BV arXiv v2 / author final Definition 2.5 p.6, Definitions 3.7/3.14, Conjecture 4.1 and (21)/(24) pp.25–26, (36)/(37) p.33 and proof p.35. Type the shifted/dual complex and every map before assigning the global zeta leading term. Recompute r_G, boundary, c_γ and normalized value. Four of the six unverifiable verdicts concern this comparison: FK zeta, both Tate formulas and critical-motive interpolation. The published loci are Conjecture 4.1 p.188, Remark 5.6/proof pp.194–195, (38)–(39) pp.201–202 and proof p.204. Inverting ζ without tracking these data is not a repair.
+2. **Multiplicative logarithm sequence:** Kakde v3 Lemmas 86–88 pp.61–65 must use scalar norm exponents and ω_Aδ. Reconstruct exactness with finite-level kernels and a compatible limit; γ is an infinite-order kernel element. Keep untruncated trace in the cyclic cokernel argument. Supply the proof to phi-integral-log-sequence and downstream algebraic theorems.
+3. **Hilbert congruences:** Kakde v3 Propositions 115–117 pp.83–86 need relative restriction weights `[N:P]k`, retained absolute Hecke indices and the cusp powers specified in basic-congruence-values. Check cusp/Hecke compatibility, orbit arguments and the omitted (29) case.
+
+## Ownership and source constraints
+
+Current completed-group-algebra carriers, maps, augmentation and continuous compact-module actions already exist in Tau Ceti. Import `IsCompactModule.completedGroupAlgebraModule` and its scalar-tower/continuity compatibility; L1 owns only the extra finite-free coefficient base-change and subgroup squares. Current upstream also owns lower-p series, p-adic powers, generic reduced norm and field-coefficient twisted algebras; the latter needs a central-ring coefficient extension from InductionRestriction. See the supplier audit for the actual missing determinant/Ore/K₀, compact homology, control and height contracts. Do not treat an owner label as an existing theorem.
+
+Pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 were read. Additional ownership snapshots: TauCetiRoadmap 0d144d044dacebca17b654695b6f1ad58f159b27, Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. No build was run in those checkouts.
+
+All required accessible public locators and Schneider’s cleared reference copy were checked. Berger’s author article supplies the explicit split-Tate-curve B1/C1 calculation. The published BV collation additionally shows that E12 and E14 were corrected there, while E11 is only partially repaired. The cleared copy was read in place, with no extracts retained. DDMS, Oliver, Serre, Fukaya–Kato and Nekovář originals were not read. Their exact leaves remain in the packet; use only approved library access in a later run. Kakde findings are scoped to arXiv v3; its publisher version was not obtained. BV v2/author final were collated against the published EMIS copy at all BV findings. E12 and E14 are retained as historical defects corrected in publication. CFKSV E16/E29 use the published Numdam text. Public PDF URLs/hashes and bounded correction searches are recorded in the packet, so the scratch PDFs need not survive.
+
+## Validation
+
+Packet checker with the pinned declaration index: 0 errors, 0 warnings. Source-finding/version checks, all-node reader parity, missing-data-body check, five-file intake check and whitespace check pass. The 133-line Lean sketch elaborates using `lean-check`, with 8 expected `sorry` warnings only. Its matrix-order, scalar-twist, product-ring and modular-arithmetic review checks have actual proofs. Heavy objects remain reader targets.
+
+Only the report, packet, reader, suggested file and this handoff were changed. The pull request uses Refs #521. After submission, allow the swarm to record this completed review and route the mathematical revision; a later independent reviewer must be a different session. This worker stops after this one job.
