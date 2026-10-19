@@ -1,0 +1,186 @@
+{
+  "id": "AdicCoefficientsAndComparisonsPartII",
+  "title": "Adic coefficients and comparison with schemes, Part II: prime-to-degree alterations",
+  "area": "algebraicgeometry",
+  "parent": "AdicCoefficientsAndComparisons",
+  "summary": "This Part II starts where Adic coefficients and comparison with schemes stops at de Jong's alterations of unrestricted degree. It plans alterations whose degree is divisible only by a prescribed set of primes P: Riemann–Zariski spaces of pointed schemes, tame and wild loci of field extensions and Temkin's tame distillation for fields and for alterations, log regular pairs, very tame actions, monoidal desingularization and Gabber's modification theorems, Temkin's stable modification of relative curves and the resolution of relative curves by P-alterations, and finally Temkin's char(X)-altered desingularization of schemes and morphisms over quasi-excellent threefolds, Gabber's prime-to-ℓ alteration theorems over fields and one-dimensional bases, and their prime-to-ℓ and odd-degree consequences used by Jannsen and by Dittmann–Pop.",
+  "readme": "# Adic coefficients and comparison with schemes, Part II: prime-to-degree alterations\n\nThis roadmap extends *Adic coefficients and comparison with schemes* (AdicCoefficientsAndComparisons), whose Layer L5 uses de Jong's alterations with no control on their degree. It starts where that layer stops: it builds alterations whose degree is divisible only by primes in a prescribed set P, and in particular by residue characteristics only (Temkin) or prime to a given ℓ (Gabber).\n\n**Scope.** Degree-controlled alterations and universal P-resolvability (PA.0); Riemann–Zariski spaces of pointed schemes (PA.1); tame and wild loci and tame distillation of field extensions (PA.2) and of alterations (PA.3); log regular pairs, very tame actions, monoidal desingularization and Gabber's modification theorems (PA.4); Temkin's stable modification of relative curves and the resolution of relative curves by P-alterations (PA.5); the main theorems: Temkin's char(X)-altered desingularization of schemes and morphisms, Gabber's prime-to-ℓ theorems over fields and one-dimensional bases, Jannsen's and Dittmann–Pop's applications, and de Jong's Galois and arithmetic alteration theorems (PA.6).\n\n**Imported, not planned here.** Schemes, Nagata and excellent rings, modifications, flattening of proper morphisms, regular schemes, snc divisors, alterations and de Jong's Theorems 4.1 and 6.5: Tau Ceti's SchemeAndStackFoundations (Layers 0, 1, 4). Arbitrary-rank ramification of valued fields, P-closed fields and Temkin's tameness theorem: LocalFieldsRamificationPartII (GF.0–GF.6). Log structures, charts, log smoothness, log regularity, Kato's theorem that log smooth over log regular is log regular and the log Abhyankar lemma: CrystallineCohomology CR.5:log-algebra. The affine Zariski–Riemann limit: ClassicalAdicEtaleCohomology H1:henselian. Nagata compactification and noetherian approximation: AdicCoefficientsAndComparisons L2.\n\n**Conventions.** Schemes in the main theorems are noetherian; char(X) is the set of residue characteristics; an alteration is proper, surjective, maximally dominating and generically finite; P-alterations have P-number degrees at all maximal points; universal P-resolvability asks for projective resolving P-alterations (ILO Exposé X §3.3.3); \"Z is snc\" means Z is the support of a strict normal crossings divisor.\n\n**Sources.** Temkin, Ann. of Math. 186 (2017); Illusie–Laszlo–Orgogozo, Travaux de Gabber, Astérisque 363–364 (2014), Exposés VI, VIII, X; Temkin, J. Algebraic Geom. 19 (2010); de Jong, Publ. IHÉS 83 (1996); Cossart–Piltant, J. Algebra 529 (2019); Cossart–Jannsen–Saito (arXiv:0905.2191); Jannsen, Ann. of Math. 183 (2016); Dittmann–Pop, Ann. of Math. 198 (2023).\n",
+  "prerequisites": [
+    "AdicCoefficientsAndComparisons",
+    "SchemeAndStackFoundations",
+    "LocalFieldsRamificationPartII",
+    "CrystallineCohomology",
+    "ClassicalAdicEtaleCohomology",
+    "tauceti:TauCetiRoadmap/StableReduction",
+    "tauceti:TauCetiRoadmap/ModularCurves"
+  ],
+  "stages": [
+    {
+      "key": "PA.0",
+      "title": "Degree-controlled alterations and universal resolvability",
+      "description": "Define the residue characteristics char(X) of a scheme, maximally dominating morphisms of noetherian schemes, alterations of noetherian (possibly non-integral) schemes compared with Scheme and stack foundations' integral alterations, generic degrees, P-alterations, ℓ′-alterations and separable alterations, pseudo-projective morphisms with the non-separated Chow lemma, snc supports, and universal (separable) P-resolvability with projective resolving alterations. Prove flattening of finite-type morphisms by admissible blow-ups (Stacks 081R), universal resolvability of quasi-excellent schemes of dimension at most one, of excellent schemes of dimension at most two (Cossart–Jannsen–Saito) and of quasi-excellent threefolds (Cossart–Piltant), recording the projectivity gap of the last.",
+      "requires": [
+        "AdicCoefficientsAndComparisons:L2",
+        "AdicCoefficientsAndComparisons:L5",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.4",
+        "LocalFieldsRamificationPartII:GF.0"
+      ]
+    },
+    {
+      "key": "PA.1",
+      "title": "Riemann–Zariski spaces of pointed schemes",
+      "description": "For a pointed scheme Spec K → X (X qcqs, the point not necessarily dominant) define modifications and tight modifications, the Riemann–Zariski space RZ_K(X) as a limit of locally ringed spaces and its valuative points Val_K(X). Prove constructible compactness and the bijection RZ_K(X) ≅ Val_K(X) with valuation-ring stalks (Temkin Lemma 3.1.3), construct the functorial restriction maps and prove their openness for finite-type morphisms (Lemma 3.1.6). Define the absolute space Val_K, the centred subsets Val_K(X)′ and ψ_{L/K} on Tau Ceti's valuation spectrum, and compare with the affine Zariski–Riemann limit of ClassicalAdicEtaleCohomology H1:henselian.",
+      "requires": [
+        "AdicCoefficientsAndComparisonsPartII:PA.0",
+        "ClassicalAdicEtaleCohomology:H1:henselian",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "PA.2",
+      "title": "Tame distillation for field extensions",
+      "description": "Define the tame, wild and unramified loci of an algebraic extension in Val_L, S-tameness, X-tameness, the characteristic of a set of valuations and P-tameness. Prove that P-closed fields are P-tame (from the tameness theorem of LocalFieldsRamificationPartII GF.6), the tower and compositum laws for the loci, openness of the loci for finite extensions (with the minimal-polynomial repair E7), Temkin's tame distillation for finite extensions and a constructibly compact S (Theorem 3.2.12), and its separable variant inside a maximal separable P-extension (repair E6).",
+      "requires": [
+        "AdicCoefficientsAndComparisonsPartII:PA.1",
+        "LocalFieldsRamificationPartII:GF.0",
+        "LocalFieldsRamificationPartII:GF.2",
+        "LocalFieldsRamificationPartII:GF.6"
+      ]
+    },
+    {
+      "key": "PA.3",
+      "title": "Tame distillation for alterations",
+      "description": "Define decomposition and inertia groups of finite group actions on schemes, tame, admissible and inertia specializing actions with fixed-point subschemes and quotients, Galois alterations, separable G-alterations, Galois coverings and tame Galois coverings, normalization in a finite extension of the function field, and the wild primes set of an alteration. Prove that an X-tame Galois extension becomes a tame Galois covering after a modification (Lemma 3.3.4), that Galois closures preserve S-tameness (Lemma 3.3.7, corrected proof E2), Temkin's tame distillation of alterations (Theorem 3.3.6) and its separable variant.",
+      "requires": [
+        "AdicCoefficientsAndComparisonsPartII:PA.2",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4",
+        "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors"
+      ]
+    },
+    {
+      "key": "PA.4",
+      "title": "Log regular pairs, very tame actions and Gabber's modification theorems",
+      "description": "On the log algebra of CrystallineCohomology CR.5:log-algebra, define log regular pairs (X, Z) through the log structure of a closed subset, very tame actions, and log blow-ups and saturated log blow-ups with their comparison to normalized blow-ups. Prove log regularity of quotients by very tame actions (ILO VI 3.2), the existence and functoriality of monoidal desingularization (ILO VIII 3.3.15, 3.4.9), Gabber's modification theorem in the absolute case (ILO VIII 1.1) and for equivariant log smooth morphisms (ILO X 1.1, 3.1.5), Gabber's preparation lemma (X 1.2), log smoothness for intermediate boundaries (X 3.5.2) and the local forms of log smooth maps to fields and one-dimensional regular bases.",
+      "requires": [
+        "AdicCoefficientsAndComparisonsPartII:PA.3",
+        "CrystallineCohomology:CR.5:log-algebra",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "PA.5",
+      "title": "Stable modification and resolution of relative curves",
+      "description": "Define multipointed S-curves, semistable and stable modifications and η-modifications (Temkin 2010). Prove the stable modification theorem: projectivity (Theorem 1.1), uniqueness and existence after a generically étale alteration (Theorems 1.2, 1.5) and equivariance (Corollary 1.6); log smoothness of semistable multipointed curves over log regular pairs (ILO X 3.2.3); and Temkin's resolution of relative curves by projective P-alterations (Theorem 4.2.1, in the scope char(S) ⊆ P of source issue E1, generalising ILO X 3.4).",
+      "requires": [
+        "AdicCoefficientsAndComparisonsPartII:PA.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-3-prestable-semistable-stable-and-pointed-curves",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "PA.6",
+      "title": "Prime-to-degree desingularization theorems",
+      "description": "Prove P-altered desingularization of maximally dominating finite-type morphisms over universally P-resolvable bases with char(S) ⊆ P (Temkin Theorem 4.3.1(ii), with the Cartier-boundary repair of E5/E12), inheritance of universal P-resolvability (4.3.1(i)) and the separable statement over perfect fields (4.3.1(iii)); Temkin's char(X)-altered desingularization over qe threefolds (Theorem 1.2.5), desingularization of morphisms (Theorem 1.2.9) and Remark 4.3.4; Gabber's prime-to-ℓ alteration theorems over a field and over a one-dimensional excellent regular base (ILO X 2.1, 2.4); the prime-to-ℓ alteration of varieties quoted by Jannsen (Theorem 2.11) and the odd-degree regular alteration of models over a henselian non-dyadic DVR used by Dittmann–Pop (Proposition 3.4); and de Jong's Galois alteration theorem (7.3) and alteration theorem over a Dedekind base (8.2).",
+      "requires": [
+        "AdicCoefficientsAndComparisonsPartII:PA.5",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "temkin17",
+      "title": "Tame distillation and desingularization by p-alterations",
+      "authors": "Michael Temkin",
+      "edition": "Annals of Mathematics 186 (2017), no. 1, 97–126; doi:10.4007/annals.2017.186.1.3 (free from the journal); arXiv:1508.06255v2 compared",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf",
+      "readSections": [
+        "2026-10-19: published article, §§1, 3 and 4 read in full (pp. 97–102, 112–124); §2 read for the statements consumed from LocalFieldsRamificationPartII; locators are journal pages."
+      ]
+    },
+    {
+      "id": "ilo14",
+      "title": "Travaux de Gabber sur l'uniformisation locale et la cohomologie étale des schémas quasi-excellents",
+      "authors": "L. Illusie, Y. Laszlo, F. Orgogozo (eds.), with L. Illusie and M. Temkin (Exposés VIII and X)",
+      "edition": "Astérisque 363–364 (2014); read as arXiv:1207.3648v1 (418 pp.), whose internal page numbers are cited (Exposé VI from p. 69, VIII from p. 85, X from p. 135; the Astérisque pagination differs, e.g. Exposé X is pp. 167–212 there)",
+      "url": "https://arxiv.org/abs/1207.3648",
+      "readSections": [
+        "2026-10-19: Exposé X in full (pp. 135–170); Exposé VI §§1–3 (pp. 69–76); Exposé VIII §1, §§3.3–3.4 and the statements of §§4–5 (pp. 85–86, 107–112)."
+      ]
+    },
+    {
+      "id": "temkin10",
+      "title": "Stable modification of relative curves",
+      "authors": "Michael Temkin",
+      "edition": "J. Algebraic Geom. 19 (2010), 603–677; read as arXiv:0707.3953v3 (14 April 2010), whose page numbers and statement numbers are cited",
+      "url": "https://arxiv.org/abs/0707.3953",
+      "readSections": [
+        "2026-10-19: §1 (pp. 1–6), statements of Theorems 1.1, 1.2, 1.5, Corollaries 1.3, 1.4, 1.6 and the overview of §§2–5."
+      ]
+    },
+    {
+      "id": "dejong96",
+      "title": "Smoothness, semi-stability and alterations",
+      "authors": "A. J. de Jong",
+      "edition": "Publ. Math. IHÉS 83 (1996), 51–93 (Numdam; journal page = PDF page + 49)",
+      "url": "http://www.numdam.org/item?id=PMIHES_1996__83__51_0",
+      "readSections": [
+        "2026-10-19: §7 (Theorem 7.3 and 7.5–7.11, pp. 87–89) and §8 (Theorem 8.2 and 8.3–8.6, pp. 91–92)."
+      ]
+    },
+    {
+      "id": "cp19",
+      "title": "Resolution of singularities of arithmetical threefolds",
+      "authors": "Vincent Cossart and Olivier Piltant",
+      "edition": "J. Algebra 529 (2019), 268–535; read as arXiv:1412.0868v2 (8 January 2019)",
+      "url": "https://arxiv.org/abs/1412.0868",
+      "readSections": [
+        "2026-10-19: Introduction, Theorem 1.1 and Corollaries 1.2–1.3 (pp. 3–4); remaining chapters not read."
+      ]
+    },
+    {
+      "id": "cjs",
+      "title": "Canonical embedded and non-embedded resolution of singularities for excellent two-dimensional schemes",
+      "authors": "Vincent Cossart, Uwe Jannsen and Shuji Saito",
+      "edition": "arXiv:0905.2191v2 (18 February 2013); published as Desingularization: invariants and strategy, Lecture Notes in Math. 2270, Springer, 2020",
+      "url": "https://arxiv.org/abs/0905.2191",
+      "readSections": [
+        "2026-10-19: Introduction, Theorems 0.1–0.3 (pp. 2–4)."
+      ]
+    },
+    {
+      "id": "dp23",
+      "title": "Characterizing finitely generated fields by a single field axiom",
+      "authors": "Philip Dittmann and Florian Pop",
+      "edition": "Annals of Mathematics 198 (2023), 1203–1227; read as arXiv:2012.01307v2",
+      "url": "https://arxiv.org/abs/2012.01307",
+      "readSections": [
+        "2026-10-19: Proposition 3.4 and its proof (p. 8)."
+      ]
+    },
+    {
+      "id": "jannsen16",
+      "title": "Hasse principles for higher-dimensional fields",
+      "authors": "Uwe Jannsen",
+      "edition": "Annals of Mathematics 183 (2016), 1–71 (free from the journal)",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p01-p.pdf",
+      "readSections": [
+        "2026-10-19: Theorem 2.11 and its use in the proof of Theorem 2.10 (p. 24)."
+      ]
+    },
+    {
+      "id": "stacks",
+      "title": "The Stacks project",
+      "authors": "The Stacks project authors",
+      "edition": "online, accessed 2026-10-19",
+      "url": "https://stacks.math.columbia.edu",
+      "readSections": [
+        "Tags 081R, 0815, 052A (flattening, generic flatness); 0AVK (finite normalization); 0C45, 0BI4 (resolution of curves)."
+      ]
+    }
+  ],
+  "status": "draft"
+}
