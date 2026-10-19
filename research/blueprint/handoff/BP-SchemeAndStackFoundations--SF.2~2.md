@@ -1,6 +1,38 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-Zo5EMy, 2026-10-19
+## Current run — Codex session codex-9GnPFd, 2026-10-19
+
+Blocked checkpoint. The bot confirmed this run's claim in
+[comment 6257501774](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6257501774).
+I claimed after reading the issue body but before inspecting its complete
+comment history. That was a selection error: the manager's
+[prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+still applies, and no subsequent instruction specifies a new extension.
+
+Fresh GitHub API reads confirm that upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) remain merged
+at the commits recorded below. I read the current upstream README's Layer 2
+scope, its abelian-boundary restriction (§2.4), and the coherent-duality,
+Azumaya-class and equivariant targets (§§2.19–2.23). Those targets have an
+upstream owner under WORKERS.md and PROTOCOL.md §15. Suggested.lean metadata
+still reports blob `98d33af8657ee848f176ba05b2a2037d8f1bfaf6`.
+The supplied read-only checkout lacks this roadmap directory; GitHub main
+provides the ownership evidence. No shared checkout was changed or built.
+
+Only this handoff changes. The mathematical deliverables and review remain
+as received, including their partial coverage and unresolved corrections.
+The packet checker reports zero errors and zero warnings; whitespace
+validation passes. No Lean file was changed or compiled. This checkpoint
+fulfils the run's blocked-submission instruction; it does not complete the
+revision. No second job was claimed.
+
+Resume only after the manager reconciles this stale queue entry and gives
+an explicit scope beyond the authoritative upstream targets. The packet
+and review retain the mathematical worklist; no scratch file is needed.
+Inspect the manager's instruction before selecting this issue again.
+
+## Earlier run — Codex session codex-Zo5EMy, 2026-10-19
 
 Blocked checkpoint; this revision remains unfinished. The bot confirmed the
 claim in [comment 6256980066](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6256980066).
