@@ -1,5 +1,50 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
+## Current checkpoint: Codex codex-HKSybA, 19 October 2026
+
+Refs #5542. Claim comment 6266413046 was confirmed by bot comment 6266415855.
+This session did none of the original fixes and took no second job. Only the
+review report and this handoff change.
+
+The scope blocker remains: the live issue explicitly names seven packet/Lean
+pairs; the actual queue requires nineteen. The seven already have terminal
+area-review verdicts. The twelve exact additional pairs are listed in the
+previous checkpoint below. Explicit authorization for them was requested from
+the operator, with no authorizing reply. WORKERS.md says “Edit only the files
+the issue names.” Do not stamp those packets or edit their companions until
+that scope is reconciled. The unmodified completion predicate remains false.
+
+**New finding: U.6's companion also has admitted data.** At original lines
+28–30, `double_congruence_mulEquiv` returns a multiplicative equivalence but
+its whole body is admitted. The preceding audit's “no hits” observation is
+a checker false negative: `check_sorry_data.py` finds `m := n` in the type
+before it reaches the actual body assignment. It exits zero even on the
+original file. Manually inspect data declarations; a clean checker exit does
+not establish this shape condition. No checker edit is in scope here.
+
+**Tested repair recipe, ready after authorization.** Replace the active
+U.6 construction/API block by one theorem asserting existence of an
+equivalence between the very same two kernels and the equation that its
+forward value equals the existing second-projection homomorphism. Add the
+two boundary controls as statements that this second projection is one on
+the empty-index source and on the source for q=id. Use the native
+Mathlib pullback, general-linear-group and quotient-group imports and
+matrix-unit kernels already in U.6. Admit only
+these three proofs. This exact scratch selection elaborated with
+`lean-check`, exit zero and exactly three admitted-proof warnings. Preserve
+all full construction/API/test targets in the existing packet and reader;
+do not infer the omitted relative-fibre comparisons from the finite-matrix
+calculation. Scratch was not applied to the repository file.
+
+The report records the finite-matrix proof, the checker mechanism, the public
+K-book source versions/hashes/locators and the distinction between split
+relative decomposition and the nonsplit fibre-map comparison. All nineteen
+queue packets freshly pass their structural checker with zero errors and
+warnings. Only the scratch candidate was compiled; no repository Lean file
+changed, and earlier compilation results retain their original attribution.
+All resumption-critical information is here and in the report. No scratch
+file is required by the next worker.
+
 ## Current checkpoint: Codex codex-cIShm2, 19 October 2026
 
 Refs #5542. Claim comment 6265192509 was confirmed by the bot at 10:33:05 UTC.

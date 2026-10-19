@@ -1,5 +1,100 @@
 # Independent review: REV-FIX-RT-AREA-ktheory-1~2
 
+## Current continuation: Codex codex-HKSybA, 19 October 2026
+
+Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6266413046)
+was confirmed by [bot comment 6266415855](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6266415855).
+This session did none of the original fixes and took no second job.
+
+**Blocked checkpoint.** After confirmation I re-read the live issue and the
+actual queue entry. The issue still names seven packet/Lean pairs, while the
+queue requires nineteen. The seven already have terminal verdicts under this
+job's identity; all twelve other packets still have different reviewers.
+The unmodified completion predicate remains false. I requested explicit
+operator authorization for those twelve additional pairs; no authorizing
+reply arrived. [WORKERS.md](../WORKERS.md), “Doing the work”, says “Edit only
+the files the issue names.” Only this report and its handoff change.
+
+### Correction to the preceding companion audit: U.6 is also defective
+
+The preceding continuation says U.6 had no data-checker hits. That accurately
+describes the checker's output, but cannot support a clean shape assessment.
+I directly read the active declaration at lines 28–30 of
+`research/blueprint/suggested/KTheoryLowDegrees--U.6.lean`:
+`TauCeti.KTheory.LowDegreeComparison.double_congruence_mulEquiv` is a
+multiplicative equivalence between two matrix-unit kernels and its entire
+data body is admitted. It is not a proposition or a proof-valued instance.
+It violates the standing prohibition on admitted data bodies.
+
+The repository's `scripts/check_sorry_data.py` nevertheless exits zero with
+no output on this file. Its body detection takes the first occurrence of
+`:=` in the declaration text; here that occurrence is the named argument
+`m := n` in the type, before the actual body assignment. Thus this is a
+reproducible false negative even without comments. No change to the checker
+is authorized by this job, and none was made. Manually inspect declaration
+bodies rather than using a zero exit as a complete data-shape certificate.
+The previously identified eight negative companion observations remain
+attributed to their author; this adds a ninth, without certifying the other
+three files.
+
+**Concrete repair.** Keep the target asserting existence of a multiplicative
+equivalence from the kernel of the first projection on matrix units over
+D_q to the kernel of q on matrix units over A, together with its defining
+second-projection equation. State that existence as a theorem; keep the
+empty-index and identity-map controls as propositions about the actual
+projection maps. The complete named construction, its inverse formula and
+API remain targets in the existing packet and reader. This avoids a chosen
+equivalence with an admitted data body and avoids building the full
+construction in the companion.
+
+I tested precisely that three-statement selection in scratch with
+`lean-check`: exit zero, three admitted-proof warnings and no other
+warnings or errors, at the pinned Mathlib revision. The scratch selection
+was not applied to U.6, is not a new packet verdict, and does not certify
+U.6's omitted higher comparison targets. Its full resumption recipe is in
+the handoff so that deletion of scratch loses no required result.
+
+**Mathematical check of the finite-rank target.** Write D_q as the subring of
+pairs (a,b) satisfying q(a)=q(b). A source matrix with first projection the
+identity has entries (delta_ij,g_ij). Its compatibility equations say
+q(g)=1. Conversely a target matrix unit g in this kernel lifts to the
+matrix (1,g), with inverse (1,g inverse). Componentwise multiplication
+proves the two projections are inverse multiplicative maps. No
+surjectivity of q or commutativity of A is needed, including for the
+empty-index case. The actual pinned definitions `RingHom.pullback`,
+`RingHom.pullbackFst` and `RingHom.pullbackSnd` were read; this is a direct
+finite-matrix argument, not higher K-theory excision.
+
+For its relative K-theory boundary I read Weibel's author-hosted
+[*K-book*, Chapter III](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf),
+Exercise 2.7, chapter p.17, and
+[Chapter IV](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf),
+Exercise 1.15, chapter p.16, on 19 October 2026. These are separate chapter
+PDFs, not the combined edition cited by the packet. Their SHA-256 hashes
+are respectively `ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307`
+and `9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248`.
+The split relative decomposition in III.2.7 does not by itself identify the
+map on the nonsplit quotient fibre: IV.1.15 separately asks for the group
+and boundary-map comparisons. I therefore retain U.6's explicit degree-zero,
+degree-one and path-orientation gaps. The finite-matrix calculation above
+does not discharge them.
+
+### Validation and next action
+
+All nineteen queue packets pass `scripts/check_blueprint.py` with the shared
+pinned declaration index: zero errors and zero warnings. The extra twelve
+checks are read-only structural checks. They are not new mathematical
+reviews. Current upstream AlgebraicTopology and GrothendieckEulerForms
+scope/conventions were read without edits; no new owner or roadmap is
+proposed. No repository Lean file changed or was compiled. Only the scratch
+candidate described above was elaborated. No library build, update, cache
+download or language server ran.
+
+Reconcile the twelve additional edit scopes before continuing. Then review
+their area-fix obligations, repair clear defects (including U.6), and record
+terminal independent verdicts. Repeating the seven completed verdicts or
+rerunning their compilers cannot satisfy the missing twelve review identities.
+
 ## Current continuation: Codex codex-cIShm2, 19 October 2026
 
 Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6265192509)
