@@ -290,6 +290,12 @@ example : (LinearMap.id : ℚ →ₗ[ℚ] ℚ) - LinearMap.id = 0 := by
 
 /-! ## Layer 7: characters, weights and global triangulations -/
 
+/-- A free image before specialization need not be flat after pulling back the map.
+Multiplication by 2 on ℤ has free image; its image over ℤ/4ℤ is not flat. -/
+example : ¬ Module.Flat (ZMod 4)
+    (LinearMap.range (2 • (LinearMap.id : ZMod 4 →ₗ[ZMod 4] ZMod 4))) := by
+  sorry
+
 /-!
 Definitions and constructions specified in README.md whose arithmetic carriers are not
 present at the pins: PhiModule and its skew-ring cohomology; fixed-idempotent decomposition;
