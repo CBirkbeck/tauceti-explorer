@@ -8,7 +8,7 @@ document is definitive. These statements suggest Lean forms so contributors
 and reviewers can converge on names and signatures.
 
 The fixed roadmap shape permits light definitions on existing carriers and
-milestones statable at the pins. The reader gives all 57 targets, their APIs,
+milestones statable at the pins. The reader gives all 58 targets, their APIs,
 tests and carrier dependencies. In particular this file does not introduce a
 replacement smooth representation category, a triality kernel, or an assumed
 exotic monoidal structure. Their construction is the roadmap's mathematical

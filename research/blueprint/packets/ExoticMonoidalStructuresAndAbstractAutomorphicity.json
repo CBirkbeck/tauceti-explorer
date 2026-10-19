@@ -473,7 +473,7 @@
       "sources": [
         {
           "sourceId": "Dor23",
-          "locator": "§2.1, equations (2.1)–(2.2), p. 8; Lemma 2.19, p. 15",
+          "locator": "§2.1, equations (2.1)–(2.2), p. 8; Lemma 2.19, p. 15; Remark 2.22, p. 17",
           "match": "Let Y°=S(G×F×), embedded in Y by extension by zero. It is stable under the two outer copies of G and the middle mirabolic subgroup, and generates Y under the middle G action. It is not asserted to be a middle G submodule."
         }
       ],
@@ -594,9 +594,10 @@
         "F is a nonarchimedean local field with char F ≠ 2; G = GL₂(F); coefficients are ℂ; e is a fixed nontrivial continuous additive character. All representations and relative tensors are smooth."
       ],
       "proofSteps": [
-        "Separate the rank-zero and rank-one strata. Describe the rank-one stabilizer and apply induction/coinvariant adjunctions.",
-        "Use the two-step smooth Tor spectral sequence to control the connecting term; the degree-one vanishing required in the source is an explicit verification debt G1, not an assumed flatness theorem.",
-        "Apply the hypothesis to remove the zero orbit and identify the residual torus balance."
+        "Separate the rank-zero and rank-one strata. The zero stratum is Q=S(F×), on which each outer G acts through determinant; the hypotheses imply V_SL₂=Ṽ_SL₂=0.",
+        "Apply the smooth two-group spectral sequence E²_i,j=Tor^G_i(Ṽ,Tor^G_j(V,Q))⇒Tor^(G×G)_(i+j)(Ṽ⊗V,Q). Since Tor^G_0(V,Q)=0, the terms (0,0) and (1,0) vanish.",
+        "The residual outer action on Tor^G_1(V,Q) still factors through determinant: every SL₂ element induces the identity on Q, hence the identity on its derived tensor by functoriality. Thus E²_0,1=Ṽ⊗G Tor^G_1(V,Q)=0, using Ṽ_SL₂=0. This proves the required total-degree-one vanishing without flatness.",
+        "The long exact sequence now identifies the rank-one balanced tensor with the full singular quotient. Compute its stabilizer and use induction/coinvariant adjunctions to obtain the two unnormalized Jacquet modules balanced over T."
       ],
       "acceptance": [
         "The hypothesis excludes determinant characters.",
@@ -1063,12 +1064,12 @@
         {
           "name": "weak-symmetric.2",
           "kind": "example",
-          "statement": "There is no associator field from which a pentagon could be inferred."
+          "statement": "For every c∈ℂ×, replacing the usual vector-space left unitor by cλ while retaining the usual tensor and flip still satisfies both weak symmetry equations, including λI∘sI,I=λI."
         },
         {
           "name": "weak-symmetric.3",
           "kind": "example",
-          "statement": "Changing λ by a scalar while keeping a functor unit comparison fixed must be tested by the unit compatibility square."
+          "statement": "From the usual vector-space weak structure to the one with unitor cλ, the identity functor with identity product comparison satisfies the unit square with unit comparison c·idℂ. Keeping its unit comparison equal to idℂ fails that square when c≠1."
         }
       ],
       "uses": [
@@ -1202,7 +1203,7 @@
       "sources": [
         {
           "sourceId": "Dor23",
-          "locator": "Claim 3.18, p. 24; Corollaries 3.20–3.21, p. 25",
+          "locator": "Remark 3.17, p. 23; Claim 3.18, p. 24; Corollaries 3.20–3.21, p. 25",
           "match": "Transpose is the identity on the double θ-coinvariants of Y for its outer actions. Consequently the braiding on Iunit⊛Iunit is identity and the preceding data define a weak symmetric tensor structure. Moreover Φ⁻(M⊛N)≅IRL(M)⊗G N naturally and EndG(Iunit) is commutative."
         }
       ],
@@ -1234,7 +1235,7 @@
       ],
       "proofSteps": [
         "Use the smooth abelian category and its Ext¹, with Φ⁻ as an exact functor.",
-        "Define the full subcategory by the simultaneous right-orthogonality conditions and establish invariance under isomorphism."
+        "Define the full subcategory by the simultaneous left-orthogonality conditions HomG(N,D)=Ext¹G(N,D)=0 for every degenerate D, and establish invariance under isomorphism."
       ],
       "acceptance": [
         "A representation D is degenerate if Φ⁻D=0. A representation N is degeneracy-free if HomG(N,D)=0 and Ext¹G(N,D)=0 for every degenerate D. This quantifies over all degenerate objects, not just irreducible ones."
@@ -1323,7 +1324,7 @@
       ],
       "title": "Locally unital Bernstein modules",
       "kind": "definition",
-      "statement": "Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. The finite-support enriched Hom is underlineHom(M,N)=⊕c Hom(Mc,Nc). In particular underlineEnd(Iunit)=Z; the full End(Iunit) is the product ∏c Zc.",
+      "statement": "Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. For block-decomposed smooth representations define finite-support enriched Hom by underlineHom(M,N)=⊕c HomG(Mc,Nc), with blockwise composition and evaluation. Full Hom permits a product over blocks. The endomorphism calculation for Iunit is the separate theorem EX.3/whittaker-centre.",
       "hypotheses": [
         "F is a nonarchimedean local field with char F ≠ 2; G = GL₂(F); coefficients are ℂ; e is a fixed nontrivial continuous additive character. All representations and relative tensors are smooth."
       ],
@@ -1332,7 +1333,7 @@
         "Use Bernstein block decompositions to compare firm modules with block families and construct finite-support Hom."
       ],
       "acceptance": [
-        "Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. The finite-support enriched Hom is underlineHom(M,N)=⊕c Hom(Mc,Nc). In particular underlineEnd(Iunit)=Z; the full End(Iunit) is the product ∏c Zc."
+        "Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. For block-decomposed smooth representations define finite-support enriched Hom by underlineHom(M,N)=⊕c HomG(Mc,Nc), with blockwise composition and evaluation. Full Hom permits a product over blocks. The endomorphism calculation for Iunit is the separate theorem EX.3/whittaker-centre."
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.1",
@@ -1346,7 +1347,7 @@
         {
           "sourceId": "Dor23",
           "locator": "§3.4 and Remark 3.29, pp. 25–27",
-          "match": "Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. The finite-support enriched Hom is underlineHom(M,N)=⊕c Hom(Mc,Nc). In particular underlineEnd(Iunit)=Z; the full End(Iunit) is the product ∏c Zc."
+          "match": "Let Z=⊕c Zc be the direct sum of the unital Bernstein block centres. Use firm Z-modules: Z⊗Z M→M is an isomorphism, equivalently every element is fixed by a finite sum of block idempotents. For block-decomposed smooth representations define finite-support enriched Hom by underlineHom(M,N)=⊕c HomG(Mc,Nc), with blockwise composition and evaluation. Full Hom permits a product over blocks. The endomorphism calculation for Iunit is the separate theorem EX.3/whittaker-centre."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1377,9 +1378,9 @@
           "statement": "Firm modules correspond to block families with direct-sum underlying vector space."
         },
         {
-          "name": "bernsteinFiniteHom_endUnit",
-          "role": "characterisation",
-          "statement": "underlineEnd(Iunit)=Z, whereas full End(Iunit)=∏c Zc."
+          "name": "bernsteinFiniteHom_comp",
+          "role": "structure",
+          "statement": "Composition and evaluation are blockwise; morphisms between different Bernstein blocks vanish, and any finite sum is supported by its finite block idempotent."
         }
       ],
       "tests": [
@@ -1411,6 +1412,61 @@
       ]
     },
     {
+      "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/whittaker-centre",
+      "parentStageId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3",
+      "realises": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3"
+      ],
+      "title": "Whittaker unit and Bernstein centre",
+      "kind": "theorem",
+      "statement": "Evaluation of a natural central transformation on Iunit gives an isomorphism ∏c Zc≅EndG(Iunit). On each block it is Zc≅EndG(Iunit,c); consequently finite-support underlineEndG(Iunit)≅⊕c Zc=Z. These are algebra isomorphisms with the stated evaluation and composition, rather than a definition of either centre.",
+      "hypotheses": [
+        "F is a nonarchimedean local field with char F ≠ 2; G = GL₂(F); coefficients are ℂ; e is a fixed nontrivial continuous additive character. All representations and relative tensors are smooth."
+      ],
+      "proofSteps": [
+        "A central natural transformation z acts on Iunit. For f∈EndG(Iunit), define ψ(f)_X=λX∘(f⊛idX)∘λX⁻¹. Bifunctoriality makes ψ(f) natural in X and makes ψ an algebra homomorphism.",
+        "The symmetry sIunit,Iunit is the identity because λIunit∘sIunit,Iunit=λIunit. Symmetry naturality and unitor naturality therefore give ψ(f)_Iunit=f, proving surjectivity of central evaluation.",
+        "Central balance gives zIunit⊛idX=idIunit⊛zX. Conjugating by λX identifies both with zX. Thus zIunit=0 forces zX=0 for every X, proving injectivity.",
+        "Restrict the algebra isomorphism to each block. Bernstein orthogonality identifies full endomorphisms with the product and the finite-support enrichment with the direct sum."
+      ],
+      "acceptance": [
+        "Check both inverse composites of central evaluation and ψ, including the unit and composition.",
+        "Distinguish the full product from its finite-support subalgebra; an infinite family of block identities is not an element of Z."
+      ],
+      "prerequisites": [
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/bernstein-firm",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/whittaker-unit",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/trace-symmetry",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/central-balance"
+      ],
+      "sources": [
+        {
+          "sourceId": "Dor23",
+          "locator": "Claim 3.32 proof, p. 29; Remark 3.29, p. 27; Lemma 2.17, pp. 14–15",
+          "match": "The proof of Claim 3.32 identifies Whittaker-unit endomorphisms with the Bernstein centre. The explicit inverse above uses the preceding unit, symmetry and central-balance identities; the direct-sum/product distinction follows blockwise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RepresentationTheory/ExoticGL2/EX3",
+        "namespace": "TauCeti.ExoticGL2"
+      },
+      "routedItems": [
+        "PAPER-DOR-23/023"
+      ],
+      "planet": {
+        "name": "Whittaker unit and Bernstein centre"
+      },
+      "api": [
+        {
+          "name": "bernsteinFiniteHom_endUnit",
+          "role": "characterisation",
+          "statement": "underlineEnd(Iunit)=Z, whereas full End(Iunit)=∏c Zc."
+        }
+      ],
+      "addedBy": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+    },
+    {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/enhanced-whittaker",
       "parentStageId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3",
       "realises": [
@@ -1424,7 +1480,7 @@
       ],
       "proofSteps": [
         "Prove the blockwise roughening/smoothing comparison of Lemma 3.35, using compact projective generators from the supplier.",
-        "Identify underlineEnd(Iunit) with Z. Construct the adjunction by the enriched tensor-Hom correspondence.",
+        "Use EX.3/whittaker-centre to identify underlineEndG(Iunit) with Z. Construct the adjunction by the enriched tensor-Hom correspondence.",
         "Compute the unit and the product comparison on Z and extend by colimits."
       ],
       "acceptance": [
@@ -1435,7 +1491,8 @@
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/whittaker-unit",
         "SmoothRepresentationsOfLocalGroups:SR.2",
         "SmoothRepresentationsOfLocalGroups:SR.3",
-        "SmoothRepresentationsOfLocalGroups:SR.1/hecke-module-equivalence"
+        "SmoothRepresentationsOfLocalGroups:SR.1/hecke-module-equivalence",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/whittaker-centre"
       ],
       "sources": [
         {
@@ -1986,7 +2043,7 @@
       ],
       "proofSteps": [
         "Use right exactness and the unit quotient to descend the algebra structure.",
-        "Use the spectral identity to prove idempotence and track the one-dimensional multiplicity line under rescaling of the unit."
+        "Apply the Kirillov spectral identity from EX.1/kirillov-extension to identify V⊛V with the single copy of V selected by the unit quotient. If that quotient is scaled by c, multiplication scales by c⁻¹, so the tensor of the multiplication with its generator gives the canonical multiplicity-line-valued comparison."
       ],
       "acceptance": [
         "For generic irreducible V, choose a nonzero generator of its one-dimensional Whittaker multiplicity space and the resulting epimorphism Iunit→V. There is a unique commutative unital ⊛-algebra on V with this unit, and its multiplication V⊛V→V is invertible. Without choosing a generator there is instead a canonical isomorphism V⊛V≅V⊗ℂ HomG(Iunit,V)."
@@ -1995,7 +2052,8 @@
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5/associator",
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/trace-symmetry",
         "GL2AutomorphicRepresentationsAndTransfer:R16.2",
-        "mathlib:CategoryTheory.CommMon"
+        "mathlib:CategoryTheory.CommMon",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/kirillov-extension"
       ],
       "sources": [
         {
@@ -2608,7 +2666,7 @@
       "sources": [
         {
           "sourceId": "Dor23",
-          "locator": "Construction 4.13 and Claim 4.14, p. 45",
+          "locator": "Construction 4.13, Claim 4.14 and Construction 4.15, p. 45",
           "match": "Define eA:IunitA→S by eA(W)(g)=Σγ∈U(F)\\Γ W(γg). This is a finite sum on compact-mod-U representatives and gives a smooth function compact modulo Γ. Its smooth dual is the Whittaker map S̃→IunitÃ with the specified θ convention."
         }
       ],
@@ -2792,12 +2850,12 @@
         {
           "name": "automorphic-ideal.2",
           "kind": "example",
-          "statement": "A nonzero function pulled back from the determinant quotient need not belong to I."
+          "statement": "A nonzero nonnegative locally constant function supported in a compact open subset of Γ\\G has a nonzero determinant pushforward: it is not in I. A determinant pullback need not have compact quotient support and is not used as a test element of S."
         },
         {
           "name": "automorphic-ideal.3",
           "kind": "example",
-          "statement": "The definition is not the kernel of the constant-term map; its Eisenstein part need not vanish."
+          "statement": "In the Eisenstein summand IEis, choose a nonzero compact function with nonzero constant term; its determinant pushforward is nevertheless zero. Thus I is larger than the cuspidal constant-term kernel."
         }
       ],
       "uses": [
@@ -3023,7 +3081,7 @@
       "sources": [
         {
           "sourceId": "Dor23",
-          "locator": "Claim 4.28 and Definition 4.29, pp. 48–49",
+          "locator": "Claim 4.28 and Definition 4.29, pp. 48–49; Remark 4.30, p. 49",
           "match": "Define Modaut(G)=ModI(Mod(G)) using the exotic commutative algebra I. Its realization functor forgets the I action. A smooth G-module V lies in its image exactly when the inverse unitor IunitA⊛V→V factors through eA⊛id:IunitA⊛V↠I⊛V; the descended action is then unique."
         }
       ],
@@ -4190,7 +4248,7 @@
         "F is a global function field with full finite constant field of odd characteristic; A is its adele ring; G = GL₂(A), Γ = GL₂(F); e is a nontrivial character of A/F; coefficients are ℂ."
       ],
       "proofSteps": [
-        "Prove the Weyl-invariant lifting statement by generators supported on two torus cosets, choosing a prime in the required ray class using function-field Chebotarev with its degree compatibility.",
+        "Apply EX.11/weyl-lifting, including its large-degree convolution repair, to the two-coset symmetric generators. A prime in an arbitrary fixed-degree ray class cannot be assumed.",
         "Use the lifting to realize Eisenstein projections by the smooth Bernstein centre, so the image IEis is stable under each projection.",
         "Use local finiteness at fixed level and bounded norm on the cuspidal side to obtain the algebra decomposition. Interpret products in the smooth category; do not identify all underlying vector-space products with direct sums.",
         "Pass from complementary locally unital ideals to module categories and check the relative monoidal product."
@@ -4292,7 +4350,8 @@
       "prerequisites": [
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/component-decomposition",
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/irreducible-equivalence",
-        "SmoothRepresentationsOfLocalGroups:SR.2"
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/weyl-lifting"
       ],
       "sources": [
         {
@@ -4323,20 +4382,25 @@
         "F is a global function field with full finite constant field of odd characteristic; A is its adele ring; G = GL₂(A), Γ = GL₂(F); e is a nontrivial character of A/F; coefficients are ℂ."
       ],
       "proofSteps": [
-        "Express a smooth compact quotient function by finitely many two-coset symmetric generators at a compact level.",
-        "Choose a place representing the required ray class by Chebotarev with its constant-field degree condition.",
-        "Lift each generator to a pair of adelic compact cosets that is invariant under the local Weyl action at that place and fixed under the others.",
-        "Check periodization including the |a/d| weight."
+        "Choose a compact open unit level K for the target and refine to a ray level stable under swapping the two coordinates. Put C=F×\\A×/K. Conjugation by the multiplicative character |a/d|^(1/2) changes normalized Weyl symmetry to ordinary swap and commutes with periodization and convolution. Use Haar-normalized coset functions, so the fixed-level quotient algebra is ℂ[C×C].",
+        "Let R be the image of the separately local-swap-invariant compact functions. It is a convolution subalgebra. Write D(u,v)=[u]⊗[v] and S(u,v)=D(u,v)+D(v,u). The diagonals D(z,z), including D(z⁻¹,z⁻¹), lie in R. If u/v is represented by a single prime away from the modulus, S(u,v) lies in R: choose identical local representatives outside that prime and symmetrize the two cosets there. Normalize by the finite rational stabilizer when periodizing.",
+        "Use finiteness of C⁰ and a degree-splitting idele from FA.4/ray-class-and-generalized-picard. Its finite quotient by the degree generator has a class field by FA.4/global-abelian-existence. Apply degree-sensitive Chebotarev to this finite extension: every ray class of sufficiently large positive degree contains a prime away from the modulus, with the constant-field condition retained. The bound is uniform over the finite degree-zero classes.",
+        "For arbitrary u,v choose z of sufficiently large degree that z, uz/v and uz²/v all have such prime representatives. The already lifted functions satisfy S(uz,v)S(1,z)=D(z,z)S(u,v)+S(uz²,v). Hence S(u,v)=D(z⁻¹,z⁻¹)(S(uz,v)S(1,z)−S(uz²,v)) lies in R. These generators span all swap invariants, with diagonal generators divided by 2 over ℂ.",
+        "Undo the character conjugation to restore the |a/d| weight. The argument covers u/v of degree zero or negative without requiring a prime in that original class."
       ],
       "acceptance": [
-        "Periodization S(T(A))→S(T(F)\\T(A)) maps the subspace invariant under every separate local normalized Weyl involution onto the subspace invariant under the simultaneous global normalized Weyl involution."
+        "Periodization S(T(A))→S(T(F)\\T(A)) maps the subspace invariant under every separate local normalized Weyl involution onto the subspace invariant under the simultaneous global normalized Weyl involution.",
+        "Work at a fixed ray level and account for the finite stabilizer in coset periodization.",
+        "Check the displayed convolution identity on the four basis terms and apply it to ratios of degree zero and negative degree."
       ],
       "prerequisites": [
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/torus-automorphic",
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.10/normalization-line",
         "FunctionFieldArithmetic:FA.5/degree-sensitive-chebotarev",
         "FunctionFieldArithmetic:FA.2",
-        "FunctionFieldArithmetic:FA.2/projective-ideles"
+        "FunctionFieldArithmetic:FA.2/projective-ideles",
+        "FunctionFieldArithmetic:FA.4/ray-class-and-generalized-picard",
+        "FunctionFieldArithmetic:FA.4/global-abelian-existence"
       ],
       "sources": [
         {
@@ -4468,7 +4532,7 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
-      "need": "Smooth Tor derived from the actual smooth balanced tensor and the two-group spectral sequence Tor^G_i(Ṽ,Tor^G_j(V,S))⇒Tor^(G×G)_(i+j)(Ṽ⊗V,S); do not substitute algebraic group homology without a comparison.",
+      "need": "Smooth Tor derived from the actual smooth balanced tensor and the two-group spectral sequence Tor^G_i(Ṽ,Tor^G_j(V,S))⇒Tor^(G×G)_(i+j)(Ṽ⊗V,S); do not substitute algebraic group homology without a comparison. Retain the functorial residual commuting-group action on each Tor group: an identity endomorphism of the coefficient bimodule induces the identity on Tor. This is the input used to discharge the singular-stratum calculation.",
       "neededBy": [
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/singular-orbits"
       ]
@@ -4547,7 +4611,6 @@
       "stageId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1",
       "status": "planned",
       "remaining": [
-        "G1: singular-stratum smooth Tor calculation",
         "Obtain and verify the exact supplier contracts: AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocalFactors:AL.3, GL2AutomorphicRepresentationsAndTransfer:R16.2, MetaplecticAutomorphicForms:MP.1, MetaplecticAutomorphicForms:MP.2, SmoothRepresentationsOfLocalGroups:SR.0:derived-extension, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3."
       ]
     },
@@ -4584,7 +4647,6 @@
       "stageId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6",
       "status": "planned",
       "remaining": [
-        "G1: singular-stratum smooth Tor calculation",
         "Obtain and verify the exact supplier contracts: AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocalFactors:AL.3, FunctionFieldArithmetic:FA.2, FunctionFieldArithmetic:FA.6, GL2AutomorphicRepresentationsAndTransfer:R16.2, MetaplecticAutomorphicForms:MP.1, MetaplecticAutomorphicForms:MP.2, MetaplecticAutomorphicForms:MP.4, MetaplecticAutomorphicForms:MP.5, SmoothRepresentationsOfLocalGroups:SR.0:derived-extension, SmoothRepresentationsOfLocalGroups:SR.1, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.4."
       ]
     },
@@ -4628,14 +4690,6 @@
   ],
   "gaps": [
     {
-      "title": "G1: singular-stratum smooth Tor calculation",
-      "neededBy": [
-        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/singular-orbits",
-        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/kirillov-extension"
-      ],
-      "detail": "Dor23 Lemma 2.20 uses a degree-one vanishing in the rank-zero/rank-one comparison. Identify the exact smooth Tor groups and connecting map under the stated no-SL₂-invariant-functional hypotheses, prove the needed vanishing or refine the hypothesis. The smooth Tor machinery itself is requested from SR.0:derived-extension; that machinery is not a proof of this calculation."
-    },
-    {
       "title": "G2: presentable linear category self-duality",
       "neededBy": [
         "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5/frobenius-category"
@@ -4663,17 +4717,22 @@
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E1",
       "source": "Dor23",
       "kind": "misprint",
-      "locator": "Published Proposition 2.12 proof, p. 13",
-      "printed": "The torus parameters in the displayed lift use a repeated letter in the domain condition.",
-      "correction": "The parameter set is triples (a,b,c) with abc=1.",
-      "reason": "The three determinant factors must multiply to 1; this is the domain of H.",
+      "locator": "Published Proposition 2.12 proof, p. 14",
+      "printed": "The displayed domain for (a,b,c) has ambient F× instead of (F×)³.",
+      "correction": "Use {(a,b,c)∈(F×)³ | abc=1}.",
+      "reason": "The displayed variables form a triple, and the adjacent exact sequence and splitting use all three coordinates.",
       "affects": "nothing",
       "known": "No published correction located; also recorded in PAPER-DOR-23 where indicated.",
       "searched": [
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed after correcting the description and page: the missing exponent 3 is visible in the ambient set on p. 14; the original repeated-letter report on p. 13 was inaccurate.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E2",
@@ -4689,13 +4748,18 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The final integral of the Poisson computation on p. 43 uses rational matrices although its variable and Fourier transform are adelic. The correction is M₂(A).",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E3",
       "source": "Dor23",
       "kind": "misprint",
-      "locator": "Published Construction 4.15, p. 45",
+      "locator": "Published Petersson pairing following Construction 4.15, p. 45",
       "printed": "The displayed Petersson integral omits the rational quotient from its domain.",
       "correction": "Integrate over Γ\\G.",
       "reason": "The functions are Γ-invariant; the unquotiented integral repeats infinitely many rational translates.",
@@ -4705,7 +4769,12 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The pairing displayed after Construction 4.15 omits Γ in its integration domain. The preceding function-space definition and the unfolding require Γ\\G.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E4",
@@ -4721,15 +4790,20 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The representative in Claim 4.3 is labelled by all of G_v; compact support and the reference lattice require GL₂(O_v).",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E5",
       "source": "Dor23",
       "kind": "misprint",
       "locator": "Published Warning 3.25, p. 25",
-      "printed": "The discussion uses the trivial representation name where Steinberg is intended in its generic example.",
-      "correction": "Use St for the generic representation, and keep 0→1G→Eext→St→0 distinct from its reverse extension.",
+      "printed": "Inside the extension description, St is called trivial although the preceding sentence specifies the Steinberg representation.",
+      "correction": "Read St as the Steinberg quotient in 0→1G→Eext→St→0; the subrepresentation 1G is the trivial representation.",
       "reason": "The trivial representation has zero nontrivial Whittaker coinvariants and cannot be the claimed generic example.",
       "affects": "nothing",
       "known": "No published correction located; also recorded in PAPER-DOR-23 where indicated.",
@@ -4737,7 +4811,12 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The extension sentence labels St with the wrong adjective. Its Steinberg quotient and trivial subrepresentation are fixed by the preceding sentence and extension notation; the original report has been made precise.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E6",
@@ -4753,7 +4832,12 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The published §3.3.2 heading on p. 21 reads correctly. No duplicated character was found in the version of record; extraction or rendering artifacts are not a source misprint.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E7",
@@ -4769,7 +4853,12 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Construction A.5 gives ΔA, and Claim A.6 invokes counitality, but no explicit normalized adelic counit or reference-vector calculation is supplied. This remains the stated proof debt G3, not a counterexample to the claim.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E8",
@@ -4785,7 +4874,12 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For the standard residue character on F_q((t)), all t⁻ⁿ with n≥2 have zero t⁻¹ coefficient and belong to its kernel. Their valuations are unbounded below, so that kernel cannot equal the compact unipotent intersection. The conductor-lattice repair is necessary.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E9",
@@ -4801,7 +4895,12 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem C.2.1 reverses the functor direction; its definition on the preceding page and the construction in the proof give Mod(T)→Mod(G).",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E10",
@@ -4817,7 +4916,12 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Remark C.4.5 uses a degree-one place without a rational-point hypothesis. A degree-generating idele gives the required norm splitting and does not require a degree-one place.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E11",
@@ -4825,15 +4929,20 @@
       "kind": "gap",
       "locator": "Lemma 2.20 proof, p. 17",
       "printed": "The spectral-sequence argument deduces all degree-one edge terms from vanishing of degree-zero balanced tensors.",
-      "correction": "Identify and calculate the (0,1) edge term or the corresponding connecting map in the smooth category, as required by G1.",
-      "reason": "Right exactness and vanishing of Tor degree zero do not by themselves imply the mixed first-Tor term vanishes.",
+      "correction": "No extra hypothesis or unresolved singular-stratum gap is required. Retain the residual determinant action on Tor¹ and use Ṽ_SL₂=0; see EX.1/singular-orbits.",
+      "reason": "The source states that the residual action on Q factors through determinant. Functoriality retains that action on Tor¹, so the remaining (0,1) term vanishes as well.",
       "affects": "the proof",
       "known": "No published correction located.",
       "searched": [
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected: both outer SL₂ actions on Q are trivial. The residual action on Tor¹ stays trivial by functoriality, so Ṽ_SL₂=0 kills E²_0,1; Tor⁰=0 kills E²_1,0. The full argument is now in the node and G1 is removed.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     },
     {
       "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E12",
@@ -4849,7 +4958,32 @@
         "Cambridge version-of-record article and its linked publication information (19 October 2026)",
         "arXiv records 2011.03313 and 2102.11820; no linked correction found",
         "Title/author corrigendum search, 19 October 2026; no correction located"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The claimed section transport and weighted inverse-transpose multiplicativity are not calculated in Construction A.7 or Remark A.8. They remain the explicit verification task G4, not an established false theorem.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
+    },
+    {
+      "id": "ExoticMonoidalStructuresAndAbstractAutomorphicity/E13",
+      "source": "Dor21",
+      "kind": "gap",
+      "locator": "arXiv:2102.11820v1, Lemma C.4.9 proof and Remark C.4.10, pp. 51–52",
+      "printed": "The proof chooses a prime representing an arbitrary fixed ray class of an idele ratio.",
+      "correction": "Use the large-degree convolution identity in EX.11/weyl-lifting. Choose prime representatives only for the three shifted positive-degree classes, then recover the arbitrary symmetric generator by convolution and subtraction.",
+      "reason": "Degree is unchanged by principal ideles and compact unit level. Every prime has positive degree, so a degree-zero or negative-degree ray class has no prime representative. Constant-field compatibility alone does not remove this obstruction.",
+      "affects": "the proof",
+      "known": "No linked correction located in the arXiv record or title/author correction search, 19 October 2026.",
+      "searched": [
+        "arXiv:2102.11820 record and version history, 19 October 2026",
+        "Title/author correction search, 19 October 2026"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The fixed-degree obstruction is immediate. The repaired proof expands S(uz,v)S(1,z) into four coset terms; FA.4 ray class theory and FA.5 large-degree Chebotarev supply precisely the positive-degree auxiliary classes.",
+        "by": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity"
+      }
     }
   ],
   "sourceVersions": [
@@ -4986,7 +5120,8 @@
     {
       "item": "PAPER-DOR-23/023",
       "nodes": [
-        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/bernstein-firm"
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/bernstein-firm",
+        "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/whittaker-centre"
       ]
     },
     {
@@ -5199,6 +5334,10 @@
     {
       "owner": "SmoothRepresentationsPartIIParahoricCenters",
       "detail": "The extraction has routed the twisted spherical centre comparison here, with no stage ids yet. SR.3/SR.4 requests name the exact Part II contract and do not infer it from ordinary Satake."
+    },
+    {
+      "owner": "UPSTREAM:SmoothRepresentationsOfLocalGroups",
+      "detail": "The independent review checked current SR.0/SR.1/SR.2/SR.3 ownership and the current Tau Ceti library. General smooth carriers, Hecke modules, induction, Bernstein theory and derived infrastructure stay there. The exact mixed smooth-Tor spectral sequence and residual-action functoriality remain an explicit SR.0:derived-extension request; the calculation specific to the triality singular stratum is proved here."
     }
   ],
   "dualityConvention": {
@@ -5223,5 +5362,303 @@
       "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5/idempotent-coherence"
     ],
     "reason": "The fixed WORKERS roadmap shape admits only existing carriers and light real definitions. The matrix pairing and general categorical idempotent theorem use native pinned carriers; the other targets require the explicitly cited smooth/exotic or adelic carrier interfaces. Every omitted signature remains fully specified in the companion reader."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity",
+    "date": "2026-10-19",
+    "notes": "Independent target-level source, baseline, ownership, closure, API, unit-test and reader review of all 58 nodes. Corrected 14 existing nodes and added the Whittaker-unit centre theorem. Resolved G1 by the residual-action Tor calculation; repaired the sequel’s fixed-degree Weyl-lifting argument using a large-degree convolution identity and exact FA.4 dependencies. All six baseline citations confirmed. Thirteen source issues adjudicated (eleven confirmed, two rejected). All twelve stages remain planned, with seventeen supplier requests and three explicit gaps G2–G4; none is closed. The suggested file elaborates at pinned Mathlib with nine proof-placeholder warnings only.",
+    "checked": [
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0/determinant-pairing",
+        "verdict": "verified",
+        "note": "Checked the polarization, matrix-unit signs and tensor alternating form; the native commutative-ring Lean statement is valid."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0/triality-symplectic",
+        "verdict": "verified",
+        "note": "Checked determinant scaling, the triple-tensor permutation action and the semidirect convention, including transpose for (13)."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0/metaplectic-lift",
+        "verdict": "verified",
+        "note": "Checked the scalar extension and torus/permutation rigidification; equal-characteristic Weil theory remains an explicit supplier extension."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0/triality-kernel",
+        "verdict": "verified",
+        "note": "Checked all three displayed action formulas, determinant coordinate, modulus factor, Fourier sign and |y|² scaling."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.0/open-kernel",
+        "verdict": "corrected",
+        "note": "Added Remark 2.22 for generation under the middle G; the open part remains only middle-mirabolic stable."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/central-balance",
+        "verdict": "verified",
+        "note": "Checked the three centre actions and the required transpose-invariance input; no ordinary Satake substitute is assumed."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/singular-orbits",
+        "verdict": "corrected",
+        "note": "Resolved G1 by residual determinant action on Tor¹ and vanishing of all total-degree-one spectral-sequence terms; no flatness assumption added."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/open-spectral",
+        "verdict": "verified",
+        "note": "Checked the open integral and irreducibility restriction; its smooth Kirillov target is larger than compactly supported functions."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/kirillov-extension",
+        "verdict": "verified",
+        "note": "Checked the no-SL₂-functional hypothesis, non-character irreducible case, Jacquet boundary and uniqueness from middle generation."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.1/local-zeta",
+        "verdict": "verified",
+        "note": "Checked both zeta exponents and the Mellin factor; positive/negative Fourier normalizations are explicitly converted."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/transpose-right",
+        "verdict": "verified",
+        "note": "Checked the transpose anti-homomorphism and double conversion; the right action is not defined using inverse transpose."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/exotic-product",
+        "verdict": "verified",
+        "note": "Checked outer balancing, retained middle action, symmetry and separate cocontinuity; smooth residual action is requested explicitly."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/weak-symmetric",
+        "verdict": "corrected",
+        "note": "Replaced two non-discriminating checks with scaled-unitor examples and an explicit functor unit-square failure for c≠1."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/whittaker-unit",
+        "verdict": "verified",
+        "note": "Checked compact induction, quotient signs and unit integral; reference vectors use compact-open indicators."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.2/trace-symmetry",
+        "verdict": "corrected",
+        "note": "Added Remark 3.17 for the trace formula; checked outer twisted coinvariants, unit symmetry and endomorphism commutativity."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/degeneracy",
+        "verdict": "corrected",
+        "note": "Corrected the proof to left Hom/Ext orthogonality. Steinberg and the two extension orientations remain distinguished."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/bernstein-firm",
+        "verdict": "corrected",
+        "note": "Separated the substantive unit-endomorphism theorem from the definition; retained finite-block Hom and product/direct-sum distinctions."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/whittaker-centre",
+        "verdict": "added",
+        "note": "Added the required key theorem with explicit inverse from f⊛id, unit symmetry and central balance; no associator or generic-detection assumption needed."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/enhanced-whittaker",
+        "verdict": "corrected",
+        "note": "Added the unit-centre theorem as a direct input; checked enriched adjunction, roughening and blockwise compact-projective use."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.3/degeneracy-equivalence",
+        "verdict": "verified",
+        "note": "Checked essential image via projective presentations and Hom/Ext orthogonality; associativity here only concerns the fully faithful image."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.4/spherical-generator",
+        "verdict": "verified",
+        "note": "Checked SL₂(O), rather than GL₂(O), invariants, determinant twists and roughening; generic induction infrastructure remains imported."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.4/spherical-maps",
+        "verdict": "verified",
+        "note": "Checked conductor exponent, q⁻ν, delta support and roughening formulas; the false whole-kernel equality is corrected by the conductor lattice."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.4/spherical-equivalence",
+        "verdict": "verified",
+        "note": "Checked invertible comultiplication and essential image; the twisted-centre and compact-projective contracts are not inferred from ordinary Satake."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.4/two-generators",
+        "verdict": "verified",
+        "note": "Checked the faithful pair functor, mixed morphisms and colimit generation; faithfulness is not mistaken for fullness."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5/idempotent-coherence",
+        "verdict": "verified",
+        "note": "Checked GH11 theorem and Appendix A, including both intertwining equations; the native Lean statement retains them."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5/associator",
+        "verdict": "verified",
+        "note": "Checked uniqueness, the pair-category tensor and mixed-map naturality before descent; pentagon and hexagons remain explicit obligations."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5/frobenius-category",
+        "verdict": "verified",
+        "note": "Checked the trace claim and its exact categorical meaning. G2 honestly records the missing presentable-linear tensor and coevaluation infrastructure."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5/generic-algebra",
+        "verdict": "corrected",
+        "note": "Added the Kirillov spectral theorem directly to the prerequisites; tracked inverse scaling of multiplication and the canonical multiplicity line."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.5/local-spherical-convolution",
+        "verdict": "verified",
+        "note": "Checked coalgebra-defined multiplication, enhanced Whittaker comparison and firm finite-support algebra; an infinite sum of block units is excluded."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6/adelic-product",
+        "verdict": "verified",
+        "note": "Checked restricted reference vectors and the unit quotient; the function-field metaplectic extension is an explicit contract."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6/automorphic-functions",
+        "verdict": "verified",
+        "note": "Checked quotient compact support, smooth transpose dual, bilinear Petersson pairing and the inverse-transpose argument."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6/theta-functional",
+        "verdict": "verified",
+        "note": "Checked finiteness, rational triality invariance and adelic Poisson measure; rational matrices form the sum lattice, not the Fourier integration domain."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6/theta-multiplication",
+        "verdict": "verified",
+        "note": "Checked descent under the rational outer actions and middle equivariance; the codomain is initially the unrestricted smooth dual."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.6/global-zeta",
+        "verdict": "verified",
+        "note": "Checked the unfolding, both determinant exponents, multiplicative integration domains and the common absolute-convergence qualification."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.7/poincare",
+        "verdict": "corrected",
+        "note": "Added Construction 4.15 for the explicit Poincaré formula; checked U(F) cosets, character triviality and dual Whittaker normalization."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.7/petersson-unit",
+        "verdict": "verified",
+        "note": "Checked the theta trilinear pairing with a Poincaré input and the resulting inclusion into the smooth dual."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.7/automorphic-ideal",
+        "verdict": "corrected",
+        "note": "Replaced the inadmissible determinant-pullback test with a compact nonnegative function of nonzero fibre integral; sharpened the noncuspidal test."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.7/automorphic-algebra",
+        "verdict": "verified",
+        "note": "Checked compactness of the restriction, epimorphic unit, associativity and pairing invariance; no self-dual isomorphism is asserted."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.7/automorphic-ambient-module",
+        "verdict": "verified",
+        "note": "Checked the action on S and its smooth dual and uniqueness from the epimorphic unit quotient."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.8/abstract-automorphic",
+        "verdict": "corrected",
+        "note": "Added Remark 4.30 for the factorization criterion; checked action uniqueness and the actual monoidal-module carrier."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.8/fully-faithful",
+        "verdict": "verified",
+        "note": "Checked subquotients, smooth limits/colimits and transpose dual; the source warning against extension closure is respected."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.8/matrix-automorphic",
+        "verdict": "verified",
+        "note": "Checked the specified rational outer action and matrix-kernel realization; the balanced action factors through I."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.9/spin-data",
+        "verdict": "verified",
+        "note": "Checked theta characteristic, even differential orders and self-dual fractional lattice; line-bundle carriers remain upstream inputs."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.9/global-spherical-coalgebra",
+        "verdict": "verified",
+        "note": "Checked the distribution and desired coalgebra equations; G3 explicitly retains the missing normalized counit and reference transport computation."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.9/global-spherical-convolution",
+        "verdict": "verified",
+        "note": "Checked compact averaging and the smooth union inside full Hom; G3–G4 remain inherited obligations for the claimed convolution."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.9/spin-independence",
+        "verdict": "verified",
+        "note": "Checked the change-of-section formula and weighted inverse transpose; G4 records the unproved transport calculations without replacing them by a spectral heuristic."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.10/normalization-line",
+        "verdict": "verified",
+        "note": "Checked the additive first coordinate, weighted η, Weyl twist and local freeness proof via Dor20Z; ordinary half-modulus induction is distinguished."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.10/normalized-induction",
+        "verdict": "verified",
+        "note": "Checked internal Hom, unnormalized Jacquet adjunction and the noncanonical normalization-line trivialization."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.10/rank-one-universal",
+        "verdict": "verified",
+        "note": "Checked twisted triple coinvariants, restriction to diag(0,λ), the torus action and multiplication evaluation."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.10/lax-induction",
+        "verdict": "verified",
+        "note": "Checked associativity and symmetry, absence of a unit before localization, and tensor-compatible inversion of η."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.10/intertwining",
+        "verdict": "verified",
+        "note": "Checked trace construction, extra normalization factor, double-composite formula and localization of both η and η(w)."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/torus-automorphic",
+        "verdict": "verified",
+        "note": "Checked quotient-group realization, convolution algebra IT and relative tensor; inflation does not identify T with its quotient."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/automorphic-adjunction",
+        "verdict": "verified",
+        "note": "Checked the local, rather than assumed global, η localization, constant term and rational-coinvariant left adjoint."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/component-algebras",
+        "verdict": "verified",
+        "note": "Checked cuspidal/Eisenstein ideals, anomalous constituents and the degree-generating idele repair without assuming a rational point."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/component-decomposition",
+        "verdict": "corrected",
+        "note": "Replaced the incorrect arbitrary-class prime step by the repaired Weyl lifting theorem; checked smooth categorical products and central projections."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/irreducible-equivalence",
+        "verdict": "verified",
+        "note": "Checked the local Steinberg-module argument and global constituent input; agreement of central characters alone is not used as a proof."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/restriction-finite",
+        "verdict": "corrected",
+        "note": "Added the Weyl lifting theorem directly; checked right-exact finite-length reduction and the two-character torus bound."
+      },
+      {
+        "nodeId": "ExoticMonoidalStructuresAndAbstractAutomorphicity:EX.11/weyl-lifting",
+        "verdict": "corrected",
+        "note": "Repaired the fixed-degree prime obstruction by a convolution identity; added both exact FA.4 ray class inputs and retained degree-sensitive Chebotarev."
+      }
+    ]
   }
 }
