@@ -25325,8 +25325,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES6.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #10809"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES6",
@@ -37335,7 +37336,8 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10818"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.4",
@@ -37379,7 +37381,8 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--Z.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10819"
   },
   {
    "id": "REV-KTheoryLowDegrees--Z.5",
