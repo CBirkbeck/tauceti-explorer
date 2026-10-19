@@ -49,7 +49,7 @@
     {
       "key": "K2",
       "title": "Singular Siegel weight: spherical and slope refinements",
-      "description": "Extend the imported Klingen complex by the spherical operator, rank-zero nilpotence, a corrected BGG slope comparison, and the localized Euler theorem. Keep the stronger torsion claim as a conjectural boundary.",
+      "description": "Extend the imported Klingen complex by the spherical operator, rank-zero nilpotence and special-fiber rank-open amplitude, a corrected BGG slope comparison, and the localized Euler theorem. Keep the stronger torsion claim as a conjectural boundary.",
       "requires": [
         "AutomorphicBundles:B5",
         "AutomorphicSpectralTheory:AS.5",
@@ -67,7 +67,7 @@
     {
       "key": "H3",
       "title": "Hilbert partial-ordinary Hida complexes",
-      "description": "Build the multivariable height-one tower, universal coefficient sheaf and normalized commuting operators. Prove fixed-weight amplitude and derived family control, keeping the precise degree-zero and degree-one spherical comparison.",
+      "description": "Build the multivariable height-one tower, universal coefficient sheaf and normalized commuting operators. Prove cuspidal amplitude on the spherical special-fiber mixed-rank open and, separately, integral derived family control, keeping the H⁰/H¹ global restriction endpoints.",
       "requires": [
         "DeformationAndDerivedPatchingAlgebra:P7",
         "HigherHidaAndColemanTheory:D1/ordinary-localization",
@@ -80,7 +80,7 @@
     {
       "key": "D4",
       "title": "Hilbert weight-two doubling",
-      "description": "Define the partial Frobenius and its normalized trace actions. Prove the quadratic operator relation, generalized-eigenspace doubling injection and the two unit-root projectors without importing the stronger auxiliary vanishing theorem.",
+      "description": "Define partial Frobenius on the interior special fiber and its normalized integral trace actions. Prove the quadratic relation, generalized-eigenspace doubling injection and two unit-root projectors; retain the domains when extending the cohomological action.",
       "requires": [
         "AutomorphicBundles:B2",
         "PadicFamiliesPartII:H3",
@@ -111,7 +111,7 @@
     {
       "key": "E6",
       "title": "Completed cohomology and Eichler–Shimura",
-      "description": "Bind the completed tower to coherent analytic localization. Construct the higher-Coleman spectral sequence and its arithmetic Sen action, with the ordinary degree indexing and the genus-two boundary localization explicit.",
+      "description": "Bind the completed tower to analytic localization of O(𝔤,𝔟)_{λ-alg} through its canonical completion and continuous dual. Construct the higher-Coleman spectral sequence and arithmetic Sen action, with ordinary degree indexing and the genus-two boundary localization explicit.",
       "requires": [
         "AutomorphicBundles:B3",
         "CompletedCohomologyPartII:CC.2/derived-completed-tower",
@@ -130,7 +130,7 @@
     {
       "key": "S7",
       "title": "Singular Sen operator and classicality",
-      "description": "At λ=(1,1;w), construct the two-step repeated Sen block. Identify its nilpotent map with the supported Cousin differential and deduce classicality from a de Rham eigenpacket with balanced four-piece multiplicities.",
+      "description": "At λ=(1,1;w), construct the repeated Sen block. Identify its nilpotent map with the supported Cousin differential and deduce classicality for a de Rham eigenpacket under the independent four-piece balance assumption of BCGP25 Theorem 4.12.4(3).",
       "requires": [
         "AutomorphicGaloisRepresentationsPartII:AG2.1a",
         "AutomorphicSpectralTheory:AS.5",
@@ -181,9 +181,9 @@
       "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/higherhidaSiegel.pdf",
       "sha256": "af70d084612b1b75761694923ef2395752d23b41e0b8b458910d096df4c8c3c6",
       "readSections": [
-        "§§1–2, pp. 2–33, ordinary/support conventions and imported target verification",
-        "§§4–5, pp. 42–61, fixed-weight/control/duality statements",
-        "§5.6 and §6.2, pp. 61–64, integral versus rational amplitudes and comparisons"
+        "§5.2–5.5, pp. 54–57: imported complexes, character control and duality",
+        "Proposition 5.6.3, p. 58: integral genus-one/two amplitude",
+        "§6.2, pp. 61–64: integral lattices, fixed/family comparisons and rational amplitude"
       ],
       "accessed": "2026-10-19"
     },
@@ -215,7 +215,7 @@
         "§§4.3–4.6, pp. 95–117",
         "§§5.2–5.8, pp. 119–136",
         "§§6.1–6.4, pp. 138–154",
-        "§§6.5–6.6, pp. 156–168"
+        "§§6.5–6.6, pp. 154–168"
       ],
       "accessed": "2026-10-19"
     },
@@ -227,7 +227,7 @@
       "url": "https://arxiv.org/pdf/2502.20645v1",
       "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c",
       "readSections": [
-        "§3.5–3.6, pp. 56–67, completed localization and singular overlap proof",
+        "§3.4–3.6, pp. 53–67: BGG domain, canonical completion, analytic localization and singular overlap proof",
         "§4.7–4.12, pp. 99–114",
         "§7.3, pp. 163–167"
       ],
