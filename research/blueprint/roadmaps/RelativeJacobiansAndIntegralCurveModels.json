@@ -1,0 +1,150 @@
+{
+ "id": "RelativeJacobiansAndIntegralCurveModels",
+ "title": "Relative Jacobians and integral models of curves",
+ "area": "automorphic",
+ "parent": null,
+ "summary": "A general library of curves and their Jacobians over Dedekind bases. It builds integral models of a curve over a Dedekind scheme, including the normalisation of the projective line in a function field, with points, specialisation and two-chart Čech cohomology; the relative Picard functor of flat proper curves with arbitrary fibres, rigidificators, universal rigidified bundles, relative Cartier divisors and Abel maps; the relative Jacobian of a pointed smooth curve with its points as divisor classes; Raynaud's construction of the Néron model of a Jacobian from a regular model, its identity component and the rational-singularities criterion; reduction maps with torsion injectivity at every prime, good or bad; and component groups computed by multidegrees.",
+ "readme": "# Relative Jacobians and integral models of curves\n\n**Purpose.** Arithmetic uses of a curve over a number field (Mazur's study of J₀(N), torsion bounds, specialisation of modular Jacobians) need the curve and its Jacobian over the ring of integers at every prime: integral models, their points and cohomology, the relative Picard functor when fibres are singular or non-reduced, the Néron model of the Jacobian computed from a regular model, and reduction maps with control of torsion. This roadmap builds that theory over Dedekind bases, in the generality of Bosch–Lütkebohmert–Raynaud, *Néron Models*, Chapters 8–9.\n\n**Scope.** Six layers: integral models and their cohomology (RJ.0); relative Picard functors of curves with arbitrary fibres, rigidification, universal bundles, divisors and Abel maps (RJ.1); pointed smooth curves and their relative Jacobians (RJ.2); Raynaud's construction of Néron models of Jacobians (RJ.3); reduction maps, torsion and component groups (RJ.4); the global specialisation package (RJ.5).\n\n**Boundaries.** Field-level Jacobians, Abel–Jacobi and Picard schemes over a field are Tau Ceti's JacobianChallenge; smooth projective relative Picard schemes, relative Jacobians, Abel maps and Poincaré bundles are JacobianChallengePartII; the relative Picard sheaf, Artin representability and Raynaud's cohomological-flatness criterion are AlgebraicModuliForArithmeticGeometry (A0-extension); Néron models, their uniqueness, gluing, identity components and component groups are NeronModelsAndSemistableAbelianVarieties; finite flat group schemes and Raynaud's e < p − 1 theorem are FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1; models over a discrete valuation ring, regular and minimal models and Lipman resolution are Tau Ceti's StableReduction; normalisation of ℙ¹ over a field is Tau Ceti's AlgebraicCurves Layer 12. Modular curves, their cusps and moduli interpretation are not part of this roadmap.\n\n**Conventions.** A Dedekind scheme is integral, noetherian, normal, of dimension at most one; K is its function field. Degrees are deg L = χ(L) − χ(O). A model is flat and of finite presentation with an identification of its generic fibre; properness and regularity are separate predicates. Néron models are in the sense of NeronModelsAndSemistableAbelianVarieties R11.1.\n\n**Sources.** Bosch–Lütkebohmert–Raynaud, *Néron Models* (Springer 1990), Chapters 1, 7, 8, 9; the Stacks Project (relative normalisation, curves, Čech cohomology, Lipman's resolution).\n",
+ "prerequisites": [
+  "tauceti:TauCetiRoadmap/JacobianChallenge",
+  "JacobianChallengePartII",
+  "AlgebraicModuliForArithmeticGeometry",
+  "NeronModelsAndSemistableAbelianVarieties",
+  "AbelianSchemesAndArithmeticModuli",
+  "SchemeAndStackFoundations",
+  "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+  "tauceti:TauCetiRoadmap/AlgebraicCurves",
+  "tauceti:TauCetiRoadmap/StableReduction",
+  "tauceti:TauCetiRoadmap/ModularCurves",
+  "ReductiveGroupsPartII"
+ ],
+ "stages": [
+  {
+   "key": "RJ.0",
+   "title": "Integral models of curves over Dedekind bases",
+   "description": "Fix the base: a Dedekind scheme S with function field K, closed points s with discrete valuation rings O_{S,s}. Targets: models of a K-curve over S (flat, finitely presented, with an identification of the generic fibre; properness, normality, regularity and smoothness as separate predicates), compatible with Tau Ceti's TauCeti.Model over discrete valuation rings; points of proper models and the specialisation maps C(K) → X_s(κ(s)), with sections of regular models landing in the smooth locus; the normalisation X_{F,t} of ℙ¹_S in a function field F/K along a transcendental t (Mathlib's relative normalisation), glued from the integral closures of R[t] and R[t⁻¹]; its properties when the normalisation is finite (Nagata or separable): integral, normal, separated, proper, flat, generic fibre the regular projective curve of F with closed points the places of F/K, H⁰ the integral closure of R in the constant field; the two-chart Čech formulas H⁰ = kernel, H¹ = cokernel, H^{≥2} = 0 for a cover by two affines with affine intersection; and the resulting computation H¹(X_{F,t}, O) = A₀∞/(A₀ + A_∞), whose rank is the generic arithmetic genus and whose torsion measures the failure of cohomological flatness.",
+   "requires": [
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.2",
+    "SchemeAndStackFoundations:SF.4",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+    "tauceti:TauCetiRoadmap/ModularCurves#layer-10-compactified-coarse-curves-over-ℤ1n-cusps-and-the-shimura-covering",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs"
+   ]
+  },
+  {
+   "key": "RJ.1",
+   "title": "Relative Picard functors of curves with arbitrary fibres",
+   "description": "For a flat proper curve X/S of finite presentation with arbitrary (possibly reducible, non-reduced) fibres: total and partial degrees, multiplicities d_i, geometric multiplicities e_i and δ_i = d_i e_i of fibre components, and the index gcd δ_i, with deg = Σ d_i · (partial degree) and e_i | partial degree; over a strictly henselian base, finite flat quasi-sections of degree δ_i and the theorem that the index kills the obstruction to representing relative Picard classes by line bundles; rigidificators, rigidified line bundles, the exact sequence 0 → V_X^× → V_Y^× → (Pic, Y) → Pic → 0, and Raynaud's theorem that (Pic, Y) is an algebraic space, smooth for curves; the universal rigidified line bundle of a represented Picard functor with a section, its restriction to every represented subfunctor (degree pieces, Pic⁰, identity components), normalised along the section and along the unit; relative effective Cartier divisors of degree r (open in the Hilbert functor, equal to symmetric powers for smooth curves) and the Abel maps Div^r → Pic^{[r]}, relatively represented by projective bundles, with the pointed Abel–Jacobi map D ↦ O(D − r·e).",
+   "requires": [
+    "AlgebraicModuliForArithmeticGeometry:A0-extension",
+    "AlgebraicModuliForArithmeticGeometry:R09.2",
+    "JacobianChallengePartII:JC2",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+   ]
+  },
+  {
+   "key": "RJ.2",
+   "title": "Pointed smooth curves: relative Jacobians and their points",
+   "description": "For a pointed smooth proper curve (X, e) with geometrically connected fibres over a noetherian base (projective over affine opens because O(e) is relatively ample): the relative Jacobian J = Pic⁰_{X/S} (JacobianChallengePartII JC1) as an abelian scheme representing line bundles of fibre degree zero rigidified along e, with its Poincaré bundle on X ×_S J normalised along e × J and X × 0, commuting with base change, and equal to the Néron model over a Dedekind base; points J(L) = Pic⁰(C_L) = Cl⁰(C_L) for every field extension L/K, G_K-equivariantly on K^s-points, with J(K) = Cl⁰(C) given the rational point; and, over a Dedekind base, the specialisation at good-reduction points: reduction J(K) → Pic⁰(X_s) is restriction of line bundles and sends a divisor supported on K-points to the class of its specialisation.",
+   "requires": [
+    "AlgebraicModuliForArithmeticGeometry:A0-extension",
+    "JacobianChallengePartII:JC0",
+    "JacobianChallengePartII:JC1",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+   ]
+  },
+  {
+   "key": "RJ.3",
+   "title": "Raynaud's theory: Néron models of Jacobians from regular models",
+   "description": "Over a discrete valuation ring R, for a flat proper curve X with normal geometrically irreducible generic fibre: the separated quotient Q = P/E of the degree-zero Picard functor by the schematic closure of the generic unit section, a smooth separated group scheme with generic fibre the Jacobian (with or without representability of Pic_{X/S}, through rigidificators); Raynaud's representability theorem (Pic an algebraic space and Pic⁰ a separated scheme when f_*O = O, X normal, gcd δ_i = 1; in particular for regular X with a rational generic point); Raynaud's theorem that for X regular (and k perfect or an étale quasi-section) Q is the Néron model of the Jacobian, of finite type, and Pic⁰_{X/S} ≅ N⁰ under the gcd condition; the rational-singularities criterion for normal X (Pic⁰ ≅ N⁰ iff R¹π_*O_{X′} = 0), with normal semistable curves as the case of semi-abelian reduction; and the global version over a Dedekind base, gluing Raynaud's local models with the relative Jacobian over the smooth locus into the Néron model, with N⁰ = Pic⁰_{X/S} given a section.",
+   "requires": [
+    "AlgebraicModuliForArithmeticGeometry:A0-extension",
+    "JacobianChallengePartII:JC1",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1",
+    "NeronModelsAndSemistableAbelianVarieties:R11.2",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.2",
+    "SchemeAndStackFoundations:SF.0",
+    "SchemeAndStackFoundations:SF.1",
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+   ]
+  },
+  {
+   "key": "RJ.4",
+   "title": "Reduction maps, torsion and component groups",
+   "description": "For a separated commutative group scheme G of finite type over a discrete valuation ring (Néron models, abelian schemes): the reduction homomorphism G(R) → G_k(k), and for a Néron model A(K) = N(R) → N_k(k), with N⁰(R) the preimage of N⁰_k(k), the injection A(K)/N⁰(R) ↪ Φ(k), surjectivity over henselian bases and A(K)/N⁰(R) = Φ(k) for finite k; injectivity of reduction on prime-to-p torsion, and on all torsion when e < p − 1 (proved by schematic closure of the cyclic subgroup, Deligne's theorem and Raynaud's lemma; sharp at e = p − 1), with no reduction-type hypothesis; the global form at every closed point of a Dedekind base; and, for a regular model with a section, the specialisation of a divisor class into the component group through the multidegree of its closure, Φ(k^s) ≅ ker β/im α, G_k-equivariantly, with the identity-component part given by restricting the vertically corrected line bundle.",
+   "requires": [
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+    "NeronModelsAndSemistableAbelianVarieties:R11.1",
+    "NeronModelsAndSemistableAbelianVarieties:R11.2",
+    "NeronModelsAndSemistableAbelianVarieties:R11.4",
+    "ReductiveGroupsPartII:RG2.3",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.3",
+    "SchemeAndStackFoundations:SF.0",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+   ]
+  },
+  {
+   "key": "RJ.5",
+   "title": "Specialisation of Jacobians over Dedekind bases",
+   "description": "Over an excellent Dedekind scheme: existence of regular proper flat models of smooth proper geometrically connected curves, built from the normalised projective-line model by finitely many normalised blow-ups at closed points; and the specialisation package for a pointed curve: N⁰ = Pic⁰ of the regular model, the relative Jacobian over the smooth locus, J(K) = Cl⁰(C) Galois-equivariantly, reduction maps at every closed point with their component-group and identity-component descriptions, injectivity on torsion at every closed point under the stated ramification bounds, and compatibility with unramified extensions and decomposition groups. This is the interface consumed by the Eisenstein-ideal study of J₀(N) and by the modular-curve layers that specialise modular Jacobians at every prime.",
+   "requires": [
+    "NeronModelsAndSemistableAbelianVarieties:R11.1",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.2",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.3",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.4",
+    "SchemeAndStackFoundations:SF.4",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "BLR",
+   "title": "Néron Models",
+   "authors": "Siegfried Bosch, Werner Lütkebohmert, Michel Raynaud",
+   "edition": "Ergebnisse der Mathematik und ihrer Grenzgebiete (3) 21, Springer, 1990. Read in the maintainer-cleared copy (atlas library, cited as Bosch–Lütkebohmert–Raynaud, Néron Models, by numbered statement and printed page); printed page = PDF page − 9.",
+   "readSections": [
+    "Chapter 8 complete, pp. 199–235 (8.1 rigidified Picard functors and rigidificators; 8.2 Grothendieck's theorem, universal line bundles, relative Cartier divisors and Proposition 7; 8.3 Theorems 1 and 3; 8.4 Theorems 1, 3–7 and Proposition 2)",
+    "Chapter 9 complete, pp. 236–288 (degrees and multiplicities, structure of Jacobians, Theorem 9.3/1 and Lemmas 9.3/4–5, Theorem 9.3/7, 9.4 Theorems 1–2, Corollary 3, Proposition 4, 9.5 Theorems 1 and 4 with Lemmas 2–11, 9.6 Theorem 1, 9.7 Theorem 1, Corollary 2, Proposition 3)",
+    "§1.1–§1.2, pp. 6–15 (integral points, valuative criteria, Proposition 1.2/8); §1.4, pp. 18–20; §3.1, pp. 60–61 (Proposition 3.1/2); §7.5, pp. 186–190 (Proposition 3, Theorem 4, Lemma 5, Corollary 6, Example 7)"
+   ]
+  },
+  {
+   "id": "stacks",
+   "title": "The Stacks Project",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online, tags checked 2026-10-19",
+   "url": "https://stacks.math.columbia.edu",
+   "readSections": [
+    "Tags 01X8, 01XB, 01XD (Čech cohomology of quasi-coherent sheaves)",
+    "0BAK, 035H, 035I (relative normalisation)",
+    "0BXX, 0BXY, 0BXZ, 0BY0, 0BY1, 0BY2 (curves and function fields)",
+    "032L, 035S, 0C45 (finiteness of normalisation)",
+    "0AUW (flatness over Dedekind domains)",
+    "0B5X, 0D2S, 0B45, 0E3D (ampleness and projectivity)",
+    "0BGP (Lipman's resolution of two-dimensional schemes)"
+   ]
+  }
+ ],
+ "status": "draft"
+}
