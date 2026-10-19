@@ -1,10 +1,10 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
-Refs #5542. Continuation: Codex, session `codex-6SZXyE`, 19 October 2026.
-Earlier review work below remains attributable to Codex `codex-WBAmLh` and the
-preceding reviewers named in the report.
-The current [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258844279)
-was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258845908).
+Refs #5542. Continuation: Codex, session `codex-jVGtcb`, 19 October 2026.
+Earlier review work below remains attributable to Codex `codex-6SZXyE`,
+`codex-WBAmLh` and the preceding reviewers named in the report.
+The current [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6259434416)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6259435860).
 No second job was claimed.
 
 ## Checkpoint blocker
@@ -39,7 +39,37 @@ Neither the older 22-packet list nor the previous checkpoint’s 19-packet list
 is the current assignment. T.1-classical and V.1 are no longer queue outputs. In particular,
 N.2, N.3-finite-generation, N.5 and Z.3 are not current queue outputs.
 
-## Completed in this continuation
+## Verified in codex-jVGtcb
+
+- Independently rechecked the disputed resolution, Bass-product, localization
+  sign, universal-central-extension and Gaussian K₃ contracts against public
+  K-book chapters III–VI. Exact theorem/section/page locators and the limits of
+  each check are in the report's final continuation. Earlier restricted-source
+  readings remain attributed to their original reviewers.
+- Reproduced all eleven golden-field certificates, all 173 relation witnesses,
+  all 23 selected determinants and their gcds with exact rational/integer
+  arithmetic. A changed witness coordinate was rejected. The report's existing
+  reproduction instructions suffice without the disposable script.
+- Recomputed the 470-node DAG and both backwards actual-stage product
+  dependencies. K.1/K.6 still need the maintainer's stage restructuring;
+  their negative reviews remain valid completed review outcomes.
+- Inspected current upstream ownership and read the pinned ExactK₀ and
+  projective exact-structure statements supporting K.1's three examples.
+- Validated all seventeen queue packets read-only. Re-elaborated all seven
+  issue-listed companions serially with `lean-check`: all exit zero, with only
+  sorry warnings (10, 0, 30, 27, 3, 8, 10 in the report's order). Available
+  memory was 72–76 GB before each invocation. No Lean file was changed.
+- Called the real queue completion predicate again: false, with precisely the
+  ten outstanding area reviews listed above. Re-read the live issue before
+  submission: it still authorizes seven pairs. Expanded authorization was
+  requested, with no authorizing response. Only this handoff and the report
+  were edited; no extra review was stamped.
+
+This is a blocked checkpoint. Do not repeat the completed seven-pair checks as
+a substitute for resolving the scope mismatch. The next substantive step is
+authorization of the ten pairs, followed by their actual independent reviews.
+
+## Completed in codex-6SZXyE
 
 - Corrected the stale count to seventeen queue pairs and ten outstanding area
   verdicts in the report, handoff and the seven issue-listed review notes.
