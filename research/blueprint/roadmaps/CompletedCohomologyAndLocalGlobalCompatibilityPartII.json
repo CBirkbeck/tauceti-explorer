@@ -1,0 +1,202 @@
+{
+  "id": "CompletedCohomologyAndLocalGlobalCompatibilityPartII",
+  "title": "Completed cohomology and local–global compatibility, Part II: patched density",
+  "area": "automorphic",
+  "parent": "CompletedCohomologyAndLocalGlobalCompatibility",
+  "summary": "Patched GL_d(F) modules, imported from R31.5, detect every determinant component of the unrestricted framed local deformation ring. Fixed-central-character algebraic vectors, capture and reduced type-specialised quotients yield local faithfulness and three Zariski-density theorems, with precise benign, prescribed-type and minimal-stratum variants. The independent eigenvariety and modular-curve geometric continuations are assigned separate owners.",
+  "readme": "This continuation starts after the parent R31.5 general GL_d(F) patching and support interfaces. It plans the arithmetic applications needed to prove local faithfulness and density in unrestricted local deformation spectra. The six layers separate arithmetic conventions, component algebra, capture, faithful action, three density theorems and their qualified variants. Companion eigenvarieties and Pan’s geometric completed cohomology retain their separate owners. All statements are plans and supplier gaps are explicit.",
+  "prerequisites": [
+    "CompletedCohomologyAndLocalGlobalCompatibility",
+    "CompletedCohomologyPartII",
+    "LocalGaloisDeformationRings",
+    "DeformationAndDerivedPatchingAlgebra",
+    "PadicHodgeTheory",
+    "PadicMeasuresIwasawaAlgebras",
+    "SmoothRepresentationsOfLocalGroups",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "PotentialAutomorphyInfrastructurePartII",
+    "LocallyAnalyticRepresentationsOfLocalGroups",
+    "LocallyAnalyticDistributionsPartII",
+    "TriangulineVarietyAndItsLocalModel",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups"
+  ],
+  "stages": [
+    {
+      "key": "PD.0",
+      "title": "Arithmetic points and patching inputs",
+      "description": "Define the arithmetic point sets Σcris, Σprnc_k and Σspcd_k in Spec R□, with labelled regular Hodge–Tate weights, finite residue extensions and the CEGGPS dual highest-weight convention. Import the parent general GL_d(F) patched module, its central projectivity, specialisations and EP support; use Emerton–Gee Theorem 1.2.2 as the source-bound lift-existence input that removes the extra potential-diagonalizability hypothesis. Keep p∤2d for patching.",
+      "requires": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "LocalGaloisDeformationRings:R08.1",
+        "PadicHodgeTheory:R06.2",
+        "PotentialAutomorphyInfrastructurePartII:PL.1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification"
+      ]
+    },
+    {
+      "key": "PD.1",
+      "title": "Components and central characters",
+      "description": "Compute R∞≅R□⊗̂_O A and the minimal-prime pairs (χ,𝔭) after geometric splitting of the auxiliary factors. The local reducedness and determinant-torsion components are requested from their owning local-ring extension. Prove d-th roots for characters trivial on G_F^ab torsion, without a prime restriction. Derive algebraicity of the fixed-determinant central character from the imported crystalline-character classification, with geometric/arithmetic Artin inversion explicit.",
+      "requires": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.0",
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.4",
+        "LocalGaloisDeformationRings:R08.1",
+        "LocalGaloisDeformationRings:R08.3",
+        "PadicHodgeTheory:R06.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+      ]
+    },
+    {
+      "key": "PD.2",
+      "title": "Capture and algebraic testing",
+      "description": "Define capture by continuous equivariant testing kernels and extend the parent testing module to finite-dimensional continuous representations of compact open H⊆K. Give its finite-generation, lattice-independence, dual-Hom and induction API. Prove algebraic capture, nonzero tensor stability, and capture by the imported principal-series and minimal-stratum families. State DPS fixed-centre evaluation density with its Banach analytic-vector bridge and prove detection of nonzero fixed-centre projectives by irreducible algebraic representations.",
+      "requires": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+        "CompletedCohomologyPartII:CC.3",
+        "LocallyAnalyticDistributionsPartII:ND.6",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+        "PadicMeasuresIwasawaAlgebras:L1",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification"
+      ]
+    },
+    {
+      "key": "PD.3",
+      "title": "Faithfulness of the local deformation action",
+      "description": "For every determinant-torsion component choose a crystalline determinant, an algebraic test and a characteristic-zero point. Choose a supported patched component through that point and contract it using PD.1. Reducedness then proves injectivity of R□→End(M∞), BIP Theorem 6.8. Do not assert faithfulness of R∞ when auxiliary components have not been covered.",
+      "requires": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.1",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.2",
+        "DeformationAndDerivedPatchingAlgebra:R03.4",
+        "LocalGaloisDeformationRings:R08.1",
+        "PadicHodgeTheory:R06.2"
+      ]
+    },
+    {
+      "key": "PD.4",
+      "title": "Three arithmetic density theorems",
+      "description": "Prove the capture/testing density criterion using finite reduced O-flat test quotients over R∞ and contraction to R□. Deduce BIP Theorem 6.1: crystalline points with regular weights varying, potentially crystabelline points of any one fixed regular weight, and unramified degree-d induced supercuspidal points of that fixed regular weight are each Zariski dense in Spec R□. The fixed-weight conclusions concern the scheme spectrum, not the rigid generic fibre.",
+      "requires": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.0",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.2",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "LocalGaloisDeformationRings:R08.3",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "PD.5",
+      "title": "Benign, prescribed-type and ramified variants",
+      "description": "Define benign points by distinct φ^f eigenvalues, all refinements noncritical and ratios avoiding p^{±f}; prove their density with regular weights varying. Define prescribed-type support Cτ by the intersection of patched test annihilators, prove density on Cτ for compatible N=0 type data, and isolate the nonempty capture/component certificate needed for Cτ=X□. Define the minimal-stratum supercuspidal set and prove fixed-weight density for totally ramified E/F and more generally E admitting a minimal element, retaining simple types in the wild case. Keep p∤2d throughout.",
+      "requires": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.5",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.0",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.2",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.3",
+        "CompletedCohomologyAndLocalGlobalCompatibilityPartII:PD.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
+        "LocalGaloisDeformationRings:R08.3",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "TriangulineVarietyAndItsLocalModel:G"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BIP",
+      "title": "On local Galois deformation rings",
+      "authors": "Gebhard Böckle, Ashwin Iyengar and Vytautas Paškūnas",
+      "edition": "Forum of Mathematics, Pi 11 (2023), e30, published PDF, pp. 1–54",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/24192052AB575F076F7D40B4AFF4862E/S2050508623000252a.pdf/on_local_galois_deformation_rings.pdf",
+      "sha256": "7cfc0e539d38bf3ea5751b19e2f7d0715bdb5fcfca97ad291e3aa1b689c4b43b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§6, pp. 45–50; Corollaries 4.19, 4.21–4.22 used through the local-ring supplier"
+      ]
+    },
+    {
+      "id": "EP",
+      "title": "On the density of supercuspidal points of fixed regular weight in local deformation rings and global Hecke algebras",
+      "authors": "Matthew Emerton and Vytautas Paškūnas",
+      "edition": "Journal de l’École polytechnique — Mathématiques 7 (2020), pp. 337–371, published PDF",
+      "url": "https://www.numdam.org/item/10.5802/jep.119.pdf",
+      "sha256": "0da254e0c562727b3cbd816087b1426beb8860b8aea5277a33d82e088cb791a6",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§2.1–2.2, pp. 342–346; §2.5, pp. 349–350; §§3.1, 3.3–3.4, pp. 351–358; §§5.2–6, pp. 362–370"
+      ]
+    },
+    {
+      "id": "CEGGPS",
+      "title": "Patching and the p-adic local Langlands correspondence",
+      "authors": "Ana Caraiani, Matthew Emerton, Toby Gee, David Geraghty, Vytautas Paškūnas and Sug Woo Shin",
+      "edition": "arXiv:1310.0831v5, 1 July 2016, author pagination; published Camb. J. Math. 4 (2016), pp. 197–287",
+      "url": "https://arxiv.org/pdf/1310.0831v5",
+      "sha256": "32acd023be82598de73c1757aba877fbeb89e5b82c23a64bcb378cc0f83b1077",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1.8, pp. 12–15; §2.1, pp. 15–17; Theorem 3.7, p. 41; §4, pp. 49–50; Lemma 4.18, pp. 65–66; §4.22 through Corollary 4.26, pp. 67–70"
+      ]
+    },
+    {
+      "id": "DPS",
+      "title": "Infinitesimal characters in arithmetic families",
+      "authors": "Gabriel Dospinescu, Vytautas Paškūnas and Benjamin Schraen",
+      "edition": "arXiv:2012.01041v1, 2 December 2020, author pagination",
+      "url": "https://arxiv.org/pdf/2012.01041v1",
+      "sha256": "91912457f89c75901a57e638849c4f13fd218a75b4030dfcf16892e71c3ad92e",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Example 5.13 and Remark 5.14, pp. 37–38; §7, Theorem 7.4 and Corollaries 7.5–7.8, pp. 40–43"
+      ]
+    },
+    {
+      "id": "EG",
+      "title": "Moduli stacks of étale (phi, Gamma)-modules and the existence of crystalline lifts",
+      "authors": "Matthew Emerton and Toby Gee",
+      "edition": "Author copy of Annals of Mathematics Studies 215 (2023)",
+      "url": "https://www.math.uchicago.edu/~emerton/pdffiles/moduli.pdf",
+      "sha256": "b8c522277ac29f85f4ab901d772acd5d4f9d3d733e36931cf6f4fbbf81c70b7e",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 1.2.2, p. 3; Definition 6.4.2 and Theorem 6.4.4, pp. 168–169; source-bound existence input only"
+      ]
+    },
+    {
+      "id": "ST",
+      "title": "Banach space representations and Iwasawa theory",
+      "authors": "Peter Schneider and Jeremy Teitelbaum",
+      "edition": "arXiv:math/0005066v1, author pagination; published Israel J. Math. 127 (2002), pp. 359–380",
+      "url": "https://arxiv.org/pdf/math/0005066v1",
+      "sha256": "28dfe78dc1fcbe908641523a17ee1fdec5f330494dfdd5e4a48ac7b181c78747",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lemma 2.1, Corollary 2.2 and Theorem 2.3, pp. 10–12"
+      ]
+    },
+    {
+      "id": "NAK",
+      "title": "Zariski density of crystalline representations for any p-adic field",
+      "authors": "Kentaro Nakamura",
+      "edition": "J. Math. Sci. Univ. Tokyo 21 (2014), pp. 79–127, published PDF",
+      "url": "https://www.ms.u-tokyo.ac.jp/journal/pdf/jms210103.pdf",
+      "sha256": "282b9d442c6423e493996c1170f884a300a8b6cc3de633a13098d75b7fc0660b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lemma 4.2 and its proof, pp. 120–122; restricted use for the benign-open input"
+      ]
+    }
+  ],
+  "status": "draft"
+}
