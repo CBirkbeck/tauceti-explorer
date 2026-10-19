@@ -14,7 +14,7 @@
   "AutomorphicCongruences:L5a"
  ],
  "status": "complete",
- "summary": "Target-level plan of AutomorphicCongruences part L0 (stages L0, L1, L2, L2s, L3, L4, L5, L5a; L5b and L5w are the accepted part AutomorphicCongruences--L5b). L0 plans the Σ-primitive Selmer instances, the primitive/imprimitive and specialization comparisons, the Eisenstein ideal, Skinner–Urban's polarized lattice datum and lattice construction with its local conditions, the canonical-period congruence comparison and the exact CM-theta integrality input. L1 plans Skinner–Urban's GU(2,2) argument (ordinary Hermitian forms and Hida theory, the Eisenstein datum, Klingen Eisenstein series by pullback, the three-variable p-adic L-function, the Eisenstein family, coefficient coprimality, the pseudo-character, the Selmer lower bound and Theorems 3.6.1 and Corollary 3.6.3). L2s plans Castella–Liu–Wan's semi-ordinary GU(3,1) theory and divisibility (Thm 8.2.1 (1) and (2)); L2 plans Fouquet–Wan's general-weight GU(3,1) divisibility (Thm 7.32), Wan's ordinary Rankin–Selberg divisibility, the Kings–Loeffler–Zerbes Beilinson–Flach classes and reciprocity, the Castella–Wan equivalence, the crystalline theorem 4.51 and the §4.8 ordinary reverse divisibility (Thm 1.6). L3 plans Fouquet–Wan's deformation-ring facts, fundamental lines and Nakamura's universal zeta morphism with its specialization to Kato's; L4 plans the descent to the universal-family and pointwise theorems (Thms 5.2, 5.1) and Nakamura's §5 consequences; L5 is an aggregate; L5a plans Burungale–Castella–Skinner's early product divisibility (Prop. 5.2.1) with the ordinary two-variable equivalence (Thm 4.1.3) as an interface to the planned KatoEulerSystems L5 owner. All eight stages are planned; sixteen gaps and twenty requests are recorded; the RS-11 ownership (with its review pending) and the thirteen confirmed red-team findings are followed. Independent review corrected the source contracts and supplier scope, including the later CLW two-family repair. This is a complete review pass with target-planned stages and explicit gaps, not a gap-free or formalized roadmap.",
+ "summary": "Target-level plan of AutomorphicCongruences part L0 (stages L0, L1, L2, L2s, L3, L4, L5, L5a; L5b and L5w are the accepted part AutomorphicCongruences--L5b). L0 plans the Σ-primitive Selmer instances, the primitive/imprimitive and specialization comparisons, the Eisenstein ideal, Skinner–Urban's polarized lattice datum and lattice construction with its local conditions, the canonical-period congruence comparison and the exact CM-theta integrality input. L1 plans Skinner–Urban's GU(2,2) argument (ordinary Hermitian forms and Hida theory, the Eisenstein datum, Klingen Eisenstein series by pullback, the three-variable p-adic L-function, the Eisenstein family, coefficient coprimality, the pseudo-character, the Selmer lower bound and Theorems 3.6.1 and Corollary 3.6.3). L2s plans Castella–Liu–Wan's semi-ordinary GU(3,1) theory and divisibility (Thm 8.2.1 (1) and (2)); L2 plans Fouquet–Wan's general-weight GU(3,1) divisibility (Thm 7.32), Wan's ordinary Rankin–Selberg divisibility, the Kings–Loeffler–Zerbes Beilinson–Flach classes and reciprocity, the Castella–Wan equivalence, the crystalline theorem 4.51 and the §4.8 ordinary reverse divisibility (Thm 1.6). L3 plans Fouquet–Wan's deformation-ring facts, fundamental lines and Nakamura's universal zeta morphism with its specialization to Kato's; L4 plans the descent to the universal-family and pointwise theorems (Thms 5.2, 5.1) and Nakamura's §5 consequences; L5 is an aggregate; L5a plans Burungale–Castella–Skinner's early product divisibility (Prop. 5.2.1) with the ordinary two-variable equivalence (Thm 4.1.3) as an interface to the planned KatoEulerSystems L5 owner. All eight stages are planned; seventeen gaps and twenty requests are recorded; the RS-11 ownership (with its review pending) and the thirteen confirmed red-team findings are followed. Independent review corrected the source contracts and supplier scope, including the later CLW two-family repair. This is a complete review pass with target-planned stages and explicit gaps, not a gap-free or formalized roadmap.",
  "baseline": {
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -542,12 +542,12 @@
     {
      "sourceId": "SU-2014",
      "locator": "§6.5.3, pp. 97–98, (6.5.3.a)",
-     "match": "Skinner–Urban define I_D by the coefficients of Q_v(X) − Q_{v,D}(X), the U_p-relations and the central operators, and E_D as the kernel of Λ_D → h_D/I_D."
+     "match": "Skinner–Urban define I_D by the coefficients of Q_v(X) − Q_{v,D}(X), the U_p-relations and the central operators, and 𝔈_D as the kernel of Λ_D → h_D/I_D."
     },
     {
      "sourceId": "FW-v3",
      "locator": "Def. 7.30, p. 96",
-     "match": "Fouquet–Wan define I_D by t − λ(t) for the Klingen Eisenstein family and E_D as its inverse image in O[[Γ_K]]."
+     "match": "Fouquet–Wan define I_D by t − λ(t) for the Klingen Eisenstein family and 𝔈_D as its inverse image in O[[Γ_K]]."
     },
     {
      "sourceId": "CLW-v1",
@@ -567,7 +567,7 @@
     },
     {
      "where": "L2/fw-fourier-jacobi-unit",
-     "how": "Lemma 7.31's comparison ord_P(L) ≤ ord_P(E_D)"
+     "how": "Lemma 7.31's comparison ord_P(L) ≤ ord_P(𝔈_D)"
     },
     {
      "where": "L0/lattice-construction",
@@ -893,7 +893,7 @@
     "The generic congruence module remains PadicFamilies:L1’s. Its EPW integral period dictionary to SU’s cohomological normalization requires the separately recorded comparison."
    ],
    "acceptance": [
-    "The integral normalization is the one in which the lattice construction measures congruences; replacing Ω^+Ω^- by a non-integral period breaks the integrality of E_D's coefficients."
+    "The integral normalization is the one in which the lattice construction measures congruences; replacing Ω^+Ω^- by a non-integral period breaks the integrality of ℰ_D's coefficients."
    ],
    "prerequisites": [
     "PadicFamilies:L1/congruence-module",
@@ -927,7 +927,7 @@
    "realises": [
     "AutomorphicCongruences:L0"
    ],
-   "title": "The Hida–Tilouine anticyclotomic main conjecture for CM fields (one divisibility and equality)",
+   "title": "CM theta-family congruence and Katz normalization for the CLW integrality input",
    "kind": "comparison",
    "statement": "Required CM-theta congruence comparison: in CLW Thm 8.2.1(2), K is imaginary quadratic, p splits, ξ has the stated infinity type and ξ_p is not congruent to ξ_p̄ modulo m. The associated ordinary CM theta family is residually irreducible and distinguished. The Hida–Tilouine/Hida comparison for this CM family, combined with Hida’s Rankin–Selberg construction, gives the integral normalization L^{Hida}_{π,K,ξ} used in CLW’s proof on PDF p. 81. This node records that source-qualified input and its comparison contract. It asserts no general CM-field characteristic-ideal equality: the exact HT hypotheses and congruence-ideal map remain the named gap and supplier request.",
    "hypotheses": [
@@ -1012,7 +1012,7 @@
     },
     {
      "where": "L1/padic-eisenstein-family",
-     "how": "E_D is an element of M^{ord}_a(K′; Λ_D)"
+     "how": "ℰ_D is an element of M^{ord}_a(K′; Λ_D)"
     },
     {
      "where": "L1/gu22-galois-pseudocharacter",
@@ -1129,7 +1129,7 @@
    ],
    "title": "The p-adic Eisenstein datum and its Eisenstein ideal",
    "kind": "definition",
-   "statement": "A p-adic Eisenstein datum D = (A, 𝕀, 𝐟, ψ, ξ, Σ) consists of the ring of integers A of a finite extension of ℚ_p containing ℤ[µ_{M_D p}, i, D_K^{1/2}], a normal domain 𝕀 finite over Λ_{W,A}, an 𝕀-adic ordinary eigenform 𝐟 of tame level M, finite idele class characters ψ and ξ of 𝔸_K^× (ψ|_{𝔸^×} = χ_𝐟), and a finite set of primes Σ containing those dividing M p D_K and the ramification of ξ. Put Λ_D = 𝕀[[Γ^-_K × Γ_K]], a finite local reduced Λ_2-algebra via α ⊗ β (SU 6.5.1), the characters σ_ψ, σ_ξ, σ_{ξ′} = σ_ξσ^c_ξ, and the semisimple representation ρ_D = σ_{χ̄_f,0}σ^c_ψε^{-3} ⊕ (ρ_𝐟 ⊗ σ_{χ̄_f,0}σ^{-c}_ξσ^c_ψε^{-2}) ⊕ σ_{χ̄_f,0}ε^{-1}det ρ_𝐟 σ^{-1}_{ξ′}σ^c_ψ of G_K over Frac Λ_D (6.5.2.a). The Eisenstein ideal I_D ⊆ h_D = h_{Σ,0}(K′; Λ_D) is generated by the coefficients of Q_v(X) − Q_{v,D}(X) (v ∉ Σ), the relations u_t − ∏β_i^{a_i} for the U_p-operators with the prescribed (β_1,…,β_4), and the central operators Z_{ℓ,0}, Z^{(i)}_{ℓ,0} minus their values on the Eisenstein characters; E_D ⊆ Λ_D is the kernel of Λ_D → h_D/I_D, so Λ_D/E_D ≅ h_D/I_D (6.5.3.a), and 𝕋_D is the localization of h_D at the maximal ideal containing I_D. The two p-adic L-functions attached to D are L^Σ_{𝐟,K,ξ} ∈ 𝕀[[Γ_K]] (L1/su-padic-l-function) and L^Σ_{χ̄_𝐟ξ̄′}, the image of the Kubota–Leopoldt function of the Dirichlet character χ̄_𝐟ξ̄′; their product is L_D.",
+   "statement": "A p-adic Eisenstein datum D = (A, 𝕀, 𝐟, ψ, ξ, Σ) consists of the ring of integers A of a finite extension of ℚ_p containing ℤ[µ_{M_D p}, i, D_K^{1/2}], a normal domain 𝕀 finite over Λ_{W,A}, an 𝕀-adic ordinary eigenform 𝐟 of tame level M, finite idele class characters ψ and ξ of 𝔸_K^× (ψ|_{𝔸^×} = χ_𝐟), and a finite set of primes Σ containing those dividing M p D_K and the ramification of ξ. Put Λ_D = 𝕀[[Γ^-_K × Γ_K]], a finite local reduced Λ_2-algebra via α ⊗ β (SU 6.5.1), the characters σ_ψ, σ_ξ, σ_{ξ′} = σ_ξσ^c_ξ, and the semisimple representation ρ_D = σ_{χ̄_f,0}σ^c_ψε^{-3} ⊕ (ρ_𝐟 ⊗ σ_{χ̄_f,0}σ^{-c}_ξσ^c_ψε^{-2}) ⊕ σ_{χ̄_f,0}ε^{-1}det ρ_𝐟 σ^{-1}_{ξ′}σ^c_ψ of G_K over Frac Λ_D (6.5.2.a). The Eisenstein ideal I_D ⊆ h_D = h_{Σ,0}(K′; Λ_D) is generated by the coefficients of Q_v(X) − Q_{v,D}(X) (v ∉ Σ), the relations u_t − ∏β_i^{a_i} for the U_p-operators with the prescribed (β_1,…,β_4), and the central operators Z_{ℓ,0}, Z^{(i)}_{ℓ,0} minus their values on the Eisenstein characters; 𝔈_D ⊆ Λ_D is the kernel of Λ_D → h_D/I_D, so Λ_D/𝔈_D ≅ h_D/I_D (6.5.3.a), and 𝕋_D is the localization of h_D at the maximal ideal containing I_D. The two p-adic L-functions attached to D are L^Σ_{𝐟,K,ξ} ∈ 𝕀[[Γ_K]] (L1/su-padic-l-function) and L^Σ_{χ̄_𝐟ξ̄′}, the image of the Kubota–Leopoldt function of the Dirichlet character χ̄_𝐟ξ̄′; their product is L_D.",
    "hypotheses": [
     "ψ exists with ψ|_{𝔸^×} = χ_𝐟 and unramified outside Σ (SU Thm 12.3.1 hypothesis); (irred)_𝐟 and (dist)_𝐟 when 𝕋_D is used."
    ],
@@ -1151,18 +1151,18 @@
     {
      "sourceId": "SU-2014",
      "locator": "§6.5.1–6.5.3, pp. 96–98",
-     "match": "The datum D, the ring Λ_D, the representation ρ_D, the generators of I_D and the isomorphism Λ_D/E_D ≅ h_D/I_D."
+     "match": "The datum D, the ring Λ_D, the representation ρ_D, the generators of I_D and the isomorphism Λ_D/𝔈_D ≅ h_D/I_D."
     }
    ],
    "implementationStatus": "unchecked",
    "uses": [
     {
      "where": "L1/padic-eisenstein-family",
-     "how": "Thm 6.5.4 bounds ord_P(E_D) below by ord_P(L_D)"
+     "how": "Thm 6.5.4 bounds ord_P(𝔈_D) below by ord_P(L_D)"
     },
     {
      "where": "L1/su-selmer-lower-bound",
-     "how": "the lattice datum of SU 7.3.2 takes J_0 = E_D and I_0 = I_D"
+     "how": "the lattice datum of SU 7.3.2 takes J_0 = 𝔈_D and I_0 = I_D"
     },
     {
      "where": "L1/gu22-galois-pseudocharacter",
@@ -1188,12 +1188,12 @@
     {
      "name": "EisensteinDatum.ideal",
      "role": "constructor",
-     "statement": "E_D := ker(Λ_D → h_D/I_D)."
+     "statement": "𝔈_D := ker(Λ_D → h_D/I_D)."
     },
     {
      "name": "EisensteinDatum.quotientEquiv",
      "role": "equivalence",
-     "statement": "Λ_D/E_D ≃ h_D/I_D (6.5.3.a)."
+     "statement": "Λ_D/𝔈_D ≃ h_D/I_D (6.5.3.a)."
     },
     {
      "name": "EisensteinDatum.LD",
@@ -1208,7 +1208,7 @@
     {
      "name": "EisensteinDatum.ext",
      "role": "extensionality",
-     "statement": "Transport of A,I, the family and characters preserving their stated identities transports ρ_D, I_D and E_D; equality of all generator eigenvalues identifies the ideals."
+     "statement": "Transport of A,I, the family and characters preserving their stated identities transports ρ_D, I_D and 𝔈_D; equality of all generator eigenvalues identifies the ideals."
     }
    ],
    "tests": [
@@ -1220,7 +1220,7 @@
     {
      "name": "eisensteinDatum_proper",
      "kind": "characterisation",
-     "statement": "E_D ≠ Λ_D exactly when some cuspidal ordinary eigensystem is residually congruent to the eigensystem of ρ_D."
+     "statement": "𝔈_D ≠ Λ_D exactly when some cuspidal ordinary eigensystem is residually congruent to the eigensystem of ρ_D."
     },
     {
      "name": "eisensteinDatum_rank_count",
@@ -1281,7 +1281,7 @@
    "uses": [
     {
      "where": "L1/padic-eisenstein-family",
-     "how": "the classical members G_{D_φ} interpolated by E_D"
+     "how": "the classical members G_{D_φ} interpolated by ℰ_D"
     },
     {
      "where": "L1/nonsingular-coefficient-coprimality",
@@ -1402,15 +1402,15 @@
    ],
    "title": "The Λ_D-adic Klingen Eisenstein family and its constant terms",
    "kind": "theorem",
-   "statement": "Let D be a p-adic Eisenstein datum with cond(ψ_p), cond(ξ_p) | p, (irred)_𝐟 and (dist)_𝐟, and K′ ⊆ K′_D with K′K_p neat. (i) There is ℰ_D ∈ M^{a,ord}(K′; Λ_D) whose specialization at every φ ∈ X″_D is u_φ·G_{D_φ}/(Ω^+_{f_φ}Ω^-_{f_φ}) with |u_φ|_p = 1, G_{D_φ} the classical Klingen Eisenstein series (SU Thm 12.4.2(i), Thm 12.4.1); (ii) for x with x_p ∈ Q(ℤ_p) and det β = 0, the β-Fourier coefficient c_D(β, x) lies in L^Σ_{𝐟,K,ξ}·L^Σ_{χ̄_𝐟ξ̄′}·Λ_D (Thm 12.4.2(ii)); (iii) The full ordinary Hecke algebra h_D^full acting on all forms has the Eisenstein eigencharacter λ_D^full:h_D^full→Λ_D. The cuspidal Hecke algebra h_D^cusp only acquires this eigensystem modulo E_D, through Λ_D/E_D≅h_D^cusp/I_D. SU uses h_D for the full algebra on p. 204 and the cuspidal algebra in §6.5.3. Consequently, if P ⊂ Λ_D is a height-one prime with ℰ_D ≢ 0 modulo P, then ord_P(E_D) ≥ ord_P(L_D) (SU Thm 6.5.4): subtracting a lift of ℰ_D's constant terms produces a cuspidal family congruent to ℰ_D modulo L_D. Here ℰ_D denotes the Eisenstein form and E_D the coefficient-ring ideal; a hypothesis that the form is nonzero modulo P concerns ℰ_D.",
+   "statement": "Let D be a p-adic Eisenstein datum with cond(ψ_p), cond(ξ_p) | p, (irred)_𝐟 and (dist)_𝐟, and K′ ⊆ K′_D with K′K_p neat. (i) There is ℰ_D ∈ M^{a,ord}(K′; Λ_D) whose specialization at every φ ∈ X″_D is u_φ·G_{D_φ}/(Ω^+_{f_φ}Ω^-_{f_φ}) with |u_φ|_p = 1, G_{D_φ} the classical Klingen Eisenstein series (SU Thm 12.4.2(i), Thm 12.4.1); (ii) for x with x_p ∈ Q(ℤ_p) and det β = 0, the β-Fourier coefficient c_D(β, x) lies in L^Σ_{𝐟,K,ξ}·L^Σ_{χ̄_𝐟ξ̄′}·Λ_D (Thm 12.4.2(ii)); (iii) The full ordinary Hecke algebra h_D^full acting on all forms has the Eisenstein eigencharacter λ_D^full:h_D^full→Λ_D. The cuspidal Hecke algebra h_D^cusp only acquires this eigensystem modulo 𝔈_D, through Λ_D/𝔈_D≅h_D^cusp/I_D. SU uses h_D for the full algebra on p. 204 and the cuspidal algebra in §6.5.3. Consequently, if P ⊂ Λ_D is a height-one prime with ℰ_D ≢ 0 modulo P, then ord_P(𝔈_D) ≥ ord_P(L_D) (SU Thm 6.5.4): subtracting a lift of ℰ_D's constant terms produces a cuspidal family congruent to ℰ_D modulo L_D. Here ℰ_D denotes the Eisenstein form and 𝔈_D the coefficient-ring ideal; a hypothesis that the form is nonzero modulo P concerns ℰ_D.",
    "hypotheses": [
     "(irred)_𝐟, (dist)_𝐟; A satisfies the hypotheses of SU Prop. 12.2.5; conductor condition (12.4.2.a) at p.",
-    "The conclusion of Thm 6.5.4 is conditional on E_D being nonzero modulo P; L1/nonsingular-coefficient-coprimality supplies this."
+    "The conclusion of Thm 6.5.4 is conditional on ℰ_D being nonzero modulo P; L1/nonsingular-coefficient-coprimality supplies this."
    ],
    "proofSteps": [
     "Interpolate each q-expansion coefficient by Lemma 12.2.7 applied to f^{(2)}_{D,β,x} (proof of SU Thm 12.4.1), using Cor. 11.7.6.",
     "Assemble a Λ_D-adic ordinary form by the q-expansion principle and Hida theory (L1/gu22-hida-control).",
-    "Thm 6.5.4: if ord_P(L_D) = r and ℰ_D ≢ 0 mod P, the boundary exact sequence lets one subtract a Λ_D-adic lift of ℰ_D's boundary values times L_D^{-1}·(unit), producing a cusp form H ≡ E_D mod P^r, whence 𝕋_D/I_D surjects onto Λ_D/(E_D, P^r)."
+    "Thm 6.5.4: if ord_P(L_D) = r and ℰ_D ≢ 0 mod P, the boundary exact sequence lets one subtract a Λ_D-adic lift of ℰ_D's boundary values times L_D^{-1}·(unit), producing a cusp form H ≡ ℰ_D mod P^r, whence 𝕋_D/I_D surjects onto Λ_D/(𝔈_D, P^r)."
    ],
    "acceptance": [
     "The congruence is with the whole family ℰ_D, not with an individual Eisenstein series; an interpolation formula for ℰ_D alone does not give it.",
@@ -1445,7 +1445,7 @@
    ],
    "title": "A nonsingular Fourier coefficient is prime to the p-adic L-function",
    "kind": "theorem",
-   "statement": "Let A be the ring of integers of a finite extension of ℚ_p, 𝕀 a domain finite over Λ_{W,A}, 𝐟 ∈ M^{ord}(M, 1; 𝕀) an 𝕀-adic newform with (irred)_𝐟 and (dist)_𝐟, and Σ_0 ⊇ {ℓ | pMD_K}. There is a finite Σ ⊇ Σ_0 such that for D = (A, 𝕀, 𝐟, 1, 1, Σ) the set C_D of nonsingular coefficients c_D(β_i, x) of E_D satisfies: (i) every height-one prime of Λ_D containing C_D is of the form PΛ_D with P a height-one prime of 𝕀[[Γ^+_K]]; (ii) if M = M^+M^- with M^- squarefree with an odd number of prime factors, all inert in K, and ρ̄_𝐟 ramified at every ℓ | M^-, then no height-one prime of Λ_D contains both L^Σ_{𝐟,K,1} and C_D (SU Prop. 13.4.1).",
+   "statement": "Let A be the ring of integers of a finite extension of ℚ_p, 𝕀 a domain finite over Λ_{W,A}, 𝐟 ∈ M^{ord}(M, 1; 𝕀) an 𝕀-adic newform with (irred)_𝐟 and (dist)_𝐟, and Σ_0 ⊇ {ℓ | pMD_K}. There is a finite Σ ⊇ Σ_0 such that for D = (A, 𝕀, 𝐟, 1, 1, Σ) the set C_D of nonsingular coefficients c_D(β_i, x) of ℰ_D satisfies: (i) every height-one prime of Λ_D containing C_D is of the form PΛ_D with P a height-one prime of 𝕀[[Γ^+_K]]; (ii) if M = M^+M^- with M^- squarefree with an odd number of prime factors, all inert in K, and ρ̄_𝐟 ramified at every ℓ | M^-, then no height-one prime of Λ_D contains both L^Σ_{𝐟,K,1} and C_D (SU Prop. 13.4.1).",
    "hypotheses": [
     "The hypotheses of SU Prop. 12.2.5 on A; the auxiliary primes of Prop. 13.2.5 (a set of primes split in K not dividing the level) are part of the choice of Σ."
    ],
@@ -1455,7 +1455,7 @@
     "Combine with L1/su-padic-l-function (iii), which excludes the pulled-back primes from L^Σ_{𝐟,K,1}, to get (ii)."
    ],
    "acceptance": [
-    "This is what makes E_D nonzero modulo every height-one prime dividing L^Σ_{𝐟,K}, so that Thm 6.5.4 applies at those primes."
+    "This is what makes ℰ_D nonzero modulo every height-one prime dividing L^Σ_{𝐟,K}, so that Thm 6.5.4 applies at those primes."
    ],
    "prerequisites": [
     "AutomorphicCongruences:L1/padic-eisenstein-family",
@@ -1578,7 +1578,7 @@
     {
      "name": "gu22PseudoChar_eisenstein_point",
      "kind": "agreement",
-     "statement": "The cuspidal pseudocharacter modulo I_D agrees with tr ρ_D modulo E_D through Λ_D/E_D≅h_D^cusp/I_D. It need not admit an Eisenstein eigencharacter into Λ_D itself."
+     "statement": "The cuspidal pseudocharacter modulo I_D agrees with tr ρ_D modulo 𝔈_D through Λ_D/𝔈_D≅h_D^cusp/I_D. It need not admit an Eisenstein eigencharacter into Λ_D itself."
     },
     {
      "name": "gu22PseudoChar_not_gl2",
@@ -1600,12 +1600,12 @@
    ],
    "title": "The Skinner–Urban Selmer lower bound from the Eisenstein ideal",
    "kind": "theorem",
-   "statement": "Assume (irred)_𝐟, (dist)_𝐟 and 𝕀 integrally closed. Let T = (T_𝐟 ⊗_𝕀 𝕀[[Γ_K]])(det ρ_𝐟^{-1}σ^{-c}_ξε^{-c}_K) with its ordinary summand T^+, and Ch^Σ_K(ρ_𝐟 ⊗ σ_ξε_K) ⊆ 𝕀[[Γ_K]] the characteristic ideal of X^Σ_K(T, T^+). For a height-one prime P_0 ⊂ 𝕀[[Γ_K]] with P = P_0Λ_D such that the four G_{K,p}-characters of SU (7.3.3.a) are residually distinct modulo P: (i) if ord_P(L^Σ_{χ̄_𝐟ξ̄′}) = 0 then ord_{P_0}(Ch^Σ_K(ρ_𝐟 ⊗ σ_ξε_K)) ≥ ord_P(E_D) (SU Thm 7.3.3); (ii) if ℰ_D ≢ 0 modulo P and ord_P(L^Σ_{𝐟,K,ξ}) ≥ 1, then ord_P(Ch^Σ_K) ≥ 1, and if moreover ord_P(L^Σ_{χ̄_𝐟ξ̄′}) = 0 then ord_P(Ch^Σ_K) ≥ ord_P(L^Σ_{𝐟,K,ξ}) (SU Thm 7.3.5).",
+   "statement": "Assume (irred)_𝐟, (dist)_𝐟 and 𝕀 integrally closed. Let T = (T_𝐟 ⊗_𝕀 𝕀[[Γ_K]])(det ρ_𝐟^{-1}σ^{-c}_ξε^{-c}_K) with its ordinary summand T^+, and Ch^Σ_K(ρ_𝐟 ⊗ σ_ξε_K) ⊆ 𝕀[[Γ_K]] the characteristic ideal of X^Σ_K(T, T^+). For a height-one prime P_0 ⊂ 𝕀[[Γ_K]] with P = P_0Λ_D such that the four G_{K,p}-characters of SU (7.3.3.a) are residually distinct modulo P: (i) if ord_P(L^Σ_{χ̄_𝐟ξ̄′}) = 0 then ord_{P_0}(Ch^Σ_K(ρ_𝐟 ⊗ σ_ξε_K)) ≥ ord_P(𝔈_D) (SU Thm 7.3.3); (ii) if ℰ_D ≢ 0 modulo P and ord_P(L^Σ_{𝐟,K,ξ}) ≥ 1, then ord_P(Ch^Σ_K) ≥ 1, and if moreover ord_P(L^Σ_{χ̄_𝐟ξ̄′}) = 0 then ord_P(Ch^Σ_K) ≥ ord_P(L^Σ_{𝐟,K,ξ}) (SU Thm 7.3.5).",
    "hypotheses": [
     "Residual disjointness (7.3.3.a) is verified in the proof of Thm 7.3.5: the four characters δ²_fσ^{-1}_{χ_f}ε_Wε, δ_fσ^{-1}_{χ_f}σ_ξε_W, δ_fσ^{-1}_{χ_f}σ^c_ξε_W, σ_{χ_f}ε^{-1}_Wσ^{-1}_{ξ′}ε are not ≡ 1 modulo P, by (dist)_𝐟 and a codimension count."
    ],
    "proofSteps": [
-    "Set up the lattice datum of SU 7.3.2: A_0 = Λ_D, A = Λ̂_{D,P}, J_0 = E_D, R_0 = 𝕋_D, I_0 = I_D, V_0 = T_𝐟 ⊗ Λ_D, ρ_0 = ρ_𝐟 ⊗ σ_{χ̄_f,0}σ^{-c}_ξσ^c_ψε^{-2}, V^±_0 from T^+_𝐟, χ, χ′, ν, and σ from R_D.",
+    "Set up the lattice datum of SU 7.3.2: A_0 = Λ_D, A = Λ̂_{D,P}, J_0 = 𝔈_D, R_0 = 𝕋_D, I_0 = I_D, V_0 = T_𝐟 ⊗ Λ_D, ρ_0 = ρ_𝐟 ⊗ σ_{χ̄_f,0}σ^{-c}_ξσ^c_ψε^{-2}, V^±_0 from T^+_𝐟, χ, χ′, ν, and σ from R_D.",
     "Apply L0/lattice-construction (Prop. 4.5.6 and Cor. 4.5.7) and Shapiro (L0/sigma-primitive-selmer) to pass from ρ_0 ⊗ χ^{-1} over Λ_D to ρ_𝐟 ⊗ σ_ξε_K over 𝕀[[Γ_K]].",
     "Thm 7.3.5 combines (i) with L1/padic-eisenstein-family (Thm 6.5.4) and checks (7.3.3.a)."
    ],
@@ -2364,7 +2364,7 @@
    ],
    "title": "General-weight Fourier–Jacobi comparison and its auxiliary repair contract",
    "kind": "theorem",
-   "statement": "Conditional original formula: with the auxiliary data of FW Prop. 7.29, if L_1,L_5,L_6 are simultaneously units and L_2 is a fixed nonzero scalar, FJ_{h,β,θ⋆}(E^{Kling}) is a unit times an element of Q̄_p^×. This only excludes height-one primes away from p. Together with Thm 7.18, the original argument yields ord_P(L^{Gr,Σ}_{f,K})≤ord_P(E_D) for the admissible P≠(p) of Lemma 7.31. The cited auxiliary nonvanishing no longer proves the simultaneous-unit hypothesis: the CLW addendum replaces it in weight two by two families whose functional values jointly avoid every height-one prime of R[1/p]. A vector-valued, general-weight version of that repair is required here; it is an explicit gap, not a consequence of the scalar weight-two theorem.",
+   "statement": "Conditional original formula: with the auxiliary data of FW Prop. 7.29, if L_1,L_5,L_6 are simultaneously units and L_2 is a fixed nonzero scalar, FJ_{h,β,θ⋆}(E^{Kling}) is a unit times an element of Q̄_p^×. This only excludes height-one primes away from p. Together with Thm 7.18, the original argument yields ord_P(L^{Gr,Σ}_{f,K})≤ord_P(𝔈_D) for the admissible P≠(p) of Lemma 7.31. The cited auxiliary nonvanishing no longer proves the simultaneous-unit hypothesis: the CLW addendum replaces it in weight two by two families whose functional values jointly avoid every height-one prime of R[1/p]. A vector-valued, general-weight version of that repair is required here; it is an explicit gap, not a consequence of the scalar weight-two theorem.",
    "hypotheses": [
     "The local Fourier–Jacobi and triple-product identities of FW §7.4, including all normalizations. The original simultaneous-unit choice is a conditional hypothesis only. The weakened auxiliary ℓ-tower nonvanishing must instead be used in a general-weight version of the CLW two-family argument.",
     "When π_ℓ is supercuspidal the local computation of FW Prop. 7.27 / Cor. 7.28 is used, which removes the squarefree-conductor assumption of earlier work."
@@ -2422,8 +2422,8 @@
     "This is the source theorem target. The roadmap proof remains partial pending general-weight-nonvanishing-repair; the later scalar CLW repair alone does not discharge it."
    ],
    "proofSteps": [
-    "Σ-primitive version first: lattice construction (Wan20 Prop. 9.2; L0/lattice-construction) shows that E_D contains the characteristic ideal of the dual Selmer group, with Wan20's condition (9) by L2s/cap-exclusion (modularity from Pan's theorem in general weight).",
-    "Lemma 7.31 (L2/fw-fourier-jacobi-unit) bounds ord_P(L^{Gr,Σ}) ≤ ord_P(E_D) for P ≠ (p).",
+    "Σ-primitive version first: lattice construction (Wan20 Prop. 9.2; L0/lattice-construction) shows that 𝔈_D contains the characteristic ideal of the dual Selmer group, with Wan20's condition (9) by L2s/cap-exclusion (modularity from Pan's theorem in general weight).",
+    "Lemma 7.31 (L2/fw-fourier-jacobi-unit) bounds ord_P(L^{Gr,Σ}) ≤ ord_P(𝔈_D) for P ≠ (p).",
     "Put back the Euler factors at Σ (Greenberg–Vatsal Prop. 2.4; K_∞ contains the cyclotomic ℤ_p-extension; L0/primitive-imprimitive-comparison).",
     "Under the Steinberg hypothesis apply Hsieh's anticyclotomic µ = 0 to see that L^{Gr}_K(f) lies in no height-one prime of O[[Γ^+]], hence is prime to the Dirichlet factor in the constant terms (L2/exceptional-height-one-primes)."
    ],
@@ -4595,7 +4595,8 @@
    "stageId": "AutomorphicCongruences:L5a",
    "status": "planned",
    "remaining": [
-    "ordinary-bstw-owner: The ordinary BSTW two-variable zeta element, its two reciprocity laws and the ordinary Perrin-Riou/Greenberg comparison have the single planned owner KatoEulerSystems L5 (RS-11, RT-AREA-iwasawa-1/30), which is not yet a stage; RankZeroOneBSD:BSD.6a owns only the supersingular construction. L5a/ordinary-two-variable-equivalence states the contract it consumes."
+    "ordinary-bstw-owner: The ordinary BSTW two-variable zeta element, its two reciprocity laws and the ordinary Perrin-Riou/Greenberg comparison have the single planned owner KatoEulerSystems L5 (RS-11, RT-AREA-iwasawa-1/30), which is not yet a stage; RankZeroOneBSD:BSD.6a owns only the supersingular construction. L5a/ordinary-two-variable-equivalence states the contract it consumes.",
+    "auxiliary-field-narrow-delta: The reviewed L5w/selected-base-change-hypotheses contract requires K to have a new finite ramification prime outside D_F, ensuring that M=FK is not contained in the narrow Hilbert class field of F (Wan 2015 Δ+, compared with BCS Δ; L5b source finding E2). L5a/auxiliary-field-existence lists the original BCS Lemma 5.2.3 conditions, but does not yet prove this additional simultaneous choice. Supply the refinement while preserving all splitting, minimality and residual restrictions. The broad existence claim is not silently strengthened during assembly."
    ],
    "note": "RT-AREA-iwasawa-1/29: L5a uses BCS Theorem 4.1.3 (cited as Proposition 4.1.3 in the proof of Prop. 5.2.1), Lemmas 5.1.1–5.1.2, Prop. 4.2.2 and Prop. 5.2.1; Theorem 4.2.1 is left to HE.8/HE.8b. RT-AREA-iwasawa-1/30: the ordinary BSTW comparison has the single planned owner KatoEulerSystems L5. Review: target-level nodes are retained; remaining records are actual unresolved contracts, not an instruction to split routine proofs into lemma nodes. Planned records target coverage as in Protocol §0; it does not assert closure of these gaps."
   }
@@ -4882,6 +4883,14 @@
    "neededBy": [
     "AutomorphicCongruences:L2/fw-ordinary-reverse-bound",
     "AutomorphicCongruences:L2/fw-crystalline-main-conjecture"
+   ]
+  },
+  {
+   "title": "auxiliary-field-narrow-delta",
+   "detail": "The reviewed L5w/selected-base-change-hypotheses contract requires K to have a new finite ramification prime outside D_F, ensuring that M=FK is not contained in the narrow Hilbert class field of F (Wan 2015 Δ+, compared with BCS Δ; L5b source finding E2). L5a/auxiliary-field-existence lists the original BCS Lemma 5.2.3 conditions, but does not yet prove this additional simultaneous choice. Supply the refinement while preserving all splitting, minimality and residual restrictions. The broad existence claim is not silently strengthened during assembly.",
+   "neededBy": [
+    "AutomorphicCongruences:L5a/auxiliary-field-existence",
+    "AutomorphicCongruences:L5a/two-variable-product-containment"
    ]
   }
  ],
