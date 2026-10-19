@@ -1,3 +1,75 @@
+# Review #6217: blocked by the issued scope on 19 October 2026
+
+Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
+Codex — **codex-cddZzU**, 19 October 2026.
+Input commit: `04cb708498128f6950ddab6a425b623428d764bc`.
+[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6257321233)
+identifies this session's claim comment 6257319809. This session authored none
+of the fixes under review and holds no other claim.
+
+**Blocked checkpoint.** The live issue still assigns only HE.0. Its accepted
+fix review already satisfies that assignment, while the queue still requires
+this job's verdict on nine additional packets. No mathematical statement,
+signature or review marker is changed. The historical review outcomes and
+source receipts below retain their attribution; this is a scheduling diagnosis,
+not another mathematical acceptance.
+
+## Fresh checks and a concrete repair candidate
+
+I reread the full issue after confirmation, the existing report and handoff,
+confirmed findings /2, /8, /9 and /10 with their verifier decisions, the fix
+report, and the actual completion and round-selection functions.
+
+- Local and freshly fetched live-main queue entries both list 21 review
+  outputs. All exist. `issues.deliverables_complete` returns false for the
+  actual job and true for an in-memory copy restricted to the three issued
+  deliverables.
+- The unchanged HE.0 packet passes `scripts/check_blueprint.py`: zero errors
+  and warnings, 78 nodes, 24 API items, 18 tests, 13 baseline declarations,
+  21 gaps, 63 requests and eight planned stages.
+- Commit `88f9bcd44` supplies the exact historical arrays: four fix outputs
+  and three review outputs. They agree with the published assignment. The
+  scheduling repair needs to restore **both** arrays, not merely the review.
+- I exercised the actual `fix_rounds` function in isolation, extracting its
+  AST and supplying the current job states, historical arrays for these two
+  records, and the currently expanded blueprint list. Template rendering,
+  input discovery and queue insertion were stubbed. The current selector
+  re-expands the restored round to **31 fix / 21 review outputs**. Replacing
+  the selector by `made = previous_jobs.get(following)` preserves **4 / 3**,
+  with exact equality to the historical arrays; the restored review passes
+  the actual completion function. This is a focused branch check, not a
+  full generator replay or certification of scheduling effects on other jobs.
+
+The concrete candidate, prepared and tested only in scratch, is:
+
+1. In `queue.json`, replace only the `outputs` arrays of
+   `FIX-RT-AREA-iwasawa-1~2` and `REV-FIX-RT-AREA-iwasawa-1~2` with their
+   arrays from commit `88f9bcd44`. The fix array is its fix report plus the
+   HE.0 packet, reader and suggested file; the review array is its review
+   report plus the HE.0 packet and suggested file.
+2. In `make_queue.py`, inside `fix_rounds`, change
+   `made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None`
+   to `made = previous_jobs.get(following)`. Review the broader round-preservation
+   effects before applying this generator change. Restoring only the queue
+   allows the next generation to recreate the mismatch.
+3. Regenerate and reconcile published assignments, assigning any additional
+   fixes and their reviews to a distinct round with matching instructions.
+
+Neither scheduling file is an issue deliverable. WORKERS.md, “Doing the
+work”, restricts edits to issue-named files and scratch; intake also rejects
+these scheduling paths as outside swarm output paths. A scope decision was
+requested during this run and no answer authorizing that repair had arrived
+when this checkpoint was prepared. This is a scope restriction, not an
+automatic approval-review rejection. The candidate is documented here so the
+maintainer can apply it without relying on scratch files.
+
+Primary mathematical sources were not reread and Lean was not rerun for
+this documentation change. No Lean compilation or new source verification
+is claimed. Resume after the issue and completion rule agree; another HE.0
+review alone cannot finish the expanded queue job.
+
+---
+
 # Review #6217: scope conflict persists on 18 October 2026
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.

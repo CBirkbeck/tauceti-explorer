@@ -1,64 +1,57 @@
 # Handoff: reconcile #6217 before redispatch
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-Qlg6kx**, 18 October 2026.
-Branch: `codex-Qlg6kx-review-iwasawa-fixes`.
-Input: `663b4462fd0c660392965ef07632adc8164990de`.
-[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6256246938).
-This run holds only this job's confirmed claim. Submission: **blocked checkpoint**.
+Codex — **codex-cddZzU**, 19 October 2026.
+Branch: `codex-cddZzU-review-iwasawa-scope`.
+Input: `04cb708498128f6950ddab6a425b623428d764bc`.
+[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6257321233).
+Submission: **blocked checkpoint**. No second job was claimed.
 
-The published assignment permits the HE.0 packet, its suggested file and the
-review report. That fix review is already accepted. Both local and fresh
-live-main queue entries require 21 outputs: ten packets, their suggested files
-and the report. All outputs exist. Fresh execution of the actual completion
-function returns false for that entry and true with just the three issued
-paths substituted in memory. The previous checkpoint's blocker persists.
+## What is done
 
-The nine additional packets are:
+The issue's HE.0 fix review is already accepted by its prior independent
+reviewers. Its mathematical verdict and source/compilation receipts remain
+unchanged and retain their attribution. I reread the assignment after the
+bot confirmation, prior handoff/report, confirmed findings /2, /8, /9 and
+/10 and their verifier decisions, the round-two fix report, and scheduling
+code. The unchanged HE.0 packet passes its checker with zero errors and
+warnings: 78 nodes, 24 API items, 18 tests, 13 baseline declarations,
+21 gaps, 63 requests and eight planned stages.
 
-- `HeegnerPointEulerSystems--HE.8c.json`
-- `HeegnerPointEulerSystems--HE.8.json`
-- `GrossZagierAndArithmeticHeights.json`
-- `HeightsRationalPointsAndObstructions.json`
-- `RankZeroOneBSD--BSD.0.json`
-- `HeegnerPointEulerSystems--HE.8b.json`
-- `EulerSystemsAndKolyvaginSystems.json`
-- `SelmerIwasawaCohomology.json`
-- `KatoEulerSystems.json`
+Local and fresh live-main queues still require 21 review outputs, including
+ten packets, whereas the issued assignment names three outputs and one
+packet. All queue outputs exist. The actual completion function returns
+false for the queue entry and true with only the issue's three paths.
 
-They retain their own independent reviewers. The Kato marker now names
-`independent-review-REV-FIX-RT-AREA-iwasawa-3~4` and is accepted; this supersedes
-the historical report's Kato row. The Euler-system packet still has
-`needs_changes`. No unperformed fix review has been stamped onto any packet.
+## Concrete repair and where to resume
 
-I reread the issued instructions, prior handoff/report, the four applicable
-confirmed findings and verifier decisions, and the round-two fix report.
-The unchanged HE.0 checker passes with zero errors and warnings: 78 nodes,
-24 API items, 18 tests, 13 baseline declarations, 21 gaps, 63 requests and
-eight planned stages. Primary sources were not reread and Lean was not rerun
-for this documentation-only checkpoint. Existing mathematical and compilation
-receipts keep their original attribution.
+The new 19 October section of the [review report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
+documents an isolated execution of the actual `fix_rounds` function. Restoring
+the historical arrays alone is insufficient: its current selector expands
+them again to 31 fix / 21 review outputs. Selecting an existing round
+unconditionally preserves the exact historical four fix / three review
+outputs, and the restored review satisfies `deliverables_complete`.
+Template rendering and input discovery were stubbed; this is not a full
+queue-generator replay or a claim about all other jobs.
 
-A scope question was submitted to the user. Until answered, WORKERS.md's
-issue-path restriction remains in force. Fresh checks also show that intake
-rejects queue.json and make_queue.py as outside swarm output paths. This is
-an assignment conflict, not an automatic approval-review rejection.
+The maintainer needs to reconcile one consistent assignment:
 
-Resume after one consistent assignment is published:
+1. Restore both round-two output arrays from commit `88f9bcd44`, review the
+   documented generator preservation change, and allocate the additional
+   work to a distinct round with matching issue instructions; or
+2. Explicitly expand this review's issued scope, identifying the fixes to
+   check in the additional nine packets.
 
-1. Restore the issued review's three outputs and round-two fix's four outputs,
-   preserve issued rounds in the generator, and assign additional work to a
-   distinct subsequent round; or
-2. Authorize the expanded scope and identify the actual fixes to review in
-   each additional packet.
+The report below its latest section records all historical output paths,
+the completion reproducer, prior review outcomes and source receipts. No
+scratch artifact is needed. Do not rerun the completed HE.0 review simply
+to reproduce this scheduling blocker.
 
-The generator's conditional preservation of existing rounds remains at
-`fix_rounds`; preserving already-expanded arrays alone cannot repair the
-current scope. The [report](../reviews/REV-FIX-RT-AREA-iwasawa-1~2.md) retains the
-prior detailed diagnosis and standalone read-only reproducer, with a fresh
-18 October section. Historical mathematical arguments and repair experiments
-remain linked there. No scratch artifact is needed to resume.
-
-Only this handoff and the report change. No mathematical verdict, Lean file,
-queue, generator, application code or promoted data changes. No process is
-left running. This run will stop after opening its checkpoint pull request.
+WORKERS.md restricts edits to issue-named files and scratch. Queue and
+generator are outside that scope and intake's allowed output paths. A scope
+question was sent in this run; no answer authorizing the repair arrived
+before checkpoint preparation. Only the report and this handoff change.
+No mathematical verdict, Lean file, scheduling file or promoted data changes.
+Primary sources were not reread and Lean was not rerun for these Markdown
+changes. No process is left running. Stop after this job's pull request;
+a maintainer scope decision is required before resuming dependent work.
