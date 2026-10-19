@@ -39,7 +39,7 @@ Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage 
 
 ## Tier 4
 
-- **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 3/3 accepted · package not yet · CN needs 7/11 layers · **Tau Ceti: pull request #908 open** · reviewer recommends approval (at earlier head None; current head ba9de88) · move down: DerivedDeRhamCohomology (11) · cites outside the 94: StableHomotopyKTheory (7)
+- **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 3/3 accepted · package not yet · CN needs 7/11 layers · **Tau Ceti: pull request #908 open** · move down: DerivedDeRhamCohomology (11) · cites outside the 94: StableHomotopyKTheory (7)
 - **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 12/13 accepted · package not yet · CN needs 10/12 layers · **Tau Ceti: pull request #853 open** · reviewer recommends approval
 - **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 5/5 accepted · package not yet · CN needs 5/5 layers · **Tau Ceti: pull request #854 open**
 - **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 5/5 accepted · package not yet · CN needs 2/6 layers · **Tau Ceti: merged** · move down: ClassicalArithmeticCompletion (1)
