@@ -433,6 +433,37 @@ example : quinticPolynomial (-1 / 5 : ℚ) (fun _ => 1) = 0 ∧
     quinticPolynomial (1 / 5 : ℚ) (fun _ => 1) = 2 := by
   norm_num [quinticPolynomial]
 
+/-- Columns of `e_i = δ^i ω` in `u_s = π^s (t ∏ x_i)^s ω` (PS.8.13).
+This is a change of rational bases, with no claim that either basis is geometric integral data. -/
+def quinticDerivativeMonomialMatrix : Matrix (Fin 4) (Fin 4) ℤ :=
+  !![1, -1, 1, -1; 0, -1, 3, -7; 0, 0, 1, -6; 0, 0, 0, -1]
+
+theorem quinticDerivativeMonomialMatrix_det : quinticDerivativeMonomialMatrix.det = 1 := by
+  decide
+
+example : (fun i => quinticDerivativeMonomialMatrix i 3) = ![-1, -7, -6, -1] := by
+  decide
+
+example : (quinticDerivativeMonomialMatrix.map (Int.castRingHom (ZMod 3))).det = 1 ∧
+    (quinticDerivativeMonomialMatrix.map (Int.castRingHom (ZMod 7))).det = 1 := by
+  decide
+
+/-- Columns of the derivative classes after the normalized projective residue map (PS.8.17).
+The row factors `(1,-1,2,-6)` record Park's signed factorials. This is not the integral lattice
+matrix `C`, whose construction and integral hypotheses remain README obligations. -/
+def quinticDerivativeResidueMatrix : Matrix (Fin 4) (Fin 4) ℤ :=
+  !![1, -1, 1, -1; 0, 1, -3, 7; 0, 0, 2, -12; 0, 0, 0, 6]
+
+theorem quinticDerivativeResidueMatrix_det : quinticDerivativeResidueMatrix.det = 12 := by
+  decide
+
+example : (fun i => quinticDerivativeResidueMatrix i 3) = ![-1, 7, -12, 6] := by
+  decide
+
+example : (quinticDerivativeResidueMatrix.map (Int.castRingHom (ZMod 3))).det = 0 ∧
+    (quinticDerivativeResidueMatrix.map (Int.castRingHom (ZMod 7))).det = 5 := by
+  decide
+
 /-- The logarithmic connection matrix of `δ` on the basis `e_i = δ^i ω`, column-input convention,
 with `g = 5⁵λ⁵/(1 + 5⁵λ⁵)` (PS.8.13). -/
 def quinticConnectionMatrix (l : ℚ) : Matrix (Fin 4) (Fin 4) ℚ :=
@@ -695,7 +726,8 @@ residue form, Picard–Fuchs equation, marking and local continuation,
 `modularInvariant_schwarzian`, the quintic cohomology
 and its full flat pairing `quinticPairing`,
 Frobenius, `quinticSemistableParameter`, `quinticCrystalline`, `quinticDworkComparison`,
-`quinticLogComparison` and `quinticTransportedLattice` (PS.8); the arbitrary-pair supplier's
+`quinticProjectiveResidue`, `quinticProjectiveResidue_frobenius`, `quinticLogComparison`
+and `quinticTransportedLattice` (PS.8); the arbitrary-pair supplier's
 `relativePairIntegration` (PS.2); word algebras, iterated integrals, regularizations,
 `rho`, mixed Tate motives over `ℤ`, the motivic path torsor, Brown's algebra and coaction, the
 f-alphabet, the cut matrices and the motivic Hoffman basis (PS.9).
