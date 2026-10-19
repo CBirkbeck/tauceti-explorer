@@ -3,7 +3,7 @@
   "title": "Global Galois deformation rings, Part II: G-valued lifting",
   "area": "modular",
   "parent": "GlobalGaloisDeformations",
-  "summary": "A target-level plan for Ramakrishna-style G-valued lifting, separating controlled finite-level towers from finitely ramified characteristic-zero lifts. Cyclic prime-field modules replace semisimplicity in the doubling argument; relative Selmer images supply the finite-ramification step. Corrected reducible, function-field and symplectic applications consume existing local and automorphic owners. The target pass covers every catalogue item, while five explicit gaps and the precise supplier contracts delimit its open mathematical inputs. All eleven layers are planned; none is claimed closed or implemented.",
+  "summary": "A target-level plan for Ramakrishna-style G-valued lifting, separating controlled finite-level towers from finitely ramified characteristic-zero lifts. Cyclic prime-field modules replace semisimplicity in the doubling argument; relative Selmer images supply the finite-ramification step. Corrected reducible, function-field and symplectic applications consume existing local and automorphic owners. The target pass covers every catalogue item, while six explicit gaps and the precise supplier contracts delimit its open mathematical inputs. All eleven layers are planned; none is claimed closed or implemented.",
   "readme": "This Part II starts after the base roadmap’s deformation functors and obstruction presentations. It owns cyclic ramification classes, doubling, controlled towers, relative Selmer-image annihilation and their G-valued lifting applications. Generic duality, local rings, reductive structure and automorphy remain imports. The companion reader gives every target, exact hypotheses, proof outline, API and regression checks. Its main intended endpoint is a finitely ramified characteristic-zero lift with fixed multiplier, prescribed local components and full derived congruence image. The source’s auxiliary-field independence argument needs a repair, recorded with a counterexample and a narrower valid conditional statement; the planned endpoints therefore do not constitute a closed proof.",
   "prerequisites": [
     "GlobalGaloisDeformations",
@@ -19,11 +19,15 @@
     "LocalGaloisDeformationRings",
     "ModularityAndLanglandsExtensions",
     "OrdinaryAutomorphicFormsAndModularityLifting",
-    "PotentialModularityAndCompatibleSystems",
+    "AutomorphicFormsOnReductiveGroups",
+    "LocallyAnalyticDistributionsPartII",
+    "NoncommutativeAndEquivariantIwasawa",
+    "PotentialAutomorphyInfrastructurePartII",
     "ReductiveGroupsPartII",
     "tauceti:TauCetiRoadmap/ReductiveGroups",
     "tauceti:TauCetiRoadmap/Chebotarev",
-    "tauceti:TauCetiRoadmap/ProfiniteProPGroups"
+    "tauceti:TauCetiRoadmap/ProfiniteProPGroups",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
   ],
   "stages": [
     {
@@ -102,7 +106,10 @@
         "GlobalGaloisDeformationsPartII:GG2.3",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
         "LocalGaloisDeformationRings:R08.2",
-        "LocalGaloisDeformationRings:R08.3"
+        "LocalGaloisDeformationRings:R08.3",
+        "LocallyAnalyticDistributionsPartII:ND.0",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "AutomorphicFormsOnReductiveGroups:AF.1a"
       ]
     },
     {
@@ -223,10 +230,10 @@
         "GlobalGaloisDeformationsPartII:GG2.1",
         "GlobalGaloisDeformations:G7",
         "ModularityAndLanglandsExtensions:ML.5",
-        "PotentialModularityAndCompatibleSystems:R24.5:operations",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
         "GlobalGaloisDeformationsPartII:GG2.8",
-        "GlobalGaloisDeformationsPartII:GG2.9"
+        "GlobalGaloisDeformationsPartII:GG2.9",
+        "PotentialAutomorphyInfrastructurePartII:PL.7"
       ]
     }
   ],

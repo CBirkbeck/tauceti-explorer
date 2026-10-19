@@ -4,7 +4,7 @@ This roadmap extends **GlobalGaloisDeformations** after its deformation functors
 
 The proof has two different lifting problems. Doubling constructs compatible finite-level lifts with carefully controlled new ramification, but the union of their ramification sets can be infinite. Relative Selmer images then allow a second induction over one finite set of places. Its vanishing criterion concerns the image of a higher-coefficient Selmer group in residual cohomology; replacing it by the full residual Selmer group changes the argument.
 
-**Open mathematical inputs.** All eleven layers have a target-level plan. Five explicit gaps delimit the proposed proof; no layer is closed and every target remains unchecked. In particular, the unconditional all-primes/all-basis auxiliary-field assertion in FKP22 arXiv v5 Lemma 3.7 has the counterexample given under [G1](#g1). The main lifting theorem is an intended endpoint whose proof requires a replacement for that assertion. The counterexample does not refute the main theorem, since it fails one of its additional residual conditions. The exact supplier contracts and all source corrections are part of this specification.
+**Open mathematical inputs.** All eleven layers have a target-level plan. Six explicit gaps delimit the proposed proof; no layer is closed and every target remains unchecked. In particular, the unconditional all-primes/all-basis auxiliary-field assertion in FKP22 arXiv v5 Lemma 3.7 has the counterexample given under [G1](#g1). The main lifting theorem is an intended endpoint whose proof requires a replacement for that assertion. That counterexample fails one of the main theorem’s additional residual conditions, but the independent review found the same failure under all of them when M* has a repeated constituent; the main theorem is not refuted, and its proof needs the repair. The exact supplier contracts and all source corrections are part of this specification.
 
 ## Conventions and ownership
 
@@ -21,9 +21,10 @@ The four residual conditions are C1: H⁰(Γ_F,M)=0; C2: H⁰(Γ_F,M*)=0; C3: no
 | Continuous H¹, orbit spans, linear images | The six pinned declarations below; arithmetic coefficient and Galois comparisons are supplied by ArithmeticGaloisDuality and ArithmeticGaloisRepresentations. |
 | Framed local rings, generic components, potentially semistable and ordinary loci | LocalGaloisDeformationRings R08.1–3 and L7. Their root cocycle lattices and analytic neighborhoods are requested exports, not new rings here. |
 | Poitou–Tate, local Tate duality, global cardinality formulas, Selmer kernels | ArithmeticGaloisDuality R02.1–5 and D7. The positive-characteristic extensions are the precise obligation G3. |
-| Roots, parabolics, exponentials, centralizers and classification | Current ReductiveGroups layers 7–8; the analytic addition and congruence/tree imports use current ReductiveGroupsPartII RG2.0 and RG2.2. |
+| Roots, parabolics, Levi decompositions and classification | Current ReductiveGroups layers 7–8, as stated there. Large-prime exponentials, good-characteristic centralizers, G-semisimplification and finite-field root position are outside that scope and form gap G6. |
+| Congruence subgroups, the lattice tree, compact analytic groups and Lazard cohomology | Current ReductiveGroupsPartII RG2.0 and RG2.2, cited as they stand; p-valued subgroups from LocallyAnalyticDistributionsPartII ND.0, Lazard’s resolution and Lie comparison from NoncommutativeAndEquivariantIwasawa NE.0, semisimple Lie-algebra vanishing from AutomorphicFormsOnReductiveGroups AF.1a. |
 | Pro-p Frattini generation and Chebotarev | Current ProfiniteProPGroups layer 3; current Chebotarev layer 10 and FunctionFieldArithmetic FA.5. |
-| Modular, ordinary lifting, Lafforgue and compatible-system theorems | Their existing automorphic owners, listed contract by contract below. This roadmap proves the lifting-specific implications and retains their hypotheses. |
+| Modular, ordinary lifting, Lafforgue and compatible-system theorems | Their existing automorphic owners, cited at node level where an exact node exists (Skinner–Wiles and Pan, Khare–Wintenberger, Deligne–Serre, Lafforgue, ModularityAndLanglandsExtensions ML.2, PotentialAutomorphyInfrastructurePartII PL.7) and otherwise contract by contract below. This roadmap proves the lifting-specific implications and retains their hypotheses. |
 
 ## Pinned baseline and existing upstream work
 
@@ -66,7 +67,7 @@ The nine-roadmap comparison uses bounded searches followed by reading the releva
 | GG2.7 — Levi-valued residual representations | 8 | 5 | planned |
 | GG2.8 — Actual reductions of modular forms | 11 | 6 | planned |
 | GG2.9 — Automorphy over function fields | 5 | 4 | planned |
-| GG2.10 — Symplectic compatible systems and conditional scope | 5 | 4 | planned |
+| GG2.10 — Symplectic compatible systems and conditional scope | 4 | 3 | planned |
 
 An acceptance check below is a mathematical requirement for the future implementation, not a claim that the stated theorem has been formalized. Every definition and construction has a reusable API and three regression tests. The proof outlines are target-level chains: named supplier results are explicit inputs, and smaller arguments remain within the target that uses them. All source locators use the editions in the bibliography.
 
@@ -92,7 +93,7 @@ A lifting datum consists of a global field F of characteristic different from p,
 2. Use the prime-to-p central isogeny to identify its infinitesimal kernel with Lie(G^der).
 3. Use the invariant trace form only under the prime hypotheses to identify M∨ with M; keep its Tate twist visible.
 
-**Source:** FKP22, §2, p.9; §1.2, pp.5–6; FKP19 Assumption 2.1, pp.9–10. These conventions specify the global parameters and the coefficient module for the lifting proof.
+**Source:** FKP22, §2, p.9; §1.2, pp.5–6; FKP19 Assumption 2.1, p.14. These conventions specify the global parameters and the coefficient module for the lifting proof.
 
 **Uses that determine the API.**
 
@@ -213,7 +214,7 @@ A finite place w outside S is trivial when ρ̄|Γ_{F_w}=1 and q_w≡1 mod p. Fi
 1. Interpret triviality as complete splitting in K.
 2. Use the existing local tame-quotient description and the vanishing of coboundaries for trivial action.
 
-**Source:** FKP22, Definition 3.2 and Remark 3.3, p.11; FKP19 Notation 5.1, pp.26–27. Triviality and the decomposition choices make the specified evaluation conditions meaningful.
+**Source:** FKP22, Definition 3.2 and Remark 3.3, p.11; FKP19 Notation 5.1, pp.25–26. Triviality and the decomposition choices make the specified evaluation conditions meaningful.
 
 **Uses that determine the API.**
 
@@ -254,7 +255,7 @@ If the finite Γ_F-module V is trivial over K and z∈H¹(Γ_F,V), define K_z/K 
 2. Compare changing representatives and prove equivariance directly from the cocycle identity.
 3. Express strong disjointness by the restriction isomorphism, not just pairwise intersections.
 
-**Source:** FKP22, §1.3, pp.7–8; Lemma 3.7, pp.15–16; FKP19 Notation 5.1, pp.26–27. The proof uses cocycle images and disjointness of entire finite families.
+**Source:** FKP22, §1.3, pp.7–8; Lemma 3.7, pp.15–16; FKP19 Notation 5.1, pp.25–26. The proof uses cocycle images and disjointness of entire finite families.
 
 **Uses that determine the API.**
 
@@ -316,7 +317,7 @@ For a finite Galois K/F containing μ_p, D_cyc is finite and Gal(K∞/K)≅Z_p. 
 2. Gal(K_z/K) is killed by p, so any procyclic quotient has order at most p.
 3. Apply trivial conjugation in an abelian compositum.
 
-**Source:** FKP22, §3, pp.11,13; FKP19 Notation 5.1, pp.26–27. Only the first degree-p cyclotomic layer can obstruct unrestricted norm prescriptions.
+**Source:** FKP22, §3, pp.11,13; FKP19 Notation 5.1, pp.25–26. Only the first degree-p cyclotomic layer can obstruct unrestricted norm prescriptions.
 
 **Checks.**
 
@@ -667,7 +668,7 @@ Let ρ̄ take values in B(k)=T(k)U(k), U_ρ̄=im ρ̄∩U(k), and u_ρ̄ the k-s
 
 - For a torus-valued SL₂ representation with quadratic diagonal character the root is trivial; its full sl₂ invariants must be detected.
 
-**Layer acceptance:** G2: read the exact Guralnick small-representation theorem. G4: resolve the polarized G_n coefficient convention at its owner. Confirm corrected classical and character criteria independently.
+**Layer acceptance:** G2: read the exact Guralnick small-representation theorem. G4: resolve the polarized G_n coefficient convention at its owner. G6: obtain an owner for the large-prime exponential, centralizer and G-semisimplification inputs. Confirm corrected classical and character criteria independently.
 
 ## Layer GG2.2: Cyclic ramification classes
 
@@ -721,11 +722,11 @@ Under C4 there is a finite set T⊃S of trivial primes such that Sha¹_T(M*)=ker
 
 **Hypotheses and conventions.** For number fields include the archimedean convention and the places above p in the global duality input.
 
-**Needs:** [GG2.0/residual-conditions](#residual-conditions); [GG2.0/cocycle-fields](#cocycle-fields); `ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence`; `ArithmeticGaloisDuality:R02.4/poitou-tate`; `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`; `FunctionFieldArithmetic:FA.5`; `ArithmeticGaloisDuality:R02.5`.
+**Needs:** [GG2.0/residual-conditions](#residual-conditions); [GG2.0/cocycle-fields](#cocycle-fields); `ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence`; `ArithmeticGaloisDuality:R02.4/poitou-tate`; `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`; `FunctionFieldArithmetic:FA.5`; `ArithmeticGaloisDuality:R02.5`; `tauceti:TauCeti.ContCohomology.explicitInfRes_exact`.
 
 **Construction or proof.**
 
-1. Inflation–restriction and C4 inject a nonzero dual class into Hom(Γ_K,M*).
+1. Inflation–restriction (the pinned explicitInfRes_exact for the open normal subgroup Γ_K) and C4 inject a nonzero dual class into Hom(Γ_K,M*).
 2. Choose a nonzero evaluation and realize it by Frobenius at a prime split in K.
 3. Adding that prime decreases the finite-dimensional Sha¹; iterate and invoke Poitou–Tate.
 
@@ -918,8 +919,9 @@ Fix finitely many new primes w. Put L_w=∏_b K_{η_b^(w)}. For each fixed w the
 - Test M*=F_p(κ̄)³ with F=Q and trivial SL₂ residual representation. For two basis indices identify their cyclic lines and put ζ_w=η_1^(w)−η_2^(w). This class is unramified at w and lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)).
 - Two distinct new primes w,w′ have ζ_w=ζ_w′. The resulting nonzero relation among four scalar cocycles persists on Γ_K, since H¹(Gal(Q(μ_p)/Q),F_p(κ̄))=0. Their four degree-p fields therefore cannot be strongly disjoint.
 - This example satisfies Assumption 3.1 but fails C1. It refutes the lemma in its stated scope, without refuting Theorem 5.2.
+- The failure is not confined to C1-failing data. Let k=F_p and suppose M* is semisimple with a simple constituent of multiplicity at least two, as for the F₄-valued residual images of FKP19 Proposition 7.8 (image A₆ or PSL₂(F₁₃), with adjoint multiplicities above one by FKP19 Remark 7.9), which satisfy C1–C4. For every k-basis the F_p[Γ_F]-span of the inertia tuple (e_b*)_b has that constituent with multiplicity at most its dimension, while ∏_b M*_{e_b*} has it with multiplicity at least the number of basis vectors meeting its isotypic part. So the inertia at w generates a proper submodule, L_w has a nontrivial subextension E_w unramified at w, and E_w lies in the finite maximal elementary abelian p-extension of K unramified outside T. Hence E_w=E_w′ for some w≠w′ and L_w∩L_w′≠K.
 
-**Layer acceptance:** G1: repair the all-primes/all-basis marked-field claim and establish the quantitative input needed for doubling. G3: positive-characteristic duality exports.
+**Layer acceptance:** G1: repair the all-primes/all-basis marked-field claim, which also fails under C1–C4 when M* has repeated constituents, and establish the quantitative input needed for doubling. G3: positive-characteristic duality exports. G6(iv): finite-field root position.
 
 ## Layer GG2.3: Doubling and controlled finite-level lifts
 
@@ -943,7 +945,7 @@ After choosing T with Sha²_T(M)=0, a residual fixed-μ representation that has 
 2. Restrict to each local μ-lift to show it lies in Sha².
 3. Kill it, then adjust the torsor of lifts by H¹.
 
-**Source:** FKP22, Beginning of §3.2 and Proposition 3.8, pp.16–17. The locally trivial obstruction argument precedes the doubling construction.
+**Source:** FKP22, Paragraph after Lemma 3.7 and Proposition 3.8, p.16 (v5 has no §3.2). The locally trivial obstruction argument precedes the doubling construction.
 
 **Checks.**
 
@@ -991,7 +993,7 @@ Let W be a free O/ϖ^r-module with trivial local action, q_w≡1 mod ϖ^r, and W
 2. Evaluate an unramified character on the geometric Frobenius image of a uniformizer.
 3. Use graded commutativity for the swapped term.
 
-**Source:** FKP19, FKP19 Lemma 3.9, p.19; FKP22 §3.2, pp.17–18. The calibrated sign is needed when the primal and dual Frobenius conditions are exchanged.
+**Source:** FKP19, FKP19 Lemma 3.9, p.19; FKP22 proof of Proposition 3.8, pp.16–18. The calibrated sign is needed when the primal and dual Frobenius conditions are exchanged.
 
 **Checks.**
 
@@ -1072,7 +1074,7 @@ Assume C1,C3,C4 and specified local μ-lifts λ_v for v∈S. For every prescribe
 
 - For e=2,D_cyc=1 the fixed first noncentral level is 3. Increasing the relative depth M does not change that cutoff.
 
-**Layer acceptance:** G1: establish conditional-success estimates in the actual auxiliary-field composita before applying doubling or its controlled tower.
+**Layer acceptance:** G1: establish conditional-success estimates in the actual auxiliary-field composita before applying doubling or its controlled tower. G6(iv): general-position toral elements.
 
 ## Layer GG2.4: Relative local conditions and Selmer images
 
@@ -1135,7 +1137,7 @@ Suppose the preimages Z_{r,v} of L_{r,v} contain B¹ and fit into 0→Z_{a,v}→
 2. Use absence of residual invariants for uniqueness of the global preimage.
 3. Dualize the coefficient maps using local Tate pairings; reverse their order.
 
-**Source:** FKP19, FKP19 Lemma 6.1 and proof, pp.43–45. The proof provides middle exactness, not automatic surjectivity of a Selmer reduction.
+**Source:** FKP19, FKP19 Lemma 6.1 and proof, pp.44–45. The proof provides middle exactness, not automatic surjectivity of a Selmer reduction.
 
 **Checks.**
 
@@ -1173,16 +1175,16 @@ Let Γ be a compact p-adic analytic group with semisimple Lie algebra and let V 
 
 **Hypotheses and conventions.** Use a sufficiently small open analytic subgroup and transfer across its finite index; a reductive Lie algebra with nonzero center does not meet the stated semisimple hypothesis.
 
-**Needs:** `ArithmeticGaloisDuality:R02.5`; `ArithmeticGaloisDuality:R02.1`; `ReductiveGroupsPartII:RG2.0`.
+**Needs:** `ArithmeticGaloisDuality:R02.5`; `ArithmeticGaloisDuality:R02.1`; `ReductiveGroupsPartII:RG2.0`; `LocallyAnalyticDistributionsPartII:ND.0`; `NoncommutativeAndEquivariantIwasawa:NE.0`; `AutomorphicFormsOnReductiveGroups:AF.1a`.
 
 **Construction or proof.**
 
-1. Use the compact-group finite-generation theorem for H^i(Γ,V) and the continuous coefficient long exact sequence.
-2. Identify rational cohomology with Lie algebra cohomology on a sufficiently small subgroup, then take finite-quotient invariants.
-3. Semisimple Lie algebra cohomology with no invariants vanishes; for the H¹ bound only Whitehead H¹,H² is required.
-4. Finite generation makes the resulting torsion bounds uniform in r.
+1. Choose an open normal p-valued subgroup of finite index (requested from LocallyAnalyticDistributionsPartII ND.0; for open subgroups of G(O) the deep congruence subgroups of upstream RG2.0.3).
+2. On it, use the finite free resolution over the completed group ring and the Ext description of continuous cohomology (requested from NoncommutativeAndEquivariantIwasawa NE.0) to get finite generation of H^i(Γ,V) and a bounded complex computing all H^i(Γ,V/ϖ^r).
+3. Identify rational cohomology with Lie-algebra cohomology on that subgroup (Lazard V (2.4.10), requested from NE.0) and apply semisimple Lie-algebra vanishing, with only Whitehead H¹,H² in the degree-one statement (requested from AutomorphicFormsOnReductiveGroups AF.1a).
+4. Finite generation and the universal-coefficient sequence of the bounded complex make the torsion exponent independent of r; pass to Γ through finite-index invariants (Hochschild–Serre).
 
-**Source:** FKP19, FKP19 Proposition B.1, pp.64–65; Lazard V, Theorems 2.2.2.3, 2.2.3.1 and 2.4.10, pp.165–166,178–179. The analytic comparison is an explicit prerequisite of the uniform finite-coefficient bound.
+**Source:** FKP19, FKP19 Lemma B.1 and proof, p.64; Lazard V, Theorems 2.2.2.3, 2.2.3.1 and 2.4.10, pp.165–166,178–179. The analytic comparison is an explicit prerequisite of the uniform finite-coefficient bound.
 **Source:** Lazard65, III Proposition 3.1.3, pp.91–92; III Theorem 3.1.7.4, p.94; V §§2.2.2–2.2.3, pp.165–166 and Theorem 2.4.10, pp.178–179. Small analytic groups admit the finite completed-group-algebra resolution and rational cohomology comparison; pass to the full group through finite-index invariants.
 
 **Checks.**
@@ -1205,7 +1207,7 @@ For Γ,V as in the compact Lie bound, assume H⁰(Γ,V/ϖ)=0. For every m≥1 th
 2. Apply the uniform torsion exponent.
 3. Apply the bound to the full compact group, not only to its connected component preimage.
 
-**Source:** FKP19, FKP19 Corollary B.2, pp.65–66; FKP22 §5, pp.23–24. The full Galois image is necessary when disconnected components remove adjoint invariants.
+**Source:** FKP19, FKP19 Corollary B.2 and proof, p.64; FKP22 §5, pp.23–24. The full Galois image is necessary when disconnected components remove adjoint invariants.
 
 **Checks.**
 
@@ -1269,7 +1271,7 @@ At w∈Q_N let Z^α_{r,w} be the local cocycle lattice of FKP19 Lemma 3.5 for th
 2. Take its H¹ image and the local annihilator.
 3. Use the generator formula to prove coefficient exactness and cardinalities.
 
-**Source:** FKP19, FKP19 Lemmas 3.5 and 6.7, pp.13–16,46–47. The lattice controls finite lifting fibers even when the local residual representation is trivial.
+**Source:** FKP19, FKP19 Lemmas 3.5 and 6.7, pp.17–18,46–47. The lattice controls finite lifting fibers even when the local residual representation is trivial.
 
 **Uses that determine the API.**
 
@@ -1317,7 +1319,7 @@ At each prescribed O-valued local lift lying at a smooth point of the generic lo
 
 - For a smooth fixed-determinant GL₂ point away from p the quotient tangent condition has cardinality |H⁰_v(sl₂_r)|. At a p-adic place multiply by |O/ϖ^r|^{[F_v:Q_p]}.
 
-**Layer acceptance:** G3: function-field duality and cocycle comparisons. Obtain the stated local lifting lattices and compact analytic comparison from their owners.
+**Layer acceptance:** G3: function-field duality and cocycle comparisons. Obtain the stated local lifting lattices from LocalGaloisDeformationRings, the p-valued subgroups from LocallyAnalyticDistributionsPartII ND.0, Lazard’s resolution and Lie comparison from NoncommutativeAndEquivariantIwasawa NE.0, and semisimple Lie-algebra vanishing from AutomorphicFormsOnReductiveGroups AF.1a.
 
 ## Layer GG2.5: Auxiliary primes and relative Selmer annihilation
 
@@ -1366,7 +1368,7 @@ For a split simple group H over finite k and sufficiently large p depending only
 4. Lift through the smooth group and use the congruence Lie action to pass through higher coefficient levels.
 5. For sl₂ check the three failure cases by explicit unipotent and Weyl conjugations.
 
-**Source:** FKP19, FKP19 proof of Proposition 6.8, pp.48–49; FKP22 proof of Corollary 5.5, pp.26–27. The finite-field counting argument is the key Lie-theoretic prerequisite for simultaneous detection.
+**Source:** FKP19, FKP19 Proposition 6.8 and proof, pp.47–49; FKP22 proof of Corollary 5.5, pp.26–27. The finite-field counting argument is the key Lie-theoretic prerequisite for simultaneous detection.
 
 **Checks.**
 
@@ -1447,7 +1449,7 @@ The fixed-multiplier lifting problem reduces, through G/Z⁰_{G⁰}, to its π�
 
 - For two simple factors exchanged by π₀(G), one must work with their orbit and common component quotient. Independent direct products would lose that quotient.
 
-**Layer acceptance:** Inherits G1 through the starting tower and G3 through global comparisons; obtain exact local root lattices and duality exports.
+**Layer acceptance:** Inherits G1 through the starting tower and G3 through global comparisons; obtain exact local root lattices and duality exports. G6(ii),(iv) enter the simultaneous root-position theorem.
 
 ## Layer GG2.6: Finitely ramified characteristic-zero lifts
 
@@ -1470,7 +1472,7 @@ After level-M relative dual Selmer vanishing, the controlled lift can be extende
 3. Modify by a primal level-M cohomology class while preserving the chosen local lifting fibers.
 4. Induct with a moving M-level buffer and take the inverse limit of the τ_n.
 
-**Source:** FKP19, FKP19 Claim 6.14, pp.52–55; FKP22 proof of Theorem 5.2, pp.24–25. Compatibility is imposed on the retained τ_n, not on every deeper auxiliary lift.
+**Source:** FKP19, FKP19 Claim 6.14 and proof, pp.53–55; FKP22 proof of Theorem 5.2, pp.24–25. Compatibility is imposed on the retained τ_n, not on every deeper auxiliary lift.
 
 **Checks.**
 
@@ -1519,7 +1521,7 @@ Let the lifting datum satisfy C1–C4, with p sufficiently large depending only 
 4. Retain a level above N₁ to force the full congruence image.
 5. Track local neighborhoods, coefficient extension, avoidance, and component membership throughout.
 
-**Source:** FKP22, Theorem 5.2 (Theorem E) and proof, pp.23–25; Remark 5.7, p.27. This is the main target; the coefficient field can be fixed independently of the requested approximation depth.
+**Source:** FKP22, Theorem 5.2 (Theorem E) and proof, pp.23–25; footnotes 6–7, pp.23–24 (v5 has no Remark 5.7). This is the main target; the coefficient field can be fixed independently of the requested approximation depth.
 
 **Checks.**
 
@@ -1564,7 +1566,7 @@ For any number field F and a lifting datum satisfying C1–C4, replace oddness a
 2. Replace equality of Selmer cardinalities by the inequality required for the same annihilation argument, accounting for the actual infinite places.
 3. Carry out the finite-ramification construction and full-image argument.
 
-**Source:** FKP22, Theorem 5.6, p.27; FKP19 Theorem 6.21, pp.58–59. The larger local tangent spaces replace the oddness-based balance.
+**Source:** FKP22, Theorem 5.6, p.27; FKP19 Theorem 6.21, pp.56–57. The larger local tangent spaces replace the oddness-based balance.
 
 **Checks.**
 
@@ -1577,6 +1579,8 @@ For any number field F and a lifting datum satisfying C1–C4, replace oddness a
 **Target:** `GlobalGaloisDeformationsPartII:GG2.6/irreducible-specialisation` (comparison).
 
 For F totally real, an odd residual representation whose restriction to Γ_{F̃(ζ_p)} is absolutely G⁰-irreducible, with [F̃(ζ_p):F̃]>a_G and the prescribed regular local μ-lifts, satisfies the residual hypotheses of the main theorem for p≫G. It therefore has the finitely ramified geometric lift and local approximation of FKP19 Theorem 6.11. Here F̃ is the component splitting field, not the full residual field.
+
+**Hypotheses and conventions.** This specialization inherits gap G1 through the main geometric lifting theorem: the failure of FKP22 Lemma 3.7 also occurs for some absolutely irreducible residual images (see E45). FKP19 Theorem 6.11 has its own proof, through the field K′ of FKP19 Definition 5.8, p.29, which avoids Lemma 3.7; that route is not planned in this roadmap.
 
 **Needs:** [GG2.1/irreducible-image-input](#irreducible-image-input); [GG2.1/cyclic-quotient-bound](#cyclic-quotient-bound); [GG2.1/cyclotomic-exclusion](#cyclotomic-exclusion); [GG2.6/main-geometric-lift](#main-geometric-lift); `ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence`.
 
@@ -1779,9 +1783,9 @@ Let r be the absolutely irreducible residual representation of a classical newfo
 
 **Checks.**
 
-- The four Hodge–Tate weights 0,r−1,w,w−r+1 are distinct exactly when w avoids 0,r−1,2r−2 (for r>1). The character separation depends on δ.
+- The four Hodge–Tate weights 0,a−1,w,w−a+1 are distinct exactly when w avoids 0,a−1,2a−2 (for a≥2). The character separation depends on δ.
 
-**Layer acceptance:** Inherits the main lifting gaps; check all local multiplier corrections, cocharacter lifts and actual-image invariant arguments.
+**Layer acceptance:** Inherits the main lifting gaps; check all local multiplier corrections, cocharacter lifts and actual-image invariant arguments. G6(i),(iii): exponential and G-semisimplification inputs.
 
 ## Layer GG2.8: Actual reductions of modular forms
 
@@ -1880,7 +1884,7 @@ For F=Q, r≥2 and the odd residual extension of 1 by χ̄, set μ=κ^{r−1}[χ
 
 Every continuous odd ρ̄:Γ_Q→GL₂(k) has semisimplification isomorphic to the semisimplification of a reduction of a newform representation of some weight r≥2 and level N. In the irreducible case use Serre modularity; in the reducible case use an Eisenstein eigenform, make it cuspidal modulo p and apply Deligne–Serre lifting. This gives no control of the original extension class or a prescribed weight and level.
 
-**Needs:** `ClassicalSerreModularity:R27.6`; `AlgebraicModularFormsAndSerreWeights:R15.5`; `AlgebraicModularFormsAndSerreWeights:R15.4`; `AutomorphicGaloisRepresentations:R19.1`.
+**Needs:** `ClassicalSerreModularity:R27.6/full-classical-serre-theorem`; `AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma`; `AlgebraicModularFormsAndSerreWeights:R15.4`; `AutomorphicGaloisRepresentations:R19.1`.
 
 **Construction or proof.**
 
@@ -1902,21 +1906,25 @@ Every continuous odd ρ̄:Γ_Q→GL₂(k) has semisimplification isomorphic to t
 
 For p≥3 and a continuous residual representation ρ̄:Γ_{Q,S}→GL₂(k) that is an extension of 1 by χ̄ with χ̄(c)=−1 and χ̄≠κ̄⁻¹, the actual representation is modular. For every r≥2 it is modular of weight r at some level; at r=k(ρ̄|Γ_Qp), Serre’s local weight, it is modular at a level prime to p. Split extensions are included.
 
-**Needs:** [GG2.8/actual-modularity](#actual-modularity); [GG2.8/gl2-residual-criteria](#gl2-residual-criteria); [GG2.8/global-determinant-match](#global-determinant-match); [GG2.6/sl2-prime-bound](#sl2-prime-bound); [GG2.7/levi-residual-lattice](#levi-residual-lattice); [GG2.7/full-unipotent-extension](#full-unipotent-extension); `OrdinaryAutomorphicFormsAndModularityLifting:R21.5`; `GL2ModularityLifting:R32.4`; `AutomorphicGaloisRepresentations:R19.5`; `AlgebraicModularFormsAndSerreWeights:R15.4`; `LocalGaloisDeformationRings:L7`.
+**Hypotheses and conventions.** The case χ̄|Γ_Qp=1 occurs for every odd p, including p=3 (for example χ̄ the odd quadratic character of Q(√−2), trivial on Γ_Q₃ since 3 splits there, and different from κ̄⁻¹). Pan’s theorem covers it: its only p=3 exclusion is a residual character ratio equal to ω on Γ_Q₃, which does not meet χ̄|Γ_Q₃=1. No p≥5 restriction is needed.
+
+**Needs:** [GG2.8/actual-modularity](#actual-modularity); [GG2.8/gl2-residual-criteria](#gl2-residual-criteria); [GG2.8/global-determinant-match](#global-determinant-match); [GG2.6/sl2-prime-bound](#sl2-prime-bound); [GG2.7/levi-residual-lattice](#levi-residual-lattice); [GG2.7/full-unipotent-extension](#full-unipotent-extension); `AutomorphicGaloisRepresentations:R19.5`; `AlgebraicModularFormsAndSerreWeights:R15.4`; `LocalGaloisDeformationRings:L7`; `OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q`; `GL2ModularityLifting:R32.4/pan-residually-reducible-fontaine-mazur`.
 
 **Construction or proof.**
 
 1. For a nonsplit extension verify C1–C4 directly.
 2. Choose the ordinary local component with the normalized determinant and desired weights; at Serre weight choose the crystalline component.
 3. Apply the sl₂ geometric lifting theorem, ensuring irreducibility by full derived image.
-4. Apply the precise Skinner–Wiles modularity theorem if χ̄|Γ_Qp≠1 and the Pan variant in the remaining permitted case; local–global compatibility identifies weight and p-level.
+4. Apply the exported Skinner–Wiles theorem over Q (OrdinaryAutomorphicFormsAndModularityLifting R21.5/theorem-a-over-q: χ̄|D_p≠1, ordinary shape (∗ ∗; 0 1) on inertia, determinant ψκ^{r−1} with ψ of finite order) if χ̄|Γ_Qp≠1, and Pan’s theorem (GL2ModularityLifting R32.4/pan-residually-reducible-fontaine-mazur) if χ̄|Γ_Qp=1, for every odd p; local–global compatibility identifies weight and p-level.
 5. For a split extension first create a nonsplit residual extension, apply the same construction and change its residual lattice to the split Levi projection.
 
 **Source:** FKP22, Theorem 7.4 (Theorem B) and proof, pp.35–36. The newform matches the full residual representation with the stated weight and level conclusions.
+**Source:** Pan22, Introduction, Theorem 1.0.2, p.3 (arXiv:1901.07166v2). The residually reducible Fontaine–Mazur theorem for odd p, with its single p=3 exclusion of a cyclotomic residual ratio at 3; this is the statement of the cited supplier node.
 
 **Checks.**
 
 - For a nonsplit odd extension with χ̄=κ̄⁻¹ the theorem does not apply. At Serre weight the crystalline local component gives the p-prime level conclusion.
+- At p=3 with χ̄ the quadratic character of Q(√−2), χ̄ is odd, trivial on Γ_Q₃ and different from κ̄⁻¹, so the theorem applies and uses the Pan case; a p≥5 restriction on that case would wrongly exclude it.
 
 <a id="hamblen-ramakrishna-comparison"></a>
 
@@ -1947,7 +1955,7 @@ The reducible modularity theorem implies the earlier Hamblen–Ramakrishna state
 
 Over a totally real F, a nonsplit odd extension of 1 by χ̄≠κ̄⁻¹ with the local ordinary μ-lifts admits the geometric irreducible lift of the sl₂ theorem. Whenever the hypotheses of the exported Skinner–Wiles theorem over F hold for that lift, it is Hilbert modular and its original integral lattice realizes the actual residual representation. This does not assert modularity over every totally real field without the modularity theorem’s extra hypotheses.
 
-**Needs:** [GG2.8/gl2-residual-criteria](#gl2-residual-criteria); [GG2.6/sl2-prime-bound](#sl2-prime-bound); `OrdinaryAutomorphicFormsAndModularityLifting:R21.5`; `AutomorphicGaloisRepresentations:R19.1`.
+**Needs:** [GG2.8/gl2-residual-criteria](#gl2-residual-criteria); [GG2.6/sl2-prime-bound](#sl2-prime-bound); `OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a`; `AutomorphicGaloisRepresentations:R19.1`.
 
 **Construction or proof.**
 
@@ -2054,7 +2062,7 @@ For a fixed odd χ̄, one can choose a finite quotient of Γ_{Q,S} with dim H¹(
 
 - An infinite projective extension family and a finite fixed-level set leave infinitely many classes outside that one level. This is not a claim that one uniform level realizes the family.
 
-**Layer acceptance:** Inherits G1 for the geometric lifting input. Obtain the exact Skinner–Wiles/Pan and ordinary/crystalline determinant contracts; verify the corrected stronger weight/level conclusions.
+**Layer acceptance:** Inherits G1 for the geometric lifting input. Obtain the ordinary/crystalline determinant contracts; the Skinner–Wiles and Pan inputs are the existing supplier nodes, with Pan covering p=3. Verify the corrected stronger weight/level conclusions.
 
 ## Layer GG2.9: Automorphy over function fields
 
@@ -2068,7 +2076,7 @@ Define automorphy of an actual residual representation via an integral irreducib
 
 For a global function field F of characteristic ℓ≠p, Automorphic(ρ̄) means that there are a cuspidal automorphic representation π of GL_n(A_F) with finite-order central character, an identification C≅Q̄_p, a finite coefficient field E, a stable O_E-lattice in its Lafforgue representation, and a residual embedding giving an isomorphism of the full lattice reduction with ρ̄ over k̄. Equivalently via the imported Langlands correspondence, ρ̄ has an integral lift that is irreducible, finitely ramified and has finite-order determinant.
 
-**Needs:** `GlobalShtukasAndFunctionFieldLanglands:GS.6`; `ArithmeticGaloisRepresentations:R01.1`.
+**Needs:** `GlobalShtukasAndFunctionFieldLanglands:GS.6/the-global-correspondence-for-gl-r`; `ArithmeticGaloisRepresentations:R01.1`.
 
 **Construction or proof.**
 
@@ -2106,7 +2114,7 @@ For a global function field F of characteristic ℓ≠p, Automorphic(ρ̄) means
 
 For F a global function field of characteristic ℓ≠p, p≫n and ρ̄:Γ_{F,S}→GL_n(k) satisfying C1–C4, the actual residual representation is automorphic. Choose the fixed determinant to be the Teichmüller lift of detρ̄, hence finite order. Equal-characteristic local lifts exist, and since p∤n their determinants can be corrected by an n-th root in 1+ϖO.
 
-**Needs:** [GG2.9/actual-function-field-automorphy](#actual-function-field-automorphy); [GG2.6/main-geometric-lift](#main-geometric-lift); `LocalGaloisDeformationRings:R08.2/equal-characteristic-local-lifts`; `GlobalShtukasAndFunctionFieldLanglands:GS.6`; `ArithmeticGaloisDuality:R02.4/poitou-tate`; `FunctionFieldArithmetic:FA.5`.
+**Needs:** [GG2.9/actual-function-field-automorphy](#actual-function-field-automorphy); [GG2.6/main-geometric-lift](#main-geometric-lift); `LocalGaloisDeformationRings:R08.2/equal-characteristic-local-lifts`; `GlobalShtukasAndFunctionFieldLanglands:GS.6/the-global-correspondence-for-gl-r`; `ArithmeticGaloisDuality:R02.4/poitou-tate`; `FunctionFieldArithmetic:FA.5`.
 
 **Construction or proof.**
 
@@ -2153,7 +2161,7 @@ Let ρ̄ be an extension of absolutely irreducible r₂ by r₁ of dimensions n�
 
 **Hypotheses and conventions.** For the nonsplit case, noninjectivity of the image projection to the Levi must be proved, using complete reducibility of small finite-group representations.
 
-**Needs:** [GG2.1/maximal-separation](#maximal-separation); [GG2.1/maximal-parabolic-criteria](#maximal-parabolic-criteria); [GG2.7/full-unipotent-extension](#full-unipotent-extension); [GG2.7/levi-residual-lattice](#levi-residual-lattice); [GG2.9/function-field-automorphy](#function-field-automorphy); `ArithmeticGaloisRepresentations:G7`; `GlobalShtukasAndFunctionFieldLanglands:GS.6`.
+**Needs:** [GG2.1/maximal-separation](#maximal-separation); [GG2.1/maximal-parabolic-criteria](#maximal-parabolic-criteria); [GG2.7/full-unipotent-extension](#full-unipotent-extension); [GG2.7/levi-residual-lattice](#levi-residual-lattice); [GG2.9/function-field-automorphy](#function-field-automorphy); `ArithmeticGaloisRepresentations:G7`; `GlobalShtukasAndFunctionFieldLanglands:GS.6/the-global-correspondence-for-gl-r`.
 
 **Construction or proof.**
 
@@ -2176,7 +2184,7 @@ Let ρ̄ be an extension of absolutely irreducible r₂ by r₁ of dimensions n�
 
 Let ρ̄=⊕_{i=1}^r r_i with r>1, each r_i absolutely irreducible of dimension n_i, p≫Σn_i, and r_i≄r_jψ for all i≠j and ψ∈{1,κ̄,κ̄⁻¹}. For χ_ij=(det r_i)^{n_j}(det r_j)^{−n_i}, require the joint condition [F(ζ_p):F(ζ_p)∩F(χ_ij:i≠j)]>b(n). Then ρ̄ is automorphic. Separate lower bounds for the pairwise fields do not replace the joint condition.
 
-**Needs:** [GG2.1/block-criteria](#block-criteria); [GG2.7/remove-invariants](#remove-invariants); [GG2.7/levi-residual-lattice](#levi-residual-lattice); [GG2.9/function-field-automorphy](#function-field-automorphy); `GlobalShtukasAndFunctionFieldLanglands:GS.6`.
+**Needs:** [GG2.1/block-criteria](#block-criteria); [GG2.7/remove-invariants](#remove-invariants); [GG2.7/levi-residual-lattice](#levi-residual-lattice); [GG2.9/function-field-automorphy](#function-field-automorphy); `GlobalShtukasAndFunctionFieldLanglands:GS.6/the-global-correspondence-for-gl-r`.
 
 **Construction or proof.**
 
@@ -2190,7 +2198,7 @@ Let ρ̄=⊕_{i=1}^r r_i with r>1, each r_i absolutely irreducible of dimension 
 
 - For three blocks the character fields must be combined before taking their intersection with F(ζ_p); pairwise degrees alone do not prove the hypothesis.
 
-**Layer acceptance:** G3 function-field duality and G2 small-representation splitting, plus inherited G1; preserve the Lafforgue finite-determinant contract.
+**Layer acceptance:** G3 function-field duality and G2 small-representation splitting, plus inherited G1; Lafforgue is the existing GS.6 node.
 
 ## Layer GG2.10: Symplectic compatible systems and conditional scope
 
@@ -2222,32 +2230,6 @@ Let F be totally real, p≫n, [F(ζ_p):F]>a_GSp, and ρ̄:Γ_{F,S}→GSp_{2n}(k)
 
 - For n=1 and ξ=(0,0) the ordinary weights are 0,1 under HT(κ)=−1. The similitude κ^{-1} has weight 1 and pairs these weights.
 
-<a id="residual-potential-automorphy-input"></a>
-
-### Potential automorphy with the prescribed Steinberg place
-
-**Target:** `GlobalGaloisDeformationsPartII:GG2.10/residual-potential-automorphy-input` (theorem). **Planet:** Residual potential automorphy.
-
-For the symplectic residual datum above, a suitable finite Galois totally real extension F′/F disjoint from F(ρ̄,ζ_p) admits a weight-zero ordinary self-dual cuspidal automorphic representation π of GL_{2n}(A_{F′}) with residual representation ρ̄|Γ_{F′}, and π_w a twist of Steinberg for every w over v₀ or v₁. The local condition at both selected places must be imposed at every place of the Moret–Bailly extension above them.
-
-**Hypotheses and conventions.** This is the specific residual potential automorphy input to be exported by the potential automorphy owner.
-
-**Needs:** [GG2.10/ordinary-steinberg-lift](#ordinary-steinberg-lift); `ModularityAndLanglandsExtensions:ML.2`; `AutomorphicGaloisRepresentationsPartII:AG2.6`.
-
-**Construction or proof.**
-
-1. Apply the owner’s residual symplectic potential-automorphy theorem.
-2. In its Moret–Bailly construction impose negative Dwork-parameter valuation at all places over both v₀ and v₁ in addition to ordinarity. These are finitely many nonempty local opens.
-3. Use the local monodromy calculation and local–global compatibility to identify Steinberg at every such place.
-
-**Source:** FKP22, Proof of Proposition 9.1, p.42; cited BLGGT14 Theorem 3.1.2, Proposition 3.1.1 and p.549. The source uses potential automorphy from BLGGT, with an additional local condition.
-**Source:** BLGGT14, Proposition 3.1.1, pp.545–546; Theorem 3.1.2 and proof, pp.546–549. The residual symplectic potential-automorphy construction uses prescribed local open conditions in Moret–Bailly.
-**Source:** BLGHT11, Lemma 5.1(2), pp.34–35 (author preprint pagination). A negative valuation of the Dwork parameter gives regular-unipotent tame inertia and the Steinberg Frobenius progression at the auxiliary place.
-
-**Checks.**
-
-- Imposing negative Dwork valuation at just one place above v₀ leaves the other places uncontrolled. Prescribe it at all places above v₀.
-
 <a id="automorphy-lifting-application"></a>
 
 ### The residually reducible automorphy-lifting application
@@ -2256,16 +2238,16 @@ For the symplectic residual datum above, a suitable finite Galois totally real e
 
 Assume additionally that ρ̄ as a GL_{2n}-representation is not induced from a proper subgroup and that each of its GL-constituents remains absolutely irreducible on Γ_{F(ζ_p)}. Choose a quadratic CM L/F and L′=LF′ disjoint from F(ρ̄,ζ_p). Subject to the exact exported ANT20 Theorem 1.1 hypotheses, the ordinary symplectic lift restricted to Γ_{L′} is RACSDC automorphic. Each residual constituent is polarized individually, and the induced action on its adjoint block is x↦−A xᵗA⁻¹; mere existence of a polarization of the whole direct sum does not suffice.
 
-**Hypotheses and conventions.** The constituentwise cyclotomic absolute irreducibility is an added hypothesis correcting Proposition 9.1. Verify all eight ANT hypotheses through the supplier contract; no replacement by a generic automorphy claim.
+**Hypotheses and conventions.** The constituentwise cyclotomic absolute irreducibility is an added hypothesis correcting Proposition 9.1. Verify all eight ANT hypotheses through the supplier contract; no replacement by a generic automorphy claim. The supplier node PotentialAutomorphyInfrastructurePartII:PL.7/residually-reducible-automorphy-lifting states ANT20 Theorem 1.1 with strong primitivity (the residual semisimplification is not the semisimplification of any induced representation), which is stronger than the non-inducedness assumed in FKP22 Proposition 9.1. Either verify strong primitivity for ρ̄|Γ_{L′} or obtain the source’s primitive form from that owner.
 
-**Needs:** [GG2.10/residual-potential-automorphy-input](#residual-potential-automorphy-input); [GG2.10/ordinary-steinberg-lift](#ordinary-steinberg-lift); [GG2.1/cyclic-quotient-bound](#cyclic-quotient-bound); `ModularityAndLanglandsExtensions:ML.2`; `GlobalGaloisDeformations:G7`.
+**Needs:** [GG2.10/ordinary-steinberg-lift](#ordinary-steinberg-lift); [GG2.1/cyclic-quotient-bound](#cyclic-quotient-bound); `ModularityAndLanglandsExtensions:ML.2/potential-automorphy-with-steinberg-place`; `PotentialAutomorphyInfrastructurePartII:PL.7/residually-reducible-automorphy-lifting`; `GlobalGaloisDeformations:G7`.
 
 **Construction or proof.**
 
 1. Use GSp irreducibility to obtain a nondegenerate pairing on every GL constituent, not a pairing that permutes constituents.
 2. Use disjointness to preserve the exact finite residual image and cyclotomic constituent conditions.
 3. Use the cyclic-quotient bound to exclude a p-quotient and supply the required cyclotomic degree conditions.
-4. Combine residual ordinary automorphy, local Steinberg control, regularity and noninduction with the owner’s precise ANT theorem.
+4. Combine residual ordinary potential automorphy with Steinberg components above v₀ and v₁ (ModularityAndLanglandsExtensions ML.2/potential-automorphy-with-steinberg-place, with the requested two-place and ι-ordinary strengthening), regularity and noninduction with the ANT20 theorem of PotentialAutomorphyInfrastructurePartII PL.7, checking its eight hypotheses one by one.
 
 **Source:** FKP22, Proof of Proposition 9.1, pp.42–43; cited ANT20 Theorem 1.1. The theorem applied here is automorphy lifting, and the constituent hypothesis is not implied by GSp irreducibility alone.
 **Source:** ANT20, Theorem 1.1, pp.1–2 (arXiv v2); notation and ordinarity, pp.3–4. The precise ordinary automorphy-lifting theorem has eight groups of hypotheses, including individual polarizations, cyclotomic constituent conditions, primitive image and no p-quotient.
@@ -2284,12 +2266,12 @@ Under the corrected hypotheses of the preceding symplectic, potential-automorphy
 
 **Hypotheses and conventions.** Strict purity and the all-ℓ monodromy conclusion require their own supplier contracts; neither follows from a p-adic lift alone.
 
-**Needs:** [GG2.10/automorphy-lifting-application](#automorphy-lifting-application); `ModularityAndLanglandsExtensions:ML.5`; `PotentialModularityAndCompatibleSystems:R24.5:operations`; `AutomorphicGaloisRepresentationsPartII:AG2.6`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon`.
+**Needs:** [GG2.10/automorphy-lifting-application](#automorphy-lifting-application); `ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy`; `ModularityAndLanglandsExtensions:ML.5`; `AutomorphicGaloisRepresentationsPartII:AG2.6`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon`.
 
 **Construction or proof.**
 
 1. Descend the CM automorphic representation to the totally real field F′, choosing its quadratic twist so the attached representation equals ρ|Γ_{F′}.
-2. Apply the owner’s compatible-system descent argument from potential automorphy.
+2. Apply the existing node ModularityAndLanglandsExtensions ML.2/compatible-system-from-potential-automorphy (the argument of BLGGT14 Theorem 5.5.1, with its soluble-descent and part-of-a-compatible-system inputs) to the descended representation.
 3. For every coefficient characteristic ℓ choose one of v₀,v₁ with different residue characteristic. Local–global compatibility there supplies a regular unipotent in that ℓ-adic member.
 4. Apply the requested classification with irreducibility and reductivity hypotheses, then independence of formal character/rank to exclude the principal GL₂ alternative for n>1.
 5. Use the compatible nonfinite multiplier to recover the full GSp center.
@@ -2323,7 +2305,7 @@ For a quasi-split group over a global field with L-group satisfying the lifting-
 
 - A fixed multiplier with finite central image cannot yield Zariski density in a positive-dimensional center merely from derived congruence density.
 
-**Layer acceptance:** G5: regular-unipotent classification, formal-character independence. The two-Steinberg-place target handles the exceptional coefficient place. Inherits G1 and the G4 convention check at the polarized supplier. Verify all eight ANT hypotheses and adapted compatible-system descent.
+**Layer acceptance:** G5: regular-unipotent classification and formal-character independence for the density conclusion of ML.2/compatible-system-from-potential-automorphy. The two-Steinberg-place and ι-ordinary strengthening of ML.2/potential-automorphy-with-steinberg-place is requested from its owner; ANT20 comes from PL.7, whose strong-primitivity hypothesis must be checked or relaxed. Inherits G1 and the G4 convention check at the polarized supplier.
 
 ## Supplier contracts
 
@@ -2331,7 +2313,7 @@ Each numbered contract is an explicit input, at the existing owner stage or node
 
 ### Contract 1: GlobalGaloisDeformations:R04.1
 
-Extend the existing GL_n absolutely-irreducible deformation formalism to the fixed-quotient G-valued datum (including prime-to-p components): strict-conjugacy action, the H¹ torsor of lifts across square-zero coefficient kernels, the H² obstruction and its restriction to local problems. Do not assume representability of an unframed reducible functor. FKP22 §2 p.9 and §3.2 pp.16–17; FKP19 Assumption 2.1 pp.9–10.
+Extend the existing GL_n absolutely-irreducible deformation formalism to the fixed-quotient G-valued datum (including prime-to-p components): strict-conjugacy action, the H¹ torsor of lifts across square-zero coefficient kernels, the H² obstruction and its restriction to local problems. Do not assume representability of an unframed reducible functor. FKP22 §2 p.9 and the paragraph before Proposition 3.8, p.16; FKP19 Assumption 2.1, p.14.
 
 **Consumers:** [GG2.0/lifting-datum](#lifting-datum); [GG2.3/initial-mod-square](#initial-mod-square); [GG2.3/doubling](#doubling); [GG2.3/controlled-tower](#controlled-tower); [GG2.6/compatible-finite-ramification](#compatible-finite-ramification).
 
@@ -2385,31 +2367,31 @@ Supply perfect local Tate pairings for all finite O/ϖ^r modules at local fields
 
 ### Contract 10: tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory
 
-Export a P-equivariant exponential between Lie U and U for parabolic U in good characteristic p larger than its nilpotence-class bound, preserving the Lie filtrations and stable Lie subalgebras used by A.1/A.4/A.7. Export root-space spanning, a nondegenerate invariant pairing on Lie(G^der), Levi modules, and centralizer criteria for semisimple and nilpotent elements. FKP22 Lemma A.1 and Remarks A.2/A.8 pp.44–46; FKP19 A.1–A.6 pp.60–63.
+Use the upstream layer-7 parabolic subgroups, unipotent radicals, Levi decompositions, root data, root subgroups and Weyl groups of a split reductive group over a field, as that layer states them. The large-prime equivariant exponential, centralizer and adjoint-filtration inputs used with them (FKP22 Lemma A.1 and Remarks A.2/A.8 pp.44–46; FKP19 Lemmas A.1–A.6 pp.60–63) are outside the stated scope of that Tau Ceti layer and are recorded as gap G6; they are not requested from the upstream roadmap.
 
 **Consumers:** [GG2.0/lifting-datum](#lifting-datum); [GG2.1/irreducible-image-input](#irreducible-image-input); [GG2.1/cyclic-quotient-bound](#cyclic-quotient-bound); [GG2.1/central-jordan-holder](#central-jordan-holder); [GG2.1/abelian-root-subgroup](#abelian-root-subgroup); [GG2.1/block-criteria](#block-criteria); [GG2.1/maximal-parabolic-criteria](#maximal-parabolic-criteria); [GG2.1/borel-criteria](#borel-criteria); [GG2.5/simultaneous-root-position](#simultaneous-root-position).
 
 ### Contract 11: tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory
 
-Export two finite-field root-position inputs with uniform root-datum bounds: (i) a root vector outside a prescribed proper F_p-subspace after conjugation, via root-space spanning; (ii) a split maximal torus in general position relative to specified Lie hyperplanes while satisfying α(t)=q. Include the nonempty-open polynomial degree estimates and the restriction to a single simple factor. FKP22 Proposition 3.6 pp.12–15 and Theorem 4.4 pp.20–23; FKP19 Proposition 6.8 pp.48–49.
+Use the upstream maximal tori, root-space decomposition and root subgroups over finite fields, as layer 7 states them. The uniform finite-field root-position and general-position statements built on them (FKP22 Proposition 3.6 pp.12–15 and Theorem 4.4 pp.20–23; FKP19 Proposition 5.9 p.29 and Lemma 5.13 p.38) are gap G6(iv); the simultaneous root-position theorem of FKP19 Proposition 6.8 is owned by GG2.5.
 
 **Consumers:** [GG2.2/spanning-classes](#spanning-classes); [GG2.2/prescribed-vector-classes](#prescribed-vector-classes); [GG2.3/controlled-tower](#controlled-tower); [GG2.5/simultaneous-root-position](#simultaneous-root-position).
 
 ### Contract 12: tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory
 
-Export parabolic G-semisimplification and its Levi projection after coefficient extension, compatibility of its adjoint graded representation with Hom-block modules, and descent of invariance along a prime-to-p central isogeny. A minimal parabolic must be chosen again after residue-field extension. FKP22 Lemmas A.5/A.9 pp.45–47 and §6 pp.28–30.
+Use the upstream parabolic and Levi structure and the conjugacy of parabolic subgroups. The G-semisimplification of a finite image (Levi projection from a minimal parabolic containing it, uniqueness up to G(k)-conjugacy, behaviour under residue-field extension, and the parabolic adjoint filtration with graded pieces m⊕u⊕u⁻; FKP22 Lemma 6.1 p.28, Lemmas A.5/A.9/A.11 pp.45–48) is gap G6(iii).
 
 **Consumers:** [GG2.1/cyclotomic-exclusion](#cyclotomic-exclusion); [GG2.1/block-criteria](#block-criteria); [GG2.7/levi-residual-lattice](#levi-residual-lattice); [GG2.7/remove-invariants](#remove-invariants); [GG2.7/levi-geometric-lift](#levi-geometric-lift).
 
 ### Contract 13: tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon
 
-Export bounded powers with Levi centralizer and the prime-to-p central-isogeny identifications of congruence kernels; also supply component-orbit factorization for a disconnected reductive group. Keep the required regular-unipotent classification separate: that part is gap G5.
+Use the upstream layer-8 classification of split reductive groups by root data, central isogenies, and the decomposition of the adjoint group into simple factors permuted by the component group. Bounded powers with Levi centralizer (FKP19 Lemma A.5 p.62) are part of the cyclic-quotient-bound target here; the centralizer theorems its proof uses are gap G6(ii). The regular-unipotent classification is gap G5.
 
 **Consumers:** [GG2.1/cyclic-quotient-bound](#cyclic-quotient-bound); [GG2.5/adjoint-orbit-reduction](#adjoint-orbit-reduction); [GG2.7/unipotent-local-lift](#unipotent-local-lift); [GG2.10/symplectic-compatible-system](#symplectic-compatible-system).
 
 ### Contract 14: ReductiveGroupsPartII:RG2.0
 
-Use current upstream congruence subgroups, their pro-p neighborhood basis and their smooth-model Lie quotients. Add the compact p-adic analytic structure, finite-generation of integral continuous cohomology and rational Lie comparison for small open subgroups as an extension of this owner, not as another construction here. Lazard III Prop.3.1.3 pp.91–92 and Thm.3.1.7.4 p.94; V §§2.2.2–2.2.3 pp.165–166 and Thm.2.4.10 pp.178–179; semisimple Lie-cohomology vanishing and Whitehead H¹,H² are required. Retain finite-component invariants on transfer to the full group.
+Use the current upstream RG2.0.3 congruence subgroups 𝒢(O)_n of a smooth affine O-model, their neighbourhood-basis property and the identification of the successive quotients with Lie(𝒢_κ)⊗m^n/m^{n+1}, as stated there. The compact p-adic analytic structure and Lazard’s cohomology inputs are not part of that upstream layer; they are requested from their atlas owners (LocallyAnalyticDistributionsPartII ND.0, NoncommutativeAndEquivariantIwasawa NE.0, AutomorphicFormsOnReductiveGroups AF.1a). The Tau Ceti roadmap is not extended from the atlas.
 
 **Consumers:** [GG2.4/lie-cohomology-bound](#lie-cohomology-bound); [GG2.4/deep-reduction-vanishing](#deep-reduction-vanishing); [GG2.6/finite-congruence-detection](#finite-congruence-detection); [GG2.3/congruence-field-disjointness](#congruence-field-disjointness); [GG2.3/controlled-tower](#controlled-tower).
 
@@ -2421,7 +2403,7 @@ Use the current upstream lattice-class tree, neighbor-line correspondence, PGL�
 
 ### Contract 16: tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation
 
-Export openness of the Frattini subgroup of a topologically finitely generated pro-p group and the closed-subgroup generation criterion. Apply it to the compact analytic congruence kernel; the newer ProfiniteArithmetic automorphism-kernel theorem is a different result and is not substituted for this criterion.
+Use the upstream layer-3 Frattini theory (the closed Frattini subgroup, Frattini-quotient generation criterion and its openness) for a topologically finitely generated pro-p group, as stated there. Apply it to the compact analytic congruence kernel; the newer ProfiniteArithmetic automorphism-kernel theorem is a different result and is not substituted for this criterion.
 
 **Consumers:** [GG2.6/finite-congruence-detection](#finite-congruence-detection).
 
@@ -2439,7 +2421,7 @@ Extend the existing polarized module owner by the corrected A.10 criterion: each
 
 ### Contract 19: tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev
 
-Export Dirichlet densities of compatible Frobenius conditions in finite Galois composita and the uniform product failure estimate used for a positive-UPPER-density set. The main Chebotarev theorem is existing upstream work; only the cocycle-field application is owned here. Independence is not supplied by Chebotarev and remains gap G1.
+Use the upstream Chebotarev density theorem (Dirichlet density of the primes with a prescribed Frobenius class in a finite Galois extension), applied to the finite Galois composita of cocycle and cyclotomic fields. The uniform product failure estimate for a positive upper-density set is not an upstream target: it is GG2.3/density-selection here. Independence of the auxiliary fields is not supplied by Chebotarev and remains gap G1.
 
 **Consumers:** [GG2.2/sha-killing](#sha-killing); [GG2.2/spanning-classes](#spanning-classes); [GG2.3/density-selection](#density-selection); [GG2.3/controlled-tower](#controlled-tower); [GG2.5/simultaneous-detection](#simultaneous-detection).
 
@@ -2503,77 +2485,71 @@ Export the exact Serre weight and ordinary/crystalline local weight dictionary u
 
 **Consumers:** [GG2.8/global-determinant-match](#global-determinant-match); [GG2.8/reducible-modularity](#reducible-modularity); [GG2.8/fixed-weight-level-finiteness](#fixed-weight-level-finiteness).
 
-### Contract 30: AlgebraicModularFormsAndSerreWeights:R15.5
+### Contract 30: ModularityAndLanglandsExtensions:ML.2/potential-automorphy-with-steinberg-place
 
-Use the existing Deligne–Serre weight-one theorem in the semisimple modularity comparison, retaining its unramified/finite-image conclusions.
+Extend the existing node from one auxiliary place v₀ to a finite set of auxiliary trivial places, here two places v₀,v₁ of distinct residue characteristics, imposing the Moret–Bailly condition v(t(P))<0 at every place of F′ above each (BLGGT14 Proposition 3.1.1 pp.545–546 and Theorem 3.1.2 pp.546–549; BLGHT11 Lemma 5.1(2), pp.34–35). State in the conclusion that Π_{F′} is ι-ordinary of weight 0, as FKP22 records on p.42 and as ANT20 Theorem 1.1(6)(a) requires. The node already assumes the constituentwise self-duality and cyclotomic irreducibility of E32.
 
-**Consumers:** [GG2.8/semisimple-modularity](#semisimple-modularity).
+**Consumers:** [GG2.10/automorphy-lifting-application](#automorphy-lifting-application).
 
-### Contract 31: OrdinaryAutomorphicFormsAndModularityLifting:R21.5
-
-Export the precise Skinner–Wiles ordinary residually reducible theorem applicable to the odd GL₂ lift with χ̄|Γ_Qp≠1, and its totally real version with every extra residual/local hypothesis retained. This roadmap consumes that theorem and does not reprove it.
-
-**Consumers:** [GG2.8/reducible-modularity](#reducible-modularity); [GG2.8/totally-real-modularity](#totally-real-modularity).
-
-### Contract 32: GL2ModularityLifting:R32.4
-
-Export the precise Pan residually reducible modularity theorem for p≥5 covering the remaining local case permitted by FKP22 Theorem7.4. Match its oddness, local ordinary and determinant hypotheses to the constructed lift. The χ̄|Γ_Qp=1 case has p≥5 since χ̄ is odd over Q.
-
-**Consumers:** [GG2.8/reducible-modularity](#reducible-modularity).
-
-### Contract 33: ClassicalSerreModularity:R27.6
-
-Use the existing Khare–Wintenberger irreducible residual modularity theorem only for the semisimple comparison; it is not a proof that all reducible extensions are actually modular.
-
-**Consumers:** [GG2.8/semisimple-modularity](#semisimple-modularity).
-
-### Contract 34: GlobalShtukasAndFunctionFieldLanglands:GS.6
-
-Use both directions of Lafforgue for continuous irreducible finitely ramified p-adic representations over a global function field with finite-order determinant and cuspidal GL_n automorphic representations with finite-order central character. Preserve the coefficient identification, lattice and full residual reduction. No general Langlands theorem is planned here.
-
-**Consumers:** [GG2.9/actual-function-field-automorphy](#actual-function-field-automorphy); [GG2.9/function-field-automorphy](#function-field-automorphy); [GG2.9/two-block-automorphy](#two-block-automorphy); [GG2.9/direct-sum-automorphy](#direct-sum-automorphy).
-
-### Contract 35: ModularityAndLanglandsExtensions:ML.2
-
-Export BLGGT14 Thm.3.1.2 residual symplectic potential automorphy with Moret–Bailly local opens at EVERY place over both v₀ and v₁, using BLGHT11 Lemma5.1(2) for Steinberg monodromy. Separately export ANT20 Thm.1.1 for dimension m=2n over CM L′, with all eight hypotheses: (1) ρ^c≅ρ∨κ^{1−m}; (2) finite ramification; (3) ordinarity of algebraic dominant weight; (4) residual semisimplification a sum of pairwise distinct absolutely irreducible individually polarized constituents; (5) an away-p place with characteristic-zero semisimplification ⊕_{i=1}^m ψκ^{m−i}, ψ unramified; (6) a residual RACSDC ordinary automorphic witness Steinberg at that place; (7) L′(ζ_p) not inside the adjoint fixed field, L′ not inside L′⁺(ζ_p), constituents still absolutely irreducible and distinct on Γ_{L′(ζ_p)}, primitive residual representation and no quotient of order p in its image; (8) p>3 and p∤m. Check each condition, including the added cyclotomic-constituent condition, rather than replacing the theorem by a generic potential-automorphy claim.
-
-**Consumers:** [GG2.10/residual-potential-automorphy-input](#residual-potential-automorphy-input); [GG2.10/automorphy-lifting-application](#automorphy-lifting-application).
-
-### Contract 36: ModularityAndLanglandsExtensions:ML.5
+### Contract 31: ModularityAndLanglandsExtensions:ML.5
 
 Export the quadratic-CM descent of the automorphic witness to the totally real extension, including its possible quadratic twist and its equality with the original Galois restriction.
 
 **Consumers:** [GG2.10/symplectic-compatible-system](#symplectic-compatible-system).
 
-### Contract 37: PotentialModularityAndCompatibleSystems:R24.5:operations
+### Contract 32: ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy
 
-Extend the compatible-system operations by the Brauer-induction descent used in the PROOF of BLGGT14 Thm.5.5.1 pp.590–593 after the actual potential automorphy established here. The literal theorem assumes residual irreducibility and potential diagonalizability, so it is not directly applicable. Supply strict purity, coefficient embeddings and local compatibility under this adapted descent.
+Its conclusion that every member of the compatible system has Zariski-dense image in GSp_{2n} needs, for each coefficient characteristic ℓ, a Steinberg place of residue characteristic different from ℓ (the two places v₀,v₁ above), the classification of reductive subgroups containing a regular unipotent element and the ℓ-independence of the formal character (gap G5). BLGGT14 Lemma 5.3.1, pp.580–581, controls components and multiplicities only. Export the density conclusion with these inputs explicit; the strict-purity and descent parts of the node are used as stated.
 
 **Consumers:** [GG2.10/symplectic-compatible-system](#symplectic-compatible-system).
 
-### Contract 38: AutomorphicGaloisRepresentationsPartII:AG2.6
+### Contract 33: AutomorphicGaloisRepresentationsPartII:AG2.6
 
 Export local–global compatibility for the descended compatible system at every place over the Steinberg place, including a regular-unipotent tame monodromy element at an away-ℓ place in each member. Use the two prescribed Steinberg places of distinct residue characteristic, so every ℓ has at least one such place.
 
-**Consumers:** [GG2.10/residual-potential-automorphy-input](#residual-potential-automorphy-input); [GG2.10/symplectic-compatible-system](#symplectic-compatible-system).
+**Consumers:** [GG2.10/symplectic-compatible-system](#symplectic-compatible-system).
 
-### Contract 39: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors
+### Contract 34: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors
 
 Use the current local reciprocity normalization and explicit cyclotomic symbol over Q_p: the global finite-order p-primary correction must have value one at Art(p). A local unramified factor cannot be inflated to a global character unramified outside p.
 
 **Consumers:** [GG2.8/global-determinant-match](#global-determinant-match).
 
-### Contract 40: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields
+### Contract 35: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields
 
 Use the current Kronecker–Weber/cyclotomic reciprocity comparison over Q to inflate the normalized finite-order local correction to Γ_Q, unramified outside p. Retain the Art(p)=1 requirement and match its residual triviality.
 
 **Consumers:** [GG2.8/global-determinant-match](#global-determinant-match).
 
-### Contract 41: LocalGaloisDeformationRings:R08.3
+### Contract 36: LocalGaloisDeformationRings:R08.3
 
 In the GL₂ determinant target additionally export the crystalline local lift at the specified Serre weight, with a determinant exactly equal to μ after the unramified square-root normalization, and the potentially semistable component used by the geometric theorem.
 
 **Consumers:** [GG2.8/global-determinant-match](#global-determinant-match).
+
+### Contract 37: PotentialAutomorphyInfrastructurePartII:PL.7/residually-reducible-automorphy-lifting
+
+The node states ANT20 Theorem 1.1 (= Theorem 6.1) with strong primitivity of the residual semisimplification instead of the source’s non-inducedness. The FKP22 Proposition 9.1 application verifies only non-inducedness of ρ̄|Γ_{L′} (FKP22 p.43). Either export the theorem under the source’s primitivity hypothesis with its proof, or state the extra hypothesis so that consumers can check it.
+
+**Consumers:** [GG2.10/automorphy-lifting-application](#automorphy-lifting-application).
+
+### Contract 38: NoncommutativeAndEquivariantIwasawa:NE.0
+
+For a uniform (p-valued) pro-p group U and a finite free O-module V with continuous O-linear U-action: Z_p has a finite-length resolution by finite free Z_p[[U]]-modules and H^i(U,V)=Ext^i_{Z_p[[U]]}(Z_p,V), so H^i(U,V) is finitely generated over O and all H^i(U,V/ϖ^r) are computed by one bounded complex of finite sums of V (Lazard V (2.2.2.3) and (2.2.3.1), pp.165–166, as used in FKP19 Lemma B.1, p.64). Also Lazard V Theorem (2.4.10), pp.178–179: for U small enough, H^i(U,V)⊗Q_p is the Lie-algebra cohomology of Lie(U) with coefficients V⊗Q_p, with the Lie action of V (2.4.4). These extend the owner’s completed group rings, global dimension and Lazard cohomology of uniform groups.
+
+**Consumers:** [GG2.4/lie-cohomology-bound](#lie-cohomology-bound).
+
+### Contract 39: LocallyAnalyticDistributionsPartII:ND.0
+
+Every compact p-adic analytic group has an open normal p-valued (uniform) subgroup of finite index (Lazard III (3.1.3) and (3.1.7.4), pp.91–94). For open subgroups of G(O), G smooth affine over O, identify such subgroups with deep congruence subgroups of the upstream RG2.0.3 filtration.
+
+**Consumers:** [GG2.4/lie-cohomology-bound](#lie-cohomology-bound).
+
+### Contract 40: AutomorphicFormsOnReductiveGroups:AF.1a
+
+On the absolute Chevalley–Eilenberg complex owned there: for a semisimple Lie algebra g over a field of characteristic zero and a finite-dimensional g-module W, H^i(g,W)=0 for all i when W has no nonzero g-invariants, and H¹(g,W)=H²(g,W)=0 for every W (Whitehead’s lemmas; the Chevalley–Eilenberg theorems cited by FKP19 Lemma B.1, p.64).
+
+**Consumers:** [GG2.4/lie-cohomology-bound](#lie-cohomology-bound).
 
 ## Open mathematical inputs
 
@@ -2581,7 +2557,7 @@ In the GL₂ determinant target additionally export the crystalline local lift a
 
 ### G1 — replacement for full-family auxiliary-field independence
 
-FKP22 v5 Lemma3.7 pp.15–16 is false under its stated Assumption3.1: for F=Q, trivial SL₂ residual image and k=F_p, p≥5, M*=F_p(κ̄)³. For two basis lines, identify their scalar cocycles and put ζ_w=η_1^(w)−η_2^(w). Their equal inertia at w cancels, so ζ_w lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)). Infinitely many w force ζ_w=ζ_w′ for distinct w,w′. This gives a nontrivial relation among four degree-p cocycle fields, contradicting strong disjointness. Restriction to Γ_K preserves the relation and individual nonvanishing; H¹(Gal(K/Q),F_p(κ̄))=0 as its order is p−1. C4 holds, but C1 fails. To close the main proof, establish the quantitative conditional-success/finite-quotient Chebotarev input actually needed by Proposition3.8 under C1,C3,C4, using a new construction or a proof allowing repeated constituents. Individual cyclic images or pairwise disjointness do not close it. The conditional joint-generation node is valid but its extra hypothesis is not automatic. Theorem5.2 is an intended target, not disproved by this counterexample.
+FKP22 v5 Lemma3.7 pp.15–16 is false under its stated Assumption3.1: for F=Q, trivial SL₂ residual image and k=F_p, p≥5, M*=F_p(κ̄)³. For two basis lines, identify their scalar cocycles and put ζ_w=η_1^(w)−η_2^(w). Their equal inertia at w cancels, so ζ_w lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)). Infinitely many w force ζ_w=ζ_w′ for distinct w,w′. This gives a nontrivial relation among four degree-p cocycle fields, contradicting strong disjointness. Restriction to Γ_K preserves the relation and individual nonvanishing; H¹(Gal(K/Q),F_p(κ̄))=0 as its order is p−1. C4 holds, but C1 fails. To close the main proof, establish the quantitative conditional-success/finite-quotient Chebotarev input actually needed by Proposition3.8 under C1,C3,C4, using a new construction or a proof allowing repeated constituents. Individual cyclic images or pairwise disjointness do not close it. The conditional joint-generation node is valid but its extra hypothesis is not automatic. Theorem5.2 is an intended target, not disproved by this counterexample. Independent review (REV-DESIGN-GlobalGaloisDeformationsPartII) adds that the failure also occurs under C1–C4. With k=F_p, if M* is semisimple with a simple constituent of multiplicity at least two, then for every k-basis the inertia tuple at w generates a proper F_p[Γ_F]-submodule of ∏_b M*_{e_b*}. The resulting subextension of L_w unramified at w lies in the finite maximal elementary abelian p-extension of K unramified outside T, so it repeats for two new primes. This happens for the F₄-valued examples of FKP19 Proposition 7.8 (adjoint multiplicities above one, FKP19 Remark 7.9), which satisfy C1–C4. The same diagonal-generator step recurs on p.18 of FKP22, where the fields K_{h(v)} and K_{η_b^{(v)}} are separated through ramification at t₀. So G1 is a gap in the proof of Theorem 5.2 within its hypotheses; Theorem 5.2 is not refuted, and for irreducible residual images FKP19 Theorem 6.11 has an independent proof.
 
 **Direct consumers:** [GG2.2/dual-strong-disjointness](#dual-strong-disjointness); [GG2.3/density-selection](#density-selection); [GG2.3/doubling](#doubling); [GG2.3/congruence-field-disjointness](#congruence-field-disjointness); [GG2.3/controlled-tower](#controlled-tower); [GG2.6/main-geometric-lift](#main-geometric-lift).
 
@@ -2613,11 +2589,21 @@ The disconnected polarized group (GL_n×G_m)⋊C₂ has ker(multiplier) with Lie
 
 ### G5 — all-coefficient-place monodromy
 
-Read and export the exact reductive-subgroup classification with regular unipotent element and the primary independence-of-formal-character theorem needed in the final paragraph of Proposition9.1. BLGGT14 Lemma5.3.1 controls connected components/multiplicity and is not that theorem. Explain rank/irreducibility and the principal-GL₂ exception, and use the explicit two-Steinberg-place strengthening to cover every coefficient characteristic by an away-ℓ place. The compatible-system target is explicitly conditional on this contract; the original p-adic lift is already dense.
+The accepted supplier node ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy asserts Zariski density of every member; its proof needs the exact reductive-subgroup classification with regular unipotent element and the primary independence-of-formal-character theorem needed in the final paragraph of Proposition9.1. BLGGT14 Lemma5.3.1 controls connected components/multiplicity and is not that theorem. Explain rank/irreducibility and the principal-GL₂ exception, and use the explicit two-Steinberg-place strengthening to cover every coefficient characteristic by an away-ℓ place. The compatible-system target is explicitly conditional on this contract; the original p-adic lift is already dense.
 
 **Direct consumers:** [GG2.10/symplectic-compatible-system](#symplectic-compatible-system).
 
+<a id="g6"></a>
+
+### G6 — large-prime reductive-group inputs outside the upstream ReductiveGroups scope
+
+Several arguments use structure theory of a split reductive group in large characteristic that the current Tau Ceti ReductiveGroups layers 7–8 do not state (those layers own Borel and parabolic subgroups, Levi decompositions, root data, Bruhat decomposition and the classification) and that no atlas roadmap plans. (i) For p≫_G 0, a P-equivariant isomorphism of varieties exp: Lie U→U restricting to the ascending central series and inducing P-equivariant group isomorphisms on its graded pieces, together with the finite adjoint expansion of Ad(exp X) (FKP22 Lemma A.1, Remark A.2, p.44, and proof of Lemma A.18, p.51). (ii) Centralizers in good characteristic: smoothness of centralizers of Lie-algebra elements, containment of the centralizer of a nonzero nilpotent element in a proper parabolic, connectedness and reductivity of centralizers of semisimple elements when p is not a torsion prime, root-subgroup description of a centralizer containing a maximal torus, centralizers of tori being Levi subgroups, and generation of C_G(t) by T, root subgroups and Weyl representatives (FKP19 Lemmas A.2 and A.5, pp.61–63; FKP22 proof of Lemma A.11, pp.48–49). (iii) The G-semisimplification of a finite image: Levi projection from a minimal parabolic containing it, uniqueness up to G(k)-conjugacy, behaviour under residue-field extension, and the parabolic adjoint filtration with graded pieces m⊕u⊕u⁻ (FKP22 Lemma 6.1, p.28, and proof of Lemma A.11, p.48). (iv) Uniform finite-field root position: a root vector outside any proper F_p-subspace of g^der, and toral elements in general position with a prescribed root value (FKP19 Proposition 5.9, p.29, and Lemma 5.13, p.38). These need an owner: an atlas continuation of ReductiveGroups, or lemma nodes here if the maintainer so decides. A Tau Ceti roadmap is not extended from the atlas, so the former requests to its layers 7–8 for these inputs are withdrawn.
+
+**Direct consumers:** [GG2.1/irreducible-image-input](#irreducible-image-input); [GG2.1/cyclic-quotient-bound](#cyclic-quotient-bound); [GG2.1/central-jordan-holder](#central-jordan-holder); [GG2.1/cyclotomic-exclusion](#cyclotomic-exclusion); [GG2.1/abelian-root-subgroup](#abelian-root-subgroup); [GG2.1/block-criteria](#block-criteria); [GG2.1/maximal-parabolic-criteria](#maximal-parabolic-criteria); [GG2.1/borel-criteria](#borel-criteria); [GG2.2/spanning-classes](#spanning-classes); [GG2.2/prescribed-vector-classes](#prescribed-vector-classes); [GG2.3/controlled-tower](#controlled-tower); [GG2.5/simultaneous-root-position](#simultaneous-root-position); [GG2.7/levi-residual-lattice](#levi-residual-lattice); [GG2.7/remove-invariants](#remove-invariants).
+
 The main source-independent check for G1 is worth spelling out. For trivial SL₂ residual image over Q, the three adjoint-dual basis directions are isomorphic cyclotomic lines. Fix two of them and identify each with F_p(κ̄). Both η-classes at w take the value 1 on τ_w. Their difference is therefore unramified at w, and hence is an old class in the finite group H¹(Γ_{Q,T},F_p(κ̄)). There are infinitely many allowed new primes and finitely many such differences. Equality of two differences yields η_1^(w)−η_2^(w)−η_1^(w′)+η_2^(w′)=0. Each of the four restrictions to Γ_K is nonzero by its own inertia value. A product Galois group F_p⁴ would admit no such nonzero linear relation, so the four fields fail strong disjointness. C4 holds by the prime-to-p order of Gal(Q(μ_p)/Q). This is why individual inertia generation cannot justify a product claim. The conditional joint-inertia theorem above records exactly where the missing hypothesis would enter.
+
+The review adds a second, general form of the same failure. Take k=F_p and suppose M* is semisimple with a simple constituent W of multiplicity m≥2, as in the F₄-valued examples of FKP19 Proposition 7.8 (their adjoint multiplicities exceed one by FKP19 Remark 7.9) which satisfy C1–C4. For any k-basis, the t_b-ramification still makes Gal(L_w/K) the full product ∏_b M*_{e_b*}. A cyclic F_p[Γ_F]-module contains W at most dim W times, while that product contains it at least m·dim W times. So the conjugates of inertia at w generate a proper submodule, and L_w contains a nontrivial subextension E_w unramified at w. Each E_w is unramified outside T, hence lies in the finite maximal elementary abelian p-extension of K unramified outside T. Two new primes therefore share E_w, and L_w∩L_w′≠K. The same diagonal-generator step reappears on p.18 of FKP22, where the h-fields are separated from the η-fields by ramification at t₀. G1 is therefore a gap in the proof of Theorem 5.2 under its own hypotheses, although the theorem itself is not refuted and FKP19 Theorem 6.11 proves the irreducible case by another route.
 
 For the stable-lattice target, the coefficient-extension assertion has a direct matrix verification. A group element with distinct residual characters has eigenvalue difference a unit. Its Hensel eigenprojectors are integral polynomials in that element, so every stable lattice splits into two eigenlattices. Normalize it to Λ_s=Oe₁⊕ϖ^sOe₂. Stability for every matrix g is equivalent to v(b_g)+s≥0 and v(c_g)−s≥0. Irreducibility bounds the resulting interval of integers at both ends. A finite coefficient extension multiplies both endpoints by its ramification index. After rescaling, each endpoint reduction is the scalar extension of the old nonsplit class; at every strictly interior vertex both off-diagonal reductions vanish. This supplies the extension argument beyond mere finiteness of a tree over one coefficient field.
 
@@ -2625,7 +2611,7 @@ For the compatible-system target, prescribe two Steinberg places with distinct r
 
 ## Ownership proposals
 
-- Current upstream ReductiveGroupsPartII owns congruence topology and the lattice-class tree, superseding its atlas blueprint. The compact analytic/Lazard extension required for cohomology is beyond those stated targets. Keep GG2.4 only the lifting-specific uniform-bound application. Import current upstream RG2.0 and RG2.2 directly; place the analytic-group/cohomology addition with the owner’s next extension of ReductiveGroupsPartII. The request gives the exact input and no duplicate tree or congruence definitions are planned.
+- Current upstream ReductiveGroupsPartII owns congruence subgroups and the lattice-class tree; it is a Tau Ceti roadmap and is not extended from the atlas. The compact analytic and Lazard inputs of FKP19 Appendix B have atlas owners in the direction of LocallyAnalyticDistributionsPartII ND.0 (p-valued groups), NoncommutativeAndEquivariantIwasawa NE.0 (completed group rings and Lazard cohomology) and AutomorphicFormsOnReductiveGroups AF.1a (Chevalley–Eilenberg cohomology). Keep GG2.4 only the lifting-specific uniform-bound application. Import upstream RG2.0 and RG2.2 as they stand, and request the Lazard and Lie-algebra inputs from ND.0, NE.0 and AF.1a. The large-prime reductive inputs of gap G6 need an atlas owner chosen by the maintainer, for instance a continuation of ReductiveGroups.
 - Generic duality, fixed-μ local rings, ordinary components and square-zero deformation obstruction theory have existing owners; their present nodes need broader coefficient/characteristic or local-cocycle exports. Extend the existing owners by the precise requests. GG2.0–6 retain only the G-valued lifting datum, cyclic classes, doubling, relative images, auxiliary-prime annihilation and assembly; no existing Selmer carrier, local ring or ordinary functor is rebuilt.
 
 ## Sources and version discipline
@@ -2639,6 +2625,7 @@ For the compatible-system target, prescribe two Steinberg places with distinct r
 - **ANT20** — Patrick B. Allen, James Newton and Jack A. Thorne, *Automorphy lifting for residually reducible l-adic Galois representations, II*. arXiv:1912.11269v2, 13 August 2020; printed pp.1–21. [Text read](https://arxiv.org/pdf/1912.11269v2). Accessed 2026-10-19. Read: Theorem 1.1 pp.1–2, all eight hypotheses; notation and ordinarity pp.3–4. SHA-256: `077a344352c80389ce75d5c61a69fba90413303aca911a616fe46dbeb8514bfa`.
 - **BLGGT14** — Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor, *Potential automorphy and change of weight*. Annals of Mathematics 179 (2014), 501–609; published PDF. [Text read](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p03-p.pdf). Accessed 2026-10-19. Read: Proposition 3.1.1 pp.545–546; Theorem 3.1.2 and proof pp.546–549; Lemma 5.3.1 with proof pp.580–581; Theorem 5.5.1 and proof pp.590–593. SHA-256: `c9d6c7107bcde7fb26f9388abea5209f28457076bae59d70ccb6c34bbe1d621b`.
 - **BLGHT11** — Thomas Barnet-Lamb, David Geraghty, Michael Harris and Richard Taylor, *A family of Calabi–Yau varieties and potential automorphy II*. Publications of the Research Institute for Mathematical Sciences 47 (2011), 29–98; author preprint pagination. [Text read](https://virtualmath1.stanford.edu/~rltaylor/cy2fin.pdf). Accessed 2026-10-19. Read: Lemma 5.1(2), pp.34–35 of the author preprint; its regular-unipotent and Frobenius conclusions. SHA-256: `225cab84210837ca6130c1c76a5eababeffeaa8d1594b6267e853ce0ae8eabb3`.
+- **Pan22** — Lue Pan, *The Fontaine–Mazur conjecture in the residually reducible case*. Journal of the American Mathematical Society 35 (2022); arXiv:1901.07166v2 (3 September 2021). [Text read](https://arxiv.org/pdf/1901.07166v2). Accessed 2026-10-19. Read: Introduction, Theorems 1.0.2 and 1.0.4 and the following remarks, pp.2–5; table of contents for §§5–7. SHA-256: `590171129d28a65749cf92b1f6099dbacaa90cc6698828f0a4dfd3da943f4824`.
 
 FKP22 findings below concern **arXiv v5**, not an assertion about uncollated passages of the published version. The publisher landing page and publicly supplied Appendix material were inspected; the full-PDF endpoint supplied an access page and the alternative author-manuscript endpoint timed out. No complete version-of-record collation is claimed. The public version history and correction listings were searched; no newer correction was located. The first 44 findings restate the previously reviewed paper extraction in this roadmap’s words and apply its corrections; E45 and E46 require independent verification. The packet preserves the original finding identifiers as provenance, without treating that earlier review as a review of this plan.
 
@@ -2652,6 +2639,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.32: the first paragraph of the proof of Lemma 7.1 compares k(χ̄κ̄) with an unbarred κ⁻¹; the hypothesis is χ̄≠κ̄⁻¹.
+
 ### E2: misprint — Proof of Lemma 7.1, p. 32 (arXiv v5)
 
 **Assertion at issue:** One inverse character in the complex-conjugation argument is on the wrong factor.
@@ -2661,6 +2650,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Both have value +1 at complex conjugation, whereas χ̄^σ has value −1.
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.32: the list χ̄⁻¹κ̄, κ̄, χ̄κ̄ is followed by a sentence naming χ̄κ̄⁻¹; both are even, so only the label is wrong.
 
 ### E3: misprint — Appendix A, before Lemma A.3, p. 44 (arXiv v5)
 
@@ -2672,6 +2663,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.44: maximal-chain factors are indexed i=1,…,n although the chain is Σ₀⊊⋯⊊Σ_n.
+
 ### E4: misprint — Lemma A.10(1), p. 47 (arXiv v5)
 
 **Assertion at issue:** The polarized criterion uses the preceding lemma’s number of blocks.
@@ -2681,6 +2674,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** This lemma decomposes its module into s constituents.
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.47: Lemma A.10(1) runs to r while r̄ decomposes into s constituents and (2),(3) use s.
 
 ### E5: misprint — Definition A.13, p. 49, and Example A.17, p. 50 (arXiv v5)
 
@@ -2692,6 +2687,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.49 (Definition A.13) and p.50 (Example A.17): the right-hand restriction is written to Γ′_F.
+
 ### E6: misprint — Proof of Lemma B.4, p. 55 (arXiv v5)
 
 **Assertion at issue:** An ordinary dimension display changes its H² coefficient from the Borel to the whole group.
@@ -2701,6 +2698,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** The algebraic cancellation changes the toral dimension term, not the obstruction module.
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.55: the last display replaces h²(Γ_{F_v}, r(b₀)) by h²(Γ_{F_v}, r(g₀)) after the cancellation.
 
 ### E7: misprint — Proof of Lemma B.4, p. 55 (arXiv v5)
 
@@ -2712,6 +2711,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.55: “closed point y ∈ Spec(R^△[1/p])^∧_y)” completes at y before y is chosen, with unbalanced parentheses.
+
 ### E8: error — §1.1, discussion of Theorem A, p. 3 (arXiv v5)
 
 **Assertion at issue:** The introductory comparison claims multiplicity freeness after restriction to F_p.
@@ -2721,6 +2722,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** A trivial k-line has [k:F_p] trivial prime-field factors; k=F_25 already contradicts the stronger assertion.
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.3: the claim that (1) and (3) of Theorem A make ad(ρ̄) multiplicity free over F_p fails for k≠F_p, since the trivial k-constituent restricts to [k:F_p] trivial F_p-constituents.
 
 ### E9: error — §1.1, discussion of Theorem B, p. 3 (arXiv v5)
 
@@ -2732,6 +2735,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.3: for split ρ̄=κ̄⊕1 (allowed in Theorem B) the derived dual adjoint contains the trivial character, so χ̄≠κ̄⁻¹ alone does not give the stated vanishing; Lemma 7.1 assumes nonsplitness.
+
 ### E10: gap — §3, Proposition 3.6, statement and proof, pp. 12–14 (arXiv v5)
 
 **Assertion at issue:** Proposition3.6 places all root and prime choices before all Frobenius prescriptions.
@@ -2741,6 +2746,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** The proof chooses a new detecting dual class after the preceding prescription has already been fixed.
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read pp.12–14: the statement chooses all (T_i,α_i,q_i) before the tuple g_{L/K,i}, while the inductive proof chooses ψ_i, hence (T_i,α_i), after v_1,…,v_{i−1}, which depend on the earlier g’s. Theorem 4.4 only needs g_i to depend on (T_i,α_i,q_i), so the inductive order suffices.
 
 ### E11: gap — §3, proof of Proposition 3.6, p. 13 and the bullet on p. 14 (arXiv v5)
 
@@ -2752,6 +2759,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read pp.13–14: when K_{ψ₁}=K(μ_{p^{D+1}}) the norm class fixes ψ₁(σ_v) in a coset of a codimension-one subgroup; the text then asserts ψ₁(σ_v)∉(F_pX)^⊥. A nontrivial coset contained in the subspace (F_pX)^⊥ would force all of ψ₁(Γ_K) into it, so the claim holds after this check.
+
 ### E12: gap — §3, before Proposition 3.8, p. 16 (arXiv v5)
 
 **Assertion at issue:** The mod-ϖ² initialization invokes vanishing Sha² without stating local liftability.
@@ -2761,6 +2770,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Sha² controls locally trivial obstructions only.
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.16: the mod-ϖ² lift is produced from vanishing of Sha² alone; local obstructions at the places of S need the local lifts, which §3 does not assume (they are assumed in Theorems 4.4 and 5.2).
 
 ### E13: error — §3, Proposition 3.8, p. 16 (arXiv v5)
 
@@ -2772,6 +2783,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Verified on pp.16–17: with h=h_old−Σh(v_n)+2Σh(v′_n), the inertia values are −X_n at v_n and 2X_n at v′_n after the pigeonhole step, not one common X_n as the statement of Proposition 3.8 says.
+
 ### E14: misprint — §3, proof of Proposition 3.8, global duality display, p. 18 (arXiv v5)
 
 **Assertion at issue:** The two new local terms in the reciprocity display have the same sign.
@@ -2781,6 +2794,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Degree-one cup products anticommute at odd p; the affine dependence used in the proof survives.
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.18: the reciprocity display puts the same sign on the two new-prime terms; with FKP19 Lemma 3.9 (p.19) the unramified/tame cross terms have opposite signs, and the affine dependence used survives.
 
 ### E15: misprint — §§1–3, pp. 6, 10, 12, 13, 14, 15, 18 (arXiv v5)
 
@@ -2792,6 +2807,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Spot-checked pp.12–15: θ_b^{(v)} is constructed for T without all marked primes, and Lemma 3.4(3) stabilizes Sha for duals of cyclic submodules of M*; the remaining items are index slips.
+
 ### E16: gap — §5, proof of Theorem 5.2, p. 24 (arXiv v5)
 
 **Assertion at issue:** The disconnected-group argument applies residual invariant vanishing over the component-splitting field.
@@ -2801,6 +2818,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** C1 gives Γ_F-invariant vanishing, which need not hold after restriction to the component-splitting field.
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.24: FKP19 Corollary B.2 is applied to the preimage of (Ad∘ρ̄)(Γ_{F̃}), whose residual invariants need not vanish; C1 gives vanishing for the full Γ_F image.
 
 ### E17: gap — §5, proof of Proposition 5.4, p. 26 (arXiv v5)
 
@@ -2812,6 +2831,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.26: γ₂ is chosen with φ(γ₂),ψ̄(γ₂) nonzero, and one root is then sought; when g^der has several simple factors permuted by π₀(G) both values must project nontrivially to one factor, which Γ_F-stability of the images and transitivity allow.
+
 ### E18: gap — §6, proof of Lemma 6.1, p. 28 (arXiv v5)
 
 **Assertion at issue:** The lattice-change proof evaluates an adjoint cocharacter as though it always lifts to G.
@@ -2821,6 +2842,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** For SL₂ the adjoint element represented by diag(ϖ′,1) requires a square root for an SL₂ lift.
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read pp.27–28: η is a cocharacter of the adjoint torus and g=η(ϖ′) is used as an element of G(K′); for SL₂ this needs a square root of ϖ′.
 
 ### E19: gap — §6, Lemma 6.4 and proofs of Lemma 6.5 and Corollary 6.6, pp. 29–30 (arXiv v5)
 
@@ -2832,6 +2855,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read pp.29–30: the lift of Lemma 6.4 lies in the derived group, so its multiplier is trivial, while Lemma 6.5 and Corollary 6.6 need lifts of type μ at the new places.
+
 ### E20: gap — §6, proofs of Lemma 6.5 and Corollary 6.6, pp. 29–30 (arXiv v5)
 
 **Assertion at issue:** The invariant-removal argument passes vanishing through semisimplification without proving containment of the new unipotent image.
@@ -2841,6 +2866,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Restriction has prime-to-p index, so it cannot remove the added p-primary subgroup. Equal semisimplifications alone do not determine H⁰.
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.30: H⁰(ρ̄′(g^der)*)=0 is deduced from equal semisimplifications. The valid argument is that im(ρ̄′,κ̄) contains A(k) and hence im(ρ̄,κ̄), so the invariants inject.
 
 ### E21: error — §6, Corollary 6.6, p. 30 (arXiv v5)
 
@@ -2852,6 +2879,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.30: Corollary 6.6 applies Theorem 5.2, which needs F totally real and ρ̄′ odd over number fields, but states neither.
+
 ### E22: gap — §6, Corollary 6.6, second alternative, p. 30 (arXiv v5)
 
 **Assertion at issue:** The second Levi-valued alternative uses maximal-parabolic character separation without its Levi irreducibility hypothesis.
@@ -2861,6 +2890,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Having only central invariant vectors does not imply Levi irreducibility; upper-triangular GL₂ blocks with distinct characters give counterexamples.
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.30: the second alternative invokes Lemma A.14, whose hypotheses include absolute M-irreducibility of ρ̄_M; Corollary 6.6 does not state it.
 
 ### E23: error — §6, Remark 6.7, second bullet, p. 31 (arXiv v5)
 
@@ -2872,6 +2903,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Verified p.31: ρ̄=diag(χ,χ⁻¹) in SL₂ with χ quadratic has image {±1}, not in a proper subtorus, but α∘ρ̄=χ²=1, so H⁰(sl₂)=sl₂.
+
 ### E24: error — §6, Example 6.8, dihedral case, p. 31 (arXiv v5)
 
 **Assertion at issue:** The dihedral GSp₄ example omits δ-dependent twisted invariant exclusions.
@@ -2881,6 +2914,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** For dihedral r a symmetric-square character can produce an invariant at the indicated similitude, including odd choices of δ.
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.31: the dihedral case bounds δ for the untwisted invariants only; with u⁺=Sym²(ρ̄_f)⊗δ⁻¹ (as the example itself writes) the twisted conditions for C2 also depend on δ.
 
 ### E25: error — §6, Example 6.8, p. 31 (inherited from Example A.16, p. 50) (arXiv v5)
 
@@ -2892,6 +2927,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.31 and p.50: the condition uses κ̄^{a(r−1)+1}, i.e. χ=det ρ̄_f, while the adjoint-Levi character trivial on the GSp center is det(ρ̄_f)δ⁻¹.
+
 ### E26: error — §6, Example 6.8, p. 31 (arXiv v5)
 
 **Assertion at issue:** The GSp₄ example excludes too few weights and conflates alternative separation conditions.
@@ -2901,6 +2938,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** The weights 0,r−1,w,w−r+1 must be distinct. The two A.14 hypotheses are alternatives, not simultaneous consequences.
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.31: “a de Rham character of nonzero weight” allows w=r−1 or w=2r−2, where two of 0,r−1,w,w−r+1 coincide.
 
 ### E27: misprint — §§4–6, pp. 19, 23, 24, 26, 27, 28 (arXiv v5)
 
@@ -2912,6 +2951,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Spot-checked pp.19–28: C3 must exclude W=0, and the extension lemma needs primes trivial for W as well as W′ (Lemma 6.2 identifies H¹(Γ_{F_v},W) with homomorphisms).
+
 ### E28: gap — §7, proof of Theorem 7.4, p. 36 (arXiv v5)
 
 **Assertion at issue:** The determinant adjustment is treated as a globally inflatable local character without its normalization.
@@ -2921,6 +2962,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** A global character unramified outside p is trivial on this local uniformizer under the cyclotomic quotient. Infinite-order corrections would also spoil the required determinant type.
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.36: ω is only potentially unramified with trivial reduction; a character of Γ_Qp inflates to one of Γ_Q unramified outside p only if its value on Art(p) is 1, which an unramified square-root twist of the local lift arranges.
 
 ### E29: misprint — §§7–8, pp. 33, 35, 36, 37, 39 (arXiv v5)
 
@@ -2932,6 +2975,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Spot-checked pp.33–37: the alternative proof of the split case via Lemma 7.3 and Lemma 6.1 gives modularity but not the weight-r and level-prime-to-p refinements.
+
 ### E30: error — §8, Remark 8.2, p. 38 (arXiv v5)
 
 **Assertion at issue:** The function-field remark makes the prime bound uniform in the base field from absolute irreducibility alone.
@@ -2941,6 +2986,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Over F_q(t) with q≡−1 mod p an induced irreducible representation can have κ̄ in its adjoint, violating C2 for unbounded p as q varies.
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Verified: for F=F_q(t) with q≡−1 mod p, κ̄ is the quadratic constant-field character, and ρ̄=Ind ψ from F_{q²}(t) has κ̄ in ad⁰ρ̄, hence a trivial line in M*; C2 fails for an absolutely irreducible ρ̄, for every p.
 
 ### E31: gap — §8, proof of Corollary 8.3, p. 39 (arXiv v5)
 
@@ -2952,15 +2999,19 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.39: noninjectivity of im ρ̄→M(k) is asserted from nonsplitness; an injective projection gives an extension of ρ̄₂ by ρ̄₁ over the Levi image, which splits only via an H¹-vanishing result such as Gur99 (gap G2).
+
 ### E32: gap — §9, proof of Proposition 9.1, p. 42 (arXiv v5)
 
-**Assertion at issue:** The symplectic compatible-system application infers constituentwise cyclotomic irreducibility from primitivity of the entire representation.
+**Assertion at issue:** From GSp_{2n}-irreducibility of ρ̄|Γ_{F(ζ_p)}, the proof infers that every GL_{2n}-constituent of ρ̄ is self-dual and stays absolutely irreducible on Γ_{F(ζ_p)}.
 
 **Correction:** Assume explicitly that every GL constituent stays absolutely irreducible after restriction to Γ_{F(ζ_p)}.
 
-**Reason:** A primitive sum can contain a constituent induced from a quadratic cyclotomic subextension. ANT20 requires the stronger constituentwise condition.
+**Reason:** GSp-irreducibility over Γ_{F(ζ_p)} allows a Γ_F-constituent induced from the quadratic subextension of F(ζ_p)/F to split there into two distinct symplectic pieces; ANT20 requires the constituentwise condition. (Description corrected by REV-DESIGN-GlobalGaloisDeformationsPartII; the earlier text attributed the inference to primitivity.)
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.42 (corrected description of the assertion): the source infers that each GL_{2n}-constituent stays absolutely irreducible on Γ_{F(ζ_p)} from GSp_{2n}-irreducibility of ρ̄|Γ_{F(ζ_p)}. A constituent induced from the quadratic subextension of F(ζ_p)/F splits there into two distinct symplectic pieces, keeping ρ̄|Γ_{F(ζ_p)} GSp-irreducible.
 
 ### E33: misprint — §9, definition of ξ-ordinary, p. 41, and proof of Proposition 9.1, pp. 41–42 (arXiv v5)
 
@@ -2968,9 +3019,11 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Correction:** With HT(κ)=−1 use ξ_{τ,n−i+1}+i−1, and replace n by 2n in the symplectic case.
 
-**Reason:** The ordinary characters are the corresponding negative powers of κ and these weights increase with i.
+**Reason:** The ordinary characters are the corresponding negative powers of κ and these weights increase with i. With weight 0, the printed signs would give similitude κ^{2n−1} instead of κ^{1−2n}.
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.41: with HT(κ)=−1 and the weight-0 π used in the proof, the printed weights −(ξ_{τ,n−i+1}+i−1) are 0,−1,…,1−2n, whose symplectic pairing would require similitude κ^{2n−1}, not the κ^{1−2n} of Proposition 9.1.
 
 ### E34: misprint — §9, pp. 40–43 (arXiv v5)
 
@@ -2982,6 +3035,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read pp.40–43: p.40 calls ANT20 a potential automorphy theorem (it is automorphy lifting), p.42 writes “[BLGGT14, Proposition 3.1.2]” for Theorem 3.1.2 and π_{v₀} for the places above v₀.
+
 ### E35: gap — Appendix A, proof of Lemma A.4, p. 44 (arXiv v5)
 
 **Assertion at issue:** The p-kernel filtration proof replaces the group whose factors it is trying to control.
@@ -2991,6 +3046,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** The successive intersection factors embed equivariantly in the Lie filtration; replacing Σ by a larger kernel does not establish that claim for the original factors.
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.44: the proof replaces Γ by π⁻¹(Γ̄) and Σ by U(k); filtering the original Σ by Σ∩U_i(k) gives a central Γ-series whose factors embed in u_{i+1}/u_i, which with Lemma A.3 proves the claim.
 
 ### E36: error — Appendix A.1.1, Lemma A.9, p. 46 (arXiv v5)
 
@@ -3002,6 +3059,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Verified: conjugating a Levi-valued ρ̄′ by u∈U(k) keeps hypotheses (1)–(3) of Lemma A.9 but moves H⁰ to u·(z(M)∩g^der)·u⁻¹, outside z(M); only the Levi projection of the invariants lies in z(M).
+
 ### E37: error — Appendix A.1.1, Lemma A.9(3) and its proof, p. 47 (arXiv v5)
 
 **Assertion at issue:** The block lemma imposes separate pairwise character-field degree bounds.
@@ -3011,6 +3070,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Several separately disjoint character fields can jointly generate the cyclotomic field. A three-character example then has overlapping primal/dual constituents.
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Verified by an explicit example: three one-dimensional blocks with χ₁₂=ψ, χ₂₃=κ̄ψ (ψ of order p−1 independent of κ̄) satisfy (1),(2) and the pairwise bounds (3) with degree p−1, yet χ₂₃=κ̄χ₁₂ makes C3 fail.
 
 ### E38: error — Appendix A.1.2, proof of Lemma A.10, p. 47 (arXiv v5)
 
@@ -3022,6 +3083,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read p.47: complex conjugation acts on gl_n by x↦−A xᵗA⁻¹ for ρ̄(c)=(A,·)j, and if it pairs two blocks the element c(I_i−I_j) is invariant, so C1 fails.
+
 ### E39: misprint — Appendix A.2, Lemma A.11(1)(a), (b), p. 47 (arXiv v5)
 
 **Assertion at issue:** The unequal-block test is written as a parity alternative.
@@ -3031,6 +3094,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Hom between nonisomorphic absolutely irreducible representations vanishes; unequal dimensions already guarantee nonisomorphism, regardless of parity.
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.47 and p.39: condition (a) reads “n odd, or n′=n″ and …”, but Corollary 8.3 applies it to all n₁≠n₂ (e.g. (1,3)); unequal dimensions suffice because Hom between absolutely irreducible representations of different dimensions vanishes.
 
 ### E40: error — Appendix A.2, Lemma A.11(2) and item (ii) of its proof, pp. 47–48; Example A.16, p. 50 (arXiv v5)
 
@@ -3042,6 +3107,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Verified: conjugation by diag(A,νA^{−T}) on the Siegel radical is X↦ν⁻¹AXAᵗ, so u=Sym²(std)⊗ν⁻¹; Example 6.8 itself writes Sym²(ρ̄_f)⊗δ⁻¹.
+
 ### E41: error — Appendix A.2, Example A.17, p. 50 (arXiv v5)
 
 **Assertion at issue:** The equal-block property-D example lists only nonzero exponent pairs.
@@ -3051,6 +3118,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Taking n=1 and a cyclotomic block ratio can pass the displayed nonzero comparisons while failing a zero-exponent test and C3.
 
 **Reach:** a stated result. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Verified: n=1, χ=κ̄ (κ̄ of large order) passes the displayed comparisons of Example A.17, fails the m₁=1, m₂=0 test of Definition A.13, and C3 fails since κ̄ occurs in both M and M*.
 
 ### E42: gap — Appendix A, proofs of Lemmas A.5, A.14 and A.18, pp. 45, 50, 51 (arXiv v5)
 
@@ -3062,6 +3131,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Read pp.45, 49–51: the minimal parabolic is taken before enlarging k; L′=F(ρ̄_M,μ_p) need not lie in K′=F(ρ̄(g^der),κ̄), so Gal(K′/L′) is undefined; the Borel argument needs subquotients.
+
 ### E43: gap — Appendix B, proof of Lemma B.3, p. 53 (arXiv v5)
 
 **Assertion at issue:** The closed ordinary-condition ideal tests roots but leaves the central torus character unconstrained.
@@ -3071,6 +3142,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** Roots see only the adjoint torus. For G_m there are no roots at all, so root equations cannot specify the desired character.
 
 **Reach:** the proof. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
+
+**Independent review:** confirmed. Read p.53: the ideal is generated by c_{β,σ}=β(t_σ)−β(χ_λ(σ)) for positive roots only, which does not fix the central part of the torus character (no roots at all for G_m).
 
 ### E44: misprint — Appendices A and B and the references, pp. 44–58 (arXiv v5)
 
@@ -3082,15 +3155,19 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 
 **Reach:** nothing. **Correction search:** Prior extraction’s documented Crossref/arXiv/publisher checks, supplemented by the 2026-10-19 check. No published correction located.
 
+**Independent review:** confirmed. Spot-checked: p.47 writes x_i^{n_j}x_j^{n_i} for the ratio map, and pp.49–50 cite “[FKP19, Corollary A.6]”, which is Lemma A.6 there.
+
 ### E45: error — FKP22 arXiv:2008.12593v5, Lemma3.7 and proof pp.15–16; use in Proposition3.8 pp.17–19
 
 **Assertion at issue:** The source claims strong linear disjointness for all marked dual fields as both the prime w and basis index b vary, under Assumption3.1.
 
 **Correction:** Replace the unconditional claim by the joint-inertia conditional criterion and prove the weaker quantitative input actually needed for doubling under its full hypotheses; this replacement is gap G1.
 
-**Reason:** FKP22 v5 Lemma3.7 pp.15–16 is false under its stated Assumption3.1: for F=Q, trivial SL₂ residual image and k=F_p, p≥5, M*=F_p(κ̄)³. For two basis lines, identify their scalar cocycles and put ζ_w=η_1^(w)−η_2^(w). Their equal inertia at w cancels, so ζ_w lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)). Infinitely many w force ζ_w=ζ_w′ for distinct w,w′. This gives a nontrivial relation among four degree-p cocycle fields, contradicting strong disjointness. Restriction to Γ_K preserves the relation and individual nonvanishing; H¹(Gal(K/Q),F_p(κ̄))=0 as its order is p−1. C4 holds, but C1 fails. To close the main proof, establish the quantitative conditional-success/finite-quotient Chebotarev input actually needed by Proposition3.8 under C1,C3,C4, using a new construction or a proof allowing repeated constituents. Individual cyclic images or pairwise disjointness do not close it. The conditional joint-generation node is valid but its extra hypothesis is not automatic. Theorem5.2 is an intended target, not disproved by this counterexample.
+**Reason:** FKP22 v5 Lemma3.7 pp.15–16 is false under its stated Assumption3.1: for F=Q, trivial SL₂ residual image and k=F_p, p≥5, M*=F_p(κ̄)³. For two basis lines, identify their scalar cocycles and put ζ_w=η_1^(w)−η_2^(w). Their equal inertia at w cancels, so ζ_w lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)). Infinitely many w force ζ_w=ζ_w′ for distinct w,w′. This gives a nontrivial relation among four degree-p cocycle fields, contradicting strong disjointness. Restriction to Γ_K preserves the relation and individual nonvanishing; H¹(Gal(K/Q),F_p(κ̄))=0 as its order is p−1. C4 holds, but C1 fails. To close the main proof, establish the quantitative conditional-success/finite-quotient Chebotarev input actually needed by Proposition3.8 under C1,C3,C4, using a new construction or a proof allowing repeated constituents. Individual cyclic images or pairwise disjointness do not close it. The conditional joint-generation node is valid but its extra hypothesis is not automatic. Theorem5.2 is an intended target, not disproved by this counterexample. Review addition: the lemma also fails under C1–C4 when M* is semisimple with a repeated simple constituent, for every k-basis (FKP19 Proposition 7.8 and Remark 7.9 give such residual images), so G1 concerns the proof of Theorem 5.2 within its hypotheses.
 
 **Reach:** a stated result. **Correction search:** The arXiv history, publisher article page and public correction searches on 2026-10-19 yielded no correction; findings remain scoped to the preprint.
+
+**Independent review:** confirmed. Verified the counterexample: θ_1^{(w)}−θ_2^{(w)} is unramified at w and lies in the finite H¹(Γ_{Q,T},F_p(κ̄)), and H¹(Gal(Q(μ_p)/Q),F_p(κ̄))=0. The flaw is the second paragraph of the proof: a nonzero quotient of ∏_b Gal(K_{η_b^{(v)}}/K) can kill the diagonal image of τ_v. The failure also occurs under C1–C4 when M* has a repeated simple constituent (FKP19 Proposition 7.8 examples; see G1).
 
 ### E46: gap — FKP22 arXiv:2008.12593v5, §2 p.9 and AppendixA.1.2 before LemmaA.10 p.47
 
@@ -3101,6 +3178,8 @@ FKP22 findings below concern **arXiv v5**, not an assertion about uncollated pas
 **Reason:** The derived subgroup of GL_n×G_m is SL_n. Its Lie algebra has dimension n²−1, while the multiplier kernel has dimension n². Their scalar summand and complex-conjugation action require an explicit comparison; changing conventions silently does not supply it. This is the convention obligation G4, not an assertion that the main lifting theorem is false.
 
 **Reach:** the proof. **Correction search:** The arXiv history, publisher article page and public correction searches on 2026-10-19 yielded no correction; findings remain scoped to the preprint.
+
+**Independent review:** confirmed. Read p.9 and p.47: §2 defines G^der as the derived group of G⁰, while A.1.2 calls the GL_n factor of G⁰=GL_n×G_m the derived group; C2 for sl_n does not follow from C2 for gl_n, since (sl_n)* is a quotient of (gl_n)*.
 
 ## Catalogue coverage
 
@@ -3178,25 +3257,25 @@ All 86 items routed by PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22 to the former continua
 | 95 | GG2.0/oddness |  |
 | 96 | GG2.0/cocycle-fields; GG2.3/density-selection |  |
 | 97 | GG2.2/ramification-disjointness |  |
-| 98 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory |
+| 98 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory; gap G6(iv) |
 | 99 | GG2.0/cyclotomic-intersection |  |
 | 100 | GG2.3/initial-mod-square |  |
 | 101 | GG2.3/trivial-prime-pairing |  |
 | 102 | GG2.4/auxiliary-prime-set; GG2.4/root-local-condition |  |
 | 103 | GG2.5/relative-selmer-annihilation; GG2.6/compatible-finite-ramification |  |
 | 104 | GG2.6/finite-congruence-detection |  |
-| 105 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory |
+| 105 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory; gap G6(iv) |
 | 106 | GG2.5/adjoint-orbit-reduction |  |
 | 107 | GG2.5/simultaneous-root-position |  |
-| 108 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory |
+| 108 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory; gap G6(iii) |
 | 109 | GG2.8/global-determinant-match |  |
-| 115 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory |
-| 116 | GG2.1/block-criteria | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory |
+| 115 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory; gap G6(i) |
+| 116 | GG2.1/block-criteria | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory; gap G6(iii) |
 | 117 | GG2.1/irreducible-image-input |  |
-| 118 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory |
+| 118 |  | tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory; gap G6(ii) |
 
 ## Suggested signatures
 
-The compact companion file follows the current roadmap shape. It contains three light real-bodied definitions over carriers at the pins: the linear submodule image, the generic orbit span and an additive image on the actual continuous H¹ carrier. The generic cyclic span is specialized to F_p in the arithmetic construction; it must not be replaced by a k-span. The two image definitions expose the same image operation in linear and continuous-cohomology settings. Nine API milestones and nine examples exercise zero images, identity, composition, orbit generation and equivariance. They are illustrative forms, not replacements for the full arithmetic objects, APIs or tests specified above. The heavy Galois, local-deformation and automorphic statements remain README targets until their owners supply the required carriers.
+The compact companion file follows the current roadmap shape. It contains three light real-bodied definitions over carriers at the pins: the linear submodule image, the generic orbit span and an additive image on the actual continuous H¹ carrier. The generic cyclic span is specialized to F_p in the arithmetic construction; it must not be replaced by a k-span. The two image definitions expose the same image operation in linear and continuous-cohomology settings. It also states FKP22 Lemma 2.1 (GG2.0/abelian-compositum) with Mathlib intermediate fields, normality and IsAbelianGalois. Nine API milestones and ten examples exercise zero images, identity, composition, orbit generation and equivariance, and include two non-examples: the image of a ↦ (a,0) is not the whole target, and the prime-field cyclic span of 1 in F_{p²} with trivial action is not all of F_{p²}. They are illustrative forms, not replacements for the full arithmetic objects, APIs or tests specified above. The heavy Galois, local-deformation and automorphic statements remain README targets until their owners supply the required carriers.
 
-The companion file elaborated with `lean-check` at the pinned shared build on 2026-10-19, with the expected admitted-proof warnings only. All target implementation statuses remain unchecked. This checks the displayed forms against existing carriers; it does not prove the arithmetic theorem.
+The companion file, as revised by the independent review, elaborated with `lean-check` at the pinned shared build on 2026-10-19, with the 19 expected admitted-proof warnings only. All target implementation statuses remain unchecked. This checks the displayed forms against existing carriers; it does not prove the arithmetic theorem.

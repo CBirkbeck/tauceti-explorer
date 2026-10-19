@@ -173,6 +173,19 @@
       "readSections": [
         "Lemma 5.1(2), pp.34–35 of the author preprint; its regular-unipotent and Frobenius conclusions."
       ]
+    },
+    {
+      "id": "Pan22",
+      "title": "The Fontaine–Mazur conjecture in the residually reducible case",
+      "authors": "Lue Pan",
+      "edition": "Journal of the American Mathematical Society 35 (2022); arXiv:1901.07166v2 (3 September 2021).",
+      "url": "https://arxiv.org/pdf/1901.07166v2",
+      "sha256": "590171129d28a65749cf92b1f6099dbacaa90cc6698828f0a4dfd3da943f4824",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, Theorems 1.0.2 and 1.0.4 and the following remarks, pp.2–5; table of contents for §§5–7."
+      ],
+      "addedBy": "REV-DESIGN-GlobalGaloisDeformationsPartII"
     }
   ],
   "nodes": [
@@ -211,7 +224,7 @@
       "sources": [
         {
           "sourceId": "FKP22",
-          "locator": "§2, p.9; §1.2, pp.5–6; FKP19 Assumption 2.1, pp.9–10",
+          "locator": "§2, p.9; §1.2, pp.5–6; FKP19 Assumption 2.1, p.14",
           "match": "These conventions specify the global parameters and the coefficient module for the lifting proof."
         }
       ],
@@ -477,7 +490,7 @@
       "sources": [
         {
           "sourceId": "FKP22",
-          "locator": "Definition 3.2 and Remark 3.3, p.11; FKP19 Notation 5.1, pp.26–27",
+          "locator": "Definition 3.2 and Remark 3.3, p.11; FKP19 Notation 5.1, pp.25–26",
           "match": "Triviality and the decomposition choices make the specified evaluation conditions meaningful."
         }
       ],
@@ -565,7 +578,7 @@
       "sources": [
         {
           "sourceId": "FKP22",
-          "locator": "§1.3, pp.7–8; Lemma 3.7, pp.15–16; FKP19 Notation 5.1, pp.26–27",
+          "locator": "§1.3, pp.7–8; Lemma 3.7, pp.15–16; FKP19 Notation 5.1, pp.25–26",
           "match": "The proof uses cocycle images and disjointness of entire finite families."
         }
       ],
@@ -689,7 +702,7 @@
       "sources": [
         {
           "sourceId": "FKP22",
-          "locator": "§3, pp.11,13; FKP19 Notation 5.1, pp.26–27",
+          "locator": "§3, pp.11,13; FKP19 Notation 5.1, pp.25–26",
           "match": "Only the first degree-p cyclotomic layer can obstruct unrestricted norm prescriptions."
         }
       ],
@@ -1441,7 +1454,7 @@
         "For number fields include the archimedean convention and the places above p in the global duality input."
       ],
       "proofSteps": [
-        "Inflation–restriction and C4 inject a nonzero dual class into Hom(Γ_K,M*).",
+        "Inflation–restriction (the pinned explicitInfRes_exact for the open normal subgroup Γ_K) and C4 inject a nonzero dual class into Hom(Γ_K,M*).",
         "Choose a nonzero evaluation and realize it by Frobenius at a prime split in K.",
         "Adding that prime decreases the finite-dimensional Sha¹; iterate and invoke Poitou–Tate."
       ],
@@ -1455,7 +1468,8 @@
         "ArithmeticGaloisDuality:R02.4/poitou-tate",
         "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
         "FunctionFieldArithmetic:FA.5",
-        "ArithmeticGaloisDuality:R02.5"
+        "ArithmeticGaloisDuality:R02.5",
+        "tauceti:TauCeti.ContCohomology.explicitInfRes_exact"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/GaloisDeformation/Lifting/sha_killing",
@@ -1800,7 +1814,8 @@
       "acceptance": [
         "Test M*=F_p(κ̄)³ with F=Q and trivial SL₂ residual representation. For two basis indices identify their cyclic lines and put ζ_w=η_1^(w)−η_2^(w). This class is unramified at w and lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)).",
         "Two distinct new primes w,w′ have ζ_w=ζ_w′. The resulting nonzero relation among four scalar cocycles persists on Γ_K, since H¹(Gal(Q(μ_p)/Q),F_p(κ̄))=0. Their four degree-p fields therefore cannot be strongly disjoint.",
-        "This example satisfies Assumption 3.1 but fails C1. It refutes the lemma in its stated scope, without refuting Theorem 5.2."
+        "This example satisfies Assumption 3.1 but fails C1. It refutes the lemma in its stated scope, without refuting Theorem 5.2.",
+        "The failure is not confined to C1-failing data. Let k=F_p and suppose M* is semisimple with a simple constituent of multiplicity at least two, as for the F₄-valued residual images of FKP19 Proposition 7.8 (image A₆ or PSL₂(F₁₃), with adjoint multiplicities above one by FKP19 Remark 7.9), which satisfy C1–C4. For every k-basis the F_p[Γ_F]-span of the inertia tuple (e_b*)_b has that constituent with multiplicity at most its dimension, while ∏_b M*_{e_b*} has it with multiplicity at least the number of basis vectors meeting its isotypic part. So the inertia at w generates a proper submodule, L_w has a nontrivial subextension E_w unramified at w, and E_w lies in the finite maximal elementary abelian p-extension of K unramified outside T. Hence E_w=E_w′ for some w≠w′ and L_w∩L_w′≠K."
       ],
       "prerequisites": [
         "GlobalGaloisDeformationsPartII:GG2.2/marked-dual-classes",
@@ -1862,7 +1877,7 @@
       "sources": [
         {
           "sourceId": "FKP22",
-          "locator": "Beginning of §3.2 and Proposition 3.8, pp.16–17",
+          "locator": "Paragraph after Lemma 3.7 and Proposition 3.8, p.16 (v5 has no §3.2)",
           "match": "The locally trivial obstruction argument precedes the doubling construction."
         }
       ],
@@ -1946,7 +1961,7 @@
       "sources": [
         {
           "sourceId": "FKP19",
-          "locator": "FKP19 Lemma 3.9, p.19; FKP22 §3.2, pp.17–18",
+          "locator": "FKP19 Lemma 3.9, p.19; FKP22 proof of Proposition 3.8, pp.16–18",
           "match": "The calibrated sign is needed when the primal and dual Frobenius conditions are exchanged."
         }
       ],
@@ -2220,7 +2235,7 @@
       "sources": [
         {
           "sourceId": "FKP19",
-          "locator": "FKP19 Lemma 6.1 and proof, pp.43–45",
+          "locator": "FKP19 Lemma 6.1 and proof, pp.44–45",
           "match": "The proof provides middle exactness, not automatic surjectivity of a Selmer reduction."
         }
       ],
@@ -2285,10 +2300,10 @@
         "Use a sufficiently small open analytic subgroup and transfer across its finite index; a reductive Lie algebra with nonzero center does not meet the stated semisimple hypothesis."
       ],
       "proofSteps": [
-        "Use the compact-group finite-generation theorem for H^i(Γ,V) and the continuous coefficient long exact sequence.",
-        "Identify rational cohomology with Lie algebra cohomology on a sufficiently small subgroup, then take finite-quotient invariants.",
-        "Semisimple Lie algebra cohomology with no invariants vanishes; for the H¹ bound only Whitehead H¹,H² is required.",
-        "Finite generation makes the resulting torsion bounds uniform in r."
+        "Choose an open normal p-valued subgroup of finite index (requested from LocallyAnalyticDistributionsPartII ND.0; for open subgroups of G(O) the deep congruence subgroups of upstream RG2.0.3).",
+        "On it, use the finite free resolution over the completed group ring and the Ext description of continuous cohomology (requested from NoncommutativeAndEquivariantIwasawa NE.0) to get finite generation of H^i(Γ,V) and a bounded complex computing all H^i(Γ,V/ϖ^r).",
+        "Identify rational cohomology with Lie-algebra cohomology on that subgroup (Lazard V (2.4.10), requested from NE.0) and apply semisimple Lie-algebra vanishing, with only Whitehead H¹,H² in the degree-one statement (requested from AutomorphicFormsOnReductiveGroups AF.1a).",
+        "Finite generation and the universal-coefficient sequence of the bounded complex make the torsion exponent independent of r; pass to Γ through finite-index invariants (Hochschild–Serre)."
       ],
       "acceptance": [
         "For Γ with Lie algebra sl₂ the Whitehead H¹,H² input yields the degree-one bound even for a trivial rank-one lattice. A Lie algebra with central Q_p factor does not satisfy this semisimple hypothesis."
@@ -2296,7 +2311,10 @@
       "prerequisites": [
         "ArithmeticGaloisDuality:R02.5",
         "ArithmeticGaloisDuality:R02.1",
-        "ReductiveGroupsPartII:RG2.0"
+        "ReductiveGroupsPartII:RG2.0",
+        "LocallyAnalyticDistributionsPartII:ND.0",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "AutomorphicFormsOnReductiveGroups:AF.1a"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/GaloisDeformation/Lifting/lie_cohomology_bound",
@@ -2305,7 +2323,7 @@
       "sources": [
         {
           "sourceId": "FKP19",
-          "locator": "FKP19 Proposition B.1, pp.64–65; Lazard V, Theorems 2.2.2.3, 2.2.3.1 and 2.4.10, pp.165–166,178–179",
+          "locator": "FKP19 Lemma B.1 and proof, p.64; Lazard V, Theorems 2.2.2.3, 2.2.3.1 and 2.4.10, pp.165–166,178–179",
           "match": "The analytic comparison is an explicit prerequisite of the uniform finite-coefficient bound."
         },
         {
@@ -2352,7 +2370,7 @@
       "sources": [
         {
           "sourceId": "FKP19",
-          "locator": "FKP19 Corollary B.2, pp.65–66; FKP22 §5, pp.23–24",
+          "locator": "FKP19 Corollary B.2 and proof, p.64; FKP22 §5, pp.23–24",
           "match": "The full Galois image is necessary when disconnected components remove adjoint invariants."
         }
       ],
@@ -2484,7 +2502,7 @@
       "sources": [
         {
           "sourceId": "FKP19",
-          "locator": "FKP19 Lemmas 3.5 and 6.7, pp.13–16,46–47",
+          "locator": "FKP19 Lemmas 3.5 and 6.7, pp.17–18,46–47",
           "match": "The lattice controls finite lifting fibers even when the local residual representation is trivial."
         }
       ],
@@ -2665,7 +2683,7 @@
       "sources": [
         {
           "sourceId": "FKP19",
-          "locator": "FKP19 proof of Proposition 6.8, pp.48–49; FKP22 proof of Corollary 5.5, pp.26–27",
+          "locator": "FKP19 Proposition 6.8 and proof, pp.47–49; FKP22 proof of Corollary 5.5, pp.26–27",
           "match": "The finite-field counting argument is the key Lie-theoretic prerequisite for simultaneous detection."
         }
       ],
@@ -2851,7 +2869,7 @@
       "sources": [
         {
           "sourceId": "FKP19",
-          "locator": "FKP19 Claim 6.14, pp.52–55; FKP22 proof of Theorem 5.2, pp.24–25",
+          "locator": "FKP19 Claim 6.14 and proof, pp.53–55; FKP22 proof of Theorem 5.2, pp.24–25",
           "match": "Compatibility is imposed on the retained τ_n, not on every deeper auxiliary lift."
         }
       ],
@@ -2945,7 +2963,7 @@
       "sources": [
         {
           "sourceId": "FKP22",
-          "locator": "Theorem 5.2 (Theorem E) and proof, pp.23–25; Remark 5.7, p.27",
+          "locator": "Theorem 5.2 (Theorem E) and proof, pp.23–25; footnotes 6–7, pp.23–24 (v5 has no Remark 5.7)",
           "match": "This is the main target; the coefficient field can be fixed independently of the requested approximation depth."
         }
       ],
@@ -3033,7 +3051,7 @@
       "sources": [
         {
           "sourceId": "FKP22",
-          "locator": "Theorem 5.6, p.27; FKP19 Theorem 6.21, pp.58–59",
+          "locator": "Theorem 5.6, p.27; FKP19 Theorem 6.21, pp.56–57",
           "match": "The larger local tangent spaces replace the oddness-based balance."
         }
       ],
@@ -3054,7 +3072,9 @@
       "title": "Recovery of the irreducible lifting theorem",
       "kind": "comparison",
       "statement": "For F totally real, an odd residual representation whose restriction to Γ_{F̃(ζ_p)} is absolutely G⁰-irreducible, with [F̃(ζ_p):F̃]>a_G and the prescribed regular local μ-lifts, satisfies the residual hypotheses of the main theorem for p≫G. It therefore has the finitely ramified geometric lift and local approximation of FKP19 Theorem 6.11. Here F̃ is the component splitting field, not the full residual field.",
-      "hypotheses": [],
+      "hypotheses": [
+        "This specialization inherits gap G1 through the main geometric lifting theorem: the failure of FKP22 Lemma 3.7 also occurs for some absolutely irreducible residual images (see E45). FKP19 Theorem 6.11 has its own proof, through the field K′ of FKP19 Definition 5.8, p.29, which avoids Lemma 3.7; that route is not planned in this roadmap."
+      ],
       "proofSteps": [
         "Apply the absolutely irreducible finite-image and bounded cyclic quotient inputs to verify C1–C4.",
         "Use inflation–restriction across the prime-to-p component extension.",
@@ -3406,7 +3426,7 @@
         "Apply maximal separation and the Levi geometric lifting theorem."
       ],
       "acceptance": [
-        "The four Hodge–Tate weights 0,r−1,w,w−r+1 are distinct exactly when w avoids 0,r−1,2r−2 (for r>1). The character separation depends on δ."
+        "The four Hodge–Tate weights 0,a−1,w,w−a+1 are distinct exactly when w avoids 0,a−1,2a−2 (for a≥2). The character separation depends on δ."
       ],
       "prerequisites": [
         "GlobalGaloisDeformationsPartII:GG2.1/explicit-separation",
@@ -3621,8 +3641,8 @@
         "A nonsplit extension and the split sum have identical traces; the determinant or Hecke traces alone do not prove actual residual modularity."
       ],
       "prerequisites": [
-        "ClassicalSerreModularity:R27.6",
-        "AlgebraicModularFormsAndSerreWeights:R15.5",
+        "ClassicalSerreModularity:R27.6/full-classical-serre-theorem",
+        "AlgebraicModularFormsAndSerreWeights:R15.5/deligne-serre-eigenvalue-lifting-lemma",
         "AlgebraicModularFormsAndSerreWeights:R15.4",
         "AutomorphicGaloisRepresentations:R19.1"
       ],
@@ -3651,16 +3671,19 @@
       "title": "Modularity of reducible odd representations",
       "kind": "theorem",
       "statement": "For p≥3 and a continuous residual representation ρ̄:Γ_{Q,S}→GL₂(k) that is an extension of 1 by χ̄ with χ̄(c)=−1 and χ̄≠κ̄⁻¹, the actual representation is modular. For every r≥2 it is modular of weight r at some level; at r=k(ρ̄|Γ_Qp), Serre’s local weight, it is modular at a level prime to p. Split extensions are included.",
-      "hypotheses": [],
+      "hypotheses": [
+        "The case χ̄|Γ_Qp=1 occurs for every odd p, including p=3 (for example χ̄ the odd quadratic character of Q(√−2), trivial on Γ_Q₃ since 3 splits there, and different from κ̄⁻¹). Pan’s theorem covers it: its only p=3 exclusion is a residual character ratio equal to ω on Γ_Q₃, which does not meet χ̄|Γ_Q₃=1. No p≥5 restriction is needed."
+      ],
       "proofSteps": [
         "For a nonsplit extension verify C1–C4 directly.",
         "Choose the ordinary local component with the normalized determinant and desired weights; at Serre weight choose the crystalline component.",
         "Apply the sl₂ geometric lifting theorem, ensuring irreducibility by full derived image.",
-        "Apply the precise Skinner–Wiles modularity theorem if χ̄|Γ_Qp≠1 and the Pan variant in the remaining permitted case; local–global compatibility identifies weight and p-level.",
+        "Apply the exported Skinner–Wiles theorem over Q (OrdinaryAutomorphicFormsAndModularityLifting R21.5/theorem-a-over-q: χ̄|D_p≠1, ordinary shape (∗ ∗; 0 1) on inertia, determinant ψκ^{r−1} with ψ of finite order) if χ̄|Γ_Qp≠1, and Pan’s theorem (GL2ModularityLifting R32.4/pan-residually-reducible-fontaine-mazur) if χ̄|Γ_Qp=1, for every odd p; local–global compatibility identifies weight and p-level.",
         "For a split extension first create a nonsplit residual extension, apply the same construction and change its residual lattice to the split Levi projection."
       ],
       "acceptance": [
-        "For a nonsplit odd extension with χ̄=κ̄⁻¹ the theorem does not apply. At Serre weight the crystalline local component gives the p-prime level conclusion."
+        "For a nonsplit odd extension with χ̄=κ̄⁻¹ the theorem does not apply. At Serre weight the crystalline local component gives the p-prime level conclusion.",
+        "At p=3 with χ̄ the quadratic character of Q(√−2), χ̄ is odd, trivial on Γ_Q₃ and different from κ̄⁻¹, so the theorem applies and uses the Pan case; a p≥5 restriction on that case would wrongly exclude it."
       ],
       "prerequisites": [
         "GlobalGaloisDeformationsPartII:GG2.8/actual-modularity",
@@ -3669,11 +3692,11 @@
         "GlobalGaloisDeformationsPartII:GG2.6/sl2-prime-bound",
         "GlobalGaloisDeformationsPartII:GG2.7/levi-residual-lattice",
         "GlobalGaloisDeformationsPartII:GG2.7/full-unipotent-extension",
-        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
-        "GL2ModularityLifting:R32.4",
         "AutomorphicGaloisRepresentations:R19.5",
         "AlgebraicModularFormsAndSerreWeights:R15.4",
-        "LocalGaloisDeformationRings:L7"
+        "LocalGaloisDeformationRings:L7",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a-over-q",
+        "GL2ModularityLifting:R32.4/pan-residually-reducible-fontaine-mazur"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/GaloisDeformation/Lifting/reducible_modularity",
@@ -3684,6 +3707,11 @@
           "sourceId": "FKP22",
           "locator": "Theorem 7.4 (Theorem B) and proof, pp.35–36",
           "match": "The newform matches the full residual representation with the stated weight and level conclusions."
+        },
+        {
+          "sourceId": "Pan22",
+          "locator": "Introduction, Theorem 1.0.2, p.3 (arXiv:1901.07166v2)",
+          "match": "The residually reducible Fontaine–Mazur theorem for odd p, with its single p=3 exclusion of a cyclotomic residual ratio at 3; this is the statement of the cited supplier node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3751,7 +3779,7 @@
       "prerequisites": [
         "GlobalGaloisDeformationsPartII:GG2.8/gl2-residual-criteria",
         "GlobalGaloisDeformationsPartII:GG2.6/sl2-prime-bound",
-        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.5/theorem-a",
         "AutomorphicGaloisRepresentations:R19.1"
       ],
       "library": {
@@ -3968,7 +3996,7 @@
         "A semisimplification isomorphism alone does not identify a nonsplit residual extension."
       ],
       "prerequisites": [
-        "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6/the-global-correspondence-for-gl-r",
         "ArithmeticGaloisRepresentations:R01.1"
       ],
       "library": {
@@ -4057,7 +4085,7 @@
         "GlobalGaloisDeformationsPartII:GG2.9/actual-function-field-automorphy",
         "GlobalGaloisDeformationsPartII:GG2.6/main-geometric-lift",
         "LocalGaloisDeformationRings:R08.2/equal-characteristic-local-lifts",
-        "GlobalShtukasAndFunctionFieldLanglands:GS.6",
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6/the-global-correspondence-for-gl-r",
         "ArithmeticGaloisDuality:R02.4/poitou-tate",
         "FunctionFieldArithmetic:FA.5"
       ],
@@ -4149,7 +4177,7 @@
         "GlobalGaloisDeformationsPartII:GG2.7/levi-residual-lattice",
         "GlobalGaloisDeformationsPartII:GG2.9/function-field-automorphy",
         "ArithmeticGaloisRepresentations:G7",
-        "GlobalShtukasAndFunctionFieldLanglands:GS.6"
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6/the-global-correspondence-for-gl-r"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/GaloisDeformation/Lifting/two_block_automorphy",
@@ -4193,7 +4221,7 @@
         "GlobalGaloisDeformationsPartII:GG2.7/remove-invariants",
         "GlobalGaloisDeformationsPartII:GG2.7/levi-residual-lattice",
         "GlobalGaloisDeformationsPartII:GG2.9/function-field-automorphy",
-        "GlobalShtukasAndFunctionFieldLanglands:GS.6"
+        "GlobalShtukasAndFunctionFieldLanglands:GS.6/the-global-correspondence-for-gl-r"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/GaloisDeformation/Lifting/direct_sum_automorphy",
@@ -4263,58 +4291,6 @@
       "catalogueItems": []
     },
     {
-      "id": "GlobalGaloisDeformationsPartII:GG2.10/residual-potential-automorphy-input",
-      "parentStageId": "GlobalGaloisDeformationsPartII:GG2.10",
-      "realises": [
-        "GlobalGaloisDeformationsPartII:GG2.10"
-      ],
-      "title": "Potential automorphy with the prescribed Steinberg place",
-      "kind": "theorem",
-      "statement": "For the symplectic residual datum above, a suitable finite Galois totally real extension F′/F disjoint from F(ρ̄,ζ_p) admits a weight-zero ordinary self-dual cuspidal automorphic representation π of GL_{2n}(A_{F′}) with residual representation ρ̄|Γ_{F′}, and π_w a twist of Steinberg for every w over v₀ or v₁. The local condition at both selected places must be imposed at every place of the Moret–Bailly extension above them.",
-      "hypotheses": [
-        "This is the specific residual potential automorphy input to be exported by the potential automorphy owner."
-      ],
-      "proofSteps": [
-        "Apply the owner’s residual symplectic potential-automorphy theorem.",
-        "In its Moret–Bailly construction impose negative Dwork-parameter valuation at all places over both v₀ and v₁ in addition to ordinarity. These are finitely many nonempty local opens.",
-        "Use the local monodromy calculation and local–global compatibility to identify Steinberg at every such place."
-      ],
-      "acceptance": [
-        "Imposing negative Dwork valuation at just one place above v₀ leaves the other places uncontrolled. Prescribe it at all places above v₀."
-      ],
-      "prerequisites": [
-        "GlobalGaloisDeformationsPartII:GG2.10/ordinary-steinberg-lift",
-        "ModularityAndLanglandsExtensions:ML.2",
-        "AutomorphicGaloisRepresentationsPartII:AG2.6"
-      ],
-      "library": {
-        "module": "TauCeti/NumberTheory/GaloisDeformation/Lifting/residual_potential_automorphy_input",
-        "namespace": "TauCeti.GaloisDeformation.Lifting"
-      },
-      "sources": [
-        {
-          "sourceId": "FKP22",
-          "locator": "Proof of Proposition 9.1, p.42; cited BLGGT14 Theorem 3.1.2, Proposition 3.1.1 and p.549",
-          "match": "The source uses potential automorphy from BLGGT, with an additional local condition."
-        },
-        {
-          "sourceId": "BLGGT14",
-          "locator": "Proposition 3.1.1, pp.545–546; Theorem 3.1.2 and proof, pp.546–549",
-          "match": "The residual symplectic potential-automorphy construction uses prescribed local open conditions in Moret–Bailly."
-        },
-        {
-          "sourceId": "BLGHT11",
-          "locator": "Lemma 5.1(2), pp.34–35 (author preprint pagination)",
-          "match": "A negative valuation of the Dwork parameter gives regular-unipotent tame inertia and the Steinberg Frobenius progression at the auxiliary place."
-        }
-      ],
-      "implementationStatus": "unchecked",
-      "planet": {
-        "name": "Residual potential automorphy"
-      },
-      "catalogueItems": []
-    },
-    {
       "id": "GlobalGaloisDeformationsPartII:GG2.10/automorphy-lifting-application",
       "parentStageId": "GlobalGaloisDeformationsPartII:GG2.10",
       "realises": [
@@ -4325,22 +4301,23 @@
       "statement": "Assume additionally that ρ̄ as a GL_{2n}-representation is not induced from a proper subgroup and that each of its GL-constituents remains absolutely irreducible on Γ_{F(ζ_p)}. Choose a quadratic CM L/F and L′=LF′ disjoint from F(ρ̄,ζ_p). Subject to the exact exported ANT20 Theorem 1.1 hypotheses, the ordinary symplectic lift restricted to Γ_{L′} is RACSDC automorphic. Each residual constituent is polarized individually, and the induced action on its adjoint block is x↦−A xᵗA⁻¹; mere existence of a polarization of the whole direct sum does not suffice.",
       "hypotheses": [
         "The constituentwise cyclotomic absolute irreducibility is an added hypothesis correcting Proposition 9.1.",
-        "Verify all eight ANT hypotheses through the supplier contract; no replacement by a generic automorphy claim."
+        "Verify all eight ANT hypotheses through the supplier contract; no replacement by a generic automorphy claim.",
+        "The supplier node PotentialAutomorphyInfrastructurePartII:PL.7/residually-reducible-automorphy-lifting states ANT20 Theorem 1.1 with strong primitivity (the residual semisimplification is not the semisimplification of any induced representation), which is stronger than the non-inducedness assumed in FKP22 Proposition 9.1. Either verify strong primitivity for ρ̄|Γ_{L′} or obtain the source’s primitive form from that owner."
       ],
       "proofSteps": [
         "Use GSp irreducibility to obtain a nondegenerate pairing on every GL constituent, not a pairing that permutes constituents.",
         "Use disjointness to preserve the exact finite residual image and cyclotomic constituent conditions.",
         "Use the cyclic-quotient bound to exclude a p-quotient and supply the required cyclotomic degree conditions.",
-        "Combine residual ordinary automorphy, local Steinberg control, regularity and noninduction with the owner’s precise ANT theorem."
+        "Combine residual ordinary potential automorphy with Steinberg components above v₀ and v₁ (ModularityAndLanglandsExtensions ML.2/potential-automorphy-with-steinberg-place, with the requested two-place and ι-ordinary strengthening), regularity and noninduction with the ANT20 theorem of PotentialAutomorphyInfrastructurePartII PL.7, checking its eight hypotheses one by one."
       ],
       "acceptance": [
         "A polarized sum whose complex conjugation permutes two inequivalent constituents does not meet the individually polarized hypothesis. Verify each constituent separately."
       ],
       "prerequisites": [
-        "GlobalGaloisDeformationsPartII:GG2.10/residual-potential-automorphy-input",
         "GlobalGaloisDeformationsPartII:GG2.10/ordinary-steinberg-lift",
         "GlobalGaloisDeformationsPartII:GG2.1/cyclic-quotient-bound",
-        "ModularityAndLanglandsExtensions:ML.2",
+        "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-with-steinberg-place",
+        "PotentialAutomorphyInfrastructurePartII:PL.7/residually-reducible-automorphy-lifting",
         "GlobalGaloisDeformations:G7"
       ],
       "library": {
@@ -4379,7 +4356,7 @@
       ],
       "proofSteps": [
         "Descend the CM automorphic representation to the totally real field F′, choosing its quadratic twist so the attached representation equals ρ|Γ_{F′}.",
-        "Apply the owner’s compatible-system descent argument from potential automorphy.",
+        "Apply the existing node ModularityAndLanglandsExtensions ML.2/compatible-system-from-potential-automorphy (the argument of BLGGT14 Theorem 5.5.1, with its soluble-descent and part-of-a-compatible-system inputs) to the descended representation.",
         "For every coefficient characteristic ℓ choose one of v₀,v₁ with different residue characteristic. Local–global compatibility there supplies a regular unipotent in that ℓ-adic member.",
         "Apply the requested classification with irreducibility and reductivity hypotheses, then independence of formal character/rank to exclude the principal GL₂ alternative for n>1.",
         "Use the compatible nonfinite multiplier to recover the full GSp center."
@@ -4389,8 +4366,8 @@
       ],
       "prerequisites": [
         "GlobalGaloisDeformationsPartII:GG2.10/automorphy-lifting-application",
+        "ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy",
         "ModularityAndLanglandsExtensions:ML.5",
-        "PotentialModularityAndCompatibleSystems:R24.5:operations",
         "AutomorphicGaloisRepresentationsPartII:AG2.6",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon"
       ],
@@ -4463,7 +4440,7 @@
   "requests": [
     {
       "supplier": "GlobalGaloisDeformations:R04.1",
-      "need": "Extend the existing GL_n absolutely-irreducible deformation formalism to the fixed-quotient G-valued datum (including prime-to-p components): strict-conjugacy action, the H¹ torsor of lifts across square-zero coefficient kernels, the H² obstruction and its restriction to local problems. Do not assume representability of an unframed reducible functor. FKP22 §2 p.9 and §3.2 pp.16–17; FKP19 Assumption 2.1 pp.9–10.",
+      "need": "Extend the existing GL_n absolutely-irreducible deformation formalism to the fixed-quotient G-valued datum (including prime-to-p components): strict-conjugacy action, the H¹ torsor of lifts across square-zero coefficient kernels, the H² obstruction and its restriction to local problems. Do not assume representability of an unframed reducible functor. FKP22 §2 p.9 and the paragraph before Proposition 3.8, p.16; FKP19 Assumption 2.1, p.14.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.0/lifting-datum",
         "GlobalGaloisDeformationsPartII:GG2.3/initial-mod-square",
@@ -4554,7 +4531,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Export a P-equivariant exponential between Lie U and U for parabolic U in good characteristic p larger than its nilpotence-class bound, preserving the Lie filtrations and stable Lie subalgebras used by A.1/A.4/A.7. Export root-space spanning, a nondegenerate invariant pairing on Lie(G^der), Levi modules, and centralizer criteria for semisimple and nilpotent elements. FKP22 Lemma A.1 and Remarks A.2/A.8 pp.44–46; FKP19 A.1–A.6 pp.60–63.",
+      "need": "Use the upstream layer-7 parabolic subgroups, unipotent radicals, Levi decompositions, root data, root subgroups and Weyl groups of a split reductive group over a field, as that layer states them. The large-prime equivariant exponential, centralizer and adjoint-filtration inputs used with them (FKP22 Lemma A.1 and Remarks A.2/A.8 pp.44–46; FKP19 Lemmas A.1–A.6 pp.60–63) are outside the stated scope of that Tau Ceti layer and are recorded as gap G6; they are not requested from the upstream roadmap.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.0/lifting-datum",
         "GlobalGaloisDeformationsPartII:GG2.1/irreducible-image-input",
@@ -4569,7 +4546,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Export two finite-field root-position inputs with uniform root-datum bounds: (i) a root vector outside a prescribed proper F_p-subspace after conjugation, via root-space spanning; (ii) a split maximal torus in general position relative to specified Lie hyperplanes while satisfying α(t)=q. Include the nonempty-open polynomial degree estimates and the restriction to a single simple factor. FKP22 Proposition 3.6 pp.12–15 and Theorem 4.4 pp.20–23; FKP19 Proposition 6.8 pp.48–49.",
+      "need": "Use the upstream maximal tori, root-space decomposition and root subgroups over finite fields, as layer 7 states them. The uniform finite-field root-position and general-position statements built on them (FKP22 Proposition 3.6 pp.12–15 and Theorem 4.4 pp.20–23; FKP19 Proposition 5.9 p.29 and Lemma 5.13 p.38) are gap G6(iv); the simultaneous root-position theorem of FKP19 Proposition 6.8 is owned by GG2.5.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.2/spanning-classes",
         "GlobalGaloisDeformationsPartII:GG2.2/prescribed-vector-classes",
@@ -4579,7 +4556,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Export parabolic G-semisimplification and its Levi projection after coefficient extension, compatibility of its adjoint graded representation with Hom-block modules, and descent of invariance along a prime-to-p central isogeny. A minimal parabolic must be chosen again after residue-field extension. FKP22 Lemmas A.5/A.9 pp.45–47 and §6 pp.28–30.",
+      "need": "Use the upstream parabolic and Levi structure and the conjugacy of parabolic subgroups. The G-semisimplification of a finite image (Levi projection from a minimal parabolic containing it, uniqueness up to G(k)-conjugacy, behaviour under residue-field extension, and the parabolic adjoint filtration with graded pieces m⊕u⊕u⁻; FKP22 Lemma 6.1 p.28, Lemmas A.5/A.9/A.11 pp.45–48) is gap G6(iii).",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.1/cyclotomic-exclusion",
         "GlobalGaloisDeformationsPartII:GG2.1/block-criteria",
@@ -4590,7 +4567,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-8-classification-and-existence-long-horizon",
-      "need": "Export bounded powers with Levi centralizer and the prime-to-p central-isogeny identifications of congruence kernels; also supply component-orbit factorization for a disconnected reductive group. Keep the required regular-unipotent classification separate: that part is gap G5.",
+      "need": "Use the upstream layer-8 classification of split reductive groups by root data, central isogenies, and the decomposition of the adjoint group into simple factors permuted by the component group. Bounded powers with Levi centralizer (FKP19 Lemma A.5 p.62) are part of the cyclic-quotient-bound target here; the centralizer theorems its proof uses are gap G6(ii). The regular-unipotent classification is gap G5.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.1/cyclic-quotient-bound",
         "GlobalGaloisDeformationsPartII:GG2.5/adjoint-orbit-reduction",
@@ -4600,7 +4577,7 @@
     },
     {
       "supplier": "ReductiveGroupsPartII:RG2.0",
-      "need": "Use current upstream congruence subgroups, their pro-p neighborhood basis and their smooth-model Lie quotients. Add the compact p-adic analytic structure, finite-generation of integral continuous cohomology and rational Lie comparison for small open subgroups as an extension of this owner, not as another construction here. Lazard III Prop.3.1.3 pp.91–92 and Thm.3.1.7.4 p.94; V §§2.2.2–2.2.3 pp.165–166 and Thm.2.4.10 pp.178–179; semisimple Lie-cohomology vanishing and Whitehead H¹,H² are required. Retain finite-component invariants on transfer to the full group.",
+      "need": "Use the current upstream RG2.0.3 congruence subgroups 𝒢(O)_n of a smooth affine O-model, their neighbourhood-basis property and the identification of the successive quotients with Lie(𝒢_κ)⊗m^n/m^{n+1}, as stated there. The compact p-adic analytic structure and Lazard’s cohomology inputs are not part of that upstream layer; they are requested from their atlas owners (LocallyAnalyticDistributionsPartII ND.0, NoncommutativeAndEquivariantIwasawa NE.0, AutomorphicFormsOnReductiveGroups AF.1a). The Tau Ceti roadmap is not extended from the atlas.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.4/lie-cohomology-bound",
         "GlobalGaloisDeformationsPartII:GG2.4/deep-reduction-vanishing",
@@ -4618,7 +4595,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
-      "need": "Export openness of the Frattini subgroup of a topologically finitely generated pro-p group and the closed-subgroup generation criterion. Apply it to the compact analytic congruence kernel; the newer ProfiniteArithmetic automorphism-kernel theorem is a different result and is not substituted for this criterion.",
+      "need": "Use the upstream layer-3 Frattini theory (the closed Frattini subgroup, Frattini-quotient generation criterion and its openness) for a topologically finitely generated pro-p group, as stated there. Apply it to the compact analytic congruence kernel; the newer ProfiniteArithmetic automorphism-kernel theorem is a different result and is not substituted for this criterion.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.6/finite-congruence-detection"
       ]
@@ -4643,7 +4620,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-      "need": "Export Dirichlet densities of compatible Frobenius conditions in finite Galois composita and the uniform product failure estimate used for a positive-UPPER-density set. The main Chebotarev theorem is existing upstream work; only the cocycle-field application is owned here. Independence is not supplied by Chebotarev and remains gap G1.",
+      "need": "Use the upstream Chebotarev density theorem (Dirichlet density of the primes with a prescribed Frobenius class in a finite Galois extension), applied to the finite Galois composita of cocycle and cyclotomic fields. The uniform product failure estimate for a positive upper-density set is not an upstream target: it is GG2.3/density-selection here. Independence of the auxiliary fields is not supplied by Chebotarev and remains gap G1.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.2/sha-killing",
         "GlobalGaloisDeformationsPartII:GG2.2/spanning-classes",
@@ -4747,49 +4724,9 @@
       ]
     },
     {
-      "supplier": "AlgebraicModularFormsAndSerreWeights:R15.5",
-      "need": "Use the existing Deligne–Serre weight-one theorem in the semisimple modularity comparison, retaining its unramified/finite-image conclusions.",
+      "supplier": "ModularityAndLanglandsExtensions:ML.2/potential-automorphy-with-steinberg-place",
+      "need": "Extend the existing node from one auxiliary place v₀ to a finite set of auxiliary trivial places, here two places v₀,v₁ of distinct residue characteristics, imposing the Moret–Bailly condition v(t(P))<0 at every place of F′ above each (BLGGT14 Proposition 3.1.1 pp.545–546 and Theorem 3.1.2 pp.546–549; BLGHT11 Lemma 5.1(2), pp.34–35). State in the conclusion that Π_{F′} is ι-ordinary of weight 0, as FKP22 records on p.42 and as ANT20 Theorem 1.1(6)(a) requires. The node already assumes the constituentwise self-duality and cyclotomic irreducibility of E32.",
       "neededBy": [
-        "GlobalGaloisDeformationsPartII:GG2.8/semisimple-modularity"
-      ]
-    },
-    {
-      "supplier": "OrdinaryAutomorphicFormsAndModularityLifting:R21.5",
-      "need": "Export the precise Skinner–Wiles ordinary residually reducible theorem applicable to the odd GL₂ lift with χ̄|Γ_Qp≠1, and its totally real version with every extra residual/local hypothesis retained. This roadmap consumes that theorem and does not reprove it.",
-      "neededBy": [
-        "GlobalGaloisDeformationsPartII:GG2.8/reducible-modularity",
-        "GlobalGaloisDeformationsPartII:GG2.8/totally-real-modularity"
-      ]
-    },
-    {
-      "supplier": "GL2ModularityLifting:R32.4",
-      "need": "Export the precise Pan residually reducible modularity theorem for p≥5 covering the remaining local case permitted by FKP22 Theorem7.4. Match its oddness, local ordinary and determinant hypotheses to the constructed lift. The χ̄|Γ_Qp=1 case has p≥5 since χ̄ is odd over Q.",
-      "neededBy": [
-        "GlobalGaloisDeformationsPartII:GG2.8/reducible-modularity"
-      ]
-    },
-    {
-      "supplier": "ClassicalSerreModularity:R27.6",
-      "need": "Use the existing Khare–Wintenberger irreducible residual modularity theorem only for the semisimple comparison; it is not a proof that all reducible extensions are actually modular.",
-      "neededBy": [
-        "GlobalGaloisDeformationsPartII:GG2.8/semisimple-modularity"
-      ]
-    },
-    {
-      "supplier": "GlobalShtukasAndFunctionFieldLanglands:GS.6",
-      "need": "Use both directions of Lafforgue for continuous irreducible finitely ramified p-adic representations over a global function field with finite-order determinant and cuspidal GL_n automorphic representations with finite-order central character. Preserve the coefficient identification, lattice and full residual reduction. No general Langlands theorem is planned here.",
-      "neededBy": [
-        "GlobalGaloisDeformationsPartII:GG2.9/actual-function-field-automorphy",
-        "GlobalGaloisDeformationsPartII:GG2.9/function-field-automorphy",
-        "GlobalGaloisDeformationsPartII:GG2.9/two-block-automorphy",
-        "GlobalGaloisDeformationsPartII:GG2.9/direct-sum-automorphy"
-      ]
-    },
-    {
-      "supplier": "ModularityAndLanglandsExtensions:ML.2",
-      "need": "Export BLGGT14 Thm.3.1.2 residual symplectic potential automorphy with Moret–Bailly local opens at EVERY place over both v₀ and v₁, using BLGHT11 Lemma5.1(2) for Steinberg monodromy. Separately export ANT20 Thm.1.1 for dimension m=2n over CM L′, with all eight hypotheses: (1) ρ^c≅ρ∨κ^{1−m}; (2) finite ramification; (3) ordinarity of algebraic dominant weight; (4) residual semisimplification a sum of pairwise distinct absolutely irreducible individually polarized constituents; (5) an away-p place with characteristic-zero semisimplification ⊕_{i=1}^m ψκ^{m−i}, ψ unramified; (6) a residual RACSDC ordinary automorphic witness Steinberg at that place; (7) L′(ζ_p) not inside the adjoint fixed field, L′ not inside L′⁺(ζ_p), constituents still absolutely irreducible and distinct on Γ_{L′(ζ_p)}, primitive residual representation and no quotient of order p in its image; (8) p>3 and p∤m. Check each condition, including the added cyclotomic-constituent condition, rather than replacing the theorem by a generic potential-automorphy claim.",
-      "neededBy": [
-        "GlobalGaloisDeformationsPartII:GG2.10/residual-potential-automorphy-input",
         "GlobalGaloisDeformationsPartII:GG2.10/automorphy-lifting-application"
       ]
     },
@@ -4801,8 +4738,8 @@
       ]
     },
     {
-      "supplier": "PotentialModularityAndCompatibleSystems:R24.5:operations",
-      "need": "Extend the compatible-system operations by the Brauer-induction descent used in the PROOF of BLGGT14 Thm.5.5.1 pp.590–593 after the actual potential automorphy established here. The literal theorem assumes residual irreducibility and potential diagonalizability, so it is not directly applicable. Supply strict purity, coefficient embeddings and local compatibility under this adapted descent.",
+      "supplier": "ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy",
+      "need": "Its conclusion that every member of the compatible system has Zariski-dense image in GSp_{2n} needs, for each coefficient characteristic ℓ, a Steinberg place of residue characteristic different from ℓ (the two places v₀,v₁ above), the classification of reductive subgroups containing a regular unipotent element and the ℓ-independence of the formal character (gap G5). BLGGT14 Lemma 5.3.1, pp.580–581, controls components and multiplicities only. Export the density conclusion with these inputs explicit; the strict-purity and descent parts of the node are used as stated.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.10/symplectic-compatible-system"
       ]
@@ -4811,7 +4748,6 @@
       "supplier": "AutomorphicGaloisRepresentationsPartII:AG2.6",
       "need": "Export local–global compatibility for the descended compatible system at every place over the Steinberg place, including a regular-unipotent tame monodromy element at an away-ℓ place in each member. Use the two prescribed Steinberg places of distinct residue characteristic, so every ℓ has at least one such place.",
       "neededBy": [
-        "GlobalGaloisDeformationsPartII:GG2.10/residual-potential-automorphy-input",
         "GlobalGaloisDeformationsPartII:GG2.10/symplectic-compatible-system"
       ]
     },
@@ -4835,6 +4771,34 @@
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.8/global-determinant-match"
       ]
+    },
+    {
+      "supplier": "PotentialAutomorphyInfrastructurePartII:PL.7/residually-reducible-automorphy-lifting",
+      "need": "The node states ANT20 Theorem 1.1 (= Theorem 6.1) with strong primitivity of the residual semisimplification instead of the source’s non-inducedness. The FKP22 Proposition 9.1 application verifies only non-inducedness of ρ̄|Γ_{L′} (FKP22 p.43). Either export the theorem under the source’s primitivity hypothesis with its proof, or state the extra hypothesis so that consumers can check it.",
+      "neededBy": [
+        "GlobalGaloisDeformationsPartII:GG2.10/automorphy-lifting-application"
+      ]
+    },
+    {
+      "supplier": "NoncommutativeAndEquivariantIwasawa:NE.0",
+      "need": "For a uniform (p-valued) pro-p group U and a finite free O-module V with continuous O-linear U-action: Z_p has a finite-length resolution by finite free Z_p[[U]]-modules and H^i(U,V)=Ext^i_{Z_p[[U]]}(Z_p,V), so H^i(U,V) is finitely generated over O and all H^i(U,V/ϖ^r) are computed by one bounded complex of finite sums of V (Lazard V (2.2.2.3) and (2.2.3.1), pp.165–166, as used in FKP19 Lemma B.1, p.64). Also Lazard V Theorem (2.4.10), pp.178–179: for U small enough, H^i(U,V)⊗Q_p is the Lie-algebra cohomology of Lie(U) with coefficients V⊗Q_p, with the Lie action of V (2.4.4). These extend the owner’s completed group rings, global dimension and Lazard cohomology of uniform groups.",
+      "neededBy": [
+        "GlobalGaloisDeformationsPartII:GG2.4/lie-cohomology-bound"
+      ]
+    },
+    {
+      "supplier": "LocallyAnalyticDistributionsPartII:ND.0",
+      "need": "Every compact p-adic analytic group has an open normal p-valued (uniform) subgroup of finite index (Lazard III (3.1.3) and (3.1.7.4), pp.91–94). For open subgroups of G(O), G smooth affine over O, identify such subgroups with deep congruence subgroups of the upstream RG2.0.3 filtration.",
+      "neededBy": [
+        "GlobalGaloisDeformationsPartII:GG2.4/lie-cohomology-bound"
+      ]
+    },
+    {
+      "supplier": "AutomorphicFormsOnReductiveGroups:AF.1a",
+      "need": "On the absolute Chevalley–Eilenberg complex owned there: for a semisimple Lie algebra g over a field of characteristic zero and a finite-dimensional g-module W, H^i(g,W)=0 for all i when W has no nonzero g-invariants, and H¹(g,W)=H²(g,W)=0 for every W (Whitehead’s lemmas; the Chevalley–Eilenberg theorems cited by FKP19 Lemma B.1, p.64).",
+      "neededBy": [
+        "GlobalGaloisDeformationsPartII:GG2.4/lie-cohomology-bound"
+      ]
     }
   ],
   "coverage": [
@@ -4849,35 +4813,35 @@
       "stageId": "GlobalGaloisDeformationsPartII:GG2.1",
       "status": "planned",
       "remaining": [
-        "G2: read the exact Guralnick small-representation theorem. G4: resolve the polarized G_n coefficient convention at its owner. Confirm corrected classical and character criteria independently."
+        "G2: read the exact Guralnick small-representation theorem. G4: resolve the polarized G_n coefficient convention at its owner. G6: obtain an owner for the large-prime exponential, centralizer and G-semisimplification inputs. Confirm corrected classical and character criteria independently."
       ]
     },
     {
       "stageId": "GlobalGaloisDeformationsPartII:GG2.2",
       "status": "planned",
       "remaining": [
-        "G1: repair the all-primes/all-basis marked-field claim and establish the quantitative input needed for doubling. G3: positive-characteristic duality exports."
+        "G1: repair the all-primes/all-basis marked-field claim, which also fails under C1–C4 when M* has repeated constituents, and establish the quantitative input needed for doubling. G3: positive-characteristic duality exports. G6(iv): finite-field root position."
       ]
     },
     {
       "stageId": "GlobalGaloisDeformationsPartII:GG2.3",
       "status": "planned",
       "remaining": [
-        "G1: establish conditional-success estimates in the actual auxiliary-field composita before applying doubling or its controlled tower."
+        "G1: establish conditional-success estimates in the actual auxiliary-field composita before applying doubling or its controlled tower. G6(iv): general-position toral elements."
       ]
     },
     {
       "stageId": "GlobalGaloisDeformationsPartII:GG2.4",
       "status": "planned",
       "remaining": [
-        "G3: function-field duality and cocycle comparisons. Obtain the stated local lifting lattices and compact analytic comparison from their owners."
+        "G3: function-field duality and cocycle comparisons. Obtain the stated local lifting lattices from LocalGaloisDeformationRings, the p-valued subgroups from LocallyAnalyticDistributionsPartII ND.0, Lazard’s resolution and Lie comparison from NoncommutativeAndEquivariantIwasawa NE.0, and semisimple Lie-algebra vanishing from AutomorphicFormsOnReductiveGroups AF.1a."
       ]
     },
     {
       "stageId": "GlobalGaloisDeformationsPartII:GG2.5",
       "status": "planned",
       "remaining": [
-        "Inherits G1 through the starting tower and G3 through global comparisons; obtain exact local root lattices and duality exports."
+        "Inherits G1 through the starting tower and G3 through global comparisons; obtain exact local root lattices and duality exports. G6(ii),(iv) enter the simultaneous root-position theorem."
       ]
     },
     {
@@ -4891,35 +4855,35 @@
       "stageId": "GlobalGaloisDeformationsPartII:GG2.7",
       "status": "planned",
       "remaining": [
-        "Inherits the main lifting gaps; check all local multiplier corrections, cocharacter lifts and actual-image invariant arguments."
+        "Inherits the main lifting gaps; check all local multiplier corrections, cocharacter lifts and actual-image invariant arguments. G6(i),(iii): exponential and G-semisimplification inputs."
       ]
     },
     {
       "stageId": "GlobalGaloisDeformationsPartII:GG2.8",
       "status": "planned",
       "remaining": [
-        "Inherits G1 for the geometric lifting input. Obtain the exact Skinner–Wiles/Pan and ordinary/crystalline determinant contracts; verify the corrected stronger weight/level conclusions."
+        "Inherits G1 for the geometric lifting input. Obtain the ordinary/crystalline determinant contracts; the Skinner–Wiles and Pan inputs are the existing supplier nodes, with Pan covering p=3. Verify the corrected stronger weight/level conclusions."
       ]
     },
     {
       "stageId": "GlobalGaloisDeformationsPartII:GG2.9",
       "status": "planned",
       "remaining": [
-        "G3 function-field duality and G2 small-representation splitting, plus inherited G1; preserve the Lafforgue finite-determinant contract."
+        "G3 function-field duality and G2 small-representation splitting, plus inherited G1; Lafforgue is the existing GS.6 node."
       ]
     },
     {
       "stageId": "GlobalGaloisDeformationsPartII:GG2.10",
       "status": "planned",
       "remaining": [
-        "G5: regular-unipotent classification, formal-character independence. The two-Steinberg-place target handles the exceptional coefficient place. Inherits G1 and the G4 convention check at the polarized supplier. Verify all eight ANT hypotheses and adapted compatible-system descent."
+        "G5: regular-unipotent classification and formal-character independence for the density conclusion of ML.2/compatible-system-from-potential-automorphy. The two-Steinberg-place and ι-ordinary strengthening of ML.2/potential-automorphy-with-steinberg-place is requested from its owner; ANT20 comes from PL.7, whose strong-primitivity hypothesis must be checked or relaxed. Inherits G1 and the G4 convention check at the polarized supplier."
       ]
     }
   ],
   "gaps": [
     {
       "title": "G1 — replacement for full-family auxiliary-field independence",
-      "detail": "FKP22 v5 Lemma3.7 pp.15–16 is false under its stated Assumption3.1: for F=Q, trivial SL₂ residual image and k=F_p, p≥5, M*=F_p(κ̄)³. For two basis lines, identify their scalar cocycles and put ζ_w=η_1^(w)−η_2^(w). Their equal inertia at w cancels, so ζ_w lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)). Infinitely many w force ζ_w=ζ_w′ for distinct w,w′. This gives a nontrivial relation among four degree-p cocycle fields, contradicting strong disjointness. Restriction to Γ_K preserves the relation and individual nonvanishing; H¹(Gal(K/Q),F_p(κ̄))=0 as its order is p−1. C4 holds, but C1 fails. To close the main proof, establish the quantitative conditional-success/finite-quotient Chebotarev input actually needed by Proposition3.8 under C1,C3,C4, using a new construction or a proof allowing repeated constituents. Individual cyclic images or pairwise disjointness do not close it. The conditional joint-generation node is valid but its extra hypothesis is not automatic. Theorem5.2 is an intended target, not disproved by this counterexample.",
+      "detail": "FKP22 v5 Lemma3.7 pp.15–16 is false under its stated Assumption3.1: for F=Q, trivial SL₂ residual image and k=F_p, p≥5, M*=F_p(κ̄)³. For two basis lines, identify their scalar cocycles and put ζ_w=η_1^(w)−η_2^(w). Their equal inertia at w cancels, so ζ_w lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)). Infinitely many w force ζ_w=ζ_w′ for distinct w,w′. This gives a nontrivial relation among four degree-p cocycle fields, contradicting strong disjointness. Restriction to Γ_K preserves the relation and individual nonvanishing; H¹(Gal(K/Q),F_p(κ̄))=0 as its order is p−1. C4 holds, but C1 fails. To close the main proof, establish the quantitative conditional-success/finite-quotient Chebotarev input actually needed by Proposition3.8 under C1,C3,C4, using a new construction or a proof allowing repeated constituents. Individual cyclic images or pairwise disjointness do not close it. The conditional joint-generation node is valid but its extra hypothesis is not automatic. Theorem5.2 is an intended target, not disproved by this counterexample. Independent review (REV-DESIGN-GlobalGaloisDeformationsPartII) adds that the failure also occurs under C1–C4. With k=F_p, if M* is semisimple with a simple constituent of multiplicity at least two, then for every k-basis the inertia tuple at w generates a proper F_p[Γ_F]-submodule of ∏_b M*_{e_b*}. The resulting subextension of L_w unramified at w lies in the finite maximal elementary abelian p-extension of K unramified outside T, so it repeats for two new primes. This happens for the F₄-valued examples of FKP19 Proposition 7.8 (adjoint multiplicities above one, FKP19 Remark 7.9), which satisfy C1–C4. The same diagonal-generator step recurs on p.18 of FKP22, where the fields K_{h(v)} and K_{η_b^{(v)}} are separated through ramification at t₀. So G1 is a gap in the proof of Theorem 5.2 within its hypotheses; Theorem 5.2 is not refuted, and for irreducible residual images FKP19 Theorem 6.11 has an independent proof.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.2/dual-strong-disjointness",
         "GlobalGaloisDeformationsPartII:GG2.3/density-selection",
@@ -4961,9 +4925,29 @@
     },
     {
       "title": "G5 — all-coefficient-place monodromy",
-      "detail": "Read and export the exact reductive-subgroup classification with regular unipotent element and the primary independence-of-formal-character theorem needed in the final paragraph of Proposition9.1. BLGGT14 Lemma5.3.1 controls connected components/multiplicity and is not that theorem. Explain rank/irreducibility and the principal-GL₂ exception, and use the explicit two-Steinberg-place strengthening to cover every coefficient characteristic by an away-ℓ place. The compatible-system target is explicitly conditional on this contract; the original p-adic lift is already dense.",
+      "detail": "The accepted supplier node ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy asserts Zariski density of every member; its proof needs the exact reductive-subgroup classification with regular unipotent element and the primary independence-of-formal-character theorem needed in the final paragraph of Proposition9.1. BLGGT14 Lemma5.3.1 controls connected components/multiplicity and is not that theorem. Explain rank/irreducibility and the principal-GL₂ exception, and use the explicit two-Steinberg-place strengthening to cover every coefficient characteristic by an away-ℓ place. The compatible-system target is explicitly conditional on this contract; the original p-adic lift is already dense.",
       "neededBy": [
         "GlobalGaloisDeformationsPartII:GG2.10/symplectic-compatible-system"
+      ]
+    },
+    {
+      "title": "G6 — large-prime reductive-group inputs outside the upstream ReductiveGroups scope",
+      "detail": "Several arguments use structure theory of a split reductive group in large characteristic that the current Tau Ceti ReductiveGroups layers 7–8 do not state (those layers own Borel and parabolic subgroups, Levi decompositions, root data, Bruhat decomposition and the classification) and that no atlas roadmap plans. (i) For p≫_G 0, a P-equivariant isomorphism of varieties exp: Lie U→U restricting to the ascending central series and inducing P-equivariant group isomorphisms on its graded pieces, together with the finite adjoint expansion of Ad(exp X) (FKP22 Lemma A.1, Remark A.2, p.44, and proof of Lemma A.18, p.51). (ii) Centralizers in good characteristic: smoothness of centralizers of Lie-algebra elements, containment of the centralizer of a nonzero nilpotent element in a proper parabolic, connectedness and reductivity of centralizers of semisimple elements when p is not a torsion prime, root-subgroup description of a centralizer containing a maximal torus, centralizers of tori being Levi subgroups, and generation of C_G(t) by T, root subgroups and Weyl representatives (FKP19 Lemmas A.2 and A.5, pp.61–63; FKP22 proof of Lemma A.11, pp.48–49). (iii) The G-semisimplification of a finite image: Levi projection from a minimal parabolic containing it, uniqueness up to G(k)-conjugacy, behaviour under residue-field extension, and the parabolic adjoint filtration with graded pieces m⊕u⊕u⁻ (FKP22 Lemma 6.1, p.28, and proof of Lemma A.11, p.48). (iv) Uniform finite-field root position: a root vector outside any proper F_p-subspace of g^der, and toral elements in general position with a prescribed root value (FKP19 Proposition 5.9, p.29, and Lemma 5.13, p.38). These need an owner: an atlas continuation of ReductiveGroups, or lemma nodes here if the maintainer so decides. A Tau Ceti roadmap is not extended from the atlas, so the former requests to its layers 7–8 for these inputs are withdrawn.",
+      "neededBy": [
+        "GlobalGaloisDeformationsPartII:GG2.1/irreducible-image-input",
+        "GlobalGaloisDeformationsPartII:GG2.1/cyclic-quotient-bound",
+        "GlobalGaloisDeformationsPartII:GG2.1/central-jordan-holder",
+        "GlobalGaloisDeformationsPartII:GG2.1/cyclotomic-exclusion",
+        "GlobalGaloisDeformationsPartII:GG2.1/abelian-root-subgroup",
+        "GlobalGaloisDeformationsPartII:GG2.1/block-criteria",
+        "GlobalGaloisDeformationsPartII:GG2.1/maximal-parabolic-criteria",
+        "GlobalGaloisDeformationsPartII:GG2.1/borel-criteria",
+        "GlobalGaloisDeformationsPartII:GG2.2/spanning-classes",
+        "GlobalGaloisDeformationsPartII:GG2.2/prescribed-vector-classes",
+        "GlobalGaloisDeformationsPartII:GG2.3/controlled-tower",
+        "GlobalGaloisDeformationsPartII:GG2.5/simultaneous-root-position",
+        "GlobalGaloisDeformationsPartII:GG2.7/levi-residual-lattice",
+        "GlobalGaloisDeformationsPartII:GG2.7/remove-invariants"
       ]
     }
   ],
@@ -4985,6 +4969,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E1",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.32: the first paragraph of the proof of Lemma 7.1 compares k(χ̄κ̄) with an unbarred κ⁻¹; the hypothesis is χ̄≠κ̄⁻¹.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5004,6 +4993,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E2",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.32: the list χ̄⁻¹κ̄, κ̄, χ̄κ̄ is followed by a sentence naming χ̄κ̄⁻¹; both are even, so only the label is wrong.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5023,6 +5017,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E3",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.44: maximal-chain factors are indexed i=1,…,n although the chain is Σ₀⊊⋯⊊Σ_n.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5042,6 +5041,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E4",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.47: Lemma A.10(1) runs to r while r̄ decomposes into s constituents and (2),(3) use s.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5061,6 +5065,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E5",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.49 (Definition A.13) and p.50 (Example A.17): the right-hand restriction is written to Γ′_F.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5080,6 +5089,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E6",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.55: the last display replaces h²(Γ_{F_v}, r(b₀)) by h²(Γ_{F_v}, r(g₀)) after the cancellation.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5099,6 +5113,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E7",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.55: “closed point y ∈ Spec(R^△[1/p])^∧_y)” completes at y before y is chosen, with unbalanced parentheses.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5118,6 +5137,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E8",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.3: the claim that (1) and (3) of Theorem A make ad(ρ̄) multiplicity free over F_p fails for k≠F_p, since the trivial k-constituent restricts to [k:F_p] trivial F_p-constituents.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5137,6 +5161,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E9",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.3: for split ρ̄=κ̄⊕1 (allowed in Theorem B) the derived dual adjoint contains the trivial character, so χ̄≠κ̄⁻¹ alone does not give the stated vanishing; Lemma 7.1 assumes nonsplitness.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5156,6 +5185,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E10",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read pp.12–14: the statement chooses all (T_i,α_i,q_i) before the tuple g_{L/K,i}, while the inductive proof chooses ψ_i, hence (T_i,α_i), after v_1,…,v_{i−1}, which depend on the earlier g’s. Theorem 4.4 only needs g_i to depend on (T_i,α_i,q_i), so the inductive order suffices.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5175,6 +5209,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E11",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read pp.13–14: when K_{ψ₁}=K(μ_{p^{D+1}}) the norm class fixes ψ₁(σ_v) in a coset of a codimension-one subgroup; the text then asserts ψ₁(σ_v)∉(F_pX)^⊥. A nontrivial coset contained in the subspace (F_pX)^⊥ would force all of ψ₁(Γ_K) into it, so the claim holds after this check.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5194,6 +5233,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E12",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.16: the mod-ϖ² lift is produced from vanishing of Sha² alone; local obstructions at the places of S need the local lifts, which §3 does not assume (they are assumed in Theorems 4.4 and 5.2).",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5213,6 +5257,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E13",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified on pp.16–17: with h=h_old−Σh(v_n)+2Σh(v′_n), the inertia values are −X_n at v_n and 2X_n at v′_n after the pigeonhole step, not one common X_n as the statement of Proposition 3.8 says.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5232,6 +5281,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E14",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.18: the reciprocity display puts the same sign on the two new-prime terms; with FKP19 Lemma 3.9 (p.19) the unramified/tame cross terms have opposite signs, and the affine dependence used survives.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5251,6 +5305,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E15",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Spot-checked pp.12–15: θ_b^{(v)} is constructed for T without all marked primes, and Lemma 3.4(3) stabilizes Sha for duals of cyclic submodules of M*; the remaining items are index slips.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5270,6 +5329,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E16",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.24: FKP19 Corollary B.2 is applied to the preimage of (Ad∘ρ̄)(Γ_{F̃}), whose residual invariants need not vanish; C1 gives vanishing for the full Γ_F image.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5289,6 +5353,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E17",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.26: γ₂ is chosen with φ(γ₂),ψ̄(γ₂) nonzero, and one root is then sought; when g^der has several simple factors permuted by π₀(G) both values must project nontrivially to one factor, which Γ_F-stability of the images and transitivity allow.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5308,6 +5377,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E18",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read pp.27–28: η is a cocharacter of the adjoint torus and g=η(ϖ′) is used as an element of G(K′); for SL₂ this needs a square root of ϖ′.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5327,6 +5401,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E19",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read pp.29–30: the lift of Lemma 6.4 lies in the derived group, so its multiplier is trivial, while Lemma 6.5 and Corollary 6.6 need lifts of type μ at the new places.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5346,6 +5425,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E20",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.30: H⁰(ρ̄′(g^der)*)=0 is deduced from equal semisimplifications. The valid argument is that im(ρ̄′,κ̄) contains A(k) and hence im(ρ̄,κ̄), so the invariants inject.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5365,6 +5449,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E21",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.30: Corollary 6.6 applies Theorem 5.2, which needs F totally real and ρ̄′ odd over number fields, but states neither.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5384,6 +5473,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E22",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.30: the second alternative invokes Lemma A.14, whose hypotheses include absolute M-irreducibility of ρ̄_M; Corollary 6.6 does not state it.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5403,6 +5497,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E23",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified p.31: ρ̄=diag(χ,χ⁻¹) in SL₂ with χ quadratic has image {±1}, not in a proper subtorus, but α∘ρ̄=χ²=1, so H⁰(sl₂)=sl₂.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5422,6 +5521,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E24",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.31: the dihedral case bounds δ for the untwisted invariants only; with u⁺=Sym²(ρ̄_f)⊗δ⁻¹ (as the example itself writes) the twisted conditions for C2 also depend on δ.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5441,6 +5545,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E25",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.31 and p.50: the condition uses κ̄^{a(r−1)+1}, i.e. χ=det ρ̄_f, while the adjoint-Levi character trivial on the GSp center is det(ρ̄_f)δ⁻¹.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5460,6 +5569,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E26",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.31: “a de Rham character of nonzero weight” allows w=r−1 or w=2r−2, where two of 0,r−1,w,w−r+1 coincide.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5479,6 +5593,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E27",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Spot-checked pp.19–28: C3 must exclude W=0, and the extension lemma needs primes trivial for W as well as W′ (Lemma 6.2 identifies H¹(Γ_{F_v},W) with homomorphisms).",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5498,6 +5617,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E28",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.36: ω is only potentially unramified with trivial reduction; a character of Γ_Qp inflates to one of Γ_Q unramified outside p only if its value on Art(p) is 1, which an unramified square-root twist of the local lift arranges.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5517,6 +5641,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E29",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Spot-checked pp.33–37: the alternative proof of the split case via Lemma 7.3 and Lemma 6.1 gives modularity but not the weight-r and level-prime-to-p refinements.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5536,6 +5665,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E30",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified: for F=F_q(t) with q≡−1 mod p, κ̄ is the quadratic constant-field character, and ρ̄=Ind ψ from F_{q²}(t) has κ̄ in ad⁰ρ̄, hence a trivial line in M*; C2 fails for an absolutely irreducible ρ̄, for every p.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5555,15 +5689,20 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E31",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.39: noninjectivity of im ρ̄→M(k) is asserted from nonsplitness; an injective projection gives an extension of ρ̄₂ by ρ̄₁ over the Levi image, which splits only via an H¹-vanishing result such as Gur99 (gap G2).",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
       "id": "GlobalGaloisDeformationsPartII/E32",
       "kind": "gap",
       "locator": "§9, proof of Proposition 9.1, p. 42 (arXiv v5)",
-      "printed": "The symplectic compatible-system application infers constituentwise cyclotomic irreducibility from primitivity of the entire representation.",
+      "printed": "From GSp_{2n}-irreducibility of ρ̄|Γ_{F(ζ_p)}, the proof infers that every GL_{2n}-constituent of ρ̄ is self-dual and stays absolutely irreducible on Γ_{F(ζ_p)}.",
       "correction": "Assume explicitly that every GL constituent stays absolutely irreducible after restriction to Γ_{F(ζ_p)}.",
-      "reason": "A primitive sum can contain a constituent induced from a quadratic cyclotomic subextension. ANT20 requires the stronger constituentwise condition.",
+      "reason": "GSp-irreducibility over Γ_{F(ζ_p)} allows a Γ_F-constituent induced from the quadratic subextension of F(ζ_p)/F to split there into two distinct symplectic pieces; ANT20 requires the constituentwise condition. (Description corrected by REV-DESIGN-GlobalGaloisDeformationsPartII; the earlier text attributed the inference to primitivity.)",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -5574,6 +5713,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E32",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.42 (corrected description of the assertion): the source infers that each GL_{2n}-constituent stays absolutely irreducible on Γ_{F(ζ_p)} from GSp_{2n}-irreducibility of ρ̄|Γ_{F(ζ_p)}. A constituent induced from the quadratic subextension of F(ζ_p)/F splits there into two distinct symplectic pieces, keeping ρ̄|Γ_{F(ζ_p)} GSp-irreducible.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5582,7 +5726,7 @@
       "locator": "§9, definition of ξ-ordinary, p. 41, and proof of Proposition 9.1, pp. 41–42 (arXiv v5)",
       "printed": "The ordinary-weight calculation assigns the opposite sign to the algebraic contribution.",
       "correction": "With HT(κ)=−1 use ξ_{τ,n−i+1}+i−1, and replace n by 2n in the symplectic case.",
-      "reason": "The ordinary characters are the corresponding negative powers of κ and these weights increase with i.",
+      "reason": "The ordinary characters are the corresponding negative powers of κ and these weights increase with i. With weight 0, the printed signs would give similitude κ^{2n−1} instead of κ^{1−2n}.",
       "affects": "nothing",
       "known": "new",
       "searched": [
@@ -5593,6 +5737,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E33",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.41: with HT(κ)=−1 and the weight-0 π used in the proof, the printed weights −(ξ_{τ,n−i+1}+i−1) are 0,−1,…,1−2n, whose symplectic pairing would require similitude κ^{2n−1}, not the κ^{1−2n} of Proposition 9.1.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5612,6 +5761,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E34",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read pp.40–43: p.40 calls ANT20 a potential automorphy theorem (it is automorphy lifting), p.42 writes “[BLGGT14, Proposition 3.1.2]” for Theorem 3.1.2 and π_{v₀} for the places above v₀.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5631,6 +5785,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E35",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.44: the proof replaces Γ by π⁻¹(Γ̄) and Σ by U(k); filtering the original Σ by Σ∩U_i(k) gives a central Γ-series whose factors embed in u_{i+1}/u_i, which with Lemma A.3 proves the claim.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5650,6 +5809,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E36",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified: conjugating a Levi-valued ρ̄′ by u∈U(k) keeps hypotheses (1)–(3) of Lemma A.9 but moves H⁰ to u·(z(M)∩g^der)·u⁻¹, outside z(M); only the Levi projection of the invariants lies in z(M).",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5669,6 +5833,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E37",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified by an explicit example: three one-dimensional blocks with χ₁₂=ψ, χ₂₃=κ̄ψ (ψ of order p−1 independent of κ̄) satisfy (1),(2) and the pairwise bounds (3) with degree p−1, yet χ₂₃=κ̄χ₁₂ makes C3 fail.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5688,6 +5857,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E38",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.47: complex conjugation acts on gl_n by x↦−A xᵗA⁻¹ for ρ̄(c)=(A,·)j, and if it pairs two blocks the element c(I_i−I_j) is invariant, so C1 fails.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5707,6 +5881,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E39",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.47 and p.39: condition (a) reads “n odd, or n′=n″ and …”, but Corollary 8.3 applies it to all n₁≠n₂ (e.g. (1,3)); unequal dimensions suffice because Hom between absolutely irreducible representations of different dimensions vanishes.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5726,6 +5905,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E40",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified: conjugation by diag(A,νA^{−T}) on the Siegel radical is X↦ν⁻¹AXAᵗ, so u=Sym²(std)⊗ν⁻¹; Example 6.8 itself writes Sym²(ρ̄_f)⊗δ⁻¹.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5745,6 +5929,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E41",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified: n=1, χ=κ̄ (κ̄ of large order) passes the displayed comparisons of Example A.17, fails the m₁=1, m₂=0 test of Definition A.13, and C3 fails since κ̄ occurs in both M and M*.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5764,6 +5953,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E42",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read pp.45, 49–51: the minimal parabolic is taken before enlarging k; L′=F(ρ̄_M,μ_p) need not lie in K′=F(ρ̄(g^der),κ̄), so Gal(K′/L′) is undefined; the Borel argument needs subquotients.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5783,6 +5977,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E43",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.53: the ideal is generated by c_{β,σ}=β(t_σ)−β(χ_λ(σ)) for positive roots only, which does not fix the central part of the torus character (no roots at all for G_m).",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5802,6 +6001,11 @@
         "finding": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/E44",
         "priorIndependentReview": "REV-PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22",
         "note": "Restatement of the prior finding, checked for this plan against the preprint; requires this packet’s independent review."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Spot-checked: p.47 writes x_i^{n_j}x_j^{n_i} for the ratio map, and pp.49–50 cite “[FKP19, Corollary A.6]”, which is Lemma A.6 there.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
       }
     },
     {
@@ -5810,14 +6014,19 @@
       "locator": "FKP22 arXiv:2008.12593v5, Lemma3.7 and proof pp.15–16; use in Proposition3.8 pp.17–19",
       "printed": "The source claims strong linear disjointness for all marked dual fields as both the prime w and basis index b vary, under Assumption3.1.",
       "correction": "Replace the unconditional claim by the joint-inertia conditional criterion and prove the weaker quantitative input actually needed for doubling under its full hypotheses; this replacement is gap G1.",
-      "reason": "FKP22 v5 Lemma3.7 pp.15–16 is false under its stated Assumption3.1: for F=Q, trivial SL₂ residual image and k=F_p, p≥5, M*=F_p(κ̄)³. For two basis lines, identify their scalar cocycles and put ζ_w=η_1^(w)−η_2^(w). Their equal inertia at w cancels, so ζ_w lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)). Infinitely many w force ζ_w=ζ_w′ for distinct w,w′. This gives a nontrivial relation among four degree-p cocycle fields, contradicting strong disjointness. Restriction to Γ_K preserves the relation and individual nonvanishing; H¹(Gal(K/Q),F_p(κ̄))=0 as its order is p−1. C4 holds, but C1 fails. To close the main proof, establish the quantitative conditional-success/finite-quotient Chebotarev input actually needed by Proposition3.8 under C1,C3,C4, using a new construction or a proof allowing repeated constituents. Individual cyclic images or pairwise disjointness do not close it. The conditional joint-generation node is valid but its extra hypothesis is not automatic. Theorem5.2 is an intended target, not disproved by this counterexample.",
+      "reason": "FKP22 v5 Lemma3.7 pp.15–16 is false under its stated Assumption3.1: for F=Q, trivial SL₂ residual image and k=F_p, p≥5, M*=F_p(κ̄)³. For two basis lines, identify their scalar cocycles and put ζ_w=η_1^(w)−η_2^(w). Their equal inertia at w cancels, so ζ_w lies in the finite group H¹(Γ_{Q,T},F_p(κ̄)). Infinitely many w force ζ_w=ζ_w′ for distinct w,w′. This gives a nontrivial relation among four degree-p cocycle fields, contradicting strong disjointness. Restriction to Γ_K preserves the relation and individual nonvanishing; H¹(Gal(K/Q),F_p(κ̄))=0 as its order is p−1. C4 holds, but C1 fails. To close the main proof, establish the quantitative conditional-success/finite-quotient Chebotarev input actually needed by Proposition3.8 under C1,C3,C4, using a new construction or a proof allowing repeated constituents. Individual cyclic images or pairwise disjointness do not close it. The conditional joint-generation node is valid but its extra hypothesis is not automatic. Theorem5.2 is an intended target, not disproved by this counterexample. Review addition: the lemma also fails under C1–C4 when M* is semisimple with a repeated simple constituent, for every k-basis (FKP19 Proposition 7.8 and Remark 7.9 give such residual images), so G1 concerns the proof of Theorem 5.2 within its hypotheses.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "arXiv:2008.12593 version history: v5 is the latest listed preprint; checked 2026-10-19.",
         "Springer DOI10.1007/s00222-021-01085-7 article landing page, author-page/public correction searches, checked 2026-10-19: no erratum located; full published text unavailable from the access endpoint."
       ],
-      "scope": "Finding against arXiv v5 only. The version of record has not been fully collated. This does not refute Theorem5.2, since the explicit counterexample fails C1."
+      "scope": "Finding against arXiv v5 only. The version of record has not been fully collated. Theorem 5.2 is not refuted; the gap lies in its proof.",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Verified the counterexample: θ_1^{(w)}−θ_2^{(w)} is unramified at w and lies in the finite H¹(Γ_{Q,T},F_p(κ̄)), and H¹(Gal(Q(μ_p)/Q),F_p(κ̄))=0. The flaw is the second paragraph of the proof: a nonzero quotient of ∏_b Gal(K_{η_b^{(v)}}/K) can kill the diagonal image of τ_v. The failure also occurs under C1–C4 when M* has a repeated simple constituent (FKP19 Proposition 7.8 examples; see G1).",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
+      }
     },
     {
       "id": "GlobalGaloisDeformationsPartII/E46",
@@ -5830,7 +6039,12 @@
       "known": "new",
       "searched": [
         "arXiv:2008.12593 version history and Springer DOI10.1007/s00222-021-01085-7 landing page checked 2026-10-19; no clarification or erratum located. Full published collation remains unavailable."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read p.9 and p.47: §2 defines G^der as the derived group of G⁰, while A.1.2 calls the GL_n factor of G⁰=GL_n×G_m the derived group; C2 for sl_n does not follow from C2 for gl_n, since (sl_n)* is a quotient of (gl_n)*.",
+        "by": "REV-DESIGN-GlobalGaloisDeformationsPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -6515,7 +6729,8 @@
       "imports": [
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
-      "note": "The referenced target or precise supplier contract carries the catalogue item; no second owner is introduced."
+      "note": "The upstream ReductiveGroups layer-7 structure is the base, but this large-prime statement is outside that Tau Ceti layer’s stated scope; it is gap G6(iv) until an atlas owner is chosen (REV-DESIGN-GlobalGaloisDeformationsPartII).",
+      "gap": "G6"
     },
     {
       "item": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/99",
@@ -6580,7 +6795,8 @@
       "imports": [
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
-      "note": "The referenced target or precise supplier contract carries the catalogue item; no second owner is introduced."
+      "note": "The upstream ReductiveGroups layer-7 structure is the base, but this large-prime statement is outside that Tau Ceti layer’s stated scope; it is gap G6(iv) until an atlas owner is chosen (REV-DESIGN-GlobalGaloisDeformationsPartII).",
+      "gap": "G6"
     },
     {
       "item": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/106",
@@ -6607,7 +6823,8 @@
       "imports": [
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
-      "note": "The referenced target or precise supplier contract carries the catalogue item; no second owner is introduced."
+      "note": "The upstream ReductiveGroups layer-7 structure is the base, but this large-prime statement is outside that Tau Ceti layer’s stated scope; it is gap G6(iii) until an atlas owner is chosen (REV-DESIGN-GlobalGaloisDeformationsPartII).",
+      "gap": "G6"
     },
     {
       "item": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/109",
@@ -6625,7 +6842,8 @@
       "imports": [
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
-      "note": "The referenced target or precise supplier contract carries the catalogue item; no second owner is introduced."
+      "note": "The upstream ReductiveGroups layer-7 structure is the base, but this large-prime statement is outside that Tau Ceti layer’s stated scope; it is gap G6(i) until an atlas owner is chosen (REV-DESIGN-GlobalGaloisDeformationsPartII).",
+      "gap": "G6"
     },
     {
       "item": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/116",
@@ -6636,7 +6854,8 @@
       "imports": [
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
-      "note": "The referenced target or precise supplier contract carries the catalogue item; no second owner is introduced."
+      "note": "The upstream ReductiveGroups layer-7 structure is the base, but this large-prime statement is outside that Tau Ceti layer’s stated scope; it is gap G6(iii) until an atlas owner is chosen (REV-DESIGN-GlobalGaloisDeformationsPartII).",
+      "gap": "G6"
     },
     {
       "item": "PAPER-FAKHRUDDIN-KHARE-PATRIKIS-22/117",
@@ -6654,7 +6873,8 @@
       "imports": [
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
-      "note": "The referenced target or precise supplier contract carries the catalogue item; no second owner is introduced."
+      "note": "The upstream ReductiveGroups layer-7 structure is the base, but this large-prime statement is outside that Tau Ceti layer’s stated scope; it is gap G6(ii) until an atlas owner is chosen (REV-DESIGN-GlobalGaloisDeformationsPartII).",
+      "gap": "G6"
     }
   ],
   "restructure": [
@@ -6662,10 +6882,12 @@
       "action": "rescope",
       "roadmaps": [
         "GlobalGaloisDeformationsPartII",
-        "ReductiveGroupsPartII"
+        "LocallyAnalyticDistributionsPartII",
+        "NoncommutativeAndEquivariantIwasawa",
+        "AutomorphicFormsOnReductiveGroups"
       ],
-      "detail": "Current upstream ReductiveGroupsPartII owns congruence topology and the lattice-class tree, superseding its atlas blueprint. The compact analytic/Lazard extension required for cohomology is beyond those stated targets.",
-      "proposal": "Keep GG2.4 only the lifting-specific uniform-bound application. Import current upstream RG2.0 and RG2.2 directly; place the analytic-group/cohomology addition with the owner’s next extension of ReductiveGroupsPartII. The request gives the exact input and no duplicate tree or congruence definitions are planned."
+      "detail": "Current upstream ReductiveGroupsPartII owns congruence subgroups and the lattice-class tree; it is a Tau Ceti roadmap and is not extended from the atlas. The compact analytic and Lazard inputs of FKP19 Appendix B have atlas owners in the direction of LocallyAnalyticDistributionsPartII ND.0 (p-valued groups), NoncommutativeAndEquivariantIwasawa NE.0 (completed group rings and Lazard cohomology) and AutomorphicFormsOnReductiveGroups AF.1a (Chevalley–Eilenberg cohomology).",
+      "proposal": "Keep GG2.4 only the lifting-specific uniform-bound application. Import upstream RG2.0 and RG2.2 as they stand, and request the Lazard and Lie-algebra inputs from ND.0, NE.0 and AF.1a. The large-prime reductive inputs of gap G6 need an atlas owner chosen by the maintainer, for instance a continuation of ReductiveGroups."
     },
     {
       "action": "rescope",
@@ -6680,11 +6902,429 @@
     }
   ],
   "prototype": {
-    "shape": "Compact current WORKERS shape: three light real-bodied definitions, nine API milestones and nine examples in 137 lines; all heavy arithmetic targets, APIs and tests are specified in the README.",
+    "shape": "Compact current WORKERS shape: three light real-bodied definitions over pinned carriers, the FKP22 Lemma 2.1 milestone, nine API milestones and ten examples; heavy arithmetic targets, APIs and tests are specified in the README.",
     "coverage": [
       "GG2.2/cyclic-module: cyclicSpan is the generic orbit-span signature, specialized to F_p in the arithmetic target.",
-      "GG2.4/relative-selmer-image: relativeImage is the submodule-image core; relativeH1Image uses the actual pinned continuous H¹ carrier. Neither constructs an arithmetic Selmer condition."
+      "GG2.4/relative-selmer-image: relativeImage is the submodule-image core; relativeH1Image uses the actual pinned continuous H¹ carrier. Neither constructs an arithmetic Selmer condition.",
+      "GG2.0/abelian-compositum: conj_eq_on_sup_of_isAbelianGalois states FKP22 Lemma 2.1 with Mathlib IntermediateField, Normal and IsAbelianGalois."
     ],
-    "validation": "lean-check succeeded at the shared pinned build on 2026-10-19 with 18 admitted-proof warnings and no errors or other warnings; memory available before compile was 86 GiB."
+    "validation": "Independent review recompiled the revised file with lean-check at the shared pinned build on 2026-10-19: 19 admitted-proof warnings and no errors or other warnings (86 GiB available). The design pass had compiled the earlier version with 18 such warnings."
+  },
+  "upstreamNotes": [
+    "For the maintainer: ModularityAndLanglandsExtensions:ML.2/compatible-system-from-potential-automorphy (accepted) asserts Zariski density of every ℓ-adic member. Its proof, as in FKP22 p.43, uses a regular unipotent at an auxiliary Steinberg place v₀, which fails for ℓ equal to the residue characteristic of v₀, and a classification/formal-character input not supplied by BLGGT14 Lemma 5.3.1 (gap G5 here). ML.2/potential-automorphy-with-steinberg-place omits the ι-ordinarity that ANT20 requires.",
+    "For the maintainer: gap G6 lists large-prime reductive-group facts (equivariant exponential, good-characteristic centralizers, G-semisimplification, finite-field root position) outside the stated scope of TauCetiRoadmap ReductiveGroups layers 7–8. They need an atlas owner."
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GlobalGaloisDeformationsPartII",
+    "date": "2026-10-19",
+    "notes": "Independent review of the complete design pass (81 nodes after removing one duplicate). Read FKP22 arXiv v5 and FKP19 arXiv v5 at every locator (hashes match the packet), ANT20 v2 Theorem 1.1 Pan arXiv v2 Theorem 1.0.2, LP11 Theorem 0.2 and the Lazard locators. Confirmed all 46 source findings at their locators; corrected the description of E32; strengthened E45/G1: FKP22 Lemma 3.7 also fails under C1–C4 when M* is semisimple with a repeated constituent (FKP19 Proposition 7.8 examples), for every basis, so G1 is a gap in the proof of Theorem 5.2 within its hypotheses. Corrected locators (FKP19 Assumption 2.1, Notation 5.1, Lemma 3.5, Lemma 6.1, Proposition 6.8, Claim 6.14, Theorem 6.21, Lemma B.1, Corollary B.2; FKP22 has no §3.2 or Remark 5.7). Supplier corrections: requests 10–14 asked Tau Ceti roadmaps (ReductiveGroups, ReductiveGroupsPartII) to export material outside their stated scope; those inputs are now gap G6 or requested from atlas owners (LocallyAnalyticDistributionsPartII ND.0, NoncommutativeAndEquivariantIwasawa NE.0, AutomorphicFormsOnReductiveGroups AF.1a). Removed GG2.10/residual-potential-automorphy-input, a duplicate of ModularityAndLanglandsExtensions:ML.2/potential-automorphy-with-steinberg-place, and pointed GG2.8–GG2.10 at existing exact supplier nodes (Skinner–Wiles, Pan, Khare–Wintenberger, Deligne–Serre, Lafforgue, ML.2, PL.7). Request 32 wrongly said the Pan case forces p≥5; corrected with a p=3 example. Baseline: all six declarations read at Tau Ceti f790474 / Mathlib 082e2d3. Suggested file: tautological and duplicate tests replaced by discriminating ones, FKP22 Lemma 2.1 added as a milestone; it elaborates at the pins with only the 19 admitted-proof warnings. check_blueprint: 0 errors, 0 warnings. Six gaps (G1–G6) remain open and are recorded honestly; no stage is closed.",
+    "checked": [
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.0/lifting-datum",
+        "verdict": "corrected",
+        "note": "FKP19 Assumption 2.1 is on p.14 of v5 (was pp.9–10); statement checked against FKP22 §2 p.9."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.0/oddness",
+        "verdict": "verified",
+        "note": "FKP19 Definition 1.2 p.3 checked; GL₂ characterisation verified (det ρ̄(c)=−1 iff fixed space of dimension 1)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.0/residual-conditions",
+        "verdict": "verified",
+        "note": "C1–C4 match Appendix A p.43 and Assumptions 3.1, 4.1, 5.1 (pp.10, 19, 23); zero quotient excluded as in (C3)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.0/trivial-prime",
+        "verdict": "corrected",
+        "note": "Definition 3.2/Remark 3.3 p.11 checked; FKP19 Notation 5.1 locator corrected to pp.25–26."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.0/cocycle-fields",
+        "verdict": "corrected",
+        "note": "Definition matches the use in Lemma 3.7/Proposition 3.8; FKP19 Notation 5.1 locator corrected to pp.25–26."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.0/abelian-compositum",
+        "verdict": "verified",
+        "note": "Lemma 2.1 p.10; now also stated in the suggested file."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.0/cyclotomic-intersection",
+        "verdict": "corrected",
+        "note": "Matches p.11 (K_ψ∩K∞ is K or K(μ_{p^{D+1}})); FKP19 Notation 5.1 locator corrected."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/irreducible-image-input",
+        "verdict": "verified",
+        "note": "FKP19 Lemmas A.1–A.2 pp.60–62 checked; H¹ part rests on Gur99 (G2), centralizer inputs on G6(ii)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/cyclic-quotient-bound",
+        "verdict": "verified",
+        "note": "FKP19 Lemmas A.3, A.5, A.6 pp.62–63 and LP11 Theorem 0.2 p.1106 checked; large-p use of Lemma A.1(2) made explicit; centralizer inputs are G6(ii)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/central-factor-series",
+        "verdict": "verified",
+        "note": "p.44 checked; tests discriminate (C_{p²} trivial action vs F_{p²} with a generator)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/central-jordan-holder",
+        "verdict": "verified",
+        "note": "Lemma A.4 p.44: the Σ∩U_i(k) repair is sound (E35); exponential is G6(i)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/cyclotomic-exclusion",
+        "verdict": "verified",
+        "note": "Lemma A.5 p.45: C3 argument verified (kernel of Ad∘ρ̄ inside ker κ̄); C4 via Gur99 (G2)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/abelian-root-subgroup",
+        "verdict": "verified",
+        "note": "Lemma A.7 pp.45–46 argument checked; tests verified."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/block-criteria",
+        "verdict": "verified",
+        "note": "Joint-field correction verified by explicit three-character counterexample (E37); invariant-projection form verified (E36)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/maximal-parabolic-criteria",
+        "verdict": "verified",
+        "note": "Lemma A.11 pp.47–49: GL unequal-dimension and GSp similitude corrections verified (E39, E40)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/property-d",
+        "verdict": "verified",
+        "note": "Definition A.13 p.49 checked; finite-order reformulation verified."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/maximal-separation",
+        "verdict": "verified",
+        "note": "Lemma A.14 pp.49–50; F(Ad r_M,μ_p) repair needed since F(ρ̄_M,μ_p)⊄K′ in general (E42)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/explicit-separation",
+        "verdict": "verified",
+        "note": "Example A.16 p.50: χ=det(r)δ⁻¹ is the character trivial on the GSp center; verified."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.1/borel-criteria",
+        "verdict": "verified",
+        "note": "Lemma A.18 p.51 matches."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/cyclic-module",
+        "verdict": "verified",
+        "note": "Matches M_Z of Lemma 3.4; tests discriminate."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/sha-killing",
+        "verdict": "corrected",
+        "note": "Matches p.11; the pinned explicitInfRes_exact (listed but uncited) is now its prerequisite for the restriction injection."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/cyclic-sha-stabilisation",
+        "verdict": "verified",
+        "note": "Lemma 3.4(1),(3) p.11 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/one-prime-sequence",
+        "verdict": "verified",
+        "note": "Lemma 3.4(2) pp.11–12 checked, including the Greenberg–Wiles cancellation."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/spanning-classes",
+        "verdict": "verified",
+        "note": "Proposition 3.6(1) pp.12–15 with the inductive quantifier order (E10) and the coset check (E11)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/prescribed-vector-classes",
+        "verdict": "verified",
+        "note": "Proposition 3.6 second part pp.12–13 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/marked-dual-classes",
+        "verdict": "verified",
+        "note": "Construction p.15 checked: θ_b, θ_b^{(v)} and the ramification pattern."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/ramification-disjointness",
+        "verdict": "verified",
+        "note": "Proof checked: a common quotient is unramified at v_i, while conjugates of inertia there generate Gal(L_i/K)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.2/dual-strong-disjointness",
+        "verdict": "corrected",
+        "note": "Counterexample to Lemma 3.7 verified; added the check that the failure also occurs under C1–C4 (repeated constituents of M*, e.g. FKP19 Prop. 7.8)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.3/initial-mod-square",
+        "verdict": "corrected",
+        "note": "Locator corrected: v5 has no §3.2; the construction is the paragraph before Proposition 3.8, p.16."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.3/density-selection",
+        "verdict": "verified",
+        "note": "Abstracts the limiting argument p.19; depends on G1 through dual-strong-disjointness."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.3/trivial-prime-pairing",
+        "verdict": "corrected",
+        "note": "Formula follows from FKP19 Lemma 3.9 p.19 (both one-sided cases) since u∪u=t∪t=0 at a trivial prime; FKP22 locator corrected (no §3.2)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.3/doubling",
+        "verdict": "verified",
+        "note": "Proposition 3.8 pp.16–19; −X/2X coefficients verified (E13)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.3/congruence-field-disjointness",
+        "verdict": "verified",
+        "note": "Lemma 4.3 pp.19–20 checked; trivial-quotient exclusion uses C1 plus Killing-form self-duality."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.3/controlled-tower",
+        "verdict": "verified",
+        "note": "Theorem 4.4 pp.20–23 checked (cases (a)/(b), cutoff eD)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.4/relative-selmer-image",
+        "verdict": "verified",
+        "note": "FKP19 Definition 6.2 p.45 checked; tests discriminate."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.4/coefficient-exactness",
+        "verdict": "corrected",
+        "note": "FKP19 Lemma 6.1 locator corrected to pp.44–45."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.4/relative-balance",
+        "verdict": "verified",
+        "note": "FKP19 Lemma 6.3 p.45 and FKP22 pp.24–25 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.4/lie-cohomology-bound",
+        "verdict": "corrected",
+        "note": "FKP19 result is Lemma B.1, p.64 (was \"Proposition B.1, pp.64–65\"). Lazard inputs re-routed from an extension of the Tau Ceti ReductiveGroupsPartII roadmap to atlas owners ND.0, NE.0, AF.1a; proof steps rewritten to name each input. Lazard locators verified in the Numdam scan (printed = PDF+3): III (3.1.3) p.92, (3.1.7.4) p.94, V (2.2.2.3) p.165, (2.2.3.1) p.166, (2.4.10) pp.178–179."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.4/deep-reduction-vanishing",
+        "verdict": "corrected",
+        "note": "FKP19 Corollary B.2 is on p.64 (was pp.65–66); argument matches its proof."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.4/auxiliary-prime-set",
+        "verdict": "verified",
+        "note": "FKP19 Definition 6.6 p.46 checked; API and tests discriminate."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.4/root-local-condition",
+        "verdict": "corrected",
+        "note": "FKP19 Lemma 3.5 is on pp.17–18 of v5 (was pp.13–16); Lemma 6.7 p.46 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.4/smooth-neighborhood-conditions",
+        "verdict": "verified",
+        "note": "FKP19 Proposition 4.7 and Lemma 4.9 pp.23–24 and FKP22 p.24 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.5/finite-image-vanishing",
+        "verdict": "verified",
+        "note": "Lemma 5.3 p.25 checked; primal conclusion is reduction vanishing only."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.5/simultaneous-root-position",
+        "verdict": "corrected",
+        "note": "FKP19 Proposition 6.8 starts p.47; locator corrected to pp.47–49; uses gap G6 inputs."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.5/simultaneous-detection",
+        "verdict": "verified",
+        "note": "Proposition 5.4 pp.25–26 checked; the same-factor repair (E17) verified."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.5/relative-selmer-annihilation",
+        "verdict": "verified",
+        "note": "FKP19 Theorem 6.9 and Remark 6.10 pp.49–50 checked; termination by the full finite-level order."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.5/adjoint-orbit-reduction",
+        "verdict": "verified",
+        "note": "FKP19 Claim 6.13 p.51 and FKP22 p.24 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.6/compatible-finite-ramification",
+        "verdict": "corrected",
+        "note": "FKP19 Claim 6.14 starts p.53; locator corrected."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.6/finite-congruence-detection",
+        "verdict": "verified",
+        "note": "FKP19 Lemma 6.15 p.55 checked; Frattini input is in upstream ProfiniteProPGroups layer 3."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.6/main-geometric-lift",
+        "verdict": "corrected",
+        "note": "Statement matches Theorem 5.2 pp.23–25; v5 has no Remark 5.7, the O′-independence is footnotes 6–7, pp.23–24."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.6/sl2-prime-bound",
+        "verdict": "verified",
+        "note": "Corollary 5.5 pp.26–27 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.6/nongeometric-lift",
+        "verdict": "corrected",
+        "note": "Theorem 5.6 p.27 checked; FKP19 Theorem 6.21 is on pp.56–57 (was pp.58–59)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.6/irreducible-specialisation",
+        "verdict": "corrected",
+        "note": "Hypothesis added: it inherits G1 (Lemma 3.7 also fails for some irreducible images); FKP19 Theorem 6.11 has an independent, unplanned proof via Definition 5.8."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.7/levi-residual-lattice",
+        "verdict": "verified",
+        "note": "Lemma 6.1 pp.27–28; the cocharacter-lifting repair (E18) is needed; G-semisimplification is G6(iii)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.7/many-extension-classes",
+        "verdict": "verified",
+        "note": "Lemma 6.2 pp.28–29; W-triviality at the new primes is needed for the Hom description."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.7/full-unipotent-extension",
+        "verdict": "verified",
+        "note": "Lemma 6.3 p.29 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.7/unipotent-local-lift",
+        "verdict": "verified",
+        "note": "Lemma 6.4 pp.29–30; multiplier correction verified (E19)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.7/remove-invariants",
+        "verdict": "verified",
+        "note": "Lemma 6.5 p.30; containment im(ρ̄,κ̄)⊂im(ρ̄′,κ̄) gives the twisted-invariant comparison (E20)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.7/levi-geometric-lift",
+        "verdict": "verified",
+        "note": "Corollary 6.6 pp.30–31 with oddness/total reality and Levi irreducibility made explicit (E21, E22)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.7/torus-test",
+        "verdict": "verified",
+        "note": "Remark 6.7 counterexample verified (E23)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.7/siegel-modular-example",
+        "verdict": "corrected",
+        "note": "Corrections verified against Example 6.8 p.31 (which itself writes u⁺=Sym²⊗δ⁻¹); acceptance weight letter fixed."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/actual-modularity",
+        "verdict": "verified",
+        "note": "Definition matches p.35; tests discriminate split versus nonsplit reductions."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/gl2-residual-criteria",
+        "verdict": "verified",
+        "note": "Lemma 7.1 pp.32–33 checked, including the χ̄=κ̄ case."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/global-determinant-match",
+        "verdict": "verified",
+        "note": "Proof of Theorem 7.4 p.36 and Lemma 7.2 pp.33–34; Art(p) normalization needed (E28)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/semisimple-modularity",
+        "verdict": "corrected",
+        "note": "Suppliers now the exact nodes R27.6/full-classical-serre-theorem and R15.5/deligne-serre-eigenvalue-lifting-lemma; matches Lemma 7.3 p.35."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/reducible-modularity",
+        "verdict": "corrected",
+        "note": "Suppliers now the exact nodes R21.5/theorem-a-over-q and R32.4/pan-residually-reducible-fontaine-mazur; removed the false claim that the Pan case forces p≥5 (p=3, χ̄=χ_{−8}); Pan22 added as source."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/hamblen-ramakrishna-comparison",
+        "verdict": "verified",
+        "note": "Theorem A pp.2–3 checked; E8 respected."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/totally-real-modularity",
+        "verdict": "corrected",
+        "note": "Supplier now the exact Skinner–Wiles Theorem A node; remains conditional on its hypotheses as Remark 7.5 p.36 allows."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/infinitely-many-extensions",
+        "verdict": "verified",
+        "note": "Lemma 7.6 pp.36–37 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/stable-lattice-segment",
+        "verdict": "verified",
+        "note": "Proof of Proposition 7.7 p.37 and the matrix argument checked; BC14/Ribet10 locators not reopened (their hosts did not serve the files to this review)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/fixed-weight-level-finiteness",
+        "verdict": "verified",
+        "note": "Proposition 7.7 p.37 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.8/minimal-lifting-boundary",
+        "verdict": "verified",
+        "note": "Remark 7.8 p.37 checked."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.9/actual-function-field-automorphy",
+        "verdict": "corrected",
+        "note": "Lafforgue supplier is the exact node GS.6/the-global-correspondence-for-gl-r; definition matches p.38."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.9/function-field-automorphy",
+        "verdict": "corrected",
+        "note": "Matches Theorem 8.1 p.38; supplier node GS.6/the-global-correspondence-for-gl-r."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.9/function-field-irreducible-boundary",
+        "verdict": "verified",
+        "note": "Remark 8.2 p.38; uniformity counterexample verified (E30)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.9/two-block-automorphy",
+        "verdict": "corrected",
+        "note": "Matches Corollary 8.3 pp.38–39 with the noninjectivity repair (E31); supplier node GS.6."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.9/direct-sum-automorphy",
+        "verdict": "corrected",
+        "note": "Matches Corollary 8.4 p.39 with the joint field condition (E37); supplier node GS.6."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.10/ordinary-steinberg-lift",
+        "verdict": "verified",
+        "note": "Proof of Proposition 9.1 pp.41–42; two-place strengthening needed because the source’s single v₀ fails for ℓ equal to its residue characteristic; HT sign corrected (E33)."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.10/automorphy-lifting-application",
+        "verdict": "corrected",
+        "note": "Suppliers now ML.2/potential-automorphy-with-steinberg-place and PL.7/residually-reducible-automorphy-lifting (existing ANT20 owner) instead of asking ML.2 to export ANT20; PL.7 strong-primitivity hypothesis recorded."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.10/symplectic-compatible-system",
+        "verdict": "corrected",
+        "note": "Supplier now the accepted node ML.2/compatible-system-from-potential-automorphy (owner of the BLGGT14 5.5.1 argument) instead of a new R24.5 request; G5 retained as that node’s missing input."
+      },
+      {
+        "nodeId": "GlobalGaloisDeformationsPartII:GG2.10/conjectural-scope",
+        "verdict": "verified",
+        "note": "Conjecture D pp.4–5 and §§8–9 checked."
+      }
+    ]
   }
 }
