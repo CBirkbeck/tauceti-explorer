@@ -757,13 +757,14 @@
     "FarguesFontaineDiamonds": {
       "stage": "pr",
       "pr": 964,
-      "head": "42c175a",
+      "head": "3462f9c",
       "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; draft awaiting re-review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at cd66f9e; draft awaiting re-review",
       "review": {
         "recommendation": "changes",
         "head": "42c175a",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 3462f9c; confirmation pass pending"
       }
     },
     "AdicCoefficientsAndComparisons": {
