@@ -53776,8 +53776,8 @@
    ],
    "revisionOf": "PKG-EulerSystemsAndKolyvaginSystems",
    "prompt": "research/blueprint/prompts/PKG-EulerSystemsAndKolyvaginSystems~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #11135"
+   "state": "external",
+   "note": "claimed on GitHub issue #11135"
   },
   {
    "id": "REV-PKG-EulerSystemsAndKolyvaginSystems~2",
@@ -151646,9 +151646,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-ExcursionOperatorsAndSpectralAction~adv.md",
-   "note": "claimed on GitHub issue #11148"
+   "note": "deliverables arrived from an external worker on issue #11148",
+   "finishedAt": "2026-10-19T23:29:35Z"
   },
   {
    "id": "REV-PKG-MotivicEtaleKTheory~adv",
@@ -151751,9 +151752,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3.md",
-   "note": "claimed on GitHub issue #11231"
+   "note": "deliverables arrived from an external worker on issue #11231",
+   "finishedAt": "2026-10-19T23:29:38Z"
   },
   {
    "id": "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2",
@@ -151931,8 +151933,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-CyclotomicClassGroupsAndStickelberger~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-CyclotomicClassGroupsAndStickelberger~codex.md",
+   "note": "claimed on GitHub issue #11246"
   }
  ]
 }
