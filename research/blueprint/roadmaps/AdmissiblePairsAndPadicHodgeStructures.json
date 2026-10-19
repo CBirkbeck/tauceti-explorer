@@ -1,0 +1,272 @@
+{
+  "id": "AdmissiblePairsAndPadicHodgeStructures",
+  "title": "Admissible pairs, p-adic Hodge structures and bi-analytic Ax–Lindemann",
+  "area": "padic",
+  "parent": null,
+  "summary": "Plan the neutral Tannakian theory of admissible pairs and p-adic Hodge structures over points and diamonds, its period domains for connected linear algebraic groups, and the geometry of Hodge and Hodge–Tate special loci. Establish basic duality, density of Hodge-generic classical points, and the bi-analytic Ax–Lindemann theorem, with applications to variations and explicitly conditional Shimura uniformizations.",
+  "readme": "The neutral Tannakian theory of admissible pairs connects Frobenius modules, two de Rham-period lattices and local systems. The layers pass from pointwise exactness and CM criteria to relative lattices, non-reductive period domains, basic duality and two analytic closures. The final statements are the bi-analytic Ax–Lindemann theorem and Hodge–Tate period-image density. General period rings, reductive bundle geometry, rigid Zariski geometry and integral BKF theory are imported from their existing owners. The detailed reader document fixes signs, supplier contracts and all tests.",
+  "prerequisites": [
+    "AInfCohomology",
+    "AdicSpacesPartIIPartII",
+    "BunGAndNewtonStrata",
+    "DiamondSixOperations",
+    "DiamondsAndVStacks",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "GeometricSatakeAndFusion",
+    "HeckeStacksAndLocalShtukas",
+    "HilbertModularVarietiesAndShimuraCurves",
+    "MotivesAndAlgebraicCycles",
+    "PadicHodgeTheory",
+    "PerfectoidQuotients",
+    "PerfectoidShimuraVarieties",
+    "ReductiveGroupsPartII",
+    "RelativeFarguesFontaine",
+    "VectorBundlesAndIsocrystals"
+  ],
+  "stages": [
+    {
+      "key": "AP0",
+      "title": "Bilattices, trace filtrations and goodness",
+      "description": "Define pointwise lattices and the two trace filtrations, their opposed types and Tate twists. Prove exactness criteria for goodness, adjoint-weight recovery and specialization dominance, retaining the additive-group counterexample.",
+      "requires": [
+        "RelativeFarguesFontaine:RF2:untilts",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical"
+      ]
+    },
+    {
+      "key": "AP1",
+      "title": "Non-reductive isocrystals and basic bundles",
+      "description": "Extend G-isocrystals and B(G) along a Levi quotient, define basicness in G and the sigma-centralizer, and prove the basic-stratum theorem and basic twisting for Bun_G. Import the reductive theory; do not classify arbitrary non-reductive bundle strata.",
+      "requires": [
+        "BunGAndNewtonStrata:BG0",
+        "BunGAndNewtonStrata:BG1",
+        "VectorBundlesAndIsocrystals:VB0",
+        "ReductiveGroupsPartII:RG2.1",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "mathlib:WittVector.Isocrystal",
+        "mathlib:WittVector.StandardOneDimIsocrystal",
+        "mathlib:WittVector.isocrystal_classification",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "DiamondsAndVStacks:D4",
+        "VectorBundlesAndIsocrystals:VB1",
+        "BunGAndNewtonStrata:BG2:uniformization",
+        "BunGAndNewtonStrata:BG3",
+        "RelativeFarguesFontaine:RF4:G-torsors"
+      ]
+    },
+    {
+      "key": "AP2",
+      "title": "Pointwise Hodge structures and admissible pairs",
+      "description": "Construct pointwise p-adic Hodge structures and admissible pairs, prove neutral Tannakian and connectedness theorems, identify basic pairs with Hodge structures, and construct realizations, Mumford–Tate and motivic Galois groups, and prescribed invariants.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP0",
+        "VectorBundlesAndIsocrystals:VB2:classification",
+        "RelativeFarguesFontaine:RF4:vector-bundles",
+        "AdmissiblePairsAndPadicHodgeStructures:AP1",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+        "BunGAndNewtonStrata:BG1",
+        "HeckeStacksAndLocalShtukas:HS2",
+        "AInfCohomology:AI.2/bkf-module",
+        "AInfCohomology:AI.2/bkf-valid-operations",
+        "AInfCohomology:AI.2/fargues-classification",
+        "AInfCohomology:AI.2"
+      ]
+    },
+    {
+      "key": "AP3",
+      "title": "Good reduction, Galois images and CM points",
+      "description": "Define filtration-defined good reduction and C0-analytic pairs; prove goodness, the crystalline realization theorem, openness in the motivic Galois group and the two-lattice CM criterion, with the slope-filtered nonbasic refinement.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP2",
+        "AdmissiblePairsAndPadicHodgeStructures:AP0",
+        "PadicHodgeTheory:R06.2",
+        "ReductiveGroupsPartII:RG2.0"
+      ]
+    },
+    {
+      "key": "AP4",
+      "title": "Relative local systems and trace filtrations",
+      "description": "Define rigid analytic subdiamonds, coefficient and G-local systems, integral loci, latticed and bilatticed families, types and goodness. Establish the relative trace-exactness theorem and the smooth rigid filtered-flat-bundle comparison including its essential-image descent.",
+      "requires": [
+        "DiamondsAndVStacks:D4",
+        "DiamondsAndVStacks:D6",
+        "AdicSpacesPartIIPartII:RZ.3",
+        "DiamondsAndVStacks:D1",
+        "DiamondsAndVStacks:D2",
+        "DiamondsAndVStacks:D5",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "PerfectoidQuotients:Q4",
+        "RelativeFarguesFontaine:RF2:untilts",
+        "AdmissiblePairsAndPadicHodgeStructures:AP0",
+        "PadicHodgeTheory:P8:local-rational"
+      ]
+    },
+    {
+      "key": "AP5",
+      "title": "Grassmannians for connected linear groups",
+      "description": "Extend the reductive B_dR+ Grassmannian by Levi and unipotent coordinates. Prove subgroup immersion criteria, relative-position closedness, the rigid-source and Griffiths-transversality theorem, and the exact adjoint-weight bound for the BB isomorphism.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP4",
+        "AdmissiblePairsAndPadicHodgeStructures:AP1",
+        "GeometricSatakeAndFusion:GS0:loop-geometry",
+        "DiamondsAndVStacks:D6",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "AdmissiblePairsAndPadicHodgeStructures:AP0",
+        "AdicSpacesPartIIPartII:RZ.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation"
+      ]
+    },
+    {
+      "key": "AP6",
+      "title": "Neutral families and admissible loci",
+      "description": "Construct neutral families, prove their Tannakian structure and connected motivic groups, establish constant good type on geometrically connected rigid bases, and represent b-rigidified pairs by nonempty geometrically connected admissible loci.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP2",
+        "AdmissiblePairsAndPadicHodgeStructures:AP4",
+        "VectorBundlesAndIsocrystals:VB4",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "AdmissiblePairsAndPadicHodgeStructures:AP1",
+        "AdmissiblePairsAndPadicHodgeStructures:AP5",
+        "AdicSpacesPartIIPartII:RZ.5",
+        "DiamondsAndVStacks:D6",
+        "RelativeFarguesFontaine:RF4:G-torsors",
+        "HeckeStacksAndLocalShtukas:HS2",
+        "DiamondSixOperations:S3",
+        "DiamondSixOperations:S4",
+        "GeometricSatakeAndFusion:GS0:Schubert-smoothness"
+      ]
+    },
+    {
+      "key": "AP7",
+      "title": "Neutral Hodge structures and period domains",
+      "description": "Construct neutral Hodge structures in families and their Mumford–Tate groups, represent fixed type by the nonempty open domain X_mu, and prove closedness and rigid-Zariski closedness of Hodge–Tate loci and special Hodge domains.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP2",
+        "AdmissiblePairsAndPadicHodgeStructures:AP4",
+        "VectorBundlesAndIsocrystals:VB4",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "AdmissiblePairsAndPadicHodgeStructures:AP1",
+        "AdmissiblePairsAndPadicHodgeStructures:AP5",
+        "DiamondsAndVStacks:D6",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components"
+      ]
+    },
+    {
+      "key": "AP8",
+      "title": "Hodge loci and special admissible subspaces",
+      "description": "Define Hodge loci and functorial maps, prove closedness of subgroup admissible loci using the neutral component of the tensor-Isom torsor kernel, and define special subdiamonds and rigid special subvarieties. Compute torus, Lubin–Tate and parabolic boundary examples.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP6",
+        "AdmissiblePairsAndPadicHodgeStructures:AP4",
+        "AdmissiblePairsAndPadicHodgeStructures:AP5",
+        "AdmissiblePairsAndPadicHodgeStructures:AP1",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
+        "BunGAndNewtonStrata:BG1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a"
+      ]
+    },
+    {
+      "key": "AP9",
+      "title": "Infinite-level spaces and basic duality",
+      "description": "Represent pairs with both isocrystal and étale trivializations, describe modifications and period torsors, define the three kinds of special subvariety, and prove basic duality and connectedness of the Hodge domains without a circular dependency.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP6",
+        "AdmissiblePairsAndPadicHodgeStructures:AP1",
+        "RelativeFarguesFontaine:RF4:G-torsors",
+        "AdmissiblePairsAndPadicHodgeStructures:AP7",
+        "AdmissiblePairsAndPadicHodgeStructures:AP2",
+        "AdmissiblePairsAndPadicHodgeStructures:AP5",
+        "ReductiveGroupsPartII:RG2.0",
+        "AdmissiblePairsAndPadicHodgeStructures:AP8"
+      ]
+    },
+    {
+      "key": "AP10",
+      "title": "Hodge-generic points and exceptional loci",
+      "description": "Define the exceptional and generic loci for the full family group, prove countable closedness, and combine weakly Shilov avoidance with Baire category and resolution to obtain dense generic classical points on irreducible rigid bases.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP8",
+        "AdmissiblePairsAndPadicHodgeStructures:AP6",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+        "AdmissiblePairsAndPadicHodgeStructures:AP4",
+        "ReductiveGroupsPartII:RG2.0",
+        "AdicSpacesPartIIPartII:RZ.1",
+        "AdicSpacesPartIIPartII:RZ.3",
+        "AdicSpacesPartIIPartII:RZ.4",
+        "AdicSpacesPartIIPartII:RZ.5",
+        "mathlib:dense_iInter_of_isOpen",
+        "mathlib:nonempty_interior_of_iUnion_of_closed"
+      ]
+    },
+    {
+      "key": "AP11",
+      "title": "Bi-analytic Ax–Lindemann and period-image density",
+      "description": "Define the two analytic closures through compact level quotients, prove special analytic closedness and the generic-point orbit/submersion argument, establish Theorem 9.1.3 and its minuscule Theorem A, and prove Theorem B without assuming basicness. Record the nonbasic Serre–Tate counterexample.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP9",
+        "AdmissiblePairsAndPadicHodgeStructures:AP4",
+        "ReductiveGroupsPartII:RG2.0",
+        "AdmissiblePairsAndPadicHodgeStructures:AP8",
+        "AdmissiblePairsAndPadicHodgeStructures:AP7",
+        "AdmissiblePairsAndPadicHodgeStructures:AP6",
+        "AdmissiblePairsAndPadicHodgeStructures:AP10",
+        "AdmissiblePairsAndPadicHodgeStructures:AP3",
+        "AdmissiblePairsAndPadicHodgeStructures:AP5",
+        "AdicSpacesPartIIPartII:RZ.0",
+        "AdicSpacesPartIIPartII:RZ.2",
+        "AdicSpacesPartIIPartII:RZ.6",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "AdicSpacesPartIIPartII:RZ.1"
+      ]
+    },
+    {
+      "key": "AP12",
+      "title": "Variations and Shimura applications",
+      "description": "Define variations and de Rham torsors, construct the crystalline-frame cover and its period map, compute the Katz–Igusa obstruction to rigid refinement, and transport the theorem to basic Hodge-type loci under a precise uniformization hypothesis and to products of Shimura curves.",
+      "requires": [
+        "AdmissiblePairsAndPadicHodgeStructures:AP4",
+        "AdmissiblePairsAndPadicHodgeStructures:AP2",
+        "PadicHodgeTheory:P8:local-rational",
+        "AdmissiblePairsAndPadicHodgeStructures:AP1",
+        "AdmissiblePairsAndPadicHodgeStructures:AP9",
+        "AdmissiblePairsAndPadicHodgeStructures:AP6",
+        "PerfectoidShimuraVarieties:S2",
+        "AdmissiblePairsAndPadicHodgeStructures:AP11",
+        "PerfectoidShimuraVarieties:S3",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "HilbertModularVarietiesAndShimuraCurves:R18.5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "HKI",
+      "title": "Admissible pairs and p-adic Hodge structures I: Transcendence of the de Rham lattice",
+      "authors": "Sean Howe and Christian Klevdal",
+      "edition": "arXiv:2308.11065v2, 28 February 2025; read 19 October 2026",
+      "url": "https://arxiv.org/pdf/2308.11065v2",
+      "readSections": [
+        "Entire paper; target locators below"
+      ],
+      "sha256": "26dc170df80d6955eb806029ddb80a3ffd6558744e37d7150f98c8f44389f6e4"
+    },
+    {
+      "id": "HKII",
+      "title": "Admissible pairs and p-adic Hodge structures II: The bi-analytic Ax-Lindemann theorem",
+      "authors": "Sean Howe and Christian Klevdal",
+      "edition": "arXiv:2308.11064v2, 28 February 2025; read 19 October 2026",
+      "url": "https://arxiv.org/pdf/2308.11064v2",
+      "readSections": [
+        "Entire paper; target locators below"
+      ],
+      "sha256": "c133b06bec1209a04f84d1c2984b78ce2242ba85fc1b72cf5a662002685cab8a"
+    }
+  ],
+  "status": "draft",
+  "readerDocument": "research/blueprint/readmes/AdmissiblePairsAndPadicHodgeStructures.md"
+}
