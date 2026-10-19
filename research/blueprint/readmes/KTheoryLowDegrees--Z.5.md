@@ -29,8 +29,9 @@ A layer never re-plans what a Tau Ceti roadmap owns. So this follow-up does thre
    on every regular noetherian curve. It gives the resolution property without separatedness and
    without the higher K-theory roadmap. The second is the *exact degree comparison* that the
    roadmap's handoff contract asks of Z.5: on a proper regular curve,
-   `χ = rank·χ(𝒪_X) + deg ∘ det` on `K₀`, a point class has Euler characteristic equal to its
-   residue degree, and the image of `(rank, deg ∘ det)` is `ℤ ⊕ δℤ`, with `δ` the index of the curve.
+   `χ = rank·χ(𝒪_X) + deg ∘ det` on `K₀`, and a codimension-one point class has Euler characteristic
+   equal to its residue degree. In dimension one the image of `(rank, deg ∘ det)` is `ℤ ⊕ δℤ`,
+   with `δ` the index; in dimension zero it is `ℤ × {0}`.
 
 The layer's end theorem is unchanged:
 
@@ -91,9 +92,9 @@ doubled origin are all instances.
 
 ## 2. Conventions
 
-The 27 retained nodes of `KTheoryLowDegrees--Z.3.json` keep their statements. Their symbols are read
-through the carrier substitution below, which is the `carrierSubstitution` list of the packet's
-routing entry.
+The 27 retained nodes of `KTheoryLowDegrees--Z.3.json` keep the parts specified in §7, with the
+codimension-one clarification below. Their symbols and prerequisites are read through the carrier
+substitution below, which is the `carrierSubstitution` list of the packet's routing entry.
 
 | In the earlier Z.5 nodes | Read as | Owner |
 | --- | --- | --- |
@@ -123,7 +124,12 @@ Further conventions, all as in the earlier plan:
 - The determinant is an additive homomorphism `K₀(X) → Additive (Pic X)`, with `⊗` as the group law
   on `Pic`. The only ring structure on `ℤ ⊕ Pic(X)` is the square-zero one,
   `(a, L)(b, M) = (ab, L^b ⊗ M^a)`.
-- Degrees on a proper curve over `k` are weighted by residue degrees: `deg_k 𝒪_X(y) = [κ(y) : k]`.
+- In divisor and rank-zero skyscraper formulas, `y` ranges over `CodimensionOnePoint X`. These
+  points are closed under the regular-curve package. In dimension one every closed point has
+  codimension one; in dimension zero there are no such points. The skyscraper of the unique closed
+  point of `Spec K` is `𝒪_X`, of rank one.
+- Degrees on a proper curve over `k` are weighted by residue degrees:
+  `deg_k 𝒪_X(y) = [κ(y) : k]` for a closed codimension-one point `y`.
 
 ## 3. Vector-bundle K₀ and its comparison with ring K₀
 
@@ -145,7 +151,8 @@ Their unit tests become checks of the import:
 
 - the zero sheaf has rank `0`;
 - `𝒪_X^{⊕3}` has rank `3`;
-- an infinite free sheaf and a skyscraper at a closed point of a curve are not finite locally free;
+- an infinite free sheaf on a nonempty scheme and a skyscraper at a closed codimension-one point
+  of a regular curve are not finite locally free;
 - `Chow.K0 ∅ = 0`;
 - on `ℙ¹_F` the Euler sequence gives `[𝒪(−2)] + [𝒪] = 2[𝒪(−1)]`, a relation that the split K₀ of
   `FiniteLocallyFreeSheaf` does not have.
@@ -300,7 +307,8 @@ of dimension ≤ 1 inherits such a family componentwise.
 
 ## 6. Class formulas, the rank–determinant theorem and the degree comparison
 
-The skyscraper at a closed point `y` is Tau Ceti `main`'s `Scheme.skyscraperResidueField y`, written
+The skyscraper at a closed codimension-one point `y` is Tau Ceti `main`'s
+`Scheme.skyscraperResidueField y`, written
 `κ(y)_y`. The sequence `0 → 𝒪_X(−y) → 𝒪_X → κ(y)_y → 0` is `SchemeWeilDivisor.residueShortComplex`
 at `D = −y` (`residueShortComplex_shortExact`). The earlier nodes `Z.5/point-ideal-sheaf`,
 `Z.5/point-skyscraper-exact-sequence` and `Z.5/point-divisor-line-inverse` are imports. The divisor
@@ -308,7 +316,8 @@ dictionary `Cl(X) ≅ Pic(X)` is Tau Ceti `main`'s `SchemeWeilDivisor.classGroup
 whose hypotheses are exactly the regular-curve package, so `Z.5/line-bundle-divisorial` is an import
 too.
 
-The following nodes are kept or rerouted, with their statements unchanged.
+The following nodes are kept or rerouted, with point generators explicitly restricted to
+codimension one. In particular, the generic-rank kernel for `Spec K` is zero.
 
 - `Z.5/skyscraper-class`. `c_X⁻¹[κ(y)_y] = [𝒪_X] − [𝒪_X(−y)]`, of rank `0` and determinant `𝒪_X(y)`.
 - `Z.5/effective-divisor-class`. For `D = Σ n_y y` with `n_y ≥ 0`:
@@ -358,12 +367,19 @@ pushforward `[F] ↦ Σ(−1)^i [R^i f_* F]` to `G₀(Spec k) = ℤ`, and `deg_k
 
 - **(a)** For every `x ∈ Chow.K0 X`, `χ_k(x) = rank(x)·χ(𝒪_X) + deg_k(det x)`. In particular `deg_k`
   is a homomorphism.
-- **(b)** For a closed point `y`, `χ_k(c_X⁻¹[κ(y)_y]) = [κ(y) : k] = deg_k 𝒪_X(y)`. For a Weil
+- **(b)** For a closed codimension-one point `y`,
+  `χ_k(c_X⁻¹[κ(y)_y]) = [κ(y) : k] = deg_k 𝒪_X(y)`. For a Weil
   divisor `D = Σ n_y y`,
   `χ_k(cl D) = deg_k 𝒪_X(D) = Σ n_y [κ(y) : k] = SchemeWeilDivisor.relativeDegree f D`.
-- **(c)** `(rank, deg_k ∘ det) : Chow.K0 X → ℤ²` has image `ℤ ⊕ δ_X ℤ`, where `δ_X` is the greatest
+- **(c)** If `dim X = 1`, `(rank, deg_k ∘ det) : Chow.K0 X → ℤ²` has image `ℤ ⊕ δ_X ℤ`, where
+  `δ_X` is the greatest
   common divisor of the residue degrees of the closed points (the index). It is onto exactly when
   `δ_X = 1`, for instance when `X` has a `k`-rational point.
+
+When `dim X = 0`, write `X = Spec K`, with `K/k` finite. Then `Pic(X) = 0`,
+`χ_k(x) = rank(x)·[K : k]`, and the image in (c) is `ℤ × {0}`. The unique closed point has
+codimension zero, so (b) supplies no divisor generator there. Its usual index `[K : k]` does not
+describe the second-coordinate image.
 
 *Proof sketch.*
 
@@ -373,6 +389,8 @@ pushforward `[F] ↦ Σ(−1)^i [R^i f_* F]` to `G₀(Spec k) = ℤ`, and `deg_k
 - **(b)** `H⁰(κ(y)_y) = κ(y)` (Tau Ceti `main`'s `finrank_cohomology_zero_skyscraperResidueField`) and
   the skyscraper is flasque. Combine this with `Z.5/skyscraper-class` and additivity of `cl`.
 - **(c)** Every line bundle is `𝒪_X(D)`, so `deg_k(Pic X)` is the image of `relativeDegree f`.
+  In dimension one its generators are the residue degrees of all closed points. In dimension zero
+  the divisor group is zero, so this image is zero.
 
 For classes of vector bundles, (a) is SchemeAndStackFoundations §3.3's definition of
 `vectorBundleDegree` combined with its `_det` law (Stacks 0AYR and 0DJ5). The node supplies the `K₀`
@@ -388,7 +406,9 @@ form and the comparison with the point-class map, which the roadmap's handoff co
   (`Z.6/pointless-conic-test`).
 - An elliptic curve with a rational origin has `χ(𝒪_E) = 0` and `δ = 1`, which EllipticKTheory E.2
   uses.
-- For `Spec K` with `[K : k] = d`, `χ_k[𝒪] = d`, so the factor `χ(𝒪_X)` cannot be replaced by `1`.
+- For `Spec K` with `[K : k] = d > 0`, `χ_k[𝒪] = d`, `Pic(X) = 0`, and the image of
+  `(rank, deg ∘ det)` is `ℤ × {0}`. Giving the closed point rank zero would falsely produce the
+  second-coordinate image `dℤ`. The factor `χ(𝒪_X)` cannot be replaced by `1`.
 
 *Prerequisites.* `Z.5/curve-rank-determinant-equivalence`, `Z.5/skyscraper-class`, `Z.5/point-class-map`,
 `Z.5/regular-curve-cartan-iso`, `Z.5/regular-curve-integral`; `SchemeAndStackFoundations:SF.5` (§5.7) and
@@ -400,9 +420,20 @@ Mathlib `Scheme.Hom.residueDegree` and `IsProper`.
 states the divisor-level part of (c) at the pins:
 `TauCeti.AlgebraicGeometry.KTheory.range_relativeDegree` identifies the range of `relativeDegree f` with
 the subgroup generated by the residue degrees.
+An example checks that this range is zero when `CodimensionOnePoint X` is empty.
 
 ## 7. Routing map of the earlier Z.5 nodes
 Each node of `KTheoryLowDegrees--Z.3.json` in layer Z.5 has one row. The rows are the `map` of the packet's restructure entry *Rebase Z.5 on the merged upstream suppliers*. They are applied in the KTheoryLowDegrees package (or a revision of KTheoryLowDegrees--Z.3.json); this job may not edit that file.
+
+Apply imports to every prerequisite and consumer reference as well as to the notation: replace an
+imported node id by its upstream owning stage or current declaration, then apply the row's additions
+and deletions. Parenthetical explanations in these rows are annotations, not part of an identifier.
+Retire imported planets and duplicate constructions, preserving their API and tests as import
+checks. For narrowed nodes retain the comparison-specific API and tests; their general laws become
+checks of the import. Keep the source locators and proof details of retained targets, rewritten to
+name their actual suppliers. The point generators in `generic-rank-kernel` and the skyscraper clause
+of `curve-rank-determinant-equivalence` mean codimension-one points, including the empty indexing
+type for `Spec K`. No applied prerequisite may still name a retired Z.5 node.
 
 ### Imported (leave Z.5) — 12
 
@@ -436,7 +467,7 @@ Each node of `KTheoryLowDegrees--Z.3.json` in layer Z.5 has one row. The rows ar
 
 ### Removed — 1
 
-- **`Z.5/curve-ample-line-bundle`**. No node of any packet cites it. The separated case of the resolution property is SchemeAndStackFoundations §5.7's resolutionProperty_of_quasiProjective (Stacks 09NZ with 0F87), and Z.5 now uses the ample family of KTheoryLowDegrees:Z.5/regular-curve-ample-family for every regular curve.
+- **`Z.5/curve-ample-line-bundle`**. No node of any packet cites it. For a separated one-dimensional noetherian scheme, Stacks Proposition 33.38.12 (09NZ) gives an ample invertible sheaf and Lemma 36.36.2 (0F87) gives the resolution property directly. Z.5 uses the stronger ample-family route for regular schemes without separatedness, so this unused intermediate target is removed.
 
 ### Narrowed — 5
 
@@ -490,13 +521,13 @@ Each node of `KTheoryLowDegrees--Z.3.json` in layer Z.5 has one row. The rows ar
   - *Consumers to rewire:* Z.6/elliptic-test; Z.6/integers-test; Z.6/nonprincipal-ideal-test; Z.6/pointless-conic-test; Z.6/projective-line-change-of-basis; Z.6/projective-line-rank-pic.
 - **`Z.5/effective-divisor-class`**. Iterating the residue sequences 0 → O(D′) → O(D′ + y) → κ(y)_y → 0 from D′ = −D up to 0 gives [O_X] − [O_X(−D)] = Σ_y n_y [κ(y)_y] directly in Chow.G0 X; the length filtration of O_D remains as the description of the quotient. Statement unchanged.
   - *Add prerequisites:* JacobianChallenge layer A (Tau Ceti main a91d3aa: SchemeWeilDivisor.residueShortComplex_shortExact).
-- **`Z.5/generic-rank-kernel`**. Replace the higher localisation sequence of SchemeKTheoryOperations S.3 by the degree-zero one of SchemeAndStackFoundations §5.7 (G0.localization_sequence). Take a nonempty affine open U = Spec A, A a Dedekind domain or a field; Z = X ∖ U is a finite set of closed points (KTheoryLowDegrees:Z.5/regular-curve-ample-family (a)); G₀(Z) is generated by the classes [κ(z)_z] (dévissage, Weibel Theorem II.6.3); G₀(U) ≅ Chow.K0 U (§5.7 K0.toG0_bijective; affine schemes have the resolution property) ≅ RingK0 A (KTheoryLowDegrees:Z.5/vector-bundle-affine-comparison) ≅ ℤ ⊕ Pic(A) (KTheoryLowDegrees:Z.4/rank-pic-equivalence), and Pic(A) = Cl(A) is generated by the classes [A] − [𝔭] = [A/𝔭], images of skyscrapers at points of U. A class of generic rank zero therefore differs from a sum of skyscraper classes of points of U by an element of the image of G₀(Z). This is Weibel's argument for Proposition II.8.2.1 with an arbitrary affine open in place of the complement of one point, which is what source issue KTheoryLowDegrees/E19 requires.
+- **`Z.5/generic-rank-kernel`**. Replace the higher localisation sequence of SchemeKTheoryOperations S.3 by the degree-zero one of SchemeAndStackFoundations §5.7 (G0.localization_sequence). Take a nonempty affine open U = Spec A, A a Dedekind domain or a field; Z = X ∖ U is a finite set of closed points (KTheoryLowDegrees:Z.5/regular-curve-ample-family (a)); G₀(Z) is generated by the classes [κ(z)_z] (dévissage, Weibel Theorem II.6.3); G₀(U) ≅ Chow.K0 U (§5.7 K0.toG0_bijective; affine schemes have the resolution property) ≅ RingK0 A (KTheoryLowDegrees:Z.5/vector-bundle-affine-comparison) ≅ ℤ ⊕ Pic(A) (KTheoryLowDegrees:Z.4/rank-pic-equivalence), and Pic(A) = Cl(A) is generated by the classes [A] − [𝔭] = [A/𝔭], images of skyscrapers at points of U. A class of generic rank zero therefore differs from a sum of skyscraper classes of points of U by an element of the image of G₀(Z). This is Weibel's argument for Proposition II.8.2.1 with an arbitrary affine open in place of the complement of one point, which is what source issue KTheoryLowDegrees/E19 requires. The direct sum of point generators runs over CodimensionOnePoint X, rather than all closed points when dim X = 0. For Spec K the sum is zero and G₀(Spec K) → ℤ is an isomorphism.
   - *Add prerequisites:* Z.5/regular-curve-ample-family; SchemeAndStackFoundations:SF.5; Z.5/vector-bundle-affine-comparison; Z.4/rank-pic-equivalence.
   - *Drop prerequisites:* SchemeKTheoryOperations:S.3/one-dimensional-localisation-sequence.
 - **`Z.5/point-class-map`**. det is Chow.K0.det and c_X is Chow.K0.toG0; classGroupToLineBundleClass is pinned. Statement unchanged.
   - *Add prerequisites:* SchemeAndStackFoundations:SF.5.
   - *Consumers to rewire:* Z.6/pointless-conic-test; Z.5/point-class-degree-comparison.
-- **`Z.5/curve-rank-determinant-equivalence`**. The main theorem of Z.5 stays. Its inputs are read through the substitution: rank = K0.rank, det = Chow.K0.det, c_X = Chow.K0.toG0, and the surjectivity of Cl(X) → Pic(X) from Tau Ceti main via JacobianChallenge layer A.
+- **`Z.5/curve-rank-determinant-equivalence`**. The main theorem of Z.5 stays. Its inputs are read through the substitution: rank = K0.rank, det = Chow.K0.det, c_X = Chow.K0.toG0, and the surjectivity of Cl(X) → Pic(X) from Tau Ceti main via JacobianChallenge layer A. The skyscraper class formula concerns closed codimension-one points; it is vacuous for Spec K. The rank–determinant equivalence itself still includes dimension zero.
   - *Add prerequisites:* JacobianChallenge layer A; SchemeAndStackFoundations:SF.5.
   - *Drop prerequisites:* Z.5/line-bundle-divisorial; Z.5/vector-bundle-determinant.
   - *Consumers to rewire:* Z.6/elliptic-test; Z.6/field-product-test; Z.6/field-test; Z.6/integers-test; Z.6/pointless-conic-test; Z.6/projective-line-change-of-basis; Z.6/projective-line-rank-pic; Z.5/point-class-degree-comparison; EllipticKTheory:E.2/K0-of-a-curve.
@@ -515,10 +546,10 @@ Each node of `KTheoryLowDegrees--Z.3.json` in layer Z.5 has one row. The rows ar
 - **`Z.5/curve-k-zero-ring`**. Unchanged; the ring structure it transports is SchemeAndStackFoundations §5.7's.
   - *Consumers to rewire:* Z.6/projective-line-rank-pic; EllipticKTheory:E.2/ring-structure-of-K0-of-a-curve.
 - **`Z.5/dedekind-curve-comparison`**. Unchanged; it now rests on the narrowed affine comparisons.
-- **`Z.5/doubled-line-example`**. Unchanged statement. Its resolution property now comes from KTheoryLowDegrees:Z.5/regular-curve-ample-family (charts U′, U″, divisors 0″, 0′). Stacks Remark 0FXT (on the scheme of Stacks Example 01JD with n = 1) gives the same family: invertible sheaves trivial on both charts with sections whose non-vanishing loci are the charts; it is an additional source. Pic(X) ≅ ℤ uses Tau Ceti main's Cl ≅ Pic.
-  - *Add prerequisites:* Z.5/regular-curve-ample-family; JacobianChallenge layer A.
-  - *Drop prerequisites:* Z.5/line-bundle-divisorial.
-- **`Z.5/curve-affine-diagonal`**. Kept as a fact about the doubled line (acceptance); it no longer lies on the resolution-property route.
+- **`Z.5/doubled-line-example`**. Unchanged statement. Its resolution property now comes from KTheoryLowDegrees:Z.5/regular-curve-ample-family (charts U′, U″, divisors 0″, 0′). Stacks Remark 0FXT (on the scheme of Stacks Example 01JD with n = 1) gives the same family: invertible sheaves trivial on both charts with sections whose non-vanishing loci are the charts; it is an additional source. Pic(X) ≅ ℤ uses Tau Ceti main's Cl ≅ Pic. The doubled-plane comparison is the imported SchemeAndStackFoundations §5.7 Check, so its old S.1 prerequisite is also removed.
+  - *Add prerequisites:* Z.5/regular-curve-ample-family; JacobianChallenge layer A; SchemeAndStackFoundations:SF.5.
+  - *Drop prerequisites:* Z.5/line-bundle-divisorial; SchemeKTheoryOperations:S.1/doubled-plane-counterexample.
+- **`Z.5/curve-affine-diagonal`**. Keep the full statement: every noetherian scheme of dimension ≤ 1 has affine diagonal, since intersections of affine opens are quasi-compact opens in a one-dimensional noetherian affine and hence affine (Stacks Lemma 33.38.2, tag 09N9). It supplies an independent check on the doubled line and no longer lies on the resolution-property route.
 
 ## 8. Dependencies
 
@@ -556,14 +587,16 @@ and a curve sub-layer, proposed by the earlier packet so that SchemeKTheoryOpera
 vector-bundle nodes, is withdrawn. Those objects are upstream now, and SchemeKTheoryOperations S.1,
 S.2, S.6 and S.7 should cite AlgebraicVectorBundles and SchemeAndStackFoundations §5.7 directly.
 
-**Latent cycle.** In the graph of all packets, promoted or not, Z.5 reaches
-`SchemeAndStackFoundations:SF.0` through a long chain. The chain runs from EllipticKTheory E.2
-through the p-adic Hodge, Galois-representation and patching roadmaps, and ends with
-`SchemeAndStackFoundations:SF.0/excellent-ring` citing `DeformationAndDerivedPatchingAlgebra:R03.3/catenary`.
-That citation points up a tier. The merged SchemeAndStackFoundations README owns the catenary package
-itself, and `upstream/CaraianiNewton.md` already lists the citation as a move-down. Removing it
-removes every path from Z.5 to SF.0, SF.3 and SF.5. The dry assembly of the promoted packets shows
-no cycle and no skipped link.
+**Latent cycles.** The graph induced by prerequisites of all blueprint packets, promoted or not,
+contains a path from Z.5 to `SchemeAndStackFoundations:SF.0` ending in
+`SF.0/excellent-ring` citing `DeformationAndDerivedPatchingAlgebra:R03.3/catenary`. The merged
+foundations roadmap owns catenary rings in §0.16, and the tier guide already records this move down.
+Removing that one citation is insufficient: a second path still ends in
+`SchemeAndStackFoundations:key/henselization` importing `PerfectoidSpaces:P3/henselisation-of-pairs`.
+The merged foundations roadmap owns arbitrary-pair henselization and its properties in §§0.12–0.13.
+The packet records both full witness paths and routes these corrections to their owners. Recheck
+reachability before promoting the intermediate packets together; this review does not certify all
+future routes. The actual promoted-graph overlay remains acyclic with unchanged skipped links.
 
 ## 9. Acceptance tests for the layer
 
@@ -622,7 +655,9 @@ no cycle and no skipped link.
   - exactness of `⊗` in each variable on conflations.
 
   The superseded nodes `Z.5/vector-bundle-extension-closed`, `Z.5/vector-bundle-essentially-small`
-  and `Z.5/vector-bundle-k-zero-ring` contain proofs.
+  and `Z.5/vector-bundle-k-zero-ring` contain proofs. For extension-closedness, lift a finite local
+  basis of the quotient to split the sequence locally (Weibel II.8, proof of Theorem 8.1, PDF
+  p. 153). Stacks 0BCI proves closure under direct summands, rather than the local-splitting step.
 - **A Check for the doubled line.** §5.7's `K0.toG0_bijective` applies to the affine line with doubled
   origin, which is not separated. A Check there would separate it from the doubled plane, which §5.7
   already rejects.
@@ -639,16 +674,16 @@ no cycle and no skipped link.
   - Properties of Schemes: 01PW, 01PY;
   - Morphisms of Schemes: 0FXR, 0FXT;
   - Divisors: 0AXT, 0CC4, 0GML;
-  - Varieties: 0AYR, 0DJ5, 0AYY, 09NZ;
+  - Varieties: 0AYR, 0DJ5, 0AYY, 09NZ, 09N9;
   - Derived Categories of Schemes: 0F87, 0GMM, 0F8A;
   - Schemes: 01JD;
   - Sheaves of Modules: 0BCI, 01CW, 0B38;
   - Chow Homology: 0FDS (proof of Lemma 42.23.4);
   - More on Algebra: 0AUW.
 - TauCetiRoadmap `main` at `34dcf0e`: the README.md and Suggested.lean of SchemeAndStackFoundations
-  (§§3.3, 3.4, 5.7), AlgebraicVectorBundles (L0A–L0C) and JacobianChallenge (layers A, B).
+  (§§0.12–0.13, 0.16, 3.3, 3.4, 5.7), AlgebraicVectorBundles (L0A–L0C) and JacobianChallenge (layers A, B).
 - Tau Ceti library `main` at `a91d3aa`:
-  - VectorBundle/*, LineBundle/{Class, Dual, Pullback, Functoriality};
+  - VectorBundle/*, LineBundle/{Class, Dual, Pullback, Functoriality, Degree};
   - WeilDivisor/Scheme/{Picard, ResidueSequence}, CartierDivisor/ClassGroup;
   - Modules/Skyscraper, Cohomology/Skyscraper;
   - Algebra/Category/ModuleCat/Sheaf/ExteriorPower.

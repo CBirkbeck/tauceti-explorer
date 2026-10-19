@@ -6,7 +6,7 @@
   "KTheoryLowDegrees:Z.5"
  ],
  "status": "complete",
- "summary": "Follow-up plan for layer Z.5 (vector bundles and curves) of 'Explicit K₀: projectives, rank and determinant'. The layer was planned by KTheoryLowDegrees--Z.3.json against the pinned libraries. Since then TauCetiRoadmap has merged AlgebraicVectorBundles and SchemeAndStackFoundations, which own finite locally free sheaves, exterior powers, determinants, K₀ and G₀ of a scheme, the determinant on K₀, the K/G comparison, degrees on curves and the affine Picard comparison. Tau Ceti main now also has the Picard group law and Cl ≅ Pic on regular curves. This packet rebases Z.5 on those suppliers through a routing map for the 40 earlier nodes, and adds two nodes. The first is an ample family of divisor line bundles on every regular noetherian curve, possibly non-separated, which gives the resolution property without Stacks 0F8A or the higher K-theory roadmap. The second is the exact degree comparison the roadmap's handoff contract asks for: on a proper regular curve over k, χ = rank·χ(O_X) + deg ∘ det on K₀, χ of a point class is its residue degree, and (rank, deg ∘ det) has image ℤ ⊕ δℤ with δ the index. The main theorem K₀(X) ≅ ℤ ⊕ Pic(X), the class formulas and the Dedekind and doubled-line cases stay in KTheoryLowDegrees--Z.3.json, read through the substitution table.",
+ "summary": "Follow-up plan for layer Z.5 (vector bundles and curves) of 'Explicit K₀: projectives, rank and determinant'. The layer was planned by KTheoryLowDegrees--Z.3.json against the pinned libraries. Since then TauCetiRoadmap has merged AlgebraicVectorBundles and SchemeAndStackFoundations, which own finite locally free sheaves, exterior powers, determinants, K₀ and G₀ of a scheme, the determinant on K₀, the K/G comparison, degrees on curves and the affine Picard comparison. Tau Ceti main now also has the Picard group law and Cl ≅ Pic on regular curves. This packet rebases Z.5 on those suppliers through a routing map for the 40 earlier nodes, and adds two nodes. The first is an ample family of divisor line bundles on every regular noetherian curve, possibly non-separated, which gives the resolution property without Stacks 0F8A or the higher K-theory roadmap. The second is the exact degree comparison the roadmap's handoff contract asks for: on a proper regular curve over k, χ = rank·χ(O_X) + deg ∘ det on K₀, χ of a codimension-one point class is its residue degree. In dimension one, (rank, deg ∘ det) has image ℤ ⊕ δℤ with δ the index; for Spec K its image is ℤ × {0}. The main theorem K₀(X) ≅ ℤ ⊕ Pic(X), the class formulas and the Dedekind and doubled-line cases stay in KTheoryLowDegrees--Z.3.json, read through the substitution table.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,126 +16,133 @@
     "kind": "abbrev",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean",
     "provides": "The points of coheight one of a scheme, as a subtype.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor",
     "kind": "abbrev",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean",
     "provides": "Weil divisors of a scheme: finitely supported integer combinations of codimension-one points.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.ofPoint",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Basic.lean",
     "provides": "The prime divisor of a point, with coefficient one there and zero elsewhere.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.coeff",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Basic.lean",
     "provides": "The coefficient of a Weil divisor at a point.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.sheaf",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Sheaf.lean",
     "provides": "The divisor sheaf O_X(D) of rational functions f with ord_y f ≥ −D(y) at codimension-one points, on an integral noetherian scheme with DVR codimension-one stalks.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.unitIsoSheafZero",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Invertible.lean",
-    "provides": "O_X(0) is isomorphic to the structure sheaf.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "provides": "On an integral locally noetherian scheme with DVR codimension-one stalks and coheight at most one at every point, O_X(0) is isomorphic to the structure sheaf.",
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.isLocallyPrincipal_of_forall_coheight_le_one",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LocallyPrincipal.lean",
-    "provides": "On a scheme of dimension at most one with DVR codimension-one stalks every Weil divisor is locally principal.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "provides": "On a noetherian integral scheme with DVR codimension-one stalks and coheight at most one at every point, every Weil divisor is locally principal.",
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.toInvertibleSheaf",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LineBundle.lean",
-    "provides": "The divisor sheaf of a locally principal Weil divisor as an invertible sheaf.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "provides": "For a noetherian integral scheme with DVR codimension-one stalks and an explicit bound ∀ x, coheight x ≤ 1, bundles the divisor sheaf O_X(D) as an invertible sheaf.",
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.isClosed_singleton_of_forall_coheight_le_one_of_coheight_eq_one",
     "kind": "theorem",
     "module": "TauCeti/Topology/KrullDimension.lean",
-    "provides": "In a space all of whose points have coheight at most one, a point of coheight one is closed.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "provides": "In a T₀ space, with its specialization order and all points of coheight at most one, a point of coheight one has a closed singleton.",
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsAffineOpen",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/AffineScheme.lean",
     "provides": "Affine open subsets of a scheme.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsNoetherian",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Noetherian.lean",
     "provides": "Noetherian schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsIntegral",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Properties.lean",
     "provides": "Integral schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "mathlib:Order.coheight",
     "kind": "def",
     "module": "Mathlib/Order/KrullDimension.lean",
     "provides": "The coheight of an element of a preorder; for a scheme it is the dimension of the local ring.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.relativeDegree",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Degree.lean",
     "provides": "The degree of a Weil divisor weighted by the residue degrees of a morphism, Σ n_x [κ(x) : κ(f x)].",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.relativeDegree_ofPoint",
     "kind": "lemma",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Degree.lean",
     "provides": "The relative degree of a prime divisor is the residue degree of its point.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "tauceti:AlgebraicGeometry.Scheme.Modules.eulerCharBelow",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/Cohomology/EulerCharacteristic.lean",
-    "provides": "The truncated alternating sum Σ_{i<n} (−1)^i dim_k H^i(X, M) of coherent cohomology dimensions over a field.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "provides": "For a scheme over a field k and any sheaf of modules M, the truncated sum Σ_{i<n} (−1)^i finrank_k H^i(X,M). The definition assumes neither coherence nor finite-dimensionality; finrank is zero on infinite-dimensional spaces. Finiteness and vanishing are supplied separately by JacobianChallenge B in the proper-curve application.",
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.residueDegree",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/ResidueField.lean",
-    "provides": "The residue degree [κ(x) : κ(f x)] of a morphism of schemes at a point.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "provides": "The finrank of κ(x) over κ(f x) induced by the residue-field map; it is zero for infinite degree. In the proper-over-a-field closed-point application the extension is finite.",
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsProper",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
     "provides": "Proper morphisms of schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X."
+    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-19 by claude-oZNc2X. Independently rechecked against the exact git object at the stated pin on 2026-10-19 by Codex codex-rmhqBP; the build-tree source agrees byte for byte."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgebraicGeometry.irreducibleSpace_of_connected_of_isDomain_stalk",
+    "kind": "theorem",
+    "module": "TauCeti/AlgebraicGeometry/IrreducibleOfConnectedDomainStalk.lean",
+    "provides": "A locally noetherian connected scheme whose stalks are integral domains has irreducible underlying space. Used for the integral-component reduction in the regular-curve routing row; reducedness is supplied separately by regularity.",
+    "checked": "Statement and all hypotheses read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-19 by Codex codex-rmhqBP; the build-tree module agrees byte for byte with that git object."
    }
   ]
  },
@@ -163,7 +170,7 @@
     "Properties of Schemes: tags 01PW (Lemma 28.18.2), 01PY (Lemma 28.27.7)",
     "Morphisms of Schemes: tags 0FXR (Definition 29.12.1), 0FXT (Remark 29.12.3)",
     "Divisors: tags 0AXT (Lemma 31.11.4), 0CC4 (Lemma 31.11.11), 0GML (Lemma 31.17.8)",
-    "Varieties: tags 0AYR (Definition 33.44.1), 0DJ5 (Lemma 33.44.8), 0AYY (Lemma 33.44.9), 09NZ (Proposition 33.38.12)",
+    "Varieties: tags 0AYR (Definition 33.44.1), 0DJ5 (Lemma 33.44.8), 0AYY (Lemma 33.44.9), 09NZ (Proposition 33.38.12), 09N9 (Lemma 33.38.2)",
     "Derived Categories of Schemes: tags 0F87 (Lemma 36.36.2), 0GMM (Lemma 36.36.7), 0F8A (Lemma 36.36.8)",
     "Schemes: tag 01JD (Example 26.14.3)",
     "Sheaves of Modules: tags 0BCI (Lemma 17.14.6), 01CW (Lemma 17.25.8), 0B38 (Lemma 17.26.1)",
@@ -183,7 +190,8 @@
     "§3.3 Degrees of vector bundles, Riemann–Roch and Serre duality on curves",
     "§3.4 Picard groups",
     "§5.7 Coherent and perfect classes: K_0, G_0 and the K-theoretic pushforward, with its Checks",
-    "Suggested.lean, Layer 3 Picard and §5.7 (HasResolutionProperty, finiteLocallyFreeExact, finitelyPresentedExact, G0, K0, K0.det, K0.toG0, K0.toG0_not_injective_of_det, K0.toG0_bijective)"
+    "Suggested.lean, Layer 3 Picard and §5.7 (HasResolutionProperty, finiteLocallyFreeExact, finitelyPresentedExact, G0, K0, K0.det, K0.toG0, K0.toG0_not_injective_of_det, K0.toG0_bijective)",
+    "§§0.12–0.13 (henselization of arbitrary pairs and its properties), §0.16 (catenary rings), for the stale atlas ownership routes in the latent-cycle note"
    ]
   },
   {
@@ -221,7 +229,7 @@
    "url": "https://github.com/TauCetiProject/TauCeti/tree/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
    "readSections": [
     "TauCeti/AlgebraicGeometry/VectorBundle/{FiniteLocallyFree,Rank,FixedRank,OpenCover,Affine/Basic,Affine/Monoidal,Dual/Basic}.lean",
-    "TauCeti/AlgebraicGeometry/LineBundle/{Class,Dual,Pullback,Functoriality}.lean",
+    "TauCeti/AlgebraicGeometry/LineBundle/{Class,Dual,Pullback,Functoriality,Degree}.lean",
     "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/{Picard,ResidueSequence}.lean",
     "TauCeti/AlgebraicGeometry/CartierDivisor/ClassGroup.lean",
     "TauCeti/AlgebraicGeometry/Modules/Skyscraper.lean and Cohomology/Skyscraper.lean",
@@ -240,7 +248,7 @@
    "kind": "author copy",
    "url": "https://stacks.math.columbia.edu",
    "read": "2026-10-19",
-   "citation": "Stacks project online tag pages 01PW, 01PY, 0FXR, 0FXT, 0AXT, 0CC4, 0GML, 0AYR, 0DJ5, 0AYY, 09NZ, 0F87, 0GMM, 0F8A, 01JD, 0BCI, 01CW, 0B38, 0FDS, 0AUW"
+   "citation": "Stacks project online tag pages 01PW, 01PY, 0FXR, 0FXT, 0AXT, 0CC4, 0GML, 0AYR, 0DJ5, 0AYY, 09NZ, 09N9, 0F87, 0GMM, 0F8A, 01JD, 0BCI, 01CW, 0B38, 0FDS, 0AUW"
   },
   {
    "kind": "author copy",
@@ -282,7 +290,7 @@
     "X = P¹_k and U = P¹ ∖ {∞}: D_U = ∞, O_X(D_U) ≅ O(1), and s_U is the section of O(1) vanishing exactly at ∞.",
     "X = Spec O_F for a number field F: for U = X, D_U = 0 and s_U = 1; for U = X ∖ {𝔭}, D_U = 𝔭 and O_X(D_U) is the fractional ideal sheaf 𝔭^{−1}.",
     "X the affine line over k with doubled origin (KTheoryLowDegrees:Z.5/doubled-line-example), with charts U′, U″: D_{U′} = 0″ and D_{U″} = 0′, and {O(0″), O(0′)} is an ample family; this is the example of Stacks 0FXT, whose sections of L_1 and L_{−1} have the two charts as non-vanishing loci. X has no ample invertible sheaf, since a scheme with one is separated (Stacks 01PY); one line bundle cannot replace the family.",
-    "The hypothesis dim ≤ 1 cannot be dropped: on the affine plane with doubled origin the complement of either chart is a closed point of codimension two, which supports no Cartier divisor, and that scheme lacks the resolution property (SchemeKTheoryOperations:S.1/doubled-plane-counterexample; SchemeAndStackFoundations §5.7 Check resolutionProperty_doubled_plane_rejected)."
+    "The hypothesis dim ≤ 1 cannot be dropped: on the affine plane with doubled origin the complement of either chart is a closed point of codimension two, which supports no Cartier divisor, and that scheme lacks the resolution property (SchemeAndStackFoundations §5.7 Check resolutionProperty_doubled_plane_rejected)."
    ],
    "prerequisites": [
     "KTheoryLowDegrees:Z.5/regular-curve-integral",
@@ -357,26 +365,27 @@
    "planet": {
     "name": "Euler characteristic and degree on K₀ of a curve"
    },
-   "statement": "Let k be a field and X a connected regular noetherian scheme of dimension ≤ 1, proper over k, with structure morphism f : X → Spec k (so X satisfies the regular-curve package and is separated). Write K₀(X) = Chow.K0 X and G₀(X) = Chow.G0 X (SchemeAndStackFoundations §5.7), c_X = Chow.K0.toG0 X, which is bijective by KTheoryLowDegrees:Z.5/regular-curve-cartan-iso, and χ_k := f_! ∘ c_X : K₀(X) → G₀(Spec k) ≅ ℤ, where f_! is the K-theoretic pushforward of §5.7, [F] ↦ Σ_i (−1)^i [R^i f_* F], so that χ_k[E] = Σ_i (−1)^i dim_k H^i(X, E). Let deg_k : Pic(X) → ℤ be the degree deg_k L = χ(X, L) − χ(X, O_X) (Stacks 0AYR; §3.3's vectorBundleDegree in rank one), on Pic(X) = LineBundleClass X. Then: (a) for every x ∈ K₀(X), χ_k(x) = rank(x)·χ(X, O_X) + deg_k(det x), with rank and det the homomorphisms of KTheoryLowDegrees:Z.5/curve-rank-determinant-equivalence; in particular deg_k is a group homomorphism. (b) For a closed point y, χ_k(c_X⁻¹[κ(y)_y]) = [κ(y) : k] = deg_k O_X(y); for a Weil divisor D = Σ_y n_y y, χ_k(cl[D]) = deg_k(det cl[D]) = deg_k O_X(D) = Σ_y n_y [κ(y) : k], which is Tau Ceti's SchemeWeilDivisor.relativeDegree f D; here cl is the point-class map of KTheoryLowDegrees:Z.5/point-class-map. (c) The map (rank, deg_k ∘ det) : K₀(X) → ℤ² has image ℤ ⊕ δ_X ℤ, where δ_X is the greatest common divisor of the residue degrees [κ(y) : k] of the closed points (the index of X); it is onto exactly when δ_X = 1, for instance when X has a k-rational point. Degrees are weighted by residue degrees: counting closed points gives a different and wrong answer as soon as some [κ(y) : k] > 1.",
+   "statement": "Let k be a field and X a connected regular noetherian scheme of dimension ≤ 1, proper over k, with structure morphism f : X → Spec k (so X satisfies the regular-curve package and is separated). Write K₀(X) = Chow.K0 X and G₀(X) = Chow.G0 X (SchemeAndStackFoundations §5.7), c_X = Chow.K0.toG0 X, which is bijective by KTheoryLowDegrees:Z.5/regular-curve-cartan-iso, and χ_k := f_! ∘ c_X : K₀(X) → G₀(Spec k) ≅ ℤ, where f_! is the K-theoretic pushforward of §5.7, [F] ↦ Σ_i (−1)^i [R^i f_* F], so that χ_k[E] = Σ_i (−1)^i dim_k H^i(X, E). Let deg_k : Pic(X) → ℤ be the degree deg_k L = χ(X, L) − χ(X, O_X) (Stacks 0AYR; §3.3's vectorBundleDegree in rank one), on Pic(X) = LineBundleClass X. Then: (a) for every x ∈ K₀(X), χ_k(x) = rank(x)·χ(X, O_X) + deg_k(det x), with rank and det the homomorphisms of KTheoryLowDegrees:Z.5/curve-rank-determinant-equivalence; in particular deg_k is a group homomorphism. (b) For a closed codimension-one point y, χ_k(c_X⁻¹[κ(y)_y]) = [κ(y) : k] = deg_k O_X(y); for a Weil divisor D = Σ_y n_y y, χ_k(cl[D]) = deg_k(det cl[D]) = deg_k O_X(D) = Σ_y n_y [κ(y) : k], which is Tau Ceti's SchemeWeilDivisor.relativeDegree f D; here cl is the point-class map of KTheoryLowDegrees:Z.5/point-class-map. (c) If dim X = 1, the map (rank, deg_k ∘ det) : K₀(X) → ℤ² has image ℤ ⊕ δ_X ℤ, where δ_X is the greatest common divisor of the residue degrees [κ(y) : k] of the closed points (the index of X); it is onto exactly when δ_X = 1, for instance when X has a k-rational point. Degrees are weighted by residue degrees: counting closed points gives a different and wrong answer as soon as some [κ(y) : k] > 1. If dim X = 0, then X = Spec K for a finite extension K/k, Pic(X) = 0, and the image of (rank, deg_k ∘ det) is ℤ × {0}; the closed point of Spec K has codimension zero and is not a Weil-divisor generator.",
    "hypotheses": [
     "k a field; X connected, regular, noetherian, of dimension ≤ 1 and proper over k (hence separated and of finite type, with finite-dimensional coherent cohomology vanishing in degrees ≥ 2).",
     "Pic(X) is the group of isomorphism classes of line bundles on X itself (Tau Ceti's LineBundleClass X with its group law), not the k-points of a Picard scheme: line bundles are defined over the base.",
-    "When dim X = 0, X = Spec K for a finite extension K/k, Pic(X) = 0, and the statements reduce to χ_k(x) = rank(x)·[K : k]."
+    "Part (c), with δ_X the usual index over all closed points, assumes dim X = 1. When dim X = 0, X = Spec K for a finite extension K/k, Pic(X) = 0, χ_k(x) = rank(x)·[K : k], and image(rank, deg_k ∘ det) = ℤ × {0}. Part (b) always indexes CodimensionOnePoint X, an empty type in this case."
    ],
    "proofSteps": [
     "χ_k is additive: f_! is a homomorphism G₀(X) → G₀(Spec k) (SchemeAndStackFoundations §5.7, from additivity of the long exact cohomology sequence and finite-dimensionality of coherent cohomology on proper X, JacobianChallenge layer B), G₀(Spec k) ≅ ℤ by dimension, and c_X is additive.",
     "(a) By KTheoryLowDegrees:Z.5/curve-rank-determinant-equivalence every x is (n − 1)[O_X] + [L] with n = rank x and L = det x. Hence χ_k(x) = (n − 1)χ(O_X) + χ(L) = nχ(O_X) + deg_k L by the definition of deg_k. Applying this to x = [L] + [M] − 2[O_X], whose determinant is L ⊗ M, gives deg_k(L ⊗ M) = deg_k L + deg_k M.",
-    "(b) The skyscraper κ(y)_y has H⁰ = κ(y), of k-dimension the residue degree of y, and no higher cohomology because it is flasque; in Tau Ceti main these are Scheme.finrank_cohomology_zero_skyscraperResidueField and Scheme.isFlasque_skyscraperResidueField (not at the pinned commit). So χ_k(c_X⁻¹[κ(y)_y]) = [κ(y) : k]. The class c_X⁻¹[κ(y)_y] = [O_X] − [O_X(−y)] has rank 0 and determinant O_X(y) (KTheoryLowDegrees:Z.5/skyscraper-class), so (a) gives deg_k O_X(y) = [κ(y) : k].",
+    "(b) For y of codimension one, the skyscraper κ(y)_y has H⁰ = κ(y), of k-dimension the residue degree of y, and no higher cohomology because it is flasque; in Tau Ceti main these are Scheme.finrank_cohomology_zero_skyscraperResidueField and Scheme.isFlasque_skyscraperResidueField (not at the pinned commit). So χ_k(c_X⁻¹[κ(y)_y]) = [κ(y) : k]. The class c_X⁻¹[κ(y)_y] = [O_X] − [O_X(−y)] has rank 0 and determinant O_X(y) (KTheoryLowDegrees:Z.5/skyscraper-class), so (a) gives deg_k O_X(y) = [κ(y) : k].",
     "(b, continued) cl is additive in D (KTheoryLowDegrees:Z.5/point-class-map) and det ∘ cl sends D to the class of O_X(D); summing the point case gives χ_k(cl[D]) = deg_k O_X(D) = Σ_y n_y [κ(y) : k], which is the pinned SchemeWeilDivisor.relativeDegree f D (relativeDegree_ofPoint on generators).",
-    "(c) rank ⊕ det is bijective onto ℤ ⊕ Pic(X), and every line bundle on X is O_X(D) for a Weil divisor D (Tau Ceti main's SchemeWeilDivisor.classGroupAddEquivLineBundleClass, owned by JacobianChallenge layer A). So deg_k(Pic X) is the image of relativeDegree f, the subgroup generated by the residue degrees of closed points, which is δ_X ℤ; a k-rational point has residue degree one.",
-    "Compatibility with SchemeAndStackFoundations §3.3: for x = [E] with E locally free of rank r, (a) reads χ(E) = r·χ(O_X) + deg_k(det E), which is §3.3's definition of vectorBundleDegree combined with its _det law (Stacks 0AYR and 0DJ5); in rank one deg_k is §3.3's vectorBundleDegree and Tau Ceti main's LineBundleClass.eulerDegree. Nothing here re-proves those statements; the node supplies their K₀ form and the comparison with the point-class map."
+    "(c) Assume dim X = 1, so the closed points are precisely the codimension-one points. Then rank ⊕ det is bijective onto ℤ ⊕ Pic(X), and every line bundle on X is O_X(D) for a Weil divisor D (Tau Ceti main's SchemeWeilDivisor.classGroupAddEquivLineBundleClass, owned by JacobianChallenge layer A). So deg_k(Pic X) is the image of relativeDegree f, the subgroup generated by the residue degrees of closed points, which is δ_X ℤ; a k-rational point has residue degree one.",
+    "Compatibility with SchemeAndStackFoundations §3.3: for x = [E] with E locally free of rank r, (a) reads χ(E) = r·χ(O_X) + deg_k(det E), which is §3.3's definition of vectorBundleDegree combined with its _det law (Stacks 0AYR and 0DJ5); in rank one deg_k is §3.3's vectorBundleDegree and Tau Ceti main's LineBundleClass.eulerDegree. Nothing here re-proves those statements; the node supplies their K₀ form and the comparison with the point-class map.",
+    "Dimension-zero check: a connected regular noetherian zero-dimensional scheme is Spec K for a field K, finite over k by properness. Every line bundle is trivial and there are no codimension-one points. Thus relativeDegree has zero image, (rank, deg_k ∘ det) has image ℤ × {0}, while χ_k[κ(y)] = [K : k] for its unique codimension-zero point. Its usual index [K : k] does not give the second-coordinate image."
    ],
    "acceptance": [
     "X = P¹_k: χ_k[O(n)] = n + 1 = 1·χ(O) + n (the §5.7 Check test_pushforward_pone); δ = 1 and (rank, deg_k ∘ det) is an isomorphism K₀(P¹_k) ≅ ℤ² (KTheoryLowDegrees:Z.6/projective-line-rank-pic).",
     "X = P¹_ℚ and y the closed point t² + 1 = 0 of the affine chart, with κ(y) = ℚ(i): χ_ℚ(cl[y]) = 2 and O_X(y) ≅ O(2); a point-counting degree would give 1.",
     "The conic C : x² + y² + z² = 0 over ℝ has no real point; every closed point has residue field ℂ, so δ_C = 2, χ(O_C) = 1, and (rank, deg ∘ det) : K₀(C) → ℤ² has image ℤ ⊕ 2ℤ although Pic(C) ≅ ℤ (KTheoryLowDegrees:Z.6/pointless-conic-test). A plan that took Pic to be the ℝ-points of the Picard scheme would wrongly admit a class of degree one.",
     "An elliptic curve E over k with rational origin: χ(O_E) = 0, so χ_k(x) = deg_k(det x), and δ_E = 1; EllipticKTheory E.2 uses the origin to split the degree.",
-    "X = Spec K with [K : k] = d: χ_k[O_X] = d, so the factor χ(X, O_X) in (a) cannot be replaced by 1."
+    "X = Spec K with [K : k] = d > 0: Pic(X) = 0, there are no codimension-one points, χ_k[O_X] = d and image(rank, deg_k ∘ det) = ℤ × {0}. The unique closed point has rank-one skyscraper O_X; treating it as a rank-zero divisor point would falsely give second-coordinate image dℤ. The factor χ(X, O_X) in (a) cannot be replaced by 1."
    ],
    "prerequisites": [
     "KTheoryLowDegrees:Z.5/curve-rank-determinant-equivalence",
@@ -418,7 +427,7 @@
     {
      "sourceId": "Stacks.20261019",
      "locator": "Varieties, Lemma 33.44.9 (tag 0AYY)",
-     "match": "Twisting by an effective Cartier divisor D adds rank·deg D to the degree, with deg D = dim_k Γ(D, O_D); for D = y this is deg O_X(y) = [κ(y) : k], which (b) re-derives from the skyscraper class."
+     "match": "Twisting by an effective Cartier divisor D adds rank·deg D to the degree, with deg D = dim_k Γ(D, O_D); for a closed codimension-one point D = y this is deg O_X(y) = [κ(y) : k], which (b) re-derives from the skyscraper class."
     },
     {
      "sourceId": "TCR-SSF",
@@ -438,7 +447,8 @@
     "tauceti:TauCetiRoadmap/AlgebraicVectorBundles#l0c--polynomial-operations"
    ],
    "leanNames": [
-    "TauCeti.AlgebraicGeometry.KTheory.range_relativeDegree (part (c), divisor level); parts (a)-(b) are README targets"
+    "TauCeti.AlgebraicGeometry.KTheory.range_relativeDegree (part (c), divisor level); parts (a)-(b) are README targets",
+    "Suggested Lean boundary example: range_relativeDegree = ⊥ when CodimensionOnePoint X is empty"
    ],
    "implementationStatus": "unchecked"
   }
@@ -481,11 +491,12 @@
   {
    "stageId": "KTheoryLowDegrees:Z.5",
    "status": "planned",
-   "note": "Z.5 was planned by KTheoryLowDegrees--Z.3.json (40 nodes, accepted 2026-10-07), whose coverage left two items: the group structure of Pic(X), requested from JacobianChallenge layer A, and the atlas edge decisions. Since then TauCetiRoadmap has merged AlgebraicVectorBundles (L0B finite locally free sheaves, rank and affine comparison; L0C exterior powers and determinant) and SchemeAndStackFoundations (§5.7 Chow.K0, Chow.G0, K0.det, K0.toG0 and toG0_bijective; §3.3 degrees; §3.4 Picard comparisons), and Tau Ceti main (a91d3aa, not at the pin) proves the Picard group law, Cl ≅ Pic on regular curves, the skyscraper sheaf and the residue sequence. This follow-up imports all of that and plans only what is left. Targets and where they now live. (1) 'Apply the categorical construction to finite locally free sheaves': imported from SchemeAndStackFoundations §5.7 on AlgebraicVectorBundles L0B's carrier; Z.5 keeps the comparisons with this roadmap's ring K₀ on Spec R (Z.5/vector-bundle-affine-comparison narrowed, with the affine parts of Z.5/vector-bundle-k-zero-pullback, Z.5/vector-bundle-k-zero-ring, Z.5/vector-bundle-rank and Z.5/picard-affine-comparison), the determinant identities that are not stated upstream (Z.5/exterior-power-extension-filtration, Z.5/determinant-bundle-extension, Z.5/determinant-bundle-tensor), the locally constant powers on Pic (Z.5/pic-disjoint-cover-ext, Z.5/pic-locally-constant-module, Z.5/pic-locally-constant-pullback, Z.5/pic-locally-constant-affine) and Weibel's ring map rank ⊕ det (Z.5/rank-determinant-surjective). (2) 'For a connected regular noetherian curve prove rank and determinant give K₀(X) ≅ ℤ ⊕ Pic(X)': Z.5/curve-rank-determinant-equivalence with Z.5/regular-curve-integral, the new Z.5/regular-curve-ample-family (which gives the resolution property without separatedness or an affine diagonal), the rerouted Z.5/regular-curve-resolution-property, Z.5/regular-curve-finite-resolution and Z.5/regular-curve-cartan-iso (now §5.7's K0.toG0_bijective), Z.5/curve-k-zero-ring, Z.5/dedekind-curve-comparison and Z.5/doubled-line-example. (3) 'The structure-sheaf and skyscraper-sheaf class formulas through the K/G comparison, so that a divisor class agrees with the line-bundle class': Z.5/skyscraper-class, Z.5/effective-divisor-class, Z.5/principal-divisor-class-vanishes, Z.5/generic-rank-kernel (rerouted through the degree-zero localisation sequence of §5.7) and Z.5/point-class-map; the dictionary Cl ≅ Pic itself is imported. (4) The campaign handoff contract for Z.5, 'the divisor-to-line-bundle and point-class maps and their exact degree comparison', is the new Z.5/point-class-degree-comparison: χ = rank·χ(O) + deg ∘ det on K₀ of a proper regular curve, χ(cl D) = Σ n_y [κ(y) : k], and the image ℤ ⊕ δℤ of (rank, deg ∘ det). (5) The elliptic paragraph is EllipticKTheory E.2's by RS-18; Z.5 exports to it. The 40 earlier nodes are routed in restructure entry 'Rebase Z.5 on the merged upstream suppliers': 12 are imported, 1 is removed, 5 are narrowed to their comparisons with this roadmap's ring-level objects, 13 keep their statements with new prerequisites and 9 are unchanged. After routing, no Z.5 node depends on SchemeKTheoryOperations S.1, S.2, S.3 or S.6, or on GeneralAlgebraicKTheory K.1.",
+   "note": "Z.5 was planned by KTheoryLowDegrees--Z.3.json (40 nodes, accepted 2026-10-07), whose coverage left two items: the group structure of Pic(X), requested from JacobianChallenge layer A, and the atlas edge decisions. Since then TauCetiRoadmap has merged AlgebraicVectorBundles (L0B finite locally free sheaves, rank and affine comparison; L0C exterior powers and determinant) and SchemeAndStackFoundations (§5.7 Chow.K0, Chow.G0, K0.det, K0.toG0 and toG0_bijective; §3.3 degrees; §3.4 Picard comparisons), and Tau Ceti main (a91d3aa, not at the pin) proves the Picard group law, Cl ≅ Pic on regular curves, the skyscraper sheaf and the residue sequence. This follow-up imports all of that and plans only what is left. Targets and where they now live. (1) 'Apply the categorical construction to finite locally free sheaves': imported from SchemeAndStackFoundations §5.7 on AlgebraicVectorBundles L0B's carrier; Z.5 keeps the comparisons with this roadmap's ring K₀ on Spec R (Z.5/vector-bundle-affine-comparison narrowed, with the affine parts of Z.5/vector-bundle-k-zero-pullback, Z.5/vector-bundle-k-zero-ring, Z.5/vector-bundle-rank and Z.5/picard-affine-comparison), the determinant identities that are not stated upstream (Z.5/exterior-power-extension-filtration, Z.5/determinant-bundle-extension, Z.5/determinant-bundle-tensor), the locally constant powers on Pic (Z.5/pic-disjoint-cover-ext, Z.5/pic-locally-constant-module, Z.5/pic-locally-constant-pullback, Z.5/pic-locally-constant-affine) and Weibel's ring map rank ⊕ det (Z.5/rank-determinant-surjective). (2) 'For a connected regular noetherian curve prove rank and determinant give K₀(X) ≅ ℤ ⊕ Pic(X)': Z.5/curve-rank-determinant-equivalence with Z.5/regular-curve-integral, the new Z.5/regular-curve-ample-family (which gives the resolution property without separatedness or an affine diagonal), the rerouted Z.5/regular-curve-resolution-property, Z.5/regular-curve-finite-resolution and Z.5/regular-curve-cartan-iso (now §5.7's K0.toG0_bijective), Z.5/curve-k-zero-ring, Z.5/dedekind-curve-comparison and Z.5/doubled-line-example. (3) 'The structure-sheaf and skyscraper-sheaf class formulas through the K/G comparison, so that a divisor class agrees with the line-bundle class': Z.5/skyscraper-class, Z.5/effective-divisor-class, Z.5/principal-divisor-class-vanishes, Z.5/generic-rank-kernel (rerouted through the degree-zero localisation sequence of §5.7) and Z.5/point-class-map; the dictionary Cl ≅ Pic itself is imported. (4) The campaign handoff contract for Z.5, 'the divisor-to-line-bundle and point-class maps and their exact degree comparison', is the new Z.5/point-class-degree-comparison: χ = rank·χ(O) + deg ∘ det on K₀ of a proper regular curve, χ(cl D) = Σ n_y [κ(y) : k], and, in dimension one, the image ℤ ⊕ δℤ of (rank, deg ∘ det); in dimension zero that image is ℤ × {0}. (5) The elliptic paragraph is EllipticKTheory E.2's by RS-18; Z.5 exports to it. The 40 earlier nodes are routed in restructure entry 'Rebase Z.5 on the merged upstream suppliers': 12 are imported, 1 is removed, 5 are narrowed to their comparisons with this roadmap's ring-level objects, 13 keep their statements with new prerequisites and 9 are unchanged. After routing, no Z.5 node depends on SchemeKTheoryOperations S.1, S.2, S.3 or S.6, or on GeneralAlgebraicKTheory K.1.",
    "remaining": [
     "Apply the routing map of restructure entry 'Rebase Z.5 on the merged upstream suppliers' to the 40 Z.5 nodes of KTheoryLowDegrees--Z.3.json, in the KTheoryLowDegrees package or a revision of that packet, and rewire the Z.6 and EllipticKTheory consumers named in its rows. This packet may not edit that file.",
     "The upstream suppliers used here (SchemeAndStackFoundations §§3.3, 3.4 and 5.7, AlgebraicVectorBundles L0A–L0C, and the Tau Ceti main declarations) are absent from the pinned Tau Ceti commit f790474. Formalisation of Z.5 starts after the pin moves past them.",
-    "Atlas edges: drop SchemeKTheoryOperations:S.6 → Z.5 (RT-AREA-ktheory-2/41). Once the routing map is applied, SchemeKTheoryOperations:S.2 → Z.5 is no longer used either; SchemeAndStackFoundations:SF.3 and SF.5 → Z.5 replace it."
+    "Atlas edges: drop SchemeKTheoryOperations:S.6 → Z.5 (RT-AREA-ktheory-2/41). Once the routing map is applied, SchemeKTheoryOperations:S.2 → Z.5 is no longer used either; SchemeAndStackFoundations:SF.3 and SF.5 → Z.5 replace it.",
+    "Before promoting all intermediate packets together, route SchemeAndStackFoundations:SF.0/excellent-ring and key/henselization to the merged foundations roadmap's own catenary and henselization packages and recompute reachability. Removing the catenary import alone is insufficient; the latent-cycle restructure entry supplies both witness paths and exact owner actions."
    ]
   }
  ],
@@ -872,7 +883,8 @@
      "dropPrerequisites": [
       "SchemeKTheoryOperations:S.3/one-dimensional-localisation-sequence"
      ],
-     "reason": "Replace the higher localisation sequence of SchemeKTheoryOperations S.3 by the degree-zero one of SchemeAndStackFoundations §5.7 (G0.localization_sequence). Take a nonempty affine open U = Spec A, A a Dedekind domain or a field; Z = X ∖ U is a finite set of closed points (KTheoryLowDegrees:Z.5/regular-curve-ample-family (a)); G₀(Z) is generated by the classes [κ(z)_z] (dévissage, Weibel Theorem II.6.3); G₀(U) ≅ Chow.K0 U (§5.7 K0.toG0_bijective; affine schemes have the resolution property) ≅ RingK0 A (KTheoryLowDegrees:Z.5/vector-bundle-affine-comparison) ≅ ℤ ⊕ Pic(A) (KTheoryLowDegrees:Z.4/rank-pic-equivalence), and Pic(A) = Cl(A) is generated by the classes [A] − [𝔭] = [A/𝔭], images of skyscrapers at points of U. A class of generic rank zero therefore differs from a sum of skyscraper classes of points of U by an element of the image of G₀(Z). This is Weibel's argument for Proposition II.8.2.1 with an arbitrary affine open in place of the complement of one point, which is what source issue KTheoryLowDegrees/E19 requires."
+     "reason": "Replace the higher localisation sequence of SchemeKTheoryOperations S.3 by the degree-zero one of SchemeAndStackFoundations §5.7 (G0.localization_sequence). Take a nonempty affine open U = Spec A, A a Dedekind domain or a field; Z = X ∖ U is a finite set of closed points (KTheoryLowDegrees:Z.5/regular-curve-ample-family (a)); G₀(Z) is generated by the classes [κ(z)_z] (dévissage, Weibel Theorem II.6.3); G₀(U) ≅ Chow.K0 U (§5.7 K0.toG0_bijective; affine schemes have the resolution property) ≅ RingK0 A (KTheoryLowDegrees:Z.5/vector-bundle-affine-comparison) ≅ ℤ ⊕ Pic(A) (KTheoryLowDegrees:Z.4/rank-pic-equivalence), and Pic(A) = Cl(A) is generated by the classes [A] − [𝔭] = [A/𝔭], images of skyscrapers at points of U. A class of generic rank zero therefore differs from a sum of skyscraper classes of points of U by an element of the image of G₀(Z). This is Weibel's argument for Proposition II.8.2.1 with an arbitrary affine open in place of the complement of one point, which is what source issue KTheoryLowDegrees/E19 requires.",
+     "statementClarification": "The direct sum of point generators runs over CodimensionOnePoint X, rather than all closed points when dim X = 0. For Spec K the sum is zero and G₀(Spec K) → ℤ is an isomorphism."
     },
     {
      "node": "KTheoryLowDegrees:Z.5/point-class-map",
@@ -924,7 +936,8 @@
       "KTheoryLowDegrees:Z.5/point-class-degree-comparison",
       "EllipticKTheory:E.2/K0-of-a-curve"
      ],
-     "reason": "The main theorem of Z.5 stays. Its inputs are read through the substitution: rank = K0.rank, det = Chow.K0.det, c_X = Chow.K0.toG0, and the surjectivity of Cl(X) → Pic(X) from Tau Ceti main via JacobianChallenge layer A."
+     "reason": "The main theorem of Z.5 stays. Its inputs are read through the substitution: rank = K0.rank, det = Chow.K0.det, c_X = Chow.K0.toG0, and the surjectivity of Cl(X) → Pic(X) from Tau Ceti main via JacobianChallenge layer A.",
+     "statementClarification": "The skyscraper class formula concerns closed codimension-one points; it is vacuous for Spec K. The rank–determinant equivalence itself still includes dimension zero."
     },
     {
      "node": "KTheoryLowDegrees:Z.5/curve-k-zero-ring",
@@ -956,22 +969,24 @@
      "verdict": "keep",
      "addPrerequisites": [
       "KTheoryLowDegrees:Z.5/regular-curve-ample-family",
-      "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree"
+      "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "SchemeAndStackFoundations:SF.5"
      ],
      "dropPrerequisites": [
-      "KTheoryLowDegrees:Z.5/line-bundle-divisorial"
+      "KTheoryLowDegrees:Z.5/line-bundle-divisorial",
+      "SchemeKTheoryOperations:S.1/doubled-plane-counterexample"
      ],
-     "reason": "Unchanged statement. Its resolution property now comes from KTheoryLowDegrees:Z.5/regular-curve-ample-family (charts U′, U″, divisors 0″, 0′). Stacks Remark 0FXT (on the scheme of Stacks Example 01JD with n = 1) gives the same family: invertible sheaves trivial on both charts with sections whose non-vanishing loci are the charts; it is an additional source. Pic(X) ≅ ℤ uses Tau Ceti main's Cl ≅ Pic."
+     "reason": "Unchanged statement. Its resolution property now comes from KTheoryLowDegrees:Z.5/regular-curve-ample-family (charts U′, U″, divisors 0″, 0′). Stacks Remark 0FXT (on the scheme of Stacks Example 01JD with n = 1) gives the same family: invertible sheaves trivial on both charts with sections whose non-vanishing loci are the charts; it is an additional source. Pic(X) ≅ ℤ uses Tau Ceti main's Cl ≅ Pic. The doubled-plane comparison is the imported SchemeAndStackFoundations §5.7 Check, so its old S.1 prerequisite is also removed."
     },
     {
      "node": "KTheoryLowDegrees:Z.5/curve-affine-diagonal",
      "verdict": "keep",
-     "reason": "Kept as a fact about the doubled line (acceptance); it no longer lies on the resolution-property route."
+     "reason": "Keep the full statement: every noetherian scheme of dimension ≤ 1 has affine diagonal, since intersections of affine opens are quasi-compact opens in a one-dimensional noetherian affine and hence affine (Stacks Lemma 33.38.2, tag 09N9). It supplies an independent check on the doubled line and no longer lies on the resolution-property route."
     },
     {
      "node": "KTheoryLowDegrees:Z.5/curve-ample-line-bundle",
      "verdict": "remove",
-     "reason": "No node of any packet cites it. The separated case of the resolution property is SchemeAndStackFoundations §5.7's resolutionProperty_of_quasiProjective (Stacks 09NZ with 0F87), and Z.5 now uses the ample family of KTheoryLowDegrees:Z.5/regular-curve-ample-family for every regular curve."
+     "reason": "No node of any packet cites it. For a separated one-dimensional noetherian scheme, Stacks Proposition 33.38.12 (09NZ) gives an ample invertible sheaf and Lemma 36.36.2 (0F87) gives the resolution property directly. Z.5 uses the stronger ample-family route for regular schemes without separatedness, so this unused intermediate target is removed."
     },
     {
      "node": "KTheoryLowDegrees:Z.5/point-ideal-sheaf",
@@ -998,6 +1013,12 @@
      ],
      "reason": "Immediate from the pinned toLineBundleClass_add and toLineBundleClass_zero; with Tau Ceti main's group law it is classGroupToLineBundleClass_neg."
     }
+   ],
+   "applicationRules": [
+    "For every retained node and every consumer listed below, replace each prerequisite on an imported node by that row's upstream owning stage or exact current-library declaration. Apply the carrierSubstitution throughout statements, hypotheses, proof sketches, API and tests, not just in the display notation. The replaceBy annotations explain a reference; remove the parenthetical explanation when writing its actual prerequisite id. Then apply the row-specific additions and deletions. A drop annotation similarly names the id before its parenthesis.",
+    "An import retires the duplicate definition and its planet. Preserve its API laws and discriminating tests as checks of the owning import. A narrow row keeps only the stated comparisons or additional operations; transfer the general construction, its API and its tests to the import, and retain the comparison-specific API and tests. A remove row deletes the unused target. Retain all proof sketches, source locators and tests for the parts still owned here, with the changed suppliers made explicit.",
+    "In every retained divisor and rank-zero skyscraper formula, y ranges over CodimensionOnePoint X. Under the regular-curve package these points are closed; the converse requires dim X = 1. In dimension zero this indexing type is empty, generic rank is an isomorphism, and the unique closed point of Spec K has rank-one skyscraper. Apply this explicit clarification to generic-rank-kernel and the class-formula clause of curve-rank-determinant-equivalence.",
+    "Do not leave references to imported Z.5 node ids in the applied graph. The retained Z.3 ring-level and Z.4 Dedekind targets are unchanged. Apply the stage-edge decisions separately; the latent SF.0 cycle described below must be removed before all intermediate packets can be promoted together."
    ]
   },
   {
@@ -1043,8 +1064,50 @@
     "DeformationAndDerivedPatchingAlgebra",
     "KTheoryLowDegrees"
    ],
-   "detail": "This packet imports SchemeAndStackFoundations:SF.3 and SF.5, the atlas stages of the merged roadmap. In the graph of all packets, promoted or not, Z.5 already reaches SF.0 through EllipticKTheory E.2 → E.5 → PadicHodgeRegulators D.5 → MotivicEtaleKTheory M.8 → KTheoryFiniteLocalFields L.6 → PadicHodgeRegulators L1 → PhiGammaModulesAndIwasawaCohomology PG.5 → PadicHodgeTheory P7 → ArithmeticGaloisRepresentations G7, R01.1 → ArithmeticGaloisDuality R02.1 → DeformationAndDerivedPatchingAlgebra P7, R03.3 → SF.0, the last step being SchemeAndStackFoundations:SF.0/excellent-ring citing DeformationAndDerivedPatchingAlgebra:R03.3/catenary. That citation points up a tier: the merged SchemeAndStackFoundations README owns 'the catenary, Cohen–Macaulay, Nagata and excellent packages' itself, and upstream/CaraianiNewton.md lists it as a move-down. The dry assembly of the promoted packets shows no cycle and no skipped link; removing that one citation removes every path from Z.5 to SF.0, SF.3 and SF.5.",
-   "proposal": "SchemeAndStackFoundations:SF.0/excellent-ring cites the merged roadmap's own catenary package (§0 of its README) instead of DeformationAndDerivedPatchingAlgebra:R03.3/catenary, which then imports it. Until that is done, the SF.3/SF.5 → Z.5 edges of this packet would close a cycle once the intermediate packets are promoted."
+   "detail": "This packet imports SchemeAndStackFoundations:SF.3 and SF.5, the atlas stages of the merged roadmap. In the graph induced by prerequisites of all blueprint packets, promoted or not, Z.5 reaches SF.0 along each witnessPath below. The first ends with SchemeAndStackFoundations:SF.0/excellent-ring importing DeformationAndDerivedPatchingAlgebra:R03.3/catenary. That upward citation conflicts with the merged foundations roadmap's ownership of catenary rings (§0.16), as the tier guide already records. Removing that citation alone does not remove every path: SchemeAndStackFoundations:key/henselization still imports PerfectoidSpaces:P3/henselisation-of-pairs. The merged foundations roadmap owns the same arbitrary-pair henselization and its properties in §§0.12–0.13. These are stale atlas ownership routes, not new Z.5 mathematics. The promoted-graph overlay is acyclic with unchanged skippedLinks; this does not certify the graph after all intermediate packets are promoted.",
+   "proposal": "Route excellent-ring to SchemeAndStackFoundations §0.16's own catenary package instead of DeformationAndDerivedPatchingAlgebra:R03.3/catenary. Route key/henselization to the merged foundations roadmap's own §§0.12–0.13 carrier and universal property instead of PerfectoidSpaces:P3/henselisation-of-pairs, and point the latter at its lower-tier owner. These edits belong to those owners, not this job. Recompute reachability before promoting all intermediate packets together: both identified routes must be removed, and this is not an exhaustive certificate that no other route remains.",
+   "witnessPaths": [
+    [
+     "KTheoryLowDegrees:Z.5",
+     "EllipticKTheory:E.2",
+     "EllipticKTheory:E.3",
+     "PadicHodgeRegulators:D.5",
+     "MotivicEtaleKTheory:M.8",
+     "KTheoryFiniteLocalFields:L.6",
+     "PadicHodgeRegulators:L1",
+     "PhiGammaModulesAndIwasawaCohomology:PG.5",
+     "PadicHodgeTheory:P7",
+     "ArithmeticGaloisRepresentations:G7",
+     "ArithmeticGaloisRepresentations:R01.1",
+     "ClassicalAdicEtaleCohomology:H0",
+     "AdicSpacesPartII:R5",
+     "AdicEtaleGeometry:A3",
+     "DeformationAndDerivedPatchingAlgebra:R03.3",
+     "SchemeAndStackFoundations:SF.0"
+    ],
+    [
+     "KTheoryLowDegrees:Z.5",
+     "EllipticKTheory:E.2",
+     "EllipticKTheory:E.3",
+     "PadicHodgeRegulators:D.5",
+     "MotivicEtaleKTheory:M.8",
+     "KTheoryFiniteLocalFields:L.6",
+     "PadicHodgeRegulators:L1",
+     "PhiGammaModulesAndIwasawaCohomology:PG.5",
+     "PadicHodgeTheory:P7",
+     "ArithmeticGaloisRepresentations:G7",
+     "ArithmeticGaloisRepresentations:R01.1",
+     "ArithmeticGaloisRepresentations:R01.2",
+     "LanglandsParameterStacks:LP1",
+     "LanglandsParameterStacks:LP3",
+     "IntegralHeckeAndGaloisDeterminants:IHG.0",
+     "CrystallineCohomology:CR.0",
+     "DerivedDeRhamCohomology:DD.0",
+     "PerfectoidSpaces:P0",
+     "PerfectoidSpaces:P3",
+     "SchemeAndStackFoundations:SF.0"
+    ]
+   ]
   }
  ],
  "upstreamNotes": [
@@ -1059,7 +1122,7 @@
    "roadmaps": [
     "tauceti:TauCetiRoadmap/SchemeAndStackFoundations"
    ],
-   "note": "Chow.K0 = ExactK0 (finiteLocallyFreeExact X) needs three things that §5.7 leaves implicit: extension-closedness of finite locally free sheaves in X.Modules (left unproved in the Suggested.lean definition of finiteLocallyFreeExact), essential smallness of FiniteLocallyFreeSheaf X in the universe of X (which ExactK0 requires), and exactness of ⊗ in each variable on conflations (for the ring structure). The superseded atlas nodes KTheoryLowDegrees:Z.5/vector-bundle-extension-closed (local splitting; Stacks 0BCI), Z.5/vector-bundle-essentially-small (gluing data in the universe of X; Stacks 01CW) and Z.5/vector-bundle-k-zero-ring contain proofs."
+   "note": "Chow.K0 = ExactK0 (finiteLocallyFreeExact X) needs three things that §5.7 leaves implicit: extension-closedness of finite locally free sheaves in X.Modules (left unproved in the Suggested.lean definition of finiteLocallyFreeExact), essential smallness of FiniteLocallyFreeSheaf X in the universe of X (which ExactK0 requires), and exactness of ⊗ in each variable on conflations (for the ring structure). The superseded atlas nodes KTheoryLowDegrees:Z.5/vector-bundle-extension-closed (local splitting by lifting a finite basis of the quotient locally; compare the proof of Weibel II.8.1, PDF p. 153), Z.5/vector-bundle-essentially-small (gluing data in the universe of X; Stacks 01CW) and Z.5/vector-bundle-k-zero-ring contain proofs. Stacks Lemma 17.14.6 (0BCI) proves direct-summand closure, not the extension-closedness statement itself."
   },
   {
    "roadmaps": [
@@ -1126,6 +1189,24 @@
   "redTeamFindings": [
    "RT-AREA-ktheory-1/31",
    "RT-AREA-ktheory-2/41"
+  ]
+ },
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-KTheoryLowDegrees--Z.5",
+  "date": "2026-10-19",
+  "notes": "Independent review by Codex codex-rmhqBP of Claude claude-oZNc2X's Z.5 pass. Read all new-node source locators, all 19 exact-pin baseline declarations, current upstream supplier contracts and the inherited 40-node routing inventory. Corrected the dimension-zero point/index boundary, imported-ID substitution rules, stale doubled-plane dependency, local-splitting attribution, affine-diagonal scope and latent-cycle claim (henselization supplies a second path). No nodes added. APIs/tests remain with retained comparisons or become checks of imports. The packet and inherited Z.3 packet pass the checker without errors/warnings; lean-check succeeds with only five admitted-proof warnings. The promoted atlas overlay is acyclic with unchanged skippedLinks. Accepted as a complete planned pass: map application, consumer rewiring, pin advancement and both foundations ownership routes remain explicit owner actions; no implementation or future combined-graph certificate is claimed.",
+  "checked": [
+   {
+    "nodeId": "KTheoryLowDegrees:Z.5/regular-curve-ample-family",
+    "verdict": "verified",
+    "note": "Finite codimension-one boundary divisors give sections generating exactly on each chosen affine open. Read Stacks 0FXR, 0FXT, 0GML, 01PW and 0GMM plus the pinned divisor API; DVR hypotheses and the disconnected/field cases are explicit. The doubled-plane negative example cites its lower-tier upstream owner."
+   },
+   {
+    "nodeId": "KTheoryLowDegrees:Z.5/point-class-degree-comparison",
+    "verdict": "corrected",
+    "note": "Verified Euler additivity, the rank–determinant coordinates, residue-degree weighting and upstream degree compatibility. Restricted point formulas to codimension one and the usual-index image to dimension one. For Spec K the image is ℤ × {0}, while χ(O) = [K:k]. Added a discriminating regression example and synchronized reader and Lean commentary."
+   }
   ]
  }
 }
