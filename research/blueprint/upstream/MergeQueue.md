@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T05:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T06:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -20,7 +20,7 @@ Generated 2026-10-19T05:50Z from the README supplier graph of every open pull re
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
@@ -29,7 +29,7 @@ Generated 2026-10-19T05:50Z from the README supplier graph of every open pull re
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814
@@ -170,7 +170,7 @@ Generated 2026-10-19T05:50Z from the README supplier graph of every open pull re
 - #1176 ArithmeticStatisticsPartVI — draft; waits on #1017, #1167, #1171, #1173, #1174, #1175, #785, #792, #849, #850, #851, #852, #856, #858, #869, #929, #931, #933, #968, #970
 
 ## Wave 28
-- #1020 ClassicalSerreModularity — draft; waits on #1005, #1007, #1013, #1034, #856, #879, #920, #923, #928, #931, #970
+- #1020 ClassicalSerreModularity — draft; waits on #1005, #1007, #1013, #1034, #1062, #856, #879, #920, #923, #928, #931, #970
 - #1046 EffectiveDiophantineMethods — draft; waits on #1002, #1017, #1021, #1043, #849, #851, #852, #879, #913, #929
 - #1084 HodgeTateAndCanonicalSubgroups — draft; waits on #1005, #1038, #1053, #1062, #1064, #1069, #1080, #813, #814, #815, #818, #820, #849, #852, #853, #857, #875, #879, #908, #922, #933, #966
 - #1178 ArithmeticStatisticsPartVII — draft; waits on #1017, #1126, #1167, #1171, #1172, #1174, #1175, #1176, #785, #792, #849, #852, #853, #858, #869
