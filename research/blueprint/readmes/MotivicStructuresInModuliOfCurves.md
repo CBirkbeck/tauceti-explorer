@@ -20,7 +20,7 @@ Start with TC.0–TC.3 for the curve-specific ring operations, dimension bounds,
 
 Existing abstract Hodge structures, finite locally free algebra, half-spin representations and fixed-degree symmetric functions are imported from the current Tau Ceti roadmaps and library. The current AlgebraicVectorBundles roadmap does not own projective/Grassmann bundles: the exact quotient-convention `AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian` and smoothness nodes are used instead. Current SchurWeyl Layers 7 and 9 supply fixed-degree characteristics and harmonic tensors; completed symmetric functions belong to the routed Part II extension. Generic stack duality belongs to the routed stacks Part II. The SF.5 scheme exterior product, MC.2 projective-scheme realization and DWP.9 scheme hard Lefschetz statements do not silently gain DM-stack generality here.
 
-The source texts are CLP, *Forum of Mathematics, Pi* 12 (2024), e23, pp.1–31, and BFP, *Annals of Mathematics* 199 (2024), pp.1323–1365. Both were read as published author copies, including the sieve tables and graph figures. Getzler–Kapranov §8 was read in its published form. Gorsky’s v3 preprint was read; the published file could not be obtained and its genus-four finite expansion remains a named obligation. Exact URLs, hashes, dates and read ranges appear in the packet and in the bibliography below.
+The source texts are CLP, *Forum of Mathematics, Pi* 12 (2024), e23, pp.1–31, and BFP, *Annals of Mathematics* 199 (2024), pp.1323–1365. Both were read as published author copies, including the sieve tables and graph figures. Getzler–Kapranov §8 was read in its published form. Gorsky’s v3 preprint was read, and its genus-four degree-three expansion was independently reproduced with the corrected formula. Its published text remains uncollated. Kannan’s later Remark3.8 was read for the prior typo corrections. Exact URLs, hashes, dates and read ranges appear in the packet and in the bibliography below.
 
 ## TC.0. Tautological operations and cusp realizations
 
@@ -46,6 +46,7 @@ The API serves CLP Theorems1.5 and 1.10 (Defines both the cohomological and Chow
 | `TautologicalRings.restriction` | Restriction maps the compact tautological system onto the open one by definition. |
 | `TautologicalRings.cycle` | Cycle realization sends codimension r into degree 2r and commutes with the stated operations. |
 | `TautologicalRings.graph_span` | Decorated stable-graph pushforwards span R*. |
+| `TautologicalRings.ext` | Two operation-stable systems with the same graded subalgebras at every stable pair are equal. |
 
 **Checks.**
 
@@ -71,6 +72,7 @@ The API serves CLP §5.1 (Expresses pushforwards from tetragonal bundles in taut
 | `KappaClasses.forget` | kappa_a on n+1 marks equals pi* kappa_a on n marks plus psi_(n+1)^a. |
 | `KappaClasses.zero` | kappa_0=(2g−2+n)·1. |
 | `KappaClasses.hodge` | Lambda classes use the determinant and exterior-power API of the imported finite locally free Hodge bundle. |
+| `KappaClasses.push_psi` | For every a≥0, pi_*(psi_(n+1)^(a+1))=kappa_a, with Chow degree reduced by one. |
 
 **Checks.**
 
@@ -86,7 +88,7 @@ For pairs of natural numbers define (g′, n′)≺(g, n) iff g′≤g, 2g′+n�
 
 The target is `TC.0/induction-order`. If genus stays equal, the second coordinate strictly decreases; otherwise genus strictly decreases. For a stable graph, the genus formula and stability show each vertex pair is smaller than the total whenever the graph has an edge.
 
-Builds on `StableReductionPartII:key/moduli-curves`. Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), §2.1 p.4; BFP Notation4.1 p.1330.
+Builds on `StableReductionPartII:key/moduli-curves`. Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), §2.1 p.4; BFP Notation4.1 p.1331.
 
 The API serves CLP Lemma 2.1 (Orders the boundary induction.); BFP Proposition 4.2 (Orders open/closed point-count recovery.).
 
@@ -189,7 +191,7 @@ For an odd k≥1, suppose every odd q≤k vanishes for all stable g≥1 pairs wi
 
 The target is `TC.1/odd-induction`. Induct on odd degree and the stable-pair order. Outside the finite base region the compact-support bound forces an injection into boundary products; Künneth gives an odd factor of smaller degree or pair.
 
-Builds on [TC.1/compact-support-vanishing](#TC1-compact-support-vanishing), [TC.1/normalized-boundary-injection](#TC1-normalized-boundary-injection), [TC.0/induction-order](#TC0-induction-order). Source: [Jonas Bergström; Carel Faber; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/PolynomialPointCounts.pdf), BFP §2, cited AC Lemma 2.9, p.1328.
+Builds on [TC.1/compact-support-vanishing](#TC1-compact-support-vanishing), [TC.1/normalized-boundary-injection](#TC1-normalized-boundary-injection), [TC.0/induction-order](#TC0-induction-order), [TC.1/genus-zero-cohomology](#TC1-genus-zero-cohomology). Source: [Jonas Bergström; Carel Faber; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/PolynomialPointCounts.pdf), BFP §2, cited AC Lemma 2.9, p.1328.
 
 **Check.** For k=9 the unresolved bases after lower genus are genus4, n≤3; no infinite marking verification is needed.
 
@@ -277,6 +279,7 @@ The API serves CLP Lemma 3.1 (Describes the marking quotient.); BFP Theorem 11.5
 | `SymplecticLocalSystems.weight` | V_lambda is pure of weight \|lambda\|. |
 | `SymplecticLocalSystems.involution` | The central element−1 acts by(−1)^\|lambda\|. |
 | `SymplecticLocalSystems.base_change` | Formation commutes with pullback of smooth curve families. |
+| `SymplecticLocalSystems.trivial` | The empty partition gives the constant rank-one system Q; the alternating contraction of V has target Q(−1). |
 
 **Checks.**
 
@@ -344,6 +347,8 @@ The API serves CLP Lemma 2.1 (Forms the filling quotient.); CLP Lemma 3.1 (Isola
 | `MarkingFiltration.psi_degree` | Psi^k is generated by degree(k−2) pullbacks multiplied by degree 2 psi classes. |
 | `MarkingFiltration.relabel` | Relabelling carries the summands to the permuted summands. |
 | `MarkingFiltration.unstable` | There is no fictitious forgetful map M1,1→M1,0. |
+| `MarkingFiltration.mem_phi` | A pure degree-k class lies in Phi^k exactly when it is a sum of pullbacks from the stable one-mark-forgotten targets. |
+| `MarkingFiltration.mem_psi` | A class lies in Psi^k exactly when it is a sum of psi_i times classes from Phi^(k−2); negative degrees contribute zero. |
 
 **Checks.**
 
@@ -393,6 +398,8 @@ The API serves CLP Theorem 1.3 (Expresses finite generation.); CLP Theorems1.6�
 | `SemiTautologicalExtension.monotone` | Enlarging seeds enlarges their STE. |
 | `SemiTautologicalExtension.tautological` | The empty seed family generates RH*. |
 | `SemiTautologicalExtension.graph_expression` | Classes are finite sums of decorated-graph expressions with seed classes and tautological decorations. |
+| `SemiTautologicalExtension.ext` | Equality of the graded subalgebras on every stable pair implies equality of STEs. |
+| `SemiTautologicalExtension.operations` | An STE contains the units and RH, and is closed under relabelling, forgetting pullback and clutching pushforward of exterior products, as in its definition. |
 
 **Checks.**
 
@@ -444,7 +451,7 @@ For every k≥0 the STE generated by all H^(k′)(Mbar_g′, n′) with 0≤k′
 
 The target is `TC.3/finite-generation`. Outside the genus bound use stability; outside the n bound remove markings; above the cohomological bound use vanishing. Fill the remaining quotients by induction.
 
-Builds on [TC.3/filling-criterion](#TC3-filling-criterion), [TC.3/local-system-quotient](#TC3-local-system-quotient), [TC.2/genus-one-pure](#TC2-genus-one-pure), [TC.2/stable-tautological-range](#TC2-stable-tautological-range). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Theorem 1.3 p.2 and proof p.10.
+Builds on [TC.3/filling-criterion](#TC3-filling-criterion), [TC.3/local-system-quotient](#TC3-local-system-quotient), [TC.2/genus-one-pure](#TC2-genus-one-pure), [TC.2/stable-tautological-range](#TC2-stable-tautological-range), [TC.1/genus-zero-cohomology](#TC1-genus-zero-cohomology). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Theorem 1.3 p.2 and proof p.10.
 
 **Check.** The bound is strict in g′ and weak in n′ and 4g′−4+n′. There is no unstable seed at(k′, g′, n′)=(0,0,0).
 
@@ -474,11 +481,11 @@ Builds on [TC.3/finite-generation](#TC3-finite-generation), [TC.3/semi-tautologi
 
 <a id="TC3-top-heavy"></a>
 
-### Top-heaviness and paritywise unimodality of an STE
+### Top-heaviness and growth below the middle
 
-Let S be an STE on Mbar_g, n and let d=3g−3+n. Cup product by a tautological ample divisor gives an injection S^k→S^(2d−k) for 0≤k≤d; dimensions are nondecreasing toward the middle separately in even and odd degree.
+Let S be an STE on Mbar_g, n and let d=3g−3+n. For a tautological ample divisor a, cup product by a^(d−k) gives an injection S^k→S^(2d−k) for 0≤k≤d. Cup product by a gives an injection S^k→S^(k+2) for k<d, so dimensions are nondecreasing toward the middle separately in even and odd degree.
 
-The target is `TC.3/top-heavy`. Choose the known tautological ample divisor and restrict hard-Lefschetz powers to S. The injective ambient map preserves S because S contains the divisor. The ample/projective coarse-space input is a precise supplier gap.
+The target is `TC.3/top-heavy`. Restrict the ambient hard-Lefschetz isomorphism a^(d−k) to S. Multiplication preserves S because the ample class is tautological. If ax=0 for k<d, then a^(d−k)x=0, so x=0. Full paritywise unimodality additionally asserts decrease above the middle; this argument alone does not establish that stronger assertion. The ample/projective coarse-space input and the stronger assertion are recorded in G-projectivity-lefschetz.
 
 Builds on [TC.3/semi-tautological-extension](#TC3-semi-tautological-extension). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Introduction p.3, hard-Lefschetz argument.
 
@@ -574,6 +581,7 @@ The API serves CLP §5.1 (Separates low-gonality and tetragonal contributions.);
 | `GonalityStrata.closed` | The≤a bounds are closed and nested in this range. |
 | `GonalityStrata.forget` | Gonality strata are inverse images of unmarked strata. |
 | `GonalityStrata.decomposition` | The≤3, exact4 and exact5 strata partition M7, n. |
+| `GonalityStrata.mem_exact` | A geometric pointed curve lies in exact gonality a iff it admits a degree-a map to P1 and admits no map of smaller positive degree. |
 
 **Checks.**
 
@@ -610,6 +618,8 @@ The API serves CLP Lemmas5.1–5.7 (Provides the projective-bundle pushforward a
 | `TetragonalHurwitz.forget` | Forgetting the map is proper onto exact gonality4 after excluding≤3. |
 | `TetragonalHurwitz.bundles` | E, F and their determinant comparison pull back with families. |
 | `TetragonalHurwitz.embedding` | The universal curve embeds in P(E dual) as the indicated complete intersection. |
+| `TetragonalHurwitz.base_change` | Base change of finite flat covers and marked sections gives pullback of Hurwitz families and, on the target lift where they exist, of the Casnati–Ekedahl data. |
+| `TetragonalHurwitz.isomorphism` | Isomorphisms of cover data are commuting squares of source and target isomorphisms preserving ordered sections; target automorphisms are retained. |
 
 **Checks.**
 
@@ -634,6 +644,7 @@ The API serves CLP Lemmas5.2–5.6 (Provides the three pieces of the Chow locali
 | `TetragonalSplitting.cover` | X, Sigma2, Sigma3 form a finite stratification of H^diamond. |
 | `TetragonalSplitting.pullback` | The marked strata are the inverse images of unmarked strata. |
 | `TetragonalSplitting.rank_degree` | Each listed splitting has rank/degree matching E and F. |
+| `TetragonalSplitting.geometric_membership` | Membership of a geometric cover in X, Sigma2 or Sigma3 is equivalent to the respective pair of displayed E and F splitting types, within H^diamond. |
 
 **Checks.**
 
@@ -711,13 +722,13 @@ Builds on [TC.4/ckgp-permanence](#TC4-ckgp-permanence), `tauceti:TauCeti.spinPlu
 
 ### Orthogonal Grassmann fibre powers
 
-For the universal oriented split quadratic bundle over BSO10, the n-fold fibre product of the fixed maximal-isotropic component has CKgP; its Chow ring is generated by the Chern classes of U1,…, Un. The relative-bundle step requires an oriented nondegenerate quadratic form and the chosen component, and a proved rational Chow generation theorem for such bundles; underlying vector-bundle triviality alone does not trivialize the form.
+For n≥1 and the universal oriented quadratic bundle over BSO10 with split rank-ten model, the n-fold fibre product of the fixed maximal-isotropic component has CKgP; its Chow ring is generated by the Chern classes of U1,…, Un. The relative-bundle step requires an oriented nondegenerate quadratic form and the chosen component, and a proved rational Chow generation theorem for such bundles; underlying vector-bundle triviality alone does not trivialize the form.
 
 The target is `TC.6/orthogonal-fibre-powers`. Use the type-D rational Giambelli formula on the split fibre and a valid descent or splitting-principle argument for the specific universal iterated bundles. The source’s proof passes from vector-bundle triviality to form triviality; G-orthogonal records the missing justification and prohibits using the unrestricted printed lemma.
 
 Builds on [TC.6/orthogonal-universal-chow](#TC6-orthogonal-universal-chow), [TC.4/ckgp-permanence](#TC4-ckgp-permanence). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Lemma 5.10 and Corollary 5.11 p.19.
 
-**Check.** A nondegenerate quadratic form with nontrivial splitting obstruction cannot be made split just by choosing a basis of its vector bundle.
+**Check.** A nondegenerate quadratic form with nontrivial splitting obstruction cannot be made split just by choosing a basis of its vector bundle. n=0 is excluded from the stated Chern-generator conclusion: the empty list cannot generate A*(BSO10).
 
 <a id="TC6-mukai-lift-gate"></a>
 
@@ -747,7 +758,7 @@ Builds on [TC.6/mukai-lift-gate](#TC6-mukai-lift-gate), `SchemeAndStackFoundatio
 
 ### Marked spinor incidence model
 
-On the Spin10 lift, let Z_n⊂(OG+)^n be the locus where the sum of the n tautological lines injects into S+. Put Q_n=coker(⊕L_i→S+), rank 16−n. The parameter space Gr(7−n, Q_n) records7-planes containing those lines; remove the nonsmooth-section locus. For n≤4, gonality5 ensures the marked canonical points are independent. The model is transferred to M^circle_7, n only after the two Mukai gates.
+On the Spin10 lift, let Z_n⊂(OG+)^n be the locus where the sum of the n tautological lines injects into S+. Put Q_n=coker(⊕L_i→S+), rank 16−n. For 0≤n≤4 use the subspace Grassmannian Gr^sub_(7−n)(Q_n), equivalently the supplier’s rank-nine quotient Grassmannian Gr_9(Q_n). Its universal kernel E_n has rank 7−n; its inverse image in S+ is the desired rank-seven subbundle containing the marked lines. Remove the nonsmooth-section locus. Gonality5 ensures independence of the marked canonical points. Transfer to M^circle_7, n requires both Mukai gates; the orthogonal fibre-power Chow argument applies only for n≥1.
 
 The target is `TC.6/marked-spinor-incidence`. Form the open rank locus and actual quotient bundle upstairs, then the relative Grassmannian and smooth complete-intersection open. Apply the separately proved stack comparison; do not identify a generic Grassmann quotient with curve moduli without it.
 
@@ -757,15 +768,19 @@ The API serves CLP Lemma 5.13 (Supplies CKgP via a Grassmann-bundle open.); CLP 
 
 | Declaration | Contract |
 | --- | --- |
-| `MarkedSpinorIncidence.ranks` | rankQ_n=16−n and rankE_n=7−n. |
+| `MarkedSpinorIncidence.ranks` | rankQ_n=16−n, rankE_n=7−n, and rank(Q_n/E_n)=9. |
 | `MarkedSpinorIncidence.forget` | Forgetting a marked line compares the incidence models via the specified flag correspondence. |
 | `MarkedSpinorIncidence.smooth` | The smooth linear-section locus is exactly the intended pentagonal curve family after comparison. |
+| `MarkedSpinorIncidence.universal` | For a test scheme T over Z_n, points of Gr_9(Q_n) are locally free rank-nine quotients of Q_n\|T up to quotient isomorphism, equivalently rank-(7−n) subbundles with locally free quotient. |
+| `MarkedSpinorIncidence.base_change` | The universal sequence 0→E_n→Q_n→B_n→0 and its inverse-image rank-seven subbundle commute with base change. |
+| `MarkedSpinorIncidence.relative_dimension` | The Grassmannian over Z_n is smooth of relative dimension 9(7−n), before passing to its smooth-section open. |
 
 **Checks.**
 
-- n=0 gives Gr(7,16).
-- n=4 gives rankQ=12 and rankE=3.
+- n=0 gives Gr^sub_7(16)≅Gr_9(16), with universal quotient rank9.
+- n=4 gives rankQ=12, rankE=3 and quotient rank9.
 - A repeated point has dependent lines and lies outside Z_n.
+- At n=4, the supplier’s Gr_3(Q_n) parametrizes rank-three quotients and has kernel rank9; it cannot supply E_n of rank3. The intended object is Gr_9(Q_n).
 
 <a id="TC6-spinor-tautological-bundles"></a>
 
@@ -783,13 +798,13 @@ Builds on [TC.6/marked-spinor-incidence](#TC6-marked-spinor-incidence), [TC.6/mu
 
 ### Genus-seven Chow–Künneth generation and tautological Chow ring
 
-For n≤4, the pentagonal locus M^circle_7, n has CKgP and A*=R* once the corrected quotient and transfer gates are proved. For 0≤n≤3, M7, n itself has CKgP and A*(M7, n)=R*(M7, n). These are targets whose proof route is blocked by G-mukai and G-orthogonal; this packet does not certify the printed quotient proof.
+For 0≤n≤4, the pentagonal locus M^circle_7, n has CKgP and A*=R* once the corrected quotient and transfer gates are proved. For 0≤n≤3, M7, n itself has CKgP and A*(M7, n)=R*(M7, n). These are targets whose proof route is blocked by G-mukai and G-orthogonal; this packet does not certify the printed quotient proof.
 
-The target is `TC.6/genus-seven-chow`. Generate the pentagonal Chow ring using Ui, Li, En and the corrected Chern identities. Combine its CKgP with exact4 and≤3 strata; localization and support-tautological results give the whole Chow ring.
+The target is `TC.6/genus-seven-chow`. For 1≤n≤4 generate the pentagonal Chow ring using Ui, Li, En and the corrected Chern identities. For n=0 use the proper surjective forgetful map pi:M^circle_7,1→M^circle_7: rational proper pushforward is surjective, giving CKgP, and pi_*(psi_1 pi*alpha)=kappa_0 alpha=12alpha proves tautological generation. This handles the zero-mark case without applying the n≥1 orthogonal Chern-generator statement to an empty fibre product. Combine the pentagonal locus with exact4 and≤3 strata for 0≤n≤3; localization and support-tautological results give the whole Chow ring.
 
-Builds on [TC.6/spinor-tautological-bundles](#TC6-spinor-tautological-bundles), [TC.6/orthogonal-fibre-powers](#TC6-orthogonal-fibre-powers), [TC.4/ckgp-permanence](#TC4-ckgp-permanence), [TC.5/tetragonal-global-chow](#TC5-tetragonal-global-chow), [TC.5/low-gonality-input](#TC5-low-gonality-input). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Theorem 1.10 p.4; Lemmas5.13,5.17 pp.20–22.
+Builds on [TC.6/spinor-tautological-bundles](#TC6-spinor-tautological-bundles), [TC.6/orthogonal-fibre-powers](#TC6-orthogonal-fibre-powers), [TC.4/ckgp-permanence](#TC4-ckgp-permanence), [TC.5/tetragonal-global-chow](#TC5-tetragonal-global-chow), [TC.5/low-gonality-input](#TC5-low-gonality-input), [TC.0/kappa-classes](#TC0-kappa-classes). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Theorem 1.10 p.4; Lemmas5.13,5.17 pp.20–22.
 
-**Check.** n=4 belongs to the pentagonal conclusion only; it is not a claim about all M7,4.
+**Check.** n=4 belongs to the pentagonal conclusion only; it is not a claim about all M7,4. For n=0 the forgetting calculation has kappa_0=12, so division by12 is permitted over Q.
 
 ## TC.7. Hyperelliptic counts and the quadric sieve
 
@@ -851,6 +866,7 @@ The API serves BFP Proposition 6.2 (Recovers moduli counts by dividing by quadri
 | `QuadricIncidence.distinct` | Incidence points are pairwise distinct; being singular is allowed until smooth-fibre selection. |
 | `QuadricIncidence.quadric` | The type is cone, nonsplit smooth or split smooth over F_q. |
 | `QuadricIncidence.dimension` | A marked point generically imposes one linear equation on the cubic section. |
+| `QuadricIncidence.membership` | A geometric point consists of an allowed cubic equation class and an ordered tuple of pairwise distinct points of its zero curve; singular or nonreduced zero curves are permitted at the incidence stage. |
 
 **Checks.**
 
@@ -1005,6 +1021,7 @@ The API serves BFP Theorem 11.1 (Determines symmetric-group character values.); 
 | `CurveMarkingTwists.trace` | The twisted mass is the alternating compact-support trace of sigma F_q. |
 | `CurveMarkingTwists.identity` | The identity twist is ordinary ordered marked moduli. |
 | `CurveMarkingTwists.forget` | Forgetting a union of Frobenius cycles descends the appropriate forgetful morphism. |
+| `CurveMarkingTwists.conjugacy` | Conjugating sigma by a marking permutation gives an isomorphism of twists, compatible with compact-support traces and preserving groupoid mass. |
 
 **Checks.**
 
@@ -1030,6 +1047,7 @@ The API serves BFP Theorem 11.1 (Records the open equivariant polynomial.); BFP 
 | `WeightEulerCharacteristic.product` | e_c of a product is the tensor product, with cohomological Koszul signs. |
 | `WeightEulerCharacteristic.identity` | Character evaluation at the identity recovers the nonequivariant weight Euler polynomial. |
 | `WeightEulerCharacteristic.specialize` | L→q with Adams psi_r(q)=q^r gives the point-count realization when trace and integrality hypotheses hold. |
+| `WeightEulerCharacteristic.coefficient` | The coefficient at realization weight w is the alternating sum of Gr_w^W H_c^i as a virtual group representation; it is not ordinary H^i for a nonproper space. |
 
 **Checks.**
 
@@ -1055,6 +1073,7 @@ The API serves BFP Proposition 9.6 (Computes boundary Euler/count coefficients.)
 | `StableGraphTransform.boundary` | MV−V sums exactly the positive-edge connected stable graphs. |
 | `StableGraphTransform.relabel` | Relabelling external legs defines the S_n action. |
 | `StableGraphTransform.genus` | The genus is sum of vertex genera plus b1 of the connected graph. |
+| `StableGraphTransform.universal` | A map of stable collections from V to the underlying collection of a modular operad extends uniquely to a morphism from the free modular operad MV, respecting flag permutations and contractions. |
 
 **Checks.**
 
@@ -1082,7 +1101,7 @@ If all compact Mbar_g′, n′ for(g′, n′)≼(g, n) have polynomial point co
 
 The target is `TC.8/polynomial-induction`. Use the oriented normalized-closed-strata weight spectral sequence to control eigenvalues. Separately use open-stratum graph additivity to count the boundary. Smooth proper all-Z polynomial counts give integral actual Betti representation coefficients; arbitrary finite-field class functions do not automatically lie in the integral representation ring.
 
-Builds on [TC.8/curve-marking-twists](#TC8-curve-marking-twists), [TC.8/weight-euler-characteristic](#TC8-weight-euler-characteristic), [TC.8/getzler-kapranov](#TC8-getzler-kapranov), `DeligneWeightsAndPurity:DWP.8/weight-spectral-sequence-of-a-normal-crossings-compactification`, `WeilConjectures:WC.4/equivariant-polynomial-point-counts`, `WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks`. Source: [Jonas Bergström; Carel Faber; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/PolynomialPointCounts.pdf), BFP Proposition 4.2 pp.1330–1331; Corollary 9.5 p.1353.
+Builds on [TC.8/curve-marking-twists](#TC8-curve-marking-twists), [TC.8/weight-euler-characteristic](#TC8-weight-euler-characteristic), [TC.8/getzler-kapranov](#TC8-getzler-kapranov), `DeligneWeightsAndPurity:DWP.8/weight-spectral-sequence-of-a-normal-crossings-compactification`, `WeilConjectures:WC.4/equivariant-polynomial-point-counts`, `WeilConjectures:WC.6/purity-for-smooth-proper-dm-stacks`. Source: [Jonas Bergström; Carel Faber; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/PolynomialPointCounts.pdf), BFP Proposition 4.2 pp.1331–1332; Corollary 9.5 p.1353.
 
 **Check.** The edge-orientation sign appears in the spectral sequence but not in the ordinary open-stratum GK sum.
 
@@ -1092,9 +1111,9 @@ Builds on [TC.8/curve-marking-twists](#TC8-curve-marking-twists), [TC.8/weight-e
 
 The ordinary Euler characteristic chi(M4,3)=−10. Equivariantly chi^(S3)(M4,3)=2s_(3)−6s_(2,1), with sign coefficient0. These are cohomological Euler characteristics of the moduli stack/coarse space with rational coefficients, not orbifold Euler mass.
 
-The target is `TC.8/genus-four-euler`. Evaluate Gorsky’s finite automorphism-orbit formula at genus4, expand through marking degree 3 and convert power sums to Schur functions. A checked finite coefficient certificate and published-source collation remain in G-computations; the BFP quoted value is not a reproduced calculation.
+The target is `TC.8/genus-four-euler`. Evaluate Gorsky’s finite automorphism-orbit formula at genus4 using h=1−(sum_j k_j)/2, as required by its Riemann–Hurwitz identity, and modulus r throughout the finite congruence count. These preprint typos are independently checked and already discussed by Kannan Remark3.8. An exact 25-term rational calculation gives the degree-three power-sum expression −5p1^3/3+p1p2+8p3/3, hence Schur coefficients (2,−6,0). The independent review records every nonzero coefficient and the bounded enumeration. Published-source collation and formal certification remain open in G-computations; this arithmetic check does not prove the geometric orbit formula.
 
-Builds on [TC.8/weight-euler-characteristic](#TC8-weight-euler-characteristic). Source: [Jonas Bergström; Carel Faber; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/PolynomialPointCounts.pdf), BFP §10.1 p.1355 and §11.3 pp.1360–1361; Gorsky Theorem 3.8 preprint pp.5–6.
+Builds on [TC.8/weight-euler-characteristic](#TC8-weight-euler-characteristic). Source: [Jonas Bergström; Carel Faber; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/PolynomialPointCounts.pdf), BFP §10.1 p.1355 and §11.3 p.1361; [Eugene Gorsky](https://arxiv.org/pdf/0906.0841), arXiv v3 Proposition3.1 equation(3) p.4; Theorem3.8 p.6, corrected as E15–E16.
 
 **Check.** At the identity2−6·2=−10. The ordinary value alone cannot distinguish both S3 Schur coefficients.
 
@@ -1413,6 +1432,7 @@ The API serves CLP Lemmas7.4–7.7 (Specifies the multiplicity bases.); CLP Lemm
 | `OmegaGraphs.degree` | Each edge adds cohomological degree 2 and Tate factor L. |
 | `OmegaGraphs.forget` | omega_i and omega_ij are pullbacks forgetting those flags, with all other retained flags named. |
 | `OmegaGraphs.basis` | A basis of m cusp maps realizes the target as (L^e S12)^m when the evaluation map is an isomorphism. |
+| `OmegaGraphs.flag_sign` | Permuting the ordered eleven retained cusp flags multiplies the cusp map by the sign character of S11; relabelling carries all retained and forgotten flag sets with it. |
 
 **Checks.**
 
@@ -1438,7 +1458,7 @@ Builds on [TC.11/omega-graphs](#TC11-omega-graphs), [TC.2/genus-one-pure](#TC2-g
 
 Fix labels{x, y,1,…,11}. H13(Mbar_1,13)≅(L S12)^429 has the following one-edge multiplicity basis, with all omitted labels on the genus-one side and p its attaching flag: (a) a rational tail bearing any three-element label set, decorated by omega on its eleven remaining flags (286); (b) a tail{y, i}, i∈{1,…,11}, and omega_x on the genus-one side (11); (c) a tail{x, j}, j≠x, and omega_i for any original label i∉{x, j} (132). Retained flags are ordered by the fixed label order followed by p.
 
-The target is `TC.11/basis-1-13`. Use the three families in the cited figure: rational tails with three markings (286 maps), the fixed two-mark tail with its eleven forgotten-flag decorations (11 maps), and the variable fixed-mark two-tail family (132 maps). Give the complete retained-flag sets in the finite graph certificate, not only this count. Boundary generation and pullback of the preceding basis span the group; the independently supplied multiplicity429 proves freeness.
+The target is `TC.11/basis-1-13`. Use the three families in the cited figure: rational tails with three markings (286 maps), the eleven tails {y,i} with fixed forgotten flag x (11 maps), and the variable fixed-mark two-tail family (132 maps). Give the complete retained-flag sets in the finite graph certificate, not only this count. Boundary generation and pullback of the preceding basis span the group; the independently supplied multiplicity429 proves freeness.
 
 Builds on [TC.11/omega-graphs](#TC11-omega-graphs), [TC.2/genus-one-pure](#TC2-genus-one-pure), [TC.11/basis-1-12](#TC11-basis-1-12). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Lemma 7.5 p.26.
 
@@ -1530,7 +1550,7 @@ For every stable pair the STE generated by H11(Mbar_1,11) contains H^(2d−13)(M
 
 The target is `TC.12/homology-thirteen`. BM vanishing and boundary induction leave only(2,11),(1,11),(1,12),(1,13) outside the CKgP table. Treat genus2 by the nearby base and hard Lefschetz and genus1 by the pure formula and boundary induction. Künneth in total13 has one odd factor of degree 11 or13, since all smaller odd degrees vanish.
 
-Builds on [TC.0/boundary-exactness](#TC0-boundary-exactness), [TC.1/compact-support-vanishing](#TC1-compact-support-vanishing), [TC.9/odd-nine](#TC9-odd-nine), [TC.4/pure-algebraicity](#TC4-pure-algebraicity), [TC.4/known-ckgp-ranges](#TC4-known-ckgp-ranges), [TC.6/genus-seven-chow](#TC6-genus-seven-chow), [TC.11/genus-two-nearby-bases](#TC11-genus-two-nearby-bases), [TC.2/genus-one-pure](#TC2-genus-one-pure). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Theorem 1.6 p.2; proof pp.23–24.
+Builds on [TC.0/boundary-exactness](#TC0-boundary-exactness), [TC.1/compact-support-vanishing](#TC1-compact-support-vanishing), [TC.9/odd-nine](#TC9-odd-nine), [TC.4/pure-algebraicity](#TC4-pure-algebraicity), [TC.4/known-ckgp-ranges](#TC4-known-ckgp-ranges), [TC.6/genus-seven-chow](#TC6-genus-seven-chow), [TC.11/genus-two-nearby-bases](#TC11-genus-two-nearby-bases), [TC.2/genus-one-pure](#TC2-genus-one-pure), [TC.10/low-cohomology](#TC10-low-cohomology). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Theorem 1.6 p.2; proof pp.23–24.
 
 **Check.** The assertion concerns H_13, not all H^13.
 
@@ -1542,7 +1562,7 @@ For every stable pair the STE generated by H11(Mbar_1,11) and H15(Mbar_1,15) con
 
 The target is `TC.12/homology-fifteen`. The finite BM region has CKgP in genus≥3. Remaining genus-one marks11–15 are covered by the two cusp seeds and the pure formula. Remaining genus-two marks11–13 use the base computations and hard Lefschetz. Boundary Künneth needs odd degrees11,13,15 and tautological even degrees≤4.
 
-Builds on [TC.12/homology-thirteen](#TC12-homology-thirteen), [TC.11/genus-two-nearby-bases](#TC11-genus-two-nearby-bases), [TC.11/genus-two-fifteen-base](#TC11-genus-two-fifteen-base), [TC.11/basis-2-12](#TC11-basis-2-12), [TC.1/compact-support-vanishing](#TC1-compact-support-vanishing), [TC.6/genus-seven-chow](#TC6-genus-seven-chow), [TC.4/known-ckgp-ranges](#TC4-known-ckgp-ranges), [TC.2/genus-one-pure](#TC2-genus-one-pure). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Theorem 1.7 p.2; proof p.27.
+Builds on [TC.12/homology-thirteen](#TC12-homology-thirteen), [TC.11/genus-two-nearby-bases](#TC11-genus-two-nearby-bases), [TC.11/genus-two-fifteen-base](#TC11-genus-two-fifteen-base), [TC.11/basis-2-12](#TC11-basis-2-12), [TC.1/compact-support-vanishing](#TC1-compact-support-vanishing), [TC.6/genus-seven-chow](#TC6-genus-seven-chow), [TC.4/known-ckgp-ranges](#TC4-known-ckgp-ranges), [TC.2/genus-one-pure](#TC2-genus-one-pure), [TC.10/degree-four](#TC10-degree-four). Source: [Samir Canning; Hannah Larson; Sam Payne](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf), CLP Theorem 1.7 p.2; proof p.27.
 
 **Check.** The degree 15 genus-one seed is necessary at(1,15), even though no S16 survives in cohomology H15 for genus≥2.
 
@@ -1588,6 +1608,7 @@ The API serves CLP Lemma 8.2 (Identifies the injection alpha.); CLP proof of The
 | `WeightFifteenComplex.alpha` | d0 is restriction to normalized one-edge boundary components. |
 | `WeightFifteenComplex.beta` | d1 preserves Hodge type and carries the det(edge) action. |
 | `WeightFifteenComplex.relabel` | The complex is S_n-equivariant and independent of the temporary edge order. |
+| `WeightFifteenComplex.orientation_change` | Changing an ordering of the edges by tau multiplies its oriented summand by sign(tau); the induced signed restriction map is independent of the chosen presentation. |
 
 **Checks.**
 
@@ -1665,7 +1686,7 @@ The degree-six perfect-pairing criterion is a proved conditional implication, no
 
 ## Source corrections and proof gates
 
-The following findings are stated against the versions actually read. Existing extraction findings are retained with their provenance; the filling-criterion counterexample and the two orthogonal-bundle proof issues require independent review. A bounded title/erratum/correction search on 19 October 2026 returned the publisher, arXiv and author copies but no independent repair. This is not an exhaustive novelty claim.
+All sixteen findings below have independent confirmed verdicts. The twelve inherited findings were checked at their published locators. E13–E14 concern two general statements in BFP, without refuting its proper polynomial-count applications. E15–E16 are scoped to Gorsky’s v3 preprint and credit the prior corrections in [Kannan Remark3.8, pp.11–12](https://arxiv.org/pdf/2602.09117v2). The bounded searches and the versions actually read are recorded in the packet.
 
 **E1 — Published §6.2 p.23, first sentence of proof of Theorem1.5(3).** The proof opens with the range even k≥14. Use even0≤k≤14. The theorem on p.2 and the finite CKgP table argument use the upper bound14. Effect: nothing. Recorded by PAPER-CANNING-LARSON-PAYNE-24; no independent correction located in this bounded search.
 
@@ -1673,9 +1694,9 @@ The following findings are stated against the versions actually read. Existing e
 
 **E3 — Published proof of Lemma7.3 p.27, induced representation.** The subgroup in the66-symbol induction is written S10. Use S10×S2, with sgn10⊠1. Its index is66; the printed subgroup has index132. The corrected decomposition has dimensions11+55. Effect: nothing. Already recorded in the reviewed CLP extraction.
 
-**E4 — Published Lemma2.1 pp.4–5, hypotheses(2.2).** Only smaller triples of degree k′≤k−2 are required, although the proof also invokes same-degree forgetting sources. A sufficient corrected statement requires all0≤k′≤k with the same smaller-pair and complementary-dimension constraints. Take S=RH and(g,n,k)=(1,12,11). Proposition2.2 makes the current pure quotient by Phi zero; all required degrees≤9 in genus≤1 are tautological. Yet RH11=0 and H11(Mbar_1,12) has dimension22. The missing(1,11,11) test fails the repaired hypothesis. Effect: a stated result. No correction located by the bounded search; this counterexample and repair await independent review.
+**E4 — Published Lemma2.1 pp.4–5, hypotheses(2.2).** Only smaller triples of degree k′≤k−2 are required, although the proof also invokes same-degree forgetting sources. A sufficient corrected statement requires all0≤k′≤k with the same smaller-pair and complementary-dimension constraints. Take S=RH and(g,n,k)=(1,12,11). Proposition2.2 makes the current pure quotient by Phi zero; all required degrees≤9 in genus≤1 are tautological. Yet RH11=0 and H11(Mbar_1,12) has dimension22. The missing(1,11,11) test fails the repaired hypothesis. Effect: a stated result. Independently confirmed in this review; no correction located in the bounded search.
 
-**E5 — Published proof of Lemma5.10 p.19, trivialization step.** A trivialization of the underlying vector bundle is used to identify the relative orthogonal Grassmannian with a product. Trivialize the quadratic form and chosen component, or prove a rational splitting-principle/descent argument for the actual universal iterates. A vector-space basis alone need not split a quadratic form over a base or field. The present universal application needs an additional justified reduction. Effect: the proof. No correction located by the bounded search; scoped to the printed proof step and awaiting independent review.
+**E5 — Published proof of Lemma5.10 p.19, trivialization step.** A trivialization of the underlying vector bundle is used to identify the relative orthogonal Grassmannian with a product. Trivialize the quadratic form and chosen component, or prove a rational splitting-principle/descent argument for the actual universal iterates. A vector-space basis alone need not split a quadratic form over a base or field. The present universal application needs an additional justified reduction. Effect: the proof. Independently confirmed as a printed proof gap; no correction located in the bounded search.
 
 **E6 — Published §5.3.1 setup p.18 before Lemma5.8, equivariant bundle description.** The pulled-back quadratic bundle is described as an equivariant direct sum U⊕U dual. Use the P-equivariant exact sequence0→U→V→U dual→0; its Chern identity suffices. The parabolic unipotent radical acts with a nonzero off-diagonal block, so a Levi splitting is not P-equivariant. Effect: the proof. No correction located by the bounded paper-title search; no failure of the resulting Chern formula is asserted.
 
@@ -1691,7 +1712,15 @@ The following findings are stated against the versions actually read. Existing e
 
 **E12 — Published equation(3) p.1331, normalized closed-strata spectral sequence.** The displayed boundary terms have ordinary cohomology of the normalized strata without the edge-orientation local system, and the indices obscure total degree. Use E1^(j,k)=H^k(Dnorm_j,det Q^edges)⇒Hc^(j+k)(open), with weight k; take graph-automorphism invariants after the determinant twist. Ordinary open-stratum Euler assembly remains untwisted. Two rational vertices with one external leg each and two joining edges give a codimension2 stratum of Mbar_1,2 whose edge swap acts by−1 on det(edges). Its twisted H0 invariants vanish while plain H0 invariants do not. Untwisted closed-strata alternating terms consequently give the wrong Euler count. Effect: the proof. Already identified in the reviewed BFP extraction; corrected DWP.8 supplier explicitly retains orientation.
 
-The orientation correction has a useful small negative control: the genus-one, two-mark graph with two rational vertices, one leg on each and two joining edges has an edge-swap automorphism. Its ordinary degree-zero invariants are Q, but its determinant-twisted invariants vanish. This distinguishes the weight spectral sequence from the untwisted ordinary modular graph transform.
+**E13 — Published §9.1 p.1351, final trace-formula sentence.** The point count of a general twisted variety is identified with the graded trace on ordinary etale cohomology. Use compactly supported etale cohomology for a nonproper variety; ordinary cohomology suffices when proper. For A1 with the identity twist, ordinary cohomology has graded Frobenius trace1, but the point count is q. Compact support gives H_c^2=Q_l(−1), hence trace q. TC.8 already uses compact support. Effect: nothing. Not located in the bounded search; the proper applications do not require a changed trace formula.
+
+**E14 — Published Definition9.1 p.1351.** An arbitrary equivariant twisted point-count class function is assigned an element of the representation ring. In general retain a class function (or a scalar extension of the character space). Integral rational representation-ring coefficients need additional hypotheses such as the all-Z smooth proper/Tate comparison of Proposition9.3. Take X=Spec F_(q^3) with G=C3 its F_q automorphisms. Frobenius is a three-cycle on the geometric points, and the three twisted counts are (0,0,3), up to ordering of the nonidentity elements. Rational C3 characters have equal values on the two nonidentity elements, so this class function is not in R_Q(C3). Its complex irreducible-character coefficients also need not be integers. Effect: a stated result. Not located in the bounded search. The later polynomial-count conclusions retain their stronger hypotheses and are not refuted.
+
+**E15 — arXiv:0906.0841v3 Theorem3.8 p.6, definition of quotient genus.** The displayed quotient genus is half of one minus the sum of the orbit exponents. Use h=1−(sum_(j=1)^r k_j)/2, following Proposition3.1 equation(3) p.4. Include the negative exponent k_r. For an unramified type use gamma=r, equivalently gcd(r,{j:k_j>0}), in the product factor. For the identity automorphism of a genus4 curve the only exponent is k1=−6. The printed expression gives h=7/2, whereas the quotient genus is4. Riemann–Hurwitz gives the corrected constant term. Kannan already identifies the constant-term slip; the sum here is fixed directly by Gorsky’s equation(3), including k_r. Effect: nothing. Prior correction: Siddarth Kannan, arXiv:2602.09117v2 Remark3.8 pp.11–12 identifies the constant-term typo. Gorsky’s published text has not been collated here.
+
+**E16 — arXiv:0906.0841v3 Definition3.5 and Lemma3.6 p.5.** The local congruence count of modulus r retains a dummy symbol k in gcd(x_i,k) and c(k,lambda_i,d). Replace those occurrences of k by r; retain k only as the generic first argument in the separately defined function c. The variables x_i belong to Z/r and the sum condition is modulo r. Only gcd(x_i,r) is invariant under residue representatives; k is otherwise unbound in the definition and lemma. Direct residue convolution with modulus r reproduces the coefficient calculation. Effect: nothing. Prior correction: Siddarth Kannan, arXiv:2602.09117v2 Remark3.8 pp.11–12 explicitly identifies both occurrences. Gorsky’s published text has not been collated here.
+
+The orientation correction separates two constructions: the normalized-closed-strata weight complex retains det(edges), whereas ordinary open-stratum Euler assembly uses the usual Koszul action without an extra edge determinant.
 
 ## Exact remaining inputs and supplier boundary
 
@@ -1717,7 +1746,7 @@ Direct consumers: [TC.0/tautological-rings](#TC0-tautological-rings), [TC.0/kapp
 
 ### G-projectivity-lefschetz. Pointed projectivity, tautological ample classes and stack Lefschetz
 
-Prove projectivity of the coarse compactification for every stable pointed pair, exhibit an ample rational tautological divisor, and transfer hard Lefschetz to rational Hodge and etale cohomology of the smooth proper DM stack, with the correct twist. StableReductionPartII MC.4 proper coarse space is not all-pointed projectivity; DWP.9/hard-lefschetz-4-1-1 is scheme-only. Extend the respective owners as PartII rather than asserting their existing statements cover this.
+Prove projectivity of the coarse compactification for every stable pointed pair, exhibit an ample rational tautological divisor, and transfer hard Lefschetz to rational Hodge and etale cohomology of the smooth proper DM stack, with the correct twist. StableReductionPartII MC.4 proper coarse space is not all-pointed projectivity; DWP.9/hard-lefschetz-4-1-1 is scheme-only. Extend the respective owners as PartII rather than asserting their existing statements cover this. CLP Introduction p.3 also asserts full paritywise unimodality of an STE. TC.3/top-heavy establishes only opposite-degree injectivity and growth below the middle; a separate argument is needed for decrease above the middle. No perfect pairing on the STE is assumed.
 
 Direct consumers: [TC.3/top-heavy](#TC3-top-heavy), [TC.12/homology-thirteen](#TC12-homology-thirteen), [TC.12/homology-fifteen](#TC12-homology-fifteen), [TC.12/genus-two-cohomology-fifteen](#TC12-genus-two-cohomology-fifteen), [TC.12/genus-three-cohomology](#TC12-genus-three-cohomology).
 
@@ -1777,7 +1806,7 @@ Direct consumers: [TC.8/getzler-kapranov](#TC8-getzler-kapranov), [TC.8/stable-g
 
 ### G-computations. Finite exact certificates for graph and Euler calculations
 
-Supply reproducible rational/integer finite certificates for BFP boundary coefficients (ordinary and equivariant); lower-genus equivariant coefficients; Gorsky’s genus-four degree-three expansion (ordinary−10 and Schur2s3−6s21) and published collation; Getzler multiplicities429,6006,186263; genus-two multiplicities264,836; the complete891 decorated graphs, all restriction entries,825 pivots,66 kernel vectors and one nonzero M_ij pairing. Specify retained flag sets and graph automorphism/excess signs. CLP’s cited software and BFP’s Maple/SF calculations are not reproduced by transcribing their outputs. Numerical table consistency checks in this job do not close this gap.
+Supply reproducible rational/integer finite certificates for BFP boundary coefficients (ordinary and equivariant); lower-genus equivariant coefficients; formal certification and published collation of Gorsky’s formula; Getzler multiplicities429,6006,186263; genus-two multiplicities264,836; the complete891 decorated graphs, all restriction entries,825 pivots,66 kernel vectors and one nonzero M_ij pairing. Specify retained flag sets and graph automorphism/excess signs. CLP’s cited software and BFP’s Maple/SF calculations are not reproduced by transcribing their outputs. The independent review reproduces Gorsky’s genus-four degree-three arithmetic by a 25-term exact enumeration, recording its coefficients and algorithm in the review report. It yields ordinary−10 and Schur2s3−6s21; the geometric orbit formula, Harer–Zagier input and published collation are not thereby formalized. Polynomial consistency checks do not generate the boundary tables or the graph matrices. These remaining tasks keep this gap open.
 
 Direct consumers: [TC.1/lower-polynomial-counts](#TC1-lower-polynomial-counts), [TC.8/genus-four-euler](#TC8-genus-four-euler), [TC.9/genus-four-boundary-counts](#TC9-genus-four-boundary-counts), [TC.9/genus-four-equivariant-counts](#TC9-genus-four-equivariant-counts), [TC.11/basis-1-13](#TC11-basis-1-13), [TC.11/basis-1-14](#TC11-basis-1-14), [TC.11/basis-2-12](#TC11-basis-2-12), [TC.11/graph-restriction-rank](#TC11-graph-restriction-rank), [TC.11/genus-two-fifteen-base](#TC11-genus-two-fifteen-base), [TC.12/genus-one-fifteen-split](#TC12-genus-one-fifteen-split), [TC.12/high-odd-realizations](#TC12-high-odd-realizations).
 
@@ -1800,15 +1829,16 @@ The generic DM duality, completed symmetric functions, stack intersection/realiz
 
 The suggested file has light, real-bodied definitions of numerical stability, integer dimension, the stable-pair order, the finite cohomological seed region and the three genus-four polynomial tables. Its theorem statements test well-foundedness, finiteness, degree, palindromicity and exact closed/open/boundary subtraction. Its examples distinguish the strict seed genus bound, unstable pairs, the −11q3 correction and the middle coefficient10605. The prototype checks types; its placeholder proofs do not verify these theorems or any geometric endpoint.
 
-The seventeen geometric definitions/constructions above retain their complete mathematical APIs and three discriminating checks each. Sixteen of their carriers are absent at the pins and stay in the reader: tautological rings and kappa classes; symplectic local systems; STEs and marking subspaces; CKgP; gonality, Hurwitz and splitting data; marked spinor incidence; quadric incidence; marking twists, equivariant weight Euler characteristic and the stable-graph transform; cusp graphs; and the oriented weight-fifteen complex. The remaining numerical stable-pair order is prototyped over existing carriers. General stack or cohomology stand-ins are not added to make an endpoint typecheck.
+The seventeen definitions/constructions above retain their mathematical APIs and at least three discriminating checks each; marked spinor incidence has a fourth test for the quotient convention. Sixteen of their carriers are absent at the pins and stay in the reader: tautological rings and kappa classes; symplectic local systems; STEs and marking subspaces; CKgP; gonality, Hurwitz and splitting data; marked spinor incidence; quadric incidence; marking twists, equivariant weight Euler characteristic and the stable-graph transform; cusp graphs; and the oriented weight-fifteen complex. The remaining numerical stable-pair order is prototyped over existing carriers. General stack or cohomology stand-ins are not added to make an endpoint typecheck.
 
-Independent exact arithmetic checks compare the closed and boundary tables with the open tables, test every compact palindromic coefficient and positivity, and specialize the equivariant characters to dimensions. They also verify the three-mark open Euler value−10 and its Schur class2s3−6s21. Such checks detect transcription errors but do not replace the sieve proofs, graph generation or missing computation certificates.
+Independent exact arithmetic checks compare the closed and boundary tables with the open tables, test every compact palindromic coefficient and positivity, and specialize the equivariant characters to dimensions. A separate 25-term exact evaluation of Gorsky’s corrected finite formula reproduces the three-mark open Euler value−10 and its Schur class2s3−6s21; the review report preserves its algorithm and coefficients. These checks do not replace the geometric orbit formula, sieve proofs, boundary assembly or graph matrices.
 
-All TC.0–TC.12 stages have status **planned**, with exact remaining obligations; none has status closed. The extraction coverage map has134 entries, including the two conjectures, the corrected filling criterion and the announced complete-graph-relations gap. A follow-up closes the named proof/supplier/certificate obligations rather than guessing a new source target or repeating a definition owned elsewhere.
+The independent review accepts this target-level pass after the corrections above. All TC.0–TC.12 stages have status **planned**, with exact remaining obligations; none has status closed. The extraction coverage map has134 entries, including the two conjectures, the corrected filling criterion and the announced complete-graph-relations gap. A follow-up closes the named proof/supplier/certificate obligations rather than guessing a new source target or repeating a definition owned elsewhere.
 
 ## Bibliography and access record
 
 - Samir Canning; Hannah Larson; Sam Payne, [Extensions of tautological rings and motivic structures in the cohomology of moduli spaces of stable curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/TautologicalExtensions.pdf). Forum of Mathematics, Pi 12 (2024), e23, 1–31; DOI 10.1017/fmp.2024.24. Read Published author copy, entire paper pp.1–31, including graph figures pp.25–27. Accessed 2026-10-19. SHA-256 `9e2dc8b19e6bd1c56e953272b3f82a345a6a6ae914527dab0778a086f0900535`.
 - Jonas Bergström; Carel Faber; Sam Payne, [Polynomial point counts and odd cohomology vanishing on moduli spaces of stable curves](https://sites.lsa.umich.edu/sdpayne/wp-content/uploads/sites/1450/2025/08/PolynomialPointCounts.pdf). Annals of Mathematics 199 (2024), 1323–1365; DOI 10.4007/annals.2024.199.3.7. Read Published author copy, entire paper pp.1323–1365; sieve tables and equivariant refinements included. Accessed 2026-10-19. SHA-256 `9843c296d6f775472ca718be1520c2152d13f5a37dd6928e8e454c2b2d134bd3`.
-- Ezra Getzler; Mikhail Kapranov, [Modular operads](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F104F3BA8ACC4FBC07F93AC93787BA88/S0010437X98000050a.pdf/modular-operads.pdf). Compositio Mathematica 110 (1998), 65–126. Read §8.1–8.13, pp.107–111: completion, characteristic, Laplacian and graph formula. Accessed 2026-10-19. SHA-256 `098aea954a92808a9caa698f9c98fef8798e8f59d5015e7417856256970386ed`.
-- Eugene Gorsky, [The equivariant Euler characteristic of moduli spaces of curves](https://arxiv.org/pdf/0906.0841). arXiv:0906.0841v3 (25 November 2013); published Advances in Mathematics 250 (2014), 588–595, not collated here. Read §§1–3, Theorems1.1,2.5,3.8, preprint pp.1–7. Published-file endpoint returned an empty response; genus-four evaluation remains a certificate gap. Accessed 2026-10-19. SHA-256 `9d8caed9f8c06b45c46742888fe13fb9604d508da953f556c8c65cd51ff2c7a4`.
+- Ezra Getzler; Mikhail Kapranov, [Modular operads](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/F104F3BA8ACC4FBC07F93AC93787BA88/S0010437X98000050a.pdf/modular-operads.pdf). Compositio Mathematica 110 (1998), 65–126. Read §2 pp.74–78 (free modular graph construction); §8.1–8.13 pp.107–111 (completion, characteristic, Laplacian and graph formula). Accessed 2026-10-19. SHA-256 `098aea954a92808a9caa698f9c98fef8798e8f59d5015e7417856256970386ed`.
+- Eugene Gorsky, [The equivariant Euler characteristic of moduli spaces of curves](https://arxiv.org/pdf/0906.0841). arXiv:0906.0841v3 (25 November 2013); published Advances in Mathematics 250 (2014), 588–595, not collated here. Read §§1–3, Theorems1.1,2.5,3.8, preprint pp.1–7. Independent genus-four degree-three arithmetic reproduced with the E15–E16 corrections; published collation remains open. Accessed 2026-10-19. SHA-256 `9d8caed9f8c06b45c46742888fe13fb9604d508da953f556c8c65cd51ff2c7a4`.
+- Siddarth Kannan, [Euler characteristics of the universal Picard stack](https://arxiv.org/pdf/2602.09117v2). arXiv:2602.09117v2 (18 February 2026); later journal version not collated. Read §3.3 pp.10–12, especially Remark3.8 pp.11–12: prior correction of Gorsky’s genus constant and congruence modulus. No Picard-stack result is planned here. Accessed 2026-10-19. SHA-256 `0b080b6910e0b8ec494d18aa5b994f39d9e90ff04ad6a91c3808bf2e97cbd208`.
