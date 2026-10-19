@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T22:45Z",
+  "updated": "2026-10-19T22:50Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -205,7 +205,7 @@
     "ComplexComparisonPartII": {
       "stage": "pr",
       "pr": 848,
-      "head": "7228a4d",
+      "head": "c9ccfac",
       "depends_on": [
         779,
         853
@@ -214,8 +214,9 @@
       "review": {
         "recommendation": "approve",
         "head": "7228a4d",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at c9ccfac; confirmation pass pending"
       }
     },
     "AbelianSchemesAndArithmeticModuli": {
@@ -1623,7 +1624,7 @@
     "GeometricSatakeAndFusion": {
       "stage": "pr",
       "pr": 1235,
-      "head": "507cad0",
+      "head": "aeb8fc1",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running"
     },
     "BunGAndNewtonStrata": {
