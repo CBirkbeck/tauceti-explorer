@@ -1,0 +1,2793 @@
+{
+  "roadmapId": "PadicHodgeParametersInLocallyAnalyticRepresentations",
+  "part": null,
+  "protocol": "blueprint-v1",
+  "scope": [
+    "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0",
+    "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+    "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+    "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+    "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4",
+    "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5"
+  ],
+  "status": "complete",
+  "summary": "Construct the quotient-deformation comparison for generic noncritical crystabelline (φ,Γ)-modules and use its kernel to select a minimal locally analytic representation of GL_n(K). The plan proves parabolic and embedding compatibility, recovery of modified Hodge flags, scalar character statements, and the first-order Artinian universal-extension reformulation. Its two input theories are imported with explicit unresolved supplier contracts. This completes the design pass, conditional on the three explicitly recorded supplier gaps; it is not a closed or implemented theory.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Equiv.Perm",
+        "kind": "abbrev",
+        "module": "Mathlib/Logic/Equiv/Defs.lean",
+        "provides": "Permutation equivalences on the actual finite type Fin n.",
+        "checked": "Statement read in pinned source and matched by full name in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:LinearMap",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Linear maps between existing modules, for the comparison once its input carriers exist.",
+        "checked": "Statement read in pinned source and matched by full name in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Submodule",
+        "kind": "structure",
+        "module": "Mathlib/Algebra/Module/Submodule/Defs.lean",
+        "provides": "Actual submodules closed under zero, addition and scalar multiplication.",
+        "checked": "Statement read in pinned source and matched by full name in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:LinearMap.ker",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Module/Submodule/Ker.lean",
+        "provides": "The actual kernel submodule of a linear map.",
+        "checked": "Statement read in pinned source and matched by full name in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:LinearMap.quotKerEquivOfSurjective",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Isomorphisms.lean",
+        "provides": "The quotient by the kernel is linearly equivalent to the target of a surjective linear map.",
+        "checked": "Statement read in pinned source and matched by full name in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:LinearMap.finrank_range_add_finrank_ker",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
+        "provides": "Rank-nullity for a linear map with finite-dimensional domain.",
+        "checked": "Statement read in pinned source and matched by full name in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:TrivSqZeroExt",
+        "kind": "def",
+        "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
+        "provides": "The existing square-zero E-algebra E⊕M; use M=Q∨ after establishing the genuine Artinian tangent identification.",
+        "checked": "Statement read in pinned source and matched by full name in the pinned declaration index."
+      },
+      {
+        "ref": "mathlib:Module.Dual",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "provides": "The E-linear dual, distinguishing cotangent from tangent.",
+        "checked": "Statement read in pinned source and matched by full name in the pinned declaration index."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "DING25",
+      "title": "p-Adic Hodge parameters in the crystabelline representations of GL_n",
+      "authors": "Yiwen Ding",
+      "edition": "Publications Mathématiques de l’IHÉS 142 (2025), 1–74; published version of record, DOI 10.1007/s10240-025-00156-2. Printed pages equal PDF pages. Read 19 October 2026.",
+      "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-025-00156-2.pdf",
+      "sha256": "741a49c0677a77b22c9759a016e215882b70dc760eb9e41fd2fe45cc633d05ba",
+      "readSections": [
+        "Introduction, pp. 1–9 (scope and distinction from a full correspondence)",
+        "§2.1–2.2, pp. 9–16 (hypotheses, quotient conventions and embedding modification)",
+        "§2.3.1–2.3.2, pp. 16–21 (trianguline, parabolic and partial de Rham input contracts)",
+        "§2.3.2, Corollary 2.27 and its input statements, pp. 24–25; §2.4, pp. 30–32 (relation subspace and Corollaries 2.38–2.40, statements and displayed maps)",
+        "§3.1, pp. 33–47 (representation input contracts)",
+        "§3.2.1, pp. 47–56 (comparison, kernel extensions and recovery)",
+        "§3.2.2, pp. 56–59 (first-order Artinian reformulation)"
+      ]
+    }
+  ],
+  "inputContracts": [
+    {
+      "id": "LA1",
+      "owner": "LocallyAnalyticRepresentationsOfLocalGroups (design #3411)",
+      "statement": "The category of admissible locally Q_p-analytic E-representations of GL_n(K), strong continuous duality with coadmissible distribution modules, and Ext¹ as Yoneda extensions; its identification with Ext in the category of abstract distribution modules with arguments reversed. Supply push-forward, pullback, exact Hom–Ext sequences, finite coefficient tensor products, tautological extension classes and subspace detection under scalar endomorphisms.",
+      "locator": "§3.1.1, p. 33; Remark 3.9 and (3.16), p. 39"
+    },
+    {
+      "id": "LA2",
+      "owner": "LocallyAnalyticRepresentationsOfLocalGroups (design #3411)",
+      "statement": "Supply π_sm(φ), L(λ), A, PS(w(φ),h), PS_1, C(I,s_{i,σ}), V=π_1(φ,h), π(φ,h), the specified embeddings and first two socle layers. Supply End(π)→End(V)→End(A)≃E, Ext¹(A,V)≃Ext¹(A,π), and Lemma 3.5(2) with constituent dévissage used for push-forward surjectivity. Labels use all nonempty proper I⊂{1,…,n}, not I⊂{1,…,n−1}.",
+      "locator": "§3.1.2, Propositions 3.1,3.3, Lemma 3.5, Proposition 3.8, Remark 3.9, pp. 34–39"
+    },
+    {
+      "id": "LA3",
+      "owner": "LocallyAnalyticRepresentationsOfLocalGroups (design #3411)",
+      "statement": "Supply injective ζ_w:H_T→B with images B_w; dim B=n+(2^n−1)d_K, dim B_w=n(1+d_K), and Σ_wB_w=B. Supply common B_g and B_g′, B_g≤B_g′≤B_w, with dim B_g=n and dim B_g′=n+d_K. Supply smooth parameter compatibility and Weyl invariance on actual block determinant directions.",
+      "locator": "§3.1.2, (3.10),(3.17),(3.18), Proposition 3.8, pp. 38–39; §3.1.3, (3.30), p. 43"
+    },
+    {
+      "id": "LA4",
+      "owner": "LocallyAnalyticRepresentationsOfLocalGroups (design #3411)",
+      "statement": "Supply normalized parabolic Ext images B_F, the isomorphism ζ_F:∏B(M_i)≃B_F, compatible-refinement spanning, and 0→B_g′→B_F⊕B_G→B→0 for the two endpoint parabolics, with first arrow b↦(b,−b). Supply π_F and its inclusion, Emerton induction I_{P⁻}^G, completed external tensor product, and their extension-class compatibilities. Use θ_P constant −Σ_{k<i}n_k on block i and twist ε⁻¹∘θ_P.",
+      "locator": "§3.1.3, Proposition 3.12, Proposition 3.13 and (3.27)–(3.30), pp. 42–43"
+    },
+    {
+      "id": "LA5",
+      "owner": "LocallyAnalyticRepresentationsOfLocalGroups (design #3411)",
+      "statement": "Supply π_{1,σ}, Ext¹_σ(A,π_{1,σ}) and its image B_σ⊂B, with algebraicity at every τ≠σ, dim B_σ=n+2^n−1. Supply the partially algebraic Hom–Ext and parabolic compatibilities, the common smooth space, and ⊕_σ(B_σ/B_g)≃B/B_g. Supply the analogous amalgamation of π_{1,σ} over A and its maximal partial algebraic subrepresentations.",
+      "locator": "§3.1.4, Propositions 3.16,3.18,3.19, Corollary 3.20, pp. 44–47"
+    },
+    {
+      "id": "LA6",
+      "owner": "LocallyAnalyticRepresentationsOfLocalGroups (design #3411)",
+      "statement": "Supply Jacquet–Emerton/Orlik–Strauch character-to-Ext compatibility (3.10), Proposition 3.6(1), Remark 3.7 and surjectivity in (3.14), including their use on the universal character extension. Supply the completed smooth Bernstein-center map 𝒥_w and its compatibility with rank-one smooth character deformations, independent of w after mapping to de Rham tangents.",
+      "locator": "§3.1.2, Proposition 3.3(2), Proposition 3.6 and Remark 3.7, pp. 35–38; §3.2.2, p. 57"
+    },
+    {
+      "id": "TR1",
+      "owner": "TriangulineVarietyAndItsLocalModel (design #3412)",
+      "statement": "Supply the actual Robba ring, continuous semilinear (φ,Γ)-modules, rank-one parameters R_{K,E}(δ), and ΦΓ_nc(φ,h). All refinements are noncritical; strict Hodge flags give saturated submodules D_1 and rank-one subobjects and quotients C_1 with the weights used in PH.1. The theory includes nonétale objects.",
+      "locator": "§2.1–2.2, pp. 9–16; §2.3.2, p. 19"
+    },
+    {
+      "id": "TR2",
+      "owner": "TriangulineVarietyAndItsLocalModel (design #3412)",
+      "statement": "Supply Ext¹, Ext¹_w, Ext¹_g, the common Ext¹_0=ker κ_w, its dimension n(n−1)d_K/2+1−n, and the quotient Q and its actual subspaces Q_w,Q_g,Q_g′. Supply κ_w:Q_w≃H_T, dim Q=n+n(n+1)d_K/2, dim Q_w=n(1+d_K), dim Q_g=n, and spanning by the Q_w. Supply Q_g′ and the parameter compatibility corresponding to B_g′.",
+      "locator": "§2.3.1, Proposition 2.10, Lemma 2.11, Proposition 2.12 and (2.12)–(2.16), pp. 16–18"
+    },
+    {
+      "id": "TR3",
+      "owner": "TriangulineVarietyAndItsLocalModel (design #3412)",
+      "statement": "Supply parabolic quotient spaces Q_F, κ_F:Q_F≃∏Q(M_i), compatible-refinement spanning and invariance on block determinant directions, with the explicit parameter normalization used by ζ_F. The correct block dimension is Σ_i[n_i+n_i(n_i+1)d_K/2].",
+      "locator": "§2.3.2, Corollaries 2.14–2.15 and (2.19)–(2.21), pp. 19–20"
+    },
+    {
+      "id": "TR4",
+      "owner": "TriangulineVarietyAndItsLocalModel (design #3412)",
+      "statement": "Supply Q_σ for deformations de Rham of fixed weights away from σ, dim Q_σ=n+n(n+1)/2, the embeddings in Q, and the embedding modification 𝔗_σ(D)=D_σ retaining the σ filtration and replacing every other embedding’s weights by h_{n,τ}. Supply D↪D_σ with the same localization and Q_σ(D)≃Q_σ(D_σ), respecting parabolic decompositions. Supply the surjections ⊕_wQ_{σ,w}(D)↠Q_σ(D) and ⊕_wQ_{σ,w}(D_σ)↠Q_σ(D_σ). Away from σ the modified weights are repeated; a globally regular theorem cannot be invoked anew on D_σ.",
+      "locator": "§2.2, Proposition 2.5 and (2.7), pp. 13–14; §2.3.2, Lemma 2.16, Proposition 2.17, Corollaries 2.18–2.19, pp. 20–21; Corollary 2.27, p. 25; Corollary 2.40, p. 32"
+    },
+    {
+      "id": "TR5",
+      "owner": "TriangulineVarietyAndItsLocalModel (design #3412)",
+      "statement": "Supply the higher-intertwining relation L(D_σ,D_{1,σ},C_{1,σ}) as a specified embedded subspace of V(D_{1,σ},C_{1,σ})_σ, exact sequence (2.42), and Corollary 2.38(1): equality of such embedded relations with fixed identified blocks determines D_σ. Supply the n≤2 base case and the étale fully faithful D_rig dictionary for the K=Q_p consequence only.",
+      "locator": "§2.4, (2.39)–(2.42), Corollaries 2.38–2.40, pp. 30–32; proof of Theorem 3.34, p. 56"
+    },
+    {
+      "id": "TR6",
+      "owner": "TriangulineVarietyAndItsLocalModel (design #3412)",
+      "statement": "Supply representability and formal smoothness of R_D,R_{D,w},R_{D,g} and the character rings on local Artinian E-algebras, tangent–Ext identifications, and the first-order Cartesian parameter square (3.55). These are Robba-module deformation rings for possibly nonétale D. Supply the smooth Bernstein/de Rham tangent compatibility with LA6.",
+      "locator": "§3.2.2, pp. 56–57; Proposition 2.10(2),(3) and Lemma 2.11, pp. 16–17"
+    },
+    {
+      "id": "HC",
+      "owner": "TauCetiRoadmap/RepresentationTheory/LieHighestWeight, Layers 7 and 9",
+      "statement": "Supply the split reductive gl_n Harish–Chandra isomorphism and its highest-weight evaluation normalization over finite E/Q_p, including the scalar matrix direction, tensoring over all embeddings, and descent of identities from a splitting/algebraic closure if used. The regular Sen-root-to-invariant-polynomial tangent isomorphism is proved in PH.2/scalar-characters using a Vandermonde determinant.",
+      "locator": "Ding Proposition 3.26 and (3.46)–(3.47), pp. 51–52; upstream LieHighestWeight Layers 7,9"
+    }
+  ],
+  "libraryAudit": [
+    {
+      "where": "Pinned Mathlib 082e2d3 and Tau Ceti f790474; declaration index and source statements read",
+      "finding": "Eight elementary declarations are listed in baseline. No Robba/noncritical trianguline or Ding/Emerton/Orlik–Strauch category declaration found at the pins. Do not confuse abstract Mathlib representations or analytic functions with the required admissible category."
+    },
+    {
+      "where": "data/library-coverage.json; LocallyAnalyticDistributions:L0–L4 and LocallyAnalyticDistributionsPartII stages",
+      "finding": "The reviewed audit leaves locally analytic function/distribution foundations incomplete; it does not provide Ding’s GL_n Ext system. Distribution/category and specialized Harish–Chandra work is imported from its owners rather than replanned."
+    },
+    {
+      "where": "Current TauCetiRoadmap main, RepresentationTheory/InductionRestriction README and Suggested.lean",
+      "finding": "Owns algebraic induction/restriction, projection and Mackey theory. These concern Rep and finite-index/finite-group inputs; they are not the locally analytic Emerton functor I. No targets are copied from it."
+    },
+    {
+      "where": "Current TauCetiRoadmap main, RepresentationTheory/LieHighestWeight README and Suggested.lean, Layers 3,7,9",
+      "finding": "Owns Verma modules, highest weights, central characters, Harish–Chandra and split gl_n transfer. PH.2 imports these. Layer 7’s semisimple setup and Layer 9’s scalar-center bridge require an explicit finite-E reductive application, recorded in G-HC."
+    },
+    {
+      "where": "Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; Algebra/Lie/HighestWeight/CentralCharacter/HarishChandra.lean and DotOrbit.lean",
+      "finding": "TauCeti.hcProjection is an implemented algebra map from the enveloping-algebra center to SymmetricAlgebra; hcProjection_mem_dotInvariants proves containment in the dot-invariants. Neither is re-planned. They are later than the pin and do not supply the full Harish–Chandra isomorphism required by Proposition 3.26."
+    },
+    {
+      "where": "Current upstream roadmap directory, including the nine additions beyond the atlas snapshot and LocalGaloisGroups",
+      "finding": "Searched target names and relevant Suggested declarations. LocalGaloisGroups supplies local-field/Galois foundations, not the Robba deformation quotient or local analytic Ext comparison. No current upstream roadmap or current Tau Ceti declaration already plans the comparison targets."
+    },
+    {
+      "where": "PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category and PG.3/herr-ext",
+      "finding": "Read exact existing nodes: consume the genuine relative Robba category and Herr Ext/deformation dictionary. They do not assert Ding’s generic quotient/de Rham/σ identities, the embedded recovery relation, or universal deformation representability. Those remain TR contracts."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/endpoint-refinements",
+      "title": "Endpoint refinement families",
+      "kind": "definition",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0"
+      ],
+      "statement": "For n≥1, define S_end={w∈S_n | w(n)=n} and S_start={w∈S_n | w(n)=1}. The paper uses w(φ)_i=φ_{w⁻¹(i)}, so these are exactly the refinements placing φ_n last or first. S_end is the standard subgroup S_{n−1}; S_start is a coset, and each has (n−1)! elements. Suggested Lean uses Fin(m+1), with m=n−1.",
+      "hypotheses": [
+        "n≥1; permutations act by w(φ)_i=φ_{w⁻¹(i)}."
+      ],
+      "prerequisites": [
+        "mathlib:Equiv.Perm"
+      ],
+      "proofSteps": [
+        "Identify S_end with permutations of the complement of n.",
+        "Choose a permutation moving n to 1 and translate S_end to S_start; verify the permutation convention before using these families in induction."
+      ],
+      "acceptance": [
+        "Check both cardinalities and their membership tests.",
+        "Do not substitute w⁻¹(n)=1 for w(n)=1."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, proof of Theorem 3.21, pp. 48–50 (S′_{n−1} on p. 48)",
+          "match": "The two endpoint families supply the two inductive parabolic comparisons."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "endRefinements",
+          "role": "constructor",
+          "statement": "The subset of Equiv.Perm(Fin(m+1)) fixing Fin.last m."
+        },
+        {
+          "name": "startRefinements",
+          "role": "constructor",
+          "statement": "The subset whose permutations send Fin.last m to 0."
+        },
+        {
+          "name": "endpoint_membership",
+          "role": "simp",
+          "statement": "Membership is the stated image equation, with no inverse permutation."
+        },
+        {
+          "name": "endpoint_card",
+          "role": "equivalence",
+          "statement": "Each family is equivalent to Equiv.Perm(Fin m) and has m! elements."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_one_endpoints",
+          "statement": "At n=1 both subsets contain the unique permutation and have cardinality one."
+        },
+        {
+          "name": "rank_two_distinction",
+          "statement": "At n=2 S_end={id}, while S_start consists of the transposition; id is not in S_start."
+        },
+        {
+          "name": "rank_three_endpoint_count",
+          "statement": "At n=3 both families have cardinality two; a 3-cycle sending 3 to 2 belongs to neither."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.1/comparison-map",
+          "how": "Indexes the two rank n−1 comparison maps before gluing."
+        },
+        {
+          "where": "PH.0/character-spanning",
+          "how": "For an interior placement, a block Weyl permutation moves φ_n to one of these endpoint positions."
+        }
+      ],
+      "planet": {
+        "name": "Endpoint refinements"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/block-characters",
+      "title": "Block character subspaces",
+      "kind": "definition",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0"
+      ],
+      "statement": "Identify H_T with H_char^n, H_char=Hom_la(K×,E), by ψ(t)=Σ_i ψ_i(t_i). For 1≤j<n put H_j={ (a,…,a,b,…,b) : a,b∈H_char }, with j entries a, and H_Z={ (a,…,a) }. These are images of pullback along the two block determinants and the full determinant. They realize the character spaces of the Levi centers inside H_T; they are not obtained by reversing restriction along Z_j⊂T. For 0≤j≤n define blockTuple(n,j,a,b)_i=a for i<j and b otherwise (zero-based).",
+      "hypotheses": [
+        "K,E as in H; n≥1. For the tuple model alone, an additive commutative group suffices."
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap",
+        "mathlib:Submodule"
+      ],
+      "proofSteps": [
+        "Use the product decomposition T(K)=(K×)^n to identify additive characters with tuples.",
+        "Pull a character of K××K× back by (∏_{i≤j}t_i,∏_{i>j}t_i); differentiate if a center restriction is used.",
+        "Restriction to scalar blocks multiplies the corresponding characters by j and n−j, invertible over E."
+      ],
+      "acceptance": [
+        "Keep H_Z⊂H_j explicit.",
+        "Use locally Q_p-analytic additive characters; dimensions are 1+d_K per coordinate."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§2.1, p. 9; Corollary 2.15 and (2.21), pp. 19–20; proof of Theorem 3.21, (3.43), pp. 49–50",
+          "match": "Block-constant character directions are the common subspaces on which the parabolic intertwining squares apply; the embedding is made explicit here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "blockTuple",
+          "role": "constructor",
+          "statement": "blockTuple(n,j,a,b) is the actual tuple, including j=0 and j=n."
+        },
+        {
+          "name": "blockTuple_apply",
+          "role": "projection",
+          "statement": "Its i-th coordinate is a if i<j, and b otherwise."
+        },
+        {
+          "name": "block_character_pullback",
+          "role": "compatibility",
+          "statement": "Under H_T≅H_char^n this tuple pulls back (a,b) through the two block determinants."
+        },
+        {
+          "name": "block_character_range",
+          "role": "characterisation",
+          "statement": "For 0<j<n its range is H_j; the full determinant gives H_Z."
+        },
+        {
+          "name": "block_character_linear",
+          "role": "structure",
+          "statement": "The map (a,b)↦blockTuple(n,j,a,b) is E-linear."
+        },
+        {
+          "name": "diagonal_in_block",
+          "role": "relation",
+          "statement": "blockTuple(n,j,a,a) is the diagonal tuple, hence H_Z≤H_j."
+        }
+      ],
+      "tests": [
+        {
+          "name": "empty_first_block",
+          "statement": "blockTuple(n,0,a,b) is constantly b, so swapping the inequality gives a wrong answer."
+        },
+        {
+          "name": "full_first_block",
+          "statement": "blockTuple(n,n,a,b) is constantly a."
+        },
+        {
+          "name": "rank_three_block",
+          "statement": "blockTuple(3,1,a,b)=(a,b,b); if a≠b it is not diagonal."
+        },
+        {
+          "name": "center_overlap",
+          "statement": "For n=3 the nonzero tuple (a,a,a) lies in H_1∩H_2, so their sum is not direct."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.0/character-spanning",
+          "how": "Gives generators for the corrected spanning assertion."
+        },
+        {
+          "where": "PH.1/comparison-map",
+          "how": "Lets an arbitrary refinement be compared to endpoint refinements on directions fixed by a block Weyl group."
+        }
+      ],
+      "planet": {
+        "name": "Block character directions"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/character-spanning",
+      "title": "Levi-center character spanning",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0"
+      ],
+      "statement": "H_T=H_Z+Σ_{j=1}^{n−1}H_j. More precisely, for v=(v_0,…,v_{n−1}) in H_char^n, v is the constant tuple v_{n−1} plus Σ_{j=1}^{n−1}blockTuple(n,j,v_{j−1}−v_j,0). This also holds over any additive commutative group. The sum is a spanning sum with overlaps, not a direct-sum isomorphism as printed in (3.43).",
+      "hypotheses": [
+        "n≥1; H_char an additive commutative group, specialized to Hom_la(K×,E)."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/block-characters"
+      ],
+      "proofSteps": [
+        "At coordinate i the terms with j>i telescope to v_i−v_{n−1}.",
+        "Each summand is a two-block character; for n=1 only the constant summand remains.",
+        "For an interior position i and split j, the block containing i reaches either 1 or n, so its Weyl group contains a permutation sending i to an endpoint."
+      ],
+      "acceptance": [
+        "Check the coordinate formula rather than a dimension-only argument.",
+        "At n=3,d_K=1, H_T has dimension 6 while the printed direct sum has dimension 10."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, proof of Theorem 3.21, (3.43) and following paragraph, pp. 49–50",
+          "match": "A telescoping proof supplies exactly the spanning consequence used to finish the factorization, repairing source issue E1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Levi-center character spanning"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation",
+      "title": "Refinement presentation of the comparison",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0"
+      ],
+      "statement": "Set C=⊕_{w∈S_n}Q_w, with a_w:Q_w↪Q the quotient deformation inclusion and κ_w:Q_w≃ₗH_T the imported parameter isomorphism. Define R_D:C→B by Σ_w ζ_wκ_w and s_D:C→Q by Σ_w a_w. Both are surjective, by the separate representation and deformation spanning theorems. This constructs the common presentation; it does not yet assert ker(R_D)≤ker(s_D).",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "LocallyAnalyticDistributions:L0",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category",
+        "PhiGammaModulesAndIwasawaCohomology:PG.3/herr-ext",
+        "mathlib:LinearMap"
+      ],
+      "proofSteps": [
+        "Use the common Ext¹_0 quotient on every deformation term, before defining C.",
+        "Compose κ_w with the imported injective ζ_w:H_T→B, then use the direct-sum map.",
+        "Import Proposition 3.8(2) for R_D and Proposition 2.12 for s_D; these are different supplier facts."
+      ],
+      "acceptance": [
+        "Retain both maps and their restrictions to every summand.",
+        "The target Q is the quotient, not the full tangent Ext¹(D,D)."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§2.3.1, (2.14)–(2.16) and Proposition 2.12, pp. 17–18; §3.1.2, Proposition 3.8 and (3.17), pp. 38–39; §3.2.1, (3.38), p. 47",
+          "match": "The two input theories give surjections from the same direct sum; the roadmap owns their comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "comparisonPresentation",
+          "role": "constructor",
+          "statement": "C and the two E-linear maps R_D,s_D are built from the genuine imported Ext spaces."
+        },
+        {
+          "name": "presentation_refinement",
+          "role": "projection",
+          "statement": "R_D∘in_w=ζ_wκ_w and s_D∘in_w=a_w."
+        },
+        {
+          "name": "presentation_surjective",
+          "role": "structure",
+          "statement": "R_D and s_D are surjective by the two supplier spanning results."
+        },
+        {
+          "name": "presentation_reindex",
+          "role": "functoriality",
+          "statement": "Permuting refinement labels transports the diagram through the same permutation of direct-sum factors."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_one_presentation",
+          "statement": "For n=1 C=Q_1 and κ_1,ζ_1 identify both maps with the sole character parameter."
+        },
+        {
+          "name": "zero_class",
+          "statement": "A parameter with κ_w=0 is zero in Q_w, so every summand maps its zero class to zero."
+        },
+        {
+          "name": "quotient_dimension",
+          "statement": "At n=3,d_K=1 the target Q has dimension 9, while the full Ext¹(D,D) has dimension 10."
+        },
+        {
+          "name": "opposite_sum_relations",
+          "statement": "If two summands represent the same quotient deformation, s_D sends their difference to zero; this alone does not say R_D does."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.1/comparison-map",
+          "how": "Factorization means s_D=t_D R_D and requires proving the kernel inclusion."
+        },
+        {
+          "where": "PH.5/first-order-algebras",
+          "how": "The trianguline tangent spanning implies the dual first-order algebra map is injective."
+        }
+      ],
+      "planet": {
+        "name": "Refinement comparison presentation"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-multiplicity",
+      "title": "The kernel multiplicity coefficient",
+      "kind": "definition",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1"
+      ],
+      "statement": "For n≥1 define c_n=2^n−(n(n+1)/2+1), with subtraction in N. The inequality n(n+1)/2+1≤2^n identifies this with the corresponding integer difference.",
+      "hypotheses": [
+        "n≥1; only natural-number arithmetic is used."
+      ],
+      "prerequisites": [],
+      "proofSteps": [
+        "Induct on n to establish the bound, then evaluate the expression in N."
+      ],
+      "acceptance": [
+        "Check c_1=c_2=0,c_3=1,c_4=5,c_5=16."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Remark 3.22(1), p. 50",
+          "match": "This is the numerical coefficient of the comparison kernel."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "kernelMultiplicity",
+          "role": "constructor",
+          "statement": "The natural-number expression displayed above."
+        },
+        {
+          "name": "kernelMultiplicity_bound",
+          "role": "characterisation",
+          "statement": "For n≥1 the subtrahend is at most 2^n, so natural subtraction agrees with integer subtraction."
+        },
+        {
+          "name": "kernelMultiplicity_small",
+          "role": "example",
+          "statement": "Its values at n=1,2,3,4,5 are 0,0,1,5,16."
+        }
+      ],
+      "tests": [
+        {
+          "name": "low_rank_zero",
+          "statement": "c_1=c_2=0."
+        },
+        {
+          "name": "first_parameter",
+          "statement": "c_3=1 and c_4=5, excluding the erroneous replacement 2n for 2^n."
+        },
+        {
+          "name": "rank_five_value",
+          "statement": "c_5=16."
+        },
+        {
+          "name": "nonnegative_bound",
+          "statement": "At n=1 the bound is equality; at n=3 the excess is exactly one."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.1/kernel-dimension",
+          "how": "Gives the coefficient multiplying d_K."
+        },
+        {
+          "where": "PH.2/minimal-extensions",
+          "how": "Counts copies of A in the quotient of the minimal extension."
+        }
+      ],
+      "planet": {
+        "name": "Kernel multiplicity coefficient"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/endpoint-gluing",
+      "title": "Gluing the two endpoint comparisons",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1"
+      ],
+      "statement": "For n≥2 assume the comparison theorem in smaller ranks. Put F=(D_1⊂D), G=(R(φ_n z^{h_1})⊂D), where D_1 has parameters φ_1,…,φ_{n−1} and weights h_1,…,h_{n−1}, while C_1=D/R(φ_n z^{h_1}) has those parameters and weights h_2,…,h_n. Via ζ_F,κ_F and ζ_G,κ_G define t_F:B_F→Q_F↪Q and t_G:B_G→Q_G↪Q by the smaller-rank comparisons and the rank-one character map. These maps agree on B_g′. Hence there is a unique τ_D:B→Q restricting to both, by 0→B_g′→B_F⊕B_G→B→0 with anti-diagonal first arrow. It satisfies the refinement equation for w(n)=n or w(n)=1.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group.",
+        "n≥2; the smaller-rank comparison theorem is the strong-induction hypothesis, not a same-rank prerequisite."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/endpoint-refinements",
+        "LocallyAnalyticDistributions:L0",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7"
+      ],
+      "proofSteps": [
+        "Transport smaller-rank comparison through the two block isomorphisms (2.19),(3.27).",
+        "On the common B_g′ the parameter equations (2.13),(3.18) identify the two maps.",
+        "Their sum kills (b,−b); descend using Proposition 3.13 and check the two endpoint families."
+      ],
+      "acceptance": [
+        "Both maps must agree on B_g′, not merely on B_g.",
+        "Use C_1 weights h_2,…,h_n; using the top weights twice changes the second comparison."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, (3.40)–(3.41), pp. 48–49; Proposition 3.13, p. 43",
+          "match": "The inductive block maps glue along the representation-theoretic exact sequence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "endpointComparison",
+          "role": "constructor",
+          "statement": "τ_D is the descended linear map on the sum presentation of B."
+        },
+        {
+          "name": "endpointComparison_restrict",
+          "role": "projection",
+          "statement": "Its restrictions to B_F and B_G are t_F and t_G."
+        },
+        {
+          "name": "endpointComparison_unique",
+          "role": "extensionality",
+          "statement": "Those restrictions determine τ_D because B_F+B_G=B."
+        },
+        {
+          "name": "endpointComparison_refinement",
+          "role": "compatibility",
+          "statement": "τ_Dζ_wκ_w=a_w for refinements in either endpoint family."
+        }
+      ],
+      "tests": [
+        {
+          "name": "overlap_sign",
+          "statement": "The pair (b,−b), b∈B_g′, maps to zero."
+        },
+        {
+          "name": "rank_two_blocks",
+          "statement": "At n=2 both block comparisons are rank-one character maps and the endpoint families exhaust S_2."
+        },
+        {
+          "name": "distinct_block_weights",
+          "statement": "For h=(3,1,−2), the two rank-two weights are (3,1) and (1,−2), respectively."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.1/all-refinements",
+          "how": "Supplies the map known on endpoint refinements."
+        },
+        {
+          "where": "PH.1/comparison-map",
+          "how": "Provides the inductive construction before verifying all refinements."
+        }
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/all-refinements",
+      "title": "Compatibility beyond the endpoint refinements",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1"
+      ],
+      "statement": "Under the smaller-rank induction hypothesis, the glued τ_D satisfies τ_Dζ_wκ_w=a_w for every w∈S_n, including 1<w(n)<n.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group.",
+        "n≥2; τ_D is the endpoint map constructed using smaller-rank comparisons."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/endpoint-gluing",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/character-spanning",
+        "LocallyAnalyticDistributions:L0",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7"
+      ],
+      "proofSteps": [
+        "For a split j, choose in its block Weyl group a permutation moving the position w(n) to an endpoint of {1,…,n}.",
+        "Use Corollary 2.15 and (3.30) to compare the two refinement maps on the determinant-pullback block directions H_j. The changed refinement is an endpoint refinement, where compatibility is established.",
+        "Apply the same assertion on H_Z and then the telescoping spanning identity to obtain compatibility on all H_T."
+      ],
+      "acceptance": [
+        "This step must handle every block direction, not infer all refinements just from the two endpoint families.",
+        "Use a spanning sum with common diagonal directions; the false direct-sum assertion (3.43) is unnecessary."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, (3.42)–(3.43) and the concluding paragraph of Theorem 3.21, pp. 49–50",
+          "match": "Block Weyl compatibility and character spanning extend the glued comparison to every refinement."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+      "title": "Ding’s comparison map",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1"
+      ],
+      "statement": "There is a unique surjective E-linear map t_D:B→Q with t_D∘R_D=s_D. Equivalently, t_Dζ_wκ_w=a_w for every w. The map is canonical for the fixed parameter conventions, and its restriction B_w→Q_w is κ_w⁻¹ζ_w⁻¹. Replacing V by π(φ,h) through the imported Ext isomorphism (3.16) gives the same comparison.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/endpoint-refinements",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/character-spanning",
+        "mathlib:LinearMap.quotKerEquivOfSurjective",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/endpoint-gluing",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/all-refinements"
+      ],
+      "proofSteps": [
+        "Use strong induction on n, with the sole character comparison at n=1.",
+        "At n≥2 apply endpoint-gluing using the smaller-rank comparisons. Apply all-refinements to the resulting τ_D; this proves every refinement equation and hence s_D=τ_D R_D.",
+        "Surjectivity follows from the surjectivity of s_D; uniqueness follows from that of R_D. Transport through the supplier Ext isomorphism (3.16) for the full π(φ,h) version."
+      ],
+      "acceptance": [
+        "Do not assume the desired kernel inclusion as a hypothesis.",
+        "Check all refinements after the two endpoint families, and preserve the block-induction twists."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Theorem 3.21, (3.39)–(3.43), pp. 48–50; Remark 3.22(2), p. 50",
+          "match": "The comparison is obtained by rank induction and gluing, with the source’s false direct-sum replaced by a proved spanning identity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "comparisonMap",
+          "role": "constructor",
+          "statement": "The unique linear map B→Q satisfying the refinement equations."
+        },
+        {
+          "name": "comparisonMap_refinement",
+          "role": "compatibility",
+          "statement": "t_Dζ_wκ_w=a_w as actual linear maps."
+        },
+        {
+          "name": "comparisonMap_surjective",
+          "role": "structure",
+          "statement": "Every quotient deformation is t_D(b) for some b∈B."
+        },
+        {
+          "name": "comparisonMap_unique",
+          "role": "extensionality",
+          "statement": "Two maps satisfying every refinement equation are equal, since R_D is onto."
+        },
+        {
+          "name": "comparisonMap_full_principal_series",
+          "role": "compatibility",
+          "statement": "Transport through B≃Ext¹_G(A,π(φ,h)) preserves t_D."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_one_comparison",
+          "statement": "For n=1 t_D is a character-parameter isomorphism; its kernel is zero."
+        },
+        {
+          "name": "refinement_restriction",
+          "statement": "For b=ζ_w(ψ), t_D(b)=a_w(κ_w⁻¹ψ), so it is independent of an extension presentation."
+        },
+        {
+          "name": "mixed_relation",
+          "statement": "For c∈ker R_D the constructed map gives s_D(c)=0; this is the new theorem, not an input."
+        },
+        {
+          "name": "full_series_transport",
+          "statement": "Push V into π(φ,h); computing t_D on any ζ_w(ψ) yields the same quotient deformation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.2/minimal-extensions",
+          "how": "Its kernel selects the extension carrying Hodge information."
+        },
+        {
+          "where": "PH.3/parabolic-comparison",
+          "how": "Restriction to parabolic Ext images compares the graded blocks."
+        },
+        {
+          "where": "PH.5/universal-artinian-action",
+          "how": "The dual map t_D∨ defines the radical action."
+        }
+      ],
+      "planet": {
+        "name": "Ding’s comparison map"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-dimension",
+      "title": "Dimension of the Hodge-parameter kernel",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1"
+      ],
+      "statement": "Put c_n=2^n−n(n+1)/2−1, a nonnegative integer for n≥1 (natural implementation: 2^n−(n(n+1)/2+1)). Then dim_E ker(t_D)=c_n d_K. The input dimensions are dim B=n+(2^n−1)d_K and dim Q=n+n(n+1)d_K/2. In particular c_1=c_2=0, c_3=1, c_4=5, c_5=16; π_min carries no extra kernel parameter at n≤2.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+        "mathlib:LinearMap.finrank_range_add_finrank_ker",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-multiplicity"
+      ],
+      "proofSteps": [
+        "Apply rank-nullity to the surjective t_D.",
+        "Subtract the two supplier dimension formulas, using integer arithmetic before identifying the nonnegative result with its natural expression.",
+        "Verify n(n+1)/2+1≤2^n for n≥1 and the small-rank values."
+      ],
+      "acceptance": [
+        "Use 2^n rather than 2n.",
+        "For n=3,d_K=2 the kernel dimension is 2, with one direction for each embedding."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Remark 3.22(1), p. 50; input dimensions in (2.16), p. 17 and Proposition 3.8(1), p. 38",
+          "match": "The size of the kernel is the excess of representation extensions over quotient deformations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hodge-parameter kernel dimension"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/refinement-transversality",
+      "title": "Kernel transversality to a refinement",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1"
+      ],
+      "statement": "For every refinement w, ker(t_D)∩B_w=0. Consequently ker(t_D)∩B_g=0 and ker(t_D)∩B_g′=0, since B_g≤B_g′≤B_w. Thus t_D maps B_w isomorphically onto Q_w and B_g onto Q_g.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map"
+      ],
+      "proofSteps": [
+        "On B_w use t_Dζ_w=a_wκ_w⁻¹, where a_w is injective.",
+        "Restrict to the two common subspaces; do not use dimension alone to infer the intersection vanishes."
+      ],
+      "acceptance": [
+        "Check transversality for every w.",
+        "A kernel can be nonzero while meeting every individual B_w trivially; the B_w form an overlapping spanning family."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Lemma 3.23 and Corollary 3.24, p. 50",
+          "match": "Each refinement maps injectively even though gluing their extension spaces creates a kernel."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Refinement transversality"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+      "title": "Minimal and finite-slope kernel extensions",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2"
+      ],
+      "statement": "Let K_D=ker(t_D)⊂B. Define π_min(D) as the tautological extension 0→V→π_min(D)→K_D⊗_E A→0 whose class in Ext¹_G(K_D⊗A,V)≃Hom_E(K_D,B) is the inclusion. Define π_fs(D) by pushing this class through V↪π(φ,h). Then π_fs(D)≃π_min(D)⊕_Vπ(φ,h). These are extensions with identified subobject and quotient; their underlying isomorphism class is independent of a basis of K_D. Because End_G(π(φ,h))→End_G(V)→End_G(A) are E, either representation determines the subspace K_D in the fixed B.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-dimension",
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "proofSteps": [
+        "Apply the imported tautological-extension construction to K_D↪B; it is a contravariant coefficient Hom identification, not an arbitrary choice of c_nd_K extensions.",
+        "Push out along V↪π(φ,h) and use (3.16) to identify its class with the same inclusion.",
+        "The scalar endomorphism restrictions imply isomorphic such extensions determine the same embedded subspace, after identifying their intrinsic socle layers."
+      ],
+      "acceptance": [
+        "Require the class to be the inclusion rather than a zero or unspecified class.",
+        "Do not assert that π_fs or π_min is the full locally analytic correspondence."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.1.1, p. 33 (tautological extensions); §3.1.2, Remark 3.9 and (3.16), p. 39; §3.2.1, definitions and (3.44), p. 50",
+          "match": "The comparison-specific kernel selects two tautological extensions; the generic extension machinery is imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "minimalExtension",
+          "role": "constructor",
+          "statement": "Construct the extension from the inclusion K_D↪Ext¹_G(A,V)."
+        },
+        {
+          "name": "minimalExtension_exact",
+          "role": "structure",
+          "statement": "The kernel and quotient are V and K_D⊗A, with the displayed exact sequence."
+        },
+        {
+          "name": "minimalExtension_class",
+          "role": "characterisation",
+          "statement": "Under Ext¹(K_D⊗A,V)≃Hom(K_D,B), its class sends k to k."
+        },
+        {
+          "name": "minimalExtension_basis_independent",
+          "role": "equivalence",
+          "statement": "Changing a basis of K_D transports the same extension class."
+        },
+        {
+          "name": "finiteSlopeKernelExtension",
+          "role": "constructor",
+          "statement": "Push the kernel extension out to π(φ,h); its class is the transported inclusion."
+        },
+        {
+          "name": "finiteSlopeKernelExtension_pushout",
+          "role": "universal-property",
+          "statement": "π_fs is the amalgamated pushout of π_min and π(φ,h) over V."
+        },
+        {
+          "name": "minimalExtension_detects_kernel",
+          "role": "characterisation",
+          "statement": "Its isomorphism class determines the embedded K_D using the scalar endomorphism identifications."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_two_no_extra_quotient",
+          "statement": "For n=2 K_D=0, hence π_min(D)≃V and π_fs(D)≃π(φ,h)."
+        },
+        {
+          "name": "rank_three_extra_copy",
+          "statement": "For n=3,K=Q_p the quotient is a single A and its class is a nonzero generator of the one-dimensional K_D."
+        },
+        {
+          "name": "nonzero_kernel_not_split",
+          "statement": "If K_D≠0, a split extension would represent the zero map K_D→B and cannot be the inclusion."
+        },
+        {
+          "name": "pushout_quotient_unchanged",
+          "statement": "Passing to π_fs changes the subobject from V to π(φ,h), but its quotient remains K_D⊗A."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.2/ext-pushforward",
+          "how": "The boundary map in the extension’s Hom–Ext sequence is the kernel inclusion."
+        },
+        {
+          "where": "PH.4/recovery",
+          "how": "An isomorphism of minimal representations detects equality of kernels."
+        },
+        {
+          "where": "PH.5/annihilator-realisation",
+          "how": "The same extension is the maximal-ideal annihilator in the universal extension."
+        }
+      ],
+      "planet": {
+        "name": "Minimal kernel extension"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward",
+      "title": "Push-forward to the minimal extension",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2"
+      ],
+      "statement": "The natural map f_D:B→Ext¹_G(A,π_min(D)) is surjective and has kernel K_D. Via Hom_G(A,K_D⊗A)≃K_D, the connecting homomorphism is k↦k, so 0→K_D→B→Ext¹_G(A,π_min(D))→0 is exact. Define B_*^min=f_D(B_*) for *=g,w,F_P and for the specified σ subspaces; they are images under this map. The induced quotient comparison t_D^min:Ext¹_G(A,π_min(D))≃ₗQ satisfies t_D^min f_D=t_D.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "mathlib:LinearMap.quotKerEquivOfSurjective"
+      ],
+      "proofSteps": [
+        "Use the genuine Hom–Ext sequence for 0→V→π_min→K_D⊗A→0 and the scalar End_G(A) identification.",
+        "Compute the boundary from the defining extension class: it is inclusion of K_D in B.",
+        "Use the supplier’s Lemma 3.5(2) and the constituent dévissage invoked on p. 50 to establish surjectivity of f_D; exactness alone does not establish it.",
+        "Factor t_D through f_D and use equality of kernels and surjectivity to obtain the quotient isomorphism."
+      ],
+      "acceptance": [
+        "Surjectivity is a substantive supplier input, not a formal consequence of the displayed left exact sequence (3.45).",
+        "The filtered Ext symbols on π_min are defined as images, especially for parabolic and σ conditions."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, (3.45) and paragraph following it, p. 50; Corollary 3.25(2), p. 51; Lemma 3.5(2), pp. 36–37",
+          "match": "Pushing to the tautological kernel extension kills exactly the comparison kernel and nothing else."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "minimalPushforward",
+          "role": "constructor",
+          "statement": "f_D is functorial push-forward along V↪π_min(D)."
+        },
+        {
+          "name": "minimalPushforward_kernel",
+          "role": "characterisation",
+          "statement": "ker f_D=K_D, with the boundary map equal to the inclusion."
+        },
+        {
+          "name": "minimalPushforward_surjective",
+          "role": "structure",
+          "statement": "f_D is onto by the specified constituent argument."
+        },
+        {
+          "name": "minimalExtImage",
+          "role": "constructor",
+          "statement": "For any named input B_* set B_*^min=range(f_D|B_*)."
+        },
+        {
+          "name": "minimalExtComparison",
+          "role": "equivalence",
+          "statement": "The unique linear equivalence Ext¹_G(A,π_min(D))≃Q making the triangle commute."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_one_pushforward",
+          "statement": "When K_D=0, f_D is the identity after π_min≃V."
+        },
+        {
+          "name": "kernel_generator_killed",
+          "statement": "Each k∈K_D pushes to the split class; a class with t_D(b)≠0 does not."
+        },
+        {
+          "name": "refinement_image_injective",
+          "statement": "The restriction f_D|B_w is injective by transversality, even if the full f_D has nonzero kernel."
+        },
+        {
+          "name": "image_convention",
+          "statement": "B_F^min is the image of the parabolic input under f_D; it is not defined by postulating a filtration on every extension."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.2/ext-refinement-isomorphisms",
+          "how": "Transports individual refinement and de Rham comparisons."
+        },
+        {
+          "where": "PH.2/intrinsic-characterisation",
+          "how": "Produces the bijective comparison in the characterization."
+        },
+        {
+          "where": "PH.3/parabolic-minimal-extension",
+          "how": "The parabolic square after push-forward uses these images."
+        }
+      ],
+      "planet": {
+        "name": "Minimal-extension Ext comparison"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-refinement-isomorphisms",
+      "title": "Refinement comparison after push-forward",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2"
+      ],
+      "statement": "For *=g and *=w for every refinement, t_D^min restricts to B_*^min≃ₗQ_*. The parametrization ζ_w^min=f_Dζ_w:H_T≃ₗB_w^min satisfies t_D^minζ_w^min=a_wκ_w⁻¹ as a map to Q. In particular no individual trianguline direction is lost on π_min.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/refinement-transversality"
+      ],
+      "proofSteps": [
+        "Injectivity of f_D on B_w follows from K_D∩B_w=0.",
+        "Use the original refinement comparison to identify its image with Q_w and restrict to the smooth-character de Rham subspace for g."
+      ],
+      "acceptance": [
+        "The g-space has dimension n, while the unrestricted trianguline image has dimension n(1+d_K).",
+        "Use quotient deformations throughout."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Corollary 3.24, p. 50 and Corollary 3.25(2), p. 51",
+          "match": "The two types of deformation subspaces survive intact after quotienting by K_D."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/intrinsic-characterisation",
+      "title": "Socle and refinement characterization",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2"
+      ],
+      "statement": "Among extensions 0→V→Π→A^{⊕c_nd_K}→0, π_min(D) is the unique representation up to G-isomorphism satisfying (i) soc_GΠ≃A and soc_G(Π/A)≃soc_G(V/A), and (ii) a bijection Ext¹_G(A,Π)≃ₗQ whose restriction to every refinement image, parametrized by the induced ζ_w, is κ_w⁻¹ followed by Q_w↪Q. The second condition includes that the induced refinement parametrizations are isomorphisms onto those images.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-refinement-isomorphisms"
+      ],
+      "proofSteps": [
+        "The tautological extension has no additional simple subobjects or second-socle constituents: nonzero coefficient directions represent nonzero classes, and Lemma 3.5(2) controls lifts through the C(I,s) constituents.",
+        "For any candidate use (i) to identify the intrinsic first two socle layers with the fixed V and recover its extension coefficient subspace L⊂B.",
+        "Condition (ii) makes its push-forward comparison agree with t_D on every B_w. The presentation is onto, so the maps agree on B and L=K_D.",
+        "The class-inclusion description of the kernel extension now identifies the candidate with π_min(D)."
+      ],
+      "acceptance": [
+        "State both socle conditions and the refinementwise compatibility; equality of dimensions alone is insufficient.",
+        "The uniqueness is of representations with the stated properties, not of an arbitrarily chosen extension cocycle."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Corollary 3.25, p. 51, using Lemma 3.5(2), p. 37",
+          "match": "The minimal representation is characterized by its socle layers and the quotient-deformation comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Socle and refinement characterization"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/central-character",
+      "title": "The determinant-normalized character",
+      "kind": "definition",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2"
+      ],
+      "statement": "With θ_i=1−i, λ_{i,σ}=h_{i,σ}+i−1 and N=n(n−1)/2, define |λ|_σ=Σ_iλ_{i,σ} and χ_D(x)=(∏_σσ(x)^{|λ|_σ})|x|_K^N∏_iφ_i(x). Here |ϖ_K|_K=p^{−[K_0:Q_p]} and geometric reciprocity identifies ε(x)=N_{K/Q_p}(x)|x|_K. The tuple |λ| lies in Z^{Σ_K}; it is not a scalar obtained by summing over embeddings. Then det D≃R_{K,E}(χ_D ε^{−N}).",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation"
+      ],
+      "proofSteps": [
+        "Form the coordinate sums in Z^{Σ_K}, then the algebraic character z^{|λ|}.",
+        "Compute Σ_iλ_{i,σ}−N=Σ_ih_{i,σ} at each σ; the norm powers cancel in χ_Dε^{−N}.",
+        "Use the imported rank-one parameter of det D."
+      ],
+      "acceptance": [
+        "The central matrix xI_n acts via this character; no extra power of χ_D is taken.",
+        "Retain the geometric Frobenius and cyclotomic conventions from p. 9."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§2.1, p. 9; §3.1.2, p. 34 (λ); §3.2.1, paragraph before Proposition 3.26, p. 51",
+          "match": "The displayed determinant character is corrected to have an embedding-indexed exponent."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "weightSum",
+          "role": "constructor",
+          "statement": "|λ|:Σ_K→Z sends σ to Σ_iλ_{i,σ}."
+        },
+        {
+          "name": "centralCharacter",
+          "role": "constructor",
+          "statement": "χ_D is the product of the algebraic, norm and smooth factors displayed above."
+        },
+        {
+          "name": "centralCharacter_apply",
+          "role": "projection",
+          "statement": "Evaluation at x equals the displayed product, with each embedding separately indexed."
+        },
+        {
+          "name": "centralCharacter_determinant",
+          "role": "compatibility",
+          "statement": "χ_Dε^{−N} is the determinant parameter of the imported Robba module."
+        },
+        {
+          "name": "centralCharacter_refinement_invariant",
+          "role": "functoriality",
+          "statement": "Permuting the φ_i leaves χ_D unchanged."
+        }
+      ],
+      "tests": [
+        {
+          "name": "rank_one_character",
+          "statement": "For n=1,N=0 one has χ_D=φ_1z^{h_1}."
+        },
+        {
+          "name": "two_embeddings_distinct",
+          "statement": "At n=2 with λ_σ=(2,0), λ_τ=(5,1), the weight tuple is (2,6), not the scalar 8 or the constant tuple (8,8)."
+        },
+        {
+          "name": "rank_three_cyclotomic_twist",
+          "statement": "At n=3,N=3, multiplication by ε^{−3} cancels |·|_K^3 and lowers each embedding exponent by 3."
+        },
+        {
+          "name": "refinement_swap",
+          "statement": "Swapping φ_1,φ_2 does not change their product or χ_D."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.2/scalar-characters",
+          "how": "Identifies the scalar action of the group center and relates it to determinant deformations."
+        }
+      ],
+      "planet": {
+        "name": "Determinant-normalized character"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters",
+      "title": "Central and infinitesimal characters",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2"
+      ],
+      "statement": "The action of Z(G)≃K× on π_min(D) is the scalar character χ_D, and the center Z(U(g_{Σ_K})) acts by ξ_λ, the character of L(λ). To prove the infinitesimal assertion, define d_Sen:Q→X_h from the coefficients of the first-order Sen roots h_{i,σ}+εa_{i,σ}, and d_inf:B→X_{ξ_λ} from the first-order central action on an extension of A by V. With Harish–Chandra normalized so that weight μ corresponds to ξ_{μ−θ}, HC induces X_h≃X_{ξ_λ}, and d_inf=HC∘d_Sen∘t_D. Consequently d_inf vanishes on K_D. The group-center tangent map factors through the determinant tangent in the same way.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/central-character",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n"
+      ],
+      "proofSteps": [
+        "The imported scalar action on A,V and Hom_G(A,V)=E lets a central element act on an extension by a scalar plus a multiple of the canonical square-zero map; it need not act semisimply on an arbitrary extension.",
+        "Strictly separated h at every embedding makes the invariant-polynomial map étale there; prove the tangent isomorphism using the nonzero Vandermonde determinant, not the bare fact that the invariant ring is polynomial.",
+        "Check d_infζ_w=HC d_Sen a_wκ_w⁻¹ on each character parameter by differentiated induction/Jacquet compatibility; (3.38) is onto, so the square commutes globally.",
+        "For the tautological kernel extension the off-diagonal central operator is the functional obtained by restricting that tangent map to K_D. It vanishes, proving actual scalar actions."
+      ],
+      "acceptance": [
+        "Both central actions are scalar on π_min, stronger than a generalized-character assertion.",
+        "The Harish–Chandra normalization and the shift λ=h−θ must match; algebraic closure of E is not assumed."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Proposition 3.26 and (3.46)–(3.47), pp. 51–52",
+          "match": "Sen-weight variation matches infinitesimal-character variation through t_D; the kernel extension has zero variation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Central and infinitesimal characters"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-comparison",
+      "title": "Compatibility with parabolic induction",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3"
+      ],
+      "statement": "For a standard P with Levi ∏_iGL_{n_i}, a saturated P-filtration F_P of D, and M_i=gr_iF_P, t_D restricts to a surjection t_{D,F}:B_F→Q_F. The square (∏_iB(M_i) →^{∏t_{M_i}} ∏_iQ(M_i); B_F →^{t_{D,F}} Q_F) commutes, with left vertical ζ_F an isomorphism and right vertical κ_F⁻¹ an isomorphism. Thus ζ_F induces ⊕_iker(t_{M_i})≃ker(t_D)∩B_F. The arrows retain the ε⁻¹∘θ_P twist in their construction.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+        "LocallyAnalyticDistributions:L0",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7"
+      ],
+      "proofSteps": [
+        "Use the imported compatible-refinement spanning of B_F and Q_F.",
+        "Check the square on each compatible triangulation using (2.20) and (3.28), then extend linearly.",
+        "Apply the two block identifications to identify kernels as embedded subspaces, not merely equal dimensions."
+      ],
+      "acceptance": [
+        "At P=G this is t_D itself; at P=B it gives the zero kernel of a refinement.",
+        "For block ranks 1 and 2 all block kernels vanish."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Proposition 3.27, (3.48)–(3.49), pp. 52–53; inputs Corollary 2.14, pp. 19–20 and Proposition 3.12, pp. 42–43",
+          "match": "The comparison commutes with the actual block-deformation and parabolic-induction maps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Parabolic comparison"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-minimal-extension",
+      "title": "The parabolic minimal subrepresentation",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3"
+      ],
+      "statement": "Set K_{D,F}=ker t_D∩B_F, and define π_min,F(D)⊂π_min(D) by the tautological extension of K_{D,F}⊗A by V. It is maximal among subextensions obtained by push-forward from π_F(φ,h)↪V. There is an injection I_{P⁻}^G((⊠̂_iπ_min(M_i))⊗(ε⁻¹∘θ_P))↪π_min,F(D). Its quotient multiplicity is d_KΣ_ic_{n_i}. The block Ext square remains commutative and all four comparison/vertical arrows become isomorphisms after push-forward to the corresponding minimal representations, using the image definition of the F-filtered Ext space.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward"
+      ],
+      "proofSteps": [
+        "Restrict the universal class-inclusion extension along K_{D,F}⊂K_D.",
+        "A subextension comes from π_F exactly when its class image lies in B_F; the largest such subspace is K_D∩B_F.",
+        "Apply the imported Emerton parabolic induction to the block kernel extensions, with the completed tensor product and fixed twists, and compare extension classes through ζ_F.",
+        "Use the block kernel equality to identify the quotient and the push-forward Ext images."
+      ],
+      "acceptance": [
+        "Use Emerton’s functor I, distinct from the full locally analytic induction.",
+        "Maximality is among push-forward subextensions, not among arbitrary subrepresentations."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Remark 3.28 and its diagram, p. 53",
+          "match": "The parabolic intersection kernel defines a maximal subextension and receives induced block minimal representations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "parabolicMinimalExtension",
+          "role": "constructor",
+          "statement": "Take the kernel-subspace extension for K_D∩B_F."
+        },
+        {
+          "name": "parabolicMinimalExtension_inclusion",
+          "role": "structure",
+          "statement": "Its injection into π_min restricts to id_V and has quotient inclusion (K_D∩B_F)⊗A→K_D⊗A."
+        },
+        {
+          "name": "parabolicMinimalExtension_maximal",
+          "role": "universal-property",
+          "statement": "Every subextension pushed from π_F factors through this one."
+        },
+        {
+          "name": "parabolicMinimalExtension_induction",
+          "role": "compatibility",
+          "statement": "The displayed normalized Emerton induction of block π_min injects."
+        },
+        {
+          "name": "parabolicMinimalExtComparison",
+          "role": "equivalence",
+          "statement": "After the named push-forwards the block square consists of linear isomorphisms."
+        }
+      ],
+      "tests": [
+        {
+          "name": "borel_minimal",
+          "statement": "For P=B all n_i=1, hence π_min,F=V."
+        },
+        {
+          "name": "whole_group_minimal",
+          "statement": "For P=G the construction returns π_min(D)."
+        },
+        {
+          "name": "rank_three_proper_parabolic",
+          "statement": "For n=3 a proper maximal Levi has ranks (2,1) or (1,2), so π_min,F=V although dim K_D=d_K."
+        },
+        {
+          "name": "rank_four_three_plus_one",
+          "statement": "For ranks (3,1) the quotient has multiplicity d_K, whereas the full rank-four quotient has multiplicity 5d_K."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.3/modified-ext-comparison",
+          "how": "Supplies the blockwise σ-minimal square."
+        },
+        {
+          "where": "PH.4/recovery-relation",
+          "how": "The two rank n−1 subextensions π⁻ and π⁺ form the recovery relation."
+        }
+      ],
+      "planet": {
+        "name": "Parabolic minimal extension"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-comparison",
+      "title": "Comparison for one embedding",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3"
+      ],
+      "statement": "For σ∈Σ_K let B_σ be the imported image of Ext¹_σ(A,π_{1,σ}) in B, with σ meaning algebraic along every τ≠σ, and Q_σ the imported quotient space of deformations de Rham at all τ≠σ. Define t_{D,σ}=t_D|B_σ:B_σ↠Q_σ. It satisfies the σ-refinement equations and, for every F_P, the σ-block square of Corollary 3.29(2), so ⊕_iker t_{M_i,σ}≃ker t_{D,σ}∩B_{σ,F}. Moreover dim Q_σ=n+n(n+1)/2, dim B_σ=n+2^n−1 and dim ker t_{D,σ}=c_n.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-dimension"
+      ],
+      "proofSteps": [
+        "Import σ-refinement spanning and compatible character-parameter identifications on both sides.",
+        "On each σ-character generator the full comparison equation has image in Q_σ. Representation-side spanning proves t_D(B_σ)⊂Q_σ; deformation-side spanning (Corollary 2.40) proves surjectivity of that restriction.",
+        "Restrict the parabolic square using the imported σ-block identifications, then use the supplied dimensions."
+      ],
+      "acceptance": [
+        "The σ condition means de Rham/algebraic away from σ, not at σ.",
+        "B_σ is an image, because V itself need not be algebraic away from σ."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, (3.50), Corollary 3.29 and Remark 3.30(1), pp. 53–54; σ input conventions, pp. 20 and 44–46",
+          "match": "The restriction compares the two partially analytic/de Rham theories and keeps their block maps."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "sigmaComparison",
+          "role": "constructor",
+          "statement": "Restrict t_D with codomain Q_σ, justified on all σ-refinement generators."
+        },
+        {
+          "name": "sigmaComparison_refinement",
+          "role": "compatibility",
+          "statement": "t_{D,σ}ζ_w(ψ)=a_wκ_w⁻¹ψ for ψ∈Hom_σ(T(K),E)."
+        },
+        {
+          "name": "sigmaComparison_kernel",
+          "role": "characterisation",
+          "statement": "ker t_{D,σ}=K_D∩B_σ."
+        },
+        {
+          "name": "sigmaComparison_dimension",
+          "role": "structure",
+          "statement": "Its kernel has dimension c_n, independent of d_K."
+        },
+        {
+          "name": "sigmaComparison_parabolic",
+          "role": "compatibility",
+          "statement": "The block square commutes for B_{σ,F}, with direct-sum block kernels."
+        }
+      ],
+      "tests": [
+        {
+          "name": "single_embedding",
+          "statement": "For K=Q_p, B_σ=B and Q_σ=Q, so t_{D,σ}=t_D."
+        },
+        {
+          "name": "two_embedding_kernel",
+          "statement": "For n=3,d_K=2, each σ-kernel has dimension one, against full kernel dimension two."
+        },
+        {
+          "name": "borel_sigma_kernel",
+          "statement": "For P=B the σ-parabolic kernel is zero."
+        },
+        {
+          "name": "algebraic_away_from_sigma",
+          "statement": "A deformation varying Sen weights only at σ can lie in Q_σ; a variation at a different τ cannot."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.3/sigma-minimal-extension",
+          "how": "Selects the σ kernel extension."
+        },
+        {
+          "where": "PH.3/modified-comparison",
+          "how": "Composes with the imported embedding modification."
+        }
+      ],
+      "planet": {
+        "name": "Single-embedding comparison"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-minimal-extension",
+      "title": "The minimal representation for one embedding",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3"
+      ],
+      "statement": "Via Ext¹_σ(A,π_{1,σ})≃B_σ identify K_{D,σ}=ker t_{D,σ} as an embedded extension subspace. Define π_min(D)_σ by 0→π_{1,σ}→π_min(D)_σ→K_{D,σ}⊗A→0 with class inclusion. Its natural map to π_min(D) is injective, and its image is precisely the maximal g_{Σ_K∖{σ}}-algebraic subrepresentation. The quotient multiplicity is c_n.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions"
+      ],
+      "proofSteps": [
+        "Use the imported injective Ext push-forward for π_{1,σ}↪V, then the tautological extension of the inverse-image kernel.",
+        "Compare classes to obtain the natural injection, and use the imported maximal algebraic-away-from-σ criterion for the constituent structure to identify the image."
+      ],
+      "acceptance": [
+        "The subobject is π_{1,σ}, not V.",
+        "For n≤2 the result is π_{1,σ}, with zero extra quotient."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Remark 3.30(2), p. 54, using §3.1.4, pp. 44–46",
+          "match": "The σ kernel extension is an intrinsic partially algebraic subrepresentation of the full minimal object."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "sigmaMinimalExtension",
+          "role": "constructor",
+          "statement": "Construct the extension inside the imported algebraic-away-from-σ category."
+        },
+        {
+          "name": "sigmaMinimalExtension_class",
+          "role": "characterisation",
+          "statement": "Its class is K_{D,σ}↪Ext¹_σ(A,π_{1,σ})."
+        },
+        {
+          "name": "sigmaMinimalExtension_inclusion",
+          "role": "structure",
+          "statement": "The injection into π_min transports the class through π_{1,σ}↪V and K_{D,σ}↪K_D."
+        },
+        {
+          "name": "sigmaMinimalExtension_maximal",
+          "role": "universal-property",
+          "statement": "Every g_{Σ_K∖{σ}}-algebraic subrepresentation of π_min lies in its image."
+        },
+        {
+          "name": "sigmaMinimalExtension_quotient",
+          "role": "projection",
+          "statement": "The quotient by π_{1,σ} is K_{D,σ}⊗A, of multiplicity c_n."
+        }
+      ],
+      "tests": [
+        {
+          "name": "single_embedding_minimal",
+          "statement": "For K=Q_p the σ-minimal representation is all of π_min."
+        },
+        {
+          "name": "rank_two_sigma_minimal",
+          "statement": "For n=2 it equals π_{1,σ}, not the whole V unless there is only one embedding."
+        },
+        {
+          "name": "rank_three_sigma_quotient",
+          "statement": "For every σ at n=3 the quotient is one A."
+        },
+        {
+          "name": "wrong_subobject_rejected",
+          "statement": "At d_K>1 replacing π_{1,σ} by V imports constituents nonalgebraic at τ≠σ and violates maximal partial algebraicity."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.3/sigma-kernel-splitting",
+          "how": "These are the summands amalgamated over the shared socle A."
+        },
+        {
+          "where": "PH.4/recovery",
+          "how": "They isolate the parameter recoverable at a fixed embedding."
+        }
+      ],
+      "planet": {
+        "name": "Single-embedding minimal extension"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-kernel-splitting",
+      "title": "Decomposition over the embeddings",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3"
+      ],
+      "statement": "The inclusions induce an isomorphism ⊕_{σ∈Σ_K}K_{D,σ}≃K_D. Consequently π_min(D)≃⊕^{σ∈Σ_K}_Aπ_min(D)_σ, the amalgamated sum over their common socle A. This is not the ordinary direct sum of representations.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/refinement-transversality"
+      ],
+      "proofSteps": [
+        "Since K_D∩B_g=0, its projection into B/B_g is injective; the same holds for each σ-kernel.",
+        "Use the imported isomorphism ⊕_σ(B_σ/B_g)≃B/B_g of Proposition 3.18(3) to prove injectivity of the sum of kernels.",
+        "Both sides have dimension c_nd_K, giving surjectivity.",
+        "The constituent amalgamation V≃⊕_Aπ_{1,σ} and the class-inclusion description identify the pushout extension with π_min."
+      ],
+      "acceptance": [
+        "The shared B_g is quotiented before claiming a direct sum of extension spaces.",
+        "The quotient multiplicities add, while the socle A is counted only once."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Corollary 3.31, p. 54, with Proposition 3.18(3), p. 46",
+          "match": "The Hodge kernel splits by embeddings, and its extensions glue by amalgamation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Embedding decomposition"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-comparison",
+      "title": "Comparison with the modified Hodge object",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3"
+      ],
+      "statement": "Import D_σ=𝔗_σ(D): its σ-Hodge filtration is retained, while every τ≠σ weight becomes h_{n,τ}; it has the same localized Robba module and D↪D_σ. The imported deformation isomorphism 𝔗_σ:Q_σ(D)≃Q_σ(D_σ) defines t_{D_σ}=𝔗_σt_{D,σ}. It has the same embedded kernel K_{D,σ} and depends only on the isomorphism class of D_σ. The block comparison also transports, giving ⊕_iker t_{M_{i,σ}}≃ker t_{D_σ}∩B_{σ,F}, with M_{i,σ}=𝔗_σ(M_i) in the source’s induced weight conventions.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-comparison",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7"
+      ],
+      "proofSteps": [
+        "Use the imported functorial modification and Corollary 2.27, not a new definition of 𝔗_σ in this roadmap.",
+        "Compose with its quotient-deformation isomorphism, so the kernel is unchanged.",
+        "Check the σ-refinement presentation in Corollary 3.32(1); it is determined by D_σ and the fixed (φ,h) representation side, and its surjection makes the kernel intrinsic.",
+        "Transport the σ-parabolic square, using the supplier’s compatible modifications of each graded block."
+      ],
+      "acceptance": [
+        "D_σ generally lacks regular weights away from σ; never reapply a theorem requiring globally regular weights directly to D_σ.",
+        "Its input comparison is transported from D, rather than falsely calling t_D with h unchanged."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§2.2, Proposition 2.5 and (2.7), p. 13; §3.2.1, Corollary 3.32 and (3.51), p. 55",
+          "match": "The comparison uses the already-owned modification functor and preserves its kernel."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "modifiedComparison",
+          "role": "constructor",
+          "statement": "Compose t_{D,σ} with the genuine isomorphism Q_σ(D)→Q_σ(D_σ)."
+        },
+        {
+          "name": "modifiedComparison_kernel",
+          "role": "characterisation",
+          "statement": "ker t_{D_σ}=ker t_{D,σ} as subspaces of the fixed B_σ."
+        },
+        {
+          "name": "modifiedComparison_isomorphism_invariant",
+          "role": "functoriality",
+          "statement": "An isomorphism D_σ≃D′_σ identifies the σ-refinement diagrams and hence the kernels."
+        },
+        {
+          "name": "modifiedComparison_parabolic",
+          "role": "compatibility",
+          "statement": "The transported block square and (3.51) identify embedded parabolic kernels."
+        }
+      ],
+      "tests": [
+        {
+          "name": "identity_modification",
+          "statement": "For K=Q_p, 𝔗_σ(D)=D and the comparison is unchanged."
+        },
+        {
+          "name": "equal_sigma_objects",
+          "statement": "If D_σ≃D′_σ, the two kernels are equal in B_σ, not merely isomorphic vector spaces."
+        },
+        {
+          "name": "forget_other_filtrations",
+          "statement": "Varying a τ-Hodge flag with τ≠σ while retaining D_σ leaves this kernel unchanged."
+        },
+        {
+          "name": "nonregular_modified_weights",
+          "statement": "For d_K>1,n>1, the repeated weights h_{n,τ} at τ≠σ exclude treating D_σ as a globally regular input."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.3/modified-ext-comparison",
+          "how": "Identifies the minimal representation Ext target with Q_σ(D_σ)."
+        },
+        {
+          "where": "PH.4/recovery",
+          "how": "Proves the easy direction from equality of modified objects to equality of minimal representations."
+        }
+      ],
+      "planet": {
+        "name": "Modified Hodge comparison"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-ext-comparison",
+      "title": "Minimal Ext isomorphisms for a modified object",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3"
+      ],
+      "statement": "There are canonical isomorphisms Ext¹_σ(A,π_min(D)_σ)≃Q_σ(D)≃Q_σ(D_σ). For every F_P they fit the block square (3.52), whose lower left is the image Ext¹_{σ,F}(A,π_min,F(D)_σ) of the specified parabolic σ space. Every vertical block identification and every horizontal comparison in that diagram is an isomorphism.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward"
+      ],
+      "proofSteps": [
+        "Repeat the tautological-kernel Hom–Ext argument inside the imported partially algebraic extension category, with the same supplier surjectivity input.",
+        "Transport the codomain by 𝔗_σ and apply the σ-parabolic square; define the bottom-left filtered space as an image."
+      ],
+      "acceptance": [
+        "Retain the maximal partial algebraic subrepresentation in the lower left.",
+        "The block isomorphisms have the same normalization used in the recovery relation."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Corollary 3.33 and diagram (3.52), p. 55",
+          "match": "The minimal extension realizes the modified quotient deformation space and its block decompositions."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery-relation",
+      "title": "The embedded relation detected by the representation",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4"
+      ],
+      "statement": "Fix σ and n≥3. Let F=(D_1⊂D) and G=(R(φ_n z^{h_1})⊂D), with C_1=D/R(φ_n z^{h_1}). Inside Π=π_min(D)_σ let π⁻ and π⁺ be the two subextensions obtained from K_{D_σ,F} and K_{D_σ,G}, both with subobject π_{1,σ}. Define L_Π=ker[Ext¹_σ(A,π⁻)⊕Ext¹_σ(A,π⁺)→Ext¹_σ(A,Π)], where the arrow is the sum of push-forwards. The block isomorphisms identify its ambient space with V(D_{1,σ},C_{1,σ})_σ=(Q_σ(D_{1,σ})×Hom_σ(K×,E))⊕(Q_σ(C_{1,σ})×Hom_σ(K×,E)), and identify its image with the imported embedded relation L(D_σ,D_{1,σ},C_{1,σ}) in that same ambient space. This ambient identification depends only on the fixed block objects and conventions.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-ext-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-minimal-extension",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7",
+        "mathlib:LinearMap.ker"
+      ],
+      "proofSteps": [
+        "Construct π⁻,π⁺ as the tautological subextensions selected by the two intersections.",
+        "Use the σ-minimal Ext isomorphisms for their block comparisons to form the middle vertical isomorphism in (3.54).",
+        "Use the imported exact relation sequence (2.42) and the compatible comparison on Π to identify the kernel as an embedded subspace.",
+        "When D_σ is replaced by D′_σ with the same block data and same π⁻,π⁺, the middle isomorphism is unchanged, giving equality of relation subspaces."
+      ],
+      "acceptance": [
+        "An abstract isomorphism between the two L-spaces carries no recovery information; their equality inside the specified V is required.",
+        "Use the signs implicit in the sum of push-forwards and the supplier’s relation convention: the first arrow into a two-term presentation is anti-diagonal."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, proof of Theorem 3.34, (3.53)–(3.54), p. 56; §2.4, (2.42) and Corollary 2.38, p. 32",
+          "match": "The representation remembers the same embedded higher-intertwining relation that classifies the modified Hodge object."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "minimalRecoveryRelation",
+          "role": "constructor",
+          "statement": "The kernel of the specified sum of σ push-forward maps."
+        },
+        {
+          "name": "minimalRecoveryRelation_membership",
+          "role": "characterisation",
+          "statement": "A pair lies in L_Π iff the sum of its two pushed-forward extension classes is zero."
+        },
+        {
+          "name": "minimalRecoveryRelation_ambient",
+          "role": "equivalence",
+          "statement": "The two block comparisons identify its ambient space with the fixed V(D_{1,σ},C_{1,σ})_σ."
+        },
+        {
+          "name": "minimalRecoveryRelation_galois",
+          "role": "compatibility",
+          "statement": "Under this ambient isomorphism its image equals the supplier’s L(D_σ,D_{1,σ},C_{1,σ})."
+        },
+        {
+          "name": "minimalRecoveryRelation_invariance",
+          "role": "functoriality",
+          "statement": "Replacing Π by an isomorphic minimal object with the same block identifications preserves the embedded relation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "opposite_refinement_pair",
+          "statement": "For a class appearing in both subextensions, the pair of its two lifts with opposite signs maps to zero."
+        },
+        {
+          "name": "embedded_not_abstract",
+          "statement": "Distinct one-dimensional subspaces of the same ambient V are abstractly isomorphic but must not be identified by this construction."
+        },
+        {
+          "name": "rank_three_block_base",
+          "statement": "At n=3 both blocks have rank two and their kernel extensions are trivial; the relation of their Ext maps still detects the rank-three parameter."
+        },
+        {
+          "name": "isomorphic_input_transport",
+          "statement": "An isomorphism preserving the block comparison maps transports the kernel to the same ambient relation, not an unspecified conjugate subspace."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.4/recovery",
+          "how": "Turns equality of minimal kernels into equality of the Galois relation, the induction step of recovery."
+        }
+      ],
+      "planet": {
+        "name": "Embedded recovery relation"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery",
+      "title": "Recovery of the modified Hodge parameters",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4"
+      ],
+      "statement": "For D,D′∈ΦΓ_nc(φ,h) and σ∈Σ_K, π_min(D)_σ≃_Gπ_min(D′)_σ iff D_σ≃D′_σ. Consequently π_min(D)≃_Gπ_min(D′) iff D_σ≃D′_σ for every σ. If K=Q_p this recovers D itself, and for an étale D=D_rig(ρ) it recovers ρ via the separately imported fully faithful correspondence. No claim of full recovery of D from the family of abstract D_σ-isomorphism classes for general K is made.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery-relation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-kernel-splitting",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions"
+      ],
+      "proofSteps": [
+        "If D_σ≃D′_σ, the modified refinement presentation gives equal kernels, hence isomorphic σ kernel extensions.",
+        "For the converse induct on n. At n≤2 the kernels vanish and the imported modified Hodge objects with fixed parameters are all isomorphic.",
+        "For n≥3, an isomorphism of σ minimal representations identifies the embedded kernels using the intrinsic socle and scalar-endomorphism property. Intersect with the two parabolic images and apply the block kernel formula; induction identifies D_{1,σ},C_{1,σ} for the two inputs.",
+        "The invariant ambient map of the recovery-relation construction now gives equality of the two Galois relation subspaces. Import Corollary 2.38(1) to identify D_σ and D′_σ.",
+        "Extract maximal partial algebraic subrepresentations and apply the amalgamation theorem to pass between the fixed-σ and full statements."
+      ],
+      "acceptance": [
+        "State both directions with their actual logical direction, correcting the reversed labels in the printed proof.",
+        "Use equality of embedded relation subspaces, not a dimension count or an abstract linear equivalence.",
+        "Specialize to K=Q_p only after using 𝔗_σ=id there."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.1, Theorem 3.34 and proof, p. 56; §2.4, Corollary 2.38(1), p. 32",
+          "match": "The kernel representation detects exactly the modified objects; a single embedding gives complete local recovery."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Recovery of Hodge parameters"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/first-order-algebras",
+      "title": "The comparison Artinian algebras",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5"
+      ],
+      "statement": "Import the actual universal deformation rings R_D,R_{D,w},R_{D,g} for all (possibly nonétale) Robba modules, their natural surjections, and the character rings R_{δ},R_{δ,g}. For δ=w(φ)z^h the square with top R_δ/m²→R_{δ,g}/m² and bottom R_{D,w}/m²→R_{D,g}/m² is Cartesian, with vertical parameter maps. Let A_0=Ĥ_φ/m² be the completed smooth Bernstein-center algebra. The embedding A_0↪R_{D,g}/m² is independent of w. Define A_D=(R_D/m²)×_{R_{D,g}/m²}A_0 and A_{D,w}=(R_{D,w}/m²)×_{R_{D,g}/m²}A_0. Then A_{D,w}≃R_{w(φ)z^h}/m², their tangent spaces are Q and Q_w respectively, and I_w=ker(A_D↠A_{D,w}). The map A_D→∏_wA_{D,w} is injective. All are augmented local Artinian E-algebras with square-zero maximal ideal. A_D embeds in R_D/m²; it is not in general a quotient of that algebra.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation",
+        "LocallyAnalyticDistributions:L0",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7",
+        "mathlib:TrivSqZeroExt",
+        "mathlib:Module.Dual"
+      ],
+      "proofSteps": [
+        "Import representability and formal smoothness in the generic noncritical setting; do not substitute unrestricted Galois deformation rings for nonétale Robba deformation rings.",
+        "Dualize the κ_w tangent diagram to get (3.55), and use the refinement-independent smooth Bernstein tangent map to define A_0.",
+        "Form the actual algebra fiber products with their structure maps. Their tangent spaces are Ext¹(D,D)/Ext¹_0 and the analogous trianguline quotient, by the supplier’s smooth parameter and Ext¹_0 identifications.",
+        "Use the canonical residue E-section and square-zero maximal ideal: cotangent is Q∨ and the algebra is E⊕Q∨ with square-zero multiplication, consuming TrivSqZeroExt.",
+        "Dualizing the spanning map ⊕_wQ_w↠Q shows A_D→∏A_{D,w} injective."
+      ],
+      "acceptance": [
+        "Keep tangent Q=Hom_E(m_A,E) and cotangent m_A=Q∨ distinct.",
+        "The initial rings are complete local rings; only their first neighborhoods and the fiber products here are Artinian.",
+        "At n=3,d_K=1, dim_E A_D=10 while dim_E(R_D/m²)=11, exhibiting the missing Ext¹_0 direction."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.2, deformation rings and (3.55), pp. 56–57, especially the A_0,A_D,A_{D,w},I_w paragraph on p. 57",
+          "match": "The first-order fiber products remove the invisible de Rham directions and retain all trianguline quotients."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "comparisonArtinAlgebra",
+          "role": "constructor",
+          "statement": "A_D is the displayed E-algebra fiber product with the named augmentation."
+        },
+        {
+          "name": "refinementArtinAlgebra",
+          "role": "constructor",
+          "statement": "A_{D,w} is the corresponding trianguline fiber product."
+        },
+        {
+          "name": "comparisonArtinAlgebra_pullback",
+          "role": "universal-property",
+          "statement": "A map S→A_D is a pair of E-algebra maps S→R_D/m² and S→A_0 whose composites to R_{D,g}/m² agree."
+        },
+        {
+          "name": "comparisonArtinAlgebra_tangent",
+          "role": "equivalence",
+          "statement": "Hom_E(m_{A_D},E)≃Q and m_{A_D}≃Q∨; similarly for w."
+        },
+        {
+          "name": "refinementArtinIdeal",
+          "role": "constructor",
+          "statement": "I_w is the actual kernel of the natural surjection A_D→A_{D,w}."
+        },
+        {
+          "name": "comparisonArtinAlgebra_joint_injective",
+          "role": "characterisation",
+          "statement": "An element mapping to zero in every A_{D,w} is zero."
+        },
+        {
+          "name": "refinementArtinAlgebra_character",
+          "role": "compatibility",
+          "statement": "A_{D,w}≃R_{w(φ)z^h}/m², respecting the residue E and cotangent identifications."
+        }
+      ],
+      "tests": [
+        {
+          "name": "square_zero_neighborhood",
+          "statement": "For x,y in the maximal ideal of A_D, xy=0; the residue scalars still multiply as in E."
+        },
+        {
+          "name": "rank_one_character_ring",
+          "statement": "At n=1 the sole refinement quotient is A_D itself and I_w=0."
+        },
+        {
+          "name": "rank_three_dimension",
+          "statement": "For n=3,d_K=1 the tangent dimensions are dim Q=9 and dim Q_w=6, so dim_E A_D=10, dim_E A_{D,w}=7 and dim_E I_w=3."
+        },
+        {
+          "name": "tangent_variance",
+          "statement": "A_D↠A_{D,w} induces the injection Q_w↪Q on tangents, reversing the ring arrow."
+        },
+        {
+          "name": "zero_common_ideal",
+          "statement": "The intersection ⋂_wI_w is zero, although an individual I_w can be nonzero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.5/universal-artinian-action",
+          "how": "Supplies the algebra acting on the universal extension and its refinement quotients."
+        },
+        {
+          "where": "PH.5/annihilator-realisation",
+          "how": "The maximal ideal cuts out the minimal representation."
+        }
+      ],
+      "planet": {
+        "name": "Comparison Artinian algebras"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-extensions",
+      "title": "Universal extensions for the comparison",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5"
+      ],
+      "statement": "Let U=π_1(φ,h)^univ be the tautological extension 0→V→U→B⊗A→0 corresponding to id_B. For each w let U_w⊂U be its inverse image over B_w⊗A; it is the tautological extension with class B_w↪B. Set δ_w=w(φ)z^h(ε⁻¹∘θ), and let δ̃_w^univ be the character self-extension 0→δ_w→δ̃_w^univ→H_T⊗δ_w→0 corresponding to id_{H_T}. Under A_{D,w}≃R_{w(φ)z^h}/m², x∈m_{A_{D,w}}≃H_T∨ acts on the torus extension by quotient, contraction by x, then inclusion of δ_w. On U_w use the same formula via ζ_w:H_T≃B_w and A↪V↪U_w. Scalars act by the given E-structure.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/first-order-algebras",
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "proofSteps": [
+        "Use the supplier’s general tautological-extension construction with the whole B and with B_w.",
+        "The inclusion B_w⊂B gives U_w as an actual subextension. Since Σ_wB_w=B, these subrepresentations generate U.",
+        "Define the torus radical operator from H_T∨ evaluation; its square and all pairwise radical products vanish because the quotient kills the included δ_w.",
+        "The same quotient–contraction–inclusion construction on U_w gives an algebra action, with cotangent transported contragrediently through ζ_w."
+      ],
+      "acceptance": [
+        "The quotient is B⊗A, not B∨⊗A. The radical is dual to the tangent, so its evaluation is correctly oriented.",
+        "The torus character δ_w has the ε⁻¹∘θ twist, though the parameter-ring isomorphism uses its inverse fixed twist."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.2, universal extension definitions, p. 57; natural actions and (3.57), p. 58; general tautological extensions, p. 33",
+          "match": "The universal extensions and their refinement radical actions provide the carriers for the Artinian comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "comparisonUniversalExtension",
+          "role": "constructor",
+          "statement": "U is the actual extension with class id_B in Hom_E(B,B)."
+        },
+        {
+          "name": "refinementUniversalExtension",
+          "role": "constructor",
+          "statement": "U_w is the inverse-image subextension over B_w⊗A."
+        },
+        {
+          "name": "comparisonUniversalExtension_class",
+          "role": "characterisation",
+          "statement": "Pulling back along b:A→B⊗A represents the class b∈B."
+        },
+        {
+          "name": "torusUniversalExtension",
+          "role": "constructor",
+          "statement": "The self-extension of δ_w uses id_{H_T}, with its displayed exact sequence."
+        },
+        {
+          "name": "refinementRadicalAction",
+          "role": "compatibility",
+          "statement": "For x∈m_{A_{D,w}} the endomorphism is i_A∘(x∘ζ_w⁻¹⊗id_A)∘p_w."
+        },
+        {
+          "name": "universalExtension_generated",
+          "role": "structure",
+          "statement": "The smallest G-subrepresentation containing every U_w is U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "zero_parameter_pullback",
+          "statement": "Pulling U back along the zero coefficient A→B⊗A yields the split extension."
+        },
+        {
+          "name": "specified_parameter_pullback",
+          "statement": "Pulling back along a nonzero b gives exactly b, rejecting the constant or dual-basis-inverted extension."
+        },
+        {
+          "name": "radical_composition_zero",
+          "statement": "For all radical x,y on U_w, x∘y=0 since p_w i_A=0."
+        },
+        {
+          "name": "nonzero_evaluation",
+          "statement": "If x(ζ_w⁻¹b)≠0 and a≠0, applying x to any lift of b⊗a yields that nonzero scalar times the included a."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.5/induction-universal-extension",
+          "how": "Compares the torus extension and U_w via Emerton induction."
+        },
+        {
+          "where": "PH.5/universal-artinian-action",
+          "how": "The U_w actions determine the unique action on the generated U."
+        }
+      ],
+      "planet": {
+        "name": "Universal comparison extensions"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/induction-universal-extension",
+      "title": "Induction of the universal character extension",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5"
+      ],
+      "statement": "Emerton induction I_{B⁻}^G(δ̃_w^univ) is the universal extension of A⊗Ext¹_G(A,PS_1(w(φ),h)) by PS_1(w(φ),h). Pushing out along PS_1(w(φ),h)↪V gives I_{B⁻}^G(δ̃_w^univ)⊕_{PS_1}V≃U_w. The induced injection I_{B⁻}^G(δ̃_w^univ)↪U_w is A_{D,w}-equivariant for the radical actions just defined.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-extensions",
+        "LocallyAnalyticDistributions:L0"
+      ],
+      "proofSteps": [
+        "Use the imported character-to-Ext isomorphism (3.10) and Remark 3.7 to see the induced extension has quotient A^{⊕n(1+d_K)} and a subobject contained in PS_1.",
+        "Because every class in Ext¹(A,PS_1) comes from it, constituent dévissage and the surjectivity in (3.14) force that subobject to be all PS_1.",
+        "Identify the tautological classes under ζ_w, then push out and compare the explicit radical evaluation maps."
+      ],
+      "acceptance": [
+        "Universality forces the full PS_1 subobject; a generic adjunction assertion alone does not.",
+        "Keep I_{B⁻}^G distinct from full locally analytic principal-series induction."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.2, Lemma 3.35, (3.56)–(3.57), p. 58; Proposition 3.6(1) and Remark 3.7, p. 38",
+          "match": "The universal character extension induces the universal refinement extension, with its action preserved."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Universal character induction"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-artinian-action",
+      "title": "Ding’s universal Artinian action",
+      "kind": "construction",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5"
+      ],
+      "statement": "There is a unique E-algebra action of the augmented algebra A_D on U commuting with G such that every natural U_w↪U[I_w] is A_{D,w}×G-equivariant. Here U[I]={u | xu=0 for all x∈I}. Explicitly, for x∈m_{A_D}≃Q∨ the action is U→^{p}B⊗A→^{t_D⊗id}Q⊗A→^{x⊗id}A↪U. This ends in U; the w-dependent final codomain printed in (3.58) is not the definition of an endomorphism of U.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/first-order-algebras",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/induction-universal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map"
+      ],
+      "proofSteps": [
+        "The displayed radical operators commute with G, kill V and have image in A⊂V, so their products are zero. Together with scalar E this defines an action of the actual first-order algebra A_D.",
+        "The refinement equation for t_D identifies their restriction to U_w with the prescribed quotient action; elements of I_w therefore annihilate U_w.",
+        "All U_w generate U, so any two actions with the asserted restrictions coincide. No equality U_w=U[I_w] is required or claimed."
+      ],
+      "acceptance": [
+        "Use the canonical inclusions U_w; existence of unrelated equivariant injections would not determine an action.",
+        "State uniqueness among E-algebra actions with the given scalar E-structure."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.2, Theorem 3.36 and (3.58), pp. 58–59",
+          "match": "The comparison map glues the first-order refinement actions into a unique global action."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "universalArtinianAction",
+          "role": "constructor",
+          "statement": "The E-algebra homomorphism A_D→End_G(U) has the stated radical formula."
+        },
+        {
+          "name": "universalArtinianAction_radical",
+          "role": "projection",
+          "statement": "For x∈Q∨, x·u=i_A((x⊗id_A)((t_D⊗id_A)(p(u))))."
+        },
+        {
+          "name": "universalArtinianAction_refinement",
+          "role": "compatibility",
+          "statement": "U_w maps into U[I_w] and the induced action is the fixed A_{D,w} action."
+        },
+        {
+          "name": "universalArtinianAction_unique",
+          "role": "extensionality",
+          "statement": "Agreement on the prescribed U_w actions implies equality on U."
+        },
+        {
+          "name": "universalArtinianAction_base",
+          "role": "simp",
+          "statement": "Every radical element kills V, and each a∈E acts as its original scalar."
+        }
+      ],
+      "tests": [
+        {
+          "name": "radical_kills_base",
+          "statement": "Every x∈m_{A_D} kills the full V inside U, not only its socle A."
+        },
+        {
+          "name": "refinement_ideal_kills",
+          "statement": "For x∈I_w and u∈U_w the action is zero because the tangent character factors through Q_w."
+        },
+        {
+          "name": "visible_parameter_action",
+          "statement": "If t_D(b)≠0 and a≠0, some x∈Q∨ acts nontrivially on any lift of b⊗a."
+        },
+        {
+          "name": "kernel_parameter_action",
+          "statement": "For b∈K_D all radical elements kill every lift of b⊗a."
+        },
+        {
+          "name": "two_radical_factors",
+          "statement": "For x,y∈m_{A_D}, x(yu)=0 for every u, matching m_{A_D}²=0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PH.5/annihilator-realisation",
+          "how": "Computes the maximal-ideal annihilator as the kernel extension."
+        },
+        {
+          "where": "LocalGlobalCompatibilityPartIIEigenvarietyCompanions (consumer brief)",
+          "how": "Supplies the local algebra action to be compared with global tangent actions; no global theorem is planned here."
+        }
+      ],
+      "planet": {
+        "name": "Universal Artinian action"
+      }
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/annihilator-realisation",
+      "title": "The minimal representation as an annihilator",
+      "kind": "theorem",
+      "parentStageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5",
+      "realises": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5"
+      ],
+      "statement": "For the action just constructed, U[m_{A_D}]=p⁻¹(K_D⊗A), and this subrepresentation is canonically the kernel extension π_min(D). Thus π_min(D)≃U[m_{A_D}]. The equality concerns the maximal-ideal annihilator, not a quotient U/m_{A_D}U or an entire refinement annihilator.",
+      "hypotheses": [
+        "Standing hypotheses H: n≥1; K/Q_p finite; E/Q_p finite containing every embedding of K; φ=(φ_i) smooth with φ_i/φ_j∉{1,|·|_K} for i≠j; h_{i,σ}>h_{i+1,σ}; D∈ΦΓ_nc(φ,h), with every refinement noncritical. Input contracts LA and TR in the reader, and gaps G-LA/G-TR, apply whenever their objects are used.",
+        "Use A=π_alg(φ,h), V=π_1(φ,h), B=Ext¹_G(A,V), Q=Ext¹(D,D)/Ext¹_0(D,D), H_T=Hom_la(T(K),E), G=GL_n(K). Q_* is the image of the indicated deformation subspace modulo the common Ext¹_0; B_* is the specified representation Ext image, not a new unrestricted Ext group."
+      ],
+      "prerequisites": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-artinian-action",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions"
+      ],
+      "proofSteps": [
+        "By the radical formula a vector u is annihilated iff every x∈Q∨ contracts (t_D⊗id_A)p(u) to zero.",
+        "Finite-dimensional dual separation in Q and exactness of tensoring over E identify this joint kernel with K_D⊗A.",
+        "The preimage under p has tautological extension class the inclusion K_D↪B, so it is π_min(D)."
+      ],
+      "acceptance": [
+        "At n≤2 the annihilator is exactly V, since K_D=0.",
+        "At n=3,K=Q_p its quotient by V is one A, although U/V has multiplicity dim B=10."
+      ],
+      "sources": [
+        {
+          "sourceId": "DING25",
+          "locator": "§3.2.2, Corollary 3.37, p. 59, with the action (3.58), p. 58",
+          "match": "The radical kills exactly the comparison-kernel coefficients, recovering the minimal extension."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Minimal representation as an annihilator"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "LocallyAnalyticDistributions:L0",
+      "need": "PROVISIONAL FILING ONLY: obtain LA1–LA6 below from the intended owner LocallyAnalyticRepresentationsOfLocalGroups, design #3411. L0 supplies analytic-function foundations, not GL_n principal series, Ext, Emerton induction or their identities. Repoint this request to exact supplier nodes when that design exists. Full required statements are inputContracts LA1–LA6.",
+      "neededBy": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/endpoint-gluing",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/all-refinements",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-dimension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/refinement-transversality",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-refinement-isomorphisms",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/intrinsic-characterisation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/central-character",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-kernel-splitting",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-ext-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery-relation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/first-order-algebras",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/induction-universal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-artinian-action",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/annihilator-realisation"
+      ]
+    },
+    {
+      "supplier": "PhiGammaModulesAndIwasawaCohomology:PG.7",
+      "need": "PROVISIONAL FILING ONLY: obtain TR1–TR6 below from the intended owner TriangulineVarietyAndItsLocalModel, design #3412. PG.7 supplies relative Robba categories/Herr foundations, not Ding’s noncritical deformation quotients, higher-intertwining recovery or universal deformation rings. Repoint to exact future supplier nodes; their statements are inputContracts TR1–TR6.",
+      "neededBy": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/endpoint-gluing",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/all-refinements",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-dimension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/refinement-transversality",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-refinement-isomorphisms",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/intrinsic-characterisation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/central-character",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-kernel-splitting",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-ext-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery-relation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/first-order-algebras",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/induction-universal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-artinian-action",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/annihilator-realisation"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
+      "need": "Supply the split reductive gl_n Harish–Chandra isomorphism and its highest-weight evaluation normalization over finite E/Q_p, including the scalar matrix direction, tensoring over all embeddings, and descent of identities from a splitting/algebraic closure if used. The regular Sen-root-to-invariant-polynomial tangent isomorphism is proved in PH.2/scalar-characters using a Vandermonde determinant.",
+      "neededBy": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n",
+      "need": "The finite-E split reductive gl_n bridge of contract HC, using the existing roadmap’s scalar-center and sl_n transfer rather than imposing a nondegenerate Killing form on gl_n.",
+      "neededBy": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "G-LA",
+      "title": "The intended locally analytic representation supplier is not designed",
+      "detail": "No definition, stage or reserved node exists here for design #3411. LA1–LA6 are exact imported requirements, not completed inputs. The L0 request is a provisional filing reference and does not satisfy them. None of the current induction/restriction, distribution or highest-weight roadmaps already supplies Ding’s entire GL_n Ext system. Every target using these carriers remains conditional until supplier nodes implement the contracts.",
+      "neededBy": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/endpoint-gluing",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/all-refinements",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-dimension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/refinement-transversality",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-refinement-isomorphisms",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/intrinsic-characterisation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/central-character",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-kernel-splitting",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-ext-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery-relation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/first-order-algebras",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/induction-universal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-artinian-action",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/annihilator-realisation"
+      ]
+    },
+    {
+      "id": "G-TR",
+      "title": "The intended trianguline and Hodge supplier is not designed",
+      "detail": "No definition, stage or reserved node exists here for design #3412. TR1–TR6, especially the embedded relation and its recovery theorem, cannot be replaced by generic relative Robba-category definitions. The PG.7 request is provisional and insufficient. This packet owns only the comparison and uses of the imported objects.",
+      "neededBy": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/endpoint-gluing",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/all-refinements",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-dimension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/refinement-transversality",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-refinement-isomorphisms",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/intrinsic-characterisation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/central-character",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-minimal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-kernel-splitting",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-ext-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery-relation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/first-order-algebras",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-extensions",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/induction-universal-extension",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-artinian-action",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/annihilator-realisation"
+      ]
+    },
+    {
+      "id": "G-HC",
+      "title": "Finite-coefficient reductive Harish–Chandra bridge needs a supplier statement",
+      "detail": "LieHighestWeight Layers 7 and 9 own Harish–Chandra and split gl_n representation theory; current Tau Ceti implements the central projection and one dot-invariant inclusion, not the full isomorphism used here. Their finite-E gl_n/Σ_K normalization and any descent from algebraic closure must be supplied explicitly (contract HC). The nonzero Vandermonde argument is comparison-specific work in PH.2, not a replacement for this isomorphism.",
+      "neededBy": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0",
+      "status": "planned",
+      "remaining": [
+        "Resolve G-LA and G-TR by replacing provisional filing requests with exact supplier nodes."
+      ]
+    },
+    {
+      "stageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+      "status": "planned",
+      "remaining": [
+        "Resolve G-LA and G-TR by replacing provisional filing requests with exact supplier nodes."
+      ]
+    },
+    {
+      "stageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+      "status": "planned",
+      "remaining": [
+        "Resolve G-LA and G-TR by replacing provisional filing requests with exact supplier nodes.",
+        "Resolve G-HC finite-E reductive normalization."
+      ]
+    },
+    {
+      "stageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+      "status": "planned",
+      "remaining": [
+        "Resolve G-LA and G-TR by replacing provisional filing requests with exact supplier nodes."
+      ]
+    },
+    {
+      "stageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4",
+      "status": "planned",
+      "remaining": [
+        "Resolve G-LA and G-TR by replacing provisional filing requests with exact supplier nodes."
+      ]
+    },
+    {
+      "stageId": "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5",
+      "status": "planned",
+      "remaining": [
+        "Resolve G-LA and G-TR by replacing provisional filing requests with exact supplier nodes."
+      ]
+    }
+  ],
+  "routingCoverage": [
+    {
+      "item": "PAPER-DING-25/3.2-RT",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/comparison-presentation"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-thm-3-21",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/endpoint-gluing",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/all-refinements",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/comparison-map"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-Sn-1-prime",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/endpoint-refinements"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-span-Zj",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/block-characters",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.0/character-spanning"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-remark-3-22",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-multiplicity",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/kernel-dimension"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-lemma-3-23",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1/refinement-transversality"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-pimin",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/minimal-extensions"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-fD",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-pushforward"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-cor-3-24",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/ext-refinement-isomorphisms"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-cor-3-25",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/intrinsic-characterisation"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-chi-D",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/central-character"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-prop-3-26",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2/scalar-characters"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-prop-3-27",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-comparison"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-remark-3-28",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/parabolic-minimal-extension"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-cor-3-29",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-comparison"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-remark-3-30",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-minimal-extension"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-cor-3-31",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/sigma-kernel-splitting"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-cor-3-32-33",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-comparison",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3/modified-ext-comparison"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-thm-3-34",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery-relation",
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.4/recovery"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-cartesian",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/first-order-algebras"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-univ-ext",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-extensions"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-lemma-3-35",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/induction-universal-extension"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-thm-3-36",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/universal-artinian-action"
+      ]
+    },
+    {
+      "item": "PAPER-DING-25/3.2-cor-3-37",
+      "nodes": [
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.5/annihilator-realisation"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E1",
+      "kind": "error",
+      "locator": "DING25, published version: Theorem 3.21 proof, (3.43), pp. 49–50",
+      "printed": "The full character space is identified with a direct sum of all maximal-Levi-center character spaces and the group-center character space.",
+      "correction": "Use a spanning sum of determinant-pullback block character subspaces, with common diagonal directions, and the telescoping identity of PH.0/character-spanning.",
+      "reason": "Each two-block character space already contains the diagonal. The proposed sum has dimension (2n−1)(1+d_K), whereas H_T has dimension n(1+d_K); at n=3,d_K=1 these are 10 and 6. The coordinate telescoping proof supplies exactly what the comparison proof uses.",
+      "affects": "the proof",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E2",
+      "kind": "misprint",
+      "locator": "DING25, published version: paragraph defining χ_D before Proposition 3.26, p. 51",
+      "printed": "The exponent denoted |λ| is described with a summation over embeddings, although it is then used as an embedding-indexed algebraic weight.",
+      "correction": "Define |λ|_σ=Σ_iλ_{i,σ} for each σ.",
+      "reason": "For n=2 and two embeddings with λ=(2,0) and (5,1), the exponents must be 2 and 6. A scalar sum cannot recover the determinant parameter at both embeddings.",
+      "affects": "nothing",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E3",
+      "kind": "misprint",
+      "locator": "DING25, published version: Theorem 3.36 proof, (3.58), p. 58",
+      "printed": "The radical operator on the full universal extension ends in a refinement-indexed universal extension.",
+      "correction": "The final inclusion is A↪U, the same full universal extension as the domain.",
+      "reason": "A ring action on U is an endomorphism of U; the displayed formula has no chosen w. On restriction to U_w the formula agrees with its existing action.",
+      "affects": "nothing",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E4",
+      "kind": "misprint",
+      "locator": "DING25, published version: Theorem 3.34 proof, second relation after (3.54), p. 56",
+      "printed": "After replacing D_σ by D′_σ the displayed relation still has D_σ in its first slot.",
+      "correction": "Use L(D′_σ,D_{1,σ},C_{1,σ}). Both relation subspaces are images of the same kernel through the same ambient isomorphism.",
+      "reason": "The proof compares two potentially different objects. Its conclusion requires equality of their embedded relations, not an abstract isomorphism of spaces of the same dimension.",
+      "affects": "nothing",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E5",
+      "kind": "misprint",
+      "locator": "DING25, published version: Theorem 3.34 proof, first paragraph, p. 56",
+      "printed": "The easy implication is labeled only-if and the inductive implication if, in the reverse order from the equivalence as stated.",
+      "correction": "D_σ≃D′_σ implies equality of comparisons by Corollary 3.32. The converse, starting from isomorphic minimal representations, is the induction.",
+      "reason": "Corollary 3.32 transports comparison under a modified-object isomorphism; it cannot itself recover the object from a representation.",
+      "affects": "nothing",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E6",
+      "kind": "error",
+      "locator": "DING25, published version: Corollary 2.14 proof, final dimension comparison, p. 19",
+      "printed": "The dimension comparison for the quotient parabolic tangent has a term d_K dim(B∩L_P)−n and then identifies it with the block dimensions.",
+      "correction": "Use dim Q_F=n+d_K dim(B∩L_P)=Σ_i[n_i+n_i(n_i+1)d_K/2]; the block terms are quotient Ext dimensions.",
+      "reason": "Subtracting dim Ext¹_0 from Proposition 2.13 and using the parabolic block ranks gives this formula. For P=B it is n(1+d_K), while the printed expression would be n(d_K−1).",
+      "affects": "the proof",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E7",
+      "kind": "misprint",
+      "locator": "DING25, published version: Proposition 3.8, (3.12) and (3.15), pp. 38–39",
+      "printed": "The subset index for C(I,s_{i,σ}) is restricted to {1,…,n−1}.",
+      "correction": "Use I⊂{1,…,n} with 1≤|I|≤n−1, consistently with the definition on p. 34.",
+      "reason": "At n=2 both singleton subsets label constituents, while the printed index omits one. Summing all binomial coefficients for proper nonempty subsets gives 2^n−2 and the stated dimension formula.",
+      "affects": "a stated result",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E8",
+      "kind": "misprint",
+      "locator": "DING25, published version: Lemma 2.11 proof, last parameter of the displayed triangulation, p. 16",
+      "printed": "The last rank-one parameter carries the first Hodge weight again.",
+      "correction": "Its algebraic factor is z^{h_n}, the n-th ordered weight, rather than z^{h_1}.",
+      "reason": "The ordered weights in a noncritical triangulation are h_1,…,h_n. The next page uses the corresponding h_k and h_{k+1} in the simple-reflection comparison.",
+      "affects": "nothing",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    },
+    {
+      "id": "PadicHodgeParametersInLocallyAnalyticRepresentations/E9",
+      "kind": "misprint",
+      "locator": "DING25, published version: parabolic-induction paragraph after (3.30), p. 43",
+      "printed": "The parabolic labels on the two endpoint induction expressions do not match their displayed Levi factors.",
+      "correction": "The expression with the rank n−1 block first uses P_{n−1}; the expression with the rank-one block first uses P_1, with P_i defined by deleting simple root i.",
+      "reason": "Their Levi shapes are (n−1,1) and (1,n−1), respectively, and p. 33 fixes this indexing. The intrinsic filtrations F and G remain the ones used in PH.1.",
+      "affects": "nothing",
+      "known": "No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.",
+      "searched": [
+        "Published Centre Mersenne PDF and Springer article record for DOI 10.1007/s10240-025-00156-2, accessed 19 October 2026; targeted web search for this title/DOI with erratum or corrigendum found no separate correction.",
+        "PAPER-DING-25.result.json sourceIssues consulted as leads; relevant printed formulas independently checked in the published PDF. No correction is assumed from the differently paginated arXiv version."
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    "Current Tau Ceti already implements hcProjection and its dot-invariant containment. These later declarations should replace the corresponding upstream roadmap placeholders during packaging; this design does not alter upstream files.",
+    "Before packaging, designs #3411/#3412 must exist and satisfy LA1–LA6/TR1–TR6. The current filing stages are not mathematical closure. Do not route a higher-tier global compatibility result back into this local comparison."
+  ],
+  "suggestedLean": {
+    "file": "research/blueprint/suggested/PadicHodgeParametersInLocallyAnalyticRepresentations.lean",
+    "status": "elaborated",
+    "checkedWith": "lean-check, pinned shared build, 19 October 2026; exit 0, proof-admission warnings only.",
+    "boundary": "Only endpoint refinements, block tuples and spanning, c_n and the rank-nullity consequence. No replacement carrier, opaque or admitted data definition, or axiomatic interface for absent analytic or Robba objects."
+  }
+}
