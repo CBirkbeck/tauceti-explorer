@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T17:10Z",
+  "updated": "2026-10-19T17:20Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -205,7 +205,7 @@
     "ComplexComparisonPartII": {
       "stage": "pr",
       "pr": 848,
-      "head": "15bbf41",
+      "head": "7228a4d",
       "depends_on": [
         779,
         853
@@ -289,7 +289,7 @@
     "AlgebraicModuliForArithmeticGeometry": {
       "stage": "pr",
       "pr": 853,
-      "head": "473403f",
+      "head": "c17eca4",
       "depends_on": [
         779,
         785,
@@ -382,7 +382,7 @@
     "ArithmeticGaloisDuality": {
       "stage": "pr",
       "pr": 858,
-      "head": "9fcc0f8",
+      "head": "439d489",
       "depends_on": [
         779,
         856,
@@ -420,7 +420,7 @@
     "SelmerIwasawaCohomology": {
       "stage": "pr",
       "pr": 869,
-      "head": "964eaa8",
+      "head": "691599e",
       "depends_on": [
         858,
         779,
@@ -561,7 +561,7 @@
     "EnhancedDerivedSheaves": {
       "stage": "pr",
       "pr": 908,
-      "head": "a965178",
+      "head": "d336bcd",
       "review": {
         "recommendation": "approve",
         "current": false,
@@ -768,7 +768,7 @@
     "AdicCoefficientsAndComparisons": {
       "stage": "pr",
       "pr": 965,
-      "head": "4a7b4d8",
+      "head": "815883d",
       "note": "ported 2026-10-15 (tier 21); both author-side red-team passes applied; draft awaiting ChatGPT Pro deep review; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 4a7b4d8; draft awaiting re-review",
       "review": {
         "recommendation": "approve",
@@ -864,7 +864,7 @@
     "FaltingsFinitenessAndIsogenyTheorems": {
       "stage": "pr",
       "pr": 1004,
-      "head": "a0e3248",
+      "head": "8024ea7",
       "note": "ported 2026-10-16 (tier 17); both red-team passes applied; draft awaiting ChatGPT Pro",
       "review": {
         "recommendation": "changes",
@@ -876,7 +876,7 @@
     "HilbertModularVarietiesAndShimuraCurves": {
       "stage": "pr",
       "pr": 1005,
-      "head": "fee62fc",
+      "head": "8793cf6",
       "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
       "review": {
         "recommendation": "approve",
@@ -1057,7 +1057,7 @@
     "EtaleDualityAndPerverseSheaves": {
       "stage": "pr",
       "pr": 1040,
-      "head": "9829f0a",
+      "head": "ab54c47",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 31); red team running",
       "review": {
         "recommendation": "changes",
@@ -1069,7 +1069,7 @@
     "PerfectoidQuotients": {
       "stage": "pr",
       "pr": 1042,
-      "head": "3c27149",
+      "head": "c29674a",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
       "review": {
         "recommendation": "approve",
@@ -1141,7 +1141,7 @@
     "PrismaticCohomology": {
       "stage": "pr",
       "pr": 1057,
-      "head": "7aa6ca7",
+      "head": "699c8cb",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
       "review": {
         "recommendation": "changes",
@@ -1153,7 +1153,7 @@
     "PadicHodgeTheory": {
       "stage": "pr",
       "pr": 1062,
-      "head": "758288a",
+      "head": "b855272",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
       "review": {
         "recommendation": "changes",
@@ -1309,7 +1309,7 @@
     "TorsionCohomologyInfrastructure": {
       "stage": "pr",
       "pr": 1087,
-      "head": "6a6dc6c",
+      "head": "5844ca1",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 50); red team running",
       "review": {
         "recommendation": "changes",
@@ -1405,7 +1405,7 @@
     "ArithmeticStatisticsPartIII": {
       "stage": "pr",
       "pr": 1174,
-      "head": "490b0c7",
+      "head": "5bf774e",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part III of the ArithmeticStatistics split); red team running",
       "review": {
         "recommendation": null,
@@ -1489,19 +1489,20 @@
     "ResolutionOfSingularitiesCharacteristicZero": {
       "stage": "pr",
       "pr": 1199,
-      "head": "6acd776",
+      "head": "fad5bee",
       "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
       "review": {
         "recommendation": "approve",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at fad5bee; confirmation pass pending"
       }
     },
     "LanglandsParameterStacks": {
       "stage": "pr",
       "pr": 1202,
-      "head": "152047b",
+      "head": "443c165",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
       "review": {
         "recommendation": null,
@@ -1537,7 +1538,7 @@
     "RelativeFarguesFontaine": {
       "stage": "pr",
       "pr": 1209,
-      "head": "723b64d",
+      "head": "1e0dc5b",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
       "review": {
         "recommendation": null,
