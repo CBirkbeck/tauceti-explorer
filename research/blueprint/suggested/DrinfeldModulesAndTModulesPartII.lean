@@ -16,7 +16,13 @@ names.
 Conventions: `Fq` is a finite field with `q = Fintype.card Fq` elements, `θ = X` is the
 variable of `Fq[X]`, `K = RatFunc Fq`, `K∞ = RatFunc.CompletionAtInfty Fq`. An index is a
 `List ℕ` of positive entries; an array is a `List (ℕ × Fqˣ)`. The empty truncated power sum is
-`1` for every `d` (Ngo Dac's convention; source issue E1).
+`1` for every natural `d` (Ngo Dac's convention; source issue E1).
+The general power-sum targets in the reader use arrays: their prototypes here are
+`altPowerSum` and `altCarlitzPowerSum`; `powerSum` and `carlitzPowerSum` specialise to
+trivial characters. The independent review keeps the full period matrix under the
+termwise norm bound, uses only the first column on Chang's larger convergence domain,
+and states rational proportionality for polynomial solutions on a chosen support.
+These analytic/difference-system statements remain README targets.
 -/
 import Mathlib.FieldTheory.RatFunc.Valuation
 import Mathlib.FieldTheory.Finite.Basic
@@ -505,7 +511,13 @@ example (s : List ℕ) : harmonicList [] s = Finsupp.single s 1 := by simp [harm
 
 end IndexSpace
 
-/-! ## MZ.4 — monic Frobenius descent -/
+/-! ## MZ.4 — monic Frobenius descent
+
+The reader distinguishes the full localised solution space `X_w` (dimension exactly
+one in divisible weights) from polynomial solutions on an arbitrary reduced support
+(dimension at most one after taking their span over `F_q(t)`). At the two-row endpoint
+`w = 2q - 2`, nonzero solutions with `a_2 = 0` exist; the independence proof excludes
+`a_2 ≠ 0`. -/
 
 /-- Monic Frobenius descent (MZ.4/monic-frobenius-descent): a polynomial solution of
 `δ^{(1)} = F δ + G` with `F` monic of positive degree over a `q`-power-stable subring `B`
