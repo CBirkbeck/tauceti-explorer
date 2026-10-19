@@ -16,7 +16,7 @@ carriers, milestones statable at the pins, and a few examples. Algebraic stacks,
 Satake coefficients, shtuka cohomology and parameter reconstruction remain exact
 README targets: their carriers are not supplied by the pinned libraries.
 
-GS.3: the definition below is the integral stable-module condition of VL 8.20,
+GS.3: the definition below is the integral stable-module condition of VL Definition 8.19,
 abstracted from cohomology to an existing module. `R` is the integral coefficient
 ring, not its fraction field. The finite-witness and equivariant-image statements
 are the usable interfaces; the actual shtuka application is a README target.
