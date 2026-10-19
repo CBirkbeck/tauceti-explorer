@@ -42,23 +42,26 @@ theorem eq_zero_of_forall_divisible {A : Type*} [AddCommGroup A] [TopologicalSpa
 
 /-! ## SPM.1: symplectic modules
 
-A symplectic module over a commutative ring `A`: a module `V`, a module `L` (free of rank one
-in the roadmap), and a perfect alternating `A`-bilinear pairing `ω : V → V → L`. -/
+A field specialisation of the roadmap's symplectic module: a finite-dimensional space `V`,
+a one-dimensional space `L`, and a perfect alternating pairing `ω : V → V → L`.
+The categorical definition over finite algebras stays in the README. -/
 
-/-- A symplectic `A`-module `(V, L, ω)` with `ω` alternating and perfect. -/
-structure SymplecticModule (A V L : Type*) [CommRing A] [AddCommGroup V] [Module A V]
-    [AddCommGroup L] [Module A L] where
+/-- A finite-dimensional symplectic space with its one-dimensional similitude line. -/
+structure SymplecticModule (A V L : Type*) [Field A] [AddCommGroup V] [Module A V]
+    [FiniteDimensional A V] [AddCommGroup L] [Module A L] [FiniteDimensional A L] where
   /-- The pairing. -/
   ω : V →ₗ[A] V →ₗ[A] L
   /-- The pairing is alternating. -/
   isAlt : ω.IsAlt
   /-- The pairing is perfect: `V ≃ Hom_A(V, L)`. -/
   perfect : Function.Bijective ω
+  /-- The similitude module is a line, including when `V` has dimension zero. -/
+  line_rank : Module.finrank A L = 1
 
 namespace SymplecticModule
 
-variable {A V L : Type*} [CommRing A] [AddCommGroup V] [Module A V] [AddCommGroup L]
-  [Module A L] (S : SymplecticModule A V L)
+variable {A V L : Type*} [Field A] [AddCommGroup V] [Module A V] [FiniteDimensional A V]
+  [AddCommGroup L] [Module A L] [FiniteDimensional A L] (S : SymplecticModule A V L)
 
 /-- A submodule on which the pairing vanishes. -/
 def IsIsotropic (W : Submodule A V) : Prop :=
@@ -97,7 +100,7 @@ theorem stdForm_perfect (K : Type*) [Field K] : Function.Bijective (stdForm K) :
 
 /-- Unit test: the standard symplectic plane, the case `d = 1` (an elliptic curve's `H¹`). -/
 example (K : Type*) [Field K] : ∃ S : SymplecticModule K (Fin 2 → K) K, S.ω = stdForm K :=
-  ⟨⟨stdForm K, stdForm_isAlt K, stdForm_perfect K⟩, rfl⟩
+  ⟨⟨stdForm K, stdForm_isAlt K, stdForm_perfect K, by simp⟩, rfl⟩
 
 /-- Unit test (non-example): the zero form on `K²` is alternating but not perfect. -/
 example (K : Type*) [Field K] :

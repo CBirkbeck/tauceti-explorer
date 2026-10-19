@@ -24,7 +24,7 @@
         "ref": "mathlib:Field.absoluteGaloisGroup",
         "kind": "def",
         "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
-        "provides": "The absolute Galois group Aut(K^al/K) of a field with its Krull topology; decomposition groups at places are its closed subgroups through chosen embeddings of algebraic closures.",
+        "provides": "The absolute Galois group as automorphisms of an algebraic closure, with its Krull topology; decomposition groups and their comparison with local Galois groups are supplied by R01.2, not by this definition.",
         "checked": "statement read at the pinned commit"
       },
       {
@@ -59,21 +59,21 @@
         "ref": "mathlib:LinearMap.Nondegenerate",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/SesquilinearForm/Basic.lean",
-        "provides": "Left- and right-separating bilinear maps; over a field with finite-dimensional source this is the perfectness of a pairing.",
+        "provides": "Left and right separation for a bilinear form. For a finite-dimensional space paired into a one-dimensional line this is equivalent to perfectness; the separate finiteness and line hypotheses are essential.",
         "checked": "statement read at the pinned commit"
       },
       {
         "ref": "mathlib:Matrix.symplecticGroup",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/SymplecticGroup.lean",
-        "provides": "The matrices A with A J Aᵀ = J for the standard alternating matrix J; the group Sp_{2d} of the standard symplectic form, without similitudes.",
+        "provides": "The matrices A with A J Aᵀ = J for the standard alternating matrix J, defining Sp_{2d}. It preserves the form exactly; GSp and its retained multiplier still require construction.",
         "checked": "statement read at the pinned commit"
       },
       {
         "ref": "tauceti:TauCeti.Symplectic.groupScheme",
         "kind": "abbrev",
         "module": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean",
-        "provides": "The symplectic group scheme Sp_{2n} as a closed subgroup scheme of GL_{2n}; the similitude group GSp is not supplied.",
+        "provides": "The symplectic group scheme Sp_{2n} as a closed subgroup scheme of GL_{2n}. It preserves the form exactly; GSp and its retained multiplier are not supplied.",
         "checked": "statement read at the pinned commit"
       },
       {
@@ -125,7 +125,7 @@
       "id": "bs",
       "title": "Galois sections and p-adic period mappings",
       "authors": "L. Alexander Betts and Jakob Stix",
-      "edition": "arXiv:2204.13674v1 (28 April 2022, the only arXiv version, 59 pages); published in Annals of Mathematics 201 (2025), no. 1, 79–166, doi:10.4007/annals.2025.201.1.2, revised after v1 and not openly available, so all locators are arXiv v1's",
+      "edition": "arXiv:2204.13674v1 (28 April 2022, 59 pages); published in Annals of Mathematics 201 (2025), no. 1, 79–166, doi:10.4007/annals.2025.201.1.2, the published revision has not been compared, and all statements and locators here refer to arXiv v1",
       "url": "https://arxiv.org/pdf/2204.13674v1",
       "sha256": "7d4b7d49c09b979ce4485251ea6f77527fcdb7c516ed7296d20c42e947ef0c18",
       "accessed": "2026-10-19",
@@ -180,7 +180,8 @@
       "sha256": "b456de5edf8dcbd52b5e414d24a87ff942908aac6f06fe2b7f175b32695d21bb",
       "accessed": "2026-10-19",
       "readSections": [
-        "Appendix B, Theorem 45 and Remark 46, p. 22"
+        "Appendix B, Proposition 44, Theorem 45 and Remark 46, pp. 22–23",
+        "Introduction and conventions, pp. 1–2"
       ]
     }
   ],
@@ -323,7 +324,7 @@
         {
           "name": "SectionClasses.restrictPlace_not_on_homomorphisms",
           "kind": "non-example",
-          "statement": "For X = G_{m,Q}, u the real place and two embeddings ι, ι ∘ σ with σ acting on Ẑ(1) by inversion, the restricted homomorphisms G_ℝ → π₁(X_ℝ) differ as maps while their classes agree; a definition on raw homomorphisms is not independent of ι."
+          "statement": "In the split extension Ẑ(1) ⋊ C₂ with the generator c acting by inversion, the sections sending c to (2,c) and (−2,c) are distinct continuous homomorphisms but are conjugate by the geometric-kernel element (−2,1). Thus raw sections depend on the chosen transport even when their section classes agree; this is the real G_m local model."
         }
       ],
       "library": {
@@ -344,7 +345,7 @@
         "L is a finite extension of Q_p (a local field of characteristic zero); the statement fails over ℝ, where the torus A(ℝ)⁰ is divisible and κ only sees the connected component of a real point."
       ],
       "proofSteps": [
-        "By NC.6/section-map-injective it suffices that A(L) has no nonzero element divisible by every n ≥ 1, for each abelian variety A over L.",
+        "Apply the field-general first assertion of NC.6/section-map-injective (Stix, Appendix B, Proposition 44 and Theorem 45), rather than its number-field corollary: it suffices that every abelian variety A/L has no nonzero rational point divisible by every positive integer.",
         "A(L) is a compact Hausdorff totally disconnected topological group: it is closed in a projective space over L, which is compact and totally disconnected; so A(L) is a profinite abelian group (Stix, Appendix B, Remark 46, which gives compactness as the reason).",
         "For every open subgroup U of A(L), the quotient A(L)/U is finite of some exponent e_U, so an element divisible by e_U lies in U; an element divisible by every n therefore lies in every open subgroup, and the open subgroups of a profinite group intersect in 0.",
         "For a curve of genus ≥ 1 with an L-point b, the Abel–Jacobi map at b is a closed immersion into the Jacobian (HeightsRationalPointsAndObstructions §6.4, as cited by NC.6/section-map-injective); if X(L) = ∅ there is nothing to prove."
@@ -454,12 +455,12 @@
         {
           "name": "SelmerSections.map",
           "role": "functoriality",
-          "statement": "A K-morphism f: X → X' maps Selmer sections to Selmer sections, with loc_u ∘ map f = f ∘ loc_u."
+          "statement": "A K-morphism f: X → X′ maps Selmer sections to Selmer sections. At a finite place u where both local section maps are injective, loc_u ∘ map f = f ∘ loc_u."
         },
         {
           "name": "SelmerSections.restrict",
           "role": "functoriality",
-          "statement": "For a finite extension L/K, restriction of sections to G_L maps Sec^Sel(X/K) into Sec^Sel(X_L/L), and loc_w(c|G_L) = loc_v(c) for w | v."
+          "statement": "For a finite extension L/K, restriction of sections to G_L maps Sec^Sel(X/K) into Sec^Sel(X_L/L). For finite w | v, when the local section maps over both K_v and L_w are injective, loc_w(c|G_L) is the image of loc_v(c) in X(L_w)."
         },
         {
           "name": "SelmerSections.eq_empty_of_no_local_point",
@@ -491,7 +492,7 @@
         {
           "name": "SelmerSections.loc_two_torsion",
           "kind": "characterisation",
-          "statement": "For an elliptic curve E over Q_p with full rational 2-torsion, the four 2-torsion points have distinct section classes, so loc_p is well defined on the Selmer sections of E over Q (genus one)."
+          "statement": "For an elliptic curve E/Q with full rational 2-torsion and any prime p, the four global 2-torsion points define Selmer classes whose localisations in E(Q_p) are pairwise distinct, by local injectivity."
         },
         {
           "name": "SelmerSections.sectionConjecture",
@@ -701,16 +702,17 @@
       ],
       "title": "Symplectic modules and symplectic pairs",
       "kind": "definition",
-      "statement": "Let C be a Q_p-linear symmetric monoidal category of finite-dimensional objects with a fibre functor to Q_p-vector spaces: the continuous Q_p-representations of a profinite group G, the filtered discrete (φ, N, G_v)-modules of SPM.2/restriction-induction, or the Q_p-local systems on a scheme. An algebra in C is a commutative unital algebra object A; for G-representations, a finite-dimensional commutative Q_p-algebra with a continuous G-action by algebra automorphisms. A symplectic A-module in C is a triple (V, L, ω) with V an A-module in C that is finite locally free over A, L an A-module in C free of rank one over A, and ω: ∧²_A V → L a morphism in C that is A-linear and perfect (it induces V ≅ Hom_A(V, L)). A symplectic pair is (A, V) with V a symplectic A-module (L and ω understood); a morphism (A, V) → (A′, V′) is a triple of morphisms f_A: A → A′ of algebras, f_V: V → V′ and f_L: L → L′ in C, compatible with the module structures (f_V(av) = f_A(a)f_V(v), and likewise for f_L) and with the pairings (f_L ∘ ω = ω′ ∘ ∧²f_V). SP(C) is the category of symplectic pairs and π₀SP(C) its set of isomorphism classes. For G-representations, Σ_A := Hom_{Q_p-alg}(A, Q_p) is a finite set with a continuous right G-action; for ψ ∈ Σ_A with stabiliser G_ψ, V_ψ := Q_p ⊗_{A,ψ} V is a symplectic representation of G_ψ with similitude line L_ψ.",
+      "statement": "Let C be one of the Q_p-linear tensor categories below, with its underlying-module realisations: the continuous Q_p-representations of a profinite group G, the filtered discrete (φ, N, G_v)-modules of SPM.2/restriction-induction, or the Q_p-local systems on a scheme. An algebra in C is a commutative unital algebra object A; for G-representations, a finite-dimensional commutative Q_p-algebra with a continuous G-action by algebra automorphisms. A symplectic A-module in C is a triple (V, L, ω) with V an A-module in C that is finite locally free over A, L an A-module in C free of rank one over A, and ω: ∧²_A V → L a morphism in C that is A-linear and perfect (it induces V ≅ Hom_A(V, L)). A symplectic pair is (A, V) with V a symplectic A-module (L and ω understood); a morphism (A, V) → (A′, V′) is a triple of morphisms f_A: A → A′ of algebras, f_V: V → V′ and f_L: L → L′ in C, compatible with the module structures (f_V(av) = f_A(a)f_V(v), and likewise for f_L) and with the pairings (f_L ∘ ω = ω′ ∘ ∧²f_V). SP(C) is the category of symplectic pairs and π₀SP(C) its set of isomorphism classes. For G-representations, Σ_A := Hom_{Q_p-alg}(A, Q_p) is a finite set with a continuous right G-action; for ψ ∈ Σ_A with stabiliser G_ψ, V_ψ := Q_p ⊗_{A,ψ} V is a symplectic representation of G_ψ with similitude line L_ψ.",
       "hypotheses": [
-        "A is a finite-dimensional commutative Q_p-algebra, possibly non-reduced or non-split; Σ_A consists of its Q_p-points only, not its Q̄_p-points.",
-        "V is finite locally free over A, of constant rank 2d when A is connected; L is free of rank one."
+        "For G-representations, A is a finite-dimensional commutative Q_p-algebra, possibly non-reduced or non-split, and Σ_A consists of its Q_p-points only, not its Q̄_p-points. In MF(φ,N,G_v), the corresponding finite algebras are over the realisation fields Q_p^nr and K_v.",
+        "V is finite locally free over A, of constant rank 2d when A is connected; L is free of rank one.",
+        "The definition is internal to C; finiteness, local freeness and the rank of the line are checked on its underlying coefficient modules. A Q_p-valued neutral fibre functor is not assumed for MF(φ, N, G_v): its de Rham realisation is K_v-valued and its potentially semistable realisation is Q_p^nr-valued."
       ],
       "proofSteps": [
         "Take ∧²_A V in C using the symmetric monoidal structure and the A-module structure; perfectness is a condition on the underlying A-modules.",
         "Base change along ψ: A → Q_p preserves perfectness, giving (V_ψ, L_ψ, ω_ψ) with an action of G_ψ.",
         "If A = ∏_{ψ∈Σ} Q_p is split and Σ is one G-orbit with base point ψ₀, then V ≅ ∏_ψ V_ψ and V = Ind_{G_{ψ₀}}^{G} V_{ψ₀} as symplectic modules over A = Ind_{G_{ψ₀}}^G Q_p (structure of modules over artinian rings, as in the proof of Betts–Stix Proposition 6.7).",
-        "A ⊗-functor F: C → C′ sends symplectic pairs to symplectic pairs, since it preserves ∧², rank-one objects and perfect pairings; an exact faithful ⊗-functor reflects isomorphism of pairs when it is fully faithful."
+        "The tensor functors used here, compatible with the underlying-module realisations (restriction, coefficient extension, and D_pH), preserve finite locally free modules, rank-one lines and perfect alternating pairings. A fully faithful such functor reflects isomorphism classes of pairs."
       ],
       "acceptance": [
         "An elliptic curve E over K gives (Q_p, H¹_ét(E_{K̄}, Q_p)) with the Weil pairing to Q_p(−1).",
@@ -793,7 +795,7 @@
         {
           "name": "SymplecticPair.mapFunctor",
           "role": "functoriality",
-          "statement": "A ⊗-functor F: C → C′ induces SP(C) → SP(C′), with map_id and map_comp."
+          "statement": "A tensor functor compatible with the underlying-module realisations and preserving finite locally free modules and rank-one lines induces SP(C) → SP(C′), with map_id and map_comp."
         },
         {
           "name": "SymplecticModule.IsIsotropic",
@@ -814,6 +816,11 @@
           "name": "SymplecticPair.toPeriodVariety",
           "role": "compatibility",
           "statement": "Forgetting the G-action, a symplectic module over a finite étale algebra over a field is the datum of MordellLawrenceVenkatesh:LV.3/lagrangian-period-variety, whose Lagrangian submodules form the period domain."
+        },
+        {
+          "name": "SymplecticPair.Hom.ext",
+          "role": "extensionality",
+          "statement": "Two morphisms of pairs are equal if their algebra, module and line components are equal; a morphism is an isomorphism exactly when all three components are isomorphisms."
         }
       ],
       "tests": [
@@ -841,6 +848,11 @@
           "name": "SymplecticPair.degenerate_form",
           "kind": "non-example",
           "statement": "On V = Q_p² with A = Q_p, the alternating form ω = 0 is not perfect, so (Q_p, V) with ω = 0 is not a symplectic pair."
+        },
+        {
+          "name": "SymplecticPair.wrong_line",
+          "kind": "non-example",
+          "statement": "For A = Q_p, V = 0 and L = Q_p² the unique pairing is alternating and induces 0 ≅ Hom_A(0,L), but it is not a symplectic module because L has rank two. Perfectness alone does not impose the rank-one condition."
         }
       ],
       "planet": {
@@ -1307,7 +1319,7 @@
         {
           "name": "adelicLVLocus.localOnly",
           "kind": "non-example",
-          "statement": "The locus is smaller in general than the set of adelic points whose local pairs are merely de Rham with the right weights: for the Kodaira–Parshin family X_q with q chosen as in SPM.8/kodaira-parshin-choice it is finite at self-conjugate places (SPM.9/lv-locus-finite) while Y(K_v) is infinite."
+          "statement": "Assume Y(A_K) is nonempty. For a Kodaira–Parshin family X_q with q chosen as in SPM.8/kodaira-parshin-choice at a self-conjugate finite v, the projection of the adelic Lawrence–Venkatesh locus is finite, whereas Y(K_v) is infinite. Fixing points at all other places and varying y_v gives adelic points with geometric, hence de Rham, fibre pairs of the correct weights which cannot all admit one globally interpolating pair."
         },
         {
           "name": "adelicLVLocus.projection",
@@ -1493,9 +1505,9 @@
           "statement": "(2.1): H^•_pH(X_{L_w}/L_w) ≅ H^•_pH(X/K_v)|G_w."
         },
         {
-          "name": "pHCohomology_weilRestriction",
+          "name": "pHCohomology_viewOverBase",
           "role": "compatibility",
-          "statement": "(2.2): for an L_w-variety X, H^•_pH(X/K_v) ≅ Ind_{G_w}^{G_v} H^•_pH(X/L_w)."
+          "statement": "(2.2): for a smooth proper L_w-variety X viewed as a K_v-scheme by composition with Spec L_w → Spec K_v, H^•_pH(X/K_v) ≅ Ind_{G_w}^{G_v} H^•_pH(X/L_w). This is not the cohomology of the Weil restriction scheme Res_{L_w/K_v} X."
         }
       ],
       "tests": [
@@ -1541,13 +1553,13 @@
       ],
       "title": "Automorphism groups and retwisted filtrations",
       "kind": "definition",
-      "statement": "Let D be a (φ, N, G_v)-module (SPM.2/restriction-induction). Its endomorphism algebra End(D) is the Q_p-algebra of Q_p^nr-linear maps D → D commuting with φ, N and G_v, and Aut(D) is the functor on Q_p-algebras R ↦ the group of R ⊗_{Q_p} Q_p^nr-linear automorphisms of R ⊗_{Q_p} D commuting with 1 ⊗ φ, 1 ⊗ N and G_v, that is R ↦ (R ⊗_{Q_p} End(D))^×; it is represented by an affine algebraic group over Q_p (SPM.2/automorphism-dimension-bound). For a symplectic (φ, N, G_v)-module (D, L, ω) (L of dimension one, ω: ∧²D → L perfect and equivariant), Aut^GSp(D) ⊆ Aut(D) is the closed subgroup of automorphisms preserving ω up to a similitude factor, the factor being part of the data; the scalars give central cocharacters G_m → Aut(D) and G_m → Aut^GSp(D). For a filtered discrete module D = (D_pst, D_dR, c_BO), Aut(D_pst) acts on Res^{K_v}_{Q_p} GL(D_dR) by transporting 1 ⊗ ψ through c_BO and taking G_v-invariants, hence on Res^{K_v}_{Q_p} G, where G is the flag variety of filtrations of D_dR with the dimension data of F^•; for Φ ∈ G(K_v), M(Φ) := (D_pst, D_dR with the filtration Φ, c_BO).",
+      "statement": "Let D be a (φ, N, G_v)-module (SPM.2/restriction-induction). Its endomorphism algebra End(D) is the Q_p-algebra of Q_p^nr-linear maps D → D commuting with φ, N and G_v, and Aut(D) is the functor on Q_p-algebras R ↦ the group of R ⊗_{Q_p} Q_p^nr-linear automorphisms of R ⊗_{Q_p} D commuting with 1 ⊗ φ, 1 ⊗ N and G_v, that is R ↦ (R ⊗_{Q_p} End(D))^×; it is represented by the unit group scheme of the finite-dimensional algebra End(D). For a symplectic (φ, N, G_v)-module (D, L, ω) (L of dimension one, ω: ∧²D → L perfect and equivariant), Aut^GSp(D) is the closed subgroup of Aut(D) × G_m whose R-points are pairs (f,c) satisfying ω(fx,fy) = cω(x,y); the factor c is part of the data even when D = 0. The scalar maps are λ ↦ λ id in Aut(D) and λ ↦ (λ id,λ²) in Aut^GSp(D), and have central image. For a filtered discrete module D = (D_pst, D_dR, c_BO), Aut(D_pst) acts on Res^{K_v}_{Q_p} GL(D_dR) by transporting 1 ⊗ ψ through c_BO and taking G_v-invariants, hence on Res^{K_v}_{Q_p} G, where G is the flag variety of filtrations of D_dR with the dimension data of F^•; for Φ ∈ G(K_v), M(Φ) := (D_pst, D_dR with the filtration Φ, c_BO).",
       "hypotheses": [
         "K_v/Q_p finite; the similitude factor is recorded so that the degenerate case D = 0 behaves (Betts–Stix footnote 6)."
       ],
       "proofSteps": [
-        "End(D) is a Q_p-algebra; representability of Aut(D) by the unit group scheme of the finite-dimensional algebra End(D) uses finite-dimensionality from SPM.2/automorphism-dimension-bound and the closed-subgroup and functor-of-points results of Tau Ceti ReductiveGroups Layers 0 and 3.",
-        "Preserving ω up to a scalar is a closed condition, so Aut^GSp(D) is a closed subgroup scheme.",
+        "First establish finite-dimensionality of End(D), before constructing the group scheme: the Frobenius descent/trace argument given in the first three proof steps of SPM.2/automorphism-dimension-bound proves that Q_p^nr ⊗ End(D) → End_{Q_p^nr}(D) is injective, using only the φ and G_v structures. It therefore bounds dim End(D) by (dim D)². Then represent Aut(D) by the unit group of this finite-dimensional algebra (Tau Ceti ReductiveGroups Layers 0 and 3). The later dimension theorem records the estimates for these already constructed groups; algebraicity does not depend on that theorem.",
+        "Inside Aut(D) × G_m impose the bilinear equations ω(fx,fy) = cω(x,y). These define a closed subgroup scheme with multiplication (f,c)(g,d) = (fg,cd). The projection to Aut(D) is a closed immersion when D ≠ 0; when D = 0 it is the map G_m → 1.",
         "For ψ ∈ Aut(D_pst)(R), the R ⊗ K̄_v-linear map 1 ⊗ ψ on R ⊗ K̄_v ⊗ D_pst ≅ R ⊗ K̄_v ⊗ D_dR is G_v-equivariant, so its G_v-invariants give an R ⊗ K_v-linear automorphism of R ⊗ D_dR, not necessarily filtered (Betts–Stix Remark 2.14). This is an action on Res^{K_v}_{Q_p} GL(D_dR), hence on Res^{K_v}_{Q_p} of the flag variety (AlgebraicModuliForArithmeticGeometry R09.1/flag-bundle, Weil restriction A6).",
         "M(Φ) is again a filtered discrete module: only the filtration changed."
       ],
@@ -1567,7 +1579,7 @@
         {
           "sourceId": "bs",
           "locator": "Definition 2.13 and footnote 6, p. 11",
-          "match": "Automorphisms of a (φ, N, G_v)-module, their R-points as a functor on Q_p-algebras, the symplectic subgroup preserving the pairing up to similitude, and the central scalars."
+          "match": "Automorphisms of a (φ, N, G_v)-module, their R-points as a functor on Q_p-algebras, the similitude group with the multiplier retained as data, and the central scalar maps."
         },
         {
           "sourceId": "bs",
@@ -1604,12 +1616,12 @@
         {
           "name": "PhiNGModule.AutGSp",
           "role": "constructor",
-          "statement": "The closed subgroup Aut^GSp(D) of a symplectic module, with similitude character Aut^GSp(D) → G_m."
+          "statement": "The closed subgroup of Aut(D) × G_m of pairs (f,c) with ω(fx,fy) = cω(x,y), with similitude character (f,c) ↦ c."
         },
         {
           "name": "PhiNGModule.scalars",
           "role": "data",
-          "statement": "The central cocharacter G_m → Aut(D), λ ↦ multiplication by λ, factoring through Aut^GSp(D)."
+          "statement": "The central scalar maps λ ↦ λ id into Aut(D) and λ ↦ (λ id,λ²) into Aut^GSp(D); forgetting the factor recovers the first map."
         },
         {
           "name": "PhiNGModule.actFlag",
@@ -1629,7 +1641,12 @@
         {
           "name": "PhiNGModule.scalars_act_trivially",
           "role": "other",
-          "statement": "The scalars act trivially on Res^{K_v}_{Q_p} G, so the action factors through Aut(D_pst)/G_m."
+          "statement": "Scalar multiplication fixes every filtration, so the flag action factors through the quotient of Aut(D_pst) by the image of the scalar map. For D_pst ≠ 0 this image is G_m; for D_pst = 0 the flag variety and its action are trivial."
+        },
+        {
+          "name": "PhiNGModule.AutGSp.ext",
+          "role": "extensionality",
+          "statement": "Two R-points are equal exactly when both their automorphism and similitude components agree. The forgetful map to Aut(D)(R) is injective for D ≠ 0; for D = 0 its kernel is all of G_m(R)."
         }
       ],
       "tests": [
@@ -1682,7 +1699,7 @@
         "LV.4/filtered-phi-orbit is the special case of filtered φ-modules over an unramified base; the argument is the same."
       ],
       "acceptance": [
-        "For D_dR of dimension two with jumps {0, 1} and Aut(D_pst) = G_m² acting on P¹ through the eigenbasis, the orbits are the two eigenlines and their complement: three isomorphism classes of retwists."
+        "For K_v = Q_p and D_dR of dimension two with jumps {0, 1} and Aut(D_pst) = G_m² acting on P¹ through the eigenbasis, the orbits are the two eigenlines and their complement: three isomorphism classes of retwists."
       ],
       "prerequisites": [
         "GaloisSectionsPadicPeriodMaps:SPM.2/automorphism-group",
@@ -1719,7 +1736,7 @@
         "G_v-equivariance of the ψ_i gives Σσ(αλ_i)ψ_i = 0 for α ∈ Q_p^nr and σ ∈ G_v; G_v acts on Q_p^nr through Gal(Q_p^nr/K_{v,0}) only.",
         "Since the ψ_i commute with φ, which is semilinear for the Frobenius of Q_p^nr, conjugating by φ gives ΣFrob(λ_i)ψ_i = 0. Frobenius and the image of G_v generate a dense subgroup of Gal(Q_p^nr/Q_p); averaging over a finite quotient through which the λ_i and α are fixed gives Σtr(αλ_i)ψ_i = 0 for the normalised trace to Q_p, so λ_i = 0 by non-degeneracy of the trace form (repair of the printed argument, extraction E2).",
         "So End(D) has Q_p-dimension ≤ d², Aut(D) is its unit group scheme, and the injection induces a closed immersion Aut(D)_{Q_p^nr} → GL_{Q_p^nr}(D), whence dim Aut(D) ≤ d².",
-        "(2): Aut^GSp(D)_{Q_p^nr} embeds in GSp_{Q_p^nr}(D), of dimension d(2d + 1) + 1."
+        "(2): after base extension to Q_p^nr, Aut^GSp(D) embeds in the group of pairs (f,c) in GL(D) × G_m satisfying ω(fx,fy) = cω(x,y). For d > 0 this is GSp_{2d}, of dimension d(2d + 1) + 1. For d = 0 it is G_m, of dimension 1, so the same formula holds with the retained-factor convention."
       ],
       "acceptance": [
         "For d = 1 (a rank-one module), dim Aut(D) ≤ 1; equality for D = 1.",
@@ -1939,17 +1956,22 @@
       ],
       "proofSteps": [
         "Replacing χ by χ · χ_cyc^{n/2} (n is even by SPM.3/conjugate-places-weights), reduce to n = 0.",
-        "No CM subfield: r_u = 0 at every u | p, so the associated idele class character is finitely ramified at every place (LV.1/de-rham-character-locally-algebraic); it factors through a ray class group, which is finite, so χ has finite order (Tau Ceti ClassFieldTheory Layer 11).",
-        "With E = E_K the maximal CM subfield: let η₀ be the restriction of the idele class character to A_E^×. Its component at v₀ = v|_E agrees near 1 with the r_{v₀}-th power of the norm, where r_{v₀} = Σ_{u | v₀}[K_u : E_{v₀}]r_u; conjugate places have r_{v₀} + r_{v̄₀} = 0, so η₀η̄₀ is finitely ramified and of finite order; hence η_v² is of finite order on E_{v₀}^× ⊆ K_v^×, and since η_v is finitely ramified, η_v and χ|G_v have finite order."
+        "No CM subfield: r_u = 0 at every u | p, so the associated idele class character is finitely ramified at every place (LV.1/de-rham-character-locally-algebraic); it factors through a ray class group, which is finite, so χ has finite order (GlobalNumberFields Layers 2 and 7, with ClassFieldTheory Layer 11 for the Galois–idele character dictionary).",
+        "CM case: put E = E_K. The infinity-type factorisation of LV.1 gives an algebraic character on E whose composite with N_{K/E} is the algebraic local type of the weight-zero idele character η of K. Realise a positive power of that type by a Q_p-valued idele class character θ of E: choose a modulus on whose global units the algebraic character is trivial, define the character on principal ideals, and raise to an exponent killing the finite ray class group to extend it to all ideals without extracting roots in Q_p. Consequently η^m/(θ ∘ N_{K/E}) has trivial algebraic type at p and finite ramification everywhere, hence finite order by global class field theory. This finite-power norm descent is part of this target’s proof, not an assertion that restriction of η to A_E isolates one local component.",
+        "Conjugate infinity types of θ add to zero, so θθ̄ is finitely ramified everywhere and has finite order. At the self-conjugate prime v₀ = v|_E its local type is zero, so θ_{v₀} has finite image on units. For a uniformiser π, conjugation sends π to πu for a unit u. Thus θ_{v₀}(π)² differs from (θθ̄)_{v₀}(π) by a finite-order unit value, so θ_{v₀} has finite order on E_{v₀}^×. The norm descent then makes η_v^m finite order, hence η_v and χ|G_v finite order."
       ],
       "acceptance": [
         "For χ = χ_cyc⁻¹, χ|G_v = χ_cyc^{−1} with χ₀ = 1 and n = 2."
       ],
       "prerequisites": [
         "GaloisSectionsPadicPeriodMaps:SPM.3/conjugate-places-weights",
+        "MordellLawrenceVenkatesh:LV.1/infinity-type-factorization",
         "MordellLawrenceVenkatesh:LV.1/de-rham-character-locally-algebraic",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles"
       ],
       "sources": [
         {
@@ -2764,7 +2786,7 @@
         {
           "name": "periodLVLocus.constantFamily",
           "kind": "degenerate",
-          "statement": "For a constant family the period map is constant and condition (i) fails; the criterion does not apply, consistently with the locus being all of Y(K_v)."
+          "statement": "For a constant family of positive relative dimension the period domain has positive dimension, the period map is constant and condition (i) fails; the criterion does not apply, consistently with the locus being all of Y(K_v)."
         },
         {
           "name": "periodLVLocus.orbitUnion",
@@ -3112,7 +3134,7 @@
         {
           "name": "Algebra.IsTypeC.quintic",
           "kind": "computation",
-          "statement": "For A = H⁰_pH(Spec L) with L/K_v of degree 5, Σ_A is one orbit of size 5, so A is not of type (c) for any d."
+          "statement": "For A = H⁰_ét((Spec L)_{K̄_v}, Q_p) with L/K_v of degree 5, Σ_A is one orbit of size 5, so A is not of type (c) for any d."
         },
         {
           "name": "SymplecticPair.IsTypeA.index",
@@ -3211,7 +3233,7 @@
         {
           "name": "typeALagrangians.orbitUnion",
           "kind": "characterisation",
-          "statement": "Each class in T_i contributes one orbit of Lagrangians, by the orbit lemma."
+          "statement": "Each class in T_i contributes either no Lagrangians, when its underlying unfiltered symplectic module is not that of the fixed fibre, or exactly one automorphism orbit, by the orbit lemma."
         }
       ]
     },
@@ -3302,7 +3324,7 @@
         "S suitable; any abelian-by-finite family (no monodromy hypothesis here)."
       ],
       "proofSteps": [
-        "Given Φ in the set with its pair (A, V) and point ψ of type (a): the algebra part of the isomorphism is D_pH of an isomorphism H⁰_ét(X_{y₀}) ≅ A|G_v (full faithfulness, requested from R06.3), so ψ corresponds to a K_v-point of Y′_{y₀}, i.e. a closed point y′_i with an embedding; after moving ψ in its G_v-orbit, the fixed embedding of L_{w_i}.",
+        "Given Φ in the set with its pair (A, V) and point ψ of type (a): the algebra part of the isomorphism is D_pH of an isomorphism H⁰_ét(X_{y₀}) ≅ A|G_v (full faithfulness, requested from R06.3), so ψ corresponds to a geometric K̄_v-point of Y′_{y₀}, i.e. a closed point y′_i together with a K_v-embedding of its residue field into K̄_v; after moving ψ in its G_v-orbit, the fixed embedding of L_{w_i}.",
         "Then [L_{w_i} : K_v] = [G_v : G_{w_ψ}] ≥ 4 and D_pH,w_ψ(V_ψ|G_{w_ψ}) ≅ M¹_i(Φ′_i) by SPM.5/period-domain-decomposition, and (L_ψ, w_ψ, V_ψ) witnesses [M¹_i(Φ′_i)] ∈ T_i; so Φ′_i ∈ H_{y′_i}(L_{w_i})_(a).",
         "So the set lies in ⋃_{i: [L_{w_i}:K_v] ≥ 4} (pr_i)⁻¹(closure of H_{y′_i}(L_{w_i})_(a)), a finite union of proper closed subsets by SPM.7/type-a-factor-non-density and the product decomposition (4.3)."
       ],
@@ -3583,7 +3605,7 @@
         "The count is of subfields of a fixed algebraic closure; conjugate non-Galois extensions are counted separately."
       ],
       "proofSteps": [
-        "Finiteness: subfields of degree n correspond to open subgroups of index n of G_v, and G_v is topologically finitely generated (TauCetiRoadmap LocalGaloisGroups, Layer 7), so there are finitely many; the bound depends only on [K_v : Q_p] through the number of generators.",
+        "Subfields of degree n correspond to open subgroups of index n of G_v. LocalGaloisGroups Layer 7, isTopologicallyFinitelyGenerated_absoluteGaloisGroup and rank_absoluteGaloisGroup, provide [K_v : Q_p] + 2 topological generators of the full G_v. A continuous map to S_n is determined by their images, so there are at most (n!)^{[K_v:Q_p]+2} such maps and finitely many index-n subgroups. This proves the claimed uniform bound for n = 2,3; the maximal pro-p quotient would not suffice.",
         "For p ≥ 5 an open subgroup of index 2 or 3 contains the pro-p wild inertia, so it comes from the tame quotient ⟨σ, τ | στσ⁻¹ = τ^{q_v}⟩ (Tau Ceti LocalFieldsRamification Layer 4).",
         "Index 2: the abelianised tame group is Ẑ × Z/(q_v − 1) with q_v − 1 even, so Hom(−, Z/2) has four elements: three quadratic extensions.",
         "Index 3, normal: Hom(Ẑ × Z/(q_v − 1), Z/3) has 9 elements if 3 | q_v − 1 and 3 otherwise, giving 4 or 1 cyclic cubic extensions.",
@@ -3685,7 +3707,7 @@
         {
           "sourceId": "bs",
           "locator": "§6.4, Proposition 6.20 and proof, footnotes 22–24, pp. 52–53",
-          "match": "For q − 1 coprime to 4 and to the odd primes of q_v(q_v + 1)(q_v³ − 1) and at least 9n_v, no fibre algebra of the Kodaira–Parshin family is of type (c): the fibres map with equal fibres to surjections onto Z/k, of which too few lie in small orbits because fixed classes are isotropic for the Weil pairing."
+          "match": "For q − 1 not divisible by 4 or by any odd prime factor of q_v(q_v + 1)(q_v³ − 1) and at least 9n_v, no fibre algebra of the Kodaira–Parshin family is of type (c): the fibres map with equal fibres to surjections onto Z/k, of which too few lie in small orbits because fixed classes are isotropic for the Weil pairing."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4083,7 +4105,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
-      "need": "Existing Tau Ceti layer, cited as it stands: global class field theory and finiteness of ray class groups, used to show a weight-zero pure de Rham character is of finite order (Betts–Stix Remark 2.20).",
+      "need": "Existing Tau Ceti layer: global Artin reciprocity, the Galois–idele character dictionary and its norm compatibility. Ray-class finiteness and the idele ray-class quotient are imported separately from GlobalNumberFields Layers 2 and 7.",
       "neededBy": [
         "GaloisSectionsPadicPeriodMaps:SPM.3/self-conjugate-character-restriction"
       ]
@@ -4097,7 +4119,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions",
-      "need": "Existing Tau Ceti layer, cited as it stands: local fields and their finite extensions, for the finiteness of extensions of degree 2 and 3 of K_v.",
+      "need": "Existing Tau Ceti layer: the local-field structures and finite-extension carriers used in the quadratic and cubic subfield count. Finiteness of the set of such subfields uses full-G_v finite generation from existing LocalGaloisGroups Layer 7 (the separate catalogue gap), and the explicit tame count uses LocalFieldsRamification Layer 4.",
       "neededBy": [
         "GaloisSectionsPadicPeriodMaps:SPM.8/small-extension-count"
       ]
@@ -4125,10 +4147,31 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
-      "need": "Existing Tau Ceti layer, cited as it stands: closed subgroups and orbit closures of affine algebraic groups acting on varieties, used for Aut^GSp(D) and the dimension of orbit closures in the orbit lemma.",
+      "need": "Existing Tau Ceti layer supplies closed subgroup schemes and quotient statements, used for Aut^GSp(D). Also needed for the orbit lemma: for a morphism of finite-type varieties f: X → Z, dim closure(f(X)) ≤ dim X, applied to the orbit map after quotienting the central scalar torus. The current Layer 3 does not explicitly state the orbit-dimension consequence; that requested extension is recorded in gaps.",
       "neededBy": [
         "GaloisSectionsPadicPeriodMaps:SPM.2/automorphism-group",
         "GaloisSectionsPadicPeriodMaps:SPM.2/orbit-lemma"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-2-moduli-and-ray-class-carriers",
+      "need": "Existing Tau Ceti layer: finite_rayClassGroup for every number-field modulus, used to kill ray-class obstructions and finite-ramification characters.",
+      "neededBy": [
+        "GaloisSectionsPadicPeriodMaps:SPM.3/self-conjugate-character-restriction"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-7-congruence-subgroups-and-the-ray-class-dictionary",
+      "need": "Existing Tau Ceti layer: the surjective rayClassQuotient with its specified congruence kernel, used to factor a character with finite ramification at every place through a finite ray class group.",
+      "neededBy": [
+        "GaloisSectionsPadicPeriodMaps:SPM.3/self-conjugate-character-restriction"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-8-finite-extensions-of-adeles-and-ideles",
+      "need": "Existing Tau Ceti layer: norm maps on ideles and idele classes with their local component formula, used for finite-power descent along N_{K/E} and its local restriction.",
+      "neededBy": [
+        "GaloisSectionsPadicPeriodMaps:SPM.3/self-conjugate-character-restriction"
       ]
     }
   ],
@@ -4149,7 +4192,8 @@
       "stageId": "GaloisSectionsPadicPeriodMaps:SPM.2",
       "status": "planned",
       "remaining": [
-        "Supplier request outstanding: PadicHodgeTheory:R06.3 (see requests)."
+        "Supplier request outstanding: PadicHodgeTheory:R06.3 (see requests).",
+        "Orbit-dimension input not explicitly stated in current ReductiveGroups Layer 3; see the exact image-dimension gap."
       ]
     },
     {
@@ -4205,7 +4249,8 @@
       "remaining": [
         "Supplier request outstanding: MordellLawrenceVenkatesh:LV.1 (see requests).",
         "Supplier request outstanding: MordellLawrenceVenkatesh:LV.2 (see requests).",
-        "Supplier request outstanding: MordellLawrenceVenkatesh:LV.8 (see requests)."
+        "Supplier request outstanding: MordellLawrenceVenkatesh:LV.8 (see requests).",
+        "Register the existing LocalGaloisGroups Layer 7 in the atlas catalogue, then insert its prerequisite edge; no new local Galois theory is needed."
       ]
     },
     {
@@ -4218,7 +4263,8 @@
         "Supplier request outstanding: MordellLawrenceVenkatesh:LV.7 (see requests).",
         "Supplier request outstanding: MordellLawrenceVenkatesh:LV.8 (see requests).",
         "Supplier request outstanding: PadicHodgeTheory:P8 (see requests).",
-        "Supplier request outstanding: PadicHodgeTheory:R06.3 (see requests)."
+        "Supplier request outstanding: PadicHodgeTheory:R06.3 (see requests).",
+        "Resolve the recorded orbit-dimension supplier gap and LocalGaloisGroups catalogue edge inherited from SPM.2 and SPM.8."
       ]
     }
   ],
@@ -4256,6 +4302,20 @@
         "GaloisSectionsPadicPeriodMaps:SPM.8/type-c-empty"
       ],
       "detail": "The reviewed routes 2–5 of PAPER-BETTS-STIX-25 make Betts–Stix a source of LV.1, LV.2, LV.3 and LV.7, but the accepted MordellLawrenceVenkatesh packet and package plan the residue-disk, good-model, friendly-place and r ≥ 5 forms only. The model-free statements (symplectic Faltings lemma, fibre symplectic structures over a field, model-free period maps and their complex comparison at K_v-points, the isotropic four-Lagrangian lemma, Kodaira–Parshin fibres over K_v-points) are filed as requests at LV.1, LV.2, LV.3, LV.7 and LV.8. They are needed before the targets of SPM.4–SPM.8 can be formalised."
+    },
+    {
+      "title": "Catalogue edge to the existing LocalGaloisGroups roadmap",
+      "neededBy": [
+        "GaloisSectionsPadicPeriodMaps:SPM.8/small-extension-count"
+      ],
+      "detail": "The existing TauCetiRoadmap LocalGaloisGroups README, Layer 7 (exact rank of the full absolute Galois group), and Suggested.lean, isTopologicallyFinitelyGenerated_absoluteGaloisGroup and rank_absoluteGaloisGroup, supply topological finite generation of the full G_v with [K_v:Q_p]+2 generators. These statements were read in current upstream main; no new theory is planned here. LocalGaloisGroups is one of the roadmaps absent from this atlas snapshot, so its layer id cannot yet be a validated prerequisite. Register that existing layer in the atlas catalogue and replace this recorded graph gap by its exact layer edge; the mathematical dependency is already supplied upstream."
+    },
+    {
+      "title": "Orbit-dimension input beyond the stated ReductiveGroups Layer 3",
+      "neededBy": [
+        "GaloisSectionsPadicPeriodMaps:SPM.2/orbit-lemma"
+      ],
+      "detail": "The orbit-map proof of Betts–Stix Lemma 2.15, p. 12, needs the finite-type image-dimension bound dim closure(f(X)) ≤ dim X, and hence dim closure(H·x) ≤ dim(H/Z) when a closed central scalar torus Z acts trivially. Existing ReductiveGroups Layer 3 states closed subgroups and quotients but does not state this orbit-dimension result. Import the generic geometric bound from its eventual owner, or have the ReductiveGroups request supply this consequence, before discharging this target; do not treat it as an already supplied theorem."
     }
   ],
   "sourceIssues": [
@@ -4273,7 +4333,12 @@
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
         "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Definition 3.1 pulls back a filtration along horizontal transport; the matrix solving (5.1) is that transport. Its inverse, not the matrix itself, gives the period columns on pp. 40–41.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E2",
@@ -4282,14 +4347,19 @@
       "locator": "arXiv v1, Lemma 4.7, p. 35",
       "printed": "The relative de Rham Chern class is constructed for π smooth, and its fibre at y is identified with the Chern class of the restriction through H²_dR(X/Y)_y ≅ H²_dR(X_y).",
       "correction": "Assume π smooth and proper (as in every application, where π is an abelian-by-finite family).",
-      "reason": "Base change for relative de Rham cohomology needs properness: for X = A² ∖ {0} → A¹, (x, y) ↦ x, the fibre H¹_dR jumps at 0.",
+      "reason": "Smoothness alone does not ensure this base-change isomorphism. For the smooth nonproper family (A² ∖ {0}) × G_m → A¹, (x,y,t) ↦ x, the fibre is A¹ × G_m for x ≠ 0 and G_m² for x = 0; its H²_dR is respectively zero and one-dimensional. Proper smooth base change supplies the claimed identification in every application here.",
       "affects": "nothing",
       "known": "new: found by RT-PAPER-BETTS-STIX-25/8(2) and confirmed; checked on p. 35",
       "searched": [
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
         "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 4.7, p. 35, uses an isomorphism on de Rham fibres under smoothness alone. The H² counterexample in the corrected reason shows why smooth proper base change is needed for that assertion.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E3",
@@ -4297,22 +4367,27 @@
       "kind": "gap",
       "locator": "arXiv v1, Corollary 5.10 and Remark 5.11, p. 43",
       "printed": "Remark 5.11 concludes that a subset of Y(K_v) meeting each disc in a non-dense period image is finite, covering Y(K_v) by finitely many discs by compactness, with Y only a smooth curve.",
-      "correction": "Assume Y proper (projective), as in every application.",
-      "reason": "Y(K_v) is compact only for proper Y: for the Legendre family over P¹ ∖ {0, 1, ∞} over Q_p (full monodromy) and C = {p^{−n} : n ≥ 1}, every closed disc meets C in finitely many points, yet C is infinite.",
+      "correction": "Keep Corollary 5.10 as a local statement on a closed disc. For the global finite-disc argument of Remark 5.11 assume Y proper, as in all applications. Properness guarantees compactness; smoothness alone does not.",
+      "reason": "For the Legendre family over P¹ ∖ {0,1,∞} over Q_p, the set {p^{−n}: n ≥ 1} is infinite but meets each closed disc in finitely many points, so local finiteness alone cannot imply global finiteness on a nonproper curve.",
       "affects": "nothing",
       "known": "new: found by RT-PAPER-BETTS-STIX-25/8(1) and confirmed; checked on p. 43",
       "searched": [
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
         "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Remark 5.11, p. 43, invokes compactness without assuming a proper curve. Corollary 5.10 remains valid on one closed disc; only the global covering step needs the additional hypothesis.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E4",
       "source": "bs",
       "kind": "misprint",
       "locator": "arXiv v1, §3.5, paragraph after the proof of Theorem 3.3, p. 29",
-      "printed": "The text announces 'the proof of Theorem 3.3' and begins the reduction to spherical polyannuli.",
+      "printed": "The paragraph labels the next argument as the proof of Theorem 3.3, before reducing to spherical polyannuli.",
       "correction": "It begins the proof of Theorem 3.22; Theorem 3.3 has just been deduced from it.",
       "reason": "Lemma 3.23, which follows, is the reduction step of Theorem 3.22.",
       "affects": "nothing",
@@ -4321,7 +4396,12 @@
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
         "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On p. 29 Theorem 3.3 has just been deduced from Theorem 3.22; Lemma 3.23 begins the proof of the latter.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E5",
@@ -4337,7 +4417,12 @@
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
         "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The map (1,λ) lands in X ×_{Y′} X^∨. The missing dual on p. 36 is confirmed by the preceding constructions on pp. 33–35.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E6",
@@ -4353,7 +4438,12 @@
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
         "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The factors in (4.3), p. 38, use the residue fields L_{w_i} indexed by i. The printed product index and its factor indices do not agree.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E7",
@@ -4369,7 +4459,12 @@
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
         "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In the proof of Lemma 6.17, p. 50, i is fixed; the embeddings and Frobenius powers are indexed by j.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E8",
@@ -4385,7 +4480,12 @@
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
         "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Remark 6.23(I), p. 54, imposes divisibility conditions on q−1. The density product must therefore run over its odd prime factors, not the factors of the prime q.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E9",
@@ -4393,15 +4493,22 @@
       "kind": "gap",
       "locator": "arXiv v1, Example 2.2, p. 7",
       "printed": "Purity and integrality of H^n_ét of a smooth proper variety outside a finite set are attributed to Deligne's Weil I, Théorème 1.6.",
-      "correction": "Weil I treats smooth projective varieties; for smooth proper ones cite Weil II (3.3.9), with integrality from SGA 7 XXI 5. Every use in the paper is H¹ of abelian varieties, which are projective.",
+      "correction": "Weil I, Theorem 1.6, p. 276, has the smooth projective hypothesis. For smooth proper varieties use Weil II, Corollary 3.3.9, p. 218, which states both integral coefficients independent of ℓ and purity. The abelian varieties used here are already projective.",
       "reason": "Weil I, Théorème 1.6, is stated for projective smooth varieties over finite fields.",
       "affects": "nothing",
       "known": "new: found by RT-PAPER-BETTS-STIX-25/12 and confirmed; checked on p. 7",
       "searched": [
         "arXiv:2204.13674, whose only version is v1 (checked 2026-10-19)",
         "the Annals article page for 201-1 p02, which links no erratum; the published text could not be compared",
-        "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction"
-      ]
+        "the extraction PAPER-BETTS-STIX-25 (findings E1–E8) and its red team RT-PAPER-BETTS-STIX-25 with verdicts, where this finding is confirmed but not added to the extraction",
+        "Deligne, Weil I, Theorem 1.6, p. 276: https://www.numdam.org/item/PMIHES_1974__43__273_0.pdf",
+        "Deligne, Weil II, Corollary 3.3.9, p. 218: https://www.numdam.org/item/PMIHES_1980__52__137_0.pdf"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Directly checked Example 2.2, p. 7, against Weil I Theorem 1.6, p. 276, and Weil II Corollary 3.3.9, p. 218. The first requires projectivity; the latter also supplies integrality, so the earlier extra SGA 7 citation is unnecessary.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     },
     {
       "id": "GaloisSectionsPadicPeriodMaps/E10",
@@ -4409,14 +4516,38 @@
       "kind": "gap",
       "locator": "arXiv:0809.0017v1, Appendix B, Remark 46, p. 22",
       "printed": "The remark says that the hypothesis of the injectivity theorem (abelian varieties have no non-zero divisible rational points) holds over local fields because of compactness.",
-      "correction": "It holds over non-archimedean local fields, where A(L) is a profinite group; it fails over ℝ and ℂ, where the identity component of A(ℝ) or A(ℂ) is a divisible torus, and there the section map only sees connected components.",
+      "correction": "For this roadmap take local fields to mean finite extensions of Q_p. Here A(L) is profinite and has no nonzero point divisible by every positive integer. Compactness without total disconnectedness does not give the assertion over R or C, where the section map sees components.",
       "reason": "A(ℂ) = ℂ^g/Λ and A(ℝ)⁰ ≅ (ℝ/ℤ)^g are divisible groups; in a profinite abelian group an element divisible by every n lies in every open subgroup, hence is 0.",
       "affects": "nothing",
       "known": "new: noticed by this roadmap's cross-check; only the p-adic case is used (SPM.0/local-section-map-injective)",
       "searched": [
         "arXiv:0809.0017 listing (v1 read)",
         "the published version in Adv. Stud. Pure Math. 63 (2012) was not read"
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The mathematical restriction is correct, but Remark 46, p. 22, need not be read as asserting the result for archimedean fields: local field commonly denotes a nonarchimedean local field in this context. The text gives no convention establishing that it includes R or C. Retain the domain clarification, not an established source erratum.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
+    },
+    {
+      "id": "GaloisSectionsPadicPeriodMaps/E11",
+      "source": "bs",
+      "kind": "gap",
+      "locator": "arXiv v1, Remark 2.20, CM case, p. 14",
+      "printed": "After restricting the idele class character η to A_E^×, the argument passes from finiteness of η₀η̄₀ to finiteness of the square of the single local component η_v on E_{v₀}^×.",
+      "correction": "Insert finite-power descent of the character along N_{K/E}, using its factored algebraic type and finiteness of ray class groups. Apply the conjugation argument to the resulting character of E, then pull it back by the local norm.",
+      "reason": "The component of η|A_E^× at v₀ is ∏_{u|v₀}η_u|E_{v₀}^×, not η_v|E_{v₀}^× when several places u lie above v₀. Finiteness of this product does not by itself imply finiteness of each factor. The corrected proof sketch of SPM.3/self-conjugate-character-restriction supplies the norm-descent step.",
+      "affects": "nothing",
+      "known": "new: found during this independent review; the theorem is retained with an expanded proof route",
+      "searched": [
+        "arXiv:2204.13674v1, Remark 2.20 and the preceding proof of Proposition 2.19, pp. 13–14; the Annals revision was not compared"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The restriction-to-subfield idele map is diagonal at places above v₀, so its local component is a product. The final implication in the printed CM argument needs the additional norm-descent justification described here.",
+        "by": "REV-DESIGN-BETTS-STIX"
+      }
     }
   ],
   "restructure": [
@@ -4462,13 +4593,325 @@
       "roadmaps": [
         "tauceti:TauCetiRoadmap/AnabelianGeometryAndNonabelianChabauty"
       ],
-      "note": "AnabelianGeometryAndNonabelianChabauty (TauCetiRoadmap pull request #1021), Layer 7.1, has section classes, the section map and its injectivity over number fields, and restriction to finite separable extensions, but not restriction of sections to decomposition groups at completions or the p-adic case of injectivity; this Part II plans both (SPM.0/local-section-restriction, SPM.0/local-section-map-injective)."
+      "note": "AnabelianGeometryAndNonabelianChabauty (TauCetiRoadmap pull request #1021), Layer 7.1, has section classes, the section map, its field-general divisibility criterion for injectivity and its number-field corollary, and restriction to finite separable extensions, but not restriction of sections to decomposition groups at completions or an explicit proof of the p-adic specialisation of that criterion; this Part II plans both (SPM.0/local-section-restriction, SPM.0/local-section-map-injective)."
     },
     {
       "roadmaps": [
         "tauceti:TauCetiRoadmap/PadicHodgeTheory"
       ],
       "note": "The explorer package of PadicHodgeTheory (TauCetiRoadmap pull request #1062), §7.3, states de Rham pairs and their proper smooth pushforward from Betts–Stix, but its README does not state Shimizu's horizontal period rings and relative monodromy theorem, which the accepted packet plans (P8/horizontal-relative-periods, P8/horizontal-and-local-system-monodromy) and which Betts–Stix Theorem 3.22 needs."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/LocalGaloisGroups"
+      ],
+      "neededBy": [
+        "GaloisSectionsPadicPeriodMaps:SPM.8/small-extension-count"
+      ],
+      "note": "Import existing Layer 7, exact rank of the full absolute Galois group, specifically isTopologicallyFinitelyGenerated_absoluteGaloisGroup and rank_absoluteGaloisGroup. The full G_v, rather than its maximal pro-p quotient, is required for the degree-2 and degree-3 extension bound. This newer roadmap is not registered in the atlas stage catalogue; its graph edge is explicitly recorded in gaps rather than replaced by a fictitious library declaration."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-BETTS-STIX",
+    "date": "2026-10-19",
+    "notes": "Independent source, baseline, supplier, API/test, coverage, planet and suggested-file review of all 59 nodes. Corrected 16 nodes, added two API entries and one discriminating test; no nodes added or removed. All 14 baseline declarations were read at the pins. The ten original source issues have verdicts (nine confirmed, E10 rejected as an established erratum); E11 is an additional confirmed CM proof gap repaired by norm descent. Accepted as a complete target-level planning pass, with 18 precise supplier requests and four explicitly recorded gaps, including two inherited supplier gaps, one orbit-dimension supplier gap and one catalogue-only edge to existing LocalGaloisGroups Layer 7. No formalisation or closure of those gaps is claimed. Blueprint validation passes without errors or warnings; the suggested Lean file elaborates with only 12 expected placeholder-proof warnings.",
+    "checked": [
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.0/local-section-restriction",
+        "verdict": "corrected",
+        "note": "Definition 1.1, p. 1; Introduction, p. 2. The characteristic-zero base-change input identifies geometric kernels; the fibre-product extension and descent through geometric conjugacy are valid. Replaced the raw-section test by two explicit conjugate, unequal C₂ sections."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.0/local-section-map-injective",
+        "verdict": "corrected",
+        "note": "Appendix B, Theorem 45 and Remark 46, p. 22; Definition 1.1, p. 1. Read the field-general first assertion of NC.6/section-map-injective and Stix Proposition 44/Theorem 45. Clarified that this criterion, not its number-field corollary, applies; compactness plus total disconnectedness gives the required profinite argument."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.0/selmer-sections",
+        "verdict": "corrected",
+        "note": "Definition 1.1, p. 1; §1, Theorem A and the paragraph before it, p. 1. The condition includes archimedean places. Added both local-injectivity hypotheses to localisation functoriality, and replaced an elliptic curve over Q_p followed by an undefined global construction by an elliptic curve over Q."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.0/modified-finite-descent-locus",
+        "verdict": "verified",
+        "note": "§2, p. 4; Definition 5.2 and Definition 5.4(1), pp. 14 and 16; Lemma 5.8(1), p. 19, and Conjecture 9.1, p. 38; §1, p. 2. Stoll’s modified adelic space uses components only at infinity, and f-cov requires survival of every finite étale torsor up to twisting. Properness and the distinction from the named conjecture are retained."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.0/harari-stix-finite-descent",
+        "verdict": "verified",
+        "note": "Theorem 2.1 and its proof, Remarks (1) and (4), pp. 11–12; §1, Propositions 1.1–1.2 and Corollary 1.7, pp. 5–10; §1, p. 2. The hypotheses of Harari–Stix Theorem 2.1 hold for number fields and the curve’s geometric fundamental group. Its remarks justify all finite torsors and the modified archimedean formulation; local injectivity identifies the projected point."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.1/symplectic-pair",
+        "verdict": "corrected",
+        "note": "Definitions 4.3–4.4 and Example 4.5, pp. 33–34; §6.1, pp. 45–46; §2.1, definition before Definition 2.3, p. 7. Removed an unjustified neutral Q_p fibre functor for MF; ranks are checked in the coefficient realisations. Added componentwise morphism extensionality and the rank-two-line counterexample. The Lean specialisation now imposes finiteness and line rank one."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.1/fibre-symplectic-pair",
+        "verdict": "verified",
+        "note": "Example 4.5 and §4.1.1, (4.1) and Lemma 4.2, pp. 32–34; Remark 6.6, p. 46. The étale algebra and H¹ module carry the polarisation pairing into the Tate line. The requested LV.2 extension, rather than the narrower number-field single-abelian-variety statement, supplies the needed field-general input."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.1/relative-symplectic-pair",
+        "verdict": "verified",
+        "note": "§7.1, p. 55. The relative H⁰ algebra and H¹ local system use the same polarisation class and Tate line fibrewise. The family and local-system prerequisites match this construction; three tests distinguish its algebra and module components."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.1/section-symplectic-pair",
+        "verdict": "verified",
+        "note": "§7.2, p. 56. Pullback through the π₁ representation along a section preserves its algebra, module and pairing. Changing the section within its geometric conjugacy class gives an isomorphic pair, as required for section classes."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.1/sections-restrict-local-systems",
+        "verdict": "verified",
+        "note": "Remark 1.5, pp. 3–4; Proposition 7.2 and proof, p. 56. The fibre functor at a point is pullback along its section. Conjugate sections give naturally isomorphic restrictions; this applies to each component of a symplectic pair, not just the underlying vector space."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.1/selmer-pair-interpolates",
+        "verdict": "verified",
+        "note": "Proposition 7.2, p. 56. Proposition 7.2 identifies all local pairs from the same global section pair. The archimedean Selmer condition and the restriction to finite-place localisation are used in their stated domains."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.1/adelic-lv-locus",
+        "verdict": "corrected",
+        "note": "Definition 6.1, p. 43. One global symplectic pair is required for all places. Added nonempty adelic points to the local-only counterexample so that varying one local coordinate really gives adelic points."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.1/selmer-sections-in-lv-locus",
+        "verdict": "verified",
+        "note": "Theorem 7.1 and its proof, pp. 54 and 56; §1.1.1, p. 3. Theorem 7.1 follows by applying the section-pair construction and Proposition 7.2. No full-monodromy or self-conjugacy assumption enters this containment."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.2/restriction-induction",
+        "verdict": "corrected",
+        "note": "Definitions 2.6–2.7, pp. 8–9; §2.2.2, Example 2.8 and Theorem 2.9, p. 9; Example 2.10 and Remark 2.11, pp. 9–10; Remark 3.4, p. 17; §2.2.3, Example 2.12 and footnote 5, pp. 10–11. The filtered/discrete structures and adjunctions match Definitions 2.6–2.7. Renamed the cohomology API for viewing an L_w-scheme over K_v: it is structural composition, not Weil restriction of the variety. Full faithfulness remains an explicit supplier gap."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.2/automorphism-group",
+        "verdict": "corrected",
+        "note": "Definition 2.13 and footnote 6, p. 11; Remark 2.14 and the construction after it, p. 11. Retained the multiplier by defining Aut^GSp inside Aut(D) × G_m, including D=0, and corrected scalar and extensionality APIs. Established End finiteness in the construction’s proof before invoking representability, avoiding a later-theorem dependency cycle."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.2/orbit-lemma",
+        "verdict": "corrected",
+        "note": "Lemma 2.15 and proof, p. 12. The isomorphism/orbit criterion is exactly the filtration-preservation condition. Corrected the three-orbit example to K_v=Q_p; the geometric image-dimension consequence is now an explicit ReductiveGroups supplier gap."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.2/automorphism-dimension-bound",
+        "verdict": "corrected",
+        "note": "Proposition 2.16 and proof, p. 12; §2.2.4, p. 11. The End injection requires Frobenius as well as G_v in the trace argument. Corrected the similitude embedding to retain its factor and checked D=0 separately, giving dimension one in that convention."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.3/self-conjugate-place",
+        "verdict": "verified",
+        "note": "Definition 2.17 and Remark 2.18, p. 13; §1.1, p. 3. The universal condition over CM subfields agrees with the maximal-CM-subfield description and allows ramified nonsplit places. The examples distinguish self-conjugate from the more restrictive friendly condition."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.3/conjugate-places-weights",
+        "verdict": "verified",
+        "note": "Proposition 2.19 and proof, pp. 13–14; §2.3, footnotes 7–8, p. 13. Q_p-valuedness, purity outside finitely many places, and de Rhamness above p are retained. The LV.1 infinity-type/conjugation statements justify the proof; the CM counterexample prevents extending it to arbitrary Q̄_p-values."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.3/self-conjugate-character-restriction",
+        "verdict": "corrected",
+        "note": "Remark 2.20, p. 14. Repaired the CM idele restriction/product gap by finite-power norm descent, added the direct infinity-type prerequisite, and imported ray-class finiteness, the quotient dictionary and norm components from their actual GlobalNumberFields layers."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.3/average-hodge-tate-weight",
+        "verdict": "verified",
+        "note": "Corollary 2.21 and proof, pp. 14–15. Mackey decomposition, compatibility of induction with D_dR, and the determinant character give the weighted sum over w|v. The weights and degree factors agree with Corollary 2.21 without a friendly-place assumption."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.4/horizontal-transport-polyannulus",
+        "verdict": "verified",
+        "note": "Theorem 3.22, footnote 17, pp. 28–29; §3.5, Definition 3.24, Lemma 3.25, Corollary 3.26, Lemma 3.27, Remarks 3.28–3.29 and the proof of Theorem 3.22 for polyannuli, pp. 29–32. Theorem 3.22 on a spherical polyannulus uses the stated Shimizu specialisation, the finite-étale Galois category, and the relative comparison compatibilities. The missing Part II inputs remain explicitly requested, not treated as baseline theorems."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.4/polydisc-reduction",
+        "verdict": "verified",
+        "note": "Lemma 3.23 and proof, p. 29; §3.5, p. 29. The reduction translates a sufficiently small closed polydisc into a spherical polyannulus; the residue-field-F₂ exception uses an unramified extension and descent. The number of variables and finite-extension hypotheses match Lemma 3.23."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.4/horizontal-de-rham-transport",
+        "verdict": "verified",
+        "note": "Theorem 3.22, pp. 28–29, proved in §3.5, pp. 29–32; §3.5, p. 28. Theorem 3.22 asserts existence of transport compatible with Scholze’s comparison after shrinking. The statement keeps this local existence scope and does not assert a canonical global transport."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.4/period-maps-control-dpst",
+        "verdict": "verified",
+        "note": "Theorem 3.3 and Remark 3.4, pp. 16–17; Proof of Theorem 3.3 from Theorem 3.22, p. 29; §3, pp. 15 and 18. Theorem 3.3 fixes the discrete (φ,N,G_v)-module locally while the filtration varies. The proof uses Theorem 3.22, and Remark 3.4 supplies the comparison with horizontal trivialisation; it does not impose a good model."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.4/period-map-controls-local-representations",
+        "verdict": "verified",
+        "note": "Proposition 3.5 and the diagram after it, pp. 17–18. Proposition 3.5 follows from the orbit criterion and full faithfulness of D_pH. The latter is named in the R06.3 request and gap, so no unjustified claim that D_st already covers all de Rham representations remains."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.5/p-adic-hodge-symplectic-pair",
+        "verdict": "verified",
+        "note": "§4.1.3, p. 35; Proposition 3.20(5)–(8), pp. 27–28. The comparison respects the algebra action, polarisation pairing and Tate line by Proposition 3.20’s tensor, cup, trace and Chern compatibilities. The construction needs the precise model-free LV.2 fibre structures already requested."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.5/lagrangian-period-modules",
+        "verdict": "verified",
+        "note": "§4.2, Definition 4.10, p. 37. Definition 4.10 retwists the fixed discrete module using an A-linear Lagrangian. The fixed-algebra condition and the similitude line are preserved; the construction does not range over arbitrary flags."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.5/abelian-by-finite-period-diagram",
+        "verdict": "verified",
+        "note": "Proposition 4.11 and proof, p. 37; Lemma 4.8, Remark 4.9 and §4.2, pp. 36–37; §1.1.2, (1.2), p. 4. Proposition 4.11 uses horizontal transport respecting H⁰, H¹ and the polarisation. The diagram is local near y₀ with unchanged discrete data; the requested model-free period and fibre statements supply its exact inputs."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.5/period-domain-decomposition",
+        "verdict": "verified",
+        "note": "§4.2.1, (4.3) and Lemma 4.12 with proof, p. 38. The product is indexed by closed points of Y′_{y₀}, with the individual residue fields L_{w_i}. The corrected i-th H¹ factor in Lemma 4.12 and the Weil-restriction dimension factors agree."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/s-good-pair",
+        "verdict": "verified",
+        "note": "Definition 1.2 and Definition 6.2, pp. 2 and 43–44; Remark 6.3, p. 44. Definition 6.2 requires the split algebra, de Rhamness at all places above p, Hodge range, purity/integrality and the specified finite ramification set. Tests distinguish these requirements rather than just a dimension condition."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/lawrence-venkatesh-locus",
+        "verdict": "verified",
+        "note": "Definition 1.2, p. 2, and Definition 6.2 with footnotes 20–21, pp. 43–44; Remark 6.3, p. 44. A local point must admit an S-good global interpolating pair at v. Independence of the suitable set and rational-point inclusion use the stated cohomology properties; self-conjugacy is not built into this definition."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/period-domain-lv-locus",
+        "verdict": "corrected",
+        "note": "Definition 1.7 and the paragraph after it, §1.1.2, p. 5; Remark 5.11, p. 43. The fixed-discrete-data locus and the finite-disc criterion match Definition 1.7 and Remark 5.11 with proper Y. Added positive relative dimension to the constant-family non-density counterexample."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/adelic-locus-in-lv-locus",
+        "verdict": "verified",
+        "note": "Lemma 6.4, footnotes 20–21, and proof, p. 44. Lemma 6.4 turns one globally interpolating pair into an S-good pair using the family’s good-reduction properties. The Tate multiplier convention and common suitable set S are consistent."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/rational-points-in-lv-locus",
+        "verdict": "verified",
+        "note": "§6, after Theorem 6.5, p. 44. The fibre over a rational point provides its global pair, and its restrictions provide the local witnesses. This inclusion precedes finiteness and uses no form of the Mordell conclusion."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/non-symplectic-locus",
+        "verdict": "verified",
+        "note": "Remark 1.4, p. 3; Remark 6.23(III), p. 54. The larger GL locus forgets polarisation; the containment direction and the weaker numerical range in Remark 6.23(III) are retained. The genus-three examples use the corresponding relative dimensions."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/fibre-algebra-points",
+        "verdict": "verified",
+        "note": "Remark 6.6, p. 46. The Q_p-points of split H⁰_ét are geometric fibre points, with their full G_v action. Closed-point degrees are stabiliser indices, not merely residue degrees or Frobenius orbit lengths."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/principal-trichotomy",
+        "verdict": "verified",
+        "note": "Proposition 6.7 and proof, pp. 46–47; Proposition 1.8 and Remark 1.9, pp. 5–6; §6.1, pp. 45–46. Proposition 6.7 uses split A, positive d and self-conjugacy to obtain the weighted Hodge identity. The symplectic Faltings input and the field-general average-weight input are correctly separated; the alternatives are not asserted disjoint."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.6/trichotomy-loci",
+        "verdict": "corrected",
+        "note": "Definition 6.8 and the containment after it, p. 47. The definitions distinguish the global pair alternatives from the local discrete-period locus. Corrected the quintic algebra example to H⁰_ét rather than an object in the different p-adic Hodge category."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.7/type-a-classes",
+        "verdict": "corrected",
+        "note": "Definition 6.11, p. 48. Definition 6.11 fixes the relevant residue field and S-good GSp-irreducible global pairs. Corrected the orbit test: a class with incompatible discrete data contributes no orbit, and a compatible class contributes one."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.7/type-a-classes-finite",
+        "verdict": "verified",
+        "note": "Lemma 6.12, p. 48. Lemma 6.12 uses symplectic Faltings finiteness for each bounded-degree field and Hermite–Minkowski for the fields. The stronger GSp form is an explicit LV.1 request, not silently inferred from GL semisimplicity."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.7/type-a-factor-non-density",
+        "verdict": "verified",
+        "note": "Lemma 6.13, Remark 6.14 and proof, pp. 48–49. Lemma 6.13 subtracts the central scalar dimension before comparing with [L_w:K_v]·d(d+1)/2. The threshold four and positive rank give the strict inequality; the orbit input is explicitly accounted for."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.7/type-a-period-non-density",
+        "verdict": "corrected",
+        "note": "Proposition 6.9 and proof, pp. 48–49. Corrected ψ to a geometric point, since a degree-at-least-four closed point is not a K_v-point. The embedding and stabiliser bookkeeping then identifies the factor and permits the finite union of proper closed subsets."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.7/type-a-locus-finite",
+        "verdict": "verified",
+        "note": "Corollary 6.10 and proof, p. 48. Corollary 6.10 combines full monodromy, non-density and the proper-curve finite-disc argument. Local analyticity is used only on the discs for which the model-free period map is supplied."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.7/type-b-factor-non-density",
+        "verdict": "verified",
+        "note": "Lemma 6.17, (6.1) and proof, pp. 50–51; Sublemma 6.18 and Remark 6.19, p. 51. The isotropic subspace condition is simultaneous over all embeddings j of one fixed residue field. The r=4 isotropic general-position result is separately requested; LV.7’s non-isotropic r≥5 statement would not suffice."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.7/type-b-period-non-density",
+        "verdict": "verified",
+        "note": "§6.3, Proposition 6.15 and proof, pp. 49–52. The index bound and the product decomposition reduce to the factor non-density result. The filtration condition is weight at most one, as corrected from the misleading equality notation in the source."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.7/type-b-locus-finite",
+        "verdict": "verified",
+        "note": "Corollary 6.16, p. 50. Corollary 6.16 uses full monodromy and properness to pass from local period non-density to finitely many points. The supplier gaps for model-free periods and the isotropic four-Lagrangian lemma remain visible."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.8/small-orbit-proportion",
+        "verdict": "verified",
+        "note": "Proof of Proposition 6.20 and footnote 22, p. 52. The denominator is the cardinality of a nonempty finite G_v-set, and the threshold is four. The equal-fibre argument is counting, while the unequal-fibre test correctly shows that the condition cannot be dropped."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.8/small-extension-count",
+        "verdict": "corrected",
+        "note": "Remark 6.21, p. 53. Read full-G_v finite generation and rank in existing LocalGaloisGroups Layer 7; made the uniform finite-quotient bound explicit. Its atlas edge is a recorded catalogue gap. The tame presentation counts conjugate cubic subfields separately and gives seven for p≥5."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.8/small-orbit-isotropic-count",
+        "verdict": "verified",
+        "note": "Proof of Proposition 6.20, p. 53. The cyclotomic conditions kill invariants of the pairing line over residue degrees one, two and three. Thus fixed modules are isotropic and have size at most k^g. Index-one fixed points are included in index-two fixed modules for the union bound."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.8/type-c-empty",
+        "verdict": "corrected",
+        "note": "§6.4, Proposition 6.20 and proof, footnotes 22–24, pp. 52–53. Corrected the impossible condition that q−1 be coprime to four to 4∤q−1, in both the source match and stage description. The equal-fibre map, primitive torsion count, ζ(2g) bound and strict final inequality match Proposition 6.20."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.8/kodaira-parshin-choice",
+        "verdict": "verified",
+        "note": "Corollary 6.22 and proof, p. 53. Dirichlet gives arbitrarily large primes in a CRT class with exactly one factor of two in q−1 and avoiding the finitely many forbidden odd divisors. Increasing the bound supplies the strict type-(c) estimate."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.8/parameter-comparison",
+        "verdict": "verified",
+        "note": "Remark 6.23 (I)–(III), pp. 53–54; §1, Remark 1.3 and footnote 1, p. 3. Remark 6.23’s cyclotomic disjointness needs the ramified-prime bound in addition to the small-prime bound. The density product uses odd prime factors of q−1 and the symplectic/non-symplectic examples keep their different ranges."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.9/lv-locus-finite",
+        "verdict": "verified",
+        "note": "Theorem 6.5, p. 44, proved in §6.5, p. 53. Theorem 6.5 follows from the trichotomy, the two finite loci and the empty third locus for the chosen family. The self-conjugate place and the choice of family remain explicit."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.9/mordell-reproved",
+        "verdict": "verified",
+        "note": "§6, after Theorem 6.5, p. 44. Rational points map injectively to their v-adic points and lie in the finite Lawrence–Venkatesh locus. This proof uses the new locus finiteness rather than importing LV.11’s Mordell theorem circularly."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.9/selmer-finiteness-self-conjugate",
+        "verdict": "verified",
+        "note": "§1.1, points (1) and (2), p. 3. Theorem 7.1 containment followed by Theorem 6.5 yields finiteness at a self-conjugate place. All hypotheses remain present before specialising to no-CM fields."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.9/theorem-a",
+        "verdict": "verified",
+        "note": "Theorem A, p. 1; §1.1, p. 3. With no CM subfield every finite place is self-conjugate. The local residue characteristic can be chosen as p independently at each place, so the conclusion covers every finite v without good-reduction exclusions."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.9/theorem-b",
+        "verdict": "verified",
+        "note": "Theorem B and the paragraph before it, p. 2. Harari–Stix identifies the projection of modified finite descent with the localisation image of Selmer sections. Applying Theorem A is valid under the same no-CM and genus hypotheses, without assuming either named conjecture."
+      },
+      {
+        "nodeId": "GaloisSectionsPadicPeriodMaps:SPM.9/obstruction-comparison",
+        "verdict": "verified",
+        "note": "Remark 1.3 and footnote 1, p. 3; Remark 1.5, pp. 3–4. The finite-étale section comparison gives the stated containment into the Lawrence–Venkatesh obstruction. The full Galois-action advantage over Frobenius orbit criteria is restricted to the numerical comparison actually proved."
+      }
+    ]
+  }
 }
