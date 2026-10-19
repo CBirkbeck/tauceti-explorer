@@ -149119,6 +149119,142 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~adv.md",
    "note": "claimed on GitHub issue #10958"
+  },
+  {
+   "id": "FIX-PKG-SpecialValuesBirchTate~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-SpecialValuesBirchTate~adv.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/review.json",
+    "research/blueprint/packages/SpecialValuesBirchTate/README.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-SpecialValuesBirchTate~adv.md"
+  },
+  {
+   "id": "BP-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
+    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems--ES.0.md",
+    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean",
+    "research/blueprint/handoff/BP-EulerSystemsAndKolyvaginSystems--ES.0~5.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.0~5.md",
+   "scope": [
+    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.1",
+    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "EulerSystemsAndKolyvaginSystems:ES.3",
+    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "EulerSystemsAndKolyvaginSystems:ES.5",
+    "EulerSystemsAndKolyvaginSystems:ES.6",
+    "EulerSystemsAndKolyvaginSystems:ES.7"
+   ],
+   "after": [
+    "REV-EulerSystemsAndKolyvaginSystems--ES.0~4"
+   ],
+   "revisionOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0"
+  },
+  {
+   "id": "REV-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EulerSystemsAndKolyvaginSystems--ES.0~5.md",
+    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
+    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems--ES.0.md",
+    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean"
+   ],
+   "after": [
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~5"
+   ],
+   "avoidAccountOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "independentOf": [
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0",
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~2",
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~3",
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~4",
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~5"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsCyclotomicMainConjecture"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv.md",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/review.json",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/README.md",
+    "research/blueprint/packages/EulerSystemsCyclotomicMainConjecture/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv.md"
+  },
+  {
+   "id": "FIX-PKG-ModularIwasawaMainConjectures~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ModularIwasawaMainConjectures"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ModularIwasawaMainConjectures~adv.md",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/review.json",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/README.md",
+    "research/blueprint/packages/ModularIwasawaMainConjectures/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ModularIwasawaMainConjectures~adv.md"
+  },
+  {
+   "id": "REV-PKG-K3BlochGroups~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-K3BlochGroups~adv.md",
+    "research/blueprint/packages/K3BlochGroups/review.json",
+    "research/blueprint/packages/K3BlochGroups/README.md",
+    "research/blueprint/packages/K3BlochGroups/Suggested.lean",
+    "research/blueprint/packages/K3BlochGroups/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-K3BlochGroups~adv.md"
   }
  ]
 }
