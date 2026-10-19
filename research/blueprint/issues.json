@@ -5211,5 +5211,6 @@
  "FIX-PKG-EisensteinIdealAndRationalTorsion~adv": 11137,
  "FIX-PKG-BorelRegulators~adv2": 11139,
  "FIX-PKG-KTheoryFiniteLocalFields~adv2": 11140,
- "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex": 11142
+ "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex": 11142,
+ "FIX-PKG-ExcursionOperatorsAndSpectralAction~adv": 11148
 }
