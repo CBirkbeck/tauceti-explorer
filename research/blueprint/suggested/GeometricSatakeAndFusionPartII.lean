@@ -1,6 +1,8 @@
 import Mathlib.LinearAlgebra.Span.Basic
 import Mathlib.RingTheory.Trace.Defs
 import Mathlib.FieldTheory.Separable
+import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.LinearAlgebra.Matrix.Notation
 import TauCeti.AlgebraicGeometry.TangentSpace.Basic
 
 /-!
@@ -57,6 +59,21 @@ example (X : AlgebraicGeometry.Scheme) (x : X) {ι : Type*}
     (d : ι → TauCeti.AlgebraicGeometry.ZariskiTangentSpace X x) :
     derivativeSpan (IsLocalRing.ResidueField (X.presheaf.stalk x)) d =
       Submodule.span (IsLocalRing.ResidueField (X.presheaf.stalk x)) (Set.range d) := by
+  sorry
+
+/-- LM.4 tangent-cone obstruction (KPZ Remark 4.1.5): a formal curve `(f, g, h)` through the origin of
+`x² + xyz = 0` has no linear term in its first coordinate, so every formal-curve derivative lies in the
+plane `x = 0` although the Zariski tangent space is three-dimensional. -/
+theorem formalCurve_coeff_one_eq_zero (f g h : PowerSeries k)
+    (hf : PowerSeries.constantCoeff f = 0) (hg : PowerSeries.constantCoeff g = 0)
+    (hh : PowerSeries.constantCoeff h = 0) (hX : f * (f + g * h) = 0) :
+    PowerSeries.coeff 1 f = 0 := by
+  sorry
+
+/-- LM.4 Cartan directions (source issue E11): with the standard `sl₂` matrices, conjugating `E` by the
+lower unipotent `x_{-α}(1)` gives `E - H - F`; only the nonzero `H` coefficient is used. -/
+example : !![(1 : ℤ), 0; 1, 1] * !![0, 1; 0, 0] * !![1, 0; -1, 1] =
+    !![(0 : ℤ), 1; 0, 0] - !![1, 0; 0, -1] - !![0, 0; 1, 0] := by
   sorry
 
 variable (F K : Type*) [Field F] [Field K] [Algebra F K]
