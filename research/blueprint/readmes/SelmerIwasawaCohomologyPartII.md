@@ -2,13 +2,13 @@
 
 This roadmap constructs heights of geometrically trivial algebraic cycles and proves a uniform finite-condition theorem for their mixed extensions. The construction starts with the parent’s Kummer completion, finite Bloch–Kato conditions and duality. Its geometric input is an actual localization diagram, with both marginal extensions and the full extension retained. Its main theorem says that suitable correspondences make all three extension classes crystalline on a strictly semistable model, under an explicit deeper-stratum localization hypothesis.
 
-The plan has thirty targets in six layers. Every layer is planned at target level. The packet is a complete planning pass, with eight open supplier interfaces and one explicit proof-verification gap, G1. No layer is claimed closed and no target is claimed formalized. G1 concerns the canonical local height construction with exceptional quotients; the separate supported-comparison and crystalline bi-extension argument does not use it. The final completed-unit consequence does.
+The plan has thirty targets in six layers. Every layer is planned at target level. The packet is a complete planning pass, with nine open supplier interfaces and one explicit proof-verification gap, G1. No layer is claimed closed and no target is claimed formalized. G1 concerns the canonical local height construction with exceptional quotients; the separate supported-comparison and crystalline bi-extension argument does not use it. The final completed-unit consequence does.
 
 The parent is [SelmerIwasawaCohomology](SelmerIwasawaCohomology.md), especially L0, L1 and L4. Arithmetic level raising and adjoint Selmer vanishing are separate continuations: this issue’s permitted split assigns all 198 and 19 corresponding paper items to explicit proposed owners below. All fourteen height-route items have targets here. Their item-by-item disposition is in the packet.
 
 ## Conventions and build boundaries
 
-Fix a prime p. The coefficient algebra L is a finite product of finite extensions of Q_p; assertions are interpreted componentwise. For inverse coefficient systems use a finite flat Z_p-algebra W and W_l=W/p^l. In geometric semistable calculations W instead denotes W(κ), with K₀ its fraction field; these two uses are distinguished by context. Rationalization means derived inverse limit followed by tensoring with L, and never silently gives the discrete topology. Cohomological shifts use differentials of degree +1.
+Fix a prime p. The coefficient algebra L is a finite product of finite extensions of Q_p; assertions are interpreted componentwise. For inverse coefficient systems use a finite flat local Z_p-domain W, a finite product L of finite extensions of Frac(W), and W_l=W/p^l; in particular L is W-flat. In geometric semistable calculations W instead denotes W(κ), with K₀ its fraction field; these two uses are distinguished by context. Rationalization means derived inverse limit followed by tensoring with L, and never silently gives the discrete topology. Cohomological shifts use differentials of degree +1.
 
 For a smooth proper X/K of dimension n−1, complementary cycles have codimensions d,d′ with d+d′=n and 1≤d,d′≤n−1. The geometric cycle-class kernel is Z^d(X)^0_L; arithmetic cycle-class vanishing is a stronger condition. The supported construction admits singular cycle supports through enhanced localization and fundamental classes. Smooth-pair purity is not applied directly to a singular support. The main semistable theorem uses projective generic X and n<p. Zero cycles use split extension conventions rather than artificially nonempty supports.
 
@@ -16,7 +16,7 @@ A span X←f X₁→g X acts as f_*g*. Its support bound is S_t=f(g⁻¹S), and 
 
 The multiplicative coefficient group at a local field is the p-completion lim_m K×/(K×)^{p^m}, followed by tensoring with L. Its finite-condition subgroup at p is the image of completed O_K×. At ℓ≠p, completed units vanish after tensoring with L. The scalar trace-boundary normalization sends a uniformizer to −1, even though its valuation is +1. The global target Γ_{K,p} is the p-completed finite idele group modulo principal ideles and local units away from p. Its torsion is retained until tensoring. Each local term is sent to Γ before summing.
 
-Generic period rings, log-convergent complexes, tube supports, residue complexes and weight spectral sequences retain their existing owners. In particular CR.6 supplies the supported log complexes, RD.4 the supported/positive weight sequences and density comparison, and PH R06.1 the completed semistable period rings and Frobenius-restricted monodromy edge. Their exact node IDs occur below. The extra integral Kato/Sato maps and the smooth-open potential-semistability theorem are requested explicitly; a proper C_st comparison or a rational syntomic fiber does not imply those interfaces by itself.
+Generic period rings, log-convergent complexes, tube supports, residue complexes and weight spectral sequences retain their existing owners. In particular CR.6 supplies the supported log complexes, RD.4 the supported/positive weight sequences and density comparison, and PH R06.1 the completed semistable period rings and Frobenius-restricted monodromy edge. Their exact node IDs occur below. The proper Frobenius/monodromy refinement of RD.4, the integral Kato/Sato maps and the smooth-open potential-semistability theorem are requested explicitly; a proper C_st comparison or a rational syntomic fiber does not imply those interfaces by itself.
 
 The generic local Panchishkin condition and canonical mixed-extension heights belong here. NE.7 retains its equivariant Bockstein and leading-term applications, while NC.5 and GZ.9 retain curve-specific constructions and comparison theorems. This roadmap imports none of those higher height applications. Its package belongs after its geometric period and purity suppliers, rather than in the parent’s earlier tier.
 
@@ -47,14 +47,14 @@ Construct admissible geometric coefficient towers, the continuous geometric Hoch
 
 **Target:** `SelmerIwasawaCohomologyPartII:HP.0/admissible-geometric-tower` · definition · planet: Admissible coefficient towers
 
-Let G act continuously on a site S and W be finite flat over Z_p, W_l=W/p^l. A bounded-below equivariant derived W_l-tower C is admissible if every H^q(S,C_l) is a discrete continuous G-module and R¹lim_l H^q(S,C_l) is killed by a power of p, for every q. Put C_L=(Rlim_l C_l)⊗_W L for a finite product L of p-adic fields with a W-algebra structure. Its geometric cohomology is canonically (lim_l H^q(S,C_l))⊗_W L, with the inverse-limit topology followed by rationalization; the displayed isomorphism is part of the interface, not a discrete topology on its right side.
+Let G act continuously on a site S and W be a finite flat local domain over Z_p, W_l=W/p^l. A bounded-below equivariant derived W_l-tower C is admissible if every H^q(S,C_l) is a discrete continuous G-module and R¹lim_l H^q(S,C_l) is killed by a power of p, for every q. Put C_L=(Rlim_l C_l)⊗_W L for a finite product L of finite extensions of Frac(W), hence flat over W. Its geometric cohomology is canonically (lim_l H^q(S,C_l))⊗_W L, with the inverse-limit topology followed by rationalization; the displayed isomorphism is part of the interface, not a discrete topology on its right side.
 
 **Hypotheses and conventions.** The derived inverse limit is taken before inverting p; the finite-exponent bound may depend on q. G-equivariant sheaves and their continuous derived global sections are imported from the arithmetic-duality supplier.
 
 **Construction or proof.**
 
 1. Use the supplier Milnor sequence to identify the possible obstruction as R¹lim H^{q−1}.
-2. A p-power torsion obstruction disappears after tensoring with L; retain the inverse-limit topology for the cochain comparison.
+2. Flatness of L over W lets cohomology and the Milnor sequence commute with tensoring; the p-power torsion obstruction then disappears. Retain the inverse-limit topology for the cochain comparison.
 
 **Uses.** DL24 Lemma A.4: Justifies continuous rather than discrete group cohomology after inverse limits. DL24 Lemma B.21 and diagram (B.40): Controls the barred period complexes and the connecting cocycles.
 
@@ -65,11 +65,15 @@ Let G act continuously on a site S and W be finite flat over Z_p, W_l=W/p^l. A b
 - `TauCeti.Selmer.Height.AdmissibleTower.map` (functoriality): A morphism of admissible towers induces continuous equivariant maps on rational cohomology, respecting identity and composition.
 - `TauCeti.Selmer.Height.AdmissibleTower.exact_triangle` (compatibility): In a distinguished triangle, verify the finite-exponent R¹lim condition for the third object from the two others when the corresponding cohomology exact sequences supply the required uniform torsion bounds; no unconditional closure under arbitrary limits is asserted.
 
+- `TauCeti.Selmer.Height.AdmissibleTower.quasiIso` (compatibility): A compatible levelwise equivariant quasi-isomorphism preserves admissibility and induces the same rational geometric cohomology and continuous edge maps.
+
 **Unit tests.**
 
-- `TauCeti.Selmer.Height.admissible_constant_finite` (example): A constant finite W/p^a-module in degree zero is admissible and its rational cohomology is zero.
+- `TauCeti.Selmer.Height.admissible_constant_finite` (example): On the point site, the tower C_l=W/p^{min(l,a)} in degree zero, with its quotient transitions and trivial G-action, is admissible and has zero rational cohomology. It is eventually constant; at l<a a constant W/p^a would not be a W_l-module.
 - `TauCeti.Selmer.Height.admissible_lattice` (compatibility): The tower W/p^l with surjective transitions has rational H^0=L, with its p-adic topology.
 - `TauCeti.Selmer.Height.admissible_liminf_obstruction` (non-example): A tower with R¹lim H^q containing a non-p-power-torsion element fails the finite-exponent condition; degreewise discreteness alone cannot certify it.
+
+- `TauCeti.Selmer.Height.admissible_flat_coefficients` (non-example): For A=Z_p[ε]/(ε²) and A→Q_p with ε↦0, the injection εA→A becomes the zero map Q_p→Q_p after tensoring. This coefficient map is outside the specified flat field-extension interface; allowing all finite flat Z_p-algebras with arbitrary field quotients would invalidate the cohomology argument.
 
 **Check.** All API and discriminating unit tests below must hold on the imported carriers, with the stated signs and support conventions.
 
@@ -83,7 +87,7 @@ Let G act continuously on a site S and W be finite flat over Z_p, W_l=W/p^l. A b
 
 For an admissible tower C there is a functorial first-quadrant, degreewise convergent spectral sequence H^a_cont(G,H^b(S,C_L)) ⇒ H^{a+b}_G(S,C_L), with the usual shift if C is only bounded below. Define H^q_G(S,C_L)_0 as the kernel of the geometric forgetful map to H^q(S,C_L). The filtration edge gives ε_C:H^q_G(S,C_L)_0→H¹_cont(G,H^{q−1}(S,C_L)). Its image lies in E₂^{1,q−1}; ε is not asserted injective on the whole kernel.
 
-**Hypotheses and conventions.** C is admissible as defined above; cohomology is continuous for the limit topology. For general finite flat W, restrict scalars to Z_p before rationalization, then restore W/L-linearity.
+**Hypotheses and conventions.** C is admissible as defined above; cohomology is continuous for the limit topology. For the stated finite flat local domain W and Frac(W)-algebra L, restrict scalars to Z_p for the continuous comparison and use flat extension to L; an arbitrary map from a finite flat Z_p-algebra to a field is insufficient.
 
 **Construction or proof.**
 
@@ -290,7 +294,7 @@ With the hypotheses and fixed trace-boundary sign of the preceding construction,
 
 **Dependencies.** `SelmerIwasawaCohomologyPartII:HP.1/local-index-away-p`; `SelmerIwasawaCohomologyPartII:HP.0/triangle-edge-cocycle`; `EtaleDualityAndPerverseSheaves:EDC.0`.
 
-**Sources.** DL24, Proposition A.7 and Remark A.6, p. 326; Scholl, Theorem 5.3, author-copy printed pp. 18–21. Identifies the two local-index constructions; Scholl’s proof supplies the compatible extension/cup-product calculation. SCHOLL94, §5, Theorem 5.3 and proof, author-copy printed pp. 18–21. The extension calculation compares the geometric local index and its motivic realization; only its étale cup/extension computation is used.
+**Sources.** DL24, Proposition A.7 and Remark A.6, p. 326; Scholl, Theorem 5.3 and comparison diagram, author-copy printed pp. 18–21. Identifies the two local-index constructions; Scholl’s proof supplies the compatible extension/cup-product calculation. SCHOLL94, §5.0–5.4, Theorem 5.3 and the extension/cup comparison diagram, author-copy printed pp. 18–21. The extension calculation compares the geometric local index and its motivic realization; only its étale cup/extension computation is used.
 
 ### The Panchishkin subrepresentation
 
@@ -333,7 +337,7 @@ For a de Rham finite-dimensional L-representation V of G_K, K/Q_p finite, a Panc
 
 **Target:** `SelmerIwasawaCohomologyPartII:HP.1/crystalline-panchishkin-criterion` · theorem · planet: Crystalline Panchishkin criterion
 
-For crystalline V let D⁺⊆D_cris(V) be its strictly negative Newton-slope subspace, with the induced Hodge filtration after extension to K. V is Panchishkin if and only if D⁺ is weakly admissible and D⁺⊗_{K₀}K is a complement to Fil⁰D_dR(V). In that case D⁺=D_cris(V⁺). In an exact sequence 0→V₁→V→V₂→0 in which all three representations are crystalline, a common nonzero purity weight of V₁,V₂ passes to V, and the Panchishkin property of V₁,V₂ passes to V.
+For crystalline V let D⁺⊆D_cris(V) be its strictly negative Newton-slope subspace, with the induced Hodge filtration after extension to K. V is Panchishkin if and only if D⁺ is weakly admissible and D⁺⊗_{K₀}K is a complement to Fil⁰D_dR(V). In that case D⁺=D_cris(V⁺). In an exact sequence 0→V₁→V→V₂→0 in which all three representations are crystalline, a common nonzero integer purity weight of V₁,V₂ passes to V, and the Panchishkin property of V₁,V₂ passes to V.
 
 **Hypotheses and conventions.** Weak admissibility includes all filtered φ-subobject inequalities, not just equality of total Hodge and Newton degrees. The extension assertion is inside the crystalline category; it does not assert that every extension of crystalline representations is crystalline.
 
@@ -434,7 +438,7 @@ For a number field K let Γ_{K,p} be the p-completion of the finite idele group 
 - `TauCeti.Selmer.Height.GlobalHeight.cycle` (constructor): Compose with the unique finite Abel–Jacobi maps to get the cycle pairing.
 - `TauCeti.Selmer.Height.GlobalHeight.local_sum` (characterisation): For disjoint cycle representatives the value is the finite sum of the images of local indices under the idelic maps.
 - `TauCeti.Selmer.Height.GlobalHeight.principal_relation` (relation): A change of global Kummer lift contributes a principal idele and hence changes the global height by zero.
-- `TauCeti.Selmer.Height.GlobalHeight.correspondence_adjoint` (compatibility): For disjoint transported supports, ⟨t*c,c′⟩=⟨c,(t∨)*c′⟩.
+- `TauCeti.Selmer.Height.GlobalHeight.correspondence_adjoint` (compatibility): Suppose t* preserves V, (t∨)* preserves V′, and the chosen pairing obeys B(t*v,v′)=B(v,(t∨)*v′). For cycles in these restricted domains with disjoint transported supports, ⟨t*c,c′⟩=⟨c,(t∨)*c′⟩. For the Poincaré pairing the adjointness comes from pull-push duality; Panchishkin uniqueness makes the local splittings compatible.
 - `TauCeti.Selmer.Height.GlobalHeight.coefficient_map` (functoriality): Extension of coefficient fields commutes with the height and its local decomposition.
 
 **Unit tests.**
@@ -448,7 +452,7 @@ For a number field K let Γ_{K,p} be the p-completion of the finite idele group 
 
 **Dependencies.** `SelmerIwasawaCohomologyPartII:HP.1/canonical-local-height`; `SelmerIwasawaCohomologyPartII:HP.1/beilinson-local-index-comparison`; `SelmerIwasawaCohomologyPartII:HP.1/abel-jacobi-finite-condition`; `SelmerIwasawaCohomology:L1/derived-selmer-duality`; `ArithmeticGaloisDuality:R02.4/lattice-rational-poitou-tate`; `SelmerIwasawaCohomology:L0/kummer-cup-shapiro`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
 
-**Sources.** DL24, §A.7, (A.5), pp. 330–331; §4.5, (4.8), p. 293; §1.3, p. 227. Constructs the canonical height and the precise local decomposition used by the special-cycle formula, without importing the automorphic formula itself.
+**Sources.** DL24, §A.7, (A.5), pp. 330–331; §4.5, (4.8), p. 293; Introduction, pp. 221–222. Constructs the canonical height and the precise local decomposition used by the special-cycle formula, without importing the automorphic formula itself.
 
 ## HP.2. Syntomic cycles with proper support
 
@@ -561,7 +565,7 @@ Choose a strict semistable alteration with flat horizontal boundary, and form su
 
 **Target:** `SelmerIwasawaCohomologyPartII:HP.3/altered-semistable-pair` · construction · planet: Semistable alteration with boundary
 
-For a proper strictly semistable 𝒳/O_K and an open 𝒰 with generic U, choose a finite K′/K and a projective strictly semistable alteration A:𝒳′→𝒳 with a strict semistable horizontal boundary over O_K′. Let 𝒰′ be the open with generic fiber A⁻¹U whose complement is the horizontal closure of that generic boundary; it can be larger than A⁻¹𝒰. Put 𝒱=𝒳′∖𝒰′ and let 𝒱(h) be the disjoint union of h-fold intersections of its components, 𝒱(0)=𝒳′. For each coefficient complex, define the supported object indexed by h=−1 as the shifted totalization of the alternating boundary diagram, with its augmentation. Perform this in the supplier’s dg/stable enhancement, retaining coherent maps; a bare complex in an arbitrary triangulated category does not determine canonical successive fibers.
+For a proper strictly semistable 𝒳/O_K and an open 𝒰 with generic U, choose a finite K′/K and a projective strictly semistable alteration A:𝒳′→𝒳 with a strict semistable horizontal boundary over O_K′. Let 𝒰′ be the open with generic fiber A⁻¹U whose complement is the horizontal closure of that generic boundary; it can be larger than A⁻¹𝒰. Put 𝒱=𝒳′∖𝒰′ and let 𝒱(h) be the disjoint union of h-fold intersections of its components, 𝒱(0)=𝒳′. For each coefficient complex, define the supported object indexed by h=−1 as Tot(C⁰→C¹→⋯), placing Cʰ in horizontal degree h, with its augmentation to C⁰; for one boundary this is Cone(C⁰→C¹)[−1]. The label h=−1 introduces no additional cohomological shift. Perform this in the supplier’s dg/stable enhancement, retaining coherent maps; a bare complex in an arbitrary triangulated category does not determine canonical successive fibers.
 
 **Hypotheses and conventions.** Use each irreducible component and its induced log structure, with one fixed ordering for the boundary signs. The altered open is not assumed d-dense, even if 𝒰 was d-dense.
 
@@ -625,7 +629,7 @@ On the boundary strata of a chosen altered pair take compatible Galois-equivaria
 
 - `TauCeti.Selmer.Height.period_proper_stratum` (compatibility): For h=0 with no boundary recover the imported proper Kato/Hyodo–Kato diagram.
 - `TauCeti.Selmer.Height.period_boundary_fiber` (example): For a single boundary component, every supported object and every map is the fiber of the corresponding restriction map.
-- `TauCeti.Selmer.Height.period_N_phi` (non-example): Interchanging Nφ=pφN with φN=pNφ breaks the Frobenius shift used in diagram B.40.
+- `TauCeti.Selmer.Height.period_N_phi` (non-example): On cohomology N(φx)=pφ(Nx). In particular, φx=p^r x implies φ(Nx)=p^{r−1}Nx; this tests the direction of the Frobenius shift in B.40.
 - `TauCeti.Selmer.Height.period_no_unbarred_admissibility` (non-example): Do not infer admissibility of unbarred C_triv from the admissibility theorem below; only its barred version is asserted admissible.
 
 **Check.** All API and discriminating unit tests below must hold on the imported carriers, with the stated signs and support conventions.
@@ -744,7 +748,7 @@ Let n<p, 1≤d<p−1 and 𝒰 be d-dense in the original proper strictly semista
 
 Prove finite-filtration annihilation, and use the imported supported and positive weight sequences to bound the obstruction kernel by 4d−1 deeper-stratum pieces. The ideal I annihilating all deeper-stratum cohomology then kills it through I^{4n−5}. Combine the syntomic cycle lift and kernel comparison to obtain the finite supported Abel–Jacobi theorem with source U_t and target U. Show a localization with no deeper-stratum cohomology cuts out a crystalline pure weight −1 summand and gives uniform elements outside the maximal ideals.
 
-**Coverage:** planned. Realize the imported RD.4 weight/positive/density and HP.2–HP.3 interfaces before closing the geometric annihilator proof.
+**Coverage:** planned. Realize the imported RD.4 weight/positive/density and HP.2–HP.3 interfaces before closing the geometric annihilator proof. Obtain the RD.4 proper Frobenius/monodromy refinement, including the N=0 collapse statement; underlying vector-space weights alone do not suffice.
 
 ### Annihilation from a finite filtration
 
@@ -814,12 +818,12 @@ Under n<p, 1≤d≤n−1 and d-density of 𝒰, let t∈I^{4n−5} and let c∈Z
 
 Let m be a maximal ideal of the commutative correspondence algebra T such that (D_deep)_m=0. Then for every r the localized summand H^{2r−1}(X_Kbar,L(r))_m is crystalline and pure of weight −1. It is the idempotent summand cut out in the finite-dimensional image of T; no finite-dimensionality of T itself is required. The annihilator I has an element outside m, and I^a has one outside m for each a≥1.
 
-**Hypotheses and conventions.** The ambient scheme has a proper strictly semistable model, and all correspondence actions commute with φ,N. Use all deeper-stratum degrees, rather than only the degree of the desired representation.
+**Hypotheses and conventions.** The ambient scheme has a proper strictly semistable model, and all correspondence actions commute with φ,N. Use all deeper-stratum degrees, rather than only the degree of the desired representation. The proper weight sequence must carry the Frobenius, Tate twists and monodromy filtration specified in the RD.4 request; the existing underlying-vector-space statement does not supply them.
 
 **Construction or proof.**
 
-1. Apply the semistable comparison and weight spectral sequence equivariantly for T. After localizing, all h>1 stratum terms vanish, leaving only smooth proper components with their usual Frobenius weights.
-2. Monodromy factors through the now-zero deeper terms, so N=0. Import RD.6 smooth proper rigid purity and RD.7 Frobenius compatibility of comparison: the surviving odd cohomology with twist r has crystalline Frobenius weight −1.
+1. Use the requested Frobenius/monodromy refinement of RD.4’s proper weight sequence and the T-equivariant proper semistable comparison. After localization all h>1 terms vanish, so only the untwisted h=1 column remains; its cohomology in degree 2r−1 is smooth proper and monodromy is zero.
+2. The requested N-filtration compatibility gives N=0 on the abutment, not just on a vector-space E₁ page. RD.6 purity and RD.7 Frobenius compatibility then give weight (2r−1)−2r=−1 after twist r, and proper semistable comparison identifies this N=0 summand as crystalline.
 3. The image of T in the finite sum of the relevant cohomology groups is a finite-dimensional commutative Artinian L-algebra. Its primary idempotents split the localized summands.
 4. Finite generation of D_deep and its zero localization gives I∖m nonempty; take powers for I^a.
 
@@ -882,7 +886,7 @@ Let K/Q_p be finite, X/K smooth projective of dimension n−1, 𝒳/O_K a proper
 
 **Target:** `SelmerIwasawaCohomologyPartII:HP.5/smooth-disjoint-closures` · theorem · planet: Good-reduction bi-extensions
 
-If 𝒳/O_K is proper smooth, X_K projective, n<p, and geometrically trivial cycles of complementary codimensions d+d′=n have disjoint closures, their two Abel–Jacobi extensions and their full mixed extension are finite. Take T=L, m=m′=0 and t=t′=1. For global cycles satisfying HP.1’s (V1)–(V3), at a p-adic place with this smooth model their local canonical height lies in the completed unit subgroup.
+If 𝒳/O_K is proper smooth, X_K projective, n<p, and geometrically trivial cycles of complementary codimensions d+d′=n have disjoint closures, their two Abel–Jacobi extensions and their full mixed extension are finite. For each field factor L_i of L, take T=L_i, m=m′=0 and t=t′=1, then assemble the conclusions over L. The zero ideal of a product with several field factors is not maximal. For global cycles satisfying HP.1’s (V1)–(V3), at a p-adic place with this smooth model their local canonical height lies in the completed unit subgroup.
 
 **Hypotheses and conventions.** For the height assertion retain the embedding in the prescribed V,V′ and all canonical-height hypotheses, including G1’s unresolved proof obligation. Replacing smooth by strictly semistable without deeper-stratum annihilation is not asserted.
 
@@ -914,7 +918,7 @@ The following are requests in the packet, not claims that the named stages alrea
 
 ### R1. ArithmeticGaloisDuality:R02.1
 
-For bounded-below equivariant sheaf towers on a site with discrete finite-level G-action, justify the continuous equivariant derived-sections/geometric-sections spectral sequence after Rlim and rationalization when all R¹lim H^q have finite p-power exponent. Include the limit topology, equivariant acyclic resolutions, finite flat W scalar restriction, and the natural first edge on the geometric kernel. This is the site/period-coefficient extension of the existing Milnor and continuous-cochain interfaces, not only the discrete group-quotient Hochschild–Serre theorem.
+For bounded-below equivariant sheaf towers on a site with discrete finite-level G-action, justify the continuous equivariant derived-sections/geometric-sections spectral sequence after Rlim and rationalization when all R¹lim H^q have finite p-power exponent. Include the limit topology, equivariant acyclic resolutions, finite flat local-domain W scalar restriction, flat extension to finite products of Frac(W)-extensions, and the natural first edge on the geometric kernel. This is the site/period-coefficient extension of the existing Milnor and continuous-cochain interfaces, not only the discrete group-quotient Hochschild–Serre theorem.
 
 Consumers: `SelmerIwasawaCohomologyPartII:HP.0/geometric-hochschild-serre-edge`.
 
@@ -959,6 +963,12 @@ Consumers: `SelmerIwasawaCohomologyPartII:HP.2/supported-syntomic-abel-jacobi`, 
 Use the existing principal-idele reciprocity and local compatibility to identify the p-completed finite-idelic quotient Γ_{K,p}, its finite generation as a Z_p-module, and the local completed K_v× maps into it; prove the almost-everywhere vanishing and principal-relation exactness used when summing the local height indices. The underlying Artin maps and idele carriers remain upstream-owned.
 
 Consumers: `SelmerIwasawaCohomologyPartII:HP.1/global-height-pairing`.
+
+### R9. PadicDifferentialEquationsAndRigidCohomology:RD.4
+
+Refine RD.4/supported-log-weight-spectral-sequence in its proper strictly semistable case to the Frobenius/monodromy-compatible Mokrane weight sequence used in DL24 proof of A.8, pp. 346–347. Specify the E₁ stratum summands with their Tate twists, restriction/Gysin differentials, correspondence action and convergence to Hyodo–Kato cohomology; retain Nφ=pφN and the filtration shift of N. Prove that if every h>1 stratum group vanishes after localization, only the untwisted h=1 term in column zero survives, the induced N is zero, and degree q has the smooth proper Frobenius weight q. RD.4 currently specifies only underlying K₀-vector spaces and explicitly leaves Frobenius twists unspecified; that interface alone cannot prove HP.4’s crystalline pure summand. Use the existing CR.6 complex and PH proper comparison, without adding another weight-sequence owner.
+
+Consumers: `SelmerIwasawaCohomologyPartII:HP.4/localized-crystalline-summand`.
 
 ## Proof-verification gap
 
@@ -1023,15 +1033,17 @@ The proposed rescope of NE.7 assigns its generic local Panchishkin and canonical
 
 ## Source corrections and categorical convention
 
-The following findings are also recorded in the packet’s sourceIssues, against the versions actually read. Existing extraction findings retain their provenance; the new enhancement finding awaits independent review.
+All six findings below were independently confirmed in REV-DESIGN-SelmerIwasawaCohomologyPartII. E1–E4 retain their extraction provenance; E5’s categorical repair is confirmed and E6 records the additional derivative-sign error. No quotation from a source is reproduced.
 
 ### E1 — Proof of Lemma A.5, published pp. 323–324; arXiv v3 agrees
 
 The cochain description switches from C^q to an undefined E^q; two representative names also change to undefined symbols.
 
-**Correction.** Use C^q throughout the kernel/boundary display, a for the chosen lift class and b^q for the closed representative. Fix the connecting-map sign independently as in HP.0.
+**Correction.** Use C^q throughout the kernel/boundary display, a for the lift class and b^q for the closed representative. The lift y of c satisfies ν(y)=c, rather than μ(y)=c. The derivative-sign error is recorded separately as E6.
 
 **Reason.** The relevant complexes in this proof are A,B,C; the subsequent differential computation uses b^q and the lift class a. Affects: nothing. Previously recorded and confirmed as PAPER-DISEGNI-LIU-24/E4; no published correction located.
+
+**Independent review: confirmed.** The published pp. 323–324 and arXiv v3 contain the undefined representative names and the incorrectly typed μ(y)=c display. The lift must use B→C, namely ν.
 
 ### E2 — §A.3, published p. 325; arXiv v3 agrees
 
@@ -1041,6 +1053,8 @@ The vanishing clause for κ_c′ uses twist L(d), while the stated domain of κ_
 
 **Reason.** A map can vanish on the indicated image only when its source is the target of that image map; the localization diagram subsequently uses κ_c′(1). Affects: nothing. Previously recorded and confirmed as PAPER-DISEGNI-LIU-24/E5; no published correction located.
 
+**Independent review: confirmed.** The domain of κ_c′ is H^{2d−2}(Z′,L(d−1)); the localization pushout uses κ_c′(1). The printed vanishing clause uses the wrong twist.
+
 ### E3 — Proof of Theorem A.8, third use of B.11, published p. 347; arXiv v3 agrees
 
 The finite class after applying t₂* and its pushout are assigned the support open U_t.
@@ -1048,6 +1062,8 @@ The finite class after applying t₂* and its pushout are assigned the support o
 **Correction.** Both groups use U after t₂* has transported support; reserve U_t for the input to the correspondence.
 
 **Reason.** B.11 has source H_c(U_t) and target H_c(U), and the mixed-extension pushout is built from the latter. Affects: nothing. Previously recorded and confirmed as PAPER-DISEGNI-LIU-24/E6; no published correction located.
+
+**Independent review: confirmed.** B.11 transports H_c(U_t) to H_c(U). The third application in the published proof pp. 346–347 labels its output and pushout source U_t, contrary to that transport.
 
 ### E4 — Lemma A.4, p. 322, and proof of B.17, p. 367, published; arXiv v3 agrees
 
@@ -1057,6 +1073,8 @@ A.4 is written for Z_{p•}, although its subsequent applications have finite fl
 
 **Reason.** The cochain/limit argument is linear under finite flat scalar restriction, and the barred crystalline coefficients in B.21 have precisely those W coefficients. Affects: nothing. Previously recorded and confirmed in PAPER-DISEGNI-LIU-24/E7; no published correction located.
 
+**Independent review: confirmed.** A.4 states Z_p coefficients while its proof and B.21 application use W; scalar restriction proves the finite-flat local-domain version with flat extension to L. The final B.17 display also changes G_K to K. This is a missing scalar-extension statement and a subscript misprint, not a false spectral sequence.
+
 ### E5 — Definition B.12, published p. 348; arXiv v3 agrees
 
 A finite complex in an arbitrary triangulated category is assigned canonical successive homotopy fibers and canonical induced operators.
@@ -1065,18 +1083,32 @@ A finite complex in an arbitrary triangulated category is assigned canonical suc
 
 **Reason.** A bare triangulated category does not have functorial cones or uniquely specified fibers. Already for the zero map L[−1]→L, its fiber has nontrivial triangular automorphisms fixing the endpoint maps; a longer complex also omits higher coherence. The supported construction is repaired by explicit enhanced complexes. Affects: a stated result. new
 
+**Independent review: confirmed.** Definition B.12 explicitly asserts a canonical construction in an arbitrary triangulated category. The stated zero-map example has nonunique fiber automorphisms; retaining enhanced boundary complexes repairs this application.
+
+### E6 — Proof of Lemma A.5, published p. 324; arXiv v3 agrees
+
+After defining a=b−dy with b G-fixed, the proof identifies ga−a with +d(gy−y).
+
+**Correction.** The direct calculation gives ga−a=−d(gy−y). With δ([z])=[d(lift z)], the edge cocycle maps to a−ga. Recover ga−a only using −δ; keep this choice consistent in the shifted monodromy triangle.
+
+**Reason.** This follows by expanding g(b−dy)−(b−dy) with gb=b. It is independent of representative-name misprints. The kernel comparison used later is unchanged by multiplying the connecting map by −1. Affects: the proof. new
+
+**Independent review: confirmed.** Checked the published cochain display and arXiv v3 against the expansion a=b−dy. HP.0 already states the correct convention; this review records the source proof error explicitly.
+
 Existing-correction searches: Published Inventiones PDF at DOI 10.1007/s00222-024-01243-7, read 2026-10-19; the corresponding displays were compared with arXiv v3. arXiv:2204.09239 submission history, checked 2026-10-19: v3 dated 2024-02-23 remains the last listed revision. Yifeng Liu’s publication page, checked 2026-10-19: no correction linked for this article; an unrelated article has its own erratum link. Existing confirmed extraction findings PAPER-DISEGNI-LIU-24/E4–E7.
 
 ## Sources and suggested signatures
 
-- **DL24.** Daniel Disegni; Yifeng Liu, *A p-adic arithmetic inner product formula*. Inventiones mathematicae 236 (2024), 219–371; version of record, with arXiv:2204.09239v3 compared. [Source](https://link.springer.com/content/pdf/10.1007/s00222-024-01243-7.pdf). Appendices A and B, published pp. 320–368; all statements and proofs read in arXiv v3, and journal locators and corrected displays checked in the published PDF. §1.3, definition of Γ_{K,p}; §4.5, equation (4.8), p. 293. SHA-256: `e8c4e026fab0fe89fd7dcbc724009af7b867ad910937ffb9fa7e72289f0f1ef8`.
+- **DL24.** Daniel Disegni; Yifeng Liu, *A p-adic arithmetic inner product formula*. Inventiones mathematicae 236 (2024), 219–371; version of record, with arXiv:2204.09239v3 compared. [Source](https://link.springer.com/content/pdf/10.1007/s00222-024-01243-7.pdf). Appendices A and B, published pp. 320–368; all statements and proofs read in arXiv v3, and journal locators and corrected displays checked in the published PDF. Introduction, pp. 221–222, definition of Γ_{K,p}; §4.5, equation (4.8), p. 293. SHA-256: `e8c4e026fab0fe89fd7dcbc724009af7b867ad910937ffb9fa7e72289f0f1ef8`.
 
 - **NEK-SC.** Jan Nekovář, *Selmer complexes*. Astérisque 310 (2006), Numdam public scan. [Source](https://www.numdam.org/item/AST_2006__310__R1_0.pdf). §11.3, pp. 363–374, particularly §11.3.9: norm heights and the sign of the Bockstein comparison. §11.4, pp. 375–382: assumptions §11.4.1, exceptional quotient spaces and the canonical-height correction in §11.4.5–11.4.6. SHA-256: `61c84e5ad3252a2e520747215ac57a282addc2b58c824a3637bcd77bbe02153f`.
 
-- **SCHOLL94.** A. J. Scholl, *Height pairings and special values of L-functions*. Author copy of Proc. Sympos. Pure Math. 55.1 (1994), 571–598; locators here use the author copy’s printed pages. [Source](https://www.dpmms.cam.ac.uk/~ajs1005/preprints/height-all.pdf). §5, Theorem 5.3 and proof, author-copy printed pp. 18–21, read on page images; theorem assumptions in §5.0 and referenced §3.6 distinguished from the étale computation used here. SHA-256: `e1214babfd7c4e4c47847472aa7a94fdaadfd65ecac81618088d54c1962d3e12`.
+- **SCHOLL94.** A. J. Scholl, *Height pairings and special values of L-functions*. Author copy of Proc. Sympos. Pure Math. 55.1 (1994), 571–598; locators here use the author copy’s printed pages. [Source](https://www.dpmms.cam.ac.uk/~ajs1005/preprints/height-all.pdf). §5.0–5.4, Theorem 5.3 and the extension/cup comparison diagram, author-copy printed pp. 18–21, read on page images; theorem assumptions in §5.0 and referenced §3.6 distinguished from the étale computation used here. SHA-256: `e1214babfd7c4e4c47847472aa7a94fdaadfd65ecac81618088d54c1962d3e12`.
 
 - **NEK93-UNREAD.** Jan Nekovář, *On p-adic height pairings*. Séminaire de Théorie des Nombres, Paris 1990–91, Progress in Mathematics 108 (1993), 127–202; bibliography only, original inaccessible. [Source](https://webusers.imj-prg.fr/~jan.nekovar/pu/height.pdf). Not accessed: author endpoint returned HTTP 403 and publisher chapter PDF was unavailable. DL24 cites Proposition 1.25, §§1–4, 6.7 and 7. Local proof verification remains gap G1.
 
 - **NEK00-UNREAD.** Jan Nekovář, *p-adic Abel–Jacobi maps and p-adic heights*. The Arithmetic and Geometry of Algebraic Cycles, CRM Proc. Lecture Notes 24 (2000), 367–379; bibliography only, original inaccessible. [Source](https://webusers.imj-prg.fr/~jan.nekovar/pu/banff.pdf). Not accessed: author endpoint failed. Theorem 3.1 is cited by DL24 A.7; this packet gives a comparison-based proof route and requests its exact suppliers instead of claiming to have read that theorem.
 
 The companion [suggested file](../suggested/SelmerIwasawaCohomologyPartII.lean) contains the native finite-filtration milestone and four examples. It elaborates at the pinned Mathlib with only the expected admission warnings. Its small size follows the current roadmap shape: missing geometric, semistable and syntomic carriers remain precise reader targets, rather than being replaced by empty predicates or admitted data. It does not claim to formalize the heights or crystalline bi-extension theorem. All thirty packet nodes retain implementationStatus unchecked.
+
+Independent review REV-DESIGN-SelmerIwasawaCohomologyPartII accepted this complete target-level planning pass on 2026-10-19 after correcting nine nodes. Acceptance preserves all nine open supplier requests and G1; it asserts neither proof closure nor formalization. See the [review report](../reviews/REV-DESIGN-SelmerIwasawaCohomologyPartII.md).

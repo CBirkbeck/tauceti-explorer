@@ -13,6 +13,8 @@ period diagrams remain reader targets; this file introduces no substitute carrie
 
 HP.4/finite-filtration-annihilation: the native linear algebra substatement of the
 weight-filtration argument in Disegni–Liu, Lemma B.10, published p. 344.
+Independent review (2026-10-19): the coefficient, support and height corrections
+are reader targets; they require no new carriers or signatures in this file.
 -/
 
 namespace TauCeti.Selmer.Height
