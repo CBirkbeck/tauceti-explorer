@@ -190,7 +190,14 @@
     "ref": "mathlib:cyclotomicCharacter",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
-    "provides": "The p-adic cyclotomic character (L ≃+* L) →* ℤ_pˣ; used to type the Tate twist ℤ_p(1) in the universal-norm unit test.",
+    "provides": "The p-adic cyclotomic character (L ≃+* L) →* ℤ_pˣ; fixes the Tate twist ℤ_p(1) in the reader’s universal-norm Check.",
+    "checked": "statement read at the pinned commit"
+   },
+   {
+    "ref": "tauceti:TauCeti.MonoidAlgebra.augmentation",
+    "kind": "def",
+    "module": "TauCeti/Algebra/MonoidAlgebra/Exactness.lean",
+    "provides": "The coefficient-sum augmentation R[Γ] →+* R, sending each standard basis element to 1; consumed directly in the derivative checks.",
     "checked": "statement read at the pinned commit"
    }
   ]
@@ -467,6 +474,38 @@
    "read": "2026-10-10",
    "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
    "notes": "Maintainer-cleared Inventiones copy, §§2.3–2.6, printed pp.126–135. The earlier arXiv locators remain explicitly versioned. The abundance exponent is reducibility depth; the Frobenius-image and positive-loss localisation corrections are still needed in this published range."
+  },
+  {
+   "sourceId": "mr-ks",
+   "kind": "author copy",
+   "url": "https://web.archive.org/web/2020id_/https://www.math.uci.edu/~krubin/preprints/kolysys.pdf",
+   "read": "2026-10-19",
+   "sha256": "4cc432d0d719a51c8dd1d2b27829014b9f090f7c53f179d6c628e6208c84e01f",
+   "notes": "Revision-four bounded re-reading 2026-10-19: coefficient conventions, Lemma 1.2.1, Definitions 2.1.1/2.2.1/2.3.1, §3.5, §3.2 and the earlier review counterexamples; arithmetic targets remain reader statements."
+  },
+  {
+   "sourceId": "mr-higher",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1312.4052v1",
+   "read": "2026-10-19",
+   "sha256": "15ec72e48fab1790e5b96e7172b4af88c974b0d487a515cdbd9dd0ced3ea4ee8",
+   "notes": "Revision-four bounded re-reading 2026-10-19: Definitions 2.1 and 5.1, Lemma 5.2, Corollary 5.3 and Theorem 5.4, pp. 6 and 9–11; universal norms and support checked together."
+  },
+  {
+   "sourceId": "rubin-es",
+   "kind": "author copy",
+   "url": "https://swc-math.github.io/notes/files/99RubinES.pdf",
+   "read": "2026-10-19",
+   "sha256": "de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50",
+   "notes": "Revision-four bounded re-reading 2026-10-19: IV Lemma 1.2 p. 57 and Definition 4.1 with identity (4) p. 62, for polynomial and derivative conventions."
+  },
+  {
+   "sourceId": "bss2",
+   "kind": "preprint",
+   "url": "https://arxiv.org/pdf/1805.08448v1",
+   "read": "2026-10-19",
+   "sha256": "2f6da843d3dcedde65a2b04b80c711863306f9fd9ab20580d245d2c4d2f06429",
+   "notes": "Revision-four bounded re-reading 2026-10-19: §3.2 Proposition 3.5 and §6.4 correction determinant, Theorem 6.12 and Corollary 6.13, pp. 15 and 40–42."
   }
  ],
  "nodes": [
@@ -1067,7 +1106,7 @@
     "Use the corrected MR04 Lemma 2.1.4 only for coefficient-ideal quotients T/IT, as recorded in MR16’s Gomez erratum (arXiv v1 p.32; published p.182). Residual invariant vanishing alone does not apply to arbitrary Galois subquotients.",
     "(a): retain the general MR04 hypotheses for its original dual-annihilator statement. At the weaker finite self-injective coefficient scope use BSS II Proposition 3.5, Lemmas 3.6–3.7 and Corollary 3.8: for generators r₁,…,r_d of I, compare A/A[I] with A^d by multiplication by those generators; prove vanishing of the diagonal-map cokernel invariants using the coefficient-ideal filtration, then identify the cohomological kernel with I-torsion. The Selmer conditions agree by inverse-image propagation. This replaces the defective induction through unrestricted subquotients.",
     "(b): the same argument with 0 → T/m^i → T → T/m^{k−i} → 0; the local conditions match by cartesianness at Σ(F) and by Lemma 1.1.9 at the unramified places.",
-    "The two coefficient scopes give two separate suggested signatures: the general complete-noetherian form carries (H.0), (H.1) and (H.3) for the residue characteristic, and the finite form carries an artinian self-injective coefficient ring with residual invariant vanishing. A single signature with residual vanishing alone would assert the uncorrected Lemma 2.1.4."
+    "The two coefficient scopes give two separate reader API targets: the general complete-noetherian form carries (H.0), (H.1) and (H.3) for the residue characteristic, and the finite form carries an artinian self-injective coefficient ring with residual invariant vanishing. A single signature with residual vanishing alone would assert the uncorrected Lemma 2.1.4."
    ],
    "acceptance": [
     "For T = μ_{p^k} ⊗ ρ^{-1} with ρ ≠ 1, ω, both identifications hold (Mazur–Rubin 2004, Lemma 6.1.5).",
@@ -2372,7 +2411,7 @@
    "acceptance": [
     "For T = ℤ/p^k with trivial action and p^k | #𝔽^×: H¹_f ≅ ℤ/p^k and H¹_s ≅ Hom(𝔽^×, ℤ/p^k).",
     "The isomorphisms commute with maps T → T′ of such modules.",
-    "Outside the coefficient category the identification fails: for ℚ with the discrete topology and trivial action, continuous H¹ of the unramified quotient Ẑ is zero while the Frobenius coinvariants are ℚ. ℚ is not a coefficient ring, and the suggested finiteEvaluation requires compact coefficients."
+    "Outside the coefficient category the identification fails: for ℚ with the discrete topology and trivial action, continuous H¹ of the unramified quotient Ẑ is zero while the Frobenius coinvariants are ℚ. ℚ is not a coefficient ring, and the planned finiteEvaluation requires compact coefficients."
    ],
    "prerequisites": [
     "SelmerIwasawaCohomology:L2/unramified-condition",
@@ -4025,7 +4064,8 @@
    "prerequisites": [
     "mathlib:MonoidAlgebra",
     "mathlib:Representation.norm",
-    "EulerSystemsAndKolyvaginSystems:ES.1/ray-class-tower"
+    "EulerSystemsAndKolyvaginSystems:ES.1/ray-class-tower",
+    "tauceti:TauCeti.MonoidAlgebra.augmentation"
    ],
    "sources": [
     {
@@ -4106,6 +4146,26 @@
      "name": "kolyvaginDerivative_not_norm_multiple",
      "kind": "non-example",
      "statement": "For a cyclic group of order at least 2, (σ−1)D_σ is nonzero in the integral group ring."
+    },
+    {
+     "name": "normElement_trivial",
+     "kind": "degenerate",
+     "statement": "For the trivial group, N_Γ=1 and ε(N_Γ)=1, while D_1=0."
+    },
+    {
+     "name": "normElement_order_two",
+     "kind": "computation",
+     "statement": "If Γ has order two and σ≠1, N_Γ=1+σ and ε(N_Γ)=2; the derivative is σ, so the norm and derivative are distinct."
+    },
+    {
+     "name": "augmentation_basis",
+     "kind": "compatibility",
+     "statement": "For every γ, ε(γ)=1, agreeing with the trivial representation; summing this identity makes N_Γ act as Representation.norm."
+    },
+    {
+     "name": "augmentation_derivative_order_three",
+     "kind": "computation",
+     "statement": "For σ of order three, ε(D_σ)=3, whereas ε(N_Γ)=3; the identity is 2ε(D_σ)=3·2 and does not identify the two group-ring elements."
     }
    ],
    "planet": {
@@ -5935,6 +5995,11 @@
      "name": "TauCeti.KolyvaginSystems.KolyvaginSystem.ord_eq",
      "role": "characterisation",
      "statement": "For nonzero κ under the rank-one admissibility hypotheses: over a DVR ord(κ)=min{r:∂^{(r)}(κ)<∞}; over a principal artinian ring ord(κ)=min{r:∂^{(r)}(κ)<k}. Set ord(0)=∞ in both cases."
+    },
+    {
+     "name": "TauCeti.KolyvaginSystems.divisibilityIndex",
+     "role": "data",
+     "statement": "For an R-module M over a local ring, the elementwise untruncated index of x is sup{j∈ℕ : x∈m^j M}∈ℕ∞. The system invariant is its infimum over conductors of the prescribed size; the finite-artinian cyclic-image invariant remains separate."
     }
    ],
    "tests": [
@@ -5952,6 +6017,21 @@
      "name": "divIndex_scaling",
      "kind": "computation",
      "statement": "Over a DVR with torsion-free size-zero stalks, initial index 3 becomes 5 after multiplication by π²."
+    },
+    {
+     "name": "divisibilityIndex.zero",
+     "kind": "degenerate",
+     "statement": "The elementwise untruncated index of 0 is ∞, even over a finite ring; it is distinct from the truncated artinian system invariant."
+    },
+    {
+     "name": "divisibilityIndex.residue_nonzero",
+     "kind": "non-example",
+     "statement": "If x∉mM then its index is 0. In particular 1∈R has index 0, excluding a constant-∞ definition."
+    },
+    {
+     "name": "divisibilityIndex.padic_power",
+     "kind": "computation",
+     "statement": "For R=ℤ_p and x=p^j, the index is exactly j, including j=0; p^3 becomes p^5 after multiplication by p²."
     }
    ],
    "planet": {
@@ -5969,7 +6049,8 @@
     "TauCeti.KolyvaginSystems.KolyvaginSystem.IsPrimitive",
     "TauCeti.KolyvaginSystems.KolyvaginSystem.divIndex_smul",
     "TauCeti.KolyvaginSystems.KolyvaginSystem.not_isPrimitive_smul",
-    "TauCeti.KolyvaginSystems.KolyvaginSystem.ord_eq"
+    "TauCeti.KolyvaginSystems.KolyvaginSystem.ord_eq",
+    "TauCeti.KolyvaginSystems.divisibilityIndex"
    ]
   },
   {
@@ -6246,7 +6327,7 @@
    ],
    "proofSteps": [
     "Howard Proposition 1.1.7 gives finite and transverse rank-two local conditions when the inert conductor ideal vanishes. Its ring-class restriction kernel and k_λ×/k_ℓ× reciprocity comparison are imported from HE.0 and CFT. They are distinct from the rank-one-coinvariant Mazur–Rubin polynomial construction; do not instantiate that construction at an inert rank-two prime.",
-    "Howard Remark 1.3.1 supplies admissible scalar changes and Lemma 1.5.1 supplies modification at primes whose conductor ideal vanishes. The prototype makes same-coefficient modification with I_n=0 and scalar quotient R/I explicit; arbitrary coefficient changes require the corresponding dictionary and retained hypotheses.",
+    "Howard Remark 1.3.1 supplies admissible scalar changes and Lemma 1.5.1 supplies modification at primes whose conductor ideal vanishes. The reader distinguishes same-coefficient modification with I_n=0 from scalar quotient R/I; arbitrary coefficient changes require the corresponding dictionary and retained hypotheses.",
     "For R = ℤ_p, T = T_pE and (s, t) = e(s, t^τ) with e the Weil pairing, H.4 holds (Remark 1.3.2)."
    ],
    "acceptance": [
@@ -7459,6 +7540,11 @@
      "name": "TauCeti.EulerSystems.higherDerivative_rank_one",
      "role": "compatibility",
      "statement": "At conductor one in rank one, the raw descended class agrees with coefficient reduction of the Rubin initial component under Shapiro and bidual evaluation. Full corrected MR-family comparison is the exact coefficient/Euler/augmentation dictionary in the supplier request."
+    },
+    {
+     "name": "TauCeti.EulerSystems.deltaCorrection",
+     "role": "data",
+     "statement": "For off-diagonal factors P_ij in a commutative ring, det(B) with B_ii=0 and B_ij=P_ij for i≠j. In the higher derivative P_ij=P_{q_j}^{q_i}, with the indicated disjoint augmentation factors."
     }
    ],
    "tests": [
@@ -7501,7 +7587,8 @@
     "TauCeti.EulerSystems.higherDerivative_one",
     "TauCeti.EulerSystems.higherDerivative_singular",
     "TauCeti.EulerSystems.higherDerivative_indep",
-    "TauCeti.EulerSystems.higherDerivative_rank_one"
+    "TauCeti.EulerSystems.higherDerivative_rank_one",
+    "TauCeti.EulerSystems.deltaCorrection"
    ]
   },
   {
@@ -7764,7 +7851,7 @@
    ],
    "acceptance": [
     "The statement retains every displayed hypothesis and the indicated coefficient convention.",
-    "The Lean prototype uses geometric torsion points, their O_L-action, the coefficient completion and the finite Selmer kernel. Nekovář §3.1/§5.19 geometry and condition (*) are explicitly omitted from the prototype because their supplier carrier has no pinned signature; the mathematical statement retains them. The prototype parameters alone are not sufficient hypotheses for the source theorem."
+    "The reader target requires geometric torsion points, their O_L-action, the coefficient completion and the finite Selmer kernel, together with Nekovář §3.1/§5.19 geometry and condition (*). These complete hypotheses are essential. No arithmetic bound with any of these conditions omitted is stated in the compact Lean file."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.3/derivative-operators",
@@ -7807,7 +7894,7 @@
    ],
    "acceptance": [
     "The statement retains every displayed hypothesis and the indicated coefficient convention.",
-    "The comparison prototype is between arithmetic inverse systems, with explicit determinant-evaluation maps and commuting transitions; it is not an equivalence between arbitrary abstract inverse systems."
+    "The comparison target is between the specified arithmetic inverse systems, with explicit determinant-evaluation maps and commuting transitions; it does not claim an equivalence between arbitrary abstract inverse systems."
    ],
    "prerequisites": [
     "EulerSystemsAndKolyvaginSystems:ES.6/stark-systems",
@@ -7844,7 +7931,7 @@
     "Kummer theory identifies the canonical dual Selmer module with the χ-class group of O_L[1/p] (BSS equation (14)). The no-p-splitting condition makes its projection from C_χ an isomorphism.",
     "Rank-one T_χ and χ≠1,ω verify the representation and freeness conditions; the archimedean splitting and local non-splitting give core rank r and the local hypotheses of Corollary 6.18.",
     "Apply Corollary 6.18(i) for inclusion, and (iii) with no finite split S-place for equality and invariant factors.",
-    "Conjecture B′ at every tower level gives rational Rubin–Stark elements characterized by the ordered archimedean regulator, with integral χ-components. Their source norm relations and the unit/Kummer dictionaries give c^RS. Apply the zeroth Fitting bound at its base component. The prototype records a rational family with norm relations as input, then the integral-range predicate; it does not construct that family unconditionally from complex L-values."
+    "Conjecture B′ at every tower level gives rational Rubin–Stark elements characterized by the ordered archimedean regulator, with integral χ-components. Their source norm relations and the unit/Kummer dictionaries give c^RS. Apply the zeroth Fitting bound at its base component. The reader requires the rational family characterized by the ordered regulator, its integral bidual membership and its all-level norm relations as conditional input; it does not construct that family unconditionally from complex L-values."
    ],
    "acceptance": [
     "The statement retains every displayed hypothesis and the indicated coefficient convention."
@@ -7946,7 +8033,7 @@
   },
   {
    "supplier": "PadicMeasuresIwasawaAlgebras:L6",
-   "need": "Own the generic exterior bidual and ξ determinant map, projective comparison and integral lattice; for commutative noetherian self-injective artinian R and finitely generated modules, exact R-duality, reflexivity, kernel contractions, rank reduction and the free-ambient coefficient-change square of BSS II Proposition 2.4/Corollary 2.7. For finite abelian Γ→Γ/H and Gorenstein orders, supply group-ring change, invariants descent and the integral transfer map of BSS II §6.3 map (9): its normalization is i(N_H^{∧r}x)=N_H x, as Sano 2014 Remark 2.12, not ordinary functoriality of M^H→M. Supply compatible functional lifts along towers (Sano Lemma 2.10) and the modulo-M comparison used by BSS Lemma 6.9. Generic Fitting ideals are already in current Tau Ceti and are not a new L6 target. Include the larger-auxiliary-field to target-field projection of BSS Corollary 6.13 and its compatibility with reduction, augmentation factors, corestriction and Shapiro; identify the full rank-one corrected family with MR04 Appendix A after both Euler conventions are transported. The prototype tests raw rank-one base evaluation and generator independence, with the wider comparisons retained as supplier contracts.",
+   "need": "Part II extension of the merged PadicMeasuresIwasawaAlgebras Layer 6, not a second ES algebra development. Own the generic exterior bidual and ξ determinant map, projective comparison and integral lattice; for commutative noetherian self-injective artinian R and finitely generated modules, exact R-duality, reflexivity, kernel contractions, rank reduction and the free-ambient coefficient-change square of BSS II Proposition 2.4/Corollary 2.7. For finite abelian Γ→Γ/H and Gorenstein orders, supply group-ring change, invariants descent and the integral transfer map of BSS II §6.3 map (9): its normalization is i(N_H^{∧r}x)=N_H x, as Sano 2014 Remark 2.12, not ordinary functoriality of M^H→M. Supply compatible functional lifts along towers (Sano Lemma 2.10) and the modulo-M comparison used by BSS Lemma 6.9. Generic Fitting ideals are already in current Tau Ceti and are not a new L6 target. Supply the generic group-ring projection and its compatibility with reduction, augmentation factors and normalized transfer. ES.7 then constructs the arithmetic larger-auxiliary-field to target-field projection of BSS Corollary 6.13, using corestriction and Shapiro, and identifies the full rank-one corrected family with MR04 Appendix A after both Euler conventions are transported. The arithmetic auxiliary-field and rank-one comparisons are ES.7 reader targets consuming these generic maps; the compact Lean examples check only group-ring and determinant identities.",
    "neededBy": [
     "EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality",
     "EulerSystemsAndKolyvaginSystems:ES.6/stark-structure",
@@ -7961,7 +8048,7 @@
   },
   {
    "supplier": "SelmerIwasawaCohomology:L2",
-   "need": "General-coefficient extension of the existing O-adic Selmer layer: canonical continuous H¹ on TopRep over complete noetherian local R; quotient and discrete Cartier-dual carriers, local Tate pairings compatible with quotient/submodule propagation, unramified and transverse exact annihilators; MR04 Proposition 2.3.5 and Theorem 2.3.4 (finite global length formula and change-of-condition sequence); BSS II Theorem 3.1 over commutative noetherian self-injective local R, with finitely generated modules and dual Hom_R(−,R). The compact DVR case retains the discrete torsion dual. Each R-general consumer points to this requested stage rather than an O-only node. Also supply the actual cocycle formula for the induced integral local map: its image propagates the lattice canonical condition at p and infinity, rather than replacing that image by the full finite-coefficient local H¹. Retain the finite-level reflexivity and zero-conductor conditions in the rank-one bidual/ordinary Kolyvagin comparison. Supply the finite-localization criterion used in LTXZZ Proposition 2.4.6: purity of weight −1 and conjugate self-duality imply finite torsion local lattice conditions away from ℓ, uniformly annihilated before reduction modulo λ^m. The prototype states the resulting finite-torsion criterion and its uniform consequence explicitly. State these on the coefficient category the ES prototype uses: coefficient rings complete noetherian local with finite residue field of characteristic p in the m-adic topology; compact coefficients of finite type with the module topology and jointly continuous action; discrete m-power-torsion coefficients of cofinite type with open stabilisers; Selmer supports containing S_p ∪ S_∞ and the ramified primes, kept by duality, propagation and modification.",
+   "need": "General-coefficient extension of the existing O-adic Selmer layer: canonical continuous H¹ on TopRep over complete noetherian local R; quotient and discrete Cartier-dual carriers, local Tate pairings compatible with quotient/submodule propagation, unramified and transverse exact annihilators; MR04 Proposition 2.3.5 and Theorem 2.3.4 (finite global length formula and change-of-condition sequence); BSS II Theorem 3.1 over commutative noetherian self-injective local R, with finitely generated modules and dual Hom_R(−,R). The compact DVR case retains the discrete torsion dual. Each R-general consumer points to this requested stage rather than an O-only node. Also supply the actual cocycle formula for the induced integral local map: its image propagates the lattice canonical condition at p and infinity, rather than replacing that image by the full finite-coefficient local H¹. Retain the finite-level reflexivity and zero-conductor conditions in the rank-one bidual/ordinary Kolyvagin comparison. Supply the finite-localization criterion used in LTXZZ Proposition 2.4.6: purity of weight −1 and conjugate self-duality imply finite torsion local lattice conditions away from ℓ, uniformly annihilated before reduction modulo λ^m. The reader states the resulting finite-torsion criterion and its uniform consequence with the purity and polarization hypotheses; no weakened arithmetic signature is retained in Lean. State these on the coefficient category fixed by the ES reader and its real-bodied Lean predicates: coefficient rings complete noetherian local with finite residue field of characteristic p in the m-adic topology; compact coefficients of finite type with the module topology and jointly continuous action; discrete m-power-torsion coefficients of cofinite type with open stabilisers; Selmer supports containing S_p ∪ S_∞ and the ramified primes, kept by duality, propagation and modification.",
    "neededBy": [
     "EulerSystemsAndKolyvaginSystems:ES.0/canonical-selmer-structure",
     "EulerSystemsAndKolyvaginSystems:ES.0/cartesian-condition",
@@ -8031,7 +8118,7 @@
    "stageId": "EulerSystemsAndKolyvaginSystems:ES.0",
    "status": "planned",
    "remaining": [
-    "Implement the exact general-R duality and compact/discrete coefficient adapters in the L2 request. The suggested signatures state the coefficient category, the guarded support S_p ∪ S_∞ ⊆ Σ and MR16’s saturated universal-norm F_ur; the supplier proofs remain.",
+    "Implement the exact general-R duality and compact/discrete coefficient adapters in the L2 request. The reader states the guarded support S_p ∪ S_∞ ⊆ Σ and MR16’s saturated universal-norm F_ur. Only the real-bodied coefficient predicates are retained in Lean; the Selmer and local-condition carriers and supplier proofs remain reader targets.",
     "Lemma level: Mazur–Rubin 2016 Lemma 5.2 through the cited universal-norm lemma of Perrin-Riou §2.1.1, and the bounded-kernel comparison H¹(K_𝔭, T^*_k) → H¹(K_𝔭, T^*)[m^k] in the proof of Theorem 5.4."
    ]
   },
@@ -8092,7 +8179,7 @@
    "remaining": [
     "The Σ-modified cohomology comparison avoiding BSS Hypothesis 6.1(i).",
     "Fulfil the exact L6 modulo-M transfer and compatible-functional-lift contract.",
-    "Implement the exact auxiliary/target-field and full corrected rank-one comparison dictionaries; the typed tests currently check generator independence and raw base evaluation.",
+    "Implement the exact auxiliary/target-field and full corrected rank-one comparison dictionaries stated in the reader. The compact Lean file checks only the underlying group-ring and determinant conventions.",
     "The ordered archimedean regulator/rationality supplier is I.7 Part II; the conditional class-group theorem is fully stated here."
    ]
   }
@@ -8108,7 +8195,7 @@
   },
   {
    "title": "General coefficient Selmer duality is still only an open supplier request",
-   "detail": "The cited SelmerIwasawaCohomology L1/L2 duality and Cartier-dual nodes use O-adic lattices/discrete modules. The abstract L2/selmer-data carrier alone does not prove MR04 artinian/global-length identities or BSS self-injective-ring duality. Fulfil the enlarged L2 request and link each generalized coefficient consumer to it; no O-only theorem may discharge a general-R hypothesis. The suggested file states the coefficient category these supplier statements must use: coefficient rings (complete noetherian local, finite residue field of characteristic p, m-adic topology), compact coefficients of finite type and discrete coefficients of cofinite type, with Σ ⊇ S_p ∪ S_∞ recorded in every Selmer structure. Evaluation, duality, length and core-rank signatures consume it; the supplier proofs at general R remain open.",
+   "detail": "The cited SelmerIwasawaCohomology L1/L2 duality and Cartier-dual nodes use O-adic lattices/discrete modules. The abstract L2/selmer-data carrier alone does not prove MR04 artinian/global-length identities or BSS self-injective-ring duality. Fulfil the enlarged L2 request and link each generalized coefficient consumer to it; no O-only theorem may discharge a general-R hypothesis. The reader fixes the coefficient category and the support guard for every supplier statement: complete noetherian local coefficient rings with finite residue field of characteristic p and m-adic topology, compact coefficients of finite type, discrete coefficients of cofinite type, and Σ ⊇ S_p ∪ S_∞. Lean retains the coefficient predicates only. Evaluation, duality, length, core-rank and guarded Selmer structures remain reader targets; the supplier proofs at general R remain open.",
    "neededBy": [
     "EulerSystemsAndKolyvaginSystems:ES.0/selmer-triple",
     "EulerSystemsAndKolyvaginSystems:ES.0/quotient-category",
@@ -8143,17 +8230,17 @@
     "EulerSystemsAndKolyvaginSystems:ES.7/higher-kolyvagin-derivative",
     "EulerSystemsAndKolyvaginSystems:ES.6/bidual-functoriality"
    ],
-   "detail": "The source normalization is verified against Sano 2014 Lemmas 2.10–2.11 and Remark 2.12, pp.6–7: i(N_H^{∧r}x)=N_Hx. BSS II map (9), invariant descent and compatible-functional lifts now have an exact L6 request and arithmetic prototype maps. Their proofs and implementation in the supplier remain supplier implementation obligations. The displayed higherDerivative_indep checks generators at fixed E; Corollary 6.13 additionally requires the target-field projection and independence of larger auxiliary E. The rank-one prototype checks the raw base component; the full corrected MR comparison is retained as the exact dictionary below."
+   "detail": "The source normalization is verified against Sano 2014 Lemmas 2.10–2.11 and Remark 2.12, pp.6–7: i(N_H^{∧r}x)=N_Hx. BSS II map (9), invariant descent and compatible-functional lifts are an exact Part II request extending PadicMeasuresIwasawaAlgebras Layer 6, rather than declarations already supplied by its merged package. ES.7 owns the arithmetic target-field projection, independence of larger auxiliary E and full corrected MR comparison, using those generic maps with the reduction, corestriction, Shapiro and augmentation dictionaries. All these maps and comparisons remain reader targets; the compact Lean examples check only their algebraic conventions."
   },
   {
-   "title": "Omitted geometric and archimedean prototype conditions",
+   "title": "Geometric and archimedean supplier carriers",
    "neededBy": [
     "EulerSystemsAndKolyvaginSystems:ES.4/nekovar-all-prime-descent",
     "EulerSystemsAndKolyvaginSystems:ES.7/rubin-stark-class-group",
     "EulerSystemsAndKolyvaginSystems:ES.0/example-elliptic",
     "EulerSystemsAndKolyvaginSystems:ES.4/abundant-localization"
    ],
-   "detail": "PROTOCOL §13 permits leaving an unavailable condition out of a suggested signature and forbids opaque Prop substitutes. The Nekovář §3.1/§5.19 CM-point/quaternionic and non-CM condition (*) and the ordered archimedean regulator characterization of Rubin–Stark elements are left out of the prototype and retained in the mathematical statements and exact HE.7/I.7 requests. Do not infer source theorems from the displayed prototype data alone. These are supplier-carrier implementation boundaries, not omitted mathematical hypotheses. The classical elliptic Kummer/Weil-pairing realization and the purity/polarization realization of the local finite-torsion criterion are also supplier geometry. Their arithmetic consequences have typed interfaces, while the full geometric conditions remain in the packet and the HE.7/L2 requests."
+   "detail": "The current roadmap-shape rule keeps a theorem in Lean only when all its carriers and hypotheses can be stated at the pins. Consequently the all-prime Nekovář bound, elliptic local comparisons, local finite-torsion criterion and Rubin–Stark arithmetic conclusions are reader targets only. Their statements keep the CM-point/quaternionic data, non-CM condition (*), Kummer/Weil-pairing realization, purity/polarization and ordered archimedean regulator characterization, with exact HE.7/L2/I.7 requests. No weakened theorem omitting one of these hypotheses remains in Lean."
   }
  ],
  "sourceIssues": [
@@ -8306,6 +8393,24 @@
    ],
    "detail": "Integral Iwasawa theory, Part II: archimedean Rubin–Stark regulator inputs. Its first prerequisite is IntegralIwasawaTheory I.7, which supplies the finite-place CM minus construction and prime-to-2 DK theorem. The ordered archimedean regulator, rationality and all-level Conjecture B′ inputs are a distinct extension, with ES owning the conditional class-group descent.",
    "proposal": "Extend I.7 in that direction and add IntegralIwasawaTheory:I.7 → EulerSystemsAndKolyvaginSystems:ES.7 for the exact input contract of rubin-stark-class-group and rubin-stark-minus-comparison. This records a proposal, without changing live stage edges or rebuilding DK’s theorem."
+  },
+  {
+   "action": "extend",
+   "roadmaps": [
+    "PadicMeasuresIwasawaAlgebras",
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "detail": "PadicMeasuresIwasawaAlgebras, Part II: exterior biduals and normalized transfer. Its first prerequisite is the merged PadicMeasuresIwasawaAlgebras roadmap, including §§6.4–6.7; those sections supply compound matrices, Fitting identities and exterior-power annihilators, but not the BSS self-injective bidual and transfer contract.",
+   "proposal": "Extend L6 by the generic bidual, contraction, coefficient-change and normalized-transfer contract in the request. ES.6–ES.7 consume it and own only the arithmetic systems, target-field projection and corrected rank-one comparison. Consume current Tau Ceti Fitting ideals directly. Do not rebuild the merged package or edit its upstream files."
+  },
+  {
+   "action": "extend",
+   "roadmaps": [
+    "SelmerIwasawaCohomology",
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "detail": "SelmerIwasawaCohomology, Part II: general-coefficient Selmer duality. Its first prerequisite is the existing O-adic roadmap, including the Selmer diagrams, arithmetic instantiation and duality in open PR #869; ArithmeticGaloisDuality PR #858 supplies the existing compact cohomology and pairing interfaces.",
+   "proposal": "Extend L2 to the complete-noetherian-local and finite self-injective coefficient scopes in the request, with the explicit Cartier versus O-linear dual dictionary and support guard. Verify compatibility with the supplied O-adic cases rather than defining them again. General-R ES consumers import this extension; O-only theorems do not discharge their hypotheses."
   }
  ],
  "upstreamNotes": [
@@ -8329,6 +8434,14 @@
     "EulerSystemsAndKolyvaginSystems:ES.5"
    ],
    "note": "RT-AREA-iwasawa-1/10 and /36 remain generic/application boundaries: Howard self-dual algebra stays ES.5; CGLS conditional error descent and the Nekovář annihilator machinery stay ES.4. CM-point geometry, dyadic input verification, and passage to full Sha finiteness stay HE.7. The accepted restructuring proposal is recorded without editing live atlas edges."
+  },
+  {
+   "roadmaps": [
+    "PadicMeasuresIwasawaAlgebras:L6",
+    "SelmerIwasawaCohomology:L2",
+    "ArithmeticGaloisDuality:D7"
+   ],
+   "note": "Upstream inspection on 2026-10-19: PadicMeasuresIwasawaAlgebras PR #780 merged at b0b73ac03 (head f566626ffb4bb5be4d69664471b785efb3e15608); its §§6.4–6.7 supply compound/Fitting/exterior-power annihilator targets, not the full BSS bidual transfer contract. The latter is a Part II request to that owner. Consume open SelmerIwasawaCohomology PR #869 at 964eaa843413cb7832d529423c3414973126681e (§§2.1–2.3, 2.9, 2.13) and ArithmeticGaloisDuality PR #858 at 9fcc0f88cfca194cda9d0164e71369f8f4604b60 (§R02.2.3 and §§D7.4–D7.7) for their supplied arithmetic cohomology and local-condition dictionaries. Their O-adic statements do not discharge the separate general-R request. These suppliers are consumed even while their PRs are open."
   }
  ],
  "review": {
