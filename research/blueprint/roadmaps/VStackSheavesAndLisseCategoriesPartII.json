@@ -1,0 +1,172 @@
+{
+ "id": "VStackSheavesAndLisseCategoriesPartII",
+ "title": "Artin v-stacks, solid and lisse coefficient categories, Part II: decent v-stacks, cohomological correspondences and the Lefschetz–Verdier trace formula",
+ "area": "etale",
+ "parent": "VStackSheavesAndLisseCategories",
+ "summary": "This Part II of Artin v-stacks, solid and lisse coefficient categories constructs the exceptional functors Rf_! and Rf^! for fine maps between decent v-stacks, the stacky maps such as classifying stacks of locally pro-p groups that the parent roadmap cannot treat, and builds on them the symmetric monoidal 2-category of cohomological correspondences, dualizability as universal local acyclicity, characteristic classes on inertia stacks, the relative Lefschetz–Verdier trace formula, local terms and their base change, trace distributions of admissible representations, a Künneth formula for characteristic classes and universal local terms for group actions, after Gulotta–Hansen–Weinstein, Lu–Zheng and Hansen–Kaletha–Weinstein.",
+ "readme": "# Artin v-stacks, solid and lisse coefficient categories, Part II: decent v-stacks, cohomological correspondences and the Lefschetz–Verdier trace formula\n\nThis Part II starts where VStackSheavesAndLisseCategories stops. That roadmap builds Artin v-stacks, partial compact-support functors and exceptional pullback only for smooth stacky maps (VS0), and universally locally acyclic sheaves (VS1). Here the exceptional functors Rf_!, Rf^! are constructed for all fine maps of decent v-stacks (Gulotta–Hansen–Weinstein), and the Lefschetz–Verdier trace formalism of Hansen–Kaletha–Weinstein §4 and §5.3 is developed on top of them, following Lu–Zheng's symmetric monoidal 2-category of cohomological correspondences.\n\nLayers: VS6 decent v-stacks and fine morphisms; VS7 exceptional functors for fine maps; VS8 locally profinite sets and classifying stacks; VS9 categorical traces and cohomological correspondences; VS10 the relative Lefschetz–Verdier trace formula and local terms; VS11 characteristic classes on classifying and quotient stacks (admissibility, trace distributions, the Künneth formula and universal local terms).\n\nConventions: Λ is a commutative ring killed by an integer prime to p; proper maps are those of Scholze, hence 0-truncated; decency follows the public version of Gulotta–Hansen–Weinstein. Not in scope: the Kottwitz conjecture itself and the local terms of Satake sheaves (Hansen–Kaletha–Weinstein §§5–6), which consume this roadmap; the Liu–Zheng ∞-categorical DESCENT machinery, which is general ∞-category theory and is recorded as a gap for EnhancedDerivedSheaves.\n\nSources: Hansen–Kaletha–Weinstein, Forum Math. Pi 10 (2022) e13; Gulotta–Hansen–Weinstein, arXiv:2202.12467; Lu–Zheng, Forum Math. Sigma 10 (2022) e10; Scholze, Étale cohomology of diamonds; Fargues–Scholze, Geometrization of the local Langlands correspondence.",
+ "prerequisites": [
+  "VStackSheavesAndLisseCategories",
+  "DiamondSixOperations",
+  "DiamondsAndVStacks",
+  "EnhancedDerivedSheaves",
+  "SmoothRepresentationsOfLocalGroups",
+  "EtaleDualityAndPerverseSheaves",
+  "AdicCoefficientsAndComparisons",
+  "SchemeAndStackFoundations"
+ ],
+ "stages": [
+  {
+   "key": "VS6",
+   "title": "Decent v-stacks and fine morphisms",
+   "description": "## VS6. Decent v-stacks and fine morphisms\n\nDefine maps representable in locally separated locally spatial diamonds and decent v-stacks (diagonal representable in locally separated locally spatial diamonds and a surjective, locally separated, cohomologically smooth chart from a locally separated locally spatial diamond), with clean charts. Prove that decent v-stacks are Artin v-stacks in the parent's sense (VS0), that fibre products of decent v-stacks are decent, and that locally separated locally spatial diamonds, diamonds of analytic adic spaces, Spd Z_p, Div¹ and the geometric points Spd C, Spd k are decent.\n\nDefine fine morphisms (charts with a locally compactifiable finite-dim.trg top map) and cohomologically smooth fine morphisms; prove stability under composition, base change and cancellation, and that a separated map representable in locally spatial diamonds is fine iff it is compactifiable of locally finite dim.trg. Construct classifying stacks [S/G] of group diamonds with their maps (torsors with commuting actions) and 2-morphisms, and quotient stacks [X/G]. Prove the compatibility of f^* ⊣ Rf_* with 2-morphisms. Define proper nice maps (proper maps of v-stacks are 0-truncated; proper nice maps are moreover representable in locally spatial diamonds), the class used for proper 2-morphisms and proper pushforwards.",
+   "requires": [
+    "VStackSheavesAndLisseCategories:VS0",
+    "VStackSheavesAndLisseCategories:VS1",
+    "DiamondSixOperations:S0",
+    "DiamondSixOperations:S4",
+    "DiamondsAndVStacks:D4",
+    "DiamondsAndVStacks:D5",
+    "DiamondsAndVStacks:D6"
+   ]
+  },
+  {
+   "key": "VS7",
+   "title": "Exceptional functors for fine maps",
+   "description": "## VS7. Exceptional functors for fine maps\n\nDefine prespatial diamonds and maps representable in them, prove their stability under canonical compactification and the 3·dim.trg amplitude bound, and construct Rf_! for weakly compactifiable maps between coproducts of qcqs v-sheaves. Construct the enhanced operation map on coproducts of qcqs v-sheaves (Gulotta–Hansen–Weinstein Theorem 3.14) with its ⊗-descent and !-codescent, and extend it by three iterations of Liu–Zheng's DESCENT to decent v-stacks with fine maps.\n\nTargets: for fine f of decent v-stacks, Rf_! and its right adjoint Rf^!, agreeing with Scholze's on maps representable in locally spatial diamonds, pseudo-functorial in the 2-category of decent v-stacks, with the projection formula, proper base change, (P1)–(P5), (BC1)–(BC2) and the Künneth formula; Rf_! ≅ Rf_* for proper nice f; the intrinsic characterisation of cohomological smoothness with smooth base change and Rf^! ≅ Rf^!Λ ⊗ f^*; the relative dualizing complex K_{X/S} with integration and proper pushforward of its sections; Rf^! commuting with twists by invertible objects; and K_{Y/Y×_XY} ≅ K_{Y/X}^{-1} for smooth f.",
+   "requires": [
+    "VStackSheavesAndLisseCategoriesPartII:VS6",
+    "VStackSheavesAndLisseCategories:VS0",
+    "DiamondSixOperations:S1",
+    "DiamondSixOperations:S2",
+    "DiamondSixOperations:S3",
+    "DiamondSixOperations:S4",
+    "EnhancedDerivedSheaves:E2",
+    "EnhancedDerivedSheaves:E3",
+    "EnhancedDerivedSheaves:E5:abstract"
+   ]
+  },
+  {
+   "key": "VS8",
+   "title": "Locally profinite sets and classifying stacks",
+   "description": "## VS8. Locally profinite sets and classifying stacks\n\nDefine smooth and complete modules over C(T, Λ) for a locally profinite set T and prove that they are equivalent to each other and to sheaves of modules on T. Define distributions Dist(T, Λ) and the module Haar(G, Λ) of Haar measures of a locally profinite group.\n\nTargets: for a geometric point S, D_ét(T_S, Λ) is the derived category of smooth C(T, Λ)-modules with explicit four operations and H^0(T_S, f^!Λ) = Dist(T, Λ); for G locally pro-p (closed in GL_n(E)), [S/G_S] is decent, the point q has q^*, Rq_*, Rq_!, Rq^! equal to forgetting, smooth induction, compact induction and Hom_G(C_c(G, Λ), −) with Rq^!Λ = Haar(G, Λ); for H ⊂ G closed, [S/H_S] → [S/G_S] realises restriction, smooth and compact induction; [S/G_S] → S is fine and smooth with Rf_* group cohomology, Rf_! twisted group homology and K = Haar(G, Λ)^∗; [T_S/G_S] is decent and fine with H^0 of its dualizing complex the Haar-twisted invariant distributions.",
+   "requires": [
+    "VStackSheavesAndLisseCategoriesPartII:VS6",
+    "VStackSheavesAndLisseCategoriesPartII:VS7",
+    "VStackSheavesAndLisseCategories:VS4",
+    "SmoothRepresentationsOfLocalGroups:SR.0",
+    "SmoothRepresentationsOfLocalGroups:SR.1",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "DiamondSixOperations:S1",
+    "DiamondSixOperations:S5"
+   ]
+  },
+  {
+   "key": "VS9",
+   "title": "Categorical traces and cohomological correspondences",
+   "description": "## VS9. Categorical traces and cohomological correspondences\n\nDefine dualizable objects, traces, pairings and dimensions in symmetric monoidal 2-categories, the functoriality of traces along right-adjointable morphisms (Lu–Zheng Constructions 1.7–1.8) and the symmetric monoidal Grothendieck construction. Prove that dualizable objects of D(Λ) are perfect complexes with Euler-characteristic traces, and the reflexivity criterion over R/𝔪^k.\n\nConstruct the symmetric monoidal 2-category Corr_S of correspondences of decent S-v-stacks fine over S with proper 2-morphisms, and CoCorr_S of cohomological correspondences (u : c₁^*A → c₂^!A′), with its tensor product, internal Hom and Grothendieck-construction description. Prove the dualizability criterion (𝔻A ⊠ A ≅ RHom(pr₁^*A, pr₂^!A)) and that dualizable means ULA for fine maps. Construct the trace class tr_c(u, A) ∈ H^0(Fix(c), K_{Fix(c)/S}), inertia stacks and characteristic classes cc_{X/S}(A), and prove their compatibility with open restriction.",
+   "requires": [
+    "VStackSheavesAndLisseCategoriesPartII:VS6",
+    "VStackSheavesAndLisseCategoriesPartII:VS7",
+    "VStackSheavesAndLisseCategories:VS1",
+    "EnhancedDerivedSheaves:E5:spectra-comparison"
+   ]
+  },
+  {
+   "key": "VS10",
+   "title": "The Lefschetz–Verdier trace formula and local terms",
+   "description": "## VS10. The Lefschetz–Verdier trace formula and local terms\n\nProve the relative Lefschetz–Verdier trace formula for v-stacks (Hansen–Kaletha–Weinstein Theorem 4.3.8): proper pushforward of a dualizable object along compatible proper maps is dualizable and carries the trace of an endomorphism to the trace of the pushed endomorphism. Deduce that characteristic classes commute with proper pushforward and the Lefschetz trace formula for proper nice diamonds over Spd C (with the correspondence proper over the base).\n\nDefine local terms loc_β(u, F) for clopen pieces of the fixed locus proper over S and at isolated fixed points, with additivity. Construct base change of cohomological correspondences and diamondification of cohomological correspondences of perfect schemes; prove that local terms commute with base change and agree with the scheme-theoretic local terms of perfect schemes.",
+   "requires": [
+    "VStackSheavesAndLisseCategoriesPartII:VS9",
+    "VStackSheavesAndLisseCategoriesPartII:VS7",
+    "EtaleDualityAndPerverseSheaves:EDC.8",
+    "AdicCoefficientsAndComparisons:L1",
+    "AdicCoefficientsAndComparisons:L3",
+    "SchemeAndStackFoundations:SF.0"
+   ]
+  },
+  {
+   "key": "VS11",
+   "title": "Characteristic classes on classifying and quotient stacks",
+   "description": "## VS11. Characteristic classes on classifying and quotient stacks\n\nFor G locally pro-p, prove that on [S/G_S] dualizability, ULA-ness and perfectness of all pro-p invariants coincide (admissible objects), identify In_S([S/G_S]) with [G_S//G_S], define the trace distribution of an admissible object and prove that it is its characteristic class.\n\nConstruct the modified Künneth map and based cohomological correspondences BCoCorr_S with fibre products over a base, and prove their functoriality and monoidality; prove that the characteristic class of (T, Λ_T) trivialises K_{In_S(T)/S} for T with smooth structure map and diagonal, and the Künneth formula for characteristic classes over such T. For a cohomologically smooth group diamond G acting on a nice diamond X, identify In_S([X/G]) with [Fix(c)/G], construct the universal local term in CoCorr_G, prove that the characteristic class on [X/G] is the universal local term (Theorem 4.6.1), and that over a conjugation-invariant open on which the fixed locus is étale it is the function (x, g) ↦ loc_x(g, A).",
+   "requires": [
+    "VStackSheavesAndLisseCategoriesPartII:VS8",
+    "VStackSheavesAndLisseCategoriesPartII:VS9",
+    "VStackSheavesAndLisseCategoriesPartII:VS10",
+    "VStackSheavesAndLisseCategories:VS1",
+    "VStackSheavesAndLisseCategories:VS5",
+    "SmoothRepresentationsOfLocalGroups:SR.0",
+    "SmoothRepresentationsOfLocalGroups:SR.1"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "HKW22",
+   "title": "On the Kottwitz conjecture for local shtuka spaces",
+   "authors": "David Hansen, Tasho Kaletha and Jared Weinstein",
+   "edition": "Forum of Mathematics, Pi 10 (2022), e13, 79 pp., published version (open access, CC BY); numbering and pages are those of the published article. Cross-checked against arXiv:1709.06651v4 (17 March 2022), whose section and statement numbering agree.",
+   "url": "https://doi.org/10.1017/fmp.2022.7",
+   "readSections": [
+    "§4 introduction and §4.1 Decent v-stacks and the six-functor formalism, pp. 21–25 (Example 4.1.1, Remark 4.1.2, Definition 4.1.3, Theorems 4.1.4–4.1.6, Definition 4.1.7, Theorem 4.1.8, Definition 4.1.9, Lemmas 4.1.10–4.1.11)",
+    "§4.2 Examples 4.2.1–4.2.5, pp. 25–27",
+    "§4.3 The category of cohomological correspondences, pp. 27–34 (Definitions 4.3.1, 4.3.3, 4.3.4, 4.3.6, 4.3.11, Example 4.3.2, Proposition 4.3.5, Lemma 4.3.7, Theorem 4.3.8, Corollary 4.3.9, Example 4.3.10)",
+    "§4.4 The trace distribution as a characteristic class, pp. 34–36 (Proposition 4.4.1, Definition 4.4.2, equation (4.4.1), Proposition 4.4.3)",
+    "§4.5 A Künneth theorem for characteristic classes, pp. 36–41 (Definition 4.5.1, Lemma 4.5.2, Theorem 4.5.3, Definition 4.5.4, equations (4.5.1)–(4.5.9))",
+    "§4.6 The case of [X/G] for G smooth, pp. 41–44 (Theorem 4.6.1, equations (4.6.1)–(4.6.4), the closing remark on isolated fixed points)",
+    "§5.3 Local terms and base change, pp. 47–50 (Propositions 5.3.1–5.3.2); §5.4, p. 50 (Proposition 5.4.1, Corollary 5.4.2), read for the use of §4.6",
+    "Appendix B, pp. 72–74 (Lemmas B.1.1–B.1.2, Definition B.2.1, Lemmas B.2.2–B.2.5)"
+   ]
+  },
+  {
+   "id": "GHW22",
+   "title": "An enhanced six-functor formalism for diamonds and v-stacks",
+   "authors": "Daniel Gulotta, David Hansen and Jared Weinstein",
+   "edition": "arXiv:2202.12467v1 (25 February 2022), the only public version; its numbering differs from the numbering Hansen–Kaletha–Weinstein cite (see sourceIssues).",
+   "url": "https://arxiv.org/abs/2202.12467v1",
+   "readSections": [
+    "§1.2 Main results, pp. 2–6 (Definition 1.1, Remark 1.2, Definition 1.3, Theorem 1.4 and the outline of the construction)",
+    "§2.2 The main theorem, p. 12 (Theorem 2.6)",
+    "§3.1 Prespatial diamonds, pp. 12–16 (Definitions 3.1, 3.3, 3.11, Lemmas 3.2, 3.4, 3.8, 3.10, 3.12, Propositions 3.6–3.7, Corollary 3.9, Scholium 3.13)",
+    "§3.2–3.3, pp. 16–19 (Theorem 3.14, Propositions 3.15–3.16)",
+    "§4 Running DESCENT, pp. 19–31 (Definition 4.1, Propositions 4.3–4.5, Remarks 4.6–4.7, Proposition 4.8, Theorem 4.9, Lemmas 4.10–4.11, Propositions 4.12–4.14)"
+   ]
+  },
+  {
+   "id": "LZ22",
+   "title": "Categorical traces and a relative Lefschetz–Verdier formula",
+   "authors": "Qing Lu and Weizhe Zheng",
+   "edition": "Forum of Mathematics, Sigma 10 (2022), e10; read in arXiv:2005.08522v4 (9 January 2022). Locators give the arXiv v4 numbering and PDF pages.",
+   "url": "https://arxiv.org/abs/2005.08522v4",
+   "readSections": [
+    "§1.1–1.3, pp. 3–10 (Definition 1.1, Remarks 1.2–1.3, Lemma 1.4, Constructions 1.6–1.8, Remark 1.9, Construction 1.10, Lemma 1.11, Remark 1.12, Constructions 1.13–1.16)",
+    "§2.2–2.4, pp. 13–19 (Construction 2.6, Remark 2.7, Lemmas 2.8–2.9, Construction 2.10, Proposition 2.11, Theorem 2.16 statement, Notation 2.20, Theorem 2.21, Corollary 2.22, Proposition 2.23, Remarks 2.24–2.25)"
+   ]
+  },
+  {
+   "id": "Sch17",
+   "title": "Étale cohomology of diamonds",
+   "authors": "Peter Scholze",
+   "edition": "arXiv:1709.07343v3; locators give its numbering and printed pages.",
+   "url": "https://arxiv.org/abs/1709.07343v3",
+   "readSections": [
+    "Definition 10.7, Remark 10.8, Proposition 10.9, pp. 51–52 (separated maps of v-stacks are 0-truncated)",
+    "Definition 18.1, Remark 18.2, Proposition 18.3, pp. 100–101 (proper maps of v-stacks)"
+   ]
+  },
+  {
+   "id": "FS21",
+   "title": "Geometrization of the local Langlands correspondence",
+   "authors": "Laurent Fargues and Peter Scholze",
+   "edition": "arXiv:2102.13459v4 (27 November 2024); locators give its numbering and printed pages (which equal the PDF pages).",
+   "url": "https://arxiv.org/abs/2102.13459v4",
+   "readSections": [
+    "Theorem IV.2.23 and Proposition IV.2.24, pp. 124–126",
+    "Propositions IV.2.32–IV.2.33, p. 129",
+    "Theorem I.5.1(iii)–(v), pp. 167–168; §V.1 setup, Theorem V.1.1 and Corollary V.1.4, pp. 168–171",
+    "Theorem V.7.1 and Proposition V.7.2, pp. 183–184"
+   ]
+  }
+ ],
+ "status": "draft"
+}
