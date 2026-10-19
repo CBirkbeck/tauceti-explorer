@@ -26,50 +26,50 @@
         "ref": "mathlib:AddChar",
         "kind": "declaration",
         "module": "Mathlib/Algebra/Group/AddChar.lean",
-        "provides": "Additive characters into a multiplicative commutative monoid; the zero character is the constant-one map.",
-        "checked": "Actual declaration and hypotheses read at the stated pinned commit on 19 October 2026."
+        "provides": "Additive characters from an additive monoid into a multiplicative monoid; the zero character is the constant-one map. The finite-field applications specialize to commutative coefficient rings.",
+        "checked": "Independently re-read at the exact pinned commit on 2026-10-19 by REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy."
       },
       {
         "ref": "mathlib:AddChar.sum_eq_ite",
         "kind": "declaration",
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "For a finite additive group and character into a commutative semiring that is a domain, the full additive-character sum is the cardinality for the trivial character and zero otherwise.",
-        "checked": "Actual declaration and hypotheses read at the stated pinned commit on 19 October 2026."
+        "checked": "Independently re-read at the exact pinned commit on 2026-10-19 by REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy."
       },
       {
         "ref": "mathlib:FiniteField.trace_to_zmod_nondegenerate",
         "kind": "declaration",
         "module": "Mathlib/FieldTheory/Finite/Trace.lean",
         "provides": "Nondegeneracy of the finite-field trace to its prime field; composing a nontrivial prime-field additive character with trace is nontrivial.",
-        "checked": "Actual declaration and hypotheses read at the stated pinned commit on 19 October 2026."
+        "checked": "Independently re-read at the exact pinned commit on 2026-10-19 by REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy."
       },
       {
         "ref": "mathlib:FiniteField.algebraMap_trace_eq_sum_pow",
         "kind": "declaration",
         "module": "Mathlib/FieldTheory/Finite/Trace.lean",
         "provides": "Finite-field trace after the algebra map is the sum of the Frobenius powers for a finite extension.",
-        "checked": "Actual declaration and hypotheses read at the stated pinned commit on 19 October 2026."
+        "checked": "Independently re-read at the exact pinned commit on 2026-10-19 by REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy."
       },
       {
         "ref": "mathlib:Complex.Gamma",
         "kind": "declaration",
         "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
         "provides": "Mathlib complex Gamma function, with its total-function convention at poles; analytic conclusions concern its meromorphic interpretation.",
-        "checked": "Actual declaration and hypotheses read at the stated pinned commit on 19 October 2026."
+        "checked": "Independently re-read at the exact pinned commit on 2026-10-19 by REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy."
       },
       {
         "ref": "tauceti:TauCeti.Hodge.MixedHodgeStructure",
         "kind": "declaration",
         "module": "TauCeti/Geometry/Hodge/Mixed/Basic.lean",
         "provides": "Existing integral/rational/complex models with bounded increasing rational weight filtration, bounded decreasing complex Hodge filtration and pure graded pieces. Use its rational-module specialization; do not introduce a competing Hodge carrier.",
-        "checked": "Actual declaration and hypotheses read at the stated pinned commit on 19 October 2026."
+        "checked": "Independently re-read at the exact pinned commit on 2026-10-19 by REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy."
       },
       {
         "ref": "mathlib:SymmetricPower",
         "kind": "declaration",
         "module": "Mathlib/LinearAlgebra/TensorPower/Symmetric.lean",
         "provides": "The symmetric tensor-power module is the additive-congruence quotient of the tensor power by permutation relations over a commutative semiring. This supplies the underlying local module, not an induced connection or holonomic functor.",
-        "checked": "Actual declaration and hypotheses read at the stated pinned commit on 19 October 2026."
+        "checked": "Independently re-read at the exact pinned commit on 2026-10-19 by REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy."
       }
     ]
   },
@@ -78,7 +78,7 @@
       "id": "FSY",
       "title": "Hodge theory of Kloosterman connections",
       "authors": "Javier Fresán, Claude Sabbah, Jeng-Daw Yu",
-      "edition": "Duke Mathematical Journal 171 (2022), 1649–1747; arXiv:1810.06454v5, 13 June 2022. All page numbers below are the 75-page arXiv v5 pagination.",
+      "edition": "Duke Mathematical Journal 171 (2022), 1649–1747; arXiv:1810.06454v5, 13 June 2022. All page numbers below are the 74-page arXiv v5 pagination.",
       "url": "https://arxiv.org/pdf/1810.06454v5",
       "sha256": "835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a",
       "accessed": "2026-10-19",
@@ -151,8 +151,13 @@
       "sources": [
         {
           "sourceId": "FSY",
-          "locator": "§1.1, pp. 2–3; XZ §1.1.2, p. 3",
-          "match": "Kloosterman sums; the target below fixes coefficients, degree shifts and normalization explicitly."
+          "locator": "§1.1, pp. 2–3",
+          "match": "Rank-two raw sums and their symmetric-power moments."
+        },
+        {
+          "sourceId": "XZ",
+          "locator": "§1.1.2, p. 3",
+          "match": "The all-rank finite-field sum and its trace sign."
         }
       ],
       "implementationStatus": "unchecked",
@@ -503,8 +508,13 @@
       "sources": [
         {
           "sourceId": "FSY",
-          "locator": "§1.2, p. 4; §3.2.1, pp. 23–24; XZ §1.1.2, p. 3",
-          "match": "Kloosterman sheaves; the target below fixes coefficients, degree shifts and normalization explicitly."
+          "locator": "§1.2, p. 4; §3.2.1, pp. 23–24",
+          "match": "The exponential direct image and its cohomological shift, with the torus dimension corrected as in E1."
+        },
+        {
+          "sourceId": "XZ",
+          "locator": "§1.1.2, p. 3",
+          "match": "The rank-r lisse sheaf and its signed trace over finite extensions."
         }
       ],
       "implementationStatus": "unchecked",
@@ -581,7 +591,8 @@
         "The rank-two normalized trace at F_2,a=1 is −1/c."
       ],
       "prerequisites": [
-        "KloostermanMomentsAndPotentialAutomorphy:KM.1/deligne-sheaf"
+        "KloostermanMomentsAndPotentialAutomorphy:KM.1/deligne-sheaf",
+        "KloostermanMomentsAndPotentialAutomorphy:KM.1/sheaf-structure"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Kloosterman/Sheaves",
@@ -679,8 +690,13 @@
       "sources": [
         {
           "sourceId": "FSY",
-          "locator": "§1.2, pp. 4–5; §3.2.1, p. 24; XZ §1.1.2(i)–(iv), p. 3",
-          "match": "Local structure of Kloosterman sheaves; the target below fixes coefficients, degree shifts and normalization explicitly."
+          "locator": "§1.2, pp. 4–5; §3.2.1, p. 24",
+          "match": "Purity and the rank-two determinant convention."
+        },
+        {
+          "sourceId": "XZ",
+          "locator": "§1.1.2(i)–(iv), p. 3",
+          "match": "Rank, geometric irreducibility, purity, one tame unipotent block at zero and Swan conductor one at infinity."
         }
       ],
       "implementationStatus": "unchecked",
@@ -720,8 +736,13 @@
       "sources": [
         {
           "sourceId": "XZ",
-          "locator": "XZ §1.1.2, (1.1.2.3), p. 3; FSY §3.2.1, p. 24",
-          "match": "Kloosterman monodromy groups; the target below fixes coefficients, degree shifts and normalization explicitly."
+          "locator": "§1.1.2, (1.1.2.3), p. 3",
+          "match": "The normalized monodromy table, including the G₂ exception at rank seven in characteristic two."
+        },
+        {
+          "sourceId": "FSY",
+          "locator": "§3.2.1, p. 24",
+          "match": "The corresponding monodromy cases used for symmetric-power cohomology."
         }
       ],
       "implementationStatus": "unchecked",
@@ -756,7 +777,8 @@
         "KloostermanMomentsAndPotentialAutomorphy:KM.1/monodromy",
         "DeligneWeightsAndPurity:DWP.7/cohomological-bounds-3-3-2-3-3-6",
         "SchemeAndStackFoundations:SF.2",
-        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension"
+        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension",
+        "EtaleDualityAndPerverseSheaves:EDC.6/rational-perverse-coefficient-extension"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Kloosterman/Sheaves",
@@ -1432,14 +1454,13 @@
       "proofSteps": [
         "Construct the natural support-to-ordinary morphism and its image.",
         "Use the no-boundary-subquotient characterization of the holonomic intermediate extension from G1.",
-        "The étale EDC intermediate-extension node supplies a parallel interface but does not supply D-modules."
+        "The analogous étale intermediate-extension interface does not supply this holonomic construction; its exact missing input remains G1."
       ],
       "acceptance": [
         "Middle is an image, and generally differs from either H¹_c or H¹."
       ],
       "prerequisites": [
-        "KloostermanMomentsAndPotentialAutomorphy:KM.2/symmetric-connections",
-        "EtaleDualityAndPerverseSheaves:EDC.5/perverse-intermediate-extension"
+        "KloostermanMomentsAndPotentialAutomorphy:KM.2/symmetric-connections"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Kloosterman/Exponential",
@@ -1981,8 +2002,13 @@
       "sources": [
         {
           "sourceId": "FSY",
-          "locator": "§3.2.2, p. 25; Proposition 5.23, pp. 49–50; XZ §2.1.5, p. 10",
-          "match": "Rigid Kloosterman realization; the target below fixes coefficients, degree shifts and normalization explicitly."
+          "locator": "§3.2.2, p. 25; Proposition 5.23, pp. 49–50",
+          "match": "Rigid exponential and hypersurface realizations with weight grading and Tate twist."
+        },
+        {
+          "sourceId": "XZ",
+          "locator": "§2.1.5, p. 10; §4.1.13, p. 42",
+          "match": "The Dwork exponential coefficient; the printed sign choices require the horizontality correction E8."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3086,7 +3112,7 @@
       "proofSteps": [
         "Take inertia invariants in the explicit odd local decomposition.",
         "Apply the imported WD conductor formula; tameness removes the Swan term.",
-        "Count odd j by the parity of v_p(j) to obtain the product of square-class representatives; use local semisimplicity to check invariance under global semisimplification."
+        "Count odd j by the parity of v_p(j) to obtain the product of square-class representatives. The odd local decomposition has finite inertia image and N=0. In characteristic zero taking these finite-group invariants is exact on a global Jordan–Hölder filtration restricted locally; hence the Frobenius determinant on invariants and the tame conductor are unchanged. No semisimplicity of the unramified Frobenius is required."
       ],
       "acceptance": [
         "At k=9, sf(9)=1, whereas rad(9)=3; the wrong radical convention gives the wrong conductor.",
@@ -3184,7 +3210,9 @@
         "CohomologyComparisons:CP.2",
         "CohomologyComparisons:CP.3",
         "CohomologyComparisons:CP.4",
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.2/admissible-category-tannakian",
+        "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor",
+        "PadicHodgeTheory:R06.2/dst-exact-tensor-fully-faithful"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Kloosterman/Compatibility",
@@ -3228,7 +3256,7 @@
         "KloostermanMomentsAndPotentialAutomorphy:KM.9/padic-comparison",
         "KloostermanMomentsAndPotentialAutomorphy:KM.6/hodge-numbers",
         "KloostermanMomentsAndPotentialAutomorphy:KM.8/degree-formulas",
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Kloosterman/Compatibility",
@@ -3257,18 +3285,20 @@
       "statement": "For each k≥1 the family {r_{k,ℓ}^{ss}} is a rational weakly compatible system, pure of weight k+1, de Rham at ℓ and crystalline for sufficiently large ℓ, with distinct Hodge–Tate weights equal to the p-indices of the middle Hodge table. Use the convention HT(χ_cyc)=−1. The semisimplified system retains a perfect pairing of sign (−1)^(k+1) with multiplier χ_cyc^(−k−1): it is orthogonal with an even multiplier at real places for odd k, and symplectic with an odd multiplier for even k. Thus it is regular, odd and essentially self-dual in the Patrikis–Taylor sense. The zero-rank k=1,2,4 cases are treated as empty systems; k=3 is a rank-one character case.",
       "hypotheses": [
         "For positive-rank automorphy k∉{1,2,4}; exact all-prime local compatibility is a conclusion after potential automorphy, not an input here.",
-        "Preservation of the form under semisimplification is the missing extension requested from G7, gap G5."
+        "Preservation of the form under semisimplification is the missing extension requested from G7, gap G5.",
+        "This roadmap follows FSY with HT(χ_cyc)=−1 and weights equal to the de Rham filtration jumps. PadicHodgeTheory:R06.2 uses HT(χ_cyc)=+1, so HT_KM(V)=−HT_R06(V), with multiplicities; D_dR, its filtration, Tate twists and the representation itself are unchanged."
       ],
       "proofSteps": [
         "Use the local factors at almost all primes and geometric Frobenius polynomials to establish weak compatibility over Q.",
-        "Use the good-prime branch of KM.9/padic-comparison to establish de Rham and eventual crystalline properties and identify the Hodge–Tate multiset.",
+        "Use the good-prime branch of KM.9/padic-comparison to establish de Rham and eventual crystalline properties and identify the Hodge–Tate multiset, negating the R06 weight labels according to the explicit convention dictionary.",
         "Use the pairing on the motive and the generic characteristic-zero semisimplification-with-involution theorem (G5).",
         "Check the real-place multiplier sign explicitly in the orthogonal and symplectic branches against the imported potential-automorphy hypotheses."
       ],
       "acceptance": [
         "For k=7 the Hodge–Tate weights are 2,4,6 and the orthogonal multiplier is even.",
         "For k=6 the weights are 2,5 and the symplectic multiplier is odd.",
-        "Weak compatibility alone does not determine the local factor at two."
+        "Weak compatibility alone does not determine the local factor at two.",
+        "For k=7 the supplier R06 weights are −2,−4,−6, while the FSY/KM weights are 2,4,6; both conventions give regularity."
       ],
       "prerequisites": [
         "KloostermanMomentsAndPotentialAutomorphy:KM.7/galois-realization",
@@ -3277,7 +3307,8 @@
         "KloostermanMomentsAndPotentialAutomorphy:KM.9/padic-comparison",
         "KloostermanMomentsAndPotentialAutomorphy:KM.6/hodge-numbers",
         "ArithmeticGaloisRepresentations:G7",
-        "ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-potential-automorphy"
+        "ModularityAndLanglandsExtensions:ML.2/patrikis-taylor-potential-automorphy",
+        "PadicHodgeTheory:R06.2/hodge-tate-weight-convention"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Kloosterman/Compatibility",
@@ -3594,7 +3625,8 @@
         "ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation",
         "KloostermanMomentsAndPotentialAutomorphy:KM.6/hodge-numbers",
         "KloostermanMomentsAndPotentialAutomorphy:KM.8/degree-formulas",
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.2/admissible-implies-weakly-admissible",
+        "PadicHodgeTheory:R06.2/ddr-exact-strict-tensor"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Kloosterman/Automorphy",
@@ -3704,7 +3736,7 @@
       ],
       "title": "Even moment functional equation",
       "kind": "theorem",
-      "statement": "For every positive even k there exist the actual conductor exponent r_k≥0, the rational reciprocal-polynomial local factor L_{k,2}(T) with L_{k,2}(0)=1, and a sign ε_k∈{±1}, such that Λ_k(s)=2^{r_k s/2}L_{k,2}(2^−s)Λ′_k(s) extends meromorphically to C and satisfies Λ_k(s)=ε_kΛ_k(k+2−s). Here Λ′_k uses the odd-prime factors, N′_k and d_k=floor((k−1)/2)−δ_{4|k} as defined above. The source’s conjectural formulas r_k=floor(k/6) and ε_k=(−1)^floor(k/8) are boundary questions, not conclusions. The full Euler product converges absolutely for Re(s)>(k+3)/2.",
+      "statement": "For every positive even k there exist the actual conductor exponent r_k≥0, the rational reciprocal-polynomial local factor L_{k,2}(T) with L_{k,2}(0)=1, and a sign ε_k∈{±1}, such that Λ_k(s)=2^{r_k s/2}L_{k,2}(2^−s)Λ′_k(s) extends meromorphically to C and satisfies Λ_k(s)=ε_kΛ_k(k+2−s). Here Λ′_k uses the odd-prime factors, N′_k and d_k=floor((k−1)/2)−δ_{4|k} as defined above. The source conjectures r_k=floor(k/6) and the two-adic sign w″_k=(−1)^floor(k/8). The corresponding global sign prediction is ε_k=(−1)^{floor(k/8)+v′_k}, where v′_k=Σ_{p≡1 mod4}floor(k/(2p))+Σ_{p≡3 mod4}floor(k/(4p))+δ_{8|k}, the sums running over odd primes. These are boundary questions, not conclusions. The full Euler product converges absolutely for Re(s)>(k+3)/2.",
       "hypotheses": [
         "k even and positive; k=2,4 give the trivial completion and sign +1."
       ],
@@ -3716,7 +3748,8 @@
       ],
       "acceptance": [
         "The result proves existence and rationality of the two-adic factor without proving the Broadhurst–Roberts conductor or sign predictions.",
-        "The trivial k=2 and k=4 cases have r_k=0,L_{k,2}=1,ε_k=1."
+        "The trivial k=2 and k=4 cases have r_k=0,L_{k,2}=1,ε_k=1.",
+        "At k=8 the conjectured two-adic sign is −1 and v′_8=1, so the conjectured global sign is +1; this is a convention check, not a proved sign formula."
       ],
       "prerequisites": [
         "KloostermanMomentsAndPotentialAutomorphy:KM.10/completed-l-function",
@@ -3831,15 +3864,6 @@
       ]
     },
     {
-      "supplier": "PadicHodgeTheory:R06.2",
-      "need": "Use exactness of de Rham and semistable period functors on admissible subquotients, the geometric comparison identification, crystalline descent in the good case, weak admissibility and the Newton/Hodge polygon inequality, with HT(χ_cyc)=−1.",
-      "neededBy": [
-        "KloostermanMomentsAndPotentialAutomorphy:KM.9/padic-comparison",
-        "KloostermanMomentsAndPotentialAutomorphy:KM.9/newton-polygon",
-        "KloostermanMomentsAndPotentialAutomorphy:KM.11/local-transport"
-      ]
-    },
-    {
       "supplier": "ArithmeticGaloisRepresentations:R01.5",
       "need": "Use characteristic-zero Frobenius-polynomial recognition for one-dimensional continuous characters over a common coefficient field to identify the determinant character from the good primes p>k. No unobstructed coefficient descent theorem for arbitrary higher-dimensional systems is requested.",
       "neededBy": [
@@ -3927,7 +3951,7 @@
       "remaining": [
         "G5: Generic preservation of similitude forms under semisimplification",
         "G6: Higher-thickness semistable model in the bad-prime comparison",
-        "Fulfil the exact requested contracts: ArithmeticGaloisRepresentations:G7, CohomologyComparisons:CP.2, CohomologyComparisons:CP.3, CohomologyComparisons:CP.4, PadicHodgeTheory:R06.2"
+        "Fulfil the exact requested contracts: ArithmeticGaloisRepresentations:G7, CohomologyComparisons:CP.2, CohomologyComparisons:CP.3, CohomologyComparisons:CP.4"
       ]
     },
     {
@@ -3942,8 +3966,7 @@
       "stageId": "KloostermanMomentsAndPotentialAutomorphy:KM.11",
       "status": "planned",
       "remaining": [
-        "G9: Orthogonal-motive root-number theorem and scope",
-        "Fulfil the exact requested contracts: PadicHodgeTheory:R06.2"
+        "G9: Orthogonal-motive root-number theorem and scope"
       ]
     }
   ],
@@ -4115,7 +4138,12 @@
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly at FSY p. 23: the single-sheaf integral has n coordinates, while nk belongs to the tensor-power construction.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     },
     {
       "id": "KloostermanMomentsAndPotentialAutomorphy/E2",
@@ -4130,7 +4158,12 @@
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at FSY p. 33: the monodromy filtration is centered at k−1; the primitive index is k−1 and the top weight of the length-k block is 2k−2.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     },
     {
       "id": "KloostermanMomentsAndPotentialAutomorphy/E3",
@@ -4145,7 +4178,12 @@
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at FSY p. 40: purity and self-duality pair α with p^(k+1)/α. The eigenvalue −4 at k=3,p=2 is fixed by this corrected involution.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     },
     {
       "id": "KloostermanMomentsAndPotentialAutomorphy/E4",
@@ -4160,7 +4198,12 @@
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at FSY p. 41: the derivative is a unit on the hypersurface intersection with the boundary, not on the entire ambient divisor; crossing components must be distinct.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     },
     {
       "id": "KloostermanMomentsAndPotentialAutomorphy/E5",
@@ -4175,22 +4218,32 @@
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at FSY p. 52 by multiplying the standard Γ_R factors: their ratio to the displayed paper normalization is π^{d_k(d_k+1)/4}. This constant cancels from the functional equation.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     },
     {
       "id": "KloostermanMomentsAndPotentialAutomorphy/E6",
       "kind": "misprint",
       "affects": "nothing",
       "locator": "FSY arXiv v5, Example A.3, p. 63",
-      "printed": "The divisor pullback is written with a positive shift and degree-zero cohomology.",
-      "correction": "For the normalized perverse constant objects use i*Q_U^p[−1] and perverse degree −1 to obtain Q_D^p.",
+      "printed": "The first divisor-pullback display identifies the unshifted i*Q_U^p and its degree-zero cohomology with Q_D^p.",
+      "correction": "For the normalized perverse constant objects use i*Q_U^p[−1] ≃ H^(−1)i*Q_U^p ≃ Q_D^p. The following exceptional-pullback display with i! and shift [1] is correct.",
       "reason": "A divisor has dimension one less than its ambient smooth variety, so pulling back Q_U[dim U] gives Q_D^p[1].",
       "known": "Already reported in the FSY extraction and its sourceIssues; checked independently here. No published correction identified.",
       "searched": [
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with the description corrected after inspecting FSY p. 63: the first i* display omits the shift and uses degree zero. For a smooth divisor i*Q_U^p=Q_D^p[1], giving perverse degree −1. The next i! display is not erroneous.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     },
     {
       "id": "KloostermanMomentsAndPotentialAutomorphy/E7",
@@ -4205,7 +4258,12 @@
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at FSY p. 71: the composite factors through the zero point and is point-supported; it is not the zero functor.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     },
     {
       "id": "KloostermanMomentsAndPotentialAutomorphy/E8",
@@ -4220,7 +4278,12 @@
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at XZ pp. 2,10,42. For d+ϖdx a multiplier u:F*E→E satisfies d log u=ϖ(d(x^p)−dx); exp(ϖ(x^p−x)) has that derivative. The cyclic module and horizontal-solution equations must retain their separate signs.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     },
     {
       "id": "KloostermanMomentsAndPotentialAutomorphy/E9",
@@ -4230,12 +4293,17 @@
       "printed": "Every remaining ordinary quadratic point is asserted to have a local smoothing parameter equal to a unit times (sqrt(−p))².",
       "correction": "Either restrict this assertion to orbit parameters prime to p, or supply the higher-thickness semistable resolution/comparison argument. The proposition remains a target; this proof step is unresolved.",
       "reason": "For k=9,p=3,a=3, the all-plus critical point has critical value 18. The formal Morse normal form over Z_3 has smoothing thickness v_3(18)=2, whereas a unit times (sqrt(−3))² has valuation one. The same issue occurs for even positive b divisible by p. The imported RD.7 theorem explicitly assumes unit thickness and cannot be applied as written.",
-      "known": "New observation in this run; no matching correction found in the paper extraction or web results inspected. Requires independent review; do not treat this report as a disproof of Proposition 5.23.",
+      "known": "Independent review REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy confirms the recorded proof gap. No disproof of Proposition 5.23 is claimed.",
       "searched": [
         "FSY arXiv v5 and XZ arXiv v2 at the cited pages, read 2026-10-19",
         "Existing PAPER-FRESAN-SABBAH-YU-22 and PAPER-XU-ZHU-22 sourceIssues/reviews",
         "Web search 2026-10-19 for paper title plus erratum/correction; no published correction found in the results inspected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the stated proof, not a disproof of Proposition 5.23. FSY pp. 41,45,50 give critical constant 2ap or 2bp. At k=9,p=3,a=3 the Hessian is nondegenerate and the critical value 18 has valuation two. Formal Morse reduction retains this thickness, whereas the imported RD.7 node assumes valuation one. An additional resolution/comparison argument is still required.",
+        "by": "REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy"
+      }
     }
   ],
   "routeCoverage": [
@@ -4611,5 +4679,323 @@
       "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.7/mieda-p-adic-picard-lefschetz",
       "detail": "The existing node is usable only under its stated unit-thickness local model. G6/E9 records a Kloosterman application that does not verify that hypothesis. No edit to the supplier is made."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 62 nodes, all source locators, seven pinned declarations, all definition/construction APIs and tests, suppliers, graph, coverage, planets and suggested Lean. Corrected normalization/dependency/source-attribution issues and confirmed E1–E9 (refining E6). Five exact period nodes replace one broad request. Accepted as a complete planning pass with nine explicit gaps, thirteen requests and no closed stages; no formalization or gap-free closure claimed.",
+    "checked": [
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.0/raw-sum",
+        "verdict": "corrected",
+        "note": "The unit-coordinate finite sum, rank-one empty-coordinate case and trivial-character test agree with FSY §1.1 and XZ §1.1.2; split the mixed-source citation into two attributed entries."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.0/symmetric-trace",
+        "verdict": "verified",
+        "note": "The recurrence gives the symmetric trace, including repeated roots; the k=2 and repeated-root tests rule out ordinary powers and division by a root difference."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.0/moments",
+        "verdict": "verified",
+        "note": "The determinant parameter q and negative rank-two raw trace agree with FSY p. 2. The zeroth-moment and F_2 tests distinguish the parameter domain and sign."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.0/moment-series",
+        "verdict": "verified",
+        "note": "The positive formal exponential agrees with FSY pp. 2–3. Exact moments over F_2,F_4,F_8 recover Z_3=(1−T)(1+4T); the k=0 branch remains rational rather than polynomial."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.1/deligne-sheaf",
+        "verdict": "corrected",
+        "note": "The rank-r direct image uses r−1 integration coordinates and shift r−1, with the !→* comparison as a target. Source citations now separately credit FSY and XZ; original construction proof leaves remain G8."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.1/normalized-sheaf",
+        "verdict": "corrected",
+        "note": "The fixed square root and its extension powers match XZ p. 3; added the direct sheaf-structure purity dependency needed for the weight-zero assertion. The three tests distinguish rank parity and root changes."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.1/sheaf-structure",
+        "verdict": "corrected",
+        "note": "Rank, purity, the single unipotent block and Swan one match XZ p. 3; rank-two determinant agrees with FSY. Split the source attributions; G8 honestly retains original Deligne/Katz proof leaves."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.1/monodromy",
+        "verdict": "corrected",
+        "note": "Checked every branch of XZ (1.1.2.3), including characteristic-two odd rank and G₂ at rank seven; separately attributed FSY. No characteristic-zero differential group is substituted for this table."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.1/cohomological-moments",
+        "verdict": "corrected",
+        "note": "The rank-two concentration, geometric trace sign and weight-(k+1) middle image match FSY pp. 23–25 and the exact DWP smooth/lisse weight theorem. Added EDC.6 rational perverse extension to supplement the torsion-only EDC.5 statement."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.1/moment-integrality",
+        "verdict": "verified",
+        "note": "Galois conjugacy of character values and reindexing of all unit coordinates give integrality and character independence; the claim is about symmetric moments, not pointwise raw sums."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.2/connection",
+        "verdict": "verified",
+        "note": "The exponential direct image, left-connection convention and shift agree with FSY Proposition 2.4/Lemma 2.5. Its API and three tests use the actual connection, with the missing general operations retained in G1."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.2/cyclic-cover",
+        "verdict": "verified",
+        "note": "The degree-r cover and μ_r action agree with FSY pp. 10–12,21–22. Pullback, descent and the cover-coordinate tests keep the original and covered connections distinct."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.2/connection-structure",
+        "verdict": "verified",
+        "note": "The cyclic differential operator, regular singular block at zero and slope data agree with Proposition 2.4/Lemma 2.5. These are properties of the constructed connection, not assumed fields of a substitute carrier."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.2/symmetric-connections",
+        "verdict": "verified",
+        "note": "The connection functor on the existing symmetric module and its induced Leibniz action match FSY §2.2. G1 supplies the general connection descent; API/tests distinguish rank and the induced derivative."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.2/differential-galois",
+        "verdict": "verified",
+        "note": "FSY Proposition 2.7 gives SL in odd rank and Sp in even rank over characteristic zero, hence the stated symmetric-power irreducibility. The finite-characteristic SO/G₂ table is not reused here."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.2/bessel-dictionary",
+        "verdict": "verified",
+        "note": "Checked XZ pp. 2–3,42 and derived the cyclic versus horizontal-coefficient equations. The parity pullback and exponential sign tests prevent conflating the two equations; E8 retains the printed sign inconsistency."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.3/tensor-potentials",
+        "verdict": "verified",
+        "note": "The nk+1 dimensional potential spaces and covering relation match FSY (2.8)–(2.9),(3.9). API/tests preserve the common base coordinate and block permutation action."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.3/sign-projector",
+        "verdict": "verified",
+        "note": "The S_k character is sgn^n and μ_(n+1) character is trivial, with the rational averaging denominator k!(n+1). This is the Koszul action in FSY Proposition 2.13; the parity and projector tests discriminate it."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.3/thom-sebastiani",
+        "verdict": "verified",
+        "note": "The degree shifts and tensor/symmetric equivariance agree with FSY Proposition 2.10/Corollary 2.11. The general holonomic and exponential Hodge inputs remain G1–G2."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.3/middle-cohomology",
+        "verdict": "corrected",
+        "note": "The middle object is the image of compact support to ordinary cohomology, with the holonomic intermediate extension of Corollary 2.15. Removed the étale analogue as a direct supplier; its genuine missing holonomic input is G1. API/tests retain the image rather than either full space."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.3/de-rham-realization",
+        "verdict": "verified",
+        "note": "The single degree, signed projector, duality sign (−1)^(nk+1) and Tate target Q(−nk−1) agree with Proposition 2.13/Corollary 2.15. Holonomic foundations remain explicit gaps."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.3/inverse-fourier",
+        "verdict": "verified",
+        "note": "The Fourier objects and regularity/extension properties agree with Proposition 2.21/Lemma 2.24. Their construction uses the stated Fourier and Hodge-module gaps, rather than an étale Fourier surrogate."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.4/classical-hodge",
+        "verdict": "verified",
+        "note": "Theorem 3.2 uses the product-potential criterion of Theorem A.24; the ordinary versus irregular filtration comparison needs A.13. G2 states these exact missing Hodge-module results and preserves the existing MHS carrier."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.4/hypersurface",
+        "verdict": "verified",
+        "note": "The zero-locus dimension nk−1, group action and arithmetic reduction behavior match (3.1), Theorem 3.8 and Remark 3.10. Three tests and the API distinguish the hypersurface from the ambient torus and its group action."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.4/hypersurface-comparison",
+        "verdict": "verified",
+        "note": "Theorem 3.8 and Example A.27 give degree nk−1, weight nk−1 and twist (−1); compact and supported variants are distinguished. The nk≥2 restriction and G2 prevent unsupported purity assertions."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.4/middle-motive",
+        "verdict": "verified",
+        "note": "The rational Nori weight-graded projector object agrees with FSY (3.1). Exact MC.5 category/tensor/support nodes were read; the absent motivic weight/realization compatibility stays G3. API/tests do not define weights by a vector-space realization."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.4/finite-field-realization",
+        "verdict": "verified",
+        "note": "Theorem 3.12 includes the p-dividing-r cover case, handled by the reduced prime-to-p action and universal-homeomorphism invariance. The singular zero locus uses cohomology with supports, not smooth purity."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.4/rigid-realization",
+        "verdict": "corrected",
+        "note": "Checked FSY §3.2.2 and Proposition 5.23 with RD.4/RD.6 contracts; split the XZ Dwork citations from FSY and included XZ §4.1.13. Horizontality fixes the exponential sign independently of the printed formula."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.5/rank-two-frame",
+        "verdict": "verified",
+        "note": "The two-variable connection and symmetric-power frame match FSY §4.1/Lemma 4.15. Constructor, derivative and cover tests specify the genuine frame on the connection; G1 retains its general carrier."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.5/formal-type",
+        "verdict": "verified",
+        "note": "The exponential factors 2(2j−k)t, regular rank-one factor and mod-four invariants agree with Proposition 4.6/Lemma 4.7, including the distinction between the original object and its cover."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.5/intermediate-extensions",
+        "verdict": "verified",
+        "note": "Corollary 4.9 gives precisely the infinity isomorphism criteria 4∤k and odd k on the cover. The statement does not strengthen intermediate-to-meromorphic extension to j!→j*."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.5/inverse-fourier-local",
+        "verdict": "verified",
+        "note": "The ranks, singularities and local monodromy branches agree with Corollary 4.10. The preceding formal type and Fourier comparison provide the direct route, with G1 retained."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.5/dimensions",
+        "verdict": "verified",
+        "note": "Proposition 4.12/(4.13) gives full and middle dimensions on both tori. Verified zero cases k=1,2,4 and even-dimensional alternating cases; Hodge cardinalities agree through k=500."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.5/de-rham-bases",
+        "verdict": "verified",
+        "note": "Proposition 4.14/Lemmas 4.15,4.17 give the stated ordinary and covered basis ranges. These are full-cohomology bases; middle cohomology is not falsely assigned the same basis."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.6/signed-fan",
+        "verdict": "verified",
+        "note": "The signed-permutation cones, 3^k−1 rays and 2^k k! maximal cones match FSY (4.22)–(4.23). Current upstream already supplies generic fans and complex toric gluing; G7 isolates the arithmetic extension. API/tests concern this explicit fan."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.6/product-compactification",
+        "verdict": "verified",
+        "note": "The monomial charts, boundary and equivariant blowup construction agree with FSY §4.3.2–3. Its API and tests preserve the product potential and boundary behavior; general toric and filtered blowup inputs stay with their owners."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.6/newton-weights",
+        "verdict": "verified",
+        "note": "The explicit Newton function agrees with FSY §4.3.1; three tests distinguish the coordinate/cover weights and zero monomial. General filtered de Rham/Newton comparison remains in G2."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.6/filtered-bases",
+        "verdict": "verified",
+        "note": "Proposition 4.21 and its proof give the original 2j bound and covered j bound, including the restricted even-k range. No unsupported even-k low-filtration equality is added."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.6/cover-hodge-numbers",
+        "verdict": "verified",
+        "note": "Checked all odd/even positions and extra diagonal pieces in Proposition 4.20, including k=2 and E2’s primitive index. The middle part is exactly weight k+1."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.6/hodge-numbers",
+        "verdict": "verified",
+        "note": "All positions, omitted central terms and extra diagonal/top terms match Theorem 1.8 and its proof. Distinct middle p-indices and dimension d_k agree in every residue class."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.7/integral-boundary",
+        "verdict": "verified",
+        "note": "The integral chart calculation agrees with FSY pp. 40–41 after E4’s restriction to the hypersurface boundary. G7 supplies arithmetic base change; no unsupported smoothness of every special fiber is claimed."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.7/singularities",
+        "verdict": "verified",
+        "note": "The odd-a/even-b orbit indexing, critical constants and characteristic-two exception match FSY pp. 41–45. The tests discriminate the p=2 nonordinary point and the p-dividing-parameter higher thickness."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.7/even-resolution",
+        "verdict": "verified",
+        "note": "The blowup and quadric/localization calculation of Theorem 5.17 preserves the χ-isotypic degree. Smoothness claims are restricted to the characteristic-zero resolution; general EDC.4 formulas are imported."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.7/galois-realization",
+        "verdict": "verified",
+        "note": "The weight-graded compact realization, boundary kernel and equivariant resolution agree with (5.5),(5.9),(5.19). G3 retains motivic weights and G4 retains the characteristic-two injectivity input."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.8/middle-polynomial",
+        "verdict": "verified",
+        "note": "FSY pp. 39–40 defines the finite-field middle determinant with rational coefficients, normalized constant one and reciprocal pairing. The corrected reciprocal exponent is k+1 as in E3; API/tests retain the distinction from full Z."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.8/degree-formulas",
+        "verdict": "verified",
+        "note": "Checked the odd-prime and all characteristic-two residue branches of (5.1)–(5.4), including a,b and deg M. The degree partitions agree through k=500; no local factor of the global motive is inferred from M alone at bad primes."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.8/odd-local",
+        "verdict": "verified",
+        "note": "Theorem 5.8/Remark 5.12 gives the quadratic vanishing characters, Tate twist, Θ signs and unramified middle summand. Ordinary odd-prime suppliers do not settle p=2; G4 records that missing input."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.8/even-local",
+        "verdict": "verified",
+        "note": "Theorem 5.17 gives N²=0, the U and U-perpendicular filtration and the unramified quotient; it is not an unjustified local splitting. The zero-dimensional small-k cases remain consistent."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.8/odd-conductor",
+        "verdict": "corrected",
+        "note": "The local factors and product of square-class representatives agree with (5.13)–(5.14). Replaced an unsupported local-semisimplicity argument by exact finite-inertia invariants (N=0); the k=9 square/radical distinction is retained."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.8/even-conductor",
+        "verdict": "verified",
+        "note": "The extra odd-prime factors and odd-radical product match (5.22) and FSY p. 49. The two-adic exponent is not replaced by its numerical conjecture."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.9/padic-comparison",
+        "verdict": "corrected",
+        "note": "Proposition 5.23 has the stated all-prime de Rham, odd-prime semistable and good-prime crystalline branches. Replaced the broad R06 stage by three exact admissibility/exactness nodes; G6 still blocks the higher-thickness proof step."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.9/newton-polygon",
+        "verdict": "corrected",
+        "note": "Corollary 5.27/Remark 5.28 uses compact-support Hodge slopes and the rigid-middle injection. Replaced the broad period request with the exact admissible-implies-weakly-admissible node; G6 and the even two-adic exclusion remain explicit."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.9/compatible-system",
+        "verdict": "corrected",
+        "note": "FSY pp. 57–58 and Serre Theorem 4.2.1 give the regularity/pairing route with G5. Added the R06 weight convention node and the explicit HT_KM=−HT_R06 dictionary, including the k=7 check; this changes labels, not representations."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.10/determinant",
+        "verdict": "verified",
+        "note": "The signed square class, cyclotomic exponent and diagonal conjugation sign agree with Corollary 5.30 and p. 55. The R01.5 request is restricted to recognition of rank-one characters."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.10/gamma-factor",
+        "verdict": "verified",
+        "note": "The standard Γ_R product differs from the paper normalization by π^{d_k(d_k+1)/4}, as in E5. Existing Complex.Gamma supplies its total function; analytic conclusions use the meromorphic interpretation and generic ML.0 recipe."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.10/epsilon-factors",
+        "verdict": "verified",
+        "note": "Checked (5.31)–(5.36), geometric Frobenius, measures and local parity signs. Exact R01.2 epsilon and R01.3 conductor statements keep the monodromy correction and complex coefficient embedding."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.10/completed-l-function",
+        "verdict": "verified",
+        "note": "The Euler product, actual bad-prime factors, gamma normalization and conductor completion agree with FSY. API/tests distinguish partial/full products and avoid determining the even factor at two from weak compatibility alone."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.11/potential-automorphy",
+        "verdict": "verified",
+        "note": "The exact ML.2 PT theorem/consequence permits a sum of polarized cuspidal constituents over one totally real extension. The Kloosterman application is potentially isobaric, with no unsupported cuspidality or irreducibility assertion."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.11/local-transport",
+        "verdict": "corrected",
+        "note": "Lemma 5.40 requires a pure associated graded after PT, not arbitrary semisimplification. Exact R01.2 and ML.2 statements were read; replaced the broad period request by exact admissibility/strictness nodes for Remark 5.41’s odd two-adic bound."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.11/odd-root-number",
+        "verdict": "verified",
+        "note": "FSY p. 58 gives the Kloosterman sign +1 via an even-weight orthogonal-motive theorem. The precise Saito theorem and applicability remain G9; generic local epsilon factors alone are not credited with proving positivity."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.11/odd-functional-equation",
+        "verdict": "verified",
+        "note": "Theorem 1.2 gives reflection k+2−s, sign +1 and the full conductor/gamma completion, with meromorphic continuation. Its root-number route explicitly retains G9; no entire-function claim is inserted."
+      },
+      {
+        "nodeId": "KloostermanMomentsAndPotentialAutomorphy:KM.11/even-functional-equation",
+        "verdict": "corrected",
+        "note": "Corrected the attribution of (−1)^floor(k/8) to the conjectured two-adic sign, not the global sign; the latter also contains v′_k from FSY p. 56. Added k=8 as a discriminating check. The theorem retains actual unknown two-adic invariants."
+      }
+    ]
+  }
 }
