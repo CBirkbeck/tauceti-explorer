@@ -5158,5 +5158,12 @@
  "FIX-PKG-ModularIwasawaMainConjectures~adv": 10990,
  "FIX-PKG-SpecialValuesBirchTate~adv": 10991,
  "REV-EulerSystemsAndKolyvaginSystems--ES.0~5": 10992,
- "REV-PKG-K3BlochGroups~adv": 10993
+ "REV-PKG-K3BlochGroups~adv": 10993,
+ "BP-ExcursionOperatorsAndSpectralAction--ES0~5": 11015,
+ "FIX-PKG-KTheoryFiniteLocalFields~adv": 11016,
+ "PKG-IntegralIwasawaTheory~codex": 11017,
+ "PKG-KTheoryLowDegrees~codex": 11018,
+ "REV-ExcursionOperatorsAndSpectralAction--ES0~5": 11020,
+ "REV-PKG-BorelRegulators~adv": 11021,
+ "REV-PKG-SchemeKTheoryOperations~adv": 11022
 }
