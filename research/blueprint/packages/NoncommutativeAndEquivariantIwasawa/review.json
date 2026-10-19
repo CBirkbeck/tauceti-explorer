@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-NoncommutativeAndEquivariantIwasawa",
+    "date": "2026-10-19",
+    "notes": "Independent fixing review complete. Corrected duplication, the ramified graded coefficient ring and its filtered base-change proof route, dependency order, finite-quotient trace notation, definition checks and representative Lean signatures. Not ready for upstream: the noncommutative determinant/Ore-localization, compact homology/height/Euler-characteristic and weak-Leopoldt supplier contracts remain unclosed; the uniform smoothing proof is missing; original Brumer/Fukaya–Kato locators and further supplier extensions need reconciliation. See the review report for exact targets, evidence and validation."
+  }
+}
