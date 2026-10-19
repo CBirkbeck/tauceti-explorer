@@ -4,7 +4,7 @@
   "area": "topology",
   "parent": null,
   "summary": "Plan the finite-orbit representations of surface groups studied by Landesman and Litt, including the higher Prym rank bound, low-rank finite monodromy, and arithmetic applications to generic curves. Reuse the existing surface-topology, pointed-moduli, cohomology and Hodge suppliers; expose their exact missing contracts and the proof bridges that still need verification.",
-  "readme": "This roadmap studies actual conjugacy classes of surface-group representations with finite mapping-class orbit. Its principal targets are the higher Prym subrepresentation bound, finite monodromy under r²<g+1 without semisimplicity, and arithmetic applications on the generic pointed curve over Q. The reader document contains all definitions, hypotheses, APIs, discriminating tests and source locators.\n\nBuild on the existing LV.5 surface topology, common StableReductionPartII pointed-moduli carrier, pinned local coefficients and finite-group representation theory. The early layers C.0–C.2 supply representation/family inputs to HodgeStructuresPartII; C.3–C.8 consume its rank and rigidity theorems. Shared abstract Artinian deformation algebra belongs to the R03.2 extension. This target-level order prevents a cycle through the final finiteness theorem.\n\nC.0 fixes finite orbits and versal monodromy. C.1–C.2 construct projective then fibre-prescribed linear realizations. C.3 proves higher Prym bounds. C.4 treats unitary rigidity and integrality; C.5 treats algebraic constancy and the semisimple case; C.6 treats characteristic extensions and general finiteness. C.7–C.8 treat arithmetic, residual lifts and nondensity. C.9 supplies explicit examples and an inventory of open questions.\n\nAll stages are planned, not closed. The algebraic-family bridge, integral-Hodge-realization wording, discrete obstruction interfaces, nonproper étale comparison and example source certificates are explicit gaps. No complete-intersection failure is inferred from nonflatness. Generic topology, Hodge theory, moduli and group cohomology remain with their existing owners or proposed Part II extensions. No classification conjecture or infinite-image existence conjecture is presented as proved.",
+  "readme": "This roadmap studies actual conjugacy classes of surface-group representations with finite mapping-class orbit. Its principal targets are the higher Prym subrepresentation bound, finite monodromy under r²<g+1 without semisimplicity, and arithmetic applications on the generic pointed curve over Q. The reader document contains all definitions, hypotheses, APIs, discriminating tests and source locators.\n\nBuild on the existing LV.5 surface topology, common StableReductionPartII pointed-moduli carrier, pinned local coefficients and finite-group representation theory, and import the accepted HodgeStructuresPartII H.1/H.4/H.5, InverseGalois IG.1/IG.3/IG.5 and AlgebraicModuli R09.7a nodes. The early layers C.0–C.2 supply representation/family inputs to HodgeStructuresPartII; C.3–C.8 consume its rank and rigidity theorems. Shared abstract Artinian deformation algebra belongs to the R03.2 extension. This target-level order prevents a cycle through the final finiteness theorem.\n\nC.0 fixes finite orbits and versal monodromy. C.1–C.2 construct projective then fibre-prescribed linear realizations. C.3 proves higher Prym bounds. C.4 treats unitary rigidity and integrality; C.5 treats algebraic constancy and the semisimple case; C.6 treats characteristic extensions and general finiteness. C.7–C.8 treat arithmetic, residual lifts and nondensity. C.9 supplies explicit examples and an inventory of open questions.\n\nAll stages are planned, not closed. The algebraic-family bridge, Teichmüller theory, the relative Ehresmann and finite-index inputs, discrete obstruction interfaces, the node-smoothing Dehn-twist identification and the example source certificates are explicit gaps. Integral PVHS is read in the O_K sense of LL22 Theorem 1.2.5. No complete-intersection failure is inferred from nonflatness. Generic topology, Hodge theory, moduli and group cohomology remain with their existing owners or proposed Part II extensions. No classification conjecture or infinite-image existence conjecture is presented as proved.",
   "prerequisites": [
     "AlgebraicModuliForArithmeticGeometry",
     "DeformationAndDerivedPatchingAlgebra",
@@ -22,7 +22,7 @@
     {
       "key": "C.0",
       "title": "Finite orbits and surface monodromy",
-      "description": "Define actual finite conjugacy orbits and punctured étale-versal families. Compare the ordered moduli orbifold with pure mapping classes, and prove the versal-family fundamental-group sequence and fibral finite-orbit property. Generic surfaces, presentations, twists, and Birman sequences are imported.",
+      "description": "Define actual finite conjugacy orbits and punctured étale-versal families. State the Teichmüller uniformization of the pointed moduli stack, compare the ordered moduli orbifold with pure mapping classes, and prove the versal-family fundamental-group sequence and the fibral finite-orbit property. Generic surfaces, twists, point pushing and the Birman sequence are imported from LV.5.",
       "requires": [
         "MordellLawrenceVenkatesh:LV.5",
         "StableReductionPartII:MC.0",
@@ -46,8 +46,7 @@
       "title": "Linear lifting and relative structure",
       "description": "Kill a specified finite abelian obstruction by dominant étale refinement, lift the projective extension with its fibre prescribed, realize irreducible representations on versal families, prove the arbitrary-group normal-restriction lemma, and construct the relative Artinian unitary decomposition.",
       "requires": [
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
         "DiamondsAndVStacks:D0",
         "tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-5-exact-sequences",
         "MappingClassGroupsAndCanonicalRepresentations:C.1",
@@ -59,15 +58,13 @@
     {
       "key": "C.3",
       "title": "Higher Prym representations",
-      "description": "Define open-cover cohomological and compact-cover homological Prym actions and the Putman–Wieland predicate. Construct marked versal cover families from the Hurwitz supplier, reduce boundary components, identify cover cohomology, and prove the subrepresentation rank bound and its small-degree and small-order consequences.",
+      "description": "Define open-cover cohomological and compact-cover homological Prym actions and the Putman–Wieland predicate. Import marked versal φ-cover families (InverseGaloisAndArithmeticFundamentalGroups:IG.5/versal-phi-cover-families), reduce boundary components, identify cover cohomology, and prove the subrepresentation rank bound from HodgeStructuresPartII:H.4/sublocal-system-rank, with its small-degree and small-order consequences.",
       "requires": [
         "MordellLawrenceVenkatesh:LV.5",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-2-relative-singular-chains-and-homology",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
         "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count",
-        "MappingClassGroupsAndCanonicalRepresentations:C.0",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.5",
-        "StableReductionPartII:MC.4",
         "MappingClassGroupsAndCanonicalRepresentations:C.2",
         "DiamondsAndVStacks:D0",
         "HodgeStructuresPartII:H.4"
@@ -76,18 +73,14 @@
     {
       "key": "C.4",
       "title": "Unitary rigidity and integrality",
-      "description": "Use Artinian invariant vanishing to prove strong rigidity of fibre-irreducible low-rank total representations. Import twist quasi-unipotence and compactification, deduce projective and linear integrality, and prove finite monodromy for low-rank unitary MCG-finite representations using every coefficient conjugate.",
+      "description": "Import strong rigidity of fibre-irreducible low-rank total representations (HodgeStructuresPartII:H.5/versal-unitary-rigidity). Prove quasi-unipotence of multitwists in finite-index mapping-class subgroups and of boundary monodromy on a good compactification, deduce projective and linear integrality, and prove finite monodromy for low-rank unitary MCG-finite representations using every coefficient conjugate.",
       "requires": [
-        "HodgeStructuresPartII:H.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a",
         "HodgeStructuresPartII:H.5",
-        "DiamondsAndVStacks:D0",
-        "MappingClassGroupsAndCanonicalRepresentations:C.0",
-        "MordellLawrenceVenkatesh:LV.5",
-        "StableReductionPartII:MC.3",
         "StableReductionPartII:MC.4",
-        "AlgebraicModuliForArithmeticGeometry:R09.7d",
         "MappingClassGroupsAndCanonicalRepresentations:C.1",
         "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+        "MordellLawrenceVenkatesh:LV.5",
         "MappingClassGroupsAndCanonicalRepresentations:C.2"
       ]
     },
@@ -100,23 +93,22 @@
         "HodgeStructuresPartII:H.4",
         "MappingClassGroupsAndCanonicalRepresentations:C.2",
         "MappingClassGroupsAndCanonicalRepresentations:C.0",
-        "AlgebraicModuliForArithmeticGeometry:R09.6",
         "HodgeStructuresPartII:H.1",
         "MappingClassGroupsAndCanonicalRepresentations:C.1",
+        "HodgeStructuresPartII:H.5",
         "MappingClassGroupsAndCanonicalRepresentations:C.4"
       ]
     },
     {
       "key": "C.6",
       "title": "General finiteness and free groups",
-      "description": "Prove characteristic-socle transport, the low-rank extension splitting theorem, and finite monodromy for all MCG-finite representations of rank r with r²<g+1. Deduce fibral, algebraic-isomonodromy, free-group, Nielsen-tuple, and characteristic-quotient consequences.",
+      "description": "Prove characteristic-socle transport, the low-rank extension splitting theorem, and finite monodromy for all MCG-finite representations of rank r with r²<g+1. State Nielsen generation of Aut(F_N) and deduce the fibral, algebraic-isomonodromy, free-group, Nielsen-tuple, characteristic-quotient and total-image consequences.",
       "requires": [
         "MappingClassGroupsAndCanonicalRepresentations:C.1",
         "MappingClassGroupsAndCanonicalRepresentations:C.3",
         "MappingClassGroupsAndCanonicalRepresentations:C.0",
         "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count",
         "MappingClassGroupsAndCanonicalRepresentations:C.5",
-        "HodgeStructuresPartII:H.1",
         "HodgeStructuresPartII:H.2",
         "StableReductionPartII:MC.2",
         "MordellLawrenceVenkatesh:LV.5",
@@ -126,16 +118,13 @@
     {
       "key": "C.7",
       "title": "Generic arithmetic curves",
-      "description": "Define arithmetic finite Galois orbit, compare it with finite topological mapping-class orbit on a curve generic over M(g,n) over Q, and prove arithmetic finite monodromy. Formulate the four-way geometric/Hodge equivalence and its wider three-way range with a precise integral-realization supplier contract.",
+      "description": "Import arithmetic representations of the geometric étale fundamental group (InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-representation). Compare finite Galois orbit with finite topological mapping-class orbit on a curve generic over M(g,n) over Q, prove arithmetic finite monodromy, and prove the four-way equivalence with geometric origin and integral PVHS in the O_K sense, and its wider three-way range.",
       "requires": [
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.0",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
         "MappingClassGroupsAndCanonicalRepresentations:C.0",
         "StableReductionPartII:MC.4",
         "MappingClassGroupsAndCanonicalRepresentations:C.6",
         "MappingClassGroupsAndCanonicalRepresentations:C.1",
-        "MordellLawrenceVenkatesh:LV.5",
-        "HodgeStructuresPartII:H.4",
         "HodgeStructuresPartII:H.5"
       ]
     },
@@ -144,13 +133,12 @@
       "title": "Residual lifts and nondensity",
       "description": "Define residual arithmetic lifts. Prove the uniform Jordan-word obstruction, nonliftability for sufficiently large residual characteristic, explicit surjections, and nondensity on hyperbolic surfaces. State only the justified conditional nonflat/nonsmooth deformation-ring consequence.",
       "requires": [
-        "MappingClassGroupsAndCanonicalRepresentations:C.7",
         "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
         "HodgeStructuresPartII:H.5",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/CharacterTheory#layer-2-wedderburn-irreducible-indexing-and-the-count",
+        "MappingClassGroupsAndCanonicalRepresentations:C.7",
         "MordellLawrenceVenkatesh:LV.5",
-        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.3",
+        "HodgeStructuresPartII:H.1",
         "DeformationAndDerivedPatchingAlgebra:R03.4",
         "DeformationAndDerivedPatchingAlgebra:R03.2"
       ]
