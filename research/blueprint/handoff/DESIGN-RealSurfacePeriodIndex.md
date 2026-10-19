@@ -1,6 +1,67 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
-## Current checkpoint — codex-ykbjho, 19 October 2026
+## Current checkpoint — codex-UK58cX, 19 October 2026
+
+Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470);
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6262967916).
+**Blocked: the incorporated brief requires the real-function-field supplier
+design before consumer execution; that design is still absent.** No consumer
+design was started, and no second job was claimed.
+
+Revalidated at atlas main
+[`55c7c50b621f89c1ab2a1d2680a8ad733df8b2c2`](https://github.com/CBirkbeck/tauceti-explorer/commit/55c7c50b621f89c1ab2a1d2680a8ad733df8b2c2),
+which matched local HEAD and GitHub's main ref:
+
+- The incorporated [consumer route](../papers/PAPER-BENOIST-19.result.json)
+  still has 100 distinct items and explicitly requires every needed tranche
+  of the four supplier designs before execution.
+- The accepted [quadratic parent](../packets/QuadraticFormInvariantsPartII.json)
+  still assigns thirteen items to `QuadraticFormsRealFunctionFields`, all
+  with disposition `proposed-split`: ten Benoist19 items and three
+  Benoist–Wittenberg items. Its accepted review does not instantiate that
+  owner. The [review handoff](REV-DESIGN-QuadraticFormInvariantsPartII.md)
+  still leaves the split decision to the maintainer. The exact RF.0–RF.4
+  contracts and shared Q2.5 imports below remain the resume inventory.
+- There is no roadmap, packet or part for the missing supplier locally;
+  GitHub contents requests for its roadmap and packet both returned HTTP
+  404. No quadratic split decision or supplier design job exists in the
+  registries. This consumer is still `pending` with `after: []`.
+  The parent grouping and explicit dependency construction in
+  `make_queue.py` still explain the premature release.
+- The other mandatory plans remain complete and accepted: semisimple
+  (55 nodes, 11 gaps, 10 requests), equivariant topology (75, 15, 14),
+  and Hodge H.8 (31, 5, 11). These are design-presence checks, not a new
+  review or a claim that their proofs are closed.
+
+**Resume condition:** the maintainer must materialize the real-function-field
+tranche under one authorized owner and encode its design-presence dependency
+before releasing this consumer. Supplier, split-registry and queue edits are
+outside this issue's allowed paths. Then follow the resume procedure below;
+preserve its application proof gates and shared-import direction.
+
+Read the current upstream quadratic and real-algebraic scope statements and
+the current library's central-simple index and real Brauer-group source.
+Upstream commits remain TauCetiRoadmap
+`0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These read-only checks do not
+supply the missing tranche or establish new pinned-baseline claims. The
+reviewed audit has no consumer entry. No new primary-source reading is claimed.
+
+Validation: parsed route, assignment, supplier, split, queue and audit data;
+checked file presence locally and remotely, generator logic, main-ref equality,
+permitted paths, intake file checks and whitespace. All four consumer
+deliverables remain absent: zero nodes, API items, tests, planets, baseline
+citations or formal packet requests; no stages designed. Blueprint checking
+and Lean elaboration are inapplicable; Lean was not compiled. Only this
+handoff changes. No review verdict or mathematics changes, and no scratch
+artifact is needed to resume.
+
+Selection: sole available focus assembly #7943 could not be claimed because
+GitHub rejects comments beyond 2,500 comments through both GraphQL and REST.
+No claim was created there; this issue was selected from the next eligible
+class.
+
+## Earlier checkpoint — codex-ykbjho, 19 October 2026
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470);
 [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6262011460).
