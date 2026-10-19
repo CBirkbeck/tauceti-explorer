@@ -1,0 +1,204 @@
+{
+  "id": "PadicLocalLanglandsForGL2QpPartII",
+  "title": "P-adic local Langlands for GL₂(Q_p), Part II: geometric realisation in the Drinfeld tower",
+  "area": "langlands",
+  "parent": "PadicLocalLanglandsForGL2Qp",
+  "aliases": [
+    "PadicLocalLanglandsForGL2QpPartIIGeometricRealisation"
+  ],
+  "summary": "This continuation realizes the supercuspidal p-adic local Langlands correspondence in functions and the filtered de Rham complex of the Drinfeld tower, characterizes the étale classes inside pro-étale cohomology by bounded orbits, and computes individual Galois and Banach multiplicities. It then decomposes arithmetic completed cohomology into blocks and interpolates the multiplicities over whole-Weil–Deligne-type deformation rings, with integral topologies, central characters and prime restrictions explicit.",
+  "readme": "# P-adic local Langlands for GL₂(Q_p), Part II: geometric realisation in the Drinfeld tower\n\nThis roadmap identifies the supercuspidal locally analytic correspondence in functions and differentials on finite Drinfeld covers, extracts the Galois and Banach multiplicities of geometric étale cohomology, and factors the arithmetic completed cohomology over blocks and whole-Weil–Deligne-type deformation rings. The parent constructs the correspondence. Here the correspondence is an input to geometric comparison and interpolation.\n\nThe canonical atlas ID is `PadicLocalLanglandsForGL2QpPartII`; the longer extraction ID `PadicLocalLanglandsForGL2QpPartIIGeometricRealisation` names this same continuation. The geometric end statements already listed in the parent are assigned one proof package here (the precise ownership proposal is recorded below). No independent second correspondence, tower, mod-p theory or Kisin-ring construction is part of this roadmap.\n\n## Conventions and end statements\n\nLet p be prime, L/Q_p finite and sufficiently large for the finite-level types, G=GL₂(Q_p), D the quaternion division algebra, and Ω=P¹_C∖P¹(Q_p), with the L-coefficient descended function spaces when indicated. Choose ϖ_D with ϖ_D²=p up to a unit. The DLB cover Σ_r has level 1+p^rO_D, whereas the CDN index n uses 1+ϖ_D^nO_D. Thus DLB r corresponds to CDN 2r. A first ϖ_D-cover is a different level. A p superscript denotes the specified p^Z quotient, whose descent datum is imported, not discarded.\n\nUse left actions by inverse pullback, the strong continuous dual E′_b with (gℓ)(v)=ℓ(g⁻¹v), and Z[M]=Hom_{D×}(JL(M),Z). The multiplicity Z[M] and the tensor isotypic summand Z[M]⊗JL(M) are different spaces. Over C take the invariant coefficient model before coefficient extension where required. Geometric period parameters use X_st⁺=(B_cris⁺⊗M)^{φ=p}. The CDN20 author-copy convention gives D_pst(V_{M,ℒ})=M[−1]; it must be compared with the parent convention and DLB’s dual de Rham space by the explicit normalization contract G1. Local reciprocity must be transported from the existing LocalGaloisGroups/ClassFieldTheory convention, rather than silently changing arithmetic to geometric Frobenius.\n\nIn GR.1–GR.3 fix a smooth absolutely irreducible supercuspidal π with trivial central character, ρ=JL(π), and the nontrianguline weight-{0,1} family V(π). Its unfiltered equation is N_rig(π); each filtration line ℒ changes the filtered lattice. For sufficiently large r the principal comparisons are\n\n- O(Σ_r)^ρ ≅ (Π(V)^an/π)′_b, independently of the line, uniquely up to scalar;\n- H¹_dR(Σ_r)^ρ ≅ π′_b⊗M_dR(π)∨, with the preimage of ℒ^⊥⊗π′_b in differentials equal to (Π(V_ℒ)^an)′_b;\n- the supercuspidal geometric Galois multiplicity is Π(V_ℒ)′_b, and the Banach multiplicity is V_ℒ, with the corresponding JL factor when the D× action is restored.\n\nThe final factorisation fixes n, assumes p>3, and uses the arithmetic completion H¹_{n,Q̄_p}=L⊗lim_k colim_{[K:Q_p]<∞}H¹_ét(M⁽ᵖ⁾_{n,K},O_L/p^k(1)). It identifies this with\n\n⊕_{M∈ΦNᵖ_n} (completed ⊕_B Π*(ρ_{B,M})⊗_{R_{B,M}}ρ_{B,M}⊗_{R_{B,M}}check R_{B,M})⊗_L JL(M).\n\nHere check R=Hom_L^cont(R,L), the outer effective sum is finite, and the block completion is formed using the integral lattices before inverting p. This is the arithmetic almost-Galois-smooth subspace of geometric cohomology, as constructed in GR.5. The rank-one Steinberg branch is specified separately. The 2020 individual supercuspidal theorem is not restricted to p>3; the 2023 shortcut using mod-p finite length requires p>2. The family factorisation retains p>3.\n\n## Existing owners and the baseline\n\nThe parent `PadicLocalLanglandsForGL2Qp` supplies rank-two (φ,Γ)-modules, Colmez’s correspondence, its classical compatibility, Banach/analytic vectors, blocks, projective generators and endomorphism rings. `PadicHodgeTheory` supplies Berger’s equation, period functors and the admissibility equivalence; `PhiGammaModulesAndIwasawaCohomology` supplies the analytic Iwasawa and exponential-image comparisons. `EndoscopicTransferAndUnitaryTraceComparison:ET.6a` supplies the tower, actions, period maps and descent only. Its ℓ≠p compact-support comparison cannot replace the p-adic fundamental diagram.\n\n`ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5–SZ.6` supplies mod-p finite length and geometric multiplicities; `ModpRepresentationsOfGL2OverLocalFields:MP.1` supplies the cosocle criterion. `LocalGaloisDeformationRings:R08.3/weil-deligne-type-ring` supplies the whole-WD-type rings, their PID structure and universal Galois representations. These rings fix the full Weil–Deligne parameter, not only inertia. `CompletedCohomologyAndLocalGlobalCompatibility:R31.4` supplies the existing global compatibility theorem. The extra globalization and uniformization requirements are stated separately.\n\nThe current upstream SmoothRepresentationsOfLocalGroups, LocalGaloisGroups and induction/restriction and operator-theory boundaries have been checked in addition to the atlas snapshot. Reuse their generic categories, local Galois carriers and functional analysis. The current smooth roadmap’s supercuspidal projectivity is over C: the L-coefficient extension is an explicit supplier contract. No claim of a p-adic representation implementation is inferred from a generic representation carrier.\n\nThe pinned implementation baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The compact Suggested.lean uses only existing linear representations, von Neumann boundedness, finite-dimensional modules and bases. Heavy geometric and analytic carriers below are README targets, with their full APIs and discriminating tests. None is replaced by a proposition field or an unspecified data placeholder.\n\n## Build order\n\nThe layers below are organized by mathematical construction and use, rather than by the sections of any one source. Each target gives its direct supplier IDs, a proof plan and an acceptance check. Definition/construction APIs are derived from their stated consumers. The source list distinguishes versions and the portions actually read. Open proof contracts identify what must be established before closure; a planned layer is not a claim of formalization.\n",
+  "prerequisites": [
+    "CompletedCohomologyAndLocalGlobalCompatibility",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "LocalGaloisDeformationRings",
+    "LocallyAnalyticDistributions",
+    "LocallyAnalyticRepresentationsOfLocalGroups",
+    "ModpRepresentationsOfGL2OverLocalFields",
+    "PadicHodgeTheory",
+    "PadicLocalLanglandsForGL2Qp",
+    "PhiGammaModulesAndIwasawaCohomology",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower",
+    "SmoothRepresentationsOfLocalGroups",
+    "tauceti:TauCetiRoadmap/LocalGaloisGroups"
+  ],
+  "stages": [
+    {
+      "key": "GR.0",
+      "title": "Geometric types and normalization",
+      "description": "Fix the discrete-series type sets, the p-central quotient, the conversion from p^r to ϖ_D^{2r} levels, multiplicity/strong-dual conventions and the period-line Galois parameter. The tower and all generic local Langlands, Jacquet–Langlands, Galois and period carriers are inputs from their owners. The cross-source dual-line and Frobenius-shift comparison is an explicit contract.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.1",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.3",
+        "PadicLocalLanglandsForGL2Qp:R30.3",
+        "PadicLocalLanglandsForGL2Qp:R30.4",
+        "SmoothRepresentationsOfLocalGroups:SR.0"
+      ]
+    },
+    {
+      "key": "GR.1",
+      "title": "Differential equations and P-finite models",
+      "description": "Specialize Berger’s unfiltered differential equation to a fixed supercuspidal π-family. Prove polynomial injectivity and connection invertibility, construct the full P-finite/infinite-slope Kirillov function spaces, and establish the infinitesimal-action, residue-annihilator and shell-duality formulas. Derive the smooth-vector criterion and keep weights {0,1} and nontriangulinity explicit.",
+      "requires": [
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "PadicHodgeTheory:P7",
+        "PadicHodgeTheory:R06.3",
+        "PadicLocalLanglandsForGL2Qp:R30.1",
+        "PadicLocalLanglandsForGL2Qp:R30.3",
+        "PadicLocalLanglandsForGL2Qp:R30.4",
+        "PadicLocalLanglandsForGL2QpPartII:GR.0"
+      ]
+    },
+    {
+      "key": "GR.2",
+      "title": "The common quotient and holomorphic action",
+      "description": "Construct the unfiltered two-chart Colmez sheaf and prove equality of the embedded quotient duals. Define Π(π,0), establish the closed unipotent operator, its coordinate and homographic covariance, then use locally analytic resolvents and Morita duality to construct the continuous O(Ω)-module action. Prove automatic O(Ω)-linearity and the separate topological irreducibility assertion.",
+      "requires": [
+        "LocallyAnalyticDistributions:L0",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+        "PadicLocalLanglandsForGL2Qp:R30.3",
+        "PadicLocalLanglandsForGL2QpPartII:GR.1",
+        "PhiGammaModulesAndIwasawaCohomology:PG.4",
+        "PhiGammaModulesAndIwasawaCohomology:PG.5"
+      ]
+    },
+    {
+      "key": "GR.3",
+      "title": "The filtered geometric realisation",
+      "description": "Build a nonzero comparison using quaternionic globalization and local–global compatibility, prove surjectivity by the equivariant-bundle and finite-projective argument, construct Π(π,2), determine its two-copy smooth kernel and each filtration-line preimage, and prove injectivity with fixed-radius divisibility. Deduce the functions and de Rham Breuil–Strauch isomorphisms, unique up to a common scalar.",
+      "requires": [
+        "CompletedCohomologyAndLocalGlobalCompatibility:R31.4",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+        "PadicLocalLanglandsForGL2Qp:R30.2",
+        "PadicLocalLanglandsForGL2Qp:R30.3",
+        "PadicLocalLanglandsForGL2QpPartII:GR.0",
+        "PadicLocalLanglandsForGL2QpPartII:GR.1",
+        "PadicLocalLanglandsForGL2QpPartII:GR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.0",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "GR.4",
+      "title": "Individual geometric multiplicities",
+      "description": "Apply continuous Galois Hom to the strict geometric fundamental diagram with its exactness justification. Classify period multiplicities, form the normalized line extension, characterize étale cohomology as bounded vectors of pro-étale cohomology, and prove finite-length occurrence using the partial-operator extension lemma. Compare Steinberg topologies and compute both Galois and Banach multiplicities, including characters and higher-dimensional vanishing.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.2",
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.3",
+        "PadicLocalLanglandsForGL2Qp:R30.2",
+        "PadicLocalLanglandsForGL2Qp:R30.3",
+        "PadicLocalLanglandsForGL2Qp:R30.4",
+        "PadicLocalLanglandsForGL2QpPartII:GR.0",
+        "PadicLocalLanglandsForGL2QpPartII:GR.3",
+        "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "GR.5",
+      "title": "Integral arithmetic block decomposition",
+      "description": "Define the fixed-geometric-level arithmetic completion with integral coefficients before inverting p. Prove saturation and smooth Galois reductions, form block multiplicities from the parent projective generators, prove their completed evaluation and reduction-lifting theorem, establish finite generation of the continuous integral dual, and isolate the finite, level-stable type sectors and their central characters. Use the existing mod-p finite-length and geometric-multiplicity theorems.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "PadicLocalLanglandsForGL2Qp:R30.5",
+        "PadicLocalLanglandsForGL2Qp:R30.6",
+        "PadicLocalLanglandsForGL2QpPartII:GR.0",
+        "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0",
+        "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5"
+      ]
+    },
+    {
+      "key": "GR.6",
+      "title": "Interpolated factorisation over type rings",
+      "description": "Import the whole-Weil–Deligne-type Kisin rings and universal Galois representations. Construct their Banach dual interpolation from stable dual lattices, separate the rank-one Steinberg branch, prove annihilation by the type ideal on the whole multiplicity module, and identify finite locally free dual multiplicities by PID rigidity with the joint endomorphism/Galois action. For p>3 deduce the topological arithmetic factorisation with its p-adically completed block sum and continuous ring dual.",
+      "requires": [
+        "LocalGaloisDeformationRings:R08.3",
+        "PadicLocalLanglandsForGL2Qp:R30.3",
+        "PadicLocalLanglandsForGL2Qp:R30.5",
+        "PadicLocalLanglandsForGL2QpPartII:GR.0",
+        "PadicLocalLanglandsForGL2QpPartII:GR.4",
+        "PadicLocalLanglandsForGL2QpPartII:GR.5"
+      ]
+    },
+    {
+      "key": "GR.7",
+      "title": "Weighted, Iwasawa and boundary consequences",
+      "description": "Prove the weighted BGG/de Rham extension, the original first-cover Breuil–Strauch comparison using three global lines, the analytic Iwasawa description of diagonal invariants, the corrected infinite-primitives containment and the filtered derived de Rham realization in a fixed coadmissible sector. Construct the boundary germ sheaf and its restriction, action and duality API. Its equality with the Colmez sheaf and a log-rigid Hyodo–Kato refinement remain explicitly conjectural expectations, not theorem targets.",
+      "requires": [
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.3",
+        "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+        "PadicHodgeTheory:R06.5",
+        "PadicLocalLanglandsForGL2Qp:R30.4",
+        "PadicLocalLanglandsForGL2QpPartII:GR.0",
+        "PadicLocalLanglandsForGL2QpPartII:GR.2",
+        "PadicLocalLanglandsForGL2QpPartII:GR.3",
+        "PhiGammaModulesAndIwasawaCohomology:PG.5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "DLB17",
+      "title": "Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique",
+      "authors": "Gabriel Dospinescu; Arthur-César Le Bras",
+      "edition": "Annals of Mathematics 186 (2017), no. 2, pp. 321–411, published PDF",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n2-p01-p.pdf",
+      "sha256": "00fb89502da84ea38738734652733ea6487e13686a8e54d32eecf4575d6b0094",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, pp. 321–334; conventions §2, pp. 334–335; actions and geometry §3, especially Lemma 3.5, pp. 341–342; uniformization interfaces in §4.",
+        "§5, pp. 349–355: nonzero map and globalization; §6–§12, pp. 356–401: differential equations, Kirillov model, common quotient, functional calculus, surjectivity, injectivity, filtered realization and consequences."
+      ],
+      "notRead": [
+        "The detailed geometry behind §§3–4 is an imported contract, not certified here; §13 global appendix is owned by completed cohomology."
+      ]
+    },
+    {
+      "id": "CDN20",
+      "title": "Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1",
+      "authors": "Pierre Colmez; Gabriel Dospinescu; Wiesława Nizioł",
+      "edition": "Author PDF GPW5.pdf, 60 pages; published as JAMS 33 (2020), pp. 311–362. Primary locators below are author-page locators.",
+      "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf",
+      "sha256": "2cdb1de25b5201ed46f8af6c06c19b72fdc5cbe1dd2037b4e1d24dee30155776",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction and conventions, author pp. 1–8; Steinberg definitions §1.3, author pp. 15–16.",
+        "§2, author pp. 19–30: fundamental-diagram multiplicities, period kernels, analytic line extensions, bounded vectors, finite length and partial-operator lemma.",
+        "Selected §3 geometric interfaces: Kummer/dlog and the tautological diagram, author pp. 30–33."
+      ],
+      "notRead": [
+        "Full proofs of the geometric results of §§3–5: requested from the geometry owner."
+      ],
+      "versionCheck": "The AMS publisher PDF returned HTTP 403 on 2026-10-19. Published page numbers inherited from the extraction are secondary cross-references; source-specific checks use the author PDF and do not assert agreement of the inaccessible publisher copy."
+    },
+    {
+      "id": "CDN23",
+      "title": "Factorisation de la cohomologie étale p-adique de la tour de Drinfeld",
+      "authors": "Pierre Colmez; Gabriel Dospinescu; Wiesława Nizioł",
+      "edition": "Forum of Mathematics, Pi 11 (2023), e16, 62 pages, published PDF; PDF and printed page numbers agree",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/79733067FC7CB7574B408744E4387F91/S205050862300015Xa.pdf/factorisation-de-la-cohomologie-etale-p-adique-de-la-tour-de-drinfeld.pdf",
+      "sha256": "b007a4e37b824ca5986ac6152ed9fabcf38dde97e16d8f5f7f60756fe77d3418",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction §§0.1–0.3, pp. 1–9.",
+        "§5, pp. 49–60: individual multiplicities, bounded vectors, type rings, interpolation, arithmetic block decomposition and structure theorem."
+      ],
+      "notRead": [
+        "The mod-p arguments of §§1–4 are imported from their existing roadmap owners, with their recorded gaps."
+      ]
+    }
+  ],
+  "status": "draft"
+}
