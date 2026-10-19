@@ -72,9 +72,9 @@
    "readSections": [
     "§1 pp.3–9: Theorems 1.1, 1.4, 1.6–1.8, Conjectures 1.2–1.5, Corollaries 1.9–1.10 and the remarks between them",
     "§2.1 pp.15–17: Hecke algebras, Assumption 2.1, the universal deformation",
-    "§3.1–3.2 pp.22–27: Definition 3.3, Theorems 3.4 and 3.6, Assumptions 3.5 and 3.7, Definitions 3.8, 3.9 and 3.12, Proposition 3.10, Lemmas 3.11 and 3.13",
-    "§3.3–3.4 pp.32–35: Propositions 3.22–3.23, Conjectures 3.24, 3.25 and 3.30",
-    "§4.6 end and §4.7 start, pp.63–65: Lemmas 4.49–4.50 and Theorem 4.51",
+    "§3.1–3.2 pp.21–27: Definition 3.3, Theorems 3.4 and 3.6, Assumptions 3.5 and 3.7, Definitions 3.8, 3.9 and 3.12, Proposition 3.10, Lemmas 3.11 and 3.13",
+    "§3.3–3.4 pp.31–36: Propositions 3.22–3.23, Conjectures 3.24, 3.25 and 3.30",
+    "end of §4.6, p.65: Lemmas 4.49–4.50 and Theorem 4.51",
     "§4.8 p.68: proof outline of Theorem 1.6",
     "§5.1 pp.68–70: Theorems 5.1–5.2 and Corollaries 5.3–5.4 with their proofs"
    ]
@@ -89,7 +89,7 @@
    "readSections": [
     "§1.1–1.2 pp.1–3: the Selmer group, the p-adic L-function, Theorems 1 and 2",
     "§3.2 pp.26–27: Lemma 3.2.17 and Proposition 3.2.18",
-    "§3.5–3.6 pp.41–47: Conjecture 3.5.5, Theorem 3.5.6, Theorems 3.6.1, 3.6.4 (with the remarks on its hypotheses) and 3.6.11, Corollary 3.6.3"
+    "§3.5–3.6 pp.40–47: Conjecture 3.5.5, Theorem 3.5.6, Theorems 3.6.1, 3.6.4 (with the remarks on its hypotheses) and 3.6.11, Corollary 3.6.3"
    ]
   },
   {
@@ -231,7 +231,7 @@
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "§1.1.1, pp.4–5",
+     "locator": "§1.1.1, pp.3–5",
      "match": "the lattice T ⊂ M(f)_{et,p}, ρ_f, ρ̄_f and Λ_Iw = Z_p[[Γ_Iw]] used for the fundamental line and Conjecture 1.5"
     }
    ],
@@ -354,7 +354,7 @@
    "sources": [
     {
      "sourceId": "su-2014-author",
-     "locator": "§1.1, p.2",
+     "locator": "§1.1, pp.1–2",
      "match": "defines Sel_{Q_∞,L}(f) as the classes unramified away from p whose restriction at p dies in H¹(Q_{∞,p}, T/T^+ ⊗ Q_p/Z_p), and X_{Q_∞,L}(f) its Pontryagin dual"
     },
     {
@@ -525,7 +525,7 @@
    ],
    "title": "The ordinary p-adic L-function with canonical periods",
    "kind": "construction",
-   "statement": "For an ordinary datum with trivial character and p ∤ N, let α be the unit root of X² − a_p X + p^{k−1} and Ω_f^± the canonical periods of f (generators of the saturated integral period lattices, defined up to O^× ∩ Q(f)). The ordinary p-adic L-function L_f ∈ Λ is the unique element such that for every finite-order character φ of Γ with φ(γ) = ζ a primitive p^{t−1}-th root of unity and every integer 0 ≤ m ≤ k − 2, φκ^m(L_f) = e(φκ^m)·p^{t'(m+1)} m! L(f, χ_φ^{-1}ω^{-m}, m+1) / ((−2πi)^m G(χ_φ^{-1}ω^{-m}) Ω_f^{sgn((−1)^m)}), with e the interpolation factor built from α, as in Skinner–Urban §1.1. For a finite set Σ of primes not containing p, L_f^Σ := L_f · ∏_{ℓ∈Σ} P_ℓ(ℓ^{-1}γ_ℓ) where P_ℓ is the Euler polynomial det(1 − Frob_ℓ X | V^{I_ℓ}) and γ_ℓ ∈ Γ is the image of Frob_ℓ. L_f lies in Λ (not only Λ[1/p]) because the canonical periods are integral normalisations.",
+   "statement": "For an ordinary datum with trivial character and p ∤ N, let α be the unit root of X² − a_p X + p^{k−1} and Ω_f^± the canonical periods of f (generators of the saturated integral period lattices, defined up to O^× ∩ Q(f)). The ordinary p-adic L-function L_f ∈ Λ is the unique element such that for every finite-order character φ of Γ with φ(γ) = ζ a primitive p^{t−1}-th root of unity and every integer 0 ≤ m ≤ k − 2, φκ^m(L_f) = e(φκ^m)·p^{t'(m+1)} m! L(f, χ_φ^{-1}ω^{-m}, m+1) / ((−2πi)^m G(χ_φ^{-1}ω^{-m}) Ω_f^{sgn((−1)^m)}), with e the interpolation factor built from α, as in Skinner–Urban §1.1. For a finite set Σ of primes not containing p, L_f^Σ := L_f · ∏_{ℓ∈Σ} P_{T,ℓ}(ℓ^{-1}γ_ℓ), where P_{T,ℓ} is Skinner–Urban's Euler polynomial of T at ℓ (the polynomial of their Lemma 3.2.17(ii), so that the same factor appears on the Selmer side) and γ_ℓ ∈ Γ is the image of Frob_ℓ. L_f lies in Λ (not only Λ[1/p]) because the canonical periods are integral normalisations.",
    "hypotheses": [
     "ordinary, p ∤ N, trivial character",
     "canonical periods as supplied by ModularSymbolsPadicLFunctions:L1/integral-period-lattices; a different choice changes L_f by an element of O^×",
@@ -555,7 +555,7 @@
     },
     {
      "sourceId": "su-2014-author",
-     "locator": "§3.4–3.5, Conjecture 3.5.5, p.41",
+     "locator": "Conjecture 3.5.5, p.41, with the Σ-imprimitive L_f^Σ of §3.4",
      "match": "the Σ-imprimitive L_f^Σ and the Iwasawa–Greenberg main conjecture in terms of it"
     },
     {
@@ -589,7 +589,7 @@
     {
      "name": "ordinaryPadicL_depleted",
      "role": "relation",
-     "statement": "L_f^Σ = L_f ∏_{ℓ∈Σ} P_ℓ(ℓ^{-1}γ_ℓ), and L_f^Σ ≠ 0 iff L_f ≠ 0."
+     "statement": "L_f^Σ = L_f ∏_{ℓ∈Σ} P_{T,ℓ}(ℓ^{-1}γ_ℓ), and L_f^Σ ≠ 0 iff L_f ≠ 0 (each Euler factor is a nonzero element of Λ)."
     },
     {
      "name": "ordinaryPadicL_extendCoefficients",
@@ -678,7 +678,7 @@
    "sources": [
     {
      "sourceId": "su-2014-author",
-     "locator": "§1.1, p.2 and Conjecture 3.5.5, p.41",
+     "locator": "§1.1, pp.1–2 and Conjecture 3.5.5, p.41",
      "match": "the Iwasawa–Greenberg main conjecture Ch_{Q_∞}(f) = (L_f) in Λ_{Q,O_L} ⊗ Q_p, integrally when ρ_f is residually irreducible"
     },
     {
@@ -811,12 +811,12 @@
    "sources": [
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "§1.1.1, pp.4–5",
+     "locator": "§1.1.1, pp.3–5",
      "match": "the Λ_Iw-adic fundamental line Det^{-1}RΓ_et(Z[1/p], T ⊗ Λ_Iw) ⊗ Det^{-1}(T ⊗ Λ_Iw)(−1)^+ and its independence of T"
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Definition 3.3 and Theorem 3.4, p.23",
+     "locator": "Definition 3.3, p.23, and Theorem 3.4, p.24",
      "match": "S-partial zeta morphisms Z_Iw : T(f)_Iw(−1)^+ → H¹(Z[1/S], T(f)_Iw), existence by Kato 12.5"
     },
     {
@@ -947,7 +947,7 @@
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Conjecture 1.5, p.6, and Conjecture 3.24, p.33",
+     "locator": "Conjecture 1.5, p.6, and Conjecture 3.24, p.34",
      "match": "z(f)_Iw is a basis of Δ(M(f))_Iw, equivalently char H² = char(H¹/Λz)"
     },
     {
@@ -1065,12 +1065,12 @@
    "sources": [
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Lemma 3.13 and its proof, pp.25–26",
+     "locator": "Lemma 3.13 and its proof, pp.26–27",
      "match": "for an Iwasawa-suitable specialisation H¹ is free of rank one, the cone of the zeta morphism is acyclic after Frac with H¹/z and H² as cohomology, and Kato's Theorem 0.8 hypotheses hold by a unipotent element"
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Definitions 3.8, 3.9, 3.12, Proposition 3.10, Lemma 3.11, pp.24–25",
+     "locator": "Definitions 3.8, 3.9, 3.12, Proposition 3.10, Lemma 3.11, pp.25–26",
      "match": "Euler factors, relative purity and Iwasawa-suitable specialisations"
     },
     {
@@ -1089,7 +1089,7 @@
    ],
    "title": "Kato's main conjecture versus the ordinary main conjecture",
    "kind": "theorem",
-   "statement": "Let D be an ordinary datum with trivial character, p ∤ N, p odd, with α the unit root, and let L_{p-adic,α,ω,γ}(f) be Kato's p-adic zeta function for a good pair (ω, γ) for the dual lattice. For every height-one prime 𝔭 of Λ not containing p there is an exact sequence of Λ_𝔭-modules 0 → (H¹/Z)_𝔭 → (H¹_loc/H¹_loc')_𝔭/(image of Z) → X_𝔭 → H²_𝔭 → 0 (Kato (17.13.1) localised), whose middle term has length ord_𝔭(L_{p-adic,α,ω,γ}(f)) by the Coleman map; hence length(X_𝔭) = ord_𝔭(L_{p-adic}) iff length(H²_𝔭) = length((H¹/Z)_𝔭). If in addition ρ̄ has a unipotent element with free rank-one coinvariants (or Kato's (12.5.2)) and p ≠ 2, the same holds at 𝔭 = (ϖ). Consequently KMC^{η=1}(T_K) ⟺ IMC(D) and KMC_Q ⟺ IMC_Q, once L_{p-adic,α,ω,γ}(f) is identified with L_f for the canonical periods (ModularIwasawaMainConjectures:L1/fw-ordinary-selmer-form for the integral identification).",
+   "statement": "Let D be an ordinary datum with trivial character, p ∤ N, p odd, with α the unit root, and let L_{p-adic,α,ω,γ}(f) be Kato's p-adic zeta function for a good pair (ω, γ) for the dual lattice. For every height-one prime 𝔭 of Λ not containing p there is an exact sequence of Λ_𝔭-modules 0 → (H¹/Z)_𝔭 → (H¹_loc/H¹_loc')_𝔭/(image of Z) → X_𝔭 → H²_𝔭 → 0 (Kato (17.13.1) localised), whose middle term has length ord_𝔭(L_{p-adic,α,ω,γ}(f)) by the Coleman map; hence length(X_𝔭) = ord_𝔭(L_{p-adic}) iff length(H²_𝔭) = length((H¹/Z)_𝔭). If in addition ρ̄ has a unipotent element with free rank-one coinvariants (or Kato's (12.5.2)) and p ≠ 2, the same holds at 𝔭 = (ϖ). Consequently KMC(T_K), on the η-component matched with D by Kato's twist T ↦ T(k) in (17.13.1), is equivalent to IMC(D), and KMC_Q to IMC_Q, once L_{p-adic,α,ω,γ}(f) is identified with L_f for the canonical periods (ModularIwasawaMainConjectures:L1/fw-ordinary-selmer-form for the integral identification).",
    "hypotheses": [
     "ordinary at p, p ∤ N, p odd",
     "(ω, γ) good for the dual lattice in Kato's sense (17.5), so Kato's p-adic L-function is integral",
@@ -1134,7 +1134,7 @@
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Lemma 4.50, p.64",
+     "locator": "Lemma 4.50, p.65",
      "match": "Conjecture 1.5 is equivalent to an equality of a local-image ideal with the characteristic ideal of a Selmer group, by Poitou–Tate as in Kobayashi's Theorem 7.4"
     }
    ],
@@ -1389,7 +1389,7 @@
     },
     {
      "sourceId": "llz-0912.1263v3",
-     "locator": "Corollary 3.29 and Proposition 3.39, pp.21–23",
+     "locator": "Corollary 3.29, p.20, and Proposition 3.39, p.22",
      "match": "nonvanishing of L̃_{p,i} under (A), respectively (A')"
     }
    ],
@@ -1431,7 +1431,7 @@
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Theorems 1.1, 1.6, 1.7, pp.3, 6–7; Assumption 2.1, p.16; Theorem 5.1, p.68",
+     "locator": "Theorems 1.1, 1.6, 1.7, pp.3, 6–7; Assumption 2.1, p.17; Theorem 5.1, p.68",
      "match": "the dimension form of the auxiliary-prime condition, the explicit twisted-Steinberg form, the local exclusion at p and the standing Assumption 2.1"
     },
     {
@@ -1441,7 +1441,7 @@
     },
     {
      "sourceId": "skinner-2016-arxiv",
-     "locator": "§2.5, p.16",
+     "locator": "§2.5, pp.15–16",
      "match": "a ramified q ∥ N gives τ ∈ I_q with T_f/(ρ_f(τ) − 1)T_f free of rank one, and τ ∈ G_{Q(μ_{p^∞})}"
     }
    ],
@@ -1453,19 +1453,19 @@
      "statement": "Irreducibility of ρ̄ over F."
     },
     {
-     "name": "ResidualHyp.dist",
+     "name": "DistinctCharacters",
      "role": "data",
-     "statement": "Distinctness of the two characters of D_p on the ordinary filtration."
+     "statement": "(dist): the two characters of D_p on the ordinary filtration differ; for reducible ρ̄|D_p this is also (ScalarExc_p)."
     },
     {
-     "name": "ResidualHyp.suAux",
+     "name": "IsRamifiedAt",
      "role": "data",
-     "statement": "(SU_q): q ∥ N and ρ̄|I_q nontrivial."
+     "statement": "(SU_q), local part: some element of I_q acts nontrivially (the condition q ∥ N is on the level)."
     },
     {
-     "name": "ResidualHyp.fwAux",
+     "name": "FWAuxiliaryCondition",
      "role": "data",
-     "statement": "(FW1.6_ℓ): ℓ ∥ N, dim W^{I_ℓ} = 1, dim W^{D_ℓ} = 0, in cohomological normalisation."
+     "statement": "(FW1.6_ℓ), local part: dim W^{I_ℓ} = 1 and dim W^{D_ℓ} = 0, in cohomological normalisation."
     },
     {
      "name": "ResidualHyp.fwExplicit",
@@ -1473,24 +1473,29 @@
      "statement": "(FWexp_ℓ(μ)): the explicit twisted-Steinberg extension with μ unramified, ρ̄|I_ℓ ≠ 1."
     },
     {
-     "name": "ResidualHyp.locExc",
+     "name": "LocalExclusion",
      "role": "data",
-     "statement": "(LocExc_p): (ρ̄|D_p)^{ss} is not χ̄ ⊕ χ̄χ̄_cyc."
+     "statement": "(LocExc_p) for reducible ρ̄|D_p with Jordan–Hölder characters χ₁, χ₂: the pair is not {χ, χω}."
     },
     {
-     "name": "ResidualHyp.scalarExc",
+     "name": "ScalarExclusion",
      "role": "data",
-     "statement": "(ScalarExc_p): (ρ̄|D_p)^{ss} is not χ̄ ⊕ χ̄."
+     "statement": "(ScalarExc_p): (ρ̄|D_p)^{ss} is not χ̄ ⊕ χ̄; equal to DistinctCharacters in the reducible case and automatic in the irreducible case."
     },
     {
-     "name": "ResidualHyp.im",
+     "name": "HasRankOneImage",
      "role": "data",
-     "statement": "(Im): ∃ σ ∈ G_{Q(μ_{p^∞})}, T/(σ − 1)T ≅ O."
+     "statement": "(Im): some σ in the given subgroup has HasRankOneCoinvariants (ρ σ), i.e. T/(σ − 1)T ≅ O."
     },
     {
-     "name": "ResidualHyp.fwAux_suAux",
+     "name": "FWAuxiliaryCondition.isRamifiedAt",
      "role": "relation",
-     "statement": "(FW1.6_ℓ) → (SU_ℓ)."
+     "statement": "For dim W = 2, (FW1.6_ℓ) implies IsRamifiedAt, i.e. (FW1.6_ℓ) → (SU_ℓ)."
+    },
+    {
+     "name": "localExclusion_one_iff",
+     "role": "relation",
+     "statement": "With ω = 1, LocalExclusion χ₁ χ₂ 1 ↔ DistinctCharacters χ₁ χ₂."
     },
     {
      "name": "ResidualHyp.fwAux_iff_nonsplit_weight_two",
@@ -1553,9 +1558,9 @@
      "statement": "For E good ordinary at p = 3, ā_3 ∈ {1, 2} = {±1} mod 3, so (LocExc_3) fails for every such curve."
     },
     {
-     "name": "ResidualHyp.unipotent_quotient",
+     "name": "HasRankOneCoinvariants.unipotent_example",
      "kind": "characterisation",
-     "statement": "For T = O² and σ = [[1, 1], [0, 1]], T/(σ − 1)T ≅ O, so (Im) holds; for σ = 1 it fails."
+     "statement": "For T = O² and σ = [[1, 1], [0, 1]], T/(σ − 1)T ≅ O, so (Im) holds; for σ = 1 and for [[1, ϖ], [0, 1]] it fails."
     }
    ]
   },
@@ -1589,12 +1594,12 @@
    "sources": [
     {
      "sourceId": "skinner-2016-arxiv",
-     "locator": "§2.5, p.16",
+     "locator": "§2.5, pp.15–16",
      "match": "a ramified q ∥ N gives a unipotent ρ_f(τ) ≠ 1 mod ϖ, so T_f/(ρ_f(τ) − 1)T_f is free of rank one, with τ ∈ G_{Q(μ_{p^∞})}; this replaces Kato's SL₂(Z_p)-image hypothesis"
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "proof of Lemma 3.13, pp.25–26",
+     "locator": "proof of Lemma 3.13, pp.26–27",
      "match": "a unipotent element σ̄ ≠ 1 in the image of ρ̄ lifts to σ with ker(σ − 1) free of rank one"
     }
    ],
@@ -1646,7 +1651,7 @@
     },
     {
      "sourceId": "bcs-2405.00270v2",
-     "locator": "§1.1, p.2",
+     "locator": "§1.1, pp.1–2",
      "match": "the hypothesis (mult) under which Skinner–Urban proved Mazur's conjecture"
     }
    ],
@@ -1752,7 +1757,7 @@
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Theorem 1.6, p.7",
+     "locator": "Theorem 1.6, pp.6–7",
      "match": "the cohomological formulation proved there"
     }
    ],
@@ -1770,7 +1775,8 @@
    "hypotheses": [
     "p ≥ 3, p ∥ N, weight two, trivial character",
     "(irred) and a ramified q ∥ N, q ≠ p",
-    "the p ∤ N seed is ModularIwasawaMainConjectures:L1/su-ordinary-theorem in weights k_m ≡ 2 mod (p − 1)p^m on level N/p; it is applied only to members of the Hida family satisfying its hypotheses, which the congruence modulo p guarantees"
+    "the p ∤ N seed is ModularIwasawaMainConjectures:L1/su-ordinary-theorem in weights k_m ≡ 2 mod (p − 1)p^m on level N/p; it is applied only to members of the Hida family satisfying its hypotheses, which the congruence modulo p guarantees",
+    "the imported Hida-family node OrdinaryAutomorphicFormsAndModularityLifting:R21.6/ordinary-newform-lies-in-a-hida-family is stated for p ≥ 5; the case p = 3 needs the same Hida-theoretic input for p = 3 (recorded as remaining work of L1)"
    ],
    "proofSteps": [
     "Reductions: it suffices to prove the statement after a finite extension of L (ModularIwasawaMainConjectures:L5/coefficient-extension-invariance) and for Σ containing all primes dividing N (ModularIwasawaMainConjectures:L5/euler-factor-change).",
@@ -1841,12 +1847,12 @@
    "sources": [
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "§1.1.1, pp.4–5; Theorem 1.7, p.7",
+     "locator": "§1.1.1, pp.3–5; Theorem 1.7, p.7",
      "match": "the cohomological realisation M(f)_{et,p}, the lattice T, ρ_f with det χ_cyc^{1−k} (as in the local hypothesis of Theorem 1.7) and the fundamental line"
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Definition 3.3, Theorem 3.4, p.23; Definition 3.8, Lemma 3.11, pp.24–25",
+     "locator": "Definition 3.3, p.23, Theorem 3.4, p.24; Definition 3.8, Lemma 3.11, p.25",
      "match": "S-partial zeta morphisms and the Euler factors relating them"
     }
    ],
@@ -1894,7 +1900,7 @@
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Assumption 2.1, p.16, and Theorem 1.1, p.3",
+     "locator": "Assumption 2.1, p.17, and Theorem 1.1, p.3",
      "match": "the standing residual assumption and the introduction's version with the scalar exclusion"
     }
    ],
@@ -1957,16 +1963,17 @@
    ],
    "title": "Elliptic curves against their newforms: lattices and periods",
    "kind": "comparison",
-   "statement": "Let E/Q have conductor N and newform f_E (EllipticCurveModularity:R29.6/modularity-theorem), and fix the modular parametrisation φ_E : X_0(N) → E of EllipticCurveModularity:R29.5/modular-parametrisation through a Q-isogeny λ : A_{f_E} → E, with φ_E^*ω_E = c_φ·2πi f_E(z)dz. Then: (1) T_pE ≅ T for the datum of f_E with lattice T_f the image of T_p(A_{f_E}) under λ_*; (2) Ω_E^± := ∫ ω_E over the ± parts of H_1(E(C), Z) and the canonical periods Ω_{f_E}^± satisfy Ω_E^± = c_φ · u^± · deg-type index · Ω_{f_E}^± with u^± ∈ Z_{(p)}^× once λ and the lattices are fixed, where the index term is the p-part of [H_1(E,Z)^± : λ_*φ_* H_1(X_0(N),Z)^±_{f_E}]; (3) for p > 2 semistable for E and φ_E optimal, p ∤ c_φ (GrossZagierAndArithmeticHeights:GZ.3/manin-integrality-and-p-unit). Every nonunit factor is retained; none is assumed to be 1.",
+   "statement": "Let E/Q have conductor N and newform f_E (EllipticCurveModularity:R29.6/modularity-theorem), and fix the modular parametrisation φ_E : X_0(N) → E of EllipticCurveModularity:R29.5/modular-parametrisation through a Q-isogeny λ : A_{f_E} → E, with φ_E^*ω_E = c_φ·2πi f_E(z)dz. Then: (1) T_pE ≅ T for the datum of f_E with lattice T_f the image of T_p(A_{f_E}) under λ_*; (2) write Ω_E^± for the periods of a Néron differential ω_E and Ω_{f_E}^± for the canonical periods defined by the saturated f_E-isotypic part of H¹(X_0(N), Z_{(p)})^±; for the X_0(N)-optimal curve φ_{E,*} is surjective on integral homology, so φ_E^* identifies H¹(E(C), Z_{(p)})^± with that saturated part and Ω_E^± = ±c_φ·u^±·Ω_{f_E}^± with u^± ∈ Z_{(p)}^×; for a curve E' isogenous to the optimal curve the ratio is multiplied by the period ratio of the isogeny, a rational number whose p-part divides a power of the p-part of the isogeny degree; (3) for p > 2 semistable for E and φ_E optimal, p ∤ c_φ (GrossZagierAndArithmeticHeights:GZ.3/manin-integrality-and-p-unit). Every nonunit factor is retained; none is assumed to be 1.",
    "hypotheses": [
     "E/Q, N its conductor, f_E the attached newform",
+    "p > 3, so that H¹(X_0(N), Z_(p)) is the parabolic cohomology of Γ_0(N) with Z_(p) coefficients used to define canonical periods",
     "the isogeny λ is part of the data; for the X_0(N)-optimal curve λ = id",
     "(3) needs p > 2 semistable and φ_E optimal; otherwise c_φ is only an integer"
    ],
    "proofSteps": [
     "Modularity and the parametrisation: EllipticCurveModularity:R29.6/modularity-theorem and R29.5/modular-parametrisation.",
     "Tate modules: EllipticCurveModularity:R29.4/tate-module-comparison identifies T_pE with the lattice in V_{f_E}; transport along λ.",
-    "Periods: pull back ω_E by φ_E and compare the integral homology lattices; the canonical periods are those of ModularSymbolsPadicLFunctions:L1/integral-period-lattices.",
+    "Periods: φ_E^*ω_E = c_φ·2πi f_E(z)dz; since φ_{E,*} is surjective on H_1 for the optimal curve, φ_E^* is injective on H¹ with torsion-free cokernel, so φ_E^*H¹(E(C), Z_(p))^± is a saturated rank-one sublattice of the f_E-part, hence equal to it; pairing gives the period relation. The canonical periods are those of ModularSymbolsPadicLFunctions:L1/integral-period-lattices.",
     "Manin constant: GrossZagierAndArithmeticHeights:GZ.3/manin-integrality-and-p-unit (RT-AREA-iwasawa-1/17)."
    ],
    "acceptance": [
@@ -2376,12 +2383,12 @@
    "sources": [
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Theorem 1.8, p.8, and Theorem 5.2, p.68",
+     "locator": "Theorem 1.8, p.8, and Theorem 5.2, p.69",
      "match": "for ρ̄ as in Theorem 1.7 (resp. 5.1), T_Σ free over Λ ≅ O[[X₁,X₂,X₃]] and z_Σ the zeta morphism of Theorem 3.6, triv_{z_Σ} : Δ_Σ(T_Σ) ≅ Λ; equivalently Kato's Conjecture 3.2.2 for (Spec Z[1/Σ], Λ, T_Σ)"
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Theorem 3.6 and the remark after it, p.23; Conjecture 3.30, p.35",
+     "locator": "Theorem 3.6 and the remark after it, p.24; Conjecture 3.30, p.36",
      "match": "Nakamura's zeta morphism under Assumptions 2.1 and 3.5, valid for p ≥ 3; the family conjecture"
     }
    ],
@@ -2421,12 +2428,12 @@
    "sources": [
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Propositions 3.22–3.23, pp.32–33",
+     "locator": "Propositions 3.22–3.23, p.33",
      "match": "compatibility of the trivialisations with specialisation of Iwasawa-suitable specialisations"
     },
     {
      "sourceId": "fw-2107.13726v3",
-     "locator": "Definitions 3.8, 3.9, 3.12, Lemma 3.11, pp.24–25; Conjecture 3.25, p.33",
+     "locator": "Definitions 3.8, 3.9, 3.12, Lemma 3.11, pp.25–26; Conjecture 3.25, p.34",
      "match": "Euler factors, relative purity, Iwasawa-suitable specialisations and the specialised conjecture"
     },
     {
@@ -2496,7 +2503,7 @@
     "the basis is LLZ's; another basis changes Col by a matrix and the image by its effect"
    ],
    "proofSteps": [
-    "Image computation: PadicHodgeRegulators:L4/actual-coleman-image (LLZ Proposition 4.7, Corollary 4.8, Theorem 4.28) and, for a_p = 0, LLZ Proposition 5.17–5.21.",
+    "Image computation: PadicHodgeRegulators:L4/actual-coleman-image (LLZ Proposition 4.7, Corollary 4.8, Theorem 4.28) and, for a_p = 0, LLZ Propositions 5.17–5.21 and Corollaries 5.18–5.22.",
     "Insert Im(Col_i) into ModularIwasawaMainConjectures:L0/signed-main-conjecture (SMC.of_image_eq_top)."
    ],
    "acceptance": [
@@ -2521,7 +2528,7 @@
     },
     {
      "sourceId": "llz-0912.1263v3",
-     "locator": "Propositions 5.17–5.21, Corollaries 5.18, 5.22, pp.39–40",
+     "locator": "Propositions 5.17, 5.19 and 5.21 and Corollaries 5.18, 5.20 and 5.22, pp.38–40",
      "match": "images of Col₁ and Col₂ for elliptic curves with a_p = 0, equivalent to Kobayashi's Theorem 6.2"
     }
    ],
@@ -2587,11 +2594,11 @@
    ],
    "title": "Changing the imprimitive set: Euler factors on both sides",
    "kind": "theorem",
-   "statement": "Let D be an ordinary datum with trivial character, p ∤ N, and Σ' ⊂ Σ finite sets of primes not containing p. If X^Σ is Λ-torsion and T* has no nonzero G_Q-invariants, then 0 → (⊕_{ℓ∈Σ∖Σ'} H¹(Q_{∞,ℓ}, A))^∨ → X^Σ → X^{Σ'} → 0 is exact, each local term is torsion with no nonzero pseudo-null submodule and characteristic ideal (P_ℓ(ℓ^{-1}γ_ℓ)), where P_ℓ(X) = det(1 − Frob_ℓ X | (V^*)^{I_ℓ}) suitably twisted and γ_ℓ ∈ Γ is the image of Frob_ℓ; hence char(X^Σ) = char(X^{Σ'})·∏_{ℓ∈Σ∖Σ'} (P_ℓ(ℓ^{-1}γ_ℓ)). On the analytic side L_f^Σ = L_f^{Σ'}·∏_{ℓ∈Σ∖Σ'} P_ℓ(ℓ^{-1}γ_ℓ) with the same factors. Therefore IMC^Σ(D) ⟺ IMC^{Σ'}(D), integrally and rationally, and the same holds for KMC with Σ-partial lines.",
+   "statement": "Let D be an ordinary datum with trivial character, p ∤ N, and Σ' ⊂ Σ finite sets of primes not containing p. If X^Σ is Λ-torsion and T* has no nonzero G_Q-invariants, then 0 → (⊕_{ℓ∈Σ∖Σ'} H¹(Q_{∞,ℓ}, A))^∨ → X^Σ → X^{Σ'} → 0 is exact, each local term is torsion with no nonzero pseudo-null submodule and characteristic ideal (P_{T,ℓ}(ℓ^{-1}γ_ℓ)), where P_{T,ℓ} is the Euler polynomial of Skinner–Urban Lemma 3.2.17(ii) and γ_ℓ ∈ Γ is the image of Frob_ℓ; hence char(X^Σ) = char(X^{Σ'})·∏_{ℓ∈Σ∖Σ'} (P_{T,ℓ}(ℓ^{-1}γ_ℓ)). On the analytic side L_f^Σ = L_f^{Σ'}·∏_{ℓ∈Σ∖Σ'} P_{T,ℓ}(ℓ^{-1}γ_ℓ) with the same factors. Therefore IMC^Σ(D) ⟺ IMC^{Σ'}(D), integrally and rationally, and the same holds for KMC with Σ-partial lines.",
    "hypotheses": [
     "X^Σ torsion (it then follows for Σ')",
     "T* has no nonzero G_Q-invariants (true when ρ̄ is irreducible)",
-    "the Euler factors are those of the dual representation, matched on the two sides; a mismatch of V and V^* would break the equality"
+    "the same polynomial P_{T,ℓ} must be used on both sides; using the Euler factor of V where that of its dual is meant breaks the equality"
    ],
    "proofSteps": [
     "Exactness: Skinner–Urban Proposition 3.2.18 (Greenberg–Vatsal Corollary 2.3) by Poitou–Tate.",
@@ -2695,7 +2702,7 @@
    "sources": [
     {
      "sourceId": "su-2014-author",
-     "locator": "§1.1, p.2",
+     "locator": "§1.1, pp.1–2",
      "match": "the characteristic ideal depends on the lattice only through its valuation at the prime containing p; hence it is well defined in Λ ⊗ Q_p"
     },
     {
@@ -2754,7 +2761,7 @@
     },
     {
      "sourceId": "skinner-2020-arxiv",
-     "locator": "§1, p.2",
+     "locator": "§1, pp.1–2",
      "match": "for r = 0 the converse was established by Skinner–Urban (N not squarefull) and Wan (all N), needing finiteness of Sha[p^∞] for one sufficiently large ordinary p"
     }
    ],
@@ -2894,7 +2901,7 @@
    "sources": [
     {
      "sourceId": "colmez-bourbaki-919",
-     "locator": "§0.3, p.256, Conjecture 0.12 and note 14",
+     "locator": "§0.3 (from p.254): Conjecture 0.12 and note 14, p.256",
      "match": "the p-adic height depending on a splitting of the Hodge filtration, its regulator R_{p,α}(E), and the conjecture in the cases α ≠ 1 and α = 1"
     },
     {
@@ -3316,7 +3323,8 @@
    "status": "planned",
    "note": "Skinner–Urban form (requested by HE.0 and BSD.0, RT-AREA-iwasawa-1/14), Fouquet–Wan 1.6 form with the §4.8 route (RT-AREA-iwasawa-1/22), the Selmer form, and Skinner's p ∥ N theorem (RT-AREA-iwasawa-1/4(a)) are nodes; the reverse divisibilities are AutomorphicCongruences L1/L2 requests.",
    "remaining": [
-    "Install the sub-layer L1m proposed in restructure for the multiplicative-reduction theorem."
+    "Install the sub-layer L1m proposed in restructure for the multiplicative-reduction theorem.",
+    "For p = 3 in L1/skinner-multiplicative-theorem, obtain from OrdinaryAutomorphicFormsAndModularityLifting:R21.6 or PadicFamilies:L1 the Hida-family membership and congruences for p = 3 (the existing node is stated for p ≥ 5)."
    ]
   },
   {
@@ -3505,7 +3513,7 @@
    "id": "ModularIwasawaMainConjectures/E1",
    "source": "fw-2107.13726v3",
    "kind": "gap",
-   "locator": "arXiv:2107.13726v3, Theorem 1.7 (p.7) and Theorem 5.1 (p.68), against Theorem 1.1 (p.3) and Assumption 2.1(2) (p.16)",
+   "locator": "arXiv:2107.13726v3, Theorem 1.7 (p.7) and Theorem 5.1 (p.68), against Theorem 1.1 (p.3) and Assumption 2.1(2) (p.17)",
    "printed": "Theorems 1.7 and 5.1 list as local hypothesis at p only that the semisimplification of ρ̄|G_{Q_p} is not of the form χ̄ ⊕ χ̄χ̄_cyc; Theorem 1.1 also excludes χ̄ ⊕ χ̄, and the standing Assumption 2.1(2) of §2 excludes extensions with χ₁^{-1}χ₂ = 1.",
    "correction": "State Theorems 1.7 and 5.1 with the additional exclusion (ρ̄|G_{Q_p})^{ss} ≠ χ̄ ⊕ χ̄, or supply an argument for the scalar case.",
    "reason": "The proofs run through §2–§4, which assume Assumption 2.1 throughout (representability and scalar endomorphisms of ρ̄|G_{Q_p}, Lemma 3.13's vanishing of H⁰); the theorems' hypotheses (2)–(3) imply Assumption 2.1(1) and Assumption 3.5 but not the scalar part of 2.1(2).",
