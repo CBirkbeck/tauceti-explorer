@@ -6863,7 +6863,7 @@
    "status": "accepted",
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-19",
-   "notes": "Independent bounded fix review by Codex, session codex-waB1gJ, following codex-sP1hgJ checkpoint PR #10426; complete predecessor review preserved in reviewHistory. Rechecked /7 against Zagier I.3 equation (5), p.11 and I.4 equations (7)-(9), pp.13-14, and current GT 7/8 owners. The tetrahedron/manifold ownership split, orientation tests and geometric/calibration gaps remain correct. No mathematical edit to this packet. All seven queue packets pass check_blueprint with zero errors/warnings; all seven suggested files elaborate serially with only admitted-declaration warnings. This is not a new whole-plan audit or a claim of formalisation. Completion remains blocked by four packet pairs required by the queue but omitted from the live issue. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+   "notes": "Independent bounded continuation by Codex, session codex-YFJHa3, following checkpoint PR #10442; entire predecessor review preserved once in reviewHistory. /7: Confirmed the single tetrahedron owner and retained geometric/calibration gaps against Zagier I.3 equation (5), p.11, I.4 equations (7)-(9), pp.13-14 and current GT 7/8. The missing direct QT.5 prerequisite has no reverse path in the current 37,754-node graph. This is not a new whole-plan audit or a claim of roadmap implementation. All seven packets validate; all seven suggested files elaborate with only their remaining admitted-declaration warnings. Completion is blocked by four queue-required packet pairs omitted from the live issue scope; no excluded file was edited. Current AT README 8.1 still restricts NDR while its signatures allow arbitrary based pairs; that upstream documentation reconciliation remains open. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
  },
  "reviewHistory": [
   {
@@ -7422,6 +7422,12 @@
      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
      "date": "2026-10-18",
      "notes": "Codex, session codex-sP1hgJ: independent bounded review of FIX-RT-AREA-topology~4, issue #6521. Finding /7: accept P.2 ownership of the ordered ideal-tetrahedron identity and its explicit GeometricTopology 7/8 prerequisites. Re-read Zagier I.3 equation (5), p.11, and I.4 equations (7)-(9), pp.13-14; checked the source cross-ratio against the packet convention, orientation tests, current metric/measure owners and the P.2 follow-up. The analytic angle-volume target does not construct the missing ideal region. Retain geometric-region, signed-integration and regulator-calibration gaps; QT.5 still lacks its direct hyperbolic-volume premise. No mathematical payload or suggested signature changed. All seven queue packets pass the checker with zero errors/warnings; all seven suggested files elaborate serially through lean-check at pinned Mathlib with only admitted-declaration warnings. Follows codex-BsNNY8, 17 October 2026, whose complete review is retained in reviewHistory. This is not a new whole-plan audit. Completion remains blocked by the live issue/queue scope mismatch; see the report and handoff."
+   },
+   {
+     "status": "accepted",
+     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+     "date": "2026-10-19",
+     "notes": "Independent bounded fix review by Codex, session codex-waB1gJ, following codex-sP1hgJ checkpoint PR #10426; complete predecessor review preserved in reviewHistory. Rechecked /7 against Zagier I.3 equation (5), p.11 and I.4 equations (7)-(9), pp.13-14, and current GT 7/8 owners. The tetrahedron/manifold ownership split, orientation tests and geometric/calibration gaps remain correct. No mathematical edit to this packet. All seven queue packets pass check_blueprint with zero errors/warnings; all seven suggested files elaborate serially with only admitted-declaration warnings. This is not a new whole-plan audit or a claim of formalisation. Completion remains blocked by four packet pairs required by the queue but omitted from the live issue. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
    }
  ]
 }

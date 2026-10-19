@@ -6169,11 +6169,25 @@ theorem kontsevichPhi_isQuantumModularForm :
       ∀ x : ℚ, x ≠ 0 → kontsevichPhi x +
         (Complex.I * x) ^ (-(3 / 2 : ℂ)) * kontsevichPhi (-1 / x) = g x := sorry
 
+/-- The branch value used by both central-element diagnostics, proved from the definition. -/
+private theorem boundaryFactor_three_halves_neg_one (x : ℝ) :
+    boundaryFactor (3 / 2) (-1) x = Complex.I := by
+  have hexp : Complex.exp (-(π * Complex.I * (3 / 2 : ℂ))) = Complex.I := by
+    have heq : -(π * Complex.I * (3 / 2 : ℂ)) = -π / 2 * Complex.I - π * Complex.I := by
+      ring
+    rw [heq, Complex.exp_sub_pi_mul_I, Complex.exp_neg_pi_div_two_mul_I]
+    simp
+  norm_num [boundaryFactor, hexp]
+
 /-- Central-element check for the lower-boundary branch: the corrected multiplier acts trivially. -/
-example (x : ℝ) : (-Complex.I) * boundaryFactor (3 / 2) (-1) x = 1 := sorry
+example (x : ℝ) : (-Complex.I) * boundaryFactor (3 / 2) (-1) x = 1 := by
+  rw [boundaryFactor_three_halves_neg_one]
+  norm_num
 
 /-- Negative control: the unmodified inverse eta value gives the wrong central action. -/
-example (x : ℝ) : Complex.I * boundaryFactor (3 / 2) (-1) x = -1 := sorry
+example (x : ℝ) : Complex.I * boundaryFactor (3 / 2) (-1) x = -1 := by
+  rw [boundaryFactor_three_halves_neg_one]
+  norm_num
 
 /-! ### Cohen's σ at roots of unity -/
 
