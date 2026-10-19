@@ -142,7 +142,7 @@ namespace PadicChar
 
 variable (p : ℕ) [Fact p.Prime]
 
-/-- The underlying function of `x ↦ x|x|`: `x ↦ x · p^{v(x)}`, so that `p ↦ 1` and units are fixed. -/
+/-- The underlying function of `x ↦ x|x|`: `x ↦ x · p^{−v(x)}`, so that `p ↦ 1` and units are fixed. -/
 def normCharFun (x : ℚ_[p]ˣ) : ℚ_[p]ˣ :=
   x * (Units.mk0 (p : ℚ_[p]) (by exact_mod_cast (Fact.out : p.Prime).ne_zero)) ^ (-(x : ℚ_[p]).valuation)
 
@@ -207,7 +207,8 @@ def fixedBy (X : TopRep A (G p)) (H : Subgroup (G p)) : Submodule A X.V where
     simp [map_smul, hv h hh]
 
 /-- `GL2Qp.IsAdmissible`: the fixed vectors of every compact open subgroup form a finitely
-generated module (SmoothRepresentationsOfLocalGroups SR.0.4, specialised to `GL₂(ℚ_p)`). -/
+generated module. This is the fixed-level predicate for coefficients `O/ϖ^n`; for general
+`O`-torsion objects the README requires finiteness of each `ϖ^n`-torsion part of the invariants. -/
 def IsAdmissible (X : TopRep A (G p)) : Prop :=
   ∀ H : Subgroup (G p), IsOpen (H : Set (G p)) → IsCompact (H : Set (G p)) →
     Module.Finite A (fixedBy p X H)
@@ -219,10 +220,13 @@ def IsLocallyAdmissible (X : TopRep A (G p)) : Prop :=
     Module.Finite A ↥(Submodule.span A (Set.range fun g : G p => X.ρ g v) ⊓ fixedBy p X H)
 
 /-- `GL2Qp.IsLocallyFinite`: every vector generates a subrepresentation of finite length
-(artinian and noetherian as an `A`-module spanned by the orbit). -/
+(artinian and noetherian over the group algebra `A[G]`, rather than over `A`). -/
 def IsLocallyFinite (X : TopRep A (G p)) : Prop :=
-  ∀ v : X.V, IsArtinian A ↥(Submodule.span A (Set.range fun g : G p => X.ρ g v)) ∧
-    IsNoetherian A ↥(Submodule.span A (Set.range fun g : G p => X.ρ g v))
+  ∀ v : X.ρ.toRepresentation.asModule,
+    IsArtinian (MonoidAlgebra A (G p))
+      ↥(Submodule.span (MonoidAlgebra A (G p)) ({v} : Set X.ρ.toRepresentation.asModule)) ∧
+    IsNoetherian (MonoidAlgebra A (G p))
+      ↥(Submodule.span (MonoidAlgebra A (G p)) ({v} : Set X.ρ.toRepresentation.asModule))
 
 /-- `GL2Qp.HasCentralChar`: the centre acts through `ζ`. -/
 def HasCentralChar (X : TopRep A (G p)) (ζ : ℚ_[p]ˣ →* Aˣ) : Prop :=
@@ -232,7 +236,7 @@ def HasCentralChar (X : TopRep A (G p)) (ζ : ℚ_[p]ˣ →* Aˣ) : Prop :=
 def IsSmoothTorsion (X : TopRep A (G p)) : Prop :=
   IsSmoothDiscrete A X ∧ ∀ v : X.V, ∃ n : ℕ, ((p : A) ^ n) • v = 0
 
-/-- `GL2Qp.finiteLength_isAdmissible`, in the form statable at the pins: an admissible
+/-- An admissible
 representation is locally admissible when `A` is noetherian (SR.0.4 `isLocallyAdmissible`). -/
 theorem IsAdmissible.isLocallyAdmissible [IsNoetherianRing A] {X : TopRep A (G p)}
     (hX : IsAdmissible p X) : IsLocallyAdmissible p X := by
@@ -271,7 +275,9 @@ theorem principalSeries_centralChar (δ₁ δ₂ : ℚ_[p]ˣ →* Aˣ) (z : ℚ_
 
 /-- `GL2Qp.principalSeries_twist`: twisting by `η ∘ det`. -/
 theorem principalSeries_twist (δ₁ δ₂ η : ℚ_[p]ˣ →* Aˣ) (φ : G p → A)
-    (hφ : φ ∈ principalSeries p δ₁ δ₂) :
+    (hφ : φ ∈ principalSeries p δ₁ δ₂)
+    (hη : IsLocallyConstant (fun x : G p =>
+      ((η (Matrix.GeneralLinearGroup.det x) : Aˣ) : A))) :
     (fun x => ((η (Matrix.GeneralLinearGroup.det x) : Aˣ) : A) * φ x) ∈
       principalSeries p (δ₁ * η) (δ₂ * η) := by
   sorry
@@ -301,14 +307,15 @@ theorem tungWeight_tungWeight (w : ℤ × ℤ) : tungWeight (tungWeight w) = w :
 end BMCycles
 
 end TauCeti
-/-! ## Targets of the roadmap document not typed at the pins
+/-! ## Full targets specified in the roadmap document
 
-The following packet targets, API items and checks are specified in the roadmap document; their
-carriers (étale (φ,Γ)-modules over O_E, the Robba ring, Colmez's functor, admissible Banach and
-locally analytic representations, projective envelopes, pseudodeformation rings, cycles) are not
-available at Mathlib `082e2d3` and Tau Ceti `f790474`, so they are not stated here.
+The declarations above state only the light portions whose carriers exist at Mathlib `082e2d3`
+and Tau Ceti `f790474`. The roadmap document specifies all targets below, including the heavy
+constructions and proof inputs. The API and check names here are proposals, not declarations
+of those missing carriers. Every target retains its hypotheses and proof boundaries in the README.
 
-* `R30.1/character-dictionary` (definition): `PadicChar.weight`, `PadicChar.toGalois`, `PadicChar.toGalois_normChar`, `PadicChar.toGalois_mul`, `PadicChar.toGalois_unramified`, `PadicChar.arith_dictionary`, `PadicChar.weight_normChar`, `PadicChar.toGalois_trivial`.
+* `R30.1/gl2qp-subgroups` (definition): `GL2Qp.borel`, `GL2Qp.mirabolic`, `GL2Qp.mirabolicPlus`, `GL2Qp.maximalCompact`, `GL2Qp.weylElement`, `GL2Qp.weylElement_sq`, `GL2Qp.mem_mirabolic_iff`, `GL2Qp.mirabolicPlus_mul_mem`, `GL2Qp.closure_mirabolic_center_weyl`, `GL2Qp.weylElement_not_mem_borel`, `GL2Qp.phi_mem_mirabolicPlus`, `GL2Qp.mirabolic_inf_center`, `GL2Qp.unipotent_mem_mirabolicPlus`.
+* `R30.1/character-dictionary` (definition): `PadicChar`, `PadicChar.normChar`, `PadicChar.unramified`, `PadicChar.weight`, `PadicChar.toGalois`, `PadicChar.toGalois_normChar`, `PadicChar.toGalois_mul`, `PadicChar.toGalois_unramified`, `PadicChar.arith_dictionary`, `PadicChar.normChar_apply_p`, `PadicChar.weight_normChar`, `PadicChar.toGalois_trivial`, `PadicChar.not_extends_id`.
 * `R30.1/fontaine-functor-convention` (definition): `PhiGammaModuleEt.ofRep`, `PhiGammaModuleEt.toRep`, `PhiGammaModuleEt.ofRep_exact`, `PhiGammaModuleEt.overconvergent`, `PhiGammaModuleEt.rig`, `PhiGammaModuleEt.toRep_tateDual`, `PhiGammaModuleEt.ofRep_trivial`, `PhiGammaModuleEt.ofRep_cyclotomic`, `PhiGammaModuleEt.ofRep_zero`, `PhiGammaModuleEt.ofRep_not_contravariant`.
 * `R30.1/tate-dual` (construction): `PhiGammaModuleEt.tateDual`, `PhiGammaModuleEt.residuePairing`, `PhiGammaModuleEt.tateDual_tateDual`, `PhiGammaModuleEt.toRep_tateDual'`, `PhiGammaModuleEt.deltaChar`, `PhiGammaModuleEt.tateDual_rank_two`, `PhiGammaModuleEt.tateDual_trivial`, `PhiGammaModuleEt.deltaChar_of_det_cyclotomic`, `PhiGammaModuleEt.tateDual_zero`, `PhiGammaModuleEt.tateDual_ne_linearDual`.
 * `R30.1/psi-and-treillis` (construction): `PhiGammaModuleEt.psi`, `PhiGammaModuleEt.plusPart`, `PhiGammaModuleEt.natural`, `PhiGammaModuleEt.sharp`, `PhiGammaModuleEt.plus_le_natural_le_sharp`, `PhiGammaModuleEt.natural_map_surjective`, `PhiGammaModuleEt.psi_surjective_sharp`, `PhiGammaModuleEt.orthogonal_natural`, `PhiGammaModuleEt.natural_trivial`, `PhiGammaModuleEt.nr_trivial`, `PhiGammaModuleEt.natural_zero`, `PhiGammaModuleEt.natural_ne_sharp_trivial`.
@@ -316,12 +323,12 @@ available at Mathlib `082e2d3` and Tau Ceti `f790474`, so they are not stated he
 * `R30.1/rank-one-robba-modules` (definition): `RobbaRankOne`, `RobbaRankOne.classification`, `RobbaRankOne.slope`, `RobbaRankOne.isEtale_iff`, `RobbaRankOne.tensor`, `RobbaRankOne.finrank_ext`, `RobbaRankOne.normChar_eq_cyclotomic`, `RobbaRankOne.trivial`, `RobbaRankOne.finrank_ext_trivial`, `RobbaRankOne.x_not_etale`.
 * `R30.1/trianguline-representation` (definition): `Trianguline.IsTrianguline`, `Trianguline.param`, `Trianguline.rep`, `Trianguline.det_rep`, `Trianguline.hodgeTate_rep`, `Trianguline.irreducible_iff`, `Trianguline.crystalline_iff`, `Trianguline.semistable_isTrianguline`, `Trianguline.split_sum`, `Trianguline.rep_cris_coincidence`, `Trianguline.not_supercuspidal`.
 * `R30.1/classical-normalisation-bridge` (comparison): Colmez's classical correspondence LL(M) against R16.3.
-* `R30.2/smooth-torsion-categories` (definition): `GL2Qp.locallyAdmissible_grothendieck`, `GL2Qp.exists_injectiveEnvelope`, `GL2Qp.isLocallyFinite_iff_isLocallyAdmissible`, `GL2Qp.trivial_isLocallyFinite`, `GL2Qp.compactInduction_not_isLocallyFinite`, `GL2Qp.principalSeries_finiteLength`.
+* `R30.2/smooth-torsion-categories` (definition): `GL2Qp.SmoothTorsionRep`, `GL2Qp.IsAdmissible`, `GL2Qp.IsLocallyAdmissible`, `GL2Qp.IsLocallyFinite`, `GL2Qp.locallyAdmissible_grothendieck`, `GL2Qp.trivial_isLocallyFinite`, `GL2Qp.compactInduction_not_isLocallyFinite`, `GL2Qp.principalSeries_finiteLength`, `GL2Qp.smooth_compat`, `GL2Qp.steinberg_length_not_O_length`.
 * `R30.2/pontryagin-dual-category` (construction): `GL2Qp.DualCategory`, `GL2Qp.pontryaginDual`, `GL2Qp.pontryaginDual_antiEquivalence`, `GL2Qp.exists_projectiveEnvelope`, `GL2Qp.dual_isAdmissible_iff_fg`, `GL2Qp.pontryaginDual_trivial`, `GL2Qp.pontryaginDual_zero`, `GL2Qp.pontryaginDual_compactInduction_not_fg`, `GL2Qp.pontryaginDual_dual`.
-* `R30.2/admissible-unitary-banach` (definition): `GL2Qp.UnitaryBanachRep`, `GL2Qp.UnitaryBanachRep.isAdmissible_iff_fg`, `GL2Qp.UnitaryBanachRep.abelian`, `GL2Qp.UnitaryBanachRep.IsResiduallyFiniteLength`, `GL2Qp.UnitaryBanachRep.residualSemisimplification`, `GL2Qp.UnitaryBanachRep.IsOrdinary`, `GL2Qp.UnitaryBanachRep.reduction`, `GL2Qp.UnitaryBanachRep.character_isAdmissible`, `GL2Qp.UnitaryBanachRep.zero`, `GL2Qp.UnitaryBanachRep.not_unitary_of_central`, `GL2Qp.UnitaryBanachRep.compat_ND6`.
+* `R30.2/admissible-unitary-banach` (definition): `GL2Qp.UnitaryBanachRep`, `GL2Qp.UnitaryBanachRep.IsAdmissible`, `GL2Qp.UnitaryBanachRep.isAdmissible_iff_fg`, `GL2Qp.UnitaryBanachRep.abelian`, `GL2Qp.UnitaryBanachRep.IsResiduallyFiniteLength`, `GL2Qp.UnitaryBanachRep.residualSemisimplification`, `GL2Qp.UnitaryBanachRep.IsOrdinary`, `GL2Qp.UnitaryBanachRep.reduction`, `GL2Qp.UnitaryBanachRep.character_isAdmissible`, `GL2Qp.UnitaryBanachRep.zero`, `GL2Qp.UnitaryBanachRep.not_unitary_of_central`, `GL2Qp.UnitaryBanachRep.compat_ND6`.
 * `R30.2/analytic-and-algebraic-vectors` (definition): `GL2Qp.analyticVectors`, `GL2Qp.algebraicVectors`, `GL2Qp.analyticVectors_dense`, `GL2Qp.analyticVectors_exact`, `GL2Qp.algebraicVectors_decomposition`, `GL2Qp.algebraicType`, `GL2Qp.algebraicVectors_character`, `GL2Qp.analyticVectors_zero`, `GL2Qp.algebraicVectors_principalSeries_nonalgebraic`, `GL2Qp.algebraicVectors_le_analytic`.
 * `R30.2/universal-unitary-completion` (construction): `GL2Qp.universalUnitaryCompletion`, `GL2Qp.universalUnitaryCompletion.ι`, `GL2Qp.universalUnitaryCompletion.lift`, `GL2Qp.universalUnitaryCompletion.lift_comp`, `GL2Qp.universalUnitaryCompletion.of_analyticVectors`, `GL2Qp.universalUnitaryCompletion_trivial`, `GL2Qp.universalUnitaryCompletion_zero`, `GL2Qp.universalUnitaryCompletion_nonunitary_central`, `GL2Qp.universalUnitaryCompletion_analytic`.
-* `R30.2/modp-principal-series` (definition): `GL2Qp.colmezPrincipalSeries`, `GL2Qp.steinberg`, `GL2Qp.principalSeries_irreducible_iff`, `GL2Qp.colmezPrincipalSeries_centralChar`, `GL2Qp.principalSeries_trivial_reducible`, `GL2Qp.steinberg_not_character`, `GL2Qp.principalSeries_dim_invariants`.
+* `R30.2/modp-principal-series` (definition): `GL2Qp.principalSeries`, `GL2Qp.colmezPrincipalSeries`, `GL2Qp.steinberg`, `GL2Qp.principalSeries_centralChar`, `GL2Qp.principalSeries_irreducible_iff`, `GL2Qp.principalSeries_twist`, `GL2Qp.colmezPrincipalSeries_centralChar`, `GL2Qp.principalSeries_trivial_reducible`, `GL2Qp.steinberg_not_character`, `GL2Qp.principalSeries_dim_invariants`.
 * `R30.2/modp-irreducibles` (theorem): Classification of irreducible mod p representations of GL₂(ℚ_p).
 * `R30.2/mod-l-compact-irreducibles` (theorem): Irreducible mod ℓ representations of GL₂(ℤ_ℓ), U₀(ℓ) and Ũ₀(ℓ).
 * `R30.2/no-correspondence-beyond-qp` (comparison): What fails for GL₂(F) with F ≠ ℚ_p.
@@ -329,15 +336,15 @@ available at Mathlib `082e2d3` and Tau Ceti `f790474`, so they are not stated he
 * `R30.3/montreal-functor` (construction): `MontrealFunctor.D`, `MontrealFunctor.V`, `MontrealFunctor.D_exact`, `MontrealFunctor.V_exact`, `MontrealFunctor.V_twist`, `MontrealFunctor.beta`, `MontrealFunctor.V_eq_MF`, `MontrealFunctor.Vcheck`, `MontrealFunctor.V_limit`, `MontrealFunctor.V_character`, `MontrealFunctor.V_zero`, `MontrealFunctor.V_steinberg`, `MontrealFunctor.V_not_faithful`.
 * `R30.3/montreal-on-irreducibles` (theorem): The Montreal functor on irreducibles and the mod p correspondence.
 * `R30.3/contragredient` (theorem): Reconstruction of Π from D(Π): β_{ℙ¹} and the contragredient.
-* `R30.3/pi-of-D` (construction): `PiOfD`, `PiOfD.ofRep`, `PiOfD.centralChar`, `PiOfD.twist`, `PiOfD.reduction`, `PiOfD.family`, `PiOfD.maximal`, `PiOfD.centralChar_cyclotomicDet`, `PiOfD.zero`, `PiOfD.rank_one_excluded`, `PiOfD.V_Pi`.
+* `R30.3/pi-of-D` (construction): `PiOfD`, `PiOfD.ofRep`, `PiOfD.centralChar`, `PiOfD.twist`, `PiOfD.reduction`, `PiOfD.family`, `PiOfD.maximal`, `PiOfD.centralChar_cyclotomicDet`, `PiOfD.rank_one_excluded`, `PiOfD.V_Pi`, `PiOfD.saturation_torsion_free`.
 * `R30.3/colmez-correspondence` (theorem): Colmez's theorem: Π(D) is irreducible and D(Π(D)) = Ď.
 * `R30.3/cdp-correspondence` (theorem): The p-adic local Langlands correspondence for GL₂(ℚ_p).
 * `R30.3/ext1-injectivity` (theorem): Injectivity of V on Ext¹ of atoms.
 * `R30.3/analytic-vectors-of-pi` (theorem): Locally analytic vectors of Π(D).
-* `R30.4/locally-algebraic-type` (definition): `LocAlgType.smoothFactor`, `LocAlgType.algFactor`, `LocAlgType.locAlg`, `LocAlgType.smoothFactor_twist`, `LocAlgType.indep_filtration`, `LocAlgType.admissibleFiltrations`, `LocAlgType.equal_weights_excluded`, `LocAlgType.crystalline_unramified`.
+* `R30.4/locally-algebraic-type` (definition): `LocAlgType.smoothFactor`, `LocAlgType.algFactor`, `LocAlgType.locAlg`, `LocAlgType.smoothFactor_twist`, `LocAlgType.indep_filtration`, `LocAlgType.admissibleFiltrations`, `LocAlgType.algFactor_weights_0_1`, `LocAlgType.algFactor_dim`, `LocAlgType.equal_weights_excluded`, `LocAlgType.crystalline_unramified`.
 * `R30.4/locally-algebraic-vectors` (theorem): Locally algebraic vectors of Π(V): Colmez's theorem.
 * `R30.4/berger-breuil-completion` (theorem): Berger–Breuil: unitary completions of locally algebraic principal series.
-* `R30.4/henniart-types` (definition): `HenniartType.sigma`, `HenniartType.sigmaCris`, `HenniartType.hom_ne_zero_iff`, `HenniartType.sigmaCris_eq_sigma`, `HenniartType.sigmaW`, `HenniartType.reductionSS`, `HenniartType.mult`, `HenniartType.sigmaCris_trivial`, `HenniartType.mult_weight_two_trivial`, `HenniartType.sigma_scalar_ne`, `HenniartType.sigma_twist`.
+* `R30.4/henniart-types` (definition): `HenniartType.sigma`, `HenniartType.sigmaCris`, `HenniartType.hom_ne_zero_iff`, `HenniartType.sigmaCris_eq_sigma`, `HenniartType.sigmaW`, `HenniartType.reductionSS`, `HenniartType.mult`, `HenniartType.sigmaCris_trivial`, `HenniartType.mult_weight_two_trivial`, `HenniartType.sigma_scalar_ne`, `HenniartType.sigma_twist`, `HenniartType.dyadic_choice_independence`.
 * `R30.4/kisin-hypothesis` (theorem): Kisin's Hypothesis (1.2.6): lattices containing the K-type.
 * `R30.4/completions-of-locally-algebraic` (theorem): Classification of unitary completions; weights do not determine Π.
 * `R30.4/kirillov-model` (theorem): Kirillov models of P-algebraic and locally algebraic vectors.
@@ -352,7 +359,7 @@ available at Mathlib `082e2d3` and Tau Ceti `f790474`, so they are not stated he
 * `R30.5/kisin-deformation-comparison` (theorem): Kisin: deformations of π̄ and of ρ̄ coincide.
 * `R30.5/dual-of-universal-deformation` (theorem): P̃ is the dual of the universal deformation of π̄.
 * `R30.5/removing-projective-envelope` (theorem): Removing P̃ from Hom.
-* `R30.5/breuil-mezard-cycles` (definition): `BMCycles.typeRing`, `BMCycles.cycle`, `BMCycles.Holds`, `BMCycles.numerical_of_cycle`, `BMCycles.cycle_nonneg`, `BMCycles.zero_ring`, `BMCycles.weight_two_crystalline`, `BMCycles.cycle_vs_multiplicity`, `BMCycles.frame_independence`.
+* `R30.5/breuil-mezard-cycles` (definition): `BMCycles.typeRing`, `BMCycles.cycle`, `BMCycles.Holds`, `BMCycles.numerical_of_cycle`, `BMCycles.normalisation_dictionary`, `BMCycles.cycle_nonneg`, `BMCycles.zero_ring`, `BMCycles.weight_two_crystalline`, `BMCycles.cycle_vs_multiplicity`, `BMCycles.frame_independence`.
 * `R30.5/paskunas-cycle-criterion` (theorem): Paškūnas's criterion: supports of M(Θ) and the cycle formula.
 * `R30.5/kisin-ring-from-langlands` (construction): `KisinRingLL.completion`, `KisinRingLL.ring`, `KisinRingLL.family`, `KisinRingLL.ring_comm`, `KisinRingLL.family_free`, `KisinRingLL.points`, `KisinRingLL.indep_lattice`, `KisinRingLL.empty`, `KisinRingLL.not_local`, `KisinRingLL.compat_R08`.
 * `R30.5/admittance` (definition): `Admits.sigma`, `Admits.simply`, `Admits.type`, `Admits.serreWeight`, `Admits.simply_imp`, `Admits.sigma00`, `Admits.sigma_n_m_irreducible`, `Admits.tres_ramifie_excluded`, `Admits.no_type`.
@@ -367,4 +374,9 @@ available at Mathlib `082e2d3` and Tau Ceti `f790474`, so they are not stated he
 * `R30.6/block-occurrence` (theorem): Every π in a block occurs in k ⊗_{R^{ps}} S^∨.
 * `R30.6/breuil-strauch` (theorem): Breuil–Strauch through the Drinfeld tower (Dospinescu–Le Bras).
 * `R30.6/hypothesis-table` (comparison): The local inputs to modularity lifting, case by case.
+* `R30.2/locally-admissible-finite-length` (theorem): Local admissibility and finite length for GL₂(ℚ_p).
+* `R30.3/family-stability` (theorem): Colmez’s family stability theorem.
+* `R30.3/fontaine-heart-weyl` (theorem): Fontaine’s heart and the Weyl involution.
+* `R30.4/artinian-de-rham-criterion` (theorem): De Rham deformations and algebraic-vector density.
+* `R30.4/analytic-quotient-filtration-independent` (theorem): The analytic quotient is independent of the filtration.
 -/
