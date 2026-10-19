@@ -161,6 +161,13 @@
         "module": "Mathlib/GroupTheory/SemidirectProduct.lean",
         "provides": "Native group carrier with normal subgroup first and multiplication (n,g)(n′,g′)=(n·φ(g)n′,gg′).",
         "checked": "Actual declaration and hypotheses read at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.indFDRepForgetEquiv",
+        "kind": "declaration",
+        "module": "TauCeti/RepresentationTheory/Induction/FiniteDimensional/Basic.lean",
+        "provides": "The native equivariant linear equivalence between the small carrier of indFDRep and Mathlib Rep.ind after forgetting finite dimensionality; this carries the coset model and Frobenius reciprocity to FDRep.",
+        "checked": "Definition and hypotheses independently read at f790474 on 2026-10-19; shared-build module bytes compared with the pinned git object."
       }
     ]
   },
@@ -233,25 +240,27 @@
       ],
       "title": "Adapted finite symplectic coordinates",
       "kind": "construction",
-      "statement": "For every isotropic subspace I≤V there are an isotropic subspace J and a nondegenerate subspace V₀ such that V=I⊕V₀⊕J, I⊥=I⊕V₀, and B pairs I and J perfectly. The resulting linear equivalence identifies B with the orthogonal sum of B₀ and B((x,y),(x′,y′))=y′(x)−y(x′) on I⊕I*. It gives dim V=2 dim I+dim V₀, dim V₀ even, and a full polarization by taking a Lagrangian in V₀. Use native Submodule, LinearEquiv and BilinForm; the output is witness data, not a second symplectic-form carrier.",
+      "statement": "For every isotropic subspace I≤V, assemble finite Schrödinger coordinates V=I⊕V₀⊕J with I⊥=I⊕V₀, perfect I–J pairing and nondegenerate V₀. The coordinate equivalence identifies the form with B₀ orthogonally summed with B((x,y),(x′,y′))=y′(x)−y(x′) on I⊕I*. Its API records dim V=2 dim I+dim V₀. General adapted Lagrangian bases are imported from MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis; general symplectic-basis existence and even dimension already exist in current Tau Ceti and are not new targets. Use native Submodule, LinearEquiv and BilinForm; this target packages the specified partial decomposition for the finite models.",
       "hypotheses": [
         "k is a finite field of odd characteristic p, with q elements; representations have coefficients C.",
         "V is finite-dimensional over k; B is alternating and nondegenerate.",
         "I is isotropic: B vanishes on I×I."
       ],
       "proofSteps": [
-        "Induct on dim I. For a nonzero e in I use nondegeneracy to choose f with B(e,f)=1, and split off the nondegenerate plane ke+kf using the native orthogonal dimension theorem.",
-        "Project the rest of I to the orthogonal complement, repeat, and alter the dual vectors by half the matrix of their mutual pairings to make their span J isotropic. This uses 2 invertible and preserves B(eᵢ,fⱼ)=δᵢⱼ.",
-        "The orthogonal complement V₀ of I⊕J is nondegenerate. Apply the same plane induction to V₀ for even dimension and a Lagrangian; identify J with I* by y(x)=B(x,y)."
+        "Extend I to a maximal isotropic subspace L. A vector in L⊥ outside L would enlarge L isotropically, so L=L⊥; native orthogonal dimensions give dim V=2 dim L. Extend a basis of I to one of L.",
+        "Apply the imported Lagrangian basis-extension theorem to this chosen basis. Let J be spanned by the dual vectors paired with the basis of I; let V₀ be spanned by the remaining paired basis vectors. The symplectic-basis equations directly give the required orthogonal decomposition and I⊥=I⊕V₀.",
+        "Identify J with I* by y(x)=B(x,y). Read the dimension formula, the quotient identification and full polarizations from these coordinates. General basis existence, basis extension and even dimension retain their existing owners; no separate theorem for them is planned here."
       ],
       "acceptance": [
         "The complement to I in I⊥ is the quotient symplectic space, with its induced form.",
-        "No assertion is made that a fixed chosen complement is preserved by its parabolic stabilizer."
+        "No assertion is made that a fixed chosen complement is preserved by its parabolic stabilizer.",
+        "For a full polarization, reuse the imported Lagrangian basis-extension theorem. Current TauCeti LinearMap.BilinForm.IsAlt.exists_basis_toMatrix_eq_J and even_finrank are comparisons after the pin, not pinned baseline citations."
       ],
       "prerequisites": [
         "mathlib:LinearMap.BilinForm.IsAlt",
         "mathlib:LinearMap.BilinForm.Nondegenerate",
-        "mathlib:LinearMap.BilinForm.finrank_orthogonal"
+        "mathlib:LinearMap.BilinForm.finrank_orthogonal",
+        "MordellLawrenceVenkatesh:LV.3/lagrangian-symplectic-basis"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/FiniteWeil/FW0",
@@ -260,8 +269,8 @@
       "sources": [
         {
           "sourceId": "FS25",
-          "locator": "Example 3.1.6, pp. 9–10; Lemma 3.3.4, pp. 14–15",
-          "match": "The standard odd Heisenberg model and partial polarizations require precisely these decompositions; the finite-dimensional plane-induction proof is supplied here."
+          "locator": "Example 3.1.6, p. 11; Lemma 3.3.4, p. 15",
+          "match": "The standard odd Heisenberg model and partial polarizations use these decompositions; the finite coordinate adapter here is derived from the imported Lagrangian basis-extension theorem."
         },
         {
           "sourceId": "N02",
@@ -284,7 +293,7 @@
         {
           "name": "adaptedPolarization_finrank",
           "role": "relation",
-          "statement": "dim V=2 dim I+dim V₀; both V and V₀ have even dimension."
+          "statement": "dim V=2 dim I+dim V₀, by counting paired coordinates; general even dimension is an existing result, not a separate target."
         },
         {
           "name": "adaptedPolarization_transport",
@@ -295,22 +304,22 @@
       "tests": [
         {
           "name": "adapted_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "I=0 permits V₀=V and J=0; it does not force V=0."
         },
         {
           "name": "adapted_plane",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For V=k² with B((x,y),(x′,y′))=xy′−yx′ and I=k(1,0), take J=k(0,1), V₀=0."
         },
         {
           "name": "adapted_rank_four",
-          "kind": "example",
+          "kind": "computation",
           "statement": "In two orthogonal planes, choosing I as the first x-axis leaves the second plane as V₀ of dimension two."
         },
         {
           "name": "adapted_nonexample",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "The whole nonzero symplectic plane is not isotropic and cannot be supplied as I."
         }
       ],
@@ -359,7 +368,8 @@
         "tauceti:FDRep.ofLinearCharacter",
         "tauceti:TauCeti.indFDRep",
         "tauceti:TauCeti.finrank_indFDRep",
-        "tauceti:TauCeti.Rep.indSubtypeEquivPi_ρ_apply"
+        "tauceti:TauCeti.Rep.indSubtypeEquivPi_ρ_apply",
+        "tauceti:TauCeti.indFDRepForgetEquiv"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/FiniteWeil/FW1",
@@ -373,7 +383,7 @@
         },
         {
           "sourceId": "FS25",
-          "locator": "Example 3.1.6, pp. 9–10; Lemma 3.3.4, pp. 14–15",
+          "locator": "Example 3.1.6, p. 11; Lemma 3.3.4, p. 15",
           "match": "The odd standard model and induction construction supply the compatible induced realization."
         }
       ],
@@ -408,22 +418,22 @@
       "tests": [
         {
           "name": "schrodinger_F3_commutator",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For k=F₃ and ζ=exp(2πi/3), translation by 1 followed by modulation by 1 equals ζ times their reverse product."
         },
         {
           "name": "schrodinger_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For V=0, Sψ is the one-dimensional central character ψ on H(0)=k, not a zero representation."
         },
         {
           "name": "schrodinger_delta",
-          "kind": "example",
+          "kind": "computation",
           "statement": "In the plane over F₃, π(0,0,1)δ₁=ζδ₁ and π(0,1,0)δ₁=δ₀."
         },
         {
           "name": "schrodinger_trivial_character",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "Replacing ψ by the trivial character in a nonzero plane leaves a translation representation with a fixed constant line; it is not the promised irreducible model."
         }
       ],
@@ -622,7 +632,7 @@
       "sources": [
         {
           "sourceId": "FS25",
-          "locator": "Lemma 3.3.4 and proof, pp. 14–15",
+          "locator": "Lemma 3.3.4 and proof, pp. 15–16",
           "match": "Induction and restriction-to-zero identify polarized models and their intertwining spaces."
         },
         {
@@ -657,17 +667,17 @@
       "tests": [
         {
           "name": "intertwiner_same_F3",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For a line A=B in the F₃ plane, T_AA=3id and the double composite is 9id."
         },
         {
           "name": "intertwiner_transverse_F3",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For distinct Lagrangian lines in the F₃ plane, T_AB T_BA=3id, so an identity-normalized guess fails."
         },
         {
           "name": "intertwiner_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For V=0 the sums have one term and every T is the identity."
         }
       ],
@@ -752,17 +762,17 @@
       "tests": [
         {
           "name": "projective_identity",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "μ(1)=id, so both identity factors are 1."
         },
         {
           "name": "projective_F3_scalar",
-          "kind": "example",
-          "statement": "Multiplying a nonidentity intertwiner by ζ changes its cocycle; the resulting projective action still satisfies Egorov."
+          "kind": "computation",
+          "statement": "In the F₃ plane take the order-three shear g=u(1). Rescale only μ(g) by ζ, leaving μ(g²) and μ(1) unchanged. Then c(g,g) is multiplied by ζ²≠1 while Egorov still holds."
         },
         {
           "name": "projective_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For V=0 the intertwiner space is Cˣ and the next determinant normalization removes every scalar choice."
         }
       ],
@@ -846,17 +856,17 @@
       "tests": [
         {
           "name": "weil_scalar_line",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For n=0 and μ(g)=a(g)id on C, κ(g)=a(g)⁻¹ and ω(g)=id."
         },
         {
           "name": "weil_F3_exception",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For the F₃ plane and ψ(1)=ζ, a nontrivial order-three character twist of ω remains genuine and has Egorov covariance but fails the determinant characterization."
         },
         {
           "name": "weil_parity_dimensions",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For the F₅ plane the even and odd dimensions are 3 and 2, so 5−2·3=−1; reversing the determinant ratio would double rather than cancel a generic multiplier."
         }
       ],
@@ -866,7 +876,7 @@
           "how": "Fix the determinant character, which would change under arbitrary exceptional twists."
         },
         {
-          "where": "Fintzen–Schwein, Definition 3.4.5(a), p. 17",
+          "where": "Fintzen–Schwein, Definition 3.4.5(a), p. 18",
           "how": "Supply a genuine finite symplectic action for compatible special-coordinate transport."
         }
       ],
@@ -992,17 +1002,17 @@
       "tests": [
         {
           "name": "semidirect_plane",
-          "kind": "example",
+          "kind": "computation",
           "statement": "On the F₃ plane, conjugating translation by J gives modulation by −1, as required by J(x,0)=(0,−x)."
         },
         {
           "name": "semidirect_zero",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For V=0, Sp(V) is trivial and Ω is ψ on the center."
         },
         {
           "name": "semidirect_order",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For a nontrivial g and h, reversing π(h)ω(g) to ω(g)π(h) changes the h coordinate by g; the unadjusted reversed formula fails the stated multiplication."
         }
       ],
@@ -1056,7 +1066,7 @@
       "sources": [
         {
           "sourceId": "FS25",
-          "locator": "Definitions 3.4.4 and 3.4.5(a), p. 17; Remark 3.4.3, pp. 16–17",
+          "locator": "Definition 3.4.4, p. 17; Definition 3.4.5(a), p. 18; Remark 3.4.3, p. 17",
           "match": "The definition of a compatible special isomorphism includes the semidirect equivariance needed to pull back a linear Weil action. The full center-fixing automorphism group has an obstruction."
         }
       ],
@@ -1081,17 +1091,17 @@
       "tests": [
         {
           "name": "special_identity",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "For P=H(V), j=id, K=Sp(V), s=id, the pullback is Ω."
         },
         {
           "name": "special_inner_nonexample",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For V a nonzero F₃ plane, a noncentral inner automorphism is the identity on V but adds B(v,−) to the center, so j=id is not equivariant with s=1."
         },
         {
           "name": "special_exponent_nonexample",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "The order-p³ exponent-p² group cannot be isomorphic to the standard exponent-p group; it still satisfies the cyclic-center uniqueness theorem when its commutator pairing is nondegenerate."
         }
       ],
@@ -1136,7 +1146,8 @@
         "mathlib:Representation.invariants",
         "mathlib:AddChar.IsPrimitive.of_ne_one",
         "MetaplecticAutomorphicForms:MP.0/half-form-commutator",
-        "tauceti:TauCeti.Rep.indSubtypeEquivPi_ρ_apply"
+        "tauceti:TauCeti.Rep.indSubtypeEquivPi_ρ_apply",
+        "tauceti:TauCeti.indFDRepForgetEquiv"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/FiniteWeil/FW3",
@@ -1145,7 +1156,7 @@
       "sources": [
         {
           "sourceId": "FS25",
-          "locator": "Lemma 3.3.4 and proof, pp. 14–15",
+          "locator": "Lemma 3.3.4 and proof, pp. 15–16",
           "match": "The partial-polarization induction and its fixed subspace are identified by functions supported at zero."
         },
         {
@@ -1180,17 +1191,17 @@
       "tests": [
         {
           "name": "mixed_zero_I",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For I=0, K=H(V), induction has index one and the fixed subspace is the whole Sψ,V."
         },
         {
           "name": "mixed_lagrangian",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For I Lagrangian, V₀=0 and the I-fixed subspace is the single δ₀ line."
         },
         {
           "name": "mixed_rank_four_F3",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For a one-dimensional I in a four-dimensional F₃ symplectic space, S has dimension 9 and its I-fixed subspace has dimension 3, not 1 or 9."
         }
       ],
@@ -1229,7 +1240,7 @@
         "Combine the Levi and radical actions and express the result intrinsically through p₁,p₂. This proves independence of the adapted complement and includes the determinant correction in Fintzen’s footnote."
       ],
       "acceptance": [
-        "For V the F₅ plane and I its y-axis, m(2) acts on I by 2⁻¹=3 and on the fixed constant-function line by χ₅(3)=−1. Equivalently choose I the x-axis and its δ₀ line, where χ₅(2)=−1.",
+        "For V the F₅ plane and I its y-axis, m(2) acts on I by 2⁻¹=3 and on the fixed δ₀ line by χ₅(3)=−1. Equivalently choose I the x-axis and its constant-function line, where χ₅(2)=−1. These refer to the standard Schrödinger coordinates; the mixed model uses its own zero-support coordinate.",
         "For I=0 the character is trivial and the result is Ωψ,V.",
         "For I Lagrangian the fixed subspace is one-dimensional and its entire P action is χ_k(det p₁)."
       ],
@@ -1284,7 +1295,8 @@
         "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
         "tauceti:TauCeti.indFDRep",
         "tauceti:TauCeti.finrank_indFDRep",
-        "mathlib:Rep.indResHomEquiv"
+        "mathlib:Rep.indResHomEquiv",
+        "tauceti:TauCeti.indFDRepForgetEquiv"
       ],
       "library": {
         "module": "TauCeti/RepresentationTheory/FiniteWeil/FW3",
@@ -1523,11 +1535,15 @@
     {
       "library": "TauCeti current main a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
       "detail": "TauCeti/GroupTheory/SpecificGroups/Heisenberg.lean defines the rank-one Heisenberg group with product z+z′+xy′, its coordinate equivalence, cardinality and commutator. Do not replan them. The parent MP.0 polarization equivalence specializes to (t,x,y)↦(x,y,z=t+xy/2), matching the current native plane carrier. This is a current-main comparison, not a declaration claimed at the pinned baseline."
+    },
+    {
+      "library": "TauCeti current main a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "detail": "Independently read TauCeti/LinearAlgebra/BilinearForm/SymplecticBasis.lean, lines 290–319: LinearMap.BilinForm.IsAlt.exists_basis_toMatrix_eq_J_of_iSup_eq_top, exists_basis_toMatrix_eq_J, even_finrank and exists_basis_apply_eq_J_inl_zero_eq. These hold for finite-dimensional nondegenerate alternating spaces over any field. This file is absent at f790474. Reuse the current results when integrating upstream; never plan their implementation again. The more general chosen-Lagrangian basis extension retains its LV.3 owner, and FW.0 imports it. Sign bridge: the library basis has Gram matrix Matrix.J, the negative of the coordinate matrix used here; negate the second half to obtain B(eᵢ,fⱼ)=δᵢⱼ."
     }
   ],
   "ownershipAudit": {
     "parent": "Read MP.0–MP.8 atlas descriptions, the complete parent README, the reviewed library audit, and the MP.0 packet. Import its generic bilinear-factor-set, half-form commutator/center, polarization equivalence and isometry-action nodes exactly. Do not import its local smooth Stone–von Neumann theorem as a finite theorem.",
-    "neighbors": "Read current InductionRestriction and CharacterTheory, searched all current upstream roadmap READMEs/Suggested files and current TauCeti for finite symplectic/Heisenberg/Weil targets, including the nine roadmaps newer than the atlas snapshot. No finite oscillator package was located. OrthogonalSpinGroups is not an odd finite symplectic owner; ProfiniteArithmetic uses the rank-one Heisenberg group rather than supplying this representation theory. The parent MP.4/finite-weil-representation is a discriminant-lattice module C[L∨/L] with an Mp₂(Z) action and signature phase; it is not a finite-field Sp(V) action. Its carrier, T/S operators and lattice statements remain with that node. The proposed companion also imports parent MP.5/global-theta-lift and MP.6/rallis-inner-product rather than replanning them.",
+    "neighbors": "Read current InductionRestriction and CharacterTheory, searched all current upstream roadmap READMEs/Suggested files and current TauCeti for finite symplectic/Heisenberg/Weil targets, including the nine roadmaps newer than the atlas snapshot. No finite oscillator package was located. OrthogonalSpinGroups is not an odd finite symplectic owner; ProfiniteArithmetic uses the rank-one Heisenberg group rather than supplying this representation theory. The parent MP.4/finite-weil-representation is a discriminant-lattice module C[L∨/L] with an Mp₂(Z) action and signature phase; it is not a finite-field Sp(V) action. Its carrier, T/S operators and lattice statements remain with that node. The proposed companion also imports parent MP.5/global-theta-lift and MP.6/rallis-inner-product rather than replanning them. Independent review additionally read the LV.3 Lagrangian basis-extension node and current TauCeti BilinearForm/SymplecticBasis.lean. FW.0 now imports that general basis extension and only packages partial finite coordinates. The duplicate even-dimension suggested endpoint was removed.",
     "links": "Screened every research/blueprint/links JSON for the parent and proposed roadmap and read atlas touching stage edges; no additional finite supplier found.",
     "area": "Retain issue area automorphic and parent MetaplecticAutomorphicForms. The finite paper route’s proposed representations area does not override this design issue."
   },
@@ -1760,7 +1776,12 @@
         "Read Fintzen v2 p. 33 footnote 3 and its surrounding proof.",
         "Read Fintzen–Schwein Construction 3.4.2, pp. 16–17, for its reference to the preferred Gérardin action.",
         "Checked the original DOI/publisher metadata; original PDF inaccessible."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-MetaplecticAutomorphicFormsPartII",
+        "reason": "Independently read F21 v2 p. 33 footnote 3 and the surrounding restriction argument; the F₅ fixed-line computation detects the missing twist. Confirmation concerns the attributed correction in Fintzen, not an unread original Gérardin printing."
+      }
     },
     {
       "id": "MetaplecticAutomorphicFormsPartII/E2",
@@ -1776,7 +1797,33 @@
         "Author manuscript April 15, 2025, p. 14, visually checked.",
         "arXiv:2501.18553 version history and v2 HTML equation (3.3.3), inspected 2026-10-19.",
         "Fintzen research page and Schwein research page, inspected 2026-10-19; no separate erratum listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-MetaplecticAutomorphicFormsPartII",
+        "reason": "Independently rendered author-copy p. 14 and read equation (3.3.3); its inputs are xZ(P),yZ(P), but its commutator uses an undefined z. The v2 HTML has the same symbol. The intended two-input commutator is [x,y]."
+      }
+    },
+    {
+      "id": "MetaplecticAutomorphicFormsPartII/E3",
+      "source": "N02",
+      "kind": "misprint",
+      "locator": "Published Journal of Lie Theory 12 (2002), p. 23, determinant computation for the diagonal generator immediately after Theorem 4.3.",
+      "printed": "The permutation induced by a generator of kˣ on the nonzero elements of k is described as even, while the determinant calculation assigns it sign −1.",
+      "correction": "The permutation is odd: its single nontrivial cycle has even length q−1. Keep the displayed determinant sign −1 and the ensuing quadratic-character formula.",
+      "reason": "A cycle of length q−1 has sign (−1)^(q−2)=−1 for odd q; the zero element is fixed. The scalar formulas in FW.2 already use the correct sign.",
+      "affects": "nothing",
+      "known": "new (minor prose parity slip; no separate correction located).",
+      "searched": [
+        "Heldermann publisher cumulative Journal of Lie Theory index through volume 35 (2025), Neuhauser entry and errata listings, https://www.heldermann.de/JLT/jltcumu.htm, checked 2026-10-19.",
+        "Publisher article page and published PDF, https://www.heldermann-verlag.de/jlt/jlt12/NEUHAUSLAT2E.PDF, checked 2026-10-19.",
+        "Title/author searches with erratum and correction, checked 2026-10-19; no correction found."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "by": "REV-DESIGN-MetaplecticAutomorphicFormsPartII",
+        "reason": "Independently read the published page image and computed the sign of the (q−1)-cycle; only the prose parity designation is wrong."
+      }
     }
   ],
   "sourceVersions": [
@@ -1810,17 +1857,12 @@
     "file": "research/blueprint/suggested/MetaplecticAutomorphicFormsPartII.lean",
     "compiled": true,
     "compiler": "lean-check at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and TauCeti f790474821cf4256814db967cb154e7af3d0c369, 2026-10-19",
-    "result": "Exit 0; only declaration-uses-placeholder-proof warnings. No data definition has a placeholder.",
+    "result": "Exit 0 on independent review; six declaration-uses-placeholder-proof warnings and no other warnings or errors. No data definition has a placeholder.",
     "emitted": [
       {
         "declaration": "TauCeti.FiniteWeil.schrodingerValue",
         "target": "MetaplecticAutomorphicFormsPartII:FW.1/schrodinger",
         "detail": "Light real-bodied function formula over Fin n→k and existing AddChar; three examples test identity, zero symplectic dimension and the F₃ translation sign."
-      },
-      {
-        "declaration": "TauCeti.FiniteWeil.finiteSymplectic_evenDimension",
-        "target": "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
-        "detail": "Even-dimension endpoint over native BilinForm."
       },
       {
         "declaration": "TauCeti.FiniteWeil.cyclicCenter_stoneVonNeumann",
@@ -1836,7 +1878,7 @@
     "omissionLedger": [
       {
         "node": "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
-        "detail": "Only its endpoint/formula listed above is emitted; the full witness, API and tests below remain reader targets."
+        "detail": "The partial-coordinate adapter is a README target; general symplectic bases and even dimension already have existing owners. No duplicate even-dimension endpoint is emitted."
       },
       {
         "node": "MetaplecticAutomorphicFormsPartII:FW.1/schrodinger",
@@ -1901,6 +1943,99 @@
       {
         "node": "MetaplecticAutomorphicFormsPartII:FW.4/tensor-export",
         "detail": "The statement depends on the parent Heisenberg specialization or the new finite models/actions; all target statements, APIs and tests remain in the README. No surrogate carrier or heavy construction is introduced in the suggested file."
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-MetaplecticAutomorphicFormsPartII",
+    "date": "2026-10-19",
+    "notes": "Independent review of all 17 nodes, all source locators, all pinned baseline declarations, cross-roadmap suppliers, current upstream ownership, APIs/tests, planet selection and the reader. Corrected 10 nodes and verified 7; added no nodes. Confirmed all 21 original baseline citations and added indFDRepForgetEquiv as an explicit carrier bridge. Removed duplicate general even-dimension planning, corrected fixed-line coordinates and FS25 locators, and confirmed three source issues. Blueprint validation passes; the revised suggested file elaborates at both pins with six placeholder-proof warnings only. The original Gerardin normalization/printed-hypothesis comparison remains explicitly open; acceptance is of the finite target-level pass, not a claim to have read that source or designed the 78-item companion proposal.",
+    "checked": [
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.0/adapted-polarization",
+        "verdict": "corrected",
+        "note": "Imported LV.3/lagrangian-symplectic-basis after reading its general chosen-basis statement; restricted this node to the finite partial-coordinate adapter. Recorded current TauCeti symplectic bases/even_finrank and removed the duplicate suggested even-dimension endpoint. Corrected FS25 locators and test kinds."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.1/schrodinger",
+        "verdict": "corrected",
+        "note": "Checked the half-form product and positive translation convention directly, including the native induced realization. Added pinned indFDRepForgetEquiv to connect the small FDRep carrier to Rep.ind; corrected FS25 locators and test kinds."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.1/character",
+        "verdict": "verified",
+        "note": "The trace vanishes off the center by translations or nontrivial modulation sums; primitivity follows from nontriviality over a field and does not require a faithful additive character. The character norm is one."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.1/stone-von-neumann",
+        "verdict": "verified",
+        "note": "Maschke and the character inner product give uniqueness of the central-character irreducible and its isotypic multiplicities; the hypotheses match the pinned character API."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.1/cyclic-center",
+        "verdict": "verified",
+        "note": "Invariant theta and the nondegenerate theta-commutator pairing force vanishing away from H. Inducing theta gives existence, character orthogonality gives degree squared [J:H] and uniqueness. No elementary-abelian center assumption is used."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.1/polarization-intertwiner",
+        "verdict": "corrected",
+        "note": "Checked finite left averaging, T_AA=|A| and the |A||A∩B| double-composite scalar, including coincident and transverse planes. Corrected FS25 pagination and test kinds."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.2/projective-action",
+        "verdict": "corrected",
+        "note": "Checked the native projective cocycle direction against IsProjectiveRep and the inverse convention in N02. Replaced an unspecified scalar-change test by the order-three F3 shear with c(g,g) multiplied by zeta squared; corrected test kinds."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.2/parity-linearization",
+        "verdict": "corrected",
+        "note": "Read N02 Theorems 4.2–4.3 and the parity determinant argument, including the exceptional Sp2(F3) normalization. Corrected the FS25 consumer locator to p. 18 and test kinds; preserved the separate original-Gerardin comparison gap."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.2/generator-formulas",
+        "verdict": "verified",
+        "note": "Checked Egorov signs and the lower-shear, diagonal and Fourier scalars against N02 Theorem 4.1 and its determinant normalization. Independently confirmed the minor prose parity slip on published p. 23 as E3; the planned formulas already have the correct sign."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.2/weil-heisenberg",
+        "verdict": "corrected",
+        "note": "Checked Omega(h,g)=pi(h)omega(g) against the normal-first native SemidirectProduct multiplication and the J translation-to-modulation sign. Corrected test kinds."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.2/special-transport",
+        "verdict": "corrected",
+        "note": "Read FS25 Remark 3.4.3 and Definitions 3.4.4–3.4.5(a), retaining specified special coordinates and equivariance. No splitting of the full center-fixing automorphism group is asserted. Corrected locators and test kinds."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.3/mixed-model",
+        "verdict": "corrected",
+        "note": "Checked H(I-perp) projection, induction dimension and evaluation at the zero-support coset; nontriviality/primitivity detects every other coset. Added indFDRepForgetEquiv and corrected FS25 locators and test kinds."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.3/parabolic-invariants",
+        "verdict": "corrected",
+        "note": "Checked the parabolic determinant twist from the Levi generators and the radical action, with F21 p. 33 footnote 3. Corrected the standard-model fixed lines: the y-axis fixes delta_0 and the x-axis fixes constants; both m(2) eigenvalues over F5 are -1. Distinguished mixed-model coordinates."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.3/corrected-restriction",
+        "verdict": "corrected",
+        "note": "Checked the twisted subgroup action, nonzero Frobenius-reciprocity map, irreducible Heisenberg restriction and equal dimensions. Added the small-carrier induction comparison needed to use native Rep.indResHomEquiv."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.3/cyclic-isotropic-induction",
+        "verdict": "verified",
+        "note": "Read S08 Lemma 5.6 and Corollary 5.7. Verified well-defined theta_I on HU, its invariance and commutator radical, the induction dimension, and the U-fixed identification without an exponent-p restriction on the center."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.4/iterated-fixed-line",
+        "verdict": "verified",
+        "note": "Read the finite input of F21 Lemma 7.10 and S08 Lemma 5.12. The inverse-image Lagrangian gives the product of the two determinant characters; unipotence makes these trivial, including small fields."
+      },
+      {
+        "nodeId": "MetaplecticAutomorphicFormsPartII:FW.4/tensor-export",
+        "verdict": "verified",
+        "note": "Checked orthogonal-sum Heisenberg pullback, tensor action and parity-determinant normalization, including F3 and the empty family. Nonzero pure tensors follow from linear functionals; p-adic quotient identifications remain with the consumer."
       }
     ]
   }
