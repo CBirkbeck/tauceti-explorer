@@ -1,4 +1,19 @@
-import Mathlib
+import Mathlib.AlgebraicGeometry.ResidueField
+import Mathlib.AlgebraicGeometry.Morphisms.Proper
+import Mathlib.AlgebraicGeometry.Morphisms.UnderlyingMap
+import Mathlib.AlgebraicGeometry.Morphisms.FiniteType
+import Mathlib.AlgebraicGeometry.Noetherian
+import Mathlib.AlgebraicGeometry.Limits
+import Mathlib.AlgebraicGeometry.Normalization
+import Mathlib.Data.Nat.PrimeFin
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Polynomial.Basic
+import Mathlib.NumberTheory.Zsqrtd.GaussianInt
+import Mathlib.NumberTheory.Cyclotomic.Basic
+import Mathlib.RingTheory.Valuation.ValuationSubring
+import Mathlib.RingTheory.Algebraic.Basic
+import Mathlib.FieldTheory.Separable
+import Mathlib.CategoryTheory.Endomorphism
 import TauCeti.AlgebraicGeometry.AdicSpace.ValuationSpectrum
 
 /-!
@@ -46,6 +61,10 @@ def residueChars (X : Scheme.{u}) : Set ℕ :=
 /-- A prime lies in `char(X)` exactly when it is not invertible on `X`. -/
 theorem mem_residueChars_iff_not_isUnit (X : Scheme.{u}) {p : ℕ} (hp : p.Prime) :
     p ∈ residueChars X ↔ ¬ IsUnit (p : Γ(X, ⊤)) := sorry
+
+/-- `char(X) = ∅` exactly when every prime is invertible on `X`, that is, `X` is a `ℚ`-scheme. -/
+theorem residueChars_eq_empty_iff (X : Scheme.{u}) :
+    residueChars X = ∅ ↔ ∀ p : ℕ, p.Prime → IsUnit (p : Γ(X, ⊤)) := sorry
 
 /-- Residue characteristics can only shrink along a morphism. -/
 theorem residueChars_mono (f : X ⟶ Y) : residueChars X ⊆ residueChars Y := sorry
@@ -229,9 +248,12 @@ relative normalization of `Spec L → X`. -/
 /-!
 ## Statements not typed at the pins
 
-The README states the following targets; they are absent from this file because their carriers
+The README states the following targets. Most are absent from this file because their carriers
 (regular schemes, strict normal crossings divisors, tame valued extensions, log structures, or the
-morphism properties they quantify over) are not in Mathlib or Tau Ceti at the pinned commits.
+morphism properties they quantify over) are not in Mathlib or Tau Ceti at the pinned commits. A few
+PA.0 and PA.1 items below (for example `residueChars_spec_field`, `maxdom_dense_open`,
+`alteration_frobenius`, `absval_rat`) are statable at the pins and are left out only to keep this
+file to a representative subset; the README is definitive for them.
 
 Layer PA.0: Residue characteristics of a scheme: `residueChars_open_le`,
 `residueChars_spec_field`, `residueChars_localization_two`, `residueChars_int_inv_six`; Maximal
