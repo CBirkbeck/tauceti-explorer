@@ -35,47 +35,31 @@ From the pinned libraries, `tauceti:TauCeti.Tannaka.fgPointTensorIsoEquiv` in `T
 
 The existing exact-node imports include the parent GL finiteness and pure-character weight nodes; SC.0 rank-one characters, SC.2 base extension, SC.3 Eulerian/HT calculations, SC.4 inversion duality, SC.5 exceptional degrees, SC.6 classical monodromy and SC.8 orbit-uniform monodromy; A6 quasi-projective and finite-étale abelian Weil restriction, finite Hom rank and Rosati positivity; RP.1 weak Mordell–Weil; and R06.2 admissible tensor exactness plus R06.4’s shifted Fontaine–Laffaille consequences. These carry their written hypotheses, including all supplier gaps.
 
+Geometric weights come from **DWP.4/smooth-projective-purity**; integer degree factors come from **WC.3/integral-factors-and-ell-independence-from-purity**. **WC.5/complete-intersection-point-count** and **EDC.4/complete-intersection-cohomology** supply the ambient-Tate trace cancellation and rational primitive summand. Definitions of Weil weights are imported from the exact DWP.0 nodes. Hodge **H.2/geometric-pure**, **H.2/gauss-manin**, the compact-dual/orbit/holomorphic-map nodes of **H.3**, and the three proper-comparison/compatibility nodes of **R06.5** are used directly. The exact CA.2 Eulerian nodes, Hilbert scheme, resolution, abelian Néron–Severi/degree and finite-quotient nodes, A6 restriction functor and separable splitting, and LPV.2–5 nodes are dependencies below. Their recorded supplier gaps continue to apply.
+
 From **ComplexComparisonPartII:C0**, use the following precise contract. For convergent complex power-series germs, the ideal of the zero-set germ is the radical; combine this local analytic Nullstellensatz with the existing Weierstrass preparation/division and Noetherianity. No algebraic or rigid-analytic Nullstellensatz is substituted.
 
-From **HodgeStructuresPartII:H.2**, use the following precise contract. Pure and mixed Hodge structures and exact tensor variations, strictness of morphisms, Gauss–Manin polarization and integral lattices for smooth projective cohomology; additionally André normality of connected monodromy in the derived generic Mumford–Tate group for pure polarizable variations, with its connected-base hypotheses. The integral lattice is geometric extra data, not supplied by rational polarizability.
-
-From **HodgeStructuresPartII:H.3**, use the following precise contract. Hodge cocharacter flag spaces, compact duals and holomorphic period maps preserving all tensor constraints; identify their connected monodromy orbit and tangent dimensions. This request does not include Ax–Schanuel.
+From **HodgeStructuresPartII:H.2**, use the following precise contract. Compatible pure/mixed variations and fibrewise strict Hodge morphisms for the system category; additionally André normality of connected geometric monodromy in the derived generic Mumford–Tate group for pure polarizable integral variations on the stated connected algebraic base. Existing H.2/geometric-pure and /gauss-manin are imported directly. H.2/connected-semisimple alone proves semisimplicity, not this normality theorem.
 
 From **PadicHodgeTheory:P8**, use the following precise contract. Use the existing early local/rational period and Poincaré inputs before CohomologyComparisons CP.3, and its proper-comparison suffix after CP.3/CP.4. Supply the relative structural O B_cris comparison with connection and the filtered F-isocrystal for the good-reduction finite-cover cohomology systems here. The current B_dR and Shimizu horizontal nodes do not alone state the required general relative crystalline comparison; coalesce the pending RelativeCrystallineLocalSystems route rather than duplicate it.
 
-From **PadicHodgeTheory:R06.2**, use the following precise contract. Exact faithful tensor D_cris/D_dR with coefficient algebras and duality, weak-admissibility and arithmetic descent; additionally a tensor-compatible Sen/Wintenberger splitting placing the Hodge cocharacter in the algebraic local Galois image. The existing admissible-category node is used where its statement suffices, and does not by itself prove this cocharacter-image theorem.
-
-From **PadicHodgeTheory:R06.5**, use the following precise contract. Geometric proper smooth comparisons and their filtration, connection, Frobenius, cup-product and primitive-projector compatibility through the actual CP.2/CP.3 comparison diagram. Do not use this application layer to recreate those foundations.
+From **PadicHodgeTheory:R06.2**, use the following precise contract. A tensor-compatible Sen/Wintenberger splitting placing the Hodge cocharacter in the algebraic local Galois image. Import the existing admissible-category tensor theorem directly for exact D_cris/D_dR and coefficient operations; it does not by itself prove the cocharacter-image theorem.
 
 From **MotivesAndAlgebraicCycles:MC.6**, use the following precise contract. For any neutral Tannakian category over a field and two fibre functors, Iso^⊗(ω,η) is represented by a faithfully flat torsor under Aut^⊗(ω); for a finite tensor generator it is finite type and has a point over an algebraic closure. Existing MC.6/tensor-iso-scheme and /iso-torsor are for a particular graded diagram and are not this general theorem.
 
-From **DeligneWeightsAndPurity:DWP.0**, use the following precise contract. Use rational versus integral Weil numbers, powers and tensor operations, purity of geometric cohomology and integrality at good primes; request the exact coefficient-projector trace/rationality interface for V_I. Weight and integrality alone do not imply rational characteristic coefficients.
+From **ClassicalArithmeticCompletion:CA.2**, use the following precise contract. Extend the existing exact Eulerian-number and basic-identity nodes by the one-copy centered variance (n+1)/12 and finite-sequence log-concavity on contiguous support, including preservation under reflection and convolution. The written unimodality node is weaker than log-concavity. Inclusion–exclusion follows from the imported recurrence/Worpitzky identity. The central-limit theorem remains a separately recorded Part II gap.
 
-From **ClassicalArithmeticCompletion:CA.2**, use the following precise contract. Eulerian ascent numbers with zero extension, factorial sum, symmetry, recurrence, inclusion–exclusion generating formula, one-copy variance (n+1)/12 and finite-sequence log-concavity. The normalized convolution and asymptotic Hodge application stay here; the central-limit extension is separately recorded as a gap and Part II proposal.
+From **AlgebraicModuliForArithmeticGeometry:R09.2**, use the following precise contract. Beyond the imported fixed-polynomial Hilbert scheme, supply its smooth effective Cartier-divisor open, the specified numerical-class components and universal families spread over finite localizations. Also route the graded regular-sequence Hilbert-series calculation for the projective Jacobian formula to its general commutative-algebra owner.
 
-From **AlgebraicModuliForArithmeticGeometry:R09.2**, use the following precise contract. Hilbert representability for a fixed projective Hilbert polynomial, the smooth effective Cartier-divisor open, numerical-class components, universal families and spreading over finite localizations. Supply the graded regular-sequence Hilbert-series calculation used with the projective residue theorem, or route this general commutative-algebra input to its owner.
-
-From **AlgebraicModuliForArithmeticGeometry:R09.7**, use the following precise contract. Characteristic-zero proper resolution, isomorphic over a dense smooth open, and spreading that proper map over a finite localization. The rational lifts used here occur only over that open.
+From **AlgebraicModuliForArithmeticGeometry:R09.7**, use the following precise contract. Spread the proper characteristic-zero resolution from the imported local-isomorphism-resolution node over a finite localization, retaining its isomorphism on the chosen dense smooth open. Rational lifts are used only on that open.
 
 From **AbelianSchemesAndArithmeticModuli:A1**, use the following precise contract. Abelian scheme models, proper translations extending rational sections, rigidity and decomposition of maps as translation plus a homomorphism, with their base hypotheses.
 
 From **AbelianSchemesAndArithmeticModuli:A2**, use the following precise contract. Polarizations, numerical divisor classes, Picard components, intersection theory and ampleness; use the degree and translation-invariance formulas on smooth ample divisors.
 
-From **AbelianSchemesAndArithmeticModuli:A3**, use the following precise contract. Finite flat subgroup quotients and their universal property, multiplication and characteristic-zero étaleness; descend invariant ample divisors through their finite translation stabilizers.
-
-From **MordellLawrenceVenkatesh:LV.2**, use the following precise contract. Only the existing local period construction and Tate-algebra/affinoid framework at smooth good-reduction points. Its one-dimensional applications do not supply the higher-dimensional transcendence theorem.
-
 From **tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**, use the following precise contract. Use the existing absolute root, Weyl, dynamic parabolic/Levi, common torus and Bruhat structure theory in characteristic zero. The coefficient-normalizer specialization and its filtered objects are targets here. The disconnected complete-reducibility/rational-conjugacy extension is a recorded gap, not supplied by connected root theory.
 
-From **LefschetzPencilsAndVanishingCycles:LPV.2**, use the following precise contract. Picard–Lefschetz reflection and transvection formulas on primitive vanishing cycles, including the even-middle-dimensional orthogonal reflection formula.
-
-From **LefschetzPencilsAndVanishingCycles:LPV.3**, use the following precise contract. Existence and geometric properties of Lefschetz pencils in the projective hypersurface family.
-
-From **LefschetzPencilsAndVanishingCycles:LPV.4**, use the following precise contract. Primitive vanishing cohomology, nondegenerate intersection pairing and comparison with primitive cohomology of the universal family.
-
-From **LefschetzPencilsAndVanishingCycles:LPV.5**, use the following precise contract. The symplectic big-monodromy criterion for odd middle dimension; the orthogonal extension is outside this stage and separately recorded.
-
-From **AbelianSchemesAndArithmeticModuli:A6**, use the following precise contract. Finite-separable affine coefficient-algebra restriction of scalars and its functor of points, already owned by A6; use it only to specialize Res_E/E0 H and its coefficient-normalizer representation. Quasi-projective and abelian cases are imported by their exact A6 nodes elsewhere.
+From **tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras**, use the following precise contract. Use current AdicSpaces §0.5 restricted-series substitution/evaluation, Weierstrass division/preparation and Noetherianity of K⟨T₁,…,T_m⟩ over a complete rank-one nonarchimedean field; quotients and localizations are Noetherian. These are the affinoid algebra inputs to finite minimal-prime decomposition and localized Krull intersection.
 
 ### Supplier extensions that remain necessary
 
@@ -91,11 +75,13 @@ From **AbelianSchemesAndArithmeticModuli:A6**, use the following precise contrac
 
 **Katz–Messing and correspondence rationality.** Supply characteristic-polynomial agreement for crystalline and auxiliary-prime étale cohomology of smooth proper finite-field varieties, compatible with primitive projectors, and the fixed-point trace formula for deck correspondences composed with Frobenius. Degree-one A4 exports do not cover primitive hypersurface middle cohomology. Route the full higher-degree input with the cohomology/weight owners.
 
-**Orthogonal universal-hypersurface monodromy.** LPV.5 explicitly covers odd-middle-dimensional symplectic monodromy, not the even-dimensional orthogonal criterion. Add a LefschetzPencilsAndVanishingCycles, Part II orthogonal/reflection and arithmetic-density supplier, with Beauville’s exceptions. M2.9 applies it in the safe n≥4,d≥4 range.
+**Orthogonal universal-hypersurface monodromy.** LPV.5 already has open symplectic monodromy and a conditional orthogonal open-or-finite node. Reuse those nodes; the extension still needed is to exclude finite orthogonal monodromy for universal hypersurfaces and provide Beauville’s arithmetic finite-index theorem with its exceptions. Route only that extension to LefschetzPencilsAndVanishingCycles, Part II. M2.9 applies it in the safe n≥4,d≥4 range.
 
 **Curve Shafarevich consequence.** R28.5 gives polarized abelian-variety Shafarevich finiteness. To use it for curves, supply Torelli with field descent and good-reduction comparison for their canonical principally polarized Jacobians. JacobianChallenge constructs Jacobians and their universal property, not Torelli; RP.4 explicitly leaves its curve Shafarevich assumption conditional. Route this consequence with the curve/arithmetic-moduli owner, rather than import rational-point finiteness as if it were curve-isomorphism finiteness.
 
 **Number-field subvarieties in the stronger finiteness clause.** The original LV all-subvarieties clause needs the non-density theorem over fields of definition of closure components, or a restriction-of-scalars formulation preserving the required monodromy and numerical bound. This clause is stated with that arithmetic comparison as a hypothesis; generic monodromy alone proves only non-density.
+
+**Further extensions of written supplier contracts.** ComplexComparisonPartII C0 states Weierstrass division/preparation and Noetherianity but not the local analytic Nullstellensatz requested here. PadicHodgeTheory R06.2 supplies admissible tensor categories but not the requested tensor-compatible Sen/Wintenberger cocharacter-image theorem. AlgebraicModuliForArithmeticGeometry R09.2 supplies Hilbert/Quot representability but not the graded regular-sequence Hilbert-series calculation. These are explicit requested extensions at their owners, not consequences of the currently written supplier statements. HodgeStructuresPartII H.2/connected-semisimple does not supply André normality in the generic Mumford–Tate group. CA.2/eulerian-unimodal supplies only unimodality; exact centered variance, Eulerian log-concavity and reflection/convolution closure remain requested extensions. Keep these extensions in the corresponding precise requests.
 
 ## How to read the build
 
@@ -129,7 +115,7 @@ Use in LS Theorems 6.4 and 8.17: Relates complex periods, p-adic periods and ari
 
 The acceptance check is: All four realizations have the same rank. Do not infer a polarization or an integral lattice from the basic definition.
 
-*Needs:* `ComplexComparisonPartII:C5/regular-singular-connection`, `ComplexComparisonPartII:C5/deligne-regular-singular-equivalence`, `HodgeStructuresPartII:H.2`, `PadicHodgeTheory:P8`, `DeligneWeightsAndPurity:DWP.0`.
+*Needs:* `ComplexComparisonPartII:C5/regular-singular-connection`, `ComplexComparisonPartII:C5/deligne-regular-singular-equivalence`, `HodgeStructuresPartII:H.2`, `PadicHodgeTheory:P8`, `DeligneWeightsAndPurity:DWP.0/weil-q-number`, `DeligneWeightsAndPurity:DWP.0/endomorphism-weights`.
 
 ### 0.2 Integral and polarized systems
 
@@ -155,7 +141,7 @@ Use in LS 6.4: Supplies the integral polarized pure variation required by Ax–S
 
 The acceptance check is: The category of all systems remains dual-closed; its integral-Frobenius subcollection need not be.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system`, `DeligneWeightsAndPurity:DWP.0`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system`, `DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic`, `DeligneWeightsAndPurity:DWP.0/purity-under-subquotients-and-extensions`.
 
 ### 0.3 Tensor category of compatible systems
 
@@ -181,7 +167,7 @@ Use in LS 5.14, 5.22 and 5.38: Makes algebra objects, module objects and tensor 
 
 The acceptance check is: On a disconnected base a fibre on one component is not a faithful functor on all components.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `HodgeStructuresPartII:H.2`, `PadicHodgeTheory:R06.2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `HodgeStructuresPartII:H.2`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`.
 
 ### 0.4 Constant arithmetic systems
 
@@ -233,7 +219,7 @@ Use in LS 5.29: Constructs twisted hypersurface cohomology from multiplication-c
 
 The acceptance check is: A rational projector need not preserve the original integral lattice; intersection, not integral application of the projector, constructs the new lattice.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.0/system-tannakian-category`, `MordellLawrenceVenkateshPartII:M2.0/integral-polarized-system`, `ComplexComparisonPartII:C5/gauss-manin-connection`, `PadicHodgeTheory:P8`, `PadicHodgeTheory:R06.5`, `HodgeStructuresPartII:H.2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.0/system-tannakian-category`, `MordellLawrenceVenkateshPartII:M2.0/integral-polarized-system`, `ComplexComparisonPartII:C5/gauss-manin-connection`, `PadicHodgeTheory:P8`, `DeligneWeightsAndPurity:DWP.4/smooth-projective-purity`, `WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity`, `HodgeStructuresPartII:H.2/geometric-pure`, `HodgeStructuresPartII:H.2/gauss-manin`, `PadicHodgeTheory:R06.5/proper-smooth-rational-de-rham-comparison`, `PadicHodgeTheory:R06.5/proper-smooth-formal-crystalline-comparison`, `PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists`.
 
 ### 0.6 Differential monodromy from a tensor generator
 
@@ -271,7 +257,7 @@ Use crystal transport and its Frobenius compatibility on a fixed residue tube. U
 
 The acceptance check is: For a nonisotrivial abelian family the pair is locally fixed while the Hodge line can vary.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system`, `PadicHodgeTheory:P8`, `PadicHodgeTheory:R06.2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system`, `PadicHodgeTheory:P8`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`.
 
 ### Examples
 
@@ -279,7 +265,7 @@ A constant arithmetic H⁰ system can have nontrivial finite Galois permutation 
 
 ### Dependencies
 
-`ComplexComparisonPartII:C5/deligne-regular-singular-equivalence`, `ComplexComparisonPartII:C5/gauss-manin-connection`, `ComplexComparisonPartII:C5/regular-singular-connection`, `DeligneWeightsAndPurity:DWP.0`, `HodgeStructuresPartII:H.2`, `MotivesAndAlgebraicCycles:MC.6`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `PadicHodgeTheory:P8`, `PadicHodgeTheory:R06.2`, `PadicHodgeTheory:R06.5`.
+`ComplexComparisonPartII:C5/deligne-regular-singular-equivalence`, `ComplexComparisonPartII:C5/gauss-manin-connection`, `ComplexComparisonPartII:C5/regular-singular-connection`, `DeligneWeightsAndPurity:DWP.0/endomorphism-weights`, `DeligneWeightsAndPurity:DWP.0/purity-under-subquotients-and-extensions`, `DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic`, `DeligneWeightsAndPurity:DWP.0/weil-q-number`, `DeligneWeightsAndPurity:DWP.4/smooth-projective-purity`, `HodgeStructuresPartII:H.2`, `HodgeStructuresPartII:H.2/gauss-manin`, `HodgeStructuresPartII:H.2/geometric-pure`, `MotivesAndAlgebraicCycles:MC.6`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `PadicHodgeTheory:P8`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`, `PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists`, `PadicHodgeTheory:R06.5/proper-smooth-formal-crystalline-comparison`, `PadicHodgeTheory:R06.5/proper-smooth-rational-de-rham-comparison`, `WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity`.
 
 ## Layer 1: Arithmetic coefficient systems
 
@@ -313,17 +299,18 @@ The acceptance check is: Separate finite étale algebras from arbitrary finite-d
 
 ### 1.2 Finite étale coefficient operations
 
-Construct H⁰-algebras from the trivial algebra O_E, the rational group algebra Q[B] of a finite abelian group B, the function algebra on a finite étale commutative group scheme, R⁰ of a proper smooth family, and pushforward along a finite étale base map. In the finite-monodromy case define crystalline realization by D_cris of the actual Galois representation. If K_v/Q_p is unramified of degree f, its semilinear Frobenius satisfies φ^f equal, under the unramified comparison, to the representation action of geometric Frobenius; the naive formula using the same residue-Frobenius action on both factors is not imposed.
+Construct H⁰-algebras from the trivial algebra O_E, the rational group algebra Q[B] of a finite abelian group B, the convolution dual of the function algebra on a finite étale commutative group scheme, R⁰ of a proper smooth family, and pushforward along a finite étale base map. In the finite-monodromy case define crystalline realization by D_cris of the actual Galois representation. If K_v/Q_p is unramified of degree f, its semilinear Frobenius satisfies φ^f equal, under the unramified comparison, to the representation action of geometric Frobenius; the naive formula using the same residue-Frobenius action on both factors is not imposed.
 
 (LS: Examples 5.15 and 5.17–5.21, pp. 45–47.)
 
-Use multiplication or cup product for the algebra structures and finite étale pushforward for descent. Construct the crystalline component through the invariants functor, then compute its f-th iterate rather than prescribing a false semilinear formula.
+Use group multiplication for the convolution dual, ordinary multiplication or cup product for the other algebra structures, and finite étale pushforward for descent. Construct the crystalline component through the invariants functor, then compute its f-th iterate rather than prescribing a false semilinear formula.
 
 The working interface consists of the following named declarations.
 
 - `H0Algebra.finite_etale_pushforward`: Finite étale pushforward carries a coefficient algebra and its descent action.
 - `H0Algebra.crystalline_frobenius_iterate`: On the unramified degree-f crystalline fibre φ^f matches the specified residue Frobenius action.
 - `H0Algebra.group_algebra_realization`: The Betti realization of the group-algebra construction is exactly Q[B], with its usual basis and multiplication.
+- `H0Algebra.finite_group_scheme_convolution`: For finite étale commutative B, the coefficient algebra is O(B)∨ with multiplication dual to the group-law comultiplication; for constant B its rational realization is Q[B].
 
 Use in LS 5.29: Supplies the actual descent algebra and its semilinear crystalline action.
 
@@ -332,10 +319,11 @@ Use in LS 5.29: Supplies the actual descent algebra and its semilinear crystalli
 - `h0-algebra-operations.1`: For B cyclic of order two, Q[B] splits as Q×Q over Q.
 - `h0-algebra-operations.2`: Over an unramified quadratic p-adic field a rank-two unramified representation whose residue Frobenius swaps factors must retain this swap in φ²; a formula with φ²=id is rejected.
 - `h0-algebra-operations.3`: The pushforward of the unit under a split two-sheeted étale cover has rank two, not rank one.
+- `h0-algebra-operations.4`: For constant cyclic B of order three, the convolution dual is Q[C₃]≅Q×Q(ζ₃); the pointwise function algebra Q³ is a different Q-algebra.
 
 The acceptance check is: Check geometric versus arithmetic Frobenius once against the conventions of DWP.0 and use the chosen geometric action consistently.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.1/h0-algebra`, `MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system`, `PadicHodgeTheory:R06.2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.1/h0-algebra`, `MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`.
 
 ### 1.3 Modules over coefficient algebras
 
@@ -503,7 +491,7 @@ Express the orbit projector in Q[Γ] on the finite multiplication cover and chec
 
 The acceptance check is: A single character summand need not have rational Frobenius coefficients; take the entire specified cyclotomic orbit.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.1/orbit-cohomology-system`, `MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system`, `DeligneWeightsAndPurity:DWP.0`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.1/orbit-cohomology-system`, `MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system`, `DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces`, `DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic`, `WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity`.
 
 ### Examples
 
@@ -511,7 +499,7 @@ A coefficient orbit of cardinality m with E_I-rank N has rational rank mN. Takin
 
 ### Dependencies
 
-`DeligneWeightsAndPurity:DWP.0`, `MordellLawrenceVenkateshPartII:M2.0`, `PadicHodgeTheory:R06.2`, `SheafConvolutionOnAbelianVarieties:SC.0/rank-one-local-system`, `SheafConvolutionOnAbelianVarieties:SC.3/hypersurface-euler-characteristics`, `SheafConvolutionOnAbelianVarieties:SC.4/inversion-duality`, `SheafConvolutionOnAbelianVarieties:SC.8/uniform-orbit-monodromy`.
+`DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces`, `DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic`, `MordellLawrenceVenkateshPartII:M2.0`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`, `SheafConvolutionOnAbelianVarieties:SC.0/rank-one-local-system`, `SheafConvolutionOnAbelianVarieties:SC.3/hypersurface-euler-characteristics`, `SheafConvolutionOnAbelianVarieties:SC.4/inversion-duality`, `SheafConvolutionOnAbelianVarieties:SC.8/uniform-orbit-monodromy`, `WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity`.
 
 ## Layer 2: Semilinear groups and filtered tensor objects
 
@@ -541,7 +529,7 @@ Use in LS 5.33, 5.43 and 8.8: Encodes Frobenius and arithmetic descent in one al
 
 The acceptance check is: Exactness is a scheme/functor statement, not an unsupported claim that every rational-point sequence is surjective.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.1/classical-coefficient-structure`, `AbelianSchemesAndArithmeticModuli:A6`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.1/classical-coefficient-structure`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`.
 
 ### 2.2 Semilinear Frobenius centralizer bound
 
@@ -714,11 +702,11 @@ The acceptance check is: Keep the parent’s recorded erratum about general redu
 
 ### 2.10 Finitely many semisimplification geometries
 
-Let G be a characteristic-zero algebraic group with reductive identity component and H⊂G a G-completely reducible subgroup. Up to the action of Z_G(H), only finitely many pairs (P,M) occur with P a Richardson parabolic, M a Levi of P and H⊂M. Consequently a fixed completely reducible image gives finitely many parabolic/Levi semisimplification types. This is a finiteness statement up to centralizer conjugacy, not finiteness of actual parabolics.
+Let G be an algebraic group over a characteristic-zero field E with reductive identity component and H⊂G an E-defined G-completely reducible subgroup. Up to the action of Z_G(H)(E), only finitely many E-defined pairs (P,M) occur with P a Richardson parabolic, M a Levi of P and H⊂M. Consequently a fixed completely reducible image gives finitely many parabolic/Levi semisimplification types. This is a finiteness statement up to centralizer conjugacy, not finiteness of actual parabolics.
 
 (LS: Lemmas 5.50 and 5.52, p. 62.)
 
-Choose a maximal torus in the connected centralizer and express allowable Levi factors by its centralizing cocharacters. The finitely many root-weight hyperplanes partition cocharacter space into finitely many faces; use each face to record its parabolic and Levi. Treat the finite component action without identifying its parabolic with the identity-component parabolic.
+Choose a maximal E-split torus in Z_G(H) and use conjugacy of maximal E-split tori under Z_G(H)(E) to express allowable E-defined Levi factors by its E-cocharacters. The finitely many root-weight hyperplanes partition cocharacter space into finitely many faces; use each face to record its parabolic and Levi. Treat the finite component action without identifying its parabolic with the identity-component parabolic.
 
 The acceptance check is: For H=1 there can be infinitely many actual Borels, but finitely many conjugacy types.
 
@@ -730,7 +718,7 @@ For the weight list (2,0,−2), T(1/2)=1, T(1)=2 and T(2)=2. For GL₂, cocharac
 
 ### Dependencies
 
-`AbelianSchemesAndArithmeticModuli:A6`, `MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-finrank`, `MordellLawrenceVenkatesh:LV.1/faltings-finiteness`, `MordellLawrenceVenkateshPartII:M2.0`, `MordellLawrenceVenkateshPartII:M2.1`, `MotivesAndAlgebraicCycles:MC.6`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
+`AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits`, `MordellLawrenceVenkatesh:LV.0/semilinear-centralizer-finrank`, `MordellLawrenceVenkatesh:LV.1/faltings-finiteness`, `MordellLawrenceVenkateshPartII:M2.0`, `MordellLawrenceVenkateshPartII:M2.1`, `MotivesAndAlgebraicCycles:MC.6`, `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
 ## Layer 3: Period orbits and transcendence transfer
 
@@ -746,7 +734,7 @@ Construct the torsor of horizontal tensor identifications between the variable a
 
 The acceptance check is: For a constant system the period map is constant. An arbitrary flag with the right dimensions can violate a horizontal tensor equation.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.0/differential-monodromy`, `MordellLawrenceVenkateshPartII:M2.0/crystalline-residue-fibres`, `MordellLawrenceVenkateshPartII:M2.2/tensor-g-filtration`, `HodgeStructuresPartII:H.3`, `MotivesAndAlgebraicCycles:MC.6`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.0/differential-monodromy`, `MordellLawrenceVenkateshPartII:M2.0/crystalline-residue-fibres`, `MordellLawrenceVenkateshPartII:M2.2/tensor-g-filtration`, `MotivesAndAlgebraicCycles:MC.6`, `HodgeStructuresPartII:H.3/polarized-compact-dual`, `HodgeStructuresPartII:H.3/represented-complex-orbit`, `HodgeStructuresPartII:H.3/period-map-holomorphic`.
 
 ### 3.2 Parabolic stabilizers of period orbits
 
@@ -758,7 +746,7 @@ Use the supplied normality theorem to make the Hodge cocharacter act on connecte
 
 The acceptance check is: Projectivity is for the connected monodromy orbit, rather than every orbit of a reductive group in a flag space.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.3/period-monodromy-orbit`, `HodgeStructuresPartII:H.2`, `HodgeStructuresPartII:H.3`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.3/period-monodromy-orbit`, `HodgeStructuresPartII:H.2`, `HodgeStructuresPartII:H.3/polarized-compact-dual`, `HodgeStructuresPartII:H.3/represented-complex-orbit`, `HodgeStructuresPartII:H.3/period-map-holomorphic`.
 
 ### 3.3 Analytic radicals for period ideals
 
@@ -776,7 +764,7 @@ The acceptance check is: For I=(z²), z vanishes on V(I) but need not belong to 
 
 Let X be smooth irreducible over C of positive dimension d and let its pure polarized integral variation have connected monodromy period orbit D_mon. If an algebraic subset Z⊂D_mon has codimension at least d, every positive-dimensional irreducible analytic component of the inverse image of Z under a local period map is contained in a proper algebraic subvariety of X. Zero-dimensional local components are points and are also proper. The assertion is componentwise or germwise; it does not assert that infinitely many components have one common proper algebraic closure.
 
-(LS: Corollary 6.3, pp. 64–65; LV: Corollary 9.2, pp. 963–965.)
+(LS: Lemma 6.3, pp. 64–65; LV: Corollary 9.2, pp. 963–965.)
 
 Apply the externally owned pure integral period-map Ax–Schanuel theorem to the graph of the period map and X×Z. The codimension inequality forces each component to be atypical unless its base projection is algebraically degenerate; handle isolated points separately.
 
@@ -794,7 +782,7 @@ Transfer formal Taylor expansions through an abstract field isomorphism Q̄_p≅
 
 The acceptance check is: Formal vanishing alone is not analytic ideal membership without Krull intersection. An infinite union of separately nondense subsets need not be nondense; only the finite component/disk decomposition is used.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.3/complex-period-codimension`, `MordellLawrenceVenkateshPartII:M2.3/local-analytic-nullstellensatz`, `MordellLawrenceVenkateshPartII:M2.0/crystalline-residue-fibres`, `mathlib:Ideal.iInf_pow_eq_bot_of_isLocalRing`, `MordellLawrenceVenkatesh:LV.2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.3/complex-period-codimension`, `MordellLawrenceVenkateshPartII:M2.3/local-analytic-nullstellensatz`, `MordellLawrenceVenkateshPartII:M2.0/crystalline-residue-fibres`, `mathlib:Ideal.iInf_pow_eq_bot_of_isLocalRing`, `MordellLawrenceVenkatesh:LV.2/residue-disk`, `MordellLawrenceVenkatesh:LV.2/formal-horizontal-sections`, `MordellLawrenceVenkatesh:LV.2/horizontal-sections-complex-convergence`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`.
 
 ### Examples
 
@@ -802,7 +790,7 @@ For the germ ideal (z²), z vanishes on its zero set but belongs only to its rad
 
 ### Dependencies
 
-`ComplexComparisonPartII:C0`, `HodgeStructuresPartII:H.2`, `HodgeStructuresPartII:H.3`, `MordellLawrenceVenkatesh:LV.2`, `MordellLawrenceVenkateshPartII:M2.0`, `MordellLawrenceVenkateshPartII:M2.2`, `MotivesAndAlgebraicCycles:MC.6`.
+`ComplexComparisonPartII:C0`, `HodgeStructuresPartII:H.2`, `HodgeStructuresPartII:H.3/period-map-holomorphic`, `HodgeStructuresPartII:H.3/polarized-compact-dual`, `HodgeStructuresPartII:H.3/represented-complex-orbit`, `MordellLawrenceVenkatesh:LV.2/formal-horizontal-sections`, `MordellLawrenceVenkatesh:LV.2/horizontal-sections-complex-convergence`, `MordellLawrenceVenkatesh:LV.2/residue-disk`, `MordellLawrenceVenkateshPartII:M2.0`, `MordellLawrenceVenkateshPartII:M2.2`, `MotivesAndAlgebraicCycles:MC.6`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras`.
 
 ## Layer 4: Balanced monodromy and semisimple fibres
 
@@ -886,7 +874,7 @@ The acceptance check is: The codimension estimate is for fixed isomorphism data,
 
 ### 4.5 Non-density for semisimple integral fibres
 
-Let 𝓧/Z[S⁻¹] have smooth geometrically connected generic fibre X of positive dimension. For an integral polarized pure compatible system with integral Frobenius and rational Frobenius characteristic polynomials outside S, uniform coefficient filtration and strongly c-balanced monodromy, assume A≥(dim X+dim H)/c. The integral points whose global coefficient-group representations are G-completely reducible are not Zariski dense in X. Fix the coefficient permutation representation and enlarge S only by finitely many primes.
+Let 𝓧 be of finite type over Z[S⁻¹] with smooth geometrically connected generic fibre X of positive dimension. For an integral polarized pure compatible system with integral Frobenius and rational Frobenius characteristic polynomials outside S, uniform coefficient filtration and strongly c-balanced monodromy, assume A≥(dim X+dim H)/c. The integral points whose global coefficient-group representations are G-completely reducible are not Zariski dense in X. Fix the coefficient permutation representation and enlarge S only by finitely many primes.
 
 (LS: Theorem 7.3, pp. 71–72.)
 
@@ -910,7 +898,7 @@ Define central weights, induced Levi filtrations, balance and bifiltered Frobeni
 
 ### 5.1 Central weights of filtrations
 
-For a characteristic-zero reductive group S, let a_S=X_*(Z(S)°)⊗Q, equivalently the Q-dual of rational characters of S via the nondegenerate central pairing. The weight w_S(μ) of a rational cocharacter μ is its projection to a_S. For a Levi M⊂G, restriction of rational characters gives a canonical inclusion ι_GM:a_G→a_M and a splitting of the opposite projection. Define the modular character γ_P as the inverse determinant of Ad on Lie(P), with additive pairing against cocharacters.
+For a characteristic-zero algebraic group S with reductive identity component, let a_S=X_*(Z(S°)°)⊗Q, equivalently the Q-dual of X^*(S°)⊗Q via the central pairing. Compute these geometric character spaces after algebraic closure and retain their Galois action for descent; rational cocharacters give invariant classes. The weight w_S(μ) of a rational cocharacter μ is its projection to a_S. For a Levi M⊂G, restriction of rational characters gives a canonical inclusion ι_GM:a_G→a_M and a splitting of the opposite projection. Define the modular character γ_P as the inverse determinant of Ad on Lie(P), with additive pairing against cocharacters.
 
 (LS: Definition 8.4, pp. 74–75; LV: §§11.1–11.2, pp. 985–986.)
 
@@ -936,11 +924,11 @@ The acceptance check is: All statements concern rational central spaces, so fini
 
 ### 5.2 Filtrations induced on a Levi quotient
 
-Let G be as in M2.2, P a Richardson parabolic with Levi quotient M and F a G-filtration. Choose a splitting cocharacter of F taking values in P; its projection defines a filtration F_M independent of this choice. On a flag variety the fixed points of a cocharacter in a given homogeneous orbit are conjugate under its centralizer; use this to establish independence. For GL(V), F_M is the filtration induced by F on the graded vector space of the P-flag.
+Let G be as in M2.2, P a Richardson parabolic with Levi quotient M and F a G-filtration. Choose a splitting cocharacter of F taking values in P; its projection defines a filtration F_M independent of this choice. Put Q=P_μ, the stabilizer of F. On each Q-homogeneous orbit Q·x in a flag variety, its μ-fixed points are conjugate under Z_Q(μ); use this for the Q-orbit of the point representing P to establish independence. For GL(V), F_M is the filtration induced by F on the graded vector space of the P-flag.
 
-(LS: Lemmas 8.2–8.3, pp. 73–74; LV: Lemmas 11.1–11.2, pp. 986–989.)
+(LS: Lemma 8.2 and Definition 8.3, pp. 73–74; LV: Lemmas 11.1–11.2, pp. 986–989.)
 
-Place a maximal torus of the filtration stabilizer in P after conjugacy, giving a splitting in P. Compare two choices by the centralizer action on fixed points; their Levi projections differ by the subgroup fixing the induced filtration. Identify the construction on each representation with the associated-graded filtration.
+Place a maximal torus of the filtration stabilizer in P after conjugacy, giving a splitting in P. Compare two P-valued choices inside the Q-homogeneous orbit Q·P in G/P, using the fixed-point lemma for Q=P_μ. Their Levi projections differ by the subgroup fixing the induced filtration. Identify the construction on each representation with the associated-graded filtration.
 
 The working interface consists of the following named declarations.
 
@@ -955,6 +943,7 @@ Use in LS 8.4, 8.8 and 8.12; LV 11.4: Makes balance and fixed graded types indep
 - `induced-levi-filtration.1`: For P=G, inducedLevi returns F.
 - `induced-levi-filtration.2`: For GL₂ with a chosen line L, the two induced one-dimensional graded filtrations record the intersection of L with F.
 - `induced-levi-filtration.3`: Two upper-unipotently conjugate splittings give the same quotient filtration.
+- `induced-levi-filtration.4`: For diagonal μ in SL₂, the two fixed points of the whole flag variety P¹ lie in distinct upper-Borel orbits and are not conjugate under its torus. The fixed-point lemma requires one Q-homogeneous orbit.
 
 The acceptance check is: Independence concerns filtrations, rather than literal equality of chosen cocharacters.
 
@@ -1002,7 +991,7 @@ The acceptance check is: A CM character over a number field can have unequal emb
 
 A bifiltered coefficient Frobenius object is (V,φ,F,f), with Hodge G-filtration F, φ-stable auxiliary G-filtration f and the given semilinear coefficient structure. Its graded type is the G-conjugacy class of (P_f,φ_M,F_M). Forget the numerical indexing of f when defining this type, while retaining the full Hodge indexing of F_M. This forgotten auxiliary indexing is necessary for finiteness; types are not unfiltered characteristic polynomials.
 
-(LS: Definitions 8.8–8.9, pp. 77–78.)
+(LS: Definition 8.8 and Remark 8.9, pp. 77–78.)
 
 Use the φ-stable parabolic of f and project φ and F to the Levi quotient. Form conjugacy classes of these quotient data with all defining coefficient tensors.
 
@@ -1100,7 +1089,7 @@ The acceptance check is: Replacing φ by φ^ss can enlarge the centralizer and t
 
 Let the coefficient system have uniform single-factor profile h, rank t for H, strongly c-balanced monodromy and a balanced reference graded type. Given a positive integer e, assume A≥(e+dim H)/c and B>T((e+dim H)/c)+T((h⁰−t)/2+(e+dim H)/c), with valid T arguments. In the monodromy period orbit, the locus admitting a φ-stable auxiliary filtration with that graded type has codimension at least e.
 
-(LS: Lemma 8.16, pp. 82–83.)
+(LS: Lemma 8.16, pp. 81–83.)
 
 Balance makes the total modular weight zero; select a Frobenius cycle with nonpositive average modular weight. Choose c independent index-class representatives in that cycle and project smoothly to their flag product. Apply the semibalanced fixed-graded bound with parameter e+dim H. Allow the graded pairs to vary; their dimension costs at most dim H by the semilinear centralizer bound.
 
@@ -1122,7 +1111,7 @@ Combine global-type finiteness, balanced local types, strongly balanced monodrom
 
 ### 6.1 The coefficient non-density theorem
 
-Let 𝓧/Z[S⁻¹] have smooth geometrically connected generic fibre X of dimension d>0. Let V be a pure polarized integral Hodge–Deligne system with integral Frobenius and rational Frobenius characteristic polynomials outside S, an equidimensional E-module of classical rank N and the required coefficient pairing. Assume a uniform factor profile h, strongly c-balanced differential monodromy relative to residue Frobenius and, writing t=rank H, A≥(d+dim H)/c and B>T((d+dim H)/c)+T((h⁰−t)/2+(d+dim H)/c). All T arguments must be in [0,dim H]. Then 𝓧(Z[S⁻¹]) is not Zariski dense in X. No semisimplicity hypothesis is imposed on the actual fibres.
+Let 𝓧 be of finite type over Z[S⁻¹] with smooth geometrically connected generic fibre X of dimension d>0. Let V be a pure polarized integral Hodge–Deligne system with integral Frobenius and rational Frobenius characteristic polynomials outside S, an equidimensional E-module of classical rank N and the required coefficient pairing. Assume a uniform factor profile h, strongly c-balanced differential monodromy relative to residue Frobenius and, writing t=rank H, A≥(d+dim H)/c and B>T((d+dim H)/c)+T((h⁰−t)/2+(d+dim H)/c). All T arguments must be in [0,dim H]. Then 𝓧(Z[S⁻¹]) is not Zariski dense in X. No semisimplicity hypothesis is imposed on the actual fibres.
 
 (LS: Theorem 8.17, pp. 83–84.)
 
@@ -1178,7 +1167,7 @@ Finitely many auxiliary-p semisimplifications remain by the parent GL finiteness
 
 The acceptance check is: Equal Frobenius characteristic polynomials determine the geometric centralizer dimension in the classical form group; no uniqueness of rational conjugacy is asserted.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.7/hodge-torus-image-adapter`, `MordellLawrenceVenkatesh:LV.1/faltings-finiteness`, `PadicHodgeTheory:R06.4/plan/fontaine-laffaille-rational-consequences`, `DeligneWeightsAndPurity:DWP.0`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.7/hodge-torus-image-adapter`, `MordellLawrenceVenkatesh:LV.1/faltings-finiteness`, `PadicHodgeTheory:R06.4/plan/fontaine-laffaille-rational-consequences`, `DeligneWeightsAndPurity:DWP.0/endomorphism-weights`, `DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues`, `DeligneWeightsAndPurity:DWP.4/smooth-projective-purity`, `WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity`.
 
 ### 7.4 Bad self-dual filtrations have large codimension
 
@@ -1202,23 +1191,23 @@ Construct paired self-dual semisimplification flags and transport their graded d
 
 The acceptance check is: Actual representations may be nonsplit; only their global semisimplifications are fixed.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.7/classical-bad-filtration-codimension`, `MordellLawrenceVenkateshPartII:M2.3/padic-period-nondensity`, `MordellLawrenceVenkateshPartII:M2.5/global-purity-implies-balance`, `PadicHodgeTheory:R06.2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.7/classical-bad-filtration-codimension`, `MordellLawrenceVenkateshPartII:M2.3/padic-period-nondensity`, `MordellLawrenceVenkateshPartII:M2.5/global-purity-implies-balance`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`.
 
 ### 7.6 Higher-dimensional integral-point non-density
 
-Let π:𝓩→𝓨 be smooth projective with geometrically connected relative dimension r, a relative ample class, and smooth geometrically connected generic base Y/Q of dimension d>0. Let V be primitive degree-r cohomology and assume geometric monodromy contains GAut(V,⟨,⟩)°. For its adjoint profile require A≥h⁰+d and B>T(h⁰+d)+T(3h⁰/2+d), with valid T arguments. Then 𝓨(Z[S⁻¹]) is not Zariski dense in Y. The theorem is the classical first instance of the shared period/codimension mechanism; the bounded-prime step is distinct from the coefficient-orbit construction.
+Let 𝓨 be smooth of finite type over Z[S⁻¹], and let π:𝓩→𝓨 be smooth projective with geometrically connected relative dimension r, a relative ample class, and smooth geometrically connected generic base Y/Q of dimension d>0. Let V be primitive degree-r cohomology and assume the Zariski closure of geometric monodromy contains Aut(V,⟨,⟩)°, the identity component of the isometry group. Its adjoint profile is still computed in the similitude group GAut(V,⟨,⟩). For its adjoint profile require A≥h⁰+d and B>T(h⁰+d)+T(3h⁰/2+d), with valid T arguments. Then 𝓨(Z[S⁻¹]) is not Zariski dense in Y. The theorem is the classical first instance of the shared period/codimension mechanism; the bounded-prime step is distinct from the coefficient-orbit construction.
 
-(LV: Theorem 10.1, pp. 969–970; proofs §§10.3–10.5, pp. 975–982.)
+(LV: Theorem 10.1, pp. 969–970, monodromy hypothesis (10.1), p. 968; proofs §§10.3–10.5, pp. 975–982.)
 
 Choose finitely many possible small-centralizer primes using the bounded-prime lemma. For each prime, parent arithmetic finiteness leaves finitely many semisimplifications and finitely many residue disks. Apply the preceding nondensity theorem to each resulting fibre and take their finite union.
 
-The acceptance check is: This theorem gives nondensity without assuming full monodromy on subvarieties.
+The acceptance check is: This theorem gives nondensity without assuming full monodromy on subvarieties. For an elliptic family, geometric monodromy may be Sp₂=SL₂ while the similitude group is GSp₂=GL₂. The monodromy hypothesis must not demand the scalar similitude direction.
 
 *Needs:* `MordellLawrenceVenkateshPartII:M2.7/bounded-small-frobenius-centralizer`, `MordellLawrenceVenkateshPartII:M2.7/classical-semisimplification-fibre`, `MordellLawrenceVenkateshPartII:M2.2/adjoint-hodge-profile`, `MordellLawrenceVenkatesh:LV.1/faltings-finiteness`.
 
 ### 7.7 Finiteness under monodromy on every subvariety
 
-In the preceding setup, assume every positive-dimensional geometrically irreducible subvariety of Y retains full connected primitive monodromy after passage to its smooth locus and finite field of definition, with the required rational arithmetic model or restriction-of-scalars comparison. Then the integral point set is finite. This stronger monodromy condition is an additional hypothesis; it is not established for the universal hypersurface family by large generic monodromy alone.
+In the preceding setup, assume every positive-dimensional geometrically irreducible subvariety of Y retains the full connected primitive isometry monodromy after passage to its smooth locus and finite field of definition, with the required rational arithmetic model or restriction-of-scalars comparison. Then the integral point set is finite. This stronger monodromy condition is an additional hypothesis; it is not established for the universal hypersurface family by large generic monodromy alone.
 
 (LV: Theorem 10.1, final assertion, p. 970.)
 
@@ -1234,11 +1223,11 @@ For a smooth degree-d hypersurface of dimension n≥2 over F_q, let b>0 be the d
 
 (LV: Lemma 12.1 and proof, pp. 995–996, corrected Fourier cutoff.)
 
-Normalize Frobenius eigenvalues onto the unit circle using purity and identify centralizer dimension with the sum of squared eigenvalue multiplicities. Use the squared Dirichlet kernel with frequencies −2N,…,2N and coefficients 2N+1−|j| to bound this sum by its weighted power sums. Apply the point-count trace bound through frequency 2N and the displayed cutoff; sum the geometric series to obtain the constant 3.
+Normalize Frobenius eigenvalues onto the unit circle using purity and identify centralizer dimension with the sum of squared eigenvalue multiplicities. Use the squared Dirichlet kernel with frequencies −2N,…,2N and coefficients 2N+1−|j| to bound this sum by its weighted power sums. Use the complete-intersection trace identity to cancel the ambient P^n terms. The elementary bounds 0≤#Y(F_(q^j))≤#P^(n+1)(F_(q^j)) imply |Σ_s(λ_s/q^(n/2))^j|≤q^((n/2+1)j). Apply this through frequency 2N and the displayed cutoff; sum the geometric series to obtain the constant 3.
 
 The acceptance check is: N=0 is excluded. The exponent 2N is required because squaring the kernel doubles its Fourier support.
 
-*Needs:* `DeligneWeightsAndPurity:DWP.0`, `MordellLawrenceVenkateshPartII:M2.2/adjoint-hodge-profile`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.2/adjoint-hodge-profile`, `DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces`, `DeligneWeightsAndPurity:DWP.4/smooth-projective-purity`, `WeilConjectures:WC.5/complete-intersection-point-count`, `EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology`.
 
 ### Examples
 
@@ -1246,7 +1235,7 @@ For middle degree r=2, a Frobenius eigenvalue λ is paired with ℓ²/λ. Using 
 
 ### Dependencies
 
-`DeligneWeightsAndPurity:DWP.0`, `MordellLawrenceVenkatesh:LV.1/faltings-finiteness`, `MordellLawrenceVenkateshPartII:M2.2`, `MordellLawrenceVenkateshPartII:M2.3`, `MordellLawrenceVenkateshPartII:M2.5`, `MotivesAndAlgebraicCycles:MC.6`, `PadicHodgeTheory:R06.2`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`, `PadicHodgeTheory:R06.4/plan/fontaine-laffaille-rational-consequences`.
+`DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces`, `DeligneWeightsAndPurity:DWP.0/endomorphism-weights`, `DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues`, `DeligneWeightsAndPurity:DWP.4/smooth-projective-purity`, `EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology`, `MordellLawrenceVenkatesh:LV.1/faltings-finiteness`, `MordellLawrenceVenkateshPartII:M2.2`, `MordellLawrenceVenkateshPartII:M2.3`, `MordellLawrenceVenkateshPartII:M2.5`, `MotivesAndAlgebraicCycles:MC.6`, `PadicHodgeTheory:R06.2`, `PadicHodgeTheory:R06.2/plan/admissible-category-tannakian`, `PadicHodgeTheory:R06.4/plan/fontaine-laffaille-rational-consequences`, `WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity`, `WeilConjectures:WC.5/complete-intersection-point-count`.
 
 ## Layer 8: Eulerian profiles and numerical criteria
 
@@ -1288,7 +1277,7 @@ Use in LS A.3–A.6; LV 10.2: Supplies exact second moments, the central mass bo
 
 The acceptance check is: Changing q−j to j−q is harmless only after proving symmetry of the individual Eulerian distribution.
 
-*Needs:* `ClassicalArithmeticCompletion:CA.2`.
+*Needs:* `ClassicalArithmeticCompletion:CA.2/eulerian-numbers`, `ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities`.
 
 ### 8.3 Second moment and log-concavity
 
@@ -1300,7 +1289,7 @@ Use the combinatorial owner’s adjacent-ascent indicator computation for the on
 
 The acceptance check is: At n=2 the difference variance is 1/2, not √(1/2).
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.8/eulerian-difference-law`, `ClassicalArithmeticCompletion:CA.2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.8/eulerian-difference-law`, `ClassicalArithmeticCompletion:CA.2`, `ClassicalArithmeticCompletion:CA.2/eulerian-numbers`, `ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities`.
 
 ### 8.4 The central Eulerian convolution mass is at most one half
 
@@ -1328,7 +1317,7 @@ The acceptance check is: The strict gap is needed before taking the continuity l
 
 ### 8.6 Primitive hypersurface Hodge numbers from the Jacobian ring
 
-For a smooth degree-d hypersurface in P^n over C, primitive middle Hodge multiplicity h^{p,n−1−p} is the coefficient of t^((p+1)d−n−1) in (1+t+⋯+t^(d−2))^(n+1), for 0≤p<n. Use the residue/Jacobian identification and the regular-sequence Hilbert series for the n+1 partial derivatives. This supplies the omitted justification of LV (10.6).
+For a smooth degree-d hypersurface in P^n over C with n≥2 and d≥2, the primitive middle Hodge multiplicity h^{p,n−1−p} equals the coefficient of t^((p+1)d−n−1) in (1+t+⋯+t^(d−2))^(n+1), for 0≤p<n. Use the residue/Jacobian identification and the regular-sequence Hilbert series for the n+1 partial derivatives. This supplies the omitted justification of LV (10.6).
 
 (BC: Batyrev–Cox Theorems 10.6 and 10.13, Remark 10.14, PDF pp. 30–34, specialized to projective space; LV: (10.6), pp. 971–972.)
 
@@ -1336,7 +1325,7 @@ Specialize the toric residue construction to the Cox ring C[x₀,…,x_n], with 
 
 The acceptance check is: For a smooth plane cubic, the primitive Hodge numbers are (1,1). For a quartic surface in P³, primitive h=(1,19,1), not the full h=(1,20,1).
 
-*Needs:* `HodgeStructuresPartII:H.2`, `AlgebraicModuliForArithmeticGeometry:R09.2`.
+*Needs:* `AlgebraicModuliForArithmeticGeometry:R09.2`, `HodgeStructuresPartII:H.2/geometric-pure`.
 
 ### 8.7 Eulerian asymptotics of projective hypersurface cohomology
 
@@ -1346,7 +1335,7 @@ Fix n≥2. As d→∞, primitive h^{p,n−1−p}(d)∼d^n A(n,p)/n! for 0≤p<n.
 
 Expand the coefficient formula by inclusion–exclusion; its leading d^n coefficient is the Eulerian finite-difference formula. Compute adjoint multiplicities from symmetric/exterior squares; diagonal terms and the scalar direction have lower order. Compare the parameter-space growth O(d^n) with adjoint h⁰ of order d^(2n).
 
-The acceptance check is: The parameter dimension uses binomial(n+d,d), not binomial(n+d−1,d−1).
+The acceptance check is: The parameter dimension is binomial(n+d,d)−1. For plane quartics it is 14, whereas the published binomial(n+d,d−1)−1 gives 19; plane cubics give 9 under both formulas.
 
 *Needs:* `MordellLawrenceVenkateshPartII:M2.8/projective-jacobian-hodge-formula`, `MordellLawrenceVenkateshPartII:M2.8/eulerian-difference-law`, `MordellLawrenceVenkateshPartII:M2.2/adjoint-hodge-profile`.
 
@@ -1360,7 +1349,7 @@ Import the Eulerian central limit theorem from its common combinatorial/probabil
 
 The acceptance check is: Convergence in distribution alone does not imply convergence of unbounded first moments; include uniform integrability.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.8/eulerian-second-moment-logconcavity`, `ClassicalArithmeticCompletion:CA.2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.8/eulerian-second-moment-logconcavity`, `ClassicalArithmeticCompletion:CA.2`, `ClassicalArithmeticCompletion:CA.2/eulerian-numbers`, `ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities`.
 
 ### 8.9 Large ambient dimension and degree satisfy the LV inequalities
 
@@ -1380,7 +1369,7 @@ For n=2 the Eulerian vector is (1,1) and its normalized difference law is (1/4,1
 
 ### Dependencies
 
-`AlgebraicModuliForArithmeticGeometry:R09.2`, `ClassicalArithmeticCompletion:CA.2`, `HodgeStructuresPartII:H.2`, `MordellLawrenceVenkateshPartII:M2.2`, `SheafConvolutionOnAbelianVarieties:SC.3/hypersurface-euler-characteristics`, `SheafConvolutionOnAbelianVarieties:SC.3/torsion-twist-hodge-tate`.
+`AlgebraicModuliForArithmeticGeometry:R09.2`, `ClassicalArithmeticCompletion:CA.2`, `ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities`, `ClassicalArithmeticCompletion:CA.2/eulerian-numbers`, `HodgeStructuresPartII:H.2/geometric-pure`, `MordellLawrenceVenkateshPartII:M2.2`, `SheafConvolutionOnAbelianVarieties:SC.3/hypersurface-euler-characteristics`, `SheafConvolutionOnAbelianVarieties:SC.3/torsion-twist-hodge-tate`.
 
 ## Layer 9: Projective hypersurface application
 
@@ -1392,7 +1381,7 @@ For n≥2,d≥2 let Y_nd be the smooth-hypersurface open of P(H⁰(P^n,O(d))) ov
 
 (LV: LV Proposition 10.2, pp. 970–971.)
 
-Use the projective space of coefficients, universal equation and open smoothness locus. Apply supplied weak/hard Lefschetz and primitive-pairing theory to split off ambient cohomology rationally.
+Use the projective space of coefficients, universal equation and open smoothness locus. Use EDC.4/complete-intersection-cohomology and the existing realization comparisons. The ambient middle Tate line in even dimension has nonzero self-pairing equal to the degree, so its orthogonal complement is a rational primitive summand with nondegenerate pairing. LPV.4 alone supplies only a radical quotient; general hard Lefschetz is unnecessary for this hypersurface calculation.
 
 The working interface consists of the following named declarations.
 
@@ -1410,7 +1399,7 @@ Use in LV Proposition 10.2: Supplies the actual parameter dimension and the fami
 
 The acceptance check is: The primitive projector need not preserve the original integral lattice; use its rational image intersected with a lattice.
 
-*Needs:* `AlgebraicModuliForArithmeticGeometry:R09.2`, `LefschetzPencilsAndVanishingCycles:LPV.4`.
+*Needs:* `AlgebraicModuliForArithmeticGeometry:R09.2`, `EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology`, `AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme`, `LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-quotient-and-its-pairing`, `LefschetzPencilsAndVanishingCycles:LPV.4/pencil-restriction-and-gysin`.
 
 ### 9.2 Large connected monodromy for universal hypersurfaces
 
@@ -1420,9 +1409,9 @@ For universal smooth degree-d hypersurfaces in P^n over C, in the safe range n�
 
 Use the primitive vanishing-cycle lattice and reflection/transvection formulas supplied by LPV.2–4. Apply Beauville’s finite-index arithmetic monodromy theorem in each parity, excluding quadrics and the cubic-surface case. Use Zariski density of the resulting infinite arithmetic form group in its connected algebraic group.
 
-The acceptance check is: LPV.5 supplies the symplectic criterion; its stated scope does not supply the even-middle-dimensional orthogonal theorem, whose supplier extension is recorded explicitly.
+The acceptance check is: LPV.5 supplies open symplectic monodromy and a conditional orthogonal open-or-finite alternative. Excluding the finite alternative for this universal family and obtaining Beauville’s arithmetic finite-index theorem remain separate supplier work.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.9/universal-projective-family`, `LefschetzPencilsAndVanishingCycles:LPV.2`, `LefschetzPencilsAndVanishingCycles:LPV.3`, `LefschetzPencilsAndVanishingCycles:LPV.4`, `LefschetzPencilsAndVanishingCycles:LPV.5`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.9/universal-projective-family`, `LefschetzPencilsAndVanishingCycles:LPV.2/complex-picard-lefschetz-comparison`, `LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils`, `LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-quotient-and-its-pairing`, `LefschetzPencilsAndVanishingCycles:LPV.4/pencil-restriction-and-gysin`, `LefschetzPencilsAndVanishingCycles:LPV.5/kazhdan-margulis-open-image`, `LefschetzPencilsAndVanishingCycles:LPV.5/conditional-orthogonal-open-or-finite`.
 
 ### 9.3 Non-density of integral hypersurface parameters
 
@@ -1442,7 +1431,7 @@ Plane cubics give a nine-dimensional coefficient parameter space, although ellip
 
 ### Dependencies
 
-`AlgebraicModuliForArithmeticGeometry:R09.2`, `LefschetzPencilsAndVanishingCycles:LPV.2`, `LefschetzPencilsAndVanishingCycles:LPV.3`, `LefschetzPencilsAndVanishingCycles:LPV.4`, `LefschetzPencilsAndVanishingCycles:LPV.5`, `MordellLawrenceVenkateshPartII:M2.7`, `MordellLawrenceVenkateshPartII:M2.8`.
+`AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme`, `EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology`, `LefschetzPencilsAndVanishingCycles:LPV.2/complex-picard-lefschetz-comparison`, `LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils`, `LefschetzPencilsAndVanishingCycles:LPV.4/pencil-restriction-and-gysin`, `LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-quotient-and-its-pairing`, `LefschetzPencilsAndVanishingCycles:LPV.5/conditional-orthogonal-open-or-finite`, `LefschetzPencilsAndVanishingCycles:LPV.5/kazhdan-margulis-open-image`, `MordellLawrenceVenkateshPartII:M2.7`, `MordellLawrenceVenkateshPartII:M2.8`.
 
 ## Layer 10: Hypersurface Shafarevich finiteness
 
@@ -1472,7 +1461,7 @@ Use in LS 9.2 and 9.3: Defines the arithmetic set and separates primitive from i
 
 The acceptance check is: For a∈A(K), properness extends a over O_K[S⁻¹], so its translation preserves good reduction.
 
-*Needs:* `AbelianSchemesAndArithmeticModuli:A1`, `AbelianSchemesAndArithmeticModuli:A2`, `AlgebraicModuliForArithmeticGeometry:R09.2`.
+*Needs:* `AbelianSchemesAndArithmeticModuli:A1`, `AbelianSchemesAndArithmeticModuli:A2`, `AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme`, `AbelianSchemesAndArithmeticModuli:A1/relative-rigidity-comparison`, `AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi`, `AbelianSchemesAndArithmeticModuli:A2/ample-cohomology-and-degree`.
 
 ### 10.2 A parameter space for smooth ample divisors
 
@@ -1498,13 +1487,13 @@ Use in LS 9.2: Turns the Shafarevich set into a set of integral parameters.
 
 The acceptance check is: The parameter scheme is not a presumed fine quotient by translations.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.10/good-reduction-primitive-hypersurface`, `AlgebraicModuliForArithmeticGeometry:R09.2`, `AbelianSchemesAndArithmeticModuli:A2`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.10/good-reduction-primitive-hypersurface`, `AlgebraicModuliForArithmeticGeometry:R09.2`, `AbelianSchemesAndArithmeticModuli:A2`, `AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme`, `AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi`, `AbelianSchemesAndArithmeticModuli:A2/ample-cohomology-and-degree`.
 
 ### 10.3 Restriction of scalars and integral parameters
 
 After enlarging a finite set S′ of rational primes so O_K[S⁻¹] is finite étale over Z[S′⁻¹], the quasi-projective divisor parameter scheme admits a scheme-valued Weil restriction X/Q with an integral model. Its integral points identify with the original O_K[S⁻¹]-points. Use the existing A6 restriction-of-scalars functor and its universal property; use A6’s imported quasi-projective representability criterion. The abelian variety restriction is again abelian in this finite étale setting.
 
-(LS: Proof of Theorem 9.2, p. 86.)
+(LS: Proof of Theorem 9.2, pp. 85–86.)
 
 Enlarge S′ to include ramified primes and spread the quasi-projective embedding. Apply representability and the functor-of-points adjunction to the integral model. Preserve the original family over K for twisted cohomology while using X/Q as its arithmetic base.
 
@@ -1516,13 +1505,13 @@ The acceptance check is: Do not claim properness of Weil restriction across a ra
 
 Let a set of integral points in a finite-type characteristic-zero parameter scheme be Zariski dense in an irreducible component C of its closure. Resolve C properly by X→C, isomorphic over a dense smooth open U. The points in U have unique rational lifts, and after spreading out the proper map these lifts are integral by the valuative criterion. They are dense in X. Points outside U are handled through the finitely many closure components or Noetherian induction, rather than by assuming every rational point of C lifts.
 
-(LS: Proof of Theorem 9.2, p. 86.)
+(LS: Proof of Theorem 9.2, pp. 85–86.)
 
 Restrict to the dense open where resolution is an isomorphism. Use density to retain a dense subset of the integral points in that open. Apply properness over the model to extend their rational lifts at every prime outside the enlarged set.
 
 The acceptance check is: A rational point lying over a singular exceptional fibre need not lift rationally; the dense-open restriction prevents that error.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.10/weil-restriction-arithmetic-adapter`, `AlgebraicModuliForArithmeticGeometry:R09.7`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.10/weil-restriction-arithmetic-adapter`, `AlgebraicModuliForArithmeticGeometry:R09.7`, `AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution`.
 
 ### 10.5 Nonconstant abelian-divisor families are arithmetically nondense
 
@@ -1558,7 +1547,7 @@ Use finite flat quotient and descent of a T-invariant Cartier divisor along the 
 
 The acceptance check is: A fixed order permits finitely many subgroup schemes of the fixed finite torsion group, not finitely many arbitrary finite group schemes.
 
-*Needs:* `MordellLawrenceVenkateshPartII:M2.10/good-reduction-primitive-hypersurface`, `AbelianSchemesAndArithmeticModuli:A3`.
+*Needs:* `MordellLawrenceVenkateshPartII:M2.10/good-reduction-primitive-hypersurface`, `AbelianSchemesAndArithmeticModuli:A3/nonaffine-abelian-quotient`, `AbelianSchemesAndArithmeticModuli:A3/theta-group`.
 
 ### 10.8 From geometric translations to A(K)-translations
 
@@ -1602,7 +1591,7 @@ The exceptional pair (5,20) gives D₁=binomial(25,5)/6=8855. Primitive degree 2
 
 ### Dependencies
 
-`AbelianSchemesAndArithmeticModuli:A1`, `AbelianSchemesAndArithmeticModuli:A2`, `AbelianSchemesAndArithmeticModuli:A3`, `AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes`, `AbelianSchemesAndArithmeticModuli:A6/hom-is-free-of-finite-rank`, `AbelianSchemesAndArithmeticModuli:A6/rosati-positivity`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`, `AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModuliForArithmeticGeometry:R09.7`, `FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness`, `HeightsRationalPointsAndObstructions:RP.1/weak-mordell-weil`, `MordellLawrenceVenkateshPartII:M2.1`, `MordellLawrenceVenkateshPartII:M2.4`, `MordellLawrenceVenkateshPartII:M2.6`, `MordellLawrenceVenkateshPartII:M2.8`, `SheafConvolutionOnAbelianVarieties:SC.5/exceptional-degree`, `SheafConvolutionOnAbelianVarieties:SC.6/classical-monodromy`.
+`AbelianSchemesAndArithmeticModuli:A1`, `AbelianSchemesAndArithmeticModuli:A1/relative-rigidity-comparison`, `AbelianSchemesAndArithmeticModuli:A2`, `AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi`, `AbelianSchemesAndArithmeticModuli:A2/ample-cohomology-and-degree`, `AbelianSchemesAndArithmeticModuli:A3/nonaffine-abelian-quotient`, `AbelianSchemesAndArithmeticModuli:A3/theta-group`, `AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes`, `AbelianSchemesAndArithmeticModuli:A6/hom-is-free-of-finite-rank`, `AbelianSchemesAndArithmeticModuli:A6/rosati-positivity`, `AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes`, `AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme`, `AlgebraicModuliForArithmeticGeometry:R09.7`, `AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution`, `FaltingsFinitenessAndIsogenyTheorems:R28.5/shafarevich-finiteness`, `HeightsRationalPointsAndObstructions:RP.1/weak-mordell-weil`, `MordellLawrenceVenkateshPartII:M2.1`, `MordellLawrenceVenkateshPartII:M2.4`, `MordellLawrenceVenkateshPartII:M2.6`, `MordellLawrenceVenkateshPartII:M2.8`, `SheafConvolutionOnAbelianVarieties:SC.5/exceptional-degree`, `SheafConvolutionOnAbelianVarieties:SC.6/classical-monodromy`.
 
 ## Downstream consumers
 
@@ -1612,7 +1601,7 @@ The two terminal applications consume the same period and balanced-filtration me
 
 LS locators refer to arXiv v5, 16 October 2025. The Annals article metadata was accessible, but its full publisher text was not obtained; every LS correction below is scoped to the preprint. LV locators refer to the publisher-formatted Inventiones article, printed pages 893–999. Its non-strict first numerical inequalities govern this document; arXiv v3 is used only for cross-collation. In particular the published assumptions are A≥h⁰+dim Y and A≥z+e.
 
-**E1 (LV, error).** At Published article, p. 971, parameter-space dimension before (10.8), The parameter dimension uses binomial(n+d−1,d−1)−1. Use binomial(n+d,d)−1∼d^n/n!. There are binomial(n+d,d) monomials of degree d in n+1 variables. Plane cubics give dimension 9, not 5. Existing correction: PAPER-LAWRENCE-VENKATESH-20/E1, confirmed in its independent review.
+**E1 (LV, error).** At Published article, p. 971, parameter-space dimension before (10.8), The displayed parameter dimension uses binomial(n+d,d−1)−1, with growth of degree n+1 in d. Use binomial(n+d,d)−1∼d^n/n!. There are binomial(n+d,d) degree-d monomials in n+1 variables. Plane quartics give parameter dimension 14, whereas the printed formula gives 19; plane cubics do not distinguish the formulas. Existing correction: PAPER-LAWRENCE-VENKATESH-20/E1, confirmed in its independent review.
 
 **E2 (LV, error).** At Published article, Lemma 12.1 and proof, pp. 995–996, The cutoff controls powers through N although the squared kernel has frequencies through 2N. Require q^((n/2+1)·2N)<b/3, for positive N; retain the bound 3b²/N. The coefficient of frequency 2N in the squared Dirichlet kernel is nonzero, so the same point-count bound must hold at 2N. Existing correction: PAPER-LAWRENCE-VENKATESH-20/E2, confirmed in its independent review.
 
@@ -1622,7 +1611,7 @@ LS locators refer to arXiv v5, 16 October 2025. The Annals article metadata was 
 
 **E5 (LV, misprint).** At Published article, final sentence of Lemma 11.4 proof, p. 993, The inverse maps are described without their minus signs. The forward map is −w and inverse is −w⁻¹. The displayed root sets lie in complements of positive standard parabolics, hence are negative roots; the sign is necessary. Existing correction: new.
 
-**E6 (LS, misprint).** At arXiv v5 only, Remark 5.44, p. 60, A decreasing associated-graded quotient uses the preceding filtration index. Use gr^a=F^a/F^(a+1). The preceding term contains F^a, while the next term is its subspace. Existing correction: new.
+**E6 (LS, misprint).** At arXiv v5 only, Definition 5.44, p. 60, A decreasing associated-graded quotient uses the preceding filtration index. Use gr^a=F^a/F^(a+1). The preceding term contains F^a, while the next term is its subspace. Existing correction: new.
 
 **E7 (LS, misprint).** At arXiv v5 only, Definition 9.1, p. 85, The primitivity sentence excludes any stabilizing translation without explicitly excluding zero. Exclude nonzero geometric translations, or require the stabilizer to be {0}. Translation by zero fixes every divisor. Existing correction: new.
 
