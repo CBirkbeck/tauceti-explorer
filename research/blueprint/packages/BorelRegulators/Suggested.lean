@@ -7,7 +7,9 @@ import TauCeti.AlgebraicTopology.SimplicialComplex.OrderComplex
 The roadmap is README.md. This file records light definitions and theorem signatures statable
 against the pinned APIs and is not exhaustive. It fixes conjugation parity in real Tate
 coordinates, the alternating trace coefficient, factorial-normalised leading coefficients,
-and the weight-two Tate-coordinate conversion. Integral lattices use one coordinate per complex place.
+and the weight-two Tate-coordinate conversion, whose relative value `-8/π` on the Pauli frame
+fixes the Bloch–Wigner coefficient of the README. Integral lattices use one coordinate per
+complex place.
 -/
 
 namespace TauCetiRoadmap.BorelRegulators
@@ -216,9 +218,10 @@ compact symmetric-pair duals, logarithmic-growth forms, cusp/root/Matsushima con
 stability, plus and rational Hurewicz interfaces, higher K-groups, transfer, Adams operations and
 their ranks, target coordinate equivalences and embedding maps,
 universal Borel and Deligne classes, arithmetic regulators and their lattice determinants,
-continued Dedekind zeta and its leading term, Tamagawa measures and compact period cycles,
-rational period lines, Bloch's adelic pairing comparison, the all-weight factor two, and the
-Suslin/Bloch–Wigner comparison, including its exact coefficient target.
+continued Dedekind zeta and its leading term, the zeta integral of a central division algebra,
+reduced-norm images and the norm-one Tamagawa numbers, compact period cycles, rational period
+lines, the all-weight factor two, and the Suslin/Bloch–Wigner comparison with its evaluated
+coefficient `D(S_F x)/π`.
 -/
 
 end
