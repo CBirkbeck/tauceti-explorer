@@ -1,0 +1,92 @@
+{
+  "id": "EffectiveBoundsPartII",
+  "title": "Effective arithmetic bounds and geometry of numbers, Part II: compact models and degree-sensitive field counts",
+  "area": "algebraicnt",
+  "parent": "tauceti:Completed/EffectiveBounds",
+  "summary": "Starting from the completed effective Hermite–Minkowski infrastructure, this continuation constructs number fields as components of small systems of integer equations. Short algebraic integers, generic first-jet interpolation and relation lattices control the equations. A logarithmic choice of dimension and degree then gives a field-count bound whose discriminant exponent is cubic in the logarithm of the degree. Generic lattice and geometric theorems are imported from their existing owners.",
+  "readme": "The full mathematical document is research/blueprint/readmes/EffectiveBoundsPartII.md. Fix the signed field discriminant but take its absolute value in every size bound. The weighted canonical measure, the house, and the coefficient Euclidean metric are distinct conventions. The endpoint is an unweighted count of Q-isomorphism classes. Existing root discriminants, bounded polynomial modules, fixed-ambient Hermite bounds, generic interpolation and Jacobian-open geometry are inputs. This continuation owns their arithmetic assembly; it does not plan regulator bounds, monogenicity, an optimal field-count exponent or an enumeration algorithm.",
+  "prerequisites": [
+    "tauceti:Completed/EffectiveBounds",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "GenericDoublePointInterpolation",
+    "SchemeAndStackFoundations",
+    "ArithmeticStatistics"
+  ],
+  "stages": [
+    {
+      "key": "EB.0",
+      "title": "Short algebraic integers",
+      "description": "Compare the weighted canonical measure with the existing mixed-space product measure; obtain canonical covolume sqrt(|disc K|). Apply the imported second Minkowski theorem with witnesses to obtain more than half the degree in delta-short integers. Prove the field-specific product-span argument and Proposition 1: a rational basis of integral elements with all conjugates at most delta². No integral-basis assertion is made.",
+      "requires": [
+        "tauceti:Completed/EffectiveBounds#layer-2-effective-hermiteminkowski-the-summit",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ]
+    },
+    {
+      "key": "EB.1",
+      "title": "Bounded generators with independent first jets",
+      "description": "Parametrize r integral generators by the short rational basis. Prove the conjugate-configuration map is invertible over C, pull back a nonzero generic first-jet minor, bound its degree and choose parameters in {0,…,dn(r+1)}. Obtain house at most n²d(r+1)delta² and descend degree-d value surjectivity to Q, for r≥1,d≥5,n(r+1)≤choose(d+r,d).",
+      "requires": [
+        "EffectiveBoundsPartII:EB.0",
+        "GenericDoublePointInterpolation:GI.5"
+      ]
+    },
+    {
+      "key": "EB.2",
+      "title": "Arithmetic relation lattices",
+      "description": "Use the native degree-bounded polynomial module and the imported coefficient coordinates. Define the integral evaluation kernel, prove its rank M−n and saturation, and compare the transpose image of the dual ring of integers with the primitive orthogonal lattice. Relate its Gram determinant to the discriminant using an actual integral basis. Bound evaluation entries and the intrinsic relation covolume, retaining the finite index and the discriminant denominator.",
+      "requires": [
+        "EffectiveBoundsPartII:EB.1",
+        "GenericDoublePointInterpolation:GI.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.0"
+      ]
+    },
+    {
+      "key": "EB.3",
+      "title": "Short equations and a common Jacobian minor",
+      "description": "Apply second Minkowski to the coefficient Euclidean lattice to obtain independent relations, retain ell+1−n of them with coefficient bound ell^(ell/(2n)) sqrt(M) [n²d(r+1)]^d delta^(2d), and use first jets to obtain full gradient rank at some conjugate. Select one r-row minor and show it is nonzero at every conjugate by injectivity of embeddings.",
+      "requires": [
+        "EffectiveBoundsPartII:EB.2",
+        "GenericDoublePointInterpolation:GI.1",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.1"
+      ]
+    },
+    {
+      "key": "EB.4",
+      "title": "Compact component models",
+      "description": "Apply the existing Jacobian-open finite-etale theorem to the selected integer equations. Construct the actual surjective evaluation from the localized Q-algebra onto K, compatible with its polynomial evaluation. Prove Proposition 2 with the explicit coefficient bound and Spec K as an open and closed irreducible component; do not claim the selected equations generate the full relation ideal.",
+      "requires": [
+        "EffectiveBoundsPartII:EB.3",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "EB.5",
+      "title": "Degree-sensitive field counts",
+      "description": "Choose the least positive r with n(r+1)≤choose(2r,r), set d=r in the eventual r≥5 range, and prove Theorem 1 with logarithmic r,d and M≤Qn log n. Count ordered integer equation systems in their coefficient box. Bound the field classes represented by each model using isolated-point Bezout in arbitrary dimension, and deduce Theorem 2: N_n(H)≤n^(Qn(log n)^3) H^(Q(log n)^3) for n>Q,H≥1, counting Q-isomorphism classes without automorphism weights.",
+      "requires": [
+        "EffectiveBoundsPartII:EB.4",
+        "SchemeAndStackFoundations:SF.5",
+        "ArithmeticStatistics:ST.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "COU20",
+      "title": "Enumerating number fields",
+      "authors": "Jean-Marc Couveignes",
+      "edition": "Annals of Mathematics 192 (2020), no. 2, 487–497, version of record",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v192-n2-p04-s.pdf",
+      "accessed": "2026-10-19",
+      "sha256": "8d63bd3a14f0d61f421695f1d93559d18fb674240c6dee872c23bf5902e1a104",
+      "readSections": [
+        "Theorems 1–2, pp. 487–488, and introductory conventions through p. 489",
+        "Proposition 1 and its complete argument, §2, pp. 489–490",
+        "Construction and proof of Proposition 2, §3, pp. 491–495",
+        "Parameter estimates and counting proof, §4, pp. 495–496; references pp. 496–497"
+      ]
+    }
+  ],
+  "status": "draft"
+}
