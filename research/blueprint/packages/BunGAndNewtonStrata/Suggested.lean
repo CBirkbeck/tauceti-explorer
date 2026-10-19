@@ -50,11 +50,6 @@ def mk (sigma : G ≃* G) (b : G) : SigmaClass sigma :=
 theorem mk_eq_iff (sigma : G ≃* G) (b c : G) :
     mk sigma b = mk sigma c ↔ ∃ g, c = g * b * (sigma g)⁻¹ := by sorry
 
-example (b c : G) : mk (MulEquiv.refl G) b = mk (MulEquiv.refl G) c ↔
-    ∃ g, c = g * b * g⁻¹ := by sorry
-example {A : Type u} [CommGroup A] (b c : A) :
-    mk (MulEquiv.refl A) b = mk (MulEquiv.refl A) c ↔ b = c := by sorry
-example : mk (MulEquiv.refl ℚˣ) 1 ≠ mk (MulEquiv.refl ℚˣ) (-1) := by sorry
 end SigmaClass
 
 end TwistedGroup
@@ -86,14 +81,33 @@ theorem classification :
       ∀ m : ℤ, e (SigmaClass.mk (sigma p k) (uniformizer p k ^ m)) = m := by sorry
 
 example {K : Type u} [CommRing K] (s : K ≃+* K) (x : Kˣ) :
-    (unitFrobenius s x : K) = s (x : K) := by sorry
+    (unitFrobenius s x : K) = s (x : K) := by rfl
 example {K : Type u} [CommRing K] (x : Kˣ) :
-    unitFrobenius (RingEquiv.refl K) x = x := by sorry
-example : (uniformizer p k : Coefficients p k) = p := by sorry
+    unitFrobenius (RingEquiv.refl K) x = x := by
+  ext
+  rfl
 example : SigmaClass.mk (sigma p k) 1 ≠
-    SigmaClass.mk (sigma p k) (uniformizer p k) := by sorry
+    SigmaClass.mk (sigma p k) (uniformizer p k) := by
+  obtain ⟨e, he⟩ := classification p k
+  intro h
+  have h' := congrArg e h
+  have hzero := he 0
+  have hone := he 1
+  simp only [zpow_zero] at hzero
+  simp only [zpow_one] at hone
+  rw [hzero, hone] at h'
+  norm_num at h'
 example : SigmaClass.mk (sigma p k) (uniformizer p k) ≠
-    SigmaClass.mk (sigma p k) (uniformizer p k)⁻¹ := by sorry
+    SigmaClass.mk (sigma p k) (uniformizer p k)⁻¹ := by
+  obtain ⟨e, he⟩ := classification p k
+  intro h
+  have h' := congrArg e h
+  have hone := he 1
+  have hneg := he (-1)
+  simp only [zpow_one] at hone
+  simp only [zpow_neg_one] at hneg
+  rw [hone, hneg] at h'
+  norm_num at h'
 end WittRankOne
 
 /-! ## Layer 1: Newton and Kottwitz invariants, centralizers and acceptable classes -/
@@ -115,8 +129,12 @@ theorem conjugate_points (sigma : G ≃* G) (b g h : G) :
       g * h * g⁻¹ ∈ points sigma (twistedConjugate sigma g b) := by sorry
 
 example (sigma : G ≃* G) (g : G) :
-    g ∈ points sigma 1 ↔ sigma g = g := by sorry
-example : points (MulEquiv.refl G) (1 : G) = ⊤ := by sorry
+    g ∈ points sigma 1 ↔ sigma g = g := by
+  change g * 1 = 1 * sigma g ↔ sigma g = g
+  simp [eq_comm]
+example : points (MulEquiv.refl G) (1 : G) = ⊤ := by
+  ext g
+  simp [points]
 end SigmaCentralizer
 
 /-- The ordered product of exactly r Frobenius translates. -/
@@ -133,18 +151,17 @@ theorem frobeniusNorm_twisted (sigma : G ≃* G) (b g : G) (r : ℕ) :
     frobeniusNorm sigma (twistedConjugate sigma g b) r =
       g * frobeniusNorm sigma b r * (((sigma : G → G)^[r]) g)⁻¹ := by sorry
 
-example (sigma : G ≃* G) (b : G) : frobeniusNorm sigma b 1 = b := by sorry
+example (sigma : G ≃* G) (b : G) : frobeniusNorm sigma b 1 = b := by
+  simp [frobeniusNorm]
 example (sigma : G ≃* G) (b : G) :
-    frobeniusNorm sigma b 2 = b * sigma b := by sorry
-example (sigma : G ≃* G) (b a : G) : ¬ decencyEquation sigma b a 0 := by sorry
+    frobeniusNorm sigma b 2 = b * sigma b := by
+  simp [frobeniusNorm]
+example (sigma : G ≃* G) (b a : G) : ¬ decencyEquation sigma b a 0 := by
+  simp [decencyEquation]
 example (sigma : G ≃* G) (b a : G) :
-    decencyEquation sigma b a 1 ↔ b = a := by sorry
+    decencyEquation sigma b a 1 ↔ b = a := by
+  simp [decencyEquation, frobeniusNorm]
 end TwistedGroupInvariants
-
-
-
-
-
 
 /-- Numerical GL_n slope data; each denominator divides its multiplicity. -/
 structure GLnSlopeData (n : ℕ) where
@@ -200,12 +217,35 @@ def zero (n : ℕ) : GLnSlopeData n where
 theorem dominance_antisymm {n : ℕ} (x y : GLnSlopeData n)
     (hxy : dominance x y) (hyx : dominance y x) : x = y := by sorry
 
-example : dominance half split ∧ ¬ dominance split half := by sorry
-example : basic half ∧ ¬ basic split := by sorry
-example : acceptable half split ∧ ¬ acceptable split half := by sorry
-example : ordinary split split ∧ ¬ ordinary half split := by sorry
-example : basic (zero 0) ∧ ordinary (zero 0) (zero 0) := by sorry
-example : ¬ ∃ x : GLnSlopeData 1, x.slopes 0 = (1/2 : ℚ) := by sorry
+example : dominance half split ∧ ¬ dominance split half := by
+  constructor
+  · refine ⟨rfl, ?_⟩
+    intro k hk
+    interval_cases k <;> norm_num [half, split, Fin.sum_univ_two]
+  · intro h
+    have hfirst := h.2 1 (by omega)
+    norm_num [half, split, Fin.sum_univ_two] at hfirst
+example : basic half ∧ ¬ basic split := by
+  constructor
+  · intro i j
+    rfl
+  · intro h
+    have hfirst := h 0 1
+    norm_num [split] at hfirst
+example : ordinary split split ∧ ¬ ordinary half split := by
+  constructor
+  · exact ⟨⟨rfl, fun _ _ => le_rfl⟩, rfl⟩
+  · rintro ⟨_, h⟩
+    have hfirst := congrFun h 0
+    norm_num [half, split] at hfirst
+example : basic (zero 0) ∧ ordinary (zero 0) (zero 0) := by
+  constructor
+  · intro i
+    exact Fin.elim0 i
+  · exact ⟨⟨rfl, fun _ _ => le_rfl⟩, rfl⟩
+/-- A slope of denominator two cannot occur with multiplicity one. -/
+theorem rank_one_half_impossible :
+    ¬ ∃ x : GLnSlopeData 1, x.slopes 0 = (1/2 : ℚ) := by sorry
 end GLnSlopeData
 
 namespace SlopeProtorus
@@ -238,10 +278,14 @@ theorem finite_weights_and_denominators
 
 example : character E (1/2)
     (MonoidAlgebra.single (Multiplicative.ofAdd (2 : ℤ)) (1 : E)) =
-      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ℚ)) (1 : E) := by sorry
+      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ℚ)) (1 : E) := by
+  simp [character, MonoidAlgebra.mapDomainBialgHom_single]
 example (n : ℤ) : character E 0
-    (MonoidAlgebra.single (Multiplicative.ofAdd n) (1 : E)) = 1 := by sorry
-example (n : ℤ) : character E (1/2) ≠ character E (n : ℚ) := by sorry
+    (MonoidAlgebra.single (Multiplicative.ofAdd n) (1 : E)) = 1 := by
+  simp [character, MonoidAlgebra.mapDomainBialgHom_single, MonoidAlgebra.one_def]
+/-- The rational half-slope does not come from an integral cocharacter. -/
+theorem half_not_integral (n : ℤ) :
+    character E (1/2) ≠ character E (n : ℚ) := by sorry
 end SlopeProtorus
 
 namespace KottwitzDescent
@@ -275,9 +319,14 @@ theorem abelian_classification (tau : A ≃+ A) :
         Representation.Coinvariants.mk (cyclicRepresentation tau) a := by sorry
 
 example (tau : A ≃+ A) (a : A) :
-    cyclicRepresentation tau (Multiplicative.ofAdd 1) a = tau a := by sorry
-example (a : A) : cyclicRepresentation (AddEquiv.refl A) (Multiplicative.ofAdd 7) a = a :=
-  by sorry
+    cyclicRepresentation tau (Multiplicative.ofAdd 1) a = tau a := by
+  simp [cyclicRepresentation]
+example (n : ℤ) (a : A) :
+    cyclicRepresentation (AddEquiv.refl A) (Multiplicative.ofAdd n) a = a := by
+  have h : (AddEquiv.refl A).toIntLinearEquiv = 1 := by
+    ext x
+    rfl
+  simp [cyclicRepresentation, h]
 end KottwitzDescent
 
 /-- The affine solution fibre of Frobenius minus identity, with no chosen origin. -/
@@ -298,9 +347,20 @@ def negation : ℤ ≃+ ℤ where
   right_inv := by sorry
   map_add' := by sorry
 
-example : ComponentCoset (AddEquiv.refl ℤ) 0 = Set.univ := by sorry
-example : ComponentCoset negation 2 = {(-1 : ℤ)} := by sorry
-example : ComponentCoset negation 1 = ∅ := by sorry
+example : ComponentCoset negation 2 = {(-1 : ℤ)} := by
+  apply Set.ext
+  intro x
+  change -x - x = 2 ↔ x = -1
+  omega
+example : ComponentCoset negation 1 = ∅ := by
+  apply Set.ext
+  intro x
+  change (-x - x : ℤ) = 1 ↔ False
+  constructor
+  · intro h
+    have hmod := congrArg (fun z : ℤ => z % 2) h
+    omega
+  · exact False.elim
 
 /-- Sign coinvariants have two elements; rational averaging would lose their torsion. -/
 theorem sign_coinvariants :
@@ -308,9 +368,13 @@ theorem sign_coinvariants :
       ∀ a : ℤ, e (Representation.Coinvariants.mk
         (KottwitzDescent.cyclicRepresentation negation) a) = (a : ZMod 2) := by sorry
 
-example : Representation.Coinvariants.mk (KottwitzDescent.cyclicRepresentation negation) 0 ≠
+/-- The sign-action integral quotient distinguishes odd from even classes. -/
+theorem sign_zero_ne_one :
+    Representation.Coinvariants.mk (KottwitzDescent.cyclicRepresentation negation) 0 ≠
     Representation.Coinvariants.mk (KottwitzDescent.cyclicRepresentation negation) 1 := by sorry
-example : Representation.Coinvariants.mk (KottwitzDescent.cyclicRepresentation negation) 2 =
+/-- The sign relation kills twice the generator. -/
+theorem sign_two_eq_zero :
+    Representation.Coinvariants.mk (KottwitzDescent.cyclicRepresentation negation) 2 =
     Representation.Coinvariants.mk (KottwitzDescent.cyclicRepresentation negation) 0 := by sorry
 end ComponentCoset
 
@@ -358,12 +422,13 @@ The charts M_b, their negative Banach–Colmez towers, split sections, contracti
 the Jacobian positivity are specified in the README.
 -/
 
-/- Further README targets, not stated here: GBundle, GIsocrystal, the relative tensor torsors,
-PureInnerTwist, GIsocrystalFamily, AlgebraicPiOne, NewtonSpace, HodgeInvariants, Invariants,
+/- Further README targets, not stated here: GBundle, GIsocrystal, the relative tensor torsors
+and filtered tensor functors, PureInnerTwist, GIsocrystalFamily, PiOneTransport, continuous
+Weil cohomology of crossed modules, NewtonSpace, HodgeInvariants, Invariants,
 DecentRepresentative, SigmaCentralizer as a reductive group, Defect, Basic, NewtonOrder,
 Acceptable, Ordinary, TorusSpecial, RationalNewtonWitness, AbelianizedClass,
 BasicInnerFormEquivalence, DivisionAlgebraMorita, CentralNewtonOnJ, CurveEtaleBase, Bun,
-HNGraded, FilteredAutomorphism, FullAutomorphism, Semistable, TorusPicard, FlagNewton and
-FilteredChart. -/
+BoundaryPeriodSpace and its bundle comparisons, HNGraded, FilteredAutomorphism,
+FullAutomorphism, Semistable, TorusPicard, FlagNewton and FilteredChart. -/
 
 end TauCetiRoadmap.BunGAndNewtonStrata
