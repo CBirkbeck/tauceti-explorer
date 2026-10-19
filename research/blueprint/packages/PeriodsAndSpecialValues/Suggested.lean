@@ -82,6 +82,27 @@ conjugation. -/
 example : tateInfinitySign 1 = -1 := by
   simp [tateInfinitySign]
 
+/-- The integration matrix of the two Legendre ovals, with cycles as rows and forms as columns
+(PS.0.5). Its interpretation as an actual pairing is a README target. -/
+def ellipticIntegrationMatrix (K J H : ℂ) : Matrix (Fin 2) (Fin 2) ℂ :=
+  !![2 * K, 2 * J; 2 * Complex.I * K, 2 * Complex.I * H]
+
+/-- Nonsingularity follows from the positive integral inequalities `0 < J < K < H` in PS.0.5. -/
+theorem ellipticIntegrationMatrix_det (K J H : ℂ) :
+    (ellipticIntegrationMatrix K J H).det = 4 * Complex.I * K * (H - J) := by
+  norm_num [ellipticIntegrationMatrix, Matrix.det_fin_two]
+  ring
+
+/-- A nonsingular two-term witness fixes both the factor four and the imaginary sign. -/
+example : (ellipticIntegrationMatrix 1 0 2).det = 8 * Complex.I := by
+  rw [ellipticIntegrationMatrix_det]
+  ring
+
+/-- Equal second-column parameters collapse the determinant; inversion requires a genuine basis. -/
+example : (ellipticIntegrationMatrix 1 1 1).det = 0 := by
+  rw [ellipticIntegrationMatrix_det]
+  ring
+
 /-- Deligne's comparison in the Betti cohomology basis dual to the row cycles of the
 integration matrix. Its interpretation as a comparison requires a nonsingular matrix (PS.0.5). -/
 def ellipticComparisonMatrix (B : Matrix (Fin 2) (Fin 2) ℂ) : Matrix (Fin 2) (Fin 2) ℂ := B⁻¹
@@ -191,12 +212,22 @@ example : tateTorsorEvaluation (LaurentPolynomial.T 1 * LaurentPolynomial.T (-1)
   rw [← LaurentPolynomial.T_add]
   simp
 
+/-- The interval integration and its reversed orientation pin the Stokes sign in PS.2.1. -/
+example : (∫ _ : ℝ in (0 : ℝ)..1, (1 : ℝ)) = 1 ∧
+    (∫ _ : ℝ in (1 : ℝ)..0, (1 : ℝ)) = -1 := by
+  norm_num
+
 /-! ## Layers PS.3–PS.6
 
 Fundamental lines and their regulator trivializations, integral fundamental lattices, the equivariant Tamagawa obstruction, Bloch–Kato points and
 measures, and the elliptic and Rankin–Selberg comparisons need determinant lines of perfect
 complexes, relative K-groups and Selmer complexes that are not at the pins. Their targets are in
 `README.md`. -/
+
+/-- Swapping two rank-one determinant factors has sign `-1`, even when their K₀ sum is unchanged
+(PS.3.1). This tests the commutative grading convention, not the missing virtual category. -/
+example : (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ).det = -1 := by
+  decide
 
 /-! ## Layer PS.7: certified computations and the research boundary -/
 
@@ -392,6 +423,16 @@ section Quintic
 def quinticPolynomial {K : Type*} [CommRing K] (l : K) (x : Fin 5 → K) : K :=
   l * ∑ i, x i ^ 5 + ∏ i, x i
 
+/-- At the log boundary the equation is the coordinate-hyperplane union (PS.8.17). -/
+example {K : Type*} [CommRing K] (x : Fin 5 → K) :
+    quinticPolynomial 0 x = ∏ i, x i := by
+  simp [quinticPolynomial]
+
+/-- The opposite signs of the two parameters distinguish the adapter `U = -5` to the DM.8 model. -/
+example : quinticPolynomial (-1 / 5 : ℚ) (fun _ => 1) = 0 ∧
+    quinticPolynomial (1 / 5 : ℚ) (fun _ => 1) = 2 := by
+  norm_num [quinticPolynomial]
+
 /-- The logarithmic connection matrix of `δ` on the basis `e_i = δ^i ω`, column-input convention,
 with `g = 5⁵λ⁵/(1 + 5⁵λ⁵)` (PS.8.13). -/
 def quinticConnectionMatrix (l : ℚ) : Matrix (Fin 4) (Fin 4) ℚ :=
@@ -406,6 +447,24 @@ def quinticBoundaryPairing {K : Type*} [CommRing K] (Y : K) : Matrix (Fin 4) (Fi
 def quinticBoundaryMatrix {K : Type*} [Field K] (p : ℕ) (δ : K) : Matrix (Fin 4) (Fin 4) K :=
   let pK := (p : K)
   !![pK ^ 3, 0, 0, 0; 0, pK ^ 2, 0, 0; 0, 0, pK, 0; pK ^ 3 * 24 / 25 * δ, 0, 0, 1]
+
+/-- A normalization error by one power of `p` changes the first boundary eigenvalue (PS.8.17). -/
+example : (quinticBoundaryMatrix 3 (0 : ℚ)) 0 0 = 27 ∧
+    ((3 : ℚ) • quinticBoundaryMatrix 3 (0 : ℚ)) 0 0 = 81 := by
+  norm_num [quinticBoundaryMatrix]
+
+/-- With `C = diag(3,1,1,1)` the bottom-left entry changes from `1` to `3`, so the rational
+matrix alone does not specify an integral lattice (PS.8.17). -/
+example : (quinticBoundaryMatrix 3 (25 / 648 : ℚ)) 3 0 = 1 ∧
+    ((Matrix.diagonal (![1 / 3, 1, 1, 1] : Fin 4 → ℚ)) *
+      quinticBoundaryMatrix 3 (25 / 648 : ℚ) *
+      Matrix.diagonal (![3, 1, 1, 1] : Fin 4 → ℚ)) 3 0 = 3 := by
+  constructor
+  · change (3 : ℚ) ^ 3 * 24 / 25 * (25 / 648) = 1
+    norm_num
+  · rw [Matrix.mul_diagonal, Matrix.diagonal_mul]
+    change (1 : ℚ) * (3 ^ 3 * 24 / 25 * (25 / 648)) * 3 = 3
+    norm_num
 
 /-- `N F = p F N` with the residue `N` at `λ = 0`. -/
 theorem quinticBoundary_horizontal {K : Type*} [Field K] [Algebra ℚ K] (p : ℕ) (δ : K) :
@@ -621,17 +680,23 @@ end MZV
 /-!
 Targets of `README.md` without a declaration here, because their carriers are not at the pins:
 the comparison determinant line, period classes over all embeddings and Deligne's periods
-(PS.0.1–PS.0.4); motivic Euler products, completions, `DeligneAlgebraic`, the Dirichlet and
+(PS.0.1–PS.0.4), `ellipticSecondKindClass`, `ellipticOvalBasis` and `ellipticIntegrationPairing`
+(PS.0.5); motivic Euler products, completions, `DeligneAlgebraic`, the Dirichlet and
 modular adapters, `SerreSystem` and the Hasse–Weil predicates (PS.1); formal-period evaluation and
 the torsor comparison (PS.2.1–PS.2.2); fundamental lines, `realTrivialization`,
-`LeadingTermRational` (PS.3); integral lattices and local
-corrections (PS.4); `tamagawaObstruction`, `ETNC` and the zeta-isomorphism comparisons (PS.5);
+`LeadingTermRational` and the requested `virtualPerfectDeterminant` (PS.3); integral lattices and
+local corrections (PS.4); `finiteBoundaryGluing`, `cohomologicalObstruction`, `extendedBoundary`,
+`tamagawaObstruction`, `ETNC` and the zeta-isomorphism comparisons (PS.5);
 Bloch–Kato pairs, measures, Sha and `BlochKatoTamagawa`, the elliptic adapter and `BBKRankZeroOne`
-(PS.6); certified boxes and `PeriodConjecture` (PS.7.2–PS.7.4); the resolved quartic family, its
+(PS.6), together with the proposed supplier's `rankinAdmissible`, `diagonalAbelJacobi`,
+`rankZero_of_admissible` and `rankOne_of_classNeZero`; certified boxes and `PeriodConjecture`
+(PS.7.2–PS.7.4); the resolved quartic family, its
 residue form, Picard–Fuchs equation, marking and local continuation,
 `modularInvariant_schwarzian`, the quintic cohomology
 and its full flat pairing `quinticPairing`,
-Frobenius and crystalline comparison (PS.8); word algebras, iterated integrals, regularizations,
+Frobenius, `quinticSemistableParameter`, `quinticCrystalline`, `quinticDworkComparison`,
+`quinticLogComparison` and `quinticTransportedLattice` (PS.8); the arbitrary-pair supplier's
+`relativePairIntegration` (PS.2); word algebras, iterated integrals, regularizations,
 `rho`, mixed Tate motives over `ℤ`, the motivic path torsor, Brown's algebra and coaction, the
 f-alphabet, the cut matrices and the motivic Hoffman basis (PS.9).
 -/
