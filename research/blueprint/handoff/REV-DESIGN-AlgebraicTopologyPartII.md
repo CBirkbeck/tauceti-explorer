@@ -1,0 +1,18 @@
+# REV-DESIGN-AlgebraicTopologyPartII handoff
+
+Complete review, accepted as a target-level planning pass. Issue #3491; reviewer Codex, session codex-qEwYPq, 2026-10-19. Claim comment 6257875511 was confirmed by bot comment 6257876933. Original design session codex-qPJYQX / PR #3401 is independent of this reviewer.
+
+Read the durable [review report](../reviews/REV-DESIGN-AlgebraicTopologyPartII.md), [packet](../packets/AlgebraicTopologyPartII.json) and [reader](../readmes/AlgebraicTopologyPartII.md). The roadmap, packet, reader and suggested file were corrected together. There are 75 targets (51 verified, 24 corrected), 86 API items, 51 tests, 72 planets, 11 confirmed baseline declarations, 14 supplier requests and 15 gaps. All 16 layers are planned; none is closed. No target node was added. Generic equivariant sheaves and finite-group Ext remain owned by SchemeAndStackFoundations; the former generic AT2.14 theorem is now only the C₂ circle specialization. No ownership moved downward or to a new roadmap.
+
+Main corrections: the trace adapter is requested from EDC.8's retained shared PR196 owner, rather than FF.2 bounds; current DifferentialGeometry orientation/flow inputs are reused; the surface theorem has finite-family/boundaryless hypotheses and a new relative perturbation gap G15; equivariant Ehresmann and stratified transport have explicit hypotheses; Mather/Edmundo–Prelli locators were fixed; all 17 APIs were expanded. Review source-finding verdicts are eleven confirmed and one rejected. E7 fixes the inherited diagnosis (wrong domain, already-correct target). E11's stronger transport allegation is rejected, with actual formalization checks kept in G13. New E12 records the distinct degree-one/degree-two reduction behavior at even n. The suggested file adds a proved modulo-four sign regression.
+
+Validation:
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AlgebraicTopologyPartII.json`: zero errors and warnings.
+- Independent consistency check passed: all 75 review entries, ordered acyclic dependencies, roadmap/reader statement/API/test parity, source-version/hash parity, exact 102 extraction routes (22/49/31), all source verdicts and all incident gaps in coverage. No local filesystem paths or source excerpt fields.
+- `lean-check research/blueprint/suggested/AlgebraicTopologyPartII.lean`: exit 0; exactly six existing declaration-uses-sorry warnings at lines 44, 49, 75, 97, 129, 150. No other warnings or errors. The 191-line file has only light real-bodied definitions on native carriers and no sorry'd data definition. Native loop shifts and n=2,4,6 cyclic-reduction examples elaborate.
+- `git diff --check`: passed.
+
+Continuation inputs are explicit G1–G15 and R1–R14, not completed work. Priorities for the orchestrator: confirm the concrete PR196 finite-étale trace endpoint for R2; resolve the promised ordinary Ehresmann stage without inventing one; obtain the unread Scheiderer/Epstein–Raynaud/Dimca–Lefschetz/Jannsen inputs; supply G15. For G13 either verify the stratified-pair application or prove directly the ambient cohomological transport compatibility; do not infer that pair transport is necessary from the rejected source allegation. Source hashes, URLs, locators, exact baseline pins and upstream revisions are in the packet/report, so no scratch file is needed for continuation. Extraction/errata reconciliation is outside this issue's deliverables.
+
+Only the five named deliverables and this handoff were edited. No upstream repository, live atlas data or promotion files were changed. Scratch source downloads, images and logs are deleted after PR intake. This run takes no second job.
