@@ -78,7 +78,8 @@
       "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
       "readSections": [
-        "II.2 pp.68–69; II.8 pp.145–149; II.9.2 pp.161–163, II.9.7.5–9.8 pp.169–170; IV.6.1–6.2 pp.318–319; IV.7.1–7.2 p.328; V.1.5.4 p.371 and V.2.7.2–2.7.4 pp.383–384."
+        "II.2 pp.68–69; II.8 pp.145–149; II.9.2 pp.161–163, II.9.7.5–9.8 pp.169–170; IV.6.1–6.2 pp.318–319; IV.7.1–7.2 p.328; V.1.5.4 p.371 and V.2.7.2–2.7.4 pp.383–384.",
+        "V Theorem2.6.3 and its proof, book p.382 (PDF p.390): central multiplicative-set support localisation, independently read in review."
       ]
     },
     {
@@ -237,11 +238,11 @@
       "kind": "theorem",
       "statement": "For a commutative ring A and multiplicative set S, the degree-zero support-forgetful and restriction maps form K₀(A on S)→RingK0(A)→RingK0(S⁻¹A), exact at the middle. A supported strictly perfect cochain complex maps to its alternating class and then to zero; [P] restricts to [S⁻¹P]. If A is Dedekind, under the existing rank–Pic isomorphisms restriction is (r,L)↦(r,S⁻¹L) for S not containing zero; the rank–Pic coordinates of a supported Euler class are (Σ(−1)^i rk P^i, ⊗_i det(P^i)^{(−1)^i}). The affine scheme diagram and the Cartan diagram for this flat localisation commute.",
       "hypotheses": [
-        "For a single open-support localisation sequence on schemes require a qcqs open complement; arbitrary S uses the ring localisation model/filtered limit, not an unproved quasi-compactness assertion for Spec S⁻¹A→Spec A.",
+        "For a single open-support localisation sequence on schemes require a qcqs open complement; arbitrary S uses the ring localisation model, not an unproved quasi-compactness assertion for Spec S⁻¹A→Spec A.",
         "The rank–Pic equivalence is imported only in its Dedekind hypotheses. If 0∈S the target ring is zero and there is no target rank copy of ℤ."
       ],
       "proofSteps": [
-        "Import the support category and the exact degree-zero sequence. Compare restriction on projectives using affine-comparison-diagram; use the finite-complex Euler formula for the forgetful arrow.",
+        "For arbitrary S import the ring support category and exact degree-zero sequence from K.5/relative-K-theory-and-excision-boundary (Weibel II.9.8 and V.2.6.3); the commutative ring makes S central. Use S.3/affine-support-comparison and connective-localisation-sequence only for the scheme diagram with a quasi-compact open complement. No filtered-limit theorem is needed for the ring-support statement. Compare restriction on projectives using affine-comparison-diagram; use the finite-complex Euler formula for the forgetful arrow.",
         "For Dedekind A apply Z.4/k0-localization to the rank and determinant maps. Extension of invertible modules respects tensor and dual, hence the indicated Pic map.",
         "Flatness of localisation gives resolution-euler-cartan-square. Compare the determinant formula term by term with rank-pic-determinant-square. Exactness at K₀(A) never adds an unsupported surjectivity assertion on K₀(S⁻¹A)."
       ],
@@ -258,12 +259,13 @@
         "KTheoryLowDegrees:Z.4/k0-localization",
         "KTheoryLowDegrees:Z.6/nonprincipal-ideal-test",
         "SchemeKTheoryOperations:S.3/affine-support-comparison",
-        "SchemeKTheoryOperations:S.3/connective-localisation-sequence"
+        "SchemeKTheoryOperations:S.3/connective-localisation-sequence",
+        "GeneralAlgebraicKTheory:K.5/relative-K-theory-and-excision-boundary"
       ],
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "II.9.7.5–9.8.1, book pp.169–170 (PDF pp.177–178); II Theorem8.1, book pp.145–146 (PDF pp.153–154)",
+          "locator": "II.9.7.5–9.8.1, book pp.169–170 (PDF pp.177–178); V Theorem2.6.3, book p.382 (PDF p.390); II Theorem8.1, book pp.145–146 (PDF pp.153–154)",
           "match": "Supported perfect complexes forget by Euler class; localisation is exact at the middle and rank/determinant are additive invariants."
         }
       ],
@@ -935,7 +937,55 @@
   },
   "validation": {
     "blueprint": "Zero errors and zero warnings with the pinned declaration index.",
-    "lean": "Whole 111-line file elaborated via lean-check at the shared pinned build, exit0; nine intentional proof-admission warnings, no other warnings.",
+    "lean": "Whole 114-line file elaborated via lean-check at the shared pinned build, exit0; nine intentional proof-admission warnings, no other warnings.",
     "meaning": "Packet checks and admitted signature elaboration do not establish implementation or close the three supplier gaps."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-KTheoryLowDegrees--Z.6",
+    "date": "2026-10-19",
+    "notes": "Codex session codex-VY5Ojp independently reviewed the BP-KTheoryLowDegrees--Z.6 continuation authored by codex-FZqxps. Read all eight new nodes, the full reader and Lean companion, all 25 inherited Z.6 target contracts, direct supplier contracts, the reviewed library audit and current GrothendieckEulerForms/AlgebraicVectorBundles. Checked all eight exact-pin baseline citations and source contexts. Seven nodes verified; one supplier-routing clarification corrected in place. The complete planning pass is accepted with its three explicit supplier gaps and four requests; coverage stays planned and every implementation unchecked. Added the standard Lean introductory note. The 114-line companion elaborates with nine proof-admission warnings only; packet validation has zero errors and warnings. See the independent report for evidence and limits.",
+    "checked": [
+      {
+        "nodeId": "KTheoryLowDegrees:Z.6/affine-comparison-diagram",
+        "verdict": "verified",
+        "note": "Projective exact sequences split, so scalar extension preserves the relevant exact structure without flatness. Object-class normalisation and generator extensionality fix the comparison; Spec and tensor-ring claims are restricted to commutative rings. Checked Weibel II.2, IV.6–7, V.2.7 and the actual K.1/K.4/S.2 contracts."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.6/resolution-euler-cartan-square",
+        "verdict": "verified",
+        "note": "The individual finite-resolution witness suffices for the categorical Euler/Cartan identity. The pinned moduleResolutionEquiv and its inverse formula supply it; scheme G-theory and flat naturality keep the noetherian commutative boundary. No new Euler class or Cartan map is defined."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.6/localisation-rank-pic-square",
+        "verdict": "corrected",
+        "note": "Made the arbitrary-S ring-support supplier explicit as GeneralAlgebraicKTheory K.5; the S.3 affine-support theorem is restricted to its quasi-compact open-complement setting. Added Weibel V.2.6.3, book p.382/PDF p.390. The exact-middle assertion, supported Euler sign and Dedekind rank–Pic formula remain unchanged; no last-map surjectivity or filtered-limit theorem is assumed."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.6/rank-pic-determinant-square",
+        "verdict": "verified",
+        "note": "On a strictly perfect representative the component map is alternating rank and determinant, with locally constant grades. The signed groupoid retains the rank-one interchange sign; forgetting grade is used only on components. A vector-bundle/perfect equivalence still requires the resolution property."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.6/projective-line-functorial-coordinates",
+        "verdict": "verified",
+        "note": "Checked the S.5-owned basis, involutive matrix (a,b)↦(a+b,−b), all-twist formula, multiplication, field-extension identity, proper pushforward r+d and derived section rank r. Independent finite arithmetic checks pass. No S.6/S.7 theorem or duplicate projective-bundle construction is used."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.6/scheme-determinant-gluing-coherence",
+        "verdict": "verified",
+        "note": "Bhatt–Scholze Proposition5.3 glues maps into the signed Picard stack; no resolution property or hypercompleteness of K is assumed. Enhanced mapping and finite-filtration additivity remain explicit supplier requests, so triangle classes alone are not treated as canonical determinant isomorphisms."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.6/witt-determinant-sheafification-square",
+        "verdict": "verified",
+        "note": "Checked BS17 Theorem5.7 and Proposition12.18, the formal-Witt support input and S.4 contract. The two sheafified one-truncation equivalences construct the existing supported determinant. The fibre argument proves uniqueness of natural extensions with a specified homotopy, not objectwise equivalence or triviality of determinant automorphisms. The arbitrary-regular comparison gap is retained separately."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:Z.6/witt-filtered-base-change-square",
+        "verdict": "verified",
+        "note": "Checked BS17 Theorem5.7 and Lemma6.11. Actual enhanced filtration maps and cofiber identifications feed the requested coherent additivity; base change for constant finite-length Q yields a field line and grade length(Q). The result is trivializability without a selected basis, and never individual triviality of all graded-piece lines."
+      }
+    ]
   }
 }
