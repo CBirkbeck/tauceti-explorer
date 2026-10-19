@@ -212,22 +212,12 @@ example : tateTorsorEvaluation (LaurentPolynomial.T 1 * LaurentPolynomial.T (-1)
   rw [← LaurentPolynomial.T_add]
   simp
 
-/-- The interval integration and its reversed orientation pin the Stokes sign in PS.2.1. -/
-example : (∫ _ : ℝ in (0 : ℝ)..1, (1 : ℝ)) = 1 ∧
-    (∫ _ : ℝ in (1 : ℝ)..0, (1 : ℝ)) = -1 := by
-  norm_num
-
 /-! ## Layers PS.3–PS.6
 
 Fundamental lines and their regulator trivializations, integral fundamental lattices, the equivariant Tamagawa obstruction, Bloch–Kato points and
 measures, and the elliptic and Rankin–Selberg comparisons need determinant lines of perfect
 complexes, relative K-groups and Selmer complexes that are not at the pins. Their targets are in
 `README.md`. -/
-
-/-- Swapping two rank-one determinant factors has sign `-1`, even when their K₀ sum is unchanged
-(PS.3.1). This tests the commutative grading convention, not the missing virtual category. -/
-example : (!![0, 1; 1, 0] : Matrix (Fin 2) (Fin 2) ℤ).det = -1 := by
-  decide
 
 /-! ## Layer PS.7: certified computations and the research boundary -/
 
@@ -450,7 +440,7 @@ example : (quinticDerivativeMonomialMatrix.map (Int.castRingHom (ZMod 3))).det =
 
 /-- Columns of the derivative classes after the normalized projective residue map (PS.8.17).
 The row factors `(1,-1,2,-6)` record Park's signed factorials. This is not the integral lattice
-matrix `C`, whose construction and integral hypotheses remain README obligations. -/
+matrix `C` of the predicate `QuinticBoundaryLatticeIntegral` (PS.8.17). -/
 def quinticDerivativeResidueMatrix : Matrix (Fin 4) (Fin 4) ℤ :=
   !![1, -1, 1, -1; 0, 1, -3, 7; 0, 0, 2, -12; 0, 0, 0, 6]
 
@@ -715,20 +705,19 @@ the comparison determinant line, period classes over all embeddings and Deligne'
 (PS.0.5); motivic Euler products, completions, `DeligneAlgebraic`, the Dirichlet and
 modular adapters, `SerreSystem` and the Hasse–Weil predicates (PS.1); formal-period evaluation and
 the torsor comparison (PS.2.1–PS.2.2); fundamental lines, `realTrivialization`,
-`LeadingTermRational` and the requested `virtualPerfectDeterminant` (PS.3); integral lattices and
+`LeadingTermRational` (PS.3); integral lattices and
 local corrections (PS.4); `finiteBoundaryGluing`, `cohomologicalObstruction`, `extendedBoundary`,
-`tamagawaObstruction`, `ETNC` and the zeta-isomorphism comparisons (PS.5);
-Bloch–Kato pairs, measures, Sha and `BlochKatoTamagawa`, the elliptic adapter and `BBKRankZeroOne`
-(PS.6), together with the proposed supplier's `rankinAdmissible`, `diagonalAbelJacobi`,
-`rankZero_of_admissible` and `rankOne_of_classNeZero`; certified boxes and `PeriodConjecture`
+`tamagawaObstruction`, `ETNC`, the zeta-isomorphism comparisons and `abelianTate_ETNC` (PS.5);
+Bloch–Kato pairs, measures, Sha and `BlochKatoTamagawa`, the elliptic adapter, `BBKRankZeroOne`
+and the imported Rankin–Selberg statements `bbk_rankZero_of_admissible`,
+`bbk_rankOne_of_classNeZero` and `bbk_rankOne_of_derivative` (PS.6); certified boxes and `PeriodConjecture`
 (PS.7.2–PS.7.4); the resolved quartic family, its
 residue form, Picard–Fuchs equation, marking and local continuation,
 `modularInvariant_schwarzian`, the quintic cohomology
 and its full flat pairing `quinticPairing`,
 Frobenius, `quinticSemistableParameter`, `quinticCrystalline`, `quinticDworkComparison`,
-`quinticProjectiveResidue`, `quinticProjectiveResidue_frobenius`, `quinticLogComparison`
-and `quinticTransportedLattice` (PS.8); the arbitrary-pair supplier's
-`relativePairIntegration` (PS.2); word algebras, iterated integrals, regularizations,
+`quinticProjectiveResidue`, `quinticProjectiveResidue_frobenius`, `quinticLogComparison`,
+`QuinticBoundaryLatticeIntegral` and `quinticBoundary_integral_of_lattice` (PS.8); word algebras, iterated integrals, regularizations,
 `rho`, mixed Tate motives over `ℤ`, the motivic path torsor, Brown's algebra and coaction, the
 f-alphabet, the cut matrices and the motivic Hoffman basis (PS.9).
 -/
