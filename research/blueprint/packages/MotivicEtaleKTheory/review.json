@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-MotivicEtaleKTheory~adv",
+    "date": "2026-10-19",
+    "notes": "Independent review of all 71 subsections and 195 input targets, with 15 sampled public-source locators and the author's flagged characteristic-p generation input checked. Fixed the reduced-motive split-Tate statement, prime-to-p logarithmic generation proof route, quadratic-field dyadic signature defect and table locator, and weight-zero Deligne complex. Preserved 290 Checks and the compact pinned-carrier Lean shape. lean-check exited 0 with only five sorry warnings; intake check-files found zero problems; all five packet validators and git diff --check passed. Needs changes: the quadratic successor lacks the algebraic Pfister-symbol export independent of norm residue; the Hodge successors lack geometric logarithmic Deligne support theory; the arithmetic K-theory family has no assigned upstream tier/bundle. Exact contracts, adversarial table, source evidence and validation results are in REV-PKG-MotivicEtaleKTheory~adv.md."
+  }
+}
