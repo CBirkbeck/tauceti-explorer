@@ -2,6 +2,7 @@ import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Projective
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.Data.Sym.Basic
+import Mathlib.Algebra.Field.ZMod
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.Linarith
@@ -98,10 +99,20 @@ example (d r : ℚ) (hd : 0 < d) : -2 * d + r < r := by linarith
 -- GF.8: imported numerical bounds compose to Abramovich's constant.
 example : ((21 / 100 : ℚ) / 24) = 7 / 800 := by norm_num
 
--- GF.9: odd characteristic separates the two signs in the Hom lattice.
-example (x : ℚ) (hx : x ≠ 0) : -x ≠ x := by
+-- GF.9: a nonzero torsion value distinguishes signs at p = 7.
+example (x : ZMod 7) (hx : x ≠ 0) : -x ≠ x := by
+  let : Fact (Nat.Prime 7) := ⟨by decide⟩
   intro h
   apply hx
-  linarith
+  have htwo : (2 : ZMod 7) ≠ 0 := by decide
+  have hzero : (2 : ZMod 7) * x = 0 := by
+    calc
+      2 * x = x + x := two_mul x
+      _ = -x + x := congrArg (fun y : ZMod 7 => y + x) h.symm
+      _ = 0 := neg_add_cancel x
+  exact (mul_eq_zero.mp hzero).resolve_left htwo
+
+-- The same sign test fails at p = 2, which the descent hypothesis excludes.
+example : -(1 : ZMod 2) = 1 := by decide
 
 end ModularCurvesPartIIIAcceptance

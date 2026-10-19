@@ -213,7 +213,7 @@ Check: At m=4 the cyclic multiplier is 6, while the full-subgroup multiplier is 
 
 **Item 29 — Compact triangle uniformization of X(p).** For prime p>5, a selected compact component is Ξ(p)\H for the (2,3,p) triangle quotient of PSL₂(Z), with effective deck group PSL₂(F_p).
 
-Source: BT16, BT16 opening of §3, pp.717–718; accepted replacement for Lemma 5, p.718.
+Source: BT16, opening of §3, pp.717–718; accepted replacement for Lemma 5, p.718.
 
 Imports: `GF.1/triangle-uniformization`, `GF.1/surviving-systolic-witness`.
 
@@ -281,7 +281,7 @@ Proof route: Apply punctured-disc and filled-disc metric comparisons within the 
 
 Check: The factor p in the q-coordinate is retained.
 
-**Item 36 — Hecke pullback of a cusp ball.** Prime-to-p cyclic Hecke inverse images of radius-R cusp balls lie in balls of radius R+log m+O(1) at the inverse cusps.
+**Item 36 — Hecke pullback of a cusp ball.** For sufficiently large p and an integer m≥1 prime to p, fix a uniform constant C and assume log p+C<R and R+log m<2 log p−C. The inverse cyclic Hecke image of a radius-R cusp ball lies in the union of balls of radius R+log m+C at the inverse cusps.
 
 Source: BT16, Lemma 9, p.721.
 
@@ -289,11 +289,11 @@ Imports: `GF.1/cusp-coordinates`.
 
 Proof route: Use the branch imaginary-part factor between 1/m and m together with the two q-radius estimates.
 
-Check: The condition R+log m<2 log p−O(1) remains in the application.
+Check: Both log p+C<R and R+log m<2 log p−C remain in the application. An upper bound alone does not permit the q-disc comparison; m is a positive integer prime to p.
 
 **Item 118 — The maps i_p, γ_p and q_p for X(p).** The compact triangle map γ_p kills the normal closure of the peripheral pth power; Ξ(p) is the image of Γ(p) and its quotient deck group is PSL₂(F_p).
 
-Source: BT16, BT16 opening of §3 and Lemma 5, pp.717–718; accepted filling-witness correction.
+Source: BT16, opening of §3 and Lemma 5, pp.717–718; accepted filling-witness correction.
 
 Imports: `GF.1/triangle-uniformization`, `GF.1/surviving-systolic-witness`.
 
@@ -1035,7 +1035,7 @@ a≠0 and a²≠1, available over F_p for p>3. Native carriers are reused, not r
 Read-only current-library inspection used TauCetiRoadmap main
 `0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti
 `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The FuchsianOrbifolds and
-ConformalMapping readers were read in full, plus ModularCurves §§0D,2C,5B and their
+ConformalMapping readers were read in full, plus ModularCurves §§0D,0E,2C,5B,5C and their
 suggested interfaces. Whole-word searches for Frey–Mazur, gonality and systole in
 both current trees found no new owner of the route-specific rigidity or repulsion
 claims. Reviewed library-coverage boundaries were checked for R12.2, R13.4a, R14.1,
@@ -1052,7 +1052,10 @@ open obligation, implementation status and source exclusion. This proposal has
 not been applied; no owner file, queue, atlas data or upstream file is edited.
 
 The suggested file uses only available carriers and anonymous proved examples.
-No heavy structure stores a desired theorem as a field, and there are no admitted
-data definitions. Compiling this index does not verify the canonical prototype or
+The finite-characteristic sign checks distinguish −x from x for nonzero x in F₇
+and exhibit −1=1 in F₂, where the odd-prime descent argument fails. No heavy
+structure stores a desired theorem as a field, and there are no admitted data
+definitions. Compiling this index does not verify the canonical prototype or
 close its geometric targets. Exact validation commands and results are recorded in
-the [handoff](../handoff/DESIGN-ModularCurvesPartIII.md).
+the [design handoff](../handoff/DESIGN-ModularCurvesPartIII.md) and the
+[independent review](../reviews/REV-DESIGN-ModularCurvesPartIII.md).

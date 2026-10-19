@@ -21,7 +21,7 @@
     {
       "key": "GF.1",
       "title": "Compact modular metrics and systoles (import)",
-      "description": "Import GF.1: for p>5 distinguish the cusped Γ(p) quotient from the compact (2,3,p) triangle quotient. Use the accepted surviving M_p, whose cusped and compact lengths are 4 log p+O(1), radius ρ_X=2 log p+O(1), cusp separation, metric inequalities and q-disc/Hecke-radius comparisons. The printed killed witness and single-cusp detour are not reused.",
+      "description": "Import GF.1: for p>5 distinguish the cusped Γ(p) quotient from the compact (2,3,p) triangle quotient. Use the accepted surviving M_p, whose cusped and compact lengths are 4 log p+O(1), radius ρ_X=2 log p+O(1), cusp separation, metric inequalities and q-disc/Hecke-radius comparisons. The latter requires both log p+C<R and R+log m<2 log p−C for integer m≥1 prime to p. The printed killed witness and single-cusp detour are not reused.",
       "requires": [
         "GeometricFreyMazur:GF.1"
       ]
