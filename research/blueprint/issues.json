@@ -5141,5 +5141,16 @@
  "BP-DrinfeldModulesAndTModules": 10922,
  "BP-PeriodsAndSpecialValues": 10923,
  "FIX-PKG-StableHomotopyKTheory~adv": 10926,
- "FIX-PKG-GeneralAlgebraicKTheory~adv": 10924
+ "FIX-PKG-GeneralAlgebraicKTheory~adv": 10924,
+ "BP-EulerSystemsAndKolyvaginSystems--ES.0~4": 10951,
+ "BP-ExcursionOperatorsAndSpectralAction--ES0~4": 10952,
+ "BP-NoncommutativeAndEquivariantIwasawa~3": 10953,
+ "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv": 10955,
+ "FIX-PKG-GrossZagierAndArithmeticHeights~adv": 10956,
+ "FIX-PKG-RankZeroOneBSD~adv": 10957,
+ "REV-PKG-KTheoryFiniteLocalFields~adv": 10958,
+ "REV-PKG-SpecialValuesBirchTate~adv": 10960,
+ "REV-EulerSystemsAndKolyvaginSystems--ES.0~4": 10961,
+ "REV-ExcursionOperatorsAndSpectralAction--ES0~4": 10963,
+ "REV-NoncommutativeAndEquivariantIwasawa~3": 10964
 }
