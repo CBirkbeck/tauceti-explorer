@@ -12,7 +12,7 @@ The [packet](../packets/PadicDifferentialEquationsAndRigidCohomologyPartII.json)
 
 ## Coefficients and notation
 
-Let K be a complete discretely valued characteristic-zero field with perfect residue field k of characteristic p>0. Fix q=p^s, s>0, and an isometric lift σ of q-Frobenius. The analytic fields E and E†, the bounded-disc ring K[[t]]₀, their derivations and horizontal Frobenius structures are the parent's carriers. E† is the **bounded** Robba field; the full Robba ring has a different convergence condition. Generic points of an affine line may instead have residue k(t), and their parent analytic-ring carrier must be used explicitly.
+Let K be a complete discretely valued characteristic-zero field with perfect residue field k of characteristic p>0. Fix q=p^s, s>0, and an isometric lift σ of q-Frobenius. The analytic fields E and E†, the bounded-disc ring K[[t]]₀, their derivations and horizontal Frobenius structures are the parent's carriers. E† is the **bounded** Robba field; the full Robba ring has a different convergence condition. Tsuzuki's curve theory also uses the completed generic field E_η of a smooth affine curve lift, a complete discretely valued field with residue field k(C), and the local fields E_α at closed points; MS.0/curve-generic-field constructs them, and the local definitions and theorems of MS.0–MS.1 are stated over E_η and E_α as well. Generic points of an affine line in D'Addezio's §4.2 have residue k(t), and their parent analytic-ring carrier is used explicitly.
 
 A differential Frobenius module is finite, with integrable connection and invertible Frobenius linearisation. A dagger decoration denotes an overconvergent F-isocrystal; removing it means its convergent realisation. Slopes are normalised using q. The increasing slope filtration has a first minimal subobject S_min and a last maximal quotient Top; duality negates slopes and exchanges these two constructions. The Tate object O(1) has slope −1. Global slope-filtration statements either assume its existence or restrict to a dense constant-Newton open; numerical generic slopes alone do not define a global quotient.
 
@@ -39,7 +39,7 @@ The current upstream roadmaps at 0d144d044dacebca17b654695b6f1ad58f159b27 and cu
 | `Padic.norm_p_pow` | For prime p, the norm of p^n in Q_p is p^(−n), giving the unbounded logarithm-coefficient subsequence. |
 | `WittVector.Isocrystal` | A Witt-fraction-field module with semilinear Frobenius equivalence; finite rank and analytic connections are additional data, not fields supplied by this class. |
 
-The parent owns analytic rings, differential Frobenius modules, slope filtrations, local monodromy, isocrystal categories, rigid cohomology, full faithfulness and weights. Their precise blueprint nodes are cited at each target. Extra statements in those same directions appear as the seven supplier requests below; they are not rebuilt here. In particular the parent's reverse-algebraic-filtration comparison supplies the opposite-filtration carrier and its corrected indexing. General Dieudonné–Manin classification is a parent input, not a theorem inferred from Mathlib's rank-one file.
+The parent owns analytic rings, differential Frobenius modules, slope filtrations, local monodromy, isocrystal categories, rigid cohomology, full faithfulness and weights. Their precise blueprint nodes are cited at each target. Extra statements in those same directions appear as the five supplier requests below; they are not rebuilt here. Lemmas that Part II's own sources prove (Tsuzuki Lemmas 3.1–3.2 and A.1, and Tsuzuki §7 with Appendix B on Q̄_p-coefficient objects) are owned here as targets. In particular the parent's reverse-algebraic-filtration comparison supplies the opposite-filtration carrier and its corrected indexing. General Dieudonné–Manin classification is a parent input, not a theorem inferred from Mathlib's rank-one file.
 
 Arithmetic D-modules, monodromy groups and rigid companions are three separate continuations. This job designs PBQ and minimal slopes under the assigned Part II id and proposes coalescing the MinimalSlope alias into it. The packet and handoff give complete briefs and all routed item ids for the other directions. Their unregistered stages are not used as if they were available suppliers.
 
@@ -59,7 +59,7 @@ The local route first constructs the universal bounded quotient from the Taylor 
 
 Descent to E† uses the bounded Robba result, with an explicit induction on the kernel of a lower-slope pure quotient of B(M). The bounded-disc descent uses the specific bounded-disc to bounded-Robba subobject comparison. It does not assert that every submodule of a completed module descends. Logarithmic growth is a separate dependency chain: the logarithmic extension and eigenfunction growth input is requested from RD.0, and Ohkubo's comparison gives the bounded solutions needed in gluing.
 
-On a curve, the local PBQ filtrations glue through the parent's intersection statement and a general-coefficient unit-root correspondence. Saturation removes the kernel of the map to the maximal pure quotient. The curve rank theorem compares a dagger injection into an isoclinic convergent target with its surjective completed linearisation. If the top rank were too large, the local PBQ kernels at boundary points would glue to a nonzero dagger kernel, contradicting injectivity. Applying that rank theorem to a common image in the identified pure quotient reconstructs the saturated PBQ pieces and then the specified map for irreducible objects.
+On a curve, the generic PBQ filtration lives over the completed generic field E_η; it is compatible with the local filtrations at closed points because bounded solutions commute with the generic-to-local embedding. The local PBQ filtrations glue through the intersection description of dagger sections (Tsuzuki Lemmas 3.1–3.2) and a general-coefficient unit-root correspondence requested from RD.3. The same base-change argument, applied to the finite unramified extension of generic fields of a finite étale cover, gives finite étale transport of PBQ. Saturation removes the kernel of the map to the maximal pure quotient. The curve rank theorem compares a dagger injection into an isoclinic convergent target with its surjective completed linearisation. If the top rank were too large, the local PBQ kernels at boundary points would glue to a nonzero dagger kernel, contradicting injectivity. Applying that rank theorem to a common image in the identified pure quotient reconstructs the saturated PBQ pieces and then the specified map for irreducible objects.
 
 For dagger hulls, dualise an inclusion N⊂M and take the E†-image of M†∨→N∨. Dualising that image realisation recovers the hull by its universal property. The generic opposite-filtration comparison gives MS at the generic field. The independent curve proof instead uses the curve rank theorem: the kernel of the dagger-section map from the dual hull is coherent and stable under connection and Frobenius; the parent's overconvergence criteria make it a dagger subobject, and minimality of the hull kills it. The resulting rank equality identifies N with the first slope term of its hull. Thus the main curve route does not require the problematic affine–generic comparison G1.
 
@@ -73,13 +73,13 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 **Stage inputs.** [PadicDifferentialEquationsAndRigidCohomology:RD.0](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Planets.** Generic bounded solutions; Opposite slope rank bound; Maximally bounded quotient; Bounded splitting theorem; Pure bounded quotient.
+**Planets.** Generic bounded solutions; Completed generic field of a curve; Opposite slope rank bound; Maximally bounded quotient; Bounded splitting theorem; Pure bounded quotient.
 
 <a id="generic-solutions"></a>
 
 ### Generic bounded solutions
 
-**Target `MS.0/generic-solutions` (definition).** For a finite (φ,∇)-module M/E, pull back through τ:E→E[[u]]₀, τ(a)=Σ ∂^i(a)u^i/i!. Define Solη(M)=Hom∇(τ*M,E{u}), with E{u} the analytic functions on the open unit disc, and Solη,0(M)=Hom∇(τ*M,E[[u]]₀). These are E-vector spaces with induced semilinear Frobenius; the bounded space uses a uniform coefficient bound, not pointwise convergence.
+**Target `MS.0/generic-solutions` (definition).** For a finite (φ,∇)-module M/E, pull back through τ:E→E[[u]]₀, τ(a)=Σ ∂^i(a)u^i/i!. Define Solη(M)=Hom∇(τ*M,E{u}), with E{u} the analytic functions on the open unit disc, and Solη,0(M)=Hom∇(τ*M,E[[u]]₀). These are E-vector spaces with induced semilinear Frobenius; the bounded space uses a uniform coefficient bound, not pointwise convergence. The same construction applies to B∈{E_η, E_α} of MS.0/curve-generic-field, at the generic point t_* of B^τ.
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
@@ -88,14 +88,14 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 1. Import the Taylor map and generic-disc solvability from RD.1. Use the contravariant horizontal Hom and induced Frobenius.
 2. Bounded-disc multiplication preserves uniformly bounded coefficients, hence defines the bounded E-subspace.
 
-**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.1/dwork-transfer-generic-disc](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-differential-module](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/change-of-frobenius-lift-taylor-formula](../packets/PadicDifferentialEquationsAndRigidCohomology.json); `Padic.norm_p_pow` (Mathlib baseline).
+**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.1/dwork-transfer-generic-disc](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-differential-module](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/change-of-frobenius-lift-taylor-formula](../packets/PadicDifferentialEquationsAndRigidCohomology.json); `Padic.norm_p_pow` (Mathlib baseline); [MS.0/curve-generic-field](#curve-generic-field).
 
-**Sources.** [TSU, §3.2 and Proposition 3.14, pp. 12–16](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, §3.3 and Definition 3.5, p.13; Proposition 3.14, p.15](https://arxiv.org/pdf/1910.03871v3).
 
 **Uses that determine the API.**
 
-- §3.3, Theorem 3.12: identifies the dual of the maximally bounded quotient.
-- §3.4, Corollary 3.15: transports the bounded kernel under coefficient extension.
+- Tsuzuki Theorem 3.12 and Definition 3.13: the bounded solutions cut out the maximally bounded quotient.
+- Tsuzuki Proposition 3.14 and Corollary 3.15: transports the bounded kernel from E_η to E_α and under coefficient extension.
 
 **API.**
 
@@ -109,31 +109,90 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 - `sol_zero` (degenerate): Both spaces of the zero module are zero.
 - `sol_log` (non-example): The solvable rank-two connection with a horizontal coordinate log(1+u)=Σ_{n≥1}(−1)^{n+1}u^n/n has an unbounded solution: at n=p^r its coefficient norm is p^r.
 
+<a id="curve-generic-field"></a>
+
+### Completed generic and local fields of a curve
+
+**Target `MS.0/curve-generic-field` (construction).** Let C be a smooth connected affine curve over k with smooth completion C̄, a smooth affine lift Spec A_C over O_K whose weak completion carries a q-Frobenius lift φ over σ, and a generically étale coordinate x. The completed generic field E_η is the p-adic completion of the localisation of A_C at the prime πA_C, with π inverted: a complete discretely valued field with the value group of K and residue field k(C), to which φ and d/dx extend uniquely. For a closed point α of C̄, with K_α the unramified extension of K with residue field k(α) and x_α a lifted local coordinate, E_α, E†_α and K_α[[x_α]]₀ are the parent Amice, bounded Robba and bounded-disc carriers in x_α over K_α, and there are injective maps compatible with φ and the derivation: E_η→E_α, Â_{C,K}→K_α[[x_α]]₀ for α∈C, and A†_{C,K}→E†_α for α∈C̄∖C. For a (φ,∇)-module M† over A†_{C,K} put M_η=E_η⊗M†, M_{0,α}=K_α[[x_α]]₀⊗M† and M†_α=E†_α⊗M†. With B∈{E_η, E_α}, the generic disc of B uses the Taylor map f↦Σ_n (d^nf/dx_*^n)(t_*)(X−t_*)^n/n! into B^τ[[X−t_*]]₀.
+
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation. C is a smooth connected affine curve over the perfect field k with a smooth lift admitting a Frobenius lift compatible with σ; such lifts exist by the parent's Monsky–Washnitzer theory.
+
+**Proof or construction.**
+
+1. The special fibre of Spec A_C is integral, so the localisation of A_C at πA_C is a discrete valuation ring with uniformiser π and residue field k(C); complete p-adically and invert π (Tsuzuki §3.1, p.11). This is the parent Cohen-type carrier Γ^ℓ[π^{-1}] for the trivially valued field ℓ=k(C).
+2. φ preserves πA_C and extends by continuity; d/dx extends because dx generates Ω¹ at the generic point, x being generically étale.
+3. For a closed point α the completion of A_C along α with the coordinate x_α gives K_α[[x_α]]₀; at boundary points the overconvergent sections map to E†_α. Frobenius and derivation extend uniquely and compatibly to all rings of the two diagrams in Tsuzuki §3.1, p.11.
+4. Independence of the lift, coordinate and Frobenius lift for solvability and boundedness is Tsuzuki Proposition 3.6, p.14, through the parent Taylor comparison.
+
+**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.0/analytic-ring](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/affine-frame-global-sections-equivalence](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-differential-module](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/change-of-frobenius-lift-taylor-formula](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+
+**Sources.** [TSU, §3.1, pp.10–11; §3.3 and Proposition 3.6, pp.13–14](https://arxiv.org/pdf/1910.03871v3).
+
+**Uses that determine the API.**
+
+- Tsuzuki §3.3, Definition 3.5: defines solvability and boundedness at the generic point.
+- Tsuzuki Definition 3.26 and Lemma 3.33: measures curve PBQ and glues generic submodules.
+- Tsuzuki Proposition 3.14 and Theorem 3.21: compares the generic field with the local fields E_α.
+
+**API.**
+
+- `CurveGenericField.residueField` (characterisation): E_η is a complete discretely valued field with value group |K^×| and residue field k(C).
+- `CurveGenericField.toLocal` (functoriality): For each closed point α the map E_η→E_α is an isometric field embedding commuting with φ and with d/dx_α when x=x_α.
+- `CurveGenericField.genericModule` (constructor): M†↦M_η is an exact faithful ⊗-functor from (φ,∇)-modules over A†_{C,K} to (φ,∇)-modules over E_η, compatible with E_α⊗_{E_η}M_η≅E_α⊗M†.
+- `CurveGenericField.lift_indep` (compatibility): Changing the lift, coordinate or Frobenius lift gives an isomorphic field, and the Taylor comparison transports generic modules and their solution spaces.
+
+**Unit tests.**
+
+- `CurveGenericField.residue_line` (computation): For C=A¹_k with lift O_K[x], E_η is the p-adic completion of O_K[x]_(π)[1/p]; its residue field is k(x).
+- `CurveGenericField.unit` (degenerate): The generic module of the unit (A†_{C,K}, d, φ) is E_η with zero connection; it is unit-root and bounded.
+- `CurveGenericField.not_laurent` (non-example): The gap series Σ_{n≥0}x^{n!} lies in the Amice field E_0 at the origin but not in E_η, since its reduction is not a rational function; identifying E_η with a local Laurent field is wrong.
+
 <a id="opposite-rank-bound"></a>
 
 ### Opposite slope rank bound
 
-**Target `MS.0/opposite-rank-bound` (theorem).** Let f:M†→P be an injective Frobenius-linear map from a finite E†-module into a pure E-module, with E·f(M†)=P. Then λmax(M)=slope(P) and rank_E Top(M)=rank_E P, where M=E⊗M†. This assertion does not say E⊗f is injective.
+**Target `MS.0/opposite-rank-bound` (theorem).** Let (E†,E) be either the parent bounded Robba and Amice fields (residue field k((t))) or D'Addezio's generic pair of §4.2 (residue field k(t)), with k perfect. Let M† be a φ-module over E†, M=E⊗M†, P an isoclinic φ-module over E, and f:M→P a φ-morphism whose restriction to M† is injective. Then λmax(M)=slope(P) and rank_E Top(M)≤rank_E P; if moreover f is surjective (E·f(M†)=P), equality holds. Connections play no role, and f itself need not be injective.
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
-1. Use enough units and a valuation p-basis to inject after algebraic overconvergent coefficient extension (RD.0 tensor descent).
-2. The first reverse-filtration piece is pure of maximal slope. Frobenius eigenbasis and coefficient independence give rank Top(M)≤rank P.
-3. Surjectivity after E-linearisation factors through Top(M) by pure-slope Hom vanishing, giving rank P≤rank Top(M).
+1. Extend to the algebraic overconvergent carrier: the multiplication map from the completed tensor product to the algebraic completed field is injective (parent tensor descent), so f|M† stays injective after base change to E†_alg.
+2. The first reverse-filtration piece of M†_alg is pure of the maximal slope of M (Laurent case: the parent reverse filtration over Γ^alg_con[π^{-1}]; k(t) case: D'Addezio Theorem 4.2.6 as corrected in the parent comparison node); its image is a nonzero φ-submodule of the pure P⊗E_alg, so the slopes agree.
+3. After adjoining p^{1/r}, the Frobenius eigenvectors of slope s/r in that first piece span a space of dimension rank Top(M), and they inject into the corresponding eigenspace of P, of dimension rank P; this gives rank Top(M)≤rank P (D'Addezio Lemma 4.2.7; Tsuzuki Theorem 2.13).
+4. If f is surjective it kills the lower slope part of M by Hom vanishing between distinct slopes, so it factors through Top(M) and rank P≤rank Top(M) (Tsuzuki Theorem 2.14).
 
-**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.1/reverse-algebraic-filtration-comparison](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/completed-overconvergent-tensor-descent](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.1/reverse-algebraic-filtration-comparison](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/completed-overconvergent-tensor-descent](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-slope-decomposition-and-descent](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Theorems 2.13–2.14, pp.10–11; DAD Lemma 4.2.7, p.15](https://arxiv.org/pdf/1910.03871v3); [DAD, Lemma 4.2.7, p.15](https://arxiv.org/pdf/2012.12879v4).
+**Sources.** [TSU, Theorems 2.13–2.14, p.10](https://arxiv.org/pdf/1910.03871v3); [DAD, Lemma 4.2.7, p.15](https://arxiv.org/pdf/2012.12879v4).
 
-**Check.** An injection from an E†-vector space to an E-space is not an injection after E-linearisation; the rank conclusion concerns Top(M).
+**Check.** An E†-injection need not stay injective after E-linearisation; the rank conclusion concerns Top(M).
+
+<a id="fixed-field-normalisation"></a>
+
+### Frobenius-fixed coefficient normalisation
+
+**Target `MS.0/fixed-field-normalisation` (lemma).** Let K be a complete discretely valued field of characteristic zero with residue field k of characteristic p and σ a q-Frobenius on K. (1) The fixed field K^σ is complete discretely valued with residue field of at most q elements, hence finite over Q_p. (2) There is a finite unramified extension K′/K to which σ extends such that (K′)^σ has residue field F_q and the same value group as K; if k is perfect, (K′)^σ⊗_{W(F_q)}W(k′)→K′ is an isomorphism with σ=id⊗Frob_q. Consequently every element of |K^×| is |b| for some b∈(K′)^σ, and a rank-one (φ,∇)-module over E, E_η or A†_{C,K} becomes unit-root after the constant twist by b^{-1} over K′.
+
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with residue field k (perfect in the last assertion of (2)) of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
+
+**Proof or construction.**
+
+1. A σ-fixed element a of the valuation ring satisfies a^q≡a modulo the maximal ideal, so the residue field of K^σ embeds in F_q; K^σ is closed in K, hence complete (Tsuzuki Lemma A.1(1), p.37).
+2. Let K̂^{perf,ur} be the p-adic completion of the maximal unramified extension of the completed perfection of K along σ; σ extends uniquely, and its fixed field has residue field F_q and the value group of K. Take K′=(K̂^{perf,ur})^σ·K (Tsuzuki proof of Lemma A.1(2), p.38, reading 'valuation group' for 'valuation ring', E23).
+3. For perfect k compare ramification to identify K′ with (K′)^σ⊗_{W(F_q)}W(k′). A rank-one φ-module has Frobenius eigenvalue of absolute value in |K^×|, so twisting by the constant object with Frobenius b^{-1}, b∈(K′)^σ, gives slope zero.
+
+**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-coefficient-extension-interface](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+
+**Sources.** [TSU, Lemma A.1(1)–(2) and proof, pp.37–38](https://arxiv.org/pdf/1910.03871v3).
+
+**Check.** For K=W(F̄_p)[1/p] with the Witt Frobenius, K^σ=Q_p and K′=K. For K=Q_p(√p) with σ=id (q=p), K^σ=K and the rank-one constant object with Frobenius √p is untwisted by b=√p; the value group, not just |p|^ℤ, is needed.
 
 <a id="bounded-quotient"></a>
 
 ### Maximally bounded quotient
 
-**Target `MS.0/bounded-quotient` (definition).** A (φ,∇)-module over E is bounded when its Taylor realisation is trivial over E[[u]]₀. Let Mᵇ be the unique least differential submodule whose quotient is bounded. Equivalently M/Mᵇ is the universal bounded quotient; Mᵇ is the common annihilator of Solη,0(M) under evaluation. Write B(M)=M/Mᵇ; zero has B(0)=0.
+**Target `MS.0/bounded-quotient` (definition).** A (φ,∇)-module over E is bounded when its Taylor realisation is trivial over E[[u]]₀. Let Mᵇ be the unique least differential submodule whose quotient is bounded. Equivalently M/Mᵇ is the universal bounded quotient; Mᵇ is the common annihilator of Solη,0(M) under evaluation. Write B(M)=M/Mᵇ; zero has B(0)=0. The same definition applies over the completed generic field E_η of a curve and over E_α (MS.0/curve-generic-field), as in Tsuzuki §§3.3–3.6.
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
@@ -142,9 +201,9 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 1. Use the Taylor solution pairing and finite-dimensionality. Intersections of two kernels with bounded quotients again give a bounded quotient by embedding in their direct sum.
 2. Choose a kernel of minimal dimension; finite intersection makes it contained in every other such kernel. Frobenius transports the universal property, so Mᵇ is Frobenius stable.
 
-**Direct prerequisites.** [MS.0/generic-solutions](#generic-solutions); [PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-slope-decomposition-and-descent](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.0/generic-solutions](#generic-solutions); [PadicDifferentialEquationsAndRigidCohomology:RD.1/generic-slope-decomposition-and-descent](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.0/curve-generic-field](#curve-generic-field).
 
-**Sources.** [TSU, Theorem 3.12 and Definition 3.13, p. 15; CT11 Theorem 2.2, pp. 41–42](https://arxiv.org/pdf/1910.03871v3); [CT11, Theorem 2.2, pp.41–42](https://ems.press/content/serial-article-files/26106?nt=1).
+**Sources.** [TSU, Theorem 3.12 and Definition 3.13, p.15](https://arxiv.org/pdf/1910.03871v3); [CT11, Theorem 2.2, pp.41–42](https://ems.press/content/serial-article-files/26106?nt=1).
 
 **Uses that determine the API.**
 
@@ -179,7 +238,7 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 **Direct prerequisites.** [MS.0/generic-solutions](#generic-solutions); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-stable-lattices](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/change-of-frobenius-lift-taylor-formula](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-coefficient-extension-interface](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [CT11, Proposition 4.2 and proof §§4.2–4.4, pp.46–55](https://ems.press/content/serial-article-files/26106?nt=1).
+**Sources.** [CT11, Proposition 4.2, p.46; Proposition 4.3, pp.46–47; §4.4, pp.50–54](https://ems.press/content/serial-article-files/26106?nt=1); [OHK, Lemma 8.2, p.40](https://arxiv.org/pdf/1809.04065v1).
 
 **Check.** The small positive-gap case requires bounded M; dropping this condition would rule out the logarithmic nonsplit examples.
 
@@ -187,7 +246,7 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 ### Bounded splitting theorem
 
-**Target `MS.0/bounded-splitting` (theorem).** Over E with perfect coefficient residue k, M is bounded iff its increasing slope filtration splits as a direct sum of pure differential Frobenius modules. In particular every pure object is bounded; for nonzero M its maximal pure slope quotient is nonzero and bounded.
+**Target `MS.0/bounded-splitting` (theorem).** Over E (the Amice field over K, or over K_α) with perfect coefficient residue k, and over the completed generic field E_η of a curve, M is bounded iff its increasing slope filtration splits as a direct sum of pure differential Frobenius modules. In particular every pure object is bounded; for nonzero M its maximal pure slope quotient is nonzero and bounded.
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
@@ -196,10 +255,11 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 1. For a pure module use a Frobenius-stable unit-root lattice after an allowed slope twist and the generic Taylor estimates (Ohkubo Proposition 5.9, p.26).
 2. For bounded M apply bounded-extension-splitting to successive pure slope grades, normalising the smallest slope first. The off-diagonal analytic cases, including gap one, are essential.
 3. Descend the unique distinct-slope splittings and induct through the filtration. This proves differential splitting, rather than just a splitting after forgetting the connection.
+4. For B=E_η (Tsuzuki Theorem 3.10, p.14): take the unique upper-triangular solution X over the completed perfection Ê^perf_η of A·φ(X)=X·diag(A_11,…,A_rr) for the Frobenius matrix A in a slope-adapted basis. By the local case at a closed point α, X has entries in E_α; Lemma 3.11 gives E_η=Ê^perf_η∩E_α inside Ẽ_α (from k(C)=k(C)^perf∩k(C)_α, the p-th powers being the kernel of a derivation), so X has entries in E_η.
 
-**Direct prerequisites.** [MS.0/generic-solutions](#generic-solutions); [PadicDifferentialEquationsAndRigidCohomology:RD.1/dieudonne-manin-classical](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-coefficient-extension-interface](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.0/bounded-extension-splitting](#bounded-extension-splitting).
+**Direct prerequisites.** [MS.0/generic-solutions](#generic-solutions); [PadicDifferentialEquationsAndRigidCohomology:RD.1/dieudonne-manin-classical](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-coefficient-extension-interface](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.0/bounded-extension-splitting](#bounded-extension-splitting); [MS.0/curve-generic-field](#curve-generic-field).
 
-**Sources.** [CT11, CT11 Theorem 4.1, pp. 46–55; Ohkubo Theorem 8.3, p.40](https://ems.press/content/serial-article-files/26106?nt=1); [OHK, Proposition 5.9, p.26 and Theorem 8.3, p.40](https://arxiv.org/pdf/1809.04065v1).
+**Sources.** [TSU, Theorem 3.10 and Lemma 3.11, p.14](https://arxiv.org/pdf/1910.03871v3); [CT11, Theorem 4.1, p.46](https://ems.press/content/serial-article-files/26106?nt=1); [OHK, Proposition 5.9, p.26; Theorem 8.3, p.40](https://arxiv.org/pdf/1809.04065v1).
 
 **Check.** A nontrivial extension between distinct slopes need not be bounded merely because it is solvable.
 
@@ -207,27 +267,27 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 ### Bounded base change
 
-**Target `MS.0/bounded-base-change` (theorem).** For a finite isometric coefficient extension L/K with extended Frobenius, Solη and Solη,0 commute with scalar extension E_L/E; consequently (M_L)ᵇ=(Mᵇ)_L and B(M_L)=B(M)_L. The same holds for the local embeddings into the completed perfect/algebraic residue carriers used in the source, subject to the parent valuation-p-basis and enough-units hypotheses.
+**Target `MS.0/bounded-base-change` (theorem).** Let B⊂B′ be an extension of complete discretely valued fields with compatible Frobenius lifts and derivations sharing a coordinate x, for instance a finite isometric coefficient extension E⊂E_L, the generic-to-local embedding E_η⊂E_α (with x=x_α), or the finite unramified extension E_η⊂E_{η′} induced by a finite étale cover of curves. For a solvable (φ,∇)-module M over B, Sol and Sol₀ of B′⊗M are the B′^τ-spans of those of M; consequently (B′⊗M)ᵇ=B′⊗Mᵇ and B(B′⊗M)=B′⊗B(M).
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
-1. Choose a coefficient basis and use equivalence of the coordinate norms; boundedness of a finite combination is equivalent to boundedness of every coordinate.
-2. Taylor equations commute with base change; compare dimensions for all solutions, then use the perfect solution pairing for the bounded annihilator.
-3. For completed algebraic residue extensions use RD.0 tensor injectivity and descend finitely many coordinates; do not infer this from finite coefficient extension alone.
+1. Taylor solutions of B′⊗M are B′^τ-combinations of those of M, since the generic solution matrix of M is a fundamental solution over B′^τ as well (Tsuzuki Proposition 3.14, p.15, and its displayed identifications).
+2. If a B′^τ-combination Σc_if_i of solutions is bounded, choose a basis d_1,…,d_m of the B^τ-span of the c_i; a finite-dimensional B^τ-subspace of the complete field B′^τ carries the product topology, so boundedness of Σd_jg_j forces every g_j to be bounded. Hence bounded solutions of B′⊗M are spanned by bounded solutions of M.
+3. Take annihilators under the evaluation pairing to obtain (B′⊗M)ᵇ=B′⊗Mᵇ (Corollary 3.15). For a finite étale cover the coordinate of C is an étale coordinate of C′ and Frobenius lifts extend uniquely, so the hypotheses hold.
 
-**Direct prerequisites.** [MS.0/generic-solutions](#generic-solutions); [MS.0/bounded-quotient](#bounded-quotient); [PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-coefficient-extension-interface](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/completed-overconvergent-tensor-descent](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.0/generic-solutions](#generic-solutions); [MS.0/bounded-quotient](#bounded-quotient); [MS.0/curve-generic-field](#curve-generic-field); [PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-coefficient-extension-interface](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/finite-etale-lifting-of-mw-algebras](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Proposition 3.14 and Corollary 3.15, pp.15–16](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Proposition 3.14 and Corollary 3.15, pp.15–16](https://arxiv.org/pdf/1910.03871v3); [OHK, Lemma 7.10, p.37](https://arxiv.org/pdf/1809.04065v1).
 
-**Check.** For a finite isometric coefficient extension L/K with extended Frobenius, Solη and Solη,0 commute with scalar extension E_L/E; consequently (M_L)ᵇ=(Mᵇ)_L and B(M_L)=B(M)_L. The same holds for the local embeddings into the completed perfect/algebraic residue carriers used in the source, subject to the parent valuation-p-basis and enough-units hypotheses.
+**Check.** For the generic-to-local embedding E_η⊂E_α this is Corollary 3.15; for E⊂E_L it is the growth-zero case of Ohkubo Lemma 7.10. For the logarithmic rank-two connection over B, the unbounded solution stays unbounded over every B′, while its constant solution stays bounded.
 
 <a id="pbq"></a>
 
 ### Pure bounded quotient
 
-**Target `MS.0/pbq` (definition).** A nonzero (φ,∇)-module M/E is PBQ if B(M) is pure of a single Frobenius slope. For a module over K[[t]]₀ or E†, PBQ means PBQ after scalar extension to E. The zero object is excluded from this predicate but is allowed as the initial filtration term.
+**Target `MS.0/pbq` (definition).** A nonzero (φ,∇)-module M/E is PBQ if B(M) is pure of a single Frobenius slope. For a module over K[[t]]₀ or E†, PBQ means PBQ after scalar extension to E. The zero object is excluded from this predicate, following Tsuzuki (Ohkubo Definition 5.10 instead counts zero as PBQ), but is allowed as the initial filtration term. The definition applies verbatim over E_η and E_α.
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
@@ -238,7 +298,7 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 **Direct prerequisites.** [MS.0/bounded-quotient](#bounded-quotient); [MS.0/bounded-splitting](#bounded-splitting); [PadicDifferentialEquationsAndRigidCohomology:RD.1/frobenius-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Definition 3.16 and Definition 3.22, pp. 16–17](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Definitions 3.16 and 3.22, pp.16–17](https://arxiv.org/pdf/1910.03871v3); [OHK, Definition 5.10 and Lemma 5.11, p.27](https://arxiv.org/pdf/1809.04065v1).
 
 **Uses that determine the API.**
 
@@ -261,7 +321,7 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 ### PBQ quotient criterion
 
-**Target `MS.0/pbq-quotients` (theorem).** For nonzero M/E the following are equivalent: M is PBQ; every nonzero differential Frobenius quotient Q of M has λmax(Q)=λmax(M). A sum of finitely many PBQ subobjects of the same maximal slope is PBQ; every nonzero quotient of a PBQ object is PBQ of that same maximal slope.
+**Target `MS.0/pbq-quotients` (theorem).** For nonzero M/E the following are equivalent: M is PBQ; every nonzero differential Frobenius quotient Q of M has λmax(Q)=λmax(M). A sum of finitely many PBQ subobjects of the same maximal slope is PBQ; every nonzero quotient of a PBQ object is PBQ of that same maximal slope. The same holds over E_η, using the E_η case of bounded-splitting.
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
@@ -273,7 +333,7 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 **Direct prerequisites.** [MS.0/pbq](#pbq); [MS.0/bounded-splitting](#bounded-splitting); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Proposition 3.17, p. 16; Ohkubo Proposition 8.1 and Lemma 8.2, pp. 39–40](https://arxiv.org/pdf/1910.03871v3); [OHK, Proposition 8.1, Lemma 8.2 and Theorem 8.3, pp.39–40](https://arxiv.org/pdf/1809.04065v1).
+**Sources.** [TSU, Lemma 3.17, p.16](https://arxiv.org/pdf/1910.03871v3); [OHK, Proposition 8.1 and Lemma 8.2, pp.39–40](https://arxiv.org/pdf/1809.04065v1).
 
 **Check.** For nonzero M/E the following are equivalent: M is PBQ; every nonzero differential Frobenius quotient Q of M has λmax(Q)=λmax(M). A sum of finitely many PBQ subobjects of the same maximal slope is PBQ; every nonzero quotient of a PBQ object is PBQ of that same maximal slope.
 
@@ -281,7 +341,7 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 ### Unit-root tensor criterion
 
-**Target `MS.0/unit-root-tensor` (theorem).** If U/E is nonzero unit-root, then M is PBQ iff M⊗U is PBQ. The nonzero assumption on U is essential.
+**Target `MS.0/unit-root-tensor` (theorem).** If U/E is nonzero unit-root, then M is PBQ iff M⊗U is PBQ. The nonzero assumption on U is essential. The same holds over E_η (Tsuzuki states it for B∈{E_η, E_α}).
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
@@ -292,11 +352,11 @@ Generic Taylor discs, bounded solutions, universal bounded quotients, pure bound
 
 **Direct prerequisites.** [MS.0/pbq](#pbq); [MS.0/generic-solutions](#generic-solutions); [PadicDifferentialEquationsAndRigidCohomology:RD.3/unit-root-f-isocrystal](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Proposition 3.18, p. 16](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Proposition 3.18, p.16](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** U=0 would make the reverse implication false.
 
-**Coverage.** Planned. Discharge the explicit parent supplier requests used in this layer and check the planned mathematical interfaces in independent review.
+**Coverage.** Planned.
 
 ## MS.1: Local PBQ filtrations
 
@@ -322,7 +382,7 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 **Direct prerequisites.** [MS.0/pbq-quotients](#pbq-quotients); [MS.0/bounded-splitting](#bounded-splitting).
 
-**Sources.** [TSU, Theorem 3.19(1) and Definition 3.20, pp.16–17](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Theorem 3.19(1) and Definition 3.20, p.16](https://arxiv.org/pdf/1910.03871v3); [CT11, Proposition 5.4 and Corollary 5.5, p.56](https://ems.press/content/serial-article-files/26106?nt=1).
 
 **Uses that determine the API.**
 
@@ -356,7 +416,7 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 **Direct prerequisites.** [MS.0/generic-solutions](#generic-solutions); [PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-coefficient-extension-interface](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Remark 3.25, p.18; Ohkubo §2.1, pp.9–11](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Remark 3.25, p.18](https://arxiv.org/pdf/1910.03871v3); [OHK, Definitions 2.1, 2.4 and 2.9, Lemma 2.6 and Corollary 2.7, pp.11–13](https://arxiv.org/pdf/1809.04065v1).
 
 **Uses that determine the API.**
 
@@ -391,7 +451,7 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 **Direct prerequisites.** [MS.0/pbq-quotients](#pbq-quotients); [PadicDifferentialEquationsAndRigidCohomology:RD.1/reverse-algebraic-filtration-comparison](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/frobenius-equivariant-embedding](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [OHK, Ohkubo Proposition 10.1 and proof, pp.41–42](https://arxiv.org/pdf/1809.04065v1).
+**Sources.** [OHK, Proposition 10.1 and proof, pp.41–42](https://arxiv.org/pdf/1809.04065v1).
 
 **Check.** For a PBQ (φ,∇)-module M/Rbd solvable in Rlog, with algebraically closed k after an isometric coefficient extension, a Frobenius d-eigenvector f∈Sol_λ(M) of slope μ satisfies μ≤λ−λmax(M_E).
 
@@ -410,7 +470,7 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 **Direct prerequisites.** [MS.1/pbq-filtration](#pbq-filtration); [MS.0/bounded-splitting](#bounded-splitting); [MS.0/pbq-quotients](#pbq-quotients).
 
-**Sources.** [TSU, Theorem 3.19(2), p.17](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Theorem 3.19(2), pp.16–17](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** There is a canonical Frobenius decomposition B(M)≅⊕_i Top(G_i) for the graded PBQ pieces G_i of M. It is not a sum of Top(P_iM).
 
@@ -418,20 +478,20 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 ### PBQ filtration base change
 
-**Target `MS.1/pbq-filtration-base-change` (theorem).** The PBQ filtration commutes with the finite coefficient and completed residue extensions of bounded-base-change. In particular maximal PBQ subobjects and their graded slopes are preserved.
+**Target `MS.1/pbq-filtration-base-change` (theorem).** For an extension B⊂B′ as in bounded-base-change (in particular E_η⊂E_α, finite coefficient extension, or the finite unramified extension of generic fields of a finite étale cover), M is PBQ iff B′⊗M is PBQ, with the same maximal slope, and B′⊗P_•(M) is the PBQ filtration of B′⊗M. In particular maximal PBQ subobjects and their graded slopes are preserved.
 
 **Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
-1. Bounded-base-change preserves the PBQ quotient criterion and maximal slopes.
-2. Use uniqueness of P₁ and descent of the invariant maximal subobject; induct through quotients.
+1. Bounded-base-change gives B(B′⊗M)=B′⊗B(M); Frobenius slopes of a φ-module are unchanged by field extension, so purity of the bounded quotient is preserved and reflected (Tsuzuki Theorem 3.21(1)).
+2. The base change of the PBQ filtration of M has PBQ grades with strictly decreasing maximal slopes, so by uniqueness of the PBQ filtration over B′ it is the PBQ filtration of B′⊗M (Theorem 3.21(2)).
 
-**Direct prerequisites.** [MS.1/pbq-filtration](#pbq-filtration); [MS.0/bounded-base-change](#bounded-base-change); [PadicDifferentialEquationsAndRigidCohomology:RD.1/saturated-subobject-descent-via-exterior-power](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.1/pbq-filtration](#pbq-filtration); [MS.0/bounded-base-change](#bounded-base-change); [MS.0/pbq-quotients](#pbq-quotients).
 
-**Sources.** [TSU, Proposition 3.21, p.17](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Theorem 3.21, p.17](https://arxiv.org/pdf/1910.03871v3); [OHK, Lemma 7.10, p.37](https://arxiv.org/pdf/1809.04065v1).
 
-**Check.** The PBQ filtration commutes with the finite coefficient and completed residue extensions of bounded-base-change. In particular maximal PBQ subobjects and their graded slopes are preserved.
+**Check.** For a split sum of rank-one constant objects of slopes 1 and 0 over E_η, the PBQ filtration and its grades are the same after passing to any E_α.
 
 <a id="dagger-pbq-descent"></a>
 
@@ -449,7 +509,7 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 **Direct prerequisites.** [MS.1/pbq-filtration](#pbq-filtration); [MS.0/bounded-splitting](#bounded-splitting); [MS.0/opposite-rank-bound](#opposite-rank-bound).
 
-**Sources.** [TSU, Theorem 3.23(2), p.17; Ohkubo Theorem 12.7, pp.45–46](https://arxiv.org/pdf/1910.03871v3); [OHK, Theorem 12.7, pp.45–46](https://arxiv.org/pdf/1809.04065v1).
+**Sources.** [TSU, Theorem 3.23(2), p.17](https://arxiv.org/pdf/1910.03871v3); [OHK, Assumption 12.3, Proposition 12.4, Definition 12.5 and Theorem 12.7, pp.45–46](https://arxiv.org/pdf/1809.04065v1).
 
 **Check.** For M†/E†, its PBQ filtration over E descends uniquely to E†; equivalently its maximally PBQ subobject descends, and the construction iterates on the quotient. Here k is perfect and the source Frobenius hypotheses of Ohkubo §12.3 are retained.
 
@@ -469,7 +529,7 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 **Direct prerequisites.** [MS.1/growth-eigenvector](#growth-eigenvector); [MS.1/log-growth](#log-growth); [MS.0/bounded-base-change](#bounded-base-change); [PadicDifferentialEquationsAndRigidCohomology:RD.1/dieudonne-manin-classical](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [OHK, Remark 3.25, p.18; Ohkubo Theorem 7.6(ii), Proposition 7.7 and Theorem 7.2(ii), pp.35–37](https://arxiv.org/pdf/1809.04065v1).
+**Sources.** [TSU, Remark 3.25, p.18](https://arxiv.org/pdf/1910.03871v3); [OHK, Theorem 7.6(ii), Proposition 7.7 and Conjecture 7.2(ii), pp.35–37](https://arxiv.org/pdf/1809.04065v1).
 
 **Check.** For a PBQ bounded-disc module M, Sol_λ(M)=S_(λ−λmax(M_E))(Sol(M)) for every real λ. The bounded Robba version holds for M solvable in Rlog. S is the increasing Frobenius slope filtration on the contravariant solution space; the shift is negative at λ=0.
 
@@ -489,7 +549,7 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 **Direct prerequisites.** [MS.1/dagger-pbq-descent](#dagger-pbq-descent); [PadicDifferentialEquationsAndRigidCohomology:RD.3/local-full-faithfulness](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Theorem 3.23(1), p.17; CT11 Theorem 5.6 and Corollary 5.10, pp.56–59](https://arxiv.org/pdf/1910.03871v3); [CT11, Theorem 5.6 and Corollary 5.10, pp.56–59](https://ems.press/content/serial-article-files/26106?nt=1).
+**Sources.** [TSU, Theorem 3.23(1), p.17](https://arxiv.org/pdf/1910.03871v3); [CT11, Theorem 5.6, Lemma 5.7 and Corollary 5.10, pp.56–59](https://ems.press/content/serial-article-files/26106?nt=1).
 
 **Check.** For a finite free (φ,∇)-module over K[[t]]₀ the PBQ filtration of its E-realisation descends uniquely to saturated differential Frobenius submodules over K[[t]]₀, whose quotient modules are finite free.
 
@@ -508,11 +568,11 @@ The canonical PBQ filtration over E, descent to bounded discs and E†, bounded 
 
 **Direct prerequisites.** [MS.1/log-growth-comparison](#log-growth-comparison); [MS.0/generic-solutions](#generic-solutions); [MS.1/disc-pbq-descent](#disc-pbq-descent).
 
-**Sources.** [TSU, Proposition 3.24, p.18](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Proposition 3.24, pp.17–18](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** For a rank-one constant Frobenius-a object the solution eigenvalue is a⁻¹ while the evaluation quotient has eigenvalue a; the dual cannot be omitted.
 
-**Coverage.** Planned. Discharge the explicit parent supplier requests used in this layer and check the planned mathematical interfaces in independent review.
+**Coverage.** Planned. Discharge the RD.0 request for Ohkubo's extended logarithmic Robba carrier (growth-eigenvector) and the RD.1 request for de Jong's bounded-disc/bounded-Robba submodule comparison (disc-pbq-descent).
 
 ## MS.2: PBQ objects on curves
 
@@ -535,7 +595,7 @@ Generic PBQ and its canonical filtration on a smooth curve, gluing and functoria
 1. Pass between lifts using the parent Taylor comparison and between generic coefficient carriers by bounded-base-change.
 2. Preserve the universal bounded quotient and its pure slope under each comparison.
 
-**Direct prerequisites.** [MS.0/pbq](#pbq); [MS.0/bounded-base-change](#bounded-base-change); [PadicDifferentialEquationsAndRigidCohomology:RD.3/affine-frame-global-sections-equivalence](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/change-of-frobenius-lift-taylor-formula](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.0/pbq](#pbq); [MS.0/bounded-base-change](#bounded-base-change); [PadicDifferentialEquationsAndRigidCohomology:RD.3/affine-frame-global-sections-equivalence](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/change-of-frobenius-lift-taylor-formula](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.0/curve-generic-field](#curve-generic-field).
 
 **Sources.** [TSU, Definition 3.26, p.18](https://arxiv.org/pdf/1910.03871v3).
 
@@ -556,6 +616,26 @@ Generic PBQ and its canonical filtration on a smooth curve, gluing and functoria
 - `curve_pbq_zero` (non-example): Zero is excluded just as in the generic definition.
 - `curve_pbq_twoslopes` (non-example): A split pair of constant rank-one objects with different slopes is not PBQ, even though each fibre is split.
 
+<a id="dagger-section-intersection"></a>
+
+### Dagger sections as generic and local intersections
+
+**Target `MS.2/dagger-section-intersection` (theorem).** In the setting of MS.0/curve-generic-field: (1) Â_{C,K}=⋂_{α∈C}(E_η∩K_α[[x_α]]₀); (2) A†_{C,K}=⋂_{α∈C̄∖C}(E†_α∩Â_{C,K})=⋂_{α∈C}(E_η∩K_α[[x_α]]₀)∩⋂_{α∈C̄∖C}(E_η∩E†_α), the intersections taken in the fields E_α; (3) for a finite projective A†_{C,K}-module M†, M†=⋂_{α∈C}(M_η∩M_{0,α})∩⋂_{α∈C̄∖C}(M_η∩M†_α) inside M_η.
+
+**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1. C is affine with a smooth lift and Frobenius lift as in MS.0/curve-generic-field; C̄ is its smooth completion.
+
+**Proof or construction.**
+
+1. All rings in (1) are p-adically complete with the value group of K, so (1) reduces modulo the maximal ideal to k[C]=⋂_{α∈C}(k(C)∩k(α)[[x_α]]), which holds because k[C] is a normal one-dimensional domain (Tsuzuki Lemma 3.2(1), p.12).
+2. For a boundary point α choose an affine open V⊂C̄ containing α in which α is cut out by one function. Lemma 3.1(3) gives the overconvergence-along-α ring as E†_α∩(sections over V∖{α}), by splitting a Laurent series into its negative and nonnegative parts and using Â_V=R[[x_α]]∩Â_C; glue over the finitely many boundary points (Tate acyclicity) to get the first equality of (2); the second follows from (1).
+3. A finite projective module is a direct summand of a finite free module, and the intersections in (2) commute with finite direct sums and summands; this gives (3) (Tsuzuki proof of Lemma 3.33, p.20).
+
+**Direct prerequisites.** [MS.0/curve-generic-field](#curve-generic-field); [PadicDifferentialEquationsAndRigidCohomology:RD.3/affine-frame-global-sections-equivalence](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/zariski-stack-of-overconvergent-isocrystals](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/completion-versus-overconvergence](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+
+**Sources.** [TSU, Lemma 3.1, p.11; Lemma 3.2, p.12; proof of Lemma 3.33, p.20](https://arxiv.org/pdf/1910.03871v3).
+
+**Check.** On C=G_m with C̄=P¹, the series Σ_{n≥0}p^nx^{p^n} lies in Â_{C,K} and in E_η, but not in E†_∞, so it is not in A†_{C,K}; the boundary condition at ∞ is essential.
+
 <a id="curve-gluing"></a>
 
 ### Interior and boundary gluing
@@ -567,12 +647,12 @@ Generic PBQ and its canonical filtration on a smooth curve, gluing and functoria
 **Proof or construction.**
 
 1. For unit-root Lη apply the K^σ-representation correspondence, with no interior ramification and finite boundary inertia. The general-coefficient form is a request to RD.3.
-2. For rank one first extend coefficients isometrically so the fixed field has the required value group, twist by a fixed scalar of the rank-one slope to reach unit-root, glue, untwist, and descend by uniqueness. This supplies the omitted normalisation in Lemma 3.33.
-3. For rank r glue the determinant line in ∧^rM†; recover L as the determinant-line dual tensor the kernel of the wedge map to ∧^(r+1)M†. Use the parent intersection/gluing and local full faithfulness.
+2. For rank one first pass to the finite unramified extension of MS.0/fixed-field-normalisation, so the fixed field has the value group of K, twist by a fixed scalar of the rank-one slope to reach unit-root, glue, untwist, and descend by uniqueness. This supplies the omitted normalisation in Lemma 3.33 (E25).
+3. For rank r glue the determinant line in ∧^rM†; recover L as the determinant-line dual tensor the kernel of the wedge map to ∧^(r+1)M†. A generic vector that is a section at every interior and boundary point is a dagger section by MS.2/dagger-section-intersection; local full faithfulness gives uniqueness.
 
-**Direct prerequisites.** [MS.2/curve-pbq](#curve-pbq); [MS.1/disc-pbq-descent](#disc-pbq-descent); [MS.1/dagger-pbq-descent](#dagger-pbq-descent); [PadicDifferentialEquationsAndRigidCohomology:RD.1/saturated-subobject-descent-via-exterior-power](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/isocrystals-glued-from-local-frames](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-descent-of-overconvergent-f-isocrystals](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.2/curve-pbq](#curve-pbq); [MS.1/disc-pbq-descent](#disc-pbq-descent); [MS.1/dagger-pbq-descent](#dagger-pbq-descent); [PadicDifferentialEquationsAndRigidCohomology:RD.1/saturated-subobject-descent-via-exterior-power](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/isocrystals-glued-from-local-frames](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-descent-of-overconvergent-f-isocrystals](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.2/dagger-section-intersection](#dagger-section-intersection); [MS.0/fixed-field-normalisation](#fixed-field-normalisation).
 
-**Sources.** [TSU, Lemmas 3.32–3.33, pp.19–20; Appendix A Lemma A.1(2), pp.37–38](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Lemmas 3.32–3.33, pp.19–20](https://arxiv.org/pdf/1910.03871v3); [TSU, Lemma A.1(2), pp.37–38](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** Rank-one slope-one data must be twisted before applying a unit-root correspondence. No claim that every rank-one object is unit-root is used.
 
@@ -610,7 +690,7 @@ Generic PBQ and its canonical filtration on a smooth curve, gluing and functoria
 
 **Direct prerequisites.** [MS.2/curve-gluing](#curve-gluing); [MS.1/pbq-filtration-base-change](#pbq-filtration-base-change); [MS.2/curve-pbq](#curve-pbq); [PadicDifferentialEquationsAndRigidCohomology:RD.5/dense-open-restriction-fully-faithful](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Theorem 3.27 and Corollary 3.28, pp.18–21](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Theorem 3.27 and Corollary 3.28, p.18; proof of Theorem 3.27, pp.20–21](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** Every M† on C has a unique PBQ filtration whose generic filtration is pbq-filtration; its interior bounded-disc and boundary bounded Robba realisations are the corresponding local PBQ filtrations. Its graded maximal slopes strictly decrease. Every irreducible M† is PBQ.
 
@@ -618,20 +698,21 @@ Generic PBQ and its canonical filtration on a smooth curve, gluing and functoria
 
 ### Finite étale PBQ transport
 
-**Target `MS.2/finite-etale-pbq` (theorem).** For a finite étale surjective map f:C′→C of smooth connected curves, f* preserves PBQ and f_* reflects PBQ: if f_*M† is PBQ then M† is PBQ. The forward assertion requires an independent generic-disc comparison, recorded as gap G2; the circular source proof is not a proof of this node.
+**Target `MS.2/finite-etale-pbq` (theorem).** For a finite étale surjective map f:C′→C of smooth connected curves, f* preserves PBQ, and f_* reflects PBQ: if f_*M† is PBQ then M† is PBQ. The source proof is circular (E12); this node proves the pullback assertion directly from the field-extension case of bounded-base-change.
 
 **Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
 
 **Proof or construction.**
 
-1. Required repair: prove that bounded Taylor solution spaces and their annihilators commute with the finite unramified extension of complete generic fields induced by f. A finite constant coefficient extension is insufficient.
-2. Once that lemma is supplied, pullback preserves purity of the bounded quotient. For reflection apply this to f*f_*M† and its surjective counit to M†, then curve-pbq-functoriality.
+1. Lift f over a dense affine open to a finite étale map of weak completions with compatible Frobenius (parent lifting lemma); the generic fields form a finite unramified extension E_η⊂E_{η′}, and a coordinate of C is an étale coordinate of C′.
+2. The generic module of f*N† is E_{η′}⊗N_η. Bounded-base-change gives B(E_{η′}⊗N_η)=E_{η′}⊗B(N_η), whose Frobenius slopes are those of B(N_η); hence f*N† is PBQ when N† is (and conversely).
+3. For the direct image, apply the pullback assertion to f_*M† to get f*f_*M† PBQ, and use the surjective counit f*f_*M†→M† with curve-pbq-functoriality.
 
-**Direct prerequisites.** [MS.2/curve-pbq-functoriality](#curve-pbq-functoriality); [MS.0/bounded-base-change](#bounded-base-change); [PadicDifferentialEquationsAndRigidCohomology:RD.3/finite-etale-pushforward-of-isocrystals](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/finite-etale-lifting-of-mw-algebras](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.2/curve-pbq-functoriality](#curve-pbq-functoriality); [MS.0/bounded-base-change](#bounded-base-change); [PadicDifferentialEquationsAndRigidCohomology:RD.3/finite-etale-pushforward-of-isocrystals](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/finite-etale-lifting-of-mw-algebras](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.0/curve-generic-field](#curve-generic-field).
 
 **Sources.** [TSU, Lemma 3.31, p.19](https://arxiv.org/pdf/1910.03871v3).
 
-**Check.** For a finite étale surjective map f:C′→C of smooth connected curves, f* preserves PBQ and f_* reflects PBQ: if f_*M† is PBQ then M† is PBQ. The forward assertion requires an independent generic-disc comparison, recorded as gap G2; the circular source proof is not a proof of this node.
+**Check.** For the Artin–Schreier cover of A¹ and N† the unit object, f*N† is the unit object of the cover and is PBQ; the direct image f_*O is unit-root and PBQ.
 
 <a id="curve-bounded-quotient"></a>
 
@@ -667,11 +748,11 @@ Generic PBQ and its canonical filtration on a smooth curve, gluing and functoria
 
 **Direct prerequisites.** [MS.2/curve-pbq-filtration](#curve-pbq-filtration); [PadicDifferentialEquationsAndRigidCohomology:RD.6/kummer-isocrystal](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.4](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.6](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, §3.9, pp.21–22](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, §3.9, p.21](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** For odd p≡1 mod4, on C=P¹_Fp∖{0,1,∞}, let L† be H¹ of the Legendre family, χ the quadratic character w²=z(z−1), and π_p the p-adic unit root for y²=x³−x. There exists a nonsplit extension 0→L†(χ)→M†→1(π_p²)→0; its PBQ filtration has the two displayed nonzero graded pieces with maximal slopes 1 then 0. It is not a self-extension.
 
-**Coverage.** Planned. Discharge the explicit parent supplier requests used in this layer and check the planned mathematical interfaces in independent review. Repair G2, without altering the independent main curve route.
+**Coverage.** Planned. Discharge the RD.3 request for the general-coefficient unit-root correspondence (curve-gluing) and the RD.4 and RD.6 requests for the Legendre–Kummer example.
 
 ## MS.3: Saturation
 
@@ -687,7 +768,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/local-saturation` (definition).** For M†/E† with M=E⊗M† and maximal slope quotient Top(M), M† is saturated when M†→M→Top(M) is injective as an E†-linear map. This is a property of the canonical map; saturation will be a quotient, not enlargement of M† in M.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
@@ -721,7 +802,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/quasi-saturation` (definition).** For a pure E-module P, an injective E†-linear horizontal Frobenius map f:N†→P is quasi-saturated if E·f(N†)=P. Thus E⊗N†→P is surjective. Its kernel can be nonzero even though f is injective.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
@@ -755,7 +836,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/pbq-submodule-slope` (theorem).** If θ†:N†→P is injective as an E†-linear horizontal Frobenius map and P is pure, then λmax(E⊗N†)=slope(P). For any map with surjective E-linearisation, its E† image L† is quasi-saturated, rank Top(E⊗L†)≥rank P, and equality identifies the top quotient with P and makes L† saturated.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
@@ -764,7 +845,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Direct prerequisites.** [MS.0/pbq-quotients](#pbq-quotients); [MS.1/dagger-pbq-descent](#dagger-pbq-descent); [MS.3/local-saturation](#local-saturation).
 
-**Sources.** [TSU, Propositions 4.5–4.6, p.22](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Propositions 4.4–4.6, p.22](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** The injective map into the pure target is essential; PBQ alone does not imply every subobject has the same maximal slope.
 
@@ -774,7 +855,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/global-saturation` (definition).** For a smooth connected variety X and M†, choose a dense affine open U where M has a slope filtration. M† is saturated if Γ(U,M†)→Γ(U,Top(M|U)) is injective for every such U. The condition can be tested on a single such U and is invariant under restriction to dense opens.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** X is a smooth connected separated scheme of finite type over a perfect field k of characteristic p; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
 
 **Proof or construction.**
 
@@ -783,7 +864,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Direct prerequisites.** [MS.3/local-saturation](#local-saturation); [PadicDifferentialEquationsAndRigidCohomology:RD.3/affine-frame-global-sections-equivalence](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/dense-open-global-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.5/dense-open-restriction-fully-faithful](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Definition 5.1, Proposition 5.2 and Corollary 5.4, pp.24–25](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Definition 5.1, Proposition 5.2, Lemma 5.3, Corollary 5.4 and Remark 5.7, pp.24–25](https://arxiv.org/pdf/1910.03871v3).
 
 **Uses that determine the API.**
 
@@ -808,7 +889,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/saturated-quotient` (definition).** Set Sat(M†)=im_E†(M†→Top(M)), equivalently M†/ker(M†→Top(M)). It is a differential Frobenius E†-module with canonical surjection from M†. Its E-realisation can have rank larger than Top(M); nevertheless its maximal-slope quotient is canonically Top(M) and it is saturated.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
@@ -817,7 +898,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Direct prerequisites.** [MS.3/quasi-saturation](#quasi-saturation); [MS.0/opposite-rank-bound](#opposite-rank-bound); `LinearMap.quotKerEquivRange` (Mathlib baseline).
 
-**Sources.** [TSU, Proposition 4.7 and Definition 4.8, pp.22–23](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Proposition 4.7 and Definition 4.8, p.22](https://arxiv.org/pdf/1910.03871v3).
 
 **Uses that determine the API.**
 
@@ -842,7 +923,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/saturation-transport` (theorem).** Every irreducible dagger object on a smooth connected variety is saturated. Saturation is preserved by finite étale pullback and pushforward, finite coefficient extension with compatible Frobenius, and positive Frobenius iteration; on a curve PBQ and saturation are still distinct properties.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** X is a smooth connected separated scheme of finite type over a perfect field k of characteristic p; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
 
 **Proof or construction.**
 
@@ -862,7 +943,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/quasi-saturated-rank` (theorem).** A quasi-saturated N†⊂P with P pure is saturated and Top(E⊗N†)→P is an isomorphism. A local dagger object is irreducible iff it is PBQ and saturated and its top quotient is irreducible.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
@@ -882,7 +963,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/global-saturated-quotient` (definition).** For any M† on smooth connected X, construct a saturated dagger quotient M†→Sat_X(M†) whose restriction on a dense affine slope locus is the image in Top(M). If the realisation has a global slope filtration, it preserves Top(M) globally. It is unique up to the unique isomorphism commuting with the quotient maps, and needs no global slope filtration for its construction.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** X is a smooth connected separated scheme of finite type over a perfect field k of characteristic p; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
 
 **Proof or construction.**
 
@@ -917,7 +998,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/local-graded-recovery` (theorem).** An isomorphism B(N)→B(M) induces a unique isomorphism ⊕_i Sat(G_i(N†))→⊕_i Sat(G_i(M†)) compatible with the top quotient of each PBQ grade. The strictly decreasing slopes canonically match the grades.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
@@ -937,7 +1018,7 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Target `MS.3/local-reconstruction` (theorem).** Let h:Top(N)→Top(M). If M†,N† are irreducible and h≠0, or if they are PBQ and saturated and h is invertible, then there is a unique dagger isomorphism N†→M† inducing exactly h.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** K is a complete discretely valued field of characteristic zero, with perfect residue field k of characteristic p>0, q=p^s (s>0), and an isometric lift σ of q-Frobenius. E, E† and K[[t]]₀ are the parent Amice, bounded Robba and bounded-disc carriers. Frobenius is horizontal and invertible after linearisation.
 
 **Proof or construction.**
 
@@ -946,11 +1027,11 @@ Local and global saturation, quasi-saturation, canonical saturated quotients and
 
 **Direct prerequisites.** [MS.3/local-graded-recovery](#local-graded-recovery); [MS.3/quasi-saturated-rank](#quasi-saturated-rank).
 
-**Sources.** [TSU, Theorem 4.2, pp.22–23](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Theorem 4.2, p.22; proof, p.23](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** Let h:Top(N)→Top(M). If M†,N† are irreducible and h≠0, or if they are PBQ and saturated and h is invertible, then there is a unique dagger isomorphism N†→M† inducing exactly h.
 
-**Coverage.** Planned. Discharge the explicit parent supplier requests used in this layer and check the planned mathematical interfaces in independent review.
+**Coverage.** Planned.
 
 ## MS.4: Curve reconstruction
 
@@ -996,7 +1077,7 @@ The curve rank theorem, extension tests, reconstruction of a specified maximal-s
 
 **Direct prerequisites.** [MS.4/boundary-pbq-kernel](#boundary-pbq-kernel); [MS.2/curve-pbq-functoriality](#curve-pbq-functoriality); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Proposition 6.1, pp.26–27 (v3 proof)](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Proposition 6.1, pp.26–27](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** Let P be an isoclinic convergent F-isocrystal on C, N† a dagger object with slope-filtered realisation N, and N→P a surjection. If the induced dagger-section map Γ(U,N†)→Γ(U,P) is injective on one dense affine U, then λmax(N)=slope(P) and rank Top(N)=rank P.
 
@@ -1035,7 +1116,7 @@ The curve rank theorem, extension tests, reconstruction of a specified maximal-s
 
 **Direct prerequisites.** [MS.2/curve-bounded-quotient](#curve-bounded-quotient); [MS.4/curve-rank](#curve-rank); [MS.3/global-saturated-quotient](#global-saturated-quotient); [MS.2/curve-pbq-functoriality](#curve-pbq-functoriality).
 
-**Sources.** [TSU, Theorem 6.4, p.27 (graded-index and carrier corrections)](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Theorem 6.4, p.27](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** For slope-filtered realisations, a convergent isomorphism B_C(N)→B_C(M) induces a unique dagger isomorphism between the direct sums of the saturated graded PBQ pieces, compatible with the given map on each maximal pure quotient. The PBQ grades are matched by strictly decreasing maximal slopes.
 
@@ -1055,7 +1136,7 @@ The curve rank theorem, extension tests, reconstruction of a specified maximal-s
 
 **Direct prerequisites.** [MS.4/curve-irreducibility](#curve-irreducibility); [MS.2/curve-pbq-functoriality](#curve-pbq-functoriality); [MS.2/curve-pbq-filtration](#curve-pbq-filtration); [PadicDifferentialEquationsAndRigidCohomology:RD.3/full-faithfulness-overconvergent-to-convergent](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, Example 6.3(1)–(3), p.27](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Example 6.3, p.27](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** No general assertion that all higher-slope extensions split: the final splitting assertion uses total rank two.
 
@@ -1115,11 +1196,11 @@ The curve rank theorem, extension tests, reconstruction of a specified maximal-s
 
 **Direct prerequisites.** [MS.4/specified-curve-lift](#specified-curve-lift); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [TSU, §1.1–1.3, pp.1–3 and Corollary 6.5, p.28](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Conjectures 1.1–1.2, pp.1–2; Corollary 6.5, p.28](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** For irreducible dagger objects M†,N† on C with slope-filtered realisations, every nonzero convergent map a:S_min(M)→S_min(N) lifts to a unique dagger isomorphism M†→N†. Equivalently a nonzero map S_min(N)→S_min(M) lifts in that direction. Top(M∨)=S_min(M)∨ and the slopes change sign.
 
-**Coverage.** Planned. Discharge the explicit parent supplier requests used in this layer and check the planned mathematical interfaces in independent review.
+**Coverage.** Planned.
 
 ## MS.5: Dagger hulls and minimal slopes
 
@@ -1135,7 +1216,7 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 **Target `MS.5/dagger-hull` (definition).** For a convergent sub-F^n-isocrystal N⊂M where M comes from M†, Hull†_M(N) is the smallest convergent subobject of M containing N which extends overconvergently as a subobject of M†. It is obtained by the finite intersection of all such subobjects; finite length and full faithfulness make this well-defined. The ambient object is part of the data.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** X is a smooth connected separated scheme of finite type over a perfect field k of characteristic p; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
 
 **Proof or construction.**
 
@@ -1144,7 +1225,7 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 **Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.3/full-faithfulness-overconvergent-to-convergent](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [DAD, Definition 4.1.1 and footnote 6, pp.11–12](https://arxiv.org/pdf/2012.12879v4).
+**Sources.** [DAD, Definition 4.1.1 and footnote 6, p.11](https://arxiv.org/pdf/2012.12879v4).
 
 **Uses that determine the API.**
 
@@ -1177,7 +1258,7 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 2. The relations ū_it^i=p hold in B_n, while p^(i−1)(ū_it^i−p) follows from ū₁t=p; this gives the stated bounded kernel.
 3. Compare radii of convergence of finitely many generators to identify both filtered colimits.
 
-**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.0/analytic-ring](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/completion-versus-overconvergence](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.0/analytic-ring](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/completion-versus-overconvergence](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
 **Sources.** [DAD, §4.2.9, pp.15–16](https://arxiv.org/pdf/2012.12879v4).
 
@@ -1202,9 +1283,9 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 ### Docile Lefschetz full faithfulness
 
-**Target `MS.5/docile-lefschetz` (theorem).** Let (X̄,Z) be a smooth projective pair over an algebraically closed perfect field, dim X̄≥2, with Z a strict normal-crossings divisor. Choose a smooth complete-intersection curve C̄ in good position with respect to every stratum of Z (successive smooth ample sections, transverse to each boundary stratum); put X=X̄∖Z and C=C̄∩X. Restriction on the full category of docile dagger objects is fully faithful. The base tuple may be arbitrary as in their Remark 2.5; essential surjectivity is not claimed.
+**Target `MS.5/docile-lefschetz` (theorem).** Let (X̄,Z) be a smooth connected projective variety over a perfect field k (any base tuple, Abe–Esnault Remark 2.5), dim X̄≥2, with Z a simple normal crossings divisor. Let C̄ be a smooth curve that is a complete intersection of ample divisors in good position with respect to Z (transverse to every stratum of Z); put X=X̄∖Z and C=C̄∩X. Restriction from docile overconvergent isocrystals on X to docile overconvergent isocrystals on C is fully faithful, and so is its Frobenius version. Essential surjectivity is not claimed.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** X̄ is smooth connected projective over a perfect field of characteristic p and Z⊂X̄ a simple normal crossings divisor; docile means unipotent monodromy along Z (parent RD.5). The curve C̄ is a complete intersection of ample divisors in good position with respect to Z.
 
 **Proof or construction.**
 
@@ -1214,9 +1295,9 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 **Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.5/unipotent-monodromy-along-boundary](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.5/log-extension-of-unipotent-isocrystal](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/full-faithfulness-overconvergent-to-convergent](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [AE, Lemma 4.4.2, pp.19–20; AE Corollary 2.4 and Remark 2.5, pp.11–12](https://page.mi.fu-berlin.de/esnault/preprints/helene/123_abe_esn.pdf).
+**Sources.** [DAD, Theorem 4.4.2, p.19](https://arxiv.org/pdf/2012.12879v4); [AE, Corollary 2.4 and Remark 2.5, p.12](https://page.mi.fu-berlin.de/esnault/preprints/helene/123_abe_esn.pdf).
 
-**Check.** Let (X̄,Z) be a smooth projective pair over an algebraically closed perfect field, dim X̄≥2, with Z a strict normal-crossings divisor. Choose a smooth complete-intersection curve C̄ transverse to Z and satisfying Abe–Esnault Corollary 2.4’s ample Lefschetz condition; put X=X̄∖Z and C=C̄∩X. Restriction on the full category of docile dagger objects is fully faithful. The base tuple may be arbitrary as in their Remark 2.5; essential surjectivity is not claimed.
+**Check.** Let (X̄,Z) be as stated, with C̄ a complete intersection of ample divisors in good position with respect to Z. For docile E,F on X, Hom(E,F)→Hom(E|C,F|C) is bijective.
 
 <a id="minimal-slope-property"></a>
 
@@ -1224,7 +1305,7 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 **Target `MS.5/minimal-slope-property` (definition).** For dagger-extendable M with constant Newton polygon, MS(M) says that for every convergent sub-F^n-object N⊂M, S_min(N)=S_min(Hull†_M(N)) as subobjects of M. MS(X) quantifies over n>0 and all such M on X. Constant-slope loci, rather than arbitrary jumping families, supply these subobjects.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** X is a smooth connected separated scheme of finite type over a perfect field k of characteristic p; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
 
 **Proof or construction.**
 
@@ -1233,7 +1314,7 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 **Direct prerequisites.** [MS.5/dagger-hull](#dagger-hull); [PadicDifferentialEquationsAndRigidCohomology:RD.1/dense-open-global-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [DAD, Notation 4.1.2, p.11](https://arxiv.org/pdf/2012.12879v4).
+**Sources.** [DAD, Notation 4.1.2, p.11; Theorem 4.1.3, p.12](https://arxiv.org/pdf/2012.12879v4).
 
 **Uses that determine the API.**
 
@@ -1299,7 +1380,7 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 1. Use the free two-term resolution with multiplication by ū₁t−p. After inverting p, B′_n is a localisation, so its Tor kernel is p-primary; the given bound kills it.
 2. Modulo p^e the tensor-map kernel is generated by ut−1 and killed by p; take compatible p-adic limits and invert p. Localisation is exact.
 
-**Direct prerequisites.** [MS.5/integral-models](#integral-models); [PadicDifferentialEquationsAndRigidCohomology:RD.0](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.5/integral-models](#integral-models).
 
 **Sources.** [DAD, Lemmas 4.2.10–4.2.11, p.16](https://arxiv.org/pdf/2012.12879v4).
 
@@ -1311,7 +1392,7 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 **Target `MS.5/ms-reductions` (theorem).** MS reduces to n=1, then isoclinic subobjects, and can be checked on a dense open. For finite étale Galois f:Y→X, MS(f*M) implies MS(M), and MS(f_*M) implies MS(M) for M on Y. These are implications under the stated Galois hypotheses.
 
-**Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
+**Hypotheses.** X is a smooth connected separated scheme of finite type over a perfect field k of characteristic p; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
 
 **Proof or construction.**
 
@@ -1361,7 +1442,7 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 **Direct prerequisites.** [MS.5/ms-reductions](#ms-reductions); [MS.5/dual-hull](#dual-hull); [MS.0/opposite-rank-bound](#opposite-rank-bound); [PadicDifferentialEquationsAndRigidCohomology:RD.0/analytic-ring](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.1/reverse-algebraic-filtration-comparison](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [DAD, Proposition 4.2.2, Lemma 4.2.7 and proof §4.2.8, pp.14–15](https://arxiv.org/pdf/2012.12879v4).
+**Sources.** [DAD, Proposition 4.2.2, p.14; Lemma 4.2.7 and §4.2.8, p.15](https://arxiv.org/pdf/2012.12879v4).
 
 **Check.** For N⊂M over the complete generic field of A¹_k, with M dagger-extendable, S_min(N)=S_min(Hull†_M(N)). The generic field has residue k(t), not k((t)); use the parent analytic-ring/reverse-filtration carrier specified for this field.
 
@@ -1369,20 +1450,20 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 ### Étale affine-line reduction
 
-**Target `MS.5/etale-affine-line` (theorem).** For any smooth curve C over perfect k, after removing a finite set there is a finite étale map to a nonempty open of A¹_k. Together with dense-open and finite étale Galois MS reductions this transfers MS from A¹ to C. This is the dimension-one form of the source’s étale affine-space theorem.
+**Target `MS.5/etale-affine-line` (theorem).** For a smooth connected curve C over a perfect field k there is a dense open U⊂C with a finite étale morphism U→A¹_k (Kedlaya). Together with the dense-open and finite étale Galois MS reductions, MS for objects over A¹_k implies MS(C). This is the dimension-one case of Kedlaya's étale covers of affine space.
 
 **Hypotheses.** C is a smooth connected curve over perfect k; the coefficient datum is as above. Dagger objects are overconvergent F-isocrystals and their undecorated realisations are convergent. Slopes are normalised by q, so duality negates them and O(1) has slope −1.
 
 **Proof or construction.**
 
-1. Choose a separating rational function on C; remove the poles, ramification points and missing finite fibres to obtain the finite étale map.
-2. Pass to a finite étale Galois closure on a further dense open and apply ms-reductions. The general higher-dimensional affine-space construction is outside this node.
+1. Apply Kedlaya's Theorem 1 to the smooth completion C̄ (geometrically reduced since k is perfect) with D=C̄∖C: a finite morphism C̄→P¹ étale over A¹ sending D to ∞; then U=f^{-1}(A¹)⊂C and U→A¹ is finite étale.
+2. Pass to a finite étale Galois closure of U→A¹ and use ms-reductions: MS on A¹ gives MS for the pushforward from the closure, hence on the closure, hence on U, hence on C by the dense-open reduction. The higher-dimensional affine-space case is outside this node.
 
-**Direct prerequisites.** [MS.5/ms-reductions](#ms-reductions); [PadicDifferentialEquationsAndRigidCohomology:RD.3](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.5/ms-reductions](#ms-reductions).
 
-**Sources.** [DAD, Theorem 4.2.13 and proof, p.17 (citing Kedlaya 2005 Theorem 1)](https://arxiv.org/pdf/2012.12879v4).
+**Sources.** [DAD, Proof of Theorem 4.2.13, p.17](https://arxiv.org/pdf/2012.12879v4); [KED05, Theorem 1, p.1](https://arxiv.org/pdf/math/0303382v3).
 
-**Check.** For any smooth curve C over perfect k, after removing a finite set there is a finite étale map to a nonempty open of A¹_k. Together with dense-open and finite étale Galois MS reductions this transfers MS from A¹ to C. This is the dimension-one form of the source’s étale affine-space theorem.
+**Check.** Over k=F_p the finite morphism need not be defined by a separating function with simple poles: wild ramification at ∞ is allowed, as for the Artin–Schreier map y↦y^p−y from A¹ to A¹.
 
 <a id="curve-ms"></a>
 
@@ -1400,11 +1481,11 @@ Dagger hulls, reductions of MS, the generic reverse-filtration proof, integral-m
 
 **Direct prerequisites.** [MS.5/ms-reductions](#ms-reductions); [MS.5/dual-hull](#dual-hull); [MS.4/curve-rank](#curve-rank); [PadicDifferentialEquationsAndRigidCohomology:RD.1/calculus-of-slopes](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/frobenius-structure-forces-overconvergence](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergence-is-a-property](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [DAD, Theorem 4.2.13, p.17 and §4.2 introductory paragraph, p.13; Tsuzuki Proposition 6.1, pp.26–27](https://arxiv.org/pdf/2012.12879v4); [TSU, Proposition 6.1 and its v3 proof, pp.26–27](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [DAD, Theorem 4.2.13, p.17; §4.2 introduction, p.13](https://arxiv.org/pdf/2012.12879v4); [TSU, Proposition 6.1 and proof, pp.26–27](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** Every smooth curve over a perfect field satisfies MS(C), for every positive Frobenius power and every constant-Newton dagger-extendable ambient object. This target is proved by the independent Tsuzuki curve rank theorem, without affine-generic-hull.
 
-**Coverage.** Planned. Discharge the explicit parent supplier requests used in this layer and check the planned mathematical interfaces in independent review. Repair G1 for the alternate affine–generic proof; register G3 for docile Lefschetz.
+**Coverage.** Planned. Repair G1 for the alternate affine–generic proof; give Kedlaya's étale-cover theorem (G4) an owner for the alternate affine-line reduction; register G3 for docile Lefschetz.
 
 ## MS.6: Lefschetz and finite fields
 
@@ -1412,7 +1493,7 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 
 **Stage inputs.** [PadicDifferentialEquationsAndRigidCohomology:RD.3](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.6](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomologyPartII:MS.2](../packets/PadicDifferentialEquationsAndRigidCohomologyPartII.json); [PadicDifferentialEquationsAndRigidCohomologyPartII:MS.3](../packets/PadicDifferentialEquationsAndRigidCohomologyPartII.json); [PadicDifferentialEquationsAndRigidCohomologyPartII:MS.4](../packets/PadicDifferentialEquationsAndRigidCohomologyPartII.json).
 
-**Planets.** Lefschetz condition; Projected trace average; Lefschetz fibre reconstruction; Finite field minimal slopes; Finite field specified lift.
+**Planets.** Lefschetz condition; Overconvergent Q̄_p-F_q-isocrystals; Projected trace average; Lefschetz fibre reconstruction; Finite field minimal slopes; Finite field specified lift.
 
 <a id="lefschetz-condition"></a>
 
@@ -1427,9 +1508,9 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 1. Specify the curve, its morphism, the rational lift of α and the irreducible restricted coefficient as the witnessing data.
 2. The condition does not require a closed immersion or a common curve for two objects.
 
-**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergent-f-isocrystal](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.4/specified-curve-lift](#specified-curve-lift); [PadicDifferentialEquationsAndRigidCohomology:RD.3](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergent-f-isocrystal](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.4/specified-curve-lift](#specified-curve-lift); [MS.6/padic-coefficient-objects](#padic-coefficient-objects).
 
-**Sources.** [TSU, §6.3, p.28 and Corollary 7.16, p.36](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, §6.3, condition (LC), p.28; Corollary 7.16, condition (LC_Q̄p), p.36](https://arxiv.org/pdf/1910.03871v3).
 
 **Uses that determine the API.**
 
@@ -1448,6 +1529,46 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 - `lc_rankone` (computation): For a rank-one coefficient, every smooth connected curve through α with nonzero pullback witnesses irreducibility.
 - `lc_twoobjects` (non-example): Separate witnesses for M† and N† do not by definition supply a single curve preserving both; proofs must allow two curves.
 
+<a id="padic-coefficient-objects"></a>
+
+### Overconvergent Q̄_p-F_q-isocrystals
+
+**Target `MS.6/padic-coefficient-objects` (definition).** Let X be of finite type over k=F_q with K=W(k)[1/p] and σ=id. For a finite extension L of K in Q̄_p, an overconvergent L-F_q-isocrystal is an overconvergent F-isocrystal M† on X/K with a K-algebra map L→End(M†); morphisms commute with L. Scalar extension θ_{L₁,L₂}(M†)=M†⊗_{L₁}L₂ satisfies θ_{L₂,L₃}∘θ_{L₁,L₂}≅θ_{L₁,L₃}. The category F_q-Isoc†(X)⊗Q̄_p is the 2-colimit over finite L⊂Q̄_p, with Q̄_p-rank(M†)=rank(M†)/[L:K] on each component; tensor products and duals are taken over L. For k_n/k of degree n with projection π_n:X_n→X there are a pullback π*_{n,Q̄_p}, which identifies the q^n-Frobenius K_n-structure with the coefficient K_n-structure through the chosen embedding K_n⊂L, and a pushforward π_{n,Q̄_p*} right adjoint to it, with Q̄_p-rank(π*_{n,Q̄_p}N†)=Q̄_p-rank(N†) and Q̄_p-rank(π_{n,Q̄_p*}M†)=n·Q̄_p-rank(M†). The Frobenius fibre at a closed point α of degree n is the L-space i*_αM† with the L-linear endomorphism F^n.
+
+**Hypotheses.** X is a separated scheme of finite type over F_q; K=W(F_q)[1/p], σ=id, and an algebraic closure Q̄_p of K is fixed. Coefficients are modelled by a finite L before passing to the 2-colimit; traces and determinants are computed on finite L-models.
+
+**Proof or construction.**
+
+1. Define L-structures and θ_{L₁,L₂} (Tsuzuki Definition 7.1, Example 7.2, Proposition 7.5 with the transitivity index corrected, E16) and take the 2-colimit (Definition 7.6).
+2. Tensor products and duals over L: Propositions 7.3–7.4; the perfect pairing is the K-dual identified with the L-dual through the trace of L/K and the multiplication projector (E17). Irreducible objects are direct sums of copies of an irreducible F-isocrystal over K (Lemma 7.7).
+3. Constant-field pullback and pushforward: §7.2, built from the Appendix B functors π*_{(L,σ^n)/(K,σ)}, π_{(L,σ^n)/(K,σ)*}, their adjunction and trace, with the rank formulas; the overconvergent descent along X_n→X is the parent's étale descent.
+4. Frobenius fibres and their traces at closed points: §7.3, Lemma 7.11, computed on the finite L-model and only then extended to Q̄_p (E18, E26).
+
+**Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.3/overconvergent-f-isocrystal](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/restriction-to-convergent](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-descent-of-overconvergent-f-isocrystals](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.6/frobenius-at-closed-point](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.0/finite-coefficient-extension-interface](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+
+**Sources.** [TSU, §§7.1–7.3, pp.29–34; Appendix B, pp.39–40](https://arxiv.org/pdf/1910.03871v3).
+
+**Uses that determine the API.**
+
+- Tsuzuki Proposition 7.15 and Corollary 7.16: states the Chebotarev and Lefschetz arguments for Q̄_p-coefficients.
+- Tsuzuki Proposition 7.15(2) and Appendix B: descends a lift after constant extension by adjunction and trace.
+- Tsuzuki Theorem 7.20: is the category in which the finite-field theorem is stated.
+
+**API.**
+
+- `QbarCoeff.scalarExt` (functoriality): θ_{L₁,L₂} is an exact L₂-linear ⊗-functor, transitive up to canonical isomorphism, and preserves Q̄_p-rank.
+- `QbarCoeff.tensorDual` (structure): F_q-Isoc†(X)⊗L is an L-linear rigid abelian ⊗-category with unit j†O⊗_K L; the dual pairing is the trace-identified L-dual.
+- `QbarCoeff.pullPushAdjunction` (universal-property): π*_{n,Q̄_p} is left adjoint to π_{n,Q̄_p*}, with the stated rank formulas and compatibility with pullback along morphisms X′→X.
+- `QbarCoeff.changeOfFrobeniusPower` (equivalence): For k₀⊂k of degree n with q₀^n=q, restriction of Frobenius gives an equivalence F_q-Isoc†(X)⊗Q̄_p≃F_{q₀}-Isoc†(X)⊗Q̄_p preserving Q̄_p-rank (Tsuzuki Proposition 7.9, after Abe Corollary 1.4.11).
+- `QbarCoeff.fibre` (projection): At a closed point α of degree n with K_α⊂L, the fibre is an L-space of dimension Q̄_p-rank(M†) with the L-linear endomorphism F^n, and its characteristic polynomial does not depend on L.
+
+**Unit tests.**
+
+- `QbarCoeff.rank_base` (degenerate): For L=K, Q̄_p-rank(M†)=rank(M†).
+- `QbarCoeff.theta_id` (characterisation): θ_{L,L}≅id and Q̄_p-rank(θ_{L₁,L₂}M†)=Q̄_p-rank(M†).
+- `QbarCoeff.restrict_scalars` (non-example): For M† with an L-structure, the object M†⊗_K L (L acting on the second factor) has Q̄_p-rank rank_K(M†), which differs from Q̄_p-rank(M†)=rank(M†)/[L:K] when L≠K; forgetting the original L-action is the wrong rank.
+- `QbarCoeff.push_rank` (computation): Q̄_p-rank(π_{n,Q̄_p*}M†)=n·Q̄_p-rank(M†) and Q̄_p-rank(π*_{n,Q̄_p}N†)=Q̄_p-rank(N†).
+
 <a id="projected-trace"></a>
 
 ### Projected trace average
@@ -1462,9 +1583,9 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 2. The projected induction is ⊕_{i=0}^{m−1}F^{i*}N. Its unit sends v to (F^(−i)v)_i and its trace sends (v_i) to ΣF^i(v_i), so the composite has exactly m copies of v.
 3. Use the existing Representation.averageMap for the finite cyclic conjugation representation. Its invariant image and identity-on-invariants laws give descent and preservation of the prescribed quotient map.
 
-**Direct prerequisites.** `Representation.averageMap` (Mathlib baseline); `Representation.averageMap_invariant` (Mathlib baseline); `Representation.averageMap_id` (Mathlib baseline); [PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-descent-of-overconvergent-f-isocrystals](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3](../packets/PadicDifferentialEquationsAndRigidCohomology.json); `LinearMap.trace` (Mathlib baseline); `LinearMap.trace_one` (Mathlib baseline).
+**Direct prerequisites.** `Representation.averageMap` (Mathlib baseline); `Representation.averageMap_invariant` (Mathlib baseline); `Representation.averageMap_id` (Mathlib baseline); [PadicDifferentialEquationsAndRigidCohomology:RD.3/etale-descent-of-overconvergent-f-isocrystals](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.6/padic-coefficient-objects](#padic-coefficient-objects); `LinearMap.trace` (Mathlib baseline); `LinearMap.trace_one` (Mathlib baseline).
 
-**Sources.** [TSU, Proposition 7.15(2), pp.35–36 and Appendix B, pp.39–40, with coefficient projection correction](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Proposition 7.15(2), pp.35–36; Appendix B and Lemma B.1, pp.39–40](https://arxiv.org/pdf/1910.03871v3).
 
 **Uses that determine the API.**
 
@@ -1538,7 +1659,7 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 
 **Direct prerequisites.** [MS.6/lefschetz-condition](#lefschetz-condition); [PadicDifferentialEquationsAndRigidCohomology:RD.6/pointwise-iota-weights](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.6/weight-normalising-constant-line](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.6](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
 
-**Sources.** [AE, Theorems 7.18–7.19, p.37; AE Theorem 2.7, p.13 and Theorem 3.10, pp.17–18](https://page.mi.fu-berlin.de/esnault/preprints/helene/123_abe_esn.pdf).
+**Sources.** [TSU, Theorems 7.18–7.19, p.37](https://arxiv.org/pdf/1910.03871v3); [AE, Theorem 2.7, p.13; Theorem 3.10, pp.17–18](https://page.mi.fu-berlin.de/esnault/preprints/helene/123_abe_esn.pdf).
 
 **Check.** On Spec F₃, the rank-one coefficient with Frobenius 2 has weight 2 log₃2; forcing integral weights rejects a valid coefficient.
 
@@ -1556,9 +1677,9 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 2. Use the N-curve to get rank N†≤rank P†≤rank M†; hence both inequalities are equalities.
 3. The surjection on the first curve is then an isomorphism, whose fibre gives the required isomorphism N†_α→M†_α. The target is M†, correcting the source’s repeated N†.
 
-**Direct prerequisites.** [MS.6/lefschetz-rank-maps](#lefschetz-rank-maps); [PadicDifferentialEquationsAndRigidCohomology:RD.6/frobenius-at-closed-point](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.3](../packets/PadicDifferentialEquationsAndRigidCohomology.json).
+**Direct prerequisites.** [MS.6/lefschetz-rank-maps](#lefschetz-rank-maps); [PadicDifferentialEquationsAndRigidCohomology:RD.6/frobenius-at-closed-point](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.6/padic-coefficient-objects](#padic-coefficient-objects).
 
-**Sources.** [TSU, Corollary 6.8, p.29 and Corollary 7.16 proof, p.36](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Corollary 6.8, p.29; proof of Corollary 7.16, p.36](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** If M†,N† are irreducible, have slope-filtered realisations and a nonzero h between their tops, and both LC conditions hold at α (possibly using different curves), then rank M†=rank N† and their Frobenius fibres at α are isomorphic. The coefficient-extended version uses normalised Q̄_p-rank and finite coefficient fibre spaces.
 
@@ -1596,7 +1717,7 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 
 **Direct prerequisites.** [PadicDifferentialEquationsAndRigidCohomology:RD.6/frobenius-at-closed-point](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [PadicDifferentialEquationsAndRigidCohomology:RD.6/pointwise-iota-weights](../packets/PadicDifferentialEquationsAndRigidCohomology.json); [MS.6/finite-field-inputs](#finite-field-inputs).
 
-**Sources.** [TSU, Proposition 7.15(1), pp.35–36; shared supplier PAPER-ABE-18/51](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Proposition 7.15(1), pp.35–36](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** If irreducible overconvergent Q̄_p coefficients M†,N† have isomorphic Frobenius fibres at every closed point of a dense open and (N†)∨⊗M† is ι-pure, then there exists an isomorphism N†≅M†. This is an application of the shared mixed coefficient Chebotarev contract ABE-18/51; no second generic theorem is owned here.
 
@@ -1616,7 +1737,7 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 
 **Direct prerequisites.** [MS.6/pure-hom-chebotarev](#pure-hom-chebotarev); [MS.6/projected-trace](#projected-trace); [MS.3/global-saturation](#global-saturation).
 
-**Sources.** [TSU, Proposition 7.15(2), pp.35–36](https://arxiv.org/pdf/1910.03871v3).
+**Sources.** [TSU, Proposition 7.15(2) and proof, pp.35–36](https://arxiv.org/pdf/1910.03871v3).
 
 **Check.** Under fibrewise isomorphism and pure-Hom hypotheses, let h:Top(N)→Top(M) be invertible. If after some finite constant extension the endomorphism map of either M† or N† to its top is surjective, then there is a unique dagger isomorphism N†→M† inducing exactly h.
 
@@ -1679,7 +1800,7 @@ Objectwise Lefschetz curves, fibre reconstruction, finite-field isomorphism exis
 
 **Check.** Under F and nonzero h, suppose additionally that after a finite extension of F_q there is a smooth connected curve through a closed point on which M† restricts irreducibly and whose endomorphism restriction is bijective. Then h is induced by a unique overconvergent isomorphism N†→M†.
 
-**Coverage.** Planned. Discharge the explicit parent supplier requests used in this layer and check the planned mathematical interfaces in independent review. Register G3 and instantiate its shared mixedness, Chebotarev and curve inputs.
+**Coverage.** Planned. Register G3 and instantiate its shared mixedness, Chebotarev and curve inputs; discharge the RD.6 real-weight request used by finite-field-inputs.
 
 ## Worked consistency checks
 
@@ -1699,33 +1820,29 @@ DAD v4 Proposition 4.2.12, p.17, invokes compactness and a uniform p-primary tor
 
 Affected targets: [MS.5/affine-generic-hull](#affine-generic-hull).
 
-### G2: independent finite étale bounded-disc comparison
-
-Tsuzuki Lemma 3.31(1), p.19, uses PBQ of the pullback to infer PBQ of its push-pull, the very assertion to be proved. Supply a direct Taylor-disc comparison for the nonconstant finite unramified extension of complete generic fields induced by a finite étale curve cover; show bounded solution annihilators commute with it, then purity is preserved. Finite constant coefficient base change alone is not this lemma. Neither the global PBQ filtration nor the main curve reconstruction uses this node.
-
-Affected targets: [MS.2/finite-etale-pbq](#finite-etale-pbq).
-
 ### G3: register the common arithmetic D-module and companion supplier contracts
 
 The proposed ArithmeticDModules continuation has no registered stage. Its early common prefix must export generic mixed coefficient Chebotarev (PAPER-ABE-18/51), finite coefficient conventions and the AE localisation/vanishing argument proving Corollary 2.4 for arbitrary base tuples. Its weight and crystalline-companion inputs at AM.7 must export AE Theorem 2.7 and the irreducibility-preserving finite-set curves of Theorem 3.10 (after rank-one twist/untwist). Use the split briefs below to give these contracts one owner and stage ids. Do not import the entire DAD monodromy continuation or prove generic companion existence here.
 
 Affected targets: [MS.5/docile-lefschetz](#docile-lefschetz); [MS.6/finite-field-inputs](#finite-field-inputs); [MS.6/pure-hom-chebotarev](#pure-hom-chebotarev).
 
+### G4: finite étale maps from curves onto the affine line
+
+Kedlaya 2005, Theorem 1 (arXiv:math/0303382v3, p.1), cited in the proof of D'Addezio Theorem 4.2.13, gives for a geometrically reduced projective variety over any field of characteristic p a finite morphism to P^n, étale over A^n, sending a chosen lower-dimensional closed subscheme into the hyperplane at infinity. No atlas roadmap and neither library owns it; the review read its statement, not its proof. The node lies on the alternate D'Addezio route only: MS.5/curve-ms does not use it.
+
+Affected targets: [MS.5/etale-affine-line](#etale-affine-line).
+
 ## Supplier requests
 
-1. **PadicDifferentialEquationsAndRigidCohomology:RD.0.** For the smooth affine curve dagger algebra A†_K and its finite projective modules, prove the intersection of the generic module with all interior bounded-disc lattices and all boundary E† lattices recovers the dagger module (Tsuzuki Lemma 3.2, pp.12–13). Also provide the finite isometric Frobenius-compatible normalisation of Lemma A.1(2), pp.37–38: the fixed field has the full value group after finite unramified extension. The value group is not the valuation ring. Needed by [MS.2/curve-gluing](#curve-gluing).
+1. **PadicDifferentialEquationsAndRigidCohomology:RD.0.** Supply the extended logarithmic Robba carrier R̃_log=R̃[log u] over the extended Robba ring, its Frobenius-equivariant extension of the embedding R_log→R̃_log, injectivity of R̃^bd⊗_{R^bd}R_log→R̃_log, the log-growth filtrations compatible with that embedding, and the exact growth of nonzero Frobenius eigenfunctions (Ohkubo §1.3 and §2.3, Lemmas 1.12–1.15, 2.10–2.14, pp.10–14). The existing extended Robba carrier alone does not include its logarithmic growth API. Needed by [MS.1/growth-eigenvector](#growth-eigenvector).
 
-2. **PadicDifferentialEquationsAndRigidCohomology:RD.0.** Supply the extended logarithmic Robba carrier, Frobenius-equivariant embedding, multiplication injectivity and exact growth of nonzero Frobenius eigenfunctions (Ohkubo Lemmas 1.15, 2.10–2.14, pp.8–14). The existing extended Robba carrier alone does not include its logarithmic growth API. Export the completed-tensor and localisation identities used by the affine A_n models, DAD §4.2.9–4.2.11, pp.15–16. Needed by [MS.1/growth-eigenvector](#growth-eigenvector); [MS.5/integral-models](#integral-models); [MS.5/bounded-torsion-tor](#bounded-torsion-tor).
+2. **PadicDifferentialEquationsAndRigidCohomology:RD.1.** For a finite free differential Frobenius module over K[[t]]₀, extension to E† identifies its saturated differential Frobenius submodules with the submodules of the bounded Robba realisation (de Jong Proposition 6.4, used in Ohkubo Theorem 12.7, p.46). Export this bounded-disc to bounded-Robba comparison, with the specific Frobenius hypotheses. It is not a claim that every E-completed submodule descends, and fixed-slope Hom full faithfulness alone does not supply it. Needed by [MS.1/disc-pbq-descent](#disc-pbq-descent).
 
-3. **PadicDifferentialEquationsAndRigidCohomology:RD.1.** For a finite free differential Frobenius module over K[[t]]₀, extension to E† identifies its saturated differential Frobenius submodules with the submodules of the bounded Robba realisation (de Jong Proposition 6.4, used in Ohkubo Theorem 12.7, p.46). Export this bounded-disc to bounded-Robba comparison, with the specific Frobenius hypotheses. It is not a claim that every E-completed submodule descends, and fixed-slope Hom full faithfulness alone does not supply it. Needed by [MS.1/disc-pbq-descent](#disc-pbq-descent).
+3. **PadicDifferentialEquationsAndRigidCohomology:RD.3.** After MS.0/fixed-field-normalisation reduces to K=K^σ⊗_{W(F_q)}W(k) with K^σ finite over Q_q, supply the unit-root correspondence used in Tsuzuki Lemma 3.32, p.19, over an arbitrary perfect field k: unit-root convergent F-isocrystals on a smooth curve with K^σ-linear coefficients ⇔ continuous K^σ-representations of π_1 (extending RD.3/crew-unit-root-correspondence beyond Q_q coefficients), and overconvergence ⇔ finite local monodromy at the boundary (Tsuzuki 1998, Theorem 7.2.3, cited there), beyond the finite-field case of RD.6/unit-root-isocrystals-and-p-adic-representations. Needed by [MS.2/curve-gluing](#curve-gluing).
 
-4. **PadicDifferentialEquationsAndRigidCohomology:RD.3.** Extend the Katz–Crew finite-inertia correspondence from the parent Q_q coefficient contract to the complete K with isometric σ and finite fixed field K^σ used here, with compatible finite coefficient extension and effective descent. Import local finite monodromy from RD.2. This is the exact unit-root gluing input of Tsuzuki Lemma 3.32, p.19. Needed by [MS.2/curve-gluing](#curve-gluing).
+4. **PadicDifferentialEquationsAndRigidCohomology:RD.4.** Give the rigid H¹ classification of extensions by a constant line and the relative Legendre/Kummer cohomology input of Tsuzuki §3.9, pp.21–22, including the K3 calculation’s comparison with the coefficient H¹. This numerical example is conditional on that supplier, not an assumed K3 implementation. Needed by [MS.2/legendre-kummer-example](#legendre-kummer-example).
 
-5. **PadicDifferentialEquationsAndRigidCohomology:RD.3.** Provide finite L-structures and their Q̄_p 2-colimit, coefficient-linear tensor/dual/rank API, primitive projectors for K_m⊗_K L, constant-field pull/push and effective descent, compatible with curve lifting (Tsuzuki §§7.1–7.3 and Appendix B, pp.29–34,39–40). The projected trace normalisation is proved in MS.6. Supply also separating functions on curves and the finite étale Galois closure after shrinking used in etale-affine-line. Needed by [MS.6/lefschetz-condition](#lefschetz-condition); [MS.6/lefschetz-fibres](#lefschetz-fibres); [MS.6/projected-trace](#projected-trace); [MS.5/etale-affine-line](#etale-affine-line).
-
-6. **PadicDifferentialEquationsAndRigidCohomology:RD.4.** Give the rigid H¹ classification of extensions by a constant line and the relative Legendre/Kummer cohomology input of Tsuzuki §3.9, pp.21–22, including the K3 calculation’s comparison with the coefficient H¹. This numerical example is conditional on that supplier, not an assumed K3 implementation. Needed by [MS.2/legendre-kummer-example](#legendre-kummer-example).
-
-7. **PadicDifferentialEquationsAndRigidCohomology:RD.6.** Export the CM K3 Frobenius calculation in Tsuzuki §3.9, pp.21–22: the twisted H¹ slopes are 0,2 for p≡1 mod4 and 1,1 for p≡3 mod4; the unit-root twist produces the stated invariant extension. For AE Theorem 2.7 use arbitrary real weights and the constant-twist/untwist compatibility, rather than restricting to integer weights. Needed by [MS.2/legendre-kummer-example](#legendre-kummer-example); [MS.6/finite-field-inputs](#finite-field-inputs).
+5. **PadicDifferentialEquationsAndRigidCohomology:RD.6.** Export the CM K3 Frobenius calculation in Tsuzuki §3.9, pp.21–22: the twisted H¹ slopes are 0,2 for p≡1 mod4 and 1,1 for p≡3 mod4; the unit-root twist produces the stated invariant extension. For AE Theorem 2.7 use arbitrary real weights and the constant-twist/untwist compatibility, rather than restricting to integer weights. Needed by [MS.2/legendre-kummer-example](#legendre-kummer-example); [MS.6/finite-field-inputs](#finite-field-inputs).
 
 ## Route disposition and split ownership
 
@@ -1748,44 +1865,49 @@ The essential ordering is early arithmetic D-modules/Crew → crystalline corres
 
 Everything below and in the targets is stated in this roadmap's own words. Locators refer to the version linked here; hashes and reading scopes are recorded in the packet. Tsuzuki's and D’Addezio's journal texts are not collated in this design. The Cambridge Ohkubo PDF request returned an abstract/login page, so the notation finding E31 is confined to arXiv v1. The public source texts needed for the designed proof route were available. No protected library source was used.
 
-- **TSU**: Nobuo Tsuzuki, [Minimal slope conjecture of F-isocrystals](https://arxiv.org/pdf/1910.03871v3). arXiv:1910.03871v3, October 2021; 41 PDF pages. Read 2026-10-19: §§1–7, pp.1–37; Appendices A–B, pp.37–40; equations and proofs collated against the routed items.
-- **DAD**: Marco D’Addezio, [Parabolicity conjecture of F-isocrystals](https://arxiv.org/pdf/2012.12879v4). arXiv:2012.12879v4, 8 February 2023; Annals version not collated. Read 2026-10-19: §§4.1–4.2, pp.11–17; §4.4.2, pp.19–20; source routing and reviewed corrections read for the other directions.
-- **CT11**: Bruno Chiarellotto and Nobuo Tsuzuki, [Log-growth filtration and Frobenius slope filtration of F-isocrystals at generic and special points](https://ems.press/content/serial-article-files/26106?nt=1). Documenta Mathematica 16 (2011), 33–69; publisher PDF. Read 2026-10-19: Theorem 2.2, pp.41–42; Theorem 4.1 and splitting setup, pp.46–55; Proposition 5.4, Corollary 5.5, Theorem 5.6 and Corollary 5.10, pp.56–59.
-- **OHK**: Shun Ohkubo, [Logarithmic growth filtrations for (φ,∇)-modules over the bounded Robba ring](https://arxiv.org/pdf/1809.04065v1). arXiv:1809.04065v1, September 2018; numbering of this version. Read 2026-10-19: Introduction; §§7–10, pp.35–42; §12, pp.44–47; precise logarithmic embedding/eigenfunction inputs remain a parent request; Definitions 5.3–5.5 and Proposition 5.9, pp.25–26; preprint-only correction E31, publisher PDF unavailable for collation.
-- **AE**: Tomoyuki Abe and Hélène Esnault, [A Lefschetz theorem for overconvergent isocrystals with Frobenius structure](https://page.mi.fu-berlin.de/esnault/preprints/helene/123_abe_esn.pdf). Author PDF of Annales scientifiques de l’ÉNS 52 (2019), 1243–1264; PDF page numbering. Read 2026-10-19: Corollary 2.4, Remark 2.5, Theorems 2.6–2.7, pp.11–13; Theorem 3.10 and proof, pp.17–18.
+- **TSU**: Nobuo Tsuzuki, [Minimal slope conjecture of F-isocrystals](https://arxiv.org/pdf/1910.03871v3). arXiv:1910.03871v3, October 2021; 41 PDF pages. Read 2026-10-19: §§1–7, pp.1–37; Appendices A–B, pp.37–40; equations and proofs collated against the routed items; independent review: read in full, including §3.1, §3.3 and Lemmas 3.1–3.2, 3.11, pp.10–14.
+- **DAD**: Marco D’Addezio, [Parabolicity conjecture of F-isocrystals](https://arxiv.org/pdf/2012.12879v4). arXiv:2012.12879v4, 8 February 2023; Annals version not collated. Read 2026-10-19: §§4.1–4.2, pp.11–17; §4.4.2, pp.19–20; source routing and reviewed corrections read for the other directions; independent review: §§4.1–4.2 and §4.4.2, pp.11–20, with overlined formulas checked in the arXiv v4 TeX source.
+- **CT11**: Bruno Chiarellotto and Nobuo Tsuzuki, [Log-growth filtration and Frobenius slope filtration of F-isocrystals at generic and special points](https://ems.press/content/serial-article-files/26106?nt=1). Documenta Mathematica 16 (2011), 33–69; publisher PDF. Read 2026-10-19: Theorem 2.2, pp.41–42; Theorem 4.1 and splitting setup, pp.46–55; Proposition 5.4, Corollary 5.5, Theorem 5.6 and Corollary 5.10, pp.56–59; independent review: Theorem 2.2, pp.41–42; Theorem 4.1 and Propositions 4.2–4.3, pp.46–47; §5, pp.55–59.
+- **OHK**: Shun Ohkubo, [Logarithmic growth filtrations for (φ,∇)-modules over the bounded Robba ring](https://arxiv.org/pdf/1809.04065v1). arXiv:1809.04065v1, September 2018; numbering of this version. Read 2026-10-19: Introduction; §§7–10, pp.35–42; §12, pp.44–47; precise logarithmic embedding/eigenfunction inputs remain a parent request; Definitions 5.3–5.5 and Proposition 5.9, pp.25–26; preprint-only correction E31, publisher PDF unavailable for collation; independent review: §§1.2–2.3, pp.7–14; §§5.3–5.4, pp.26–27; §§7–8, pp.35–40; §§9–10, pp.41–42; §12, pp.44–48.
+- **AE**: Tomoyuki Abe and Hélène Esnault, [A Lefschetz theorem for overconvergent isocrystals with Frobenius structure](https://page.mi.fu-berlin.de/esnault/preprints/helene/123_abe_esn.pdf). Author PDF of Annales scientifiques de l’ÉNS 52 (2019), 1243–1264; PDF page numbering. Read 2026-10-19: Corollary 2.4, Remark 2.5, Theorems 2.6–2.7, pp.11–13; Theorem 3.10 and proof, pp.17–18; independent review: Corollary 2.4 and Remark 2.5, p.12; Theorems 2.6–2.7, p.13; Lemma 3.9 and Theorem 3.10, pp.17–18.
+- **KED05**: Kiran S. Kedlaya, [More étale covers of affine spaces in positive characteristic](https://arxiv.org/pdf/math/0303382v3). arXiv:math/0303382v3 (2004); J. Algebraic Geom. 14 (2005), 187–192. Read 2026-10-19: Theorem 1 and the remarks after it, pp.1–2 (added by the independent review for the alternate affine-line reduction).
 
 ## Source correction register
 
-E1–E26 apply the Tsuzuki extraction findings; E27–E30 apply the D’Addezio extraction findings. E31 records the boundedness-kernel notation error in Ohkubo's preprint. Each entry is version-scoped in the packet and retains the extraction provenance. No claim is made about uncollated journal wording. The mathematical targets above use the corrected conventions.
+E1–E26 apply the Tsuzuki extraction findings; E27–E30 apply the D’Addezio extraction findings. E31 records the boundedness-kernel notation error in Ohkubo's preprint. E32–E35 are further Tsuzuki misprints found by the independent review. The review checked every entry at its locator and confirmed all of them; its reason follows each entry. Each entry is version-scoped in the packet and retains the extraction provenance. No claim is made about uncollated journal wording. The mathematical targets above use the corrected conventions.
 
-- **E1 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, §1.1 p.1; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The introductory coefficient R is described with the field terminology. **Correction:** R is the discrete valuation ring; K is its fraction field. **Check:** The quotient R/m and subsequent lattice notation require the ring. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E1; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E2 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, §2.1 p.4; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The full Robba ring is included in a finite coefficient-supremum norm convention. **Correction:** Use that Gauss norm on bounded carriers only; the full Robba ring uses annular seminorms. **Check:** Coefficients p^(−floor(sqrt(n))) have unbounded supremum although the series converges at every radius below one. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E2; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E3 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Definition 2.2(2) p.5; journal version not collated](https://arxiv.org/pdf/1910.03871v3): A bounded-disc definition uses a point-indexed carrier before introducing the point. **Correction:** Use the local K[[t]]₀ carrier in this definition. **Check:** The scalar extension is from K[[t]]₀ and no point α has been chosen. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E3; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E4 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, §2.2 p.6; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The rational exponent group is called well ordered. **Correction:** The group Q is ordered; particular supports must be well ordered. **Check:** The negative integers form a subset of Q with no least member. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E4; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E5 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Proposition 2.9 proof p.8; Proposition 2.11 p.9; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The growth proof points to a nonexistent fourth part of Lemma 2.5; another formula has an undefined length. **Correction:** Use Lemma 2.6(4), and consistently use the defined filtration length. **Check:** The numbered parts and lengths in the text do not match those symbols. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E5; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E6 (error; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 3.7 proof p.14; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The category-closure proof passes from solvability to boundedness. **Correction:** Prove bounded closure using bounded trivialisations, independently of analytic solvability. **Check:** The logarithmic unipotent equation has coefficients 1/n; at n=p^r these have norm p^r. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E6; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E7 (error; a stated result)**, [TSU, arXiv:1910.03871v3, Theorem 3.12 and Definition 3.13 p.15; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The bounded-quotient result asserts a nonzero quotient without excluding M=0. **Correction:** The nonzero conclusion requires M≠0; B(0)=0. **Check:** A zero module has no nonzero quotient. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E7; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E8 (error; a stated result)**, [TSU, arXiv:1910.03871v3, Proposition 3.18 p.16; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The tensor detection statement permits the zero unit-root factor. **Correction:** Require the unit-root tensor factor to be nonzero. **Check:** Tensoring by zero cannot distinguish a PBQ module from a non-PBQ one. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E8; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E9 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Theorem 3.19(1–2) pp.16–17; propagated in 3.29, 4.11 and 6.4; journal version not collated](https://arxiv.org/pdf/1910.03871v3): Decreasing slopes and the bounded-quotient sum are written with nested PBQ terms. **Correction:** Use G_i=P_i/P_(i−1) throughout the slope, sum and saturated-recovery formulas. **Check:** For a split pair of slopes 1 and 0, both nonzero nested terms have maximum 1, while the grades have maxima 1 and 0. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E9; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E10 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Proposition 3.24 and Remark 3.25 p.18; journal version not collated](https://arxiv.org/pdf/1910.03871v3): A rank is compared to a solution vector space and the growth differential has the wrong coordinate. **Correction:** Compare rank with dim_K of the solution space and differentiate in the selected x coordinate. **Check:** A numerical rank is not a vector space, and y is not the chosen variable. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E10; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E11 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Lemma 3.31 p.19; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The finite étale lemma assigns a coefficient to the wrong source curve. **Correction:** Put the direct-image coefficient on C′ and the pullback coefficient on C for f:C′→C. **Check:** The functors otherwise have mismatched domains. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E11; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E12 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Lemma 3.31 proof p.19; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The PBQ pullback proof uses the property it should establish. **Correction:** Supply the independent generic Taylor-disc comparison in G2 before invoking push-pull. **Check:** The displayed argument returns to PBQ of N, which was already assumed, without proving PBQ of f*N. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E12; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E13 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, §3.9 p.21; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The cohomological support-forgetting display has the same supports on both ends. **Correction:** The source group is compactly supported H¹_rig,c. **Check:** The following dimension statement and the support-forgetting construction identify the missing support. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E13; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E14 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Theorem 6.4 p.27; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The graded lifting diagram mixes a generic target and a dagger morphism label. **Correction:** Use the global convergent quotient M/Mᵇ and a convergent h. **Check:** The bounded quotient was constructed in the convergent category, and a generic fibre is not this global target. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E14; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E15 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Corollary 6.8 proof p.29; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The rank-equality proof repeats N† as the target of an intermediate isomorphism. **Correction:** The intermediate target is M† restricted to the chosen curve. **Check:** The two arrows in its factorisation end at M†. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E15; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E16 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Proposition 7.5 p.30; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The coefficient-extension transitivity formula names the wrong endpoint on the left. **Correction:** Use θ_(L₁,L₃), with the canonical associativity identification. **Check:** The composite on the right is valued in the L₃ category. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E16; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E17 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 7.4 p.30; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The coefficient-dual pairing does not explicitly type the trace and component projection. **Correction:** Use the finite trace to compare K-dual and L-dual, then the multiplication-component projector. **Check:** The unprojected scalar tensor factors have the wrong rank for an L-valued perfect pairing. This is included in the RD.3 supplier request. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E17; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E18 (error; the proof)**, [TSU, arXiv:1910.03871v3, Lemma 7.11(3) proof p.33; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The trace proof splits L⊗_K L without assuming L/K normal. **Correction:** Split L⊗_K Q̄_p over the coefficient algebraic closure, or use restriction-of-scalars trace directly. **Check:** A non-Galois separable cubic extension can have a quadratic factor in its self tensor product. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E18; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E19 (error; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 7.12 proof p.34; journal version not collated](https://arxiv.org/pdf/1910.03871v3): A scalar twist contributes λ to a trace of the nth Frobenius iterate. **Correction:** Its contribution is λ^n; use characteristic-zero finite differences to show nth powers span the coefficient field. **Check:** The nth iterate of λF, for linear F here, is λ^nF^n. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E19; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E20 (error; a stated result)**, [TSU, arXiv:1910.03871v3, Definition 7.14 p.34 and Theorem 7.18 p.37; journal version not collated](https://arxiv.org/pdf/1910.03871v3): Integral weights are imposed before the unrestricted mixedness assertion. **Correction:** Allow real weights and restore the weight after a constant twist. **Check:** Frobenius 2 on a rank-one object over F₃ has weight 2 log₃2, which is not integral. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E20; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E21 (misprint; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 7.15(2) proof p.35; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The endomorphism lift and its composition have inconsistent domains. **Correction:** Lift Top(g′)⁻¹h to τ∈End(N†) and use g′τ:N†→M†. **Check:** Surjectivity onto top endomorphisms supplies an endomorphism of N†, not a map with target M† followed by the inverse of g′. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E21; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E22 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 7.15(2) pp.35–36 versus Lemma B.1 p.40; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The descent average uses the appendix trace without the coefficient projector comparison. **Correction:** First take the primitive coefficient component. The projected cyclic trace composite is m·id, so divide by m. **Check:** The raw unprojected coefficient trace contributes another m, giving m². MS.6 gives the explicit split-component computation; the categorical projector model is requested from RD.3. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E22; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E23 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Appendix A.1 proof p.38; A.2 p.39; also confirmed at the same Appendix A locators in the publisher’s accessible journal HTML](https://arxiv.org/pdf/1910.03871v3): The appendix conflates equality of value groups with equality of valuation rings and reverses a tube image. **Correction:** Use equality of value groups, and define the tube by the inverse image under specialisation. **Check:** The residue fields of the two valuation rings differ, and specialisation has source the analytic space. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E23; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E24 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Lemma A.1(3) proof p.38; also confirmed at the same Appendix A locators in the publisher’s accessible journal HTML](https://arxiv.org/pdf/1910.03871v3): The proposed identity action on L is tensored with σ over a field where their restrictions can differ. **Correction:** Prove compatible extension of the coefficient action after enlargement, or use a separate construction. **Check:** σ may act nontrivially on K^(σ^n), so id_L and σ need not define an action on the stated tensor product. This proof is not used for the rank-one normalisation, which uses only A.1(2). **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E24; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E25 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Lemma 3.33 proof p.20, first rank-one step; compare Lemma 3.32 p.19; journal main text not collated](https://arxiv.org/pdf/1910.03871v3): The general rank-one gluing step invokes a unit-root lemma directly. **Correction:** Twist after a compatible fixed-field value-group normalisation, glue in slope zero, then untwist and descend. **Check:** The constant rank-one object with Frobenius q has nonzero slope. The reduction and its exact RD.0/RD.3 inputs are explicit in curve-gluing. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E25; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E26 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Lemma 7.11(1),(3) p.33; journal main text not collated](https://arxiv.org/pdf/1910.03871v3): A finite coefficient fibre and its algebraically closed extension are interchanged in a finite trace computation. **Correction:** Take the finite L-model for the L-isomorphism and K-linear trace, then extend scalars. **Check:** The Q̄_p fibre is not finite dimensional over K or a fixed finite L, so the indicated finite-dimensional trace is not defined there. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E26; this run reads and applies that correction, and does not claim a new journal erratum.
-- **E27 (misprint; the proof)**, [DAD, Theorem 4.2.6(i), p.14, arXiv v4](https://arxiv.org/pdf/2012.12879v4): The reverse-filtration grade uses shifted indices. **Correction:** Its i-th completed grade is S_(m+1−i)/S_(m−i). **Check:** For i=m the last grade must be S₁/S₀, not a quotient with negative index; the parent reverse-filtration node already carries the correction. **Prior status:** Previously recorded in PAPER-DADDEZIO-23/E3; no assertion about the uncollated journal wording.
-- **E28 (misprint; the proof)**, [DAD, Theorem 4.2.6(ii), p.14, arXiv v4](https://arxiv.org/pdf/2012.12879v4): The isoclinic object in the eigenbasis assertion is not the algebraically extended object just introduced. **Correction:** Apply the assertion to M†_alg and its finite eigenvalue extension. **Check:** The proof and its chosen eigenbasis use the extended residue coefficient carrier. **Prior status:** Previously recorded in PAPER-DADDEZIO-23/E4; no assertion about the uncollated journal wording.
-- **E29 (gap; the proof)**, [DAD, Proposition 4.2.12 proof, p.17, arXiv v4](https://arxiv.org/pdf/2012.12879v4): Compactness is asserted for the embedded integral module and used for a positive lower bound outside pQ. **Correction:** Supply a Frobenius-specific strictness argument; G1 keeps the alternate comparison unclosed. **Check:** In A_n, (pu^n)^j is outside pA_n but its image tends to zero, contradicting the asserted lower bound; the general quotient has unbounded p-torsion. **Prior status:** Previously recorded in PAPER-DADDEZIO-23/E5; no assertion about the uncollated journal wording.
-- **E30 (misprint; the proof)**, [DAD, Lemma 4.1.4 proof, p.12, arXiv v4](https://arxiv.org/pdf/2012.12879v4): The induced direct sum appears with all of N in place of its first slope term. **Correction:** The direct-sum term is ⊕F^{i*}S_min(N). **Check:** The reduction concerns the first slope piece; induction does not make a multi-slope N pure. **Prior status:** Previously recorded in PAPER-DADDEZIO-23/E12; no assertion about the uncollated journal wording.
-- **E31 (misprint; nothing)**, [OHK, Proposition 5.9, p.26, arXiv:1809.04065v1](https://arxiv.org/pdf/1809.04065v1): The explanatory equality identifies the zero-th log-growth kernel with all of a pure module. **Correction:** For a pure module the boundedness conclusion means M^0=0, so its bounded quotient M/M^0 is M. **Check:** Definition 5.5 defines the bounded quotient by this kernel; Theorem 5.4 identifies its rank with the bounded solution dimension. A trivial rank-one module has a one-dimensional bounded solution space and kernel zero, contradicting the printed equality for that nonzero pure module. **Prior status:** new against the preprint version read; no claim about the journal wording
+- **E1 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, §1.1 p.1; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The introductory coefficient R is described with the field terminology. **Correction:** R is the discrete valuation ring; K is its fraction field. **Check:** The quotient R/m and subsequent lattice notation require the ring. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E1; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. At §1.1, p.1 of the v3 PDF the list calls R a complete discrete valuation field while writing k=R/m and K for its fraction field; the ring is meant.
+- **E2 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, §2.1 p.4; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The full Robba ring is included in a finite coefficient-supremum norm convention. **Correction:** Use that Gauss norm on bounded carriers only; the full Robba ring uses annular seminorms. **Check:** Coefficients p^(−floor(sqrt(n))) have unbounded supremum although the series converges at every radius below one. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E2; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. §2.1, p.4 lists the full Robba ring among the rings carrying the coefficient-supremum Gauss norm; for coefficients p^(−⌊√n⌋) that supremum is infinite although the series lies in the Robba ring.
+- **E3 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Definition 2.2(2) p.5; journal version not collated](https://arxiv.org/pdf/1910.03871v3): A bounded-disc definition uses a point-indexed carrier before introducing the point. **Correction:** Use the local K[[t]]₀ carrier in this definition. **Check:** The scalar extension is from K[[t]]₀ and no point α has been chosen. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E3; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Definition 2.2(2), p.5 defines a K[[t]]₀-lattice as a module over K_α[[x_α]]₀ before any point α is introduced.
+- **E4 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, §2.2 p.6; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The rational exponent group is called well ordered. **Correction:** The group Q is ordered; particular supports must be well ordered. **Check:** The negative integers form a subset of Q with no least member. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E4; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. §2.2, p.6 regards Q as a well-ordered group under the usual order; Q is not well ordered, only the supports in the definitions are.
+- **E5 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Proposition 2.9 proof p.8; Proposition 2.11 p.9; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The growth proof points to a nonexistent fourth part of Lemma 2.5; another formula has an undefined length. **Correction:** Use Lemma 2.6(4), and consistently use the defined filtration length. **Check:** The numbered parts and lengths in the text do not match those symbols. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E5; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. The proof of Proposition 2.9, p.8, cites Lemma 2.5(4), which does not exist (Lemma 2.6(4) is meant); Proposition 2.11, p.9, concludes s=r with s undefined.
+- **E6 (error; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 3.7 proof p.14; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The category-closure proof passes from solvability to boundedness. **Correction:** Prove bounded closure using bounded trivialisations, independently of analytic solvability. **Check:** The logarithmic unipotent equation has coefficients 1/n; at n=p^r these have norm p^r. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E6; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. The proof of Proposition 3.7, p.14, says the duality claim follows from a solvable module being bounded; read literally this is false (logarithmic example, coefficients 1/n of norm p^r at n=p^r), and the boundedness of duals needs its own argument.
+- **E7 (error; a stated result)**, [TSU, arXiv:1910.03871v3, Theorem 3.12 and Definition 3.13 p.15; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The bounded-quotient result asserts a nonzero quotient without excluding M=0. **Correction:** The nonzero conclusion requires M≠0; B(0)=0. **Check:** A zero module has no nonzero quotient. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E7; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Theorem 3.12, p.15, asserts a nonzero bounded quotient for every solvable M, which fails for M=0; Definition 3.13 inherits it.
+- **E8 (error; a stated result)**, [TSU, arXiv:1910.03871v3, Proposition 3.18 p.16; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The tensor detection statement permits the zero unit-root factor. **Correction:** Require the unit-root tensor factor to be nonzero. **Check:** Tensoring by zero cannot distinguish a PBQ module from a non-PBQ one. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E8; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Proposition 3.18, p.16, allows N=0, for which M⊗N=0 is never PBQ in Tsuzuki's sense, so the equivalence fails for PBQ M.
+- **E9 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Theorem 3.19(1–2) pp.16–17; propagated in 3.29, 4.11 and 6.4; journal version not collated](https://arxiv.org/pdf/1910.03871v3): Decreasing slopes and the bounded-quotient sum are written with nested PBQ terms. **Correction:** Use G_i=P_i/P_(i−1) throughout the slope, sum and saturated-recovery formulas. **Check:** For a split pair of slopes 1 and 0, both nonzero nested terms have maximum 1, while the grades have maxima 1 and 0. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E9; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Theorem 3.19(1)(ii), p.16, orders the maximal slopes of the nested P_i, which all equal λmax(M); (2) sums P_i/P_i¹. Both must use the grades P_i/P_(i−1); the same nested form appears in Proposition 3.29, Theorem 4.11 and Theorem 6.4.
+- **E10 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Proposition 3.24 and Remark 3.25 p.18; journal version not collated](https://arxiv.org/pdf/1910.03871v3): A rank is compared to a solution vector space and the growth differential has the wrong coordinate. **Correction:** Compare rank with dim_K of the solution space and differentiate in the selected x coordinate. **Check:** A numerical rank is not a vector space, and y is not the chosen variable. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E10; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Proposition 3.24, p.18, equates a rank with the space Sol(M₀)(−λmax), and the solution spaces of §3.7 and Remark 3.25 differentiate with ∇(d/dy) although the coordinate is x.
+- **E11 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Lemma 3.31 p.19; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The finite étale lemma assigns a coefficient to the wrong source curve. **Correction:** Put the direct-image coefficient on C′ and the pullback coefficient on C for f:C′→C. **Check:** The functors otherwise have mismatched domains. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E11; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Lemma 3.31, p.19, takes M† on C and forms its direct image on C, and N† on C′ and forms its pullback to C′; the domains are swapped for f:C′→C.
+- **E12 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Lemma 3.31 proof p.19; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The PBQ pullback proof uses the property it should establish. **Correction:** Prove the pullback assertion directly: bounded solutions commute with the finite unramified extension of generic fields (MS.0/bounded-base-change), so purity of the bounded quotient is preserved. **Check:** The displayed argument returns to PBQ of N, which was already assumed, without proving PBQ of f*N. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E12; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. In the proof of Lemma 3.31, p.19, part (1) ends by concluding PBQ of N† (the hypothesis) instead of f*N†, and part (2) invokes Lemma 3.31 itself; the two parts depend on each other. The review repairs (1) directly through the field-extension case of bounded-base-change, which is the argument of Proposition 3.14.
+- **E13 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, §3.9 p.21; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The cohomological support-forgetting display has the same supports on both ends. **Correction:** The source group is compactly supported H¹_rig,c. **Check:** The following dimension statement and the support-forgetting construction identify the missing support. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E13; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. §3.9, p.21, writes the support-forgetting map from H¹_rig to H¹_rig; the source must be H¹_rig,c, as the next sentence about H¹_rig,c shows.
+- **E14 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Theorem 6.4 p.27; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The graded lifting diagram mixes a generic target and a dagger morphism label. **Correction:** Use the global convergent quotient M/Mᵇ and a convergent h. **Check:** The bounded quotient was constructed in the convergent category, and a generic fibre is not this global target. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E14; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Theorem 6.4, p.27, takes h:N/N^b→M_η/M^b as a map of overconvergent F-isocrystals; the bounded quotients of Proposition 3.29 are convergent and global.
+- **E15 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Corollary 6.8 proof p.29; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The rank-equality proof repeats N† as the target of an intermediate isomorphism. **Correction:** The intermediate target is M† restricted to the chosen curve. **Check:** The two arrows in its factorisation end at M†. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E15; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. In the proof of Corollary 6.8, p.29, the isomorphism g†_{C_α,M} is written from i*N† to i*N†; its displayed factorisation ends at i*M†.
+- **E16 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Proposition 7.5 p.30; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The coefficient-extension transitivity formula names the wrong endpoint on the left. **Correction:** Use θ_(L₁,L₃), with the canonical associativity identification. **Check:** The composite on the right is valued in the L₃ category. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E16; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Proposition 7.5, p.30, states θ_{L₁,L₂}=θ_{L₂,L₃}∘θ_{L₁,L₂}; the left side must be θ_{L₁,L₃}.
+- **E17 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 7.4 p.30; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The coefficient-dual pairing does not explicitly type the trace and component projection. **Correction:** Use the finite trace to compare K-dual and L-dual, then the multiplication-component projector. **Check:** The unprojected scalar tensor factors have the wrong rank for an L-valued perfect pairing. MS.6/padic-coefficient-objects records the corrected pairing. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E17; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Proposition 7.4, p.30, pairs M†⊗_K L with (M†)^∨⊗_K L into j†O⊗_K L without saying how the two L-actions are matched; an L-valued perfect pairing in the L-linear category needs the trace of L/K and the multiplication projector.
+- **E18 (error; the proof)**, [TSU, arXiv:1910.03871v3, Lemma 7.11(3) proof p.33; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The trace proof splits L⊗_K L without assuming L/K normal. **Correction:** Split L⊗_K Q̄_p over the coefficient algebraic closure, or use restriction-of-scalars trace directly. **Check:** A non-Galois separable cubic extension can have a quadratic factor in its self tensor product. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E18; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. The proof of Lemma 7.11(3), p.33, uses L⊗_K L≅∏_{τ}τ(L); for non-normal L/K the left side has factors of larger degree. Splitting L⊗_K Q̄_p is the correct step.
+- **E19 (error; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 7.12 proof p.34; journal version not collated](https://arxiv.org/pdf/1910.03871v3): A scalar twist contributes λ to a trace of the nth Frobenius iterate. **Correction:** Its contribution is λ^n; use characteristic-zero finite differences to show nth powers span the coefficient field. **Check:** The nth iterate of λF, for linear F here, is λ^nF^n. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E19; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. In the proof of Proposition 7.12, p.34, the twist by L(λ) multiplies the trace of F^n by λ, but F^n of λF is λ^nF^n; the conclusion survives because nth powers span L over K in characteristic zero.
+- **E20 (error; a stated result)**, [TSU, arXiv:1910.03871v3, Definition 7.14 p.34 and Theorem 7.18 p.37; journal version not collated](https://arxiv.org/pdf/1910.03871v3): Integral weights are imposed before the unrestricted mixedness assertion. **Correction:** Allow real weights and restore the weight after a constant twist. **Check:** Frobenius 2 on a rank-one object over F₃ has weight 2 log₃2, which is not integral. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E20; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Definition 7.14, p.34, restricts weights to integers, while Theorem 7.18, p.37, asserts every irreducible Q̄_p-coefficient is ι-pure; the rank-one object on Spec F₃ with Frobenius 2 has weight 2log₃2.
+- **E21 (misprint; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 7.15(2) proof p.35; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The endomorphism lift and its composition have inconsistent domains. **Correction:** Lift Top(g′)⁻¹h to τ∈End(N†) and use g′τ:N†→M†. **Check:** Surjectivity onto top endomorphisms supplies an endomorphism of N†, not a map with target M† followed by the inverse of g′. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E21; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. In the proof of Proposition 7.15(2), p.35, surjectivity onto End of the top quotient is used to produce a map π*N†→π*M† lifting (g′)^{-1}∘h, an endomorphism of N/N¹, and then composes with (g′)^{-1} in the wrong direction; the lift is an endomorphism τ of N† and the map is g′∘τ.
+- **E22 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Proposition 7.15(2) pp.35–36 versus Lemma B.1 p.40; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The descent average uses the appendix trace without the coefficient projector comparison. **Correction:** First take the primitive coefficient component. The projected cyclic trace composite is m·id, so divide by m. **Check:** The raw unprojected coefficient trace contributes another m, giving m². MS.6 gives the explicit split-component computation; the categorical projector model is MS.6/padic-coefficient-objects. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E22; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Proposition 7.15(2), pp.35–36, divides by m, while Lemma B.1, p.40, gives Tr∘ad=n·[L:K]·id for the unprojected functors, which is m² here; the factor m is justified only after projecting K_m⊗_K L to one factor, as in the MS.6 node.
+- **E23 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Appendix A.1 proof p.38; A.2 p.39; also confirmed at the same Appendix A locators in the publisher’s accessible journal HTML](https://arxiv.org/pdf/1910.03871v3): The appendix conflates equality of value groups with equality of valuation rings and reverses a tube image. **Correction:** Use equality of value groups, and define the tube by the inverse image under specialisation. **Check:** The residue fields of the two valuation rings differ, and specialisation has source the analytic space. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E23; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. The proof of Lemma A.1(2), p.38, says the valuation rings of (K̂^{perf,ur})^σ and K̂^{perf,ur} coincide (their residue fields differ; the value groups are meant), and §A.2, p.39, writes the tube as sp(Z) rather than sp^{-1}(Z).
+- **E24 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Lemma A.1(3) proof p.38; also confirmed at the same Appendix A locators in the publisher’s accessible journal HTML](https://arxiv.org/pdf/1910.03871v3): The proposed identity action on L is tensored with σ over a field where their restrictions can differ. **Correction:** Prove compatible extension of the coefficient action after enlargement, or use a separate construction. **Check:** σ may act nontrivially on K^(σ^n), so id_L and σ need not define an action on the stated tensor product. This proof is not used for the rank-one normalisation, which uses only A.1(2). **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E24; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. The proof of Lemma A.1(3), p.38, puts σ=id_L⊗σ on L⊗_{K^{σ^n}}K, which is well defined only if σ is the identity on K^{σ^n}; this need not hold.
+- **E25 (gap; the proof)**, [TSU, arXiv:1910.03871v3, Lemma 3.33 proof p.20, first rank-one step; compare Lemma 3.32 p.19; journal main text not collated](https://arxiv.org/pdf/1910.03871v3): The general rank-one gluing step invokes a unit-root lemma directly. **Correction:** Twist after a compatible fixed-field value-group normalisation, glue in slope zero, then untwist and descend. **Check:** The constant rank-one object with Frobenius q has nonzero slope. The reduction and its inputs (MS.0/fixed-field-normalisation and the RD.3 unit-root request) are explicit in curve-gluing. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E25; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. The rank-one step of the proof of Lemma 3.33, p.20, applies Lemma 3.32, whose hypothesis is a unit-root L_η; a rank-one generic submodule need not be unit-root, so a constant twist is required first.
+- **E26 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, Lemma 7.11(1),(3) p.33; journal main text not collated](https://arxiv.org/pdf/1910.03871v3): A finite coefficient fibre and its algebraically closed extension are interchanged in a finite trace computation. **Correction:** Take the finite L-model for the L-isomorphism and K-linear trace, then extend scalars. **Check:** The Q̄_p fibre is not finite dimensional over K or a fixed finite L, so the indicated finite-dimensional trace is not defined there. **Prior status:** Previously recorded in PAPER-TSUZUKI-23/E26; this run reads and applies that correction, and does not claim a new journal erratum. **Review:** confirmed. Lemma 7.11(1), p.33, calls the comparison with the Q̄_p-fibre an isomorphism of L-spaces, and (3) takes a K-linear trace on the Q̄_p-fibre, which is infinite dimensional over K; the finite L-model is meant.
+- **E27 (misprint; the proof)**, [DAD, Theorem 4.2.6(i), p.14, arXiv v4](https://arxiv.org/pdf/2012.12879v4): The reverse-filtration grade uses shifted indices. **Correction:** Its i-th completed grade is S_(m+1−i)/S_(m−i). **Check:** For i=m the last grade must be S₁/S₀, not a quotient with negative index; the parent reverse-filtration node already carries the correction. **Prior status:** Previously recorded in PAPER-DADDEZIO-23/E3; no assertion about the uncollated journal wording. **Review:** confirmed. Checked in the arXiv v4 TeX source: Theorem 4.2.6(i), p.14, identifies the i-th reverse grade with S_{m−i}/S_{m−i−1}; with S_m the whole module, the i-th grade must be S_{m+1−i}/S_{m−i}, as used in Lemma 4.2.7's S_m/S_{m−1}.
+- **E28 (misprint; the proof)**, [DAD, Theorem 4.2.6(ii), p.14, arXiv v4](https://arxiv.org/pdf/2012.12879v4): The isoclinic object in the eigenbasis assertion is not the algebraically extended object just introduced. **Correction:** Apply the assertion to M†_alg and its finite eigenvalue extension. **Check:** The proof and its chosen eigenbasis use the extended residue coefficient carrier. **Prior status:** Previously recorded in PAPER-DADDEZIO-23/E4; no assertion about the uncollated journal wording. **Review:** confirmed. Checked in the TeX source: Theorem 4.2.6 concerns a φ-module M†_alg over E†_alg, but (ii) begins 'If M† is isoclinic', an object not introduced in the theorem; the extended module is meant.
+- **E29 (gap; the proof)**, [DAD, Proposition 4.2.12 proof, p.17, arXiv v4](https://arxiv.org/pdf/2012.12879v4): Compactness is asserted for the embedded integral module and used for a positive lower bound outside pQ. **Correction:** Supply a Frobenius-specific strictness argument; G1 keeps the alternate comparison unclosed. **Check:** In A_n, (pu^n)^j is outside pA_n but its image tends to zero, contradicting the asserted lower bound; the general quotient has unbounded p-torsion. **Prior status:** Previously recorded in PAPER-DADDEZIO-23/E5; no assertion about the uncollated journal wording. **Review:** confirmed. In the proof of Proposition 4.2.12, p.17, the claimed positive infimum of ‖f_n(m)‖ over m∉pQ_{W,n} fails already for the inclusion A_n⊂W⟨u⟩: ū_n^j=p^ju^{nj} is not in pA_n (an element of A_n of total u-degree nj needs at least j factors ū_i) yet has norm p^{−j}. The proposition itself is not refuted.
+- **E30 (misprint; the proof)**, [DAD, Lemma 4.1.4 proof, p.12, arXiv v4](https://arxiv.org/pdf/2012.12879v4): The induced direct sum appears with all of N in place of its first slope term. **Correction:** The direct-sum term is ⊕F^{i*}S_min(N). **Check:** The reduction concerns the first slope piece; induction does not make a multi-slope N pure. **Prior status:** Previously recorded in PAPER-DADDEZIO-23/E12; no assertion about the uncollated journal wording. **Review:** confirmed. Checked in the TeX source: the proof of Lemma 4.1.4, p.12, writes ⊕(F^i)*N=S₁(N′); the left side must be ⊕(F^i)*S₁(N), since S₁ commutes with the induction.
+- **E31 (misprint; nothing)**, [OHK, Proposition 5.9, p.26, arXiv:1809.04065v1](https://arxiv.org/pdf/1809.04065v1): The explanatory equality identifies the zero-th log-growth kernel with all of a pure module. **Correction:** For a pure module the boundedness conclusion means M^0=0, so its bounded quotient M/M^0 is M. **Check:** Definition 5.5 defines the bounded quotient by this kernel; Theorem 5.4 identifies its rank with the bounded solution dimension. A trivial rank-one module has a one-dimensional bounded solution space and kernel zero, contradicting the printed equality for that nonzero pure module. **Prior status:** new against the preprint version read; no claim about the journal wording **Review:** confirmed. Proposition 5.9, p.26, glosses 'M is bounded' as M⁰=M; by Definitions 5.3 and 5.5 boundedness means M⁰=0 and the bounded quotient M/M⁰ is M.
+- **E32 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, proof of Theorem 3.19(1), p.16; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The construction of the first PBQ step cites a Proposition 3.10. **Correction:** The splitting result cited is Theorem 3.10. **Check:** There is no Proposition 3.10; Theorem 3.10 is the bounded splitting theorem that the step uses. **Prior status:** new **Review:** confirmed. Found and checked at the locator by the independent review.
+- **E33 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, proofs of Proposition 2.10(2) and Lemma 2.12, p.9; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The proof of Proposition 2.10(2) applies Proposition 2.9 to z_{i,s}, and the proof of Lemma 2.12 cites a Lemma 2.9. **Correction:** The Frobenius equation was derived for z_{i,1}, and the result cited in Lemma 2.12 is Proposition 2.9. **Check:** The displayed equation just before is for z_{i,1}; there is no Lemma 2.9. **Prior status:** new **Review:** confirmed. Found and checked at the locator by the independent review.
+- **E34 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, proof of Theorem 2.14, p.10; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The trivialised module is written as a tensor power of Ẽ. **Correction:** It is a direct sum of dim_E M copies of Ẽ. **Check:** Proposition 2.10(1), which is invoked, gives a trivial φ-module, i.e. a direct sum of copies of the unit object. **Prior status:** new **Review:** confirmed. Found and checked at the locator by the independent review.
+- **E35 (misprint; nothing)**, [TSU, arXiv:1910.03871v3, proof of Corollary 6.8, p.29; journal version not collated](https://arxiv.org/pdf/1910.03871v3): The same-curve case is said to follow from Corollary 6.5 (1). **Correction:** It follows from case (i) of Corollary 6.5. **Check:** Corollary 6.5 has alternatives (i) and (ii), not numbered parts; the irreducible case is (i). **Prior status:** new **Review:** confirmed. Found and checked at the locator by the independent review.
