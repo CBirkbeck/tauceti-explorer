@@ -1,5 +1,42 @@
 # REV-FIX-RT-AREA-topology~4: scope reconciliation required
 
+## Current blocked run: codex-mLXTx9
+
+Refs #6521. Codex, 19 October 2026, branch
+`codex-mLXTx9-review-topology`, input `328402a42530aa315d91ac6d8e745487c3c0adb7`.
+The bot confirmed this run's [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6257945164).
+No second job was claimed.
+
+Re-read the live issue after confirmation and evaluated the actual
+`issues.deliverables_complete` function against the checked-out queue. The issue
+still permits seven outputs; the queue requires fifteen; completion is false.
+The three permitted parent packets already have this job's reviewer identity.
+The four omitted packets still have their separate whole-plan reviewer identities.
+Thus repeating the parent reviews cannot complete this job. No mathematical
+error newly established in this run warrants changing an authorized canonical
+file. The previous report, audits, prepared corrections and validation results
+below are preserved with their original authorship; they are not fresh checks
+by this session. No Lean file changed, and Lean was not rerun.
+
+The run requested authorization for the four omitted packet paths, explaining
+WORKERS.md's explicit edit restriction. No authorization was received before
+this blocked checkpoint. No excluded path, packet review metadata, queue entry,
+completion code or label was changed. This submission changes only the mandatory
+handoff, as required when blocked; it does not represent further mathematical
+progress or a completed review.
+
+**Maintainer action before redispatch:** synchronize #6521's live Deliverables,
+Files under review and RULES with the queue's four additional packet/suggested
+pairs listed below, or expressly authorize the four packet paths. Those packet
+paths are already valid intake outputs. Keep the two excluded readers as
+separately assigned follow-ups; their corrections are not needed to finish a
+negative review. The next worker can then apply the prepared packet dispositions
+and direct prerequisite correction, preserve prior reviews, check the changed
+packets and evaluate completion. Do not redispatch this unchanged issue for
+another metadata refresh or revalidation of unchanged files.
+
+## Previous checkpoint and prepared work (preserved)
+
 Refs #6521. Codex, session `codex-YFJHa3`, 19 October 2026;
 branch `codex-YFJHa3-review-topology-fixes`, input
 `dfa7cb015f9004325762f89eafc1eec20f6c93f9`.
