@@ -45,7 +45,12 @@ namespace TauCetiRoadmap.PurityForFlatCohomology
 
 universe u v
 
-/-! ## Layer 0: punctured spectra (PF.0/punctured-spectrum) -/
+/-! ## Layer 0: punctured spectra (PF.0/punctured-spectrum)
+
+LocalPurity §1.1 owns the local carrier in the upstream roadmap. At the pinned libraries this
+light set prototype lets the semilocal adapter and its compatibilities be stated; packaging must
+identify its local specialization with the imported carrier.
+-/
 
 section PuncturedSpectrum
 
@@ -139,7 +144,8 @@ theorem virtualDimension_eq_dim_iff [IsRegularLocalRing S] (I : Ideal S) (hI : I
 
 /-- API `virtualDimension_quotient`: adding `r` equations lowers the virtual dimension by at most
 `r`. -/
-theorem virtualDimension_quotient [IsLocalRing S] (I : Ideal S) (fs : List S) :
+theorem virtualDimension_quotient [IsLocalRing S] [IsNoetherianRing S]
+    (I : Ideal S) (fs : List S) :
     presentationVirtualDimension I - fs.length ≤
       presentationVirtualDimension (I ⊔ Ideal.ofList fs) := sorry
 
@@ -184,7 +190,17 @@ idempotents `eᵢ = Pi.single i 1`. -/
 theorem finitelyPresented_pi_bijective {ι : Type u} [DecidableEq ι] (R : ι → Type u) [∀ i, CommRing (R i)]
     (M : Type u) [AddCommGroup M] [Module (∀ i, R i) M]
     [Module.FinitePresentation (∀ i, R i) M] :
-    Function.Bijective (fun m : M => fun i : ι => (Pi.single i (1 : R i) : ∀ j, R j) • m) := sorry
+    Function.Bijective (fun m : M => fun i : ι =>
+      (⟨(Pi.single i (1 : R i) : ∀ j, R j) • m,
+        by
+          rw [smul_smul]
+          congr 1
+          ext j
+          by_cases h : i = j
+          · subst j
+            simp
+          · simp [Pi.single_eq_of_ne (Ne.symm h)]⟩ :
+        {m : M // (Pi.single i (1 : R i) : ∀ j, R j) • m = m})) := sorry
 
 /-- PF.3/frobenius-fixed-points-algebraically-closed (Katz; CS24 proof of Claim 4.2.10.1): a
 finite-dimensional vector space over an algebraically closed field of characteristic `p` with a
@@ -259,14 +275,15 @@ The following packet names are specified in the roadmap document only, because t
 multiplicative type, strict henselizations, complete intersections) are not at the pinned commits.
 
 * PF.0/punctured-spectrum: `puncturedSpectrum_completion`, `puncturedSpectrum_sections_of_depth`,
-  test `puncturedSpectrum_plane_sections`.
+  tests `puncturedSpectrum_plane_sections`, `puncturedSpectrum_zero`.
 * PF.0/flat-cohomology-with-supports: `flatCohomologyWithSupports`,
   `flatCohomologyWithSupports_les`, `flatCohomologyWithSupports_zero`,
   `flatCohomologyWithSupports_excision_open`, `flatCohomologyWithSupports_excision_etale`,
   `flatCohomologyWithSupports_triple`, `flatCohomologyWithSupports_localToGlobal`,
   `flatCohomologyWithSupports_mayerVietoris`, `flatCohomologyWithSupports_finiteFlatDescent`,
   `flatCohomologyWithSupports_etale_comparison`, `flatCohomologyWithSupports_quasiCoherent`,
-  `flatCohomologyWithSupports_limit`; tests `flatCohomologyWithSupports_empty`,
+  `flatCohomologyWithSupports_limit`, `flatCohomologyWithSupports_nested`;
+  tests `flatCohomologyWithSupports_empty`,
   `flatCohomologyWithSupports_all`, `flatCohomologyWithSupports_dvr_Gm`,
   `flatCohomologyWithSupports_Ga_compat`, `flatCohomologyWithSupports_not_restriction`.
 * PF.0/regular-sequence-support-vanishing; PF.0/hartogs-regular-sequence (scheme form).
