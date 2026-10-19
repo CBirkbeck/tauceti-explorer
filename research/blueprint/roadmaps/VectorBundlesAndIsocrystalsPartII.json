@@ -1,0 +1,202 @@
+{
+  "id": "VectorBundlesAndIsocrystalsPartII",
+  "title": "Isocrystals, vector bundles and Banach–Colmez spaces, Part II",
+  "area": "padic",
+  "parent": "VectorBundlesAndIsocrystals",
+  "summary": "Continuation of the classical Banach–Colmez roadmap: arithmetic period-map rigidity and almost C Ext duality; bounded sympathetic functors valued in a quasi-abelian left heart; the perfectoid-disc extension class; reasonable period Modules and Pairs; intrinsic qBC filtrations; and the period-valued height functor. Existing BC, almost C and functional-analysis objects are imported. Independent schematic-curve, positive-period Frobenius and classical-skew-field directions have explicit split proposals and a complete routed-item ledger.",
+  "readme": "This continuation owns the Hom/Ext and topological enlargement of classical Banach–Colmez spaces needed by p-adic cohomology comparisons. The definitive document is research/blueprint/readmes/VectorBundlesAndIsocrystalsPartII.md. Its mathematical specifications include hypotheses, APIs, tests and exact proof boundaries. The companion compact suggested file contains only statements whose carriers exist at the pinned libraries.\n\nUse covariant functors in sympathetic algebras. Write B=B_dR^+(C), B_m=B/t^m, V_1(Λ)=Λ and U_d=(B_cris^+)^{φ=p^d}. A capitalized Module or Pair denotes a functor, while lower-case topological module or pair denotes its C-valued presentation. All Pairs are left-heart objects represented by a continuous injection, which need not be strict. Algebraic quotient and Hausdorff quotient are distinct.\n\nK is complete discretely valued of characteristic zero with perfect residue field and C the completed algebraic closure. The arithmetic Ext theory requires finite K/Q_p. The arbitrary-K rigidity statements are labeled separately. The sympathetic/qBC theory also requires the countability assumptions in CN25: the residue field and O_C/p are countable. There is no Galois action in the qBC calculations unless explicitly introduced. Height uses dim(V_2)−dim(V_1) in an almost presentation.\n\nThe parent roadmap owns classical BC, Dimension, curvature, affine finite-length realization and the curve correspondence. PadicHodgeTheory owns period rings, almost C objects and Sen theory. LocallyAnalyticDistributions L0 owns nonarchimedean locally convex spaces, strictness, left hearts and completed projective tensors. None is rebuilt. The independent Fargues–Fontaine schematic/positive-Frobenius targets and Colmez’s classical skew field are precisely routed in the packet’s restructure proposals; the schematic and positive-Frobenius proposals are independent of this continuation. Its arithmetic fundamental theorem needs the exact analytic lemma assigned to the classical-correspondence proposal, recorded as G-FUNDAMENTAL until that supplier exists.\n\nNo general qBC splitting, qBC abelianness, Pair Ext equivalence, all-degree topological-module comparison or identification of VS Ext with TVS Ext without a theorem is asserted. Planned proof obligations are recorded in coverage and gaps rather than disguised as axioms or formal carriers.\n",
+  "prerequisites": [
+    "VectorBundlesAndIsocrystals",
+    "PadicHodgeTheory",
+    "LocallyAnalyticDistributions",
+    "PerfectoidSpaces",
+    "ArithmeticGaloisRepresentations",
+    "ArithmeticGaloisDuality"
+  ],
+  "stages": [
+    {
+      "key": "AC.0",
+      "title": "Rigidity of arithmetic period representations",
+      "description": "Use the almost C-representation category and dimension–height invariant of PadicHodgeTheory R06.2. Equip all Banach Galois representations with strict short exact sequences; import finite-K Fontaine full faithfulness from R06.2, request the coefficient/Sen-weight refinement from P7, and prove the arbitrary perfect-residue-field Hom formulas for C, B_dR^+ and B_dR. Separate these two base-field regimes.",
+      "requires": [
+        "PadicHodgeTheory:R06.1",
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:P7",
+        "ArithmeticGaloisRepresentations:R01.1"
+      ]
+    },
+    {
+      "key": "AC.1",
+      "title": "Extensions and duality for almost C-representations",
+      "description": "Build almost-split extension and Yoneda comparison tools, the three-term generalized-invariant complex with its cyclotomic twist, the Ext table for B_dR^+/t^k against C(j), truncation vanishing, finite-dimensionality and Euler–Poincaré duality in degrees 0–2. Include the fundamental surjectivity theorem and the equivariant analytic-realization boundary.",
+      "requires": [
+        "VectorBundlesAndIsocrystalsPartII:AC.0",
+        "ArithmeticGaloisDuality:R02.1",
+        "ArithmeticGaloisDuality:D7",
+        "VectorBundlesAndIsocrystals:VB3:general-BC"
+      ]
+    },
+    {
+      "key": "TVS.0",
+      "title": "Topological Vector Spaces and period Pairs",
+      "description": "In the left heart of nonarchimedean locally convex Q_p-spaces construct covariant functors on sympathetic algebras with uniform boundedness on bounded sets, pointwise exactness and Yoneda Ext. Construct uniformly t-power-torsion period Modules by separated completed balanced tensor, and Pairs as injective two-term complexes localized at bicartesian squares; preserve non-strict injections and their algebraic quotients.",
+      "requires": [
+        "LocallyAnalyticDistributions:L0",
+        "PadicHodgeTheory:R06.1",
+        "VectorBundlesAndIsocrystals:VB3:general-BC"
+      ]
+    },
+    {
+      "key": "TVS.1",
+      "title": "The perfectoid disc extension class",
+      "description": "Construct the translation group of the sympathetic disc, normalized exponential characters and a perfectoid Kummer tower. Prove the bounded-denominator analytic cocycle lemma, additive rank and rank-zero splitting. Compute Ext^1_TVS(V_1,V_1)=C with B_2 representing 1, and identify the same class through translation-invariant pro-étale cohomology.",
+      "requires": [
+        "VectorBundlesAndIsocrystalsPartII:TVS.0",
+        "PerfectoidSpaces:P3",
+        "PerfectoidSpaces:P6",
+        "PerfectoidSpaces:P9"
+      ]
+    },
+    {
+      "key": "TVS.2",
+      "title": "Reasonable period modules and comparison",
+      "description": "Specify separable Fréchet and compact-type C-spaces, reasonable B_m-modules and same-type Pairs. Prove strict tensor exactness, the normalized pushout class, Hom(B_d,W)=W[t^d] and Ext^1(B_d,W)=W/t^dW, the corrected U_d calculation and module Hom/Ext^1 comparison. Track separately the Fréchet inverse-limit step, separability in the B_m formulation and the compact-type extension supplier gap.",
+      "requires": [
+        "VectorBundlesAndIsocrystalsPartII:TVS.1",
+        "LocallyAnalyticDistributions:L0",
+        "ArithmeticGaloisDuality:R02.1"
+      ]
+    },
+    {
+      "key": "QBC.0",
+      "title": "Quasi–Banach–Colmez spaces and their intrinsic filtration",
+      "description": "Construct filtered qBC objects with positive BC subobject, a period Pair as middle graded object and negative BC quotient, with integer height. For reasonable middle Pairs prove the two extremal characterizations; for same-type reasonable objects prove that all TVS maps preserve the filtration and are period-linear on the middle. Include the dense-injection left-heart example, without asserting a splitting or general abelianness theorem.",
+      "requires": [
+        "VectorBundlesAndIsocrystalsPartII:TVS.0",
+        "VectorBundlesAndIsocrystalsPartII:TVS.2",
+        "VectorBundlesAndIsocrystals:VB3:general-BC",
+        "LocallyAnalyticDistributions:L0",
+        "LocallyAnalyticDistributions:L1"
+      ]
+    },
+    {
+      "key": "H.0",
+      "title": "The period-valued height functor",
+      "description": "On classical BC spaces construct the contravariant B_dR-valued functor h(W)=Hom_VS(W,B_dR), its bounded-target localization and the required VS Ext comparisons. Prove Ext^1_VS(W,B_dR)=0 for curvature ≤0, exactness of h there, and the general formula rank h(W)=height(W)+rank Ext^1_VS(W,B_dR). Carry the parent bounded-image and geometric-heart proof obligations explicitly.",
+      "requires": [
+        "VectorBundlesAndIsocrystals:VB3:general-BC",
+        "PadicHodgeTheory:R06.1",
+        "ArithmeticGaloisDuality:R02.1"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CN25",
+      "title": "On the cohomology of p-adic analytic spaces, II: The C_st-conjecture",
+      "authors": "Pierre Colmez and Wiesława Nizioł",
+      "edition": "CN5.pdf, authors’ preprint dated 24 November 2024, 61 pages; numbered locators use this pagination. Duke Math. J. 174 (2025), 2203–2301, DOI 10.1215/00127094-2024-0074 is bibliographic metadata only; its text was not collated.",
+      "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/CN5.pdf",
+      "sha256": "bb1628cf1f4321243e6070be2abae99f72a41e237e70a7eb1ec1fc03cc2cd52a",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "§2, pp. 8–12",
+        "§3.3, pp. 19–20; Corollary 3.18, p. 18",
+        "§4, pp. 20–31",
+        "Appendix A, pp. 58–60"
+      ]
+    },
+    {
+      "id": "FF18",
+      "title": "Courbes et fibrés vectoriels en théorie de Hodge p-adique",
+      "authors": "Laurent Fargues and Jean-Marc Fontaine; preface by Pierre Colmez",
+      "edition": "Authors’ courbe.pdf dated 16 April 2017, 399 PDF pages; printed page = PDF page −10. Astérisque 406 (2018), DOI 10.24033/ast.1056 is not collated. The split inventory is routing work, not a claim to have checked all proofs in Chapters 5, 8, 9 and 11.",
+      "url": "https://www.imo.universite-paris-saclay.fr/~fontaine/courbe.pdf",
+      "sha256": "cc159f38a3801c736b71ecea363496abe7706550bfb416600718ee9933922ca3",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Preface §§2.2–2.4, printed pp. 12–23",
+        "§5.5.1, printed pp. 212–214, ownership boundary only"
+      ]
+    },
+    {
+      "id": "Fontaine03",
+      "title": "Presque C_p-représentations",
+      "authors": "Jean-Marc Fontaine",
+      "edition": "Documenta Mathematica, Extra Volume Kato (2003), pp. 285–385; journal PDF, printed pagination.",
+      "url": "https://ftp.gwdg.de/pub/misc/EMIS/journals/DMJDMV/vol-kato/fontaine.dm.pdf",
+      "sha256": "379a3c41359063b36c5ef6c5ebae8117a265536d03d583dbe0cccffc9caed44c",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Introduction, pp. 289–294",
+        "Theorem 2.14 and proof, pp. 309–311",
+        "§3.3, pp. 324–326",
+        "§6.1–6.5, pp. 355–368, Ext proof route"
+      ]
+    },
+    {
+      "id": "Colmez02",
+      "title": "Espaces de Banach de dimension finie",
+      "authors": "Pierre Colmez",
+      "edition": "Author-hosted jussieucorps.pdf; internal pagination, not the journal pagination 331–439 (JIMJ 1, 2002).",
+      "url": "https://webusers.imj-prg.fr/~pierre.colmez/jussieucorps.pdf",
+      "sha256": "3675d316c726cde8f55d3d3582e270e94d2dc1d814196e7cbf7b38d42e3d0c63",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "§§5.5–5.6, Propositions 5.20 and 5.23, pp. 30–32",
+        "Theorem 10.5, pp. 76–77; §10.5, pp. 82–83"
+      ]
+    },
+    {
+      "id": "Schneiders99",
+      "title": "Quasi-abelian categories and sheaves",
+      "authors": "Jean-Pierre Schneiders",
+      "edition": "Mémoires de la SMF 76 (1999), Numdam scan; printed pagination.",
+      "url": "https://www.numdam.org/item/10.24033/msmf.389.pdf",
+      "sha256": "47967a3f77b40eb787321878039e1ef8160d7965d7b623d1a55c54a8ad59ffea",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Corollaries 1.2.20–1.2.22, pp. 24–25; generic theory imported from LocallyAnalyticDistributions L0"
+      ]
+    },
+    {
+      "id": "LeBras18",
+      "title": "Espaces de Banach–Colmez et faisceaux cohérents sur la courbe de Fargues–Fontaine",
+      "authors": "Arthur-César Le Bras",
+      "edition": "Author-hosted 1801.00422.pdf; internal pagination. The Ext table below is initially a table in sheaves on Perf_C,v, not automatically in sympathetic Vector Spaces.",
+      "url": "https://lebras.perso.math.cnrs.fr/1801.00422.pdf",
+      "sha256": "c0f41dcb5eff1ac61bdefa179cd90687c353bf3d1ad4a31d5b1dec754701c7fa",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "§4, Theorem 4.1 and its proof setup, pp. 26–28"
+      ]
+    },
+    {
+      "id": "AnschutzLeBras25",
+      "title": "A Fourier transform for Banach–Colmez spaces",
+      "authors": "Johannes Anschütz and Arthur-César Le Bras",
+      "edition": "J. Eur. Math. Soc. 27 (2025), 3651–3712; journal PDF, printed pagination.",
+      "url": "https://ems.press/content/serial-article-files/51138",
+      "sha256": "e248575b33e487ea9db38b91aa1997b2d49822c167f3016d2efab48b3c761ca4",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "§3.1, Theorems 3.1, 3.2, 3.9 and Corollary 3.11, pp. 3670–3681"
+      ]
+    },
+    {
+      "id": "TVS25",
+      "title": "Topological Vector Spaces",
+      "authors": "Pierre Colmez and Wiesława Nizioł",
+      "edition": "Author-hosted TVS-arxiv.pdf dated 21 November 2025, 32 pages (author index labels it September 2025). This changes to condensed enriched presheaves and is not an identification with the older left-heart category.",
+      "url": "https://webusers.imj-prg.fr/~wieslawa.niziol/TVS-arxiv.pdf",
+      "sha256": "81b8d8e8bba6bcc64180e24ae1c87ba86da5b16e8e63da3862210f0a7c35389a",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Introduction and Theorem 1.1, pp. 1–3",
+        "Definition 3.32 and §4.1, pp. 23–26",
+        "§4.2.3–4.2.4, Proposition 4.21 and Corollary 4.25, pp. 28–31"
+      ]
+    }
+  ],
+  "status": "draft"
+}
