@@ -10498,7 +10498,8 @@
    "avoidAccountOf": "DESIGN-HeightsRationalPointsAndObstructionsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HeightsRationalPointsAndObstructionsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3544"
   },
   {
    "id": "DESIGN-PotentialAutomorphyInfrastructurePartII",
@@ -10566,8 +10567,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ModularityAndLanglandsExtensionsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3345"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3345",
+   "finishedAt": "2026-10-19T06:55:12Z"
   },
   {
    "id": "REV-DESIGN-ModularityAndLanglandsExtensionsPartII",
@@ -10611,7 +10613,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HermitianKTheoryOfPoincareCategories.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3346"
   },
   {
    "id": "REV-DESIGN-HermitianKTheoryOfPoincareCategories",
@@ -10887,7 +10890,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ClassicalAdicEtaleCohomologyPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3349"
   },
   {
    "id": "REV-DESIGN-ClassicalAdicEtaleCohomologyPartII",
@@ -10931,8 +10935,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AutomorphicPadicLFunctionsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3350"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3350",
+   "finishedAt": "2026-10-19T06:55:13Z"
   },
   {
    "id": "REV-DESIGN-AutomorphicPadicLFunctionsPartII",
@@ -11278,7 +11283,9 @@
    "avoidAccountOf": "DESIGN-ReductiveGroupsPartIII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ReductiveGroupsPartIII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3603",
+   "finishedAt": "2026-10-19T06:55:14Z"
   },
   {
    "id": "DESIGN-RootSystemsPartII",
@@ -11346,8 +11353,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LefschetzPencilsAndVanishingCyclesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3359"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3359",
+   "finishedAt": "2026-10-19T06:55:18Z"
   },
   {
    "id": "REV-DESIGN-LefschetzPencilsAndVanishingCyclesPartII",
@@ -11417,8 +11425,9 @@
    "avoidAccountOf": "DESIGN-PurityForFlatCohomology",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-PurityForFlatCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3597"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3597",
+   "finishedAt": "2026-10-19T06:55:19Z"
   },
   {
    "id": "DESIGN-SchemeAndStackFoundationsPartII",
@@ -11508,7 +11517,9 @@
    "avoidAccountOf": "DESIGN-PerfectoidQuotientsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-PerfectoidQuotientsPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3589",
+   "finishedAt": "2026-10-19T06:55:22Z"
   },
   {
    "id": "DESIGN-EtaleDualityAndPerverseSheavesPartII",
@@ -12512,8 +12523,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AdicCoefficientsAndComparisonsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3386"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3386",
+   "finishedAt": "2026-10-19T06:55:26Z"
   },
   {
    "id": "REV-DESIGN-AdicCoefficientsAndComparisonsPartII",
@@ -12781,8 +12793,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DrinfeldModulesAndTModulesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3393"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3393",
+   "finishedAt": "2026-10-19T06:55:28Z"
   },
   {
    "id": "REV-DESIGN-DrinfeldModulesAndTModulesPartII",
@@ -12826,7 +12839,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AutomorphicSpectralTheoryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3394"
   },
   {
    "id": "REV-DESIGN-AutomorphicSpectralTheoryPartII",
@@ -12870,8 +12884,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GanGrossPrasadConjecturesForClassicalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3395"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3395",
+   "finishedAt": "2026-10-19T06:55:29Z"
   },
   {
    "id": "REV-DESIGN-GanGrossPrasadConjecturesForClassicalGroups",
@@ -13874,7 +13889,8 @@
    "avoidAccountOf": "DESIGN-TriangulineVarietyAndItsLocalModel",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-TriangulineVarietyAndItsLocalModel.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3622"
   },
   {
    "id": "DESIGN-IgusaVarietiesAndTorsionConcentrationPartII",
@@ -13986,7 +14002,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ModularCurvesPartIII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3415"
   },
   {
    "id": "REV-DESIGN-ModularCurvesPartIII",
@@ -14244,8 +14261,9 @@
    "avoidAccountOf": "DESIGN-AdmissiblePairsAndPadicHodgeStructures",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AdmissiblePairsAndPadicHodgeStructures.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3488"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3488",
+   "finishedAt": "2026-10-19T06:55:30Z"
   },
   {
    "id": "DESIGN-AdicSpacesPartIIPartII",
@@ -14383,7 +14401,8 @@
    "avoidAccountOf": "DESIGN-ShimuraCompactificationsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ShimuraCompactificationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3613"
   },
   {
    "id": "DESIGN-DiamondsAndVStacksPartII",
@@ -14639,7 +14658,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-SelmerIwasawaCohomologyPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3430"
   },
   {
    "id": "REV-DESIGN-SelmerIwasawaCohomologyPartII",
@@ -14867,8 +14887,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ExceptionalThetaCorrespondencesForG2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3435"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3435",
+   "finishedAt": "2026-10-19T06:55:34Z"
   },
   {
    "id": "REV-DESIGN-ExceptionalThetaCorrespondencesForG2",
@@ -14938,8 +14959,9 @@
    "avoidAccountOf": "DESIGN-PotentialAutomorphyDworkMotivesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-PotentialAutomorphyDworkMotivesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7106"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7106",
+   "finishedAt": "2026-10-19T06:55:35Z"
   },
   {
    "id": "DESIGN-EtaleHomotopyTypes",
@@ -15055,8 +15077,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GlobalGaloisDeformationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3438"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3438",
+   "finishedAt": "2026-10-19T06:55:38Z"
   },
   {
    "id": "REV-DESIGN-GlobalGaloisDeformationsPartII",
@@ -15560,7 +15583,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GSp4NonregularModularityLifting.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3449"
   },
   {
    "id": "REV-DESIGN-GSp4NonregularModularityLifting",
@@ -15604,7 +15628,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AlgebraicModularFormsAndSerreWeightsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3450"
   },
   {
    "id": "REV-DESIGN-AlgebraicModularFormsAndSerreWeightsPartII",
@@ -15722,8 +15747,9 @@
    "avoidAccountOf": "DESIGN-ExcursionOperatorsAndSpectralActionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ExcursionOperatorsAndSpectralActionPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4517"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4517",
+   "finishedAt": "2026-10-19T06:55:39Z"
   },
   {
    "id": "DESIGN-WeightZeroCrystallineAutomorphyLifting",
@@ -15841,7 +15867,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3455"
   },
   {
    "id": "REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower",
@@ -15981,7 +16008,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LocalLanglandsCorrespondenceForG2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3458"
   },
   {
    "id": "REV-DESIGN-LocalLanglandsCorrespondenceForG2",
@@ -16988,7 +17016,9 @@
    "avoidAccountOf": "DESIGN-GeneralAlgebraicKTheoryPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GeneralAlgebraicKTheoryPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3537",
+   "finishedAt": "2026-10-19T06:55:42Z"
   },
   {
    "id": "DESIGN-ChromaticHomotopyTheory",
@@ -17056,7 +17086,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3481"
   },
   {
    "id": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups",
@@ -17100,8 +17131,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-StableHomotopyKTheoryPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3482"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3482",
+   "finishedAt": "2026-10-19T06:55:45Z"
   },
   {
    "id": "REV-DESIGN-StableHomotopyKTheoryPartII",
@@ -103751,8 +103783,8 @@
     "FIX-RT-AREA-iwasawa-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6217"
+   "state": "external",
+   "note": "claimed on GitHub issue #6217"
   },
   {
    "id": "RT-AREA-iwasawa-2",
@@ -120946,7 +120978,9 @@
     "REV-AutomorphicCongruences--L5b"
    ],
    "prompt": "research/blueprint/prompts/ASM-AutomorphicCongruences.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #216",
+   "finishedAt": "2026-10-19T06:55:47Z"
   },
   {
    "id": "ASM-AutomorphicGaloisRepresentationsPartII",
@@ -121672,7 +121706,9 @@
     "REV-PeriodsAndSpecialValues--PS.8"
    ],
    "prompt": "research/blueprint/prompts/ASM-PeriodsAndSpecialValues.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #252",
+   "finishedAt": "2026-10-19T06:55:52Z"
   },
   {
    "id": "BP-EllipticKTheory--E.6",
