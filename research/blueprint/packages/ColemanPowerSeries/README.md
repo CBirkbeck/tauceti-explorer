@@ -1633,7 +1633,7 @@ This uses the fixed residue identification of the actual integral closure, not a
 
 *Needs:* [Reduction and strict norm inequalities](#colemanpowerseries-l0-cyclotomic-reduction-norm-kernel); `IsLocallyConstant.iff_exists_open`; `IsLocallyConstant.continuous`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-norm-compatible-units"></a>
 
@@ -1657,6 +1657,7 @@ The API includes the following named statements.
 - `NormLimitTests.identity_family`: The constant identity family is norm-compatible.
 - `NormLimitTests.inverse_family`: The coordinatewise inverse of any compatible family is compatible.
 - `NormLimitTests.dyadic_minus_one_incompatible`: The constant−1 family is not norm-compatible for p=2, since its relative norm is+1.
+- `NormLimitTests.signed_root_family`: The tuple ((−1)^(p−1)ζ_n)_n belongs and is not the identity tuple: at p=3 its zeroth coordinate is ζ_0≠1, and at p=2 its first coordinate is −ζ_1≠1. This excludes replacing the equalizer by its trivial subgroup.
 
 For the proof, for each n, form the native equalizer subgroup of N_n composed with the successor coordinate and the nth coordinate projection. Take their infimum in the native complete subgroup lattice. The native equalizer and infimum carrier formulas give exactly the displayed compatibility condition. Multiplication, inversion, identity and all integer powers are inherited coordinatewise. Native subtype extensionality gives equality from equality of every coordinate. Coordinate evaluation is continuous as a product projection after the subtype inclusion. For a continuous monoid homomorphism f:H→V satisfying all adjacent equations, corestrict f to the subgroup; native induced-topology continuity supplies its continuous lift. Coordinate extensionality proves uniqueness. No general inverse-limit functor is rebuilt.
 
@@ -1666,7 +1667,7 @@ RJW(9-3) and Theorems10.2/10.13: Supply the actual arithmetic target and its res
 
 *Needs:* [Continuous norm transitions on actual units](#colemanpowerseries-l0-continuous-unit-norm); `MonoidHom.eqLocus`; `Subgroup.coe_iInf`; `Subgroup`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-norm-compatible-units-closed"></a>
 
@@ -1684,7 +1685,7 @@ Closedness is for the actual product of native unit topologies.
 
 *Needs:* [The actual norm-compatible unit group](#colemanpowerseries-l0-norm-compatible-units); [Continuous norm transitions on actual units](#colemanpowerseries-l0-continuous-unit-norm); `isClosed_eq`; `isClosed_iInter`; `Subgroup.coe_iInf`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-norm-compatible-units-compact"></a>
 
@@ -1702,7 +1703,7 @@ The resulting compact commutative topological group is not declared a ℤ_p-modu
 
 *Needs:* [Closedness of the compatible unit locus](#colemanpowerseries-l0-norm-compatible-units-closed); [Compact cyclotomic integer rings](#colemanpowerseries-l0-cyclotomic-integers-compact); `Units.isClosedEmbedding_embedProduct`; `Pi.compactSpace`; `IsClosed.isCompact`; `isCompact_iff_compactSpace`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-cyclotomic-series-evaluation-continuity"></a>
 
@@ -1720,7 +1721,7 @@ The statement fixes the integral root used in subsequent comparisons.
 
 *Needs:* [Finite-level cyclotomic series evaluation](#colemanpowerseries-l0-cyclotomic-series-evaluation); [The scalar map preserves the p-adic norm](#colemanpowerseries-l0-cyclotomic-scalar-norm); [Compact cyclotomic integer rings](#colemanpowerseries-l0-cyclotomic-integers-compact); [The cyclotomic integer-ring linear topology](#colemanpowerseries-l0-cyclotomic-integers-linear-topology); [Strict contraction of the cyclotomic difference](#colemanpowerseries-l0-cyclotomic-difference-contraction); `PowerSeries.continuous_eval₂`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-teichmuller-tower-section"></a>
 
@@ -1836,7 +1837,7 @@ Layer 1, unramified interpolation interface: Provides the actual coefficient fie
 
 *Needs:* [The cyclotomic integral closure](#colemanpowerseries-l0-cyclotomic-integral-closure); [Integrality and the cyclotomic norm unit ball](#colemanpowerseries-l0-cyclotomic-integral-iff-norm); [The maximal-ideal neighborhood basis](#colemanpowerseries-l0-cyclotomic-maximal-ideal-topology); [LocalFieldsRamification layer 0 local fields and their finite extensions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-0-local-fields-and-their-finite-extensions).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification, Layer 0.III, integer rings and topology uniqueness; Suggested.lean integerRing_eq_integralClosure and finiteIntermediateField*) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification, Layer 0.III, integer rings and topology uniqueness; Suggested.lean integerRing_eq_integralClosure and finiteIntermediateField*) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
 
 <a id="colemanpowerseries-l0-unramified-base-normalized-uniformizer"></a>
 
@@ -2060,7 +2061,7 @@ Layer 1, unramified interpolation interface: Provides the actual coefficient fie
 
 *Needs:* [The unramified cyclotomic uniformizer](#colemanpowerseries-l0-unramified-coefficient-uniformizer); [Degree of each coefficient level](#colemanpowerseries-l0-unramified-coefficient-degree); [LocalFieldsRamification layer 3 ramification the tame and wild cases and the filtration](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration); [LocalFieldsRamification layer 0 local fields and their finite extensions](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-0-local-fields-and-their-finite-extensions).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification Layer 3: Totally ramified is equivalent to Eisenstein; integral monogenicity and power-basis valuation orthogonality) The existing generic Eisenstein integral-generator and power-basis results are imported and specialized to the shifted cyclotomic polynomial.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification Layer 3: Totally ramified is equivalent to Eisenstein; integral monogenicity and power-basis valuation orthogonality) The existing generic Eisenstein integral-generator and power-basis results are imported and specialized to the shifted cyclotomic polynomial.
 
 <a id="colemanpowerseries-l0-unramified-coefficient-relative-degree"></a>
 
@@ -2586,7 +2587,7 @@ For the proof, use the specified construction or its characterization from the b
 
 *Needs:* [The canonical cyclotomic integer ring](#colemanpowerseries-l0-unramified-base-integer-equivalence).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification, Layer 0.III, integer rings and topology uniqueness; Suggested.lean integerRing_eq_integralClosure and finiteIntermediateField*) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification, Layer 0.III, integer rings and topology uniqueness; Suggested.lean integerRing_eq_integralClosure and finiteIntermediateField*) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
 
 <a id="colemanpowerseries-l0-unramified-api-baseintegerequiv-maximalideal"></a>
 
@@ -2602,7 +2603,7 @@ For the proof, use the specified construction or its characterization from the b
 
 *Needs:* [The canonical cyclotomic integer ring](#colemanpowerseries-l0-unramified-base-integer-equivalence).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification, Layer 0.III, integer rings and topology uniqueness; Suggested.lean integerRing_eq_integralClosure and finiteIntermediateField*) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification, Layer 0.III, integer rings and topology uniqueness; Suggested.lean integerRing_eq_integralClosure and finiteIntermediateField*) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
 
 <a id="colemanpowerseries-l0-unramified-api-baseintegerequiv-residue"></a>
 
@@ -2618,7 +2619,7 @@ For the proof, use the specified construction or its characterization from the b
 
 *Needs:* [The canonical cyclotomic integer ring](#colemanpowerseries-l0-unramified-base-integer-equivalence).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification, Layer 0.III, integer rings and topology uniqueness; Suggested.lean integerRing_eq_integralClosure and finiteIntermediateField*) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification, Layer 0.III, integer rings and topology uniqueness; Suggested.lean integerRing_eq_integralClosure and finiteIntermediateField*) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
 
 <a id="colemanpowerseries-l0-unramified-api-baseprincipalequiv-coe"></a>
 
@@ -2730,7 +2731,7 @@ For the proof, use the specified construction or its characterization from the b
 
 *Needs:* [The integral cyclotomic power basis over O](#colemanpowerseries-l0-unramified-coefficient-integral-basis).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification Layer 3: Totally ramified is equivalent to Eisenstein; integral monogenicity and power-basis valuation orthogonality) The existing generic Eisenstein integral-generator and power-basis results are imported and specialized to the shifted cyclotomic polynomial.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification Layer 3: Totally ramified is equivalent to Eisenstein; integral monogenicity and power-basis valuation orthogonality) The existing generic Eisenstein integral-generator and power-basis results are imported and specialized to the shifted cyclotomic polynomial.
 
 <a id="colemanpowerseries-l0-unramified-api-coefficientintegralbasis-dim"></a>
 
@@ -2746,7 +2747,7 @@ For the proof, use the specified construction or its characterization from the b
 
 *Needs:* [The integral cyclotomic power basis over O](#colemanpowerseries-l0-unramified-coefficient-integral-basis).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification Layer 3: Totally ramified is equivalent to Eisenstein; integral monogenicity and power-basis valuation orthogonality) The existing generic Eisenstein integral-generator and power-basis results are imported and specialized to the shifted cyclotomic polynomial.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification Layer 3: Totally ramified is equivalent to Eisenstein; integral monogenicity and power-basis valuation orthogonality) The existing generic Eisenstein integral-generator and power-basis results are imported and specialized to the shifted cyclotomic polynomial.
 
 <a id="colemanpowerseries-l0-unramified-api-coefficientintegralbasis-repr"></a>
 
@@ -2762,7 +2763,7 @@ For the proof, use the specified construction or its characterization from the b
 
 *Needs:* [The integral cyclotomic power basis over O](#colemanpowerseries-l0-unramified-coefficient-integral-basis).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification Layer 3: Totally ramified is equivalent to Eisenstein; integral monogenicity and power-basis valuation orthogonality) The existing generic Eisenstein integral-generator and power-basis results are imported and specialized to the shifted cyclotomic polynomial.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification Layer 3: Totally ramified is equivalent to Eisenstein; integral monogenicity and power-basis valuation orthogonality) The existing generic Eisenstein integral-generator and power-basis results are imported and specialized to the shifted cyclotomic polynomial.
 
 <a id="colemanpowerseries-l0-unramified-api-coefficientresidueequiv-scalar"></a>
 
@@ -3284,7 +3285,7 @@ This is residue preservation, not a construction of a norm-compatible Teichmüll
 
 *Needs:* [The actual norm-compatible unit group](#colemanpowerseries-l0-norm-compatible-units); [The unit norm preserves the actual residue](#colemanpowerseries-l0-unit-norm-residue).
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-norm-limit-residue"></a>
 
@@ -3307,6 +3308,7 @@ The API includes the following named statements.
 - `NormLimitTests.residue_identity`: The identity compatible unit has residue1.
 - `NormLimitTests.residue_inverse`: The residue of u·u⁻¹ is1.
 - `NormLimitTests.dyadic_residue`: Every compatible dyadic unit has residue1 in (ZMod2)ˣ.
+- `NormLimitTests.ternary_residue`: At p=3 the stationary −1 tower has normLimitResidue −1≠1. The constant identity homomorphism fails this test.
 
 For the proof, compose coordinate0 with native Units.map of red_0. Continuity follows from continuous_reduction, native Continuous.units_map and continuity of the product-subtype coordinate. The residue-constant lemma identifies the same map with unit reduction of every coordinate n; units extensionality passes from equality in ZMod p to equality of residue units. Native homomorphism laws give multiplicativity and inversion.
 
@@ -3316,7 +3318,7 @@ RJW(9-3) and Theorems10.2/10.13: Supply the actual arithmetic target and its res
 
 *Needs:* [The actual norm-compatible unit group](#colemanpowerseries-l0-norm-compatible-units); [Continuity of cyclotomic reduction](#colemanpowerseries-l0-cyclotomic-reduction-continuity); [A compatible tower has constant residue](#colemanpowerseries-l0-norm-compatible-residue-constant); `Units.map`; `Continuous.units_map`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-principal-norm-compatible-units"></a>
 
@@ -3339,6 +3341,7 @@ The API includes the following named statements.
 - `NormLimitTests.principal_identity`: The identity compatible unit belongs to the principal subgroup.
 - `NormLimitTests.principal_product`: Every coordinate of a product of two principal compatible units has residue1.
 - `NormLimitTests.dyadic_principal_all`: For p=2 the principal subgroup of the full compatible unit group is the whole group.
+- `NormLimitTests.odd_nonprincipal`: At p=3 the stationary −1 tower is excluded, while the nonidentity root tower (ζ_n)_n belongs. Thus neither the whole unit limit nor the trivial subgroup is the principal kernel.
 
 For the proof, use native MonoidHom.ker of the residue map. This is the actual residue-one subgroup with the inherited subtype topology and commutative group operations. The residue-constant lemma identifies membership with red_n(u_n)=1 at all levels; this characterization is stated in the following result. Coordinate equality yields the subtype extensionality API and multiplication remains coordinatewise.
 
@@ -3348,7 +3351,7 @@ RJW(9-3) and Theorems10.2/10.13: Supply the actual arithmetic target and its res
 
 *Needs:* [The residue of an infinite compatible unit](#colemanpowerseries-l0-norm-limit-residue); `MonoidHom.ker`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-principal-norm-compatible-membership"></a>
 
@@ -3366,7 +3369,7 @@ The principal condition is modulo the actual maximal ideal generated by ζ_n−1
 
 *Needs:* [The principal compatible unit subgroup](#colemanpowerseries-l0-principal-norm-compatible-units); [A compatible tower has constant residue](#colemanpowerseries-l0-norm-compatible-residue-constant).
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-principal-norm-compatible-compact"></a>
 
@@ -3384,7 +3387,7 @@ Compactness alone does not supply pro-p or ℤ_p-scalar structure; those hypothe
 
 *Needs:* [The principal compatible unit subgroup](#colemanpowerseries-l0-principal-norm-compatible-units); [The residue of an infinite compatible unit](#colemanpowerseries-l0-norm-limit-residue); [Compactness of the compatible unit group](#colemanpowerseries-l0-norm-compatible-units-compact); `isClosed_eq`; `IsClosed.isCompact`; `isCompact_iff_compactSpace`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l0-tate-module-inclusion"></a>
 
@@ -3568,7 +3571,7 @@ Supports finite local closure/span calculations, Coleman ℤ_p-linearity and the
 
 §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180: Supports finite local closure/span calculations, Coleman ℤ_p-linearity and the module exact sequence.
 
-*Needs:* [The principal inverse limit is pro-p](#colemanpowerseries-l0-principal-tower-pro-p); [ProfiniteProPGroups layer 4 free pro p and pro c groups on finite sets](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets); [The continuous Galois action on the unit tower](#colemanpowerseries-l0-norm-tower-galois-action); [Joint continuity of the tower action](#colemanpowerseries-l0-norm-tower-action-continuity); [The Tate-module inclusion into local units](#colemanpowerseries-l0-tate-module-inclusion).
+*Needs:* [The principal inverse limit is pro-p](#colemanpowerseries-l0-principal-tower-pro-p); [ProfiniteArithmetic §1.3: continuous p-adic powers and the native module](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteArithmetic/README.md#13-the-ℤ_ℓ-power-on-a-pro-ℓ-group); [The continuous Galois action on the unit tower](#colemanpowerseries-l0-norm-tower-galois-action); [Joint continuity of the tower action](#colemanpowerseries-l0-norm-tower-action-continuity); [The Tate-module inclusion into local units](#colemanpowerseries-l0-tate-module-inclusion).
 
 (Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), §9, pp.161–163; Lemmas12.2–12.3 and Proposition12.5, pp.178–180) The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are arithmetic deductions. The source conventions below specify the corrections to the printed formulas used in this argument.
 
@@ -3804,7 +3807,7 @@ The theorem concerns the arithmetic principal carrier, including p=2.
 
 *Needs:* [Norm-compatible principal coefficient units](#colemanpowerseries-l0-unramified-coefficient-principal-limit); [Compact topology on the coefficient limit](#colemanpowerseries-l0-unramified-coefficient-limit-compact); [LocalFieldsRamification layer 1 units the filtration and the multiplicative group](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-1-units-the-filtration-and-the-multiplicative-group); [ProfiniteProPGroups layer 3 pro p groups the maximal pro p quotient frattini theory generation](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation); `TauCeti.IsProP`.
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), LocalFieldsRamification Layer 1.II principal units; current TauCeti Profinite/ProP/Product and Subgroup) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), LocalFieldsRamification Layer 1.II principal units; current TauCeti Profinite/ProP/Product and Subgroup) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
 
 <a id="colemanpowerseries-l0-unramified-coefficient-scalar-comparison"></a>
 
@@ -3820,9 +3823,9 @@ For the proof, import, rather than reconstruct, the current native pro-p scalar 
 
 No O-module structure and no scalar structure on kˣ×U∞¹(E) is asserted.
 
-*Needs:* [The actual principal coefficient limit is pro-p](#colemanpowerseries-l0-unramified-coefficient-principal-prop); [LocalFieldsRamification layer 1 units the filtration and the multiplicative group](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-1-units-the-filtration-and-the-multiplicative-group); [ProfiniteProPGroups layer 4 free pro p and pro c groups on finite sets](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets); [The principal-unit scalar structure](#colemanpowerseries-l0-principal-tower-scalar-adapter).
+*Needs:* [The actual principal coefficient limit is pro-p](#colemanpowerseries-l0-unramified-coefficient-principal-prop); [LocalFieldsRamification layer 1 units the filtration and the multiplicative group](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/LocalFieldsRamification/README.md#layer-1-units-the-filtration-and-the-multiplicative-group); [ProfiniteArithmetic §1.3: continuous p-adic powers and the native module](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteArithmetic/README.md#13-the-ℤ_ℓ-power-on-a-pro-ℓ-group); [The principal-unit scalar structure](#colemanpowerseries-l0-principal-tower-scalar-adapter).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), ProfiniteArithmetic §1.3; current TauCeti Profinite/ProP/PadicPow, IsProP.module and its naturality API) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), ProfiniteArithmetic §1.3; current TauCeti Profinite/ProP/PadicPow, IsProP.module and its naturality API) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
 
 <a id="colemanpowerseries-l0-unramified-signed-tate-tower"></a>
 
@@ -4154,7 +4157,7 @@ The generator γ, scalar 2 and identity all act correctly. The weak-measure comp
 
 *Needs:* [The actual principal coefficient limit is pro-p](#colemanpowerseries-l0-unramified-coefficient-principal-prop); [Scalar action on the actual principal tower](#colemanpowerseries-l0-unramified-coefficient-scalar-comparison); [Arithmetic actions on coefficient unit limits](#colemanpowerseries-l0-unramified-coefficient-limit-actions); [PadicMeasuresIwasawaAlgebras:Layer 1](../PadicMeasuresIwasawaAlgebras/README.md); [The completed action on principal units](#colemanpowerseries-l0-principal-completed-action-adapter).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), Current TauCeti Topology/Algebra/Group/Profinite/ProP/CompletedGroupAlgebraModule; ProfiniteArithmetic §1.3; PadicMeasuresIwasawaAlgebras Layer 1) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), Current TauCeti Topology/Algebra/Group/Profinite/ProP/CompletedGroupAlgebraModule; ProfiniteArithmetic §1.3; PadicMeasuresIwasawaAlgebras Layer 1) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
 
 <a id="colemanpowerseries-l0-unramified-signed-tate-equivariance"></a>
 
@@ -4221,9 +4224,9 @@ For the proof, the carrier is a finite product of compact abelian pro-p groups b
 
 No module structure is claimed on full semilocal units, and no algebra isomorphism is inferred from an integral normal basis.
 
-*Needs:* [Shuffle the actual semilocal limit](#colemanpowerseries-l0-unramified-semilocal-shuffle); [Principal semilocal norm-compatible units](#colemanpowerseries-l0-unramified-semilocal-principal-limit); [The actual principal coefficient limit is pro-p](#colemanpowerseries-l0-unramified-coefficient-principal-prop); [Scalar action on the actual principal tower](#colemanpowerseries-l0-unramified-coefficient-scalar-comparison); [Completed action on the genuine principal module](#colemanpowerseries-l0-unramified-coefficient-completed-action); [Galois permutations of the semilocal factors](#colemanpowerseries-l0-unramified-semilocal-permutation-action); [ProfiniteProPGroups layer 4 free pro p and pro c groups on finite sets](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets); [PadicMeasuresIwasawaAlgebras:Layer 1](../PadicMeasuresIwasawaAlgebras/README.md).
+*Needs:* [Shuffle the actual semilocal limit](#colemanpowerseries-l0-unramified-semilocal-shuffle); [Principal semilocal norm-compatible units](#colemanpowerseries-l0-unramified-semilocal-principal-limit); [The actual principal coefficient limit is pro-p](#colemanpowerseries-l0-unramified-coefficient-principal-prop); [Scalar action on the actual principal tower](#colemanpowerseries-l0-unramified-coefficient-scalar-comparison); [Completed action on the genuine principal module](#colemanpowerseries-l0-unramified-coefficient-completed-action); [Galois permutations of the semilocal factors](#colemanpowerseries-l0-unramified-semilocal-permutation-action); [ProfiniteArithmetic §1.3: continuous p-adic powers and the native module](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteArithmetic/README.md#13-the-ℤ_ℓ-power-on-a-pro-ℓ-group); [PadicMeasuresIwasawaAlgebras:Layer 1](../PadicMeasuresIwasawaAlgebras/README.md).
 
-(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/3c18d9fbfceed0dc5c1edb1070a3927152d19e28), ProfiniteArithmetic §1.3; current TauCeti ProP/PadicPow.lean and ProP/CompletedGroupAlgebraModule.lean; Sharifi-IW §6.1 pp.157–158) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
+(the named supplier roadmap: [Local fields and profinite arithmetic: current supplier specifications](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27), ProfiniteArithmetic §1.3; current TauCeti ProP/PadicPow.lean and ProP/CompletedGroupAlgebraModule.lean; Sharifi-IW §6.1 pp.157–158) Apply the supplied general result to the chosen cyclotomic roots and the specified arithmetic maps; the additional assertions identify these carriers and maps.
 
 <a id="colemanpowerseries-l0-unramified-semilocal-tate"></a>
 
@@ -4906,7 +4909,7 @@ The API includes `coefficientIntegerComparison_coe`, `coefficientIntegerComparis
 
 ### 0.235 The relative integral basis on the arithmetic receiver
 
-Construct `TauCetiRoadmap.ColemanPowerSeries.Unramified.coefficientRelativeIntegralBasis n : Basis (Fin p) O_n O_(n+1)` with ith vector ρ_(n+1)^i, using the preceding coherent inclusions. The relative field minimal polynomial is X^p−ρ_n. Thus O_(n+1) is finite free of rank p over O_n, and this integral basis becomes the specified relative field power basis after extending scalars to E_n. The coordinate equivalence O_(n+1)≃ₗ[O_n](Fin p→O_n) is a homeomorphism for the actual finite-level topologies. This is the relative basis of the selected generator, rather than the absolute O-basis of length d_(n+1).
+Construct `TauCetiRoadmap.ColemanPowerSeries.Unramified.coefficientRelativeIntegralBasis n : Basis (Fin p) O_n O_(n+1)` with ith vector ρ_(n+1)^i, using the preceding coherent inclusions. The relative field minimal polynomial is X^p−ρ_n. Thus O_(n+1) is finite free of rank p over O_n, and this integral basis becomes the specified relative field power basis after extending scalars to E_n. The coordinate equivalence `O_(n+1)≃ₗ[O_n](Fin p→O_n)` is a homeomorphism for the actual finite-level topologies. This is the relative basis of the selected generator, rather than the absolute O-basis of length d_(n+1).
 
 For spanning, the absolute integral basis gives O_(n+1)=O[π_(n+1)]=O[ρ_(n+1)]. Every element is therefore a polynomial in ρ_(n+1) with coefficients already in O_n. Divide that polynomial by the monic X^p−ρ_n in O_n[X]. The remainder has degree less than p and evaluates to the same element. For independence, root compatibility gives the displayed annihilating polynomial; the relative degree p and generation by ρ_(n+1) make it the field minimal polynomial. Linear independence over E_n restricts along O_n→E_n. The inverse coordinate map is continuous because the forward finite-sum map is a continuous bijection from compact O_n^p to Hausdorff O_(n+1). These arguments also give the localization comparison of the bases.
 
@@ -5620,7 +5623,7 @@ At p=3, f=4 gives N(f)−1=63, divisible by 9 but not by 27. At p=2, f=3 gives N
 
 *Needs:* [Matrix formula for the Coleman norm](#colemanpowerseries-l1-coleman-norm-matrix); [Integral Coleman trace](#colemanpowerseries-l1-coleman-integral-trace); [Divisibility of the integral trace](#colemanpowerseries-l1-coleman-trace-divisibility); `Algebra.leftMulMatrix`; `Algebra.trace_eq_matrix_trace`; `Matrix.det_one_add_smul`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Lemma 10.11(iii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29) The source conclusion is proved integrally from norm and trace. Its separate unit hypothesis is unnecessary once the hypothesis f≡1 mod p^k, k≥1, is imposed. The argument covers p=2 and avoids the extended-ideal notation issues E4/E11.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Lemma 10.11(iii), printed p.168 / PDF69; compare Coates–Sujatha Lemma 2.3.2, pp.18–19 / PDF28–29) The source conclusion is proved integrally from norm and trace. Its separate unit hypothesis is unnecessary once the hypothesis f≡1 mod p^k, k≥1, is imposed. The argument covers p=2; all congruences are taken in B before any coefficient extension.
 
 <a id="colemanpowerseries-l1-coleman-norm-iterated-improvement"></a>
 
@@ -6379,7 +6382,7 @@ RJW(9-3) and Theorems10.2/10.13: Supply the actual arithmetic target and its res
 
 *Needs:* [The actual norm-compatible unit group](#colemanpowerseries-l0-norm-compatible-units); [Continuity of actual cyclotomic series evaluation](#colemanpowerseries-l0-cyclotomic-series-evaluation-continuity); [Norm-fixed units give compatible finite-level evaluations](#colemanpowerseries-l1-norm-fixed-arithmetic-compatibility); `Units.map`; `Continuous.units_map`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l1-norm-fixed-evaluation-residue"></a>
 
@@ -6397,7 +6400,7 @@ Only the integral constant coefficient modulo p occurs; no Teichmüller section 
 
 *Needs:* [The arithmetic evaluation map into the unit limit](#colemanpowerseries-l1-norm-fixed-evaluation-map); [The residue of an infinite compatible unit](#colemanpowerseries-l0-norm-limit-residue); [Reduction of finite-level series evaluation](#colemanpowerseries-l0-arithmetic-evaluation-reduction).
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l1-norm-fixed-evaluation-principal"></a>
 
@@ -6415,7 +6418,7 @@ The criterion characterizes which supplied evaluations are principal; it does no
 
 *Needs:* [The principal compatible unit subgroup](#colemanpowerseries-l0-principal-norm-compatible-units); [The residue of a norm-fixed evaluation](#colemanpowerseries-l1-norm-fixed-evaluation-residue).
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l1-polynomial-evaluation-degree-obstruction"></a>
 
@@ -6950,6 +6953,7 @@ The API includes the following named statements.
 - `TauCetiRoadmap.ColemanPowerSeries.UnramifiedSeries.Tests.fixed_one`: 1 belongs.
 - `TauCetiRoadmap.ColemanPowerSeries.UnramifiedSeries.Tests.fixed_Y`: For s=(−1)^(p−1), the unit series sY belongs: Y for odd p and −Y for p=2.
 - `TauCetiRoadmap.ColemanPowerSeries.UnramifiedSeries.Tests.fixed_teichmuller`: C(c) belongs when σ(c)=c^p, even if N(C(c))≠C(c).
+- `TauCetiRoadmap.ColemanPowerSeries.UnramifiedSeries.Tests.fixed_nonexample`: C(1+p) is excluded: σ fixes 1+p, whereas its norm is (1+p)^p≠1+p in the characteristic-zero coefficient ring.
 
 For the proof, use the native equalizer subgroup of the two group homomorphisms. The defining equation is equivalent to M(f)=f. No abstract fixed predicate replaces the native subgroup.
 
@@ -6991,7 +6995,7 @@ Closed image is preparation for the source’s compact interpolation argument, n
 
 *Needs:* [The arithmetic evaluation map into the unit limit](#colemanpowerseries-l1-norm-fixed-evaluation-map); [Compactness of series units and the fixed subgroup](#colemanpowerseries-l1-unramified-unit-space-compact); `IsCompact.image`; `IsCompact.isClosed`.
 
-(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10–10.12/Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
+(Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Equations(9-2)–(9-3), published162–163/PDF63–64; Theorem10.2 on164/PDF65 and Propositions10.10 and 10.12, Lemma10.11 and Theorem10.13 on167–169/PDF68–70) Actual-carrier construction of the full and principal compatible unit groups using existing continuous arithmetic norms. Compactness and the evaluation map precede, and do not assert, interpolation bijectivity. The source assumes p odd; dyadic tests keep the signed norm convention. Only the principal subgroup receives a ℤ_p-module structure.
 
 <a id="colemanpowerseries-l1-compact-interpolation-fibers"></a>
 
@@ -7330,6 +7334,7 @@ The API includes the following named statements.
 - `TauCetiRoadmap.ColemanPowerSeries.UnramifiedSeries.Tests.limit_one`: Lσ(1)=1.
 - `TauCetiRoadmap.ColemanPowerSeries.UnramifiedSeries.Tests.limit_teichmuller`: Lσ(C(c))=C(c) for a Teichmüller unit.
 - `TauCetiRoadmap.ColemanPowerSeries.UnramifiedSeries.Tests.limit_near_one`: Lσ(C(1+p))=1, so this projector is not the identity on Bˣ.
+- `TauCetiRoadmap.ColemanPowerSeries.UnramifiedSeries.Tests.limit_signed_root`: Lσ(sY)=sY for s=(−1)^(p−1). This is a nonconstant fixed unit, excluding a projector that keeps only the Teichmüller constant term.
 
 For the proof, iteration precision makes every coefficient Cauchy. Complete O gives a unique limiting series. The constant coefficients stay unit-valued; alternatively take the limit in the compact native unit space. Continuity of M and the precision estimate imply M(Lσf)=Lσf. Multiplication commutes with limits. For fixed inputs the iterates are constant, proving the retraction property. Continuity is established by the uniform-precision lemma below.
 
@@ -8158,6 +8163,7 @@ The API includes the following named statements.
 - `psi_fixed_boundary_zero`: psiFixedBoundary(0)=0.
 - `psi_fixed_boundary_constant`: Every constant series C(c) in W is killed by psiFixedBoundary.
 - `psi_fixed_boundary_projection`: On every F in W, the underlying boundary agrees with F−phi(psi(F)).
+- `psi_fixed_boundary_nonzero`: At p=3 take the unit u with value 2+T. Its weighted logarithmic derivative F=Y/(2+T) is ψ-fixed, since u is norm-fixed. Its first two coefficients are 1/2 and 1/4. Consequently coefficient 1 of F−φ(F) is (1−3)/4=−1/2≠0. This excludes the zero boundary map.
 
 For the proof, for F in W, psi(F−phi(F))=psi(F)−F=0 by the existing left-inverse theorem. This supplies membership in the actual kernel U. The difference of the identity and the native substitution linear map is Z-linear. Restrict its domain to W and codomain to U with the membership proof. On W one has F−phi(F)=F−phi(psi(F)); the supplied series-unit-restriction comparison therefore identifies the boundary with the existing unit-support projector on these inputs.
 
@@ -8295,6 +8301,7 @@ The API includes the following named statements.
 - `ColemanMapTests.raw_identity`: Col₀(1)=0.
 - `ColemanMapTests.raw_inverse`: Col₀(u)+Col₀(u⁻¹)=0 for every u.
 - `ColemanMapTests.raw_constant_three`: At p=3, the evaluated norm-fixed constant −1 tower is killed by Col₀.
+- `ColemanMapTests.raw_second_moment_three`: At p=3 the tower c(2) has Col₀(c(2))(x²)=−1/2≠0. Indeed Δ(2+T)=Y/(2+T) has linear coefficient 1/4, so (1−φ)Δ has linear coefficient −1/2; inverse weighting changes its first moment into the output second moment. This rejects the zero map and the opposite sign.
 
 For the proof, interpolate u to its actual norm-fixed series; normFixedLogDeriv lands in the native ψ-fixed submodule W. The existing fixed-space boundary maps W to ker ψ. Apply the imported inverseMahler and its proven support theorem to obtain another element of ker ψ. Apply the inverse of the actual intrinsic unit Amice equivalence. Compose the multiplicative homomorphism with the linear maps using native additive/multiplicative tags. No new measure, derivative, restriction or integration constant is introduced.
 
@@ -8345,6 +8352,7 @@ The API includes the following named statements.
 - `ColemanMapTests.normalized_identity`: Col(1)=0.
 - `ColemanMapTests.normalized_inverse`: Col(u⁻¹)=−Col(u).
 - `ColemanMapTests.sign_relation`: For every u the actual measure outputs of Col and Col₀ add to zero.
+- `ColemanMapTests.normalized_second_moment_three`: At p=3, Col(c(2))(x²)=1/2, whereas Col₀(c(2))(x²)=−1/2. These are distinct nonzero elements of ℤ_3.
 
 For the proof, apply additive negation to the output and re-tag it multiplicatively. Since the target additive group is commutative, negation is a homomorphism.
 
@@ -8468,6 +8476,7 @@ The API includes the following named statements.
 - `PrincipalColemanTests.zero`: principalColeman(0)=0.
 - `PrincipalColemanTests.tate`: principalColeman(tateTower(b))=0 for every b∈ℤ_p.
 - `PrincipalColemanTests.twist`: principalColeman(δ_g•u)=g_*principalColeman(u), with no extra factor χ(g).
+- `PrincipalColemanTests.nonzero_three`: At p=3 let v=teichTower(−1)⁻¹c(2). Its residue is 1, and principalColeman(v)(x²)=1/2≠0, because the constant Teichmüller tower is killed. The zero module map fails this test.
 
 For the proof, the raw map and negation give additivity; principal scalar linearity and G-equivariance give linearity for finite linear combinations of Dirac measures. Use the Dirac-preserving completed-algebra comparison and the native completed action and joint weak continuity to extend equality to Λ(G). Bundle the resulting actual map, rather than assume Λ-linearity as data.
 
@@ -9188,7 +9197,7 @@ Prove `TauCetiRoadmap.ColemanPowerSeries.Series.normFixedLogDeriv_surjective` in
 
 The actual existing group homomorphism normFixedLogDeriv from norm-fixed units in Z_p[[T]] to the additive ψ-fixed integral series, with the native Multiplicative tag, is surjective.
 
-For the proof, for an integral ψ-fixed F, use the actual PMIA coefficient-reduction comparison to prove that its reduction is ψ_0-fixed. Apply residue-psi-fixed-logarithmic-image to obtain a residue unit with logarithmic derivative equal to that reduction. Apply the existing logarithmic-derivative-residue-image-equivalence, which already contains the norm-fixed lift, p-adic precision corrections and compact-image argument. No residual image hypothesis remains. Together with the existing norm-fixed-logarithmic-derivative-kernel theorem, this supplies the kernel and surjectivity assertions of Theorem12.9; its kernel is μ_(p−1), as in existing finding E13.
+For the proof, for an integral ψ-fixed F, use the actual PMIA coefficient-reduction comparison to prove that its reduction is ψ_0-fixed. Apply residue-psi-fixed-logarithmic-image to obtain a residue unit with logarithmic derivative equal to that reduction. Apply the existing logarithmic-derivative-residue-image-equivalence, which already contains the norm-fixed lift, p-adic precision corrections and compact-image argument. No residual image hypothesis remains. Together with the existing norm-fixed-logarithmic-derivative-kernel theorem, this supplies the kernel and surjectivity assertions of Theorem12.9; its kernel is μ_(p−1), the constant norm-fixed units, rather than μ_p.
 
 The conclusion concerns the actual previously constructed norm and logarithmic derivative. It does not assert the arithmetic Coleman interpolation or Theorem12.17.
 
@@ -9574,6 +9583,7 @@ The API includes the following named statements.
 - `LocalCyclotomicTests.one`: 1∈C_n.
 - `LocalCyclotomicTests.minus_one`: −1∈C_n.
 - `LocalCyclotomicTests.root`: The local primitive root ζ_n lies in C_n, as the image of the global root unit.
+- `LocalCyclotomicTests.nontorsion_fifth`: At p=5,n=0 the unit 1+ζ_0 belongs to C_0 and has infinite order. Under the global complex embedding its absolute value is 2cos(π/5)>1. Thus C_0 is larger than the subgroup of local roots of unity.
 
 For the proof, use the existing native topological-closure subgroup construction. The finite local unit group is compact Hausdorff, so C_n is a closed compact subgroup. Global generators map to the indicated local elements; their image is dense in C_n by definition.
 
@@ -9646,7 +9656,7 @@ Specifies the full finite principal subgroup whose norm limit is C∞,1.
 
 Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Specifies the full finite principal subgroup whose norm limit is C∞,1.
 
-*Needs:* [The closed local cyclotomic units](#colemanpowerseries-l4-local-cyclotomic-unit-closure); [Continuity of cyclotomic reduction](#colemanpowerseries-l0-cyclotomic-reduction-continuity); [The principal inverse limit is pro-p](#colemanpowerseries-l0-principal-tower-pro-p); [The principal-unit scalar structure](#colemanpowerseries-l0-principal-tower-scalar-adapter); [ProfiniteProPGroups layer 4 free pro p and pro c groups on finite sets](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets).
+*Needs:* [The closed local cyclotomic units](#colemanpowerseries-l4-local-cyclotomic-unit-closure); [Continuity of cyclotomic reduction](#colemanpowerseries-l0-cyclotomic-reduction-continuity); [The principal inverse limit is pro-p](#colemanpowerseries-l0-principal-tower-pro-p); [The principal-unit scalar structure](#colemanpowerseries-l0-principal-tower-scalar-adapter); [ProfiniteArithmetic §1.3: continuous p-adic powers and the native module](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteArithmetic/README.md#13-the-ℤ_ℓ-power-on-a-pro-ℓ-group).
 
 (Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189) The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are arithmetic deductions. The source conventions below specify the corrections to the printed formulas used in this argument.
 
@@ -9671,6 +9681,7 @@ The API includes the following named statements.
 - `PrincipalRealTests.one`: 1∈C_(n,1)⁺.
 - `PrincipalRealTests.minus_one_excluded`: −1∉C_(n,1)⁺ for odd p.
 - `PrincipalRealTests.ternary_bottom`: For p=3,n=0, C_(0,1)⁺={1}, since the global real field is ℚ and its units are ±1.
+- `PrincipalRealTests.nontrivial_fifth`: At p=5,n=0 the adjusted real unit q(2)_0 belongs and is not 1. Its square is −(2+ζ_0+ζ_0⁻¹); the square satisfies X²+3X+1=0 and cannot equal 1 in characteristic zero. This excludes the trivial subgroup away from the ternary bottom level.
 
 For the proof, intersect the actual closed real closure with the residue-one condition. The closed subgroup is stable under the supplied finite principal scalar action. No algebraic equality (p−1)D_n⁺=(p−1)(D_n⁺∩P_n) is used; the source’s false equality is corrected by a compact closure argument in finite cyclicity.
 
@@ -9678,7 +9689,7 @@ Provides the finite receiving submodule for the adjusted real generator.
 
 Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189: Provides the finite receiving submodule for the adjusted real generator.
 
-*Needs:* [The real local cyclotomic closure](#colemanpowerseries-l4-real-local-cyclotomic-unit-closure); [The real local unit subgroup](#colemanpowerseries-l4-finite-real-local-unit-subgroup); [The principal local cyclotomic subgroup](#colemanpowerseries-l4-principal-local-cyclotomic-units); [The principal-unit scalar structure](#colemanpowerseries-l0-principal-tower-scalar-adapter); [ProfiniteProPGroups layer 4 free pro p and pro c groups on finite sets](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets).
+*Needs:* [The real local cyclotomic closure](#colemanpowerseries-l4-real-local-cyclotomic-unit-closure); [The real local unit subgroup](#colemanpowerseries-l4-finite-real-local-unit-subgroup); [The principal local cyclotomic subgroup](#colemanpowerseries-l4-principal-local-cyclotomic-units); [The principal-unit scalar structure](#colemanpowerseries-l0-principal-tower-scalar-adapter); [ProfiniteArithmetic §1.3: continuous p-adic powers and the native module](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteArithmetic/README.md#13-the-ℤ_ℓ-power-on-a-pro-ℓ-group).
 
 (Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Definition11.8, p.176; Lemmas12.20–12.22, pp.186–188; Theorem12.23, pp.188–189) The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are arithmetic deductions. The source conventions below specify the corrections to the printed formulas used in this argument.
 
@@ -9696,7 +9707,7 @@ For the proof, the continuous map ℤ_p^r→P_n taking coefficients to the produ
 
 Supplies Lemma12.20 on the actual local principal module, with a finite compactness argument and no algebraic/topological span confusion.
 
-*Needs:* [The principal-unit scalar structure](#colemanpowerseries-l0-principal-tower-scalar-adapter); [ProfiniteProPGroups layer 4 free pro p and pro c groups on finite sets](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteProPGroups/README.md#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets); `PadicInt.denseRange_natCast`; `PadicInt.compactSpace`; `IsCompact.image`; `IsCompact.isClosed`.
+*Needs:* [The principal-unit scalar structure](#colemanpowerseries-l0-principal-tower-scalar-adapter); [ProfiniteArithmetic §1.3: continuous p-adic powers and the native module](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ProfiniteArithmetic/README.md#13-the-ℤ_ℓ-power-on-a-pro-ℓ-group); `PadicInt.denseRange_natCast`; `PadicInt.compactSpace`; `IsCompact.image`; `IsCompact.isClosed`.
 
 (Rodrigues Jacinto–Williams: [An introduction to p-adic L-functions](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf), Lemma12.20 and proof, pp.186–187) The cited passage supplies this arithmetic target. The native-carrier adapter and the separate closure/compactness steps are arithmetic deductions. The source conventions below specify the corrections to the printed formulas used in this argument.
 
@@ -9790,6 +9801,7 @@ The API includes the following named statements.
 - `AdjustedRealTests.one_parameter`: At a=1 the adjusted formula is 1.
 - `AdjustedRealTests.ternary_bottom`: At p=3,a=2,n=0 the adjusted generator is 1.
 - `AdjustedRealTests.fifth_residue`: At p=5,a=2 every coordinate has residue 1, whereas the unadjusted γ has residue 2.
+- `AdjustedRealTests.fifth_value`: At p=5,a=2,n=0, q(2)_0²=−(2+ζ_0+ζ_0⁻¹)≠1. Here ((1−2)/2) modulo 5 is 2 and ω(2)²=−1, so the square follows from ζ_0²(1+ζ_0)=ζ_0²+ζ_0³. This excludes the identity tower, which the residue-only test would allow.
 
 For the proof, the section property and the residue calculation make the product principal. Both factors are real under conjugation. Norm compatibility is inherited from the existing two actual towers; the dedicated coordinate square is recorded separately.
 
@@ -9955,7 +9967,7 @@ For u∈C∞,1⁺ let S_n={λ∈Λ(G⁺): the nth coordinate of λ•q(a) equals
 
 For the proof, the native finite-coordinate projection Λ(G⁺)→ℤ_p[G_n⁺] is surjective. Finite cyclicity gives a coefficient at level n and any lift gives an element of S_n. Closedness follows from continuous completed action, continuous evaluation and Hausdorffness. The restricted norms commute with scalars and G-action; the exact generator square and u’s compatibility make equality at n+1 imply equality at n. Use the owner’s weak compactness and finite-coordinate interface for G⁺. No surjectivity of a local-unit coordinate projection is assumed.
 
-Replaces the unsupported interchange of inverse limit and cyclic span in the printed proof.
+The nested coefficient fibers justify passage from finite cyclic spans to a single completed-algebra coefficient.
 
 *Needs:* [Cyclicity of finite principal cyclotomic units](#colemanpowerseries-l4-finite-real-principal-cyclicity); [The compatible principal-generator square](#colemanpowerseries-l4-adjusted-generator-norm-square); [The real principal cyclotomic limit](#colemanpowerseries-l4-real-principal-cyclotomic-limit); [The completed action on principal units](#colemanpowerseries-l0-principal-completed-action-adapter); [PadicMeasuresIwasawaAlgebras:Layer 1](../PadicMeasuresIwasawaAlgebras/README.md).
 
@@ -10063,7 +10075,7 @@ For an integer a whose image â has dense integer powers in G and its image ā 
 
 For the proof, Let J=([â]−1)Λ(G). Multiplication by [â]−1 is continuous on compact Λ(G), so J is closed. Integer geometric sums put [â^m]−1 in J for every m∈ℤ, including negative m by multiplication with the inverse Dirac unit. Density of these powers and continuity of the Dirac map put [g]−1 in J for every g∈G. Finite Dirac combinations of augmentation zero are dense in the augmentation kernel: approximate by a finite Dirac combination and subtract its scalar augmentation times [1]. Hence I(G)⊆J, while the opposite inclusion follows by augmentation. Apply the same proof to the dense image ā in G⁺. The pseudomeasure numerator λ_a is integral by the imported Dirichlet theorem. Substitution of the principal augmentation formula makes the displayed product an ordinary principal integral ideal. Multiplication by this integral element is continuous on the compact weak algebra, so its range is compact and closed. Do not multiply a merely topologically generated ideal by an unbounded fraction without justifying closedness.
 
-Repairs the closure leap in Proposition11.5 and makes the entire ideal follow from the fixed generator.
+Compactness makes the principal image closed, so the fixed generator gives the entire augmentation ideal.
 
 *Needs:* [PadicMeasuresIwasawaAlgebras:Layer 1](../PadicMeasuresIwasawaAlgebras/README.md); [PadicMeasuresIwasawaAlgebras:Layer 3](../PadicMeasuresIwasawaAlgebras/README.md); [The actual Coleman image of the adjusted generator](#colemanpowerseries-l4-adjusted-generator-coleman-image).
 
@@ -10145,6 +10157,7 @@ The API includes the following named statements.
 - `RealQuotientTests.one`: The identity tower has class zero.
 - `RealQuotientTests.adjusted`: The class of q(a) is zero.
 - `RealQuotientTests.conjugate_tate_excluded`: A nontrivial Tate tower does not supply a representative in U∞,1⁺.
+- `RealQuotientTests.native_relation`: For actual real principal towers u,v, their classes agree exactly when uv⁻¹∈C∞,1⁺, by the native Submodule quotient relation on the additive carrier. In particular the kernel is the full closed cyclotomic subgroup, not merely its algebraic integer span or its torsion subgroup.
 
 For the proof, conjugation-fixed principal units form a closed stable subgroup of the compact principal module. C∞,1⁺ is its actual closed submodule by the infinite Tate/real comparison. Form the native submodule quotient and transport the action through G⁺; do not define a substitute unit quotient on the Iwasawa algebra side.
 
