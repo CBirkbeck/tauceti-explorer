@@ -82,12 +82,17 @@ theorem exists_avoiding_graph (m : ℕ) (hm : 0 < m)
       IsClosedImmersion (Spec.map (CommRingCat.ofHom (polynomialGraph (k := k) m B))) := by
   sorry
 
--- Packet test: polynomialGraph_F2_lines. A nonzero polynomial can vanish on every rational line.
+-- Packet test: polynomialGraph_F2_lines. Include every parametrised rational line,
+-- as a polynomial identity, and nonvanishing of the nonlinear graph substitution.
 example :
-    polynomialGraph (k := ZMod 2) 2 3
-      ((MvPolynomial.X 0)^2 * MvPolynomial.X 1 -
-        MvPolynomial.X 0 * (MvPolynomial.X 1)^2) =
-      Polynomial.X^5 + Polynomial.X^7 := by sorry
+    let h : MvPolynomial (Fin 2) (ZMod 2) :=
+      (MvPolynomial.X 0)^2 * MvPolynomial.X 1 -
+        MvPolynomial.X 0 * (MvPolynomial.X 1)^2
+    polynomialGraph 2 3 h = Polynomial.X^5 + Polynomial.X^7 ∧
+      polynomialGraph 2 3 h ≠ 0 ∧
+      ∀ v : Fin 2 → ZMod 2,
+        MvPolynomial.eval₂Hom Polynomial.C (fun i => Polynomial.C (v i) * Polynomial.X) h =
+          0 := by sorry
 
 -- Packet test: polynomialGraph_bad_base. Strictly bounding all individual exponents matters.
 example :
@@ -100,9 +105,10 @@ example :
 example (B : ℕ) :
     polynomialGraph (k := k) 1 B (MvPolynomial.X 0) = Polynomial.X := by sorry
 
--- Packet test: polynomialGraph_zero_variables. The ring map exists without asserting immersion.
-example (B : ℕ) (a : k) :
-    polynomialGraph 0 B (MvPolynomial.C a : MvPolynomial (Fin 0) k) = Polynomial.C a := by
+-- Packet test: polynomialGraph_zero_variables. Constants are preserved, but X has no preimage.
+example [Nontrivial k] (B : ℕ) (a : k) :
+    polynomialGraph 0 B (MvPolynomial.C a : MvPolynomial (Fin 0) k) = Polynomial.C a ∧
+      ¬ Function.Surjective (polynomialGraph (k := k) 0 B) := by
   sorry
 
 end PolynomialGraph
@@ -141,7 +147,7 @@ theorem exists_same_field_curve (Y : Scheme) (f : Y ⟶ Spec (CommRingCat.of k))
       g ≫ f = s ∧ c ≫ s = 𝟙 _ ∧ c ≫ g = y ∧ Dense (g ⁻¹' (U : Set Y)) := by
   sorry
 
--- Packet test: markedPullback_identity. The identity chart pulls the graph back to A1 itself.
+-- Native pullback part of markedPullback_identity; the reader fixes its mark and projections.
 example (m B : ℕ) (hm : 0 < m) :
     CategoryTheory.IsPullback
       (Spec.map (CommRingCat.ofHom (polynomialGraph (k := k) m B)))
@@ -149,9 +155,31 @@ example (m B : ℕ) (hm : 0 < m) :
       (𝟙 (Spec (CommRingCat.of (MvPolynomial (Fin m) k))))
       (Spec.map (CommRingCat.ofHom (polynomialGraph (k := k) m B))) := by sorry
 
--- Packet test: markedPullback_boundary. At 0 the good open D(T) is missed, but is still dense.
-example : Dense ((PrimeSpectrum.basicOpen (Polynomial.X : Polynomial k) :
-    TopologicalSpace.Opens (PrimeSpectrum (Polynomial k))) : Set (PrimeSpectrum (Polynomial k))) := by sorry
+-- Polynomial part of markedPullback_boundary: the marked zero misses the dense good open.
+example :
+    Polynomial.eval (0 : k) (Polynomial.X : Polynomial k) = 0 ∧
+      Dense ((PrimeSpectrum.basicOpen (Polynomial.X : Polynomial k) :
+        TopologicalSpace.Opens (PrimeSpectrum (Polynomial k))) :
+          Set (PrimeSpectrum (Polynomial k))) := by sorry
+
+-- Algebraic part of markedPullback_disconnected: factor the actual F₃ pullback equation
+-- and distinguish the two branches by the mark (T,z)=(0,1). The localization and
+-- identification of its marked connected component are targets in the reader.
+example :
+    let t : MvPolynomial (Fin 2) (ZMod 3) := MvPolynomial.X 0
+    let z : MvPolynomial (Fin 2) (ZMod 3) := MvPolynomial.X 1
+    let atMark : Fin 2 → ZMod 3 := fun i => if i = 0 then 0 else 1
+    z^2 - 1 - MvPolynomial.C 2 * t - t^2 = (z - (t + 1)) * (z + (t + 1)) ∧
+      MvPolynomial.eval atMark (z - (t + 1)) = 0 ∧
+      MvPolynomial.eval atMark (z + (t + 1)) ≠ 0 := by sorry
+
+-- Good-open part of markedPullback_origin; the graph substitution is checked above.
+example :
+    let p : Polynomial (ZMod 2) := Polynomial.X^5 + Polynomial.X^7
+    Polynomial.eval 0 p = 0 ∧
+      Dense ((PrimeSpectrum.basicOpen p :
+        TopologicalSpace.Opens (PrimeSpectrum (Polynomial (ZMod 2)))) :
+          Set (PrimeSpectrum (Polynomial (ZMod 2)))) := by sorry
 
 -- Acceptance for component selection: the whole disconnected pullback cannot be integral.
 -- The reader tests the actual marked component in a connected étale chart over F₃.
