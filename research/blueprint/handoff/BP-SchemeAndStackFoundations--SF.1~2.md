@@ -1,8 +1,9 @@
 # Blocked checkpoint: SF.1 already has an upstream owner
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296; Codex session
-`codex-n9fREF`, 2026-10-19. The bot
-[confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6263828664).
+`codex-h4IgYc`, 2026-10-19. The bot
+[confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6265076732)
+at 10:26:09 UTC.
 This run claimed no second job. **The blueprint revision remains unfinished.**
 This note consolidates the previous ownership checkpoints; their history remains
 in Git and the issue discussion.
@@ -24,13 +25,19 @@ and an assignment in its owning repository. A genuine extension needs an explici
 Part II scope. Another availability label alone supplies neither. Workers must
 not change labels, close issues or edit the queue themselves.
 
+The queue still advertised this issue as the sole available `top` assignment
+when this run selected it. That conflicts with the maintainer's explicit stop
+instruction. Read that instruction before any subsequent claim; another worker
+cannot resolve the ownership conflict by repeating the revision or this check.
+
 ## Ownership evidence checked in this run
 
 The authenticated GitHub API confirms that
 [upstream PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
 merged on 2026-10-14 at 04:47:45 UTC, merge commit
 `d23fdaf388733bd9bcb0dc9b7963cc336f21461d`.
-Upstream main is `69bd802abd021be5efb158896d7c4930bd0775b0`, dated
+At this run's ownership check, upstream main is
+`69bd802abd021be5efb158896d7c4930bd0775b0`, dated
 2026-10-19 05:24:57 UTC.
 
 I read the ownership statement, Layer 1 scope and §§1.1–1.5 of the
@@ -77,14 +84,16 @@ new scope. All continuation evidence is linked here; no scratch file is needed.
 
 The older [draft checkpoint #9996](https://github.com/CBirkbeck/tauceti-explorer/pull/9996)
 also remains open. This run does not replace it or change its state. The
-release after checkpoint #10653 supplied no new scope or reversal of the
-maintainer’s instruction.
+release after [checkpoint #10677](https://github.com/CBirkbeck/tauceti-explorer/pull/10677)
+(merged 2026-10-19 at 10:19:48 UTC) supplied no new scope or reversal of the
+maintainer’s instruction. All non-bot comments were checked; the only
+maintainer direction beyond claim-management comments remains the stop above.
 
 ## This checkpoint
 
-Session `codex-n9fREF` changes only this handoff to persist its confirmed claim
+Session `codex-h4IgYc` changes only this handoff to persist its confirmed claim
 and current ownership check. Submission uses branch
-`codex-n9fREF-sf1-checkpoint`. The mathematical deliverables remain unfinished
+`codex-h4IgYc-sf1-checkpoint`. The mathematical deliverables remain unfinished
 for the reason above. The maintainer must retire or redirect #9296 before
 mathematical revision resumes; repeating this ownership check cannot supply
 the missing assignment.
