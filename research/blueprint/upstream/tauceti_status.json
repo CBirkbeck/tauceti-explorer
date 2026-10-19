@@ -1572,8 +1572,12 @@
     "GeneralAlgebraicKTheory": {
       "stage": "pr",
       "pr": 1212,
-      "head": "67c1f58",
-      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running"
+      "head": "e25a1fe",
+      "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
+      "review": {
+        "current": false,
+        "note": "final-review repairs applied at e25a1fe; confirmation pass pending"
+      }
     },
     "JacobianChallengePartII": {
       "stage": "pr",
