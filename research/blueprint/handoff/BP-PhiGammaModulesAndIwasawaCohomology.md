@@ -1,63 +1,90 @@
 # Handoff: BP-PhiGammaModulesAndIwasawaCohomology
 
-Issue #975. Worker: ChatGPT Pro / GPT-6 Astra Pro. Session `chatgpt-20260926-c8f4a1`.
-Branch `chatgpt-20260926-c8f4a1-phi-gamma`.
+Issue #975. Worker: **Codex / GPT-6**, session `codex-leYaii`, branch `codex-leYaii-phi-gamma`. Claim comment 6256847600 was confirmed by bot comment 6256848969 on 19 October 2026. This completes the target-level planning pass, continuing the merged 32-node checkpoint. It is submitted for independent review, not as another incomplete checkpoint.
 
-## Deliverables and status
+## Deliverables and coverage
 
-Four authorized files: packet, roadmap document, suggested signatures and this handoff. **32 nodes:** 1 definition, 14 constructions, 8 lemmas, 7 theorems, 2 comparisons. **45 API entries**, **45 named tests**, **10 planets** (five PG.3, four PG.4, one PG.5), **9 pinned baseline declarations**, **5 gaps**, **3 supplier requests**. Three existing scalar Coleman imports are separately recorded, not recreated as nodes.
+Only the issue's packet, reader, suggested Lean file and this handoff changed. The packet has **98 nodes**: 8 definitions, 30 constructions, 43 theorems, 9 comparisons and 8 lemmas; **114 API items**, **114 named acceptance examples**, **34 planets**, **12 pinned baseline declarations**, **14 precise gaps** and **12 supplier requests**. All 32 original IDs are preserved; 66 arithmetic/relative targets were added. Every implementation status is `unchecked`.
 
-PG.3–PG.5 are partial. PG.0–PG.2 and PG.6–PG.7 have no new declaration nodes and retain full proof-source worklists. **No stage is closed.** The checkpoint uses native module/tensor/cochain/homotopy/homology carriers. It does not construct an arithmetic period ring, prove Fontaine equivalence or identify internal homology with Galois/Iwasawa cohomology.
+| Stage | Nodes | Coverage | Remaining refinement |
+| --- | ---: | --- | --- |
+| PG.0 | 7 | planned | Original APF ramification/equivalence proof; henselian lifts, weak/annular coordinate estimates and completion compatibility. |
+| PG.1 | 14 | planned | Original integral Fontaine limit descent, small BCH/Greenberg construction, Witt-to-integral-Robba approximation and cohomological inverse limits. |
+| PG.2 | 6 | planned | Full Cherbonnier–Colmez trace/Tate–Sen estimates and integral descent; all-module decompletion and sheaf/equivariant-bundle comparisons. |
+| PG.3 | 24 | planned | Universal-period acyclicity, integral Herr comparison, integral dyadic derived descent, original non-étale duality proof and residue normalization. |
+| PG.4 | 16 | planned | Actual integral/annular coordinate continuity, finite-extension maps and period-module ψ instantiation. |
+| PG.5 | 10 | planned | Integral derived corestriction comparison and limits; analytic Γ-ring extension and DLB application hypotheses; original Colmez exponential-image criterion. |
+| PG.6 | 8 | planned | Wach proof refinement, exact N_rig/t-lattice normalization, Berger A.3 and original LLZ 2010 good-basis proofs. |
+| PG.7 | 13 | planned | Original relative realization, uniform finiteness in KPX §5, full flattening proof, and character-graph/line-bundle descent refinement. |
 
-## Mathematical progress
+**No stage is closed.** Packet status `complete` follows current PROTOCOL §0 and the issue's explicit breadth-before-depth instruction: every target is represented and prerequisite chains end in the pins, a foreign node, a requested supplier stage or a recorded gap. Stop refining once that pass is complete. The older WORKERS depth-first sentence does not change this status rule. Independent review must assess coverage and mathematics; accepted open stages then receive follow-up refinement jobs.
 
-The integral module operator is the balanced extension of canonical scalar psi through the actual Frobenius linearization. Pure-tensor, left-inverse, uniqueness, naturality, semilinear Gamma and finite-coordinate continuity statements are explicit. Rank-one formulas retain the unit multiplier and its basis covariance. Existing scalar trace/psi comparisons are imported from the current Coleman packet.
+The reader has about 24,000 words and states every target, hypothesis, direct input, proof route, source locator, API, named example and acceptance condition. `routedCoverage` accounts for all **34 accepted source-route items** assigned to PG from Kedlaya–Liu, BHS, Ding and Dospinescu–Le Bras. Results routed elsewhere remain with their owners.
 
-For the signed Herr map F, put P=1-phi psi and let q be the inverse of gamma-1 on ker psi composed with P. Then Bq=qB=P, q phi=0 and psi q=0. The corrected section is id, (a,b)↦(-phi(a)-q(b),b), -phi. The homotopy has only H2(c)=(q(c),0). The packet derives both chain squares, FS=id and id-SF=dH+Hd. These section/homotopy formulas are worker expansions of KPX's kernel proof, not asserted source quotations. The actual analytic inverse remains a gap.
+## Mathematical changes and qualifications
 
-The native psi complex is supported in degrees 1 and 2. Its kernel/cokernel descriptions use canonical homology maps. The real inverse-corestriction comparison and derived character specialization still require their arithmetic proofs, inverse character twist and Tor corrections.
+PG.0–PG.2 now state the canonical norm-field coefficient system, Frobenius category, corrected free covers, Frobenius Ext, Fontaine D/V and both comparison maps, torsion/rational compatibility, overconvergence, tilde equivalences and all-module decompletion. Finite-level Artin–Schreier–Witt descent, projectivity, perfectoid integral and globally pure local-system comparisons adopt KL-II Appendix A, p.189. In the projectivity lemma the ideal condition is **φ(J)=J**, not mere containment. Galois descent uses diagonal tensor invariants, not period-ring invariants alone.
 
-## Checks actually run
+The retained balanced ψ and signed Herr homotopy are conditional algebra. The new arithmetic kernel-inverse target is KPX Theorem 3.1.1 in its rational relative setting; it does not assert preservation of every integral lattice. Put P=1−φψ, B=γ−1 and q the actual inverse on ker ψ composed with P. The section is S¹(a,b)=(−φ(a)−q(b),b), S²=−φ, and H²(c)=(q(c),0). The independent continuous Galois comparison is a separate target using Pottharst Theorem 2.8 and Lemma 2.9. Existing Tau Ceti continuous cups and degree-one corestriction are reused.
 
-The scratch `regressions.py`, seed 975, passed **1,011 exact finite-algebra scenarios**: 180 projection/resolvent; 180 signed chain comparisons; 180 homotopy/retractions; 180 integral trace coordinates; 180 rank-one basis changes; 100 tensor-balancing/left-inverse cases; 11 negative controls.
+The ψ complex is in degrees 1,2. Character specialization uses the **inverse** universal Γ character and yields Herr degrees 0,1,2 without an additional shift. Rational Iwasawa cohomology is rationalized after the integral inverse limit. Derived base change retains Tor corrections. Analytic-Iwasawa perfectness has amplitude **[0,2]** despite the displayed terms in degrees 1,2; H¹ is not assumed flat.
 
-The main fixtures use exact rational sparse Laurent polynomials, p in {2,3,5,7}, a non-scalar commuting rank-two Gamma action and an explicit model inverse for B. They are algebra fixtures, not actual period-ring Galois representations. Negative controls include wrong comparison signs, omitted correction or inverse hypothesis, phi psi mistaken for identity, arbitrary scalar-basis projection, torsion trace division, integral order-two invariants and nonzero Tor under specialization.
+Wach modules are restricted to crystalline representations over unramified base fields. Frobenius is N[1/π]→N[1/φ(π)], and q-height/weight shifts are explicit. Rational exactness differs from the integral inclusion-preserving lattice correspondence. LLZ Theorem 2.12 recalls rational good-basis existence from LLZ 2010 Lemma 3.15; the integral statement recalls its Theorem 3.5. Both original existence proofs and Berger Théorème A.3 remain gaps. The 2011 Proposition 2.11 analytic-extension proof was read. The §3A ψ-fixed Iwasawa interface retains nonnegative weights and no trivial quotient. No arbitrary-basis goodness is asserted.
 
-Local structural checks on the authored versions passed: JSON parsing, unique IDs, local prerequisite acyclicity, eight-stage coverage, API/uses/test requirements, per-stage planet bounds, companion node/API/test-name presence and prohibited-token checks. Published prose is condensed, with the same node/declaration/API/test inventory and mathematics. These local checks are not the official full-world/declaration-index validator; the unmodified PR CI supplies that validation and its live result is reported on the PR/issue.
+Relative rank-one classification retains coefficient line bundles and quasicompactness of the parameter graph, not merely pointwise or Artinian bijectivity. The field de Rham criterion imports the existing R06.2 Galois-character theorem and transports it through the period/B-pair bridge, separating the non-étale unramified slope factor. Artinian weights retain nilpotents. Character and weight spaces remain L0a imports.
 
-**Lean was not compiled.** No Lean/lake or local pinned checkout is available. Check scalar restriction on tensor products, ModuleCat coercions, dependent term reduction, polynomial fixtures and native homology identifications during elaboration. The section and resolvent theorem explicitly bind the inverse and commutation hypotheses; they must not disappear because a prototype proof is admitted. Native Homotopy and HomotopyEquiv field names/conventions were checked in the pinned source. No claim that every signature elaborates is made.
+Global triangulation retains the **connected components irreducible** hypothesis of retrieved KPX-v3 Corollary 6.3.10, the admissible-cover dense strict locus, ordered global characters, proper modification, closed bad locus and locally t-power-killed graded cokernels. All closed-point fibres are trianguline, with possible integral embedding-character shifts. No collation with the JAMS version is claimed.
 
-## Inputs, ownership and baseline
+DLB analytic generation adopts accepted PAPER-DOSPINESCU-LEBRAS-17/E24: extend to the larger Robba-type Γ ring. KPX Proposition 4.3.8 needs **both** ψ cokernels to vanish. The DLB application must verify those hypotheses on tN_rig(V), inverse-(γ−1) semilinearity and radius control. The all-level local condition is H¹_e=image(exp_BK), not H¹_f or H¹_g.
 
-Read current WORKERS, blueprint and source-faithfulness protocols, upstream guide, full current roadmap, atlas stage descriptions and accepted RS-26. Revisited introductory/interface portions of upstream ProfiniteCohomology and AdicSpaces as style examples; not a claim to have read both whole documents this pass.
+## Ownership and supplier contracts
 
-Read relevant accepted AUDIT-38 PG records and REV-AUDIT-38. The oversized aggregate `data/library-coverage.json` could not be read, so the accepted source audit was used. Broad absence claims are attributed to that audit, not a fresh exhaustive search of both libraries. Its correction concerning existing topological-coefficient low-degree cups/corestriction is respected.
+Accepted RS-26, all 29 PG-mentioning link records, actual supplier statements and current upstream roadmap/library additions were checked. Full AdicSpaces and ArithmeticDirichletSeries reader documents were read as style models. AUDIT-38 PG records and REV-AUDIT-38 were read; the aggregate coverage file has no direct PG records. Absence claims use that reviewed audit plus targeted searches, not a new exhaustive audit.
 
-All nine cited baseline statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti stays pinned at `f790474821cf4256814db967cb154e7af3d0c369`; no uninspected declaration is called a built arithmetic comparison.
+PG owns canonical cyclotomic coefficients, Fontaine/overconvergence and Herr objects. P7 keeps early analytic annuli, period functors and B-pairs. Exact P7 scalar ring/action nodes, B-pair equivalence and cohomology handoff are imported. P7 interfaces referring to PG's canonical objects should point here under RS-26. No competing bridge is constructed.
 
-Read current Coleman nodes `coleman-trace-coordinates`, `coleman-trace-divisibility`, `coleman-trace-psi`, `frobenius-zeroth-coordinate-psi` and immediate context. These already plan normalized trace and bounded scalar psi. This packet does not create a competing scalar operator.
+Twelve requests are attached to their exact consumers:
 
-Read the current ArithmeticGaloisDuality D7 and SelmerIwasawaCohomology L3 contracts. Exact PG.3/PG.4 searches in the links directory returned zero hits. The broader search returned 28 files, not all read; no exhaustive link-directory audit is claimed. The current atlas and accepted restructuring supply the ownership interfaces used here.
+- P7 annulus foundations: relative norms/topologies, gluing and completed tensors beyond fine classical scalar nodes.
+- P8: integral/extended period sheaves and their all-component/gluing API.
+- PerfectoidSpaces P3: tilting, approximation and completeness-sensitive site inputs.
+- ArithmeticGaloisDuality D7: affinoid Banach/period coefficients and totalizations beyond its finite-type adic/cofinite contracts.
+- PadicMeasuresIwasawaAlgebras L1: completed group algebras over O_E, continuous actions, involution and completed p-adic generator quotient.
+- PadicMeasuresIwasawaAlgebras L0a: character/weight spaces, universal character and Artinian pullback.
+- LocallyAnalyticDistributions L3: relative analytic and Robba-type Γ rings, coadmissible extension and tensor exactness beyond the imported classical Mellin nodes.
+- PadicHodgeTheory R06.2: period/crystalline and filtered Frobenius inputs; matching fine period and character nodes are imported.
+- PadicHodgeRegulators L1: Bloch–Kato exponential and H¹_e normalization.
+- Existing TauCetiRoadmap AdicSpaces Layer 6: curve, bundles and GAGA.
+- Existing TauCetiRoadmap LocalFieldsRamification Layer 2: unramified extensions and Frobenius for Wach base change.
+- Existing TauCetiRoadmap ClassFieldTheory Layers 7–9: continuous local Artin maps, geometric normalization by inversion and topological Weil reciprocity. Their actual README and Suggested statements were read; no reciprocity theory is replanned here.
 
-## Papers actually read
+SelmerIwasawaCohomology L3 supplies the independent tower, Shapiro, descent and rationalization through existing fine nodes. Coleman supplies the existing scalar trace/ψ comparisons. N_rig comes from R06.3/plan/de-rham-differential-equation. LocalGaloisGroups already plans local cyclotomic continuity; its referenced local-character file is absent from the supplied current library, so only the underlying Mathlib map is called built. The upstream PadicMeasuresIwasawaAlgebras directory is also absent; its atlas contracts are not described as a built upstream package.
 
-KPX: retrieved arXiv:1203.5718v3, 79 pages. Its margin is dated 19 November 2013; the retrieved cover says 1 November 2018. Both are recorded. Read scalar/module psi, signed Herr diagram, local kernel proof, kernel-inverse proof route, and two-term/derived specialization passages. Printed pp.16,21,22,27 were rendered. Imported original proofs, notably Pottharst [42], Theorem 2.8, remain unread. The JAMS publication PDF was unobtainable; UC eScholarship returned metadata, not the text.
+Trianguline varieties, BHS localized-character rigidity, almost de Rham deformation groupoids, Ding eigenvariety/paraboline geometry and DLB GL₂/Drinfeld representation identifications stay with their owners. This packet makes no new ownership move beyond RS-26 reconciliation.
 
-LLZ: publisher ANT 5(8) (2011), 1095–1131, scalar coefficient/psi/Mellin conventions and section-3 input map. Parsed publisher text read; publication rendering failed. Berger introduction, arXiv:math/0210184v1, III.2.4 read and rendered for its torsion convention. No whole-paper or original equivalence-proof reading is claimed. No independently computed PDF hashes.
+## Sources and reading limits
 
-## Source finding
+The packet records twelve exact source identities, versions, hashes and reading scopes; every target has numbered source locators in both packet and reader. Statements and proof routes are in the worker's own words. Cleared KL-I and KL-II copies were read in place; no PDF, passage or extracted restricted text was saved or committed.
 
-`PhiGammaModulesAndIwasawaCohomology/E1` records reversed finite-free ring orientation in retrieved KPX Definition 2.2.2, p.16. The displayed structural map, following trace and Q_p coordinate formula fix the intended direction. It is a **misprint with no change to intended mathematics**, scoped to the preprint. No independent verdict, publication accusation or novelty claim.
+Main proof readings supporting the targets include corrected KL-I free-cover/fixed-basis/projectivity arguments and perfectoid/cyclotomic comparison passages; CC cocycle descent, matrix corrections and final rational overconvergence; Pottharst's affinoid Galois–Herr proof; KPX analytic kernel inverse, M/tM and ψ-cokernel proofs, pairing/generation, rank-one classification and parameter graph, and global-triangulation corollary/specialization; Berger's unramified Wach construction, height and filtered reduction; LLZ analytic basis extension; and the routed BHS, Ding and DLB module/cohomology arguments. This is not a whole-book or whole-paper reading claim.
 
-The Delta-convention difference is not classified as an error. It needs a comparison of presentations, not a correction of KPX.
+Uninspected original proofs are named in the fourteen gaps: APF estimates, original Fontaine integral descent, full CC trace estimates, small-unipotent construction, integral approximation/limits, all-module Tate–Sen estimates, period acyclicity, original Liu duality, general integral Iwasawa comparison, Colmez's exponential-image criterion, Berger A.3/LLZ 2010 good bases, original relative realization, KPX uniform §5 finiteness and full flattening. The target routes do not claim these inputs proved or built.
 
-## Exact continuation
+KPX is the 79-page arXiv v3, with margin date 19 November 2013 and retrieved cover date 1 November 2018, not collated with JAMS. CC uses its 24-page author PDF rather than journal pagination. The Wach source is the 35-page November 2004 author version, not the shorter 2002 preprint. Fargues–Fontaine uses its 16 April 2017 author pagination. Ding is the 2025 paper, DOI 10.1007/s10240-025-00156-2.
 
-1. Construct coefficient-ring/radius instances and scalar psi embeddings, using the existing Coleman comparisons. Retain coefficient Frobenius for general K and prove coordinate continuity in the actual topology.
-2. Decompose KPX's analytic kernel inverse in its rational relative Robba setting, including norm estimates, bounds, projective complement and gluing. Prove any integral lattice preservation separately.
-3. Build original Galois/Herr and derived-corestriction/psi comparison maps with the actual cochain and Iwasawa suppliers. Compose them with the explicit retraction rather than substituting that retraction for the arithmetic comparisons.
-4. Prove torsion-presentation comparison, genuine p-adic generator units and integral p=2 derived descent; no integral averaging by 2.
-5. Complete the Fontaine/overconvergence, Wach and family proofs recorded in PG.1,PG.2,PG.6,PG.7. Retain torsion/rational/flat coefficient hypotheses, Tor and derived-limit terms.
-6. Elaborate all suggested signatures at the pin and extend the declaration graph for the remaining nonroutine arithmetic proofs.
+Retained E1 concerns only the reversed finite-free orientation in KPX-v3 Definition 2.2.2, p.16; its assertion is paraphrased. The historical search record is retained, without a new publication-version or novelty claim. KL-II and DLB E24 are adopted known corrections, not independent new errata verdicts.
 
-Only this issue's four deliverables were edited. No issue was closed and no labels changed manually.
+## Validation actually performed
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/PhiGammaModulesAndIwasawaCohomology.json --index <pinned declaration index>`: **0 errors, 0 warnings**. Both full pins and all twelve actual declaration statements are recorded in the packet.
+- Packet/reader inventory: all 32 original IDs retained; all 98 targets, 114 APIs and 114 tests present; source IDs and internal anchors resolve; all implementation statuses remain unchecked; no source-text fields, forbidden planning words, private paths or Lean blocks in packet/reader.
+- Exact-node traversal across integrated decompositions and blueprints: **485 reachable nodes, no cycles**. Requested coarse stages are leaves, not proofs of supplier effectivity.
+- `python3 scripts/check_sorry_data.py research/blueprint/suggested/PhiGammaModulesAndIwasawaCohomology.lean`: passed.
+- **Lean compiled successfully** using `lean-check` in the shared pinned build, exit 0, with only `declaration uses 'sorry'` warnings. The 190-line companion has real-bodied light maps on existing carriers, no admitted data body or heavy theory construction. No background process remains.
+- Deliverable-path/intake and whitespace checks passed before submission. The PR's Swarm submission check is the authoritative remote check.
+
+The old checkpoint's 1,011 algebra simulations were **not rerun** and are not current validation. They did not test actual period rings or arithmetic comparisons. Elaboration checks suggested signatures, not the unformalised mathematics.
+
+## Where review and refinement start
+
+Review the eight inventories against RS-26 and the 34 accepted route assignments, then the normalized hypotheses above. Prioritize Wach localization, Frobenius ideal equality, derived degrees, nonflat specialization, triangulation qualifiers and the DLB application gap. Reader G1–G14 and packet `requests` name exact missing inputs and consumers. Use those durable records for follow-up jobs. This planning pass needs independent review before acceptance or assembly; no issue was closed and no labels were changed manually.
