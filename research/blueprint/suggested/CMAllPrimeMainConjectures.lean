@@ -20,7 +20,8 @@ README target, because its carriers are not at the pins.
 What is here:
 
 * the twisting automorphism `Tw_χ : g ↦ χ(g) g` of a group algebra (layers CZ.0 and CZ.5:
-  Johnson-Leung–Kings Lemma 4.7, the twist in `twisted-tower-cohomology`), at finite level;
+  Johnson-Leung–Kings Lemma 4.7), at finite level. With natural left deck action,
+  untwisted-to-twisted cohomology uses `Tw_{χ⁻¹}`, and its inverse uses `Tw_χ`;
 * evaluation of the group algebra at a character, and the Euler factor `1 - g⁻¹` whose value at the
   trivial character is zero (the non-unit factor of `printed-equivariant-form-range`);
 * the arithmetic predicate deciding when an imaginary quadratic field lies in `Q(μ_{p^∞})`
@@ -60,8 +61,8 @@ theorem twist_mul (χ ψ : G →* Rˣ) :
     twist (χ * ψ) = (twist χ).comp (twist ψ) := by
   sorry
 
-/-- Evaluation of `R[G]` at a character `χ`, the specialization at the height-zero or
-height-one prime it defines. -/
+/-- Evaluation of `R[G]` at a character `χ`. Its kernel need not be prime for an
+arbitrary coefficient ring `R`; no height assertion is made here. -/
 noncomputable def charEval (χ : G →* Rˣ) : MonoidAlgebra R G →ₐ[R] R :=
   lift R R G ((Units.coeHom R).comp χ)
 
