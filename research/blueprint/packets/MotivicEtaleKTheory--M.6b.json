@@ -48,7 +48,7 @@
       "id": "Levine2001",
       "title": "K-theory and motivic cohomology of schemes, I",
       "authors": "Marc Levine",
-      "edition": "Author preprint, December 2001, 98 pages",
+      "edition": "Author preprint, December 2001, 97 pages",
       "url": "https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf",
       "sha256": "67affc5d6f837a78281c824d21723be9af1180bb77d44e8cff9cca5b0b2ef820",
       "accessed": "2026-10-19",
@@ -176,6 +176,19 @@
         "§1.2, p.165",
         "§2.1, pp.166–168"
       ]
+    },
+    {
+      "id": "NekovarNiziolPublished",
+      "title": "Syntomic cohomology and p-adic regulators for varieties over p-adic fields",
+      "authors": "Jan Nekovář and Wiesława Nizioł",
+      "edition": "Algebra & Number Theory 10 (2016), no.8, 1695–1790, publisher PDF",
+      "url": "https://msp.org/ant/2016/10-8/ant-v10-n8-p04-p.pdf",
+      "sha256": "f14f7b7f929c7d79d299b215bcbccfbe4a5b1fdfae61dd8587f3aefbdcf6415b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§5B regulator definition, p.1778",
+        "Theorem 5.9, proof and Remark 5.10, p.1779"
+      ]
     }
   ],
   "nodes": [
@@ -252,17 +265,17 @@
       "tests": [
         {
           "name": "MotivicIndex.field_unit",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "(p,m)=(0,0) gives (a,b)=(0,0), the weight-zero K₀ unit."
         },
         {
           "name": "MotivicIndex.first_boundary",
-          "kind": "example",
+          "kind": "computation",
           "statement": "(p,m)=(2,3), s=1 gives (−1,−2)→(1,−3), changing total K degree 3→2."
         },
         {
           "name": "MotivicIndex.inverse_negative",
-          "kind": "example",
+          "kind": "computation",
           "statement": "(a,b)=(−3,−2) returns (p,m)=(2,5), not (2,1); negative public indices remain integers."
         }
       ],
@@ -309,7 +322,8 @@
         "SchemeKTheoryOperations:S.6/external-product",
         "StableHomotopyKTheory:H.6/filtered-spectrum",
         "StableHomotopyKTheory:H.6/moore-spectrum-multiplication",
-        "EnhancedDerivedSheaves:E3"
+        "EnhancedDerivedSheaves:E3",
+        "StableHomotopyKTheory:H.6/filtered-spectrum-spectral-sequence"
       ],
       "sources": [
         {
@@ -356,12 +370,22 @@
           "name": "MotivicProduct.augmentation",
           "role": "compatibility",
           "statement": "The map to K carries the product to the actual K product."
+        },
+        {
+          "name": "MotivicProduct.unit",
+          "role": "compatibility",
+          "statement": "The weight-zero class of O_X acts as the identity on the induced exact-couple and filtered-quotient homotopy groups."
+        },
+        {
+          "name": "MotivicProduct.associativity",
+          "role": "compatibility",
+          "statement": "The supplied support tensor associativity and common moving refinement identify both parenthesizations on exact couples, pages and the abutment; no additional E∞ structure is asserted."
         }
       ],
       "tests": [
         {
           "name": "MotivicProduct.unit",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The weight-zero class of O_X acts as the identity on each filtered quotient."
         },
         {
@@ -371,12 +395,12 @@
         },
         {
           "name": "MotivicProduct.odd_sign",
-          "kind": "relation",
+          "kind": "compatibility",
           "statement": "For homogeneous K-degrees m=n=1, interchanging the two factors multiplies by −1. A sign (−1)^(m+n) fails this test."
         },
         {
           "name": "MotivicProduct.empty_support",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "A product with the zero spectrum for empty support is zero before realization and on every page."
         }
       ],
@@ -418,7 +442,8 @@
         "MotivicEtaleKTheory:M.6a/coniveau-cycle-layer",
         "MotivicEtaleKTheory:M.4/products",
         "MotivicEtaleKTheory:M.4/moving-lemma",
-        "StableHomotopyKTheory:H.6/filtered-spectrum-spectral-sequence"
+        "StableHomotopyKTheory:H.6/filtered-spectrum-spectral-sequence",
+        "MotivicEtaleKTheory:M.6b/motivic-native-index-transport"
       ],
       "sources": [
         {
@@ -612,14 +637,15 @@
       "acceptance": [
         "For Y the disjoint union of d copies of X, cor∘res is multiplication by d on every page and at the abutment.",
         "For the identity map the filtered transfer is the identity.",
-        "A degree-d transfer sends 1 to d; it is generally not a unital ring homomorphism."
+        "For general finite étale f of constant degree d, f_!(1)=[f_*O_Y] in K₀(X), of rank d; the projection formula gives f_!f^*(x)=[f_*O_Y]·x. The scalar formula f_!f^*=d holds for the split degree-d cover above. On E₂ the cohomological trace sends the degree-zero unit to d, without identifying the full K₀ bundle class with d."
       ],
       "prerequisites": [
         "MotivicEtaleKTheory:M.7/corrected-thomason-descent",
         "MotivicEtaleKTheory:M.7/etale-k-transfer",
         "SchemeKTheoryOperations:S.4/hypercohomology-spectral-sequence",
         "ArithmeticGaloisDuality:R02.2",
-        "StableHomotopyKTheory:H.6/bockstein-long-exact-sequence"
+        "StableHomotopyKTheory:H.6/bockstein-long-exact-sequence",
+        "GeneralAlgebraicKTheory:K.3/transfer-maps-and-projection-formula"
       ],
       "sources": [
         {
@@ -652,7 +678,7 @@
       ],
       "proofSteps": [
         "Use the S-integer comparison range and the descent filtration. In odd total degree only cohomological degree one remains; in even total degree cohomological degrees two and zero give the displayed filtration.",
-        "Keep the coefficient maps inherited from the spectra. In particular the H⁰ term’s transition includes the appropriate coefficient multiplication in the shifted twist; an abstract isomorphism to a constant finite group does not determine that map.",
+        "Keep the coefficient maps induced by the spectra and their Tate-twist identifications. The H⁰ transition is the actual reduction map on μ_(ℓ^ν)^(⊗(j−1)), not a chosen constant-system identification. Its inverse limit is H⁰(R,Z_ℓ(j−1))=0 for j≥2. Finite-level finiteness also removes the relevant lim¹ terms; no H⁰ term is discarded at a finite level.",
         "Apply the Bockstein/Milnor sequences to both sides, retaining lim¹ until finiteness and the coefficient transition calculation remove it. This gives the continuous H¹/H² comparison, rather than taking limits of arbitrarily split extensions.",
         "Import finite generation of K_n(O_(F,S)), n≥2, from ArithmeticKTheory N.3; only then identify the derived completion homotopy group with its tensor product. Use finite residue-field K groups in localization to justify the inversion-of-ℓ assertion."
       ],
@@ -836,14 +862,14 @@
       ],
       "title": "Cubical Deligne regulator",
       "kind": "construction",
-      "statement": "For a smooth equidimensional quasi-projective complex variety X and p≥0, construct the real regulator CH^p(X,n)→H_D^(2p−n)(X,R(p)), n≥0, by the following derived roof. Use the cubical complex z^p(X,*)₀ with cube P¹\\{1} and faces 0,∞, imported from M.4. For each cube take the filtered colimit over admissible codimension-p supports Z of D_log,Z=cone[D_log(X×□^n,p)→D_log((X×□^n)\\Z,p)][−1], truncate this support complex at 2p, normalize the cubical direction and totalize. Reindex by 2p−* to obtain B_supp. Its top support-class projection g to normalized support cohomology is a quasi-isomorphism, and that cohomology complex is z^p(X,*)₀⊗R by the cycle class. Forgetting the support component (ω,g_Z)↦ω gives B_supp→A, the analogous normalized total complex without supports; the inclusion τ≤2p D_log(X,p)[2p−*]→A is a quasi-isomorphism. Invert these two quasi-isomorphisms in the derived category to obtain the regulator. For varieties over R take the conjugation-fixed real complex with its Tate normalization. This construction uses the Hodge Part II logarithmic complex, not a second definition of Deligne cohomology.",
+      "statement": "For a smooth equidimensional quasi-projective complex variety X and p≥0, construct the real regulator CH^p(X,n)→H_D^(2p−n)(X,R(p)), n≥0, by the following derived roof. Use the cubical complex z^p(X,*)₀ with cube P¹\\{1} and faces 0,∞, imported from M.4. Use M.4’s degeneracy quotient or its supplied normalized comparison. Its boundary is ∂_M=Σ_i(−1)^i(∂_i^∞−∂_i^0), opposite to Burgos–Feliu’s ∂_BF. The chain isomorphism J_n=(−1)^n from the M.4 complex to the source convention satisfies ∂_BF J_n=J_(n−1)∂_M. Form both total complexes using ∂_M; multiplication by (−1)^n in cube degree n identifies them with the source total complexes, fixes cube degree zero, and commutes with the support projection. For each cube take the filtered colimit over admissible codimension-p supports Z of D_log,Z=cone[D_log(X×□^n,p)→D_log((X×□^n)\\Z,p)][−1], truncate this support complex at 2p, normalize the cubical direction and totalize. Reindex by 2p−* to obtain B_supp. Its top support-class projection g to normalized support cohomology is a quasi-isomorphism, and that cohomology complex is z^p(X,*)₀⊗R by the cycle class. Forgetting the support component (ω,g_Z)↦ω gives B_supp→A, the analogous normalized total complex without supports; the inclusion τ≤2p D_log(X,p)[2p−*]→A is a quasi-isomorphism. Invert these two quasi-isomorphisms in the derived category to obtain the regulator. For varieties over R take the conjugation-fixed real complex with its Tate normalization. This construction uses the Hodge Part II logarithmic complex, not a second definition of Deligne cohomology.",
       "hypotheses": [
         "The generic logarithmic Deligne complex, support cone, semipurity, homotopy invariance and compactification-independence comparison are supplied in the Hodge direction.",
         "Truncate after forming the support cone; truncation does not commute with that cone.",
-        "The sign of the total differential is d_D+(−1)^(form degree)∂_cube."
+        "The total differential is d_D+(−1)^(form degree)∂_M. Apply the same cubical sign/normalization transport to cycles, support complexes and the imported higher character; the source boundary convention is not silently identified with M.4’s."
       ],
       "proofSteps": [
-        "Use semipurity to identify each supported truncated complex’s cohomology solely in degree 2p, and identify that group with codimension-p cycles by the cycle class. The bounded vertical degree ensures convergence of the normalized total-complex comparison.",
+        "Pass between the M.4 degeneracy quotient and the source normalized complex, with J_n=(−1)^n accounting for the opposite cubical boundaries. Use the same transport on both support and unsupported total complexes. Semipurity identifies supported truncated cohomology solely in degree 2p with cycles by the cycle class; bounded vertical degree gives convergence of the normalized total comparison.",
         "Use cubical homotopy invariance to prove that the unsupported total complex A is quasi-isomorphic to the degree-zero cube complex. Normalization removes degenerate cubes.",
         "The projection of support pairs to the first entry is a chain map with the chosen total differential. Form the roof through g and the unsupported quasi-isomorphism; choices of representatives are eliminated by its derived-category construction.",
         "For flat maps use pullback of supports and forms directly. For a general morphism between smooth varieties use the good-position subcomplex for its graph and the imported moving lemma, which gives naturality on homology. Apply real conjugation only after including its action on R(p)."
@@ -862,8 +888,8 @@
       "sources": [
         {
           "sourceId": "BurgosFeliu",
-          "locator": "Definition 1.28 and §1.11, pp.11–12; Lemma 2.11 and Propositions 2.8, 2.13, 2.19, pp.15–18; §3.1 and Proposition 3.3, p.19",
-          "match": "Support semipurity and cubical normalization give the regulator roof; projection of support pairs defines the map, with the stated distinction between flat chain functoriality and general homological pullback."
+          "locator": "Definition 1.28 and §1.11, pp.11–12; cubical boundary and normalization, §2.1–2.5, pp.13–16; Lemma 2.11 and Propositions 2.8, 2.13, 2.19, pp.15–18; §3.1 and Proposition 3.3, p.19",
+          "match": "Support semipurity and cubical normalization give the regulator roof; projection of support pairs defines the map, with the stated distinction between flat chain functoriality and general homological pullback. The source boundary is transported explicitly to the opposite M.4 convention."
         }
       ],
       "library": {
@@ -904,28 +930,38 @@
           "name": "CubicalRegulator.compactification",
           "role": "equivalence",
           "statement": "The comparison for two normal-crossing compactifications identifies the induced regulator; supplied by the Hodge Part II contract."
+        },
+        {
+          "name": "CubicalRegulator.orientation",
+          "role": "compatibility",
+          "statement": "J_n=(−1)^n and the standard quotient/normalization quasi-isomorphisms intertwine the M.4 and Burgos–Feliu roofs, their support projection and the transported higher character, fixing degree zero."
         }
       ],
       "tests": [
         {
           "name": "CubicalRegulator.point_unit",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For X=Spec C, CH⁰(X,0)=Z, the unit maps to 1 in H_D⁰(X,R(0))=R."
         },
         {
           "name": "CubicalRegulator.hyperplane",
-          "kind": "example",
+          "kind": "computation",
           "statement": "The class of a hyperplane on P¹ maps to c₁^D(O(1)) with the R(1)=2πiR normalization, not an unnormalized de Rham generator."
         },
         {
           "name": "CubicalRegulator.degenerate_cube",
-          "kind": "relation",
+          "kind": "degenerate",
           "statement": "A cycle pulled back along a cubical degeneracy is zero in the normalized source and maps to zero."
         },
         {
           "name": "CubicalRegulator.support_boundary",
-          "kind": "relation",
+          "kind": "compatibility",
           "statement": "A boundary in the support total complex projects to an exact class in A; forgetting the second component with the wrong cone sign fails this check."
+        },
+        {
+          "name": "CubicalRegulator.boundary_orientation",
+          "kind": "compatibility",
+          "statement": "At cube degrees one and two, J₁=−id and J₂=id satisfy ∂_BF J₁=J₀∂_M and ∂_BF J₂=J₁∂_M. Using identity maps in both degrees fails whenever the corresponding cycle boundary is nonzero."
         }
       ],
       "uses": [
@@ -950,12 +986,13 @@
       "statement": "For X smooth quasi-projective over C and n≥0, the composite K_n(X)⊗Q→⊕_(p≥0)CH^p(X,n)⊗Q→⊕_(p≥0)H_D^(2p−n)(X,R(p)), using the imported motivic higher Chern character and cubical-deligne-regulator-roof, is the Beilinson regulator defined by the universal Deligne characteristic classes. For n>0, its weight-p component uses ch_(p,n)= (−1)^(p−1)c_(p,n)/(p−1)! for p≥1. At n=0 use the Newton polynomial divided by p!, not the higher additive formula. At an embedding of a number field, the degree-one target is C/(2πi)^p R; replacing R by Z gives a different integral target. For p=1 the real map on a unit is log|u|.",
       "hypotheses": [
         "Use the actual higher motivic character of M.8, not S.7’s K₀-only character.",
-        "For arithmetic X apply the construction to its complex embeddings and the imported real-conjugation descent."
+        "For arithmetic X apply the construction to its complex embeddings and the imported real-conjugation descent.",
+        "The higher character and regulator use the same cubical orientation transport specified by cubical-deligne-regulator-roof; changing only one of them changes the composite in odd K degree."
       ],
       "proofSteps": [
         "Evaluate the universal Chow and Deligne Chern classes on stable Grassmannians. The ordinary cycle class identifies them on K₀.",
         "Use flat Čech nerves of trivializing covers and the universal simplicial classifying sheaf. The good-position/specialization construction for higher cycles supplies a well-defined universal higher characteristic map; it cannot be replaced by arbitrary pullback of all cycles.",
-        "Apply Burgos–Feliu Theorem 3.5 to identify the two regulators. Transport the imported higher-Chern normalization and the separate K₀ Newton formula.",
+        "Transport the imported motivic character to the Burgos–Feliu convention through the same quotient/normalization comparison and J_n=(−1)^n as the regulator roof. Apply Theorem 3.5 there and transport back. The two sign changes cancel in the composite. Retain the higher-Chern factorial normalization and the separate K₀ Newton formula.",
         "For the point target use the imported Deligne cone; in weight one its quotient removes the imaginary period line, so the regulator on C× is the real logarithm. Export this normalization to R.7 before consuming R.7’s factor-two comparison."
       ],
       "acceptance": [
@@ -1610,7 +1647,8 @@
     "RS-18/RS-33 boundaries are preserved: H.6 owns generic exact couples/convergence/limits; S.6 owns generic K products/Adams operations; M.6a owns support towers/layers and this pass specializes their boundary/product/completion comparison.",
     "No full-stage ArithmeticKTheory N.6, Borel R.7 or p-adic D.2 reverse edge is added to early comparison/Chern nodes. N.6 consumes M.7; R.7 consumes early M.8 Deligne normalization; D.2 consumes early finite-etale-chern. Only the late lattice/local nodes consume those outputs.",
     "The Selmer/determinant/period boundary follows RS-08 and the accepted sibling: L2/L4 supply Selmer objects, L5 supplies determinants, MC.2/PS.0 the independent period-space prefix. PS.3/PS.4 are consumers. No mathematical notion moves to a new owner in this pass.",
-    "Current IntegralLattices README, What Mathlib supplies, and its Suggested.lean identify generic lattice/covolume/index theory as existing. The pinned covolume_div_covolume_eq_relIndex statement was read and imported directly. Only the number-field Chern-image and integral-model comparison is a new application target."
+    "Current IntegralLattices README, What Mathlib supplies, and its Suggested.lean identify generic lattice/covolume/index theory as existing. The pinned covolume_div_covolume_eq_relIndex statement was read and imported directly. Only the number-field Chern-image and integral-model comparison is a new application target.",
+    "Independent review rechecked the current native WeierstrassCurve.tateModuleGaloisRepresentation, finrank_tateModule and TauCeti.det_tateModuleGaloisRepresentation statements. The R01.6 comparison imports those existing carriers; this packet adds only the variance/twist/Euler-polynomial dictionary. Newer current-library declarations are not misrepresented as programme-pin baseline declarations."
   ],
   "sourceIssues": [
     {
@@ -1625,7 +1663,12 @@
       "known": "Published correction: R. W. Thomason, Ann. Sci. ENS 22 (1989), 675–677; descent conclusions 2.43/4.1 remain available with the corrected proof.",
       "searched": [
         "Numdam original article and its linked erratum; entire erratum read."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the entire published 1989 erratum: the sequential comparison is available for countably generated extensions; general cd-one descent uses Bott-annihilated kernel and cokernel. This is an already published correction.",
+        "by": "REV-MotivicEtaleKTheory--M.6b"
+      }
     },
     {
       "id": "MotivicEtaleKTheory/E-M6b-2",
@@ -1636,11 +1679,16 @@
       "correction": "The interchange degree is (−1)^(nm); the resulting Leibniz boundary uses (−1)^n when a degree-n sphere passes one suspension.",
       "reason": "For n=m=1, interchanging the two circle factors on S² has degree −1, whereas the printed exponent gives +1. For n=0,m=1 the unit interchange has degree +1. The page was checked in the rendered PDF as well as text.",
       "affects": "the proof",
-      "known": "No correction located in the author catalogue or targeted search; pending independent review, with no novelty claim.",
+      "known": "No correction located in the author catalogue or targeted search; confirmed by independent review, with no novelty claim.",
       "searched": [
         "Author publication catalogue https://esaga.net/marc.levine/pub/ and the linked KthyMotI12.01.pdf.",
         "Targeted search for Levine Appendix D.6 and errata on 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on the rendered December 2001 p.96. The interchange on S¹∧S¹ has degree −1 and the unit interchange on S⁰∧S¹ has degree +1; both require the product exponent nm. The Leibniz sign in the roadmap is correct.",
+        "by": "REV-MotivicEtaleKTheory--M.6b"
+      }
     },
     {
       "id": "MotivicEtaleKTheory/E-M6b-3",
@@ -1651,26 +1699,37 @@
       "correction": "Those finite-generation/rank assertions here concern K_n(O_S), with S finite, not K_n(F).",
       "reason": "Localization for Q gives K₂(Q) a quotient ⊕_p F_p×, since K₁(Z)→K₁(Q) is injective. That direct sum is infinite. Arithmetic finite generation imported in this packet has ring-of-S-integers domain.",
       "affects": "nothing",
-      "known": "Author errata page was located, but the linked Kbook.errata.pdf returned 404; no matching correction was obtained. Pending independent review; no novelty claim.",
+      "known": "Author errata page was located, but the linked Kbook.errata.pdf returned 404; no matching correction was obtained. Confirmed by independent review; no novelty claim.",
       "searched": [
         "https://sites.math.rutgers.edu/~weibel/Kbook.html and its published-version errata link.",
         "Targeted author-domain search for VI 8.1 on 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at printed p.513. Localization for Z⊂Q and injectivity of Z×→Q× make K₂(Q) surject onto ⊕_p F_p×, contradicting the field finiteness assertion. The finite-S ring statement used here is the appropriate one.",
+        "by": "REV-MotivicEtaleKTheory--M.6b"
+      }
     },
     {
       "id": "MotivicEtaleKTheory/E-M6b-4",
       "kind": "misprint",
-      "sourceId": "NekovarNiziol",
-      "locator": "Theorem 5.9 display, p.59, arXiv:1309.7620v5",
+      "sourceId": "NekovarNiziolPublished",
+      "locator": "Published Theorem 5.9 display and proof, p.1779, with regulator definition p.1778, Algebra & Number Theory 10 (2016); also arXiv:1309.7620v5 p.59",
       "printed": "In own words: the theorem display uses geometric cohomological degree i+1 in both H¹_st and H¹, although the regulator just defined above and the final proof diagram use degree i.",
       "correction": "Use H¹_st(G_K,H^i_et(X_bar,Q_p(r)))⊂H¹(G_K,H^i_et(X_bar,Q_p(r))) for the regulator r^et_(r,i).",
       "reason": "The Hochschild–Serre edge lowers geometric degree from total i+1 to i. The definition directly preceding the theorem, its proof diagram and Remark 5.10 agree on H^i. The rendered page confirms the i+1 display.",
       "affects": "a stated result",
-      "known": "No erratum found in the arXiv record/targeted author-title search. This is recorded as a display-index correction, pending independent review; the regulator proof uses the consistent i degree.",
+      "known": "No erratum found in the arXiv record/targeted author-title search. This is recorded as a display-index correction, confirmed by independent review; the regulator proof uses the consistent i degree.",
       "searched": [
         "arXiv:1309.7620v5, p.59, including definition, proof and following remark.",
-        "Targeted search for an erratum to arXiv:1309.7620 on 2026-10-19."
-      ]
+        "Targeted search for an erratum to arXiv:1309.7620 on 2026-10-19.",
+        "Independent review: publisher PDF, §5B pp.1778–1779, collated with arXiv v5; the same display-index slip occurs in both."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed both in arXiv v5 p.59 and the rendered publisher Theorem 5.9 p.1779. The regulator definition on published p.1778 and the last proof diagram/Remark 5.10 on p.1779 have H^i; the theorem display has H^(i+1). This is a display correction, not a failure of the factorization argument.",
+        "by": "REV-MotivicEtaleKTheory--M.6b"
+      }
     },
     {
       "id": "MotivicEtaleKTheory/E-M6b-5",
@@ -1681,25 +1740,215 @@
       "correction": "The numerator in that even-group sentence is h^(2,i)(2), the order of H²(R,Z₂(i)); the theorem’s order ratio is unchanged.",
       "reason": "Theorem 9.11 identifies this even K group with ker[H²(R,Z₂(i))→(Z/2)^r₁]. Its order is therefore the H² order divided by the real quotient order, rather than the H¹ order. This packet does not use Theorem 9.12 as a prerequisite.",
       "affects": "the proof",
-      "known": "Author errata link was unavailable (404); no matching correction located. Pending independent review; no novelty claim.",
+      "known": "Author errata link was unavailable (404); no matching correction located. Confirmed by independent review; no novelty claim.",
       "searched": [
         "https://sites.math.rutgers.edu/~weibel/Kbook.html and linked errata.",
         "Comparison with VI Theorem 9.11, pp.524–525, and targeted author-domain search on 2026-10-19."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at printed p.525 against Theorem 9.11: the relevant even group is the kernel in H², so its order is h^(2,i)(2)/2^r₁. The theorem’s ratio and this packet’s torsion table do not require alteration.",
+        "by": "REV-MotivicEtaleKTheory--M.6b"
+      }
     }
   ],
   "sourceVersions": [
     {
-      "sourceId": "BM2018",
-      "note": "Read arXiv v3 §10 pp.43–46. The shortened v4 does not contain that proof section; no §10 citation is made to v4."
-    },
-    {
       "sourceId": "Levine2001",
+      "kind": "preprint",
+      "url": "https://www.esaga.uni-due.de/f/marc.levine/publ/KthyMotI12.01.pdf",
+      "citation": "K-theory and motivic cohomology of schemes, I; Author preprint, December 2001, 97 pages",
+      "read": "2026-10-19",
+      "sha256": "67affc5d6f837a78281c824d21723be9af1180bb77d44e8cff9cca5b0b2ef820",
       "note": "Reuse the independently confirmed inherited Adams exponent correction MotivicEtaleKTheory/E8. Inherited E6/E7 convergence proof issues remain in the source/gap ledger; they are not newly adjudicated here."
     },
     {
+      "sourceId": "LevineConiveau",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0510334v1",
+      "citation": "The homotopy coniveau tower; arXiv:math/0510334v1, October 16, 2005",
+      "read": "2026-10-19",
+      "sha256": "5f268002b5ec36a74932a48ac051712c9c19c41a8b76e5bcb5dcdf0800538190",
+      "note": "Exact PDF retrieved and hash checked during independent review."
+    },
+    {
+      "sourceId": "Thomason1985",
+      "kind": "published",
+      "url": "https://numdam.org/item/10.24033/asens.1495.pdf",
+      "citation": "Algebraic K-theory and étale cohomology; Ann. Sci. ENS (4) 18 (1985), 437–552, Numdam scan",
+      "read": "2026-10-19",
+      "sha256": "3497d34982b0f7f43682cb978a3a031cc7567c899a43a6558bb424318111bb16",
+      "note": "Exact PDF retrieved and hash checked during independent review."
+    },
+    {
+      "sourceId": "Thomason1989",
+      "kind": "published",
+      "url": "https://numdam.org/item/10.24033/asens.1596.pdf",
+      "citation": "Erratum: Algebraic K-theory and étale cohomology; Ann. Sci. ENS (4) 22 (1989), 675–677, Numdam scan",
+      "read": "2026-10-19",
+      "sha256": "c38909eb3f20bd1b5a157cf78ff1486d4ae01f2c92e7d0788557f64f042f4e73",
+      "note": "Exact PDF retrieved and hash checked during independent review."
+    },
+    {
+      "sourceId": "Weibel2013",
+      "kind": "author copy",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "citation": "The K-book: An introduction to algebraic K-theory; Author complete-book PDF dated August 29, 2013; use printed book pagination",
+      "read": "2026-10-19",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "note": "Exact PDF retrieved and hash checked during independent review."
+    },
+    {
+      "sourceId": "BM2018",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1508.00014v3",
+      "citation": "The fiber of the cyclotomic trace for the sphere spectrum; arXiv:1508.00014v3, January 12, 2018; §10 is present in this version",
+      "read": "2026-10-19",
+      "sha256": "35efeb3e0da2ff2093d646af957e35a0e5c0241bb5a65c083c26e8cd17fac16f",
+      "note": "Read arXiv v3 §10 pp.43–46. The shortened v4 does not contain that proof section; no §10 citation is made to v4."
+    },
+    {
+      "sourceId": "BurgosFeliu",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/0907.5169v1",
+      "citation": "Higher arithmetic Chow groups; arXiv:0907.5169v1, July 29, 2009",
+      "read": "2026-10-19",
+      "sha256": "247b162be9661763dbf94bc82f33ccdd8fed463e91c22bb57402992e2d26196b",
+      "note": "Exact PDF retrieved and hash checked during independent review."
+    },
+    {
       "sourceId": "NekovarNiziol",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1309.7620v5",
+      "citation": "Syntomic cohomology and p-adic regulators for varieties over p-adic fields; arXiv:1309.7620v5, September 22, 2016",
+      "read": "2026-10-19",
+      "sha256": "97f319e286aa4cf5be1b9c8d100efd1ac779e985d91d8cd6b70e2a3d0870ebd0",
       "note": "Theorem 5.9 is used only with the H^i coefficient appearing in its definition and proof. Its general output is H¹_st, not an unconditional H¹_f assertion for all elliptic twists."
+    },
+    {
+      "sourceId": "BlochKato1990",
+      "kind": "published",
+      "url": "https://math.stanford.edu/~conrad/BSDseminar/refs/BKTamagawa.pdf",
+      "citation": "L-functions and Tamagawa numbers of motives; The Grothendieck Festschrift I (1990), 333–400; seminar-hosted scan",
+      "read": "2026-10-19",
+      "sha256": "ec89c6436c7e16580791eddd562c8c04a12442d8a8484f8ac75c5ea8dc04f5e5",
+      "note": "Exact PDF retrieved and hash checked during independent review."
+    },
+    {
+      "sourceId": "Kato2003",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0304233v1",
+      "citation": "Tamagawa number conjecture for zeta values; ICM 2002, Vol. III, pp.163–170; arXiv:math/0304233v1, April 16, 2003",
+      "read": "2026-10-19",
+      "sha256": "6d7f3a5924fd5291bc23870547b05552ba7fb1e39413d551f11daf052fbcf12b",
+      "note": "Exact PDF retrieved and hash checked during independent review."
+    },
+    {
+      "sourceId": "NekovarNiziolPublished",
+      "kind": "published",
+      "url": "https://msp.org/ant/2016/10-8/ant-v10-n8-p04-p.pdf",
+      "citation": "Syntomic cohomology and p-adic regulators for varieties over p-adic fields; Algebra & Number Theory 10 (2016), no.8, 1695–1790, publisher PDF",
+      "read": "2026-10-19",
+      "sha256": "f14f7b7f929c7d79d299b215bcbccfbe4a5b1fdfae61dd8587f3aefbdcf6415b",
+      "note": "Version of record inspected for source issue E-M6b-4; the display error also occurs here. The recorded finding now cites the published statement."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.6b",
+    "date": "2026-10-19",
+    "notes": "Independent review of all 18 new nodes, the 32 accepted M.5d target imports, direct supplier interfaces, four pinned baseline declarations, three coverage records, APIs/tests/planets, and all five source issues. Corrected seven nodes in place; verified eleven; added no nodes. Checked every node locator in the recorded public source versions, collated the stated-result source issue with the publisher PDF, and synchronized the reader. The suggested file elaborates at the Mathlib pin with only five permitted admitted-theorem warnings and three proved examples. The complete target-level pass is accepted with its eight explicit gaps and eighteen requests: all three stages are planned, none closed. Reachable named-node dependency graph is acyclic; stage interfaces remain precisely requested contracts. No upstream work is replanned.",
+    "checked": [
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6b/motivic-native-index-transport",
+        "verdict": "corrected",
+        "note": "Checked Levine Appendix D.1 pp.93–94, Theorem 14.7 pp.73–74 and Weibel VI (4.2) pp.480–481 against the pinned E₂ differential convention. Synchronized the inverse API name and proved the three concrete suggested examples; corrected test kinds."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6b/simultaneously-moved-product-roof",
+        "verdict": "corrected",
+        "note": "Checked Levine §11.2–11.8 pp.43–48, Appendix C pp.90–91 and D pp.94–96: common-width quotients and both localization boundaries are essential. Added the direct H.6 spectral-sequence prerequisite and unit/associativity API. Coherent diagram and filtered global-model gaps remain explicit."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6b/product-cycle-layer-identification",
+        "verdict": "corrected",
+        "note": "Checked Levine §11.14–11.15 pp.51–52 and Lemma D.6 pp.95–96. Added the direct integer-index prerequisite used by the public-page transport; intersection/shuffle and total-degree Leibniz signs agree with the corrected source convention."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6b/adams-support-boundary-comparison",
+        "verdict": "verified",
+        "note": "Checked Levine §12.5–12.12 pp.54–59 and Theorem 14.7 pp.73–74, Weibel VI §4.9 pp.485–486, and S.6 contracts. The claim is a finite-support exact-couple comparison with an explicit supplier obligation, not an integral stable λ construction. The suggested scalar criterion uses existing linear-map carriers."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6b/motivic-quotient-completion",
+        "verdict": "verified",
+        "note": "Checked Levine coniveau Proposition 2.1.3/Corollary 2.1.4 pp.11–12, Levine 2001 Theorem 14.5/Lemma 14.6 pp.71–72 and D.2 p.94. The dimension/connectivity bounds give eventual vanishing in each degree, with the Milnor and filtered-comparison inputs retained as suppliers/gaps."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.7/corrected-thomason-descent",
+        "verdict": "verified",
+        "note": "Read the full published 1989 erratum pp.675–677 and the cited original descent statements/proof interfaces pp.498–501, 516–520. The countably generated comparison and general Bott-annihilation assertion are kept distinct; the finite-dimensionality, invertibility and cohomological-dimension hypotheses are retained."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.7/finite-etale-descent-transfer",
+        "verdict": "corrected",
+        "note": "Checked Blumberg–Mandell v3 Theorem 10.1, Lemma 10.2 and Proposition 10.4 pp.43–46. Replaced the general f_!(1)=d assertion by the actual K₀ vector-bundle class and projection formula; scalar d is asserted for split covers, and the E₂ trace is distinguished. Added the direct K.3 projection-formula supplier."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.7/arithmetic-bockstein-comparison",
+        "verdict": "corrected",
+        "note": "Checked Weibel VI §4.6 pp.483–484 and Theorem 8.2/proof pp.513–514. Specified the genuine reduction maps on finite Tate twists, the vanishing inverse limit H⁰ for j≥2 and the finite-level Mittag–Leffler justification. Finite-level H⁰ and lim¹ are retained until those arguments apply."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.7/real-restriction-boundary-square",
+        "verdict": "verified",
+        "note": "Checked Weibel VI Theorem 9.1/proof pp.517–518 and §9.2–9.4 pp.518–520. The actual restriction fibre, coefficient boundary and page restriction kernels agree with the supplier contracts; no replacement by positive cohomology or odd-prime real comparison occurs."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.7/dyadic-mod-two-filtration",
+        "verdict": "verified",
+        "note": "Checked Weibel VI §9.6–9.7 pp.520–522, including the rendered Theorem 9.7 and table. The eight residues and exact-sequence orientations agree; residue 0/6 splittings and the possible nonsplit extensions are kept distinct. The real degree-two Z/4 is not replaced by two Z/2 summands."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.7/dyadic-integral-torsion-filtration",
+        "verdict": "verified",
+        "note": "Checked Weibel VI Theorem 9.5 p.520, Corollary 9.10 p.523 and rendered Theorem 9.11/proof pp.524–525. The Q₂/Z₂ coefficient passage, integral torsion and field-dependent extension parameter are correctly distinguished from the mod-two table."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.8/cubical-deligne-regulator-roof",
+        "verdict": "corrected",
+        "note": "Checked Burgos–Feliu pp.11–19 and the M.4 cubical boundary/normalization contract. Added the opposite-boundary chain isomorphism J_n=(−1)^n on cycles and both total complexes, its orientation API and a two-degree test. Support-cone truncation, semipurity and flat versus general functoriality are retained."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.8/beilinson-character-comparison",
+        "verdict": "corrected",
+        "note": "Checked Burgos–Feliu Theorem 3.5/proof pp.20–23 and Weibel V §11 pp.455–462. Required the same orientation/normalization transport on the imported higher character and the regulator, so the signs cancel in the composite. The higher additive factorial and separate K₀ Newton formula are preserved."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.8/native-tate-euler-normalizations",
+        "verdict": "verified",
+        "note": "Checked Bloch–Kato pp.369,372, Weibel V §11.12 pp.457–459, R01.6 and ES.2 supplier statements, and current native elliptic APIs. Direct dual/twist calculations give the displayed arithmetic/geometric and Rubin polynomials, including the H¹(E)(j) versus T_ℓE(j−1) shift. Existing representations are reused."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.8/local-tate-regulator-finite-condition",
+        "verdict": "verified",
+        "note": "Checked Nekovář–Nizioł Proposition 5.7 p.58 and Bloch–Kato (3.7.3) p.354, Example 3.9/Definition 3.10 p.359 and Example 3.10.1 pp.359–360. The j=1 Kummer condition and j≥2 Tate calculation have their stated local hypotheses; general H¹_st is not upgraded unconditionally to H¹_f."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.8/elliptic-kummer-selmer-adapter",
+        "verdict": "verified",
+        "note": "Checked Bloch–Kato pp.353–354,359–360,369 and Nekovář–Nizioł Theorem 5.9/proof p.59, also publisher pp.1778–1779. The geometric degree is i. Actual local maps, lift homotopies and each H¹_f assertion remain explicit prerequisites; the Selmer group is not used as a substitute for its complex."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.8/selmer-local-determinant-comparison",
+        "verdict": "verified",
+        "note": "Checked Kato §1.2 p.165/§2.1 pp.166–168, Bloch–Kato §5.1 p.369, and D7/L2/L4/L5/MC.2/PS.0 contracts. The triangle gives det Selmer = det compact × product det local-positive with graded signs. Perfection and independent period factors remain requests; no zeta-basis existence is inferred."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.8/number-field-chern-lattice-index",
+        "verdict": "verified",
+        "note": "Checked Weibel V §11 pp.455–462, VI §8.1–8.2 pp.513–514, Bloch–Kato §5.1 p.369 and the pinned covolume theorem. The factorial scaling and index direction are correct. Both actual full lattices and the integral-image hypotheses are required; a rational span alone supplies neither discreteness nor index."
+      }
+    ]
+  }
 }
