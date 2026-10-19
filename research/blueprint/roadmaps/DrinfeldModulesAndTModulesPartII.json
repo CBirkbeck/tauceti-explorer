@@ -1,0 +1,225 @@
+{
+ "id": "DrinfeldModulesAndTModulesPartII",
+ "title": "Drinfeld modules, t-motives and characteristic-p special values, Part II: multiple zeta values and Thakur's basis",
+ "area": "functionfields",
+ "parent": "DrinfeldModulesAndTModules",
+ "summary": "Thakur's multiple zeta values ζ_A(s) over F_q[θ], Harada's alternating values and the Carlitz multiple polylogarithms, with the q-shuffle and harmonic products, Todd's operators on binary relations and the generation theorems of Ngo Dac (Brown's theorem in positive characteristic), the rewriting operator of Chang, Chen and Mishiba and the strong Brown theorem of Im, Kim, Le, Ngo Dac and Pham. Through the period interpretation by dual t-motives, Chang's descent theorem and the Anderson–Brownawell–Papanikolas criterion, the linear relations are reduced to Frobenius difference systems whose solution spaces are computed. The end theorems are Thakur's basis conjecture and Todd's dimension conjecture dim_K Z_w = d(w), the description of all linear relations, and dim_K AZ_w = s(w) for alternating values.",
+ "readme": "This roadmap extends Drinfeld modules, t-motives and characteristic-p special values (DrinfeldModulesAndTModules) from depth one to multiple zeta values. It starts where that roadmap stops: DM.0 supplies the Carlitz products ℓ_d, DM.2 supplies C_∞, the Carlitz exponential and logarithm, the period π̃ and the function Ω, DM.4 supplies effective dual t-motives, DM.6 supplies the depth-one power sums S_d(s) = ℓ_d^{−s} for s ≤ q, and DM.8 supplies the coefficient twist, the Tate algebra T, the ring E of entire series, the Anderson–Brownawell–Papanikolas criterion, the rational common-denominator theorem and the uniqueness of fundamental matrices. The layers are: values and indices (MZ.0), products (MZ.1), binary relations and the generation theorems (MZ.2), period interpretation and the independence criterion (MZ.3), Frobenius difference systems (MZ.4) and the independence and dimension theorems (MZ.5). Sources: Ngo Dac, Annals 194 (2021); Chang–Chen–Mishiba, Forum Math. Pi 11 (2023); Im–Kim–Le–Ngo Dac–Pham, Forum Math. Pi 12 (2024) with their Note in Acta Math. Vietnam. 49 (2024); Chang, Compositio 150 (2014); Chang–Papanikolas–Yu, JEMS 21 (2019); Thakur's papers on relations, shuffles and power sums. Classical real multiple zeta values (PeriodsAndSpecialValues PS.9) are an analogy only. Non-goals: v-adic multiple zeta values themselves (Chang–Mishiba) and Todd's full relation conjecture in its C-and-B* form beyond the B*-version proved by Chang–Chen–Mishiba. Reader document: research/blueprint/readmes/DrinfeldModulesAndTModulesPartII.md.",
+ "prerequisites": [
+  "DrinfeldModulesAndTModules"
+ ],
+ "stages": [
+  {
+   "key": "MZ.0",
+   "title": "Indices, power sums, multiple zeta values and Carlitz multiple polylogarithms",
+   "description": "Conventions: A = F_q[θ], K = F_q(θ), K_∞ = F_q((1/θ)) with |θ|_∞ = q, C_∞ and K̄ ⊂ C_∞ from DM.2, A_{+,d} the monic polynomials of degree d, ℓ_0 = 1 and ℓ_d = ∏_{i=1}^{d}(θ − θ^{q^i}) (DM.0), D_1 = θ^q − θ, and π̃ = 1/Ω(θ) the Carlitz period normalised as in DM.2 (π_ND).\n\nTargets.\n- Indices s = (s_1, …, s_r) of positive integers with weight wt(s) and depth dep(s), the empty index, concatenation, s_+ and s_−; the prefix-dominance order s ≤ t (equal weight, every zero-padded prefix sum of s at most that of t), the collapse T_i, the coordinatewise sum, the initial tuple Init(s) with its lexicographic order and k-admissibility. Arrays (ε; s) with ε ∈ (F_q^×)^r, their character χ(ε) = ε_1⋯ε_r, the sum of arrays and the preorder on arrays of equal character.\n- Power sums of both realisations: S_d(ε; s) = Σ ε_1^{deg a_1}⋯ε_r^{deg a_r}/(a_1^{s_1}⋯a_r^{s_r}) over monic a_i with d = deg a_1 > ⋯ > deg a_r ≥ 0, and Si_d(ε; s) = Σ ε_1^{d_1}⋯ε_r^{d_r}/(ℓ_{d_1}^{s_1}⋯ℓ_{d_r}^{s_r}) over d = d_1 > ⋯ > d_r ≥ 0, with the truncated sums S_{<d}, Si_{<d}, the empty-index conventions and the factorisations S_d(ε; s) = S_d(ε_1; s_1)S_{<d}(ε_−; s_−).\n- Thakur's multiple zeta values ζ_A(s) = Σ_{d ≥ 0} S_d(s) ∈ K_∞ and Harada's alternating values ζ_A(ε; s); convergence; Thakur's theorem that every ζ_A(s) is nonzero (Thakur 2009 Theorem 4).\n- Carlitz multiple polylogarithms Li_s(z_1, …, z_r) = Σ_{d_1 > ⋯ > d_r ≥ 0} z_1^{q^{d_1}}⋯z_r^{q^{d_r}}/(ℓ_{d_1}^{s_1}⋯ℓ_{d_r}^{s_r}) with their convergence domain, the values Li(s) = Li_s(1, …, 1) and the alternating values Li(ε; s), and Li_s(γ) = γ_1⋯γ_r Li(ε; s) when γ_i^{q−1} = ε_i; nonvanishing on the polydisc |z_i| < q^{s_i q/(q−1)} (Chang 2014 Remark 5.1.5).\n- Carlitz's identity S_d(ε; s) = Si_d(ε; s) when every s_i ≤ q, hence ζ_A(ε; s) = Li(ε; s) on Thakur's range (Im–Kim–Le–Ngo Dac–Pham Lemma 1.2; Chang–Chen–Mishiba Remark 2.2.6).\n- The K-spans Z_w, AZ_w, L_w, AL_w of weight-w values (Z_0 = K), the index families I^T_w (Thakur), I^0_w (entries < q), IND_w = J′_w (no entry divisible by q), AT_w, AS_w, and the counting theorem |I^T_w| = |IND_w| = d(w), |AS_w| = s(w), |AT_w| = t(w) with the block bijection ι : IND_w → I^T_w.\n- Carlitz's evaluation ζ_A(q − 1) = Li(q − 1) = −π̃^{q−1}/D_1 and the notion of an Eulerian value (an element of K·π̃^w).\n\nAcceptance: ζ_A(1) = log_C(1); for q = 2, I^T_3 = {(1,1,1), (2,1)} and d(3) = 2; (q) ∉ I^T_q but (q, 1) ∈ I^T_{q+1}; the bijection ι sends (q + 1) to (q, 1).",
+   "requires": [
+    "DrinfeldModulesAndTModules:DM.0",
+    "DrinfeldModulesAndTModules:DM.2",
+    "DrinfeldModulesAndTModules:DM.6"
+   ]
+  },
+  {
+   "key": "MZ.1",
+   "title": "The q-shuffle and harmonic products",
+   "description": "Targets.\n- Chen's coefficients Δ^{[j]}_{a,b} = (−1)^{a−1}binom(j−1, a−1) + (−1)^{b−1}binom(j−1, b−1) for (q − 1) | j and 0 < j < a + b, zero otherwise, and Chen's formula S_d(a)S_d(b) = S_d(a + b) + Σ_j Δ^{[j]}_{a,b} S_d(a + b − j, j) for every d ∈ Z, with Harada's alternating form; the low-weight vanishing Δ = 0 when a + b ≤ q.\n- The weight-graded K-space H with basis the indices, the multilinear bracket, the box-plus operator, the harmonic product ∗ (stuffle) and Thakur's q-shuffle product ∗^ζ with Chen's correction term D^ζ_{s,n}; depth bounds for the products.\n- The realisation maps 𝔏^•_d, 𝔏^•_{<d} : H → K and 𝔏^• : H → K_∞ (• ∈ {Li, ζ}) with 𝔏^{Li}(s) = Li(s) and 𝔏^ζ(s) = ζ_A(s), and the theorem that they are multiplicative for ∗ and ∗^ζ respectively (Chang–Chen–Mishiba Proposition 2.3.5).\n- Controlled product expansions of S_d S_d, S_{<d} S_{<d} and S_d S_{<d} for arrays in both realisations, with coefficients in F_p (resp. F_q), terms ≤ the sum array and depth at most the sum of depths (Ngo Dac Proposition 2.1; Im–Kim–Le–Ngo Dac–Pham Propositions 1.3 and 4.2).\n- Z = Σ_w Z_w, AZ, L and AL are K-algebras graded by weight, and π̃^{m(q−1)} = (−D_1)^m ζ_A(q − 1)^m lies in Z_{m(q−1)} ∩ L_{m(q−1)}.\n\nAcceptance: ζ_A(1)² = ζ_A(2) + 2ζ_A(1, 1) for every q; for q = 2, Δ^{[1]}_{1,2} = 1 and Δ^{[2]}_{1,2} = 0, so S_d(1)S_d(2) = S_d(3) + S_d(2, 1) and ζ_A(1)ζ_A(2) = ζ_A(3) + ζ_A(1, 2); for q = 3, S_d(2)² = S_d(4) + S_d(2, 2); the harmonic square [1] ∗ [1] = 2[1, 1] + [2].",
+   "requires": [
+    "DrinfeldModulesAndTModulesPartII:MZ.0"
+   ]
+  },
+  {
+   "key": "MZ.2",
+   "title": "Binary relations, Todd's operators and the generation theorems",
+   "description": "Targets.\n- Binary relations of weight w in both realisations (families with Σ a_i S_d(s_i) + Σ b_i S_{d+1}(t_i) = 0 for every d ∈ Z), fixed relations, the spaces BR_w and P^•_w, and the summation principle that a binary relation gives a linear relation among the values.\n- Thakur's fundamental relation R_1: S_d(q) + D_1 S_{d+1}(1, q − 1) = 0 for every d, in both realisations, and its alternating form R_ε.\n- Todd's operators B*, C and the cancellation operator BC_q (Ngo Dac §2.2; Im–Kim–Le–Ngo Dac–Pham §1.2; Chang–Chen–Mishiba §A.3, with the iterate BC^{•,m}_q), each sending binary relations to binary relations of the shifted weight, and the controlled form of C_W(R_1).\n- The reduction step for an index with a first entry exceeding q or a terminal q (Ngo Dac Propositions 2.12–2.13; Im–Kim–Le–Ngo Dac–Pham Propositions 1.7 and 4.6) and the k-admissible reduction with its termination (Ngo Dac Proposition 3.2).\n- Brown's theorem in positive characteristic: I^T_w spans Z_w and dim_K Z_w ≤ d(w) (Ngo Dac Theorem A); the weak Brown theorems for ACMPLs and AMZVs (AT_w generates AL_w and AZ_w) and the bridges AZ_w = AL_w and Z_w = L_w.\n- The rewriting calculus of Chang–Chen–Mishiba: the Thakur decomposition s = (s^T, q^{{m}}, s′), the operators α_q and U^•, the theorem that U^• preserves both realisations and that an iterate carries every element of H into the span of I^T (Theorem 3.2.4), and the second generating set {Li(s) : s ∈ IND_w} of Z_w (Theorem 3.2.6).\n- The strong Brown theorem: AS_w generates AL_w, so dim_K AL_w ≤ s(w), with the transition matrix from AT_w to AS_w congruent to a signed permutation matrix modulo D_1 (Im–Kim–Le–Ngo Dac–Pham Theorem 1.11, with its proof completed).\n- The explicit next-weight relation ζ_A(2q − 1) + D_1 ζ_A(1, 2q − 2) = 0.\n\nAcceptance: for q = 2 the algorithm gives ζ_A(3) = (θ² + θ)²(ζ_A(1, 1, 1) + ζ_A(2, 1)); for every q, ζ_A(q) = −D_1 ζ_A(1, q − 1); U^• fixes every index of I^T.",
+   "requires": [
+    "DrinfeldModulesAndTModulesPartII:MZ.1"
+   ]
+  },
+  {
+   "key": "MZ.3",
+   "title": "Period interpretation, Chang's descent and the ABP independence criterion",
+   "description": "Targets.\n- Anderson–Thakur polynomials H_n ∈ A[t] (in Ngo Dac's indexing, H_n = Anderson–Thakur's H_{n−1}) and Carlitz factorials Γ_n, with deg_θ H_n < nq/(q − 1), H_n = 1 for n ≤ q and H_{q+k−1} = (t^q − t) + (k − 1)(t^q − θ^q) for 1 < k ≤ q − 1, and the interpolation formula (H_s Ω^s)^{(d)}(θ) = Γ_s S_d(s)/π̃^s.\n- Chang's deformation series 𝔏(s; Q) = Σ_{i_1 > ⋯ > i_r ≥ 0} (Ω^{s_r}Q_r)^{(i_r)}⋯(Ω^{s_1}Q_1)^{(i_1)} for Q ∈ K̄[t]^r with the termwise bound ‖Q_j‖ < |θ|^{q s_j/(q−1)}; it lies in the ring E of DM.8 and satisfies 𝔏(s; Q)(θ^{q^j}) = 𝔏(s; Q)(θ)^{q^j}; at θ it gives Γ_s ζ_A(s)/π̃^w (Q = H), γ_1⋯γ_r Γ_s ζ_A(ε; s)/π̃^w (Q = γH) and γ_1⋯γ_r Li(ε; s)/π̃^w (Q = γ).\n- The dual t-motives M_{s,Q} given by the bidiagonal matrices Φ_{s,Q} with rigid analytic trivialisations Ψ_{s,Q}, Ψ^{(−1)} = ΦΨ, as effective dual t-motives in the sense of DM.4.\n- Chang's MZ property and Chang's descent theorem: families of nonzero MZ-property values of distinct weights that are K-linearly independent weight by weight remain K̄-linearly independent together with 1; consequences: K- and K̄-independence agree in a fixed weight, the K̄-algebra generated by MZVs (resp. CMPL values at algebraic points) is graded by weight and defined over K, and the Eulerian descent.\n- The merged prefix system: for a finite family of pairs (s_i; Q_i) of weight w and coefficients a_i ∈ A, the matrices Φ′, Φ, Ψ′, Ψ indexed by proper prefixes, with Ψ^{(−1)} = ΦΨ and det Φ a power of t − θ.\n- The ABP independence criterion (Im–Kim–Le–Ngo Dac–Pham Theorem 2.4, extending Ngo Dac §5 and Chang–Chen–Mishiba Lemma 5.1.1): if the lower-weight prefix values are K-linearly independent and a + Σ a_i 𝔏(s_i; Q_i)(θ) = 0, then every suffix combination f_t(θ) lies in K, and the relation yields a polynomial splitting row over a common denominator in F_q[t]; the Eulerian suffix constraint ((q − 1) divides the suffix weight of an isolated tail) follows.\n\nAcceptance: H_1 = ⋯ = H_q = 1; for s = (1) the system is Φ = [[t − θ, 0], [1, 1]] with Ψ = [[Ω, 0], [𝔏(1), 1]]; the criterion with a single index recovers ζ_A(s) ∉ K·π̃^w unless (q − 1) | w.",
+   "requires": [
+    "DrinfeldModulesAndTModulesPartII:MZ.0",
+    "DrinfeldModulesAndTModules:DM.2",
+    "DrinfeldModulesAndTModules:DM.4",
+    "DrinfeldModulesAndTModules:DM.8"
+   ]
+  },
+  {
+   "key": "MZ.4",
+   "title": "Frobenius difference systems and their solution spaces",
+   "description": "Targets.\n- The coefficient ring R = {f/g : f ∈ K̄[t], 0 ≠ g ∈ F_q[t]}, the system (E_M): ε_s^{(1)} = (ε_s + Σ_{(s, s′) ∈ 𝔦(M), s′ ≠ ∅} ε_{(s,s′)})(t − θ)^{w − wt(s)} for s in the initial segments 𝔦(M) of a set M of weight-w indices, the index set IND°_w (first entry arbitrary, later entries divisible by q − 1), the system (E_w) and its F_q(t)-space of solutions X_w; the character-twisted system of Im–Kim–Le–Ngo Dac–Pham (3.4)–(3.5).\n- Monic Frobenius descent: if ε ∈ R solves ε^{(1)} = εF + G with F, G ∈ A[t], F of positive t-degree with leading coefficient in F_q^×, then ε ∈ F_q(t)[θ]; and the θ-degree bound deg_θ ε_s ≤ (w − wt(s))/(q − 1) for solutions of (E_M), with the Kuan–Lin form deg_θ δ ≤ max{qm/(q − 1), deg_θ F/q} for εδ = δ^{(−1)}(t − θ)^m + F^{(−1)}.\n- The key lemma (Chang–Chen–Mishiba Lemma 5.1.1): a K-linear relation Σ a_s Li(s) ∈ K·π̃^w supported on M, with lower-weight independence, gives the Eulerian support constraint and a solution of (E_M) with ε_s = a_s|_{θ=t} for s ∈ M.\n- The dimension theorem dim_{F_q(t)} X_w = 1 if (q − 1) | w and 0 otherwise, with a normalised generator (Chang–Chen–Mishiba Theorem 4.3.5), and its character-twisted analogue: the system (3.4)–(3.5) has no nonzero solution unless (q − 1) | w and the character is trivial, and then its solutions form a line.\n- Ngo Dac's two-row system for q < w ≤ 2q − 2: the only solutions of (6.3)–(6.4) with a_1, a_2 ∈ F_q[t] are zero.\n\nAcceptance: (E_0) is ε_∅^{(1)} = ε_∅ with X_0 = F_q(t); (E_q), with IND°_q = {(1, q − 1)}, has three equations and X_q is a line when q = 2 and zero when q > 2; the degree-zero analogue of monic descent fails (a root of δ² − δ = 1 in F_4 solves δ^{(1)} = δ + 1 over F_2 without lying in F_2).",
+   "requires": [
+    "DrinfeldModulesAndTModulesPartII:MZ.3",
+    "DrinfeldModulesAndTModules:DM.8"
+   ]
+  },
+  {
+   "key": "MZ.5",
+   "title": "Linear independence, Thakur's basis and the dimension theorems",
+   "description": "Targets.\n- Ngo Dac's theorems: the MZVs indexed by I^0_w are K-linearly independent for every w (Theorem B), I^T_w is a basis of Z_w for w ≤ q (Corollary C), the MZVs indexed by IND_w are independent for q > 2 and w ≤ 2q − 2 (Theorem 6.2), and I^T_w is a basis with dim_K Z_w = d(w) for w ≤ 2q − 2 (Theorem D).\n- The CMPL basis {Li(s) : s ∈ IND_w} of Z_w (Chang–Chen–Mishiba Theorem 5.2.1) and Thakur's basis theorem: for every w ≥ 1, {ζ_A(s) : s ∈ I^T_w} is a K-basis of Z_w and dim_K Z_w = d(w) (Todd's dimension conjecture), also over K̄ (Chang–Chen–Mishiba Theorem 1.2.4; Im–Kim–Le–Ngo Dac–Pham Theorem B).\n- All K-linear relations among MZVs of weight w are generated by [s] − U^ζ(s), s ∈ I_w ∖ I^T_w, and Ker 𝔏^ζ = ⊕_w R_w (Chang–Chen–Mishiba Theorem 5.4.2).\n- The character splitting of relations among ACMPL periods, the relations theorem for normalised ACMPL periods indexed by J′_w augmented by 1 (Im–Kim–Le–Ngo Dac–Pham Theorem 3.4), the Hoffman-like basis AS_w of AL_w with dim_K AL_w = s(w) (Theorem 3.6), the lower bound dim_K Z_w ≥ d(w) through CMPLs (Proposition 4.10) and the dimension of alternating MZVs dim_K AZ_w = s(w) with basis AS_w (Theorem A).\n- The direct small-weight bounds for AMZVs without ACMPLs (Im–Kim–Le–Ngo Dac–Pham Propositions 4.11 and 4.13) and the v-adic upper bound dim_K Z_{v,w} ≤ d(w) − d(w − (q − 1)) (Chang–Chen–Mishiba Corollary 1.2.7).\n\nAcceptance: dim_K Z_1 = 1 and dim_K Z_q = 2^{q−1} − 1; for q = 3, I^T_4 = {(1,1,1,1), (1,1,2), (1,2,1), (2,1,1), (2,2), (3,1)} is a basis of Z_4, so dim_K Z_4 = d(4) = 6, while IND_4 = {(4), (2,2), (2,1,1), (1,2,1), (1,1,2), (1,1,1,1)}; dim_K AZ_1 = q − 1 and, for q = 3, dim_K AZ_4 = s(4) = 46.",
+   "requires": [
+    "DrinfeldModulesAndTModulesPartII:MZ.2",
+    "DrinfeldModulesAndTModulesPartII:MZ.4"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "ND21",
+   "title": "On Zagier–Hoffman's conjectures in positive characteristic",
+   "authors": "Tuan Ngo Dac",
+   "edition": "HAL hal-03298790v1 (manuscript dated 29 March 2021, 26 printed pages after the HAL cover); Annals of Mathematics 194 (2021), no. 1, 361–392, doi:10.4007/annals.2021.194.1.6. Locators are the printed manuscript pages.",
+   "url": "https://hal.science/hal-03298790",
+   "readSections": [
+    "§1, pp. 1–5",
+    "§2 (2.1–2.3), pp. 5–14",
+    "§3, pp. 14–16",
+    "§4, pp. 16–18",
+    "§5, pp. 18–22",
+    "§6, pp. 22–24",
+    "References, pp. 25–26"
+   ]
+  },
+  {
+   "id": "CCM23",
+   "title": "On Thakur's basis conjecture for multiple zeta values in positive characteristic",
+   "authors": "Chieh-Yu Chang, Yen-Tsung Chen and Yoshinori Mishiba",
+   "edition": "arXiv:2205.09929v2 (11 July 2022, 32 pages); Forum of Mathematics, Pi 11 (2023), e26, doi:10.1017/fmp.2023.26 (the published version numbers statements by section: arXiv Theorem 1.2.4 = published Theorem 1.5, Theorem 5.4.2 = Theorem 5.3).",
+   "url": "https://arxiv.org/abs/2205.09929v2",
+   "readSections": [
+    "§1, pp. 1–6",
+    "§2, pp. 6–10",
+    "§3, pp. 10–12",
+    "§4, pp. 13–21",
+    "§5, pp. 21–26",
+    "Appendix A, pp. 26–31",
+    "References, pp. 31–32"
+   ]
+  },
+  {
+   "id": "IKLNDP24",
+   "title": "Zagier–Hoffman's conjectures in positive characteristic",
+   "authors": "Bo-Hae Im, Hojin Kim, Khac Nhuan Le, Tuan Ngo Dac and Lan Huong Pham",
+   "edition": "arXiv:2205.07165v2 (10 June 2024, 60 pages); Forum of Mathematics, Pi 12 (2024), doi:10.1017/fmp.2024.18 (the published version numbers the introduction as §1, so its section numbers are one more than the preprint's: arXiv Theorem 3.4 = published Theorem 4.4).",
+   "url": "https://arxiv.org/abs/2205.07165v2",
+   "readSections": [
+    "§0, pp. 1–7",
+    "§1 (1.1–1.4), pp. 7–25",
+    "§2, pp. 26–33",
+    "§3, pp. 33–42",
+    "§4, pp. 43–58"
+   ]
+  },
+  {
+   "id": "IKLNDP-NOTE",
+   "title": "Note on linear independence of alternating multiple zeta values in positive characteristic",
+   "authors": "Bo-Hae Im, Hojin Kim, Khac Nhuan Le, Tuan Ngo Dac and Lan Huong Pham",
+   "edition": "HAL hal-04240841v3 (30 July 2024); Acta Mathematica Vietnamica 49 (2024), 485–521, doi:10.1007/s40306-024-00554-4. Locators are the printed pages of the HAL version.",
+   "url": "https://hal.science/hal-04240841",
+   "readSections": [
+    "§1, pp. 1–4",
+    "§2.1–2.2, pp. 5–6"
+   ]
+  },
+  {
+   "id": "CHANG14",
+   "title": "Linear independence of monomials of multizeta values in positive characteristic",
+   "authors": "Chieh-Yu Chang",
+   "edition": "arXiv:1207.2326 (20 pages); Compositio Mathematica 150 (2014), 1789–1808.",
+   "url": "https://arxiv.org/abs/1207.2326",
+   "readSections": [
+    "§2.2, p. 5",
+    "§3.4, pp. 8–9",
+    "§4, pp. 9–12",
+    "§5.1–5.5, pp. 13–19"
+   ]
+  },
+  {
+   "id": "CPY19",
+   "title": "An effective criterion for Eulerian multizeta values in positive characteristic",
+   "authors": "Chieh-Yu Chang, Matthew A. Papanikolas and Jing Yu",
+   "edition": "arXiv:1411.0124 (32 pages); Journal of the European Mathematical Society 21 (2019), 405–440.",
+   "url": "https://arxiv.org/abs/1411.0124",
+   "readSections": [
+    "§2.2, Proposition 2.2.1, p. 6",
+    "§2.3, Proposition 2.3.3, p. 7"
+   ]
+  },
+  {
+   "id": "THAKUR09R",
+   "title": "Relations between multizeta values for F_q[t]",
+   "authors": "Dinesh S. Thakur",
+   "edition": "International Mathematics Research Notices 2009, no. 12, 2318–2346 (author's copy); doi:10.1093/imrn/rnp018.",
+   "url": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/imrnrelation.pdf",
+   "readSections": [
+    "§2.7.7, Theorem 5, p. 2326",
+    "§3.4.6, proof of Theorem 5, p. 2332"
+   ]
+  },
+  {
+   "id": "THAKUR10",
+   "title": "Shuffle relations for function field multizeta values",
+   "authors": "Dinesh S. Thakur",
+   "edition": "International Mathematics Research Notices 2010, no. 11, 1973–1980 (author's copy); doi:10.1093/imrn/rnp202. The higher-depth induction is corrected in the author's updates list.",
+   "url": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/shufflepub.pdf",
+   "readSections": [
+    "Theorems 1–3 with proofs, pp. 1975–1979"
+   ]
+  },
+  {
+   "id": "THAKUR09P",
+   "title": "Power sums with applications to multizeta and zeta zero distribution for F_q[t]",
+   "authors": "Dinesh S. Thakur",
+   "edition": "Finite Fields and Their Applications 15 (2009), 534–552 (author's copy); doi:10.1016/j.ffa.2009.04.002.",
+   "url": "https://www.sas.rochester.edu/mth/sites/dinesh-thakur/ffafinal.pdf",
+   "readSections": [
+    "§4, Theorems 1–2, pp. 540–541",
+    "§5, Theorems 3–4, pp. 541–542"
+   ]
+  },
+  {
+   "id": "CH21",
+   "title": "On lower bounds of the dimensions of multizeta values in positive characteristic",
+   "authors": "Yen-Tsung Chen and Ryotaro Harada",
+   "edition": "arXiv:2012.00340; Documenta Mathematica 26 (2021), 537–559.",
+   "url": "https://arxiv.org/abs/2012.00340",
+   "readSections": [
+    "§1, pp. 1–5",
+    "§2.4, Proposition 2.12, p. 13"
+   ]
+  },
+  {
+   "id": "LRT14",
+   "title": "Zeta-like multizeta values for F_q[t]",
+   "authors": "José Alejandro Lara Rodríguez and Dinesh S. Thakur",
+   "edition": "arXiv:1312.4928; Indian Journal of Pure and Applied Mathematics 45 (2014), 787–801.",
+   "url": "https://arxiv.org/abs/1312.4928",
+   "readSections": [
+    "§3, Theorems 3.1–3.2, pp. 3–8"
+   ]
+  },
+  {
+   "id": "PAP08",
+   "title": "Tannakian duality for Anderson–Drinfeld motives and algebraic independence of Carlitz logarithms",
+   "authors": "Matthew A. Papanikolas",
+   "edition": "arXiv:math/0506078v2; Inventiones Mathematicae 171 (2008), 123–174.",
+   "url": "https://arxiv.org/abs/math/0506078v2",
+   "readSections": [
+    "§4.1.6, p. 22 (uniqueness of rigid analytic trivialisations), consulted for the DM.8 interface"
+   ]
+  },
+  {
+   "id": "ABP04",
+   "title": "Determination of the algebraic relations among special Γ-values in positive characteristic",
+   "authors": "Greg W. Anderson, W. Dale Brownawell and Matthew A. Papanikolas",
+   "edition": "arXiv:math/0207168; Annals of Mathematics 160 (2004), 237–313.",
+   "url": "https://arxiv.org/abs/math/0207168",
+   "readSections": [
+    "Theorem 3.1.1 statement and §3.1.2 (Ω and π̃), consulted for the DM.8 interface"
+   ]
+  }
+ ],
+ "status": "draft"
+}
