@@ -2,7 +2,7 @@
 
 This roadmap builds the general Hodge and exponential machinery used in the appendix to Fresán–Sabbah–Yu’s *Hodge theory of Kloosterman connections*. Its outputs are usable categories and operations, a strict bifiltered exponential realization, the classicality theorem for the function tg, Fourier costalk and monodromy formulas, and logarithmic/Newton descriptions of the rational filtration. It includes Hodge modules in the dimensions needed by products and graph compactifications; restricting the entire construction to curves would not support its pair-cohomology applications.
 
-The linear Hodge structures are the existing Tau Ceti carriers. SpringerResolutionAndCharacteristicCycles owns algebraic differential operators, good filtrations, holonomicity, transfer, duality and intermediate extension. HodgeStructuresPartII owns variations, canonical extensions and nilpotent-orbit theory. Their exact inputs and requested extensions are listed below. Betti constructible sheaves here use rational and complex coefficients on analytifications; the étale roadmaps continue to own their ℓ-adic categories.
+The linear Hodge structures are the existing Tau Ceti carriers. SpringerResolutionAndCharacteristicCycles owns algebraic differential operators, good filtrations, holonomicity, transfer, duality and intermediate extension. HodgeStructuresPartII owns variations, canonical extensions and nilpotent-orbit theory; LefschetzPencilsAndVanishingCycles LPV.1 owns the linear algebra of monodromy filtrations and LPV.3 Lefschetz pencils; AlgebraicModuliForArithmeticGeometry R09.7 owns resolution, principalization and SNC compactification; ComplexComparisonPartII cites the analytification carrier and owns Deligne's regular-singular equivalence. Their exact nodes appear in the prerequisites below, and the remaining requested extensions are listed below. Betti constructible sheaves here use rational and complex coefficients on analytifications; the étale roadmaps continue to own their ℓ-adic categories.
 
 KloostermanMomentsAndPotentialAutomorphy is the first consumer. It owns its special connections, symmetric powers, Newton polytopes, explicit monomial bases, parity and singularity tests, Jordan blocks and numerical Hodge counts. The present targets export the general interfaces used in those computations.
 
@@ -13,12 +13,12 @@ KloostermanMomentsAndPotentialAutomorphy is the first consumer. It owns its spec
 - Left Hodge filtrations are increasing F_p, with decreasing notation F^p=F_{−p}. The constant left module starts at F_0O_X. Side changing gives F_p(M_right)=ω_X⊗F_{p+d}(M_left). For i:pt→A¹, F_p i_+V=Σ_{k≥0}F_{p−1−k}V·∂^k. This shift cancels the degree-one shift in its de Rham realization.
 - Tau Ceti’s Tate convention is Q(m) of weight −2m with F^p nonzero through p=−m. Duality therefore gives D(pQ_X)=pQ_X(d). On a smooth divisor i!pQ_X=pQ_D(−1)[−1], while i*pQ_X=pQ_D[1].
 - Exponential connections use d+df. For input τ and output t, Fourier kernel E^{tτ} gives t=−∂_τ and ∂_t=τ; Fourier squared is the sign involution. At infinity x=θ⁻¹ the exponential operator on coefficients is ∂_x−x⁻².
-- The specialization filtration is increasing V_α, with x∂_x+α nilpotent on gr^V_α. Full nearby cycles include every monodromy eigenvalue. The unipotent N is (2πi)⁻¹log T_u; the supplier must give the conversion from its residue convention and from topological T−1 to normalized can and var.
+- The specialization filtration is increasing V_α, with x∂_x+α nilpotent on gr^V_α. Full nearby cycles include every monodromy eigenvalue. The unipotent N is (2πi)⁻¹log T_u. With HodgeStructuresPartII's residue convention T=exp(−2πi·Res) this is N=−Res on a unipotent block; the topological relation var∘can=T−1 is converted to the normalized can and var at B/betti-cycles.
 - Weights W^E in EMHS descend through Π. They differ from ambient MHM(A¹) weights. In particular K=Πδ_0Q is exponentially pure of weight zero but has ambient pieces of weights zero and one.
 - The de Rham fibre is ωN=H¹_dR(A¹,N⊗E^θ). Its rational decreasing irregular filtration is the image of F^{Del}_{−λ}DR in degree one. For classical objects it is F^{ceil(λ)}. Constants have zero exponential fibre.
 - The build order is B → D → F → H.0 → H.1 → E → I → C → P → G → T → N, with the additional supplier arrows written at each target. F/additive-convolution first concerns underlying holonomic complexes; its Hodge lift is obtained at H.1. N/filtered-kunneth-duality is the filtered product theorem, distinct from P’s exponential-category product theorem.
 
-A “Check” below is an acceptance condition on the future development. Planned API names and unit tests are specifications. The compact [suggested Lean file](../suggested/MixedHodgeModulesAndIrregularHodgeTheory.lean) contains the polynomial specialization of F/exponential-twist and existing Tate-carrier convention checks. The remaining targets need carriers absent at the pins and are stated in this document, following the 2026-10-12 shape rule. All packet implementation statuses are unchecked.
+A “Check” below is an acceptance condition on the future development. Planned API names and unit tests are specifications. The compact [suggested Lean file](../suggested/MixedHodgeModulesAndIrregularHodgeTheory.lean) contains the polynomial specialization of F/exponential-twist, the point case of simultaneous W∩F strictness from H.0/abelian-strictness on the pinned mixed Hodge structures, and existing Tate-carrier convention checks. The remaining targets need carriers absent at the pins and are stated in this document, following the 2026-10-12 shape rule. All packet implementation statuses are unchecked.
 
 ## Existing baseline and supplier boundaries
 
@@ -30,43 +30,39 @@ Baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f7904748
 
 **`mathlib:Polynomial.derivative_mul`** — Leibniz rule for the formal polynomial derivative; supplies the affine rank-one connection check. Source module: `Mathlib/Algebra/Polynomial/Derivative.lean`.
 
-**`tauceti:TauCeti.Hodge.HodgeStructureOn`** — Finite dimensional opposed Hodge filtration on a complex space with real structure, of specified weight. Source module: `TauCeti/Geometry/Hodge/Structure.lean`.
+**`tauceti:TauCeti.Hodge.HodgeStructureOn`** — A pure Hodge structure of weight n on a complex vector space with a conjugation: a decreasing exhaustive filtration n-opposed to its conjugate. It imposes no finiteness and no rational or integral structure; HodgeStructure specializes it to a base change of an abelian group. Source module: `TauCeti/Geometry/Hodge/Structure.lean`.
 
-**`tauceti:TauCeti.Hodge.MixedHodgeStructure`** — Finite rational increasing weight filtration, decreasing complex Hodge filtration, and pure structures on the graded pieces, with the explicit base-change maps. Source module: `TauCeti/Geometry/Hodge/Mixed/Basic.lean`.
+**`tauceti:TauCeti.Hodge.MixedHodgeStructure`** — A mixed Hodge structure on an abelian group Vℤ with rational and complex base-change models: a finite increasing rational weight filtration WQ, a finite decreasing complex Hodge filtration F, and pure structures on the rational graded pieces. Taking Vℤ to be a rational space with the identity model gives rational mixed Hodge structures; finite dimension and graded polarizability are not imposed. Source module: `TauCeti/Geometry/Hodge/Mixed/Basic.lean`.
 
 **`tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_F_eq_map_F`** — Morphisms of the existing mixed Hodge structures are strict for F: range(f) ∩ Fᵖ(target) = f(Fᵖ(source)). Source module: `TauCeti/Geometry/Hodge/Mixed/Strictness.lean`.
 
 **`tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_WQ_eq_map_WQ`** — Rational weight strictness of existing mixed Hodge structure morphisms. Source module: `TauCeti/Geometry/Hodge/Mixed/Strictness.lean`.
 
-**`tauceti:TauCeti.Hodge.tate`** — The existing Tate Hodge structure Q(m), of weight −2m, with Fᵖ nonzero exactly when p ≤ −m. Source module: `TauCeti/Geometry/Hodge/Tate/Basic.lean`.
+**`tauceti:TauCeti.Hodge.tate`** — The Tate Hodge structure ℤ(m) on the lattice ℤ with complex model ℂ, of weight −2m, with F^p the whole line exactly when p≤−m; its rationalization is Q(m). Source module: `TauCeti/Geometry/Hodge/Tate/Basic.lean`.
 
 **`tauceti:TauCeti.Hodge.tate_F`** — The explicit top/bottom formula for the Hodge filtration of the existing Tate object. Source module: `TauCeti/Geometry/Hodge/Tate/Basic.lean`.
 
 **`tauceti:TauCeti.Hodge.HodgeStructureOn.tateTwist`** — Tate twist changes pure weight n to n−2m and shifts the Hodge filtration to Fᵖ = Fᵖ⁺ᵐ of the input. Source module: `TauCeti/Geometry/Hodge/Tate/Twist.lean`.
 
-The point category uses the graded-polarizable rational subcategory of the existing mixed Hodge structures, with its rational/complex base-change maps. The integral Tate carrier is rationalized when used as Q(m). The existing integral polarization class does not provide the rational polarization interface required for arbitrary rational variations.
+**`tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_iSup_deligneSplittingFamily_eq_map_iSup`** — For a morphism f of mixed Hodge structures and any set P of bidegrees, range f meets the sum of the target's Deligne pieces I^{p,q} over P in exactly the image of the corresponding sum for the source; with P={(r,s): p≤r, r+s≤k} this is strictness for W_k∩F^p. Source module: `TauCeti/Geometry/Hodge/Mixed/Strictness.lean`.
 
-**`EnhancedDerivedSheaves:E1` ([supplier packet](../packets/EnhancedDerivedSheaves.json))** — On the analytifications of separated finite-type complex schemes, supply the actual Q- and C-sheaf derived categories, coefficient extension, internal Hom and derived tensor, with bounded constructible inclusions. This imports E1’s ringed-site machinery; constructible finiteness, Verdier duality and middle perversity are owned by B here. Needed by [B/constructible-six-operations](#b-constructible-six-operations).
+**`mathlib:LaurentSeries`** — Formal Laurent series over a ring R, the Hahn series HahnSeries ℤ R; over C it is the field C((x)). Source module: `Mathlib/RingTheory/LaurentSeries.lean`.
 
-**`SchemeAndStackFoundations:SF.0` ([supplier packet](../packets/SchemeAndStackFoundations.json))** — Complex smooth quasi-projective varieties, their analytifications, algebraic maps and algebraic Whitney stratifications compatible with a finite collection of maps; the stratified local-triviality and normal-slice interface needed for algebraic constructibility. Needed by [B/constructible-six-operations](#b-constructible-six-operations), [B/middle-perverse](#b-middle-perverse).
+**`mathlib:PowerSeries`** — Formal power series R⟦X⟧; over C it is the lattice ring C[[x]] of formal differential modules. Source module: `Mathlib/RingTheory/PowerSeries/Basic.lean`.
 
-**`SchemeAndStackFoundations:SF.3` ([supplier packet](../packets/SchemeAndStackFoundations.json))** — Smooth curve local coordinates, C[[x]] and C((x)) completions, projective completions and coherent Riemann–Roch on the completed smooth curve, including Euler-characteristic additivity for lattice quotients. Needed by [D/formal-differential-module](#d-formal-differential-module), [D/curve-index](#d-curve-index).
+The point category uses the graded-polarizable rational subcategory of the existing mixed Hodge structures, with its rational/complex base-change maps: a rational mixed Hodge structure is realized on the pinned carrier by taking its abelian group to be the rational space itself with the identity model, and the pinned morphisms are already rational-linear. Finite dimension and graded polarizability are added conditions. The integral Tate carrier is rationalized when used as Q(m). The existing integral polarization class does not provide the rational polarization interface required for arbitrary rational variations.
 
-**`SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json))** — Resolution and compactification in characteristic zero, a smooth projective SNC compactification of the graph of a regular function, support-dimension hyperplane/Lefschetz pencils, and boundary-compatible weak factorization between two good models. Weak factorization is an explicit extension request beyond resolution/common domination. Needed by [B/regular-riemann-hilbert](#b-regular-riemann-hilbert), [H.0/projective-direct-image](#h0-projective-direct-image), [H.0/mixed-hodge-module](#h0-mixed-hodge-module), [N/logarithmic-filtration](#n-logarithmic-filtration), [N/filtered-blowup](#n-filtered-blowup), [N/model-independence](#n-model-independence), [N/constant-gauss-manin-cone](#n-constant-gauss-manin-cone).
-
-**`HodgeStructuresPartII:H.0` ([supplier packet](../packets/HodgeStructuresPartII.json))** — Finite locally free integrable connections, filtered differential/Spencer complexes and the comparison of their linear Rees modules with the existing lambda-connection convention. Good D-module filtrations themselves remain Springer’s objects. Needed by [H.0/filtered-rees](#h0-filtered-rees).
-
-**`HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json))** — Graded-polarizable rational pure and mixed variations with the existing pure/mixed Hodge carriers, rational polarization forms, admissible canonical extensions and quasi-unipotent boundary monodromy. Supply the algebraic fixed-part theorem: an admissible graded-polarizable VMHS on A¹ whose underlying rational local system is constant is a constant VMHS. This is needed when a Betti computation detects a constant Hodge module. Rational polarizations must not be identified with Tau Ceti’s integral IsPolarization without an adapter. Needed by [H.0/pure-hodge-module](#h0-pure-hodge-module), [H.0/strict-support-extension](#h0-strict-support-extension), [H.0/curve-l2-hodge](#h0-curve-l2-hodge), [H.0/mixed-hodge-module](#h0-mixed-hodge-module), [H.1/hodge-cycles](#h1-hodge-cycles), [G/tg-classicality](#g-tg-classicality), [N/constant-gauss-manin-cone](#n-constant-gauss-manin-cone).
-
-**`HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json))** — Absolute and relative monodromy filtrations, uniqueness, primitive Lefschetz decomposition and polarization, the nilpotent-orbit/Schmid norm estimates for polarizable variations on a punctured curve, and their functoriality for nearby cycles. Export an explicit sign conversion from the residue convention exp(−2πiN) to N=(2πi)⁻¹log T_u used here. Needed by [H.0/pure-hodge-module](#h0-pure-hodge-module), [H.0/curve-l2-hodge](#h0-curve-l2-hodge), [H.0/projective-direct-image](#h0-projective-direct-image), [H.0/mixed-hodge-module](#h0-mixed-hodge-module), [H.1/hodge-cycles](#h1-hodge-cycles), [T/weights-at-infinity](#t-weights-at-infinity).
+**`HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json))** — The one-variable nilpotent-orbit theorem, limiting mixed Hodge structure and norm estimates (H.6/limiting-mhs-one-variable, H.6/flat-norm-estimate) for a polarizable variation on a punctured disc with a rational (not integral) polarization and quasi-unipotent monodromy; the existing nodes assume an integral lattice. The monodromy-filtration linear algebra is imported from LefschetzPencilsAndVanishingCycles LPV.1 and the residue sign from H.2/residue-monodromy. Needed by [H.0/curve-l2-hodge](#h0-curve-l2-hodge), [H.0/projective-direct-image](#h0-projective-direct-image).
 
 **`tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`** — Integral character lattices, rational polytopes and their normal fans, regular proper refinements, affine/global toric schemes, orbit charts, boundary simple normal crossings and the algebraic properness/completeness criterion. The normal-fan refinement and polytope bridge are precise addition requests where not already in Layer 0. Needed by [N/newton-complex](#n-newton-complex), [N/newton-concentration](#n-newton-concentration), [N/newton-hodge-comparison](#n-newton-hodge-comparison), [N/constant-gauss-manin-cone](#n-constant-gauss-manin-cone).
 
-**`AnalyticToricGeometryPartII:NT.0` ([supplier packet](../packets/AnalyticToricGeometryPartII.json))** — Invariant toric divisors, their monomial valuation/section formula, and vanishing H^i(X_Σ,O(floor(aP)))=0 for i>0 and a≥0 for the Newton pole divisor on a smooth proper toric refinement. The rounded rational bound and its required vanishing are explicit additions to the divisor interface. General relative exceptional O(−1) acyclicity belongs to the separate coherent-cohomology request SF.2. Needed by [N/filtered-blowup](#n-filtered-blowup), [N/newton-complex](#n-newton-complex), [N/newton-hodge-comparison](#n-newton-hodge-comparison), [N/filtered-kunneth-duality](#n-filtered-kunneth-duality).
+**`AnalyticToricGeometryPartII:NT.0` ([supplier packet](../packets/AnalyticToricGeometryPartII.json))** — Vanishing H^i(X_Σ,O(floor(aP)))=0 for i>0 and a≥0, for the Newton pole divisor P on a smooth proper toric refinement of the normal fan (the divisor is nef with polytope aΔ), with the rounding of rational coefficients. Divisors, section weights and global sections are the existing NT.0/invariant-divisor, NT.0/section-weights and NT.0/divisor-sections. Needed by [N/newton-complex](#n-newton-complex), [N/newton-hodge-comparison](#n-newton-hodge-comparison).
 
 **`SpringerResolutionAndCharacteristicCycles:H/regular-holonomic` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json))** — Extend the regular-holonomic direction by the specializability/Bernstein b-function theorem along a smooth hypersurface, also after graph direct image. For a coherent holonomic module give a good V_0D lattice and a nonzero polynomial for the Euler action on its boundary quotient, prove its existence, and prove rationality of exponents for quasi-unipotent regular modules. The inspected regular-holonomic node defines regularity but does not provide this theorem. Rational V-filtration construction and F compatibility remain H.0/v-filtration here. Needed by [H.0/v-filtration](#h0-v-filtration).
 
-**`SchemeAndStackFoundations:SF.2` ([supplier packet](../packets/SchemeAndStackFoundations.json))** — Extend the scheme-cohomology layer to bounded coherent complexes on smooth projective complex varieties: the finite-affine Čech computation and external-product Künneth over C; Serre duality H^i(E) dual to H^{d−i}(E∨⊗ω_X) with its trace, and the corresponding perfect pairing for bounded locally free complexes. Export Rπ_*O_E(−1)=0 for a projective-bundle exceptional divisor and the projection formula for the boundary blowups here. These coherent inputs are not supplied merely by SF.2’s étale base-change targets or by SF.3’s curve Serre duality. Needed by [N/filtered-blowup](#n-filtered-blowup), [N/model-independence](#n-model-independence), [N/filtered-kunneth-duality](#n-filtered-kunneth-duality).
+**`AlgebraicModuliForArithmeticGeometry:R09.7` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json))** — For the blowup π:X′→X of a smooth complex variety along a smooth centre Ξ of codimension c≥2, the exceptional divisor E is the projective bundle P(N_{Ξ/X}) over Ξ with O_E(E)≅O_E(−1), and Rπ_*O_E(−μ)=0 for 0<μ<c; these are the blowups R09.7 uses for resolution and principalization. Needed by [N/filtered-blowup](#n-filtered-blowup), [N/filtered-kunneth-duality](#n-filtered-kunneth-duality).
+
+**`tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison`** — Existing content, no addition: the place expansion of the function field of a smooth complex curve at a C-rational place into C((x)) for a uniformizer x, compatible with derivations, used to pass from an algebraic connection to its formal differential module at a boundary point. Needed by [D/curve-index](#d-curve-index).
 
 The following stages give the actual mathematical specifications; a supplier request states its exact additional theorem rather than treating a roadmap title as evidence that the theorem exists.
 
@@ -75,7 +71,7 @@ The following stages give the actual mathematical specifications; a supplier req
 
 On analytifications of complex algebraic varieties, construct bounded algebraically constructible rational and complex sheaf categories with the support and cosupport middle perversity, recollement, Verdier duality, the six operations and nearby/vanishing cycles. Prove the algebraic regular Riemann–Hilbert comparison, normalized by DR(M)[dim X], from Springer’s regular holonomic modules. This is the Betti interface; the existing étale perverse roadmaps retain their ℓ-adic objects.
 
-**Inputs:** `EnhancedDerivedSheaves:E1` ([supplier packet](../packets/EnhancedDerivedSheaves.json)), `SchemeAndStackFoundations:SF.0` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `SpringerResolutionAndCharacteristicCycles:H/regular-holonomic` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)).
+**Inputs:** `EnhancedDerivedSheaves:E1` ([supplier packet](../packets/EnhancedDerivedSheaves.json)), `ComplexComparisonPartII:C0` ([supplier packet](../packets/ComplexComparisonPartII.json)), `ComplexComparisonPartII:C5` ([supplier packet](../packets/ComplexComparisonPartII.json)), `AlgebraicModuliForArithmeticGeometry:R09.7` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)), `SpringerResolutionAndCharacteristicCycles:H` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)).
 
 **Atlas planets:** Constructible Betti complexes; Middle perverse sheaves; Nearby and vanishing cycles; Riemann–Hilbert correspondence.
 
@@ -86,12 +82,12 @@ On analytifications of complex algebraic varieties, construct bounded algebraica
 
 **Hypotheses and conventions.** All maps are algebraic; coefficient fields are Q and C. Constructibility of a nonproper analytic direct image is not asserted.
 
-**Prerequisites:** `EnhancedDerivedSheaves:E1` ([supplier packet](../packets/EnhancedDerivedSheaves.json)), `SchemeAndStackFoundations:SF.0` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `mathlib:DerivedCategory`.
+**Prerequisites:** `mathlib:DerivedCategory`, `EnhancedDerivedSheaves:E1/ringed-pullback-pushforward` ([supplier packet](../packets/EnhancedDerivedSheaves--E0.json)), `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor` ([supplier packet](../packets/EnhancedDerivedSheaves--E0.json)), `EnhancedDerivedSheaves:E1/derived-internal-hom` ([supplier packet](../packets/EnhancedDerivedSheaves--E0.json)), `EnhancedDerivedSheaves:E1/coefficient-change-and-perfect-action` ([supplier packet](../packets/EnhancedDerivedSheaves--E0.json)), `ComplexComparisonPartII:C0/repair-analytification` ([supplier packet](../packets/ComplexComparisonPartII.json)).
 
 **Construction or proof.**
 
-1. Use EnhancedDerivedSheaves:E1 for the actual derived sheaf categories, tensor products and coefficient change; take the full bounded constructible subcategories.
-2. Choose compatible algebraic stratifications for a map and use stratified local triviality to prove finite constructibility of direct images; construct f! by Verdier duality and verify the adjunctions.
+1. Apply the EnhancedDerivedSheaves:E1 nodes for ringed topoi to the topological space X_an (from the ComplexComparisonPartII:C0/repair-analytification carrier) with constant coefficient rings Q and C: they give the derived categories, Lf*=f⁻¹ and Rf_*, derived tensor, internal Hom and coefficient change; take the full bounded constructible subcategories.
+2. Choose compatible algebraic Whitney stratifications for a map and use stratified local triviality to prove finite constructibility of direct images (the stratification theorem is gap G5); construct Rf_! by proper supports and f! as its right adjoint (Verdier duality), and verify the adjunctions.
 3. Prove localization on an open/closed pair and proper base change stalkwise, then derive support cohomology and Künneth from the projection formula.
 
 **Planning API.**
@@ -103,22 +99,22 @@ On analytifications of complex algebraic varieties, construct bounded algebraica
 
 **Unit tests.**
 
-- `BettiConstructible.point` (agreement) — On a point recover bounded complexes of finite-dimensional Q-vector spaces in the existing derived carrier.
-- `BettiConstructible.affineLine` (value) — H⁰(A¹,Q)=Q, H_c²(A¹,Q)=Q and their other cohomology groups vanish.
+- `BettiConstructible.point` (compatibility) — On a point recover bounded complexes of finite-dimensional Q-vector spaces in the existing derived carrier.
+- `BettiConstructible.affineLine` (computation) — H⁰(A¹,Q)=Q, H_c²(A¹,Q)=Q and their other cohomology groups vanish.
 - `BettiConstructible.supportZero` (non-example) — RΓ_{0}(A¹,Q)=Q[−2], whereas i_0* i_0*Q is supported in degree zero; using i* in place of i! fails this test.
 
 **Use:** FSY Example A.27 and Theorem A.30: Localize with supports along a possibly singular zero locus and identify the Fourier costalk.
 
 **Check.** RΓ_Z and RΓ_c must remain different functors. For X smooth of dimension d, D_Q(Q_X[d])=Q_X[d], before Hodge Tate twists.
 
-**Sources:** [Dimca](https://doi.org/10.1007/978-3-642-18868-8), Definition 4.1.1, Theorem 4.1.5 and Corollary 4.1.6, pp. 81–84; §4.2, pp. 107–110 — Defines finite constructibility and establishes stability, finiteness and base-change/support operations for the Betti categories.
+**Sources:** [Dimca](https://doi.org/10.1007/978-3-642-18868-8), Definition 4.1.1, Theorem 4.1.5 with Remark 4.1.7 and Corollary 4.1.6, pp. 81–84; Definition 4.2.7, p. 107; §3.2, Definition 3.2.1 and Theorem 3.2.3, p. 62; Theorem 3.3.10, p. 69 — Defines constructibility, proves stability of the algebraically constructible categories under the six operations for algebraic maps (Theorem 4.1.5) and finiteness (Corollary 4.1.6), defines S-constructibility for a Whitney stratification (4.2.7), and constructs f! with local and global Verdier duality (3.2.1, 3.2.3, 3.3.10).
 
 <a id="b-middle-perverse"></a>
 ### B/middle-perverse — Middle perverse Betti sheaves
 
 **Definition.** For an algebraic Whitney stratification and a smooth complex stratum S of dimension s, define the middle perverse t-structure by Hʲ(i_S*K)=0 for j>−s and Hʲ(i_S!K)=0 for j<−s. Prove independence of the adapted stratification, boundedness and self-duality; its heart Perv(X,Q) is abelian. Construct perverse cohomology and j_!*L=image(pH⁰j_!L→pH⁰Rj_*L). For a local system L on a smooth d-fold, L[d] is perverse. Constants on a reduced divisor in a smooth variety are perverse after the divisor-dimension shift.
 
-**Hypotheses and conventions.** Use finite algebraic constructibility from B/constructible-six-operations. The reduced divisor is a local complete intersection; no assertion for arbitrary singular constants is made.
+**Hypotheses and conventions.** Use finite algebraic constructibility from B/constructible-six-operations; the normal-slice description of strata uses the stratification input of gap G5. The reduced divisor is a local complete intersection; no assertion for arbitrary singular constants is made.
 
 **Prerequisites:** [B/constructible-six-operations](#b-constructible-six-operations).
 
@@ -137,15 +133,15 @@ On analytifications of complex algebraic varieties, construct bounded algebraica
 
 **Unit tests.**
 
-- `BettiPerverse.point` (agreement) — Perv(pt,Q) is finite-dimensional Q-vector spaces in degree zero.
+- `BettiPerverse.point` (compatibility) — Perv(pt,Q) is finite-dimensional Q-vector spaces in degree zero.
 - `BettiPerverse.constantShift` (non-example) — Q_{A¹}[1] is perverse and Q_{A¹} is not.
-- `BettiPerverse.nodalDivisor` (value) — For xy=0 in A², Q_{xy=0}[1] is perverse, although it is not a local system on a smooth curve.
+- `BettiPerverse.nodalDivisor` (computation) — For xy=0 in A², Q_{xy=0}[1] is perverse, although it is not a local system on a smooth curve.
 
 **Use:** Sai88 §5.1.6; FSY Appendix A.2: Supplies the rational realization and the shifted constant-divisor object.
 
 **Check.** On a curve an unshifted nonzero local system is not perverse; its shift by one is. j_!* has no nonzero subobject or quotient supported on the omitted closed set.
 
-**Sources:** [Dimca](https://doi.org/10.1007/978-3-642-18868-8), §5.1, pp. 125–133, particularly Theorem 5.1.20; §5.2, pp. 133–140 — Constructs middle perversity, the perverse heart and intermediate extension, with the complete-intersection constant example.
+**Sources:** [Dimca](https://doi.org/10.1007/978-3-642-18868-8), §5.1, pp. 125–133, particularly Theorem 5.1.20, p. 131; §5.2, pp. 133–140 — Constructs middle perversity, the perverse heart and intermediate extension, with the complete-intersection constant example.
 
 <a id="b-betti-cycles"></a>
 ### B/betti-cycles — Betti nearby and vanishing cycles
@@ -171,34 +167,34 @@ On analytifications of complex algebraic varieties, construct bounded algebraica
 
 **Unit tests.**
 
-- `BettiCycles.smooth` (value) — For f=t on A¹, pψ(Q[1])=Q with T=1 and pφ(Q[1])=0.
+- `BettiCycles.smooth` (computation) — For f=t on A¹, pψ(Q[1])=Q with T=1 and pφ(Q[1])=0.
 - `BettiCycles.punctual` (degenerate) — For δ_0V, pψ=0 and pφ=V in degree zero.
-- `BettiCycles.ramified` (value) — For f=t² and Q[1], the nearby fibre has dimension two and eigenvalues 1,−1; keeping only eigenvalue one loses rank.
+- `BettiCycles.ramified` (computation) — For f=t² and Q[1], the nearby fibre has dimension two and eigenvalues 1,−1; keeping only eigenvalue one loses rank.
 
 **Use:** Sai90 §2.2–§2.4; FSY Corollary A.31: Carries the rational comparison of F,V specialization and the pure costalk calculation.
 
 **Check.** For a coordinate on a smooth curve, pψ(Q[1])=Q and pφ(Q[1])=0. For a sheaf supported on the zero fibre, pψ=0 and pφ recovers that sheaf.
 
-**Sources:** [Dimca](https://doi.org/10.1007/978-3-642-18868-8), §4.2, pp. 107–117; Theorem 5.2.21, pp. 141–143 — Defines the specialization and monodromy functors and their perverse normalization.
+**Sources:** [Dimca](https://doi.org/10.1007/978-3-642-18868-8), §4.2, Definitions 4.2.1 and 4.2.4, Propositions 4.2.8–4.2.11 and Remark 4.2.12, pp. 103–110; Theorem 5.2.21, p. 139 — Defines nearby and vanishing cycles with monodromy and the variation map, proves their constructibility and proper base change, and proves t-exactness of the shifted functors.
 
 <a id="b-regular-riemann-hilbert"></a>
 ### B/regular-riemann-hilbert — Regular algebraic Riemann–Hilbert comparison
 
-**Theorem.** For X a smooth complex algebraic d-fold, analytification followed by pDR(M)=DR(M)[d] identifies algebraic regular holonomic left D_X-modules with algebraically constructible complex perverse sheaves. Extend to bounded derived categories with regular holonomic cohomology. The comparison is exact, fully faithful and compatible with the six operations, duality, tensor/external product and normalized cycles. Regularity includes regular singularities at an algebraic compactification boundary. The inverse is the regular holonomic realization of the constructible complex, not arbitrary analytic solutions of an irregular connection.
+**Theorem.** For X a smooth complex algebraic d-fold, analytification followed by pDR(M)=DR(M)[d] identifies algebraic regular holonomic left D_X-modules with algebraically constructible complex perverse sheaves. Extend to bounded derived categories with regular holonomic cohomology. The comparison is exact, fully faithful and compatible with the six operations, duality and tensor/external product. Compatibility with nearby and vanishing cycles is not part of this node: it is proved at H.0/v-filtration (Sai88 Proposition 3.4.12) from the V-filtration. Regularity includes regular singularities at an algebraic compactification boundary. The inverse is the regular holonomic realization of the constructible complex, not arbitrary analytic solutions of an irregular connection.
 
 **Hypotheses and conventions.** Regularity and D-module six operations are the Springer-owned notions. Unshifted DR has terms in degrees 0,…,d.
 
-**Prerequisites:** [B/constructible-six-operations](#b-constructible-six-operations), [B/middle-perverse](#b-middle-perverse), [B/betti-cycles](#b-betti-cycles), `SpringerResolutionAndCharacteristicCycles:H/regular-holonomic` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/kashiwara-equivalence` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** [B/constructible-six-operations](#b-constructible-six-operations), [B/middle-perverse](#b-middle-perverse), [B/betti-cycles](#b-betti-cycles), `SpringerResolutionAndCharacteristicCycles:H/regular-holonomic` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/kashiwara-equivalence` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)), `AlgebraicModuliForArithmeticGeometry:R09.7/principalization` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)), `ComplexComparisonPartII:C5/deligne-regular-singular-equivalence` ([supplier packet](../packets/ComplexComparisonPartII.json)).
 
 **Construction or proof.**
 
 1. Use the tempered-solution construction in Kash84 §6 to define an inverse on constructible complexes.
-2. Reduce local biduality and regularity to a local system on the complement of a normal-crossing divisor by resolution, proper direct image and induction on support; solve the normal-crossing logarithmic model.
+2. Reduce local biduality and regularity to a local system on the complement of a normal-crossing divisor by embedded resolution and principalization (AlgebraicModuliForArithmeticGeometry:R09.7), proper direct image and induction on support; solve the normal-crossing logarithmic model; on the smooth locus the base case is Deligne's regular-singular equivalence (ComplexComparisonPartII C5/deligne-regular-singular-equivalence).
 3. Verify the adjunction maps locally, glue them, and algebraize the regular meromorphic extension. Translate the solution comparison to pDR by holonomic duality and verify the displayed shift.
 
 **Check.** pDR(O_X)=C_X[d]. The algebraic E^t on A¹ cannot be identified with O_{A¹} by the analytic gauge e^t in this regular-at-infinity category.
 
-**Sources:** [Kash84](https://www.kurims.kyoto-u.ac.jp/~kenkyubu/kashiwara/RiemannHilbert.pdf), Main theorem, §6, pp. 353–355; §7, pp. 355–362 — Constructs the regular holonomic inverse and proves the comparison by reduction to normal crossings.; [Dimca](https://doi.org/10.1007/978-3-642-18868-8), Theorems 5.3.1 and 5.3.3, pp. 144–145 — States the de Rham and regular Riemann–Hilbert equivalence with the perverse shift.
+**Sources:** [Kash84](https://www.kurims.kyoto-u.ac.jp/~kenkyubu/kashiwara/RiemannHilbert.pdf), §6 and its Main Theorem, pp. 353–355; §7, pp. 355–358 — Constructs the regular holonomic inverse and proves the comparison by reduction to normal crossings.; [Dimca](https://doi.org/10.1007/978-3-642-18868-8), Theorems 5.3.1 and 5.3.3, pp. 144–145 — States the de Rham and regular Riemann–Hilbert equivalence with the perverse shift.
 
 **Layer acceptance.** Every target above satisfies its stated Check, every definition/construction satisfies its API and unit tests, and all identifications respect the pinned conventions. The planning inventory covers this layer; mathematical closure also requires its supplier requests and inherited proof inputs.
 
@@ -207,7 +203,7 @@ On analytifications of complex algebraic varieties, construct bounded algebraica
 
 Import differential operators, holonomicity, transfer, duality and intermediate extension from Springer. Construct formal differential modules at a curve point, the finite ramified exponential decomposition, rational slopes and irregularity. Prove the local index comparison and, for a connection on G_m regular at zero, dim H¹_dR−dim H⁰_dR = irr_∞. The kernel of j_!E→j_!*E has punctual support.
 
-**Inputs:** [B](#b), `SpringerResolutionAndCharacteristicCycles:D/differential-operators` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/intermediate-extension` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SchemeAndStackFoundations:SF.3` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Inputs:** [B](#b), `SpringerResolutionAndCharacteristicCycles:D` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SchemeAndStackFoundations:SF.3` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison`.
 
 **Atlas planets:** Formal connection and irregularity; Levelt–Turrittin decomposition; Index formula for connections.
 
@@ -218,11 +214,11 @@ Import differential operators, holonomicity, transfer, duality and intermediate 
 
 **Hypotheses and conventions.** Finite rank and characteristic zero; all lattice quotients have finite complex dimension.
 
-**Prerequisites:** `SpringerResolutionAndCharacteristicCycles:D/differential-operators` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SchemeAndStackFoundations:SF.3` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** `SpringerResolutionAndCharacteristicCycles:D/differential-operators` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `mathlib:LaurentSeries`, `mathlib:PowerSeries`.
 
 **Construction or proof.**
 
-1. Form the differential-module category and ramified scalar extension using the curve completion and Springer’s connection interface.
+1. Form the differential-module category over the pinned LaurentSeries C=C((x)) with its lattice ring PowerSeries C=C[[x]], and the ramified scalar extension x=uᵉ by substitution; compare with Springer’s algebraic connections on a curve only at D/curve-index.
 2. Use a cyclic vector to produce one lattice pair with a finite-index operator. Compare two pairs through a common larger pair and their finite-dimensional quotient exact sequences.
 3. Apply the lattice-index comparison to prove additivity, nonnegativity, the stable-lattice criterion and coordinate invariance, without using the exponential decomposition.
 
@@ -235,9 +231,9 @@ Import differential operators, holonomicity, transfer, duality and intermediate 
 
 **Unit tests.**
 
-- `FormalConnection.logarithmic` (value) — The rank-one connection d+a dx/x has intrinsic irregularity zero even when a is not an integer.
-- `FormalConnection.exponentialPole` (value) — d+d(x⁻ᵐ) has intrinsic irregularity m for m>0.
-- `FormalConnection.ramified` (value) — The rank-two ramified descent of E^{u⁻¹}, x=u², has intrinsic irregularity one. Its fractional slopes are the separate D/formal-decomposition test.
+- `FormalConnection.logarithmic` (computation) — The rank-one connection d+a dx/x has intrinsic irregularity zero even when a is not an integer.
+- `FormalConnection.exponentialPole` (computation) — d+d(x⁻ᵐ) has intrinsic irregularity m for m>0.
+- `FormalConnection.ramified` (computation) — The rank-two ramified descent of E^{u⁻¹}, x=u², has intrinsic irregularity one. Its fractional slopes are the separate D/formal-decomposition test.
 
 **Use:** FSY Appendix A.1 and Proposition 4.6: Compute the cohomological index from slopes and control regular Fourier inputs.
 
@@ -263,7 +259,7 @@ Import differential operators, holonomicity, transfer, duality and intermediate 
 
 **Check.** The descent of E^{1/u} for x=u² has a genuine fractional slope. Only the formal splitting is required; a global analytic exponential splitting is not asserted.
 
-**Sources:** [Mal22](https://www.numdam.org/item/SEDP_1971-1972____A22_0.pdf), Remark 8.5, §9.D–§9.E, pp. XXII.7–XXII.12; Theorem 10.3, p. XXII.14 — Explains the formal splitting, ramification and terminating reduction to elementary systems.; [Mal21](https://www.numdam.org/item/SEDP_1971-1972____A21_0.pdf), Definition 5.3 and Proposition 5.6, pp. XXI.2–XXI.4 — Computes the lattice index of a connection with invertible irregular leading coefficient.
+**Sources:** [Mal22](https://www.numdam.org/item/SEDP_1971-1972____A22_0.pdf), Remark 8.5, p. XXII.7; §9.D–§9.E, pp. XXII.9–XXII.12; Theorem 10.3, p. XXII.14 — Explains the formal splitting, ramification and terminating reduction to elementary systems.; [Mal21](https://www.numdam.org/item/SEDP_1971-1972____A21_0.pdf), Definition 5.3 and Proposition 5.6, pp. XXI.2–XXI.4 — Computes the lattice index of a connection with invertible irregular leading coefficient.
 
 <a id="d-curve-index"></a>
 ### D/curve-index — Index and punctual extension on G_m
@@ -272,17 +268,17 @@ Import differential operators, holonomicity, transfer, duality and intermediate 
 
 **Hypotheses and conventions.** The index uses unshifted DR. The general formula sums over the complete smooth boundary; the G_m specialization uses irr_0=0.
 
-**Prerequisites:** [D/formal-differential-module](#d-formal-differential-module), [D/formal-decomposition](#d-formal-decomposition), `SpringerResolutionAndCharacteristicCycles:H/intermediate-extension` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SchemeAndStackFoundations:SF.3` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** [D/formal-differential-module](#d-formal-differential-module), [D/formal-decomposition](#d-formal-decomposition), `SpringerResolutionAndCharacteristicCycles:H/intermediate-extension` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SchemeAndStackFoundations:SF.3/nonsingular-projective-model` ([supplier packet](../packets/SchemeAndStackFoundations--SF.3.json)), `SchemeAndStackFoundations:SF.3/vector-bundle-riemann-roch` ([supplier packet](../packets/SchemeAndStackFoundations--SF.3.json)), `tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison`.
 
 **Construction or proof.**
 
-1. Use the meromorphic lattice comparison to reduce the global Euler characteristic to that of a pair of coherent lattices on the smooth projective completion.
-2. Apply curve Riemann–Roch to their degrees and insert the local index defect of Mal20 Theorem 3.3; D/formal-decomposition identifies the defect with the slope sum.
+1. Use the smooth projective completion (SF.3/nonsingular-projective-model) and the place expansions at boundary points (AlgebraicCurves Layer 9) to pass to formal differential modules; the meromorphic lattice comparison reduces the global Euler characteristic to that of a pair of coherent lattices on the completion.
+2. Apply curve Riemann–Roch (SF.3/vector-bundle-riemann-roch) to their degrees and insert the local index defect of Mal20 Theorem 3.3; D/formal-decomposition identifies the defect with the slope sum.
 3. Specialize χ_c(G_m)=0. Restrict the kernel and cokernel of the intermediate-extension maps to G_m and use their zero restriction to obtain punctual support.
 
 **Check.** For the trivial connection on G_m both H⁰ and H¹ have dimension one and irregularity is zero. For E^x on G_m, H⁰=0, dim H¹=1 and irr_∞=1.
 
-**Sources:** [Mal20](https://www.numdam.org/item/SEDP_1971-1972____A20_0.pdf), Theorem 3.3 and Proposition 3.4, pp. XX.9–XX.10 — Computes the local index defect and relates zero irregularity to regular singularity.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.1, pp. 59–61; (4.11), p. 31 — Uses the curve index and the punctual kernel of the natural extension map.
+**Sources:** [Mal20](https://www.numdam.org/item/SEDP_1971-1972____A20_0.pdf), Theorem 3.3 and Proposition 3.4, pp. XX.9–XX.10 — Computes the local index defect and relates zero irregularity to regular singularity.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.1, pp. 59–61; (4.11), p. 29 — Uses the curve index and the punctual kernel of the natural extension map.
 
 **Layer acceptance.** Every target above satisfies its stated Check, every definition/construction satisfies its API and unit tests, and all identifications respect the pinned conventions. The planning inventory covers this layer; mathematical closure also requires its supplier requests and inherited proof inputs.
 
@@ -291,7 +287,7 @@ Import differential operators, holonomicity, transfer, duality and intermediate 
 
 Construct exponential twists with connection d+df, Fourier–Laplace transformation with kernel E^{tτ}, additive derived convolution, and localized Fourier transformation. Prove exactness on holonomic modules, Fourier inversion with the sign involution, duality, regular-input slope bounds and the projector/localization identity. Keep unshifted de Rham degrees 0,…,dim X separate from perverse degrees.
 
-**Inputs:** [D](#d), `SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:H/holonomic-modules` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)).
+**Inputs:** [D](#d), `SpringerResolutionAndCharacteristicCycles:H` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)).
 
 **Atlas planets:** Exponential connection; Fourier–Laplace transformation; Additive convolution; Localized Fourier transform; Fourier duality.
 
@@ -320,15 +316,15 @@ Construct exponential twists with connection d+df, Fourier–Laplace transformat
 **Unit tests.**
 
 - `ExponentialConnection.zero` (degenerate) — E^0 is the existing structure connection O_U.
-- `ExponentialConnection.linear` (value) — For f=ct, the polynomial differential sends 1 to c and tⁿ to ntⁿ⁻¹+ctⁿ.
-- `ExponentialConnection.sign` (value) — On C[t], d/dt+1 is bijective; hence H⁰ and H¹ of (A¹,E^t) vanish.
+- `ExponentialConnection.linear` (computation) — For f=ct, the polynomial differential sends 1 to c and tⁿ to ntⁿ⁻¹+ctⁿ.
+- `ExponentialConnection.sign` (computation) — On C[t], d/dt+1 is bijective; hence H⁰ and H¹ of (A¹,E^t) vanish.
 - `ExponentialConnection.constantGauge` (non-example) — E^t is analytically gauge-trivial on A¹ but is not algebraically isomorphic to O_{A¹}.
 
-**Use:** FSY Lemma A.7, Definition A.18 and Theorem A.24: Defines the faithful fibre and all pair cohomology differentials.
+**Use:** FSY (A.7)–(A.8), Definition A.18 and Theorem A.24: Defines the faithful fibre and all pair cohomology differentials.
 
 **Check.** Use d+df throughout; Fourier signs and the tg computation must agree with it.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.1, pp. 59–61; Lemma A.7, p. 64 — Fixes exponential twisting and the de Rham realization convention.; [ESY](https://arxiv.org/pdf/1302.4537v3), §2.1–§2.3, pp. 18–21 — Writes the local exponential connection and the corresponding Rees action.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.1, pp. 60–61; (A.7)–(A.8), p. 64 — Fixes exponential twisting and the de Rham realization convention.; [ESY](https://arxiv.org/pdf/1302.4537v3), §2.1–§2.3, pp. 18–21 — Writes the local exponential connection and the corresponding Rees action.
 
 <a id="f-fourier-laplace"></a>
 ### F/fourier-laplace — Fourier–Laplace transformation
@@ -354,15 +350,15 @@ Construct exponential twists with connection d+df, Fourier–Laplace transformat
 
 **Unit tests.**
 
-- `FourierLaplace.delta` (value) — FT_τ(δ_a)=E^{at}, including δ_0↦O.
-- `FourierLaplace.structure` (value) — FT_τ(O_{A¹})=δ_0; neither object is sent to zero.
+- `FourierLaplace.delta` (computation) — FT_τ(δ_a)=E^{at}, including δ_0↦O.
+- `FourierLaplace.structure` (computation) — FT_τ(O_{A¹})=δ_0; neither object is sent to zero.
 - `FourierLaplace.double` (non-example) — FT_tFT_τ(δ_a)=δ_{−a}, so a nonzero a detects a missing sign.
 
 **Use:** FSY Theorem A.24 and Theorem A.30: Converts tg cohomology into a localized Koszul differential and recovers the costalk.
 
 **Check.** The two Weyl operators obey [∂_t,t]=1 after transport. FT² is pullback by the sign involution, not the identity.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), §2.1, pp. 10–11; Appendix A.1, pp. 60–61 — Fixes the Fourier convention, exactness and its kernel interpretation.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), §2.1, Proposition 2.4 and its proof, pp. 10–11; Appendix A.1, p. 61 — Fixes the Fourier convention, exactness and its kernel interpretation.
 
 <a id="f-additive-convolution"></a>
 ### F/additive-convolution — Additive convolution
@@ -388,15 +384,15 @@ Construct exponential twists with connection d+df, Fourier–Laplace transformat
 
 **Unit tests.**
 
-- `AdditiveConvolution.pointMasses` (value) — δ_a⋆δ_b=δ_{a+b}.
+- `AdditiveConvolution.pointMasses` (computation) — δ_a⋆δ_b=δ_{a+b}.
 - `AdditiveConvolution.zero` (degenerate) — M⋆0=0 and 0⋆M=0.
 - `AdditiveConvolution.nonexact` (non-example) — O⋆O has a nonzero constant negative-degree term, so ordinary derived convolution is not an exact operation on the whole regular heart.
 
-**Use:** FSY Appendix A.3, Proposition A.5: Constructs Π, exponential tensor products and the monoidal fibre.
+**Use:** FSY Appendix A.3, (A.5): Constructs Π, exponential tensor products and the monoidal fibre.
 
 **Check.** δ_0⋆M≅M. The tensor unit of EMHS will be Πδ_0, rather than the derived-convolution unit itself.
 
-**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.2, pp. 27–31 — Builds the convolution realization of the global-cohomology quotient.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.1–A.3, pp. 60–64 — Uses the derived convolution and its Hodge-module lift.
+**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.2, pp. 27–31 — Builds the convolution realization of the global-cohomology quotient.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.1, p. 61; (A.5) and Remark A.6, pp. 63–64 — Uses the derived convolution and its Hodge-module lift.
 
 <a id="f-localized-fourier"></a>
 ### F/localized-fourier — Localized Fourier transform
@@ -410,7 +406,7 @@ Construct exponential twists with connection d+df, Fourier–Laplace transformat
 **Construction or proof.**
 
 1. Compose the imported localization/restriction with F/fourier-laplace.
-2. Use the formal decomposition and the Fourier action to show that finite input singularities give slope-one exponential factors at infinity and the input infinity contributes only slope zero there.
+2. Use the formal decomposition and local stationary phase: an input singular point c≠0 contributes E^{ct} times a regular factor (slope one) at output infinity, the input point 0 contributes the slope-zero part at output infinity, and the regular input infinity contributes only at output zero, where the result is regular singular.
 3. Check the output at nonzero finite points by the same localized Weyl calculation and establish regularity at zero.
 
 **Planning API.**
@@ -422,7 +418,7 @@ Construct exponential twists with connection d+df, Fourier–Laplace transformat
 
 **Unit tests.**
 
-- `LocalizedFourier.punctual` (value) — For a≠0, ℱ(δ_a)=E^{at}|_{G_m}, with slope one at infinity.
+- `LocalizedFourier.punctual` (computation) — For a≠0, ℱ(δ_a)=E^{at}|_{G_m}, with slope one at infinity.
 - `LocalizedFourier.zero` (degenerate) — ℱ(0)=0.
 - `LocalizedFourier.regularityBoundary` (non-example) — A rank-one exponential input with a higher-order pole is outside the regular-input slope statement; it must not be accepted by that hypothesis.
 
@@ -430,7 +426,7 @@ Construct exponential twists with connection d+df, Fourier–Laplace transformat
 
 **Check.** No assertion is made that FT preserves regularity at infinity.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), §2.1, pp. 10–11; Appendix A.1, pp. 60–61 — Defines localized Fourier transformation and states its regular-input singularity bounds.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), §2.1, Proposition 2.4 and its proof, pp. 10–11; Appendix A.1, p. 61 — Defines localized Fourier transformation and states its regular-input singularity bounds.
 
 <a id="f-fourier-duality"></a>
 ### F/fourier-duality — Fourier duality and the sign involution
@@ -448,7 +444,7 @@ Construct exponential twists with connection d+df, Fourier–Laplace transformat
 
 **Check.** On δ_a the assertion compares the dual of E^{at} with E^{−at}. A comparison without r fails for a≠0.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.1, pp. 60–61 — Identifies the Fourier duality correction by the sign involution.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Proof of Theorem A.24(1), p. 69 — Uses the isomorphism between the Fourier transform of a !-localized module and the sign-involution pullback of the dual of the Fourier transform of the dual, citing Malgrange's book (Appendix 2, Proposition 1.7).
 
 **Layer acceptance.** Every target above satisfies its stated Check, every definition/construction satisfies its API and unit tests, and all identifications respect the pinned conventions. The planning inventory covers this layer; mathematical closure also requires its supplier requests and inherited proof inputs.
 
@@ -457,7 +453,7 @@ Construct exponential twists with connection d+df, Fourier–Laplace transformat
 
 Construct compatible good F,V and Rees modules; define polarizable pure Hodge modules by strict support, recursive specialization and primitive polarizations. Build graded-polarizable algebraic mixed Hodge modules by admissibility and relative monodromy, not by a bare tuple. Prove strict-support extension and semisimplicity, the polarized projective direct-image theorem and abelian strictness. The construction is in every smooth quasi-projective dimension, including the dimensions of pair pushforwards. At a point compare with the existing Tau Ceti rational mixed Hodge structures.
 
-**Inputs:** [B](#b), [D](#d), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), `SpringerResolutionAndCharacteristicCycles:D/good-filtration` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)).
+**Inputs:** [B](#b), [D](#d), `HodgeStructuresPartII:H.0` ([supplier packet](../packets/HodgeStructuresPartII.json)), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), `LefschetzPencilsAndVanishingCycles:LPV.1`, `LefschetzPencilsAndVanishingCycles:LPV.3`, `AlgebraicModuliForArithmeticGeometry:R09.7` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)), `SpringerResolutionAndCharacteristicCycles:D` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)).
 
 **Atlas planets:** Kashiwara–Malgrange filtration; Polarizable Hodge module; Strict-support extension; Zucker curve Hodge theorem; Saito projective direct image; Mixed Hodge module.
 
@@ -468,11 +464,11 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Hypotheses and conventions.** F is exhaustive, locally bounded below and good. For several filtrations, pairwise strictness alone does not replace compatibility.
 
-**Prerequisites:** `SpringerResolutionAndCharacteristicCycles:D/good-filtration` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:D/filtered-pbw` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `HodgeStructuresPartII:H.0` ([supplier packet](../packets/HodgeStructuresPartII.json)).
+**Prerequisites:** `SpringerResolutionAndCharacteristicCycles:D/good-filtration` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SpringerResolutionAndCharacteristicCycles:D/filtered-pbw` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `HodgeStructuresPartII:H.0/rees-parameter` ([supplier packet](../packets/HodgeStructuresPartII.json)), `HodgeStructuresPartII:H.0/rees-specialization` ([supplier packet](../packets/HodgeStructuresPartII.json)).
 
 **Construction or proof.**
 
-1. Import good filtrations and the filtered PBW algebra from Springer; form the graded Rees module and its specialization z=1 and z=0.
+1. Import good filtrations and the filtered PBW algebra from Springer; form the graded Rees module and its specialization z=1 and z=0. For an O-locally free module with connection, compare with the λ-connection Rees family of HodgeStructuresPartII H.0/rees-parameter and H.0/rees-specialization via F_p=F^{−p} and z=t.
 2. Prove the z-torsion criterion by the short exact sequence of filtered modules and the intersection formula for an image.
 3. Use Saito’s exact-cube criterion for multiple filtrations. Derive side changing from F_{−d}ω_X=ω_X and check the filtered Spencer complex.
 
@@ -485,15 +481,15 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Unit tests.**
 
-- `FilteredRees.constant` (agreement) — The constant O_X has right F_{−d}=ω_X and right F_{−d−1}=0.
+- `FilteredRees.constant` (compatibility) — The constant O_X has right F_{−d}=ω_X and right F_{−d−1}=0.
 - `FilteredRees.nonStrict` (non-example) — The identity of a line whose source filtration starts at 1 and target filtration at 0 is filtered but not strict.
-- `FilteredRees.pointImage` (value) — For i:pt→A¹, F_p i_+V=Σ_{k≥0}F_{p−1−k}V·∂^k; its filtered unshifted DR H¹ has the original F on V.
+- `FilteredRees.pointImage` (computation) — For i:pt→A¹, F_p i_+V=Σ_{k≥0}F_{p−1−k}V·∂^k; its filtered unshifted DR H¹ has the original F on V.
 
 **Use:** ESY §2.3–§3.3; FSY Proposition A.10: Controls filtered Fourier specialization and simultaneous weight/Hodge strictness.
 
 **Check.** The constant left module has F_0O_X=O_X; its right version first occurs at F_{−d}. For a point included in a smooth curve, the left direct image of F_0V starts in F_1.
 
-**Sources:** [Sai88](https://ems.press/content/serial-article-files/42460?nt=1), Introduction, p. 850; §1.1, pp. 861–865; §2.1–§2.2, pp. 877–885 — Sets the right-module shift, exact compatibility of filtrations and filtered differential complexes.; [ESY](https://arxiv.org/pdf/1302.4537v3), §2.2, pp. 19–20 — Uses Rees modules and z-torsion to formulate strictness.
+**Sources:** [Sai88](https://ems.press/content/serial-article-files/42460?nt=1), Introduction, pp. 849–850; §1.1, pp. 861–865; §2.1–§2.2, pp. 876–886 — Sets the right-module shift, exact compatibility of filtrations and filtered differential complexes.; [ESY](https://arxiv.org/pdf/1302.4537v3), §2.2, pp. 19–20 — Uses Rees modules and z-torsion to formulate strictness.
 
 <a id="h0-v-filtration"></a>
 ### H.0/v-filtration — Rational specialization filtration
@@ -508,7 +504,7 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 1. Use the explicitly requested Bernstein b-function/specializability theorem of Springer H/regular-holonomic to construct coherent V lattices, and move the roots into a fundamental interval using x and ∂_x. Quasi-unipotence makes the exponents rational; regularity alone is not that rationality assertion.
 2. Uniqueness follows from the generalized eigenspaces and the shift relations. Translate Saito’s right-module conventions by H.0/filtered-rees.
-3. Construct the graph direct image, compare its graded de Rham complex with Betti nearby cycles, and transport the F conditions through the graph shift.
+3. Construct the graph direct image, compare its graded de Rham complex with Betti nearby cycles (Sai88 Proposition 3.4.12: the de Rham complexes of gr^V_α for α in the fundamental intervals are ψ_{f,λ} and φ_{f,1} of DR M, with x∂_x+α, ∂_x and x matching N, can and var), and transport the F conditions through the graph shift. This is the compatibility of Riemann–Hilbert with nearby and vanishing cycles.
 
 **Planning API.**
 
@@ -519,15 +515,15 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Unit tests.**
 
-- `SpecialisationFiltration.trivial` (value) — For O(*0), the class of x^k has index −k and x∂ has eigenvalue k.
-- `SpecialisationFiltration.kummer` (value) — For x∂e=ae, x^ke has index −a−k, so nonintegral rational a gives nonintegral jumps.
+- `SpecialisationFiltration.trivial` (computation) — For O(*0), the class of x^k has index −k and x∂ has eigenvalue k.
+- `SpecialisationFiltration.kummer` (computation) — For x∂e=ae, x^ke has index −a−k, so nonintegral rational a gives nonintegral jumps.
 - `SpecialisationFiltration.punctual` (non-example) — A module supported at zero has zero nearby cycles; it contributes through vanishing cycles instead.
 
 **Use:** ESY Definition 2.2.1 and Lemma 2.3.3: Builds the local Deligne filtration and proves its Rees description.
 
 **Check.** For O(*0), V_α=x^{−floor(α)}O for nonintegral α with the endpoint convention determined by x∂+α. The fundamental interval includes every monodromy eigenspace, not only eigenvalue one.
 
-**Sources:** [Sai88](https://ems.press/content/serial-article-files/42460?nt=1), §3.1–§3.2, especially Lemma 3.1.2 and §3.2.1–§3.2.6, pp. 902–908 — Defines rational specialization, proves uniqueness and gives the F-compatibility conditions; existence of specializability is the explicit Springer extension request.; [ESY](https://arxiv.org/pdf/1302.4537v3), §2.1 and §2.3, pp. 18–21 — Uses the increasing V convention in the Deligne construction.
+**Sources:** [Sai88](https://ems.press/content/serial-article-files/42460?nt=1), §3.1–§3.2, especially Lemma 3.1.2 and §3.2.1–§3.2.6, pp. 902–908 — Defines rational specialization, proves uniqueness and gives the F-compatibility conditions; existence of specializability is the explicit Springer extension request.; [ESY](https://arxiv.org/pdf/1302.4537v3), §2.1 and §2.3, pp. 18–21 — Uses the increasing V convention in the Deligne construction.; [Sai88](https://ems.press/content/serial-article-files/42460?nt=1), §3.4, Proposition 3.4.12 and its proof, pp. 924–925 — Identifies the de Rham complexes of the V-graded pieces with nearby and vanishing cycles of the de Rham complex, matching the Euler operator, ∂ and multiplication with N, can and var.
 
 <a id="h0-pure-hodge-module"></a>
 ### H.0/pure-hodge-module — Polarizable pure Hodge modules
@@ -536,12 +532,12 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Hypotheses and conventions.** All local specialization tests in the recursive definition are required. Rational polarizations need a rational extension of the existing integral polarization interface; no integral lattice is silently imposed.
 
-**Prerequisites:** [H.0/filtered-rees](#h0-filtered-rees), [H.0/v-filtration](#h0-v-filtration), [B/regular-riemann-hilbert](#b-regular-riemann-hilbert), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), `tauceti:TauCeti.Hodge.HodgeStructureOn`, `SpringerResolutionAndCharacteristicCycles:H/kashiwara-equivalence` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)).
+**Prerequisites:** [H.0/filtered-rees](#h0-filtered-rees), [H.0/v-filtration](#h0-v-filtration), [B/regular-riemann-hilbert](#b-regular-riemann-hilbert), `tauceti:TauCeti.Hodge.HodgeStructureOn`, `SpringerResolutionAndCharacteristicCycles:H/kashiwara-equivalence` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `HodgeStructuresPartII:H.2/graded-polarizable` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)), `LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)), `LefschetzPencilsAndVanishingCycles:LPV.1/primitive-decomposition-and-strictness` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)).
 
 **Construction or proof.**
 
 1. Form the rationally realized filtered category via regular Riemann–Hilbert, with the existing pure Hodge structure as the point carrier.
-2. Use support-dimension recursion with H.0/v-filtration and supplier monodromy filtrations; impose the primitive pairing conditions as in Saito 5.1.6 and 5.2.10.
+2. Use support-dimension recursion with H.0/v-filtration and the monodromy-filtration linear algebra of LefschetzPencilsAndVanishingCycles LPV.1; impose the primitive pairing conditions as in Saito 5.1.6 and 5.2.10.
 3. Prove independence of embeddings by Kashiwara equivalence and verify the weight shift on smooth supports.
 
 **Planning API.**
@@ -553,8 +549,8 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Unit tests.**
 
-- `PureHodgeModule.constantCurve` (value) — pQ_{A¹} has weight one, not zero.
-- `PureHodgeModule.pointTate` (agreement) — The point Q(m) has weight −2m with the existing Tate filtration.
+- `PureHodgeModule.constantCurve` (computation) — pQ_{A¹} has weight one, not zero.
+- `PureHodgeModule.pointTate` (compatibility) — The point Q(m) has weight −2m with the existing Tate filtration.
 - `PureHodgeModule.unpolarizable` (non-example) — A rational pure structure admitting no polarization is excluded even if its complex filtration is opposed.
 
 **Use:** Sai88 Theorem 5.3.1; FSY Remark A.6 and Corollary A.31: Supplies projective strictness, exponential weights and the pure-input costalk computation.
@@ -570,16 +566,16 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Hypotheses and conventions.** Algebraic variations have the prescribed regular/admissible boundary behavior.
 
-**Prerequisites:** [H.0/pure-hodge-module](#h0-pure-hodge-module), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)), [B/middle-perverse](#b-middle-perverse), `SpringerResolutionAndCharacteristicCycles:H/intermediate-extension` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)).
+**Prerequisites:** [H.0/pure-hodge-module](#h0-pure-hodge-module), [B/middle-perverse](#b-middle-perverse), `SpringerResolutionAndCharacteristicCycles:H/intermediate-extension` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `HodgeStructuresPartII:H.2/canonical-extension` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)), `HodgeStructuresPartII:H.2/admissible-variation` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)), `HodgeStructuresPartII:H.2/limit-mhs` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)).
 
 **Construction or proof.**
 
-1. Construct the filtered extension locally from the canonical extension and V lattices, and verify the recursive primitive polarization conditions by induction on the support.
+1. Construct the filtered extension locally from the canonical extension (HodgeStructuresPartII H.2/canonical-extension, with quasi-unipotent boundary monodromy by H.2/admissible-variation and the limit mixed Hodge structure of H.2/limit-mhs) and V lattices, and verify the recursive primitive polarization conditions by induction on the support.
 2. Uniqueness uses absence of boundary-supported subquotients. Polarization splits a subobject by its orthogonal complement, giving semisimplicity and strictness.
 
 **Check.** The middle extension differs from j_* when local monodromy has invariants. The direct-sum assertion is for pure polarizable objects, not arbitrary mixed extensions.
 
-**Sources:** [Sai88](https://ems.press/content/serial-article-files/42460?nt=1), Propositions 5.1.8–5.1.10, pp. 956–958; §5.2.12–§5.2.14, pp. 968–970 — Gives the strict-support and smooth-variation description and the polarizable semisimplicity mechanism.
+**Sources:** [Sai88](https://ems.press/content/serial-article-files/42460?nt=1), Lemmas 5.1.8–5.1.10, pp. 957–958; 5.2.12–5.2.14, pp. 968–969 — Gives the strict-support and smooth-variation description and the polarizable semisimplicity mechanism.
 
 <a id="h0-curve-l2-hodge"></a>
 ### H.0/curve-l2-hodge — Hodge theory of a punctured-curve variation
@@ -588,11 +584,11 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Hypotheses and conventions.** Use the complete Poincaré metric near the punctures and the Hodge metric of V. The analytic closed-range input is recorded as gap G1, rather than inferred from a compact-manifold Laplacian.
 
-**Prerequisites:** `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), [B/constructible-six-operations](#b-constructible-six-operations).
+**Prerequisites:** `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), [B/constructible-six-operations](#b-constructible-six-operations), `HodgeStructuresPartII:H.2/graded-polarizable` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)), `HodgeStructuresPartII:H.2/canonical-extension` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)).
 
 **Construction or proof.**
 
-1. Use the nilpotent-orbit norm estimates to compute the weighted L² stalk complex and identify it with j_*V by the local Poincaré lemma.
+1. Use the canonical extension (HodgeStructuresPartII H.2/canonical-extension) and the nilpotent-orbit norm estimates to compute the weighted L² stalk complex and identify it with j_*V by the local Poincaré lemma.
 2. Identify the filtered local Dolbeault complex using Zucker’s local Hardy estimates and curvature identities.
 3. Apply the self-adjoint closed-range Hodge theorem for these domains to obtain harmonic representatives and the Hodge decomposition; the gap records this precise analytic dependency. The integrated pairing gives polarization.
 
@@ -607,11 +603,11 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Hypotheses and conventions.** Projectivity, purity and polarizability are essential. The operations here use bare filtered transfer; the theorem is an input to the mixed six-functor construction.
 
-**Prerequisites:** [H.0/filtered-rees](#h0-filtered-rees), [H.0/v-filtration](#h0-v-filtration), [H.0/pure-hodge-module](#h0-pure-hodge-module), [H.0/strict-support-extension](#h0-strict-support-extension), [H.0/curve-l2-hodge](#h0-curve-l2-hodge), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), `SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** [H.0/filtered-rees](#h0-filtered-rees), [H.0/v-filtration](#h0-v-filtration), [H.0/pure-hodge-module](#h0-pure-hodge-module), [H.0/strict-support-extension](#h0-strict-support-extension), [H.0/curve-l2-hodge](#h0-curve-l2-hodge), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), `SpringerResolutionAndCharacteristicCycles:H/transfer-and-duality` ([supplier packet](../packets/SpringerResolutionAndCharacteristicCycles.json)), `LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)), `LefschetzPencilsAndVanishingCycles:LPV.1/primitive-decomposition-and-strictness` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)).
 
 **Construction or proof.**
 
-1. Induct on the strict-support dimension. Reduce the nontrivial support case by a Lefschetz pencil and use H.0/curve-l2-hodge for its variation on the punctured pencil base.
+1. Induct on the strict-support dimension. Reduce the nontrivial support case by a Lefschetz pencil on the smooth projective ambient variety (LefschetzPencilsAndVanishingCycles LPV.3/existence-of-lefschetz-pencils, over C) and use H.0/curve-l2-hodge for its variation on the punctured pencil base.
 2. Apply specialization and primitive polarizations to compare the pencil’s nearby terms and prove relative hard Lefschetz.
 3. Use the polarized primitive decomposition and strict filtered specialization to prove z-torsion-freeness of the direct-image cohomology; obtain the weight and polarization statements.
 
@@ -622,36 +618,36 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 <a id="h0-mixed-hodge-module"></a>
 ### H.0/mixed-hodge-module — Admissible graded-polarizable mixed Hodge modules
 
-**Definition.** Construct the algebraic category MHM(X) by Saito’s admissible gluing definition: a rationally realized good filtered regular holonomic module, a finite increasing W with gr^W_w in MH(X,w)^pol, compatibility of F,W,V under local graph specialization, existence of the relative monodromy filtration on nearby cycles, and admissible gluing across every local hypersurface. Require the admissible variation condition on a dense smooth open support and the recursive vanishing-cycle condition on the complement. In the algebraic case require the extendability condition at a good compactification used in Saito 4.1. Morphisms preserve the full realized filtered structure. Use ambient support categories for singular closed supports.
+**Definition.** Construct the algebraic category MHM(X) by Saito’s admissible gluing definition: a rationally realized good filtered regular holonomic module, a finite increasing W with gr^W_w in MH(X,w)^pol, compatibility of F,W,V under local graph specialization, existence of the relative monodromy filtration on nearby cycles, and admissible gluing across every local hypersurface. Require the admissible variation condition on a dense smooth open support and the recursive vanishing-cycle condition on the complement. In the algebraic case require the extendability condition at a good compactification used in Saito 4.1 (with Remark 3.29). Morphisms preserve the full realized filtered structure. Use ambient support categories for singular closed supports.
 
 **Hypotheses and conventions.** All objects are rational and graded-polarizable. A finite W with pure graded objects in the ambient filtered category alone is insufficient: admissibility and relative monodromy are required.
 
-**Prerequisites:** [H.0/filtered-rees](#h0-filtered-rees), [H.0/v-filtration](#h0-v-filtration), [H.0/pure-hodge-module](#h0-pure-hodge-module), [H.0/strict-support-extension](#h0-strict-support-extension), [B/betti-cycles](#b-betti-cycles), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), `SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** [H.0/filtered-rees](#h0-filtered-rees), [H.0/v-filtration](#h0-v-filtration), [H.0/pure-hodge-module](#h0-pure-hodge-module), [H.0/strict-support-extension](#h0-strict-support-extension), [B/betti-cycles](#b-betti-cycles), `HodgeStructuresPartII:H.2/admissible-variation` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)), `HodgeStructuresPartII:H.2/graded-polarizable` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)), `LefschetzPencilsAndVanishingCycles:LPV.1/relative-monodromy-uniqueness` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)), `LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)), `AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)), `AlgebraicModuliForArithmeticGeometry:R09.7/embedded-resolution` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)).
 
 **Construction or proof.**
 
 1. Form the category of weakly mixed realized objects with pure weight-graded pieces.
 2. Impose the local admissibility conditions of Saito 2.17, using compatible filtrations and the relative-monodromy supplier. Glue across hypersurfaces with can and var, checking independence of defining function and embeddings.
-3. Apply the algebraic extendability condition of 4.1 on compactifications and prove locality and independence using the admissible gluing equivalence.
+3. Apply the algebraic extendability condition of 4.1 on SNC compactifications (AlgebraicModuliForArithmeticGeometry R09.7/snc-compactification, with R09.7/embedded-resolution for singular supports) and prove locality and independence using the admissible gluing equivalence.
 
 **Planning API.**
 
 - `MixedHodgeModule.weightGraded` — gr^W_w is pure polarizable of weight w.
 - `MixedHodgeModule.admissibility` — The local F,W,V compatibility and relative-monodromy/gluing tests characterize admissibility.
 - `MixedHodgeModule.support` — A closed embedding identifies MHM of its support with the corresponding supported ambient objects.
-- `MixedHodgeModule.point` — MHM(pt) identifies with graded-polarizable rational structures on TauCeti.Hodge.MixedHodgeStructure.
+- `MixedHodgeModule.point` — MHM(pt) is equivalent to finite-dimensional graded-polarizable rational mixed Hodge structures. Realize these on TauCeti.Hodge.MixedHodgeStructure by taking its abelian group to be the rational space itself with the identity as rational model; the pinned morphisms are already rational-linear, and finite dimension and graded polarizability are added conditions the pinned carrier does not impose.
 
 **Unit tests.**
 
-- `MixedHodgeModule.pointTate` (agreement) — At a point Q(−1) has only W_2/W_1 nonzero and F¹=C.
-- `MixedHodgeModule.mixedExtension` (value) — An admissible extension of Q(0) by Q(1) can have both weights 0 and −2; it need not split.
+- `MixedHodgeModule.pointTate` (compatibility) — At a point Q(−1) has only W_2/W_1 nonzero and F¹=C.
+- `MixedHodgeModule.mixedExtension` (computation) — An admissible extension of Q(0) by Q(1) can have both weights 0 and −2; it need not split.
 - `MixedHodgeModule.badVariation` (non-example) — A variation with no relative monodromy filtration at its boundary is excluded despite pure graded fibres.
 
 **Use:** FSY Appendix A.2–A.7; ESY §3.3: Supplies the actual input category for the projector, pair cohomology and weight dévissage.
 
 **Check.** At a point this category is the graded-polarizable rational subcategory of the existing mixed Hodge structures. The definition applies in every dimension needed by U and U×A¹, not just on curves.
 
-**Sources:** [Sai90](https://ems.press/content/serial-article-files/42511), §2.17, pp. 256–258; §3.29 and §4.1, pp. 314–316 — Defines the admissible local category and its algebraic extension condition.
+**Sources:** [Sai90](https://ems.press/content/serial-article-files/42511), §2.17, pp. 256–258; Remark 3.29, p. 313; §4.1, p. 314 — Defines the admissible local category and its algebraic extension condition.
 
 <a id="h0-abelian-strictness"></a>
 ### H.0/abelian-strictness — Abelian structure and simultaneous strictness
@@ -660,13 +656,13 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 **Hypotheses and conventions.** Simultaneous strictness is formulated through compatible filtrations, not deduced from separate strictness without a compatibility argument.
 
-**Prerequisites:** [H.0/mixed-hodge-module](#h0-mixed-hodge-module), [H.0/strict-support-extension](#h0-strict-support-extension), [H.0/filtered-rees](#h0-filtered-rees), `tauceti:TauCeti.Hodge.MixedHodgeStructure`, `tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_F_eq_map_F`, `tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_WQ_eq_map_WQ`.
+**Prerequisites:** [H.0/mixed-hodge-module](#h0-mixed-hodge-module), [H.0/strict-support-extension](#h0-strict-support-extension), [H.0/filtered-rees](#h0-filtered-rees), `tauceti:TauCeti.Hodge.MixedHodgeStructure`, `tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_F_eq_map_F`, `tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_WQ_eq_map_WQ`, `tauceti:TauCeti.Hodge.MixedHodgeStructure.Hom.range_inf_iSup_deligneSplittingFamily_eq_map_iSup`.
 
 **Construction or proof.**
 
 1. Construct kernels and cokernels through the local admissible gluing presentation and use pure semisimplicity on gr^W.
 2. Apply compatibility of F,W,V to the exact gluing diagrams, deducing strictness of the associated multi-filtered cubes.
-3. At a point identify the defining weight-graded purity with the existing MixedHodgeStructure and its base-change maps; compare range-intersection identities with the pinned strictness theorems.
+3. At a point identify the defining weight-graded purity with the existing MixedHodgeStructure and its base-change maps; compare range-intersection identities with the pinned strictness theorems. Simultaneous strictness for W_k∩F^p at a point is the pinned bigrading strictness range_inf_iSup_deligneSplittingFamily_eq_map_iSup for the bidegree set {(r,s): p≤r, r+s≤k}, since W_k∩F^p is the sum of the Deligne pieces over that set.
 
 **Check.** Morphisms need not split; strictness survives their kernels and images. The point comparison retains rational base change and graded polarizability.
 
@@ -679,7 +675,7 @@ Construct compatible good F,V and Rees modules; define polarizable pure Hodge mo
 
 Lift f_*, f_!, f*, f!, external products, duality and Tate twists to bounded derived Hodge modules and establish weight inequalities. Construct normalized nearby and vanishing cycles with can, var and N. Prove curve rank and pure costalk formulas and constant-divisor localization, including singular reduced divisors through the supported ambient category. Normalize D(pQ_U)=pQ_U(dim U) and i* pQ_U=pQ_D[1].
 
-**Inputs:** [H.0](#h0), [B](#b).
+**Inputs:** [H.0](#h0), [B](#b), `LefschetzPencilsAndVanishingCycles:LPV.1`, `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)).
 
 **Atlas planets:** Hodge-module operations; Hodge nearby cycles; Pure Hodge-module costalk; Divisor localization.
 
@@ -707,15 +703,15 @@ Lift f_*, f_!, f*, f!, external products, duality and Tate twists to bounded der
 
 **Unit tests.**
 
-- `HodgeOperations.point` (agreement) — All operations for id_pt agree with the existing rational mixed Hodge structure operations.
-- `HodgeOperations.constantDual` (value) — D(pQ_{A¹})=pQ_{A¹}(1), of weight −1.
+- `HodgeOperations.point` (compatibility) — All operations for id_pt agree with the existing rational mixed Hodge structure operations.
+- `HodgeOperations.constantDual` (computation) — D(pQ_{A¹})=pQ_{A¹}(1), of weight −1.
 - `HodgeOperations.tensorShift` (non-example) — For X a smooth d-fold, pQ_X⊗^H pQ_X=pQ_X[d]; using unshifted O_X⊗O_X as this tensor loses the shift.
 
 **Use:** FSY (A.5), Definition A.18 and Theorem A.24: Supports Hodge convolution and both kinds of pair direct image.
 
 **Check.** For pQ_X of weight d, its dual has weight −d, forcing the twist (d).
 
-**Sources:** [Sai90](https://ems.press/content/serial-article-files/42511), §4.2–§4.5, pp. 316–325; Introduction 0.1–0.3, pp. 221–226 — Builds the algebraic derived operations and their realization compatibilities.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.2, pp. 61–62 — Uses these operations for convolution and pair direct images; the dual Tate sign is corrected here.
+**Sources:** [Sai90](https://ems.press/content/serial-article-files/42511), §4.2–§4.5, pp. 315–325; Introduction 0.1–0.3, pp. 222–224 — Builds the algebraic derived operations and their realization compatibilities.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.2, pp. 61–63 — Uses these operations for convolution and pair direct images; the dual Tate sign is corrected here.
 
 <a id="h1-weight-bounds"></a>
 ### H.1/weight-bounds — Weight bounds and duality
@@ -734,7 +730,7 @@ Lift f_*, f_!, f*, f!, external products, duality and Tate twists to bounded der
 
 **Check.** H¹(G_m,Q)=Q(−1) and H_c¹(G_m,Q)=Q(0) show the two bounds differ.
 
-**Sources:** [Sai90](https://ems.press/content/serial-article-files/42511), Introduction 0.3, pp. 224–226; §4.4, pp. 321–324 — States and proves the functorial weight estimates used in the cohomology comparison.; [FSY](https://arxiv.org/pdf/1810.06454v5), Remark A.20, p. 68 — Applies the estimates to ordinary, compact and middle exponential cohomology.
+**Sources:** [Sai90](https://ems.press/content/serial-article-files/42511), Proposition 0.3, pp. 223–224; §4.4–§4.5, pp. 321–325 — States and proves the functorial weight estimates used in the cohomology comparison.; [FSY](https://arxiv.org/pdf/1810.06454v5), Proposition A.19 and its proof, pp. 66–67 — Applies the weight estimates for ! and * pushforward to the central-degree exponential cohomology.
 
 <a id="h1-hodge-cycles"></a>
 ### H.1/hodge-cycles — Hodge nearby and vanishing cycles
@@ -743,12 +739,12 @@ Lift f_*, f_!, f*, f!, external products, duality and Tate twists to bounded der
 
 **Hypotheses and conventions.** N is the normalized logarithm; the conversion from the supplier’s residue sign and the topological T−1 variation is part of the comparison.
 
-**Prerequisites:** [H.0/v-filtration](#h0-v-filtration), [H.0/mixed-hodge-module](#h0-mixed-hodge-module), [H.1/operations](#h1-operations), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), [B/betti-cycles](#b-betti-cycles), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)).
+**Prerequisites:** [H.0/v-filtration](#h0-v-filtration), [H.0/mixed-hodge-module](#h0-mixed-hodge-module), [H.1/operations](#h1-operations), [B/betti-cycles](#b-betti-cycles), `LefschetzPencilsAndVanishingCycles:LPV.1/relative-monodromy-uniqueness` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)), `LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)), `HodgeStructuresPartII:H.2/canonical-extension` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)), `HodgeStructuresPartII:H.2/residue-monodromy` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)).
 
 **Construction or proof.**
 
 1. Apply the graph V construction and its rational comparison; use the compatible F,W,V quotients to define filtered cycles.
-2. Use the admissibility relative-monodromy condition for the induced weights and the normalized polynomial in log T for can and var.
+2. Use the admissibility relative-monodromy condition for the induced weights (uniqueness by LPV.1) and the normalized polynomial in log T for can and var. HodgeStructuresPartII H.2/residue-monodromy gives T=exp(−2πi·Res), so on a unipotent block N=(2πi)⁻¹log T_u=−Res.
 3. Compare F at a generic point with the canonical extension and its full graded V fundamental interval to prove the curve rank formula.
 
 **Planning API.**
@@ -760,15 +756,15 @@ Lift f_*, f_!, f*, f!, external products, duality and Tate twists to bounded der
 
 **Unit tests.**
 
-- `HodgeCycles.smooth` (value) — A smooth variation of weight m on a curve gives nearby weight m for its module of weight m+1.
+- `HodgeCycles.smooth` (computation) — A smooth variation of weight m on a curve gives nearby weight m for its module of weight m+1.
 - `HodgeCycles.point` (degenerate) — For i_0V, ψ=0 and φ=V, with its original point weight.
 - `HodgeCycles.nonunipotentRank` (non-example) — A rank-one variation with monodromy −1 has zero ψ_1 but full nearby rank one.
 
-**Use:** FSY Proposition A.10, Corollary A.31 and Lemma A.32: Supplies strict weight dévissage, the costalk and monodromy-at-infinity formulas.
+**Use:** FSY Proposition A.10 and Corollary A.31; MT Proposition A.3: Supplies strict weight dévissage, the costalk and monodromy-at-infinity formulas.
 
 **Check.** For pQ_{A¹}, ψ=Q of weight zero and φ=0.
 
-**Sources:** [Sai90](https://ems.press/content/serial-article-files/42511), §2.2–§2.4, pp. 237–240; §2.9–§2.11, pp. 245–247 — Lifts specialization and constructs its relative monodromy weights.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.2, pp. 62–63; Corollary A.31, pp. 72–73 — Uses the cycle maps and the full nearby-cycle rank formula.
+**Sources:** [Sai90](https://ems.press/content/serial-article-files/42511), §2.2–§2.4, pp. 237–240; §2.9–§2.11, pp. 245–247 — Lifts specialization and constructs its relative monodromy weights.; [FSY](https://arxiv.org/pdf/1810.06454v5), Example A.2, pp. 62–63; Corollary A.31, p. 72 — Uses the cycle maps and the full nearby-cycle rank formula.
 
 <a id="h1-curve-costalk"></a>
 ### H.1/curve-costalk — Pure curve costalk formula
@@ -787,7 +783,7 @@ Lift f_*, f_!, f*, f!, external products, duality and Tate twists to bounded der
 
 **Check.** For pQ_{A¹}, i!pQ=Q(−1)[−1]; its stalk is Q[1], so exchanging the two fails.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Corollary A.31 and its proof, pp. 72–73 — Computes the pure curve costalk via the unipotent monodromy cokernel.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Example A.2, pp. 62–63; Corollary A.31 and its proof, p. 72 — Example A.2 computes the costalk of a pure module on the line through the cokernel of N on unipotent nearby cycles; Corollary A.31 uses it.
 
 <a id="h1-divisor-localisation"></a>
 ### H.1/divisor-localisation — Constant-divisor localization sequences
@@ -845,13 +841,13 @@ Define EMHS as the full subcategory with vanishing derived global Betti cohomolo
 - `EMHS.zero` (degenerate) — The zero object is in EMHS.
 - `EMHS.constant` (non-example) — A nonzero constant pQ_A¹ has RΓ=Q[1] and is excluded.
 - `EMHS.punctual` (non-example) — δ_0Q has nonzero H⁰ and is excluded.
-- `EMHS.extensionByZero` (value) — j_!pQ_Gm has vanishing RΓ and is included, even though δ_0Q embeds in it.
+- `EMHS.extensionByZero` (computation) — j_!pQ_Gm has vanishing RΓ and is included, even though δ_0Q embeds in it.
 
 **Use:** FSY Appendix A.3–A.7: Provides the category for pair invariants and the classicality theorem.
 
 **Check.** A nonzero punctual module is not in EMHS. The object j_!pQ_Gm is in EMHS and contains a punctual subobject.
 
-**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.4, Definition 11, p. 34 — Defines EMHS as the vanishing-global-cohomology subcategory.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.3, p. 63 — Uses the same heart and constant objects.
+**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.2, Definition 7, p. 31, with the vanishing-cohomology subcategory Perv₀ on p. 30 — Defines EMHS as the mixed Hodge modules on the line whose perverse sheaf has vanishing global cohomology, equivalently the image of the projector.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.3, p. 63 — Uses the same heart and constant objects.
 
 <a id="e-projector"></a>
 ### E/projector — The exponential projector
@@ -877,16 +873,16 @@ Define EMHS as the full subcategory with vanishing derived global Betti cohomolo
 
 **Unit tests.**
 
-- `ExponentialProjector.delta` (value) — Πδ_0Q=j_!pQ_Gm.
+- `ExponentialProjector.delta` (computation) — Πδ_0Q=j_!pQ_Gm.
 - `ExponentialProjector.constant` (degenerate) — ΠpQ_A¹=0.
-- `ExponentialProjector.unitObject` (value) — Applying Π to K returns K.
+- `ExponentialProjector.unitObject` (computation) — Applying Π to K returns K.
 - `ExponentialProjector.notMinimalExtension` (non-example) — Πδ_0Q is not δ_0Q, so replacing Π by intermediate extension fails.
 
-**Use:** FSY Proposition A.10, Lemma A.12, Definition A.18 and (A.29): Defines the bifiltered realization, classical embedding and localized Fourier identity.
+**Use:** FSY Proposition A.10, Lemma A.12, Definition A.18 and the proof of Theorem A.24(2): Defines the bifiltered realization, classical embedding and localized Fourier identity.
 
 **Check.** Πδ_0Q=K, whereas ΠpQ_A¹=0.
 
-**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.2, pp. 27–31; §4.4, p. 34 — Constructs the convolution projector and its quotient property.; [FSY](https://arxiv.org/pdf/1810.06454v5), (A.5), Appendix A.3, pp. 63–64 — States exactness, adjunction and the constant kernel and cokernel.
+**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.2, pp. 30–31; §4.4, p. 34 — Constructs the convolution projector and its quotient property.; [FSY](https://arxiv.org/pdf/1810.06454v5), (A.5), Appendix A.3, pp. 63–64 — States exactness, adjunction and the constant kernel and cokernel.
 
 <a id="e-tensor"></a>
 ### E/tensor — Tensor product of exponential structures
@@ -913,14 +909,14 @@ Define EMHS as the full subcategory with vanishing derived global Betti cohomolo
 **Unit tests.**
 
 - `EMHSTensor.zero` (degenerate) — E⊗_E0=0.
-- `EMHSTensor.unitValue` (value) — K⊗_EK=K.
-- `EMHSTensor.deltaInputs` (agreement) — Π(δ_a⋆δ_b)=Πδ_{a+b}, including a+b=0.
+- `EMHSTensor.unitValue` (computation) — K⊗_EK=K.
+- `EMHSTensor.deltaInputs` (compatibility) — Π(δ_a⋆δ_b)=Πδ_{a+b}, including a+b=0.
 
-**Use:** FSY Lemma A.12 and Remark A.20: Provides the tensor classical embedding and the Künneth target.
+**Use:** FSY Lemma A.12 and Example A.22: Provides the tensor classical embedding and the Künneth target.
 
 **Check.** δ_0Q is not an EMHS object; the tensor unit is K.
 
-**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.2–§4.4, especially Proposition 4, pp. 30–37 — Constructs the tensor category after quotienting constant objects.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.3, p. 64 — States the tensor and projector comparison and heart concentration.
+**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.2, Definition 7, p. 31; §4.4, Proposition 4 and Lemma 1, pp. 36–37 — Gives the tensor structure by additive convolution, strict compatibility of weights with it, and the vanishing of Π on the cone of ! to * convolution.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.3, p. 64 — States the tensor and projector comparison and heart concentration.
 
 <a id="e-exponential-weight"></a>
 ### E/exponential-weight — Exponential weight filtration
@@ -946,15 +942,15 @@ Define EMHS as the full subcategory with vanishing derived global Betti cohomolo
 
 **Unit tests.**
 
-- `ExponentialWeight.unit` (value) — K is pure of exponential weight zero.
+- `ExponentialWeight.unit` (computation) — K is pure of exponential weight zero.
 - `ExponentialWeight.ambientUnit` (non-example) — K is not ambient-pure: 0→δ_0Q→K→pQ_A¹→0 has weights 0 and 1.
-- `ExponentialWeight.pointTate` (agreement) — Πδ_0Q(m) has exponential weight −2m, agreeing with the pinned Tate convention.
+- `ExponentialWeight.pointTate` (compatibility) — Πδ_0Q(m) has exponential weight −2m, agreeing with the pinned Tate convention.
 
-**Use:** FSY Proposition A.10 and Remark A.20: Gives the W on the fibre and the middle-weight comparison.
+**Use:** FSY Proposition A.10 and Proposition A.19: Gives the W on the fibre and the middle-weight comparison.
 
 **Check.** For K=Πδ_0Q the exponential weight is zero; its ambient exact sequence has weights zero and one.
 
-**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.4, Definition 12 and Propositions 2–4, pp. 34–37 — Defines the descended filtration and its tensor compatibility; its proof’s ambient-weight assertion is corrected here.; [FSY](https://arxiv.org/pdf/1810.06454v5), Remark A.6, p. 64 — Distinguishes exponential weights from the ambient filtration.
+**Sources:** [KS](https://arxiv.org/pdf/1006.2706v2), §4.4, Definitions 11–12 and Propositions 2–4, pp. 34–37 — Defines the descended filtration and its tensor compatibility; its proof’s ambient-weight assertion is corrected here.; [FSY](https://arxiv.org/pdf/1810.06454v5), Remark A.6, p. 64 — Distinguishes exponential weights from the ambient filtration.
 
 <a id="e-de-rham-fibre"></a>
 ### E/de-rham-fibre — De Rham fibre of an exponential structure
@@ -981,14 +977,14 @@ Define EMHS as the full subcategory with vanishing derived global Betti cohomolo
 **Unit tests.**
 
 - `ExponentialFibre.constant` (degenerate) — Every constant Hodge module has zero fibre.
-- `ExponentialFibre.punctual` (value) — ωδ_aV=V_C, with the scalar exponential gauge giving the comparison.
-- `ExponentialFibre.unit` (agreement) — ωK=C, of exponential weight zero.
+- `ExponentialFibre.punctual` (computation) — ωδ_aV=V_C, with the scalar exponential gauge giving the comparison.
+- `ExponentialFibre.unit` (compatibility) — ωK=C, of exponential weight zero.
 
-**Use:** FSY Proposition A.10 and Proposition A.17: Defines the filtered fibre and identifies pair cohomology with twisted de Rham cohomology.
+**Use:** FSY Proposition A.10 and (A.16)–(A.17): Defines the filtered fibre and identifies pair cohomology with twisted de Rham cohomology.
 
 **Check.** ω(pQ_A¹)=0 but ω(δ_0V)=V_C. Weights on this fibre are exponential weights.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), (A.7)–(A.9), p. 64 — States vanishing, exactness, projector invariance and faithfulness of the fibre.; [KS](https://arxiv.org/pdf/1006.2706v2), §4.2, pp. 29–31 — Explains the Fourier-localization realization behind the fibre functor.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), (A.7)–(A.9), p. 64 — States vanishing, exactness, projector invariance and faithfulness of the fibre.; [KS](https://arxiv.org/pdf/1006.2706v2), §4.3, Definition 8, p. 31 — Defines the de Rham realization at u≠0 as a fibre of the Fourier transform and identifies it with the cokernel of d/dx+u⁻¹, the exponentially twisted H¹.
 
 <a id="e-fourier-localisation-projector"></a>
 ### E/fourier-localisation-projector — Fourier localization realizes the projector
@@ -1007,7 +1003,7 @@ Define EMHS as the full subcategory with vanishing derived global Betti cohomolo
 
 **Check.** The localization is on the Fourier coordinate, not on θ in the input.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), (A.29), p. 72, and proof of Theorem A.24, pp. 69–70 — Uses the projector/localized inverse-Fourier identity to prove classicality.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Proofs of Theorem A.24(2)–(3), p. 70 — Uses that the Fourier transform of a projected module is already localized at the origin, citing Katz (Exponential sums and differential equations, Proposition 12.3.5), and characterizes the classical image by the localized Fourier transform being a constant connection.
 
 **Layer acceptance.** Every target above satisfies its stated Check, every definition/construction satisfies its API and unit tests, and all identifications respect the pinned conventions. The planning inventory covers this layer; mathematical closure also requires its supplier requests and inherited proof inputs.
 
@@ -1044,15 +1040,15 @@ Construct the rational Deligne filtration on the exponential twist of a mixed Ho
 
 **Unit tests.**
 
-- `DeligneFiltration.point` (agreement) — For δ_0Q(−1), F¹_irr=C and F^{1+ε}_irr=0 for 0<ε<1.
+- `DeligneFiltration.point` (compatibility) — For δ_0Q(−1), F¹_irr=C and F^{1+ε}_irr=0 for 0<ε<1.
 - `DeligneFiltration.constant` (degenerate) — For pQ_A¹ the cohomological filtered fibre is zero at every rational index.
-- `DeligneFiltration.poleSign` (value) — At infinity ∂_x(e^{1/x})=−x⁻²e^{1/x}; a plus sign is a different exponential.
+- `DeligneFiltration.poleSign` (computation) — At infinity ∂_x(e^{1/x})=−x⁻²e^{1/x}; a plus sign is a different exponential.
 
 **Use:** ESY Theorems 3.3.1 and 3.3.3; FSY Proposition A.10: Supplies the filtered complex whose injectivity and simultaneous strictness define the irregular Hodge realization.
 
 **Check.** The derivative at infinity is ∂_x−x⁻², not ∂_x+x⁻². The cohomology degree in the fibre is one; no extra Hodge shift is inserted.
 
-**Sources:** [ESY](https://arxiv.org/pdf/1302.4537v3), Definition (3.1.1), pp. 22–23; Proposition 3.1.2, p. 23 — Constructs the local Deligne filtration from F and V and its Rees specialization.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.3 and Proposition A.13, pp. 64–66 — Uses the decreasing rational filtration and fixes its classical normalization.
+**Sources:** [ESY](https://arxiv.org/pdf/1302.4537v3), Display (3.1.1), pp. 22–23; Proposition 3.1.2, p. 23 — Constructs the local Deligne filtration from F and V and its Rees specialization.; [FSY](https://arxiv.org/pdf/1810.06454v5), Appendix A.3, pp. 63–64; Proposition A.13, p. 65 — Uses the decreasing rational filtration and fixes its classical normalization.
 
 <a id="i-rees-laplace-specialisation"></a>
 ### I/rees-laplace-specialisation — Filtered Laplace specialization
@@ -1071,7 +1067,7 @@ Construct the rational Deligne filtration on the exponential twist of a mixed Ho
 
 **Check.** Both the finite-chart and infinity-chart operator actions must agree under x=1/θ. The eigenvalue-one endpoint is covered explicitly, not discarded.
 
-**Sources:** [ESY](https://arxiv.org/pdf/1302.4537v3), Lemma 2.3.3 and §2.4, pp. 21–22; Proposition 3.1.2, p. 23; Proposition 3.2.3, p. 24; Appendix B, pp. 27–29 — Establishes the V-lattice, τ−z quotient, strict graded specialization and projective comparison.
+**Sources:** [ESY](https://arxiv.org/pdf/1302.4537v3), Lemma 2.3.3 and §2.4, pp. 21–22; Proposition 3.1.2, p. 23; Proposition 3.2.3, pp. 24–25; Appendix B, pp. 27–28 — Establishes the V-lattice, τ−z quotient, strict graded specialization and projective comparison.
 
 <a id="i-polarized-curve-strictness"></a>
 ### I/polarized-curve-strictness — Polarized Fourier–Laplace strictness
@@ -1090,7 +1086,7 @@ Construct the rational Deligne filtration on the exponential twist of a mixed Ho
 
 **Check.** This is the deep pure-input input; the mixed case requires a further strictness argument.
 
-**Sources:** [Sab10](https://arxiv.org/pdf/0804.4328v2), Theorem 6.1, §6.a–§6.c, pp. 30–36, especially Proposition 6.10 — Proves the curve strictness using polarized twistor Fourier transformation.
+**Sources:** [Sab10](https://arxiv.org/pdf/0804.4328v2), Theorem 6.1, p. 31; §6.a–§6.c, pp. 31–36; Proposition 6.10 and its proof, pp. 35–36 — Theorem 6.1 follows from Proposition 6.10, whose proof forms the Fourier–Laplace twistor triple of a polarized Hodge D-module, computes its V-filtration along τ=0 and quotients by τ−z, then invokes strictness of the projective direct image of polarized twistor D-modules (Sabbah, Polarizable twistor D-modules, Theorems 3.3.15 and 6.1.1; Monodromy at infinity and Fourier transform II, Proposition 4.1(ii) and Corollary 5.9).
 
 <a id="i-irregular-e1"></a>
 ### I/irregular-e1 — E₁ degeneration for mixed exponential twists
@@ -1108,7 +1104,7 @@ Construct the rational Deligne filtration on the exponential twist of a mixed Ho
 
 **Check.** The theorem concerns filtered hypercohomology and does not claim every termwise differential vanishes.
 
-**Sources:** [ESY](https://arxiv.org/pdf/1302.4537v3), Theorem 3.3.1 and Lemma 3.3.3, pp. 24–25; §3.4 and Theorem 1.2.2, pp. 25–26 and 5–6; Proposition 1.7.4 and Corollary 1.7.6, pp. 17–18 — Proves strictness for mixed modules and derives E₁ degeneration of the logarithmic pair filtration.
+**Sources:** [ESY](https://arxiv.org/pdf/1302.4537v3), Theorem 3.3.1, Remark 3.3.2 and Lemma 3.3.3 with their proofs, pp. 25–26; §3.4 and Theorem 1.2.2, pp. 26 and 6; Proposition 1.7.4 and Corollary 1.7.6, pp. 17–18 — Proves strictness for mixed modules and derives E₁ degeneration of the logarithmic pair filtration.
 
 <a id="i-strict-bifiltered-realisation"></a>
 ### I/strict-bifiltered-realisation — Strict bifiltered exponential realization
@@ -1123,11 +1119,11 @@ Construct the rational Deligne filtration on the exponential twist of a mixed Ho
 
 1. Use I/irregular-e1 for injectivity and the simultaneous F,W compatibility of Hodge-module exact sequences to identify the filtered weight-subspace fibre.
 2. Constants have zero exponential fibre at every filtration index, so strict exactness for the unit kernel/cokernel descends the bifiltration through Π.
-3. Apply the same argument to kernel, image and cokernel of a and to their W_n pieces, yielding intersection strictness rather than only two separate strictness equations.
+3. Apply the same argument to kernel, image and cokernel of a and to their W_n pieces, yielding intersection strictness rather than only two separate strictness equations: F,V-bistrictness of Hodge-module morphisms makes the Deligne-filtered twisted complex exact on short exact sequences, so I/irregular-e1 makes F^λ_irr∘ω exact; applied to W_nN₁↠W_n(im a)↪W_nN₂ with W-strictness of a, this gives a(W_n∩F^λ)=im(a)∩W_n∩F^λ. FSY instead deduce this from Sabbah's Irregular Hodge theory (Mém. SMF 156), Theorems 0.2(2), 0.3(4) and 0.3(2); that route is not used here.
 
 **Check.** A proposed separate F-strict and W-strict proof must also justify W_n∩F^λ.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Proposition A.10 and proof, p. 65 — States injectivity, factorization through Π and strict bifiltered functoriality.; [ESY](https://arxiv.org/pdf/1302.4537v3), Theorem 3.3.1, p. 24; Lemma 3.3.3, pp. 24–25 — Provides the mixed filtered strictness needed for the weight pieces.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Proposition A.10 and proof, p. 65 — States injectivity, factorization through Π and strict bifiltered functoriality.; [ESY](https://arxiv.org/pdf/1302.4537v3), Theorem 3.3.1, Remark 3.3.2 and Lemma 3.3.3, p. 25 — Provides the mixed filtered strictness needed for the weight pieces.
 
 **Layer acceptance.** Every target above satisfies its stated Check, every definition/construction satisfies its API and unit tests, and all identifications respect the pinned conventions. The planning inventory covers this layer; mathematical closure also requires its supplier requests and inherited proof inputs.
 
@@ -1145,7 +1141,7 @@ Construct the fully faithful tensor functor V↦Π i_{0!}V from the existing rat
 
 **Construction.** Let MHS_gp denote the graded-polarizable rational subcategory of the pinned MixedHodgeStructure carrier. Construct I(V)=Πi_{0,*}V and prove I is fully faithful, exact and symmetric monoidal, with φ_{θ,1}I(V)=V. Define a classical exponential structure by membership in its essential image. Its exponential weight filtration is I(WV); this comparison does not identify its ambient MHM weights with WV. Give the canonical criterion that the localized Fourier connection of a representative is constant, with its induced Hodge data.
 
-**Hypotheses and conventions.** The rational carrier uses the existing Q- and C-base-change maps; no new mixed-Hodge vector-space structure is introduced.
+**Hypotheses and conventions.** The rational carrier uses the existing Q- and C-base-change maps of TauCeti.Hodge.MixedHodgeStructure, with the abelian group taken to be the rational space itself (the pinned morphisms are rational-linear); finite dimension and graded polarizability are added conditions. No new mixed-Hodge vector-space structure is introduced.
 
 **Prerequisites:** [E/projector](#e-projector), [E/tensor](#e-tensor), [E/exponential-weight](#e-exponential-weight), [E/fourier-localisation-projector](#e-fourier-localisation-projector), [H.0/abelian-strictness](#h0-abelian-strictness), [H.1/hodge-cycles](#h1-hodge-cycles), `tauceti:TauCeti.Hodge.MixedHodgeStructure`.
 
@@ -1164,8 +1160,8 @@ Construct the fully faithful tensor functor V↦Π i_{0!}V from the existing rat
 
 **Unit tests.**
 
-- `ClassicalEmbedding.unit` (value) — I(Q)=K, not δ_0Q.
-- `ClassicalEmbedding.tate` (agreement) — I(Q(m)) has exponential weight −2m and its cycles are the pinned Q(m).
+- `ClassicalEmbedding.unit` (computation) — I(Q)=K, not δ_0Q.
+- `ClassicalEmbedding.tate` (compatibility) — I(Q(m)) has exponential weight −2m and its cycles are the pinned Q(m).
 - `ClassicalEmbedding.translatedPoint` (non-example) — Πδ_aQ for a≠0 has zero φ_{θ,1} at zero but nonzero fibre, hence is not classical.
 
 **Use:** FSY Proposition A.13 and Theorem A.24: Defines the meaning of classicality and the inverse used to recover ordinary MHS.
@@ -1191,7 +1187,7 @@ Construct the fully faithful tensor functor V↦Π i_{0!}V from the existing rat
 
 **Check.** For Q(−1), the last nonzero integer filtration step is F¹.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Proposition A.13 and proof, pp. 65–66 — Computes the punctual filtered complex and deduces the bifiltered comparison for the classical image.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Proposition A.13 and its proof, p. 65 — Computes the punctual filtered complex and deduces the bifiltered comparison for the classical image.
 
 **Layer acceptance.** Every target above satisfies its stated Check, every definition/construction satisfies its API and unit tests, and all identifications respect the pinned conventions. The planning inventory covers this layer; mathematical closure also requires its supplier requests and inherited proof inputs.
 
@@ -1228,15 +1224,15 @@ Construct ordinary, compactly supported and middle exponential cohomology of a s
 
 **Unit tests.**
 
-- `PairCohomology.pointZero` (value) — For U=pt, f=0 and coefficient V, H⁰=H_c⁰=H_mid⁰=I(V), with all other degrees zero.
+- `PairCohomology.pointZero` (computation) — For U=pt, f=0 and coefficient V, H⁰=H_c⁰=H_mid⁰=I(V), with all other degrees zero.
 - `PairCohomology.affineIdentity` (degenerate) — H^r(A¹,t)=H_c^r(A¹,t)=0 in all degrees.
-- `PairCohomology.constantLine` (agreement) — For (A¹,0), H⁰=Q and H_c²=Q(−1), with the other groups zero.
+- `PairCohomology.constantLine` (compatibility) — For (A¹,0), H⁰=Q and H_c²=Q(−1), with the other groups zero.
 
 **Use:** FSY Proposition A.19, Theorem A.24 and Lemma A.28: Provides the invariants whose weights, classicality and Fourier realization are computed.
 
 **Check.** The middle object is the image in EMHS, not an independently chosen subspace.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), (A.14), Example A.15, Definition A.18, pp. 66–67 — Defines the coefficient versions, the zero-function comparison and the three pair invariants.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), (A.14), p. 65; Example A.15 and Definition A.18, p. 66 — Defines the coefficient versions, the zero-function comparison and the three pair invariants.
 
 <a id="p-pair-fibre"></a>
 ### P/pair-fibre — Twisted de Rham realization of pair cohomology
@@ -1245,17 +1241,17 @@ Construct ordinary, compactly supported and middle exponential cohomology of a s
 
 **Hypotheses and conventions.** Use unshifted DR degrees and the pushforward filtered realization; compact DR is defined through holonomic ! direct image.
 
-**Prerequisites:** [P/pair-cohomology](#p-pair-cohomology), [E/de-rham-fibre](#e-de-rham-fibre), [I/strict-bifiltered-realisation](#i-strict-bifiltered-realisation), [H.1/operations](#h1-operations), [F/exponential-twist](#f-exponential-twist).
+**Prerequisites:** [P/pair-cohomology](#p-pair-cohomology), [E/de-rham-fibre](#e-de-rham-fibre), [I/strict-bifiltered-realisation](#i-strict-bifiltered-realisation), [H.1/operations](#h1-operations), [F/exponential-twist](#f-exponential-twist), [I/irregular-e1](#i-irregular-e1).
 
 **Construction or proof.**
 
 1. Apply the projection formula for exponential twisting to f_* and f_!.
 2. Use the direct-image spectral sequence and E/de-rham-fibre: the exponential fibre of every perverse cohomology term has cohomology only in degree one, so the spectral sequence has a single nonzero row.
-3. Insert the r−d normalization and exactness of ω and Π; use I/strict-bifiltered-realisation for filtered images.
+3. Insert the r−d normalization and exactness of ω and Π; use I/irregular-e1 (the Deligne construction commutes with the projective pushforward of a compactification of f) for the filtered identification, and I/strict-bifiltered-realisation for filtered images.
 
 **Check.** For a point supported in a d-fold the nonzero unshifted DR degree is d; the normalization must retain it.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Proposition A.17 and its preceding spectral sequence, p. 66 — Identifies the ordinary and compact pair fibres with twisted de Rham cohomology.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Displays (A.16)–(A.17) and the following paragraph, p. 66 — Identifies the filtered ordinary and compact twisted de Rham cohomology of the pair with the de Rham fibres of the pushforward modules; FSY deduce the filtered statement from Sabbah–Yu (Forum Math. Sigma 3 (2015), Theorem 1.3(4)) applied to a compactification of f, which this plan replaces by I/irregular-e1.
 
 <a id="p-pair-kunneth-duality"></a>
 ### P/pair-kunneth-duality — Künneth and duality for exponential cohomology
@@ -1274,7 +1270,7 @@ Construct ordinary, compactly supported and middle exponential cohomology of a s
 
 **Check.** The pair H_c¹(G_m,x)=Q pairs with H¹(G_m,−x)=Q(−1) into Q(−1).
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Remark A.20 and Example A.22, pp. 67–68 — Uses duality, tensor products and the Tate normalization for the examples.; [Yu](https://arxiv.org/pdf/1203.2338v2), Theorem 2.2 and proof, pp. 14–16 — Proves compatibility of duality with the irregular filtration in its logarithmic realization.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Example A.22, pp. 67–68 — Uses Künneth for the sum of coordinates (convolution powers) and the duality H^jf_!≅(DH^{−j}f_*)(−k) with its Tate twist.; [Yu](https://arxiv.org/pdf/1203.2338v2), Theorem 2.2 and proof, pp. 14–16 — Proves compatibility of duality with the irregular filtration in its logarithmic realization.
 
 <a id="p-middle-weight"></a>
 ### P/middle-weight — Middle degree and the lowest weight piece
@@ -1340,7 +1336,7 @@ Construct ordinary, compactly supported and middle exponential cohomology of a s
 
 For V smooth quasi-projective, g regular and M in MHM(V), prove classicality of all degrees for pQ_A¹⊠M with exponential tg, and of the ordinary [*0] and compact [!0] variants. For constant coefficients identify compact cohomology with H_c^{r−2}(g^{-1}(0))(−1), and ordinary cohomology with H^r_{g^{-1}(0)}(V); reduce the latter to H^{r−2}(g^{-1}(0))(−1) when the zero locus is a smooth divisor.
 
-**Inputs:** [P](#p), [F](#f).
+**Inputs:** [P](#p), [F](#f), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)).
 
 **Atlas planets:** Classical tg criterion; Zero-locus cohomology formula.
 
@@ -1351,13 +1347,13 @@ For V smooth quasi-projective, g regular and M in MHM(V), prove classicality of 
 
 **Hypotheses and conventions.** The one-sided [*0] and [!0] hypotheses are kept in their stated support theories.
 
-**Prerequisites:** [P/pair-cohomology](#p-pair-cohomology), [P/pair-fibre](#p-pair-fibre), [P/pair-localisation](#p-pair-localisation), [C/classical-embedding](#c-classical-embedding), [C/classical-filtration](#c-classical-filtration), [E/de-rham-fibre](#e-de-rham-fibre), [E/fourier-localisation-projector](#e-fourier-localisation-projector), [F/fourier-laplace](#f-fourier-laplace), [F/fourier-duality](#f-fourier-duality), [H.1/operations](#h1-operations), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)).
+**Prerequisites:** [P/pair-cohomology](#p-pair-cohomology), [P/pair-fibre](#p-pair-fibre), [P/pair-localisation](#p-pair-localisation), [C/classical-embedding](#c-classical-embedding), [C/classical-filtration](#c-classical-filtration), [E/de-rham-fibre](#e-de-rham-fibre), [E/fourier-localisation-projector](#e-fourier-localisation-projector), [F/fourier-laplace](#f-fourier-laplace), [F/fourier-duality](#f-fourier-duality), [H.1/operations](#h1-operations), `HodgeStructuresPartII:H.2/mixed-fixed-part` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)).
 
 **Construction or proof.**
 
 1. Localize along A¹×g⁻¹(0); its supported term pushes to θ=0 and is classical. On the complement push first along (t,g) to reduce to g=τ.
 2. The ordinary localized fibre is the Fourier de Rham complex [M(*0)→M(*0)] with differential multiplication by τ. It is acyclic since τ is invertible. Obtain the compact version by duality with sign involution.
-3. For [*0], replace M by Π_τM; the difference has constant cohomology killed after localization of its Fourier transform. Use E/fourier-localisation-projector for the other comparison. Duality gives [!0].
+3. For [*0], replace M by Π_τM; the difference has constant cohomology killed after localization of its Fourier transform. Constancy is checked on underlying D-modules: an admissible mixed Hodge module on A¹ whose underlying local system is constant is constant, by HodgeStructuresPartII H.2/mixed-fixed-part (A¹ is simply connected, so the evaluation of the invariants is a bijective morphism of variations, hence an isomorphism by strictness). Use E/fourier-localisation-projector for the other comparison. Duality gives [!0].
 4. Use faithfulness of the exponential fibre to obtain the classicality statement in EMHS, then C/classical-filtration for its bifiltration.
 
 **Check.** The argument works with the derived pushforward of M, since the projector and fibre are exact on cohomology. No tameness or nondegeneracy assumption on g is needed.
@@ -1390,7 +1386,7 @@ For V smooth quasi-projective, g regular and M in MHM(V), prove classicality of 
 
 Give the Fourier transform of an MHM a cohomological MHS through the pair (A¹×A¹,tτ), without claiming its Fourier transform is an MHM. Prove the costalk comparison and pure-input Hodge-number formula, and compute the constant correction of Π. Prove the general nearby-infinity monodromy-filtration theorem for Π of a pure Hodge module with no constant submodule, retaining every primitive part. Specific Kloosterman Jordan blocks belong to the companion roadmap.
 
-**Inputs:** [G](#g), [H.1](#h1), [I](#i).
+**Inputs:** [G](#g), [H.1](#h1), [I](#i), `LefschetzPencilsAndVanishingCycles:LPV.1`.
 
 **Atlas planets:** Fourier cohomology; Fourier costalk theorem; Fourier Hodge-rank formula; Projector constant correction; Regular Fourier stationary phase; Projector monodromy at infinity.
 
@@ -1417,8 +1413,8 @@ Give the Fourier transform of an MHM a cohomological MHS through the pair (A¹×
 
 **Unit tests.**
 
-- `FourierCohomology.pointAtZero` (value) — For M^H=δ_0V, H⁰(FTM^H)=V and other ordinary degrees vanish.
-- `FourierCohomology.constant` (value) — For M^H=pQ_A¹, H¹(FTM^H)=Q(−1) and H⁰=0.
+- `FourierCohomology.pointAtZero` (computation) — For M^H=δ_0V, H⁰(FTM^H)=V and other ordinary degrees vanish.
+- `FourierCohomology.constant` (computation) — For M^H=pQ_A¹, H¹(FTM^H)=Q(−1) and H⁰=0.
 - `FourierCohomology.translatedPoint` (degenerate) — For δ_aV with a≠0, ordinary and compact Fourier cohomology vanish.
 
 **Use:** FSY Theorem A.30 and Corollary A.31: Provides the MHS on which costalk and Hodge-rank formulas are stated.
@@ -1463,7 +1459,7 @@ Give the Fourier transform of an MHM a cohomological MHS through the pair (A¹×
 
 **Check.** At a singular point one must retain coker N and cannot use the generic-rank formula.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Corollary A.31(1)–(2) and proof, pp. 72–73 — Computes the cokernel and, at a smooth point, its weight and Hodge ranks.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Corollary A.31(1)–(2) and its proof, p. 72 — Computes the cokernel and, at a smooth point, its weight and Hodge ranks.
 
 <a id="t-constant-correction"></a>
 ### T/constant-correction — The constant correction of the projector
@@ -1482,7 +1478,7 @@ Give the Fourier transform of an MHM a cohomological MHS through the pair (A¹×
 
 **Check.** The weight shift l−1 on the constant module is essential.
 
-**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Corollary A.31(3) and proof, pp. 72–73 — Gives the constant correction and its filtered dimension formula.
+**Sources:** [FSY](https://arxiv.org/pdf/1810.06454v5), Corollary A.31(3) and its proof, p. 72 — Gives the constant correction and its filtered dimension formula.
 
 <a id="t-stationary-phase"></a>
 ### T/stationary-phase — Regular Fourier stationary phase at eigenvalue one
@@ -1501,7 +1497,7 @@ Give the Fourier transform of an MHM a cohomological MHS through the pair (A¹×
 
 **Check.** The comparison concerns vanishing cycles at output zero and nearby cycles at input infinity, not the reverse pair.
 
-**Sources:** [MT](https://arxiv.org/pdf/0912.5144v12), Lemma A.4 and its proof, pp. 38–39 — States this comparison and obtains it by adapting an earlier kernel-specialization argument.
+**Sources:** [MT](https://arxiv.org/pdf/0912.5144v12), Lemma A.4 and its proof, p. 39 — States this comparison and obtains it by adapting an earlier kernel-specialization argument.
 
 <a id="t-weights-at-infinity"></a>
 ### T/weights-at-infinity — Monodromy weights at infinity of the projector
@@ -1510,7 +1506,7 @@ Give the Fourier transform of an MHM a cohomological MHS through the pair (A¹×
 
 **Hypotheses and conventions.** The central weight for ψ∞ΠM is w; for ψ∞M it is w−1. The statement is general pure input and does not assume a single Jordan block.
 
-**Prerequisites:** [T/constant-correction](#t-constant-correction), [T/stationary-phase](#t-stationary-phase), [H.0/strict-support-extension](#h0-strict-support-extension), [H.0/projective-direct-image](#h0-projective-direct-image), [H.1/hodge-cycles](#h1-hodge-cycles), `HodgeStructuresPartII:H.6` ([supplier packet](../packets/HodgeStructuresPartII.json)), [E/projector](#e-projector), [E/exponential-weight](#e-exponential-weight).
+**Prerequisites:** [T/constant-correction](#t-constant-correction), [T/stationary-phase](#t-stationary-phase), [H.0/strict-support-extension](#h0-strict-support-extension), [H.0/projective-direct-image](#h0-projective-direct-image), [H.1/hodge-cycles](#h1-hodge-cycles), [E/projector](#e-projector), [E/exponential-weight](#e-exponential-weight), `LefschetzPencilsAndVanishingCycles:LPV.1/monodromy-filtration` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)), `LefschetzPencilsAndVanishingCycles:LPV.1/relative-monodromy-uniqueness` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)), `LefschetzPencilsAndVanishingCycles:LPV.1/primitive-decomposition-and-strictness` ([supplier packet](../packets/LefschetzPencilsAndVanishingCycles--LPV.0.json)).
 
 **Construction or proof.**
 
@@ -1530,7 +1526,7 @@ Give the Fourier transform of an MHM a cohomological MHS through the pair (A¹×
 
 Construct the pole-order logarithmic filtration on good and non-degenerate compactifications; prove filtered blow-up comparison, model independence, E₁ degeneration and agreement with the EMHS filtration. For a full dimensional Newton-nondegenerate Laurent polynomial, construct the cone Newton complex and prove its comparison and top-degree concentration. For convenient non-degenerate Laurent maps prove that the cone of h_!O→h_*O has constant cohomology, and export the Π comparison. Import toric varieties and refinements; the companion owns the special polytopes, parity tests, monomial bases and Kloosterman Hodge counts. Prove rationally filtered Künneth by the explicit product-model blowups and filtered duality by the compact horizontal-boundary log complex.
 
-**Inputs:** [P](#p), [I](#i), [T](#t), `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`, `SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `SchemeAndStackFoundations:SF.2` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Inputs:** [P](#p), [I](#i), [T](#t), `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`, `AnalyticToricGeometryPartII:NT.0` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)), `AlgebraicModuliForArithmeticGeometry:R09.7` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)), `SchemeAndStackFoundations:SF.2` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)).
 
 **Atlas planets:** Logarithmic irregular Hodge complex; Filtered blowup comparison; Model-independent irregular filtration; Newton filtration; Newton concentration theorem; Constant Gauss–Manin boundary.
 
@@ -1541,11 +1537,11 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 
 **Hypotheses and conventions.** P is the effective pole divisor with its actual multiplicities. The compact support model has the induced rational filtration and the horizontal boundary twist −T.
 
-**Prerequisites:** [F/exponential-twist](#f-exponential-twist), [P/pair-fibre](#p-pair-fibre), `SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** [F/exponential-twist](#f-exponential-twist), [P/pair-fibre](#p-pair-fibre), `AlgebraicModuliForArithmeticGeometry:R09.7/snc-compactification` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)), `AlgebraicModuliForArithmeticGeometry:R09.7/principalization` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)).
 
 **Construction or proof.**
 
-1. Use resolution and the graph of f to obtain a good model and its SNC boundary.
+1. Obtain a good model from an SNC compactification of U (R09.7/snc-compactification) by principalizing the indeterminacy ideal of f (R09.7/principalization), so that f extends to X→P¹ with SNC boundary.
 2. Check that d+df∧ preserves the displayed degree-dependent pole bounds; use the local exponential Koszul calculation to compare the meromorphic and log complexes.
 3. Define the compact variant through extension by zero at the horizontal boundary and meromorphic extension at poles; compare with holonomic ! de Rham realization.
 
@@ -1558,16 +1554,16 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 
 **Unit tests.**
 
-- `LogPoleFiltration.point` (agreement) — For (pt,0), F⁰=C and F^λ=0 for every positive λ; equivalently only index zero survives.
-- `LogPoleFiltration.linearPole` (value) — For x on A¹⊂P¹, P={∞} has multiplicity one, and degree q has twist floor(q−λ){∞}.
-- `LogPoleFiltration.multiplePole` (value) — For x^m on A¹, the degree-q pole bound is floor(m(q−λ)), which permits jumps in (1/m)Z.
+- `LogPoleFiltration.point` (compatibility) — For (pt,0), F⁰=C and F^λ=0 for every positive λ; equivalently only index zero survives.
+- `LogPoleFiltration.linearPole` (computation) — For x on A¹⊂P¹, P={∞} has multiplicity one, and degree q has twist floor(q−λ){∞}.
+- `LogPoleFiltration.multiplePole` (computation) — For x^m on A¹, the degree-q pole bound is floor(m(q−λ)), which permits jumps in (1/m)Z.
 - `LogPoleFiltration.horizontal` (non-example) — For f=x on G_m, the horizontal boundary is {0} and the pole boundary is {∞}; compact filtration twists by −{0}, not −{0}−{∞}.
 
 **Use:** Yu Proposition 4.4 and Theorem 4.6; FSY §4.3: Provides a geometric complex for computing F_irr and comparing resolutions.
 
 **Check.** For f=0, P=0 and this is the classical filtered logarithmic de Rham complex. Twisting compact supports by −D changes the filtered pole contribution and is not this definition.
 
-**Sources:** [Yu](https://arxiv.org/pdf/1203.2338v2), §1.1–§1.3, pp. 4–8; §2, pp. 14–16; §4(b), pp. 27–31 — Defines the logarithmic filtration, compact dual complex and non-degenerate toric models.; [ESY](https://arxiv.org/pdf/1302.4537v3), §1.2, pp. 5–6; Proposition 1.7.4 and Corollary 1.7.6, pp. 17–18 — Gives the filtered log/Deligne comparison.
+**Sources:** [Yu](https://arxiv.org/pdf/1203.2338v2), §1(a)–(c), pp. 4–8, with the logarithmic complex on p. 8; §2, pp. 14–16; §4(b), pp. 27–31 — Defines the logarithmic filtration, compact dual complex and non-degenerate toric models.; [ESY](https://arxiv.org/pdf/1302.4537v3), §1.2, pp. 5–6; Proposition 1.7.4 and Corollary 1.7.6, pp. 17–18 — Gives the filtered log/Deligne comparison.
 
 <a id="n-filtered-blowup"></a>
 ### N/filtered-blowup — Filtered comparison under the toric blowups
@@ -1576,13 +1572,13 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 
 **Hypotheses and conventions.** The center is a smooth boundary stratum of the zero/pole intersection as in Yu §4(b); this is not a statement for arbitrary blowups with no boundary condition.
 
-**Prerequisites:** [N/logarithmic-filtration](#n-logarithmic-filtration), `SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `AnalyticToricGeometryPartII:NT.0` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)), `SchemeAndStackFoundations:SF.2` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** [N/logarithmic-filtration](#n-logarithmic-filtration), `SchemeAndStackFoundations:SF.2/projective-space-cohomology` ([supplier packet](../packets/SchemeAndStackFoundations--SF.2.json)), `SchemeAndStackFoundations:SF.2/derived-pullback-pushforward-qcoh` ([supplier packet](../packets/SchemeAndStackFoundations--SF.2.json)), `AlgebraicModuliForArithmeticGeometry:R09.7` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)).
 
 **Construction or proof.**
 
 1. Write the two affine blowup charts, the transformed zero/pole divisors and their multiplicities.
 2. Insert the intermediate complexes R^λ(q) with their exceptional pole bounds; compute the quotient of pullback and R^λ and the adjacent quotients.
-3. Use the local exponential Koszul exactness to reduce them to relative O_E(−1), whose projective-fibre cohomology vanishes. The projection formula gives the compact variant.
+3. Use the local exponential Koszul exactness to reduce them to relative O_E(−μ) with 0<μ≤dim_Ξ E on the projective-bundle exceptional divisor (requested from AlgebraicModuliForArithmeticGeometry:R09.7), whose fibre cohomology vanishes by SF.2/projective-space-cohomology. The projection formula (SF.2/derived-pullback-pushforward-qcoh) gives the compact variant.
 
 **Check.** The floor function must be recomputed with the transformed pole multiplicities on both blowup charts.
 
@@ -1591,30 +1587,30 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 <a id="n-model-independence"></a>
 ### N/model-independence — Model independence and Deligne comparison
 
-**Theorem.** For any two good compactifications, the image filtrations on H^r_dR(U,E^f) and its compact variant agree under their canonical de Rham identifications. On non-degenerate compactifications the same filtration is obtained before resolving indeterminacy. These filtrations equal F_irr of P/pair-cohomology. Their spectral sequences degenerate at E₁, so H^r(F^λ_log)→H^r(DR) is injective. The construction is functorial for the proper filtered direct images used to define pair cohomology.
+**Theorem.** For any two good compactifications, the image filtrations on H^r_dR(U,E^f) and its compact variant agree under their canonical de Rham identifications, because on each of them the image filtration equals the intrinsic F_irr of P/pair-fibre. On non-degenerate compactifications the same filtration is obtained before resolving indeterminacy. These filtrations equal F_irr of P/pair-cohomology. Their spectral sequences degenerate at E₁, so H^r(F^λ_log)→H^r(DR) is injective. The construction is functorial for the proper filtered direct images used to define pair cohomology.
 
-**Hypotheses and conventions.** Good-model comparison uses boundary-compatible weak factorization or its equivalent filtered common-refinement argument, requested explicitly from SchemeAndStackFoundations:SF.4.
+**Hypotheses and conventions.** Independence of the good model is deduced from the identification with F_irr on each model (ESY §1.7 and §3.4); Yu's own proof of Theorem 1.7 through weak factorization of birational maps is not used, and no weak-factorization input is required.
 
-**Prerequisites:** [N/logarithmic-filtration](#n-logarithmic-filtration), [N/filtered-blowup](#n-filtered-blowup), [I/deligne-filtration](#i-deligne-filtration), [I/rees-laplace-specialisation](#i-rees-laplace-specialisation), [I/irregular-e1](#i-irregular-e1), [P/pair-fibre](#p-pair-fibre), [P/pair-kunneth-duality](#p-pair-kunneth-duality), `SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `SchemeAndStackFoundations:SF.2` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** [N/logarithmic-filtration](#n-logarithmic-filtration), [N/filtered-blowup](#n-filtered-blowup), [I/deligne-filtration](#i-deligne-filtration), [I/rees-laplace-specialisation](#i-rees-laplace-specialisation), [I/irregular-e1](#i-irregular-e1), [P/pair-fibre](#p-pair-fibre), [P/pair-kunneth-duality](#p-pair-kunneth-duality).
 
 **Construction or proof.**
 
-1. Use the boundary blowup comparison and boundary-compatible factorization to compare good models.
+1. On a fixed good model, identify Yu's logarithmic filtration with the Deligne filtration of the localized module (ESY Proposition 1.7.4 and Corollary 1.7.6).
 2. Use N/filtered-blowup to pass from the local non-degenerate model to a good model.
 3. Use the graph construction and local log/Deligne filtered quasi-isomorphism, then I/irregular-e1 and projective pushforward, to identify the image filtration with the EMHS filtered fibre. Apply duality for compact supports.
 
 **Check.** The agreement includes all rational steps and both support theories, not only the dimensions of the final vector spaces.
 
-**Sources:** [Yu](https://arxiv.org/pdf/1203.2338v2), Lemma 1.6, Theorem 1.7 and Corollary 1.8, pp. 10–13; Proposition 4.4, pp. 29–31 — Proves blowup invariance and independence of good models, including the indeterminacy comparison.; [ESY](https://arxiv.org/pdf/1302.4537v3), Theorem 1.2.2, pp. 5–6; §1.7, pp. 16–18; §3.4, pp. 25–26 — Proves the log/Deligne comparison and its E₁ degeneration.
+**Sources:** [Yu](https://arxiv.org/pdf/1203.2338v2), Lemma 1.6, p. 9; Theorem 1.7 and Corollary 1.8, pp. 10–12; Proposition 4.4, pp. 29–31 — Proves blowup invariance along smooth centres with normal crossings and independence of the good model (through weak factorization, a route not used here), and the comparison for the non-degenerate toric model.; [ESY](https://arxiv.org/pdf/1302.4537v3), Theorem 1.2.2, p. 6; §1.7, Proposition 1.7.4 and Corollary 1.7.6, pp. 16–18; §3.3–§3.4, pp. 25–26 — Proves E₁ degeneration of Yu's filtration by identifying it on each good model with the Deligne filtration and its image with the filtration of the pushforward module on the line, which does not depend on the model.
 
 <a id="n-newton-complex"></a>
 ### N/newton-complex — Newton filtration for a Laurent polynomial
 
-**Construction.** Let φ=Σ_m a_mx^m on T=(G_m)^n, Δ=conv({0}∪supp φ), and assume dim Δ=n. For every face σ not containing zero, require that the logarithmic derivatives x_i∂_iφ_σ have no common zero on T; this is Newton nondegeneracy. Define convenience by 0∈interior Δ. Let C_Δ be the cone generated by Δ and h(m)=inf{a≥0:m∈aΔ} on C_Δ. The cone Newton complex has qth term C[C_Δ∩Z^n]⊗Λ^q⟨dlog x_i⟩, differential d+dφ∧, and F^λ term zero for q<λ, otherwise the span of x^m dlog x_I with h(m)≤q−λ. Construct its comparison with the full Laurent twisted de Rham complex. The truncation by q≥λ is retained even at a cone containing lines.
+**Construction.** Let φ=Σ_m a_mx^m be a Laurent polynomial on T=(G_m)^n, Δ=conv({0}∪supp φ), and assume dim Δ=n. For every face σ not containing zero, require that the logarithmic derivatives x_i∂_iφ_σ have no common zero on T; this is Newton nondegeneracy. Define convenience by 0∈interior Δ. Let C_Δ be the cone generated by Δ and h(m)=inf{a≥0:m∈aΔ} on C_Δ. The cone Newton complex has qth term C[C_Δ∩Z^n]⊗Λ^q⟨dlog x_i⟩, differential d+dφ∧, and F^λ term zero for q<λ, otherwise the span of x^m dlog x_I with h(m)≤q−λ. Construct its comparison with the full Laurent twisted de Rham complex. The truncation by q≥λ is retained even at a cone containing lines.
 
 **Hypotheses and conventions.** Characteristic zero, full-dimensional Δ, and the face nondegeneracy test are explicit hypotheses for the comparison theorems. In the nonconvenient case the cone can be smaller than R^n; do not replace its monoid by all Z^n.
 
-**Prerequisites:** `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`, `AnalyticToricGeometryPartII:NT.0` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)), [F/exponential-twist](#f-exponential-twist), [N/logarithmic-filtration](#n-logarithmic-filtration).
+**Prerequisites:** `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`, `AnalyticToricGeometryPartII:NT.0` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)), [F/exponential-twist](#f-exponential-twist), [N/logarithmic-filtration](#n-logarithmic-filtration), `AnalyticToricGeometryPartII:NT.0/divisor-sections` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)), `AnalyticToricGeometryPartII:NT.0/section-weights` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)).
 
 **Construction or proof.**
 
@@ -1631,16 +1627,16 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 
 **Unit tests.**
 
-- `NewtonFiltration.oneSided` (value) — For φ=x on G_m, Δ=[0,1], C_Δ=R_{≥0} and h(m)=m for m≥0; negative monomials are absent in this cone complex.
-- `NewtonFiltration.twoSided` (value) — For φ=x+x⁻¹, Δ=[−1,1], h(m)=|m|, and convenience holds.
+- `NewtonFiltration.oneSided` (computation) — For φ=x on G_m, Δ=[0,1], C_Δ=R_{≥0} and h(m)=m for m≥0; negative monomials are absent in this cone complex.
+- `NewtonFiltration.twoSided` (computation) — For φ=x+x⁻¹, Δ=[−1,1], h(m)=|m|, and convenience holds.
 - `NewtonFiltration.constant` (non-example) — For φ constant and n>0, dim Δ=0; the full-dimensional comparison hypothesis fails.
-- `NewtonFiltration.degenerateFace` (non-example) — For φ=(x+y)² on (G_m)², the face x+y=0 has a logarithmic critical point and nondegeneracy fails.
+- `NewtonFiltration.degenerateFace` (non-example) — For φ=(x+y)² on (G_m)², the edge of Δ joining (2,0) and (0,2) has face polynomial (x+y)², whose logarithmic derivatives vanish on the curve x+y=0; nondegeneracy fails.
 
 **Use:** Yu Theorem 4.6; FSY §4.3.1 and the companion Hodge computation: Gives the general filtered monomial complex while leaving special polytopes and bases to the consumer.
 
 **Check.** For a face not containing zero, weighted Euler makes the common-derivative condition equivalent to Yu’s condition including φ_σ=0.
 
-**Sources:** [Yu](https://arxiv.org/pdf/1203.2338v2), §4(a), Definition and (24)–(25), pp. 25–26 — Defines nondegeneracy and the Newton filtration and identifies its monomial global sections.; [FSY](https://arxiv.org/pdf/1810.06454v5), §4.3.1, pp. 35–36 — Uses the Newton filtration to bound monomial Hodge representatives.
+**Sources:** [Yu](https://arxiv.org/pdf/1203.2338v2), §4(a), Definition and (24)–(25), pp. 25–26 — Defines nondegeneracy and the Newton filtration and identifies its monomial global sections.; [FSY](https://arxiv.org/pdf/1810.06454v5), §4.3.1, p. 35 — Uses the Newton filtration to bound monomial Hodge representatives.
 
 <a id="n-newton-concentration"></a>
 ### N/newton-concentration — Newton cohomology concentration and volume
@@ -1668,7 +1664,7 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 
 **Hypotheses and conventions.** The full-dimensional and nondegenerate hypotheses are those of N/newton-complex; convenience is not required here.
 
-**Prerequisites:** [N/logarithmic-filtration](#n-logarithmic-filtration), [N/filtered-blowup](#n-filtered-blowup), [N/model-independence](#n-model-independence), [N/newton-complex](#n-newton-complex), [N/newton-concentration](#n-newton-concentration), `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`, `AnalyticToricGeometryPartII:NT.0` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)).
+**Prerequisites:** [N/logarithmic-filtration](#n-logarithmic-filtration), [N/filtered-blowup](#n-filtered-blowup), [N/model-independence](#n-model-independence), [N/newton-complex](#n-newton-complex), [N/newton-concentration](#n-newton-concentration), `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`, `AnalyticToricGeometryPartII:NT.0` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)), `AnalyticToricGeometryPartII:NT.0/divisor-sections` ([supplier packet](../packets/AnalyticToricGeometryPartII.json)).
 
 **Construction or proof.**
 
@@ -1678,7 +1674,7 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 
 **Check.** The implication bounds the filtration of a monomial class, including a zero class; linear independence is a separate companion computation.
 
-**Sources:** [Yu](https://arxiv.org/pdf/1203.2338v2), Proposition 4.3, pp. 27–28; Proposition 4.4 and Theorem 4.6, pp. 29–31 — Proves transversality and the Newton/irregular filtration comparison through explicit blowups.; [FSY](https://arxiv.org/pdf/1810.06454v5), §4.3.1, pp. 35–36 — Uses the comparison to place top monomial forms in the irregular filtration.
+**Sources:** [Yu](https://arxiv.org/pdf/1203.2338v2), Proposition 4.3, p. 27; Proposition 4.4 and Lemma 4.5, pp. 29–31; Theorem 4.6, p. 31 — Proves transversality of zero and pole divisors on the toric model (4.3), the blowup comparison (4.4–4.5) and the agreement of the Newton and irregular Hodge filtrations (Theorem 4.6).; [FSY](https://arxiv.org/pdf/1810.06454v5), §4.3.1, p. 35 — Uses the comparison to place top monomial forms in the irregular filtration.
 
 <a id="n-constant-gauss-manin-cone"></a>
 ### N/constant-gauss-manin-cone — Constant boundary correction of a Laurent Gauss–Manin system
@@ -1687,13 +1683,13 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 
 **Hypotheses and conventions.** Both convenience and face nondegeneracy are required. The conclusion concerns a constant boundary cone; h need not be a proper morphism.
 
-**Prerequisites:** [N/newton-complex](#n-newton-complex), `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`, `SchemeAndStackFoundations:SF.4` ([supplier packet](../packets/SchemeAndStackFoundations.json)), [B/constructible-six-operations](#b-constructible-six-operations), [H.1/operations](#h1-operations), `HodgeStructuresPartII:H.2` ([supplier packet](../packets/HodgeStructuresPartII.json)), [E/projector](#e-projector), [P/middle-weight](#p-middle-weight).
+**Prerequisites:** [N/newton-complex](#n-newton-complex), `tauceti:TauCetiRoadmap/AnalyticToricGeometry#layer-0-the-toric-compatible-algebraic-supplier`, [B/constructible-six-operations](#b-constructible-six-operations), [H.1/operations](#h1-operations), [E/projector](#e-projector), [P/middle-weight](#p-middle-weight), `HodgeStructuresPartII:H.2/mixed-fixed-part` ([supplier packet](../packets/HodgeStructuresPartII--H.2.json)).
 
 **Construction or proof.**
 
 1. Take the closure of the graph h−θ=0 in a smooth proper toric refinement. Denef–Loeser’s face calculation gives a proper graph compactification smooth over the boundary strata, whose boundary maps have no vanishing cycles over A¹.
 2. Use proper Betti base change, the local product charts and the boundary-strata Čech resolution to show every boundary direct-image cohomology is a local system on A¹. It is constant because A¹_an is simply connected.
-3. Use the admissible fixed-part theorem to upgrade underlying constant local systems to constant Hodge modules. The boundary localization triangle identifies these with the cone cohomology.
+3. Use the admissible fixed-part theorem (HodgeStructuresPartII H.2/mixed-fixed-part on the simply connected A¹) to upgrade underlying constant local systems to constant Hodge modules. The boundary localization triangle identifies these with the cone cohomology.
 4. Apply exact Π, then the central weight result to its image.
 
 **Check.** For h=x on G_m, convenience fails and H_c¹=Q, H¹=Q(−1), so the Π comparison cannot be asserted from nondegeneracy alone. For h=x+x⁻¹, convenience holds and the common central fibre has dimension two.
@@ -1707,14 +1703,14 @@ Construct the pole-order logarithmic filtration on good and non-degenerate compa
 
 **Hypotheses and conventions.** Use the rational filtration from N/model-independence and actual pole multiplicities.
 
-**Prerequisites:** [N/logarithmic-filtration](#n-logarithmic-filtration), [N/filtered-blowup](#n-filtered-blowup), [N/model-independence](#n-model-independence), [P/pair-kunneth-duality](#p-pair-kunneth-duality), [I/irregular-e1](#i-irregular-e1), `SchemeAndStackFoundations:SF.3` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `SchemeAndStackFoundations:SF.2` ([supplier packet](../packets/SchemeAndStackFoundations.json)).
+**Prerequisites:** [N/logarithmic-filtration](#n-logarithmic-filtration), [N/filtered-blowup](#n-filtered-blowup), [N/model-independence](#n-model-independence), [P/pair-kunneth-duality](#p-pair-kunneth-duality), [I/irregular-e1](#i-irregular-e1), `SchemeAndStackFoundations:SF.2/serre-proper` ([supplier packet](../packets/SchemeAndStackFoundations.json)), `SchemeAndStackFoundations:SF.2/tor-independent-base-change` ([supplier packet](../packets/SchemeAndStackFoundations--SF.2.json)), `SchemeAndStackFoundations:SF.2/derived-pullback-pushforward-qcoh` ([supplier packet](../packets/SchemeAndStackFoundations--SF.2.json)), `SchemeAndStackFoundations:SF.2/cech-to-cohomology` ([supplier packet](../packets/SchemeAndStackFoundations--SF.2.json)), `SchemeAndStackFoundations:SF.2/projective-space-cohomology` ([supplier packet](../packets/SchemeAndStackFoundations--SF.2.json)), `AlgebraicModuliForArithmeticGeometry:R09.7` ([supplier packet](../packets/AlgebraicModuliForArithmeticGeometry--R09.7.json)).
 
 **Construction or proof.**
 
 1. Starting from two good models, blow up intersections of boundary components whose f and g pole-order differences have opposite signs. The smallest negative product increases after finitely many such blowups, producing a non-degenerate model for f⊞g (CY §3.1).
-2. On an intermediate model use the convex sum of divisor sheaves Σ_{0≤θ≤1}O(floor(μ((1−θ)P_f+θP_g))). On the initial product it is the convolution-filtered log complex. On each blowup its quotient is a sum of relative exceptional O(−1), hence has zero derived pushforward. Check the finite monomial-generator intersection resolution to justify pushforward even though that sum need not be locally free (CY §3.2).
-3. Use the coherent Čech external-product calculation and E₁ degeneration of both factors to identify the convolution filtration on hypercohomology, then transfer by N/model-independence. This is the additional filtered Künneth proof, rather than an appeal to the unfiltered formula.
-4. For duality pair the log complex and its horizontal-boundary compact twist; local residue/Serre duality identifies the complementary pole quotients, with the strict inequality at a rational jump. Apply filtered strictness and the trace. Obtain compact Künneth by dualizing the ordinary statement.
+2. On an intermediate model use the convex sum of divisor sheaves Σ_{0≤θ≤1}O(floor(μ((1−θ)P_f+θP_g))). On the initial product it is the convolution-filtered log complex. On each blowup its quotient is a sum of relative exceptional O(−1), hence has zero derived pushforward (projective-bundle structure of the exceptional divisor requested from AlgebraicModuliForArithmeticGeometry R09.7, and SF.2/projective-space-cohomology). Check the finite monomial-generator intersection resolution to justify pushforward even though that sum need not be locally free (CY §3.2).
+3. Use the coherent external-product calculation (Künneth over C from SF.2/tor-independent-base-change and the projection formula, computed by Čech complexes, SF.2/cech-to-cohomology) and E₁ degeneration of both factors to identify the convolution filtration on hypercohomology, then transfer by N/model-independence. This is the additional filtered Künneth proof, rather than an appeal to the unfiltered formula.
+4. For duality pair the log complex and its horizontal-boundary compact twist; local residue and Serre duality (SF.2/serre-proper) identify the complementary pole quotients, with the strict inequality at a rational jump. Apply filtered strictness and the trace. Obtain compact Künneth by dualizing the ordinary statement.
 
 **Check.** The G_m sum examples give F^k H^k=H^k and compact F^0 H_c^k=H_c^k, paired into Q(−k). For (A¹,x²), a half-integer jump must add under external product; rounding each summand to an integer first is incorrect.
 
@@ -1738,39 +1734,41 @@ All twelve layers have complete target inventories and are marked planned. This 
 
 **G1 — Weighted L² Hodge analytic input.** No inspected supplier covers Zucker’s complete punctured-curve weighted L² domains: equality of the closed weak/strong extensions, essential self-adjointness of the Laplacian and closed range yielding finite-dimensional harmonic representatives and Hodge decomposition (Zucker §7.1–§7.12, pp. 444–447). Current DifferentialGeometry has the compact smooth Laplacian/Green operator and excludes this analysis. The nilpotent-orbit norm estimates are requested separately from HodgeStructuresPartII:H.6. To close this gap, assign and plan the stated analytic theorem, with the local Hardy estimates of Zucker §5–§6; neither compact Hodge theory nor an unexplained appeal to elliptic regularity closes it. Direct target: [H.0/curve-l2-hodge](#h0-curve-l2-hodge).
 
-**G2 — Polarized twistor Fourier strictness.** Sab10 Theorem 6.1 uses the strict Fourier transform of a polarized regular twistor D-module and its harmonic-metric/analytic existence theorem (the proof invokes Sab05 Theorem 6.1.1 and Sab06 Proposition 4.1 and Corollary 5.9). The inspected HodgeStructuresPartII nonabelian Hodge moduli targets do not supply the twistor D-module category or this theorem. To close: assign the restricted polarized-curve twistor Fourier theorem, read those primary proofs, and give its construction, API and analytic prerequisites. The Deligne/Rees formulas and ESY’s mixed-weight induction are planned here; E₁ degeneration remains dependent on this input. Direct target: [I/polarized-curve-strictness](#i-polarized-curve-strictness).
+**G2 — Polarized twistor Fourier strictness.** Sab10 Theorem 6.1 uses the strict Fourier transform of a polarized regular twistor D-module and its harmonic-metric/analytic existence theorem (the proof of Proposition 6.10 invokes Sab05 Theorems 3.3.15 and 6.1.1 and Sab06 Proposition 4.1(ii) and Corollary 5.9). The inspected HodgeStructuresPartII nonabelian Hodge moduli targets do not supply the twistor D-module category or this theorem. To close: assign the restricted polarized-curve twistor Fourier theorem, read those primary proofs, and give its construction, API and analytic prerequisites. The Deligne/Rees formulas and ESY’s mixed-weight induction are planned here; E₁ degeneration remains dependent on this input. Direct target: [I/polarized-curve-strictness](#i-polarized-curve-strictness).
 
 **G3 — Kernel proof of regular Fourier stationary phase.** MT Lemma A.4, pp. 38–39, gives the comparison of φ at Fourier zero with ψ at input infinity by adapting an earlier proof, rather than writing the local kernel-specialization calculation. That calculation was not established in this pass. Read Sabbah, Monodromy at infinity and Fourier transform II, Proposition 4.1(ivb), and build the regular eigenvalue-one specialization/variation comparison, including the Fourier sign and filtered Tate translation. Exact Weyl Fourier and formal Levelt–Turrittin alone are not a proof. Direct target: [T/stationary-phase](#t-stationary-phase).
 
 **G4 — Newton graded acyclicity over the cone semigroup algebra.** Yu Theorem 4.1, pp. 26–27, cites the Adolphson–Sperber acyclicity theorem; it does not prove the needed face-graded Koszul regular-sequence/semigroup-ring statement. The original proof of Adolphson–Sperber, On twisted de Rham cohomology, Nagoya Math. J. 146 (1997), 55–81, was not read. To close: read it, identify the precise characteristic-zero theorem for the cone complex, and assign its commutative-algebra foundations (including the required Cohen–Macaulay or equivalent acyclicity result) once. Do not infer top-degree concentration solely from face nondegeneracy without that argument. Direct target: [N/newton-concentration](#n-newton-concentration).
 
+**G5 — Algebraic Whitney stratifications and stratified local triviality.** Constructibility of Rf_* and Rf_! for algebraic maps of complex varieties (Dimca Theorem 4.1.5), and the normal-slice description used for the middle perversity, rest on the existence of finite algebraic Whitney stratifications of source and target for which f is a stratified submersion, with Thom–Mather local topological triviality over each stratum (Verdier's stratification theorem). No atlas packet or upstream roadmap plans this for complex algebraic maps: SchemeAndStackFoundations SF.0 has no stratification or analytification node; AlgebraicTopologyPartII AT2.16/stratified-pair-transport assumes the Whitney stratification and control data for real manifolds; the upstream CohomologicalPointCounting/ComplexComparison proposal (TauCetiRoadmap pull request 196, Layer 3) gives semialgebraic triangulations compatible with algebraic stratifications, which yields finiteness on a fixed variety but not relative triviality of a map. To close: plan Verdier's theorem (or Hardt's semialgebraic triviality applied to the analytified map) once, as a node with its hypotheses, in this layer or in a semialgebraic-topology roadmap, and cite it from both consumers. Direct targets: [B/constructible-six-operations](#b-constructible-six-operations), [B/middle-perverse](#b-middle-perverse).
+
 ## Source corrections and version control
 
-The following findings state mathematical assertions in original words. They are proposed findings for independent review. The packet records the files read, hashes, dates and correction searches. FSY locators below were checked in the Duke journal PDF as well as the arXiv version. The KS and Yu findings are explicitly restricted to the preprints read; they make no assertion about changed wording in a journal version.
+The following findings state mathematical assertions in original words. Each carries the verdict of the independent review. The design also listed two FSY findings (the divisor pullback shift in Example A.3 and the zero-function pushforward in Example A.27) that duplicate PAPER-FRESAN-SABBAH-YU-22/E6 and E7; they are referenced in the packet's inheritedSourceIssues rather than recorded twice. The packet records the files read, hashes, dates and correction searches. FSY locators below were checked in the Duke journal PDF as well as the arXiv version. The KS and Yu findings are explicitly restricted to the preprints read; they make no assertion about changed wording in a journal version.
 
-**E1 (misprint, affects nothing).** Appendix A.2, p. 1726; also FSY v5 p. 61. The left-to-right side change uses ω_X⊗F_{p−dim X}M. Use F_p(M_right)=ω_X⊗F_{p+dim X}M_left. For the constant left module F_0O=O and F_{−1}O=0. The associated right ω_X begins in degree −dim X, as in Sai88 introduction p. 850. The printed sign would place it in degree +dim X. Correction status: new.
+**E1 (misprint, affects nothing).** Appendix A.2, p. 1726; also FSY v5 p. 61. The left-to-right side change uses ω_X⊗F_{p−dim X}M. Use F_p(M_right)=ω_X⊗F_{p+dim X}M_left. For the constant left module F_0O=O and F_{−1}O=0. The associated right ω_X begins in degree −dim X, as in Sai88 introduction p. 850. The printed sign would place it in degree +dim X. Correction status: new. Review (REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory): confirmed. Rendered both the Duke journal page 1726 and arXiv v5 p. 61: both print ω_X⊗F_{•−dim X}M. Saito's introduction (p. 850) gives ω_X with Gr^F_p=0 for p≠−n, so the tensor filtration is F_p(ω⊗M)=ω⊗F_{p+n}M; with the printed sign the right module of O_X would start in degree +n.
 
-**E2 (misprint, affects nothing).** Appendix A.2, p. 1727; also FSY v5 p. 62. Duality sends pQ_U^H to pQ_U^H(−d). The twist is (+d): D(pQ_U^H)=pQ_U^H(d). The constant perverse Hodge module on a smooth d-fold has weight d; its dual has weight −d. Since Q(m) has weight −2m, the positive d twist gives −d. The displayed negative twist gives 3d instead. Equivalently use the dualizing complex Q(d)[2d]. Correction status: new.
+**E2 (misprint, affects nothing).** Appendix A.2, p. 1727; also FSY v5 p. 62. Duality sends pQ_U^H to pQ_U^H(−d). The twist is (+d): D(pQ_U^H)=pQ_U^H(d). The constant perverse Hodge module on a smooth d-fold has weight d; its dual has weight −d. Since Q(m) has weight −2m, the positive d twist gives −d. The displayed negative twist gives 3d instead. Equivalently use the dualizing complex Q(d)[2d]. Correction status: new. Review (REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory): confirmed. Rendered journal p. 1727: the natural isomorphism is printed with the twist (−d). pQ_U has weight d, its dual weight −d, and pQ_U(m) has weight d−2m, so the twist must be (d); FSY's own Example A.22 uses Q(−1) of weight 2, fixing the convention.
 
-**E3 (misprint, affects nothing).** Example A.3, p. 1728; also FSY v5 p. 63. The derived pullback i* pQ_U is identified with its degree-zero cohomology and pQ_D. For a smooth divisor i* pQ_U=pQ_D[1], and H^{−1}i* pQ_U=pQ_D, with H^0 zero. On a reduced singular divisor retain the shifted constant complex and its perverse interpretation. Underlying rational complexes give i*Q_U[d]=Q_D[d]=Q_D[d−1][1]. The adjacent localization exact sequence uses precisely this degree −1 contribution. Correction status: Atlas PAPER-FRESAN-SABBAH-YU-22/E6.
+**E5 (error, affects the proof).** arXiv:1006.2706v2, §4.4, proof of Proposition 3, p. 35; finding restricted to this preprint. The proof assigns Π of a pure ambient weight-n object weights n and n−1 and presents the original object as a quotient. In the ambient MHM category, for a pure object without constant subobject, the original object embeds as W_nΠM and the constant quotient has weights at least n+1. Ambient weights and exponential quotient weights must be distinguished. For a punctual Q at zero, n=0 and Πδ_0Q=j_!Q_{G_m}[1]. Its exact sequence has δ_0Q of weight zero as subobject and Q_{A¹}[1] of weight one as quotient. Thus the asserted ambient weights and quotient direction both fail. The semisimplicity target can instead use the pure intermediate-extension representative in the Serre quotient; the counterexample does not refute that target. Correction status: new. Review (REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory): confirmed. KS v2 p. 35 (proof of Proposition 3) gives Π(F) a two-step filtration with gr_n=F and a constant gr_{n−1} of weight n−1. For F=δ₀Q of weight 0, Π(F)=j_!Q_{G_m}[1] contains δ₀Q as a subobject with quotient Q_{A¹}[1] of weight 1 (FSY Corollary A.31 and MT (A.1) give the constant quotient weights ≥n+1). Proposition 3's statement is unaffected.
 
-**E4 (misprint, affects nothing).** Example A.27, p. 1739; also FSY v5 p. 71. The composite of pushforwards (tg)_*∘i_{K,*} is described as a zero map. The map of spaces tg∘i_K has constant value zero. Its direct image factors through the point at zero; the pushforward functor is not zero. Take V=A¹, g=x, K={0}. A nonzero constant object on A¹×K pushes to a nonzero punctual complex at the target origin. The claimed zero functor would erase the term that supplies the cohomology-with-supports calculation. Correction status: Atlas PAPER-FRESAN-SABBAH-YU-22/E7.
-
-**E5 (error, affects the proof).** arXiv:1006.2706v2, §4.4, proof of Proposition 3, p. 35; finding restricted to this preprint. The proof assigns Π of a pure ambient weight-n object weights n and n−1 and presents the original object as a quotient. In the ambient MHM category, for a pure object without constant subobject, the original object embeds as W_nΠM and the constant quotient has weights at least n+1. Ambient weights and exponential quotient weights must be distinguished. For a punctual Q at zero, n=0 and Πδ_0Q=j_!Q_{G_m}[1]. Its exact sequence has δ_0Q of weight zero as subobject and Q_{A¹}[1] of weight one as quotient. Thus the asserted ambient weights and quotient direction both fail. The semisimplicity target can instead use the pure intermediate-extension representative in the Serre quotient; the counterexample does not refute that target. Correction status: new.
-
-**E6 (error, affects the proof).** arXiv:1203.2338v2, §4(a), p. 26, following (24); finding restricted to this preprint. Convenience, that zero is interior to the Newton polytope, is said to make f:T→A¹ proper. Convenience puts a pole on every toric boundary component and makes the cone filtration exhaustive. A good graph compactification maps properly to A¹; the original torus map need not be proper. For T=(G_m)² and f=x+x⁻¹+y+y⁻¹ the Newton polytope is the diamond with zero interior, and every proper face not containing zero is nondegenerate. The nonempty fibre over zero is positive dimensional and affine. If f were proper, this fibre would be both proper and affine and hence finite, a contradiction. Exhaustiveness follows directly because the cone of that polytope is the full lattice space. Correction status: new.
+**E6 (error, affects nothing).** arXiv:1203.2338v2, §4(a), p. 26, following (24); finding restricted to this preprint. Convenience, that zero is interior to the Newton polytope, is said to make f:T→A¹ proper. Convenience puts a pole on every toric boundary component and makes the cone filtration exhaustive. A good graph compactification maps properly to A¹; the original torus map need not be proper. For T=(G_m)² and f=x+x⁻¹+y+y⁻¹ the Newton polytope is the diamond with zero interior, and every proper face not containing zero is nondegenerate. The nonempty fibre over zero is positive dimensional and affine. If f were proper, this fibre would be both proper and affine and hence finite, a contradiction. Exhaustiveness follows directly because the cone of that polytope is the full lattice space. Correction status: new. Review (REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory): confirmed. Yu v2 p. 26 asserts that 0 in the interior of Δ(f) makes f:U→A proper. For f=x+1/x+y+1/y on (G_m)², nondegenerate and convenient, the fibre over 0 is a positive-dimensional affine curve, so f is not proper. Only the exhaustiveness of the Newton filtration, which holds, is used afterwards, so the reviewer sets affects to nothing.
 
 ## Ownership adjustments
 
 **MixedHodgeModulesAndIrregularHodgeTheory, SpringerResolutionAndCharacteristicCycles.** The extraction brief predates the general algebraic D-module plan now in Springer. Rebuilding operators, PBW, holonomicity, transfer or intermediate extension would duplicate its exact D and H nodes. Springer retains D/differential-operators through D/characteristic-cycle and H/transfer-and-duality, H/kashiwara-equivalence, H/holonomic-modules, H/intermediate-extension and H/regular-holonomic. This roadmap imports those exact nodes and owns only the additional curve formal/index, Betti/Hodge, Fourier and exponential targets.
 
-**MixedHodgeModulesAndIrregularHodgeTheory, HodgeStructuresPartII.** Linear Hodge structures already exist; admissible variations, canonical extensions and monodromy theory have a Part II supplier. Its moduli Riemann–Hilbert correspondence does not supply the derived constructible/regular-holonomic correspondence. Keep the pinned linear Hodge carriers as imports, and assign variation/rational-polarization/fixed-part additions to HodgeStructuresPartII:H.2 and nilpotent-orbit/relative-monodromy additions to H.6. This roadmap retains Saito’s recursive Hodge modules, their strictness and operations, and its own Betti regular Riemann–Hilbert comparison.
+**MixedHodgeModulesAndIrregularHodgeTheory, HodgeStructuresPartII.** Linear Hodge structures already exist; admissible variations, canonical extensions and monodromy theory have a Part II supplier. Its moduli Riemann–Hilbert correspondence does not supply the derived constructible/regular-holonomic correspondence. Keep the pinned linear Hodge carriers as imports. Cite HodgeStructuresPartII's exact H.2 nodes (graded-polarizable, admissible-variation, canonical-extension, limit-mhs, residue-monodromy, mixed-fixed-part) and its H.0 Rees nodes; request from H.6 only the rational-coefficient form of the one-variable nilpotent-orbit theorem and norm estimates. The monodromy-filtration linear algebra is LefschetzPencilsAndVanishingCycles LPV.1, which HodgeStructuresPartII itself imports. This roadmap retains Saito’s recursive Hodge modules, their strictness and operations, and its own Betti regular Riemann–Hilbert comparison.
 
-**MixedHodgeModulesAndIrregularHodgeTheory, SchemeAndStackFoundations.** Good-model invariance needs boundary-compatible weak factorization, which is stronger than resolution and common SNC domination alone. Extend SchemeAndStackFoundations:SF.4 in its own Part II direction with boundary-compatible factorization and the precise SNC/Lefschetz-pencil interfaces requested here. The filtered comparison for those blowups stays at N/filtered-blowup.
+**MixedHodgeModulesAndIrregularHodgeTheory, SchemeAndStackFoundations, AlgebraicModuliForArithmeticGeometry.** SchemeAndStackFoundations, now merged upstream, plans neither Hironaka resolution, SNC compactification, Lefschetz pencils for this use, analytification nor weak factorization. The exact resolution, principalization and SNC-compactification nodes are AlgebraicModuliForArithmeticGeometry R09.7, and pencils are LefschetzPencilsAndVanishingCycles LPV.3. Good-model invariance needs no weak factorization once the logarithmic filtration is identified with the intrinsic F_irr on each model (ESY §1.7, §3.3–§3.4). Cite R09.7/embedded-resolution, R09.7/principalization and R09.7/snc-compactification, LPV.3/existence-of-lefschetz-pencils and the exact SF.2 and SF.3 nodes; request from R09.7 only the projective-bundle structure of exceptional divisors of smooth-centre blowups. No SchemeAndStackFoundations Part II is proposed.
 
-**MixedHodgeModulesAndIrregularHodgeTheory, AnalyticToricGeometryPartII.** The toric schemes and lattice/fan carriers are existing upstream material; rounded divisor cohomology is an extension of the toric divisor direction. Import AnalyticToricGeometry Layer 0 and request the normal-fan/refinement bridge there; place the rounded Newton-divisor vanishing and exceptional acyclicity extension under AnalyticToricGeometryPartII:NT.0. This roadmap owns the exponential complexes and their comparisons.
+**MixedHodgeModulesAndIrregularHodgeTheory, AnalyticToricGeometryPartII.** The toric schemes and lattice/fan carriers are existing upstream material; rounded divisor cohomology is an extension of the toric divisor direction. Import AnalyticToricGeometry Layer 0 and request the normal-fan/refinement bridge there; cite NT.0/divisor-sections and NT.0/section-weights and request only the rounded Newton-divisor vanishing under AnalyticToricGeometryPartII:NT.0. Exceptional-divisor acyclicity is requested from AlgebraicModuliForArithmeticGeometry R09.7. This roadmap owns the exponential complexes and their comparisons.
 
-**MixedHodgeModulesAndIrregularHodgeTheory, EtaleDualityAndPerverseSheaves, LefschetzPencilsAndVanishingCycles, WeightsInEtaleCohomology.** The brief asks for a Betti input from EDC.5, LPV.0/LPV.6 and R34.3, but the inspected stages specify étale/ℓ-adic carriers. No Q-Betti base-change theorem is supplied by their descriptions. Keep the ℓ-adic categories and cycle theory with those owners. B here constructs the Q/C algebraically constructible analytic-site interface using EnhancedDerivedSheaves:E1 and regular Riemann–Hilbert. If a shared coefficient-independent constructible core is extracted, import it once; do not identify Q-Betti and ℓ-adic realizations without a comparison.
+**MixedHodgeModulesAndIrregularHodgeTheory, EtaleDualityAndPerverseSheaves, LefschetzPencilsAndVanishingCycles, WeightsInEtaleCohomology.** The brief asks for a Betti input from EDC.5, LPV.0/LPV.6 and R34.3, but the inspected stages specify étale/ℓ-adic carriers. No Q-Betti base-change theorem is supplied by their descriptions. Keep the ℓ-adic categories and cycle theory with those owners. B here constructs the Q/C algebraically constructible analytic-site interface using the exact EnhancedDerivedSheaves E1 nodes, the analytification carrier cited at ComplexComparisonPartII C0/repair-analytification (upstream CohomologicalPointCounting/ComplexComparison, TauCetiRoadmap pull request 196) and regular Riemann–Hilbert; the stratification input is gap G5. If a shared coefficient-independent constructible core is extracted, import it once; do not identify Q-Betti and ℓ-adic realizations without a comparison.
+
+**MixedHodgeModulesAndIrregularHodgeTheory, tauceti:FormalConnectionsOpers (TauCetiRoadmap pull request 1056, open).** The open upstream roadmap FormalConnectionsOpers plans, in its F6, the cyclic-vector theorem and the finite-ramification formal normal form of differential modules over ℂ((t)) with slope decomposition, commuting semisimple irregular parts, regular residue and ramified descent, together with lattice estimates. This overlaps D/formal-differential-module and D/formal-decomposition. It is not on TauCetiRoadmap main, so it is not yet existing work. Keep D planned here while that pull request is open. When it merges, D/formal-decomposition should cite its F6 normal-form theorem instead of re-planning it, and D/formal-differential-module should keep only the lattice-index irregularity and its comparison with slopes; D/curve-index is unaffected.
+
+**MixedHodgeModulesAndIrregularHodgeTheory, ComplexComparisonPartII, SheafConvolutionOnAbelianVarieties.** SheafConvolutionOnAbelianVarieties request R8 asks ComplexComparisonPartII:C5 for regular holonomic Riemann–Hilbert as an undesigned extension; ComplexComparisonPartII plans only Deligne's equivalence for regular singular connections, and this roadmap plans the holonomic comparison at B/regular-riemann-hilbert. Make B/regular-riemann-hilbert the single owner of the regular holonomic Riemann–Hilbert correspondence, importing ComplexComparisonPartII C5/deligne-regular-singular-equivalence as its smooth case, and redirect SheafConvolutionOnAbelianVarieties R8 to it.
 
 ## Routed coverage
 
@@ -1810,15 +1808,15 @@ Locators in the targets use the pagination of the linked version. The cited proo
 
 **FSY.** Javier Fresán, Claude Sabbah and Jeng-Daw Yu, [Hodge theory of Kloosterman connections](https://arxiv.org/pdf/1810.06454v5). arXiv:1810.06454v5, 13 June 2022; preprint pagination, compared with the Duke journal PDF for the source findings. Read 2026-10-19: Appendix A.1–A.7, pp. 59–73, including proofs; §2.3, Proposition 2.21, pp. 16–18; §4.3.1–§4.3.3, pp. 35–37.
 
-**Sai88.** Morihiko Saito, [Modules de Hodge polarisables](https://ems.press/content/serial-article-files/42460?nt=1). Publ. RIMS 24 (1988), 849–995; EMS scan. Read 2026-10-19: §3.1.1–§3.1.8, pp. 902–905; §3.2.1–§3.2.6, pp. 905–908; §5.1.6–§5.1.10, pp. 955–958; §5.2.10–§5.2.14, pp. 967–970; Theorem 5.3.1 and §5.3.3–§5.3.11, pp. 977–988.
+**Sai88.** Morihiko Saito, [Modules de Hodge polarisables](https://ems.press/content/serial-article-files/42460?nt=1). Publ. RIMS 24 (1988), 849–995; EMS scan. Read 2026-10-19: §3.1.1–§3.1.8, pp. 902–905; §3.2.1–§3.2.6, pp. 905–908; §5.1.6–§5.1.10, pp. 955–958; §5.2.10–§5.2.14, pp. 967–970; Theorem 5.3.1 and §5.3.3–§5.3.11, pp. 977–988; §3.4, Proposition 3.4.12, pp. 917–925 (read by the review).
 
 **Sai90.** Morihiko Saito, [Mixed Hodge modules](https://ems.press/content/serial-article-files/42511). Publ. RIMS 26 (1990), 221–333; EMS scan. Read 2026-10-19: Introduction 0.1–0.3, pp. 221–226; §1.7–§1.9, pp. 231–232; §2.2–§2.4 and §2.7–§2.11, pp. 237–247; §3.29 and §4.1–§4.5, pp. 314–325.
 
-**Dimca.** Alexandru Dimca, [Sheaves in Topology](https://doi.org/10.1007/978-3-642-18868-8). Universitext, Springer, 2004; maintainer-cleared reference copy. Read 2026-10-19: §4.1, Definition 4.1.1 and Theorem 4.1.5, pp. 81–84; §4.2, pp. 107–117; §5.1–§5.3, pp. 125–145, particularly 5.1.20, 5.2.16, 5.2.21 and 5.3.3.
+**Dimca.** Alexandru Dimca, [Sheaves in Topology](https://doi.org/10.1007/978-3-642-18868-8). Universitext, Springer, 2004; maintainer-cleared reference copy. Read 2026-10-19: §4.1, Definition 4.1.1 and Theorem 4.1.5, pp. 81–84; §4.2, pp. 107–117; §5.1–§5.3, pp. 125–145, particularly 5.1.20, 5.2.16, 5.2.21 and 5.3.3; §3.2–§3.3, Definition 3.2.1, Theorems 3.2.3 and 3.3.10, pp. 62–69; §4.2, pp. 103–110 (read by the review).
 
 **Kash84.** Masaki Kashiwara, [The Riemann–Hilbert problem for holonomic systems](https://www.kurims.kyoto-u.ac.jp/~kenkyubu/kashiwara/RiemannHilbert.pdf). Publ. RIMS 20 (1984), 319–365. Read 2026-10-19: Main theorem, §6, pp. 353–355; §7, proof by reduction to normal crossings, pp. 355–362.
 
-**KS.** Maxim Kontsevich and Yan Soibelman, [Cohomological Hall algebra, exponential Hodge structures and motivic Donaldson–Thomas invariants](https://arxiv.org/pdf/1006.2706v2). arXiv:1006.2706v2, 11 July 2011; preprint pagination. Read 2026-10-19: §4.2, pp. 27–31, projector and tensor product; §4.4, pp. 34–37, Definitions 11–12 and Propositions 2–4.
+**KS.** Maxim Kontsevich and Yan Soibelman, [Cohomological Hall algebra, exponential Hodge structures and motivic Donaldson–Thomas invariants](https://arxiv.org/pdf/1006.2706v2). arXiv:1006.2706v2, 11 July 2011; preprint pagination. Read 2026-10-19: §4.2, pp. 27–31, projector and tensor product; §4.4, pp. 34–37, Definitions 11–12 and Propositions 2–4; §4.2–§4.3, Definitions 7–8, pp. 30–31 (read by the review).
 
 **ESY.** Hélène Esnault, Claude Sabbah and Jeng-Daw Yu, with appendices by Morihiko Saito, [E₁-degeneration of the irregular Hodge filtration](https://arxiv.org/pdf/1302.4537v3). arXiv:1302.4537v3, 30 January 2014; preprint pagination. Read 2026-10-19: §1.2, Theorem 1.2.2, pp. 5–6; §1.6, pp. 11–14; §2.2–§2.4, pp. 19–22; §3.1–§3.4, pp. 22–26; Appendices A–B, pp. 26–29.
 
@@ -1826,7 +1824,7 @@ Locators in the targets use the pagination of the linked version. The cited proo
 
 **MT.** Yutaka Matsui and Kiyoshi Takeuchi; appendix by Claude Sabbah, [Monodromy at infinity of polynomial maps and Newton polyhedra (appendix by Claude Sabbah)](https://arxiv.org/pdf/0912.5144v12). arXiv:0912.5144v12, 22 February 2012; appendix pp. 34–40. Read 2026-10-19: Appendix A.1–A.5, pp. 34–40; Proposition A.3 and its complete proof.
 
-**Sab10.** Claude Sabbah, [Fourier–Laplace transform of a variation of polarized complex Hodge structure, II](https://arxiv.org/pdf/0804.4328v2). arXiv:0804.4328v2; published in Adv. Stud. Pure Math. 59 (2010), 289–347; locators use preprint pages. Read 2026-10-19: §6.a–§6.c, Theorem 6.1 and Proposition 6.10, pp. 30–36.
+**Sab10.** Claude Sabbah, [Fourier–Laplace transform of a variation of polarized complex Hodge structure, II](https://arxiv.org/pdf/0804.4328v2). arXiv:0804.4328v2; published in Adv. Stud. Pure Math. 59 (2010), 289–347; locators use preprint pages. Read 2026-10-19: §6.a–§6.c, Theorem 6.1 and Proposition 6.10, pp. 30–36; Proof of Proposition 6.10 and the references it invokes, pp. 35–36 (read by the review).
 
 **Mal20.** Bernard Malgrange, [Sur les points singuliers des équations différentielles](https://www.numdam.org/item/SEDP_1971-1972____A20_0.pdf). Séminaire Goulaouic–Schwartz 1971–1972, exposé XX, pp. 1–13. Read 2026-10-19: §1–§3, pp. XX.1–XX.11, local analytic/formal index comparison and Theorem 3.3.
 
