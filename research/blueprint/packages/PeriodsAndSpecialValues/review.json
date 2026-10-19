@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-PeriodsAndSpecialValues",
+    "date": "2026-10-19",
+    "notes": "Completed independent fixing review. Corrected the elliptic inverse, extended-boundary construction, supplier ownership, K3 generic-fibre qualification, stuffle domain, zero-sensitive 2-adic criterion, nonvacuous numerical dimension statement, source locators and discriminating checks; removed duplicate PS.3.4. Final Lean elaboration passes. Not ready for upstream: six unresolved prerequisite groups remain: elliptic second-kind integration (PS.0.5), arbitrary-pair comparison (PS.2.1), noncommutative virtual determinant category and finite-prime gluing (PS.3.1/PS.5.1), Rankin arithmetic systems/classes and LTXZZ theorem suppliers (PS.6.6\u2013PS.6.7), the geometric integral K3 lattice theorem (PS.8.4), and source-backed Dwork\u2013crystalline/log-boundary/integral-lattice comparisons (PS.8.17). See the review report for exact contracts and verification limits."
+  }
+}
