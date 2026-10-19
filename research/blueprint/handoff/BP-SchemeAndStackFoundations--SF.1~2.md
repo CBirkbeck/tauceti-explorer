@@ -1,9 +1,10 @@
 # Blocked checkpoint: SF.1 already has an upstream owner
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296; Codex session
-`codex-h4IgYc`, 2026-10-19. The bot
-[confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6265076732)
-at 10:26:09 UTC.
+`codex-8dlGHN`, 2026-10-19. The bot
+[confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6266324187)
+at 11:38:47 UTC, accepting
+[the exact session claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6266321803).
 This run claimed no second job. **The blueprint revision remains unfinished.**
 This note consolidates the previous ownership checkpoints; their history remains
 in Git and the issue discussion.
@@ -13,10 +14,11 @@ in Git and the issue discussion.
 The [maintainer’s instruction of 2026-10-13](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
 stops further atlas blueprint rounds: the upstream roadmap is authoritative and
 changes belong there. This run read that comment through the live GitHub API,
-read the issue discussion, and fetched the issue again after the bot confirmed
-its claim. The issue body was unchanged. No subsequent comment supplies a new
-mathematical scope. The automatic release after a checkpoint does not change
-that instruction. WORKERS.md and PROTOCOL.md §15 also prohibit replanning
+read all 107 issue comments, and fetched the issue again after the bot confirmed
+its claim. The issue body was unchanged. The only non-bot comment beyond
+claim-management commands remains that maintainer instruction. No subsequent
+comment supplies a new mathematical scope. The automatic release after a
+checkpoint does not change that instruction. WORKERS.md and PROTOCOL.md §15 also prohibit replanning
 existing upstream work. The run instructions require a checkpoint when blocked.
 
 **Resume condition:** the maintainer must retire or redirect this queue assignment.
@@ -84,16 +86,16 @@ new scope. All continuation evidence is linked here; no scratch file is needed.
 
 The older [draft checkpoint #9996](https://github.com/CBirkbeck/tauceti-explorer/pull/9996)
 also remains open. This run does not replace it or change its state. The
-release after [checkpoint #10677](https://github.com/CBirkbeck/tauceti-explorer/pull/10677)
-(merged 2026-10-19 at 10:19:48 UTC) supplied no new scope or reversal of the
+release after [checkpoint #10700](https://github.com/CBirkbeck/tauceti-explorer/pull/10700)
+(merged 2026-10-19 at 11:36:52 UTC) supplied no new scope or reversal of the
 maintainer’s instruction. All non-bot comments were checked; the only
 maintainer direction beyond claim-management comments remains the stop above.
 
 ## This checkpoint
 
-Session `codex-h4IgYc` changes only this handoff to persist its confirmed claim
+Session `codex-8dlGHN` changes only this handoff to persist its confirmed claim
 and current ownership check. Submission uses branch
-`codex-h4IgYc-sf1-checkpoint`. The mathematical deliverables remain unfinished
+`codex-8dlGHN-sf1-ownership-checkpoint`. The mathematical deliverables remain unfinished
 for the reason above. The maintainer must retire or redirect #9296 before
 mathematical revision resumes; repeating this ownership check cannot supply
 the missing assignment.
