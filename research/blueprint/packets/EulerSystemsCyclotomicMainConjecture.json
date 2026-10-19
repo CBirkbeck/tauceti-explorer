@@ -10,7 +10,7 @@
   "EulerSystemsCyclotomicMainConjecture:L4"
  ],
  "status": "complete",
- "summary": "Target-level plan for all five layers: cyclotomic p-units and their normalisations, the unsmoothed rigidity example and Stickelberger Euler-factor variant, finite derivative descent, Iwasawa divisibility, characteristic-ideal equality and Selmer translations, and Greither’s abelian all-prime theorem with its 2-adic finite-level applications. Existing target ids and correct source calculations are retained. Precise supplier nodes replace broad requests where they now exist. Every definition has a use-derived API and at least three discriminating tests. Three explicit gaps distinguish missing finite-control comparisons from the imported exceptional nonvanishing proof gap; complete denotes completion of the target-level planning pass, not mathematical closure.",
+ "summary": "Target-level plan for all five layers: cyclotomic p-units and their normalisations, the unsmoothed rigidity example and Stickelberger Euler-factor variant, finite derivative descent, Iwasawa divisibility, characteristic-ideal equality and Selmer translations, and Greither’s abelian all-prime theorem with its 2-adic finite-level applications. Existing target ids and correct source calculations are retained. Precise supplier nodes replace broad requests where they now exist. Every definition has a use-derived API and at least three discriminating tests. Four explicit gaps distinguish missing finite-control comparisons from the imported exceptional nonvanishing proof gap and pure cyclotomic normalization; complete denotes completion of the target-level planning pass, not mathematical closure.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -20,203 +20,203 @@
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Norm/Defs.lean",
     "provides": "norm_K(algebraMap K L x) = x^{finrank K L}.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Algebra.norm_eq_prod_automorphisms",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
     "provides": "For L/K Galois, algebraMap (norm_K x) = ∏_{σ ∈ Gal(L/K)} σ x.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Algebra.norm_norm",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Norm/Transitivity.lean",
     "provides": "Transitivity of the norm in a tower.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:IntermediateField.adjoin.finrank",
     "kind": "theorem",
     "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Basic.lean",
     "provides": "[K(x) : K] = deg minpoly_K(x) for integral x.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:IsCyclotomicExtension.Rat.eq_span_zeta_sub_one_of_liesOver",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Ideal.lean",
     "provides": "In ℚ(μ_{p^{k+1}}), every prime above p equals (ζ − 1).",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:IsCyclotomicExtension.autEquivPow",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
     "provides": "Gal(L/K) ≃* (ZMod n)ˣ, σ ↦ k with σ ζ = ζ^k, for cyclotomic n K irreducible.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:IsCyclotomicExtension.finrank",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
     "provides": "finrank K L = n.totient for a cyclotomic extension with cyclotomic n K irreducible.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:IsPrimitiveRoot.associated_sub_one_pow_sub_one_of_coprime",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
     "provides": "ζ − 1 and ζ^j − 1 are associated for j coprime to n.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:IsPrimitiveRoot.geom_sum_isUnit",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
     "provides": "∑_{i<j} ζ^i is a unit for a primitive n-th root ζ in a domain, n ≥ 2 and j coprime to n.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:IsPrimitiveRoot.sub_one_norm_eq_eval_cyclotomic",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/Cyclotomic/PrimitiveRoots.lean",
     "provides": "norm_K(ζ − 1) = eval 1 (cyclotomic n ℤ) for 2 < n and cyclotomic n K irreducible.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Module.finrank_mul_finrank",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/Dimension/Free.lean",
     "provides": "The tower law finrank F K · finrank K A = finrank F A.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Nat.totient_mul",
     "kind": "theorem",
     "module": "Mathlib/Data/Nat/Totient.lean",
     "provides": "φ(mn) = φ(m)φ(n) for coprime m, n.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Nat.totient_mul_of_prime_of_dvd",
     "kind": "theorem",
     "module": "Mathlib/Data/Nat/Totient.lean",
     "provides": "φ(p·n) = p·φ(n) when p is prime and p ∣ n.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:NumberField.RingOfIntegers",
     "kind": "def",
     "module": "Mathlib/NumberTheory/NumberField/Basic.lean",
     "provides": "The ring of integers 𝓞 K; its units are the global units.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Polynomial.cyclotomic.irreducible_rat",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Roots.lean",
     "provides": "cyclotomic n ℚ is irreducible for n > 0.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Polynomial.eval_one_cyclotomic_prime",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Polynomial/Cyclotomic/Eval.lean",
     "provides": "eval 1 (cyclotomic p R) = p for p prime.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Representation.averageMap",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Invariants.lean",
-    "provides": "The averaging map |G|^{−1}∑ ρ g onto invariants.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "provides": "For a finite group with invertible cardinality in the coefficient ring, the averaging map |G|⁻¹∑ρ(g) onto invariants. The invertibility hypothesis is required.",
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Representation.invariants",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Invariants.lean",
     "provides": "The submodule of Δ-invariants of a representation.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Representation.mem_invariants",
     "kind": "theorem",
     "module": "Mathlib/RepresentationTheory/Invariants.lean",
     "provides": "v ∈ invariants ρ ↔ ∀ g, ρ g v = v.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:ZMod.unitOfCoprime",
     "kind": "def",
     "module": "Mathlib/Data/ZMod/Basic.lean",
     "provides": "The unit of ZMod n given by x coprime to n.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:isUnit_of_dvd_unit",
     "kind": "theorem",
     "module": "Mathlib/Algebra/Divisibility/Units.lean",
     "provides": "A divisor of a unit is a unit.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:minpoly.dvd",
     "kind": "theorem",
     "module": "Mathlib/FieldTheory/Minpoly/Field.lean",
     "provides": "The minimal polynomial divides every polynomial vanishing at x.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:sub_one_dvd_natCast_of_pow_eq_one",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/RootsOfUnity/CyclotomicUnits.lean",
     "provides": "ζ − 1 divides n when ζ^n = 1 and ζ ≠ 1, in a domain.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "tauceti:TauCeti.KummerCoeff",
     "kind": "abbrev",
     "module": "TauCeti/FieldTheory/GaloisCohomology/Coefficients.lean",
     "provides": "μ_n ⊆ (Kˢ)ˣ as a discrete G_K-module, written additively.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "tauceti:TauCeti.kummerMap",
     "kind": "def",
     "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
     "provides": "The Kummer map Kˣ →* H¹(G_K, μ_n) for n invertible in K, the connecting map of the Kummer sequence.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "tauceti:TauCeti.kummerMap_eq_one_iff",
     "kind": "theorem",
     "module": "TauCeti/FieldTheory/GaloisCohomology/Kummer.lean",
     "provides": "kummerMap a = 1 iff a is an n-th power in K.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:NumberField.Units.finrank_eq",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
-    "provides": "Dirichlet's unit theorem: the units modulo torsion have rank r₁ + r₂ − 1.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "provides": "Dirichlet’s additive unit rank r₁+r₂−1. It does not supply the character multiplicities of the Galois-module unit theorem; that remains requested from IntegralIwasawaTheory:L0.",
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:PowerSeries",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/PowerSeries/Basic.lean",
     "provides": "Formal power series 𝒪⟦X⟧.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    },
    {
     "ref": "mathlib:Finset.prod_range_succ",
     "kind": "theorem",
     "module": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
     "provides": "∏_{a<n+1} f a = (∏_{a<n} f a)·f n; its additive form Finset.sum_range_succ.",
-    "checked": "Statement read in the source file at the recorded pinned commit on 2026-10-19; scope checked against this packet’s use."
+    "checked": "Independently reread at the recorded pinned commit on 2026-10-19 by Codex codex-74m6xC; declaration name, module, hypotheses and citing use checked."
    }
   ]
  },
@@ -238,14 +238,15 @@
     "2026-09-29 (cc-fb70e5, checkpoint 2): Chapter I Lemma 3.2 and §6.2 Proposition 6.1, Definition 6.2 (printed pp. 4–5, 13–15); Chapter II §2 Hypotheses Hyp(K, T), Definition 2.1, Theorems 2.2–2.3, Remarks 2.4–2.9 (printed pp. 23–25); Chapter III §1 Lemma 1.1 and §2.1–2.5 (printed pp. 33–37)",
     "2026-09-29 (cc-fb70e5, checkpoint 3): Chapter II §3 (Hyp(K∞/K), Hyp(K∞, T), Definition 3.1, Theorems 3.2–3.4, Proposition 3.7, Theorem 3.8; printed pp. 26–29); Chapter III §2.5–2.10 (Proposition 2.6, Theorem 2.7, Corollary 2.8, Theorems 2.9–2.10; printed pp. 37–39)",
     "2026-09-29 (cc-fb70e5, checkpoint 4): Chapter III §2.8–2.10 (Corollary 2.8, Theorems 2.9–2.10; printed pp. 38–39)",
-    "2026-10-19 (Codex codex-A13z6S): IV §§1–5 (pp. 55–68); IV §8 Example 8.2 (p. 78); VI §§1–4 (pp. 89–94); IX §1 (pp. 133–136) and §6 (pp. 140–144); III §4 (pp. 40–42); Appendix D Definition 1.2 and Lemma 1.4 (pp. 164–165)."
+    "2026-10-19 (Codex codex-A13z6S): IV §§1–5 (pp. 55–68); IV §8 Example 8.2 (p. 78); VI §§1–4 (pp. 89–94); IX §1 (pp. 133–136) and §6 (pp. 140–144); III §4 (pp. 40–42); Appendix D Definition 1.2 and Lemma 1.4 (pp. 164–165).",
+    "Independent review 2026-10-19, Codex codex-74m6xC: all node locators in I §§2–3,6; II §§1–4; III §§1–2,4; IV §§1,4–5,8; IX §§1,6; Appendix D §§1.2,1.4 were reread in the public author draft. All Rubin sourceIssues were checked at their printed pages; no published book was used."
    ]
   },
   {
    "id": "RJW-PADIC-L",
    "title": "An introduction to p-adic L-functions",
    "authors": "Joaquín Rodrigues Jacinto; Chris Williams",
-   "edition": "arXiv:2309.15692v2 (19 December 2024); for §13.5 also the version of record, Essential Number Theory 4 (2025) 101–216 (msp.org PDF), whose text there is unchanged",
+   "edition": "arXiv:2309.15692v2 (19 December 2024); the cited §10.5 and §13.5 corrections were also compared with the version of record, Essential Number Theory 4 (2025) 101–216 (MSP PDF), pp. 171,197–198",
    "url": "https://arxiv.org/abs/2309.15692v2",
    "sha256": "efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4",
    "readSections": [
@@ -253,7 +254,8 @@
     "§10.5, the Kummer map (10.5)–(10.7), the elements c_m, Definition 10.16 (pp. 52–53)",
     "2026-09-29 (cc-fb70e5, checkpoint 4): §7 Theorem 7.1 and Lemma 7.2 (pp. 40–41); §11.2–11.3 (Proposition 11.5, Theorem 11.9; pp. 55–57); Theorem 12.23 (p. 64); §13.1–13.4 (Lemma 13.6, Theorem 13.8, Theorem 13.11, Definition 13.12, Proposition 13.13, Corollary 13.14; pp. 65–68), with the register's corrections PadicMeasuresIwasawaAlgebras/E5–E7",
     "2026-09-29 (cc-fb70e5, checkpoint 7): Remark 13.9 (p. 67); §13.5 in full: Definitions 13.18–13.19, Remark 13.20, §13.5.2, Conjecture 13.21, Example 13.22, Remarks 13.23–13.24 (pp. 69–72); Appendix B.2.3 (p. 80). The same passages were compared in the published version (Essential Number Theory 4 (2025), msp.org PDF, pp. 196–198).",
-    "2026-10-19 (Codex codex-A13z6S): §2.2.4 (pp. 7–8), Definition 10.16 (p. 53), Appendix B.3 (p. 81)."
+    "2026-10-19 (Codex codex-A13z6S): §2.2.4 (pp. 7–8), Definition 10.16 (p. 53), Appendix B.3 (p. 81).",
+    "Independent review 2026-10-19, Codex codex-74m6xC: all cited arXiv v2 locators, including §§2.2.4,7,10–13 and Appendix B, reread; source corrections at arXiv pp. 52,71–72 compared with published pp. 171,197–198. The completed Kummer correction is already recorded as SelmerIwasawaCohomology/E1."
    ]
   },
   {
@@ -273,7 +275,8 @@
     "§4: Theorem 4.1 and both cases of its proof, Lemma 4.2–Theorem 4.6, Proposition 4.7, (G1)–(G2), Lemmas 4.8–4.10, Theorem 4.11, Theorem 4.12, Lemma 4.13, Theorem 4.14, Corollary 4.15 and the proof of 4.14 (pp. 482–497); formulas checked on the page images of pp. 453, 482–483, 486–488 and 490–495",
     "§2 in full: Lemmas 2.1–2.3, Theorems 2.4, 2.6, 2.8, Lemmas 2.5, 2.9, Corollary 2.7, Proposition 2.10, Lemma 2.11, Corollary 2.12, Theorem 2.13 with its proof, Corollary 2.14, Lemma 2.15 (pp. 455–468); formulas checked on the page images of pp. 455–456, 459, 462–463 and 465–467",
     "§3 from Lemma 3.5 to the end of the proof of Theorem 3.1 (pp. 470–482), with the formulas of pp. 475–481 checked on the page images",
-    "2026-10-19 (Codex codex-A13z6S): targeted rechecks of the character quotient convention and §§2–3 all-prime normalisations; §4 Theorem 4.1 (pp. 482–484), the valuation/logarithm comparison (pp. 486–490), and Theorem 4.14/Corollary 4.15 (pp. 495–497). The preceding complete source decomposition is retained."
+    "2026-10-19 (Codex codex-A13z6S): targeted rechecks of the character quotient convention and §§2–3 all-prime normalisations; §4 Theorem 4.1 (pp. 482–484), the valuation/logarithm comparison (pp. 486–490), and Theorem 4.14/Corollary 4.15 (pp. 495–497). The preceding complete source decomposition is retained.",
+    "Independent review 2026-10-19, Codex codex-74m6xC: all node locators in pp. 449–497 reread, with page-image checks of formulas at pp. 453,459,463,465,473–474,480,483,490–491,494–496. Additional proof defects are recorded as E20–E22; no cited secondary book was treated as read."
    ]
   },
   {
@@ -285,7 +288,8 @@
    "sha256": "f522f508ca1fce6c927a17d26a4b30fd9aa48ec0fec6f716fe6e7d29f0ca1e77",
    "read": "2026-10-19",
    "readSections": [
-    "Introduction p. 979; §1 Propositions 1.11, 1.14, 1.16 and 1.19 and Conjecture 1.15, pp. 982–984; Proposition 3.8 p. 990; §4 pp. 992–994, particularly (4.3)–(4.6)."
+    "Introduction p. 979; §1 Propositions 1.11, 1.14, 1.16 and 1.19 and Conjecture 1.15, pp. 982–984; Proposition 3.8 p. 990; §4 pp. 992–994, particularly (4.3)–(4.6).",
+    "Independent review 2026-10-19, Codex codex-74m6xC: cited Propositions 1.11,1.14,1.16, Conjecture 1.15 and §4 formulas checked on the public page images, pp. 982–983,990,993–994. The distinction between a conjectural full linear map and the algebraic-coefficient theorem is retained."
    ]
   }
  ],
@@ -315,7 +319,7 @@
    "kind": "published",
    "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
    "citation": "J. Rodrigues Jacinto and C. Williams, An introduction to p-adic L-functions, Essential Number Theory 4 (2025) 101–216",
-   "read": "2026-09-29",
+   "read": "2026-10-19",
    "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6"
   },
   {
@@ -1229,7 +1233,7 @@
    "kind": "construction",
    "statement": "Let O be a commutative ring, Δ a finite group, M an O[Δ]-module and χ : Δ → O^× a character. The χ-component is M^χ = {x ∈ M : δx = χ(δ)x for all δ ∈ Δ}, an O-submodule. For a ℤ[Δ]-module B, Rubin's B^χ is (B̂ ⊗_{ℤ_p} O)^χ, with B̂ the p-adic completion (B ⊗ ℤ_p for B finitely generated). Equivalently B^χ ≅ (B̂ ⊗ O_{χ^{−1}})^Δ after fixing a generator of O_{χ^{−1}}.",
    "hypotheses": [
-    "The χ-functor is exact when |Δ| is invertible in O. A decomposition into one-dimensional character components also requires Δ abelian and O to contain all character values.",
+    "The χ-functor is exact when |Δ| is invertible in O. For the character decomposition used here, additionally assume Δ abelian, O the ring of integers of a finite extension of ℚ_p containing all Δ-character values, and p∤|Δ|. The bare eigen-submodule definition works over any commutative ring.",
     "When p divides |Δ| the character functors are those of layer L4 (Greither); this node is the prime-to-p case."
    ],
    "proofSteps": [
@@ -1281,7 +1285,17 @@
     {
      "name": "TauCeti.CyclotomicEulerSystem.chiComponent_map_eq",
      "role": "structure",
-     "statement": "If |Δ| is a unit, M↦M^χ is exact. If in addition Δ is abelian and O contains every character value, M=⊕χ M^χ."
+     "statement": "If |Δ| is a unit, M↦M^χ is exact. If Δ is finite abelian and O is the integer ring of a finite extension of ℚ_p containing every Δ-character value, with p∤|Δ|, then M=⊕χ M^χ, via the orthogonal character idempotents."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiComponent_ext",
+     "role": "extensionality",
+     "statement": "To identify a submodule N with M^χ, prove for every x that x∈N iff δx=χ(δ)x for every δ; use Submodule.ext and mem_chiComponent."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiComponent_trivial_eq_bot",
+     "role": "characterisation",
+     "statement": "For the trivial action, injectivity on M of multiplication by χ(δ)−1 for one δ implies M^χ=0. The module M itself, rather than just O, must satisfy this injectivity."
     }
    ],
    "tests": [
@@ -1293,7 +1307,7 @@
     {
      "name": "chiComponent_trivial_rep",
      "kind": "degenerate",
-     "statement": "Trivial action and χ(δ) − 1 a nonzerodivisor for some δ: M^χ = 0."
+     "statement": "For the trivial action, if multiplication by χ(δ)−1 is injective on M for some δ, then M^χ=0. In particular this holds for M=O, O a domain, and χ(δ)≠1."
     },
     {
      "name": "chiComponent_regular",
@@ -1304,6 +1318,11 @@
      "name": "chiComponent_not_split",
      "kind": "non-example",
      "statement": "For Δ=C_p acting regularly on M=𝔽_p[Δ], M^1 is the one-dimensional span of the norm element. The augmentation M→𝔽_p induces the zero map on invariants, although it is surjective on M; invariants are not exact here."
+    },
+    {
+     "name": "chiComponent_torsion_counterexample",
+     "kind": "non-example",
+     "statement": "For O=ℤ, M=ℤ/2, Δ=C₂ acting trivially and χ(s)=−1, M^χ=M≠0 although χ(s)−1=−2 is a nonzerodivisor in O. Scalar regularity in O alone is insufficient."
     }
    ],
    "uses": [
@@ -1387,6 +1406,11 @@
      "name": "TauCeti.CyclotomicEulerSystem.chiSum_chiSum",
      "role": "relation",
      "statement": "chiSum_χ ∘ chiSum_χ = |Δ|·chiSum_χ; for |Δ| ∈ O^× this gives the idempotent projection onto M^χ."
+    },
+    {
+     "name": "TauCeti.CyclotomicEulerSystem.chiSum_map",
+     "role": "functoriality",
+     "statement": "For a Δ-equivariant O-linear map f:M→N, f(chiSumχ(x))=chiSumχ(f(x)); hence character sums commute with the unit, norm and Kummer maps used here."
     }
    ],
    "tests": [
@@ -1496,6 +1520,7 @@
    "kind": "construction",
    "statement": "Let χ be an even nontrivial character of G_ℚ of finite order prime to p, with conductor f, fixed field L and Δ = Gal(L/ℚ); let ℚ_n ⊆ ℚ(μ_{p^{n+1}}) be the layers of ℚ_∞ and L_n = Lℚ_n, so Gal(L_n/ℚ_n) = Δ. Put u_0 = N_{ℚ(μ_f)/L}(1 − ζ_f) and, for n > 0, u_n = N_{ℚ(μ_{fp^{n+1}})/L_n}(1 − ζ_{fp^{n+1}}). Then ξ_{n,χ} = chiSum_χ(1 ⊗ u_n) ∈ (O ⊗ L_n^×)^χ. It equals Rubin's ∏_{δ∈Gal(ℚ(μ_f)/ℚ)} (ζ_f^δ − 1)^{χ^{−1}(δ)} (n = 0), respectively the product over Gal(ℚ_n(μ_{fp^{n+1}})/ℚ_n) (n > 0).",
    "hypotheses": [
+    "p is odd. The indexing ℚ_n⊆ℚ(μ_{p^{n+1}}) and Rubin’s prime-to-p character application in L0–L3 use this convention; L4 treats p=2 separately.",
     "χ even, nontrivial, of order prime to p (Rubin §III.2.2); χ is viewed as a Dirichlet character modulo f with χ(q) = 0 for q ∣ f.",
     "The sign convention is immaterial: ∑ χ^{−1}(δ) = 0 over each group, since χ is nontrivial on it, so (−1) contributes (−1)^0."
    ],
@@ -1723,6 +1748,7 @@
    "kind": "theorem",
    "statement": "Let c = c̃^{χ^{−1}} be the twist by χ^{−1} of the Euler system of cyclotomic units (ES.2, Rubin Proposition II.4.2), an Euler system for (T^*, ℚ^ab, pf) with T = O_χ, T^* = ℤ_p(1) ⊗ χ^{−1}. Under the restriction–Kummer isomorphism H¹(ℚ, T^*) ≅ (L^×)^χ ⊆ L^× ⊗̂ O (Rubin (3)), c_ℚ corresponds to chiSum_χ(1 ⊗ N_{ℚ(μ_{fp})/L}(1 − ζ_{fp})) = ∏_{δ∈Gal(ℚ(μ_{fp})/ℚ)} (1 − ζ_{fp}^δ)^{χ^{−1}(δ)}.",
    "hypotheses": [
+    "p is odd. The indexing ℚ_n⊆ℚ(μ_{p^{n+1}}) and Rubin’s prime-to-p character application in L0–L3 use this convention; L4 treats p=2 separately.",
     "χ even, nontrivial, of order prime to p, conductor f; [L : ℚ] prime to p."
    ],
    "proofSteps": [
@@ -1941,7 +1967,7 @@
    "realises": [
     "EulerSystemsCyclotomicMainConjecture:L1"
    ],
-   "title": "When χ(p) ≠ 1 the relaxed Selmer group is Hom_O(A_L^χ, D)",
+   "title": "When χ(p) ≠ 1 the strict Selmer group is Hom_O(A_L^χ, D)",
    "kind": "lemma",
    "statement": "Let χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with conductor f and field L; T = O_χ, W = D_χ, T* = O_{χ^{−1}}(1), W* = T* ⊗ ℚ_p/ℤ_p, with χ(p) ≠ 1. Then H¹_f(ℚ_p, W) = 0, so S_{Σ_p}(ℚ, W) = S(ℚ, W) ≅ Hom_O(A_L^χ, D), where A_L is the ideal class group of L.",
    "hypotheses": [
@@ -1953,7 +1979,7 @@
     "Proposition I.6.1: restriction to L is an isomorphism on Δ-invariants since |Δ| is prime to p. Unramified homomorphisms factor through Gal(H_L/L) ≅ A_L, so S(ℚ, W) ≅ Hom(A_L, D_χ)^Δ = Hom_O(A_L^χ, D)."
    ],
    "acceptance": [
-    "χ(p) = 1: H¹_f(ℚ_p, W) can be nonzero, and S_{Σ_p} is larger than S."
+    "If χ(p)=1, H¹_f(ℚ_p,W) can be nonzero. The strict group S_{Σ_p} is a subgroup of S, and their equality requires a separate local calculation. The relaxed group S^{Σ_p} contains S."
    ],
    "prerequisites": [
     "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-hypotheses-and-error-terms",
@@ -2041,7 +2067,8 @@
    "statement": "Let p > 2 and χ : G_ℚ → O^× even, nontrivial, of finite order prime to p, with conductor f and field L; T = O_χ, W = D_χ, T* = O_{χ^{−1}}(1), W* = T* ⊗ ℚ_p/ℤ_p, with χ(p) ≠ 1. Then |A_L^χ| = [E_L^χ : C_{L,χ}] (Mazur–Wiles).",
    "hypotheses": [
     "p>2, χ even nontrivial of order prime to p, L its fixed field and χ(p)≠1, as in Rubin III Corollary 2.4. A common finite unramified coefficient extension O′ contains all characters ψ of Δ=Gal(L/ℚ).",
-    "Use the exact prime-to-p degree circular-unit class-number product, requested from IntegralIwasawaTheory:L0: after matching each ψ-line with the primitive-conductor generator, the sum of O′-lengths of E_Lψ/Cψ equals that of A_Lψ over all ψ≠1. This includes the proof that the conductor/norm lattice correction is a p-adic unit for p∤|Δ|."
+    "Use the exact prime-to-p degree circular-unit class-number product, requested from IntegralIwasawaTheory:L0: after matching each ψ-line with the primitive-conductor generator, the sum of O′-lengths of E_Lψ/Cψ equals that of A_Lψ over all ψ≠1. This includes the proof that the conductor/norm lattice correction is a p-adic unit for p∤|Δ|.",
+    "This finite equality is a corollary obtained after the L4 argument. L2’s Euler-system divisibility uses the L1 divisibility, not this equality; the later L4 input introduces no dependency cycle."
    ],
    "proofSteps": [
     "For each ψ≠1 with ψ(p)≠1 apply L1/kolyvagin-class-group-divisibility to the field Lψ cut out by ψ. Since [L:Lψ] is prime to p, restriction/norm identifies its ψ class and unit components with those of L; the corresponding circular-unit line differs only by the prime-to-p norm scalar.",
@@ -2572,18 +2599,20 @@
    ],
    "title": "Semilocal units modulo circular units (Greither, Theorem 2.13 and Corollary 2.14)",
    "kind": "theorem",
-   "statement": "Let p any prime (p = 2 included), F/ℚ abelian and unramified at p, K_n = F(ζ_{2p^{n+1}}) (so K_0 = F(√−1) when p = 2), K_∞ = ∪K_n, Δ′ = Gal(K_0/ℚ), Γ = Gal(K_∞/K_0) ≅ ℤ_p, and Λ_χ = ℤ_p(χ)[[T]], and ρ an even nontrivial character of Δ′, with χ = ωρ^{−1}. Then Q_p ⊗ (U_∞/C_∞)_ρ and Q_p(χ)[[T]]/(G_p(T, ρ))*(1) have the same characteristic ideal over Q_pΛ_ρ, and they are isomorphic if χ(p) ≠ 1. Here U_∞ and C_∞ are the pro-p parts of the limits of semilocal units and of Sinnott's circular units, G_p(T, ρ) is Washington's f(T, ρ) with L_p(s, ρ) = G_p(u^s − 1, ρ), and * means Δ′ × Γ acts through the inverse. This is the form of Iwasawa's and Gillard's theorem for all p that Greither proves in §2.",
+   "statement": "Let p any prime (p = 2 included), F/ℚ abelian and unramified at p, K_n = F(ζ_{2p^{n+1}}) (so K_0 = F(√−1) when p = 2), K_∞ = ∪K_n, Δ′ = Gal(K_0/ℚ), Γ = Gal(K_∞/K_0) ≅ ℤ_p, and Λ_χ = ℤ_p(χ)[[T]], and ρ an even nontrivial character of Δ′, with χ = ωρ^{−1}. Then Q_p ⊗ (U_∞/C_∞)_ρ and Λ_χ[1/p]/(G_p(T, ρ))*(1) have the same characteristic ideal over Q_pΛ_ρ, and they are isomorphic if χ(p) ≠ 1. Here U_∞ and C_∞ are the pro-p parts of the limits of semilocal units and of Sinnott's circular units, G_p(T, ρ) is Washington's f(T, ρ) with L_p(s, ρ) = G_p(u^s − 1, ρ), and * means Δ′ × Γ acts through the inverse. This is the form of Iwasawa's and Gillard's theorem for all p that Greither proves in §2.",
    "hypotheses": [
     "The proof uses Coleman's theory adapted to unramified coefficients and p = 2 (L4/greither-coleman-sequence-all-p, L4/greither-semilocal-coleman-map). Coleman's own theorems are requested from ColemanPowerSeries L1 and L3.",
-    "Characteristic ideals are compared after ⊗Q_p, so only up to powers of p. The μ = 0 input of §3 removes these."
+    "Characteristic ideals are compared after ⊗Q_p, so only up to powers of p. The μ = 0 input of §3 removes these.",
+    "Rationalization means ℚ_p⊗Λ_χ=Λ_χ[1/p], the bounded-denominator series ring, and similarly on every finite character factor. It is not the full formal series ring ℚ_p(χ)[[T]]. For example T−p remains a nonunit in Λ_χ[1/p] although it is a unit in the full field-coefficient series ring."
    ],
    "proofSteps": [
-    "Theorem 2.13 (L4/greither-stickelberger-image) gives αψ(V_ρ(C_∞)) = G_p(T′, ρ)·z_{χ^{−1}}, and z_{χ^{−1}} is a free generator (Corollary 2.12). So V_ρ(𝒱(1))/αψ(V_ρ(C_∞)) ≅ ℚ_p(χ^{−1})[[T]]/(G_p(T′, ρ))(1), and T ↦ T′ turns it into (ℚ_p(χ)[[T]]/(G_p(T, ρ)))*(1).",
+    "Theorem 2.13 (L4/greither-stickelberger-image) gives αψ(V_ρ(C_∞)) = G_p(T′, ρ)·z_{χ^{−1}}, and z_{χ^{−1}} is a free generator (Corollary 2.12). So V_ρ(𝒱(1))/αψ(V_ρ(C_∞)) ≅ Λ_{χ^{−1}}[1/p]/(G_p(T′, ρ))(1), and T ↦ T′ turns it into (Λ_χ[1/p]/(G_p(T, ρ)))*(1).",
     "Proposition 2.10 gives 0 → V_ρ(ℤ_p(1)^g) → V_ρ(U_∞/C_∞) → V_ρ(𝒱(1))/αψ(V_ρ(C_∞)) → V_ρ(ℤ_p(1)^g) → 0, using ℤ_p(1)^g ∩ C_∞ = ℤ_p(1) and V_ρ(ℤ_p(1)) = 0 since ρ ≠ ω. Since ℤ_p(1)^g ≅ ℤ_p[Δ/D] ⊗ ℤ_p(1), with D the decomposition group of p, the outer terms vanish when χ(p) ≠ 1.",
     "Multiplicativity of characteristic ideals gives the corollary."
    ],
    "acceptance": [
-    "χ(p) = 1 (p splits in the χ-field): isomorphism is lost, but equality of characteristic ideals remains."
+    "χ(p) = 1 (p splits in the χ-field): isomorphism is lost, but equality of characteristic ideals remains.",
+    "Retain the height-one factor T−p under rationalization. Replacing the coefficient ring by the unrestricted formal series ring would lose it."
    ],
    "prerequisites": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
@@ -2955,7 +2984,7 @@
     "(G1) By Stickelberger's theorem at p = 2, (g) = ∏_{b ∈ (ℤ/m)^×/⟨2⟩} (σ_b^{−1}𝔓)^{Σ_{t=1}^{f}⟨2^t b/m⟩}. Taking N_{D/F} collects all b with σ_b|_F = δ: μ(g_F) = Σ_δ Σ_{b mod m, σ_b ↦ δ} ⟨b/m⟩·𝔭_{δ^{−1}}, and μ_χ(g_F) = (Σ_b ⟨b/m⟩χ^{−1}(b))·(𝔭)_χ = B_{1,χ^{−1}}·(𝔭)_χ, since χ has conductor m.",
     "(G2) λ_χ(g_F) = (Σ_δ log_2(g_F^δ)·χ^{−1}(δ))·(𝔭)_χ. Gross–Koblitz writes each conjugate of g as a product of Morita Γ_2-values, so this is Σ_{(b,m)=1} χ^{−1}(b)·log_2 Γ_2(⟨b/m⟩)·(𝔭)_χ. Ferrero–Greenberg (Gross [10], p. 993) turns it into Σ_{(b,m)=1} χ^{−1}(b)·ζ′_2(b, 0)·(𝔭)_χ.",
     "Lemma 4.8 identifies the last sum with L′_2(0, χ̌)·(𝔭)_χ. It suffices to check s = 1 − n for odd n ∈ ℕ, using the definitions (Washington, Chapter 5; Gross [10], p. 989). Then L′_2(0, χ̌) = log_2(u)·G′_2(0, χ̌), and log_2(u) is associated to 4.",
-    "μ_χ(g_F) ≠ 0 because B_{1,χ^{−1}} ≠ 0 for odd χ. λ_χ(g_F) ≠ 0 by Gross [10], 1.15, a consequence of his Conjecture 2.12, which he proves for abelian fields."
+    "μ_χ(g_F)≠0 follows from B_{1,χ^{−1}}≠0 for odd χ. For λ_χ(g_F)≠0 invoke DirichletPadicLFunctions:L3/rjw2-fg-nonvanishing, subject to its recorded Gauss-ideal/Baker–Brumer gap. Gross 1.15 is a conjecture; his algebraic-coefficient Proposition 1.16 and abelian argument on p. 994 explain the intended route but do not by themselves discharge that supplier gap."
    ],
    "acceptance": [
     "The index computations in the trivial-zero formula use only the ℤ_2(χ)-lines spanned by μ_χ(g_F) and λ_χ(g_F), so units (including m) do not matter."
@@ -3176,15 +3205,17 @@
    "realises": [
     "EulerSystemsCyclotomicMainConjecture:L4"
    ],
-   "title": "|A₂(F)_χ| is divisible by |½B_{1,χ⁻¹}|^{d(χ)} (Greither, Theorem 4.1 = Theorem B)",
+   "title": "The 2-adic relative class-group lower bound (Greither, Theorem 4.1)",
    "kind": "theorem",
-   "statement": "Let p = 2 and F an imaginary abelian field unramified at 2 with Δ = Gal(F/ℚ) = Δ_2 × Δ_0 and Δ_2 cyclic. For every odd character χ of Δ, |A_2(F)_χ| ≥ |½B_{1,χ^{−1}}|_2^{d(χ)}, that is, the 2-power |A_2(F)_χ| is divisible by |½B_{1,χ^{−1}}|_2^{d(χ)} = 2^{d(χ)·v_2(½B_{1,χ^{−1}})}. Here A_2(F)_χ ≅ (A_2(F)/im A_2(F^+))_χ ≅ A_2(F)^−_χ, since χ is odd and the norm A_2(F) → A_2(F^+) is onto.",
+   "statement": "Let p=2 and F/ℚ be imaginary abelian and unramified at 2, with Δ=Δ₂×Δ₀, Δ₂ cyclic and |Δ₀| odd. For every odd character χ, |A₂(F)_χ|≥Nχ(½B_{1,χ⁻¹}), where Nχ(a)=2^{[ℚ₂(χ):ℚ₂]v₂(a)}. The bound is an inequality between positive rational powers of 2; its right side can be fractional for a character of 2-power order. One has A₂(F)_χ≃(A₂(F)/im A₂(F⁺))_χ. Identification with the χ-part of the minus subgroup is used only when χ₀=χ|Δ₀≠1, as in the Iwasawa–Leopoldt target.",
    "hypotheses": [
     "Greither states Theorem 4.1 for every p and χ faithful on Δ_p. For odd p he cites Mazur–Wiles (|Δ| prime to p) and Solomon (general case), neither read here, and says the argument below works for all p. The node is the case p = 2 (Theorem B), where every odd χ is faithful on the cyclic Δ_2.",
-    "In these finite-index formulas Greither’s notation |a|_p means p^{v_p(a)}, the reciprocal of the usual p-adic absolute value; d(χ)=[ℚ_p(χ):ℚ_p]. Thus |a|_p^{d(χ)}=Nχ(a)."
+    "In these finite-index formulas Greither’s notation |a|_p means p^{v_p(a)}, the reciprocal of the usual p-adic absolute value; d(χ)=[ℚ_p(χ):ℚ_p]. Thus |a|_p^{d(χ)}=Nχ(a).",
+    "Handle χ₀=1 first by the pure 2-power analytic class-number formula of §1, with the corrected degree exponent E4. The split-prime arguments below use χ₀≠1, as required by their nontrivial ξ hypotheses."
    ],
    "proofSteps": [
     "χ(j) = −1 makes χ injective on Δ_2, so ker χ ⊂ Δ_0. Replace F by the fixed field of ker χ, so that χ is injective on Δ.",
+    "If χ₀=1, the faithful reduction has a cyclic 2-power Galois group. The analytic class-number formula in §1, p. 453, gives |A(F)_χ|=2·Nχ(½B_{1,χ⁻¹})·k_F with the capitulation-kernel order k_F≥1. This already gives the lower bound without using the later proof that k_F=1. For the remaining steps assume χ₀≠1, so the split-prime ξ arguments apply.",
     "Case χ(2) ≠ 1. Let D be the decomposition group of 2 in Δ, Δ̄ = Δ/D, γ a topological generator of Γ and γ_n = γ^{p^n}. As in Washington p. 278 there is an exact sequence 0 → ((1 − γ_n)/(1 − γ))·Y_0/(1 − γ_n)X → X/(1 − γ_n)X → A(K_n) → 0, whose first term is a quotient of Z = Y_0/(1 − γ)X.",
     "With L and G = Gal(L/F) as on Washington p. 277, 𝔓 a prime of L above a divisor 𝔭 of p and σ a generator of its inertia group, Z is the ℤ_p-span of the z_τ = [σ^τσ^{−1}] (τ ∈ Gal(L/ℚ)). z_τ = 0 for τ ∈ G, so Z is a quotient of the augmentation ideal of ℤ_pΔ; it is cyclic because Δ_p is cyclic, and D acts trivially, so Z is a quotient of ℤ_pΔ̄. Taking χ-parts gives (ℤ_pΔ̄)_χ → X_χ/(1 − γ_n)X_χ → A(K_n)_χ → 0. The Frobenius at 2 acts on the left term trivially and by χ(2), so that term is cyclic over ℤ_2(χ), killed by 1 − χ(2), of order at most |1 − χ(2)|_2^{d(χ)}.",
     "char(X_χ) = (½G_2(T, χ̌)) by Theorem 3.2, and ½G_2(T, χ̌)|_{T=0} = ½L_2(0, χ̌) = −½(1 − χ^{−1}(2))B_{1,χ^{−1}} ≠ 0. The coinvariant lemma (Coates, Lemma 9) gives |X_χ/(1 − γ)X_χ| ≥ |½G_2(0, χ̌)|_2^{d(χ)}, and |1 − χ(2)|_2 = |1 − χ^{−1}(2)|_2. So |A(F)_χ| ≥ |½B_{1,χ^{−1}}|_2^{d(χ)}.",
@@ -3192,7 +3223,7 @@
    ],
    "acceptance": [
     "When χ is not of 2-power order, equality holds; this is Theorem A.",
-    "For χ of 2-power order, |A(F)_χ| = 2·|½B_{1,χ^{−1}}|_2^{d(χ)} (p. 482), strictly larger than the bound."
+    "For χ of 2-power order, |A(F)_χ|=2·Nχ(½B_{1,χ⁻¹}). For F=ℚ(ζ₅), χ of order 4, the bound is ½ and the class-group order is 1. Do not interpret a fractional lower bound as divisibility of integer orders."
    ],
    "prerequisites": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-reduction",
@@ -3203,7 +3234,8 @@
     "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
     "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
     "PadicMeasuresIwasawaAlgebras:L4/finite-coinvariants-euler-characteristic",
-    "PadicMeasuresIwasawaAlgebras:L4/coinvariants-euler-product"
+    "PadicMeasuresIwasawaAlgebras:L4/coinvariants-euler-product",
+    "IntegralIwasawaTheory:L0"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EulerSystem/Greither",
@@ -3246,11 +3278,12 @@
     "The analytic class number formula for F and for L (with Q_L = 1 and w_L = 2) and k_F = k_L give |(1 − e_ε)A_2(F)^−| = ∏ |½B_{1,χ^{−1}}|_2^{d(χ)} over the odd χ with χ|Δ_0 ≠ ε, modulo ℚ_2-conjugacy. The same product of the |A_2(F)^−_χ| equals |(1 − e_ε)A_2(F)^−|, because ξ-parts are exact.",
     "Theorem B bounds each factor below; the products agree, so every factor is an equality.",
     "k_L = 1. Every nontrivial subgroup of the cyclic 2-group Gal(L/ℚ) contains j, and some odd prime ℓ ramifies in L, so L/L^+ is ramified above ℓ. L is unramified at 2, so i ∉ L, and μ(L)/μ(L)² is generated by −1. Let 𝔞 be a class of L^+ with 𝔞O_L = (α). Then α/ᾱ is a unit of absolute value 1 everywhere, so a root of unity. If α/ᾱ = ζ² = ζ/ζ̄, then α/ζ ∈ L^+ generates 𝔞, which is trivial. Otherwise α can be rescaled so that ᾱ = −α. Then δ = α² ∈ L^+, L = L^+(√δ) and δO_{L^+} = 𝔞², so v_𝔮(δ) is even at every 𝔮 above ℓ. This contradicts the ramification of L/L^+ above ℓ.",
-    "The annihilation statement: for (1 − e_ε)A_2(F)^− the χ-parts are cyclic of order |½B_{1,χ^{−1}}|_2^{d(χ)}, the χ-component of ½ times a Stickelberger element."
+    "For χ₀≠1 the relevant minus quotient of the group ring is the DVR Oχ. If its finite class module has Oχ-length ℓ, equality of orders gives ℓ=v_π(½B_{1,χ⁻¹}). Every finite-length DVR module of length ℓ is killed by π^ℓ, without any cyclicity assumption. The χ-values of half the indicated Stickelberger elements are integral multiples of ½B_{1,χ⁻¹}, so they annihilate this component. Exact decomposition by the prime-to-2 characters χ₀ proves the global annihilation statement."
    ],
    "acceptance": [
     "Examples show some condition on Δ_2 is necessary (Greither, Remark a)).",
-    "F = ℚ(ζ_5): χ_2 of order 4, d(χ_2) = 2, B_{1,χ_2^{−1}} = (−3 + i)/5, so 2·|½B|_2^2 = 2·2^{−1} = 1 = |A_2(ℚ(ζ_5))|."
+    "F = ℚ(ζ_5): χ_2 of order 4, d(χ_2) = 2, B_{1,χ_2^{−1}} = (−3 + i)/5, so 2·|½B|_2^2 = 2·2^{−1} = 1 = |A_2(ℚ(ζ_5))|.",
+    "The finite Oχ-module (Oχ/π)⊕(Oχ/π) has length 2 and is killed by π², but is not cyclic. An order calculation cannot justify a cyclicity claim."
    ],
    "prerequisites": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-relative-class-group-bound",
@@ -3294,10 +3327,11 @@
    "statement": "Let F be a real abelian field and p a prime unramified in F, with Δ = Gal(F/ℚ) = Δ_p × Δ_0 and Δ_p the p-part. Let A′(F) = lim_ν C_{(p^ν)}(F), where C_{(p^ν)}(F) is the p-part of the ray class group modulo p^ν. Let e = e_ε = |Δ_0|^{−1}Σ_{δ∈Δ_0}δ. Then (1 − e)A′(F) is finite, and for every character χ_0 ≠ 1 of Δ_0, |A′(F)_{χ_0}| = ∏_{χ|Δ_0 = χ_0} |½L_p(1, χ)|_p^{d(χ)}, the product over the characters χ of Δ restricting to χ_0, taken up to conjugacy over ℚ_p(χ_0). Equivalently, as in the proof, the product runs over all such χ with exponent d(χ_0).",
    "hypotheses": [
     "Leopoldt's conjecture for F and p (true for abelian F) is used to identify A′(F) with Y/TY and to make (1 − e)A′(F) finite.",
-    "In these finite-index formulas Greither’s notation |a|_p means p^{v_p(a)}, the reciprocal of the usual p-adic absolute value; d(χ)=[ℚ_p(χ):ℚ_p]. Thus |a|_p^{d(χ)}=Nχ(a)."
+    "In these finite-index formulas Greither’s notation |a|_p means p^{v_p(a)}, the reciprocal of the usual p-adic absolute value; d(χ)=[ℚ_p(χ):ℚ_p]. Thus |a|_p^{d(χ)}=Nχ(a).",
+    "Every character in the characteristic-ideal and L-value product restricts to the fixed nontrivial χ₀. No characteristic-ideal specialization at the pole of the trivial character is asserted."
    ],
    "proofSteps": [
-    "Y = lim A′(F_n) is the Galois group of the maximal abelian p-ramified p-extension of F_∞, a Λ_Δ-module with A′(F) ≅ Y/TY. Define T̂ by 1 + T̂ = u·(1 + T)^{−1}. By Theorem 3.2 and Proposition 3.4, char_{Λ_χ}(Y_χ) = ½G_p(T̂, χ)Λ_χ for every χ, so char_{Λ_{χ_0}}(Y_{χ_0}) = (∏_χ ½G_p(T̂, χ)) over χ|Δ_0 = χ_0.",
+    "Y = lim A′(F_n) is the Galois group of the maximal abelian p-ramified p-extension of F_∞, a Λ_Δ-module with A′(F) ≅ Y/TY. Define T̂ by 1 + T̂ = u·(1 + T)^{−1}. By Theorem 3.2 and Proposition 3.4, char_{Λ_χ}(Y_χ) = ½G_p(T̂, χ)Λ_χ for χ with χ|Δ₀=χ₀≠1, so char_{Λ_{χ_0}}(Y_{χ_0}) = (∏_χ ½G_p(T̂, χ)) over χ|Δ_0 = χ_0.",
     "Let δ(χ_0) be the order of the T-coinvariants of the torsion of Y_{χ_0}. Iwasawa theory gives |A′_{χ_0}| = ∏_χ |½G_p(T̂, χ)|_{T=0}|_p^{d(χ_0)}·δ(χ_0) = ∏_χ |½L_p(1, χ)|_p^{d(χ_0)}·δ(χ_0).",
     "It suffices that ∏_{χ_0 ≠ 1}|A′_{χ_0}| = ∏_{χ|Δ_0 ≠ 1}|½L_p(1, χ)|_p; then every δ(χ_0) = 1. The left side is |(1 − e)A′| = |A′(F)|/|A′(L)|, with L the fixed field of Δ_0.",
     "0 → (1 − e)(U_F/Ē_F) → (1 − e)A′(F) → (1 − e)A(F) → 0, and |(1 − e)(U_F/Ē_F)| = p^{−[F:ℚ]+[L:ℚ]}·R_p(F)·R_p(L)^{−1}. The proof compares log_p: (1 − e)U_F → (1 − e)p(ℤ_p ⊗ O_F), whose kernel and cokernel have equal order (1 for odd p, 2^{g(F)−g(L)} for p = 2, g the number of primes above 2), and uses (1 − e)Ē_F ∩ ker log_p = 0.",
@@ -3342,15 +3376,18 @@
    "title": "Norm and inclusion maps on p-adic ray class groups (Greither, Lemma 4.13)",
    "kind": "lemma",
    "statement": "Let F/K be a p-extension of cyclic number fields that are unramified above p, with C = Gal(F/K). There are Galois-equivariant homomorphisms α: A′(F) → A′(K), induced by N_{F/K}, and β: A′(K) → A′(F), induced by K ⊂ F, such that α is surjective, β is injective, and βα is multiplication by the norm element Σ_{σ∈C}σ.",
-   "hypotheses": [],
+   "hypotheses": [
+    "F/ℚ is cyclic, K is its intermediate field, and [F:K] is a power of p. Both fields are unramified at p; abelian Leopoldt supplies the principal-unit lattice calculation."
+   ],
    "proofSteps": [
-    "Gal(F/ℚ) is cyclic and generated by inertia groups, so some prime ℓ ≠ p ramifies totally in F/ℚ. Hence F/K has no p-ramified subextension, and α is onto.",
+    "The inertia groups generate Gal(F/ℚ), since ℚ has no nontrivial extension unramified at every finite prime. Their images generate its cyclic p-Sylow quotient, so one inertia group surjects onto that quotient. It therefore contains the entire p-Sylow subgroup. For a prime ℓ≠p with this inertia, F/K is totally ramified above ℓ. Thus F/K has no nontrivial subextension unramified outside p, and reciprocity makes α onto. This does not require total ramification in F/ℚ (source issue E20).",
     "For a divisor 𝔪 of K, ker(C_𝔪(K) → C_𝔪(F)) embeds into H¹(C, E_𝔪(F)) with E_𝔪(F) = ker(O_F^× → (O_F/𝔪O_F)^×). Since lim is left exact, it suffices that lim_ν H¹(C, E_{(p^ν)}(F)) = 0.",
     "Leopoldt's conjecture for p and F gives N ≥ 2 such that every x ∈ E_{(p^{N+1})}(F) is a p-th power of a unit y, and y ∈ E_{(p^N)}(F) because p is unramified in F.",
     "Let p^c = |C| and ν ≥ N. Every 1-cocycle x = (x_σ) in Z¹(C, E_{(p^{ν+c})}(F)) has x_σ = y_σ^{p^c} with y_σ ∈ E_{(p^ν)}(F). E_{(p^ν)}(F) contains no nontrivial p-power root of unity: for odd p because F is unramified at p, and for p = 2 because −1 ≢ 1 mod 4 and ν ≥ 2. So (y_σ) is again a cocycle, and the image of x in H¹(C, E_{(p^ν)}(F)) is divisible by p^c, hence zero."
    ],
    "acceptance": [
-    "For p = 2 the field F contains −1. The cocycle step needs ν ≥ N ≥ 2, not the absence of 2-power roots of unity from F that Greither states (source issue E11)."
+    "For p = 2 the field F contains −1. The cocycle step needs ν ≥ N ≥ 2, not the absence of 2-power roots of unity from F that Greither states (source issue E11).",
+    "For F=ℚ(√5)ℚ(ζ₇)⁺, p=3 and K=ℚ(√5), Gal(F/ℚ)=C₆ has inertia of orders 2 at 5 and 3 at 7. Neither prime is totally ramified over ℚ, but F/K is totally ramified at 7, which is the required relative statement."
    ],
    "prerequisites": [
     "IntegralIwasawaTheory:L1",
@@ -3692,9 +3729,10 @@
    ],
    "title": "Coleman's exact sequence over unramified coefficients, including p = 2 (Greither, Theorem 2.4–Corollary 2.7)",
    "kind": "lemma",
-   "statement": "Let p be a prime, 𝒪 a finite unramified étale ℤ_p-algebra (a finite product of unramified DVRs) with Galois group Δ and primitive idempotents e_1, …, e_g, Frob its Frobenius, 𝒪[[X]]° = {f : f(0) ≡ 1 mod p}, φ: 𝒪[[X]] → 𝒪[[X]] the ℤ_p-algebra endomorphism with φ|_𝒪 = Frob and φ(1 − X) = (1 − X)^p, and Γ′ = ℤ_p^× acting by [a](1 − X) = (1 − X)^a. (Theorem 2.4) After fixing ζ = (ζ_{p^{ν+t}}) generating ℤ_p(1), for odd p there is an exact sequence of Δ × Γ′-modules 0 → ℤ_p(1)^g → 𝒪[[X]]° → 𝒪[[X]] → ℤ_p(1)^g → 0, the middle map being (1 − φ/p)∘log. For p = 2 the outer terms are (ℤ_2(1) × {±1})^g. The i-th factor maps by ζ ↦ e_i(1 − X) (and −1 ↦ −e_i for p = 2), and the last map is f ↦ ζ^{Tr(e_if′(0))}, with a second component (−1)^{Tr(e_if(0))} for p = 2. (Lemma 2.5, Theorem 2.6) With R = 𝒪[[Γ′]] and 𝒱 = ker(ψ) for Coleman's trace operator ψ: 𝒪[[X]] = R·(1 − X) + φ(𝒪[[X]]) and 𝒱 = R·(1 − X), that is, the ℤ_p[[Γ′]]-span of 𝒪·(1 − X). (Corollary 2.7) D = (1 − X)d/dX satisfies D𝒱 = 𝒱 and gives an R-isomorphism 𝒱 → 𝒱(1).",
+   "statement": "Let p be a prime, 𝒪 a finite unramified étale ℤ_p-algebra (a finite product of unramified DVRs) with Galois group Δ and primitive idempotents e_1, …, e_g, Frob its Frobenius, 𝒪[[X]]° = {f : f(0) ≡ 1 mod p}, φ: 𝒪[[X]] → 𝒪[[X]] the ℤ_p-algebra endomorphism with φ|_𝒪 = Frob and φ(1 − X) = (1 − X)^p, and Γ′ = ℤ_p^× acting by [a](1 − X) = (1 − X)^a. (Theorem 2.4) After fixing ζ = (ζ_{p^{ν+t}}) generating ℤ_p(1), for odd p there is an exact sequence of Δ × Γ′-modules 0 → ℤ_p(1)^g → 𝒪[[X]]° → 𝒪[[X]] → ℤ_p(1)^g → 0, the middle map being (1 − φ/p)∘log. For p = 2 the outer terms are (ℤ_2(1) × {±1})^g. The i-th factor maps by ζ ↦ 1−e_i+e_i(1−X) (and −1 ↦ 1−2e_i for p=2), and the last map is f ↦ ζ^{Tr(e_if′(0))}, with a second component (−1)^{Tr(e_if(0))} for p = 2. (Lemma 2.5, Theorem 2.6) With R = 𝒪[[Γ′]] and 𝒱 = ker(ψ) for Coleman's trace operator ψ: 𝒪[[X]] = R·(1 − X) + φ(𝒪[[X]]) and 𝒱 = R·(1 − X), that is, the ℤ_p[[Γ′]]-span of 𝒪·(1 − X). (Corollary 2.7) D = (1 − X)d/dX satisfies D𝒱 = 𝒱 and gives an R-isomorphism 𝒱 → 𝒱(1).",
    "hypotheses": [
-    "The input is Coleman's Division values in local fields, Theorem 2.2, for the multiplicative formal group over an unramified 𝒪_H, with torsion 𝒞 = {±1} at p = 2. Also Coleman's Local units modulo circular units, Lemma 2 and Theorem 3. These are requested from ColemanPowerSeries L1 and L3, whose coefficient extension (L0) covers unramified 𝒪; the p = 2 case is part of the request."
+    "The input is Coleman's Division values in local fields, Theorem 2.2, for the multiplicative formal group over an unramified 𝒪_H, with torsion 𝒞 = {±1} at p = 2. Also Coleman's Local units modulo circular units, Lemma 2 and Theorem 3. These are requested from ColemanPowerSeries L1 and L3, whose coefficient extension (L0) covers unramified 𝒪; the p = 2 case is part of the request.",
+    "Componentwise multiplicative formulas are embedded as global units by inserting 1 in every other factor. The expressions e_i(1−X) and −e_i on p. 459 are component notation, not units of the entire product algebra when g>1."
    ],
    "proofSteps": [
     "Reduce to g = 1 (𝒪 a domain) using the idempotents.",
@@ -3705,7 +3743,8 @@
     "Corollary 2.7: D(1 − X) = −(1 − X), and D([a]g) = a·[a]D(g) (chain rule), so D commutes with R up to the twist. ker D = 𝒪 and 𝒪 ∩ 𝒱 = 0 (ψ is multiplication by p on 𝒪)."
    ],
    "acceptance": [
-    "p = 2 differs only by the ±1 torsion, which appears in the first and last terms."
+    "p = 2 differs only by the ±1 torsion, which appears in the first and last terms.",
+    "For 𝒪=ℤ_p×ℤ_p and e₁=(1,0), the embedded root unit is (1−X,1). The expression (1−X,0) is not a unit and cannot define this injection."
    ],
    "prerequisites": [
     "ColemanPowerSeries:L1",
@@ -3740,17 +3779,22 @@
    ],
    "title": "The semilocal Coleman map and its kernel and cokernel (Greither, Theorem 2.8, Lemma 2.9, Proposition 2.10)",
    "kind": "lemma",
-   "statement": "In the setting of the previous lemma, let 𝒩 be Coleman's norm operator, 𝔐 = {f ∈ 𝒪((X))^× : 𝒩f = Frob(f)} and 𝔐° = 𝔐 ∩ 𝒪[[X]]°. (Theorem 2.8) There is an exact sequence 0 → ℤ_p(1)^g → 𝔐° → 𝒱 → ℤ_p(1)^g → 0, the middle map being β = (1 − φ/p)log. (Lemma 2.9) With U_i = {x ∈ 𝒪[ζ_{p^{i+1}}] : x ≡ 1 mod (1 − ζ_{p^{i+1}})}, the map a ↦ f_a (Coleman's interpolating series, f_a(1 − ζ_{p^{i+t}}) = Frob^i(a_i)) is a ℤ_p[[Γ′]]-isomorphism U_∞ = lim U_i → 𝔐°. (Proposition 2.10) With δ = D∘log and α = Dβ = (1 − φ)δ, there are exact sequences of ℤ_p[[Γ′]][Δ]-modules 0 → ℤ_p(1)^g → 𝔐° →α 𝒱(1) → ℤ_p(1)^g → 0 and 0 → ℤ_p(1)^g → U_∞ →αψ 𝒱(1) → ℤ_p(1)^g → 0.",
-   "hypotheses": [],
+   "statement": "In the setting of the previous lemma, let 𝒩 be Coleman's norm operator, 𝔐 = {f ∈ 𝒪((X))^× : 𝒩f = Frob(f)} and 𝔐° = 𝔐 ∩ 𝒪[[X]]°. (Theorem 2.8) There is an exact sequence 0 → ℤ_p(1)^g → 𝔐° → 𝒱 → ℤ_p(1)^g → 0, the middle map being β = (1 − φ/p)log. (Lemma 2.9) With U_i = {x ∈ 𝒪[ζ_{p^{i+t}}] : x ≡ 1 mod (1 − ζ_{p^{i+t}})}, the map a ↦ f_a (Coleman's interpolating series, f_a(1 − ζ_{p^{i+t}}) = Frob^i(a_i)) is a ℤ_p[[Γ′]]-isomorphism U_∞ = lim U_i → 𝔐°. (Proposition 2.10) With δ = D∘log and α = Dβ = (1 − φ)δ, there are exact sequences of ℤ_p[[Γ′]][Δ]-modules 0 → ℤ_p(1)^g → 𝔐° →α 𝒱(1) → ℤ_p(1)^g → 0 and 0 → ℤ_p(1)^g → U_∞ →αψ 𝒱(1) → ℤ_p(1)^g → 0.",
+   "hypotheses": [
+    "t=1 for odd p and t=2 for p=2 in both the local unit groups and the evaluation points. At p=2 the first local level uses fourth roots, not second roots.",
+    "Use the signed root generator s(1−X), s=(−1)^{p−1}: its norm equals itself. At p=2 the kernel generator is −(1−X), since 𝒩(1−X)=−(1−X). The unsigned formula in the proof on p. 461 is corrected in source issue E21."
+   ],
    "proofSteps": [
-    "Theorem 2.8. 1 − X ∈ 𝔐 since 𝒩(1 − X) = 1 − X = Frob(1 − X). Claim: the preimage of 𝒱 under β is 𝔐° (odd p), respectively ±𝔐° (p = 2). Using ψφ = p·Frob and ψ∘log = log∘𝒩, one gets ψβ(f) = log(𝒩f/Frob f). This is 0 exactly when 𝒩f/Frob f is a root of unity ≡ 1 mod p𝒪: 1 for odd p, ±1 for p = 2, and 𝒩(−1)/Frob(−1) = −1.",
+    "Theorem 2.8. Put Y=1−X and s=(−1)^{p−1}. The defining product for 𝒩 gives 𝒩(Y)=sY and 𝒩(sY)=sY=Frob(sY), so sY∈𝔐°. Claim: β⁻¹(𝒱)=𝔐° for odd p and β⁻¹(𝒱)=±𝔐° for p=2. Using ψφ=p·Frob and ψlog=log𝒩 gives ψβ(f)=log(𝒩f/Frob f). Its vanishing means this ratio is 1 for odd p and ±1 for p=2; multiplying f by −1 switches the dyadic sign because 𝒩(−1)/Frob(−1)=−1. This yields the stated kernel with the signed generator.",
     "The maps 𝒪[[X]] → (ℤ_p(1)[×{±1}])^g and 𝒱 → ℤ_p(1)^g have the same kernel, and the second is surjective (take y·(1 − X), y ∈ 𝒪). For p = 2 this uses that g′(0) determines g(0) mod 2 for g ∈ 𝒱, by Theorem 2.6. Combine with Theorem 2.4.",
     "Lemma 2.9 is Coleman's Corollary 17, with Theorem 16 for the existence and uniqueness of f_a. 𝒪 may be a finite product of unramified rings.",
     "Proposition 2.10: all maps are Δ-equivariant. The first sequence combines Corollary 2.7 with Theorem 2.8, using Dφ = pφD, so D(1 − φ/p) = (1 − φ)D. The second follows through Lemma 2.9."
    ],
    "acceptance": [
     "The kernel ℤ_p(1)^g is the Tate module of the roots of unity, one copy per factor of 𝒪.",
-    "The cokernel ℤ_p(1)^g is the cyclotomic moment; its ρ-part vanishes when χ(p) ≠ 1."
+    "The cokernel ℤ_p(1)^g is the cyclotomic moment; its ρ-part vanishes when χ(p) ≠ 1.",
+    "At p=2, N_{ℚ₂(ζ₈)/ℚ₂(i)}(ζ₈)=−i and N(−ζ₈)=−i. Thus (−ζ_{2^{i+2}})_i is norm compatible, whereas the unsigned root sequence is not.",
+    "At p=2, U₀ is taken in 𝒪[i], and interpolation evaluates at X=1−i."
    ],
    "prerequisites": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-coleman-sequence-all-p",
@@ -3788,20 +3832,24 @@
    "statement": "Let p be a prime, F/ℚ abelian with p ∤ cond(F), K_n = F(ζ_{2p^{n+1}}) (so K_0 = F(√−1) when p = 2), K_∞ = ∪K_n, 𝒰_n = (ℤ_p ⊗ 𝒪_{K_n})^× the semilocal units above p, U_n its pro-p part, 𝒞_n Sinnott's circular units of K_n and C_n the pro-p part of their closure in 𝒰_n; 𝒰_∞, U_∞, 𝒞_∞, C_∞ the inverse limits; t = 1 for odd p and t = 2 for p = 2. Let F be unramified over p, 𝒪 = ℤ_p ⊗ 𝒪_F, Δ = Gal(F/ℚ), and for a p-adic character χ of Δ and a ℤ_p[Δ]-module M let V_χ(M) = ℚ_p ⊗ M ⊗_{ℤ_p[Δ]} ℤ_p[χ]. Let χ have conductor m | cond(F) and F′ = F ∩ ℚ(m). (a) V_χ(ℚ_p ⊗_ℚ F) is generated over ℚ_pΔ by y_χ = (Tr_{ℚ(m)/F′}(ζ_m))_χ. (b) If χ ≠ 1, V_χ(C_∞) = V_χ(ℤ_p[[Γ′]][Δ])·(η_m)_χ with η_m = (N_{ℚ(m)/F′}(1 − ζ_mζ_{p^{ν+t}})^{Frob^{−ν}})_ν. (Corollary 2.12) V_χ(𝒱) is free of rank one over ℚ_p ⊗ ℤ_p(χ)[[Γ′]] on z_χ = y_χ·(1 − X).",
    "hypotheses": [
     "Greither writes 'F′ = F ∩ ℚ(M)'. M is not defined; ℚ(m) is meant (source issue E14).",
-    "Greither's R is 𝒪[[Γ′]] on p. 460 but ℤ_p[[Γ′]] in Lemma 2.11(b), Corollary 2.12 and p. 465 (source issue E16); the node names each ring explicitly."
+    "Greither's R is 𝒪[[Γ′]] on p. 460 but ℤ_p[[Γ′]] in Lemma 2.11(b), Corollary 2.12 and p. 465 (source issue E16); the node names each ring explicitly.",
+    "All rationalized completed group rings mean inversion of p after integral completion. The Amice comparison is applied at integral coefficients first and extended through a finite coefficient basis, retaining bounded denominators."
    ],
    "proofSteps": [
     "(a) ℚ_pF is generated by the x_{m′} = Tr_{ℚ(m′)/F∩ℚ(m′)}(ζ_{m′}), m′ | cond(F), by additive normal bases. ker χ acts trivially on V_χ, so ℚ_pF′ surjects onto V_χ(ℚ_pF). For a proper divisor m′ of m, pick a ≡ 1 mod m′ with χ(a) ≠ 1; then σ_a fixes x_{m′} and multiplies its image by χ(a), so the image is 0.",
     "(b) By Lemma 2.3, C_∞ is generated by −1, the η_{m′} and the cyclotomic part C_0. Tensoring with ℚ_p, the fixed part under ker χ comes from F^{ker χ} (norm argument). As in (a) only η_m survives; C_0 dies because χ is nontrivial, and −1 dies in the pro-p part (odd p) or after ⊗ℚ_2 (p = 2).",
-    "Corollary 2.12: by (a), p^N·𝒪_χ ⊆ (ℤ_pΔ)·y_χ for some N. 𝒱 is the ℤ_p[[Γ′]]-span of 𝒪·(1 − X) (Theorem 2.6), so p^N·V_χ(𝒱) lies in the ℤ_p[[Γ′]][Δ]-span of y_χ(1 − X). That element is nonzero, and ℚ_p ⊗ ℤ_p(χ)[[Γ′]] is a PID, so V_χ(𝒱) is free on it."
+    "By the integral unit-measure Amice equivalence, after the coordinate change T=−X, the map r↦r·(1−X) identifies ℤ_p[[Γ′]] with the trace-kernel series module over ℤ_p. The Amice dilation identity gives its Γ′ action. Extend this identification coefficientwise along a finite ℤ_p-basis of 𝒪; this is a finite direct-sum calculation. After inverting p and taking Δ-characters, the normal-basis theorem makes (ℚ_p⊗F)_χ one-dimensional over ℚ_p(χ), and (a) makes yχ a basis. Thus zχ=yχ(1−X) is a free basis on every finite Φ-character factor of (ℤ_p(χ)[[Γ′]])[1/p]. Nonzero alone would not prove freeness over this product ring."
    ],
    "acceptance": [
-    "For odd p, ±1 disappears in the pro-p part; for p = 2 it disappears only after ⊗ℚ_2, which is why V_χ is used."
+    "For odd p, ±1 disappears in the pro-p part; for p = 2 it disappears only after ⊗ℚ_2, which is why V_χ is used.",
+    "For a product ring A₁×A₂, the nonzero element (1,0) is not a free basis. Verify faithfulness on both factors; the Amice and normal-basis comparisons supply it here."
    ],
    "prerequisites": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-circular-unit-limit",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-coleman-sequence-all-p",
-    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts"
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "PadicMeasuresIwasawaAlgebras:L2/unit-measure-amice-kernel-equivalence",
+    "PadicMeasuresIwasawaAlgebras:L2/amice-dilation"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EulerSystem/Greither",
@@ -3827,25 +3875,29 @@
    "statement": "Let p be a prime, F/ℚ abelian with p ∤ cond(F), K_n = F(ζ_{2p^{n+1}}) (so K_0 = F(√−1) when p = 2), K_∞ = ∪K_n, 𝒰_n = (ℤ_p ⊗ 𝒪_{K_n})^× the semilocal units above p, U_n its pro-p part, 𝒞_n Sinnott's circular units of K_n and C_n the pro-p part of their closure in 𝒰_n; 𝒰_∞, U_∞, 𝒞_∞, C_∞ the inverse limits; t = 1 for odd p and t = 2 for p = 2. Let F be unramified over p, Δ = Gal(F/ℚ), Δ′ = Gal(K_0/ℚ) = Δ × Φ, Γ = Gal(K_∞/K_0), and Λ_ρ = ℤ_p(ρ)[[T]] with the involution T′ = (1 + T)^{−1} − 1. For every even nontrivial character ρ of Δ′ with χ = ωρ^{−1}: αψ(V_ρ(C_∞)) = G_p(T′, ρ)·z_{χ^{−1}} ⊂ V_ρ(𝒱(1)) = (V_{χ^{−1}}(𝒱))(1), where G_p(T, ρ) is the Stickelberger series (Washington's f(T, ρ)).",
    "hypotheses": [
     "The statement is over ℚ_p (V_ρ). Greither expects an integral version (Remark, p. 468), which is not claimed.",
-    "Lemma 2.15(b) as printed has ζ_mζ_{p^{ν′−1}} in its second term where ζ_m^p·ζ_{p^{ν′−1}} is meant (E15). The proof's left-hand side has the correct ζ_m^p."
+    "Lemma 2.15(b) as printed has ζ_mζ_{p^{ν′−1}} in its second term where ζ_m^p·ζ_{p^{ν′−1}} is meant (E15). The proof's left-hand side has the correct ζ_m^p.",
+    "If m=cond(ρ|Δ)=1, the restriction to Δ is trivial but ρ on Φ can be even and nontrivial for odd p. Split off this case; Lemma 2.11(b) requires a nontrivial Δ-character. At p=2, Φ=C₂ and evenness forces its character to be trivial, so m=1 cannot occur under ρ≠1."
    ],
    "proofSteps": [
-    "Let m = cond(ρ|Δ) and η = η_m. By Lemma 2.11(b), applied to ρ|Δ, it suffices that αψ(η_ρ) = G_p(T′, ρ)·z_{χ^{−1}} in V_{χ^{−1}}(𝒱).",
+    "First suppose m=cond(ρ|Δ)>1. Lemma 2.11(b) applies to the nontrivial Δ-character ρ|Δ, so its projected circular-unit module is generated by η_m. The following calculation proves the required image on that generator. The separate m=1 case is treated after this calculation.",
     "Let f_0 = ζ_mX + (1 − ζ_m) and e = |(𝒪/p𝒪)^×|. Then f_0^e ≡ 1 mod p and 𝒩(f_0) = Frob(f_0), so f_0^e ∈ 𝔐°, and ψ(η^e) = N_{ℚ(m)/ℚ(m)∩F}(f_0^e). It suffices that (1 − φ)δ(f_0)_{χ^{−1}} = (G_p(T′, ρ)·ζ_m(1 − X))_{χ^{−1}}, then take the norm.",
     "Evaluate at X = 1 − ζ_{p^{ν′}} (ν′ = ν + t); these evaluations separate points. The left side: δ(f_0) = (1 − X)ζ_m/(ζ_mX + 1 − ζ_m), so (1 − φ)δ(f_0)|_{1−ζ_{p^{ν′}}} = ζ_{p^{ν′}}ζ_m/(1 − ζ_{p^{ν′}}ζ_m) − ζ_{p^{ν′−1}}ζ_m^p/(1 − ζ_{p^{ν′−1}}ζ_m^p).",
     "The right side: with q_ν = m·p^{ν′} and the Stickelberger elements ξ′_ν(ρ) = −q_ν^{−1}Σ_a a·ρω^{−1}(a)γ_ν(a) (Washington, p. 118), G_p(T′, ρ) = lim ξ′_ν(ρ). Then q_ν·G_p(T′, ρ)z_{χ^{−1}}|_{1−ζ_{p^{ν′}}} = −(Σ_{(a,q_ν)=1} a(ζ_mζ_{p^{ν′}})^a)_{χ^{−1}}.",
     "Lemma 2.15: (a) Σ_{a=1}^{q_ν} a·x^a = −q_ν·x/(1 − x) for x = ζ_mζ_{p^{ν′}}, a root of unity of order q_ν, x ≠ 1. (b) Removing the multiples of p gives Σ_{(a,p)=1} a·x^a = −q_ν·x/(1 − x) + q_ν·x^p/(1 − x^p), with x^p = ζ_m^pζ_{p^{ν′−1}}. So the terms with (a, p) = 1 give the left side.",
-    "The terms with (a, m) > 1 lie in ℚ(ζ_d, ζ_{p^{ν′}}) for proper divisors d of m. Their χ^{−1}-part vanishes because m is the conductor (as in Lemma 2.11), so they contribute 0."
+    "The terms with (a, m) > 1 lie in ℚ(ζ_d, ζ_{p^{ν′}}) for proper divisors d of m. Their χ^{−1}-part vanishes because m is the conductor (as in Lemma 2.11), so they contribute 0.",
+    "If m=1, p is odd and ρ is an even nontrivial Φ-character. Import ColemanPowerSeries:L4/real-cyclotomic-coleman-image and L4/adjusted-generator-coleman-image for the genuine principal cyclotomic units. Their normalized map has image I(G⁺)ζ_p⁺, and the raw map has the opposite sign. Transport this ideal through Greither’s X↦−T series coordinate, arithmetic Frobenius, inversion on Γ and the Tate twist χ=ωρ⁻¹. The exact comparison with the separately normalized Stickelberger series G_p(T′,ρ) is requested jointly from ColemanPowerSeries:L4 and DirichletPadicLFunctions:L2 and remains gap G4. Substituting m=1 into the unit-series computation above is invalid: f₀=X has zero constant coefficient."
    ],
    "acceptance": [
-    "m = 1 is excluded: ρ|Δ trivial would make ρ = 1 on Δ′ unless ρ is a power of ω; the trivial ρ is excluded, and V_1(U_∞/C_∞) = 0 (Greither's Remark, p. 466).",
+    "For F=ℚ and p=5, ρ=ω² is even and nontrivial on Φ but has m=cond(ρ|Δ)=1. This case must use the pure cyclotomic image comparison; the nontrivial Δ-character lemma cannot justify it.",
     "The Lemma 2.15 identities, checked numerically: (m, p, ν′) = (3, 2, 2), (5, 3, 1), (7, 2, 3), (3, 5, 1) agree to 10^{−13} with ζ_m^p in (b) and differ by 8 to 21 with the printed ζ_m."
    ],
    "prerequisites": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-semilocal-coleman-map",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-circular-unit-generators",
     "DirichletPadicLFunctions:L2",
-    "mathlib:Finset.prod_range_succ"
+    "mathlib:Finset.prod_range_succ",
+    "ColemanPowerSeries:L4/real-cyclotomic-coleman-image",
+    "ColemanPowerSeries:L4/adjusted-generator-coleman-image"
    ],
    "library": {
     "module": "TauCeti/NumberTheory/EulerSystem/Greither",
@@ -3855,7 +3907,7 @@
     {
      "sourceId": "GREITHER-1992",
      "locator": "§2, proof of Theorem 2.13, p. 466",
-     "match": "The reduction to one generator."
+     "match": "The one-generator reduction is valid for nontrivial ρ|Δ. The missing pure cyclotomic case is separated in source issue E22 and gap G4."
     },
     {
      "sourceId": "GREITHER-1992",
@@ -3878,18 +3930,18 @@
    ],
    "title": "Kolyvagin primes with prescribed class and Kummer symbol, including p = 2 (Greither, Theorem 3.7 and Corollary 3.8)",
    "kind": "theorem",
-   "statement": "Let K/ℚ be real abelian, G = Gal(K/ℚ), M a power of p (M ≥ 4 if p = 2), c ∈ A(K), W ⊆ K^×/K^{×M} a finite ℤ[G]-submodule and ψ: W → (ℤ/M)[G] a G-homomorphism; let 2^c be the exact power of 2 dividing cond(K). Then there are infinitely many primes λ of K such that, with ℓ the rational prime below λ and the bracketed factors present only for p = 2: (1) [λ] = [2^{c+2}]·c in A(K); (2) ℓ ≡ 1 mod M and ℓ splits completely in K; (3) (w)_ℓ = 0 in 𝒥_ℓ/M𝒥_ℓ for all w ∈ W, and there is u ∈ (ℤ/M)^× with φ_ℓ(w) = [2^{c+2}]·u·ψ(w)λ for all w ∈ W. (Complement) For K = K_ν^+ and p = 2 the factor 2^{c+2} may be replaced by 4. (Corollary 3.8) For K = K_ν^+ and every p, the conclusions hold with [λ] = p²·c and φ_ℓ(w) = p²·u·ψ(w)λ. Here 𝒥_ℓ is the group of divisors above ℓ and φ_ℓ: (𝒪_K/ℓ)^× → 𝒥_ℓ/M𝒥_ℓ is Rubin's map (Lemma 3.5).",
+   "statement": "Let K/ℚ be real abelian, G = Gal(K/ℚ), M a power of p (M ≥ 4 if p = 2), c ∈ A(K), W ⊆ K^×/K^{×M} a finite ℤ[G]-submodule and ψ: W → (ℤ/M)[G] a G-homomorphism; let 2^h be the exact power of 2 dividing cond(K). Then there are infinitely many primes λ of K such that, with ℓ the rational prime below λ and the bracketed factors present only for p = 2: (1) [λ] = [2^{h+2}]·c in A(K); (2) ℓ ≡ 1 mod M and ℓ splits completely in K; (3) (w)_ℓ = 0 in 𝒥_ℓ/M𝒥_ℓ for all w ∈ W, and there is u ∈ (ℤ/M)^× with φ_ℓ(w) = [2^{h+2}]·u·ψ(w)λ for all w ∈ W. (Complement) For K = K_ν^+ and p = 2 the factor 2^{h+2} may be replaced by 4. (Corollary 3.8) For K = K_ν^+ and every p, the conclusions hold with [λ] = p²·c and φ_ℓ(w) = p²·u·ψ(w)λ. Here 𝒥_ℓ is the group of divisors above ℓ and φ_ℓ: (𝒪_K/ℓ)^× → 𝒥_ℓ/M𝒥_ℓ is Rubin's map (Lemma 3.5).",
    "hypotheses": [
     "For odd p this is Rubin's Theorem 3.1 (The main conjecture, appendix to Lang's Cyclotomic Fields), requested with EulerSystemsAndKolyvaginSystems ES.4 (ES.1's Chebotarev step). Lemmas 3.5 (the map φ_ℓ) and 3.6 (the Euler-system identities (κ_r)_ℓ = 0 for ℓ ∤ r and (κ_{ℓr′})_ℓ = φ_ℓ(κ_{r′})) are Rubin's Lemmas 2.3 and 2.4.",
     "H is the 2-class field of K in the wide sense, so Gal(H/K) ≅ A(K); the Chebotarev input and the class field theory are requested (IntegralIwasawaTheory L1 and the Tau Ceti ClassFieldTheory request)."
    ],
    "proofSteps": [
-    "Claim (a): [H ∩ K′ : K] ≤ 2^c, and H ∩ K′ = K for K = K_ν^+. If c > 0, 2 ramifies in K/ℚ with exponent at most 2^{c−1}, so the primes above 2 ramify in K′/K with exponent at least M/2^c. For K = K_ν^+ the only subfield of K′ unramified everywhere over K is K.",
-    "Claim (b): Gal(H ∩ K″/K) is killed by 2^{c+1} (by 2 for K = K_ν^+). Complex conjugation j of K′ acts as −1 on Gal(K″/K′) and trivially on Gal(HK′/K′), so K″ ∩ HK′/K′ is 2-elementary; combine with (a).",
+    "Claim (a): [H ∩ K′ : K] ≤ 2^h, and H ∩ K′ = K for K = K_ν^+. If h > 0, 2 ramifies in K/ℚ with exponent at most 2^{h−1}, so the primes above 2 ramify in K′/K with exponent at least M/2^h. For K = K_ν^+ the only subfield of K′ unramified everywhere over K is K.",
+    "Claim (b): Gal(H ∩ K″/K) is killed by 2^{h+1} (by 2 for K = K_ν^+). Complex conjugation j of K′ acts as −1 on Gal(K″/K′) and trivially on Gal(HK′/K′), so K″ ∩ HK′/K′ is 2-elementary; combine with (a).",
     "Claim (c): the Kummer injection Gal(K″/K′) → Hom(W, μ_M) has cokernel killed by 2. The kernel U of K^×/K^{×M} → K′^×/K′^{×M} embeds in H¹(K′/K, μ_M). With Z = K(μ_4) ∩ K′, either Z = K and |U| ≤ 2, or U is a Klein four group bounded by |H¹(K′/Z, μ_M)|·|H¹(Z/K, μ_M)| ≤ 4.",
-    "Core: the square Gal(K″H/K) → Gal(K″/K), Gal(H/K) → Gal(K″ ∩ H/K) is cartesian, with lower right term killed by 2^{c+1}. With ι: (ℤ/M)[G] → μ_M, ι(1) = ζ_M and ι(g) = 0 for g ≠ 1, 2ιψ lifts to γ ∈ Gal(K″/K′) by (c). Choose δ ∈ Gal(K″H/K) with δ|K″ = 2^{c+1}γ and δ|H = 2^{c+1}·(c's Artin symbol). Chebotarev gives infinitely many degree-one primes λ with Frobenius δ.",
-    "δ is trivial on K′, so ℓ ≡ 1 mod M; its class on H gives (1). Comparing 'w is an M-th power mod λ' through γ and through φ_ℓ gives φ_ℓ(w) = 2^{c+2}·u·ψ(w)λ, as in Rubin, p. 403.",
-    "Complement: for K = K_ν^+, 2 replaces 2^{c+1} in the construction of δ, so the factor becomes 4. Corollary 3.8: for odd p, replace c by p²c and ψ by p²ψ in Rubin's theorem."
+    "Core: the restriction square for Gal(K″H/K) is cartesian and its lower right group is killed by 2^{h+1}. Define ι:(ℤ/M)[G]→μ_M by its coefficient at 1. Claim (c) supplies γ∈Gal(K″/K′) mapping to 2ιψ. Let γ₁=2·Art_H(c). Their restrictions to K″∩H need not agree, but multiplying both by 2^{h+1} kills the discrepancy. Therefore choose δ with δ|K″=2^{h+1}γ and δ|H=2^{h+1}γ₁=2^{h+2}Art_H(c). Chebotarev then gives degree-one primes with this Frobenius class.",
+    "δ is trivial on K′, so ℓ ≡ 1 mod M; its class on H gives (1). Comparing 'w is an M-th power mod λ' through γ and through φ_ℓ gives φ_ℓ(w) = 2^{h+2}·u·ψ(w)λ, as in Rubin, p. 403.",
+    "Complement: when K=K_ν⁺ the common restriction group is killed by 2; choose δ|K″=2γ and δ|H=2γ₁=4Art_H(c). Both the prescribed ideal class and symbol therefore acquire factor 4. For odd p, replacing c and ψ by p²c and p²ψ in the prime-selection theorem gives Corollary 3.8."
    ],
    "acceptance": [
     "p = 2 loses only a bounded power of 2 (4 at the layers K_ν^+), which the final argument absorbs."
@@ -4034,7 +4086,7 @@
     "The twist uses the restriction–Kummer character isomorphism, not a formal change of coefficients on an arbitrary single class. The extension 𝒦 is unramified at p. Source issue E19 corrects the draft’s contradictory field description."
    ],
    "proofSteps": [
-    "For conductors m>1 the b_m are real norms of 1−ζ_m and obey the nondegenerate auxiliary distribution relation. The raw family is not an Euler system at the base conductor: b_1=1, while the norm of b_ℓ to ℚ is ℓ. After twisting by a nontrivial χ the base-conductor valuation/norm obstruction vanishes in the χ-component.",
+    "For m>2 the b_m are the real norms of 1−ζ_m and obey the nondegenerate auxiliary distribution relation. The raw family fails at the base conductor: b₁=1, whereas the full cyclotomic norm N_{ℚ(μ_ℓ)/ℚ}(b_ℓ)=ℓ². For ℓ>2 its norm from the real subfield is ℓ; at ℓ=2, b₂=4 in ℚ. Twisting by nontrivial χ removes this base-conductor valuation/norm obstruction in the χ-component.",
     "Use ES.2/rigidity-variants: choose γ∈G_{ℚ(μ_{p∞})} with χ(γ)≠1. Then γ−1 is injective on T; the finite-order Frobenius and congruence alternative is verified by Rubin IV Example 8.2.",
     "Twisting kills the valuation obstruction at conductor f. Since χ is even, b_f has χ-sum 2ξ_{L,χ}; 2 and the prime-to-p twisting normalisation are units, so its span is C_{L,χ}. No Euler factor 1−χ⁻¹(p) is inserted."
    ],
@@ -4463,20 +4515,22 @@
    ],
    "title": "The relative class-group bound for odd primes",
    "kind": "theorem",
-   "statement": "Let p be odd and F/ℚ imaginary abelian, unramified at p, with cyclic p-Sylow subgroup Δ_p. For every odd p-adic character χ of Δ=Gal(F/ℚ), the finite χ-part of the p-class group has order at least Nχ((1/2)B_{1,χ⁻¹}), where Nχ(a)=p^{[ℚ_p(χ):ℚ_p]v_p(a)}. The Bernoulli number is evaluated for the primitive Dirichlet character attached to χ. This is Greither Theorem 4.1 at odd p, complementing the separate p=2 target.",
+   "statement": "Let p be odd and F/ℚ imaginary abelian, unramified at p, with cyclic p-Sylow subgroup Δ_p. For every odd p-adic character χ of Δ=Gal(F/ℚ) that is faithful on Δ_p, the finite χ-part of the p-class group has order at least Nχ((1/2)B_{1,χ⁻¹}), where Nχ(a)=p^{[ℚ_p(χ):ℚ_p]v_p(a)}. The Bernoulli number is evaluated for the primitive Dirichlet character attached to χ. This is Greither Theorem 4.1 at odd p, complementing the separate p=2 target.",
    "hypotheses": [
+    "Faithfulness on the cyclic p-Sylow subgroup is an explicit hypothesis of Greither Theorem 4.1. No assertion for nonfaithful p-Sylow characters is made by this target.",
     "The χ-part is the coinvariant character quotient, which is not exact when p divides |Δ|. The target cannot be reduced to a semisimple eigenspace argument in that case.",
     "In the split case χ(p)=1, the derivative/trivial-zero comparison and the finite-level coinvariant error must be justified at odd p. Greither explicitly writes the p=2 proof and cites the earlier odd-p literature; the missing read proof of the odd-p comparison is recorded as a gap."
    ],
    "proofSteps": [
     "For χ(p)≠1 combine the all-prime characteristic ideal with finite-level class control and the Euler characteristic of coinvariants.",
     "For χ(p)=1 remove the split-prime divisor module and compare the p-unit valuation and logarithm lattices. The odd-p lattice comparison, including kernel/cokernel factors, is the remaining gap; the p=2 identity cannot simply be reused with 4 replaced by p.",
-    "Descend to the field cut out by χ with norm/transfer, keeping the non-exact character quotient."
+    "The faithful-on-Δ_p hypothesis puts ker χ in the prime-to-p subgroup Δ₀. Restriction/norm through this prime-to-p kernel identifies χ-components with the field cut out by χ. This descent does not assert exactness of character quotients across a p-extension."
    ],
    "acceptance": [
     "For χ(p)≠1 the comparison specializes the all-prime characteristic ideal through finite-level control.",
     "For χ(p)=1 exhibit the exact valuation/logarithm lattice factor rather than cancelling a zero constant term.",
-    "Use the coinvariant χ-part for p-divisible character order."
+    "Use the coinvariant χ-part for p-divisible character order.",
+    "A character trivial on a nontrivial Δ_p is outside this target, even if it is odd on Δ₀. Do not silently omit the faithful-on-Δ_p hypothesis when citing Theorem 4.1."
    ],
    "prerequisites": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
@@ -4560,15 +4614,16 @@
   },
   {
    "supplier": "ColemanPowerSeries:L4",
-   "need": "The general abelian character comparison char(U∞χ/C∞χ)=(Lχ) of Rubin III.2.9(ii), over the actual unramified cyclotomic local fields, extending the existing L4/local-iwasawa-real-quotient-comparison for the ℚ cyclotomic tower.",
+   "need": "The general abelian character comparison char(U∞χ/C∞χ)=(Lχ) of Rubin III.2.9(ii), over the actual unramified cyclotomic local fields, extending the existing L4/local-iwasawa-real-quotient-comparison for the ℚ cyclotomic tower. Also identify the existing L4/real-cyclotomic-coleman-image and L4/adjusted-generator-coleman-image with Greither’s αψ and G_p(T′,ρ) for m=1, even nontrivial ρ on Φ, retaining the normalized/raw sign, arithmetic Frobenius, Γ-inversion and χ=ωρ⁻¹ Tate twist. The latter normalization comparison remains G4; no general local construction is repeated here.",
    "neededBy": [
-    "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture"
+    "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-stickelberger-image"
    ],
    "status": "open"
   },
   {
    "supplier": "DirichletPadicLFunctions:L2",
-   "need": "The Stickelberger series G_p(T, ρ) = lim ξ_ν(ρ) (Washington §7.2, p. 118) for even ρ, with L_p(s, ρ) = G_p(u^s − 1, ρ), including p = 2.",
+   "need": "The Stickelberger series G_p(T, ρ) = lim ξ_ν(ρ) (Washington §7.2, p. 118) for even ρ, with L_p(s, ρ) = G_p(u^s − 1, ρ), including p = 2. In the pure cyclotomic case m=1 compare this independently normalized series with Coleman’s I(G⁺)ζ_p⁺ image on each nontrivial even Φ-character; preserve inversion and Tate-twist conventions (G4).",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-stickelberger-image"
    ],
@@ -4621,7 +4676,7 @@
   },
   {
    "supplier": "IntegralIwasawaTheory:L2",
-   "need": "The coinvariant lemma: for a finitely generated torsion Λ_χ = ℤ_p(χ)[[T]]-module M with char(M) = (f) and M/TM finite, |M/TM| = |f(0)|_p^{d(χ)}·|M^{T=0}| (Coates, p-adic L-functions and Iwasawa theory, Lemma 9); and Washington's construction on pp. 277–278 (the module Y_0, the exact sequence 0 → ((1 − γ_n)/(1 − γ))·Y_0/(1 − γ_n)X → X/(1 − γ_n)X → A(K_n) → 0, and Z = Y_0/(1 − γ)X spanned by the inertia commutators) for a cyclotomic ℤ_p-extension in which p is not totally split. Also Rubin's Lemma 1.2 (Invent. Math. 93 (1988)): uniform bounds on (γ − 1)Ĥ^i(Γ_{mn}, E_m), i ∈ {−1, 0}, under Greither's weakened hypotheses. Also finite exceptional ω class-module control for Greither Theorem 3.2, and the odd-p split-prime lattice/coinvariant comparison required by Theorem 4.1.",
+   "need": "The coinvariant lemma: for a finitely generated torsion Λ_χ = ℤ_p(χ)[[T]]-module M with char(M) = (f) and M/TM finite, |M/TM| = Nχ(f(0))·|M^{T=0}|, with Nχ(a)=p^{[ℚ_p(χ):ℚ_p]v_p(a)} (Coates, p-adic L-functions and Iwasawa theory, Lemma 9); and Washington's construction on pp. 277–278 (the module Y_0, the exact sequence 0 → ((1 − γ_n)/(1 − γ))·Y_0/(1 − γ_n)X → X/(1 − γ_n)X → A(K_n) → 0, and Z = Y_0/(1 − γ)X spanned by the inertia commutators) for a cyclotomic ℤ_p-extension in which p is not totally split. Also Rubin's Lemma 1.2 (Invent. Math. 93 (1988)): uniform bounds on (γ − 1)Ĥ^i(Γ_{mn}, E_m), i ∈ {−1, 0}, under Greither's weakened hypotheses. Also finite exceptional ω class-module control for Greither Theorem 3.2, and the odd-p split-prime lattice/coinvariant comparison required by Theorem 4.1.",
    "neededBy": [
     "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
     "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes",
@@ -4693,7 +4748,8 @@
    "status": "planned",
    "remaining": [
     "Odd-p split-prime finite comparison for Greither 4.1",
-    "Imported exceptional nonvanishing is not a closed supplier proof"
+    "Imported exceptional nonvanishing is not a closed supplier proof",
+    "Pure cyclotomic normalization in Greither’s Coleman image"
    ],
    "notes": "Every stated layer target has a node. Generic carriers, bounds and analytic inputs are imported from their owners; the listed refinements and gaps remain explicit."
   }
@@ -4721,6 +4777,14 @@
     "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-formula"
    ],
    "detail": "DirichletPadicLFunctions:L3/rjw2-fg-nonvanishing is the precise owner and states the needed abelian nonvanishing. Its accepted packet still records a missing nonzero Gauss-ideal character projection and its Baker–Brumer comparison. This is an imported supplier gap, not a new analytic construction here. Gross Conjecture 1.15 is not a theorem; use the abelian argument in §4 and the algebraic-coefficient Proposition 1.16."
+  },
+  {
+   "title": "Pure cyclotomic normalization in Greither’s Coleman image",
+   "neededBy": [
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-stickelberger-image",
+    "EulerSystemsCyclotomicMainConjecture:L4/greither-semilocal-units"
+   ],
+   "detail": "For odd p and an even nontrivial character ρ of Φ=Gal(ℚ(μ_p)/ℚ), ρ|Δ may be trivial (for example F=ℚ, p=5, ρ=ω²). Greither p. 466 invokes Lemma 2.11(b), whose Δ-character is required to be nontrivial; its f₀ becomes X at m=1 and is not a unit series. The existing Coleman L4 pure cyclotomic image and adjusted-generator formulas are imported, but their precise comparison with Greither’s G_p(T′,ρ), including the raw-map sign, variable inversion and Tate twist, is still required. This is a normalization/comparison gap, not a new Coleman construction."
   }
  ],
  "sourceIssues": [
@@ -4738,7 +4802,12 @@
     "research/errata/REGISTER.md: no entry for Rubin's Euler systems",
     "the author's UCI home page: no content was returned",
     "the integrated decomposition data/decompositions/EulerSystemsCyclotomicMainConjecture.json quotes (2) without the sign"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The relative degrees are ℓ or ℓ−1; the norm of −1 supplies the missing sign at ℓ=2. Checked with the m=2 and m=3 boundary cases.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E2",
@@ -4749,12 +4818,18 @@
    "correction": "Use c_m(a) = (ξ_m^a − 1)/(ξ_m − 1) for a fixed integer a ∉ {0, ±1}, over the m prime to a (the primes dividing a join Σ), or Rubin's unsmoothed N_{ℚ(μ_{mp})/ℚ(μ_m)}(1 − ξ_{mp}). For ℓ ∤ m (and ℓ ∤ a) the relation is N(c_{mℓ}(a)) = c_m(a)^{1 − σ_ℓ^{−1}}, σ_ℓ the Frobenius of ℓ in Gal(ℚ(μ_m)/ℚ).",
    "reason": "ξ^{−1} − 1 = −ξ^{−1}(ξ − 1), so c_m = −ξ_m^{−1} is a root of unity and z_m = δ(c_m) is torsion; the family is zero after ⊗ ℚ_p and carries no arithmetic. Example 10.2 admits a = −1 among 'a prime to p', which is exactly this degenerate choice. The relation '(1 − ℓ^{−1})c_m' is not defined in ℚ(μ_m)^×; the operator meant is 1 − σ_ℓ^{−1}, as in the corestriction relation and Definition 10.16 that follow.",
    "affects": "a stated result",
-   "known": "new",
+   "known": "Also independently recorded in SelmerIwasawaCohomology/E4 (norm relation); the source-version checks above confirm persistence.",
    "searched": [
     "research/errata/REGISTER.md: several RJW entries (for example Definition 10.14/Theorem 10.15), none for §10.5",
     "the atlas text of stage EulerSystemsCyclotomicMainConjecture:L0 flags the torsion choice; it is not a published correction",
-    "the published version (Essential Number Theory 4, 2025) was not accessed"
-   ]
+    "Published version, Essential Number Theory 4 (2025), §10.5 p. 171: independently accessed 2026-10-19; the ratio and scalar norm errors persist.",
+    "Independent review 2026-10-19: version of record §10.5, p. 171, was read and contains the same ratio and scalar norm problems; see also SelmerIwasawaCohomology/E1 for the separate completion error."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Direct cancellation gives −ζ⁻¹, so the ratio is torsion; the norm operator is 1−Fr_ℓ⁻¹. Both problems remain on published p. 171.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E3",
@@ -4768,7 +4843,12 @@
    "known": "new",
    "searched": [
     "The published monograph (Annals of Mathematics Studies 147, 2000) was not available to compare; the finding is scoped to the author draft."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Chapter III p. 39 labels the stated result as a theorem, so the internal cross-reference should name Theorem 2.10.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E4",
@@ -4784,7 +4864,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The character-degree exponent is absent from the pure 2-power remark on p. 453. The conductor-5 quartic example has degree 2 and forces the corrected exponent.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E5",
@@ -4800,7 +4885,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The Gauss sum is fixed by σ₂ and lies in the decomposition field D. The conductor-217 valuation test distinguishes D from the sextic F; norm to F is necessary.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E6",
@@ -4816,7 +4906,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The Stickelberger exponent for g contains the residue b and no extra m; m occurs for g^m. The conductor-7 valuation test gives B₁=−1, without m.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E7",
@@ -4832,7 +4927,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The defining equality is for L₂(s,χ̌), and differentiation introduces log₂(u). The prime on the left of the printed defining equality is inconsistent.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E8",
@@ -4848,7 +4948,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The zeta function has separate residue and analytic variables (b,s); b/s cannot be the intended argument in the character sum.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E9",
@@ -4864,7 +4969,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Theorem C on p. 454 requires χ₀≠1. Theorem 4.12’s proof invokes the nontrivial χ₀ formula of 4.11, and the trivial L-function has a pole.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E10",
@@ -4880,7 +4990,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The proof on p. 496 contributes the ℤ_p/2 term. Its order is nontrivial only at p=2, which requires the dyadic indicator in the exponent.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E11",
@@ -4896,7 +5011,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At p=2 every number field contains −1. The cocycle root argument is valid inside deep principal units with ν≥2, where that torsion is absent.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E12",
@@ -4912,7 +5032,12 @@
     "research/errata/REGISTER.md and SelmerIwasawaCohomology's sourceIssues (E1–E2): no entry for these passages",
     "arXiv 2309.15692: v2 is the latest version",
     "version of record, Essential Number Theory 4 (2025) 101–216, msp.org PDF (SHA-256 78d0479b…), read at the same passages: the text is unchanged"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Both arXiv p. 71 and published p. 197 display the incompatible direction of the index. Nonpositive integers give the moments used by the interpolation statement.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E13",
@@ -4928,7 +5053,12 @@
     "research/errata/REGISTER.md and SelmerIwasawaCohomology's sourceIssues (E1–E2): no entry for these passages",
     "arXiv 2309.15692: v2 is the latest version",
     "version of record, Essential Number Theory 4 (2025) 101–216, msp.org PDF (SHA-256 78d0479b…), read at the same passages: the text is unchanged"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The cyclotomic character acts with power s−1 on the displayed Tate-twisted module. The source’s dual uses 1−s at arXiv pp. 71–72 and published p. 198.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E14",
@@ -4944,7 +5074,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The conductor in Lemma 2.11 is m; the capital M in its field definition is undefined there. The proof consistently uses divisors of m.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E15",
@@ -4960,7 +5095,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Removing multiples of p replaces x by x^p. The second term must contain ζ_m^p, as the independent left-side computation on p. 466 already does.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E16",
@@ -4976,7 +5116,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The coefficient ring named R on p. 460 already contains 𝒪; the later character argument uses the base ℤ_p completed group ring. Naming the two rings resolves the clash.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E17",
@@ -4992,7 +5137,12 @@
     "Numdam item page for AIF_1992__42_3_449_0 (no erratum or corrigendum linked)",
     "Centre Mersenne AIF item page for the same article",
     "web search for an erratum or corrigendum to Greither's article (none found)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The induction accumulates (γ−1) exponent 2^{i−1} before defining N. The displayed 2^i removes an extra factor; the next-page argument uses 2^{i−1}.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E18",
@@ -5008,7 +5158,12 @@
     "The atlas errata register and the author-draft source cited here; no correction located.",
     "The published monograph was not accessed; this finding is scoped to the freely readable author draft.",
     "2026-10-19: web searches for Rubin Euler systems errata and corrections to IX Examples 1.1/6.2 found no primary corrigendum. Unofficial book mirrors were not used."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The change-of-Euler-factor operation preserves the coefficient lattice T=ℤ_p from the preceding Stickelberger example. It does not introduce a Tate twist.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E19",
@@ -5024,17 +5179,85 @@
     "The atlas errata register and the author-draft source cited here; no correction located.",
     "The published monograph was not accessed; this finding is scoped to the freely readable author draft.",
     "2026-10-19: web searches for Rubin Euler systems errata and corrections to IX Examples 1.1/6.2 found no primary corrigendum. Unofficial book mirrors were not used."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The indexing conductors are prime to p; they produce an extension unramified at p, generally ramified away from p. The opposite ramification description is incompatible with the construction.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E20",
+   "source": "GREITHER-1992",
+   "kind": "error",
+   "locator": "§4, proof of Lemma 4.13, printed p. 495",
+   "printed": "The proof infers from cyclicity and inertia generation that a rational prime is totally ramified in F/ℚ.",
+   "correction": "Only total ramification in the relative p-extension F/K is needed. One inertia group surjects onto the cyclic p-Sylow quotient and hence contains the p-Sylow subgroup.",
+   "reason": "The cyclic sextic field ℚ(√5)ℚ(ζ₇)⁺ has inertia orders 2 and 3 at 5 and 7, with no inertia of order 6. For p=3 and K=ℚ(√5), the latter inertia gives the required total ramification in F/K.",
+   "affects": "the proof",
+   "known": "new to this independent review",
+   "searched": [
+    "Numdam publication and source metadata; the accessible article has no appended correction at these passages.",
+    "Atlas sourceIssues and errata register screened for Greither; these three defects were not already recorded.",
+    "2026-10-19: publication records https://aif.centre-mersenne.org/item/AIF_1992__42_3_449_0/ and https://www.numdam.org/item/AIF_1992__42_3_449_0/; title searches with erratum/corrigendum and searches for the affected Coleman passages located no matching correction."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The cyclic sextic field ℚ(√5)ℚ(ζ₇)⁺ has inertia orders 2 and 3 at 5 and 7, with no inertia of order 6. For p=3 and K=ℚ(√5), the latter inertia gives the required total ramification in F/K.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E21",
+   "source": "GREITHER-1992",
+   "kind": "error",
+   "locator": "§2, proof of Theorem 2.8, printed p. 461",
+   "printed": "The proof uses 𝒩(1−X)=1−X for every prime, including 2.",
+   "correction": "For Y=1−X, 𝒩(Y)=(−1)^{p−1}Y. Use Y for odd p and −Y for p=2 as the norm-fixed kernel generator. The exact sequence survives with this signed embedding.",
+   "reason": "The defining norm product is ∏_{ζ∈μ_p}ζY=(−1)^{p−1}Y^p. At p=2 the native root norm is N(ζ₈)=−i. The existing Coleman unramified interpolation test likewise uses the signed root tower.",
+   "affects": "the proof",
+   "known": "new to this independent review",
+   "searched": [
+    "Numdam publication and source metadata; the accessible article has no appended correction at these passages.",
+    "Atlas sourceIssues and errata register screened for Greither; these three defects were not already recorded.",
+    "2026-10-19: publication records https://aif.centre-mersenne.org/item/AIF_1992__42_3_449_0/ and https://www.numdam.org/item/AIF_1992__42_3_449_0/; title searches with erratum/corrigendum and searches for the affected Coleman passages located no matching correction."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The defining norm product is ∏_{ζ∈μ_p}ζY=(−1)^{p−1}Y^p. At p=2 the native root norm is N(ζ₈)=−i. The existing Coleman unramified interpolation test likewise uses the signed root tower.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
+  },
+  {
+   "id": "EulerSystemsCyclotomicMainConjecture/E22",
+   "source": "GREITHER-1992",
+   "kind": "error",
+   "locator": "§2, proof of Theorem 2.13, printed pp. 465–466, invoking Lemma 2.11(b), pp. 463–464",
+   "printed": "The proof applies the nontrivial Δ-character generator lemma to ρ|Δ for every even nontrivial character ρ of Δ′=Δ×Φ.",
+   "correction": "Separate m=cond(ρ|Δ)>1 from m=1. The latter occurs for nontrivial even Φ-characters at odd p and needs the pure cyclotomic Coleman image, with its normalization comparison to G_p(T′,ρ). This comparison remains explicit gap G4.",
+   "reason": "For F=ℚ, p=5 and ρ=ω², the restriction to Δ is trivial. The hypothesis of Lemma 2.11(b) fails and the proposed unit series f₀ is X, which is not invertible. This diagnoses a missing case of the proof, not a counterexample to the theorem.",
+   "affects": "the proof",
+   "known": "new to this independent review",
+   "searched": [
+    "Numdam publication and source metadata; the accessible article has no appended correction at these passages.",
+    "Atlas sourceIssues and errata register screened for Greither; these three defects were not already recorded.",
+    "2026-10-19: publication records https://aif.centre-mersenne.org/item/AIF_1992__42_3_449_0/ and https://www.numdam.org/item/AIF_1992__42_3_449_0/; title searches with erratum/corrigendum and searches for the affected Coleman passages located no matching correction."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For F=ℚ, p=5 and ρ=ω², the restriction to Δ is trivial. The hypothesis of Lemma 2.11(b) fails and the proposed unit series f₀ is X, which is not invertible. This diagnoses a missing case of the proof, not a counterexample to the theorem.",
+    "by": "REV-EulerSystemsCyclotomicMainConjecture"
+   }
   }
  ],
  "upstreamNotes": [
   {
    "roadmap": "ProfiniteArithmetic / current Tau Ceti completed group algebras",
-   "note": "The current library already supplies completedGroupAlgebra, its power-series/product/dyadic coordinates and modules. No completed algebra infrastructure is planned here. The pinned suggested file uses only carriers available at its pins."
+   "note": "The current library already supplies completedGroupAlgebra, its power-series/product/dyadic coordinates and modules. No completed algebra infrastructure is planned here. The pinned suggested file uses only carriers available at its pins. Independently checked current ProfiniteArithmetic README/Suggested and the completedGroupAlgebra power-series and dyadic APIs. Current cyclotomic compositum, degree and Frobenius library results supply field arithmetic, not the Euler-system norm family."
   },
   {
    "roadmap": "LocalGaloisGroups / ClassFieldTheory / ProfiniteCohomology",
-   "note": "Local Kummer carriers and reciprocity remain imported existing-roadmap inputs. This roadmap owns the global cyclotomic arithmetic specialization, not the local or global reciprocity theory."
+   "note": "Local Kummer carriers and reciprocity remain imported existing-roadmap inputs. This roadmap owns the global cyclotomic arithmetic specialization, not the local or global reciprocity theory. Independently read the full LocalGaloisGroups and ProfiniteArithmetic READMEs and the relevant Suggested signatures; the completed local multiplicative module remains their input. The nine newer roadmap areas were screened for cyclotomic Euler-system targets."
   }
  ],
  "links": [
@@ -5048,5 +5271,388 @@
    "toStageId": "EulerSystemsCyclotomicMainConjecture:L3",
    "reason": "SelmerIwasawaCohomology owns the Tate-twist/class-group dictionary (RT-AREA-iwasawa-1/21)."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-EulerSystemsCyclotomicMainConjecture",
+  "date": "2026-10-19",
+  "notes": "Independent source, pinned-baseline, closure, ownership, API, test, suggested-file and reader review of all 75 nodes. Corrected 19 nodes; added no nodes, three API entries, one rejection test and three confirmed source issues. All 29 baseline citations are confirmed; two descriptions were narrowed. All 22 source issues have individual confirmed verdicts. Five stages remain planned, none closed, with four precise gaps and 12 open supplier requests. Checked RT-AREA-iwasawa-1/21 and /36. The suggested file elaborates at the pins with only warnings for admitted proofs. Acceptance is of the complete target-level planning pass, with the recorded control, nonvanishing and normalization gaps still open.",
+  "checked": [
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/minpoly-step-of-dvd",
+    "verdict": "verified",
+    "note": "The cyclotomic degree ratio is ℓ when ℓ divides m; the monic annihilator has the same degree as the minimal polynomial. Source check: RJW-PADIC-L, §10.2, proof of Lemma 10.3, printed p. 48 (arXiv v2); RUBIN-ES, Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/minpoly-step-of-not-dvd",
+    "verdict": "verified",
+    "note": "When ℓ does not divide m, the degree ratio is ℓ−1; the missing root is the unique root of order dividing m, including m=1. Source check: RUBIN-ES, Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-dvd",
+    "verdict": "verified",
+    "note": "Evaluating the minimal polynomial at 1 gives the norm in the 1−ζ convention, with no dyadic sign loss. Source check: RUBIN-ES, Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44); RJW-PADIC-L, §10.2, proof of Lemma 10.3, printed p. 48 (arXiv v2)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-of-not-dvd",
+    "verdict": "verified",
+    "note": "The polynomial identity remains meaningful at m=1; cancellation is restricted to m>1, and the inverse Frobenius is arithmetic. Source check: RUBIN-ES, Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-frobenius",
+    "verdict": "verified",
+    "note": "Mathlib autEquivPow identifies the inverse unit residue with inverse arithmetic Frobenius; the compatibility hypothesis on the roots is explicit. Source check: RUBIN-ES, Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-rubin-convention",
+    "verdict": "verified",
+    "note": "Norm multiplicativity supplies the sign (−1)^[L:K]; the two dyadic sign errors in Rubin are already recorded as E1. Source check: RUBIN-ES, Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/distribution-relation-conductor-one",
+    "verdict": "verified",
+    "note": "The prime cyclotomic evaluation supplies ℓ for ℓ>2; the degree-one ℓ=2 case is handled separately as required by the cited norm theorem. Source check: RUBIN-ES, Chapter III, §2.1, display (2), printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/p-extended-cyclotomic-number",
+    "verdict": "verified",
+    "note": "The extra p-step makes the definition nonzero even at conductor one; API and tests distinguish it from the unextended family and from smoothing. Source check: RUBIN-ES, Chapter III, §2.1, printed p. 34 (PDF p. 44); RUBIN-ES, Chapter III, Remark 2.1, printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/p-extended-tower-relation",
+    "verdict": "verified",
+    "note": "Two successive p-step distribution identities and norm transitivity give the asserted compatibility, including m prime to p. Source check: RUBIN-ES, Chapter III, Remark 2.1, printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/p-extended-auxiliary-relation",
+    "verdict": "verified",
+    "note": "Transitivity and equivariance transport the auxiliary norm identity from level mp; the conductor-one result is 1 rather than p. Source check: RUBIN-ES, Chapter III, §2.1, printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/p-extended-nontorsion",
+    "verdict": "verified",
+    "note": "The conductor-one value is p and pure p-power levels have absolute norm p, so the entire system is not torsion although individual terms can be. Source check: RJW-PADIC-L, §10.5, printed p. 52 (arXiv v2)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/real-p-extended-number",
+    "verdict": "verified",
+    "note": "The real norm has degree one at conductors 1 and 2; the definition, API and tests retain those exceptions. Source check: RUBIN-ES, Chapter III, §2.1, printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/real-relations",
+    "verdict": "verified",
+    "note": "Norm transitivity proves both real norm relations; no automatic extra factor of 2 is inserted at the small conductors. Source check: RUBIN-ES, Chapter III, §2.1, printed p. 34 (PDF p. 44)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/smoothed-unit-comparison",
+    "verdict": "verified",
+    "note": "The geometric sum is the existing cyclotomic unit. The finite projection sends the smoothing divisor to σ_a−1, and primes dividing a are excluded from family indexing. Source check: RJW-PADIC-L, §10.2, definition of c_n(a) and Lemma 10.3, printed p. 48 (arXiv v2)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/qab-euler-hypotheses",
+    "verdict": "verified",
+    "note": "The conductor presentation imports ES.2 rather than defining another Euler-system carrier; the cyclotomic tower and ray class fields are external inputs. Source check: RUBIN-ES, Chapter II, Definition 1.1, printed p. 21 (PDF p. 31); RUBIN-ES, Chapter II, Remark 1.2, printed p. 22 (PDF p. 32)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-kummer-classes",
+    "verdict": "verified",
+    "note": "Finite Kummer maps exist at the pins, but their inverse limit is imported from the actual supplier; the completion in the target is essential. Source check: RUBIN-ES, Chapter III, §2.1, printed p. 34 (PDF p. 44); RJW-PADIC-L, §10.5, (10.5)–(10.7), printed p. 52 (arXiv v2)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/cyclotomic-euler-system",
+    "verdict": "verified",
+    "note": "The Tate dual of ℤ_p(1) is trivial, giving 1−Fr⁻¹. Norm relations and the direct ES.2 dependencies provide the cyclotomic specialization. Source check: RUBIN-ES, Chapter III, §2.1, printed p. 34 (PDF p. 44); RJW-PADIC-L, §10.5, Definition 10.16, printed p. 53 (arXiv v2); RJW-PADIC-L, Definition 10.16, printed p. 53; Appendix B.3, printed p. 81; §2.2.4, printed pp. 7–8."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/chi-component",
+    "verdict": "corrected",
+    "note": "Corrected scalar injectivity to concern M, restricted the splitting assertion, and added extensionality and the trivial-action criterion. The ℤ/2 sign-character test rejects the original false implication. Source check: RUBIN-ES, Chapter I, §6.2, Definition 6.2, printed p. 14 (PDF p. 24); RUBIN-ES, Chapter I, §6.2, printed p. 15 (PDF p. 25)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/chi-sum",
+    "verdict": "corrected",
+    "note": "Added equivariant-map compatibility; the finite sum remains unnormalized, is defined without inverting |Δ|, and has discriminating regular and modular tests. Source check: RUBIN-ES, Chapter III, §2.2, display (4), printed p. 35 (PDF p. 45); RUBIN-ES, Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/chi-sum-frobenius",
+    "verdict": "verified",
+    "note": "Reindexing the finite group sum gives the inverse character factor, including for nonabelian Δ; the statement does not assume commutation of arbitrary group elements. Source check: RUBIN-ES, Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/one-sub-root-of-unity-unit",
+    "verdict": "verified",
+    "note": "The existing divisibility-of-root-difference result plus invertibility of n proves the unit assertion; the integer order-two counterexample retains the necessary hypothesis. Source check: RUBIN-ES, Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator",
+    "verdict": "corrected",
+    "note": "Made p odd explicit for the stated tower indexing. The full-group product equals the χ-sum of the norm, and nontrivial χ removes the sign convention. Source check: RUBIN-ES, Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45); RUBIN-ES, Chapter III, §2.2, printed pp. 34–35 (PDF pp. 44–45)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-generator-unit",
+    "verdict": "verified",
+    "note": "Prime-power cyclotomic ideals are invariant under the Galois action, so their nontrivial prime-to-p χ-part vanishes; the general circular-unit input is imported. Source check: RUBIN-ES, Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/chi-cyclotomic-units",
+    "verdict": "verified",
+    "note": "The generated O-line is a unit submodule, not the whole unit group; API and tests separate zero Euler-factor classes from nonzero ξ-generators. Source check: RUBIN-ES, Chapter III, §2.4, Definition 2.2, printed p. 35 (PDF p. 45)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-formula",
+    "verdict": "corrected",
+    "note": "Made the inherited odd-prime convention explicit. The twisting and restriction–Kummer comparisons are imported, and the conductor pf norm is retained. Source check: RUBIN-ES, Chapter III, §2.2, display (4), printed p. 35 (PDF p. 45); RUBIN-ES, Chapter III, §2.2, display (3), printed p. 35 (PDF p. 45)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-eq-xi-power",
+    "verdict": "verified",
+    "note": "The distribution relation gives the Euler factor, with χ(p)=0 at ramified conductor. This is an equality of completed multiplicative χ-modules. Source check: RUBIN-ES, Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/twisted-class-generates",
+    "verdict": "verified",
+    "note": "The prime-to-p order unit lemma makes the Euler factor invertible precisely in the stated nonexceptional case. Source check: RUBIN-ES, Chapter III, proof of Theorem 2.3, equation (6), printed p. 36 (PDF p. 46)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-hypotheses-and-error-terms",
+    "verdict": "verified",
+    "note": "The two error terms use the nontrivial finite character and the parity separation from the cyclotomic character; the generic bound is imported from ES.4. Source check: RUBIN-ES, Chapter III, proof of Theorem 2.3, printed p. 36; RUBIN-ES, Chapter III, proof of Theorem 2.3, printed p. 36; RUBIN-ES, Chapter III, Lemma 1.1, printed p. 33."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/chi-units-rank-one-and-index",
+    "verdict": "verified",
+    "note": "The rank-one character multiplicity is a requested Galois-module unit theorem, not Mathlib's additive rank alone; the torsion-free quotient gives the divisibility index. Source check: RUBIN-ES, Chapter III, proof of Theorem 2.3, printed p. 36; RUBIN-ES, Chapter II, Definition 2.1, printed p. 24."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/selmer-is-class-group",
+    "verdict": "corrected",
+    "note": "Corrected relaxed to strict Selmer and retained the inclusions S_subΣ⊂S⊂S^Σ. The local calculation at p is required for equality and is requested precisely. Source check: RUBIN-ES, Chapter III, proof of Theorem 2.3, printed p. 36; RUBIN-ES, Chapter I, Proposition 6.1 and its proof, printed p. 14."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/kolyvagin-class-group-divisibility",
+    "verdict": "verified",
+    "note": "The ES.4 bound, vanishing error terms and identified strict Selmer group give the finite class-group divisibility with χ(p)≠1. Source check: RUBIN-ES, Chapter III, the paragraph before Theorem 2.3, printed p. 35; RUBIN-ES, Chapter III, proof of Theorem 2.3, printed p. 36."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/mazur-wiles-chi-equality",
+    "verdict": "corrected",
+    "note": "Clarified the proof order: the exceptional ψ(p)=1 factors use the later unramified Gras theorem, while L2 uses only L1 divisibility. The general-conductor product is an explicit supplier request. Source check: RUBIN-ES, Chapter III, Corollary 2.4 and its proof, printed p. 36."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L2/iwasawa-hypotheses-cyclotomic",
+    "verdict": "verified",
+    "note": "Rank one gives the large-image hypothesis; total reality and the imported Leopoldt input give the tower hypothesis for the ES.8 theorem. Source check: RUBIN-ES, Chapter II §3, Hypothesis Hyp(K∞/K), printed p. 27; RUBIN-ES, Chapter II §3, Theorem 3.3, printed p. 28; RUBIN-ES, Chapter III, proof of Theorem 2.7, printed p. 38."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L2/limit-unit-diagram",
+    "verdict": "verified",
+    "note": "The local multiplicative norm limit, singular quotient and possible O-valued p-unit error are distinguished. Their arithmetic structure remains an explicit IntegralIwasawaTheory input. Source check: RUBIN-ES, Chapter III, Proposition 2.6, printed p. 37; RUBIN-ES, Chapter III, proof of Proposition 2.6, printed p. 38."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L2/lambda-index-of-cyclotomic-units",
+    "verdict": "verified",
+    "note": "The index is the characteristic ideal of the p-unit quotient; comparison with global units retains the augmentation factor rather than cancelling it prematurely. Source check: RUBIN-ES, Chapter II, Definition 3.1, printed p. 28; RUBIN-ES, Chapter III, proof of Theorem 2.7, printed p. 38."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L2/cyclotomic-iwasawa-divisibility",
+    "verdict": "verified",
+    "note": "The ES.8 true-Selmer comparison cancels the matching augmentation error, yielding divisibility without a χ(p) restriction. Source check: RUBIN-ES, Chapter III, proof of Theorem 2.7, printed p. 38; RUBIN-ES, Chapter III, proof of Theorem 2.7, printed p. 38."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/galois-unit-four-term-sequence",
+    "verdict": "verified",
+    "note": "The compact four-term sequence is imported from its owner. Its quotient orientation and inverse-limit exactness agree with the corrected source interpretation. Source check: RJW-PADIC-L, Proposition 13.13 and its proof, p. 68 (arXiv v2); RJW-PADIC-L, Proof of Proposition 13.13, p. 68 (arXiv v2); RJW-PADIC-L, Corollary 13.14 and its proof, p. 68 (arXiv v2)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/trivial-character-component",
+    "verdict": "verified",
+    "note": "The principal-pole formula clears the trivial-character pole and gives a unit; the trivial class-field component is imported rather than inferred from a singular value. Source check: RJW-PADIC-L, Theorem 7.1(ii), p. 40 (arXiv v2)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/componentwise-iwasawa-equality",
+    "verdict": "verified",
+    "note": "Divisibility and the product μ,λ comparison give equality only with the stated finite-layer control target; its unresolved circular-unit bound remains G1. Source check: RUBIN-ES, Chapter III, Corollary 2.8 and its proof, printed p. 38."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/cyclotomic-main-conjecture",
+    "verdict": "verified",
+    "note": "Multiplicativity in the four-term sequence and the owned local Coleman comparison give the characteristic-ideal equality. The stronger Vandiver-dependent module isomorphism is explicitly excluded. Source check: RJW-PADIC-L, Theorem 13.8, p. 67 (arXiv v2); RJW-PADIC-L, Theorem 13.11, p. 67 (arXiv v2); RUBIN-ES, Chapter III, Theorem 2.10 and its proof, printed p. 39."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-chi-parts",
+    "verdict": "verified",
+    "note": "Greither's quotient character functor is distinguished from the eigensubmodule when p divides the group order; rationalization and nonexactness tests preserve this distinction. Source check: GREITHER-1992, Introduction, the Definition and properties (a)–(f), p. 451; GREITHER-1992, Introduction, property (g), p. 451."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-semilocal-units",
+    "verdict": "corrected",
+    "note": "Corrected rationalization to Λχ[1/p], with bounded coefficient denominators, and added the T−p check. The local image comparison still carries its explicit pure cyclotomic normalization gap G4. Source check: GREITHER-1992, §2, Theorem 2.13 and Corollary 2.14, p. 465; GREITHER-1992, §2, proof of Corollary 2.14, p. 465."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-real-main-conjecture",
+    "verdict": "verified",
+    "note": "The all-prime real theorem uses the separate dyadic prime-selection and finite-link arguments; μ=0 and the analytic product are owned external inputs. Source check: GREITHER-1992, §3, Theorem 3.1, p. 468; GREITHER-1992, §3, Remark b) after Theorem 3.1, p. 468; GREITHER-1992, §3, before Theorem 3.7, p. 471; GREITHER-1992, §3, proof of Theorem 3.7, p. 472; GREITHER-1992, §3, the proof strategy, p. 470; GREITHER-1992, §3, the induction, p. 480; GREITHER-1992, §3, the end of the proof, p. 481; GREITHER-1992, §3, the end of the proof, p. 482."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-kummer-duality",
+    "verdict": "verified",
+    "note": "Kummer duality retains the source's inverse action and Tate twist; the quasi-isomorphism is not strengthened to an integral isomorphism. Source check: GREITHER-1992, §3, Lemma 3.3, p. 469; GREITHER-1992, §3, Proposition 3.4, p. 469."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-main-conjecture-all-p",
+    "verdict": "verified",
+    "note": "The one-half normalization and exceptional ω factor are retained; the exceptional finite-module control is requested rather than suppressed. Source check: GREITHER-1992, §1, the Main Conjecture (= Theorem 3.2), p. 452; GREITHER-1992, §3, proof of 3.1 ⇒ 3.2, p. 470."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-split-prime-divisor-classes",
+    "verdict": "verified",
+    "note": "The split-prime divisor module and the quotient called E are class-group objects. The finite roots-of-unity and total-ramification hypotheses are retained. Source check: GREITHER-1992, §4, proof of Lemma 4.2, p. 484; GREITHER-1992, §4, proof of Corollary 4.3, p. 485."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-reduction",
+    "verdict": "verified",
+    "note": "The trivial-zero reduction works with nontrivial ξ and records the finite kernel term; the derivative replaces a zero constant term only after removing its T-factor. Source check: GREITHER-1992, §4, Convention and Remark before Lemma 4.4, p. 486; GREITHER-1992, §4, proof of Proposition 4.5, p. 487."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-split-units-quotient",
+    "verdict": "verified",
+    "note": "The semilocal quotient includes both local signs and valuations; its identification with Z uses the imported idelic correspondence, not a new reciprocity construction. Source check: GREITHER-1992, §4, before Proposition 4.7, p. 488; GREITHER-1992, §4, proof of Proposition 4.7(a), p. 489."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-gauss-sum-vectors",
+    "verdict": "corrected",
+    "note": "Removed the suggestion that Gross Conjecture 1.15 proves nonvanishing. Gross §4 and Proposition 1.16 describe the algebraic route, while the precise supplier gap remains G3. Source check: GREITHER-1992, §4, definitions before (G1), p. 490; GREITHER-1992, §4, the Gauss sum, p. 490; GREITHER-1992, §4, (G2), p. 491; GROSS-1981, §4, equations (4.3)–(4.6), printed pp. 993–994; Proposition 1.16, printed p. 983."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-trivial-zero-formula",
+    "verdict": "verified",
+    "note": "The valuation and logarithm cokernel formulas retain the factor 4 and the im D⁺ terms; their ratio yields the derivative formula conditional on the stated nonvanishing input. Source check: GREITHER-1992, §4, reduction to Theorem 4.6, p. 488; GREITHER-1992, §4, proof of Theorem 4.6, p. 492."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-relative-class-group-bound",
+    "verdict": "corrected",
+    "note": "Removed the unjustified universal minus-subgroup identification and integer divisibility wording. The pure 2-power case uses the analytic formula before the nontrivial ξ argument; the bound may be fractional. Source check: GREITHER-1992, §4, before the proof of Theorem 4.1, p. 482; GREITHER-1992, §4, proof of Theorem 4.1, p. 483; GREITHER-1992, §4, the case χ(2) ≠ 1, p. 484."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-iwasawa-leopoldt-two",
+    "verdict": "corrected",
+    "note": "Replaced order-implies-cyclic by the DVR length annihilator argument. The exceptional pure 2-power character is separated, and a noncyclic length-two module is an explicit rejection check. Source check: GREITHER-1992, §1, Remark a) after Theorem A, p. 453; GREITHER-1992, §1, Remark b) after Theorem A, p. 453; GREITHER-1992, §1, Theorem B implies Theorem A, p. 454."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-real-fields",
+    "verdict": "corrected",
+    "note": "Restricted the finite ray-character formula to χ₀≠1, excluding the trivial-character pole while retaining finiteness on 1−e. Source check: GREITHER-1992, §4, proof of Theorem 4.11, p. 493; GREITHER-1992, §4, proof of Theorem 4.11, p. 494."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-ray-class-transfer",
+    "verdict": "corrected",
+    "note": "Corrected the inertia step to total ramification in the relative cyclic p-extension F/K. A cyclic sextic example rejects the stronger F/ℚ assertion; the source defect is E20. Source check: GREITHER-1992, §4, proof of Lemma 4.13, p. 495; GREITHER-1992, §4, proof of Lemma 4.13, p. 495."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-real-iwasawa-leopoldt",
+    "verdict": "verified",
+    "note": "Theorem C excludes χ₀=1 as required by the corrected statement, and its proof uses the relative norm/inclusion transfer rather than the overstrong inertia claim. Source check: GREITHER-1992, §1, Theorem C, p. 454; GREITHER-1992, §4, Theorem 4.12, p. 494; GREITHER-1992, §4, proof of Theorem 4.12, p. 494."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-gras-conjecture",
+    "verdict": "verified",
+    "note": "The circular-unit/class comparison retains the factor 2 only at p=2, using the source's corrected normalization and the general-conductor product input. Source check: GREITHER-1992, §4, Theorem 4.14, p. 495; GREITHER-1992, §4, proof of Corollary 4.15, p. 496; GREITHER-1992, §4, proof of Theorem 4.14, p. 497."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/odd-character-formulation",
+    "verdict": "verified",
+    "note": "The odd-character statement is obtained through the all-prime theorem and Kummer duality; it does not identify the even and odd modules without twist or inversion. Source check: RJW-PADIC-L, Remark 13.9, p. 67 (arXiv v2); GREITHER-1992, §1, the Main Conjecture (= Theorem 3.2), p. 452."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/tate-twisted-selmer-formulation",
+    "verdict": "verified",
+    "note": "The Tate-twist Selmer dictionary is imported directly from SelmerIwasawaCohomology:L4, satisfying RT-AREA-iwasawa-1/21; both source sign/index corrections are retained. Source check: RJW-PADIC-L, §13.5.1, Definition 13.19, p. 70 (arXiv v2); RJW-PADIC-L, §13.5.2, p. 70 (arXiv v2); RJW-PADIC-L, §13.5.2(3), p. 71 (arXiv v2); RJW-PADIC-L, Conjecture 13.21 and Example 13.22, p. 71 (arXiv v2); RJW-PADIC-L, Remark 13.23, p. 72 (arXiv v2)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-semilocal-norm-descent",
+    "verdict": "verified",
+    "note": "The semilocal norm and inclusion maps have bounded finite errors; the comparison does not claim integral equality or replan local norm infrastructure. Source check: GREITHER-1992, §2, the setting, p. 455; GREITHER-1992, §2, Lemma 2.2, p. 456."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-circular-unit-limit",
+    "verdict": "verified",
+    "note": "The circular-unit limit generators retain the source's conjugate factors and coefficient action, with all exceptional conductor conventions recorded in the downstream image calculation. Source check: GREITHER-1992, §2, Lemma 2.3, p. 456; GREITHER-1992, §2, proof of Lemma 2.3, p. 457."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-coleman-sequence-all-p",
+    "verdict": "corrected",
+    "note": "Replaced bare component expressions by the actual global units 1−e_i+e_i(1−X) and 1−2e_i. The product-ring rejection check distinguishes a component identity from the global identity. Source check: GREITHER-1992, §2, before Theorem 2.4, p. 458; GREITHER-1992, §2, proof of Theorem 2.4, p. 459."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-semilocal-coleman-map",
+    "verdict": "corrected",
+    "note": "Corrected the dyadic local index to i+t and the root kernel to the signed norm-compatible tower. The source's unsigned norm-fixed calculation is E21. Source check: GREITHER-1992, §2, proof of Theorem 2.8, p. 462; GREITHER-1992, §2, Proposition 2.10, p. 462."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-circular-unit-generators",
+    "verdict": "corrected",
+    "note": "Replaced nonzero-implies-free-generator over a product ring by the imported unit-measure Amice equivalence and factorwise normal-basis argument; precise owner nodes are now direct prerequisites. Source check: GREITHER-1992, §2, before Lemma 2.11, p. 463."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-stickelberger-image",
+    "verdict": "corrected",
+    "note": "Separated the m=1 pure cyclotomic case, imported the existing Coleman L4 image formulas, and recorded the remaining sign/inversion/Tate-twist comparison as G4 and source defect E22. Source check: GREITHER-1992, §2, proof of Theorem 2.13, p. 466; GREITHER-1992, §2, proof of Theorem 2.13, right-hand side, p. 467; GREITHER-1992, §2, Remark after Theorem 2.13, p. 468."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-chebotarev-at-two",
+    "verdict": "corrected",
+    "note": "Restored the lost factor 2 in the chosen Artin class, retaining 2^(h+2) in general and 4 in the cyclotomic complement; this corrects the packet's proof rather than the source theorem. Source check: GREITHER-1992, §3, Rubin's maps and Euler systems, p. 471; GREITHER-1992, §3, proof of Theorem 3.7, p. 472; GREITHER-1992, §3, proof of Theorem 3.7, p. 473; GREITHER-1992, §3, Corollary 3.8, p. 474."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-finite-level-links",
+    "verdict": "verified",
+    "note": "The finite-layer links preserve uniformly bounded kernel and cokernel terms, the weakened cohomological bounds and the actual inertia quotient required by the induction. Source check: GREITHER-1992, §3, Lemmas 3.9–3.10, p. 475; GREITHER-1992, §3, Lemma 3.11 and the proof of 3.10, p. 477."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/greither-kolyvagin-step",
+    "verdict": "verified",
+    "note": "The class/Kummer symbol step retains the annihilator and size hypotheses and the |Δ|-scaled Maschke lift. It does not assume integral semisimplicity when p divides |Δ|. Source check: GREITHER-1992, §3, before Lemma 3.12, p. 477; GREITHER-1992, §3, Lemma 3.13, p. 479."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/unsmoothed-cyclotomic-euler-system",
+    "verdict": "corrected",
+    "note": "Corrected the norm check: a prime real cyclotomic bℓ has norm ℓ for ℓ>2, its norm from the full field is ℓ², and b₂=4. The raw family remains explicitly inadmissible before twisting. Source check: RUBIN-ES, Chapter IX §1, Example 1.1 and Theorem 1.2, printed pp. 133–136; Chapter IV Example 8.2, printed p. 78."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/stickelberger-class-family",
+    "verdict": "verified",
+    "note": "The actual idelic quotient and Rubin's fixed local functional are imported; (1−j) kills the global-unit contribution and the family has trivial real corestriction. Source check: RUBIN-ES, Chapter III §4.1–4.3, printed pp. 40–42; Appendix D Definition 1.2 and Lemma 1.4, printed pp. 164–165."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/euler-factor-variant",
+    "verdict": "verified",
+    "note": "Euler-factor replacement preserves the trivial coefficient representation ℤ_p and changes only the norm polynomial to 1−q⁻¹x; the erroneous draft twist is recorded as E18. Source check: RUBIN-ES, Chapter IX §6, Lemma 6.1 and Example 6.2, printed pp. 141–143; Chapter III §4.1, printed pp. 40–42."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-derivative-classes",
+    "verdict": "verified",
+    "note": "The specialized derivative class imports ES.3's descent construction and all admissibility hypotheses; it is not merely an invariant class upstairs. Source check: RUBIN-ES, Chapter IV §4, Definition 4.1, printed p. 62; Definition 4.10 and Lemma 4.13, printed pp. 66–67."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L1/cyclotomic-local-relation",
+    "verdict": "verified",
+    "note": "Finite and singular localizations use the same chosen cyclic generator and retain the generator-free tensor factor; no unsupported finite local condition at p is asserted. Source check: RUBIN-ES, Chapter IV Theorems 5.1 and 5.4, Corollary 5.5, printed pp. 67–68."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L3/finite-layer-comparison",
+    "verdict": "verified",
+    "note": "The exact bounded circular-unit norm-descent target is stated, with class-side control imported by node id. Its unread control proof remains G1, so this target is planned rather than claimed proved. Source check: RUBIN-ES, Chapter III §2, proof of Corollary 2.8, printed p. 38 (citing Mazur–Wiles §1.6 and Rubin’s appendix p. 414)."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L4/relative-class-group-bound-odd",
+    "verdict": "corrected",
+    "note": "Restored faithfulness on the cyclic p-Sylow subgroup from Theorem 4.1. Only prime-to-p-kernel descent is used; the odd-prime split comparison remains the explicit gap G2. Source check: GREITHER-1992, Greither, Theorem 4.1, printed pp. 482–484, including the paragraph specifying that only the case p=2 is proved there."
+   },
+   {
+    "nodeId": "EulerSystemsCyclotomicMainConjecture:L0/stickelberger-annihilator",
+    "verdict": "verified",
+    "note": "The smoothed Stickelberger element is integral and annihilates the class group with arithmetic σ_a conventions. General Stickelberger and reciprocity are imported from their existing owners. Source check: RUBIN-ES, Chapter III §4, Definition 4.1 and equations (7)–(8), printed p. 40; Definition 4.2 and its following annihilation argument, printed p. 41."
+   }
+  ]
+ }
 }
