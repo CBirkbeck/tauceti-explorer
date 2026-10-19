@@ -58,15 +58,16 @@ theorem NormalizedToroidalModel.generic_toAux :
     NormalizedToroidalModel.generic f ≫ NormalizedToroidalModel.toAux f = f :=
   f.toNormalization_fromNormalization
 
-/-- README C7.5, `NormalizedToroidalModel.desc`: maps out of the normalized model into any
-integral factorization of `f`. -/
-noncomputable def NormalizedToroidalModel.desc {T : Scheme.{u}} (f₁ : X ⟶ T) (f₂ : T ⟶ Y)
+/-- README C7.5, `NormalizedToroidalModel.factorizationDesc`: maps out of the normalized model into any
+integral factorization of `f`. This outgoing property is distinct from the README incoming
+normal-test lifting target `NormalizedToroidalModel.desc`. -/
+noncomputable def NormalizedToroidalModel.factorizationDesc {T : Scheme.{u}} (f₁ : X ⟶ T) (f₂ : T ⟶ Y)
     [IsIntegralHom f₂] (H : f = f₁ ≫ f₂) : NormalizedToroidalModel f ⟶ T :=
   f.normalizationDesc f₁ f₂ H
 
-theorem NormalizedToroidalModel.generic_desc {T : Scheme.{u}} (f₁ : X ⟶ T) (f₂ : T ⟶ Y)
+theorem NormalizedToroidalModel.generic_factorizationDesc {T : Scheme.{u}} (f₁ : X ⟶ T) (f₂ : T ⟶ Y)
     [IsIntegralHom f₂] (H : f = f₁ ≫ f₂) :
-    NormalizedToroidalModel.generic f ≫ NormalizedToroidalModel.desc f f₁ f₂ H = f₁ :=
+    NormalizedToroidalModel.generic f ≫ NormalizedToroidalModel.factorizationDesc f f₁ f₂ H = f₁ :=
   f.toNormalization_normalizationDesc f₁ f₂ H
 
 /-- Test `NormalizedToroidalModel.identity_test` (degenerate case): if the generic model is
@@ -143,39 +144,18 @@ example (p : ℕ) : p * p ^ 2 * p = p ^ 4 := by ring
 
 end TauCetiRoadmap.ShimuraCompactificationsPartII
 
-/-! ## Targets not typed at the pins
+/-! ## README targets and conventions
 
-The following packet names (definitions, API items and unit tests) are README targets: their
-carriers (Shimura varieties of Hodge type and their toroidal and minimal compactifications,
-auxiliary Siegel data, PEL moduli with lattice collections, 1-motives and their realizations,
-log Dieudonné crystals, semistable comparison maps, Siegel and genus-two models over ℤ_p, GSpin
-data) do not exist at the pinned Mathlib and Tau Ceti, so they are specified in the roadmap
-document and not stated here. Theorems without a carrier are likewise README-only.
+The reader document specifies every heavy target, with its hypotheses, proof, source locator,
+API and tests. No missing carrier is replaced by an opaque type or a sorry'd data definition.
+In particular, the full-Iwahori order-p finite extension (README C13.7) is a separately glued
+finite-flat group, not the literal boundary kernel. Its Klingen adaptation uses the two end
+pieces of the partial flag and their Cartier-dual gluing.
+The proposed general PEL relative-lci transfer is conditional as well.
 
-- README C7.1 (Auxiliary Siegel data for a Shimura datum): `AuxiliarySiegelDatum`, `AuxiliarySiegelDatum.genericMap`, `AuxiliarySiegelDatum.single`, `AuxiliarySiegelDatum.zarhin`, `AuxiliarySiegelDatum.union`, `AuxiliarySiegelDatum.restrictLevel`, `AuxiliarySiegelDatum.hecke`, `AuxiliarySiegelDatum.modularCurve_test`, `AuxiliarySiegelDatum.trivial_test`, `AuxiliarySiegelDatum.nonSelfDual_test`, `AuxiliarySiegelDatum.iwahori_test`
-- README C7.3 (Induced cone decompositions): `inducedConeDecomposition`, `inducedConeDecomposition_admissible`, `inducedConeDecomposition_complete`, `inducedConeDecomposition_refine`, `inducedConeDecomposition_face`, `inducedConeDecomposition_siegel_test`, `inducedConeDecomposition_modular_test`
-- README C7.5 (The normalized toroidal model): `NormalizedToroidalModel.proper_flat`, `NormalizedToroidalModel.interior`, `NormalizedToroidalModel.baseChange_etale`, `NormalizedToroidalModel.gamma0_test`, `NormalizedToroidalModel.compatible_test`, `NormalizedToroidalModel.notSmooth_test`
-- README C7.8 (Normalized boundary towers and twisted torus embeddings): `NormalizedBoundaryTower`, `NormalizedBoundaryTower.torusEmbedding`, `NormalizedBoundaryTower.closedStratum`, `NormalizedBoundaryTower.generic`, `NormalizedBoundaryTower.conj`, `NormalizedBoundaryTower.siegel_test`, `NormalizedBoundaryTower.tate_test`, `NormalizedBoundaryTower.notTorsor_test`
-- README C7.9 (Normalized strata of the toroidal model): `normalizedStratum`, `normalizedStratum_iso_closedStratum`, `normalizedStratum_generic`, `normalizedStratum_interior_test`, `normalizedStratum_cusp_test`, `normalizedStratum_notClosed_test`
-- README C7.10 (Normalized models over the cyclotomic integers): `CyclotomicNormalizedModel`, `CyclotomicNormalizedModel.colimit`, `CyclotomicNormalizedModel.toBaseChange`, `CyclotomicNormalizedModel.normal_flat`, `CyclotomicNormalizedModel.trivial_test`, `CyclotomicNormalizedModel.notIso_test`, `CyclotomicNormalizedModel.notNoetherian_test`
-- README C8.1 (PEL data with a collection of lattices): `PELLatticeCollection`, `PELLatticeCollection.moduli`, `PELLatticeCollection.aux`, `PELLatticeCollection.sub`, `PELLatticeCollection.toAuxiliarySiegel`, `PELLatticeCollection.singleton_test`, `PELLatticeCollection.parahoric_test`, `PELLatticeCollection.paramodular_test`, `PELLatticeCollection.notGood_test`
-- README C8.2 (Normalized interior and minimal models): `PELNormalizedModel`, `PELNormalizedModel.family`, `PELNormalizedMinimal`, `PELNormalizedMinimal.ample`, `PELNormalizedMinimal.projective_normal_flat`, `PELNormalizedMinimal.good_test`, `PELNormalizedMinimal.modular_test`, `PELNormalizedModel.levelOnlyGeneric_test`
-- README C8.4 (Putative boundary charts by normalization): `PutativeBoundaryChart`, `PutativeBoundaryChart.embedding`, `PutativeBoundaryChart.smooth_of_smoothCone`, `PutativeBoundaryChart.formalCompletion`, `PutativeBoundaryChart.generic`, `PutativeBoundaryChart.good_test`, `PutativeBoundaryChart.tate_test`, `PutativeBoundaryChart.nonsmooth_test`
-- README C9.1 (Realizations of 1-motives): `OneMotive`, `OneMotive.torsion`, `OneMotive.tateModule`, `OneMotive.deRham`, `OneMotive.dual`, `OneMotive.betti`, `OneMotive.ofAbelian`, `OneMotive.tate_test`, `OneMotive.weight_test`, `OneMotive.abelian_test`, `OneMotive.notPure_test`
-- README C9.4 (The log Dieudonné crystal of a degenerating abelian scheme): `LogDieudonneCrystal`, `LogDieudonneCrystal.weight`, `LogDieudonneCrystal.dual`, `LogDieudonneCrystal.deRham`, `LogDieudonneCrystal.good`, `LogDieudonneCrystal.residue`, `LogDieudonneCrystal.tate_test`, `LogDieudonneCrystal.good_test`, `LogDieudonneCrystal.notCrystal_test`
-- README C9.6 (The canonical φ-module at a boundary point): `CanonicalPhiModule`, `CanonicalPhiModule.lieIso`, `CanonicalPhiModule.monodromy`, `CanonicalPhiModule.baerSum`, `CanonicalPhiModule.independent`, `CanonicalPhiModule.tate_test`, `CanonicalPhiModule.good_test`, `CanonicalPhiModule.positivity_test`
-- README C11.1 (p-integral Hodge embeddings): `PIntegralHodgeEmbedding`, `PIntegralHodgeEmbedding.toAuxiliary`, `PIntegralHodgeEmbedding.sum`, `PIntegralHodgeEmbedding.tensors`, `PIntegralHodgeEmbedding.siegel_test`, `PIntegralHodgeEmbedding.paramodular_test`, `PIntegralHodgeEmbedding.unitary_test`
-- README C12.1 (The Hodge line on the normalized toroidal model): `hodgeLine`, `hodgeLine_pullback_refinement`, `hodgeLine_independent`, `hodgeLine_boundary`, `hodgeLine_interior`, `hodgeLine_modular_test`, `hodgeLine_zeroDim_test`, `hodgeLine_notAmple_test`
-- README C12.3 (Fourier–Jacobi expansions on Hodge-type models): `fourierJacobi`, `fourierJacobi_indep_cone`, `fourierJacobi_support`, `fourierJacobi_conj`, `fourierJacobi_constantTerm`, `fourierJacobi_modular_test`, `fourierJacobi_interior_test`, `fourierJacobi_negative_test`
-- README C12.4 (The minimal compactification of Hodge type): `MinimalCompactification`, `MinimalCompactification.contraction`, `MinimalCompactification.ample`, `MinimalCompactification.stratum`, `MinimalCompactification.lift`, `MinimalCompactification.koecher`, `MinimalCompactification.modular_test`, `MinimalCompactification.siegel_test`, `MinimalCompactification.koecherFails_test`, `MinimalCompactification.compact_test`
-- README C13.1 (Siegel moduli of polarization type δ): `siegelTypeLocus`, `siegelTypeLocus_generic`, `siegelTypeLocus_decomposition`, `siegelTypeLocus_level`, `siegelTypeLocus_principal_test`, `siegelTypeLocus_paramodular_test`, `siegelTypeLocus_typeTwo_test`, `siegelTypeLocus_notSmooth_test`
-- README C13.2 (Toroidal models of Siegel varieties at arbitrary level at p): `DeepLevelToroidalModel`, `DeepLevelToroidalModel.interior`, `DeepLevelToroidalModel.normal_proper_flat`, `DeepLevelToroidalModel.strata`, `DeepLevelToroidalModel.cyclotomic`, `DeepLevelToroidalModel.hyperspecial_test`, `DeepLevelToroidalModel.trivial_test`, `DeepLevelToroidalModel.noBoundaryComponent_test`
-- README C13.4 (The Iwahori-level normalized model and its isogeny chain): `IwahoriNormalizedModel.chain`, `IwahoriNormalizedModel.flag`, `IwahoriNormalizedModel.dual`, `IwahoriNormalizedModel.n0_test`
-- README C14.1 (Klingen and paramodular level for GSp_4): `paramodularGroup`, `klingenGroup`, `klingenParamodular_collection`, `klingenChain`, `paramodularLattice_disc_test`
-- README C14.2 (Klingen and paramodular boundary charts): `klingenChart`, `paramodularChart`, `goodConeDecomposition`, `goodConeDecomposition_cofinal`, `klingenChart_rank_test`, `paramodularChart_rankOne_test`, `goodConeDecomposition_smooth_test`
-- README C14.6 (The compactified T_{p,2}-correspondence over ℤ_p): `TP2Correspondence`, `TP2Correspondence.isogeny`, `TP2Correspondence.generic`, `TP2Correspondence.degree`, `TP2Correspondence.interior_test`, `TP2Correspondence.notFinite_test`
-- README C14.7 (Automorphic sheaves of genus two at Klingen and paramodular level): `genusTwoSheaf`, `genusTwoSheaf_cusp`, `genusTwoSheaf_refinement`, `genusTwoSheaf_cohomology_indep`, `genusTwoSheaf_canonicalExtension`, `genusTwoSheaf_rank_test`, `genusTwoSheaf_det_test`, `genusTwoSheaf_pullbackIdeal_test`
-- README C14.8 (Minimal compactifications at Klingen and paramodular level): `paramodularMinimal`, `klingenMinimal`, `klingenMinimal_detDescends`, `klingenMinimal_finite_prankOne`, `klingenMinimal_prankOneLocus`, `paramodularMinimal_generic_test`, `klingenMinimal_boundaryDim_test`, `klingenMinimal_notFinite_test`
-- README C15.1 (The GSpin Shimura datum and its Kuga–Satake embedding): `GSpinDatum`, `GSpinDatum.kugaSatake`, `GSpinDatum.integral`, `GSpinDatum.dim`, `GSpinDatum.spinGroup`, `GSpinDatum.n1_test`, `GSpinDatum.n2_test`, `GSpinDatum.n3_test`, `GSpinDatum.definite_test`
-- Theorems stated in the README only: C7.2, C7.4, C7.6, C7.7, C8.3, C8.5, C8.6, C8.7, C8.8, C8.9, C8.10, C9.2, C9.3, C9.5, C9.7, C9.8, C10.1, C10.2, C10.3, C10.4, C10.5, C10.6, C10.7, C10.8, C10.9, C10.10, C10.11, C10.12, C10.13, C11.2, C11.3, C11.4, C11.5, C11.6, C12.2, C12.5, C12.6, C12.7, C13.3, C13.5, C13.6, C14.3, C14.4, C14.5, C14.9, C15.2, C15.3, C15.4.
+Build C12 before C11. De Rham cohomology in C9 is dual to the homological bundle used in C11.
+At infinite cyclotomic level maps are integral; finite-level finiteness is a separate assertion.
+`Matrix.symplecticGroup` provides Sp, not GSp. The imports here provide no GSpin Shimura datum.
+The arithmetic degree examples above remain valid for n=0, when all Iwahori chain maps are
+identities; nontrivial order-p gluing concerns n=1.
 -/
