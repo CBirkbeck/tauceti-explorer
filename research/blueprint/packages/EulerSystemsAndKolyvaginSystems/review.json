@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-EulerSystemsAndKolyvaginSystems",
+    "date": "2026-10-19",
+    "notes": "Complete independent fixing review. Corrected infinite-bound primitivity criteria, Stark finite-difference domains, self-dual parity, away-from-p universal-norm scope, Selmer diamond labels, weak-system correction semantics, character/CM conventions and definition checks. Not ready for an upstream draft: missing maximal/hereditary centralizer-order inputs (4.8/4.12), general self-injective-R arithmetic Selmer duality (Layers 0/6/7), coefficient-prime ordinary control and correction targets (8.34–8.36), an explicit chi-ray local congruence for the third rigidity alternative (2.8/3.16), and a global proof audit of the repaired MR16 Frobenius-field hypothesis (1.13; Layers 6–7). The printed local field error is corrected and has a concrete counterexample. The inherited uniform all-prime square-index theorem remains a separate unfilled application boundary. See the report for source inspection, all-target adversarial pass and validation."
+  }
+}

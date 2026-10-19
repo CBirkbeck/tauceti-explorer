@@ -56,6 +56,8 @@ Frobenius is arithmetic unless a formula explicitly takes its inverse. Nekovář
 
 For truncated coefficients R/m^k, divisibility indices lie between 0 and k and the zero class has index k. Stable divisibility comes from a limit, rather than equality of every finite-level index. An annihilator exponent, a module length and a square-index formula are different invariants. An ordinary filtration on a self-dually twisted higher-weight representation retains the twist on the quotient; it is not assumed unramified.
 
+Every use of the MR16 hypotheses below means the corrected finite-Galois-field contract in Layer 1.13. Its local Frobenius assertion is justified there; the global theorem and application comparisons remain conditional on the stated compatibility input.
+
 ## Exact supplier contracts
 
 From Mathlib use `Module.length`, `Module.equiv_directSum_of_isTorsion`, `IsDiscreteValuationRing`, polynomial division by `X−C a`, exterior powers and linear duals, with their finite-generation and ring hypotheses. From Tau Ceti use `TauCeti.ContCohomology.H1`, `TauCeti.coind`, `TauCeti.ContCohomology.explicitShapiro1`, the discrete coefficient category and the named cohomology maps. `Suggested.lean` imports `Mathlib`; its retained signatures use only Mathlib carriers. Discrete arithmetic cohomology is consumed by the README targets, with its coefficient adapters as specified below. Its representative statements use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
@@ -102,7 +104,7 @@ Use the commutative Gorenstein-order and character-group-ring duality of Layer 6
 
 ### From SelmerIwasawaCohomology Layer 2
 
-General-coefficient extension of the existing O-adic Selmer layer: canonical continuous H¹ on TopRep over complete noetherian local R; quotient and discrete Cartier-dual carriers, local Tate pairings compatible with quotient/submodule propagation, unramified and transverse exact annihilators; MR04 Proposition 2.3.5 and Theorem 2.3.4 (finite global length formula and change-of-condition sequence); BSS II Theorem 3.1 over commutative noetherian self-injective local R, with finitely generated modules and dual Hom_R(−,R). The compact DVR case retains the discrete torsion dual. Use this general-R interface for every general-coefficient assertion below. Also supply the actual cocycle formula for the induced integral local map: its image propagates the lattice canonical condition at p and infinity, rather than replacing that image by the full finite-coefficient local H¹. Retain the finite-level reflexivity and zero-conductor conditions in the rank-one bidual/ordinary Kolyvagin comparison. Supply the finite-localization criterion used in LTXZZ Proposition 2.4.6: purity of weight −1 and conjugate self-duality imply finite torsion local lattice conditions away from ℓ, uniformly annihilated before reduction modulo λ^m. This interface states the resulting finite-torsion criterion and its uniform consequence explicitly. State these on the coefficient category the coefficient interface uses: coefficient rings complete noetherian local with finite residue field of characteristic p in the m-adic topology; compact coefficients of finite type with the module topology and jointly continuous action; discrete m-power-torsion coefficients of cofinite type with open stabilisers; Selmer supports containing S_p ∪ S_∞ and the ramified primes, kept by duality, propagation and modification.
+General-coefficient extension of the existing O-adic Selmer layer: canonical continuous H¹ on TopRep over complete noetherian local R; quotient and discrete Cartier-dual carriers, local Tate pairings compatible with quotient/submodule propagation, unramified and transverse exact annihilators; MR04 Proposition 2.3.5 and Theorem 2.3.4 (finite global length formula and change-of-condition sequence); BSS II Theorem 3.1 over commutative noetherian self-injective local R, with finitely generated modules and dual Hom_R(−,R). The compact DVR case retains the discrete torsion dual. Use this general-R interface for every general-coefficient assertion below. **Unsupplied prerequisite:** the named SelmerIwasawaCohomology Layer 2 gives O-lattice/rational/discrete propagation; it does not yet state the general self-injective-R Selmer duality and finite-level BSS II Theorem 3.1 needed in Layers 6–7. Their general-R statements remain conditional on that extension, including its compatible R-linear arithmetic pairings. Also supply the actual cocycle formula for the induced integral local map: its image propagates the lattice canonical condition at p and infinity, rather than replacing that image by the full finite-coefficient local H¹. Retain the finite-level reflexivity and zero-conductor conditions in the rank-one bidual/ordinary Kolyvagin comparison. Supply the finite-localization criterion used in LTXZZ Proposition 2.4.6: purity of weight −1 and conjugate self-duality imply finite torsion local lattice conditions away from ℓ, uniformly annihilated before reduction modulo λ^m. This interface states the resulting finite-torsion criterion and its uniform consequence explicitly. State these on the coefficient category the coefficient interface uses: coefficient rings complete noetherian local with finite residue field of characteristic p in the m-adic topology; compact coefficients of finite type with the module topology and jointly continuous action; discrete m-power-torsion coefficients of cofinite type with open stabilisers; Selmer supports containing S_p ∪ S_∞ and the ramified primes, kept by duality, propagation and modification.
 
 This supplies Layer 0.6 The canonical and the unramified Selmer structures; Layer 0.3 Cartesian local conditions; Layer 0.9 Core rank of the canonical and unramified structures; Layer 0.8 The core rank is independent of the modulus; Layer 0.2 The category of quotients of T; the supplier propagation–duality compatibility Propagation commutes with local duality; the supplier finite Greenberg–Wiles formula The Euler characteristic formula for Selmer modules; Layer 0.5 Selmer modules of quotients and torsion submodules; Layer 0.1 Selmer triples and squarefree conductors; Layer 1.2 Finite and singular parts at an unramified prime; Layer 1.9 The Selmer structures F_a^b(c); Layer 1.3 Exponents, orders and reducibility depth; Layer 1.10 The transverse condition is self-dual; Layer 4.17 Self-dual descent with explicit error constants; Layer 4.16 Rubin's bound with error terms; Layer 4.3 Rubin's hypotheses, index of divisibility and error terms; Layer 4.2 Selmer lengths across an edge; Layer 5.5 The generalised Cassels pairing and the structure R^ε ⊕ M ⊕ M; Layer 5.4 The Kolyvagin-constructed dual Selmer group; Layer 6.3 Selmer contractions and coefficient change; Layer 6.6 Freeness of Stark systems and control of the dual Selmer group; Layer 4.4 Localisation at abundant tuples with bounded loss.
 
@@ -115,6 +117,8 @@ This supplies Layer 1.2 Finite and singular parts at an unramified prime; Layer 
 ### From ClassicalArithmeticCompletion Layer 7
 
 Part II: for semisimple finite-dimensional ℚ_p-algebras, existence of maximal ℤ_p-orders, maximality of the centralizer lattice order, common-center identifications, conductor non-zero-divisors, Morita reduction with multiplicities, heredity/projectivity of maximal-order lattices, and cyclic decompositions over the maximal order of a local division algebra (Nekovář §6.4 pp.38–40, citing Curtis–Reiner26.5,26.12,26.20,26.23). ClassicalArithmeticCompletion Layer 7 already supplies existence of maximal orders, not the entire pairing theorem. Layer 4.8 proves the evaluation bound using these order-theoretic inputs. The current Tau Ceti module `TauCeti/RingTheory/Morita/Corner.lean` supplies `IsIdempotentElem.cornerEquivalence` and `moritaEquivalenceCorner` for a full idempotent; the additional maximal-order and division-order structure remains the stated ClassicalArithmeticCompletion Part II contract.
+
+**Unsupplied prerequisite.** ClassicalArithmeticCompletion Layer 7 plans maximal-order existence and arithmetic applications, but it does not state the centralizer-order maximality, hereditary-lattice splitting, multiplicity-sensitive Morita reduction or cyclic division-order decomposition used in Layer 4.8. This Part II contract needs its own targets with exact hypotheses and proofs; a request for it is not a supplied theorem. Layer 4.8 and its CM-point consumer Layer 4.12 remain conditional on this input.
 
 This supplies Layer 4.8 Uniform cokernel bound for a separated pairing over orders.
 
@@ -199,6 +203,8 @@ Layer 8.34 assumes the following arithmetic assertion for the two residual chara
 Part II local and change-of-condition interface at R=O[[Γ]]_(π) for the anticyclotomic tower and a rank-two ordinary self-dual modular lattice with H⁰(K,T/πT)=0: compact H¹ torsion-free, balanced full/zero compact/discrete Selmer ranks equal, local invariant and H² obstruction modules vanish at R, ordinary local group and full/ordinary quotient free of R-rank one, and Poitou–Tate exact sequences for (o,0)⊂(f,0) and (o,0)⊂(o,o) with dual structures (o,f),(0,f),(o,o) and involution ι. Include the higher-weight cyclotomic twist on T⁻. Primitive/unramified/strict local correction duals away from p have μ=0 at split primes, and the unramified/zero correction at the strict p-adic prime is O-finite (KY1.3.4–1.3.6 pp.19–23). The new Layer 8 comparison proves μ(X_ord,tors)=0 from these sequences; do not assume that conclusion as supplier data.
 
 This supplies Layer 8.35 From unramified μ-vanishing to the ordinary coefficient-prime bound; Layer 8.34 Residual transfer of anticyclotomic μ-vanishing.
+
+**Unsupplied prerequisite.** The SelmerIwasawaCohomology Layer 3 targets do not currently include this coefficient-prime comparison: the balanced full/zero rank equality, ordinary local rank-one freeness, obstruction vanishings and both displayed change-of-condition sequences with their correction terms require separate arithmetic targets. The existing SelmerIwasawaCohomologyPartII concerns height pairings and does not fill this contract. Layers 8.34–8.36 use it conditionally.
 
 ### Representative Lean signatures
 
@@ -445,6 +451,13 @@ The definition exposes the following operations and relations.
 - `canonicalStructure_relaxed_lattice`: At every place of S_p ∪ S_∞ the lattice canonical condition is all local H¹.
 - `canonicalStructure_quotient_ne_relaxed`: If the local coefficient reduction map on H¹ is not surjective, the propagated finite canonical condition at a relaxed lattice place is a proper submodule.
 - `unramifiedStructure_tate_twist_units`: For T = ℤ_p(1) over ℚ with p odd, the rational inertia kernel at p is zero while F_ur at p is free of rank one, so F_ur is not the inertia-kernel structure at p.
+- `unramifiedLayer_degree_one`: The base local field is an unramified layer and its corestriction is the identity; the intersection defining universal norms includes this harmless factor.
+- `unramifiedLayer_ramified_nonexample`: A nontrivial totally ramified extension is not an unramified layer. For an unramified layer of degree p^a the Kummer norm multiplies the valuation coordinate by p^a; a restriction map would give the wrong coordinate.
+- `universalNorms_tate_units`: For T=ℤ_p(1) over ℚ_p, p odd, identify H¹ with ℤ_p·p⊕(1+pℤ_p). Norms from unramified degree-p^a layers have valuation in p^aℤ_p and are surjective on units. Their intersection is exactly the unit summand, not zero and not all H¹.
+- `universalNorms_zero_coefficients`: For T=0 all layer cohomology groups, norm images and their intersection are zero.
+- `saturation_nonunit_index`: In M=ℤ_p, sat(pℤ_p)=ℤ_p whereas sat(0)=0. Saturation cannot mean closure in the p-adic topology.
+- `saturation_direct_summand`: In ℤ_p², sat(ℤ_p e₁)=ℤ_p e₁ and sat(pℤ_p e₁)=ℤ_p e₁; no nonzero e₂-coordinate is admitted.
+- `unramifiedStructure_zero`: Both canonical and unramified Selmer structures on the zero coefficient module have zero local condition at every place. For ℤ_p(1), their distinct p-adic conditions are respectively full H¹ and the saturated unit summand calculated above.
 
 For T = ℤ_p(1) ⊗ ρ^{-1} with ρ(p) ≠ 1, F_can equals the unit structure F of Mazur–Rubin 2004 §6.1 (Lemma 6.1.2).
 
@@ -496,8 +509,6 @@ The definition exposes the following operations and relations.
 The core rank is not the R-rank of T: Under the hypotheses of Layer 1.19 Worked example: the Tate module of an elliptic curve, for T = E[p^k], a module of rank 2, χ(T, F_can) = 1 and χ(T, F) = 0 for the classical Selmer structure.
 
 Additional arithmetic check: For K = ℚ, R = ℤ/p^k, ρ an even nontrivial character of order prime to p and T = μ_{p^k} ⊗ ρ^{-1} with the structure F of Mazur–Rubin 2004 Definition 6.1.1, χ(T, F) = 1; for ρ odd with ρ ≠ ω, χ(T, F) = 0.
-
-Additional arithmetic check: For E/ℚ and p ≥ 5 with surjective mod-p representation, T = E[p^k] has rank two, χ(T,F) = 0 for the classical Kummer structure, and χ(T,F_can) = 1 for the structure propagated from T_pE.
 
 Additional arithmetic check: Over R = k, replacing F by the structure relaxed at one prime q ∈ P_1 (so that H¹_s(K_q, T) is one-dimensional) raises r by exactly 1.
 
@@ -960,6 +971,9 @@ The definition exposes the following operations and relations.
 - `frobeniusSet_proper`: A Selmer Galois element outside q(N^α) is not realized by a γ-associated prime.
 - `frobeniusSet_fixed_evaluation`: Every realized Frobenius evaluation is fixed by h_γ.
 - `isAbundant_zero_loss`: With m₀=d=0, abundance is surjectivity onto the fixed target, with every tuple entry realized by a γ-associated prime.
+- `isAbundant_rank_one_values`: On a rank-one target R=O/π^n, write b=m₀+𝔣(1)d_R<n. A realized evaluation given by multiplication by π^a contains π^bR exactly when a≤b. Thus a=b passes, a=b+1 fails, and the zero evaluation fails; if b≥n the containment alone is vacuous and does not certify realization by a prime.
+- `isAbundant_empty`: For S=0, r_S=0 and the target is zero, so the empty tuple is abundant. A nonempty tuple is not data of this required length.
+- `gammaAssociated_exclusions`: A ramified place or a place above ℓ or infinity is excluded even if a formal Frobenius label is supplied. In the trivial unramified extension with γ=1, every place away from those exclusions and unramified in F_S satisfies the Frobenius field; a place whose actual Frobenius is not γ fails it.
 
 For [F : F⁺] = 1 the printed Lemma 2.6.4 holds as stated.
 
@@ -1021,39 +1035,43 @@ The arbitrary-subquotient version is excluded by the counterexample in arbitrary
 
 ### 1.13 The Mazur–Rubin 2016 hypotheses (H.1)–(H.7) over a number field
 
-For Selmer data (T, F, P, r) over a number field K, let M be the smallest power of p with MR = 0 if R is artinian and M = p^∞ if R is a discrete valuation ring, H the Hilbert class field of K and H_M = H(μ_M, (O_K^×)^{1/M}). (H.1) T̄^{G_K} = (T̄^*)^{G_K} = 0 and T̄ is an absolutely irreducible k[[G_K]]-module. (H.2) There are τ ∈ Gal(K̄/H_M) and a finite Galois extension L of K in H_M such that T/(τ − 1)T is free of rank one over R and P(L, τ) ⊆ P, where P(L, τ) is the set of primes q ∉ Σ(F) unramified in L with Fr_q conjugate to τ in Gal(L/K). (H.3) H¹(H_M(T)/K, T/mT) = H¹(H_M(T)/K, T^*[m]) = 0. (H.4) Either T̄ ≇ T̄^* as k[[G_K]]-modules, or p > 3. (H.5) F is cartesian. (H.6) r = χ(T) > 0. For R artinian only: (H.7) I_q = 0 for every q ∈ P.
+For Selmer data (T, F, P, r) over a number field K, let M be the smallest power of p with MR = 0 if R is artinian and M = p^∞ if R is a discrete valuation ring, H the Hilbert class field of K and H_M = H(μ_M, (O_K^×)^{1/M}). (H.1) T̄^{G_K} = (T̄^*)^{G_K} = 0 and T̄ is an absolutely irreducible k[[G_K]]-module. (H.2) There are τ ∈ Gal(K̄/H_M) and a finite Galois extension L of K in K̄ such that T/(τ − 1)T is free of rank one over R and P(L, τ) ⊆ P, where P(L, τ) is the set of primes q ∉ Σ(F) unramified in L with Fr_q conjugate to τ in Gal(L/K). (H.3) H¹(H_M(T)/K, T/mT) = H¹(H_M(T)/K, T^*[m]) = 0. (H.4) Either T̄ ≇ T̄^* as k[[G_K]]-modules, or p > 3. (H.5) F is cartesian. (H.6) r = χ(T) > 0. For R artinian only: (H.7) I_q = 0 for every q ∈ P.
 
 The precise hypotheses are K a number field; R principal artinian or a discrete valuation ring.
 
-([Barry Mazur and Karl Rubin, Controlling Selmer groups in the higher core rank case](https://arxiv.org/abs/1312.4052v1), §4, hypotheses (H.1)–(H.7), p. 9). The list of running hypotheses.
+([Barry Mazur and Karl Rubin, Controlling Selmer groups in the higher core rank case](https://arxiv.org/abs/1312.4052v1), §4, hypotheses (H.1)–(H.7), p. 9). The running hypotheses, with the Frobenius-field repair specified below.
 
-([Barry Mazur and Karl Rubin, Controlling Selmer groups in the higher core rank case](https://arxiv.org/abs/1312.4052v1), Lemma 4.5, p. 9). How (H.7) is obtained.
+([Barry Mazur and Karl Rubin, Controlling Selmer groups in the higher core rank case](https://arxiv.org/abs/1312.4052v1), Lemma 4.5, p. 9). The local argument for (H.7), requiring the representation-field repair below.
 
 The fields are stated with Layer 1.4 The ideals I_q, I_n and the groups G_q, G_n (I_q) and Layer 1.7 Kolyvagin primes: P_k, P(L, τ) and R_{F,M} (P(L, τ)).
 
 If the properties hold for (T, F, P, r) they hold for T/m^k over R/m^k (Remark 4.3).
 
-If R is artinian and (H.1)–(H.6) hold, then (H.1)–(H.7) hold after replacing L by H_M and P by P(H_M, τ) (Lemma 4.5): Fr_q fixes H so q is principal, and [K(q)_q : K_q] is divisible by M.
+**Unresolved Frobenius-field compatibility.** The (H.2) contract above allows L⊆K̄. The printed (H.2) instead puts L inside H_M, both in arXiv v1 §4 p.9 and in the [published paper](https://jtnb.centre-mersenne.org/item/10.5802/jtnb.933.pdf), §4 p.154. Lemma 4.5 (published p.155) uses P(H_M,τ) to infer that Fr_q and τ have isomorphic coinvariants on T. Their images in Gal(H_M/K) alone do not determine that action. For example, take K=ℚ, R=𝔽₅, T the rank-one character of ℚ(√2)/ℚ, τ=1 and q=11. Here H_M=ℚ(μ₅), q splits in H_M, and T/(τ−1)T=T; but Fr₁₁=−1 on T, so its coinvariants vanish and I₁₁=R. This disproves the printed local assertion under its stated hypotheses. More generally, when T has rank greater than one and R is artinian, the printed L⊆H_M would force P to contain primes splitting in H_M(T), contradicting (H.7) at those primes. The general higher-rank applications therefore require the corrected field contract, not a literal appeal to that wording. The proof that the full MR16 theory and its examples satisfy this repaired contract remains an input to its uses in Layers 6–7.
+
+The local assertion that does follow is: for R artinian, τ fixing H_M and T/(τ−1)T free of rank one, q∈P(H_M(T),τ) implies I_q=0. Indeed H_M makes q principal and makes [K(q)_q:K_q] divisible by M through the residue-unit quotient; the additional representation field identifies the Frobenius action on T with a conjugate of τ. Given the corrected (H.2) with some L, replace the prime set by P(L·H_M(T),τ), which is contained in P and satisfies (H.7). Its finite Galois field is allowed by the corrected contract. Compatibility of this repair with every global theorem, quotient and application is an explicit unresolved input; it is not supplied by the faulty printed lemma.
 
 The definition exposes the following operations and relations.
 
 - `TauCeti.KolyvaginSystems.MR16Hypotheses`: The record with fields invariantsAndIrreducible (H.1), tau (H.2: τ, L and the inclusion P(L, τ) ⊆ P), h1Vanishing (H.3), notSelfDualOrLarge (H.4), cartesian (H.5), coreRank (H.6).
 - `TauCeti.KolyvaginSystems.MR16Hypotheses.IsArtinianAdmissible`: (H.7): I_q = 0 for all q ∈ P, for R artinian.
 - `TauCeti.KolyvaginSystems.MR16Hypotheses.quotient`: The record for (T, F, P, r) gives the record for (T/m^kT, F, P, r) over R/m^k.
-- `TauCeti.KolyvaginSystems.MR16Hypotheses.artinianAdmissible_of_frobenius`: If R is artinian and q ∈ P(H_M, τ) then I_q = 0; so (H.7) holds for P(H_M, τ).
-- `TauCeti.KolyvaginSystems.MR16Hypotheses.of_mr04`: For K = ℚ and p odd, a triple satisfying (H.0)–(H.4), (H.6) of 2004 with χ(T) = r > 0 and P ⊇ P(L, τ) for some finite L ⊆ ℚ(μ_M) satisfies the 2016 record; here 2004 (H.4a) gives the first alternative of 2016 (H.4) and p > 4 is p > 3.
+- `TauCeti.KolyvaginSystems.MR16Hypotheses.artinianAdmissible_of_frobenius`: If R is artinian and q ∈ P(H_M(T), τ), with τ fixing H_M and rank-one coinvariants on T, then I_q = 0. Refining further by L gives (H.7) inside the prime set from corrected (H.2).
+- `TauCeti.KolyvaginSystems.MR16Hypotheses.of_mr04`: For K = ℚ and p odd, a triple satisfying (H.0)–(H.4), (H.6) of 2004 with χ(T) = r > 0 and P ⊇ P(L, τ) for some finite Galois L ⊆ ℚ̄ is the intended bridge to the corrected 2016 record; its full proof is part of the unresolved compatibility input above; here 2004 (H.4a) gives the first alternative of 2016 (H.4) and p > 4 is p > 3.
 
 **Checks.**
 
 - `MR16Hypotheses.positive_rank`: MR16 admissibility excludes core rank zero.
 - `MR16Hypotheses.infinite_primes`: The required Frobenius containment forces the selected prime set to be infinite.
 - `MR16Hypotheses.not_empty_primes`: The empty selected prime set admits no MR16 hypothesis data.
+- `MR16Hypotheses.representation_field_required`: For the 𝔽₅-character of ℚ(√2), q=11 splits in H_M but has zero coinvariants; replacing H_M(T) by H_M would falsely force I₁₁=0.
+- `MR16Hypotheses.refine_frobenius_set`: The field L·H_M(T) fixes both containment in the allowed prime set and the rank-one coinvariants; H_M alone fixes neither representation action nor that rank.
 
-Satisfied by T = T_pA for an abelian variety with large image and p > 3, with r = d[K : ℚ] (Mazur–Rubin 2016, §5).
+The intended large-image application is T=T_pA for an abelian variety and p>3, with r=d[K:ℚ] (Mazur–Rubin 2016, §5); the repaired (H.2) verification is part of the unresolved input above.
 
 (H.6) excludes core rank zero: it is a hypothesis on (T, F), not a consequence of the others.
 
-Additional arithmetic check: For an abelian variety A of dimension d over K with image of G_K in Aut(A[p]) containing GSp_{2d}(𝔽_p) and p > 3, T = T_pA with the structure of Mazur–Rubin 2016 §5 satisfies (H.1)–(H.6) with r = d[K : ℚ].
+Additional arithmetic check: For an abelian variety A of dimension d over K with image of G_K in Aut(A[p]) containing GSp_{2d}(𝔽_p) and p > 3, the application target is (H.1)–(H.6) for T=T_pA with the structure of Mazur–Rubin 2016 §5 and r=d[K:ℚ]; the corrected Frobenius-field verification must be supplied.
 
 Additional arithmetic check: T = E[p^k] with the classical Selmer structure has χ = 0, so (H.6) fails for every r ≥ 1 although (H.1)–(H.5) can hold.
 
@@ -1197,6 +1215,8 @@ kχ(T, F) = length H¹_F − length H¹_{F^*} = length (O_L^×/(O_L^×)^{p^k})^�
 Propagation: the structure on T/p^i is the unit structure for μ_{p^i} ⊗ ρ^{-1}; the dual condition is the unramified one on Hom(G_{L_λ}/I_λ, ℤ/p^k)^{ρ^{-1}}.
 
 The computed core rank matches Layer 0.9 Core rank of the canonical and unramified structures: rank T^− + corank H⁰(ℚ_p, T^*) for F_can.
+
+Here ρ(p) is the Dirichlet-character value: it is the unramified Frobenius value when ρ is unramified at p and is 0 when its conductor is divisible by p. Thus the assertion F=F_can includes that ramified branch.
 
 For finite-order ρ unramified at p with ρ(p)=1, the propagated condition at p for F_can on T/p^k is all H¹(ℚ_p,T/p^k), since the dual invariants on the lattice are divisible (Lemma A.1). It differs from the unit structure F.
 
@@ -1548,7 +1568,13 @@ Additional arithmetic check: X_{F(r)} is not free over O[Gal(F(r)/K)] in general
 
 ### 2.8 Variants: rigidity conditions, finite depth and anticyclotomic systems
 
-(a) Rigidity. Without condition (ii) of an admissible tower the class c_K can be unconstrained: if K has class number one, P(Fr_q^{-1} | T^*; 1) = 0 for every q ∤ N and 𝒦 is the maximal abelian extension unramified at every prime dividing N, the only relations involving c_K are Cor_{F/K}c_F = ∏_{q ∈ Σ(F/K)} P(Fr_q^{-1} | T^*; 1)c_K = 0, and the family c_F = 0 (F ≠ K), c_K arbitrary is an Euler system. Condition (ii) is therefore replaced by (ii)′: at least one of (a) 𝒦 contains a ℤ_p^d-extension of K in which no finite prime splits completely; (b) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, and there is γ ∈ G_K with γ = 1 on K(1)(μ_{p^∞}, (O_K^×)^{1/p^∞}) and γ − 1 injective on T; (c) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, Fr_q^n − 1 is injective on T for every prime q ∤ N and every power n of p, and the family {c_{K(r)}} satisfies the congruence of Corollary IV.8.1. Under (ii)′ and T^{G_{K(1)}} = 0, Theorems II.2.2, II.2.3 and II.2.10 hold as stated. (b) Finite depth. For 0 ≠ M ∈ O an Euler system for W_M (of depth M) is a family as in the definition with c_F ∈ H¹(F, W_M). (c) Anticyclotomic. For a character χ of Gal(K′/K) of order d and an abelian extension 𝒦′/K′ on which Gal(K′/K) acts through χ, a χ-anticyclotomic Euler system for (T, 𝒦′, N) is a family c_F ∈ H¹(F, T), K′ ⊂_f F ⊆ 𝒦′, with the corestriction relations for primes q of K and one of the three rigidity conditions adapted to χ. (d) An Euler system is trivial at a finite set Σ of primes not dividing p if c_F ∈ S_Σ^{Σ_p}(F, T) for all F.
+(a) Rigidity. Without condition (ii) of an admissible tower the class c_K can be unconstrained: if K has class number one, P(Fr_q^{-1} | T^*; 1) = 0 for every q ∤ N and 𝒦 is the maximal abelian extension unramified at every prime dividing N, the only relations involving c_K are Cor_{F/K}c_F = ∏_{q ∈ Σ(F/K)} P(Fr_q^{-1} | T^*; 1)c_K = 0, and the family c_F = 0 (F ≠ K), c_K arbitrary is an Euler system. Condition (ii) is therefore replaced by (ii)′: at least one of (a) 𝒦 contains a ℤ_p^d-extension of K in which no finite prime splits completely; (b) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, and there is γ ∈ G_K with γ = 1 on K(1)(μ_{p^∞}, (O_K^×)^{1/p^∞}) and γ − 1 injective on T; (c) c_{K(r)} ∈ S^{Σ_p}(K(r), T) for every r, Fr_q^n − 1 is injective on T for every prime q ∤ N and every power n of p, and the family {c_{K(r)}} satisfies the congruence of Corollary IV.8.1. Under (ii)′ and T^{G_{K(1)}} = 0, Theorems II.2.2, II.2.3 and II.2.10 hold as stated. (b) Finite depth. For 0 ≠ M ∈ O an Euler system for W_M (of depth M) is a family as in the definition with c_F ∈ H¹(F, W_M). (c) Anticyclotomic. Fix d|p−1, χ:G_K→ℤ_p^× of exact order d, and K′=K^{ker χ}. For q∤p let K′(q)_χ be the maximal p-extension inside the ray class field of K′ of modulus qO_{K′} on whose Galois group Gal(K′/K) acts by χ; K′(1)_χ is its unramified counterpart. Require 𝒦′/K′ to be an abelian p-extension, Galois over K, with this χ-action, containing K′(q)_χ for all q∤N. The ideal N contains p, the conductor of χ and the ramification of T. A χ-anticyclotomic Euler system is a family c_F∈H¹(F,T), K′⊆F⊆𝒦′ finite over K′, with the corestriction relation of Layer 2.2, now indexed by primes q of K and rational-to-K Frobenius acting on T and on F. Its rigidity hypothesis is one of:
+
+- 𝒦′ contains a ℤ_p^d-extension of K′ with no completely split finite prime and with χ-conjugation action.
+- Every χ-ray class c_{K′(r)_χ} is in S^{Σ_p}, and there is γ∈G_K with ε_cyc(γ)=χ(γ), with γ^d fixing K′(1)_χ(μ_{p^∞},(O_{K′}^×)^{1/p^∞}), and with γ−1 injective on T.
+- Every χ-ray class is in S^{Σ_p}, every Fr_q^{p^a}−1 on T is injective for q∤N and a≥0, and the χ-ray version of the local congruence holds. **Gap:** Rubin IX.4.1(c) only specifies an analogue of IV.8.1; the exact semilocal formula, integral denominator and Frobenius action for this alternative still require a target and proof. The explicit alternatives above do not supply that missing third alternative.
+
+The finite–singular map on semilocal χ-ray cohomology sends the χ^i-part to the χ^{i−1}-part, as fixed in Layer 3.16; it is not an equivariant map after removing its G_q factor. (d) An Euler system is trivial at a finite set Σ of primes not dividing p if c_F ∈ S_Σ^{Σ_p}(F, T) for all F.
 
 The precise hypotheses are as in each variant.
 
@@ -1578,6 +1604,15 @@ The definition exposes the following operations and relations.
 - `IsRigid.of_admissible`: An admissible tower supplies the rigidity conditions.
 - `not_isRigid_failed_unramified`: Without an infinite direction, a family failing the ray unramified condition is not rigid.
 - `IsRigid.of_injective_direction`: The ray unramified condition together with an injective γ−1 direction in H_M gives rigidity.
+- `FiniteDepth.unit_modulus` (degenerate): If M∈O^×, W_M=0, so the sole finite-depth system is zero. A definition retaining the lattice cohomology would fail this check.
+- `FiniteDepth.coefficient_exponent` (computation): For M=π², every component is killed by π²; a class of exact order π² is allowed and is not killed by π. The carrier must not silently reduce to W_π.
+- `FiniteDepth.norm_nonexample`: In a one-edge norm diagram over O/π² with corestriction the identity and Euler factor 1, components (1,0) fail the relation; the product of all cohomology groups is too large.
+- `Anticyclotomic.trivial_character`: For d=1 the χ-ray fields, χ-action and second rigidity alternative reduce to their untwisted versions; in particular ε_cyc(γ)=1 is recovered.
+- `Anticyclotomic.quadratic_action`: For d=2 a lift of the nontrivial automorphism sends a cyclic p-group generator σ to σ⁻¹. For odd p, replacing that action by the trivial action fails whenever σ≠1.
+- `Anticyclotomic.eigenspace_shift`: For d=2, χ^0 finite classes map to χ-singular classes; χ-finite classes map to the trivial singular part. An equivariant scalar comparison would give the wrong parity.
+- `IsTrivialAt.empty`: For Σ=∅ the predicate imposes no additional strict local condition.
+- `IsTrivialAt.zero`: The zero system is trivial at every finite Σ, including primes where T is ramified.
+- `IsTrivialAt.local_nonzero`: At q∈Σ a system with nonzero localization is not trivial at Σ, even if that localization is unramified. Strictness cannot be replaced by unramifiedness.
 
 A system of infinite depth gives one of depth M for every M.
 
@@ -1591,9 +1626,9 @@ Additional arithmetic check: For K = ℚ, χ the quadratic character of an imagi
 
 ### 2.9 Anticyclotomic Euler systems over ring class fields
 
-Let f be a newform of weight 2r and level N, p ∤ 2(2r − 1)!Nφ(N), K an imaginary quadratic field in which every prime dividing N splits, with |D_K| > 3 odd (the canonical CM setting of Castella–Hsieh §4.1), T the G_ℚ-stable O-lattice in the self-dual twist V of the p-adic representation of f with its G_ℚ-equivariant perfect pairing T × T → O(1), and χ : Gal(K_{c_o p^∞}/K) → O^× a locally algebraic anticyclotomic character of infinity type (j, −j) and conductor cO_K, c = c_o p^s with (c_o, pN) = 1. Let 𝒦 be the set of squarefree products of primes ℓ inert in K with ℓ ∤ 2pNc_o, K_n the ring class field of conductor n, τ complex conjugation and w_f the Atkin–Lehner sign; choose 𝔑 ⊆ O_K of norm N and let σ_𝔑 be its Artin element. Cohomology is unramified outside the places above pNc_on as in §7.1. An anticyclotomic Euler system for (T, χ) is a family c = (c_n)_{n∈𝒦} with c_n ∈ H¹(K_{cn}, T ⊗ χ^{-1}) such that for every n = mℓ ∈ 𝒦: (E1) cor_{K_{cn}/K_{cm}}(c_n) = a_ℓ(f)·c_m; (E2) loc_ℓ(c_n) = res(loc_ℓ(c_m)^{Frob_ℓ}) along K_{cm,λ} ⊆ K_{cn,λ}; (E3) if χ² = 1, c_n^τ = w_f χ(σ_𝔑)·c_n^{σ_𝔑}. The bottom class is c_K = cor_{K_c/K}(c_1) ∈ H¹(K, T ⊗ χ^{-1}). The families form an O-submodule of ∏_{n∈𝒦} H¹(K_{cn}, T ⊗ χ^{-1}). This is Nekovář's notion, distinct from Rubin's χ-anticyclotomic Euler systems (Layer 2.8 Variants: rigidity conditions, finite depth and anticyclotomic systems(c)): the norm relation carries the Hecke eigenvalue a_ℓ(f) of an inert prime, and the tower is the ring class tower rather than ray class fields. In (E2), use rational arithmetic Frobenius on the locally untwisted T, as in Lemma4.7 pp.18–19; evaluation on finite H¹ uses its square, the Frobenius of K_λ. This convention is part of the definition.
+Let f be a newform of weight 2r and level N, p ∤ 2(2r − 1)!Nφ(N), K an imaginary quadratic field in which every prime dividing N splits, with |D_K|>3 and, when r>1, either |D_K| odd or 8|D_K (the canonical CM setting of Castella–Hsieh §4.1), T the G_ℚ-stable O-lattice in the self-dual twist V of the p-adic representation of f with its G_ℚ-equivariant perfect pairing T × T → O(1), and χ : Gal(K_{c_o p^∞}/K) → O^× a locally algebraic anticyclotomic character of infinity type (j, −j) and conductor cO_K, c = c_o p^s with (c_o, pN) = 1. Let 𝒦 be the set of squarefree products of primes ℓ inert in K with ℓ ∤ 2pNc_o, K_n the ring class field of conductor n, τ complex conjugation and w_f the Atkin–Lehner sign; choose 𝔑 ⊆ O_K of norm N and let σ_𝔑 be its Artin element. Cohomology is unramified outside the places above pNc_on as in §7.1. An anticyclotomic Euler system for (T, χ) is a family c = (c_n)_{n∈𝒦} with c_n ∈ H¹(K_{cn}, T ⊗ χ^{-1}) such that for every n = mℓ ∈ 𝒦: (E1) cor_{K_{cn}/K_{cm}}(c_n) = a_ℓ(f)·c_m; (E2) loc_ℓ(c_n) = res(loc_ℓ(c_m)^{Frob_ℓ}) along K_{cm,λ} ⊆ K_{cn,λ}; (E3) if χ² = 1, c_n^τ = w_f χ(σ_𝔑)·c_n^{σ_𝔑}. The bottom class is c_K = cor_{K_c/K}(c_1) ∈ H¹(K, T ⊗ χ^{-1}). The families form an O-submodule of ∏_{n∈𝒦} H¹(K_{cn}, T ⊗ χ^{-1}). This is Nekovář's notion, distinct from Rubin's χ-anticyclotomic Euler systems (Layer 2.8 Variants: rigidity conditions, finite depth and anticyclotomic systems(c)): the norm relation carries the Hecke eigenvalue a_ℓ(f) of an inert prime, and the tower is the ring class tower rather than ray class fields. In (E2), use rational arithmetic Frobenius on the locally untwisted T, as in Lemma4.7 pp.18–19; evaluation on finite H¹ uses its square, the Frobenius of K_λ. This convention is part of the definition.
 
-The precise hypotheses are: f a newform of weight 2r and level N prime to p; T the Nekovář lattice with its perfect pairing; χ anticyclotomic of conductor c_o p^s with (c_o, pN) = 1; Castella–Hsieh (H)(a)–(c), restricted here to |D_K|>3 odd; no splitting assumption on p. The source also permits 8|D_K in its higher-weight canonical CM setting; this narrower statement does not claim to exclude that case.
+The precise hypotheses are: f a newform of weight 2r and level N prime to p; T the Nekovář lattice with its perfect pairing; χ anticyclotomic of conductor c_o p^s with (c_o, pN) = 1; Castella–Hsieh (H)(a)–(c), including both canonical CM discriminant branches when r>1; |D_K|>3 gives the stable-unit normalization of the inert ring-class degree used here; no splitting assumption on p. The general conductor-change degree, including exceptional units, is the ClassFieldTheory boundary above.
 
 ([Francesc Castella, Ming-Lun Hsieh, Heegner cycles and p-adic L-functions](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf), §7.1 and §7.2, Definition 7.1, pp. 28–29 (author's version)). fixes the self-dual Nekovář lattice with its pairing and defines anticyclotomic Euler systems over ring class fields by the relations (E1)–(E3)
 
@@ -1743,12 +1778,25 @@ The definition exposes the following operations and relations.
 - `TauCeti.KolyvaginSystems.KolyvaginSystem.map`: Change of ring, of P, and of F as in Remark 3.1.4, each R-linear and compatible with eval.
 - `TauCeti.KolyvaginSystems.GeneralizedKolyvaginSystem`: K̄S(T, F, P) = lim_k colim_j KS(T/m^kT, F, P ∩ P_j), with toGeneralized : KS → K̄S and κ̄ ↦ κ̄_1 ∈ H¹_F(K, T).
 - `TauCeti.KolyvaginSystems.KolyvaginSystem.ord`: ord(κ) = min{ν(n) : κ_n ≠ 0} ∈ ℕ∞, with ord(0) = ⊤.
+- `TauCeti.KolyvaginSystems.moduleOfLValues`: The image submodule of conductor-one evaluation KS(T)→H¹_F(K,T).
+- `TauCeti.KolyvaginSystems.blindSpot`: Ideals I for which the image of κ̄ in K̄S(T/IT) vanishes; this records vanishing of the whole system, not just its leading class.
 
 **Checks.**
 
 - `KolyvaginSystem.zero_mem`: The zero Kolyvagin system has order infinity.
 - `KolyvaginSystem.empty_primes`: For an empty prime set, evaluation gives KS≃H¹_F(K,T).
 - `KolyvaginSystem.not_product`: A family with zero upper component and nonzero lower finite–singular localization at an edge is not a Kolyvagin system.
+- `WeakKolyvaginSystem.empty_primes`: With P=∅, weak and ordinary systems both equal H¹_F(K,T); with one conductor prime, a weak class with nonzero finite part is excluded from ordinary KS.
+- `WeakKolyvaginSystem.edge_nonexample`: In a field edge model with φ^fs=id, lower value 1 and upper singular value 0 violate the weak equation too; relaxing transversality does not remove that equation. The zero family satisfies it.
+- `GeneralizedKolyvaginSystem.constant_diagram`: If all transition systems are the same module M with identity maps, the inverse/direct limit is M, not a product of copies of M.
+- `GeneralizedKolyvaginSystem.inverse_compatibility`: In the quotient tower R/π²→R/π, components (1 mod π²,0 mod π) are not compatible, while (1,1) and (0,0) are. Restriction in j must also identify a system with its restricted representative.
+- `moduleOfLValues.zero_image`: If evaluation at 1 is zero, its image is 0 even if KS is nonzero; the zero system always maps into that image.
+- `moduleOfLValues.nonunit_image`: If a free rank-one system module has generator with leading value π^s in a free rank-one Selmer module, its image is π^sR, becoming all R exactly for s=0.
+- `blindSpot.zero_system`: Every coefficient ideal is in the blind spot of the zero system.
+- `blindSpot.unit_ideal`: The unit ideal is in every blind spot since T/T=0. A residual nonzero system has m outside its blind spot.
+- `blindSpot.zero_ideal`: The zero ideal belongs exactly when the original generalized system is zero; a nonzero system with zero leading class therefore still has the zero ideal outside its blind spot.
+- `moduleOfLValues.sum`: If leading evaluations generate values a and b, their image contains a+b and every R-linear combination. For the algebraic evaluation model R²→R, (x,y)↦ax+by, the image is (a,b), which need not be principal.
+- `order.leading_zero`: In a formal conductor diagram with first nonzero component at a one-prime conductor, the order is 1 even though κ_1=0. For a nonzero leading component it is 0; the zero family has order ∞.
 
 The zero family is a Kolyvagin system; a system may have κ_1 = 0.
 
@@ -2305,19 +2353,21 @@ Additional arithmetic check: ℋ(1) = H¹_F(K, T) and ℋ̂(1) = H¹_F(K, T).
 
 ### 4.2 Selmer lengths across an edge
 
-Let R be principal artinian of length k and (T, F, P) satisfy (H.0)–(H.6) with P ⊆ P_k. Put λ(n, T) = length H¹_{F(n)}(ℚ, T) and λ(n, T^*) = length H¹_{F(n)^*}(ℚ, T^*). (a) λ(n, T) − λ(n, T^*) is independent of n ∈ N. (b) For nℓ ∈ N the four inclusions H¹_{F_ℓ(n)} ⊆ H¹_{F(n)}, H¹_{F(nℓ)} ⊆ H¹_{F^ℓ(n)} have cyclic cokernels of lengths c, d, a, b with 0 ≤ a, b, c, d ≤ k, a + c = b + d, a ≥ d, b ≥ c, and dually a^* + a = b^* + b = c^* + c = d^* + d = k. (c) |λ(nℓ, T) − λ(n, T)| ≤ k; if H¹_{F(n)}(ℚ, T) → H¹_f(ℚ_ℓ, T) is surjective then H¹_{F(nℓ)^*}(ℚ, T^*) = H¹_{F^ℓ(n)^*}(ℚ, T^*); the images of m^{λ(n,T^*)}H¹_{F(n)} under φ^fs_ℓ ∘ loc_ℓ and of m^{λ(nℓ,T^*)}H¹_{F(nℓ)} under loc_ℓ in H¹_s(ℚ_ℓ, T) are equal; and if both localisations H¹_{F(n)}(ℚ, T)[m] → H¹_f(ℚ_ℓ, T) and H¹_{F(n)^*}(ℚ, T^*)[m] → H¹_f(ℚ_ℓ, T^*) are nonzero then λ(nℓ, T̄) = λ(n, T̄) − 1 and λ(nℓ, T̄^*) = λ(n, T̄^*) − 1.
+Let R be principal artinian of length k and (T, F, P) satisfy (H.0)–(H.6) with P ⊆ P_k. Put λ(n, T) = length H¹_{F(n)}(ℚ, T) and λ(n, T^*) = length H¹_{F(n)^*}(ℚ, T^*). (a) λ(n, T) − λ(n, T^*) is independent of n ∈ N. (b) For nℓ ∈ N the four inclusions S₀⊆S_n⊆S₁ and S₀⊆S_{nℓ}⊆S₁, where S₀=H¹_{F_ℓ(n)}, S_n=H¹_{F(n)}, S_{nℓ}=H¹_{F(nℓ)} and S₁=H¹_{F^ℓ(n)}, have cyclic quotients with a=length(S₁/S_n), b=length(S₁/S_{nℓ}), c=length(S_n/S₀) and d=length(S_{nℓ}/S₀) with 0 ≤ a, b, c, d ≤ k, a + c = b + d, a ≥ d, b ≥ c, and dually a^* + a = b^* + b = c^* + c = d^* + d = k. (c) |λ(nℓ, T) − λ(n, T)| ≤ k; if H¹_{F(n)}(ℚ, T) → H¹_f(ℚ_ℓ, T) is surjective then H¹_{F(nℓ)^*}(ℚ, T^*) = H¹_{F^ℓ(n)^*}(ℚ, T^*); the images of m^{λ(n,T^*)}H¹_{F(n)} under φ^fs_ℓ ∘ loc_ℓ and of m^{λ(nℓ,T^*)}H¹_{F(nℓ)} under loc_ℓ in H¹_s(ℚ_ℓ, T) are equal; and if both localisations H¹_{F(n)}(ℚ, T)[m] → H¹_f(ℚ_ℓ, T) and H¹_{F(n)^*}(ℚ, T^*)[m] → H¹_f(ℚ_ℓ, T^*) are nonzero then λ(nℓ, T̄) = λ(n, T̄) − 1 and λ(nℓ, T̄^*) = λ(n, T̄^*) − 1.
 
 The precise hypotheses are (H.0)–(H.6), R principal artinian of length k, P ⊆ P_k.
 
-([Barry Mazur and Karl Rubin, Kolyvagin systems](https://webusers.imj-prg.fr/~christophe.cornut/ES/Ref/KolySys.pdf), Lemma 4.1.7, p. 37). How the Selmer lengths change along an edge.
+([Barry Mazur and Karl Rubin, Kolyvagin systems](https://webusers.imj-prg.fr/~christophe.cornut/ES/Ref/KolySys.pdf), Lemmas 4.1.6–4.1.7, pp. 36–37). The four quotient lengths in the Selmer diamond and their change along an edge.
 
 ([Barry Mazur and Karl Rubin, Kolyvagin systems](https://webusers.imj-prg.fr/~christophe.cornut/ES/Ref/KolySys.pdf), Corollary 2.3.6, p. 17). Invariance of the length difference.
 
-(a): Corollary 2.3.6 — by the supplier finite Greenberg–Wiles formula.8 The finite–singular comparison map).
+(a): Corollary 2.3.6 applies the supplier finite Greenberg–Wiles formula to the two modified structures.
 
 (b): the local modules at ℓ are free of rank one, giving the bounds; the dual relations are global duality (SelmerIwasawaCohomology Layer 2 (selmer-structure-poitou-tate)) for the pairs (F(n), F^ℓ(n)) etc.
 
 (c): read off from the two diamonds of inclusions.
+
+For a field-coefficient diamond S₀=0, S_n=k, S_{nℓ}=0 and S₁=k, the four lengths are (a,b,c,d)=(0,1,1,0). Both chains have total length 1; a≥d and b≥c hold. This algebraic diagram fixes which arrows carry the four labels; it does not assert an arithmetic realization. The dual complementary lengths are (1,0,0,1).
 
 For n a core vertex with λ(n, T^*) = 0 and surjective localisation at ℓ, nℓ is again a core vertex.
 
@@ -2352,8 +2402,12 @@ The definition exposes the following operations and relations.
 **Checks.**
 
 - `indexOfDivisibility_zero_system`: The zero Euler system has infinite initial divisibility index.
-- `HypKT.p_hilbert`: Rubin’s τ fixes the maximal p-Hilbert class field.
-- `HypKT.roots_and_units`: The same τ fixes all p-power roots of unity and all p-power roots of global units.
+- `HypKT.rank_one`: A rank-one O-lattice has irreducible one-dimensional reduction and τ=1 gives coinvariants O; thus both Hyp(K,T) and Hyp(K,V) hold, including the trivial character.
+- `HypKT.zero_and_rank_two`: The zero representation has zero coinvariants and is not irreducible. For the trivial rank-two representation, every τ gives coinvariants O² and the residual representation is reducible; both hypotheses fail.
+- `HypKT.integral_coinvariants`: The matrix τ=[[1,π^a],[0,1]] on O², a>0, has rational coinvariant dimension one but integral coinvariants O⊕O/(π^a). This is a test of the coinvariant fields, not an example of the full global hypotheses: the rational field alone must not certify Hyp(K,T).
+- `indexOfDivisibility_torsion_quotient`: In the model H¹≃O⊕O/(π²), a leading value (π³,1) has index 3, while (0,1) has index ∞. The index is computed after quotienting torsion.
+- `indexOfDivisibility_scaling`: In that model, π(π³,1) has index 4; multiplying a torsion class still gives index ∞.
+- `errorTerm_length`: A zero error intersection has length 0, O/(π²) has length 2, and (O/(π))² also has length 2 although its annihilator exponent is only 1. Error terms measure length of the specified intersection, not its exponent or the whole ambient cohomology group.
 
 For T = ℤ_p(1) ⊗ χ^{-1} with χ even nontrivial of order prime to p: n_W = n_W^* = 0.
 
@@ -2534,6 +2588,12 @@ The definition exposes the following operations and relations.
 - `monodromy_trivial_loop`: Trivial monodromy forces every surjective loop transport to be the identity.
 - `sections_zero_hub`: A section of a locally cyclic sheaf vanishing at a hub is zero.
 - `isPrimitive_zero_module`: If every stalk is zero, the zero section is primitive.
+- `constant_rank_one`: On a connected graph with all stalks and edge modules R and all maps id, every vertex is a hub, all transports are id and monodromy is trivial. A section is a constant r and is primitive precisely when r∈R^×.
+- `one_way_hub`: Over a DVR R, take two vertex stalks R and k with edge stalk k and maps reduction and id. The sheaf is locally cyclic; the R-vertex is a hub and the k-vertex is not. Evaluation identifies sections with R. This detects the direction of the isomorphism in a surjective path.
+- `monodromy_minus_one`: On a triangle with all stalks R and identity maps except for one incidence −id, loop transport is −1. If 2∈R^× this is a locally cyclic sheaf with hubs and only the zero section, so its monodromy is not trivial and it has no primitive section.
+- `zero_connected_sheaf`: On a connected graph the zero sheaf is locally cyclic, every vertex is a hub and every transport is the unique isomorphism 0→0; monodromy is trivial. Its zero section is primitive because it generates each zero stalk.
+- `rank_two_nonexample`: A constant sheaf R² on a connected graph is locally free of rank two but is not locally cyclic for nonzero local R. A definition testing only surjectivity of incidence maps would accept it.
+- `primitive_nonunit`: For the constant R-sheaf, 1 is primitive and π is not over a DVR; both are nonzero. Generation must not be replaced by nonvanishing.
 
 A locally free sheaf of rank one on a connected graph is locally cyclic and every vertex is a hub.
 
@@ -2584,6 +2644,9 @@ The definition exposes the following operations and relations.
 - `isCoreVertex_dual_zero`: A vertex of zero dual Selmer length is core.
 - `not_isCoreVertex_both_positive`: If both Selmer lengths are positive, the vertex is not core.
 - `isCoreVertex_free_rank`: Under finite MR admissibility, level-zero conductor ideals and core rank 1, a core vertex has free rank-one Selmer module.
+- `selmerLength_values`: For coefficient length k, the zero Selmer module has length 0, a free rank-one module has length k, and R/π has length 1. In particular the last two lengths differ for k>1.
+- `leadingVertex_dual_zero`: With positive core rank and residual dual dimension zero, n=1 is leading, whereas a core vertex with a nonempty conductor is not leading.
+- `leadingVertex_minimal_size`: With residual dual dimension two, a core vertex with two prime factors is leading; a core vertex with more factors is not. A conductor with fewer than two factors cannot be core. These test minimality, rather than merely the vanishing defining core vertices.
 
 If H¹_{F^*}(ℚ, T^*) = 0 then 1 is a core vertex and the only leading vertex.
 
@@ -2850,7 +2913,7 @@ This layer uses Layer 3.3 Kolyvagin systems, weak Kolyvagin systems and their li
 
 The proof also uses Mazur–Rubin 2004 Lemmas 4.3.8–4.3.9, Propositions 4.3.10–4.3.11, Theorem 4.3.12, Theorem 4.4.3 and Appendix B; Rubin Chapter V §2 general case of Lemma 2.5.
 
-The classical square-index constant independent of K remains outside this completed target pass.
+The classical square-index formula with a constant independent of K requires the separate arithmetic input of HeegnerPointEulerSystems HE.7. The exponent bound of Layer 4.12 does not supply that length or square-index assertion.
 
 ## Layer 5: Primitivity and self-dual structure
 
@@ -2930,6 +2993,9 @@ The definition exposes the following operations and relations.
 - `SelfDual.conductorIdeal_one`: The inert conductor-one ideal is zero.
 - `SelfDual.tame_group_inert`: At a rational inert prime ℓ, k_λ×/k_ℓ× has order ℓ+1, not ℓ²−1.
 - `SelfDual.conductorIdeal_inert`: For q above an inert ℓ in 𝓛_k, ℓ+1 lies in pᵏR.
+- `SelfDual.hypotheses_rank`: Zero and rank-one modules fail H.0; a trivial rank-two residual module satisfies the rank field but fails absolute irreducibility H.1. Satisfying a ring-class prime condition does not repair either failure.
+- `SelfDual.pairing_conjugation`: With Weil matrix J=[[0,1],[−1,0]] and complex conjugation diag(1,−1), the matrix of e(s,t^τ) is [[0,−1],[−1,0]], symmetric and invertible. J itself is alternating and is not symmetric when 2 is invertible, so the untwisted Weil pairing is not H.4 data.
+- `SelfDual.residual_signs`: In odd residue characteristic, diag(1,−1) gives one line in each τ-eigenspace; the identity on a two-dimensional residual module fails H.5(a). At p=2 these signs coincide, which is why the stated odd-prime convention is required.
 
 These hypotheses differ from Mazur–Rubin's by the self-duality H.4 and by the absence of an analogue of (H.4a)/(p > 4): they are a separate record.
 
@@ -3025,7 +3091,7 @@ Self-duality replaces the core rank: ε is a parity, not a rank difference.
 
 ### 5.6 Structure of the dual Selmer group from a Kolyvagin system
 
-Let χ(T) = 1 and 0 ≠ κ ∈ KS(T). (a) R = k a field: dim KS(T) = 1, κ_n ≠ 0 iff n is a core vertex, and dim_k H¹_{F^*}(ℚ, T^*) = ord(κ). (b) R principal artinian of length k, κ_1 ≠ 0: ∂^{(0)}(κ) ≥ ∂^{(1)}(κ) ≥ ⋯, e_0(κ) ≥ e_1(κ) ≥ ⋯ ≥ 0 and H¹_{F^*}(ℚ, T^*) ≅ ⊕_{i ≥ 0} R/m^{e_i(κ)}; if κ is primitive and κ_1 ≠ 0 then length H¹_{F^*}(ℚ, T^*) = k − length(Rκ_1) = max{i : κ_1 ∈ m^iH¹_F(ℚ, T)}, and if κ is primitive and κ_1 = 0 then length H¹_{F^*}(ℚ, T^*) ≥ k. (c) R a discrete valuation ring: ∂^{(s)}(κ) is nonincreasing and finite for s ≥ ord(κ); the e_i(κ) are nonincreasing, nonnegative and independent of κ ≠ 0, as is ord(κ); corank_R H¹_{F^*}(ℚ, T^*) = ord(κ); H¹_{F^*}(ℚ, T^*)/(H¹_{F^*}(ℚ, T^*))_div ≅ ⊕_{i ≥ ord(κ)} R/m^{e_i(κ)}; its length is ∂^{(ord κ)}(κ) − ∂^{(∞)}(κ); and κ is primitive iff ∂^{(∞)}(κ) = 0. Hence: length H¹_{F^*}(ℚ, T^*) is finite iff κ_1 ≠ 0; length H¹_{F^*}(ℚ, T^*) ≤ ∂^{(0)}(κ) with equality iff κ is primitive; and length H¹_{F^*}(ℚ, T^*) = length(H¹_F(ℚ, T)/L(T)) for the module of L-values L(T).
+Let χ(T) = 1 and 0 ≠ κ ∈ KS(T). (a) R = k a field: dim KS(T) = 1, κ_n ≠ 0 iff n is a core vertex, and dim_k H¹_{F^*}(ℚ, T^*) = ord(κ). (b) R principal artinian of length k, κ_1 ≠ 0: ∂^{(0)}(κ) ≥ ∂^{(1)}(κ) ≥ ⋯, e_0(κ) ≥ e_1(κ) ≥ ⋯ ≥ 0 and H¹_{F^*}(ℚ, T^*) ≅ ⊕_{i ≥ 0} R/m^{e_i(κ)}; if κ is primitive and κ_1 ≠ 0 then length H¹_{F^*}(ℚ, T^*) = k − length(Rκ_1) = max{i : κ_1 ∈ m^iH¹_F(ℚ, T)}, and if κ is primitive and κ_1 = 0 then length H¹_{F^*}(ℚ, T^*) ≥ k. (c) R a discrete valuation ring: ∂^{(s)}(κ) is nonincreasing and finite for s ≥ ord(κ); the e_i(κ) are nonincreasing, nonnegative and independent of κ ≠ 0, as is ord(κ); corank_R H¹_{F^*}(ℚ, T^*) = ord(κ); H¹_{F^*}(ℚ, T^*)/(H¹_{F^*}(ℚ, T^*))_div ≅ ⊕_{i ≥ ord(κ)} R/m^{e_i(κ)}; its length is ∂^{(ord κ)}(κ) − ∂^{(∞)}(κ); and κ is primitive iff ∂^{(∞)}(κ) = 0. Hence: length H¹_{F^*}(ℚ, T^*) is finite iff κ_1 ≠ 0; length H¹_{F^*}(ℚ, T^*) ≤ ∂^{(0)}(κ); when κ_1 ≠ 0, equality holds iff κ is primitive; and length H¹_{F^*}(ℚ, T^*) = length(H¹_F(ℚ, T)/L(T)) for the module of L-values L(T).
 
 The precise hypotheses are the hypotheses of Layer 5.3 Kolyvagin systems in core rank one in each case; χ(T) = 1.
 
@@ -3043,7 +3109,13 @@ The precise hypotheses are the hypotheses of Layer 5.3 Kolyvagin systems in core
 
 The final equality: KS(T) is generated by a primitive κ, L(T) = Rκ_1, and H¹_F(ℚ, T) is free of rank corank H¹_{F^*} + 1.
 
-Three separate conclusions: κ_1 ≠ 0 gives finiteness and an upper bound; primitivity gives equality; an analytic formula needs in addition an identification of κ_1 with an L-value.
+Three separate conclusions: κ_1 ≠ 0 gives finiteness and an upper bound; in that finite case primitivity characterizes equality; an analytic formula needs in addition an identification of κ_1 with an L-value.
+
+**Checks.**
+
+- `sharpness_nonzero_leading` (computation): In a rank-one DVR stalk with primitive leading value π^s and dual length s, multiplication of the system by π changes the leading index to s+1 while the dual length stays s. This detects the strict inequality for a nonprimitive system with nonzero leading term.
+- `sharpness_infinite_length` (negative control): If a nonzero system has zero leading term, its dual Selmer group has positive corank. Both κ and the nonprimitive system πκ have leading index ∞ and dual length ∞. Thus equality of extended lengths cannot imply primitivity here.
+- `sharpness_zero_system` (degenerate): The zero system has index ∞ regardless of whether the dual Selmer module is zero or has positive corank. The nonzero-system hypothesis is needed for the corank conclusion. These same controls apply to Stark systems and their regulator images in Layers 6.6 and 6.8.
 
 The higher e_i give every elementary divisor of the dual Selmer group, not only its exponent or length.
 
@@ -3087,7 +3159,7 @@ For n = 1 and p > 1, (a) is the single-class Chebotarev selection in each eigens
 
 For n = 4, (a) requires p > 4, which is why the connectivity of core vertices in Layer 5.11 Rigidity of self-dual Kolyvagin systems at core vertices assumes p > 4.
 
-Iterating (b) from any n reaches a core vertex (r = 1) in at most r(n) − 1 steps.
+In the odd-parity branch ε=1, iterating (b) from n with a nonzero class reaches a core vertex in at most r(n)−1 steps: total residual dimension is odd, so r=1 forces one sign to have dimension 1 and the other 0. In the even-parity branch this inference is unavailable. The residual pattern (ρ(n)^+,ρ(n)^−)=(1,1) has r(n)=1 but total dimension 2, so it is not a core vertex. This is a negative control on the stopping criterion.
 
 *Needs:* Layer 5.2 Howard's self-dual Selmer triples and hypotheses H.0–H.5; Layer 5.5 The generalised Cassels pairing and the structure R^ε ⊕ M ⊕ M; Layer 1.7 Kolyvagin primes: P_k, P(L, τ) and R_{F,M}; Layer 1.2 Finite and singular parts at an unramified prime; `TauCetiRoadmap.Chebotarev Layer 10`.
 
@@ -3310,8 +3382,14 @@ The definition exposes the following operations and relations.
 **Checks.**
 
 - `TauCeti.StarkSystems.not_bss33_trivial`: The trivial rank-one representation has nonzero residual invariants and fails Hypothesis 3.3.
-- `TauCeti.StarkSystems.bss_rank_one_coinvariants`: Rank-one coefficients have rank-one coinvariants for τ=1.
-- `TauCeti.StarkSystems.bss42_strict_dual_zero`: A Hypothesis 4.2 vertex has zero strict dual Selmer module.
+- `TauCeti.StarkSystems.bss32_rank_one`: At the level of Hypothesis 3.2(i)–(ii), a rank-one module has irreducible reduction and τ=1 gives coinvariants R. The arithmetic family of Theorem 7.1 below supplies the additional H¹-vanishing field; these two elementary tests alone do not supply it.
+- `TauCeti.StarkSystems.bss32_bad_coinvariants`: Over a field of odd characteristic, a scalar τ=2 on a rank-one module has zero coinvariants, not R; the zero module and a trivial rank-two module also fail 3.2. These detect accepting an arbitrary τ or dropping irreducibility.
+- `TauCeti.StarkSystems.bss33_cyclotomic`: For p odd, A=k(1) over ℚ has no invariants but its Tate dual is trivial and has invariants k, so 3.3 fails. For A=k(χ) with χ and χ⁻¹ω both nontrivial, both invariant spaces are zero and 3.3 holds.
+- `TauCeti.StarkSystems.bss33_zero`: A=0 satisfies 3.3 but fails 3.2; the predicates must remain separate.
+- `TauCeti.StarkSystems.bss42_rank_zero`: For the zero representation with r=0, n=1 has both Selmer groups zero and witnesses 4.2; the same representation with r=1 does not satisfy the required free-rank equality at any n.
+- `TauCeti.StarkSystems.bss42_freeness`: For R=ℤ/p², a proposed core datum with zero strict dual and relaxed module R/(p) is rejected for every rank: this module is not free. In contrast the arithmetic core vertices under MR (H.1)–(H.7) have relaxed module R^{r+ν(n)} and satisfy 4.2.
+- `TauCeti.StarkSystems.bss47_rank_one`: For a rank-one Gorenstein-order lattice, the first two fields of 4.7 hold with τ=1; the arithmetic induced-character example of BSS Theorem 7.1 supplies the cohomological vanishing as well.
+- `TauCeti.StarkSystems.bss47_nonexamples`: The zero lattice fails irreducibility and the rank-one coinvariant condition; the trivial rank-two lattice fails both too. A rational rank-one coinvariant quotient with nonzero integral torsion, as in the unipotent matrix of Layer 4.3, fails 4.7(ii).
 
 Satisfied by A = (ℤ/p^m)(1) ⊗ χ^{-1} ⊗ ℤ_p[Gal(F/K)] under the hypotheses of Theorem 7.1.
 
@@ -3422,6 +3500,12 @@ The definition exposes the following operations and relations.
 - `TauCeti.StarkSystems.stalk_one`: The MR conductor-one Stark stalk is the degree-r exterior power of H¹_F.
 - `TauCeti.StarkSystems.rank_one_free_stalk`: A relaxed Selmer module free of rank r+ν(n) makes the degree-r Stark stalk free of rank one.
 - `TauCeti.StarkSystems.not_product`: A family with nonzero component at 1 and zero component at q violates the transition relation.
+- `TauCeti.StarkSystems.stalk_exterior_degree`: In a free model of relaxed rank d, the MR stalk is zero if r+ν(n)>d and has rank binomial(d,r+ν(n)) otherwise; a rank d=r+ν(n)+1 model has rank d, not one.
+- `TauCeti.StarkSystems.transition_identity_and_zero`: The empty transition is the identity. On Re₁⊕Re₂, contraction by the zero functional is zero, whereas contraction by e₁* sends e₁∧e₂ to e₂ and its reverse to −e₂.
+- `TauCeti.StarkSystems.transition_order`: On e₁∧e₂∧e₃, applying ι_{e₁*} then ι_{e₂*} gives e₃; the reverse order gives −e₃. The ordered determinant factors must compensate when the primes are reordered.
+- `TauCeti.StarkSystems.system_constant_model`: In a diagram with every stalk R and every transition the identity, coherent families are exactly constant families, giving SS≃R; the zero family belongs and (ε₁,ε_q)=(1,0) does not. This is a diagram test, not a claimed arithmetic realization.
+- `TauCeti.StarkSystems.ideal_image_values`: A zero component has image ideal 0; a component with value π^a on a free rank-one dual has image (π^a), and a unit value has image R. Multiplying a family by π scales every I_i by (π).
+- `TauCeti.StarkSystems.ideal_sum`: Over the self-injective ring R=k[x,y]/(x²,y²), two components whose images are (x) and (y) contribute (x,y), rather than their intersection (xy) or either single principal ideal.
 
 For n = 1: Y_1 = ⋀^r H¹_F(K, T), and ε_1 is the leading term of the Stark system.
 
@@ -3437,7 +3521,7 @@ For the contraction convention, on Re₁⊕Re₂ with h(e₁)=1 and h(e₂)=0 on
 
 ### 6.6 Freeness of Stark systems and control of the dual Selmer group
 
-(a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) SS_r(T) is free of rank one over R, and the image of SS_r(T) → Y_n is Y′_n = m^{length H¹_{(F^*)_n}(K, T^*)} Y_n; for R a discrete valuation ring with (H.1)–(H.6), SS_r(T, P) is free of rank one, generated by ε with nonzero image in SS_r(T/mT), and SS_r(T, P) → SS_r(T/m^k, P_k) is surjective. With φ_ε(n) = max{j : ε_n ∈ m^jY_n}, ∂φ_ε(i) = min{φ_ε(n) : ν(n) = i}, ord(ε) = min{ν(n) : ε_n ≠ 0} and d_ε(i) = ∂φ_ε(i) − ∂φ_ε(i + 1): for R a discrete valuation ring and ε ≠ 0, corank H¹_{F^*}(K, T^*) = ord(ε), H¹_{F^*}(K, T^*)/div ≅ ⊕_{i ≥ ord ε} R/m^{d_ε(i)}, ε is primitive iff ∂φ_ε(∞) = 0, and length H¹_{F^*}(K, T^*) ≤ ∂φ_ε(0) = max{s : ε_1 ∈ m^s ⋀^r H¹_F(K, T)} with equality iff ε is primitive. (b) (Burns–Sakamoto–Sano; Hypothesis 4.2.) For n with H¹_{(F^*)_n}(K, A^*(1)) = 0, SS_r(A, F) → ⋂^{r+ν(n)}H¹_{F^n}(K, A) is bijective, so SS_r(A, F) is free of rank one; for all ε and i: I_i(ε) ⊆ I_{i+1}(ε), I_∞(ε) = R iff ε is a basis, and I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, A^*(1))^*). For a local Gorenstein order under Hypothesis 4.7 and Hypothesis 4.2 of fixed rank r for (T/p^mT,F,P_m) at every m≥1, SS_r(T, F) is free of rank one with I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, T^∨(1))^∨). The regulator and the ideals commute with the admissible scalar reductions of Layer 6.3, under its exact coefficient-change hypotheses.
+(a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) SS_r(T) is free of rank one over R, and the image of SS_r(T) → Y_n is Y′_n = m^{length H¹_{(F^*)_n}(K, T^*)} Y_n; for R a discrete valuation ring with (H.1)–(H.6), SS_r(T, P) is free of rank one, generated by ε with nonzero image in SS_r(T/mT), and SS_r(T, P) → SS_r(T/m^k, P_k) is surjective. With φ_ε(n) = max{j : ε_n ∈ m^jY_n}, ∂φ_ε(i) = min{φ_ε(n) : ν(n) = i}, ∂φ_ε(∞) = min_i ∂φ_ε(i), ord(ε) = min{ν(n) : ε_n ≠ 0} and, only for i≥ord(ε), d_ε(i) = ∂φ_ε(i) − ∂φ_ε(i + 1): for R a discrete valuation ring and ε ≠ 0, corank H¹_{F^*}(K, T^*) = ord(ε), H¹_{F^*}(K, T^*)/div ≅ ⊕_{i ≥ ord ε} R/m^{d_ε(i)}, ε is primitive iff ∂φ_ε(∞) = 0, and length H¹_{F^*}(K, T^*) ≤ ∂φ_ε(0) = max{s : ε_1 ∈ m^s ⋀^r H¹_F(K, T)} with equality iff ε is primitive provided ε_1 ≠ 0. If ε_1=0, both sides of this extended-length inequality are ∞ and equality does not characterize primitivity. (b) (Burns–Sakamoto–Sano; Hypothesis 4.2.) For n with H¹_{(F^*)_n}(K, A^*(1)) = 0, SS_r(A, F) → ⋂^{r+ν(n)}H¹_{F^n}(K, A) is bijective, so SS_r(A, F) is free of rank one; for all ε and i: I_i(ε) ⊆ I_{i+1}(ε), I_∞(ε) = R iff ε is a basis, and I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, A^*(1))^*). For a local Gorenstein order under Hypothesis 4.7 and Hypothesis 4.2 of fixed rank r for (T/p^mT,F,P_m) at every m≥1, SS_r(T, F) is free of rank one with I_i(ε) = I_∞(ε)·Fitt^i_R(H¹_{F^*}(K, T^∨(1))^∨). The regulator and the ideals commute with the admissible scalar reductions of Layer 6.3, under its exact coefficient-change hypotheses.
 
 The precise hypotheses are (H.1)–(H.7) of Layer 1.13 The Mazur–Rubin 2016 hypotheses (H.1)–(H.7) over a number field for (a); Hypothesis 4.2 (finite level) and 4.7 plus 4.2 for every T/p^mT with the same r (orders) of Layer 6.2 The Burns–Sakamoto–Sano hypotheses for (b).
 
@@ -3452,6 +3536,8 @@ The precise hypotheses are (H.1)–(H.7) of Layer 1.13 The Mazur–Rubin 2016 hy
 (b): Theorem 4.6, combining Burns–Sano and Sakamoto; Fitting ideals of the dual Selmer module are generated by the images of Stark systems at vertices with i primes (Corollary 4.5) using the exact-dual contraction and image-ideal comparison of Layer 6.3.
 
 For r = 1 and R a discrete valuation ring this recovers Layer 5.6 Structure of the dual Selmer group from a Kolyvagin system through the regulator isomorphism.
+
+For i<ord(ε), ∂φ_ε(i)=∞, so no difference ∞−∞ is formed. At i≥ord(ε), these indices are finite and their differences are nonnegative. The zero system has ord=∞ and no elementary-divisor differences.
 
 Over a non-domain order the statement is an equality of ideals, not a valuation formula.
 
@@ -3487,6 +3573,11 @@ The definition exposes the following operations and relations.
 - `TauCeti.StarkSystems.regulator_zero`: The rank-r regulator takes zero to zero.
 - `TauCeti.StarkSystems.rank_system_not_product`: A family with zero upper localization and nonzero lower localization fails the rank-r edge equation.
 - `TauCeti.StarkSystems.stub_stalk_zero_field`: At field coefficients, positive dual length and a nonzero rank-r exterior stalk give zero stub stalk strictly smaller than the full stalk.
+- `TauCeti.StarkSystems.rank_two_stalk`: On a rank-two free Selmer model and r=2, the exterior and bidual vertex stalks are both R(e₁∧e₂); degree three gives zero. In degree one the exterior version is the original Selmer module, while the bidual version requires the stated reflexivity comparison.
+- `TauCeti.StarkSystems.stub_length_zero`: A vertex with dual length zero has full stub stalk. For R=ℤ/p³ and a free rank-one stalk, dual lengths 1 and 3 give the distinct stub stalks pR and 0, respectively.
+- `TauCeti.StarkSystems.regulator_leading_and_scale`: The leading regulator component equals ε₁. Scaling ε by a multiplies every regulator component by a; on the one-prime rank-two contraction witness, the MR convention gives −e₂, not e₂ in odd characteristic.
+- `TauCeti.StarkSystems.rank_system_constant_model`: A one-vertex sheaf has all of its stalk as sections; on a two-vertex identity-edge model, sections are the diagonal. Thus (1,1) satisfies the relation and (1,0) fails it.
+- `TauCeti.StarkSystems.rank_ideal_values`: A zero component contributes 0, a free rank-one bidual component with coefficient π^a contributes (π^a), and a unit coefficient contributes R. For two components with values x and y, the image ideal is (x,y), including over non-principal coefficient rings.
 
 For r = 1: KS_1 = KS and Reg_1(ε)_1 = ε_1.
 
@@ -3502,7 +3593,7 @@ In the rank-two one-prime witness above, the unadjusted contraction is e₂ and 
 
 ### 6.8 The regulator isomorphism and structure of Kolyvagin systems of rank r
 
-(a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) There are core vertices; any two are joined by a path through core vertices along which all vertex-to-edge maps are isomorphisms; S′ is locally cyclic with every core vertex a hub and trivial monodromy; KS′_r(T) is free of rank one and κ ↦ κ_n is an isomorphism onto S′(n) at core vertices; Π : SS_r(T) → KS′_r(T) is an isomorphism. For R a discrete valuation ring ((H.1)–(H.6)), KS′_r(T, P) ≅ lim_k KS′_r(T/m^k, P_k) is free of rank one, and for 0 ≠ κ ∈ KS′_r(T) the conclusions of Layer 6.6 Freeness of Stark systems and control of the dual Selmer group(a) hold with ε replaced by κ; in particular length H¹_{F^*}(K, T^*) ≤ max{s : κ_1 ∈ m^s ⋀^r H¹_F(K, T)}, with equality iff κ is primitive. (b) (Burns–Sakamoto–Sano; Hypotheses 3.2, 3.3, 4.2 and p > 3.) Reg_r : SS_r(A, F) → KS_r(A, F) is an isomorphism, so KS_r(A, F) is free of rank one; for κ ∈ KS_r(A, F) and n ∈ N, im(κ_n) ⊆ Fitt⁰_R(H¹_{F(n)^*}(K, A^*(1))^*), with equality if κ is a basis; and I_i(κ) ⊆ Fitt^i_R(H¹_{F^*}(K, A^*(1))^*), with equality if R is a principal ideal ring and κ is a basis. The same holds over a local Gorenstein order under Hypothesis 4.7, Hypothesis 4.2 of fixed rank r for every (T/p^mT,F,P_m), and p > 3 for KS_r(T, F) and H¹_{F^*}(K, T^∨(1))^∨. The restriction p > 3 is part of the statements for Kolyvagin systems; it is not needed for Stark systems.
+(a) (Mazur–Rubin 2016; (H.1)–(H.7), R principal artinian.) There are core vertices; any two are joined by a path through core vertices along which all vertex-to-edge maps are isomorphisms; S′ is locally cyclic with every core vertex a hub and trivial monodromy; KS′_r(T) is free of rank one and κ ↦ κ_n is an isomorphism onto S′(n) at core vertices; Π : SS_r(T) → KS′_r(T) is an isomorphism. For R a discrete valuation ring ((H.1)–(H.6)), KS′_r(T, P) ≅ lim_k KS′_r(T/m^k, P_k) is free of rank one, and for 0 ≠ κ ∈ KS′_r(T) the conclusions of Layer 6.6 Freeness of Stark systems and control of the dual Selmer group(a) hold with ε replaced by κ; in particular length H¹_{F^*}(K, T^*) ≤ max{s : κ_1 ∈ m^s ⋀^r H¹_F(K, T)}, with equality iff κ is primitive provided κ_1 ≠ 0; when κ_1=0 the extended-length equality ∞=∞ gives no primitivity criterion. (b) (Burns–Sakamoto–Sano; Hypotheses 3.2, 3.3, 4.2 and p > 3.) Reg_r : SS_r(A, F) → KS_r(A, F) is an isomorphism, so KS_r(A, F) is free of rank one; for κ ∈ KS_r(A, F) and n ∈ N, im(κ_n) ⊆ Fitt⁰_R(H¹_{F(n)^*}(K, A^*(1))^*), with equality if κ is a basis; and I_i(κ) ⊆ Fitt^i_R(H¹_{F^*}(K, A^*(1))^*), with equality if R is a principal ideal ring and κ is a basis. The same holds over a local Gorenstein order under Hypothesis 4.7, Hypothesis 4.2 of fixed rank r for every (T/p^mT,F,P_m), and p > 3 for KS_r(T, F) and H¹_{F^*}(K, T^∨(1))^∨. The restriction p > 3 is part of the statements for Kolyvagin systems; it is not needed for Stark systems.
 
 The precise hypotheses are as stated; p > 3 in (b).
 
@@ -3586,7 +3677,11 @@ The definition exposes the following operations and relations.
 **Checks.**
 
 - `TauCeti.EulerSystems.HigherEulerSystem.zero_mem`: The zero higher-rank family satisfies every norm relation.
-- `TauCeti.EulerSystems.HigherEulerSystem.rank_one_zero`: The rank-one bidual-to-Rubin Euler-system comparison takes zero to zero under all stated hypotheses.
+- `TauCeti.EulerSystems.HigherEulerSystem.rank_one_norm`: In degree one on the common tower, bidual evaluation identifies Cor(c_{F′})=P(Fr⁻¹)c_F with the ordinary Rubin relation, including its nonunit Euler factor; it does not identify corestriction with the identity.
+- `TauCeti.EulerSystems.HigherEulerSystem.failed_norm`: In any actual tower edge with zero upper class and P(Fr⁻¹)c_F≠0, the family fails the higher Euler-system relation. Checking only conductors with no new ramification would miss this edge.
+- `TauCeti.EulerSystems.HigherEulerSystem.scalar_norm_model`: For an edge on which the normalized transfer sends a chosen bidual basis at the upper level to d times the chosen lower basis, the relation on coefficients is da=Pb. The choice (a,b,P)=(1,1,d) passes; (0,1,d) fails whenever d≠0. This tests the specified transfer, without replacing it by a plain exterior power.
+- `TauCeti.EulerSystems.BSSHypothesis61_zero`: T=0 has all H⁰ and H¹ zero, hence satisfies 6.1. The zero Euler system also exists for every allowed nonzero T, so existence of a system does not certify 6.1.
+- `TauCeti.EulerSystems.BSSHypothesis61_invariants`: For T=O with trivial action, H⁰(F,T)=O≠0 at every field, so 6.1(ii) fails irrespective of freeness in (i).
 - `TauCeti.EulerSystems.not_BSSHypothesis61_torsion`: A nonzero ramified-cohomology class annihilated by a nonzero scalar contradicts the torsion-free form of Hypothesis 6.1(i).
 
 For R = O = ℤ_p, T = ℤ_p(1): Hypothesis 6.1(i) says the p-completion of O_{F,S(F)}^× is torsion-free for all F.
@@ -4199,7 +4294,7 @@ The precise hypotheses are Rubin gives the replacement argument as a remark (Cha
 
 ([Karl Rubin, Euler systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Ch. IX §2, p. 136). The replacement argument.
 
-(i) For every q, unramifiedness of (c_F)_q at primes with infinite decomposition group is SelmerIwasawaCohomology L3 (universal-norms-unramified (ii)); at completely split q it is (*).
+(i) For q ∤ p, unramifiedness of (c_F)_q at primes with infinite decomposition group is SelmerIwasawaCohomology L3 (universal-norms-unramified (ii)); at completely split q it is (*). At primes above p the proofs use their stated relaxed local conditions; universal norms do not in general lie in the unramified local subgroup there.
 
 (ii) For auxiliary primes the Chebotarev arguments of Layer 1 and Chapter VII only need a set of primes of positive density with prescribed Frobenius; deleting the density-zero set of completely split primes from R does not affect them.
 
@@ -4209,7 +4304,7 @@ The definition exposes the following operations and relations.
 
 - `TauCeti.EulerSystem.UnramifiedAtSplitPrimes`: The predicate (*) on a collection c and a Z_p^d-extension K∞/K.
 - `TauCeti.EulerSystem.unramifiedAtSplitPrimes_of_noSplitPrimes`: If K∞/K is admissible, (*) holds for every collection.
-- `TauCeti.EulerSystem.unramifiedAtSplitPrimes_mem`: Under (*), (c_F)_q ∈ H¹_ur(F_q, T) for every prime q of K and every F (combining with SelmerIwasawaCohomology L3 at primes with infinite decomposition group).
+- `TauCeti.EulerSystem.unramifiedAtSplitPrimes_mem`: Under (*), (c_F)_q ∈ H¹_ur(F_q, T) for every prime q ∤ p of K and every F (combining with SelmerIwasawaCohomology L3 at primes with infinite decomposition group).
 - `TauCeti.EulerSystem.splitPrimes_density_zero`: The set of primes of K splitting completely in K∞/K has Dirichlet density zero.
 - `TauCeti.EulerSystem.weakLeopoldt_of_unramifiedAtSplitPrimes`: Under (*) in place of admissibility, the conclusions of Layer 8.25 Weak Leopoldt from an Euler system (Rubin, Theorem II.3.2), Layer 8.37 Rubin's Iwasawa divisibility char(X∞) | ind_Λ(c) (Theorem II.3.3) and Layer 8.38 Divisibility up to a power of p (Rubin, Theorem II.3.4) hold.
 - `TauCeti.EulerSystem.unramifiedAtSplitPrimes_kummer`: Kummer images of points of an abelian variety with good reduction at q ∤ p satisfy (*) at q.
@@ -4220,6 +4315,8 @@ The definition exposes the following operations and relations.
 - `TauCeti.EulerSystem.unramifiedAtSplitPrimes_anticyclotomic`: For K = Q(√−7), p = 3 and the anticyclotomic Z_3-extension, (*) is a genuine condition at the prime 5O_K, which splits completely.
 - `TauCeti.EulerSystem.unramifiedAtSplitPrimes_kummer_example`: For an elliptic curve E/K with good reduction at q ∤ p and points P_F ∈ E(F), the Kummer classes c_F = δ(P_F) ∈ H¹(F, T_pE) satisfy (*) at q.
 - `TauCeti.EulerSystem.unramifiedAtSplitPrimes_not_selmer_limit`: At a completely split prime q ∤ p with T ramified at q, lim_F H¹(F_q, T) contains ramified classes, so (*) is not automatic for norm-coherent families and Proposition II.3.7's identity H¹_∞(K, T) = lim S^{Σp}(F, T) can fail.
+
+At q|p no automatic unramifiedness follows: for T=ℤ_p(1), H¹_ur(ℚ_p,T)=0, whereas the norm-coherent cyclotomic p-units obtained from 1−ζ_{p^{n+1}} have bottom norm p, whose Kummer class in H¹(ℚ_p,T) is nonzero. This negative control keeps the universal-norm assertion restricted to q ∤ p.
 
 If K∞/K is admissible, (*) is vacuous.
 
@@ -4257,7 +4354,8 @@ The definition exposes the following operations and relations.
 **Checks.**
 
 - `TauCeti.KolyvaginSystem.zero_mem`: The zero collection is a Λ-adic Kolyvagin system, with κ_1 = 0; it satisfies every relation and certifies nothing.
-- `TauCeti.KolyvaginSystem.relation_required`: A family of raw Kolyvagin derivative classes satisfying only the weak relation of Rubin's Chapter IV is not an element of KS(𝐓) until corrected as in Mazur–Rubin's Appendix A; a definition omitting the finite–singular relation (κ_{nℓ})_{ℓ,s} = φ^fs_ℓ(κ_n) accepts it and is wrong.
+- `TauCeti.KolyvaginSystem.transverse_condition_required`: Weak derivative systems already satisfy the finite–singular relation. At a prime ℓ dividing n their finite localization may be nonzero, so they need not lie in the transverse local condition of KS. Appendix A removes this finite part while retaining the edge relation; a definition accepting every weak system as a Kolyvagin system loses transversality.
+- `TauCeti.KolyvaginSystem.edge_relation_required`: In a rank-one edge model with φ^fs=id, lower value 1 and upper singular value 0 fail the equation 0=1 even when the upper finite part is zero. Transversality alone therefore does not define a system.
 - `TauCeti.KolyvaginSystem.cyclotomic_free_rank_one`: For T = O(1) ⊗ ρ^{-1}, ρ an even character of prime-to-p order with ρ(p) ≠ 1 and ρ unramified at p, the cyclotomic-unit Λ-adic Kolyvagin system generates the free rank-one module KS‾(T ⊗ Λ, F_can, P) (Büyükboduk, Proposition 4.1).
 - `TauCeti.KolyvaginSystem.bottomClass_specialize`: The image of κ_1 under H¹(Q, 𝐓) → H¹(Q, 𝐓/J𝐓) = H¹(Q, T) is the bottom class of the reduction of κ to KS(T); for κ coming from an Euler system c it is c_Q.
 
@@ -4386,7 +4484,7 @@ For n ∈ N let I'_n ⊂ Λ be the ideal generated by ℓ − 1, P_ℓ(1) and Fr
 
 For each k let A_k = (γ^{p^k} − 1, p^k) ⊂ 𝔐^k and choose j ≥ k such that the image of H¹(Q_p, 𝐓/A_j𝐓) in H¹(Q_p, 𝐓/𝔐^k𝐓) is H¹_{F_Λ}(Q_p, 𝐓/𝔐^k𝐓); then I'_n ⊂ A_j for n ∈ N_j and the images κ_n^{(k)} form a weak Kolyvagin system for (𝐓/𝔐^k, P_j) (Rubin, Theorems IV.5.1 and IV.5.4).
 
-Mazur–Rubin's Theorem A.4 computes the finite parts (κ_n)_{ℓ,f}; the correction κ'_n = Σ_{π∈S(n)} sign(π) κ_{d_π} ⊗ ∏_{ℓ|n/d_π} ρ_ℓ(P_ℓ(Fr^{-1}_{π(ℓ)})) (their (33)) satisfies the finite–singular relation; this is the correction of Layer 3 (Theorem 3.2.4) carried out over Λ/𝔐^k.
+Mazur–Rubin's Theorem A.4 computes the finite parts (κ_n)_{ℓ,f}; the correction κ'_n = Σ_{π∈S(n)} sign(π) κ_{d_π} ⊗ ∏_{ℓ|n/d_π} ρ_ℓ(P_ℓ(Fr^{-1}_{π(ℓ)})) (their (33)) has zero finite localization at each divisor of n and retains the finite–singular relation already satisfied by the weak derivatives; this is the correction of Layer 3 (Theorem 3.2.4) carried out over Λ/𝔐^k.
 
 The resulting systems are compatible as k grows, defining an element of KS‾(𝐓); its bottom class is the image of (c_{Q_n})_n.
 
