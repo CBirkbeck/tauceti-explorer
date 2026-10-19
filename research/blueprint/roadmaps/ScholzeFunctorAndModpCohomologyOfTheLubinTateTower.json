@@ -4,7 +4,7 @@
  "area": "langlands",
  "parent": null,
  "summary": "Scholze’s functor attaches to a smooth admissible mod p representation π of GLₙ(F) the étale cohomology Sⁱ(π) of a sheaf on projective space built from the Lubin–Tate tower at infinite level, an admissible representation of the units of the division algebra with a Galois action. This roadmap plans the functor and Scholze’s finiteness theorem, the Cartan–Leray spectral sequence of Colmez, Dospinescu and Nizioł comparing it with the cohomology of the tower, Ludwig’s vanishing of S² on principal series, Fust’s continuous cohomology of SL₂, and the resulting finite-length theorem for the mod p cohomology of the Drinfeld tower over ℚ_p with its consequences for multiplicities of Galois and GL₂-representations.",
- "readme": "# Scholze’s mod p functor and the mod p cohomology of the Lubin–Tate and Drinfeld towers\n\n**Purpose.** For a finite extension F of ℚ_p, n ≥ 1 and the central division algebra D over F of invariant 1/n, Scholze attached to every smooth admissible mod p representation π of GLₙ(F) the cohomology groups Sⁱ(π) = Hⁱ_ét(ℙ^{n−1}_{ℂ_p}, ℱ_π) of a sheaf obtained by descending the constant sheaf π along the Gross–Hopkins period map of the Lubin–Tate tower at infinite level. They are admissible representations of D^× with a commuting action of Gal_F, and they are the candidate for a mod p Jacquet–Langlands and local Langlands correspondence. This roadmap plans the functor and its finiteness theorem, and the use Colmez, Dospinescu and Nizioł make of it to determine the mod p cohomology of the Drinfeld tower over ℚ_p: a Cartan–Leray spectral sequence comparing Sⁱ(π) with π-multiplicities in the cohomology of the tower, Fust’s computation of the continuous cohomology of SL₂(ℚ_p), Ludwig’s vanishing of S² on principal series, a global argument through quaternionic forms, and the finite-length theorem with its consequences for multiplicities.\n\n**End theorems.** Scholze’s finiteness theorem (SZ.1); the Cartan–Leray spectral sequence and the comparison map for S¹ (SZ.2); Ludwig’s vanishing theorem (SZ.3); the key local proposition on Galois invariants of S¹ of generic principal series (SZ.4); the finite length of H¹_ét(M^p_{n,K}, k_L)^∨ for [K : ℚ_p] < ∞ (SZ.5); finiteness of multiplicities for every F, the finite length and vanishing of the geometric multiplicities Π^geo_n(ρ̄), and finiteness of Lubin–Tate smooth vectors (SZ.6).\n\n**Layers.** SZ.0 the tower at infinite level as a torsor (equivariant sites, the Gross–Hopkins torsor, Strauch’s connected components, admissible representations of compact p-adic Lie groups); SZ.1 Scholze’s sheaf, the functors Sⁱ and their finiteness; SZ.2 continuous cohomology and the Cartan–Leray spectral sequence; SZ.3 Ludwig’s vanishing; SZ.4 the global input; SZ.5 the finite-length theorem; SZ.6 multiplicities and smooth vectors.\n\n**Conventions.** G = GLₙ(F) (for n = 2 also GL₂(F)), Ǧ = D^×, Ǧ_n = 1 + 𝔪_D^n, G′ = G/ϖ^ℤ for the central element diag(ϖ, ϖ); for F = ℚ_p one takes ϖ = p. M_∞ = M_{LT,∞,ℂ_p} ≅ M_{Dr,∞,ℂ_p} (Faltings, Scholze–Weinstein), M^ϖ_{n,K} the level-n Drinfeld space modulo ϖ^ℤ over K. The local Artin map sends geometric Frobenius elements to uniformisers. π^∨ is the Pontryagin dual of an O_L-torsion module and W^∗ the topological dual; continuous group cohomology is computed by continuous cochains (Mathlib’s continuousCohomology), with discrete or prodiscrete coefficients. For a generic pair (χ₁, χ₂) of smooth characters ℚ_p^× → 𝔽̄_p^× (χ₁χ₂⁻¹ ≠ 1, ε^{±1}), I(χ₁, χ₂) = Ind_B^G(χ₂ ⊗ χ₁ε⁻¹). Almost mathematics is relative to the maximal ideal of O_C.\n\n**Sources.** Colmez–Dospinescu–Nizioł, Factorisation de la cohomologie étale p-adique de la tour de Drinfeld, Forum Math. Pi 11 (2023), §§0–4 (published version; printed page = PDF page); Scholze, On the p-adic cohomology of the Lubin–Tate tower, arXiv:1506.04022 (Ann. Sci. ENS 51 (2018)); Ludwig, A quotient of the Lubin–Tate tower, Forum Math. Sigma 5 (2017); Fust, Continuous group cohomology and Ext-groups, Münster J. Math. 15 (2022); Paškūnas, On some consequences of a theorem of J. Ludwig, J. Inst. Math. Jussieu 21 (2022); Dospinescu–Paškūnas–Schraen, Gelfand–Kirillov dimension and the p-adic Jacquet–Langlands correspondence, J. reine angew. Math. (2023); Gee–Kisin, Forum Math. Pi 2 (2014), Appendix A; Strauch, Pure Appl. Math. Q. 4 (2008); Moore, Publ. Math. IHÉS 35 (1968).\n\n**Imported.** The Lubin–Tate and Drinfeld towers, their period maps, infinite-level moduli, perfectoidness, duality, arithmetic descent and the Mittag-Leffler property of Stein perfectoid covers (EndoscopicTransferAndUnitaryTraceComparison ET.6a); perfectoid spaces, almost mathematics and étale cohomology of diamonds (PerfectoidSpaces, DiamondsAndVStacks, DiamondEtaleCohomology); the local lemmas of the primitive comparison theorem (PadicHodgeTheory P8); smooth representations (SmoothRepresentationsOfLocalGroups); mod p representations of GL₂(F) (ModpRepresentationsOfGL2OverLocalFields); the mod p classification, blocks, Colmez’s functor and the pseudo-deformation rings of blocks (PadicLocalLanglandsForGL2Qp); completed cohomology of Shimura curves, the definite quaternionic tower and the identification of S¹ with completed cohomology (CompletedCohomologyAndLocalGlobalCompatibility R31.1–R31.4); quaternion algebras with exchanged invariants and Hecke conventions (GL2AutomorphicRepresentationsAndTransfer, HilbertModularVarietiesAndShimuraCurves); potential realisation of local Galois data and potential modularity (PotentialModularityAndCompatibleSystems).\n\n**Not planned here.** The finite presentation of H^q_ét(M^ϖ_{n,K}, O_L/p^k)^∨ (CDN Theorem 2.1) and the rest of the geometry of the Drinfeld tower over a finite extension belong to the pro-étale cohomology roadmap of p-adic curves and towers; the factorisation of the p-adic cohomology over blocks and Kisin rings (CDN §5) belongs to the Part II of PadicLocalLanglandsForGL2Qp. The questions the sources leave open are not targets: whether the mod p statements extend to GL_d(F) with d > 2, whether H¹_ét(M^ϖ_{n,ℂ_p}, k_L) is profinite, and how the finitely presented Π^geo_n(ρ̄) for F unramified relate to the representations of Breuil and Paškūnas.\n",
+ "readme": "# Scholze’s mod p functor and the mod p cohomology of the Lubin–Tate and Drinfeld towers\n\n**Purpose.** For a finite extension F of ℚ_p, n ≥ 1 and the central division algebra D over F of invariant 1/n, Scholze attached to every smooth admissible mod p representation π of GLₙ(F) the cohomology groups Sⁱ(π) = Hⁱ_ét(ℙ^{n−1}_{ℂ_p}, ℱ_π) of a sheaf obtained by descending the constant sheaf π along the Gross–Hopkins period map of the Lubin–Tate tower at infinite level. They are admissible representations of D^× with a commuting action of Gal_F, and they are the candidate for a mod p Jacquet–Langlands and local Langlands correspondence. This roadmap plans the functor and its finiteness theorem, and the use Colmez, Dospinescu and Nizioł make of it to determine the mod p cohomology of the Drinfeld tower over ℚ_p: a Cartan–Leray spectral sequence comparing Sⁱ(π) with π-multiplicities in the cohomology of the tower, Fust’s computation of the continuous cohomology of SL₂(ℚ_p), Ludwig’s vanishing of S² on principal series, a global argument through quaternionic forms, and the finite-length theorem with its consequences for multiplicities.\n\n**End theorems.** Scholze’s finiteness theorem (SZ.1); the Cartan–Leray spectral sequence and the comparison map for S¹ (SZ.2); Ludwig’s vanishing theorem (SZ.3); the key local proposition on Galois invariants of S¹ of generic principal series (SZ.4); the finite length of H¹_ét(M^p_{n,K}, k_L)^∨ for [K : ℚ_p] < ∞ (SZ.5); finiteness of multiplicities for every F, the finite length and vanishing of the geometric multiplicities Π^geo_n(ρ̄), and finiteness of Lubin–Tate smooth vectors (SZ.6).\n\n**Layers.** SZ.0 the tower at infinite level as a torsor (equivariant sites, the Gross–Hopkins torsor, Strauch’s connected components, admissible representations of compact p-adic Lie groups); SZ.1 Scholze’s sheaf, the functors Sⁱ and their finiteness; SZ.2 continuous cohomology and the Cartan–Leray spectral sequence; SZ.3 Ludwig’s vanishing; SZ.4 the global input; SZ.5 the finite-length theorem; SZ.6 multiplicities and smooth vectors.\n\n**Conventions.** G = GLₙ(F) (for n = 2 also GL₂(F)), Ǧ = D^×, Ǧ₀ = O_D^× and Ǧ_n = 1 + 𝔪_D^n for n ≥ 1, G′ = G/ϖ^ℤ for the central element diag(ϖ, ϖ); for F = ℚ_p one takes ϖ = p. M_∞ = M_{LT,∞,ℂ_p} ≅ M_{Dr,∞,ℂ_p} (Faltings, Scholze–Weinstein), M^ϖ_{n,K} the level-n Drinfeld space modulo ϖ^ℤ over K. Art_F : W_F^ab ≃ F^× sends geometric Frobenius to a uniformiser (ClassFieldTheory Layer 9). Use a right G-action on the torsor and a left D^×-action, with f(xg)=π(g⁻¹)f(x); in left-G/left-D notation the diagonal centre is trivial. Thus S⁰(π) carries (w,d) through Nrd(d)Art_F(w)⁻¹ and has the same central character as π. The canonical Weil action is stated at C=ℂ_p. At Lubin–Tate level zero use G₀=GL₂(ℤ_p), with G_n=1+p^nM₂(ℤ_p) for n≥1. π^∨ is the Pontryagin dual of an O_L-torsion module and W^∗ the topological dual; continuous group cohomology is computed by continuous cochains (Mathlib’s continuousCohomology), with discrete or prodiscrete coefficients. For a generic pair (χ₁, χ₂) of smooth characters ℚ_p^× → 𝔽̄_p^× (χ₁χ₂⁻¹ ≠ 1, ε^{±1}), I(χ₁, χ₂) = Ind_B^G(χ₂ ⊗ χ₁ε⁻¹). Almost mathematics is relative to the maximal ideal of O_C.\n\n**Sources.** Colmez–Dospinescu–Nizioł, Factorisation de la cohomologie étale p-adique de la tour de Drinfeld, Forum Math. Pi 11 (2023), §§0–4 (published version; printed page = PDF page); Scholze, On the p-adic cohomology of the Lubin–Tate tower, arXiv:1506.04022 (Ann. Sci. ENS 51 (2018)); Ludwig, A quotient of the Lubin–Tate tower, Forum Math. Sigma 5 (2017); Fust, Continuous group cohomology and Ext-groups, Münster J. Math. 15 (2022); Paškūnas, On some consequences of a theorem of J. Ludwig, J. Inst. Math. Jussieu 21 (2022); Dospinescu–Paškūnas–Schraen, Gelfand–Kirillov dimension and the p-adic Jacquet–Langlands correspondence, J. reine angew. Math. (2023); Gee–Kisin, Forum Math. Pi 2 (2014), Appendix A; Strauch, Pure Appl. Math. Q. 4 (2008); Moore, Publ. Math. IHÉS 35 (1968).\n\n**Imported.** The Lubin–Tate and Drinfeld towers, their period maps, infinite-level moduli, perfectoidness, duality, arithmetic descent and the Mittag-Leffler property of Stein perfectoid covers (EndoscopicTransferAndUnitaryTraceComparison ET.6a); perfectoid spaces, almost mathematics and étale cohomology of diamonds (PerfectoidSpaces, DiamondsAndVStacks, DiamondEtaleCohomology); the local lemmas of the primitive comparison theorem (PadicHodgeTheory P8); smooth representations (SmoothRepresentationsOfLocalGroups); mod p representations of GL₂(F) (ModpRepresentationsOfGL2OverLocalFields); the mod p classification, blocks, Colmez’s functor and the pseudo-deformation rings of blocks (PadicLocalLanglandsForGL2Qp); completed cohomology of Shimura curves, the definite quaternionic tower and the identification of S¹ with completed cohomology (CompletedCohomologyAndLocalGlobalCompatibility R31.1–R31.4); quaternion algebras with exchanged invariants and Hecke conventions (GL2AutomorphicRepresentationsAndTransfer, HilbertModularVarietiesAndShimuraCurves); potential realisation of local Galois data and potential modularity (PotentialModularityAndCompatibleSystems).\n\n**Not planned here.** The finite presentation of H^q_ét(M^ϖ_{n,K}, O_L/p^k)^∨ (CDN Theorem 2.1) and the rest of the geometry of the Drinfeld tower over a finite extension belong to the pro-étale cohomology roadmap of p-adic curves and towers; the factorisation of the p-adic cohomology over blocks and Kisin rings (CDN §5) belongs to the Part II of PadicLocalLanglandsForGL2Qp. The questions the sources leave open are not targets: whether the mod p statements extend to GL_d(F) with d > 2, whether H¹_ét(M^ϖ_{n,ℂ_p}, k_L) is profinite, and how the finitely presented Π^geo_n(ρ̄) for F unramified relate to the representations of Breuil and Paškūnas.\n",
  "prerequisites": [
   "CompletedCohomologyPartII",
   "DeformationAndDerivedPatchingAlgebra",
@@ -21,7 +21,6 @@
   "ClassicalAdicEtaleCohomology",
   "DiamondEtaleCohomology",
   "PadicHodgeTheory",
-  "K2SymbolsBrauer",
   "PadicLocalLanglandsForGL2Qp",
   "ReductiveGroupsPartII",
   "PerfectoidShimuraVarieties",
@@ -37,7 +36,7 @@
   {
    "key": "SZ.0",
    "title": "The Lubin–Tate tower at infinite level as a torsor",
-   "description": "The geometric input of Scholze’s functor. **Equivariant étale sites** (X/G)_ét of a continuous action of a locally profinite group on a locally noetherian analytic adic space or a perfectoid space: the limit formula H^i((X/H₀)_ét, ℱ) = colim_H H^i((X/H)_ét, ℱ) over open H ⊃ H₀, slices, conservativity, the invariant sheaf O⁺_{X/G}/ϖ, the equivalence (X/J)_ét ≃ (X_∞/G × J)_ét for a profinite torsor tower with perfectoid limit, and the Hochschild–Serre spectral sequence H^i_cont(K, H^j(X, 𝒢)) ⇒ H^{i+j}((X/K)_ét, 𝒢) (Scholze §2, Lemma 3.12). **The Gross–Hopkins torsor**: the period maps M_{LT,K} → ℙ^{n−1}_{F̆} are étale surjective with fibres GLₙ(F)/K, D^×- and Weil-equivariant, and M_{LT,∞,C} → ℙ^{n−1}_C is a pro-étale GLₙ(F)-torsor with M_∞ ×_{ℙ^{n−1}} M_∞ ≅ M_∞ × GLₙ(F). **Strauch’s components**: π₀(M_{LT,∞,C}) ≅ F^× with (g, d, w) acting by det(g)·Nrd(d)⁻¹·Art_F(w)⁻¹, and the Drinfeld-side consequence H⁰_ét(M^p_{Dr,∞}, k_L) ≅ C⁰(ℚ_p^×/p^{2ℤ}, k_L). **Admissible representations of compact p-adic Lie groups**: admissible A[H]-modules form a Serre subcategory, are Pontryagin dual to finitely generated A[[H]]-modules, and have finite continuous cohomology.",
+   "description": "The geometric input of Scholze’s functor. **Equivariant étale sites** (X/G)_ét of a continuous action of a locally profinite group on a locally noetherian analytic adic space or a perfectoid space: the limit formula H^i((X/H₀)_ét, ℱ) = colim_H H^i((X/H)_ét, ℱ) over open H ⊃ H₀, slices, conservativity, the invariant sheaf O⁺_{X/G}/ϖ, the equivalence (X/J)_ét ≃ (X_∞/G × J)_ét for a profinite torsor tower with perfectoid limit, and the Hochschild–Serre spectral sequence H^i_cont(K, H^j(X, 𝒢)) ⇒ H^{i+j}((X/K)_ét, 𝒢) (Scholze §2, Lemma 3.12). **The Gross–Hopkins torsor**: the period maps M_{LT,K} → ℙ^{n−1}_{F̆} are étale surjective with fibres GLₙ(F)/K, D^×- and Weil-equivariant, and M_{LT,∞,C} → ℙ^{n−1}_C is a pro-étale GLₙ(F)-torsor with M_∞ ×_{ℙ^{n−1}} M_∞ ≅ M_∞ × GLₙ(F). **Strauch’s components**: π₀(M_{LT,∞,C}) ≅ F^× with the finite-level Strauch labelling distinguished from the right-G/left-D convention used for sections; in the latter, the component translations are det(g), Nrd(d) and Art_F(w)⁻¹, and the Drinfeld-side consequence H⁰_ét(M^p_{Dr,∞}, k_L) ≅ C⁰(ℚ_p^×/p^{2ℤ}, k_L). **Admissible representations of compact p-adic Lie groups**: admissible A[H]-modules form a Serre subcategory, are Pontryagin dual to finitely generated A[[H]]-modules, and have finite continuous cohomology.",
    "requires": [
     "CompletedCohomologyPartII:CC.5",
     "DeformationAndDerivedPatchingAlgebra:R03.1",
@@ -54,7 +53,7 @@
     "PerfectoidSpaces:P8",
     "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
     "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
    ]
   },
   {
@@ -73,7 +72,7 @@
     "PerfectoidSpaces:P3",
     "PerfectoidSpaces:P8",
     "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
    ]
   },
   {
@@ -86,20 +85,19 @@
     "DiamondEtaleCohomology:C0",
     "DiamondsAndVStacks:D0",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
-    "K2SymbolsBrauer:T.2:symbols",
     "ModpRepresentationsOfGL2OverLocalFields:MP.0",
     "PadicLocalLanglandsForGL2Qp:R30.2",
     "PadicLocalLanglandsForGL2Qp:R30.5",
     "PerfectoidSpaces:P3",
     "ReductiveGroupsPartII:RG2.2",
     "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
    ]
   },
   {
    "key": "SZ.3",
    "title": "Ludwig’s vanishing theorem",
-   "description": "**Ludwig’s Borel quotient**: M_∞/B(ℚ_p) is a perfectoid space for GL₂(ℚ_p), π_GH factors through it quasi-compactly with fibres y × ℙ¹(ℚ_p), the sheaf of a character χ of B is a rank-one local system with π̄_{GH,∗}ℱ_χ = ℱ_{Ind_B^G χ} and vanishing higher direct images. **Ludwig’s vanishing theorem**: S²(Ind_B^G(χ₁ ⊗ χ₂)) = 0, S²(St ⊗ μ) = 0, S²(μ∘det) is a character, and S² of a finite-length module with character, Steinberg and principal-series constituents is a successive extension of characters.",
+   "description": "**Ludwig’s Borel quotient**: M_∞/B(ℚ_p) ≅ M^{(0)}_∞/B′, B′ = B ∩ {det ∈ ℤ_p^×}, is a perfectoid space for GL₂(ℚ_p), built using the intermediate M_B = M^{(0)}_∞/B(ℤ_p), π_GH factors through it quasi-compactly with fibres y × ℙ¹(ℚ_p), the sheaf of a character χ of B is a rank-one local system with π̄_{GH,∗}ℱ_χ = ℱ_{Ind_B^G χ} and vanishing higher direct images. **Ludwig’s vanishing theorem**: S²(Ind_B^G(χ₁ ⊗ χ₂)) = 0, S²(St ⊗ μ) = 0, S²(μ∘det) is a character, and S² of a finite-length module with character, Steinberg and principal-series constituents is a successive extension of characters.",
    "requires": [
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0",
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1",
@@ -115,7 +113,7 @@
   {
    "key": "SZ.4",
    "title": "The global input: the key local proposition",
-   "description": "**Globalisation** (CDN Proposition 4.5, DPS Proposition 8.1, Gee–Kisin Corollary A.3): for p > 2 every r̄ : Gal_{ℚ_p} → GL₂(k_L) is the restriction at all places above p of the residual representation of a weight-0 cuspidal representation of GL₂ over a totally real E of even degree with p split, unramified outside p, with large residual image. **The definite quaternionic block module** (CDN Propositions 4.7, 4.8, 4.10): the auxiliary place, S_{ψ,λ,𝔪} admissible in the block of r̄^{ss} and injective over GL₂(ℤ_p), and M_{ψ,λ,𝔪} = S_{ψ,λ,𝔪}[𝔪_A] of finite length containing every member of the block. **Paškūnas’s torsion comparison** (Lemma 6.1): S¹(S_{ψ,λ,𝔪}[I]) ↪ Ĥ¹_{ψ,λ,𝔪}[I], an isomorphism unless r̄^{ss} = χ ⊕ χω. **The key local proposition** (CDN Proposition 4.3): for a generic pair (χ₁, χ₂), S¹(I(χ₁, χ₂))^{Gal_K} ≠ 0 forces χ₁ or χ₂ to factor through Gal(K/ℚ_p).",
+   "description": "**Globalisation** (CDN Proposition 4.5, DPS Proposition 8.1, Gee–Kisin Corollary A.3): for p > 2 every r̄ : Gal_{ℚ_p} → GL₂(k_L) is the restriction at all places above p of the residual representation of a weight-0 cuspidal representation of GL₂ over a totally real E of even degree with p split, unramified outside p, with large residual image. **The definite quaternionic block module** (CDN Propositions 4.7, 4.8, 4.10): the auxiliary place, S_{ψ,λ,𝔪} admissible in the block of r̄^{ss} and injective over GL₂(ℤ_p), and M_{ψ,λ,𝔪} = S_{ψ,λ,𝔪}[𝔪_A] of finite length containing every member of the block. **Paškūnas’s torsion comparison** (Lemma 6.1): S¹(S_{ψ,λ,𝔪}[I]) ↪ Ĥ¹_{ψ,λ,𝔪}[I], an isomorphism unless r̄^{ss} = χ ⊕ χω. **The key local proposition** (CDN Proposition 4.3): for a generic pair (χ₁, χ₂), S¹(I(χ₁, χ₂))^{Gal_K} ≠ 0 forces χ₁ or χ₂ to be trivial on Gal_K (K/ℚ_p need not be Galois).",
    "requires": [
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1",
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.3",
@@ -152,7 +150,9 @@
     "ModpRepresentationsOfGL2OverLocalFields:MP.0",
     "ModpRepresentationsOfGL2OverLocalFields:MP.1",
     "PadicLocalLanglandsForGL2Qp:R30.2",
-    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category"
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
    ]
   },
   {
@@ -170,7 +170,8 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a",
     "ModpRepresentationsOfGL2OverLocalFields:MP.1",
     "PadicLocalLanglandsForGL2Qp:R30.3",
-    "PadicLocalLanglandsForGL2Qp:R30.5"
+    "PadicLocalLanglandsForGL2Qp:R30.5",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
    ]
   }
  ],
@@ -187,7 +188,7 @@
     "§0.1–0.2, pp. 2–6",
     "§1.2.3 and §1.3.2 with Remarque 1.9, pp. 12–14",
     "Lemmes 1.22–1.23 and Théorème 1.24, pp. 17–18",
-    "Théorème 2.1 and Corollaire 2.12, pp. 21 and 31–32",
+    "Théorème 2.1 and Corollaire 2.12, pp. 21 and 30",
     "§3 (Théorèmes 3.1–3.2, Lemme 3.10, Corollaires 3.11 and 3.13), pp. 32–37",
     "§4 (Théorème 4.1 to Remarque 4.29), pp. 37–49",
     "Bibliography, pp. 60–62"
@@ -218,7 +219,7 @@
    "sha256": "ed9187b3269adb7e9964369470073ce8760ef56ef0c0b89538c0a1509f811959",
    "accessed": "2026-10-19",
    "readSections": [
-    "§2, Lemmas 2.12–2.13, pp. 11–12"
+    "§2, Propositions 2.10–2.11 and Lemmas 2.12–2.13, pp.10–13"
    ]
   },
   {
@@ -232,7 +233,7 @@
    "readSections": [
     "§1, pp. 1–3",
     "§2.1, pp. 3–5",
-    "Theorems 3.11 and 3.14 (statements), pp. 20–23",
+    "Theorem 3.11, Corollary 3.13, Theorem 3.14 and Proposition 3.15 with proofs, pp.20–23; Proposition 3.17 with proof and Proposition 3.22, Lemma 3.23, pp.23–27",
     "§4 (Proposition 4.1 to Remark 4.8), pp. 28–32"
    ]
   },
@@ -261,7 +262,8 @@
    "sha256": "963e68f72655c183aeb04869b5cd5df92fd46f0aada580637b2c5f67c6beca34",
    "accessed": "2026-10-19",
    "readSections": [
-    "§6 (from (29) to Theorem 6.5), pp. 27–30"
+    "§6 (from (29) to Theorem 6.5), pp. 27–30",
+    "§5, Lemmas 5.1–5.3 and Proposition 5.4, pp.17–20; fixed-central-character modules, pp.26 and29–30"
    ]
   },
   {
@@ -274,7 +276,8 @@
    "accessed": "2026-10-19",
    "readSections": [
     "§7 (Lemmas 7.1–7.4), pp. 29–31",
-    "§8 (Proposition 8.1, Lemma 8.2, Proposition 8.4, Lemma 8.6), pp. 37–40"
+    "§8 (Proposition 8.1, Lemma 8.2, Proposition 8.4, Lemma 8.6), pp. 37–40",
+    "Lemma 8.6 with proof, pp.40–41; footnote 15, p.40"
    ]
   },
   {
@@ -311,7 +314,9 @@
    "accessed": "2026-10-19",
    "readSections": [
     "Chapter I §1 (Theorems 1.1–1.3)",
-    "Chapter III §10 (Theorems 10.1–10.4)"
+    "Chapter III §10 (Theorems 10.1–10.4)",
+    "Chapter II Definition 3.1 and Theorem 3.1, printed pp.17–18",
+    "Chapter III §§8–9, Theorems 9.1–9.2, printed pp.46–47"
    ]
   }
  ],

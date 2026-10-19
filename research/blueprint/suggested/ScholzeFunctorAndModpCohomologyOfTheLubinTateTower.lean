@@ -18,7 +18,7 @@ import TauCeti.RepresentationTheory.Homological.ContCohomology.SmoothDiscrete
 **Standard note.** This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/ScholzeFunctorAndModpCohomologyOfTheLubinTateTower.md` is definitive.
 The statements below suggest Lean forms so that contributors and reviewers converge on names and
-signatures; every proof is a placeholder.
+signatures; target proofs are placeholders. Light definitions have real bodies.
 
 ## What is stated here
 
@@ -104,6 +104,12 @@ like `π ↦ π^{I₁}`, is not of finite image. -/
 example : ¬ IsFiniteImage k (fun _ : ℕ => k) := by
   sorry
 
+-- test: TauCetiRoadmap.ScholzeFunctor.IsFiniteImage_single_infinite_dimension
+/-- Unit test (non-example): finite support alone does not suffice when its value is
+infinite-dimensional. -/
+example : ¬ IsFiniteImage k (fun _ : Unit => ℕ → k) := by
+  sorry
+
 end FiniteImage
 
 /-! ## SZ.4: generic pairs of characters -/
@@ -129,6 +135,18 @@ theorem IsGenericPair.twist {ε χ₁ χ₂ : ℚ_[p]ˣ →* kˣ} (η : ℚ_[p]�
 
 /-- Unit test (non-example): a pair of equal characters is never generic. -/
 example (ε χ : ℚ_[p]ˣ →* kˣ) : ¬ IsGenericPair ε χ χ := by
+  sorry
+
+/-- Unit test: a ratio equal to the cyclotomic character is excluded. -/
+example (ε : ℚ_[p]ˣ →* kˣ) : ¬ IsGenericPair ε ε 1 := by
+  sorry
+
+/-- Unit test: the inverse cyclotomic ratio is excluded as well. -/
+example (ε : ℚ_[p]ˣ →* kˣ) : ¬ IsGenericPair ε ε⁻¹ 1 := by
+  sorry
+
+/-- Unit test: when the three forbidden ratios coincide, every other ratio is generic. -/
+example (χ : ℚ_[p]ˣ →* kˣ) (hχ : χ ≠ 1) : IsGenericPair 1 χ 1 := by
   sorry
 
 end GenericPair
@@ -171,6 +189,23 @@ def IsAdmissibleModP {G : Type*} [Group G] [TopologicalSpace G]
     (X : TopRep (ZMod p) G) : Prop :=
   TauCeti.IsSmoothDiscrete (ZMod p) X ∧
     ∀ U : OpenSubgroup G, IsCompact (U : Set G) → {x : X.V | ∀ u ∈ U, X.ρ u x = x}.Finite
+
+/-- The finite trivial representation is admissible. -/
+example : IsAdmissibleModP p (TopRep.of
+    (ContRepresentation.trivial (ZMod p) Unit (ZMod p))) := by
+  sorry
+
+/-- The zero representation is admissible. -/
+example : IsAdmissibleModP p (TopRep.of
+    (ContRepresentation.trivial (ZMod p) Unit (Fin 0 → ZMod p))) := by
+  sorry
+
+/-- A discrete infinite vector space with trivial action is smooth but is not admissible:
+its fixed space for the compact open trivial group is the entire infinite set. -/
+example (V : Type*) [AddCommGroup V] [Module (ZMod p) V] [TopologicalSpace V]
+    [DiscreteTopology V] [IsTopologicalAddGroup V] [ContinuousSMul (ZMod p) V] [Infinite V] :
+    ¬ IsAdmissibleModP p (TopRep.of (ContRepresentation.trivial (ZMod p) Unit V)) := by
+  sorry
 
 /-- SZ.2/fust-cohomology (c): continuous cohomology of the `p`-adic reductive group `SL₂(ℚ_p)`
 with admissible smooth `ZMod p` coefficients is finite in every degree (Fust, Lemma 6.6). -/
