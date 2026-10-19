@@ -651,15 +651,16 @@
       ],
       "title": "The mod-p Adams resolution",
       "kind": "construction",
-      "statement": "For H=HF_p, let I=fib(S→H). For a spectrum B form the tower B_s=I^{⊗s}⊗B, s≥0, with B_0=B, and structure maps induced by I→S. The cofiber at filtration s is H⊗I^{⊗s}⊗B. Equivalently use the augmented H-cobar cosimplicial spectrum B⊗H^{⊗(n+1)}. Its normalized exact couple gives the mod-p Adams spectral sequence, indexed E_2^{s,t}=Ext_{A_p}^{s,t}(H*(B;F_p),F_p), with d_r:(s,t)↦(s+r,t+r−1) and stem t−s.",
+      "statement": "For H=HF_p, let I=fib(S→H). For a spectrum B form the tower B_s=I^{⊗s}⊗B, s≥0, with B_0=B, and structure maps induced by I→S. The cofiber at filtration s is H⊗I^{⊗s}⊗B. Equivalently use the augmented H-cobar cosimplicial spectrum B⊗H^{⊗(n+1)}. Its normalized exact couple gives the mod-p Adams spectral sequence. When B is bounded below with degreewise finite-dimensional mod-p homology, its E₂ page is identified as E_2^{s,t}=Ext_{A_p}^{s,t}(H*(B;F_p),F_p), with d_r:(s,t)↦(s+r,t+r−1) and stem t−s.",
       "hypotheses": [],
       "proofSteps": [
         "Use the unit S→H and derived smash to form the functorial tower and its cofiber sequences.",
-        "Identify the E₁ complex with the normalized cobar resolution using the H-coaction; pass to the graded Ext description.",
+        "For B bounded below and mod-p degreewise finite type, identify the E₁ complex with the normalized cobar resolution using the H-coaction and degreewise duality; pass to the graded Ext description. The tower itself needs neither hypothesis.",
         "Relate the partial totalizations of the cosimplicial resolution to the exact-couple tower. Convergence is a separate theorem below."
       ],
       "acceptance": [
-        "No convergence is inferred just from the displayed E₂ page."
+        "No convergence is inferred just from the displayed E₂ page.",
+        "The tower is defined for every B, but this cohomological Ext identification is asserted only in the bounded-below degreewise finite-type range."
       ],
       "prerequisites": [
         "StableHomotopyKTheoryPartII:PO.1/steenrod-algebra",
@@ -672,7 +673,7 @@
         {
           "sourceId": "lnr12",
           "locator": "§2.1, construction preceding Proposition 2.2, pp.864–866",
-          "match": "The canonical Adams resolutions produce the spectral sequences used in the inverse-limit comparison."
+          "match": "The canonical Adams resolutions exist without finiteness; the cohomological Ext identification here uses the bounded-below finite-type hypotheses of §2.1."
         }
       ],
       "library": {
@@ -694,7 +695,7 @@
         {
           "name": "PowerOperations.adamsResolution.cobar",
           "role": "compatibility",
-          "statement": "The normalized cobar differential agrees with the exact-couple E₁ differential and gives the stated Ext grading."
+          "statement": "The normalized cobar differential agrees with the exact-couple E₁ differential; for bounded-below B with degreewise finite-dimensional mod-p homology it gives the stated Ext grading."
         }
       ],
       "tests": [
@@ -1048,7 +1049,7 @@
       ],
       "title": "The extended-power Singer approximation",
       "kind": "construction",
-      "statement": "For B bounded below and degreewise finite type over F_p, form U_n(B)=Σ^{1+n}D_{C_p}(Σ^{−n}B), n≥0, with the bonding maps from inclusions of successive multiples of the reduced regular representation. There is a cofinal comparison U_n(B)≃(B^{⊗p})^{tC_p}[1−(p−1)n] to the Greenlees Tate tower and hence holim_n U_n(B)≃T_p(B). Each U_n(B) is individually bounded below and mod-p finite type, with no uniform lower bound asserted. The Tate tower and its generic norm construction remain imported from RT.2; this node owns the explicit cyclic extended-power approximation and its finiteness.",
+      "statement": "For B bounded below and degreewise finite type over F_p, form U_n(B)=Σ^{1+n}D_{C_p}(Σ^{−n}B), n≥0, with the bonding maps from inclusions of successive multiples of the reduced regular representation. There is a cofinal comparison U_n(B)≃(B^{⊗p})^{tC_p}[1−(p−1)n] to the Greenlees Tate tower. Here Z^{tC_p}[k] denotes its kth Greenlees filtration stage as in LNR Definition 4.3, not the suspension Σ^k(Z^{tC_p}); hence holim_n U_n(B)≃T_p(B). Each U_n(B) is individually bounded below and mod-p finite type, with no uniform lower bound asserted. The Tate tower and its generic norm construction remain imported from RT.2; this node owns the explicit cyclic extended-power approximation and its finiteness.",
       "hypotheses": [],
       "proofSteps": [
         "Model EC_p using the unit sphere in infinitely many reduced regular representations and use finite skeleta/representation inclusions to specify the tower maps.",
@@ -1093,7 +1094,7 @@
         {
           "name": "PowerOperations.singerTower.cofinal",
           "role": "compatibility",
-          "statement": "U_n(B) identifies with the Tate stage indexed 1−(p−1)n, including bonding maps."
+          "statement": "U_n(B) identifies with the Greenlees Tate filtration stage indexed 1−(p−1)n, including bonding maps; the bracket is a filtration index, not a suspension."
         },
         {
           "name": "PowerOperations.singerTower.finiteType",
@@ -1828,7 +1829,7 @@
         {
           "sourceId": "ns18",
           "locator": "§IV.1, Example IV.1.2(i)–(ii), pp.324–325",
-          "match": "The spectral Frobenius reduces to a↦a^p on ordinary rings and is an endomorphism for compact p-complete spectra."
+          "match": "The spectral Frobenius reduces to a↦a^p on ordinary rings. For the sphere and its finite-cell/retract extensions, the source’s compactness terminology is replaced by the explicit finite/dualizable argument recorded in E4."
         }
       ],
       "library": {
@@ -2428,7 +2429,7 @@
       "sources": [
         {
           "sourceId": "bmms86",
-          "locator": "Chapter VIII §4, Theorem 4.1, Proposition 4.2 and Lemma 4.3 (scan PDF pp.137–138)",
+          "locator": "Chapter VIII §4, Theorem 4.1, Proposition 4.2 and Lemma 4.3 (scan PDF pp.141–142)",
           "match": "The complex-of-bundles construction extends tensor powers to virtual K-theory and agrees with the spectrum power."
         },
         {
@@ -2836,7 +2837,7 @@
       "sources": [
         {
           "sourceId": "ns18",
-          "locator": "§IV.3, Proposition IV.3.2 and Corollary IV.3.3, pp.352–353; Theorem IV.3.7 and proof, pp.354–355; §II.4, Corollary II.4.9, p.265",
+          "locator": "§IV.3, Proposition IV.3.2 and Corollary IV.3.3, pp.347–351; Theorem IV.3.7 and proof, pp.354–355; §II.4, Corollary II.4.9, p.265",
           "match": "The cyclic loop-space Frobenius is the totalized Tate diagonal, and the genuine comparison follows from the cyclic pullback criterion."
         }
       ],
@@ -2931,71 +2932,141 @@
   "sourceIssues": [
     {
       "id": "StableHomotopyKTheoryPartII/E1",
-      "sourceId": "ns18",
       "kind": "misprint",
       "locator": "Example I.2.3(iii), p.220; online publisher PDF with SHA-256 recorded under ns18.",
-      "printed": "In the multiplicative-coordinate p-series the printed expression retains a constant term and the exponent in the p² case is mistyped.",
+      "printed": "In the multiplicative-coordinate formulas for [p](x) and [p²](x), the source uses x−1 where the chosen coordinate requires 1+x. The exponent p² itself is printed correctly.",
       "correction": "Use [p](x)=(1+x)^p−1 and [p²](x)=(1+x)^{p²}−1.",
-      "reason": "Every formal-group p-series vanishes at x=0; factoring the corrected expressions gives the cyclotomic coefficient fields used by the source.",
+      "reason": "At x=0 the printed expressions give −2 for odd p, whereas a formal-group p-series must vanish there. The corrected coordinate gives the cyclotomic coefficient fields used subsequently. The design’s additional claim of an exponent misprint is withdrawn.",
       "affects": "nothing",
-      "known": "Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E4; not addressed by the 2019 typesetting correction.",
+      "known": "new",
       "searched": [
         "Corrected Acta 221 publisher PDF read 2026-10-19.",
         "Entire published 2019 correction, Acta 222, pp.215–218: no correction of this point.",
         "Existing PAPER-NIKOLAUS-SCHOLZE-18 extraction and its sourceIssues compared.",
         "Publisher/author correction search on 2026-10-19; no further correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The coordinate-sign misprint is visible in Example I.2.3(iii), p.220, and fails the zero-constant-term test at odd p. The separate exponent allegation was unsupported and has been removed; the displayed exponent is p².",
+        "by": "REV-DESIGN-StableHomotopyKTheoryPartII"
+      },
+      "source": "ns18",
+      "priorRecord": "Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E4; not addressed by the 2019 typesetting correction."
     },
     {
       "id": "StableHomotopyKTheoryPartII/E2",
-      "sourceId": "ns18",
       "kind": "misprint",
-      "locator": "Displays immediately before Theorem IV.1.15, p.332; online publisher PDF with SHA-256 recorded under ns18.",
-      "printed": "The odd-primary invariant decomposition uses suspension shifts without the factor two required by the degree-two Laurent generator.",
-      "correction": "Use shifts 2j(p−1) and 2j(p−1)+1 for HF_p, and 2j(p−1) for HZ.",
+      "locator": "Displays before and statement of Theorem IV.1.15, p.332; online publisher PDF with SHA-256 recorded under ns18.",
+      "printed": "The odd-primary invariant decomposition and the reduced-power component codomains omit the factor two required by the degree-two Laurent generator.",
+      "correction": "Use shifts 2j(p−1) and 2j(p−1)+1 for HF_p, and 2j(p−1) for HZ. The operation codomains have shifts 2i(p−1) for P^i and 2i(p−1)+1 for βP^i.",
       "reason": "At p=3 the P¹ component is degree 4, whereas an uncorrected shift would place it in degree 2; the normalizer-invariant coefficient generator has homotopy degree −2(p−1).",
       "affects": "nothing",
-      "known": "Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E5; not addressed by the 2019 typesetting correction.",
+      "known": "new",
       "searched": [
         "Corrected Acta 221 publisher PDF read 2026-10-19.",
         "Entire published 2019 correction, Acta 222, pp.215–218: no correction of this point.",
         "Existing PAPER-NIKOLAUS-SCHOLZE-18 extraction and its sourceIssues compared.",
         "Publisher/author correction search on 2026-10-19; no further correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The degree of the cyclic Laurent class and its normalizer weight force the factor two, both in the invariant decomposition and in the P^i and βP^i targets. The roadmap already uses these corrected degrees.",
+        "by": "REV-DESIGN-StableHomotopyKTheoryPartII"
+      },
+      "source": "ns18",
+      "priorRecord": "Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E5; not addressed by the 2019 typesetting correction."
     },
     {
       "id": "StableHomotopyKTheoryPartII/E3",
-      "sourceId": "ns18",
       "kind": "misprint",
       "locator": "Remark IV.1.11, p.328; online publisher PDF with SHA-256 recorded under ns18.",
       "printed": "The quotient used for operations on R⁰(X) omits X from the target expression.",
       "correction": "The transfer quotient in this comparison is a quotient of R⁰(X×BΣ_p).",
       "reason": "The power operation and transfer have this target before passing to the Tate comparison; dropping X changes the cohomology group.",
       "affects": "nothing",
-      "known": "Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E9; not addressed by the 2019 typesetting correction.",
+      "known": "new",
       "searched": [
         "Corrected Acta 221 publisher PDF read 2026-10-19.",
         "Entire published 2019 correction, Acta 222, pp.215–218: no correction of this point.",
         "Existing PAPER-NIKOLAUS-SCHOLZE-18 extraction and its sourceIssues compared.",
         "Publisher/author correction search on 2026-10-19; no further correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Remark IV.1.11, p.328, defines the transfer ideal in the cohomology of X×BΣ_p. Its quotient must retain X, as do the preceding power operation and the comparison map.",
+        "by": "REV-DESIGN-StableHomotopyKTheoryPartII"
+      },
+      "source": "ns18",
+      "priorRecord": "Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E9; not addressed by the 2019 typesetting correction."
     },
     {
       "id": "StableHomotopyKTheoryPartII/E4",
-      "sourceId": "ns18",
       "kind": "error",
       "locator": "Example IV.1.2(ii), p.325; online publisher PDF with SHA-256 recorded under ns18.",
       "printed": "The compactness formulation is immediately illustrated by the p-complete sphere and finite-free spherical Witt lifts.",
       "correction": "Use the p-completion of a finite spectrum, or a finite cell S_p^∧-module retract, for these examples; these objects are dualizable in p-complete spectra. Do not infer that the p-complete sphere is categorically compact.",
       "reason": "In Sp_p^∧ the filtered diagram S_p^∧ --p→ S_p^∧ --p→⋯ has zero colimit, since completion kills its p-inverted colimit. The colimit of π₀Map(S_p^∧,−) is instead Z_p[1/p]=Q_p, so the sphere is not compact. The constant-to-Tate equivalence extends from the sphere across finite cofibers and retracts and gives exactly the stated finite/dualizable examples.",
       "affects": "the proof",
-      "known": "New terminology/inference issue identified in this pass; the 2019 correction does not address it. The original assertion under actual categorical compactness is not claimed false.",
+      "known": "new",
       "searched": [
         "Corrected Acta 221 publisher PDF read 2026-10-19.",
         "Entire published 2019 correction, Acta 222, pp.215–218: no correction of this point.",
         "Existing PAPER-NIKOLAUS-SCHOLZE-18 extraction and its sourceIssues compared.",
         "Publisher/author correction search on 2026-10-19; no further correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p-inversion filtered diagram has zero colimit in p-complete spectra but colimit Q_p on π₀ maps from S_p^∧, disproving categorical compactness of that example. Exactness and closure under finite cofibers and retracts prove the corrected comparison on the finite/dualizable class used here. Only the inference for the illustrated examples is challenged; the assertion under actual categorical compactness is not claimed false.",
+        "by": "REV-DESIGN-StableHomotopyKTheoryPartII"
+      },
+      "source": "ns18",
+      "priorRecord": "New terminology/inference issue recorded by the design and confirmed by this independent review; the 2019 correction does not address it. The assertion under actual categorical compactness is not claimed false."
+    },
+    {
+      "id": "StableHomotopyKTheoryPartII/E5",
+      "kind": "misprint",
+      "locator": "Proofs of Lemmas IV.1.18 and IV.1.20, pp.335 and 339; online publisher PDF with SHA-256 recorded under ns18.",
+      "printed": "The power-operation symbol in each proof acquires a degree index k that has not been specified.",
+      "correction": "Use the degree-n operation P_p^n consistently with equation (12), the two lemma statements and Theorem IV.1.21.",
+      "reason": "Both proofs start with a class or suspension in degree n; no degree k is introduced, and changing that degree would change the target twist.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Corrected Acta 221 publisher PDF read 2026-10-19.",
+        "Entire published 2019 correction, Acta 222, pp.215–218: no correction of this point.",
+        "Existing PAPER-NIKOLAUS-SCHOLZE-18 extraction and its sourceIssues compared.",
+        "Publisher/author correction search on 2026-10-19; no further correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The surrounding domains, equation (12), and the degree-n lemma statements fix the index as n. The isolated k in each cited proof is a notation misprint.",
+        "by": "REV-DESIGN-StableHomotopyKTheoryPartII"
+      },
+      "source": "ns18",
+      "priorRecord": "Already recorded in PAPER-NIKOLAUS-SCHOLZE-18/E10; not addressed by the 2019 typesetting correction."
+    },
+    {
+      "id": "StableHomotopyKTheoryPartII/E6",
+      "kind": "misprint",
+      "locator": "Definition of the cohomological power operation and statement of Lemma IV.1.20, p.338; compare Lemma IV.1.19, pp.336–337, and Theorem IV.1.21, p.339; online publisher PDF with SHA-256 recorded under ns18.",
+      "printed": "The twisted-cohomology targets on p.338 repeatedly omit the BΣ_p factor from the base space.",
+      "correction": "The target of P_p^n on R^n(X) is R^{nρ}(X×BΣ_p), including in the statement of Lemma IV.1.20; the twist is pulled back from the permutation representation over BΣ_p.",
+      "reason": "The constructed representative has domain (X×BΣ_p)^{−nρ}. Lemma IV.1.19 identifies precisely this group with maps into (Σ^{nρ}R)^{hΣ_p}, and Theorem IV.1.21 retains the full base.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Corrected Acta 221 publisher PDF read 2026-10-19.",
+        "Entire published 2019 correction, Acta 222, pp.215–218: no correction of this point.",
+        "Existing PAPER-NIKOLAUS-SCHOLZE-18 extraction and its sourceIssues compared.",
+        "Publisher/author correction search on 2026-10-19; no further correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The explicit Thom-spectrum domain and the adjacent adjunction and comparison theorem require X×BΣ_p. Omitting that factor removes the space carrying the permutation bundle. The roadmap already states the correct target.",
+        "by": "REV-DESIGN-StableHomotopyKTheoryPartII"
+      },
+      "source": "ns18",
+      "priorRecord": "New to this packet and not listed in the existing paper extraction or the 2019 correction; no further author/publisher correction was located on 2026-10-19."
     }
   ],
   "sourceVersions": [
@@ -3003,67 +3074,89 @@
       "sourceId": "ns18",
       "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2018/0221/0002/ACTA-2018-0221-0002-a001.pdf",
       "sha256": "8b1856fa8faefa3efebd64580249aa6fbc0c918f69820bba01410ab0ef1eb8ef",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "ns19-correction",
       "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/acta/2019/0222/0001/ACTA-2019-0222-0001-a002.pdf",
       "sha256": "0b98fb63029a31324ad23504f584e3f414b03f4734ba63f49b943b0bd5f27944",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "lnr12",
       "url": "https://ems.press/content/serial-article-files/26162?nt=1",
       "sha256": "33a7b543d1dd697c08ed903dae878b4dedd745a00fed43d15447685f7ad25a1a",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "agm85",
       "url": "https://math.mit.edu/~hrm/papers/adams-gunawardena-miller-segal-conjecture.pdf",
       "sha256": "441f852919661722ba039707007e0869a9bb081cffbd32f119fa876bd05e56dc",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "bmms86",
       "url": "https://www.math.uchicago.edu/~may/BOOKS/h_infty.pdf",
       "sha256": "91a6bdea3f047979d5a53af9301411ddc8ae0b40b5da6a2d6b1d8b592bab5d56",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "milnor58",
       "url": "https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Milnor-A.pdf",
       "sha256": "407cc2db0514af4f63a6be5f1e2adca122054a25dc6ea13ce4f8cd9927d29ff0",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "cartan55-I",
       "url": "https://www.numdam.org/item/SHC_1954-1955__7_2_A3_0.pdf",
       "sha256": "f877b26795c18aa139bfd8c74a49f0fc33d374418da75e42743f5090f6aa2e42",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "cartan55-II",
       "url": "https://www.numdam.org/item/SHC_1954-1955__7_2_A4_0.pdf",
       "sha256": "98769f4ae9ad18d20eac3446286d39a45fd440efc3cd5ca619d26b014d48e450",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "cartan55-III",
       "url": "https://www.numdam.org/item/SHC_1954-1955__7_2_A5_0.pdf",
       "sha256": "61b87533b07b20261cb0dbb25260e71aa41192cf58b99442e0deaf8674e2f1e1",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "published",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "kuhn04",
       "url": "https://arxiv.org/pdf/math/0202042",
       "sha256": "448a86e091b29fab29e4c20d9a1ba5a85f078018d63e1334a40d334d84d1b290",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "preprint",
+      "read": "2026-10-19"
     },
     {
       "sourceId": "malkiewich17",
       "url": "https://arxiv.org/pdf/1505.06778",
       "sha256": "db2af613698a9311143c7d2edd008bb96c7c60f001175a0fe4818e179c8a70e8",
-      "accessed": "2026-10-19"
+      "accessed": "2026-10-19",
+      "kind": "preprint",
+      "read": "2026-10-19"
     }
   ],
   "upstreamNotes": [],
@@ -3173,5 +3266,233 @@
         "StableHomotopyKTheoryPartII:PO.8/free-loop-segal"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-StableHomotopyKTheoryPartII",
+    "date": "2026-10-19",
+    "notes": "Independent source, pinned-baseline, supplier, closure, API/test, scope and current-library review of all 44 nodes. Corrected the Adams Ext hypothesis, Greenlees stage notation, two citation groups and the finite/dualizable source match; corrected and reviewed all source issues and added two missed notation issues. All 12 baseline declarations confirmed. Coverage remains four closed and four planned stages with three explicit supplier requests. Lean companion elaborated with only its expected warning for the unproved theorem; blueprint check has zero errors.",
+    "checked": [
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.1/extended-powers",
+        "verdict": "verified",
+        "note": "BMMS VIII.1 gives the orbit construction and subgroup functoriality. The odd-sphere test retains the permutation sign, so this is not an ordinary symmetric power."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.1/cyclic-tate-coefficients",
+        "verdict": "verified",
+        "note": "NS I.1 and IV.1 give Laurent degree −2 at odd primes and the stated Weyl weight. Invariant exponents and cohomological signs agree with the corrected shifts in E2."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.1/steenrod-operations",
+        "verdict": "verified",
+        "note": "BMMS VIII.2 gives stable operations with the stated Cartan and Bockstein rules. Instability is restricted to space cohomology; the real/complex projective and BC_p tests detect normalization."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.1/steenrod-algebra",
+        "verdict": "verified",
+        "note": "BMMS Adem relations, Milnor’s basis and Cartan’s representing-space calculation justify the full algebra of stable operations, rather than only the presented subalgebra. The dual-algebra computation is not used circularly."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.1/milnor-dual",
+        "verdict": "verified",
+        "note": "Milnor §§5,8 and AGM Lemma 2.1 support the dual Hopf algebra, finite Hopf pieces and freeness needed below. Degrees and coproduct conventions are compatible with the Singer action."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/adams-resolution",
+        "verdict": "corrected",
+        "note": "Restricted the cohomological Ext identification to bounded-below spectra with degreewise finite-dimensional mod-p homology, as in LNR §2.1; retained the unrestricted functorial tower and separated convergence."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/adams-convergence",
+        "verdict": "verified",
+        "note": "The constant-tower specialization of LNR Proposition 2.2 has the required bounded-below finite-type hypotheses. Strong convergence is supplied separately from the exact couple."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/continuous-cohomology",
+        "verdict": "verified",
+        "note": "LNR Definitions 2.3 and 4.7 take the colimit of the tower cohomology, not cohomology of its homotopy limit. The sphere Singer-tower non-example detects this difference."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/inverse-limit-adams",
+        "verdict": "verified",
+        "note": "LNR Proposition 2.2 allows the lower bound to vary with the tower index. Its compact-Hausdorff degreewise argument, rather than general exactness of inverse limits, justifies strong convergence."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/singer-module",
+        "verdict": "verified",
+        "note": "LNR Definition 3.1 supplies the twisted action and suspended augmentation in both characteristics. The negative Laurent exponent and odd Bockstein tests rule out an untwisted tensor-product action."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/singer-tor-equivalence",
+        "verdict": "verified",
+        "note": "AGM proves the Tor comparison for arbitrary modules using finite Hopf subalgebras; LNR gives the Ext consequence with its bounded-below finite-type target. The target hypotheses have been retained."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/singer-tate-tower",
+        "verdict": "corrected",
+        "note": "Clarified that the brackets in LNR Proposition 5.7 index Greenlees filtration stages, not suspensions of the completed Tate spectrum. The initial-stage and sphere-Thom tests check the extra suspension and reduced representation."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/continuous-singer-comparison",
+        "verdict": "verified",
+        "note": "LNR Theorems 5.2 and 5.9 and Proposition 5.12 provide the Steenrod-linear continuous-cohomology comparison and identify its map with the Singer augmentation. No replacement by ordinary limit cohomology is made."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.2/finite-type-segal",
+        "verdict": "verified",
+        "note": "LNR Theorem 5.13 compares the convergent Adams spectral sequences using the Singer Tor-equivalence. Boundedness below and degreewise finite type match the source."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.3/finite-tower-pro-constant",
+        "verdict": "verified",
+        "note": "NS Lemma III.1.8 is a statement about finite sets and a finite inverse limit. The eventual-range reduction uses precisely the pinned cofiltered-system declarations; empty limits are allowed."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.3/truncated-tensor-tate",
+        "verdict": "verified",
+        "note": "NS III.1 uses upper truncation before Tate. Mixed words are induced C_p-objects and vanish after Tate; the uniformly coconnective truncations, not arbitrary Tate spectra, permit sums."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.3/arbitrary-vector-segal",
+        "verdict": "verified",
+        "note": "NS III.1 reduces arbitrary-dimensional HF_p-vector spaces to the finite inverse systems with uniform stabilization. This avoids assuming Tate or inverse limits commute with unrestricted direct sums."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.3/bounded-below-segal",
+        "verdict": "verified",
+        "note": "NS Theorem III.1.7 uses shifts, Postnikov limits and reduction through arbitrary Eilenberg–MacLane spectra. No finite-generation assumption is retained in the final bounded-below theorem."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.4/weyl-refinement",
+        "verdict": "verified",
+        "note": "NS Lemma IV.1.3 and Corollaries IV.1.4–5 give the normalizer refinement and unit normalization. The basic E∞ Frobenius remains a precise RT.2 request, not a duplicated construction."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.4/space-diagonal-comparison",
+        "verdict": "verified",
+        "note": "NS Lemma IV.1.7 compares lax monoidal space functors using the normalized unit. This is a statement on underlying spaces and does not assert an additive space-level power map."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.4/positive-homotopy-splitting",
+        "verdict": "verified",
+        "note": "NS Corollary IV.1.8 yields a homomorphism on positive homotopy groups and only a set section on components. The packet preserves that distinction."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.4/degree-zero-power",
+        "verdict": "verified",
+        "note": "NS Corollaries IV.1.9–10 and BMMS VIII.1 give the multiplicative degree-zero power. The integer test detects its failure of additivity before quotienting."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.4/transfer-ideal",
+        "verdict": "verified",
+        "note": "BMMS transfer formulas justify the explicitly chosen Young-subgroup transfer ideal; NS Remark IV.1.11 identifies the Tate comparison. The target retains X, and the p=5 test rejects a factorial ideal."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.4/degree-zero-frobenius",
+        "verdict": "verified",
+        "note": "NS Corollary IV.1.10 identifies Frobenius after restriction and Tate. Transfer vanishing supplies the quotient map without treating the unquotiented power operation as additive."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.4/ordinary-and-compact-frobenius",
+        "verdict": "corrected",
+        "note": "Corrected the source match to use the explicit finite/dualizable p-complete class and the finite-cofiber/retract proof in E4. The target already had that valid restriction; HA has coefficient map a↦a^p mod p."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.4/spherical-witt",
+        "verdict": "verified",
+        "note": "The finite-field spherical lift uses the existing spectral étale-lift interface plus an explicit request for finite étale Witt rings and Frobenius uniqueness. It does not replan ordinary Witt vectors."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.5/representation-thom-cohomology",
+        "verdict": "verified",
+        "note": "NS Lemma IV.1.19 constructs inverse representation spheres by parametrised colimits, including negative virtual rank. The Möbius and transposition tests detect lost twisting."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.5/parametrised-thom-adjunction",
+        "verdict": "verified",
+        "note": "The adjunction in NS Lemma IV.1.19 is over X×BΣ_p and applies to virtual representation spheres. The supplier parametrised adjunctions and Thom objects have been checked."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.5/rezk-power",
+        "verdict": "verified",
+        "note": "Equation (12) and Lemmas IV.1.19–20 give the all-integer operation with target R^{nρ}(X×BΣ_p). This already corrects the omitted base factor recorded in E6."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.5/tate-suspension",
+        "verdict": "verified",
+        "note": "NS Lemma IV.1.17 uses exactness of the relative Tate tensor functor on R-modules to identify the representation suspension. It does not replace nρ by np before Tate."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.5/extended-power-thom-comparison",
+        "verdict": "verified",
+        "note": "NS Lemma IV.1.20 compares the diagonal pullback of the negative Thom bundle with the extended power, retaining the permutation action and all integer degrees."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.5/all-degree-frobenius",
+        "verdict": "verified",
+        "note": "NS Lemma IV.1.18 and Theorem IV.1.21 identify the operation after Tate with the suspended spectral Frobenius. Both degree and twisted base agree with the corrected notation in E5–E6."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.6/tate-hf-decomposition",
+        "verdict": "verified",
+        "note": "NS p.332 gives the coefficient splittings after correcting E2. The odd-prime invariant shifts have the required factor two, and the integral splitting has no odd summands."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.6/steenrod-power-coefficients",
+        "verdict": "verified",
+        "note": "BMMS VIII.2 and NS Proposition IV.1.16 identify the coefficients with Steenrod operations. Space-level instability makes the displayed class expansions finite; no untwisted tensor formula for arbitrary spectra is asserted."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.6/total-steenrod-frobenius",
+        "verdict": "verified",
+        "note": "NS Theorem IV.1.15 and Proposition IV.1.16 detect a map of spectra by its stable operations, with the corrected reduced-power and Bockstein shifts. The integral comparison removes the odd components."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.7/atiyah-cyclic-power",
+        "verdict": "corrected",
+        "note": "Corrected BMMS VIII.4’s scan locator to PDF leaves 141–142. Its complex-of-bundles construction supplies virtual powers and Koszul signs; the negative-unit test would fail for naive tensor powers of a formal difference."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.7/ku-tate-coefficients",
+        "verdict": "verified",
+        "note": "NS Example I.2.3(iii) and equation (11) give the cyclotomic coefficient fields using (1+x)^{p^r}−1. Weyl invariants yield Q_p and agree with the chosen Bott generator."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.7/ku-adams-frobenius",
+        "verdict": "verified",
+        "note": "NS Proposition IV.1.12 uses Atiyah powers on compact spaces and then Bott inversion. The stable Adams operation is rationalized where required, and no unrestricted tensor/cohomology interchange is used."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.7/fixed-sphere-counterexample",
+        "verdict": "verified",
+        "note": "NS Example I.2.3(i) uses the residual C_{p²}/C_p action. The proof retains this extension action and does not replace it by an independent trivial action."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.7/ku-orbit-counterexample",
+        "verdict": "verified",
+        "note": "NS Example I.2.3(iii), together with the orbit comparison in Lemma II.4.1, gives unequal cyclotomic-field dimensions. KU is unbounded, so the bounded-below orbit lemma cannot be applied to it."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.7/unbounded-diagonal-counterexample",
+        "verdict": "verified",
+        "note": "NS’s paragraph after Theorem III.1.7 needs raw rationality for the height-one Tate sphere. The CH.9 request asks for exactly that specialization; localized Tate vanishing alone is explicitly insufficient."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.8/free-loop-totalization",
+        "verdict": "verified",
+        "note": "Kuhn Theorems 6.2/6.6 supply finite models, and Malkiewich Proposition 2.22 supplies increasing connectivity for arbitrary simply connected Y. This controls this totalization without claiming suspension spectra preserve arbitrary limits."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.8/tate-totalization-control",
+        "verdict": "verified",
+        "note": "NS Theorem IV.3.7’s proof commutes orbits through the tower by increasing fiber connectivity, then uses exactness and the limit preservation of homotopy fixed points. It does not assert unconditional Tate/limit commutation."
+      },
+      {
+        "nodeId": "StableHomotopyKTheoryPartII:PO.8/free-loop-segal",
+        "verdict": "corrected",
+        "note": "Corrected the prerequisite citation to Proposition IV.3.2 and Corollary IV.3.3, pp.347–351. The theorem and proof are pp.354–355; Corollary II.4.9 supplies the genuine C_{p^n} comparison. No finite-type condition on Y is added."
+      }
+    ]
+  }
 }
