@@ -6,6 +6,7 @@ import Mathlib.LinearAlgebra.Matrix.Transvection
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Coeff
 import Mathlib.LinearAlgebra.Matrix.Rank
+import Mathlib.LinearAlgebra.UnitaryGroup
 import Mathlib.LinearAlgebra.Matrix.ProjectiveSpecialLinearGroup
 import Mathlib.LinearAlgebra.Charpoly.Basic
 import Mathlib.LinearAlgebra.SesquilinearForm.Basic
@@ -22,8 +23,8 @@ import Mathlib.Data.ZMod.Units
 **This file is not the roadmap and is not exhaustive.** The roadmap document
 (`research/blueprint/readmes/PotentialAutomorphyDworkMotivesPartII.md`) is definitive. The
 statements below suggest Lean forms for the targets whose carriers exist in Mathlib at the pinned
-commit, so that contributors and reviewers converge on names and signatures. Everything is proved
-by `sorry`; no definition below has a `sorry` body.
+commit, so that contributors and reviewers converge on names and signatures. Theorems and examples are placeholders with `sorry`; the light definitions have real bodies.
+Imported companion theory and the existing unitary carriers are not new targets here.
 
 The geometric objects of the roadmap — the Dwork pencil as a scheme, its étale and Betti
 eigen-local-systems, Katz's hypergeometric sheaves, the moduli of level structures, semistable
@@ -42,9 +43,9 @@ section PseudoReflection
 
 variable {K V : Type*} [Field K] [AddCommGroup V] [Module K V]
 
-/-- `g` is a pseudo-reflection: `g - 1` has rank exactly one. -/
+/-- A pseudo-reflection is invertible and has rank-one displacement. -/
 def _root_.LinearMap.IsPseudoReflection (g : Module.End K V) : Prop :=
-  Module.finrank K (LinearMap.range (g - 1)) = 1
+  IsUnit g ∧ Module.finrank K (LinearMap.range (g - 1)) = 1
 
 /-- `g` is a transvection: a pseudo-reflection with `(g - 1)² = 0`. -/
 def _root_.LinearMap.IsTransvection (g : Module.End K V) : Prop :=
@@ -90,6 +91,11 @@ example : LinearMap.IsPseudoReflection (Matrix.toLin' (Matrix.diagonal ![(1 : �
     ¬ LinearMap.IsTransvection (Matrix.toLin' (Matrix.diagonal ![(1 : ℚ), 2])) := by
   sorry
 
+-- A singular rank-one displacement is excluded.
+example : ¬ LinearMap.IsPseudoReflection
+    (Matrix.toLin' (Matrix.diagonal ![(0 : ℚ), 1])) := by
+  sorry
+
 -- not_isPseudoReflection_one
 example (n : ℕ) : ¬ LinearMap.IsPseudoReflection (1 : Module.End K (Fin n → K)) := by
   sorry
@@ -116,29 +122,11 @@ def companion (p : R[X]) : Matrix (Fin p.natDegree) (Fin p.natDegree) R :=
   Matrix.of fun i j =>
     if (j : ℕ) + 1 = p.natDegree then -p.coeff i else if (i : ℕ) = j + 1 then 1 else 0
 
-theorem charpoly_companion {p : R[X]} (hp : p.Monic) : (companion p).charpoly = p := by
-  sorry
-
-/-- Over a field a matrix is conjugate to the companion matrix of its characteristic polynomial
-iff it has a cyclic vector (DM.0/companion-normal-form (1)). -/
-theorem _root_.Polynomial.companion_conj_iff_cyclic {K : Type*} [Field K] {n : ℕ}
-    (A : Matrix (Fin n) (Fin n) K) :
-    (∃ (h : A.charpoly.natDegree = n) (P : GL (Fin n) K),
-        (P : Matrix (Fin n) (Fin n) K) * A * ((P⁻¹ : GL (Fin n) K) : Matrix (Fin n) (Fin n) K) =
-          (companion A.charpoly).submatrix (Fin.cast h.symm) (Fin.cast h.symm)) ↔
-      ∃ v : Fin n → K, Submodule.span K (Set.range fun k : Fin n => (A ^ (k : ℕ)).mulVec v) = ⊤ := by
-  sorry
-
-/-- The companion matrix of `p` has minimal polynomial `p` (DM.0/companion-normal-form (2)). -/
-theorem minpoly_companion {K : Type*} [Field K] {p : K[X]} (hp : p.Monic) :
-    minpoly K (companion p) = p := by
-  sorry
-
 /-- For monic `p ≠ q` of the same degree with `p(0) ≠ 0`, `C(q) C(p)⁻¹ - 1` has rank one
 (DM.0/companion-normal-form (3)). -/
 theorem rank_companion_mul_inv_sub_one {K : Type*} [Field K] {n : ℕ} {p q : K[X]}
     (hp : p.Monic) (hq : q.Monic) (hpn : p.natDegree = n) (hqn : q.natDegree = n)
-    (h0 : p.coeff 0 ≠ 0) (hpq : p ≠ q) :
+    (hn : 1 ≤ n) (h0 : p.coeff 0 ≠ 0) (hpq : p ≠ q) :
     Matrix.rank ((companion q).submatrix (Fin.cast hqn.symm) (Fin.cast hqn.symm) *
         ((companion p).submatrix (Fin.cast hpn.symm) (Fin.cast hpn.symm))⁻¹ -
           (1 : Matrix (Fin n) (Fin n) K)) = 1 := by
@@ -198,11 +186,17 @@ def _root_.Matrix.adjointConj (M : Matrix n n ℓ) : Matrix n n ℓ := (M.map c)
 def _root_.Matrix.IsGeneralUnitaryWith (M : Matrix n n ℓ) (a : ℓ) : Prop :=
   a ≠ 0 ∧ c a = a ∧ Matrix.adjointConj c M * M = Matrix.scalar n a
 
-/-- `M ∈ U_n(ℓ)`: `M† M = 1`. -/
-def _root_.Matrix.IsUnitaryConj (M : Matrix n n ℓ) : Prop := Matrix.adjointConj c M * M = 1
+/-- Compatibility with the existing matrix star; `U` and `SU` retain Mathlib's carriers. -/
+theorem _root_.Matrix.adjointConj_eq_star [StarRing ℓ] (hc : ∀ a, c a = star a)
+    (M : Matrix n n ℓ) : Matrix.adjointConj c M = star M := by
+  sorry
 
-/-- `M ∈ SU_n(ℓ) = U_n(ℓ) ∩ SL_n(ℓ)` (not `ker ν` alone; see the roadmap's correction E1). -/
-def _root_.Matrix.IsSpecialUnitaryConj (M : Matrix n n ℓ) : Prop := Matrix.IsUnitaryConj c M ∧ M.det = 1
+/-- A nonzero-dimensional general unitary matrix has a unique multiplier. -/
+theorem _root_.Matrix.IsGeneralUnitaryWith.multiplier_unique [Nonempty n]
+    {M : Matrix n n ℓ} {a b : ℓ}
+    (ha : Matrix.IsGeneralUnitaryWith c M a) (hb : Matrix.IsGeneralUnitaryWith c M b) :
+    a = b := by
+  sorry
 
 theorem _root_.Matrix.adjointConj_mul (A B : Matrix n n ℓ) :
     Matrix.adjointConj c (A * B) = Matrix.adjointConj c B * Matrix.adjointConj c A := by
@@ -216,15 +210,14 @@ theorem _root_.Matrix.isGeneralUnitaryWith_scalar (b : ℓ) (hb : b ≠ 0) (hc :
     Matrix.IsGeneralUnitaryWith c (Matrix.scalar n b) (c b * b) := by
   sorry
 
--- U_ne_SU
-/-- Unitary but not special unitary: a diagonal unitary matrix with nontrivial determinant. -/
-example (ζ : ℓ) (hζ : c ζ * ζ = 1) (hζ1 : ζ ≠ 1) :
-    Matrix.IsUnitaryConj c (Matrix.diagonal ![ζ, 1]) ∧
-      ¬ Matrix.IsSpecialUnitaryConj c (Matrix.diagonal ![ζ, 1]) := by
+-- U_ne_SU: use Mathlib's existing carriers with star equal to c.
+example [StarRing ℓ] (hc : ∀ a, c a = star a)
+    (ζ : ℓ) (hζ : c ζ * ζ = 1) (hζ1 : ζ ≠ 1) :
+    Matrix.diagonal ![ζ, 1] ∈ Matrix.unitaryGroup (Fin 2) ℓ ∧
+      Matrix.diagonal ![ζ, 1] ∉ Matrix.specialUnitaryGroup (Fin 2) ℓ := by
   sorry
 
--- the identity is special unitary (degenerate case)
-example : Matrix.IsSpecialUnitaryConj c (1 : Matrix n n ℓ) := by
+example [StarRing ℓ] : (1 : Matrix n n ℓ) ∈ Matrix.specialUnitaryGroup n ℓ := by
   sorry
 
 variable {V : Type*} [AddCommGroup V] [Module ℓ V]
@@ -232,7 +225,7 @@ variable {V : Type*} [AddCommGroup V] [Module ℓ V]
 /-- A Hermitian form: `ℓ`-linear in the first variable, `c`-semilinear in the second, with
 `B y x = c (B x y)`. -/
 def _root_.LinearMap.IsHermitian (B : V →ₗ[ℓ] V →ₛₗ[(c : ℓ →+* ℓ)] ℓ) : Prop :=
-  ∀ x y, B y x = c (B x y)
+  B.flip.IsSymm
 
 /-- A skew-Hermitian form: `B y x = - c (B x y)`. -/
 def _root_.LinearMap.IsSkewHermitian (B : V →ₗ[ℓ] V →ₛₗ[(c : ℓ →+* ℓ)] ℓ) : Prop :=
@@ -301,6 +294,11 @@ end FiniteGroups
 /-- A Dwork exponent datum: a vector `a : Fin N → ZMod N` with `∑ a = 0` taking exactly
 `N - n` distinct values (DM.1/dwork-exponent-datum). -/
 structure ExponentDatum (N n : ℕ) where
+  odd_modulus : Odd N
+  modulus_ge_three : 3 ≤ N
+  rank_ge_two : 2 ≤ n
+  rank_le_modulus : n ≤ N
+  coprime_rank : Nat.Coprime N n
   /-- the exponents `a_1, …, a_N` -/
   a : Fin N → ZMod N
   sum_eq_zero : ∑ j, a j = 0
@@ -314,7 +312,7 @@ variable {N n : ℕ}
 def indexSet [NeZero N] (D : ExponentDatum N n) : Finset (ZMod N) :=
   Finset.univ.filter fun b => ∀ j, b + D.a j ≠ 0
 
-theorem card_indexSet [NeZero N] (D : ExponentDatum N n) (hn : n ≤ N) :
+theorem card_indexSet [NeZero N] (D : ExponentDatum N n) :
     D.indexSet.card = n := by
   sorry
 
@@ -359,8 +357,8 @@ example : (qianIndexSet 401 3).image (fun b => (-1 : ZMod 401) * b) ≠ qianInde
   sorry
 
 /-- The auxiliary modulus (DM.1/auxiliary-modulus; QIAN23 Lemma 2.3, BLGHT11 Lemma 6.1). -/
-theorem exists_auxiliary_modulus (l s : ℕ) (hl : l.Prime) (hl2 : l ≠ 2) (hs : 0 < s)
-    (S : Finset ℕ) (bound : ℕ) :
+theorem exists_auxiliary_modulus (l s : ℕ) (hl : l.Prime) (hs : 0 < s)
+    (S : Finset ℕ) (hS : ∀ p ∈ S, p.Prime) (bound : ℕ) :
     ∃ N : ℕ, bound < N ∧ Odd N ∧ l.Coprime N ∧ (∀ p ∈ S, ¬ p ∣ N) ∧
       s ∣ orderOf (l : ZMod N) ∧
       (Even (orderOf (l : ZMod N)) → ¬ N ∣ l ^ (orderOf (l : ZMod N) / 2) + 1) := by
@@ -404,13 +402,13 @@ end Gauss
 ## README targets without carriers at the pins
 
 The following targets are stated in the roadmap document and are not given Lean signatures here,
-because their carriers (étale cohomology of schemes with ℓ-adic coefficients, lisse sheaves and
+because their required interfaces (étale cohomology of schemes with ℓ-adic coefficients, lisse sheaves and
 their monodromy, hypergeometric sheaves, Hodge and p-adic comparison theorems, Hyodo–Kato
-cohomology, moduli of level structures, Moret-Bailly's theorem) do not exist in Mathlib or Tau Ceti
-at the pinned commits:
+cohomology, moduli of level structures, Moret-Bailly's theorem) are not supplied by Mathlib or Tau Ceti
+at the pinned commits in the forms needed here:
 
-* DM.0: `zalesskii-serezhkin-classification` (needs subfields, `Sp_n(k)` and `SU(n, k)` as subgroups
-  of `GL_n(k')` up to conjugacy), `conjugate-self-dual-is-unitary`, `special-linear-unitary-simple`
+* DM.0: `zalesskii-serezhkin-classification` (needs subfields, the finite classical-group classification
+  and its conjugacy conclusions; the unitary carrier itself already exists), `conjugate-self-dual-is-unitary`, `special-linear-unitary-simple`
   (unitary part).
 * DM.1: `dwork-pencil`, `dwork-symmetry-groups`, `three-punctured-cover`.
 * DM.2: `dwork-eigensheaves`, `self-dual-real-forms`, `fermat-hypersurface-cohomology`,
