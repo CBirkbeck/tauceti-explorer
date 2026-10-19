@@ -178,7 +178,8 @@ example : IsDecomposedGeneric (7 : ZMod 11) ![1, 2] := by
   sorry
 
 /-- Test `IsCSAuxiliaryPair.repeated_eigenvalue`: a repeated eigenvalue is not decomposed
-generic. -/
+generic. At q = 7 over 𝔽₁₁ it nevertheless satisfies the weaker inequalities
+`λ_a ≠ q λ_b`; that comparison would fail if q = 1 modulo ℓ. -/
 example : ¬ IsDecomposedGeneric (7 : ZMod 11) ![3, 3] := by
   sorry
 
@@ -239,13 +240,15 @@ local datum at an auxiliary prime, the spherical Hecke algebras of `G(ℚ_q)` as
 cosets of the actual groups, alternating Igusa cohomology and its Galois parts), so they are
 specified in the roadmap document and not stated here.
 
-- README IG.8.1 (Compact unitary PEL data of Caraiani–Scholze (Cases 1 and 2)): `CompactUnitaryDatum`, `CompactUnitaryDatum.case1`, `CompactUnitaryDatum.case2`, `CompactUnitaryDatum.dim_eq_two_rho_mu`, `CompactUnitaryDatum.toPELDatum`, `CompactUnitaryDatum.moduli_eq_ker1_copies`, `CompactUnitaryDatum.case2_not_imaginaryQuadratic`, `CompactUnitaryDatum.case2_indefinite_not_compact`, `CompactUnitaryDatum.toPELDatum_typeA`
+- README IG.8.1 (Compact unitary PEL data of Caraiani–Scholze (Cases 1 and 2)): `CompactUnitaryDatum`, `CompactUnitaryDatum.case1`, `CompactUnitaryDatum.case2`, `CompactUnitaryDatum.dim_eq_two_rho_mu`, `CompactUnitaryDatum.toPELDatum`, `CompactUnitaryDatum.moduli_eq_ker1_copies`, `CompactUnitaryDatum.ext`, `CompactUnitaryDatum.case2_not_imaginaryQuadratic`, `CompactUnitaryDatum.case2_indefinite_not_compact`, `CompactUnitaryDatum.toPELDatum_typeA`
 - README IG.8.3 (The local datum at an auxiliary prime split in 𝒦 and the sets S_i): `SplitPrimeDatum.places`, `SplitPrimeDatum.embeddingSet`, `SplitPrimeDatum.embeddingSet_disjoint`, `SplitPrimeDatum.groupIso`, `SplitPrimeDatum.kottwitzSet_prod`, `SplitPrimeDatum.kottwitzSet_shapiro`, `SplitPrimeDatum.kottwitzSet_central`, `SplitPrimeDatum.totally_split`, `SplitPrimeDatum.harris_taylor_single`, `SplitPrimeDatum.central_twist`, `SplitPrimeDatum.composite_undefined`
-- README IG.8.4 (The Hecke algebra 𝕋^S, the operators T_{i,v} and the Hecke polynomial): `compactUnitaryHecke`, `compactUnitaryHecke.T`, `compactUnitaryHecke.T_top_isUnit`, `compactUnitaryHecke.commutative`, `compactUnitaryHecke.restrict`, `compactUnitaryHecke.satake`, `compactUnitaryHecke.T_zero`, `compactUnitaryHecke.similitude_factor`, `compactUnitaryHecke.satake_compat`
+- README IG.8.4 (The Hecke algebra 𝕋^S, the operators T_{i,v} and the Hecke polynomial): `compactUnitaryHecke`, `compactUnitaryHecke.T`, `compactUnitaryHecke.T_top_isUnit`, `compactUnitaryHecke.commutative`, `compactUnitaryHecke.restrict`, `compactUnitaryHecke.satake`, `compactUnitaryHecke.igusa_action`, `compactUnitaryHecke.igusa_away_from_p`, `compactUnitaryHecke.T_zero`, `compactUnitaryHecke.similitude_factor`, `compactUnitaryHecke.satake_compat`
 - README IG.8.7 (Caraiani–Scholze auxiliary primes for a residual representation): `IsCSAuxiliaryPair.semisimplification`
-- README IG.9.4 (The r-part of the base-changed Igusa class): `igusaGaloisPart`, `igusaGaloisPart_add`, `igusaGaloisPart_eq_zero_of_not_occurs`, `igusaGaloisPart_iso`, `igusaGaloisPart_frobenius`, `igusaGaloisPart_zero_class`, `igusaGaloisPart_sum`, `igusaGaloisPart_not_bcp`, `igusaGaloisPart_n1`
+- README IG.9.4 (The r-part of the base-changed Igusa class): `igusaGaloisPart`, `igusaGaloisPart_add`, `igusaGaloisPart_eq_zero_of_not_occurs`, `igusaGaloisPart_iso`, `igusaGaloisPart_frobenius`, `igusaGaloisPart.similitude_independent`, `igusaGaloisPart_zero_class`, `igusaGaloisPart_sum`, `igusaGaloisPart_not_bcp`, `igusaGaloisPart_n1`
 - README IG.10.5 (The r-part of the Igusa class of a simple Shimura variety): `simpleIgusaGaloisPart`, `simpleIgusaGaloisPart_sum`, `simpleIgusaGaloisPart_iso`, `simpleIgusaGaloisPart_eq_zero_iff`, `simpleIgusaGaloisPart_frobenius`, `simpleIgusaGaloisPart_zero`, `simpleIgusaGaloisPart_n1`, `simpleIgusaGaloisPart_red_zero`, `simpleIgusaGaloisPart_not_pointwise`
 
 - Theorems stated in the README only (their carriers are not at the pins): IG.8.2, IG.8.5, IG.8.6, IG.8.8, IG.9.1, IG.9.2, IG.9.3, IG.9.5, IG.9.6, IG.10.1, IG.10.2, IG.10.3, IG.10.4, IG.10.6, IG.11.1, IG.11.2, IG.11.3, IG.11.4, IG.11.5, IG.11.6, IG.11.7, IG.11.8.
+  The Case 1 base-change/assembly and Case 2 auxiliary-character avoidance gaps remain explicit
+  README prerequisites; coefficient variants require an admissible trivializing level.
   The arithmetic shadows of README IG.8.1, IG.8.4, IG.8.5 and IG.8.7 are stated above.
 -/
