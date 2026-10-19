@@ -1,0 +1,455 @@
+{
+ "id": "LocallyAnalyticRepresentationsOfLocalGroups",
+ "title": "Locally analytic representations of p-adic reductive groups",
+ "area": "representations",
+ "parent": null,
+ "summary": "This roadmap builds the representation theory of p-adic reductive groups on locally convex spaces. It defines locally analytic and admissible representations, the distribution algebra and the Schneider–Teitelbaum duality, locally analytic vectors of Banach representations with their derived functors, and the solid theory of Boxer–Calegari–Gee–Pilloni. It then constructs locally analytic parabolic induction, the Orlik–Strauch functors with their Jordan–Hölder theory, and Emerton's Jacquet functor with the adjunction theorems of Emerton and Breuil. It ends with Ding's computation of the extension groups of the locally analytic principal series of GL_n(L): the representations π_alg ⊆ π_1 ⊆ π, the maps ζ_w and their parabolic and σ-analytic compatibilities, which carry the p-adic Hodge parameters.",
+ "readme": "# Roadmap: locally analytic representations of p-adic reductive groups\n\n**Summary.** This roadmap builds locally analytic representations of p-adic Lie groups and of p-adic reductive groups in particular: admissibility and the distribution algebra, locally analytic vectors, the solid theory, parabolic induction, the Orlik–Strauch functors, Emerton's Jacquet functor with its adjunctions, and Ding's extension groups for GL_n(L).\n\n**Scope.** Layers LR.0–LR.2 are the foundations (Schneider–Teitelbaum, Emerton, Pan); LR.3 the solid representation theory of Boxer–Calegari–Gee–Pilloni §2.2; LR.4–LR.6 parabolic induction, Orlik–Strauch and Emerton; LR.7–LR.9 Ding §3.1.\n\n**Conventions.** L/ℚ_p is the finite field of definition of the group (Ding's K), E/ℚ_p a finite coefficient field containing all embeddings Σ_L of L; unqualified 'locally analytic' means locally ℚ_p-analytic; inductions are unnormalised with (Ind_P^G U)^an = {f : f(pg) = p·f(g)} and G acting by right translation; Ext^i_G(V_1, V_2) := Ext^i_{D(G,E)}(V_2′, V_1′) among abstract modules; ε = N_{L/ℚ_p}(·)|·|_L.\n\n**Imports.** Compact distribution algebras, Fréchet–Stein algebras and coadmissible modules from LocallyAnalyticDistributionsPartII ND.1–ND.3 and ND.6; locally convex foundations from LocallyAnalyticDistributions L0–L3; smooth representations, Jacquet modules and the Bernstein centre from SmoothRepresentationsOfLocalGroups; p-adic group structure from ReductiveGroupsPartII; Verma modules, highest weights and gl_n from the Tau Ceti roadmap LieHighestWeight; quasi-Stein spaces from AdicSpacesPartII R3; solid modules from SolidAnalyticRings. Category O and Kostant homology (the pending LieHighestWeightPartIICompletedCategoryO) and solid functional analysis (the pending LocallyAnalyticDistributionsPartIIQuasiAbelianFunctionalAnalysis) are recorded as exact contracts.\n\n**Not in this roadmap.** The trianguline variety and (φ, Γ)-modules (TriangulineVarietyAndItsLocalModel), Ding's comparison with Galois deformations and Hodge parameters (PadicHodgeParametersInLocallyAnalyticRepresentations), completed cohomology (CompletedCohomology roadmaps), category O itself, and the dimension theory of coadmissible modules (Schneider–Teitelbaum §8), which no target here needs.\n\nThe full document is research/blueprint/readmes/LocallyAnalyticRepresentationsOfLocalGroups.md.",
+ "prerequisites": [
+  "LocallyAnalyticDistributions",
+  "LocallyAnalyticDistributionsPartII",
+  "SmoothRepresentationsOfLocalGroups",
+  "ReductiveGroupsPartII",
+  "tauceti:TauCetiRoadmap/ReductiveGroups",
+  "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+  "AdicSpacesPartII",
+  "SolidAnalyticRings",
+  "PadicMeasuresIwasawaAlgebras"
+ ],
+ "stages": [
+  {
+   "key": "LR.0",
+   "title": "Locally analytic representations and the distribution algebra of a p-adic group",
+   "description": "The p-adic Lie group 𝐆(L) of a smooth affine group, locally L- and ℚ_p-analytic representations on barrelled spaces with their derived Lie algebra action, the distribution algebra D(G, E) of a non-compact group, its module structure on representations, the Schneider–Teitelbaum duality for representations of compact type, continuity of matrix coefficients, weak versus strong convergence of sequences, and completed external tensor products.\n\nTargets:\n\n- **Rational points of a smooth affine group are a locally analytic group** (theorem; SCHN11, §13, Corollary 13.3 and Examples 1)–3), p. 93).\n- **Locally analytic representations** (definition; ST02, §3, definition of a locally analytic G-representation, p. 12).\n- **The derived action of the Lie algebra** (construction; ST02, §2–3, the derived action of g, pp. 9–13).\n- **The distribution algebra of a locally analytic group** (construction; ST02, §2, Proposition 2.3, p. 9).\n- **Locally analytic representations are D(G, E)-modules** (theorem; ST02, §3, Proposition 3.2, p. 13).\n- **Schneider–Teitelbaum duality for representations of compact type** (theorem; ST02, §3, Corollary 3.3, p. 14).\n- **Continuity of matrix-coefficient maps** (theorem; DLB17, §5.2, Lemme 5.9 and its proof, pp. 28–29).\n- **Weakly null sequences are null over a spherically complete field** (theorem; DLB17, §5.2, Lemme 5.10, p. 29).\n- **Completed external tensor products of representations** (construction; EM17, §1.1, Proposition 1.1.31, p. 18).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "LocallyAnalyticDistributionsPartII:ND.1",
+    "ReductiveGroupsPartII:RG2.0",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ"
+   ]
+  },
+  {
+   "key": "LR.1",
+   "title": "Admissible representations, locally algebraic representations and Ext groups",
+   "description": "Coadmissible D(G, E)-modules for non-compact G, admissible and strongly admissible locally analytic representations, the Schneider–Teitelbaum anti-equivalence and the abelian category it gives, locally algebraic representations π ⊗ W, Ext groups computed among abstract D(G, E)-modules with Breuil's identification of Ext¹ with extensions, the dual-number structure of self-extensions and tautological and universal extensions, and Schraen's computation of Ext between locally algebraic representations.\n\nTargets:\n\n- **Coadmissible modules over the distribution algebra of a p-adic group** (definition; ST03, §6, definition of coadmissible D(G, K)-modules, p. 31).\n- **Admissible locally analytic representations** (definition; ST03, §6, definition of admissible G-representations, p. 33; Introduction, p. 1).\n- **Schneider–Teitelbaum anti-equivalence** (theorem; ST03, §6, Theorem 6.3 and its proof, pp. 33–34).\n- **The abelian category of admissible representations** (theorem; ST03, §6, Proposition 6.4, p. 34).\n- **Locally algebraic representations** (construction; ST01, §3, Proposition 3.4 and its proof, p. 13).\n- **Ext groups of admissible locally analytic representations** (definition; DING25, §3.1.1, p. 33).\n- **Ext¹ classifies extensions of admissible representations** (theorem; BR19, §2.1, Lemme 2.1.1, p. 10).\n- **Self-extensions as dual-number modules and tautological extensions** (construction; DING25, §3.1.1, p. 34).\n- **Ext groups between locally algebraic representations** (theorem; SCH11, §4, Proposition 4.7, pp. 79–80).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributionsPartII:ND.2",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+    "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations"
+   ]
+  },
+  {
+   "key": "LR.2",
+   "title": "Locally analytic vectors of Banach representations and their derived functors",
+   "description": "Admissible Banach representations of non-compact groups, G_n-analytic and locally analytic vectors, the Schneider–Teitelbaum theorem (density, strong admissibility, exactness), very strongly admissible representations, and Pan's derived functors R^iLA with the long exact sequence and the strong LA-acyclicity of admissible Banach representations.\n\nTargets:\n\n- **Admissible Banach representations of p-adic groups** (definition; ST02B, §3, definition of admissibility and Lemma 3.4, pp. 13–14).\n- **Analytic and locally analytic vectors of a Banach representation** (construction; PAN22, §2.1.1, §2.1.4, Lemma 2.1.5, Definition 2.1.6, Remark 2.1.7, Lemma 2.1.8, pp. 10–12).\n- **Locally analytic vectors of admissible Banach representations** (theorem; ST03, §7, Theorem 7.1, p. 38).\n- **Very strongly admissible representations** (definition; EMJ2, Introduction, Definition 0.12 and the remark after it, p. 3).\n- **Derived functors of locally analytic vectors** (definition; PAN22, §2.2, Definition 2.2.1, pp. 12–13).\n- **Long exact sequence of derived locally analytic vectors** (theorem; PAN22, §2.2, Lemma 2.2.2 and its proof, p. 13).\n- **Admissible Banach representations are strongly LA-acyclic** (theorem; PAN22, §2.2, Theorem 2.2.3 and Corollary 2.2.4 with proofs, pp. 13–14).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "LocallyAnalyticDistributionsPartII:ND.1",
+    "LocallyAnalyticDistributionsPartII:ND.2",
+    "LocallyAnalyticDistributionsPartII:ND.6",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.1"
+   ]
+  },
+  {
+   "key": "LR.3",
+   "title": "Solid representations of p-adic groups",
+   "description": "Boxer–Calegari–Gee–Pilloni §2.2: solid representations of Stein analytic groups by coaction and the distribution algebra D(𝔾), the Banach comparison, solid representations of locally profinite groups through the solidified group ring, smooth and λ-smooth representations with the discrete comparison and enough injectives, solid locally analytic vectors and their derived functor, and integrable LB representations of Lie algebras.\n\nTargets:\n\n- **Solid representations of an analytic group** (definition; BCGP25, §2.2.15–2.2.18, Definition 2.2.17 and Remark 2.2.18, pp. 21–22).\n- **Banach representations of a quasi-compact analytic group** (theorem; BCGP25, §2.2, Remark 2.2.19, p. 22).\n- **Solid representations of a locally profinite group** (definition; BCGP25, §2.2.20, Definition 2.2.21 and Remark 2.2.22, p. 22).\n- **Smooth and λ-smooth solid representations** (definition; BCGP25, §2.2.23, p. 22).\n- **Smooth solid representations are smooth representations of the discrete group** (theorem; BCGP25, §2.2.23, Lemma 2.2.24 and its proof, p. 22).\n- **Smooth solid representations form a Grothendieck category** (theorem; BCGP25, §2.2, Lemma 2.2.25 and its proof, pp. 22–23).\n- **Locally analytic vectors of solid representations** (construction; BCGP25, §2.2.27 and Remark 2.2.28, p. 23).\n- **Integrable LB representations of a Lie algebra** (definition; BCGP25, §3.4.2, p. 53).",
+   "requires": [
+    "AdicSpacesPartII:R3",
+    "LocallyAnalyticDistributionsPartII:ND.0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.2",
+    "PadicMeasuresIwasawaAlgebras:L1",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+    "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+    "SolidAnalyticRings:SA.1",
+    "SolidAnalyticRings:SA.2",
+    "SolidAnalyticRings:SA.4",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
+   ]
+  },
+  {
+   "key": "LR.4",
+   "title": "Locally analytic parabolic induction, principal series and Schraen's spectral sequence",
+   "description": "Locally analytic parabolic induction and its admissibility, transitivity and locally algebraic and σ-analytic variants, locally analytic principal series, Ext between locally analytic characters of a torus, homology under a unipotent radical, and Schraen's spectral sequence for Ext into a parabolic induction.\n\nTargets:\n\n- **Locally analytic parabolic induction** (construction; EMJ2, §2.1, Proposition 2.1.2, p. 21).\n- **Locally analytic principal series** (construction; DING25, §3.1.2, p. 34).\n- **Ext groups between locally analytic characters of a torus** (theorem; DING25, §3.1.2, proof of Lemma 3.5, p. 37).\n- **Homology of locally analytic representations under a unipotent radical** (construction; SCH11, §3, p. 68).\n- **Schraen's spectral sequence for Ext into a parabolic induction** (theorem; SCH11, §4, Corollaire 4.9, (4.37)–(4.38), p. 82).",
+   "requires": [
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.2",
+    "ReductiveGroupsPartII:RG2.4",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles"
+   ]
+  },
+  {
+   "key": "LR.5",
+   "title": "Orlik–Strauch functors",
+   "description": "The Orlik–Strauch functor F^G_P(M, π_P) in Breuil's locally ℚ_p-analytic form, its exactness and transitivity, the irreducibility criterion and uniqueness, Jordan–Hölder series, socles and full faithfulness, the extension to products of groups over different fields, and the vanishing of Ext¹ into inductions from weights at Bruhat distance at least two.\n\nTargets:\n\n- **Vanishing of Ext¹ into inductions from non-adjacent weights** (theorem; DING19, §2.3.2, Lemma 2.26 and its proof, p. 29).\n- **The Orlik–Strauch functor** (construction; OS15, Introduction, p. 3; §4.1, p. 18).\n- **Exactness and functoriality of the Orlik–Strauch functor** (theorem; OS15, Introduction, main theorem (i)–(ii), p. 3; §4, Proposition 4.9(a), p. 22).\n- **Transitivity of the Orlik–Strauch functor along parabolics** (theorem; OS15, Introduction, main theorem (iii), p. 3; §4, Proposition 4.9(b), p. 22).\n- **The Orlik–Strauch irreducibility theorem** (theorem; OS15, Introduction, main theorem (iv) and the remark after it, pp. 3–4; §5, Assumption 5.1, p. 25; Theorem 5.8, p. 37).\n- **Jordan–Hölder series and socles of Orlik–Strauch representations** (theorem; OS15, §6.2, (6.2.1) and the following discussion, pp. 41–42).\n- **Orlik–Strauch theory for products of groups over different fields** (theorem; BHS19, §5.1, Remark 5.1.2, p. 388).",
+   "requires": [
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.2",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.4",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ"
+   ]
+  },
+  {
+   "key": "LR.6",
+   "title": "Emerton's Jacquet functor, closed induction and the adjunction theorems",
+   "description": "Rigid character varieties of abelian locally analytic groups, essentially admissible representations, finite slope parts, Emerton's locally analytic Jacquet functor J_P with its admissibility and locally algebraic computation, the closed induction I_P^G, balanced maps, Emerton's adjunction theorem and Breuil's adjunction for Orlik–Strauch representations.\n\nTargets:\n\n- **The rigid character variety of an abelian locally analytic group** (construction; EM17, §6.4, Proposition 6.4.1, p. 124; Definition 6.4.2, p. 125; Propositions 6.4.5–6.4.6, pp. 126–127).\n- **Essentially admissible representations** (definition; EM17, §6.4, Proposition 6.4.7, Definition 6.4.9, Proposition 6.4.10, pp. 127–129).\n- **The finite slope part of a Z^+-representation** (construction; EMJ1, §3.2, Definition 3.2.1 and the following discussion, p. 796).\n- **Emerton's locally analytic Jacquet functor** (construction; EMJ1, Introduction, Theorem 0.3 and (0.4), p. 777).\n- **Admissibility and computations of Emerton's Jacquet modules** (theorem; EMJ1, Introduction, Theorem 0.5, p. 777; §4.2, Theorem 4.2.32, p. 828).\n- **Emerton's closed induction I_P^G** (construction; EMJ2, Introduction, the definition of I_P^G(U) and Lemma 0.3, p. 2).\n- **Balanced maps into a Jacquet module** (definition; EMJ2, Introduction, Definition 0.8, Question 0.9 and Definition 0.11, p. 3).\n- **Emerton's adjunction theorem** (theorem; EMJ2, Introduction, Theorem 0.13, p. 4; sketch of proof, p. 4).\n- **Breuil's adjunction for Orlik–Strauch representations** (theorem; BR15, §4, Théorème 4.3, p. 14).",
+   "requires": [
+    "AdicSpacesPartII:R3",
+    "LocallyAnalyticDistributions:L0",
+    "LocallyAnalyticDistributions:L3",
+    "LocallyAnalyticDistributionsPartII:ND.2",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.2",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.4",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.5",
+    "ReductiveGroupsPartII:RG2.4",
+    "SmoothRepresentationsOfLocalGroups:SR.2"
+   ]
+  },
+  {
+   "key": "LR.7",
+   "title": "Ext groups of the locally analytic principal series of GL_n",
+   "description": "Ding §3.1.1–3.1.2: conventions for GL_n(L), the locally algebraic representation π_alg(φ, h), the principal series PS(w(φ), h) with its constituents C(w, u) and socles, the constituents C(I, s_{i,σ}), PS_1 and π_1(φ, h), the self-extensions of π_alg, the one-dimensional Ext¹ with constituents, the maps ζ_w, Ext¹(π_alg, PS_1) and Ext¹(π_alg, π_1), the amalgam π(φ, h), and the filtration Ext¹_g ⊆ Ext¹_{g′} ⊆ Ext¹_w.\n\nTargets:\n\n- **Weights, twists and parameter spaces for GL_n(L)** (definition; DING25, §3.1.1, pp. 33–34).\n- **The locally algebraic representation π_alg(φ, h)** (construction; DING25, §3.1.1, p. 33, and §3.1.2, p. 34).\n- **The locally analytic principal series PS(w(φ), h) and its constituents C(w, u)** (construction; DING25, §3.1.1, p. 33 (Verma modules M^-(μ), L^-(μ), L(−μ)^∨) and §3.1.2, p. 34 (PS(w(φ), h), C(w, u))).\n- **Constituents and socle of the locally analytic principal series (Ding, Proposition 3.1)** (theorem; DING25, §3.1.2, Proposition 3.1 and its proof, p. 34).\n- **The constituents C(I, s_{i,σ})** (construction; DING25, §3.1.2, the paragraph after Proposition 3.1 and (3.1), pp. 34–35).\n- **Jacquet–Emerton modules and closed inductions of the constituents (Ding, Lemma 3.2)** (theorem; DING25, §3.1.2, Lemma 3.2 and its proof, pp. 34–35).\n- **The representations PS_1(w(φ), h) and π_1(φ, h)** (construction; DING25, §3.1.2, (3.2)–(3.3) and the paragraph before them, p. 35).\n- **Self-extensions of π_alg(φ, h) (Ding, Proposition 3.3)** (theorem; DING25, §3.1.2, Proposition 3.3, (3.4)–(3.6), its proof and Remark 3.4, pp. 35–36).\n- **One-dimensional extension groups with a constituent (Ding, Lemma 3.5)** (theorem; DING25, §3.1.2, Lemma 3.5 and its proof, (3.7)–(3.9), pp. 36–37).\n- **The maps ζ_w : Hom(T(L), E) → Ext^1(π_alg(φ, h), π_1(φ, h))** (construction; DING25, §3.1.2, (3.10)–(3.11), p. 37–38, and Remark 3.7, p. 38).\n- **Ext^1(π_alg, PS_1) is Hom(T(L), E) (Ding, Proposition 3.6)** (theorem; DING25, §3.1.2, Proposition 3.6 and its proof, p. 38).\n- **The extension group Ext^1(π_alg(φ, h), π_1(φ, h)) (Ding, Proposition 3.8)** (theorem; DING25, §3.1.2, Proposition 3.8, (3.12)–(3.15) and its proof, pp. 38–39).\n- **The amalgam π(φ, h) of the principal series** (construction; DING25, §3.1.2, Remark 3.9 and (3.16), p. 39).\n- **The filtration Ext^1_g ⊆ Ext^1_{g′} ⊆ Ext^1_w of Ext^1(π_alg, π_1)** (definition; DING25, §3.1.2, (3.17)–(3.18), p. 39).",
+   "requires": [
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.2",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.4",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.5",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.6",
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category",
+    "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension",
+    "SmoothRepresentationsOfLocalGroups:SR.2",
+    "SmoothRepresentationsOfLocalGroups:SR.3",
+    "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-4-the-classification-of-finite-dimensional-irreducibles",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n"
+   ]
+  },
+  {
+   "key": "LR.8",
+   "title": "Parabolic induction and the amalgamation of π_1",
+   "description": "Ding §3.1.3: Levi data of a P-filtration and the induction (3.19), the constituents of a parabolic induction, π_{F_P}(φ, h), Ext¹(π_alg, π_{F_P}), the map ζ_{F_P} and its bijectivity, and the amalgamation of the two endpoint parabolics into π_1(φ, h).\n\nTargets:\n\n- **Levi data of a P-filtration and the parabolic induction (3.19)** (construction; DING25, §3.1.3, the paragraph before Lemma 3.10 and (3.19), p. 40).\n- **Which constituents C(I, s_{i,σ}) occur in a parabolic induction (Ding, Lemma 3.10)** (theorem; DING25, §3.1.3, Lemma 3.10 and its proof, pp. 40–41).\n- **The subrepresentation π_{F_P}(φ, h) and Ext^1_{F_P}** (construction; DING25, §3.1.3, (3.21), the definition of π_{F_P}(φ, h) and the remarks after it, pp. 40–41).\n- **The extension group Ext^1(π_alg, π_{F_P}) (Ding, Proposition 3.11)** (theorem; DING25, §3.1.3, Proposition 3.11 and its proof, (3.22)–(3.23), p. 41).\n- **The parabolic induction map ζ_{F_P}** (construction; DING25, §3.1.3, (3.25)–(3.27) and the construction between them, p. 42).\n- **ζ_{F_P} is bijective and compatible with the weight maps (Ding, Proposition 3.12)** (theorem; DING25, §3.1.3, Proposition 3.12, (3.28)–(3.30) and its proof, pp. 42–43).\n- **The two endpoint parabolics amalgamate to π_1(φ, h) (Ding, Proposition 3.13)** (theorem; DING25, §3.1.3, the final paragraph, Proposition 3.13 and Remark 3.14, pp. 43–44).",
+   "requires": [
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.4",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.5",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.7"
+   ]
+  },
+  {
+   "key": "LR.9",
+   "title": "Locally σ-analytic theory",
+   "description": "Ding §3.1.4: locally σ-analytic and g_{Σ_L∖{σ}}-algebraic representations, π_{1,σ}(φ, h) and PS_{1,σ}(w(φ), h), σ-analytic self-extensions and Ext¹ with PS_{1,σ} and π_1, the decomposition of Ext¹(π_alg, π_1) modulo Ext¹_g over embeddings, and the σ-analytic parabolic compatibility and amalgamation.\n\nTargets:\n\n- **Locally σ-analytic and g_{Σ_L∖{σ}}-algebraic representations** (definition; DING25, §3.1.4, the first paragraph, p. 44).\n- **The g_{Σ_L∖{σ}}-algebraic parts π_{1,σ}(φ, h) and PS_{1,σ}(w(φ), h)** (construction; DING25, §3.1.4, pp. 44–45).\n- **σ-analytic self-extensions of π_alg (Ding, Lemma 3.15)** (theorem; DING25, §3.1.4, Lemma 3.15 and its proof, p. 45).\n- **Ext^1_σ(π_alg, PS_{1,σ}) is Hom_σ(T(L), E) (Ding, Proposition 3.16 and Remark 3.17)** (theorem; DING25, §3.1.4, Proposition 3.16, (3.31)–(3.32) and its proof, and Remark 3.17, pp. 45–46).\n- **The σ-part of Ext^1(π_alg, π_1) and the decomposition over embeddings (Ding, Proposition 3.18)** (theorem; DING25, §3.1.4, the definitions before Proposition 3.18, Proposition 3.18, (3.33)–(3.35) and its proof, p. 46).\n- **The σ-analytic theory is compatible with parabolic induction (Ding, Proposition 3.19)** (theorem; DING25, §3.1.4, the paragraph before Proposition 3.19, Proposition 3.19, (3.36) and its proof, pp. 46–47).\n- **σ-analytic amalgamation of the endpoint parabolics (Ding, Proposition 3.20)** (theorem; DING25, §3.1.4, Proposition 3.20 and (3.37), p. 47).",
+   "requires": [
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.0",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.1",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.4",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.5",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.6",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.7",
+    "LocallyAnalyticRepresentationsOfLocalGroups:LR.8"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "ST02",
+   "title": "Locally analytic distributions and p-adic representation theory, with applications to GL2",
+   "authors": "P. Schneider, J. Teitelbaum",
+   "edition": "J. Amer. Math. Soc. 15 (2002), 443–468; arXiv:math/9912073v1, whose numbering agrees with the published text; page numbers are those of the arXiv PDF",
+   "url": "https://arxiv.org/pdf/math/9912073",
+   "readSections": [
+    "§2, the convolution and Proposition 2.3, pp. 8–9",
+    "§3, definition of a locally analytic representation, Lemma 3.1, Proposition 3.2, Corollary 3.3, pp. 12–14"
+   ]
+  },
+  {
+   "id": "ST03",
+   "title": "Algebras of p-adic distributions and admissible representations",
+   "authors": "P. Schneider, J. Teitelbaum",
+   "edition": "Invent. Math. 153 (2003), 145–196; arXiv:math/0206056v1; page numbers are those of the arXiv PDF",
+   "url": "https://arxiv.org/pdf/math/0206056",
+   "readSections": [
+    "Introduction, p. 1",
+    "§3, Lemma 3.6 and Lemma 3.8, pp. 11–12",
+    "§6, coadmissible D(G,K)-modules, the definition of admissibility, Theorem 6.3, Proposition 6.4, Proposition 6.5, pp. 31–34",
+    "§7, analytic vectors and Theorem 7.1, p. 38",
+    "§8 (dimension theory), table of contents only"
+   ]
+  },
+  {
+   "id": "ST02B",
+   "title": "Banach space representations and Iwasawa theory",
+   "authors": "P. Schneider, J. Teitelbaum",
+   "edition": "Israel J. Math. 127 (2002), 359–380; arXiv:math/0005066v1",
+   "url": "https://arxiv.org/pdf/math/0005066",
+   "readSections": [
+    "§3, admissible Banach representations of compact groups and Lemma 3.4, pp. 13–14"
+   ]
+  },
+  {
+   "id": "ST01",
+   "title": "U(g)-finite locally analytic representations",
+   "authors": "P. Schneider, J. Teitelbaum (with an appendix by D. Prasad)",
+   "edition": "Represent. Theory 5 (2001), 111–128; arXiv:math/0005072v1",
+   "url": "https://arxiv.org/pdf/math/0005072v1",
+   "readSections": [
+    "§3, Propositions 3.1–3.4 and Corollary 3.5, pp. 11–14"
+   ]
+  },
+  {
+   "id": "EM17",
+   "title": "Locally analytic vectors in representations of locally p-adic analytic groups",
+   "authors": "M. Emerton",
+   "edition": "Mem. Amer. Math. Soc. 248 (2017), no. 1175; author's copy (analytic.pdf), whose printed page numbers equal the PDF page numbers",
+   "url": "http://www.math.uchicago.edu/~emerton/pdffiles/analytic.pdf",
+   "readSections": [
+    "§1.1, Proposition 1.1.31, p. 18",
+    "§3.5, Definition 3.5.3 and Theorem 3.5.7, p. 64",
+    "§3.6, Definition 3.6.9, p. 72",
+    "§6.1, Definition 6.1.1, p. 110",
+    "§6.2, Definition 6.2.1 and Proposition 6.2.4, pp. 117–118",
+    "§6.4, Definition 6.4.2, Proposition 6.4.5, Proposition 6.4.7, Definition 6.4.9, pp. 125–129",
+    "§6.5, Proposition 6.5.9 (as cited by EMJ2)"
+   ]
+  },
+  {
+   "id": "EMJ1",
+   "title": "Jacquet modules of locally analytic representations of p-adic reductive groups I. Construction and first properties",
+   "authors": "M. Emerton",
+   "edition": "Ann. Sci. École Norm. Sup. (4) 39 (2006), 775–839, version of record from Numdam (printed page = PDF page + 774)",
+   "url": "https://www.numdam.org/item/10.1016/j.ansens.2006.08.001.pdf",
+   "readSections": [
+    "Introduction, Theorems 0.3 and 0.5 and §0.13, pp. 777–779",
+    "§3.2 and §3.4, Definition 3.4.5, p. 806",
+    "§4.2, Theorem 4.2.32, p. 828",
+    "§4.3, Propositions 4.3.4 and 4.3.6, p. 834"
+   ]
+  },
+  {
+   "id": "EMJ2",
+   "title": "Jacquet modules of locally analytic representations of p-adic reductive groups II. The relation to parabolic induction",
+   "authors": "M. Emerton",
+   "edition": "Preprint (2007), author's copy (jacquet-two.pdf), whose printed page numbers equal the PDF page numbers",
+   "url": "http://www.math.uchicago.edu/~emerton/pdffiles/jacquet-two.pdf",
+   "readSections": [
+    "Introduction: the definition of I_P^G, Lemma 0.3, Question 0.9, Definitions 0.8, 0.11, 0.12, Theorem 0.13, Corollaries 0.14–0.15, pp. 1–4",
+    "§2.1, Proposition 2.1.2, p. 21",
+    "§2.8, Lemma 2.8.3, pp. 44–45",
+    "Corollary 4.3.3, p. 58; Corollary 5.1.4, p. 60"
+   ]
+  },
+  {
+   "id": "OS15",
+   "title": "On Jordan–Hölder series of some locally analytic representations",
+   "authors": "S. Orlik, M. Strauch",
+   "edition": "J. Amer. Math. Soc. 28 (2015), 99–157; arXiv:1001.0323, whose printed page numbers equal the PDF page numbers",
+   "url": "https://arxiv.org/pdf/1001.0323",
+   "readSections": [
+    "Introduction and main theorem, pp. 1–4",
+    "§2.5, the categories O, O_p, O_alg and O^p_alg, Definition 2.6, pp. 7–8",
+    "§3, Proposition 3.3, p. 11",
+    "§4.1, the functor F^G_P, p. 18",
+    "§4, Propositions 4.8 and 4.9, p. 22",
+    "§5, Assumption 5.1, Theorems 5.3, 5.5, 5.8, pp. 25–37",
+    "§6.2, Jordan–Hölder series, pp. 41–42"
+   ]
+  },
+  {
+   "id": "OS10",
+   "title": "On the irreducibility of locally analytic principal series representations",
+   "authors": "S. Orlik, M. Strauch",
+   "edition": "Represent. Theory 14 (2010), 713–746; arXiv:math/0612809",
+   "url": "https://arxiv.org/pdf/math/0612809",
+   "readSections": [
+    "Introduction and main result, p. 3",
+    "Theorem 3.1.3, p. 13",
+    "Theorem 3.5.2, pp. 32–33"
+   ]
+  },
+  {
+   "id": "OR19",
+   "title": "On some properties of the functors F^G_P from Lie algebra to locally analytic representations",
+   "authors": "S. Orlik",
+   "edition": "arXiv:1802.07514v2 (cited by Ding as [54])",
+   "url": "https://arxiv.org/pdf/1802.07514v2",
+   "readSections": [
+    "Introduction, Theorems 1 and 2, pp. 1–3"
+   ]
+  },
+  {
+   "id": "BR16",
+   "title": "Vers le socle localement analytique pour GL_n I",
+   "authors": "C. Breuil",
+   "edition": "Ann. Inst. Fourier 66 (2016), 633–685; author's copy (socleI.pdf), cited by its own page numbers",
+   "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/socleI.pdf",
+   "readSections": [
+    "§1 notation, p. 6",
+    "§2, the locally Q_p-analytic representations F^G_P(M, π_P): Lemmas 2.1–2.2, Theorem 2.3, (8), Proposition 2.4, Corollaries 2.5 and 2.7, Remark 2.6, pp. 6–12"
+   ]
+  },
+  {
+   "id": "BR15",
+   "title": "Vers le socle localement analytique pour GL_n II",
+   "authors": "C. Breuil",
+   "edition": "Math. Ann. 361 (2015), 741–785; author's copy (socleII.pdf), cited by its own page numbers",
+   "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/socleII.pdf",
+   "readSections": [
+    "§4, Théorème 4.3 and Remarque 4.4, pp. 14–16"
+   ]
+  },
+  {
+   "id": "BR19",
+   "title": "Ext^1 localement analytique et compatibilité local-global",
+   "authors": "C. Breuil",
+   "edition": "Amer. J. Math. 141 (2019), 611–703; author's copy (Ext1.pdf), cited by its own page numbers",
+   "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/Ext1.pdf",
+   "readSections": [
+    "Notation, p. 9",
+    "§2.1, locally σ-analytic representations, D_σ(H, E) and Lemme 2.1.1, p. 10"
+   ]
+  },
+  {
+   "id": "SCH11",
+   "title": "Représentations localement analytiques de GL3(Qp)",
+   "authors": "B. Schraen",
+   "edition": "Ann. Sci. École Norm. Sup. (4) 44 (2011), 43–145, version of record from Numdam (printed page = PDF page + 41)",
+   "url": "https://www.numdam.org/item/10.24033/asens.2140.pdf",
+   "readSections": [
+    "§3, Définition 3.1 and (3.2), p. 65; Kohlhaase's homology, p. 68",
+    "§4, Proposition 4.7, pp. 79–80; Corollaire 4.9, (4.37)–(4.42) and Théorème 4.10, p. 82"
+   ]
+  },
+  {
+   "id": "DING25",
+   "title": "p-adic Hodge parameters in the crystabelline representations of GL_n",
+   "authors": "Y. Ding",
+   "edition": "Publ. Math. IHÉS 142 (2025), version of record (74 pp.), whose printed page numbers equal the PDF page numbers; arXiv:2407.21237 compared for §3.1",
+   "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-025-00156-2.pdf",
+   "readSections": [
+    "§3.1.1, notation and preliminaries, pp. 33–34",
+    "§3.1.2, principal series: Proposition 3.1, (3.1), Lemma 3.2, (3.2)–(3.3), Proposition 3.3 with proof, Remark 3.4, Lemma 3.5 with proof, (3.10)–(3.11), Proposition 3.6, Remark 3.7, Proposition 3.8 with proof, Remark 3.9, (3.17)–(3.18), pp. 34–39",
+    "§3.1.3, parabolic inductions: (3.19), Lemma 3.10 with proof, (3.21), Propositions 3.11–3.13, Remark 3.14, pp. 40–44",
+    "§3.1.4, locally σ-analytic parabolic inductions: Lemma 3.15, Propositions 3.16, 3.18–3.20, Remark 3.17, pp. 44–47",
+    "References [12], [13], [17], [23], [31], [32], [36], [37], [43], [54]–[58], pp. 72–74"
+   ]
+  },
+  {
+   "id": "DING19",
+   "title": "Simple L-invariants for GL_n",
+   "authors": "Y. Ding",
+   "edition": "Trans. Amer. Math. Soc. 372 (2019), 7993–8042; arXiv:1807.10862v2 (page numbers of the arXiv PDF)",
+   "url": "https://arxiv.org/pdf/1807.10862v2",
+   "readSections": [
+    "§2.3.2, Lemma 2.26 with proof and Proposition 2.27, p. 29"
+   ]
+  },
+  {
+   "id": "BH20",
+   "title": "Towards the finite slope part for GL_n",
+   "authors": "C. Breuil, F. Herzig",
+   "edition": "Int. Math. Res. Not. IMRN 2020, 10495–10552; arXiv:1806.02695",
+   "url": "https://arxiv.org/pdf/1806.02695",
+   "readSections": [
+    "Introduction, pp. 2–3",
+    "§5, Definition 5.7, pp. 26–27"
+   ]
+  },
+  {
+   "id": "BHS19",
+   "title": "A local model for the trianguline variety and applications",
+   "authors": "C. Breuil, E. Hellmann, B. Schraen",
+   "edition": "Publ. Math. IHÉS 130 (2019), 299–412, version of record from Numdam (printed page = PDF page + 298)",
+   "url": "https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf",
+   "readSections": [
+    "§5.1, pp. 386–388, including (5.3) and Remark 5.1.2",
+    "§5.2, pp. 390–392, including Lemma 5.2.1",
+    "p. 395 (constituents of F^{G_p}_{B_p}(δ))"
+   ]
+  },
+  {
+   "id": "DLB17",
+   "title": "Revêtements du demi-plan de Drinfeld et correspondance de Langlands p-adique",
+   "authors": "G. Dospinescu, A.-C. Le Bras",
+   "edition": "Ann. of Math. 186 (2017), 321–411; arXiv:1509.00606v2 (page numbers of the arXiv PDF)",
+   "url": "https://arxiv.org/pdf/1509.00606v2",
+   "readSections": [
+    "§1.1, p. 4; §2, p. 13; §3.2–3.3 with the proof of Théorème 3.2, pp. 15–17",
+    "§5.2, Lemmes 5.9 and 5.10 with the proof of 5.9, pp. 28–29",
+    "§10, pp. 52, 55–56"
+   ]
+  },
+  {
+   "id": "BCGP25",
+   "title": "Modularity theorems for abelian surfaces",
+   "authors": "G. Boxer, F. Calegari, T. Gee, V. Pilloni",
+   "edition": "arXiv:2502.20645v1 (2025); page numbers of the arXiv PDF",
+   "url": "https://arxiv.org/pdf/2502.20645v1",
+   "readSections": [
+    "§2.2.1–2.2.14 (solid vector spaces, recalled), pp. 19–21",
+    "§2.2.15–2.2.29, pp. 21–23",
+    "§3.4.2, p. 53"
+   ]
+  },
+  {
+   "id": "RJRC22",
+   "title": "Solid locally analytic representations of p-adic Lie groups",
+   "authors": "J. Rodrigues Jacinto, J. E. Rodríguez Camargo",
+   "edition": "Represent. Theory 26 (2022), 962–1024; arXiv:2110.11916 (page numbers of the arXiv PDF)",
+   "url": "https://arxiv.org/pdf/2110.11916",
+   "readSections": [
+    "§1, Theorems 1.1, 1.3, 1.5, 1.7 and Corollary 1.6, pp. 3–5",
+    "§3, Corollary 3.17 and Theorem 3.40 (statements)",
+    "§4.4, Definition 4.40, Propositions 4.41–4.42, pp. 38–40"
+   ]
+  },
+  {
+   "id": "PAN22",
+   "title": "On locally analytic vectors of the completed cohomology of modular curves",
+   "authors": "L. Pan",
+   "edition": "Forum Math. Pi 10 (2022), e7; arXiv:2008.07099v3 (page numbers of the arXiv PDF)",
+   "url": "https://arxiv.org/pdf/2008.07099v3",
+   "readSections": [
+    "§2.1, 2.1.1–Example 2.1.9, pp. 10–12",
+    "§2.2, Definition 2.2.1, Lemma 2.2.2, Theorem 2.2.3, Corollary 2.2.4, pp. 12–14"
+   ]
+  },
+  {
+   "id": "SCHN11",
+   "title": "p-Adic Lie Groups",
+   "authors": "P. Schneider",
+   "edition": "Grundlehren der mathematischen Wissenschaften 344, Springer, 2011 (the maintainer's cleared copy; cited by printed page)",
+   "readSections": [
+    "§4, Corollaries 4.4–4.5, p. 28",
+    "§13, Corollary 13.3 and Examples, p. 93",
+    "§14, Exercise ii, p. 104",
+    "§18, Corollaries 18.18–18.19, p. 156",
+    "§27, Theorem 27.1, p. 192"
+   ]
+  }
+ ],
+ "status": "draft"
+}
