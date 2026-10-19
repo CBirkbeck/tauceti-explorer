@@ -182,6 +182,11 @@ example : Nonempty (minusRing ℤ (ZMod 3)ˣ 1 ≃+* MonoidAlgebra (ZMod 2) (ZMo
 
 end GroupRing
 
+/-- For trivial conjugation on `Z/6`, the minus quotient is `(Z/6)/2(Z/6)`.
+It is nonzero: the class of `1` survives. -/
+example : ¬ ∃ x : ZMod 6, (2 : ZMod 6) * x = 1 := by
+  decide
+
 /-- The smoothing condition of Deligne–Ribet, Cassou-Noguès and Dasgupta–Kakde: no nontrivial
 root of unity of `H` is congruent to `1` modulo every prime in `T`. -/
 def SmoothingCondition (H : Type*) [Field H] [NumberField H] (T : Finset (Ideal (𝓞 H))) : Prop :=
