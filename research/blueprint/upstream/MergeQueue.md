@@ -20,7 +20,7 @@ Generated 2026-10-19T08:10Z from the README supplier graph of every open pull re
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 
 ## Wave 2
 - #814 AdicEtaleGeometry — maintainer approved; waits on #813
@@ -28,7 +28,7 @@ Generated 2026-10-19T08:10Z from the README supplier graph of every open pull re
 - #859 BanachAlgebras (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814
