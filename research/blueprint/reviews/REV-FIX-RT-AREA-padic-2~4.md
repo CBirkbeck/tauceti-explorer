@@ -1,20 +1,22 @@
 # Independent review of the round-four p-adic fixes
 
 **Blocked checkpoint, independently rechecked 19 October 2026 by Codex session
-codex-jF7cls.** The live issue's three-packet review is already recorded. The
+codex-hclUFj.** The live issue's three-packet review is already recorded. The
 generated job still requires ten other packets outside that issue's permitted
 scope. This continuation verifies that administrative blocker and preserves
 the mathematical review, source-reading attribution and prior Lean evidence.
 
-The bot confirmed [claim 6265184802](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6265184802)
-in [comment 6265188099](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6265188099).
+The bot confirmed [claim 6266400086](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6266400086)
+in [comment 6266402697](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6266402697).
 The complete issue was fetched and re-read after confirmation. This session
 did none of the fixes or earlier reviews and claimed no second job.
 
-Checkout: `bcb332fc47701d4ee0a51e0070f271b65b99baa2`. An independent fetch of
-GitHub main at [`bcb332fc47701d4ee0a51e0070f271b65b99baa2`](https://github.com/CBirkbeck/tauceti-explorer/commit/bcb332fc47701d4ee0a51e0070f271b65b99baa2)
-has the same ordered review outputs and dependencies. Fresh execution of the
-unmodified `issues.deliverables_complete` against the checkout gives:
+Checkout: `34cc5c40aa9a0e26a949f649aabf0e6869da5207`. An independent fetch of
+GitHub main at [`c000685ae5a742cd8b533866d4eb046fe65f8a9d`](https://github.com/CBirkbeck/tauceti-explorer/commit/c000685ae5a742cd8b533866d4eb046fe65f8a9d)
+has the same ordered review outputs and dependencies. The queue fetched at
+that immutable commit also agrees with the separately fetched main queue.
+Fresh execution of the unmodified `issues.deliverables_complete` against the
+checkout gives:
 
 | Contract | Outputs | Packets | Complete |
 |---|---:|---:|---|
@@ -30,9 +32,10 @@ fails for those packets. Perfectoid's `needs_changes` already counts as a
 completed review. The [handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) lists
 the ten extra packets explicitly.
 
-A fresh historical-queue fetch at `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`
-confirms the issued ten-output fix and seven-output review, including the
-review's exact ordered output list. The current generator still conditions
+A fresh historical-queue fetch confirms the issued ten-output fix and
+seven-output review, including the review's exact ordered output list. Both
+current queues require 46 fix outputs and also change the fix's dependency
+from the preceding review to the preceding fix. The generator still conditions
 preservation of an existing following round on `not (missing or sent_back)`.
 Actual `intake.file_problems` calls reject both `queue.json` and
 `make_queue.py` as outside swarm output paths. The issue and WORKERS.md also
@@ -49,7 +52,10 @@ is claimed, and Lean was not rerun for documentation edits.
 
 Restore and preserve the issued contracts before assigning this job again.
 Actual persistence, issue synchronization and intake remain unverified until
-that separately authorized repair is applied.
+that separately authorized repair is applied. The preceding checkpoint
+([#10703](https://github.com/CBirkbeck/tauceti-explorer/pull/10703), session
+codex-jF7cls) documented the same blocker; this notice replaces its current
+status without attributing its mathematical or experimental work to this session.
 
 ## Prior checkpoint: codex-ARcNcm
 
