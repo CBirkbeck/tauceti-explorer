@@ -12,10 +12,14 @@ submodule. The two predicates below are light definitions on those existing carr
 The algebraic groups, minimal representations, smooth theta modules and global kernels
 need carriers supplied by earlier roadmap targets; their full statements belong in the
 reader document. They are not represented here by assumed structures or data definitions.
+The API items and unit tests of the other twelve definitions and constructions of the
+packet, and `octonionAut_chevalley`, are therefore roadmap-document targets only. The
+names below are the packet's names for the two octonion definitions, their API items and
+their unit tests.
 
 Pins: Tau Ceti f790474821cf4256814db967cb154e7af3d0c369;
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174.
-Sources: Gan–Savin, arXiv:2102.00372v1, §§2.1–2.4, pp. 6–8;
+Sources: Gan–Savin, arXiv:2102.00372v1, §§2.1–2.4, pp. 6–8, and §13.4, p. 44;
 Savin's appendix to Harris–Khare–Thorne, arXiv:1909.05933, A.1, pp. 22–24.
 -/
 
@@ -38,6 +42,21 @@ def IsNullSubspace (W : Submodule F (Octonion F)) : Prop :=
 variable {F}
 
 -- API milestones for EX.0/octonion-group.
+theorem IsOctonionAutomorphism.comp {g₁ g₂ : Octonion F ≃ₗ[F] Octonion F}
+    (h₁ : IsOctonionAutomorphism F g₁) (h₂ : IsOctonionAutomorphism F g₂) :
+    IsOctonionAutomorphism F (g₁.trans g₂) := by
+  sorry
+
+theorem IsOctonionAutomorphism.symm {g : Octonion F ≃ₗ[F] Octonion F}
+    (hg : IsOctonionAutomorphism F g) : IsOctonionAutomorphism F g.symm := by
+  sorry
+
+theorem octonionAut_ext {g₁ g₂ : Octonion F ≃ₗ[F] Octonion F}
+    (h₁ : IsOctonionAutomorphism F g₁) (h₂ : IsOctonionAutomorphism F g₂)
+    {s : Set (Octonion F)} (hs : Submodule.span F s = ⊤) (heq : ∀ x ∈ s, g₁ x = g₂ x) :
+    g₁ = g₂ := by
+  sorry
+
 theorem automorphism_preserves_trace (g : Octonion F ≃ₗ[F] Octonion F)
     (hg : IsOctonionAutomorphism F g) (x : Octonion F) :
     Octonion.trace (g x) = Octonion.trace x := by
@@ -54,17 +73,20 @@ theorem automorphism_preserves_imaginary (g : Octonion F ≃ₗ[F] Octonion F)
       Octonion.imaginary F := by
   sorry
 
--- Three discriminating examples for the automorphism condition.
+-- Unit tests for EX.0/octonion-group.
+-- test octonionAut_refl
 example : IsOctonionAutomorphism F (LinearEquiv.refl F (Octonion F)) := by
   sorry
 
--- Conjugation fixes the unit and preserves the norm, but reverses products.
+-- test octonionAut_conj_not: conjugation fixes the unit and preserves the norm,
+-- but reverses products.
 example : ∃ c : Octonion F ≃ₗ[F] Octonion F,
     (c : Octonion F →ₗ[F] Octonion F) = Octonion.conj ∧
       ¬ IsOctonionAutomorphism F c := by
   sorry
 
--- A diagonal element of the long-root SL₃ rescales a null vector.
+-- test octonionAut_longRootDiagonal: a diagonal element of the long-root SL₃
+-- rescales a null vector.
 example : ∃ g : Octonion F ≃ₗ[F] Octonion F,
     IsOctonionAutomorphism F g ∧
       g (⟨0, 0, ![1, 0, 0], 0⟩ : Octonion F) =
@@ -107,26 +129,32 @@ theorem null_subspace_transitive {W W' : Submodule F (Octonion F)}
         Submodule.map (g : Octonion F →ₗ[F] Octonion F) W = W' := by
   sorry
 
--- The zero, line, plane and nonexample tests distinguish multiplication-nullity
--- from a dimension condition or a condition on the quadratic form alone.
+-- Unit tests for EX.0/null-subspaces. The zero, line, plane and nonexample tests
+-- distinguish multiplication-nullity from a dimension condition or a condition on the
+-- quadratic form alone.
+-- test isNullSubspace_bot
 example : IsNullSubspace F (⊥ : Submodule F (Octonion F)) := by
   sorry
 
+-- test isNullSubspace_line
 example : IsNullSubspace F
     (Submodule.span F ({(⟨0, 0, ![1, 0, 0], 0⟩ : Octonion F)} : Set (Octonion F))) := by
   sorry
 
+-- test isNullSubspace_plane
 example : IsNullSubspace F
     (Submodule.span F
       ({(⟨0, 0, ![1, 0, 0], 0⟩ : Octonion F),
         (⟨0, 0, 0, ![0, 1, 0]⟩ : Octonion F)} : Set (Octonion F))) := by
   sorry
 
+-- test not_isNullSubspace_unit
 example : ¬ IsNullSubspace F
     (Submodule.span F ({(1 : Octonion F)} : Set (Octonion F))) := by
   sorry
 
--- Every vector of the following line has norm zero, but its generator has trace 1.
+-- test not_isNullSubspace_idempotent: every vector of the following line has norm zero,
+-- but its generator is an idempotent of trace 1.
 example : (∀ x ∈ Submodule.span F
       ({(⟨1, 0, 0, 0⟩ : Octonion F)} : Set (Octonion F)), Octonion.norm x = 0) ∧
     ¬ IsNullSubspace F (Submodule.span F
