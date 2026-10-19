@@ -200,6 +200,22 @@ example : (constituentLabels 3).card = 6 := by decide
 /-- Check `constituentLabel_n1`: no labels for `n = 1`. -/
 example : (constituentLabels 1).card = 0 := by decide
 
+/-- The subset attached to a left coset `W_i w` is the inverse image of the first `i`
+positions. Indices here start at zero (LR.7/constituent-labels; Ding, Proposition 3.1(4),
+published p. 34). Using `w` instead of its inverse to label the subset fails for 3-cycles. -/
+def constituentSubset {n : ℕ} (w : Equiv.Perm (Fin n)) (i : ℕ) : Finset (Fin n) :=
+  Finset.univ.filter (fun j => (w j).val < i)
+
+/-- For the cycle `0 ↦ 1 ↦ 2 ↦ 0`, the inverse image of `{0}` is `{2}`. -/
+example : constituentSubset (finRotate 3) 1 = {2} := by decide
+
+/-- Left multiplication by the permutation of positions `1, 2` preserves this label. -/
+example : constituentSubset ((Equiv.swap (1 : Fin 3) 2) * finRotate 3) 1 =
+    constituentSubset (finRotate 3) 1 := by decide
+
+/-- The identity permutation gives the first position. -/
+example : constituentSubset (1 : Equiv.Perm (Fin 3)) 1 = {0} := by decide
+
 /-- `dim Ext¹(π_alg, π_1) = n + (2^n − 1) d_L` (LR.7/ext-pi1). -/
 def extPiOneDim (n dL : ℕ) : ℕ := n + (2 ^ n - 1) * dL
 
