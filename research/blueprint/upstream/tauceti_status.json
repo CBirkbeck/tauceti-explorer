@@ -1291,13 +1291,14 @@
     "PotentialAutomorphyInfrastructure": {
       "stage": "pr",
       "pr": 1081,
-      "head": "2dd9543",
+      "head": "f2e4f4a",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 67); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at f2e4f4a; confirmation pass pending"
       }
     },
     "HodgeTateAndCanonicalSubgroups": {
