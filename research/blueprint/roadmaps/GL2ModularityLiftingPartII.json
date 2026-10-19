@@ -1,0 +1,232 @@
+{
+  "id": "GL2ModularityLiftingPartII",
+  "title": "GL₂ Modularity Lifting, Part II: Minimal Defect-One R = T",
+  "area": "langlands",
+  "parent": "GL2ModularityLifting",
+  "summary": "Plan the arithmetic applications of balanced-module patching in defect one to torsion weight-one forms over Q and to PGL₂ homology over imaginary quadratic fields. Construct the required Hecke and coefficient data, prove unramified weight-one local–global compatibility, and deduce minimal R = T with its precise rank and finite-image consequences. Import the patching algebra and local deformation rings from their owners. Keep the general scalar multiplicity theorem, 3-primary Bianchi orbifold extension and integral principal-type repair as explicit mathematical gaps.",
+  "readme": "This Part II extends the defect-zero GL₂ modularity-lifting roadmap by its minimal defect-one applications. Its new objects are arithmetic specializations: the weight-one Hecke data, dual coherent homology, doubling image, global doubling ideal, vexing coefficient bundles, Jacobian character datum and Bianchi minimal-level package. The balanced predicate, patching theorem, deformation representability, local eigenvalue rings, Katz/Hasse/theta theory, generic Hecke-image algebra and locally symmetric-space topology retain their existing owners.\n\nThe stages are in construction order. D1.0–D1.4 handle weight one without vexing primes, D1.5–D1.6 add the corrected coefficient types, D1.7 handles scalar multiplicity with an explicit missing local comparison, and D1.8–D1.10 give the conditional Bianchi theorem. Bianchi Conjecture A is an input on all required auxiliary levels. The proved planning route for Bianchi uses p≥5 and no principal-type P primes; extensions need Gap O or Gap P respectively. All arithmetic implementation claims are unchecked. Read the companion reader for hypotheses, API contracts, discriminating tests and corrected source locators.\n\nUse CG18, Invent. Math. 211 (2018), 297–433, §§1,3,4.1,4.2,5, and the weight-one projection refinement CG20, Duke Math. J. 169 (2020), Lemma 8.14, pp. 865–866. The 2022 Correction repairs bracket typography; the other mathematical issues recorded here require independent review. The supplied extraction route name GL2ModularityLiftingDefectOne is an alias of this issue’s canonical id GL2ModularityLiftingPartII. The nonminimal positive-defect continuation and the GL_n complex-patching continuation import this minimal arithmetic theory; their new targets are outside this roadmap.",
+  "prerequisites": [
+    "AlgebraicModularFormsAndSerreWeights",
+    "ArithmeticLocallySymmetricSpaces",
+    "AutomorphicGaloisRepresentations",
+    "DeformationAndDerivedPatchingAlgebra",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "GL2ModularityLifting",
+    "GlobalGaloisDeformations",
+    "IntegralHeckeAndGaloisDeterminants",
+    "LocalGaloisDeformationRings",
+    "SerreWeightAndLevelOptimisation",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory"
+  ],
+  "stages": [
+    {
+      "key": "D1.0",
+      "title": "Weight-one levels and coherent homology",
+      "description": "Fix p≥3, coefficient DVR O and an odd absolutely irreducible residual representation unramified at p. Specialize the existing fine modular curves, Hodge bundle and Hecke images to conductor level and Taylor–Wiles covers, with a harmless rigidifying prime. Define the arithmetic Hecke data and dual coherent homology; prove non-Eisenstein boundary vanishing and the correctly twisted weight-one duality. Finite O-modules and Hecke algebras may have O-torsion.\n\nTargets:\n- Weight-one level data: For p≥3, O the integers of a finite extension K/Q_p, uniformizer π and residue field k, fix odd absolutely irreducible continuous barρ:G_Q→GL₂(k), unramified at p, with prime-to-p Artin conductor N. A level datum consists of the conductor-level fine curve X, a fixed auxiliary prime r≥5 away from Np with r≢1 mod p and residual Frobenius eigenvalue ratio different from r and r⁻¹, a finite set Q disjoint from Npr, chosen distinct residual roots α_x,β_x for x∈Q, and a p-power quotient Δ of ∏_{x∈Q}(Z/xZ)×. Write X₀(Q), X₁(Q), X_Δ(Q) for the corresponding imported curves over O. The prime r is removed only by the selected-oldform comparison; it is not a Taylor–Wiles variable. At each ramified x with barρ|D_x reducible require barρ^{I_x}≠0, the standing hypothesis of §3.1. At conductor level quotient Γ₁(N) by the p-primary diamond subgroup H_N; use its genuine Katz/descent object, not a coarse Hodge line without descent. The fine rigidified model has extra Γ₁(r) level, denoted X^(r). Statements at conductor level mean the module recovered from this model by the harmless-prime comparison (one or two old copies); the fine model and the conductor object are not identified.\n- Weight-one arithmetic Hecke data: On H⁰(X₁(Q),(ωⁿ)_{K/O}) and its finite π^m-torsion use normalized operators with q-expansion a_j(T_x f)=a_{xj}(f)+x^{n−1}⟨x⟩a_{j/x}(f) for x∤NprQ. The arithmetic Hecke datum is the image of the polynomial algebra on these T_x, the diamonds, and U_x for x∈Q; its anaemic image omits U_x. At weight one let m_∅ be the residual ideal supplied by the minimal Katz eigenform and m_Q add U_x−α_x. Take finite π^m images and then the inverse limit. The resulting local images are finite O-algebras; flatness is not imposed.\n- Non-Eisenstein coherent boundary vanishing: For the weight-n fine curves above, every simultaneous Hecke eigensystem on cusp-supported sections has away-level trace ψ₁(x)+x^{n−1}ψ₂(x), for finite-order characters ψ₁,ψ₂ with the prescribed diamond product. Consequently its associated semisimple two-dimensional representation is reducible, so all cusp-supported cohomology vanishes at an absolutely irreducible residual ideal. Thus Hⁱ(ωⁿ(−C))_m→Hⁱ(ωⁿ)_m is an isomorphism for i=0,1 over O, O/π^m and K/O.\n- Dual coherent homology: For a finite locally free sheaf L on a smooth proper relative curve X/O put H_i(X,L)=Hom_O(Hⁱ(X,(Ω¹_{X/O}⊗L^∨)_{K/O}),K/O), with its compact O-module topology and transpose Hecke action. Serre duality identifies it with H^{1−i}(X,L), including torsion. Define pullback/trace maps by transposing the corresponding cohomological adjoints, not by an unexplained identification with sections.\n- Weight-one Hecke duality: After adjoining ζ_{NQ}, apply the imported W_{ζ}-twisted Serre duality Ψ:H⁰(X,ωⁿ)≅H₁(X,ωⁿ) with ΨT_x=x^{1−n}T_xΨ in that convention and the compatible diamond action. At n=1, use boundary vanishing to obtain an O-linear Hecke-equivariant isomorphism H₀(X,ω)_m≅H¹(X,ω)_m and equality of the generic ranks of H₀ and H₁. Untwisted type coefficients require the contragredient convention of D1.6.",
+      "requires": [
+        "AlgebraicModularFormsAndSerreWeights:R15.1",
+        "GlobalGaloisDeformations:R04.5",
+        "LocalGaloisDeformationRings:R08.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "AlgebraicModularFormsAndSerreWeights:R15.2",
+        "SerreWeightAndLevelOptimisation:R20.3",
+        "AlgebraicModularFormsAndSerreWeights:R15.3"
+      ]
+    },
+    {
+      "key": "D1.1",
+      "title": "Degeneracy, descent and balancedness",
+      "description": "Construct the normalized oldform maps and their pairing matrix. Prove the selected-root comparison at Taylor–Wiles primes and the distinct/equal-root multiplicities at harmless primes. Specialize Hochschild–Serre to coherent diamond covers and prove balancedness over O[Δ], importing the generic balanced-module and patching algebra.\n\nTargets:\n- Normalized weight-one degeneracy maps: For x∤Npr and π₁,π₂:X₀(x)→X, put V_x=φ₁₂π₂*, ψ(f,g)=π₁*f+V_xg and ψ^∨=(trπ₁,trπ₁W_x)/x. In column coordinates on the source, ψ^∨ψ=[[x⁻¹(x+1),T_x],[T_x,(x+1)⟨x⟩]], and U_x acts as [[T_x,x⟨x⟩],[−x⁻¹,0]]. These are identities of the imported geometric correspondences on weight-one sections.\n- Selected-root oldform comparison: Suppose x≡1 mod p and barρ(Frob_x) has distinct eigenvalues α,β. Localizing at the ideal extending m_∅ with U_x−α gives H⁰(X,(ω)_{K/O})_{m_∅}≅H⁰(X₀(x),(ω)_{K/O})_m. Iteration gives the same result for Q. The localized anaemic Hecke image surjects onto the selected U-image. The full oldspace before selecting α has two copies, not one.\n- Harmless-prime oldform multiplicity: Let x∤Npr, with residual Frobenius eigenvalues α,β satisfying α/β∉{x,x⁻¹}. In the U_x=α local factor of level X₀(x), the localized weight-one module has one copy of the base module if α≠β and two copies if α=β. The two-copy assertion is about the same local factor in the repeated-root case, not about two idempotent factors.\n- Coherent diamond-cover descent: For S=O[Δ] and M=H₀(X_Δ(Q),ω)_m the homological Hochschild–Serre spectral sequence is Tor_i^S(H_j(X_Δ(Q),ω)_m,O)⇒H_{i+j}(X₀(Q),ω)_m. In particular M_Δ≅H₀(X₀(Q),ω)_m, and H₁(X_Δ(Q),ω)_{m,Δ}→H₁(X₀(Q),ω)_m→Tor₁^S(M,O)→0 is exact. The maps commute with away-level Hecke and the chosen U_x.\n- Balanced coherent homology: For the preceding M, d_S(M)=dim_k Tor₀^S(M,k)−dim_k Tor₁^S(M,k)≥0. Equivalently the imported balanced predicate holds. After using M_Δ and O-base change, d_S(M)=rank_O M_Δ−dim_k(Tor₁^S(M,O)/π); this formula and nonnegativity hold even when M has π-torsion.",
+      "requires": [
+        "GL2ModularityLiftingPartII:D1.0",
+        "AlgebraicModularFormsAndSerreWeights:R15.2",
+        "ArithmeticLocallySymmetricSpaces:ALS.6",
+        "DeformationAndDerivedPatchingAlgebra:R03.5"
+      ]
+    },
+    {
+      "key": "D1.2",
+      "title": "Hasse doubling and ordinary projections",
+      "description": "For each finite coefficient quotient, embed two copies of weight one into sufficiently high weight with the Hasse invariant. Prove injectivity, the corrected column formula for U_p and the two ordinary-factor injections of CG20 Lemma 8.14. Construct the actual ordinary Hecke image, retaining its kernel, and prove the rank-two quadratic doubling statement in the repeated-root factor.\n\nTargets:\n- Hasse doubling map: Fix m≥1. Choose n>1 sufficiently large, n≡1 modulo (p−1)p^{m−1}, and a high-weight Hasse lift A with q-expansion 1 modulo π^m, after increasing the exponent as required by O/Q_p. Let M=H⁰(X₁(Q),ω_{O/π^m})_{m_Q} and φ(f)=Af in weight n. Define ψ:M⊕M→H⁰(X₁(Q),ωⁿ_{O/π^m}) by ψ(f,g)=φ(f)+(φT_p−U_pφ)(g). The second summand has q-expansion ⟨p⟩V_p(g), where V_p sends ∑a_jq^j to ∑a_jq^{pj}. No factor π or p is divided out.\n- Injectivity of Hasse doubling: The map ψ above is injective for every m≥1. In the chosen column basis U_pψ=ψ·[[T_p,⟨p⟩],[−1,0]], so on im ψ one has U_p²−T_pU_p+⟨p⟩=0 and U_p+⟨p⟩U_p⁻¹=T_p acting diagonally. These formulas use the matrix with upper-right ⟨p⟩ and lower-left −1. If α,β are the residual arithmetic-Frobenius roots of barρ at p, then ⟨p⟩≡αβ and (U_p−α̃)(U_p−β̃) acts nilpotently on the localized doubled image. Since its determinant is the unit diamond, only α,β occur there; zero is excluded.\n- Two ordinary projections are injective: In characteristic p, suppose the weight-one Frobenius polynomial X²−T_pX+⟨p⟩ has distinct nonzero residual roots α,β. In the special case n=p (multiplication by the Hasse invariant), let e_α and e_β be the high-weight ordinary projectors. Each map e_αφ:M→e_αH⁰(X,ω^p) and e_βφ:M→e_βH⁰(X,ω^p) is injective after localizing the prescribed away-p system. For higher finite coefficient quotients with distinct residual roots, the same injections follow from π-socles and compatible Hasse powers.\n- Ordinary high-weight image algebras: For a sufficiently large n as above, let T_n be the anaemic localized weight-n Hecke algebra and let T̃_{n,α} be its ordinary factor after adjoining U_p and selecting α. Define A_n=im(T_n→T̃_{n,α}), using the actual image, with a quotient map to the corresponding finite weight-one algebra induced by the Hasse subquotient. Write T̃_n=T̃_{n,α}. Do not identify A_n with T_n unless injectivity has been proved.\n- Quadratic Hecke doubling: In the repeated-root ordinary local factor, the U_p-stable Hecke algebra acting on ψ(M²) is A[U_p]≅A[X]/(X²−T_pX+⟨p⟩), finite free of rank two over its anaemic image A. The analogous statement holds before separating the two distinct-root factors; an individual distinct-root factor has rank one. The coefficient −1 in the doubling matrix forces 1,U_p to be linearly independent over A.",
+      "requires": [
+        "GL2ModularityLiftingPartII:D1.0",
+        "AlgebraicModularFormsAndSerreWeights:R15.3",
+        "AlgebraicModularFormsAndSerreWeights:R15.2",
+        "SerreWeightAndLevelOptimisation:R20.3",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "AutomorphicGaloisRepresentations:R19.6"
+      ]
+    },
+    {
+      "key": "D1.3",
+      "title": "Unramified Galois representations in weight one",
+      "description": "Prove Theorem 3.11 over finite torsion Hecke images and their inverse limit. Treat distinct Frobenius roots, repeated nonscalar Frobenius and scalar Frobenius separately. The scalar proof imports the local eigenvalue ring and the equality of its doubling and unramified ideals; it does not replan those rings. Include T_p descent, the determinant-normalizing twist and local diamond characters at Taylor–Wiles primes.\n\nTargets:\n- Wiese doubled-representation criterion: Let R be a local ring, M and N finite free rank-two R-modules with a group action, and 0→N→M⊕M→L→0 an exact sequence split as R-modules, with all terms free rank two except the middle. If L/m_RL is indecomposable as a group module, then N,M,L are isomorphic as R[group]-modules. In particular, if L is unramified at p, so is M.\n- Global doubling ideal: In the scalar case, after twisting by the unique unramified λ(c⁻¹) with c²=⟨p⟩ and c≡α, view A_n and T̃_n as algebras over the imported scalar-residual local ring R†. Put J_glob=Ann_{R†}(T̃_n/A_n). Here the quotient is an R†-module, not a quotient ring. Its action factors through R†/J_glob. Compare this ideal with J_loc=Ann_{R†}(R̃†/R†).\n- Scalar local comparison: For the normalized scalar case there is a surjection A_n⊗̂_{R†}R̃†↠T̃_n carrying the local eigenvalue to normalized U_p. Therefore J_loc⊂J_glob. By the imported equality J_loc=I_unr, every quotient of A_n on which the ordinary algebra is doubled is unramified at p. On that quotient T_p=U_p+⟨p⟩U_p⁻¹ belongs to the anaemic algebra.\n- Unramifiedness in the three Frobenius cases: For every finite weight-one Hecke quotient of D1.0 the representation reconstructed from high-weight trace functions is unramified at p. If α≠β, the two ordinary factors give opposite unramified rank-one quotients and hence an unramified split representation. If α=β and barρ(Frob_p) is nonscalar, quadratic doubling gives an unramified indecomposable quotient and the Wiese criterion applies. If barρ(Frob_p) is scalar, use the normalized local doubling ideal. In all three cases T_p descends to the anaemic weight-one algebra.\n- Weight-one Hecke-valued Galois representation: Assume Q consists of primes x≡1 mod p, with barρ unramified at x and distinct chosen roots. Over the finite local weight-one image T_Q,m there is a continuous lift ρ_Q of barρ unramified outside NQ, with arithmetic-Frobenius trace T_x away from NpQ and trace T_p at p. There is a unique character η≡1 with η²=Teich(det barρ)/(detρ_Q); ρ_Q⊗η has fixed Teichmüller determinant and is minimal outside Q. At x∈Q it splits into two lifted eigenlines; on inertia the selected line is the diamond character and the other is its inverse after determinant normalization, with geometric-Artin/arithmetic-Frobenius conversion explicit. The diamond character belongs to the image of R_Q. A surjection onto the full U-image at auxiliary level requires the stated local compatibility, not traces alone.",
+      "requires": [
+        "GL2ModularityLiftingPartII:D1.2",
+        "LocalGaloisDeformationRings:L7",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "LocalGaloisDeformationRings:L8",
+        "AutomorphicGaloisRepresentations:R19.6",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "LocalGaloisDeformationRings:R08.2",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "GlobalGaloisDeformations:R04.3"
+      ]
+    },
+    {
+      "key": "D1.4",
+      "title": "Minimal weight-one R = T",
+      "description": "Instantiate the balanced-module patching theorem with weight-one coherent homology, the correct dual-Selmer twist and q−1 deformation variables. Prove minimal R = T without O-flatness, rank one even for purely torsion no-vexing modules, and the minimal characteristic-zero and complete-local finite-image consequences.\n\nTargets:\n- Weight-one Taylor–Wiles system: Let q=dim_k H¹_dual(ad⁰barρ(1)) for the unramified-at-p minimal problem over Q, with q≥1. For every a≥1 choose Q_a of size q, x≡1 mod p^a, killing the dual Selmer group, and chosen roots. With S_a=O[(Z/p^aZ)^q] and A_∞=O[[z₁,…,z_{q−1}]], take H_a=H₀(X_{Δ_a}(Q_a),ω)_{m_a} and H=H₀(X,ω)_{m_∅}. The system includes A_∞↠R_min, compatible A_∞ actions on H_a, H_a,Δ_a≅H, balancedness over S_a, and image(S_a)⊂image(A_∞) with augmentation mapping into the minimal kernel.\n- Minimal weight-one R = T: Assume the no-vexing minimal problem and the Katz witness of D1.0. The map R_min→T_∅,m_∅ induced by the determinant-normalized representation is an isomorphism of complete local O-algebras; H₀(X,ω)_{m_∅} is a nonzero finite free R_min-module. Neither R_min nor T is required to be O-flat. Via the weight-one duality the same Hecke algebra acts on H¹(X,ω)_m.\n- No-vexing rank one including torsion: After removing the harmless rigidifying prime r and returning to the conductor-level Katz module, under the preceding no-vexing hypotheses, H₀(X,ω)_m is free of rank one over T_m, including when H₀[1/p]=0. In the torsion case the m-eigenspace in H⁰(X,ω_k(−C)) has k-dimension one. All bad U_x belong to the anaemic localized algebra: on the rank-one inertia-invariant line they are Frobenius scalars; if the invariant space is zero the minimal newvector operator is zero. This case split uses invariant dimensions, not merely the exponent of N.\n- Minimal weight-one modularity lifting: Assume the no-vexing and ramified-reducible invariant-line standing hypotheses. Let ρ:G_Q→GL₂(O′), with O′ finite over O, be an odd continuous lift of an absolutely irreducible barρ unramified at p, with fixed Teichmüller determinant, unramified at p and genuinely minimal at every other prime in the deformation condition of R_min. Then ρ is attached to a characteristic-zero weight-one cuspidal eigenform, hence has finite image. A lift with only dimρ^{I_x}=dimbarρ^{I_x}=1 is not accepted as minimal if its inertial character acquires new p-power ramification.\n- Finite image over complete local coefficient rings: Under the no-vexing and ramified-reducible invariant-line hypotheses, for p≥3 and odd absolutely irreducible barρ unramified at p, every minimal lift to a complete Noetherian local O-algebra A with residue k has finite image. The argument must control the universal ring, including its π-torsion and nilpotents; finiteness of its characteristic-zero point images alone is insufficient.",
+      "requires": [
+        "GL2ModularityLiftingPartII:D1.3",
+        "GL2ModularityLiftingPartII:D1.1",
+        "GlobalGaloisDeformations:R04.3",
+        "GlobalGaloisDeformations:R04.5",
+        "GlobalGaloisDeformations:R04.6",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "GL2ModularityLiftingPartII:D1.0",
+        "AlgebraicModularFormsAndSerreWeights:R15.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+        "LocalGaloisDeformationRings:R08.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+      ]
+    },
+    {
+      "key": "D1.5",
+      "title": "Vexing-prime coefficient bundles",
+      "description": "Specialize the CDT finite type to a lattice W_σ and the corrected level groups U,V. Construct invariant pushforward bundles and their subcuspidal variants separately at every auxiliary level. Prove local freeness, arbitrary coefficient base change, cusp duality, high-weight vanishing and normalized Hecke functoriality. Ramification at cusps is handled by explicit tame-inertia eigenspaces, rather than a false compactified pullback identity.\n\nTargets:\n- Vexing-prime levels and coefficient datum: For barρ as in D1.0 let T be the primes x≠p with barρ|D_x absolutely irreducible, barρ|I_x reducible and x≡−1 mod p. Put c_x=a_x(barρ), even for x∈T. At x∈T set U_x=GL₂(Z_x), V_x=ker(GL₂(Z_x)→GL₂(Z/x^{c_x/2}Z)). At each nonvexing ramified x use the upper-triangular conductor-level group with lower-right entry of p-power order for U_x=V_x; retain the printed specializations at the other primes. Together with the fixed fine-level auxiliary prime form V◁U and G=U/V. The coefficient datum is the imported CDT minimal-type lattice W_σ=⊗_{x∈T}W_{σ_x}, finite free over O, with its G-action and contragredient W_{σ*}.\n- Vexing-prime coefficient bundles: For f:X_V→X_U and its G-action define L_σ=(f_*(O_{X_V}⊗_O W_σ))^G and L_σ^sub=(f_*(O_{X_V}(−C_V)⊗_O W_σ))^G, with invariants as sheaves. Define L_{σ,Q,Δ} and L_{σ,Q,Δ}^sub by the same pushforward formula on each corresponding cover. On the interior these are the usual descended vector bundles. No identity with the ordinary pullback of a compactified base bundle is built into the definition.\n- Local freeness and coefficient base change: For any finite free O[G]-representation W in this construction, L_W and L_W^sub are finite locally free O_X-modules. For every O-algebra B, including nonflat B, their formation commutes with base change to B, and H⁰(X_B,L_W⊗ωⁿ)=(H⁰(X_{V,B},ωⁿ)⊗_O W)^G. The subcuspidal version uses the upstairs cusp divisor. No general exactness of G-invariants is asserted when p divides |G|.\n- Cusp-corrected type-bundle duality: The natural map L_{σ*}→L_σ^∨ is injective and is an isomorphism on the interior, but can fail at a cusp. It restricts to L_{σ*}^sub≅L_σ^∨(−C_U); equivalently (L_σ^sub)^∨(−C_U)≅L_{σ*}. These identities hold after arbitrary O-base change and at every independently defined auxiliary level.\n- High-weight vanishing with types: For n>1, H¹(X_U,ωⁿ⊗L_σ)=0 and H⁰(X_U,ωⁿ⊗L_σ)⊗O/π^m≅H⁰(X_{U,O/π^m},ωⁿ⊗L_σ). For L_σ^sub the same assertions hold for n>2. The n=1 boundary is not covered. These statements hold at the auxiliary levels as well.\n- Hecke correspondences with type coefficients: For the away-type correspondences at U,Q,Δ, construct T_x,U_y and diamond actions on ωⁿ⊗L_σ and on its subcuspidal version by equivariant pullback/isogeny/trace on X_V. Use the natural equivariant bundle identifications on the open correspondence and verify their extension at every cusp through the invariant pushforward model. With normalized trace, T_x^t=⟨x⁻¹⟩T_x and ⟨a⟩^t=⟨a⁻¹⟩ for a prime to the level. The factor 1/x occurs in both T_x and its transpose.",
+      "requires": [
+        "GL2ModularityLiftingPartII:D1.0",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "LocalGaloisDeformationRings:R08.2",
+        "AlgebraicModularFormsAndSerreWeights:R15.1",
+        "AlgebraicModularFormsAndSerreWeights:R15.3",
+        "AlgebraicModularFormsAndSerreWeights:R15.2"
+      ]
+    },
+    {
+      "key": "D1.6",
+      "title": "Weight-one R = T with vexing primes",
+      "description": "Prove the four type-coefficient modifications of the no-vexing proof, with corrected contragredient localization and q-expansions on every component. Deduce minimal R = T and freeness on the correct coherent module; state rank one under the nonzero-generic-fibre hypothesis. Extend the minimal lifting and complete-local finite-image consequences to all vexing types.\n\nTargets:\n- Boundary and degeneracy with types: At an absolutely irreducible residual ideal the cusp/full comparison and the selected-root auxiliary-level isomorphism hold with ωⁿ⊗L_σ. At a Taylor–Wiles prime x the same normalized oldform/W_x identities hold on these coefficients. The cusp-supported cokernels are Eisenstein because every eigensystem upstairs is a two-character sum, and tensoring with W_σ then taking G-invariants preserves this property.\n- Balancedness with contragredient types: Define H_i(X,ω⊗L_{σ*}) using the dual coherent convention. Its coefficient dual is ω⊗L_σ^sub, by the cusp formula. On the non-Eisenstein m-part, coherent descent and boundary vanishing give balanced H₀ over O[Δ]. The needed generic rank equality compares the σ and σ* spaces at residual ideals m and m*, where m* sends T_x to trbarρ(Frob_x)/detbarρ(Frob_x) and diamonds to their inverses. It follows from contragredient automorphic representations, not a presumed self-duality of W_σ.\n- Galois representations with vexing coefficients: The weight-one local Hecke image acting on the Pontryagin dual of H⁰(X_U,(ω⊗L_σ)_{K/O})_m admits the same determinant-normalized ρ_Q as D1.3, minimal at every vexing prime in the fixed CDT type. The high-weight Hasse subquotient has W_σ*-isotypic characteristic-zero automorphic lifts. The component argument and the CDT selector ensure the local type before descent; unramifiedness at p follows from the three-case doubling proof.\n- Minimal weight-one R = T with vexing types: Let W_σ be normalized so that minimal lifts occur in the W_σ*-isotypic space of sections upstairs. Then R_min(barρ)≅T_m on H₀(X_U,ω⊗L_{σ*})_m, a nonzero finite free module over this ring. By duality with the inverse-diamond transpose, equivalently R_min(barρ)≅T_m on H¹(X_U,ω⊗L_σ)_m. In the homological formulation one must swap σ and σ* relative to the printed Theorem 3.30. If the coherent module has nonzero generic fibre, its free rank is one; no assertion of torsion rank one with nontrivial type is made. The rank-one conclusion is at the intended conductor/type level after the harmless rigidifying prime has been removed; a fine auxiliary realization can have two old copies.\n- Minimal lifting and finite image with types: For the same residual barρ, including nonempty vexing set, genuinely minimal lifts unramified at p over finite coefficient extensions are weight-one Artin representations. Every genuinely minimal lift to a complete Noetherian local O-algebra with residue k has finite image. All local minimality conditions and the fixed determinant are retained; dropping them is outside these statements. More generally first twist barρ by a finite-order character unramified at p so that every ramified reducible local restriction has a nonzero inertia invariant; use its Teichmüller lift on ρ. Require genuine minimality for this twisted problem, normalize its determinant by the unique square root of the determinant quotient, and undo both finite-order twists after applying the theorem. The quotient character is finite by the global unramified-at-p class-field argument. This gives the corrected minimal-up-to-finite-order-twist versions of Corollaries 1.5 and 1.6; the curve, conductor and residual ideal belong to the normalized twist.",
+      "requires": [
+        "GL2ModularityLiftingPartII:D1.5",
+        "GL2ModularityLiftingPartII:D1.1",
+        "GL2ModularityLiftingPartII:D1.0",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "AlgebraicModularFormsAndSerreWeights:R15.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+        "GL2ModularityLiftingPartII:D1.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "AutomorphicGaloisRepresentations:R19.6",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "GL2ModularityLiftingPartII:D1.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence"
+      ]
+    },
+    {
+      "key": "D1.7",
+      "title": "Scalar Frobenius and Jacobian multiplicity",
+      "description": "For the minimal-conductor-among-twists residual problem, assemble the scalar ordinary eigenvalue ring, character-twisting Hecke algebras and canonical-module calculation. Prove the integral group-ring identity by generators and deduce multiplicity two from the Gross sequence using left exactness and evenness. Keep the nonharmless ramified self-extension case as an explicit gap in the general theorem; import the already-known multiplicity-one alternatives.\n\nTargets:\n- Multiplicity character datum: Fix p≥3 and an odd absolutely irreducible modular barρ of Serre weight 2≤w≤p+1 whose prime-to-p conductor N is minimal among all local twists at every x≠p. Put N*=N for w=2 and N*=Np otherwise. Let T_m be the full Hecke algebra of J₁(N*), including U_p. For the scalar unramified-at-p case, let M be the conductor factor supported on harmless primes x≡1 mod p with barρ|D_x absolutely irreducible, and Φ the p-primary quotient of ∏_{x|M}(Z/xZ)×. After adjoining its character values, for φ∈Φ^∨ set χ_φ=ε·Teich(detbarρ·barε⁻¹)·φ; the ordinary weight-two spaces S_φ fix only this harmless diamond restriction.\n- Global scalar eigenvalue ring and type: In the scalar unramified-at-p setting, impose the additional restriction that no nonharmless x≡1 mod p has barρ|D_x a nontrivial ramified extension of an unramified character by itself. For each φ let R̃_φ be the global ordinary deformation ring with chosen Frobenius eigenvalue at p, determinant χ_φ, and the conductor-compatible local quotients away from p (in particular the unipotent/Steinberg quotient for ramified Steinberg residual type at x≡−1 mod p). Subject to the exact generic-fibre component comparison requested from R22.4, R̃_φ is finite flat over O, Cohen–Macaulay of type three, and maps isomorphically to the matching T_{φ,m}. The unrestricted theorem requires Gap M.\n- Integral character-twisting identity: With the matching character-restricted Hecke algebras of the preceding target, the full ordinary algebra satisfies T_m≅T_{1,m}⊗_O O[Φ] integrally. The map sends T_ℓ to T_ℓ⊗[ℓ] for good ℓ, the relevant bad U_x according to their conductor-newvector formulas, and ⟨d⟩ to ⟨d⟩⊗[d]². This assertion uses generation of the full integral image; an isomorphism after inverting p between torsion-free lattices alone does not prove it.\n- Scalar-Frobenius multiplicity two: Under the restricted scalar hypotheses of the type-three target, J₁(N*)[m]≅barρ⊕barρ as k[G_Q]-modules. More generally this conclusion follows whenever the matching full localized ordinary Hecke algebra is finite flat Cohen–Macaulay of type three and the Gross sequence/isotypy hypotheses hold. The general Theorem 4.8 without the restriction is a target blocked by Gap M, rather than an unconditional corollary of the printed generic-fibre identification.\n- Multiplicity-one alternatives and quotient Jacobians: For the same conductor-minimal residual datum, if barρ is ramified at p, or unramified with nonscalar Frobenius, import the existing multiplicity-one theorem to get J₁(N*)[m]≅barρ. For the smallest diamond quotient J_H(N*) retain the precise Carayol restriction: p≠3 and barρ not induced from Q(√−3), as printed in Remark 4.12. Its scalar branch uses the same matched type-three input and Gap M as above.",
+      "requires": [
+        "SerreWeightAndLevelOptimisation:R20.3",
+        "LocalGaloisDeformationRings:R08.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "LocalGaloisDeformationRings:L7",
+        "GlobalGaloisDeformations:R04.3",
+        "GL2ModularityLifting:R22.4",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "AlgebraicModularFormsAndSerreWeights:R15.2",
+        "AutomorphicGaloisRepresentations:R19.6"
+      ]
+    },
+    {
+      "key": "D1.8",
+      "title": "Bianchi deformation and Hecke data",
+      "description": "Fix imaginary quadratic F, p≥3 unramified in F and cyclotomic determinant. Specify the S/P/M/H local hypotheses and the minimal flat/ordinary problem, importing its representability and Taylor–Wiles numerology. Specialize PGL₂ arithmetic orbifolds, components, corrected local-type spaces and Hecke images. Define the precise Conjecture A contract for all auxiliary levels as a hypothesis; record the type-P correction and the failure of unrestricted generic rank one.\n\nTargets:\n- Minimal Bianchi datum: Fix imaginary quadratic F and p≥3 unramified in F, with O,k as above. Let barρ:G_F→GL₂(k) be continuous, detbarρ=barε, and barρ|G_{F(ζ_p)} absolutely irreducible. At each v|p it is finite flat or ordinary; the minimal lifts are finite flat when barρ is finite flat, and ordinary otherwise. Finite flat means a finite flat group scheme over O_{F_v}, with the given Galois generic fibre. At x∤p where barρ ramifies, after a sufficiently large coefficient extension require exactly the applicable S/P/M/H case: unipotent inertia S; reducible D_x and semisimple inertia ψ⊕ψ⁻¹ P; irreducible D_x, reducible inertia and N(x)≢−1 mod p M; or absolutely irreducible inertia H. Exclude nontrivial quadratic-twisted unipotent inertia unless an additional local type is supplied. R_Q is the imported fixed-ε deformation ring, minimal outside Q, with Q disjoint from ramification and p.\n- Bianchi arithmetic levels and matched types: For G=Res_{F/Q}PGL₂ let Y(K)=G(Q)\\G(A)/(K_∞⁰K), using orbifold/group homology on each arithmetic lattice component. Define Γ₀(v^c), Γ₁(v^c), Γ_p(v^c) in PGL₂(O_{F_v}) by normalized matrices [[1,*],[0,d]] modulo v^c, with d arbitrary, d=1 and d of p-power order, respectively. At Q take K_Q=Γ₁(v), L_Q=Γ₀(v); outside Q,Sp take maximal level; at v|p take maximal PGL₂(O_{F_v}) if barρ is flat and Γ₀(v) otherwise; at S take Γ₀(v). For M,H retain Γ_p(v^{a(barρ_v)}). At P the printed Γ_p(v^{2a(ψ)}) is not minimal-type matching: for ψ²≠1 request the Γ₀(v^{a(ψ)}) character type ψ(a/d), and for ψ²=1 request the twisted spherical type ψ∘det on PGL₂(O_{F_v}). Denote by H_i^min the homology after a supplied integral minimal-type projector; the S-only case needs no P correction.\n- Bianchi Hecke data and residual ideals: On H₁(Y₁(Q),O), or on a supplied H₁^min type summand, let T_Q^an be the finite O-image of T_α away from Q∪S∪{v|p}; let T_Q also include operators supported at Q and the relevant diamonds. A residual minimal modularity datum is the assertion that m_∅=(π,T_λ−trbarρ(Frob_λ)) is proper at Q=∅. Extend it by U_x−α_x at Q, using chosen uniformizers; the residual class of U_x is independent of the uniformizer only when the residual diamond character is trivial. An ideal is Eisenstein if T_λ≡2 at almost all primes splitting in one fixed finite abelian extension of F.\n- Conjecture A local–global contract: For every Q of Taylor–Wiles primes and every non-Eisenstein residual factor m_Q associated to barρ, ConjectureA(Q,m_Q) asserts an actual continuous ρ_m:G_F→GL₂(T_{Q,m_Q}) lifting barρ with determinant ε, unramified outside SpQ and polynomial X²−T_λX+N(λ) at arithmetic Frobenius away from SpQ. At S inertia is unipotent; at P it is Teich(ψ)⊕Teich(ψ)⁻¹. At x∈Q the invertible T_a define, via geometric Artin reciprocity, a character φ_x residually unramified; when φ_x(Frob_x)≢±1, ρ_m|D_x has the two characters φ_xε and φ_x⁻¹ with the stated normalization. At v|p, barρ finite flat implies ρ_m finite flat, and barρ ordinary implies ρ_m ordinary, with flat precedence in the minimal problem. Require the remaining M,H minimality from the local classification, or explicitly supply it in the matched-type contract. The assumption for patching is this contract for every auxiliary Q, not only Q=∅.\n- Conjectural Galois representation generates Hecke: Assume the Conjecture A contract and minimal residual modularity. For each Q with N(x)≡1 mod p and distinct residual roots α_x,β_x, α_xβ_x=1, there is a surjection R_Q↠T_{Q,m_Q} with the local diamond map agreeing with the selected eigenline inertia character. The corresponding arithmetic traces generate this full selected auxiliary image, not only the anaemic subalgebra.",
+      "requires": [
+        "GlobalGaloisDeformations:R04.3",
+        "LocalGaloisDeformationRings:R08.2",
+        "LocalGaloisDeformationRings:R08.4",
+        "ArithmeticLocallySymmetricSpaces:ALS.0",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "IntegralHeckeAndGaloisDeterminants:IHG.2",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+      ]
+    },
+    {
+      "key": "D1.9",
+      "title": "Bianchi homology and balancedness",
+      "description": "Construct p-power diamond covers and coefficient descent. Prove selected-root level comparison, localized boundary vanishing, degree-zero/three vanishing and torsion-freeness of H₂ for p≥5; retain the p=3 stabilizer gap. Apply Poincaré/Borel–Moore duality and low-degree Hochschild–Serre to obtain balanced H₁ over O[Δ].\n\nTargets:\n- Bianchi diamond-cover datum: For Q as above set Δ_Q=∏_{x∈Q}(O_F/x)×, choose a p-power quotient Δ, and let Y_Δ(Q)→Y₀(Q) be the associated orbifold cover between Y₁(Q) and Y₀(Q). Put S=O[Δ]. Every finite O[Δ]-module μ gives a local coefficient system on Y₀(Q), and Shapiro identifies H_i(Y₀(Q),S)≅H_i(Y_Δ(Q),O). The chosen Hecke ideal includes U_x−α_x and the residual trivial diamond conditions.\n- Bianchi selected-root comparison: At Taylor–Wiles primes Q with N(x)≡1 mod p and distinct residual roots, the ideal selecting U_x=α_x gives H₁(Y₀(Q),O)_m≅H₁(Y,O)_{m_∅}, compatible with the anaemic Hecke action. The assertion is for the selected local factor and is valid on a supplied compatible minimal-type summand. It does not identify the entire two-copy oldspace with base level.\n- Localized Bianchi amplitude and boundary: Assume p≥5, the non-Eisenstein residual ideal of D1.8 and finite μ over O[Δ]. Then H₀(Y₀(Q),μ)_m=H₃(Y₀(Q),μ)_m=0 and H_i(Y₀(Q),μ)_m≅H_i^{BM}(Y₀(Q),μ)_m for every i. If μ is O-flat, H₂(Y₀(Q),μ)_m is O-torsion-free. Retain the same assertions on a compatible direct minimal-type summand. For p=3 these claims require localized control of 3-primary stabilizer homology and duality; that extension is Gap O.\n- Balanced Bianchi homology: Under p≥5 and the preceding level, coefficient and localization hypotheses, M=H₁(Y_Δ(Q),O)_m is a finite balanced S=O[Δ]-module. Explicitly, with r=rank_O M_Δ, d_S(M)=r−dim_k(Tor₁^S(M,O)/π)≥0. If p=3 the same implication holds after supplying the localized vanishing and duality missing in Gap O.",
+      "requires": [
+        "GL2ModularityLiftingPartII:D1.8",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "ArithmeticLocallySymmetricSpaces:ALS.6",
+        "GL2ModularityLiftingPartII:D1.1",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "ArithmeticLocallySymmetricSpaces:ALS.2",
+        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+        "DeformationAndDerivedPatchingAlgebra:R03.5"
+      ]
+    },
+    {
+      "key": "D1.10",
+      "title": "Conditional Bianchi R = T and lifting",
+      "description": "Using Conjecture A at every Taylor–Wiles level, the exact dual-Selmer presentation and balanced Bianchi homology, deduce minimal R = T and freeness. Prove the dimension-zero complete-intersection consequence. State generic rank by the actual local invariant dimensions and rank one at S-only minimal levels. Deduce the minimal semistable modularity theorem for p≥5 and retain explicit targets for p=3 and corrected type-P coefficients. Explain the GL/PGL class-group obstruction without presenting the paper’s heuristic GL example as a theorem.\n\nTargets:\n- Bianchi Taylor–Wiles system: For the Bianchi minimal datum, let q=dim_k H¹_∅(F,ad⁰barρ(1)), which is at least one. For each a≥1 choose Q_a with |Q_a|=q, norms 1 mod p^a and distinct residual roots, killing this dual Selmer group. With Δ_a=(Z/p^aZ)^q, S_a=O[Δ_a], A_∞=O[[z₁,…,z_{q−1}]], let H_a=H₁(Y_{Δ_a}(Q_a),O)_{m_a} and H=H₁(Y,O)_{m_∅}. Assume Conjecture A for all Q_a and p≥5, or supply the missing localized p=3 amplitude/duality. With compatible minimal-type summands when needed, this is a balanced patching system: H_a,Δ_a≅H, diamond images lie in the A_∞ image, and augmentation specializes R_{Q_a} to R_min.\n- Conditional minimal Bianchi R = T: Assume the Bianchi minimal datum, proper residual minimal ideal, Conjecture A for every auxiliary Q and p≥5. At levels with no P primes, the map R_min→T_{m_∅} is an isomorphism and H₁(Y,O)_{m_∅} is nonzero finite free over it. The corrected minimal-type version with P primes has the same conclusion provided its integral projector/Hecke/duality/Conjecture A package is supplied (Gap P). The intended p=3 theorem requires Gap O to be resolved. O-flatness of H or T is not an assumption.\n- Dimension-zero Bianchi complete intersection: Under the hypotheses of the Bianchi R = T target, if dim T_m=0, then T_m is a complete intersection. The patching presentation is T_m≅O[[z₁,…,z_{q−1}]]/(f₁,…,f_q); its regular ambient ring has dimension q and the ideal is m-primary, so f₁,…,f_q form a regular sequence. This does not say that every positive-dimensional T_m is a complete intersection.\n- Bianchi generic rank with local multiplicities: If H₁(Y,O)_m[1/p]≠0 under the Bianchi R = T hypotheses, its free rank equals the contribution of the characteristic-zero automorphic representation at the actual chosen finite-level type spaces. In the S-only Γ₀ minimal-level situation each local factor is one-dimensional and the free rank is one. At printed Γ_p levels for P/M/H there can be a prime-to-p diamond orbit of several local vectors, so global automorphic multiplicity one does not imply module rank one. For corrected types, rank one needs a separately verified one-dimensional type/newvector selector.\n- Minimal semistable Bianchi modularity lifting: Let p≥5 be unramified in imaginary quadratic F. Assume Conjecture A for all auxiliary levels. Let ρ:G_F→GL₂(O) be continuous, determinant ε, unramified outside finitely many places, semistable at every finite place (unipotent inertia away from p), and at each v|p finite flat or ordinary. Suppose barρ|G_{F(ζ_p)} is absolutely irreducible, barρ occurs in mod-p homology at its minimal level N(barρ), and ρ satisfies the minimal local conditions including finite-flat precedence. Then ρ is associated to a regular algebraic cuspidal GL₂/F representation π with matching unramified local factors and L-function under the fixed normalization. At p=3 the stated target additionally depends on Gap O.\n- GL/PGL class-group obstruction: PGL₂ removes the odd p-primary unramified central-character twists that would remain in the same residual GL₂ Hecke factor. If such twists are modeled by a cyclic C_p, their universal character algebra O[C_p] has O-rank p and cannot be the image of the scalar coefficient map O→O[C_p]. This algebraic obstruction explains the source’s expected GL example; no unconditional automorphic isomorphism T=O[C_p] is asserted. In a GL ray-class replacement, for a class a of order h=p^b with a^h=(α), splitting the ray-class extension requires the h-th-power Kummer condition α^{(N(x)−1)/h}≡1 at primes with h|N(x)−1, equivalently the corresponding splitting in F(α^{1/h},ζ_h). A p-th-power condition alone is insufficient when b>1.",
+      "requires": [
+        "GL2ModularityLiftingPartII:D1.8",
+        "GL2ModularityLiftingPartII:D1.9",
+        "GlobalGaloisDeformations:R04.3",
+        "GlobalGaloisDeformations:R04.5",
+        "GlobalGaloisDeformations:R04.6",
+        "DeformationAndDerivedPatchingAlgebra:R03.5",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.6",
+        "AutomorphicGaloisRepresentations:R19.4",
+        "AutomorphicGaloisRepresentations:R19.5",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-12-separate-arithmetic-global-existence-the-norm-index-and-the-global-correspondence",
+        "ArithmeticLocallySymmetricSpaces:ALS.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "cg18",
+      "title": "Modularity lifting beyond the Taylor–Wiles method",
+      "authors": "Frank Calegari and David Geraghty",
+      "edition": "Inventiones Mathematicae 211 (2018), 297–433; published author PDF",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/CG.pdf",
+      "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
+      "read": "2026-10-19",
+      "readSections": [
+        "Introduction, pp. 297–306",
+        "§2, pp. 306–312 (supplier boundary)",
+        "§§3.1–3.9, pp. 312–354",
+        "§4.1, Theorem 4.8 and proof, pp. 361–366",
+        "§4.2 and §5, pp. 366–382"
+      ]
+    },
+    {
+      "id": "cg20",
+      "title": "Minimal modularity lifting for nonregular symplectic representations",
+      "authors": "Frank Calegari and David Geraghty",
+      "edition": "Duke Mathematical Journal 169 (2020), 801–896; published author PDF",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf",
+      "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5",
+      "read": "2026-10-19",
+      "readSections": [
+        "§8, Lemma 8.14 and proof, pp. 865–866"
+      ]
+    }
+  ],
+  "status": "draft"
+}
