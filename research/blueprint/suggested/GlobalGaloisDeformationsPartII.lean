@@ -1,4 +1,7 @@
 import Mathlib.Algebra.Module.Submodule.Map
+import Mathlib.FieldTheory.Finite.GaloisField
+import Mathlib.FieldTheory.Galois.Abelian
+import Mathlib.LinearAlgebra.Prod
 import Mathlib.RepresentationTheory.Basic
 import TauCeti.RepresentationTheory.Homological.ContCohomology.LowDegree
 
@@ -14,6 +17,19 @@ No implementation of the global lifting theorem is claimed.
 -/
 
 namespace TauCeti.GaloisDeformation.Lifting
+
+section AbelianCompositum
+
+/-- GG2.0/abelian-compositum (FKP22 Lemma 2.1): conjugation by an automorphism of
+the ambient field does not move an automorphism fixing a normal subextension `L`,
+on the compositum of `L` with an abelian Galois subextension `A`. -/
+theorem conj_eq_on_sup_of_isAbelianGalois {F E : Type*} [Field F] [Field E] [Algebra F E]
+    (L A : IntermediateField F E) [Normal F L] [IsAbelianGalois F A]
+    (σ h : E ≃ₐ[F] E) (hh : ∀ x ∈ L, h x = x) :
+    ∀ x ∈ L ⊔ A, (σ * h * σ⁻¹) x = h x := by
+  sorry
+
+end AbelianCompositum
 
 section RelativeImage
 
@@ -41,12 +57,15 @@ theorem relativeImage_comp (f : A →ₗ[R] B) (g : B →ₗ[R] C)
 example (red : A →ₗ[R] B) : relativeImage red ⊥ = ⊥ := by
   sorry
 
+/-- `zero_reduction`: a reduction map killing the source has zero relative image. -/
 example (sel : Submodule R A) :
     relativeImage (0 : A →ₗ[R] B) sel = ⊥ := by
   sorry
 
-example (sel : Submodule R A) :
-    relativeImage (LinearMap.id : A →ₗ[R] A) sel = sel := by
+/-- `strict_image`: the image of `a ↦ (a, 0)` is not the whole residual target, so
+the relative image is not the full residual group. -/
+example [Nontrivial R] :
+    relativeImage (LinearMap.inl R R R) ⊤ ≠ ⊤ := by
   sorry
 
 end RelativeImage
@@ -81,9 +100,16 @@ example (v : V) :
     cyclicSpan (Representation.trivial R Γ V) v = Submodule.span R {v} := by
   sorry
 
-example (ρ : Representation R Γ V) (v : V)
-    (h : Submodule.span R (Set.range fun γ => ρ γ v) = ⊤) :
-    cyclicSpan ρ v = ⊤ := by
+/-- `minimal`: for an invariant submodule `U`, `V_v ≤ U` exactly when `v ∈ U`. -/
+example (ρ : Representation R Γ V) (v : V) (U : Submodule R V)
+    (hU : ∀ γ, ∀ u ∈ U, ρ γ u ∈ U) :
+    cyclicSpan ρ v ≤ U ↔ v ∈ U := by
+  sorry
+
+/-- `trivial_k`: with prime-field scalars, the cyclic module of `1` in `𝔽_{p²}` with
+trivial action is the prime-field line, not all of `𝔽_{p²}`. -/
+example (p : ℕ) [Fact p.Prime] :
+    cyclicSpan (Representation.trivial (ZMod p) Unit (GaloisField p 2)) 1 ≠ ⊤ := by
   sorry
 
 end CyclicModule
@@ -126,10 +152,6 @@ example (red : ContCohomology.H1 Γ V →+ ContCohomology.H1 Γ W) :
 
 example (sel : AddSubgroup (ContCohomology.H1 Γ V)) :
     relativeH1Image (0 : ContCohomology.H1 Γ V →+ ContCohomology.H1 Γ W) sel = ⊥ := by
-  sorry
-
-example (sel : AddSubgroup (ContCohomology.H1 Γ V)) :
-    relativeH1Image (AddMonoidHom.id _) sel = sel := by
   sorry
 
 end ContinuousCohomology
