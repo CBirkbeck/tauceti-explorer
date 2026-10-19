@@ -1,270 +1,155 @@
-# Review #6217: blocked by the issued scope on 19 October 2026
+# Review #6217: tested scheduling repair awaiting a scope decision
 
 Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-cddZzU**, 19 October 2026.
-Input commit: `04cb708498128f6950ddab6a425b623428d764bc`.
-[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6257321233)
-identifies this session's claim comment 6257319809. This session authored none
-of the fixes under review and holds no other claim.
+Codex — **codex-O9Ld0I**, 19 October 2026.
+Input commit: `76759b9a5dfee0c94b309d597c4515bc9a0bdd65`.
+[The bot confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6257699351),
+identifying claim comment 6257698088. This session authored none of the fixes.
 
-**Blocked checkpoint.** The live issue still assigns only HE.0. Its accepted
-fix review already satisfies that assignment, while the queue still requires
-this job's verdict on nine additional packets. No mathematical statement,
-signature or review marker is changed. The historical review outcomes and
-source receipts below retain their attribution; this is a scheduling diagnosis,
-not another mathematical acceptance.
+**Blocked checkpoint.** The published assignment permits one packet, whose
+fix review is already accepted. The completion rule requires this job's
+verdict on ten packets. This session prepared and tested a concrete repair
+in scratch, including a full queue-generator replay and its wider scheduling
+effects. It has not applied that repair: neither the queue nor its generator
+is an issue deliverable. A scope decision was requested; none had arrived
+when this checkpoint was prepared.
 
-## Fresh checks and a concrete repair candidate
+No mathematical statement, review marker, Lean signature or scheduling file
+changes. The packet's existing acceptance and source receipts retain their
+original attribution. This report does not certify the nine additional packets.
 
-I reread the full issue after confirmation, the existing report and handoff,
-confirmed findings /2, /8, /9 and /10 with their verifier decisions, the fix
-report, and the actual completion and round-selection functions.
+## Current assignment and completion evidence
 
-- Local and freshly fetched live-main queue entries both list 21 review
-  outputs. All exist. `issues.deliverables_complete` returns false for the
-  actual job and true for an in-memory copy restricted to the three issued
-  deliverables.
-- The unchanged HE.0 packet passes `scripts/check_blueprint.py`: zero errors
-  and warnings, 78 nodes, 24 API items, 18 tests, 13 baseline declarations,
-  21 gaps, 63 requests and eight planned stages.
-- Commit `88f9bcd44` supplies the exact historical arrays: four fix outputs
-  and three review outputs. They agree with the published assignment. The
-  scheduling repair needs to restore **both** arrays, not merely the review.
-- I exercised the actual `fix_rounds` function in isolation, extracting its
-  AST and supplying the current job states, historical arrays for these two
-  records, and the currently expanded blueprint list. Template rendering,
-  input discovery and queue insertion were stubbed. The current selector
-  re-expands the restored round to **31 fix / 21 review outputs**. Replacing
-  the selector by `made = previous_jobs.get(following)` preserves **4 / 3**,
-  with exact equality to the historical arrays; the restored review passes
-  the actual completion function. This is a focused branch check, not a
-  full generator replay or certification of scheduling effects on other jobs.
+I reread the full live issue after the claim confirmation. Its three outputs
+remain this report, `packets/HeegnerPointEulerSystems--HE.0.json` and
+`suggested/HeegnerPointEulerSystems--HE.0.lean`, relative to
+`research/blueprint/`.
 
-The concrete candidate, prepared and tested only in scratch, is:
+The local queue and a fresh read of main agree on both affected output arrays:
 
-1. In `queue.json`, replace only the `outputs` arrays of
-   `FIX-RT-AREA-iwasawa-1~2` and `REV-FIX-RT-AREA-iwasawa-1~2` with their
-   arrays from commit `88f9bcd44`. The fix array is its fix report plus the
-   HE.0 packet, reader and suggested file; the review array is its review
-   report plus the HE.0 packet and suggested file.
-2. In `make_queue.py`, inside `fix_rounds`, change
-   `made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None`
-   to `made = previous_jobs.get(following)`. Review the broader round-preservation
-   effects before applying this generator change. Restoring only the queue
-   allows the next generation to recreate the mismatch.
-3. Regenerate and reconcile published assignments, assigning any additional
-   fixes and their reviews to a distinct round with matching instructions.
+| Record | Queue outputs | Originally issued outputs |
+| --- | ---: | ---: |
+| `FIX-RT-AREA-iwasawa-1~2` | 35 | 4 |
+| `REV-FIX-RT-AREA-iwasawa-1~2` | 21 | 3 |
 
-Neither scheduling file is an issue deliverable. WORKERS.md, “Doing the
-work”, restricts edits to issue-named files and scratch; intake also rejects
-these scheduling paths as outside swarm output paths. A scope decision was
-requested during this run and no answer authorizing that repair had arrived
-when this checkpoint was prepared. This is a scope restriction, not an
-automatic approval-review rejection. The candidate is documented here so the
-maintainer can apply it without relying on scratch files.
+All 21 review outputs exist. The actual `issues.deliverables_complete`
+returns **false** for the current review record and **true** for an in-memory
+copy restricted to the three issue-named paths. Restoring a review marker on
+HE.0 cannot address the other nine required markers. The original four/three
+output arrays can be recovered exactly from queue commit `88f9bcd44`.
 
-Primary mathematical sources were not reread and Lean was not rerun for
-this documentation change. No Lean compilation or new source verification
-is claimed. Resume after the issue and completion rule agree; another HE.0
-review alone cannot finish the expanded queue job.
+## Existing mathematical verdict and fresh checks
 
----
+The accepted HE.0 fix review covers these four findings. These are the
+preserved historical outcomes, not new source verifications by this session:
 
-# Review #6217: scope conflict persists on 18 October 2026
-
-Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-Qlg6kx**, 18 October 2026.
-Input commit: `663b4462fd0c660392965ef07632adc8164990de`.
-The bot confirmed this claim in
-[comment 6256246938](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6256246938),
-identifying claim comment 6256245664. This session did none of the fixes.
-
-**Blocked checkpoint.** The issue still permits only the HE.0 packet, its
-suggested file and this report. The queue still requires this fix review's
-verdict on ten packets. The accepted HE.0 review already satisfies the
-published assignment; nine extra packet reviews have no matching assignment
-in the issue. No mathematical statement, Lean signature or review marker
-changes in this checkpoint.
-
-I reread the live issue after the bot confirmed the claim, the existing report
-and handoff, confirmed findings /2, /8, /9 and /10 with their verifier decisions,
-and the round-two fix report. Fresh checks at the input commit establish:
-
-- All 21 queue outputs exist. The current live-main queue has the same output
-  list as the local queue.
-- `issues.deliverables_complete` returns `False` for the actual queue entry
-  and `True` for an in-memory copy with only the three issue-named outputs.
-- The nine additional packets still carry their own independent reviewers.
-  One marker changed since the historical table below: `KatoEulerSystems.json`
-  now names `independent-review-REV-FIX-RT-AREA-iwasawa-3~4`, with status
-  `accepted`. The mismatch is otherwise unchanged.
-- The unchanged HE.0 packet passes `scripts/check_blueprint.py` with zero
-  errors and zero warnings: 78 nodes, 24 API items, 18 tests, 13 baseline
-  declarations, 21 gaps, 63 requests and eight planned stages.
-- `intake.file_problems` still rejects both `research/blueprint/queue.json`
-  and `research/blueprint/make_queue.py` as outside swarm output paths.
-  Both checkpoint Markdown paths pass that check.
-
-These are fresh administrative and structural checks. Primary mathematical
-sources were not reread, and Lean was not rerun for these Markdown changes.
-Earlier source and compilation receipts retain their original attribution.
-
-The worker asked the user to choose between the issued scope, expanded review
-scope and an authorized scheduling repair. No answer has arrived at checkpoint
-preparation. The existing scope restriction therefore still applies. The
-maintainer must reconcile the issue, queue and generated instructions before
-redispatch; repeating the HE.0 review cannot satisfy the extra queue outputs.
-The precise alternatives and read-only reproducer remain below. No scratch
-artifact is needed to resume.
-
----
-
-## Historical checkpoint: 17 October 2026
-
-The following record is preserved with its original attribution. Its Kato
-reviewer marker is superseded by the fresh check above.
-
-Refs #6217. Job `REV-FIX-RT-AREA-iwasawa-1~2`.
-Codex — **codex-xnTg4o**, 17 October 2026.
-Input commit: `c844b396e21e1fa45d3ee5127b777294f9deb8eb`.
-The bot confirmed this session's claim in
-[comment 6241476191](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6241476191),
-identifying claim comment 6241473945. This session did none of the fixes.
-
-**Blocked checkpoint.** The published issue permits a review of the HE.0
-packet. That review already has an accepted verdict. The queue requires this
-job's independent verdict on nine additional packets, which the issue does
-not authorize editing. The mismatch persists on current main, with a different
-set of outputs from the previous checkpoint. This report records the current
-blocker; it does not repeat or extend the mathematical review.
-
-## Published assignment and actual completion rule
-
-I reread the live issue after the bot confirmed the claim. Its deliverables
-and full instructions name these three files:
-
-- `research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md`
-- `research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json`
-- `research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean`
-
-The local queue and a fresh GitHub contents read of main's queue agree:
-**21 outputs**, comprising this report, ten packets and ten suggested files.
-All exist. `issues.deliverables_complete` requires every packet's reviewer to
-be `independent-review-REV-FIX-RT-AREA-iwasawa-1~2`, with a recognized verdict.
-The current packet markers are:
-
-| Packet | Reviewer | Status |
-| --- | --- | --- |
-| `HeegnerPointEulerSystems--HE.0.json` | `independent-review-REV-FIX-RT-AREA-iwasawa-1~2` | accepted |
-| `HeegnerPointEulerSystems--HE.8c.json` | `independent-review-REV-HeegnerPointEulerSystems--HE.8c` | accepted |
-| `HeegnerPointEulerSystems--HE.8.json` | `independent-review-REV-HeegnerPointEulerSystems--HE.8` | accepted |
-| `GrossZagierAndArithmeticHeights.json` | `independent-review-REV-GrossZagierAndArithmeticHeights` | accepted |
-| `HeightsRationalPointsAndObstructions.json` | `independent-review-REV-HeightsRationalPointsAndObstructions~2` | accepted |
-| `RankZeroOneBSD--BSD.0.json` | `independent-review-REV-RankZeroOneBSD--BSD.0~2` | accepted |
-| `HeegnerPointEulerSystems--HE.8b.json` | `independent-review-REV-HeegnerPointEulerSystems--HE.8b` | accepted |
-| `EulerSystemsAndKolyvaginSystems.json` | `independent-review-REV-EulerSystemsAndKolyvaginSystems` | needs_changes |
-| `SelmerIwasawaCohomology.json` | `independent-review-REV-SelmerIwasawaCohomology` | accepted |
-| `KatoEulerSystems.json` | `independent-review-REV-KatoEulerSystems~2` | accepted |
-
-Fresh execution of that actual function gives:
-
-| Job passed to the function | Result |
+| Finding | Existing verdict and its limit |
 | --- | --- |
-| Unchanged local queue job | `False` |
-| Unchanged live-main queue job | `False` |
-| Either job with only its outputs replaced in memory by the three published paths | `True` |
+| /2, level raising | Accepted: the exact-level raising theorem has an explicit supplier request; rational Jacquet–Langlands and integral transports have separate contracts. |
+| /8, Zhang inputs | Accepted: exact rank-zero, period and transfer contracts, with the HE.6z split proposed to separate Zhang's branch from clean descent. |
+| /9, open images | Accepted: HE.7 retains the Heegner application and imports the general image theory from its designated Part II owner. |
+| /10, Howard systems | Accepted: ES.5 owns the self-dual hypotheses and DVR bound, ES.8 the Λ-adic result, and the primitivity equality has its additional hypotheses and supplier contract. |
 
-Thus missing files are not the cause, and rewriting HE.0's accepted verdict
-cannot finish the queued assignment. The earlier checkpoint described eleven
-packets and 23 outputs; those counts and its list of extra packets are no
-longer current. The table above supersedes them.
+The complete source arguments and receipts remain in the
+[mathematical report at commit 508e89592](https://github.com/CBirkbeck/tauceti-explorer/blob/508e89592/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md),
+the packet's attributed review/history and source-issue records, and
+[the second-round fixes](https://github.com/CBirkbeck/tauceti-explorer/pull/6753).
+The [preceding checkpoint report](https://github.com/CBirkbeck/tauceti-explorer/blob/76759b9a5dfee0c94b309d597c4515bc9a0bdd65/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
+preserves the intervening sessions' attribution and administrative checks.
+Primary mathematical sources were not reread in this session.
 
-## Issued mathematical review and fresh validation
+Fresh validation of the unchanged assigned packet:
 
-The HE.0 record retains acceptance of findings **/2, /8, /9 and /10**:
+- `python3 scripts/check_blueprint.py research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json`:
+  zero errors and warnings; 78 nodes, 24 API items, 18 tests, 13 baseline
+  declarations, 21 gaps, 63 requests, eight planned stages.
+- The packet's source issues pass `source_issues.check_issues` with its
+  roadmap id, and `check_errata.versions_checked` reports no errors. The
+  standalone errata-file CLI is not a packet validator.
+- After checking memory availability, `lean-check` on the issue's suggested
+  file exits **0**, with **114** warnings, all `declaration uses sorry`.
+  No other warnings or errors occur. This fresh elaboration does not prove
+  its admitted statements or close the packet's gaps.
 
-| Finding | Preserved issued-review outcome |
-| --- | --- |
-| /2: level raising | Exact-level Ribet/Diamond–Taylor raising is an explicit supplier request; rational Jacquet–Langlands and integral transports have distinct contracts. |
-| /8: Zhang's prerequisites | The rank-zero, period and transfer inputs have exact supplier contracts; the proposed HE.6z split separates the Zhang branch from clean descent. |
-| /9: open-image ownership | HE.7 keeps the Heegner application and imports general image theory from its designated Part II owner. |
-| /10: Howard systems | ES.5 owns self-dual hypotheses/DVR descent; ES.8 owns the Λ-adic result. The primitivity equality uses the Howard-system supplier, with its extra hypotheses explicit. |
+## Concrete repair, tested without changing the repository
 
-These are historical review outcomes, not fresh source verdicts by this
-session. The full mathematical arguments, locators, source receipts and Lean
-checks remain in the
-[report at commit 508e89592](https://github.com/CBirkbeck/tauceti-explorer/blob/508e89592/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md)
-and in the packet's attributed verification fields and review history.
-The fixes themselves are in
-[PR #6753](https://github.com/CBirkbeck/tauceti-explorer/pull/6753).
+The repair candidate has two parts:
 
-I read the confirmed findings, verifier decisions and round-two fix report,
-then ran the packet checker on the unchanged HE.0 packet. It reports **zero
-errors and zero warnings**: 78 nodes, 24 API items, eighteen tests, thirteen
-baseline declarations, 21 gaps, 63 requests and eight planned stages.
-This is structural validation, not proof closure or a new source audit.
-No mathematical statement, signature or review marker changes in this run.
-Primary sources were not reread, and Lean was not rerun for these Markdown
-changes. Earlier compilation receipts retain their original attribution.
+1. Restore only the two affected queue records' `outputs` arrays from commit
+   `88f9bcd44`. The fix then has its report, HE.0 packet, reader and suggested
+   file; the review has its report, HE.0 packet and suggested file. Do not
+   replace the whole historical queue or change job states.
+2. In `make_queue.py`, inside `fix_rounds`, replace:
 
-## Required reconciliation before redispatch
+   ```python
+   made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None
+   ```
 
-[WORKERS.md](../WORKERS.md), “Doing the work”, requires edits to issue-named
-files and scratch only. I also evaluated `intake.file_problems` for both
-possible automation repair paths. It returns “file outside swarm output
-paths” for `research/blueprint/queue.json` and
-`research/blueprint/make_queue.py`. This is an existing scope restriction,
-not an automatic approval-review rejection.
+   with:
 
-The maintainer must choose and publish one consistent assignment:
+   ```python
+   made = previous_jobs.get(following)
+   ```
 
-1. Restore this issued review's three outputs and its fix's four outputs,
-   then preserve already-issued round scopes in the generator. The historical
-   arrays are recorded at commit `88f9bcd44`; the extra work needs a distinct
-   subsequent round with matching issue instructions.
-2. Explicitly authorize and publish the expanded review scope, identifying
-   which fixes were made in the nine additional packets and assigning their
-   independent checks. Existing accepted reviews, and the Euler-system
-   packet's `needs_changes`, are not this job's fix-review verdicts.
+The current condition reconstructs an existing round when new blueprints
+appear or its predecessor was sent back. This expands its scope after its
+issue was published. Selecting the existing round preserves its output list;
+the loop still discovers a subsequent round for the missing work.
 
-The old proposed generator change replaced the conditional assignment to
-`made` in `fix_rounds` by `made = previous_jobs.get(following)`. It still needs
-maintainer review of wider scheduling effects. Applying that guard alone
-would preserve the already-expanded arrays, so it cannot repair the current
-scope. The earlier report contains the historical patch and regression
-experiments; its old line numbers, packet lists and replay counts must not be
-assumed current.
+### Full generator replay
 
-A scope question was sent during this run; no answer authorizing expanded
-work has arrived. The queue, generator and other packets remain unchanged.
-Resume only after reconciling the issued scope with the completion rule.
+I executed `make_queue.main` twice against the actual repository inputs and
+an in-memory queue with the two restored arrays: once with the current
+selector, once with the candidate selector. All repository writes and
+`mkdir` calls were intercepted, and the queue lock was redirected to scratch.
+The dry-run return was instrumented to expose the actual generated `merged`
+queue and prompts. Source discovery, templates, routing, dependencies and
+state preservation ran normally. This goes beyond the preceding checkpoint's
+isolated `fix_rounds` experiment.
 
-## Reproducing the completion mismatch without writes
+| Replay | Generated jobs | Fix-round-two outputs | Review-round-two outputs |
+| --- | ---: | ---: | ---: |
+| Current selector, restored input arrays | 6,230 | 31 | 17 |
+| Candidate selector, restored input arrays | 6,252 | 4 | 3 |
 
-Run this Python from the repository root. It imports the actual completion
-function and changes only an in-memory copy of the queue entry:
+Assertions verified exact equality of the candidate's two output arrays with
+the issued historical arrays. The current selector again discards those
+arrays; restoring only `queue.json` is therefore insufficient.
 
-```python
-import copy
-import importlib.util
-import json
-from pathlib import Path
+The candidate generates `FIX-RT-AREA-iwasawa-1~3` after round two, with 34
+outputs, and its independent review with 19 outputs. This new round includes
+HE.0 as well as additional inputs returned by current source discovery; it
+is not a claim that it is the issue's present nine-extra-packet assignment.
+The maintainer must review and publish the newly generated instructions.
 
-root = Path.cwd()
-spec = importlib.util.spec_from_file_location(
-    "issues", root / "research/blueprint/issues.py")
-issues = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(issues)
-job = next(j for j in json.loads(
-    (root / "research/blueprint/queue.json").read_text())["jobs"]
-    if j["id"] == "REV-FIX-RT-AREA-iwasawa-1~2")
-issued = copy.deepcopy(job)
-issued["outputs"] = [
-    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-1~2.md",
-    "research/blueprint/packets/HeegnerPointEulerSystems--HE.0.json",
-    "research/blueprint/suggested/HeegnerPointEulerSystems--HE.0.lean",
-]
-print(len(job["outputs"]))                     # 21 at this checkpoint
-print(issues.deliverables_complete(job, root))  # False
-print(issues.deliverables_complete(issued, root))  # True
-```
+The selector change also affects **48 existing generated records** (24
+fix/review pairs) and adds **22 jobs** (11 fix/review pairs), relative to the
+unmodified-selector replay. It removes no job. Those wider effects were
+measured, not applied or approved. Neither replay's entire generated queue
+should replace main merely to repair this issue.
+
+I also loaded the candidate module in memory and ran `test_redteam_queue`,
+`test_issues` and `test_followups`: **59 tests run, one skipped, no failures**.
+These existing tests and the generator assertions support scope preservation;
+they do not certify the mathematical correctness of the generated work or all
+interactions of the wider queue.
+
+## Required maintainer action
+
+[WORKERS.md](../WORKERS.md), “Doing the work”, says: “Edit only the files the
+issue names, plus your own scratch space.” Neither `queue.json` nor
+`make_queue.py` is named. The intake's `file_problems` also categorizes these
+as outside swarm output paths. This is an existing scope restriction, not an
+automatic approval-review rejection. No expanded scope or repair permission
+was inferred from elapsed time.
+
+Before redispatch, authorize and apply a scheduling repair with the wider
+round effects reviewed, then reconcile published issue instructions with the
+resulting queue. Alternatively publish an expanded mathematical review
+assignment that identifies the additional fixes to review. Until then,
+repeating the accepted HE.0 review cannot complete this queue record.
+
+The scratch replay files are disposable. The exact array provenance,
+selector edit, test modules, instrumentation and measured limits above are
+sufficient to reproduce the candidate; no source text or scratch artifact
+needs to be retained. No process is left running.
