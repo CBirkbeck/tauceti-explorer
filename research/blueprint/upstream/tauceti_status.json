@@ -881,13 +881,14 @@
     "HilbertModularVarietiesAndShimuraCurves": {
       "stage": "pr",
       "pr": 1005,
-      "head": "250e889",
+      "head": "6881d51",
       "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
       "review": {
         "recommendation": "changes",
         "head": "250e889",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 6881d51; confirmation pass pending"
       }
     },
     "AutomorphicGaloisRepresentationsPartII": {
