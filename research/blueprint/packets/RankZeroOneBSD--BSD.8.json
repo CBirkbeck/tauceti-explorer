@@ -1,0 +1,1196 @@
+{
+  "roadmapId": "RankZeroOneBSD",
+  "protocol": "blueprint-v1",
+  "part": "BSD.8",
+  "scope": [
+    "RankZeroOneBSD:BSD.8"
+  ],
+  "status": "complete",
+  "summary": "Target-level refinement of the accepted BSD.8 rational certificate core. It specifies exact finite descent and primary exponent data, a zero-first-layer shortcut, whole-Sha primary assembly, a finite rank-one saturation search, complete local replay, and exact period/height/index transport. These independent inputs identify the actual BSD.5 defect with an exact rational ledger and discharge every exceptional prime before the existing reconstruction theorem is applied. The result is conditional on supplied certificates for the stated curve or family, never a uniform all-prime BSD theorem.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:padicValRat",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "Integer-valued valuation on the reduced rational numerator and denominator. Its value at zero is zero, so positivity and nonzero hypotheses cannot be omitted.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:padicValRat.mul",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "For a prime p and nonzero rational factors, the valuation of the product is the sum.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:padicValRat.div",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "For a prime p and nonzero rational numerator and denominator, the valuation of the quotient is the difference.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:padicValRat.pow",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "The valuation of a natural power is the exponent times the valuation, under Fact p.Prime.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:padicValRat.of_nat",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+        "provides": "The rational valuation of a natural-number cast is its natural-number valuation, cast to the integers.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Nat.primeFactors",
+        "kind": "def",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "Finite prime-divisor set; at zero and one it is empty.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Nat.mem_primeFactors",
+        "kind": "lemma",
+        "module": "Mathlib/Data/Nat/PrimeFin.lean",
+        "provides": "Membership means prime, divisibility and nonzero integer being factored.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:CommGroup.primaryComponent",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/Torsion.lean",
+        "provides": "Multiplicative primary subgroup; the source’s to_additive generates AddCommGroup.primaryComponent, confirmed by pinned elaboration. The additive carrier consists of elements killed by some power of p.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:CommGroup.mem_primaryComponent",
+        "kind": "theorem",
+        "module": "Mathlib/GroupTheory/Torsion.lean",
+        "provides": "The source’s to_additive generates AddCommGroup.mem_primaryComponent: additive membership is equivalent to being killed by a natural power of p; confirmed by pinned elaboration.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.AddCommGroup.primaryDecomposition",
+        "kind": "def",
+        "module": "TauCeti/Algebra/Group/PrimaryDecomposition.lean",
+        "provides": "For a finite additive commutative group A, an actual additive equivalence from the product of its primary components indexed by primeFactors(Nat.card A) to A. No new finite-group decomposition is planned.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:AddSubgroup.index_range_nsmul_of_fg",
+        "kind": "theorem",
+        "module": "TauCeti/GroupTheory/Index/NSmul.lean",
+        "provides": "For a finitely generated additive commutative group G and n nonzero, [G:nG]=n^finrank(Z,G) times the cardinality of G[n]. This includes the torsion correction.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.card_range_μ",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/SelmerGroup.lean",
+        "provides": "The image of the concrete 2-descent map has cardinality 2^rank times the cardinality of the multiplication-by-2 kernel. This supplies the Mordell–Weil side, not a whole-Sha order.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
+        "provides": "The existing determinant regulator is one in rank zero. Its positive-rank normalization is transferred through GZ.0, not silently identified with the BSD regulator.",
+        "checked": "Statement read in the source at the pinned commit on 2026-10-19."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "cremona3",
+      "title": "Algorithms for Modular Elliptic Curves, Chapter III",
+      "authors": "John E. Cremona",
+      "edition": "Second edition (1997), corrected author-hosted text",
+      "url": "https://johncremona.github.io/book/fulltext/chapter3.pdf",
+      "sha256": "c4843b80ae1b6b91795b9952d782912542dd8d6b17c1940cd1a881fa6fdd9c26",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3.2, pp.64–68, especially Tate algorithm branches and local indices",
+        "§3.3, p.69, distinct torsion, rank, independence and basis tasks",
+        "§3.5, pp.75–78, finite search, Proposition 3.5.1 and height-normalization footnote 3",
+        "§3.6, pp.90–91, actual 2-Selmer quotient and distinction from predicted whole Sha"
+      ]
+    },
+    {
+      "id": "pinned-arithmetic",
+      "title": "Pinned Mathlib and Tau Ceti source statements",
+      "authors": "Mathlib and Tau Ceti contributors; Michael Stoll (nsmul index theorem)",
+      "edition": "Mathlib 082e2d3; Tau Ceti f790474",
+      "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
+      "readSections": [
+        "PadicVal/Basic.lean: padicValRat, multiplication, division, powers and natural casts",
+        "Nat/PrimeFin.lean: primeFactors and membership",
+        "GroupTheory/Torsion.lean: additive primaryComponent",
+        "TauCeti/Algebra/Group/PrimaryDecomposition.lean: canonical finite primary product",
+        "TauCeti/GroupTheory/Index/NSmul.lean: index_range_nsmul_of_fg",
+        "TauCeti elliptic MordellWeil/SelmerGroup.lean: card_range_μ",
+        "TauCeti elliptic MordellWeil/Regulator.lean: rank-zero regulator"
+      ]
+    },
+    {
+      "id": "accepted-bsd7",
+      "title": "Accepted RankZeroOneBSD BSD.7 blueprint and its independent review",
+      "authors": "Tau Ceti Atlas blueprint programme",
+      "edition": "Accepted 2026-10-06; reviewed by REV-RankZeroOneBSD--BSD.7",
+      "url": "https://github.com/CBirkbeck/tauceti-explorer/blob/main/research/blueprint/packets/RankZeroOneBSD--BSD.7.json",
+      "readSections": [
+        "All BSD.8 nodes, their sources, APIs, tests and unresolved arithmetic adapters",
+        "BSD.5 suppliers in the BSD.0 packet; GZ.0 height convention dictionary",
+        "HE.7 exceptional-primary-sha-bound and almost-all-primary-sha-vanishing statements",
+        "Independent review: rational core accepted; concrete certificates still required"
+      ]
+    },
+    {
+      "id": "upstream-elliptic",
+      "title": "EllipticCurves and ModularForms roadmaps on current TauCetiRoadmap main",
+      "authors": "Tau Ceti contributors",
+      "edition": "Current read-only checkout inspected 2026-10-19",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/EllipticCurves",
+      "readSections": [
+        "EllipticCurves introduction and Layers 4, 6, 7: local theory, explicit descent, actual Kummer/Sha, arithmetic BSD and full real period",
+        "ModularForms introduction and L-function/functional-equation ownership; imported, not replanned"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "RankZeroOneBSD:BSD.8/rational-defect-ledger",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Rational arithmetic ledger",
+      "kind": "definition",
+      "statement": "For a rational a and natural numbers t,s,C, normalizedDefect(a,t,s,C) is a·t²/(s·C), with the natural numbers cast to Q. This is a light arithmetic function, not a definition of elliptic-curve data. In its BSD use a is the proved normalized analytic leading term L*/(Ω Reg_BSD), t is the actual torsion order, s the actual whole-Sha order, and C the actual finite Tamagawa product. The function is total with the field convention at a zero denominator; the arithmetic theorems require a>0 and t,s,C>0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Compose multiplication, a square and division in Q. No analytic quantity or cohomology group is defined from these scalars."
+      ],
+      "acceptance": [
+        "Zero-denominator evaluation is exposed and cannot enter a positive BSD certificate."
+      ],
+      "prerequisites": [],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "pinned-arithmetic",
+          "locator": "padicValRat.mul, .div, .pow, .of_nat; Nat.mem_primeFactors",
+          "match": "The targets compose existing exact rational valuation and finite-factorization declarations; the new content is the bookkeeping needed by the actual BSD defect."
+        },
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.8/exceptional-prime-part-adapter",
+          "match": "Refines the exact scalar ledger that the accepted adapter consumes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "normalizedDefect_def",
+          "role": "characterisation",
+          "statement": "Unfolding gives a·t²/(s·C)."
+        },
+        {
+          "name": "normalizedDefect_pos",
+          "role": "relation",
+          "statement": "If a>0 and t,s,C>0, the result is strictly positive."
+        },
+        {
+          "name": "normalizedDefect_unit_factors",
+          "role": "simp",
+          "statement": "normalizedDefect(a,1,1,1)=a."
+        },
+        {
+          "name": "normalizedDefect_zero_sha",
+          "role": "simp",
+          "statement": "normalizedDefect(a,t,0,C)=0; the positivity interface excludes this input."
+        },
+        {
+          "name": "normalizedDefect_mul_denominator",
+          "role": "relation",
+          "statement": "For s,C>0, normalizedDefect(a,t,s,C)·(s·C)=a·t²."
+        },
+        {
+          "name": "normalizedDefect_eq_one_iff",
+          "role": "characterisation",
+          "statement": "For s,C>0, the result is one iff a·t²=s·C in Q."
+        },
+        {
+          "name": "normalizedDefect_cancel_torsion_square",
+          "role": "compatibility",
+          "statement": "For t>0, normalizedDefect(a/t²,t,s,C)=a/(s·C)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "normalizedDefect_rank_zero_torsion",
+          "kind": "computation",
+          "statement": "a=1/5,t=5,s=1,C=5 gives 1; replacing torsion squared by torsion fails."
+        },
+        {
+          "name": "normalizedDefect_nontrivial_sha",
+          "kind": "computation",
+          "statement": "a=36,t=1,s=4,C=9 gives 1; dropping Sha gives 4."
+        },
+        {
+          "name": "normalizedDefect_rank_one_index",
+          "kind": "computation",
+          "statement": "a=1/4,t=s=C=1 gives 1/4, whereas correcting a by a free index square 2² gives 1."
+        },
+        {
+          "name": "normalizedDefect_zero_denominator",
+          "kind": "degenerate",
+          "statement": "a=t=C=1,s=0 gives 0 and cannot satisfy the positive interface."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BSD.8/ledger-valuation-balance",
+          "how": "Compute each exceptional valuation from exact certified factors."
+        },
+        {
+          "where": "BSD.8/arithmetic-data-identifies-defect",
+          "how": "Connect exact finite arithmetic to BSD.5’s actual defect."
+        }
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/ledger-valuation-balance",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Exact valuation balance",
+      "kind": "theorem",
+      "statement": "Let p be prime, a be a nonzero rational and t,s,C positive naturals. The integer v_p(normalizedDefect(a,t,s,C)) equals v_p(a)+2v_p(t)−v_p(s)−v_p(C). Consequently it is zero exactly when v_p(a)+2v_p(t)=v_p(s)+v_p(C). All valuations of natural inputs mean their rational casts (equivalently padicValNat cast to Z).",
+      "hypotheses": [
+        "p is prime.",
+        "a≠0; t,s,C>0."
+      ],
+      "proofSteps": [
+        "Use nonzero natural casts and padicValRat.mul, .div and .pow. Rearrange the resulting equality in Z."
+      ],
+      "acceptance": [
+        "At p=2, a=1,t=2,s=C=1 gives valuation 2. The square is retained.",
+        "Negative valuations are allowed; a=1/4,t=s=C=1 gives dyadic valuation −2."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/rational-defect-ledger",
+        "mathlib:padicValRat.mul",
+        "mathlib:padicValRat.div",
+        "mathlib:padicValRat.pow",
+        "mathlib:padicValRat.of_nat"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "pinned-arithmetic",
+          "locator": "padicValRat.mul, .div, .pow, .of_nat; Nat.mem_primeFactors",
+          "match": "The targets compose existing exact rational valuation and finite-factorization declarations; the new content is the bookkeeping needed by the actual BSD defect."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/ledger-support-cover",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Finite support of the arithmetic ledger",
+      "kind": "theorem",
+      "statement": "For a≠0 and t,s,C>0, the canonical prime support of normalizedDefect(a,t,s,C) is contained in S_a∪primeFactors(t)∪primeFactors(s)∪primeFactors(C), where S_a is the accepted Rat.primeSupport(a). Every member of this union is prime. This is a cover, not generally equality: cancellation can remove primes. It supplies a computable support cover once the exact rational a and finite orders are certified; the bad-reduction primes alone are not this cover.",
+      "hypotheses": [
+        "a≠0; t,s,C>0."
+      ],
+      "proofSteps": [
+        "For a prime outside the union each factor has valuation zero by the accepted support characterization and Nat.mem_primeFactors. Apply the valuation balance. Use the accepted equivalence between zero valuation and absence from rational support."
+      ],
+      "acceptance": [
+        "a=1/5,t=5,s=1,C=5 has ledger support empty although the cover is {5}.",
+        "a=2,t=s=C=1 needs the prime 2 even when a proposed local bad-prime list omits it."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/rational-defect-ledger",
+        "RankZeroOneBSD:BSD.8/ledger-valuation-balance",
+        "RankZeroOneBSD:BSD.8/zero-iff-outside-support",
+        "RankZeroOneBSD:BSD.8/support-membership",
+        "mathlib:Nat.mem_primeFactors"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "pinned-arithmetic",
+          "locator": "padicValRat.mul, .div, .pow, .of_nat; Nat.mem_primeFactors",
+          "match": "The targets compose existing exact rational valuation and finite-factorization declarations; the new content is the bookkeeping needed by the actual BSD defect."
+        },
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.8/prime-support and zero-iff-outside-support",
+          "match": "Use the accepted canonical support rather than introducing a second support definition."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/primary-descent-certificate",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Certified primary descent data",
+      "kind": "definition",
+      "statement": "For an actual E/Q, a prime p, and a proved Mordell–Weil rank r, PrimaryDescentCertificate(E,p,r) consists of: an integer n≥1, m=p^n; a finite additive commutative group F and an additive equivalence F≃Sel_m(E/Q) to the actual cohomological Selmer group; a finite additive group U and equivalence U≃E(Q)_tors; and an independent proof that p^n kills the actual subgroup Sha(E/Q)[p∞]. The Selmer equivalence includes the actual local conditions at every place; a bound on its size or a list of locally soluble candidates without completeness is insufficient. Define k_m=#U[m] and the extracted primaryOrder=#F/(m^r·k_m), using natural division. The order specification and exact divisibility are theorems, not fields. The Kummer maps and rank proof come from the actual E and the imported elliptic-curve theory. No field stores a predicted Sha cardinality or a zero BSD defect.",
+      "hypotheses": [
+        "E/Q is an elliptic curve and r is its proved Mordell–Weil rank.",
+        "p is prime; the Mordell–Weil and actual Selmer/Sha carriers are imported."
+      ],
+      "proofSteps": [
+        "Use the existing Selmer group, torsion subgroup and AddCommGroup.primaryComponent of the actual Sha group. Store a finite group presentation with an actual equivalence, an exponent and its independent annihilation proof. Define the extracted natural number by the displayed finite cardinalities; establish its specification in primary-order-extraction."
+      ],
+      "acceptance": [
+        "The independent exponent proof is checked on Sha[p∞], not just on Sha[p^n].",
+        "The definition does not promise that finite descent or an evaluated exponent certificate can be found for every E and p."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "mathlib:CommGroup.primaryComponent",
+        "tauceti:AddSubgroup.index_range_nsmul_of_fg",
+        "RankZeroOneBSD:BSD.8/selmer-cardinality-adapter"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.6, pp.90–91, the exact 2-Selmer sequence and the distinction between n₁ and n₂",
+          "match": "The source supplies an explicit m=2 model and computes only Sha[2]. General m uses the imported Kummer sequence, with a separate primary exponent proof."
+        },
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.8/selmer-cardinality-adapter and sha-annihilator-adapter",
+          "match": "Refines their raw inputs so a finite layer cannot be mistaken for a whole primary group."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "PrimaryDescentCertificate.level",
+          "role": "projection",
+          "statement": "The positive n and m=p^n≥2."
+        },
+        {
+          "name": "PrimaryDescentCertificate.selmerEquiv",
+          "role": "projection",
+          "statement": "The additive equivalence of the verified finite model with the actual Sel_m(E/Q)."
+        },
+        {
+          "name": "PrimaryDescentCertificate.torsionEquiv",
+          "role": "projection",
+          "statement": "The additive equivalence with the actual rational torsion subgroup."
+        },
+        {
+          "name": "PrimaryDescentCertificate.primaryExponent",
+          "role": "projection",
+          "statement": "Every x∈Sha[p∞] is killed by m."
+        },
+        {
+          "name": "PrimaryDescentCertificate.kummerFactor",
+          "role": "data",
+          "statement": "k_m=#U[m]; for invariant factors d_i it is the product of gcd(m,d_i), not #U unless m kills U."
+        },
+        {
+          "name": "PrimaryDescentCertificate.primaryOrder",
+          "role": "data",
+          "statement": "The natural quotient #F/(m^r·k_m)."
+        },
+        {
+          "name": "PrimaryDescentCertificate.order_spec",
+          "role": "compatibility",
+          "statement": "Promoted to primary-order-extraction: the quotient equals the order of the actual p-primary subgroup and has no rounding."
+        },
+        {
+          "name": "PrimaryDescentCertificate.reindex",
+          "role": "functoriality",
+          "statement": "Replacing F or U by additively equivalent finite models preserves the extracted order and all specifications; identity and composition of equivalences act as expected."
+        }
+      ],
+      "tests": [
+        {
+          "name": "primaryDescent_rank_and_torsion",
+          "kind": "computation",
+          "statement": "For p=2,n=1,r=1,U=Z/2Z and #F=16, the denominator is 4 and the extracted order is 4. A denominator ignoring rank or torsion gives the wrong answer."
+        },
+        {
+          "name": "primaryDescent_partial_torsion",
+          "kind": "compatibility",
+          "statement": "For p=2,n=1,r=0,U=Z/4Z and #F=8, k_m=2, not #U=4, and the extracted order is 4 under the exponent hypothesis. This is a conditional arithmetic input test, not a claimed curve fixture."
+        },
+        {
+          "name": "primaryDescent_first_layer_ambiguity",
+          "kind": "non-example",
+          "statement": "The finite groups (Z/2Z)^2 and (Z/4Z)^2 both have a first 2-torsion layer of order 4, but total orders 4 and 16. A first-layer certificate with n=1 is rejected for the latter by its exponent field."
+        },
+        {
+          "name": "primaryDescent_level_zero",
+          "kind": "degenerate",
+          "statement": "n=0 is rejected: m=1 cannot carry information about a nontrivial p-primary group."
+        },
+        {
+          "name": "primaryDescent_equivalent_presentations",
+          "kind": "functoriality",
+          "statement": "An additive change of finite Selmer or torsion presentation leaves the extracted order unchanged."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BSD.8/primary-order-extraction",
+          "how": "Turn a finite descent into an exact actual primary Sha order."
+        },
+        {
+          "where": "BSD.8/global-primary-order-product",
+          "how": "Combine the finitely many primary factors of a verified whole-Sha annihilator."
+        },
+        {
+          "where": "BSD.9 finite-arithmetic fixtures",
+          "how": "Consume a proved finite model rather than analytic-Sha table entries."
+        }
+      ],
+      "planet": {
+        "name": "Certified primary descent"
+      }
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/primary-order-extraction",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Exact order from a certified descent level",
+      "kind": "theorem",
+      "statement": "For c:PrimaryDescentCertificate(E,p,r), let m=p^n and k_m=#E(Q)_tors[m]. The subgroup Sha(E/Q)[p∞] is finite and equals Sha(E/Q)[m] inside the actual Sha group. The positive integer D=m^r·k_m divides #F, and #F=D·#Sha[p∞]. Thus c.primaryOrder=#Sha[p∞]>0. The equality uses the actual Kummer sequence, not a rank bound or the predicted BSD order.",
+      "hypotheses": [
+        "The inputs and independent primary exponent proof of primary-descent-certificate."
+      ],
+      "proofSteps": [
+        "For m=p^n, Sha[m] is contained in Sha[p∞] by its defining power-killed property; the certificate gives the reverse containment.",
+        "The injective Kummer image has cardinality [E(Q):mE(Q)]=m^r·#E(Q)[m] by the pinned Tau Ceti theorem. Identify E(Q)[m] with U[m].",
+        "Finite Selmer and Kummer exactness identify the quotient with Sha[m]. Count cosets to get the product equality; D>0 gives divisibility and an exact natural quotient."
+      ],
+      "acceptance": [
+        "Finite Selmer alone proves finiteness of Sha[m], not of all Sha[p∞].",
+        "For the test #F=16,m=2,r=1,k_m=2, the product equality is 16=4·4."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/primary-descent-certificate",
+        "RankZeroOneBSD:BSD.8/selmer-cardinality-adapter",
+        "tauceti:AddSubgroup.index_range_nsmul_of_fg",
+        "mathlib:CommGroup.mem_primaryComponent",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.6, pp.90–91, #Sha[2]=n₂/n₁",
+          "match": "Uses the finite Kummer quotient. Identifying it with the whole primary part is the additional certified-exponent step, not a claim of the source."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/zero-first-layer-primary-vanishing",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "A trivial first layer kills the primary subgroup",
+      "kind": "theorem",
+      "statement": "For a prime p and actual E/Q of known Mordell–Weil rank r, a complete finite model of Sel_p with cardinality p^r·#E(Q)_tors[p] proves Sha(E/Q)[p]=0 and hence Sha(E/Q)[p∞]=0. This special zero-order producer needs no independent exponent certificate and no prior whole-Sha finiteness. It does require exact rank and equality of the finite Selmer cardinality, rather than an upper bound that has not been matched with the Kummer lower bound.",
+      "hypotheses": [
+        "p is prime.",
+        "Actual complete Sel_p model and proved rank r; the displayed cardinality equality."
+      ],
+      "proofSteps": [
+        "Count the Kummer quotient as in primary-order-extraction, at m=p, to obtain a trivial Sha[p].",
+        "If a nonzero element of Sha[p∞] were killed by p^k, choose a minimal such k; then k≥1 and p^(k−1) times it would be nonzero p-torsion. This contradicts the first step. This is a direct use of the existing primaryComponent, not a new group theory."
+      ],
+      "acceptance": [
+        "An E with r=1 and no rational 2-torsion needs #Sel_2=2, not #Sel_2=1.",
+        "A first layer of order 4 does not determine a full primary order; the certificate must use primary-order-extraction instead."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/selmer-cardinality-adapter",
+        "tauceti:AddSubgroup.index_range_nsmul_of_fg",
+        "tauceti:WeierstrassCurve.Affine.card_range_μ",
+        "mathlib:CommGroup.primaryComponent",
+        "mathlib:CommGroup.mem_primaryComponent",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.6, pp.90–91, equality n₁=n₂",
+          "match": "Exact equality of soluble and locally soluble covering counts makes the first Sha layer vanish. The primary-group consequence follows by taking a minimal power."
+        },
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.8/selmer-cardinality-adapter",
+          "match": "Sharpen the accepted warning: nontrivial first layers need an exponent, while a trivial one already annihilates the whole primary part."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/global-primary-order-product",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Whole Sha order from bounded primary descents",
+      "kind": "theorem",
+      "statement": "Let E/Q have analytic rank at most one. Given a positive integer B with a proved annihilation B·Sha(E/Q)=0, put P=primeFactors(B). For each p∈P take a complete finite model F_p≃Sel_{p^n_p}(E/Q), where n_p=v_p(B)≥1, and the actual torsion model U. The annihilator supplies each primary exponent proof, so #Sha(E/Q)=∏_{p∈P}(#F_p/((p^n_p)^r·#U[p^n_p])). Every quotient is exact and positive. For p∉P the primary subgroup is trivial. If B=1, P is empty and Sha is trivial. Existence of an unspecified finite Sha or an unspecified constant d_E is not a supplied B.",
+      "hypotheses": [
+        "The analytic-rank bound and hence actual rank r and finite Sha from BSD.4.",
+        "B>0 and a proof that B kills whole Sha over Q.",
+        "Complete finite models at precisely the displayed levels and an exact torsion model."
+      ],
+      "proofSteps": [
+        "For p|B use coprimality of B/p^n_p with p to show that B-annihilation kills the p-primary subgroup by p^n_p. For p∤B the same Bezout argument kills the entire primary subgroup.",
+        "Apply primary-order-extraction at each p. Use the pinned TauCeti.AddCommGroup.primaryDecomposition to identify whole Sha with its primary product. The annihilator makes components outside primeFactors(B) trivial; add the remaining trivial factors if B has extra primes.",
+        "If a Kolyvagin bound is used to obtain B, import its evaluated constants with their field and lattice hypotheses; an E/K result requires a proved restriction/corestriction comparison before being used over Q."
+      ],
+      "acceptance": [
+        "A bound over an imaginary quadratic field is not directly a bound over Q at p=2.",
+        "With B=1 the empty product is 1.",
+        "A prime with independently certified trivial first layer can use zero-first-layer-primary-vanishing and omit a deeper computation, without claiming the general nontrivial case is solved."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/primary-order-extraction",
+        "RankZeroOneBSD:BSD.8/sha-annihilator-adapter",
+        "RankZeroOneBSD:BSD.4/analytic-rank-at-most-one-theorem",
+        "mathlib:Nat.primeFactors",
+        "tauceti:TauCeti.AddCommGroup.primaryDecomposition",
+        "HeegnerPointEulerSystems:HE.7/exceptional-primary-sha-bound"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.6, p.91, first-layer Sha calculation distinguished from conjectural full order",
+          "match": "The displayed finite descent calculation does not evaluate a whole-Sha annihilator; the target adds a separately proved finite bound."
+        },
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.8/sha-annihilator-adapter; HE.7/exceptional-primary-sha-bound supplier",
+          "match": "This specializes the accepted adapter to exact levels. HE.7’s K/CM-point and integral error constants are retained rather than treated as a numerical bound for E/Q."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/rank-one-search-certificate",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "A finite search certificate for a primitive point",
+      "kind": "definition",
+      "statement": "For an actual E/Q of proved rank one and P∈E(Q) non-torsion, PrimitivePointSearch(E,P) records a real C with a proof h_naive(Q)≤h_BSD(Q)+C for every nonzero affine rational point Q, a natural H≥1 with h_BSD(P)/4+C≤log H, and a finite list L of rational points. Each list entry is verified on E; L includes every affine rational point of naive logarithmic x-height at most log H. For every R∈L it records an exact relation R=k_R P+T_R, k_R∈Z and T_R rational torsion. Completeness can be checked by enumerating reduced coordinates x=a/c², y=b/c³ with c≥1, gcd(a,c)=gcd(b,c)=1 and max(|a|,c²)≤H, solving the integral Weierstrass equation exactly. Identity is handled separately. No field asserts that P generates all rational points.",
+      "hypotheses": [
+        "The model is integral and nonsingular; rank E(Q)=1; P is non-torsion.",
+        "h_BSD is the x-height normalization, twice the pinned Tau Ceti canonical height."
+      ],
+      "proofSteps": [
+        "Package a proved global height-difference bound and a certified integer search bound. The finite coordinate search verifies points and an exact torsion relation for each listed point. Completeness is only for the bounded set, and is not the desired unbounded generation theorem."
+      ],
+      "acceptance": [
+        "The finite list includes every admissible denominator; a point search over integral x alone is insufficient.",
+        "An approximate floating relation is replaced by an exact equation in E(Q)."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+        "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary",
+        "RankZeroOneBSD:BSD.8/mordell-weil-saturation-adapter"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.5, pp.75–78; Proposition 3.5.1 and footnote 3, p.77",
+          "match": "The bounded naive-height search certifies a rank-one generator because any missing generator has canonical height at most one quarter of that of a nonprimitive point. The source uses the doubled Silverman height; constants must be transported before use."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "PrimitivePointSearch.heightBound",
+          "role": "projection",
+          "statement": "For all affine Q, h_naive(Q)≤h_BSD(Q)+C."
+        },
+        {
+          "name": "PrimitivePointSearch.bound",
+          "role": "projection",
+          "statement": "H≥1 and h_BSD(P)/4+C≤log H."
+        },
+        {
+          "name": "PrimitivePointSearch.points",
+          "role": "projection",
+          "statement": "The finite on-curve list with exhaustive coordinate-search evidence."
+        },
+        {
+          "name": "PrimitivePointSearch.complete",
+          "role": "characterisation",
+          "statement": "Every affine rational point within the specified naive-height bound occurs in the list; no claim beyond it is stored."
+        },
+        {
+          "name": "PrimitivePointSearch.relations",
+          "role": "data",
+          "statement": "Each listed point has an exact relation kP+T with verified torsion T."
+        },
+        {
+          "name": "PrimitivePointSearch.ofCoordinateSearch",
+          "role": "constructor",
+          "statement": "A complete finite coordinate enumeration and its checked relations construct the certificate."
+        },
+        {
+          "name": "PrimitivePointSearch.changeEnumeration",
+          "role": "functoriality",
+          "statement": "Reordering or repeating entries preserves the certificate and its resulting primitive-point theorem."
+        },
+        {
+          "name": "PrimitivePointSearch.primitive",
+          "role": "compatibility",
+          "statement": "Promoted to rank-one-search-saturation: the image of P is a basis of E(Q)/torsion."
+        }
+      ],
+      "tests": [
+        {
+          "name": "primitiveSearch_nonprimitive_double",
+          "kind": "non-example",
+          "statement": "If P=2Q modulo torsion with Q a generator, then h_BSD(Q)=h_BSD(P)/4; completeness forces Q into L and the relation requirement fails."
+        },
+        {
+          "name": "primitiveSearch_primitive_torsion_shift",
+          "kind": "compatibility",
+          "statement": "Replacing a primitive P by −P+T for rational torsion T preserves primitivity; the exact bounded relations change accordingly."
+        },
+        {
+          "name": "primitiveSearch_missing_denominator",
+          "kind": "non-example",
+          "statement": "Deleting a required rational point with denominator c>1 invalidates completeness even if every integral point was searched."
+        },
+        {
+          "name": "primitiveSearch_rank_zero",
+          "kind": "degenerate",
+          "statement": "A torsion P or a rank-zero curve fails the hypotheses; an empty search cannot certify a rank-one basis."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BSD.8/rank-one-search-saturation",
+          "how": "Prove the free index is one and identify the actual regulator."
+        },
+        {
+          "where": "BSD.9 rank-one fixture",
+          "how": "Certify that a concrete point is a generator, with the height convention made exact."
+        }
+      ]
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/rank-one-search-saturation",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Primitive point and regulator from a finite search",
+      "kind": "theorem",
+      "statement": "For PrimitivePointSearch(E,P), the image of P generates E(Q)/E(Q)_tors, and Reg_BSD(E/Q)=h_BSD(P)>0. The full index [E(Q):ZP] is the torsion order t, not one unless torsion is trivial. The saturation theorem proves a basis assertion for the free quotient; it does not erase torsion.",
+      "hypotheses": [
+        "A rank-one-search certificate for the actual rank-one E and non-torsion P."
+      ],
+      "proofSteps": [
+        "By Mordell–Weil the free quotient is Z. Write P=kQ modulo torsion for a generator Q. If |k|≥2, the quadratic height gives h_BSD(Q)=h_BSD(P)/k²≤h_BSD(P)/4.",
+        "The height bound places Q inside the complete finite list. Its recorded relation Q=jP+T gives 1=jk on the free quotient, contradicting |k|≥2. Thus |k|=1.",
+        "Apply the accepted height/index comparison and GZ normalization dictionary. The quotient by ZP still contains exactly the rational torsion."
+      ],
+      "acceptance": [
+        "The test P=2Q modulo torsion cannot pass.",
+        "For a primitive P and torsion order 5, I_free=1 whereas [E(Q):ZP]=5."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/rank-one-search-certificate",
+        "RankZeroOneBSD:BSD.8/mordell-weil-saturation-adapter",
+        "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.5, p.77 after Proposition 3.5.1",
+          "match": "The generator criterion is a finite-search contradiction using the quarter-height bound."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/point-normalized-leading-quotient",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Correcting an unsaturated point quotient",
+      "kind": "comparison",
+      "statement": "Let E/Q have analytic rank one and let P be non-torsion with proved free index I=[E(Q)/tors:Z·P]>0. If a_P∈Q has real image L′(E,1)/(Ω_E h_BSD(P)), then a=I²a_P has real image L′(E,1)/(Ω_E Reg_BSD(E/Q)). In particular the defect ledger uses normalizedDefect(I²a_P,t,s,C). A primitive-point certificate is the I=1 case. If a full Mordell–Weil index J is supplied, first prove J=I·t and extract I exactly; J² cannot replace I².",
+      "hypotheses": [
+        "Analytic rank one and rank equality.",
+        "P is non-torsion and I is its proved free index.",
+        "The displayed rational-to-real equality for a_P is exact."
+      ],
+      "proofSteps": [
+        "Use h_BSD(P)=I²Reg_BSD from the accepted saturation/index interface. Substitute into the rational-to-real leading quotient.",
+        "If P is given as kQ+T relative to a certified primitive Q, prove I=|k| by the rank-one free quotient; the height equality is then the quadratic scaling law."
+      ],
+      "acceptance": [
+        "For I=2 and a_P=1/4 the normalized a is 1, not 1/4.",
+        "For I=1 and t=5, a full index J=5 must not introduce an extra factor 25."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/mordell-weil-saturation-adapter",
+        "RankZeroOneBSD:BSD.8/rank-one-search-saturation",
+        "RankZeroOneBSD:BSD.5/heegner-index-height-formula",
+        "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.5, pp.75–78, subgroup enlargement and generator certification",
+          "match": "A rank-one point may have finite free index; its height measures the index square."
+        },
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.5/heegner-index-height-formula and BSD.8/mordell-weil-saturation-adapter",
+          "match": "Use their exact free/full-index distinction."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/certified-local-factor-product",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Replaying the complete Tamagawa product",
+      "kind": "comparison",
+      "statement": "Let E have a specified nonsingular integral Weierstrass model with nonzero discriminant Δ. For each prime ℓ dividing |Δ|, a replayed EC Layer-4 Tate trace, including its model transformations and minimality check, identifies a positive integer c_ℓ with [E(Q_ℓ):E₀(Q_ℓ)]. Put C=∏_{ℓ∈primeFactors(|Δ|)}c_ℓ. Then C is the actual finite Tamagawa product of E; outside this finite set the model has good reduction and the factor is one. Nonminimal input models are allowed only when their local transformations are verified. At ℓ=2,3 use the actual small-characteristic branches; additive reduction has its own trace. There is no separately inserted infinite-place factor because Ω_E is the full real period.",
+      "hypotheses": [
+        "An actual integral model with Δ≠0.",
+        "A correct Tate trace at every divisor of Δ, not a possibly incomplete list of bad places."
+      ],
+      "proofSteps": [
+        "Import correctness of each local trace from EllipticCurves Layer 4, including the identification of the computed integer with the point-group index.",
+        "At primes outside the discriminant support use good reduction and c_ℓ=1. Reindex the finite product, allowing extra good primes introduced by a nonminimal integral model.",
+        "Use the imported full-real-period convention when feeding C into the arithmetic quotient."
+      ],
+      "acceptance": [
+        "At a good extra place the factor is one.",
+        "The rational prime 2 may divide c_ℓ at an odd bad ℓ; ledger-support-cover factors C itself, not merely the bad primes.",
+        "Doubling Ω for two real components and also adding c_∞ would double count."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/local-tamagawa-certificate-adapter",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "mathlib:Nat.primeFactors",
+        "mathlib:Nat.mem_primeFactors"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.2, pp.65–68, Tate algorithm, in particular steps 4–17, 29–31 and 66–78",
+          "match": "The source distinguishes the small-characteristic branches and computes the local point-group index; the target assembles supplied correct traces without replanning Tate’s algorithm."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/leading-quotient-normalization",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Exact period and height transport",
+      "kind": "comparison",
+      "statement": "Let Ω_B,R_B be nonzero real BSD period and regulator, r∈{0,1}, and u,v∈Q be nonzero with Ω_src=u·Ω_B and R_src=v^r·R_B under the canonical real embedding. If a_src is rational and casts to L*/(Ω_src R_src), then a_B=u·v^r·a_src casts to L*/(Ω_B R_B). For every prime p and a_src≠0, v_p(a_B)=v_p(a_src)+v_p(u)+r v_p(v). For the pinned Tau Ceti regulator v=1/2 since Reg_BSD=2^r Reg_Tau. When Ω_src is the identity-component real period and E(R) has two components, u=1/2. These powers of two are exact; an odd p-unit comparison cannot certify p=2.",
+      "hypotheses": [
+        "All displayed real equalities are proved for the actual chosen differential and height normalization.",
+        "Ω_B,R_B,u,v and a_src are nonzero where valuations are used.",
+        "r=0 or r=1."
+      ],
+      "proofSteps": [
+        "Substitute the exact period and regulator scalings and cancel nonzero denominators in R.",
+        "Use padicValRat multiplication and power for the valuation statement. The GZ.0 dictionary fixes which direction the factor 2 takes."
+      ],
+      "acceptance": [
+        "At r=1,u=1,v=1/2,a_src=2 the corrected a_B is 1 and the dyadic valuation drops by one.",
+        "At r=0 the regulator correction is v^0=1.",
+        "If both u and v are 1/2 at r=1, the correction is 1/4."
+      ],
+      "prerequisites": [
+        "GrossZagierAndArithmeticHeights:GZ.0/height-convention-dictionary",
+        "RankZeroOneBSD:BSD.5/rational-bsd-defect",
+        "mathlib:padicValRat.mul",
+        "mathlib:padicValRat.pow",
+        "tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.5, p.77, footnote 3 to Proposition 3.5.1",
+          "match": "The source explicitly uses a doubled Silverman height. The exact pinned Tau Ceti comparison is imported from GZ.0, rather than inferred from a height name."
+        },
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.5 rational-bsd-defect; GZ.0 height-convention-dictionary",
+          "match": "These fix full real period and BSD regulator conventions for the actual defect."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/arithmetic-data-identifies-defect",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Identifying the actual BSD defect with the ledger",
+      "kind": "comparison",
+      "statement": "Let E/Q have analytic rank r≤1 with the BSD.4 rank equality and whole-Sha finiteness. Let t=#E(Q)_tors>0, let s>0 be the exact whole-Sha order obtained from certified primary data or another proved finite equivalence, and let C>0 be the complete local product. Suppose a∈Q>0 has proved real image L*(E,1)/(Ω_E Reg_BSD(E/Q)), with the full real period and BSD height normalization. Then BSD.5’s actual bsdDefect(E)=normalizedDefect(a,t,s,C) in Q. For rank one a may be obtained from point-normalized-leading-quotient and leading-quotient-normalization. For rank zero the regulator is one. Numerical recognition of a, an analytic predicted value of s, or an unsaturated point does not satisfy these premises.",
+      "hypotheses": [
+        "Actual analytic rank r≤1, rank equality and finite Sha.",
+        "Exact torsion order t, exact Sha order s, and certified complete Tamagawa product C; all positive.",
+        "Exact normalized rational leading coefficient a>0 with the stated real identification."
+      ],
+      "proofSteps": [
+        "Compare the BSD.5 real defining identity for the actual defect with the displayed equality for a and the exact arithmetic orders.",
+        "Cancel the nonzero real period, regulator and positive orders. The two rational numbers have equal real casts, hence are equal by injectivity.",
+        "Transport a through source period/height changes and a rank-one free index before this comparison. This step is the connection to actual E-invariants, not a new definition of them."
+      ],
+      "acceptance": [
+        "Changing a displayed Weierstrass equation does not justify changing the invariant differential or period without a proved comparison.",
+        "The result identifies the actual d_E and therefore transfers both its finite support and its prime valuations."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/rational-defect-ledger",
+        "RankZeroOneBSD:BSD.8/global-primary-order-product",
+        "RankZeroOneBSD:BSD.8/zero-first-layer-primary-vanishing",
+        "RankZeroOneBSD:BSD.8/certified-local-factor-product",
+        "RankZeroOneBSD:BSD.8/point-normalized-leading-quotient",
+        "RankZeroOneBSD:BSD.8/leading-quotient-normalization",
+        "RankZeroOneBSD:BSD.5/rational-bsd-defect",
+        "RankZeroOneBSD:BSD.5/rank-zero-rationality",
+        "RankZeroOneBSD:BSD.5/rank-one-rationality"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.5/rational-bsd-defect and BSD.8/exceptional-prime-part-adapter",
+          "match": "The earlier plan defines the actual positive defect and names the adapter; this refinement proves the precise rational equality from independent actual arithmetic inputs."
+        },
+        {
+          "sourceId": "cremona3",
+          "locator": "§3.5, pp.75–78 and §3.6, pp.90–91",
+          "match": "Separates basis certification, rank and a finite Sha layer before feeding exact orders into the arithmetic expression."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RankZeroOneBSD:BSD.8/complete-exception-ledger",
+      "parentStageId": "RankZeroOneBSD:BSD.8",
+      "realises": [
+        "RankZeroOneBSD:BSD.8"
+      ],
+      "title": "Completing the exceptional-prime certificate",
+      "kind": "construction",
+      "statement": "For an actual E/Q of analytic rank ≤1, assume the equality d_E=normalizedDefect(a,t,s,C) of arithmetic-data-identifies-defect and a finite set S of primes. Suppose every prime p outside S has a proved source-qualified equality v_p(d_E)=0, and for every p∈S the exact integer balance v_p(a)+2v_p(t)=v_p(s)+v_p(C) is certified. Construct the accepted Rat.PrimeValuationCertificate(d_E), using its constructor from exceptions. Alternatively, take S to be the explicit union in ledger-support-cover; then the outside-S proof follows from the ledger itself. This supplies full BSD for precisely this E. An indexed family requires these same data and all prime proofs for every member, not a uniform sufficiently-large-prime assertion.",
+      "hypotheses": [
+        "All hypotheses of arithmetic-data-identifies-defect.",
+        "S is finite and all its members are prime.",
+        "For every prime outside S, the actual named source theorem branch applies with all its hypotheses, or the support cover proves vanishing.",
+        "The displayed balance is verified for every p in S."
+      ],
+      "proofSteps": [
+        "Use ledger-valuation-balance and the exact defect identification to convert every inside-S balance into v_p(d_E)=0.",
+        "Combine this with the outside-S theorem using the accepted certificate-from-exceptions. Its support inclusion is proved, not assumed from the list of primes.",
+        "Apply the accepted positive certificate reconstruction and elliptic endpoint. For an actual rational isogeny transport the certificate through BSD.5 defect-isogeny invariance; do not equate individual periods, Sha orders or local indices of the two curves."
+      ],
+      "acceptance": [
+        "All odd prime parts may vanish for d_E=2 or 1/4, while the dyadic balance fails.",
+        "The construction returns no completed certificate when any exceptional balance or any outside-S source hypothesis is missing.",
+        "A full formula for E is transported to an isogenous E′ only through the proved equality of actual defects."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.8/arithmetic-data-identifies-defect",
+        "RankZeroOneBSD:BSD.8/ledger-valuation-balance",
+        "RankZeroOneBSD:BSD.8/ledger-support-cover",
+        "RankZeroOneBSD:BSD.8/certificate-from-exceptions",
+        "RankZeroOneBSD:BSD.8/source-qualified-prime-part-dispatch",
+        "RankZeroOneBSD:BSD.8/elliptic-endpoint",
+        "RankZeroOneBSD:BSD.8/family-full-bsd-from-certificates",
+        "RankZeroOneBSD:BSD.8/local-isogeny-certificate-adapter",
+        "RankZeroOneBSD:BSD.5/defect-isogeny-invariance"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/EllipticCurve/BSD/Certificates",
+        "namespace": "EllipticCurve.BSD"
+      },
+      "sources": [
+        {
+          "sourceId": "accepted-bsd7",
+          "locator": "BSD.8/certificate-from-exceptions, individual-full-bsd-from-exceptions and family-full-bsd-from-certificates",
+          "match": "Reuse the accepted reconstruction and endpoint. The new construction connects them to exact arithmetic producers and records the remaining prime obligations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "PrimeValuationCertificate.ofExactLedger",
+          "role": "constructor",
+          "statement": "The supplied inside balances and outside theorem produce the existing finite prime certificate for d_E."
+        },
+        {
+          "name": "PrimeValuationCertificate.ofLedgerSupport",
+          "role": "constructor",
+          "statement": "The explicit ledger support union discharges the outside theorem; verify all primes in that union."
+        },
+        {
+          "name": "PrimeValuationCertificate.exactLedger_localZero",
+          "role": "compatibility",
+          "statement": "The local proof at each exceptional p is the ledger valuation balance transported across the actual defect equality."
+        },
+        {
+          "name": "PrimeValuationCertificate.exactLedger_support",
+          "role": "relation",
+          "statement": "Canonical support of d_E is proved contained in S, even when cancellation shrinks it."
+        },
+        {
+          "name": "PrimeValuationCertificate.exactLedger_fullBSD",
+          "role": "relation",
+          "statement": "The existing elliptic endpoint gives the actual real leading-term identity."
+        },
+        {
+          "name": "PrimeValuationCertificate.exactLedger_isogeny",
+          "role": "functoriality",
+          "statement": "A rational isogeny with the imported exact defect equality transports the certificate; identity and composition preserve it."
+        },
+        {
+          "name": "PrimeValuationCertificate.exactLedger_family",
+          "role": "relation",
+          "statement": "An indexed family of supplied complete certificates proves the formula pointwise on that stated family."
+        }
+      ],
+      "tests": [
+        {
+          "name": "exceptionLedger_missing_two",
+          "kind": "non-example",
+          "statement": "The arithmetic ledger a=2,t=s=C=1 passes every odd-prime balance but fails at 2. A set omitting 2 cannot satisfy the outside theorem."
+        },
+        {
+          "name": "exceptionLedger_torsion_sha_product",
+          "kind": "computation",
+          "statement": "a=1/5,t=5,s=1,C=5 has covering set {5}; its sole balance is −1+2=0+1 and the ledger is 1."
+        },
+        {
+          "name": "exceptionLedger_negative_valuation",
+          "kind": "non-example",
+          "statement": "a=1/4,t=s=C=1 has dyadic valuation −2, which a nonnegative-only valuation checker would miss."
+        },
+        {
+          "name": "exceptionLedger_empty_support",
+          "kind": "degenerate",
+          "statement": "a=t=s=C=1 has empty support and all outside valuations vanish; the empty certificate proves equality."
+        },
+        {
+          "name": "exceptionLedger_isogeny",
+          "kind": "compatibility",
+          "statement": "If d_E=d_E′ is proved, the same S and valuation proofs certify both curves even when their t,s,C and period factors differ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BSD.8 exact leading-term endpoint",
+          "how": "Discharge every prime obligation for an individual curve or specified family."
+        },
+        {
+          "where": "BSD.9 reusable endpoint tests",
+          "how": "Instantiate complete or deliberately incomplete arithmetic ledgers."
+        },
+        {
+          "where": "EllipticPeriodsAndSpecialValues:PS.6",
+          "how": "Consume the already proved full real formula without using a period conjecture as a supplier."
+        }
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-6-the-mordellweil-theorem-aec-viii",
+      "need": "Actual finitely generated E(Q), rational torsion subgroup and rank. For explicit 2-descent retain the certified Kummer image/rank interface; the existing pinned card_range_μ is only the Mordell–Weil side. The BSD-specific primitive finite-search certificate is owned here; no unmentioned universal saturation algorithm is assumed.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.8/primary-descent-certificate",
+        "RankZeroOneBSD:BSD.8/rank-one-search-certificate",
+        "RankZeroOneBSD:BSD.8/rank-one-search-saturation"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "need": "Actual Sel_m(E/Q), Sha(E/Q), finite Selmer, and the Kummer exact sequence for m≥2, with Sha torsion. The full real-period arithmetic quotient has no additional c_infinity. No claim that finite Sel_m alone determines whole Sha.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.8/primary-descent-certificate",
+        "RankZeroOneBSD:BSD.8/primary-order-extraction",
+        "RankZeroOneBSD:BSD.8/zero-first-layer-primary-vanishing",
+        "RankZeroOneBSD:BSD.8/certified-local-factor-product"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "Correctness of supplied Tate algorithm traces and admissible model changes at every rational prime including 2 and 3: computed c_l equals [E(Q_l):E_0(Q_l)], all good-place factors one. This imports existing local theory, not a new Tate algorithm.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.8/certified-local-factor-product"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "RankZeroOneBSD:BSD.8",
+      "status": "planned",
+      "remaining": [
+        "For an actual exceptional prime with nontrivial first Sha layer, supply an evaluated exponent/annihilator over Q or an independent exact order bound. The HE.7 bound in its stated K/quotient/lattice setting is not automatically such data; retain all dyadic field-descent and error constants.",
+        "When the exact leading quotient is obtained through quadratic base change, retain the predecessor’s unresolved explicit dyadic period exponent and ramified/dyadic Tamagawa comparison. The source-normalization theorem consumes a proved exact scaling; it does not compute these missing factors.",
+        "Instantiate the specified finite Selmer equivalences, height-bound search, local traces and exact leading quotient for the concrete BSD.9 fixtures in that separate scope. No fixture or universal terminating certificate search is claimed here.",
+        "The actual Selmer/Sha, full period and BSD.5 defect carriers are absent together at the pins; their definitive statements are in the reader. Only light arithmetic and genuine group-theoretic projections appear in the suggested file."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Evaluated nontrivial-primary certificates for individual curves",
+      "detail": "The plan determines the exact certificate contract and proves its conditional order theorem. It does not obtain a numerical whole-Sha bound for arbitrary E/Q from finiteness. HE.7/exceptional-primary-sha-bound has actual imaginary-quadratic, non-CM, quotient and integral constants; these must be evaluated and transported to Q with all kernels before it can provide the primaryExponent field. At a prime with zero first layer the zero-first-layer theorem avoids this input. Concrete nontrivial-primary producers remain an explicit arithmetic obligation, never a database prediction.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.8/primary-descent-certificate",
+        "RankZeroOneBSD:BSD.8/global-primary-order-product",
+        "RankZeroOneBSD:BSD.8/arithmetic-data-identifies-defect"
+      ]
+    },
+    {
+      "title": "Inherited exact dyadic quadratic comparison",
+      "detail": "The accepted BSD.0 packet records an unresolved explicit power of 2 in BSD.1/quadratic-period and an unresolved dyadic/ramified Tamagawa comparison in BSD.1/tamagawa-base-change and BSD.5/gross-index-formula. If an exceptional dyadic certificate obtains its normalized leading quotient through those quadratic comparisons, supply the actual minimal-differential lattice and real-component exponent and every local correction. leading-quotient-normalization proves transport after these exact inputs are supplied; it does not close this inherited arithmetic gap. A direct exact quotient over Q can avoid that route.",
+      "neededBy": [
+        "RankZeroOneBSD:BSD.8/leading-quotient-normalization",
+        "RankZeroOneBSD:BSD.8/arithmetic-data-identifies-defect",
+        "RankZeroOneBSD:BSD.8/complete-exception-ledger"
+      ]
+    }
+  ],
+  "inherited": {
+    "packet": "RankZeroOneBSD--BSD.7.json",
+    "review": "REV-RankZeroOneBSD--BSD.7",
+    "note": "Reuse every correct BSD.8 core and endpoint node by ID. This packet adds refinements and does not replace their declarations or repeat their IDs. BSD.9 is the separate live job; the older embedded two-stage prompt does not enlarge this issue’s live scope.",
+    "nodeIds": [
+      "RankZeroOneBSD:BSD.8/prime-support",
+      "RankZeroOneBSD:BSD.8/support-membership",
+      "RankZeroOneBSD:BSD.8/zero-numerator-denominator",
+      "RankZeroOneBSD:BSD.8/zero-iff-outside-support",
+      "RankZeroOneBSD:BSD.8/empty-support-units",
+      "RankZeroOneBSD:BSD.8/positive-rational-reconstruction",
+      "RankZeroOneBSD:BSD.8/finite-prime-certificate",
+      "RankZeroOneBSD:BSD.8/certificate-from-all-primes",
+      "RankZeroOneBSD:BSD.8/certificate-all-primes",
+      "RankZeroOneBSD:BSD.8/certificate-reconstruction",
+      "RankZeroOneBSD:BSD.8/certificate-from-exceptions",
+      "RankZeroOneBSD:BSD.8/real-identity",
+      "RankZeroOneBSD:BSD.8/elliptic-endpoint",
+      "RankZeroOneBSD:BSD.8/torsion-square-valuation",
+      "RankZeroOneBSD:BSD.8/selmer-cardinality-adapter",
+      "RankZeroOneBSD:BSD.8/sha-annihilator-adapter",
+      "RankZeroOneBSD:BSD.8/mordell-weil-saturation-adapter",
+      "RankZeroOneBSD:BSD.8/local-tamagawa-certificate-adapter",
+      "RankZeroOneBSD:BSD.8/local-isogeny-certificate-adapter",
+      "RankZeroOneBSD:BSD.8/exceptional-prime-part-adapter",
+      "RankZeroOneBSD:BSD.8/source-qualified-prime-part-dispatch",
+      "RankZeroOneBSD:BSD.8/individual-full-bsd-from-exceptions",
+      "RankZeroOneBSD:BSD.8/family-full-bsd-from-certificates"
+    ]
+  },
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/EllipticCurves",
+        "GrossZagierAndArithmeticHeights"
+      ],
+      "note": "Preserve the exact GZ.0 dictionary at the pins: Reg_BSD=2^r Reg_Tau. Cremona Proposition 3.5.1 uses the doubled Silverman height. The finite-search bound must be proved in the same normalization; no upstream file is edited."
+    }
+  ],
+  "currentLibraryCheck": {
+    "date": "2026-10-19",
+    "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "note": "Inspected current TauCeti and current TauCetiRoadmap before planning. Current explicit 2-descent, torsion and regulator theory are reused; no actual whole-Sha/exact-BSD certificate API was found. The nine post-snapshot roadmap directions do not supply these elliptic certificate interfaces."
+  },
+  "sourceIssues": []
+}
