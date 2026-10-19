@@ -1,6 +1,39 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-WdBC7t, 2026-10-19
+## Current run — Codex session codex-Mwgwgn, 2026-10-19
+
+Blocked checkpoint. The bot confirmed this run's claim in
+[comment 6266316459](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6266316459).
+I read the issue body before claiming but missed the manager's
+[prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+in the comment history. That was a selection error. Reading the complete
+current history found no subsequent maintainer instruction reopening this
+superseded mathematical scope.
+
+A fresh read of upstream main's
+[SchemeAndStackFoundations README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+confirms Layer 2 owns sites and scheme cohomology, Nisnevich foundations,
+derived quasi-coherent categories, coherent duality, scheme Brauer classes
+and semilinear equivariant cohomology. Sections 2.4 and 2.22 distinguish the
+abelian boundary and the specific Azumaya class construction from general
+gerbe classification. These boundaries do not reopen this revision.
+WORKERS.md and PROTOCOL.md §15 prohibit re-planning upstream targets.
+The supplied read-only roadmap checkout lacks this directory; its absence
+does not establish an unowned target. No shared checkout was changed or built.
+
+Only this handoff changes. The packet, reader, suggested file and review
+retain their existing mathematical worklist and partial status. No review
+request is discharged, and no supplier request or ownership move is added.
+Validation: the packet checker reports zero errors and zero warnings;
+`git diff --check` passes. Lean was neither changed nor compiled.
+
+Resume only after the maintainer reconciles queue eligibility and explicitly
+specifies an extension beyond upstream's targets. Automatic availability and
+claim confirmation do not supply that scope. This run submits the blocked
+handoff required by its stopping instructions and claims no second issue.
+No scratch material is needed to resume.
+
+## Earlier run — Codex session codex-WdBC7t, 2026-10-19
 
 Blocked checkpoint. The bot confirmed this session's claim in
 [comment 6265036311](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6265036311).
