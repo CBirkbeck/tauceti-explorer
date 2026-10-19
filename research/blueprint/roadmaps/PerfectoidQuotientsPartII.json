@@ -1,0 +1,188 @@
+{
+ "id": "PerfectoidQuotientsPartII",
+ "title": "Perfectoid quotients and their prismatic prerequisites, Part II: structure of integral perfectoid rings and the ind-syntomic André lemma",
+ "area": "padic",
+ "parent": "PerfectoidQuotients",
+ "summary": "This Part II extends PerfectoidQuotients with the structure theory of integral perfectoid rings used by Česnavičius and Scholze in Purity for flat cohomology: the multiplicative description of the tilt, torsion transfer and fibre products, the relative tilting equivalence with completeness and the tilting of valuation rings, torsion-free presentations, ind-fppf and ind-syntomic ring maps, the integral approximation lemma and the valuative criterion for topological nilpotence, the ind-syntomic André lemma and semiperfectoid covers of p-Zariski rings, and, for complete regular local rings, prismatic perfectoid covers and Bhatt–Scholze's almost vanishing of Tor for the absolute integral closure.",
+ "readme": "This roadmap extends PerfectoidQuotients beyond its Layer 0. PerfectoidQuotients proves the decomposition of an integral perfectoid ring along its ϖ-power torsion, p-integral closure and the perfectoid completion of p-integral closures, the completed root polynomial algebras, tensor products, root-stable quotients, products and sharp-ideal completions, the completed étale and henselian extensions, and the modulo-p ind-syntomic refinement of André's cover; it stops there. This Part II starts at that point. It proves the remaining structure results of Česnavičius–Scholze §2.1 (tilting identities, fibre products, the relative tilting equivalence with completeness transfer, valuation rings of any rank, torsion-free presentations), develops ind-fppf and ind-syntomic ring maps, tilts continuous valuations and proves the integral approximation lemma and the valuative criterion for topological nilpotence, and proves the ordinary ind-syntomic André lemma (Česnavičius–Scholze Theorem 2.3.4) with its semiperfectoid covers of p-Zariski rings. A last layer treats complete regular local rings: the towers of Česnavičius–Scholze Lemma 3.1.1, Bhatt–Scholze's prismatic perfectoid covers (Remark 3.11), and Bhatt–Scholze's almost vanishing of Tor along finite subextensions of the absolute integral closure (Remark 10.13).\n\nSources: Česnavičius–Scholze, Purity for flat cohomology (Annals 199 (2024); arXiv:1912.10932v3, §§2.1, 2.3, Lemma 3.1.1); Bhatt–Scholze, Prisms and prismatic cohomology (arXiv:1905.08229v4, Remarks 3.11 and 10.13); Bhatt–Morrow–Scholze, Integral p-adic Hodge theory (arXiv:1602.03148v3, Lemmas 3.2, 3.9, 3.10); Česnavičius, Purity for the Brauer group (arXiv:1711.06456v4, Lemmas 4.7, 5.1, 5.2); Wedhorn, Adic spaces (arXiv:1910.05934v1, §7); Heitmann–Ma, Extended plus closure (arXiv:1708.05761v3, Theorem 1.3); the Stacks Project.\n\nBoundaries. The integral perfectoid predicate and its normalizations are PerfectoidSpaces P1.24–P1.25; the decomposition, p-integral closure and the completed operations are PerfectoidQuotients Layer 0; perfect prisms and their equivalence with integral perfectoid rings are PrismaticCohomology PR.0 (upstream PerfectoidSpaces P4.15.2); André's p-completely faithfully flat cover is PerfectoidSpaces P4.15.4; the towers over complete regular local rings with perfect residue field are PerfectoidSpaces P7.16a–P7.17; the general perfectoidization of integral algebras, arc excision and almost purity along an arbitrary ideal (Bhatt–Scholze Proposition 8.5, Corollaries 8.11–8.12, §10) are PrismaticCohomology, Part I §§2.30–2.31; syntomic morphisms are Tau Ceti StableReduction Layer 1; henselizations of pairs are SchemeAndStackFoundations §§0.12–0.13; continuous valuations and Wedhorn's valuative criterion are in the pinned Tau Ceti library. Arc covers and the algebraic tilting of étale cohomology (Česnavičius–Scholze §2.2) are ArcTopologyAndDescent. Purity for flat cohomology itself is not a target. Reader document: research/blueprint/readmes/PerfectoidQuotientsPartII.md.",
+ "prerequisites": [
+  "PerfectoidQuotients",
+  "PerfectoidSpaces",
+  "PrismaticCohomology",
+  "SchemeAndStackFoundations",
+  "DerivedDeRhamCohomology",
+  "EnhancedDerivedSheaves",
+  "tauceti:TauCetiRoadmap/StableReduction"
+ ],
+ "stages": [
+  {
+   "key": "Q5",
+   "title": "Tilting identities, torsion transfer and fibre products",
+   "description": "## Q5. Tilting identities, torsion transfer and fibre products\n\nProve the multiplicative description of the tilt of any p-adically complete ring: reduction modulo p identifies the p-power inverse limit of A with A^♭ = PreTilt A p, a ↦ a^♯ is the zeroth coordinate, ϖ may replace p when ϖ | p, and θ is determined by θ([a]) = a^♯ (Česnavičius–Scholze §2.1.1, BMS1 Lemma 3.2(i)). Prove that tilts and A_inf commute with products and with fibre products whose base has p-power torsion killed by p. For an integral perfectoid A, ϖ-complete with ϖ^p | p, prove the ring isomorphisms A^♭/(ϖ^♭)^p ≅ A/ϖ^p and A^♭/p^♭ ≅ A/p induced by ♯, the generator p + [p^♭]x of ker θ with p^♭ = ξ_0, and the torsion comparison A^♭[p^♭] ≅ A[p], A^♭[ϖ^♭] ≅ A[ϖ] of A_inf-modules with A[ϖ^{1/p^n}] = A[ϖ] = A[ϖ^∞] (§2.1.2). Prove that A_inf of a surjection of perfectoid rings is surjective, also on kernels of θ, and that A ×_{A'} B is perfectoid with tilt the fibre product of tilts for a surjection A ↠ A' and any B → A' (Proposition 2.1.4), with the glueing A ×_{(A/ϖ)_red} B along a perfect algebra B → (A/ϖ)_red (Example 2.1.5). The decomposition along ϖ-torsion, Corollary 2.1.6, §2.1.7, Proposition 2.1.8 and Proposition 2.1.11 are PerfectoidQuotients Layer 0.\n\nTargets:\n- The tilt as an inverse limit along p-th powers (`tilt-inverse-limit-monoid`).\n- Tilts and A_inf of products and fibre products (`tilt-of-limits`).\n- The tilt and the ring agree modulo ϖ^p (`sharp-quotient-isomorphisms`).\n- Torsion of a perfectoid ring and of its tilt (`torsion-transfer`).\n- A_inf of a surjection of perfectoid rings (`ainf-of-perfectoid-surjections`).\n- Fibre products of perfectoid rings (`fibre-products-of-perfectoid-rings`).\n- Glueing a perfectoid ring with a perfect algebra (`glueing-along-perfect-algebras`).\n",
+   "requires": [
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidSpaces:P1",
+    "PrismaticCohomology:PR.0"
+   ]
+  },
+  {
+   "key": "Q6",
+   "title": "The relative tilting equivalence, valuation rings and torsion-free presentations",
+   "description": "## Q6. The relative tilting equivalence, valuation rings and torsion-free presentations\n\nFor an integral perfectoid A with generator ξ of ker θ, prove that A' ↦ A'^♭ and B ↦ W(B)/(ξ) are inverse equivalences between integral perfectoid A-algebras and ξ_0-adically complete perfect A^♭-algebras, and that ϖ^♭-adic completeness of A'^♭ (ϖ^♭ | ξ_0) is equivalent to (ϖ^♭)^♯-adic completeness of A' (Proposition 2.1.9). Prove that the tilt of a p-adically complete valuation ring is a valuation ring, that an integral perfectoid A' is a valuation ring exactly when A'^♭ is, with the value groups identified by ♯ and every element a unit times a sharp, that localizations of complete valuation rings at primes containing a are a-adically complete, that localizations of perfectoid valuation rings (other than the generic point in mixed characteristic) are perfectoid valuation rings with the expected tilts (Remark 2.1.10), and that Frac(A') is algebraically closed iff Frac(A'^♭) is. Prove that every integral perfectoid ring, ϖ-complete with ϖ^p | p, is a quotient of a ϖ̃-torsion-free ϖ̃-complete one, with compatible roots of ϖ̃ lifting given roots of ϖ, and of a p-torsion-free one (Proposition 2.1.12, strengthened as the proof of Theorem 2.3.4 requires).\n\nTargets:\n- The relative tilting equivalence over an integral perfectoid ring (`relative-tilting-equivalence`).\n- Adic completeness transfers along tilting (`tilting-completeness-transfer`).\n- The tilt of a p-adically complete valuation ring (`tilt-of-complete-valuation-ring`).\n- Tilting of perfectoid valuation rings (`tilting-valuation-rings`).\n- Localizations of complete valuation rings are complete (`valuation-ring-localization-completeness`).\n- Localizations of perfectoid valuation rings (`localizations-of-perfectoid-valuation-rings`).\n- Algebraically closed fraction fields under tilting (`tilting-algebraically-closed-valuation-rings`).\n- Perfectoid rings are quotients of torsion-free ones (`torsion-free-perfectoid-presentation`).\n",
+   "requires": [
+    "PerfectoidQuotientsPartII:Q5",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P3",
+    "PrismaticCohomology:PR.0"
+   ]
+  },
+  {
+   "key": "Q7",
+   "title": "Ind-fppf and ind-syntomic ring maps",
+   "description": "## Q7. Ind-fppf and ind-syntomic ring maps\n\nDefine ind-fppf maps (filtered colimits of faithfully flat finitely presented algebras) and ind-syntomic maps (filtered colimits of syntomic algebras, with syntomic morphisms from Tau Ceti StableReduction Layer 1), with their factorization criteria (Stacks 07C3), stability under composition, base change, finite products and filtered colimits, and the implication faithfully flat ind-syntomic ⇒ ind-fppf (Česnavičius–Scholze §2.3.3). Prove the commutative-algebra inputs of the André lemma: glueing of flatness along a nonzerodivisor (Stacks 0H7N), the presentation R[g/a] ≅ R[X]/(aX − g) for a regular pair (Stacks 0BIQ), and syntomicity of fibrewise nonzero hypersurfaces (Stacks 00SW).\n\nTargets:\n- Ind-fppf ring maps (`ind-fppf-algebra`).\n- Ind-syntomic ring maps (`ind-syntomic-algebra`).\n- Stability of ind-fppf and ind-syntomic maps (`ind-maps-stability`).\n- Glueing flatness along a nonzerodivisor (`flatness-glueing`).\n- Affine blowup algebras along a regular pair (`regular-blowup-algebra`).\n- Fibrewise nonzero hypersurfaces are syntomic (`fibrewise-hypersurface-syntomic`).\n",
+   "requires": [
+    "tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalization-and-dual-graphs"
+   ]
+  },
+  {
+   "key": "Q8",
+   "title": "Continuous valuations: tilting, approximation and topological nilpotence",
+   "description": "## Q8. Continuous valuations: tilting, approximation and topological nilpotence\n\nCompare Česnavičius–Scholze's continuity convention for valuations on rings with an element-adic topology with Tau Ceti's continuous points of the valuation spectrum. Construct the tilt x ↦ |x^♯| of a continuous valuation on an integral perfectoid ring. Prove the integral approximation lemma: for a ∈ A and m ≥ 0 there is a' ∈ A^♭ with |a − a'^♯| ≤ |p|·max(|a'^♯|, |ϖ|^{pm}) for every continuous valuation with |A| ≤ 1 (Lemma 2.3.1). Prove that a ∈ A[1/ϖ] is topologically nilpotent iff |a| < 1 for every continuous valuation with |A| ≤ 1 (Lemma 2.3.2), from Wedhorn Proposition 7.18(1) in Tau Ceti.\n\nTargets:\n- Continuous valuations for an element-adic topology (`adic-continuity-criterion`).\n- The tilt of a continuous valuation (`tilted-valuation`).\n- The integral approximation lemma (`integral-approximation-lemma`).\n- Topological nilpotence detected by continuous valuations (`topological-nilpotence-criterion`).\n",
+   "requires": [
+    "PerfectoidQuotientsPartII:Q5",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidSpaces:P1"
+   ]
+  },
+  {
+   "key": "Q9",
+   "title": "The ind-syntomic André lemma and semiperfectoid covers",
+   "description": "## Q9. The ind-syntomic André lemma and semiperfectoid covers\n\nConstruct the root extension A' of a set of monic polynomials of positive degree with its ϖ-divisible ideal I', and describe, for one monic P, the p-integral closure of A[T^{1/p^∞}][P/ϖ^m] as an increasing union of syntomic blowup algebras. Prove the ind-syntomic André lemma (Česnavičius–Scholze Theorem 2.3.4): for A integral perfectoid ϖ-complete, or ϖ-Henselian with ϖ a nonzerodivisor and perfectoid completion, with compatible roots of ϖ, there are a faithfully flat ind-syntomic ϖ-Henselian A-algebra A' with perfectoid completion and a ϖ-divisible I' with A'/I' faithfully flat over A in which every monic polynomial over A' has a root with compatible p-power roots; derive Remark 2.3.5. Define p-Zariski rings and p-Zariskization and prove that every p-Zariski ring has a faithfully flat semiperfectoid cover (Corollary 2.3.7).\n\nTargets:\n- The root extension of a set of monic polynomials (`andre-root-extension`).\n- The p-integral closure for one polynomial (`single-polynomial-p-integral-closure`).\n- The ind-syntomic André lemma (`ind-syntomic-andre-lemma`).\n- Consequences of the ind-syntomic André lemma (`andre-lemma-consequences`).\n- p-Zariski rings and p-Zariskization (`p-zariski-ring`).\n- Semiperfectoid covers of p-Zariski rings (`semiperfectoid-covers`).\n",
+   "requires": [
+    "PerfectoidQuotientsPartII:Q6",
+    "PerfectoidQuotientsPartII:Q7",
+    "PerfectoidQuotientsPartII:Q8",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidQuotients:Q3",
+    "PerfectoidSpaces:P1",
+    "PerfectoidSpaces:P4",
+    "SchemeAndStackFoundations:SF.0"
+   ]
+  },
+  {
+   "key": "Q10",
+   "title": "Complete regular local rings: towers, prismatic covers and the Heitmann–Ma application",
+   "description": "## Q10. Complete regular local rings: towers, prismatic covers and the Heitmann–Ma application\n\nRestate Česnavičius–Scholze Lemma 3.1.1 from PerfectoidSpaces P7.16a and P7.17, with the unramified clause and the uniform presentation W(k)⟦x⟧/(p − f). Prove Bhatt–Scholze Remark 3.11: every complete regular local ring of mixed characteristic has a faithfully flat map to an integral perfectoid ring obtained by perfecting the prism (W⟦x⟧, (f)). Prove that the p-adic completion of an absolute integral closure R⁺ is integral perfectoid and, for perfect residue field, that the p-power root tower embeds in R⁺ with faithfully flat perfectoid completion. Prove Bhatt–Scholze Remark 10.13: for a finite S ⊆ R⁺ and c ∈ pR with R[1/c] → S[1/c] finite étale, the maps Tor_i^{R/p^n}(S/p^n, −) → Tor_i^{R/p^n}(R⁺/p^n, −), i > 0, are killed by all p-power roots of c, given a faithfully flat perfectoid R_∞ mapping to (R⁺)^∧; such R_∞ exists for perfect residue fields, and for imperfect ones the map to (R⁺)^∧ is a recorded gap. Theorems 10.9 and 10.11 are imported from PrismaticCohomology, Part I.\n\nTargets:\n- Towers over complete regular local rings (`regular-local-towers`).\n- Perfectoid covers of complete regular local rings via prisms (`prismatic-cover-of-regular-local-ring`).\n- The completed absolute integral closure is perfectoid (`absolute-integral-closure-completion`).\n- A perfectoid cover inside the completed absolute integral closure (`perfectoid-cover-inside-plus-closure`).\n- Almost vanishing of Tor along finite subextensions of R⁺ (`almost-tor-vanishing-plus-closure`).\n",
+   "requires": [
+    "PerfectoidQuotientsPartII:Q5",
+    "DerivedDeRhamCohomology:DD.1",
+    "EnhancedDerivedSheaves:E1",
+    "PerfectoidQuotients:Q0:integral-algebra",
+    "PerfectoidSpaces:P0",
+    "PerfectoidSpaces:P7",
+    "PrismaticCohomology:PR.0",
+    "PrismaticCohomology:PR.2"
+   ]
+  }
+ ],
+ "sources": [
+  {
+   "id": "CS24",
+   "title": "Purity for flat cohomology",
+   "authors": "Kęstutis Česnavičius and Peter Scholze",
+   "edition": "Annals of Mathematics 199 (2024), no. 1, 51–180; read in arXiv:1912.10932v3 (26 April 2023, final version) and its TeX source; locators give arXiv v3 numbering and pages, which agree with the authors' February 2023 revision",
+   "url": "https://arxiv.org/pdf/1912.10932v3",
+   "readSections": [
+    "§1.4 Notation and conventions, p. 8",
+    "§2.1 Structural properties of perfectoid rings, pp. 9–17",
+    "§2.3 The ind-syntomic generalization of André's lemma, pp. 22–29",
+    "§3.1, Lemma 3.1.1, p. 29",
+    "§6.2, Theorem 6.2.3 and its proof, pp. 83–84"
+   ]
+  },
+  {
+   "id": "BS22",
+   "title": "Prisms and prismatic cohomology",
+   "authors": "Bhargav Bhatt and Peter Scholze",
+   "edition": "Annals of Mathematics 196 (2022), no. 3; read in arXiv:1905.08229v4 (12 January 2022)",
+   "url": "https://arxiv.org/pdf/1905.08229v4",
+   "readSections": [
+    "Remark 3.11, pp. 32–33",
+    "§8.1–8.2, pp. 63–69 (to confirm the imported statements)",
+    "§10, pp. 78–84, including Remark 10.13"
+   ]
+  },
+  {
+   "id": "BMS1",
+   "title": "Integral p-adic Hodge theory",
+   "authors": "Bhargav Bhatt, Matthew Morrow and Peter Scholze",
+   "edition": "Publ. Math. IHÉS 128 (2018); read in arXiv:1602.03148v3",
+   "url": "https://arxiv.org/pdf/1602.03148v3",
+   "readSections": [
+    "§3.1, Lemma 3.2, pp. 19–20",
+    "§3.2, Lemmas 3.9–3.10, p. 22"
+   ]
+  },
+  {
+   "id": "Wedhorn",
+   "title": "Adic spaces",
+   "authors": "Torsten Wedhorn",
+   "edition": "arXiv:1910.05934v1 (lecture notes)",
+   "url": "https://arxiv.org/pdf/1910.05934v1",
+   "readSections": [
+    "§7, Definition 7.7, Theorem 7.10 and Proposition 7.18, pp. 57–60"
+   ]
+  },
+  {
+   "id": "Sch12",
+   "title": "Perfectoid spaces",
+   "authors": "Peter Scholze",
+   "edition": "Publ. Math. IHÉS 116 (2012); read in arXiv:1111.4914 (current version)",
+   "url": "https://arxiv.org/pdf/1111.4914",
+   "readSections": [
+    "§3, Theorem 3.7 and Proposition 3.8, p. 17"
+   ]
+  },
+  {
+   "id": "Ces19",
+   "title": "Purity for the Brauer group",
+   "authors": "Kęstutis Česnavičius",
+   "edition": "Duke Math. J. 168 (2019); read in arXiv:1711.06456v4",
+   "url": "https://arxiv.org/pdf/1711.06456v4",
+   "readSections": [
+    "Lemma 4.7, p. 8",
+    "§5, Lemmas 5.1 and 5.2, pp. 11–12"
+   ]
+  },
+  {
+   "id": "HM17",
+   "title": "Extended plus closure in complete local rings",
+   "authors": "Raymond C. Heitmann and Linquan Ma",
+   "edition": "read in arXiv:1708.05761v3 (22 October 2018)",
+   "url": "https://arxiv.org/pdf/1708.05761v3",
+   "readSections": [
+    "§1, Theorem 1.3, p. 2"
+   ]
+  },
+  {
+   "id": "Stacks",
+   "title": "The Stacks Project",
+   "authors": "The Stacks Project Authors",
+   "edition": "online, accessed 2026-10-19",
+   "url": "https://stacks.math.columbia.edu",
+   "readSections": [
+    "Tag 0H7N (Lemma 10.99.16)",
+    "Tag 0BIQ (Lemma 15.32.2)",
+    "Tag 00SW (Lemma 10.136.13)",
+    "Tag 00SL (Definition 10.136.1)",
+    "Tag 07C3 (Lemma 10.127.4)",
+    "Tag 0C33 (Lemma 10.168.9)",
+    "Tag 031A (Lemma 10.96.10)",
+    "Tag 00HP (Lemma 10.39.15)",
+    "Tag 07DV (Lemma 10.68.9)"
+   ]
+  }
+ ],
+ "status": "draft"
+}
