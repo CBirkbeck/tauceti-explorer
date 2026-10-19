@@ -151745,6 +151745,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3.md"
+  },
+  {
+   "id": "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "NoncommutativeAndEquivariantIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2.md",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/review.json",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/README.md",
+    "research/blueprint/packages/NoncommutativeAndEquivariantIwasawa/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2.md"
   }
  ]
 }
