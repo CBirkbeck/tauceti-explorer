@@ -1,70 +1,101 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470),
-Codex session `codex-Zs3gud`, 18 October 2026. The bot confirmed this session's
-claim in [comment 6244376310](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6244376310).
-This is a **checkpoint, not a completed design**. It updates the dependency
-diagnosis from [checkpoint PR #8877](https://github.com/CBirkbeck/tauceti-explorer/pull/8877).
-No second job was claimed. No mathematical target is claimed formalised.
+Codex session `codex-noAEuc`, 19 October 2026. The bot confirmed
+[claim 6258298609](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6258298609)
+in [comment 6258299990](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6258299990).
+The issue was read again after confirmation. This is a **blocked checkpoint**.
+Only this handoff changes; the mathematical design has not begun. No second
+job was claimed.
 
 ## Current blocker and exact resume condition
 
-The issue incorporates the `RealSurfacePeriodIndex` route in
-[PAPER-BENOIST-19.result.json](../papers/PAPER-BENOIST-19.result.json).
-Its final brief paragraph expressly requires the four continuation designs,
-with all needed Benoist tranches present, before execution of this consumer.
-Two required designs are still absent. The queue's `after: []` does not
-encode that prerequisite, so the consumer's available label does not make
-it ready. The request to wait is in the incorporated brief itself; this is
-not an inference that supplier implementation must be finished first.
+The incorporated `RealSurfacePeriodIndex` route in
+[PAPER-BENOIST-19.result.json](../papers/PAPER-BENOIST-19.result.json)
+requires four supplier designs **with every needed tranche present before
+consumer execution**. The new topology design removes one blocker recorded
+by [checkpoint #10349](https://github.com/CBirkbeck/tauceti-explorer/pull/10349).
+The quadratic parent design is also complete, but its required real-function-field
+tranche was assigned to a proposed split and is still absent. A completed
+parent job therefore does not satisfy the incorporated condition.
 
-The current verification used atlas commit
-`8e721db6a9d2c8782f4ce067416f946133bac337` and live issue metadata on
-18 October 2026. Both base packets and follow-up packet names were checked.
+Verification used checkout `d57ca4ae55f620ae2e622a661236252d534c3a07` and
+independently fetched GitHub main
+[`7ca94a7aedccf497edcaa40ea7a9e4d6fbf5445e`](https://github.com/CBirkbeck/tauceti-explorer/commit/7ca94a7aedccf497edcaa40ea7a9e4d6fbf5445e).
+The extraction, quadratic packet and split registry match between those
+snapshots. The relevant job states and dependencies also agree, although the
+whole queue has unrelated changes. Both snapshots give this consumer
+`after: []`, mark the quadratic design and review done, and have no
+`DESIGN-QuadraticFormsRealFunctionFields` job. Neither has a split-registry
+entry for that proposed owner. Current-main requests for its roadmap and
+packet return HTTP 404; a local filename screen finds no part packet either.
 
-| Required supplier | Current evidence | What the next worker should do |
+| Required tranche | Current design evidence | Consumer boundary |
 | --- | --- | --- |
-| `SemisimpleAlgebrasPartII`, tranche `BrauerPeriodIndexArithmetic` | [#3469](https://github.com/CBirkbeck/tauceti-explorer/issues/3469) is submitted. Its 55-node packet has an accepted review; SA.0 and SA.1 contain class index, splitting degrees, period and corestriction. | Reuse its exact node contracts and retain their explicit supplier gaps. Do not require implementation or closure before designing the consumer. |
-| `AlgebraicTopologyPartII`, tranche `EquivariantTopologyRealVarieties` | [#3401](https://github.com/CBirkbeck/tauceti-explorer/issues/3401) is available; both roadmap definition and packet are absent, with no follow-up packet. | Wait for the design of the common C2 cohomology, fixed-locus components, twists, trace/norm, double-cover quotient, circle extensions, Gysin and real duality contracts. |
-| `HodgeStructuresPartII`, tranche `DegeneratingHodgeStructures` | [#3371](https://github.com/CBirkbeck/tauceti-explorer/issues/3371) is submitted. The main packet still labels H.8 not read, but [the H.8 follow-up packet](../packets/HodgeStructuresPartII--H.8.json) has 31 nodes and an accepted independent review dated 8 October. Its planning and review queue jobs are done. | This tranche is present. Use the follow-up, including `HodgeStructuresPartII:H.8/normal-boundary-factorization`, `/real-green-open-cone` and `/voisin-product-surface`; preserve its five recorded gaps and requests. Do not repeat the previous checkpoint's claim that H.8 has no plan. |
-| `QuadraticFormInvariantsPartII`, tranche `QuadraticFormsRealFunctionFields` | [#3385](https://github.com/CBirkbeck/tauceti-explorer/issues/3385) is available; both roadmap definition and packet are absent, with no follow-up packet. | Wait for the design of the shared ordering/real-closure, Harrison compactness, zero-signature u-invariant, deeper Pfister, Witt-curve, valuation/Springer and Amer–Brumer contracts. Reuse the parent's existing elementary Pfister theory. |
+| `SemisimpleAlgebrasPartII` / `BrauerPeriodIndexArithmetic` | [55-node packet](../packets/SemisimpleAlgebrasPartII.json), complete with accepted review. | SA.0 supplies class index, splitting-degree divisibility and finite-extension index bounds; SA.1 supplies period and corestriction. Preserve its supplier requests and proof gaps. |
+| `AlgebraicTopologyPartII` / `EquivariantTopologyRealVarieties` | [75-node packet](../packets/AlgebraicTopologyPartII.json), complete; independent review is not yet recorded. Its routing index accounts for all 31 assigned Benoist19 items. | AT2.6–AT2.16 now provide the real-locus, sign-twist, duality, double-cover, circle-extension and transport contracts. Design presence satisfies this particular prerequisite; review acceptance and proof closure are separate matters. |
+| `HodgeStructuresPartII` / `DegeneratingHodgeStructures` | [H.8 follow-up](../packets/HodgeStructuresPartII--H.8.json), 31 nodes with accepted review. | Use `H.8/normal-boundary-factorization`, `/real-green-open-cone` and `/voisin-product-surface`, retaining five gaps and its supplier requests. The main packet's old H.8 coverage does not erase the follow-up. |
+| `QuadraticFormInvariantsPartII` / `QuadraticFormsRealFunctionFields` | [47-node parent packet](../packets/QuadraticFormInvariantsPartII.json), complete with accepted review, but its `restructure` and `routeAssignments` send the real-function-field direction to **proposed** `QuadraticFormsRealFunctionFields`. | The required tranche has no roadmap, packet or queue job. This is the remaining design-presence blocker. Do not substitute the parent's Q2.0–Q2.7 or infer that its accepted review creates the proposed split. |
 
-The main change since the previous checkpoint is the discovery of the accepted
-H.8 follow-up. Its presence removes the earlier Hodge prerequisite blocker;
-it does not supply either of the two absent designs. No changes to supplier
-files or review verdicts were made. No new mathematical request was posted.
-The manager can encode the two remaining design dependencies in the queue;
-this worker has not edited the queue or issue labels.
+### Exact missing quadratic contracts
 
-## Current session checks and remaining work
+The parent packet assigns ten Benoist19 items to the proposed owner with
+`disposition: proposed-split`:
 
-Read WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the claimed issue again
-after confirmation, the incorporated route, the previous handoff, the supplier
-coverage records and the relevant queue entries. Checked the accepted H.8
-follow-up and its specific export statements, rather than relying on the
-stale H.8 coverage in the main packet. The design still requires the full
-source reading and pinned-library audit described in the resume procedure.
+| Extraction items | Proposed contract |
+| --- | --- |
+| `/191` | RF.0 real-closure-at-an-ordering adapter, importing current upstream RealAlgebraicGeometry Layer 1. |
+| `/14`, `/95`, `/192` | RF.1 zero-signature Elman–Lam u invariant, finite descent through Harrison compactness, and the closed Brauer nonvanishing locus. |
+| `/141`, `/142`, `/143` | RF.2 the ramification-sensitive real-curve input, complete-DVR anisotropy and Amer–Brumer common zeros. |
+| `/94` | RF.3 Pfister's transcendence-degree-two Brauer/index criterion. |
+| `/186`, `/187` | RF.4 conjectural context; these must never become proved dependencies. |
 
-The current upstream roadmap checkout was inspected read-only at commit
-`0d144d044dacebca17b654695b6f1ad58f159b27`; the current Tau Ceti checkout is
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Scope and suggested-file searches
-in AlgebraicTopology, QuadraticFormInvariants and RealAlgebraicGeometry are
-ownership leads only, not a fresh exhaustive library audit. In particular,
-RealAlgebraicGeometry's scope excludes semialgebraic homology, and elementary
-Pfister forms already belong to the parent quadratic-form development.
-No library absence claim or new baseline citation is certified by these searches.
-No build or language server was started in either checkout.
+Items `/25` and `/26` are separately assigned to existing Q2.5 shared C_i
+inputs. Their presence does not supply the split's remaining reduced-norm
+C₁-to-Brauer adapter or the contracts above. No new mathematical statement,
+source error or ownership decision is made in this checkpoint.
 
-No mathematical deliverable was added while the brief's explicit prerequisite
-condition remains unmet. The remaining work is the whole consumer design:
-all 100 routed items, roadmap layers, node statements, proof closure, API,
-discriminating tests, planets, reader and compact suggested Lean file.
-Counts remain zero for local nodes, API items, unit tests, planets, packet
-baseline declarations and formal packet requests. There are no consumer stage
-coverage records because the roadmap has not been designed. Lean was not
-compiled; there is no suggested file. The blueprint checker is inapplicable
-to this handoff-only checkpoint. The handoff assertions and `git diff --check`
-are the applicable validation checks.
+The maintainer must decide and materialize the proposed split, or otherwise
+supply the complete required tranche under a single authorized owner, before
+this consumer starts. The queue should encode that design dependency and keep
+the consumer unavailable until it is satisfied. This worker cannot create or
+edit the supplier, split registry, queue or incorporated brief within issue
+#3470's allowed paths. No change of label or review verdict was made.
+
+## Current checks and retained proof gates
+
+Read WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the full issue and comments,
+the incorporated route, the previous handoff, the four supplier packets'
+relevant contracts, and the topology and quadratic handoffs. Checked the
+parent's proposed-split assignments individually and counted all 100 distinct
+consumer items. This is a dependency-presence check, not a new source or
+mathematical review of those packets.
+
+In particular, the new topology contracts do not settle the inherited proof
+gates. `AT2.16/double-cover-diagram` retains G14 for the signed common-lift
+cochain chase corresponding to extraction G10. `AT2.16/stratified-pair-transport`
+retains G13 for the invariant control data and actual divisor-family application.
+The consumer still has to verify the open-set Kummer normalization and pullback
+square of extraction item `/202`; ordinary transport of the surface alone
+does not supply it. Other application obligations below are preserved.
+
+The current upstream roadmap and Tau Ceti checkouts were inspected read-only
+at `0d144d044dacebca17b654695b6f1ad58f159b27` and
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, respectively. The quadratic and
+real-algebraic roadmap boundaries were checked as ownership leads. This
+continuation makes no new declaration-level library claim or exhaustive
+pinned-library audit, and ran no build there.
+
+All four consumer deliverables remain absent. Counts remain zero for nodes,
+API items, tests, planets, packet baseline declarations and formal packet
+requests. No consumer stages have been designed. Blueprint checking and Lean
+elaboration are inapplicable because neither packet nor suggested file exists;
+Lean was not compiled. Validation for this handoff consists of reproducible
+supplier/route/file-presence assertions, intake path checks and whitespace
+checks. The whole 100-item consumer design remains to be written after the
+explicit prerequisite is met. No new primary-source reading is claimed;
+earlier source reading and application notes retain their attribution below.
+No disposable scratch artifact is needed to resume.
 
 ## Reading and checks inherited from the previous checkpoint
 
@@ -211,9 +242,13 @@ to additional targets.
 
 ## Resume procedure and validation status
 
-1. Recheck the two absent designs in the current supplier table, including their required Benoist tranches. Preserve the accepted H.8 follow-up as the Hodge supplier rather than consulting only the main Hodge packet. Resume the
-   consumer design only when the brief's prerequisite condition is met;
-   an administrative queue repair belongs to the manager.
+1. Recheck the proposed `QuadraticFormsRealFunctionFields` owner and the
+   exact missing contracts above. A completed parent job or an accepted split
+   proposal alone does not supply its missing tranche. Preserve the present
+   topology design and accepted H.8 follow-up as suppliers, with their open
+   proof obligations. Resume consumer execution only when the incorporated
+   brief's design-presence condition is met; supplier and queue changes belong
+   to the maintainer or separately authorized jobs.
 2. Read at least two upstream roadmap documents fully for the design pass,
    complete the reviewed and pinned library audit, and verify the other
    named suppliers' actual stage descriptions and declaration contracts.
