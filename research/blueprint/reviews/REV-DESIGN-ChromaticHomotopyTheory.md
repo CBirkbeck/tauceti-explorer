@@ -1,0 +1,64 @@
+# Independent review: chromatic homotopy theory
+
+**Verdict: accepted after correction.** Review job `REV-DESIGN-ChromaticHomotopyTheory`, issue #3504; reviewer Codex, session `codex-oXnRsX`; 19 October 2026. This session did not write the design. The acceptance is for a complete target-level planning pass under PROTOCOL §0. It establishes neither proof closure nor implementation.
+
+The corrected packet has 63 nodes: 8 definitions, 18 constructions, 25 theorems, 10 comparisons and 2 applications. All 63 have individual review receipts: 31 corrected and 32 verified. No node was added or removed. The 26 definitions/constructions have 107 API items and 78 tests. There are 48 planets, at most six per layer, eight confirmed baseline citations and 34 routed-item mappings. All fourteen layers are planned; none is closed. Twenty-one named gaps and ten supplier contracts remain explicit.
+
+## Mathematical corrections
+
+The packet, roadmap definition and reader were corrected together. These are the substantive changes; the packet's per-node receipts identify their direct locations.
+
+| Targets | Correction and evidence |
+| --- | --- |
+| CH.0 finite duality | Restricted the tensor–Hom formula with the p-local dual to p-local targets. For the integral target HZ and source S_(p), the two proposed sides have different degree-zero groups: 0 and Z_(p). Added that negative control. Hopkins–Smith §1.4, printed p.14, supplies finite duality; the thick-subcategory argument is §2.2, p.19. |
+| CH.1 geometric height | Added the direct ModularCurves 7E prerequisite for the ordinary/supersingular elliptic tests and made it a consumer of the existing request. This imports the elliptic classification instead of replanning it. Added Behrens §1.5, p.21, to the height locator. |
+| CH.1 Morava coefficient spectra | Made the inversion API precise: restriction of BP-module mapping spaces is an equivalence when v_n acts invertibly on the target module. An arbitrary map from a connective quotient is not itself an invertibility hypothesis. |
+| CH.2 chromatic type | Removed a misleading reliance on the later thick-subcategory classification to establish that a nonzero finite spectrum has a finite type. Hopkins–Smith Lemma 2.1, p.15, gives eventual K(n)-nonvanishing from mod-p homology; the nested-support statement on p.3 identifies the first nonzero height. Künneth then gives the maximum rule for smash products. The substantial classification and periodicity proofs remain G1/G2. |
+| CH.5 Bousfield–Kuhn | Restricted the uniqueness API to T(n)-local-valued functors equipped with the compatible finite-source characterization. The locality condition is essential in Kuhn's Theorem 1.1, pp.3–4. |
+| CH.6 Postnikov conventions | Specified r≥0 for truncations and r≥1 for the displayed connected cover. |
+| CH.6 Serre filtration | Replaced a vague monodromy test by the mapping torus of a reflection of S¹. Its integral groups H₁=Z⊕Z/2 and H₂=0 distinguish the sign local system from constant coefficients, which would give the torus groups. The convergence restrictions on generalized coefficients remain. |
+| CH.6 fiberwise comparison | Removed the unused generalized-Serre edge. Its arbitrary-base proof instead needs the space-indexed pointwise Kan-extension/Fubini comparison. Added that exact carrier and comparison to the E3 request; existing categorical composition alone is not presented as the unstraightening theorem. |
+| CH.7 stabilizer action | Added the odd-prime height-one test in which {±1} fixes π₀E₁ but acts nontrivially on the periodicity generator. This catches an action constructed only on coefficients in degree zero. |
+| CH.8 local telescope comparison | Added the ring-acyclicity prerequisite. First apply it to the lower-local sphere, then use smashing to pass to its modules. The proof no longer suggests that the ring comparison applies to every module directly. |
+| CH.8 truncation support | Used Ravenel's Bousfield-class formula and telescope orthogonality directly. No E₁ structure on every chosen BP truncation is assumed merely to invoke ring acyclicity. Ravenel Theorem 2.1 and its proof occupy printed pp.361–363. |
+| CH.9 finite blueshift | Corrected the claim about the size of the drop: the upper finite-height bound falls by one; further vanishing is allowed. Retained G12 for the raw-Tate conclusion, which does not follow from localized vanishing alone. Kuhn Corollary 1.6 and Lemma 4.1, pp.5,16–17, give a stronger trivial-action telescope input for its proof. |
+| CH.9 raw Tate examples | Added the direct Kuhn-vanishing edge and requested K(1)-locality of KU_p^∧ from RT.4. Made the sphere Segal comparison an explicit RT.2 request: it appears in that supplier's acceptance example, but its theorem/proof outline only supplies p-completeness. The exact KU cyclotomic calculation still has its own Euler-inversion/convergence gap G13. |
+| CH.12 elliptic theory | Distinguished the coherent E∞ refinement required here from the weaker basic elliptic-theory definition in the source. The realization remains a target with its stated obligations. |
+| CH.12 compactified structure sheaf | Specified the stable one-pointed genus-one stack with irreducible geometric fibers, smooth curves or nodal one-gons. It is not the stack of every generalized elliptic curve with arbitrary Néron polygons. Mathew–Meier §7, p.35, identifies the carrier. Corrected the proposed ModularCurves Part II contract and G16a accordingly. |
+| CH.12 modular forms | Extended the H.5 multiplicative-connective-cover request to its tmf consumer. Added the discriminant-localization edge used in the chromatic comparison. |
+| CH.12 discriminant | Chose the uniform surviving class Δ²⁴ in degree 576. Behrens §1.3, p.13, states its inversion presentation of periodic TMF; §1.5, Theorem 1.5.6, p.23, gives the positive-degree periodicity context. G17 now asks for the permanent-cycle and descent proof of this precise class. No integral degree-24 class is inferred solely from the algebraic form Δ. |
+| CH.13 Hopkins–Mahowald | Made the completed source space and ambient monoidal category explicit. The required cover is fib((S³)_p^∧→K(Z_p,3)); using an uncompleted S³ gives π₂=Z_p/Z. Added the homological-localization edge and the space-completion/connected-cover comparison to G19. Spectral completion in H.6 alone does not construct a completed space. Antolín-Camarena–Barthel §5 uses its p-complete convention, pp.19–22. |
+| CH.13 James–Thom family | Specified completed Thom rings and colimits in p-complete spectra. Kept the comparison to the uncompleted Angelini-Knoll–Quigley construction in G20; its acyclicity theorem cannot be transported without that comparison. |
+
+Source locators were also repaired in CH.0 homological localization; CH.1 cofiber sequences; CH.2 nilpotence and thick subcategories; CH.3 ring acyclicity; CH.4 finite localization and p-local comparison; CH.5 suspension–loop detection; and CH.6's Serre, fiberwise and connective comparisons. In particular LMMT Definition 2.5 and Lemma 2.8 are on p.8, Proposition 2.9/Remark 2.10 on p.9, and Proposition 2.11's second proof on p.10. Hopkins–Smith Theorem 7 is on printed p.3, with proof in §2.2, pp.17–19. Antolín-Camarena–Barthel 3.15 is a lemma; Proposition 3.16 states the following Thom isomorphism. Reading records and G1 were brought into agreement with those locators.
+
+## Baseline and ownership
+
+Every baseline declaration was read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` or Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. All eight citations were retained; none needed replacement.
+
+- In `Mathlib/RingTheory/FormalGroup/Basic.lean`, checked `FormalGroup`, `FormalGroup.IsComm`, `FormalGroup.Point`, `FormalGroup.𝔾ₐ`, `FormalGroup.𝔾ₘ` and `FormalGroup.map`, including the substitution condition on points and the separation of associativity from commutativity.
+- In `Mathlib/CategoryTheory/Localization/Bousfield.lean`, checked `CategoryTheory.ObjectProperty.isLocal`. It is the stated morphism property defined by precomposition bijections, not an existing spectral localization functor.
+- In `TauCeti/AlgebraicGeometry/EllipticCurve/FormalGroup/Basic.lean`, checked `WeierstrassCurve.formalGroup`. It already returns the Mathlib formal group by reindexing the two-variable formal addition; no duplicate law is planned.
+
+The reviewed library-coverage audit and the current Tau Ceti source tree were checked. The live TauCetiRoadmap checkout was inspected at `0d144d044dacebca17b654695b6f1ad58f159b27`. AlgebraicTopology and StablePeriodicCurved were read in full as nearby models. The former supplies the stated geometric inputs, while the latter concerns periodic algebra rather than chromatic spectra. The new algebraic-vector-bundle and orthogonal/spin roadmaps do not supply the topological real K-theory target. Current ModularCurves Scope, 4B/4C and 7E were checked against the smooth-moduli, level-three and elliptic-height uses. Its coarse compactification does not supply the boundary stack.
+
+Every distinct external node prerequisite was compared with its supplier statement, including H.3/H.4/H.5/H.6, E3/E5, RT.2 and LT.0/LT.3; RT.4's unpacketized topological stage was read in the atlas. The additional supplier requests above record the places where the existing statement does not yet suffice. The AlgebraicTopology Stage 8 contract now explicitly identifies Freudenthal stabilization as an extension: current Stage 8 states Hurewicz and Whitehead, not that stable-range theorem. No supplier or upstream file was edited, and no existing Tau Ceti target was replanned.
+
+## Sources, closure and presentation
+
+All seventeen recorded public PDFs were read at the node locators and their content hashes checked against the packet. The corrected reading record says which original deep proofs remain unaudited. A verified target statement does not mean its recorded proof gap has been discharged. No restricted book was used and no excerpt was added.
+
+The 34 routed items have existing realization nodes. The correction to extraction item `/75` was independently checked: rational negative homotopy separates E(1) from L₁^fBP⟨1⟩. LMMT Corollary 4.12 does not assert that false stronger equivalence. It remains a routing correction, not a published-source erratum. `sourceIssues` is empty; no source error requiring an erratum was established.
+
+The node and stage graphs are acyclic. The source-dependent proof obligations remain attached to their consumers, and every stage's `remaining` list was recomputed through the internal prerequisite graph, including supplier contracts. Every stated stage target is realized; no stage has been upgraded to closed. Morava realization still precedes the smashing theorem that uses it. Definitions have usable constructors/characterizations, structural and compatibility APIs, and three concrete or discriminating tests each. The changes above strengthen the inversion, monodromy and action checks. Planet names still name mathematical definitions, constructions or theorems and obey the per-layer limit.
+
+The reader preserves its worked boundary examples, direct gap links, exact API/test statements and source record. Its targets agree with both packet statements and roadmap stage descriptions. The suggested Lean file is unchanged: its one real-bodied point adapter, four end calculations and four examples are the portion statable at the pins. All missing spectral carriers and their APIs remain reader targets, as WORKERS' current shape rule requires.
+
+## Validation and remaining work
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ChromaticHomotopyTheory.json`: **0 errors, 0 warnings**.
+- `python3 scripts/check_sorry_data.py research/blueprint/suggested/ChromaticHomotopyTheory.lean`: passed.
+- `lean-check research/blueprint/suggested/ChromaticHomotopyTheory.lean`: **exit 0**, with only the eight expected `sorry` warnings. The available-memory check passed before this single compilation. No language server or library build was started.
+- Separate consistency checks passed for node/stage acyclicity, stage target equality, exact propagated obligations, all 34 route mappings, all 63 review receipts, reader statements/API/tests, reader anchors, source hashes, planet limits and unchecked implementation status. `git diff --check` passed.
+
+There is no unresolved contradiction requiring a return to the designer. Follow-up proof work starts from the twenty-one existing gaps and corrected coverage lists. The orchestrator should retain the proposed ModularCurves and EnhancedDerivedSheaves Part II ownership decisions, route the ten precise supplier contracts, and preserve the explicit space-completion comparison in G19/G20. The accepted target-level pass does not authorize treating those suppliers or proofs as completed implementations.
