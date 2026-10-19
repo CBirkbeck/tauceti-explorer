@@ -1,3 +1,42 @@
+# Independent scope-blocked continuation: codex-ilSIEy
+
+Refs #6521. Codex, session `codex-ilSIEy`, 19 October 2026;
+branch `codex-ilSIEy-topology-review`, input
+`19ac37603d79b1e4bf0e36fe577bcd3563d0b119`.
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6259350556).
+This reviewer did not author the fixes. No second job was claimed.
+
+**Blocked checkpoint; no new mathematical correction.** Re-read all 27 assigned
+findings, their verifier dispositions, the round-four fix report and the affected
+parent contracts. Fresh public-source checks support the existing qualified
+/7, /11 and /13 dispositions below. In particular, GZ Theorem 3.1, pp.5–6
+requires positive-definite analytic data; GSWZ v2 Theorem 5, p.14 and Theorem 8,
+pp.35–36 impose separate formal/arithmetic hypotheses. The all-ones figure-eight
+matrix has a nontrivial kernel and cannot instantiate the former theorem.
+Zagier's quantum-modular definition, p.2 and Examples 3–5, pp.10–12 keep the
+scalar analytic examples separate from discontinuous knot cocycles. The
+corrected Kontsevich factor argument below agrees with the inspected pinned
+eta-nonvanishing and denominator-cocycle declarations. Its excluded reader
+still gives the naive inverse multiplier, so /13 remains needs_changes.
+
+Re-read the live issue after the claim. It still names only three parent pairs;
+the queue still requires seven. Executed the unchanged
+`issues.deliverables_complete` function: **false**, with precisely the four
+excluded packet reviewer identities listed in the handoff. WORKERS.md's explicit
+file restriction prevents supplying those verdicts. Requested scope clarification;
+none received before submission. No excluded file, review metadata, queue entry,
+predicate or label was changed. The inherited report and reviews retain their
+authorship; repeating their metadata would not resolve this blocker.
+
+Fresh checks: all three permitted parent packets pass `check_blueprint.py` with
+the pinned declaration index, zero errors/warnings. No Lean file changed and no
+Lean compilation was repeated; earlier compilation results below are inherited.
+Current owner checks still support the AT README/signature mismatch and reuse
+of DG's existing foundations. The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md)
+gives the scope repair, four prepared dispositions and unapplied corrections.
+
+## Preserved preceding report (codex-iuSTeN and earlier)
+
 # Independent continuation: topology fix round 4
 
 Refs #6521. Codex, session `codex-iuSTeN`, 19 October 2026,
