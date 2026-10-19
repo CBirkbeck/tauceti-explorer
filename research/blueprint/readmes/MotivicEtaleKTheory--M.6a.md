@@ -535,7 +535,7 @@ For E satisfying the moving hypotheses over a perfect field and 0≤a≤b, the c
 **Construction or proof.**
 
 1. On the vertex-semilocal simplex an admissible positive-codimension closed support is empty. Moving and the bisimplicial contraction turn this observation into the vanishing of the zero layer of E^(p), p>0.
-2. Use purity and noetherian stratification by smooth pieces with trivial normal bundle to propagate this vanishing to layers of indices below p and to layers of E^(p/p+1) above p.
+2. Use purity and noetherian stratification by smooth pieces with trivial normal bundle to propagate this vanishing to layers of indices below p and to layers of E^(p/p+1) above p. Existence of a local normal frame suffices to prove that an object is zero; independence of the frame is not needed for this vanishing argument.
 3. Apply these vanishing statements to the finite range of adjacent tower triangles between indices a and b. The resulting comparison maps give the two idempotence statements and the orthogonality formula.
 4. Interchange the two realisations using the requested homotopy-colimit Fubini equivalence; no convergence claim for an infinite tower enters this argument.
 
@@ -583,11 +583,11 @@ For the point-supported model B_X^p(n), form r_{p,n}:B_X^p(n)→H(z^p(X,n)[0]) b
 
 **Hypotheses.** k is a perfect field; X is a smooth separated scheme of finite type over k; p,n are nonnegative integers.
 
-**Prerequisites.** `MotivicEtaleKTheory:M.6a/point-layer-model`, `MotivicEtaleKTheory:M.4/admissible-cycles`, `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-spectrum`, `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-of-chain-complex`, `StableHomotopyKTheory:H.5:spectra`.
+**Prerequisites.** `MotivicEtaleKTheory:M.6a/point-layer-model`, `MotivicEtaleKTheory:M.4/admissible-cycles`, `StableHomotopyKTheory:H.5:spectra/postnikov-sections`, `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-spectrum`, `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-of-chain-complex`, `StableHomotopyKTheory:H.5:spectra`.
 
 **Construction or proof.**
 
-1. Use the canonical degree-zero rank identification on each field coefficient spectrum, and identify its zero Postnikov spectrum with Hℤ.
+1. Since the point-supported model is concentrated in degree zero, use its canonical Postnikov map B_X^p(n)→H(π₀B_X^p(n)). Identify the latter coefficient group with z^p(X,n) by rank. This describes r_{p,n} without a choice of inverse to a wedge decomposition; under that decomposition it is exactly the wedge of coefficient rank maps.
 2. Use the coproduct universal property to send the x-summand to the basis vector for its closure in z^p(X,n). The index sets are the same by admissibility.
 3. The wedge of these equivalences is an equivalence. Prove compatibility with simplex maps in the following theorem, using the actual supported pullback.
 
@@ -864,13 +864,25 @@ arXiv:math/0510334v1, proof of Corollary 4.2.4, p. 26.
 
 **Status.** new: no correction was identified in the versions and searches listed; the stated purity conclusion is not declared false. Searches: arXiv:math/0510334v1, Proposition 4.2.2 and Corollary 4.2.4; Web search for Levine homotopy coniveau tower errata 4.2.4 normal bundle, 2026-10-19.
 
+## Assembly and attached findings
+
+At assembly, redirect the legacy M.5d packet’s six M.6a IDs to these refined targets, preserving existing references. The M.6/chern-character-edge-comparison request addressed to the old global-model-comparison also asks for equality with Levine’s rational cubical cycle class; that map-level adapter remains with M.6/M.6b assembly and is not proved by this integral layer calculation.
+
+- **RT-AREA-ktheory-1/2.** M.5d/M.7 supply Beilinson–Lichtenbaum and the reduction over number rings; the finite-coefficient comparison in M.6b must import that theorem. M.6a asserts only the integral cycle layer and needs no étale identification.
+- **RT-AREA-ktheory-1/3.** M.7 and ArithmeticKTheory:N.5 require real KO/BO, real Bott periodicity and Suslin’s real comparison. This packet asserts no dyadic real-place differential or arithmetic table.
+- **RT-AREA-ktheory-2/18.** The common Soulé finite-coefficient Chern classes and product formula belong once in the M.7-dependent portion of M.8, imported by HB.1/HB.2 and D.2. This packet constructs no Chern class.
+
+These are downstream obligations, not prerequisites for this integral support-tower construction.
+
 ## Compact suggested file and validation boundary
 
-The companion suggested file contains two light definitions over existing rings and ideals: the face ideal and the prime-height admissibility predicate. It states the full-face ideal, weight-zero, empty-support and radical-invariance laws, and four affine examples. The examples include the inadmissible vertex, the admissible interior point, the empty support, and the degree-zero field simplex. These signatures exercise actual Mathlib quotient-ring and height types.
+The companion suggested file imports Mathlib and contains two light definitions over existing rings and ideals: the face ideal and the prime-height admissibility predicate. Six named theorem targets state the full-face ideal, weight-zero, empty-support and radical-invariance laws and the two geometric Checks `support_vertex_fails` and `support_interior_point` above. Four proved examples check the full-face ideal, the omitted coordinate of a proper face, admissibility of empty support and failure of positive-weight admissibility for the whole degree-zero field simplex. There are two proved examples per definition, no admitted examples and no admitted data. These signatures exercise actual Mathlib quotient-ring and height types.
 
 The remaining definitions require the imported higher K-spectrum, support diagram, realisation and exact-category infrastructure. Their complete statements, 59 API requirements and 26 named Checks are in this document. The fixed compact shape in WORKERS.md places these heavy targets here. This avoids introducing private replacement carriers or unproved data definitions merely to make a large suggested file typecheck. Elaboration of the companion is a check of these light signatures; it is not a formal proof of the tower or its comparisons.
 
 ## Source versions and reading record
+
+The independent review confirmed the two source-proof findings against arXiv v1. The [arXiv record](https://arxiv.org/abs/math/0510334) lists only that version, and the [author’s publications page](https://www.esaga.uni-due.de/marc.levine/pub/) provides no linked correction for this paper. The [publisher PDF](https://londmathsoc.onlinelibrary.wiley.com/doi/pdf/10.1112/jtopol/jtm004) returned HTTP 403 on 19 October 2026, so the published text was not collated and the findings remain scoped to the preprint. Neither finding asserts that a stated theorem is false.
 
 All statements above are in our own words. The source locators refer to the following exact texts; manuscript and published pagination are distinguished. The packet records their SHA-256 hashes and access date, 19 October 2026. No source text is part of the deliverables.
 
