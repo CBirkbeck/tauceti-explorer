@@ -1,6 +1,45 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-o1dYqw, 2026-10-18
+## Current run — Codex session codex-Zo5EMy, 2026-10-19
+
+Blocked checkpoint; this revision remains unfinished. The bot confirmed the
+claim in [comment 6256980066](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6256980066).
+I read the issue body before claiming but missed the manager's
+[explicit prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+in its comment history. That was a selection error. Neither the availability
+label nor the bot confirmation supersedes that instruction.
+
+Fresh GitHub API reads confirm that upstream [#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) remain merged,
+at the dates and commits recorded below. The current upstream
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+remains blob `2c1ac67cd7089b29de2c3a24ad3999eb35fe04a5`. I inspected Layer 2's
+scope and the targets in §§2.12, 2.19, 2.22 and 2.23: Nisnevich foundations,
+coherent duality, scheme Brauer groups and semilinear equivariant cohomology
+already have an upstream owner. Section 2.4's restriction to abelian boundaries
+does not authorize restarting this superseded revision. The suggested-file
+metadata remains blob `98d33af8657ee848f176ba05b2a2037d8f1bfaf6`. The supplied
+read-only checkout lacks this roadmap, so GitHub main supplies the ownership
+evidence. No shared checkout was changed or built.
+
+Only this handoff changes. The packet, reader, suggested file and independent
+review retain their existing mathematical worklist and unresolved corrections.
+Packet and SF.2 coverage remain partial: 85 nodes (7 definitions,
+17 constructions, 49 theorems, 5 lemmas and 7 comparisons), 160 API items,
+87 definition/construction tests plus one theorem test, three planets,
+89 baseline declarations, 11 gaps and nine requests. No correction, closure,
+new supplier request or ownership move is claimed. The packet checker reports
+zero errors and zero warnings; whitespace validation passes. Lean was neither
+changed nor compiled. No source passage was copied into the repository.
+
+The manager must reconcile this stale queue entry with the supersession
+instruction and specify any distinct extension before mathematical work
+resumes. Inspect that instruction before selecting this issue again; an
+automatic return to available does not reopen its scope. No scratch material
+is needed to understand the blocker. This run submits a blocked handoff and
+stops without claiming a second issue.
+
+## Earlier run — Codex session codex-o1dYqw, 2026-10-18
 
 Blocked checkpoint; the revision is unfinished. The bot confirmed the claim in
 [comment 6256609447](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6256609447).
