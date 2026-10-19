@@ -117,7 +117,7 @@ elementary interfaces; none supplies a stable infinity category or a trace spect
 
 - [mathlib:LightCondAb](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Condensed/Light/Module.lean#L85): LightCondMod Z, with its abelian category instance, used as the target of condensed homotopy sheaves.
 
-- [mathlib:CategoryTheory.Limits.PreservesFilteredColimits](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/Preserves/Filtered.lean#L62): Preservation of all colimits indexed by filtered categories small in the source morphism universe; it quantifies over every such J, not just N.
+- [mathlib:CategoryTheory.Limits.PreservesFilteredColimits](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/CategoryTheory/Limits/Preserves/Filtered.lean#L62): Preservation of all colimits indexed by filtered categories J with J : Type v₂ and Category.{v₂} J, where v₂ is the morphism universe of the target category D (F : C ⥤ D; the docstring says source, the code uses D); it quantifies over every such J, not just N.
 
 - [mathlib:Nat.factorization](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Data/Nat/Factorization/Defs.lean#L50): The finitely supported prime-exponent function; its actual zero/nonprime convention is retained, with m>0 imposed separately.
 
@@ -138,6 +138,10 @@ elementary interfaces; none supplies a stable infinity category or a trace spect
 - [mathlib:ChainComplex](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean#L151): Ordinary chain complexes in a category with zero morphisms and the down complex shape; used only for the chain-level compatibility prototype.
 
 - [mathlib:HomologicalComplex.Hom.comm](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Homology/HomologicalComplex.lean#L222): Every complex morphism commutes with its differentials at every pair of indices.
+
+- [mathlib:AddCommGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Defs.lean#L111): Additive commutative groups: the carriers of classical Cartier modules.
+
+- [mathlib:AddMonoidHom](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L144): Additive homomorphisms M →+ N, with composition, identity and the pointwise additive group structure used for the operators F and V and the relation FV = p • id.
 
 ### From StableHomotopyKTheory:H.5:spectra
 
@@ -429,7 +433,7 @@ plus countable product closure of the connective part implies left completeness 
 1.2.1.19). Existing sheaf-specific Postnikov completeness does not supply this generic
 stable-infinity interface.
 
-*Used by:* [The cyclotomic t-structure](#refinedtracemethods-rt-2-cyclotomic-t-structure), [TR detects cyclotomic quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies).
+*Used by:* [The cyclotomic t-structure](#refinedtracemethods-rt-2-cyclotomic-t-structure).
 
 ### From StableHomotopyKTheory:H.6
 
@@ -597,15 +601,6 @@ multiplicative enhancement separately; neither a graded module equivalence nor H
 solid embedding provides it for periodic KU.
 
 *Used by:* [Refined TC⁻ of rational KU](#refinedtracemethods-rt-5-refined-ku-periodic-computation), [The coherent trace interface for Habiro cohomology](#refinedtracemethods-rt-6-habiro-trace-interface), [Finite-coefficient TC⁻ and q-Hodge complexes](#refinedtracemethods-rt-5-torsion-qhodge).
-
-### From PrismaticCohomology:PR.4/syntomic-connectivity
-
-Only the independently prismatic polynomial left Kan extension assertion for Z_p(i) on QSyn is
-consumed. Its remaining algebraic proof audit stays with PR.4. RT.6 owns the trace comparison into
-uncompleted de Rham and must not cite a trace-based proof back through its own graded Beilinson
-square.
-
-*Used by:* [Polynomial extension of the graded trace](#refinedtracemethods-rt-6-uncompleted-graded-trace).
 
 ### Compatible multiplicative Moore towers
 
@@ -2725,7 +2720,7 @@ Use `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`,
 
 ## Layer RT.2: THH, cyclotomic spectra and Cartier theory
 
-This layer constructs tHH, cyclotomic spectra and Cartier theory. Each target below includes the
+This layer constructs THH, cyclotomic spectra and Cartier theory. Each target below includes the
 hypotheses and comparison maps that its consumers require.
 
 <a id="refinedtracemethods-rt-2-spectra-with-action"></a>
@@ -4821,8 +4816,9 @@ This interface is used by `RT.3/stable-k-theory-thh` — The derivative is ΣTHH
 
 ### Classical p-typical Cartier modules
 
-Work under the following hypotheses: Fix a prime p. Spectra, functor categories and all limits are
-coherent infinity-categorical objects.
+Work under the following hypotheses: Fix a prime p (the definition makes sense for any natural
+number p). The objects are ordinary abelian groups with additive operators; no higher-categorical
+data enter.
 
 A p-typical Cartier module is an abelian group M with additive endomorphisms F,V satisfying
 F∘V=p·id_M. A morphism is an additive homomorphism commuting with both operators. Write Cart_p for
@@ -4831,16 +4827,18 @@ abelian groups with their induced operators. A map f:M→N is an isogeny precise
 additive homomorphism is: if g:N→M satisfies gf=N₀id_M and fg=N₀id_N for N₀>0, then N₀g commutes
 with F,V and gives inverse composites N₀²id.
 
-(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), §3.1, p. 15; Examples
-3.2–3.3, p. 15; §3.4, pp. 27–28. The classical operator relation and discrete realization underlie
-the cyclotomic heart. [On the Beilinson fiber square](#ref-2-ammn-20), Proof of Proposition 3.1, p.
-15. Multiplying an additive approximate inverse removes its two operator defects.)
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), §3.1 and footnote 5, p.
+15; Examples 3.2–3.3, p. 15; §3.4, pp. 27–28. Section 3.1 recalls the classical notion with the
+single relation FV=p, and footnote 5 says VF=p is deliberately not imposed; Examples 3.2–3.3 realise
+Cartier modules as discrete topological Cartier modules and on homotopy groups; §3.4 identifies the
+cyclotomic heart inside them. [On the Beilinson fiber square](#ref-2-ammn-20), Proof of Proposition
+3.1, p. 15. Multiplying an additive approximate inverse removes its two operator defects.)
 
 Construction and proof. Define the operator structures and their commuting additive maps. Kernels
 and cokernels inherit FV=p; the forgetful functor creates these constructions. The defects F_M g−g
 F_N and V_M g−g V_N land in ker f. Since N₀ kills ker f, N₀g commutes with both operators. This is
-the corrected lifting argument of AMMN, not the printed V/F mismatch (inherited RT.1 source issue
-E20).
+the corrected lifting argument of AMMN, not the printed V/F mismatch (source issue E20 of the RT.1
+part; also PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/E5).
 
 The API exposes the following operations and characterizations.
 
@@ -4860,7 +4858,7 @@ The API exposes the following operations and characterizations.
 
 - `CartierModule.integer`: On ℤ, V=id and F=p define a Cartier structure; F=V=id does not when p>1.
 
-- `CartierModule.no_vf_axiom`: On M=⊕_{n≥0}ℤ/p with basis e_n, let V(e_n)=e_{n+1}, F(e_0)=e_0, F(e_n)=0 for n>0. Then FV=0=p but VF(e_0)=e_1≠0. A definition imposing VF=p incorrectly excludes M.
+- `CartierModule.no_vf_axiom`: On M=(ℤ/p)², let F(x,y)=(x,0) and V(x,y)=(0,x). Then FV=0=p·id, but VF(1,0)=(0,1)≠0=p·(1,0). A definition that also imposed VF=p would incorrectly exclude M.
 
 The comparison must satisfy these additional checks: An additive approximate inverse need not
 commute with either operator until multiplied by its denominator.
@@ -4868,9 +4866,11 @@ commute with either operator until multiplied by its denominator.
 This interface is used by [Derived V-completeness](#refinedtracemethods-rt-2-cartier-v-completion) —
 Supplies the algebraic carrier and V operator for derived V-completeness.; [TR detects cyclotomic
 quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies) — Allows isogenies of
-cyclotomic homotopy objects to be detected after forgetting operators..
+cyclotomic homotopy objects to be detected after forgetting operators.; [Topological Cartier
+modules](#refinedtracemethods-rt-2-topological-cartier-module) — Discrete topological Cartier
+modules are exactly classical Cartier modules (AN Example 3.2)..
 
-*Needs:* `EnhancedDerivedSheaves:E5:abstract`.
+*Needs:* [mathlib:AddCommGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Defs.lean#L111), [mathlib:AddMonoidHom](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L144).
 
 <a id="refinedtracemethods-rt-2-circle-ptypical-cyclotomic"></a>
 
@@ -4884,13 +4884,17 @@ object is a T-spectrum X and a T-equivariant Frobenius X → X^{tC_p}; a morphis
 homotopy intertwining Frobenius. This is Antieau–Nikolaus’s CycSp_p and AMMN’s CycSp. Distinguish it
 from the C_{p^∞}-equivariant category of RT.2/cyclotomic-spectrum. Restricting the action defines a
 functor to that category. Put TC_T,p(X)=map_CycSp_T,p(S^triv,X). Its equalizer is X^{hT} ⇉
-(X^{tC_p})^{hT}; restriction compares it with TC(X|C_{p^∞},p) by a p-adic equivalence on
-bounded-below X. The underlying-spectrum functor is exact, conservative and colimit preserving.
+(X^{tC_p})^{hT}; restriction compares it with TC(X|C_{p^∞},p), the equalizer over X^{hC_{p^∞}}, by a
+p-adic equivalence; Antieau–Nikolaus state this for every X, through fib(1−F) on TR. The
+underlying-spectrum functor is exact, conservative and colimit preserving.
 
-(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), §2.1, pp. 8–9; Remark 2.5
-and Warning 2.6, p. 9. The one-prime circle-action category and its TC conventions precede the
-cyclotomic t-structure. [On the Beilinson fiber square](#ref-2-ammn-20), §3.1, p. 15, footnote 8.
-AMMN uses the circle-action one-prime category, with different notation from NS.)
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), §2.1 and Example 2.2, p.
+8; Remark 2.5, pp. 8–9; Warning 2.6, p. 9. Section 2.1 defines CycSp_p as the lax equalizer of id
+and (−)^{tC_p} on circle spectra with the residual action; Example 2.2 gives the trivial objects and
+the unit; Remark 2.5 defines TC as the equalizer over X^{hS¹}, TR by iterated pullbacks, and a
+p-adic equivalence from TC to fib(1−F) on TR; Warning 2.6 identifies that fiber with the C_{p^∞}
+equalizer. [On the Beilinson fiber square](#ref-2-ammn-20), §3.1, p. 15, footnote 8. AMMN uses the
+circle-action one-prime category, with different notation from NS.)
 
 Construction and proof. Apply the existing lax-equalizer construction with the residual circle
 action; specify a single prime rather than forgetting the group acting on X. Compute mapping spectra
@@ -4906,7 +4910,11 @@ The API exposes the following operations and characterizations.
 
 - `CirclePTypicalCyclotomic.tc`: Mapping from S^triv is the homotopy equalizer of can and Frobenius on T-homotopy fixed points.
 
-- `CirclePTypicalCyclotomic.tc_p_completion`: For bounded-below X restriction induces a p-adic equivalence with C_{p^∞}-equivariant TC.
+- `CirclePTypicalCyclotomic.tc_p_completion`: Restriction induces a p-adic equivalence with C_{p^∞}-equivariant TC, through fib(1−F:TR(X)→TR(X)) (AN Remark 2.5 and Warning 2.6).
+
+- `CirclePTypicalCyclotomic.forget`: CycSp_T,p is stable and presentable; the underlying functor to Sp^{BT} is exact and conservative and preserves and detects colimits (NS Proposition II.1.5, as used in AN Lemma 2.10).
+
+- `CirclePTypicalCyclotomic.trivial`: A spectrum X gives X^triv with trivial T-action and Frobenius X→X^{hC_p}→X^{tC_p}; S^triv is the unit of the symmetric monoidal structure and corepresents TC_T,p (AN Example 2.2 and Remark 2.5).
 
 **Checks.**
 
@@ -4944,15 +4952,20 @@ cyclotomic Frobenius obtained from the square with V, F and the norm, followed b
 M^{tC_p}→(M/V)^{tC_p}. This defines a functor TCart_p→CycSp_T,p.
 
 (See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Definitions 3.1 and 3.6;
-Examples 3.2–3.5; Proposition 3.8, pp. 15–19. Topological Cartier data factor the norm coherently
-and the quotient carries a cyclotomic Frobenius.)
+Examples 3.2–3.5; Proposition 3.8, pp. 15–19; Proposition 3.11, p. 21. Definition 3.1 asks for an
+equivariant factorization of the C_p-norm through V and F, and Definition 3.6 makes the factorizing
+homotopy part of the data through a pullback of the 2-simplex category; Example 3.5 gives the
+cyclotomic Frobenius on M/V; Proposition 3.8 computes mapping spectra; Proposition 3.11 gives
+stability, presentability and limits and colimits.)
 
 Construction and proof. Use the arrow and two-simplex pullback of Definition 3.6, not an ordinary
 category of commuting maps. Proposition 3.8 computes its mapping spectra by a fiber sequence. Take
 vertical cofibers of the square MhC_p→MhC_p over M→M^{hC_p}; the chosen norm-factorization homotopy
 induces M/V→M^{tC_p}. Compose with the Tate image of the quotient map. For HM, the norm factors
 through multiplication by p on M, giving the classical case. The norm on general homotopy groups
-gives FV=p.
+gives FV=p. Proposition 3.11 gives stability, presentability and preservation of limits and colimits
+by the forgetful functor; the defect map in the mapping-spectrum formula is gV_M−V_N g_{hC_p}
+(source issue E101 corrects the subscripts printed on pp. 19–20).
 
 The API exposes the following operations and characterizations.
 
@@ -4964,6 +4977,10 @@ The API exposes the following operations and characterizations.
 - `TopologicalCartierModule.modV`: Taking cofibers defines the cyclotomic quotient M/V and acts on coherent morphisms.
 
 - `TopologicalCartierModule.mapping_fiber`: Mapping spectra are the fiber described in AN Proposition 3.8, recording compatibility with V as well as with the Frobenius lift.
+
+- `TopologicalCartierModule.ofCartier`: A classical Cartier module (M,F,V) gives the discrete object HM, with V and F factoring through the truncations M_{hC_p}→τ_{≤0}M_{hC_p}≃M and M≃τ_{≥0}M^{hC_p}; this identifies Cart_p with the discrete topological Cartier modules (AN Example 3.2).
+
+- `TopologicalCartierModule.forget`: TCart_p is stable and presentable, and the underlying functor to Sp^{BT} preserves all limits and colimits (AN Proposition 3.11).
 
 **Checks.**
 
@@ -4982,7 +4999,7 @@ Supplies the iterated V tower and derived quotients.; [TR as V-complete topologi
 modules](#refinedtracemethods-rt-2-tr-cartier-comparison) — Receives TR with its norm factorization
 and supplies its quotient left adjoint..
 
-*Needs:* [Classical p-typical Cartier modules](#refinedtracemethods-rt-2-cartier-module), [Circle-equivariant p-typical cyclotomic spectra](#refinedtracemethods-rt-2-circle-ptypical-cyclotomic), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`.
+*Needs:* [Classical p-typical Cartier modules](#refinedtracemethods-rt-2-cartier-module), [Circle-equivariant p-typical cyclotomic spectra](#refinedtracemethods-rt-2-circle-ptypical-cyclotomic), [The norm map and the Tate construction](#refinedtracemethods-rt-2-norm-map-tate), `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`, `EnhancedDerivedSheaves:E0/coherent-functors`.
 
 <a id="refinedtracemethods-rt-2-cartier-v-completion"></a>
 
@@ -4998,8 +5015,9 @@ M/V^n for its cofiber. Its completion is lim_n M/V^n. For discrete HM the two co
 conditions agree. Ordinary separatedness or the ordinary inverse limit of cokernels is insufficient.
 
 (See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Definition 3.20 and
-Proposition 3.22, p. 26; Definition 3.24 and Lemma 3.25, pp. 27–28. These distinguish spectral
-V-completeness from the equivalent derived algebraic condition on discrete objects.)
+Proposition 3.22, p. 26; Definition 3.24 and Lemma 3.25, pp. 27–28; Example 3.27, p. 28. These
+distinguish spectral V-completeness from the equivalent derived algebraic condition on discrete
+objects.)
 
 Construction and proof. Define the two inverse towers, retaining derived limits and cofibers. For
 discrete M compare the diagonal homotopy-orbit tower to the double tower with the classical V
@@ -5036,7 +5054,7 @@ fully faithful TR functor.; [The derived V-complete Cartier
 heart](#refinedtracemethods-rt-2-cyclotomic-cartier-heart) — Selects precisely the Cartier modules
 occurring as heart objects..
 
-*Needs:* [Topological Cartier modules](#refinedtracemethods-rt-2-topological-cartier-module), [Classical p-typical Cartier modules](#refinedtracemethods-rt-2-cartier-module), `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`.
+*Needs:* [Topological Cartier modules](#refinedtracemethods-rt-2-topological-cartier-module), [Classical p-typical Cartier modules](#refinedtracemethods-rt-2-cartier-module), `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`.
 
 <a id="refinedtracemethods-rt-2-cyclotomic-t-structure"></a>
 
@@ -5053,10 +5071,14 @@ objects. Products of connective objects are connective. No compatibility with fi
 the heart is asserted. TCart_p has the t-structure whose connective and coconnective parts are
 detected on underlying spectra; TR and the heart comparison below relate the two.
 
-(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Theorem 2.1 and Lemma
-2.10, pp. 8–10; Lemma 2.11, p. 10; Definition 3.14 and Proposition 3.15, pp. 22–23; Example 3.27, p.
-28; Theorem 6.14, p. 60. The cyclotomic t-structure is left complete, with genuinely cyclotomic
-truncations.)
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Theorem 2.1, Example 2.2
+and the paragraph after Example 2.3, p. 8; Warning 2.9 and Lemma 2.10, p. 9; proof of Theorem 2.1
+and Lemma 2.11, p. 10; Definition 3.14 and Proposition 3.15, pp. 22–23; Example 3.27, p. 28; Theorem
+6.14, p. 60. Theorem 2.1 gives an accessible, left-complete t-structure compatible with the
+symmetric monoidal structure, with connective part detected on underlying spectra; Lemma 2.10
+identifies the connective part with a lax equalizer of connective objects; Lemma 2.11 commutes Tate
+constructions with uniformly bounded-below limits; Warning 2.9 and Example 3.27 show the heart is
+not closed under filtered colimits; Proposition 3.15 gives the t-structure on TCart_p.)
 
 Construction and proof. Apply the presentable connective-subcategory criterion to the connective lax
 equalizer of AN Lemma 2.10; it is closed under extensions and colimits. Use AN Lemma 2.11 to commute
@@ -5077,12 +5099,14 @@ The API exposes the following operations and characterizations.
 
 - `TopologicalCartierTStructure`: The underlying spectrum detects both halves of the TCart_p t-structure; its heart is Cart_p.
 
+- `CyclotomicTStructure.forget_rightTExact`: The underlying functor to Sp^{BT} is right t-exact but not left t-exact: THH(F_p) lies in the heart while its underlying spectrum is unbounded above (AN p. 8).
+
 **Checks.**
 
 
 - `CyclotomicTStructure.thh_fp`: THH(ℤ/p) is in the cyclotomic heart, but its underlying π_2 is nonzero. This rejects the underlying-spectrum Postnikov tower as the cyclotomic tower.
 
-- `CyclotomicTStructure.zero`: The zero object has all cyclotomic homotopy objects zero; conversely left separatedness detects it.
+- `CyclotomicTStructure.zero`: The zero object has all cyclotomic homotopy objects zero. Conversely a bounded-below X with π_i^cyc X=0 for every i is zero, by finite Postnikov induction and left separatedness; no such conclusion is asserted for unbounded X.
 
 - `CyclotomicTStructure.truncation`: On the Cartier side, the heart has discrete underlying spectrum. Under the TR comparison cyclotomic π_i is the Cartier structure on π_iTR, rather than on π_iX.
 
@@ -5114,9 +5138,13 @@ its essential image consists exactly of V-complete bounded-below topological Car
 bounded-below M, TR(M/V)≃lim_n M/V^n is its V-completion. On genuine bounded-below models, TR agrees
 with RT.2/tr-and-genuine-tc, including R,F,V.
 
-(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Propositions 3.17 and
-Construction 3.18, pp. 24–25; Lemma 3.19, p. 25; Theorem 3.21 and Proposition 3.22, p. 26. The
-quotient/TR adjunction becomes an equivalence onto V-complete objects in the bounded-below range.)
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Remark 2.5, pp. 8–9;
+Proposition 3.17 and Construction 3.18, pp. 24–25; Lemma 3.19, p. 25; Theorem 3.21 and Proposition
+3.22, p. 26. Remark 2.5 defines TR^{n+1} by iterated pullbacks and identifies it with genuine fixed
+points for bounded-below X; Proposition 3.17 and Construction 3.18 give the Cartier structure on TR
+and its adjunction with M↦M/V; Lemma 3.19 proves the counit is an equivalence for bounded-below X;
+Theorem 3.21 and Proposition 3.22 give full faithfulness, t-exactness, the essential image and the
+V-completion formula.)
 
 Construction and proof. Construct the TR norm factorization from the iterated pullback and its
 compatible projections (AN Construction 3.18). Prove the quotient adjunction by the mapping-fiber
@@ -5145,9 +5173,12 @@ Cartier modules. For every bounded-below X and every integer i, the Cartier modu
 is derived V-complete. The heart equivalence is an equivalence of abelian categories; it is not an
 identification of the underlying spectra of a heart object and its Cartier module.
 
-(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Theorem 3.26, p. 28;
-Proposition 3.28, pp. 28–29; discussion after Theorem 1, p. 3; Theorem 6.14, p. 60. Derived
-V-complete Cartier modules are exactly the cyclotomic heart and their groups compute π_*TR.)
+(See [Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Introduction to §3, p.
+15; Theorem 3.26, p. 28; Proposition 3.28, pp. 28–29; Theorem 1, p. 2, and the discussion after
+Theorem 2, p. 3; Theorem 6.14, p. 60. Theorem 3.26 identifies the heart, through TR, with the
+derived V-complete Cartier modules, and the introduction to §3 explains that π_i^cyc X corresponds
+to π_iTR(X) with F and V; Proposition 3.28 characterises V-completeness degree by degree; Theorem
+6.14 computes the heart object THH(k) as W(k) for perfect k.)
 
 Construction and proof. Use t-exactness and full faithfulness of TR to embed the heart into discrete
 topological Cartier modules, identified with Cart_p. Apply the discrete completeness criterion and
@@ -5178,8 +5209,8 @@ rational equivalence alone does not suffice.
 (See [On the Beilinson fiber square](#ref-2-ammn-20), Definition 2.18 and following paragraph, p.
 12; Proposition 3.1 and introductory paragraph of §3.1, p. 15. TR detects quasi-isogenies through
 the Cartier heart, and TC with p-complete coefficients preserves them. [Cartier modules and
-cyclotomic spectra](#ref-2-antieau-nikolaus-21), Remark 2.5 and Warning 2.6, p. 9. The fiber of 1−F
-on TR compares with circle-equivariant TC by a p-adic equivalence.)
+cyclotomic spectra](#ref-2-antieau-nikolaus-21), Remark 2.5, pp. 8–9; Warning 2.6, p. 9. The fiber
+of 1−F on TR compares with circle-equivariant TC by a p-adic equivalence.)
 
 Construction and proof. Use the heart equivalence to identify π_i^cyc(f) with π_iTR(f) carrying F,V.
 For each degree apply the Cartier approximate-inverse correction: multiplying g by its isogeny
@@ -5213,16 +5244,22 @@ Tate of the sum. Truncation X_{≤n} sets weights >n to zero and retains the ind
 i>0, the fiber of X_{≤i}→X_{≤i−1} has null Frobenius because pi>i. The weight-zero fiber has no such
 conclusion.
 
-(See [On the Beilinson fiber square](#ref-2-ammn-20), §3.1, pp. 15–16, paragraphs before Proposition
-3.3; Appendix A, pp. 56–60. Graded cyclotomic Frobenius multiplies the weight by p; truncations are
-cyclotomic.)
+(See [On the Beilinson fiber square](#ref-2-ammn-20), §3.1, pp. 15–16, the definition before
+Proposition 3.3 and the truncations in its proof, p. 16; Appendix A, Corollary A.9 and Example A.10,
+p. 58, and Example A.16, p. 60. Section 3.1 defines graded cyclotomic spectra with Frobenius maps
+from weight i to weight pi and their underlying direct sum; the proof of Proposition 3.3 builds the
+weight truncations as graded cyclotomic spectra; Appendix A (Corollary A.9, Examples A.10 and A.16)
+gives graded THH its twisted cyclotomic structure and compares weight zero with THH of the
+degree-zero ring.)
 
 Construction and proof. Form Fun(ℕ_discrete,Sp) with graded tensor whose degree is the sum of input
-weights; encode the p-fold tensor-power diagonal by φ_i landing at weight pi. Form the lax equalizer
-for its Frobenius endofunctor, then the underlying direct-sum functor with its canonical Tate
-comparison; equivalence of that comparison is unnecessary. The truncation maps are compatible
-because p increases positive weights. On a single positive-weight fiber the target pi is absent,
-giving the nullhomotopy.
+weights; encode the p-fold tensor-power diagonal by φ_i landing at weight pi. AMMN §3.1, p. 15
+describe the Day convolution as using the multiplication on ℤ_{≥0}; the sum of weights is the
+structure that makes the Frobenius land in weight pi (atlas errata
+PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/E6). Form the lax equalizer for its Frobenius endofunctor, then
+the underlying direct-sum functor with its canonical Tate comparison; equivalence of that comparison
+is unnecessary. The truncation maps are compatible because p increases positive weights. On a single
+positive-weight fiber the target pi is absent, giving the nullhomotopy.
 
 The API exposes the following operations and characterizations.
 
@@ -5272,21 +5309,24 @@ stated hypothesis.
 
 (See [On the Beilinson fiber square](#ref-2-ammn-20), Proposition 3.2 and proof, p. 15. A null
 circle-equivariant Frobenius gives the homotopy-orbit product and the quasi-isogeny consequence.
-[Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Remark 2.5, p. 9; Construction
-3.18, pp. 24–25. The iterated pullback model fixes the product factors and structure maps.)
+[Cartier modules and cyclotomic spectra](#ref-2-antieau-nikolaus-21), Remark 2.5, pp. 8–9;
+Construction 3.18, pp. 24–25. The iterated pullback model fixes the product factors and structure
+maps.)
 
-Construction and proof. The specified equivariant nullhomotopy splits the iterated TR pullbacks into
-the homotopy-orbit fibers of the norm sequences. For a fixed homotopy degree j, bounded-below X
-permits a finite Postnikov range to compute π_j of every X_{hC_{p^n}}. The same annihilator for that
-range works for all n, since homotopy orbits preserve an annihilation map. This uniformity makes the
-product quasi-isogenous to zero. Apply TR detection; do not infer the claim merely by commuting
-rationalization with an infinite product.
+Construction and proof. The specified equivariant nullhomotopy splits the iterated TR pullbacks. For
+bounded-below X the canonical map X^{hC_{p^n}}→(X^{tC_p})^{hC_{p^{n−1}}} is the map to X^{tC_{p^n}}
+(NS Corollary II.4.7, cited by AMMN), so each new factor is the homotopy-orbit fiber X_{hC_{p^n}} of
+the norm sequence. For a fixed homotopy degree j, bounded-below X permits a finite Postnikov range
+to compute π_j of every X_{hC_{p^n}}. The same annihilator for that range works for all n, since
+homotopy orbits preserve an annihilation map. This uniformity makes the product quasi-isogenous to
+zero. Apply TR detection; do not infer the claim merely by commuting rationalization with an
+infinite product.
 
 The comparison must satisfy these additional checks: A bounded-below spectrum with a single
 annihilation map has a uniform annihilator on all the product factors. Without a null Frobenius
 THH(F_p) is the counterexample, so spectral p-torsion cannot replace the equivariant nullhomotopy.
 
-*Needs:* [TR as V-complete topological Cartier modules](#refinedtracemethods-rt-2-tr-cartier-comparison), [TR detects cyclotomic quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points).
+*Needs:* [TR as V-complete topological Cartier modules](#refinedtracemethods-rt-2-tr-cartier-comparison), [TR detects cyclotomic quasi-isogenies](#refinedtracemethods-rt-2-tr-detects-quasi-isogenies), [Homotopy orbits and homotopy fixed points](#refinedtracemethods-rt-2-homotopy-orbits-fixed-points), [Iterated Tate constructions for bounded below spectra](#refinedtracemethods-rt-2-tate-cpn-via-cp).
 
 <a id="refinedtracemethods-rt-2-graded-cyclotomic-quasi-isogeny"></a>
 
@@ -5310,11 +5350,12 @@ its t-exactness provide the needed bounded-below limit control.)
 
 Construction and proof. Use the increasing connectivity to identify X with the inverse limit of
 finite weight truncations. The error fibers become arbitrarily connective in the cyclotomic
-t-structure. TR is t-exact on bounded-below objects and preserves limits as a right adjoint.
-Consequently π_jTR stabilizes in the finite truncations, using the same connectivity estimates. Each
-positive-weight fiber is spectrally quasi-isogenous to zero and has null Frobenius. Apply the
-null-Frobenius theorem inductively to the finite tower; then stabilize in each degree and use TR
-detection.
+t-structure. The truncation has (X_{≤i})_j=X_j for j≤i and zero above; the proof of AMMN Proposition
+3.3 prints X_i (atlas errata PAPER-ANTIEAU-MATHEW-MORROW-ETAL-22/E7). TR is t-exact on bounded-below
+objects and preserves limits as a right adjoint. Consequently π_jTR stabilizes in the finite
+truncations, using the same connectivity estimates. Each positive-weight fiber is spectrally
+quasi-isogenous to zero and has null Frobenius. Apply the null-Frobenius theorem inductively to the
+finite tower; then stabilize in each degree and use TR detection.
 
 The comparison must satisfy these additional checks: The zero weight hypothesis is essential:
 THH(F_p) placed in weight zero violates the conclusion. The proof proves stabilization separately
@@ -5415,7 +5456,9 @@ null-Frobenius and Cartier conditions are essential.
 
 Use `CrystallineCohomology:CR.4`, `EnhancedDerivedSheaves:E0`,
 `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`,
+`EnhancedDerivedSheaves:E0/coherent-functors`,
 `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`,
+`EnhancedDerivedSheaves:E0/limits-colimits-universal-properties`,
 `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E3`,
 `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`,
 `EnhancedDerivedSheaves:E3/kan-extensions-along-functors`, `EnhancedDerivedSheaves:E5:abstract`,
@@ -5446,6 +5489,8 @@ categories](#refinedtracemethods-rt-5-dualizable-categories), `StableHomotopyKTh
 `StableHomotopyKTheory:H.5:spectra/stable-model-structure`,
 `StableHomotopyKTheory:H.5:spectra/suspension-spectrum`, `StableHomotopyKTheory:H.6`,
 `StableHomotopyKTheory:H.6/arithmetic-fracture-square`, `StableHomotopyKTheory:H.6/p-completion`,
+[mathlib:AddCommGroup](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Defs.lean#L111),
+[mathlib:AddMonoidHom](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/Algebra/Group/Hom/Defs.lean#L144),
 [mathlib:SSet.Quasicategory](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/AlgebraicTopology/Quasicategory/Basic.lean#L41),
 [mathlib:WittVector](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Defs.lean#L52),
 [mathlib:WittVector.frobenius](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/WittVector/Frobenius.lean#L221),
@@ -6520,9 +6565,9 @@ algebras (Proposition 3.5), then resolve a nonsplit square-zero extension by its
 Truncated augmentation ideals are built by finitely many such extensions (3.7); pass up their
 Postnikov towers and use the Čech nerve of A→A′ to obtain Theorem 3.4. Taking TC preserves
 cyclotomic quasi-isogenies in this bounded-below setting, giving the application on p-completed TC
-and equivalence after inverting p (§3.3, p. 18). The cyclotomic t-structure/TR detection and tower
-interface used by this route is recorded as an explicit foundational gap, rather than being inferred
-from ordinary spectral Postnikov sections.
+and equivalence after inverting p (§3.3, p. 18). The cyclotomic t-structure, the TR detection of
+quasi-isogenies and the graded tower interface used by this route are the RT.2 targets listed among
+the inputs below; they are not inferred from ordinary spectral Postnikov sections.
 
 The comparison must satisfy these additional checks: Rationally the spectral and ordinary reductions
 agree; integrally they do not (TC(𝔽_p ⊗_S 𝔽_p) ≠ TC(𝔽_p)).
@@ -9088,7 +9133,7 @@ complex K-theory spectrum KU](#refinedtracemethods-rt-4-topological-ku-spectrum)
 
 ## Layer RT.4:Habiro-comparison: Cyclonic arithmetic comparison
 
-This layer constructs cyclonic arithmetic comparison. Each target below includes the hypotheses and
+This layer constructs the cyclonic arithmetic comparison. Each target below includes the hypotheses and
 comparison maps that its consumers require.
 
 <a id="refinedtracemethods-rt-4-habiro-comparison-twisted-q-hodge-comparison"></a>
@@ -10711,24 +10756,28 @@ the sheaf statement does not erase this pointwise group.
 
 ### Polynomial extension of the graded trace
 
-Work under the following hypotheses: Fix a prime p and i≥0. R is quasisyntomic; for χ_i require
-p-torsion-free R as in AMMN’s lowercase qSyn_Zp. Every completion is derived.
+Work under the following hypotheses: Fix a prime p and i≥0. R∈qSyn_Zp: R is p-complete, p-torsion
+free and quasisyntomic (AMMN Definition 5.5), as in AMMN Construction 6.16 and Theorem 6.17. Every
+completion is derived.
 
-For i≥0 and a quasisyntomic ring R, the graded map of TC(R;ℤ_p)→HC⁻(R;ℤ_p) factors naturally as
-ℤ_p(i)(R)→LΩ_R^{≥i}→Hodge-completed LΩ_R^{≥i}. Here LΩ is p-completed derived de Rham relative to
-ℤ_p before Hodge completion. Import polynomial left Kan extension of ℤ_p(i) from
-PR.4/syntomic-connectivity, using only its left Kan extension assertion; the construction owns the
-trace factorization, not a second syntomic complex. For p-torsion-free quasisyntomic R, the
+For i≥0 and a p-torsion-free quasisyntomic ring R (R∈qSyn_Zp), the graded map of
+TC(R;ℤ_p)→HC⁻(R;ℤ_p) factors naturally as ℤ_p(i)(R)→LΩ_R^{≥i}→Hodge-completed LΩ_R^{≥i}. Here LΩ is
+p-completed derived de Rham relative to ℤ_p before Hodge completion. Import polynomial left Kan
+extension of ℤ_p(i) from PR.4/syntomic-connectivity, using only its left Kan extension assertion;
+the construction owns the trace factorization, not a second syntomic complex. For such R, the
 Hodge-completed right-hand map from the TC Beilinson square, after multiplying by p^{N(i)} with N(i)
 independent of R, refines to ℤ_p(i)(R/p)→p^{−N(i)}LΩ_R. Its rationalization is the χ_i used by
 RT.3b/graded-beilinson-square. The construction is an input to that square, not an import of its
 conclusion. On all p-complete animated rings the extension is defined by completed polynomial left
 Kan extension; completeness of the motivic filtration on every such input is not asserted.
 
-(See [On the Beilinson fiber square](#ref-2-ammn-20), Theorem 5.1(2), p. 25; Proposition 5.32, pp.
-33–34; proof of 5.1(2) and Construction 5.33, pp. 34–35; Construction 6.16 and proof of Theorem
-6.17, pp. 44–45. Polynomial extension removes Hodge completion from the graded trace and from the
-integral multiple of χ_i.)
+(See [On the Beilinson fiber square](#ref-2-ammn-20), Theorem 5.1(2), p. 25; Definition 5.5, p. 26;
+Proposition 5.32, pp. 33–34; proof of 5.1(2) and Construction 5.33, pp. 34–35; Construction 6.16 and
+proof of Theorem 6.17, pp. 44–45. Theorem 5.1(2), proved through Proposition 5.32, makes ℤ_p(i) left
+Kan extended from finitely generated p-complete polynomial ℤ_p-algebras, and Construction 5.33
+extends it to simplicial commutative rings; Construction 6.16 factors the graded trace through
+uncompleted LΩ^{≥i} for R∈qSyn_Zp; the proof of Theorem 6.17 lifts a multiple of the completed χ_i
+through LΩ_R with a denominator depending only on i.)
 
 Construction and proof. On quasiregular semiperfectoid covers, the two-degree Postnikov window of
 TC→HC⁻ gives the map into Hodge-completed LΩ^{≥i}. Descend using trace-flat-descent and the syntomic
@@ -11295,7 +11344,7 @@ motivic, cyclic and syntomic graded comparisons. Taking the two-degree window gi
 Hodge-completed weight-n square. Use general quasisyntomic sheaf descent from the existing RT.6
 trace-flat-descent comparison. Factor the graded trace through uncompleted p-derived de Rham by the
 requested left Kan extension of the syntomic functor from p-completed polynomial algebras (AMMN
-Construction 6.16, Theorem 5.1 and proof of 6.17, pp. 44–45). The RT.6/ammn-filtered-interface node
+Construction 6.16, Theorem 5.1 and proof of 6.17, pp. 44–45). The RT.6/ammn-filtered-interface target
 itself depends on RT.3b and cannot be an input. Use the uniform isogeny and the low-degree
 comparison of RT.3b/beilinson-fibre-sequence. Refine to w-strictly local QRSP covers so that π₋₁TC
 vanishes by the Witt Artin–Schreier calculation; the characteristic-p even-TC supplier identifies
@@ -11333,7 +11382,7 @@ trace](#refinedtracemethods-rt-6-uncompleted-graded-trace).
 
 ## Layer RT.6 filtered interface: Exporting the graded trace comparison
 
-This layer constructs exporting the graded trace comparison. Each target below includes the
+This layer exports the graded trace comparison. Each target below includes the
 hypotheses and comparison maps that its consumers require.
 
 <a id="refinedtracemethods-rt-6-ammn-filtered-interface"></a>
@@ -11589,6 +11638,12 @@ global base as the target. The corollary and preceding displayed classifier use 
 Z[β][[t]]-algebra and both finite complexes relative to Z. Here m is any high-powered integer, with
 no fixed prime p. The Z_p base label introduces an unspecified prime and changes the source of the
 transition.
+
+### Cartier modules and cyclotomic spectra: arXiv:1809.01714v2, construction of the map ϑ before Proposition 3.8, p. 19, and Remark 3.9, p. 20 (the same text in v1)
+
+Both places mean the defect map gV_M−V_N g_{hC_p}:M_{hC_p}→N, as displayed just before on p. 19. N
+is the target topological Cartier module and g:M→N the map under consideration; no object n or map f
+occurs in the construction, and only V_N:N_{hC_p}→N and g_{hC_p} make the composite typecheck.
 
 ## References
 
