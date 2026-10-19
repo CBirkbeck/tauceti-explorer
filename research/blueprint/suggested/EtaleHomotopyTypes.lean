@@ -7,9 +7,9 @@ import Mathlib.Analysis.Complex.Basic
 /-!
 # Étale homotopy types and pro-spaces: suggested signatures
 
-This file is a roadmap, not an implementation. The reader document contains
-all targets, hypotheses, APIs, sources and tests. Definitions requiring
-unavailable carriers remain there. In particular this file does not assume
+The reader document is the roadmap: it contains all targets, hypotheses,
+APIs, sources and tests. This file records signatures on existing carriers.
+Definitions requiring unavailable carriers remain there. In particular this file does not assume
 an étale-type, pro-model, p-completion or analytification implementation.
 
 The declarations below use only carriers present at Mathlib 082e2d3 and

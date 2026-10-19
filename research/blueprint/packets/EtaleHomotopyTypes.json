@@ -12,91 +12,166 @@
         "ref": "mathlib:SSet",
         "module": "Mathlib/AlgebraicTopology/SimplicialSet/Basic.lean",
         "provides": "Simplicial sets as presheaves on the simplex category; no pro-space homotopy theory.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:SSet.KanComplex",
         "module": "Mathlib/AlgebraicTopology/SimplicialSet/KanComplex.lean",
         "provides": "The Kan fibrancy predicate, relative to the scoped Quillen morphism properties; not a completed model structure.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:SSet.KanComplex.hornFilling",
         "module": "Mathlib/AlgebraicTopology/SimplicialSet/KanComplex.lean",
         "provides": "Extension over every horn for a Kan complex.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:HomotopicalAlgebra.ModelCategory",
         "module": "Mathlib/AlgebraicTopology/ModelCategory/Basic.lean",
         "provides": "Abstract model-category axioms, including lifting and factorization classes; no instance for the pro-space models used here.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:TopCat.toSSet",
         "module": "Mathlib/AlgebraicTopology/SingularSet.lean",
         "provides": "Native singular simplicial set, with the universe lift of the real standard simplex.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:TopCat.toSSetObjEquiv",
         "module": "Mathlib/AlgebraicTopology/SingularSet.lean",
         "provides": "Singular n-simplices are equivalent to continuous maps from the real standard n-simplex.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:sSetTopAdj",
         "module": "Mathlib/AlgebraicTopology/SingularSet.lean",
         "provides": "Geometric realization is left adjoint to the singular set functor.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:TopCat.toSSetIsoConst",
         "module": "Mathlib/AlgebraicTopology/SingularSet.lean",
         "provides": "For a totally disconnected space the singular set is naturally isomorphic to the constant set.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
         "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
         "provides": "The small étale Grothendieck topology on the existing étale category.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Sheaf.H",
         "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
         "provides": "Native abelian sheaf cohomology, with its sheafification and Ext hypotheses.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:ContinuousMap.evalAlgHom",
         "module": "Mathlib/Topology/ContinuousMap/Algebra.lean",
         "provides": "Evaluation at a point as an algebra homomorphism; the topological semiring and algebra structures are parameters.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:ContinuousMap.compRightAlgHom",
         "module": "Mathlib/Topology/ContinuousMap/Algebra.lean",
         "provides": "Precomposition by a continuous map as an algebra homomorphism on continuous functions.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Ind",
         "module": "Mathlib/CategoryTheory/Limits/Indization/Category.lean",
         "provides": "The existing Ind category, with its size and hom-universe choices. D0 supplies the ordinary dual Pro interface.",
-        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18."
+        "checked": "Actual declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-18.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.diag",
         "module": "Mathlib/CategoryTheory/Products/Basic.lean",
         "provides": "The native diagonal functor C→C×C, used by the light Betti diagonal specialization.",
-        "checked": "Declaration and surrounding namespace read at the pinned Mathlib commit, 2026-10-19."
+        "checked": "Declaration and surrounding namespace read at the pinned Mathlib commit, 2026-10-19.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.uncurry",
         "module": "Mathlib/CategoryTheory/Functor/Currying.lean",
         "provides": "Uncurries a bifunctor C→D→E to C×D→E; its object/map formulas identify diagonal singular simplices.",
-        "checked": "Declaration and surrounding namespace read at the pinned Mathlib commit, 2026-10-19."
+        "checked": "Declaration and surrounding namespace read at the pinned Mathlib commit, 2026-10-19.",
+        "independentReview": {
+          "by": "REV-DESIGN-EtaleHomotopyTypes",
+          "date": "2026-10-19",
+          "result": "Declaration, namespace, type, universes and relevant hypotheses confirmed in the actual pinned Mathlib source; provides only the interface described here."
+        }
       }
     ]
   },
@@ -726,7 +801,7 @@
       "sources": [
         {
           "sourceId": "SS",
-          "locator": "Lemma A.6, pp. 855–856",
+          "locator": "Proposition A.6, pp. 855–856",
           "match": "A homotopy equivalence in the slice of the homotopy category can be transported along a covering; its proof supplies deck equivariance."
         }
       ],
@@ -1668,7 +1743,7 @@
       "sources": [
         {
           "sourceId": "IEt",
-          "locator": "§3, pp. 8–10, definitions of Et and sEt; Propositions 3.1–3.3",
+          "locator": "§3, pp. 8–10, definitions of Et and sEt; Propositions 3.1–3.2 and Theorem 3.3",
           "match": "The simultaneous rigid system and its diagonal differ as pro-objects from merely realizing the degreewise pro-types, although the latter maps by weak equivalence."
         },
         {
@@ -1800,7 +1875,7 @@
       "sources": [
         {
           "sourceId": "SS",
-          "locator": "§2 opening, pp. 822–823; Appendix A.3, pp. 862–866",
+          "locator": "Notation before §2, p. 822; Appendix A.3, pp. 862–866",
           "match": "Separates raw SGA3-type π_1 from its finite-étale completion and invokes Artin–Mazur Theorem 11.1 for geometric-unibranch profiniteness."
         }
       ],
@@ -1835,7 +1910,7 @@
       "sources": [
         {
           "sourceId": "SS",
-          "locator": "Lemma 2.1 and Lemma 2.2, pp. 823–824",
+          "locator": "Lemmas 2.1–2.2 and proofs, pp. 822–823",
           "match": "Refines the rigid index until the finite cover splits on every connected piece; the resulting comparison is an actual pro-isomorphism."
         }
       ],
@@ -1868,7 +1943,8 @@
         "EtaleHomotopyTypes:EH.3/finite-etale-basechange",
         "EtaleHomotopyTypes:EH.3/etale-cohomology",
         "SchemeAndStackFoundations:SF.2/etale-cohomology-limits",
-        "EtaleHomotopyTypes:EH.0/cohomological-detection"
+        "EtaleHomotopyTypes:EH.0/cohomological-detection",
+        "EtaleHomotopyTypes:EH.1/cover-basechange-in-ho"
       ],
       "sources": [
         {
@@ -1878,8 +1954,8 @@
         }
       ],
       "proofSteps": [
-        "Pull the given isomorphism back to every finite separable extension using finite étale base change. Choose lifts compatibly along the finite Galois subsystem.",
-        "Apply cohomology of the rigid type, keeping its local-coefficient homotopy invariance and deck equivariance.",
+        "Apply EH.1 covering base change once to the pro-covering of Et(k) formed by the entire pointed finite Galois extension tower. This supplies an isomorphism of the pulled-back towers compatible with their deck action; unrelated choices of finite-cover lifts would not suffice.",
+        "Apply cohomology of the rigid type to this tower, keeping homotopy invariance for arbitrary constant abelian A and the deck-equivariant projection maps.",
         "Take the filtered colimit of scheme cohomology along the affine field-extension system. SF.2’s limit theorem identifies this with the geometric cohomology, and the deck actions give the actual G_k action."
       ],
       "acceptance": [
@@ -1911,7 +1987,7 @@
       "sources": [
         {
           "sourceId": "SS",
-          "locator": "§2 opening, p. 823; Proposition 2.8, pp. 827–828, invoking Friedlander Theorem 11.5",
+          "locator": "Notation before §2, p. 822; Proposition 2.8, pp. 827–828, invoking Friedlander Theorem 11.5",
           "match": "Supplies the exact geometric hypotheses and cover-system reduction; the cited homotopy-fiber theorem is G5."
         }
       ],
@@ -1974,7 +2050,9 @@
       "title": "Pointed lifts of arithmetic isomorphisms",
       "statement": "Under arithmetic-pointed-lift’s hypotheses, every isomorphism over Et(k) in the unpointed homotopy category has a pointed isomorphism lift over (Et(k),kbar).",
       "hypotheses": [
-        "The connectedness, geometric-unibranch, field and strongly center-free hypotheses of the individual statement."
+        "X and Y are connected finite-type varieties over the same field.",
+        "Y is geometrically connected and geometrically unibranch; X need not be geometrically unibranch.",
+        "Geometric basepoints are chosen over one separably closed extension, as in arithmetic-pointed-lift."
       ],
       "prerequisites": [
         "EtaleHomotopyTypes:EH.4/arithmetic-pointed-lift",
@@ -2005,7 +2083,9 @@
       "title": "Geometric monodromy quotient",
       "statement": "Under arithmetic-pointed-lift’s hypotheses, π_1^et(Y_kbar,y) acts on pointed relative mapping classes, and forgetting points induces a surjection from its orbit set to the unpointed relative Hom set. This action is through the actual underlying abstract geometric fundamental group identified by EH.2, not through its finite quotients one at a time.",
       "hypotheses": [
-        "The connectedness, geometric-unibranch, field and strongly center-free hypotheses of the individual statement."
+        "X and Y are connected finite-type varieties over the same field.",
+        "Y is geometrically connected and geometrically unibranch; X need not be geometrically unibranch.",
+        "Geometric basepoints are chosen over one separably closed extension, as in arithmetic-pointed-lift."
       ],
       "prerequisites": [
         "EtaleHomotopyTypes:EH.4/arithmetic-pointed-lift",
@@ -2043,7 +2123,10 @@
       "title": "Arithmetic orbit bijection",
       "statement": "Under arithmetic-pointed-lift’s hypotheses, if every open subgroup of G_k has trivial center, the geometric orbit surjection is bijective. The center condition is the strongly center-free predicate owned by IG.1, with all open subgroups included.",
       "hypotheses": [
-        "The connectedness, geometric-unibranch, field and strongly center-free hypotheses of the individual statement."
+        "X and Y are connected finite-type varieties over the same field.",
+        "Y is geometrically connected and geometrically unibranch; X need not be geometrically unibranch.",
+        "Geometric basepoints are chosen over one separably closed extension, as in arithmetic-pointed-lift.",
+        "Every open subgroup of the absolute Galois group G_k has trivial center."
       ],
       "prerequisites": [
         "EtaleHomotopyTypes:EH.4/geometric-orbits-surjection",
@@ -2081,7 +2164,10 @@
       "title": "Outer fundamental-group map",
       "statement": "Under arithmetic-pointed-lift’s hypotheses and strongly center-free G_k, applying π_1 to a pointed relative class and quotienting by target geometric conjugation yields a basepoint-independent map from unpointed relative homotopy classes to Hom_out,Gk(π_1^et(X),π_1^et(Y)). Here π_1^et(X) may first be a raw pro-group; because the target is profinite each map factors uniquely through X’s finite-étale profinite completion. This map agrees with the usual outer arithmetic homomorphism of a scheme map.",
       "hypotheses": [
-        "The connectedness, geometric-unibranch, field and strongly center-free hypotheses of the individual statement."
+        "X and Y are connected finite-type varieties over the same field.",
+        "Y is geometrically connected and geometrically unibranch; X need not be geometrically unibranch.",
+        "Geometric basepoints are chosen over one separably closed extension, as in arithmetic-pointed-lift.",
+        "Every open subgroup of the absolute Galois group G_k has trivial center."
       ],
       "prerequisites": [
         "EtaleHomotopyTypes:EH.4/geometric-orbits-bijection",
@@ -2119,7 +2205,10 @@
       "title": "Open-image orbit bijection",
       "statement": "Under arithmetic-pointed-lift’s hypotheses and strongly center-free G_k, the arithmetic orbit bijection restricts to pointed relative classes inducing homomorphisms with open image, modulo π_1(Y_kbar), and unpointed π_1-open relative classes. Openness is tested in the target profinite topology after the finite-étale completion of the source.",
       "hypotheses": [
-        "The connectedness, geometric-unibranch, field and strongly center-free hypotheses of the individual statement."
+        "X and Y are connected finite-type varieties over the same field.",
+        "Y is geometrically connected and geometrically unibranch; X need not be geometrically unibranch.",
+        "Geometric basepoints are chosen over one separably closed extension, as in arithmetic-pointed-lift.",
+        "Every open subgroup of the absolute Galois group G_k has trivial center."
       ],
       "prerequisites": [
         "EtaleHomotopyTypes:EH.4/geometric-orbits-bijection",
@@ -2152,7 +2241,9 @@
       "title": "Maps into products of étale K(pi,1) varieties",
       "statement": "Let k have characteristic zero and strongly center-free G_k. Let Y_1,Y_2 be geometrically connected, geometrically unibranch k-varieties whose raw higher étale homotopy pro-groups vanish. For every k-variety X, projections give a bijection Hom_Ho(Pro(SSet))↓Et(k)(Et(X),Et(Y_1×_kY_2))≅Hom(Et(X),Et(Y_1))×Hom(Et(X),Et(Y_2)).",
       "hypotheses": [
-        "The connectedness, geometric-unibranch, field and strongly center-free hypotheses of the individual statement."
+        "The field k has characteristic zero and every open subgroup of G_k has trivial center.",
+        "Y_1 and Y_2 are geometrically connected and geometrically unibranch, with vanishing raw higher étale homotopy pro-groups.",
+        "X is any finite-type k-variety; its connected components are treated separately."
       ],
       "prerequisites": [
         "EtaleHomotopyTypes:EH.4/geometric-orbits-bijection",
@@ -2365,7 +2456,8 @@
         "EtaleHomotopyTypes:EH.0/pro-space-homotopy-data",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
-        "EnhancedDerivedSheaves:E0"
+        "EnhancedDerivedSheaves:E0",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation"
       ],
       "sources": [
         {
@@ -2375,7 +2467,7 @@
         },
         {
           "sourceId": "BHH",
-          "locator": "Definition 7.3.1 and Proposition 7.3.4, pp. 68–70",
+          "locator": "Definition 7.3.1 and Propositions 7.3.4–7.3.6, pp. 68–70",
           "match": "Identifies the finite test category and its finite homotopy-limit closure."
         }
       ],
@@ -2468,7 +2560,7 @@
         },
         {
           "sourceId": "BHH",
-          "locator": "§7.3, Theorem 7.3.6 and Corollary 7.3.8, pp. 70–71",
+          "locator": "§7.3, Proposition 7.3.6 and Corollary 7.3.8, pp. 70–71",
           "match": "The test localization has underlying infinity-category Pro(Sp_p-fin)."
         },
         {
@@ -2678,7 +2770,9 @@
         "EtaleHomotopyTypes:EH.6/etale-p-realization",
         "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
         "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
-        "EnhancedDerivedSheaves:E0"
+        "EnhancedDerivedSheaves:E0",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets"
       ],
       "sources": [
         {
@@ -3143,7 +3237,7 @@
     {
       "id": "R5",
       "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
-      "need": "Reuse profinite finite-quotient systems and their limits; import the already implemented compactness declarations TauCeti.exists_forall_map_eq_of_compact_t2 and TauCeti.exists_forall_map_eq_of_finite from current Tau Ceti, with explicit transport to native Pro representatives. Those declarations are newer than the pin and are not baseline claims. Add no inverse-system compactness target here. Supply topological finite generation for the pro-p homotopy groups used in DAG XIII.",
+      "need": "Reuse profinite finite-quotient systems and their limits; import the already implemented compactness declarations TauCeti.exists_forall_map_eq_of_compact_t2 and TauCeti.exists_forall_map_eq_of_finite from current Tau Ceti, with explicit transport to native Pro representatives. Those declarations are newer than the pin and are not baseline claims. Add no inverse-system compactness target here.",
       "neededBy": [
         "EtaleHomotopyTypes:EH.2/profinite-derived-limits",
         "EtaleHomotopyTypes:EH.6/p-finite-space",
@@ -3231,6 +3325,27 @@
       ],
       "proposedHome": "EnhancedDerivedSheaves, Part II",
       "status": "open"
+    },
+    {
+      "id": "R13",
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "need": "Import existing Layer 3 pro-p groups and topological finite generation, using current TauCeti.IsTopologicallyFinitelyGenerated in Topology/Algebra/Group/Generation.lean. The native predicate means that a finite subset generates a dense subgroup. Transport that predicate to the profinite groups associated to homotopy pro-groups; do not define it again. This is a current-library integration request, not a declaration claimed at f790474.",
+      "neededBy": [
+        "EtaleHomotopyTypes:EH.6/p-finite-space",
+        "EtaleHomotopyTypes:EH.6/finite-type-cohomology"
+      ],
+      "proposedHome": "ProfiniteProPGroups, existing Layer 3 and current Tau Ceti generation API",
+      "status": "open"
+    },
+    {
+      "id": "R14",
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+      "need": "Import the existing Layer 4 compact Z_p-module and finitely generated abelian pro-p structure interface. Current TauCeti.IsProP.exists_continuousMulEquiv_pi_padicInt_prod_pi_zmod in Topology/Algebra/Group/Profinite/ProP/StructureTheorem.lean supplies the topological decomposition into finitely many Z_p and finite cyclic p-power factors for a compact totally disconnected abelian pro-p group with topological finite generation. Adapt it to higher homotopy groups when invoking DAG XIII Proposition 3.3.8; do not re-plan the group structure theorem or claim it at the pin.",
+      "neededBy": [
+        "EtaleHomotopyTypes:EH.6/finite-type-cohomology"
+      ],
+      "proposedHome": "ProfiniteProPGroups, existing Layer 4 and current Tau Ceti abelian pro-p structure API",
+      "status": "open"
     }
   ],
   "restructure": [
@@ -3273,9 +3388,15 @@
       "searched": [
         "Published PDF and publisher page https://annals.math.princeton.edu/2016/184-3/p05",
         "Jakob Stix publication page https://www.math.uni-frankfurt.de/~stix/publikationen.html",
-        "Targeted Schmidt Stix etale homotopy corrigendum/erratum search, 2026-10-18."
+        "Targeted Schmidt Stix etale homotopy corrigendum/erratum search, 2026-10-18.",
+        "Independent bounded publisher/author-page and targeted correction searches repeated on 2026-10-19; no applicable correction located. No claim of novelty or exhaustive absence."
       ],
-      "origin": "PAPER-SCHMIDT-STIX-16/E9"
+      "origin": "PAPER-SCHMIDT-STIX-16/E9",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published SS PDF, p. 857: the displayed product is a cosimplicial degree, not partial totalization. In the indicated one-arrow discrete diagram, Tot_1 forces the second vertex to be 0; the independent choice 1 in degree zero is excluded.",
+        "by": "REV-DESIGN-EtaleHomotopyTypes"
+      }
     },
     {
       "id": "EtaleHomotopyTypes/E2",
@@ -3290,26 +3411,38 @@
       "searched": [
         "Published PDF and publisher page https://annals.math.princeton.edu/2016/184-3/p05",
         "Jakob Stix publication page https://www.math.uni-frankfurt.de/~stix/publikationen.html",
-        "Targeted Schmidt Stix etale homotopy corrigendum/erratum search, 2026-10-18."
+        "Targeted Schmidt Stix etale homotopy corrigendum/erratum search, 2026-10-18.",
+        "Independent bounded publisher/author-page and targeted correction searches repeated on 2026-10-19; no applicable correction located. No claim of novelty or exhaustive absence."
       ],
-      "origin": "PAPER-SCHMIDT-STIX-16/E10"
+      "origin": "PAPER-SCHMIDT-STIX-16/E10",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published SS PDF, p. 858: the unmarked third-point component of the endpoint-preserving cylinder is Δ[1]. A directed edge has no inverse-edge horn filler, so its projection to a point is not a Kan fibration. Endpoint cofibrancy and projection weak equivalence are the valid cylinder requirements.",
+        "by": "REV-DESIGN-EtaleHomotopyTypes"
+      }
     },
     {
       "id": "EtaleHomotopyTypes/E3",
       "source": "FGV",
       "kind": "error",
-      "locator": "Appendix A.2.2, pp. 307–309, especially the materialization cohomology claim and its use with coproducts",
-      "printed": "The appendix introduces the materialized p-completed realization as retaining the étale finite p-coefficient comparison for simplicial varieties in general, then gives a finite-type condition and uses graded coproducts without an explicit componentwise convention.",
-      "correction": "Use connected H⁰=F_p, H¹=0 and degreewise finite-dimensional cohomology for the connected finite-type criterion. For an infinite specified grading, complete and materialize each summand before taking the ordinary coproduct.",
+      "locator": "Appendix A.2 property (iii), p. 305; A.2.2, pp. 307–309; coproduct application in A.5, pp. 315–316",
+      "printed": "Property (iii) promises the mod-p homology comparison under H¹=0, without the degreewise finiteness qualification. Page 309 explicitly supplies that qualification for materialization. The later application uses infinite graded coproducts without specifying componentwise completion and materialization.",
+      "correction": "Retain page 309’s finiteness requirement. Use connected H⁰=F_p, H¹=0 and degreewise finite-dimensional cohomology for the connected finite-type criterion. For an infinite specified grading, complete and materialize each summand before taking the ordinary coproduct.",
       "reason": "For an infinite discrete scheme, completion is a pro-finite-set system and materialization has ultrafilter points. Arbitrary functions on those points give additional H⁰ classes; the original infinite discrete scheme has only its original components.",
       "affects": "a stated result",
       "known": "Already tracked internally as PAPER-FENG-GALATIUS-VENKATESH-22/E14; no published correction located in the bounded publisher/author-page checks on 2026-10-18. This is not a claim that none exists.",
       "searched": [
         "Published PDF and publisher page https://link.springer.com/article/10.1007/s00222-022-01127-8",
         "Akshay Venkatesh research page https://www.math.ias.edu/~akshay/research.html",
-        "Targeted Feng Galatius Venkatesh symplectic K-theory correction search, 2026-10-18."
+        "Targeted Feng Galatius Venkatesh symplectic K-theory correction search, 2026-10-18.",
+        "Independent bounded publisher/author-page and targeted correction searches repeated on 2026-10-19; no applicable correction located. No claim of novelty or exhaustive absence."
       ],
-      "origin": "PAPER-FENG-GALATIUS-VENKATESH-22/E14"
+      "origin": "PAPER-FENG-GALATIUS-VENKATESH-22/E14",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with the attribution narrowed to property (iii) and the infinite-coproduct application. Page 309 already states degreewise finiteness and is not accused of an unconditional theorem. For countably many discrete points H¹ is zero; completion has finite-partition quotients, materialization has nonprincipal ultrafilter points, and arbitrary F_p-valued functions on this underlying discrete set strictly exceed the continuous functions supplied by the colimit. The specified grading repairs this application without asserting unrestricted coproduct preservation.",
+        "by": "REV-DESIGN-EtaleHomotopyTypes"
+      }
     },
     {
       "id": "EtaleHomotopyTypes/E4",
@@ -3324,9 +3457,15 @@
       "searched": [
         "Published PDF and publisher page https://link.springer.com/article/10.1007/s00222-022-01127-8",
         "Akshay Venkatesh research page https://www.math.ias.edu/~akshay/research.html",
-        "Targeted Feng Galatius Venkatesh symplectic K-theory correction search, 2026-10-18."
+        "Targeted Feng Galatius Venkatesh symplectic K-theory correction search, 2026-10-18.",
+        "Independent bounded publisher/author-page and targeted correction searches repeated on 2026-10-19; no applicable correction located. No claim of novelty or exhaustive absence."
       ],
-      "origin": "local locator check against DAG XIII, pp. 87 and 92"
+      "origin": "local locator check against DAG XIII, pp. 87 and 92",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against both published FGV p. 309 and DAG XIII pp. 87, 92: 3.4.2 concerns orthogonal factorization; 3.4.12 is the finite-type criterion. Proposition 3.3.8 is the separate projection-induced cohomology comparison.",
+        "by": "REV-DESIGN-EtaleHomotopyTypes"
+      }
     },
     {
       "id": "EtaleHomotopyTypes/E5",
@@ -3341,9 +3480,15 @@
       "searched": [
         "Published PDF and publisher page https://link.springer.com/article/10.1007/s00222-022-01127-8",
         "Akshay Venkatesh research page https://www.math.ias.edu/~akshay/research.html",
-        "Targeted Feng Galatius Venkatesh symplectic K-theory correction search, 2026-10-18."
+        "Targeted Feng Galatius Venkatesh symplectic K-theory correction search, 2026-10-18.",
+        "Independent bounded publisher/author-page and targeted correction searches repeated on 2026-10-19; no applicable correction located. No claim of novelty or exhaustive absence."
       ],
-      "origin": "scope correction already present in the accepted FGV route"
+      "origin": "scope correction already present in the accepted FGV route",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof-scope error in published FGV Example A.10, p. 311. The identity of a singular complex curve is smooth and surjective as a scheme morphism, while the analytic space need not be a manifold. Smooth target is enough for the stated submersion proof; the descent conclusion itself is not disproved.",
+        "by": "REV-DESIGN-EtaleHomotopyTypes"
+      }
     }
   ],
   "scope": [
@@ -3360,43 +3505,50 @@
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p05-p.pdf",
       "read": "2026-10-18",
-      "sha256": "6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759"
+      "sha256": "6e9083efdb484e6f3dae456bcb55fa8369e2ab35a727da36809f8611eef70759",
+      "independentlyRead": "2026-10-19"
     },
     {
       "kind": "published",
       "url": "https://link.springer.com/content/pdf/10.1007/s00222-022-01127-8.pdf",
       "read": "2026-10-18",
-      "sha256": "5da9a2b28d13b2b22a262a81650188025020d92238ec2b47404d177ef91d7b4d"
+      "sha256": "5da9a2b28d13b2b22a262a81650188025020d92238ec2b47404d177ef91d7b4d",
+      "independentlyRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0106152v1",
       "read": "2026-10-18",
-      "sha256": "69c32950e1ec896ee87b93f20e069421530b79c287e34818dffdd11d9f625907"
+      "sha256": "69c32950e1ec896ee87b93f20e069421530b79c287e34818dffdd11d9f625907",
+      "independentlyRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0106158v2",
       "read": "2026-10-18",
-      "sha256": "d0b6a79eec8f8983115279bd41016c214aa90dcd148b5443b476593066f6fe0d"
+      "sha256": "d0b6a79eec8f8983115279bd41016c214aa90dcd148b5443b476593066f6fe0d",
+      "independentlyRead": "2026-10-19"
     },
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/math/0404303v1",
       "read": "2026-10-18",
-      "sha256": "ef7fcadbdf16679d73e0107e3e3e3f43985549035874ad57179a17aef91b53d5"
+      "sha256": "ef7fcadbdf16679d73e0107e3e3e3f43985549035874ad57179a17aef91b53d5",
+      "independentlyRead": "2026-10-19"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.univ-paris13.fr/~harpaz/pro_categories.pdf",
       "read": "2026-10-18",
-      "sha256": "cf032b5690844434137945f34a7d82da0673468b83461872dda72bb4f241237b"
+      "sha256": "cf032b5690844434137945f34a7d82da0673468b83461872dda72bb4f241237b",
+      "independentlyRead": "2026-10-19"
     },
     {
       "kind": "author copy",
       "url": "https://www.math.ias.edu/~lurie/papers/DAG-XIII.pdf",
       "read": "2026-10-18",
-      "sha256": "75a4d6d9e5e22c8f1261a09e499c6668ceacb90d6cfaf4a2de4a10e2fe0cd535"
+      "sha256": "75a4d6d9e5e22c8f1261a09e499c6668ceacb90d6cfaf4a2de4a10e2fe0cd535",
+      "independentlyRead": "2026-10-19"
     }
   ],
   "upstreamNotes": [
@@ -3431,14 +3583,301 @@
     "upstreamTargetedReads": [
       "AlgebraicTopology Suggested.lean, Kan/singular/realization targets",
       "ProfiniteProPGroups README, Layer 0 and inverse-system compactness statements",
-      "DifferentialGeometry README, supplied inverse-function and manifold interfaces"
-    ]
+      "DifferentialGeometry README, supplied inverse-function and manifold interfaces",
+      "ProfiniteProPGroups README Layers 3–4 and Suggested.lean native finite-generation abbreviation; actual current generation and abelian pro-p structure declarations"
+    ],
+    "independentReview": {
+      "by": "REV-DESIGN-EtaleHomotopyTypes",
+      "date": "2026-10-19",
+      "confirmedDeclarations": 15,
+      "method": "Read actual pinned source types, reviewed library audit, current roadmaps and current Tau Ceti. The current checkout revisions agree with the recorded hashes. No ready raw étale/pro-space/completion implementation was found in the bounded name searches.",
+      "additionalCurrentImports": [
+        "TauCeti.IsTopologicallyFinitelyGenerated: Topology/Algebra/Group/Generation.lean, finite subset with dense generated subgroup.",
+        "TauCeti.IsProP.exists_continuousMulEquiv_pi_padicInt_prod_pi_zmod: Topology/Algebra/Group/Profinite/ProP/StructureTheorem.lean, compact totally disconnected abelian pro-p group with topological finite generation; existing ProfiniteProPGroups Layer 4."
+      ],
+      "suppliersRead": [
+        "D0/pro-category-of-finite-t0-spaces (size-controlled ordinary Pro, not automatically the required large universe specialization)",
+        "H.1/classifying-space-of-group (discrete BG/EG and nerve interface)",
+        "E0 (general infinity-categorical carrier; coherent Pro extension remains R4)",
+        "E2/hypercover and bounded-below-hypercover-descent (degree-zero matching condition and bounded-below sheaf scope)",
+        "SF.2/etale-cohomology-limits (qcqs affine limits, compatible abelian sheaves; no arbitrary-group torsor descent assumed)",
+        "IG.0/etale-fundamental-group, IG.1/arithmetic-exact-sequence, IG.3 finite-coefficient comparison",
+        "NC.0 raw comparison, smooth-curve, products and elementary-fibration nodes (existing characteristic-zero scope preserved)",
+        "ComplexComparisonPartII C0 and C5 (shared carrier and sheaf/singular comparison)"
+      ],
+      "integration": "ComplexComparison upstream PR 196 was checked OPEN at 4bd72379658126cbe9be935656396f0c9dac4de0 on 2026-10-19; G6 remains open."
+    }
   },
   "leanValidation": {
     "command": "lean-check research/blueprint/suggested/EtaleHomotopyTypes.lean",
     "date": "2026-10-19",
-    "result": "exit 0; six admitted-proof warnings only",
+    "result": "Independent run: exit 0; exactly six admitted-proof warnings, no other warnings or errors.",
     "lines": 74,
-    "scope": "Light real-bodied Betti diagonal and its induced map on existing simplicial topological diagrams; native singular comparison and evaluation signatures. No missing data carrier is postulated."
+    "scope": "Light real-bodied Betti diagonal and its induced map on existing simplicial topological diagrams; native singular comparison and evaluation signatures. No missing data carrier is postulated.",
+    "reviewer": "REV-DESIGN-EtaleHomotopyTypes",
+    "availableMemoryGiB": 78
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-EtaleHomotopyTypes",
+    "date": "2026-10-19",
+    "notes": "Independent review by Codex (GPT-6), session codex-81npMI: all 51 targets, all 15 baseline declarations, source locators, supplier contracts, APIs, tests, dependency graph, granularity, ownership and planets checked. Corrected seven source locators, six arithmetic hypothesis lists, cover-tower proof compatibility and profinite supplier ownership; independently adjudicated all five source findings, narrowing E3 attribution. All seven layers remain planned with G1–G7 explicit; accepted as a complete planning pass, not closed mathematics or implementation.",
+    "checked": [
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.0/pro-space-homotopy-data",
+        "verdict": "verified",
+        "note": "I01 §§4–6: level-represented local systems and pro-local homotopy groups agree; compatible vertices, component test and nontrivial sign monodromy are retained. D0 size extension is explicit R1."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.0/isaksen-model",
+        "verdict": "verified",
+        "note": "I01 Definitions 6.1–6.5, Theorem 6.4 and §§12–16 support the weak-equivalence, cofibration and matching-factorization statements. No functorial factorization or existing pro-model instance is claimed."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.0/properness",
+        "verdict": "verified",
+        "note": "Corrected-properness obligation remains precisely G1; the target matches I01 Proposition 17.1 and SS A.5, but the initial proof is not certified as a replacement for the unread published correction. Strong-fibration/retract interface matches Definition 6.5 and Proposition 6.6."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.0/connected-detection",
+        "verdict": "verified",
+        "note": "I01 Corollary 7.5 and SS A.2.1 give connected pointed detection; source and target connectedness are retained and the pointed/unpointed isomorphism distinction is handled explicitly."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.0/cohomological-detection",
+        "verdict": "verified",
+        "note": "I01 Proposition 18.4 uses π₀, the entire fundamental pro-local system and all abelian local coefficients. Finite constant coefficients are not substituted; native sheaf/singular interfaces retain their suppliers."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/pro-covering",
+        "verdict": "verified",
+        "note": "SS A.1 levelwise pullback covering condition and pro-invariance agree; finite and infinite fibers are distinguished. Three tests exclude fibration-only and finite-only replacements."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/subgroup-covering",
+        "verdict": "verified",
+        "note": "SS Proposition A.2: compatible subgroup pro-system and pointed covering universal property match; subgroup inclusion and its chosen vertex are preserved."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/covering-equivalence",
+        "verdict": "verified",
+        "note": "SS Lemma A.3: homotopy isomorphism induces the covering-category equivalence, with deck compatibility, rather than uniqueness of chosen lifted isomorphisms."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/covering-fibration",
+        "verdict": "verified",
+        "note": "SS Lemma A.4 uses cofinite matching covers and the strong-fibration criterion; arbitrary coverings remain in scope."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/cover-basechange-in-ho",
+        "verdict": "corrected",
+        "note": "Corrected the source label/page locator. SS Proposition A.6 supplies a lift compatible with projections and the specified deck action; its proof uses properness, whose primary correction is explicitly G1. No unconditional uniqueness is added."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/pro-classifying-space",
+        "verdict": "verified",
+        "note": "SS A.3 constructs B*G from quotient translation categories on a cofinite presentation; H.1 supplies the discrete nerve/EG interface, and R9 explicitly requests its surjective-group nerve fibration adapter."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/proBG-full-faithful",
+        "verdict": "verified",
+        "note": "SS Lemma A.15: pointed morphisms of pro-classifying spaces recover pro-group homomorphisms. The B*G fibrant replacement, not naive levelwise fibrancy, supplies the mapping computation."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/classifying-representability",
+        "verdict": "verified",
+        "note": "SS Proposition A.16 applies to connected pointed source and pro-group target; pro-groupoid/one-object equivalence produces a natural pointed bijection."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.1/classifying-morphism",
+        "verdict": "verified",
+        "note": "SS Definition A.17 and Corollary A.18 give the first classifying map and its exact K(pi,1) recognition condition. No claim about arbitrary finite-coefficient asphericity is imported without NC.0’s comparison."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/materialization",
+        "verdict": "verified",
+        "note": "I01 Propositions 8.2, 8.4 and Corollary 8.3 justify derived constant/limit and its homotopy-limit presentation. SS A.2.2 separates path connectivity from pro-connectivity. Actual partial totalization is used; E1 confirmed."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/profinite-derived-limits",
+        "verdict": "verified",
+        "note": "SS Lemma A.7 proves arbitrary small-index finite-group lim¹ and higher abelian limit vanishing by cofinite reindexing and compactness. Current Tau Ceti compact inverse-system declarations are imported through R5, not re-planned."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/profinite-holim-groups",
+        "verdict": "verified",
+        "note": "SS Theorem A.8 states the comparison for all profinite homotopy pro-groups, without degreewise finite models or bounded truncation. The nonabelian fringe, connectivity and complete convergence are explicitly open G2, not inferred from E₂ collapse alone."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/relative-cylinder",
+        "verdict": "verified",
+        "note": "SS A.2.3 cylinder repaired correctly: endpoint cofibration and projection weak equivalence suffice. The unmarked Δ[1] component disproves the printed fibration assertion, E2."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/path-transport",
+        "verdict": "verified",
+        "note": "SS Lemma A.9: endpoint-preserving cylinder homotopies define actual π₁^top target transport and its action law; this is not an action of the raw pro-group level by level."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/unpointed-orbits",
+        "verdict": "verified",
+        "note": "SS Theorem A.10 requires path-connected materialized source and target; the quotient is by the underlying topological fundamental group action."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/unpointed-isomorphism-lift",
+        "verdict": "verified",
+        "note": "SS Corollary A.11 preserves points after suitable transport, and connected detection certifies the lifted isomorphism. It does not assert a preferred lift."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/relative-surjection",
+        "verdict": "verified",
+        "note": "SS Theorem A.13(a): relative pointed lifting requires the stated target-to-base π₁ surjectivity and path-connectedness, with the homotopy-category slice convention retained."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/relative-isomorphism-lift",
+        "verdict": "verified",
+        "note": "SS A.13(a) includes the relative isomorphism consequence; use pointed detection after transport over the base."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.2/relative-orbits",
+        "verdict": "verified",
+        "note": "SS Theorem A.13(b): the stabilizer/preimage quotient is the relative orbit relation; a kernel-only quotient would omit the base stabilizer."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.3/rigid-cover",
+        "verdict": "verified",
+        "note": "IEt Definitions 5.1, 5.3 and Proposition 5.5: separated connected pointed pieces, unique lift-preserving maps and repeated components in rigid pullback all match. Universe control is requested rather than assumed."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.3/rigid-hypercover",
+        "verdict": "verified",
+        "note": "IEt §§6.2–6.4, Propositions 6.10, 6.14, 6.17 include degree-zero matching, degeneracies in rigid limits and finite-degree cofinality; E2 continues to own generic hypercovers."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.3/etale-type",
+        "verdict": "corrected",
+        "note": "Corrected IEt citation to Propositions 3.1–3.2 and Theorem 3.3. Its simultaneous rigid diagonal and weak comparison with realization are distinct, as the source requires; pointed functoriality and size controls remain explicit."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.3/etale-cohomology",
+        "verdict": "verified",
+        "note": "Coefficient range and simplicial finite-coefficient comparison are explicit. IEt’s reliance on Friedlander Proposition 5.9 for arbitrary local systems is honestly open G3; IG.3 finite coefficients cannot discharge it."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.3/fundamental-group-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the source label/page locator. Finite-cover completion interface agrees with IG.0. Raw profiniteness retains noetherian geometric-unibranch hypotheses and unread Artin–Mazur input G4. Field classifying comparison uses those hypotheses, not a new finite-étale group definition."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.3/finite-etale-basechange",
+        "verdict": "corrected",
+        "note": "Corrected SS Lemmas 2.1–2.2 locator to pp. 822–823. Actual pro-isomorphism follows on split rigid refinements, with existence and deck qualifications for homotopy lifts."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.3/geometric-galois-cohomology",
+        "verdict": "corrected",
+        "note": "Made the compatible, deck-equivariant lift explicit by applying EH.1 once to the whole finite Galois cover tower; added its direct prerequisite. SF.2 affine-limit cohomology suffices after constant-coefficient comparison, without claiming arbitrary-group torsor descent. G3 remains necessary for arbitrary A."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.3/elementary-fibration-sequence",
+        "verdict": "corrected",
+        "note": "Corrected the source label/page locator. SS Proposition 2.8’s finite-Galois tower reduction retains characteristic zero, smoothness, affine curve fibers and all primes. Friedlander’s nonproper fiber theorem remains explicit G5; NC.0 owns the resulting K(pi,1) applications."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.4/arithmetic-pointed-lift",
+        "verdict": "verified",
+        "note": "SS Proposition 2.4(a): only Y needs geometric unibranchness and geometric connectedness. Shared separably closed basepoint field and open arithmetic image input are retained."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.4/arithmetic-isomorphism-lift",
+        "verdict": "corrected",
+        "note": "Replaced generic hypothesis boilerplate with exact Proposition 2.4(a) assumptions. Strongly center-free G_k is not needed for this lift."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.4/geometric-orbits-surjection",
+        "verdict": "corrected",
+        "note": "Replaced generic hypothesis boilerplate with exact Proposition 2.4(b) assumptions. Strongly center-free G_k is not needed for surjectivity; the actual abstract geometric group acts."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.4/geometric-orbits-bijection",
+        "verdict": "corrected",
+        "note": "Spelled out Proposition 2.4(c) hypotheses, including trivial centers of every open subgroup. The base stabilizer is killed using open arithmetic image, not an unjustified globally surjective image of X."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.4/outer-map-factorization",
+        "verdict": "corrected",
+        "note": "Spelled out Corollary 2.5 assumptions. Raw-source maps into profinite targets use the finite-étale completion universal property; geometric conjugation and scheme-map compatibility are retained."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.4/open-image-orbits",
+        "verdict": "corrected",
+        "note": "Spelled out Corollary 2.6 assumptions. The open-image predicate lives in the target profinite topology and is invariant under the geometric conjugation quotient."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.4/aspherical-product-maps",
+        "verdict": "corrected",
+        "note": "Spelled out Lemma 2.9 assumptions: characteristic zero, strongly center-free base, two geometrically connected/unibranch raw K(pi,1) targets and arbitrary X. Disconnected X is handled componentwise; IG.1 and NC.0 retain their existing product and example targets."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.5/evaluation-representability",
+        "verdict": "verified",
+        "note": "FGV Lemma A.7: compact Hausdorff test space and quasi-projective analytic carrier suffice. Evaluation gluing keeps supports and localization conditions; native continuous-function algebra supplies the lightweight signatures. Shared analytification remains G6."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.5/betti-diagonal",
+        "verdict": "verified",
+        "note": "FGV Lemma A.8 uses diagonal singular simplices, not just discrete complex points or a degreewise disjoint union. Native singular functor, simplex equivalence and diagonal/uncurry types checked; existing analytic owner is retained."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.5/smooth-cech-descent",
+        "verdict": "verified",
+        "note": "FGV Example A.10 supports the manifold proof after requiring smooth target, E5. Submersion local sections feed requested topological realization descent R12; bounded-below sheaf descent alone is not used as a weak-equivalence theorem."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/p-finite-space",
+        "verdict": "corrected",
+        "note": "Added BHH Proposition 7.3.6 at the finite homotopy-limit closure locator, plus the existing pro-p supplier Layer 3. Uniform truncation, finite components and p-group π₁ tests match FGV/BHH; essential smallness and coherent Pro remain explicit."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/p-profinite-completion",
+        "verdict": "corrected",
+        "note": "Corrected BHH 7.3.6 from Theorem to Proposition. IC test localization and BHH Corollary 7.3.8 support the derived mapping universal property. Strict-model input and Isaksen weak equivalences are kept distinct."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/p-model-comparison",
+        "verdict": "verified",
+        "note": "BHH Theorem 7.1.2 and Corollary 7.3.8 compare the test localization with coherent Pro(p-finite spaces). It is not ordinary Pro(Ho(SSet)); E0’s general localization/Pro extension remains R4."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/etale-p-realization",
+        "verdict": "verified",
+        "note": "FGV A.2.2 completion followed by derived materialization yields a coherent functor. Coherent maps are distinct from strictly chosen point-set functors, explicitly open G7; no unrestricted materialized cohomology claim is made."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/finite-type-cohomology",
+        "verdict": "corrected",
+        "note": "DAG XIII Definition 3.3.2, Proposition 3.3.8, Corollary 3.4.10 and Theorem 3.4.12 checked with their proofs. Added existing ProfiniteProPGroups Layers 3–4 for topological generation and abelian pro-p structure; these are current-library imports rather than new theory. H⁰, H¹ and finiteness conditions are exact."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/graded-etale-p",
+        "verdict": "verified",
+        "note": "Specified grading is part of the input, with grade maps and componentwise completion/materialization before ordinary coproduct. The infinite-discrete counterexample distinguishes it from completing a total coproduct, E3; cohomology products and homology sums agree with the usage."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/comparison-zigzag",
+        "verdict": "verified",
+        "note": "FGV A.2.3 uses evaluation, analytic hypercover refinement and the simultaneous rigid component map. Native diagonal agrees with the existing singular carrier. Coherent naturality is planned; arbitrary strict choices remain G7."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/betti-etale-cohomology",
+        "verdict": "verified",
+        "note": "Finite-coefficient IG.3 and C5 sheaf/singular comparison feed the hypercover cohomology map; the finite-type condition is retained before materialization. Componentwise graded treatment avoids the false unqualified infinite-coproduct extension."
+      },
+      {
+        "nodeId": "EtaleHomotopyTypes:EH.6/automorphism-naturality",
+        "verdict": "verified",
+        "note": "FGV properties (i)–(ii), A.2.2–A.2.3 and (6.2) support algebraic discrete-point naturality for all field automorphisms; only identity/conjugation need analytic maps. Q-descent gives coherent action, with strict point-set action explicitly G7."
+      }
+    ]
   }
 }
