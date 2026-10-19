@@ -68,7 +68,7 @@
     {
       "key": "HSD6",
       "title": "The two geometric correspondences",
-      "description": "Construct endpoint and Frobenius chain correspondences, establish their ordinary/Demazure fibre bounds and bounded-model dimension inequalities, and deduce cordial reduction. Targets: Flag endpoint correspondences, Ordinary and Demazure endpoint fibre estimates, The two chain-space comparisons, Dimension inequality for the chain spaces, Reduction from a shrunken alcove to a cordial family.",
+      "description": "Import generic flag incidence spaces and ordinary/Demazure fibre bounds from GeometricSatakeAndFusion. Construct their Frobenius-graph pullbacks and the five chain spaces, prove bounded-model dimension inequalities, and deduce cordial reduction. Targets: Frobenius endpoint correspondences, The two chain-space comparisons, Dimension inequality for the chain spaces, Reduction from a shrunken alcove to a cordial family.",
       "requires": [
         "HeckeStacksAndLocalShtukasPartII:HSD0",
         "HeckeStacksAndLocalShtukasPartII:HSD1",
@@ -140,7 +140,7 @@
       "edition": "arXiv:1511.01386v3, 21 November 2016; survey corresponding to Current Developments in Mathematics 2015",
       "url": "https://arxiv.org/pdf/1511.01386",
       "readSections": [
-        "Theorems 2.23–2.31, PDF pp. 34–39; check dimension normalization and the shrunken basic theorem."
+        "Theorem 2.23, PDF p. 34; §2.9.4 and Theorem 2.27, pp. 36–37; Theorem 2.30, p. 38."
       ],
       "accessed": "2026-10-19",
       "sha256": "f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc"
@@ -162,7 +162,7 @@
       "title": "Generic Newton points and the Newton poset in Iwahori-double cosets",
       "authors": "Elizabeth Milićević and Eva Viehmann",
       "edition": "Forum of Mathematics, Sigma 8 (2020), e50; published author-hosted copy, DOI 10.1017/fms.2020.46",
-      "url": "https://mediatum.ub.tum.de/doc/1600930/1600930.pdf",
+      "url": "https://mediatum.ub.tum.de/doc/1600930/file.pdf",
       "readSections": [
         "§3.1, PDF pp. 5–8; Definition 3.14, Theorem 3.16 and proof, Corollary 3.17, PDF pp. 9–10."
       ],
@@ -176,7 +176,7 @@
       "edition": "arXiv:1211.3784; published Annales scientifiques de l’ÉNS 48 (2015), 647–665; corrected by the separate erratum",
       "url": "https://arxiv.org/pdf/1211.3784",
       "readSections": [
-        "Definition 3.3 and Theorem 3.3.1, PDF pp. 10–11; §§3.5–3.6, PDF pp. 13–15."
+        "Theorems A and B, PDF p. 3; Definition 3.3 and Theorem 3.3.1, pp. 10–11; §§3.5–3.6, pp. 13–15."
       ],
       "accessed": "2026-10-19",
       "sha256": "c2293924bff455023796da17c56de70dea547d0e1b6dc41f06ab4216aca135f0"
@@ -200,7 +200,7 @@
       "edition": "arXiv:math/0504443; Annales scientifiques de l’ÉNS 39 (2006), 467–511",
       "url": "https://arxiv.org/pdf/math/0504443",
       "readSections": [
-        "Proposition 5.3.1, PDF pp. 19–20; Lemma 5.4.3, PDF pp. 27–28; Proposition 5.6.1 and Theorem 5.8.1 with proofs, PDF pp. 29–32."
+        "Proposition 5.3.1 and proof, PDF pp. 19–21; Lemma 5.4.3, pp. 27–28; Corollary 5.4.4, Proposition 5.6.1 and Theorem 5.8.1 with proofs, pp. 29–32."
       ],
       "accessed": "2026-10-19",
       "sha256": "bd8387fb533dd8340921e6e89b4004c86ce255b06bdcfa865a35addada7e6943"
@@ -222,9 +222,9 @@
       "title": "The dimension of affine Deligne–Lusztig varieties in the affine Grassmannian",
       "authors": "Paul Hamacher",
       "edition": "International Mathematics Research Notices 2015, 12804–12839; published author-hosted copy",
-      "url": "https://mediatum.ub.tum.de/doc/1319937/file.pdf",
+      "url": "https://mediatum.ub.tum.de/doc/1319937/1319937.pdf",
       "readSections": [
-        "Theorem 2.1 and §2, pp. 12806–12812, including the proof of Proposition 2.9; §3 setup, pp. 12813–12815."
+        "Theorem 1.1 and conventions, pp. 12804–12805; all of §2, pp. 12806–12812; §3 setup, pp. 12813–12815."
       ],
       "accessed": "2026-10-19",
       "sha256": "dbfc2cebd3477d0e13eb710876531db3d3fecedecc6e118bf1b9d0401e0961e0"
@@ -248,7 +248,7 @@
       "edition": "Annals of Mathematics 179 (2014), 1009–1040; published version",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n3-p03-p.pdf",
       "readSections": [
-        "Introduction and conventions, pp. 1009–1011; Proposition 5.5 and Corollary 5.6, pp. 1027–1028."
+        "Introduction and conventions, pp. 1009–1011; Proposition 5.5 and Corollary 5.6 with proof, pp. 1026–1028."
       ],
       "accessed": "2026-10-19",
       "sha256": "453cba0430ce4b94d51ea1e7eb3cf74ba11102d7f624b2fa739cc681b4709bf1"
