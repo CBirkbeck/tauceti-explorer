@@ -150907,6 +150907,143 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroNumberFields~adv.md"
+  },
+  {
+   "id": "FIX-PKG-PeriodsAndSpecialValues~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PeriodsAndSpecialValues"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-PeriodsAndSpecialValues~adv.md",
+    "research/blueprint/packages/PeriodsAndSpecialValues/review.json",
+    "research/blueprint/packages/PeriodsAndSpecialValues/README.md",
+    "research/blueprint/packages/PeriodsAndSpecialValues/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-PeriodsAndSpecialValues~adv.md"
+  },
+  {
+   "id": "REV-PKG-IntegralIwasawaTheory~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "IntegralIwasawaTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-IntegralIwasawaTheory~adv.md",
+    "research/blueprint/packages/IntegralIwasawaTheory/review.json",
+    "research/blueprint/packages/IntegralIwasawaTheory/README.md",
+    "research/blueprint/packages/IntegralIwasawaTheory/Suggested.lean",
+    "research/blueprint/packages/IntegralIwasawaTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-IntegralIwasawaTheory~adv.md"
+  },
+  {
+   "id": "REV-PKG-KTheoryLowDegrees~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "KTheoryLowDegrees"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-KTheoryLowDegrees~adv.md",
+    "research/blueprint/packages/KTheoryLowDegrees/review.json",
+    "research/blueprint/packages/KTheoryLowDegrees/README.md",
+    "research/blueprint/packages/KTheoryLowDegrees/Suggested.lean",
+    "research/blueprint/packages/KTheoryLowDegrees/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryLowDegrees~adv.md"
+  },
+  {
+   "id": "BP-PadicHodgeRegulators~2",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PadicHodgeRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/packets/PadicHodgeRegulators.json",
+    "research/blueprint/readmes/PadicHodgeRegulators.md",
+    "research/blueprint/suggested/PadicHodgeRegulators.lean",
+    "research/blueprint/handoff/BP-PadicHodgeRegulators~2.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators~2.md",
+   "scope": [
+    "PadicHodgeRegulators:D.1",
+    "PadicHodgeRegulators:D.2",
+    "PadicHodgeRegulators:D.3",
+    "PadicHodgeRegulators:D.4",
+    "PadicHodgeRegulators:D.5",
+    "PadicHodgeRegulators:L0",
+    "PadicHodgeRegulators:L1",
+    "PadicHodgeRegulators:L2",
+    "PadicHodgeRegulators:L3",
+    "PadicHodgeRegulators:L4"
+   ],
+   "after": [
+    "REV-PadicHodgeRegulators~1"
+   ],
+   "revisionOf": "BP-PadicHodgeRegulators"
+  },
+  {
+   "id": "REV-PadicHodgeRegulators~2",
+   "kind": "review",
+   "priority": 1,
+   "order": 210000,
+   "roadmapIds": [
+    "PadicHodgeRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PadicHodgeRegulators~2.md",
+    "research/blueprint/packets/PadicHodgeRegulators.json",
+    "research/blueprint/readmes/PadicHodgeRegulators.md",
+    "research/blueprint/suggested/PadicHodgeRegulators.lean"
+   ],
+   "after": [
+    "BP-PadicHodgeRegulators~2"
+   ],
+   "avoidAccountOf": "BP-PadicHodgeRegulators~2",
+   "independentOf": [
+    "BP-PadicHodgeRegulators",
+    "BP-PadicHodgeRegulators~2"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-HabiroNahmSeries~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroNahmSeries"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-HabiroNahmSeries~adv.md",
+    "research/blueprint/packages/HabiroNahmSeries/review.json",
+    "research/blueprint/packages/HabiroNahmSeries/README.md",
+    "research/blueprint/packages/HabiroNahmSeries/Suggested.lean",
+    "research/blueprint/packages/HabiroNahmSeries/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-HabiroNahmSeries~adv.md"
   }
  ]
 }
