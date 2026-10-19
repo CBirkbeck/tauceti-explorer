@@ -5198,5 +5198,7 @@
  "REV-PadicHodgeRegulators~2": 11097,
  "PKG-EisensteinIdealAndRationalTorsion~codex": 11108,
  "PKG-LawrenceVenkateshMethod~codex": 11109,
- "PKG-RelativeJacobiansAndIntegralCurveModels~codex": 11110
+ "PKG-RelativeJacobiansAndIntegralCurveModels~codex": 11110,
+ "PKG-PeriodsAndSpecialValues~2": 11113,
+ "REV-PKG-PeriodsAndSpecialValues~2": 11114
 }
