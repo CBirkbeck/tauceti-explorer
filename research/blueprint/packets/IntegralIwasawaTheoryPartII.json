@@ -76,7 +76,7 @@
         "ref": "mathlib:NumberField.Units.finrank_eq",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Units/DirichletTheorem.lean",
-        "provides": "The rational rank of the ring-of-integers unit group equals the number-field unit rank; this is the existing Dirichlet unit theorem, not the new odd p-unit valuation isomorphism.",
+        "provides": "The statement is finrank ℤ (Additive (𝓞 K)ˣ)=NumberField.Units.rank K for a number field K. This existing Dirichlet unit-rank theorem supplies the rank calculation after rationalization; it is not the new odd p-unit valuation isomorphism.",
         "checked": "Statement and defining hypotheses read in the pinned source at the recorded commit on 2026-10-19; the declaration index was used only to locate the file."
       },
       {
@@ -187,6 +187,18 @@
         "§2.1, pp. 4–5",
         "§4.1–§4.2, pp. 14–20, including Theorem 2 and its construction"
       ]
+    },
+    {
+      "id": "V15-published",
+      "title": "On the rank one abelian Gross–Stark conjecture",
+      "authors": "Kevin Ventullo",
+      "edition": "Commentarii Mathematici Helvetici 90 (2015), 939–963; publisher version, consulted only for the §4.2 internal-reference comparison",
+      "url": "https://ems.press/content/serial-article-files/43407",
+      "sha256": "fe74167d26f558a24d74a56021383756a42d14447df7d53676521b8cedbbff0f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4 opening and §4.1 reduction, pp. 955–956; §4.2 conclusion, p. 961"
+      ]
     }
   ],
   "nodes": [
@@ -260,17 +272,17 @@
       "tests": [
         {
           "name": "GrossStark.Data.ramified_dyadic",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For F=Q, H=Q(i), χ the odd quadratic character and p=2, χ(2)=0 and R is empty."
         },
         {
           "name": "GrossStark.Data.split_five",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For the same H and p=5, R={(5)} and r=1."
         },
         {
           "name": "GrossStark.Data.inert_three",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For the same H and p=3, χ(3)=−1, R is empty and R′={(3)}."
         }
       ],
@@ -365,17 +377,17 @@
       "tests": [
         {
           "name": "GrossStark.pUnits.torsion",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "Every root of unity has zero image under both o_p and ℓ_p and dies in U⊗E."
         },
         {
           "name": "GrossStark.pUnits.dyadic_projector",
-          "kind": "discriminating",
+          "kind": "non-example",
           "statement": "At p=2 the rationalized projector (1−c)/2 is defined over E; no such integral Z_2-idempotent is asserted."
         },
         {
           "name": "GrossStark.pUnits.sign",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For H=Q(i), p=5 and u=(2+i)/(2−i), at P=(2+i) the valuation is 1 and the signed logarithm is −log_5(u under H_P≅Q_5)."
         }
       ],
@@ -423,7 +435,7 @@
       "sources": [
         {
           "sourceId": "DKV18",
-          "locator": "§1, pp. 835–836; §1.2, p. 838",
+          "locator": "§1, (5)–(6), pp. 835–836; §1.1, pp. 837–838",
           "match": "The rational valuation isomorphism and the component dimension imply the nonzero valuation determinant."
         }
       ],
@@ -470,7 +482,7 @@
       "sources": [
         {
           "sourceId": "DKV18",
-          "locator": "§1, (5), p. 836; §1.2, (8)–(10), p. 838",
+          "locator": "§1, regulator definition following (6), p. 836; §1.1, (8), p. 838",
           "match": "The invariant determinant and its coordinate ratio determine the sign and the choice-independent regulator."
         }
       ],
@@ -513,22 +525,22 @@
       "tests": [
         {
           "name": "GrossStark.regulator.rank_zero",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "For 0×0 O and L, the regulator is 1."
         },
         {
           "name": "GrossStark.regulator.rank_one",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For O=(2), L=(3) over Q_5, the matrix regulator is −3/2."
         },
         {
           "name": "GrossStark.regulator.rank_two",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For O=diag(2,3) and L=diag(5,7) over Q_5, the matrix regulator is 35/6; changing both columns by diag(4,1) preserves it."
         },
         {
           "name": "GrossStark.regulator.singular",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "For O=I_2 and L with equal rows, the regulator is 0."
         }
       ],
@@ -625,22 +637,22 @@
       "tests": [
         {
           "name": "GrossStark.analytic.constant",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "For a constant germ f=D≠0 and r=0 the normalized coefficient is 1."
         },
         {
           "name": "GrossStark.analytic.factorial",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For f(z)=6Dz² and r=2, the normalized coefficient is 6, not 12."
         },
         {
           "name": "GrossStark.analytic.higher_zero",
-          "kind": "discriminating",
+          "kind": "non-example",
           "statement": "For f(z)=Dz³ and r=2 the rank-r invariant is 0, whereas the first leading term is 1."
         },
         {
           "name": "GrossStark.analytic.dyadic",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "At p=2, the unit −1 has ω(−1)=−1 and principal part 1; its logarithm is 0."
         }
       ],
@@ -670,7 +682,7 @@
       ],
       "proofSteps": [
         "Choose c by the ray-class/prime correspondence so the smoothing factor is nonzero at zero. Use the supplier’s Eisenstein-cocycle realization of that smoothed Deligne–Ribet measure and its Mellin identity.",
-        "For r exceptional primes, choose totally positive π_i generating positive powers of their ray ideal classes. Set T=⟨π_i⟩ and U=E_+×T. In the space C_c^♭ of compactly supported functions constant near zero in exceptional coordinates, use the free C_p[T]-module resolution and Hochschild–Serre edge isomorphism of CD14 Theorem 5.1. These are homological consequences of induced-function decompositions, with no odd-prime assumption.",
+        "For r exceptional primes, choose totally positive π_i generating positive powers of their ray ideal classes. Set T=⟨π_i⟩ and U=E_+×T. In the space C_c^♭ of compactly supported functions constant near zero in exceptional coordinates, the induced-function decomposition of CD14 Lemma 5.3 makes this a free C_p[T]-module. Thus H_q(T,C_c^♭)=0 for q>0, and the Hochschild–Serre spectral sequence gives the edge isomorphism of Theorem 5.1. These homological steps have no odd-prime assumption.",
         "CD14 Theorem 5.2: for k<r, expand (∑ℓ_q(x_q))^k. In each monomial an exceptional coordinate is absent; the difference (1−π_i) on the corresponding box writes it in the T-augmentation ideal, with lower-degree errors handled inductively. Its homology class therefore vanishes.",
         "Pair with the supplied measure cocycle to obtain vanishing of derivatives of orders k<r (CD14 (79)–(84)). Divide by the smoothing unit. The main-conjecture alternative from the parent I.5 applies only at odd p and is not used for p=2."
       ],
@@ -821,22 +833,22 @@
       "tests": [
         {
           "name": "GrossStark.restrictedH1.zero",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "The zero cocycle lies in H_R^1 for every R."
         },
         {
           "name": "GrossStark.restrictedH1.local_coboundary",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "Every coboundary restricts to the zero function at q∈R since χ|G_q=1."
         },
         {
           "name": "GrossStark.restrictedH1.topology",
-          "kind": "discriminating",
+          "kind": "non-example",
           "statement": "For G=Z_p acting trivially on E, the inclusion Z_p→E represents a nonzero continuous class; replacing E by a discrete coefficient topology loses it."
         },
         {
           "name": "GrossStark.restrictedH1.local_valuation",
-          "kind": "discriminating",
+          "kind": "compatibility",
           "statement": "Under reciprocity, o_q(ϖ)=1 and o_q(a)=0 for every local unit a, whereas ℓ_q can be nonzero on a principal unit."
         }
       ],
@@ -859,7 +871,7 @@
       ],
       "title": "Kummer description of the dual local condition",
       "kind": "comparison",
-      "statement": "The rationalized Kummer map identifies U_χ with the subgroup of H^1(G_F,E(χ)(1)) with local unit-Kummer condition at every finite q∉R. Locally it identifies the completed multiplicative group with H^1(G_{H_P},E(1)); at q∉R the class is in the local condition orthogonal to the unramified condition on E(χ^{-1}). With the pairing ordered as H^1(E(χ^{-1})) first and H^1(E(χ)(1)) second, the cup-product/invariant pairing with the Kummer image of u is a fixed universal sign times evaluation at u under the chosen reciprocity convention.",
+      "statement": "The rationalized Kummer map identifies U_χ with the subgroup of H^1(G_F,E(χ)(1)) with local unit-Kummer condition at every finite q∉R. Locally it identifies (lim_n H_P^×/(H_P^×)^{p^n})⊗_{Z_p}E with H^1(G_{H_P},E(1)), using the additive form of the multiplicative completion; at q∉R the class is in the local condition orthogonal to the unramified condition on E(χ^{-1}). With the pairing ordered as H^1(E(χ^{-1})) first and H^1(E(χ)(1)) second, the cup-product/invariant pairing with the Kummer image of u is a fixed universal sign times evaluation at u under the chosen reciprocity convention.",
       "hypotheses": [
         "The global arithmetic conventions of this packet apply.",
         "Inverse limits are formed before inverting p; do not replace the p-adic completion of units by the uncompleted group."
@@ -1100,17 +1112,17 @@
       "tests": [
         {
           "name": "GrossStark.cyclotomicH1.zero",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "The zero class has every x_j=y_j=0."
         },
         {
           "name": "GrossStark.cyclotomicH1.unramified",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "If every logarithm coefficient is zero, the class is zero by inertia injectivity; arbitrary valuation-coordinate tuples are not global classes."
         },
         {
           "name": "GrossStark.cyclotomicH1.two_coordinates",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For a local homomorphism 2o_j+3ℓ_j, the extracted coefficients are (2,3), not the reversed pair."
         }
       ],
@@ -1206,7 +1218,7 @@
       "sources": [
         {
           "sourceId": "DKV18",
-          "locator": "§1.2, (11)–(12), p. 839",
+          "locator": "§1.2, unnumbered definition of the algebraic invariant, p. 839",
           "match": "The ratio of local coefficient determinants is the algebraic invariant."
         }
       ],
@@ -1239,17 +1251,17 @@
       "tests": [
         {
           "name": "GrossStark.algebraicInvariant.rank_one",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For X=(2), Y=(3), the value is 2/3."
         },
         {
           "name": "GrossStark.algebraicInvariant.empty",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "For the zero space it is 1."
         },
         {
           "name": "GrossStark.algebraicInvariant.scaled_basis",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For X=diag(2,5), Y=diag(3,7), multiplying both on the left by diag(4,1) leaves the value 10/21."
         }
       ],
@@ -1297,7 +1309,7 @@
       "sources": [
         {
           "sourceId": "DKV18",
-          "locator": "§1.2, (13), pp. 839–840",
+          "locator": "§1.2, unnumbered comparison following Proposition 1, p. 839",
           "match": "Orthogonality identifies the cohomological invariant with Gross’s signed regulator."
         }
       ],
@@ -1379,17 +1391,17 @@
       "tests": [
         {
           "name": "GrossStark.weightCoordinate.dyadic",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "At p=2, u=5 and the principal part of −1 is 1, so ε of a cyclotomic value −1 equals 1."
         },
         {
           "name": "GrossStark.weightCoordinate.first_derivative",
-          "kind": "discriminating",
+          "kind": "compatibility",
           "statement": "The germ π has first k-derivative 1, while T has first derivative log_p(u)."
         },
         {
           "name": "GrossStark.weightCoordinate.reflection",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "If f(z)=a z²+b z³+O(z⁴), then f(1−k) has leading π² coefficient a; a first-order term changes sign."
         }
       ],
@@ -1412,11 +1424,12 @@
       ],
       "title": "Eisenstein and ordinary-family dictionary",
       "kind": "comparison",
-      "statement": "Transport the supplied ordinary Hilbert modules M^o(n,χ), S^o(n,χ), full/cuspidal Hecke algebras T̃,T and q-expansions to this weight convention. Write E(1,χ), E(χ,1) for the two supplied ordinary Eisenstein families. The first has away-from-np eigenvalue 1+χε(l), the second χ(l)+ε(l). The first has every standard-cusp constant 2^{−[F:Q]}ℒ_χ. At weight one both stabilize to E_1(1,χ_S), where S is all primes above p. For R′⊆J⊆S, the imprimitive classical series satisfy (U_q−1)E_1(1,χ_J)=E_1(1,χ_{J∪{q}}) when q∉J and 0 when q∈J.",
+      "statement": "Transport the supplied ordinary Hilbert modules M^o(n,χ), S^o(n,χ), full/cuspidal Hecke algebras T̃,T and q-expansions to this weight convention. The supplied ordinary family E(1,χ) has away-from-np eigenvalue 1+χε(l), every standard-cusp constant 2^{−[F:Q]}ℒ_χ, and weight-one specialization E_1(1,χ_S), where S is all primes above p. When R′=∅, also use the ordinary family E(χ,1), with eigenvalue χ(l)+ε(l) and the same weight-one specialization. For R′⊆J⊆S, the imprimitive classical series satisfy (U_q−1)E_1(1,χ_J)=E_1(1,χ_{J∪{q}}) when q∉J and 0 when q∈J.",
       "hypotheses": [
         "The global arithmetic conventions of this packet apply.",
         "The conductor/tame-level convention is that of DKV18; the supplier must include imprimitive Euler deletions and all standard cusps.",
-        "For the primitive level-one weight-one series, include both constant-term contributions L(χ,0) and χ^{-1}(λ)L(χ^{-1},0); the single-term formula does not cover this exception."
+        "For the primitive level-one weight-one series, include both constant-term contributions L(χ,0) and χ^{-1}(λ)L(χ^{-1},0); the single-term formula does not cover this exception.",
+        "The paired ordinary family E(χ,1) and its common weight-one specialization are required only when R′=∅; no such ordinary common specialization is asserted for general R′."
       ],
       "proofSteps": [
         "Match the supplied Fourier coefficient formula ∑_{a|b,(a,modulus)=1}η(a)Na^{k−1} and its two-character version to ν_k.",
@@ -1443,7 +1456,7 @@
       "sources": [
         {
           "sourceId": "DKV18",
-          "locator": "§3.1–§3.3, pp. 847–851, especially footnote 6 and (35)",
+          "locator": "§3.1–§3.3, pp. 847–851, especially footnote 6 and (35); §3.4, p. 854",
           "match": "The required specialization, Fourier coefficients, constants and stabilization identities are fixed by these formulas."
         }
       ],
@@ -1529,17 +1542,17 @@
       "tests": [
         {
           "name": "GrossStark.ventulloFamily.constant_qexp",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "At weight zero every positive Fourier coefficient is zero and the constant coefficient is 1; a zero family fails."
         },
         {
           "name": "GrossStark.ventulloFamily.every_cusp",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "For a totally real field with more than one narrow ideal class, the constant at each indexed standard cusp is 1, not only at one selected cusp."
         },
         {
           "name": "GrossStark.ventulloFamily.shift_at_one",
-          "kind": "discriminating",
+          "kind": "compatibility",
           "statement": "The shift at weight one evaluates G at T=u^{-1}−1, its weight-zero point; the unshifted G does not meet this identity by definition."
         }
       ],
@@ -1666,17 +1679,17 @@
       "tests": [
         {
           "name": "GrossStark.semicuspFamily.case_one",
-          "kind": "discriminating",
+          "kind": "compatibility",
           "statement": "For R′ nonempty its ν_1-value is the nonzero ordinary stabilized Eisenstein series, since s≥1."
         },
         {
           "name": "GrossStark.semicuspFamily.w_minus_one",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "For R′ empty and w=−1 its ν_1-value is zero; an asserted universal nonzero specialization fails."
         },
         {
           "name": "GrossStark.semicuspFamily.odd_order_sign",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For s=1 the leading subtracted correction is −L*_an(χ)πE_{R′}; for s=2 its sign is positive."
         }
       ],
@@ -1704,21 +1717,22 @@
         "The global arithmetic conventions of this packet apply."
       ],
       "proofSteps": [
-        "Use the supplied Eisenstein decomposition of the boundary of ordinary Hilbert forms and the standard-cusp-zero condition on F̃.",
-        "Separate the remaining boundary eigensystems from the weight-one E_S eigensystem by away-from-np Hecke operators, using the prime-selection input. Form their product and normalize its nonzero eigenvalue on E_S to 1.",
+        "Use the supplied Eisenstein decomposition of the ordinary boundary and the vanishing of the standard-cusp constants of F̃. For the two boundary systems indexed by η=1 and η=χ, the standard-cusp equations remove the first; when R′=∅, the paired-family cancellation in F̃ removes the second as well. Use Ventullo’s family from the preceding construction, so this step imports no Leopoldt assumption from DDP11.",
+        "For the other boundary systems, η≠1,χ, choose away-from-np Hecke operators separating their weight-one eigensystems from E_S by Chebotarev. In Case 1 the η=χ system can have the same away-from-np eigenvalues as E_S: if it survives the ordinary projector, choose q∈R′ and use U_q−χ(q), which kills that boundary system and acts on E_S by 1−χ(q)≠0. If it is nonordinary it was already killed by e. Multiply the separating operators and normalize their nonzero E_S eigenvalue to 1.",
         "The resulting t kills the boundary of eF̃. Commutativity lets every Hecke congruence and leading correction pass through t e; ν_1(t)E_S=E_S preserves the top stabilization term."
       ],
       "acceptance": [
         "The equation ν_1(t)E_S=E_S is essential; t=0 is not a valid choice.",
         "Use the stronger normalized version retained in arXiv v1, not merely the published existence statement.",
         "On the finite weight-one generalized Eisenstein stabilization space the normalized t has eigenvalue 1 plus nilpotent terms, so is invertible; this preserves the independence used in all three Hecke-image proofs.",
-        "On the finite weight-one generalized Eisenstein stabilization space the normalized t has eigenvalue 1 plus nilpotent terms, so is invertible; this preserves the independence used in all three Hecke-image proofs."
+        "In Case 1, a surviving η=χ boundary family is removed using a U_q operator for q∈R′; away-from-np operators alone do not distinguish its weight-one eigenvalues from E_S."
       ],
       "prerequisites": [
         "IntegralIwasawaTheoryPartII:GS.2/semicusp-family",
         "IntegralIwasawaTheoryPartII:GS.2/eisenstein-dictionary",
         "PadicFamilies:L5",
-        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "AutomorphicPadicLFunctions:L3"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/GrossStark/WeightOne",
@@ -1737,8 +1751,8 @@
         },
         {
           "sourceId": "DDP11",
-          "locator": "Corollary 2.10, pp. 469–470; Propositions 3.3–3.4 and Lemma 3.5, pp. 472–474",
-          "match": "Boundary decomposition and Hecke separation give the normalized projection."
+          "locator": "Lemma 2.9 and Corollary 2.10, pp. 469–470; Propositions 3.3–3.4 and Lemma 3.5, pp. 472–474",
+          "match": "The boundary decomposition and separation argument supplies the linear algebra, including U_q separation in Case 1; the auxiliary family is supplied by V15 rather than the Leopoldt-dependent input in DDP11."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1815,17 +1829,17 @@
       "tests": [
         {
           "name": "GrossStark.caseOneRing.rank_one",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For r=s=1, ε_1=aπ and W₁≅E[π]/π²."
         },
         {
           "name": "GrossStark.caseOneRing.excess_order",
-          "kind": "discriminating",
+          "kind": "non-example",
           "statement": "For r=1,s=2, ε_1=−aπ²; in m/m² its class is zero although ε_1 is nonzero in W₁."
         },
         {
           "name": "GrossStark.caseOneRing.disjoint_products",
-          "kind": "discriminating",
+          "kind": "non-example",
           "statement": "For r=2, ε_1²=0 but ε_1ε_2=(−1)^{s+1}aπ^s is nonzero; setting all products to zero is wrong."
         }
       ],
@@ -1908,17 +1922,17 @@
       "tests": [
         {
           "name": "GrossStark.caseTwoRing.dual_numbers",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For r=s=1 and w≠0,−1, y=wπ/(1+w) and ε_1=aπ/(1+w)."
         },
         {
           "name": "GrossStark.caseTwoRing.minus_one",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "For w=−1, π^s=0 but y^s≠0 and (π−y)^s=−y^s≠0."
         },
         {
           "name": "GrossStark.caseTwoRing.top_difference",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "For any w≠0, π^s−y^s=y^s/w; replacing the difference by π^s loses the w=−1 case."
         }
       ],
@@ -2001,17 +2015,17 @@
       "tests": [
         {
           "name": "GrossStark.caseThreeRing.small",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For r=t=1,s=2, y=cπ² and ε_1=−aπ²; the ring has basis 1,π,π²."
         },
         {
           "name": "GrossStark.caseThreeRing.filtration",
-          "kind": "discriminating",
+          "kind": "non-example",
           "statement": "In that example y is nonzero but its class in m/m² is zero; its class in yW₃/y²W₃ is nonzero."
         },
         {
           "name": "GrossStark.caseThreeRing.inverse_sign",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For s=t+1, c=−a/L*_an(χ^{-1}); the inverse-character top-product formula has sign (−1)^{t+1}."
         }
       ],
@@ -2133,7 +2147,7 @@
       "sources": [
         {
           "sourceId": "DKV18",
-          "locator": "Theorem 3.8, p. 856; §5.2, pp. 869–870",
+          "locator": "Theorem 3.8, p. 856; §5.2, pp. 867–868",
           "match": "The quotient basis and y-adic line are the algebra needed in the unequal-order argument."
         }
       ],
@@ -2216,17 +2230,17 @@
       "tests": [
         {
           "name": "GrossStark.fourierHeckeOrbit.zero_action",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "An operator killing F kills its entire orbit by Hecke commutativity."
         },
         {
           "name": "GrossStark.fourierHeckeOrbit.truncation",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "The operator π^{s+1} acts as zero, while the top terms used in the normal-form proofs remain visible."
         },
         {
           "name": "GrossStark.fourierHeckeOrbit.Y_denominator",
-          "kind": "discriminating",
+          "kind": "non-example",
           "statement": "If χ(q)=1 the displayed denominator is not a unit and that q is inadmissible; if χ(q)≠1 it has the stated nonzero residue."
         }
       ],
@@ -2542,18 +2556,18 @@
       "tests": [
         {
           "name": "GrossStark.arithmeticExtensionData.twist",
-          "kind": "discriminating",
+          "kind": "compatibility",
           "statement": "A raw relation b̄(στ)=b̄(τ)+b̄(σ)χ(τ) becomes the displayed left-action cocycle only after multiplication by χ^{-1}(στ)."
         },
         {
           "name": "GrossStark.arithmeticExtensionData.coboundary_normalization",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "If κ=(χ^{-1}−1)v, its value at τ forces v=0 since χ(τ)≠1; then κ is the zero function."
         },
         {
           "name": "GrossStark.arithmeticExtensionData.nonfree",
-          "kind": "discriminating",
-          "statement": "A finite off-diagonal module with more than one generator is allowed; replacing it by a chosen free rank-one module changes the construction."
+          "kind": "non-example",
+          "statement": "For the module-interface check over A=E[[x,y]], B=(x,y)⊂Frac(A) is finite and has dim_E B/(x,y)B=2. The shared finite-module adapter must admit this input; a requirement that every such B be free of rank one would fail it. This check asserts no particular Hida family realizing B."
         }
       ],
       "uses": [
@@ -2638,17 +2652,17 @@
       "tests": [
         {
           "name": "GrossStark.infinitesimalCharacters.constant",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "At σ=1 the value is 1; omitting a₀ gives 0 and fails to be a unit."
         },
         {
           "name": "GrossStark.infinitesimalCharacters.y_zero",
-          "kind": "discriminating",
+          "kind": "degenerate",
           "statement": "At y=0 one gets ε_y=1 and ε_z=ε."
         },
         {
           "name": "GrossStark.infinitesimalCharacters.mixed",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "Since y(π−y)=0, no mixed quadratic term occurs in ε_yε_z; for a generic pair of nilpotents without that relation the product identity fails."
         }
       ],
@@ -3040,17 +3054,17 @@
       "tests": [
         {
           "name": "GrossStark.inverseExtensionData.action",
-          "kind": "discriminating",
+          "kind": "compatibility",
           "statement": "The lower matrix identity reduces to the χ-action, whereas the normalized upper entry has χ^{-1}-action."
         },
         {
           "name": "GrossStark.inverseExtensionData.ideal",
-          "kind": "discriminating",
+          "kind": "characterisation",
           "statement": "The image of ε−d on exceptional inertia is a multiple of y, even when y has zero class in m/m²."
         },
         {
           "name": "GrossStark.inverseExtensionData.rank_one_unequal",
-          "kind": "discriminating",
+          "kind": "computation",
           "statement": "For r=t=1,s=2, the ideal yW₃ is the nonzero E-line generated by cπ²; using only the degree-one maximal-ideal quotient would lose it."
         }
       ],
@@ -3308,7 +3322,8 @@
       "need": "Supply the all-prime cyclotomic Deligne–Ribet specialization, its analytic germ at zero (including its possible pole only at 1), and the comparison of its smoothed measure with the Eisenstein/Shintani cocycle realization used in CD14 §5. The cocycle/measure Mellin identity is the input; the Gross–Stark order inequality itself is proved in GS.0. Also supply auxiliary-level theta/Hasse lifts, integral q-expansion/binomial-family operations, trace and level-removal formulas, and the ordinary Eisenstein boundary decomposition required in the Ventullo and projection proofs. These are generic Hilbert-form/measure constructions already in this owner’s direction, not duplicate definitions here.",
       "neededBy": [
         "IntegralIwasawaTheoryPartII:GS.0/order-lower-bound",
-        "IntegralIwasawaTheoryPartII:GS.2/ventullo-family"
+        "IntegralIwasawaTheoryPartII:GS.2/ventullo-family",
+        "IntegralIwasawaTheoryPartII:GS.2/normalized-cuspidal-projection"
       ]
     },
     {
@@ -3500,7 +3515,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E2"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the published remark against the earlier Hecke maps. No map with its stated domain and truncation has been constructed. For r≥2, factoring the asserted one-variable quotient through W would contradict πε_i=0 and the nonzero top-product relation. This confirms a missing justification, not nonexistence of an independently constructed quotient.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E3",
@@ -3516,7 +3536,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E3"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E3",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The interpolated function throughout the theorem is L_p(χω,z); the displayed definition drops ω. Keeping χ alone changes the branch.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E4",
@@ -3532,7 +3557,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E4"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The last order in the parenthetical equality must belong to χ^{-1}; this is the pair of orders defining ord_π W.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E5",
@@ -3548,7 +3578,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E5"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equation (2) defines the complex Euler-depleted function. The analytic quantities used here are defined in §1.3, p. 841.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E6",
@@ -3564,7 +3599,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E6"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The surrounding construction is the product over eigenfamilies, and its trace is the Hecke coefficient. A single factor has its own family coefficient.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E7",
@@ -3580,7 +3620,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E7"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E7",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct multiplication gives c(στ)=c(σ)a(τ)+d(σ)c(τ). The first diagonal term must be evaluated at τ.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E10",
@@ -3596,7 +3641,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E10"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E10",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The maps have types o_p^{-1}:X_χ→U_χ and ℓ_p:U_χ→X_χ. Their displayed composite is an endomorphism of X_χ; conjugating gives the equivalent endomorphism of U_χ.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E14",
@@ -3612,7 +3662,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E14"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E14",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The local pairing reverses the two degree-one cup factors between its definition and the evaluation display. Fixing their order introduces one common sign, which cancels in the sum-zero identity.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E15",
@@ -3628,7 +3683,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E15"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E15",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The detailed proof uses the degree-r associated graded quotient. In Cases 2 and 3 only the z^r line is required; the entire r-th ideal power need not be one-dimensional.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E16",
@@ -3644,7 +3704,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E16"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E16",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Knowing a column sum only modulo mB does not yield the asserted exact determinant bound. The weighted-row construction and Lemma 4.9 in §5.1 supply the needed second-order error before specialization.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E17",
@@ -3660,7 +3725,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E17"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E17",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The local scalar formula concerns κ_φ after applying φ, rather than the class with coefficients in B/mB. Their coefficient modules differ.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E18",
@@ -3677,7 +3747,12 @@
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job.",
         "arXiv:1605.08169v1, Theorem 3.2, p. 16, directly compared on 2026-10-19."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E18"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E18",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compared both versions of Theorem 3.2 directly. The preprint requires ν_1(t)E_S=E_S; the published statement omits it and permits t=0. Restoring it preserves the Hecke orbit, including w=−1.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E19",
@@ -3693,7 +3768,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E19"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E19",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The footnote states a formula for η, whereas both L-values retain χ. Replacing both character arguments by η and η^{-1} agrees with the weight-one constant-term formula.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E20",
@@ -3709,7 +3789,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E20"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E20",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The ensuing formulas use U_l at l dividing the tame level as well as at l|p. The Hecke algebra must include all l|np.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E21",
@@ -3725,7 +3810,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E21"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E21",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "F̃ is formed using a product with a classical weight-one Eisenstein series, so its ordinary membership has not been established before applying e. Regularity belongs to M_(1); t e F̃ belongs to the ordinary cusp space.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E22",
@@ -3741,7 +3831,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E22"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E22",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the rendered PDF as well as its text. The displayed modulus places +1 outside the exponent; the orbit is truncated at π^{s+1}, as the neighboring formulas require.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E23",
@@ -3757,7 +3852,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E23"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E23",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The product runs over indexed exceptional primes. Its i-th factor must use U_{q_i}; a fixed repeated prime does not supply the stabilization product.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E24",
@@ -3773,7 +3873,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E24"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E24",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Counted the displayed basis: 1, s−1 π powers, s y powers and 2^r−2 proper nonempty ε-products give 2^r+2s−2. The ε-product index must run over J.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E25",
@@ -3789,7 +3894,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E25"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 3.6 is expressed in π=T/log_p(u). Translating its linear coefficients to T requires division by log_p(u).",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E26",
@@ -3805,7 +3915,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E26"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E26",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Substitution y=wπ/(1+w) into ε_y(l) gives the stated nonzero first-order correction for w≠0,−1; the printed constant eigenvalue loses that term.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E27",
@@ -3821,7 +3936,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E27"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E27",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A Frobenius trace congruence is indexed by a single prime; the left and right indices in the two cited occurrences differ.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E28",
@@ -3837,7 +3957,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E28"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E28",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The local comparison at R′ in Lemma 4.7 needs the same nonzero basis-change coefficients. Enlarging the finite avoided-line set from R to all q|p uses the identical line-avoidance argument.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E29",
@@ -3853,7 +3978,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E29"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E29",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In the reversed ordering, reducing the lower-entry multiplication gives c(στ)=c(σ)χ(τ)+c(τ). Multiplication by χ^{-1}(σ) is needed to convert this to the left χ^{-1}-action cocycle.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E30",
@@ -3869,7 +3999,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E30"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E30",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The ordinary character is defined separately at every q|p, with its own domain and U_q value, so all occurrences need that index.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E31",
@@ -3885,7 +4020,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E31"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E31",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At the identity the power series for the cyclotomic character must have value 1. The subsequent substitution uses a_0=1; starting at degree one would give 0.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E32",
@@ -3901,7 +4041,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E32"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E32",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A local unit group has a finite tame quotient, and an E-vector space is not pro-p. Kill the finite image by torsion-freeness and the pro-l principal-unit image inside a compact p-adic lattice; this proves the intended vanishing.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E33",
@@ -3917,7 +4062,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E33"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E33",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the matrices and their preceding definitions: each formula is one determinant. The extra closing determinant parentheses have no mathematical role.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E34",
@@ -3933,7 +4083,12 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E34"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E34",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preimage ideal lives in the completed Hecke order; after φ its image is yW. The relation πy=y² gives m_W yW=y²W and the final quotient y^rW/y^{r+1}W.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     },
     {
       "id": "IntegralIwasawaTheoryPartII/E35",
@@ -3949,7 +4104,53 @@
         "The published DKV18 text at the locator, read on 2026-10-19.",
         "The reviewed atlas extraction and its recorded Annals/arXiv/Crossref correction search; that external search was not independently repeated in this design job."
       ],
-      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E35"
+      "origin": "PAPER-DASGUPTA-KAKDE-VENTULLO-18/E35",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In Case 3, t is the order for χ^{-1}, whereas s>t is the order for χ. Thus t=r identifies the inverse-character leading coefficient; the rank-r coefficient for χ vanishes.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
+    },
+    {
+      "id": "IntegralIwasawaTheoryPartII/E36",
+      "source": "CD14",
+      "kind": "misprint",
+      "locator": "Author copy dated 4 November 2014, proof of Theorem 5.1, p. 31",
+      "printed": "The free C_p[T]-module in the proof is assigned homological dimension 1.",
+      "correction": "Use projective dimension zero, hence H_q(T,C_c^♭)=0 for q>0. The spectral sequence then has only its q=0 row.",
+      "reason": "A free group-ring module is projective, and group homology is Tor over that group ring. Vanishing in every positive degree is the fact needed for the edge isomorphism.",
+      "affects": "nothing",
+      "known": "No correction located in the checks listed; this finding is scoped to the author copy, without a claim about the publisher version or novelty.",
+      "searched": [
+        "Read the author PDF at https://sites.math.duke.edu/~dasgupta/papers/Charollois-Dasgupta.pdf on 2026-10-19.",
+        "Checked https://arxiv.org/abs/1206.3050 and the author publication page https://sites.math.duke.edu/~dasgupta/; no correction notice located.",
+        "The publisher DOI link https://doi.org/10.4310/cjm.2014.v2.n1.a2 did not yield a readable publisher text in this check."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The author copy has the dimension-1 terminology at the locator; freeness instead gives vanishing of all higher T-homology. The target proof now uses that precise consequence.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
+    },
+    {
+      "id": "IntegralIwasawaTheoryPartII/E37",
+      "source": "V15-published",
+      "kind": "misprint",
+      "locator": "Published §4.2, final proof sentence, p. 961; also arXiv §4.2, p. 20",
+      "printed": "The conclusion of the auxiliary-family construction points to Theorem 1.",
+      "correction": "The internal reference is to Theorem 2, whose auxiliary ordinary family is constructed in §4.",
+      "reason": "Theorem 2 is stated at the start of §4, and the concluding construction discharges its reduction in §4.1. Theorem 1 is the rank-one Gross–Stark result proved earlier.",
+      "affects": "nothing",
+      "known": "Present in both the arXiv copy read and the publisher PDF; no correction notice located in the checks listed.",
+      "searched": [
+        "Read the arXiv version at https://arxiv.org/pdf/1308.2261 and its version page https://arxiv.org/abs/1308.2261 on 2026-10-19.",
+        "Compared the publisher PDF https://ems.press/content/serial-article-files/43407, p. 961, and the article page https://ems.press/journals/cmh/articles/13485; no correction notice located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The theorem number is the same slip in the arXiv and publisher texts. Section 4 constructs the auxiliary family in Theorem 2; no mathematical assertion changes.",
+        "by": "REV-DESIGN-IntegralIwasawaTheoryPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -3966,6 +4167,280 @@
       "read": "2026-10-19",
       "sha256": "0bc900e2c7c16fa9aff1147ec138d121b4798fab3b4deb76eed415ba7f409a99",
       "citation": "arXiv:1605.08169v1; Theorem 3.2 on p. 16 directly compared for the normalization only."
+    },
+    {
+      "kind": "author copy",
+      "url": "https://sites.math.duke.edu/~dasgupta/papers/Charollois-Dasgupta.pdf",
+      "read": "2026-10-19",
+      "sha256": "251d025b3f2ead219abd22d2d686375255131f558debc9bf385e9cd2018200ef",
+      "citation": "Author version dated 4 November 2014; Cambridge Journal of Mathematics 2 (2014), 49–90; locators use author pagination"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1308.2261",
+      "read": "2026-10-19",
+      "sha256": "6c9ae95e464110ec7210f18941fc19d7d02b6851eaab414d3bb1c3cd9cd7647a",
+      "citation": "arXiv:1308.2261; published in Commentarii Mathematici Helvetici 90 (2015), 939–963; locators use arXiv pagination"
+    },
+    {
+      "kind": "published",
+      "url": "https://ems.press/content/serial-article-files/43407",
+      "read": "2026-10-19",
+      "sha256": "fe74167d26f558a24d74a56021383756a42d14447df7d53676521b8cedbbff0f",
+      "citation": "Commentarii Mathematici Helvetici 90 (2015), 939–963; publisher version, consulted only for the §4.2 internal-reference comparison"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-IntegralIwasawaTheoryPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 49 nodes and their source locators, all 15 pinned baseline declarations, 15 supplier requests, six stage targets, 88 API items, 54 tests and 29 planets. Corrected local Kummer rationalization, the paired ordinary Eisenstein hypothesis, Case 1 cuspidal separation, five node locators, CD14 homology wording and the nonfree module test; removed duplicate acceptance and assigned valid test kinds. Confirmed 29 inherited source findings and added two minor version-scoped misprints. No node was added and no mathematical gap or unresolved contradiction remains. All supplier requests are obligations on their owners, not claims of implementation. The 172-line suggested file compiled at the pins with only expected proof-admission warnings.",
+    "checked": [
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.0/arithmetic-data",
+        "verdict": "corrected",
+        "note": "Checked the totally odd character, faithful CM extension, ramified Frobenius value zero and the exceptional/nonexceptional prime split, including p=2. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.0/unit-divisor-modules",
+        "verdict": "corrected",
+        "note": "Checked the χ^{-1} eigenspaces, additive tensor convention, negative logarithm and rational character projector; torsion and dyadic tests distinguish the conventions. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.0/valuation-isomorphism",
+        "verdict": "corrected",
+        "note": "Corrected the §1.1 locator. The valuation exact sequence, finiteness of the class group and vanishing of the odd ordinary-unit component give the stated rank-r isomorphism."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.0/gross-regulator",
+        "verdict": "corrected",
+        "note": "Corrected the regulator and matrix locators. Checked source/target of the endomorphism, det(−L)/det O, basis changes and the empty determinant. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.0/analytic-invariant",
+        "verdict": "corrected",
+        "note": "Checked the χω branch, nonzero D_χ, factorial normalization, finite analytic order and allowance of the possible pole-character branch regular at zero. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.0/order-lower-bound",
+        "verdict": "corrected",
+        "note": "Made higher T-homology vanishing explicit in the CD14 proof, correcting its dimension terminology (E36). Read the smoothing, induced-module and augmentation arguments, including the dyadic convention."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.0/conjectural-boundary",
+        "verdict": "verified",
+        "note": "Verified that leading-term equality is a theorem while general exact-order/regulator nonvanishing and higher characteristic-polynomial claims remain conjectural."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/restricted-cohomology",
+        "verdict": "corrected",
+        "note": "Checked the existing continuous H^1 quotient, E-linear supplier adapter, unramified conditions, local reciprocal valuation/logarithm and non-discrete coefficient topology. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/kummer-identification",
+        "verdict": "corrected",
+        "note": "Corrected the local statement to tensor the pro-p multiplicative completion with E. Checked finite-level class-group corrections, descent and the ordered local pairing."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/orthogonality-duality",
+        "verdict": "verified",
+        "note": "Checked the dual local conditions, principal Kummer class, global invariant sum and common sign. The lattice/rational Poitou–Tate supplier explicitly includes dyadic real-place corrections."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/orthogonality-reciprocity",
+        "verdict": "verified",
+        "note": "Checked the independent principal-idele proof, vanishing outside R and finite-index averaging after rationalization; no profinite identification of the raw idele class group is used."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/inertia-injectivity",
+        "verdict": "verified",
+        "note": "Verified restriction to H, the everywhere-unramified abelian quotient, class-group finiteness and descent; the assertion is about the product of inertia restrictions."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/cyclotomic-subspace",
+        "verdict": "corrected",
+        "note": "Checked local decomposition x_j o_j+y_j ℓ_j and uniqueness, its E-subspace structure and coordinate extraction. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/cyclotomic-dimension",
+        "verdict": "verified",
+        "note": "Checked the Selmer annihilator from Poitou–Tate, dimension r and the logarithm-coordinate isomorphism, using invertibility of the valuation matrix."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/algebraic-invariant",
+        "verdict": "corrected",
+        "note": "Corrected its locator to the unnumbered definition on p. 839. Checked det X/det Y, denominator nonvanishing and simultaneous basis change. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.1/algebraic-regulator-comparison",
+        "verdict": "corrected",
+        "note": "Corrected its locator to the comparison following Proposition 1. Orthogonality gives XO+YL=0, so det X/det Y=det(−L)/det O."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.2/weight-coordinate",
+        "verdict": "corrected",
+        "note": "Checked ν_k(T)=u^{k−1}−1, π=T/log_p(u), u=5 at p=2, first-order normalization and the universal cyclotomic character. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.2/eisenstein-dictionary",
+        "verdict": "corrected",
+        "note": "Restricted E(χ,1) and the common ordinary weight-one specialization to R′ empty. Extended the locator to §3.4; checked constants, the level-one exception and U_q stabilization identities."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.2/ventullo-family",
+        "verdict": "corrected",
+        "note": "Read the auxiliary-level lift, binomial-family construction, trace removal and ordinary projection in V15. Checked constants at every standard cusp and the affine shift; recorded the internal-reference slip E37. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.2/case-division",
+        "verdict": "verified",
+        "note": "Checked inversion of W, s≥t after relabeling, the exhaustive three cases and retention of w=−1 without assuming exact order."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.2/semicusp-family",
+        "verdict": "corrected",
+        "note": "Checked both formulas, regularity, cancellation of the standard-cusp constants and the zero specialization at w=−1. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.2/normalized-cuspidal-projection",
+        "verdict": "corrected",
+        "note": "Corrected Case 1 separation to use U_q−χ(q) at q∈R′ for the second Eisenstein system; away-from-np operators separate the other systems. Restated the V15 replacement of Leopoldt, removed duplicate acceptance and retained normalized invertibility. Added the direct boundary-decomposition supplier prerequisite and its request consumer."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-one-ring",
+        "verdict": "corrected",
+        "note": "Checked every defining relation, universal presentation and tests for rank one, excess order and nonzero mixed top product. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-two-ring",
+        "verdict": "corrected",
+        "note": "Checked the y and W relations, top-product relation and w=−1 specialization; no division by 1+w is used in general. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-three-ring",
+        "verdict": "corrected",
+        "note": "Checked s>t, W of order s−t, the two top relations and the separate y-adic filtration tests. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-one-normal-form",
+        "verdict": "verified",
+        "note": "Verified the monomial basis, dimension 2^r+s−1 and survival of π^r in the degree-r associated graded quotient."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-two-normal-form",
+        "verdict": "verified",
+        "note": "Verified the monomial basis and dimension 2^r+2s−2, z^n=π^n−y^n and nonzero z^r, including w=−1."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-three-normal-form",
+        "verdict": "corrected",
+        "note": "Corrected the final-page locator to pp. 867–868. Checked basis/dimension, nonzero z^r and one-dimensional y^nW/y^{n+1}W through n=t."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/hecke-orbit",
+        "verdict": "corrected",
+        "note": "Checked the actual truncated Fourier orbit and quotient action, the Chebotarev prime choice and the nonzero denominator residue of Y. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-one-hecke-map",
+        "verdict": "verified",
+        "note": "Verified operator relations, stabilization products, orbit independence and resulting Hecke-image isomorphism, with the normalized projection preserved."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-two-hecke-map",
+        "verdict": "verified",
+        "note": "Verified the Y and U_q relations and basis independence in the equal-order case; the proof retains the w=−1 fiber."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.3/case-three-hecke-map",
+        "verdict": "verified",
+        "note": "Read the explicit induction resolving the abbreviated source proof: apply powers of Y to isolate successive coefficients, then use the top π^s term and stabilization independence."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/actual-hida-representations",
+        "verdict": "verified",
+        "note": "Checked actual irreducible family representations over finite coefficient fields, ordinary local shapes and the reduced completed order. Stronger all-prime control and closed-order density remain precise owner requests."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/simultaneous-good-element",
+        "verdict": "verified",
+        "note": "Checked distinct roots, finite line avoidance at every q|p, Hensel lifting and the common actual-matrix basis; no residual absolute irreducibility is assumed."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/adapted-extension-class",
+        "verdict": "corrected",
+        "note": "Checked the shared nonfree GMA extension API, actual upper-entry span and χ^{-1} cocycle twist. Replaced the vague nonfree check by B=(x,y) over E[[x,y]], explicitly only as a module-interface test. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/infinitesimal-characters",
+        "verdict": "corrected",
+        "note": "Checked constant term 1, nilpotent binomial substitution and ε_y ε_z=ε from y(π−y)=0. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/diagonal-refinement",
+        "verdict": "verified",
+        "note": "Checked trace congruences, density in the original closed order and the second trace using τ; root separation gives both diagonal congruences."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/local-basis-comparison",
+        "verdict": "verified",
+        "note": "Checked simultaneous nonzero local comparison entries, invertibility in the total quotient algebra and the exact upper/lower formulas before reduction."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/class-unramified",
+        "verdict": "verified",
+        "note": "Checked tame finite torsion separately from pro-l principal units, compact p-adic lattice images, finite-index averaging and coboundary triviality at R′."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/inertia-generation",
+        "verdict": "verified",
+        "note": "Checked the dual annihilator argument from inertia injectivity and Nakayama generation without assuming B is free of rank one."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.4/second-order-bound",
+        "verdict": "verified",
+        "note": "Checked the exceptional-inertia generators, B containment in scaled maximal ideals and mB containment in scaled squares, before determinant cancellation."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.5/exact-determinant",
+        "verdict": "verified",
+        "note": "Checked weighted rows with exact zero column sums in the total quotient algebra, cancellation of invertible local factors and injection back into the completed order."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.5/graded-leading-term",
+        "verdict": "verified",
+        "note": "Checked the degree-r determinant expansion, disappearance of mixed terms and r+1 errors, and cancellation of the surviving z^r line in all three cases."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.5/inverse-extension-class",
+        "verdict": "corrected",
+        "note": "Checked lower-entry matrix multiplication, χ action, finite nonfree C, inertia generation and mC containment using the preimage of yW. Checked API and at least three discriminating tests; categorized tests using the protocol kinds."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.5/inverse-leading-term",
+        "verdict": "verified",
+        "note": "Checked the distinct y-adic error ideal and graded line, inverse-character top product and the separate t=r and t>r conclusions."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.5/rank-zero",
+        "verdict": "verified",
+        "note": "Checked interpolation with nonexceptional Euler factors, D_χ nonzero and the empty regulator 1, including a ramified dyadic example."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.5/gross-stark",
+        "verdict": "verified",
+        "note": "Checked assembly of rank zero, the two oriented equal-order cases and both characters in Case 3; the endpoint uses no exact-order conjecture."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.5/exact-order-boundary",
+        "verdict": "verified",
+        "note": "Checked the nonzero-normalizing-factor argument equating exact order r with regulator nonvanishing; it makes no arbitrary-rank nonvanishing claim."
+      },
+      {
+        "nodeId": "IntegralIwasawaTheoryPartII:GS.5/rank-one-nonvanishing",
+        "verdict": "verified",
+        "note": "Checked the rank-one logarithmic transcendence consequence and the exact Baker–Brumer owner request; multiplicative Yu estimates are explicitly insufficient."
+      }
+    ]
+  }
 }
