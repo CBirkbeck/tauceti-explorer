@@ -584,13 +584,14 @@
     "FreeGroupsAndLimitGroups": {
       "stage": "pr",
       "pr": 914,
-      "head": "93c052b",
+      "head": "9e719a9",
       "note": "maintainer-ordered: no dependency on #271 (§§2.2–2.2a, 6.0a–6.1a) 10-16; N3 fix running; draft",
       "review": {
         "recommendation": "changes",
         "head": "93c052b",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at 9e719a9; confirmation pass pending"
       },
       "maintainer": "second review 2026-10-16 03:10Z (P1: fixed-depth twist families not generic); fix running; draft"
     },
