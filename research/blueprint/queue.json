@@ -53542,7 +53542,8 @@
     "PKG-EulerSystemsCyclotomicMainConjecture"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EulerSystemsCyclotomicMainConjecture.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10897"
   },
   {
    "id": "PKG-ExceptionalThetaCorrespondencesForG2",
