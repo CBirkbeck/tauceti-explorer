@@ -1,7 +1,7 @@
 import Mathlib
 
 /-!
-# Complex multiplication and explicit reciprocity
+# Complex multiplication and explicit reciprocity: representative target signatures
 
 The accompanying README is the definitive roadmap. These are selected definitions, end
 statements and Checks over existing carriers; proofs marked `sorry` are proposed targets.
@@ -20,7 +20,7 @@ open Polynomial
 
 namespace TauCetiRoadmap.ComplexMultiplicationAndExplicitReciprocity
 
--- Layer 0: embedding partitions, trace reflex field, and concrete CM inputs.
+/-! ## Layer 0: Types, primitive pairs and reflex data -/
 
 section Types
 
@@ -182,6 +182,10 @@ example : quarticB ^ 2 = -3 + (Real.sqrt 2 : ℂ) := by sorry
 
 example : quarticB ^ 4 + 6 * quarticB ^ 2 + 7 = 0 := by sorry
 
+example : 0 < quarticB.im := by sorry
+
+example : (-quarticB) ^ 2 = -3 + (Real.sqrt 2 : ℂ) ∧ (-quarticB).im < 0 := by sorry
+
 example : quarticA * quarticB = -(Real.sqrt 7 : ℂ) := by sorry
 
 example : (quarticA + quarticB) ^ 4 + 12 * (quarticA + quarticB) ^ 2 + 8 = 0 := by
@@ -208,7 +212,7 @@ example : (2 + 3 * Complex.I : ℂ) ∈ gaussianOrderThree := by sorry
 
 example : Nat.card gaussianOrderThreeˣ = 2 := by sorry
 
--- Layer 1: concrete norm and inverse-action Checks for the geometric targets.
+/-! ## Layer 1: Ideal lattices and CM realizations -/
 
 example : (2 + Complex.I) * star (2 + Complex.I) = (5 : ℂ) := by
   norm_num [Complex.ext_iff]
@@ -224,7 +228,7 @@ example : (0 : ℕ) ^ 2 = 0 ∧ (1 : ℕ) ^ 4 = 1 := by norm_num
 
 example : (-Complex.I : ℂ) ≠ Complex.I := by norm_num [Complex.ext_iff]
 
--- Layer 2: alternating-form sign, homothety, and two-coordinate level action.
+/-! ## Layer 2: Polarized lattices and explicit reciprocity -/
 
 /-- The real scalar extension of the alternating Gaussian trace form with parameter `I / 2`. -/
 def squareForm (x y : ℂ) : ℝ := (2 * ((Complex.I / 2) * x * star y)).re
@@ -262,7 +266,7 @@ example : (2 : ZMod 5)⁻¹ = 3 ∧ (2 : ZMod 5) ≠ 3 := by
 
 example : ((X ^ 2 + 2 * X + 5 : ℤ[X]) ^ 2).natDegree = 4 := by sorry
 
--- Layer 3: exact normalized class-product and unit-quotient Checks.
+/-! ## Layer 3: Class polynomials and generated class fields -/
 
 example : (∏ _ : Fin 1, (X - C (1728 : ℤ))) = X - C 1728 := by simp
 
@@ -274,7 +278,7 @@ example : (8 : ℕ) / 4 = 2 ∧ (8 : ℕ) / 4 ≠ 1 := by norm_num
 
 example : (X - C (1728 : ℤ)).coeff 0 = -1728 := by simp
 
--- Layer 4: Frobenius, coefficient-field, principal-sign and duality Checks.
+/-! ## Layer 4: CM Hecke characters and their realizations -/
 
 example : (-1 + 2 * Complex.I) * star (-1 + 2 * Complex.I) = (5 : ℂ) := by
   norm_num [Complex.ext_iff]
@@ -306,7 +310,7 @@ example : (-1 : ℂ) ≠ 1 := by norm_num
 example : ((Matrix.diagonal ![(2 : ℚ), 3])⁻¹).charpoly =
     (X - C (1 / 2 : ℚ)) * (X - C (1 / 3 : ℚ)) := by sorry
 
--- Layer 5: mathematical bounds, signed counts and bounded reconstruction.
+/-! ## Layer 5: Reduction, endomorphism orders and coefficient comparisons -/
 
 example : (Finset.univ.filter (fun xy : ZMod 2 × ZMod 2 =>
     xy.2 ^ 2 + xy.2 = xy.1 ^ 3)).card + 1 = 3 := by decide

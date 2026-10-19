@@ -252,7 +252,7 @@ Sources: [MIT16](#source-mit16), §16.4, Definition 16.9 and Theorem 16.12, pp.6
 **Checks.**
 
 - Q(i) contains i and 2+i, while Q does not contain i. Its selected type has one embedding; the empty and full embedding sets both fail the partition condition.
-- a²=−3−√2, a⁴+6a²+7=0 and Im(a)>0. Similarly b²=−3+√2, b⁴+6b²+7=0 and ab=−√7. These signs give (a+b)²=−6−2√7 and the reflex polynomial above.
+- a²=−3−√2, a⁴+6a²+7=0 and Im(a)>0. Similarly b²=−3+√2, b⁴+6b²+7=0, Im(b)>0 and ab=−√7. These signs give (a+b)²=−6−2√7 and the reflex polynomial above. The lower-half-plane root −b has the same square and quartic polynomial, so those two identities alone do not select the required embedding value.
 - i is absent from gaussianOrderThree, while 3i and 2+3i belong. Its unit group and Picard group both have cardinal two; replacing it with Z[i] changes these to four and one respectively.
 
 ### Examples
