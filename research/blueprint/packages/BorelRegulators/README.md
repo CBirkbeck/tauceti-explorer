@@ -695,10 +695,21 @@ Prove the following basic identities and compatibility maps.
 - `traceCocycle_multilinear`: Φ is complex multilinear before real-coefficient projection, and its relative and projected forms are real multilinear.
 - `traceCocycle_block`: On block-diagonal inputs Φ is the sum of the forms on the two blocks; adding a zero block leaves it unchanged.
 - `traceCocycle_three`: Φ3(X,Y,Z)=−Tr(X(YZ−ZY))/2.
+- `traceCocycle_hermitian`: For j≥2 and Hermitian inputs X_a of any finite matrix size, Φ_{2j−1}(X_1†+X_1,…,X_m†+X_m)=2^mΦ_m(X_1,…,X_m), where m=2j−1. No tracelessness or positivity of the inputs is required.
 - `traceCocycle_projection`: π_q is the real-linear projection onto R(q)⊂C; the absolute Borel class is represented by 2π_{j−1}Φ.
 - `traceCocycle_scalar`: For j≥2, if every pair of input matrices commutes, Φ_{2j−1}=0, for every finite matrix size.
 
-The real Tate projection also has its own API: `tateProjection_realLinear`, `tateProjection_range`, `tateProjection_idempotent` and `tateProjection_kernel`. Its image is ℝ(q), its kernel the complementary real axis ℝ(q+1), and it commutes with conjugation. The denominator 2 makes this a projection, not twice a projection. The generator (2πi)^q is nonzero because π>0. Name the Pauli-coordinate identity `tateProjection_weight_two_coordinates`: Φ₃=−2i gives the Borel value 2π₁Φ₃=−4i and the Beilinson value π₁Φ₃=−2i; division by 2πi gives −2/π and −1/π, respectively.
+The real Tate projection also has its own API: `tateProjection_realLinear`, `tateProjection_range`, `tateProjection_idempotent` and `tateProjection_kernel`. Its image is ℝ(q), its kernel the complementary real axis ℝ(q+1), and it commutes with conjugation. The denominator 2 makes this a projection, not twice a projection. The generator (2πi)^q is nonzero because π>0. Name the Pauli-coordinate identity `tateProjection_weight_two_coordinates`: Φ₃=−2i gives the absolute Borel representative value 2π₁Φ₃=−4i and the absolute Beilinson representative value π₁Φ₃=−2i; division by 2πi gives −2/π and −1/π, respectively.
+
+For the same Hermitian Pauli triple the relative Borel representative instead has value 2³Φ₃=−16i, and its Tate coordinate is −8/π. The three values are compared on the same real Lie algebra inputs:
+
+| Representative | Formula at weight two | Pauli value | Value divided by 2πi |
+|---|---|---|---|
+| Relative Borel | Φ₃(X†+X,Y†+Y,Z†+Z) | −16i | −8/π |
+| Invariant absolute Borel | 2π₁Φ₃(X,Y,Z) | −4i | −2/π |
+| Invariant absolute Beilinson | π₁Φ₃(X,Y,Z) | −2i | −1/π |
+
+The relative Borel form is the one to transport to the symmetric space by invariant forms and then integrate. Its inclusion into absolute cohomology agrees with the absolute Borel representative in the table. The unequal cochain values therefore do not change the factor two between the Borel and Beilinson classes. In particular, substituting the absolute value −4i for the relative value −16i in a symmetric-space tangent calculation loses a factor four.
 
 **Checks.**
 
@@ -707,6 +718,7 @@ The real Tate projection also has its own API: `tateProjection_realLinear`, `tat
 - π₂(1)=1 and π₂(i)=0.
 - For N=1 and j=2 the form vanishes on every triple.
 - For the Hermitian Pauli matrices X,Y,Z with [Y,Z]=2iX and Tr(X²)=2, Φ3(X,Y,Z)=−2i.
+- For that triple, replacing each input by X†+X doubles each of the three arguments, giving −16i rather than −4i. Swapping X and Y reverses all the displayed values; repeating an input gives zero.
 - Φ3(X,X,Z)=0, ruling out the unalternated trace product.
 
 At j=2, Φ3(X,Y,Z)=−Tr(X[Y,Z])/2.
@@ -909,7 +921,7 @@ Use [José Ignacio Burgos Gil, The Regulators of Beilinson and Borel](https://ww
 
 ### Examples
 
-For ℚ⊂ℚ(i) at weight three the target spaces both have dimension one: pullback has matrix (1), trace has matrix (2), and their composite is multiplication by two. At weight two the ℚ-target is zero and the ℚ(i)-target is the line (a,−a); trace adds the two embedding coordinates and is zero. A complex pair with selected coordinate 1 has reference covolume one, not √2. At j=2 the Pauli matrices give Φ₃(X,Y,Z)=−2i, hence 2π₁Φ₃=−4i and π₁Φ₃=−2i; after division by 2πi these are −2/π and −1/π.
+For ℚ⊂ℚ(i) at weight three the target spaces both have dimension one: pullback has matrix (1), trace has matrix (2), and their composite is multiplication by two. At weight two the ℚ-target is zero and the ℚ(i)-target is the line (a,−a); trace adds the two embedding coordinates and is zero. A complex pair with selected coordinate 1 has reference covolume one, not √2. At j=2 the Pauli matrices give Φ₃(X,Y,Z)=−2i. The relative Borel form has value −16i and coordinate −8/π; the invariant absolute Borel and Beilinson representatives have values −4i and −2i and coordinates −2/π and −1/π. These are evaluations of specified cochains, not evaluations of the regulator on a K₃ element.
 
 ### Dependencies
 
@@ -1311,6 +1323,8 @@ for distinct x,y∉{0,1}. All five arguments lie outside {0,1}. Use the cross-ra
 Its API includes `preBloch_map`, `preBloch_fiveTerm`, `blochGroup_map`, `blochBoundary_wellDefined`, `blochGroup_kernel`, `blochBoundary`, `blochWigner_fiveTerm`, `blochWigner_conjugate`, `blochWigner_cocycle`, `blochWigner_smoothRepresentative`, `blochWigner_prismHomotopy`, `blochWigner_restrictComparison`, `suslinMap_natural` and `borelRegulator_blochWigner_proportional`. The last name asserts a nonzero real scalar common to fields and places; it asserts neither a rational nor an explicitly evaluated scalar in the Tate coordinates.
 
 **Coefficient gap.** The stronger comparison `borelRegulator_blochWigner_exact` still requires an evaluated value of λ_BW, including its sign and π factors, in these same coordinates. The source locators above support a universal trace-class comparison but their coefficient conventions have not been fully transported through the Suslin map, cross-ratio orientation, Tate projection and division by 2πi. This calculation remains a target; it is not discharged by renaming the real-proportionality theorem or by the Pauli test. Exact downstream determinant formulae must wait for it.
+
+In transporting the trace class, distinguish the relative Borel form 8Φ₃ on Hermitian tangent inputs from its invariant absolute representative 2π₁Φ₃, as computed in §4.5. Goncharov's symmetric-space construction must be matched to the former with its specified tangent identification, or compared with the latter by an actual cohomology map. The boundary-symbol comparison must also identify the chosen Suslin map, rather than merely some natural rational isomorphism with the Bloch group: replacing that map by its negative changes λ_BW and preserves naturality and the torsion-kernel property. Finally divide by the Tate generator 2πi exactly once. These requirements retain both the numerical and the sign parts of `borelRegulator_blochWigner_exact`.
 
 **Checks.**
 
