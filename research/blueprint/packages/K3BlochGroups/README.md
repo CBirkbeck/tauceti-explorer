@@ -8,13 +8,15 @@ This roadmap owns the degree-three comparisons, the Bloch presentations and thei
 
 The stable general-linear and elementary groups belong to KTheoryLowDegrees, Layers U.1 and U.3. K2SymbolsBrauer, Layer T.1, owns the stable Steinberg group, its universal central extension onto E(A), its superperfectness and the identification of the central kernel with K₂(A). Layer T.2 there owns Milnor K-theory, Matsumoto's theorem, the graded Milnor-to-Quillen map and the Bass–Tate signature theorem. Only the degree-three specialization and its cokernel are constructed here.
 
-AlgebraicTopology, Stages 2–4 and 8, owns singular homology, CW pairs, relative homotopy, Hurewicz and Whitehead. The completed UniversalCovers roadmap, Stages 2–3, owns based lifts and the higher-homotopy comparison for actual coverings. StableHomotopyKTheory supplies classifying spaces, plus constructions, fibre comparisons and spectra. These general constructions remain at their owners. The narrow Hopf and stable-unit extensions required below are explicit contracts, rather than unstated consequences of a covering-space theorem.
+AlgebraicTopology, Stages 2–5 and 8, owns singular homology, CW pairs, relative homotopy, product homology with the coefficient-sensitive Künneth sequence, Hurewicz and Whitehead. StableHomotopyKTheory §1.17, `classifyingSpace_filteredColimit_homology`, supplies filtered-colimit homology for every unital coefficient ring, fixed left coefficient module and degree n≥0; §1.27 compares classifying-space and group homology. The completed UniversalCovers roadmap, Stages 2–3, owns based lifts and the higher-homotopy comparison for actual coverings. StableHomotopyKTheory supplies classifying spaces, plus constructions, fibre comparisons and spectra. These general constructions remain at their owners. The narrow Hopf and stable-unit extensions required below are explicit contracts, rather than unstated consequences of a covering-space theorem.
 
-KTheoryFiniteLocalFields, Layer L.1, owns Quillen's finite-field K-groups and their restriction, transfer and Frobenius maps. ArithmeticKTheory, Layers N.3, N.5 and N.7, and BorelRegulators, Layer R.3, own finite generation, ranks, w₂ and the ambient K₃ groups of number fields. In particular their outputs include K₃(ℤ)→K₃(ℚ) being an isomorphism, K₃(ℚ)≅ℤ/48, and K₃(ℚ(i))≅ℤ⊕ℤ/24. The arithmetic example layer N.8 is a consumer of these outputs and of the quotient calculations here, not a prerequisite of this roadmap.
+KTheoryFiniteLocalFields, Layer L.1, owns Quillen's finite-field K-groups and their restriction, transfer and Frobenius maps. ArithmeticKTheory, Layers N.3–N.5 and N.7, and BorelRegulators, Layer R.3, own finite generation, ranks, the cyclotomic formulas for w₂ and the ambient K₃ structure theorem for number fields. Their rational outputs include K₃(ℤ)→K₃(ℚ) being an isomorphism and K₃(ℚ)≅ℤ/48. N.7/`w-invariant` includes the Gaussian computation w₂(ℚ(i))=24 from N.4; §5.7 uses it with N.5. The arithmetic example layer N.8 consumes these outputs and the quotient calculations here; it is not a prerequisite of this roadmap.
 
 Polylogarithms, Layer P.1, owns the interval Rogers function and the Bloch–Wigner function with their analytic identities. Layer P.2 owns the descended real regulator and its comparison with the Borel regulator; BorelRegulators R.7 fixes the exact scalar and sign. PadicHodgeRegulators D.2 owns the syntomic/étale and p-adic dilogarithm comparison. They consume the algebraic maps here. The algebraic finite-coefficient construction precedes the Habiro quantum-dilogarithm comparisons; it never uses a regulator comparison to prove its own underlying Suslin sequence.
 
 The current Tau Ceti theorem `TauCeti.crossRatio_comp_eq_of_sub_eq_div` in `TauCeti/Algebra/Field/LinearFractional.lean` supplies affine cross-ratio invariance from a difference formula over any field. The projective extension here adds homogeneous coordinates, infinity, the normalized orbit classification and the configuration face values. Tau Ceti's `antisymmetricTensors` in `TauCeti/LinearAlgebra/TensorProduct/Symmetric.lean` is the negative eigenspace of the tensor flip. The object here is its cokernel analogue over arbitrary commutative rings; the integral diagonal torsion is essential. Those are distinct objects, and their comparison is asserted only where two is invertible.
+
+Current Tau Ceti also supplies `TauCeti.groupHomology.indIso_inv` in `RepresentationTheory/Homological/GroupHomology/Shapiro`, `TauCeti.groupHomology.transfer`, `transfer_comp_map_subtype_id` and `map_comp_transfer` in `GroupHomology/Transfer/Basic`, `transfer_trans` in `GroupHomology/Transfer/Trans`, and `δ_naturality` in `GroupHomology/LongExactSequence`. These work over a commutative coefficient ring with actual representations; transfer requires finite-index subgroups. They supply the existing Shapiro, transfer and connecting-map interfaces. The finite-field stable-elements and cyclic/quaternion period calculations require additional results; they are not a second transfer construction.
 
 ## Conventions
 
@@ -24,7 +26,7 @@ Write U(F)=Additive(Fˣ) and T(F)=U(F)⊗ℤU(F). Let τ exchange the two tensor
 
 P(F) denotes Suslin's pre-Bloch group and ∂[x]=x∧(1−x). B(F)=ker ∂. Symbols at 0 and 1 mean zero only when extending the reduced symbol map by convention; they are not free generators of the reduced presentation. A separate unreduced presentation has [1] as a generator and kills it explicitly. The symbols [0] and [∞] in a projective presentation are separate generators with the relations specified in Layer 3. The classes c and h(u)=[u]+[u⁻¹] use |F|≥4 whenever their choice independence or homomorphism property is used.
 
-Use column coordinates x=[1:x], 0=[1:0] and ∞=[0:1], with the left matrix action. Upper triangular matrices then stabilize 0. The projective cross-ratio is normalized by cr(0,∞,1,x)=x. Swapping the first two entries gives x⁻¹. The Bloch boundary has the order x then 1−x; Goncharov's displayed boundary has the opposite order and hence the opposite sign. For example, the alternating valuation pairing (a,b)↦v₂(a)v₃(b)−v₃(a)v₂(b) sends ∂[3]=3∧(−2) over ℚ to −1. This pins the sign independently of a kernel calculation.
+Use column coordinates x=[1:x], 0=[1:0] and ∞=[0:1], with the left matrix action. Upper triangular matrices then stabilize 0. The projective cross-ratio is normalized by cr(0,∞,1,x)=x. Swapping the first two entries gives x⁻¹. The Bloch boundary has the order x then 1−x; Goncharov's displayed boundary has the opposite order and hence the opposite sign. For example, the alternating valuation pairing (a,b)↦v₂(a)v₃(b)−v₃(a)v₂(b) sends ∂[3]=3∧(−2) over ℚ to −1. This pins the sign independently of a kernel calculation; `Symbols.blochBoundary_valuation_sign` records the numerical pairing target.
 
 K₃^ind(F)=K₃(F)/im(K₃ᴹ(F)→K₃(F)). It is not the quotient by torsion. The natural left term of the Suslin sequence is T̃(F), the enhanced Tor group, not an untwisted root subgroup. Its root-group model μ̃(F) is used only for abstract orders. The second Tate twist is the direct limit of μ_m⊗μ_m with the weight-two transition maps, equivalently Tor₁(μ,μ); it is not the ordinary tensor product of the divisible torsion group μ with itself, which is zero. An automorphism ζ↦ζᵃ acts on weight two by a².
 
@@ -41,13 +43,15 @@ The algebraic carriers are Mathlib's `FreeAbelianGroup`, `Finsupp`, `TensorProdu
 The precise external mathematical contracts are:
 
 - **Stable groups and low K-theory.** KTheoryLowDegrees U.1/U.3 and K2SymbolsBrauer T.1 provide St(A)→E(A)→GL(A), St(A) superperfect, the central exact sequence 1→K₂(A)→St(A)→E(A)→1, entrywise maps and their finite-stage colimits. T.2 provides Kₙᴹ, its symbol presentation, products, the comparison mₙ, Matsumoto, finite-field vanishing in degrees ≥2 and the number-field sign isomorphism K₃ᴹ(F)≅(ℤ/2)^{real places}. The formula for m₃ on symbols fixes the product order.
-- **Plus and external products.** StableHomotopyKTheory H.1–H.3 provides BG, its homology comparison and the based plus functor. For the stable central extension it must give BK₂(A)→BSt(A)⁺→BE(A)⁺, BE(A)⁺ equivalent under BE(A) to the simply connected covering model of BGL(A)⁺, and all naturality squares. GeneralAlgebraicKTheory K.2, early plus construction, identifies πₙ(BGL(A)⁺) with Kₙ(A) for n≥1; K.7 supplies the external K₂(A)×K₁(ℤ)→K₃(A⊗ℤ) product and its unit comparison. The later low-degree K.2 applications may consume this roadmap; they are not prerequisites.
-- **Hopf input.** AlgebraicTopology Stage 8 supplies the Hurewicz and relative pair sequences. Its Part II extension must supply the based Hopf generator, π₃ of a wedge of 2-spheres, the unordered Whitehead-pair summands, and vanishing of Whitehead products in an H-space. The relative-Hurewicz application here uses H₃ of that wedge equal to zero. StableHomotopyKTheory H.3/H.5, Part II, supplies the multiplicative Barratt–Priddy–Quillen unit comparison sending stable η to [−1]∈K₁(ℤ). The determinant of the transposition is its normalization witness. These specific operations are additional contracts beyond ordinary Hurewicz and covering lifts.
-- **Motivic input.** MotivicEtaleKTheory, early weight-two and weight-three layers M.4–M.6, provides the integral motivic spectral sequence, the Milnor edge identification, the finite étale degree-zero comparison, characteristic-p Milnor torsion-freeness and the relevant divisibility over algebraic closures. The needed low-degree exact sequence and the vanishing of its potential d₂ are stated in Layer 2. The early algebraically closed comparison also supplies the torsion e-invariant K₃(Ω)_tors≃μ_Ω(2), with the finite Bockstein convention of VI.2.1. The early finite Chern interface is c̄₂,₁:K₃(E;ℤ/n)^ind≃H¹(E,ℤ/n(2)) for every field E with n prime to its characteristic (Hutchinson 2024, Theorem 2.10, p.4). Here the superscript ind removes the finite-coefficient Milnor image. For a number field and odd n that image vanishes by the sign theorem, so this supplies the genuine K₃(F;ℤ/n) equivalence used below, without requiring μ_n⊂F. Late regulator comparisons are consumers.
-- **Spectral sequences.** StableHomotopyKTheory H.6 supplies the stable Atiyah–Hirzebruch spectral sequence with products and unit splitting. The group-module hyperhomology required for configurations and frames is constructed in Layer 4 from projective resolutions and finite total-degree filtrations; it is not inferred from a spectrum-only statement. Shapiro, Künneth and filtered-colimit homology comparisons are required with natural maps and trivial integral coefficients where displayed.
-- **Arithmetic.** KTheoryFiniteLocalFields L.1 supplies |K₃(𝔽_q)|=q²−1, K₂(𝔽_q)=0 and its actual functorial maps. ArithmeticKTheory N.3/N.5/N.7 and BorelRegulators R.3 supply finite generation, rank r₂, w₂(F)=|H⁰(F,μ(2))|, K₃^ind(F)≅ℤ^{r₂}⊕ℤ/w₂ and the corresponding ambient K₃ structures. For r₁>0 the latter is ℤ^{r₂}⊕ℤ/(2w₂)⊕(ℤ/2)^{r₁−1}; for r₁=0 it is ℤ^{r₂}⊕ℤ/w₂. These abstract structures do not choose free generators or split the Milnor-image extension. Weak approximation supplies prescribed real sign patterns.
+- **Plus and external products.** StableHomotopyKTheory Layers 1–3 (the H.1–H.3 slices) provide BG, its homology comparison and the based plus functor. Section 3.33, `plusGroup_fibreUCE`, gives BK₂(A)→BSt(A)⁺→BE(A)⁺; its relative-plus and covering interfaces identify BE(A)⁺ under BE(A) with the simply connected covering model of BGL(A)⁺, with the naturality squares. Its §4.11 supplies the block-sum H-space. GeneralAlgebraicKTheory K.2, early plus construction, identifies πₙ(BGL(A)⁺) with Kₙ(A) for n≥1; K.7 supplies the external K₂(A)×K₁(ℤ)→K₃(A⊗ℤ) product and its unit comparison. The later low-degree K.2 applications may consume this roadmap; they are not prerequisites.
+- **Hopf input.** AlgebraicTopology Stage 8 supplies the Hurewicz and relative pair sequences. The additional required Part II input is the based Hopf generator, π₃ of a wedge of 2-spheres, the unordered Whitehead-pair summands, and vanishing of Whitehead products in an H-space. The relative-Hurewicz application here uses H₃ of that wedge equal to zero. StableHomotopyKTheory §7.1 supplies stable η and the first two stems; §5.42 identifies η with self-braiding for Picard groupoids, and §6.3 gives the Barratt–Priddy–Quillen comparison. The remaining required compatibility is that the multiplicative unit sends stable η to [−1]∈K₁(ℤ), with the determinant of the transposition as its witness. The wedge/Whitehead calculation and this unit compatibility are prerequisite gaps beyond the named existing targets; ordinary Hurewicz and covering lifts alone do not supply them.
+- **Motivic input.** MotivicEtaleKTheory, early weight-two and weight-three layers M.4–M.6, supplies the integral motivic spectral sequence, the Milnor edge identification, the finite étale degree-zero comparison and the relevant divisibility over algebraic closures. The needed low-degree exact sequence and the vanishing of its potential d₂ are stated in Layer 2. The characteristic-two branch additionally requires absence of 2-torsion in K₃ᴹ(F). M.5d's `milnor-torsion-divisible` supplies divisibility of characteristic-primary torsion, which does not imply its vanishing; the torsion-freeness input remains a prerequisite gap. The algebraically closed comparison also supplies the torsion e-invariant K₃(Ω)_tors≃μ_Ω(2), with the finite Bockstein convention of VI.2.1. The independent Chern construction is M.8/`finite-etale-chern`: additive maps cᵢ,ₙ:Kₙ(X;ℤ/m)→H²ⁱ⁻ⁿ(X,μ_m^⊗i), for regular X, m invertible and i,n≥1. It does not assert that the degree-three second Chern map is an isomorphism (the map denoted c₂,₁ in Levine’s indexing). Section 6.7 owns the degree-three isomorphism using Hutchinson 2024, Theorem 2.10, p.4, after the algebraic Suslin construction. Late regulator comparisons are consumers.
+- **Spectral sequences.** StableHomotopyKTheory H.6 supplies the stable Atiyah–Hirzebruch spectral sequence with products and unit splitting. The group-module hyperhomology required for configurations and frames is constructed in Layer 4 from projective resolutions and finite total-degree filtrations; it is not inferred from a spectrum-only statement. Use the Shapiro, integral Künneth and filtered-colimit comparisons deferred in Scope and ownership, retaining their natural maps. Over ℤ the Künneth sequence splits abstractly, but its splitting is not natural; the configuration swap uses the canonical cross-product term and its Koszul sign.
+- **Arithmetic.** KTheoryFiniteLocalFields L.1 supplies |K₃(𝔽_q)|=q²−1, K₂(𝔽_q)=0 and its actual functorial maps. ArithmeticKTheory N.3–N.5/N.7 and BorelRegulators R.3 supply finite generation, rank r₂, w₂(F)=|H⁰(F,μ(2))| and the corresponding ambient K₃ structures. N.7/`w-invariant` supplies w₂(ℚ(i))=24, with its proof from N.4's `computing-w-from-the-cyclotomic-character` and `two-primary-w-invariant`. For r₁>0 the ambient structure is ℤ^{r₂}⊕ℤ/(2w₂)⊕(ℤ/2)^{r₁−1}; for r₁=0 it is ℤ^{r₂}⊕ℤ/w₂. These abstract structures do not choose free generators or split the Milnor-image extension. This roadmap identifies the actual Milnor quotient. Weak approximation supplies prescribed real sign patterns.
 - **Smooth-curve specialization.** AlgebraicCurves Layer 12A supplies that a rational point of a smooth integral curve gives a DVR with residue field F. The elementary specialization lemma in §3.12 is the algebraic weight-two input; it is placed here before the general Polylogarithms P.4 applications to avoid a reverse dependency.
 - **Analytic and Habiro consumers.** Polylogarithms P.1 supplies L(1/2)=π²/12 and the Rogers five-term identity, with its interval normalization. The real homomorphism in §5.8 fixes its period. HabiroNumberFields HB.1–HB.2 supplies the CGZ étale Bloch group, its K₂[n] extension, R_ζ and its comparison scalar only for the final application in §6.7. It uses the same twist/Kummer convention as c̄₂,₁. Earlier parts of this roadmap do not depend on HB.2.
+
+The following required refinements have no verified exact supplier target: the unstable H₂(SL₂(F)) coinvariant symbol presentation used in §4.5 (K2SymbolsBrauer Part II); the stable-elements and cyclic/quaternion periodic finite-group calculations beyond the current homology APIs (StableHomotopyKTheory Part II); and the full-field integral motivic Chern diagonal identity used to bound the §2.2 kernel by two. MotivicEtaleKTheory M.6/`universal-motivic-chern` constructs operations for smooth schemes over a perfect base; passage to every field and the required diagonal identity must be supplied explicitly. These are prerequisite gaps, alongside the Hopf and characteristic-primary torsion gaps stated above.
 
 The build is ordered by these slices: linear/Steinberg, topology and early K-theory first; the algebraic comparison next; real, p-adic and quantum regulators afterwards. No numeric tier is assigned here to a roadmap outside the Caraiani–Newton tier order. The final Habiro application consumes the already constructed comparison and has no edge back into its proof.
 
@@ -99,7 +103,7 @@ Here A is associative and unital; K₃ is the imported plus/Q K-theory group. Ma
 
 Provide `K3Homological.comparison` (Given the four canonical isomorphisms, form c_A in the specified order); `K3Homological.comparison_apply` (c_A(x)=b₃(j₃⁻¹(h₃(q₃⁻¹(x))))); `K3Homological.comparison_symm_apply` (c_A⁻¹(z)=q₃(h₃⁻¹(j₃(b₃⁻¹(z))))).
 
-Provide `K3Homological.comparison_zero` (c_A(0)=0); `K3Homological.comparison_add` (c_A(x+y)=c_A(x)+c_A(y), hence c_A is ℤ-linear).
+Provide `K3Homological.comparison_zero` (c_A(0)=0); `K3Homological.comparison_add` (c_A(x+y)=c_A(x)+c_A(y), hence c_A is ℤ-linear); `K3Homological.comparison_eq_zero` (c_A(x)=0 exactly when x=0).
 
 For the composition direction, take all five carriers equal to ℤ/5, q(x)=2x and h,j,b identity. Then comparison(1)=3, since q must be reversed; the unreversed composite gives 2. This is a Check on the lightweight composition helper, separate from the topological construction of the four specified maps.
 
@@ -136,7 +140,7 @@ Provide `K3Homological.eval3` (Compose π:Z₃→H₃(St(A)) with c_A inverse, a
 
 Provide `K3Homological.eval3_add` (ev_A(z+z′)=ev_A(z)+ev_A(z′)); `K3Homological.eval3_zsmul` (ev_A(mz)=m ev_A(z) for each integer m); `K3Homological.eval3_boundary` (ev_A(β(w))=0 for each 4-chain w).
 
-Provide `K3Homological.eval3_eq_iff_certificate` (ev_A(z)=ev_A(z′) iff ∃w:C₄, β(w)=z−z′); `K3Homological.eval3_surjective` (Every element of K₃(A) is ev_A(z) for some cycle z).
+Provide `K3Homological.eval3_eq_iff_certificate` (ev_A(z)=ev_A(z′) iff ∃w:C₄, β(w)=z−z′); `K3Homological.eval3_surjective` (Every element of K₃(A) is ev_A(z) for some cycle z). The named boundary targets `K3Homological.bar_four_identity_boundary` and `K3Homological.bar_noncycle` assert d₄[1|1|1|1]=[1|1|1] and d₃[g|1|1]≠0 for g≠1, respectively.
 
 The source locators for these statements are Weibel, K-book, Ex. IV.1.9 (PDF p. 282); Weibel, K-book, Example VI.2.1.2 (PDF p. 478); Weibel, K-book IV, IV.1, Exercise 1.9 and Definition 1.1, IV.2,14–15.
 
@@ -267,7 +271,7 @@ Needs Layer 1; the graded Milnor, motivic and number-field signature contracts.
 
 ### 2.2 Injectivity and the motivic edge
 
-For every field F the degree-three map K_3^M(F) -> K_3(F) is injective. Consequently the decomposable part is isomorphic to K_3^M(F) and the sequence of the previous lemma is short exact.
+For every field F the degree-three map K_3^M(F) -> K_3(F) is injective. In characteristic two the proof requires Izhboldin’s absence of characteristic-primary torsion in Milnor K-theory (Weibel III.7.8, chapter pp.67–68; VI.4.3.2, p.18). This input is a K2SymbolsBrauer Part II prerequisite gap: divisibility of the torsion subgroup in MotivicEtaleKTheory M.5d is insufficient. Consequently the decomposable part is isomorphic to K_3^M(F) and the sequence of the previous lemma is short exact.
 
 For a field k, the motivic spectral sequence E_2^{p,q} = H^{p−q}(k, Z(−q)) ⇒ K_{−p−q}(k) yields an exact sequence K_4(k) → H^0(k, Z(2)) → K_3^M(k) → K_3(k) → H^1(k, Z(2)) → 0, in which the middle map is milnorToQuillen3 under the Nesterenko–Suslin–Totaro isomorphism K_3^M(k) ≅ H^3(k, Z(3)), and the map into K_3^M(k) is the differential d_2.
 
@@ -598,7 +602,7 @@ Needs §3.1, §3.4, §3.5; the tensor, exterior-power and Matsumoto contracts; t
 
 ### 3.9 The full-tensor lecture kernel
 
-For every field F put A₀(F)=ℤ[F−{0,1}], T(F)=Additive(Fˣ)⊗ℤ Additive(Fˣ), and λ:A₀(F)→T(F), [x]↦(1−x)⊗x. Define B_raw(F)=ker λ as a subgroup of A₀(F), before imposing any five-term relations. Symbols at 0 and 1, when used in formulas, mean zero in A₀. Its inclusion into A₀ is part of the interface. This is Bloch’s lecture object, not the Suslin kernel inside P(F).
+For every field F put A₀(F)=ℤ[F−{0,1}], T(F)=Additive(Fˣ)⊗ℤ Additive(Fˣ), and λ:A₀(F)→T(F), [x]↦(1−x)⊗x. Define B_raw(F)=ker λ as a subgroup of A₀(F), before imposing any five-term relations. Symbols at 0 and 1, when used in formulas, mean zero in A₀. Its inclusion into A₀ is part of the interface. This full-tensor model is distinct from the Suslin kernel inside P(F). Its attribution to Bloch’s Lecture 6, (6.1.2), remains unverified; the construction here is specified by the displayed kernel.
 
 Here F is a field; no field-size hypothesis.
 
@@ -614,7 +618,7 @@ Provide `LectureBloch.boundary_compare` (∂∘q=−π∘λ as homomorphisms A�
 
 Provide `LectureBloch.muRel_injective` (μ_rel is the unique map from B_raw/K_raw composing with the quotient map to μ, and is injective).
 
-The source locators for these statements are Bloch, Higher Regulators (convention only; see References), §6.1, p. 43, (6.1.2).
+These are algebraic consequences of the displayed free-group kernel, the five-term presentation of §3.3 and the identities of §3.6 (Weibel VI.5.1–5.2.1, chapter pp.23–24). The proposed convention locator Bloch, Higher Regulators, §6.1, p.43, (6.1.2), remains unverified and supplies no theorem used here.
 
 **Checks.**
 
@@ -647,7 +651,7 @@ Provide `lectureObstruction`, `lectureObstruction_surjective`, `lectureObstructi
 
 The displayed γ proves the cokernel bound by a finite lift; it does not make the free-cycle kernel torsion.
 
-The source locators for these statements are Bloch, Higher Regulators (convention only; see References), §6.1, p. 43, (6.1.2).
+These are algebraic consequences of the displayed free-group kernel, the five-term presentation of §3.3 and the identities of §3.6 (Weibel VI.5.1–5.2.1, chapter pp.23–24). The proposed convention locator Bloch, Higher Regulators, §6.1, p.43, (6.1.2), remains unverified and supplies no theorem used here.
 
 Needs §3.1, §3.6, §3.9; the tensor, exterior-power and Matsumoto contracts; the preceding presentations in this layer.
 
@@ -951,6 +955,8 @@ The composite Kₙᴹ(F)→θₙ Hₙ(GLₙ)/im Hₙ(GLₙ₋₁)→δₙ Sₙ(F
 
 Here F infinite; n≥1; the connecting convention δ₁([a])=⟨a⟩.
 
+Well-definedness at n=2 uses the unstable SL₂ coinvariant symbol presentation, not just stable Matsumoto. Its exact K2SymbolsBrauer Part II supplier remains a prerequisite gap.
+
 The source locators for these statements are Suslin 1984, §2.6 and Lemma2.6.1, p195; Suslin 1984, 2.7.1–2.7.4 and Theorem3.4(d), pp195–198; Suslin 1984, Corollary2.7.4, p196.
 
 **Checks.**
@@ -1059,6 +1065,8 @@ For an infinite field F the inclusion of the diagonal torus T_2 into the upper t
 Let F be infinite and σ(a, b) = (b, a) on T_2. Under the Shapiro identifications E^1_{1,q} ≅ H_q(T_2, ℤ) and E^1_{0,q} ≅ H_q(B_2, ℤ) ≅ H_q(T_2, ℤ), the differential d^1 : E^1_{1,q} → E^1_{0,q} of the configuration spectral sequence of GL_2(F) on ℙ¹(F) is induced by 1 − σ.
 
 For F infinite, in the configuration spectral sequence of GL_2(F) on ℙ¹(F), E^2_{0,2} = H_2(T_2)_σ ≅ ∧²F^× ⊕ ∧̃²(F^×) (Künneth: σ exchanges the two copies of H_2(F^×) = ∧²F^× and acts on F^× ⊗ F^× by x ⊗ y ↦ −y ⊗ x), and d^3 : E^3_{3,0} = P(F) → E^3_{0,2} is the boundary [x] ↦ x ⊗ (1 − x) of Layer 3 followed by the split inclusion of ∧̃²(F^×). Hence E^∞_{3,0} = B(F) and E^∞_{0,2} ≅ ∧²F^× ⊕ K_2(F).
+
+The d³ boundary formula is the target `rankTwo_d3_boundary`. Suslin, Lemma 2.4, p.222, states it but omits the chain calculation. A bar-chain derivation with the following representatives remains a proof gap; citation to that lemma does not supply the missing computation.
 
 Fix the Shapiro representatives for columns 0,1,2 as (0), (∞,0), (∞,0,1). Then d(∞,0)=(0)−(∞), giving 1−σ; this avoids an unrecorded sign change from using (0,∞). On H₁(T₂), the class (a,1) maps to (a,a⁻¹) in multiplicative coordinates. The centre is Δ(a)=(a,a), whose image is σ-fixed. On the mixed H₁⊗H₁ Künneth term the swap sends a⊗b to −b⊗a. These pin the antisymmetric cokernel in the d³ target.
 
@@ -1178,6 +1186,8 @@ Here F is an infinite field.
 
 For an infinite field F the cokernel of π_3(BM^+) → K_3(F) is B(F)/⟨2c⟩, and there is an exact sequence π_3(BM^+) → K_3(F) ⊕ π^s_3 −(ψ, −ψι_*)→ B(F) → 0. The indecomposable reformulation (Corollary 5.16.1) is the separate §4.16.
 
+The two-primary vanishing for permutation classes and the relative monomial Künneth summands require the separate arguments cited in the K-book to Suslin’s Lecture Notes in Mathematics 1046 version, §§4.2 and 4.4.1. These arguments have not been verified from that version. The Russian §§1–3 source for frame stability does not supply them; their proof decomposition remains a gap.
+
 The source locators for these statements are Weibel, K-book, Exercise VI.5.5 (PDF p. 508); Weibel, K-book, Lemma VI.5.14 (PDF p. 502); Weibel, K-book, Proof of Lemma VI.5.14 (PDF p. 503); Weibel, K-book, Proposition VI.5.13 and its proof (PDF p. 502); Weibel, K-book, Proposition VI.5.15 (PDF p. 503) and its proof (PDF p. 504); Weibel, K-book, Theorem VI.5.16 (PDF p. 504).
 
 Needs §1.5, §2.1, §3.2, §3.3, §3.4, §3.6, §4.7, §4.8, §4.9, §4.12, §4.14; Layers 1–3; the group-homology, spectral-sequence and stable-homotopy contracts.
@@ -1258,7 +1268,7 @@ Provide `enhancedTor` (T̃(F) = ker(π_3^ind(BM^+) → ℤ/12)); `enhancedTor.to
 
 Provide `enhancedTor.char_two` (For char F = 2, toTor is an isomorphism); `enhancedTor.nonsplit` (For char F ≠ 2 the extension does not split (a consequence of §4.19, stated there)); `enhancedTor.equivEnhancedMu` (An isomorphism T̃(F) ≅ μ̃(F), depending on a choice; no such isomorphism is natural in F).
 
-For a finite cyclic group A of even order there is a unique nontrivial extension Ã of A by ℤ/2 (0 → ℤ/2 → Ã → A → 0, with Ã cyclic of twice the order); for A of odd order set Ã = A. The K-book defines μ̃(F) as the union of the μ̃_n(F). A union needs transition maps, and these are not canonical (an extension of A = ℤ/m, m even, by ℤ/2 has the automorphism x ↦ (1 + m)x over A and ℤ/2), so define μ̃(F) by the choice-free model μ̃(F) = {ζ ∈ F̄^× : ζ² ∈ μ(F)} in a fixed algebraic closure, with the surjection ζ ↦ ζ² onto μ(F). Its kernel is μ_2(F̄) = {±1}, so μ̃(F) is the nontrivial extension when char F ≠ 2 (μ(F) contains −1 and has even order), and squaring is bijective when char F = 2, where μ̃(F) = μ(F). The group μ̃(F) is abstractly isomorphic to Tor_1^ℤ(μ(F), μ(F))~, but not naturally in F (§4.19).
+For a finite cyclic group A of even order there is a unique nontrivial extension Ã of A by ℤ/2 (0 → ℤ/2 → Ã → A → 0, with Ã cyclic of twice the order); for A of odd order set Ã = A. The K-book defines μ̃(F) as the union of the μ̃_n(F). A union needs transition maps, and these are not canonical (an extension of A = ℤ/m, m even, by ℤ/2 has the automorphism x ↦ (1 + m)x over A and ℤ/2), so define μ̃(F) by the choice-free model μ̃(F) = {ζ ∈ F̄^× : ζ² ∈ μ(F)} in a fixed algebraic closure, with the surjection ζ ↦ ζ² onto μ(F). Its kernel is μ_2(F̄) = {±1}, so μ̃(F) is the nontrivial extension when char F ≠ 2 (μ(F) contains −1; when finite it has even order), and squaring is bijective when char F = 2, where μ̃(F) = μ(F). The group μ̃(F) is abstractly isomorphic to Tor_1^ℤ(μ(F), μ(F))~, but not naturally in F (§4.19).
 
 Here F is a field; the roots of unity are those of F.
 
@@ -1352,7 +1362,7 @@ Provide `finiteStabilization` (The σF homomorphism with the specified stabiliza
 
 Provide `finiteStabilization_hurewicz` (For the actual stable Hurewicz map h and the homology stabilization s, h(σF(loc z))=s(z) for every integral class z. This fixes σF as the stabilization composite, including its normalization).
 
-The map σF is bijective for every finite field, including F₂ and F₃. Consequently H₃(SL₂(F),Z[1/ℓ])≅K₃(F)≅K₃ⁱⁿᵈ(F) naturally in finite fields.
+The map σF is bijective for every finite field, including F₂ and F₃. The proof requires `algebraicClosureStabilization`: for Ω an algebraic closure of a finite field of characteristic ℓ, the actual map H₃(SL₂(Ω),ℤ[1/ℓ])→K₃^ind(Ω) is an isomorphism, compatibly with the finite-subfield maps. Hutchinson’s proof invokes Sah, Homology of classical Lie groups made discrete III, for this step. No exact supplier target for that unstable comparison has been identified; it is a prerequisite gap, not a consequence of equal finite cyclic orders. Consequently H₃(SL₂(F),Z[1/ℓ])≅K₃(F)≅K₃ⁱⁿᵈ(F) naturally in finite fields.
 
 The source locators for these statements are Hutchinson 2013, arXiv v2, §3, proof of Corollary 3.9, p15; Hutchinson 2013, arXiv v2, §3, Corollary 3.9, p15.
 
@@ -1454,11 +1464,11 @@ Import K₃(Z)→K₃(Q) as an isomorphism and K₃(Q)≅Z/48 from ArithmeticKTh
 
 Here F=Q; the Milnor comparison and indecomposable quotient are those of Layer 2. The ambient K₃(Z)→K₃(Q) and cyclic structure of order48 are imported from ArithmeticKTheory N.5/N.7, not recomputed here.
 
-For F=Q(i), import K₃(F)≅Z⊕Z/24 from ArithmeticKTheory N.5/N.7. Bass–Tate gives K₃ᴹ(F)=0 since r₁=0; hence the quotient K₃(F)→K₃ⁱⁿᵈ(F) is an isomorphism. The rank1 free generator exists but is not canonical; choosing a basis is distinct from constructing a Bloch-symbol generator with certified index.
+For F=Q(i), use w₂(F)=24 from ArithmeticKTheory N.7/`w-invariant` and the N.5 ambient structure theorem to obtain K₃(F)≅Z⊕Z/24. Bass–Tate gives K₃ᴹ(F)=0 since r₁=0; hence the quotient K₃(F)→K₃ⁱⁿᵈ(F) is an isomorphism. The rank1 free generator exists but is not canonical; choosing a basis is distinct from constructing a Bloch-symbol generator with certified index.
 
-Here F=ℚ(i) has r₁=0 and r₂=1. The ambient K₃ structure and w₂=24 are supplied by ArithmeticKTheory N.5/N.7.
+Here F=ℚ(i) has r₁=0 and r₂=1. The ambient structure is N.5; the Gaussian w₂ certificate is the explicit test and proof step of N.7/`w-invariant`, using N.4’s primewise formulas. Neither requires the N.8 Gaussian example.
 
-The source locators for these statements are Weibel, K-book III, III.7.2(c)–(d), pp61–62; Weibel, K-book VI, VI.2.1.2 p7; VI.5.3 p24; Weibel, K-book III, III.7.2(d) p62.
+The source locators for these statements are Weibel, K-book III, III.7.2(c)–(d), pp61–62; Weibel, K-book VI, VI.2.1.2 p7; VI.2.2–2.3, pp8–11; VI.5.3 p24. The named targets `rational_quotient_kernel` and `rational_quotient_nonsplit` pin the reduction ℤ/48→ℤ/24: 24 is a nonzero kernel element and the additive quotient has no section.
 
 Needs §2.1, §2.2; Layers 1–4; the finite-field, arithmetic and interval Rogers contracts.
 
@@ -1610,6 +1620,8 @@ Provide `rootCoefficient_of_mem` (If b∈B has underlying x, rootCoefficient=b�
 
 Provide `rootCoefficient_map` (For a commuting boundary square f:P→P′,g:W→W′, tensoring its kernel map with id_R sends the class at x to that at f(x)); `rootCoefficient_specializations` (Under B⊗ℤ/n≅B/n this is rootClassMod; for ℤ[1/m] it is rootClassLoc; for ℤ_p with p∤m it is rootClassPadic, with the conventions).
 
+The named target `nonflat_kernel_control` records the noninjective tensor of 2ℤ↪ℤ with ℤ/2, together with the failure of 2 to be a unit there.
+
 Let ζ ∈ F be a root of unity of exact order m ≥ 2. (i) For n ≥ 1 prime to m, define ⟦ζ⟧_n ∈ B(F)/nB(F) as u · (m[ζ]) with u m ≡ 1 mod n; it does not depend on u and maps to the class of [ζ] in P(F)/nP(F). (ii) Define ⟦ζ⟧[1/m] ∈ B(F) ⊗ Z[1/m] as m[ζ] ⊗ m^{−1}; it maps to [ζ] ⊗ 1 in P(F) ⊗ Z[1/m]. (iii) For a prime p not dividing m, define the class in B(F) ⊗ Z_p in the same way. When [ζ] ∈ B(F) (§6.3) each class is the image of [ζ]; otherwise none is the image of an element [ζ] of B(F). These are the substitutes the consumers use in place of [ζ].
 
 Here F is a field; ζ ∈ F has exact order m ≥ 2. n is prime to m, respectively p does not divide m.
@@ -1668,7 +1680,7 @@ Let F be an infinite field and β an element of B(F) produced by §6.2. Then the
 
 Here F is an infinite field, as in §4.14 and §4.8.
 
-The finite-chain existence theorem is `BarLiftCertificate.exists_of_surjective`: surjectivity of the specified homology map and of the cycles projection gives a witness. The latter surjectivity is a quotient property, so it neither chooses a natural lift nor supplies a chain-search algorithm.
+The finite-chain existence theorem is `BarLiftCertificate.exists_of_surjective`: surjectivity of the specified homology map and of the cycles projection gives a witness. The latter surjectivity is a quotient property, so it neither chooses a natural lift nor supplies a chain-search algorithm. The named boundary targets `finite_lift_nonsplit`, `BarLiftCertificate.trivial_nonzero` and `BarLiftCertificate.trivial_boundary` record, respectively, the lack of a section of ℤ/24→ℤ/6, the empty nonzero fibre for a trivial group, and its nonzero chain [1|1|1] above zero.
 
 The source locators for these statements are Weibel, K-book VI, Theorem VI.5.2, p23; Weibel, K-book VI, VI.5.12, p29, together with the Layer 1 homological model; Hutchinson 2024, §2.1, bar resolution and its differential, p2; Weibel, K-book, Proposition VI.5.12 (PDF p. 502); Weibel, K-book, Remark VI.5.12.1 (PDF p. 502); Weibel, K-book, Lemma VI.5.6, proof (PDF p. 498).
 
@@ -1704,13 +1716,21 @@ Needs §2.1, §2.3, §2.5, §3.13, §4.19, §4.20, §5.5, §5.7; Layers 1–5; t
 
 ### 6.7 Genuine finite-coefficient comparison
 
+First construct `finiteChernIndEquiv` for every field E and integer n≥2 invertible in E: the second Chern map induces K₃(E;ℤ/n)^ind≃H¹(E,μ_n^⊗2), where the superscript denotes the quotient by the image of K₃ᴹ(E)/n under the integral comparison followed by the coefficient map. Require its evaluation on representatives and naturality under field embeddings with the same invertible n. The n=1 groups are zero. The map construction is MotivicEtaleKTheory M.8/`finite-etale-chern`; the isomorphism is a target here, following Levine, Theorem 4.12, pp.335–336, as restated in Hutchinson 2024, Theorem 2.10, p.4. Levine reduces to prime coefficients and a field containing the roots of unity, then uses the relative-K₃/Chern ladder and Theorem 4.11 for the degree-two relative term; the general coefficient theorem precedes the number-field specialization. For a number field and odd n, Bass–Tate gives K₃ᴹ(E)/n=0, so this is an isomorphism on the full finite-coefficient group, even when μ_n is not contained in E.
+
+**Checks.**
+
+- At n=1 the coefficient and étale groups vanish; no primitive-root choice carries extra data.
+- For a number field and odd n, the real-sign Milnor group is killed by tensoring with ℤ/n, so the quotient map to the indecomposable coefficient group is an isomorphism.
+- At an even n for a field with real places, this argument does not erase the Milnor image; the general comparison retains its indecomposable domain.
+
 Let F be a number field, p an odd prime, a≥1, n=p^a and p∤w₂(F). Use the imported finite-coefficient Quillen group K₃(F;ℤ/n), whose exact sequence is 0→K₃(F)/n --j_K→ K₃(F;ℤ/n) --∂_K→ K₂(F)[n]→0. Use the Habiro-owned CGZ étale Bloch group B_new(F;ℤ/n), with its exact sequence 0→B_new(F)/n --j_B→ B_new(F;ℤ/n) --δ_B→K₂(F)[n]→0. The finite Chern isomorphism c̄₂,₁:K₃(F;ℤ/n)≅H¹(F,ℤ/n(2)) and the CGZ isomorphism R_ζ:B_new(F;ℤ/n)≅H¹(F,ℤ/n(2)), transported through the same chosen twist/Kummer convention for a primitive n-th root ζ, give Φ_ζ=R_ζ⁻¹∘c̄₂,₁. In the additional range n prime to M_F of Habiro HB.1, write R_ζ∘κq=c_ζ^γ on K₃(F)/n using HB.2’s Chern comparison. Then Φ_ζ∘j_K=j_B∘(γ⁻¹κq), with multiplicative powers interpreted as scalar multiplication on the additive target. No assertion δ_BΦ_ζ=∂_K is made without checking the right-hand normalization. In particular Φ is not asserted to extend the unscaled Suslin map.
 
-Here F is a number field, n=p^a, p is odd, a≥1 and p∤w₂(F). Choose the same primitive n-th root ζ and twist/Kummer convention for both supplied equivalences. The formula on the modulo subgroup additionally requires n prime to the Habiro comparison constant M_F. The finite Chern supplier is the early degree-three equivalence of the exact contracts, not a later regulator theorem.
+Here F is a number field, n=p^a, p is odd, a≥1 and p∤w₂(F). Choose the same primitive n-th root ζ and twist/Kummer convention for both supplied equivalences. The formula on the modulo subgroup additionally requires n prime to the Habiro comparison constant M_F. The finite Chern equivalence is the preceding `finiteChernIndEquiv` specialization; M.8 supplies its underlying map, and no regulator theorem is used to prove it.
 
 Provide `finiteCoefficientBlochEquiv` (For genuine additive equivalences c:K≃H and r:E≃H, the resulting Φ:K≃E is r⁻¹c. For the field specialization, c is the supplied finite Chern equivalence and r is the supplied R_ζ equivalence); `finiteCoefficientBlochEquiv_spec` (r(Φ(x))=c(x), and Φ⁻¹(y)=c⁻¹(r(y)). The first equation uniquely characterizes Φ); `finiteCoefficientBlochEquiv_def` (The generic construction is exactly Mathlib’s AddEquiv composition c.trans r.symm).
 
-Provide `finiteCoefficientBlochEquiv_on_quotient` (For n-torsion modules L,H, a linear map h₀:L→H, a unit γ∈ℤ/n, and inclusions j_K:L→K,j_B:L→E satisfying c j_K=h₀ and r j_B=γh₀, one has Φ j_K(x)=j_B(γ⁻¹x). This is the field restriction after L=K₃(F)/n is identified with B_new(F)/n); `finiteCoefficientBlochEquiv_natural` (Given supplied equivalences c′:K′≃H′,r′:E′≃H′ and homomorphisms f:K→K′,g:E→E′,h:H→H′ with c′f=hc and r′g=hr, one has Φ′f=gΦ. Field-extension naturality uses exactly these supplied commuting comparisons in their common good-prime range).
+Provide `finiteCoefficientBlochEquiv_on_quotient` (For n-torsion modules L,H, a linear map h₀:L→H, a unit γ∈ℤ/n, and homomorphisms j_K:L→K,j_B:L→E satisfying c j_K=h₀ and r j_B=γh₀, one has Φ j_K(x)=j_B(γ⁻¹x). This is the field restriction after L=K₃(F)/n is identified with B_new(F)/n); `finiteCoefficientBlochEquiv_natural` (Given supplied equivalences c′:K′≃H′,r′:E′≃H′ and homomorphisms f:K→K′,g:E→E′,h:H→H′ with c′f=hc and r′g=hr, one has Φ′f=gΦ. Field-extension naturality uses exactly these supplied commuting comparisons in their common good-prime range).
 
 In the arithmetic acceptance case F=ℚ,n=5, K₃(ℚ)/5=0, whereas the coefficient Bloch class [32] has K₂-boundary {2,−31}; five times this symbol is {32,−31}=0 by Steinberg, and its tame residue at 31 is 2∈F₃₁ˣ, of exact order five. Thus K₂(ℚ)[5] is nonzero and the genuine finite-coefficient middle group cannot be replaced by the ordinary quotient. For this test use the tame-symbol convention ∂ᵥ{u,π}=ū, which fixes the order of the two entries.
 
@@ -1731,7 +1751,7 @@ Over ℚ the single five-term relation at (2,3) has arguments 2,3,3/2,3/4,1/2. A
 
 ### Dependencies
 
-Use Layers 1–5 and Mathlib finite supports, kernels, tensor maps and coefficient rings. Only the final genuine finite-coefficient application uses HabiroNumberFields HB.1–HB.2, after the early motivic finite Chern equivalence is available. Its K₂[n] extension and comparison scalar are distinct from the integral Suslin sequence and the ordinary tensor quotient. Analytic regulator agreement remains with Polylogarithms P.2, BorelRegulators R.7 and PadicHodgeRegulators D.2.
+Use Layers 1–5 and Mathlib finite supports, kernels, tensor maps and coefficient rings. Only the final genuine finite-coefficient application uses HabiroNumberFields HB.1–HB.2, after `finiteChernIndEquiv` has been constructed from the early M.8 map. Its K₂[n] extension and comparison scalar are distinct from the integral Suslin sequence and the ordinary tensor quotient. Analytic regulator agreement remains with Polylogarithms P.2, BorelRegulators R.7 and PadicHodgeRegulators D.2.
 
 ## Downstream consumers
 
@@ -1743,9 +1763,10 @@ ArithmeticKTheory N.8 consumes the real-sign Milnor subgroup, the indecomposable
 - A. A. Suslin, [*Homology of GLₙ, characteristic classes and Milnor K-theory*](https://www.mathnet.ru/eng/tm2280), Trudy Mat. Inst. Steklov. 165 (1984), 188–204, especially §§1–3 and Theorem 3.4. Page numbers refer to the Russian version of record.
 - A. A. Suslin, [*K₃ of a field, and the Bloch group*](https://www.maths.dur.ac.uk/users/herbert.gangl/Suslin_K3_Bloch_group.pdf), Proc. Steklov Inst. Math. 183 (1991), 217–239, §§1–2 and 5.
 - Kevin Hutchinson, [*A Bloch–Wigner complex for SL₂*, arXiv:1107.0264v2](https://arxiv.org/abs/1107.0264v2), §§3–4 and 6–7. All locators to this work use the preprint pagination, not the journal pagination.
+- Marc Levine, [*The indecomposable K₃ of fields*](https://numdam.org/item/10.24033/asens.1585.pdf), Ann. Sci. ENS 22 (1989), 255–344, Theorems 4.11–4.12, pp.334–336.
 - Kevin Hutchinson, [*The Chern class for K₃ and the cyclic quantum dilogarithm*, arXiv:2104.14413v4 (2024)](https://arxiv.org/abs/2104.14413v4), §2.3, Theorem 2.10, p.4.
 - Frank Calegari, Stavros Garoufalidis and Don Zagier, [*Bloch groups, algebraic K-theory, units, and Nahm’s conjecture*, arXiv:1712.04887v3 (2021)](https://arxiv.org/abs/1712.04887v3), Definitions 1.1 and 2.1 and §6. This is the older exterior presentation, read with the explicit intersection repair in §3.13. It differs from the [published author copy](https://people.mpim-bonn.mpg.de/stavros/publications/printed/calegari_unit.pdf), Ann. Sci. ENS 56 (2023), 383–426, Definition 2.1 and Lemma 2.2, p.391; §4.2–4.3, pp406–407; §6, pp414–416. Published locators use printed journal pages.
 - Alexander B. Goncharov, [*Geometry of configurations, polylogarithms, and motivic cohomology*](https://sasha-goncharov.github.io/Advances1995.pdf), Adv. Math. 114 (1995), 197–318, §§1.8–1.9 and 2.3. The all-curve relation-equality assertion is conditional, as specified at Conjecture 1.20, p.225.
-- Spencer Bloch, *Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves*, CRM Monograph Series 11 (2000), Lecture 6, §6.1, p.43, (6.1.2), identifies the full-tensor lecture convention. The explicit kernel, obstruction and six-torsion comparisons here are algebraic consequences of the displayed definitions and five-term relations; no unavailable theorem of the monograph is an input.
+- Spencer Bloch, *Higher Regulators, Algebraic K-Theory, and Zeta Functions of Elliptic Curves*, CRM Monograph Series 11 (2000), Lecture 6, §6.1, p.43, (6.1.2), is a proposed, unverified locator for the full-tensor convention. The explicit kernel, obstruction and six-torsion comparisons here are algebraic consequences of the displayed definitions and five-term relations; no unavailable theorem of the monograph is an input.
 - Don Zagier, [*The Dilogarithm Function*](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf), in *Frontiers in Number Theory, Physics, and Geometry II* (2007), Appendix II.1.A, pp23–24, for the Rogers normalization.
 - Allen Hatcher, [*Algebraic Topology*](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf), §4.2, Examples 4.51–4.52, pp380–381, and Exercise 37, p392, for the Hopf and Whitehead input at its topological owner.
