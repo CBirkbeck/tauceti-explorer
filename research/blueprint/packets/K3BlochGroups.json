@@ -8379,10 +8379,10 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
+  "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
   "date": "2026-10-19",
-  "notes": "Codex session codex-kUKQAc, independent of the fixes; follows the immediately preceding review preserved verbatim in reviewHistory. The area /29 ownership repair remains correct: import T.1 perfectness/UCE, retain the plus-fibre adapter, and derive V.5 number-field examples from N.5 and the V.5 theorem, with no reverse N.8 dependency. K-book VI.2.1.2 and VI.5.3 agree with K3(Q(i)) = Z plus Z/24. The current WORKERS shape rule fails: the Lean file has 5105 lines and the comment-stripped data-body diagnostic finds 101 admitted data definitions (for example bStPlus, its basepoint and comparison maps). Reorganize at statement level; whitespace compression would not repair the missing carriers. All seven authorized packets pass check_blueprint with zero errors/warnings, and their actual Lean declarations elaborate serially at Mathlib 082e2d3 / Tau Ceti f790474 with only admitted-declaration warnings (K.1 none). Source readings, retained evidence and per-finding boundaries are distinguished in the review report. The current nineteen-packet queue remains blocked by the seven-packet issue authorization; no additional supplier is certified by this verdict."
+  "notes": "The T.1/V.1 perfectness/UCE ownership and N.5-to-V.5-to-N.8 arithmetic ownership repairs remain correct. Corrected Suggested.lean shape and size: removed admitted higher-K, field-Bloch and comparison constructions; retained light kernel/tensor root-class definitions, two target milestones and concrete controls over pinned carriers. All other targets and their APIs/checks already remain in the reader. The generic statements do not identify arbitrary groups with missing field K-theory objects. Codex session codex-WBAmLh, independent of the original fixes; follows the immediately preceding review preserved verbatim in reviewHistory. All seven authorized packet checks pass with zero errors/warnings; their actual Lean declarations elaborate serially at the pins with admitted-proof warnings only. This is a scoped fix review, not external supplier closure. The nineteen-packet queue remains blocked by the seven-packet issue authorization; twelve additional reviews are not stamped."
  },
  "sourceVersions": [
   {
@@ -8956,6 +8956,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
    "date": "2026-10-10",
    "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped accepted verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+   "date": "2026-10-19",
+   "notes": "Codex session codex-kUKQAc, independent of the fixes; follows the immediately preceding review preserved verbatim in reviewHistory. The area /29 ownership repair remains correct: import T.1 perfectness/UCE, retain the plus-fibre adapter, and derive V.5 number-field examples from N.5 and the V.5 theorem, with no reverse N.8 dependency. K-book VI.2.1.2 and VI.5.3 agree with K3(Q(i)) = Z plus Z/24. The current WORKERS shape rule fails: the Lean file has 5105 lines and the comment-stripped data-body diagnostic finds 101 admitted data definitions (for example bStPlus, its basepoint and comparison maps). Reorganize at statement level; whitespace compression would not repair the missing carriers. All seven authorized packets pass check_blueprint with zero errors/warnings, and their actual Lean declarations elaborate serially at Mathlib 082e2d3 / Tau Ceti f790474 with only admitted-declaration warnings (K.1 none). Source readings, retained evidence and per-finding boundaries are distinguished in the review report. The current nineteen-packet queue remains blocked by the seven-packet issue authorization; no additional supplier is certified by this verdict."
   }
  ]
 }

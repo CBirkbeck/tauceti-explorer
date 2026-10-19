@@ -1,26 +1,24 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
-Refs #5542. Codex (GPT-6), session `codex-kUKQAc`, 19 October 2026.
-[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6257063599)
-was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6257064920).
-This session wrote none of the fixes under review and claimed no second job.
+Refs #5542. Codex, session `codex-WBAmLh`, 19 October 2026.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258124657)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6258126178).
+No second job was claimed.
 
-## Why this is a checkpoint
+## Checkpoint blocker
 
-**Issue/queue authorization mismatch:** the issue's Deliverables and full
-instructions still permit seven packet/Lean pairs and the report. The current
-queue requires nineteen pairs and the report. [WORKERS.md](../WORKERS.md),
-“Doing the work”, says “Edit only the files the issue names.” Expanded scope
-was requested from the user; no authorization arrived before submission.
-The twelve additional pairs were inspected read-only and were not stamped.
+The live issue still names seven packet/Lean pairs. The real queue job names
+nineteen pairs. [WORKERS.md](../WORKERS.md), “Doing the work”, says “Edit only
+the files the issue names.” Expanded authorization was requested; no reply
+arrived before submission. The seven authorized reviews are complete,
+including the negative K.1/K.6 outcomes; the real queue completion predicate
+is false because twelve additional pairs lack this area-review stamp.
+The scratch diagnostic restricted to the issue's seven pairs returns true.
+Do not alter queue outputs or stamp unchecked suppliers to bypass this.
 
-`issues.py:deliverables_complete` is false for the real queue job and true
-for a scratch-only diagnostic restricted to the issue's seven pairs.
-The predicate accepts both accepted and needs-changes review outcomes.
-Do not alter queue scope or replace another job's review merely to satisfy
-that predicate. Reconcile the issue with the queue, or obtain explicit scope
-authorization, before editing the following additional basenames (each has
-`packets/<basename>.json` and `suggested/<basename>.lean`):
+Reconcile the issue with the queue, or obtain expanded authorization, before
+editing the following additional basenames. Each has a packet in `packets/`
+and a Lean companion in `suggested/`:
 
 1. `BorelRegulators`
 2. `MotivicEtaleKTheory--M.1`
@@ -35,104 +33,83 @@ authorization, before editing the following additional basenames (each has
 11. `K3BlochGroups--V.1`
 12. `KTheoryFiniteLocalFields`
 
-The older 22-packet list is stale. Arithmetic N.2, N.3-finite-generation,
-N.5 and low-degree Z.3 are not current queue outputs. Do not repair Z.3
-under this job without a new assignment.
+The obsolete 22-packet list is not the current assignment. In particular,
+N.2, N.3-finite-generation, N.5 and Z.3 are not current queue outputs.
 
-## What this run completed
+## Completed in this run
 
-- Independently reviewed the 38 confirmed findings (/1–/37 and /39), the
-  verifier, the round-two fixes and relevant newer N.7/T.3 repairs.
-  The report has a fresh per-finding disposition table; inherited source
-  certifications retain their original authorship.
-- Replaced the seven authorized review objects, preserving every immediately
-  preceding object verbatim in history. Outcomes: **accepted** for N.7 and
-  T.3, **needs changes** for N.1, K.1, K.6, T.1 and K3BlochGroups.
-- Corrected N.7's misleading finite-order Gaussian K₃ title and made the
-  existing Gaussian `w₂=24` check explicitly use N.4's odd/two-primary
-  computations, with K-book VI.2.1.2 as source.
-- All nineteen packets pass `check_blueprint.py`, zero errors/warnings.
-  The seven authorized Lean files elaborate serially with `lean-check` at
-  the pins, memory above 20 GB. Sorry-warning counts: N.1 124, K.1 0,
-  T.3 30, N.7 27, K.6 6, T.1 72, K3 807; no other warnings in those logs.
-  Commented K.1 future signatures are not type checked.
-- Independently checked all eleven golden-field finite certificates,
-  173 exact relation witnesses and 23 selected determinants, including
-  rejection of a corrupted witness. The report gives the arithmetic and
-  exact packet field needed to reproduce this without scratch.
-- The graph of 470 concrete nodes in the seven packets is acyclic; actual
-  stage projection still has K.7→K.6 and K.7→K.3 dependencies against atlas
-  order. This is not external supplier closure certification.
-- No suggested file, extra supplier, queue, atlas data or upstream file was
-  changed. No library build/update/cache download or language server ran.
-  Scratch source downloads and logs are disposable; the report preserves
-  the evidence and precise reproduction information needed next time.
+- Reviewed all 38 confirmed area findings (/1–/37 and /39), distinguishing
+  acceptance of a correction contract from an unfinished supplier.
+- Preserved the seven previous review objects verbatim in history and
+  wrote current scoped verdicts: accepted N.1, T.3, N.7, T.1 and K3;
+  needs changes K.1 and K.6 because of actual stage ordering.
+- Corrected the four binding Lean-shape failures. N.1 now has 124 lines,
+  K.6 65, T.1 95 and K3 101. Removed admitted construction data and auxiliary
+  developments; retained light definitions, milestones and examples over
+  pinned carriers. The full targets/APIs/checks already exist in the readers,
+  which were inspected but not edited. No target node was removed or weakened.
+- All seven authorized companions elaborate serially with `lean-check` at
+  the shared pins, with sorry as their only warning. Counts: N.1 10,
+  K.1 0, T.3 30, N.7 27, K.6 3, T.1 8, K3 10. K.1's commented future
+  signatures are not type checked. Comment-stripped data-body diagnostics
+  give zero hits for all seven; changed definitions were inspected manually.
+- All nineteen queue packets pass `check_blueprint.py`, zero errors/warnings.
+  Additional supplier schema checks are not independent review acceptances.
+- Independently verified all eleven golden-field finite certificates,
+  173 relation witnesses, 23 selected determinants and residue generation;
+  a corrupted witness was rejected. The report records exact arithmetic
+  and the packet fields needed to reproduce the check without scratch.
+- Recomputed the acyclic graph on 470 concrete nodes and both backward
+  actual stage dependencies. Fresh source checks include K-book III's UCE
+  package and Stacks 02MJ/09EM/00PD; current Tau Ceti's norm-reduction theorem
+  was read separately from the pin. No restricted-book certification was
+  renewed or source passage copied.
+- No reader, extra supplier, queue, atlas or upstream file was changed.
+  No library build/update/cache download or language server ran.
 
-## Current mathematical and format boundaries
+## Preserve these mathematical boundaries
 
-**Do not revive obsolete N.7/T.3 objections.** N.7 now has direct golden-field
-Tate descent, bounded representatives, ordinary-unit stretch, tied-prime
-descent and exact finite certificates. It no longer needs the missing
-Zhang–Xu/Skalba route. Its independent upper bound four and real-sign lower
-bound four do not use Birch–Tate. The Gaussian proof also checks. Three
-unrelated N.7 gaps and ten supplier requests remain.
+**N.7:** do not revive the obsolete missing Zhang–Xu/Skalba objection. Its
+current direct golden-field route uses tied-prime descent and the exact
+finite certificates. Its independent upper and lower bounds do not use
+Birch–Tate. The earlier Gaussian K₃ title/w₂ correction remains. Three
+unrelated gaps and ten requests remain open.
 
-T.3 now has an explicit arbitrary-residue LocalFieldsRamification Part II
-routing brief with four contracts (normalized valuation, finite free lattice,
-norm identities and component lengths). This resolves the old finite-residue
-supplier-scope objection to /12 and /28. The Part II is still unregistered,
-not supplied mathematics; that gap and five other gaps remain. The separate
-finite-rank commutative-ring monomial-kernel supplier is not field Matsumoto.
-Do not claim to have freshly read the inherited restricted Milnor or
-Gille–Szamuely source certifications.
+**T.3:** the arbitrary-residue complete-DVR requirement now has a four-contract
+LocalFieldsRamification Part II routing brief. It is still unregistered and
+unimplemented, and five other gaps remain. Reuse current Tau Ceti's
+`Algebra.norm_quotient_mk`; do not pretend it belongs to the older pin.
+Keep Artin component lengths, inseparable residue possibilities and the
+separability qualification for the generic product-of-fields assertion.
+The commutative-ring monomial-kernel supplier is distinct from field Matsumoto.
+Earlier Milnor/Gille–Szamuely source readings remain attributed to their readers.
 
-K.1/K.6 still require maintainer application of early-product and late-cofinality
-stage splits. `K.7/products-from-biexact-functors` feeds
-`K.6/nonconnective-spectrum`; `K.7/biexact-stabilized-pairing` feeds
-`K.3/localization-product-boundary`. Embedded proposals alone do not change
-actual parents. Workers do not apply atlas restructuring themselves.
+**K.1/K.6:** the maintainer must apply the early-product and late-cofinality
+restructuring. Actual K.7 products feed K.6/nonconnective-spectrum and
+K.3/localization-product-boundary against atlas order. Merely proposing
+`K.7:products` and `K.3:cofinality` does not register stages. A negative review
+is the completed review outcome for these current files.
 
-The 12 October WORKERS shape rule is binding even though current CI applies
-its data-body check only to package `Suggested.lean` paths. After stripping
-comments, `check_sorry_data.py` diagnoses 7 actual admitted data definitions
-in N.1, 3 in K.6, 18 in T.1 and 101 in K3; manual examples and exact lines
-are in the report. K3 is also 5,105 lines. Move heavy unsupported constructions
-to prose targets and keep only light real-bodied definitions/statements over
-pinned carriers. Do not compress whitespace or use untyped commented
-signatures as a substitute. Mathematical ownership repairs are retained;
-these new packet-level negative verdicts concern the current file rule.
+**T.1/K3:** the full bar, transgression, Steinberg, field-Bloch and higher-K
+constructions remain reader targets. The streamlined Lean statements prove
+none of them. The odd-order Heisenberg control detects the sign; the actual
+comparison and CFT6 character-evaluation proof remain obligations.
 
-T.1's odd-order Heisenberg sign control distinguishes 2 from 1 in 𝔽₃;
-its actual transgression comparison is still admitted. CFT6 separately owes
-the character-evaluation identity proof. Other read-only supplier boundaries:
-R.3 still imports rational Hurewicz from H.3 instead of H.6 (/5,/33), and
-M.7's Dedekind étale comparison alone does not supply the full requested
-Zariski truncation/naturality interface (/2). These are targeted observations,
-not whole-supplier reviews or a claim that the H-space theorem is false.
+Read-only supplier observations from prior sessions remain useful leads,
+not fresh whole-supplier verdicts: R.3's rational Hurewicz destination is H.6,
+not H.3; M.7's Dedekind étale result does not supply the entire requested
+Zariski truncation/naturality API. The previous U.1 elaboration had nine errors
+and exceeded 5,000 lines; this run did not repair or rerun that extra file.
 
-## U.1: fresh compilation failure to resume after authorization
+## Resume
 
-The additional `KTheoryLowDegrees--U.1.lean` was checked read-only this run:
-**nine errors**, 946 sorry warnings, 9,098 lines. Diagnostics in the unchanged
-file are:
-
-- 4850: `omega` fails on the `Fin` zero inequality proof.
-- 7977,7988,7993,7997,8004 (twice): native Morita essentially-small interfaces
-  require incompatible universes `max (u+1) ?v = u`.
-- 8723,8776: a monoid homomorphism to `ℚˣ` is supplied where the statement
-  infers a homomorphism to `ℚ`.
-
-Run `lean-check` on that file after scope authorization and repair the actual
-contracts; preserve the current shape limit as well. The other eleven
-additional Lean files were not compiled in this run. A previous worker's
-sixteen-warning classical T.1 compilation is historical evidence only.
-
-## Resume sequence
-
-Resolve scope first. Then review the twelve additional packets only against
-their actual area-fix obligations, read primary proofs needed for those
-judgments, correct clear errors, preserve independent-review history and
-record this job's scoped verdicts. Use the current report rather than
-repeating obsolete seven-packet source objections or all prior checks.
-A needs-changes verdict is a completed review; an unreviewed destination is
-not. Keep all substantive unsupplied contracts explicit and open one job PR.
+After scope reconciliation, review the twelve pairs against the findings
+mapped in the report and their latest independent reviews, then replace each
+review only after actual assessment. Apply the current Lean shape rule from
+the start: unsupported carriers/constructions stay in the reader; Lean has
+light real definitions and target statements over pinned carriers. Do not
+turn a successful elaboration into a claim of proved mathematics.
+Run required packet checks, relevant Lean elaborations serially after the
+memory check, and the actual queue completion predicate. Scratch is disposable;
+all resumption-critical facts and reproduction steps are recorded here and
+in the report.
