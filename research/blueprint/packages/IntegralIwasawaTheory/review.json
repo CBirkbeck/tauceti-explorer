@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-IntegralIwasawaTheory~adv",
+    "date": "2026-10-19",
+    "notes": "Independent package review and adversarial pass across Layers 0–12 and conventions. Checked all three flagged source routes and 15 random citation occurrences; corrected locators, full/principal cyclotomic-character scopes, existing-library duplication, S-class and CM-tower hypotheses, weighted local Ribet topology/lattice inputs, transpose excess-generator direction, and determinant generality. Removed the weakened Lean main-conjecture surrogate while retaining the full arithmetic theorem in README. Final lean-check exits 0 with exactly ten sorry warnings; all examples proved. Three input packets pass with zero errors/warnings. Full checks, source table, every-subsection adversarial table and handoff are in REV-PKG-IntegralIwasawaTheory~adv.md."
+  }
+}
