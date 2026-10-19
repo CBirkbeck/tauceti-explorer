@@ -144082,6 +144082,274 @@
    "prompt": "research/blueprint/prompts/FIX-PKG-ModularityAndLanglandsExtensions~adv2.md",
    "note": "deliverables arrived from an external worker on issue #10409",
    "finishedAt": "2026-10-18T23:21:39Z"
+  },
+  {
+   "id": "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ComplexMultiplicationAndExplicitReciprocity"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv2.md",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/review.json",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/README.md",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv2.md"
+  },
+  {
+   "id": "FIX-PKG-RankZeroOneBSD~adv2",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RankZeroOneBSD"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-RankZeroOneBSD~adv2.md",
+    "research/blueprint/packages/RankZeroOneBSD/review.json",
+    "research/blueprint/packages/RankZeroOneBSD/README.md",
+    "research/blueprint/packages/RankZeroOneBSD/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-RankZeroOneBSD~adv2.md"
+  },
+  {
+   "id": "REV-PKG-GeneralAlgebraicKTheory~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GeneralAlgebraicKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-GeneralAlgebraicKTheory~adv.md",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/review.json",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/README.md",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/Suggested.lean",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-GeneralAlgebraicKTheory~adv.md"
+  },
+  {
+   "id": "REV-PKG-StableHomotopyKTheory~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "StableHomotopyKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-StableHomotopyKTheory~adv.md",
+    "research/blueprint/packages/StableHomotopyKTheory/review.json",
+    "research/blueprint/packages/StableHomotopyKTheory/README.md",
+    "research/blueprint/packages/StableHomotopyKTheory/Suggested.lean",
+    "research/blueprint/packages/StableHomotopyKTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-StableHomotopyKTheory~adv.md"
+  },
+  {
+   "id": "PKG-SpecialValuesBirchTate~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/packages/SpecialValuesBirchTate/README.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/Suggested.lean",
+    "research/blueprint/packages/SpecialValuesBirchTate/metadata.toml",
+    "research/blueprint/handoff/PKG-SpecialValuesBirchTate~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-SpecialValuesBirchTate~codex.md"
+  },
+  {
+   "id": "PKG-BorelRegulators~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "BorelRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/packages/BorelRegulators/README.md",
+    "research/blueprint/packages/BorelRegulators/Suggested.lean",
+    "research/blueprint/packages/BorelRegulators/metadata.toml",
+    "research/blueprint/handoff/PKG-BorelRegulators~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-BorelRegulators~codex.md"
+  },
+  {
+   "id": "PKG-EllipticKTheory~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/EllipticKTheory/README.md",
+    "research/blueprint/packages/EllipticKTheory/Suggested.lean",
+    "research/blueprint/packages/EllipticKTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-EllipticKTheory~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-EllipticKTheory~codex.md"
+  },
+  {
+   "id": "PKG-EllipticRegulators~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EllipticRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/packages/EllipticRegulators/README.md",
+    "research/blueprint/packages/EllipticRegulators/Suggested.lean",
+    "research/blueprint/packages/EllipticRegulators/metadata.toml",
+    "research/blueprint/handoff/PKG-EllipticRegulators~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-EllipticRegulators~codex.md"
+  },
+  {
+   "id": "PKG-KTheoryFiniteLocalFields~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "KTheoryFiniteLocalFields"
+   ],
+   "outputs": [
+    "research/blueprint/packages/KTheoryFiniteLocalFields/README.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/Suggested.lean",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/metadata.toml",
+    "research/blueprint/handoff/PKG-KTheoryFiniteLocalFields~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-KTheoryFiniteLocalFields~codex.md"
+  },
+  {
+   "id": "PKG-SchemeKTheoryOperations~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "SchemeKTheoryOperations"
+   ],
+   "outputs": [
+    "research/blueprint/packages/SchemeKTheoryOperations/README.md",
+    "research/blueprint/packages/SchemeKTheoryOperations/Suggested.lean",
+    "research/blueprint/packages/SchemeKTheoryOperations/metadata.toml",
+    "research/blueprint/handoff/PKG-SchemeKTheoryOperations~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-SchemeKTheoryOperations~codex.md"
+  },
+  {
+   "id": "PKG-Polylogarithms~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/packages/Polylogarithms/README.md",
+    "research/blueprint/packages/Polylogarithms/Suggested.lean",
+    "research/blueprint/packages/Polylogarithms/metadata.toml",
+    "research/blueprint/handoff/PKG-Polylogarithms~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-Polylogarithms~codex.md"
+  },
+  {
+   "id": "PKG-K3BlochGroups~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "K3BlochGroups"
+   ],
+   "outputs": [
+    "research/blueprint/packages/K3BlochGroups/README.md",
+    "research/blueprint/packages/K3BlochGroups/Suggested.lean",
+    "research/blueprint/packages/K3BlochGroups/metadata.toml",
+    "research/blueprint/handoff/PKG-K3BlochGroups~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-K3BlochGroups~codex.md"
+  },
+  {
+   "id": "PKG-HabiroNumberFields~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "HabiroNumberFields"
+   ],
+   "outputs": [
+    "research/blueprint/packages/HabiroNumberFields/README.md",
+    "research/blueprint/packages/HabiroNumberFields/Suggested.lean",
+    "research/blueprint/packages/HabiroNumberFields/metadata.toml",
+    "research/blueprint/handoff/PKG-HabiroNumberFields~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-HabiroNumberFields~codex.md"
+  },
+  {
+   "id": "DESIGN-LawrenceVenkateshMethod",
+   "kind": "design",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "LawrenceVenkateshMethod"
+   ],
+   "outputs": [
+    "research/blueprint/roadmaps/LawrenceVenkateshMethod.json",
+    "research/blueprint/packets/LawrenceVenkateshMethod.json",
+    "research/blueprint/readmes/LawrenceVenkateshMethod.md",
+    "research/blueprint/suggested/LawrenceVenkateshMethod.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/DESIGN-LawrenceVenkateshMethod.md"
   }
  ]
 }
