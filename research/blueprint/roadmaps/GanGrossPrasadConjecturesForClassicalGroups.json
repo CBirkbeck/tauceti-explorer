@@ -1,0 +1,299 @@
+{
+  "id": "GanGrossPrasadConjecturesForClassicalGroups",
+  "title": "The Gan–Gross–Prasad conjectures for classical groups: relevant pairs, Vogan packets, Bessel models and periods",
+  "area": "automorphic",
+  "parent": null,
+  "summary": "A shared framework for classical Gan–Gross–Prasad problems, from relevant inclusions and their Bessel models to local packet multiplicities, global period propositions and normalized unitary identities. The plan also connects the classical spectral geometry to distinguished tempered spectra, anisotropic automorphic averages and definite and arithmetic diagonal periods. It keeps conjectural assertions separate from proven ranges, tracks exact normalization and classification hypotheses, and imports trace-comparison, orbit-method and Shimura machinery from their owners.",
+  "readme": "This roadmap supplies the shared language of classical Gan–Gross–Prasad problems and the automorphic statements that use it. A nonzero global period must satisfy local distinction, coherence and automorphic occurrence; these conditions must be kept distinct. The local packet-count theorems, normalized period factors, spectral conductor comparison and arithmetic graph periods share the same relevant inclusions and dual conventions.\n\nThe local and global fields have characteristic zero. Hermitian forms and inner products are linear in the first argument. GN.2 uses the opposite hermitian convention, so its form is conjugated on import. A bilinear model for π⊠σ branches into σ∨; the sesquilinear branching period on π and σ has tensor parameter π×σ∨. Pure inner forms retain the complementary space, and even special orthogonal packets retain the supplied outer-orbit ambiguity. Completed L-values contain all archimedean factors; the removed-place notation always displays its removed set. The refined unitary constant uses the unquotiented sign group.\n\nGGP.0–GGP.4 establish the framework, GGP.5–GGP.7 connect classical spectral geometry with distinguished spectra and anisotropic automorphic families, and GGP.8 gives definite and conjectural arithmetic endpoints. The local nonarchimedean generic and archimedean tempered ranges are stated precisely. The SO₃/SO₂ weighted-mean correction is retained, while the Weyl law and unrestricted weak-subconvex endpoint have their own scopes.\n\nThe source set comprises Gan–Gross–Prasad, Jiang–Zhang, Beuzart-Plessis, Gan–Ichino, Mœglin–Waldspurger, Luo, Harris, BPLZZ, BCZ, Nelson–Venkatesh and Liu–Tian–Xiao–Zhang–Zhu, with version-specific theorem and page locators below. This is a target-level plan, not a claim of formalization. Known global unitary proofs are supplied by JacquetRallisRelativeTraceComparison; quantitative operator calculus, relative-character sums and limit states by QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups; unitary Shimura models by their PEL extension. Those proposed suppliers need precise registered theorem exports, as recorded in the packet contracts.\n\nThe roadmap does not rebuild classical groups, compact branching, local/global Arthur classification, general automorphic or tensor-L-function theory, the global Jacquet–Rallis comparison, the quantitative orbit calculus, integral unitary moduli or cycle theories. It does not assert the general global or arithmetic conjectures, a real nontempered local theorem, an archimedean positivity theorem absent from the stated inputs, or Abel–Jacobi nonvanishing from Chow nonvanishing alone. Fourier–Jacobi models have no routed consumer in this pass and require their own oscillator-data extension when that scope is requested.",
+  "prerequisites": [
+    "AdelicAlgebraicGroups",
+    "AutomorphicFormsOnReductiveGroups",
+    "AutomorphicLFunctionsAndLocalFactors",
+    "AutomorphicSpectralTheory",
+    "EndoscopicTransferAndUnitaryTraceComparison",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "ModularityAndLanglandsExtensions",
+    "MotivesAndAlgebraicCycles",
+    "ShimuraVarieties",
+    "SmoothRepresentationsOfLocalGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups"
+  ],
+  "stages": [
+    {
+      "key": "GGP.0",
+      "title": "Relevant pairs and Bessel models",
+      "description": "Define odd-complement orthogonal and unitary inclusions, their relevant pure inner twists, flag characters and Bessel functionals in the correct local categories. Relate smooth models to twisted Jacquet modules and prove individual-model uniqueness, including split GL restriction.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicSpectralTheory:AS.0",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2"
+      ]
+    },
+    {
+      "key": "GGP.1",
+      "title": "Packets, Hermitian parameters and base change",
+      "description": "Specialize supplied local and global packet classifications to relevant form pairs. Retain coherence, actual automorphic realizations, even-SO orbit conventions and generic-discrete cuspidality. Define Hermitian isobaric parameters, the unquotiented sign group and split-almost-everywhere weak base change, and compare the latter with strong base change only in its proven range.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "AutomorphicSpectralTheory:AS.2",
+        "AutomorphicSpectralTheory:AS.4",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "ModularityAndLanglandsExtensions:ML.4"
+      ]
+    },
+    {
+      "key": "GGP.2",
+      "title": "Local GGP propositions and known ranges",
+      "description": "Formulate the packet-count proposition and its unique-member equivalence. Establish the tempered nonarchimedean and real unitary, generic nonarchimedean orthogonal and unitary, and tempered archimedean orthogonal cases with their classification and analytic assumptions. Derive injectivity of transfer on the distinguished locus.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "EndoscopicTransferAndUnitaryTraceComparison:ET.1",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "SmoothRepresentationsOfLocalGroups:SR.2",
+        "SmoothRepresentationsOfLocalGroups:SR.2a"
+      ]
+    },
+    {
+      "key": "GGP.3",
+      "title": "Global Bessel periods and GGP propositions",
+      "description": "Construct the fixed Bessel Fourier coefficient and the bilinear global period, establish convergence with one cuspidal factor and local necessity, and distinguish fixed-realization from coherent-packet global GGP. Record the exact proven unitary and conditional descent ranges without reproducing their proof machinery.",
+      "requires": [
+        "AdelicAlgebraicGroups:AA.2",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicFormsOnReductiveGroups:AF.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1"
+      ]
+    },
+    {
+      "key": "GGP.4",
+      "title": "Local normalization and the unitary refinement",
+      "description": "Define the completed shifted L-quotient, the four-vector local branching form and its correctly dualized tensor form. Prove tempered convergence and the unramified calculation. Define normalized local periods and the unitary Ichino–Ikeda proposition, with Tamagawa measures and the actual component-group denominator.",
+      "requires": [
+        "AdelicAlgebraicGroups:AA.2",
+        "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-representation-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.3",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
+      ]
+    },
+    {
+      "key": "GGP.5",
+      "title": "Classical spectral invariants and conductor dropping",
+      "description": "Define the adjusted eigenvalue multiset, retaining the even-SO Pfaffian. Prove isotropic eigenvector, regularity and geometric sphericity statements. Relate real Langlands parameters to infinitesimal character and tensor gamma weights; import spectral stability to identify the zero-weight obstruction to full conductor growth.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.1",
+        "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-representation-theory",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "ModularityAndLanglandsExtensions:ML.4",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation"
+      ]
+    },
+    {
+      "key": "GGP.6",
+      "title": "The distinguished tempered spectrum",
+      "description": "Specify the smooth distinguished locus, period support, nonarchimedean positivity and phase normalization of branching maps. Establish injection of induction parameters and the explicit torus-component topology, with continuity and finite good-level truncations. Specialize existing compact decomposition to realize finite spectral weights.",
+      "requires": [
+        "AutomorphicFormsOnReductiveGroups:AF.1/real-reductive-representation-theory",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.2",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.4",
+        "SmoothRepresentationsOfLocalGroups:SR.2a",
+        "SmoothRepresentationsOfLocalGroups:SR.3",
+        "SmoothRepresentationsOfLocalGroups:SR.3a",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups#layer-5-the-peter-weyl-theorem"
+      ]
+    },
+    {
+      "key": "GGP.7",
+      "title": "Automorphic families, means and weak subconvexity",
+      "description": "Specify actual automorphic embeddings and admissible spectral windows for anisotropic unitary and orthogonal pairs. Define the global branching coefficient and removed-place refinement. Prove the corrected weighted limit, family Weyl law, conductor–cardinality comparison, mean coefficient theorem and little-o subconvexity endpoint using the orbit-method supplier.",
+      "requires": [
+        "AdelicAlgebraicGroups:AA.2",
+        "AutomorphicFormsOnReductiveGroups:AF.2",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "AutomorphicSpectralTheory:AS.6",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.4",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.5",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.6"
+      ]
+    },
+    {
+      "key": "GGP.8",
+      "title": "Definite and arithmetic diagonal periods",
+      "description": "Specify the common relevant arithmetic unitary data. Define the finite graph-sum period, compare it with the compact global integral with the correct stabilizer weights, and prove the central-value definite nonvanishing endpoint. Define the derivative-to-Chow nonvanishing proposition while keeping it conjectural and separate from Abel–Jacobi nonvanishing.",
+      "requires": [
+        "AdelicAlgebraicGroups:AA.2",
+        "AdelicAlgebraicGroups:AA.4",
+        "AutomorphicLFunctionsAndLocalFactors:AL.3",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.0",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.1",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.2",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.3",
+        "GanGrossPrasadConjecturesForClassicalGroups:GGP.4",
+        "MotivesAndAlgebraicCycles:MC.0",
+        "ShimuraVarieties:V0",
+        "ShimuraVarieties:V8"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ggp12",
+      "title": "Symplectic local root numbers, central critical L-values, and restriction problems in the representation theory of classical groups",
+      "authors": "Wee Teck Gan, Benedict H. Gross, Dipendra Prasad",
+      "edition": "Astérisque 346 (2012), 1–109; published Numdam copy",
+      "url": "https://numdam.org/item/AST_2012__346__1_0.pdf",
+      "sha256": "bbabe7bf4a53eacc9123d63751e211dab6f000e7bed1009096ea4b2132beb022",
+      "readSections": [
+        "§2 pp. 5–7; §12 pp. 43–45; §§14–15 pp. 55–62",
+        "Selected packet statements in §17 pp. 65–69; §§23–24 pp. 83–88; selected §§25–26 pp. 91–100"
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "jz20",
+      "title": "Arthur parameters and cuspidal automorphic modules of classical groups",
+      "authors": "Dihua Jiang, Lei Zhang",
+      "edition": "Annals of Mathematics 191 (2020), 739–827; published copy",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p02-s.pdf",
+      "sha256": "c016d9729f7f0cdca451e14a62015bd85cde861a9e07d3135e8feff071d0b15f",
+      "readSections": [
+        "Selected §§2–3 pp. 748–763, including the full model and local conjecture statements",
+        "§4.1 pp. 765–766; selected §§5–6 pp. 780–805, including §6.3 pp. 803–805"
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "bplzz21",
+      "title": "Isolation of cuspidal spectrum, with application to the Gan–Gross–Prasad conjecture",
+      "authors": "Raphaël Beuzart-Plessis, Yifeng Liu, Wei Zhang, Xinwen Zhu",
+      "edition": "arXiv:1912.07169v3 (2021), 48 pages; locators refer to this version, not journal pagination",
+      "url": "https://arxiv.org/pdf/1912.07169v3",
+      "sha256": "f2834146d4fee02b38c4849ee9a7ef76a3dbc1131e7eef799e6f95b0f0d0ac13",
+      "readSections": [
+        "Definitions 1.5–1.6 and Remark 1.7 pp. 3–4; Theorems 1.8–1.10 pp. 4–5",
+        "Lemma 4.9 and its proof pp. 35–36; Theorem 4.14 pp. 39–40; selected §4.4 pp. 41–43, including Remark 4.17 p. 42"
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "bcz22",
+      "title": "The global Gan–Gross–Prasad conjecture for unitary groups: the endoscopic case",
+      "authors": "Raphaël Beuzart-Plessis, Pierre-Henri Chaudouard, Michał Zydor",
+      "edition": "Publications Mathématiques de l’IHÉS 135 (2022), 183–336; published copy",
+      "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00129-1.pdf",
+      "sha256": "a07a6143d3e71f1eca31b6ba9b774bec325a7de07c7417b7796486a77df13794",
+      "readSections": [
+        "§§1.1.2–1.1.6 pp. 184–188; §10.3.5 p. 325"
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "nv21",
+      "title": "The orbit method and analysis of automorphic forms",
+      "authors": "Paul D. Nelson, Akshay Venkatesh",
+      "edition": "Acta Mathematica 226 (2021), 1–209; published copy",
+      "url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/acta/2021/0226/0001/ACTA-2021-0226-0001-a001.pdf",
+      "sha256": "85e14654d2b367f4b0d4a21c9555576f6def6649c8b6707afc78e1dfbdaea76e",
+      "readSections": [
+        "§13 pp. 91–95; Theorem 14.2 and Definition 14.3 p. 97; §15 pp. 103–107",
+        "§18 pp. 121–122; §§20–21 selected pp. 142–146; §24.1–24.3 pp. 157–160",
+        "§25 pp. 167–172; Lemma 27.3 original proof p. 182; selected §30 and §31 pp. 199–204; existing atlas verification of E1 also consulted"
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "bp20",
+      "title": "A local trace formula for the Gan–Gross–Prasad conjecture for unitary groups: the Archimedean case",
+      "authors": "Raphaël Beuzart-Plessis",
+      "edition": "Astérisque 418 (2020); published SMF copy",
+      "url": "https://smf.emath.fr/system/files/filepdf/smf_ast_418.pdf",
+      "sha256": "43573980c2f76b3289158a62fe2c90b90ee5c9bba85aa6f976a2e291667f37c4",
+      "readSections": [
+        "Introduction pp. 1–8; Proposition 6.4.1 and proof pp. 134–136",
+        "§7.2 pp. 162–164; Theorems 11.4.1–11.4.3 pp. 247–248; §12.4 and Proposition 12.5.1 pp. 264–265. The full trace-formula proof was not read end to end; L2 records its decomposition obligation."
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "gi16",
+      "title": "The Gross–Prasad conjecture and local theta correspondence",
+      "authors": "Wee Teck Gan, Atsushi Ichino",
+      "edition": "arXiv:1409.6824, served v2 (header 17 July 2015; text dated 8 October 2018); published Inventiones 206 (2016)",
+      "url": "https://arxiv.org/pdf/1409.6824",
+      "sha256": "4aaf7bd6281dd8726cdfca2de32b6f515924a8277865684fc9e011770ec0be5e",
+      "readSections": [
+        "Introduction; §9.3, Propositions 9.3–9.4 pp. 50–52. The full induction-reduction proof is the explicit L3 obligation."
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "mw-generic",
+      "title": "La conjecture locale de Gross–Prasad pour les groupes spéciaux orthogonaux: le cas général",
+      "authors": "Colette Mœglin, Jean-Loup Waldspurger",
+      "edition": "Author PDF GPIII-01022010, 1 February 2010, 43 pages; published Astérisque 347 (2012)",
+      "url": "https://webusers.imj-prg.fr/~jean-loup.waldspurger/GPIII-01022010.pdf",
+      "sha256": "d1db7bd4d86714fb239ba68499401f36614854ea61c17143c9b1bd8b13470a8a",
+      "readSections": [
+        "Introduction theorem and classification qualifications pp. 1–4; proposition of §1.3 p. 6; §3 pp. 39–41. These statements and the §3 reduction were read; the complete §1 induction proof remains in L3, and the tempered analytic input in L2."
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "luo20",
+      "title": "A local trace formula for the local Gan–Gross–Prasad conjecture for special orthogonal groups",
+      "authors": "Zhilin Luo",
+      "edition": "arXiv:2009.13947, 99-page version read",
+      "url": "https://arxiv.org/pdf/2009.13947",
+      "sha256": "2823cf8569d96808c419277ef641cdaff2a9c0764fbefc861f08617a9407877d",
+      "readSections": [
+        "Introduction pp. 2–5; Theorem 8.3.2 p. 62. The local trace-formula proof is not claimed as fully read; L2 records the analytic closure."
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "harris14",
+      "title": "The refined Gross–Prasad conjecture for unitary groups",
+      "authors": "R. Neal Harris",
+      "edition": "arXiv:1201.0518v2, 56 pages; locators and conjecture numbering refer to this copy",
+      "url": "https://arxiv.org/pdf/1201.0518",
+      "sha256": "49e9d1de592aa24a425d1d0659e2389186cc2bb07ae54031b8c39b5ae1226b39",
+      "readSections": [
+        "Introduction and Conjecture 1.3 pp. 2–4; Proposition 2.1 and proof pp. 5–7; Theorem 2.12 pp. 22–23"
+      ],
+      "readDate": "2026-10-19"
+    },
+    {
+      "id": "ltx22",
+      "title": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
+      "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu",
+      "edition": "Inventiones Mathematicae 228 (2022), 107–375; maintainer-cleared published copy read in place",
+      "url": "https://par.nsf.gov/servlets/purl/10323568",
+      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
+      "readSections": [
+        "Definition 1.1.3 and Remark 1.1.4 p. 110; forms p. 140; Definitions 3.1.11 and 3.2.1 pp. 143–144; coefficient data p. 145",
+        "§7.1 setup p. 286; Lemma 8.2.1 and proof p. 308; Conjecture 8.3.1 and the separate Abel–Jacobi condition p. 315"
+      ],
+      "readDate": "2026-10-19"
+    }
+  ],
+  "status": "draft"
+}
