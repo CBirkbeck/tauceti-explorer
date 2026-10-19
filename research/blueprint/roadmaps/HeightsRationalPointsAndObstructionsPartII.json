@@ -1,0 +1,367 @@
+{
+  "id": "HeightsRationalPointsAndObstructionsPartII",
+  "title": "Heights, rational points and obstructions, Part II: uniform Bogomolov and uniform Mordell–Lang",
+  "area": "arithmeticgeometry",
+  "parent": "HeightsRationalPointsAndObstructions",
+  "summary": "Extends Heights, rational points and obstructions from the qualitative Mordell–Lang and Bogomolov theorems to their uniform versions: the height inequality for non-degenerate subvarieties of abelian schemes, equidistribution in families, the new gap principle, uniform Bogomolov and uniform Mordell–Lang with bounds depending only on dimension and degree, the geometric Bogomolov conjecture over function fields in every characteristic, and Yuan’s uniform Bogomolov-type theorem for curves over all global fields.",
+  "readme": "**Purpose.** Make the qualitative theorems of Heights, rational points and obstructions on subvarieties of abelian varieties uniform: bounds depending only on dimension and degree (and exponentially on the rank) for small points and for points of finite-rank subgroups, and the geometric Bogomolov conjecture over function fields.\n\n**Scope.** The height inequality for non-degenerate subvarieties of abelian schemes (Dimitrov–Gao–Habegger), equidistribution in families (Kühne), the new gap principle, uniform Bogomolov and uniform Mordell–Lang (Gao–Ge–Kühne, with Rémond’s quantitative Vojta method), Dimitrov–Gao–Habegger’s bounds for curves, the geometric Bogomolov conjecture (Gao–Habegger in characteristic 0 over curves; Xie–Yuan in general), Yuan’s relative Bogomolov theorem for curve families and uniform Bogomolov-type theorem over all global fields, and DeMarco–Krieger–Ye’s bielliptic family.\n\n**Conventions.** Degrees of closed subsets sum over components; X° is the complement of the Ueno locus; uniform statements use ĥ for L ⊗ [−1]^*L; for curves ĥ is half the twice-theta canonical height; heights over function fields of one variable keep the constant field fixed and weight places by residue degree.\n\n**Non-goals.** Random Fano hypersurfaces, random norm and conic fibrations, Massey vanishing on homogeneous spaces and zero-cycles on homogeneous spaces are separate Part II roadmaps of the parent. Betti maps, adelic line bundles, Moriwaki heights, Faltings heights and moduli spaces are imported from their owners.\n\n**Layers.** UB.0 Degrees and heights of subvarieties, product sets and packing; UB.1 Restricted Hilbert schemes and non-degenerate fibred powers; UB.2 The height inequality for non-degenerate subvarieties; UB.3 Equidistribution in families and uniform Bogomolov; UB.4 The new gap principle; UB.5 Rémond’s quantitative Vojta method; UB.6 Uniform Mordell–Lang; UB.7 Small points over function fields; UB.8 Geometric Bogomolov over function fields of curves in characteristic zero; UB.9 The geometric Bogomolov conjecture in all characteristics; UB.10 Adelic non-degeneracy and small points in curve families; UB.11 Uniform Bogomolov for curves over global fields; UB.12 A bielliptic family: uniform Manin–Mumford by dynamics.\n\nThe full document is research/blueprint/readmes/HeightsRationalPointsAndObstructionsPartII.md.",
+  "prerequisites": [
+    "HeightsRationalPointsAndObstructions",
+    "AbelianSchemesAndArithmeticModuli",
+    "AbelianSchemesAndArithmeticModuliPartII",
+    "AlgebraicModuliForArithmeticGeometry",
+    "ArakelovGeometryAndAbelianHeights",
+    "ArakelovGeometryAndAbelianHeightsPartII",
+    "ArithmeticDynamics",
+    "ComplexComparisonPartII",
+    "InverseGaloisAndArithmeticFundamentalGroups",
+    "JacobianChallengePartII",
+    "NeronModelsAndSemistableAbelianVarieties",
+    "PELModuli",
+    "SchemeAndStackFoundations",
+    "StableReductionPartII",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves",
+    "tauceti:TauCetiRoadmap/JacobianChallenge"
+  ],
+  "stages": [
+    {
+      "key": "UB.0",
+      "title": "Degrees and heights of subvarieties, product sets and packing",
+      "description": "Bookkeeping for the uniform counts: the degree of a possibly reducible closed subset with respect to a line bundle (summed over components), heights of cycles through Chow forms compared with the parent’s projective cycle height, the product-set lemma of Gao–Ge–Kühne (a set whose M-th power lies in a proper closed subset lies in a proper closed subset of bounded degree), its curve case (DGH Lemma 6.3), and Rémond’s ball-packing bound in Euclidean space. Targets: Degree of a subvariety with respect to a line bundle; Heights of cycles via Chow forms; Products of point sets in a proper subvariety (Gao–Ge–Kühne Lemma 4.3); Many points of a curve escape a proper subvariety of its power (DGH Lemma 6.3); Ball packing in Euclidean space (Rémond).",
+      "requires": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "UB.1",
+      "title": "Restricted Hilbert schemes and non-degenerate fibred powers",
+      "description": "The restricted Hilbert scheme H_{r,d}(A)° of irreducible subvarieties of fixed dimension and degree, its family version over the level-4 moduli of principally polarized abelian varieties, fibred powers X_S^{[m]} with their moduli maps, the lemmas of Gao–Ge–Kühne §3 (finitely many points cut a family; generic finiteness of the moduli map), non-degeneracy of high fibred powers (Proposition 3.4, from Gao’s criterion), the locus S_gen of finite stabilizer and generation, and its closure (Lemma 3.5). Targets: Restricted Hilbert schemes of a polarized abelian variety; The restricted Hilbert scheme over the moduli of principally polarized abelian varieties; Fibred powers of the universal subvariety and their moduli maps; Finitely many points cut a family of subvarieties to a finite set (GGK Lemmas 3.1–3.2); Generic finiteness of the moduli map on fibred powers (GGK Lemma 3.3); Non-degenerate fibred powers over the restricted Hilbert scheme (GGK Proposition 3.4); The locus of finite stabilizer and generation; Components of the closure of the generic locus satisfy the non-degeneracy hypotheses (GGK Lemma 3.5).",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:B1",
+        "AbelianSchemesAndArithmeticModuliPartII:B4",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "HeightsRationalPointsAndObstructionsPartII:UB.0",
+        "PELModuli:M5",
+        "PELModuli:M6"
+      ]
+    },
+    {
+      "key": "UB.2",
+      "title": "The height inequality for non-degenerate subvarieties",
+      "description": "Dimitrov–Gao–Habegger’s height inequality ĥ(P) ≥ c₁h(π(P)) − c₂ on a dense open of a non-degenerate subvariety of an abelian scheme: the level hypothesis (Hyp), the cut-off Betti form, the graph construction X_N with F and M, the lower bound (F^d) ≥ κN^{2d}, the upper bound (M·F^{d−1}) ≤ cN^{2(d−1)}, Siu’s criterion on the total space, Theorem 1.6 under (Hyp) and Theorem B.1 in general by seven dévissages. Targets: The principal polarization and level hypothesis (Hyp); The compactly supported cut-off of the Betti form; The graph construction X_N with the line bundles F and M; Lower bound for the top self-intersection (DGH Proposition 4.2); Upper bound for the mixed intersection (DGH Proposition 4.3); Height inequality on the total space (DGH Proposition 4.1); The height inequality under (Hyp) (DGH Theorem 1.6); The height inequality for non-degenerate subvarieties (DGH Theorem B.1).",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuliPartII:B0",
+        "AbelianSchemesAndArithmeticModuliPartII:B1",
+        "ComplexComparisonPartII:C5",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "HeightsRationalPointsAndObstructionsPartII:UB.0",
+        "PELModuli:M5",
+        "PELModuli:M6",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "UB.3",
+      "title": "Equidistribution in families and uniform Bogomolov",
+      "description": "The equilibrium measure of a non-degenerate subvariety (top power of the Betti form), Kühne’s equidistribution of small generic points in families in the uniform (δ, Z) form, the family Ullmo–Zhang argument over the restricted Hilbert scheme (GGK Proposition 5.2), uniform Bogomolov with an exceptional set (Proposition 5.1), the uniform Bogomolov theorem for all irreducible subvarieties (Theorem 1.3, repaired), and uniform Manin–Mumford for curves (Kühne Theorem 2; DGH Theorem 1.4 without dependence on the degree). Targets: The equilibrium measure of a non-degenerate subvariety; Equidistribution in families of abelian varieties (Kühne); Uniform Bogomolov over the restricted Hilbert scheme (GGK Proposition 5.2); Uniform Bogomolov with an exceptional set (GGK Proposition 5.1); The uniform Bogomolov theorem (Gao–Ge–Kühne Theorem 1.3); Uniform Manin–Mumford for curves (Kühne Theorem 2).",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuliPartII:B1",
+        "AbelianSchemesAndArithmeticModuliPartII:B4",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.5",
+        "ComplexComparisonPartII:C5",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "HeightsRationalPointsAndObstructionsPartII:UB.0",
+        "HeightsRationalPointsAndObstructionsPartII:UB.1",
+        "HeightsRationalPointsAndObstructionsPartII:UB.2",
+        "JacobianChallengePartII:JC2",
+        "JacobianChallengePartII:JC3"
+      ]
+    },
+    {
+      "key": "UB.4",
+      "title": "The new gap principle",
+      "description": "Uniform degree and height bounds for Abel–Jacobi curves (DGH Lemma 6.1), the base-point bound (Lemma 6.4), the Néron–Tate distance proposition for curves of large modular height (Proposition 7.1), the family height gap over the restricted Hilbert scheme (GGK Proposition 4.2), its principally polarized and general-polarization forms (Propositions 4.4, 4.1), the fixed-degree gap principle (Proposition 6.1), the new gap principle (Theorem 1.2) and its curve case. Targets: Uniform degree and height of Abel–Jacobi curves (DGH Lemma 6.1); Few base points force a proper subvariety (DGH Lemma 6.4); Néron–Tate distance between points on curves (DGH Proposition 7.1); Height gap on the restricted Hilbert scheme (GGK Proposition 4.2); Height gap for principally polarized abelian varieties (GGK Proposition 4.4); Height gap for all polarizations (GGK Proposition 4.1); The gap principle for fixed polarization degree and dimension (GGK Proposition 6.1); The new gap principle (Gao–Ge–Kühne Theorem 1.2); The new gap principle for curves.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuliPartII:B4",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.4",
+        "ArakelovGeometryAndAbelianHeights:R35.5",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "HeightsRationalPointsAndObstructionsPartII:UB.0",
+        "HeightsRationalPointsAndObstructionsPartII:UB.1",
+        "HeightsRationalPointsAndObstructionsPartII:UB.2",
+        "HeightsRationalPointsAndObstructionsPartII:UB.3",
+        "JacobianChallengePartII:JC2",
+        "JacobianChallengePartII:JC3",
+        "JacobianChallengePartII:JC7",
+        "SchemeAndStackFoundations:SF.0",
+        "StableReductionPartII:MC.7",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-11-automorphisms-and-the-hurwitz-bound"
+      ]
+    },
+    {
+      "key": "UB.5",
+      "title": "Rémond’s quantitative Vojta method",
+      "description": "The Néron–Tate Euclidean space of a finite-rank subgroup, the embedding constants c_NT and h₁ with their bounds by the Faltings height, Rémond’s generalized Vojta and Mumford inequalities, the isolated-fibre alternative, removal of the height of X, the bound for points of large height, the packing hypothesis, Rémond’s counting theorem under it (GGK Theorem 7.1), the packing hypothesis from the gap principle (Proposition 7.2), and Rémond’s bound for one subvariety in David–Philippon form. Targets: The Néron–Tate Euclidean space of a finite-rank subgroup; The constants c_NT and h₁ of an embedded abelian variety; Bounds for c_NT and h₁ by the Faltings height (DGH (8.4), (8.7)); Rémond’s generalized Vojta inequality; Rémond’s generalized Mumford inequality; Isolated fibres or a small exceptional set (GGK Proposition A.3); Removing the height of X (GGK Lemma A.4); Rémond’s bound for points of large height; The packing hypothesis (Hyp pack); Rémond’s counting theorem under (Hyp pack) (GGK Theorem 7.1); (Hyp pack) holds for L ⊗ [−1]^*L (GGK Proposition 7.2); Rémond’s bound for one subvariety (David–Philippon form).",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeights:R35.5",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "HeightsRationalPointsAndObstructionsPartII:UB.0",
+        "HeightsRationalPointsAndObstructionsPartII:UB.4",
+        "PELModuli:M6"
+      ]
+    },
+    {
+      "key": "UB.6",
+      "title": "Uniform Mordell–Lang",
+      "description": "The uniform count off the Ueno locus over ℚ̄ and over every algebraically closed field of characteristic 0 (GGK Theorem 1.1′, via Masser’s specialization and good models), the reduction from the count to cosets (Lemma 7.4), the uniform Mordell–Lang theorem (Theorem 1.1), its curve case (Kühne Theorem 4), and Dimitrov–Gao–Habegger’s bounds: the count for curves of large modular height (Proposition 8.1), Theorem 1.2 and Corollary 1.3, finiteness of small-height curves of bounded degree, and Theorem 1.1. Targets: The uniform count off the Ueno locus over ℚ̄; Masser’s specialization of subgroups and endomorphisms; Good models: the Ueno locus specializes; From ℚ̄ to arbitrary fields for finitely generated subgroups (GGK Lemma 7.3); The uniform count off the Ueno locus (GGK Theorem 1.1′); From the count off the Ueno locus to Mordell–Lang (GGK Lemma 7.4); The uniform Mordell–Lang theorem (Gao–Ge–Kühne Theorem 1.1); Uniform Mordell–Lang for curves (Kühne Theorem 4); Counting on curves of large modular height (DGH Proposition 8.1); Uniform Mordell–Lang for curves of large modular height (DGH Theorem 1.2 and Corollary 1.3); Finitely many curves of small modular height and bounded degree; Uniform bound for rational points (Dimitrov–Gao–Habegger Theorem 1.1).",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "ArakelovGeometryAndAbelianHeights:R35.5",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.1",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "HeightsRationalPointsAndObstructionsPartII:UB.0",
+        "HeightsRationalPointsAndObstructionsPartII:UB.4",
+        "HeightsRationalPointsAndObstructionsPartII:UB.5",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
+        "JacobianChallengePartII:JC2",
+        "JacobianChallengePartII:JC3",
+        "StableReductionPartII:MC.6",
+        "StableReductionPartII:MC.7"
+      ]
+    },
+    {
+      "key": "UB.7",
+      "title": "Small points over function fields",
+      "description": "Canonical heights over function fields as heights of invariant adelic extensions, the Zhang–Gubler inequalities e₁ ≥ ĥ(X) ≥ e₁/(dim X + 1) (so ĥ(X) = 0 iff small points are dense), dense sets of small points, special subvarieties tr(Y ⊗ K̄) + T, and density of small points on special subvarieties. Targets: Canonical heights as heights of the invariant adelic extension; Essential minimum and canonical height over function fields (Zhang, Gubler); Dense sets of small points over a function field; Special subvarieties of an abelian variety over a function field; Special subvarieties have dense small points.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuliPartII:B2",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.4",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.5",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.1",
+        "HeightsRationalPointsAndObstructions:RP.5"
+      ]
+    },
+    {
+      "key": "UB.8",
+      "title": "Geometric Bogomolov over function fields of curves in characteristic zero",
+      "description": "Gao–Habegger: the complement X* of the generically special subvarieties (Proposition 1.3), bounded order of torsion of bounded degree (Proposition B.1), special points of V₀(k) × A_tors (Propositions 3.1, B.3), the height inequality over a curve on X* (Theorems 1.4, 1.4′, here from the DGH inequality and Gao–Habegger’s degeneracy theorem), the geometric Bogomolov theorem over ℚ̄(S) (Theorem 1.1), its Moriwaki-height version (Theorem A.3) and the extension to every algebraically closed field of characteristic 0. Targets: The complement X* of the generically special subvarieties (GH Proposition 1.3); Torsion of bounded degree has bounded order (GH Proposition B.1); Special points of V₀(k) × A_tors (GH Propositions 3.1 and B.3); Height inequality over a curve (Gao–Habegger Theorem 1.4); Geometric Bogomolov over function fields of curves over ℚ̄ (Gao–Habegger Theorem 1.1); The height inequality with Moriwaki heights (GH Theorem A.3); Geometric Bogomolov over function fields of curves in characteristic zero.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuliPartII:B1",
+        "AbelianSchemesAndArithmeticModuliPartII:B2",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.6",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.1",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "HeightsRationalPointsAndObstructionsPartII:UB.2",
+        "HeightsRationalPointsAndObstructionsPartII:UB.7"
+      ]
+    },
+    {
+      "key": "UB.9",
+      "title": "The geometric Bogomolov conjecture in all characteristics",
+      "description": "Xie–Yuan: fields of definition up to isogeny and of subvarieties (Lemma 3.3, Proposition 3.2, Lemma 3.4, Corollary 3.5), the field over which X becomes special (Proposition 3.6), generic pencil members and their height inequality (Lemma 3.7), lowering the transcendence degree (Proposition 3.1), torsion multi-sections and their numerical class (Proposition 4.2), Yamaki’s reduction, the reduction to (a)–(d), iterated sums and Lemma 5.3, the jump locus, torsion fibres of height zero (Proposition 5.4), the good-reduction case (§5.3) and Theorem 1.1, with the recorded repairs. Targets: Abelian varieties defined over a subfield up to isogeny; Isogeny descends to an algebraically closed base (XY Lemma 3.3); Isogeny classes defined over two subfields (XY Proposition 3.2); Fields of definition of subvarieties (XY Lemma 3.4); Minimal fields of definition (XY Corollary 3.5); The field over which X becomes special (XY Proposition 3.6); Generic pencil members as polarizations over a subfield (XY Lemma 3.7(1)–(2)); Heights decrease on generic pencil members (XY Lemma 3.7, height inequality); Lowering the transcendence degree (XY Proposition 3.1); Multi-sections and torsion multi-sections; Numerical class of a torsion multi-section (XY Proposition 4.2); Yamaki’s reduction to the nowhere degenerate trace-free part; Reduction of the geometric Bogomolov conjecture to conditions (a)–(d); Iterated sums X_m of a subvariety; The sums become a torsion subvariety (XY Lemma 5.3); Relative dimension of the summation map and its jump locus; Torsion fibres have height zero (XY Proposition 5.4); The geometric Bogomolov conjecture under (a)–(d), by induction on dim X; The geometric Bogomolov conjecture (Xie–Yuan Theorem 1.1).",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A1",
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AbelianSchemesAndArithmeticModuli:A3",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructions:RP.1",
+        "HeightsRationalPointsAndObstructions:RP.5",
+        "HeightsRationalPointsAndObstructionsPartII:UB.7",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3",
+        "NeronModelsAndSemistableAbelianVarieties:R11.5",
+        "SchemeAndStackFoundations:SF.0",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.5"
+      ]
+    },
+    {
+      "key": "UB.10",
+      "title": "Adelic non-degeneracy and small points in curve families",
+      "description": "Yuan §§4.1–4.2 and 4.6: the small-points bound for potentially big families over number fields and function fields (Theorem 4.2), non-isotrivial function-field points, the integral bound across characteristics (Theorem 4.10), non-degeneracy of fibre powers from potential bigness (Proposition 4.16) and of the Abel, difference, shift and Faltings–Zhang powers (Theorem 4.17), the relative small-points property, Proposition 4.18 and the relative Bogomolov theorem for curve families (Theorem 4.19, function-field branches with maximal variation over the constants). Targets: Small-points bound for potentially big families (Yuan Theorem 4.2); Non-isotrivial function-field points; Integral small-points bound across characteristics (Yuan Theorem 4.10); Potential bigness implies non-degeneracy of fibre powers (Yuan Proposition 4.16); Non-degeneracy of Abel, difference and Faltings–Zhang powers (Yuan Theorem 4.17); The relative Bogomolov small-points property; Arithmetic potential bigness gives the small-points property (Yuan Proposition 4.18); Relative Bogomolov for curve families (Yuan Theorem 4.19).",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.12",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.3",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.4",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.5",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.9",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "JacobianChallengePartII:JC2",
+        "JacobianChallengePartII:JC5",
+        "StableReductionPartII:MC.6"
+      ]
+    },
+    {
+      "key": "UB.11",
+      "title": "Uniform Bogomolov for curves over global fields",
+      "description": "Yuan’s Theorem 1.1: the twice-theta normalization, projective heights over function fields with fixed constants, isotrivial pairs and the isotriviality criteria (Lemma 4.8), the noetherian-induction small-points bound on the universal shift, the shifted height identity with Bost’s bound, moduli-height domination over function fields, uniformity across all characteristics (§4.4.3), and the uniform Bogomolov-type theorem. Targets: The twice-theta Néron–Tate normalization of a curve; Projective heights over function fields with fixed constants; Isotrivial curve–line-bundle pairs; Isotriviality via level structure, canonical shift and the moduli point (Yuan Lemma 4.8); Small points over the universal shift by noetherian induction (Yuan §4.4.1); Heights on the universal shift and the moduli height (Yuan §4.4.1); Moduli height domination over function fields (Yuan §4.4.2); Uniformity of the constants across all global fields (Yuan §4.4.3); The uniform Bogomolov-type theorem for curves (Yuan Theorem 1.1).",
+      "requires": [
+        "ArakelovGeometryAndAbelianHeights:R35.3",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.12",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.13",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.4",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.5",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.8",
+        "ArakelovGeometryAndAbelianHeightsPartII:AH.9",
+        "HeightsRationalPointsAndObstructions:RP.0",
+        "HeightsRationalPointsAndObstructionsPartII:UB.10",
+        "JacobianChallengePartII:JC0",
+        "JacobianChallengePartII:JC3",
+        "JacobianChallengePartII:JC7",
+        "StableReductionPartII:MC.4",
+        "StableReductionPartII:MC.7"
+      ]
+    },
+    {
+      "key": "UB.12",
+      "title": "A bielliptic family: uniform Manin–Mumford by dynamics",
+      "description": "DeMarco–Krieger–Ye: bielliptic genus-two curves as lifts of the diagonal (Proposition 9.1), uniform Manin–Mumford (Theorem 1.1) and uniform Bogomolov (Theorem 1.9, published 1.10) for their Weierstrass Abel–Jacobi images from the dynamical bounds of ArithmeticDynamics DY.6, and unboundedness of torsion orders (published Proposition 9.2); both theorems are special cases of the uniform theorems of UB.3. Targets: Bielliptic genus-two curves as lifts of the diagonal (DKY Proposition 9.1); Uniform Manin–Mumford for bielliptic genus-two curves (DKY Theorem 1.1); Uniform Bogomolov for bielliptic genus-two curves (DKY Theorem 1.9; Theorem 1.10 of the published version); No uniform bound on torsion orders (DKY Proposition 9.2 of the published version).",
+      "requires": [
+        "ArithmeticDynamics:DY.6",
+        "HeightsRationalPointsAndObstructionsPartII:UB.3",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "yuan-2026",
+      "title": "Arithmetic bigness and a uniform Bogomolov-type result",
+      "authors": "Xinyi Yuan",
+      "edition": "Ann. of Math. 203 (2026), no. 1; read: author manuscript of 21 August 2024 (126 pp., printed page = PDF page), arXiv 2108.05625",
+      "url": "http://faculty.bicmr.pku.edu.cn/~yxy/preprints/bigness_and_bogomolov.pdf",
+      "readSections": [
+        "§1.1",
+        "§§4.1–4.6 (pp. 59–101)"
+      ]
+    },
+    {
+      "id": "dgh-2021",
+      "title": "Uniformity in Mordell–Lang for curves",
+      "authors": "Vesselin Dimitrov, Ziyang Gao, Philipp Habegger",
+      "edition": "Ann. of Math. 194 (2021), no. 1; read: arXiv 2001.10276v3 (31 March 2021)",
+      "url": "https://arxiv.org/abs/2001.10276v3",
+      "readSections": [
+        "§§1–8",
+        "Appendix B"
+      ]
+    },
+    {
+      "id": "gh-2019",
+      "title": "Heights in families of abelian varieties and the geometric Bogomolov conjecture",
+      "authors": "Ziyang Gao, Philipp Habegger",
+      "edition": "Ann. of Math. 189 (2019), no. 2; read: arXiv 1801.05762v3 (28 January 2019)",
+      "url": "https://arxiv.org/abs/1801.05762v3",
+      "readSections": [
+        "§§1–3, 10–11",
+        "Appendices A–B"
+      ]
+    },
+    {
+      "id": "xy-2022",
+      "title": "Geometric Bogomolov conjecture in arbitrary characteristics",
+      "authors": "Junyi Xie, Xinyi Yuan",
+      "edition": "Invent. Math. (2022); read: arXiv 2108.09722v1",
+      "url": "https://arxiv.org/abs/2108.09722v1",
+      "readSections": [
+        "§§1, 3–5"
+      ]
+    },
+    {
+      "id": "ggk-2026",
+      "title": "The uniform Mordell–Lang conjecture",
+      "authors": "Ziyang Gao, Tangli Ge, Lars Kühne",
+      "edition": "Publ. Math. IHÉS 143 (2026); published PDF (printed page = PDF page + 187)",
+      "url": "https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf",
+      "readSections": [
+        "§§1–8",
+        "Appendix A"
+      ]
+    },
+    {
+      "id": "kuhne-2021",
+      "title": "Equidistribution in families of abelian varieties and uniformity",
+      "authors": "Lars Kühne",
+      "edition": "arXiv 2101.10272v4 (23 December 2024)",
+      "url": "https://arxiv.org/abs/2101.10272v4",
+      "readSections": [
+        "§1 (Theorems 1–4)",
+        "Lemma 25"
+      ]
+    },
+    {
+      "id": "dky-2020",
+      "title": "Uniform Manin–Mumford for a family of genus 2 curves",
+      "authors": "Laura DeMarco, Holly Krieger, Hexi Ye",
+      "edition": "Ann. of Math. 191 (2020), no. 3; read: arXiv 1901.09945v2 (published numbering from the extraction’s collation)",
+      "url": "https://arxiv.org/abs/1901.09945v2",
+      "readSections": [
+        "§1",
+        "§9"
+      ]
+    },
+    {
+      "id": "remond-2000-vojta",
+      "title": "Inégalité de Vojta en dimension supérieure",
+      "authors": "Gaël Rémond",
+      "edition": "Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4) 29 (2000), 101–151 (Numdam; printed page = PDF page + 99)",
+      "url": "http://www.numdam.org/item/ASNSP_2000_4_29_1_101_0/",
+      "readSections": [
+        "§1, pp. 104–106"
+      ]
+    },
+    {
+      "id": "yamaki-2018",
+      "title": "Trace of abelian varieties over function fields and the geometric Bogomolov conjecture",
+      "authors": "Kazuhiko Yamaki",
+      "edition": "J. reine angew. Math. (2018); read: arXiv 1405.0896v5",
+      "url": "https://arxiv.org/abs/1405.0896v5",
+      "readSections": [
+        "§1"
+      ]
+    },
+    {
+      "id": "masser-1996",
+      "title": "Specializations of endomorphism rings of abelian varieties",
+      "authors": "David W. Masser",
+      "edition": "Bull. Soc. Math. France 124 (1996), 457–476 (Numdam)",
+      "url": "http://www.numdam.org/item/BSMF_1996__124_3_457_0/",
+      "readSections": [
+        "abstract and Theorem, pp. 457–459"
+      ]
+    },
+    {
+      "id": "dmy-2026",
+      "title": "Bounded geometry for PCF-special subvarieties",
+      "authors": "Laura DeMarco, Niki Myrto Mavraki, Hexi Ye",
+      "edition": "Forum Math. Pi 14 (2026) e4; read: arXiv 2405.17343v3",
+      "url": "https://arxiv.org/abs/2405.17343v3",
+      "readSections": [
+        "§1",
+        "§2.5",
+        "§5"
+      ]
+    }
+  ],
+  "status": "draft"
+}
