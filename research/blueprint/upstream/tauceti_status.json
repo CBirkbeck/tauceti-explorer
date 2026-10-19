@@ -724,10 +724,10 @@
       "head": "a00f7e8",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 6cc4f59; draft awaiting re-review",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
+        "head": "a00f7e8",
         "current": true,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "date": "2026-10-12"
       }
     },
     "EtaleCohomologyFoundations": {
