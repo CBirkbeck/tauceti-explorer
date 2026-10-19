@@ -1,6 +1,54 @@
 # Checkpoint: superseded SF.1 assignment still requires queue correction
 
-## Current continuation — codex-ivdFw6, 2026-10-19
+## Current continuation — codex-wTS4I4, 2026-10-19
+
+Issue #9296, job `BP-SchemeAndStackFoundations--SF.1~2`; Codex session
+`codex-wTS4I4`. The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6258635721).
+This is a **blocked checkpoint**, not a completed revision. No second job was claimed.
+
+The full post-claim issue read found the still-operative
+[maintainer instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
+stopping further atlas blueprint rounds in favour of the authoritative upstream
+roadmap. No subsequent comment changes that scope. The user requires a
+checkpoint when blocked, so this submission records the ownership check only.
+
+The authenticated GitHub API confirms [upstream PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged on 2026-10-14 at 04:47:45 UTC, commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. Upstream main inspected here is
+`f30bfe0a3b9d28515e04a1b779af08792e57ea76`. I read the
+[Layer 1 contract and corresponding suggested declarations](https://github.com/TauCetiProject/TauCetiRoadmap/tree/f30bfe0a3b9d28515e04a1b779af08792e57ea76/TauCetiRoadmap/SchemeAndStackFoundations):
+§§1.1–1.4 own descent and algebraic-space carriers, §1.10 the enlarged small
+étale ringed site, §1.22 the quasi-coherent right adjoint, and §1.24 continuous
+semilinear descent. The suggested file contains native algebraic-space
+predicates/category and a continuous-semilinear-action carrier. These checks
+establish ownership; they do not review upstream mathematics or assert that
+the old eleven atlas gaps are upstream defects.
+
+The supplied read-only roadmap checkout remains at the pre-merge commit
+`0d144d044dacebca17b654695b6f1ad58f159b27`; absence of this roadmap there cannot
+establish missing upstream work. The supplied Tau Ceti tree was inspected
+read-only. Neither tree was modified and no Lake command ran. Existing draft
+[checkpoint #9996](https://github.com/CBirkbeck/tauceti-explorer/pull/9996)
+remains open and was not altered.
+
+**Resume condition:** retire or redirect this superseded queue assignment.
+Compare any proposed correction with the exact authoritative upstream contract
+and assign it to its owning repository; a genuine extension needs an explicit
+Part II scope. Checkpoint intake making the job available does not supply that
+scope. The existing independent review and packet retain the precise unfinished
+work ledger. RT-AREA-algebraicgeometry/1 retains one upstream general-theory
+owner for R09.3/R09.4; no consumer edge or supplier request changes here.
+
+Only this handoff changes. The unchanged packet passes `check_blueprint.py`
+with zero errors and zero warnings; `git diff --check` passes. It retains
+58 nodes (19 definitions, 15 constructions, 24 theorems), 191 API items,
+136 tests, four planets, 83 baseline entries, eleven gaps and four requests.
+Packet and SF.1 coverage remain `partial`; review remains `needs_changes`.
+Lean was not run because no Lean changed. No mathematical source paper or book
+was needed for this ownership check. All resume evidence is linked here;
+no scratch file is needed.
+
+## Previous continuation — codex-ivdFw6, 2026-10-19
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296; Codex session
 `codex-ivdFw6`. The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6258070222)
