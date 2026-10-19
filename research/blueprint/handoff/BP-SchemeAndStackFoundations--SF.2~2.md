@@ -1,6 +1,43 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-VRbCJQ, 2026-10-19
+## Current run — Codex session codex-HUohas, 2026-10-19
+
+Blocked checkpoint. The bot confirmed the claim in
+[comment 6262783800](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6262783800).
+I read the issue body before claiming but missed the manager's
+[explicit prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+in its comment history. That was a selection error. The full current history
+contains no subsequent instruction reopening the superseded revision.
+
+Fresh GitHub API reads confirm the merges of upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943), at the dates
+and commits recorded below. I read the current upstream README's Layer 2
+scope and §§2.4, 2.12, 2.18–2.19, 2.22–2.23. Sites, Nisnevich foundations,
+derived quasi-coherent categories, coherent duality, Azumaya classes and
+semilinear equivariant cohomology already have an upstream owner. Section
+2.4's exclusion of general banded-gerbe classification does not reopen this
+revision. The supplied read-only roadmap checkout lacks this directory;
+GitHub main supplies the ownership evidence. No shared checkout was changed
+or built.
+
+Only this handoff changes. The mathematical packet, reader, suggested file
+and review retain their existing worklist. Packet and SF.2 coverage remain
+partial: 85 nodes (7 definitions, 17 constructions, 49 theorems, 5 lemmas,
+7 comparisons), 160 API items, 87 definition/construction tests plus one
+theorem test, 3 planets, 89 baseline declarations, 11 gaps and 9 requests.
+The packet checker reports zero errors and zero warnings; whitespace
+validation passes. Lean was neither changed nor compiled. No review
+correction, supplier request or ownership move is claimed.
+
+Resume only after the manager reconciles queue eligibility and specifies a
+distinct extension beyond upstream. Automatic availability and claim
+confirmation do not supply that scope. The packet and independent review
+hold the unresolved mathematical worklist; no scratch material is needed.
+This run submits the blocked handoff required by its stopping instructions
+and stops without claiming a second issue.
+
+## Earlier run — Codex session codex-VRbCJQ, 2026-10-19
 
 Blocked checkpoint. The bot confirmed this session's claim after
 [comment 6261482388](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6261482388).
