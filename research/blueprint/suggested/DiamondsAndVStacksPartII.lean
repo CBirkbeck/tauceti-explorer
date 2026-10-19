@@ -33,7 +33,10 @@ here is what the pins can state:
 * Layer D9: the specialization ideal `{a ∈ A⁺ : v(a) < 1}` of a valuation bounded by one on a
   subring (Gleason, Definition 4.1), at the level of a single valuation.
 * Layer D11: density for the constructible topology (the condition behind constructibly Jacobson
-  diamonds) and the topological core of Gleason's connected-components argument (Lemma 4.55).
+  diamonds) and the topological core of Gleason's connected-components argument (Lemma 4.55),
+  with the closed-specialization condition explicit. Its unrestricted source formulation remains
+  a gap; the normality test by connected tubes is corrected in the README to algebraically closed
+  residue fields (the unramified-order counterexample excludes merely perfect residue fields).
 -/
 
 namespace TauCetiRoadmap.DiamondsAndVStacksPartII
@@ -44,7 +47,7 @@ open CategoryTheory CategoryTheory.Limits Topology
 
 /-! ## Layer D7: the minimal-point lemma -/
 
-/-- Scholze–Weinstein, Lemma 18.3.2: the image of a quasicompact space in the spectrum of a
+/-- Scholze–Weinstein, Lemma 18.3.2: the image of a nonempty quasicompact space in the spectrum of a
 valuation ring has a unique point that is a specialization of every point of the image. -/
 theorem ValuationRing.exists_unique_minimal_image (V : Type u) [CommRing V] [IsDomain V]
     [ValuationRing V] (Z : Type v) [TopologicalSpace Z] [CompactSpace Z] [Nonempty Z]
@@ -267,7 +270,7 @@ Layer D7 (olivine spectrum, which needs vertical generizations in Tau Ceti's `Sp
 `Olivine.boundedLocus`, `Olivine.spdSpace_homeomorph`; tests `olivine_tate_pair`,
 `olivine_powerSeries`, `olivine_point`, `olivine_not_spa`.
 Layer D8 (scheme-theoretic v-sheaves; the abstract adjunction above stands for them):
-`SchVSheaf`, `SchVSheaf.yoneda_fullyFaithful`, `SchVSheaf.restrict_fullyFaithful`,
+`SchVSheaf`, `SchVSheaf.yoneda_fullyFaithful`, `SchVSheaf.extend_fullyFaithful`,
 `SchVSheaf.hasFiniteLimits`, `SchVSheaf.space`, `SchVSheaf.space_perfectScheme`,
 `SchVSheaf.space_quotient`, `SchVSheaf.space_surjective_of_epi`, `SchVSheaf.diamond`,
 `SchVSheaf.diamond_perfectScheme`, `SchVSheaf.diamond_preservesFiniteLimits`,
