@@ -110,6 +110,7 @@
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": 30,
   "MetaplecticAutomorphicForms": 26,
   "InductionRestrictionPartII": 15,
-  "ResolutionOfSingularitiesCharacteristicZero": 1
+  "ResolutionOfSingularitiesCharacteristicZero": 1,
+  "LanglandsParameterStacks": 16
  }
 }

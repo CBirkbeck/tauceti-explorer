@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T12:20Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T12:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -21,15 +21,15 @@ Generated 2026-10-19T12:20Z from the README supplier graph of every open pull re
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 
 ## Wave 2
-- #814 AdicEtaleGeometry — maintainer approved; waits on #813
+- #814 AdicEtaleGeometry — draft; waits on #813
 - #248 LFunctions (roed-math, other author)
 - #859 BanachAlgebras (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814
@@ -40,7 +40,7 @@ Generated 2026-10-19T12:20Z from the README supplier graph of every open pull re
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 4
-- #815 AdicSpacesPartIV — ready (approved at an earlier head); waits on #813, #814, #818
+- #815 AdicSpacesPartIV — ready; waits on #813, #814, #818
 - #820 DiamondsAndVStacks — draft; waits on #1199, #813, #814, #818
 - #908 EnhancedDerivedSheaves — ready (approved at an earlier head); waits on #818
 - #942 TangentialBordism (kim-em, other author)
@@ -96,6 +96,7 @@ Generated 2026-10-19T12:20Z from the README supplier graph of every open pull re
 - #870 NeronModelsAndSemistableAbelianVarietiesPartII — ready; waits on #785, #848, #850, #852, #853, #938
 - #873 LefschetzPencilsAndVanishingCycles — draft; waits on #792, #848, #849, #850, #852, #853, #856, #857, #858, #908, #938, #1103, #1104
 - #914 FreeGroupsAndLimitGroups — ready; waits on #852
+- #1202 LanglandsParameterStacks — draft; waits on #1034, #785, #908
 
 ## Wave 17
 - #875 ClassicalAdicEtaleCohomology — draft; waits on #813, #814, #815, #818, #820, #853, #856, #857, #858, #873, #908, #938
