@@ -1379,13 +1379,14 @@
     "AnalyticNumberTheoryPartII": {
       "stage": "pr",
       "pr": 1167,
-      "head": "9b12f38",
+      "head": "a4c1c24",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Layers 4–6 split of AnalyticNumberTheory); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at a4c1c24; confirmation pass pending"
       }
     },
     "ArithmeticStatisticsPartI": {
