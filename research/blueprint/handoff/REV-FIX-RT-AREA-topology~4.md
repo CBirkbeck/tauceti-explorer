@@ -1,66 +1,72 @@
-# Topology fix review: scope synchronization required
+# Topology fix review: synchronize scope before another dispatch
 
-Refs #6521. Codex, session `codex-nZ8NW8`, 19 October 2026.
-Branch `codex-nZ8NW8-review-topology`, input `3e0797a48`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6263868470).
-Only this job was claimed. **Blocked checkpoint; the queue-level job is unfinished.**
+Refs #6521. Codex, session `codex-Mhwk6K`, 19 October 2026.
+Branch `codex-Mhwk6K-review-topology-6521`, input
+`ec91f49b4983370d356ab6f21d464fe5188db1e5`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6265171646).
+Only this job was claimed. **Blocked checkpoint: queue completion is false.**
 
-## Completed work
+The live issue's authorized review is recorded: Polylogarithms and
+HabiroNahmSeries accepted; QSeriesPartitionsAndMockModularForms needs_changes.
+The [report](../reviews/REV-FIX-RT-AREA-topology~4.md) covers all 27 assigned
+findings, the public source passages and exact bytes, current upstream owners,
+pinned declarations, and the mathematical diagnostics. Each preceding full
+review from `codex-nZ8NW8` is preserved once in history. No mathematical payload,
+suggested Lean, reader, upstream tree, queue or checker was changed.
 
-The [review report](../reviews/REV-FIX-RT-AREA-topology~4.md) gives a verdict and
-reason for every one of the 27 assigned findings, with fresh public-source
-checks for the three supplier interfaces, exact source locators/hashes and
-current upstream ownership. The three issue-named packets now record this
-session's bounded reviews: Polylogarithms and HabiroNahmSeries accepted;
-QSeriesPartitionsAndMockModularForms needs_changes. Each previous complete
-review is preserved once in reviewHistory. Semantic comparison confirms these
-are the only packet changes. The P.2 same-vertex test and corrected Gaussian
-and multiplier contracts are inherited work, independently checked here.
-No suggested Lean, reader, queue, checker or upstream file changed.
+QSeries's reader still has the globally inverse eta multiplier, which fails
+the central -I test for this lower-boundary convention. Independently, retain
+the unaccepted whole-plan `REV-QSeriesPartitionsAndMockModularForms~2`
+obligations; a correct narrow export cannot accept the whole packet.
+Habiro's reader still needs a real positive-definite precision in its analytic
+comparison, density factor det(Lambda)^(1/2), and the HB.8 Theorem 3 (38)
+locator at printed p.14. These readers are excluded by the live issue.
+Negative verdicts can complete this review; reader repairs are not the
+queue-completion blocker.
 
-The report also makes the outstanding reader corrections explicit: HB.4's
-analytic comparison needs real positive-definite precision and density factor
-det(Lambda)^(1/2), HB.8's Theorem 3 (38) locator is printed p.14, and QM.5's
-Kontsevich statement/hypotheses/direct inputs need the corrected lower-boundary
-multiplier. Readers are outside the live issue's edit scope. Those repairs can
-remain needs_changes while this review job finishes.
+## Required maintainer action
 
-## Blocker: four packet paths omitted from the issue
+**Do not dispatch another repetition of the three parent reviews.** The live
+issue lists the report and three packet/suggested pairs, while the queue lists
+seven pairs. Its unchanged `issues.deliverables_complete` requires this job's
+reviewer identity on all seven packets. The four below still name their
+separate whole-plan reviews. WORKERS.md explicitly says “Edit only the files
+the issue names.” The queue-based intake allowance does not remove that rule.
+This session requested authorization to include the four JSON files; no answer
+has arrived. None of those repository paths was edited.
 
-The live issue names seven outputs (report and three packet/suggested pairs).
-The queue requires fifteen, including four more pairs. WORKERS.md limits edits
-to issue-named files. Authorization for the four JSON paths below was requested
-but had not arrived when this checkpoint was prepared. No excluded path was
-edited. The actual unchanged `issues.deliverables_complete` returns false;
-its only outstanding packet reviewer identities are the four listed below.
+Synchronize the issue's deliverables or explicitly authorize the four JSON
+paths before continuing. Do not change the queue, completion predicate or
+labels to manufacture completion. No extra suggested signature needs changing
+for the minimum continuation below. Preserve the full prior reviews and their
+106/14/13/14 checked entries. These are bounded fix verdicts, not fresh
+whole-plan audits.
 
-**Synchronize the issue's deliverables or authorize these four JSON paths
-before dispatching another worker.** Their paths already satisfy queue-based
-intake, which does not resolve the live work instruction. Do not relax the
-completion predicate, change the queue, or repeat the three parent reviews to
-try to resolve this discrepancy.
+## Guarded continuation after authorization
 
-## Minimum continuation after authorization
+All four source hashes below matched this session. Recheck any input that
+changes. Install a verdict identifying the continuing worker and preserve the
+complete preceding review once in `reviewHistory`.
 
-The proposals below are bounded fix reviews, not repeated whole-plan audits.
-All four input SHA-256 hashes matched this session. Preserve each previous
-whole-plan review in full, including its checked entries (106/14/13/14), once in
-reviewHistory. Install the current worker's verdict and provenance after
-rechecking any changed input. The existing explicit mathematical gaps are
-preserved; needs_changes is warranted for QT's omitted orientation transport,
-not merely because planned gaps remain.
+For `ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`, insert
+`Polylogarithms:P.2/hyperbolic-volume` after
+`Polylogarithms:P.2/bloch-wigner-descent` in prerequisites. The negative review
+must state the remaining convention repair: on identical ordered vertices
+T=(0,infinity,1,i), the P.2 shape r(T)=-i while Neumann's n(T)=i, with r=1/n.
+A consumer must specify the odd relabelling or orientation reversal that
+transports P.2's signed formula; a figure-eight volume test alone misses it.
+The relabelling swapping the first two vertices gives r(swap(T))=n(T), but
+its carrier/orientation transport and corresponding reader statement must be
+made explicit before accepting that comparison.
 
-For `ArithmeticQuantumTopology:QT.5/volume-and-chern-simons`, also insert
-`Polylogarithms:P.2/hyperbolic-volume` immediately after
-`Polylogarithms:P.2/bloch-wigner-descent` in prerequisites. Retain the negative
-verdict until the statement identifies the odd vertex relabelling or
-orientation reversal that transports P.2's signed formula. For identical
-vertices (0,infinity,1,i), its supplier shape is -i and Neumann's is i.
-No additional suggested-file edit is needed for this bounded continuation.
+Preserve HB.10's positive conditional degree-zero export: actual membership
+in the coefficient ring, followed by the HR.5/HR.6 maps, gives an H^0 class.
+Restricted module membership alone does not give an arbitrary geometric class,
+a global generator or knot invariance.
 
-The HB.10 proposal preserves its positive conditional eta_R export: actual
-coefficient-ring membership plus the HR.5/HR.6 comparison maps gives an H^0
-class. It does not assert the stronger geometric comparison or knot invariance.
+The following proposals are complete enough to apply without retrieving this
+session's scratch files. Their dates/provenance must describe the worker who
+actually applies them; the input hashes guard the old bytes.
 
 <!-- proposed-review-objects -->
 ```json
@@ -73,7 +79,7 @@ class. It does not assert the stronger geometric comparison or knot invariance.
       "status": "needs_changes",
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
-      "notes": "Independent bounded review by Codex, session codex-nZ8NW8, following independent-review-REV-ArithmeticQuantumTopology~2. Preserve that complete whole-plan review and its checked entries in reviewHistory. RT-AREA-topology/7 still needs an explicit orientation comparison at QT.5/volume-and-chern-simons: for identical ordered vertices, Neumann §3 pp.420-421 uses n with n(0,infinity,1,z)=z, whereas P.2 uses r=1/n and Vol_P(T)=D(r)=-D(n). State the carrier relabelling or orientation reversal before importing the signed volume formula; the missing direct Polylogarithms:P.2/hyperbolic-volume prerequisite is added separately. The existing figure-eight numerical test alone does not check this carrier conversion. G4/G5 being explicit planned gaps is not the rejection rationale; preserve all eight gaps, nineteen requests, conditional NZ/Habiro hypotheses, analytic-contour obligations and conjectural knot/matrix modularity. This is a bounded fix review, not a repeated 106-node source audit, closed coverage or implementation."
+      "notes": "Independent bounded review by Codex, session codex-Mhwk6K, following independent-review-REV-ArithmeticQuantumTopology~2. Preserve that complete whole-plan review and its checked entries in reviewHistory. RT-AREA-topology/7 still needs an explicit orientation comparison at QT.5/volume-and-chern-simons: for identical ordered vertices, Neumann §3 pp.420-421 uses n with n(0,infinity,1,z)=z, whereas P.2 uses r=1/n and Vol_P(T)=D(r)=-D(n). State the carrier relabelling or orientation reversal before importing the signed volume formula; the missing direct Polylogarithms:P.2/hyperbolic-volume prerequisite is added separately. The existing figure-eight numerical test alone does not check this carrier conversion. G4/G5 being explicit planned gaps is not the rejection rationale; preserve all eight gaps, nineteen requests, conditional NZ/Habiro hypotheses, analytic-contour obligations and conjectural knot/matrix modularity. This is a bounded fix review, not a repeated 106-node source audit, closed coverage or implementation."
     }
   },
   {
@@ -84,7 +90,7 @@ class. It does not assert the stronger geometric comparison or knot invariance.
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
-      "notes": "Independent bounded review by Codex, session codex-nZ8NW8, following independent-review-REV-Polylogarithms--P.2. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/7. The Milnor-angle node supplies the single P.2 tetrahedron formula under the stated curvature, orientation and angle conventions. It retains the ideal-boundary, measurable-region, signed-integration and exact regulator-calibration gaps. Zagier I.3 equation (5), p.11 and I.4 equations (7)-(9), pp.13-14 support this ownership boundary. This does not repeat the 14-node whole-plan audit or claim its gaps are closed."
+      "notes": "Independent bounded review by Codex, session codex-Mhwk6K, following independent-review-REV-Polylogarithms--P.2. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/7. The Milnor-angle node supplies the single P.2 tetrahedron formula under the stated curvature, orientation and angle conventions. It retains the ideal-boundary, measurable-region, signed-integration and exact regulator-calibration gaps. Zagier I.3 equation (5), p.11 and I.4 equations (7)-(9), pp.13-14 support this ownership boundary. This does not repeat the 14-node whole-plan audit or claim its gaps are closed."
     }
   },
   {
@@ -95,7 +101,7 @@ class. It does not assert the stronger geometric comparison or knot invariance.
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
-      "notes": "Independent bounded review by Codex, session codex-nZ8NW8, following independent-review-REV-HabiroNahmSeries--HB.4. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The analytic branch uses symmetric positive-definite data, odd root orders coprime to the compatible denominator, chosen branches and cancellation-safe all-orders remainders. The formal Gaussian export has a different domain and supplies no analytic convergence for a singular knot matrix. GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6 support the analytic restrictions; retain the coefficientwise Kummer and rational-data arithmetic gaps and the existing 13-node audit."
+      "notes": "Independent bounded review by Codex, session codex-Mhwk6K, following independent-review-REV-HabiroNahmSeries--HB.4. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The analytic branch uses symmetric positive-definite data, odd root orders coprime to the compatible denominator, chosen branches and cancellation-safe all-orders remainders. The formal Gaussian export has a different domain and supplies no analytic convergence for a singular knot matrix. GZ v1 datum pp.2-3 and Theorem 3.1 pp.5-6 support the analytic restrictions; retain the coefficientwise Kummer and rational-data arithmetic gaps and the existing 13-node audit."
     }
   },
   {
@@ -106,32 +112,34 @@ class. It does not assert the stronger geometric comparison or knot invariance.
       "status": "accepted",
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
-      "notes": "Independent bounded review by Codex, session codex-nZ8NW8, following independent-review-REV-HabiroNahmSeries--HB.10. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The quartic module export remains conditional on HB.9 gluing and finite-etale scalar change, with a specified noncanonical K3 lift, tame-kernel prime restrictions and orders prime to Delta. A restricted module element gives neither knot invariance nor an arbitrary geometric cohomology class. GSWZ v2 Theorem 5 p.14 supports the restricted formal membership boundary. Preserve the global-line, order-one freeness and geometric-comparison obligations and the separate 14-node audit. The explicit eta_R degree-zero export is retained: once an element has actually been shown to lie in the stated coefficient ring, the imported HR.5/HR.6 comparisons give an H^0 class. This is distinct from the requested higher-degree geometric comparison; this bounded review does not reject that existing coefficient-ring export or repeat its separate source audit."
+      "notes": "Independent bounded review by Codex, session codex-Mhwk6K, following independent-review-REV-HabiroNahmSeries--HB.10. Its complete preceding review, including checked entries, is retained in reviewHistory. Bounded review of RT-AREA-topology/11. The quartic module export remains conditional on HB.9 gluing and finite-etale scalar change, with a specified noncanonical K3 lift, tame-kernel prime restrictions and orders prime to Delta. A restricted module element gives neither knot invariance nor an arbitrary geometric cohomology class. GSWZ v2 Theorem 5 p.14 supports the restricted formal membership boundary. Preserve the global-line, order-one freeness and geometric-comparison obligations and the separate 14-node audit. The explicit eta_R degree-zero export is retained: once an element has actually been shown to lie in the stated coefficient ring, the imported HR.5/HR.6 comparisons give an H^0 class. This is distinct from the requested higher-degree geometric comparison; this bounded review does not reject that existing coefficient-ring export or repeat its separate source audit."
     }
   }
 ]
 ```
 
-## Validation
+## Validation in this run
 
-All seven repository packets and all four unapplied scratch candidates pass
-`scripts/check_blueprint.py` against the supplied pinned declaration index:
-zero errors and warnings. The actual unchanged completion function returns
-false on the repository and true in a read-only projection using just those
-four candidates. The projection is a continuation check, not completed work or
-permission to apply it. No source PDF or passage is committed, and no excerpt
-key occurs in any edited packet.
+- All seven repository packets and four scratch candidates passed
+  `scripts/check_blueprint.py` with the supplied pinned declaration index:
+  zero errors and warnings. The candidates remain unapplied.
+- Actual `issues.deliverables_complete`: false. A read-only projection replacing
+  just the four candidates: true. This is a continuation diagnostic, not
+  authorization or a claim of completion.
+- The three live-issue Lean files elaborated serially with `lean-check`, exit
+  zero and only `sorry` warnings (Polylogarithms 462, HabiroNahmSeries 442,
+  QSeries 1,491). Available memory was above 20 GB before every run. No extra
+  suggested file was compiled, and no source theorem was proved by this check.
+- Independent diagnostics reproduced reciprocal homogeneous cross-ratios and
+  the swap sign, inverse precision -1/3, the singular figure-eight kernel,
+  finite Kontsevich values 1,3,8-3i and the corrected/naive central factors
+  1/-1 (the last within floating-point tolerance 1e-14).
+- Semantic comparison preserved every packet field outside review/history,
+  including the full predecessor objects. Original formatting outside those
+  changes is preserved. No excerpt or quote keys occur in the edited packets.
+- File-intake, whitespace and issue-scope checks cover exactly this handoff,
+  the report and three parent packets. No private source, source passage or
+  local path is submitted. No process remains running.
 
-Independent diagnostics reproduce the reciprocal cross-ratios and vertex-swap
-sign, inverse precision entry -1/3, singular figure-eight kernel (1,-1), finite
-Kontsevich values 1, 3, 8-3i, and corrected/naive central multiplier products
-1/-1 (the last up to floating-point roundoff). They check conventions rather
-than prove the geometric integration or analytic transformation theorem.
-
-Suggested files are unchanged, so no fresh Lean compile was needed or run.
-Previous workers' compiler results are not claimed as this worker's checks.
-No language server, build/update/cache process or background compiler ran.
-File-intake (five files, zero problems), whitespace and scope checks pass for
-the report, handoff and three parent packets only. No continuation depends on this session's
-scratch files; the complete source URLs, locators, hashes and proposed reviews
-are retained here and in the report.
+This handoff and the report contain all continuation information. Scratch can
+be deleted when the pull request opens.
