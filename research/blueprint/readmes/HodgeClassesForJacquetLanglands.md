@@ -28,7 +28,7 @@ Harmonic coefficients use the kernel of trace contraction on symmetric tensors, 
 
 The roadmap owns the explicit hermitian exterior construction and its block restrictions, the numerical weight comparisons, the harmonic Schwartz forms and restriction computations, the specific quaternionic theta/packet calculations, the normalized restriction correspondence and rational descent. Generic spin and Clifford constructions remain in the current Tau Ceti `OrthogonalSpinGroups` direction and its stated `AlgebrasWithInvolution` boundary. The exterior-square comparison here has additional hermitian, volume, multiplier and block data; it does not introduce another general Spin/D₃ theory.
 
-Pure Hodge structures, Tate twists and internal Hom already exist at the pinned Tau Ceti baseline. Exterior powers and the determinant pairing use Mathlib’s carriers. General hermitian classification comes from GN.2; quaternion embeddings and symbol changes beyond the pinned square-rescaling equivalence remain explicit requests. Global Brauer invariants, reciprocity and norm theorems come from Tau Ceti’s `ClassFieldTheory`. Weak approximation, finite-idele class quotients, ray-class finiteness and Hecke characters come from its current `GlobalNumberFields` roadmap. Automorphic, local-theta, canonical-model and Weil-cohomology foundations are imported from their owners below.
+Pure Hodge structures, Tate twists and internal Hom already exist at the pinned Tau Ceti baseline. Exterior powers and the determinant pairing use Mathlib’s carriers. General hermitian classification and quaternion embeddings come from GN.2. Current Tau Ceti already supplies norm changes of quaternion symbols and common-slot tensor/Brauer identities; reuse these instead of planning them again. The pinned square-rescaling citation covers only square changes, so the JL.1 proof also records the general generator transport explicitly. Global Brauer invariants, reciprocity and norm theorems come from Tau Ceti’s `ClassFieldTheory`. Weak approximation, finite-idele class quotients, ray-class finiteness and Hecke characters come from its current `GlobalNumberFields` roadmap. Automorphic, local-theta, canonical-model and Weil-cohomology foundations are imported from their owners below.
 
 The eleven layers are in build order. JL.4 constructs harmonic carriers before JL.5 compares the rational coefficient systems. JL.6 establishes the near-equivalence tool; JL.7 constructs the common nonvanishing class; JL.8 proves Hodge purity. JL.9 supplies the conditional Galois conclusion and is an input only to the all-prime part of JL.10. The unconditional Hodge theorem has no dependency on JL.9. Within JL.10 the CM support-place choice, restriction map, complex invertibility, invariant component space and rational determinant argument have their own explicit prerequisites.
 
@@ -101,7 +101,7 @@ Target `HodgeClassesForJacquetLanglands:JL.0/brauer-reduction`; proposed declara
 
 For Jacquet–Langlands Hodge data, if B₁≅B₂ the identity on the multiplicity realization supplies the desired class through Poincaré duality. Otherwise the product Brauer class [B₁]+[B₂] has a quaternion division representative B. It is split at every real place, since B₁ and B₂ have identical real ramification. The theta construction below is used only in this second case.
 
-Construction or proof: 1. Use the local invariant description of quaternion Brauer classes and the global Brauer theorem imported by GN.2. 2. Separate the zero Brauer class before imposing division in the analytic argument.
+Construction or proof: 1. Use the local invariant description and global Brauer theorem requested from ClassFieldTheory Layer 10; GN.2 supplies the quaternion arithmetic interface. 2. Separate the zero Brauer class before imposing division in the analytic argument.
 
 Direct inputs: `HodgeClassesForJacquetLanglands:JL.0/data`, `MotivesAndAlgebraicCycles:MC.2/classical-weil-cohomology`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`.
 
@@ -135,7 +135,7 @@ Direct inputs: `HodgeClassesForJacquetLanglands:JL.0/multiplicity-realization`, 
 
 Source: IP23, §3.3, p. 19; Proposition 12.3, p. 98.
 
-Check: For d=2 there are four sign lines although type (1,1) has dimension two.
+Check: For d=2 and both split weights equal to two, four sign lines give a two-dimensional type-(1,1) space. With split weights two and four, the four types are (3,−1),(2,0),(0,2),(−1,3), so there is no type-(1,1) line.
 
 ### The cohomological correspondence operator
 
@@ -205,7 +205,7 @@ Target `HodgeClassesForJacquetLanglands:JL.1/exterior-star`; proposed declaratio
 
 For dim_E U=4 and d_U as in volume, let φ:U→U∨ be the conjugate-linear map defined by H, ι:∧²U∨→(∧²U)∨ the determinant dual pairing, and ψ:∧²U→(∧²U)∨ the symmetric perfect wedge pairing followed by d_U. Define L=ψ⁻¹ι(∧²φ). Then L(xα)=L(x)bar α. If an orthogonal basis has coefficients a₁,…,a₄ and d_U(e₁₂₃₄)=−1, its images on (e₁₂,e₁₃,e₁₄,e₂₃,e₂₄,e₃₄) are (−a₁a₂e₃₄,a₁a₃e₂₄,−a₁a₄e₂₃,−a₂a₃e₁₄,a₂a₄e₁₃,−a₃a₄e₁₂).
 
-Construction or proof: 1. Build ψ from the existing exterior multiplication and top trivialization. 2. Use perfectness of the exterior pairing and compose the semilinear hermitian dual map.
+Construction or proof: 1. Build ψ from the existing exterior multiplication and top trivialization. 2. Regard the conjugate-linear hermitian dual map as an E-linear map out of the conjugate E-module before applying exteriorPower.map. Use the conjugate-module exterior identification and finite-free perfectness of the determinant pairing to obtain the semilinear operator on ∧²U.
 
 Direct inputs: `HodgeClassesForJacquetLanglands:JL.1/volume`, `mathlib:exteriorPower.pairingDual`, `mathlib:exteriorPower.map`.
 
@@ -261,7 +261,7 @@ Target `HodgeClassesForJacquetLanglands:JL.1/quaternion-exterior`; proposed decl
 
 Put B=E⊕Ej with j²=J=vol(H,d_U), αj=j bar α, and canonical involution *. On ∧²_E U set xj=Lx, giving a rank-three right B-module. With b=iH_{∧²}, set ⟨x,y⟩=b(x,y)−J⁻¹ j b(Lx,y). This is a nondegenerate B-skew-hermitian form. Rescaling d_U gives an isomorphic B-space through the corresponding change of quaternion generator. The carrier B is an existing quaternion algebra; this target supplies its action and form, not another quaternion-algebra foundation.
 
-Construction or proof: 1. Use L² and conjugate-linearity to verify the quaternion relations. 2. Apply the skew identities to prove B-sesquilinearity and skew symmetry. 3. Prove nondegeneracy via its E-component; compare volume trivializations by norm rescaling.
+Construction or proof: 1. Use L² and conjugate-linearity to verify the quaternion relations. 2. Apply the skew identities to prove B-sesquilinearity and skew symmetry. 3. Prove nondegeneracy via its E-component. For d′_U=αd_U one has L′=α⁻¹L and J′=J/N(α); use j′↦jα⁻¹ (equivalently bar α⁻¹j) to compare the quaternion presentations, and verify transport of the action and form. Reuse current TauCeti.QuaternionAlgebra.normMulEquiv for this algebra equivalence when available; the pinned square-rescaling citation alone does not cover general α.
 
 Direct inputs: `HodgeClassesForJacquetLanglands:JL.1/skew-identities`, `tauceti:TauCeti.QuaternionAlgebra.rescaleJEquiv`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2/signed-hermitian-space`.
 
@@ -421,7 +421,7 @@ Target `HodgeClassesForJacquetLanglands:JL.2/tensor-model`; proposed declaration
 
 For U=B₁⊥B₂ and ordered E-basis (1,j₁,1,j₂), H has diagonal (1,−J₁,1,−J₂) and J=J₁J₂. On W in order (e₁₃,e₂₃,e₁₄,e₂₄), L sends those vectors to (e₂₄,J₁e₁₄,J₂e₂₃,J₁J₂e₁₃). The E-hermitian form on W is diag(1,−J₁,−J₂,J₁J₂), and [B]=[B₁]+[B₂]. This identifies the exterior block with the quaternion tensor model used for periods.
 
-Construction or proof: 1. Substitute the diagonal coefficients into all six exterior formulas. 2. Compare the B-action and form with the tensor product model, using the Brauer-symbol product relation.
+Construction or proof: 1. Substitute the diagonal coefficients into all six exterior formulas. 2. Compare the B-action and form with the tensor product model. Reuse current TauCeti.QuaternionAlgebra.tensorAlgEquivTensorMatrix and TauCeti.BrauerGroup.quaternionClass_mul for the common-slot algebra/Brauer identity; retain the requested global arithmetic interface separately.
 
 Direct inputs: `HodgeClassesForJacquetLanglands:JL.2/block-groups`, `HodgeClassesForJacquetLanglands:JL.1/exterior-square`, `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`.
 
@@ -535,7 +535,7 @@ API:
 
 - `TauCeti.JacquetLanglandsHodge.weightMap.sumZero` (relation): The image has zero coordinate sum.
 - `TauCeti.JacquetLanglandsHodge.weightMap.inverse` (equivalence): The stated inverse gives a bijection of the two integral lattices.
-- `TauCeti.JacquetLanglandsHodge.weightMap.dominantCoefficient` (compatibility): For l=(k−2,0,0), k even, the result is the four-dimensional unitary coefficient weight in §11.3.
+- `TauCeti.JacquetLanglandsHodge.weightMap.dominantCoefficient` (compatibility): For l=(k−2,0,0), k even, the torus-order result is ((k−2)/2,−(k−2)/2,(k−2)/2,−(k−2)/2). Reorder the one-based coordinates as (1,3,2,4) to obtain the §11.3 Borel-dominant coefficient weight ((k−2)/2,(k−2)/2,−(k−2)/2,−(k−2)/2).
 
 Unit tests:
 
@@ -599,7 +599,7 @@ Check: Record the factorial normalization of the pairing.
 
 Target `HodgeClassesForJacquetLanglands:JL.4/fock-comparison`; proposed declaration `TauCeti.JacquetLanglandsHodge.fockComparison` (comparison).
 
-For the real quadratic model and ψ(x)=exp(2πix), the polynomial-times-Gaussian subspace of the Schrödinger Schwartz model is identified with C[z₁,…,z_m], sending φ₀(x)=exp(−πΣx_i²) to one. On a positive coordinate the creation operator x_i−(2π)⁻¹∂_i corresponds to (2πi)⁻¹z_i; the negative-coordinate convention has the sign in (8.2). The annihilation operators correspond to the stated ±2i derivatives. This is not an identification of all Schwartz functions with polynomials.
+For the real quadratic model and ψ(x)=exp(2πix), identify the polynomial-times-Gaussian subspace of the Schrödinger model with C[z₁,…,z_m], sending φ₀(x)=exp(−πΣx_i²) to one. On a positive coordinate i, creation x_i−(2π)⁻¹∂_i corresponds to (2πi)⁻¹z_i and annihilation x_i+(2π)⁻¹∂_i to 2i∂/∂z_i. On a negative coordinate j the corresponding operators are −(2πi)⁻¹z_j and −2i∂/∂z_j. These are the four conventions of (8.2); the comparison does not identify all Schwartz functions with polynomials.
 
 Construction or proof: 1. Import the Schrödinger and Fock Weil models from MP.0–MP.3. 2. Check the comparison on the Gaussian and each creation/annihilation generator using the fixed Fourier convention.
 
@@ -643,7 +643,7 @@ Check: Keep the compact p=0 formula separate from the empty positive-index sum.
 
 Target `HodgeClassesForJacquetLanglands:JL.4/harmonic-restriction`; proposed declaration `TauCeti.JacquetLanglandsHodge.harmonicRestriction` (comparison).
 
-In the six-dimensional quadratic model take X=span(e₁,e₂,e₅,e₆), X₀=span(e₃,e₄). Compose H^ℓ(X⊕X₀)⊂Sym^ℓ(X⊕X₀)→Sym^ℓX→H^ℓX; this is an O(X)-equivariant retraction of the harmonic inclusion. For relative forms also project the cotangent exterior factor. The harmonic projector commutes with this symmetric restriction in the diagram used in the proof of Proposition 8.1.
+In the six-dimensional quadratic model take X=span(e₁,e₂,e₅,e₆), X₀=span(e₃,e₄). Compose H^ℓ(X⊕X₀)⊂Sym^ℓ(X⊕X₀)→Sym^ℓX→H^ℓX; this is an O(X)-equivariant retraction of the harmonic inclusion. For relative forms also project the cotangent exterior factor. Writing r for symmetric restriction and P for harmonic projection, the diagram in Proposition 8.1 means P_X∘r=harmRestrict∘P_{X⊕X₀}; raw restriction need not preserve harmonic tensors.
 
 Construction or proof: 1. Use the symmetric restriction and harmonic decomposition, checking the vanishing of the complementary trace summands. 2. Identify contraction against harmonic vectors before and after projecting.
 
@@ -741,7 +741,7 @@ Unit tests:
 
 Uses: §10.4: Supplies the central character twist. Theorem 12.4, corrected descent: Controls Galois action on the component function.
 
-Check: Use only the component-to-torus morphism; do not use a false bijection.
+Check: Use only the component-to-torus morphism; do not assume the unproved component bijection. Non-simple-connectedness alone does not disprove that bijection.
 
 ### The component character class
 
@@ -809,7 +809,7 @@ Check: A norm-factorizing character at a ramified place is excluded from the non
 
 Target `HodgeClassesForJacquetLanglands:JL.6/product-theta`; proposed declaration `TauCeti.JacquetLanglandsHodge.productTheta` (theorem).
 
-Let B=B₁·B₂ be the division quaternion algebra, and let σ_i be irreducible automorphic representations of B_i× with the same central character, for which the cuspidal JL transfers π_i exist. The theta lift from (B₁××B₂×)/anti F× to B× is zero unless π₁≅π₂; when they agree it is the nonzero transfer π_B of that representation. Its local archimedean components and central character use the fixed Weil splitting. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.
+Let B=B₁·B₂ be the division quaternion algebra, and let σ_i be irreducible unitary automorphic representations of B_i× with the same central character, for which the cuspidal JL transfers π_i exist. The theta lift from (B₁××B₂×)/anti F× to B× is zero unless π₁≅π₂; when they agree it is the nonzero transfer π_B of that representation. Its local archimedean components and central character use the fixed Weil splitting. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.
 
 Construction or proof: 1. Compare the unramified theta parameters and use strong multiplicity one for the necessity. 2. For the converse import the quaternionic product-period/nonvanishing interface requested from the metaplectic extension.
 
@@ -823,7 +823,7 @@ Check: If the two cuspidal GL₂ transfers differ, every resulting theta period 
 
 Target `HodgeClassesForJacquetLanglands:JL.6/doubling-point`; proposed declaration `TauCeti.JacquetLanglandsHodge.doublingPoint` (theorem).
 
-In the anisotropic rank-three quaternionic setup of Proposition 9.5, use the doubled skew-hermitian space and its degenerate principal series at s=3/2. The image of the normalized local intertwiner M_v*(3/2) is the local theta image R(W_v). After normalization the local doubling zeta integrals are holomorphic there, and test data can be chosen nonzero. At unramified places use the factorization and Euler factor of §9.5.3, including its adjoint L-factor and zeta factors; the global pole at s=3/2 is simple.
+In the anisotropic rank-three quaternionic setup of Proposition 9.5, use the doubled space and I_v(s) with Levi transformation |Nrd(a)|^(s+5/2). Put a_v(s)=ζ_v(2s)ζ_v(2s−2)ζ_v(2s−4) and b_v(s)=ζ_v(2s+1)ζ_v(2s+3)ζ_v(2s+5). The normalized intertwiner M_v*(s)=(b_v(s)/a_v(s))M_v(s):I_v(s)→I_v(−s) is holomorphic for Re(s)≥0 and has image R(W_v)⊂I_v(−3/2) at s=3/2. For each v there exist a holomorphic section and matrix-coefficient vectors for which the unnormalized local doubling integral Z_v(s) is holomorphic and nonzero at 3/2; no holomorphy for all data is asserted. For normalized unramified data the global factor is L^S(s+1/2,ad τ⊗ξ_E)ζ^S(s+3/2)ζ^S(s+1/2)ζ^S(s−1/2)/[ζ^S(2s+1)ζ^S(2s+3)ζ^S(2s+5)], multiplied by ∏_{v∈S}Z_v(s). Suitable data give a nonzero simple residue at s=3/2.
 
 Construction or proof: 1. Import the doubled section and intertwining theory with its exact normalization. 2. At nonarchimedean places compare the two composition factors in Lemma 9.7; at real split places use the explicit theta model. 3. Use the local functional equation and the unramified calculation to control the stated point.
 
@@ -837,9 +837,9 @@ Check: Do not use a positive-range Rallis value formula at this residue without 
 
 Target `HodgeClassesForJacquetLanglands:JL.6/backward-lift`; proposed declaration `TauCeti.JacquetLanglandsHodge.backwardLift` (theorem).
 
-Let B be division and split at infinity, X a rank-three skew-hermitian B-space with U(X) F-anisotropic, and τ an automorphic representation of B× for which the forward theta lift Π is nonzero and cuspidal. If Π′ is an automorphic representation nearly equivalent to Π, then the backward theta lift of the complex conjugate Π′ to B× is nonzero. The proof uses the nonzero residue of the doubled integral at s=3/2 and the Siegel–Weil identity with the normalization of §9.5. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.
+Let E/F be quadratic embedded in a division quaternion algebra B split at infinity. Let X be a rank-three skew-hermitian B-space with U(X) F-anisotropic, G=GU_B(X)^0, and H_N^+={h∈B×(A_F):Nrd(h)∈N(A_E×)}. Let τ be an irreducible unitary automorphic representation of H_N^+ whose forward theta lift Π to G is nonzero and cuspidal. If Π′ is an irreducible unitary automorphic representation of G nearly equivalent to Π, then θ_IP(bar Π′) to H_N^+ is nonzero. The proof uses the nonzero residue of the doubled integral at s=3/2 and the Siegel–Weil identity with the normalization of §9.5. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.
 
-Construction or proof: 1. Factor the doubling integral away from a finite set and use the simple global pole. 2. Choose the finitely many local sections with nonzero normalized integrals. 3. Apply the required Siegel–Weil residue identity and the theta pairing to deduce backward nonvanishing.
+Construction or proof: 1. Factor the doubling integral away from a finite set and use the simple global pole. 2. Choose the finitely many local sections and matrix-coefficient vectors whose unnormalized integrals are holomorphic and nonzero at 3/2, as in Lemma 9.8. 3. Apply the required Siegel–Weil residue identity and the theta pairing to deduce backward nonvanishing.
 
 Direct inputs: `HodgeClassesForJacquetLanglands:JL.6/doubling-point`, `MetaplecticAutomorphicForms:MP.5/global-theta-lift`, `MetaplecticAutomorphicForms:MP.6/theta-integral-factorization`.
 
@@ -851,7 +851,7 @@ Check: Near equivalence is cofinite equality of local components, not equality a
 
 Target `HodgeClassesForJacquetLanglands:JL.6/near-equivalence`; proposed declaration `TauCeti.JacquetLanglandsHodge.nearEquivalence` (theorem).
 
-Under the hypotheses of backward-lift, every automorphic Π′ nearly equivalent to θ(τ) is θ(τ′) for an automorphic representation τ′ of B× nearly equivalent to τ. Apply the backward nonvanishing to Π′, then local Howe duality and the unramified parameter recovery. The assertion concerns these rank-three anisotropic lifts, not strong multiplicity one for all unitary automorphic representations.
+Under the hypotheses of backward-lift, every irreducible unitary automorphic Π′ of G nearly equivalent to θ_IP(τ) is θ_IP(τ′) for an irreducible unitary automorphic representation τ′ of H_N^+ nearly equivalent to τ. Take τ′=bar θ_IP(bar Π′), using backward nonvanishing, local Howe duality and unramified parameter recovery. The assertion concerns these rank-three anisotropic lifts, not strong multiplicity one for all unitary automorphic representations or a lift from the full group B×(A_F).
 
 Construction or proof: 1. Take the complex conjugate of the irreducible nonzero backward lift θ_IP(bar Π′); this is the candidate τ′, rather than the unconjugated backward lift. 2. Use local Howe uniqueness and the parameter formula to recover its forward lift. 3. Compare the source components away from finitely many places.
 
@@ -871,7 +871,7 @@ Layer inputs: `HodgeClassesForJacquetLanglands:JL.0`, `HodgeClassesForJacquetLan
 
 Target `HodgeClassesForJacquetLanglands:JL.7/global-theta-data`; proposed declaration `TauCeti.JacquetLanglandsHodge.globalThetaData` (definition).
 
-In the distinct-algebra case of JL.0 choose a common CM subfield E⊂B_i, write B_i=E⊕Ej_i, and take the spaces and groups of the exceptional diagram. Put H=B×, H_N^+={h∈H(A_F):Nrd(h)∈N(A_E×)}, and H_∞^+={h:Nrd(h_v)>0 for every real v}. These subgroups serve different purposes. Set ℓ_v=k_v−2 and take the Schwartz form φ′_{2,ℓ_v} at v∈Σ and φ′_{ℓ_v} elsewhere, with a pure-tensor finite Schwartz vector. For τ on H_N^+ use central character ξ_E, antiholomorphic minimal type of weight k_v+1 at Σ and holomorphic type outside Σ. The exterior isometry group is F-anisotropic: because d<n, at least one real localization is compact O(0,6), which excludes an F-split torus. Its adelic quotient modulo the center is compact. All theta-integral convergence claims use this fact. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.
+In the distinct-algebra case of JL.0 choose a common CM subfield E⊂B_i, write B_i=E⊕Ej_i, and take the spaces and groups of the exceptional diagram. Put H=B×, H_N^+={h∈H(A_F):Nrd(h)∈N(A_E×)}, and H_∞^+={h:Nrd(h_v)>0 for every real v}. These subgroups serve different purposes. Set ℓ_v=k_v−2 and take the Schwartz form φ′_{2,ℓ_v} at v∈Σ and φ′_{ℓ_v} elsewhere, with a pure-tensor finite Schwartz vector. For an irreducible unitary automorphic τ on H_N^+ use central character ξ_E, antiholomorphic minimal type of weight k_v+1 at Σ and holomorphic type outside Σ. The exterior isometry group is F-anisotropic: because d<n, at least one real localization is compact O(0,6), which excludes an F-split torus. Its adelic quotient modulo the center is compact. All theta-integral convergence claims use this fact. Throughout this packet θ_IP(f) integrates Θ(g,h)f(h), without complex conjugation. Relative to MP.5/global-theta-lift, θ_IP(f)=θ_MP(bar f); at the representation level use θ_MP(bar τ). The corresponding local convention takes the maximal τ∨-isotypic oscillator quotient.
 
 Construction or proof: 1. Import compatible quaternionic similitude splittings from MP.3, including the central transformation of Proposition A.1. 2. Keep the norm-support subgroup distinct from the subgroup defined just by real signs. 3. Use the compact real localization to rule out F-split tori, then the anisotropic adelic-quotient theorem from the automorphic supplier.
 
@@ -1067,19 +1067,19 @@ Check: A statement of the form “for every sign there exists separate data” f
 
 The rational Hecke space contains all coefficient conjugates. Degree selection isolates the local q₁ contribution. The coefficient-normalized Hodge table proves actual type (d,d), rather than inferring it from relative cochain bidegrees alone.
 
-Layer inputs: `GL2AutomorphicRepresentationsAndTransfer:R17.4`, `GL2AutomorphicRepresentationsAndTransfer:R17.5`, `GL2AutomorphicRepresentationsAndTransfer:R17.3`, `ModularityAndLanglandsExtensions:ML.4`, `HodgeClassesForJacquetLanglands:JL.7`, `AutomorphicFormsOnReductiveGroups:AF.4`, `HodgeClassesForJacquetLanglands:JL.5`, `GL2AutomorphicRepresentationsAndTransfer:R16.4`, `HodgeClassesForJacquetLanglands:JL.6`, `HodgeClassesForJacquetLanglands:JL.3`, `ShimuraData:D3`.
+Layer inputs: `GL2AutomorphicRepresentationsAndTransfer:R17.4`, `GL2AutomorphicRepresentationsAndTransfer:R17.5`, `GL2AutomorphicRepresentationsAndTransfer:R17.3`, `ModularityAndLanglandsExtensions:ML.4`, `HodgeClassesForJacquetLanglands:JL.7`, `AutomorphicFormsOnReductiveGroups:AF.4`, `HodgeClassesForJacquetLanglands:JL.5`, `GL2AutomorphicRepresentationsAndTransfer:R16.4`, `HodgeClassesForJacquetLanglands:JL.6`, `HodgeClassesForJacquetLanglands:JL.3`, `ShimuraData:D3`, `GL2AutomorphicRepresentationsAndTransfer:R16.6`.
 
 ### The theta Arthur parameter
 
 Target `HodgeClassesForJacquetLanglands:JL.8/arthur-parameter`; proposed declaration `TauCeti.JacquetLanglandsHodge.arthurParameter` (theorem).
 
-Let σ be the cuspidal GL₂ transfer of the source τ, with central character ξ_E. Its quadratic base change σ_E is conjugate-orthogonal. If cuspidal, it gives the elliptic U(4) parameter ψ=σ_E⊠Sym¹; if noncuspidal, write σ_E=χ⊞χ⁻¹, where χ is conjugate-orthogonal and χ²≠1, and interpret ψ as the corresponding sum of two simple blocks. The sign follows from As⁺∘BC=Sym²⊕(∧²⊗ξ_E), so L(s,As⁺σ_E)=L(s,Sym²σ)ζ_F(s). This σ is the auxiliary central-character-ξ_E representation, distinct from the initial central-character-one π.
+Choose an irreducible unitary cuspidal σ on GL₂(A_F), with central character ξ_E, whose B× Jacquet–Langlands transfer restricts to H_N^+ with a constituent τ. Its quadratic base change σ_E is independent of this choice and is conjugate-orthogonal. The subgroup representation τ itself is not an input to the usual GL₂ transfer. If cuspidal, it gives the elliptic U(4) parameter ψ=σ_E⊠Sym¹; if noncuspidal, write σ_E=χ⊞χ⁻¹, where χ is conjugate-orthogonal and χ²≠1, and interpret ψ as the corresponding sum of two simple blocks. The sign follows from As⁺∘BC=Sym²⊕(∧²⊗ξ_E), so L(s,As⁺σ_E)=L(s,Sym²σ)ζ_F(s). This σ is the auxiliary central-character-ξ_E representation, distinct from the initial central-character-one π.
 
 Construction or proof: 1. Import quadratic base change and the adjoint/Asai factorization in the required normalization. 2. Use the pole criterion for conjugate orthogonality, treating the noncuspidal base-change case separately.
 
-Direct inputs: `GL2AutomorphicRepresentationsAndTransfer:R17.4/cuspidality`, `GL2AutomorphicRepresentationsAndTransfer:R17.5/quadratic-induction`, `GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl`, `ModularityAndLanglandsExtensions:ML.4`, `HodgeClassesForJacquetLanglands:JL.7/global-theta-data`.
+Direct inputs: `GL2AutomorphicRepresentationsAndTransfer:R17.4/cuspidality`, `GL2AutomorphicRepresentationsAndTransfer:R17.5/quadratic-induction`, `GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl`, `ModularityAndLanglandsExtensions:ML.4`, `HodgeClassesForJacquetLanglands:JL.7/global-theta-data`, `GL2AutomorphicRepresentationsAndTransfer:R16.6`.
 
-Source: IP23, Equation (11.1) and Lemma 11.1, pp. 79–80.
+Source: IP23, Equation (11.1) and Lemma 11.1, pp. 79–80; §11.4, p. 86.
 
 Check: Do not assume base change is cuspidal in the dihedral case.
 
@@ -1271,9 +1271,9 @@ The τ chosen by all-sign-nonvanishing comes from a cohomological cuspidal GL₂
 
 Construction or proof: 1. Use the discrete-series signs of τ to identify the algebraic Hilbert weight and its common odd parity. 2. Apply JL and the precise restriction/Clifford-theory interface requested from R16.6.
 
-Direct inputs: `HodgeClassesForJacquetLanglands:JL.7/all-sign-nonvanishing`, `GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl`, `GL2AutomorphicRepresentationsAndTransfer:R16.4/cohomological-rationality`, `GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights`.
+Direct inputs: `HodgeClassesForJacquetLanglands:JL.7/all-sign-nonvanishing`, `GL2AutomorphicRepresentationsAndTransfer:R17.3/global-jl`, `GL2AutomorphicRepresentationsAndTransfer:R16.4/cohomological-rationality`, `GL2AutomorphicRepresentationsAndTransfer:R16.6/hilbert-algebraic-weights`, `GL2AutomorphicRepresentationsAndTransfer:R16.6`.
 
-Source: IP23, §12.2.4, p. 96; §10.2, pp. 65–66.
+Source: IP23, §12.2.4, pp. 96–97; §10.2, pp. 65–66.
 
 API:
 
@@ -1301,7 +1301,7 @@ Construction or proof: 1. Choose the local quadratic square classes by weak appr
 
 Direct inputs: `HodgeClassesForJacquetLanglands:JL.0/brauer-reduction`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences`.
 
-Source: IP23, §12.2.1, p. 94; Proposition 10.1, p. 70.
+Source: IP23, §12.2.1, p. 94; Proposition 10.1, p. 70; Proposition 12.3 proof, p. 98.
 
 Check: Ramification of E at v₀ is compatible with split B_i and unramified hyperspecial automorphic vectors there.
 
@@ -1460,7 +1460,7 @@ Consumers: `HodgeClassesForJacquetLanglands:JL.5/coefficient-structure`, `HodgeC
 
 ### Quaternionic theta period and residue interface
 
-The proposed MetaplecticAutomorphicFormsPartIIShimuraWaldspurger has no registered stage/node. MP.3 already owns quaternionic splittings, Morita comparison and unramified theta, so none is replanned. Needed in addition: the toric and quaternionic product-period nonvanishing identities of IP23 Lemmas 9.1–9.2, pp. 57–58; the local normalized intertwiner image and holomorphy at s=3/2 of Lemmas 9.7–9.8, pp. 63–64; the compatible anisotropic quaternionic Siegel–Weil residue yielding backward nonvanishing in Lemma 9.6, pp. 61–64; the local test-vector statement of Lemma 10.6, pp. 76–77; the compact norm-one idele quotient character-extension statement of Lemma 10.5, p. 76, with trivial archimedean restriction and finite-order conclusion; and the tensor-product discrete-series decomposition used by Lemma 10.7, p. 77. MP.6/rallis-inner-product is a GQT positive-range value formula with first-occurrence hypotheses; it cannot silently replace this residue identity.
+The proposed MetaplecticAutomorphicFormsPartIIShimuraWaldspurger has no registered stage/node. MP.3 already owns quaternionic splittings, Morita comparison and unramified theta, so none is replanned. Needed in addition: the toric and quaternionic product-period nonvanishing identities of IP23 Lemmas 9.1–9.2, pp. 57–58; the normalized intertwiner image at s=3/2 and existence of holomorphic nonzero local zeta data in Lemmas 9.7–9.8, pp. 63–64; the compatible anisotropic quaternionic Siegel–Weil residue yielding backward nonvanishing in Lemma 9.6, pp. 61–64; the local test-vector statement of Lemma 10.6, pp. 76–77; the compact norm-one idele quotient character-extension statement of Lemma 10.5, p. 76, with trivial archimedean restriction and finite-order conclusion; and the tensor-product discrete-series decomposition used by Lemma 10.7, p. 77. MP.6/rallis-inner-product is a GQT positive-range value formula with first-occurrence hypotheses; it cannot silently replace this residue identity.
 
 Consumers: `HodgeClassesForJacquetLanglands:JL.6/toric-theta`, `HodgeClassesForJacquetLanglands:JL.6/product-theta`, `HodgeClassesForJacquetLanglands:JL.6/doubling-point`, `HodgeClassesForJacquetLanglands:JL.6/backward-lift`, `HodgeClassesForJacquetLanglands:JL.6/near-equivalence`, `HodgeClassesForJacquetLanglands:JL.7/toric-test-vector`, `HodgeClassesForJacquetLanglands:JL.7/auxiliary-character`, `HodgeClassesForJacquetLanglands:JL.7/triple-product-type`.
 
@@ -1474,7 +1474,7 @@ The following requests use existing stage ids. Each stage’s scope and the fine
 
 ### Requested from GeometryOfNumbersAndQuadraticArithmetic:GN.2
 
-Quaternion embedding criterion for E in B, local/global quaternion classification and norm-rescaling of symbol presentations. The consumer proofs use IP23 §§4.1, 5.2–5.3, 10.7 and 12.2.1; square-rescaling in the pinned quaternion API alone is insufficient.
+Quaternion embedding criterion for E in B and local/global quaternion classification, with the placewise nonsplitting condition used in IP23 §12.2.1, p. 94. Norm changes of quaternion symbols are already supplied by current TauCeti.QuaternionAlgebra.normMulEquiv and are not requested as new foundations.
 
 Consumers: `HodgeClassesForJacquetLanglands:JL.10/auxiliary-cm`.
 
@@ -1562,44 +1562,68 @@ Algebraic central quotients and identity components of reductive groups, charact
 
 Consumers: `HodgeClassesForJacquetLanglands:JL.1/exceptional-isogeny`.
 
+### Requested from GL2AutomorphicRepresentationsAndTransfer:R16.6
+
+Automorphic restriction/extension for the norm-multiplier subgroup H_N^+ of B×(A_F): realize the relevant irreducible unitary source τ as a constituent of a full B× cuspidal representation and its GL₂ transfer σ, prove quadratic base change σ_E is independent of that choice, and compare restriction through H_∞^+ with the odd algebraic Hilbert weight and its unitary norm twist. IP23 §11.4, p. 86 and §12.2.4, pp. 96–97. The existing hilbert-algebraic-weights node supplies parity conventions, not this restriction/Clifford-theory statement.
+
+Consumers: `HodgeClassesForJacquetLanglands:JL.8/arthur-parameter`, `HodgeClassesForJacquetLanglands:JL.10/auxiliary-hilbert-form`.
+
 ## Source corrections and verification
 
-The targets use the following corrected formulations. Descriptions of the printed material are paraphrases. These findings were already identified in the paper extraction and its independent review and were rechecked for this design. The packet records the searches for published corrections; none was located on 19 October 2026. The corrections to the component argument require independent mathematical review of this plan.
+The targets use the following corrected formulations. Descriptions of the printed material are paraphrases. These findings were already identified in the paper extraction and its independent review and were rechecked for this design. The packet records the searches for published corrections; none was located on 19 October 2026. Independent review confirmed the invariant-component descent and narrowed E4 to a missing component justification; it does not assert that the component bijection is false.
 
 ### E1: IP23, published 2023 version, §2.1, p. 14
+
+Independent verdict: confirmed.
 
 The single-embedding coefficient-field Hodge convention implicitly treats complex conjugation as preserving one L-embedding. Use a rational Hodge structure with L-action; equivalently retain the conjugate-embedding family, or require L totally real when using one embedding. Complex conjugation takes an embedding ι to bar ι. A nonreal L-embedding is not fixed; the final self-dual setting uses a totally real coefficient field. Reach: nothing.
 
 ### E2: IP23, published 2023 version, §3.3, p. 19
 
+Independent verdict: confirmed.
+
 The displayed degree used for the quaternionic multiplicity realization is 2d. Use cohomological degree d. A quaternionic Shimura variety with d split real factors has dimension d and the discrete-series contribution is degree one at each such factor. Reach: nothing.
 
 ### E3: IP23, published 2023 version, Rotated group diagram, p. 22
+
+Independent verdict: confirmed.
 
 The rank-one group on the quaternionic side carries an E-unitary label. Use U_B(V₀ sharp), with the notation of that diagram. The summand is a rank-one B-module and the adjacent arrows are B-linear isometry-group arrows. Reach: nothing.
 
 ### E4: IP23, published 2023 version, §4.3, p. 24
 
-The passage to the abelian quotient is described as giving the component identification used for a simply connected derived group. Use only the Shimura morphism to the component torus and pullback of its degree-zero functions. The actual derived group is (B₁¹×B₂¹)/μ₂ and is not simply connected. A torus morphism exists without the claimed component bijection, and suffices for c_η. Reach: the proof.
+Independent verdict: confirmed as a gap; no claim of a false bijection.
+
+The component set is identified with the torus Shimura variety without a separate component argument. Use only the Shimura morphism to the component torus and pullback of its degree-zero functions. The derived group is (B₁¹×B₂¹)/μ₂ and is not simply connected, so the usual simply-connected sufficient criterion is unavailable. This alone is not a counterexample to the component bijection. Record the missing justification; the weaker Shimura morphism and pullback of torus functions suffice for c_η. Reach: the proof.
 
 ### E5: IP23, published 2023 version, §4.3, p. 24
+
+Independent verdict: confirmed.
 
 The character is described on the norm-one ideles but is evaluated on a general E-idele in the torus formula. Use the full finite-order Hecke character of A_E×/E×A_F×, restricting it to E¹ only where needed. The norm of the displayed argument need not be one. Triviality on A_F× gives the required representative independence and the restriction to the center. Reach: the proof.
 
 ### E6: IP23, published 2023 version, Proposition A.1(i), p. 101
 
+Independent verdict: confirmed.
+
 The second denominator factor in the local splitting cocycle quotient is written without the place subscript v. The quotient is s_v(g₁g₂)/(s_v(g₁)s_v(g₂)). Both arguments belong to the same local group G_v, so both denominator values must use the local cochain s_v. The omission is a subscript error, not a missing multiplicative factor. Reach: nothing.
 
 ### E7: IP23, published 2023 version, Proof of Proposition 11.6, p. 88
 
+Independent verdict: confirmed.
+
 The Hodge-type pair for the cochain (1,1) term has an unmatched closing delimiter. Read its untwisted Hodge type as (k−1,k−1). The adjoining Kostant-weight calculation and the final twist on p. 90 give precisely this pair. Reach: nothing.
 
 ### E8: IP23, published 2023 version, Proof of Theorem 12.4, p. 99
+
+Independent verdict: confirmed.
 
 Rationality of a degree-zero component parameter is used as if it implied trivial Galois action on that parameter. Restrict component parameters to W_Q=H⁰(Q)^{G_{F_Σ}}. Show c_η lies in W_Q⊗Q(η) using the cocharacter factorization through j(s)=([s,s],s), reflex-norm functoriality and η_T(j(s))=1. Perform the determinant nonvanishing argument in the two parameter spaces H and W_Q. Canonical-model reciprocity can permute connected components, so a rational component basis need not be fixed. The character is nevertheless fixed because its value is trivial on the reflex-norm image. Finite permutation invariants commute with scalar extension; polynomial nonvanishing over the infinite rational coefficient fields then gives a fixed rational parameter without averaging an invertible operator. Reach: the proof.
 
 The routed extraction has two additional locator/model corrections: its item 092 points to equation (10.8), whereas the seesaw is (10.7), p. 72; its item 042 must use W=U₃⊗U₄ from (5.16), p. 37. These are corrections to the extraction, rather than new errors attributed to the published paper. All 62 items routed to this roadmap occur in the packet’s routed-item map.
 
 The source work read the published paper’s theorem on pp. 4–5, its definitions and proof chain on pp. 14–99 and Proposition A.1 on p. 101. Auxiliary general theorems are imported through the verified supplier interfaces or are named in the four gaps; no claim is made here to have read every paper in IP23’s bibliography. No restricted source is needed for this plan.
+
+Independent review by Codex (codex-dpm5k1) checked all 71 targets and the eight pinned declarations; the report is [REV-DESIGN-HodgeClassesForJacquetLanglands](../reviews/REV-DESIGN-HodgeClassesForJacquetLanglands.md). Current-library reuse was checked at Tau Ceti commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 and roadmap ownership at 0d144d044dacebca17b654695b6f1ad58f159b27. In particular `TauCeti/Algebra/Quaternion/SymbolEquiv.lean` supplies `normMulEquiv`, `TensorProduct.lean` supplies `tensorAlgEquivTensorMatrix`, and `BrauerClass.lean` supplies `quaternionClass_mul`; these newer bodies are reuse inputs, not additions to the pinned baseline.
 
 The packet is a complete target-level planning pass with all eleven layers planned. Each layer’s coverage record specifies its supplier refinements; none is marked closed. Definition and construction APIs each have at least three discriminating tests. The suggested file and the reader use the same orientation, character-weight map, Hodge normalization and determinant-descent hypotheses. Implementing the mathematical targets and proving the suggested statements are Tau Ceti work; every packet node remains unchecked.
