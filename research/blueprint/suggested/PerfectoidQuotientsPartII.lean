@@ -26,7 +26,7 @@ proof is `sorry`; nothing here is formalised.
 
 Only statements whose carriers exist at the pins (Mathlib `082e2d3`, Tau Ceti `f790474`) are
 typed: the inverse-limit description of `PreTilt`, the tilt of a `p`-adically complete valuation
-ring, ind-fppf maps, the commutative-algebra inputs of the André lemma, the tilt of a valuation,
+ring, completeness of its localizations, ind-fppf maps, the commutative-algebra inputs of the André lemma, the tilt of a valuation,
 the valuative criterion for topological nilpotence in a Tate ring, and `p`-Zariski rings. The
 integral perfectoid predicate (PerfectoidSpaces P1.24), syntomic morphisms (Tau Ceti
 StableReduction Layer 1), perfectoidization (PrismaticCohomology, Part I) and almost mathematics
@@ -94,6 +94,14 @@ theorem valuationRing_preTilt :
 
 end ValuationRing
 
+/-- README Q6.5: localizing an `a`-adically complete valuation ring at a prime containing `a`
+preserves `a`-adic completeness (Česnavičius–Scholze, proof of Proposition 2.1.9, p. 15). -/
+theorem isAdicComplete_localization_of_valuationRing
+    {V : Type*} [CommRing V] [IsDomain V] [ValuationRing V] (a : V)
+    [IsAdicComplete (span {a}) V] (q : Ideal V) [q.IsPrime] (ha : a ∈ q) :
+    IsAdicComplete (span {algebraMap V (Localization.AtPrime q) a})
+      (Localization.AtPrime q) := sorry
+
 /-! ## Layer Q7: ind-fppf maps and commutative-algebra inputs (README Q7) -/
 
 /-- Ind-fppf ring maps (README Q7.1), in the factorization form of Stacks 07C3: `A → B` is
@@ -141,6 +149,9 @@ example : ¬ IsIndFppf ℤ ℚ := sorry
 /-- Test `not_indFppf_localization`: not flat. -/
 example (p : ℕ) [Fact p.Prime] : ¬ IsIndFppf ℤ (ZMod p) := sorry
 
+/-- Test `not_indFppf_empty_product`: the zero algebra is not faithfully flat over `ℤ`. -/
+example : ¬ IsIndFppf ℤ PUnit := sorry
+
 /-- Test `indFppf_prod`. -/
 example (A : Type u) [CommRing A] : IsIndFppf A (A × A) := sorry
 
@@ -173,8 +184,9 @@ section TiltValuation
 variable (O : Type*) [CommRing O] (p : ℕ) [Fact p.Prime] [Fact ¬IsUnit (p : O)]
   [IsAdicComplete (span {(p : O)}) O]
 
-/-- README Q8.2, for `ϖ = p`: the tilt `x ↦ v(x^♯)` of a valuation that is at most `1` on `O`
-and continuous for the `p`-adic topology. Continuity is imposed against every unit of the
+/-- The `p`-adic version of README Q8.2: `x ↦ v(x^♯)` works for any classically `p`-complete
+ring with a continuous valuation bounded by `1`. The proof uses Q5.1 and does not require the
+integral perfectoid predicate. Continuity is imposed against every unit of the
 codomain, which is stronger than Wedhorn's value-group test used in the README. -/
 def tiltValuation {Γ₀ : Type*} [LinearOrderedCommGroupWithZero Γ₀] (v : Valuation O Γ₀)
     (hle : ∀ x, v x ≤ 1) (hcont : ∀ γ : Γ₀ˣ, ∃ n : ℕ, v ((p : O) ^ n) < γ) :
@@ -268,34 +280,37 @@ example (p : ℕ) [Fact p.Prime] (n : ℤ) (hn : ¬ (p : ℤ) ∣ n) :
 end PZariski
 
 /-!
-## Statements not typed at the pins
+## Further README targets
 
-The following roadmap targets need carriers that neither pinned library has; they are stated in
-the roadmap document, with the names proposed there.
+This short file selects representative statements. Q5.2 (`tilt_pi` and its fibre-product form)
+also uses carriers at the pins; its exact statement and proof outline remain in the README.
+The following groups require at least one additional carrier or structure from their named
+supplier. They are README targets, not placeholder Lean definitions. Some subsidiary API items,
+such as the ind-fppf colimit statements, could also be stated independently at the pins.
 
 * Integral perfectoid predicate (PerfectoidSpaces P1.24) and its tilts:
   `sharpQuotientEquiv` (Q5.3), `torsionTransfer` (Q5.4), `ainf_surjective_of_surjective` (Q5.5),
   `isIntegralPerfectoid_fibreProduct` (Q5.6), the glueing application (Q5.7),
   `relativeTiltingEquivalence` (Q6.1), `isAdicComplete_iff_tilt` (Q6.2),
-  `valuationRing_iff_tilt` (Q6.4), `isAdicComplete_localization_of_valuationRing` (Q6.5),
+  `valuationRing_iff_tilt` (Q6.4),
   `isIntegralPerfectoid_localization` (Q6.6), `isAlgClosed_fractionRing_iff_tilt` (Q6.7),
-  `exists_torsionFree_presentation` (Q6.8), `exists_sharp_approximation` (Q8.3),
-  and the tilt-of-limits statement `tilt_pi` with its fibre-product form (Q5.2).
+  `exists_torsionFree_presentation` (Q6.8), `exists_sharp_approximation` (Q8.3).
 * Syntomic morphisms (Tau Ceti StableReduction Layer 1): `IsIndSyntomic` with
   `IsIndSyntomic.of_syntomic`, `.flat`, `.isIndFppf`, `.comp`, `.baseChange`, `.prod`,
-  `.colimit`, `.iff_colimit` (Q7.2); `IsIndSyntomic.comp` and the stability theorem (Q7.3);
+  `.colimit`, `.iff_colimit`, `.of_equiv` (Q7.2); `IsIndSyntomic.comp` and the stability theorem (Q7.3);
   syntomicity (not only flatness) in `flat_quotient_of_forall_map_ne_zero` (Q7.6); the ind-fppf
   colimit forms `IsIndFppf.iff_colimit`, `IsIndFppf.iff_faithfullyFlat_colimit_flat`,
   `IsIndFppf.colimit`; tests `indSyntomic_rootPolynomial`, `indSyntomic_hypersurface`,
   `not_indSyntomic_quotient`, `indSyntomic_not_faithfullyFlat`, `not_indFppf_completion`.
-* Tilted valuations beyond `ϖ = p` (Q8.2): `tiltValuation_pseudoUniformizer`,
+* The general adic form of tilted valuations (Q8.2): `tiltValuation_pseudoUniformizer`,
   `tiltValuation_isContinuous`, `tiltValuation_map`, `tiltValuation_charP`, `tiltValuation_field`;
   tests `tiltValuation_OC`, `tiltValuation_perfect`, `tiltValuation_kills_pseudoUniformizer`,
   `tiltValuation_not_lift`; and the continuity comparison `isContinuous_iff_pow_lt` (Q8.1), which
   needs the `ϖ`-adic topology as an instance.
 * Root polynomial algebras and `p`-integral closures (PerfectoidQuotients Layer 0):
   `AndreRootExtension` with `.ideal`, `.root`, `.root_pow`, `.aeval_root`,
-  `.ideal_varpi_divisible`, `.quotient_isIntegral`, `.quotient_isPIntegralClosure`, `.map`
+  `.ideal_varpi_divisible`, `.quotient_isIntegral`, `.quotient_isPIntegralClosure`, `.map`,
+  `.inclusion`, `.minimal`, `.hom_ext`, `.map_id`, `.map_comp`
   and tests `andreRootExtension_empty`, `andreRootExtension_linear`, `andreRootExtension_T`,
   `andreRootExtension_degree_zero` (Q9.1); `pIntegralClosure_blowup_eq_iUnion` (Q9.2);
   `exists_indSyntomic_andre_extension` (Q9.3); `andre_completion_faithfullyFlat_mod` (Q9.4);
