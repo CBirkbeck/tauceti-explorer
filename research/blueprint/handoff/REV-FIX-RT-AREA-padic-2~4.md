@@ -1,11 +1,11 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-Wpbf9p**, 19 October 2026.
-Checkout and independently queried GitHub main:
-`3c96dc45191213a9d62ae2cf8e3d5a2d7d042cd4`.
-Branch: `codex-Wpbf9p-review-padic-fixes`.
-The bot confirmed [claim comment 6261830495](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6261830495)
-in [comment 6261832728](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6261832728).
+Refs #6519. Codex, session **codex-ARcNcm**, 19 October 2026.
+Checkout: `aa25a7628b6c4669d079914c1e80256680b0dee3`.
+Independently fetched GitHub main: `55c7c50b621f89c1ab2a1d2680a8ad733df8b2c2`.
+Branch: `codex-ARcNcm-padic-fix-review`.
+The bot confirmed [claim comment 6262889248](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6262889248)
+in [comment 6262892127](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6262892127).
 This session wrote none of the fixes or prior reviews and claimed no second job.
 
 ## Work complete and blocker
@@ -15,67 +15,69 @@ accepted for the scoped fixes; Perfectoid has `needs_changes` for its broader
 audit. The [report](../reviews/REV-FIX-RT-AREA-padic-2~4.md) preserves the
 finding-by-finding review, source-reading records and previous successful
 Lean checks, attributed to their original sessions. This continuation changes
-only the report's current notice and this handoff.
+only its current notice and this handoff. No new mathematical review or
+source-reading claim is made.
 
 After claim confirmation the issue still authorizes **seven outputs / three
-packets**. The local and independently fetched current-main queues require
-**27 outputs / thirteen packets**. Their ordered outputs agree and all exist.
-The corresponding fix entry requires 46 outputs. Fresh execution of the
-unmodified `issues.deliverables_complete` returns `True` for a scratch-only
-copy restricted to the issued seven outputs, and `False` for each generated
-review entry.
+packets**. Local and independently fetched current-main queues require
+**27 outputs / thirteen packets**; their ordered output lists agree. Every
+output exists. The corresponding generated fix requires 46 outputs.
+The actual `issues.deliverables_complete` returns `True` for the issued
+seven-output scope and `False` for the generated job. Each extra packet has
+an accepted review by a different job. The exact reviewer-id condition is the
+blocker; Perfectoid's existing `needs_changes` already counts as completed.
 
-The ten extra packets already have accepted reviews under other job ids,
-identified by the generated queue's additional packet outputs. The predicate requires this review's
-exact identifier on every packet. Perfectoid's existing `needs_changes`
-already satisfies the completed-review condition. Neither that verdict nor
-missing files cause the blocker. No permitted mathematical change can make
-the expanded contract complete.
+No permitted mathematical change can make this expanded contract complete.
+The `made` assignment in `make_queue.py`'s `fix_rounds` still excludes
+`missing` and `sent_back` cases. Actual `intake.file_problems` calls reject
+`research/blueprint/queue.json` and `research/blueprint/make_queue.py`.
+WORKERS.md and the live issue also restrict this worker's edits. The
+out-of-scope repair remains unapplied.
 
-Read `issues.py`, `intake.py` and `make_queue.py` at the checkout commit,
-which matches independently queried GitHub main. `fix_rounds` still preserves
-an issued following round only when neither newly missing files nor a
-preceding send-back is present (the
-`made` assignment in `fix_rounds`). Fresh `intake.file_problems`
-calls reject both `research/blueprint/queue.json` and
-`research/blueprint/make_queue.py` as outside swarm output paths. WORKERS.md
-also restricts edits to named deliverables. This worker cannot apply the
-needed repair within this issue's authorized scope.
+## Concrete repair and fresh verification
 
-## Required maintainer repair before resuming
-
-1. Restore the issued round-four fix and review contracts. The historical
-   queue at `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6` records the ten-output
-   fix and seven-output review, including their dependencies. Preserve the
-   completed mathematical review.
-2. Preserve an already-issued following round in `fix_rounds` when newly
-   missing files or a preceding send-back appear. The existing candidate
-   retrieves `previous_jobs.get(following)` whenever `following in states`.
-   The report retains isolated controls and two complete, write-free
-   generator computations supporting this candidate. This continuation did
-   not rerun them. A queue-only restoration would be expanded again during
-   regeneration.
-3. Verify both ordered output lists and dependency edges survive two
-   regenerations; synchronize the issue and verify actual intake. Route newly
-   required work to separately authorized jobs. If a larger review is wanted,
-   issue an explicitly revised scope and prompt before assigning it.
-4. Keep this issue unavailable until those contracts agree. Workers cannot
+1. Restore `outputs` and `after` for `FIX-RT-AREA-padic-2~4` and
+   `REV-FIX-RT-AREA-padic-2~4` from the historical queue at
+   `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`. It records the ten-output fix
+   and seven-output review issued in the live issues.
+2. In `fix_rounds`, preserve an existing following round whenever it is in
+   `states`: retrieve `previous_jobs.get(following)` without the
+   `not (missing or sent_back)` condition. This preserves both scope and
+   dependency ordering while genuinely new rounds can receive new work.
+3. Regenerate twice and compare both ordered output lists and dependency
+   lists to the historical contracts; verify the actual completion predicate
+   without replacing unrelated independent review objects. Synchronize the
+   issue and verify actual intake under maintainer authorization.
+4. Keep this issue unavailable until the contracts agree. Workers cannot
    change its labels or close it. Reassignment while the mismatch remains
-   cannot advance the mathematical review.
+   cannot advance the completed mathematical review.
 
-## Checks and evidence preserved
+The candidate and queue restoration were prepared in scratch, never applied.
+Eight isolated stock/candidate controls independently reproduce scope and
+dependency mutation when missing suppliers or a preceding send-back appears.
+Two complete write-free candidate generations preserve both issued contracts
+exactly and make the actual completion predicate return `True`. A control
+with the stock generator expands the restored scope to **53 fix outputs /
+31 review outputs** and returns `False`. The current report records the full
+table. Its existing self-contained generator reproducer survives scratch
+cleanup; do not depend on scratch scripts or the prepared patch.
 
-Fresh `scripts/check_blueprint.py` checks against the manifest-matching pinned
-index pass for all three packets: **Faltings 56, Perfectoid 326, Adic 537 nodes;
-zero errors and zero warnings**. Pins: Mathlib
-`082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+The write-free harness rejects text/byte writes, suppresses directory creation,
+uses `--dry-run`, and returns before locking and persistence. These checks do
+not validate actual queue persistence, GitHub synchronization or intake.
+Those require the authorized repair and remain the maintainer's next action.
+
+## Packet validation and unchanged evidence
+
+Fresh `scripts/check_blueprint.py` checks at the manifest-matching pinned
+index pass: **Faltings 56, Perfectoid 326, Adic 537 nodes; zero errors and zero
+warnings**. Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-These are structural/index checks, not fresh mathematical or primary-source
-review. No packet, reader, suggested file, link map or restructuring proposal
-changes. Lean was not rerun for documentation-only changes. Prior successful
-elaborations remain evidence of their named sessions. No background process,
-build or language server was started.
+These are structural/index checks. No packet, reader, suggested file, link map
+or restructuring proposal changes. Lean was not rerun for documentation-only
+edits. Prior successful elaborations and source audits retain their original
+authorship. No build, language server or background process was started.
 
-This is a **blocked checkpoint**. The durable repair evidence and reproducer
-remain in the report; no scratch artifact is required to resume.
+This is a **blocked checkpoint**. The report and this handoff contain all
+resume evidence; no scratch artifact is required.

@@ -1,58 +1,80 @@
 # Independent review of the round-four p-adic fixes
 
 **Blocked checkpoint, independently rechecked 19 October 2026 by Codex session
-codex-Wpbf9p.** The issued three-packet review is already recorded as complete.
-The generated queue still requires ten additional packets outside the live
-issue's permitted scope. The mathematical review, source records and successful
-Lean checks below retain their original authorship; this session did not repeat
-those audits or change any verdict.
+codex-ARcNcm.** The issued three-packet review is already complete. The current
+generated queue still requires ten additional packets outside the live issue's
+permitted scope. The mathematical review, source records and Lean evidence
+below retain their original authorship; this continuation does not repeat
+those audits or change a verdict.
 
-The bot confirmed this session's
-[claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6261830495)
-in [comment 6261832728](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6261832728).
-The issue was re-read after confirmation. This session wrote none of the fixes
-or previous reviews and held no second claim.
+The bot confirmed [claim comment 6262889248](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6262889248)
+in [comment 6262892127](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6262892127).
+The full issue was fetched and re-read after confirmation. This session did
+none of the fixes or earlier reviews and holds no second claim.
 
-The checkout and independently queried GitHub main both resolve to
-[`3c96dc45191213a9d62ae2cf8e3d5a2d7d042cd4`](https://github.com/CBirkbeck/tauceti-explorer/commit/3c96dc45191213a9d62ae2cf8e3d5a2d7d042cd4).
-Fresh execution of the unmodified `issues.deliverables_complete` gives:
+The checkout is `aa25a7628b6c4669d079914c1e80256680b0dee3`. A separate read of
+GitHub main at [`55c7c50b621f89c1ab2a1d2680a8ad733df8b2c2`](https://github.com/CBirkbeck/tauceti-explorer/commit/55c7c50b621f89c1ab2a1d2680a8ad733df8b2c2)
+confirms exactly the same ordered review output list as the checkout.
+The stock `issues.deliverables_complete` produces:
 
 | Contract | Outputs | Packets | Complete |
 |---|---:|---:|---|
 | Live issue's permitted scope | 7 | 3 | True |
 | Local generated queue | 27 | 13 | False |
 | Independently fetched GitHub-main queue | 27 | 13 | False |
+| Historical issued review at `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6` | 7 | 3 | True |
 
-All outputs exist, and the two generated output lists agree in order. The
-three permitted packets already name this review job, with accepted /
-needs_changes / accepted verdicts. Each extra packet has an accepted review
-under a different independent job id. The predicate requires this job's exact
-reviewer identifier on every packet. Perfectoid's `needs_changes` counts as a
-completed review and is not the blocker. No additional packet was reviewed or
-had its verdict replaced here.
+All outputs exist. The three permitted packets already name this review with
+accepted / needs_changes / accepted verdicts. Every extra packet has an
+accepted review under a different independent job id. The completion predicate
+requires this job's exact identifier on all thirteen packets. Perfectoid's
+`needs_changes` is an allowed completed-review verdict and is not the blocker.
+No additional packet was reviewed or had its verdict replaced here.
 
 Fresh reads of `issues.py`, `intake.py` and `make_queue.py` confirm the repair
-boundary. In `fix_rounds`, the `made` assignment still preserves an issued
-following round only when `not (missing or sent_back)`. Fresh
-`intake.file_problems` calls reject both `queue.json` and `make_queue.py` as
-outside swarm output paths. The live issue also limits edits to its named
-files. The existing historical-contract recovery, proposed repair and two
-write-free generator checks below retain their original attribution; they
-were not rerun in this continuation.
+boundary. The `made` assignment in `fix_rounds` (line 2215 at this checkout)
+still preserves an issued following round only when `not (missing or sent_back)`.
+Actual `intake.file_problems` calls reject both `queue.json` and `make_queue.py`
+as outside swarm output paths. WORKERS.md and the live issue also restrict
+edits to named deliverables. The prepared repair remains unapplied.
 
-Fresh checks of the three permitted packets against the pinned declaration
-index pass: **Faltings 56, Perfectoid 326, Adic 537 nodes; zero errors and zero
-warnings**. The index manifest records Mathlib
-`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. These checks validate structure and
-indexed names; they are not fresh source audits. Only this notice and the
-[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) change. Lean was not rerun for
-documentation edits. No build, language server or background process was started.
+This continuation independently reran the isolated control and complete
+write-free regeneration experiments documented below. The candidate changes
+only that assignment to retrieve an existing following round whenever it is
+in `states`, and restores both round-four contracts' `outputs` and `after`
+from the historical queue. Eight isolated stock/candidate combinations confirm
+scope and dependency preservation for missing suppliers and prior send-backs.
+The complete generator computation gives:
 
-Before assigning this job again, restore the issued contracts and preserve
-them through queue regeneration, or explicitly authorize a revised scope. The
-handoff records the concrete repair and resume criteria. No scratch artifact
-is required to resume.
+| Input/computation | Fix outputs | Review outputs | Both historical contracts preserved | Review complete |
+|---|---:|---:|---|---|
+| Current queue | 46 | 27 | No | No |
+| Historical contracts restored in memory | 10 | 7 | Yes | Yes |
+| Restored seed, stock generator | 53 | 31 | No | No |
+| Restored seed, candidate once | 10 | 7 | Yes | Yes |
+| Candidate result, candidate again | 10 | 7 | Yes | Yes |
+
+Preservation compares ordered output lists and dependency lists for both jobs.
+The harness rejects text/byte writes, suppresses directory creation, uses
+`--dry-run`, and returns before the lock/persistence tail. It does not exercise
+actual persistence, GitHub issue synchronization or intake. The existing
+self-contained reproducer below remains the durable way to repeat this check.
+The candidate and restoration were prepared in scratch only; no queue,
+generator, prompt or lock was written.
+
+Fresh packet checks using the manifest-matching pinned declaration index pass:
+**Faltings 56, Perfectoid 326, Adic 537 nodes; zero errors and zero warnings**.
+The manifest records Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and
+Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. These are structural/index
+checks, not a fresh source audit. Only this notice and the
+[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) change. Lean was not rerun
+for documentation edits, and no build, language server or background process
+was started.
+
+The authorized review cannot satisfy the enlarged generated contract. Restore
+and preserve the issued contracts, or explicitly authorize a revised scope,
+before assigning this job again. The handoff gives the repair and resume
+criteria; no scratch artifact is required to resume.
 
 Reviewer: **Codex**, session **codex-5FwGoc**, 10 October 2026. Review issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519); fix [#6518](https://github.com/CBirkbeck/tauceti-explorer/issues/6518), by Claude session claude-u7hFFB. Input commit: `b9ba38061383810d0da07c603653912ba7715c7c`. This session wrote none of the fix, preceding reviews, red team or verification.
 
