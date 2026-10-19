@@ -1,0 +1,271 @@
+{
+  "id": "K3SurfacesAndSymplecticBoundedness",
+  "title": "K3 surfaces, Mukai moduli and holomorphic symplectic boundedness",
+  "area": "arithmeticgeometry",
+  "parent": null,
+  "summary": "This roadmap develops the geometry of K3 surfaces and their sheaf moduli from integral cohomology to arithmetic applications. It connects Mukai lattices, Zarhin’s construction and holomorphic symplectic birational boundedness to finite Néron–Severi lattices and twisted partners over finite fields. A second endpoint uses orthogonal special divisors to obtain exceptional Picard-rank jumps and rational curves, with all characteristic and model hypotheses retained.",
+  "readme": "This roadmap develops the geometry of K3 surfaces and their sheaf moduli from integral cohomology to arithmetic applications. It connects Mukai lattices, Zarhin’s construction and holomorphic symplectic birational boundedness to finite Néron–Severi lattices and twisted partners over finite fields. A second endpoint uses orthogonal special divisors to obtain exceptional Picard-rank jumps and rational curves, with all characteristic and model hypotheses retained.\n\nConventions: Mukai square is c²−2rs; BB normalization is the Hilbert-scheme Fujiki normalization only for K3^[n] type. Arithmetic and geometric NS and transcendental lattices remain distinct. General moduli, integral KS models, lattice embedding theorems and special-divisor heights belong to their existing owners and proposed Part IIs. The finite-field Tate endpoint remains owned by MotivesAndAlgebraicCycles; this roadmap exports geometric contradictions.\n\nLayers K3.0–K3.4 set up K3/Mukai geometry and Zarhin boundedness; K3.5–K3.7 cover IHS periods, birational bounds and admissibility; K3.8–K3.9 give twisted partners; K3.10–K3.11 give arithmetic orthogonal data and the Picard/rational-curve applications.",
+  "prerequisites": [
+    "SchemeAndStackFoundations",
+    "MotivesAndAlgebraicCycles",
+    "ComplexComparisonPartII",
+    "AlgebraicModuliForArithmeticGeometry",
+    "CrystallineCohomology",
+    "CohomologyComparisons",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "ShimuraVarieties",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic",
+    "GrossZagierAndArithmeticHeights"
+  ],
+  "stages": [
+    {
+      "key": "K3.0",
+      "title": "K3 surfaces and integral cohomology",
+      "description": "K3 surfaces with arbitrary ample polarizations, numerical/arithmetic/geometric NS conventions, primitive integral first Chern classes and the even unimodular K3 Betti lattice; lifting at most ten divisor classes, with ramified-Witt and unramified-Witt lifts distinguished.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.5",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "ComplexComparisonPartII:C5",
+        "AlgebraicModuliForArithmeticGeometry:R09.6"
+      ]
+    },
+    {
+      "key": "K3.1",
+      "title": "Mukai lattices and K3 moduli inputs",
+      "description": "The algebraic and prime-to-characteristic Mukai lattices, vector (rk,c₁,χ−rk), Riemann–Roch, condition (C), coprimality implying Gieseker stability, IHS manifolds and Hilbert schemes of K3 points.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "SchemeAndStackFoundations:SF.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "ComplexComparisonPartII:C5"
+      ]
+    },
+    {
+      "key": "K3.2",
+      "title": "Symplectic moduli and integral Mukai comparisons",
+      "description": "Smooth projective geometrically irreducible stable-sheaf moduli of dimension v²+2, Hilbert-scheme deformation type, normalized BB form and Fujiki identity, integral cohomological/algebraic θ, p-primary cokernel, low-degree Hodge/crystalline control, saturated specialization and the rational-factor discriminant formula.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.1",
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "MotivesAndAlgebraicCycles:MC.0",
+        "CrystallineCohomology:CR.2",
+        "CrystallineCohomology:CR.3",
+        "CohomologyComparisons:CP.5",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3"
+      ]
+    },
+    {
+      "key": "K3.3",
+      "title": "Zarhin’s trick for K3 surfaces",
+      "description": "For d>0 construct uniform r,N,a,b and fourfold Mukai moduli for H²=2md under the congruence and square-residue conditions. Include primitive norm-two plane, positive class, prime-to-n ample refinements, arbitrary-field Chern descent and the W-lifting refinement. Keep the sixfold descent variant distinct.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.1",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "K3SurfacesAndSymplecticBoundedness:K3.2",
+        "AlgebraicModuliForArithmeticGeometry:R09.5"
+      ]
+    },
+    {
+      "key": "K3.4",
+      "title": "K3 linear series and finite fields",
+      "description": "Reflect positive K3 classes into the nef cone, analyze fixed components and bounded birational linear series, descend geometric NS over a uniform extension, and obtain finite geometric classes at fixed square and finite arithmetic forms in odd characteristic. Retain the characteristic-two nonreduced-curve proof gate.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "SchemeAndStackFoundations:SF.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+      ]
+    },
+    {
+      "key": "K3.5",
+      "title": "IHS deformations and arithmetic periods",
+      "description": "Positive-class projectivity with corrected Huybrechts theorem, local Torelli rank-one deformations and finite ample representatives; the extendable-stabilizer period datum, arithmetic polarized monodromy, algebraic family period maps and global Torelli in parallel-transport scope.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.1",
+        "K3SurfacesAndSymplecticBoundedness:K3.2",
+        "MotivesAndAlgebraicCycles:MC.7",
+        "ComplexComparisonPartII:C5",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "ShimuraVarieties:V0",
+        "ShimuraVarieties:V2",
+        "ShimuraVarieties:V3",
+        "AlgebraicModuliForArithmeticGeometry:R09.6"
+      ]
+    },
+    {
+      "key": "K3.6",
+      "title": "Complex symplectic birational boundedness",
+      "description": "Finite algebraic period-covering families, codimension-two Picard/section transport, uniform birational bounds after replacement of L by L′ of the same top power, and a finite-type projective family containing birational representatives. Uniformity is for the replacement, as in Charles Theorem 3.3.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "K3SurfacesAndSymplecticBoundedness:K3.1",
+        "K3SurfacesAndSymplecticBoundedness:K3.2"
+      ]
+    },
+    {
+      "key": "K3.7",
+      "title": "Strong admissibility and finite NS lattices",
+      "description": "Actual W-family witnesses for admissible/strongly admissible triples in p≥5, superspecial versus supersingular K3s, polarized deformations and corrected obstruction modules, strongly admissible Zarhin fourfolds, primitive NS–special-endomorphism comparison, finite integral NS lattices and finiteness of underlying K3s for eligible varying degrees.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.1",
+        "K3SurfacesAndSymplecticBoundedness:K3.2",
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "CrystallineCohomology:CR.3",
+        "CohomologyComparisons:CP.2",
+        "CrystallineCohomology:CR.4",
+        "CrystallineCohomology:CR.2",
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "K3SurfacesAndSymplecticBoundedness:K3.3",
+        "CohomologyComparisons:CP.5",
+        "MotivesAndAlgebraicCycles:MC.7",
+        "ShimuraVarieties:V6",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "K3SurfacesAndSymplecticBoundedness:K3.5",
+        "K3SurfacesAndSymplecticBoundedness:K3.4"
+      ]
+    },
+    {
+      "key": "K3.8",
+      "title": "Signed B-fields and twisted K3 partners",
+      "description": "Arithmetic transcendental lattices and B-fields, rational exp(B), the explicit integral signed-gerbe twisted Mukai lattice, twisted RR, exact-geometric-rank-order isotropic partner gerbes and FM equivalences, coprime gerbe killing, integral isotropic quotient maps and partner discriminant formula.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "SchemeAndStackFoundations:SF.2",
+        "MotivesAndAlgebraicCycles:MC.7",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "K3SurfacesAndSymplecticBoundedness:K3.1",
+        "SchemeAndStackFoundations:SF.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "K3SurfacesAndSymplecticBoundedness:K3.2",
+        "MotivesAndAlgebraicCycles:MC.2"
+      ]
+    },
+    {
+      "key": "K3.9",
+      "title": "Arithmetic partner sequences and geometric Tate inputs",
+      "description": "Early Tate–Brauer/trace interface, Frobenius and infinite arithmetic Brauer input, conditional original-field norm lemma and safe p≥5 simultaneous splitting-prime/norm theorem. Construct partners with growing ℓ-discriminants, fixed or growing positive squares, conditional nonsuperspecial finiteness and superspecial starting-surface transfer. Export geometric contradictions to late MC.7; preserve the small-characteristic and partner gates.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "MotivesAndAlgebraicCycles:MC.0",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "MotivesAndAlgebraicCycles:MC.7",
+        "K3SurfacesAndSymplecticBoundedness:K3.8",
+        "SchemeAndStackFoundations:SF.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+        "AlgebraicModuliForArithmeticGeometry:R09.6",
+        "K3SurfacesAndSymplecticBoundedness:K3.7",
+        "K3SurfacesAndSymplecticBoundedness:K3.4"
+      ]
+    },
+    {
+      "key": "K3.10",
+      "title": "K3 arithmetic orthogonal data",
+      "description": "The signed transcendental K3 datum with b=20−ρ, André’s arithmetic rational Clifford comparison and potential good KS reduction, extension to the all-prime orthogonal model, and the separate special-endomorphism-to-divisor specialization/normalization theorem. Genericity means avoiding special divisors.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "MotivesAndAlgebraicCycles:MC.7",
+        "ShimuraVarieties:V6",
+        "MotivesAndAlgebraicCycles:MC.2",
+        "SchemeAndStackFoundations:SF.2",
+        "CohomologyComparisons:CP.2",
+        "CohomologyComparisons:CP.5"
+      ]
+    },
+    {
+      "key": "K3.11",
+      "title": "Picard jumps and rational curves",
+      "description": "SSTT Theorem 1.1 in its potential smooth projective model scope, split between b≥3 height input and separately sourced b≤2 cases; the Li–Liedtke bounded-degree/rigidifier lifting criterion; and Corollary 1.3, infinitely many rational curves or infinitely many unirational supersingular reductions, with the model and rigidity inputs explicit.",
+      "requires": [
+        "K3SurfacesAndSymplecticBoundedness:K3.10",
+        "GrossZagierAndArithmeticHeights:GZ.6",
+        "K3SurfacesAndSymplecticBoundedness:K3.0",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.6"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Charles16",
+      "title": "Birational boundedness for holomorphic symplectic varieties, Zarhin’s trick for K3 surfaces, and the Tate conjecture",
+      "authors": "François Charles",
+      "edition": "Annals of Mathematics 184 (2016), 487–526",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf",
+      "readSections": [
+        "Full published paper, §§1–4, pp.487–523; bibliography pp.523–526."
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "3425f2697b3600f7920f1bdce67681339d06a20dfaf39ea4fdc2a0baebc940e2"
+    },
+    {
+      "id": "SSTT22",
+      "title": "Exceptional jumps of Picard ranks of reductions of K3 surfaces over number fields",
+      "authors": "Ananth N. Shankar, Arul Shankar, Yunqing Tang, Salim Tayou",
+      "edition": "Forum of Mathematics, Pi 10 (2022), e21",
+      "url": "https://doi.org/10.1017/fmp.2022.14",
+      "readSections": [
+        "Introduction §§1.1–1.5, pp.2–5; orthogonal datum and special divisors, §2 opening and §2.1, pp.7–8; integral models and special-endomorphism definitions, §§2.4–2.5, pp.10–11; §9.1, pp.44–45. The height proof is imported, not claimed read in full."
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "5816ba661b3c93ce225b99babfa48971e6a443134cc5e3c4d6392e183fe5e062"
+    },
+    {
+      "id": "LMS14",
+      "title": "Finiteness of K3 surfaces and the Tate conjecture",
+      "authors": "Max Lieblich, Davesh Maulik, Andrew Snowden",
+      "edition": "Annales scientifiques de l’École Normale Supérieure 47 (2014), 285–308",
+      "url": "https://www.numdam.org/item/10.24033/asens.2215.pdf",
+      "readSections": [
+        "Proposition 2.1.2–2.1.3, pp.287–288; §2.3 and Proposition 2.4.1 with proof, pp.291–293; §§3.1–3.5, pp.293–305, in particular Definitions 3.3.1–3.3.6, Proposition 3.4.2, Lemmas 3.5.1–3.5.2 and Proposition 3.5.6."
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "5424aa6b1785ed212222229fb6b37000f98f157f8e6872d0d1f1062783cecf84"
+    },
+    {
+      "id": "Andre96",
+      "title": "On the Shafarevich and Tate conjectures for hyper-Kähler varieties",
+      "authors": "Yves André",
+      "edition": "Mathematische Annalen 305 (1996), 205–248; GDZ scans split by article section",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0305/LOG_0026.pdf",
+      "readSections": [
+        "§1, pp.205–210, including Main Lemma 1.7.1; §9, pp.240–244, including Lemma 9.3.1, read in the second GDZ segment."
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "4c2760a986f850f4f02a0231beaccecc703638883dc8e3ec9723308b04e4edb9",
+      "additionalFiles": [
+        {
+          "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0305/LOG_0028.pdf",
+          "sha256": "a426195496ff9efbdf63ccb6a8d687f6f382496cfbfa0413bd72fa0c1fedb0ed",
+          "pages": "§9 pp.240–244 read; file also contains intervening unread sections."
+        }
+      ]
+    },
+    {
+      "id": "LL12v2",
+      "title": "Rational curves on K3 surfaces",
+      "authors": "Jun Li, Christian Liedtke",
+      "edition": "arXiv:1012.3777v2; published Inventiones Mathematicae 188 (2012), 713–727",
+      "url": "https://arxiv.org/pdf/1012.3777v2",
+      "readSections": [
+        "§3 Proposition 3.2 and Theorem 3.3 with proof, pp.9–11 in the acquired v2; published §4 numbering cited by SSTT has not been reconciled."
+      ],
+      "accessed": "2026-10-18",
+      "sha256": "289cc4fa8cff294ccd2f457b396861c149c8d37b507754ce44ec1c7ce6fd9b3f"
+    }
+  ],
+  "status": "draft"
+}
