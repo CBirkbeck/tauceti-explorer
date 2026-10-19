@@ -1,140 +1,75 @@
-# Handoff — BP-GlobalShtukasAndFunctionFieldLanglands (issue #1010)
+# Handoff — BP-GlobalShtukasAndFunctionFieldLanglands (#1010)
 
-Agent: Claude Code, session `cc-7b31c4`. Branch `cc-7b31c4-bp-gs`.
+Worker: Codex, session `codex-4r7Y8v`, branch `codex-4r7Y8v-global-shtukas`.
+Claim confirmed by the swarm bot at issue comment 6258380065. This run takes only this job.
 
-## Deliverables
+## Result and coverage
 
-- `research/blueprint/packets/GlobalShtukasAndFunctionFieldLanglands.json` — 65 nodes
-  (8 definitions, 10 constructions, 40 theorems, 2 lemmas, 5 applications), 135 API
-  items, 72 unit tests, 42 planets, 29 baseline declarations, 8 gaps, 20 requests,
-  4 structural proposals. `"part": null`, `"status": "partial"`.
-- `research/blueprint/readmes/GlobalShtukasAndFunctionFieldLanglands.md` — 2765 lines,
-  one section per layer with every node's statement, hypotheses, proof outline, API
-  table, uses, unit tests, acceptance items, prerequisites and sources, then the
-  request table, the gaps, the structural proposals and the acceptance tests.
-- `research/blueprint/suggested/GlobalShtukasAndFunctionFieldLanglands.lean` — 1372
-  lines of suggested signatures and `example` unit tests, everything `sorry`.
-- This note.
+This is a **complete target-level planning pass**, replacing the partial checkpoint from #2873. Every GS.0–GS.7 target family is represented and each prerequisite chain ends in a pinned declaration, an existing supplier node, an explicit supplier contract or a named source gap. All eight stages are **planned**; none is closed. Every implementation status is **unchecked**. The conditional eigensheaf comparison and conjectural multiplicity expectations are explicitly separated from the proved mathematical endpoint.
 
-## Checks run
+Inventory: **104 nodes** (8 applications, 2 comparisons, 16 constructions, 17 definitions, 2 lemmas, 59 theorems), **122 API items**, **99 unit tests**, **38 planets**, **8 pinned baseline declarations**, **16 public source versions**, **9 gaps**, **25 supplier contracts**, six structural proposals and six source findings.
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/GlobalShtukasAndFunctionFieldLanglands.json --index $TAUCETI_BASELINE/declarations.tsv`
-  → **0 errors, 0 warnings**, with the pinned declaration index in place, so all 29
-  baseline references were resolved against it.
-- `python3 research/blueprint/intake.py check-files` on the four changed paths → 0 problems.
-- `python3 -m unittest discover -s tests` → OK.
+The reader carries every target, hypothesis, direct prerequisite, proof/construction outline, API, test and acceptance check. It has 3,712 lines. The suggested file has 113 lines: two real-bodied light definitions, four theorem signatures, four admitted examples and an example using the existing Cayley–Hamilton theorem. No heavy geometric carrier, admitted data definition, opaque stand-in or proposition record is introduced. This follows WORKERS.md’s 2026-10-12 shape rule, which supersedes the older issue instruction to prototype all heavy signatures.
 
-**The Lean file was not compiled.** No Lean was run. The Mathlib build on this machine
-is a shared cache that must not be rebuilt and this working tree has no elaborated
-dependency modules. Every `implementationStatus` is `unchecked`.
+## Checks
 
-## Sources, and exactly how much of each was read
+- `python3 scripts/check_blueprint.py research/blueprint/packets/GlobalShtukasAndFunctionFieldLanglands.json` with the pinned declaration index: **0 errors, 0 warnings**.
+- `python3 research/blueprint/intake.py check-files` on the four deliverables: **0 problems**.
+- `lean-check research/blueprint/suggested/GlobalShtukasAndFunctionFieldLanglands.lean`: **exit 0**, eight permitted admitted-proof warnings and no other diagnostics, using the existing shared build at the prescribed pins. Available memory exceeded 20 GB. No build, cache fetch, update or language server was started.
+- Document/packet consistency check: each node id, statement, API item, unit test, acceptance item and source locator appears in the reader; 33 definition/construction nodes have at least three API items and three tests each; all internal anchors resolve; at most six planets per stage.
+- JSON parsing, forbidden prose-word/no-source-excerpt checks, authorized-path check and `git diff --check`: passed.
 
-Three sources, all downloaded in this session and hashed.
+The checks establish submission structure and elaboration of the compact signatures. They do not establish mathematical proof closure.
 
-1. **V. Lafforgue, *Chtoucas pour les groupes réductifs et paramétrisation de
-   Langlands globale***, arXiv:1209.5352v10, SHA-256 `b37715f9c428…`, 184 pages,
-   French. **The introduction, pp. 2–31, was read in full.** It is a largely
-   self-contained account of the whole construction and it carries its own numbering
-   (Théorème 0.1, Définitions 0.2/0.4/0.6/0.7/0.11/0.12/0.14/0.15/0.20/0.26/0.29/0.34,
-   Théorème 0.9, Propositions 0.16/0.17/0.23/0.25/0.28/0.36/0.37, Lemmes
-   0.18/0.22/0.31/0.33, Remarques 0.3/0.5/0.8/0.10/0.13/0.19/0.21/0.27/0.30/0.35)
-   together with pointers to the chapters where each is proved. **Chapters 1–14 were
-   not read.**
-2. **V. Lafforgue, *Shtukas for reductive groups and Langlands correspondence for
-   function fields***, arXiv:1803.03791v1, SHA-256 `b51a2f005704…`, 31 pages, English,
-   the ICM 2018 plenary lecture. **Read in full.** It supplies Drinfeld's lemma 1.1,
-   the dual group and Definition 5.1, the Satake isomorphism, Proposition 7.4, the
-   excursion operators with Theorem 8.4 and Remarks 8.1/8.3/8.5/8.6, and §9 on the
-   local aspects.
-3. **L. Lafforgue, *Chtoucas de Drinfeld et correspondance de Langlands***, IHES
-   preprint M/00/70, SHA-256 `af732dac0d2d…`, 241 pages, French, published as Invent.
-   Math. 147 (2002) 1–241. **Only the two-page introduction was read.** GS.6 is
-   written from it. This is the largest reading gap in the packet and the GS.6
-   coverage record says so in those words.
+## What changed mathematically
 
-**A note on the extraction, because it changed what could be read.** The scratch PDF
-reader had two defects. First, it associated font resources globally rather than per
-page, so a mathematics font's `ToUnicode` map was applied to the text-italic font;
-since every theorem statement in these papers is set in italics, every theorem decoded
-as a substitution cipher. Second, the `fi`/`ff`/`fl`/`ffi`/`ffl` ligatures of the
-Computer Modern text fonts carry no `ToUnicode` entry and were silently dropped, so
-"field" came out as "eld" and "coefficients" as "coecients" — a failure that is easy
-to miss, because the text still looks like text. Both were repaired in
-`$SCRATCH/pdftext4.py` (per-page `/Resources /Font` parsing, and a ligature fallback
-for the codes `0x0B–0x0F` and `0x1B–0x1F` when a font's cmap has no entry). Every
-excerpt in this packet comes from the repaired extraction.
+The old packet mostly relied on introductions. This pass reads the body passages needed for the target-level outlines, removes source excerpts and imports existing work with its actual hypotheses. In particular:
 
-## What this job rested on
+- GS.0 distinguishes Artin bundle stacks, full level, Iwahori flags, stack masses, central degrees, shifted HN and pure-inner-form rational components. Added the routed Yu/Schiffmann bundle-counting interfaces.
+- GS.1 owns the full classical equal-characteristic Satake route, with the root datum, corrected commutativity, finite-field coefficient comparison and integral branch visible. It exposes the BD/bounded-Hecke prefix before Satake, and includes the routed determinant-line/opposition-sign input without importing mixed-characteristic Satake as its proof.
+- GS.2 uses actual Frobenius closure, support and truncation budgets, all compact-support cohomological degrees, coherent fusion, fractional infinity and the specialized elliptic-sheaf/zero-leg comparisons.
+- GS.3/GS.4 distinguish integral Hecke finiteness, a finite module over one local Hecke algebra, and ind-smoothness. A lisse finite envelope embeds into a truncated sheaf only on its specified dense open, as VL Remark 8.28 requires. Added Xue’s integral cusp finiteness, all-degree cusp/Hecke-finite equality, single-place Hecke finiteness, full-colimit Weil descent and rational nonsplit ind-smoothness.
+- GS.5 imports arbitrary-group presentation/reconstruction from LP2 and proves the geometric instance. Generalized excursion blocks do not assert reducedness; characteristic-zero scalar spherical action and modular generalized eigenvalues are distinct. Full compact-support geometric excursions belong here, including extra retained legs, rather than to FA.6. The eigensheaf comparison keeps the unwritten partial-Frobenius compatibility as a hypothesis.
+- GS.6 supplies the independent compactification/boundary/rank-induction route, with ordered lower-rank boundary factors, normalized correspondences, essential middle cohomology and averaging. The polynomial lower-rank error terms in LL I.13 are retained until their VI.25 cancellation. All-place factors, temperedness, constant twists and companions have their own endpoints. Plainness means units at every non-p place, and by itself implies no purity weight. The separate excursion comparison does not make the original proof depend on GS.5.
+- GS.7 uses finite restricted-shtuka jets, scheme-theoretic inverse-Frobenius divisors, general-base nearby cycles, the completed local centre, nonsplit parahoric comparisons, retained-leg compact cohomology and gamma factors. Finite support at each torsion exponent does not assert finite support of the integral limit; general-group semisimple parameters do not silently acquire a monodromy operator.
 
-**The reviewed audit AUDIT-20 was read first**, and it covers all eight layers. Its
-verdict for every one is **not built**; of the thirty-eight targets it lists,
-thirty-seven are *absent* and one — descent data for nonsplit groups — is *partial*.
-Reading the pinned declaration index confirms it. What the libraries do have is cited
-and never re-planned: `Module.Grassmannian` (finite-dimensional), `RootPairing` and
-`RootPairing.flip`, `CategoryTheory.GaloisCategory`, `Pseudofunctor.DescentData`/
-`IsStack`/`toDescentData`, `AlgebraicGeometry.Scheme.ellAdicSheaf` and
-`Scheme.ProEt.topology`, `NumberField.AdeleRing` (a *number* field), and Tau Ceti's
-`CartierDivisor` and `ReductiveCommHopfAlgCat` (group schemes over a *field*).
+## Ownership and current upstream
 
-**RS-22 is accepted and keeps all eight layers**, giving in each case the reason the
-overlapping layer elsewhere is not a substitute. The audit records seven duplications
-and the packet follows RS-22 exactly.
+Read AUDIT-20, accepted RS-22, the routed extractions and the incident link records. Keep all eight stages as RS-22 requires. Two confirmed red-team findings are handled explicitly:
 
-**The GS.5 duplication resolved itself.** `ExcursionOperatorsAndSpectralAction--ES0.json`
-and `--ES5.json`, which I wrote earlier in this programme, each already carry a
-`requests` entry whose supplier is `GlobalShtukasAndFunctionFieldLanglands:GS.5` and
-whose text says the audit records the two as duplicates and PROTOCOL.md §15 requires
-the shared construction to be planned once. This packet plans it. The excursion
-operators over a function field are now planned in exactly one place, and the two
-roadmaps point at each other correctly.
+1. **RT-AREA-langlands-1/12:** GS.0 owns Bun_G; the GS.1 geometric prefix owns BD/affine Grassmannians and bounded Hecke stacks. ET.2b must import them. ET.3 imports function-field adeles/measure from FA.2. A structural proposal records the required edges; this worker does not edit another roadmap.
+2. **RT-AREA-geomlanglands/25:** LP2 owns the abstract excursion presentation and arbitrary-Γ semisimple-character reconstruction, including continuity, finite coefficient-field descent and disconnected positive-characteristic L-group projection. GS.5 owns realization on global shtuka cohomology. Two precise LP2 contracts replace a duplicate reconstruction plan.
 
-## What remains
+Read the current AlgebraicVectorBundles README/signatures and the current finite-locally-free sheaf carrier; read ReductiveGroups README/signatures and checked LocalGaloisGroups scope/signatures. Current TauCetiRoadmap revision is `0d144d044dacebca17b654695b6f1ad58f159b27`; current Tau Ceti is `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The existing current-only `AlgebraicGeometry.Scheme.FiniteLocallyFreeSheaf`, tensor/dual/determinant direction and relative Grassmannians are imported through AlgebraicVectorBundles, not re-planned. Because that roadmap is absent from the atlas registry, SF.1 carries the current-only registry request. LocalGaloisGroups is p-adic over Qp, not an equal-characteristic Weil supplier. No build was run in either read-only checkout.
 
-No layer is closed. The eight gaps, in rough order of how much they block:
+The pinned declaration statements were separately checked at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. In particular the continuous ℓ-adic coefficient sheaf is not a six-operation library; finite-dimensional Grassmannians are not BD Grassmannians and number-field adeles are not function-field adeles.
 
-1. **Only the introduction of L. Lafforgue's paper was read.** Every GS.6 node states
-   a result and describes a method without a proof read from the source. Next source
-   action: chapters I and II for the compactification and the boundary, then the trace
-   chapters, then the preparatory book on the Arthur–Selberg computation and on
-   iterated shtukas.
-2. **Only the introduction of V. Lafforgue's paper was read.** The proofs a
-   continuation must read, in order: propositions 6.2, 8.27, 8.34, 8.23, 9.7, 11.7 and
-   chapter 12.
-3. **Geometric Satake is used as a black box.** Theorem 0.9 is attributed to Lusztig,
-   Drinfeld, Ginzburg and Mirković–Vilonen; those references were not followed.
-4. **The Genestier–Lafforgue local construction was not read**; §9 of the survey
-   describes it in about a page and the joint paper was not obtained.
-5. **Nearby cycles over general bases have no source here**; Orgogozo's finiteness
-   theorem is the piece the comparison actually uses.
-6. **The Blasius–Lapid examples are cited and not verified**, although they are the
-   reason excursion operators with more than two legs are necessary.
-7. **`H_{I,W}` is not known to be finite dimensional** — the source says so explicitly
-   and arranges its argument so as not to need it, and this packet follows suit.
-8. **Whether the excursion algebra `B` is reduced is unknown.** Not a reading gap but a
-   gap in the mathematics; it is why the decomposition is into *generalized*
-   eigenspaces and why the conjectural decomposition of GS.3 is recorded as a
-   conjecture.
+## Source reading and versions
 
-## Structural proposals
+All sixteen sources are freely readable primary papers; their exact URL, edition, printed-page locators, access date and full SHA-256 are in the packet and reader. Only targeted passages were read, not every page of every paper. The packet’s passage inventories identify the cited locators; proof-reading limits are recorded below. The reference-library index was checked; no restricted book or uncleared copy was obtained, copied or quoted.
 
-1. Record in AUDIT-20's duplicate notes that GS.5 owns the global excursion operators
-   and ES0/ES5 the local ones, now that both packets exist and request each other.
-2. Add a sentence to GS.1's stage text saying that the Satake category, its fibre
-   functor and the dual group are imported from `GeometricSatakeAndFusion`, and that
-   what GS.1 owns is the statement over powers of the global curve.
-3. Split GS.6 into `GS.6:statement` and `GS.6:proof`: the statement is what every other
-   roadmap imports and can be used at once, while the proof is the machinery of a
-   241-page paper nobody has read the body of.
-4. Six of the seven suppliers the issue names have no packet, so every dependency on
-   them is a request against a stage id; a `kind:link` job should convert them when
-   those packets land. The requests name precisely what is wanted so the conversion is
-   mechanical.
+The main proof-body passages consulted are VL §§1–5 at the cited definitions, §6 setup and final comparison, §7 alternating-tensor proof, §§8–11 finite envelopes/specialization/excursions/reconstruction, §§12–13 nonsplit and modular branches, §15 conditional comparison and §16 GLr comparison; LL I.13, the cited II/III compactification passages, V.14/V.19 and VI/VII rank-induction/trace/local-factor passages; GL v3 §§1–6 finite restricted-shtuka/nearby-cycle/detection argument and §§7–9 gamma, retained-leg cohomology and nonsplit extension. The full middle calculation in VL §6 and the primary nonsplit local-model references remain explicit gaps.
 
-## Where to resume
+Other targeted sources are MV weight/fusion/reconstruction passages, Yun–Zhang’s Iwahori/horocycle/ind-perverse geometry, Yu’s shifted-HN integral, Schiffmann’s Euler/mass formulas, Zhu and Lusztig–Yun’s determinant/opposition input, Feng’s coefficient/Frobenius conventions, Varshavsky’s bounded/level geometry, Chin §§4.2–4.6 and the compatible-systems use in Kisin–Zhou §5.3. Xue integral §§2.3–6 and §8 and Xue smoothness §1.3, §§4–6 were read at the cited proofs; their earlier contraction and pseudo-product inputs remain G9. Orgogozo’s v1 modification and constructibility statements were checked with its actual numbering, not the distinct published numbering cited by GL.
 
-The packet is complete against what was read. The next real work is source reading, in
-the order of the gap list: the body of L. Lafforgue first, because GS.6 is the layer
-with the weakest support and is the one other roadmaps import as a black box; then
-chapters 6 to 12 of V. Lafforgue, which turn the introduction's sketches into proofs;
-then the Genestier–Lafforgue paper, which GS.7 needs.
+Six source findings are recorded in authored descriptions: three known Yun–Zhang §3.5.4 shift/Picard-degree/index misprints (PAPER-YUN-ZHANG-19/E12–E14), the known Feng base-field subscript issue (PAPER-FENG-24/E36), LL’s correction of polynomial errors omitted in his older preparatory text, and a new proof-step finding in Xue Lemma 8.2.4. The latter says every maximal-ideal quotient is finite torsion over O_E, but O_E[t]/(λt−1)=E. The outline repairs it by separating torsion residue quotients from finite-dimensional E quotients before Drinfeld descent and Krull intersection. **An independent reviewer must check this two-case repair.** No theorem is claimed disproved, and no correction was found in the limited searches described in the packet. Feng’s independently recorded false ramified fixed-locus lemma is not used as a geometric input.
+
+## Exact remaining obligations
+
+- **G1: shifted HN existence and uniqueness**: Yu §3.3.2 invokes Chaudouard Theorem 4.1.2 for the dominant-shift canonical filtration. The exact theorem/proof was not obtained in this pass. Find a cleared or freely accessible primary proof, check the shifted quotient indexing, and fill the construction outline; ordinary HN alone does not prove the shifted theorem.
+- **G2: finite-field ℓ-adic classical Satake proof bridge**: MV supplies complex-topological weight functors, tensor reconstruction and root datum; VL supplies the finite-field ℓ-adic multi-leg theorem and cites the classical comparison inputs. The exact spreading-out/étale-comparison proof and the full root-datum proof in MV §12 require a focused primary-source pass. The equivalence, pinning, fusion and sign are separate targets here; no Fargues–Fontaine theorem is substituted.
+- **G3: complete general Hecke–Frobenius correspondence calculation**: VL Proposition 6.2, §§6.2–6.3 setup and the §6.5 closing calculation were read. Check every correspondence identity in the intervening Lemmas 6.11–6.15, including IC/convolution and normalization, before claiming source-proof closure. The minuscule case and the statement alone do not discharge this calculation.
+- **G4: twisted zero-leg inner-form classification proof**: YZ §3.2.2 states the adelic groupoid of the central simple algebra determined by the infinity invariants without giving its proof. Supply the Frobenius-twisted bundle classification and compare minimal parahoric stabilizers; abelian reciprocity alone is insufficient.
+- **G5: conditional eigensheaf trace comparison**: VL Proposition 15.1 explicitly assumes partial-Frobenius compatibility of the Braverman–Varshavsky trace maps that had not been written down. Keep this as an explicit hypothesis unless a primary proof is located. It is outside the dependencies of the proved global decomposition.
+- **G6: local-model change at nonsplit bad places**: GL §9 explains the nonsplit extension using parahoric global/restricted shtukas and ind-proper affine Grassmannians, citing AH19 and Richarz Theorem A. These primary proofs were not read here. Supply their exact connected-fibre/parahoric hypotheses and comparison with the finite-jet diagrams before source-proof closure.
+- **G7: uniform integral local support refinement**: The finite-torsion local element and the decay-at-infinity integral limit suffice for the recorded theorem. GL Remark 6.3 sketches a stronger coefficient-exponent-independent modification using Ito24 Corollary 2.9 and additional Demazure/normalization arguments without full details. Locate and verify that proof if finite support of the integral limit is required; it is not asserted by this packet.
+- **G8: nonsplit full-cohomology torsion extension**: Xue integral §8 is split; Xue smoothness §6 gives nonsplit E-coefficient ind-smoothness. GL §9 invokes the nonsplit extension also at finite coefficients. Verify the integral/torsion construction and the coefficient-natural specialization/constant-term arguments at the stated parahoric hypotheses; rational ind-smoothness alone is not a proof.
+- **G9: Xue geometric contraction and pseudo-product inputs**: Xue integral §3.1 cites the deep-horospherical contraction and constant-term geometry of his earlier cuspidal-cohomology paper; its primary proof was not read here. Xue smoothness §4 uses pseudo-product sheaves and the specialization theorem for products of strict henselian traits from §§2–3, whose full proof was not read. Read those geometric proofs, check the integral hypotheses and add their target-level construction outlines if required; the stated finiteness and ind-smoothness theorems remain planned with this source obligation.
+
+The 25 supplier contracts, with every consumer listed, are in the reader and packet. The principal extensions are SF.1/SF.4 algebraic stacks and deformation/model geometry; EDC.0/2/3/5/7/8 enhanced coefficients, duality, cycle/correspondence/trace and integral perversity; DWP weight conventions and finite-cover Chebotarev; FA.3 torsor/inner-form arithmetic, FA.5 analytic Rankin–Selberg/Artin factors and FA.6 nonsplit cusp support, converse/multiplicity/averaged trace input; LP2 arbitrary-Γ reconstruction; LPV.0 general-base nearby cycles/Gabber transport; and the SR/HS/ES local coefficient/centre/comparison contracts. None of these requests delegates global shtuka cohomology to an arithmetic supplier.
+
+## Where review and follow-up should start
+
+Review the authored mathematical statements and source matches, especially the Satake sign/integral coefficient conventions, the dense-open finite-envelope restriction, the repaired Xue mixed-characteristic residue argument, and the independence of the two GLr proof routes. Then discharge G2 and G3, the Xue/shifted-HN geometric sources, and the nonsplit torsion/local-model comparison. Keep G5 explicitly conditional and do not strengthen the integral support claim beyond decay at infinity without G7. Convert stage contracts to exact existing supplier nodes only after their hypotheses have been checked. The maintainer applies the ownership edges and Part II extensions; this branch changes only the four authorized deliverables.
+
+No second issue is claimed. Scratch source copies and scripts are removed after the pull request is opened; all information a reviewer or follow-up needs is recorded in these four files.
