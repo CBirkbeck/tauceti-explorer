@@ -53,6 +53,26 @@ example (A : Matrix n n ℂ) (i j : n) :
 
 end DoubledForm
 
+section GodementRow
+
+/-- With the ordered polarization A ⊕ D, the Godement row is (0, X) (D.1).
+The upper-right block B does not enter its right action. -/
+theorem godementRow_upper {n : Type*} [Fintype n] [DecidableEq n]
+    (A B D X : Matrix n n ℂ) :
+    Matrix.fromBlocks 0 X 0 0 * Matrix.fromBlocks A B 0 D =
+      Matrix.fromBlocks 0 (X * D) 0 0 := by
+  sorry
+
+example (a x : ℂ) :
+    let R : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) ℂ :=
+      Matrix.fromBlocks 0 (fun _ _ => x) 0 0
+    let P : Matrix (Fin 1 ⊕ Fin 1) (Fin 1 ⊕ Fin 1) ℂ :=
+      Matrix.fromBlocks (fun _ _ => a) 0 0 1
+    R * P = R := by
+  sorry
+
+end GodementRow
+
 section RectangularCharacter
 
 /-- Sum of traces immediately above the diagonal of k+1 blocks of size c (D.5). -/

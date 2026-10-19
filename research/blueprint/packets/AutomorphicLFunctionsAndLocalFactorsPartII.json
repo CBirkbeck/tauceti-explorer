@@ -26,42 +26,42 @@
         "kind": "def",
         "module": "Mathlib/Data/Matrix/Block.lean",
         "provides": "A matrix on sum indices from four component blocks.",
-        "checked": "Statement read in the source at the pinned Mathlib commit."
+        "checked": "Independent review read Mathlib/Data/Matrix/Block.lean:46 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. No algebraic typeclasses; produces a matrix on the two sum indices from four compatible rectangular blocks."
       },
       {
         "ref": "mathlib:Matrix.fromBlocks_multiply",
         "kind": "theorem",
         "module": "Mathlib/Data/Matrix/Block.lean",
         "provides": "Block multiplication with the actual semiring and finite-index hypotheses.",
-        "checked": "Statement read in the source at the pinned Mathlib commit."
+        "checked": "Independent review read Mathlib/Data/Matrix/Block.lean:214 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Fintype only on the contracted block indices and NonUnitalNonAssocSemiring on coefficients; the four outputs are the block dot products."
       },
       {
         "ref": "mathlib:Matrix.conjTranspose",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/ConjTranspose.lean",
         "provides": "Transpose followed by the coefficient star operation.",
-        "checked": "Statement read in the source at the pinned Mathlib commit."
+        "checked": "Independent review read Mathlib/LinearAlgebra/Matrix/ConjTranspose.lean:36 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Requires Star on coefficients; maps a rectangular matrix to its transposed, starred matrix."
       },
       {
         "ref": "mathlib:Matrix.IsHermitian",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Hermitian.lean",
         "provides": "The equality A.conjTranspose=A.",
-        "checked": "Statement read in the source at the pinned Mathlib commit."
+        "checked": "Independent review read Mathlib/LinearAlgebra/Matrix/Hermitian.lean:44 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Requires Star; the square matrix equals its conjugate transpose, with no hidden positivity condition."
       },
       {
         "ref": "mathlib:Matrix.trace",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
         "provides": "Finite sum of diagonal entries.",
-        "checked": "Statement read in the source at the pinned Mathlib commit."
+        "checked": "Independent review read Mathlib/LinearAlgebra/Matrix/Trace.lean:45 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Fintype index and AddCommMonoid coefficients; the sum of diagonal entries."
       },
       {
         "ref": "mathlib:AddChar",
         "kind": "structure",
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "A map sending zero to one and addition to multiplication.",
-        "checked": "Statement read in the source at the pinned Mathlib commit."
+        "checked": "Independent review read Mathlib/Algebra/Group/AddChar.lean:70 at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. AddMonoid source and Monoid target; its two laws send zero to one and addition to multiplication."
       }
     ]
   },
@@ -75,7 +75,9 @@
         "ReductiveGroups/README.md, complete",
         "RepresentationTheory/ClassicalGroups/README.md, complete",
         "SmoothRepresentationsOfLocalGroups/README.md, scoped SR.2–SR.5, especially SR.3.3 Harish–Chandra support and Langlands quotients",
-        "AdelicAlgebraicGroups/README.md, scoped measure and Hecke-character ownership"
+        "AdelicAlgebraicGroups/README.md, scoped measure and Hecke-character ownership",
+        "ReductiveGroupsPartII/README.md, RG2.0 rational-point topology and RG2.5 dual-group boundary; concrete unitary/GSpin carriers not inferred from general-group machinery",
+        "SmoothRepresentationsOfLocalGroups/README.md, SR.5.3 highest-derivative-adapter and its existing Z/L multisegment constructors"
       ],
       "screening": "Current upstream roadmap paths and relevant symbols were screened against the atlas snapshot; the current descriptions above determine ownership where the snapshot is older."
     },
@@ -85,8 +87,8 @@
     },
     "ownership": [
       "AL.0–AL.4 provide Fourier, Tate, Godement–Jacquet, generic Rankin–Selberg and unramified Euler inputs. AL.5 retains p-adic analytic interpolation.",
-      "Current smooth and archimedean roadmaps own normalized induction, Jacquet functors and Langlands classification. ClassicalGroups owns general Schur/highest-weight constructions.",
-      "ET.6 and ET.7a own local and global Speh constructors. This plan owns only their rectangular model and doubling-specific functionals.",
+      "Current smooth and archimedean roadmaps own normalized induction and Langlands classification; current SR.5.3 owns the GL segment and multisegment constructors. ClassicalGroups owns complex Schur/highest-weight constructions. General-field SO/Spin comparisons come from OrthogonalSpinGroups, and dual groups from RG2.5; G6 records the remaining concrete hermitian/GSpin supplier boundary.",
+      "ET.6 receives the requested local Speh adapter to current SR.5.3 classification, and already supplies nongeneric Langlands-quotient factors. ET.7a is the requested global Speh owner. This plan owns rectangular models and doubling functionals, not another GL classification.",
       "AS.2 already owns the isobaric-sum constructor; AL.3 already owns isobaric strong multiplicity one. Neither is replanned.",
       "Ordinary p-adic sections, congruence lattices and interpolation measures remain with AutomorphicPadicLFunctions and AutomorphicCongruences."
     ]
@@ -208,7 +210,8 @@
         "§§3.1–3.6, pp.10–33",
         "§§4.1–4.3, pp.33–42",
         "Appendix A, pp.42–55"
-      ]
+      ],
+      "comparison": "On 2026-10-19 the Annals landing page at https://annals.math.princeton.edu/2024/200-3/p02 confirmed the published article, pp.893–966. The DOI PDF route https://doi.org/10.4007/annals.2024.200.3.2 was inaccessible. Mathematical checking and E1–E18/E37 decisions concern arXiv v5 only; persistence in the journal version is unverified."
     },
     {
       "source": "EHLS",
@@ -304,14 +307,14 @@
         "E/F quadratic étale; char(F)=0; h nondegenerate; n≥0, with the zero-dimensional case included."
       ],
       "proofSteps": [
-        "Form the orthogonal sum h⊕(−h) on the existing sesquilinear carrier.",
+        "Form h⊕(−h) on the hermitian-space carrier required in G6; the complex matrix milestone uses the native block-matrix carrier only.",
         "Use 2 invertible to construct mutually inverse diagonal/antidiagonal coordinates.",
         "Check preservation of the form and the equal-multiplier condition directly."
       ],
       "prerequisites": [
         "mathlib:Matrix.fromBlocks",
         "mathlib:Matrix.IsHermitian",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation"
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
       "sources": [
         {
@@ -343,6 +346,16 @@
           "name": "DoubledSpace.embed",
           "role": "functoriality",
           "statement": "The isometry embedding respects multiplication; the similitude embedding is defined on matching multipliers."
+        },
+        {
+          "name": "DoubledSpace.isometryTransport",
+          "role": "functoriality",
+          "statement": "An isometry of hermitian spaces induces the doubled isometry, preserving A and D and commuting with the polarization equivalence."
+        },
+        {
+          "name": "DoubledSpace.ext",
+          "role": "extensionality",
+          "statement": "A linear map from W is determined by its restrictions to A and D; equality of doubled forms follows from their four polarization blocks."
         }
       ],
       "tests": [
@@ -384,7 +397,7 @@
       ],
       "title": "Siegel parabolic and modulus conventions",
       "kind": "construction",
-      "statement": "Let P=Stab(D) in GU(W). Use row vectors with matrices acting on the right, so P is block upper triangular. With the ordered polarization A⊕D, its Levi is GL_E(V)×G_m: m(B,λ) acts as diag(λ(B*)⁻¹,B), where B* is the adjoint for h. In these unrescaled coordinates its unipotent radical consists of blocks [[1,X],[0,1]] with X skew-adjoint for the cross-pairing. Fixing a nonzero trace-zero scalar t∈E identifies X=tY with a hermitian coordinate Y; this coordinate change is explicit, including for E=F×F. Conjugation by m(B,λ) sends X to λ(B*)⁻¹XB⁻¹. Write Δ(p)=p|D and ν(p)=λ. Keep δ_EHLS(p)=|det_E Δ(p)|_E^n distinct from the actual group modulus δ_mod. On U(W), with this ordering, δ_mod(m(B,1))=|det B|_E^(−n)=δ_EHLS⁻¹. The similitude correction is obtained from the determinant of Ad(m) on Lie(N), using the F-normalized absolute value.",
+      "statement": "Let P=Stab(D) in GU(W). Use row vectors with matrices acting on the right, so P is block upper triangular. With the ordered polarization A⊕D, its Levi is GL_E(V)×G_m: m(B,λ) acts as diag(λ(B*)⁻¹,B), where B* is the adjoint for h. In these unrescaled coordinates its unipotent radical consists of blocks [[1,X],[0,1]] with X skew-adjoint for the cross-pairing. Fixing a nonzero trace-zero scalar t∈E identifies X=tY with a hermitian coordinate Y; this coordinate change is explicit, including for E=F×F. Conjugation by m(B,λ) sends X to λ(B*)⁻¹XB⁻¹. Write Δ(p)=p|D and ν(p)=λ. Keep δ_EHLS(p)=|det_E Δ(p)|_E^n distinct from the actual group modulus δ_mod. On U(W), with this ordering, δ_mod(m(B,1))=|det B|_E^(−n)=δ_EHLS⁻¹. On GU(W) the full formula is δ_mod(m(B,λ))=|λ|_F^(n²)|det B|_E^(−n), because Lie(N) has F-dimension n². This is the absolute F-determinant of the displayed conjugation action.",
       "hypotheses": [
         "n≥1; the polarization and norm convention of D.0/doubled-space; |z|_E=|N_E/F z|_F."
       ],
@@ -427,7 +440,17 @@
         {
           "name": "UnitarySiegel.modulus",
           "role": "characterisation",
-          "statement": "The modulus is the absolute determinant of the displayed conjugation action; δ_EHLS is separately named."
+          "statement": "δ_mod(m(B,λ))=|λ|_F^(n²)|det B|_E^(−n); its restriction to U is δ_EHLS⁻¹."
+        },
+        {
+          "name": "UnitarySiegel.leviExt",
+          "role": "extensionality",
+          "statement": "Two Levi elements agree iff their D-coordinate B and multiplier λ agree."
+        },
+        {
+          "name": "UnitarySiegel.semidirect",
+          "role": "equivalence",
+          "statement": "Every p∈P factors uniquely as a Levi element times a radical element; multiplication uses the displayed conjugation of X."
         }
       ],
       "tests": [
@@ -469,19 +492,19 @@
       ],
       "title": "Classical groups and standard transfer degree",
       "kind": "definition",
-      "statement": "For the split characteristic-zero groups G=Sp_c (c even), SO_c, or GSpin_c, with c>1 in the main transfer theorem, fix a pinning and the standard representation r of the complex dual group. For Sp_(2n), SO_(2n), SO_(2n+1), GSpin_(2n), GSpin_(2n+1), the standard degree N is respectively 2n+1,2n,2n,2n,2n. Define χ_π=1 outside GSpin; in GSpin it is the central character restricted along e₀∨:F×→C_G^∘. The determinant character of r∘t_π is 1 outside GSpin and χ_π^n for GSpin_(2n) or GSpin_(2n+1). Algebraic groups, root data and Clifford constructions are imported.",
+      "statement": "For the split characteristic-zero groups G=Sp_c (c even), SO_c, or GSpin_c, with c>1 in the main transfer theorem, fix a pinning and the standard representation r of the complex dual group. For Sp_(2n), SO_(2n), SO_(2n+1), GSpin_(2n), GSpin_(2n+1), the standard degree N is respectively 2n+1,2n,2n,2n,2n. Define χ_π=1 outside GSpin; in GSpin it is the central character restricted along e₀∨:F×→C_G^∘. The determinant character of r∘t_π is 1 outside GSpin and χ_π^n for GSpin_(2n) or GSpin_(2n+1). General root data and dual groups are imported from ReductiveGroups and ReductiveGroupsPartII; the general-field SO carrier is imported from OrthogonalSpinGroups. The arbitrary-hermitian U/GU and GSpin carrier comparisons remain the explicit supplier obligation G6, not an output of the complex ClassicalGroups roadmap.",
       "hypotheses": [
         "Local or global characteristic-zero field; admissible irreducible π locally or cuspidal π globally; fixed pinning."
       ],
       "proofSteps": [
-        "Specialize the existing classical-group root data and standard dual representation.",
+        "Use the imported root-data and dual-group construction once the concrete group and comparison data required in G6 have been supplied.",
         "Identify the connected central torus in the general spin cases.",
         "Compute the determinant of the standard dual representation, retaining its central character."
       ],
       "prerequisites": [
-        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "AutomorphicLFunctionsAndLocalFactors:AL.4"
+        "AutomorphicLFunctionsAndLocalFactors:AL.4",
+        "ReductiveGroupsPartII:RG2.5/langlands-dual-group"
       ],
       "sources": [
         {
@@ -513,6 +536,11 @@
           "name": "ClassicalStandard.determinant",
           "role": "compatibility",
           "statement": "The determinant of each standard transfer has the character specified above."
+        },
+        {
+          "name": "ClassicalStandard.transport",
+          "role": "functoriality",
+          "statement": "Pinned isomorphisms transport r and the connected-center embedding, preserving N and the determinant formula."
         }
       ],
       "tests": [
@@ -544,7 +572,15 @@
       ],
       "planet": {
         "name": "Standard transfer degree"
-      }
+      },
+      "upstreamImports": [
+        {
+          "roadmap": "OrthogonalSpinGroups",
+          "layer": "Layer 0: the orthogonal group, and what the arithmetic needs from it",
+          "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/OrthogonalSpinGroups",
+          "provides": "General-field SO, determinant-kernel equivalence, isometries and base change. This current upstream import is absent from the atlas snapshot; G6 records the remaining concrete-model supplier work."
+        }
+      ]
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII:D.1/unitary-induced-family",
@@ -556,7 +592,7 @@
       "kind": "definition",
       "statement": "Use right translation and normalized induction. For a quasi-character χ:E×→C× and s∈C define I_EHLS(χ,s)=i_P^GU(W)(χ(det Δ)·δ_EHLS^(−s/n)·|ν|_F^(sn/2)); thus functions transform on the left by δ_mod^(1/2) times this inducing character. Work on U(W) by restriction, and globally with the corresponding Hecke character. Entire sections are holomorphic in the fixed compact picture; at finite places polynomial sections are finite Laurent polynomials in q^(−s). The passage to the usual left-action inducing convention is an explicit inverse-character and parameter change, never an implicit renaming.",
       "hypotheses": [
-        "D.0 conventions; continuous quasi-character χ; fixed positive real logarithm in complex powers."
+        "n≥1; D.0 conventions; continuous quasi-character χ; fixed positive real logarithm in complex powers."
       ],
       "proofSteps": [
         "Apply normalized induction from the existing smooth or Casselman–Wallach category.",
@@ -599,6 +635,16 @@
           "name": "UnitaryInduced.restrictU",
           "role": "functoriality",
           "statement": "Restriction to multiplier 1 removes exactly the ν factor."
+        },
+        {
+          "name": "UnitaryInduced.ofCompactPicture",
+          "role": "constructor",
+          "statement": "Extend a smooth compact-picture function satisfying the P∩K covariance uniquely to the normalized induced representation."
+        },
+        {
+          "name": "UnitaryInduced.ext",
+          "role": "extensionality",
+          "statement": "Sections in a fixed fiber agree if their restrictions to K agree; families agree if all compact-picture evaluations agree."
         }
       ],
       "tests": [
@@ -640,13 +686,13 @@
       ],
       "title": "Godement sections from Schwartz functions",
       "kind": "construction",
-      "statement": "At a split place E=F×F, identify the relevant factor with GL_(2n)(F), write χ₁=χ_w and χ₂=χ_wbar⁻¹, and let Φ be a Schwartz–Bruhat function on Mat_(n,2n)(F)=Hom_F(F^n,F^(2n)). With X embedded as the selected n×2n row block, set f_Φ(g)=χ₂(det g)|det g|^(n/2+s)∫_(GL_n(F)) Φ(Xg)χ₁⁻¹χ₂(det X)|det X|^(n+2s)d×X in its convergence region, then meromorphically. Fix whether X is the first or second row block from the ordered polarization and prove its covariance. This is the general section construction in (55); the ordinary Schwartz functions chosen after (55) belong to AutomorphicPadicLFunctions.",
+      "statement": "At a split place E=F×F, identify the relevant factor with GL_(2n)(F), write χ₁=χ_w and χ₂=χ_wbar⁻¹, and let Φ be a Schwartz–Bruhat function on Mat_(n,2n)(F)=Hom_F(F^n,F^(2n)). Use the second row block (0,X) in the ordered polarization A⊕D, and set f_Φ(g)=χ₂(det g)|det g|^(n/2+s)∫_(GL_n(F)) Φ((0,X)g)χ₁⁻¹χ₂(det X)|det X|^(n+2s)d×X in its convergence region, then meromorphically. For p=[[A,B],[0,D]], changing variables Y=XD gives f_Φ(pg)=χ₂(det A)χ₁(det D)|det A/det D|^(n/2+s)f_Φ(g). This is first an isometry-group construction (ν=1); extension to GU requires the separate central covariance in G3, rather than the incomplete multiplier formula in (54). This is the general section construction in (55); the ordinary Schwartz functions chosen after (55) belong to AutomorphicPadicLFunctions.",
       "hypotheses": [
         "Split local place; χ₁,χ₂ as above; fixed right Haar d×X; Φ Schwartz–Bruhat; initial Re(s) sufficiently large."
       ],
       "proofSteps": [
         "Use the AL.0 Schwartz carrier on the matrix space and the AL.2 determinant-integral estimates.",
-        "Change variables in GL_n to establish the normalized parabolic transformation law.",
+        "Use (0,X)p=(0,XD), set Y=XD, and use the unimodularity of GL_n to derive the displayed covariance, including both characters and the determinant ratio.",
         "Transport the construction to the EHLS family by the explicit split-group identification."
       ],
       "prerequisites": [
@@ -678,12 +724,17 @@
         {
           "name": "GodementSection.covariance",
           "role": "compatibility",
-          "statement": "The resulting function lies in the split realization of I_EHLS(χ,s)."
+          "statement": "For p=[[A,B],[0,D]], f_Φ(pg)=χ₂(det A)χ₁(det D)|det A/det D|^(n/2+s)f_Φ(g) on ν=1."
         },
         {
           "name": "GodementSection.rightTranslate",
           "role": "compatibility",
           "statement": "Right translation of g corresponds to the same right translation of Φ."
+        },
+        {
+          "name": "GodementSection.schwartzCongr",
+          "role": "relation",
+          "statement": "Equal Schwartz functions give equal sections, first on the convergence half-plane and then as continued meromorphic families."
         }
       ],
       "tests": [
@@ -701,6 +752,11 @@
           "name": "GodementSection.rescaleMeasure",
           "kind": "characterisation",
           "statement": "Replacing d×X by a·d×X multiplies the section by a, rather than leaving it unchanged."
+        },
+        {
+          "name": "GodementSection.secondBlock",
+          "kind": "characterisation",
+          "statement": "For n=1 and p=diag(a,1), (0,x)p=(0,x), and the section scales by χ₂(a)|a|^(1/2+s). Choosing (x,0) would produce the wrong character."
         }
       ],
       "uses": [
@@ -820,6 +876,11 @@
           "name": "UnitaryZeta.measureScale",
           "role": "compatibility",
           "statement": "Scaling dg by a scales both Z_U and I_U by a."
+        },
+        {
+          "name": "UnitaryZeta.transport",
+          "role": "functoriality",
+          "statement": "A representation isomorphism and its dual inverse preserve the evaluation matrix coefficient, hence the integral with the same section and measures."
         }
       ],
       "tests": [
@@ -905,6 +966,11 @@
           "name": "UnitaryNormalizer.inverseCharacter",
           "role": "compatibility",
           "statement": "The right-action spherical identity uses d_n(s,χ⁻¹), not d_n(s,χ)."
+        },
+        {
+          "name": "UnitaryNormalizer.empty",
+          "role": "simp",
+          "statement": "The n=0 product is 1; this is a boundary convention for the denominator, not an n=0 induced-series construction."
         }
       ],
       "tests": [
@@ -1126,6 +1192,11 @@
           "name": "UnitaryMVW.changeChoice",
           "role": "compatibility",
           "statement": "Changing the diagonalization changes the involution by an inner automorphism, preserving the isomorphism class."
+        },
+        {
+          "name": "UnitaryMVW.pullback",
+          "role": "functoriality",
+          "statement": "Pullback by the chosen involution is a functor on representations and continuous intertwining maps, with its square naturally identified with the identity."
         }
       ],
       "tests": [
@@ -1211,6 +1282,11 @@
           "name": "GarrettMap.hecke",
           "role": "compatibility",
           "statement": "At the specialized nearly holomorphic section, the Hecke action is transported through the specified flat involution."
+        },
+        {
+          "name": "GarrettMap.realization",
+          "role": "compatibility",
+          "statement": "Transport the chosen cusp embedding and its dual pairing together; the resulting map has the same automorphic output under the transported realization."
         }
       ],
       "tests": [
@@ -1340,6 +1416,16 @@
           "name": "HolomorphicUnitary.cohomology",
           "role": "characterisation",
           "statement": "In the strongly positive range the specified degree-ab cohomology has dimension one."
+        },
+        {
+          "name": "HolomorphicUnitary.lift",
+          "role": "universal-property",
+          "statement": "A K-map from W_κ∨ into a (g,K)-module, annihilated by p⁻, extends uniquely to a U(g)-map from D(κ)."
+        },
+        {
+          "name": "HolomorphicUnitary.cyclicExt",
+          "role": "extensionality",
+          "statement": "Two such module maps agree once they agree on the generating K-type; agreement on a highest generator suffices after K-equivariance is fixed."
         }
       ],
       "tests": [
@@ -1393,8 +1479,7 @@
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/holomorphic-modules",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.1/unitary-induced-family",
-        "AutomorphicFormsOnReductiveGroups:AF.4",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation"
+        "AutomorphicFormsOnReductiveGroups:AF.4"
       ],
       "sources": [
         {
@@ -1426,6 +1511,11 @@
           "name": "ScalarHolomorphic.centralExtension",
           "role": "compatibility",
           "statement": "A GU extension records and verifies its full central character independently of the U restriction."
+        },
+        {
+          "name": "ScalarHolomorphic.transportBasepoint",
+          "role": "functoriality",
+          "statement": "Transport by a group element carries the base point, compact subgroup and J factors together, and intertwines the resulting scalar realization."
         }
       ],
       "tests": [
@@ -1626,6 +1716,16 @@
           "name": "RaisingOperator.degree",
           "role": "characterisation",
           "statement": "Its PBW degree is the sum of all partition parts."
+        },
+        {
+          "name": "RaisingOperator.linear",
+          "role": "structure",
+          "statement": "The PBW polynomial-to-operator map is linear and multiplicative because p⁺ is abelian."
+        },
+        {
+          "name": "RaisingOperator.ext",
+          "role": "extensionality",
+          "statement": "Operators obtained from equal polynomials agree; the leading PBW symbol recovers the polynomial."
         }
       ],
       "tests": [
@@ -1667,7 +1767,7 @@
       ],
       "title": "Nonzero rational holomorphic projection",
       "kind": "theorem",
-      "statement": "For a critical pair with chosen algebraic highest vectors, the projection of δ_(χ,κ)v_χ to the highest line of the κ-branch is P_(χ,κ)·v_κ⊗v_(κ♭⊗χ), with P_(χ,κ)∈E×. The projection is algebraic on each fixed finite K-type and annihilates the other branch components under pairing with the selected antiholomorphic vectors. Only this nonzero highest-line assertion of EHLS Corollary 4.4.9 is used; its stronger scalar triangular-operator expansion is a separate source gap and is not substituted for this assertion.",
+      "statement": "For a critical pair with chosen algebraic highest vectors, the projection of δ_(χ,κ)v_χ to the highest line of the κ-branch is P_(χ,κ)·v_κ⊗v_(κ♭⊗χ), with P_(χ,κ)∈E×. The projection is algebraic on each fixed finite K-type and annihilates the other branch components under pairing with the selected antiholomorphic vectors. Only this nonzero highest-line assertion of EHLS Corollary 4.4.9 is used; the further triangular expansion has differential-operator coefficients off the diagonal and is not needed here. The inherited scalar-only objection E29 is rejected.",
       "hypotheses": [
         "Critical pair in the holomorphic discrete-series range; fixed E-forms and normalized highest vectors."
       ],
@@ -1749,6 +1849,16 @@
           "name": "ArchSection.scalar",
           "role": "functoriality",
           "statement": "Rescaling B rescales the section and its zeta integral by the same factor."
+        },
+        {
+          "name": "ArchSection.changeNormalization",
+          "role": "functoriality",
+          "statement": "Replacing B_(χ,κ) by aB_(χ,κ), with a∈E×, multiplies the section and its local zeta value by a."
+        },
+        {
+          "name": "ArchSection.ext",
+          "role": "extensionality",
+          "statement": "After the inducing fiber has been identified, equality on its maximal compact subgroup determines equality of the sections."
         }
       ],
       "tests": [
@@ -1935,6 +2045,16 @@
           "name": "RectangularCharacter.whittaker",
           "role": "compatibility",
           "statement": "At c=1 the character is the ordinary GL_k Whittaker character."
+        },
+        {
+          "name": "RectangularCharacter.identity",
+          "role": "simp",
+          "statement": "The identity has zero adjacent trace, so its character value is 1."
+        },
+        {
+          "name": "RectangularCharacter.changePsi",
+          "role": "functoriality",
+          "statement": "Replacing ψ(x) by ψ(bx) evaluates the same adjacent-block trace against the scaled additive character."
         }
       ],
       "tests": [
@@ -2027,6 +2147,16 @@
           "name": "RectangularModel.choice",
           "role": "equivalence",
           "statement": "Rescaling nonzero λ rescales the image functions and gives the canonical scalar comparison of models."
+        },
+        {
+          "name": "RectangularModel.quotient",
+          "role": "universal-property",
+          "statement": "The coefficient map v↦(g↦λ(ρ(g)v)) is equivariant and has kernel ⋂_g ker(λ∘ρ(g)); every linear map killing this kernel factors uniquely through the image model."
+        },
+        {
+          "name": "RectangularModel.ext",
+          "role": "extensionality",
+          "statement": "Two elements of the image model agree iff their values agree at every group element; no faithfulness of the coefficient map is assumed for reducible ρ."
         }
       ],
       "tests": [
@@ -2091,7 +2221,7 @@
         },
         {
           "sourceId": "CFK",
-          "locator": "Lemma 3.16, pp.22–24",
+          "locator": "Lemma 3.16, pp.21–24",
           "match": "The transform reaches the smaller rectangular model with a specified determinant power."
         }
       ],
@@ -2118,6 +2248,11 @@
           "name": "RectangularSplit.lowerModel",
           "role": "characterisation",
           "statement": "The associated Fourier/root transform surjects onto the required (k,l) model with the stated determinant twist."
+        },
+        {
+          "name": "RectangularSplit.intertwining",
+          "role": "compatibility",
+          "statement": "The lower-model coefficient after applying the transform has the displayed determinant twist, so it is not an untwisted restriction of the original function."
         }
       ],
       "tests": [
@@ -2155,7 +2290,7 @@
       ],
       "title": "Generalized doubling geometric datum",
       "kind": "construction",
-      "statement": "For G=G_c and k≥1 set H=G_(2kc), Q with Levi GL_c^(k−1)×G_(2c), and U=Rad_u Q. Choose its character ψ_U for the orbit ((2k−1)^c 1^c) and e:G×G→Stab_(M_Q)(ψ_U), injective for Sp and SO, with kernel the diagonal connected center for GSpin. For k=1 take U=1. Fix the Siegel P, its odd-orthogonal conjugate P′ when needed, δ=δ₀δ₁ and an involution ι of G with δe(g,ιg)∈M_P. Set U₀=U∩U_(P′) and U=V⋊U₀; conjugation by δ identifies V with U_(c^k) and transports ψ_U to ψ_(k,c)⁻¹. The datum includes actual matrices/root coordinates and proofs of all these identities. For Sp_(2n), ψ_U is ψ_(k−1,c) on the repeated blocks times ψ(tr u₁₁+tr u₂₂) on the final c rows adjoining the middle 2c block; e repeats g₁ on the outer blocks and embeds g₁ and g₂ in the complementary middle symplectic subspaces. Odd orthogonal and spin lifts require their separate coordinates, not that even symplectic example.",
+      "statement": "For G=G_c and k≥1 set H=G_(2kc), Q with Levi GL_c^(k−1)×G_(2c), and U=Rad_u Q. Choose its character ψ_U for the orbit ((2k−1)^c 1^c) and e:G×G→Stab_(M_Q)(ψ_U), injective for Sp and SO, with kernel the diagonal connected center for GSpin. For k=1 take U=1. Fix the Siegel P, P′=j^(kc)P (j is trivial outside even orthogonal/spin H), δ=δ₀δ₁ and an involution ι of G with δe(g,ιg)∈M_P. Set U₀=U∩U_(P′) and U=V⋊U₀; conjugation by δ identifies V with U_(c^k) and transports ψ_U to ψ_(k,c)⁻¹. The datum includes actual matrices/root coordinates and proofs of all these identities. For Sp_(2n), ψ_U is ψ_(k−1,c) on the repeated blocks times ψ(tr u₁₁+tr u₂₂) on the final c rows adjoining the middle 2c block; e repeats g₁ on the outer blocks and embeds g₁ and g₂ in the complementary middle symplectic subspaces. Odd orthogonal and spin lifts require their separate coordinates, not that even symplectic example.",
       "hypotheses": [
         "The five split characteristic-zero families of D.0; c>1; k≥1; ψ fixed; compatible standard parabolics and pinnings."
       ],
@@ -2167,8 +2302,7 @@
       "prerequisites": [
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/classical-standard-data",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/rectangular-character",
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation"
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
       "sources": [
         {
@@ -2205,6 +2339,11 @@
           "name": "DoublingDatum.diagonal",
           "role": "characterisation",
           "statement": "δe(g,ιg) lies in the Siegel Levi, giving the invariance of the U₀ integral."
+        },
+        {
+          "name": "DoublingDatum.transport",
+          "role": "functoriality",
+          "statement": "Conjugate P,Q,U,e,δ and ψ_U together; conjugation preserves the defining relations and transports the local integral with the pushed-forward measures."
         }
       ],
       "tests": [
@@ -2291,6 +2430,16 @@
           "name": "DoublingSections.polynomial",
           "role": "compatibility",
           "statement": "At finite places, polynomial sections are generated by standard sections over C[q^s,q^(−s)]."
+        },
+        {
+          "name": "DoublingSections.ofCompactPicture",
+          "role": "constructor",
+          "statement": "Extend an inducing-model-valued compact-picture function with P∩K covariance to the normalized induced section."
+        },
+        {
+          "name": "DoublingSections.ext",
+          "role": "extensionality",
+          "statement": "Two sections in the same parameter fiber are equal exactly when their compact-picture functions are equal."
         }
       ],
       "tests": [
@@ -2417,6 +2566,11 @@
           "name": "DoublingZeta.measure",
           "role": "compatibility",
           "statement": "Scaling either Haar measure scales Z by the same scalar."
+        },
+        {
+          "name": "DoublingZeta.transport",
+          "role": "functoriality",
+          "statement": "Intertwining isomorphisms of π and its dual, with the evaluation pairing transported, preserve Z for the same model section."
         }
       ],
       "tests": [
@@ -2548,7 +2702,7 @@
       ],
       "title": "Degenerate-Whittaker normalized intertwiner",
       "kind": "construction",
-      "statement": "Let M(s):V(s,τ,c)→V(1−s,χ_π⁻¹τ∨,c) be the standard Siegel intertwiner, using the conjugate parabolic when kc is odd. Construct the unique degenerate Whittaker functional λ(s) on this induced family with the chosen δ₀,δ₁ and measures. Define C(s) through λ(s)=C(s)λ(1−s)∘M(s), and put M*(s)=C(s)M(s). Specify the odd-kc target and its Levi character independently. This is degenerate-Whittaker normalization, not an unspecified choice of a nonzero scalar intertwiner.",
+      "statement": "Let M(s):V(s,τ,c)→V(1−s,χ_π⁻¹τ∨,c) be the standard Siegel intertwiner, using jP when kc is odd and H is even orthogonal or general spin (j is trivial in the symplectic case). Construct the unique degenerate Whittaker functional λ(s) on this induced family with the chosen δ₀,δ₁ and measures. Define C(s) through λ(s)=C(s)λ(1−s)∘M(s), and put M*(s)=C(s)M(s). Specify the odd-kc target and its Levi character independently. This is degenerate-Whittaker normalization, not an unspecified choice of a nonzero scalar intertwiner.",
       "hypotheses": [
         "D.5 geometric coordinates fixed; generic s for the functional comparison; all identities then meromorphic."
       ],
@@ -2592,6 +2746,16 @@
           "name": "DoublingIntertwiner.scalar",
           "role": "characterisation",
           "statement": "C(s) is the meromorphic ratio determined by the nonzero degenerate Whittaker functionals."
+        },
+        {
+          "name": "DoublingIntertwiner.unique",
+          "role": "characterisation",
+          "statement": "Among meromorphic scalar multiples of the fixed raw operator, the degenerate-Whittaker functional equation determines M* uniquely wherever the functional is nonzero, hence meromorphically."
+        },
+        {
+          "name": "DoublingIntertwiner.natural",
+          "role": "functoriality",
+          "statement": "Intertwining isomorphisms of the inducing model commute with the normalized operator when both Whittaker functionals are transported."
         }
       ],
       "tests": [
@@ -2672,6 +2836,11 @@
           "name": "DoublingGamma.rankZero",
           "role": "compatibility",
           "statement": "The Sp₀ and small-spin tail conventions are exactly the stated GL or trivial factors."
+        },
+        {
+          "name": "DoublingGamma.isomorphism",
+          "role": "functoriality",
+          "statement": "Isomorphic π and τ give the same meromorphic gamma-factor; the equality is determined on any common nonempty regular parameter set."
         }
       ],
       "tests": [
@@ -2800,6 +2969,11 @@
           "name": "DoublingEpsilon.gamma",
           "role": "compatibility",
           "statement": "γ=εL(1−s,π∨×τ∨)/L(s,π×τ)."
+        },
+        {
+          "name": "DoublingL.isomorphism",
+          "role": "functoriality",
+          "statement": "Transport of the tempered or Langlands data through a representation isomorphism preserves L and ε, including their normalized finite-place polynomial."
         }
       ],
       "tests": [
@@ -3013,6 +3187,11 @@
           "name": "AuxGLZeta.boundary",
           "role": "compatibility",
           "statement": "At k=1 recover GJ with Φ, and at c=1 recover GL_k×GL₁ RS after the stated conventions."
+        },
+        {
+          "name": "AuxGLZeta.transport",
+          "role": "functoriality",
+          "statement": "Transport σ, its dual coefficient and the rectangular-model realization together; the determinant integral is unchanged."
         }
       ],
       "tests": [
@@ -3142,6 +3321,11 @@
           "name": "AuxGLDivisor.product",
           "role": "compatibility",
           "statement": "The product formula includes an entire defect A; no assertion A∈O× is made."
+        },
+        {
+          "name": "AuxGLDivisor.unique",
+          "role": "extensionality",
+          "statement": "Representatives with the same entire-quotient and local-attainment properties differ by a nowhere-vanishing entire factor; the finite-place normalized inverse polynomial removes that ambiguity."
         }
       ],
       "tests": [
@@ -3354,7 +3538,12 @@
         {
           "name": "SpehEisenstein.parameter",
           "role": "compatibility",
-          "statement": "The π×τ doubling integral uses the parameter s−1/2."
+          "statement": "At a local doubling variable s_G, the global series is evaluated at s_E=s_G−1/2; its own inducing exponent is s_E."
+        },
+        {
+          "name": "SpehEisenstein.linear",
+          "role": "structure",
+          "statement": "The series is linear and right-translation equivariant in its section in the convergence region and after meromorphic continuation."
         }
       ],
       "tests": [
@@ -3396,7 +3585,7 @@
       ],
       "title": "Two-term Speh constant term and intertwiner bounds",
       "kind": "theorem",
-      "statement": "Assume |det|^(it)τ≄θτ∨ for every real t. The relevant maximal constant term of E_(τ,θ,c) has the two induced contributions with smaller Speh size c−1 and parameters s+1/2 and s−1/2, the latter composed with the appropriate standard intertwiners M₁(s),M₂(s). Retain the j_P-conjugate alternatives for odd special orthogonal groups. M₁ is holomorphic for Re(s)>−(c−1)/2 and M₂ for Re(s)≥1/2. Their GL normalizing ratios use L(2s,τ×θ⁻¹τ) as a holomorphic numerator under nonessential self-duality and L(2s+c−1,τ×θ⁻¹τ) as a nonzero denominator on its right boundary. These roles must not be interchanged. More precisely M₂(s)=[L(2s)/L(2s+c−1)]N₂(s), where N₂ is holomorphic for Re(s)>(2−c)/4.",
+      "statement": "Assume |det|^(it)τ≄θτ∨ for every real t. The relevant maximal constant term of E_(τ,θ,c) has the two induced contributions with smaller Speh size c−1 and parameters s+1/2 and s−1/2, the latter composed with the appropriate standard intertwiners M₁(s),M₂(s). Retain the j_P-conjugate alternatives for H=SO_(2kc) or GSpin_(2kc) when k is odd. M₁ is holomorphic for Re(s)>−(c−1)/2 and M₂ for Re(s)≥1/2. Their GL normalizing ratios use L(2s,τ×θ⁻¹τ) as a holomorphic numerator under nonessential self-duality and L(2s+c−1,τ×θ⁻¹τ) as a nonzero denominator on its right boundary. These roles must not be interchanged. More precisely M₂(s)=[L(2s)/L(2s+c−1)]N₂(s), where N₂ is holomorphic for Re(s)>(2−c)/4.",
       "hypotheses": [
         "τ,θ unitary as in D.8; c>1 for the recursion; no essentially θ-self-dual τ."
       ],
@@ -3415,7 +3604,7 @@
       "sources": [
         {
           "sourceId": "CFK",
-          "locator": "(4.5), Lemma 4.3, pp.35–36; odd-orthogonal (4.9), p.38",
+          "locator": "(4.5), Lemma 4.3, pp.35–36; even orthogonal/spin ambient H with odd k, (4.8)–(4.9), pp.37–38",
           "match": "The two constant-term terms and their normalizing intertwiners control the pole induction."
         }
       ],
@@ -3436,12 +3625,12 @@
       ],
       "title": "Residual exponents and the hermitian-support obstruction",
       "kind": "theorem",
-      "statement": "In the two constant-term terms every relevant exponent has the form e=Re(s±1)+b, where b is an exponent of the smaller series and its proper partial sums satisfy the required nonpositivity inequalities. If a pole lay in 0<Re(s)<1/2, the residue has strictly negative proper partial sums in the sense of (4.7), hence is square-integrable. Its hermitian cuspidal support then forces an essential θ-self-duality of τ, contradicting the hypothesis. Square-integrability alone does not imply this contradiction: the hermitian-support implication is a separate AS.4 request.",
+      "statement": "Let e(s,c) be the real parts of the cuspidal exponents of the leading Laurent coefficient, in the ordered GL_k^c coordinates; the extra GSpin central coordinate is zero for unitary θ. Every e∈e(s,c) has the form e=Re(s)(a₁,…,a_c)+(b₁,…,b_c), with a_i∈{−1,1} and Σ_(i≤j)b_i≤0 for every 1≤j≤c. For a supposed pole s₀ with 0<Re(s₀)<1/2, only the second constant-term contribution survives, so e=(−Re(s₀)−(c−1)/2,e′), e′∈e(s₀−1/2,c−1). Hence Σ_(i≤j)e_i≤−j Re(s₀)−(c−j)/2≤−j Re(s₀)<0 for every j, including j=c. The residue is square-integrable. Its hermitian cuspidal support forces |det|^(s₀−s̄₀)τ≅θτ∨, contradicting the nonessential-self-duality hypothesis. The conjugate-parabolic alternatives for even orthogonal/spin H with odd k obey the same bounds. Square-integrability alone does not imply the support conclusion: that is the separate AS.4 request.",
       "hypotheses": [
         "The two-term recursion; no essential θ-self-duality; the precise ordered exponent convention of AS.2/AS.4."
       ],
       "proofSteps": [
-        "Compute exponents after both half-unit shifts and verify all partial sums.",
+        "Induct using the two half-unit-shifted exponent sets in Lemma 4.4. At a pole retain only the negative first coordinate and bound each signed tail coordinate by 1/2−Re(s₀); include the last partial sum.",
         "Apply the Langlands square-integrability criterion to the proposed residue.",
         "Use the hermitian cuspidal-support theorem to force the forbidden duality."
       ],
@@ -3458,7 +3647,8 @@
         }
       ],
       "acceptance": [
-        "The proof imports residual-spectrum theory, not Arthur’s full transfer theorem."
+        "The proof imports residual-spectrum theory, not Arthur’s full transfer theorem.",
+        "For c=2 and Re(s₀)=1/4, the first exponent is −3/4 and the full sum is at most −1/2; an unsigned scalar shift cannot pass this check."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -3474,7 +3664,7 @@
       ],
       "title": "Holomorphy without essential self-duality",
       "kind": "theorem",
-      "statement": "If τ is unitary cuspidal and θ unitary, with |det|^(it)τ≄θτ∨ for every t∈R, then E_(τ,θ,c)(s,h) is holomorphic on Re(s)≥0 for every smooth finite-K-type section and every h. The boundary is included. Prove the c=1 case from the normalized rank-one series, then induct using the two-term constant term, the intertwiner half-planes, the boundary analysis and the residual-exponent obstruction in the remaining strip. The same assertion is stated with all necessary j_P alternatives for odd orthogonal groups.",
+      "statement": "If τ is unitary cuspidal and θ unitary, with |det|^(it)τ≄θτ∨ for every t∈R, then E_(τ,θ,c)(s,h) is holomorphic on Re(s)≥0 for every smooth finite-K-type section and every h. The boundary is included. Prove the c=1 case from the normalized rank-one series, then induct using the two-term constant term, the intertwiner half-planes, the boundary analysis and the residual-exponent obstruction in the remaining strip. The same assertion is stated with all necessary j_P alternatives for H=SO_(2kc) and GSpin_(2kc) when k is odd.",
       "hypotheses": [
         "The five split groups and the precise unitary/nonessential-self-duality hypotheses above."
       ],
@@ -3559,12 +3749,12 @@
       ],
       "title": "Generalized global doubling period and unfolding",
       "kind": "construction",
-      "statement": "For unitary cuspidal π of G_c(A_F), unitary cuspidal τ of GL_k(A_F), cusp vectors φ₁∈π and φ₂∈π∨, and a section of E_(χ_πτ,χ_π,c)(s−1/2), take its ψ_U Fourier coefficient along U(F)⧸U(A) and pair its restriction along e(g₁,g₂) with φ₁(g₁)φ₂(g₂), integrating over the rational and connected-central quotients. The precise character on the second cusp factor is fixed by the adopted central cancellation. In a right half-plane the global integral unfolds to the local matrix-coefficient doubling integral. For factorizable data with the global Petersson evaluation pairing and normalized good vectors, b^S(s)Z_global(s)=L^S(s,π×τ)∏_(v∈S)Z_v(s). The sum over rational orbits, Fourier expansion, cusp-form pairings and measure factorization are justified before meromorphic continuation.",
+      "statement": "For unitary cuspidal π of G_c(A_F), unitary cuspidal τ of GL_k(A_F), cusp vectors φ₁∈π and φ₂∈π∨, and a section of E_(χ_πτ,χ_π,c)(s−1/2), form E^(U,ψ_U)(h;s_E)=∫_(U(F)⧸U(A))E(uh;s_E)ψ_U(u)du and integrate φ₁(g₁)φ₂(ι(g₂))E^(U,ψ_U)(e(g₁,g₂);s−1/2) over (C_G^∘(A)G(F)⧸G(A))². Here ι is the D.5 involution of G, written as conjugation in CFK. Retain the inducing χ_π twists: together with the contragredient pair and ι they make the full integrand descend through each connected central quotient. Outside GSpin this connected center is trivial. In a right half-plane the global integral unfolds to the local matrix-coefficient doubling integral. For factorizable data with the global Petersson evaluation pairing and normalized good vectors, b^S(s)Z_global(s)=L^S(s,π×τ)∏_(v∈S)Z_v(s). The sum over rational orbits, Fourier expansion, cusp-form pairings and measure factorization are justified before meromorphic continuation.",
       "hypotheses": [
         "Number field; cuspidal π,τ; fixed automorphic embeddings and nondegenerate Petersson pairing; S includes infinity and all ramification."
       ],
       "proofSteps": [
-        "Construct the global Fourier coefficient and central quotient pairing.",
+        "Construct the Fourier coefficient with the displayed character, pull the second cusp vector back by ι, and verify each connected-central invariance before integrating.",
         "Classify the relevant P(F)⧸H(F) orbits after Fourier expansion; show the nonopen terms vanish using rectangular wavefront vanishing and cuspidality.",
         "Identify the open-orbit stabilizer and matrix coefficient, then factor the absolutely convergent integral using restricted-product measures."
       ],
@@ -3612,6 +3802,11 @@
           "name": "GlobalDoubling.measures",
           "role": "compatibility",
           "statement": "Changing one local quotient measure changes the global factorization by the corresponding explicitly tracked scalar."
+        },
+        {
+          "name": "GlobalDoubling.trilinear",
+          "role": "structure",
+          "statement": "The continued global period is trilinear in the section and the two cusp vectors in their chosen automorphic realizations."
         }
       ],
       "tests": [
@@ -3629,6 +3824,11 @@
           "name": "GlobalDoubling.kOne",
           "kind": "characterisation",
           "statement": "For k=1 the Fourier coefficient has trivial U and the kernel is the classical doubling Eisenstein series."
+        },
+        {
+          "name": "GlobalDoubling.involution",
+          "kind": "characterisation",
+          "statement": "Replacing φ₂ by φ₂∘ι twice recovers φ₂; unfolding uses φ₂∘ι and the local point e₂(ι(g)). Omitting only one of these involutions changes the pairing."
         }
       ],
       "uses": [
@@ -3695,6 +3895,11 @@
           "name": "DoublingCompleted.character",
           "role": "compatibility",
           "statement": "The global epsilon product is invariant under ψ↦ψ_b for b∈F× by the product formula and global central characters."
+        },
+        {
+          "name": "DoublingCompleted.unique",
+          "role": "extensionality",
+          "statement": "Two meromorphic continuations agreeing with the same convergent Euler product on a right half-plane coincide on C."
         }
       ],
       "tests": [
@@ -3867,6 +4072,11 @@
           "name": "WeakTransfer.isomorphic",
           "role": "functoriality",
           "statement": "The predicate is invariant under isomorphism of both automorphic representations."
+        },
+        {
+          "name": "WeakTransfer.witness",
+          "role": "constructor",
+          "statement": "A finite exceptional set, compatible unramified Satake classes outside it and the required archimedean infinitesimal characters give a weak-transfer witness."
         }
       ],
       "tests": [
@@ -3953,6 +4163,11 @@
           "name": "CoarseTransfer.support",
           "role": "compatibility",
           "statement": "At finite places it is invariant within a GL supercuspidal-support class, and two coarse transfers have the same support."
+        },
+        {
+          "name": "CoarseTransfer.isomorphism",
+          "role": "functoriality",
+          "statement": "Isomorphisms of π and Π preserve every gamma test and hence the coarse-transfer predicate."
         }
       ],
       "tests": [
@@ -4211,17 +4426,6 @@
   ],
   "requests": [
     {
-      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation",
-      "need": "Import the existing Sp/SO/unitary group and standard representation carriers and opposite-form block embedding; no new algebraic-group construction.",
-      "neededBy": [
-        "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/doubled-space",
-        "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/classical-standard-data",
-        "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/scalar-holomorphic-model",
-        "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/generalized-datum"
-      ],
-      "mode": "existing upstream import"
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-2-the-weyl-construction-via-young-symmetrizers",
       "need": "Import the existing Weyl/Schur-functor polynomial representation construction, its characteristic-zero Schur–Weyl decomposition and functoriality; specialize the Cauchy identity here.",
       "neededBy": [
@@ -4240,12 +4444,13 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Import standard parabolics, Levi decompositions, roots, Weyl representatives and the split classical/spin group structure; only doubling-specific coordinates are new here.",
+      "need": "Import rational parabolics, Levi decompositions, roots and Weyl transport for a supplied reductive group. This does not construct arbitrary-hermitian U/GU or GSpin point groups: require the concrete carriers, reductivity and coordinate comparisons in G6 before specialization. Import SO and its isometry/base-change comparison directly from current upstream OrthogonalSpinGroups Layer 0, as recorded in classical-standard-data.upstreamImports; its roadmap postdates the atlas stage index. Do not reconstruct that SO theory in this continuation.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/unitary-siegel-parabolic",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/classical-standard-data",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/rectangular-character",
-        "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/generalized-datum"
+        "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/generalized-datum",
+        "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/doubled-space"
       ],
       "mode": "existing upstream import"
     },
@@ -4294,7 +4499,7 @@
     },
     {
       "supplier": "SmoothRepresentationsOfLocalGroups:SR.5",
-      "need": "Use generalized Whittaker/Jacquet exactness and nilpotent-orbit support for finite-length GL representations in characteristic zero; the rectangular specialization and its proof are here.",
+      "need": "Import current SR.5.1 mirabolic derivatives and SR.5.3 highest-derivative-adapter segment/multisegment classification, including the separate Z-submodule and L-quotient conventions. The generalized nilpotent-orbit support/degenerate-Whittaker comparison used by MODELS Theorem 4 is an additional requested theorem, not supplied by ordinary Whittaker exactness alone; the archimedean counterpart belongs to AF.1.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/rectangular-model"
       ],
@@ -4478,7 +4683,7 @@
     },
     {
       "supplier": "EndoscopicTransferAndUnitaryTraceComparison:ET.6",
-      "need": "Supply ρ_c(τ): the unique quotient of normalized τ⊗c δ_(k^c)^(1/(2k)) for unitary generic τ and the ordered tempered-product extension for general generic τ, with possible reducibility and unique rectangular subquotient distinguished. This is the shared GL Speh constructor needed by both doubling and the independent AKY continuation. Import the existing langlands-quotient-factors node for nongeneric GL pair factors; do not replace it by generic-only AL.3.",
+      "need": "Supply ρ_c(τ): the unique quotient of normalized τ⊗c δ_(k^c)^(1/(2k)) for unitary generic τ and the ordered tempered-product extension for general generic τ, with possible reducibility and unique rectangular subquotient distinguished. This is the shared GL Speh constructor needed by both doubling and the independent AKY continuation. Import the existing langlands-quotient-factors node for nongeneric GL pair factors; do not replace it by generic-only AL.3. This Speh adapter must consume the existing current SR.5.3 segment and Langlands multisegment constructors, never construct a second classification; its analytic all-local-field comparison is an extension request.",
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/rectangular-model",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/local-l-epsilon",
@@ -4505,7 +4710,15 @@
       "neededBy": [
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/archimedean-nonvanishing"
       ],
-      "mode": "existing roadmap import with precise local theta request"
+      "mode": "extension request for a precise local theta theorem; not present in the current MP packet"
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.5/langlands-dual-group",
+      "need": "Import the pinned dual root datum, dual group and standard-representation interface from RG2.5 once the concrete reductive group and pinning are supplied. Its arbitrary-group topology RG2.0 is reusable, but a rank-one unitary example does not supply all U(h)/GU(h) or GSpin carriers. These comparisons are G6.",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/classical-standard-data"
+      ],
+      "mode": "current upstream RG2.5 import, addressed through its existing atlas node"
     }
   ],
   "coverage": [
@@ -4518,7 +4731,8 @@
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/unitary-siegel-parabolic"
       ],
       "remaining": [
-        "Import the exact supplier contracts: tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.4."
+        "AutomorphicLFunctionsAndLocalFactorsPartII/G6: Concrete hermitian and general spin group supplier boundary",
+        "Import or extend the exact supplier contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.4, ReductiveGroupsPartII:RG2.5/langlands-dual-group."
       ]
     },
     {
@@ -4531,7 +4745,8 @@
       ],
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G1: Exact classical unitary local normalization and residual-family proof",
-        "Import the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.2, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocalFactors:AL.2, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicSpectralTheory:AS.1, AutomorphicSpectralTheory:AS.2, EndoscopicTransferAndUnitaryTraceComparison:ET.7a."
+        "AutomorphicLFunctionsAndLocalFactorsPartII/G3: Critical induced-fiber and rational projected-kernel comparison",
+        "Import or extend the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.2, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocalFactors:AL.2, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicSpectralTheory:AS.1, AutomorphicSpectralTheory:AS.2, EndoscopicTransferAndUnitaryTraceComparison:ET.7a."
       ]
     },
     {
@@ -4545,7 +4760,7 @@
       ],
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G1: Exact classical unitary local normalization and residual-family proof",
-        "Import the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.4, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocalFactors:AL.1, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicSpectralTheory:AS.2."
+        "Import or extend the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.4, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocalFactors:AL.1, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicSpectralTheory:AS.2."
       ]
     },
     {
@@ -4560,7 +4775,7 @@
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G1: Exact classical unitary local normalization and residual-family proof",
         "AutomorphicLFunctionsAndLocalFactorsPartII/G2: Unitary MVW theorem beyond the displayed unramified comparison",
-        "Import the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.3, AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicFormsOnReductiveGroups:AF.2, AutomorphicFormsOnReductiveGroups:AF.3."
+        "Import or extend the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.3, AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicFormsOnReductiveGroups:AF.2, AutomorphicFormsOnReductiveGroups:AF.3."
       ]
     },
     {
@@ -4580,7 +4795,7 @@
       ],
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G3: Critical induced-fiber and rational projected-kernel comparison",
-        "Import the exact supplier contracts: tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation, tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-2-the-weyl-construction-via-young-symmetrizers, tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicFormsOnReductiveGroups:AF.4, MetaplecticAutomorphicForms:MP.3."
+        "Import or extend the exact supplier contracts: tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-2-the-weyl-construction-via-young-symmetrizers, tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicFormsOnReductiveGroups:AF.4, MetaplecticAutomorphicForms:MP.3."
       ]
     },
     {
@@ -4596,7 +4811,8 @@
       ],
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G4: Full generalized local theory and distribution proof-source closure",
-        "Import the exact supplier contracts: tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.5, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicFormsOnReductiveGroups:AF.1, EndoscopicTransferAndUnitaryTraceComparison:ET.6."
+        "AutomorphicLFunctionsAndLocalFactorsPartII/G6: Concrete hermitian and general spin group supplier boundary",
+        "Import or extend the exact supplier contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.5, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicFormsOnReductiveGroups:AF.1, EndoscopicTransferAndUnitaryTraceComparison:ET.6."
       ]
     },
     {
@@ -4616,7 +4832,7 @@
       ],
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G4: Full generalized local theory and distribution proof-source closure",
-        "Import the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.4, AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicSpectralTheory:AS.2, EndoscopicTransferAndUnitaryTraceComparison:ET.6."
+        "Import or extend the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.4, AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicSpectralTheory:AS.2, EndoscopicTransferAndUnitaryTraceComparison:ET.6."
       ]
     },
     {
@@ -4632,7 +4848,7 @@
       ],
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G4: Full generalized local theory and distribution proof-source closure",
-        "Import the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocalFactors:AL.2, AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicFormsOnReductiveGroups:AF.1, EndoscopicTransferAndUnitaryTraceComparison:ET.6."
+        "Import or extend the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicLFunctionsAndLocalFactors:AL.0, AutomorphicLFunctionsAndLocalFactors:AL.2, AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicFormsOnReductiveGroups:AF.1, EndoscopicTransferAndUnitaryTraceComparison:ET.6."
       ]
     },
     {
@@ -4646,7 +4862,7 @@
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.8/residual-exponents"
       ],
       "remaining": [
-        "Import the exact supplier contracts: AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicSpectralTheory:AS.2, AutomorphicSpectralTheory:AS.4, EndoscopicTransferAndUnitaryTraceComparison:ET.7a."
+        "Import or extend the exact supplier contracts: AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicSpectralTheory:AS.2, AutomorphicSpectralTheory:AS.4, EndoscopicTransferAndUnitaryTraceComparison:ET.7a."
       ]
     },
     {
@@ -4660,7 +4876,7 @@
       ],
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G4: Full generalized local theory and distribution proof-source closure",
-        "Import the exact supplier contracts: AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.3, AutomorphicSpectralTheory:AS.2."
+        "Import or extend the exact supplier contracts: AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.3, AutomorphicSpectralTheory:AS.2."
       ]
     },
     {
@@ -4677,7 +4893,7 @@
       ],
       "remaining": [
         "AutomorphicLFunctionsAndLocalFactorsPartII/G5: Original twisted converse-theorem proof and controlled globalization",
-        "Import the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.4, AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicFormsOnReductiveGroups:AF.2, AutomorphicFormsOnReductiveGroups:AF.3, AutomorphicSpectralTheory:AS.2, AutomorphicSpectralTheory:AS.4, EndoscopicTransferAndUnitaryTraceComparison:ET.6."
+        "Import or extend the exact supplier contracts: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, SmoothRepresentationsOfLocalGroups:SR.4, AdelicAlgebraicGroups:AA.2, AutomorphicLFunctionsAndLocalFactors:AL.3, AutomorphicLFunctionsAndLocalFactors:AL.4, AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicFormsOnReductiveGroups:AF.2, AutomorphicFormsOnReductiveGroups:AF.3, AutomorphicSpectralTheory:AS.2, AutomorphicSpectralTheory:AS.4, EndoscopicTransferAndUnitaryTraceComparison:ET.6."
       ]
     }
   ],
@@ -4711,9 +4927,9 @@
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/archimedean-section",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/archimedean-nonvanishing",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/archimedean-rationality",
-        "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/scalar-holomorphic-model",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/holomorphic-injection",
-        "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/holomorphic-branching"
+        "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/holomorphic-branching",
+        "AutomorphicLFunctionsAndLocalFactorsPartII:D.1/godement-section"
       ],
       "detail": "Compute the exact P-covariance of δJ in the EHLS right-action normalization, separate the algebraic norm exponent μ from the unitary parameter t=μ−(a_χ+b_χ)/2, and solve for s_crit. Determine the GU central multiplier separately. Identify the projected kernel and E-form with Garrett’s rational convolution model and prove that the specified Haar comparison gives π^(ab), then use the requested theta nonvanishing input. The invariant U restriction and the qualitative Garrett theorem were read; they do not by themselves establish this full comparison. Resolve the compact-dual and Borel dictionary between EHLS (88)–(89) and (93)–(95): the tuple printed in (94) is used here as the highest weight of W_κ∨, not directly as κ. Check the scalar range 2m−a_χ−b_χ≥2n and the precise opposite-signature twist against the automorphy-factor model. The rank-one positivity check exposes why these two κ conventions cannot be silently identified."
     },
@@ -4734,7 +4950,7 @@
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.7/pole-attainment",
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.9/functional-equation"
       ],
-      "detail": "CFK arXiv v5 summarizes the 2022 local-theory paper, GAFA 32, 1233–1333, DOI 10.1007/s00039-022-00609-4; the full primary PDF was unavailable through the tried publisher/NSF routes. Obtain the corrected text and check the spin/odd-orthogonal coordinates, unique degenerate Whittaker functional, local continuation/functional equation and stability, and global strip estimates. Check GK’s full equivariant-distribution vanishing proof and conormal hypotheses, beyond the theorem/setup read here. Verify the auxiliary uniqueness theorem cited as Kaplan Theorem 25 and the k=1 pole-attainment theorem with its orthogonal/spin adaptations. The publisher correction DOI 10.1007/s00039-022-00622-7 says author corrections were not all implemented; do not assume it concerns only metadata."
+      "detail": "CFK arXiv v5 summarizes the 2022 local-theory paper, GAFA 32, 1233–1333, DOI 10.1007/s00039-022-00609-4; the full primary PDF was unavailable through the tried publisher/NSF routes. Obtain the corrected text and check the spin/odd-orthogonal coordinates, unique degenerate Whittaker functional, local continuation/functional equation and stability, and global strip estimates. Check GK’s full equivariant-distribution vanishing proof and conormal hypotheses, beyond the theorem/setup read here. Verify the auxiliary uniqueness theorem cited as Kaplan Theorem 25 and the k=1 pole-attainment theorem with its orthogonal/spin adaptations. The publisher correction DOI 10.1007/s00039-022-00622-7 says author corrections were not all implemented; do not assume it concerns only metadata. Independently checked GK Theorem A, pp.2–3, its distribution hypotheses in Theorem 1.4, pp.10–11, the geometry in §1.5, pp.12–17, and global unfolding in §3.2, pp.70–73; this does not certify the complete proof. NSF purl 10407418 again returned a gateway failure on 2026-10-19."
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/G5",
@@ -4746,6 +4962,16 @@
         "AutomorphicLFunctionsAndLocalFactorsPartII:D.10/local-transfer"
       ],
       "detail": "The exact specialized converse theorem was read in CFK Theorem 2.1, but its CPS/CKPSS proof was not independently read. Trace that proof through the twisted S-unramified test family, entire completed factors and finite-strip bounds. Resolve the exact AF.3 globalization and AA.2 Hecke-character prescriptions in the supplier requests, allowing auxiliary ramification only when the cancellation proof handles it. All local central characters must be checked before stability. These are explicit source/supplier closure tasks, not established implementation claims."
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactorsPartII/G6",
+      "title": "Concrete hermitian and general spin group supplier boundary",
+      "neededBy": [
+        "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/doubled-space",
+        "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/classical-standard-data",
+        "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/generalized-datum"
+      ],
+      "detail": "ClassicalGroups Layer 0 concerns complex standard representations and does not supply arbitrary quadratic-étale hermitian isometry/similitude groups. Current OrthogonalSpinGroups supplies general-field SO and Spin comparisons; ReductiveGroupsPartII constructs topology and dual groups from a supplied reductive group. Before D.0 is implemented, obtain an owner-supplied hermitian carrier with U(h) and GU(h), multiplier, equal-multiplier fiber product, block isometry embedding, field/étale-split base change and reductivity; also supply GSpin as the even Clifford similitude group with its central F×, Clifford-action map and root-datum comparison. Request the missing concrete models in the ReductiveGroups direction, consuming the existing OrthogonalSpinGroups maps and Mathlib symplectic carrier. They are not replanned here or falsely attributed to complex ClassicalGroups."
     }
   ],
   "sourceIssues": [
@@ -4755,16 +4981,22 @@
       "kind": "gap",
       "locator": "Propositions 3.17, 3.19 and Corollary 3.21, pp.24–31; arXiv:1802.02637v5, internal pagination",
       "printed": "These pole statements are formulated without a unitary restriction on χ_π.",
-      "correction": "Use the stated pole-attainment range with χ_π unitary; any nonunitary extension needs a compatible parameter shift.",
-      "reason": "Their reduction applies the generic-unitary exponent bound to a twist involving χ_π. A nonunitary twist changes the relevant real exponents.",
+      "correction": "No correction is established by this finding; see the independent rejection reason.",
+      "reason": "Inherited objection rejected: The all-point meromorphic claims in Propositions 3.17/3.19 and Corollary 3.21 do not assert a fixed half-plane. The χ_π determinant twist can instead be placed in the arbitrary GL matrix coefficient; in the finite unramified case this twist preserves the permitted class. Nonunitarity shifts the parameter but does not invalidate all-point attainment. Keep unitary χ_π in the separate fixed-half-plane Theorem 3.12 target; no extra hypothesis is established for these three claims.",
       "affects": "a stated result",
       "known": "Previously recorded in the atlas extraction as PAPER-CAI-FRIEDBERG-KAPLAN-24/E1. No claim of novelty; no source-issued correction was established in this pass.",
       "inheritedFrom": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E1",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The all-point meromorphic claims in Propositions 3.17/3.19 and Corollary 3.21 do not assert a fixed half-plane. The χ_π determinant twist can instead be placed in the arbitrary GL matrix coefficient; in the finite unramified case this twist preserves the permitted class. Nonunitarity shifts the parameter but does not invalidate all-point attainment. Keep unitary χ_π in the separate fixed-half-plane Theorem 3.12 target; no extra hypothesis is established for these three claims.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E2",
@@ -4780,8 +5012,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The introduction uses the center in the normalization; §1 distinguishes C_G^∘ for GSpin, whose full center can be disconnected. The quotient and χ_π must use the connected torus.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E3",
@@ -4797,8 +5035,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The residual-rank index in the §1 Levi character formula must remove 2r, the GL-block rank. Substituting a Levi with r≠k detects the printed index.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E4",
@@ -4814,25 +5058,37 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The exhausted orthogonal tail has a trivial standard representation and factor 1. The displayed product formulas omit an explicit SO₀/SO₁ boundary convention; the plan states it separately.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E5",
       "source": "CFK",
       "kind": "error",
       "locator": "§3.4, equation (3.16), p.17; arXiv:1802.02637v5, internal pagination",
-      "printed": "The final GSpin chamber bound is a_d>r/2 when χ_π=|·|^(−r)χ₀.",
-      "correction": "Use a_d>r in this normalization.",
-      "reason": "The final positive coroot has exponent a_d−r: Υ has degree two on the central cocharacter. The weaker inequality admits a negative coroot exponent.",
+      "printed": "In (3.16) the positive GSpin Langlands chamber is written a_d>r/2 when |Υ|^(−r)π′ is tempered.",
+      "correction": "Write the tail π′=|Υ_(c−2l)|^rπ₀′ with π₀′ tempered. Factoring |Υ_c|^r from the full induction shifts the GL exponents to a_i−r, so the positive chamber requires a_d>r.",
+      "reason": "The Levi restriction of Υ is the tail character times the product of the GL determinants, so its norm twist shifts every GL exponent by r.",
       "affects": "a stated result",
       "known": "Previously recorded in the atlas extraction as PAPER-CAI-FRIEDBERG-KAPLAN-24/E5. No claim of novelty; no source-issued correction was established in this pass.",
       "inheritedFrom": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E5",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The parameter r describes the essentially tempered classical tail π′, not the whole possibly nontempered π. By the Levi restriction of Υ on p.7, removing its norm twist shifts each GL exponent by r. Thus the bound in (3.16) must be a_d>r. The inherited central-character description of r is also repaired.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E6",
@@ -4848,8 +5104,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An already tempered π leaves zero positive GL blocks while τ may still be a nontrivial generic unitary induction. The product definition needs the empty-block convention stated in the plan.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E7",
@@ -4865,16 +5127,22 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The doubling-side factor is defined on irreducible generic GL test data. The universal quantifier in (3.18) is broader than that domain, and cannot silently extend the integral to nongeneric tests.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E8",
       "source": "CFK",
       "kind": "misprint",
       "locator": "Proof of Proposition 3.19, p.28; arXiv:1802.02637v5, internal pagination",
-      "printed": "The compact-support requirement for φ₀ names U_R rather than its opposite.",
-      "correction": "The domain for the y-variable is U_R⁻.",
+      "printed": "The product domain of φ₀ on p.28 has U_P⁻ in its middle coordinate.",
+      "correction": "Use U_R⁻, the domain of the y-variable in the chart and integral.",
       "reason": "The open-cell integral evaluates φ₀ on the opposite unipotent coordinate.",
       "affects": "nothing",
       "known": "Previously recorded in the atlas extraction as PAPER-CAI-FRIEDBERG-KAPLAN-24/E8. No claim of novelty; no source-issued correction was established in this pass.",
@@ -4882,8 +5150,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof on p.28 puts φ₀ on a product with U_P⁻, but the y integration and the chart in Proposition 3.18 use U_R⁻. The inherited description naming U_R without an opposite sign was inaccurate; the corrected finding records the actual mismatched subscript.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E9",
@@ -4891,16 +5165,22 @@
       "kind": "misprint",
       "locator": "Proof of Lemma 3.20, p.30; arXiv:1802.02637v5, internal pagination",
       "printed": "A growth exponent M is required to be an integer.",
-      "correction": "Allow a sufficiently large real M.",
-      "reason": "The exponent d₀ being bounded is a real modulus exponent; the displayed formula defining M need not be integral.",
+      "correction": "No correction is established by this finding; see the independent rejection reason.",
+      "reason": "Inherited objection rejected: The displayed constants bound powers of determinants whose absolute values are at most 1. A real exponent can be replaced by its floor to enlarge such an upper bound, so an integer bound is harmless. The later exponent M is not required to be integral. No failed estimate is demonstrated.",
       "affects": "nothing",
       "known": "Previously recorded in the atlas extraction as PAPER-CAI-FRIEDBERG-KAPLAN-24/E9. No claim of novelty; no source-issued correction was established in this pass.",
       "inheritedFrom": "PAPER-CAI-FRIEDBERG-KAPLAN-24/E9",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The displayed constants bound powers of determinants whose absolute values are at most 1. A real exponent can be replaced by its floor to enlarge such an upper bound, so an integer bound is harmless. The later exponent M is not required to be integral. No failed estimate is demonstrated.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E10",
@@ -4916,8 +5196,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Corollary 3.21 quantifies over s but concludes with an unintroduced s₀. Reading the final evaluation at the quantified point s repairs the notation.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E11",
@@ -4933,8 +5219,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The normalized operator is N₂=L(2s+c−1)M₂/L(2s). To recover holomorphy of M₂, L(2s) must be holomorphic and L(2s+c−1) nonzero. The proof text assigns the two roles in the opposite order.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E12",
@@ -4950,8 +5242,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof isolates a representation at v₀; its displayed GL_l field must be F_(v₀), not an unbound F_v.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E13",
@@ -4967,8 +5265,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Stability compares representations with the same central/determinant character. For an arbitrary weak transfer this must first be descended from almost-everywhere equality of the global Hecke characters. The plan makes that omitted justification explicit.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E14",
@@ -4984,8 +5288,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The local induction in Corollary 4.11 uses the remaining local representation π′. Its restricted central character is χ_(π′), not the preceding global label.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E15",
@@ -5001,8 +5311,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Quotient multiplicativity does not apply to an arbitrary displayed constituent. A Weyl-conjugate cuspidal datum giving a quotient is required; this remains an explicit SR.2 contract.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E16",
@@ -5018,8 +5334,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Substituting the definition of s_(k,c) into the normalized integral gives s−(kc−2c+1)/2. The plus sign in Lemma A.8 disagrees with that substitution.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E17",
@@ -5035,8 +5357,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Levi action in (A.22) is the action of σ₁⊗π′. Its printed ε is not the inducing representation of that calculation.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E18",
@@ -5052,8 +5380,14 @@
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
         "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The reflection of the section changes both inducing representations to contragredients. The last factor in Proposition A.10 must therefore involve τ∨.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E19",
@@ -5068,26 +5402,36 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E39",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The restricted-section convolution need not act as a scalar on an irreducible representation. A vector can pair to zero with a dual vector while its convolution image pairs nontrivially; the asserted vanishing before (51) does not follow. Keep the unnormalized trilinear period.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E20",
       "source": "EHLS",
       "kind": "misprint",
       "locator": "Remark 4.1.6, pp.47–48; published Forum Math. Pi 8 (2020), e9, 160-page text",
-      "printed": "The flat-twisted pairing is described with an ordinary dual on one side.",
-      "correction": "Pair the flat twist of π with the corresponding flat twist of π∨.",
-      "reason": "Transporting the action through an involution changes both representations in the invariant pairing.",
+      "printed": "After introducing the second vector in π♭⊗χ⁻¹det, Remark 4.1.6 names π⊗χ⁻¹det as its ambient space.",
+      "correction": "Use π♭⊗χ⁻¹det for those second-vector spaces.",
+      "reason": "Untwisting that second vector must recover the flat/dual realization, rather than the first representation π.",
       "affects": "nothing",
       "known": "Previously recorded in the atlas extraction as PAPER-EISCHEN-HARRIS-LI-ETAL-20/E40. No claim of novelty; no source-issued correction was established in this pass.",
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E40",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Remark 4.1.6 first places the second vector in π♭⊗χ⁻¹det, then writes π⊗χ⁻¹det for its ambient space. The latter occurrences need π♭. This is a type-label omission, not a new assertion about pulling both arguments through an involution.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E21",
@@ -5102,9 +5446,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E41",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The normalized right-action section in (55) gives χ⁻¹ in the split rank-one geometric series. Both the standard factor and d_n must follow that convention; the reader does not silently rename χ.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E22",
@@ -5119,9 +5468,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E42",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The stated lattice conditions on p.50 concern the orbit and the compact fixing vectors. To identify the restricted section with a characteristic function, its extra inducing-character and Weyl-representative scalar must also be trivialized or tracked. Shrinking to the character conductor and including that scalar fills this local proof omission.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E23",
@@ -5136,9 +5490,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E43",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Under the split identification the other determinant coordinate contains ν^n. Its χ_wbar contribution is missing from the displayed central extension in (54). The corrected general Godement target is explicitly on ν=1; the GU comparison remains G3.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E24",
@@ -5153,9 +5512,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E61",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The hermitian isometry group is defined over K⁺. Restriction to Q must therefore use K⁺/Q, as is also required by the real-place indexing.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E25",
@@ -5170,9 +5534,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E62",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The simultaneous shift (m,a,b)↦(m−k,a−k,b−k) preserves the two U automorphy exponents but changes the displayed GU multiplier exponent. The asserted equality is safe only after restriction to U or a separately computed central twist.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E26",
@@ -5187,9 +5556,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E63",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The local algebraic character is indexed by σ. The a(χ_s) occurrence in the branch-weight discussion is an index misprint.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E27",
@@ -5204,9 +5578,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E64",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Lemma 4.4.8 is on u×u matrices. Its partition length and final product limit must be u, not the unbound r. The plan also uses weakly decreasing partitions; no strict-weight error is inferred from PDF font extraction.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E28",
@@ -5221,26 +5600,36 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E65",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Both minor partitions in the projection formula belong to the same place σ. The s-subscript on the second partition is an index typo.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E29",
       "source": "EHLS",
       "kind": "gap",
       "locator": "Corollary 4.4.9, final assertion, pp.76–77; published Forum Math. Pi 8 (2020), e9, 160-page text",
-      "printed": "A triangular restriction of the operator is asserted with scalar coefficients.",
-      "correction": "Only the preceding nonzero algebraic projection is used here. A stronger triangular formula needs a proof that treats the full minimal K-type and, where necessary, vector-valued operators.",
-      "reason": "A highest line does not identify every component of a minimal K-type of dimension greater than one.",
+      "printed": "The inherited lead described all triangular coefficients as scalars. The actual assertion permits differential-operator coefficients off the diagonal.",
+      "correction": "No correction is established by this finding; see the independent rejection reason.",
+      "reason": "Inherited objection rejected: The final assertion on p.77 allows δ(κ,κ†)∈U(p₃⁺), so off-diagonal coefficients are differential operators, not scalars. Only the diagonal coefficient is a scalar. Its proof explicitly distinguishes projection onto the highest line from membership in that line. The inherited scalar-only objection misstates the claim.",
       "affects": "the proof",
       "known": "Previously recorded in the atlas extraction as PAPER-EISCHEN-HARRIS-LI-ETAL-20/E66. No claim of novelty; no source-issued correction was established in this pass.",
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E66",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The final assertion on p.77 allows δ(κ,κ†)∈U(p₃⁺), so off-diagonal coefficients are differential operators, not scalars. Only the diagonal coefficient is a scalar. Its proof explicitly distinguishes projection onto the highest line from membership in that line. The inherited scalar-only objection misstates the claim.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E30",
@@ -5255,9 +5644,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E67",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A principal minor of order i has polynomial degree i. For differences r̃_i the degree is Σ i r̃_i=Σ r_i; r=(1,1) already separates it from the unweighted sum of differences.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E31",
@@ -5272,9 +5666,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E68",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Cuspidality on a unitary group does not alone imply cuspidality of its standard base change; endoscopic parameters can decompose. Any such cuspidality statement needs an additional hypothesis, and is not an output of doubling here.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E32",
@@ -5289,9 +5688,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E70",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The definition D_c(κ) in (89) uses W_κ as its generating compact type, while the later text calls it W_κ∨. The vectors in (107) and Proposition 4.5.6 must be interpreted through the chosen contragredient pairing. G3 retains the remaining dictionary comparison.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E33",
@@ -5306,26 +5710,36 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E71",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For |z|_C=z zbar, z^(−a)zbar^(−b) has norm exponent −(a+b)/2. The inducing-family parameter must include that shift before identifying an algebraic fiber with a unitary one; the plan leaves the exact fiber comparison in G3.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E34",
       "source": "EHLS",
       "kind": "gap",
       "locator": "Proposition 4.5.6, p.81; published Forum Math. Pi 8 (2020), e9, 160-page text",
-      "printed": "Algebraicity of the raw local integral is claimed without the archimedean period normalization.",
+      "printed": "The proposition gives algebraicity after a nearby reference to removing a period, without specifying the exact measure/kernel comparison.",
       "correction": "Compare the selected projected kernel with Garrett’s E-rational kernel using the same Haar measure; the proposed normalized statement is π^(−ab)Z_∞∈E×.",
       "reason": "Garrett’s qualitative convolution constant contains π^(ab). An algebraic rescaling of a section cannot absorb that period. The kernel comparison remains G3.",
-      "affects": "a stated result",
+      "affects": "the proof",
       "known": "Previously recorded in the atlas extraction as PAPER-EISCHEN-HARRIS-LI-ETAL-20/E72. No claim of novelty; no source-issued correction was established in this pass.",
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E72",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The paragraph preceding Proposition 4.5.6 acknowledges a removable power of π, but does not give the exact section/Haar conversion needed for its unqualified algebraicity sentence. Garrett §2 fixes that normalization and gives π^(ab) times an algebraic scalar. Confirm this as a normalization-comparison gap, not as evidence that every normalized version of the proposition is false.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E35",
@@ -5340,9 +5754,14 @@
       "inheritedFrom": "PAPER-EISCHEN-HARRIS-LI-ETAL-20/E98",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equation (143) is a local assertion at l. The right side needs π_l∨; the unsubscripted global contragredient is a type error.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     },
     {
       "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E36",
@@ -5356,9 +5775,35 @@
       "known": "Unresolved source-convention comparison, not a claim of a new false theorem or a published erratum. Related dual-type inconsistencies are recorded in atlas finding PAPER-EISCHEN-HARRIS-LI-ETAL-20/E70; this specific branching comparison needs independent review.",
       "searched": [
         "The existing atlas extraction and its recorded independent paper review.",
-        "The exact source edition listed in sourceVersions; CFK findings have not been collated against the Annals version.",
-        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding."
-      ]
+        "Journal article landing page, arXiv record and source-version history examined 2026-10-19; no separate correction located for this finding.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The branch tuple and the module-generator convention must be converted through compact duality/Borel choices. The a=b=1 gap has the opposite sign before dualization. This confirms the need for the G3 comparison, not a counterexample to the branching theorem after that comparison.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
+    },
+    {
+      "id": "AutomorphicLFunctionsAndLocalFactorsPartII/E37",
+      "source": "CFK",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 3.16, following (3.26), p.22; arXiv:1802.02637v5, internal pagination",
+      "printed": "The explanatory degeneracy parenthesis assigns value zero to the additive character of the pairing for a nonzero vector in the right radical.",
+      "correction": "For a vector in the right radical the trace pairing is zero and its additive-character value is 1.",
+      "reason": "An additive character takes values in C× and sends zero to 1; it cannot have value 0.",
+      "affects": "nothing",
+      "known": "Independently noticed while reading v5. No novelty claim and no claim that this persists in the published Annals text.",
+      "searched": [
+        "arXiv v5 proof at the locator read directly on 2026-10-19.",
+        "Annals article landing page and DOI route checked; the journal mathematical text was not obtained or collated.",
+        "Independent review reread the cited locator; the review reason distinguishes confirmed corrections from rejected inherited leads."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The pairing degeneracy is a zero in the additive coordinate, hence a value 1 after applying ψ. This typo changes no functional used in the plan.",
+        "by": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII"
+      }
     }
   ],
   "routedSourceCoverage": [
@@ -6402,5 +6847,323 @@
         ]
       }
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII",
+    "date": "2026-10-19",
+    "notes": "All 62 targets and all six pinned baseline declarations checked; all 36 inherited source findings reviewed, three rejected (E1,E9,E29), and E37 added with confirmation. Corrected group ownership, full GU modulus, Godement covariance, signed residual exponents, conjugate-parabolic families and global involution. Added 39 API items and two distinguishing tests. All 11 stages are planned, none closed: G1–G6 and exact supplier requests remain explicit implementation/source obligations. Acceptance concerns this completed planning pass, not formalization or proof-source closure. The source-version record does not claim collation with inaccessible final texts.",
+    "checked": [
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/doubled-space",
+        "verdict": "corrected",
+        "note": "Checked both isotropic subspaces, inverse half-sum coordinates and the factor 2 cross-pairing against EHLS §4.1.1. Added transport/extensionality; replaced the complex-group carrier attribution by G6. Anchors: [EHLS] §4.1.1, pp.43–44."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/unitary-siegel-parabolic",
+        "verdict": "corrected",
+        "note": "Computed the F-determinant of X↦λ(B*)⁻¹XB⁻¹, giving |λ|^(n²)|det B|_E^(−n). The scalar-similitude and n=1 tests detect its inverse. Added unique Levi-radical factorization and coordinate extensionality. Anchors: [EHLS] §4.1.1–4.1.2, p.44."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.0/classical-standard-data",
+        "verdict": "corrected",
+        "note": "Checked all five degrees and determinant characters in CFK §§1,3.2. Replaced the complex ClassicalGroups carrier import by current SO/dual-group imports and the explicit U/GU/GSpin comparison gap G6. Anchors: [CFK] §1, pp.6–8; §3.1–3.2, pp.10–12."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.1/unitary-induced-family",
+        "verdict": "corrected",
+        "note": "Checked half-modulus versus δ_EHLS, right translation, compact-picture holomorphy and finite-place Laurent families. Made n≥1 explicit and added the compact-picture constructor and equality criterion. Anchors: [EHLS] §4.1.2, p.44; §4.3.1, (54), pp.51–52."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.1/godement-section",
+        "verdict": "corrected",
+        "note": "Derived covariance using (0,X)p=(0,XD) and Y=XD in EHLS (55). Fixed the row, both characters and determinant ratio. Kept the GU extension in G3, and added a rank-one wrong-row test and Schwartz congruence. Anchors: [EHLS] §4.3.1, equations (54)–(55), pp.52–53."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.1/unitary-eisenstein",
+        "verdict": "verified",
+        "note": "Checked EHLS §4.1.3 and HLS §3.1. Character-on-GL_n induction is not cuspidal for n>1; the ordered-residue/transitivity proof remains G1 with AS.2/ET.7a contracts. Anchors: [EHLS] §4.1.3, p.45; §4.1.4, pp.45–48; [HLS] §3.1, internal pp.43–49."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.2/unitary-local-integral",
+        "verdict": "corrected",
+        "note": "Checked the evaluation matrix coefficient, Haar convention and nonzero-pairing restriction on I_U in EHLS (49)–(51). Added invariance under paired representation transport; zero pairing does not define a divided integral. Anchors: [EHLS] §4.1.4, equations (49)–(51), pp.46–48."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.2/unitary-normalizer",
+        "verdict": "corrected",
+        "note": "Checked EHLS (53), product endpoints, inverse χ convention and degree over E versus F. Added the empty-product simplification; the recurrence, rank-one and nonsplit tests distinguish these choices. Anchors: [EHLS] §4.2.1, (53), pp.48–49."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.2/unitary-spherical",
+        "verdict": "verified",
+        "note": "Recomputed the split U(1) geometric series with right action, including the cross-factor. The displayed nonsplit/general-rank statement is a target subject to the exact source comparison G1. Anchors: [EHLS] §4.2.1, pp.48–49, corrected for the right-action convention."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.2/unitary-functional-equation",
+        "verdict": "verified",
+        "note": "Checked the local comparison described in EHLS §§4.1.3–4.1.4. The z=s+1/2 conversion and Whittaker normalization are explicit; the missing all-place proof is honestly G1. Anchors: [EHLS] §4.1.3–4.1.4, pp.45–48."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.3/unitary-euler-identity",
+        "verdict": "verified",
+        "note": "Compared HLS §§3.1.2–3.2.1 and EHLS (49)–(51). Kept trilinear unfolding primary and divided Euler factorization conditional on nonzero pairings; representation-type orthogonality does not imply vectorwise vanishing. Anchors: [EHLS] §4.1.4, (49)–(51), pp.45–48; [HLS] §3.1.2–3.1.3, internal pp.45–48; §3.2.1, pp.49–50."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.3/mvw-involution",
+        "verdict": "corrected",
+        "note": "Checked EHLS (143) and its local contragredient label. The general MVW theorem remains G2 rather than being inferred from the unramified formula. Added pullback functoriality for the chosen involution. Anchors: [EHLS] §6.5.3, equation (143), p.101; §9.1.3, p.150."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.3/garrett-map",
+        "verdict": "corrected",
+        "note": "Read published EHLS Theorem 9.1.3: its output is π. Verified the realization/dual pairing and simultaneous section action; added compatibility with transported cusp realizations. Anchors: [EHLS] §9.1.1–9.1.4, (178) and Theorem 9.1.3, pp.149–150."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.3/unitary-global-l",
+        "verdict": "verified",
+        "note": "Checked the meromorphic Euler argument in EHLS §§4.1.4–4.2.1. It supplies a standard Euler product and functional equation once G1 is closed, with no unsupported entireness or automorphic base-change conclusion. Anchors: [EHLS] §4.1.4–4.2.1, pp.45–49."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/holomorphic-modules",
+        "verdict": "corrected",
+        "note": "Checked (88)–(91), the compact-dual convention, positivity inequality and cohomological degree. Added the induced-module universal property and cyclic extensionality; the source-label dictionary remains G3. Anchors: [EHLS] §4.4.1, (88)–(91), pp.69–71."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/scalar-holomorphic-model",
+        "verdict": "corrected",
+        "note": "Checked (92) and Remark 4.5.3 after restriction to ν=1. Preserved the central-character and compact-dual comparison G3, removed the arbitrary-field carrier attribution, and added transport of the chosen base point. Anchors: [EHLS] §4.4.2, (92), pp.71–73; Remark 4.5.3, p.80."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/holomorphic-injection",
+        "verdict": "verified",
+        "note": "Checked Lemma 4.4.4: irreducibility in the holomorphic range and nonzero value at identity give injection. This does not assert injection for singular generalized Verma modules; G3 identifies the generating compact type. Anchors: [EHLS] Lemma 4.4.4, pp.73–74."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/polynomial-cauchy",
+        "verdict": "verified",
+        "note": "Checked Lemma 4.4.8 and (100), including weak partitions, length bound and Σ i(r_i−r_(i+1))=Σ r_i. The general Schur/highest-weight construction is imported, not repeated. Anchors: [EHLS] Lemma 4.4.8 and (100), pp.75–76."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/holomorphic-branching",
+        "verdict": "verified",
+        "note": "Checked (93)–(95) and the rank-one compact-dual sign. The branch κ is the dualized parameter, not literally the printed generator weight; G3 still requires its automorphy-factor comparison. Anchors: [EHLS] §4.4.2, equations (93)–(95), p.73."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/raising-operator",
+        "verdict": "corrected",
+        "note": "Checked PBW and the minor polynomial in (98)–(100), with weighted degree and algebraic choices. Added linear/multiplicative structure and recovery from the PBW symbol. Anchors: [EHLS] §4.4.5–4.4.9, (98)–(100), pp.74–77."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/holomorphic-projection",
+        "verdict": "corrected",
+        "note": "Read Corollary 4.4.9 and proof. Retained its nonzero highest-line projection. Removed the alleged scalar triangular-expansion gap: off-diagonal terms are operators, so E29 is rejected. Anchors: [EHLS] Corollary 4.4.9, first assertion and proof, pp.76–77."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/archimedean-section",
+        "verdict": "corrected",
+        "note": "Checked Lemma 4.5.2, (107) and |z|_C=z zbar, hence t=μ−(a+b)/2. The inducing-fiber/GU comparison remains G3. Added normalization scaling and compact-picture extensionality. Anchors: [EHLS] Lemma 4.5.2, Remark 4.5.3 and (107), p.80."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/archimedean-nonvanishing",
+        "verdict": "verified",
+        "note": "Checked EHLS Proposition 4.5.5 and Harris Remark 4.4(iv), including the holomorphic theta hypotheses. The precise MP.3 theorem is an extension request, not supplied by a generic theta-correspondence slogan. Anchors: [EHLS] Proposition 4.5.5, pp.80–81; [HARRIS] Remark 4.4(iv), pp.27–28."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.4/archimedean-rationality",
+        "verdict": "verified",
+        "note": "Read Garrett §§1–2 and EHLS Proposition 4.5.6. Retained π^(−ab) and the exact Haar/kernel comparison G3; no blanket assertion that every normalized form of the published proposition is false. Anchors: [GARRETT] §1, pp.1–3; qualitative theorem and measure normalization, §2, p.4; [EHLS] Proposition 4.5.6 and Remark 4.5.7, p.81."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/rectangular-character",
+        "verdict": "corrected",
+        "note": "Checked Definition 1 and (2.1) in MODELS: adjacent traces, stabilizer, orbit partition and k=1/c=1 boundaries. Added identity and additive-character scaling; Lean uses k+1 blocks explicitly. Anchors: [CFK] §3.1, pp.11–12; [MODELS] §2.1, (2.1) and Definition 1, pp.2–3."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/rectangular-model",
+        "verdict": "corrected",
+        "note": "Checked MODELS Theorem 4 and CFK §3.1, including larger/incomparable support vanishing and possible reducibility for general generic τ. Added the image-model universal property without assuming coefficient-map faithfulness; the Speh adapter consumes current SR.5.3. Anchors: [MODELS] Definition 1, Theorem 4, Claim 6 and (2.3)–(2.6), pp.2–6; Lemma 12, p.11; [CFK] §3.1, pp.11–12."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/root-elimination",
+        "verdict": "corrected",
+        "note": "Read MODELS Lemmas 7,9 and CFK Lemma 3.16, including the determinant twist and surjectivity range. Corrected the CFK locator to begin p.21 and added twisted equivariance of the transform. Anchors: [MODELS] §3.1, Lemma 7, pp.6–7; §3.2, Lemma 9 and proof, pp.7–9; [CFK] Lemma 3.16, pp.21–24."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/generalized-datum",
+        "verdict": "corrected",
+        "note": "Compared CFK §3.3 with GK setup: connected central kernel, U=V⋊U₀, inverse character and the Sp example. Clarified j^(kc)P and the group-carrier import; separate spin/odd-orthogonal coordinates remain G4/G6. Anchors: [CFK] §3.3, Example 3.1, pp.12–13; [GK] §1.5, pp.12–16."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/generalized-induced-family",
+        "verdict": "corrected",
+        "note": "Checked CFK §3.3, shift s−1/2, both χ_π factors and entire versus polynomial sections. Added the compact-picture constructor and equality criterion without introducing substitute carriers. Anchors: [CFK] §3.3 and its footnote 2, pp.13–14."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.5/model-estimates",
+        "verdict": "verified",
+        "note": "Read CFK Lemmas 3.13–3.14 and 3.22: determinant decay, Schwartz factors and continuous seminorm control are separate requirements. The AF.1 opposite-unipotent estimate is an explicit supplier contract. Anchors: [CFK] Lemmas 3.13–3.14, (3.19)–(3.22), pp.19–21; Lemma 3.22, pp.32–33."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/local-zeta",
+        "verdict": "corrected",
+        "note": "Checked CFK §3.3 integrand, π∨ coefficient, ι, U₀ and connected-central descent. Added invariance under paired representation transport; measures and character remain fixed data. Anchors: [CFK] §3.3, local integral and Lemma 3.3, p.14."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/local-continuation",
+        "verdict": "verified",
+        "note": "Checked CFK Theorem 3.2: convergence independent of vectors, continuous meromorphic extension and local finite nonzero data. The full local proof source remains G4; no universal holomorphy of Z/L is inferred. Anchors: [CFK] Theorem 3.2, p.14."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/multiplicity-one",
+        "verdict": "verified",
+        "note": "Checked GK Theorem A and its setup against CFK (3.4), including finite/discrete exceptions. Kept the conormal/distribution proof obligation G4 and did not replace it by a false finite-small-orbit assertion. Anchors: [GK] Theorem A, pp.2–3; Theorem 1.4, pp.10–11; Theorem 2.1, p.17; [CFK] §3.4, (3.4), pp.14–15."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/normalized-intertwiner",
+        "verdict": "corrected",
+        "note": "Checked CFK (3.5) and the odd-kc Levi target; j is trivial in the symplectic case. Added uniqueness among scalar multiples and naturality with transported Whittaker functionals. Exact source construction remains G4. Anchors: [CFK] §3.4, (3.5), pp.15–16."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/local-gamma",
+        "verdict": "corrected",
+        "note": "Checked (3.6)–(3.7), i_G, the Sp-only GL factor and all low-rank tail conventions. Added isomorphism invariance; coordinate changes retain their nowhere-zero normalization factor and G4. Anchors: [CFK] §3.4, equations (3.6)–(3.7), Remark 3.4, pp.15–16."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/factor-identities",
+        "verdict": "verified",
+        "note": "Checked each property of Theorem 3.5, including the classical quotient hypothesis, χ_π dual twist and ψ_b exponent. Existing nongeneric GL factors are imported; the corrected local source remains G4. Anchors: [CFK] Theorem 3.5, (3.8)–(3.14), pp.16–17."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/local-l-epsilon",
+        "verdict": "corrected",
+        "note": "Checked CFK §3.4, (3.15)–(3.17), normalized polynomial and Langlands products, including an empty GL block. The GSpin chamber is a_d>r after the Υ twist. Added transport invariance; no second Langlands classification. Anchors: [CFK] §3.4, (3.15)–(3.17), Remark 3.6, p.17."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/spherical-normalizer",
+        "verdict": "verified",
+        "note": "Checked both parity products in (3.3), the Sp-only factor and the broader τ range of Theorem 3.7. Exact local spherical normalization remains G4; arbitrary generic τ is only in the factor-comparison claim. Anchors: [CFK] Equations (3.2)–(3.3), p.14; Theorem 3.7, p.17."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/tempered-holomorphy",
+        "verdict": "verified",
+        "note": "Checked Theorem 3.8 and Corollary 3.9, their unramified/archimedean range, unitary hypotheses and quotient direction. The continued ratio is used even at denominator poles. Anchors: [CFK] Theorem 3.8 and Corollary 3.9, p.18."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.6/high-ramified-stability",
+        "verdict": "verified",
+        "note": "Checked Theorem 3.10 and Remark 3.11: central characters must match before applying stability, τ is unramified generic and Π need not be generic. Full local proof closure remains G4. Anchors: [CFK] Theorem 3.10 and Remark 3.11, p.18."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.7/auxiliary-gl-zeta",
+        "verdict": "corrected",
+        "note": "Checked Appendix A pp.42–43, embeddings and exponent. The k=1 case retains Schwartz data and differs from k>1 convolution. Added simultaneous transport of coefficient, inducing representation and model. Anchors: [CFK] Appendix A, pp.42–43."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.7/auxiliary-functional-equation",
+        "verdict": "verified",
+        "note": "Checked Theorems A.1–A.2 and the reflected exponent/domain, k=2 boundary, central sign and τ∨ occurrence. Precise trilinear uniqueness and archimedean proof closure remain G4. Anchors: [CFK] Theorems A.1–A.2 and (A.2)–(A.17), pp.43–50."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.7/auxiliary-gcd",
+        "verdict": "corrected",
+        "note": "Checked Theorem A.6, normalized finite-place generator and archimedean divisor interpretation. Added uniqueness only up to an entire unit at infinity; the multiplicativity error factor is allowed to vanish. Anchors: [CFK] Theorem A.6 and (A.19), pp.50–51."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.7/auxiliary-poles",
+        "verdict": "verified",
+        "note": "Checked Lemma A.8, Proposition A.10 and Theorem A.11, including τ∨ and L_RS/𝔏 entire. Nonzero at a point may mean a pole, and the tail quotient has the stated direction. Anchors: [CFK] Lemma A.8, pp.51–54; Proposition A.10 and Theorem A.11, pp.54–55."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.7/open-chart-reduction",
+        "verdict": "verified",
+        "note": "Read Propositions 3.17–3.19, Lemma 3.20 and Corollary 3.21. The node safely retains unitary χ_π for its fixed-half-plane consumer; the broader all-point source claims are not refuted by E1. Anchors: [CFK] Propositions 3.17–3.19, Lemma 3.20, Corollary 3.21 and (3.32), (3.35)–(3.41), pp.24–32."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.7/pole-attainment",
+        "verdict": "verified",
+        "note": "Checked Theorem 3.12 and completion pp.31–32. ord Z≤ord L permits a pole of Z/L. Kept precisely the unitary central-character and unramified-finite/archimedean range; k=1 source closure is G4. Anchors: [CFK] Theorem 3.12 and proof summary, p.19; proof completed after Corollary 3.21, pp.31–32."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.8/generalized-eisenstein",
+        "verdict": "corrected",
+        "note": "Checked (4.1)–(4.3), residual Speh input and global shift s_E=s_G−1/2. Disambiguated the API parameter and added linearity/right translation; ET.7a supplies Speh rather than another residual construction here. Anchors: [CFK] §4.2, equations (4.1)–(4.3), pp.34–35."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.8/constant-terms",
+        "verdict": "corrected",
+        "note": "Checked (4.5), Lemma 4.3 and (4.8)–(4.9). Corrected the exceptional family to even SO/GSpin ambient H with odd k; retained the half-unit shifts and correct numerator/denominator roles. Anchors: [CFK] (4.5), Lemma 4.3, pp.35–36; even orthogonal/spin ambient H with odd k, (4.8)–(4.9), pp.37–38."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.8/residual-exponents",
+        "verdict": "corrected",
+        "note": "Replaced the incorrect scalar exponent expression by the signed vector of Lemma 4.4. Derived every negative partial sum, including j=c, and the c=2 numerical check. Hermitian-support symmetry remains a separate AS.4 input. Anchors: [CFK] Lemma 4.4 and proof of Theorem 4.1, (4.6)–(4.8), pp.36–38."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.8/eisenstein-holomorphy",
+        "verdict": "corrected",
+        "note": "Checked Theorem 4.1 through the boundary and strip argument, using AS.2 pole detection and AS.4 support symmetry. Corrected the conjugate-parabolic family consistently with (4.8)–(4.9). Anchors: [CFK] Theorem 4.1 and proof, pp.34–38."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.8/global-denominator",
+        "verdict": "verified",
+        "note": "Checked the b^S factors and proof of Theorem 4.8. Boundary holomorphy needs twisted Sym²/∧² global pole criteria from AS.2; Euler polynomial convergence in AL.4 alone is insufficient. Anchors: [CFK] Proof of Theorem 4.8, p.40; formula (3.3), p.14."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.9/global-unfolding",
+        "verdict": "corrected",
+        "note": "Read GK Corollary 3.7/(3.8) and CFK §4.3. Restored φ₂∘ι, both connected-central quotients and inducing-character cancellation, and added trilinearity plus the paired local/global involution test. Anchors: [GK] §3.2, Corollary 3.7 and equation (3.8), pp.70–73; [CFK] §4.3, (4.10), pp.38–39."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.9/completed-l",
+        "verdict": "corrected",
+        "note": "Checked CFK §4.3, independence of S and additive-character cancellation. Added uniqueness of meromorphic continuation from a common right half-plane; local factors include all archimedean ones. Anchors: [CFK] §4.3, pp.38–39."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.9/functional-equation",
+        "verdict": "verified",
+        "note": "Checked Theorems 4.6–4.7 and crude equation (3.14), including the dual completed factor. Vertical-strip boundedness is a separate uniform-estimate theorem retained in G4, not a consequence of the equation alone. Anchors: [CFK] Theorems 4.6–4.7, p.39; Theorem 3.5, (3.14), p.16."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.9/entireness",
+        "verdict": "verified",
+        "note": "Checked Theorem 4.8 and (4.11). At every bad ramified π place both local L-factors must be 1. The order inequality allows poles of local quotients; the dual argument covers the other half-plane. Anchors: [CFK] Theorem 4.8 and (4.11), pp.39–40."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.10/weak-transfer",
+        "verdict": "corrected",
+        "note": "Checked Definition 2.2 and Remark 4.9: infinity requires infinitesimal character, with full archimedean representation matching a stronger construction result. Added a witness constructor without importing a transfer theorem. Anchors: [CFK] Definition 2.2, p.9; Remark 4.9, p.41."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.10/coarse-transfer",
+        "verdict": "corrected",
+        "note": "Checked (3.18), its generic test domain and support-only uniqueness. Added invariance under representation isomorphism; arbitrary nongeneric GL irreducibles with that support need not be isomorphic. Anchors: [CFK] §3.5, (3.18), pp.18–19."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.10/modified-converse",
+        "verdict": "verified",
+        "note": "Read specialized Theorem 2.1, test ranks 1,…,N−1, nonempty finite S and full analytic hypotheses. Original CPS/CKPSS proof closure remains G5; neither right convergence nor strong multiplicity one gives automorphy. Anchors: [CFK] §2, Theorem 2.1, pp.8–9."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.10/global-transfer",
+        "verdict": "verified",
+        "note": "Checked Theorem 0.1 and §4.4: good Satake data, archimedean transfer, central-character descent before stability and ramified η excluding essential duality. G5 records the exact Hecke-character prescription. Anchors: [CFK] Theorem 0.1, pp.1–3; §4.4, proof, pp.40–41."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.10/weak-to-coarse",
+        "verdict": "verified",
+        "note": "Checked Theorem 4.10 and (4.12)–(4.14). Isobaric support uniqueness replaces any false nongeneric-isomorphism claim; controlled globalization and cancellation at auxiliary places remain G5. Anchors: [CFK] Theorem 4.10 and (4.12)–(4.14), p.41."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.10/local-transfer",
+        "verdict": "verified",
+        "note": "Checked Corollary 4.11, supercuspidal globalization and product of GL blocks, classical transfer and twisted duals. SR.2 must first realize the classical constituent as a quotient for Weyl-conjugate support data. Anchors: [CFK] Corollary 4.11 and proof, p.42."
+      },
+      {
+        "nodeId": "AutomorphicLFunctionsAndLocalFactorsPartII:D.10/automorphic-transfer",
+        "verdict": "verified",
+        "note": "Checked the introduction p.2 consequence of Theorem 0.1. The noncuspidal extension imports the precise automorphic cuspidal-support theorem and existing isobaric-sum constructor, including low-rank tails. Anchors: [CFK] Introduction, p.2, consequence of Theorem 0.1."
+      }
+    ]
+  }
 }
