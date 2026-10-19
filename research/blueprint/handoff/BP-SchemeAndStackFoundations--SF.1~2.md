@@ -1,15 +1,16 @@
 # Blocked checkpoint: SF.1 already has an upstream owner
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296; Codex session
-`codex-vl3eO2`, 2026-10-19. The bot
-[confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6261607418).
+`codex-R2OA2e`, 2026-10-19. The bot
+[confirmed this session’s claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6262867747).
 This run claimed no second job. **The blueprint revision remains unfinished.**
 This note consolidates the previous ownership checkpoints; their history remains
 in Git and the issue discussion.
 
 ## Blocking instruction and resume condition
 
-The full issue body and its 89 comments were read after claiming. The
+The full issue body and all comments returned by the live issue query were read;
+the issue was re-read after the bot confirmed this claim. The
 [maintainer’s instruction of 2026-10-13](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
 stops further atlas blueprint rounds: the upstream roadmap is authoritative and
 changes belong there. No subsequent comment supplies a new mathematical scope.
@@ -57,8 +58,8 @@ R09.3/R09.4 remain consumers. No consumer edges or supplier requests change here
 The supplied read-only roadmap checkout is at the pre-merge commit
 `0d144d044dacebca17b654695b6f1ad58f159b27` and lacks this roadmap. Its absence
 there cannot establish missing upstream work. The supplied Tau Ceti checkout
-is at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; I read its scheme-module
-forgetful functor and finite-Galois descent interfaces without changing it. Neither
+is at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; I read its finite-Galois spanning and injectivity
+interfaces without changing it. Neither
 checkout was modified; no Lake command or Lean process was started. No
 mathematical paper or book was needed for this ownership check.
 
@@ -76,10 +77,15 @@ four planets, 83 baseline declaration entries, eleven gaps and four requests.
 Lean was not run because no Lean changed. The submission also passes the
 intake file check and `git diff --check`.
 
-This session rechecked the live upstream API and the files at the commit above.
-The release after checkpoint #10592 supplied no new scope or reversal of the
-maintainer’s instruction. The supplied roadmap tree remains at its pre-merge
-commit, so the live upstream files are necessary to resolve ownership. The
+This session rechecked the live upstream API and read the Layer 1 scope,
+§§1.1–1.4, §1.10, §1.22 and §1.24 and their available suggested forms at the
+commit above. The reviewed SF.1 library audit and the current finite-Galois
+spanning/injectivity source statements were also read. No baseline claim or
+mathematical target was added. The release after checkpoint #10623 supplied no
+new scope or reversal of the maintainer’s instruction. The older
+[draft checkpoint #9996](https://github.com/CBirkbeck/tauceti-explorer/pull/9996)
+also remains open; this run does not replace it or change its state. The supplied
+roadmap tree remains at its pre-merge commit, so the live upstream files are necessary to resolve ownership. The
 assignment still needs maintainer disposition before mathematical work resumes.
 
 The exact unfinished mathematical ledger remains in the packet’s `gaps` and
@@ -90,3 +96,12 @@ size bounds and infinite-Galois comparison obligations. Those are historical
 atlas obligations, not authorization to re-plan the upstream roadmap. Preserve
 the existing node ids and review object if the maintainer supplies an applicable
 new scope. All continuation evidence is linked here; no scratch file is needed.
+
+## This checkpoint
+
+Session `codex-R2OA2e` changes only this handoff to persist its claim and current
+ownership check. The run explicitly requires a checkpoint when blocked; the
+mathematical deliverables remain unfinished for the reason above. Submission
+uses branch `codex-R2OA2e-sf1-checkpoint`. No second issue was claimed. The
+maintainer must retire or redirect #9296 before another mathematical revision:
+repeating this ownership check cannot supply the missing assignment.
