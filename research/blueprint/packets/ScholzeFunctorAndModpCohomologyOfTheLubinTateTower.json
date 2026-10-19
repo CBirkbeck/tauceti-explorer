@@ -12,7 +12,7 @@
   "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.6"
  ],
  "status": "complete",
- "summary": "Blueprint of the new roadmap ScholzeFunctorAndModpCohomologyOfTheLubinTateTower at target level: 29 nodes in seven layers, built from Colmez–Dospinescu–Nizioł (Forum Math. Pi 2023) §§3–4 and the papers they use in full (Scholze 2018, Ludwig 2017, Fust 2022, Paškūnas 2022, Dospinescu–Paškūnas–Schraen 2023, Gee–Kisin 2014 Appendix A, Strauch 2008, Moore 1968). SZ.0 sets up equivariant étale sites, the Gross–Hopkins period map as a pro-étale GLₙ(F)-torsor, Strauch’s connected components and finiteness for admissible representations of compact p-adic Lie groups. SZ.1 constructs Scholze’s sheaf ℱ_π and the functors Sⁱ, and proves Scholze’s finiteness theorem (with the strict-image and Frobenius almost-module lemmas) with the Galois action, S⁰, central characters and twists. SZ.2 plans Fust’s continuous cohomology of p-adic groups, Moore’s vanishing of H² of SL₂(ℚ_p) mod p, the Cartan–Leray spectral sequence Hⁱ(G, H^j(M_∞, π)) ⇒ S^{i+j}(π) and the comparison map for S¹. SZ.3 plans Ludwig’s perfectoid Borel quotient and the vanishing of S² on principal series and Steinberg twists. SZ.4 globalises a residual representation, controls the definite quaternionic block module and Paškūnas’s torsion comparison, and proves the key local proposition on Galois invariants of S¹(I(χ₁, χ₂)). SZ.5 proves that the functor of multiplicities has finite image and the finite-length theorem for H¹_ét(M^p_{n,K}, k_L)^∨. SZ.6 proves finiteness of multiplicities for every F, finite length and vanishing of the geometric multiplicities Π^geo_n(ρ̄), and the finiteness of Lubin–Tate smooth vectors. One gap remains: CDN Theorem 2.1, owned by the pending pro-étale cohomology design. Three mistakes in CDN are recorded (two citation or computation slips that affect nothing, one gap in a cited lemma that the plan routes around).",
+ "summary": "Blueprint of the new roadmap ScholzeFunctorAndModpCohomologyOfTheLubinTateTower at target level: 29 nodes in seven layers, built from Colmez–Dospinescu–Nizioł (Forum Math. Pi 2023) §§3–4 and the papers they use in full (Scholze 2018, Ludwig 2017, Fust 2022, Paškūnas 2022, Dospinescu–Paškūnas–Schraen 2023, Gee–Kisin 2014 Appendix A, Strauch 2008, Moore 1968). SZ.0 sets up equivariant étale sites, the Gross–Hopkins period map as a pro-étale GLₙ(F)-torsor, Strauch’s connected components and finiteness for admissible representations of compact p-adic Lie groups. SZ.1 constructs Scholze’s sheaf ℱ_π and the functors Sⁱ, and proves Scholze’s finiteness theorem (with the strict-image and Frobenius almost-module lemmas) with the Galois action, S⁰, central characters and twists. SZ.2 plans Fust’s continuous cohomology of p-adic groups, Moore’s vanishing of H² of SL₂(ℚ_p) mod p, the Cartan–Leray spectral sequence Hⁱ(G, H^j(M_∞, π)) ⇒ S^{i+j}(π) and the comparison map for S¹. SZ.3 plans Ludwig’s perfectoid Borel quotient and the vanishing of S² on principal series and Steinberg twists. SZ.4 globalises a residual representation, controls the definite quaternionic block module and Paškūnas’s torsion comparison, and proves the key local proposition on Galois invariants of S¹(I(χ₁, χ₂)). SZ.5 proves that the functor of multiplicities has finite image and the finite-length theorem for H¹_ét(M^p_{n,K}, k_L)^∨. SZ.6 proves finiteness of multiplicities for every F, finite length and vanishing of the geometric multiplicities Π^geo_n(ρ̄), and the finiteness of Lubin–Tate smooth vectors. One gap remains: CDN Theorem 2.1, owned by the pending pro-étale cohomology design. Six source issues are independently checked: Fust’s version-dependent lemma number, the prime-to-p limitation of the cited projection-formula proof, the height-two scalar quotient, the degree-zero reduced-norm convention conflict, the missing dual in CDN Corollary 2.12, and the coefficient-dual slip already corrected in DPS23. The plan uses the DPS common-central-character convention.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -22,98 +22,98 @@
     "kind": "def",
     "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Basic.lean",
     "provides": "Ext groups in an abelian category with a derived category; Ext from the trivial representation in the smooth category in Fust’s comparison.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:ContinuousMap",
     "kind": "structure",
     "module": "Mathlib/Topology/ContinuousMap/Defs.lean",
     "provides": "Bundled continuous maps; sections of Scholze’s sheaf are continuous equivariant maps from a topological space to a discrete module.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:Field.absoluteGaloisGroup",
     "kind": "def",
     "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
     "provides": "The absolute Galois group of a field; Gal_{ℚ_p} acting on cohomology and on ρ̄.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:FiniteDimensional",
     "kind": "abbrev",
     "module": "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
     "provides": "Finite-dimensional vector spaces; the values of a functor of finite image.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:LocallyConstant",
     "kind": "structure",
     "module": "Mathlib/Topology/LocallyConstant/Basic.lean",
     "provides": "Locally constant maps; continuous maps to a discrete module are locally constant (C⁰(S, A) for profinite S).",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:Matrix.SpecialLinearGroup.isTopologicalGroup",
     "kind": "instance",
     "module": "Mathlib/Topology/Algebra/Group/Matrix.lean",
     "provides": "SL(n, R) is a topological group for a topological ring R; the topology on SL₂(ℚ_p) in Moore’s and Fust’s statements.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:PadicComplex",
     "kind": "abbrev",
     "module": "Mathlib/NumberTheory/Padics/Complex.lean",
     "provides": "ℂ_p as the completion of an algebraic closure of ℚ_p; the default C over which Sⁱ is computed.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:PontryaginDual",
     "kind": "def",
     "module": "Mathlib/Topology/Algebra/PontryaginDual.lean",
-    "provides": "The Pontryagin dual of a locally compact abelian group; π^∨ for discrete torsion π and the duals of compact modules.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "provides": "The multiplicative circle-valued continuous-character carrier A →ₜ* Circle. It does not itself supply coefficient-linear Hom_cont,O(−,L/O), its contragredient module structure or compact/discrete anti-equivalence; SZ.0/compact-lie-admissible-cohomology constructs that comparison and duality.",
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:Representation",
     "kind": "abbrev",
     "module": "Mathlib/RepresentationTheory/Basic.lean",
     "provides": "Linear representations of a monoid; residual Galois representations ρ̄ and their Hom spaces.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:Set.Finite",
     "kind": "def",
     "module": "Mathlib/Basic/Finite/Defs.lean",
     "provides": "Finite sets; the support of a functor of finite image.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:TopRep",
     "kind": "structure",
     "module": "Mathlib/RepresentationTheory/Continuous/TopRep.lean",
-    "provides": "Topological k-modules with a group acting by continuous linear operators; the coefficient objects of continuousCohomology.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "provides": "A topological module with a group homomorphism to continuous linear endomorphisms; this gives continuity of each operator, not joint continuity in g and v. TauCeti.IsSmoothDiscrete supplies the discrete smooth coefficient condition required by Fust.",
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:TopRep.coind₁",
     "kind": "abbrev",
     "module": "Mathlib/RepresentationTheory/Continuous/TopRep.lean",
-    "provides": "Coinduction C(G, A) of a topological representation from the trivial group, the term of the continuous cochain resolution; continuous induction Ind_1^G in Shapiro’s lemma.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "provides": "The continuous-function object C(G,A), with action (gf)(x)=g·f(g⁻¹x), for a TopRep A. SZ.2/fust-cohomology explicitly untwists and converts conventions; general closed-subgroup induction and Shapiro’s quasi-isomorphism are new targets there.",
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "mathlib:continuousCohomology",
     "kind": "abbrev",
     "module": "Mathlib/RepresentationTheory/Homological/ContCohomology/Basic.lean",
     "provides": "Continuous cohomology of a topological representation of a topological group, as homology of the homogeneous cochains built from iterated C(G, −) (no local compactness assumed); the carrier of Hⁱ(G, −) in SZ.2.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    },
    {
     "ref": "tauceti:TauCeti.IsSmoothDiscrete",
     "kind": "structure",
     "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
     "provides": "Objects of TopRep whose module is discrete and whose point stabilisers are open: smooth representations as continuous ones, with the dictionary ofDiscreteModule.",
-    "checked": "Name, kind and file read in the pinned declaration index and the source file at the pinned commit on 2026-10-19."
+    "checked": "Independent review, 2026-10-19: opened the source file at the recorded pinned commit and checked the declaration name, kind, hypotheses and the scope described here."
    }
   ]
  },
@@ -130,7 +130,7 @@
     "§0.1–0.2, pp. 2–6",
     "§1.2.3 and §1.3.2 with Remarque 1.9, pp. 12–14",
     "Lemmes 1.22–1.23 and Théorème 1.24, pp. 17–18",
-    "Théorème 2.1 and Corollaire 2.12, pp. 21 and 31–32",
+    "Théorème 2.1 and Corollaire 2.12, pp. 21 and 30",
     "§3 (Théorèmes 3.1–3.2, Lemme 3.10, Corollaires 3.11 and 3.13), pp. 32–37",
     "§4 (Théorème 4.1 to Remarque 4.29), pp. 37–49",
     "Bibliography, pp. 60–62"
@@ -161,7 +161,7 @@
    "sha256": "ed9187b3269adb7e9964369470073ce8760ef56ef0c0b89538c0a1509f811959",
    "accessed": "2026-10-19",
    "readSections": [
-    "§2, Lemmas 2.12–2.13, pp. 11–12"
+    "§2, Propositions 2.10–2.11 and Lemmas 2.12–2.13, pp.10–13"
    ]
   },
   {
@@ -175,7 +175,7 @@
    "readSections": [
     "§1, pp. 1–3",
     "§2.1, pp. 3–5",
-    "Theorems 3.11 and 3.14 (statements), pp. 20–23",
+    "Theorem 3.11, Corollary 3.13, Theorem 3.14 and Proposition 3.15 with proofs, pp.20–23; Proposition 3.17 with proof and Proposition 3.22, Lemma 3.23, pp.23–27",
     "§4 (Proposition 4.1 to Remark 4.8), pp. 28–32"
    ]
   },
@@ -204,7 +204,8 @@
    "sha256": "963e68f72655c183aeb04869b5cd5df92fd46f0aada580637b2c5f67c6beca34",
    "accessed": "2026-10-19",
    "readSections": [
-    "§6 (from (29) to Theorem 6.5), pp. 27–30"
+    "§6 (from (29) to Theorem 6.5), pp. 27–30",
+    "§5, Lemmas 5.1–5.3 and Proposition 5.4, pp.17–20; fixed-central-character modules, pp.26 and29–30"
    ]
   },
   {
@@ -217,7 +218,8 @@
    "accessed": "2026-10-19",
    "readSections": [
     "§7 (Lemmas 7.1–7.4), pp. 29–31",
-    "§8 (Proposition 8.1, Lemma 8.2, Proposition 8.4, Lemma 8.6), pp. 37–40"
+    "§8 (Proposition 8.1, Lemma 8.2, Proposition 8.4, Lemma 8.6), pp. 37–40",
+    "Lemma 8.6 with proof, pp.40–41; footnote 15, p.40"
    ]
   },
   {
@@ -254,7 +256,9 @@
    "accessed": "2026-10-19",
    "readSections": [
     "Chapter I §1 (Theorems 1.1–1.3)",
-    "Chapter III §10 (Theorems 10.1–10.4)"
+    "Chapter III §10 (Theorems 10.1–10.4)",
+    "Chapter II Definition 3.1 and Theorem 3.1, printed pp.17–18",
+    "Chapter III §§8–9, Theorems 9.1–9.2, printed pp.46–47"
    ]
   }
  ],
@@ -283,8 +287,8 @@
    ],
    "acceptance": [
     "For G trivial (X/G)_ét is X_ét and (e) degenerates to H^j(X_ét, 𝒢).",
-    "For K finite acting trivially on a qcqs X, (e) is the Hochschild–Serre spectral sequence of the finite group K acting trivially on RΓ(X_ét, 𝒢), and H^i((X/K)_ét, 𝒢) = H^i(K, RΓ(X_ét, 𝒢)) by (a)–(b).",
-    "For the Lubin–Tate tower over P^{n−1} with J = D^× (SZ.0/gross-hopkins-torsor), (d) gives (P^{n−1}/D^×)_ét ≃ (M_{LT,∞}/GL_n(O_F) × D^×)_ét after restriction to height-zero components, the site on which Scholze’s sheaf lives."
+    "For K finite acting trivially on a qcqs X and with trivial K-linearisation on 𝒢, (e) is the group-cohomology spectral sequence for the trivial action on RΓ(X_ét, 𝒢). An arbitrary equivariant sheaf can carry a non-trivial K-action even when the action on X is trivial.",
+    "For a compact open K ⊂ GLₙ(F), the Lubin–Tate K-tower gives (M_{LT,K}/D^×)_ét ≃ (M_{LT,∞}/(K × D^×))_ét. The base of this compact-group descent is M_{LT,K}; descent from the full GLₙ(F)-torsor to projective space is a separate step of SZ.0/gross-hopkins-torsor and SZ.1/scholze-sheaf."
    ],
    "prerequisites": [
     "IgusaVarietiesAndTorsionConcentration:IG.4/equivariant-sites-and-nearby-cycles",
@@ -333,7 +337,7 @@
    ],
    "title": "The Gross–Hopkins period map as a pro-étale GLₙ(F)-torsor",
    "kind": "theorem",
-   "statement": "Let F/ℚ_p be finite, n ≥ 1, D the central division algebra over F of invariant 1/n, G = GLₙ(F), and (M_{LT,K})_K the Lubin–Tate tower over F̆ (all quasi-isogeny heights), indexed by the compact open subgroups K ⊂ G, with D^× acting on each level, G acting on the tower (g : M_{LT,K} ≅ M_{LT,g⁻¹Kg}) and Weil descent data; for a compact open K not of the form 1 + ϖ^m Mₙ(O_F), M_{LT,K} is the quotient of M_{LT,K_m} (K_m ⊂ K normal) by the free action of the finite group K/K_m. (a) The Gross–Hopkins period maps π_GH : M_{LT,K} → ℙ^{n−1}_{F̆} are compatible in K, étale and surjective, with fibres GLₙ(F)/K over every geometric point; they are D^×-equivariant when ℙ^{n−1}_{F̆} is identified with the Brauer–Severi variety of D (split over F̆), and compatible with the Weil descent data. (b) For K′ ⊂ K compact open with K′ normal in K, M_{LT,K′} → M_{LT,K} is a finite étale K/K′-torsor; the infinite level M_{LT,∞} ∼ lim_K M_{LT,K} (preperfectoid over F̆, perfectoid after base change to a complete algebraically closed C) therefore makes M_{LT,∞} → M_{LT,K} a profinite K-torsor tower in the sense of SZ.0/equivariant-site-toolkit (d), for every K. (c) After base change to C = ℂ_p (or any complete algebraically closed C/F̆), write M_∞ = M_{LT,∞,C}; there is a G-equivariant isomorphism of diamonds over ℙ^{n−1}_C, M_∞ × G → M_∞ ×_{ℙ^{n−1}_C} M_∞, (x, g) ↦ (x, x·g), and more generally the (k+1)-fold fibre product of M_∞ over ℙ^{n−1}_C is M_∞ × G^k; thus π_GH : M_∞ → ℙ^{n−1}_C is a pro-étale G-torsor whose Čech nerve is M_∞ × G^•.",
+   "statement": "Let F/ℚ_p be finite, n ≥ 1, D the central division algebra over F of invariant 1/n, G = GLₙ(F), and (M_{LT,K})_K the Lubin–Tate tower over F̆ (all quasi-isogeny heights), indexed by the compact open subgroups K ⊂ G, with D^× acting on each level, G acting on the tower (g : M_{LT,K} ≅ M_{LT,g⁻¹Kg}) and Weil descent data; for a compact open K not of the form 1 + ϖ^m Mₙ(O_F), M_{LT,K} is the quotient of M_{LT,K_m} (K_m ⊂ K normal) by the free action of the finite group K/K_m. (a) The Gross–Hopkins period maps π_GH : M_{LT,K} → ℙ^{n−1}_{F̆} are compatible in K, étale and surjective, with fibres GLₙ(F)/K over every geometric point; they are D^×-equivariant when ℙ^{n−1}_{F̆} is identified with the Brauer–Severi variety of D (split over F̆), and compatible with the Weil descent data. (b) For K′ ⊂ K compact open with K′ normal in K, M_{LT,K′} → M_{LT,K} is a finite étale K/K′-torsor; the infinite level M_{LT,∞} ∼ lim_K M_{LT,K} (perfectoid after base change to a complete algebraically closed C) therefore makes M_{LT,∞} → M_{LT,K} a profinite K-torsor tower in the sense of SZ.0/equivariant-site-toolkit (d), for every K. (c) After base change to C = ℂ_p (or any complete algebraically closed C/F̆), write M_∞ = M_{LT,∞,C}; there is an isomorphism of diamonds over ℙ^{n−1}_C, M_∞ × G → M_∞ ×_{ℙ^{n−1}_C} M_∞, (x, g) ↦ (x, x·g), and more generally the (k+1)-fold fibre product of M_∞ over ℙ^{n−1}_C is M_∞ × G^k; thus π_GH : M_∞ → ℙ^{n−1}_C is a pro-étale G-torsor whose Čech nerve is M_∞ × G^•.",
    "hypotheses": [
     "n ≥ 1, F/ℚ_p finite; G is viewed as a locally profinite set, so M_∞ × G is the disjoint union over the compact open cosets.",
     "The torsor statement (c) is a statement about diamonds (or about the equivariant site of SZ.0/equivariant-site-toolkit); the sources assert it with this proof sketch, Scholze noting that a precise formulation needs care and working instead with equivariant sites."
@@ -346,7 +350,7 @@
    "acceptance": [
     "For n = 1, ℙ⁰ is a point, the geometric points of M_{LT,K} form the discrete set F^×/K (Lubin–Tate theory), and (c) is the statement that F^× is an F^×-torsor.",
     "The fibre of π_GH over a point at level K = GLₙ(O_F) has the cardinality of GLₙ(F)/GLₙ(O_F), the set of O_F-lattices in Fⁿ.",
-    "The isomorphism in (c) is equivariant for D^× acting diagonally and for g ∈ G acting on the right factor."
+    "For the right G-action, (x,h) ↦ (x,xh) intertwines simultaneous translation of both output factors by g with (x,h) ↦ (xg,g⁻¹hg). Translation of the second output factor alone by k corresponds to (x,h) ↦ (x,hk). D^× acts diagonally on the fibre product and on x alone on the source."
    ],
    "prerequisites": [
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/lubin-tate-tower",
@@ -394,19 +398,20 @@
    ],
    "title": "Connected components of the Lubin–Tate and Drinfeld towers (Strauch)",
    "kind": "theorem",
-   "statement": "With the notation of SZ.0/gross-hopkins-torsor and C a complete algebraically closed extension of F̆: (a) for m ≥ 0 and K_m = 1 + ϖ^m Mₙ(O_F) (K₀ = GLₙ(O_F)), the geometric connected components of the height-zero part of M_{LT,K_m} are in natural bijection with (O_F/ϖ^m)^×, compatibly with GLₙ(O_F) × O_D^× × Gal(C/F̆) acting through (g, b, τ) ↦ det(g)·Nrd(b)⁻¹·χ_LT(τ)⁻¹ mod 1 + ϖ^m O_F, χ_LT the Lubin–Tate character; including all heights, π₀(M_{LT,K_m,C}) is a principal homogeneous space under F^×/(1 + ϖ^m O_F). (b) At infinite level π₀(M_{LT,∞,C}) ≅ F^× as a topological G × D^× × W_F-set, where (g, d, w) acts by multiplication by det(g)·Nrd(d)⁻¹·Art_F(w)⁻¹, Art_F the local Artin map normalised so that geometric Frobenius elements go to uniformisers. (c) Through the duality isomorphism M_{LT,∞} ≅ M_{Dr,∞}, which is GLₙ(F) × D^×-equivariant (no Weil-group compatibility is used here), π₀(M_{Dr,∞,C}) ≅ F^× as a GLₙ(F) × D^×-set, the two groups acting through the determinant and the reduced norm as in (b); after dividing by diag(ϖ, ϖ)^ℤ (n = 2), which acts on π₀ through det(diag(ϖ, ϖ)) = ϖ², the components form F^×/ϖ^{2ℤ}; for F = ℚ_p, ϖ = p, H⁰_ét(M^p_{Dr,∞}, k_L) ≅ C⁰(ℚ_p^×/p^{2ℤ}, k_L), an induced module C⁰(ℚ_p^×, k_L) = Ind_1^{p^ℤ}C⁰(ℤ_p^× ⊔ pℤ_p^×, k_L) for the action of p^ℤ.",
+   "statement": "With the notation of SZ.0/gross-hopkins-torsor and C a complete algebraically closed extension of F̆: (a) for m ≥ 1 and K_m = 1 + ϖ^m Mₙ(O_F), the height-zero geometric connected components of M_{LT,K_m} form (O_F/ϖ^m)^×. In Strauch’s finite-level labelling the three factors act through det(g), Nrd(b)⁻¹ and χ_LT(τ)⁻¹; χ_LT is the Lubin–Tate character. At K₀ = GLₙ(O_F) the height-zero space is connected. Including all heights gives a torsor under F^×/(1 + ϖ^m O_F) for m ≥ 1, and under F^×/O_F^× for m = 0. (b) At infinite level π₀(M_{LT,∞,C}) is topologically F^×. With the right G-action and left D^×-action used for ℱ_π, choose the inverse of Strauch’s label when required by the left/right-action conversion: right g translates the label by det(g), and left d by Nrd(d); at C = ℂ_p the Weil descent action translates it by Art_F(w)⁻¹, with Art_F : W_F^ab ≃ F^× sending geometric Frobenius to a uniformiser. Equivalently, the associated sheaf of δ∘det has degree-zero character δ(Nrd(d))δ(Art_F(w))⁻¹, as in DPS Lemma 7.4. (c) Transport the geometric component computation through ET.6a/el-duality, with its group-action dictionary, to the Drinfeld tower. For n = 2 the scalar diag(ϖ,ϖ) shifts height by 2, so the components after its central quotient form F^×/ϖ^{2ℤ}. In particular H⁰_ét(M^p_{Dr,∞}, k_L) ≅ C⁰(ℚ_p^×/p^{2ℤ}, k_L), and C⁰(ℚ_p^×, k_L) is continuously coinduced from C⁰(ℤ_p^× ⊔ pℤ_p^×, k_L) for the height-shift-by-two action of p^ℤ.",
    "hypotheses": [
-    "Strauch’s computation is for the height-zero component of the Lubin–Tate space with Drinfeld level structures; heights are added by the action of elements of G of non-zero determinant valuation.",
-    "Sign conventions: Strauch and LubinTate LT.2 normalise local reciprocity to send arithmetic Frobenius to uniformisers; the formula in (b) is stated with Scholze’s normalisation (geometric Frobenius to uniformisers), the two Artin maps being inverse to each other on Frobenius elements (ClassFieldTheory layer 7). The diagonal F^× acts trivially, consistently with det(z)·Nrd(z)⁻¹ = zⁿ·z⁻ⁿ = 1."
+    "Strauch computes the height-zero finite-level spaces; add heights using elements with non-zero determinant valuation, and then take the compatible limit.",
+    "Finite-level source labels and the right-G/left-D convention are distinguished explicitly. In left-G/left-D notation the diagonal centre acts trivially; converting G to a right action gives z·x = x·z for central z. The Weil action is used only over ℂ_p. The Artin map is the inverse of the geometric-normalised reciprocity isomorphism from ClassFieldTheory Layer 9.",
+    "The degree-zero normalisation is that of DPS Lemmas 7.3–7.4. SCH18 Proposition 4.7 and CDN23 Theorem 3.1(4) print an inverse reduced-norm factor incompatible with that normalisation (source issue E4)."
    ],
    "proofSteps": [
     "The determinant morphism to the height-one Lubin–Tate tower: the n-th exterior power of the universal formal module is a height-one formal O_F-module, so a Drinfeld level-ϖ^m structure induces a primitive ϖ^m-torsion point of the Lubin–Tate formal module, giving M_{K_m} → Spf(Ŏ_{F,m}) with Ŏ_{F,m} the ring of the Lubin–Tate extension of level m (Strauch Theorem 3.3, Theorem 4.3).",
     "The fibres of this map over C are connected (Strauch Theorem 4.3 via normality of the deformation rings, Proposition 4.2), so π₀ is Gal(F̆_m/F̆) ≅ (O_F/ϖ^m)^× by the Lubin–Tate character (LubinTate LT.2/lt-character, LT.2/reciprocity-comparison).",
     "Equivariance: GLₙ(O_F) acts on the n-th exterior power through det; o_D^× through Nrd⁻¹ (computed on CM points by local class field theory); the Galois group through the inverse Lubin–Tate character (Strauch Theorem 4.4).",
-    "Pass to all heights and to infinite level: π₀ of the limit is the limit of the π₀ of the levels (the tower is a tilde-limit), giving F^× with the stated action (Scholze, proof of Proposition 4.7); transport to the Drinfeld tower along ET.6a/el-duality, which exchanges the two groups."
+    "Pass to all heights and then the compatible infinite-level determinant map to identify the component space with F^×. Convert each geometric action together with the convention for pullback on sections; evaluation of a section f with f(xg)=π(g⁻¹)f(x) then gives π(Nrd(d)Art_F(w)⁻¹) on S⁰. This also follows for characters directly from DPS Lemma 7.4. Transport the geometric identification by ET.6a/el-duality with its action dictionary; the scalar height shift is ±2 depending on labelling, giving the same quotient F^×/ϖ^{2ℤ}."
    ],
    "acceptance": [
-    "For n = 1 the statement is Lubin–Tate theory: π₀(M_{LT,K_m,C}) = F^×/(1 + ϖ^m O_F) with W_F acting through the Artin map.",
+    "For n = 1, degree-zero cohomology has d ∈ D^× = F^× acting as π(d) and w acting as π(Art_F(w)⁻¹), so the central-character and twisting formulas agree.",
     "At level K₀ = GLₙ(O_F) the height-zero part is connected (an open (n − 1)-ball), and π₀(M_{LT,K₀,C}) ≅ F^×/O_F^× ≅ ℤ by the height.",
     "The element diag(ϖ, …, ϖ) ∈ G acts on π₀(M_{LT,∞,C}) = F^× by multiplication by ϖⁿ, so it moves the height by n."
    ],
@@ -416,7 +421,7 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/actions-and-weil-descent",
     "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/lt-character",
     "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.2/reciprocity-comparison",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
    ],
    "sources": [
     {
@@ -427,7 +432,7 @@
     {
      "sourceId": "SCH18",
      "locator": "Proposition 4.7 and proof, p. 20",
-     "match": "Uses Strauch’s identification π₀M_{LT,∞,C} = F^× with GLₙ(F) acting by det and W_F × D^× through the inverse of the product of the Artin map (geometric Frobenius to uniformisers) and the reduced norm."
+     "match": "Uses Strauch’s component space F^× and evaluates degree-zero sections. Its printed reduced-norm inverse needs the convention correction described in E4 when combined with DPS Lemmas 7.3–7.4."
     },
     {
      "sourceId": "CDN23",
@@ -438,6 +443,11 @@
      "sourceId": "DPS23",
      "locator": "Lemma 7.4 and proof, p. 31",
      "match": "Uses Strauch’s computation of π₀ of the infinite-level Lubin–Tate space to identify H⁰ of the sheaf of a character with δ⁻¹ ⊠ δ."
+    },
+    {
+     "sourceId": "DPS23",
+     "locator": "Lemmas 7.3–7.4, pp. 30–31",
+     "match": "Fixes the common central character and computes the degree-zero character as δ⁻¹ ⊠ δ; this determines the action dictionary used here."
     }
    ],
    "library": {
@@ -464,13 +474,15 @@
     "The sources state (b) for 𝔽_p-coefficients (Scholze) and O/ϖⁿ-coefficients (Fust), and cite Emerton for (a); the general A/𝔪^i case is the same argument, recorded here."
    ],
    "proofSteps": [
-    "(a) Noetherianity: by the Cohen structure theorem A is a quotient of W(k)[[x₁, …, x_r]] (DeformationAndDerivedPatchingAlgebra R03.1/cohen-series-presentation), so A[[K]] is a quotient of W(k) ⊗_{ℤ_p} ℤ_p[[K × ℤ_p^r]], noetherian by Lazard’s theorem for the compact p-adic Lie group K × ℤ_p^r (NE.0/iwasawa-noetherian) and finiteness of W(k) over ℤ_p. Duality: Pontryagin duality exchanges smooth 𝔪-power-torsion A[K]-modules with compact A[[K]]-modules; for V killed by 𝔪^i, V is admissible iff V[𝔪] is (Emerton Lemma 2.2.11), and V^∨ is finitely generated iff V^∨/𝔪V^∨ = V[𝔪]^∨ is (topological Nakayama), which reduces to the residue field, CC.5/smooth-dual-admissibility. Finitely generated modules over a noetherian ring form a Serre subcategory, and admissibility is tested on one compact open subgroup. For A = O_L this notion is ModpRepresentations MP.0/torsion-admissibility, and for A = k it agrees with SmoothRepresentations’ admissibility (finite-dimensional invariants).",
+    "(a) Noetherianity: by the Cohen structure theorem A is a quotient of W(k)[[x₁, …, x_r]] (DeformationAndDerivedPatchingAlgebra R03.1/cohen-series-presentation), so A[[K]] is a quotient of W(k) ⊗_{ℤ_p} ℤ_p[[K × ℤ_p^r]], noetherian by Lazard’s theorem for the compact p-adic Lie group K × ℤ_p^r (NE.0/iwasawa-noetherian) and finiteness of W(k) over ℤ_p. Duality: Pontryagin duality exchanges smooth 𝔪-power-torsion A[K]-modules with compact A[[K]]-modules; for V killed by 𝔪^i, V is admissible iff V[𝔪] is (Emerton Lemma 2.2.11), and V^∨ is finitely generated iff V^∨/𝔪V^∨ = V[𝔪]^∨ is (topological Nakayama), which reduces to the residue field, the compact-to-smooth direction of CC.5/smooth-dual-admissibility. For the converse over the finite residue field, choose generators of the dual of V^K for a sufficiently small open normal pro-p K and lift them to V^∨; topological Nakayama gives finite generation over k[[K]], hence over k[[H]]. The Pontryagin dual here is Hom_cont over ℤ_p with values in ℚ_p/ℤ_p, with its contragredient A-action; construct its comparison with Mathlib’s circle-valued multiplicative PontryaginDual and biduality on these torsion/compact categories. CC.5 alone does not provide an A-linear anti-equivalence. Finitely generated modules over a noetherian ring form a Serre subcategory, and admissibility is tested on one compact open subgroup. For A = O_L this notion is ModpRepresentations MP.0/torsion-admissibility, and for A = k it agrees with SmoothRepresentations’ admissibility (finite-dimensional invariants).",
     "(b) Continuous cohomology of the compact group K with discrete coefficients is the derived functor of K-invariants on smooth modules (SR.0 derived invariants); resolve V^∨ by finite free A/𝔪^i[[K]]-modules (noetherianity), dualise to an injective resolution of V by duals of finite free modules, whose K-invariants are finite A/𝔪^i-modules; so the cohomology is finitely generated (Scholze Lemma 3.13, Fust Lemma 6.2)."
    ],
    "acceptance": [
     "For K = ℤ_p and V = 𝔽_p trivial, H⁰ = H¹ = 𝔽_p and H^j = 0 for j ≥ 2.",
     "For V = C⁰(K, 𝔽_p) (the smooth regular representation, admissible), H^j_cont(K, V) = 0 for j > 0 and H⁰ = 𝔽_p (Shapiro).",
-    "The non-admissible V = C⁰(K, 𝔽_p)^{⊕ℕ} has infinite H⁰ = 𝔽_p^{⊕ℕ}, so admissibility cannot be dropped in (b)."
+    "The non-admissible V = C⁰(K, 𝔽_p)^{⊕ℕ} has infinite H⁰ = 𝔽_p^{⊕ℕ}, so admissibility cannot be dropped in (b).",
+    "For a compact p-adic Lie group, the trivial representation on 𝔽_p is admissible; the zero representation is admissible.",
+    "The discrete trivial representation on a countably infinite direct sum of copies of 𝔽_p is smooth and is not admissible, since every compact-open fixed space is the entire infinite-dimensional module."
    ],
    "prerequisites": [
     "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian",
@@ -479,7 +491,8 @@
     "SmoothRepresentationsOfLocalGroups:SR.0:derived-extension/derived-invariants",
     "DeformationAndDerivedPatchingAlgebra:R03.1/cohen-series-presentation",
     "ModpRepresentationsOfGL2OverLocalFields:MP.0/torsion-admissibility",
-    "mathlib:continuousCohomology"
+    "mathlib:continuousCohomology",
+    "mathlib:PontryaginDual"
    ],
    "sources": [
     {
@@ -502,7 +515,41 @@
     "module": "TauCeti/NumberTheory/ScholzeFunctor/Tower",
     "namespace": "TauCetiRoadmap.ScholzeFunctor"
    },
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "api": [
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsAdmissibleModP",
+     "role": "characterisation",
+     "statement": "For a topological group G and a TopRep X over 𝔽_p, IsAdmissibleModP X means TauCeti.IsSmoothDiscrete X and finite fixed sets X^K for every compact open K. Over the finite field this is equivalent to finite-dimensionality of each fixed space."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsAdmissibleModP.congr",
+     "role": "extensionality",
+     "statement": "A continuous G-equivariant 𝔽_p-linear isomorphism transports IsAdmissibleModP in both directions."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsAdmissibleModP.serre",
+     "role": "structure",
+     "statement": "For a compact p-adic Lie group G, admissibility is closed under subobjects, quotients and extensions in the smooth discrete category, as in part(a)."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsAdmissibleModP_trivial",
+     "kind": "computation",
+     "statement": "The trivial representation of the one-element compact group on 𝔽_p is admissible."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsAdmissibleModP_zero",
+     "kind": "degenerate",
+     "statement": "The zero representation of the one-element compact group is admissible."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsAdmissibleModP_infinite",
+     "kind": "non-example",
+     "statement": "An infinite discrete 𝔽_p-vector space with trivial action of the one-element compact group is smooth but not admissible: its compact-open fixed set is the entire infinite space."
+    }
+   ]
   },
   {
    "id": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-sheaf",
@@ -512,7 +559,7 @@
    ],
    "title": "Scholze’s sheaf ℱ_π on projective space",
    "kind": "construction",
-   "statement": "Let F/ℚ_p be finite, n ≥ 1, G = GLₙ(F), D the division algebra of invariant 1/n, M_{LT,∞} → ℙ^{n−1}_{F̆} the Gross–Hopkins torsor (SZ.0/gross-hopkins-torsor), and (A, 𝔪) a complete noetherian local ring with finite residue field of characteristic p. For a smooth A[G]-module π (every vector has open stabiliser and is killed by a power of 𝔪; π carries the discrete topology), define a presheaf ℱ_π on the equivariant site (ℙ^{n−1}_{F̆}/D^×)_ét by ℱ_π(U) = the A-module of continuous maps f : |U ×_{ℙ^{n−1}} M_{LT,∞}| → π with f(x·g) = g⁻¹·f(x) for g ∈ G and f(d·x) = f(x) for d ∈ D^× (equivalently, after pullback to (ℙ^{n−1})_ét, ℱ_π(U) = C⁰_G(|U_∞|, π) = (π_{GH,∗}π̲)^G(U) with U_∞ = U ×_{ℙ^{n−1}} M_{LT,∞}). Then ℱ_π is a sheaf of A-modules, equivariant for the Weil descent datum; π ↦ ℱ_π is an exact A-linear functor commuting with filtered colimits; and for every geometric point x̄ of ℙ^{n−1}_{F̆} with a chosen lift x̃ to M_{LT,∞}, evaluation at x̃ is an isomorphism (ℱ_π)_{x̄} ≅ π, functorial in π (changing x̃ to x̃·g composes with π(g)).",
+   "statement": "Let F/ℚ_p be finite, n ≥ 1, G = GLₙ(F), D the division algebra of invariant 1/n, M_{LT,∞} → ℙ^{n−1}_{F̆} the Gross–Hopkins torsor (SZ.0/gross-hopkins-torsor), and (A, 𝔪) a complete noetherian local ring with finite residue field of characteristic p. For a smooth A[G]-module π (every vector has open stabiliser and is killed by a power of 𝔪; π carries the discrete topology), define a presheaf ℱ_π on the equivariant site (ℙ^{n−1}_{F̆}/D^×)_ét by ℱ_π(U) = the A-module of continuous maps f : |U ×_{ℙ^{n−1}} M_{LT,∞}| → π with f(x·g) = g⁻¹·f(x) for g ∈ G and f(d·x) = f(x) for d ∈ D^× (equivalently, after pullback to (ℙ^{n−1})_ét, ℱ_π(U) = C⁰_G(|U_∞|, π) = (π_{GH,∗}π̲)^G(U) with U_∞ = U ×_{ℙ^{n−1}} M_{LT,∞}). Then ℱ_π is a sheaf of A-modules, equivariant for the Weil descent datum; π ↦ ℱ_π is an exact A-linear functor commuting with filtered colimits; and for every geometric point x̄ of ℙ^{n−1}_{F̆} with a chosen lift x̃ to M_{LT,∞}, evaluation at x̃ is an isomorphism (ℱ_π)_{x̄} ≅ π, functorial in π (changing x̃ to x̃·g composes with π(g⁻¹)).",
    "hypotheses": [
     "π smooth; the stalk formula and exactness use smoothness (for a non-smooth discrete π the stalk is the submodule of smooth vectors).",
     "The right action of G on M_{LT,∞} is turned into a left action on π-valued functions by g ↦ g⁻¹; D^× acts trivially on π."
@@ -526,7 +573,7 @@
    "acceptance": [
     "For n = 1, ℙ⁰ is a point and global sections of ℱ_π are π.",
     "For π the trivial representation A, ℱ_A is the constant sheaf A.",
-    "The stalk isomorphism is natural in π and transforms by π(g) under a change of lift."
+    "The stalk isomorphism is natural in π; changing x̃ to x̃g multiplies evaluation by π(g⁻¹)."
    ],
    "prerequisites": [
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/gross-hopkins-torsor",
@@ -604,7 +651,7 @@
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeSheaf_stalk",
      "role": "characterisation",
-     "statement": "For a geometric point x̄ with lift x̃ ∈ M_{LT,∞}, evaluation at x̃ is an isomorphism (ℱ_π)_{x̄} ≅ π natural in π; replacing x̃ by x̃·g composes it with π(g)."
+     "statement": "For a geometric point x̄ with lift x̃, evaluation gives (ℱ_π)_{x̄} ≅ π, naturally in π. Replacing x̃ by x̃g composes this map with π(g⁻¹)."
     },
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeSheaf_baseChange",
@@ -624,12 +671,22 @@
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeSheaf_levelRestrict",
      "role": "compatibility",
-     "statement": "The pullback of ℱ_π to (M_{LT,K}/D^×)_ét depends only on π restricted to K; for π₀ = C⁰(K/K′, A) with K′ ⊴ K open it is the pushforward of the constant sheaf A along the finite étale M_{LT,K′} → M_{LT,K}."
+     "statement": "The pullback of ℱ_π to (M_{LT,K}/D^×)_ét is the associated sheaf for π restricted to K. For any smooth K-module π₀ use the same construction with the K-torsor M_∞ → M_{LT,K}; in particular π₀ = C⁰(K/K′, A) gives the finite étale pushforward of A from M_{LT,K′}, for K′ ⊴ K open."
     },
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeSheaf_trivial",
      "role": "example",
      "statement": "ℱ_A for the trivial representation A is the constant sheaf A."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.scholzeSheaf_ext",
+     "role": "extensionality",
+     "statement": "Two sections over U agree iff their associated continuous equivariant maps agree at every point of U_∞; two sheaf morphisms agree iff their maps on every geometric stalk agree."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.scholzeSheaf_map",
+     "role": "functoriality",
+     "statement": "An A[G]-linear map u : π → π′ acts on sections by f ↦ u ∘ f. This respects restriction, identities and composition, and the stalk map is u under evaluation."
     }
    ],
    "tests": [
@@ -651,7 +708,12 @@
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeSheaf_nonsmooth_stalk",
      "kind": "non-example",
-     "statement": "For π = the 𝔽_p-module of all functions GLₙ(O_F) → 𝔽_p with translation (not smooth), the stalk of ℱ_π is the proper submodule C⁰(GLₙ(O_F), 𝔽_p) of locally constant functions, not π."
+     "statement": "Use the associated-sheaf construction for the compact K-torsor M_∞ → M_{LT,K}, K = GLₙ(O_F). For the discrete K-module of all functions K → 𝔽_p under translation, evaluation on a geometric stalk yields exactly the smooth vectors C⁰(K,𝔽_p), a proper submodule. This example is a K-module, not a claimed representation of GLₙ(F)."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.scholzeSheaf_change_lift",
+     "kind": "compatibility",
+     "statement": "For n = 1, F = ℚ₅, π = δ the character to 𝔽₅^× given by reduction on units and δ(5)=1, changing the torsor lift by 2 multiplies evaluation by δ(2)⁻¹ = 3, rather than 2."
     }
    ],
    "planet": {
@@ -666,15 +728,16 @@
    ],
    "title": "Scholze’s functors Sⁱ",
    "kind": "definition",
-   "statement": "With the notation of SZ.1/scholze-sheaf and C a complete algebraically closed extension of F̆ (by default C = ℂ_p), define for every smooth A[GLₙ(F)]-module π and i ≥ 0 Sⁱ(π) := Hⁱ_ét(ℙ^{n−1}_C, ℱ_π), the étale cohomology of the pullback of ℱ_π to ℙ^{n−1}_C. It is an A[D^×]-module (D^× acting through the equivariant structure; Sⁱ(π) = colim_K Hⁱ((ℙ^{n−1}_C/K)_ét, ℱ_π) over compact open K ⊂ D^×, hence a smooth D^×-module) with a commuting action of the Weil group W_F (inertia acting through C = ℂ_p, Frobenius through the Weil descent datum). The Sⁱ form a cohomological δ-functor in π: a short exact sequence of smooth A[G]-modules gives a long exact sequence of A[D^× × W_F]-modules. They commute with filtered colimits. On compact modules the dual functors Šⁱ(M) := Sⁱ(M^∨)^∨ (M^∨ = Hom_cont(M, L/O)) form a covariant homological δ-functor commuting with projective limits.",
+   "statement": "With the notation of SZ.1/scholze-sheaf, let C be a complete algebraically closed extension of F̆ and set Sⁱ_C(π) := Hⁱ_ét(ℙ^{n−1}_C, ℱ_π). The equivariant structure makes this an A[D^×]-module, smooth because it is the colimit of Hⁱ((ℙ^{n−1}_C/K)_ét, ℱ_π) over compact open K ⊂ D^×. At C = ℂ_p write Sⁱ(π); it also has the commuting W_F-action supplied by inertia on ℂ_p and the Weil descent datum. The Sⁱ_C form an A-linear cohomological δ-functor and commute with filtered colimits; the long exact sequence is W_F-equivariant when C = ℂ_p. For O = O_L and M in C_G(O), the Pontryagin-dual category of locally admissible smooth O-torsion G-representations, define Šⁱ(M) := Sⁱ(M^∨)^∨, with M^∨ = Hom_cont,O(M,L/O). These dual functors form a covariant homological δ-functor commuting with projective limits in that category.",
    "hypotheses": [
     "A and π as in SZ.1/scholze-sheaf; when π is admissible, SZ.1/scholze-finiteness shows that Sⁱ(π) does not depend on C.",
-    "Sⁱ(π) is not the π-isotypic part of the cohomology of the tower: the two are compared in SZ.2/comparison-map."
+    "Sⁱ(π) is not the π-isotypic part of the cohomology of the tower: the two are compared in SZ.2/comparison-map.",
+    "An arbitrary algebraically closed C/F̆ is not equipped here with a canonical W_F-action. The dual coefficient field L and valuation ring O_L are fixed; general A-linear duality is not identified with Hom_cont(−,L/O). C_G(O) has the inverse-limit topology and continuous compatible G-action coming from this dual category."
    ],
    "proofSteps": [
     "Define Sⁱ by étale cohomology of the sheaf pulled back to ℙ^{n−1}_C; the D^×-action comes from the equivariant site and is smooth by the limit formula SZ.0/equivariant-site-toolkit (a).",
     "The δ-functor structure follows from exactness of π ↦ ℱ_π (SZ.1/scholze-sheaf) and the long exact cohomology sequence; compatibility with filtered colimits holds because the étale site of the qcqs space ℙ^{n−1}_C is coherent, and cohomology on a coherent site commutes with filtered colimits of sheaves (DiamondsAndVStacks D0/filtered-colimits-and-cohomology-on-coherent-sites).",
-    "The dual Šⁱ: Pontryagin duality (Mathlib’s PontryaginDual for the underlying locally compact abelian groups) is an anti-equivalence between discrete torsion modules and compact modules; projective limits of compact modules go to filtered colimits (DPS §7)."
+    "For O = O_L use the coefficient-linear Pontryagin duality constructed in SZ.0/compact-lie-admissible-cohomology, specialised to Hom_cont,O(−,L/O). On C_G(O) and its smooth torsion dual category it exchanges projective limits and filtered colimits and is exact, so applying it twice to Sⁱ gives the homological δ-functor (DPS §7). Mathlib’s PontryaginDual is the underlying circle-valued construction, not this entire equivalence."
    ],
    "acceptance": [
     "For n = 1, S⁰(π) = π and Sⁱ(π) = 0 for i > 0.",
@@ -686,7 +749,8 @@
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/equivariant-site-toolkit",
     "DiamondsAndVStacks:D0/filtered-colimits-and-cohomology-on-coherent-sites",
     "mathlib:PontryaginDual",
-    "mathlib:PadicComplex"
+    "mathlib:PadicComplex",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/compact-lie-admissible-cohomology"
    ],
    "sources": [
     {
@@ -736,7 +800,7 @@
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeFunctor",
      "role": "constructor",
-     "statement": "Sⁱ(π) = Hⁱ_ét(ℙ^{n−1}_C, ℱ_π) as an A[D^× × W_F]-module, functorial in π."
+     "statement": "Sⁱ_C(π) = Hⁱ_ét(ℙ^{n−1}_C,ℱ_π), functorially as an A[D^×]-module. For C = ℂ_p it is also a W_F-module commuting with D^×."
     },
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeFunctor_longExact",
@@ -766,19 +830,24 @@
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeFunctor_dual",
      "role": "constructor",
-     "statement": "Šⁱ(M) = Sⁱ(M^∨)^∨ on compact O[[GLₙ(O_F)]]-modules with compatible GLₙ(F)-action, a covariant homological δ-functor commuting with projective limits."
+     "statement": "For O = O_L and M in C_G(O), the compact dual of locally admissible smooth O-torsion G-representations, Šⁱ(M) = Sⁱ(Hom_cont,O(M,L/O))^∨, a covariant homological δ-functor commuting with projective limits in that category."
     },
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeFunctor_ofLE",
      "role": "other",
      "statement": "For C ⊂ C′ the natural map Sⁱ_C(π) → Sⁱ_{C′}(π) is an isomorphism when π is admissible (from SZ.1/scholze-finiteness)."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.scholzeFunctor_map",
+     "role": "functoriality",
+     "statement": "A map π → π′ induces Sⁱ_C(π) → Sⁱ_C(π′), respecting identities, composition and A-linear combinations. Connecting homomorphisms are natural in maps of short exact sequences."
     }
    ],
    "tests": [
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeFunctor_rank_one",
      "kind": "degenerate",
-     "statement": "For n = 1, S⁰(π) ≅ π with d ∈ D^× = F^× acting as π(d⁻¹) and w ∈ W_F as π(Art_F(w)⁻¹) (SZ.1/scholze-galois-and-degree-zero (b)), and Sⁱ(π) = 0 for i ≥ 1."
+     "statement": "For n = 1, S⁰(π) ≅ π with d ∈ F^× acting as π(d), and w ∈ W_F acting as π(Art_F(w)⁻¹), while Sⁱ(π)=0 for i≥1. For F=ℚ₅ and δ(2)=2 in 𝔽₅^× the D^×-action of 2 is 2, distinguishing it from the inverse character."
     },
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.scholzeFunctor_trivial_P1",
@@ -854,9 +923,10 @@
     "K algebraically closed of characteristic p (in the application, the tilt C^♭ of C, with π = p^♭); almost mathematics relative to the maximal ideal of O."
    ],
    "proofSteps": [
-    "Attach to an almost finitely generated torsion O-module its length invariant γ (Scholze 2013 Proposition 2.10, an almost version of the length of a finitely generated torsion module over a valuation ring).",
-    "From (ii), γ(M_k) ≤ kγ(M₁); from (iii), γ(M_{pk}) = pγ(M_k); hence γ(M_k) = kγ(M₁), the sequences 0 → M₁^a → M_{k+1}^a → M_k^a → 0 are exact, and M^a = (lim_k M_k)^a is flat with M^a/π almost finitely generated.",
-    "A flat, almost finitely generated module over the almost-complete O with a Frobenius structure is almost free of finite rank (Scholze 2013 Lemma 2.13 and the classification of φ-modules over O), compatibly with p_k, q_k and φ_k."
+    "Use the sequence γ(M) = (γ₁,γ₂,…) of elementary divisors for almost finitely generated torsion modules and its majorisation inequality, as constructed in SCH13 Propositions 2.10–2.11. It is not a single length invariant.",
+    "Condition (ii) gives γ(M_k) ≤ kγ(M₁) in majorisation order; Frobenius gives γ(M_{pk}) = pγ(M_k). Comparing along arbitrarily high p-powers forces equality γ(M_k)=kγ(M₁). Proposition 2.11(v) then shows that the kernel and cokernel errors are almost zero, giving exact sequences 0 → M₁^a → M_{k+1}^a → M_k^a → 0 and their iterates.",
+    "For M = lim_k M_k, these exact sequences identify M^a/π^k with M_k^a and show flatness. Lemma 2.13 gives almost finite generation from π-adic completeness and the almost finite generation modulo π.",
+    "The induced Frobenius on M ⊗ K defines an étale 𝔽_p-local system over the algebraically closed field K, hence a trivial finite-rank Frobenius module. Bound the image lattice M′ between π^m O^r and π⁻ᵐ O^r and apply inverse Frobenius repeatedly; the exponents tend to zero, proving M′^a ≅ (O^a)^r compatibly with Frobenius. Reduce modulo π^k (SCH13, end of the proof of Lemma 2.12, p. 13)."
    ],
    "acceptance": [
     "For M_k = (O/π^k)^r with the obvious maps the lemma is an identity.",
@@ -871,7 +941,7 @@
    "sources": [
     {
      "sourceId": "SCH13",
-     "locator": "Lemma 2.12 with proof, pp. 11–12",
+     "locator": "Propositions 2.10–2.11 and Lemmas 2.12–2.13 with the conclusion of the proof, pp. 10–13",
      "match": "For O/π^k-modules M_k over an algebraically closed field of characteristic p with M₁ almost finitely generated, transition maps as in (ii) and Frobenius isomorphisms as in (iii), M_k^a ≅ (O^a/π^k)^r compatibly with all the structure."
     },
     {
@@ -967,14 +1037,14 @@
    ],
    "title": "Galois action, degree zero, central characters and twists for Sⁱ",
    "kind": "theorem",
-   "statement": "Let (A, 𝔪) and π be as in SZ.1/scholze-finiteness, C = ℂ_p. (a) The action of W_F on Sⁱ(π) (inertia through ℂ_p, Frobenius through the Weil descent datum) is continuous for the discrete topology and extends uniquely to a continuous action of Gal_F = Gal(F̄/F), commuting with D^×. (b) The map S⁰(π^{SLₙ(F)}) → S⁰(π) is an isomorphism, and S⁰(π) ≅ π^{SLₙ(F)} as A-modules, W_F × D^× acting through the homomorphism W_F × D^× → F^× ≅ GLₙ(F)/SLₙ(F) (via det) that is the inverse of the product of the Artin map (geometric Frobenius ↦ uniformiser) and the reduced norm; in particular S⁰(π) = 0 whenever π^{SLₙ(F)} = 0. (c) If the centre F^× of GLₙ(F) acts on π by a character ζ, the centre F^× of D^× acts on every Sⁱ(π) by ζ. (d) For a smooth character δ : F^× → A^×, there are natural isomorphisms of Gal_F × D^×-modules Sⁱ(π ⊗ δ∘det) ≅ Sⁱ(π) ⊗_A (δ⁻¹ ⊠ δ), δ⁻¹ seen on Gal_F through local class field theory and δ on D^× through the reduced norm. (e) For n = 2 and A killed by a power of 𝔪 (so that δ∘det is a smooth A[G]-module): S¹(δ∘det) = 0 and S²(δ∘det) is free of rank one over A with Gal_F × D^× acting by a character.",
+   "statement": "Let (A, 𝔪) and π be as in SZ.1/scholze-finiteness, C = ℂ_p. (a) The action of W_F on Sⁱ(π) (inertia through ℂ_p, Frobenius through the Weil descent datum) is continuous for the discrete topology and extends uniquely to a continuous action of Gal_F = Gal(F̄/F), commuting with D^×. (b) The map S⁰(π^{SLₙ(F)}) → S⁰(π) is an isomorphism, and S⁰(π) ≅ π^{SLₙ(F)} as A-modules, W_F × D^× acting through the homomorphism W_F × D^× → F^× ≅ GLₙ(F)/SLₙ(F) (via det) given by (w,d) ↦ Art_F(w)⁻¹Nrd(d), with geometric Frobenius mapped to a uniformiser by Art_F; in particular S⁰(π) = 0 whenever π^{SLₙ(F)} = 0. (c) If the centre F^× of GLₙ(F) acts on π by a character ζ, the centre F^× of D^× acts on every Sⁱ(π) by ζ. (d) For a smooth character δ : F^× → A^×, there are natural isomorphisms of Gal_F × D^×-modules Sⁱ(π ⊗ δ∘det) ≅ Sⁱ(π) ⊗_A (δ⁻¹ ⊠ δ), δ⁻¹ seen on Gal_F through local class field theory and δ on D^× through the reduced norm. (e) For n = 2 and A killed by a power of 𝔪 (so that δ∘det is a smooth A[G]-module): S¹(δ∘det) = 0 and S²(δ∘det) is free of rank one over A with Gal_F × D^× acting by a character.",
    "hypotheses": [
-    "Normalisations of the Artin map as in SZ.0/lubin-tate-components (geometric Frobenius to uniformisers).",
+    "Normalisation: Art_F : W_F^ab ≃ F^× maps geometric Frobenius to a uniformiser; right G-equivariance of sections is f(xg)=π(g⁻¹)f(x), and D^× acts on them by (d·f)(x)=f(d⁻¹x). Use the common-central-character convention of DPS Lemmas 7.3–7.4; see E4 for the conflicting inverse norm in SCH18/CDN23.",
     "In (e), S²(δ∘det) ≅ A(−1) ⊗ (δ⁻¹ ⊠ δ), from H²(ℙ¹_C, A) ≅ A(−1) and (d)."
    ],
    "proofSteps": [
     "(a) Reduce to A finite. Continuity of the inertia action: Sⁱ(π) is the colimit of the cohomology over finite extensions M/F̆ inside ℂ_p (cohomology commutes with this limit of spaces). The K-invariants are finite (SZ.1/scholze-finiteness), and a continuous W_F-action on a finite set extends to Gal_F because an open subgroup of inertia acts trivially and a power of Frobenius acts trivially (Scholze Proposition 4.6).",
-    "(b) S⁰(π) = C⁰_G(π₀(M_{LT,∞,ℂ_p}), π) and π₀(M_{LT,∞,ℂ_p}) = F^× with GLₙ(F) acting through det (SZ.0/lubin-tate-components); an equivariant map from a set on which SLₙ(F) acts trivially lands in π^{SLₙ(F)}, and evaluation at 1 gives the identification with the stated W_F × D^×-action (Scholze Proposition 4.7).",
+    "(b) By SZ.0/lubin-tate-components, S⁰(π) is the space of equivariant continuous maps F^× → π. Such maps land in π^{SLₙ(F)}, and evaluation at 1 identifies this space with π^{SLₙ(F)}. For the chosen right G-action f(t)=π(t⁻¹)f(1); pullback by d⁻¹ and w⁻¹ gives π(Nrd(d)Art_F(w)⁻¹). In particular a character δ gives δ⁻¹ ⊠ δ, agreeing with DPS Lemma 7.4 and the central-action proof in (c).",
     "(c) The diagonal F^× ⊂ Z(G) × Z(D^×) acts trivially on M_{LT,∞} (moduli description, ET.6a/actions-and-weil-descent), and sections of ℱ_π are G-equivariant, so the two central actions agree (DPS Lemma 7.3).",
     "(d) The product ℱ_π ⊗ ℱ_δ → ℱ_{π⊗δ} and cup product give Sⁱ(π) ⊗ S⁰(δ∘det) → Sⁱ(π ⊗ δ∘det); S⁰(δ∘det) ≅ δ⁻¹ ⊠ δ by (b); the same construction for δ⁻¹ gives the inverse (DPS Lemma 7.4).",
     "(e) For the trivial character ℱ is constant, so S¹ = H¹(ℙ¹_C, A) = 0 and S² = H²(ℙ¹_C, A) ≅ A(−1); twist by (d)."
@@ -982,7 +1052,8 @@
    "acceptance": [
     "For π = δ∘det with n = 2, S⁰(π) is free of rank one with the character described in (b).",
     "For π a generic principal series of GL₂(ℚ_p) (no SL₂-invariants), S⁰(π) = 0.",
-    "Twisting by δ∘det and then by δ⁻¹∘det returns Sⁱ(π) through the identification δ ⊗ δ⁻¹ = 1."
+    "Twisting by δ∘det and then by δ⁻¹∘det returns Sⁱ(π) through the identification δ ⊗ δ⁻¹ = 1.",
+    "For n=1, F=ℚ₅ and δ(2)=2 in 𝔽₅^×, S⁰(δ) has D^×-central action δ(2)=2; an inverse reduced-norm formula would give 3 and violate (c) and (d)."
    ],
    "prerequisites": [
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-functor",
@@ -990,13 +1061,13 @@
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-finiteness",
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/lubin-tate-components",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/actions-and-weil-descent",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
    ],
    "sources": [
     {
      "sourceId": "SCH18",
      "locator": "Propositions 4.6 and 4.7 with proofs, p. 20",
-     "match": "The Weil action on Hⁱ_ét(ℙ^{n−1}_{ℂ_p}, ℱ_V) is continuous and extends to Gal_F; H⁰(ℱ_{V^{SLₙ(F)}}) → H⁰(ℱ_V) is an isomorphism, with GLₙ(F)/SLₙ(F) = F^× acting through det and W_F × D^× through the inverse of the product of the Artin map and the reduced norm, by Strauch’s π₀; the identification S⁰(π) ≅ π^{SLₙ(F)} is implicit in the proof and is recorded here."
+     "match": "Proposition 4.6 proves the extension of the Weil action to Gal_F; Proposition 4.7 identifies degree zero with SLₙ(F)-invariants using Strauch’s components. The action formula is converted to the DPS common-central-character convention; the printed inverse norm is recorded in E4."
     },
     {
      "sourceId": "CDN23",
@@ -1031,13 +1102,14 @@
    "statement": "Let G be a locally profinite group, k a commutative ring and π a smooth k[G]-module with the discrete topology, regarded as a continuous representation; Hⁱ(G, −) denotes continuous cohomology computed by continuous homogeneous cochains (Mathlib’s continuousCohomology). (a) There are natural isomorphisms Hⁱ(G, π) ≅ Extⁱ_G(1, π), the Ext groups taken in the abelian category of smooth k[G]-modules. (b) (Shapiro) If H ⊂ G is a closed subgroup such that G → H\\G has a continuous section and V is a topological H-module, then Hⁱ(G, Ind_H^G V) ≅ Hⁱ(H, V) for the continuous induction Ind_H^G V = {f ∈ C(G, V) : f(hg) = h·f(g)}. (c) If G is a p-adic reductive group (the F-points of a connected reductive group over a finite extension F/ℚ_p; for instance SL₂(F) or GL₂(F)), O the integers of a finite extension of ℚ_p with uniformiser ϖ, and π an admissible smooth O/ϖⁿ[G]-module, then every Hⁱ(G, π) is a finitely generated O/ϖⁿ-module. (d) If k is a finite field of characteristic p and π is an absolutely irreducible smooth k-representation of GL₂(ℚ_p) that is not isomorphic to the twist by a character of 1, of the Steinberg representation Sp, or of Ind_B^G α with α(diag(a, d)·u) = ω(a)ω(d)⁻¹ (ω the mod p cyclotomic character, so that Ind_B^G α = I(1, ε) in the notation of SZ.4), then Hⁱ(SL₂(ℚ_p), π) = 0 for all i ≥ 0. (e) If π is an admissible smooth k-representation of GL₂(F) with a central character, its restriction to SL₂(F) is admissible.",
    "hypotheses": [
     "In (b) the section is continuous (for G = GL₂(F), H = SL₂(F) one can take x ↦ diag(x, 1)); V is any topological H-module, in particular a prodiscrete one.",
-    "In (d) the excluded representations are exactly the members of the twists of the block containing the trivial representation; for p ≥ 5 this is the block {χ, St ⊗ χ, I(χ, χε)} of SZ.2/comparison-map."
+    "In (d) the excluded representations are exactly the members of the twists of the block containing the trivial representation; for p ≥ 5 this is the block {χ, St ⊗ χ, I(χ, χε)} of SZ.2/comparison-map.",
+    "For (b), Ind has the compact-open topology and the right-translation G-action. For discrete smooth π in (a), TauCeti.IsSmoothDiscrete supplies the joint-continuity/smoothness condition absent from a bare TopRep object."
    ],
    "proofSteps": [
     "(a) Apply the functor of smooth vectors to the resolution of π by continuous cochain modules C(G^{n+1}, π); it gives a resolution of π by acyclic objects of the smooth category, because C(G, −)^{sm} is right adjoint to the forgetful functor and preserves injectives, and the G-invariants of the cochains are unchanged (Fust Lemmas 2.1–2.3, 4.1–4.3, Corollary 4.4; for compact G this is Emerton’s Proposition 2.2.6).",
-    "(b) The continuous section identifies C(Gⁿ, Ind_H^G V)^G with C(Hⁿ, V)^H compatibly with differentials (Borel–Wallach IX.2.3; Fust Lemma 2.2).",
+    "(b) Evaluation at the identity gives a cochain map from the continuous G-cochains of Ind_H^G V to the H-cochains of V. A continuous section of H\\G constructs an inverse up to cochain homotopy, by the usual insertion homotopies; these maps are continuous for the compact-open topologies. This proves a quasi-isomorphism, rather than a termwise isomorphism of cochain groups (Fust Lemma 2.2). Mathlib’s TopRep.coind₁ supplies the H=1 continuous-function object with action (gf)(x)=g·f(g⁻¹x); untwisting by x⁻¹ on values and switching left/right conventions relates it to continuous induction. General closed-subgroup induction and Shapiro are proved here.",
     "(c) The Schneider–Stuhler resolution of the trivial representation by compact inductions c-Ind_{P_F^†} δ_F from facet stabilisers, built here from the oriented cellular chain complex of the Bruhat–Tits building, exact because the building is contractible (a CAT(0) space, ReductiveGroupsPartII RG2.2/building-metric), with finitely many orbits of facets (RG2.2/building-cocompact-action) and P_F^† containing a compact open normal R_F with ZR_F of finite index (Schneider–Stuhler §1.2 from RG2.2/stabilizers-and-fixers; Fust Lemma 6.5), reduces, through (a) and a double-complex spectral sequence, to the cohomology of the facet stabilisers P_F^†; these are handled by the Hochschild–Serre argument of Fust Lemma 6.3 applied to R_F ⊂ ZR_F ⊂ P_F^† (R_F compact open normal, with finite or finitely generated abelian quotients) and the compact case SZ.0/compact-lie-admissible-cohomology (b) (Fust Lemma 6.6).",
-    "(d) By (a) and two exact adjunctions, Hⁱ(SL₂(ℚ_p), π) ≅ Extⁱ_{G,ζ_π}(Ind_{Z·SL₂(ℚ_p)}^G ζ_π, π) computed among smooth representations with the central character ζ_π of π; the finite-dimensional Ind_{Z·SL₂}^G ζ_π is a successive extension of characters η∘det; Ext between objects of different blocks vanishes (Paškūnas’s block decomposition of the locally finite category, PadicLocalLanglandsForGL2Qp R30.5/blocks, and comparison of Ext in the smooth and the locally finite categories), and by hypothesis π is not in the block of any character (Fust Proposition 5.1, Corollary 5.2).",
+    "(d) First inspect Z ∩ SL₂(ℚ_p). If its scalar action on π is non-trivial, the action of that central element on the group cochain complex is homotopic to the identity, so an invertible non-zero scalar minus 1 annihilates cohomology, forcing vanishing. Otherwise extend ζ_π from Z to Z·SL₂ by making SL₂ act trivially. Exact adjunctions identify Hⁱ(SL₂,π) with Extⁱ_{G,ζ_π}(Ind_{Z·SL₂}^G ζ_π,π). This finite-dimensional induction has character constituents; the block decomposition and Ext comparison from R30.5 show vanishing when π belongs to none of their blocks (Fust Proposition 5.1 and Corollary 5.2).",
     "(e) Take K ⊂ GL₂(O_F) compact open on whose central part ζ is trivial and put K′ = K ∩ SL₂(F); K″ = (Z ∩ K)·K′ is open in GL₂(F) (it is the set of k ∈ K with det k a square of a unit in the image, times SL₂), and π^{K′} = π^{K″} because Z ∩ K acts trivially, so π^{K′} is finite."
    ],
    "acceptance": [
@@ -1111,8 +1183,8 @@
     "p odd in the consequence: μ(ℚ_p) is cyclic of order p − 1, prime to p."
    ],
    "proofSteps": [
-    "Moore’s theorem, planned here: SL₂(k) is its own commutator subgroup; its central extensions are described by Steinberg cocycles, whose symbol relations are Matsumoto’s presentation of K₂ (K2SymbolsBrauer T.2/matsumoto supplies only that presentation); the continuous (topological) ones factor through the norm residue symbol by Moore’s uniqueness theorem, so the universal topological central extension has kernel μ(k) and H²(SL₂(k), A) ≅ Hom(μ(k), A) (Moore Theorem 1.1 for the transgression, Theorems 2.3–2.4 for the topological universal extension, Theorems 10.3–10.4).",
-    "Comparison with continuous cochains (argued here; Moore works with Borel cochains): for discrete A and a totally disconnected locally compact group, every topological central extension by A splits continuously over a compact open subgroup and hence admits a continuous section, so the measurable classes are the continuous ones.",
+    "Build Moore’s rank-one central-extension computation here: SL₂(k) is perfect, and its universal abstract central extension is generated by the rank-one Steinberg generators and relations of Moore Chapter III §§8–9. The resulting Steinberg cocycles have the rank-one symbol relations of Theorem 9.2; these are not identified with the bilinear presentation of stable Milnor K₂. Moore’s local-field uniqueness theorem factors the continuous symbols through the norm-residue symbol, and Theorems 10.3–10.4 identify the topological universal kernel with μ(k). The universal transgression of Theorems 1.1 and 2.3–2.4 gives H² ≅ Hom(μ(k),A). Import the norm-residue pairing from ClassFieldTheory Layer 5.",
+    "Comparison for discrete A: the projection of a topological central extension by A is a local homeomorphism. Choose a section near 1 and translate its restriction to a sufficiently small compact-open subgroup over the disjoint clopen cosets of that subgroup; this gives a global continuous section. Its factor set is a continuous cocycle. Conversely a continuous cocycle gives a topological extension, and an equivalence of such extensions is continuous, identifying this classification with continuous-cochain H². No group-homomorphic local splitting is needed.",
     "H¹_cont(SL₂(ℚ_p), 𝔽_p) = Hom_cont(SL₂(ℚ_p), 𝔽_p) = 0 because SL₂(ℚ_p) is perfect; H²_cont(SL₂(ℚ_p), 𝔽_p) ≅ Hom(μ_{p−1}, 𝔽_p) = 0 for p odd."
    ],
    "acceptance": [
@@ -1123,14 +1195,18 @@
    "prerequisites": [
     "mathlib:continuousCohomology",
     "mathlib:Matrix.SpecialLinearGroup.isTopologicalGroup",
-    "K2SymbolsBrauer:T.2/matsumoto",
-    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity"
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
    ],
    "sources": [
     {
      "sourceId": "MOO68",
      "locator": "Chapter I, Theorem 1.1, p. 10, and Theorems 2.3–2.4, pp. 15–16",
      "match": "For an (abstract) group equal to its commutator subgroup the transgression identifies Hom(π₁(G), A) with H²(G, A); for locally compact groups, with Borel cochains, the topological universal central extension and its universality."
+    },
+    {
+     "sourceId": "MOO68",
+     "locator": "Chapter II, Definition 3.1 and Theorem 3.1, printed pp.17–18 (PDF pp.14–15); Chapter III, Theorems 9.1–9.2, printed pp.46–47 (PDF pp.43–44)",
+     "match": "The universal rank-one Steinberg relations describe abstract extensions of SL₂; continuity and the local uniqueness theorem force their symbols to factor through the norm-residue symbol. This is the extra input beyond stable Milnor K₂."
     },
     {
      "sourceId": "MOO68",
@@ -1319,15 +1395,15 @@
    ],
    "title": "The quotient of the Lubin–Tate tower by the Borel subgroup (Ludwig)",
    "kind": "construction",
-   "statement": "Let n = 2, F = ℚ_p, G = GL₂(ℚ_p), B = B(ℚ_p) the upper-triangular Borel subgroup and M_∞ = M_{LT,∞,ℂ_p} with its right G-action. (a) The quotient M_∞/B, formed in Huber’s category of (pre-)adic spaces from the quotient topological space and the B-invariant sections, is a perfectoid space. Its height-zero part M^{(0)}_∞/B(ℤ_p) is the perfectoid space M_B ∼ lim_m M^{(0)}_m/B(ℤ/p^m) (with M^{(0)}_m the height-zero part of M_{LT,1+p^mM₂(ℤ_p)}), constructed inside the perfectoid modular curve at infinite level through the Hodge–Tate period map, and G′ = {g : det g ∈ ℤ_p^×} is the stabiliser of M^{(0)}_∞. (b) The Gross–Hopkins map factors as π_GH = π̄_GH ∘ q through a quasi-compact map π̄_GH : M_∞/B → ℙ¹_{ℂ_p}; the fibre over a geometric point x is identified with y × ℙ¹(ℚ_p) = y × (B\\G) for a lift y of x, and π̄_GH⁻¹(x) is affinoid perfectoid. (c) For a smooth character χ : B → 𝔽_q^×, ℱ_χ(U) = Map_{cont,B}(|U ×_{M_∞/B} M_∞|, χ) is an 𝔽_q-local system of rank one on (M_∞/B)_ét; π̄_{GH,∗}ℱ_χ ≅ ℱ_{Ind_B^G χ}, Rⁱπ̄_{GH,∗}ℱ = 0 for i > 0 and every sheaf ℱ, and hence Sⁱ(Ind_B^G χ) ≅ Hⁱ_ét(M_∞/B, ℱ_χ) for all i.",
+   "statement": "Let n = 2, F = ℚ_p, G = GL₂(ℚ_p), B = B(ℚ_p) the upper-triangular Borel subgroup and M_∞ = M_{LT,∞,ℂ_p} with its right G-action. (a) The quotient M_∞/B, formed in Huber’s category of (pre-)adic spaces from the quotient topological space and the B-invariant sections, is a perfectoid space. The perfectoid space M_B := M^{(0)}_∞/B(ℤ_p) ∼ lim_m M^{(0)}_m/B(ℤ/p^m) is an intermediate quotient. Put G⁰ = {g ∈ G : det(g) ∈ ℤ_p^×} and B′ = B ∩ G⁰, the stabiliser of the height-zero component. The final quotient is M_∞/B ≅ M^{(0)}_∞/B′; its perfectoid charts are open subsets of M_B obtained from local sections of π_GH at level zero. (b) The Gross–Hopkins map factors as π_GH = π̄_GH ∘ q through a quasi-compact map π̄_GH : M_∞/B → ℙ¹_{ℂ_p}; the fibre over a geometric point x is identified with y × ℙ¹(ℚ_p) = y × (B\\G) for a lift y of x, and π̄_GH⁻¹(x) is affinoid perfectoid. (c) For a smooth character χ : B → 𝔽_q^×, ℱ_χ(U) = Map_{cont,B}(|U ×_{M_∞/B} M_∞|, χ) is an 𝔽_q-local system of rank one on (M_∞/B)_ét; π̄_{GH,∗}ℱ_χ ≅ ℱ_{Ind_B^G χ}, Rⁱπ̄_{GH,∗}ℱ = 0 for i > 0 and every sheaf ℱ, and hence Sⁱ(Ind_B^G χ) ≅ Hⁱ_ét(M_∞/B, ℱ_χ) for all i.",
    "hypotheses": [
-    "n = 2 and F = ℚ_p, as in the source; ℚ_q-coefficients replaced by a finite field 𝔽_q of characteristic p.",
+    "n = 2 and F = ℚ_p; coefficients are a finite field 𝔽_q of characteristic p. For principal congruence level m use GL₂(ℤ_p) at m=0 and 1+p^mM₂(ℤ_p) for m≥1.",
     "Ind_B^G χ is smooth induction (continuous functions f : G → 𝔽_q with f(bg) = χ(b)f(g)), G/B being compact."
    ],
    "proofSteps": [
-    "Construct M_B (Ludwig Theorem 3.11): the height-zero Lubin–Tate tower at infinite level is identified with the part of the perfectoid modular curve X_{Γ(p^∞)} over a supersingular point, compatibly with the GL₂(ℚ_p)-action and the Hodge–Tate period map (requested from PerfectoidShimuraVarieties S1); its quotients M^{(0)}_m/B(ℤ/p^m) sit inside the modular curves of level Γ₀(p^m)-type, whose infinite-level limit is perfectoid near the relevant locus (PerfectoidShimuraVarieties S1/gamma0-infinite-level-perfectoid, the Hodge–Tate period map), and M_B is the resulting tilde-limit (PerfectoidSpaces P7/perfectoid-tilde-limit).",
-    "Identify M_B with the quotient M^{(0)}_∞/B(ℤ_p) in Huber’s category, then pass from B(ℤ_p) to B(ℚ_p) using the geometry of the Gross–Hopkins map (SZ.0/gross-hopkins-torsor), which gives quasi-compactness of π̄_GH and the description of its fibres (Ludwig Theorem 3.14, §3.6, Lemma 3.23).",
-    "Local system: for K ⊂ B(ℤ_p) open with χ|_K = 1, M_∞/K → M_∞/B is an étale cover on which ℱ_χ becomes constant (Ludwig Proposition 4.2).",
+    "Construct the intermediate perfectoid M_B (Ludwig Theorem 3.11 and Corollary 3.13, pp. 20–22). Serre–Tate uniformisation embeds the height-zero tower into the supersingular locus of the perfectoid modular curve, equivariantly for GL₂(ℤ_p) and compatibly with the Hodge–Tate map (PerfectoidShimuraVarieties S1 request). Quotients by B(ℤ/p^m) and the infinite Γ₀ tower give local perfectoid charts, glued to the tilde-limit M_B. The modular embedding used here is not asserted GL₂(ℚ_p)-equivariant on the height-zero component.",
+    "Pass to B′ = B ∩ G⁰ (Ludwig Theorem 3.14, pp. 22–23). Since B = B′ ⋊ ℤ acts transitively on heights, M_∞/B ≅ M^{(0)}_∞/B′. For an affinoid U in height-zero level zero on which π_GH is an isomorphism onto its image, p₀⁻¹(U) ×^{B(ℤ_p)} B′ embeds openly in M^{(0)}_∞; its B′-quotient is p₀⁻¹(U)/B(ℤ_p), an open perfectoid chart in M_B. These charts cover the final quotient. Proposition 3.15 gives quasi-compactness; Propositions 3.17, 3.22 and Lemma 3.23 give its affinoid perfectoid fibres.",
+    "For χ trivial on a sufficiently small open subgroup of B(ℤ_p), construct the character sheaf using B-equivariant continuous functions on pullbacks of M_∞. Ludwig Proposition 4.2 proves it is a rank-one local system; this does not require the entire non-quasicompact map M_∞/K → M_∞/B to be étale.",
     "π̄_{GH,∗}ℱ_χ = ℱ_{Ind χ} by Frobenius reciprocity for continuous maps: G-equivariant maps X → Ind_B^G χ correspond to B-equivariant maps X → χ for any G-space X with G/B compact (Ludwig Lemma 4.3) and SZ.1/scholze-sheaf.",
     "Higher direct images: the stalk of Rⁱπ̄_{GH,∗}ℱ at x is the cohomology of the fibre y × ℙ¹(ℚ_p), a profinite set times a geometric point, which vanishes in positive degrees (Ludwig Proposition 4.4)."
    ],
@@ -1351,8 +1427,8 @@
    "sources": [
     {
      "sourceId": "LUD17",
-     "locator": "§1, Theorems 3.11, 3.14 and 4.6 (as stated in the introduction), pp. 1–3",
-     "match": "The quotient of the infinite-level Lubin–Tate space by the Borel subgroup is perfectoid, built from a perfectoid M_B ∼ lim M^{(0)}_m/B(ℤ/p^m) via infinite-level modular curves and the Hodge–Tate map; the Gross–Hopkins map factors through it quasi-compactly, ℱ_{Ind χ} = π_{GH,∗}ℱ_χ and the higher direct images vanish."
+     "locator": "Theorem 3.11, Corollary 3.13, Theorem 3.14 and Proposition 3.15, pp. 20–23; Propositions 3.17 and 3.22, Lemma 3.23, pp. 23–27",
+     "match": "Constructs the compact B(ℤ_p) intermediate quotient and then glues the B′-quotient of the height-zero component to obtain M_∞/B. Local Gross–Hopkins sections give the perfectoid charts, quasi-compactness and fibre description."
     },
     {
      "sourceId": "LUD17",
@@ -1393,7 +1469,7 @@
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.borelQuotient_levelZero",
      "role": "characterisation",
-     "statement": "The height-zero part is M^{(0)}_∞/B(ℤ_p) ≅ M_B ∼ lim_m M^{(0)}_m/B(ℤ/p^m)."
+     "statement": "M_B := M^{(0)}_∞/B(ℤ_p) is the perfectoid tilde-limit of M^{(0)}_m/B(ℤ/p^m). The final quotient is M^{(0)}_∞/B′, B′ = B ∩ {det ∈ ℤ_p^×}; the map M_B → M_∞/B supplies local charts over opens admitting a level-zero Gross–Hopkins section."
     },
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.borelQuotient_gh",
@@ -1424,6 +1500,11 @@
      "name": "TauCetiRoadmap.ScholzeFunctor.borelQuotient_pushforward_Oplus",
      "role": "relation",
      "statement": "(π̄_{GH,∗}ℱ_χ) ⊗ O⁺_{ℙ¹}/p ≅ π̄_{GH,∗}(ℱ_χ ⊗ O⁺/p)."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.borelQuotient_lift",
+     "role": "universal-property",
+     "statement": "Every B-invariant morphism M_∞ → Y descends uniquely through q. Two maps from M_∞/B to Y agree if their composites with q agree; the descended map composes with q to the original map."
     }
    ],
    "tests": [
@@ -1446,6 +1527,11 @@
      "name": "TauCetiRoadmap.ScholzeFunctor.borelQuotient_compact_quotient_not_perfectoid",
      "kind": "non-example",
      "statement": "The quotient M_∞/GL₂(ℤ_p) is the finite-level Lubin–Tate space M_{LT,0,ℂ_p} (a disjoint union of open discs), which is not perfectoid: perfectoidness is special to the non-open subgroup B(ℚ_p)."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.borelQuotient_distinguish_intermediate",
+     "kind": "non-example",
+     "statement": "For a geometric Gross–Hopkins fibre meeting the height-zero component, the intermediate M_B has labels G⁰/B(ℤ_p), whereas the final quotient has labels G⁰/B′ ≅ G/B. Since diag(p,p⁻¹) ∈ B′ is not in B(ℤ_p), M_B → M_∞/B is not an isomorphism."
     }
    ],
    "planet": {
@@ -1585,8 +1671,8 @@
    ],
    "proofSteps": [
     "(1) Chebotarev: choose g in the Galois group of the field cut out by ρ̄ and ζ_p with non-trivial image in Gal(E(ζ_p)/E) and eigenvalue ratio avoiding {1, N(w₁)^{±1}}; infinitely many w₁ have Frob_{w₁} conjugate to g (DPS Lemma 8.2).",
-    "(2) Non-vanishing, admissibility and injectivity over K_p = ∏_{v|p} GL₂(ℤ_p) of S_ψ(U^p, L/O_L)_𝔪 (DPS Proposition 8.4; CompletedCohomology R31.1/definite-quaternionic-tower-structure (c)–(d), whose smallness hypotheses hold at the level U thanks to w₁) and the choice of λ (DPS Lemma 8.6); taking Hom_{U^𝔭_p}(λ, −) of a K_p-injective module gives a GL₂(ℤ_p)-injective one at 𝔭, and the 𝔪-part lies in the block of r̄^{ss} (Paškūnas, consequences of Ludwig, Lemmas 5.1–5.3, Proposition 5.4).",
-    "(3) Finite length and occurrence are PadicLocalLanglandsForGL2Qp R30.6/block-occurrence applied to S = S_{ψ,λ,𝔪}, once a characteristic-zero point x of A with absolutely irreducible Galois representation and non-zero specialisation exists. Produce x as in Paškūnas’s Theorem 6.5: take the Henniart type of a supercuspidal inertial type (GL2AutomorphicRepresentationsAndTransfer R16.3/cdt-inertia-multiplicity) and a pro-𝔭 subgroup V_𝔭 with a constituent γ of its restriction, chosen so that every Hecke eigenvector in Hom_{V_𝔭}(γ, S_{ψ,λ}(U^𝔭, O_L)_𝔪[1/p]) gives an automorphic form supercuspidal at 𝔭; its Galois representation is then absolutely irreducible on Gal_{E_𝔭}, because by local–global compatibility at p its Weil–Deligne representation corresponds to the supercuspidal π_𝔭 (AutomorphicGaloisRepresentations R19.5/kisin-hilbert-coefficient-prime, residual irreducibility holding here). The Hom space is non-zero because S^∨_{ψ,λ,𝔪} is a non-zero projective, hence free, module over O_L[[V_𝔭]] for V_𝔭 pro-p and small (R31.1/definite-quaternionic-tower-structure (c))."
+    "(2) Non-vanishing, admissibility and injectivity over K_p = ∏_{v|p} GL₂(ℤ_p) of S_ψ(U^p, L/O_L)_𝔪 (DPS Proposition 8.4; CompletedCohomology R31.1/definite-quaternionic-tower-structure (c)–(d), whose smallness hypotheses hold at the level U thanks to w₁) and the choice of λ (DPS Lemma 8.6); taking Hom_{U^𝔭_p}(λ, −) of a K_p-injective module gives a GL₂(ℤ_p)-injective one at 𝔭, and the 𝔪-part lies in the block of r̄^{ss} (Paškūnas, consequences of Ludwig, Lemmas 5.1–5.3, Proposition 5.4). In PAS22 formula(26), use the lattice dual Hom_O(λ,O), as corrected by DPS23 footnote 15 (E6); the torsion Pontryagin dual would make the tensor formula wrong.",
+    "(3) Apply R30.6/block-occurrence once there is a non-zero characteristic-zero specialisation with absolutely irreducible local Galois representation. Follow PAS22 Theorem 6.5 and CDN23 Proposition 4.10: choose a small open pro-p V_𝔭 and a supercuspidal type, together with the algebraic weight and compatible central character, so that a Hecke eigenvector in Hom_{V_𝔭}(γ,S_{ψ,λ}(U^𝔭,O_L)_𝔪[1/p]) gives an automorphic representation supercuspidal at 𝔭 (R16.3/cdt-inertia-multiplicity). This Hom space is non-zero because the non-zero fixed-central-character injective S restricts to copies of C_ζ(V_𝔭,L/O_L); dually it is projective in the fixed-central-character compact category and, on a sufficiently small pro-p subgroup, free over the corresponding central-character quotient of O_L[[V_𝔭]]. It is not generally free over O_L[[V_𝔭]] itself. The space is finite-dimensional by admissibility, so it has a Hecke eigenvector after finite coefficient extension. The global residual representation is absolutely irreducible by SZ.4/residual-globalisation; this is the residual irreducibility required by R19.5/kisin-hilbert-coefficient-prime, even when the local residual r̄ is reducible. Local–global compatibility at p identifies the Weil–Deligne representation with that of the supercuspidal local factor; the associated two-dimensional p-adic Galois representation is then absolutely irreducible. R30.6 yields finite length and occurrence of every member of the block."
    ],
    "acceptance": [
     "For r̄ absolutely irreducible, B = {π̄} is a single supersingular representation and M_{ψ,λ,𝔪} is a successive extension of copies of π̄.",
@@ -1628,6 +1714,11 @@
      "sourceId": "PAS22",
      "locator": "Theorem 6.5 and its proof, pp. 29–30",
      "match": "The construction of a supercuspidal type on a pro-𝔭 subgroup whose Hecke eigenvectors are supercuspidal at 𝔭, used for the non-vanishing of a specialisation."
+    },
+    {
+     "sourceId": "PAS22",
+     "locator": "Lemmas 5.1–5.3 and Proposition 5.4, pp. 18–20; Theorem 6.5 with proof, pp. 29–30",
+     "match": "Provides the fixed-central-character injectivity and local block membership, and constructs the non-zero compatible-type Hom space using central-character regular functions."
     }
    ],
    "library": {
@@ -1647,10 +1738,11 @@
    "statement": "In the setting of SZ.4/global-block-occurrence, let Ĥ¹_{ψ,λ}(U^𝔭, −)_𝔪 be the ψ-isotypic, λ-typical, 𝔪-localised completed cohomology of the Shimura curves attached to D (CompletedCohomology R31.1/shimura-curve-completed-cohomology). For every ideal I of the Hecke algebra T(U^𝔭)_𝔪, the isomorphism S¹(S_{ψ,λ,𝔪}) ≅ Ĥ¹_{ψ,λ,𝔪} of R31.4/scholze-functor-and-completed-cohomology-of-shimura-curves induces an injection S¹(S_{ψ,λ,𝔪}[I]) ↪ Ĥ¹_{ψ,λ,𝔪}[I] on whose cokernel the reduced-norm-one units of O_{D_𝔭} act trivially; if r̄^{ss} is not of the form χ ⊕ χω, it is an isomorphism. In particular, if r̄ = r̄_{χ₁,χ₂} with (χ₁, χ₂) generic, S¹(M_{ψ,λ,𝔪}) ≅ Ĥ¹_{ψ,λ}(U^𝔭, k_L)_𝔪[𝔪_A], the ideal 𝔪_A acting through the Hecke algebra.",
    "hypotheses": [
     "r̄^{ss} ≠ χ ⊕ χω for the isomorphism; the injection holds in general.",
-    "Paškūnas states the lemma for the λ-parts of S(U^p, L/O_L)_𝔪 without fixing the central character; the ψ-isotypic form here follows by applying it to ideals containing the ideal generated by the S_v − ψ(Frob_v) (as in his Lemma 6.2), or directly from the ψ-isotypic isomorphism of R31.4 by the argument below."
+    "Paškūnas states the lemma for the λ-parts of S(U^p, L/O_L)_𝔪 without fixing the central character; the ψ-isotypic form here follows by applying it to ideals containing the ideal generated by the S_v − ψ(Frob_v) (as in his Lemma 6.2), or directly from the ψ-isotypic isomorphism of R31.4 by the argument below.",
+    "The global non-Eisenstein hypothesis, not local irreducibility of r̄, supplies S⁰(S)=0. The Hecke algebra is noetherian, so every ideal I has finitely many generators."
    ],
    "proofSteps": [
-    "Let S = S_{ψ,λ,𝔪} and choose generators f₁, …, f_r of I, giving 0 → S[I] → S → S^{⊕r}. The long exact sequences of the Sⁱ give S⁰(S/S[I]) → S¹(S[I]) → S¹(S)[I] and identify the cokernel of S¹(S[I]) → S¹(S)[I] with a subquotient of an S⁰-term; S⁰ vanishes on every subquotient without non-zero SL₂(ℚ_p)-invariants and is acted on trivially by the norm-one units otherwise (SZ.1/scholze-galois-and-degree-zero (b)). Transport S¹(S)[I] to Ĥ¹_{ψ,λ,𝔪}[I] by the Hecke-equivariant isomorphism of R31.4 (Paškūnas Lemma 6.1, from Scholze Proposition 7.7).",
+    "First S⁰(S)=0: the global residual representation is absolutely irreducible, so the non-Eisenstein localisation of degree-zero Shimura-curve cohomology vanishes; transport through the degree-zero geometric identification, and then take the ψ- and λ-parts. This is the input at the start of SCH18 Proposition 7.7 (p.29), retained in PAS22 Lemma 6.1. For I=(f₁,…,f_r), write Q=S/S[I], which embeds in S^r via the f_i, and C=coker(Q→S^r). Since S⁰ is left exact, S⁰(Q)=0; the first long exact sequence gives S¹(S[I]) ↪ S¹(S). Its image lies in S¹(S)[I]. The discrepancy inside the latter injects into ker(S¹(Q)→S¹(S^r)), a quotient of S⁰(C); norm-one units act trivially on this by SZ.1/scholze-galois-and-degree-zero. Apply the Hecke-equivariant R31.4 isomorphism to obtain the stated injection and cokernel control. S⁰(S)=0 cannot be omitted.",
     "If the map is not surjective, some subquotient of S_ψ(U^p, L/O_L)_𝔪 has non-zero SL₂(ℚ_p)-invariants, so the block of r̄^{ss} contains a character; by the block classification (R30.5/blocks-classification) this forces r̄^{ss} ≅ χ ⊕ χω.",
     "For r̄ = r̄_{χ₁,χ₂} generic, take I generated by 𝔪_A; then S_{ψ,λ,𝔪}[𝔪_A] = M_{ψ,λ,𝔪} and Ĥ¹_{ψ,λ,𝔪}[𝔪_A] = Ĥ¹_{ψ,λ}(U^𝔭, k_L)_𝔪[𝔪_A] (CDN §4.1.5)."
    ],
@@ -1698,7 +1790,7 @@
    ],
    "title": "Galois invariants of S¹ of generic principal series (CDN Proposition 4.3)",
    "kind": "theorem",
-   "statement": "Let p > 2 and (χ₁, χ₂) a generic pair of smooth characters ℚ_p^× → 𝔽̄_p^× (χ₁χ₂⁻¹ ≠ 1, ε^{±1}, ε the reduction of x ↦ x|x|), viewed also as characters of Gal_{ℚ_p} by local class field theory, and let I(χ₁, χ₂) = Ind_B^G(χ₂ ⊗ χ₁ε⁻¹). If K/ℚ_p is finite and S¹(I(χ₁, χ₂))^{Gal_K} ≠ 0, then χ₁ or χ₂ factors through Gal(K/ℚ_p).",
+   "statement": "Let p > 2 and (χ₁, χ₂) a generic pair of smooth characters ℚ_p^× → 𝔽̄_p^× (χ₁χ₂⁻¹ ≠ 1, ε^{±1}, ε the reduction of x ↦ x|x|), viewed also as characters of Gal_{ℚ_p} by local class field theory, and let I(χ₁, χ₂) = Ind_B^G(χ₂ ⊗ χ₁ε⁻¹). If K/ℚ_p is finite and S¹(I(χ₁, χ₂))^{Gal_K} ≠ 0, then χ₁|_{Gal_K}=1 or χ₂|_{Gal_K}=1. Equivalently, the finite abelian extension fixed by ker χ₁ or by ker χ₂ is contained in K; K need not be Galois over ℚ_p.",
    "hypotheses": [
     "p > 2 (through SZ.4/residual-globalisation); characters defined over k_L after enlarging L, the representations regarded over k_L as in CDN §1.3.2."
    ],
@@ -1711,7 +1803,9 @@
    "acceptance": [
     "For fixed K and a fixed central character δ, only finitely many generic pairs with χ₁χ₂ε⁻¹ = δ can have S¹(I(χ₁, χ₂))^{Gal_K} ≠ 0, because only finitely many smooth characters of ℚ_p^× are trivial on the norm group N_{K/ℚ_p}(K^×); this finiteness is what SZ.5 uses.",
     "For K = ℚ_p the conclusion says χ₁ or χ₂ is trivial.",
-    "The statement is invariant under twisting both characters by the same η: I(χ₁η, χ₂η) = I(χ₁, χ₂) ⊗ η∘det and S¹ twists by η⁻¹ ⊠ η (SZ.1/scholze-galois-and-degree-zero (d))."
+    "Under simultaneous twist by η, replace S¹(I) by S¹(I)⊗(η⁻¹⊠η) and the characters by χ₁η,χ₂η. The invariant-space hypothesis must be twisted as well; invariants under Gal_K need not be unchanged unless η|_{Gal_K}=1.",
+    "A pair with χ₁=χ₂, χ₁χ₂⁻¹=ε, or χ₁χ₂⁻¹=ε⁻¹ fails genericity; simultaneous twisting and swapping the characters preserve genericity.",
+    "For non-Galois K the conclusion is still the restriction-to-Gal_K statement, with no use of a quotient Gal(K/ℚ_p)."
    ],
    "prerequisites": [
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.4/residual-globalisation",
@@ -1749,7 +1843,41 @@
    "implementationStatus": "unchecked",
    "planet": {
     "name": "The key local proposition"
-   }
+   },
+   "api": [
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsGenericPair",
+     "role": "characterisation",
+     "statement": "For characters χ₁,χ₂ and a specified cyclotomic character ε, IsGenericPair ε χ₁ χ₂ means χ₁/χ₂ differs from 1, ε and ε⁻¹. The light predicate does not itself impose continuity; the principal-series target assumes smooth characters."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsGenericPair.symm",
+     "role": "compatibility",
+     "statement": "IsGenericPair ε χ₁ χ₂ implies IsGenericPair ε χ₂ χ₁, since inversion preserves the forbidden set."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsGenericPair.twist",
+     "role": "functoriality",
+     "statement": "Twisting both χ₁ and χ₂ by the same character preserves genericity."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsGenericPair_equal",
+     "kind": "non-example",
+     "statement": "Equal characters are never generic."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsGenericPair_cyclotomic",
+     "kind": "non-example",
+     "statement": "The pairs (ε,1) and (ε⁻¹,1) are never generic, including when ε²=1."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsGenericPair_other",
+     "kind": "computation",
+     "statement": "When ε=1 and χ≠1, the pair (χ,1) is generic; this also checks the collapsed forbidden set in characteristic2."
+    }
+   ]
   },
   {
    "id": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/finite-image-functor",
@@ -1764,8 +1892,9 @@
     "Only irreducible π are tested; no condition is imposed on reducible arguments."
    ],
    "proofSteps": [
-    "A predicate on functions from isomorphism classes of irreducibles to finite-dimensional k_L-vector spaces: the support {π : V(π) ≠ 0} is finite and every value is finite-dimensional.",
-    "Stability under subobjects and extensions is checked pointwise: dimensions add along exact sequences and supports are contained in unions."
+    "Define the predicate on families of arbitrary k_L-vector spaces indexed by isomorphism classes of irreducibles: each value must be finite-dimensional and the support must be finite. Finite-dimensionality is a condition, not an assumed codomain restriction.",
+    "Stability under subobjects and extensions is checked pointwise: dimensions add along exact sequences and supports are contained in unions.",
+    "For the cohomology API, support cannot increase. Compact Lie finiteness is SZ.0/compact-lie-admissible-cohomology. In the Weil case, a finite action or 1-cocycle gives a homomorphism to a finite group (use V⋊Aut(V) for a cocycle); its inertia kernel is open and stable under a Frobenius power, so it factors through a finite Galois quotient. Thus H⁰/H¹(W_K,V) agree with H⁰/H¹(Gal_K,V), finite by ClassFieldTheory Layer 5. Compactness of W_K is neither assumed nor true."
    ],
    "acceptance": [
     "The zero functor is of finite image.",
@@ -1775,7 +1904,10 @@
    "prerequisites": [
     "mathlib:FiniteDimensional",
     "mathlib:Set.Finite",
-    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category"
+    "SmoothRepresentationsOfLocalGroups:SR.0:abelian-category/smooth-rep-category",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/compact-lie-admissible-cohomology",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
    ],
    "sources": [
     {
@@ -1832,7 +1964,12 @@
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.IsFiniteImage.cohomology",
      "role": "relation",
-     "statement": "If V is of finite image and a compact p-adic Lie group H (resp. the Weil group W_K) acts continuously on each V(π), then π ↦ Hⁱ(H, V(π)) (resp. Hⁱ(W_K, V(π)), i ≤ 1) is of finite image."
+     "statement": "If V is of finite image and a compact p-adic Lie group H acts continuously on each finite discrete V(π), then π ↦ Hⁱ(H,V(π)) is of finite image for every i. For W_K with K/ℚ_p finite the same holds in degrees 0 and 1: finite actions and finite-valued continuous 1-cocycles extend to Gal_K, so use ClassFieldTheory Layer 5 finite_H and Layer 9’s inertia/Weil topology."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsFiniteImage.congr",
+     "role": "extensionality",
+     "statement": "Pointwise k_L-linear isomorphisms V(π) ≅ W(π) imply IsFiniteImage V ↔ IsFiniteImage W; the predicate is invariant under a change of representatives of irreducible isomorphism classes."
     }
    ],
    "tests": [
@@ -1855,6 +1992,11 @@
      "name": "TauCetiRoadmap.ScholzeFunctor.IsFiniteImage_not_iwahori",
      "kind": "non-example",
      "statement": "π ↦ π^{I₁}, I₁ the pro-p Iwahori subgroup, is finite-dimensional on every π (admissibility) but non-zero for infinitely many π, so it is not of finite image."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.IsFiniteImage_single_infinite_dimension",
+     "kind": "non-example",
+     "statement": "A family supported at one index with value ⨁_{n∈ℕ} k_L there is not of finite image: finite support does not compensate for an infinite-dimensional value."
     }
    ]
   },
@@ -1866,7 +2008,7 @@
    ],
    "title": "Ascent from the arithmetic Drinfeld levels to infinite level (CDN Lemmas 4.13 and 4.17)",
    "kind": "theorem",
-   "statement": "Let F = ℚ_p with p > 2, ϖ = p, G = GL₂(ℚ_p), G′ = G/p^ℤ, Ǧ = D^× and Ǧ_n = 1 + 𝔪_D^n, n ≥ 0, K/ℚ_p finite, M^p_{n,K} the arithmetic level-n Drinfeld space (ET.6a/rank-two-arithmetic-descent), M^p_{Dr,∞} = M_{Dr,∞,ℂ_p}/p^ℤ and M_∞ = M_{LT,∞,ℂ_p} ≅ M_{Dr,∞,ℂ_p} (ET.6a/el-duality). (a) There are strictly exact sequences of prodiscrete G′-modules 0 → H¹(Gal_K, H⁰_ét(M^p_{n,ℂ_p}, k_L)) → H¹_ét(M^p_{n,K}, k_L) → H¹_ét(M^p_{n,ℂ_p}, k_L)^{Gal_K} and 0 → H¹(Ǧ_n, H⁰_ét(M^p_{Dr,∞}, k_L)) → H¹_ét(M^p_{n,ℂ_p}, k_L) → H¹_ét(M^p_{Dr,∞}, k_L)^{Ǧ_n}, with H⁰_ét(M^p_{Dr,∞}, k_L) ≅ C⁰(ℚ_p^×/p^{2ℤ}, k_L) and H^i(Ǧ_n, C⁰(ℚ_p^×/p^{2ℤ}, k_L)) finite-dimensional; and H¹_ét(M^p_{Dr,∞}, k_L) ≅ H¹_ét(M_{Dr,∞}, k_L)^{p^ℤ}. (b) Consequently the functor π ↦ Hom^cont_{k_L[G′]}(π^∨, H¹_ét(M^p_{n,K}, k_L)) is of finite image (SZ.5/finite-image-functor) as soon as π ↦ Y(π) := Hom^cont_{k_L[G]}(π^∨, H¹_ét(M_∞, k_L))^{W_K × Ǧ_n} is. (c) Y is of finite image as soon as π ↦ S¹(π)^{Gal_K × Ǧ_n} is. (d) For any finite F/ℚ_p (no descent to F, no p^ℤ-quotient), the same arguments give an exact sequence 0 → H¹(Ǧ_n, C⁰(F^×, k_L)) → H¹_ét(M_{n,ℂ_p}, k_L) → H¹_ét(M_∞, k_L)^{Ǧ_n}.",
+   "statement": "Let F = ℚ_p with p > 2, ϖ = p, G = GL₂(ℚ_p), G′ = G/p^ℤ, Ǧ = D^× and Ǧ₀ = O_D^× and Ǧ_n = 1 + 𝔪_D^n for n ≥ 1, K/ℚ_p finite, M^p_{n,K} the arithmetic level-n Drinfeld space (ET.6a/rank-two-arithmetic-descent), M^p_{Dr,∞} = M_{Dr,∞,ℂ_p}/p^ℤ and M_∞ = M_{LT,∞,ℂ_p} ≅ M_{Dr,∞,ℂ_p} (ET.6a/el-duality). (a) There are strictly exact sequences of prodiscrete G′-modules 0 → H¹(Gal_K, H⁰_ét(M^p_{n,ℂ_p}, k_L)) → H¹_ét(M^p_{n,K}, k_L) → H¹_ét(M^p_{n,ℂ_p}, k_L)^{Gal_K} and 0 → H¹(Ǧ_n, H⁰_ét(M^p_{Dr,∞}, k_L)) → H¹_ét(M^p_{n,ℂ_p}, k_L) → H¹_ét(M^p_{Dr,∞}, k_L)^{Ǧ_n}, with H⁰_ét(M^p_{Dr,∞}, k_L) ≅ C⁰(ℚ_p^×/p^{2ℤ}, k_L) and H^i(Ǧ_n, C⁰(ℚ_p^×/p^{2ℤ}, k_L)) finite-dimensional; and H¹_ét(M^p_{Dr,∞}, k_L) ≅ H¹_ét(M_{Dr,∞}, k_L)^{p^ℤ}. (b) Consequently the functor π ↦ Hom^cont_{k_L[G′]}(π^∨, H¹_ét(M^p_{n,K}, k_L)) is of finite image (SZ.5/finite-image-functor) as soon as π ↦ Y(π) := Hom^cont_{k_L[G]}(π^∨, H¹_ét(M_∞, k_L))^{W_K × Ǧ_n} is. (c) Y is of finite image as soon as π ↦ S¹(π)^{Gal_K × Ǧ_n} is. (d) For any finite F/ℚ_p (no descent to F, no p^ℤ-quotient), the same arguments give an exact sequence 0 → H¹(Ǧ_n, C⁰(F^×, k_L)) → H¹_ét(M_{n,ℂ_p}, k_L) → H¹_ét(M_∞, k_L)^{Ǧ_n}.",
    "hypotheses": [
     "F = ℚ_p, p > 2 in (a)–(c); (d) for every finite F/ℚ_p.",
     "Prodiscrete topologies come from Stein covers; the Weil and Galois invariants of S¹(π) agree by SZ.1/scholze-galois-and-degree-zero (a)."
@@ -1876,7 +2018,7 @@
     "(a), second sequence: the Cartan–Leray spectral sequence of the pro-étale Ǧ_n-torsor M^p_{Dr,∞} → M^p_{n,ℂ_p}, built exactly as in SZ.2/cartan-leray-spectral-sequence; π₀(M_{Dr,∞}) ≅ ℚ_p^× with Ǧ acting through Nrd and p acting through det = p² (SZ.0/lubin-tate-components (c)) gives H⁰ = C⁰(ℚ_p^×/p^{2ℤ}, k_L), an admissible Ǧ_n-module, whose Ǧ_n-cohomology is finite (SZ.0/compact-lie-admissible-cohomology (b)). M^p_{Dr,∞} is the union of the height-zero and height-one parts of M_{Dr,∞}, so a Stein perfectoid exhaustion and its Mittag-Leffler property (ET.6a/stein-mittag-leffler) restrict to it.",
     "(a), last identification: the étale p^ℤ-torsor M_{Dr,∞} → M^p_{Dr,∞} gives 0 → H¹(p^ℤ, H⁰) → H¹(M^p_{Dr,∞}) → H⁰(p^ℤ, H¹(M_{Dr,∞})) → 0 and H¹(p^ℤ, C⁰(ℚ_p^×, k_L)) = H¹(p^ℤ, Ind_1^{p^ℤ} C⁰(ℤ_p^× ⊔ pℤ_p^×, k_L)) = 0 by Shapiro (SZ.2/fust-cohomology (b)); the source writes C⁰(ℤ_p^×, k_L) here (source issue E3), which does not change the vanishing.",
     "(b) Apply Hom^cont_{k_L[G′]}(π^∨, −) and Gal_K-, Ǧ_n-invariants to the sequences of (a); the outer terms give functors of finite image because M^p_{n,ℂ_p} has finitely many components and H^i(Ǧ_n, C⁰(ℚ_p^×/p^{2ℤ}, k_L)) is finite (CDN Lemma 4.13); transport M_{Dr,∞} to M_∞ by duality.",
-    "(c) Use the exact sequence 0 → V₁(π) → S¹(π) → Hom^cont_{k_L[G]}(π^∨, H¹_ét(M_∞, k_L)) → V₂(π) of SZ.2/comparison-map, where V₁, V₂ are of finite image (finite-dimensional, and zero outside the finitely many twists of the Steinberg block with given central character, SZ.2/fust-cohomology (d)); the cohomology of W_K × Ǧ_n with values in V₁(π) is of finite image, so the invariants of the cokernel of V₁ → S¹ and then Y(π) are of finite image (CDN Lemma 4.17).",
+    "(c) Use the exact sequence 0 → V₁(π) → S¹(π) → Hom^cont_{k_L[G]}(π^∨, H¹_ét(M_∞, k_L)) → V₂(π) of SZ.2/comparison-map, where V₁, V₂ are of finite image (finite-dimensional, and zero outside the finitely many twists of the Steinberg block with given central character, SZ.2/fust-cohomology (d)); the cohomology of W_K × Ǧ_n with values in V₁(π) is of finite image, so the invariants of the cokernel of V₁ → S¹ and then Y(π) are of finite image (CDN Lemma 4.17). The required H⁰/H¹ finiteness for W_K is the finite-module comparison with Gal_K in SZ.5/finite-image-functor, using ClassFieldTheory Layers 5 and 9; for W_K × Ǧ_n use the Hochschild–Serre sequence and compact Lie finiteness.",
     "(d) Steps 1–3 are geometric and do not use F = ℚ_p (CDN, proof of Theorem 4.22)."
    ],
    "acceptance": [
@@ -1895,7 +2037,9 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/rank-two-arithmetic-descent",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/el-duality",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/stein-mittag-leffler",
-    "ClassicalAdicEtaleCohomology:H0"
+    "ClassicalAdicEtaleCohomology:H0",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
    ],
    "sources": [
     {
@@ -1933,7 +2077,7 @@
     "F = ℚ_p and p > 2; the statement is specific to ℚ_p (CDN Theorem 2.13 gives non-admissibility phenomena for F ≠ ℚ_p)."
    ],
    "proofSteps": [
-    "The central character of a smooth irreducible k_L[G′]-module takes only finitely many values (ModpRepresentations MP.1/central-ext, Lemma 1.22), so fix it, equal to δ; each such π is admissible (PadicLocalLanglandsForGL2Qp R30.2/modp-irreducibles).",
+    "By MP.1/central-ext (CDN Lemma 1.22), the centre of G′ acts through ℤ_p^×/(1+pℤ_p) ≅ 𝔽_p^×: p acts trivially by the quotient, and the central pro-p subgroup acts trivially on every smooth irreducible in characteristic p. Its characters are the p−1 characters into 𝔽_p^× ⊂ k_L^×, so there are finitely many possible central characters. Fix one, δ. Admissibility of each π is R30.2/modp-irreducibles.",
     "By SZ.5/drinfeld-tower-ascent (b)–(c) it suffices that π ↦ S¹(π)^{Gal_K × Ǧ_n} is of finite image. Finite-dimensionality: S¹(π) is an admissible Ǧ-module (SZ.1/scholze-finiteness).",
     "Finiteness of the support: put π̄ = 𝔽̄_p ⊗_{k_L} π; then S¹(π̄) ≅ 𝔽̄_p ⊗_{k_L} S¹(π) (SZ.1/scholze-functor, base change, as ℙ¹_{ℂ_p} is quasicompact). Let T be the set of irreducible 𝔽̄_p[G′]-modules τ with S¹(τ)^{Gal_K} ≠ 0. By the classification only finitely many τ with given central character are not generic principal series (Remark 1.9, R30.2/modp-irreducibles), and among generic principal series only finitely many have S¹(τ)^{Gal_K} ≠ 0 by SZ.4/key-local-proposition; so T is finite.",
     "If π has S¹(π)^{Gal_K × Ǧ_n} ≠ 0 then π̄ has a constituent in T; π̄ is semisimple with pairwise distinct Galois-conjugate constituents (MP.0/scalar-extension, Lemma 1.7), and Hom commutes with field extension (Lemma 1.6), so two non-isomorphic such π cannot share a constituent; hence only finitely many π occur."
@@ -2095,13 +2239,14 @@
    ],
    "title": "The geometric multiplicity Π^geo_n(ρ̄) of a residual Galois representation",
    "kind": "definition",
-   "statement": "Let F = ℚ_p, ϖ = p, n ≥ 0 and ρ̄ : Gal_{ℚ_p} → GL_d(k_L) a continuous representation on a finite-dimensional k_L-vector space. Define Π^geo_n(ρ̄) := Hom_{k_L[Gal_{ℚ_p}]}(ρ̄, H¹_ét(M^p_{n,ℂ_p}, k_L))^∨, the k_L-linear dual of the space of Galois-equivariant maps from ρ̄ to the first étale cohomology of the level-n Drinfeld space over ℂ_p, with the G′-action induced by the action on the cohomology. More generally, for F/ℚ_p finite and ρ̄ : Gal_F → GL_d(k_L), Π^geo_n(ρ̄) := Hom_{k_L[Gal_F]}(ρ̄, H¹_ét(M^ϖ_{n,ℂ_p}, k_L))^∨.",
+   "statement": "Let F = ℚ_p, ϖ = p, n ≥ 0 and ρ̄ : Gal_{ℚ_p} → GL_d(k_L) a continuous representation on a finite-dimensional k_L-vector space. Define Π^geo_n(ρ̄) := Hom_{k_L[Gal_{ℚ_p}]}(ρ̄, H¹_ét(M^p_{n,ℂ_p}, k_L))^∨, the continuous k_L-linear dual of the space of Galois-equivariant maps from ρ̄ to the first étale cohomology of the level-n Drinfeld space over ℂ_p, with the G′-action induced by the action on the cohomology. More generally, for F/ℚ_p finite and ρ̄ : Gal_F → GL_d(k_L), Π^geo_n(ρ̄) := Hom_{k_L[Gal_F]}(ρ̄, H¹_ét(M^ϖ_{n,ℂ_p}, k_L))^∨.",
    "hypotheses": [
     "The dual is taken with the topology for which Hom(ρ̄, H¹) is prodiscrete; Π^geo_n(ρ̄) is a smooth G′-module (CDN Corollary 2.12, Theorem 4.23 (a))."
    ],
    "proofSteps": [
     "The Galois-equivariant maps form a closed G′-stable subspace of Hom_{k_L}(ρ̄, H¹_ét(M^p_{n,ℂ_p}, k_L)) ≅ ρ̄^∨ ⊗ H¹; take its continuous dual.",
-    "If ρ̄ factors through a finite quotient H = Gal(F′/ℚ_p), Hom_{Gal}(ρ̄, H¹) = Hom_H(ρ̄, H¹(M^p_{n,ℂ_p}, k_L)^{Gal_{F′}}); if H¹(M^p_{n,ℂ_p}, k_L)^{Gal_{F′}} ≅ π^∨ then Hom_H(ρ̄, π^∨) ≅ (ρ̄^∨ ⊗ π^∨)^H ≅ ((ρ̄ ⊗ π)_H)^∨, so Π^geo_n(ρ̄) ≅ (ρ̄ ⊗_{k_L} π)_H, the H-coinvariants (CDN proof of Corollary 2.12)."
+    "If ρ̄ factors through a finite quotient H = Gal(F′/ℚ_p), Hom_{Gal}(ρ̄, H¹) = Hom_H(ρ̄, H¹(M^p_{n,ℂ_p}, k_L)^{Gal_{F′}}); if H¹(M^p_{n,ℂ_p}, k_L)^{Gal_{F′}} ≅ π^∨ then Hom_H(ρ̄, π^∨) ≅ (ρ̄^∨ ⊗ π^∨)^H ≅ ((ρ̄ ⊗ π)_H)^∨, so Π^geo_n(ρ̄) ≅ (ρ̄ ⊗_{k_L} π)_H, the H-coinvariants (CDN proof of Corollary 2.12).",
+    "For the smoothness assertion and general-F finite presentation, apply CDN Corollary 2.12: the Stein-cover Hochschild–Serre sequences compare H¹(M^ϖ_{n,ℂ_p},k_L)^{Gal_{F′}} with arithmetic H¹, with finite-dimensional outer terms by ClassFieldTheory Layer 5. Arithmetic finite presentation is the recorded proetale-finite-presentation gap. Then use MP.0/finite-presentation for finite sums, cokernels and finite-group coinvariants. This dependence is direct and does not follow merely from SZ.5 ascent. Keep the continuous dual on both sides of the initial Hom identification in the proof of CDN Corollary 2.12; its missing dual is the harmless misprint E5."
    ],
    "acceptance": [
     "Π^geo_n(0) = 0.",
@@ -2113,7 +2258,9 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.6a/rank-two-arithmetic-descent",
     "mathlib:Representation",
     "mathlib:Field.absoluteGaloisGroup",
-    "mathlib:PontryaginDual"
+    "mathlib:PontryaginDual",
+    "ModpRepresentationsOfGL2OverLocalFields:MP.0/finite-presentation",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality"
    ],
    "sources": [
     {
@@ -2175,7 +2322,17 @@
     {
      "name": "TauCetiRoadmap.ScholzeFunctor.geometricMultiplicity_smooth",
      "role": "other",
-     "statement": "Π^geo_n(ρ̄) is a smooth G′-module; for F = ℚ_p it has finite length (SZ.6/geometric-multiplicity-theorem)."
+     "statement": "For every finite F/ℚ_p, Π^geo_n(ρ̄) is a smooth finitely presented G′-module, by CDN Corollary 2.12 and the recorded arithmetic finite-presentation gap. For F=ℚ_p and p>2 it has finite length by SZ.6/geometric-multiplicity-theorem."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.geometricMultiplicity_level",
+     "role": "functoriality",
+     "statement": "For m≥n, pullback along M^ϖ_m → M^ϖ_n induces Π^geo_m(ρ̄) → Π^geo_n(ρ̄), respecting identities, composition, and the maps in ρ̄. The dual topology is the continuous dual of the closed Galois-equivariant Hom space."
+    },
+    {
+     "name": "TauCetiRoadmap.ScholzeFunctor.geometricMultiplicity_ext",
+     "role": "extensionality",
+     "statement": "Two elements of Π^geo_n(ρ̄) agree iff their values agree on every Galois-equivariant map ρ̄ → H¹_ét(M^ϖ_{n,ℂ_p},k_L). This identifies the underlying representation with the continuous dual, not the algebraic dual of an infinite prodiscrete space."
     }
    ],
    "tests": [
@@ -2217,7 +2374,7 @@
     "p > 2 and F = ℚ_p; in (c) the source proves the supersingular case of (b) in detail and indicates (c) in Remarque 4.25; the argument recorded here combines the proof of (b) with the block decomposition."
    ],
    "proofSteps": [
-    "(a) Choose F′/ℚ_p finite Galois with ρ̄ factoring through H = Gal(F′/ℚ_p); the Hochschild–Serre sequences of SZ.5/drinfeld-tower-ascent (a) compare H¹_ét(M^p_{n,ℂ_p}, k_L)^{Gal_{F′}} with H¹_ét(M^p_{n,F′}, k_L) up to finite-dimensional kernel and cokernel, the latter dual of finite length (SZ.5/finite-length); then Π^geo_n(ρ̄) is built from (ρ̄ ⊗ π)^H as in SZ.6/geometric-multiplicity (CDN proof of Corollary 2.12).",
+    "(a) Choose F′/ℚ_p finite Galois with ρ̄ factoring through H = Gal(F′/ℚ_p); the Hochschild–Serre sequences of SZ.5/drinfeld-tower-ascent (a) compare H¹_ét(M^p_{n,ℂ_p}, k_L)^{Gal_{F′}} with H¹_ét(M^p_{n,F′}, k_L) up to finite-dimensional kernel and cokernel, the latter dual of finite length (SZ.5/finite-length); then Π^geo_n(ρ̄) is built from (ρ̄ ⊗ π)_H as in SZ.6/geometric-multiplicity (CDN proof of Corollary 2.12).",
     "(b) Let π be an irreducible quotient of Π^geo_n(ρ̄); then ρ̄ embeds into Hom^cont_G(π^∨, H¹_ét(M^p_{n,ℂ_p}, k_L)); the ascent of SZ.5/drinfeld-tower-ascent, the comparison sequence of SZ.2/comparison-map and the fact that ρ̄ (irreducible of dimension > 1) does not occur in H⁰_ét(M_∞, k_L) (characters only) give Hom_{Gal}(ρ̄, S¹(π)) ≠ 0. π is not a character since S¹ kills characters (SZ.1/scholze-galois-and-degree-zero (e)); enlarge L so that π is absolutely irreducible, let B be its block and r̄ = ρ̄_B, globalise and form M (SZ.4/residual-globalisation, SZ.4/global-block-occurrence).",
     "If π is supersingular, B = {π} and 0 → π → M → π′ → 0 with π′ a successive extension of copies of π; S⁰(π′) = 0, so S¹(π) ↪ S¹(M) ≅ Ĥ¹_{ψ,λ}(U^𝔭, k_L)_𝔪[𝔪_A] ⊂ r̄ ⊗ N′ (SZ.4/hecke-torsion-comparison, whose isomorphism case applies as r̄ is irreducible, and R31.4 isotypy for Ĥ¹); hence S¹(π) is r̄-isotypic (Scholze Proposition 5.4), so Hom_{Gal}(ρ̄, S¹(π)) ≠ 0 forces ρ̄ ≅ r̄, impossible for d > 2.",
     "If π is not supersingular, r̄ = χ₁ ⊕ χ₂. Lemma 4.24 (d): the kernel of S¹(Z) → S¹(M) is a quotient of S⁰((M/Z)^{SL₂(ℚ_p)}), a successive extension of characters (SZ.1/scholze-galois-and-degree-zero (b)), and the image lies in r̄ ⊗ U, hence has a filtration with graded pieces χ₁ ⊗ U₁ and χ₂ ⊗ U₂; take H-invariants and H¹(H, −). Choose H pro-p, write 0 → X → Y → π → 0 with X, Y ⊂ M; S⁰(π) = 0 gives 0 → (S¹(Y)/S¹(X))^H → S¹(π)^H → S²(X)^H; the first term is controlled by (d) and the last is a successive extension of characters by SZ.3/ludwig-vanishing (d); so Hom_{Gal}(ρ̄, S¹(π)^H) = 0 for absolutely irreducible ρ̄ of dimension ≥ 2, a contradiction.",
@@ -2277,7 +2434,7 @@
    ],
    "title": "Smooth vectors on the Lubin–Tate side (CDN Theorem 4.26)",
    "kind": "theorem",
-   "statement": "Let F = ℚ_p with p > 2, n ≥ 0, LT_{n,ℂ_p} = M_{LT,G_n} ⊗ ℂ_p the level-n Lubin–Tate space (G_n = 1 + p^n M₂(ℤ_p)), LT^p_{n,ℂ_p} its quotient by p^ℤ ⊂ Z(Ǧ), which descends to ℚ_p, and LT^p_{n,K} its base change to a finite K/ℚ_p; M^p_∞ = M_∞/p^ℤ. Then: (a) the Ǧ-smooth vectors of H¹_ét(LT^p_{n,K}, k_L) form a finite-dimensional k_L-vector space; (b) (Lemma 4.27) for every j, the G-smooth vectors of H¹_ét(M^p_∞, k_L)^{Gal_K × Ǧ_j} form a finite-dimensional space; (c) (Lemma 4.28) H¹_ét(M^p_∞, k_L) contains no non-zero finite-dimensional G-submodule; (d) (Remark 4.29) statement (a) is equivalent to SZ.5/finite-length (a) through the criterion of finite length by smooth vectors of the dual.",
+   "statement": "Let F = ℚ_p with p > 2, n ≥ 0, LT_{n,ℂ_p} = M_{LT,G_n} ⊗ ℂ_p the level-n Lubin–Tate space (G₀ = GL₂(ℤ_p), G_n = 1 + p^n M₂(ℤ_p) for n ≥ 1), LT^p_{n,ℂ_p} its quotient by p^ℤ ⊂ Z(Ǧ), which descends to ℚ_p, and LT^p_{n,K} its base change to a finite K/ℚ_p; M^p_∞ = M_∞/p^ℤ. Then: (a) the Ǧ-smooth vectors of H¹_ét(LT^p_{n,K}, k_L) form a finite-dimensional k_L-vector space; (b) (Lemma 4.27) for every j, the G-smooth vectors of H¹_ét(M^p_∞, k_L)^{Gal_K × Ǧ_j} form a finite-dimensional space; (c) (Lemma 4.28) H¹_ét(M^p_∞, k_L) contains no non-zero finite-dimensional G-submodule; (d) (Remark 4.29) statement (a) is equivalent to SZ.5/finite-length (a) through the criterion of finite length by smooth vectors of the dual.",
    "hypotheses": [
     "F = ℚ_p and p > 2 (through SZ.5/finite-length and SZ.2/moore-sl2-vanishing); the source expects (a) for F ≠ ℚ_p as well, which is not asserted."
    ],
@@ -2345,7 +2502,7 @@
   },
   {
    "supplier": "PerfectoidShimuraVarieties:S1",
-   "need": "For the modular curve (GL₂ over ℚ, Scholze’s case g = 1 of the Siegel construction): the part of the perfectoid modular curve X_{Γ(p^∞)} over a supersingular point of the special fibre is GL₂(ℚ_p)-equivariantly a finite disjoint union of copies of the height-zero Lubin–Tate tower at infinite level (Serre–Tate and Rapoport–Zink uniformisation at infinite level), and the Hodge–Tate period map restricts on it to the Hodge–Tate map of the Lubin–Tate tower, as used by Ludwig, A quotient of the Lubin–Tate tower, §3.",
+   "need": "For the GL₂ modular curve at infinite level, Serre–Tate/Rapoport–Zink uniformisation embeds the height-zero Lubin–Tate tower over a supersingular point into the perfectoid modular curve, compatibly with the Hodge–Tate map and the GL₂(ℤ_p)-action. Use the compact-level action on this height-zero component; GL₂(ℚ_p) moves heights and is not asserted to preserve the component. Together with the existing Γ₀-infinite-level perfectoid node this is the input to Ludwig Theorem 3.11 and Corollary 3.13, pp.20–22.",
    "neededBy": [
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.3/borel-quotient"
    ]
@@ -2358,18 +2515,23 @@
    ]
   },
   {
-   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
-   "need": "Imported, no new content: the absolute local Artin map Art_F : F^× → W_F^ab with the normalisation sending uniformisers to geometric Frobenius elements, and its comparison with the arithmetic normalisation.",
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+   "need": "Import ClassFieldTheory Layer 9: the locally compact Weil group W_F with its inertia topology, dense inclusion in Gal_F, finite-extension functoriality and inertia exact sequence, and localWeilArtinEquiv : F^× ≃ₜ W_F^ab for F/ℚ_p finite. Invert the arithmetic reciprocity normalisation to define Art_F : W_F^ab ≃ₜ F^× with geometric Frobenius mapped to a uniformiser. This is not just the profinite absolute Artin map of Layer 7. For finite coefficient modules, use the inertia sequence to extend finite actions and finite-valued continuous 1-cocycles to finite Galois quotients.",
    "neededBy": [
     "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/lubin-tate-components",
-    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-galois-and-degree-zero"
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-galois-and-degree-zero",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/finite-image-functor",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/drinfeld-tower-ascent"
    ]
   },
   {
-   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-6-the-local-class-formation-and-finite-local-reciprocity",
-   "need": "Imported, no new content: local reciprocity and the norm residue (Hilbert) symbol of a non-archimedean local field, the input of Moore’s computation of the topological fundamental group of SL₂(k).",
+   "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+   "need": "Import ClassFieldTheory Layer 5: the cohomological local norm-residue (Hilbert) pairing and its norm-kernel/reciprocity compatibility for Moore’s computation; finite_H for H⁰,H¹,H² of finite smooth discrete local Galois modules. With the Weil inertia topology from Layer 9 this supplies the degree-0/1 Weil finiteness used in ascent, and the finite outer terms in the geometric-multiplicity Hochschild–Serre argument.",
    "neededBy": [
-    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.2/moore-sl2-vanishing"
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.2/moore-sl2-vanishing",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/finite-image-functor",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/drinfeld-tower-ascent",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.6/geometric-multiplicity"
    ]
   },
   {
@@ -2385,7 +2547,7 @@
    "stageId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0",
    "status": "planned",
    "remaining": [
-    "Discharge the import request to ClassFieldTheory layer 7 (Artin map normalisation)."
+    "Use ClassFieldTheory Layer 9 for the Weil group and geometric reciprocity normalisation."
    ]
   },
   {
@@ -2400,7 +2562,7 @@
    "stageId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.2",
    "status": "planned",
    "remaining": [
-    "Discharge the import request to ClassFieldTheory layer 6 for Moore’s computation."
+    "Use the existing ClassFieldTheory Layer 5 Hilbert pairing in Moore’s rank-one symbol computation."
    ]
   },
   {
@@ -2424,14 +2586,15 @@
    "status": "planned",
    "remaining": [
     "Gap ScholzeFunctorAndModpCohomologyOfTheLubinTateTower/gap/proetale-finite-presentation: CDN Theorem 2.1, owned by the pending design DESIGN-ProetaleCohomologyOfPAdicCurvesAndTowers (#3410).",
-    "Request ClassicalAdicEtaleCohomology:H0 for the Hochschild–Serre sequence of rigid spaces over K (SZ.5/drinfeld-tower-ascent)."
+    "Request ClassicalAdicEtaleCohomology:H0 for the Hochschild–Serre sequence of rigid spaces over K (SZ.5/drinfeld-tower-ascent).",
+    "Use ClassFieldTheory Layers 5 and 9 for the finite coefficient Galois/Weil cohomology in ascent."
    ]
   },
   {
    "stageId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.6",
    "status": "planned",
    "remaining": [
-    "None beyond the SZ.5 gap, which SZ.6/geometric-multiplicity-theorem and SZ.6/lubin-tate-smooth-vectors inherit through SZ.5/finite-length."
+    "The recorded arithmetic finite-presentation gap is needed directly by SZ.6/geometric-multiplicity through CDN Corollary 2.12, and is inherited by the end theorems through SZ.5/finite-length."
    ]
   }
  ],
@@ -2440,9 +2603,10 @@
    "id": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower/gap/proetale-finite-presentation",
    "title": "Finite presentation of the mod p^k cohomology of the arithmetic Drinfeld levels (CDN Theorem 2.1)",
    "neededBy": [
-    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/finite-length"
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/finite-length",
+    "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.6/geometric-multiplicity"
    ],
-   "detail": "Needed statement (CDN23 Théorème 2.1, p. 21 = Théorème 0.5, p. 5): for F/ℚ_p finite, K/F finite, k ≥ 1 and q ≥ 0, the G′-module H^q_ét(M^ϖ_{n,K}, O_L/p^k) is a profinite O_L-module whose Pontryagin dual is a smooth finitely presented representation of G′ = GL₂(F)/ϖ^ℤ. Its proof uses the G-equivariant semi-stable formal model of M^ϖ_n (CDN Proposition 2.7), the Bloch–Kato–Hyodo filtration on mod p nearby cycles of formal schemes (Theorem 2.4; ClassicalAdicEtaleCohomology H1:formal-adic-comparison plans the filtration) and Shotton’s coherence of the category of finitely presented representations (ModpRepresentationsOfGL2OverLocalFields MP.0/amalgam-coherence). The paper extraction routes it to the new roadmap ProetaleCohomologyOfPAdicCurvesAndTowers (item PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-2-1, with 2-prop-semistable, 2-thm-BKH, 2-cpcf and 2-cpcf-lemmas), whose design job DESIGN-ProetaleCohomologyOfPAdicCurvesAndTowers (issue #3410) has not been done; that roadmap has no stages yet, so no request can be filed. Once it is planned, SZ.5/finite-length cites its node for Theorem 2.1 and this gap closes."
+   "detail": "Needed statement (CDN23 Théorème 2.1, p. 21 = Théorème 0.5, p. 5): for F/ℚ_p finite, K/F finite, k ≥ 1 and q ≥ 0, the G′-module H^q_ét(M^ϖ_{n,K}, O_L/p^k) is a profinite O_L-module whose Pontryagin dual is a smooth finitely presented representation of G′ = GL₂(F)/ϖ^ℤ. Its proof uses the G-equivariant semi-stable formal model of M^ϖ_n (CDN Proposition 2.7), the Bloch–Kato–Hyodo filtration on mod p nearby cycles of formal schemes (Theorem 2.4; ClassicalAdicEtaleCohomology H1:formal-adic-comparison plans the filtration) and Shotton’s coherence of the category of finitely presented representations (ModpRepresentationsOfGL2OverLocalFields MP.0/amalgam-coherence). The paper extraction routes it to the new roadmap ProetaleCohomologyOfPAdicCurvesAndTowers (item PAPER-COLMEZ-DOSPINESCU-NIZIOL-23/2-thm-2-1, with 2-prop-semistable, 2-thm-BKH, 2-cpcf and 2-cpcf-lemmas), whose design job DESIGN-ProetaleCohomologyOfPAdicCurvesAndTowers (issue #3410) has not been done; that roadmap has no stages yet, so no request can be filed. Once it is planned, SZ.5/finite-length cites its node for Theorem 2.1 and this gap closes. It is also a direct input to the general-F smooth finite-presentation assertion in SZ.6/geometric-multiplicity (CDN Corollary 2.12, p.30), via the finite-Galois and Stein-cover Hochschild–Serre argument. The supplier must cover that arithmetic theorem; the corollary’s passage to finite-group coinvariants is planned here."
   }
  ],
  "sourceIssues": [
@@ -2453,14 +2617,19 @@
    "locator": "proof of Corollaire 3.13, p. 37, and proof of Théorème 4.22, p. 46 (published version; the same text in arXiv:2204.11214v2)",
    "printed": "Both proofs cite Fust [34] ‘lemma 6.3’ for the finite-dimensionality of Hⁱ(SL₂(F), π) for π admissible as an SL₂(F)-representation, the bibliography entry [34] being the published paper in Münster J. Math. 15 (2022).",
    "correction": "In the published paper cited, the finiteness for a p-adic reductive group is Lemma 6.6; Lemma 6.3 there is the auxiliary statement for a group with an open normal subgroup N of finitely generated cohomology and finite or finitely generated abelian quotient. The numbering ‘6.3’ is that of arXiv:2106.04473v1, where the reductive-group lemma is Lemma 6.3.",
-   "reason": "Read in the published PDF (Münster J. Math. 15, 279–304) and in arXiv v1 and v2: v2 and the published version number the reductive-group finiteness lemma 6.6, v1 numbers it 6.3. SL₂(F) has no proper open normal subgroup with the required properties, so the published Lemma 6.3 does not apply directly.",
+   "reason": "The journal Lemma 6.3 is the open-normal-subgroup auxiliary result; reductive-group finiteness is Lemma 6.6. In the inspected arXiv v1, the latter theorem is indeed Lemma 6.3. The proof uses the right theorem after correcting the version-dependent number.",
    "affects": "nothing",
    "known": "new",
    "searched": [
     "the published CDN23 (Forum Math. Pi 11 (2023) e16) and arXiv:2204.11214v2",
     "Fust, Münster J. Math. 15 (2022) 279–304 (journal PDF), arXiv:2106.04473v1 and v2",
     "Crossref for 10.1017/fmp.2023.15: no correction listed (as recorded by the paper extraction)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read CDN23 pp.37 and46, the journal Lemmas 6.3 and6.6, and arXiv:2106.04473v1 Lemma 6.3. The mismatch is version-dependent numbering.",
+    "by": "REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower"
+   }
   },
   {
    "id": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower/E2",
@@ -2475,7 +2644,12 @@
    "searched": [
     "the published CDN23 and arXiv:2204.11214v2 (both cite Lemma 23.6 at the same place)",
     "the atlas record PAPER-SCHOLZE-17/E69 and DiamondSixOperations:S4/profinite-projection-pushforward, which restricts the lemma to prime-to-p coefficients"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read CDN23 p.35 and ECD Lemma 23.6, p.144: the cited Rh_! projection-formula proof is in the prime-to-p theory. Proposition 14.9, p.86, supplies the arbitrary-abelian-sheaf continuity argument for the qcqs product with a profinite set used here.",
+    "by": "REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower"
+   }
   },
   {
    "id": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower/E3",
@@ -2490,7 +2664,74 @@
    "searched": [
     "the published CDN23 and arXiv:2204.11214v2",
     "the paper extraction PAPER-COLMEZ-DOSPINESCU-NIZIOL-23 (its six recorded issues do not include this one)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read CDN23 §0.2.1 p.4 and (4.15)–(4.16) p.44. The scalar pI₂ shifts height by 2, giving p^{2ℤ}; two compact unit cosets replace one in coinduction, leaving acyclicity and admissibility intact.",
+    "by": "REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower"
+   }
+  },
+  {
+   "id": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower/E4",
+   "source": "SCH18",
+   "kind": "error",
+   "locator": "Proposition 4.7, arXiv v1 p.20 and published p.833; repeated in CDN23 Théorème 3.1(4), p.33; compare DPS23 Lemmas 7.3–7.4, pp.30–31",
+   "printed": "The degree-zero action is described using the inverse of both the Weil Artin factor and the reduced norm. Combined with the common-central-character convention of DPS23, this gives the inverse D^× character in rank one.",
+   "correction": "Under the DPS23 convention used in this roadmap, S⁰(π) ≅ π^{SLₙ(F)} carries (w,d) through Nrd(d)Art_F(w)⁻¹, so S⁰(δ∘det) has character δ⁻¹ ⊠ δ. State the right-G/left-D conversion explicitly when importing Strauch’s geometric component labels.",
+   "reason": "For n=1, F=ℚ₅ and δ the mod-5 unit character with δ(5)=1, DPS Lemma 7.3 forces d=2 to act by δ(2)=2, while an inverse norm gives3. DPS Lemma 7.4 also computes S⁰(δ)=δ⁻¹ ⊠ δ directly from components. Thus the inverse norm cannot coexist with those central and twist conventions.",
+   "affects": "a stated result",
+   "known": "new as a normalisation conflict with the DPS23 convention",
+   "searched": [
+    "arXiv:1506.04022v1 Proposition 4.7",
+    "published SCH18 Proposition 4.7 p.833, doi:10.24033/asens.2367 (same inverse formula)",
+    "CDN23 Théorème 3.1(4) and DPS23 Lemmas 7.3–7.4",
+    "Author publication page and Numdam published record; no separate correction located"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Both the preprint and published formula were checked. The counterexample and the direct central-action proof in DPS fix the norm sign for the convention chosen here; this finding does not assert that the journal silently corrected the preprint.",
+    "by": "REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower"
+   }
+  },
+  {
+   "id": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower/E5",
+   "source": "CDN23",
+   "kind": "misprint",
+   "locator": "Corollaire 2.12, first display of its proof, p.30 (published version)",
+   "printed": "The first displayed identification has a continuous dual on the Galois-equivariant Hom on the left and none on the finite-Galois-equivariant Hom on the right.",
+   "correction": "Put a continuous dual on the right as well, or remove the left dual while making the initial Hom identification. The next display then dualises finite-group invariants to coinvariants.",
+   "reason": "Before dualising, Hom_GalF(ρ̄,H) = Hom_H(ρ̄,H^{GalF′}) because ρ̄ is trivial on GalF′. The next display identifies this compact Hom with the dual of the smooth coinvariant module, so the first display cannot identify its dual with the undualised Hom.",
+   "affects": "nothing",
+   "known": "new; a local typographical omission, with the intended argument fixed by the following display",
+   "searched": [
+    "CDN23 published p.30, including the corollary and both displays of its proof; PDF checked visually",
+    "Title-and-erratum search on 2026-10-19; no separate correction located"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Before dualising, Hom_GalF(ρ̄,H) = Hom_H(ρ̄,H^{GalF′}) because ρ̄ is trivial on GalF′. The next display identifies this compact Hom with the dual of the smooth coinvariant module, so the first display cannot identify its dual with the undualised Hom.",
+    "by": "REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower"
+   }
+  },
+  {
+   "id": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower/E6",
+   "source": "PAS22",
+   "kind": "misprint",
+   "locator": "Lemma 5.1, formula(26), p.17 of arXiv:1804.07567v3; correction in DPS23 footnote 15, p.40",
+   "printed": "The tensor factor attached to the finite free coefficient lattice λ is described using its torsion-valued Pontryagin dual.",
+   "correction": "Use Hom_O(λ,O) as that tensor factor, then tensor with the torsion-valued function module. This is the lattice dual, before forming the O-torsion module.",
+   "reason": "For λ=O, the printed torsion dual L/O would give (L/O)⊗_O(L/O)=0, whereas Hom_O(O,L/O)=L/O is nonzero. DPS23 footnote 15 explicitly supplies the lattice-dual correction.",
+   "affects": "nothing",
+   "known": "Dospinescu–Paškūnas–Schraen, footnote 15, p.40 explicitly corrects Paškūnas formula(26)",
+   "searched": [
+    "PAS22 arXiv:1804.07567v3 pp.17–18",
+    "DPS23 Proposition 8.4 and footnote 15, p.40"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For λ=O, the printed torsion dual L/O would give (L/O)⊗_O(L/O)=0, whereas Hom_O(O,L/O)=L/O is nonzero. DPS23 footnote 15 explicitly supplies the lattice-dual correction.",
+    "by": "REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower"
+   }
   }
  ],
  "sourceVersions": [
@@ -2514,7 +2755,21 @@
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/2106.04473v1",
-   "read": "2026-10-19"
+   "read": "2026-10-19",
+   "sha256": "1fe340f8b41f6446a34d57d223f01ae5f1e143e54a89f5a02fa9cfba6107d58a"
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/10.24033/asens.2367.pdf",
+   "read": "2026-10-19",
+   "sha256": "025ebaee6425418ecb8d48ce7e2b7f30a0cee56f7f5772e701fd676aec00ffb8"
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/1709.07343",
+   "read": "2026-10-19",
+   "sections": "Proposition 14.9, p.86; Lemma 23.6, p.144 (indexed public copy). Bare page numbers refer to the inspected version.",
+   "sha256": "78ca42bba46f1d43c894b0dbfdfb41105efab4959ba5ba6e32e1e5cf7ef33efc"
   }
  ],
  "restructure": [
@@ -2812,5 +3067,158 @@
  ],
  "paperRoutes": [
   "PAPER-COLMEZ-DOSPINESCU-NIZIOL-23 route new/ScholzeFunctorAndModpCohomologyOfTheLubinTateTower (16 items)"
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower",
+  "date": "2026-10-19",
+  "notes": "Independent source and closure review of all 29 targets, all 14 pinned baseline declarations, all direct supplier statements and7 requests. Corrected action/dual conventions, quotient geometry, Shapiro and rank-one extension arguments, global inputs and finite-cohomology dependencies; all 6 source issues have verdicts. No nodes added; seven stages are planned, none closed. The one arithmetic finite-presentation gap is retained and also marked as a direct input to geometric multiplicity. Suggested Lean elaborates with only expected placeholder-proof warnings. The reader and roadmap definition are aligned.",
+  "checked": [
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/equivariant-site-toolkit",
+    "verdict": "corrected",
+    "note": "Compact-tower descent has base M_LT,K, not projective space; trivial geometry gives a trivial cohomology action only with a trivial sheaf linearisation. SCH18 §2 and Lemma 3.12."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/gross-hopkins-torsor",
+    "verdict": "corrected",
+    "note": "Separate the torsor isomorphism from its conjugation/translation action dictionary; the simultaneous G-action is not translation on the G factor. SCH18 pp.2–3,10."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/lubin-tate-components",
+    "verdict": "corrected",
+    "note": "Separate finite height-zero components, m=0 and all heights; specify the DPS action convention, preserve the scalar height-two quotient, and import the actual Weil layer. STR08 Theorems 4.3–4.4; DPS Lemmas 7.3–7.4; E3–E4."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.0/compact-lie-admissible-cohomology",
+    "verdict": "corrected",
+    "note": "Supply the coefficient-linear duality and converse Nakayama argument absent from the cited carriers; add the light admissibility predicate’s API and three examples. SCH18 §4; FUST22 Lemma 6.2; CC.5 is used only in its stated direction."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-sheaf",
+    "verdict": "corrected",
+    "note": "Correct evaluation at a changed torsor lift to π(g⁻¹); replace the invalid G-module example by the K-torsor example, distinguish K-regular coefficients, and add section/stalk extensionality, map laws and a mod-5 inverse test. SCH18 Proposition 3.1."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-functor",
+    "verdict": "corrected",
+    "note": "Use D-action over general C and the canonical Weil action at Cp; restrict compact duality to the O-linear dual category, add natural map laws and a central-character rank-one check. SCH18 Proposition 4.6; DPS §7."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/strict-image-almost-finite",
+    "verdict": "verified",
+    "note": "Verified strict containment and good-germ hypotheses against SCH18 Lemmas 3.4–3.6; the Temkin request records the non-routine imported criterion."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/frobenius-almost-module-lemma",
+    "verdict": "corrected",
+    "note": "Replace a purported length by the elementary-divisor majorisation vector; cite Proposition 2.11 and the Frobenius argument through p.13 rather than assigning it to Lemma 2.13. SCH13 pp.10–13."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-finiteness",
+    "verdict": "verified",
+    "note": "Verified the almost-finiteness/Frobenius, analytic-dimension and maximal-ideal dévissage chain, the 2(n−1) bound and no-supercuspidal improvement. SCH18 Theorems 3.2,4.4 and proof pp.11–20."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.1/scholze-galois-and-degree-zero",
+    "verdict": "corrected",
+    "note": "Resolve the inverse-norm convention conflict in favour of the DPS central/twist convention; use Nrd(d)Art(w)⁻¹, keep the Weil extension at Cp and add a rank-one countercheck. SCH18 Propositions 4.6–4.7; DPS Lemmas 7.3–7.4; E4."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.2/fust-cohomology",
+    "verdict": "corrected",
+    "note": "Shapiro is a cochain quasi-isomorphism with homotopies, not a termwise isomorphism; convert TopRep.coind₁ conventions and handle the nontrivial SL₂-centre action before central-character adjunction. FUST22 Lemma 2.2, Theorem 4.4, Proposition 5.1, Corollary 5.2, Lemma 6.6."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.2/moore-sl2-vanishing",
+    "verdict": "corrected",
+    "note": "Remove stable Matsumoto as a supplier for unstable rank-one relations; use Moore II3.1 and III9.1–9.2/10.3–10.4, import CFT5’s Hilbert pairing, and compare discrete extensions with continuous cocycles using a clopen-coset section."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.2/cartan-leray-spectral-sequence",
+    "verdict": "verified",
+    "note": "Verified both spectral sequences and their topology/continuity inputs against CDN Theorem 3.2, pp.34–35 and Lemma 3.10; the recorded E2 repair uses ECD Proposition 14.9 rather than the prime-to-p Rh! proof."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.2/multiplicity-spectral-sequence",
+    "verdict": "verified",
+    "note": "Verified duals, tensor factors, continuous cohomology and convergence against CDN Corollary 3.11 and equation(3.14), p.36."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.2/comparison-map",
+    "verdict": "verified",
+    "note": "Verified the SL₂ low-degree terms and principal-series isomorphism in CDN Corollary 3.13, pp.36–37, including the general-F sequence used later."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.3/borel-quotient",
+    "verdict": "corrected",
+    "note": "Distinguish the B(Zp) intermediate M_B from the final B′ quotient; restrict the modular embedding to GL₂(Zp), follow Ludwig’s open charts rather than asserting a global étale map, and add quotient/extensionality APIs and a diagonal counterexample. LUD17 §§3.3–4."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.3/ludwig-vanishing",
+    "verdict": "verified",
+    "note": "Verified the principal-series and Steinberg-twist arguments, including p=2, against LUD17 Theorem 4.6, Corollary 4.7, p.31."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.4/residual-globalisation",
+    "verdict": "verified",
+    "note": "Verified global absolute irreducibility, even totally-real degree, local residual data and supercuspidality at p; local residual reducibility remains allowed. GK14 TheoremA.2; DPS Proposition 8.1; CDN Proposition 4.5."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.4/global-block-occurrence",
+    "verdict": "corrected",
+    "note": "Respect fixed-central-character injectivity/projectivity, use the central-character quotient of the completed group algebra, justify the supercuspidal characteristic-zero point without asserting local residual irreducibility, and incorporate DPS’s lattice-dual correction to PAS formula(26). PAS Theorem 6.5; DPS Proposition 8.4, Lemma 8.6 and footnote 15; CDN Proposition 4.10."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.4/hecke-torsion-comparison",
+    "verdict": "corrected",
+    "note": "Make global non-Eisenstein S⁰(S)=0 and noetherian finite generation of the Hecke ideal explicit, then use Q↪S^r and the S⁰(cokernel) obstruction. PAS Lemmas 6.1–6.2; SCH18 Proposition 7.7."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.4/key-local-proposition",
+    "verdict": "corrected",
+    "note": "For a possibly non-Galois K, state χ_i|GalK=1 or containment of its character field in K; do not write a quotient Gal(K/Qp). Twisting the conclusion requires twisting the invariant-space hypothesis. Add genericity API and tests. CDN Proposition 4.3 and §4.1.5."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/finite-image-functor",
+    "verdict": "corrected",
+    "note": "Make finite-dimensionality a condition on arbitrary vector-space values, add invariance under pointwise isomorphism and a one-index infinite-dimensional counterexample, and justify H⁰/H¹ Weil finiteness via CFT5+9 and the compact-Lie input. CDN §4.2."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/drinfeld-tower-ascent",
+    "verdict": "corrected",
+    "note": "Correct the n=0 division-algebra subgroup; import finite local Galois/Weil cohomology explicitly and retain the two unit cosets required by E3. CDN Lemmas 4.13,4.17."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/almost-all-vanishing",
+    "verdict": "corrected",
+    "note": "Justify finitely many central characters by the finite Fp× central quotient, rather than merely saying each character has finite image. CDN Lemma 1.22 and §4.2."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.5/finite-length",
+    "verdict": "verified",
+    "note": "Verified CDN Theorem 4.1, Corollary 4.21 and the finite-presentation-plus-cosocle argument; its arithmetic finite-presentation supplier remains the explicit gap, not a proved import."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.6/multiplicity-finiteness-general-F",
+    "verdict": "verified",
+    "note": "Verified all finite F and finite coefficient extensions in CDN Theorem 4.22, p.46; the conclusion is multiplicity finiteness and does not assert general-F admissibility."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.6/geometric-multiplicity",
+    "verdict": "corrected",
+    "note": "Specify continuous dual topology and contravariant level maps; trace general-F smooth finite presentation directly through CDN Corollary 2.12, CFT5 and MP.0 to the recorded arithmetic gap. Correct the missing-dual proof display as E5."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.6/geometric-multiplicity-theorem",
+    "verdict": "corrected",
+    "note": "Correct finite-group invariants to coinvariants in the dual calculation; verify finite length, the Colmez vanishing condition and the dimension-two consequence against CDN Theorem 4.23, Lemma 4.24, Remark 4.25."
+   },
+   {
+    "nodeId": "ScholzeFunctorAndModpCohomologyOfTheLubinTateTower:SZ.6/lubin-tate-smooth-vectors",
+    "verdict": "corrected",
+    "note": "Use GL₂(Zp) at level zero and principal congruence groups only for n≥1; verify CDN Theorem 4.26 and Lemmas 4.27–4.28, including the p=2 exclusion for Moore H²."
+   }
+  ]
+ }
 }
