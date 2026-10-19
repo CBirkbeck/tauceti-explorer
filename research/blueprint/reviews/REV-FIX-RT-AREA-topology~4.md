@@ -1,9 +1,9 @@
 # Independent review of topology fix round 4
 
-Refs #6521. Codex, session `codex-sP1hgJ`, 18 October 2026;
-branch `codex-sP1hgJ-review-topology-fixes`, input commit
-`663b4462fd0c660392965ef07632adc8164990de`.
-The bot confirmed the [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6256187863).
+Refs #6521. Codex, session `codex-waB1gJ`, 19 October 2026;
+branch `codex-waB1gJ-review-topology-fixes`, input commit
+`02e5b6234120d209864ffe0796ba11042c07d8bd`.
+The bot confirmed the [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6256730699).
 This session authored neither the fixes nor their plans and took only this job.
 
 **Checkpoint: the live issue's edit scope does not cover the queue's required
@@ -12,8 +12,8 @@ and HabiroNahmSeries /11, and needs_changes for QSeries /13. Its reader still
 contradicts the corrected packet and Lean multiplier. All seven queue packets
 pass validation; all seven suggested files elaborate. These results do not
 establish mathematical closure or replace the separately attributed whole-plan
-audits. This review follows the 17 October codex-BsNNY8 checkpoint
-([PR #10282](https://github.com/CBirkbeck/tauceti-explorer/pull/10282)).
+audits. This review follows the 18 October codex-sP1hgJ checkpoint
+([PR #10426](https://github.com/CBirkbeck/tauceti-explorer/pull/10426)).
 Each issue-listed packet preserves its complete predecessor review once in
 `reviewHistory` and records this session's bounded verdict.
 
@@ -42,8 +42,11 @@ The four omitted packets still name their own whole-plan review jobs instead
 of this fix review. The predicate accepts a completed negative verdict;
 `needs_changes` is not the completion blocker. Do not delete queue outputs,
 change the predicate or alter issue labels to conceal this discrepancy.
-The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) gives the exact edits
-and validation needed after scope reconciliation.
+The [handoff](../handoff/REV-FIX-RT-AREA-topology~4.md) contains an unapplied,
+59-line patch for the three concrete excluded-path corrections and the exact
+four bounded review dispositions. Its patch passes `git apply --check`.
+This checkpoint includes mathematical-contract clarifications and diagnostics
+in the authorized files; it is not another metadata-only refresh.
 
 ## Assigned findings
 
@@ -65,9 +68,9 @@ an outstanding obligation; it does not claim the obligation is implemented.
 | /8 | Accept handoff. Early ideal-boundary geometry and finite-volume cusped-manifold theory need explicit extensions. Closed-manifold Mostow and abstract triangulability do not supply them. |
 | /9 | Accept handoff. Flattenings, extended lifts, Rogers descent and Chern–Simons period/sign comparisons remain separate targets. An ordinary Bloch element does not choose the extended lift. |
 | /10 | Accept handoff. NZ data, perturbative series and their invariance precede the conditional NZ-to-Nahm application. Preserve the unimodular integral-B hypothesis; it is not a general existence theorem. |
-| /11 | Accept supplier fix. The six exports separate completed formal integration, positive-definite radial asymptotics, formal identification and restricted module membership. All follow-up qualifications remain inputs. |
+| /11 | Accept supplier fix after clarification. The six exports separate completed formal integration, positive-definite radial asymptotics, formal identification and restricted module membership. Made the polynomial analytic comparison explicitly positive definite and distinguished precision from covariance normalization; added the negative-precision test. All follow-up qualifications remain inputs. |
 | /12 | Accept handoff. Fix the color and root normalization, compare the original Kashaev definition and source each proved case. Keep unrestricted volume/modularity statements conjectural. |
-| /13 | Needs changes. The definition and eight scalar exports have the correct owner, but the reader's general multiplier contradicts its packet and Lean. Knot cocycles retain their distinct regularity and matrix/asymptotic laws. |
+| /13 | Needs changes. The definition and eight scalar exports have the correct owner, but the reader's general multiplier contradicts its packet and Lean. Added the central-element acceptance check and two Lean examples for the corrected and naive multipliers. Knot cocycles retain their distinct regularity and matrix/asymptotic laws. |
 | /14 | Accept handoff. One formal-pentagon owner is consistent with a separately sourced analytic Faddeev/state-integral construction. Contours, convergence and 2–3 invariance do not follow from the formal identity. |
 | /15 | Accept handoff. Resurgence requires named analytic carriers and exact conjectures, or explicit exclusion from the targets. A phase ledger does not prove summability. |
 | /16 | Accept handoff. The two-variable Jones, MMR/Alexander and relative-Habiro comparisons remain sourced follow-ups with the specified prerequisites and Bouis–Gazda exclusion. |
@@ -86,7 +89,7 @@ an outstanding obligation; it does not claim the obligation is implemented.
 ## Source comparisons and distinguishing checks
 
 All source descriptions are in this reviewer's own words. Public sources were
-accessed on 18 October 2026; no downloaded file, source passage or source's
+accessed on 18–19 October 2026; no downloaded file, source passage or source's
 section-by-section summary is committed.
 
 For /7, [Zagier, The Dilogarithm Function](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf),
@@ -149,8 +152,9 @@ The reader's unmodified inverse therefore gives total slash factor `-1`.
 The packet/Lean correction takes **minus** that inverse, giving epsilon `-i`
 and total factor `1`. In general use inverse eta for `c != 0` or `d > 0`,
 and its negative for `c=0,d<0`. This is a derivation from the chosen branch,
-not a formula attributed verbatim to either source. Update both the reader
-statement and ambient hypotheses, and add this negative control.
+not a formula attributed verbatim to either source. The negative control is now in the packet acceptance checks and suggested
+file. Updating the reader statement and ambient hypotheses remains blocked
+by its excluded path; the handoff contains the exact patch.
 Preserve the independent whole-plan objections in
 REV-QSeriesPartitionsAndMockModularForms~2 (#6469).
 
@@ -174,13 +178,31 @@ second-derivative bound and positive subdivision count. Neither supplies
 formal completion or an all-orders Euler–Maclaurin theorem. No new baseline
 claim or mathematical node was added.
 
+The parent formal-Gaussian statement previously described the polynomial
+expectation comparison without restating the positivity carried by its linked
+moment theorem. Made that restriction explicit in the statement and test.
+The proof route now distinguishes precision Lambda from covariance Lambda^-1:
+the integral has factor `(2*pi)^(N/2) det(Lambda)^(-1/2)`, whereas its normalized
+density has factor `(2*pi)^(-N/2) det(Lambda)^(1/2)`. Added the diagnostic
+`<x^2>_{-1}=-1` at h=1. The real kernel is then `exp(x^2/2)`, which is not
+integrable, so no analytic comparison can be inferred. The existing Lean
+`integral_mul_gaussian` already assumes `Lambda.PosDef`; its signature is
+unchanged. The HB reader still has the old wording and should be synchronized
+with this clarification as well as its page correction.
+
+For the proposed QT formula edge, traversed the known node-prerequisite graph
+(37,080 distinct node IDs). The P.2 supplier reaches 30 references and no path
+back to the QT volume node. Its direct geometric inputs remain GT 7/8 stages.
+This check establishes no new geometry theorem; it checks the concrete
+node-edge addition in the handoff.
+
 Fresh validation of canonical files:
 
 | Packet / suggested file | Nodes | Gaps | Requests | Lean sorry warnings |
 |---|---:|---:|---:|---:|
 | Polylogarithms | 75 | 19 | 21 | 462 |
-| HabiroNahmSeries | 109 | 22 | 9 | 441 |
-| QSeriesPartitionsAndMockModularForms | 537 | 24 | 27 | 1491 |
+| HabiroNahmSeries | 109 | 22 | 9 | 442 |
+| QSeriesPartitionsAndMockModularForms | 537 | 24 | 27 | 1493 |
 | Polylogarithms--P.2 | 14 | 2 | 3 | 52 |
 | ArithmeticQuantumTopology | 106 | 8 | 19 | 65 |
 | HabiroNahmSeries--HB.4 | 13 | 3 | 1 | 31 |
@@ -195,11 +217,15 @@ revision is inferred from elaboration. No compiler remains running. No Lake
 command ran in the read-only trees, and no language server was started.
 There are no link-map or restructuring-proposal deliverables to validate.
 
-Changes are limited to this report, its handoff and the three authorized
-packet review/history objects. A structural comparison verifies every other
-JSON field unchanged and each whole predecessor review preserved. All seven
-suggested files are unchanged. No excerpt keys occur in the edited packets.
-The omitted canonical files, queue, completion code, upstream sources and
-generated atlas outputs are unchanged. Intake file checks and `git diff
---check` pass. Resume from the handoff after the scope is reconciled; another
-metadata-only review without that reconciliation will not complete this job.
+Changes are limited to this report, its handoff, the three authorized packet
+review/history objects, the parent HB formal-Gaussian node, the QSeries
+Kontsevich acceptance check, and their three new suggested examples. Each
+complete predecessor review is preserved once. The parent HB unit-test count
+increases from 125 to 126; the new QSeries acceptance check is attached to an
+existing theorem. All other mathematical JSON payloads, nodes, gaps, requests,
+coverage, source findings and prior audits are unchanged. No excerpt keys were
+introduced. Five suggested files and all pre-existing Lean declarations are
+unchanged. The omitted canonical files, queue, completion code, upstream
+sources and generated atlas outputs remain unchanged. Intake file checks and
+`git diff --check` pass. Completion requires the explicit scope reconciliation
+in the handoff, not more repeated checking of unchanged files.
