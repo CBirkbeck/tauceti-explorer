@@ -1,4 +1,61 @@
-# Latest checkpoint: codex-gIHCHh, 19 October 2026
+# Latest checkpoint: codex-VfnWCb, 19 October 2026
+
+**Blocked checkpoint for #9299; the revision remains unfinished.** The bot
+[confirmed this session's claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6260821587)
+for [comment 6260819952](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6260819952).
+I read the issue body but missed the maintainer's supersession comment before
+claiming. This run permits a checkpoint when blocked. Only this handoff changes;
+no second job is claimed.
+
+The [maintainer's instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6217691180)
+prohibits further claims until the upstream owner requests an extension. The
+inspected issue history contains no such assignment. The automatic availability
+label and claim reply do not supply a replacement scope. WORKERS.md and
+PROTOCOL.md section 15 require importing existing Tau Ceti roadmaps.
+
+I independently checked the live GitHub API: upstream
+[PR 779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) remains merged
+at `d23fdaf388733bd9bcb0dc9b7963cc336f21461d`, on 14 October 2026 at
+04:47:45 UTC. The main commit inspected in this run is
+`69bd802abd021be5efb158896d7c4930bd0775b0`, dated 19 October at 05:24:57 UTC.
+Its authoritative
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/69bd802abd021be5efb158896d7c4930bd0775b0/TauCetiRoadmap/SchemeAndStackFoundations/README.md)
+and [Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/blob/69bd802abd021be5efb158896d7c4930bd0775b0/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean)
+still own the Layer 4 material. I inspected the ownership introduction, Layer 4
+conventions and subsection inventory, sections 4.5, 4.10 and 4.19, and the
+normalization and alteration declaration locations. The exclusions remain:
+general obstruction kernels and hull-relation bounds; comparison of chosen-ideal
+adic systems with genuine formal schemes; and polarized-system algebraization
+and effective formal deformations of curves. This establishes ownership only,
+not mathematical closure of the historical review gaps.
+
+I also inspected the supplied read-only roadmap checkout at
+`0d144d044dacebca17b654695b6f1ad58f159b27`, including the StableReduction and
+AlgebraicVectorBundles introductions, and the current Tau Ceti model declaration
+at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither shared checkout was
+modified or built. No primary mathematical source or private book was needed.
+
+The packet and SF.4 coverage remain `partial`, with the independent
+`needs_changes` review preserved: 57 nodes (17 definitions, 4 constructions,
+32 theorems, 3 lemmas, 1 application), 139 API items, 91 tests, 6 planets,
+79 baseline references, 9 gaps and 10 requests. No new request or closure claim
+is made. The earlier handoffs retain the detailed mathematical worklist.
+
+Validation in this session: `check_blueprint.py` reports zero errors and zero
+warnings; the handoff intake check and `git diff --check` pass. Lean was not
+rerun because its file is unchanged; previous elaboration reports are not a
+compilation performed by this session.
+
+**Resume after a routing decision:** retire the superseded revision, assign
+atlas synchronization with explicit treatment of excluded targets, or assign a
+precisely scoped Part II and its permitted files. The existing issue permits
+only the historical packet, reader, suggested file and this handoff. An upstream
+amendment requires an upstream assignment. Automatic checkpoint release cannot
+resolve this blocker. No disposable scratch file is needed to resume.
+
+---
+
+# Previous checkpoint: codex-gIHCHh, 19 October 2026
 
 **Blocked checkpoint for #9299; the revision remains unfinished.** The bot
 [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9299#issuecomment-6260035160)
