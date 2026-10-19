@@ -16,7 +16,6 @@
   "GL2ModularityLifting",
   "PotentialAutomorphyInfrastructurePartII",
   "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
-  "AlgebraicModularFormsAndSerreWeights",
   "LocallyAnalyticDistributionsPartII",
   "PadicMeasuresIwasawaAlgebras",
   "SmoothRepresentationsOfLocalGroups"
@@ -27,7 +26,6 @@
    "title": "The global setting: Serre weights and mod p cohomology of Shimura curves at infinite level",
    "description": "Fix the generic global datum of Breuil–Herzig–Hu–Morra–Schraen §8.1: F totally real unramified at p, a quaternion algebra D split above p and at no more than one infinite place, r̄ : G_F → GL₂(𝔽) absolutely irreducible on G_{F(ζ_p)}, generic above p, semisimple at the distinguished place v with the exponent bounds 12 ≤ r_i ≤ p − 15 (resp. 13 ≤ r_0 ≤ p − 14), formally smooth local rings at the bad places away from p, the auxiliary place w₁ and the level U. Define the Buzzard–Diamond–Jarvis weight sets W(ρ) for K/ℚ_p unramified (agreeing with ModpRepresentationsOfGL2OverLocalFields MP.3 in the tame case), the twisted quaternionic spaces of forms S(σ) with the residual ideal 𝔪 and the modules M(σ) (EGS15 §6.2 with BHHMS Remark 8.1.3), and the admissible smooth representation π of GL₂(F_v): the colimit over levels at v of the r̄-part of H¹ of Shimura curves (or of the 𝔪-torsion of definite forms), weighted by Serre weights at the other places above p. Prove the weight part of Serre's conjecture in this setting (Gee–Kisin Corollary 5.5.4, with W(r̄_w^∨)) and the doubling at w₁ (the easy Ihara lemma). Import the curves, local systems, finite-level cohomology and Hecke theory from HilbertModularVarietiesAndShimuraCurves R18.1–R18.4.",
    "requires": [
-    "AlgebraicModularFormsAndSerreWeights:R15.4",
     "AutomorphicGaloisRepresentations:R19.4",
     "CompletedCohomologyPartII:CC.1",
     "CompletedCohomologyPartII:CC.8",
@@ -143,7 +141,10 @@
    "readSections": [
     "§1.1–1.4, pp. 2–11",
     "§2.2, p. 13",
-    "§8.1–8.5 with all statements and proofs, pp. 86–109"
+    "§8.1–8.5 with all statements and proofs, pp. 86–109",
+    "§2.3 fundamental-character conventions, p. 14",
+    "Proposition 4.2.1, p. 28; Corollary 4.2.6, pp. 33–34; §4.3 and Proposition 4.3.1, pp. 34–35 (gap contract statements)",
+    "§4.3, Proposition 4.3.1 and proof, Lemma 4.3.2 and Proposition 4.3.3 with proofs, pp. 34–40"
    ]
   },
   {
@@ -157,7 +158,9 @@
    "readSections": [
     "§2.1 (Definition 2.1.1, Lemmas 2.1.2–2.1.6, the description of D(ρ)), pp. 9–11",
     "Propositions 3.5.1–3.5.2, pp. 14–15",
-    "§6.1–6.4 (Definitions 6.1.1, 6.1.3, Lemma 6.1.4, the quaternionic spaces, (6.1) and functorial patching), pp. 32–37"
+    "§6.1–6.4 (Definitions 6.1.1, 6.1.3, Lemma 6.1.4, the quaternionic spaces, (6.1) and functorial patching), pp. 32–37",
+    "Theorems 7.1.1 and 7.2.1, pp. 42–43",
+    "§10.1, definitions and proof of Proposition 10.1.11, pp. 59–65"
    ]
   },
   {
@@ -171,7 +174,7 @@
    "readSections": [
     "Appendix A.1 (Definitions A.2, A.5, Proposition A.4, Lemmas A.7–A.9), pp. 42–44",
     "§§A.12–A.30 (Proposition A.13, Lemmas A.15–A.19, A.21–A.28, Corollary A.29, Proposition A.30), pp. 45–50",
-    "§4.3, Proposition 4.3.1, p. 31"
+    "§4.3, Proposition 4.3.1 and proof, pp. 31–32"
    ]
   },
   {
@@ -185,7 +188,9 @@
    "readSections": [
     "Introduction, Theorems A and B, pp. 2–4",
     "§5.2 (Remark 5.2.2), p. 26",
-    "§5.5 (Definitions 5.5.2–5.5.3, Corollary 5.5.4 and proof), pp. 33–35"
+    "§5.5 (Definitions 5.5.2–5.5.3, Corollary 5.5.4 and proof), pp. 33–35",
+    "§5.4.1, the augmentation surjection and module comparison, pp. 30–31",
+    "Corollary 5.5.7 and proof, pp. 35–36"
    ]
   },
   {
@@ -210,7 +215,7 @@
    "sha256": "8ccde4d9e336a9d637abd5a0da6a80f21de7884b9a389c93f38e3143e570a814",
    "accessed": "2026-10-19",
    "readSections": [
-    "Lemma 4.5 and its proof, §4"
+    "Lemma 4.5 and its proof, §4, p. 16"
    ]
   },
   {
@@ -222,7 +227,7 @@
    "sha256": "28d6965b625c1706b6d81503bed27d22b9cacf675a49609547ba2819a67e771e",
    "accessed": "2026-10-19",
    "readSections": [
-    "§4, Lemma 4.5 and Proposition 4.6 with their proofs"
+    "§4, Lemma 4.5 and Proposition 4.6 with their proofs, pp. 14–15"
    ]
   },
   {
@@ -248,7 +253,7 @@
    "accessed": "2026-10-19",
    "readSections": [
     "§2.12, Proposition 2.13, Remark 2.14 and the proof, p. 34",
-    "Lemmas 4.17–4.18 (statements)"
+    "Lemmas 4.17–4.18 and proofs, pp. 62–66"
    ]
   },
   {
@@ -256,11 +261,12 @@
    "title": "On power-invariance",
    "authors": "Eloise Hamann",
    "edition": "Pacific Journal of Mathematics 61 (1975), no. 1, 153–159",
-   "url": "https://msp.org/pjm/1975/61-1/p18.xhtml",
+   "url": "https://msp.org/pjm/1975/61-1/pjm-v61-n1-p17-p.pdf",
    "accessed": "2026-10-19",
    "readSections": [
-    "Theorem 4, as quoted in BHHMS Lemma 8.1.2 (the article page is free on msp.org)"
-   ]
+    "Theorem 4 and proof, printed p. 155 (PDF p. 4), read directly"
+   ],
+   "sha256": "29b601cf166b3c8c9771a1e57e659b77f8b731f61fca6d484db8900cedd52931"
   },
   {
    "id": "STACKS",
@@ -273,6 +279,18 @@
     "Tag 05G8 (surjective endomorphisms of finite modules are injective)",
     "Tag 00MK (local criterion of flatness)",
     "Tag 090V (Auslander–Buchsbaum)"
+   ]
+  },
+  {
+   "id": "BRE14",
+   "title": "Sur un problème de compatibilité local-global modulo p pour GL₂",
+   "authors": "Christophe Breuil, with an appendix by Lassina Dembélé",
+   "edition": "Public author copy; Journal für die reine und angewandte Mathematik 692 (2014), 1–76; locators use the author-copy pagination",
+   "url": "https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/compamodp.pdf",
+   "sha256": "583a4a4d069b4b069c663db9571047b7f4d02ea27e836c8df02f081809504d2a",
+   "accessed": "2026-10-19",
+   "readSections": [
+    "Lemma 9.2 and its proof, pp. 54–55"
    ]
   }
  ]
