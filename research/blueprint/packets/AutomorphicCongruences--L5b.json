@@ -302,7 +302,7 @@
       ],
       "prerequisites": [
         "AutomorphicCongruences:L5w/fujiwara-instance",
-        "AutomorphicCongruences:L0",
+        "AutomorphicCongruences:L0/canonical-period-congruence-number",
         "mathlib:Ideal.span_singleton_mul_left_unit"
       ],
       "sources": [
@@ -378,7 +378,8 @@
       "prerequisites": [
         "AutomorphicCongruences:L5w/canonical-period-duality",
         "AutomorphicPadicLFunctions:L4",
-        "AutomorphicCongruences:L1",
+        "AutomorphicCongruences:L1/gu22-ordinary-hermitian-forms",
+        "AutomorphicCongruences:L1/gu22-hida-control",
         "PadicFamilies:L5"
       ],
       "sources": [
@@ -458,13 +459,13 @@
         "mathlib:Ideal.comap",
         "mathlib:Ideal.mem_comap",
         "mathlib:Ideal.map_span",
-        "AutomorphicCongruences:L0",
+        "AutomorphicCongruences:L0/eisenstein-ideal",
         "IntegralHeckeAndGaloisDeterminants:IHG.2"
       ],
       "sources": [
         {
           "sourceId": "Wan",
-          "locator": "§9.1, pp.81–83 (definitions of h_D, I_D and E_D)",
+          "locator": "§9.1, pp.81–83 (definitions of h_D, I_D and 𝔈_D)",
           "match": "The source-specific operator list and coefficient kernel, using existing ideal theory."
         },
         {
@@ -539,7 +540,7 @@
         {
           "name": "eisenstein_kernel_noninjective",
           "kind": "characterisation",
-          "statement": "For the coefficient map ℤ→ZMod 5 and an operator equal to its eigenvalue, I_D=0 but E_D=(5), detecting the coefficient kernel."
+          "statement": "For the coefficient map ℤ→ZMod 5 and an operator equal to its eigenvalue, I_D=0 but 𝔈_D=(5), detecting the coefficient kernel."
         }
       ]
     },
@@ -565,7 +566,7 @@
         "AutomorphicCongruences:L5w/klingen-interpolation",
         "AutomorphicCongruences:L5w/fourier-coefficient-coprimality",
         "AutomorphicCongruences:L5w/eisenstein-coefficient-ideal",
-        "AutomorphicCongruences:L1",
+        "AutomorphicCongruences:L1/gu22-hida-control",
         "PadicMeasuresIwasawaAlgebras:L4"
       ],
       "sources": [
@@ -619,7 +620,10 @@
         "AutomorphicCongruences:L5w/height-one-congruence",
         "IntegralHeckeAndGaloisDeterminants:IHG.4",
         "IntegralHeckeAndGaloisDeterminants:IHG.6",
-        "AutomorphicCongruences:L0",
+        "AutomorphicCongruences:L0/su-lattice-datum",
+        "AutomorphicCongruences:L0/lattice-construction",
+        "AutomorphicCongruences:L0/extension-class-local-conditions",
+        "AutomorphicCongruences:L0/sigma-primitive-selmer",
         "OrdinaryAutomorphicFormsAndModularityLifting:R21.4",
         "IntegralIwasawaTheory:I.5",
         "SelmerIwasawaCohomology:L3/kernel-control",
@@ -661,7 +665,7 @@
       ],
       "prerequisites": [
         "AutomorphicCongruences:L5w/quaternionic-period-primitivity",
-        "AutomorphicCongruences:L0",
+        "AutomorphicCongruences:L0/primitive-imprimitive-comparison",
         "SelmerIwasawaCohomology:L4",
         "PadicMeasuresIwasawaAlgebras:L4"
       ],
@@ -747,7 +751,8 @@
         "PadicFamilies:L5",
         "DeformationAndDerivedPatchingAlgebra:P7/pseudo-coherent-residual-nakayama",
         "DeformationAndDerivedPatchingAlgebra:R03.6/support-base-change",
-        "PadicMeasuresIwasawaAlgebras:L4"
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "AutomorphicCongruences:L0/selmer-specialization-control"
       ],
       "sources": [
         {
@@ -792,7 +797,8 @@
       "prerequisites": [
         "AutomorphicCongruences:L5w/fujiwara-instance",
         "AutomorphicCongruences:L5w/arithmetic-specialization",
-        "AutomorphicCongruences:L0",
+        "AutomorphicCongruences:L0/sigma-primitive-selmer",
+        "AutomorphicCongruences:L0/primitive-imprimitive-comparison",
         "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
         "SelmerIwasawaCohomology:L3"
       ],
@@ -986,7 +992,8 @@
         "SelmerIwasawaCohomology:L3/derived-control",
         "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
         "KatoEulerSystems:L4/elliptic-ordinary-and-multiplicative-divisibility",
-        "AutomorphicCongruences:L0"
+        "AutomorphicCongruences:L0/selmer-specialization-control",
+        "AutomorphicCongruences:L0/primitive-imprimitive-comparison"
       ],
       "sources": [
         {
@@ -1082,7 +1089,8 @@
         "Use the two Selmer projection inequalities and quadratic multiplicativity to reach the four-factor characteristic product on the same ring."
       ],
       "prerequisites": [
-        "AutomorphicCongruences:L5a",
+        "AutomorphicCongruences:L5a/two-variable-product-containment",
+        "AutomorphicCongruences:L5a/auxiliary-field-existence",
         "AutomorphicCongruences:L5b/cyclotomic-control",
         "AutomorphicCongruences:L5b/cyclotomic-analytic-factorization",
         "mathlib:Ideal.map_mul",
@@ -1257,7 +1265,7 @@
       ],
       "prerequisites": [
         "AutomorphicCongruences:L5b/factor-separation",
-        "AutomorphicCongruences:L5a",
+        "AutomorphicCongruences:L5a/auxiliary-field-existence",
         "SelmerIwasawaCohomology:L2",
         "PadicMeasuresIwasawaAlgebras:L4"
       ],
@@ -1326,7 +1334,9 @@
         "Discharge the exact R21.4/R04.6 Fujiwara/minimality supplier refinements.",
         "Complete APL Hilbert Rankin, toric period and all-cusp boundary interfaces; prove fixed primitive integral landing.",
         "Complete the Selmer torsion/control/local-convention bridge and full arithmetic signatures.",
-        "Discharge the normal/Krull divisorial and principal-majorant specialization contract, and route the rank-four extension/localized congruence model beyond the current rank-two IHG.6 theorem."
+        "Discharge the normal/Krull divisorial and principal-majorant specialization contract, and route the rank-four extension/localized congruence model beyond the current rank-two IHG.6 theorem.",
+        "Hilbert extensions of the L0 period and Selmer interfaces: the referenced Q-case nodes do not supply the required totally real extension; see the consuming gap.",
+        "Totally real extension of the L1 ordinary boundary sequence: the referenced Q-case nodes do not supply the required totally real extension; see the consuming gap."
       ]
     },
     {
@@ -1399,19 +1409,19 @@
     },
     {
       "supplier": "AutomorphicCongruences:L0",
-      "need": "Supply the exact Hilbert Gorenstein congruence-line comparison of Wan Definition 79 using the specified minimal free Hecke module and pairing, not generic IHG.6. Supply the specialized primitive/inertia/local-trivial Selmer comparison, Euler modules, ordinary extension-to-Selmer bridge and finite Fitting-to-characteristic control. For the rank-four Wan 98 input, import its separately requested general lattice theorem and verify its source-localized coefficient/intersection/quotient model, including any P-primary saturation and equality of local lengths; do not redevelop generic determinant/Ribet algebra.",
+      "need": "The exact supplied prototypes are L0/canonical-period-congruence-number, L0/su-lattice-datum, L0/lattice-construction, L0/extension-class-local-conditions, L0/sigma-primitive-selmer, L0/primitive-imprimitive-comparison and L0/selmer-specialization-control. Extend the period and Selmer/control contracts to Wan’s totally real setting as specified in the consuming Hilbert-extension gap: Hilbert Gorenstein congruence-line comparison (Definition 79), primitive/inertia/local-trivial comparison, ordinary extension-to-Selmer bridge and finite Fitting-to-characteristic control. Import the separately requested polarized rank-four theorem for Wan 98 and verify the source-localized intersection/quotient, P-primary saturation and equality of lengths. The generic Eisenstein coefficient kernel is already supplied by L0/eisenstein-ideal and is no longer an outstanding internal request.",
       "neededBy": [
         "AutomorphicCongruences:L5w/canonical-period-duality",
-        "AutomorphicCongruences:L5w/eisenstein-coefficient-ideal",
         "AutomorphicCongruences:L5w/galois-selmer-instance",
         "AutomorphicCongruences:L5w/exceptional-height-one-primes",
         "AutomorphicCongruences:L5w/quartic-cm-divisibility",
-        "AutomorphicCongruences:L5b/cyclotomic-control"
+        "AutomorphicCongruences:L5b/cyclotomic-control",
+        "AutomorphicCongruences:L5w/arithmetic-specialization"
       ]
     },
     {
       "supplier": "AutomorphicCongruences:L1",
-      "need": "Supply the integral ordinary GU(2,2) boundary exact sequence and cuspidal lifting theorem used by Wan 27/97 over F, with flatness and all-cusp q-expansion checks. Import the geometric carrier and local doubling machinery from APL L4 rather than reconstruct it.",
+      "need": "Extend L1/gu22-ordinary-hermitian-forms and L1/gu22-hida-control from Q/imaginary quadratic K to the totally real F ordinary GU(2,2) boundary exact sequence and cuspidal lifting used by Wan 27/97, with integral coefficient change, flatness and all-cusp q-expansion checks. The geometric carrier and local doubling machinery stay with AutomorphicPadicLFunctions:L4.",
       "neededBy": [
         "AutomorphicCongruences:L5w/klingen-interpolation",
         "AutomorphicCongruences:L5w/height-one-congruence"
@@ -1497,7 +1507,7 @@
     },
     {
       "supplier": "AutomorphicCongruences:L5a",
-      "need": "Supply the EARLY integral ordinary product inequality of BCS Proposition 5.2.1 and auxiliary-field existence of Lemma 5.2.3, including prime-to-pN discriminants, Heegner/split conditions, residual restrictions, minimality, μ upgrade, period/Euler/lattice comparisons and a new ramified K-prime outside D_F to ensure narrow Δ+. It depends on L5w’s general quartic engine and conditional hypothesis-discharge theorem, not on L5b’s endpoint or HE.8b. Export torsion/nonzero functions and actual coefficient maps. Own the quartic-to-K specialization Lemmas 5.1.1–5.1.2 here, not a duplicate in L5b.",
+      "need": "The early integral bound of BCS Proposition 5.2.1 and original Lemma 5.2.3 field existence are supplied at target level by L5a/two-variable-product-containment and L5a/auxiliary-field-existence, with quartic-to-K Lemmas 5.1.1–5.1.2 owned there. Complete their recorded BSTW, period/Euler/lattice, torsion/nonzero-function and coefficient-map contracts, and the added auxiliary-field-narrow-delta refinement: a new finite ramification prime of K outside D_F while preserving all original field conditions. The exact node links replace the broad stage dependencies; they do not discharge these residual obligations. Neither HE.8b nor the L5b endpoint is an input.",
       "neededBy": [
         "AutomorphicCongruences:L5b/four-factor-product-bound",
         "AutomorphicCongruences:L5b/rational-cyclotomic-endpoint"
@@ -1634,6 +1644,26 @@
         "AutomorphicCongruences:L5w/wan-family-divisibility"
       ],
       "detail": "Current upstream IHG.6’s written matrix/lattice theorem is rank two with two residual characters. Wan 98 needs polarized rank four with residual blocks 1+2+1 and all ten hypotheses. The general enlargement needs supplier/Part II routing, and the AC L0 ordinary Selmer comparison must verify the exact localized quotient and contraction clauses. Global ideal contraction after localization is not automatic. No existing upstream theorem is replanned or declared to supply this gap."
+    },
+    {
+      "title": "Hilbert extensions of the L0 period and Selmer interfaces",
+      "detail": "The exact L0 node references identify the available SU constructions, not a proof of their totally real extensions. L0/canonical-period-congruence-number is the GL2/Q canonical-period formula; Wan 2015 Definition 79, pp.65–66, needs the Hilbert minimal free Hecke module and its integral pairing. L0/lattice-construction and extension-class-local-conditions use G_Q and imaginary quadratic K; Wan Proposition 98, pp.84–86, needs the totally real polarized rank-four instance with its source-localized coefficient intersection, quotient, P-primary saturation and local-length comparison. L0/primitive-imprimitive-comparison and selmer-specialization-control supply the SU local-condition/control prototypes; the arbitrary totally real field and locally-trivial/inertia convention adapters, nonzero analytic-majorant specialization and torsion inputs remain the precise L0, Selmer and characteristic-divisor requests. No cross-part link discharges them.",
+      "neededBy": [
+        "AutomorphicCongruences:L5w/canonical-period-duality",
+        "AutomorphicCongruences:L5w/galois-selmer-instance",
+        "AutomorphicCongruences:L5w/exceptional-height-one-primes",
+        "AutomorphicCongruences:L5w/arithmetic-specialization",
+        "AutomorphicCongruences:L5w/quartic-cm-divisibility",
+        "AutomorphicCongruences:L5b/cyclotomic-control"
+      ]
+    },
+    {
+      "title": "Totally real extension of the L1 ordinary boundary sequence",
+      "detail": "L1/gu22-ordinary-hermitian-forms and L1/gu22-hida-control state the GU(2,2) construction over Q for imaginary quadratic K (SU Theorems 6.3.3, 6.3.10 and 6.4.1, pp.91–95). Wan Theorems 27 and 97, pp.23 and 83–84, use its totally real F version, with integral coefficient change, all-cusp q-expansions and a cuspidal lift. The precise extension remains requested from L1 with the geometric/doubling carrier imported from AutomorphicPadicLFunctions:L4; the Q-case nodes alone do not supply it.",
+      "neededBy": [
+        "AutomorphicCongruences:L5w/klingen-interpolation",
+        "AutomorphicCongruences:L5w/height-one-congruence"
+      ]
     }
   ],
   "sourceIssues": [
