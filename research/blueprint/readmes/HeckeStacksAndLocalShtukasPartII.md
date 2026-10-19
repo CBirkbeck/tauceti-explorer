@@ -2,7 +2,7 @@
 
 This roadmap plans the affine Deligne–Lusztig dimension direction of the Hecke/local-shtuka continuation. It begins with the relative Frobenius condition, separates exact and bounded spherical loci, establishes the spherical calculation through superbasic charts, and develops the two-correspondence reduction behind He’s shrunken-chamber theorem. The generic Hecke/cohomology infrastructure of the base roadmap is imported. Integral models, component theorems and the Kottwitz trace formula have separate proposed owners, with every routed item retained below.
 
-The packet contains **49 targets**, **86 API entries**, **70 definition/construction tests** and **25 planets**. All nine stages are **planned**; none is closed. There are 8 explicit mathematical/supplier gates and 13 requests. “Complete” describes this target-level planning pass. No target is claimed implemented, and no independent review is claimed.
+The packet contains **48 targets**, **86 API entries**, **71 definition/construction tests** and **25 planets**. All nine stages are **planned**; none is closed. There are 8 explicit mathematical/supplier gates and 13 requests. “Complete” describes this target-level planning pass. No target is claimed implemented. The independent review accepts this corrected target-level pass; G1–G8 remain open and no stage is closed.
 
 ## Conventions and scope
 
@@ -26,14 +26,14 @@ Baseline commits: TauCeti `f790474821cf4256814db967cb154e7af3d0c369`; Mathlib `0
 | `tauceti:DoubleCoset.mul_mem_doubleCoset_iff` | Left multiplication by a subgroup element preserves subgroup double-coset membership. |
 | `mathlib:Finset` | Finite subsets with duplicate-free multiset representatives; a carrier for residue bases, not a semi-module library. |
 
-The current read-only upstream roadmap tree was checked at `0d144d044dacebca17b654695b6f1ad58f159b27`, and the current TauCeti library at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Searches included the nine roadmap directions newer than the atlas snapshot. RootSystems and ReductiveGroups supplied the principal style examples; the local/affine portion of ReductiveGroupsPartII and the LieHighestWeight boundary were also read.
+The current read-only upstream roadmap tree was checked at `0d144d044dacebca17b654695b6f1ad58f159b27`, and the current TauCeti library at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Searches included the nine roadmap directions newer than the atlas snapshot. RootSystems and ReductiveGroups supplied the principal style computations; the local/affine portion of ReductiveGroupsPartII and the LieHighestWeight boundary were also read.
 
 | Owner | Exact boundary |
 |---|---|
 | ReductiveGroupsPartII RG2.1–RG2.4 | Apartment, root groups, connected parahorics, Iwahori–Weyl extension, Bruhat/length, normal form and η. Its current translation-length target already includes cordiality of x t^λ. |
 | BunGAndNewtonStrata BG0/BG1 | B(G), σ-centralizers, integral κ, Newton maps, defect, order, Levi comparison, averages, straight classes and ordered norm/centralizer identities. Superbasic classification and cell purity require the stated extensions. |
-| GeometricSatakeAndFusion GS0:Witt-geometry, GS1, GS2:correspondences | Perfect flag/Grassmannian carriers, semi-infinite geometry and convolution. The exact mixed-characteristic dimension/semismallness contracts are requested explicitly. |
-| SchemeAndStackFoundations SF.0/SF.1/SF.2 | Schemes, algebraic spaces, descent and cohomology. Bounded/perfect fibre dimensions and the particular trace input remain named requests. |
+| GeometricSatakeAndFusion GS0:Witt-geometry, GS1, GS2:correspondences | Perfect flag/Grassmannian carriers, generic flag incidence/fibre bounds, semi-infinite geometry and spherical stratified semismallness are imported. ADLV pullback compatibility and top attainment are checked here. |
+| SchemeAndStackFoundations SF.0/SF.1/SF.2 | Schemes, algebraic spaces, descent and cohomology; SF.2 routes generic trace theory to CohomologicalPointCounting. Compatible bounded ADLV diagrams and the perfect-space trace application remain named requests. |
 | RootSystems and proposed Part II | Generic Coxeter/root carriers. G1 requests the extra Demazure, twisted minimal-length and dominance-subtraction package; its proposed identifier is not a supplied stage. |
 | SmoothRepresentationsOfLocalGroups SR.1 | Generic Hecke algebra. G3 requests the twisted cocenter extension; the geometric dimension=degree theorem belongs here. |
 | HeckeStacksAndLocalShtukas HS0–HS4 | Generic Hecke functors, local-shtuka diamonds/towers and representation-valued cohomology. Those targets do not construct an integral special fibre or prove a classical ADLV dimension. |
@@ -50,7 +50,7 @@ Current upstream adds a promise absent from the atlas’s older translation-leng
 | HSD3: Spherical dimensions and the virtual upper bound | 9 | 3 | HSD0, HSD1, HSD2 |
 | HSD4: Generic Newton classes and cordiality | 7 | 4 | HSD0, HSD1, HSD3 |
 | HSD5: Double-flat bounds and factorization | 2 | 1 | HSD0 |
-| HSD6: The two geometric correspondences | 5 | 2 | HSD0, HSD1, HSD5 |
+| HSD6: The two geometric correspondences | 4 | 2 | HSD0, HSD1, HSD5 |
 | HSD7: Levi obstructions and basic seeds | 6 | 3 | HSD1, HSD4, HSD6 |
 | HSD8: The shrunken nonemptiness and dimension theorem | 4 | 3 | HSD3, HSD7 |
 
@@ -94,10 +94,10 @@ For a group H, an automorphism σ, a subgroup I with σ(I)=I and b,w∈H, set r_
 
 **Unit tests.**
 
-- `commutative_identity`: For commutative H and σ=id, X_I(w,b) is all of H/I iff b∈IwI, and otherwise empty.
-- `trivial_level`: For I={1}, σ=id and b=1, the locus is all of H exactly when w=1; for w≠1 it is empty.
-- `top_level`: For I=H the unique left coset belongs to the locus for every b,w.
-- `noncommutative_change`: In S₃ with I={1}, σ=id, b=(12), the class of g=(123) belongs to the locus labelled g⁻¹bg=(13), and not to the locus labelled b.
+- `commutative_identity` (characterisation): For commutative H and σ=id, X_I(w,b) is all of H/I iff b∈IwI, and otherwise empty.
+- `trivial_level` (degenerate): For I={1}, σ=id and b=1, the locus is all of H exactly when w=1; for w≠1 it is empty.
+- `top_level` (degenerate): For I=H the unique left coset belongs to the locus for every b,w.
+- `noncommutative_change` (computation): In S₃ with I={1}, σ=id, b=(12), the class of g=(123) belongs to the locus labelled g⁻¹bg=(13), and not to the locus labelled b.
 
 ### Virtual dimension
 
@@ -133,10 +133,10 @@ In the imported unique normal form w=x t^λ y with t^λy minimal on the left, us
 
 **Unit tests.**
 
-- `rank_one_identity`: For split adjoint A₁, b=1 and w=s, ℓw=ℓη=1 and d_w(1)=1.
-- `ordinary_translation`: For split GL₂, λ=(1,0), w=t^λ and b=t^λ, the length 1 and pairing 1/2 give d=0.
-- `basic_GL2`: For GL₂ with slope-1/2 basic b, def=1. At w=s t^(1,0), lengths 2 and 1 give d=1.
-- `twisted_factor`: For type A₂ with σ swapping s₁,s₂ and x=s₁,y=s₂, η=σ⁻¹(s₂)s₁=1; replacing σ⁻¹(y) by y gives length 2 and changes d by 1.
+- `rank_one_identity` (computation): For split adjoint A₁, b=1 and w=s, ℓw=ℓη=1 and d_w(1)=1.
+- `ordinary_translation` (computation): For split GL₂, λ=(1,0), w=t^λ and b=t^λ, the length 1 and pairing 1/2 give d=0.
+- `basic_GL2` (computation): For GL₂ with slope-1/2 basic b, def=1. At w=s t^(1,0), lengths 2 and 1 give d=1.
+- `twisted_factor` (computation): For type A₂ with σ swapping s₁,s₂ and x=s₁,y=s₂, η=σ⁻¹(s₂)s₁=1; replacing σ⁻¹(y) by y gives length 2 and changes d by 1.
 
 ### Shrunken Weyl chambers
 
@@ -172,10 +172,10 @@ For the reduced relative root system and He’s apartment convention, remove the
 
 **Unit tests.**
 
-- `A1_strip`: In A₁ a test alcove whose α-values lie in (−1,0) is rejected.
-- `A1_outside`: Alcoves with α-values wholly in (0,1) or in (−2,−1) lie outside the A₁ critical strip.
-- `wall_endpoints`: The boundary hyperplanes with α=0 or α=−1 are not removed; replacing the open strip by a closed one is a wrong definition.
-- `independent_bound`: Any corollary using λ^♦≥ν+2ρ∨ must still require that w is shrunken.
+- `A1_strip` (non-example): In A₁ a test alcove whose α-values lie in (−1,0) is rejected.
+- `A1_outside` (computation): Alcoves with α-values wholly in (0,1) or in (−2,−1) lie outside the A₁ critical strip.
+- `wall_endpoints` (non-example): The boundary hyperplanes with α=0 or α=−1 are not removed; replacing the open strip by a closed one is a wrong definition.
+- `independent_bound` (non-example): In split adjoint A₂ take ν=0 and λ=6ω₁∨=4α₁∨+2α₂∨. Then λ≥_ℤ2ρ∨, but 〈α₂,λ〉=0, so t^λ preserves the base alcove’s α₂-critical strip and is not shrunken.
 
 ### Exact and bounded spherical loci
 
@@ -211,10 +211,10 @@ For the hyperspecial affine Grassmannian Gr_G and dominant μ, construct the fun
 
 **Unit tests.**
 
-- `torus_mismatch`: For G=G_m, μ=0 and b=ϖ, both loci are empty since valuation is 1, although the numerical dimension expression is 0.
-- `strict_union`: For GL₂, b=1 and μ=(1,−1), the identity point lies in X_0(1)⊂X_≤μ(1) but not in X_μ(1).
-- `central_bound`: For a torus, the dominance interval has one element, so the exact and bounded loci coincide.
-- `base_category`: A nonperfect residue algebra is not silently accepted by the mixed-characteristic perfect functor.
+- `torus_mismatch` (non-example): For G=G_m, μ=0 and b=ϖ, both loci are empty since valuation is 1, although the numerical dimension expression is 0.
+- `strict_union` (computation): For GL₂, b=1 and μ=(1,−1), the identity point lies in X_0(1)⊂X_≤μ(1) but not in X_μ(1).
+- `central_bound` (degenerate): For a torus, the dominance interval has one element, so the exact and bounded loci coincide.
+- `base_category` (non-example): For k of characteristic p, the k-algebra k[ε]/(ε²) is not perfect, because its nonzero ε has ε^p=0; it is outside the mixed-characteristic perfect functor’s domain.
 
 ### Geometric realization and dimension of ADLVs
 
@@ -222,9 +222,9 @@ Target: `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization` (construct
 
 Construct X_w(b) as a reduced locally closed locus of the affine flag ind-scheme in the He14 equal-characteristic setting, locally of finite type and of finite dimension. For the unramified mixed-characteristic spherical loci construct locally perfectly finite type spaces. Dimension is the supremum on bounded finite-type models, valued in ℚ∪{−∞}, with dim ∅=−∞. Show independence of a finite-type deperfection, invariance under universal homeomorphisms and the bounded fibre estimates actually used below. A perfect space of positive dimension is not asserted finite type.
 
-**Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. F=F_q((t)), k=overline(F_q), L=k((t)); G splits over a tame extension of L; p does not divide |π₁(G_der)|. For He14 §§2–12 use its quasi-split adjoint reduction. For the second branch replace the equal-characteristic hypotheses by UR; do not conjoin the incompatible field hypotheses.
+**Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. F=F_q((t)), k=overline(F_q), L=k((t)); G splits over a tame extension of L; p does not divide |π₁(G_der)|. For He14 §§2–12 use its quasi-split adjoint reduction. For the second branch use a connected reductive O_F-model with K=G(O_L), evaluating on perfect k-algebras in mixed characteristic; this replaces the equal-characteristic branch.
 
-**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD0/point-locus`; `HeckeStacksAndLocalShtukasPartII:HSD0/spherical-loci`; `GeometricSatakeAndFusion:GS0:Witt-geometry`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`.
+**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD0/point-locus`; `HeckeStacksAndLocalShtukasPartII:HSD0/spherical-loci`; `GeometricSatakeAndFusion:GS0:Witt-geometry`; `SchemeAndStackFoundations:SF.0`; `SchemeAndStackFoundations:SF.1`; `SchemeAndStackFoundations:SF.0/fibre-dimension-formula`.
 
 **Plan.**
 
@@ -252,10 +252,10 @@ Construct X_w(b) as a reduced locally closed locus of the affine flag ind-scheme
 
 **Unit tests.**
 
-- `affine_line_perfection`: The perfection of A¹ has dimension 1 even though it is not finite type.
-- `infinite_components`: For a split torus with b=1, μ=0, the spherical locus is an infinite discrete set of dimension 0; no global finite-component axiom is allowed.
-- `empty_dimension`: An empty torus mismatch has dimension −∞, not 0.
-- `relative_fibres`: A product Y×Aⁿ→Y on finite-type models has dimension dim Y+n, including after perfection.
+- `affine_line_perfection` (computation): The perfection of A¹ has dimension 1 even though it is not finite type.
+- `infinite_components` (non-example): For a split torus with b=1, μ=0, the spherical locus is an infinite discrete set of dimension 0; no global finite-component axiom is allowed.
+- `empty_dimension` (degenerate): An empty torus mismatch has dimension −∞, not 0.
+- `relative_fibres` (compatibility): A product Y×Aⁿ→Y on finite-type models has dimension dim Y+n, including after perfection.
 
 ### Change of framing, centralizers and Kottwitz obstruction
 
@@ -390,10 +390,10 @@ Define w⇒_σv when for every [b] with X_v(b) nonempty, X_w(b) is nonempty and 
 
 **Unit tests.**
 
-- `reflexivity`: Every w has advantage over itself, including when all tested loci are empty.
-- `empty_right`: A class with X_v empty imposes no condition; it must not force X_w empty.
-- `eta_direction`: If ℓw=ℓv and dimensions agree, ℓηw≤ℓηv is the direction that permits w⇒v.
-- `transitive`: If w⇒v⇒u and X_u(b) is nonempty, add the two rational length differences to obtain w⇒u.
+- `reflexivity` (degenerate): Every w has advantage over itself, including when all tested loci are empty.
+- `empty_right` (degenerate): A class with X_v empty imposes no condition; it must not force X_w empty.
+- `eta_direction` (computation): If ℓw=ℓv and dimensions agree, ℓηw≤ℓηv is the direction that permits w⇒v.
+- `transitive` (compatibility): If w⇒v⇒u and X_u(b) is nonempty, add the two rational length differences to obtain w⇒u.
 
 ## HSD2 — Superbasic lattice charts
 
@@ -403,9 +403,9 @@ Plan normalized semi-modules, extended semi-modules, their lattice strata and ch
 
 Target: `HeckeStacksAndLocalShtukasPartII:HSD2/semimodule` (definition). Planet: **Semi-modules**.
 
-Fix h≥1, m∈ℤ with gcd(m,h)=1. A semi-module A⊂ℤ is bounded below and stable under adding m and h. Its residue basis B=A∖(h+A) has one element in every residue class modulo h. It is normalized when ΣB=h(h−1)/2. For b₀=min B, enumerate b_i=b_(i−1)+m−μ′_i h through B, with b_h=b₀ and each μ′_i maximal subject to membership in A. This defines the type μ′, up to the specified cyclic starting convention.
+Fix h≥1 and m≥1 with gcd(m,h)=1. A semi-module is a nonempty subset A⊂ℤ, bounded below and stable under adding m and h. Its residue basis B=A∖(h+A) has one element in every residue class modulo h. It is normalized when ΣB=h(h−1)/2. For b₀=min B, enumerate b_i=b_(i−1)+m−μ′_i h through B, with b_h=b₀ and each μ′_i maximal subject to membership in A. This defines the type μ′ with the specified starting convention.
 
-**Hypotheses.** h≥1, m∈ℤ, gcd(m,h)=1; after a central shift the relevant Hodge entries are nonnegative.
+**Hypotheses.** h≥1, m≥1, gcd(m,h)=1; a central shift makes the relevant Hodge entries nonnegative and m positive.
 
 **Direct prerequisites.** `mathlib:Finset`.
 
@@ -425,7 +425,7 @@ Fix h≥1, m∈ℤ with gcd(m,h)=1. A semi-module A⊂ℤ is bounded below and s
 
 **API.**
 
-- `SemiModule` (structure): The subset with boundedness and both stability conditions.
+- `SemiModule` (structure): The nonempty subset with boundedness and both stability conditions.
 - `residueBasis` (projection): The h-element set B.
 - `normalize` (constructor): The unique translated normalized semi-module.
 - `type` (data): The cyclic enumeration and integer tuple μ′.
@@ -433,10 +433,11 @@ Fix h≥1, m∈ℤ with gcd(m,h)=1. A semi-module A⊂ℤ is bounded below and s
 
 **Unit tests.**
 
-- `rank_one`: For h=1,m≥0 the normalized semi-module is ℕ.
-- `coprime_small`: For h=2,m=1, A=ℕ has B={0,1}, normalized sum 1, and type (0,1).
-- `stability_failure`: The even nonnegative integers fail stability under m=1 and are not a semi-module for (m,h)=(1,2).
-- `translation`: A=1+ℕ has basis sum 3 for h=2; its normalization is ℕ, not A itself.
+- `rank_one` (degenerate): For h=1,m≥1 the normalized semi-module is ℕ.
+- `coprime_small` (computation): For h=2,m=1, A=ℕ has B={0,1}, normalized sum 1, and type (0,1).
+- `stability_failure` (non-example): The even nonnegative integers fail stability under m=1 and are not a semi-module for (m,h)=(1,2).
+- `translation` (compatibility): A=1+ℕ has basis sum 3 for h=2; its normalization is ℕ, not A itself.
+- `empty_exclusion` (non-example): The empty subset is bounded below and stable under both additions, but is not a semi-module and has no h-element residue basis.
 
 ### Extended semi-modules
 
@@ -472,16 +473,16 @@ For a normalized semi-module A and a nonnegative increasing h-tuple μ of sum m,
 
 **Unit tests.**
 
-- `cyclic_small`: For A=ℕ,h=2,m=1, φ(a)=⌊(a+1)/2⌋ on A and −∞ elsewhere gives type (0,1).
-- `growth_failure`: The constant function 0 on A fails φ(a+h)≥φ(a)+1.
-- `outside_failure`: Giving a finite value at −1 for A=ℕ violates the support condition.
-- `finite_pairs_small`: For the cyclic small example the set V is empty, so its chart dimension is 0.
+- `cyclic_small` (computation): For A=ℕ,h=2,m=1, φ(a)=⌊(a+1)/2⌋ on A and −∞ elsewhere gives type (0,1).
+- `growth_failure` (non-example): The constant function 0 on A fails φ(a+h)≥φ(a)+1.
+- `outside_failure` (non-example): Giving a finite value at −1 for A=ℕ violates the support condition.
+- `finite_pairs_small` (computation): For the cyclic small example the set V is empty, so its chart dimension is 0.
 
 ### Superbasic GLₕ lattice stratification
 
 Target: `HeckeStacksAndLocalShtukasPartII:HSD2/lattice-strata` (construction).
 
-For b(e_i)=e_(i+m), e_(i+h)=ϖe_i and gcd(m,h)=1, assign to a lattice M its set A(M) of leading indices and φ_M(a)=max{n≥0: some v∈M of leading index a has ϖ^(−n)bσ(v)∈M}. On the determinant-zero component the set A(M) is normalized. The exact Hodge locus with increasing type μ is the finite disjoint union of its locally closed extended-semi-module strata S_(A,φ). The shift e_i↦e_(i+1), commuting with bσ, transports determinant components.
+For b(e_i)=e_(i+m), e_(i+h)=ϖe_i and gcd(m,h)=1 with m>0, assign to a lattice M its set A(M) of leading indices. Set φ_M(a)=−∞ off A(M); on A(M) set φ_M(a)=max{n≥0: some v∈M of leading index a has ϖ^(−n)bσ(v)∈M}. On the determinant-zero component A(M) is normalized, and the exact Hodge locus of increasing type μ is the finite disjoint union of its locally closed extended-semi-module strata S_(A,φ). The shift e_i↦e_(i+1), commuting with bσ, transports determinant components. Finiteness is asserted on each fixed determinant component, not on the entire locus.
 
 **Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is the generic fibre of a connected reductive O_F-group scheme, K=G(O_L), and k=overline(F_q). In mixed characteristic, all moduli functors are on perfect k-algebras. Here G=GL_h, b is the displayed superbasic shift, and a central shift makes μ nonnegative.
 
@@ -493,7 +494,7 @@ For b(e_i)=e_(i+m), e_(i+h)=ϖe_i and gcd(m,h)=1, assign to a lattice M its set 
 - Construct bounded locally closed strata using coefficient conditions, then prove finite exhaustion and determinant transport.
 - The mixed-characteristic chart morphisms require G4, not merely a bijection of residue-field points.
 
-**Sources.** [vie06] §2, PDF p. 2; §4, PDF pp. 5–8 — The leading-term construction provides the geometric stratification in equal characteristic.; [zhu17] §3.1.3, pp. 457–458 — The mixed-characteristic argument replaces coefficients by Teichmüller coordinates.
+**Sources.** [vie06] §2, PDF p. 2; §4, PDF pp. 5–8 — The leading-term construction provides the geometric stratification in equal characteristic.; [zhu17] End of the proof of Proposition 3.3, p. 460 — Zhu invokes an adaptation of Viehmann’s argument here, without giving Teichmüller chart equations. Constructing those perfect chart morphisms and proving their dimension comparison remains G4.
 
 **Check.** A(M) uses a fixed leading-index convention. No assertion that every arbitrary pair (A,φ) has a stratum of the expected dimension is made without the chart theorem.
 
@@ -512,10 +513,10 @@ For b(e_i)=e_(i+m), e_(i+h)=ϖe_i and gcd(m,h)=1, assign to a lattice M its set 
 
 **Unit tests.**
 
-- `standard_lattice`: For h=2,m=1, the standard lattice has A=ℕ and φ(a)=⌊(a+1)/2⌋.
-- `shift_volume`: Shifting leading indices by 1 changes ΣB by h and the determinant component by one.
-- `central_shift`: Replacing b by ϖb and μ by μ+(1,…,1) preserves A and adds 1 to φ on A.
-- `noncoprime_exclusion`: The shift with h=2,m=2 is not covered by the superbasic chart theorem.
+- `standard_lattice` (computation): For h=2,m=1, the standard lattice has A=ℕ and φ(a)=⌊(a+1)/2⌋.
+- `shift_volume` (compatibility): Shifting leading indices by 1 changes ΣB by h and the determinant component by one.
+- `central_shift` (compatibility): Replacing b by ϖb and μ by μ+(1,…,1) preserves A and adds 1 to φ on A.
+- `noncoprime_exclusion` (non-example): The shift with h=2,m=2 is not covered by the superbasic chart theorem.
 
 ### Dimensions of superbasic lattice charts
 
@@ -532,7 +533,7 @@ For every occurring extended semi-module (A,φ), V(A,φ) is finite and there is 
 - Read the triangular coefficient recursion as a morphism, not merely a parametrization of points.
 - Establish the geometric comparison in G4 before concluding equality of dimensions in mixed characteristic.
 
-**Sources.** [vie06] Theorem 4.3, PDF pp. 5–8 — The coefficient equations and their recursion give the open chart.; [zhu17] §3.1.3, pp. 457–458 — Teichmüller coordinates are used for the perfect counterpart.
+**Sources.** [vie06] Theorem 4.3, PDF pp. 5–8 — The coefficient equations and their recursion give the open chart.; [zhu17] End of the proof of Proposition 3.3, p. 460 — Zhu invokes an adaptation of Viehmann’s argument here, without giving Teichmüller chart equations. Constructing those perfect chart morphisms and proving their dimension comparison remains G4.
 
 **Check.** A set-theoretic bijection alone is not a dimension proof. Take the maximum only after proving the finite stratification.
 
@@ -551,7 +552,7 @@ For the superbasic shift of slope m/h, and a dominant μ in the matching determi
 - Prove the finite combinatorial bound by the inversion count and compare to the cyclic case.
 - Convert the increasing convention to the chosen descending dominance convention and use def(b)=h−1.
 
-**Sources.** [vie06] Proposition 5.2 and Theorem 5.3, PDF pp. 8–9, with proof through p. 12 — The combinatorial upper bound and the cyclic chart give the two inequalities.; [zhu17] §3.1.3, pp. 457–458 — The same parameter count supplies the unramified perfect result, subject to G4.
+**Sources.** [vie06] Proposition 5.2 and Theorem 5.3, PDF pp. 8–9, with proof through p. 12 — The combinatorial upper bound and the cyclic chart give the two inequalities.; [zhu17] End of the proof of Proposition 3.3, p. 460 — Zhu invokes an adaptation of Viehmann’s argument here, without giving Teichmüller chart equations. Constructing those perfect chart morphisms and proving their dimension comparison remains G4.
 
 **Check.** For h=2,m=1, μ=(0,1) in increasing order gives dimension 0; μ=(−1,2) gives dimension 1. For h=3,m=4, μ=(0,0,4) gives dimension 3. Central shift (m,μ)↦(m+h,μ+(1,…,1)) preserves the result.
 
@@ -563,7 +564,7 @@ Use unipotent loop geometry, Levi and componentwise adjoint reduction, superbasi
 
 Target: `HeckeStacksAndLocalShtukasPartII:HSD3/unipotent-loop-comparison` (theorem).
 
-For the Newton Levi M and its parabolic unipotent radical N, establish the equal- and mixed-characteristic loop-space comparison needed for the twisted Lang-map fibre calculation. Where an M-equivariant F-scheme identification N≃Lie N is used, obtain it with its exact hypotheses from the reductive-group owner; in mixed characteristic it is not an identification of k-ind-schemes. Prove the required admissibility and dimension statements for the resulting p-adic loop spaces, and the finite fixed-point calculation used in GHKR Lemma 5.4.3 by the perfect-space trace argument.
+For the Newton Levi M and its parabolic unipotent radical N, establish the equal- and mixed-characteristic loop-space comparison needed for the twisted Lang-map fibre calculation. Where an M-equivariant F-scheme identification N≃Lie N is used, obtain it with its exact hypotheses from the reductive-group owner; in mixed characteristic it is not an identification of k-ind-schemes. Prove the required admissibility and dimension statements for the resulting p-adic loop spaces, and the finite fixed-point calculation used in GHKR Lemma 5.4.3 by the perfect-space trace argument. More precisely, for m∈M(L) with M-dominant Newton point ν_M, the map f_m(n)=n⁻¹mσ(n)m⁻¹ on N(L) is surjective, inverse images of admissible subsets are ind-admissible, and dim f_m⁻¹(Y)−dim Y=Σ_(α∈R_N) min(〈α,ν_M〉,0)=〈ρ,ν_M−ν_G〉. Prove the same normalized formula on the perfect models used in the Levi reduction; ν_G is the G-dominant representative.
 
 **Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is the generic fibre of a connected reductive O_F-group scheme, K=G(O_L), and k=overline(F_q). In mixed characteristic, all moduli functors are on perfect k-algebras.
 
@@ -575,7 +576,7 @@ For the Newton Levi M and its parabolic unipotent radical N, establish the equal
 - Check that coefficient truncations define admissible perfect morphisms and that the dimension correction is the root-slope sum.
 - Request the perfect-space trace input and its hypotheses explicitly in G4.
 
-**Sources.** [zhu17] Proof of Theorem 3.1, p. 456 — The N-versus-Lie N argument is made over F before passing to p-adic loop spaces.; [ghkr06] Proposition 5.3.1, PDF pp. 19–20; Lemma 5.4.3, PDF pp. 27–28 — The twisted Lang map and fixed-point calculation are proof inputs of the Levi formula.
+**Sources.** [zhu17] Proof of Theorem 3.1, §3.1.2, pp. 456–457 — The N-versus-Lie N argument is made over F before passing to p-adic loop spaces.; [ghkr06] Proposition 5.3.1, PDF pp. 19–21; Lemma 5.4.3, PDF pp. 27–28 — The twisted Lang map and fixed-point calculation are proof inputs of the Levi formula.
 
 **Check.** This is a geometric proof obligation, not a consequence of an abstract bijection N(F)≃Lie N(F). No all-characteristic equivariant-linearization theorem is presumed without checking its hypotheses.
 
@@ -583,18 +584,18 @@ For the Newton Levi M and its parabolic unipotent radical N, establish the equal
 
 Target: `HeckeStacksAndLocalShtukasPartII:HSD3/iterated-locus` (construction). Planet: **Iterated affine Deligne–Lusztig loci**.
 
-For a local field E, d≥1, bounds μ₁,…,μ_d and β∈G(L_E), construct the perfect locus of chains of lattices E₀,…,E_d with modifications Φ_i:E_i→E_(i−1) bounded by μ_i and a framing β:E₀≃E_triv such that βΦ₁⋯Φ_d=bσ_E(β). Equivalently it is the fibre product of the convolution Grassmannian over its endpoint map and the bσ_E graph. Keep exact endpoint strata X_λ(b) separate from the closed bound X_≤Σμ(b).
+Fix a local field E, d≥1, dominant bounds μ₁,…,μ_d and b∈G(L_E). Construct the perfect locus of O_(L_E)-torsors E₀,…,E_d, with E_d=σ_E^*E₀, modifications Φ_i:E_i[1/ϖ]≃E_(i−1)[1/ϖ] bounded by μ_i, and a generic-fibre framing β:E₀[1/ϖ]≃E_triv[1/ϖ] satisfying βΦ₁⋯Φ_d=bσ_E(β). For GL_h these torsors are lattices. Equivalently take the fibre product of the convolution Grassmannian’s endpoint map with the bσ_E graph. Keep exact endpoint strata X_λ(b) separate from X_≤Σμ(b).
 
 **Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is the generic fibre of a connected reductive O_F-group scheme, K=G(O_L), and k=overline(F_q). In mixed characteristic, all moduli functors are on perfect k-algebras.
 
-**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD0/spherical-loci`; `GeometricSatakeAndFusion:GS2:correspondences`.
+**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD0/spherical-loci`; `GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram`.
 
 **Plan.**
 
 - Form the supplied convolution diagram and its endpoint pullback.
 - Use the torsor description to compare the two functors and retain the order of all modifications.
 
-**Sources.** [zhu17] §3.1.4, (3.1.7)–(3.1.9), pp. 458–459 — The chain construction is a Frobenius-graph pullback of convolution.
+**Sources.** [zhu17] §3.1.3, Proposition 3.3 and diagrams (3.1.4)–(3.1.5), pp. 457–458 — The chain construction is a Frobenius-graph pullback of convolution.
 
 **Check.** The graph square uses the specified Frobenius power. A bound on a convolution fibre is applied over an exact endpoint stratum.
 
@@ -613,21 +614,21 @@ For a local field E, d≥1, bounds μ₁,…,μ_d and β∈G(L_E), construct the
 
 **Unit tests.**
 
-- `one_step`: d=1 gives the original bound, with no extra intermediate parameter.
-- `central_chain`: For a torus the only possible endpoint is Σμ and the convolution fibre is a point.
-- `order`: Interchanging noncommuting modification matrices changes the chain product; no commutative product convention is allowed.
-- `exact_vs_closed`: For GL₂ a smaller endpoint λ<Σμ is not assigned the top-endpoint fibre dimension 0.
-- `degree_three_cycle`: For a degree-3 unramified restriction, (σb)_τ₀=σ(b_(σ⁻¹τ₀)); use τ₁=σ⁻¹τ₀. The opposite cycle fails even though degrees 1 and 2 cannot detect it.
+- `one_step` (degenerate): d=1 gives the original bound, with no extra intermediate parameter.
+- `central_chain` (degenerate): For a torus the only possible endpoint is Σμ and the convolution fibre is a point.
+- `order` (non-example): Interchanging noncommuting modification matrices changes the chain product; no commutative product convention is allowed.
+- `exact_vs_closed` (non-example): For GL₂ a smaller endpoint λ<Σμ is not assigned the top-endpoint fibre dimension 0.
+- `degree_three_cycle` (non-example): For a degree-3 unramified restriction, (σb)_τ₀=σ(b_(σ⁻¹τ₀)); use τ₁=σ⁻¹τ₀. The opposite cycle fails even though degrees 1 and 2 cannot detect it.
 
 ### Spherical Levi fibres and dimension reduction
 
 Target: `HeckeStacksAndLocalShtukasPartII:HSD3/levi-reduction` (theorem). Planet: **Levi reduction**.
 
-For b∈M(L) with M a standard Levi and P=MN, let S_M(μ) be the finite set of M-dominant relative positions occurring under the Iwasawa retraction of Gr_μ. Put d(μ,μ_M)=dim(N(L)t^(μ_M)K/K∩Gr_μ). The fibre over x∈X^M_(μ_M)(b) has dimension d(μ,μ_M)+〈ρ,ν_M−ν_G〉−〈2ρ_N,ν_M〉. Thus dim X^G_μ(b) is the maximum of dim X^M_(μ_M)(b)+this correction over nonempty terms. Use d≤〈ρ,μ+μ_M〉−〈2ρ_M,μ_M〉, with equality for an M-maximal μ_M. For M=Cent_G(ν_b), b is basic in M and ν_M=ν_G.
+Let M be a standard Levi, P=MN, and b∈M(L) basic in M, with M-dominant Newton point ν_M and G-dominant representative ν_G. Let S_M(μ,κ_M(b)) be the finite set of M-dominant relative positions occurring under the Iwasawa retraction of Gr_μ and having κ_M=κ_M(b). Put d(μ,μ_M)=dim(N(L)t^(μ_M)K/K∩Gr_μ). The retraction is a morphism on suitable locally closed pieces; over x∈X^M_(μ_M)(b) its fibre has dimension d(μ,μ_M)+〈ρ,ν_M−ν_G〉−〈2ρ_N,ν_M〉. Thus dim X^G_μ(b) is the maximum of dim X^M_(μ_M)(b)+this correction over nonempty terms indexed by S_M(μ,κ_M(b)). Use d≤〈ρ,μ+μ_M〉−〈2ρ_M,μ_M〉, with equality for an M-maximal μ_M. For M=Cent_G(ν_b), choose the representative basic in M and ν_M=ν_G.
 
-**Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is the generic fibre of a connected reductive O_F-group scheme, K=G(O_L), and k=overline(F_q). In mixed characteristic, all moduli functors are on perfect k-algebras.
+**Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is the generic fibre of a connected reductive O_F-group scheme, K=G(O_L), and k=overline(F_q). In mixed characteristic, all moduli functors are on perfect k-algebras. The representative b lies in M(L) and is basic in M; retain κ_M(b) when indexing the retraction strata.
 
-**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`; `BunGAndNewtonStrata:BG1/general-levi-newton-comparison`; `GeometricSatakeAndFusion:GS1`; `HeckeStacksAndLocalShtukasPartII:HSD3/unipotent-loop-comparison`.
+**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`; `BunGAndNewtonStrata:BG1/general-levi-newton-comparison`; `GeometricSatakeAndFusion:GS1`; `HeckeStacksAndLocalShtukasPartII:HSD3/unipotent-loop-comparison`; `GeometricSatakeAndFusion:GS1/semi-infinite-affineness`.
 
 **Plan.**
 
@@ -635,7 +636,7 @@ For b∈M(L) with M a standard Levi and P=MN, let S_M(μ) be the finite set of M
 - Apply the twisted Lang map on N and calculate its dimension shift using root slopes.
 - Stratify the image and apply fibre dimension on finite-type models; the theorem needs the perfect analogue in G4.
 
-**Sources.** [ham15] Definition 2.5, Definition 2.7, Lemma 2.8 and Proposition 2.9, pp. 12809–12811 — The retraction strata and fibre corrections give the dimension maximum.; [ghkr06] Proposition 5.6.1 and Theorem 5.8.1, PDF pp. 29–32 — The semi-infinite intersection estimate is the geometric input.; [zhu17] §3.1.2, pp. 455–457 — Apply the Levi reduction to the Newton centralizer.
+**Sources.** [ham15] Definition 2.5, Definition 2.7, Lemma 2.8 and Proposition 2.9, pp. 12809–12811 — The retraction strata and fibre corrections give the dimension maximum.; [ghkr06] Proposition 5.6.1 and Theorem 5.8.1, PDF pp. 29–32 — The semi-infinite intersection estimate is the geometric input.; [zhu17] §3.1.2, pp. 456–457 — Apply the Levi reduction to the Newton centralizer.
 
 **Check.** All correction terms are retained before specializing to the Newton Levi. Empty Levi strata do not contribute to the maximum.
 
@@ -667,15 +668,15 @@ For dominant μ• and λ≤_ℤΣμ_i, the supplied convolution map has fibres 
 
 **Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is the generic fibre of a connected reductive O_F-group scheme, K=G(O_L), and k=overline(F_q). In mixed characteristic, all moduli functors are on perfect k-algebras.
 
-**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD3/iterated-locus`; `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`; `GeometricSatakeAndFusion:GS2:correspondences`.
+**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD3/iterated-locus`; `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`; `GeometricSatakeAndFusion:GS2:correspondences/rational-special-fibre-convolution`.
 
 **Plan.**
 
-- Request the geometric fibre bound, not just proper pushforward, in G4.
+- Import the geometric stratified semismallness bound from GS2:correspondences/rational-special-fibre-convolution; its statement concerns actual fibres, not only sheaf pushforward.
 - Stratify by finitely many exact endpoints and apply the uniform fibre upper bound.
 - Use the top endpoint and its nonempty zero-dimensional fibre for the opposite inequality.
 
-**Sources.** [zhu17] Proposition 2.3, p. 432; §3.1.4, pp. 458–460 — Geometric convolution semismallness is the required input, independently of the Satake equivalence.
+**Sources.** [zhu17] Proposition 2.3, p. 432; proof of Proposition 3.3, pp. 459–460 — Geometric convolution semismallness is the required input, independently of the Satake equivalence.
 
 **Check.** No closed-union fibre is treated as a single exact stratum. No cohomological decomposition theorem is used to assume the missing geometry.
 
@@ -695,9 +696,9 @@ Compare corresponding connected components of X^G_μ(b) and X^(G_ad)_(μ_ad)(b_a
 - Check compatibility of bσ and bounds before base change to ADLVs.
 - Preserve the original G-class when auxiliary coweights lie only in P∨; G7 records the extra descent needed for the He21 main theorem.
 
-**Sources.** [ham15] Proposition 2.4 and the reduction following Proposition 2.10, pp. 12808, 12811–12812 — Componentwise comparison is enough for dimension.; [ghnerr] Proposition 0.0.1, pp. 1–2 — The corrected component statement has a characteristic hypothesis; a global immersion needs injectivity on components.; [zhu17] §3.1.2, pp. 456–457 — The unramified reduction is applied before superbasic factorization.
+**Sources.** [ham15] Reduction following Proposition 2.10, p. 12812 — The componentwise comparison follows the superbasic reduction; Lemma 2.4 is instead the Lang statement, not an adjoint comparison.; [ghnerr] Proposition 0.0.1, p. 1 — The corrected component statement has a characteristic hypothesis; a global immersion needs injectivity on components.; [zhu17] §3.1.2, pp. 456–457 — The unramified reduction is applied before superbasic factorization.
 
-**Check.** Do not infer a global flag immersion from componentwise isomorphisms. Do not regard an auxiliary γ∈P∨ as an original cocharacter without a lift.
+**Check.** Do not infer a global flag immersion from componentwise isomorphisms. Do not regard an auxiliary γ∈P∨ as an original cocharacter without a lift. The BG1 z-extension bounded-lifting supplier has p-adic scope; it supplies no equal-characteristic comparison by itself. Use Hamacher’s separate component argument in that branch.
 
 ### Reduction of superbasic adjoint factors
 
@@ -735,7 +736,7 @@ If X_μ(b) is nonempty for an unramified reductive O_F-model, then dim X_μ(b)=d
 - Apply the exact endpoint bounds and prove lower endpoints cannot exceed the top value; show the top nonempty stratum supplies equality.
 - Proof order: first the superbasic GL_h chart formula for every bound; then its bounded unions and the Res GL_h convolution step using only those GL_h endpoint formulas; then adjoint products and Newton-Levi reduction. Only after the single-step theorem for general H is established deduce the general iterated formula. This avoids using the theorem for G to prove its own top-stratum attainment.
 
-**Sources.** [zhu17] Theorem 0.5, p. 410; Theorem 3.1 and Proposition 3.3, pp. 456, 458–460 — Combine Levi and adjoint reductions, superbasic charts, ordered norm and convolution.; [ham15] Theorem 2.1, pp. 12806–12807 — The equal-characteristic statement explicitly includes nonemptiness.
+**Sources.** [zhu17] Theorem 0.5, p. 410; Theorem 3.1, p. 456; Proposition 3.3, pp. 457–460 — Combine Levi and adjoint reductions, superbasic charts, ordered norm and convolution.; [ham15] Theorem 1.1, p. 12805; setup p. 12804 — The main equal-characteristic dimension theorem explicitly assumes nonemptiness; Theorem 2.1 is its reduction to superbasic restrictions of scalars.
 
 **Check.** G_m, μ=0, b=ϖ is empty although the displayed rational number is 0. For GL₂ with μ=(1,0) and basic slope 1/2, the value is 0. For GL₂ with μ=(1,−1), b=1, the value is 1. This theorem does not assert equidimensionality of every stratum.
 
@@ -755,7 +756,7 @@ For every w and [b] in the supported flag setting, dim X_w(b)≤d_w(b). Derive t
 - Prove the Frobenius-convention comparison between yσ(x) and σ⁻¹(y)x.
 - Keep the general-σ/general-datum extension open in G5 until all hypotheses are checked.
 
-**Sources.** [he21] Theorem 2.1, p. 5 — The required upper bound is σ-twisted.; [he14] Theorem 10.3 and Corollary 10.4, pp. 396–397 — The published bound in this form assumes δ=id.; [he15] Theorem 2.30, PDF p. 38 — Translate the normalized Newton-stratum dimension and its η convention before using it.
+**Sources.** [he21] Theorem 2.1, p. 5 — The required upper bound is σ-twisted.; [he14] Theorem 10.3 and Corollary 10.4, pp. 396–397 — Theorem 10.3 is a general-δ comparison with a spherical term. Only Corollary 10.4 specializes to δ=id when inserting the then available spherical formula; the intermediate theorem itself is twisted.; [he15] Theorem 2.30, PDF p. 38 — Translate the normalized Newton-stratum dimension and its η convention before using it.
 
 **Check.** The sign is −〈ν,ρ〉 in d_w. The δ=id result alone does not prove the general σ statement.
 
@@ -767,7 +768,7 @@ Construct the greatest cell class, compute its dimension, define cordiality and 
 
 Target: `HeckeStacksAndLocalShtukasPartII:HSD4/mazur` (theorem).
 
-For dominant λ and the indicated special maximal parahoric K, the union of K-relative-position loci of bound λ is nonempty exactly when κ_G(b)=λ^natural and ν_b≤λ^♦. In particular any class occurring in Kt^λK has ν_b≤λ^♦, and [t^λ] realizes the greatest class with ν=λ^♦ and defect 0 in the ordinary translation situation used here. Distinguish rational Newton dominance from the integral relative-position bound.
+For dominant λ and the indicated special maximal parahoric K, the exact locus X^K_λ(b) is nonempty exactly when κ_G(b)=λ^natural and ν_b≤λ^♦. The bounded union X^K_≤λ(b) has the same criterion: necessity follows on every lower stratum and sufficiency already holds on the exact top stratum. In particular any class occurring in Kt^λK has ν_b≤λ^♦, and [t^λ] realizes the greatest class with ν=λ^♦ and defect 0 in the ordinary translation situation used here. Distinguish rational Newton dominance from the integral relative-position bound.
 
 **Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is simple and quasi-split; the special-vertex splitting is σ-stable, the dominant chamber is opposite the base alcove, and t^λ acts by −λ on the apartment. Use the geometric realizations and dimension convention of HSD0/geometric-realization; the mixed-characteristic and general-datum transfers are obligations G2/G5/G7, not assumptions silently removed.
 
@@ -817,10 +818,10 @@ For w define B(G)_w={[b]:X_w(b)≠∅}. In the equal-characteristic setting cons
 
 **Unit tests.**
 
-- `length_zero`: For a length-zero element τ, the cell has generic class [τ].
-- `ordinary_translation`: For dominant λ the cell t^λ has generic class [t^λ].
-- `Kottwitz_component`: A class with different κ cannot enter B(G)_w even if its Newton vector is smaller.
-- `not_downward_closed`: Greatestness alone must not produce all lower classes; saturation is a separate cordial theorem.
+- `length_zero` (degenerate): For a length-zero element τ, the cell has generic class [τ].
+- `ordinary_translation` (computation): For dominant λ the cell t^λ has generic class [t^λ].
+- `Kottwitz_component` (non-example): A class with different κ cannot enter B(G)_w even if its Newton vector is smaller.
+- `not_downward_closed` (non-example): Greatestness alone must not produce all lower classes; saturation is a separate cordial theorem.
 
 ### Dimension at the generic class
 
@@ -873,10 +874,10 @@ A Weyl-group element w is cordial when ℓw−ℓη_σ(w)=〈ν_(b_w),2ρ〉−d
 
 **Unit tests.**
 
-- `identity`: For w=1 and b_w=1 both sides are 0.
-- `ordinary_translation`: For a dominant translation in split GL₂, ℓ(t^(1,0))=1, η=1, ν=(1,0), def=0, so it is cordial.
-- `finite_simple`: For w=s in split adjoint A₁ the generic class is basic and ℓs−ℓη=0, so it is cordial.
-- `generic_only`: Equality at one nongeneric b does not establish cordiality without the generic-class theorem.
+- `identity` (degenerate): For w=1 and b_w=1 both sides are 0.
+- `ordinary_translation` (computation): For a dominant translation in split GL₂, ℓ(t^(1,0))=1, η=1, ν=(1,0), def=0, so it is cordial.
+- `finite_simple` (computation): For w=s in split adjoint A₁ the generic class is basic and ℓs−ℓη=0, so it is cordial.
+- `generic_only` (non-example): Equality at one nongeneric b does not establish cordiality without the generic-class theorem.
 
 ### Cordiality under mutual dimension advantage
 
@@ -976,11 +977,11 @@ Write w=x t^λ y in the imported normal form. Let J={s∈S:s y<y}, ρ_J∨=Σ_(s
 
 **Unit tests.**
 
-- `no_descents`: For y=1, J=∅, both correction coweights vanish and λ^♭♭=λ.
-- `A1_adj`: In adjoint A₁ with y=s and λ=2ω∨, ρ_J∨=η_J∨=ω∨, so λ^♭♭=0.
-- `A1_lattice`: For simply connected A₁, ω∨=α∨/2 is not an original cocharacter; the intermediate subtraction is not silently evaluated in Y=ℤα∨.
-- `twisted_J`: For A₂ with σ swapping the simple nodes and J={s₁}, the input −σ⁻¹ω₁∨ is −ω₂∨, not −ω₁∨.
-- `left_descent_A2`: For y=s₁s₂ in A₂, the left descent set is {s₁}, while the right descent set is {s₂}. The input ρ_J∨ must use ω₁∨.
+- `no_descents` (degenerate): For y=1, J=∅, both correction coweights vanish and λ^♭♭=λ.
+- `A1_adj` (computation): In adjoint A₁ with y=s and λ=2ω∨, ρ_J∨=η_J∨=ω∨, so λ^♭♭=0.
+- `A1_lattice` (non-example): For simply connected A₁, ω∨=α∨/2 is not an original cocharacter; the intermediate subtraction is not silently evaluated in Y=ℤα∨.
+- `twisted_J` (computation): For A₂ with σ swapping the simple nodes and J={s₁}, the input −σ⁻¹ω₁∨ is −ω₂∨, not −ω₁∨.
+- `left_descent_A2` (computation): For y=s₁s₂ in A₂, the left descent set is {s₁}, while the right descent set is {s₂}. The input ρ_J∨ must use ω₁∨.
 
 ### Parabolic factorization data and invariant ledger
 
@@ -1017,73 +1018,53 @@ For shrunken w=x t^λy, set J as above, J′=Stab_S(λ−ρ_J∨), and factor η
 
 **Unit tests.**
 
-- `empty_J`: For y=1 the correction ρ_J∨ is zero, β=λ and γ=λ.
-- `rank_one_product`: In the rank-one split adjoint case verify w₁w₂ by t^νs=s t^(−ν), rather than commuting s with a translation.
-- `Demazure_idempotent`: For a simple reflection s, s*s=s, whereas s·s=1; support must be computed from the former.
-- `torsion_guard`: Equality after mapping to P∨ coinvariants cannot be used as equality of original integral κ when the map has a kernel.
+- `empty_J` (degenerate): For y=1 the correction ρ_J∨ is zero, β=λ and γ=λ.
+- `rank_one_product` (computation): In split adjoint A₁ take x=y=s and λ=2ω∨. Then J={s}, J′=∅, x′=z=y′=1, β=γ=2ω∨, w₁=s t^ω∨ and w₂=t^ω∨s. Their product is s t^(2ω∨)s=t^(−2ω∨), and the lengths are 2+0=2.
+- `Demazure_idempotent` (computation): For a simple reflection s, s*s=s, whereas s·s=1; support must be computed from the former.
+- `torsion_guard` (non-example): Equality after mapping to P∨ coinvariants cannot be used as equality of original integral κ when the map has a kernel.
 
 ## HSD6 — The two geometric correspondences
 
-Construct endpoint and Frobenius chain correspondences, establish their ordinary/Demazure fibre bounds and bounded-model dimension inequalities, and deduce cordial reduction.
+Import flag incidence spaces and their ordinary/Demazure fibre bounds from GeometricSatakeAndFusion. Construct Frobenius pullbacks and chain correspondences, prove the bounded-model dimension inequalities, and deduce cordial reduction.
 
-### Flag endpoint correspondences
+### Frobenius endpoint correspondences
 
-Target: `HeckeStacksAndLocalShtukasPartII:HSD6/endpoint-correspondence` (construction). Planet: **Flag endpoint correspondences**.
+Target: `HeckeStacksAndLocalShtukasPartII:HSD6/endpoint-correspondence` (construction). Planet: **Frobenius endpoint correspondences**.
 
-For u,v,z in the extended affine Weyl group, form the locally finite type correspondence of flags (gI,hI,g′I) with inv(g,h)=u, inv(h,g′)=v, inv(g,g′)=z and the projection to the endpoint orbit O_z. The intermediate flag is part of the moduli problem. Frobenius-graph pullbacks give the ADLV correspondences below; rotations involving σ are compared by universal homeomorphisms, not called inverse isomorphisms without proof.
+Import C_(u,v)|_(O_z), its endpoint projection and bounded models from GS0:Witt-geometry/flag-incidence-correspondences. This target constructs its ADLV application: pull back along gI↦(gI,bσ(g)I), so points are triples with inv(g,h)=u, inv(h,bσ(g))=v and inv(g,bσ(g))=z. The intermediate flag remains part of the moduli problem. Import the ordinary and Demazure fibre bounds from GS0:Witt-geometry/flag-convolution-fibres. Compare Frobenius rotations by universal homeomorphisms on the stated geometric models; no new generic flag-incidence definition or fibre theorem is owned here.
 
 **Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is simple and quasi-split; the special-vertex splitting is σ-stable, the dominant chamber is opposite the base alcove, and t^λ acts by −λ on the apartment. F=F_q((t)), k=overline(F_q), L=k((t)); G splits over a tame extension of L; p does not divide |π₁(G_der)|. For He14 §§2–12 use its quasi-split adjoint reduction. The reduced root datum is realized in its adjoint/full coweight lattice P∨ with its based σ-action. Conclusions about the original cocharacter lattice require HSD3/adjoint-components.
 
-**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`; `ReductiveGroupsPartII:RG2.4/iwahori-bruhat-decomposition`; `ReductiveGroupsPartII:RG2.4/simple-cell-multiplication`.
+**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`; `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-incidence-correspondences`; `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres`.
 
 **Plan.**
 
-- Construct the relative-position fibre product in the supplied flag ind-scheme.
-- Keep bounded pieces compatible with the endpoint projection and Frobenius graph.
+- Pull back the supplied endpoint projection along the bσ graph on compatible bounded pieces.
+- Check the relative-Frobenius identity on points and identify the pullbacks used by the five chain spaces.
+- Use the supplier’s bounds after base change; G5 retains any comparison between the classical and perfect carriers.
 
-**Sources.** [he21] Proposition 5.6 and §5.4, pp. 10–12 — Two endpoint estimates are used after Frobenius pullback.; [gh10] Proposition 2.5.2, PDF pp. 7–8 — Simple-reflection fibres establish the elementary correspondence geometry.
+**Sources.** [he21] Proposition 5.6 and §5.4, pp. 10–12 — Two endpoint estimates are used after Frobenius pullback.; [gh10] Proposition 2.5.2, PDF pp. 6–8 — Simple-reflection fibres establish the elementary correspondence geometry.
 
 **Check.** Every chain equation is checked against the point-level product r_b.
 
 **Uses.**
 
-- HSD6/endpoint-fibres: The two endpoint strata have the required fibre lower bounds.
-- HSD6/two-correspondences: All five chain spaces are pullbacks and restrictions of this functor.
+- HSD6/two-correspondences: All five chain spaces are pullbacks and restrictions of the imported incidence functor along the specified Frobenius endpoints.
 
 **API.**
 
-- `endpointCorrespondence` (constructor): The triple-flag locally closed functor.
-- `endpointProjection` (projection): Forget the intermediate flag.
-- `endpoint_points` (characterisation): Geometric points are precisely the three indicated relative positions.
+- `frobeniusEndpointCorrespondence` (constructor): The bσ-graph pullback of the imported triple-flag correspondence.
+- `frobeniusEndpointProjection` (projection): Forget the intermediate flag to the endpoint ADLV X_z(b).
+- `endpoint_points` (characterisation): Geometric points are exactly the three relative positions with final flag bσ(g).
 - `frobeniusPullback` (universal-property): Pullback imposing g′=bσ(g).
 - `rotate_chain` (compatibility): Cyclic rotation with Frobenius gives the stated universal-homeomorphism comparison.
 
 **Unit tests.**
 
-- `identity_step`: When u=1, h=g and the correspondence is O_v with z=v.
-- `simple_square`: For u=v=s, the ordinary product endpoint is 1, whereas the Demazure endpoint is s; the fibres have different dimensions.
-- `noncommuting_steps`: For u=s₁,v=s₂ in A₂ the product endpoint s₁s₂ cannot be replaced by s₂s₁.
-- `Frobenius_rotation`: Rotating u,v changes the final label from uv to vσ(u), not vu in a twisted datum.
-
-### Ordinary and Demazure endpoint fibre estimates
-
-Target: `HeckeStacksAndLocalShtukasPartII:HSD6/endpoint-fibres` (theorem).
-
-The endpoint projection is surjective for z=uv and every geometric fibre has dimension at least (ℓu+ℓv−ℓ(uv))/2. For z=u*v it is surjective and every fibre has dimension at least ℓu+ℓv−ℓ(u*v). Prove the general estimate by iterating the elementary simple-cell correspondences, with the same σ-independent relative-position conventions.
-
-**Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is simple and quasi-split; the special-vertex splitting is σ-stable, the dominant chamber is opposite the base alcove, and t^λ acts by −λ on the apartment. F=F_q((t)), k=overline(F_q), L=k((t)); G splits over a tame extension of L; p does not divide |π₁(G_der)|. For He14 §§2–12 use its quasi-split adjoint reduction. The reduced root datum is realized in its adjoint/full coweight lattice P∨ with its based σ-action. Conclusions about the original cocharacter lattice require HSD3/adjoint-components.
-
-**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD6/endpoint-correspondence`; `HeckeStacksAndLocalShtukasPartII:HSD1/reduction-geometry`.
-
-**Plan.**
-
-- Induct on a reduced expression, distinguishing length increase, length decrease and Demazure absorption.
-- Prove surjectivity before applying the lower-bound dimension theorem.
-- The extension beyond the split equal-characteristic geometric source is G5.
-
-**Sources.** [he21] Proposition 5.6, p. 10 — The two estimates differ by a factor of two and use different endpoints.; [gh10] Proposition 2.5.2, PDF pp. 7–8 — The elementary fibres are A¹, G_m or points after the prescribed comparisons.
-
-**Check.** For u=v=s the ordinary endpoint 1 has lower bound 1 and the Demazure endpoint s has lower bound 1. For a length-additive product the ordinary lower bound is 0.
+- `identity_step` (degenerate): When u=1, h=g and z=v, forgetting h identifies the Frobenius pullback with X_v(b).
+- `simple_square` (computation): For u=v=s, a fixed ordinary endpoint of position 1 has intermediate-flag fibre A¹, while a fixed Demazure endpoint of position s has fibre G_m. Both have dimension 1. The same fibres occur over existing endpoints after the bσ pullback.
+- `noncommuting_steps` (non-example): For u=s₁,v=s₂ in A₂ the product endpoint s₁s₂ cannot be replaced by s₂s₁.
+- `Frobenius_rotation` (compatibility): Rotating u,v changes the final label from uv to vσ(u), not vu in a twisted datum.
 
 ### The two chain-space comparisons
 
@@ -1120,10 +1101,10 @@ Use HSD5/factor-data and put A=(y′)⁻¹z, B=t^(ρ_J∨)y. Rotate the chain w�
 
 **Unit tests.**
 
-- `identity_factors`: With y=1 the unnecessary zero-length steps collapse to identity correspondences.
-- `first_endpoint`: The first fibre uses the ordinary product B·σ(w₁), conjugated to the stated endpoint, so its bound carries 1/2.
-- `second_endpoint`: The second fibre uses σ⁻¹(A)*(x′y′)=a, so its bound has no factor 1/2.
-- `twisted_terminal`: The terminal chain has σ(a),σ(t^γ); removing these σ symbols before the Frobenius comparison gives the wrong locus.
+- `identity_factors` (degenerate): With y=1 the unnecessary zero-length steps collapse to identity correspondences.
+- `first_endpoint` (compatibility): The first fibre uses the ordinary product B·σ(w₁), conjugated to the stated endpoint, so its bound carries 1/2.
+- `second_endpoint` (compatibility): The second fibre uses σ⁻¹(A)*(x′y′)=a, so its bound has no factor 1/2.
+- `twisted_terminal` (non-example): The terminal chain has σ(a),σ(t^γ); removing these σ symbols before the Frobenius comparison gives the wrong locus.
 
 ### Dimension inequality for the chain spaces
 
@@ -1133,7 +1114,7 @@ The maps X₂→X₃ and X₄→X₅ are surjective, with geometric fibre dimens
 
 **Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is simple and quasi-split; the special-vertex splitting is σ-stable, the dominant chamber is opposite the base alcove, and t^λ acts by −λ on the apartment. F=F_q((t)), k=overline(F_q), L=k((t)); G splits over a tame extension of L; p does not divide |π₁(G_der)|. For He14 §§2–12 use its quasi-split adjoint reduction. The reduced root datum is realized in its adjoint/full coweight lattice P∨ with its based σ-action. Conclusions about the original cocharacter lattice require HSD3/adjoint-components.
 
-**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD6/two-correspondences`; `HeckeStacksAndLocalShtukasPartII:HSD6/endpoint-fibres`; `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`.
+**Direct prerequisites.** `HeckeStacksAndLocalShtukasPartII:HSD6/two-correspondences`; `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres`; `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`; `SchemeAndStackFoundations:SF.0/fibre-dimension-formula`.
 
 **Plan.**
 
@@ -1202,10 +1183,10 @@ For σ-stable J⊂S, standard P_J=M_JN_J and x∈W₀, call w a (J,x,σ)-alcove 
 
 **Unit tests.**
 
-- `full_Levi`: J=S gives the full group and no unipotent obstruction.
-- `proper_support`: For J= supp_σ(η_σ(w)) in the shrunken setting, x⁻¹wσ(x)=t^λσ(η_σ(w)) lies in W̃_J.
-- `wrong_conjugator`: Replacing x by σ⁻¹(y) does not give that identity in general; a noncommuting A₂ normal form must fail this substitution.
-- `twisted_right`: For a diagram automorphism, x⁻¹w x and x⁻¹wσ(x) differ and only the latter defines the condition.
+- `full_Levi` (degenerate): J=S gives the full group and no unipotent obstruction.
+- `proper_support` (compatibility): For J= supp_σ(η_σ(w)) in the shrunken setting, x⁻¹wσ(x)=t^λσ(η_σ(w)) lies in W̃_J.
+- `wrong_conjugator` (non-example): Replacing x by σ⁻¹(y) does not give that identity in general; a noncommuting A₂ normal form must fail this substitution.
+- `twisted_right` (computation): For a diagram automorphism, x⁻¹w x and x⁻¹wσ(x) differ and only the latter defines the condition.
 
 ### The Levi Kottwitz obstruction
 
@@ -1222,7 +1203,7 @@ If w is a (J,x,σ)-alcove element and κ_(M_J)(x⁻¹wσ(x)) is not in {κ_(M_J)
 - Apply the P-alcove Hodge–Newton reduction with the correct component statement.
 - If a point exists, extract a Levi σ-class of the stated κ; take the contrapositive.
 
-**Sources.** [he21] Theorem 6.3, p. 13 — The obstruction is stated using the entire intersection [b]∩M_J(L).; [ghn15] Theorem 3.3.1, PDF p. 11 — The P-alcove theorem controls the image from the Levi.; [ghnerr] Proposition 0.0.2, p. 3 — Uniqueness of the Levi class needs the basic hypothesis.
+**Sources.** [he21] Theorem 6.3, p. 13 — The obstruction is stated using the entire intersection [b]∩M_J(L).; [ghn15] Theorem 3.3.1, PDF p. 11 — The P-alcove theorem controls the image from the Levi.; [ghnerr] Proposition 0.0.2, p. 2 — Uniqueness of the Levi class needs the basic hypothesis.
 
 **Check.** For GL₂ and M the diagonal torus, diag(ϖ,1) and diag(1,ϖ) are distinct M-classes in one nonbasic G-class. Retain the characteristic condition from the corrected geometric comparison.
 
@@ -1283,7 +1264,7 @@ When σ-support is proper and the strict-gap hypothesis is relaxed, use a P-alco
 - State the Hodge–Newton comparison with its actual hypotheses and account for fibre dimensions.
 - Return nonapplicable cases to a later extension rather than treating the remark as a theorem for all groups.
 
-**Sources.** [he21] Remark after Theorem 6.1, p. 13; §6.1, pp. 12–13 — The generalization requires the appropriate Levi decomposition and new hypotheses.; [ghn15] Theorem 3.3.1, PDF p. 11 — The exact Levi image is the prerequisite.
+**Sources.** [he21] §6.5, p. 14 — The generalization requires the appropriate Levi decomposition and new hypotheses.; [ghn15] Theorem 3.3.1, PDF p. 11 — The exact Levi image is the prerequisite.
 
 **Check.** The all-classes warning from GHN’s erratum remains in force.
 
@@ -1315,7 +1296,7 @@ Assemble the exact He21 criterion and dimension formula; retain both Newton hypo
 
 Target: `HeckeStacksAndLocalShtukasPartII:HSD8/main-criterion` (theorem). Planet: **Shrunken nonemptiness criterion**.
 
-Let G be simple quasi-split and w=x t^λy shrunken. Assume λ^♦−ν_b has strictly positive coefficients on every simple coroot and (λ_w^♭♭)^♦≥ν_b. Then X_w(b)≠∅ iff κ_G(w)=κ_G(b) and supp_σ(η_σ(w))=S. For the full statement, all geometric, basic-seed and original-lattice transfers G2/G5/G7/G8 must have been discharged; otherwise the established result is restricted to the verified good-characteristic equal-characteristic adjoint setting.
+Let G be simple quasi-split and w=x t^λy shrunken. Assume λ^♦−ν_b has strictly positive coefficients on every simple coroot and (λ_w^♭♭)^♦≥ν_b. Then X_w(b)≠∅ iff κ_G(w)=κ_G(b) and supp_σ(η_σ(w))=S. This is a target conditional on the prerequisite chains and gates G1–G8 for the chosen datum. In particular G2/G7/G8 remain proof obligations even in the good-characteristic equal-characteristic adjoint branch; no branch is declared closed here.
 
 **Hypotheses.** F is a nonarchimedean local field with finite residue field; L is its completed maximal unramified extension and σ is arithmetic Frobenius. G/F is connected reductive, I⊂G(L) is a connected σ-stable Iwahori, and the chosen special vertex gives the specified Iwahori–Weyl datum. G is simple and quasi-split; the special-vertex splitting is σ-stable, the dominant chamber is opposite the base alcove, and t^λ acts by −λ on the apartment. Use the geometric realizations and dimension convention of HSD0/geometric-realization; the mixed-characteristic and general-datum transfers are obligations G2/G5/G7, not assumptions silently removed. w is shrunken; λ^♦−ν_b has positive coefficient in every simple coroot; (λ^♭♭)^♦≥ν_b.
 
@@ -1366,7 +1347,7 @@ For basic b, shrunken w and the same strict λ-gap, the double-flat Newton inequ
 - Compare the basic central Newton vector to the dominant auxiliary bound after matching κ.
 - Apply the main criterion and formula, with the same descent restrictions.
 
-**Sources.** [he21] §1.4, pp. 3–4; §6.3, pp. 13–14 — The basic case specializes the Newton condition while retaining the alcove assumptions.; [ghn15] Theorem A, PDF pp. 1–2, with the official erratum — The basic shrunken criterion is the predecessor result.
+**Sources.** [he21] §1.4, pp. 3–4; §6.3, pp. 13–14 — The basic case specializes the Newton condition while retaining the alcove assumptions.; [ghn15] Theorem B, PDF p. 3, with the official erratum — The basic shrunken criterion is the predecessor result.
 
 **Check.** A minuscule λ may have λ^♭♭=λ; the strict-gap hypothesis of the main theorem cannot be silently replaced by a non-strict one.
 
@@ -1415,7 +1396,7 @@ Needed by: `HeckeStacksAndLocalShtukasPartII:HSD1/minimal-reduction`, `HeckeStac
 
 ### G2 — Dimension on bounded and perfect geometric diagrams
 
-Supply compatible finite-type models for the bounded perfect diagrams, independence of deperfection, dimension invariance under universal homeomorphism, and fibre inequalities after generic-point restriction. SchemeAndStackFoundations SF.0/SF.1 do not currently promise this full package. The infinite-component example prevents assuming quasi-compactness or finitely many components of an entire ADLV.
+SF.0/fibre-dimension-formula already supplies the finite-type dimension inequalities, and GS0:Witt-geometry/perfect-model-and-etale-comparison requests compatible perfect models from SF.0/SF.1. Import these promises. The remaining obligation is to produce compatible bounded models of the particular ADLV and Frobenius-chain diagrams, and pass their inequalities to the dimension supremum at a generic point of each bounded target. An entire ADLV may have infinitely many components; no global finite-component or quasi-compactness assumption is supplied.
 
 Needed by: `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`, `HeckeStacksAndLocalShtukasPartII:HSD6/correspondence-dimensions`.
 
@@ -1427,7 +1408,7 @@ Needed by: `HeckeStacksAndLocalShtukasPartII:HSD1/class-polynomial-dimension`, `
 
 ### G4 — Perfect spherical proof transfers
 
-Zhu’s reduction invokes equal-characteristic arguments on p-adic loop spaces. Required checks are actual Teichmüller chart morphisms and their dimension comparison; equivariant N-versus-Lie N with its precise characteristic hypotheses; admissibility and twisted Lang-map dimensions; the perfect-space trace input to GHKR Lemma 5.4.3; and geometric convolution semismallness. GS2:correspondences currently promises convolution and proper pushforward, not every one of these geometric bounds. None follows from a point bijection or an existing Satake functor alone.
+Zhu invokes adaptations of equal-characteristic arguments on p-adic loop spaces. Required checks are actual Teichmüller chart morphisms and their dimension comparison; equivariant N-versus-Lie N with its precise characteristic hypotheses; admissibility and twisted Lang-map dimensions; and the perfect-space trace input to GHKR Lemma 5.4.3. Current GS0 already supplies flag incidence spaces and their fibre bounds, and GS2:correspondences/rational-special-fibre-convolution supplies the spherical semismallness bound. Import them. The ADLV application still checks nonempty top-endpoint attainment and compatible bounded pullbacks. A point bijection alone supplies none of the missing chart or Lang geometry.
 
 Needed by: `HeckeStacksAndLocalShtukasPartII:HSD2/lattice-strata`, `HeckeStacksAndLocalShtukasPartII:HSD2/chart-dimension`, `HeckeStacksAndLocalShtukasPartII:HSD3/unipotent-loop-comparison`, `HeckeStacksAndLocalShtukasPartII:HSD3/levi-reduction`, `HeckeStacksAndLocalShtukasPartII:HSD3/convolution-estimate`, `HeckeStacksAndLocalShtukasPartII:HSD3/spherical-dimension`.
 
@@ -1435,7 +1416,7 @@ Needed by: `HeckeStacksAndLocalShtukasPartII:HSD2/lattice-strata`, `HeckeStacksA
 
 The read geometric endpoint source is split equal characteristic; He14 uses tame good-characteristic adjoint reduction, and its Corollary 10.4 assumes δ=id. Supply the σ-twisted, ramified and mixed-characteristic flag versions and normalized dimension comparisons before claiming the full He21 local-field scope. A spherical perfect-space construction is not the missing flag construction.
 
-Needed by: `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`, `HeckeStacksAndLocalShtukasPartII:HSD1/reduction-geometry`, `HeckeStacksAndLocalShtukasPartII:HSD3/virtual-upper-bound`, `HeckeStacksAndLocalShtukasPartII:HSD4/mazur`, `HeckeStacksAndLocalShtukasPartII:HSD6/endpoint-fibres`, `HeckeStacksAndLocalShtukasPartII:HSD8/main-criterion`.
+Needed by: `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`, `HeckeStacksAndLocalShtukasPartII:HSD1/reduction-geometry`, `HeckeStacksAndLocalShtukasPartII:HSD3/virtual-upper-bound`, `HeckeStacksAndLocalShtukasPartII:HSD4/mazur`, `GeometricSatakeAndFusion:GS0:Witt-geometry/flag-convolution-fibres`, `HeckeStacksAndLocalShtukasPartII:HSD8/main-criterion`.
 
 ### G6 — Superbasic definition and classification
 
@@ -1455,23 +1436,23 @@ MV20’s cordial saturation proof uses strong topological purity and the Newton-
 
 Needed by: `HeckeStacksAndLocalShtukasPartII:HSD4/generic-newton`, `HeckeStacksAndLocalShtukasPartII:HSD4/generic-dimension`, `HeckeStacksAndLocalShtukasPartII:HSD4/saturation`.
 
-| Supplier | Requested contract | Needed by |
+The following supplier contracts distinguish existing targets from requested extensions.
+
+| Supplier | Contract | Used by |
 |---|---|---|
 | `GeometricSatakeAndFusion:GS0:Witt-geometry` | Import the perfect fp flag/Grassmannian carriers, exact relative-position strata and finite-type models already promised here. Confirm the ADLV bσ graph pullbacks used in HSD0; this request does not move the carrier to this continuation. | `HeckeStacksAndLocalShtukasPartII:HSD0/spherical-loci`, `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization` |
 | `GeometricSatakeAndFusion:GS1` | Supply the precise semi-infinite intersection dimension estimate d(μ,μ_M)≤〈ρ,μ+μ_M〉−〈2ρ_M,μ_M〉 with equality for M-maximal positions, in the unramified perfect setting, or record the needed scope extension. | `HeckeStacksAndLocalShtukasPartII:HSD3/levi-reduction` |
-| `GeometricSatakeAndFusion:GS2:correspondences` | Add the geometric convolution fibre bound dim m⁻¹(Gr_λ) relative to Gr_λ≤〈ρ,Σμ−λ〉, and nonempty zero-dimensional top fibre, with perfect-model proof (Zhu Proposition 2.3). Proper convolution/pushforward alone is insufficient; G4 records the unprovided part. | `HeckeStacksAndLocalShtukasPartII:HSD3/convolution-estimate` |
-| `SchemeAndStackFoundations:SF.0` | Add finite-type fibre dimension estimates, bounded diagram compatibility and dimension invariance under perfection/universal homeomorphism, with the exact hypotheses in G2. This is a requested scope extension, not a claim that the present stage supplies it. | `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`, `HeckeStacksAndLocalShtukasPartII:HSD6/correspondence-dimensions` |
-| `SchemeAndStackFoundations:SF.2` | Identify the Lefschetz fixed-point/trace result for separated perfectly finite-presentation perfect algebraic spaces used in Zhu Appendix A.3.4 and GHKR Lemma 5.4.3, including its hypotheses; the present stage name is not a proof of that theorem. Specify ℓ≠p, constructibility/boundedness and compact supports, and distinguish the geometric Frobenius in the trace from the arithmetic Frobenius used in the ADLV condition. | `HeckeStacksAndLocalShtukasPartII:HSD3/unipotent-loop-comparison` |
+| `GeometricSatakeAndFusion:GS2:correspondences/rational-special-fibre-convolution` | Reuse the supplied geometric convolution fibre bound ≤〈ρ,Σμ−λ〉. Identify its compatible perfect models for the ADLV graph pullback and the nonempty zero-dimensional top endpoint; do not request or plan semismallness a second time. | `HeckeStacksAndLocalShtukasPartII:HSD3/convolution-estimate` |
+| `SchemeAndStackFoundations:SF.0` | Import SF.0/fibre-dimension-formula and the general perfection/model comparison requested by GS0. Supply only the remaining compatible bounded ADLV diagram and generic-point passage in G2; finite-type fibre inequalities are already planned by their owner. | `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization`, `HeckeStacksAndLocalShtukasPartII:HSD6/correspondence-dimensions` |
+| `SchemeAndStackFoundations:SF.2` | SF.2/upstreamIntegration routes generic constructible étale theory, compact supports and Grothendieck–Lefschetz to the existing CohomologicalPointCounting family (TraceFormula layer 11), rather than owning a second trace theorem. Reuse that direction. The remaining G4 contract is its application to the separated perfectly finite-presentation perfect algebraic spaces in Zhu Appendix A.3.4 and GHKR Lemma 5.4.3: identify compatible finite-type models, ℓ≠p, constructibility/boundedness and compact supports, and distinguish geometric Frobenius in the trace from arithmetic Frobenius in the ADLV condition. The family is identified through SF.2 routing; its perfect-space application is not claimed verified. | `HeckeStacksAndLocalShtukasPartII:HSD3/unipotent-loop-comparison` |
 | `BunGAndNewtonStrata:BG1` | Extend the generic B(G) layer by the superbasic definition, anisotropic-centralizer criterion and classification/lift contract G6, coordinated with the reductive-group owner; do not add these generic definitions locally. | `HeckeStacksAndLocalShtukasPartII:HSD3/superbasic-factors` |
 | `BunGAndNewtonStrata:BG1` | Add or identify the precise Newton-cell purity, poset length and cell/ADLV dimension comparison package G8. The existing exact classification, partial-order and norm nodes are reused directly, not requested again. | `HeckeStacksAndLocalShtukasPartII:HSD4/generic-newton`, `HeckeStacksAndLocalShtukasPartII:HSD4/generic-dimension`, `HeckeStacksAndLocalShtukasPartII:HSD4/saturation` |
 | `SmoothRepresentationsOfLocalGroups:SR.1` | Extend the Hecke-algebra direction with the generic integral σ-cocenter and class-polynomial contract G3; its current convolution algebra target is narrower. | `HeckeStacksAndLocalShtukasPartII:HSD1/class-polynomial-dimension`, `HeckeStacksAndLocalShtukasPartII:HSD7/basic-seed` |
 | `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-3-the-missing-coxeter-combinatorics-root-system-free` | Extend generic Coxeter combinatorics by the associative Demazure product, support union and twisted extended-affine Red-Min contract G1, with straight–finite-parabolic decomposition; current finite subword/Bruhat facts alone do not provide it. | `HeckeStacksAndLocalShtukasPartII:HSD1/minimal-reduction`, `HeckeStacksAndLocalShtukasPartII:HSD1/minimal-geometry`, `HeckeStacksAndLocalShtukasPartII:HSD5/factor-data` |
 | `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-6-the-bourbaki-numbering-and-integral-root-data` | Extend the integral root-data direction by least dominant subtraction in the full coweight lattice and the precise fundamental-coweight lattice comparisons G1; preserve the original lattice map. | `HeckeStacksAndLocalShtukasPartII:HSD5/double-flat`, `HeckeStacksAndLocalShtukasPartII:HSD5/factor-data`, `HeckeStacksAndLocalShtukasPartII:HSD8/large-translation` |
-| `ReductiveGroupsPartII:RG2.3` | Identify or add the generic M-equivariant unipotent/Lie comparison with exact characteristic hypotheses used in Zhu p. 456, plus the corrected component comparisons and general-datum flag transport G5/G7. The current associated-parahoric node alone is not an ADLV component isomorphism. | `HeckeStacksAndLocalShtukasPartII:HSD3/unipotent-loop-comparison`, `HeckeStacksAndLocalShtukasPartII:HSD3/adjoint-components`, `HeckeStacksAndLocalShtukasPartII:HSD8/main-criterion` |
+| `ReductiveGroupsPartII:RG2.3` | Identify or add the generic M-equivariant unipotent/Lie comparison with exact characteristic hypotheses used in Zhu §3.1.2, pp. 456–457, plus the corrected component comparisons and general-datum flag transport G5/G7. The current associated-parahoric node alone is not an ADLV component isomorphism. | `HeckeStacksAndLocalShtukasPartII:HSD3/unipotent-loop-comparison`, `HeckeStacksAndLocalShtukasPartII:HSD3/adjoint-components`, `HeckeStacksAndLocalShtukasPartII:HSD8/main-criterion` |
 | `tauceti:TauCetiRoadmap/RepresentationTheory/RootSystems#layer-4-chambers-the-fundamental-domain-and-the-longest-element` | Import the existing chamber fundamental-domain and longest-element API, including minimal parabolic representatives; G1 records additional Demazure/twisted-affine results, which are not attributed to this layer. | `HeckeStacksAndLocalShtukasPartII:HSD5/factor-data` |
 | `SchemeAndStackFoundations:SF.1` | Import the existing descent and algebraic-space fibre-product carriers for the perfect ADLV graph loci; G2 separately requests the missing bounded/perfect dimension package. | `HeckeStacksAndLocalShtukasPartII:HSD0/geometric-realization` |
-
-Every stage remains planned while these gates are open. The requests name current known stages as coordination points and explicitly say when their scope must grow. None is evidence that an unprovided result already exists.
 
 ## The twelve routed continuations
 
@@ -1496,13 +1477,13 @@ The issue permits one coherent direction here and a proposal for the independent
 
 The HE21/ZHU17 dimension and cordiality lane is coherent; the extraction candidate name is an alias for this design, not another ADLV owner.
 
-Use HeckeStacksAndLocalShtukasPartII with HSD0–HSD8 for the 53 HE21 and 16 ZHU17 dimension items. HSD0 owns common classical/perfect ADLV loci; import η, translation lengths and cordial x t^λ from current ReductiveGroupsPartII, and generic B(G) norm from BunGAndNewtonStrata. Proposed IDs below are not dependency suppliers until adopted.
+Use HeckeStacksAndLocalShtukasPartII with HSD0–HSD8 for the 53 HE21 and 16 ZHU17 dimension items. HSD0 owns common classical/perfect ADLV loci; import η, translation lengths and cordial x t^λ from current ReductiveGroupsPartII, generic B(G) norm from BunGAndNewtonStrata, and generic flag-incidence geometry from GeometricSatakeAndFusion. Proposed IDs below are not dependency suppliers until adopted.
 
 ### Split: HeckeStacksAndLocalShtukasPartII, HeckeStacksAndLocalShtukasComponentsPartII
 
 Kisin17, vanHoften24 and GLX26 component/rational-stratum arguments require integral specialization and crystalline monodromy rather than the cordial dimension proof. Their complete item sets are preserved in routeCoverage.
 
-Propose HeckeStacksAndLocalShtukasComponentsPartII. C0 imports HSD0 exact/bounded loci and defines the finite-level/component dictionaries; C1 plans Kisin’s rational strata and σ-centralizer action; C2 plans van Hoften’s parahoric and very-special reductions with Zhou’s applicable hypotheses; C3 plans GLX Hodge–Newton irreducible component and π₀ theorem, with its original group/characteristic restrictions; C4 compares geometric π₀ with integral specialization. Keep connected components, irreducible components and framing-group orbits distinct. Import integral specialization from the integral owner, and never identify a local-shtuka diamond’s components with classical ADLV components by notation.
+Propose HeckeStacksAndLocalShtukasComponentsPartII. C0 imports HSD0 exact/bounded loci and defines the finite-level/component dictionaries; C1 plans Kisin’s rational strata and σ-centralizer action; C2 plans van Hoften’s parahoric and very-special reductions with Zhou’s applicable hypotheses; C3 plans GLX Hodge–Newton irreducible component and π₀ theorem, with its original group/characteristic restrictions; C4 compares geometric π₀ with integral specialization. Keep connected components, irreducible components and framing-group orbits distinct. Import integral specialization from the integral owner, and never identify a local-shtuka diamond’s components with classical ADLV components by notation. Import the characteristic-zero Galois-gerb extension with algebraic kernel from SchemeAndStackFoundations:key/galois-gerbs and compatible projective systems from SchemeAndStackFoundations:SF.1/pro-gerb. Stagewise conjugacy supplies neither compatible conjugators nor a single conjugator in an inverse-limit kernel without a further existence theorem. This continuation owns the arithmetic application and adds no generic gerb definition.
 
 ### Split: HeckeStacksAndLocalShtukasPartII, HeckeStacksAndLocalShtukasIntegralPartII
 
@@ -1617,195 +1598,264 @@ Extend the smooth-representation Hecke direction once with the exact G3 cocenter
 
 ## Source corrections and proof cautions
 
-The following findings were checked at the stated locators in the versions listed. Earlier extraction findings are credited; these notes make no claim of discovering a new error. Official GHN corrections are distinguished from unresolved proof obligations. The unverified later He–Zhou–Zhu reformulation is a lead, not an imported theorem.
+These are our own descriptions of the source problems and their effect on this plan. The independent review confirms each entry below; an identified proof obligation does not assert that its theorem is false.
 
 ### E1 — misprint
 
 [zhu17] Published Theorem 0.5, p. 410; (3.1.3), p. 455; Theorem 3.1, p. 456.
 
-The displayed dimension formula has no explicit nonemptiness qualification. State it for the nonempty exact or bounded locus; use −∞ for an empty locus.
+**Problem.** The displayed dimension formula has no explicit nonemptiness qualification.
 
-Reason: For GL₂, b=1 and μ=(1,0), determinant valuation forces emptiness but the formula is 1/2. The intended nonempty interpretation is supported by the proof.
+**Correction.** State it for the nonempty exact or bounded locus; use −∞ for an empty locus.
 
-Reach: nothing. Correction status: Previously recorded and independently discussed in PAPER-ZHU-17/E19; no author correction located.
+**Reason.** For GL₂, b=1 and μ=(1,0), determinant valuation forces emptiness but the formula is 1/2. The intended nonempty interpretation is supported by the proof.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** nothing. Previously recorded and independently discussed in PAPER-ZHU-17/E19; no author correction located.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** Theorem 0.5 p. 410 and §3.1 pp. 455–456 omit an explicit qualifier; GL₂ with b=1 and μ=(1,0) gives an empty locus by determinant valuation and numerical value 1/2. The nonempty formulation is necessary.
 
 ### E2 — misprint
 
 [zhu17] Published proof of Proposition 3.3, pp. 459–460.
 
-The endpoint fibre bound is applied in the text to the inverse image of the closed union X_≤λ. Apply it on each exact endpoint X_λ; take their finite union and prove the top exact stratum attains the bound.
+**Problem.** The endpoint fibre bound is applied in the text to the inverse image of the closed union X_≤λ.
 
-Reason: A point of a smaller endpoint stratum can have a larger convolution fibre than the bound for λ. The stratified argument gives the intended result.
+**Correction.** Apply it on each exact endpoint X_λ; take their finite union and prove the top exact stratum attains the bound.
 
-Reach: nothing. Correction status: Previously recorded and reviewed in PAPER-ZHU-17/E20.
+**Reason.** A point of a smaller endpoint stratum can have a larger convolution fibre than the bound for λ. The stratified argument gives the intended result.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** nothing. Previously recorded and reviewed in PAPER-ZHU-17/E20.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** The proof on pp. 459–460 applies the endpoint estimate on a closed bound. Exact endpoint strata have distinct bounds; the finite stratification and top attainment give the corrected argument.
 
 ### E3 — misprint
 
 [he21] Published §6.2, p. 13, and §6.5, p. 14.
 
-The normal-form support argument names σ⁻¹(y) as the P-alcove conjugator. Use x: x⁻¹wσ(x)=t^λyσ(x)=t^λσ(η_σ(w)).
+**Problem.** The normal-form support argument names σ⁻¹(y) as the P-alcove conjugator.
 
-Reason: This is the identity compatible with GHN Lemma 3.6.3 and the specified proper Levi.
+**Correction.** Use x: x⁻¹wσ(x)=t^λyσ(x)=t^λσ(η_σ(w)).
 
-Reach: nothing. Correction status: Previously recorded in PAPER-HE-21/E2.
+**Reason.** This is the identity compatible with GHN Lemma 3.6.3 and the specified proper Levi.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** nothing. Previously recorded in PAPER-HE-21/E2.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** The §6.2 normal-form identity on p. 13 uses x⁻¹wσ(x)=t^λyσ(x); σ⁻¹(y) is not the required conjugator. GHN Lemma 3.6.3 uses the normal-form chamber factor.
 
 ### E4 — misprint
 
 [he21] Published proof of Proposition 5.1 and Corollary 5.3, p. 8.
 
-The cocharacter differences are expressed with roots, and two full-cone displays require strictly positive coefficients. Use simple coroots and nonnegative integral coefficients in those full cones.
+**Problem.** The cocharacter differences are expressed with roots, and two full-cone displays require strictly positive coefficients.
 
-Reason: The variables are cocharacters; equal inputs give zero differences, so strict positivity on every simple root is impossible.
+**Correction.** Use simple coroots and nonnegative integral coefficients in those full cones.
 
-Reach: nothing. Correction status: Previously recorded in PAPER-HE-21/E3–E4.
+**Reason.** The variables are cocharacters; equal inputs give zero differences, so strict positivity on every simple root is impossible.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** nothing. Previously recorded in PAPER-HE-21/E3–E4.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** The p. 8 arguments are in the cocharacter lattice and allow zero differences. Simple coroots and nonnegative coefficients give the type-correct version; strict cones cannot contain zero.
 
 ### E5 — gap
 
 [he21] Published §5.4, p. 12, proof of dim X₂≥dim X₃+N₁.
 
-The proof excludes the union of proper closed subsets indexed by source components without establishing their finiteness on the relevant target. Use a bounded finite-type source diagram over a generic point of a maximal-dimensional target piece and the fibre dimension theorem.
+**Problem.** The proof excludes the union of proper closed subsets indexed by source components without establishing their finiteness on the relevant target.
 
-Reason: The ADLV can have infinitely many components. Properness of each exceptional subset does not by itself prove their union is proper.
+**Correction.** Use a bounded finite-type source diagram over a generic point of a maximal-dimensional target piece and the fibre dimension theorem.
 
-Reach: the proof. Correction status: The bounded-model obligation is tracked as G2; not asserted to be an author-endorsed erratum.
+**Reason.** The ADLV can have infinitely many components. Properness of each exceptional subset does not by itself prove their union is proper.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** the proof. The bounded-model obligation is tracked as G2; not asserted to be an author-endorsed erratum.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** The p. 12 proof has not established finiteness of the component-indexed exceptional union. This is confirmed as a local proof obligation, not a claim that the theorem is false; G2 retains the bounded generic-point argument.
 
 ### E6 — gap
 
 [he21] Published §6.3, p. 14.
 
-The basic nonemptiness of the reduced a t^γ is justified by He15 Theorem 2.27. Supply the non-shrunken basic seed by the positive cocenter/twisted-Coxeter argument, the γ=0 finite-quotient case, and explicit datum transport.
+**Problem.** The basic nonemptiness of the reduced a t^γ is justified by He15 Theorem 2.27.
 
-Reason: The reduction theorem does not say a t^γ is shrunken, while the cited basic theorem needs that condition.
+**Correction.** Supply the non-shrunken basic seed by the positive cocenter/twisted-Coxeter argument, the γ=0 finite-quotient case, and explicit datum transport.
 
-Reach: the proof. Correction status: Previously recorded in PAPER-HE-21/E1; retained as G7.
+**Reason.** The reduction theorem does not say a t^γ is shrunken, while the cited basic theorem needs that condition.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** the proof. Previously recorded in PAPER-HE-21/E1; retained as G7.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** He21 §6.3 p. 14 cites He15 Theorem 2.27, whose statement on PDF p. 37 requires shrunkenness. The reduced a t^γ is not proved shrunken. G7 keeps the replacement seed proof open.
 
 ### E7 — gap
 
 [he21] Published §2.2, p. 5; §5.2, p. 9; §5.4, pp. 10–12.
 
-The reduction uses fundamental coweights and translations without explicitly separating the full coweight lattice from the original cocharacter lattice. Work in P∨ and prove componentwise adjoint descent and integral κ transport before drawing conclusions for the original G.
+**Problem.** The reduction uses fundamental coweights and translations without explicitly separating the full coweight lattice from the original cocharacter lattice.
 
-Reason: For simply connected A₁, ω∨=α∨/2 is not a cocharacter. A formal intermediate translation by ω∨ cannot be made in the original Weyl extension.
+**Correction.** Work in P∨ and prove componentwise adjoint descent and integral κ transport before drawing conclusions for the original G.
 
-Reach: the proof. Correction status: Previously recorded in PAPER-HE-21/E6; retained as G7.
+**Reason.** For simply connected A₁, ω∨=α∨/2 is not a cocharacter. A formal intermediate translation by ω∨ cannot be made in the original Weyl extension.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** the proof. Previously recorded in PAPER-HE-21/E6; retained as G7.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** The fundamental coweights in §5.4 pp. 10–11 need only lie in P∨. Simply connected A₁ has ω∨=α∨/2 outside its cocharacter lattice. G7 retains original integral-κ descent.
 
 ### E8 — error
 
 [ghnerr] Official erratum, Proposition 0.0.1, pp. 1–2, correcting GHN15 §2.2.
 
-The original global flag-comparison claim is stronger than what the corrected proof gives. Use the stated componentwise comparison with p∤|π₁(G_ad)|; a global immersion additionally requires injectivity on components.
+**Problem.** The original global flag-comparison claim is stronger than what the corrected proof gives.
 
-Reason: A kernel on component labels prevents a global immersion even when each component map is an isomorphism.
+**Correction.** Use the stated componentwise comparison with p∤|π₁(G_ad)|; a global immersion additionally requires injectivity on components.
 
-Reach: a stated result. Correction status: Official erratum, Proposition 0.0.1.
+**Reason.** A kernel on component labels prevents a global immersion even when each component map is an isomorphism.
 
-Correction search: Official author-hosted GHN erratum, all three pages read on 2026-10-19.
+**Effect.** a stated result. Official erratum, Proposition 0.0.1.
+
+**Search record.** Official author-hosted GHN erratum, all three pages read on 2026-10-19.
+
+**Independent review: confirmed.** Official Proposition 0.0.1 p. 1 restricts the good-characteristic componentwise comparison and separates the component-injectivity criterion for a global immersion.
 
 ### E9 — error
 
-[ghnerr] Official erratum, Proposition 0.0.2, p. 3, correcting GHN15 Proposition 3.5.1.
+[ghnerr] Official erratum, Proposition 0.0.2, p. 2, correcting GHN15 Proposition 3.5.1.
 
-The original uniqueness assertion for a Levi class in a G-class lacks the necessary basic restriction. Retain basicness for uniqueness; for a general b quantify over all Levi classes mapping to [b].
+**Problem.** The original uniqueness assertion for a Levi class in a G-class lacks the necessary basic restriction.
 
-Reason: In GL₂ the two diagonal elements with slopes (1,0) and (0,1) are distinct torus classes in one nonbasic GL₂ class.
+**Correction.** Retain basicness for uniqueness; for a general b quantify over all Levi classes mapping to [b].
 
-Reach: a stated result. Correction status: Official erratum, Proposition 0.0.2.
+**Reason.** In GL₂ the two diagonal elements with slopes (1,0) and (0,1) are distinct torus classes in one nonbasic GL₂ class.
 
-Correction search: Official author-hosted GHN erratum, all three pages read on 2026-10-19.
+**Effect.** a stated result. Official erratum, Proposition 0.0.2.
+
+**Search record.** Official author-hosted GHN erratum, all three pages read on 2026-10-19.
+
+**Independent review: confirmed.** Official Proposition 0.0.2 is on p. 2. It imposes basicness; the GL₂ diagonal torus example gives two distinct Levi classes in one nonbasic G-class.
 
 ### E10 — misprint
 
 [he14] Published Proposition 11.6 and proof, pp. 399–400.
 
-The statement uses an undefined finite factor v in its support condition, and the twisted induction contains ordinary-support and unshifted-index expressions. Use the actual factor x, retain σ-saturated support throughout, and use the σ-shifted final simple reflection. Check the choice of a reflection outside the excluded support set.
+**Problem.** The statement uses an undefined finite factor v in its support condition, and the twisted induction contains ordinary-support and unshifted-index expressions.
 
-Reason: The statement’s variables determine x; ordinary support is not stable under a nontrivial diagram automorphism. G7 retains the actual induction proof.
+**Correction.** Use the actual factor x, retain σ-saturated support throughout, and use the σ-shifted final simple reflection. Check the choice of a reflection outside the excluded support set.
 
-Reach: the proof. Correction status: PAPER-HE-21/E9–E11 record these slips and point to a later reformulation in He–Zhou–Zhu Proposition 3.4.2. That later proof has not been verified in this run.
+**Reason.** The statement’s variables determine x; ordinary support is not stable under a nontrivial diagram automorphism. G7 retains the actual induction proof.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** the proof. PAPER-HE-21/E9–E11 record these slips and point to a later reformulation in He–Zhou–Zhu Proposition 3.4.2. That later proof has not been verified in this run.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** Proposition 11.6 pp. 399–400 has the undefined factor and inconsistent twisted-support/index expressions. The identified slips are confirmed; the repaired twisted induction itself remains G7.
 
 ### E11 — misprint
 
 [zhu17] Published §3.1.1, p. 455.
 
-The framing torsor is initially placed over O although b is only defined over L. Base change the framing to O_L and evaluate the perfect functor on algebras over the algebraic residue closure, with the finite residue field and Frobenius specified.
+**Problem.** The framing torsor is initially placed over O although b is only defined over L.
 
-Reason: A general b∈G(L) cannot be evaluated on a residue algebra lacking the algebraic residue closure.
+**Correction.** Base change the framing to O_L and evaluate the perfect functor on algebras over the algebraic residue closure, with the finite residue field and Frobenius specified.
 
-Reach: nothing. Correction status: Previously recorded in PAPER-ZHU-17/E62.
+**Reason.** A general b∈G(L) cannot be evaluated on a residue algebra lacking the algebraic residue closure.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** nothing. Previously recorded in PAPER-ZHU-17/E62.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** The framing on p. 455 must be evaluated after O_L coefficient extension so a general b∈G(L) acts. This is a base convention clarification, without changing the intended perfect functor.
 
 ### E12 — misprint
 
 [zhu17] Published proof of Proposition 3.3, p. 458, and Lemma 3.5, p. 459.
 
-The embeddings are listed with the positive Frobenius cycle while the displayed product uses the negative cycle. Set τ_i=σ^(−i)τ₀ while retaining Nm(b)=b_τ₀σ(b_τ₁)⋯σ^(d−1)(b_τ_(d−1)); equivalently reverse the subscripts in all products and bounds.
+**Problem.** The embeddings are listed with the positive Frobenius cycle while the displayed product uses the negative cycle.
 
-Reason: Under the specified tensor-product decomposition, (σx)_τ=σ(x_(σ⁻¹τ)). In degree 3 the displayed positive cycle has the wrong component.
+**Correction.** Set τ_i=σ^(−i)τ₀ while retaining Nm(b)=b_τ₀σ(b_τ₁)⋯σ^(d−1)(b_τ_(d−1)); equivalently reverse the subscripts in all products and bounds.
 
-Reach: nothing. Correction status: Previously recorded in PAPER-ZHU-17/E63.
+**Reason.** Under the specified tensor-product decomposition, (σx)_τ=σ(x_(σ⁻¹τ)). In degree 3 the displayed positive cycle has the wrong component.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** nothing. Previously recorded in PAPER-ZHU-17/E63.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** The component action in Proposition 3.3 p. 458 and Lemma 3.5 p. 459 uses the inverse Frobenius cycle. The degree-three tensor decomposition detects the incompatible positive indexing.
 
 ### E13 — misprint
 
 [ham15] Published proof of Proposition 2.9(4), p. 12811, final displayed maximum.
 
-The last displayed maximum drops the semi-infinite intersection fibre term from the preceding calculation. Keep d(μ,μ_M) and both Newton correction terms, as in the proposition’s statement and the preceding fibre computation.
+**Problem.** The last displayed maximum drops the semi-infinite intersection fibre term from the preceding calculation.
 
-Reason: The variable fibre term cannot be removed in general; the stated proposition retains it.
+**Correction.** Keep d(μ,μ_M) and both Newton correction terms, as in the proposition’s statement and the preceding fibre computation.
 
-Reach: nothing. Correction status: No correction located in the sources checked; the plan uses the proposition’s statement.
+**Reason.** The variable fibre term cannot be removed in general; the stated proposition retains it.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** nothing. No correction located in the sources checked; the plan uses the proposition’s statement.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** The final maximum on p. 12811 omits the d and Newton corrections retained in Proposition 2.9(4). The plan uses the proposition’s statement, with b basic in M.
 
 ### E14 — misprint
 
 [zhu17] Published Appendix A.3.5(ii), p. 481, display (A.3.4).
 
-The arrow labelled as forgetting equivariance goes from J-equivariant objects to J/J₁-equivariant objects. Write the forgetful direction from J/J₁-equivariant objects to J-equivariant objects, restricting along J→J/J₁; the inverse equivalence requires connected J₁ acting trivially.
+**Problem.** The arrow labelled as forgetting equivariance goes from J-equivariant objects to J/J₁-equivariant objects.
 
-Reason: Restriction of an equivariant structure along the quotient map has this direction. The intended equivalence remains valid.
+**Correction.** Write the forgetful direction from J/J₁-equivariant objects to J-equivariant objects, restricting along J→J/J₁; the inverse equivalence requires connected J₁ acting trivially.
 
-Reach: nothing. Correction status: Previously recorded in PAPER-ZHU-17/E69.
+**Reason.** Restriction of an equivariant structure along the quotient map has this direction. The intended equivalence remains valid.
 
-Correction search: Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+**Effect.** nothing. Previously recorded in PAPER-ZHU-17/E69.
+
+**Search record.** Relevant PAPER-HE-21 and PAPER-ZHU-17 sourceIssues and review notes were read on 2026-10-19. Title/erratum/correction searches and the Annals article metadata were checked on 2026-10-19; no separate correction located. This is not an exhaustive absence claim.
+
+**Independent review: confirmed.** In (A.3.4) p. 481 restriction along J→J/J₁ runs from quotient-equivariant to J-equivariant objects. The reverse equivalence uses connectedness and trivial action as in the surrounding proof.
 
 ## Suggested file and implementation boundary
 
-The suggested file contains two real-bodied elementary definitions on existing group and coset carriers: relativeFrobenius and points. It states representative independence, framing/centralizer transport, double-coset-label invariance and small examples. It contains no geometric stand-ins, assumed geometric axiom bundle, new B(G) carrier or fabricated class-polynomial interface. The numerical and geometric end theorems above remain reader targets because their carriers are absent at the pins. The file is a statement scaffold, not an implementation of the roadmap.
+The suggested file contains two real-bodied elementary definitions on existing group and coset carriers: relativeFrobenius and points. It states representative independence, framing/centralizer transport, double-coset-label invariance and small computations. It contains no geometric stand-ins, assumed geometric axiom bundle, new B(G) carrier or fabricated class-polynomial interface. The numerical and geometric end theorems above remain reader targets because their carriers are absent at the pins. The file is a statement scaffold, not an implementation of the roadmap.
 
 ## References and reading record
 
-- **[he21]** Xuhua He, *Cordial elements and dimensions of affine Deligne–Lusztig varieties*. Forum of Mathematics, Pi 9 (2021), e9; published 15-page article. [Source](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-deligne-lusztig-varieties.pdf). Read 2026-10-19: §§1–6, pp. 1–14; closure notation on p. 7 checked on the page image. SHA-256 `d53843f0c8875cf1e14173ad271e025bd30f177fe319a7d83926629d454683dd`.
-- **[zhu17]** Xinwen Zhu, *Affine Grassmannians and the geometric Satake in mixed characteristic*. Annals of Mathematics 185 (2017), 403–492; published version. [Source](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf). Read 2026-10-19: §3.1, pp. 455–460; Lemma 1.22 and Proposition 1.23, p. 428; Proposition 2.3, p. 432; Definition A.13, Proposition A.15 and Corollary A.16, pp. 471–472. Proposition A.17 and proof, pp. 472–473; Appendix A.3.4, pp. 480–481, trace input and its hypotheses. SHA-256 `5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7`.
-- **[he14]** Xuhua He, *Geometric and homological properties of affine Deligne–Lusztig varieties*. Annals of Mathematics 179 (2014), 367–404; published version. [Source](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n1-p06-p.pdf). Read 2026-10-19: §§1–2, pp. 371–376; Theorem 4.8 and proof, pp. 382–383; §6, pp. 387–388; Theorem 7.1 and proof, pp. 389–390; §§10–12, pp. 395–402. SHA-256 `372c913d305f2b9d5f285cfe830d00f5ad3fd98242e31a54991fbf2474b72cbf`.
-- **[he15]** Xuhua He, *Hecke algebras and p-adic groups*. arXiv:1511.01386v3, 21 November 2016; survey corresponding to Current Developments in Mathematics 2015. [Source](https://arxiv.org/pdf/1511.01386). Read 2026-10-19: Theorems 2.23–2.31, PDF pp. 34–39; check dimension normalization and the shrunken basic theorem. SHA-256 `f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc`.
-- **[gh10]** Ulrich Görtz and Xuhua He, *Dimensions of affine Deligne–Lusztig varieties in affine flag varieties*. arXiv:1006.2291v1; Documenta Mathematica 15 (2010), 1009–1028. [Source](https://arxiv.org/pdf/1006.2291). Read 2026-10-19: §§2.4–2.5, PDF pp. 6–9; Proposition 2.5.2 and Corollary 2.5.3. SHA-256 `8b1261cfaf3e37dc4b10ee643ad2836c741daf5cef0347b0268a9d7ee17883c8`.
-- **[mv20]** Elizabeth Milićević and Eva Viehmann, *Generic Newton points and the Newton poset in Iwahori-double cosets*. Forum of Mathematics, Sigma 8 (2020), e50; published author-hosted copy, DOI 10.1017/fms.2020.46. [Source](https://mediatum.ub.tum.de/doc/1600930/1600930.pdf). Read 2026-10-19: §3.1, PDF pp. 5–8; Definition 3.14, Theorem 3.16 and proof, Corollary 3.17, PDF pp. 9–10. SHA-256 `2f8585e829abf2ff34758d758240d8685821707931d3e5b5a91b3b5136e58bf4`.
-- **[ghn15]** Ulrich Görtz, Xuhua He and Sian Nie, *P-alcoves and nonemptiness of affine Deligne–Lusztig varieties*. arXiv:1211.3784; published Annales scientifiques de l’ÉNS 48 (2015), 647–665; corrected by the separate erratum. [Source](https://arxiv.org/pdf/1211.3784). Read 2026-10-19: Definition 3.3 and Theorem 3.3.1, PDF pp. 10–11; §§3.5–3.6, PDF pp. 13–15. SHA-256 `c2293924bff455023796da17c56de70dea547d0e1b6dc41f06ab4216aca135f0`.
-- **[ghnerr]** Ulrich Görtz, Xuhua He and Sian Nie, *Erratum to P-alcoves and nonemptiness of affine Deligne–Lusztig varieties*. Official author-hosted 3-page erratum. [Source](https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf). Read 2026-10-19: Entire erratum, pp. 1–3; Propositions 0.0.1 and 0.0.2. SHA-256 `cf7efbf887e8202c7efd7590e2eebd85c93c89bea81c26fa39a80af8082399c0`.
-- **[ghkr06]** Ulrich Görtz, Thomas J. Haines, Robert E. Kottwitz and Daniel C. Reuman, *Dimensions of some affine Deligne–Lusztig varieties*. arXiv:math/0504443; Annales scientifiques de l’ÉNS 39 (2006), 467–511. [Source](https://arxiv.org/pdf/math/0504443). Read 2026-10-19: Proposition 5.3.1, PDF pp. 19–20; Lemma 5.4.3, PDF pp. 27–28; Proposition 5.6.1 and Theorem 5.8.1 with proofs, PDF pp. 29–32. SHA-256 `bd8387fb533dd8340921e6e89b4004c86ce255b06bdcfa865a35addada7e6943`.
-- **[vie06]** Eva Viehmann, *The dimension of some affine Deligne–Lusztig varieties*. arXiv:math/0510385v2, 21 July 2006; Annales scientifiques de l’ÉNS 39 (2006), 513–526. [Source](https://arxiv.org/pdf/math/0510385). Read 2026-10-19: §§1–5, PDF pp. 1–12; definitions, lattice chart proof, Proposition 5.2 and entire proof of Theorem 5.3. SHA-256 `73de6d27413fbf83a908583306470166594d96753e9362a3c4fa3e47c8ea911c`.
-- **[ham15]** Paul Hamacher, *The dimension of affine Deligne–Lusztig varieties in the affine Grassmannian*. International Mathematics Research Notices 2015, 12804–12839; published author-hosted copy. [Source](https://mediatum.ub.tum.de/doc/1319937/file.pdf). Read 2026-10-19: Theorem 2.1 and §2, pp. 12806–12812, including the proof of Proposition 2.9; §3 setup, pp. 12813–12815. SHA-256 `dbfc2cebd3477d0e13eb710876531db3d3fecedecc6e118bf1b9d0401e0961e0`.
-- **[ckv15]** Miaofen Chen, Mark Kisin and Eva Viehmann, *Connected components of affine Deligne–Lusztig varieties in mixed characteristic*. arXiv:1307.3845; Compositio Mathematica 151 (2015), 1697–1762; numbering here is that of the downloaded arXiv version. [Source](https://arxiv.org/pdf/1307.3845). Read 2026-10-19: Lemma 3.1.1 and proof, PDF pp. 20–21; Proposition 3.3.1, PDF p. 24, for the boundary audit only. SHA-256 `715c628980850c698445eb7a472ab7aa7b933d61e9ba4ddddf76b82eddd79cfd`.
-- **[vie14]** Eva Viehmann, *Truncations of level 1 of elements in the loop group of a reductive group*. Annals of Mathematics 179 (2014), 1009–1040; published version. [Source](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n3-p03-p.pdf). Read 2026-10-19: Introduction and conventions, pp. 1009–1011; Proposition 5.5 and Corollary 5.6, pp. 1027–1028. SHA-256 `453cba0430ce4b94d51ea1e7eb3cf74ba11102d7f624b2fa739cc681b4709bf1`.
-- **[hn14]** Xuhua He and Sian Nie, *Minimal length elements of extended affine Weyl groups*. Author copy; Compositio Mathematica 150 (2014), 1903–1927. [Source](https://archive.ymsc.tsinghua.edu.cn/pacm_download/315/8989-affmin-2.pdf). Read 2026-10-19: Introduction, PDF pp. 2–4; Theorem 2.9 and Corollary 2.10 with proofs, PDF pp. 10–12; §5 and §6 introduction, PDF pp. 25–27. SHA-256 `370abc45c00d91279f69d115ba10da758a23dfe3b56d1245d0a5370372807e09`.
+The public versions below were retrieved and their listed passages inspected. Hashes identify the version used; published pagination is used unless a locator says PDF page.
 
-All prose is original formulation of the targets. No book, paper PDF, source excerpt or section-by-section paper summary is included.
+- **[he21] Xuhua He.** [Cordial elements and dimensions of affine Deligne–Lusztig varieties](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5A27DBF48CAEF6DA56A313061848574C/S205050862100010Xa.pdf/cordial-elements-and-dimensions-of-affine-deligne-lusztig-varieties.pdf). Forum of Mathematics, Pi 9 (2021), e9; published 15-page article. Accessed 2026-10-19. Read: §§1–6, pp. 1–14; closure notation on p. 7 checked on the page image. SHA-256: `d53843f0c8875cf1e14173ad271e025bd30f177fe319a7d83926629d454683dd`.
+
+- **[zhu17] Xinwen Zhu.** [Affine Grassmannians and the geometric Satake in mixed characteristic](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf). Annals of Mathematics 185 (2017), 403–492; published version. Accessed 2026-10-19. Read: §3.1, pp. 455–460; Lemma 1.22 and Proposition 1.23, p. 428; Proposition 2.3, p. 432; Definition A.13, Proposition A.15 and Corollary A.16, pp. 471–472. Proposition A.17 and proof, pp. 472–473; Appendix A.3.4, pp. 480–481, trace input and its hypotheses. SHA-256: `5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7`.
+
+- **[he14] Xuhua He.** [Geometric and homological properties of affine Deligne–Lusztig varieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n1-p06-p.pdf). Annals of Mathematics 179 (2014), 367–404; published version. Accessed 2026-10-19. Read: §§1–2, pp. 371–376; Theorem 4.8 and proof, pp. 382–383; §6, pp. 387–388; Theorem 7.1 and proof, pp. 389–390; §§10–12, pp. 395–402. SHA-256: `372c913d305f2b9d5f285cfe830d00f5ad3fd98242e31a54991fbf2474b72cbf`.
+
+- **[he15] Xuhua He.** [Hecke algebras and p-adic groups](https://arxiv.org/pdf/1511.01386). arXiv:1511.01386v3, 21 November 2016; survey corresponding to Current Developments in Mathematics 2015. Accessed 2026-10-19. Read: Theorem 2.23, PDF p. 34; §2.9.4 and Theorem 2.27, pp. 36–37; Theorem 2.30, p. 38. SHA-256: `f6170c52ce24599a5b1b6d7991ae9c9b98a8be8e5cf8753b9a335e74d3fe3cdc`.
+
+- **[gh10] Ulrich Görtz and Xuhua He.** [Dimensions of affine Deligne–Lusztig varieties in affine flag varieties](https://arxiv.org/pdf/1006.2291). arXiv:1006.2291v1; Documenta Mathematica 15 (2010), 1009–1028. Accessed 2026-10-19. Read: §§2.4–2.5, PDF pp. 6–9; Proposition 2.5.2 and Corollary 2.5.3. SHA-256: `8b1261cfaf3e37dc4b10ee643ad2836c741daf5cef0347b0268a9d7ee17883c8`.
+
+- **[mv20] Elizabeth Milićević and Eva Viehmann.** [Generic Newton points and the Newton poset in Iwahori-double cosets](https://mediatum.ub.tum.de/doc/1600930/file.pdf). Forum of Mathematics, Sigma 8 (2020), e50; published author-hosted copy, DOI 10.1017/fms.2020.46. Accessed 2026-10-19. Read: §3.1, PDF pp. 5–8; Definition 3.14, Theorem 3.16 and proof, Corollary 3.17, PDF pp. 9–10. SHA-256: `2f8585e829abf2ff34758d758240d8685821707931d3e5b5a91b3b5136e58bf4`.
+
+- **[ghn15] Ulrich Görtz, Xuhua He and Sian Nie.** [P-alcoves and nonemptiness of affine Deligne–Lusztig varieties](https://arxiv.org/pdf/1211.3784). arXiv:1211.3784; published Annales scientifiques de l’ÉNS 48 (2015), 647–665; corrected by the separate erratum. Accessed 2026-10-19. Read: Theorems A and B, PDF p. 3; Definition 3.3 and Theorem 3.3.1, pp. 10–11; §§3.5–3.6, pp. 13–15. SHA-256: `c2293924bff455023796da17c56de70dea547d0e1b6dc41f06ab4216aca135f0`.
+
+- **[ghnerr] Ulrich Görtz, Xuhua He and Sian Nie.** [Erratum to P-alcoves and nonemptiness of affine Deligne–Lusztig varieties](https://www.esaga.uni-due.de/f/ulrich.goertz/pdf/Erratum-GHN.pdf). Official author-hosted 3-page erratum. Accessed 2026-10-19. Read: Entire erratum, pp. 1–3; Propositions 0.0.1 and 0.0.2. SHA-256: `cf7efbf887e8202c7efd7590e2eebd85c93c89bea81c26fa39a80af8082399c0`.
+
+- **[ghkr06] Ulrich Görtz, Thomas J. Haines, Robert E. Kottwitz and Daniel C. Reuman.** [Dimensions of some affine Deligne–Lusztig varieties](https://arxiv.org/pdf/math/0504443). arXiv:math/0504443; Annales scientifiques de l’ÉNS 39 (2006), 467–511. Accessed 2026-10-19. Read: Proposition 5.3.1 and proof, PDF pp. 19–21; Lemma 5.4.3, pp. 27–28; Corollary 5.4.4, Proposition 5.6.1 and Theorem 5.8.1 with proofs, pp. 29–32. SHA-256: `bd8387fb533dd8340921e6e89b4004c86ce255b06bdcfa865a35addada7e6943`.
+
+- **[vie06] Eva Viehmann.** [The dimension of some affine Deligne–Lusztig varieties](https://arxiv.org/pdf/math/0510385). arXiv:math/0510385v2, 21 July 2006; Annales scientifiques de l’ÉNS 39 (2006), 513–526. Accessed 2026-10-19. Read: §§1–5, PDF pp. 1–12; definitions, lattice chart proof, Proposition 5.2 and entire proof of Theorem 5.3. SHA-256: `73de6d27413fbf83a908583306470166594d96753e9362a3c4fa3e47c8ea911c`.
+
+- **[ham15] Paul Hamacher.** [The dimension of affine Deligne–Lusztig varieties in the affine Grassmannian](https://mediatum.ub.tum.de/doc/1319937/1319937.pdf). International Mathematics Research Notices 2015, 12804–12839; published author-hosted copy. Accessed 2026-10-19. Read: Theorem 1.1 and conventions, pp. 12804–12805; all of §2, pp. 12806–12812; §3 setup, pp. 12813–12815. SHA-256: `dbfc2cebd3477d0e13eb710876531db3d3fecedecc6e118bf1b9d0401e0961e0`.
+
+- **[ckv15] Miaofen Chen, Mark Kisin and Eva Viehmann.** [Connected components of affine Deligne–Lusztig varieties in mixed characteristic](https://arxiv.org/pdf/1307.3845). arXiv:1307.3845; Compositio Mathematica 151 (2015), 1697–1762; numbering here is that of the downloaded arXiv version. Accessed 2026-10-19. Read: Lemma 3.1.1 and proof, PDF pp. 20–21; Proposition 3.3.1, PDF p. 24, for the boundary audit only. SHA-256: `715c628980850c698445eb7a472ab7aa7b933d61e9ba4ddddf76b82eddd79cfd`.
+
+- **[vie14] Eva Viehmann.** [Truncations of level 1 of elements in the loop group of a reductive group](https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n3-p03-p.pdf). Annals of Mathematics 179 (2014), 1009–1040; published version. Accessed 2026-10-19. Read: Introduction and conventions, pp. 1009–1011; Proposition 5.5 and Corollary 5.6 with proof, pp. 1026–1028. SHA-256: `453cba0430ce4b94d51ea1e7eb3cf74ba11102d7f624b2fa739cc681b4709bf1`.
+
+- **[hn14] Xuhua He and Sian Nie.** [Minimal length elements of extended affine Weyl groups](https://archive.ymsc.tsinghua.edu.cn/pacm_download/315/8989-affmin-2.pdf). Author copy; Compositio Mathematica 150 (2014), 1903–1927. Accessed 2026-10-19. Read: Introduction, PDF pp. 2–4; Theorem 2.9 and Corollary 2.10 with proofs, PDF pp. 10–12; §5 and §6 introduction, PDF pp. 25–27. SHA-256: `370abc45c00d91279f69d115ba10da758a23dfe3b56d1245d0a5370372807e09`.

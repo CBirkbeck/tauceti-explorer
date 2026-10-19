@@ -4,9 +4,14 @@ import TauCeti.GroupTheory.DoubleCoset.Basic
 /-!
 Elementary statements for the affine Deligne–Lusztig roadmap.
 
-The geometric targets are specified in the reader document. Only the point
-condition on the existing group/coset carriers is defined here. These are
-left cosets of an arbitrary subgroup; no normality hypothesis is imposed.
+This file is not the roadmap and is not exhaustive. The reader document is
+definitive. The statements suggest Lean forms so contributors and reviewers
+can converge on names and signatures. Geometric targets whose carriers are
+absent at the pins remain in that document.
+
+Only the point condition on the existing group/coset carriers is defined here.
+These are left cosets of an arbitrary subgroup; no normality hypothesis is
+imposed. The declarations below are statements to prove, not implementations.
 -/
 
 namespace AffineDeligneLusztig
