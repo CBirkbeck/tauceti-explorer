@@ -373,8 +373,8 @@
    "edition": "arXiv:math/0106269; published JEMS 4 (2002), 271–311. Locators below use the arXiv pagination.",
    "url": "https://arxiv.org/pdf/math/0106269",
    "readSections": [
-    "§2, pp. 4–5; Definition 3.3, p. 10; Theorems 3.19–3.22, pp. 16–18; Theorems 3.26, 3.29–3.30, pp. 18–20.",
-    "2026-10-19 independent review: §2 pp.4–5, Definition3.3 p.10, Definition3.19 and Theorems3.20–3.22 pp.16–18, Theorems3.26,3.29–3.30 pp.18–20, using arXiv pagination."
+    "§2, pp. 4–5; Definition 3.3, p. 10; Definition 3.19, Lemma 3.20 and Theorems 3.21–3.22, pp. 16–18; Theorems 3.26, 3.29–3.30, pp. 18–20.",
+    "2026-10-19 independent review: §2 pp.4–5, Definition3.3 p.10, Definition3.19, Lemma3.20 and Theorems3.21–3.22 pp.16–18, Theorems3.26,3.29–3.30 pp.18–20, using arXiv pagination."
    ],
    "accessed": "2026-10-19",
    "sha256": "e0941131157703e16013f02b65a046a3f6051ec92b7efe061006eff71b8d0f64"
@@ -814,7 +814,7 @@
     {
      "sourceId": "ARDAKOV-BROWN-2006",
      "locator": "§4.1, Theorem (2), p. 9 (arXiv v1)",
-     "match": "The equivalence."
+     "match": "The equivalence. The geometric-series proof in §3.1 needs zero constant coefficient, as recorded in E39; the theorem statement is retained."
     }
    ],
    "implementationStatus": "unchecked"
@@ -834,7 +834,7 @@
    ],
    "proofSteps": [
     "Lift a finite homogeneous generating set of each graded ideal by successive approximation, using completeness.",
-    "Use the Zariskian filtered resolution and filtered Ext comparison of Venjakob Theorems 3.19–3.21 for the global-dimension and Auslander clauses.",
+    "Use the Zariskian filtered resolution and filtered Ext comparison of Venjakob Definition 3.19, Lemma 3.20 and Theorem 3.21 for the global-dimension and Auslander clauses.",
     "Do not infer primality in the absence of a suitable filtered primeness theorem; only the domain implication is used here."
    ],
    "acceptance": [
@@ -851,7 +851,7 @@
    "sources": [
     {
      "sourceId": "VENJAKOB-2002",
-     "locator": "Theorems 3.19–3.21, pp. 16–17",
+     "locator": "Definition 3.19, Lemma 3.20 and Theorem 3.21, pp. 16–17",
      "match": "Gives the filtered transfer hypotheses needed in the Iwasawa application. Refers to Björk for the general filtered theorem, recorded as a gap."
     }
    ],
@@ -2994,7 +2994,7 @@
    "sources": [
     {
      "sourceId": "KAKDE-2011",
-     "locator": "§1, pp. 6–8, relative triples and Lemma 5",
+     "locator": "§2.2, pp. 6–8, relative triples and Lemma 5",
      "match": "Gives the relative triple model and boundary formula even when G has p-torsion."
     },
     {
@@ -4914,7 +4914,7 @@
     },
     {
      "sourceId": "KAKDE-2011",
-     "locator": "§1, pp. 3–5, especially base change (1)",
+     "locator": "§2.3, p. 11, especially base change (1)",
      "match": "The totally real dual complex is the specialized arithmetic input; its comparison with compact support must include duality and shifts."
     }
    ],
@@ -5023,7 +5023,7 @@
    "sources": [
     {
      "sourceId": "KAKDE-2011",
-     "locator": "§1, pp. 3–5, equation (1); Lemma 9, pp. 10–11",
+     "locator": "§2.3, Lemma 9 and equation (1), pp. 10–11",
      "match": "States the dual complex’s perfectness and quotient base change and gives the μ=0 finiteness input."
     },
     {
@@ -5600,7 +5600,7 @@
    "sources": [
     {
      "sourceId": "KAKDE-2011",
-     "locator": "§1, equation (1), pp. 3–5; §4, pp. 17–30; Proposition 95, pp. 67–69",
+     "locator": "§2.3, equation (1), p. 11; §4, pp. 17–30; Proposition 95, pp. 67–69",
      "match": "Uses quotient base change, subgroup norms and induction of Artin L-values."
     },
     {
@@ -5712,15 +5712,15 @@
    ],
    "title": "The Burns–Kato patching principle",
    "kind": "lemma",
-   "statement": "Let 𝒞 be a family of pairs (U, V), U open in G and V closed normal in U with U/V admissible, and θ = (θ_{U,V}) : K′₁(Λ(G)) → ∏_𝒞 K′₁(Λ(U/V)), θ_S the same on the localisations, each θ_{U,V} the norm to U followed by the quotient map. Suppose θ is an isomorphism onto a subgroup Φ, θ_S lands in a subgroup Φ_S with Φ_S ∩ ∏ K′₁(Λ(U/V)) = Φ, MC holds for every F_∞^V/F_∞^U with (ζ_{U,V}) ∈ Φ_S, and every Artin character of G is a ℤ-combination of characters induced or inflated from the U/V. Then MC(F_∞/F) holds, and K′₁(Λ(G)) → K′₁(Λ(G)_S) is injective when each K′₁(Λ(U/V)) → K′₁(Λ(U/V)_S) is.",
+   "statement": "Let 𝒞 be a family of pairs (U, V), U open in G and V closed normal in U with U/V admissible, and θ = (θ_{U,V}) : K′₁(Λ(G)) → ∏_𝒞 K′₁(Λ(U/V)), θ_S the same on the localisations, each θ_{U,V} the norm to U followed by the quotient map. Suppose each component localization map K′₁(Λ(U/V)) → K′₁(Λ(U/V)_S) is injective, θ is an isomorphism onto a subgroup Φ, θ_S lands in a subgroup Φ_S with Φ_S ∩ ∏ K′₁(Λ(U/V)) = Φ, MC holds for every F_∞^V/F_∞^U with (ζ_{U,V}) ∈ Φ_S, and every Artin character of G is a ℤ-combination of characters induced or inflated from the U/V. Then MC(F_∞/F) holds, and K′₁(Λ(G)) → K′₁(Λ(G)_S) is injective.",
    "hypotheses": [
     "The hypotheses listed; μ = 0 for each subquotient.",
     "For the Kakde theorem route, p is odd, as in the source’s standing assumption. Toy algebra calculations at 2 do not extend the theorem to 2."
    ],
    "proofSteps": [
     "Choose f ∈ K′₁(Λ(G)_S) with ∂f = −[C(F_∞/F)] (boundary-surjective-p-torsion); θ_S(f) has components f_{U,V} with ∂f_{U,V} = −[C(F_∞^V/F_∞^U)] by base change (totally-real-iwasawa-complex).",
-    "u_{U,V} = ζ_{U,V} f_{U,V}^{−1} has ∂ = 0, so lies in K′₁(Λ(U/V)); (u_{U,V}) ∈ Φ_S ∩ ∏ K′₁ = Φ, so u_{U,V} = θ(u)_{U,V} for a unique u, and ζ = uf.",
-    "∂ζ = −[C]; interpolation by writing ρ = Σ n_i Ind/Inf ρ_i and using the norm and inflation compatibilities of evaluation (Kakde §2.4 (i)–(iii)); uniqueness and injectivity by the same diagram."
+    "u_{U,V} = ζ_{U,V} f_{U,V}^{−1} has boundary zero, so it is in the image of integral K′₁. Component injectivity identifies its unique integral preimage with that image. Thus (u_{U,V}) ∈ Φ_S ∩ ∏ K′₁ = Φ, and θ has a unique preimage u; put ζ=uf.",
+    "The boundary is −[C]. Interpolation follows by expressing ρ as an integer combination of induced/inflated component characters and using Kakde §2.4 (i)–(iii). If an integral class dies after localization, each component dies, hence is 1 by component injectivity, so the class is 1 by injectivity of θ. For uniqueness, the ratio of two candidates is integral by exactness; component main-conjecture uniqueness and the two injectivities then make it 1."
    ],
    "acceptance": [
     "This is the argument Kakde repeats in Theorems 21, 27, 33 and 36; planning it once lets each reduction supply only the description of Φ."
@@ -6144,7 +6144,7 @@
     "R[Conj Ḡ]^τ is only an R-module (Remark 42)."
    ],
    "proofSteps": [
-    "Lemma 60, A1: tr^{P′}_P ∘ t^G_{P′} = π^{P′}_P ∘ t^G_P, since both send [h] to [P′ : P]·h for h ∈ P and to 0 otherwise; apply η_P when P is cyclic; if P < P′ are both cyclic, β^G_{P′}([g]) involves only generators of P′, whose traces to P vanish.",
+    "Lemma 60, A1: reindex coset representatives of P in Ḡ through P′. Both tr^{P′}_P ∘ t^G_{P′} and π^{P′}_P ∘ t^G_P sum the same conjugates lying in P, with the same multiplicities, in the common quotient. For a basis element h of P′ the relative trace is [P′:P]·h if h∈P and zero otherwise, since P contains [P′,P′]. Apply η_P when P is cyclic; if P<P′ are cyclic, β^G_{P′} has only generator-labelled terms and their relative traces vanish.",
     "Lemma 60, A2: transport coset representatives, t^G_{g₁Pg₁⁻¹}([g]) = g₁t^G_P([g])g₁⁻¹. A3: t^G_P = t^{N_ḠP}_P ∘ t^G_{N_ḠP}, and t^{N_ḠP}_P([g]) = Σ_{x∈W_ḠP} x⁻¹gx ∈ T_{P,R} for g ∈ P.",
     "Lemma 62: for P = ⟨g⟩ and its conjugates P′, δ(β([g])) = ([Ḡ : P])⁻¹ Σ_{P′}[N_ḠP′ : P′][g] = [g]."
    ],
@@ -6600,7 +6600,7 @@
     {
      "sourceId": "SCHNEIDER-VENJAKOB-AFTER-KAKDE",
      "locator": "§4, Lemmas 4.7–4.9, pp. 26–30",
-     "match": "The abelianized logarithm, torsion-free quotient and trace-rigidity proof provide the replacement route. Their α_Z=x_Z^p/ϕ(x_Z) absorbs the extra central factor that Kakde writes separately; their untruncated top map must not be identified with cyclic β_Ḡ."
+     "match": "The abelianized logarithm, torsion-free quotient and trace-rigidity proof provide the replacement route. Their α_Z=x_Z^p/ϕ(x_Z) absorbs the extra central factor that Kakde writes separately; their untruncated top map must not be identified with cyclic β_Ḡ. Its noncyclic kernel proof drops the central factor and makes a false intermediate torsion claim (E37); the reconstruction above retains φ(x_1)^p and uses the torsion-free quotient instead."
     }
    ],
    "implementationStatus": "unchecked"
@@ -7362,7 +7362,7 @@
    "sources": [
     {
      "sourceId": "KAKDE-2011",
-     "locator": "§1, Theorem 11, p. 11 (arXiv v3); proof completed on p. 90",
+     "locator": "§2.5, Theorem 11, p. 13 (arXiv v3); proof completed on p. 90",
      "match": "Theorem 11 gives the target. This revision preserves that statement and replaces the cyclic-overgroup analytic branch in its proof."
     },
     {
@@ -9708,7 +9708,7 @@
     "Audit the finite Oliver/Wall and earlier RW logarithm/trace suppliers and the finite-p-extension μ transfer proof. The finite-conductor Möbius calculation is checked; the uniform-g assertion is retained as the exact RW theorem with its own proof-audit leaf, and the completed-to-canonical comparison is specified explicitly.",
     "Check the RW2026 division-algebra classification and GP minus-module comparison supplier; conditional SK₁ vanishing remains a hypothesis."
    ],
-   "notes": "Every stated target is represented at target level; remaining source and supplier leaves are explicit gaps or requests. No formalisation or gap-free closure is claimed. Revision 2 replaces the invalid cyclic-overgroup branch and reconstructs the corrected multiplicative exact sequence; these changes await independent review."
+   "notes": "Every stated target is represented at target level; remaining source and supplier leaves are explicit gaps or requests. No formalisation or gap-free closure is claimed. Revision 2 replaces the invalid cyclic-overgroup branch and reconstructs the corrected multiplicative exact sequence; these changes were checked by the revision-2 independent review."
   },
   {
    "stageId": "NoncommutativeAndEquivariantIwasawa:NE.7",
@@ -9717,7 +9717,7 @@
     "Resolve determinant, local epsilon, Nekovář height and noncommutative Fitting-order proof leaves.",
     "Prove arithmetic semisimplicity/local factorization in each exceptional-zero application; no extra vanishing theorem is inferred."
    ],
-   "notes": "Every stated target is represented at target level; remaining source and supplier leaves are explicit gaps or requests. No formalisation or gap-free closure is claimed. Revision 2 assigns global leading terms to C[1], distinguishes composition and monoidal inverses, and recomputes Tate and Selmer orders and scalars; these changes await independent review."
+   "notes": "Every stated target is represented at target level; remaining source and supplier leaves are explicit gaps or requests. No formalisation or gap-free closure is claimed. Revision 2 assigns global leading terms to C[1], distinguishes composition and monoidal inverses, and recomputes Tate and Selmer orders and scalars; these changes were checked by the revision-2 independent review."
   }
  ],
  "gaps": [
@@ -9807,7 +9807,7 @@
     "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-finite-global-dimension",
     "NoncommutativeAndEquivariantIwasawa:NE.0/rational-iwasawa-global-dimension"
    ],
-   "detail": "Venjakob Theorems 3.19–3.22 and 3.26–3.30 provide the precise filtered and Iwasawa statements. The general Björk filtered Auslander transfer cited there was not read independently, nor was the Brumer coefficient generalization. For ramified O, prove the finite-free coefficient comparison and run the DVR filtered argument; do not deduce regularity merely from module finiteness or quote a commutative flatness instance."
+   "detail": "Venjakob Definition 3.19, Lemma 3.20 and Theorems 3.21–3.22 and 3.26–3.30 provide the precise filtered and Iwasawa statements. The general Björk filtered Auslander transfer cited there was not read independently, nor was the Brumer coefficient generalization. For ramified O, prove the finite-free coefficient comparison and run the DVR filtered argument; do not deduce regularity merely from module finiteness or quote a commutative flatness instance."
   },
   {
    "title": "Real two-primary arithmetic complex",
@@ -9929,9 +9929,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked Definition 49, p. 34: the completed trace abbreviation binds P, not P′; the normalizer target follows the two preceding abbreviations.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The completed abbreviation in Definition 49, p.34, leaves P′ unbound. Taking the normalizer gives the intended one-index notation.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked Definition 49, p. 34: the completed trace abbreviation binds P, not P′; the normalizer target follows the two preceding abbreviations.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E2",
@@ -9951,9 +9958,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked the indicated domains against Definition 55 and Theorem 58. Conj is the defined conjugacy-class carrier; Cong is not a second defined carrier.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The domains and targets in §5.3 and pp.47–51 are conjugacy-class modules. Conj is defined; Cong is a spelling slip.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked the indicated domains against Definition 55 and Theorem 58. Conj is the defined conjugacy-class carrier; Cong is not a second defined carrier.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E3",
@@ -9973,9 +9987,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Expanded log(1−v) before applying the additive Frobenius. The degree-k term necessarily contains ϕ(v^k); the subsequent numerator uses that corrected term.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "Expanding log(1−v) and then applying additive Frobenius requires φ(v^k) in the k-th term. The p-power divisibility induction uses that same corrected exponent.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Expanded log(1−v) before applying the additive Frobenius. The degree-k term necessarily contains ϕ(v^k); the subsequent numerator uses that corrected term.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E4",
@@ -9995,9 +10016,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked Corollary 90 and the domains of the earlier dimension-one theorems and reductions. This is a reconstruction gap for the asserted generality, especially O coefficients, rather than a counterexample to injectivity.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "Corollary 90, p.65, does not give the reduction or coefficient argument for its full compact-analytic scope. This confirms the proof-audit gap, not a counterexample to the theorem.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked Corollary 90 and the domains of the earlier dimension-one theorems and reductions. This is a reconstruction gap for the asserted generality, especially O coefficients, rather than a counterexample to injectivity.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E5",
@@ -10017,9 +10045,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Compared (19), (20) and (21), p. 74. The transferred function has the P′ domain, so putting it on the P term is ill-typed.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "In Proposition 104 (21), the transferred function has the P′ domain. The P and P′ terms must be composed as in the corrected formula.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Compared (19), (20) and (21), p. 74. The transferred function has the P′ domain, so putting it on the P term is ill-typed.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E6",
@@ -10039,9 +10074,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Compared (23) and its orbit sum, p. 75. The varying Eisenstein weight is k and the argument is 1−k.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The Eisenstein weight varying in Proposition 106 is k; its smoothed special value has argument 1−k.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Compared (23) and its orbit sum, p. 75. The varying Eisenstein weight is k and the argument is 1−k.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E7",
@@ -10061,9 +10103,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Computed 2^10=1024≡4 mod 15. The full-modulus assertion is false, while the p-primary modulus and stabilizer divisibility give the needed weaker statement.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "For p=3 and r_P=15, 2^10 is 4 modulo 15. Only the p-primary divisibility can be used; stabilizer divisibility supplies it.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Computed 2^10=1024≡4 mod 15. The full-modulus assertion is false, while the p-primary modulus and stabilizer divisibility give the needed weaker statement.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E8",
@@ -10083,9 +10132,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked the common weight and the definition of the second Eisenstein input on p. 85. The k and the pullback are required by those definitions.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "Proposition 117 must retain k in the second relative weight and the pullback in its second Eisenstein input. Otherwise the common-weight and domain conditions fail.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked the common weight and the definition of the second Eisenstein input on p. 85. The k and the pullback are required by those definitions.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E9",
@@ -10105,9 +10161,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Compared the use of (34) with all three lines on p. 89. Frobenius must remain inside the character operator; the final combined numerator retains it.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The character projection must act on the Frobenius image in the use of (34). Removing φ before the projection changes the expression.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Compared the use of (34) with all three lines on p. 89. Frobenius must remain inside the character operator; the final combined numerator retains it.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E10",
@@ -10127,9 +10190,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Read the enlarged-field construction on pp. 86–87. Its odd-degree total-reality and finite-p-extension μ transfer inputs are used without the required arguments; those remain explicit proof obligations.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The enlarged extension construction uses total reality of its odd-degree cyclic field and transfer of μ=0 through a finite p-extension. Those arguments are not supplied at pp.86–87.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Read the enlarged-field construction on pp. 86–87. Its odd-degree total-reality and finite-p-extension μ transfer inputs are used without the required arguments; those remain explicit proof obligations.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E11",
@@ -10150,9 +10220,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked arXiv v2 and the author final pp. 6, 9–10, 14. The extension matrix with off-diagonal 1 has cokernel Λ/T²; its rational Bockstein is zero, so the extension-closed claim fails. Published §2.2 weakens the general K₁ category condition to direct sums, but retains extension-closed Σ_C and the false inclusion in Definition3.14; the same counterexample applies.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The extension represented by [[T,1],[0,T]] has cokernel Λ/T² and zero rational Bockstein, although its two T-block pieces are semisimple. The published direct-sum repair does not repair the extension-closed Σ_C used in Definition 3.14.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked arXiv v2 and the author final pp. 6, 9–10, 14. The extension matrix with off-diagonal 1 has cokernel Λ/T²; its rational Bockstein is zero, so the extension-closed claim fails. Published §2.2 weakens the general K₁ category condition to direct sums, but retains extension-closed Σ_C and the false inclusion in Definition3.14; the same counterexample applies.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E12",
@@ -10173,9 +10250,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked both accessible versions at Corollary 5.7. For C₃ and p=7, a nontrivial character is Q₇-valued but not Q-valued; a positive multiple cannot be a sum of permutation characters with integer coefficients. The published text changes Q_p-rational to Q-rational and removes this defect.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "A nontrivial C_3-character at p=7 is Q_7-valued and not Q-valued. Integer combinations of permutation characters remain rational. The published Corollary 5.7 correctly assumes Q-rationality.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked both accessible versions at Corollary 5.7. For C₃ and p=7, a nontrivial character is Q₇-valued but not Q-valued; a positive multiple cannot be a sum of permutation characters with integer coefficients. The published text changes Q_p-rational to Q-rational and removes this defect.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E13",
@@ -10196,9 +10280,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked the author final p. 28 as well as v2. The residual Gamma values at j=0,−1,−2 are 1,−1,1/2, consistent with indexing Γ*(j), not the printed negated index. The published EMIS copy retains the same defect at published §6.1 pp.196–197.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The residues of Γ(s) at 0,−1,−2 are 1,−1,1/2. These match Γ*(j) at j, not Γ*(−j); the published formula retains the indexing slip.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked the author final p. 28 as well as v2. The residual Gamma values at j=0,−1,−2 are 1,−1,1/2, consistent with indexing Γ*(j), not the printed negated index. The published EMIS copy retains the same defect at published §6.1 pp.196–197.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E14",
@@ -10219,9 +10310,16 @@
    "reportedBy": "Claude Code cc-39fac3; retained and paraphrased by Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked Proposition 6.6 in both accessible versions: two consecutive parts have the same label. This changes no mathematical assertion. Published Lemma6.7 has distinct(i)/(ii) labels.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The two consecutive parts of preprint Proposition 6.6 have the same label. Published Lemma 6.7 uses distinct labels, so this is version-specific typography.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked Proposition 6.6 in both accessible versions: two consecutive parts have the same label. This changes no mathematical assertion. Published Lemma6.7 has distinct(i)/(ii) labels.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E15",
@@ -10240,9 +10338,16 @@
    "reportedBy": "Codex codex-pjS4kZ",
    "review": {
     "verdict": "confirmed",
-    "reason": "Checked the carry formula p. 31 directly: exponents 1 and p^e−1 give one central carry. The basis inverse requires its inverse; change of section is a cohomology relation, not literal invariance.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The selected exponents 1 and p^e−1 have sum p^e. Their inverse-pair carry is γ^(p^e), so normalization at the identity does not make inverse-pair carries equal to 1.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Checked the carry formula p. 31 directly: exponents 1 and p^e−1 give one central carry. The basis inverse requires its inverse; change of section is a cohomology relation, not literal invariance.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E16",
@@ -10260,11 +10365,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "For ξ=[γ] and trivial ρ, the defining ring map gives Φ′_η(ξ)=a(1+T). The inverse substitution gives a⁻¹(1+T), so it fails whenever a²≠1. This exact matrix identity must be checked before passing to any quotient by units.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "For ξ=[γ] and a=η(γ), the defining evaluation gives a(1+T). The inverse substitution gives a^−1(1+T), which differs when a²≠1.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.3/characteristic-element-integrality-conjecture"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "For ξ=[γ] and trivial ρ, the defining ring map gives Φ′_η(ξ)=a(1+T). The inverse substitution gives a⁻¹(1+T), so it fails whenever a²≠1. This exact matrix identity must be checked before passing to any quotient by units.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10284,12 +10396,19 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "For Ḡ=P=P′=1, β is the identity on R and the trace is the identity. The unrestricted zero condition would force every image coefficient to vanish, contradicting Lemma 60.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "For P=P′=1, β and the relative trace are identities. Requiring that trace to vanish would kill every coefficient; strict inclusion is essential in the cyclic case.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta",
     "NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "For Ḡ=P=P′=1, β is the identity on R and the trace is the identity. The unrestricted zero condition would force every image coefficient to vanish, contradicting Lemma 60.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10309,11 +10428,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "The identity generates the trivial group. An averaging expression using a trivial character would instead give η_1=0 and break δβ=id for Ḡ=1.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "The identity generates the trivial cyclic group, so η_1 is the identity. Applying the nontrivial-character averaging formula at 1 would make it zero and contradict δβ=id.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "The identity generates the trivial group. An averaging expression using a trivial character would instead give η_1=0 and break δβ=id for Ḡ=1.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10333,11 +10459,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "In a two-factor coefficient product (1,0) and (0,1) lie outside pR, but their product is zero. Thus the literal complement is neither multiplicative nor regular; reduction to each coefficient domain requires changing the denominator set.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "In a two-factor ring, (1,0) and (0,1) both lie outside pR and multiply to zero. The regular central denominator set must be formed componentwise.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "In a two-factor coefficient product (1,0) and (0,1) lie outside pR, but their product is zero. Thus the literal complement is neither multiplicative nor regular; reduction to each coefficient domain requires changing the denominator set.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10357,11 +10490,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "T is already inverted when localizing O[[T]] at (p); reduction gives the fraction field of F_q[[T]]. Completion in p does not remove that inverse.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "Inverting the central denominators of O[[T]] inverts T modulo p and gives F_q((T)). Completing in p preserves this inverse.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "T is already inverted when localizing O[[T]] at (p); reduction gives the fraction field of F_q[[T]]. Completion in p does not remove that inverse.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10381,11 +10521,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "The determinant of multiplication by a central scalar on a free module of rank [G:U_P] is that scalar to this rank. For p=3 and O unramified of degree 2, a Teichmüller unit of order 8 has rank-3 norm ζ³≠ζ.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "The norm of a scalar on a rank-[G:U_P] module is its corresponding power. A Teichmüller unit of order 8 at p=3 distinguishes ζ³ from ζ.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "The determinant of multiplication by a central scalar on a free module of rank [G:U_P] is that scalar to this rank. For p=3 and O unramified of degree 2, a Teichmüller unit of order 8 has rank-3 norm ζ³≠ζ.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10405,11 +10552,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "For G=Γ, Z=Γ^p, Ḡ=C_p and a=z=γ^p in the central coefficient ring, β_Ḡ(a)=0 because η_Ḡ deletes the identity-labelled basis term, whereas ω_A(a)=z≠1. The displayed formula is incompatible with ω_ψβ=ω_A.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "For G=Γ, Z=Γ^p and a=z, the generator projection at G/Z deletes the identity-labelled coefficient, but ω_A(a)=z is nontrivial. The correct cokernel map uses δ and the untruncated abelianization.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "For G=Γ, Z=Γ^p, Ḡ=C_p and a=z=γ^p in the central coefficient ring, β_Ḡ(a)=0 because η_Ḡ deletes the identity-labelled basis term, whereas ω_A(a)=z≠1. The displayed formula is incompatible with ω_ψβ=ω_A.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10429,11 +10583,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "If g∈P is nontrivial, its action on N/P is trivial, so the orbit length is 1 even though ord(g)>1. The printed representative list therefore repeats cosets.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "If a nontrivial g belongs to P, it fixes N/P, so its orbit has length 1 regardless of the order of g. Transfer representatives use ord(gP).",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/transfer-image-not-generator"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "If g∈P is nontrivial, its action on N/P is trivial, so the orbit length is 1 even though ord(g)>1. The printed representative list therefore repeats cosets.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10453,11 +10614,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "The formal series is log(1+x)=x+O(x²). At odd p its first-order term cannot be −x. All later divisibility claims survive multiplying the expression by −1.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "The linear term of log(1+x) is x. Thus the displayed congruence must use r−1, not 1−r; its divisibility consequence is unaffected.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/m4-from-basic-congruences"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "The formal series is log(1+x)=x+O(x²). At odd p its first-order term cannot be −x. All later divisibility claims survive multiplying the expression by −1.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10478,11 +10646,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "The following sentence requires that very Fil⁰ term to vanish. For W=Q_p(1), the intended Ŵ=W has zero Fil⁰ but a one-dimensional t_p(W), so the literal condition contradicts the standard example. The published EMIS copy retains the same defect at published condition(DP) pp.197–198.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "For W=Q_p(1), Fil^0 D_dR(W)=0 while t_p(W) is one-dimensional. The intended Panchishkin comparison uses D_dR(Ŵ)→t_p(W), with zero Fil^0, as the following text requires.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.7/dabrowski-panchishkin-selmer-complexes"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "The following sentence requires that very Fil⁰ term to vanish. For W=Q_p(1), the intended Ŵ=W has zero Fil⁰ but a one-dimensional t_p(W), so the literal condition contradicts the standard example. The published EMIS copy retains the same defect at published condition(DP) pp.197–198.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10502,13 +10677,20 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "Section 6.7 multiplies the weight by the relative extension degree. If N_ḠP is proper in Ḡ, [F_P:F_(N_ḠP)] differs from [F_P:F]. For a noncentral order-3 subgroup in the order-27 Heisenberg group the factors are 3 and 9. The stated weight and cusp identity then do not follow from Lemma 109. The necessary proof repair remains explicit rather than asserting a counterexample to the final congruences.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "Restriction multiplies Hilbert weight by the relative field degree. A proper normalizer changes that degree from [G:P] to [N:P], and its cusp norm must carry exactly the same exponent.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-values"
    ],
-   "revisionResolution": "Revision 2 replaces the analytic branch by the full relative-weight Möbius proof at special cusps. It does not claim the old cyclic-overgroup argument is repaired; E33 gives a stronger obstruction."
+   "revisionResolution": "Revision 2 replaces the analytic branch by the full relative-weight Möbius proof at special cusps. It does not claim the old cyclic-overgroup argument is repaired; E33 gives a stronger obstruction.",
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Section 6.7 multiplies the weight by the relative extension degree. If N_ḠP is proper in Ḡ, [F_P:F_(N_ḠP)] differs from [F_P:F]. For a noncentral order-3 subgroup in the order-27 Heisenberg group the factors are 3 and 9. The stated weight and cusp identity then do not follow from Lemma 109. The necessary proof repair remains explicit rather than asserting a counterexample to the final congruences.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E27",
@@ -10528,11 +10710,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "Factorization fixes the codomain but does not prove injectivity. The later permutation-character discussion on p. 25 explicitly makes the nonzero p-adic regulator equivalent to Leopoldt. This is a missing hypothesis/proof, not a known counterexample to Leopoldt. The published EMIS copy retains the same defect at published §5.2 p.193.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "Factoring through the named quotient gives a regulator map, not an isomorphism. Its nonzero determinant is the Leopoldt input in the permutation case; the source cannot supply it unconditionally.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-conjecture"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Factorization fixes the codomain but does not prove injectivity. The later permutation-character discussion on p. 25 explicitly makes the nonzero p-adic regulator equivalent to Leopoldt. This is a missing hypothesis/proof, not a known counterexample to Leopoldt. The published EMIS copy retains the same defect at published §5.2 p.193.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10553,14 +10742,21 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "Definition 2.5 requires a:1→d(C), and Definition 3.4 gives t(C):d(C)_Q→1. The global ζ in Conjecture 4.1 and (21) has codomain d(C)⁻¹; (24) then treats t(C) as though it started from that inverse line. Likewise p. 33 uses d(SC_U), while p. 35 uses its inverse. Composition inverse and monoidal inverse are distinguished by Remark 2.2 but no typed identification resolving this switch is given. The published EMIS copy retains the same defect at published Conjecture4.1 p.188, Remark5.6/proof pp.194–195, (38)–(39) pp.201–202 and proof p.204.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "The global map lands in d(C)^−1 while [C,a] requires a:1→d(C); the two Selmer formulas likewise use opposite lines. The explicit C[1] transport in the revised target supplies the missing typing.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation",
     "NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation"
    ],
-   "revisionResolution": "Revision 2 supplies D=C[1] and SC[1], their transported maps, inverse Bockstein trivializations, boundary signs and orders. See E35–E36 for the resulting scalar corrections. The previous review object is preserved as a verdict on its earlier input."
+   "revisionResolution": "Revision 2 supplies D=C[1] and SC[1], their transported maps, inverse Bockstein trivializations, boundary signs and orders. See E35–E36 for the resulting scalar corrections. The previous review object is preserved as a verdict on its earlier input.",
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Definition 2.5 requires a:1→d(C), and Definition 3.4 gives t(C):d(C)_Q→1. The global ζ in Conjecture 4.1 and (21) has codomain d(C)⁻¹; (24) then treats t(C) as though it started from that inverse line. Likewise p. 33 uses d(SC_U), while p. 35 uses its inverse. Composition inverse and monoidal inverse are distinguished by Remark 2.2 but no typed identification resolving this switch is given. The published EMIS copy retains the same defect at published Conjecture4.1 p.188, Remark5.6/proof pp.194–195, (38)–(39) pp.201–202 and proof p.204.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E29",
@@ -10578,11 +10774,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "For rows, successive multiplication by ρ(g)^t and ρ(h)^t gives ρ(g)^tρ(h)^t=(ρ(h)ρ(g))^t rather than ρ(gh)^t. It is not a right group action for a noncommuting representation. Using ρ(g) is associative and agrees with the stated ring map.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "For row vectors, multiplying successively by ρ(g)^t and ρ(h)^t reverses the matrix product after transposition. The untwisted row action uses ρ(g); the left dual uses the inverse transpose.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "For rows, successive multiplication by ρ(g)^t and ρ(h)^t gives ρ(g)^tρ(h)^t=(ρ(h)ρ(g))^t rather than ρ(gh)^t. It is not a right group action for a noncommuting representation. Using ρ(g) is associative and agrees with the stated ring map.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10602,9 +10805,16 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Direct substitution in the defined determinant gives P(W,0)=1; both checked PDFs use0 at this locator but their following formula uses1. The published EMIS copy retains the same defect at published Remark6.6 p.202.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
-   }
+    "reason": "The defined local polynomial is det(1−φT), so its value at 0 is 1. The condition needed by the following Euler-factor formula is at 1.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   },
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Direct substitution in the defined determinant gives P(W,0)=1; both checked PDFs use0 at this locator but their following formula uses1. The published EMIS copy retains the same defect at published Remark6.6 p.202.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
+   ]
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E31",
@@ -10623,11 +10833,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "Berger §§II.4.2–II.4.4 pp.17–19 gives W as 0→Q_p(1)→W→Q_p→0 and φ-eigenvalues p⁻¹,1 on D_st(W). Since Ny=v_p(q)x≠0, D_cris(W)=kerN has only the p⁻¹ eigenvalue. The Weil pairing identifies Z=W*(1) with W. Thus the two B1 factors equal1−p⁻¹≠0, whereas both C1 quotients are Q_p and have factor0.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "For the Tate curve, Berger gives D_cris(W)=ker N with Frobenius p^−1, while the ordinary quotient has Frobenius 1. The B1 factors are nonzero and the C1 quotient factors vanish. Thus the cited example fails C1, rather than B1.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.7/dabrowski-panchishkin-selmer-complexes"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "Berger §§II.4.2–II.4.4 pp.17–19 gives W as 0→Q_p(1)→W→Q_p→0 and φ-eigenvalues p⁻¹,1 on D_st(W). Since Ny=v_p(q)x≠0, D_cris(W)=kerN has only the p⁻¹ eigenvalue. The Weil pairing identifies Z=W*(1) with W. Thus the two B1 factors equal1−p⁻¹≠0, whereas both C1 quotients are Q_p and have factor0.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10647,11 +10864,18 @@
    "reportedBy": "Codex codex-1gPjeG, independent review",
    "review": {
     "verdict": "confirmed",
-    "reason": "For C₂ the sign character is Ind_1^C₂(1)−1 and is the character of an actual one-dimensional representation. Its value at the nonidentity element is−1, while every permutation character counts fixed points and is nonnegative. Thus n_ρ=1 in the displayed integer-combination formula does not characterize permutation characters.",
-    "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    "reason": "The C_2 sign character equals regular minus trivial but has negative value at the nonidentity element. It is a virtual integer combination of permutation characters and is not itself a permutation character.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
    },
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation-rational"
+   ],
+   "reviewHistory": [
+    {
+     "verdict": "confirmed",
+     "reason": "For C₂ the sign character is Ind_1^C₂(1)−1 and is the character of an actual one-dimensional representation. Its value at the nonidentity element is−1, while every permutation character counts fixed points and is nonnegative. Thus n_ρ=1 in the displayed integer-combination formula does not characterize permutation characters.",
+     "by": "REV-NoncommutativeAndEquivariantIwasawa"
+    }
    ]
   },
   {
@@ -10663,7 +10887,7 @@
    "correction": "Replace this analytic branch by full subgroup Möbius sums, with all multiplicities, rather than assuming (12). The main-conjecture target is unchanged.",
    "reason": "Take G=C_{p²}×Γ, Z=Γ^p and P=pC_{p²}×0 in G/Z. The p distinct cyclic overgroups P′=〈(1,t)〉, t∈C_p, all satisfy P′^p=P. Since G is abelian, T_P=p²Λ(U_P)_S, and M3 gives φ(ζ_{P′})≡ζ_P modulo p for each P′. Reducing (12) modulo p would give ζ_P≡pζ_P=0, impossible for a unit. This setting is realized by the compositum of the cyclotomic tower of Q and a disjoint cyclic degree-p² totally real abelian extension; its μ vanishes. In the proposed fixed-pair proof, the pair (β, b)=(a,O_L) at rational positive a, with identity Artin coset, is fixed by the whole group and contributes multiplicity 1−p modulo p rather than 0.",
    "affects": "a stated result",
-   "known": "No matching correction established in the bounded search; newly recorded here and awaiting independent verification.",
+   "known": "No matching correction established in the bounded search; independently confirmed in revision-2 review.",
    "searched": [
     "2026-10-19: arXiv:1008.0142 version page (v3 read), Kakde author publication records and bounded title + erratum/corrigendum searches. No accessible matching correction established. The publisher endpoint did not provide a readable copy, so no claim about the version of record is made.",
     "Compared the author-hosted Congruences between abelian p-adic zeta functions chapter, Proposition 13.4 and proof pp.22–23; the cyclic-overgroup sum and pair argument recur. This is a separate readable preprint, not a comparison with the Inventiones version of record."
@@ -10673,7 +10897,12 @@
     "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruences",
     "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-values",
     "NoncommutativeAndEquivariantIwasawa:NE.6/m4-from-basic-congruences"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Enumerating the cyclic lifts in C_(p²)×C_p gives p overgroups of P. Each term reduces to the same unit modulo p, while their sum is zero there. The fixed identity-ideal pair is fixed by all overgroups and has residual multiplicity 1−p. This verifies the defect against v3, without extending it to the unread Inventiones text.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   }
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E34",
@@ -10684,7 +10913,7 @@
    "correction": "For the replacement full Möbius theorem choose the special idèle cusp γ with γ±1 in 1+f̂. Its level decomposition has M₂=I; restriction and U preserve the needed constant term there. Retain the relative degree in the weight and its identical exponent in the cusp norm. No arbitrary-g or omitted-(29) proof is asserted.",
    "reason": "The U-operator formula at the standard cusp does not imply its constant-term formula at an arbitrary cusp. RW Congruences II, p.3 and Lemma 10 pp.10–11, identifies this issue in the method and proves a sufficient special-cusp comparison. Together with the false fixed-pair cancellation in E33, correcting only relative weights cannot verify the old analytic branch.",
    "affects": "the proof",
-   "known": "No matching correction established in the bounded search; newly recorded here and awaiting independent verification.",
+   "known": "No matching correction established in the bounded search; independently confirmed in revision-2 review.",
    "searched": [
     "2026-10-19: arXiv:1008.0142 version page (v3 read), Kakde author publication records and bounded title + erratum/corrigendum searches. No accessible matching correction established. The publisher endpoint did not provide a readable copy, so no claim about the version of record is made.",
     "Compared the author-hosted Congruences between abelian p-adic zeta functions chapter, Proposition 13.4 and proof pp.22–23; the cyclic-overgroup sum and pair argument recur. This is a separate readable preprint, not a comparison with the Inventiones version of record.",
@@ -10694,7 +10923,12 @@
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-values",
     "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-reduction"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The standard-cusp U formula does not compute a constant term at a general cusp. RW II p.3 explicitly identifies the missing comparison, and Lemma 10 computes the needed special cusp. The revised proof uses that restricted construction.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   }
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E35",
@@ -10705,7 +10939,7 @@
    "correction": "For the unshifted Selmer complex r=−h. For the shifted complex SC[1], whose determinant is the target of the global composite, r=h. Keep the latter in the normalized interpolation formula.",
    "reason": "Under (D2) the special fiber is concentrated in degrees 1,2 and the height B¹ is an isomorphism. Over the T-adic DVR, semisimplicity decomposes the torsion complex into T-blocks in degrees 1,2; each has ordinary cohomology only in degree 2 and contributes (−1)^{2+1}=−1 to BV Definition 3.2. Thus h such blocks have r=−h. Equivalently SC=[R --T→R] in degrees 1,2 has characteristic T⁻¹ with the identity trivialization, so its order is −1, not +1. Shifting negates it.",
    "affects": "a stated result",
-   "known": "No matching correction established in the bounded search; newly recorded here and awaiting independent verification.",
+   "known": "No matching correction established in the bounded search; independently confirmed in revision-2 review.",
    "searched": [
     "2026-10-19: arXiv math/0511672v2 and published EMIS mirror compared at the stated locators; author publication page and bounded title + erratum/correction searches found no accessible matching correction. This is a bounded check, not an exhaustive claim."
    ],
@@ -10713,7 +10947,12 @@
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein",
     "NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Over the T-adic DVR the semisimple Selmer block is [R --T→R] in degrees 1,2. Its sole ordinary cohomology is in degree 2, contributing −1 to the source order; h blocks give −h and shifting gives +h.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   }
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E36",
@@ -10724,7 +10963,7 @@
    "correction": "After the explicit determinant shift D=RΓ_c[1], the given global map is ζ_D:1→d(D), r(D)=−m and c_γ^(−m)[D,ζ_D]^*=L^*_{p,S}(1,ρ). The global map itself is transported, not inverted.",
    "reason": "For rank one let B²=−ℓ/c_γ in bases of H²_c,H³_c. In the inverse line the Bockstein trivialization is −c_γ/ℓ. Formula (21) gives ζ=L^*_S(1,1)ℓ in these same bases. The leading sign is −1, so the pair on D has coefficient c_γ L^*_S(1,1); normalization needs c_γ⁻¹. More generally its value scales by a^m when γ changes to γ^a, while the normalized p-adic residue is generator independent. A factor c_γ^m would scale by a^{2m}. This is the consequence of repairing E28 with the specified shift, not a claim about an already well-typed alternative convention.",
    "affects": "a stated result",
-   "known": "No matching correction established in the bounded search; newly recorded here and awaiting independent verification.",
+   "known": "No matching correction established in the bounded search; independently confirmed in revision-2 review.",
    "searched": [
     "2026-10-19: arXiv math/0511672v2 and published EMIS mirror compared at the stated locators; author publication page and bounded title + erratum/correction searches found no accessible matching correction. This is a bounded check, not an exhaustive claim."
    ],
@@ -10732,7 +10971,104 @@
    "affectedNodes": [
     "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation",
     "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation-rational"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "For B²=−ℓ/c_γ, the inverse determinant has trivialization −c_γ/ℓ. Composing the given ζ=L*ℓ with it and the leading sign yields c_γL*, requiring normalization c_γ^−1. Generator change γ→γ^a scales the raw rank-m term by a^m, confirming the exponent after the stated shift.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E37",
+   "source": "SCHNEIDER-VENJAKOB-AFTER-KAKDE",
+   "kind": "error",
+   "locator": "Author final congruences-final.pdf, Lemma 4.9, pp.28–29; compare the definition of ℒ_V, p.19, and Proposition 4.4, p.22",
+   "printed": "The noncyclic kernel calculation removes the central factor from the denominator, deduces x_U^(p²|U/Z|)=1 and then concludes x_U=1.",
+   "correction": "Keep φ_Z(x_Z^p) in the denominator. After the nontrivial cyclic α factors become 1, the equation is x_U^(p²|U/Z|)=φ_Z(x_Z^p). It implies membership in μ(O)×U^ab using the torsion-free quotient of the abelian unit group, not that x_U is torsion or equals 1.",
+   "reason": "Let G=C_p×Γ and Z=Γ^p, with p odd. The tuple θ(γ) is in ker ℒ because the integral logarithm kills group units. The top subgroup G/Z=C_p² is noncyclic and its component is γ, which has infinite order. The retained-factor equation reads γ^(p⁴)=φ_Z((γ^(p²))^p), which holds; the printed conclusion does not.",
+   "affects": "the proof",
+   "known": "No matching correction established in the bounded search; recorded in this independent review.",
+   "searched": [
+    "2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version."
+   ],
+   "reportedBy": "Codex codex-YQPq9s",
+   "affectedNodes": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The definition of ℒ on p.19 retains φ_Z(x_Z^p); it disappears only in the later kernel display. θ(γ) for C_p×Γ is a kernel element with noncyclic top component γ of infinite order, so the conclusion x_U=1 is false. The revised target keeps the factor and uses the valid quotient argument.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E38",
+   "source": "SCHNEIDER-VENJAKOB-AFTER-KAKDE",
+   "kind": "misprint",
+   "locator": "Author final congruences-final.pdf, §5, p.30, the reduction of B(Z) modulo p",
+   "printed": "The residue of the completed localization B(Z) is identified with O/(p)[[Z]], without localizing the residue ring.",
+   "correction": "For a generator z of Z and T=z−1, B(Z)/pB(Z)=Frac(F_q[[T]])=F_q((T)). The Frobenius statement remains true on this Laurent series field.",
+   "reason": "The central denominator T is regular modulo p and is already inverted in A(Z), hence in its p-adic completion B(Z). Its inverse cannot lie in F_q[[T]]. This is the same missing localization as E20, now at a separate source locator.",
+   "affects": "the proof",
+   "known": "No matching correction established in the bounded search; recorded in this independent review.",
+   "searched": [
+    "2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version."
+   ],
+   "reportedBy": "Codex codex-YQPq9s",
+   "affectedNodes": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The unit T^−1 persists in B(Z)/pB(Z). Thus the identified residue is Laurent rather than a power-series ring; Frobenius still acts by the p-th power on the corrected field.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E39",
+   "source": "ARDAKOV-BROWN-2006",
+   "kind": "misprint",
+   "locator": "arXiv:math/0511345v1, §3.1, Corollary proof, p.5; author IwasawaSurvey.pdf, §3.1, p.5; published Documenta Math. Extra Volume Coates (2006), §3.1, p.11",
+   "printed": "The geometric series 1+c+c²+⋯ is asserted to invert 1−c when the constant coefficient c_0 is nonzero.",
+   "correction": "That geometric-series argument requires c_0=0. A general series with nonzero constant coefficient is a unit by first dividing by that coefficient and applying the corrected argument to its augmentation-zero part.",
+   "reason": "Set c=1. Its constant coefficient is nonzero, but 1−c=0 is not invertible. If c_0=0, powers of c tend to zero in the complete augmentation filtration, giving the claimed inverse and the intended radical description.",
+   "affects": "nothing",
+   "known": "The same sign occurs in all three accessible copies compared; no matching correction established in the bounded search.",
+   "searched": [
+    "2026-10-19: compared arXiv v1, the Ardakov author-hosted IwasawaSurvey.pdf and the published EMIS mirror. Checked the author publication page and bounded paper-title + erratum/correction searches; no accessible correction found."
+   ],
+   "reportedBy": "Codex codex-YQPq9s",
+   "affectedNodes": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The page images and the published copy have c_0≠0. Substituting c=1 disproves the printed unit claim. Changing it to c_0=0 gives a convergent geometric series and the intended proof.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   }
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E40",
+   "source": "SCHNEIDER-VENJAKOB-AFTER-KAKDE",
+   "kind": "misprint",
+   "locator": "Author final congruences-final.pdf, Lemma 4.9 proof, p.29, trace decomposition after the representatives R are chosen",
+   "printed": "The difference g−h is equated to its own index-p trace before that trace is expanded using the coefficients a_u of a chosen preimage.",
+   "correction": "Apply the trace to the chosen preimage Σ_u a_u u, as in the hypothesis of that paragraph and the expansion that follows.",
+   "reason": "The invariant difference has trace p(g−h), so the printed equality is not the consequence of invariance. The preceding choice says g−h=σ(Σ_u a_u u), and the subsequent coefficient sum expands exactly this latter expression. The finite-quotient two-point support argument in the corrected target avoids the erroneous display.",
+   "affects": "nothing",
+   "known": "No matching correction established in the bounded search; recorded in this independent review.",
+   "searched": [
+    "2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version."
+   ],
+   "reportedBy": "Codex codex-YQPq9s",
+   "affectedNodes": [
+    "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The equality to the trace of g−h conflicts with invariance, which gives p(g−h). The following sum is the trace of the previously chosen preimage, so replacing that argument repairs the display.",
+    "by": "REV-NoncommutativeAndEquivariantIwasawa~2"
+   }
   }
  ],
  "sourceVersions": [
@@ -10851,6 +11187,22 @@
    "read": "2026-10-19",
    "sha256": "b51520ee768e209ee472e1b17b0841fe15340bc2a0f704b74507ad2f0ba2e427",
    "scope": "Kakde, Congruences between abelian p-adic zeta functions, Proposition 13.4 and proof, PDF pp.22–23; comparison for E33–E34 only, not the Inventiones version of record."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://people.maths.ox.ac.uk/ardakov/IwasawaSurvey.pdf",
+   "citation": "Ardakov–Brown author-hosted survey, §3.1, p.5",
+   "read": "2026-10-19",
+   "sha256": "f548db03016ac9daa7a426b99de6a35ff41f4e52f810a347bf6c7f17a9635066",
+   "scope": "Independent collation of the §3.1 radical proof for E39; no new claim of a primary uniform-group proof."
+  },
+  {
+   "kind": "published",
+   "url": "https://ftp.gwdg.de/pub/misc/EMIS/journals/DMJDMV/vol-coates/ardakov_brown.pdf",
+   "citation": "Documenta Math. Extra Volume Coates (2006), 7–33, §3.1, p.11",
+   "read": "2026-10-19",
+   "sha256": "d3e800b7ad590a485a98a10bce116d30f024de8aa08e3ffeceb707207df0a1a6",
+   "scope": "Independent collation of the §3.1 radical proof for E39; no new claim of a primary uniform-group proof."
   }
  ],
  "upstreamNotes": [
@@ -10933,685 +11285,690 @@
   ]
  },
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-NoncommutativeAndEquivariantIwasawa",
+  "status": "accepted",
+  "reviewer": "independent-review-REV-NoncommutativeAndEquivariantIwasawa~2",
   "date": "2026-10-19",
-  "notes": "Independent check of all 135 nodes, all 35 baseline declarations, current upstream ownership and all 15 inherited source findings; 17 additional source findings recorded and all 32 reviewed; the published BV copy confirms two inherited defects are already corrected there. Concrete errors corrected in place, with reader/Lean synchronization. Six node verdicts remain unverifiable because the corrected logarithmic exactness, Hilbert weight/cusp proof and typed global-zeta determinant comparison are not established; see the independent report. This is a finished needs_changes review, not a checkpoint.",
+  "notes": "Independent revision-2 review of all 136 nodes, 35 baseline statements, 240 API entries and 186 tests. The earlier six mathematical objections are resolved at target level by the reconstructed logarithm kernel/cokernel, full Möbius/special-cusp route, explicit completed-to-canonical descent and typed shifted global determinant formulas. Ten nodes receive local clarifications or locator corrections. All 36 inherited source findings are independently confirmed; E37–E40 record additional checked slips, including a dropped central factor in the replacement logarithm source. All eight stages remain planned, none closed; 20 explicit gaps and 28 supplier requests remain and are not certified discharged. See the finished independent report for scope and validation.",
   "checked": [
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/uniform-pro-p-group",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Closed power subgroups, the fourth-power condition at 2, finite topological generation and torsion-freeness are separate; finite and trivial examples discriminate them. Primary powerful-to-basis proof remains a gap."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Compactness and an open normal uniform subgroup are retained. The analytic Lie lattice and log/exp stay with the distributions owner."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-free-over-open-subgroup",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite-level left/right coset bases pass compatibly to completion; finite generation transfers in both directions."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p",
-    "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "verdict": "corrected",
+    "note": "The pro-p equivalence is retained; the source note now distinguishes the corrected zero-constant-coefficient geometric-series argument (E39)."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/zariskian-noetherian",
-    "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "verdict": "corrected",
+    "note": "Complete separated filtration, Jacobson condition and both noetherian sides are explicit. Corrected the labels of Venjakob Definition 3.19, Lemma 3.20 and Theorem 3.21."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama",
-    "verdict": "corrected",
-    "note": "Checked the target against its locators and prerequisites; corrected the recorded supplier, example or convention. Existing proof-leaf gaps are not asserted discharged."
+    "verdict": "verified",
+    "note": "Compact topology is substantive; the Q_p example blocks the false unrestricted Nakayama statement. Existing compact actions are imported."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/ordered-uniform-coordinates",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Ordered p-adic powers give a homeomorphism, not a group homomorphism. The primary uniform-basis criterion is not silently supplied by the coordinate statement."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/p-valuation",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Separation, commutator and p-power axioms, finite-rank and saturation hypotheses are distinguished; Schneider §26 is the cleared source."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/ordered-iwasawa-series",
-    "verdict": "corrected",
-    "note": "Checked the target against its locators and prerequisites; corrected the recorded supplier, example or convention. Existing proof-leaf gaps are not asserted discharged."
+    "verdict": "verified",
+    "note": "Ordered monomials and coefficient convergence use the completed ring already owned upstream. Integral coefficients and finite-free ramified base change remain separate."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/uniform-graded-polynomial",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Mod-p augmentation grading is polynomial; integral grading has the extra-powerfulness restriction. The semidirect-product example detects its necessity."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Open uniform subgroup reduction and finite crossed-product transfer support both noetherian sides, without asserting a commutative algebra."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-auslander-regularity",
-    "verdict": "corrected",
-    "note": "Correct Venjakob Definition 3.3 to p.10; separate filtered transfer and ramified coefficient proof leaves remain recorded."
+    "verdict": "verified",
+    "note": "No p-torsion is essential. Björk filtered transfer and the ramified coefficient argument remain named proof leaves."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-finite-global-dimension",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Dimension d+1 over the integer coefficient ring is kept distinct from d after inverting p; finite p-torsion is excluded."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/rational-iwasawa-global-dimension",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Rational coefficient dimension and the extra hypotheses in Venjakob Theorem 3.30 are retained rather than inferred solely from finiteness."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/lazard-exterior-cohomology",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Mod-p exterior cohomology belongs to the uniform-group case. Its continuous cochain/Ext supplier is a precise extension request."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/twisted-module",
-    "verdict": "corrected",
-    "note": "Checked the target against its locators and prerequisites; corrected the recorded supplier, example or convention. Existing proof-leaf gaps are not asserted discharged."
+    "verdict": "verified",
+    "note": "Diagonal left action uses ρ(g); the row evaluation action and left dual conventions are explicitly different. Noncommuting matrices detect a spurious transpose."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-group-homology",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Compact completed Tor and discrete continuous cohomology are distinguished. The compact bar-resolution comparison is requested from its owner."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-set",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The quotient is by the left ideal Λf and finite generation is over Λ(H). T is admitted in the cyclotomic example whereas p is not."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/central-zp-subgroup",
-    "verdict": "corrected",
-    "note": "Choose a pro-p Sylow lift/projective Z_p lift; an arbitrary generator lift can contain a finite prime-to-p factor."
+    "verdict": "verified",
+    "note": "A pro-p Sylow/projective lift avoids an arbitrary generator lift with a prime-to-p factor; the central subgroup is an open power of the chosen Γ."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/quotient-total-algebra",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The mod-p quotient and central total ring preserve finite-group components; it is not presented as a commutative fraction field."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-set-left-criteria",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite generation, finite-dimensional quotient and invertibility in the specified total algebra are compared on the left with their exact ring maps."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-set-right-criteria",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Opposite-ring/involution transport gives the right criteria. It does not assume left/right multiplication commute."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/s-torsion-iff-finitely-generated",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The module is finitely generated over Λ(G); S-torsion then matches Λ(H)-finiteness. The module hypothesis cannot be dropped."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Regularity and both Ore conditions follow the source reductions; p-saturation is a later construction, not the original S."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/nilpotent-transition-kernel",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite p-group augmentation nilpotence is the missing input to the finite quotient transition argument and remains named."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/regular-modulo-prime-radical",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The two-sided noncommutative prime radical is used, with its nilpotence/central quotient compatibility retained as proof leaves."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/saturated-ore-set",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "S* is the union of p-powers times S. Its rationalizing effect and the distinction from the canonical localization survive the examples."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/canonical-localization",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The left-fraction Ore API at the pins has the required orientation; the Iwasawa denominator theorem supplies its stronger hypotheses."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/ore-localization-flat",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Exact localization is asserted on the correct side; a commutative flatness instance is not used for noncommutative coefficients."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite generation over Λ(G) and Λ(H)-finiteness after quotienting p-primary torsion match the S* torsion category."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.1/torsion-perfect-complexes",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "S-acyclic bounded perfect complexes remain the carrier when p-torsion prevents finite resolutions of individual modules."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/k0-complete-quotient",
-    "verdict": "corrected",
-    "note": "Require complete separated I-adic A with I⊆Jac(A), and lift stable isomorphisms as well as idempotents; supplier remains requested."
+    "verdict": "verified",
+    "note": "Complete separated I-adic ring with I in the Jacobson radical is required. Idempotent lifting alone does not replace stable-isomorphism lifting."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/k0-finite-level-injective",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite-level reduction and its radical hypotheses are preserved; the complete-ideal K0 supplier remains an extension."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/k0-representation-injective",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Representation detection is used only after the finite quotient/projective comparison, not for arbitrary module classes."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/homology-torsion",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite generation and the H-homology hypotheses give torsion cyclotomic homology. The compact homology supplier remains explicit."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/twist-preserves-MHG",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite coefficient lattices and the specified diagonal twist preserve the stated module category through coefficient base change."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/canonical-localization-semilocal",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The claim is about the canonical S-localization, not arbitrary S* localizations; the semilocal unit theorem is separately requested."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The determinant category/localized characteristic construction is a contract at its owner, absent at the pins. No fake Lean carrier is introduced."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/relative-perfect-class",
-    "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "verdict": "corrected",
+    "note": "Triple and complex models retain ∂[s]=[Λ/Λs] and ∂ch(C,a)=−[C]. Corrected the Kakde locator to §2.2, pp.6–8."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The relative perfect fibre and Ore localization input are explicit requests. The torsion-module model is restricted to finite-projective-dimension cases."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-map",
-    "verdict": "corrected",
-    "note": "General localized classes are differences of integral matrix classes; T⁻¹ rules out the former single-integral representative. Restrict naturality to denominator-preserving derived comparisons."
+    "verdict": "verified",
+    "note": "The boundary sign is fixed by the regular denominator two-term complex and is natural under admitted coefficient maps."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "K0 injectivity supplies surjectivity under the stated no-p-torsion route; it is not used to dismiss the separate p-torsion argument."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Characteristic lifts form an integral-K1 ambiguity class and do not by themselves choose a normalized arithmetic zeta element."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/units-surject-k1",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Associative semilocal units surject onto K1. No isomorphism with all units, or general commutative determinant theorem, is asserted."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/commutative-cyclic-comparison",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Characteristic series are compared up to units with explicit cohomological signs; normalized zeta equality needs more data."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective-p-torsion",
-    "verdict": "corrected",
-    "note": "The localized-isomorphism argument uses torsion-freeness of the domain projective, and must respect noncentral linearity."
+    "verdict": "verified",
+    "note": "Kakde Lemma 5 supplies the K0 argument with p-torsion allowed. It uses perfect classes rather than unavailable finite resolutions of X."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/twist-homomorphism",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The ring map sends g to ρ(g) times its Γ image; representation degree appears in scalar determinants."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/twist-extends-to-localisation",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Invertibility of denominator matrices is proved through the specified scalar/total quotient targets before invoking the universal property."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation",
-    "verdict": "corrected",
-    "note": "Direct-sum multiplication holds for rational functions; augmented values need defined products, excluding 0·∞."
+    "verdict": "verified",
+    "note": "The evaluation has its partial domain and coefficient norm. A nonzero matrix determinant is not equated with augmentation at a pole."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/akashi-series",
-    "verdict": "corrected",
-    "note": "Add no-p-torsion/bounded-homology hypothesis before the finite alternating product; C_p×Γ with F_p is a counterexample to automatic boundedness."
+    "verdict": "verified",
+    "note": "Alternating characteristic series of H-homology use the same compact/discrete and coefficient conventions as the comparison theorem."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram",
-    "verdict": "corrected",
-    "note": "The Morita row action is vρ(g); the printed additional transpose reverses multiplication. Derive the contragredient comparison with this action."
+    "verdict": "verified",
+    "note": "The comparison uses the contragredient representation and the forward cyclotomic substitution. E16 and E29 prevent reversed actions."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation",
-    "verdict": "corrected",
-    "note": "Checked the target against its locators and prerequisites; corrected the recorded supplier, example or convention. Existing proof-leaf gaps are not asserted discharged."
+    "verdict": "verified",
+    "note": "Finite Euler characteristic corresponds to a nonzero specialized characteristic value, with the field-degree absolute-value exponent retained."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-integral",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Integrality and nonvanishing hypotheses are explicit; conclusions are not extended across zero/pole specializations."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/artin-formalism-euler",
-    "verdict": "corrected",
-    "note": "Correct Theorem 3.10 to printed p.183/PDF p.21; source hypotheses otherwise match."
+    "verdict": "verified",
+    "note": "Induction, products and quotient compatibility use finite-index and homological finiteness hypotheses; generic induction stays upstream."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/gl2-euler-example",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The X1(11) arithmetic data are a conditional worked application of the named table, not a reproduced numerical theorem."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/characteristic-element-integrality-conjecture",
-    "verdict": "corrected",
-    "note": "With Φ_ρ(g)=ρ(g)ḡ, scalar twisting substitutes a(1+T)−1. Keep integral values as well as pole avoidance; p⁻¹ defeats the latter alone."
+    "verdict": "verified",
+    "note": "The general assertion remains a conjectural predicate. Supporting Kato/source cases are recorded as evidence leaves."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Integral finite-level SK1 and its image after localization are the definitions used for K1-prime; they are not total-quotient SK1."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/semisimple-total-quotient",
-    "verdict": "corrected",
-    "note": "Checked the target against its locators and prerequisites; corrected the recorded supplier, example or convention. Existing proof-leaf gaps are not asserted discharged."
+    "verdict": "verified",
+    "note": "A central open Z_p subgroup gives a finite twisted algebra over the central fraction field. This is distinct from S-localization and Λ[1/p]."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/reduced-norm-sk1-comparison",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Reduced norm uses the existing owner and retains each simple factor’s center; uniqueness requires control of the appropriate kernel."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-functoriality",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Norm, induction, quotient, direct sum and coefficient compatibilities use the same evaluation conventions; no unconditional injectivity follows."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module",
-    "verdict": "corrected",
-    "note": "Request the missing restriction/control finiteness theorem from Selmer L2 instead of inferring it from the base Selmer rank."
+    "verdict": "verified",
+    "note": "Pontryagin dual, compact topology and local control terms remain explicit. Finiteness at a base field alone does not prove tower finiteness."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/mh-conjecture-and-mazur",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The M_H condition is conjectural in its stated elliptic scope; it is not inferred from the later main conjecture without hypotheses."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/mh-criteria",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The CFKSV sufficient conditions retain their arithmetic inputs as named gaps rather than treating quoted CM results as proved here."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/admissible-extension",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Totally real, cyclotomic, finite ramification, p-adic Lie and μ conditions remain distinct; admissible does not imply torsion-free G."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex",
-    "verdict": "corrected",
-    "note": "State K/F Galois when Gal(K/F) is used; keep the explicit arithmetic perfectness/base-change input."
+    "verdict": "verified",
+    "note": "The dual Galois complex has degrees −1,0, and is distinguished from compact support. Perfection with p-torsion remains the requested Fukaya–Kato theorem."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/equivariant-compact-support",
     "verdict": "corrected",
-    "note": "The generic cyclotomic-containing compact-support construction is not restricted to the totally real admissible setting."
+    "note": "The shifted global-to-local cone retains real invariants at odd p and all local comparisons. Corrected its Kakde comparison locator to §2.3, p.11."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/equivariant-perfect-base-change",
-    "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "verdict": "corrected",
+    "note": "Bounded finitely generated cohomology plus finite global dimension gives the restricted perfection route. Corrected the arithmetic base-change locator."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.4/real-two-primary-correction",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Real complete Tate cochains are a separate p=2 contract. Ordinary real compact support is not called bounded perfect."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-padic-l-function-conjecture",
-    "verdict": "corrected",
-    "note": "Retain the imprimitive Euler factors even for trivial ρ; the primitive MSD value needs a further equality of those factors to1."
+    "verdict": "verified",
+    "note": "Periods, local factors, contragredient and interpolation range are specified without asserting analytic existence."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture",
-    "verdict": "corrected",
-    "note": "Remove misleading uses presenting totally real Tate-motive theorems as proved instances for the elliptic GL₂ motive."
+    "verdict": "verified",
+    "note": "The interpolation and characteristic-class boundary requirements are separate contracts; the arithmetic sign convention is fixed."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-consequences",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Consequences retain the existence, module-category and evaluation hypotheses; a conjectural definition does not supply them."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-example-x1-11",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Quoted Dokchitser–Dokchitser values test consistency with the conjecture, conditional on their table."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The source target is in localized K1-prime, with boundary −[C], odd p and μ=0. This does not assert K1 uniqueness."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/zeta-interpolation-contract",
-    "verdict": "corrected",
-    "note": "Replace nonexistent Kakde Conjecture10 with Theorem11 p.13 and §2.4 p.12; this remains a contract, not existence."
+    "verdict": "verified",
+    "note": "Normalized element, interpolation, boundary and uniqueness group are separately specified, with poles handled only by the later descent contract."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/zeta-functoriality",
-    "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "verdict": "corrected",
+    "note": "Quotient base change, open-subgroup norm and induced L-values are compatible with the fixed sign. Corrected equation (1) to §2.3, p.11."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.5/abelian-normalization-comparison",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Matching ideals is insufficient; periods, Euler factors, actions and determinant trivializations are demanded from the abelian supplier."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The unramified character components and μ=0 unit criterion match Kakde §§3; component localization injectivity is retained for patching."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching",
     "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "note": "Made the component localization injections hypotheses of the whole criterion, so its intersection is a subgroup intersection and the integral preimages and uniqueness are justified."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "Compatible finite-kernel quotients and their uniqueness/injectivity hypotheses support the inverse limit; no higher-dimensional completed theorem is substituted."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "Dress–Wall finite-order K1 input and Artin induction are distinct requested suppliers; the one-dimensional and odd-p restrictions remain."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "The l≠p split reduction, coefficient cases and pro-p root extraction are stated within the source hypotheses; finite Whitehead imports remain gaps."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "Character-factor decomposition uses the unramified coefficient fields and stabilizers, retaining the finite-order K-theory inputs."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation",
-    "verdict": "corrected",
-    "note": "Use componentwise regular denominator sets for product coefficients and request the central-ring twisted-algebra extension from its existing owner."
+    "verdict": "verified",
+    "note": "Carry cocycle, inverse carry and componentwise denominators are correct. Generic central-ring twisted algebras are requested at the existing owner."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "M1–M4 keep all subgroups, trace ideals, the special identity component and odd unramified coefficients; tests detect missing scalar norms and carries."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta",
     "verdict": "corrected",
-    "note": "A1’s cyclic trace vanishing requires P<P′; η₁=id, with averaging restricted to nontrivial cyclic P. Trivial and C_p tests detect both errors."
+    "note": "η_1=id and strict cyclic trace vanishing are retained. Corrected the proof sentence to reindex the full conjugate sums before applying the relative trace."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "δβ=id, trace integrality and cyclic/noncyclic injectivity give the additive image; A1/A2 after rationalization do not omit A3 for integral recovery."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/iwasawa-algebra-logarithm",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "Convergence and integrality are restricted by the stated ideal hypotheses. Finite Oliver inputs are not claimed to have been read."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm",
-    "verdict": "corrected",
-    "note": "Use F_q((T)) as the residue of the completed central localization and preserve odd-p/unramified coefficient hypotheses."
+    "verdict": "verified",
+    "note": "Finite-level exactness passes through compact compatible groups; completion has Laurent residue. Frobenius applies to v^k in the divisibility calculation."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "Norm/log and Frobenius/trace identities retain the p²|P| factor for noncyclic P and the extra φ(x_1) at the identity component."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence",
-    "verdict": "unverifiable",
-    "note": "Scalar embeddings require ζ^[G:U_P], and ω_ψ=ω_Aδ. The corrected finite-level/limit kernel and cokernel argument is still unproved; calling completed group units torsion is false."
+    "verdict": "corrected",
+    "note": "The corrected kernel/cokernel proof works relative to the finite-log supplier. Retains the central factor, uses the torsion-free quotient and trace rigidity, and defines ω as ω_Aδ; E37 records the replacement source’s intermediate error."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "The five-lemma ladder now has the corrected scalar embedding, kernel and cokernel maps; integral and completed image inclusion are kept distinct."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/k1-injects-localisation",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "The one-dimensional injection follows from the corrected image theorem. The general coefficient/reduction proof obligation remains explicitly recorded."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Abelian main conjectures, character induction, boundary surjectivity and the integral image theorem are all inputs to the canonical-localization criterion."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-m1-m2",
-    "verdict": "corrected",
-    "note": "Retain the source’s odd-prime and coefficient restrictions; checked target and discriminating examples. Existing prerequisite/source leaves remain explicitly open."
+    "verdict": "verified",
+    "note": "Norm and conjugation identities follow from interpolation with the same truncation and coefficient actions; they do not supply M3/M4."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Coset characteristic functions, local constancy, parity, norm and truncation are fixed before forming smoothed values."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/deligne-ribet-approximation",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite quotient approximations retain their p-power modulus and coefficient norm weights; smoothing is not an inverse to all localization maps."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-reduction",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The same fixed g must work for every test function. Stabilizer divisibility is exactly the finite permutation trace condition before inverse limits."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/hilbert-eisenstein-toolkit",
-    "verdict": "corrected",
-    "note": "Restriction multiplies weight by the relative field degree, not the absolute degree over Q."
+    "verdict": "verified",
+    "note": "Restriction has relative-degree weight, U has the standard coefficient formula, and arbitrary-cusp constant terms require a separate calculation."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/transfer-image-not-generator",
-    "verdict": "corrected",
-    "note": "Use the order of gP in the quotient for transfer orbit lengths, not the order of g."
+    "verdict": "verified",
+    "note": "Orbit lengths use ord(gP). With that correction, the maximal-cyclic transfer image is proper, including the indicated finite p-group case."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-values",
-    "verdict": "unverifiable",
-    "note": "Normalizer restrictions have relative weight [N:P]k. Correct cusp powers are specified, but the Hecke/cusp/orbit comparison and omitted (29) argument remain unresolved."
+    "verdict": "verified",
+    "note": "The full subgroup stabilizer Möbius sum, common relative weight and special-cusp identity establish the finite-conductor congruence. No uniform-g passage is smuggled in."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruences",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The exact RW uniform-g theorem is used with its separate proof-audit gap; common smoothing factors are cancelled only where cyclotomic norm proves invertibility."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/enlarged-extension",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The field and trace-ideal construction remains a separate recorded route; total-reality and finite-p-extension μ transfer are still proof leaves."
+   },
+   {
+    "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/completed-zeta-canonical-descent",
+    "verdict": "verified",
+    "note": "An actual completed multiplicative preimage, abelian boundary comparison, modulo-p^n trace contraction and integral θ lifting give canonical descent. No inverse completion map is assumed."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/m4-from-basic-congruences",
-    "verdict": "corrected",
-    "note": "Change log r to r−1, propagate its sign through the first-order terms, and distinguish the final Γ/Z^p norm from η₁."
+    "verdict": "verified",
+    "note": "M4 is recovered by the independent RW completed construction and canonical descent, replacing the invalid cyclic-overgroup analytic argument."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-in-phi",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "M1/M2, index-p M3 and descended M4 assemble the tuple. The original and enlarged extensions are not identified without maps."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/kakde-main-theorem",
-    "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "verdict": "corrected",
+    "note": "The main target is unchanged after replacing its analytic branch. Corrected its locator to §2.5, Theorem 11, p.13."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/rw-logarithmic-pseudomeasure",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The additive cocenter/character object lives over the completed central localization; it is neither the canonical ring nor a multiplicative zeta class."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/rw-mobius-congruences",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The algebraic unit congruence and analytic pseudomeasure congruence are distinct. Full subgroup multiplicities and the torsion input are preserved."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/rw-logarithmic-integrality",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The logarithmic converse needs the separate torsion congruence. It does not identify the refined RW boundary with the dual arithmetic complex."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/rw-main-theorem",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finite-over-cyclotomic, totally real, odd-p and μ=0 scope is retained. Existence gives a completed multiplicative preimage but not total-K1 uniqueness."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/rw2026-conditional-sk1-reduction",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The explicit cyclic division-algebra family and universal SK1 premise are retained. Theorem 1A is a conditional reduction, not a vanishing proof."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.6/unconditional-abelian-minus-main-theorem",
-    "verdict": "corrected",
-    "note": "Correct Proposition7.10 to p.37 and distinguish its μ-free duality (2) from the μ=0 Tate-module comparison (3)."
+    "verdict": "verified",
+    "note": "The S,T and root-of-unity conditions match the minus Fitting theorem. The covariant dual comparison to the Tate module still needs μ=0."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/bockstein-homomorphism",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The connecting morphism uses T=γ−1 and cohomological degrees; changing γ scales the Bockstein inversely by its linear coefficient."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Rational Bockstein acyclicity, rather than an extension-closed category, defines the admitted class. A T² block is a discriminating non-example."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/canonical-trivialization",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The determinant of the acyclic rational Bockstein complex trivializes the indicated line; inverse lines invert that trivialization."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The pair is typed a:1→d(C), with sign (−1)^r and explicit semisimplicity and coefficient hypotheses."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-characteristic-series",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Order and coefficient agree with the Laurent series on semisimple complexes. The degree −1,0 T-block has order −1."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-canonical-localization",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Derived Artin specialization and the admitted localized determinant functor precede scalar leading terms; the missing Fukaya–Kato theorem remains a supplier leaf."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/partial-derivative-interpretation",
-    "verdict": "corrected",
-    "note": "Impose semisimplicity at ρ for the complex’s r_G/leading-term comparison; scalar Laurent differentiation has its separate scope."
+    "verdict": "verified",
+    "note": "The scalar derivative formula is distinguished from the complex’s order. The latter needs semisimplicity at the representation."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/generalized-euler-characteristic",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Finiteness and the Bockstein construction control the absolute-value formula; no finite ordinary Euler characteristic is asserted at a pole."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism",
-    "verdict": "unverifiable",
-    "note": "The inverse determinant target is recorded accurately, but its stated leading-term use is unresolved until the shifted/dual comparison is typed."
+    "verdict": "verified",
+    "note": "The conjectural global map has inverse compact-support determinant as codomain. Its use is explicitly transported to C[1], preserving the given map."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/leopoldt-tate-motive-descent",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "Leopoldt and the relevant regulator rank are hypotheses; the compact-support cohomology degrees and Bockstein sign match the later shifted pair."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-conjecture",
-    "verdict": "corrected",
-    "note": "The regulator µ_p is a linear map, with invertibility/nonzero determinant required on the relevant component, rather than an unconditional isomorphism."
+    "verdict": "verified",
+    "note": "The regulator is a map with invertibility as a condition, not an unconditional isomorphism. Period and complex-embedding choices are fixed."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-permutation-case",
-    "verdict": "corrected",
-    "note": "Use the minimally p-truncated residue formula and retain additional Euler factors for general S."
+    "verdict": "verified",
+    "note": "The minimally p-truncated residue comparison is used with Leopoldt; additional S factors are retained explicitly."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation",
-    "verdict": "unverifiable",
-    "note": "The global zeta map lands in d(C)⁻¹, while [C,a] requires a:1→d(C). Source p.26 does not type that identification; order and normalization need reconciliation."
+    "verdict": "verified",
+    "note": "On D=C[1], boundary is +[C], order −m and normalization c_γ^−m. The rank-one scalar and generator-change computations agree."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation-rational",
-    "verdict": "unverifiable",
-    "note": "The Q-valued Artin-induction repair is retained, but the normalized leading term inherits the unresolved determinant-orientation problem."
+    "verdict": "verified",
+    "note": "Artin induction requires Q-valued characters and retains the integer multiple. It is not extended to all Q_p-valued characters or characterized by n=1."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/local-epsilon-isomorphism",
-    "verdict": "corrected",
-    "note": "Checked the target against its locators and prerequisites; corrected the recorded supplier, example or convention. Existing proof-leaf gaps are not asserted discharged."
+    "verdict": "verified",
+    "note": "The Γ*(j) residues and local epsilon contract have their precise unproved inputs; no fake analytic carrier enters the suggested Lean."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/dabrowski-panchishkin-selmer-complexes",
-    "verdict": "corrected",
-    "note": "Use D_dR(Ŵ)≅t_p(W) with Fil⁰D_dR(Ŵ)=0, and W=V_p(A) for h¹(A)(1). Replace the false split-multiplicative B1 witness by the explicit Tate-curve computation: B1 holds, C1 fails (E31)."
+    "verdict": "verified",
+    "note": "The corrected D_dR(Ŵ)→t_p(W) condition has zero Fil^0. Berger’s Tate-curve computation distinguishes B1 from C1."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "A nondegenerate height gives B¹; over the T-adic DVR the unshifted Selmer order is −h and the shift has +h."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation",
-    "verdict": "unverifiable",
-    "note": "Add (D2) or the named regulator comparison and semisimplicity at ρ. The source’s opposite Selmer determinant targets still prevent a typed normalized leading term."
+    "verdict": "verified",
+    "note": "D2 or the named regulator equivalence and semisimplicity are explicit. The inverse Selmer line on SC[1] contributes the height determinant with the computed sign."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/fitting-order",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The base is an admitted integrally closed complete local commutative domain and the algebra is finite separable semisimple; higher-dimensional arbitrary Iwasawa rings are excluded."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/fitting-integrality-denominators",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The integrality ring, denominator ideal and generalized adjoint are separate. Reduced norms alone do not imply integral annihilation."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/maximal-noncommutative-fitting",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The invariant is maximal over presentations, not one arbitrary minor ideal. The matrix-order zero-module test distinguishes them."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/fitting-characteristic-class",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The square finite-free presentation and projective-dimension hypotheses justify comparing a characteristic reduced norm to the maximal invariant."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/fitting-annihilation",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The denominator ideal multiplies the Fitting invariant before giving a central annihilator; the uncorrected reduced-norm statement is not asserted."
    },
    {
     "nodeId": "NoncommutativeAndEquivariantIwasawa:NE.7/exceptional-euler-leading-term",
     "verdict": "verified",
-    "note": "Target, hypotheses, source match, prerequisites and (where present) API/tests checked. This verdict does not discharge the separately recorded supplier or primary-source proof leaves."
+    "note": "The scalar Laurent factor contributes (−1)^e. Arithmetic use retains the factorization, semisimplicity and regulator inputs as explicit obligations."
    }
   ]
  },
@@ -11620,8 +11977,8 @@
   "issue": 10835,
   "agent": "Codex codex-tsn0Xi",
   "date": "2026-10-19",
-  "status": "awaiting-independent-review",
+  "status": "independently-reviewed",
   "reviewBase": "REV-NoncommutativeAndEquivariantIwasawa",
-  "note": "The review object and per-node verdicts are the unchanged independent verdicts on the previous input. They do not review this revision. The handoff identifies every replacement and retained source/supplier leaf."
+  "note": "Revision 2 is independently reviewed by REV-NoncommutativeAndEquivariantIwasawa~2. The prior needs_changes report remains the historical verdict on the previous input; the current review object and 136-node ledger describe this revised packet. All eight layers remain planned and their source/supplier gaps remain open."
  }
 }
