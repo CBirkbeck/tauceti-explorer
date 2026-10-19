@@ -64,6 +64,34 @@ noncomputable def SymbolCandidate.tame (P : Place k K) (α : SymbolCandidate K) 
     P.ResidueFieldˣ :=
   α.prod fun fg n => tameValue P fg.1 fg.2 ^ n
 
+/-- Orientation witness: a unit followed by a uniformiser gives its residue; reversing the
+arguments gives the inverse residue (README §7.1, with residue `2` the values are `2` and `1/2`). -/
+example (P : Place k K) (u t : Kˣ) (hu : P.ord (u : K) = 0)
+    (ht : P.ord (t : K) = 1) :
+    tameValue P u t = P.residueUnit u hu ∧
+      tameValue P t u = (P.residueUnit u hu)⁻¹ := by
+  constructor
+  · simp [tameValue, hu, ht]
+  · simp [tameValue, hu, ht, P.residueUnit_inv]
+
+/-- Sign witness: two copies of a uniformiser have tame value `−1`, including in characteristic
+ two where this is one. -/
+example (P : Place k K) (t : Kˣ) (ht : P.ord (t : K) = 1) :
+    tameValue P t t = -1 := by
+  simp [tameValue, ht]
+
+/-- A two-term candidate records integer multiplicities: its tame value is a quotient. -/
+example (P : Place k K) (f g h : Kˣ) :
+    SymbolCandidate.tame P (Finsupp.single (f, g) 1 - Finsupp.single (f, h) 1) =
+      tameValue P f g / tameValue P f h := by
+  classical
+  rw [SymbolCandidate.tame, sub_eq_add_neg, Finsupp.prod_add_index']
+  · simp [Finsupp.prod_neg_index, div_eq_mul_inv]
+  · intro a
+    exact zpow_zero _
+  · intro a n m
+    exact zpow_add _ _ _
+
 end TameValue
 
 section TwistedFrobenius
@@ -118,8 +146,7 @@ theorem tame_last_point {k K : Type*} [Field k] [Field K] [Algebra k K]
     SymbolCandidate.tame P₀ α = 1 := by
   sorry
 
-/-- **Bloch's correction** (README §7.6; Bloch, CRM Monograph 11, Proposition 10.1.1; Young,
-Lemma 3.1). Let `T` be a finite group of rational points of an elliptic curve killed by `C`, let
+/-- **Bloch's correction** (README §7.6; algebraic extension of Young, Lemma 3.1). Let `T` be a finite group of rational points of an elliptic curve killed by `C`, let
 `f, g` have zeros and poles only at points of `T`, let `f_P` have divisor `C(P) − C(O)` for each
 non-zero `P ∈ T`, and let `c_P ∈ F^×` be the tame value of `{f, g}` at `P`. Then
 `C{f, g} + Σ_{0 ≠ P ∈ T} {f_P, c_P}` has trivial tame value at every place. The finset `S` lists the
@@ -127,7 +154,7 @@ non-zero points of `T`. -/
 theorem blochCorrection {F : Type*} [Field F] [DecidableEq F]
     (W : WeierstrassCurve.Affine F) [W.IsElliptic] (T : AddSubgroup W.Point)
     (S : Finset W.Point) (hS : ∀ P, P ∈ S ↔ P ∈ T ∧ P ≠ 0)
-    (C : ℕ) (hC : ∀ P ∈ T, C • P = 0) (f g : W.FunctionFieldˣ)
+    (C : ℕ) (hCpos : 0 < C) (hC : ∀ P ∈ T, C • P = 0) (f g : W.FunctionFieldˣ)
     (hsupp : ∀ Q : Place F W.FunctionField,
       (Q.ord (f : W.FunctionField) ≠ 0 ∨ Q.ord (g : W.FunctionField) ≠ 0) →
         ∃ P ∈ T, Q = (W.pointEquivDegreeOnePlace P : Place F W.FunctionField))
@@ -200,6 +227,13 @@ example (i : ℕ) : (0 : WeierstrassCurve.Affine.Point (W.baseChange L)) ∈
     twistedFrobeniusKernel W L i :=
   (twistedFrobeniusKernel W L i).zero_mem
 
+/-- A nonzero point killed by the characteristic cannot pass the prime-to-characteristic
+condition, even if Frobenius fixes it (README §5.10, the rational 2-torsion example). -/
+example {i : ℕ} {P : WeierstrassCurve.Affine.Point (W.baseChange L)}
+    (hp : ringChar k • P = 0) (hP : P ≠ 0) : P ∉ twistedFrobeniusKernel W L i := by
+  intro h
+  exact hP (eq_zero_of_mem_twistedFrobeniusKernel_of_char_smul W L h hp)
+
 end Layer5
 
 /-! ## Layer 6: Regular models over S-integers and the integral part -/
@@ -216,7 +250,7 @@ variable (O F : Type u) [CommRing O] [Field F] [Algebra O F]
 Conrad, *Minimal models for elliptic curves*, Definition 3.1): a proper flat `O`-scheme with
 regular local rings and a fixed identification of its generic fibre with `C`. The marking is part
 of the data. -/
-structure RegularProperModel (C : Scheme.{u}) where
+structure RegularProperModel (C : Scheme.{u}) (toField : C ⟶ Spec (CommRingCat.of F)) where
   /-- The total scheme. -/
   X : Scheme.{u}
   /-- The structure morphism to the base. -/
@@ -229,19 +263,30 @@ structure RegularProperModel (C : Scheme.{u}) where
   regular : ∀ x : X, IsRegularLocalRing (X.presheaf.stalk x)
   /-- The marking: the generic fibre is identified with `C`. -/
   genericIso : pullback toBase (Spec.map (CommRingCat.ofHom (algebraMap O F))) ≅ C
+  /-- The marking is an isomorphism over the fraction field, not just of underlying schemes. -/
+  genericIso_over : genericIso.hom ≫ toField = pullback.snd _ _
 
 namespace RegularProperModel
 
-variable {O F} {C : Scheme.{u}}
+variable {O F} {C : Scheme.{u}} {toField : C ⟶ Spec (CommRingCat.of F)}
 
 /-- The inclusion of the marked generic fibre. -/
-noncomputable def genericFibreInclusion (M : RegularProperModel O F C) : C ⟶ M.X :=
+noncomputable def genericFibreInclusion (M : RegularProperModel O F C toField) : C ⟶ M.X :=
   M.genericIso.inv ≫ pullback.fst _ _
+
+/-- The marked generic-fibre inclusion is over the fixed structure morphism of `C`.
+This would fail for a scheme isomorphism that twists the fraction field (README §6.1). -/
+example (M : RegularProperModel O F C toField) :
+    M.genericFibreInclusion ≫ M.toBase =
+      toField ≫ Spec.map (CommRingCat.ofHom (algebraMap O F)) := by
+  dsimp [genericFibreInclusion]
+  rw [Category.assoc, pullback.condition, ← Category.assoc, ← M.genericIso_over]
+  simp
 
 /-- A morphism of marked models (README §6.3): an `O`-morphism of total schemes inducing the
 identity of `C`. -/
 @[ext]
-structure Hom (M N : RegularProperModel O F C) where
+structure Hom (M N : RegularProperModel O F C toField) where
   /-- The underlying morphism of total schemes. -/
   hom : M.X ⟶ N.X
   /-- It lies over the base. -/
@@ -250,26 +295,26 @@ structure Hom (M N : RegularProperModel O F C) where
   generic : M.genericFibreInclusion ≫ hom = N.genericFibreInclusion
 
 /-- The identity morphism of a marked model. -/
-def Hom.id (M : RegularProperModel O F C) : Hom M M where
+def Hom.id (M : RegularProperModel O F C toField) : Hom M M where
   hom := 𝟙 M.X
   hom_toBase := Category.id_comp _
   generic := Category.comp_id _
 
 /-- Outgoing minimality (README §6.3; Conrad, Definition 3.8): every model morphism out of `M` is
 an isomorphism of total schemes. -/
-def IsMinimal (M : RegularProperModel O F C) : Prop :=
-  ∀ (N : RegularProperModel O F C) (f : Hom M N), IsIso f.hom
+def IsMinimal (M : RegularProperModel O F C toField) : Prop :=
+  ∀ (N : RegularProperModel O F C toField) (f : Hom M N), IsIso f.hom
 
 /-- Between two marked regular proper models over a Dedekind domain there is at most one model
 morphism: the source is reduced, its generic fibre is dense by flatness, and the target is separated
 (README §6.3; Mathlib's `ext_of_isDominant_of_isSeparated`). -/
 theorem Hom.subsingleton [IsDedekindDomain O] [IsFractionRing O F]
-    (M N : RegularProperModel O F C) : Subsingleton (Hom M N) := by
+    (M N : RegularProperModel O F C toField) : Subsingleton (Hom M N) := by
   sorry
 
 /-- A marked model has no model endomorphism other than the identity, although its total scheme
 can have other automorphisms (the elliptic involution of `37a1` does not preserve the marking). -/
-example [IsDedekindDomain O] [IsFractionRing O F] (M : RegularProperModel O F C)
+example [IsDedekindDomain O] [IsFractionRing O F] (M : RegularProperModel O F C toField)
     (f : Hom M M) : f = Hom.id M :=
   (Hom.subsingleton M M).elim f (Hom.id M)
 
@@ -363,20 +408,24 @@ The following README targets need carriers that neither Mathlib nor Tau Ceti has
 commits, and are stated only in the README.
 
 * The Weierstrass scheme `E_W` (ModularCurves' `projModel`): Layer 1 (`EllipticScheme.charts`,
-  `EllipticScheme.cover`, `geometricallyIntegral`, `isRegular`, `functionFieldEquiv`,
-  `closedPointEquivPlace`, `pointsEquiv`, `Isogeny.toSchemeHom`, `zeroHom`).
+  `EllipticScheme.cover`, `geometricallyIntegral`, `isRegular`, `closedPointEquivPlace_compat`,
+  `pointsDivisor_compat`, `Isogeny.toSchemeHom`, `zeroHom`).
 * K-groups of schemes, their pullback and pushforward: Layers 2–6 (`K0Curve.*`, `eulerChar`,
-  `pushforwardToBase`, `classGroupEquivPic`, `picardDecomposition`, `lineBundleDescent_*`,
+  `pushforwardToBase`, `classGroupEquivPic_functionField`, `picardDecomposition`, `lineBundleDescent_*`,
   `rankDet_ringEquiv`, `K0Elliptic.addEquiv`, `curveLocalisation`, `curveBoundary_two_eq_tame`,
   `curveLocalisation_restrict`, `_pullback`, `_transfer`, `K2_curve_injective_rat`,
   `K2_curve_injective_finite`, `curveSK1` and its API, `basePoint_*`, `curveConiveau`,
-  `curveK3_extension`, `weightComponent` and its API, `K3ind_eq_weight_two`, `KPullback`,
+  `curveK3_extension`, `regularCurveMotivicTower` and its layer, convergence, Adams and
+  smooth-comparison API, `weightComponent` and its API, `K3ind_eq_weight_two`, `KPullback`,
   `KPushforward`, `isogeny_pushPull`, `pushforwardStructureSheaf_class`, `isogeny_rankDet_action`,
   `projectiveLine_K`, `harder`, `geometricK_galoisModule`, `positiveK_descent`,
   `finiteFieldK_odd`, `finiteFieldK_even`).
 * `K_n` of fields, Milnor K-theory and étale cohomology: `BMS_functionField`,
-  `reciprocitySequence_exact`, `tameKernel_finite`, `geisserLevine`, `cohomologyDescent`,
-  `SymbolCandidate.toK2`, `SymbolCertificate.sound`, `blochClass` and its well-definedness,
+  `reciprocitySequence_exact`, `tameKernel_finite`, `geisserLevine`, `geisserLevine_filteredColimit`, `cohomologyDescent`, `closedPoints_coprimeDegrees`, `degreeOneZeroCycle`,
+  `zeroCycle_splitting`,
+  `SymbolCandidate.toK2`, `SymbolCertificate.sound`, `blochClassLift`, `blochClass` and its well-definedness,
+  `blochClass_eq_Bloch` (the source-comparison gap),
+  `blochRho`, `torsionFunction_divisor_compat`,
   `transfer_tame`, `galoisDescent`.
 * The positive-genus theorems on regular models, which need the genus of the generic curve, and
   the integral part of `K₂`: Layer 6 (`exists_regularProperModel`, `exists_locallyMinimal`,
