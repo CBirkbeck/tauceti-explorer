@@ -79,6 +79,13 @@ theorem derived_stabilizer_commutator {p n : ℕ} [Fact p.Prime] :
       UpperUnitriangularGroup.superdiagonalSubgroup (R := ZMod p) (n := n + 1) 4 := by
   sorry
 
+/-- M.4 regression: in size five the derived stabilizer is already nonabelian.
+The README witnesses this by [e₀₂(1), e₂₄(1)] = e₀₄(1). -/
+example {p : ℕ} [Fact p.Prime] :
+    ∃ g h : UpperUnitriangularGroup.superdiagonalSubgroup
+      (R := ZMod p) (n := 5) 2, ⁅g, h⁆ ≠ 1 := by
+  sorry
+
 /-- M.3: the strict inequality is essential, in particular at p=3,n=6. -/
 theorem derived_stabilizer_exponent_bound {p n m : ℕ} [Fact p.Prime]
     (hbound : n < 2 * p ^ m)
