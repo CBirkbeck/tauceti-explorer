@@ -106,6 +106,18 @@
         "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
         "provides": "Every element of kˣ lifts to an actual valuation-ring unit.",
         "checked": "Declaration and surrounding hypotheses read at the recorded pins on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Rat.padicValuation",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "The p-adic valuation ℚ→ℤᵐ⁰, requiring Fact p.Prime; the concrete tests use p=5.",
+        "checked": "Declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; the elaboration build source agrees byte-for-byte with that revision."
+      },
+      {
+        "ref": "mathlib:Rat.surjective_padicValuation",
+        "module": "Mathlib/NumberTheory/Padics/PadicNumbers.lean",
+        "provides": "Surjectivity of this valuation for prime p, supplying the native adapter input in the concrete tests.",
+        "checked": "Declaration and surrounding hypotheses read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-19; the elaboration build source agrees byte-for-byte with that revision."
       }
     ]
   },
@@ -206,22 +218,32 @@
           "statement": "The field value of U_π(f) is fπ^(−ord_v(f)); equivalently f=π^ord_v(f) U_π(f). This equation uniquely characterizes U_π(f)."
         },
         {
-          "name": "unitPart_mul",
+          "name": "TauCeti.T3Native.unitPart_mul",
           "role": "structure",
-          "statement": "U_π(fg)=U_π(f)U_π(g), hence U_π is a group homomorphism Fˣ→Rˣ and U_π(f^m)=U_π(f)^m for m∈ℤ."
+          "statement": "U_π(fg)=U_π(f)U_π(g). Together with unitPart_unit and unitPart_zpow this gives the group-homomorphism laws Fˣ→Rˣ."
         },
         {
-          "name": "unitPart_unit",
+          "name": "TauCeti.T3Native.unitPart_zpow",
+          "role": "structure",
+          "statement": "U_π(f^m)=U_π(f)^m for f∈Fˣ and m∈ℤ."
+        },
+        {
+          "name": "TauCeti.T3Native.unitPart_unit",
           "role": "simp",
-          "statement": "For u∈Rˣ, U_π(u)=u, while U_π(π^m)=1 for every m∈ℤ."
+          "statement": "For u∈Rˣ, U_π(u)=u, where u is mapped to Fˣ by the native subtype homomorphism."
         },
         {
-          "name": "unitPart_change_uniformizer",
+          "name": "TauCeti.T3Native.unitPart_uniformizer_zpow",
+          "role": "simp",
+          "statement": "U_π(π^m)=1 for every m∈ℤ."
+        },
+        {
+          "name": "TauCeti.T3Native.unitPart_change_uniformizer",
           "role": "compatibility",
           "statement": "For c∈Rˣ, U_(cπ)(f)=c^(−ord_v(f)) U_π(f)."
         },
         {
-          "name": "unitPart_residue_bridge",
+          "name": "TauCeti.T3Native.unitPart_residue_bridge",
           "role": "coercion",
           "statement": "For z in R.unitGroup, the existing unitGroupToResidueFieldUnits(z) equals Units.map(residue)(R.unitGroupMulEquiv(z)); these are the same native residue map."
         }
@@ -703,7 +725,7 @@
         "K2SymbolsBrauer:T.3/degree-two-residue-square",
         "K2SymbolsBrauer:T.3/tame-symbol-hom"
       ],
-      "detail": "The actual μ_F and c_F are imported from T.2/matsumoto and T.1/k2-pi2 followed by K.2:plus/plus-equals-Q. The T.2 umbrella continuation records inherited stable-colimit and centrality gaps and ordinary Bruhat/root-coordinate refinements. This T.3 integration does not close those proofs or replace them with an abstract symbol-preserving isomorphism assumed as data. The elementary native pairing does not depend on this gap."
+      "detail": "The actual μ_F and c_F are imported from T.2/matsumoto and T.1/k2-pi2 followed by K.2:plus/plus-equals-Q. The T.2 umbrella continuation records inherited stable-colimit and centrality gaps and ordinary Bruhat/root-coordinate refinements. This T.3 integration does not close those proofs or replace them with an abstract symbol-preserving isomorphism assumed as data. The elementary native pairing does not depend on this gap. In particular T.1/k2-pi2 retains G-cover-Hurewicz: the explicit BE(F)-plus universal-cover comparison and natural Hurewicz map, compatible with the chosen plus/Q comparison, must be supplied by the existing K.2:plus and homotopy-theory owners. A generic existence theorem for a plus construction or an abstract isomorphism does not discharge this map-level input."
     }
   ],
   "coverage": [
@@ -766,7 +788,12 @@
         "The cited earlier packet and its independent review.",
         "Author-hosted chapter III, freshly read on 2026-10-19.",
         "The current author errata PDF URL returned 404 on 2026-10-19; the earlier packet records its historical errata evidence."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked Exercise III.7.1 (chapter p. 72) against Theorem III.7.3 (p. 62). At ord₅ the unit part of 5 is 1 for π=5 and 1/2 for π=10, whose residues are 1 and 3. The degree-one specialization therefore depends on π; the stated change formula follows by sending Π to Π−{c̄} in the Serre algebra.",
+        "by": "REV-K2SymbolsBrauer--T.3-2"
+      }
     },
     {
       "id": "K2SymbolsBrauer/E11",
@@ -782,7 +809,12 @@
         "The cited earlier packet and its independent review.",
         "Author-hosted chapter III, freshly read on 2026-10-19.",
         "The current author errata PDF URL returned 404 on 2026-10-19; the earlier packet records its historical errata evidence."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked the first-position normalization in Theorem III.7.3 (chapter p. 62) and the printed product rule in Exercise III.7.10 (p. 73). On x={5}, y={2} the theorem returns 2, whereas the printed right-coefficient product rule returns 3. Converting ∂^first_n=(−1)^(n−1)∂^last_n gives exactly the corrected first-position rule.",
+        "by": "REV-K2SymbolsBrauer--T.3-2"
+      }
     }
   ],
   "upstreamNotes": [
@@ -800,7 +832,8 @@
     "audit": "data/library-coverage.json: K2SymbolsBrauer:T.3 and its two children",
     "currentUpstream": "0d144d044dacebca17b654695b6f1ad58f159b27",
     "currentTauCeti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
-    "result": "Searched the current roadmap sources, including the nine roadmaps newer than the atlas snapshot, and current Tau Ceti sources for Milnor K, tame-symbol and Steinberg-symbol APIs. No implementation of this residue package was found. Native valuation and residue objects are already present and are cited above. GitHub open-PR searches in mathlib4 for tame symbol and Milnor K returned no results; a public Zulip search surfaced no usable design decision. These searches do not claim global nonexistence."
+    "result": "Searched the current roadmap sources, including the nine roadmaps newer than the atlas snapshot, and current Tau Ceti sources for Milnor K, tame-symbol and Steinberg-symbol APIs. No implementation of this residue package was found. Native valuation and residue objects are already present and are cited above. GitHub open-PR searches in mathlib4 for tame symbol and Milnor K returned no results; a public Zulip search surfaced no usable design decision. These searches do not claim global nonexistence.",
+    "reviewCheck": "REV-K2SymbolsBrauer--T.3-2 independently read the three T.3 audit entries and the current AlgebraicCurves completion/finite-normalization/coefficient and scheme/place milestones and LocalFieldsRamification extension interfaces. Current source searches found no replacement integral Milnor/tame-symbol implementation. All 18 baseline declarations were checked against the pins; the current upstream commits recorded here are unchanged. The generic complete-DVR supplier gap does not assign already-owned completion or coefficient constructions to a new roadmap."
   },
   "planetSelection": [
     {
@@ -815,5 +848,42 @@
       "note": "Five umbrella landmarks, retaining the original owners; native carrier plumbing is not a separate planet."
     }
   ],
-  "suggestedFile": "research/blueprint/suggested/K2SymbolsBrauer--T.3-2.lean"
+  "suggestedFile": "research/blueprint/suggested/K2SymbolsBrauer--T.3-2.lean",
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.3-2",
+    "date": "2026-10-19",
+    "agent": "Codex",
+    "session": "codex-VvNkxi",
+    "notes": "Accepted after correcting the native adapter interface and test correspondence, and making the inherited plus-cover/Hurewicz dependency explicit. This is a completed target-level planning pass with T.3 planned, not closed: all four recorded supplier/proof gaps and both requests remain. The sources, all 18 baseline declarations, the 24 imported owner statements, target coverage, graph, API, tests and planet selection were independently checked. The two carried source findings have independent confirmed reviews. The suggested file elaborates at the pins with only admitted-proof warnings and contains no admitted data bodies; implementationStatus remains unchecked.",
+    "checked": [
+      {
+        "nodeId": "K2SymbolsBrauer:T.3/native-unit-part",
+        "verdict": "corrected",
+        "reason": "The native decomposition witness and its Nontrivial value-group prerequisite match the pins. The original suggested file omitted the packet’s multiplication, unit, change-of-uniformizer and residue-bridge API and its two concrete numerical tests. Added the missing signatures and exact test markers, split the integer-power API into its two named declarations, and used consistent namespace-qualified packet names. All eight API entries and three tests now have corresponding declarations/examples. The residue bridge closes by reflexivity."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.3/native-tame-formula",
+        "verdict": "verified",
+        "reason": "Cancellation of the integer uniformizer powers identifies the native ring unit with f^ord(g)g^(−ord(f)). Reduction therefore has the correct native unit domain. Independently checked Weibel III.6.3–6.3.1, p. 51, the four Steinberg cases and the negative-order numerical case; the arbitrary-embedding extension uses only the stated positive ramification compatibility."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.3/residue-convention-dictionary",
+        "verdict": "verified",
+        "reason": "Moving the residue generator past a degree-(n−1) coefficient gives (−1)^(n−1). Expanding the Serre algebra and substituting that sign gives both product formulas. The parameter-change automorphism gives exactly λ_(cπ)=λ_π−∂^last(−){c̄}; the independent source-issue reviews record the explicit counterexamples to the two inherited source claims."
+      },
+      {
+        "nodeId": "K2SymbolsBrauer:T.3/degree-two-residue-square",
+        "verdict": "corrected",
+        "reason": "The imported maps are the specified Matsumoto, plus/Quillen and determinant comparisons. Weibel V.6.1.2, p. 38, and V.6.6.1, p. 41, give the positive index and right-action boundary, hence inversion relative to the roadmap tame symbol. V.(6.6.3)–(6.6.4), p. 42, supplies the residue-transfer square with no extra ramification factor. The exact product-symbol and ring-localization contracts remain gaps, and the general Milnor norm proof is retained under its existing owner rather than declared freshly verified. Sharpened G-T3-field-comparison to name T.1’s inherited G-cover-Hurewicz and its chosen plus-cover/natural Hurewicz interfaces explicitly."
+      }
+    ],
+    "validation": [
+      "check_blueprint.py: 0 errors, 0 warnings; 4 nodes, 8 API entries, 3 tests, 18 baseline declarations, 4 gaps, 2 requests.",
+      "Pinned lean-check elaboration: success; only admitted-proof warnings.",
+      "admitted-data checker and source_issues/check_errata source-version validation: success.",
+      "Dependency DFS: 238 reachable nodes with current packet overlays and 164 with promoted records preferred; no cycles or unresolved non-library/non-stage terminals.",
+      "Independent exact arithmetic: 510 rational inputs, signed tame regression values and unit parts, parameter change, bilinearity/Steinberg, ramification parity, and a nontrivial F_25/F_5 residue norm."
+    ]
+  }
 }
