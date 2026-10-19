@@ -1,0 +1,1617 @@
+{
+  "roadmapId": "MotivesAndAlgebraicCycles",
+  "protocol": "blueprint-v1",
+  "part": "MC.0",
+  "status": "complete",
+  "scope": [
+    "MotivesAndAlgebraicCycles:MC.0"
+  ],
+  "summary": "MC.0 continuation: retain the nineteen correspondence and adequate-equivalence targets in the reviewed whole-roadmap packet by reference, complete algebraic equivalence and its comparison maps, and plan the four Benoist–Wittenberg routes assigned to MC.0. Integral cycles remain available for support and Euler-index phenomena; rational coefficients are used for classical motives. All target dependencies terminate in existing owners, precise supplier requests or identified source-verification gaps. No claim of implementation or of closed coverage is made.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle",
+        "kind": "abbrev",
+        "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+        "provides": "Locally finite weighted point cycles, before rational equivalence. SF.5 owns dimension grading, integral Chow groups and operations.",
+        "checked": "Actual source read at the pinned commit; current source also searched, 2026-10-19."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle.map",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
+        "provides": "Quasi-compact pushforward on weighted locally finite cycles, with the weight-preservation/residue-degree condition in mapCoeff; not a Chow pushforward.",
+        "checked": "Actual source read at the pinned commit, including mapCoeff and map_id, 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.equivFiniteCodimensionOneCycles",
+        "kind": "def",
+        "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean",
+        "provides": "Equivalence of native Weil divisors with finitely supported integer cycles concentrated at codimension-one points. No general Chow quotient or intersection operation.",
+        "checked": "Actual source read at the pinned Tau Ceti commit, 2026-10-19."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "STACKS.WEIL",
+      "title": "Weil Cohomology Theories",
+      "authors": "The Stacks Project Authors",
+      "edition": "Live chapter downloaded 2026-10-19; tags, not mutable lemma numbers, identify targets",
+      "url": "https://stacks.math.columbia.edu/download/weil.pdf",
+      "readSections": [
+        "Section 3, tags 0FFZ–0FG8, PDF pp. 3–7: definitions, proofs and examples of correspondences"
+      ],
+      "read": "2026-10-19",
+      "sha256": "01f8d89f2c09649af2e0355b4798a71ee8c31ff97f8f2fa13a5b907e0db7caa2"
+    },
+    {
+      "id": "MILNE.MOT",
+      "title": "Motives—Grothendieck’s Dream",
+      "authors": "James S. Milne",
+      "edition": "Author notes, 15-page version downloaded 2026-10-19",
+      "url": "https://www.jmilne.org/math/xnotes/MOT.pdf",
+      "readSections": [
+        "Sections 4–5, pp. 4–6: adequate relations, numerical equivalence and motives; source of context for the retained targets"
+      ],
+      "read": "2026-10-19",
+      "sha256": "a701ee93d7cefbcc9570afce76b0bd235b6a1bffbf1567a1d73c307d700cd768"
+    },
+    {
+      "id": "ACMV.2017",
+      "title": "Parameter spaces for algebraic equivalence",
+      "authors": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial",
+      "edition": "Author revision dated 11 July 2017; proposition numbering refers to this revision",
+      "url": "https://www.math.colostate.edu/~achter/math/abtriv0717.pdf",
+      "readSections": [
+        "Introduction pp. 1–2; §2.1–2.7 pp. 4–11, especially Definition 2.1, Proposition 2.5, Lemmas 2.8–2.9, Propositions 2.10–2.11 and 2.14, Lemma 2.18 and Remarks 2.20–2.23; Appendix A, Theorem A.1, pp. 17–18"
+      ],
+      "read": "2026-10-19",
+      "sha256": "defc0d6a23e3fd0a004413511a0e813cbf25fda77f683c089f978df953e59492"
+    },
+    {
+      "id": "BW.2020",
+      "title": "On the integral Hodge conjecture for real varieties, I",
+      "authors": "Olivier Benoist; Olivier Wittenberg",
+      "edition": "Author copy of Inventiones mathematicae 222 (2020), 1–77; DOI 10.1007/s00222-020-00965-8",
+      "url": "https://www.math.ens.psl.eu/~benoist/articles/hodgereel1.pdf",
+      "readSections": [
+        "Proposition 3.10 and Remark 3.13, pp. 50–52; §5.1, pp. 62–65 (definitions and Proposition 5.1(i)); Proposition 5.2 and proof, pp. 66–67; Proposition 5.7 proof, p. 71"
+      ],
+      "read": "2026-10-19",
+      "sha256": "daeb43ec861bd6c30564543dac796c55c7f21aa943c442f826b32613e72a46a9"
+    },
+    {
+      "id": "CTV.2011",
+      "title": "Cohomologie non ramifiée et conjecture de Hodge entière",
+      "authors": "Jean-Louis Colliot-Thélène; Claire Voisin",
+      "edition": "Author preprint dated 13 June 2011; locators are printed preprint pages, not journal pages",
+      "url": "https://www.cmls.polytechnique.fr/perso/voisin/Articlesweb/CTVoisin13juin11.pdf",
+      "readSections": [
+        "§3.2, Proposition 3.3(ii) and proof, pp. 10–11; Appendix §9, Proposition 9.1, Lemmas 9.2–9.3 and proofs, pp. 42–44"
+      ],
+      "read": "2026-10-19",
+      "sha256": "6a76c596025eb4379a800bcefb57c3f260226b202dae7919d191b4835a0a212a"
+    },
+    {
+      "id": "KOLLAR.2014",
+      "title": "Esnault–Levine–Wittenberg indices",
+      "authors": "János Kollár",
+      "edition": "arXiv:1312.3923v2, 10 January 2014",
+      "url": "https://arxiv.org/pdf/1312.3923v2",
+      "readSections": [
+        "§1, Definition 1 p. 1, Lemmas 3 and 5 and Proposition 4 pp. 2–3; Definition 13, Proposition 14 with proof, p. 4"
+      ],
+      "read": "2026-10-19",
+      "sha256": "735a72d0615586eef919234b66504dbe36a8e62df33ad7c0b51641455b6cfde2"
+    },
+    {
+      "id": "KARPENKO.1991",
+      "title": "Algebro-geometric invariants of quadratic forms",
+      "authors": "N. A. Karpenko",
+      "edition": "Published English scan, Leningrad Mathematical Journal 2 (1991), 119–138",
+      "url": "https://sites.ualberta.ca/~karpenko/publ/agiqf.pdf",
+      "readSections": [
+        "§3.1–3.9, pp. 126–129, including Theorem 3.8 and proof; Theorem 5.3 and proof, p. 132. Scanned pages read visually."
+      ],
+      "read": "2026-10-19",
+      "sha256": "af1c7a6dd92dc2ce1fffab96c1f73f7d0e091e0050dd4d31370addd473d48369"
+    },
+    {
+      "id": "ROITMAN.1972",
+      "title": "Rational equivalence of zero-cycles",
+      "authors": "A. A. Roitman",
+      "edition": "Mathematics of the USSR-Sbornik 18 (1972), 571–588; English translation",
+      "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=sm&option_lang=eng&paperid=3248&what=fullteng",
+      "readSections": [
+        "Introduction pp. 571–574; §2, Lemma 13 and Proposition 1, pp. 582–583; §5, Theorem 6(a) and Lemma 17, pp. 587–588. Read through the publisher’s public web rendering; no local PDF hash."
+      ],
+      "read": "2026-10-19"
+    },
+    {
+      "id": "ACMV.DIAG.2025",
+      "title": "Decomposition of the diagonal, intermediate Jacobians, and universal codimension-2 cycles in positive characteristic",
+      "authors": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial",
+      "edition": "Astérisque 455 (2025), DOI 10.24033/ast.1244; publisher PDF",
+      "url": "https://smf.emath.fr/system/files/filepdf/smf_ast_455.pdf",
+      "readSections": [
+        "Chapter 2, Definitions 2.1 and 2.4, Example 2.3 and Remarks 2.5–2.10, pp. 11–13; Lemma 3.1 and proof pp. 15–16; Proposition 4.1 and proof pp. 19–20. The generic-point localization proof corroborates the fixed-support adapter; the unrelated motive consequences are not MC.0 targets."
+      ],
+      "read": "2026-10-19",
+      "sha256": "5976fbb2b5f9ea45df90c092c4b2b52e24af18aaa2e505a8e8a67f48107d6e49"
+    },
+    {
+      "id": "JANNSEN.1992",
+      "title": "Motives, numerical equivalence, and semi-simplicity",
+      "authors": "Uwe Jannsen",
+      "edition": "Inventiones mathematicae 107 (1992), 447–452; published scan in author institutional repository",
+      "url": "https://epub.uni-regensburg.de/26642/1/jannsen10.pdf",
+      "readSections": [
+        "Opening definitions p. 447 and first comparison paragraph of Theorem 1 proof p. 448, for the retained adequate and numerical targets. The nontriviality correction is already recorded as MotivesAndAlgebraicCycles/E10, not a new finding."
+      ],
+      "read": "2026-10-19",
+      "sha256": "f2a285cb7ba9f53a1dcb3844e41901dd4f8391cc2655b1b8195bc7a62a277fab"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Algebraic equivalence over the ground field",
+      "kind": "definition",
+      "statement": "For a finite-type separated k-scheme X, let Alg_i(X/k) be the subgroup of the integral Chow group CH_i(X) generated by differences t₁!Z − t₀!Z, where T is a smooth geometrically integral quasi-projective k-scheme of dimension e, t₀,t₁ are k-points, Z lies in CH_{i+e}(T×X), and t! denotes refined Gysin for the fibre inclusion. Two integral cycles are algebraically equivalent over k when their Chow-class difference lies in this subgroup. For smooth pure-dimensional X and a characteristic-zero coefficient field F, let I_alg^j(X;F) be the F-span of the image of Alg_{dim X−j}(X/k) in CH^j(X)⊗F, and put A_alg^j(X;F)=(CH^j(X)⊗F)/I_alg^j. Disconnected X is treated componentwise.",
+      "hypotheses": [
+        "k is any field for the definition; X is separated of finite type.",
+        "The parameter is connected through geometric integrality and has two ground-field rational points; geometric algebraic equivalence after base change is a different relation.",
+        "Integral CH_i, refined fibre Gysin and scalar extension are imported, not encoded using raw cycle equality."
+      ],
+      "proofSteps": [
+        "Use the SF.5 Chow carrier and fibre Gysin along the regular immersions supplied by smoothness of T.",
+        "Take the subgroup generated by these differences; exchanging the two points gives negatives. Products of parameter spaces combine sums.",
+        "Use ACMV Proposition 2.10 to compare with the smooth-integral-parameter definition without a quasi-projectivity restriction. Extend coefficients by span, not by declaring torsion cycles nonzero rational classes."
+      ],
+      "acceptance": [
+        "Membership is invariant under changing a representative by rational equivalence.",
+        "The relation is reflexive, symmetric and transitive; it is not defined as equality of cycle classes in a selected cohomology theory."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.5/chow-group",
+        "SchemeAndStackFoundations:SF.5/refined-gysin",
+        "SchemeAndStackFoundations:SF.5/gysin-composition",
+        "SchemeAndStackFoundations:SF.5/exterior-product"
+      ],
+      "sources": [
+        {
+          "sourceId": "ACMV.2017",
+          "locator": "Definition 2.1 and Remark 2.3, p. 4; Proposition 2.10, pp. 7–8; Proposition 2.5, p. 5",
+          "match": "Ground-field algebraic triviality is represented by refined fibre differences; quasi-projective parameters give the same subgroup."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "AlgTrivial",
+          "role": "data",
+          "statement": "An additive subgroup of CH_i(X), together with its quotient map."
+        },
+        {
+          "name": "AlgTrivial.fibre_difference",
+          "role": "constructor",
+          "statement": "Every permitted family difference belongs to Alg_i(X/k); the constant family gives zero."
+        },
+        {
+          "name": "AlgTrivial.mem_iff_family",
+          "role": "characterisation",
+          "statement": "After the parameter-space comparison, a member can be expressed by one smooth integral parameter family with two k-points."
+        },
+        {
+          "name": "AlgTrivial.baseChange",
+          "role": "functoriality",
+          "statement": "A field extension carries Alg_i(X/k) into Alg_i(X_L/L), by base changing the whole family; no converse is asserted."
+        },
+        {
+          "name": "AlgTrivial.coeffSpan",
+          "role": "compatibility",
+          "statement": "For characteristic-zero F use the F-span of the integral image; coefficient extension commutes with span and quotient."
+        },
+        {
+          "name": "AlgQuotient.lift",
+          "role": "universal-property",
+          "statement": "A group homomorphism out of integral CH_i factors uniquely through CH_i/Alg_i precisely when it kills all family differences; the analogous F-linear universal property holds for A_alg."
+        },
+        {
+          "name": "AlgTrivial.divisor_picard",
+          "role": "compatibility",
+          "statement": "On a smooth proper pointed curve the degree-zero divisor subgroup agrees with the Picard-degree kernel via the existing JacobianChallenge divisor/Picard interface."
+        }
+      ],
+      "tests": [
+        {
+          "name": "point_degree",
+          "statement": "For Spec k, Alg_0=0 and the class 1 is not algebraically trivial: every permitted family has constant degree."
+        },
+        {
+          "name": "projective_line",
+          "statement": "On P¹_k the two rational point classes agree already in CH_0, while a degree-one point is not algebraically trivial."
+        },
+        {
+          "name": "elliptic_nonrational",
+          "statement": "For an elliptic curve E/ℂ and a point P of infinite order, [P]−[O] is algebraically trivial but is nonzero in CH_0(E)⊗ℚ, by the divisor/Picard identification."
+        },
+        {
+          "name": "geometric_base_change",
+          "statement": "Base change preserves membership; the Karpenko quadric application below prevents replacing the ground-field relation by geometric or integral arithmetic homological equivalence."
+        }
+      ],
+      "uses": [
+        {
+          "where": "MC.0 algebraic adequacy and quotient comparisons; MC.1 motives modulo a relation",
+          "how": "Defines the kernel family and the correct quotient maps."
+        },
+        {
+          "where": "CTV Proposition 9.1; Kollár Proposition 14; BW Remark 3.13",
+          "how": "Both cohomology-sheaf actions and the Euler congruence must annihilate actual ground-field family differences."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence-adequate",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Algebraic equivalence is adequate",
+      "kind": "theorem",
+      "statement": "For smooth projective k-schemes and characteristic-zero F, the family I_alg is an adequate relation in MC.0/adequate-equivalence-relation: it is graded, stable under all morphism pullbacks, proper pushforwards and multiplication by arbitrary Chow classes. The integral dimension-graded subgroup is also preserved by proper pushforward, flat pullback, refined Gysin and exterior product with an arbitrary class. Consequently composition, action, transpose and tensor of correspondences descend to the algebraic quotient.",
+      "hypotheses": [
+        "Use algebraic equivalence over k as defined above, and the imported SF.5 operations.",
+        "A morphism between smooth projective schemes factors as its regular graph followed by a smooth projection, supplying the required lci pullback."
+      ],
+      "proofSteps": [
+        "Commute fibre Gysin with proper pushforward, flat pullback and refined Gysin, using the respective SF.5 base-change/interchange identities. Each family difference remains a family difference.",
+        "Multiplication by a fixed class is diagonal Gysin applied to exterior product; carry the fixed class along T and apply the same compatibility.",
+        "Tensor with F and apply the existing adequate-relation quotient construction. For sums of families use products of geometrically integral parameters, not a disconnected parameter joining unrelated fibres."
+      ],
+      "acceptance": [
+        "A relation that only permits proper pushforward, without pullback or multiplication, does not meet adequacy.",
+        "Every correspondence operation already imported descends with exactly the same degree convention."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence",
+        "MotivesAndAlgebraicCycles:MC.0/adequate-equivalence-relation",
+        "SchemeAndStackFoundations:SF.5/gysin-proper-flat",
+        "SchemeAndStackFoundations:SF.5/gysin-flat",
+        "SchemeAndStackFoundations:SF.5/gysin-interchange",
+        "SchemeAndStackFoundations:SF.5/lci-pullback",
+        "SchemeAndStackFoundations:SF.5/smooth-intersection"
+      ],
+      "sources": [
+        {
+          "sourceId": "ACMV.2017",
+          "locator": "Proposition 2.5 and proof, p. 5; Introduction, p. 1",
+          "match": "The subgroup is stable under the basic Chow operations. Applying the operation identities to a family proves adequacy in the imported convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/curve-parameterisation",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Curve parameters for algebraic equivalence",
+      "kind": "theorem",
+      "statement": "Over a perfect field k, a class in Alg_i(X/k) is a difference of refined fibres of one cycle on C×X for a smooth projective geometrically integral curve C/k and two k-points. Over an arbitrary field a smooth quasi-projective geometrically integral curve suffices. These descriptions agree with the smooth-parameter subgroup, and for a smooth projective geometrically integral X over an algebraically closed field, Alg_0(X/k)=ker(deg:CH_0(X)→ℤ).",
+      "hypotheses": [
+        "X is separated and of finite type over k.",
+        "Projective smooth curve normal form is asserted integrally only when k is perfect; no such assertion is made over an imperfect field without the source’s p-power qualification."
+      ],
+      "proofSteps": [
+        "Use the prescribed-point Bertini statement requested of SF.4 (ACMV Appendix A), not the weaker existing smoothness-only Bertini target.",
+        "Restrict the family to a smooth quasi-projective curve containing the marked points, as in Proposition 2.10; closure of its cycle and refined Gysin give the projective form over a perfect field (Lemma 2.8).",
+        "For zero-cycles use Lemma 2.9 and Proposition 2.11: degree-zero combinations on a smooth parameter are algebraically trivial; apply the diagonal family on smooth X to degree-zero zero-cycles as in Lemma 2.9. Retain smoothness and projectivity, the explicit Proposition 2.11 hypotheses."
+      ],
+      "acceptance": [
+        "For P¹ a degree-zero class is zero already rationally, whereas a positive-genus curve has nonzero algebraically trivial classes.",
+        "The theorem retains the ground-field rational marked points; passing to an algebraic closure is not a descent proof."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.3/nonsingular-projective-model",
+        "SchemeAndStackFoundations:SF.5/chow-localization",
+        "SchemeAndStackFoundations:SF.5/refined-gysin"
+      ],
+      "sources": [
+        {
+          "sourceId": "ACMV.2017",
+          "locator": "Lemma 2.8 p. 6; Proposition 2.10 pp. 7–8; Proposition 2.11 p. 8; Proposition 2.14 pp. 9–10; Appendix A, Theorem A.1 pp. 17–18",
+          "match": "These give curve parameter spaces, the perfect-field projective form, and degree-zero zero-cycles. Only the projective integral zero-cycle case is consumed here."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/algebraic-implies-homological",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Algebraic equivalence is homological for a selected Weil theory",
+      "kind": "comparison",
+      "statement": "Let k be any field, F be a characteristic-zero coefficient field, and H be a selected classical Weil cohomology of the geometric base change, with F embedded in its coefficient field. Then I_alg^j(X;F) is contained in I_H^j(X;F) for every smooth projective X/k. The relation I_H is the geometric cycle-class kernel of the imported MC.2/homological-equivalence, using MC.2/weil-cohomology-by-base-change over a non-algebraically-closed k. It depends on H; independence of H is not a theorem here.",
+      "hypotheses": [
+        "The early MC.2 axioms include products, Poincaré duality, trace and cycle classes with the usual degree and Gysin compatibilities.",
+        "Classical Weil cohomology has characteristic-zero coefficients; integral arithmetic étale cohomology is outside this assertion."
+      ],
+      "proofSteps": [
+        "Base change an algebraic family to an algebraic closure; the subgroup base-change map preserves its class.",
+        "Use curve-parameterisation over the algebraically closed field and extend the cycle to a smooth projective curve parameter using localization.",
+        "The two rational point classes of that connected curve agree in H²(C)(1), since their traces are both one and top cohomology has dimension one.",
+        "Fibre cycle classes are obtained by the same pull-product-push formula from the parameter point class. Their difference therefore has cycle class zero. Extend linearly to F."
+      ],
+      "acceptance": [
+        "The elliptic divisor [P]−[O] is killed by the geometric Weil cycle class even when its rational Chow class is nonzero.",
+        "No conclusion that an integral arithmetic class vanishes is extracted from this comparison."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence",
+        "MotivesAndAlgebraicCycles:MC.0/curve-parameterisation",
+        "MotivesAndAlgebraicCycles:MC.2/homological-equivalence",
+        "MotivesAndAlgebraicCycles:MC.2/classical-weil-cohomology",
+        "MotivesAndAlgebraicCycles:MC.2/weil-cohomology-by-base-change",
+        "SchemeAndStackFoundations:SF.5/chow-localization"
+      ],
+      "sources": [
+        {
+          "sourceId": "MILNE.MOT",
+          "locator": "§4, pp. 4–5, discussion of rational, algebraic, homological and numerical equivalence",
+          "match": "States the comparison of adequate relations. The proof here spells out the curve/top-cohomology argument using the independently supplied Weil axioms."
+        },
+        {
+          "sourceId": "ACMV.2017",
+          "locator": "Lemma 2.8 p. 6; Proposition 2.10 pp. 7–8",
+          "match": "Supplies the reduction of a family to a smooth projective curve over the geometric base field."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/equivalence-quotient-comparisons",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "The comparison chain of cycle quotients",
+      "kind": "comparison",
+      "statement": "For smooth projective X/k over any field k and a selected geometric classical Weil theory H, rational equivalence implies algebraic equivalence, which implies H-homological equivalence, which implies numerical equivalence. With F coefficients this gives surjective graded maps CH^*(X)⊗F → A_alg^*(X;F) → A_H^*(X;F) → A_num^*(X;F), and identity-on-objects F-linear tensor functors between the corresponding degree-zero correspondence categories. All maps respect composition, graphs, tensor, transpose and the actions for which the corresponding quotient is defined.",
+      "hypotheses": [
+        "Use the already planned adequate-equivalence quotient construction and numerical relation.",
+        "Numerical equivalence tests the degree against every complementary-codimension class, componentwise; the zero relation is rational equivalence on the Chow carrier.",
+        "No reverse implication, independence of H or standard conjecture is asserted."
+      ],
+      "proofSteps": [
+        "A rationally zero class is the zero element of CH and hence belongs to Alg. Compare with the rational-curve-fibre presentation of rational equivalence.",
+        "Use algebraic-implies-homological. For H⇒num use cycle-class multiplicativity and the trace-degree formula: a zero cycle class has zero degree pairing with every complementary class. This is already an API theorem of MC.2/homological-equivalence.",
+        "Apply quotient universal properties to inclusions of kernel families. Adequacy supplies well-defined composition and tensor on each quotient; quotient surjectivity on each Hom gives the functors."
+      ],
+      "acceptance": [
+        "On P¹, degree distinguishes a point from zero in all four quotients.",
+        "On an elliptic curve over ℂ, an infinite-order degree-zero divisor is nonzero rationally and zero algebraically, so the first quotient map need not be injective.",
+        "The zero adequate family and the indiscrete family are distinct. Numerical equivalence is coarsest only among nontrivial adequate families (I⁰(Spec k)=0), as retained in the numerical-equivalence target."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence-adequate",
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-implies-homological",
+        "MotivesAndAlgebraicCycles:MC.0/adequate-equivalence-relation",
+        "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence",
+        "MotivesAndAlgebraicCycles:MC.2/homological-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "MILNE.MOT",
+          "locator": "§4, pp. 4–5",
+          "match": "The hierarchy of equivalences and the quotient perspective; the nontriviality condition is made explicit in the retained numerical target."
+        },
+        {
+          "sourceId": "ACMV.2017",
+          "locator": "§2.7, Remarks 2.20 and 2.23, p. 11",
+          "match": "Rational-curve triviality represents precisely the zero Chow class, so rational equivalence is contained in algebraic equivalence."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/universal-ch0-support",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Universal support for zero-cycles",
+      "kind": "definition",
+      "statement": "For a proper geometrically integral k-variety X and an integer s≥0, UniversalCH0Support(X,s) means: for every algebraically closed field extension L/k, there exists a closed reduced subvariety Y_L⊂X_L with dim Y_L≤s for which CH_0(Y_L)→CH_0(X_L) is surjective, with integral coefficients. The support may depend on L. Separately, a fixed support Y⊂X is universally supporting if this same surjectivity holds for every field extension L/k with Y_L the base change of Y. Keep these two quantified statements distinct.",
+      "hypotheses": [
+        "Properness makes the closed-immersion pushforward and degree available.",
+        "The zero-cycle Chow group and base change belong to SF.5. This is a property of existing schemes/Chow groups, not a replacement for those carriers."
+      ],
+      "proofSteps": [
+        "State the algebraically closed extension quantifier before the existential support and use the actual SF.5 closed-immersion pushforward.",
+        "Package witnesses, dimension bounds and monotonicity; separate the stronger fixed-support condition needed by the elementary generic-point decomposition.",
+        "Prove stability under base-field extension by composing the field embeddings. Transport through a proper map when its base-changed CH_0 pushforward is surjective and the image of a support has the required dimension."
+      ],
+      "acceptance": [
+        "Support over one algebraic closure is not the definition.",
+        "No rational coefficient replacement is used for the quartic or Euler-index applications."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.5/chow-group",
+        "SchemeAndStackFoundations:SF.5/chow-proper-push",
+        "SchemeAndStackFoundations:SF.5/degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "BW.2020",
+          "locator": "Proposition 5.2 hypothesis and proof, p. 66; Proposition 5.7 proof, p. 71",
+          "match": "The surface-support hypothesis ranges over every algebraically closed extension of the real closed base, and the quartic supplies support of dimension zero."
+        },
+        {
+          "sourceId": "CTV.2011",
+          "locator": "Proposition 3.3(ii), pp. 10–11",
+          "match": "Gives the complex fixed-support formulation used in the diagonal argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "UniversalCH0Support.witness",
+          "role": "projection",
+          "statement": "For each algebraically closed L/k obtain Y_L and surjectivity of its proper pushforward."
+        },
+        {
+          "name": "UniversalCH0Support.mono",
+          "role": "relation",
+          "statement": "A support bound s implies every larger bound; for nonempty X its dimension is a bound."
+        },
+        {
+          "name": "UniversalCH0Support.baseChange",
+          "role": "functoriality",
+          "statement": "For any extension K/k, a universal support bound for X/k implies the same bound for X_K/K."
+        },
+        {
+          "name": "FixedCH0Support.toUniversal",
+          "role": "compatibility",
+          "statement": "A fixed support of dimension at most s universally surjecting over all extensions implies UniversalCH0Support(X,s). The converse is not built into the definition."
+        },
+        {
+          "name": "UniversalCH0Support.properImage",
+          "role": "functoriality",
+          "statement": "A proper map surjective on CH_0 after every algebraically closed base extension transports a support bound to its image variety."
+        },
+        {
+          "name": "UniversalCH0Support.degree_one",
+          "role": "characterisation",
+          "statement": "For a proper geometrically integral variety over algebraically closed L, a single rational point supports CH_0 exactly when deg:CH_0→ℤ is an isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "projective_space",
+          "statement": "For every n≥0, Pⁿ_k has universal support of dimension zero: after every algebraically closed extension its CH_0 is ℤ generated by a rational point."
+        },
+        {
+          "name": "curve_product",
+          "statement": "For a smooth projective curve C/k, C×Pⁿ has universal support at most one, using C×{point} after each algebraically closed extension and the projective bundle formula."
+        },
+        {
+          "name": "elliptic_nonexample",
+          "statement": "For an elliptic curve over ℂ no zero-dimensional closed support surjects onto CH_0: the image of its finite set of points is finitely generated, whereas the degree-zero subgroup E(ℂ) is uncountable."
+        },
+        {
+          "name": "fixed_vs_varying",
+          "statement": "A supplied fixed Y over all extensions is a stronger usable input; a witness Y over k or over one algebraic closure alone does not discharge either universal quantifier."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BW Proposition 5.2 and MC.0/real-universal-surface-vanishing",
+          "how": "Supplies the dimension-two hypothesis for rational cohomology-sheaf vanishing."
+        },
+        {
+          "where": "BW Proposition 5.7 and MC.0/quartic-universal-support",
+          "how": "Records the quartic’s zero-dimensional support independently of real points or an integral Hodge conjecture."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/diagonal-decomposition",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Support and decomposition of a multiple of the diagonal",
+      "kind": "theorem",
+      "statement": "Let X/k be smooth projective geometrically integral of dimension d and Y⊂X a closed reduced support of dimension at most s. If CH_0(Y_Ω)→CH_0(X_Ω) is surjective for an algebraic closure Ω of k(X), then there are N>0, a proper closed D⊊X, and Γ_D,Γ_Y in integral CH_d(X×X), supported respectively on D×X and X×Y, such that N[Δ_X]=Γ_D+Γ_Y. If surjectivity already holds over k(X), N=1 is possible. The first factor is the generic-point factor. A characteristic-zero smooth proper version and the passage from varying algebraically closed supports to a usable decomposition are separately identified assembly obligations.",
+      "hypotheses": [
+        "X is nonempty; d=0 is allowed and yields D empty.",
+        "The hypothesis specifies a fixed Y defined over k and its base change to Ω, rather than a support chosen only after an unrelated extension.",
+        "The smooth proper extension uses a smooth projective birational model and birational invariance of CH_0."
+      ],
+      "proofSteps": [
+        "Restrict the diagonal along the generic point of the first factor. Its class is a zero-cycle on X_{k(X)}. Surjectivity gives a cycle from Y after passage to Ω.",
+        "Cycles, rational functions and their finite relations descend to a finite extension E/k(X). Apply the proper norm: restriction followed by norm is multiplication by [E:k(X)].",
+        "Spread the normed Y-cycle and the equality over a nonempty open U⊂X, using the direct-limit description of Chow groups at the generic point.",
+        "Localization for (X∖U)×X makes the remaining difference the pushforward of a class supported on D×X. Enlarging D is harmless. No injectivity at the left of the localization sequence is used."
+      ],
+      "acceptance": [
+        "For P¹, Δ=[point×P¹]+[P¹×point], with N=1 and the indicated support orientation.",
+        "Surjectivity only over Ω permits a nonunit N; it does not give an integral universal degree isomorphism.",
+        "For a positive-genus complex curve, zero-dimensional support would force the identity on H¹ to factor through points and hence vanish, a contradiction."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/universal-ch0-support",
+        "SchemeAndStackFoundations:SF.5/chow-localization",
+        "SchemeAndStackFoundations:SF.5/chow-proper-push",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.5/finite-flat-degree",
+        "SchemeAndStackFoundations:SF.4/chow-lemma"
+      ],
+      "sources": [
+        {
+          "sourceId": "CTV.2011",
+          "locator": "Proposition 3.3(ii), proof pp. 10–11",
+          "match": "Uses a decomposition of a multiple of the diagonal with a divisor in the first factor and the supporting subvariety in the second."
+        },
+        {
+          "sourceId": "BW.2020",
+          "locator": "Proposition 5.2, proof p. 66",
+          "match": "Invokes the same support argument in the real closed setting; the adapter from its quantified support hypothesis is tracked explicitly."
+        },
+        {
+          "sourceId": "ACMV.DIAG.2025",
+          "locator": "Definition 2.1 pp. 11–12; Lemma 3.1 pp. 15–16; Proposition 4.1 proof pp. 19–20",
+          "match": "Confirms the support orientation, smooth-model factorization and generic-point/localization mechanism. Only these ingredients, not the motive consequences, are imported."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/cohomology-sheaf-correspondence-action",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Correspondences on cohomology sheaves",
+      "kind": "construction",
+      "statement": "For smooth projective pure-dimensional complex X,Y, a constant abelian coefficient group A and c∈CH^{dim X+r}(X×Y), construct c_*:H^p(X,ℋ_X^q(A))→H^{p+r}(Y,ℋ_Y^{q+r}(A(r))), where ℋ^q is the Zariski sheaf associated to U↦H^q(U(ℂ),A). The action is additive in c, annihilates algebraic equivalence, has the diagonal as identity, and respects composition with the displayed shifts. The real closed application uses the corresponding nonequivariant semialgebraic cohomology over C=R(i), with its supplier interface explicitly requested; ordinary Zariski cohomology of a constant sheaf is a different object.",
+      "hypotheses": [
+        "The Bloch–Ogus/Gersten interface supplies cycle classes in bidegree (c,c), cup products, proper trace, flat pullback, residues and the projection and base-change formulas.",
+        "For negative sheaf-cohomology degrees the groups are zero. Twists in an iterated action are added.",
+        "Integral coefficients are retained for the action; rationalization is applied only in the vanishing theorem."
+      ],
+      "proofSteps": [
+        "Use c’s Bloch–Ogus class on X×Y. Pull back α by the first projection, cup with that class and trace along the second projection. Codimension dim X+r and trace shift −dim X give the shift (r,r) and twist r.",
+        "Prove the formula on Gersten/Cousin representatives, checking residue compatibility and the push-pull square. Correct the ambient target of CTV Lemma 9.3 as recorded in E48.",
+        "Projection and base change on X×Y×Z identify the iterated action with composition. For c=Δ use the graph/projection identities.",
+        "For a family over a smooth connected curve, the two fibre restrictions have the same action; the Gersten/cycle-class argument of Proposition 9.1 kills their difference. Thus factor through the algebraic quotient, not merely the rational quotient."
+      ],
+      "acceptance": [
+        "The action is a map of the actual Bloch–Ogus groups supplied by SF.2, not an arbitrary collection of linear maps called a realization.",
+        "All support-factorization formulas are checked with the forward p₂-push convention."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence",
+        "MotivesAndAlgebraicCycles:MC.0/correspondence-composition",
+        "MotivesAndAlgebraicCycles:MC.0/composition-associative",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.5/smooth-intersection",
+        "SchemeAndStackFoundations:SF.5/chow-proper-push",
+        "SchemeAndStackFoundations:SF.5/flat-pullback"
+      ],
+      "sources": [
+        {
+          "sourceId": "CTV.2011",
+          "locator": "Appendix §9, Proposition 9.1 and proof, pp. 42–44; Lemmas 9.2–9.3",
+          "match": "Constructs the action modulo algebraic equivalence using cup product, trace, projection formula and base change."
+        },
+        {
+          "sourceId": "BW.2020",
+          "locator": "§5.1 pp. 62–65; Proposition 5.2 proof pp. 66–67",
+          "match": "Specifies the real closed semialgebraic and equivariant sheaves used by the surface-support application."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "CohSheafCorr.act",
+          "role": "constructor",
+          "statement": "An additive action with source, target, shifts and coefficient twist as stated; scalar extension commutes with it."
+        },
+        {
+          "name": "CohSheafCorr.diagonal",
+          "role": "simp",
+          "statement": "[Δ_X] acts as the identity in bidegree (p,q)."
+        },
+        {
+          "name": "CohSheafCorr.comp",
+          "role": "compatibility",
+          "statement": "(c′∘c)_*=c′_*∘c_* with total shift r+r′ and twist r+r′."
+        },
+        {
+          "name": "CohSheafCorr.algQuotient",
+          "role": "universal-property",
+          "statement": "Algebraically equivalent correspondences have the same action; the quotient universal property supplies the induced map."
+        },
+        {
+          "name": "CohSheafCorr.graph",
+          "role": "compatibility",
+          "statement": "A graph gives the existing pullback or proper pushforward as dictated by its orientation and degree; the action is not defined independently of these maps."
+        },
+        {
+          "name": "CohSheafCorr.supportFactor",
+          "role": "compatibility",
+          "statement": "A correspondence supported on D×Y factors through a smooth proper model of D with its restriction/Gysin shifts; one supported on X×W factors through the appropriately shifted cohomology of a smooth proper model of W."
+        },
+        {
+          "name": "CohSheafCorr.changeCoefficients",
+          "role": "functoriality",
+          "statement": "A homomorphism A→B intertwines the two actions, including every twist and residue map."
+        }
+      ],
+      "tests": [
+        {
+          "name": "point",
+          "statement": "For a point, H⁰(ℋ⁰(A))=A and the integer correspondence n acts by multiplication by n; it must not be the identity for every n."
+        },
+        {
+          "name": "projective_line_projectors",
+          "statement": "On P¹, the two point/line projectors act separately on the degree-zero and top cycle-class bidegrees; their sum is the diagonal and mixed compositions vanish, fixing the orientation."
+        },
+        {
+          "name": "elliptic_difference",
+          "statement": "On E/ℂ, the algebraically trivial divisor [P]−[O] gives the zero correspondence action, although its Chow class can be nonzero; a degree-one point gives the nonzero trace map."
+        },
+        {
+          "name": "shift_boundary",
+          "statement": "A correspondence of degree r has output bidegree (p+r,q+r); a support factor with negative output sheaf-cohomology degree gives zero rather than a reindexed nonzero group."
+        }
+      ],
+      "uses": [
+        {
+          "where": "CTV Proposition 3.3(ii) and MC.0/supported-diagonal-vanishing",
+          "how": "Converts the supported diagonal into two vanishing actions."
+        },
+        {
+          "where": "BW Proposition 5.2 and its MC.7 consumer",
+          "how": "Supplies the nonequivariant input before the induced-module summand argument."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/supported-diagonal-vanishing",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Vanishing from a supported diagonal",
+      "kind": "theorem",
+      "statement": "Let X/ℂ be smooth projective connected of dimension d, with NΔ=Γ_D+Γ_Y as above, dim D≤d−1 and dim Y≤s. For every abelian group A and every p<d−s with p≥0, multiplication by N annihilates H^p(X,ℋ_X^d(A)). In particular H^p(X,ℋ_X^d(ℚ))=0 in that range. The same implication applies to a characteristic-zero semialgebraic cohomology-sheaf theory satisfying the explicitly requested Bloch–Ogus and support-factorization interface.",
+      "hypotheses": [
+        "Use integral diagonal decomposition and the forward correspondence action.",
+        "Smooth proper models of D and Y exist in characteristic zero; dimension bounds and all twists survive the factorization.",
+        "The universal-support-to-decomposition adapter is not an extra unmentioned hypothesis: its verification is recorded as gap MC0-G1 for the real closed target."
+      ],
+      "proofSteps": [
+        "Resolve each support and lift its cycle using characteristic-zero resolution, localization and strict transforms; if a rational decomposition is used, clear its denominators first.",
+        "The D×X action factors through H^p(D̃,ℋ_{D̃}^d(A)), which vanishes because d>dim D̃.",
+        "The X×Y action factors through H^{p−(d−dim Ỹ)}(Ỹ,ℋ_{Ỹ}^{dim Ỹ}(A(d−dim Ỹ))), which vanishes because its first degree is negative when p<d−s.",
+        "The diagonal action is the identity, so N kills the group. On ℚ-vector spaces N is invertible; this is the reason for rational vanishing."
+      ],
+      "acceptance": [
+        "For surface support s=2 and d≥3, p=d−3 is strictly below d−2.",
+        "At p=d−s the second factor has degree zero and the argument supplies no vanishing.",
+        "Integral annihilation by N is never reported as integral vanishing."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/diagonal-decomposition",
+        "MotivesAndAlgebraicCycles:MC.0/cohomology-sheaf-correspondence-action",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "CTV.2011",
+          "locator": "Proposition 3.3(ii) and proof, pp. 10–11; Proposition 9.1, p. 42",
+          "match": "Proves bounded-exponent vanishing in sheaf-cohomology degrees less than the support codimension."
+        },
+        {
+          "sourceId": "BW.2020",
+          "locator": "Proposition 5.2 proof, pp. 66–67",
+          "match": "Uses the same argument for semialgebraic cohomology and then rationalizes."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/real-universal-surface-vanishing",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Universal surface support over a real closed field",
+      "kind": "application",
+      "statement": "Let R be real closed, C=R(i), and X/R smooth proper geometrically integral of dimension d≥3. Suppose UniversalCH0Support(X,2). Then H^{d−3}(X_C,ℋ_{X_C}^d(ℚ))=0 and H^{d−3}(X,ℋ_X^d(ℚ(d−1)))=0. Here the first sheaf is defined by nonequivariant semialgebraic cohomology of U(C), and the second by G-equivariant semialgebraic cohomology, G=Gal(C/R). These are the two rational vanishings in the proof of BW Proposition 5.2, not its further torsion/finite-dimensional conclusions.",
+      "hypotheses": [
+        "The support hypothesis is integral and quantified over all algebraically closed extensions of R. No hypothesis X(R)=∅ is imposed.",
+        "The SF.2 real closed Bloch–Ogus interface, universal-support adapter and proper/projective adapter are explicitly requested or recorded as gaps.",
+        "The Tate twist ℚ(d−1) has the sign action (−1)^{d−1}; division by two is allowed."
+      ],
+      "proofSteps": [
+        "Use universal support and the diagonal argument with s=2, p=d−3 to obtain the nonequivariant rational vanishing; the exact descent/spread step from varying supports remains MC0-G1.",
+        "Write π:X_C→X. BW Proposition 5.1(i) identifies ℋ_X^d(ℚ[G]) with π_*ℋ_{X_C}^d(ℚ), and its acyclicity gives the corresponding isomorphism on H^{d−3}.",
+        "Split the regular rational G-module by (1+σ)/2 and (1−σ)/2. The sign representation ℚ(d−1) is a direct summand, so its cohomology group is a direct summand of the zero group."
+      ],
+      "acceptance": [
+        "For d=3 the first group is H⁰(ℋ³(ℚ)); p=d−3 is not substituted into the second sheaf degree.",
+        "Neither ℓ-adic replacement of the semialgebraic sheaf nor an integral splitting by 1/2 is accepted.",
+        "MC.7 imports these two vanishing statements; the integral Hodge assertions and BW Proposition 5.2’s remaining consequences are outside MC.0."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/universal-ch0-support",
+        "MotivesAndAlgebraicCycles:MC.0/supported-diagonal-vanishing",
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "BW.2020",
+          "locator": "§5.1 pp. 62–65, Proposition 5.1(i); Proposition 5.2 proof pp. 66–67",
+          "match": "Gives precisely the nonequivariant vanishing and the rational induced-module summand argument under universal surface support."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/low-degree-hypersurface-ch0",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Zero-cycles on low-degree hypersurfaces",
+      "kind": "theorem",
+      "statement": "Let K be algebraically closed of characteristic zero, n≥2, and X⊂Pⁿ_K a smooth geometrically integral hypersurface of degree e with 1≤e≤n. Then deg:CH_0(X)→ℤ is an isomorphism. In particular this remains true over every algebraically closed extension of K. This is the low-degree case of Roitman’s Theorem 6(a), with n the ambient projective dimension, not dim X.",
+      "hypotheses": [
+        "Integral Chow groups are used; e may equal n.",
+        "The proof imports the existing Jacobian/abelian-variety interface for divisibility of degree-zero zero-cycles, and SF.5’s refined excess-intersection formula."
+      ],
+      "proofSteps": [
+        "At x∈X choose a line whose first e−1 homogeneous intersection coefficients vanish; there are at most e−1 equations in P^{n−1}, so a nonzero direction exists. The line is contained in X or intersects it only at x with multiplicity e (Roitman Lemma 17).",
+        "Intersect this ambient line class with X using refined Gysin. In the proper-intersection case this gives e[x]; in the contained-line case the excess Chern class on the line gives the same value. All ambient line classes are rationally equivalent, so e([x]−[y])=0.",
+        "Degree-zero zero-cycles on a smooth projective connected variety over algebraically closed K are divisible: reduce to curves and use surjectivity of multiplication on their Jacobians (Roitman Proposition 1). A divisible group killed by e is zero.",
+        "A K-point exists, so degree is surjective. Smoothness, degree and the dimension inequality are preserved by algebraically closed base extension."
+      ],
+      "acceptance": [
+        "e=1 gives projective space; a smooth plane conic has degree isomorphism, including e=n=2.",
+        "For a smooth plane cubic, e=3>n=2 and CH_0⁰ is nonzero; this rejects the weaker bound e≤n+1. A smooth quartic in P⁴ has e=n=4 and tests the valid boundary.",
+        "An anisotropic conic over a nonclosed field has degree image 2ℤ, so algebraic closedness cannot be removed."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.5/chow-group",
+        "SchemeAndStackFoundations:SF.5/degree",
+        "SchemeAndStackFoundations:SF.5/refined-gysin",
+        "SchemeAndStackFoundations:SF.5/projective-bundle-formula",
+        "SchemeAndStackFoundations:SF.3",
+        "SchemeAndStackFoundations:SF.4",
+        "SchemeAndStackFoundations:SF.5/gysin-excess",
+        "SchemeAndStackFoundations:SF.3/abel-maps-high-degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "ROITMAN.1972",
+          "locator": "§2, Proposition 1 and Lemma 13, pp. 582–583; §5, Theorem 6(a) and Lemma 17, pp. 587–588",
+          "match": "Combines divisibility of degree-zero zero-cycles with bounded exponent from special lines on a degree-e hypersurface, e≤ambient n."
+        },
+        {
+          "sourceId": "BW.2020",
+          "locator": "Proposition 5.7 proof, p. 71",
+          "match": "Cites Roitman Theorem 6 for the quartic threefold’s universal zero-dimensional support."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/quartic-universal-support",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Universal zero-dimensional support for quartic threefolds",
+      "kind": "application",
+      "statement": "For every real closed R and every smooth quartic hypersurface X⊂P⁴_R, X is geometrically integral of dimension three and UniversalCH0Support(X,0). More explicitly, for each algebraically closed extension L/R, degree identifies CH_0(X_L) with ℤ and every L-point generates it. Hence X satisfies the surface-support hypothesis and the two rational vanishing conclusions above with d=3.",
+      "hypotheses": [
+        "Smooth means the hypersurface is geometrically smooth; over the algebraic closure a smooth positive-dimensional hypersurface in P⁴ is connected and integral.",
+        "No assertion that X has an R-point, or that CH_0(X_K)→ℤ is an integral isomorphism for every nonclosed K/R, is included."
+      ],
+      "proofSteps": [
+        "Base change to any algebraically closed L/R; char L=0, e=n=4, so apply low-degree-hypersurface-ch0.",
+        "Choose an L-point and its zero-dimensional reduced support. Its CH_0 pushforward is surjective by the degree computation.",
+        "Apply monotonicity from bound zero to two and then real-universal-surface-vanishing."
+      ],
+      "acceptance": [
+        "The Fermat quartic x₀⁴+⋯+x₄⁴=0 over R has no R-points but satisfies this support conclusion after every algebraically closed extension.",
+        "A rational point over R is not used to choose all the witnesses; witnesses are chosen over each L.",
+        "This application is independent of the real integral Hodge conjecture for quartics, which is an MC.7 target."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/low-degree-hypersurface-ch0",
+        "MotivesAndAlgebraicCycles:MC.0/universal-ch0-support",
+        "MotivesAndAlgebraicCycles:MC.0/real-universal-surface-vanishing",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "BW.2020",
+          "locator": "Proposition 5.7 proof, p. 71",
+          "match": "Uses exactly the quartic’s universal zero-dimensional CH_0 support, before invoking Proposition 5.2."
+        },
+        {
+          "sourceId": "ROITMAN.1972",
+          "locator": "Theorem 6(a), pp. 587–588",
+          "match": "The degree bound 4≤4 applies over every algebraically closed characteristic-zero extension."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/intermediate-index",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Intermediate Euler indices",
+      "kind": "definition",
+      "statement": "For a proper finite-type k-scheme X and i≥0, define the ideal ELW_i(X)⊂ℤ generated by χ(X,F) for coherent F with support dimension at most i. Set ELW_{−1}(X)=0; set ind_i(X) to the nonnegative generator of ELW_i(X). For i≥dim X the ideals stabilize. In particular ind_0 is the ordinary index, the gcd of the degrees of closed points. Zero ideals, including the empty scheme, have generator zero. Here BW’s notation ind_i is separated from Kollár’s ideal-valued elw_i.",
+      "hypotheses": [
+        "Coherent Euler characteristic is the finite alternating sum of k-dimensions for proper schemes, imported from SF.2.",
+        "The support filtration on coherent G_0 and proper pushforward belong to SchemeKTheoryOperations, not a second construction in MC.0.",
+        "No regularity or smoothness hypothesis is needed for the definition."
+      ],
+      "proofSteps": [
+        "Take the image under coherent Euler characteristic of the dimension-i support filtration, then the generated ideal of ℤ.",
+        "Apply existing coherent-support dévissage: χ(F) modulo the lower-support ideal is the sum of generic lengths times χ(O_Z) on top-dimensional integral supports.",
+        "Use proper birational pushforward to replace each O_Z by the structure sheaf of its normalization modulo lower-dimensional terms. This also proves the gcd formula used in BW Proposition 3.10."
+      ],
+      "acceptance": [
+        "ELW_i⊂ELW_{i+1}; hence ind_{i+1} divides ind_i, not the reverse.",
+        "The index is a gcd of degrees of arbitrary integral zero-cycles; it need not be the degree of an effective point."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeKTheoryOperations:S.3/coherent-support-devissage",
+        "SchemeKTheoryOperations:S.7/pushforward-euler-class",
+        "SchemeKTheoryOperations:S.7",
+        "SchemeAndStackFoundations:SF.5/degree"
+      ],
+      "sources": [
+        {
+          "sourceId": "KOLLAR.2014",
+          "locator": "Definition 1 p. 1; Lemma 3 and Proposition 4 pp. 2–3; Lemma 5 pp. 2–3",
+          "match": "Defines the support-filtered Euler ideals and proves dévissage, normalization and proper-push congruences."
+        },
+        {
+          "sourceId": "BW.2020",
+          "locator": "Proposition 3.10, pp. 50–52; Remark 3.13, p. 52",
+          "match": "Uses the corresponding integer generators for Euler congruences of cycles."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "EulerIndex.ideal",
+          "role": "data",
+          "statement": "An ideal of ℤ for each i≥−1, with its nonnegative generator and ideal-generator equality."
+        },
+        {
+          "name": "EulerIndex.membership",
+          "role": "characterisation",
+          "statement": "Membership is a finite integer linear combination of Euler characteristics of coherent sheaves of support dimension at most i."
+        },
+        {
+          "name": "EulerIndex.integralSubvarieties",
+          "role": "characterisation",
+          "statement": "The same ideal is generated by χ(Z,O_Z) for integral closed Z of dimension at most i; normalization or a proper birational model gives the same ideal."
+        },
+        {
+          "name": "EulerIndex.mono",
+          "role": "relation",
+          "statement": "i≤j implies ELW_i⊂ELW_j, equivalently ind_j divides ind_i; include the zero-ideal boundary."
+        },
+        {
+          "name": "EulerIndex.properPush",
+          "role": "functoriality",
+          "statement": "For a proper k-morphism X→Y, ELW_i(X)⊂ELW_i(Y), through the alternating derived pushforward and its support bound."
+        },
+        {
+          "name": "EulerIndex.zero",
+          "role": "compatibility",
+          "statement": "ELW_0 is the degree ideal of zero-cycles under SF.5 degree; each closed point contributes its full residue-field degree."
+        },
+        {
+          "name": "EulerIndex.rationalPoint",
+          "role": "simp",
+          "statement": "A k-point forces every ELW_i with i≥0 to equal ℤ. The empty scheme has all ideals zero."
+        },
+        {
+          "name": "EulerIndex.baseChange",
+          "role": "compatibility",
+          "statement": "A field extension preserves coherent Euler characteristic of a fixed sheaf and gives ELW_i(X)⊂ELW_i(X_L); equality is not asserted. This uses proper coherent flat base change."
+        }
+      ],
+      "tests": [
+        {
+          "name": "point_and_empty",
+          "statement": "Spec k has ind_i=1 for i≥0; the empty scheme has ind_i=0 and ELW_{−1}=0. A definition forcing a positive generator for the zero ideal fails."
+        },
+        {
+          "name": "anisotropic_conic",
+          "statement": "A smooth conic with no real points has ind_0=2 and ind_1=1: every closed point has even degree, while χ(O_C)=1. Thus adjacent indices need not coincide."
+        },
+        {
+          "name": "projective_space",
+          "statement": "Pⁿ_k has index one in every nonnegative stage by its rational point, agreeing with the ordinary zero-cycle degree ideal."
+        },
+        {
+          "name": "base_extension_drop",
+          "statement": "The anisotropic real conic becomes split over ℂ; ind_0 drops from 2 to 1. Base-change invariance would be false."
+        }
+      ],
+      "uses": [
+        {
+          "where": "MC.0/euler-characteristic-mod-index; BW Remark 3.13",
+          "how": "Supplies the lower-dimensional modulus and the image ideal."
+        },
+        {
+          "where": "MC.0/karpenko-quadric; BW Remark 3.13",
+          "how": "ind_0=2 makes the odd Euler characteristic a nonzero obstruction to algebraic triviality."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/euler-characteristic-mod-index",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "Euler characteristic modulo the lower index",
+      "kind": "construction",
+      "statement": "For proper X/k and i≥0, send a dimension-i integral cycle α=Σ_Z n_Z[Z] to χ_i(α)=Σ_Z n_Z χ(Z,O_Z) modulo ELW_{i−1}(X), equivalently modulo ind_{i−1}(X). This factors through rational and then algebraic equivalence to a homomorphism CH_i(X)/Alg_i(X/k)→ELW_i(X)/ELW_{i−1}(X)⊂ℤ/ELW_{i−1}(X). For i=0 the lower ideal is zero and the map is ordinary degree into ℤ. Normalizing Z leaves its congruence unchanged.",
+      "hypotheses": [
+        "X is proper of finite type over any field k, with the actual ground-field algebraic equivalence defined above.",
+        "The displayed sum defines χ of a formal cycle linearly; it is not χ of the structure sheaf of its union or of a nonreduced thickening.",
+        "In the target ℤ/(0)=ℤ; no division or modulus-by-a-positive-generator convention is imposed at index zero."
+      ],
+      "proofSteps": [
+        "Use the cycle-to-associated-graded coherent G_0 map already owned by SchemeKTheoryOperations:S.7. Coherent dévissage and Euler characteristic send its lower-filtration ambiguity to ELW_{i−1}. This proves rational invariance.",
+        "For algebraic invariance replace an algebraically trivial cycle by an actual difference of effective flat cycle fibres over a smooth curve (ACMV Lemma 2.18, with the two projections corrected as in E51).",
+        "Apply constancy of Euler characteristic to each proper flat family. Dévissage identifies a fibre’s structure-sheaf Euler characteristic with the sum over its top components, modulo ELW_{i−1}; embedded/lower-dimensional pieces give exactly that error ideal. Thus the two cycle congruences agree.",
+        "Use proper-push Euler characteristic and the generic-degree dévissage formula to prove naturality; normalization changes the value only by lower-dimensional support."
+      ],
+      "acceptance": [
+        "A rationally or algebraically trivial cycle maps to zero; this assertion concerns the congruence, not the integer-valued sum.",
+        "The target image is ELW_i/ELW_{i−1}; components of dimension below i contribute nothing there.",
+        "No factorization through integral arithmetic homological equivalence over arbitrary k is claimed."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence",
+        "MotivesAndAlgebraicCycles:MC.0/curve-parameterisation",
+        "MotivesAndAlgebraicCycles:MC.0/intermediate-index",
+        "SchemeKTheoryOperations:S.7/cycle-class-to-graded-k0",
+        "SchemeKTheoryOperations:S.7/pushforward-euler-class",
+        "SchemeKTheoryOperations:S.3/coherent-support-devissage",
+        "SchemeKTheoryOperations:S.7",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "KOLLAR.2014",
+          "locator": "Definition 13 and Proposition 14 with proof, p. 4; Lemmas 3 and 5, pp. 2–3",
+          "match": "Proves invariance of Euler characteristic modulo the lower-support ideal under algebraic equivalence and the generic-degree congruence."
+        },
+        {
+          "sourceId": "ACMV.2017",
+          "locator": "Definition 2.17 and Lemma 2.18 with proof, pp. 10–11",
+          "match": "Realizes an algebraically trivial cycle as a difference of effective flat fibres; the proof’s swapped projections are corrected."
+        },
+        {
+          "sourceId": "BW.2020",
+          "locator": "Remark 3.13, p. 52",
+          "match": "Asserts this general-field algebraic-invariance statement before giving a counterexample to homological factorization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "CycleEulerMod.map",
+          "role": "constructor",
+          "statement": "An additive map on dimension-i cycles, followed by its induced map on CH_i and the algebraic quotient."
+        },
+        {
+          "name": "CycleEulerMod.integralCycle",
+          "role": "simp",
+          "statement": "The generator [Z] has value χ(Z,O_Z) modulo ELW_{i−1}; multiplying a cycle multiplies this value."
+        },
+        {
+          "name": "CycleEulerMod.devissage",
+          "role": "compatibility",
+          "statement": "A coherent sheaf of support dimension at most i has Euler congruence equal to the generic-length-weighted top cycle; lower-dimensional support maps to zero."
+        },
+        {
+          "name": "CycleEulerMod.normalization",
+          "role": "compatibility",
+          "statement": "χ(Z̃,O_{Z̃})≡χ(Z,O_Z) modulo ELW_{i−1}, for normalization or any proper birational model of integral i-dimensional Z."
+        },
+        {
+          "name": "CycleEulerMod.properPush",
+          "role": "functoriality",
+          "statement": "For proper f:X→Y, coefficientwise cycle pushforward intertwines χ_i after the quotient map ℤ/ELW_{i−1}(X)→ℤ/ELW_{i−1}(Y). A dimension-dropping component has zero value in the latter quotient."
+        },
+        {
+          "name": "CycleEulerMod.algQuotient",
+          "role": "universal-property",
+          "statement": "The map kills every permitted family difference and therefore uniquely factors through CH_i/Alg_i."
+        },
+        {
+          "name": "CycleEulerMod.degree",
+          "role": "compatibility",
+          "statement": "At i=0 its value is precisely the SF.5 degree with residue-field multiplicities; after any field extension it respects the quotient by the possibly larger lower ideal."
+        }
+      ],
+      "tests": [
+        {
+          "name": "closed_point",
+          "statement": "A closed point with residue degree m has χ_0=m in ℤ. The trivial zero target for every i would fail this test."
+        },
+        {
+          "name": "lower_support",
+          "statement": "A sheaf supported on finitely many points maps to zero in the i=1 congruence, even when its integer Euler characteristic is nonzero."
+        },
+        {
+          "name": "nodal_normalization",
+          "statement": "For a proper integral nodal curve, the normalization correction is the Euler characteristic of a finite-support quotient; it vanishes modulo ind_0, illustrating why the congruence survives normalization while integer χ can change."
+        },
+        {
+          "name": "quadric_torsion",
+          "statement": "For the Karpenko threefold below, χ_1 of the torsion generator is 1 modulo 2. A definition using only its rational or geometric cycle class would incorrectly give zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BW Remark 3.13; MC.0/karpenko-quadric",
+          "how": "Detects a non-algebraically-trivial torsion cycle whose integral arithmetic cycle class is zero."
+        },
+        {
+          "where": "BW real Euler congruences at MC.7",
+          "how": "Supplies the general-field factorization through algebraic equivalence; the stronger real homological factorization needs MC.7’s separate inputs."
+        }
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles:MC.0/karpenko-quadric",
+      "parentStageId": "MotivesAndAlgebraicCycles:MC.0",
+      "realises": [
+        "MotivesAndAlgebraicCycles:MC.0"
+      ],
+      "title": "A homologically trivial cycle detected by Euler parity",
+      "kind": "application",
+      "statement": "Let F=ℂ((t))((u))((v)) and let X⊂P⁴_F be the smooth anisotropic quadric of q=⟨1,t,u,tu,v⟩. Then dim X=3, ind_0(X)=2, and CH_1(X) has a torsion subgroup ℤ/2 with generator τ whose χ_1 value is 1 modulo 2. The integral arithmetic group H⁴_et(X,ℤ₂(2)) is torsion-free, so the integral arithmetic cycle class of τ is zero. Consequently τ is homologically trivial for this map but not algebraically trivial over F. Tensoring CH_1 with ℚ kills τ, so this does not contradict the classical rational comparison chain.",
+      "hypotheses": [
+        "Characteristic is zero and the étale group is arithmetic over F, not the group after algebraic closure and not a selected classical Weil theory.",
+        "The complete Clifford/K_0 calculation of χ_1(τ) and the integral Hochschild–Serre calculation are verification obligations MC0-G2 and MC0-G3, rather than assumptions silently absorbed into a cycle-class API."
+      ],
+      "proofSteps": [
+        "Successive Laurent valuations prove anisotropy: ⟨1,t⟩ over ℂ((t)), then its twofold Pfister product ⟨1,t,u,tu⟩ over ℂ((t))((u)), and finally its sum with v⟨1⟩. Springer’s odd-degree anisotropy theorem makes all closed-point degrees even; adjoining √(−v) gives a degree-two point. Thus ind_0=2.",
+        "Since −1 is a square, the first four coefficients form a twofold Pfister form. Karpenko Theorem 5.3 gives TCH²(X)=ℤ/2; for the threefold CH²=CH_1.",
+        "Use the topological filtration on integral K_0, the CH²≃gr²_top K_0 comparison (§3.1), and the Clifford-index lattice of §3.3–3.8. Identify the torsion lift with the integral class whose split representative is ℓ₀=[O_point] and hence has χ=1. The explicit index/lift computation is MC0-G2.",
+        "Calculate H⁴_et(X,ℤ₂(2)) by integral Hochschild–Serre over F, including its filtration, differentials and extensions, to establish torsion-freeness (MC0-G3). A rational spectral sequence does not establish this.",
+        "A homomorphism from the order-two τ to a torsion-free target is zero; the Euler congruence is nonzero and factors through algebraic equivalence, proving the non-equivalence."
+      ],
+      "acceptance": [
+        "Preserve all three Laurent parameters and the fifth coefficient v; replacing F by ℂ destroys the example.",
+        "The nonzero Euler parity distinguishes τ from zero even though its arithmetic integral cycle class and rational Chow class are zero.",
+        "Torsion-free geometric H⁴ alone is insufficient: arithmetic Hochschild–Serre contributions must be checked."
+      ],
+      "prerequisites": [
+        "MotivesAndAlgebraicCycles:MC.0/euler-characteristic-mod-index",
+        "MotivesAndAlgebraicCycles:MC.0/intermediate-index",
+        "QuadraticFormInvariantsPartII:Q2.4",
+        "QuadraticFormInvariantsPartII:Q2.2/odd-degree-anisotropy",
+        "SchemeKTheoryOperations:S.7/cycle-class-to-graded-k0",
+        "SchemeKTheoryOperations:S.7/pushforward-euler-class",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map",
+        "SchemeAndStackFoundations:SF.2/hochschild-serre-galois-covering"
+      ],
+      "sources": [
+        {
+          "sourceId": "BW.2020",
+          "locator": "Remark 3.13, p. 52",
+          "match": "Gives precisely this field, quadric, torsion generator, Euler parity and torsion-free arithmetic cohomology as a counterexample to homological factorization over arbitrary fields."
+        },
+        {
+          "sourceId": "KARPENKO.1991",
+          "locator": "§3.1–3.9, pp. 126–129, especially Theorem 3.8 p. 128; Theorem 5.3 p. 132",
+          "match": "Provides the integral K-theory filtration and torsion of codimension-two cycles on an anisotropic three-dimensional Pfister-neighbour quadric; the remaining explicit specialization is recorded."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "MotivesAndAlgebraicCycles:MC.0",
+      "status": "planned",
+      "remaining": [
+        "Discharge MC0-G1–G3 before claiming closed coverage; supplier extensions MC0-R1–R8 are specified precisely.",
+        "At assembly reconcile the nineteen imported target specifications and six existing planets against the merged supplier roadmaps; do not create duplicate nodes or reintroduce a whole-stage cohomology cycle."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "MC0-G1",
+      "title": "From varying algebraically closed support to the real closed diagonal argument",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/real-universal-surface-vanishing"
+      ],
+      "detail": "BW Proposition 5.2 (pp. 66–67) invokes the CTV proof for its all-algebraically-closed-extensions hypothesis. The elementary node here proves a decomposition only from a fixed Y over k that supports the generic point after algebraic closure. Verify the spread/specialization argument that passes from supports Y_L that may vary with L to the decomposition or an equivalent vanishing argument in this exact real closed setting, and the proper-to-projective adapter. Source CTV proves its fixed-support complex formulation; it is not itself a proof of this change of quantifiers. MC0-R1–R3 name the required operations. Until this is checked, the universal real closed application is a sourced target with this recorded gap, not closed coverage."
+    },
+    {
+      "id": "MC0-G2",
+      "title": "Explicit Clifford and K-theory lift for the quadric Euler parity",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/karpenko-quadric"
+      ],
+      "detail": "Karpenko Theorem 5.3 proves the order-two CH² class for the given Pfister neighbour; §3.1–3.8 give the general K_0 lattice/filtration computation, and BW Remark 3.13 states its Euler parity. Work out the even Clifford index for q and identify the integral K_0 lift of the torsion generator inside the split lattice, checking χ≡1 modulo 2. Reading the general theorems does not by itself identify that lift. MC0-R6–R7 give exact supplier boundaries; do not replace the lift by an arbitrary rational point class over F."
+    },
+    {
+      "id": "MC0-G3",
+      "title": "Integral arithmetic Hochschild–Serre computation for the quadric",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/karpenko-quadric"
+      ],
+      "detail": "BW Remark 3.13 asserts H⁴_et(X,ℤ₂(2)) is torsion-free by Hochschild–Serre, without displaying its computation. The integral E₂ terms, differentials and extensions for the explicit F and quadric have not been verified here. Supply the MC0-R8 computation; geometric H⁴ and rational coefficients do not resolve this obligation."
+    }
+  ],
+  "requests": [
+    {
+      "id": "MC0-R1",
+      "supplier": "SchemeAndStackFoundations:SF.5",
+      "need": "Extend the existing Chow localization/finite-flat-degree API with (a) the direct-limit isomorphism colim_{U⊂S nonempty} CH_{dim S+i}(U×X)≃CH_i(X_{k(S)}) for integral S and finite-type X, (b) descent of cycles and rational-equivalence witnesses along filtered field unions and an algebraic closure to a finite field extension, and (c) spread and specialization compatibilities with refined Gysin and proper transfer. State the norm identity res then cor=[E:K] for finite extensions including inseparable residue degrees. Existing finite-flat-degree already owns the degree formula; existing localization owns only right exactness, not a left injection. These supply the fixed-support generic-point proof and the missing varying-support adapter. Use a dimension grading on integral cycles before scalar extension.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/diagonal-decomposition",
+        "MotivesAndAlgebraicCycles:MC.0/real-universal-surface-vanishing"
+      ]
+    },
+    {
+      "id": "MC0-R2",
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "Strengthen prescribed-point Bertini to ACMV Appendix A Theorem A.1 (pp. 17–18): a smooth geometrically integral quasi-projective variety over any field has a smooth geometrically integral quasi-projective curve containing a specified finite smooth subscheme (in the applications, two rational points). Specify the finite-field construction. Import the existing smoothness-only Bertini node and extend it rather than define another Bertini theory. For the characteristic-zero proper support argument, add smooth projective birational models of integral proper supports of every required dimension, retaining dimension and generic degree one, via Chow lemma and resolution. The existing resolution-of-curves node alone is insufficient. Include connectedness/geometric integrality of smooth hypersurfaces of dimension at least two in projective space.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/curve-parameterisation",
+        "MotivesAndAlgebraicCycles:MC.0/diagonal-decomposition",
+        "MotivesAndAlgebraicCycles:MC.0/supported-diagonal-vanishing",
+        "MotivesAndAlgebraicCycles:MC.0/real-universal-surface-vanishing",
+        "MotivesAndAlgebraicCycles:MC.0/quartic-universal-support"
+      ]
+    },
+    {
+      "id": "MC0-R3",
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Bloch–Ogus supplier interface: Zariski sheaves ℋ_X^q(A(t)) of singular cohomology over ℂ, Gersten/Cousin resolution, cycle class CH^c/Alg→H^c(ℋ^c(ℤ(c))), products, flat pullback, proper trace, residue compatibility, projection formula and Cartesian flat base change. Supply ℋ_X^q=0 for q>dim X for these theories, not a claim about ordinary topological cohomology. Over a real closed R with C=R(i), supply the nonequivariant semialgebraic and G-equivariant semialgebraic versions from BW §5.1 pp. 62–65, including ℋ_X^q(A[G])≃π_*ℋ_XC^q(A) and R^aπ_*ℋ_XC^q(A)=0 for a>0, so H^p commutes with this π_*. Prove the support-factorization compatibilities after smooth proper models and their cohomological shifts. This is additional scope of the cohomology owner; generic Godement resolutions and RealAlgebraicGeometry CAD are not substitutes. The correspondence action itself is owned here.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/cohomology-sheaf-correspondence-action",
+        "MotivesAndAlgebraicCycles:MC.0/supported-diagonal-vanishing",
+        "MotivesAndAlgebraicCycles:MC.0/real-universal-surface-vanishing"
+      ]
+    },
+    {
+      "id": "MC0-R4",
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Provide coherent Euler characteristic of proper finite-type schemes, its compatibility with alternating higher proper pushforwards and extension of the base field, and its constancy for a coherent sheaf flat over a connected smooth curve with proper support. Combine with existing coherent G_0 dévissage; do not reconstruct K-theory here. A flat effective cycle fibre may have lower-dimensional/embedded structure, so the Euler-to-top-cycle comparison is a congruence modulo the lower support ideal, not an integer equality.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/intermediate-index",
+        "MotivesAndAlgebraicCycles:MC.0/euler-characteristic-mod-index"
+      ]
+    },
+    {
+      "id": "MC0-R5",
+      "supplier": "SchemeAndStackFoundations:SF.3",
+      "need": "Using the current TauCetiRoadmap JacobianChallenge divisor/Picard/Abel–Jacobi interfaces and the existing Abel-map target, supply divisibility of CH_0⁰ of a smooth projective connected variety over an algebraically closed characteristic-zero field: put finite zero-cycle support on smooth projective curves and use surjectivity of multiplication by every nonzero integer on the curve Jacobian. Include the curve-to-variety CH_0 pushforward compatibility. This is Roitman Proposition 1, pp. 582–583; do not use an Albanese isomorphism for higher-dimensional CH_0.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/low-degree-hypersurface-ch0"
+      ]
+    },
+    {
+      "id": "MC0-R6",
+      "supplier": "QuadraticFormInvariantsPartII:Q2.4",
+      "need": "Add the explicit non-Pfister diagonal-form valuation adapter: for residue characteristic different from two, anisotropic q₀ and q₁ over K remain anisotropic in q₀⊥t q₁ over K((t)), by the parity of the two least valuations. Apply successively to ⟨1,t⟩, ⟨1,t,u,tu⟩ and ⟨1,t,u,tu,v⟩ over ℂ and its three Laurent extensions. Existing unit-reduction/independent-values targets concern Pfister forms and do not directly cover the five-dimensional form. Import Q2.2/odd-degree-anisotropy. Identify the even Clifford algebra index for this five-dimensional Pfister neighbour (the exact value needed by Karpenko §3.3–3.8), with a splitting/valuation proof, to discharge MC0-G2.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/karpenko-quadric"
+      ]
+    },
+    {
+      "id": "MC0-R7",
+      "supplier": "SchemeKTheoryOperations:S.7",
+      "need": "Extend the existing codimension-filtered cycle-class-to-graded-k0 interface to the dimension-of-support filtration on coherent G_0 of every separated finite-type k-scheme: CH_i(X)→gr_i G_0(X), compatible with proper pushforward, generic lengths, and the Euler congruence modulo support dimension i−1. No equidimensionality is assumed in the Euler-index targets; on pure-dimensional schemes identify this with the existing codimension filtration using the dimension formula. Use the existing pushforward-euler-class and support-dévis­sage targets. Also provide the specialized Karpenko filtration adapter: CH²≃gr²_top K_0 for a three-dimensional quadric, its integral K_0 image inside split K_0 from the Clifford index, and an integral lift of the order-two CH² class with split representative ℓ₀=[O_point] and odd Euler characteristic. This is the source calculation in Karpenko §3.1–3.8, pp. 126–129, not rational Chern-character comparison; rationalization loses the class. MC.0 owns the counterexample assembled from this imported calculation.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/intermediate-index",
+        "MotivesAndAlgebraicCycles:MC.0/euler-characteristic-mod-index",
+        "MotivesAndAlgebraicCycles:MC.0/karpenko-quadric"
+      ]
+    },
+    {
+      "id": "MC0-R8",
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Extend the existing Hochschild–Serre covering interface to the integral continuous étale ℤ₂(2) groups of the explicit quadric over F=ℂ((t))((u))((v)). Calculate the E₂ terms in total degree four, possible incoming/outgoing differentials, and the integral filtration extensions, to prove H⁴_et(X,ℤ₂(2)) has no two-torsion as asserted in BW Remark 3.13. Coordinate its integral arithmetic cycle-class map with EtaleDualityAndPerverseSheaves:EDC.3/cycle-class-map, whose geometric torsion-coefficient construction alone is insufficient. An ℚ₂ calculation or geometric torsion-freeness is not a proof of the arithmetic integral statement. MC0-G3 records this precise source-verification obligation.",
+      "neededBy": [
+        "MotivesAndAlgebraicCycles:MC.0/karpenko-quadric"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "title": "Expose the early cohomology interface and keep correspondence foundations independent of motives",
+      "proposal": "Order the independently axiomatized MC.2/weil-cohomology-data, classical-weil-cohomology, homological-equivalence and weil-cohomology-by-base-change before MC.0/algebraic-implies-homological and the quotient comparison. Their prerequisite nodes use SF.5 and graded vector spaces, not MC.1. MC.1 then imports the MC.0 quotient category. The realization functors on motives remain in MC.2 after MC.1; no whole-stage MC.0→MC.2→MC.1→MC.0 loop is introduced.",
+      "reason": "Algebraic-to-homological comparison needs cohomology axioms, not the motive category it helps construct."
+    },
+    {
+      "title": "Group the MC.0 targets into correspondence, equivalence and support/Euler interfaces",
+      "proposal": "Within the existing MC.0 layer retain the nineteen established target ids and its six existing planets. Present the continuation as three ordered interfaces: correspondence algebra; adequate and algebraic quotient comparisons; integral support/cohomology-sheaf and Euler-index applications. SF.2/SF.4/SF.5 and SchemeKTheoryOperations own the general supplier extensions, as recorded in MC0-R1–R8. No new atlas planet is added beyond the existing six.",
+      "reason": "Keeps integral counterexamples distinct from rational motives and avoids duplicating intersection, K-theory, Picard and cohomology foundations."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "MotivesAndAlgebraicCycles/E48",
+      "source": "CTV.2011",
+      "kind": "misprint",
+      "locator": "Lemma 9.3, final display, printed p. 44 in both the 13 June 2011 author preprint and arXiv:1005.2778v2; journal not collated.",
+      "printed": "The target group’s base is written X×Y, although its cohomology sheaf is indexed by Y×Z and both sides have just been pushed to Y×Z.",
+      "correction": "Replace the ambient base of that final cohomology group by Y×Z; retain the stated bidegree, coefficient group and twist.",
+      "reason": "The displayed map p₂₃ has codomain Y×Z, and pullback along the first projection of Y×Z followed by cup product also lies on Y×Z. The printed base does not type-check. This is an ambient-name slip, not a failure of flat base change.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Voisin publication list https://www.cmls.polytechnique.fr/perso/voisin/listepublications.html links the June 2011 text; no attached correction was found.",
+        "arXiv:1005.2778 version history and v2: final display of Lemma 9.3 still has the ambient-base mismatch.",
+        "Publisher DOI 10.1215/00127094-1548389 access attempted; journal text was not obtained, so no claim about journal correction status."
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E49",
+      "source": "ACMV.2017",
+      "kind": "misprint",
+      "locator": "Formula (2.6), proof of Proposition 2.14, printed p. 9 in 11 July 2017 revision; publisher HTML §3.5 proof of Proposition 3.14 formula (3.2); current author copy formula (3.6), p. 9.",
+      "printed": "The projective-bundle expansion uses an upper exponent equal to the bundle rank N+1−g and gives W_j dimension i+1−(N−g)+j, even though the symmetrized class has dimension i+N.",
+      "correction": "Use exponents 0≤j≤N−g (relative projective dimension) and W_j∈CH_{i+g+j}(Pic^N(C)×X). Then flat pullback raises dimension by N−g and j Chern caps lower it by j, giving i+N.",
+      "reason": "The rank is N+1−g, so the free projective-bundle basis ends at rank minus one. Dimension counting gives dim W_j+(N−g)−j=i+N. With the printed dimension, the terms instead have dimension i+1. The corrected formula still has only j=0 contributing to rational-point fibres, so the intended parameter-space theorem is unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Oxford Academic article page and its publisher HTML, §3.5–3.6, checked 2026-10-19.",
+        "Achter publication page https://www.math.colostate.edu/~achter/math.html and Vial publication page https://www.math.uni-bielefeld.de/~vial/; current abtriv.pdf checked at the affected formulas.",
+        "Web searches for the article title with erratum/correction and formula (2.6) did not locate a correction; no claim of an exhaustive errata search."
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E50",
+      "source": "ACMV.DIAG.2025",
+      "kind": "misprint",
+      "locator": "Example 2.3, printed p. 12 (PDF p. 36) of Astérisque 455 (2025); also current author copy Example 2.3.",
+      "printed": "The hyperplane expansion of the projective-space diagonal stops at i=r−1.",
+      "correction": "Sum the terms H₁^i H₂^{r−i} for 0≤i≤r, including H₁^r.",
+      "reason": "For r=1 the printed expression is P¹×point alone, whose forward action kills CH⁰; the diagonal must act identically on CH⁰ and CH¹. Adding point×P¹ gives the standard two projectors. The stated support decomposition works after this correction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "SMF publisher page/PDF for Astérisque 455, DOI 10.24033/ast.1244, checked 2026-10-19.",
+        "Achter and Vial publication pages, including current https://www.math.uni-bielefeld.de/~vial/diagonal.pdf at Example 2.3 and Remark 2.5; same assertions remain.",
+        "Web searches for the exact article title with erratum and Remark 2.5 correction did not locate a correction."
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E51",
+      "source": "ACMV.2017",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 2.18, printed p. 11 in 11 July 2017 revision; publisher HTML §3.6 proof of Lemma 3.18; current author copy proof of Lemma 3.18.",
+      "printed": "For s₁=(p₁,p₀), s₀=(p₀,p₁), the effective cycle is built as pr₂*Z⁺+pr₁*Z⁻ but the claimed fibre difference has the sign of Z_{p₁}−Z_{p₀}.",
+      "correction": "Use pr₁*Z⁺+pr₂*Z⁻ with the same marked points, or interchange s₀ and s₁ throughout the construction.",
+      "reason": "Expanding the printed V_{s₁}−V_{s₀} gives Z⁺_{p₀}−Z⁺_{p₁}+Z⁻_{p₁}−Z⁻_{p₀}=−(Z_{p₁}−Z_{p₀}). Swapping the two projection indices preserves effectivity and flatness and restores the claimed sign; the existence theorem remains valid.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Oxford Academic article page and its publisher HTML, §3.5–3.6, checked 2026-10-19.",
+        "Achter publication page https://www.math.colostate.edu/~achter/math.html and Vial publication page https://www.math.uni-bielefeld.de/~vial/; current abtriv.pdf checked at the affected formulas.",
+        "Web searches for the article title with erratum/correction and formula (2.6) did not locate a correction; no claim of an exhaustive errata search."
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E52",
+      "source": "ACMV.DIAG.2025",
+      "kind": "misprint",
+      "locator": "Remark 2.5, proof display, printed p. 12 (PDF p. 36) of Astérisque 455 (2025); also current author copy Remark 2.5.",
+      "printed": "The action of the unmultiplied diagonal on β is identified with Nβ in the calculation for a decomposition of NΔ.",
+      "correction": "Use (NΔ)_*β=Nβ. The resulting correct equality is Nβ=deg(β)α for the particular α defining Z₂.",
+      "reason": "The diagonal is the identity correspondence. Scalar N comes from NΔ and cannot be dropped in its action notation. E53 separately records the unjustified cancellation in the next sentence.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "SMF publisher page/PDF for Astérisque 455, DOI 10.24033/ast.1244, checked 2026-10-19.",
+        "Achter and Vial publication pages, including current https://www.math.uni-bielefeld.de/~vial/diagonal.pdf at Example 2.3 and Remark 2.5; same assertions remain.",
+        "Web searches for the exact article title with erratum and Remark 2.5 correction did not locate a correction."
+      ]
+    },
+    {
+      "id": "MotivesAndAlgebraicCycles/E53",
+      "source": "ACMV.DIAG.2025",
+      "kind": "error",
+      "locator": "Remark 2.5, assertion about every degree-N zero-cycle and its proof, printed p. 12 (PDF p. 36) of Astérisque 455 (2025); coefficient rings as in Definition 2.1 p. 11.",
+      "printed": "For a strict R-decomposition of NΔ, the remark identifies Z₂ with the pullback of any degree-N zero-cycle and claims all such cycles are rationally equivalent to its chosen α, without a hypothesis excluding N-torsion.",
+      "correction": "The action argument gives Nβ=deg(β)α, hence N(β−α)=0 when deg β=deg α=N. Keep this bounded-exponent conclusion; uniqueness requires additional N-torsion-freeness (or that N be invertible). The special N=1 conclusion with a rational point is valid. MC.0 uses only annihilation and then rationalization.",
+      "reason": "Cancellation of N in CH_0 is not valid generally. A counterexample within the stated arbitrary-ring scope is R=ℤ/2, N=2, and X=E_K for an elliptic curve E/ℂ and K=ℂ(E). Then 2Δ=0 admits the zero strict decomposition. The degree-two integral cycle β=2[O]+([η]−[O]) has nonzero image in CH_0(X)⊗ℤ/2: η is not twice a K-point, since that would extend to a rational map φ:E→E with [2]∘φ=id, contradicting degrees 4·deg φ=1. Thus the pullback pr₂^*β is nonzero (restrict to {O}×X), although Z₂=0. The display only forces 2β=0 in these coefficients. This finding concerns the general coefficient assertion, not the N=1 universal-triviality equivalence.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "SMF publisher page/PDF for Astérisque 455, DOI 10.24033/ast.1244, checked 2026-10-19.",
+        "Achter and Vial publication pages, including current https://www.math.uni-bielefeld.de/~vial/diagonal.pdf at Example 2.3 and Remark 2.5; same assertions remain.",
+        "Web searches for the exact article title with erratum and Remark 2.5 correction did not locate a correction."
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-group",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-action-on-cycles",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-composition",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/composition-associative",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-correspondence",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/category-of-correspondences",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondence-functor",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/transpose-correspondence",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-acts-as-gysin-and-pushforward",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/tensor-of-correspondences",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/projective-line-idempotents",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/pointed-curve-idempotents",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/adequate-equivalence-relation",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondences-with-the-point",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/composition-compatible-with-action",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/correspondences-of-disjoint-union",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/tensor-interchange",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    },
+    {
+      "nodeId": "MotivesAndAlgebraicCycles:MC.0/graph-against-diagonals",
+      "fromPacket": "research/blueprint/packets/MotivesAndAlgebraicCycles.json",
+      "role": "Retained MC.0 target; reader reproduces its specification and checks without creating a duplicate node."
+    }
+  ],
+  "libraryAudit": {
+    "reviewed": "AUDIT-01, SchemeAndStackFoundations:SF.5 in data/library-coverage.json; no direct reviewed MC.0 audit entry exists.",
+    "conclusion": "The audit’s partial cycle coverage is native point cycles and divisor cases. Source searches at both pins and in the read-only current Tau Ceti tree found no general Chow quotient, algebraic-equivalence relation, intersection product or Bloch–Ogus interface.",
+    "upstreamNotes": [
+      "AlgebraicVectorBundles README and Suggested: L0–L2 cover native bundles and relative Spec; Chow/Chern motivation does not supply SF.5 intersections.",
+      "JacobianChallenge README: import its line-bundle/divisor/Picard/degree and curve cohomology interfaces in the curve checks, not a second Picard or Riemann–Roch theory.",
+      "RealAlgebraicGeometry README explicitly excludes semialgebraic homology; its CAD development does not supply equivariant semialgebraic cohomology.",
+      "Current read-only checkout lacks a SchemeAndStackFoundations directory despite the newer upstream status register marking its package merged. Existing atlas supplier targets are cited; package assembly must reconcile them against the merged upstream package."
+    ]
+  },
+  "targetInventory": [
+    {
+      "target": "Correspondence groups, action, composition, associativity, graphs, additive and symmetric monoidal categories, transpose and point/curve projectors",
+      "realisedBy": [
+        "MotivesAndAlgebraicCycles:MC.0/correspondence-group",
+        "MotivesAndAlgebraicCycles:MC.0/correspondence-action-on-cycles",
+        "MotivesAndAlgebraicCycles:MC.0/correspondence-composition",
+        "MotivesAndAlgebraicCycles:MC.0/composition-associative",
+        "MotivesAndAlgebraicCycles:MC.0/graph-correspondence",
+        "MotivesAndAlgebraicCycles:MC.0/category-of-correspondences",
+        "MotivesAndAlgebraicCycles:MC.0/correspondence-functor",
+        "MotivesAndAlgebraicCycles:MC.0/transpose-correspondence",
+        "MotivesAndAlgebraicCycles:MC.0/graph-acts-as-gysin-and-pushforward",
+        "MotivesAndAlgebraicCycles:MC.0/tensor-of-correspondences",
+        "MotivesAndAlgebraicCycles:MC.0/projective-line-idempotents",
+        "MotivesAndAlgebraicCycles:MC.0/pointed-curve-idempotents",
+        "MotivesAndAlgebraicCycles:MC.0/correspondences-with-the-point",
+        "MotivesAndAlgebraicCycles:MC.0/composition-compatible-with-action",
+        "MotivesAndAlgebraicCycles:MC.0/correspondences-of-disjoint-union",
+        "MotivesAndAlgebraicCycles:MC.0/tensor-interchange",
+        "MotivesAndAlgebraicCycles:MC.0/graph-against-diagonals"
+      ],
+      "ownership": "Imported from the existing reviewed whole-roadmap packet."
+    },
+    {
+      "target": "Adequate and numerical relations, algebraic equivalence, adequacy and the comparison chain",
+      "realisedBy": [
+        "MotivesAndAlgebraicCycles:MC.0/adequate-equivalence-relation",
+        "MotivesAndAlgebraicCycles:MC.0/numerical-equivalence",
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence",
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-equivalence-adequate",
+        "MotivesAndAlgebraicCycles:MC.0/curve-parameterisation",
+        "MotivesAndAlgebraicCycles:MC.0/algebraic-implies-homological",
+        "MotivesAndAlgebraicCycles:MC.0/equivalence-quotient-comparisons"
+      ],
+      "ownership": "Two existing targets imported, five targets specified here."
+    },
+    {
+      "target": "BW Proposition 5.2 diagonal-support route and Proposition 5.7 quartic support input",
+      "realisedBy": [
+        "MotivesAndAlgebraicCycles:MC.0/universal-ch0-support",
+        "MotivesAndAlgebraicCycles:MC.0/diagonal-decomposition",
+        "MotivesAndAlgebraicCycles:MC.0/cohomology-sheaf-correspondence-action",
+        "MotivesAndAlgebraicCycles:MC.0/supported-diagonal-vanishing",
+        "MotivesAndAlgebraicCycles:MC.0/real-universal-surface-vanishing",
+        "MotivesAndAlgebraicCycles:MC.0/low-degree-hypersurface-ch0",
+        "MotivesAndAlgebraicCycles:MC.0/quartic-universal-support"
+      ],
+      "ownership": "MC.0 owns these support and correspondence targets; MC.7 owns the integral Hodge application."
+    },
+    {
+      "target": "BW Remark 3.13 general Euler congruence and Karpenko counterexample",
+      "realisedBy": [
+        "MotivesAndAlgebraicCycles:MC.0/intermediate-index",
+        "MotivesAndAlgebraicCycles:MC.0/euler-characteristic-mod-index",
+        "MotivesAndAlgebraicCycles:MC.0/karpenko-quadric"
+      ],
+      "ownership": "MC.0 owns the cycle relation and application, importing general coherent K-theory, quadratic-form and étale suppliers."
+    }
+  ],
+  "inheritedFindingScope": [
+    {
+      "id": "RT-AREA-iwasawa-3/8",
+      "owner": "PeriodsAndSpecialValues:PS.2; MotivesAndAlgebraicCycles:MC.5–MC.6",
+      "disposition": "Outside MC.0. PS.2 owns effective periods, Tate localization and extension of evaluation; MC.5–MC.6 supply the category/torsor. The whole-roadmap packet already records supplier fixes and a review requiring comparison compatibility. This MC.0 pass neither duplicates them nor claims to close that review. Tests of the Tate inverse, its evaluation and the rank-one Tate torsor belong there."
+    },
+    {
+      "id": "RT-AREA-algebraicgeometry/31",
+      "owner": "ComplexComparisonPartII:C5; SchemeAndStackFoundations:SF.6; MotivesAndAlgebraicCycles:MC.2",
+      "disposition": "Outside MC.0. Add the C5 comparison-supplier edges to the SF.6 and MC.2 consumers and retain cup, pullback and trace compatibility. This pass imports only the independently axiomatized early MC.2 Weil interface, not a de Rham–Betti comparison; it creates no competing supplier."
+    },
+    {
+      "id": "RT-AREA-geomlanglands/17",
+      "owner": "Foundational relative Tannakian reconstruction owner; MotivesAndAlgebraicCycles:MC.6 and GeometricSatakeAndFusion:GS4 consumers",
+      "disposition": "Outside MC.0. General relative reconstruction and the Deligne–Milne recognition criteria must have one foundational owner; MC.6 and GS4 import it. This pass supplies correspondence categories only and introduces no reconstruction target or field-only duplicate."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "CTV.2011",
+      "kind": "preprint",
+      "url": "https://www.cmls.polytechnique.fr/perso/voisin/Articlesweb/CTVoisin13juin11.pdf",
+      "read": "2026-10-19",
+      "sha256": "6a76c596025eb4379a800bcefb57c3f260226b202dae7919d191b4835a0a212a",
+      "note": "13 June 2011 author preprint, Lemma 9.3 printed p. 44, visually checked. Publisher DOI 10.1215/00127094-1548389 could not be opened by the web reader. E48 is scoped to the two preprints, not asserted against the uncollated journal version."
+    },
+    {
+      "sourceId": "CTV.2011",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1005.2778v2",
+      "read": "2026-10-19",
+      "sha256": "607c9a1d96e72f8c22c27f65c44fe3196c562aee57bc0b58eb390b3a27d00e04",
+      "note": "11 September 2011 arXiv v2, same final display of Lemma 9.3, printed p. 44."
+    },
+    {
+      "sourceId": "ACMV.2017",
+      "kind": "preprint",
+      "url": "https://www.math.colostate.edu/~achter/math/abtriv0717.pdf",
+      "read": "2026-10-19",
+      "sha256": "defc0d6a23e3fd0a004413511a0e813cbf25fda77f683c089f978df953e59492",
+      "note": "11 July 2017 author revision, formula (2.6) p. 9 and Lemma 2.18 proof p. 11."
+    },
+    {
+      "sourceId": "ACMV.2017",
+      "kind": "published",
+      "url": "https://academic.oup.com/imrn/article/2019/6/1863/4082263",
+      "read": "2026-10-19",
+      "note": "Publisher HTML redirected to https://oup.silverchair-cdn.com/article-minimal/4082263; read §3.5, proof of Proposition 3.14, formula (3.2), and §3.6, proof of Lemma 3.18. E49 and E51 persist there. No journal PDF page is inferred from the HTML numbering."
+    },
+    {
+      "sourceId": "ACMV.2017",
+      "kind": "author copy",
+      "url": "https://www.math.uni-bielefeld.de/~vial/abtriv.pdf",
+      "read": "2026-10-19",
+      "sha256": "c7c0a8923d0c5c6c58ac7aa142474ff17a450ce1d0b7eb83a9d1aacf20aea409",
+      "note": "Current author copy: formula (3.6) printed p. 9 retains both indices in E49; proof of Lemma 3.18 retains E51."
+    },
+    {
+      "sourceId": "ACMV.DIAG.2025",
+      "kind": "published",
+      "url": "https://smf.emath.fr/system/files/filepdf/smf_ast_455.pdf",
+      "read": "2026-10-19",
+      "sha256": "5976fbb2b5f9ea45df90c092c4b2b52e24af18aaa2e505a8e8a67f48107d6e49",
+      "note": "Version of record, printed p. 12 (PDF p. 36), visually checked; R is an arbitrary commutative ring in Definition 2.1."
+    },
+    {
+      "sourceId": "ACMV.DIAG.2025",
+      "kind": "author copy",
+      "url": "https://www.math.uni-bielefeld.de/~vial/diagonal.pdf",
+      "read": "2026-10-19",
+      "sha256": "eef98ffcb0fbb37f383e5a1d447e48317f4c039ea3b1665f8550f69f4c93155b",
+      "note": "Current author PDF, Example 2.3 and Remark 2.5 retain E50, E52 and E53."
+    }
+  ]
+}
