@@ -206786,6 +206786,88 @@
    "reviewReason": "22000>6561 contradicts the stated ordering convention. Exact integer checks confirm22000+6561=28561 and coprimality; the summands have the table’s supported prime factors. This is an ordering error, not an objection to the545 count. Rechecked at the locator in the exact version and reading scope recorded by this review; other copies and prior correction searches remain historical provenance."
   },
   {
+   "id": "EisensteinIdealAndRationalTorsion/E1",
+   "kind": "misprint",
+   "locator": "III §5 Step3, p.159, compared with II §1 p.64 in the published 1977 PDF",
+   "printed": "Step3 assigns a level subgroup in the component direction to∞ and a subgroup in the identity direction to 0, while retaining the forgetful map (E,H)↦E.",
+   "correction": "With the II §1 cusp labels and that forgetful map, identity direction specializes to∞ (width1) and component direction to 0 (width P). Thus the descent compares x_3=0 and x_q=∞. Its contradiction is unchanged.",
+   "reason": "For the Tate curve, H=μ_P gives the1-gon cusp and an unramified forgetful parameter, hence∞. A subgroup projecting to Z/P on the P-gon has width P, hence0. This agrees with Deligne–Rapoport VII §§1–2 and Mazur’s II §1 but reverses the two Step3 labels.",
+   "affects": "the proof",
+   "known": "No published correction located in the primary versions examined; the correction follows from the paper’s earlier convention.",
+   "searched": [
+    "Mazur1977 published PDF, II §1 and III §5",
+    "Deligne–Rapoport corrected1986 printing, VII §§1–2",
+    "Mazur1978 §§2–4, the formal cusp and specialization argument",
+    "Mazur–Wiles1984 §8.I published errata, pp.187–188"
+   ],
+   "owner": "EisensteinIdealAndRationalTorsion",
+   "file": "research/blueprint/packets/EisensteinIdealAndRationalTorsion.json",
+   "citation": "Barry Mazur, Modular curves and the Eisenstein ideal, Publications mathématiques de l’IHÉS 47 (1977), 33–186",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EisensteinIdealAndRationalTorsion/E2",
+   "kind": "gap",
+   "locator": "II Corollary16.3 p.125",
+   "printed": "The multiplicity-one, Gorenstein and rank-two Tate conclusions are listed without their full deduction.",
+   "correction": "Add the ordinary connected/étale decomposition and the self-duality of the two halves under the Weil pairing.",
+   "reason": "The already proved rank-one étale result alone does not identify both halves without the duality input.",
+   "affects": "the proof",
+   "known": "Mazur–Wiles1984 §8.I, pp.187–188",
+   "searched": [
+    "Mazur1977 published PDF at the cited locator",
+    "Mazur–Wiles1984 §8.I errata, pp.187–188, primary page images"
+   ],
+   "owner": "EisensteinIdealAndRationalTorsion",
+   "file": "research/blueprint/packets/EisensteinIdealAndRationalTorsion.json",
+   "citation": "Barry Mazur, Modular curves and the Eisenstein ideal, Publications mathématiques de l’IHÉS 47 (1977), 33–186",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EisensteinIdealAndRationalTorsion/E3",
+   "kind": "error",
+   "locator": "II §12 p.105 line18",
+   "printed": "The calculation identifying the two order 2 cusp divisor classes is inferred from earlier odd-order relations.",
+   "correction": "Use the Siegel-function identity showing f·w(f) is a square, then deduce A+B=0.",
+   "reason": "Relations between the doubled classes do not justify the middle equality in the original calculation; the published correction gives the required square.",
+   "affects": "the proof",
+   "known": "Mazur–Wiles1984 §8.I, pp.187–188",
+   "searched": [
+    "Mazur1977 published PDF at the cited locator",
+    "Mazur–Wiles1984 §8.I errata, pp.187–188, primary page images"
+   ],
+   "owner": "EisensteinIdealAndRationalTorsion",
+   "file": "research/blueprint/packets/EisensteinIdealAndRationalTorsion.json",
+   "citation": "Barry Mazur, Modular curves and the Eisenstein ideal, Publications mathématiques de l’IHÉS 47 (1977), 33–186",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "EisensteinIdealAndRationalTorsion/E4",
+   "kind": "error",
+   "locator": "II Proposition11.7 proof p.100 line7 from bottom",
+   "printed": "The formula lifting T_l to X1(P) is written in the same unmarked upper-half-plane form as on X0(P).",
+   "correction": "Use the quotient correspondence on marked elliptic curves: sum (E/D,Q mod D) over cyclic order-l subgroups. Its coordinate expression includes the appropriate diamond action.",
+   "reason": "A quotient isogeny transports the marked P-torsion generator; omitting this action loses the diamond factor. The final scalar action on the Shimura subgroup remains correct.",
+   "affects": "the proof",
+   "known": "Mazur–Wiles1984 §8.I, pp.187–188",
+   "searched": [
+    "Mazur1977 published PDF at the cited locator",
+    "Mazur–Wiles1984 §8.I errata, pp.187–188, primary page images"
+   ],
+   "owner": "EisensteinIdealAndRationalTorsion",
+   "file": "research/blueprint/packets/EisensteinIdealAndRationalTorsion.json",
+   "citation": "Barry Mazur, Modular curves and the Eisenstein ideal, Publications mathématiques de l’IHÉS 47 (1977), 33–186",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "EllAdicHomotopyTypesAndWeights/E1",
    "kind": "misprint",
    "locator": "§5 (5.1.5), p. 235",
@@ -210922,8 +211004,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "David Burns, Ryotaro Sakamoto and Takamichi Sano, On the theory of higher rank Euler, Kolyvagin and Stark systems, II, arXiv:1805.08448v1 (22 May 2018), 51 pp., read 2026-10-06; the only version on arXiv",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
-   "reviewReason": "Independently checked v1 Hypothesis 4.7(ii), p.22, against the trivializing field in §3: every element of the printed subgroup acts trivially, so its coinvariants equal T. Omitting K(T) gives the required nontrivial rank-one coinvariant hypothesis. Verdict remains scoped to arXiv v1."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "reviewReason": "Fresh revision-five check of arXiv v1 Hypothesis 4.7(ii), p.22: the printed subgroup fixes K(T), hence acts trivially on T and gives coinvariants T. Removing the trivializing field is necessary for the intended rank-one quotient. This verdict is restricted to v1."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E2",
@@ -210944,8 +211026,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Karl Rubin, Euler systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., read 2026-10-06; chapter-relative numbering as in the draft",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
-   "reviewReason": "Independently read the 1999 draft IX.1 and checked the isolated-base family: the tower must be unramified at primes dividing N for all non-base Euler factors to vanish in that example. The printed outside-N condition does not give that example. No fresh inspection of the historical book-format mirror is claimed."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "reviewReason": "Fresh check of public 1999 draft IX.1, p.133: a nontrivial extension ramified only at N has empty Euler-factor product, so an isolated arbitrary base class fails. Unramifiedness at N permits the vanishing outside-N factor used by the example. The historical book-format passage was not read in this review."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E3",
@@ -210967,8 +211049,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society 168 (2004), no. 799; authors' copy, 96 pp., read 2026-10-06",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
-   "reviewReason": "Independently read the archived author-copy Proposition 3.4.4(ii). The one-vertex sheaf with stalk ℤ_p/p has a hub and trivial monodromy but torsion sections, and cannot be an ideal in ℤ_p. Arithmetic applications use free hub stalks or the stated principal-artinian scope."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "reviewReason": "Fresh check of archived MR04 Proposition 3.4.4(ii), p.27: a single-vertex stalk Z_p/p has a hub and trivial monodromy but torsion sections, and cannot be an ideal of the domain Z_p. A free rank-one hub or principal-artinian coefficients gives the stated repair."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E4",
@@ -210989,8 +211071,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society 168 (2004), no. 799; authors' copy, 96 pp., read 2026-10-06",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
-   "reviewReason": "Independently read MR04 Lemma 2.1.4 and published MR16 p.182, where the Gomez correction is credited. The S₃ matrices over 𝔽₃ have zero common fixed space and a trivial nonzero quotient, so arbitrary subquotients fail. BSS II Proposition 3.5 and Corollary 3.8 supply the coefficient-ideal/annihilator repair."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "reviewReason": "Fresh check of archived MR04 Lemma 2.1.4, p.15, and the published MR16 Gomez erratum, p.182: over F_3, b=[[1,1],[0,1]] fixes e1 and a=diag(-1,1) fixes e2, so common invariants vanish, while the quotient by e1 is trivial. Residual vanishing is used only for coefficient-ideal quotients and the justified dual annihilators."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E5",
@@ -211013,8 +211095,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society 168 (2004), no. 799; authors' copy, 96 pp., read 2026-10-06",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
-   "reviewReason": "Independently read MR04 Proposition 3.4.4(iii). In the recorded 𝔽₃[[x,y]] example, x generates m times R/(y), but does not generate (x,y) at the free hub. Propagation from a hub remains valid; arbitrary-vertex valuation propagation needs the narrower arithmetic scope."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "reviewReason": "Fresh check of archived MR04 Proposition 3.4.4(iii), p.27: for R=F_3[[x,y]], the section (x,x mod y) generates m times the stalk R/(y) but only (x), not m, at the free hub R. Starting at a hub and propagating along its surjective paths avoids this counterexample."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E6",
@@ -211034,8 +211116,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
    "citation": "Barry Mazur and Karl Rubin, Controlling Selmer groups in the higher core rank case, Journal de Théorie des Nombres de Bordeaux 28 (2016), 145–183; Numdam version of record, read 2026-10-10",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
-   "reviewReason": "Independent scaling check at positive dual corank; the unrestricted equality criterion fails at infinity. Published Theorem 8.7, rather than preprint 8.9, is the primary locator. The added finite-length guard repairs exactly this boundary."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems--ES.0~5",
+   "reviewReason": "Fresh check of published MR16 Theorems 8.7(ix), 13.4(ix), pp.167,175–176, and MR04 Theorem 5.2.13(ii), pp.58–59: at positive dual corank, multiply a primitive rank-one system by a uniformizer. Both initial classes remain zero, so infinite length equals infinite index for a nonprimitive system. Equality detects primitivity only with finite initial index/length. Historical correction searches are retained with their original attribution."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E801",
@@ -212423,14 +212505,15 @@
     "Authors’ publication pages https://people.mpim-bonn.mpg.de/scholze/papers.html and https://webusers.imj-prg.fr/~laurent.fargues/Publications.html; no relevant correction linked.",
     "Search for Fargues Scholze Geometrization VIII.4 cartesian errata; no relevant correction found.",
     "2026-10-10 independent review repeated the publisher/sample, arXiv and both author-page checks and the targeted search. Hamann https://web.math.princeton.edu/~lhamann/Unitary_Groups.pdf, p. 26 footnote 2, records a different cartesian-diagram issue in IX.6.1, not a correction to VIII.4.1.",
-    "2026-10-19 independent review repeated the publisher record and public 10-page sample, arXiv version record, both author publication pages and targeted VIII.4.1/cartesian/errata search. No relevant correction found; sample pagination differs and does not expose the proof."
+    "2026-10-19 independent review repeated the publisher record and public 10-page sample, arXiv version record, both author publication pages and targeted VIII.4.1/cartesian/errata search. No relevant correction found; sample pagination differs and does not expose the proof.",
+    "2026-10-19 revision 5 independent review: freshly fetched both hash-identified PDFs; reread arXiv, publisher and both author publication pages, and searched the primary domains for VIII.4.1/cartesian/errata. No relevant correction found. The ten-page publisher sample contains contents only for VIII.4, not the proof."
    ],
    "owner": "ExcursionOperatorsAndSpectralAction",
    "file": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES0.json",
    "citation": "Laurent Fargues and Peter Scholze, Geometrization of the local Langlands correspondence, Author-hosted 356-page PDF; version is identified here by its SHA-256, not an unverified arXiv byte equivalence. Printed page numbers equal PDF page numbers.",
    "status": "confirmed",
-   "reviewedBy": "REV-ExcursionOperatorsAndSpectralAction--ES0~4",
-   "reviewReason": "Independently read printed/PDF p. 292 of the hash-identified author manuscript. Recomputed the F2 fold-map counterexample: 8 pullback pairs versus 2 source images; a function supported on one off-diagonal pair with scalar zero is a witness. Fusion uses only commutativity. Fresh publisher/sample, arXiv and author-page checks and targeted correction search found no relevant erratum. The published proof passage remains unavailable; confirmation concerns only the author-copy assertion."
+   "reviewedBy": "REV-ExcursionOperatorsAndSpectralAction--ES0~5",
+   "reviewReason": "Read VIII.4.1 proof on author printed/PDF p. 292 and recomputed the trivial-H,Q fold example over F2. There are eight pullback pairs but two scalar images; a function supported at one off-diagonal pair witnesses failure of cartesianness. The subsequent fusion argument only needs commutativity. Fresh author/publication, arXiv, publisher/sample and targeted correction checks found no relevant erratum. Confirmation is limited to the hash-identified author copy; the published proof passage was not available."
   },
   {
    "id": "ExcursionOperatorsAndSpectralAction/E2",
