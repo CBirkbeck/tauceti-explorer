@@ -242204,9 +242204,9 @@
    "owner": "IntegralIwasawaTheory",
    "file": "research/blueprint/packets/IntegralIwasawaTheory--L1.json",
    "citation": "Romyar Sharifi, Iwasawa Theory, Public author notes, 189-page PDF retrieved 19 October 2026; printed page numbers",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-IntegralIwasawaTheory--L1",
+   "reviewReason": "Read Proposition 2.4.10 on printed p. 58 and both references in the proof of Proposition 3.4.3 on p. 91: the cited bounded-rank criterion is a proposition, not a lemma."
   },
   {
    "id": "IntegralIwasawaTheoryPartII/E2",
@@ -243398,9 +243398,9 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.3-2.json",
    "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Chapter III, Public author chapter PDF; locators use chapter/PDF pagination rather than whole-book pagination.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.3-2",
+   "reviewReason": "Independently checked Exercise III.7.1 (chapter p. 72) against Theorem III.7.3 (p. 62). At ord₅ the unit part of 5 is 1 for π=5 and 1/2 for π=10, whose residues are 1 and 3. The degree-one specialization therefore depends on π; the stated change formula follows by sending Π to Π−{c̄} in the Serre algebra."
   },
   {
    "id": "K2SymbolsBrauer/E11",
@@ -243419,9 +243419,9 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.3-2.json",
    "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Chapter III, Public author chapter PDF; locators use chapter/PDF pagination rather than whole-book pagination.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-K2SymbolsBrauer--T.3-2",
+   "reviewReason": "Independently checked the first-position normalization in Theorem III.7.3 (chapter p. 62) and the printed product rule in Exercise III.7.10 (p. 73). On x={5}, y={2} the theorem returns 2, whereas the printed right-coefficient product rule returns 3. Converting ∂^first_n=(−1)^(n−1)∂^last_n gives exactly the corrected first-position rule."
   },
   {
    "id": "K2SymbolsBrauer/E1",
@@ -260244,8 +260244,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked Definition 49, p. 34: the completed trace abbreviation binds P, not P′; the normalizer target follows the two preceding abbreviations."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The completed abbreviation in Definition 49, p.34, leaves P′ unbound. Taking the normalizer gives the intended one-index notation."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E2",
@@ -260265,8 +260265,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked the indicated domains against Definition 55 and Theorem 58. Conj is the defined conjugacy-class carrier; Cong is not a second defined carrier."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The domains and targets in §5.3 and pp.47–51 are conjugacy-class modules. Conj is defined; Cong is a spelling slip."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E3",
@@ -260286,8 +260286,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Expanded log(1−v) before applying the additive Frobenius. The degree-k term necessarily contains ϕ(v^k); the subsequent numerator uses that corrected term."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "Expanding log(1−v) and then applying additive Frobenius requires φ(v^k) in the k-th term. The p-power divisibility induction uses that same corrected exponent."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E4",
@@ -260307,8 +260307,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked Corollary 90 and the domains of the earlier dimension-one theorems and reductions. This is a reconstruction gap for the asserted generality, especially O coefficients, rather than a counterexample to injectivity."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "Corollary 90, p.65, does not give the reduction or coefficient argument for its full compact-analytic scope. This confirms the proof-audit gap, not a counterexample to the theorem."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E5",
@@ -260328,8 +260328,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Compared (19), (20) and (21), p. 74. The transferred function has the P′ domain, so putting it on the P term is ill-typed."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "In Proposition 104 (21), the transferred function has the P′ domain. The P and P′ terms must be composed as in the corrected formula."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E6",
@@ -260349,8 +260349,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Compared (23) and its orbit sum, p. 75. The varying Eisenstein weight is k and the argument is 1−k."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The Eisenstein weight varying in Proposition 106 is k; its smoothed special value has argument 1−k."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E7",
@@ -260370,8 +260370,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Computed 2^10=1024≡4 mod 15. The full-modulus assertion is false, while the p-primary modulus and stabilizer divisibility give the needed weaker statement."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "For p=3 and r_P=15, 2^10 is 4 modulo 15. Only the p-primary divisibility can be used; stabilizer divisibility supplies it."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E8",
@@ -260391,8 +260391,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked the common weight and the definition of the second Eisenstein input on p. 85. The k and the pullback are required by those definitions."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "Proposition 117 must retain k in the second relative weight and the pullback in its second Eisenstein input. Otherwise the common-weight and domain conditions fail."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E9",
@@ -260412,8 +260412,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Compared the use of (34) with all three lines on p. 89. Frobenius must remain inside the character operator; the final combined numerator retains it."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The character projection must act on the Frobenius image in the use of (34). Removing φ before the projection changes the expression."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E10",
@@ -260433,8 +260433,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Read the enlarged-field construction on pp. 86–87. Its odd-degree total-reality and finite-p-extension μ transfer inputs are used without the required arguments; those remain explicit proof obligations."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The enlarged extension construction uses total reality of its odd-degree cyclic field and transfer of μ=0 through a finite p-extension. Those arguments are not supplied at pp.86–87."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E11",
@@ -260455,8 +260455,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked arXiv v2 and the author final pp. 6, 9–10, 14. The extension matrix with off-diagonal 1 has cokernel Λ/T²; its rational Bockstein is zero, so the extension-closed claim fails. Published §2.2 weakens the general K₁ category condition to direct sums, but retains extension-closed Σ_C and the false inclusion in Definition3.14; the same counterexample applies."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The extension represented by [[T,1],[0,T]] has cokernel Λ/T² and zero rational Bockstein, although its two T-block pieces are semisimple. The published direct-sum repair does not repair the extension-closed Σ_C used in Definition 3.14."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E12",
@@ -260477,8 +260477,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked both accessible versions at Corollary 5.7. For C₃ and p=7, a nontrivial character is Q₇-valued but not Q-valued; a positive multiple cannot be a sum of permutation characters with integer coefficients. The published text changes Q_p-rational to Q-rational and removes this defect."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "A nontrivial C_3-character at p=7 is Q_7-valued and not Q-valued. Integer combinations of permutation characters remain rational. The published Corollary 5.7 correctly assumes Q-rationality."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E13",
@@ -260499,8 +260499,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked the author final p. 28 as well as v2. The residual Gamma values at j=0,−1,−2 are 1,−1,1/2, consistent with indexing Γ*(j), not the printed negated index. The published EMIS copy retains the same defect at published §6.1 pp.196–197."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The residues of Γ(s) at 0,−1,−2 are 1,−1,1/2. These match Γ*(j) at j, not Γ*(−j); the published formula retains the indexing slip."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E14",
@@ -260521,8 +260521,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked Proposition 6.6 in both accessible versions: two consecutive parts have the same label. This changes no mathematical assertion. Published Lemma6.7 has distinct(i)/(ii) labels."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The two consecutive parts of preprint Proposition 6.6 have the same label. Published Lemma 6.7 uses distinct labels, so this is version-specific typography."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E15",
@@ -260541,8 +260541,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Checked the carry formula p. 31 directly: exponents 1 and p^e−1 give one central carry. The basis inverse requires its inverse; change of section is a cohomology relation, not literal invariance."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The selected exponents 1 and p^e−1 have sum p^e. Their inverse-pair carry is γ^(p^e), so normalization at the identity does not make inverse-pair carries equal to 1."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E16",
@@ -260560,8 +260560,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "John Coates, Takako Fukaya, Kazuya Kato, Ramdorai Sujatha and Otmar Venjakob, The GL₂ main conjecture for elliptic curves without complex multiplication, Publ. Math. IHÉS 101 (2005), 163–208, DOI 10.1007/s10240-004-0029-3; Numdam open-access PDF (46 pages; printed page = PDF page + 162). The arXiv version math/0404297v1 (16 April 2004) was compared for §2.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "For ξ=[γ] and trivial ρ, the defining ring map gives Φ′_η(ξ)=a(1+T). The inverse substitution gives a⁻¹(1+T), so it fails whenever a²≠1. This exact matrix identity must be checked before passing to any quotient by units."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "For ξ=[γ] and a=η(γ), the defining evaluation gives a(1+T). The inverse substitution gives a^−1(1+T), which differs when a²≠1."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E17",
@@ -260580,8 +260580,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "For Ḡ=P=P′=1, β is the identity on R and the trace is the identity. The unrestricted zero condition would force every image coefficient to vanish, contradicting Lemma 60."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "For P=P′=1, β and the relative trace are identities. Requiring that trace to vanish would kill every coefficient; strict inclusion is essential in the cyclic case."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E18",
@@ -260600,8 +260600,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "The identity generates the trivial group. An averaging expression using a trivial character would instead give η_1=0 and break δβ=id for Ḡ=1."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The identity generates the trivial cyclic group, so η_1 is the identity. Applying the nontrivial-character averaging formula at 1 would make it zero and contradict δβ=id."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E19",
@@ -260620,8 +260620,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "In a two-factor coefficient product (1,0) and (0,1) lie outside pR, but their product is zero. Thus the literal complement is neither multiplicative nor regular; reduction to each coefficient domain requires changing the denominator set."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "In a two-factor ring, (1,0) and (0,1) both lie outside pR and multiply to zero. The regular central denominator set must be formed componentwise."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E20",
@@ -260640,8 +260640,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "T is already inverted when localizing O[[T]] at (p); reduction gives the fraction field of F_q[[T]]. Completion in p does not remove that inverse."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "Inverting the central denominators of O[[T]] inverts T modulo p and gives F_q((T)). Completing in p preserves this inverse."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E21",
@@ -260660,8 +260660,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "The determinant of multiplication by a central scalar on a free module of rank [G:U_P] is that scalar to this rank. For p=3 and O unramified of degree 2, a Teichmüller unit of order 8 has rank-3 norm ζ³≠ζ."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The norm of a scalar on a rank-[G:U_P] module is its corresponding power. A Teichmüller unit of order 8 at p=3 distinguishes ζ³ from ζ."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E22",
@@ -260680,8 +260680,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "For G=Γ, Z=Γ^p, Ḡ=C_p and a=z=γ^p in the central coefficient ring, β_Ḡ(a)=0 because η_Ḡ deletes the identity-labelled basis term, whereas ω_A(a)=z≠1. The displayed formula is incompatible with ω_ψβ=ω_A."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "For G=Γ, Z=Γ^p and a=z, the generator projection at G/Z deletes the identity-labelled coefficient, but ω_A(a)=z is nontrivial. The correct cokernel map uses δ and the untruncated abelianization."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E23",
@@ -260700,8 +260700,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "If g∈P is nontrivial, its action on N/P is trivial, so the orbit length is 1 even though ord(g)>1. The printed representative list therefore repeats cosets."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "If a nontrivial g belongs to P, it fixes N/P, so its orbit has length 1 regardless of the order of g. Transfer representatives use ord(gP)."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E24",
@@ -260720,8 +260720,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "The formal series is log(1+x)=x+O(x²). At odd p its first-order term cannot be −x. All later divisibility claims survive multiplying the expression by −1."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The linear term of log(1+x) is x. Thus the displayed congruence must use r−1, not 1−r; its divisibility consequence is unaffected."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E25",
@@ -260741,8 +260741,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "The following sentence requires that very Fil⁰ term to vanish. For W=Q_p(1), the intended Ŵ=W has zero Fil⁰ but a one-dimensional t_p(W), so the literal condition contradicts the standard example. The published EMIS copy retains the same defect at published condition(DP) pp.197–198."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "For W=Q_p(1), Fil^0 D_dR(W)=0 while t_p(W) is one-dimensional. The intended Panchishkin comparison uses D_dR(Ŵ)→t_p(W), with zero Fil^0, as the following text requires."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E26",
@@ -260761,8 +260761,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Section 6.7 multiplies the weight by the relative extension degree. If N_ḠP is proper in Ḡ, [F_P:F_(N_ḠP)] differs from [F_P:F]. For a noncentral order-3 subgroup in the order-27 Heisenberg group the factors are 3 and 9. The stated weight and cusp identity then do not follow from Lemma 109. The necessary proof repair remains explicit rather than asserting a counterexample to the final congruences."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "Restriction multiplies Hilbert weight by the relative field degree. A proper normalizer changes that degree from [G:P] to [N:P], and its cusp norm must carry exactly the same exponent."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E27",
@@ -260782,8 +260782,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Factorization fixes the codomain but does not prove injectivity. The later permutation-character discussion on p. 25 explicitly makes the nonzero p-adic regulator equivalent to Leopoldt. This is a missing hypothesis/proof, not a known counterexample to Leopoldt. The published EMIS copy retains the same defect at published §5.2 p.193."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "Factoring through the named quotient gives a regulator map, not an isomorphism. Its nonzero determinant is the Leopoldt input in the permutation case; the source cannot supply it unconditionally."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E28",
@@ -260803,8 +260803,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Definition 2.5 requires a:1→d(C), and Definition 3.4 gives t(C):d(C)_Q→1. The global ζ in Conjecture 4.1 and (21) has codomain d(C)⁻¹; (24) then treats t(C) as though it started from that inverse line. Likewise p. 33 uses d(SC_U), while p. 35 uses its inverse. Composition inverse and monoidal inverse are distinguished by Remark 2.2 but no typed identification resolving this switch is given. The published EMIS copy retains the same defect at published Conjecture4.1 p.188, Remark5.6/proof pp.194–195, (38)–(39) pp.201–202 and proof p.204."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The global map lands in d(C)^−1 while [C,a] requires a:1→d(C); the two Selmer formulas likewise use opposite lines. The explicit C[1] transport in the revised target supplies the missing typing."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E29",
@@ -260822,8 +260822,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "John Coates, Takako Fukaya, Kazuya Kato, Ramdorai Sujatha and Otmar Venjakob, The GL₂ main conjecture for elliptic curves without complex multiplication, Publ. Math. IHÉS 101 (2005), 163–208, DOI 10.1007/s10240-004-0029-3; Numdam open-access PDF (46 pages; printed page = PDF page + 162). The arXiv version math/0404297v1 (16 April 2004) was compared for §2.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "For rows, successive multiplication by ρ(g)^t and ρ(h)^t gives ρ(g)^tρ(h)^t=(ρ(h)ρ(g))^t rather than ρ(gh)^t. It is not a right group action for a noncommuting representation. Using ρ(g) is associative and agrees with the stated ring map."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "For row vectors, multiplying successively by ρ(g)^t and ρ(h)^t reverses the matrix product after transposition. The untwisted row action uses ρ(g); the left dual uses the inverse transpose."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E30",
@@ -260843,8 +260843,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Direct substitution in the defined determinant gives P(W,0)=1; both checked PDFs use0 at this locator but their following formula uses1. The published EMIS copy retains the same defect at published Remark6.6 p.202."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The defined local polynomial is det(1−φT), so its value at 0 is 1. The condition needed by the following Euler-factor formula is at 1."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E31",
@@ -260863,8 +260863,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "Berger §§II.4.2–II.4.4 pp.17–19 gives W as 0→Q_p(1)→W→Q_p→0 and φ-eigenvalues p⁻¹,1 on D_st(W). Since Ny=v_p(q)x≠0, D_cris(W)=kerN has only the p⁻¹ eigenvalue. The Weil pairing identifies Z=W*(1) with W. Thus the two B1 factors equal1−p⁻¹≠0, whereas both C1 quotients are Q_p and have factor0."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "For the Tate curve, Berger gives D_cris(W)=ker N with Frobenius p^−1, while the ordinary quotient has Frobenius 1. The B1 factors are nonzero and the C1 quotient factors vanish. Thus the cited example fails C1, rather than B1."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E32",
@@ -260883,8 +260883,8 @@
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
    "status": "confirmed",
-   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa",
-   "reviewReason": "For C₂ the sign character is Ind_1^C₂(1)−1 and is the character of an actual one-dimensional representation. Its value at the nonidentity element is−1, while every permutation character counts fixed points and is nonnegative. Thus n_ρ=1 in the displayed integer-combination formula does not characterize permutation characters."
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The C_2 sign character equals regular minus trivial but has negative value at the nonidentity element. It is a virtual integer combination of permutation characters and is not itself a permutation character."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E33",
@@ -260894,7 +260894,7 @@
    "correction": "Replace this analytic branch by full subgroup Möbius sums, with all multiplicities, rather than assuming (12). The main-conjecture target is unchanged.",
    "reason": "Take G=C_{p²}×Γ, Z=Γ^p and P=pC_{p²}×0 in G/Z. The p distinct cyclic overgroups P′=〈(1,t)〉, t∈C_p, all satisfy P′^p=P. Since G is abelian, T_P=p²Λ(U_P)_S, and M3 gives φ(ζ_{P′})≡ζ_P modulo p for each P′. Reducing (12) modulo p would give ζ_P≡pζ_P=0, impossible for a unit. This setting is realized by the compositum of the cyclotomic tower of Q and a disjoint cyclic degree-p² totally real abelian extension; its μ vanishes. In the proposed fixed-pair proof, the pair (β, b)=(a,O_L) at rational positive a, with identity Artin coset, is fixed by the whole group and contributes multiplicity 1−p modulo p rather than 0.",
    "affects": "a stated result",
-   "known": "No matching correction established in the bounded search; newly recorded here and awaiting independent verification.",
+   "known": "No matching correction established in the bounded search; independently confirmed in revision-2 review.",
    "searched": [
     "2026-10-19: arXiv:1008.0142 version page (v3 read), Kakde author publication records and bounded title + erratum/corrigendum searches. No accessible matching correction established. The publisher endpoint did not provide a readable copy, so no claim about the version of record is made.",
     "Compared the author-hosted Congruences between abelian p-adic zeta functions chapter, Proposition 13.4 and proof pp.22–23; the cyclic-overgroup sum and pair argument recur. This is a separate readable preprint, not a comparison with the Inventiones version of record."
@@ -260902,9 +260902,9 @@
    "owner": "NoncommutativeAndEquivariantIwasawa",
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "Enumerating the cyclic lifts in C_(p²)×C_p gives p overgroups of P. Each term reduces to the same unit modulo p, while their sum is zero there. The fixed identity-ideal pair is fixed by all overgroups and has residual multiplicity 1−p. This verifies the defect against v3, without extending it to the unread Inventiones text."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E34",
@@ -260914,7 +260914,7 @@
    "correction": "For the replacement full Möbius theorem choose the special idèle cusp γ with γ±1 in 1+f̂. Its level decomposition has M₂=I; restriction and U preserve the needed constant term there. Retain the relative degree in the weight and its identical exponent in the cusp norm. No arbitrary-g or omitted-(29) proof is asserted.",
    "reason": "The U-operator formula at the standard cusp does not imply its constant-term formula at an arbitrary cusp. RW Congruences II, p.3 and Lemma 10 pp.10–11, identifies this issue in the method and proves a sufficient special-cusp comparison. Together with the false fixed-pair cancellation in E33, correcting only relative weights cannot verify the old analytic branch.",
    "affects": "the proof",
-   "known": "No matching correction established in the bounded search; newly recorded here and awaiting independent verification.",
+   "known": "No matching correction established in the bounded search; independently confirmed in revision-2 review.",
    "searched": [
     "2026-10-19: arXiv:1008.0142 version page (v3 read), Kakde author publication records and bounded title + erratum/corrigendum searches. No accessible matching correction established. The publisher endpoint did not provide a readable copy, so no claim about the version of record is made.",
     "Compared the author-hosted Congruences between abelian p-adic zeta functions chapter, Proposition 13.4 and proof pp.22–23; the cyclic-overgroup sum and pair argument recur. This is a separate readable preprint, not a comparison with the Inventiones version of record.",
@@ -260923,9 +260923,9 @@
    "owner": "NoncommutativeAndEquivariantIwasawa",
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "Mahesh Kakde, The main conjecture of Iwasawa theory for totally real fields, arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The standard-cusp U formula does not compute a constant term at a general cusp. RW II p.3 explicitly identifies the missing comparison, and Lemma 10 computes the needed special cusp. The revised proof uses that restricted construction."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E35",
@@ -260935,16 +260935,16 @@
    "correction": "For the unshifted Selmer complex r=−h. For the shifted complex SC[1], whose determinant is the target of the global composite, r=h. Keep the latter in the normalized interpolation formula.",
    "reason": "Under (D2) the special fiber is concentrated in degrees 1,2 and the height B¹ is an isomorphism. Over the T-adic DVR, semisimplicity decomposes the torsion complex into T-blocks in degrees 1,2; each has ordinary cohomology only in degree 2 and contributes (−1)^{2+1}=−1 to BV Definition 3.2. Thus h such blocks have r=−h. Equivalently SC=[R --T→R] in degrees 1,2 has characteristic T⁻¹ with the identity trivialization, so its order is −1, not +1. Shifting negates it.",
    "affects": "a stated result",
-   "known": "No matching correction established in the bounded search; newly recorded here and awaiting independent verification.",
+   "known": "No matching correction established in the bounded search; independently confirmed in revision-2 review.",
    "searched": [
     "2026-10-19: arXiv math/0511672v2 and published EMIS mirror compared at the stated locators; author publication page and bounded title + erratum/correction searches found no accessible matching correction. This is a bounded check, not an exhaustive claim."
    ],
    "owner": "NoncommutativeAndEquivariantIwasawa",
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "Over the T-adic DVR the semisimple Selmer block is [R --T→R] in degrees 1,2. Its sole ordinary cohomology is in degree 2, contributing −1 to the source order; h blocks give −h and shifting gives +h."
   },
   {
    "id": "NoncommutativeAndEquivariantIwasawa/E36",
@@ -260954,16 +260954,92 @@
    "correction": "After the explicit determinant shift D=RΓ_c[1], the given global map is ζ_D:1→d(D), r(D)=−m and c_γ^(−m)[D,ζ_D]^*=L^*_{p,S}(1,ρ). The global map itself is transported, not inverted.",
    "reason": "For rank one let B²=−ℓ/c_γ in bases of H²_c,H³_c. In the inverse line the Bockstein trivialization is −c_γ/ℓ. Formula (21) gives ζ=L^*_S(1,1)ℓ in these same bases. The leading sign is −1, so the pair on D has coefficient c_γ L^*_S(1,1); normalization needs c_γ⁻¹. More generally its value scales by a^m when γ changes to γ^a, while the normalized p-adic residue is generator independent. A factor c_γ^m would scale by a^{2m}. This is the consequence of repairing E28 with the specified shift, not a claim about an already well-typed alternative convention.",
    "affects": "a stated result",
-   "known": "No matching correction established in the bounded search; newly recorded here and awaiting independent verification.",
+   "known": "No matching correction established in the bounded search; independently confirmed in revision-2 review.",
    "searched": [
     "2026-10-19: arXiv math/0511672v2 and published EMIS mirror compared at the stated locators; author publication page and bounded title + erratum/correction searches found no accessible matching correction. This is a bounded check, not an exhaustive claim."
    ],
    "owner": "NoncommutativeAndEquivariantIwasawa",
    "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
    "citation": "David Burns and Otmar Venjakob, On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory, arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209. Published EMIS copy additionally read at the source-finding locators; SHA-256 and URL are in sourceVersions.",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "For B²=−ℓ/c_γ, the inverse determinant has trivialization −c_γ/ℓ. Composing the given ζ=L*ℓ with it and the leading sign yields c_γL*, requiring normalization c_γ^−1. Generator change γ→γ^a scales the raw rank-m term by a^m, confirming the exponent after the stated shift."
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E37",
+   "kind": "error",
+   "locator": "Author final congruences-final.pdf, Lemma 4.9, pp.28–29; compare the definition of ℒ_V, p.19, and Proposition 4.4, p.22",
+   "printed": "The noncyclic kernel calculation removes the central factor from the denominator, deduces x_U^(p²|U/Z|)=1 and then concludes x_U=1.",
+   "correction": "Keep φ_Z(x_Z^p) in the denominator. After the nontrivial cyclic α factors become 1, the equation is x_U^(p²|U/Z|)=φ_Z(x_Z^p). It implies membership in μ(O)×U^ab using the torsion-free quotient of the abelian unit group, not that x_U is torsion or equals 1.",
+   "reason": "Let G=C_p×Γ and Z=Γ^p, with p odd. The tuple θ(γ) is in ker ℒ because the integral logarithm kills group units. The top subgroup G/Z=C_p² is noncyclic and its component is γ, which has infinite order. The retained-factor equation reads γ^(p⁴)=φ_Z((γ^(p²))^p), which holds; the printed conclusion does not.",
+   "affects": "the proof",
+   "known": "No matching correction established in the bounded search; recorded in this independent review.",
+   "searched": [
+    "2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version."
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Peter Schneider and Otmar Venjakob, K₁ of certain Iwasawa algebras, after Kakde, Author final dated 15 June 2011, 37 pages; locators are PDF/printed preprint pages. Different paper from A splitting for K₁ of completed group rings.",
+   "status": "confirmed",
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The definition of ℒ on p.19 retains φ_Z(x_Z^p); it disappears only in the later kernel display. θ(γ) for C_p×Γ is a kernel element with noncyclic top component γ of infinite order, so the conclusion x_U=1 is false. The revised target keeps the factor and uses the valid quotient argument."
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E38",
+   "kind": "misprint",
+   "locator": "Author final congruences-final.pdf, §5, p.30, the reduction of B(Z) modulo p",
+   "printed": "The residue of the completed localization B(Z) is identified with O/(p)[[Z]], without localizing the residue ring.",
+   "correction": "For a generator z of Z and T=z−1, B(Z)/pB(Z)=Frac(F_q[[T]])=F_q((T)). The Frobenius statement remains true on this Laurent series field.",
+   "reason": "The central denominator T is regular modulo p and is already inverted in A(Z), hence in its p-adic completion B(Z). Its inverse cannot lie in F_q[[T]]. This is the same missing localization as E20, now at a separate source locator.",
+   "affects": "the proof",
+   "known": "No matching correction established in the bounded search; recorded in this independent review.",
+   "searched": [
+    "2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version."
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Peter Schneider and Otmar Venjakob, K₁ of certain Iwasawa algebras, after Kakde, Author final dated 15 June 2011, 37 pages; locators are PDF/printed preprint pages. Different paper from A splitting for K₁ of completed group rings.",
+   "status": "confirmed",
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The unit T^−1 persists in B(Z)/pB(Z). Thus the identified residue is Laurent rather than a power-series ring; Frobenius still acts by the p-th power on the corrected field."
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E39",
+   "kind": "misprint",
+   "locator": "arXiv:math/0511345v1, §3.1, Corollary proof, p.5; author IwasawaSurvey.pdf, §3.1, p.5; published Documenta Math. Extra Volume Coates (2006), §3.1, p.11",
+   "printed": "The geometric series 1+c+c²+⋯ is asserted to invert 1−c when the constant coefficient c_0 is nonzero.",
+   "correction": "That geometric-series argument requires c_0=0. A general series with nonzero constant coefficient is a unit by first dividing by that coefficient and applying the corrected argument to its augmentation-zero part.",
+   "reason": "Set c=1. Its constant coefficient is nonzero, but 1−c=0 is not invertible. If c_0=0, powers of c tend to zero in the complete augmentation filtration, giving the claimed inverse and the intended radical description.",
+   "affects": "nothing",
+   "known": "The same sign occurs in all three accessible copies compared; no matching correction established in the bounded search.",
+   "searched": [
+    "2026-10-19: compared arXiv v1, the Ardakov author-hosted IwasawaSurvey.pdf and the published EMIS mirror. Checked the author publication page and bounded paper-title + erratum/correction searches; no accessible correction found."
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Konstantin Ardakov and Kenneth A. Brown, Ring-theoretic properties of Iwasawa algebras: a survey, arXiv:math/0511345v1 (14 November 2005), 27 pages; published in Documenta Math. Extra Volume Coates (2006), 7–33.",
+   "status": "confirmed",
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The page images and the published copy have c_0≠0. Substituting c=1 disproves the printed unit claim. Changing it to c_0=0 gives a convergent geometric series and the intended proof."
+  },
+  {
+   "id": "NoncommutativeAndEquivariantIwasawa/E40",
+   "kind": "misprint",
+   "locator": "Author final congruences-final.pdf, Lemma 4.9 proof, p.29, trace decomposition after the representatives R are chosen",
+   "printed": "The difference g−h is equated to its own index-p trace before that trace is expanded using the coefficients a_u of a chosen preimage.",
+   "correction": "Apply the trace to the chosen preimage Σ_u a_u u, as in the hypothesis of that paragraph and the expansion that follows.",
+   "reason": "The invariant difference has trace p(g−h), so the printed equality is not the consequence of invariance. The preceding choice says g−h=σ(Σ_u a_u u), and the subsequent coefficient sum expands exactly this latter expression. The finite-quotient two-point support argument in the corrected target avoids the erroneous display.",
+   "affects": "nothing",
+   "known": "No matching correction established in the bounded search; recorded in this independent review.",
+   "searched": [
+    "2026-10-19: read the author-hosted congruences-final.pdf at pp.19–30 and its definitions of A(Z), B(Z); checked the arXiv:1110.6362 version record and bounded title/Lemma 4.9 + erratum searches. No accessible matching correction established. Findings are scoped to this author copy, not an unread published version."
+   ],
+   "owner": "NoncommutativeAndEquivariantIwasawa",
+   "file": "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+   "citation": "Peter Schneider and Otmar Venjakob, K₁ of certain Iwasawa algebras, after Kakde, Author final dated 15 June 2011, 37 pages; locators are PDF/printed preprint pages. Different paper from A splitting for K₁ of completed group rings.",
+   "status": "confirmed",
+   "reviewedBy": "REV-NoncommutativeAndEquivariantIwasawa~2",
+   "reviewReason": "The equality to the trace of g−h conflicts with invariance, which gives p(g−h). The following sum is the trace of the previously chosen preimage, so replacing that argument repairs the display."
   },
   {
    "id": "NonordinaryCMSpecialValues/E1",
