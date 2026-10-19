@@ -1,6 +1,72 @@
 # BP-ReductiveGroupsPartII~2: blocked ownership checkpoint
 
-## Latest dispatch: codex-wpzQqK, 2026-10-16
+## Latest dispatch: codex-BSjABB, 2026-10-18
+
+Codex session `codex-BSjABB` selected #9312 from the manager's priority list
+while it was labelled `state:available`. The bot
+[confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6245744358).
+The session claimed before discovering the manager's explicit prohibition in
+the full comment history. This is a **blocked checkpoint**, not a completed
+blueprint revision; only this handoff changes.
+
+The manager's
+[16 October, 14:29 UTC instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6217692728)
+says this atlas revision is superseded by upstream ownership and must not be
+claimed again unless the upstream owner requests the extension. No subsequent
+comment through this session's claim supplies that request. It reinforces the
+[13 October upstream-only instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9312#issuecomment-6146995072)
+and the ownership objection in the independent review.
+
+The earlier [checkpoint PR #10028](https://github.com/CBirkbeck/tauceti-explorer/pull/10028)
+is **still open and draft**. It already records the prohibition and was held
+for the manager to avoid another automatic checkpoint release. Nevertheless,
+the orchestrator returned #9312 to availability on 18 October at 04:35 UTC
+under its stale-progress rule. This is a dispatch-state conflict, not evidence
+that the upstream owner has requested an extension. Keep this checkpoint draft
+for the manager as well; automatic intake must not be interpreted as reopening
+the mathematical assignment.
+
+Fresh evidence in this dispatch:
+
+- Read WORKERS, both protocols' applicable rules, upstream guidance, the issue
+  body and complete comment history, the independent review, previous handoffs,
+  and the packet's inventory, review, coverage and gaps. Inspected the reviewed
+  library audit's algebraic-space Weil-restriction boundary. No new source or
+  pinned-library audit is claimed.
+- Read the supplied ReductiveGroups and ReductiveGroupsPartII introductions
+  and ownership boundaries, the Part II suggested-file opening, and the current
+  Tau Ceti convolution-point interface. The supplied roadmap checkout remains
+  at `0d144d044dacebca17b654695b6f1ad58f159b27`. Neither supplied tree was edited
+  or built.
+- Queried live [upstream PR #785](https://github.com/TauCetiProject/TauCetiRoadmap/pull/785):
+  it is open and ready for review at
+  `1cdde3240025076c7f74afcb491e9e97d6fdbea6`. Retrieved its individual
+  [README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/1cdde3240025076c7f74afcb491e9e97d6fdbea6/TauCetiRoadmap/ReductiveGroupsPartII/README.md)
+  into scratch and read Scope and ownership. It still owns all seven assigned
+  layers and distinguishes excluded additions. Its 7,290 lines have SHA-256
+  `7856eef74ed7a8f611c8056fb59caed3e5d7160c31233e00e4f76816f97091c6`.
+  This establishes the continuing ownership boundary, not a correctness
+  verdict on upstream mathematics.
+- The packet checker reports **zero errors and zero warnings**. Lean was not
+  run because no Lean changed; no compilation or language server was started.
+
+Inherited inventory is unchanged: 180 nodes (23 definitions, 36 constructions,
+110 theorems, two comparisons, nine applications), 368 API items, 249 unit tests,
+38 planets, 62 baseline declarations, 17 requests and five gaps. Packet status
+and every stage (RG2.0, RG2.0a, RG2.1, RG2.2, RG2.3, RG2.4, RG2.5) remain
+`partial`, with the existing `needs_changes` review. No mathematical target,
+source issue, supplier request or review verdict changes.
+
+**Resume only after the upstream owner requests the extension and the manager
+assigns its identity, boundaries, supplier links and permitted deliverables.**
+The independent review's fourteen-target routing table, seven coverage lists,
+eight corrections and four mathematical gaps besides ownership remain the
+resume points described below. RT-AREA-algebraicgeometry/11 retains that
+review's disposition, including the ModularCurves 0F import. The manager also
+needs to reconcile availability with the explicit prohibition and the still-open
+draft checkpoint. This session takes no second issue.
+
+## Previous dispatch: codex-wpzQqK, 2026-10-16
 
 Codex session `codex-wpzQqK` selected #9312 as the first available eligible
 issue on the manager's priority list. The bot
