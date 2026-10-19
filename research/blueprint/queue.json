@@ -28723,7 +28723,8 @@
    ],
    "avoidAccountOf": "BP-RefinedTraceMethods",
    "prompt": "research/blueprint/prompts/REV-RefinedTraceMethods.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10798"
   },
   {
    "id": "BP-RelativeFarguesFontaine",
@@ -38423,8 +38424,9 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.4",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10801"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10801",
+   "finishedAt": "2026-10-19T22:45:07Z"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.5",
@@ -38566,8 +38568,9 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.7",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10804"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10804",
+   "finishedAt": "2026-10-19T22:45:10Z"
   },
   {
    "id": "BP-AnabelianGeometryAndNonabelianChabauty--NC.0",
@@ -40300,7 +40303,8 @@
    ],
    "revisionOf": "DESIGN-PrismaticCohomologyPartII",
    "prompt": "research/blueprint/prompts/DESIGN-PrismaticCohomologyPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11169"
   },
   {
    "priority": 2,
@@ -151127,9 +151131,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-ArithmeticKTheory~codex.md",
-   "note": "claimed on GitHub issue #11064"
+   "note": "deliverables arrived from an external worker on issue #11064",
+   "finishedAt": "2026-10-19T22:45:15Z"
   },
   {
    "id": "PKG-MotivicEtaleKTheory~codex",
@@ -151554,9 +151559,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-BorelRegulators~adv2.md",
-   "note": "claimed on GitHub issue #11139"
+   "note": "deliverables arrived from an external worker on issue #11139",
+   "finishedAt": "2026-10-19T22:45:19Z"
   },
   {
    "id": "FIX-PKG-KTheoryFiniteLocalFields~adv2",
@@ -151574,9 +151580,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-KTheoryFiniteLocalFields~adv2.md",
-   "note": "claimed on GitHub issue #11140"
+   "note": "deliverables arrived from an external worker on issue #11140",
+   "finishedAt": "2026-10-19T22:45:22Z"
   },
   {
    "id": "REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex",
@@ -151595,9 +151602,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex.md",
-   "note": "claimed on GitHub issue #11142"
+   "note": "deliverables arrived from an external worker on issue #11142",
+   "finishedAt": "2026-10-19T22:45:25Z"
   },
   {
    "id": "DESIGN-CyclotomicClassGroupsAndStickelberger",
@@ -151615,8 +151623,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-CyclotomicClassGroupsAndStickelberger.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-CyclotomicClassGroupsAndStickelberger.md",
+   "note": "claimed on GitHub issue #11183"
   },
   {
    "id": "FIX-PKG-ExcursionOperatorsAndSpectralAction~adv",
@@ -151655,8 +151664,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-MotivicEtaleKTheory~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-MotivicEtaleKTheory~adv.md",
+   "note": "claimed on GitHub issue #11150"
   },
   {
    "id": "FIX-PKG-Polylogarithms~adv",
@@ -151674,8 +151684,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv.md",
+   "note": "claimed on GitHub issue #11149"
   },
   {
    "id": "REV-PKG-K2SymbolsBrauer~adv",
