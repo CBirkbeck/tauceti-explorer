@@ -10314,7 +10314,8 @@
    "avoidAccountOf": "DESIGN-RankZeroOneBSDPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-RankZeroOneBSDPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3601"
   },
   {
    "id": "DESIGN-ArakelovGeometryAndAbelianHeightsPartII",
@@ -11173,7 +11174,8 @@
    "avoidAccountOf": "DESIGN-GeometricSatakeAndFusionPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GeometricSatakeAndFusionPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3538"
   },
   {
    "id": "DESIGN-FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII",
@@ -11219,7 +11221,8 @@
    "avoidAccountOf": "DESIGN-FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3531"
   },
   {
    "id": "DESIGN-ShimuraVarietiesPartII",
@@ -12168,7 +12171,8 @@
    "avoidAccountOf": "DESIGN-AlgebraicModuliForArithmeticGeometryPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AlgebraicModuliForArithmeticGeometryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3490"
   },
   {
    "id": "DESIGN-NeronModelsAndSemistableAbelianVarietiesPartII",
@@ -12831,7 +12835,8 @@
    "avoidAccountOf": "DESIGN-GrossZagierAndArithmeticHeightsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GrossZagierAndArithmeticHeightsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3542"
   },
   {
    "id": "DESIGN-DrinfeldModulesAndTModulesPartII",
@@ -14311,7 +14316,8 @@
    "avoidAccountOf": "DESIGN-PadicFamiliesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-PadicFamiliesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3585"
   },
   {
    "id": "DESIGN-AdmissiblePairsAndPadicHodgeStructures",
@@ -15551,7 +15557,8 @@
    "avoidAccountOf": "DESIGN-CstConjectureForDaggerVarieties",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CstConjectureForDaggerVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3514"
   },
   {
    "id": "DESIGN-VectorBundlesAndIsocrystalsPartII",
@@ -15690,7 +15697,8 @@
    "avoidAccountOf": "DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3570"
   },
   {
    "id": "DESIGN-GSp4NonregularModularityLifting",
@@ -16404,7 +16412,8 @@
    "avoidAccountOf": "DESIGN-MotivesAndAlgebraicCyclesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-MotivesAndAlgebraicCyclesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3577"
   },
   {
    "id": "DESIGN-ModularFormsPartII",
@@ -16712,8 +16721,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-RealSurfacePeriodIndex.md",
-   "state": "pending",
-   "note": "released on GitHub issue #3470"
+   "state": "external",
+   "note": "claimed on GitHub issue #3470"
   },
   {
    "id": "REV-DESIGN-RealSurfacePeriodIndex",
@@ -26742,10 +26751,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralIwasawaTheory--L1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #10811"
   },
   {
    "id": "REV-IntegralIwasawaTheory--L1",
@@ -41905,7 +41915,8 @@
    ],
    "revisionOf": "BP-EulerSystemsAndKolyvaginSystems",
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10808"
   },
   {
    "priority": 2,
@@ -42511,7 +42522,8 @@
    ],
    "revisionOf": "BP-IntegralIwasawaTheory--I.1",
    "prompt": "research/blueprint/prompts/BP-IntegralIwasawaTheory--I.1~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10810"
   },
   {
    "priority": 2,
@@ -53297,7 +53309,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EulerSystemsCyclotomicMainConjecture.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10764"
   },
   {
    "id": "REV-PKG-EulerSystemsCyclotomicMainConjecture",
@@ -54827,7 +54840,8 @@
    ],
    "revisionOf": "PKG-GrossZagierAndArithmeticHeights",
    "prompt": "research/blueprint/prompts/PKG-GrossZagierAndArithmeticHeights~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10770"
   },
   {
    "id": "REV-PKG-GrossZagierAndArithmeticHeights~2",
@@ -57828,7 +57842,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ModularIwasawaMainConjectures.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10773"
   },
   {
    "id": "REV-PKG-ModularIwasawaMainConjectures",
@@ -59021,7 +59036,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PeriodsAndSpecialValues.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10775"
   },
   {
    "id": "REV-PKG-PeriodsAndSpecialValues",
@@ -63772,7 +63788,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-NGODAC-21.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5687"
   },
   {
    "id": "RT-PAPER-BEUZARTPLESSIS-LIU-ZHANG-ETAL-21",
@@ -66082,7 +66099,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/FIX-RT-PAPER-HEUER-25.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5692"
   },
   {
    "id": "RT-PAPER-LIU-WOOD-ZUREICKBROWN-24",
@@ -106790,7 +106808,8 @@
     "FIX-RT-AREA-finitefields"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-finitefields~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6208"
   },
   {
    "id": "REV-FIX-RT-AREA-finitefields~2",
@@ -112031,8 +112050,8 @@
     "FIX-RT-AREA-padic-2~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-padic-2~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6519"
+   "state": "external",
+   "note": "claimed on GitHub issue #6519"
   },
   {
    "id": "RT-AREA-padic-3",
@@ -112720,8 +112739,8 @@
     "FIX-RT-AREA-ktheory-1~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-ktheory-1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5542"
+   "state": "external",
+   "note": "claimed on GitHub issue #5542"
   },
   {
    "id": "RT-AREA-ktheory-2",
@@ -147353,8 +147372,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv2.md",
+   "note": "claimed on GitHub issue #10742"
   },
   {
    "id": "FIX-PKG-RankZeroOneBSD~adv2",
@@ -147372,8 +147392,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-RankZeroOneBSD~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-RankZeroOneBSD~adv2.md",
+   "note": "claimed on GitHub issue #10743"
   },
   {
    "id": "REV-PKG-GeneralAlgebraicKTheory~adv",
@@ -147392,8 +147413,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-GeneralAlgebraicKTheory~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-GeneralAlgebraicKTheory~adv.md",
+   "note": "claimed on GitHub issue #10753"
   },
   {
    "id": "REV-PKG-StableHomotopyKTheory~adv",
@@ -147412,8 +147434,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-StableHomotopyKTheory~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-StableHomotopyKTheory~adv.md",
+   "note": "claimed on GitHub issue #10754"
   },
   {
    "id": "PKG-SpecialValuesBirchTate~codex",
@@ -147431,8 +147454,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-SpecialValuesBirchTate~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-SpecialValuesBirchTate~codex.md",
+   "note": "claimed on GitHub issue #10752"
   },
   {
    "id": "PKG-BorelRegulators~codex",
@@ -147507,8 +147531,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-KTheoryFiniteLocalFields~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-KTheoryFiniteLocalFields~codex.md",
+   "note": "claimed on GitHub issue #10749"
   },
   {
    "id": "PKG-SchemeKTheoryOperations~codex",
@@ -147602,8 +147627,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/DESIGN-LawrenceVenkateshMethod.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/DESIGN-LawrenceVenkateshMethod.md",
+   "note": "claimed on GitHub issue #10741"
   }
  ]
 }
