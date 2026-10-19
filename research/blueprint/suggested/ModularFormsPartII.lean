@@ -31,7 +31,9 @@ open scoped MatrixGroups Manifold
 
 namespace TauCetiRoadmap.ModularFormsPartII
 
-/-! W1. A lightweight predicate over the existing function and slash carriers. -/
+/-! W1. A lightweight predicate over the existing function and slash carriers. It stands in for the
+weakly holomorphic carrier of QSeriesPartitionsAndMockModularForms QM.3, which is not at the pins;
+the README target `W1/weak-form` proves that the two agree for finite-index subgroups. -/
 
 def IsWeaklyHolomorphic (Γ : Subgroup SL(2, ℤ)) (k : ℤ) (f : ℍ → ℂ) : Prop :=
   MDiff f ∧
@@ -76,6 +78,14 @@ theorem bounded_denominators_add {a b : PowerSeries ℚ}
 theorem bounded_denominators_mul {a b : PowerSeries ℚ}
     (ha : HasBoundedRationalDenominators a) (hb : HasBoundedRationalDenominators b) :
     HasBoundedRationalDenominators (a * b) := by
+  sorry
+
+/-- A root with bounded denominators of an integral series is integral (README `W1/bounded-denominators`,
+API `HasBoundedDenominators.integral_of_pow`); it decides the exponents in the `W6` root tests. -/
+theorem bounded_denominators_integral_of_pow {a : PowerSeries ℚ} {n : ℕ} (hn : 0 < n)
+    (ha : HasBoundedRationalDenominators a)
+    (hpow : ∀ m : ℕ, ∃ z : ℤ, (a ^ n).coeff m = (z : ℚ)) :
+    ∀ m : ℕ, ∃ z : ℤ, a.coeff m = (z : ℚ) := by
   sorry
 
 example : IsWeaklyHolomorphic (⊤ : Subgroup SL(2, ℤ)) 0 (fun _ ↦ 1) := by
