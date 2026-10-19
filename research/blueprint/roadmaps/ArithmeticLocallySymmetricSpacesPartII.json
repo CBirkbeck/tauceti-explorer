@@ -1,0 +1,165 @@
+{
+  "id": "ArithmeticLocallySymmetricSpacesPartII",
+  "title": "Arithmetic locally symmetric spaces and their cohomology, Part II: weight-aspect multiplicity bounds",
+  "area": "automorphic",
+  "parent": "ArithmeticLocallySymmetricSpaces",
+  "summary": "Target-level plan of Fu’s sharp weight-aspect multiplicity bounds: a common multiaffine error for rational Iwasawa homology, its fixed-level SL₂/F application, and source-qualified Bianchi sharpness with the boundary terms retained. The issue’s other three independent continuations are proposed as a split. Every target in this six-stage scope is planned; two unadopted supplier contracts are explicit gaps, so this is not a closed packet.",
+  "readme": "This continuation proves the sharp fixed-level weight-aspect upper bound dim S_κ≤C Δ(κ)/min_vκ_v for SL₂ over a number field with a complex place. Its local endpoint bounds the rank error in degree-zero rational Iwasawa homology and every positive homology group by one multiaffine polynomial of degree at most m−1, for all nonnegative local weights. It then proves the parallel degree drop, the Bianchi linear upper bound and two-sided growth at the justified base-change levels. The reader states the full targets, API, checks, source corrections, supplier contracts and the independent-direction split. The plan does not assert a leading constant, a lower bound at arbitrary adelic level, or a totally real saving.",
+  "prerequisites": [
+    "ArithmeticLocallySymmetricSpaces",
+    "CompletedCohomologyPartII",
+    "NoncommutativeAndEquivariantIwasawa",
+    "AutomorphicFormsOnReductiveGroups",
+    "GL2AutomorphicRepresentationsAndTransfer",
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "tauceti:TauCetiRoadmap/Chebotarev"
+  ],
+  "stages": [
+    {
+      "key": "WM.0",
+      "title": "Weights and multiaffine errors",
+      "description": "For a finite coordinate set of size m≥1 define D(x)=∏x_i and B_c(x)=Σ_{s proper}c_s∏_{i∈s}x_i with c_s≥0. Specify reindexing, addition and degree APIs and prove B_c(x)≤(Σc_s)D(x)/a for 1≤a≤all x_i. Restrict existing symmetric-power representations to the product of m odd-p first-congruence SL₂ groups, with stable lattices, absolute irreducibility, self-duality and dim W_k=D(k+1). The representation and Iwasawa carriers retain their suppliers.",
+      "requires": [
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine"
+      ]
+    },
+    {
+      "key": "WM.1",
+      "title": "Torsion multiplicities",
+      "description": "For the bounded-denominator rational Iwasawa algebra A and every nonzero δ, prove dim Hom_A(A/Aδ,W_k)≤B_δ(k+1) for every k∈ℕ^m, through the explicit G1 microlocal/central-faithfulness and G2 completed-enveloping growth contracts. Include all low-coordinate strips. Compare Hom with rational completed degree-zero homology using the contragredient and then self-duality. Filter every finitely generated rank-zero module by cyclic factors dominated by principal quotients and add their proper-face bounds. The two unadopted analytic supplier contracts remain explicit gaps.",
+      "requires": [
+        "ArithmeticLocallySymmetricSpacesPartII:WM.0",
+        "CompletedCohomologyPartII:CC.3",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "NoncommutativeAndEquivariantIwasawa:NE.1"
+      ]
+    },
+    {
+      "key": "WM.2",
+      "title": "Ranks and all homological degrees",
+      "description": "For finitely generated left A-module M of skew rank a, choose a rank-a free injection with torsion cokernel and a finite free presentation with kernel of rank ℓ−a. Untwist diagonal free coefficients and prove regular acyclicity. Establish separate degree-zero upper and lower estimates, then the absolute rank error. Cancel rank main terms in the degree-one exact dimension identity; shift higher degrees through syzygies. Obtain one nonnegative multiaffine error of degree ≤m−1 for all k and all homological degrees, with vanishing above 3m. Give the constant bound and finite algebraic-quotient support when canonical dimension is zero.",
+      "requires": [
+        "ArithmeticLocallySymmetricSpacesPartII:WM.0",
+        "ArithmeticLocallySymmetricSpacesPartII:WM.1",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "NoncommutativeAndEquivariantIwasawa:NE.1"
+      ]
+    },
+    {
+      "key": "WM.3",
+      "title": "Arithmetic realization and descent",
+      "description": "For a number field of degree d and an arbitrary fixed compact open, choose an odd prime completely split in a normal closure outside the nonmaximal primes, and refine to a neat level with exactly d first-congruence p-adic factors. Match even place weights κ_v≥2 with local weights κ_v−2 at real places and two copies of κ_v/2−1 at complex places. Construct the finite-number-field realization and its complex/p-adic coefficient comparison. When r₂>0, supplied completed ordinary homology is finitely generated of rank zero; its finite descent filtration gives one proper-face bound for every ordinary Betti dimension.",
+      "requires": [
+        "ArithmeticLocallySymmetricSpaces:ALS.0",
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "ArithmeticLocallySymmetricSpacesPartII:WM.0",
+        "ArithmeticLocallySymmetricSpacesPartII:WM.2",
+        "CompletedCohomologyPartII:CC.4",
+        "CompletedCohomologyPartII:CC.5",
+        "CompletedCohomologyPartII:CC.6",
+        "NoncommutativeAndEquivariantIwasawa:NE.0",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ]
+    },
+    {
+      "key": "WM.4",
+      "title": "Cuspidal dimensions in weight aspect",
+      "description": "For SL₂/F in the stated weight convention, establish the nontrivial-coefficient identity dim H_cusp^(r₁+r₂)=2^r₁ dim S_κ and retain its injection into ordinary and interior cohomology. With r₂>0 and fixed arbitrary compact open K_f prove dim S_κ(K_f)≤C Δ(κ)/min_vκ_v uniformly for all even κ_v≥2, where Δ has one real and two complex factors. Absorb the single trivial-coefficient tuple separately. At fixed neat level prove the ordinary bound in every degree. Deduce parallel growth O(κ^(d−1)) and the Bianchi upper bound O(κ), equivalently O(n+1) for E_n with κ=2(n+1).",
+      "requires": [
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
+        "ArithmeticLocallySymmetricSpacesPartII:WM.0",
+        "ArithmeticLocallySymmetricSpacesPartII:WM.3",
+        "AutomorphicFormsOnReductiveGroups:AF.1a",
+        "AutomorphicFormsOnReductiveGroups:AF.4"
+      ]
+    },
+    {
+      "key": "WM.5",
+      "title": "Bianchi boundary and sharpness",
+      "description": "For a neat Bianchi quotient compute each cusp-torus E_n cohomology as dimensions 1,2,1 for all n≥0, and compare ordinary, interior and compact-support dimensions by the resulting uniform boundary constants. Prove the fixed-type classical estimate (k−1)dim σ/12+O(1) with the matching central parity, then the FGT base-change count (A_F+B_F(−1)^(n+1))(n+1)+O(1), with A_F>B_F≥0. Import exact quadratic transfer and ramified local-type inputs. For each fixed neat congruence subgroup of finite index in SL₂(O_F), deduce positive linear lower and upper bounds in degrees one and two for cuspidal, interior, ordinary and compact-support cohomology. No lower assertion at arbitrary adelic level is included.",
+      "requires": [
+        "ArithmeticLocallySymmetricSpaces:ALS.1",
+        "ArithmeticLocallySymmetricSpaces:ALS.2",
+        "ArithmeticLocallySymmetricSpaces:ALS.3",
+        "ArithmeticLocallySymmetricSpaces:ALS.4",
+        "ArithmeticLocallySymmetricSpaces:ALS.5",
+        "ArithmeticLocallySymmetricSpaces:ALS.5:finite-level-duality",
+        "ArithmeticLocallySymmetricSpacesPartII:WM.3",
+        "ArithmeticLocallySymmetricSpacesPartII:WM.4",
+        "GL2AutomorphicRepresentationsAndTransfer:R16.2",
+        "GL2AutomorphicRepresentationsAndTransfer:R17.4",
+        "tauceti:TauCetiRoadmap/ModularForms#10c--modular-forms-as-section-spaces-and-the-dimension-formulas",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-0-sl₂-representation-theory-the-engine"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "fu24",
+      "title": "Sharp bounds for multiplicities of Bianchi modular forms",
+      "authors": "Weibo Fu",
+      "edition": "arXiv:2201.11190v2, 15 February 2024, 25 pages; published Annals of Mathematics 200 (2024), 123–152",
+      "url": "https://arxiv.org/pdf/2201.11190v2",
+      "sha256": "d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire v2: §§1–7 and references, pp. 1–25. All locators in this packet use that version unless expressly marked."
+      ],
+      "note": "The published NSF PAR PDF timed out during this run. Published locators and errata in PAPER-FU-24 are useful provenance, not an independent collation claimed here."
+    },
+    {
+      "id": "aw14",
+      "title": "Verma modules for Iwasawa algebras are faithful",
+      "authors": "Konstantin Ardakov and Simon Wadsley",
+      "edition": "Author PDF, 19 pages; published Münster Journal of Mathematics 7 (2014), 5–26",
+      "url": "https://www.dpmms.cam.ac.uk/~sjw47/VermaIwasawa.pdf",
+      "sha256": "0d774ffa62a1429d4677253de4fcf0787fef7ba399945c6913686f0e82b8e850",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§1.1–1.4, 3.1–3.3, 4.1–4.2, 4.5–4.6, 5.4–5.5; pp. 1–2, 6–8, 10–11, 16–17.",
+        "Page 16 image checked: the deformation index is n≥0, including the first congruence group."
+      ]
+    },
+    {
+      "id": "aw13",
+      "title": "On irreducible representations of compact p-adic analytic groups",
+      "authors": "Konstantin Ardakov and Simon Wadsley",
+      "edition": "Author preprint; published Annals of Mathematics 178 (2013), 453–557",
+      "url": "https://people.maths.ox.ac.uk/ardakov/Smith.pdf",
+      "sha256": "597f490e9c8521fdc8d740b32375c4d005531ada0be65a29cec0fc0eb811158d",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§10.12–10.13, pp. 77–78: standing group hypotheses and canonical-dimension criterion."
+      ]
+    },
+    {
+      "id": "marshall12",
+      "title": "Bounds for multiplicities of automorphic forms of cohomological type on GL₂",
+      "authors": "Simon Marshall",
+      "edition": "arXiv:1103.2472v1, 12 March 2011; published Annals of Mathematics 175 (2012), 1629–1651",
+      "url": "https://arxiv.org/pdf/1103.2472v1",
+      "sha256": "99c00f0e4a8a3e501b86b6d286582eb7062f0e506eaee3cc353bd4279867e03f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1 and §2.1, pp. 1–4: lower-level convention, algebraic weights and interior-support identity."
+      ]
+    },
+    {
+      "id": "fgt10",
+      "title": "The cohomology of lattices in SL(2,C)",
+      "authors": "Tobias Finis, Fritz Grunewald and Paulo Tirao",
+      "edition": "arXiv:0808.1204v1, 8 August 2008; published Experimental Mathematics 19 (2010), 29–63",
+      "url": "https://arxiv.org/pdf/0808.1204v1",
+      "sha256": "bd83d8189ea02a7ed91c6e8b53f16b4a9eb1734f558d6dd2dd930c38e2e471e3",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1, pp. 3–7; §§4.2–4.4, pp. 22–27: support conventions, Theorem 4.17, Proposition 4.18, Lemma 4.19 and Corollary 4.20."
+      ],
+      "note": "General base change and local type theory are imported through explicit requests; reading the selected count does not claim that their full prerequisite papers were read."
+    }
+  ],
+  "status": "draft"
+}
