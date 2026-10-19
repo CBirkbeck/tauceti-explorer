@@ -257556,6 +257556,276 @@
    "reviewReason": "The written arbitrary-group scope fails for the hyperbolic GO2 example with n=2,d=1. The geometrically compatible alternating case is GSp2; restricting the pairing parity repairs the planned statement."
   },
   {
+   "id": "MotivesAndAlgebraicCycles/E48",
+   "kind": "misprint",
+   "locator": "Lemma 9.3, final display, printed p. 44 in both the 13 June 2011 author preprint and arXiv:1005.2778v2; journal not collated.",
+   "printed": "The target group’s base is written X×Y, although its cohomology sheaf is indexed by Y×Z and both sides have just been pushed to Y×Z.",
+   "correction": "Replace the ambient base of that final cohomology group by Y×Z; retain the stated bidegree, coefficient group and twist.",
+   "reason": "The displayed map p₂₃ has codomain Y×Z, and pullback along the first projection of Y×Z followed by cup product also lies on Y×Z. The printed base does not type-check. This is an ambient-name slip, not a failure of flat base change.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Voisin publication list https://www.cmls.polytechnique.fr/perso/voisin/listepublications.html links the June 2011 text; no attached correction was found.",
+    "arXiv:1005.2778 version history and v2: final display of Lemma 9.3 still has the ambient-base mismatch.",
+    "Publisher DOI 10.1215/00127094-1548389 access attempted; journal text was not obtained, so no claim about journal correction status."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
+   "citation": "Jean-Louis Colliot-Thélène; Claire Voisin, Cohomologie non ramifiée et conjecture de Hodge entière, Author preprint dated 13 June 2011; locators are printed preprint pages, not journal pages",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E49",
+   "kind": "misprint",
+   "locator": "Formula (2.6), proof of Proposition 2.14, printed p. 9 in 11 July 2017 revision; publisher HTML §3.5 proof of Proposition 3.14 formula (3.2); current author copy formula (3.6), p. 9.",
+   "printed": "The projective-bundle expansion uses an upper exponent equal to the bundle rank N+1−g and gives W_j dimension i+1−(N−g)+j, even though the symmetrized class has dimension i+N.",
+   "correction": "Use exponents 0≤j≤N−g (relative projective dimension) and W_j∈CH_{i+g+j}(Pic^N(C)×X). Then flat pullback raises dimension by N−g and j Chern caps lower it by j, giving i+N.",
+   "reason": "The rank is N+1−g, so the free projective-bundle basis ends at rank minus one. Dimension counting gives dim W_j+(N−g)−j=i+N. With the printed dimension, the terms instead have dimension i+1. The corrected formula still has only j=0 contributing to rational-point fibres, so the intended parameter-space theorem is unchanged.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Oxford Academic article page and its publisher HTML, §3.5–3.6, checked 2026-10-19.",
+    "Achter publication page https://www.math.colostate.edu/~achter/math.html and Vial publication page https://www.math.uni-bielefeld.de/~vial/; current abtriv.pdf checked at the affected formulas.",
+    "Web searches for the article title with erratum/correction and formula (2.6) did not locate a correction; no claim of an exhaustive errata search."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
+   "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Parameter spaces for algebraic equivalence, Author revision dated 11 July 2017; proposition numbering refers to this revision",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E50",
+   "kind": "misprint",
+   "locator": "Example 2.3, printed p. 12 (PDF p. 36) of Astérisque 455 (2025); also current author copy Example 2.3.",
+   "printed": "The hyperplane expansion of the projective-space diagonal stops at i=r−1.",
+   "correction": "Sum the terms H₁^i H₂^{r−i} for 0≤i≤r, including H₁^r.",
+   "reason": "For r=1 the printed expression is P¹×point alone, whose forward action kills CH⁰; the diagonal must act identically on CH⁰ and CH¹. Adding point×P¹ gives the standard two projectors. The stated support decomposition works after this correction.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "SMF publisher page/PDF for Astérisque 455, DOI 10.24033/ast.1244, checked 2026-10-19.",
+    "Achter and Vial publication pages, including current https://www.math.uni-bielefeld.de/~vial/diagonal.pdf at Example 2.3 and Remark 2.5; same assertions remain.",
+    "Web searches for the exact article title with erratum and Remark 2.5 correction did not locate a correction."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
+   "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Decomposition of the diagonal, intermediate Jacobians, and universal codimension-2 cycles in positive characteristic, Astérisque 455 (2025), DOI 10.24033/ast.1244; publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E51",
+   "kind": "misprint",
+   "locator": "Proof of Lemma 2.18, printed p. 11 in 11 July 2017 revision; publisher HTML §3.6 proof of Lemma 3.18; current author copy proof of Lemma 3.18.",
+   "printed": "For s₁=(p₁,p₀), s₀=(p₀,p₁), the effective cycle is built as pr₂*Z⁺+pr₁*Z⁻ but the claimed fibre difference has the sign of Z_{p₁}−Z_{p₀}.",
+   "correction": "Use pr₁*Z⁺+pr₂*Z⁻ with the same marked points, or interchange s₀ and s₁ throughout the construction.",
+   "reason": "Expanding the printed V_{s₁}−V_{s₀} gives Z⁺_{p₀}−Z⁺_{p₁}+Z⁻_{p₁}−Z⁻_{p₀}=−(Z_{p₁}−Z_{p₀}). Swapping the two projection indices preserves effectivity and flatness and restores the claimed sign; the existence theorem remains valid.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "Oxford Academic article page and its publisher HTML, §3.5–3.6, checked 2026-10-19.",
+    "Achter publication page https://www.math.colostate.edu/~achter/math.html and Vial publication page https://www.math.uni-bielefeld.de/~vial/; current abtriv.pdf checked at the affected formulas.",
+    "Web searches for the article title with erratum/correction and formula (2.6) did not locate a correction; no claim of an exhaustive errata search."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
+   "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Parameter spaces for algebraic equivalence, Author revision dated 11 July 2017; proposition numbering refers to this revision",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E52",
+   "kind": "misprint",
+   "locator": "Remark 2.5, proof display, printed p. 12 (PDF p. 36) of Astérisque 455 (2025); also current author copy Remark 2.5.",
+   "printed": "The action of the unmultiplied diagonal on β is identified with Nβ in the calculation for a decomposition of NΔ.",
+   "correction": "Use (NΔ)_*β=Nβ. The resulting correct equality is Nβ=deg(β)α for the particular α defining Z₂.",
+   "reason": "The diagonal is the identity correspondence. Scalar N comes from NΔ and cannot be dropped in its action notation. E53 separately records the unjustified cancellation in the next sentence.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "SMF publisher page/PDF for Astérisque 455, DOI 10.24033/ast.1244, checked 2026-10-19.",
+    "Achter and Vial publication pages, including current https://www.math.uni-bielefeld.de/~vial/diagonal.pdf at Example 2.3 and Remark 2.5; same assertions remain.",
+    "Web searches for the exact article title with erratum and Remark 2.5 correction did not locate a correction."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
+   "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Decomposition of the diagonal, intermediate Jacobians, and universal codimension-2 cycles in positive characteristic, Astérisque 455 (2025), DOI 10.24033/ast.1244; publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E53",
+   "kind": "error",
+   "locator": "Remark 2.5, assertion about every degree-N zero-cycle and its proof, printed p. 12 (PDF p. 36) of Astérisque 455 (2025); coefficient rings as in Definition 2.1 p. 11.",
+   "printed": "For a strict R-decomposition of NΔ, the remark identifies Z₂ with the pullback of any degree-N zero-cycle and claims all such cycles are rationally equivalent to its chosen α, without a hypothesis excluding N-torsion.",
+   "correction": "The action argument gives Nβ=deg(β)α, hence N(β−α)=0 when deg β=deg α=N. Keep this bounded-exponent conclusion; uniqueness requires additional N-torsion-freeness (or that N be invertible). The special N=1 conclusion with a rational point is valid. MC.0 uses only annihilation and then rationalization.",
+   "reason": "Cancellation of N in CH_0 is not valid generally. A counterexample within the stated arbitrary-ring scope is R=ℤ/2, N=2, and X=E_K for an elliptic curve E/ℂ and K=ℂ(E). Then 2Δ=0 admits the zero strict decomposition. The degree-two integral cycle β=2[O]+([η]−[O]) has nonzero image in CH_0(X)⊗ℤ/2: η is not twice a K-point, since that would extend to a rational map φ:E→E with [2]∘φ=id, contradicting degrees 4·deg φ=1. Thus the pullback pr₂^*β is nonzero (restrict to {O}×X), although Z₂=0. The display only forces 2β=0 in these coefficients. This finding concerns the general coefficient assertion, not the N=1 universal-triviality equivalence.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "SMF publisher page/PDF for Astérisque 455, DOI 10.24033/ast.1244, checked 2026-10-19.",
+    "Achter and Vial publication pages, including current https://www.math.uni-bielefeld.de/~vial/diagonal.pdf at Example 2.3 and Remark 2.5; same assertions remain.",
+    "Web searches for the exact article title with erratum and Remark 2.5 correction did not locate a correction."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.0.json",
+   "citation": "Jeffrey D. Achter; Sebastian Casalaina-Martin; Charles Vial, Decomposition of the diagonal, intermediate Jacobians, and universal codimension-2 cycles in positive characteristic, Astérisque 455 (2025), DOI 10.24033/ast.1244; publisher PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E48",
+   "kind": "misprint",
+   "locator": "Revised 2018 author copy, §1, p.10, first-Chern paragraph; compare original 1982 printed p.20 (PDF p.12).",
+   "printed": "The revised copy describes c1:Pic(X)→H²(X)(1) as an isomorphism.",
+   "correction": "It is a group homomorphism. The original printed p.20 already uses that weaker and correct word.",
+   "reason": "For a complex elliptic curve, nontrivial degree-zero line bundles have zero rational cohomological c1; even for P¹ the integral Picard group cannot be isomorphic to a rational cohomology vector space.",
+   "affects": "nothing",
+   "known": "The original 1982 author-hosted scan, printed p.20, has the correct formulation; the error is specific to the revised transcription.",
+   "searched": [
+    "Author article page https://www.jmilne.org/math/articles/1982a.html and its original/revised versions.",
+    "Author addendum https://www.jmilne.org/math/Books/add/DMOS.pdf; the published-scan paragraph was inspected visually."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.2.json",
+   "citation": "Pierre Deligne and James S. Milne, Hodge cycles on abelian varieties (notes by J. S. Milne), Author’s revised TeX copy, 1 October 2018; checked against the author-hosted original 1982 article where indicated",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E49",
+   "kind": "misprint",
+   "locator": "Original 1982 §1, printed p.20 (PDF p.12); revised 2018 §1, p.10, displayed formula for cl(Z).",
+   "printed": "The formula for a codimension-r cycle uses c_r([O_Z])/(r−1)! without an alternating sign.",
+   "correction": "With the usual Chern-class convention it is (−1)^{r−1}c_r([O_Z])/(r−1)!, r≥1. The packet defines classes by the Chern character, so it does not rely on the misprinted formula.",
+   "reason": "For a point z that is a complete intersection of two hyperplanes in P², [O_z]=[O]−2[O(−1)]+[O(−2)]. Thus c([O_z])=(1−2h)/(1−h)²=1−h² in Q[h]/(h³), so c2([O_z])=−h² whereas cl[z]=h². Grothendieck 1958 §4.3, (15)–(16), pp.150–151, supplies the factor (−1)^{r−1}(r−1)!.",
+   "affects": "nothing",
+   "known": "new; no correction to this formula located in the author’s listed errata or revised text.",
+   "searched": [
+    "Author 1982a article page, original scan and 2018 revised §1.",
+    "Author DMOS addendum, pp.1–2 (including the separate c1 sign caution).",
+    "Grothendieck 1958 §4.3, formulas (15)–(16), pp.150–151."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.2.json",
+   "citation": "Pierre Deligne and James S. Milne, Hodge cycles on abelian varieties (notes by J. S. Milne), Author’s revised TeX copy, 1 October 2018; checked against the author-hosted original 1982 article where indicated",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E50",
+   "kind": "gap",
+   "locator": "PDF ed88ff78, §14, Lemma 14.16 (0FIT), p.55, and Proposition 14.17 (0FIU), p.56; live tags checked 19 October 2026.",
+   "printed": "Both statements assume (A1)–(A8), but the proof of 0FIT invokes (A9) to identify the exceptional-divisor pushforward of 1 with its cycle class; 0FIU uses 0FIT.",
+   "correction": "The displayed argument is sufficient if (A9) is also assumed, or a derivation of (A9) from the earlier hypotheses must be supplied. The packet uses only 0FIF for its ring cycle map and obtains pushforward from the admitted theories’ independently supplied trace/Gysin interfaces.",
+   "reason": "The exact step j_*(1)=cl[E] is the Cartier-divisor trace compatibility singled out as (A9) at the start of §14. It is not among the hypotheses displayed for 0FIT. This records the proof-dependency gap and does not assert that the conclusion under (A1)–(A8) is false.",
+   "affects": "the proof",
+   "known": "new; the live tags retain this hypothesis/proof mismatch and have no comments recording a repair.",
+   "searched": [
+    "https://stacks.math.columbia.edu/tag/0FIT including its comment area.",
+    "https://stacks.math.columbia.edu/tag/0FIU including its comment area.",
+    "Downloaded Weil chapter ed88ff78, §14 axioms and proofs, pp.47–48 and 55–56."
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.2.json",
+   "citation": "The Stacks Project Authors, Weil Cohomology Theories, Chapter PDF, version ed88ff78, compiled 14 July 2026",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E48",
+   "kind": "gap",
+   "locator": "Proposition 9.3.1, pp. 218–219, Version 6 author preprint",
+   "printed": "The claimed product of a boundary with an identity is built using a functoriality arrow in the direction opposite to the cohomological pullback.",
+   "correction": "Adjoin inverse excision edges, prove that they preserve the diagram category, and construct a product path in that corrected diagram.",
+   "reason": "The inclusion of pairs induces restriction from the larger pair to the smaller one; the path used in the proof needs the reverse map. An actual inverse excision isomorphism is required.",
+   "affects": "the proof",
+   "known": "Authors’ erratum dated 27 June 2025 in the annotated 1 July 2025 version, pp. 222–225; communicated by Paul Rodriguez.",
+   "searched": [
+    "Author errata page https://home.mathematik.uni-freiburg.de/arithgeom/preprints/buch-errata/buch.html",
+    "Annotated 1 July 2025 PDF §9.3",
+    "arXiv:1105.0865v5 Appendix B and §1"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
+   "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, Free author preprint Version 6, title dated 16 January 2017; author landing page identifies final version as 20 February 2017; page numbers are those of this preprint",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E49",
+   "kind": "gap",
+   "locator": "Corrected product path after Proposition 9.3.1, p. 224, annotated 1 July 2025 author version only",
+   "printed": "The corrected three-edge path still uses the intermediate vertex (Y×A∪X×B,Z×A∪Y×B,n+m) as a vertex of the good-pair diagram.",
+   "correction": "Omit that intermediate vertex. After inverse excision use directly the boundary of X×A⊇Y×A∪X×B⊇Z×A∪X×B. Its source and target are good by excision and Künneth.",
+   "reason": "Take X=A¹, Y={0,1}, Z=∅, n=0 and A=A², B the smooth connected affine plane cubic y²=x³−x, m=2 over Q. Both endpoint triples are integral good pairs. For S=Y×A∪X×B and V=Y×B, relative Mayer–Vietoris decomposes H*(S,V) as H*(Y×A,Y×B)⊕H*(X×B,Y×B). The second summand is H*(X,Y)⊗H*(B), giving H¹=Q and H²=Q², while the first adds H²=Q⁴. Thus H¹(S,V)≠0, so (S,V,2) is not a good vertex. The two-edge path through (S,Z×A∪X×B) is defined and equals the intended cohomological boundary by naturality.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author errata landing page as accessed 19 October 2026",
+    "Annotated PDF dated 1 July 2025, corrected path on p. 224",
+    "Version 6 author preprint Proposition 9.3.1 for comparison"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.5.json",
+   "citation": "Annette Huber and Stefan Müller-Stach, with contributions by Benjamin Friedrich and Jonas von Wangenheim, Periods and Nori Motives, annotated version, Author annotated version, 1 July 2025; page numbers differ from the published book and from Version 6",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E48",
+   "kind": "misprint",
+   "locator": "HMS author annotated edition 1 July 2025, Lemma 10.3.2, p.250 (also v6 p.240)",
+   "printed": "In paraphrase: the weight-n graded piece is expressed using the Tate object with twist n/2.",
+   "correction": "For the stated cohomological convention it is a sum of 1(−n/2) when n is even, and zero when n is odd. Equivalently L^r=1(−r) has weight 2r.",
+   "reason": "Definition 10.2.4 assigns weight n to H^(n+2j)(Y)(j). Taking n=2,j=−1,Y=Spec k gives weight 2 for 1(−1). The displayed sign in Lemma 10.3.2 would instead assign weight −2 to that same object.",
+   "affects": "nothing",
+   "known": "No correction to this sign located in the author errata page or its linked 1 July 2025 annotation; independent review is required.",
+   "searched": [
+    "Author errata webpage and linked annotated PDF accessed 19 October 2026",
+    "Comparison with the 2017 v6 author PDF, Definition 10.2.4 and Lemma 10.3.2"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.6.json",
+   "citation": "Sources of the blueprint of MotivesAndAlgebraicCycles",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivesAndAlgebraicCycles/E-MC7-1",
+   "kind": "error",
+   "locator": "Tag0FH9, nth-power calculation in the proof, online HTML read 19 October2026",
+   "printed": "The norm argument uses ((n−1)!)^n n^n, equivalently (n!)^n, as the coefficient of the exterior product.",
+   "correction": "The coefficient is ((n−1)!)^n n!: after squares vanish, the nth power of a sum of n classes has n! surviving ordered monomials.",
+   "reason": "For n=2, (a+b)^2=2ab when a²=b²=0, whereas the displayed coefficient gives4ab. For n=3 the correct coefficient is48 rather than216. Both integers are nonzero, so the torsion conclusion is unchanged.",
+   "affects": "the proof",
+   "known": "No correction was found on the current tag page; this pass does not assert priority beyond that search.",
+   "searched": [
+    "Current Stacks Tag0FH9 proof and its comment section (zero comments) on 19 October2026",
+    "The inherited MC.7 smash-nilpotence proof, which carries the same coefficient"
+   ],
+   "owner": "MotivesAndAlgebraicCycles",
+   "file": "research/blueprint/packets/MotivesAndAlgebraicCycles--MC.7.json",
+   "citation": "The Stacks Project authors, Weil Cohomology Theories, Online tags accessed 19 October 2026; stable tag locators instead of changing chapter pagination",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "MotivesAndAlgebraicCycles/E1",
    "kind": "misprint",
    "locator": "Huber and Mueller-Stach, arXiv:1105.0865v5, Theorem 2.10, page 11",
@@ -268561,9 +268831,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "GSWZ (19), p.9, states an unrestricted formula; BdJ Theorems 1.6(2), 1.10 and 1.12 prove special-unit or root cases, while 1.14 states the general assertion as a conjecture. This is a scope gap, not a counterexample to that conjecture."
   },
   {
    "id": "PadicHodgeRegulators/E102",
@@ -268584,9 +268854,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Theorem 9, p.39, passes from a field to a product without isolating coordinates in the admissible root tuples. The corrected residue-spanning contract supplies differences, counts q−2 admissible inputs and treats residue degree one separately; ordinary scalar spanning alone does not supply this argument."
   },
   {
    "id": "PadicHodgeRegulators/E103",
@@ -268606,9 +268876,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "rejected",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "The alleged higher-weight factorial discrepancy does not identify Gros and de Jeu input symbols or Chern normalizations. On the same de Jeu symbols, applying 1−sigma/p^n retains epsilon(n−1)!. No source error follows; retain the normalization obligation and the rejected verdict."
   },
   {
    "id": "PadicHodgeRegulators/E104",
@@ -268628,9 +268898,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "The proof on preprint p.41 omits the p-primary exponent-one case from the root-order reduction and does not carry the sign/factorial of Theorem 1.6(2) through the special-unit evaluation. Distribution must include that case and retain epsilon(n−1)!; weight two alone does not detect the factorial."
   },
   {
    "id": "PadicHodgeRegulators/E105",
@@ -268650,9 +268920,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, arXiv:math/0110334v2 (15 December 2001); published Ann. Sci. École Norm. Sup. (4) 36 (2003), 867–924",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "At (4.4), p.24, the scope of d relative to the signed expression differs from the formula used in the calculation; the proof of Lemma 4.10, p.25, also interchanges eta and epsilon. The corrected differential and symbol variable restore the stated computation."
   },
   {
    "id": "PadicHodgeRegulators/E106",
@@ -268672,9 +268942,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Pierre Colmez, Wiesława Nizioł, Syntomic complexes and p-adic nearby cycles, arXiv:1505.06471v4 (29 May 2016); published Invent. Math. 208 (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "The decomposition of a nonnegative twist into a multiple of p−1 and a residue is unique only for 0≤b<p−1. The printed weak upper bound on pp.2,23 permits two decompositions at a multiple of p−1."
   },
   {
    "id": "PadicHodgeRegulators/E107",
@@ -268694,9 +268964,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Pierre Colmez, Wiesława Nizioł, Syntomic complexes and p-adic nearby cycles, arXiv:1505.06471v4 (29 May 2016); published Invent. Math. 208 (2017)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Introduction Theorem 1.1(ii), p.2, gives a bound depending only on e, while the proved Theorem 5.4(ii), p.54, retains N_K. The available proof supports the latter bound. This confirms a proof/scope discrepancy and does not disprove the stronger claim."
   },
   {
    "id": "PadicHodgeRegulators/E108",
@@ -268716,9 +268986,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Remark 4.14, p.54, cannot give the asserted vanishing just from r>q: for Spec K, q=0 and r=1 the local weight-one group survives. The stronger range r≥q+2 avoids this example and is the range used in the corrected application."
   },
   {
    "id": "PadicHodgeRegulators/E109",
@@ -268738,9 +269008,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Theorem 5.9, p.59, labels the regulator component with degree i+1, whereas the preceding degree-i construction and comparison in §§5.6–5.8, pp.57–58, have degree i. The corrected degree is required by the commutative diagram."
   },
   {
    "id": "PadicHodgeRegulators/E110",
@@ -268760,9 +269030,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Jan Nekovář, Wiesława Nizioł (appendix by Laurent Berger), Syntomic cohomology and p-adic regulators for varieties over p-adic fields, arXiv:1309.7620v5 (22 September 2016)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Proposition 2.16, p.15, is too broad for the asserted injection/vanishing: the weight-zero filtered object with F^1=0 gives the Q_p semistable cohomology exception. The weight-one degree-two exception must likewise be retained. No such vanishing is used unconditionally here."
   },
   {
    "id": "PadicHodgeRegulators/E111",
@@ -268782,9 +269052,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Annette Huber, Guido Kings, A p-adic analogue of the Borel regulator and the Bloch–Kato exponential map, arXiv:math/0612611v1 (20 December 2006); published J. Inst. Math. Jussieu 10 (2011), 149–190",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "The signed sum in Definition 0.4.5, p.6, repeats the same trace expression without permuting its factors, so antisymmetrization cancels. Permuting the arguments/factors gives the intended primitive cocycle."
   },
   {
    "id": "PadicHodgeRegulators/E112",
@@ -268804,9 +269074,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Laurent Berger, Bloch and Kato's exponential map: three explicit formulas, arXiv:math/0209283v1 (21 September 2002)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Preprint Lemma II.1, p.10, omits the psi=1 restriction needed for its constant-term assertion and misstates the level branch. Published Documenta Lemma II.1, p.111, supplies the corrected version; the two numberings are kept distinct."
   },
   {
    "id": "PadicHodgeRegulators/E113",
@@ -268825,9 +269095,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Jean-Marc Fontaine, Yi Ouyang, Theory of p-adic Galois representations, book draft (author PDF)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "In the proof of Proposition 6.36(1), p.150 of the exact USTC edition, the written H^1/H^0 duality has the wrong degree. Local Tate duality pairs H^1 with H^1 of the dual twist; Q_p(2) detects the error."
   },
   {
    "id": "PadicHodgeRegulators/E114",
@@ -268846,9 +269116,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Annette Huber, Guido Kings, Bloch–Kato conjecture and main conjecture of Iwasawa theory for Dirichlet characters, arXiv:math/0101071v2; published Duke Math. J. 119 (2003)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Appendix A Proposition A.3, p.47, uses O_K in a statement whose global field is F. Its proof uses the units of O_F. This is a field-label misprint, not an additional local/global theorem."
   },
   {
    "id": "PadicHodgeRegulators/E115",
@@ -268868,9 +269138,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Laurent Berger, Bloch and Kato's exponential map: three explicit formulas, Documenta Mathematica, Extra Volume Kato (2003), 99–129",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "The proof of Theorem A.3, p.126, says positive although the immediately used weight condition has the opposite sign under the convention on p.105. The correction concerns that word and does not reverse the roadmap convention HT(Q_p(1))=+1."
   },
   {
    "id": "PadicHodgeRegulators/E116",
@@ -268889,17 +269159,17 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "David Loeffler, Sarah Livia Zerbes, Iwasawa theory and p-adic L-functions over Z_p^2-extensions, arXiv:1108.5954v3 (22 April 2014); accepted version of Int. J. Number Theory 10(8) (2014)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "The citation in LZ §2, p.7, attributes the psi-fixed Wach containment to Berger Theorem A.2; the Documenta appendix establishes that containment in Theorem A.3, p.126."
   },
   {
    "id": "PadicHodgeRegulators/E117",
    "kind": "misprint",
    "locator": "Remark 3.2(1), p. 15 (arXiv 2003.08888v2)",
    "printed": "The regulator comparison is attributed to a remark instead of the indicated proposition item.",
-   "correction": "[Be1, Proposition 8.6.3], as Besser–de Jeu cite the same item.",
-   "reason": "Besser–de Jeu 2003 p. 21 cite 'Proposition 8.6.3' of the same paper for the comparison of syntomic and modified syntomic cohomology.",
+   "correction": "Cite Besser2000 Proposition 8.6(3), author pp.26–27, instead of Remark 8.6.3.",
+   "reason": "The read AC20 text calls a proposition item a remark. Besser2000 contains Proposition 8.6(3), and BdJ2003 p.21 cites that proposition item.",
    "affects": "nothing",
    "known": "new",
    "searched": [
@@ -268910,9 +269180,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Masanori Asakura, Masataka Chida (Appendix B by François Brunault), A numerical approach toward the p-adic Beilinson conjecture for elliptic curves over Q, arXiv:2003.08888v2 (8 September 2020)",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "AC20 Remark 3.2(1), p.15, actually labels the Besser reference Remark 8.6.3. In Besser2000 author pp.26–27 it is Proposition 8.6(3), the norm comparison; BdJ2003 p.21 also identifies the proposition. The inherited review misread the printed citation as Proposition 8.6.6; that is not the source error."
   },
   {
    "id": "PadicHodgeRegulators/E301",
@@ -268931,9 +269201,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Published Proposition 5.11, p.1129, requires an integral invertible shear, but nonzero e1,e2 alone do not make 1−e1*e2 a unit. Over Z_5, e1=1 and e2=−4 give determinant 5. The maximal-ideal choice in preprint Remark 5.12, p.25, supplies a valid integral repair."
   },
   {
    "id": "PadicHodgeRegulators/E302",
@@ -268952,9 +269222,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Proposition 4.2, p.1118, reverses the inclusion after imposing an additional evaluation constraint. The newly constrained module S is contained in the prior module S-prime; the displayed S-prime contained in S cannot hold in general."
   },
   {
    "id": "PadicHodgeRegulators/E303",
@@ -268974,9 +269244,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Published Proposition 5.9, p.1127, has the ordered-pair functional inconsistent with the preceding relation. In the roadmap row order it is (p−1)g(0)−(2−a_p)h(0); at p=5,a_p=0 the pair (1,2) distinguishes the two coefficients. The rational quotient is over E."
   },
   {
    "id": "PadicHodgeRegulators/E304",
@@ -268996,9 +269266,9 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Corollary 4.13, p.1124, presents an analytic scalar ring on the source of a sequence for bounded Coleman coordinates. The bounded source is Lambda_E; an H_E-linear sequence requires scalar extension of the entire sequence."
   },
   {
    "id": "PadicHodgeRegulators/E305",
@@ -269018,9 +269288,69 @@
    "owner": "PadicHodgeRegulators",
    "file": "research/blueprint/packets/PadicHodgeRegulators.json",
    "citation": "Antonio Lei, David Loeffler, Sarah Livia Zerbes, Coleman maps and the p-adic regulator, Algebra & Number Theory 5(8) (2011), 1095–1131; version of record",
-   "status": "awaiting review",
-   "reviewedBy": null,
-   "reviewReason": null
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Proposition 4.11, p.1123, identifies a period subspace with the coefficient subspace before applying its logarithmic matrix. With row coordinates and image V_j in period space, the Coleman constraint is V_j*M(x_j)^{-1}, not V_j itself."
+  },
+  {
+   "id": "PadicHodgeRegulators/E118",
+   "kind": "misprint",
+   "locator": "Example 4.3, equation (273), p.54",
+   "printed": "The second root-value expansion is labelled with exponent 5.",
+   "correction": "Replace that label by exponent 2. Equations (274)–(275) use the exponent-two value.",
+   "reason": "The independent finite-ring computation reproduces that printed digit expansion for D_5(zeta^2)/25; exponent five is not its label.",
+   "affects": "a stated result",
+   "known": "Already recorded as PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E56; added here by REV-PadicHodgeRegulators.",
+   "searched": [
+    "Read arXiv:2412.04241v2 at this locator on 2026-10-19.",
+    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E56 and its independent verification. No new author-contact or publisher-errata search claimed."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "The independent finite-ring computation reproduces that printed digit expansion for D_5(zeta^2)/25; exponent five is not its label."
+  },
+  {
+   "id": "PadicHodgeRegulators/E119",
+   "kind": "error",
+   "locator": "Proposition 3.3, equation (179), p.38, and Theorem 9, p.39",
+   "printed": "The root domain does not explicitly exclude the identity root in each field factor.",
+   "correction": "Require every component of the tame root to differ from 1; in the residue calculation the domain is F_q minus {0,1}.",
+   "reason": "Dilogarithm reduction divides by (x−1)^p. In a product, excluding only the identity tuple still allows an individual component equal to 1. The stated symbol/reduction argument needs componentwise admissibility.",
+   "affects": "a stated result",
+   "known": "Already recorded as PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E38; added here by REV-PadicHodgeRegulators.",
+   "searched": [
+    "Read arXiv:2412.04241v2 at this locator on 2026-10-19.",
+    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E38 and its independent verification. No new author-contact or publisher-errata search claimed."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Dilogarithm reduction divides by (x−1)^p. In a product, excluding only the identity tuple still allows an individual component equal to 1. The stated symbol/reduction argument needs componentwise admissibility."
+  },
+  {
+   "id": "PadicHodgeRegulators/E120",
+   "kind": "gap",
+   "locator": "Theorem 9 and proof, p.39, compared with Lemma 3.1, p.38",
+   "printed": "The proof uses containment of the completed regulator image in p^2 O_L before establishing it on all completed classes.",
+   "correction": "Construct the continuous completed Chern/Bloch–Kato regulator independently, prove its integral image, and then use residue spanning and the independently known rank.",
+   "reason": "Lemma 3.1 concerns special-unit symbols. Using generation by roots to prove integral containment while using containment to prove that generation is circular. The planned integral Bloch–Kato route avoids this issue.",
+   "affects": "the proof",
+   "known": "Already recorded as PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24/E39; added here by REV-PadicHodgeRegulators.",
+   "searched": [
+    "Read arXiv:2412.04241v2 at this locator on 2026-10-19.",
+    "research/blueprint/papers/PAPER-GAROUFALIDIS-SCHOLZE-WHEELER-ETAL-24.result.json sourceIssues/E39 and its independent verification. No new author-contact or publisher-errata search claimed."
+   ],
+   "owner": "PadicHodgeRegulators",
+   "file": "research/blueprint/packets/PadicHodgeRegulators.json",
+   "citation": "Stavros Garoufalidis, Peter Scholze, Campbell Wheeler, Don Zagier, The Habiro ring of a number field, arXiv:2412.04241v2 (27 August 2025); no journal version",
+   "status": "confirmed",
+   "reviewedBy": "REV-PadicHodgeRegulators",
+   "reviewReason": "Lemma 3.1 concerns special-unit symbols. Using generation by roots to prove integral containment while using containment to prove that generation is circular. The planned integral Bloch–Kato route avoids this issue."
   },
   {
    "id": "PadicHodgeTheory/E1",
