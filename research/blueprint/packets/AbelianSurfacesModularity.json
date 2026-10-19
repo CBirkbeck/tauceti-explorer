@@ -137,11 +137,12 @@
    "hypotheses": [
     "F a number field; A/F an abelian surface; H¹ (not the Tate module) with geometric Frobenius, as in BCGP25 §1.8.23.",
     "C-algebraic in the sense of Buzzard–Gee; the twist |det|^{(1−n_i)/2} is the one fixed in Definition 1.8.25.",
-    "The equality is of the finite Euler products at every finite place; no statement at the archimedean places is part of the definition."
+    "The equality is of the finite Euler products at every finite place; no statement at the archimedean places is part of the definition.",
+    "Over F = Q the Euler-factor-wise equality is equivalent to the equality of Dirichlet series in Definition 1.8.25 (compare coefficients at prime powers); over a general number field it is the slightly stronger form in which the definition is applied, and every witness the endpoint produces satisfies it (AM.0/modular-of-gsp4 (2))."
    ],
    "proofSteps": [
-    "Define L(s, H¹(A)) from the Néron-model and Tate-module description of the local factors (NeronModelsAndSemistableAbelianVarieties R11.5); independence of ℓ at bad places is part of R11.5.",
-    "Isogeny invariance: isogenous abelian surfaces have isomorphic rational Tate modules (FaltingsFinitenessAndIsogenyTheorems R28.4 supplies the converse used later), hence the same local factors.",
+    "Define the local factors as det(1 − Frob_v T | H¹(A)^{I_v}) (NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial); their independence of ℓ and the purity of H¹ are the strict compatibility of R11.6/strict-compatible-system-export.",
+    "Isogeny invariance: isogenous abelian surfaces have isomorphic rational Tate modules (NeronModelsAndSemistableAbelianVarieties:R11.5/good-isogeny), hence the same local factors.",
     "Remark 1.8.26 explains the comparison with BCGP21 Definition 9.1.8: a cuspidal GSp₄ witness of general type transfers to a cuspidal GL₄ witness (AM.0/modular-of-gsp4), while products of elliptic curves are modular only through r = 2."
    ],
    "acceptance": [
@@ -150,8 +151,9 @@
    ],
    "prerequisites": [
     "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
-    "NeronModelsAndSemistableAbelianVarieties:R11.5",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5/good-isogeny",
     "AbelianSchemesAndArithmeticModuli:A4/realization-conventions",
     "AbelianSurfacesPotentialModularity:AP.0/modular-gsp4-representation",
     "EllipticCurveModularity:R29.6/modularity-theorem"
@@ -231,9 +233,9 @@
      "statement": "For E_1, E_2 elliptic curves over Q, E_1 × E_2 is modular with witness (π_{E_1}, π_{E_2}) on GL₂ × GL₂."
     },
     {
-     "name": "AbelianSurface.IsModular.not_of_potential",
+     "name": "AbelianSurface.IsModular.twist_normalization",
      "kind": "non-example",
-     "statement": "Potential modularity of A over a finite extension L/F (AbelianSurfacesPotentialModularity:AP.0/automorphic-abelian-variety) does not imply that A is modular over F: the definition quantifies over cuspidal representations of GL_{n_i}(A_F)."
+     "statement": "The twist |det|^{(1−n_i)/2} cannot be dropped or moved: for E_1, E_2 elliptic curves over Q let π_i be the unitary cuspidal representations of their weight-two newforms (C-algebraic, with archimedean exponents ±1/2). Then L(s, π_i) = L(s + 1/2, H¹(E_i)), so L(s, π_1)L(s, π_2) ≠ L(s, H¹(E_1 × E_2)), while L(s, π_1 ⊗ |det|^{−1/2})L(s, π_2 ⊗ |det|^{−1/2}) = L(s, H¹(E_1 × E_2)); with the L-algebraic π_i ⊗ |det|^{1/2} in place of π_i the twisted product is again off by s ↦ s + 1/2."
     },
     {
      "name": "AbelianSurface.IsModular.witness_unique",
@@ -261,13 +263,13 @@
    "statement": "Let p be prime and B/Q_p an abelian surface whose representation ρ_{B,p} = H¹_ét(B_{Q̄_p}, Q̄_p) : G_{Q_p} → GSp₄(Q̄_p), of similitude ε^{−1}, is ordinary in the sense of Definition 1.8.10: it is conjugate to an upper triangular representation with diagonal (χ₁, χ₂, ε^{−1}χ₂^{−1}, ε^{−1}χ₁^{−1}). B is p-distinguished if these four characters are pairwise distinct. If B has good ordinary reduction B₀, this holds if and only if the characteristic polynomial Q(x) of Frobenius of B₀ (on T_ℓB₀, ℓ ≠ p) has four distinct roots, equivalently Q(x) is not the square of a quadratic in Z[x]. An ordinary abelian surface B₀/F_p is p-distinguished if its Q(x) has distinct roots, and a genus-two curve X/Q_p is p-distinguished if Jac(X) is.",
    "hypotheses": [
     "p any prime (p = 2 and p = 3 are the cases used); ε the p-adic cyclotomic character with Hodge–Tate weight −1 (BCGP25 §1.8.3).",
-    "Ordinary is the Galois-theoretic condition of Definition 1.8.10; for semistable B it covers good ordinary and semistable ordinary reduction (NeronModelsAndSemistableAbelianVarieties:R11.6/semistable-ordinary-adapter).",
+    "Ordinary is the Galois-theoretic condition of Definition 1.8.10. Good ordinary reduction at any p gives it (§1.8.23). Semistable ordinary reduction (NeronModelsAndSemistableAbelianVarieties:R11.6/semistable-ordinary-adapter) is used only at p = 2, where the stable isotropic rank-two submodule of R11.6/ordinary-isotropic-filtration gives the Siegel-parabolic shape; the Galois actions on its graded pieces (toric, abelian, dual toric) factor through abelian quotients, unramified up to the cyclotomic character, so they triangularize compatibly over Q̄_2 and give the Borel shape of Definition 1.8.10.",
     "The notion is characteristic zero: it asks for distinct characters, not distinct reductions (residual p-distinguishedness of Definition 1.8.10 is stronger)."
    ],
    "proofSteps": [
     "For good ordinary reduction χ₁, χ₂ are unramified with χ_i(Frob_p) the two unit roots α₁, α₂ of Q(x), and the other two characters have Hodge–Tate weight 1, so distinctness reduces to α₁ ≠ α₂.",
     "The roots of Q are α₁, α₂, p/α₁, p/α₂ with α_i units, so a repeated root forces α₁ = α₂, i.e. Q = (x² − (α₁ + p/α₁)x + p)²; conversely a square has repeated roots.",
-    "For semistable ordinary B the characters are read on the toric and abelian parts of the Tate module (R11.6/ordinary-isotropic-filtration)."
+    "For semistable ordinary B at p = 2 the four characters are read on the graded pieces of the isotropic filtration of R11.6/ordinary-isotropic-filtration: on a toric piece an unramified finite-order character times a power of the cyclotomic character, on an abelian piece the unit-root or Cartier-dual character of the ordinary abelian quotient."
    ],
    "acceptance": [
     "E_{−1} × E_2 over F₃ (traces −1 and 2) is 3-distinguished: Q = (x² + x + 3)(x² − 2x + 3).",
@@ -383,10 +385,10 @@
     "π cuspidal of weight 2 with central character |·|²; the Arthur classification for GSp₄ enters through the transfer and carries the dependency registered at ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate."
    ],
    "proofSteps": [
-    "(1) By (1.8.18) at the unramified places (AbelianSurfacesPotentialModularity:AP.0/weight-two-galois), the characteristic polynomials of ρ_{A,p}(Frob_ℓ) are the Satake polynomials of π_ℓ, hence of Π_ℓ, at almost all ℓ; these polynomials are those of every ρ_{A,ℓ′} (R11.5), so the system is automorphic for Π.",
-    "Since ρ_{A,ℓ} is irreducible, π is not endoscopic (BCGP25 §1.8.22, BCGP21 Lemma 2.9.1) and transfers to a cuspidal Π (EndoscopicTransferAndUnitaryTraceComparison:ET.4/gsp4-gl4-transfer) with rec(Π_v) the standard parameter of rec_GT(π_v).",
-    "(2) Remark 1.8.20: for π of general type and ρ_{A,p} pure (R11.5), semisimplified local–global compatibility upgrades to Frobenius-semisimple compatibility with monodromy at every v ≠ p, because the generic L-packet forces the adjoint L-factor to be holomorphic at s = 1 and the pure Weil–Deligne representation has the unique monodromy compatible with this. The comparison of all local factors, conductors and archimedean factors of an automorphic system with those of Π is BCGP21 Remark 9.1.7 (AbelianSurfacesPotentialModularity:AP.0/automorphic-abelian-variety).",
-    "(3) L(s, Π ⊗ |det|^{−3/2}) = L(s − 1/2, Π ⊗ |det|^{−1}) with Π ⊗ |det|^{−1} unitary cuspidal and self-dual; Godement–Jacquet gives entire continuation and the functional equation (AL.2/godement-jacquet-functional-equation, AL.2/standard-order-one); the archimedean factor Γ_C(s)² and the conductor match by the archimedean and local Langlands correspondences."
+    "(1) By (1.8.18) at the unramified places (AbelianSurfacesPotentialModularity:AP.0/weight-two-galois), the characteristic polynomials of ρ_{A,p}(Frob_ℓ) are the Satake polynomials of π_ℓ, hence of Π_ℓ, at almost all ℓ; these polynomials are those of every ρ_{A,ℓ′} (strict compatibility, NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export), so the system is automorphic for Π.",
+    "Since ρ_{A,p} is irreducible, π is of general type: otherwise ModularityAndLanglandsExtensions:ML.4/non-general-type-reducible (BCGP21 Lemma 2.9.1, which covers weight (2, 2)) gives a reducible compatible system with the same Frobenius polynomials at almost all places, and Chebotarev with Brauer–Nesbitt makes ρ_{A,p} reducible. By definition (ML.4/gsp4-discrete-spectrum-types, BCGP25 §1.8.22) a general-type π has a cuspidal symplectic-type transfer Π, and EndoscopicTransferAndUnitaryTraceComparison:ET.4/gsp4-gl4-transfer gives that π is cuspidal and stable with rec(Π_v) the standard parameter of rec_GT(π_v).",
+    "(2) Remark 1.8.20: for π of general type and ρ_{A,p} pure (R11.6/strict-compatible-system-export), semisimplified local–global compatibility upgrades to Frobenius-semisimple compatibility with monodromy at every v ≠ p, because the generic L-packet forces the adjoint L-factor to be holomorphic at s = 1 and the pure Weil–Deligne representation has the unique monodromy compatible with this. The comparison of all local factors, conductors and archimedean factors of an automorphic system with those of Π is BCGP21 Remark 9.1.7 (AbelianSurfacesPotentialModularity:AP.0/automorphic-abelian-variety).",
+    "(3) L(s, Π ⊗ |det|^{−3/2}) = L(s − 1/2, Π ⊗ |det|^{−1}) with Π ⊗ |det|^{−1} unitary cuspidal and self-dual; the global Godement–Jacquet theorem gives, for Π′ = Π ⊗ |det|^{−1}, entire continuation (n = 4 ≥ 2) and the functional equation Λ(s, Π′) = ε(s, Π′)Λ(1 − s, Π′^∨) with Π′^∨ ≅ Π′ (AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet); the archimedean factor Γ_C(s)² and the conductor match by the archimedean and local Langlands correspondences."
    ],
    "acceptance": [
     "Theorem A's conclusion is this theorem applied to the π produced by Theorem 9.5.1.",
@@ -396,11 +398,12 @@
     "AbelianSurfacesPotentialModularity:AP.0/weight-two-galois",
     "AbelianSurfacesPotentialModularity:AP.0/automorphic-compatible-system",
     "AbelianSurfacesPotentialModularity:AP.0/automorphic-abelian-variety",
+    "ModularityAndLanglandsExtensions:ML.4/gsp4-discrete-spectrum-types",
+    "ModularityAndLanglandsExtensions:ML.4/non-general-type-reducible",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.4/gsp4-gl4-transfer",
-    "NeronModelsAndSemistableAbelianVarieties:R11.5",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
-    "AutomorphicLFunctionsAndLocalFactors:AL.2/godement-jacquet-functional-equation",
-    "AutomorphicLFunctionsAndLocalFactors:AL.2/standard-order-one",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5/conductor-import",
+    "AutomorphicLFunctionsAndLocalFactors:AL.2/global-godement-jacquet",
     "AutomorphicFormsOnReductiveGroups:AF.1/archimedean-llc-gln",
     "AbelianSurfacesPotentialModularity:AP.0",
     "ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate",
@@ -1033,7 +1036,7 @@
    "statement": "Let k ⊇ F₂ be a finite field and V the 4-dimensional module of AM.2/a5-modular-representations, viewed as A₅ ⊂ GL₄(k). Then (1) the socle of V ⊗ V ≅ End(V) is k ⊕ V; (2) the semisimple elements of A₅ span End(V), i.e. A₅ is weakly adequate (ArithmeticGaloisRepresentations:G7/adequate-subgroup (a)); (3) H¹(A₅, k) = 0 and H^n(A₅, ad V) = 0 for all n > 0. Hence A₅ ⊂ GL(V) is nearly adequate in the sense of BCGP25 Definition 5.3.3 (weakly adequate, H¹(H, k) = 0, H¹(H, ad) = 0). It is not adequate in Thorne's sense (Definition 2.20 of Thorne 2017): H¹(A₅, ad/k) ≅ H²(A₅, k) ≅ k because the Schur multiplier of A₅ is Z/2Z.",
    "hypotheses": [
     "k of characteristic 2; ad = End(V) with conjugation action.",
-    "Near adequacy (Definition 5.3.3) is requested from its owner GlobalGaloisDeformations:G7; weak and GHT-adequacy are ArithmeticGaloisRepresentations:G7/adequate-subgroup."
+    "Near adequacy (Definition 5.3.3: weakly adequate, H¹(H, k) = 0, H¹(H, ad) = 0) is the relaxed adequacy of PotentialAutomorphyInfrastructurePartII:PL.4/relaxed-adequacy (Thorne's Definition 2.20 with H¹(H, ad₀) = 0 weakened to H¹(H, ad) = 0, as in Boxer–Calegari–Gee); weak and GHT-adequacy are ArithmeticGaloisRepresentations:G7/adequate-subgroup."
    ],
    "proofSteps": [
     "(1) Use 0 → ∧²V → V ⊗ V → Sym²V → 0 and 0 → V^{(1)} → Sym²V → ∧²V → 0 (8.2.6), (8.2.7) with V^{(1)} ≅ V; V projective gives V ⊗ V ≅ V ⊕ (extension of ∧²V by itself). ∧²V has composition factors k, k, U, U^σ; it is Frobenius-stable and self-dual, so if U were in its socle both U and U^σ would be direct summands, and H¹(A₅, k) = 0 would force ∧²V semisimple, contradicting Schur's lemma (one copy of k in the socle of End(V)). So soc(∧²V) = k and soc(V ⊗ V) = k ⊕ V (Lemma 8.2.8).",
@@ -1047,7 +1050,7 @@
    "prerequisites": [
     "AbelianSurfacesModularity:AM.2/a5-modular-representations",
     "ArithmeticGaloisRepresentations:G7/adequate-subgroup",
-    "GlobalGaloisDeformations:G7",
+    "PotentialAutomorphyInfrastructurePartII:PL.4/relaxed-adequacy",
     "mathlib:groupCohomology.H1",
     "tauceti:TauCeti.schurMultiplier"
    ],
@@ -1128,10 +1131,10 @@
    "proofSteps": [
     "Let E⁺ be the fixed field of G_{F⁺} → S₅(b) → Z/2 (degree ≤ 2); it is totally real because complex conjugations land in A₅(b). After a further solvable totally real base change, ρ̄|_{G_{E⁺_v}} is trivial for every v | 2.",
     "Write ̺̄ : G_{E⁺} → SL₂(F₄) ≅ A₅ for one of the two 2-dimensional representations; ρ̄ ≅ Sym³̺̄ by AM.2/a5-modular-representations.",
-    "Lift G_{E⁺} → A₅ ⊂ PGL₂(C) to ̺ : G_{E⁺} → GL₂(C) with finite image (Tate; ArithmeticGaloisRepresentations:G7/lifting-projective-representations). ̺(c) is a non-scalar involution, so det ̺(c) = −1 and ̺ is totally odd.",
+    "Lift G_{E⁺} → A₅ ⊂ PGL₂(C) to ̺ : G_{E⁺} → GL₂(C) with finite image (Tate; ArithmeticGaloisRepresentations:G7/lifting-projective-representations gives a lift from the vanishing of H²(G_{E⁺}, Q/Z); lifts differ by characters, and twisting makes the determinant, hence the image, finite). ̺(c) is a non-scalar involution, so det ̺(c) = −1 and ̺ is totally odd.",
     "By the odd Artin conjecture over totally real fields (Pilloni–Stroh, Sasaki; ModularityAndLanglandsExtensions:ML.1/totally-real-odd-artin) ̺ comes from a Hilbert eigenform f of parallel weight 1; f is ordinary at the places above 2 by local–global compatibility, since ̺|_{G_{E⁺_v}} is unramified there.",
     "Put f in a 2-adic Hida family and specialize to parallel weight 2 (after a further solvable base change if needed), giving an ordinary cuspidal π_{E⁺} on GL₂ of weight 0 and trivial central character with r̄_{π_{E⁺},2} ≅ ̺̄ (requested from OrdinaryAutomorphicFormsAndModularityLifting:R21.2: its node R21.2/hilbert-ordinary-weight-change covers p ≥ 5 and weight-0 to weight-1 changes only).",
-    "Base change π_{E⁺} to an imaginary CM quadratic E/E⁺ (AutomorphicGaloisRepresentationsPartII:AG2.2/attachment-under-solvable-base-change, with cyclic base change requested from ModularityAndLanglandsExtensions:ML.5) and take Sym³ (Kim–Shahidi, ModularityAndLanglandsExtensions:ML.3/kim-shahidi-sym3; cuspidal since the image is not dihedral or tetrahedral). Sym³π is regular algebraic, conjugate self-dual and ordinary, and r̄_{Sym³π,2} ≅ Sym³̺̄|_{G_E} ≅ ρ̄|_{G_E}."
+    "Base change π_{E⁺} to an imaginary CM quadratic E/E⁺ (AutomorphicGaloisRepresentationsPartII:AG2.2/attachment-under-solvable-base-change, with cyclic base change ModularityAndLanglandsExtensions:ML.5/cyclic-base-change-gln) and take Sym³ (Kim–Shahidi, ModularityAndLanglandsExtensions:ML.3/kim-shahidi-sym3; cuspidal since the image is not dihedral or tetrahedral). Sym³π is regular algebraic, conjugate self-dual and ordinary, and r̄_{Sym³π,2} ≅ Sym³̺̄|_{G_E} ≅ ρ̄|_{G_E}."
    ],
    "acceptance": [
     "Tsuzuki–Yamauchi (Theorem 4.7 of their 2022 paper) obtain a closely related residual modularity statement."
@@ -1143,7 +1146,7 @@
     "ModularityAndLanglandsExtensions:ML.1/totally-real-odd-artin",
     "OrdinaryAutomorphicFormsAndModularityLifting:R21.2",
     "AutomorphicGaloisRepresentationsPartII:AG2.2/attachment-under-solvable-base-change",
-    "ModularityAndLanglandsExtensions:ML.5",
+    "ModularityAndLanglandsExtensions:ML.5/cyclic-base-change-gln",
     "ModularityAndLanglandsExtensions:ML.3/kim-shahidi-sym3",
     "AutomorphicGaloisRepresentationsPartII:AG2.5/published-racsdc-comparison-specializations"
    ],
@@ -1174,9 +1177,9 @@
     "Uses Arthur's classification through Theorem 7.5.11 (ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate)."
    ],
    "proofSteps": [
-    "ρ_{A,2} is unramified almost everywhere, pure and has multiplier ε^{−1} (§1.8.23; NeronModelsAndSemistableAbelianVarieties R11.5).",
+    "ρ_{A,2} is unramified almost everywhere, pure and has multiplier ε^{−1} (§1.8.23; NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export).",
     "By AM.3/residual-a5-automorphy there are an imaginary CM field E, solvable over Q, with ρ̄_{A,2}(G_{E⁺}) = A₅(b), and an ordinary RACSDC π on GL₄(A_E) with r_{π,2} ≅ ρ̄_{A,2}|_{G_E}; after a further solvable extension E/E⁺ is everywhere unramified and the places above 2, above the ramification of π and above the bad primes of A split in E.",
-    "Check the hypotheses of Theorem 7.5.11: (a) Zariski closure of ρ_{A,2}(G_Q) contains Sp₄: A₅(b) in the image gives End(A_{Q̄}) = Z (Zarhin 2000, requested from FaltingsFinitenessAndIsogenyTheorems:R28.4), and then the ℓ-adic image is open (Serre; AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image); (b) ρ̄(G_{Q(i)}) = ρ̄(G_Q), since the only index-2 subgroup of the image, if any, is cut out by a real quadratic field; (c) ρ̄(G_{Q(ζ_{2^∞})}) is integrally enormous, by Corollary 7.1.4 applied to a regular semisimple element of order 5 (requested from GlobalGaloisDeformations:R04.5); (d)–(f) near adequacy, a regular semisimple element and strong oddness over E from AM.2/a5-residual-hypotheses.",
+    "Check the hypotheses of Theorem 7.5.11: (a) Zariski closure of ρ_{A,2}(G_Q) contains Sp₄: A₅(b) in the image gives End(A_{Q̄}) = Z (Zarhin 2000, requested from FaltingsFinitenessAndIsogenyTheorems:R28.4), and then the ℓ-adic image is open (Serre; AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image, applied to a principally polarized surface isogenous to A over a finite extension, which changes neither End(A_{Q̄}) nor the identity component of the Zariski closure); (b) ρ̄(G_{Q(i)}) = ρ̄(G_Q), since the only index-2 subgroup of the image, if any, is cut out by a real quadratic field; (c) ρ̄(G_{Q(ζ_{2^∞})}) is integrally enormous, by Corollary 7.1.4 applied to a regular semisimple element of order 5 (requested from GlobalGaloisDeformations:R04.5); (d)–(f) near adequacy, a regular semisimple element and strong oddness over E from AM.2/a5-residual-hypotheses.",
     "Theorem 7.5.11 gives modularity of ρ_{A,2} by a weight-2 π ordinary at 2; AM.0/modular-of-gsp4 gives the GL₄ transfer and modularity of A, and at any p where π is ordinary Theorem 1.8.17 with Chebotarev and Brauer–Nesbitt identifies ρ_{π,p} with ρ_{A,p}."
    ],
    "acceptance": [
@@ -1191,7 +1194,7 @@
     "GlobalGaloisDeformations:R04.5",
     "FaltingsFinitenessAndIsogenyTheorems:R28.4",
     "AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image",
-    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export",
     "ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate"
    ],
    "sources": [
@@ -1227,7 +1230,7 @@
    "proofSteps": [
     "The Weil conjectures for abelian varieties over F_p give the root condition; the shape follows from the functional equation of the Weil pairing (ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial).",
     "The Newton polygon of Q has slopes (0, 0, 1, 1) exactly when p ∤ b; this is ordinarity.",
-    "Honda–Tate (AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate): for ordinary irreducible Q the field Q(π) is totally complex of degree 4 and the local invariants at p vanish, so dim A = 2."
+    "Honda–Tate (AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate): for ordinary irreducible Q the field Q(π) is totally complex of degree 4 and the local invariants at p vanish, so dim A = 2. A reducible ordinary Weil quartic is Q_{E₁}Q_{E₂} for ordinary elliptic Weil polynomials, realized by E₁ × E₂; Tate's theorem that the Frobenius polynomial determines the F_p-isogeny class (EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda) makes the correspondence a bijection on all isogeny classes, simple or not."
    ],
    "acceptance": [
     "Exactly 16 ordinary Weil quartics for p = 2 (AM.4/weil-quartics-at-two) and 40 for p = 3 (AM.5/genus-two-curves-over-F3)."
@@ -1235,7 +1238,8 @@
    "prerequisites": [
     "AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate",
     "ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial",
-    "mathlib:Polynomial.aroots"
+    "mathlib:Polynomial.aroots",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda"
    ],
    "sources": [
     {
@@ -1394,7 +1398,8 @@
     "AbelianSurfacesModularity:AM.1/frobenius-class-at-two",
     "AbelianSurfacesModularity:AM.1/outer-classes",
     "AbelianSurfacesModularity:AM.4/weil-quartics-at-two",
-    "AbelianSurfacesModularity:AM.2/weierstrass-criterion"
+    "AbelianSurfacesModularity:AM.2/weierstrass-criterion",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs"
    ],
    "sources": [
     {
@@ -1435,7 +1440,8 @@
     "AbelianSurfacesModularity:AM.2/siegel-parabolic-two-group",
     "NeronModelsAndSemistableAbelianVarieties:R11.6/ordinary-residual-point-export",
     "AbelianSurfacesModularity:AM.0/p-distinguished",
-    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves"
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs"
    ],
    "sources": [
     {
@@ -1463,7 +1469,7 @@
    ],
    "proofSteps": [
     "(a) For 4C/12C, Q ≡ (x² − x + 2)² mod 3 up to twist forces Q = (x² − x + 2)² (not 2-distinguished) or Q = x⁴ + x³ − x² + 2x + 4 ≡ x²(x² + x + 1) mod 2, in which case Frobenius acts with order 3 and without non-zero fixed vectors on both the étale part of A[2] and its multiplicative part (the Cartier dual of the étale part of the dual), so A[2](Q₂) = 0, contradicting the rational 2-torsion point given by R11.6/ordinary-residual-point-export. For 8A, Table 9.2.5 leaves only x⁴ + x³ + x² + 2x + 4 ≡ x²(x² + x + 1) mod 2: the same contradiction.",
-    "(b) The characteristic polynomial is (x² + x + 2)² mod 3 up to twist; no two roots have ratio 2 ≡ −1, so every lift of ρ̄_{A,3}|_{G_{Q₂}} is unramified (the monodromy of a lift maps the α-eigenspace to the 2^{±1}α-eigenspace; requested from LocalGaloisDeformationRings:R08.2; the printed H²(G_{Q₂}, ρ̄) should be the adjoint obstruction, PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E038). Néron–Ogg–Shafarevich gives good reduction, and (a) applies.",
+    "(b) The characteristic polynomial is (x² + x + 2)² mod 3 up to twist; no two roots have ratio 2 ≡ −1, so H⁰(G_{Q₂}, ad ρ̄(1)) = 0, hence H²(G_{Q₂}, ad ρ̄) = 0 and the framed lifting ring is formally smooth of relative dimension 16 (LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p); the unramified lifts form a closed formally smooth quotient of the same dimension (R08.2/unramified-lifting-ring), so every lift of ρ̄_{A,3}|_{G_{Q₂}} is unramified (the printed H²(G_{Q₂}, ρ̄) should be the adjoint obstruction, PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E038). Néron–Ogg–Shafarevich (NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich) gives good reduction, and (a) applies.",
     "(c) As in (a): Q ≡ x²(x² + x + 1) mod 2.",
     "(d) Jac(C₃) of AM.4/local-two-examples has Q = x⁴ − x² + 4 and the stated properties. For another B with the same Q there is an isogeny χ : A₀ → B (Tate; EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda). With ψ = φ² + 1, ψ^∨ψ = [6], the only proper Frobenius-stable submodule of A₀[3] is ker ψ ∩ A₀[3] (x² + 1 is irreducible mod 3), so either deg χ is prime to 3 or χ factors through ψ, lowering the 3-part of the degree; by induction A₀[3] ≅ B[3].",
     "(e) Table 9.2.5 forces Q = x⁴ + x² + 4 ≡ (x − 1)²(x + 1)² mod 3; Jac(C₂) has this Q and class 6I with minimal polynomial (x − 1)²(x + 1)² on its 3-torsion, and the isogeny argument of (d) with ψ = φ ∓ 1 transfers class 6I to every surface in the isogeny class (the printed proof writes A[3] for the reference Jacobian's 3-torsion, PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E069)."
@@ -1477,8 +1483,9 @@
     "NeronModelsAndSemistableAbelianVarieties:R11.6/ordinary-residual-point-export",
     "AbelianSurfacesModularity:AM.2/siegel-parabolic-two-group",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda",
-    "LocalGaloisDeformationRings:R08.2",
-    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p",
+    "LocalGaloisDeformationRings:R08.2/unramified-lifting-ring",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich",
     "AbelianSurfacesModularity:AM.1/frobenius-class-at-two"
    ],
    "sources": [
@@ -1515,7 +1522,7 @@
    "proofSteps": [
     "Under (4b), good ordinary reduction is impossible: by AM.4/good-reduction-exclusions (c), (d) and Table 9.2.5, (1)–(3) with good ordinary reduction force class 6H, contradicting (2). So in both cases A has bad reduction.",
     "A is semistable by NeronModelsAndSemistableAbelianVarieties:R11.6/unramified-three-torsion-at-two.",
-    "Grothendieck's filtration T₃(A)_t ⊂ T₃(A)_f ⊂ T₃(A) has toric rank t > 0. If t = 1, T₃(A)_t/3 is a Frobenius-stable line in A[3], impossible since the characteristic polynomial is (x² + 1)² and x² + 1 has no root in F₃. So t = 2: purely toric."
+    "Grothendieck's filtration T₃(A)_t ⊂ T₃(A)_f ⊂ T₃(A) (NeronModelsAndSemistableAbelianVarieties:R11.3/toric-finite-filtration, ℓ = 3 ≠ 2) has toric rank t > 0. If t = 1, T₃(A)_t/3 is a Frobenius-stable line in A[3], impossible since the characteristic polynomial is (x² + 1)² and x² + 1 has no root in F₃. So t = 2: purely toric."
    ],
    "acceptance": [
     "Y of §9.2.16 (conductor 797) has good reduction at 2, a rational Weierstrass point and class 6G, and is not ordinary (Q₂ = x⁴ + 2x² + 4, PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E041)."
@@ -1525,7 +1532,7 @@
     "AbelianSurfacesModularity:AM.4/weil-quartics-at-two",
     "NeronModelsAndSemistableAbelianVarieties:R11.6/unramified-three-torsion-at-two",
     "NeronModelsAndSemistableAbelianVarieties:R11.6/semistable-ordinary-adapter",
-    "NeronModelsAndSemistableAbelianVarieties:R11.6/ordinary-isotropic-filtration",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3/toric-finite-filtration",
     "NeronModelsAndSemistableAbelianVarieties:R11.3/monodromy-criterion"
    ],
    "sources": [
@@ -1681,7 +1688,7 @@
     "Purely toric reduction is deduced from AM.4/toric-reduction-cases with its bad-reduction hypothesis supplied by the conductor 2²·N, N odd."
    ],
    "proofSteps": [
-    "Compute the 3-division polynomial of degree 40 and its degree-27 resolvent for X to see A[3] unramified at 2 with class 6G (AM.1/outer-classes); a finite certificate.",
+    "Specialize the explicit Calegari–Chidambaram–Roberts formulas (their Theorem 2, a rational parametrization of M^w_2(ρ̄) as AbelianSurfacesPotentialModularity:AP.7/odd-theta-cover predicts; the formulas themselves are data of the certificate). Compute the 3-division polynomial of degree 40 and its degree-27 resolvent for X to see A[3] unramified at 2 with class 6G (AM.1/outer-classes); a finite certificate.",
     "The conductor exponent at 2 is 2, so A has bad reduction; AM.4/toric-reduction-cases gives purely toric reduction.",
     "The Frobenius eigenvalues on the unramified quotient are ±i, distinct, so A is 2-distinguished."
    ],
@@ -1776,7 +1783,7 @@
    "proofSteps": [
     "Enumerate the 2187 polynomials, test smoothness and genus, compute Q by point counts over F₃ and F₉, and test ordinarity (3 ∤ b): a finite certificate (BCGP25 Remark 9.1.5 and §9.3, Magma). The #X column sums to 864.",
     "For (3): Jac(X)(F̄₃)[3] ≅ χ ⊗ (Z/3)² forces Q ≡ x²(x ± 1)² mod 3, and a square Q is a square mod 3; after a quadratic twist assume Q ≡ x²(x − 1)², and check the 4 + 24 + 1 + 8 + 48 + 8 + 48 = 141 curves with this reduction directly: Q is a square exactly when Jac(X)(F₃)[3] = (Z/3)², and the 5 such curves have no rational Weierstrass point.",
-    "Honda–Tate (AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate) identifies the 40 classes."
+    "Honda–Tate (AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate) for the simple classes and Tate's isogeny theorem over F₃ (EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda) for the products identify the 40 classes (AM.4/ordinary-weil-quartic)."
    ],
    "acceptance": [
     "The counts of Table 9.3.3 sum to 864; the Weil-polynomial column has 40 rows.",
@@ -1786,7 +1793,8 @@
     "AbelianSurfacesModularity:AM.4/ordinary-weil-quartic",
     "AbelianSchemesAndArithmeticModuliPartII:F3/honda-tate",
     "AbelianSurfacesModularity:AM.0/p-distinguished",
-    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves"
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
+    "EndoscopicTransferAndUnitaryTraceComparison:ET.5/finite-field-tate-honda"
    ],
    "sources": [
     {
@@ -1818,7 +1826,7 @@
    ],
    "title": "A product special fibre at 3 forces bad reduction of the curve (Remark 9.3.8)",
    "kind": "theorem",
-   "statement": "A₀ = E_{−1} × E₂ over F₃ (traces −1 and 2), with the product principal polarization, is ordinary and 3-distinguished but is not the Jacobian of an ordinary curve over F₃ (it would be one of the 10 non-distinguished curves or have Q a square by AM.5/genus-two-curves-over-F3; in fact Lemma 9.3.1(3) excludes it). Hence a genus-two curve X/Q₃ with Jac(X) reducing to A₀, as produced in the scalar case of Lemma 9.3.7 (AbelianSurfacesPotentialModularity:AP.7/local-three-seeds), has bad reduction while Jac(X) has good reduction. Among the five isogeny classes of principally polarized ordinary 3-distinguished surfaces over F₃ with Q ≡ x² + x³ + x⁴ mod 3, only Q = (x² − x + 3)(x² + 2x + 3) (with Q(1) ≡ 0 mod 9) contains an A₀ with A₀[3](F₃) = (Z/3)²; for the other four (Q(1) ≡ ±3 mod 9) an isogeny from a Jacobian B₀ with B₀[3](F₃) = Z/3 factors through 1 − φ, lowering the 3-part of its degree.",
+   "statement": "A₀ = E_{−1} × E₂ over F₃ (traces −1 and 2), with the product principal polarization, is ordinary and 3-distinguished but is not the Jacobian of an ordinary curve over F₃ (its 3-torsion over F̄₃ is the twist of the trivial module by the unramified quadratic character, while Q = (x² + x + 3)(x² − 2x + 3) is not a square; by Lemma 9.3.1(3), AM.5/genus-two-curves-over-F3, the ordinary curves over F₃ with such 3-torsion are exactly the ten with Q a square). Hence a genus-two curve X/Q₃ with Jac(X) reducing to A₀, as produced in the scalar case of Lemma 9.3.7 (AbelianSurfacesPotentialModularity:AP.7/local-three-seeds), has bad reduction while Jac(X) has good reduction. Among the five isogeny classes of principally polarized ordinary 3-distinguished surfaces over F₃ with Q ≡ x² + x³ + x⁴ mod 3, only Q = (x² − x + 3)(x² + 2x + 3) (with Q(1) ≡ 0 mod 9) contains an A₀ with A₀[3](F₃) = (Z/3)²; for the other four (Q(1) ≡ ±3 mod 9) an isogeny from a Jacobian B₀ with B₀[3](F₃) = Z/3 factors through 1 − φ, lowering the 3-part of its degree.",
    "hypotheses": [
     "F₃; principal polarizations as products; Frobenius φ."
    ],
@@ -1858,16 +1866,18 @@
     "Thin sets as in InverseGaloisAndArithmeticFundamentalGroups:IG.2/thin-sets."
    ],
    "proofSteps": [
-    "Shrink Z to an open subset isomorphic to an open subset of P^n_Q; smoothness makes Ω_v ∩ U(Q_v) non-empty for every dense open U, so one may replace Ω_v by an open subset of P^n(Q_v) and Z by P^n.",
-    "Count points of P^n(Q) of height ≤ H lying in all Ω_v: c·H^{n+1} for some c > 0 depending on the Ω_v (the printed exponents H^n and H^{n−1/2} for the two counts are those of an affine box count; PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E046).",
-    "A thin set has O(H^{n+1/2} log H) points of height ≤ H (Serre, Topics in Galois Theory, Theorem 3.4.4; requested from InverseGaloisAndArithmeticFundamentalGroups:IG.2), so for H large there are points outside T. Apart from avoiding T this is Serre's Lemma 3.5.5."
+    "Planned route (no restatement of IG.2): Z satisfies weak approximation, since it contains a dense open U isomorphic to an open subset of P^n_Q, P^n(Q) is dense in ∏_{v∈S} P^n(Q_v), and smoothness makes U(Q_v) ∩ Ω_v non-empty.",
+    "Shrink Z so that the finitely many covers defining T are finite étale; a point whose fibres in the Galois closures of these covers are irreducible lies outside T, so the complement of T contains a Hilbert subset H defined by finitely many integral finite étale covers (InverseGaloisAndArithmeticFundamentalGroups:IG.2/thin-sets, Serre, Topics in Galois Theory §3.3).",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2/general-hilbert-local-approximation then gives a point of H in ∏_{v∈S} Ω_v.",
+    "The source's route instead counts: after shrinking Z to an open subset of P^n, points of height ≤ H in all Ω_v number c·H^{n+1}, while a thin set has O(H^{n+1/2} log H) (the printed exponents H^n and H^{n−1/2} are those of an affine box count, PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E046); the affine box form of Serre's Theorem 3.4.4 is IG.2/integral-thin-count. Apart from avoiding T this is Serre's Lemma 3.5.5."
    ],
    "acceptance": [
     "Applied to Z = M^w_2(ρ̄) (Lemma 9.4.2) and to Z = Z(ρ̄) of §10.3.5 (Lemma 10.3.6)."
    ],
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.2/thin-sets",
-    "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2/general-hilbert-local-approximation",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2/integral-thin-count"
    ],
    "sources": [
     {
@@ -2011,10 +2021,11 @@
    "statement": "Let p > 2 and A, B/Q abelian surfaces with (1) ρ̄_{A,p} ≅ ρ̄_{B,p}; (2) A and B have good ordinary reduction at p and ρ_{A,p}|_{G_{Q_p}} is p-distinguished; (3) B is modular: there is a cuspidal π of GSp₄(A_Q) of weight 2, level prime to p, ordinary at p, with ρ_{π,p} ≅ ρ_{B,p}; (4) the Zariski closure of ρ_{A,p}(G_Q) contains Sp₄; (5) ρ̄_{A,p} is GSp₄-reasonable (White, Definition 3.19); (6) ρ̄_{A,p} is tidy (BCGP21 Definition 7.5.11); (7) ρ̄_{A,p}(G_{Q(ζ_p)}) contains a regular semisimple element; (8) ρ̄_{A,p}(G_Q) ∖ Sp₄(F_p) contains a regular semisimple element. Then A is modular: there is a cuspidal π′ of GSp₄(A_Q) of weight 2, of general type, whose transfer Π′ to GL₄ satisfies L(s, H¹(A)) = L(s, Π′ ⊗ |det|^{−3/2}).",
    "hypotheses": [
     "p > 2; the residual representations are GSp₄(F̄_p)-valued (with a prime-to-p polarization, or after a choice of symplectic lattice).",
-    "Proposition 7.5.10 (p > 2 branch, (1)–(5) and (B1)–(B5)) and Theorem 7.5.11(1) are owned by the new roadmap GSp4NonregularModularityLifting (requested at AbelianSurfacesPotentialModularity:AP.5; gap)."
+    "Proposition 7.5.10 (p > 2 branch, (1)–(5) and (B1)–(B5)) and Theorem 7.5.11(1) are owned by the new roadmap GSp4NonregularModularityLifting (requested at AbelianSurfacesPotentialModularity:AP.5; gap).",
+    "Conditional, through Theorem 7.5.11, on Arthur's classification for GSp₄ (ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate)."
    ],
    "proofSteps": [
-    "Apply Theorem 7.5.11(1) to ρ = ρ_{A,p}: (4) is its Zariski-closure hypothesis. Most hypotheses of Proposition 7.5.10 are (1)–(8) or follow from purity, multiplier ε^{−1} and almost-everywhere unramifiedness of ρ_{A,p} (§1.8.23; NeronModelsAndSemistableAbelianVarieties R11.5).",
+    "Apply Theorem 7.5.11(1) to ρ = ρ_{A,p}: (4) is its Zariski-closure hypothesis. Most hypotheses of Proposition 7.5.10 are (1)–(8) or follow from purity, multiplier ε^{−1} and almost-everywhere unramifiedness of ρ_{A,p} (§1.8.23; NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export).",
     "Integral enormity of ρ(G_{Q(ζ_{p^∞})}) is Corollary 7.1.4 (requested from GlobalGaloisDeformations:R04.5).",
     "(B5): choose a p-stabilization of ρ_{B,p}|_{G_{Q_p}}, hence of ρ̄; a compatible p-stabilization of ρ_{A,p}|_{G_{Q_p}} exists, and both lie on the single component of finite-flat ordinary weight-two lifts (LocalGaloisDeformationRings:L7/gsp4-ordinary-weight-two-components; good ordinary reduction makes the lifts finite flat and crystalline).",
     "Conclude with AM.0/modular-of-gsp4."
@@ -2030,7 +2041,7 @@
     "LocalGaloisDeformationRings:L7/gsp4-ordinary-weight-two-components",
     "AbelianSurfacesModularity:AM.0/modular-of-gsp4",
     "AbelianSurfacesModularity:AM.0/p-distinguished",
-    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.6/strict-compatible-system-export",
     "AbelianSchemesAndArithmeticModuli:A4/realization-conventions",
     "ModularityAndLanglandsExtensions:ML.0/arthur-dependency-gate"
    ],
@@ -2067,7 +2078,7 @@
    "proofSteps": [
     "Good reduction at 3 makes ρ̄_{A,3}^∨|_{G_{Q₃}} finite flat and ordinary; AM.6/two-three-switch applies by (2) and gives B = Jac(X) with ρ̄_{B,3} ≅ ρ̄_{A,3}, good or semistable ordinary 2-distinguished reduction at 2, good ordinary reduction at 3, ρ̄_{B,2}(G_Q) = S₅(b) with complex conjugation a double transposition (in A₅(b)), and End(B_{Q̄}) = Z.",
     "AM.3/two-adic-modularity applies to B: A₅(b) ⊆ S₅(b) = image, complex conjugation in A₅(b), the local condition at 2. So B is modular via a weight-2 π with ρ_{π,3} ≅ ρ_{B,3}, of level prime to 3 and ordinary at 3 by local–global compatibility.",
-    "AM.7/three-adic-transfer with p = 3: (1)–(3) from the construction and hypothesis (3); (4) from End(A_{Q̄}) = Z by Serre's open image theorem (AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image); (5)–(8) from AM.1/allowed-images."
+    "AM.7/three-adic-transfer with p = 3: (1)–(3) from the construction and hypothesis (3); (4) from End(A_{Q̄}) = Z by Serre's open image theorem (AbelianVarietiesIsogenousToNoJacobian:G0/serre-open-image, applied to a principally polarized surface isogenous to A over a finite extension); (5)–(8) from AM.1/allowed-images."
    ],
    "acceptance": [
     "Applies to 11384 + 359 = 11743 of the 66158 curves of the 2024 LMFDB genus-two database (AM.8/lmfdb-applicability)."
@@ -2163,7 +2174,8 @@
    "prerequisites": [
     "AbelianSurfacesModularity:AM.7/fifteen-image-modularity",
     "AbelianSurfacesModularity:AM.4/genus-two-curves-over-F2",
-    "AbelianSurfacesModularity:AM.0/isobaric-modularity"
+    "AbelianSurfacesModularity:AM.0/isobaric-modularity",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs"
    ],
    "sources": [
     {
@@ -2197,7 +2209,8 @@
     "AbelianSurfacesModularity:AM.7/good-reduction-curves",
     "AbelianSurfacesModularity:AM.5/genus-two-curves-over-F3",
     "AbelianSurfacesModularity:AM.0/p-distinguished",
-    "AbelianSurfacesModularity:AM.7/theorem-a"
+    "AbelianSurfacesModularity:AM.7/theorem-a",
+    "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs"
    ],
    "sources": [
     {
@@ -2229,9 +2242,9 @@
     "As in AM.7/fifteen-image-modularity, without condition (2) on the class at 2."
    ],
    "proofSteps": [
-    "A is semistable at 2 (NeronModelsAndSemistableAbelianVarieties:R11.6/unramified-three-torsion-at-two) with toric rank t > 0. If t = 1, A[3] has a G_{Q₂}-stable line, impossible when the characteristic polynomial is (x² ± x + 2)², which has no roots in F₃.",
+    "A is semistable at 2 (NeronModelsAndSemistableAbelianVarieties:R11.6/unramified-three-torsion-at-two) with toric rank t > 0 in the filtration T₃(A)_t ⊂ T₃(A)_f ⊂ T₃(A) (R11.3/toric-finite-filtration). If t = 1, A[3] has a G_{Q₂}-stable line, impossible when the characteristic polynomial is (x² ± x + 2)², which has no roots in F₃.",
     "If t = 2, A becomes split multiplicative over a minimal unramified K/Q₂, and Gal(K/Q₂) acts on the character lattice through a finite-order element of GL₂(Z), of order 1, 2, 3, 4 or 6. On the toric part of the 3-adic Tate module the Frobenius eigenvalues are these roots of unity times the cyclotomic twist, of order dividing 1, 2, 3, 4 or 6; but the roots of x² ± x + 2 in F₉ have order 8. Contradiction (the printed proof mixes T₂ and T₃ and the whole Tate module with its toric part, PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E048).",
-    "Alternatively (Remark 9.5.6) no two roots of (x² ± x + 2)² have ratio −1, so ρ̄|_{G_{Q₂}} has no ramified lifts, contradicting bad reduction by Néron–Ogg–Shafarevich (requested from LocalGaloisDeformationRings:R08.2 and NeronModelsAndSemistableAbelianVarieties:R11.5).",
+    "Alternatively (Remark 9.5.6) no two roots of (x² ± x + 2)² have ratio −1, so H²(G_{Q₂}, ad ρ̄) = 0 and ρ̄|_{G_{Q₂}} has no ramified lifts (LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p with R08.2/unramified-lifting-ring), contradicting bad reduction by Néron–Ogg–Shafarevich (NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich).",
     "Apply AM.7/fifteen-image-modularity."
    ],
    "acceptance": [
@@ -2240,9 +2253,10 @@
    "prerequisites": [
     "AbelianSurfacesModularity:AM.7/fifteen-image-modularity",
     "NeronModelsAndSemistableAbelianVarieties:R11.6/unramified-three-torsion-at-two",
-    "NeronModelsAndSemistableAbelianVarieties:R11.6/ordinary-isotropic-filtration",
-    "LocalGaloisDeformationRings:R08.2",
-    "NeronModelsAndSemistableAbelianVarieties:R11.5",
+    "NeronModelsAndSemistableAbelianVarieties:R11.3/toric-finite-filtration",
+    "LocalGaloisDeformationRings:R08.2/unrestricted-away-from-p",
+    "LocalGaloisDeformationRings:R08.2/unramified-lifting-ring",
+    "NeronModelsAndSemistableAbelianVarieties:R11.5/neron-ogg-shafarevich",
     "AbelianSurfacesModularity:AM.1/frobenius-class-at-two"
    ],
    "sources": [
@@ -2275,7 +2289,7 @@
    "proofSteps": [
     "At 2: 768 of the 2¹¹ equations over F₂ are smooth of genus two, and the 144 non-ordinary ones of class 12C are excluded (AM.4/genus-two-curves-over-F2), so (768 − 144)/2¹¹ = 39/128; ordinary curves never have class 4C or 12C.",
     "At 3: completing the square, y² + hy = f becomes y² = f + h²/4; equidistribution of (h, f) mod 3 gives equidistribution of this sextic, and 864 − 10 of the 3⁷ sextics give good ordinary 3-distinguished curves (AM.5/genus-two-curves-over-F3).",
-    "The generic genus-two curve has mod-3 image GSp₄(F₃) and End = Z; by Hilbert irreducibility the exceptions form a thin set, of density zero in boxes (InverseGaloisAndArithmeticFundamentalGroups IG.2, Serre's counting theorem)."
+    "The generic genus-two curve has mod-3 image GSp₄(F₃) and End = Z (geometric connectedness of the level-3 moduli over Q(ζ₃), requested at AbelianSurfacesPotentialModularity:AP.7); the exceptions are then a thin set (InverseGaloisAndArithmeticFundamentalGroups:IG.2/thin-sets), with O(N^{10.5} log N) points in the box of coefficients of size N (IG.2/integral-thin-count), so density zero."
    ],
    "acceptance": [
     "Wiles's theorem likewise applied to a positive proportion, less than one, of genus-one curves."
@@ -2285,7 +2299,8 @@
     "AbelianSurfacesModularity:AM.5/genus-two-curves-over-F3",
     "AbelianSurfacesModularity:AM.7/fifteen-image-modularity",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.2/thin-sets",
-    "InverseGaloisAndArithmeticFundamentalGroups:IG.2"
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.2/integral-thin-count",
+    "AbelianSurfacesPotentialModularity:AP.7"
    ],
    "sources": [
     {
@@ -2339,11 +2354,11 @@
    "statement": "Let ρ : G_Q → GSp₄(Q̄_p) be continuous, irreducible and de Rham at p. Suppose (1) ρ(G_L) is abelian for some finite Galois L/Q; (2) ν(ρ(c)) = −1 for complex conjugation c; (3) ρ is not finite up to twist (no character twist of ρ has finite image). Then ρ is automorphic: it is the Galois representation of an isobaric automorphic representation of GL₄(A_Q) obtained by automorphic induction and tensor products from Hecke characters and odd Artin representations.",
    "hypotheses": [
     "Finite up to twist: some twist by a character has finite image.",
-    "Uses automorphic induction GL₂/E → GL₄/Q for quadratic E and the tensor product GL₂ × GL₂ → GL₄ (Ramakrishnan), requested from ModularityAndLanglandsExtensions:ML.5."
+    "Uses automorphic induction GL₂/E → GL₄/Q for quadratic E (ModularityAndLanglandsExtensions:ML.5/automorphic-induction-register) and the tensor product GL₂ × GL₂ → GL₄ (Ramakrishnan, ModularityAndLanglandsExtensions:ML.3/ramakrishnan-tensor-product)."
    ],
    "proofSteps": [
     "By ArithmeticGaloisRepresentations:R01.5 (potentially abelian nodes), ρ|_{G_L} ≅ ⊕_{i=1}^b χ_i^{⊕a} with ab = 4, ρ ≅ Ind_{G_{K_i}}^{G_Q} V_i, and b > 1 since ρ is not finite up to twist (Lemma 10.2.3).",
-    "b = 2: ρ ≅ Ind_{G_F}^{G_Q} V_i with F quadratic and V_i two-dimensional potentially abelian; by Lemma 10.2.4 (EndoscopicTransferAndUnitaryTraceComparison:ET.7a/induced-character-client) either both V_i are automorphic over F, so ρ is (automorphic induction), or both are finite up to twist. In the latter case ∧²ρ contains a character, so either det V_i extends to Q (then ρ is finite up to twist, excluded, by a square-root twist argument) or the Asai representation is reducible, giving V₁ ≅ V₂ ⊗ φ, so the projective representation of V_i extends to Q and lifts (Tate; G7/lifting-projective-representations): ρ ≅ V ⊗ Ind_{G_F}^{G_Q} χ with F imaginary quadratic, χ an algebraic Hecke character and V of finite image. If V is not induced, comparing the symplectic and orthogonal forms shows ν(c) = −1 forces V odd, so V is modular (odd Artin conjecture over Q, ModularityAndLanglandsExtensions:ML.1/odd-artin-modularity-over-q) and ρ is automorphic by the tensor product.",
+    "b = 2: ρ ≅ Ind_{G_F}^{G_Q} V_i with F quadratic and V_i two-dimensional potentially abelian; by Lemma 10.2.4 (the R01.5 decomposition for n = 2: a = 2 makes V_i finite up to twist, b = 2 makes V_i induced from an algebraic Hecke character of a quadratic extension, automorphic by EndoscopicTransferAndUnitaryTraceComparison:ET.7a/induced-character-client) either both V_i are automorphic over F, so ρ is (automorphic induction), or both are finite up to twist. In the latter case ∧²ρ contains a character, so either det V_i extends to Q (then ρ is finite up to twist, excluded, by a square-root twist argument) or the Asai representation is reducible, giving V₁ ≅ V₂ ⊗ φ, so the projective representation of V_i extends to Q and lifts (Tate; G7/lifting-projective-representations): ρ ≅ V ⊗ Ind_{G_F}^{G_Q} χ with F imaginary quadratic, χ an algebraic Hecke character and V of finite image. If V is not induced, comparing the symplectic and orthogonal forms shows ν(c) = −1 forces V odd, so V is modular (odd Artin conjecture over Q, ModularityAndLanglandsExtensions:ML.1/odd-artin-modularity-over-q) and ρ is automorphic by the tensor product.",
     "b = 4: ρ ≅ Ind_{G_K}^{G_Q} χ with K quartic containing an imaginary CM subfield (non-parallel weight); induce in two quadratic steps through E = K⁺ or an imaginary quadratic E ⊂ K."
    ],
    "acceptance": [
@@ -2356,7 +2371,8 @@
     "EndoscopicTransferAndUnitaryTraceComparison:ET.7a/induced-character-client",
     "ArithmeticGaloisRepresentations:G7/lifting-projective-representations",
     "ModularityAndLanglandsExtensions:ML.1/odd-artin-modularity-over-q",
-    "ModularityAndLanglandsExtensions:ML.5",
+    "ModularityAndLanglandsExtensions:ML.5/automorphic-induction-register",
+    "ModularityAndLanglandsExtensions:ML.3/ramakrishnan-tensor-product",
     "GL2AutomorphicRepresentationsAndTransfer:R17.5/solvable-artin"
    ],
    "sources": [
@@ -2391,8 +2407,8 @@
     "A/Q an abelian surface; H¹(A) as in AM.0/isobaric-modularity; the classification of the representations ρ_{A,p} independent of p into (1) strongly irreducible (type A), (2) reducible, (3) potentially abelian but not reducible, (4) induced from a quadratic K/Q but not potentially abelian, subdivided into E[D_n] and B[C₂], is AP.6/galois-types (BCGP21 §9.2)."
    ],
    "proofSteps": [
-    "Reducible types: the compatible system splits as a sum of two irreducible odd regular rank-two systems; by Faltings (R28.4) A is then Q-isogenous to a product of elliptic curves or is of GL₂-type over Q, and is modular by EllipticCurveModularity:R29.6/modularity-theorem and EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-theorem (Khare–Wintenberger for odd regular rank-two compatible systems, requested from ModularityAndLanglandsExtensions:ML.1).",
-    "Type E[D_n]: ρ_p ≅ s_p ⊗ Ind_{G_K}^{G_Q} ψ^{−1} for a quadratic K/Q, a finite-order ψ and an odd irreducible regular rank-two system s over Q, automorphic by Khare–Wintenberger; ρ is then automorphic by automorphic induction and the GL₂ × GL₂ tensor product (requested from ModularityAndLanglandsExtensions:ML.5).",
+    "Reducible types: the compatible system splits as a sum of two irreducible odd regular rank-two systems; by Faltings (FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison, R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion) A is then Q-isogenous to a product of elliptic curves or is of GL₂-type over Q, and is modular by EllipticCurveModularity:R29.6/modularity-theorem and EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-theorem (Khare–Wintenberger for odd regular rank-two compatible systems, ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export).",
+    "Type E[D_n]: ρ_p ≅ s_p ⊗ Ind_{G_K}^{G_Q} ψ^{−1} for a quadratic K/Q, a finite-order ψ and an odd irreducible regular rank-two system s over Q, automorphic by Khare–Wintenberger (ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export); ρ is then automorphic by automorphic induction (ModularityAndLanglandsExtensions:ML.5/automorphic-induction-register) and the GL₂ × GL₂ tensor product (ModularityAndLanglandsExtensions:ML.3/ramakrishnan-tensor-product).",
     "Potentially abelian irreducible types: ρ_p has multiplier ε^{−1}, so ν(c) = −1, and distinct Hodge–Tate weights, so it is not finite up to twist; apply AM.8/potentially-abelian-automorphy."
    ],
    "acceptance": [
@@ -2403,9 +2419,11 @@
     "AbelianSurfacesModularity:AM.8/potentially-abelian-automorphy",
     "EllipticCurveModularity:R29.6/modularity-theorem",
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties:GT.3/modularity-theorem",
-    "FaltingsFinitenessAndIsogenyTheorems:R28.4",
-    "ModularityAndLanglandsExtensions:ML.1",
-    "ModularityAndLanglandsExtensions:ML.5",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison",
+    "FaltingsFinitenessAndIsogenyTheorems:R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion",
+    "ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export",
+    "ModularityAndLanglandsExtensions:ML.5/automorphic-induction-register",
+    "ModularityAndLanglandsExtensions:ML.3/ramakrishnan-tensor-product",
     "AbelianSurfacesModularity:AM.0/isobaric-modularity"
    ],
    "sources": [
@@ -2577,9 +2595,9 @@
     "Corrections: PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E053 (the [2,2,2] seed), E050 and E051 (the integral H² and alternation steps of Lemma 10.3.1), E071 (H¹_f(Q₂, μ₂))."
    ],
    "proofSteps": [
-    "Work on Z = Z(ρ̄) (AM.8/mod-two-parameter-space), smooth and rational; the conditions at 2 and 3 are open in Z(Q₂), Z(Q₃) (Kisin's local constancy, requested from NeronModelsAndSemistableAbelianVarieties:R11.6), surjectivity of ρ̄_{A,3} holds outside a thin set (IG.2), so AM.6/thin-set-approximation reduces everything to finding local points.",
-    "At 3: ρ̄ unramified, so K ⊗ Q₃ is given by one of the ten non-trivial partitions of 6; nine are realized by explicit curves over Q (Table on p. 220, conductors 1051, 709, 1415, 389, 847, 349, 353, 4889, 1343) with good ordinary 3-distinguished reduction. For [2,2,2] the printed curve (conductor 7165) has Q₃ = (x² + 2x + 3)², not 3-distinguished; use Res_{F₉/F₃}E (AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes) and the lift/Torelli/local-constancy bridge (A4/genus-two-jacobian-lifting and the gap PO-local-three).",
-    "At 2: W is an extension of an étale V by its Cartier dual, and V is trivial, of order 2 non-semisimple, or semisimple of order 3; the curves of the table on p. 221 (conductors 3451, 2225, 713, partitions [1⁶], [2,2,2], [3,3]) give ordinary A₀/F₂ of each type (for [2,2,2] the model y² + (x³ + 1)y = −3x⁴ + 4x² + 2x with Jac(C)(F₂) ≅ Z/14 shows V is not trivial). Lift A₀ to A/Z₂ with A[2] ≅ W by A4/ordinary-dyadic-finite-level-lifting, subject to the polarization obligation.",
+    "Work on Z = Z(ρ̄) (AM.8/mod-two-parameter-space), smooth and rational; the conditions at 2 and 3 are open in Z(Q₂), Z(Q₃) (Kisin's local constancy, requested from NeronModelsAndSemistableAbelianVarieties:R11.6), surjectivity of ρ̄_{A,3} holds outside a thin set (IG.2/thin-sets, once the generic member of the family over Z(ρ̄) has mod-3 image GSp₄(F₃): geometric connectedness of the level-6 moduli over Q(ζ₃), requested at AbelianSurfacesPotentialModularity:AP.7), so AM.6/thin-set-approximation reduces everything to finding local points.",
+    "At 3: ρ̄ unramified, so K ⊗ Q₃ is given by one of the ten non-trivial partitions of 6; nine are realized by explicit curves over Q (Table on p. 220, conductors 1051, 709, 1415, 389, 847, 349, 353, 4889, 1343) with good ordinary 3-distinguished reduction. For [2,2,2] the printed curve (conductor 7165) has Q₃ = (x² + 2x + 3)², not 3-distinguished; use Res_{F₉/F₃}E (AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes) and move to a nearby Jacobian: lift it as a principally polarized ordinary surface over Z₃ with étale 2-torsion of partition [2,2,2], then use Kisin's local constancy and the dense Torelli locus of the level-2 moduli, as for the product seeds of AbelianSurfacesPotentialModularity:AP.7/local-three-seeds (the gap PO-local-three). AbelianSchemesAndArithmeticModuli:A4/genus-two-jacobian-lifting does not apply here, since Res_{F₉/F₃}E is geometrically a product with its product polarization, not a Jacobian.",
+    "At 2: W is an extension of an étale V by its Cartier dual, and V is trivial, of order 2 non-semisimple, or semisimple of order 3; the curves of the table on p. 221 (conductors 3451, 2225, 713, partitions [1⁶], [2,2,2], [3,3]) give ordinary A₀/F₂ of each type (for [2,2,2] the model y² + (x³ + 1)y = −3x⁴ + 4x² + 2x with Jac(C)(F₂) ≅ Z/14 shows V is not trivial). Lift A₀ to A/Z₂ with A[2] ≅ W by A4/ordinary-dyadic-finite-level-lifting, subject to the polarization obligation; since A₀ = Jac(C₀), the lift is the Jacobian of a lift of C₀ once the genus-two Torelli comparison of deformation functors is known at p = 2 (A4/genus-two-jacobian-lifting is stated for odd p; part of the same gap), which gives the point of Z(ρ̄)(Q₂).",
     "Condition (10.3.7) on Q(x) mod 3 holds for the chosen A₀ by AM.4/weil-quartics-at-two."
    ],
    "acceptance": [
@@ -2589,15 +2607,16 @@
     "AbelianSurfacesModularity:AM.8/mod-two-parameter-space",
     "AbelianSurfacesModularity:AM.6/thin-set-approximation",
     "AbelianSchemesAndArithmeticModuli:A4/ordinary-dyadic-finite-level-lifting",
-    "AbelianSchemesAndArithmeticModuli:A4/genus-two-jacobian-lifting",
     "AbelianSchemesAndArithmeticModuli:A6/finite-etale-weil-restriction-of-abelian-schemes",
     "AbelianSurfacesModularity:AM.4/weil-quartics-at-two",
     "AbelianSurfacesModularity:AM.4/ordinary-weil-quartic",
     "AbelianSurfacesModularity:AM.5/genus-two-curves-over-F3",
     "NeronModelsAndSemistableAbelianVarieties:R11.6",
+    "AbelianSurfacesPotentialModularity:AP.7",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.2/thin-sets",
     "AbelianSurfacesModularity:AM.8/frobenius-three-obstruction",
-    "AbelianSurfacesModularity:AM.0/p-distinguished"
+    "AbelianSurfacesModularity:AM.0/p-distinguished",
+    "AbelianSurfacesPotentialModularity:AP.7/local-three-seeds"
    ],
    "sources": [
     {
@@ -2680,20 +2699,21 @@
   },
   {
    "supplier": "AbelianSurfacesPotentialModularity:AP.7",
-   "need": "Make explicit in AP.7/odd-theta-cover what BCGP25 Definition 9.2.1 and Lemma 9.4.2 use: P(ρ̄) is smooth (and rational, BCGP21 Theorem 10.2.3); the moduli M^w_2(ρ̄) of genus-two curves with a marked Weierstrass point and a symplectic isomorphism Jac(X)[3] ≅ ρ̄^∨ maps to P(ρ̄) by an open immersion with dense image (Torelli); and the S₆-cover B(2)(ρ̄) → B(ρ̄) is geometrically connected, so that for G ⊊ S₅(b) the intermediate cover P_G → P(ρ̄) is geometrically integral of degree [S₅(b) : G] > 1.",
+   "need": "Make explicit in AP.7/odd-theta-cover what BCGP25 Definition 9.2.1, Lemma 9.4.2, §10.1 and Lemma 10.3.6 use, over F a number field or a local field of characteristic 0 (Definition 9.2.1 allows both): P(ρ̄) is smooth (and rational, BCGP21 Theorem 10.2.3); the moduli M^w_2(ρ̄) of genus-two curves with a marked Weierstrass point and a symplectic isomorphism Jac(X)[3] ≅ ρ̄^∨ maps to P(ρ̄) by an open immersion with dense image (Torelli); the S₆-cover B(2)(ρ̄) → B(ρ̄) is geometrically connected, so that for G ⊊ S₅(b) the intermediate cover P_G → P(ρ̄) is geometrically integral of degree [S₅(b) : G] > 1; and the level-3 and level-6 moduli 𝒜₂(3) and 𝒜₂(6) are geometrically connected over Q(ζ₃), so that the generic genus-two curve, and the generic member of the family of genus-two curves with a fixed 2-torsion module, have mod-3 image GSp₄(F₃).",
    "neededBy": [
     "AbelianSurfacesModularity:AM.4/local-two-realization",
     "AbelianSurfacesModularity:AM.6/local-two-equivalence",
     "AbelianSurfacesModularity:AM.6/ordinary-at-three-points",
-    "AbelianSurfacesModularity:AM.6/two-three-switch"
+    "AbelianSurfacesModularity:AM.6/two-three-switch",
+    "AbelianSurfacesModularity:AM.8/density-of-applicability",
+    "AbelianSurfacesModularity:AM.8/mod-two-realization"
    ]
   },
   {
    "supplier": "GlobalGaloisDeformations:G7",
-   "need": "Part II of GlobalGaloisDeformations (not yet designed; the Tau Ceti roadmap pull request does not plan these): BCGP25 Definition 5.3.3 of near adequacy (weakly adequate, H¹(H, k) = 0, H¹(H, ad) = 0) with its comparison to Thorne's adequacy (Remark 5.3.4), and White's GSp₄-reasonableness (Definition 3.19 of P.-J. White's GSp₄ modularity lifting paper) as used in BCGP25 Lemma 6.4.3 and Proposition 7.5.10 (B2).",
+   "need": "Part II of GlobalGaloisDeformations (DESIGN-GlobalGaloisDeformationsPartII, not yet designed; the Tau Ceti roadmap pull request does not plan this): White's GSp₄-reasonableness (Definition 3.19 of P.-J. White's GSp₄ modularity lifting paper) as used in BCGP25 Lemma 6.4.3 and Proposition 7.5.10 (B2), with its dependence on ρ̄(G_{Q(ζ_{p^n})}) for all n. Near adequacy (BCGP25 Definition 5.3.3) is already PotentialAutomorphyInfrastructurePartII:PL.4/relaxed-adequacy.",
    "neededBy": [
     "AbelianSurfacesModularity:AM.1/allowed-images",
-    "AbelianSurfacesModularity:AM.2/a5-near-adequate",
     "AbelianSurfacesModularity:AM.7/three-adic-transfer"
    ]
   },
@@ -2720,43 +2740,12 @@
    ]
   },
   {
-   "supplier": "ModularityAndLanglandsExtensions:ML.5",
-   "need": "Registered transfers used in BCGP25 §§8.3 and 10.2: cyclic (hence solvable) base change for GL₂ from a totally real field to a CM quadratic extension (Langlands); automorphic induction from a quadratic extension for GL₁ → GL₂ and GL₂ → GL₄ (Arthur–Clozel); and the tensor product GL₂ × GL₂ → GL₄ (Ramakrishnan), with their cuspidality criteria.",
-   "neededBy": [
-    "AbelianSurfacesModularity:AM.3/residual-a5-automorphy",
-    "AbelianSurfacesModularity:AM.8/potentially-abelian-automorphy",
-    "AbelianSurfacesModularity:AM.8/small-sato-tate-automorphy"
-   ]
-  },
-  {
-   "supplier": "ModularityAndLanglandsExtensions:ML.1",
-   "need": "Khare–Wintenberger: every odd irreducible regular weakly compatible system of rank-two ℓ-adic representations of G_Q with Hodge–Tate weights {0, 1} is the system of a weight-two newform (consequence of Serre's conjecture, ClassicalSerreModularity R27.6, and modularity lifting), as used in BCGP25 Theorem 10.2.1 (citing [KW09]).",
-   "neededBy": [
-    "AbelianSurfacesModularity:AM.8/small-sato-tate-automorphy"
-   ]
-  },
-  {
    "supplier": "FaltingsFinitenessAndIsogenyTheorems:R28.4",
-   "need": "Besides Faltings's semisimplicity and isogeny theorems: Part II (OpenImageTheoremsForAbelianVarieties, not yet designed) — Zarhin's theorem (Math. Res. Lett. 7, 2000) that a hyperelliptic Jacobian, or more generally an abelian surface over Q, whose mod-2 Galois image contains A₅(b) ⊂ S₆ ≅ Sp₄(F₂) has End(A_{Q̄}) = Z; and the deduction that surjective mod-3 image forces End(A_{Q̄}) = Z (BCGP25 §9.5).",
+   "need": "Part II (OpenImageTheoremsForAbelianVarieties, not yet designed): Zarhin's theorem (Math. Res. Lett. 7, 2000, Theorem 2.1) that an abelian surface over Q whose mod-2 Galois image contains A₅(b) ⊂ S₆ ≅ Sp₄(F₂) has End(A_{Q̄}) = Z (used in BCGP25 Theorem 8.3.2 and Lemma 9.4.2); and, as recorded in BCGP25 §9.5, that surjective mod-3 image forces End(A_{Q̄}) = Z. Faltings's semisimplicity and isogeny theorems are cited by their nodes R28.4/semisimplicity-and-the-tate-homomorphism-comparison and R28.4/hom-comparison-for-pairs-and-the-isogeny-criterion.",
    "neededBy": [
-    "AbelianSurfacesModularity:AM.0/isobaric-modularity",
-    "AbelianSurfacesModularity:AM.0/modular-of-gsp4",
     "AbelianSurfacesModularity:AM.3/two-adic-modularity",
     "AbelianSurfacesModularity:AM.6/two-three-switch",
-    "AbelianSurfacesModularity:AM.7/theorem-a",
-    "AbelianSurfacesModularity:AM.8/small-sato-tate-automorphy"
-   ]
-  },
-  {
-   "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.5",
-   "need": "Purity of H¹ of abelian surfaces at every finite place, independence of ℓ of the local factors of L(s, H¹(A)) at bad places, conductors, and Néron–Ogg–Shafarevich, as recalled in BCGP25 §1.8.23 (BCGP21 Proposition 2.8.1).",
-   "neededBy": [
-    "AbelianSurfacesModularity:AM.0/isobaric-modularity",
-    "AbelianSurfacesModularity:AM.0/modular-of-gsp4",
-    "AbelianSurfacesModularity:AM.3/two-adic-modularity",
-    "AbelianSurfacesModularity:AM.4/good-reduction-exclusions",
-    "AbelianSurfacesModularity:AM.7/bad-at-two",
-    "AbelianSurfacesModularity:AM.7/three-adic-transfer"
+    "AbelianSurfacesModularity:AM.7/theorem-a"
    ]
   },
   {
@@ -2766,23 +2755,6 @@
     "AbelianSurfacesModularity:AM.6/local-two-equivalence",
     "AbelianSurfacesModularity:AM.6/two-three-switch",
     "AbelianSurfacesModularity:AM.8/mod-two-realization"
-   ]
-  },
-  {
-   "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
-   "need": "Serre's counting theorem for thin sets (Topics in Galois Theory, Theorem 3.4.4): a thin subset of P^n(Q) has O(H^{n+1/2} log H) points of height at most H, together with Hilbert irreducibility for the mod-3 image GSp₄(F₃) of the generic genus-two curve.",
-   "neededBy": [
-    "AbelianSurfacesModularity:AM.6/thin-set-approximation",
-    "AbelianSurfacesModularity:AM.8/density-of-applicability",
-    "AbelianSurfacesModularity:AM.8/mod-two-realization"
-   ]
-  },
-  {
-   "supplier": "LocalGaloisDeformationRings:R08.2",
-   "need": "For ℓ ≠ p and ρ̄ : G_{Q_ℓ} → GL_n(F̄_p) unramified such that no two eigenvalues of ρ̄(Frob_ℓ) have ratio ℓ in F̄_p, every lift of ρ̄ to a p-adic ring is unramified (the monodromy maps the α-eigenspace to the ℓα-eigenspace), as used in BCGP25 Lemma 9.2.7 and Remark 9.5.6.",
-   "neededBy": [
-    "AbelianSurfacesModularity:AM.4/good-reduction-exclusions",
-    "AbelianSurfacesModularity:AM.7/bad-at-two"
    ]
   },
   {
@@ -2838,6 +2810,16 @@
    "neededBy": [
     "AbelianSurfacesModularity:AM.4/product-and-twist-constructions"
    ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-0-relative-curves-and-extensions-of-dvrs",
+   "need": "Existing Tau Ceti layer, cited as it stands: families of curves and their models over a DVR, generic and special fibres, so that good (ordinary) reduction of a genus-two curve over Q₂, Q₃ or Q (a smooth proper model over the local ring) and the reduction X₀ are defined (BCGP25 Lemmas 9.1.4, 9.1.6, Theorems 9.5.3, 9.5.4).",
+   "neededBy": [
+    "AbelianSurfacesModularity:AM.4/local-two-examples",
+    "AbelianSurfacesModularity:AM.4/genus-two-curves-over-F2",
+    "AbelianSurfacesModularity:AM.7/good-reduction-curves",
+    "AbelianSurfacesModularity:AM.7/theorem-b"
+   ]
   }
  ],
  "coverage": [
@@ -2859,7 +2841,7 @@
    "stageId": "AbelianSurfacesModularity:AM.2",
    "status": "planned",
    "remaining": [
-    "Lemma 5.2.7 for general n is requested from PotentialAutomorphyInfrastructurePartII PL.4; near adequacy as a definition from GlobalGaloisDeformations."
+    "Lemma 5.2.7 for general n is requested from PotentialAutomorphyInfrastructurePartII PL.4 (the n = 2 case used here is proved in AM.2/strong-odd-involutions)."
    ]
   },
   {
@@ -2887,7 +2869,7 @@
    "stageId": "AbelianSurfacesModularity:AM.6",
    "status": "planned",
    "remaining": [
-    "Kisin's local constancy and Serre's thin-set count are requested from R11.6 and IG.2."
+    "Kisin's local constancy is requested from NeronModelsAndSemistableAbelianVarieties R11.6; the smoothness, Torelli and connectedness properties of P(ρ̄) from AbelianSurfacesPotentialModularity AP.7."
    ]
   },
   {
@@ -2901,7 +2883,7 @@
    "stageId": "AbelianSurfacesModularity:AM.8",
    "status": "planned",
    "remaining": [
-    "Corrected [2,2,2] seed at 3 and the dyadic polarized lifting for Lemma 10.3.6 (gaps); LMFDB certificate."
+    "Corrected [2,2,2] seed at 3 and the dyadic polarized lifting for Lemma 10.3.6 (gaps); generic mod-3 image of the families of §10.1 and §10.3.5 (requested at AP.7); LMFDB certificate."
    ]
   }
  ],
@@ -2942,7 +2924,7 @@
     "AbelianSurfacesModularity:AM.8/lmfdb-applicability",
     "AbelianSurfacesModularity:AM.8/mod-two-realization"
    ],
-   "detail": "Table 6.4.4, Lemma 9.1.3, Lemma 9.1.4, the enumerations of Lemmas 9.1.6 and 9.3.1 (Table 9.3.3), the degree-40/27 resolvent computations, §9.2.16 and Lemma 9.2.17, the tables in the proof of Lemma 10.3.6 and the LMFDB counts of §10.1 were done in Magma by the authors and are not independently reproduced (extraction obligation PO-certificates). Each node states the computation precisely; a reproducible certificate (enumeration, class identification, conductor and resolvent checks, frozen dataset with row predicates) is part of its acceptance."
+   "detail": "Table 6.4.4, Lemma 9.1.3, Lemma 9.1.4, the enumerations of Lemmas 9.1.6 and 9.3.1 (Table 9.3.3), the degree-40/27 resolvent computations, §9.2.16 and Lemma 9.2.17, the tables in the proof of Lemma 10.3.6 and the LMFDB counts of §10.1 were done in Magma by the authors and are not independently reproduced (extraction obligation PO-certificates). Each node states the computation precisely; a reproducible certificate (enumeration, class identification, conductor and resolvent checks, frozen dataset with row predicates) is part of its acceptance. Partial independent reproduction in the review (REV-DESIGN-BCGP25, 2026-10-19, plain scripts): the 16 ordinary Weil quartics at 2 and 40 at 3; the enumeration over F₂ (2¹¹ equations, 768 smooth, 384 ordinary, 384 non-ordinary) with the distribution of Q mod 3, which matches every count of Lemma 9.1.6 except the split of 48 ordinary and 48 non-ordinary curves among 6G and 6H, which needs the degree-27 resolvent; the enumeration over F₃ (1296 smooth, 864 ordinary, ten with Q a square, none with a rational Weierstrass point) and columns 3–5 of all 40 rows of Table 9.3.3; the Frobenius polynomials P₁, P₂, P₃ of C₁, C₂, C₃ at 2; Q₂ = x⁴ + 2x² + 4 for the conductor-797 curve (E041); Q₃ for the ten curves of the table at 3 in Lemma 10.3.6 (nine ordinary and not squares, the [2,2,2] curve (x² + 2x + 3)², E053); and the matrices of ι (E2). Not reproduced: Table 6.4.4, the class identifications through the degree-40 and degree-27 polynomials, the LMFDB counts."
   },
   {
    "title": "The corrected local seed at 3 for the partition [2,2,2] in Lemma 10.3.6",
@@ -2958,19 +2940,19 @@
     "AbelianSurfacesModularity:AM.8/mod-two-realization",
     "AbelianSurfacesModularity:AM.8/mod-two-modularity"
    ],
-   "detail": "AbelianSchemesAndArithmeticModuli:A4/ordinary-dyadic-finite-level-lifting records Lemma 10.3.1 with the corrected scope: integral H² vanishing fails (E050) and skew self-duality of a group killed by 2 does not imply alternation (E051). The polarized ordinary extension classification needed to lift with the prescribed W as a principally polarized surface remains to be proved (extraction obligation PO-dyadic-polarization)."
+   "detail": "AbelianSchemesAndArithmeticModuli:A4/ordinary-dyadic-finite-level-lifting records Lemma 10.3.1 with the corrected scope: integral H² vanishing fails (E050) and skew self-duality of a group killed by 2 does not imply alternation (E051). The polarized ordinary extension classification needed to lift with the prescribed W as a principally polarized surface remains to be proved (extraction obligation PO-dyadic-polarization). The same step needs, at p = 2, that a principally polarized deformation of the Jacobian of a smooth genus-two curve is the Jacobian of a deformation of the curve (the odd-prime statement is AbelianSchemesAndArithmeticModuli:A4/genus-two-jacobian-lifting)."
   },
   {
-   "title": "Undesigned or unplanned suppliers: Zarhin, Kisin, dyadic Hida theory, near adequacy, integral enormity",
+   "title": "Undesigned or unplanned suppliers: Zarhin, Kisin, dyadic Hida theory, reasonableness, integral enormity",
    "neededBy": [
     "AbelianSurfacesModularity:AM.3/residual-a5-automorphy",
     "AbelianSurfacesModularity:AM.3/two-adic-modularity",
     "AbelianSurfacesModularity:AM.6/local-two-equivalence",
     "AbelianSurfacesModularity:AM.6/two-three-switch",
-    "AbelianSurfacesModularity:AM.2/a5-near-adequate",
-    "AbelianSurfacesModularity:AM.7/three-adic-transfer"
+    "AbelianSurfacesModularity:AM.7/three-adic-transfer",
+    "AbelianSurfacesModularity:AM.1/allowed-images"
    ],
-   "detail": "Zarhin's End = Z theorem (requested at FaltingsFinitenessAndIsogenyTheorems:R28.4, owner OpenImageTheoremsForAbelianVarieties not designed), Kisin's local constancy (requested at NeronModelsAndSemistableAbelianVarieties:R11.6), 2-adic Hida families from parallel weight one (requested at OrdinaryAutomorphicFormsAndModularityLifting:R21.2), and near adequacy, reasonableness and integral enormity (requested at GlobalGaloisDeformations, whose Tau Ceti pull request does not plan them: a Part II is needed) are not yet planned by any packet."
+   "detail": "Zarhin's End = Z theorem (requested at FaltingsFinitenessAndIsogenyTheorems:R28.4, owner OpenImageTheoremsForAbelianVarieties not designed), Kisin's local constancy (requested at NeronModelsAndSemistableAbelianVarieties:R11.6), 2-adic Hida families from parallel weight one (requested at OrdinaryAutomorphicFormsAndModularityLifting:R21.2), and White's reasonableness and integral enormity (requested at GlobalGaloisDeformations, whose Tau Ceti pull request does not plan them: DESIGN-GlobalGaloisDeformationsPartII is pending) are not yet planned by any packet. Near adequacy, listed here before review, is planned: PotentialAutomorphyInfrastructurePartII:PL.4/relaxed-adequacy."
   }
  ],
  "sourceIssues": [
@@ -2987,7 +2969,12 @@
    "searched": [
     "arXiv listing of 2502.20645 (v1 only)",
     "the reviewed extraction PAPER-BOXER-CALEGARI-GEE-PILLONI-25 (E001–E075)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The class in PGSp₄(F₃) determines an unramified ρ̄ only up to the unramified quadratic twist, and the proof of Lemma 9.1.6(3) cites one curve per class (Lemma 9.1.4). The twist of C_i by Q₂(√5) descends the smooth model along the étale extension Z₂[ζ₃]/Z₂, keeps the rational Weierstrass point (fixed by the hyperelliptic involution), ordinarity and distinct unit roots (Frobenius is negated). A routine omitted step; affects nothing.",
+    "by": "REV-DESIGN-BCGP25"
+   }
   },
   {
    "id": "AbelianSurfacesModularity/E2",
@@ -3002,7 +2989,12 @@
    "searched": [
     "arXiv listing of 2502.20645 (v1 only)",
     "the reviewed extraction PAPER-BOXER-CALEGARI-GEE-PILLONI-25 (E001–E075)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Recomputed the action σ(r_i) = r_{σ(i)} on U⁰/L in the basis r₁ − r₂, r₃ − r₄, r₃ − r₅, r₁ − r₆ with columns the images of the basis vectors: it reproduces the three matrices of Lemma 8.1.3 (the 5-cycle fixes the convention, since its matrix differs from that of its inverse), and the two matrices printed on p. 203 are the images of (12)(354) and (164352), the inverses of (12)(345) and (125346).",
+    "by": "REV-DESIGN-BCGP25"
+   }
   },
   {
    "id": "AbelianSurfacesModularity/E3",
@@ -3017,7 +3009,12 @@
    "searched": [
     "arXiv listing of 2502.20645 (v1 only)",
     "the reviewed extraction PAPER-BOXER-CALEGARI-GEE-PILLONI-25 (E001–E075)"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "An element of GSp₄(F₃) of similitude −1 is not in ±Sp₄(F₃), so its image lies in PGSp₄(F₃) ∖ PSp₄(F₃); the names 4C, 4D, 8A are those of the outer classes of Lemma 9.1.3, and by the characteristic polynomials the order-8 elements over 4C have repeated eigenvalues ((x² ± x + 2)²).",
+    "by": "REV-DESIGN-BCGP25"
+   }
   }
  ],
  "sourceVersions": [
@@ -3039,7 +3036,7 @@
     "ModularityAndLanglandsExtensions"
    ],
    "detail": "Several items the BCGP25 extraction routes to this roadmap are already planned elsewhere: P(ρ̄), M^w_2(ρ̄), Corollary 9.3.6 and Lemma 9.3.7 with the seed curves (AbelianSurfacesPotentialModularity AP.7), Lemma 9.1.8 and Definition 9.1.7 (NeronModelsAndSemistableAbelianVarieties R11.6), §8.1.1, Lemma 9.3.4, Remark 9.3.5 and Lemma 10.3.1 (AbelianSchemesAndArithmeticModuli A3, A4), the Galois types (AP.6/galois-types) and Lemma 10.4.1 (ModularityAndLanglandsExtensions ML.0).",
-   "proposal": "Keep those owners; this roadmap imports them by node id and plans none of them. The finite-group input that R11.6/ordinary-residual-point-export records as imported (S₅(b) versus S₅(a) and the order-48 Siegel parabolic) is AM.2/siegel-parabolic-two-group here; R11.6 should cite it. AP.7/fixed-three-torsion over Q can cite AM.6/ordinary-at-three-points (Remark 9.4.4)."
+   "proposal": "Keep those owners; this roadmap imports them by node id and plans none of them. The finite-group input that R11.6/ordinary-residual-point-export records as imported (S₅(b) versus S₅(a) and the order-48 Siegel parabolic) is AM.2/siegel-parabolic-two-group here; R11.6 should cite it. AP.7/fixed-three-torsion over Q can cite AM.6/ordinary-at-three-points (Remark 9.4.4). AM.6/thin-set-approximation is a corollary of InverseGaloisAndArithmeticFundamentalGroups:IG.2/general-hilbert-local-approximation (weak approximation on a smooth rational variety plus Hilbert points), not a second plan of it."
   },
   {
    "action": "rescope",
@@ -3059,5 +3056,243 @@
    "detail": "The queue holds two design jobs for the same roadmap and files: DESIGN-BCGP25 (issue #906) and DESIGN-AbelianSurfacesModularity (issue #3473).",
    "proposal": "This packet completes DESIGN-BCGP25; DESIGN-AbelianSurfacesModularity should be closed as a duplicate, as #3472 was for DESIGN-BCGP18."
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-DESIGN-BCGP25",
+  "date": "2026-10-19",
+  "notes": "Independent review of DESIGN-BCGP25 (Claude claude-y5zAkQ; the design was claude-CyimJQ). Read arXiv:2502.20645v1 (SHA-256 matches the packet) at every node locator: §1.1, §1.8, §§5.2–5.3, §6.4, statements of §7.5, §§8–10. All 46 nodes checked against the source (24 corrected, 22 verified, none added); all 12 baseline declarations read at Mathlib 082e2d3 and Tau Ceti f790474; every cross-roadmap node read (a Sonnet supplier-contract table of 82 consumer–supplier pairs, each flagged row then read by the reviewer). Main corrections: bare-stage requests and misattributed suppliers re-pointed to exact accepted nodes (R11.5, R08.2, ML.5, ML.1, IG.2 requests dropped; near adequacy is PL.4/relaxed-adequacy; Godement–Jacquet is AL.2/global-godement-jacquet; general type through ML.4); AM.6/thin-set-approximation derived from IG.2/general-hilbert-local-approximation instead of restated; a unit test that asserted an unknown (conjecturally false) non-implication replaced; Tau Ceti StableReduction cited for good reduction of curves; A4/genus-two-jacobian-lifting removed where it does not apply. Independent computations reproduced Table 9.2.5, Table 9.3.3 (columns 3–5), the Lemma 9.1.6 counts by Q mod 3, P₁–P₃, the conductor-797 polynomial (E041), the ten curves at 3 of Lemma 10.3.6 (E053) and the matrices of ι (E2). Source issues E1–E3 confirmed. The six gaps are honest and precise; all nine stages are planned. The suggested Lean file elaborates at the pins with proof placeholders as its only warnings; the reader was brought in line with every correction.",
+  "checked": [
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.0/isobaric-modularity",
+    "verdict": "corrected",
+    "note": "Definition 1.8.25 and Remark 1.8.26 (p. 16) checked; the twist |det|^{(1−n_i)/2} on C-algebraic π_i checked against weight-two forms. Replaced the unit test not_of_potential, which asserted a non-implication that no example shows and that is conjecturally false, by the normalization test twist_normalization; added a hypothesis on the Euler-factor-wise form; local factors, strict compatibility and isogeny invariance re-pointed from the bare stages R11.5 and R28.4 to R11.5/local-euler-polynomial, R11.6/strict-compatible-system-export and R11.5/good-isogeny."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.0/p-distinguished",
+    "verdict": "corrected",
+    "note": "Definitions 1.8.10 (p. 11) and 9.1.2 (p. 187) checked. The claim that the Galois condition covers semistable ordinary reduction was attributed to R11.6/ordinary-isotropic-filtration, which is stated for p = 2 only: hypothesis and proof step restricted to the cases used (good ordinary at any p, semistable ordinary at p = 2) with the passage from the isotropic filtration to the Borel shape spelled out."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.0/modular-of-gsp4",
+    "verdict": "corrected",
+    "note": "Remarks 1.8.20, 1.8.26, §1.8.22 and Theorem A checked. ET.4/gsp4-gl4-transfer is the descent direction: the general-type step now cites ML.4/non-general-type-reducible (BCGP21 Lemma 2.9.1, weight (2, 2) included) and ML.4/gsp4-discrete-spectrum-types; AL.2/godement-jacquet-functional-equation (local) and AL.2/standard-order-one (which assumes entireness) replaced by AL.2/global-godement-jacquet; Π ⊗ |det|^{−1} unitary and self-dual rechecked from the central character |·|²; R11.5 re-pointed to R11.6/strict-compatible-system-export and R11.5/conductor-import; unused R28.4 removed."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.1/frobenius-class-at-two",
+    "verdict": "verified",
+    "note": "§9.1, Lemma 9.1.3, p. 192 and Remark 9.1.1 checked; (x² + x + 2)² ≡ x⁴ + 2x³ + 2x² + x + 1 mod 3 rechecked; the 4C/12C criterion matches the shared characteristic polynomial of Lemma 9.1.3."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.1/outer-classes",
+    "verdict": "verified",
+    "note": "Lemma 9.1.3 table and the 40/27-point table (pp. 187–188) and the table in the proof of Lemma 9.1.6 (p. 190) checked; sizes sum to 25920; nine distinct polynomials; the corrected squares (E037) rederived: g̃² = I forces Lagrangian ±1-eigenspaces and polynomial (x² − 1)² (2D), g̃² = −I gives (x² + 1)² (2C)."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.1/regular-semisimple-classes",
+    "verdict": "verified",
+    "note": "Lemma 6.4.1 (p. 149) checked; E3 confirmed."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.1/allowed-images",
+    "verdict": "verified",
+    "note": "Lemma 6.4.3 and Table 6.4.4 (pp. 149–151) checked: 25 rows, the fifteen ticked labels and the three columns of crosses read from the text positions agree with the node; the four pairs needing Γ match the proof; E028 placement checked. Reasonableness stays requested (GlobalGaloisDeformations G7), tidiness is ArithmeticGaloisRepresentations G7."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.1/symplectic-three-not-adequate",
+    "verdict": "verified",
+    "note": "Remark 6.4.5 (p. 151) checked."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.2/s6-sp4-identification",
+    "verdict": "verified",
+    "note": "§8.1 and Lemma 8.1.3 (pp. 180–181) checked; the action on U⁰/L recomputed: Gram matrix J, the three matrices of Lemma 8.1.3, the images of (12)(345), (125346), (12)(34), (12)(35)(46), (1423)(56); E2 confirmed. Tests and API correct."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.2/weierstrass-criterion",
+    "verdict": "verified",
+    "note": "§8.1, p. 180 checked."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.2/siegel-parabolic-two-group",
+    "verdict": "verified",
+    "note": "Proof of Lemma 9.1.8 (p. 191) checked; D = S A^{−T} S = A over F₂ rederived (A^{−T} = S A S for A ∈ GL₂(F₂)), so the Siegel parabolic centralizes ι((12)(34)(56)) and both have order 48."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.2/strong-odd-involutions",
+    "verdict": "verified",
+    "note": "Lemmas 5.2.3, 5.2.7, Remark 5.2.8 and Lemma 8.2.4 (pp. 118–119, 182–183) checked; diagonals of A·J recomputed for the four representatives."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.2/a5-modular-representations",
+    "verdict": "verified",
+    "note": "Lemmas 8.1.2 and 8.2.1 with the Brauer character table (pp. 181–182) and the remark on A₅(a) (p. 203) checked."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.2/a5-near-adequate",
+    "verdict": "corrected",
+    "note": "Lemmas 8.2.2, 8.2.8, 8.2.9, Remark 8.2.3 and Definition 5.3.3 checked. Near adequacy is already planned as PotentialAutomorphyInfrastructurePartII:PL.4/relaxed-adequacy (Thorne Definition 2.20 with H¹(H, ad) = 0, the Boxer–Calegari–Gee relaxation): prerequisite re-pointed from the bare stage GlobalGaloisDeformations:G7."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.2/a5-residual-hypotheses",
+    "verdict": "verified",
+    "note": "Proposition 8.2.5 (p. 183) checked."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.3/residual-a5-automorphy",
+    "verdict": "corrected",
+    "note": "Lemma 8.3.1 and proof (pp. 184–185) checked. Cyclic base change re-pointed from the bare stage ML.5 to ML.5/cyclic-base-change-gln; the finite-image complex lift spelled out from the ℓ-adic lifting node. The dyadic Hida request at R21.2 is precise and stays."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.3/two-adic-modularity",
+    "verdict": "corrected",
+    "note": "Theorem 8.3.2 and proof (pp. 185–186) checked. Purity re-pointed to R11.6/strict-compatible-system-export; Serre's open image (G0, stated for principally polarized surfaces) applied after an isogeny over a finite extension. The restriction of ρ_{π,p} ≅ ρ_{A,p} to ordinary p follows the scope of AP.0/weight-two-galois and is stated honestly."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/ordinary-weil-quartic",
+    "verdict": "corrected",
+    "note": "Definition 9.2.4 (p. 193) and the Honda–Tate paragraph (p. 199) checked; 16 quartics at 2 and 40 at 3 recomputed. F3/honda-tate covers simple classes only: ET.5/finite-field-tate-honda added for the bijection with all isogeny classes."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/weil-quartics-at-two",
+    "verdict": "verified",
+    "note": "Table 9.2.5 (p. 194) checked row by row against an independent enumeration and reduction mod 3."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/local-two-examples",
+    "verdict": "corrected",
+    "note": "Lemma 9.1.4 (p. 188) checked; P₁, P₂, P₃ recomputed by point counts over F₂ and F₄. Good reduction of a curve now cites Tau Ceti StableReduction layer 0."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/genus-two-curves-over-F2",
+    "verdict": "corrected",
+    "note": "Lemma 9.1.6 and proof (pp. 188–190) checked; the enumeration recomputed (2¹¹, 768, 384, 384 and the Q mod 3 distribution); E1 confirmed. Tau Ceti StableReduction layer 0 added for the smooth lift over Z₂."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/good-reduction-exclusions",
+    "verdict": "corrected",
+    "note": "Lemmas 9.2.6, 9.2.7, 9.2.11, 9.2.12, 9.2.19 (pp. 193–199) checked; ψ = φ² + 1, ψ^∨ = 3 − ψ, ψ^∨ψ = [6] rederived; the étale/multiplicative argument for (a) checked. The unramified-lift step re-pointed from the bare stage R08.2 to R08.2/unrestricted-away-from-p and R08.2/unramified-lifting-ring (the adjoint H² of E038), Néron–Ogg–Shafarevich to R11.5/neron-ogg-shafarevich."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/toric-reduction-cases",
+    "verdict": "corrected",
+    "note": "Lemma 9.2.13 and §9.2.16 (pp. 196–198) checked; E039 confirmed by the conductor-797 curve (Q₂ = x⁴ + 2x² + 4 recomputed). The ℓ = 3 filtration now cites R11.3/toric-finite-filtration instead of the p = 2 node R11.6/ordinary-isotropic-filtration."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/product-and-twist-constructions",
+    "verdict": "verified",
+    "note": "Lemmas 9.2.8 and 9.2.14 (pp. 195–198) checked; the conductor-17 curve has Frobenius x² + x + 2 at 2 (point count); E040 confirmed (the Weil pairing forces det = ε̄ ≠ 1 on X[3]); the characteristic polynomials mod 3 recomputed."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/six-g-construction",
+    "verdict": "corrected",
+    "note": "§9.2.16 and Lemma 9.2.17 (pp. 198–199) checked; E041 confirmed. The explicit Calegari–Chidambaram–Roberts formulas are recorded as data of the certificate."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.4/local-two-realization",
+    "verdict": "verified",
+    "note": "Theorem 9.2.3 and its proof outline (pp. 192–193) checked entry by entry against the supporting nodes."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.5/genus-two-curves-over-F3",
+    "verdict": "corrected",
+    "note": "Lemma 9.3.1, Remark 9.3.2 and Table 9.3.3 (pp. 199–201) checked; the enumeration over F₃ recomputed, reproducing columns 3–5 of all 40 rows and the ten squares. ET.5/finite-field-tate-honda added for the non-simple classes."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.5/product-fibre-remark",
+    "verdict": "corrected",
+    "note": "Remark 9.3.8 (pp. 203–204) checked, including Q(1) mod 9 for the five classes and the full rational 3-torsion of the traces 1, −2 product; the statement's parenthesis rewritten to give the actual reason (twisted trivial 3-torsion with a non-square Q)."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.6/thin-set-approximation",
+    "verdict": "corrected",
+    "note": "Lemma 9.4.1 and proof (p. 204) checked; E045, E046 confirmed. IG.2/general-hilbert-local-approximation already plans Serre's weak approximation with Hilbert points: the proof now derives the lemma from it (weak approximation on smooth rational Z, a Hilbert subset in the complement of T), with the source's counting route kept through IG.2/integral-thin-count; the bare-stage request to IG.2 is dropped."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.6/local-two-equivalence",
+    "verdict": "verified",
+    "note": "Lemma 9.4.2(1) and proof (pp. 204–205) checked."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.6/two-three-switch",
+    "verdict": "verified",
+    "note": "Lemma 9.4.2(2) and proof (p. 205) and Remarks 9.4.3–9.4.4 checked; E047 handled by the reduction-type wording."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.6/ordinary-at-three-points",
+    "verdict": "verified",
+    "note": "Remark 9.4.4 (p. 206) checked."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.7/three-adic-transfer",
+    "verdict": "corrected",
+    "note": "Theorem 9.5.1 and proof (p. 206) checked. Purity re-pointed to R11.6/strict-compatible-system-export; the Arthur dependency stated in the hypotheses as in the sibling nodes."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.7/fifteen-image-modularity",
+    "verdict": "corrected",
+    "note": "Theorem 9.5.2 and proof (p. 207) checked; Serre's open image applied after an isogeny to a principally polarized surface."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.7/theorem-a",
+    "verdict": "verified",
+    "note": "Theorem A (pp. 2–3) and §9.5 opening (p. 206) checked; the End = Z deduction from surjectivity checked (normal subgroups of GSp₄(F₃), PSp₄(F₃) simple)."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.7/good-reduction-curves",
+    "verdict": "corrected",
+    "note": "Theorem 9.5.3 (p. 208) checked; StableReduction layer 0 added for good reduction of the curve."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.7/theorem-b",
+    "verdict": "corrected",
+    "note": "Theorem B (pp. 3–4) and Theorem 9.5.4 (p. 208) checked; StableReduction layer 0 added."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.7/bad-at-two",
+    "verdict": "corrected",
+    "note": "Theorem 9.5.5 and Remark 9.5.6 (pp. 208–209) checked; the order-8 argument rederived (norm of a root of x² ± x + 2 is −1). The filtration now cites R11.3/toric-finite-filtration; R08.2 and R11.5 re-pointed to their nodes."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.8/density-of-applicability",
+    "verdict": "corrected",
+    "note": "§10.1 (pp. 209–210) checked; 5551/46656 recomputed; E049 confirmed. Density zero of the thin exceptional set cites IG.2/integral-thin-count (Serre Theorem 3.4.4, 11 coefficients); the generic mod-3 image moved to the AP.7 request."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.8/lmfdb-applicability",
+    "verdict": "verified",
+    "note": "§10.1 and Table 10.1.1 (pp. 210–211) checked: every count matches (6513 + 4871 = 11384, 11384 + 359 = 11743)."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.8/potentially-abelian-automorphy",
+    "verdict": "corrected",
+    "note": "Lemmas 10.2.3–10.2.5 and Remark 10.2.6 (pp. 212–215) checked. Automorphic induction and the tensor product re-pointed from the bare stage ML.5 to ML.5/automorphic-induction-register and ML.3/ramakrishnan-tensor-product; the Lemma 10.2.4 dichotomy attributed to the R01.5 decomposition, with ET.7a for the induced case."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.8/small-sato-tate-automorphy",
+    "verdict": "corrected",
+    "note": "Theorem 10.2.1 and Remark 10.2.2 (p. 211–212) checked. Faltings re-pointed to the R28.4 nodes, Khare–Wintenberger from the bare stage ML.1 to ClassicalSerreModularity:R27.6/scope-of-the-final-statement-and-the-compatible-system-export, transfers to their ML.5/ML.3 nodes."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.8/mod-two-parameter-space",
+    "verdict": "verified",
+    "note": "§10.3.5 (p. 219) checked; the affine chart answers E072."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.8/frobenius-three-obstruction",
+    "verdict": "verified",
+    "note": "Remark 10.3.8 (p. 221) checked."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.8/mod-two-realization",
+    "verdict": "corrected",
+    "note": "Lemma 10.3.6 and proof (pp. 219–221) checked; Q₃ of the ten curves recomputed (nine ordinary non-squares, [2,2,2] equal to (x² + 2x + 3)², E053); Res_{F₉/F₃}E with t = i is ordinary (j = 2 ≠ 0), hence 3-distinguished. A4/genus-two-jacobian-lifting was misapplied (odd p, Jacobian special fibre): the [2,2,2] bridge now follows AP.7/local-three-seeds and the p = 2 Torelli comparison joins the dyadic gap."
+   },
+   {
+    "nodeId": "AbelianSurfacesModularity:AM.8/mod-two-modularity",
+    "verdict": "verified",
+    "note": "Theorem 10.3.9 and proof (p. 221) checked."
+   }
+  ]
+ }
 }
