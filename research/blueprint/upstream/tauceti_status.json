@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T22:50Z",
+  "updated": "2026-10-19T23:10Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -869,9 +869,9 @@
       "note": "ported 2026-10-16 (tier 12); first pass applied, second pass running; draft",
       "review": {
         "recommendation": "changes",
-        "current": false,
-        "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "head": "d5bb59d",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "FaltingsFinitenessAndIsogenyTheorems": {
@@ -1591,7 +1591,7 @@
     "StableHomotopyKTheory": {
       "stage": "pr",
       "pr": 1227,
-      "head": "cd29114",
+      "head": "9cfa585",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running",
       "review": {
         "current": false,
@@ -1601,25 +1601,25 @@
     "SchemeKTheoryOperations": {
       "stage": "pr",
       "pr": 1229,
-      "head": "934f9c0",
+      "head": "900144a",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: K-theory); red team running"
     },
     "VStackSheavesAndLisseCategories": {
       "stage": "pr",
       "pr": 1230,
-      "head": "496cd8e",
+      "head": "781cbd4",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running"
     },
     "MordellLawrenceVenkatesh": {
       "stage": "pr",
       "pr": 1231,
-      "head": "c858b66",
+      "head": "f57e3be",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Lawrence–Venkatesh); red team running"
     },
     "RelativeJacobiansAndIntegralCurveModels": {
       "stage": "pr",
       "pr": 1232,
-      "head": "2331ae9",
+      "head": "6910a2a",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: modular curves); red team running"
     },
     "GeometricSatakeAndFusion": {
