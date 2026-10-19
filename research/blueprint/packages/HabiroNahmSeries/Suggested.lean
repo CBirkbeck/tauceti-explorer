@@ -17,7 +17,7 @@ open scoped BigOperators
 
 noncomputable section
 
-/- ## Layer 1: Nahm equations and their arithmetic -/
+/-! ## Layer 1: Nahm equations and their arithmetic -/
 
 /-- The exponent of an analytic Nahm summand, including its constant term. -/
 def quadraticExponent {N : ℕ} (A : Matrix (Fin N) (Fin N) ℚ)
@@ -67,6 +67,13 @@ structure FormalNahmDatum (N : ℕ) where
 /-- An integral symmetric singular matrix is valid formal input. -/
 example : ∃ D : FormalNahmDatum 2, D.A = (fun _ _ => 1) := by
   exact ⟨⟨fun _ _ => 1, rfl⟩, rfl⟩
+
+/-- A nonsymmetric integral matrix is not formal input: its formal exponent would be odd. -/
+example : ¬ ∃ D : FormalNahmDatum 2, D.A = !![0, 1; 0, 0] := by
+  rintro ⟨D, hD⟩
+  have h := D.symmetric.apply 0 1
+  rw [hD] at h
+  simp at h
 
 /-- A positive integer clearing all values of the rational quadratic function. -/
 def IsDenominator {N : ℕ} (A : Matrix (Fin N) (Fin N) ℚ)
@@ -170,7 +177,7 @@ theorem nondegenerate_coordinateField_finite {N : ℕ}
     FiniteDimensional ℚ (IntermediateField.adjoin ℚ (Set.range x)) := by
   sorry
 
-/- ## Layer 2: analytic Nahm sums and radial asymptotics -/
+/-! ## Layer 2: analytic Nahm sums and radial asymptotics -/
 
 /-- The actual analytic summand, with finite Euler factors and the exponential branch in τ. -/
 def nahmSummand {N : ℕ} (D : NahmDatum N) (τ : ℂ) (n : Fin N → ℕ) : ℂ :=
@@ -203,7 +210,7 @@ theorem analyticNahmSum_holomorphic {N : ℕ} (D : NahmDatum N) :
     DifferentiableOn ℂ (analyticNahmSum D) {τ : ℂ | 0 < τ.im} := by
   sorry
 
-/- ## Layer 4: modularity and torsion -/
+/-! ## Layer 4: modularity and torsion -/
 
 /-- Unbounded divisibility in a finitely generated abelian group kills its free part.
 This is applied to an integral Bloch class before rationalisation. -/
@@ -213,7 +220,7 @@ theorem torsion_of_unbounded_divisibility {G : Type*} [AddCommGroup G]
     IsOfFinAddOrder g := by
   sorry
 
-/- ## Layer 5: formal Nahm series and their difference equations -/
+/-! ## Layer 5: formal Nahm series and their difference equations -/
 
 /-- The integer exponent in F_A. Symmetry makes the numerator even. -/
 def formalExponent {N : ℕ} (A : Matrix (Fin N) (Fin N) ℤ) (n : Fin N → ℕ) : ℤ :=
@@ -257,7 +264,7 @@ theorem formalExponent_two_mul {N : ℕ} (A : Matrix (Fin N) (Fin N) ℤ)
       (∑ i, ∑ j, A i j * (n i : ℤ) * (n j : ℤ)) + ∑ i, A i i * (n i : ℤ) := by
   sorry
 
-/- ## Layer 6: Frobenius, the regulator and Habiro modules -/
+/-! ## Layer 6: Frobenius, the regulator and Habiro modules -/
 
 /-- The first Wick coefficient for covariance C and scalar, linear, quadratic,
 cubic and quartic vertices. The mixed linear-cubic term is retained. -/
@@ -280,7 +287,7 @@ example : regularisationJet (fun _ _ : Fin 1 => (1 : ℚ))
     (fun _ => 1) (fun _ => 0) (fun _ => 1) (fun _ => 0) 0 = 29 / 24 := by
   norm_num [regularisationJet]
 
-/- ## Layer 7: explicit examples and cohomological exports -/
+/-! ## Layer 7: explicit examples and cohomological exports -/
 
 /-- The scalar value of the constant Taylor family of the rational quadratic Gauss norm. -/
 def rationalGaussTaylor (m : ℕ) : ℚ :=
@@ -293,6 +300,15 @@ example : rationalGaussTaylor 2 = 0 ∧ rationalGaussTaylor 4 = 2 := by
 /-- Odd orders give one; the order-one Taylor series alone misses the even values. -/
 example : rationalGaussTaylor 1 = 1 ∧ rationalGaussTaylor 3 = 1 := by
   norm_num [rationalGaussTaylor]
+
+/-- The rational Gauss family is the normalised squared modulus of the quadratic Gauss sum
+`∑_{k mod m} e(k²/m)`; the three cases are Gauss's evaluation. -/
+theorem rationalGaussTaylor_eq_gaussSum (m : ℕ) (hm : 0 < m) :
+    ((rationalGaussTaylor m : ℚ) : ℂ) =
+      (∑ k ∈ Finset.range m, Complex.exp (2 * Real.pi * Complex.I * (k : ℂ) ^ 2 / m)) *
+        (∑ k ∈ Finset.range m, Complex.exp (-(2 * Real.pi * Complex.I * (k : ℂ) ^ 2 / m))) /
+          m := by
+  sorry
 
 /-- Odd-prime gluing preserves the entire constant family; the prime 2 is excluded. -/
 theorem rationalGaussTaylor_mul_odd (m p : ℕ) (hm : 0 < m) (hp : Odd p) :
