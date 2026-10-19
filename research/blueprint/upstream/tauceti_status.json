@@ -1183,13 +1183,14 @@
     "CohomologyComparisons": {
       "stage": "pr",
       "pr": 1064,
-      "head": "c5693dd",
+      "head": "67130cb",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 37); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 67130cb; confirmation pass pending"
       }
     },
     "OrdinaryAutomorphicFormsAndModularityLifting": {
