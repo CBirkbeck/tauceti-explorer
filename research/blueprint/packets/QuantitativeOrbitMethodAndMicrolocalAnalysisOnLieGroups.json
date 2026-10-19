@@ -300,7 +300,7 @@
       ],
       "title": "Commutator operator classes",
       "kind": "definition",
-      "statement": "An operator T from Pi-infinity to Pi-minus-infinity lies in Psi^m if every iterated commutator theta_(X1...Xr)(T) extends boundedly Pi^s to Pi^(s-m) for all integers s and words. The topology uses these operator norms. Define Psi-minus-infinity as the intersection over m and Psi-infinity as the union. Define family Psi_delta^m by uniform boundedness of h^(delta r) times each such commutator norm, with arbitrary Pi(h); h-infinity Psi-minus-infinity means every power of h in every smoothing seminorm.",
+      "statement": "For integral order m, an operator T from Pi-infinity to Pi-minus-infinity lies in Psi^m if every iterated commutator theta_(X1...Xr)(T) extends boundedly Pi^s to Pi^(s-m) for all integers s and words. The topology uses these operator norms. Define Psi-minus-infinity as the intersection over integral m and Psi-infinity as the union. For 0<=delta<1, define family Psi_delta^m by uniform boundedness of h^(delta r) times each such commutator norm, with arbitrary Pi(h); h-infinity Psi-minus-infinity means every power of h in every smoothing seminorm.",
       "hypotheses": [],
       "proofSteps": [
         "Use the compatible Sobolev extensions to define the locally convex spaces and topology.",
@@ -845,7 +845,7 @@
         "Change variables in Fourier inversion and integrate by parts for weighted Fourier moment estimates."
       ],
       "acceptance": [
-        "Verify every listed API law and run the discriminating examples below, including: The number of centers in a fixed compact set grows like a power of h^-1; it is not bounded independently of h."
+        "Verify every listed API law and run the discriminating examples below, including: For delta>0 and nonzero dual dimension, the number of centers needed to cover a fixed compact set with nonempty interior grows polynomially in h^-1; it is not bounded independently of h. At delta=0 no such growth is required."
       ],
       "prerequisites": [
         "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/symbol-families",
@@ -880,7 +880,7 @@
         {
           "name": "planckReconstruction",
           "role": "structure",
-          "statement": "The localized sum reconstructs a in symbol topology with controlled locally finite sums."
+          "statement": "The locally finite sum equals a pointwise and in C-infinity on compact sets, with uniform weighted derivative bounds for the sum and its localized pieces. Finite partial sums need not converge in the original S_delta^m topology."
         },
         {
           "name": "planckOverlap",
@@ -902,7 +902,12 @@
         {
           "name": "countingGrowth",
           "kind": "non-example",
-          "statement": "The number of centers in a fixed compact set grows like a power of h^-1; it is not bounded independently of h."
+          "statement": "For delta>0 and nonzero dual dimension, the number of centers needed to cover a fixed compact set with nonempty interior grows polynomially in h^-1; it is not bounded independently of h. At delta=0 no such growth is required."
+        },
+        {
+          "name": "constantTail",
+          "kind": "non-example",
+          "statement": "For a=1 on a nonzero-dimensional dual, any finite sum of the compactly supported partition pieces is zero sufficiently far out. Its S^0 sup-norm distance from 1 is at least one, so convergence in the original symbol topology is false."
         }
       ],
       "uses": [
@@ -924,13 +929,13 @@
       ],
       "title": "Localized star remainder bounds",
       "kind": "theorem",
-      "statement": "For subalgebras g1+g2=g, admissible orders and delta1+delta2<1, localized input pairs have remainder after J BCH terms bounded in every output derivative by h^N<zeta>^-N times polynomial input weights, provided J is large in terms of N and the derivative order. If one input weight dominates the other, nonstationary phase yields arbitrary decay in the larger weight; when weights are comparable the expansion gains h^((1-delta1-delta2)J) and J symbol orders. These bounds sum to the mixed symbol expansion.",
+      "statement": "Let g1+g2=g, 0<=delta1,delta2<1 and delta1+delta2<1. Let a in S_delta1^0(g1*) and b in S_delta2^0(g2*) be localized at omega1 and omega2. For each N>=0 and output multi-index gamma, choose J and M sufficiently large in terms of these fixed data. The remainder r=a star_h b-sum_(j<J) h^j C_j(a,b) satisfies |partial^gamma r(zeta)|<=C h^N <zeta>^-N <omega1>^M <omega2>^M. If g1=g replace the second weight by <omega2>^-N; if g2=g replace the first weight by <omega1>^-N; if both equal g both weights are negative powers. Constants use finitely many bounded localized input seminorms and are independent of h, zeta and the centers. General input orders are restored by the partition weights.",
       "hypotheses": [],
       "proofSteps": [
-        "Insert the explicit localized Fourier formula; separate comparable and separated input centers.",
+        "Insert the localized Fourier formulas and treat the four full-algebra versus proper-subalgebra cases of Proposition 7.13 separately.",
         "For comparable centers use the Taylor remainder, spending derivative losses h^-delta1 and h^-delta2.",
-        "For separated centers use nonstationary phase before summing; choose extra decay to pay for the polynomial number of centers.",
-        "Record the four weight regimes as implementation lemmas with the exact inequalities in Proposition 7.13; the target here is the summable global conclusion, not an unspecified pairwise O(h^N)."
+        "For separated centers use nonstationary phase with the full-algebra hypotheses required for each negative center weight; proper-subalgebra inputs retain the stated polynomial weights.",
+        "For Theorem 7.4, sum case (d) for two full algebras. In the full/proper cases use the negative order required on the full-algebra input to absorb its remaining polynomial center weight. For two proper algebras both orders are minus-infinity, so choose each order sufficiently negative to sum the two polynomial weights from case (a)."
       ],
       "acceptance": [
         "Choose J from the desired output derivative and h exponent before estimating input centers; check all four weight regimes and absolute summability of the center sum."
@@ -943,7 +948,7 @@
         {
           "sourceId": "NV21",
           "locator": "Proposition 7.13, pp. 53–56, cases (a)–(d); proof of Theorem 7.4, pp. 56–57",
-          "match": "For subalgebras g1+g2=g, admissible orders and delta1+delta2<1, localized input pairs have remainder after J BCH terms bounded in every output derivative by h^N<zeta>^-N times polynomial input weights, provided J is large in terms of N and the derivative order."
+          "match": "Proposition 7.13 gives a polynomial weight for each localized center in general, with a negative weight for the opposite center when one input algebra is the full algebra; the full/full case has two negative weights."
         }
       ],
       "library": {
@@ -1144,19 +1149,19 @@
       ],
       "title": "Polynomial quantization",
       "kind": "theorem",
-      "statement": "For polynomial p on the imaginary dual, Op(p,chi)=dPi(sym p), independent of chi. A linear symbol xi(X) quantizes to dPi(X), and p=1+|xi|^2 quantizes to Delta. Higher powers p^N do not in general quantize to Delta^N without lower-order noncommutative corrections.",
+      "statement": "For polynomial p on the imaginary dual, Op(p,chi)=dPi(sym p), independent of chi. A linear symbol xi(X) quantizes to dPi(X). When |xi| is the dual norm of the basis used in Delta=1-sum_X dPi(X)^2, p=1+|xi|^2 quantizes to Delta. Higher powers p^N do not in general quantize to Delta^N without lower-order noncommutative corrections.",
       "hypotheses": [],
       "proofSteps": [
         "The inverse Fourier transform of a polynomial is a derivative of the point mass at zero.",
         "Evaluate it on the smooth matrix coefficient and use chi=1 near zero; polarize to obtain symmetrization."
       ],
       "acceptance": [
-        "On the line xi=i t, quantize xi(X) to i t and 1+|xi|^2 to 1+t^2. In a nonabelian algebra compute the lower-order discrepancy between Op(p^2) and Op(p)^2."
+        "On the line xi=i t, quantize xi(X) to i t and 1+|xi|^2 to 1+t^2. For the Heisenberg algebra [X,Y]=Z with orthonormal basis X,Y,Z, verify sym(p^2)=Delta^2-Z^2 in U(g), so equality of the two powers fails when dPi(Z) is nonzero."
       ],
       "prerequisites": [
         "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/quantization",
         "mathlib:UniversalEnvelopingAlgebra",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff"
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ"
       ],
       "sources": [
         {
@@ -4104,12 +4109,12 @@
       ],
       "title": "Smooth period Parseval and weak Weyl bound",
       "kind": "theorem",
-      "statement": "For smoothly trace-class T, integral_[H][T]=sum_Sigma P_Sigma(T), with absolute convergence and compatibility with smooth differentiation at the fixed auxiliary level. The number of Sigma contributing nonzero periods with |lambda_sigma|<=x is O((1+x)^C) for a group- and level-dependent C. Positivity gives monotone summation for positive T; general T uses smooth trace estimates.",
+      "statement": "For a smoothing operator T in Psi-minus-infinity, integral_[H][T]=sum_Sigma P_Sigma(T), with absolute convergence and compatibility with smooth differentiation at the fixed auxiliary level. The number of Sigma contributing nonzero periods with |lambda_sigma|<=x is O((1+x)^C) for a group- and level-dependent C. Positivity gives monotone summation for positive T; general smoothing T uses the smooth two-variable kernel and its spectral expansion.",
       "hypotheses": [],
       "proofSteps": [
         "Use compact-quotient automorphic spectral decomposition, elliptic Sobolev bounds and a polynomial eigenvalue-counting estimate supplied by AS.4.",
         "Apply Parseval to each rank-one restricted vector and then sum the auxiliary finite family.",
-        "Use sufficiently high Sobolev powers to dominate the spectral tail uniformly and extend from finite rank to smoothly trace class."
+        "Use the smooth two-variable kernel supplied for Psi-minus-infinity and sufficiently high elliptic Sobolev powers to dominate its spectral tail uniformly, extending from finite rank to smoothing operators. Smoothness of only the diagonal for a smoothly trace-class operator is not this kernel assertion."
       ],
       "acceptance": [
         "Count spectral multiplicity and prove the polynomial bound at the fixed auxiliary level. For positive finite-rank T compare directly with Parseval on each restricted vector before extending by trace estimates."
@@ -4123,7 +4128,7 @@
         {
           "sourceId": "NV21",
           "locator": "§28.1, equation (28.3), p. 187; §29.2 and equation (29.2), p. 190",
-          "match": "For smoothly trace-class T, integral_[H][T]=sum_Sigma P_Sigma(T), with absolute convergence and compatibility with smooth differentiation at the fixed auxiliary level."
+          "match": "For T in Psi-minus-infinity, the smooth two-variable kernel has an absolutely convergent spectral expansion whose restriction and integral give the period Parseval identity."
         }
       ],
       "library": {
@@ -4146,10 +4151,10 @@
       "statement": "Let W be an open subset of h* and U an open quotient subset containing its parameter image as in §29. Let all compactly supported symbols lie over W. Call sigma good if h lambda_sigma lies in U and either sigma is nontempered or h O_sigma meets W. Then integral_[H][a1...ak]=lim_(h to 0) h^d sum_(Sigma with good sigma) P_Sigma(Op_h(a1)...Op_h(ak)). The sum includes multiplicity and the fixed auxiliary factor. Discarded large-parameter terms and tempered orbit-missing terms each have vanishing total contribution.",
       "hypotheses": [],
       "proofSteps": [
-        "For large h lambda_sigma apply joint localization with arbitrarily strong spectral decay and sum using the weak Weyl bound.",
+        "Choose a relatively compact open U0 inside U containing the invariant-parameter image of the projected compact symbol supports. Outside U0, apply joint localization with arbitrarily strong spectral decay and sum using the weak Weyl bound. This first truncation is valid even when the stated U is unbounded.",
         "For a tempered orbit missing W choose b=1 on the projected symbol support and supported in W; factor the relative operator through sigma quantizations.",
         "Use |tr(T1 T2)|^2<=tr(T1* T1)tr(T2* T2), with the first trace negligible by the orbit trace formula and the second polynomially bounded.",
-        "Sum these estimates after choosing the h-gain larger than the counting exponent and take the limit-state subsequence."
+        "Inside U0 the weak Weyl bound gives only polynomially many terms in h^-1. Sum the orbit-missing estimates after choosing the h-gain larger than that exponent and take the limit-state subsequence. The terms in U outside U0 were already controlled by spectral decay."
       ],
       "acceptance": [
         "Treat the large-parameter tail and the tempered orbit-missing tail separately. In Hilbert-Schmidt Cauchy-Schwarz the negligible first factor is tr(T1* T1), never tr(T1* T2)."
@@ -4465,11 +4470,10 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
-      "need": "Analytic BCH map and its convergent expansion, including the enveloping symmetrization/PBW bridge already assigned to Lie theory.",
+      "need": "Analytic BCH map and its convergent local expansion; the concrete PBW theorem is supplied separately by LieHighestWeight Layer 3.",
       "neededBy": [
         "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/bch-coefficients",
-        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/cutoff-star",
-        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/polynomial-quantization"
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/cutoff-star"
       ]
     },
     {
@@ -4514,7 +4518,7 @@
     },
     {
       "supplier": "AutomorphicSpectralTheory:AS.4",
-      "need": "Compact-quotient discrete automorphic decomposition with multiplicity, smooth absolute spectral expansion, polynomial elliptic eigenvalue counting and smooth restriction estimates at fixed level.",
+      "need": "Compact-quotient discrete automorphic decomposition with multiplicity from AS.4/compact-quotient-spectrum. In addition request smooth absolute two-variable spectral expansion, polynomial elliptic eigenvalue counting and differentiated restriction estimates at fixed central quotient and auxiliary level; these extensions are G20, not consequences claimed from the existing supplier statement.",
       "neededBy": [
         "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/period-functional",
         "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/period-parseval"
@@ -4555,6 +4559,13 @@
       "need": "Use the exact Jacobson–Morozov and adapted-triple construction over the algebraic closure; the regular-real-nilpotent simple-root criterion and centralizer rigidity are the local targets in QO.8.",
       "neededBy": [
         "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/regular-nilpotent-rigidity"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ",
+      "need": "Concrete PBW filtration, associated-graded generator identification and ordered-monomial basis over a field, from LieHighestWeight Layer 3. Over R or C derive the factorial-normalized symmetrization isomorphism used in polynomial quantization; do not import PBW from the BCH layer.",
+      "neededBy": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/polynomial-quantization"
       ]
     }
   ],
@@ -4705,6 +4716,7 @@
         "G17: Algebraic Cartan connectedness proof",
         "G18: Measure-classification bridge",
         "G19: Arithmetic component images over general number fields",
+        "G20: Smooth compact-quotient spectral estimates",
         "Supplier requests must be turned into exact verified nodes before closure."
       ]
     }
@@ -4876,6 +4888,16 @@
       "neededBy": [
         "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/component-comparison"
       ]
+    },
+    {
+      "id": "G20",
+      "title": "Smooth compact-quotient spectral estimates",
+      "detail": "AS.4/compact-quotient-spectrum supplies a discrete Hilbert sum with finite multiplicities and smooth convolution kernels. Its statement does not yet give the arbitrary smooth two-variable absolute spectral expansion, polynomial elliptic eigenvalue counting and differentiated restriction estimates required in NV §29.1–§29.2 pp.189–190. The AS.4 supplier packet itself leaves compact-quotient Sobolev trace-class input open. Request these precise estimates as an AutomorphicSpectralTheory extension, with a fixed central quotient and fixed finite auxiliary level, before closing the period Parseval or truncation argument.",
+      "neededBy": [
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/period-parseval",
+        "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/spectral-truncation"
+      ],
+      "addedBy": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
     }
   ],
   "sourceIssues": [
@@ -4893,7 +4915,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The proof uses an overbroad spinor-surjectivity claim. The real signature and binary norm-subgroup countercases require the stated correction and exceptional self-twist hypothesis; G19 retains the general arithmetic proof inputs.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E2",
@@ -4909,7 +4936,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The printed second-order integration-by-parts operator does not act as claimed; the first-order gradient operator does, with the displayed scaling.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E3",
@@ -4925,7 +4957,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The spherical transform is a nonconstant Laurent polynomial on the complementary parameter line and cannot have the asserted finite uniform bound. The separate topological proof avoids this; quadratic unramified twists give the negative interval.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E4",
@@ -4941,7 +4978,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Differentiating rho^(j+|gamma|) lowers the intermediate exponent by r; the factor |xy|^|gamma| on the small chart recovers the final estimate.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E5",
@@ -4957,7 +4999,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Rescaled BCH composition has its j-th coefficient multiplied by h^j; without it (19.16) disagrees with Theorem7.4 and its own leading-order limit.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E6",
@@ -4973,7 +5020,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The auxiliary symbol has h^dim(S) mass, while the M-orbit trace contributes h^-d_M; d_M=dim(S) cancels the powers.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E7",
@@ -4988,8 +5040,14 @@
       "searched": [
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
-        "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+        "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found.",
+        "Independent review read Waldspurger, Astérisque346(2012), Proposition5.7 pp.263–264, https://www.numdam.org/item/AST_2012__346__171_0.pdf; it treats compatible p-adic orthogonal spaces and tempered data, matching the restricted citation."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published bibliography label resolves to Wallach, while Waldspurger Proposition5.7 pp.263–264 in the public Astérisque346 PDF states precisely the nonvanishing/multiplicity equivalence for compatible p-adic orthogonal spaces and tempered data.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E8",
@@ -5005,7 +5063,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed pointwise evaluation and subsequent orbital integral have covector input, so the domain must be the imaginary dual.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E9",
@@ -5021,23 +5084,33 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A derivative of a scalar-order symbol lowers its order by its multi-index length, as in Definition4.1; the printed n is unrelated.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E10",
       "source": "NV21",
       "kind": "misprint",
       "locator": "Published Acta226(2021), Lemma7.11 and (7.10), p.51",
-      "printed": "The partition parameter excludes delta=0 and includes delta=1; the moment estimate omits the symbol weight.",
-      "correction": "Use 0<=delta<1 and multiply the order-m moment bound by <omega>^m.",
-      "reason": "The partition is used at delta=0, while its width/scale proof requires delta<1; the explicit localized transform carries that weight.",
+      "printed": "The partition parameter excludes delta=0; the order-m moment estimate omits its center weight.",
+      "correction": "Include delta=0 in the partition lemma and multiply the order-m moment bound by <omega>^m. The calculus here uses 0<=delta<1; the partition construction itself also makes sense at delta=1.",
+      "reason": "The paper uses the partition at delta=0, and rescaling a localized order-m symbol retains <omega>^m in its Fourier moments. The radius and overlap argument alone does not exclude delta=1.",
       "affects": "nothing",
       "known": "Recorded and reviewed in PAPER-NELSON-VENKATESH-21/E10 and the extraction red-team verification; no claim of independent discovery.",
       "searched": [
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed after narrowing: delta=0 is needed and the order-m Fourier moment carries <omega>^m. Rejected the old reason for excluding delta=1: the radius, comparability and overlap construction still work there. The calculus retains its separate delta<1 range.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E11",
@@ -5053,7 +5126,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The polynomial quantization fact used in §8.7 is Lemma5.1; the cited cutoff subsection does not state that identity.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E12",
@@ -5069,7 +5147,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Squaring the norm multiplies the Fourier integrand by <xi>^(2s), consistently with Delta^(s/2).",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E13",
@@ -5085,7 +5168,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Central elements of U(g) and U(h) act through different representation parameters; following the two eigenvalue substitutions fixes the group labels.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E14",
@@ -5101,7 +5189,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An integrated representation is linear in the test function, so the integrand is Pi(g)f(g); the printed self-reference cannot define it.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E15",
@@ -5117,7 +5210,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The invariant quotient in §16.4 belongs to H, both product-symbol tuples are present in (19.10), and the induction and Levi data of §23 belong to H. Checked the separate passages.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E16",
@@ -5133,7 +5231,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Mutually orthogonal rank-one projections satisfy the hypotheses but their finite sums do not converge in operator norm. The uniform bound and strong sum survive.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E17",
@@ -5149,7 +5252,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The identity a_h-vee(x)=h^-n a-vee(x/h) supplies one further h^-1 per derivative. Testing x=h u detects the omission.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E18",
@@ -5165,7 +5273,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Tracking a_h before convolution gives the output Op_h with star_h; the unscaled Op version mixes the two conventions.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E19",
@@ -5181,7 +5294,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Taylor expansion of psi(hx), combined with the declared imaginary derivative convention, gives positive h^j coefficients.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E20",
@@ -5197,7 +5315,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The main local expansion is supported near the identity after the far region was discarded; its final integration domain must be the small-distance complement.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E21",
@@ -5213,7 +5336,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The parametrix and symbolic squares have an arbitrary-order residual error. Its absorption also requires the entire projected support to lie compactly in the positive fibre-mass region, as now stated.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E22",
@@ -5229,7 +5357,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The homogeneous subgroup obtained by Ratner contains the acting q-factor; the opposite containment would not imply the required invariance.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E24",
@@ -5245,7 +5378,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A sufficiently high positive compact elliptic power controls polynomial K-type growth and gives summability; a bare Casimir with no positive shift or power need not do so.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E25",
@@ -5261,7 +5399,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two invariant values are both obtained from xi in g*, with the second obtained by restriction; an independent pair cannot parametrize this joint fibre.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E27",
@@ -5277,7 +5420,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A function equal to one on the smaller ball must vanish outside, rather than inside, the larger ball.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E28",
@@ -5293,7 +5441,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The h^2 coefficient in q star b contains both C2(q,b0) and C1(q,b1); setting it to zero gives the full stated recursion.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E29",
@@ -5309,7 +5462,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Coefficient comparison in q star_h Z=b sums every lower coefficient q_l with the complementary bidifferential C_(j-l), on the indicated right side.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E30",
@@ -5325,7 +5483,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "KKS volume scales by h to the half orbit dimension, so the normalization exponent is half the maximal real orbit dimension.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E31",
@@ -5341,7 +5504,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The pair used is the orbit and its symplectic measure; pi is the representation, while omega is the already defined measure notation.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E32",
@@ -5357,7 +5525,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The HS Cauchy-Schwarz inequality has squared norm tr(T1* T1) as its first factor. The printed mixed trace is neither necessarily real nor nonnegative.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E34",
@@ -5373,7 +5546,12 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An orbit is not a vector space and probability measures do not form a vector space. The statement is an equivariant weakly continuous assignment, inducing a linear map on tests.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     },
     {
       "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E35",
@@ -5389,7 +5567,32 @@
         "Published PDF, SHA256 recorded in sourceVersions; assigned statement and surrounding argument read 2026-10-19.",
         "Reviewed extraction and RT-PAPER-NELSON-VENKATESH-21.review.json correction records.",
         "2026-10-19 web search for the paper title with erratum/correction, arXiv1805.07750 listing and publisher DOI search; no separate correction was found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The map is separately linear in each symbol and homogeneous of degree k on a repeated symbol. It cannot be linear on a Cartesian product for k>1.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
+    },
+    {
+      "id": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups/E36",
+      "source": "NV21",
+      "kind": "error",
+      "locator": "Published Acta226(2021), §8.7, p.63, polynomial preliminary to (8.22)–(8.23)",
+      "printed": "The symbol <xi>^(2N) is identified with Delta^N after quantization for arbitrary N.",
+      "correction": "Use the inverse-symmetrization polynomial of Delta^N, which agrees with <xi>^(2N) modulo lower-degree corrections. Only the N=1 equality is automatic for the chosen compatible basis norm.",
+      "reason": "In the Heisenberg algebra [X,Y]=Z, sym((1-x^2-y^2-z^2)^2)=Delta^2-Z^2. Thus the fourth-order symmetrization is not the square of the quadratic operator. The composition argument still uses a polynomial representative of Delta^N.",
+      "affects": "the proof",
+      "known": "Independent review calculation. The design already warns against the power identity in QO.1/polynomial-quantization but did not list this source error.",
+      "searched": [
+        "Published §8.7 p.63 and Lemma5.1 p.37, checked 2026-10-19.",
+        "Publisher and arXiv1805.07750 records and title/erratum web search, 2026-10-19; no separate correction located."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Exact rational normal ordering with XY-YX=Z verifies Delta^2-sym(p^2)=Z^2 for p=1-x^2-y^2-z^2. The source equality is false in a representation with nonzero central derivative; a corrected polynomial representative of Delta^N suffices.",
+        "by": "REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups"
+      }
     }
   ],
   "sourceVersions": [
@@ -5420,6 +5623,13 @@
       "roadmap": "LieGroups",
       "targets": "Exponential, adjoint, BCH, real forms and KAK layers, compared with current Suggested.lean and current library BCH implementation. Existing atlas stage ids serve as supplier links; current implementation does not justify re-planning these notions.",
       "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/RepresentationTheory/LieGroups"
+    },
+    {
+      "roadmap": "LieHighestWeight",
+      "revision": "0d144d044dacebca17b654695b6f1ad58f159b27",
+      "path": "TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+      "targets": "Layer 3 owns the concrete PBW filtration, associated-graded generator equations and ordered-monomial basis. Its README and Suggested.lean explicitly state arbitrary-field scope. Characteristic-zero symmetrization is derived from that input in the local polynomial-quantization proof.",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
     }
   ],
   "routing": [
@@ -5901,7 +6111,8 @@
       "AF.0/AF.1 and AS.0 are partial or unbuilt for the relevant representation and trace interfaces; no existing uniform representation pseudodifferential calculus was found.",
       "Pinned and current Tau Ceti and Mathlib were searched for coadjoint/Kirillov/Rossmann, Cotlar, nonstationary phase and relative-character targets; the current Lie BCH implementation is imported.",
       "The pinned Spin-kernel theorem is already built. The current upstream OrthogonalSpinGroups local-image table postdates the atlas snapshot and supersedes the extraction missing verdict for that portion of item107.",
-      "Current OperatorTheory/OperatorIdeals owns general Schatten and Hilbert–Schmidt carriers; only their smooth representation refinement is planned here."
+      "Current OperatorTheory/OperatorIdeals owns general Schatten and Hilbert–Schmidt carriers; only their smooth representation refinement is planned here.",
+      "Independent review also read current LieHighestWeight Layer 3: it owns concrete arbitrary-field PBW. Corrected the polynomial-quantization supplier from LieGroups BCH to that owner. AS.4 compact-quotient-spectrum is narrower than the requested differentiated spectral estimates; G20 records the extension."
     ]
   },
   "restructure": {
@@ -5925,6 +6136,409 @@
         "from": "This extraction route",
         "to": "Current upstream OrthogonalSpinGroups Layers1E and2F–2H",
         "scope": "Abstract spinor kernel and the already planned R/Qp local images; no duplicate local spinor theorem node."
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups",
+    "date": "2026-10-19",
+    "notes": "Independent review of all 79 target statements, source matches, direct dependencies, APIs and tests; all 7 pinned baseline declarations read and confirmed. Corrected 6 nodes, reader uniform-continuity conventions, PBW ownership and two proof-topology issues. All 33 sourceIssues individually checked: E10 narrowed, E36 added. Added G20 for the AS.4 smooth spectral extension. Acceptance is of a complete target-level design pass, not proof closure: 20 named gaps remain, all 10 stages are planned and none closed. Suggested Lean elaborates with only intended admitted-proof warnings.",
+    "checked": [
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/fourier-conventions",
+        "verdict": "verified",
+        "note": "The imaginary pairing gives the positive NV forward sign and the inverse Mathlib sign after the 2 pi identification; the exponential-density Jacobian is divided out. Checked against §§1.14.2–1.14.6, pp. 19–22; §§2.1–2.2, p. 25; §4.1, p. 31."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/nelson-laplacian",
+        "verdict": "verified",
+        "note": "The sum-of-squares closure and domain intersection are the stated cited inputs; G1 honestly retains the original-proof obligation rather than treating spectral calculus as its proof. Checked against §3.1, p. 28, citing Nelson–Stinespring and Nelson, Corollary 9.3."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/sobolev-scale",
+        "verdict": "verified",
+        "note": "Checked the s/2 norm exponent, anti-dual completion and representation-independent word bounds. The general unitary construction uses Nelson, not only the narrower Harish-Chandra-module supplier. Checked against §§3.1–3.2, pp. 28–29; §8.5, pp. 59–61."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/operator-order",
+        "verdict": "corrected",
+        "note": "Made m integral and the family parameter range explicit. The reader now defines h-uniform continuity by an h-independent bound; Lemma5.3 supplies polynomial loss when seminorms are compared. Checked against Definition 3.1 and §3.3, pp. 29–30; Definition 5.2 and Lemma 5.3, pp. 37–39."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/symbol-families",
+        "verdict": "verified",
+        "note": "The derivative lowers symbol order and costs h^-delta per derivative. Intersection of unscaled orders agrees with the pinned Schwartz carrier; h is an arbitrary family index. Checked against Definitions 4.1, 4.3 and §§4.3–4.5, pp. 33–35."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/quantization",
+        "verdict": "verified",
+        "note": "Checked weak integral, h-rescaling, distributional extension, adjoint and transported cutoff. Added a sign-discriminating line-model example to the suggested file. Checked against §§2.2–2.4, pp. 25–27; §5.1, pp. 36–37."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0/operator-algebra",
+        "verdict": "verified",
+        "note": "Sobolev extension composition and adjoint have the stated order shifts; products with smoothing inputs retain smoothing order. Checked against Lemmas 3.3–3.6, pp. 30–31; Proposition 8.6, pp. 60–61."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/cutoff-star",
+        "verdict": "verified",
+        "note": "The exponential chart convolution and input/output cutoffs agree with §7.1. The formal coefficient algebra is associative; finite cutoff multiplication is not asserted associative. Checked against Lemma 2.1 and §2.5, pp. 26–28; §4.2, p. 32."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/bch-coefficients",
+        "verdict": "verified",
+        "note": "The degree relation gives order loss j and first Poisson term with the declared imaginary derivative convention. LieGroups supplies BCH, not the separate PBW theorem. Checked against §4.2, equations (4.2)–(4.6), pp. 32–33; Lemma 7.6, pp. 48–49."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/oscillatory-estimates",
+        "verdict": "verified",
+        "note": "The first-order integration-by-parts operator, conjugated gradient and Taylor derivative losses give the stated bounds; the corrected rho^(j-r) intermediate estimate is retained. Checked against Lemmas 7.6–7.8, pp. 48–51."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/planck-partition",
+        "verdict": "corrected",
+        "note": "Replaced false convergence in the original symbol topology by locally finite reconstruction and uniform weighted derivative bounds. Added the constant-symbol finite-tail countertest. Checked against Definition 7.9 and Lemmas 7.10–7.12, pp. 51–53. The counting test now specifies delta>0, positive dimension and nonempty interior; delta=0 is treated separately."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/localized-remainders",
+        "verdict": "corrected",
+        "note": "Replaced the unspecified center-decay claim by all four Proposition7.13 weight inequalities. The proof now sums the full/proper and proper/proper cases using their admissible orders. Checked against Proposition 7.13, pp. 53–56, cases (a)–(d); proof of Theorem 7.4, pp. 56–57."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/mixed-symbol-calculus",
+        "verdict": "verified",
+        "note": "Checked both proper-subalgebra Schwartz conditions and the mixed h exponent 1-delta1-delta2; these conditions precisely absorb the polynomial weights in the corrected local remainder target. Checked against Theorems 4.5 and 7.4, pp. 35–36, 46–48; Example 7.1 and Lemma 7.3."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/fourier-cutoff",
+        "verdict": "verified",
+        "note": "The Taylor coefficients use positive h powers, and inverse-transform derivatives carry h^(-n-|alpha|). The declared derivative convention supplies the signs. Checked against Lemma 7.14, pp. 56–57; Lemma 8.1, pp. 57–58."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/order-criterion",
+        "verdict": "verified",
+        "note": "The conjugated Sobolev tests imply all required word commutator estimates; this does not identify arbitrary bounded operators with Psi^0. Checked against Proposition 8.2, Definition 8.3 and Proposition 8.6, pp. 59–61."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/cotlar-stein",
+        "verdict": "verified",
+        "note": "The summability hypotheses yield the stated norm bound and strong sum. Orthogonal projections rule out the source norm-convergence assertion; G2 retains the primary proof obligation. Checked against Lemma 8.10, p. 61, citing Hörmander, Lemma 18.6.5."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/zero-order-bound",
+        "verdict": "verified",
+        "note": "Planck localization, Schur decay of almost-orthogonality sums and corrected strong Cotlar convergence give the representation-uniform bound. Checked against Proposition 8.7 and Lemmas 8.8–8.10, pp. 61–66."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/polynomial-quantization",
+        "verdict": "corrected",
+        "note": "Specified the norm dual to the Delta basis, corrected the PBW owner to LieHighestWeight Layer3 and supplied the Heisenberg power countercalculation. E36 records the corresponding source error. Checked against Lemma 5.1, p. 37; proof in §8.1, pp. 56–57."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/cutoff-covariance",
+        "verdict": "verified",
+        "note": "Cutoffs agree near zero, so Fourier tail estimates give every smoothing h power; near covariance keeps the transported-cutoff dependence before the negligible comparison. Checked against Lemmas 5.4–5.5, p. 39; proofs in §§8.3–8.4, pp. 57–59."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.1/operator-calculus",
+        "verdict": "verified",
+        "note": "The rescaled symbol/operator expansion, adjoint and mixed subgroup products retain their h exponents and integral Sobolev order shifts. Checked against Theorems 5.6, 5.8 and Corollaries 5.7, 5.9, pp. 40–41; §§8.7–8.10 and Theorem 8.11, Lemma 8.12, pp. 62–72."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2/real-infinitesimal-quotient",
+        "verdict": "verified",
+        "note": "Checked conjugate-dual involution, the real fixed locus and quotient norms. The invariant-polynomial API respects degrees rather than choosing arbitrary coordinates silently. Checked against §§9.1–9.5, pp. 72–75; §9.8, pp. 77–78."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2/dual-characters",
+        "verdict": "verified",
+        "note": "Duality negates the parameter and complex conjugation acts through the declared real involution, consistently with unitary imaginary-dual parameters. Checked against Lemma 9.2 and Corollary 9.3, pp. 75–76."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2/tempered-criterion",
+        "verdict": "verified",
+        "note": "Regularity is essential in the imaginary-parameter tempered criterion. Uniform unitary exponents and minimal K-type input remain explicitly G3, beyond Langlands classification alone. Checked against Lemma 9.4, pp. 76–77."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2/spectral-laplacian",
+        "verdict": "verified",
+        "note": "The PBW leading central symbol includes the rho normalization; the polynomial spectral lower bound is kept with its quantitative minimal-K-type obligation G3. Checked against Lemmas 9.5–9.6, pp. 77–78."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2/approximate-division",
+        "verdict": "verified",
+        "note": "Checked both left and right recursions, including the omitted lower-order cross term; the support separation and delta<1/2 control inversion losses. Checked against Lemma 10.1 and Remark 10.2, pp. 79–80."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2/eigenfunctional-localization",
+        "verdict": "verified",
+        "note": "Finite-order p and the eigenfunctional identity give polynomial spectral decay; inversion off its support upgrades to arbitrary h powers with uniform input seminorms. Checked against Lemma 10.3, pp. 80–81."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.2/joint-localization",
+        "verdict": "verified",
+        "note": "The factorization is H times H equivariant, and G and H central polynomials use their own infinitesimal parameters. This supplies both spectral weights. Checked against Lemma 10.4 and equations (10.11)–(10.14), pp. 81–82."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/orbital-measure",
+        "verdict": "verified",
+        "note": "The Liouville normalization uses sigma^d/(d!(2 pi)^d) in real measure, and d remains half the maximal orbit dimension even for an empty multiorbit. Checked against §6.1 and (6.1), pp. 41–42; §11.1, p. 83."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/orbital-radon",
+        "verdict": "verified",
+        "note": "The statement is local Radon finiteness, not finite total orbit volume. Original Ranga Rao proof remains G4. Checked against §6.1, p. 42, and §11.1, p. 83, citing Ranga Rao."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/harish-chandra-character",
+        "verdict": "verified",
+        "note": "The locally integrable distribution character and density transport are imported targets, with exact group hypotheses and original-proof obligation G4. Checked against §6.2, pp. 42–43; §12.1, p. 87."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/rossmann-character",
+        "verdict": "verified",
+        "note": "The determinant factor near the identity and orbit normalization agree with Theorem6.1; general real reductive original-proof verification remains G4. Checked against Theorem 6.1 and Remark 6.2, pp. 43–44."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/orbit-topology",
+        "verdict": "verified",
+        "note": "Weak convergence is tested on compactly supported continuous functions with the zero measure allowed. Local mass bounds, rather than global finite volume, support the tests. Checked against §11.1, Theorem 11.1 and §11.3, pp. 83–86."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/orbit-continuity",
+        "verdict": "verified",
+        "note": "The full regular-fibre criterion retains all real orbits and the correct KKS normalization. The original Rossmann continuity input remains G4. Checked against Theorem 11.1 and Lemmas 11.2–11.3, pp. 83–85; Rossmann references there."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/orbital-decay",
+        "verdict": "verified",
+        "note": "The exponent is -d-epsilon and the parameter factor is -epsilon. Fixed-representation nilpotent limits and genericity require the separately recorded wavefront input G5. Checked against Lemmas 11.4–11.6 and §§11.3–11.4, pp. 85–86."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/refined-trace",
+        "verdict": "verified",
+        "note": "The h^d trace normalization and h^j expansion weights agree with the orbit rescaling and the invariant-parameter remainder estimates. Checked against Theorem 6.3, pp. 44–45; Theorem 12.2 and §12.3, pp. 87–90."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/smooth-trace-ideals",
+        "verdict": "verified",
+        "note": "Smooth representation refinements use imported generic Schatten/HS targets. Checked p-dependent h and spectral exponents against §12 rather than reintroducing the general ideal carrier. Checked against Theorem 6.3(ii)–(iii) and Remark 6.4, pp. 44–45; Lemma 12.1 and Theorem 12.2(ii)–(vii), §§12.2–12.3, pp. 87–90."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4/uniform-k-types",
+        "verdict": "verified",
+        "note": "The K-type dimension weights and Xi matrix-coefficient estimate are the exact AppendixA inputs. The CHH primary proof remains G7. Checked against Lemma A.1 and §A.2, pp. 137–138."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4/padic-plancherel",
+        "verdict": "verified",
+        "note": "The characteristic-zero complex Hecke action, unitary tempered measure and compact-open projector normalization agree with AppendixA; general tempered classification and primary Plancherel remain requested. Checked against §A.3 and §A.4.1, pp. 138–139, citing Waldspurger."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4/plancherel-sobolev",
+        "verdict": "verified",
+        "note": "Uniform integrability needs a sufficiently high positive compact sum-of-squares power and the declared elliptic spectral weights; the absent real Plancherel supplier is G6. Checked against Lemma A.3 and §A.4.2, pp. 138–139."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4/xi-test-space",
+        "verdict": "verified",
+        "note": "Xi-weighted integrability is imposed on every left and right derivative, providing the convolution and trace estimates without an unsupported Schwartz identification. Checked against §A.5 and equation (A.5), pp. 139–140."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4/extended-plancherel",
+        "verdict": "verified",
+        "note": "The Xi-integrable test extension uses the positive approximation and Sobolev summability route, not arbitrary distributional Fourier inversion. Checked against Lemma A.4, pp. 140–141."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4/relative-character",
+        "verdict": "verified",
+        "note": "Checked conjugation in the rank-one integral and the compact isotypic trace factor 1/dim(sigma). Archimedean positivity is deliberately not asserted here; G8 records GGP convergence and multiplicity inputs. Checked against Lemma 18.1, pp. 121–122; §A.6, pp. 141–142; Remark 18.2."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.4/relative-disintegration",
+        "verdict": "verified",
+        "note": "The basis-independent trace and local Plancherel identity retain their absolute convergence and tempered assumptions, using the explicitly requested real measure in G6. Checked against Lemma 18.1(ii)–(iii), pp. 121–122; Lemma 19.1, pp. 123–124; §A.6, pp. 141–142."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/stable-criterion",
+        "verdict": "verified",
+        "note": "Disjoint ev multisets use the forced-zero and Pfaffian conventions. The algebraic GGP pair and Hilbert-Mumford inputs are supplier contracts in G8. Checked against Theorem 14.2, Definition 14.3 and Lemmas 14.4, 14.8, §§14.2–14.3, pp. 97–101; §13.4.1, p. 93."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/stable-torsor",
+        "verdict": "verified",
+        "note": "The cyclic-vector moment and Witt-extension argument needs the orientation data. Scheme smoothness and descent are honestly G9, rather than claimed from a pointwise orbit proof. Checked against Theorem 14.5 and Lemmas 14.6–14.8, pp. 99–101; §17.3, pp. 116–117."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/fibral-forms",
+        "verdict": "verified",
+        "note": "The quotient top forms, contractions and tensor powers fix the relative measure constants. Exact manifold coarea interfaces remain G11. Checked against §§16.1–16.4, pp. 108–110."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/normalized-affine-form",
+        "verdict": "verified",
+        "note": "The Cartan discriminant calculation matches the stated normalization; the global regular-form argument from Rossmann LemmaC remains G10. Checked against Lemma 16.4, Definition 16.5 and Remark 16.6 in §16.4, p. 110; Rossmann Lemma C cited there."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/three-volume-comparison",
+        "verdict": "verified",
+        "note": "Checked the relative orbit, affine-fibre and stable quotient forms with the exact H quotient data. Multiplicity-one pair geometry is still the declared G8 supplier. Checked against Theorem 16.7 and §§16.5.1–16.5.2, pp. 111–114."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/real-measure-normalization",
+        "verdict": "verified",
+        "note": "Each coordinate uses Lebesgue/sqrt(2 pi), compatibly producing the symplectic (2 pi)^-d measure rather than twice applying a normalization. Checked against §§17.1–17.2, pp. 115–116."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/stable-properness",
+        "verdict": "verified",
+        "note": "The compact stable-support properness estimate is uniform in the group variable and uses supplied KAK/root-exponential estimates, not properness on the unstable locus. Checked against Lemma 17.3, pp. 118–119."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/stable-disintegration",
+        "verdict": "verified",
+        "note": "The stable-fibre integral uses the fixed three-form compatibility. A generic measure disintegration does not supply the needed normalized coarea identity, retained as G11. Checked against Theorem 17.2 and equations (17.3)–(17.7), pp. 117–119."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/complex-plancherel-scaling",
+        "verdict": "verified",
+        "note": "The scaling claim is restricted to complex groups and boundary-null compact tests. The source Tauberian sketch remains the precise G12 obligation. Checked against Lemma 17.4 and its sketch, p. 120; §17.4 setup, p. 119."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.6/diagonal-reduction",
+        "verdict": "verified",
+        "note": "The M=S times S model and diagonal H keep the two symbol factors and d_M=dim(S), so the auxiliary orbit mass cancels h^-d_M. Checked against §19.4, equations (19.12)–(19.15), pp. 126–128."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.6/small-elements",
+        "verdict": "verified",
+        "note": "Taylor expansion uses a correctly supported small-ball cutoff and retains h^j in every coefficient; compact stable support permits uniform fibre integration. Checked against Lemma 19.5, equations (19.18)–(19.23), pp. 129–131."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.6/far-elements",
+        "verdict": "verified",
+        "note": "Intermediate and large regions use different decay mechanisms; stable properness controls the latter, while small-distance support is the complement needed for the local main term. Checked against §§19.6–19.7, equations (19.25)–(19.27), pp. 131–135."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.6/relative-expansion",
+        "verdict": "verified",
+        "note": "The product-symbol formula keeps both k tuples and the h^j coefficients with compact stable-support and seminorm-uniform remainder hypotheses. Checked against Theorem 19.3, equations (19.7)–(19.11), pp. 125–126; corrected Theorem 19.4, p. 128."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7/orbit-distinction",
+        "verdict": "verified",
+        "note": "The relative orbit is an intersection inside the same ambient g dual, and weights use the fixed regular orbit limit and quotient rescaling. Checked against §22.2 and equations (22.1)–(22.4), pp. 145–146."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7/arch-inverse",
+        "verdict": "verified",
+        "note": "The approximation preserves the additive O(h^N) error and nests the full support image inside a positive fibre-mass neighborhood. No unsupported exact domination is restored. Checked against Theorem 22.2, pp. 146–148; corrected (22.10)."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7/weyl-positive-tests",
+        "verdict": "verified",
+        "note": "Positive compact smooth tests distinguish compact tempered support and small nontempered mass using the irregular locus; the Plancherel constants match preceding layers. Checked against Lemma 22.4 and its proof, pp. 148–151."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7/good-level-invariants",
+        "verdict": "verified",
+        "note": "The good J hypothesis includes simultaneous Iwahori factorizations and normality, not mere compact openness. Casselman lifting and the exact good-level basis are requested in G13. Checked against Lemma 23.2, pp. 153–154; §§23.1–23.3, pp. 152–154."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7/l-components",
+        "verdict": "verified",
+        "note": "Finite inertial data, twists and constituents use the exact complex characteristic-zero contracts. The current GLn-only concrete centre nodes do not settle the classical-group extension G14. Checked against §§23.7–23.8, pp. 156–157; Lemmas 24.1–24.2 and §24.2, pp. 157–159."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7/allowable-weights",
+        "verdict": "verified",
+        "note": "Both approximation clauses are retained, including control of all unitary representations and positivity of the majorant; tempered-only approximation is insufficient downstream. Checked against Definition 24.3 and §24.2, pp. 159–160; §20, pp. 142–143."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7/central-approximation",
+        "verdict": "verified",
+        "note": "The proof uses Urysohn and Stone-Weierstrass with the real Bernstein involution, rather than the false bounded spherical-transform claim in the PGL2 illustration. Checked against §§24.5.1–24.5.3, Lemmas 24.6, 24.8–24.10, pp. 164–167."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.7/cuspidal-allowability",
+        "verdict": "verified",
+        "note": "The auxiliary cuspidal type supplies the fixed-level finite-family separation and all-unitary tests, with early uniform admissibility not proved circularly from the full centre. Checked against Theorem 24.5 and §§24.4–24.5.3, pp. 160–167."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/operator-state",
+        "verdict": "verified",
+        "note": "The trace-one auxiliary positive finite-rank operator yields the L1 bound, mass, smooth diagonal and central invariance. This diagonal extension is broader than the two-variable smoothing-kernel extension. Checked against §§26.1–26.3 and Lemma 26.2, pp. 172–176."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/limit-state",
+        "verdict": "verified",
+        "note": "A common subsequence is chosen over all tuple lengths and a dense Schwartz set. The k-variable maps are multilinear and their limit equals the one-symbol product state. Checked against Theorem 26.4 and Lemma 26.3, pp. 176–178."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/state-disintegration",
+        "verdict": "verified",
+        "note": "RMK provides positive functionals only after the product-space kernel and continuous representative arguments. Those additional inputs remain G15; full-centralizer invariance is retained. Checked against Theorem 26.5 and (26.8)–(26.12), pp. 178–179."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/regular-nilpotent-rigidity",
+        "verdict": "verified",
+        "note": "The full regular nilpotent centralizer, including the reductive centre, is required. Algebraically closed adapted triples alone do not give the real criterion; G16 records the missing argument. Checked against Lemma 27.5 and Lemma 27.12, pp. 183, 186."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/real-algebraic-connectedness",
+        "verdict": "verified",
+        "note": "The hypothesis is algebraic simply connected semisimple, not topological simple connectedness of an already connected Lie group. The exact Cartan input is G17. Checked against Proof of Lemma 27.11, p. 185, citing É. Cartan."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/unipotent-invariant-measures",
+        "verdict": "verified",
+        "note": "Ratner is applied after fixed-level ergodic decomposition on real lattice quotients. The Borel-density/reductivity and adelic bridge beyond the supplier is explicitly G18. Checked against Theorem 27.7 and Lemmas 27.8–27.11, pp. 183–186."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/component-comparison",
+        "verdict": "verified",
+        "note": "The pinned Spin kernel and current R/Qp table are imported. Definite real and anisotropic binary images are kept distinct; general completions, rational spinor images and the SU kernel remain G19. Checked against Lemma 27.3, Lemma 27.4 and their proofs, pp. 181–183."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.8/global-equidistribution",
+        "verdict": "verified",
+        "note": "Checked §25.7 global assumptions and the exceptional SO3/SO2 self-twist exclusion. The equality compares averages normalized by the two Tamagawa volumes. Checked against Theorem 27.1, pp. 180–183; §25.7, pp. 171–172; corrected exceptional hypothesis recorded in extraction E1."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/period-functional",
+        "verdict": "verified",
+        "note": "Rank-one projected norms and polarization count spectral multiplicity. The normalized scalar is defined only where the supplied GGP factors determine it; no positivity assumption on the real local construction is smuggled in. Checked against §§28.1–28.3 and (28.1)–(28.6), pp. 187–189."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/period-parseval",
+        "verdict": "corrected",
+        "note": "Restricted the source-backed identity to smoothing operators, whose two-variable kernel is smooth. Added G20 for the smooth spectral expansion, polynomial counting and restriction estimates absent from the current AS.4 statement. Checked against §28.1, equation (28.3), p. 187; §29.2 and equation (29.2), p. 190."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/spectral-truncation",
+        "verdict": "corrected",
+        "note": "Repaired the polynomial counting step for arbitrary open U by first cutting to relatively compact U0 and summing the discarded spectral tail. The HS inequality uses T1* T1. G20 records the spectral supplier extension. Checked against Theorem 29.1 and §§29.2–29.4, pp. 190–193."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/weighted-asymptotic",
+        "verdict": "verified",
+        "note": "The formula includes multiplicity, fixed outside-R condition, allowable auxiliary weights and corrected global hypotheses. Residual errors are summed before h tends to zero, and approximation tolerance tends to zero afterwards. Checked against Theorem 30.1, Definition 30.2 and Lemmas 30.3–30.6, pp. 194–200."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.3/smooth-trace-class",
+        "verdict": "verified",
+        "note": "The smooth T_p topology is a commutator refinement of imported generic ideals; compact p=infinity is distinguished from all bounded operators. Three tests distinguish commutator smoothness and ideal normalization. Checked against §12.1, p. 87; Theorem 12.2, equations (12.5)–(12.9), pp. 88–90."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.5/relative-fibres",
+        "verdict": "verified",
+        "note": "Both invariant equations are imposed on one ambient covector, not independent coordinates in a product. Joint-fibre Lean examples detect this distinction. Checked against §14.3, pp. 99–101; §§16.5, 17.3 and 19.3, pp. 110–111, 116–118, 124–126."
+      },
+      {
+        "nodeId": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.9/stable-neighborhoods",
+        "verdict": "verified",
+        "note": "Nested precompact neighborhoods express the closure/interior conditions explicitly, and orbit continuity plus stable submersion excludes the non-distinguished tempered tail. Checked against Lemma 30.3, p. 195; Definition 30.2, p. 195 (closure/interior conditions expressed without its nontransitive shorthand)."
       }
     ]
   }

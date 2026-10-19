@@ -31,7 +31,8 @@
       "requires": [
         "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups:QO.0",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-3-the-lie-functor-and-baker-campbell-hausdorff",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad"
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-1-the-adjoint-representations-ad-and-ad",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ"
       ]
     },
     {
