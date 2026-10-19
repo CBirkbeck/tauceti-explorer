@@ -151696,6 +151696,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~adv.md"
+  },
+  {
+   "id": "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ComplexMultiplicationAndExplicitReciprocity"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3.md",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/review.json",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/README.md",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3.md"
   }
  ]
 }
