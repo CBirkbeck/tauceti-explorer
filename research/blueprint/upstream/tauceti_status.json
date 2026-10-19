@@ -1546,13 +1546,14 @@
     "RelativeFarguesFontaine": {
       "stage": "pr",
       "pr": 1209,
-      "head": "1e0dc5b",
+      "head": "b61b51d",
       "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
       "review": {
         "recommendation": null,
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at b61b51d; confirmation pass pending"
       }
     },
     "GeneralAlgebraicKTheory": {
