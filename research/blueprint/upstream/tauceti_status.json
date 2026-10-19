@@ -1235,13 +1235,14 @@
     "PrismaticCohomologyPartIII": {
       "stage": "pr",
       "pr": 1070,
-      "head": "c571b46",
+      "head": "202bcbf",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 36); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 202bcbf; confirmation pass pending"
       }
     },
     "GL2ModularityLifting": {
