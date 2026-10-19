@@ -5152,5 +5152,11 @@
  "REV-PKG-SpecialValuesBirchTate~adv": 10960,
  "REV-EulerSystemsAndKolyvaginSystems--ES.0~4": 10961,
  "REV-ExcursionOperatorsAndSpectralAction--ES0~4": 10963,
- "REV-NoncommutativeAndEquivariantIwasawa~3": 10964
+ "REV-NoncommutativeAndEquivariantIwasawa~3": 10964,
+ "BP-EulerSystemsAndKolyvaginSystems--ES.0~5": 10988,
+ "FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv": 10989,
+ "FIX-PKG-ModularIwasawaMainConjectures~adv": 10990,
+ "FIX-PKG-SpecialValuesBirchTate~adv": 10991,
+ "REV-EulerSystemsAndKolyvaginSystems--ES.0~5": 10992,
+ "REV-PKG-K3BlochGroups~adv": 10993
 }
