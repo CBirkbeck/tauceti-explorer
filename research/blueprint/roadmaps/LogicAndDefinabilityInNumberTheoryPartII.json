@@ -21,7 +21,7 @@
     {
       "key": "FG.0",
       "title": "Uniform arithmetic predicates",
-      "description": "Fix the field hypotheses H_d and fixed-arity definable families. Obtain uniform formulas for Kronecker dimension, constants, relatively algebraically closed global subfields and independence over them. Define the relative constant field of a one-variable presentation. Import general interpretation syntax and valuation carriers from LD.0–LD.1.",
+      "description": "Fix the field hypotheses H_d and fixed-arity definable families. Import the independent Rumely global arithmetic formulas before using them to filter constants. Obtain uniform formulas for Kronecker dimension, constants, relatively algebraically closed global subfields and independence over them. Define the relative constant field of a one-variable presentation. Import general interpretation syntax and valuation carriers from LD.0–LD.1.",
       "requires": [
         "FunctionFieldArithmetic:FA.5",
         "HigherLocalFieldsAndHigherClassFieldTheory:HL.6",
@@ -31,7 +31,9 @@
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-0-function-fields-constant-fields-and-places",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-2-affine-models--the-dedekind-bridge",
         "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
-        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy",
+        "LogicAndDefinabilityInNumberTheory:LD.1",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension"
       ]
     },
     {
@@ -48,7 +50,8 @@
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
         "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences",
-        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles"
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-6-additive-strong-approximation-and-ideles",
+        "tauceti:TauCetiRoadmap/GlobalQuadraticForms#layer-5-hasseminkowski-isotropy"
       ]
     },
     {

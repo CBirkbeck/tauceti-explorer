@@ -30,7 +30,7 @@ All page numbers for Dittmann–Pop refer to the final author version dated 27 A
 
 ### From Mathlib
 
-Use `FirstOrder.Language.ring`, with addition, multiplication, negation, zero and one; inverse is not a symbol. Use `FirstOrder.Ring.compatibleRingOfRing` to give an actual field the matching first-order structure, and `FirstOrder.Language.Sentence.Realize` for sentence truth. `Set.Definable` and `Set.Definable₁` supply the finite-tuple and single-coordinate parameterized predicates. `Field.FG` uses a finite subfield-generating set, not a finite subring-generating set. Normalizations, subrings and valuation subrings keep the existing algebraic carriers.
+Use `FirstOrder.Language.ring`, with addition, multiplication, negation, zero and one; inverse is not a symbol. Use `FirstOrder.Ring.compatibleRingOfRing` to give an actual field the matching first-order structure, and `FirstOrder.Language.Sentence.Realize` for sentence truth. `Set.Definable` and `Set.Definable₁` supply the finite-tuple and single-coordinate parameterized predicates. `Field.FG` uses a finite subfield-generating set, not a finite subring-generating set. `FiniteField.ringEquivOfCardEq` identifies two fields with Fintype instances and equal cardinality; exact-cardinality witnesses supply those instances in Layer 7. Normalizations, subrings and valuation subrings keep the existing algebraic carriers.
 
 ### From Tau Ceti
 
@@ -58,13 +58,13 @@ For dimension-two curves, use n_symbol=2 outside characteristic two and n_symbol
 
 ### From arithmetic geometry
 
-A0-extension/arithmetic-normalization makes normalization finite for the excellent bases O_κ[T] and κ[T], also in an inseparable finite field extension. Its formal-étale comparison must identify the completion at a chosen finite étale point with k_ε[[π₂,…,π_{d−1}]], compatibly embedding the function field in an ordered iterated Laurent series field. The residue extension k_ε/k₁ is finite separable; all chosen shifted parameters form a regular parameter system.
+A0-extension/arithmetic-normalization makes normalization finite for the excellent bases O_κ[T] and κ[T], also in an inseparable finite field extension. Its formal-étale comparison must identify the completion at a chosen finite étale point with k_ε[[π₂,…,π_{d−1}]], compatibly embedding the function field in an ordered iterated Laurent series field. The residue extension k_ε/k₁ is finite separable; all chosen shifted parameters form a regular parameter system. The same higher-dimensional étale completion comparison is requested for Poonen’s smooth specializations in Layer 0; the affine-curve contract alone does not provide it.
 
 A0-extension/valuation-prolongation-integrality states that the integral closure of an intersection of valuation rings in a finite field extension is the intersection of all their prolongations. It must not require that the fraction field of the original intersection be the full base field. A0-extension/root-coefficient-descent treats all roots, including multiplicities, in descending integrality to monic coefficients. R03.3/normal-height-one-intersection gives the intersection of the height-one DVR local rings of a normal Noetherian domain, with the field/empty-intersection case included.
 
 GlobalNumberFields Layer 6 must include approximation off a specified finite place with both finite-place and archimedean open conditions, together with integrality at every other finite place. This is the exact number-field input for the nice-tail construction. Layer 1 supplies ordinary finite weak approximation. The function-field version is supplied by the existing declaration above. Chebotarev Layer 10 and FA.5 must give infinitely many split places avoiding a finite forbidden set; FA.5 retains the constant-field degree congruence.
 
-GlobalQuadraticForms Layer 5 supplies Hasse–Minkowski and the norm criterion for the two-fold tail, with real-place conditions retained. Its consequence that sums of squares in a number field are sums of at most four squares is used only to bound the length of a real-preordering formula. Current RealAlgebraicGeometry Layer 1 supplies extension of proper field preorderings to orderings.
+GlobalQuadraticForms Layer 5 currently supplies the number-field Hasse–Minkowski target, with real-place conditions retained. Request from that owner the global-function-field extension, including characteristic-two nonsingular quadratic forms, local isotropy bounds and the even-valuation norm criterion for unramified quadratic extensions. The existing roadmap explicitly excludes characteristic two; this extension remains a supplier request. Its consequence that sums of squares in a number field are sums of at most four squares is used only to bound the length of a real-preordering formula. Current RealAlgebraicGeometry Layer 1 supplies extension of proper field preorderings to orderings.
 
 ## How to read the build
 
@@ -154,7 +154,21 @@ Check in particular: Dim₀ holds on finite fields and fails on Q. Do not replac
 
 Build this from `Field.FG`; QuadraticFormInvariantsPartII Q2.5 / kronecker-dimension; QuadraticFormInvariantsPartII Q2.5 / transcendental-ci; LogicAndDefinabilityInNumberTheory LD.0.
 
-### 0.4 characteristic-zero constants from elliptic probes
+### 0.4 global arithmetic formula inputs
+
+In the class of global fields, one fixed-arity formula family exhausts the nontrivial finite valuation rings, with every fiber either such a ring or empty. Number fields are first-order distinguishable from global function fields. The integer ring of a number field and the finite constant field of a global function field are uniformly definable; with a suitable transcendental parameter in a global function field, the polynomial subring and the powers needed for arithmetic sequence coding are definable.
+
+The function-field polynomial subring is the distinguished rational polynomial ring in the chosen parameter, not automatically the full ring of functions regular outside an arbitrary point.
+
+Establish these formulas first in an ambient global field, using the Rumely contracts cited by Poonen Theorem 2.2. A finite selector combines the finite collection of valuation predicates into one family. Later consumers relativize the formulas to an already definable global subfield using LD.0. This input does not depend on constructing that subfield family. The primary proof audit remains G-RUM.
+
+Check in particular: The valuation family for a number field includes all finite primes, not its real orderings. The polynomial-ring assertion must retain its distinguished transcendental parameter.
+
+(Bjorn Poonen, Theorem 2.2, pp.3–4; AKNS, Lemmas 3.7–3.8, pp.22–23; Dittmann–Pop, Remark 4.4, p.15 and Proposition 5.1, pp.15–17.)
+
+Build this from LogicAndDefinabilityInNumberTheory LD.0; LogicAndDefinabilityInNumberTheory LD.1.
+
+### 0.5 characteristic-zero constants from elliptic probes
 
 There is one ring formula C₀(x) defining the relative algebraic closure κ of Q in every finitely generated characteristic-zero field K and defining the empty set in positive characteristic.
 
@@ -170,9 +184,9 @@ Check in particular: For K=Q(t), the output is Q, not Q(t). The same formula has
 
 (Bjorn Poonen, Lemmas 3.2–3.7, pp.4–5.)
 
-Build this from Layer 0, fixed arithmetic dimension is first-order; QuadraticFormInvariantsPartII Q2.1 / quadratic-pfister; GlobalQuadraticForms layer-5-hasseminkowski-isotropy; Chebotarev layer-10-dirichlet-density-chebotarev; LogicAndDefinabilityInNumberTheory LD.0.
+Build this from Layer 0, fixed arithmetic dimension is first-order; QuadraticFormInvariantsPartII Q2.1 / quadratic-pfister; GlobalQuadraticForms layer-5-hasseminkowski-isotropy; Chebotarev layer-10-dirichlet-density-chebotarev; LogicAndDefinabilityInNumberTheory LD.0; Layer 0, global arithmetic formula inputs.
 
-### 0.5 global function subfields from elliptic twists
+### 0.6 global function subfields from elliptic twists
 
 There is a fixed-arity ring-definable family whose members, in every finitely generated positive-characteristic K, are exactly its relatively algebraically closed global function subfields. For finite K that family is empty.
 
@@ -190,9 +204,9 @@ Check in particular: For F₂(s, t), every relative closure of F₂(as+bt) with 
 
 (Bjorn Poonen, Proposition 4.10 and Lemmas 4.1–4.9, pp.6–11; Appendix A, pp.13–14.)
 
-Build this from Layer 0, fixed arithmetic dimension is first-order; QuadraticFormInvariantsPartII Q2.5 / transcendental-ci; AlgebraicCurves layer-2-affine-models--the-dedekind-bridge; LogicAndDefinabilityInNumberTheory LD.0.
+Build this from Layer 0, fixed arithmetic dimension is first-order; QuadraticFormInvariantsPartII Q2.5 / transcendental-ci; AlgebraicCurves layer-2-affine-models--the-dedekind-bridge; LogicAndDefinabilityInNumberTheory LD.0; AlgebraicModuliForArithmeticGeometry A0-extension / arithmetic-normalization and the higher-dimensional formal-étale completion request.
 
-### 0.6 uniform definition of the constant field
+### 0.7 uniform definition of the constant field
 
 One parameter-free ring formula C(x) defines κ, the relative algebraic closure of the prime field, in every finitely generated field K, including finite K.
 
@@ -206,11 +220,11 @@ Use the Rumely global constant-field formula inside each interpreted subfield; i
 
 Check in particular: For K=F₉, C defines all of K; for F₉(t), exactly F₉.
 
-(Bjorn Poonen, Theorem 1.3, p.2 and its proof, p.11; Theorem 2.2, p.3.)
+(Bjorn Poonen, Theorem 1.3, p.2 and its proof, p.11; Theorem 1.1, p.1; Theorem 2.2, pp.3–4.)
 
-Build this from Layer 0, characteristic-zero constants from elliptic probes; Layer 0, global function subfields from elliptic twists; LogicAndDefinabilityInNumberTheory LD.0.
+Build this from Layer 0, characteristic-zero constants from elliptic probes; Layer 0, global function subfields from elliptic twists; LogicAndDefinabilityInNumberTheory LD.0; Layer 0, global arithmetic formula inputs.
 
-### 0.7 uniform maximal global subfields
+### 0.8 uniform maximal global subfields
 
 On every infinite finitely generated field K, the relatively algebraically closed global subfields form a uniform definable family. In characteristic zero its unique member is κ; in positive characteristic it is the preceding family.
 
@@ -226,7 +240,7 @@ Check in particular: For Q(s, t), κ is a number field and is the only allowed g
 
 Build this from Layer 0, uniform definition of the constant field; Layer 0, global function subfields from elliptic twists; Layer 0, uniform definable families with empty fibers.
 
-### 0.8 uniform relative and absolute algebraic independence
+### 0.9 uniform relative and absolute algebraic independence
 
 For each fixed n, algebraic dependence of n elements over a named relatively closed global subfield L is expressed by a ring formula with its subfield predicate. Algebraic dependence over the prime field is also uniformly expressible in every finitely generated field. Negating these formulas defines independence.
 
@@ -234,7 +248,7 @@ For the relative assertion K/L is finitely generated and L is relatively algebra
 
 After adjoining roots of −1 and X²+X+1, use diagonal forms with degree d=3 in characteristic two and d=2 otherwise. Dependent tuples pass the C-field/global bound.
 
-For an independent tuple pass to the maximal separable subextension over a transcendence basis, choose an étale specialization, then a global place split in its residue extension. A non-d-th-power residue and a uniformizer give the anisotropic initial form. Append the regular parameters using the distinct-values-mod-d argument of Appendix A.4–A.5.
+For n=0 choose the always-false dependence formula: the empty tuple is independent, including over finite fields. For n≥1 and an independent tuple pass to the maximal separable subextension over a transcendence basis, choose an étale specialization, then a global place split in its residue extension. A non-d-th-power residue and a uniformizer give the anisotropic initial form. Append the regular parameters using the distinct-values-mod-d argument of Appendix A.4–A.5.
 
 Purely inseparable descent uses odd-degree quadratic descent or degree-three descent across quadratic extensions. These degree-three inputs use the all-degree diagonal-form theory, not only quadratic Pfister theory.
 
@@ -244,9 +258,9 @@ Check in particular: Over Q, (s, s²) is dependent and (s, t) independent in Q(s
 
 (Bjorn Poonen, Lemma 5.3 and proof of Theorem 1.4, pp.11–12; Appendix A, pp.13–14.)
 
-Build this from Layer 0, uniform maximal global subfields; Layer 0, uniform definition of the constant field; QuadraticFormInvariantsPartII Q2.5 / transcendental-ci; AlgebraicCurves layer-2-affine-models--the-dedekind-bridge; Chebotarev layer-10-dirichlet-density-chebotarev; FunctionFieldArithmetic FA.5 / degree-sensitive-chebotarev; GlobalQuadraticForms layer-5-hasseminkowski-isotropy; LogicAndDefinabilityInNumberTheory LD.0.
+Build this from Layer 0, uniform maximal global subfields; Layer 0, uniform definition of the constant field; QuadraticFormInvariantsPartII Q2.5 / transcendental-ci; AlgebraicCurves layer-2-affine-models--the-dedekind-bridge; Chebotarev layer-10-dirichlet-density-chebotarev; FunctionFieldArithmetic FA.5 / degree-sensitive-chebotarev; GlobalQuadraticForms layer-5-hasseminkowski-isotropy; LogicAndDefinabilityInNumberTheory LD.0; AlgebraicModuliForArithmeticGeometry A0-extension / arithmetic-normalization and the higher-dimensional formal-étale completion request.
 
-### 0.9 the relative constant field k_t
+### 0.10 the relative constant field k_t
 
 Let k₁⊂K be a relatively closed global subfield and u=(u₂,…, u_{d−1}) be algebraically independent over it. Set t_i=u_i²−u_i and k_t to be the relative algebraic closure of k₁(t) in K. Then k_t=k_u and K/k_t is a one-variable function field; k_t membership is uniformly definable at fixed d.
 
@@ -368,7 +382,7 @@ Check in particular: The tail remains anisotropic after the specified l₁ exten
 
 (Philip Dittmann and Florian Pop, Lemma 3.5, pp.9–10.)
 
-Build this from Layer 1, approximation for the selected nice tail; Layer 1, nice pfister presentations; QuadraticFormInvariantsPartII Q2.4 / independent-values.
+Build this from Layer 1, approximation for the selected nice tail; Layer 1, nice pfister presentations; QuadraticFormInvariantsPartII Q2.4 / independent-values; GlobalQuadraticForms Layer 5 and its requested function-field/characteristic-two norm extension.
 
 ### 1.4 parameters adapted to a geometric divisor
 
@@ -882,27 +896,13 @@ Use Layer 2 and the earlier internal targets cited above. The external suppliers
 
 ## Layer 4: uniform formulas for geometric prime divisors
 
-### 4.1 global arithmetic formula inputs
-
-In the class of global fields, one fixed-arity formula family exhausts the nontrivial finite valuation rings, with every fiber either such a ring or empty. Number fields are first-order distinguishable from global function fields. The integer ring of a number field and the finite constant field of a global function field are uniformly definable; with a suitable transcendental parameter in a global function field, the polynomial subring and the powers needed for arithmetic sequence coding are definable.
-
-The function-field polynomial subring is the distinguished rational polynomial ring in the chosen parameter, not automatically the full ring of functions regular outside an arbitrary point.
-
-Use Rumely Introduction I–III and the precise finite collection of global valuation predicates. A finite selector combines them into one parameter family. Relativize each formula to the chosen definable global subfield using LD.0.
-
-Check in particular: The valuation family for a number field includes all finite primes, not its real orderings. The polynomial-ring assertion must retain its distinguished transcendental parameter.
-
-(Philip Dittmann and Florian Pop, Remark 4.4, p.15; Proposition 5.1, p.16; Poonen Theorem 2.2, p.3.)
-
-Build this from Layer 0, uniform maximal global subfields; LogicAndDefinabilityInNumberTheory LD.0; LogicAndDefinabilityInNumberTheory LD.1.
-
-### 4.2 first-order niceness and unit triggers
+### 4.1 first-order niceness and unit triggers
 
 For each fixed d≥3, niceness of the global tail and the condition that every ε_i is a unit at each finite place with v(a₁)>0 are ring-formula conditions on the chosen definable global subfield and coefficient tuple. The formulas express the real-place and finite-place clauses of nice-form exactly.
 
 The tail slots are nonzero and belong to the global subfield.
 
-Quantify over the Rumely finite-valuation parameters. Dyadic means 2 lies in the maximal ideal (there are no dyadic places in characteristic two); translate v(a₀)≠0, v(a₁)<0 and unit conditions into membership and inverse membership.
+Quantify over the Rumely finite-valuation parameters. The dyadic condition is 2≠0 and 2∈m_v, so it is false in characteristic two. Translate v(a₀)≠0, v(a₁)<0 and unit conditions into membership and inverse membership, with explicit nonzero guards on inverted elements.
 
 For henselian isotropy at a rank-one place, scale the coefficients to be integral and use a primitive integral vector x and a nonzero partial derivative D: either q(x)=0 already, or v(q(x))>2v(D(x)). Hensel applied in one coordinate gives a primitive zero. Conversely approximate a nonsingular henselian zero sufficiently closely by base-field coordinates, retaining primitivity and the strict inequality. Express strict comparisons by maximal-ideal membership of quotients. In characteristic two the nonsingular quadratic tail still has a nonzero partial derivative.
 
@@ -910,13 +910,13 @@ At real places the characteristic-zero tail is diagonal with entries 1,−a₀,�
 
 The local test is a Hensel witness; an isotropic vector over the global base is not required.
 
-Check in particular: A tail isotropic over Q₂ but anisotropic over Q must pass the Q₂ test. At a real ordering with both slots negative, the tail must fail niceness. The same test works in characteristic two without diagonalizing a quadratic form.
+Check in particular: A tail isotropic over Q₂ but anisotropic over Q must pass the Q₂ test. At a real ordering with both slots negative, the tail must fail niceness. The same test works in characteristic two without diagonalizing a quadratic form. Since 2=0 then belongs to every maximal ideal, the explicit 2≠0 guard is essential to make the dyadic trigger false.
 
 (Philip Dittmann and Florian Pop, Definition 3.3, p.8; Recipe 4.3, pp.14–15.)
 
-Build this from Layer 1, nice pfister presentations; Layer 4, global arithmetic formula inputs; GlobalQuadraticForms layer-5-hasseminkowski-isotropy; LogicAndDefinabilityInNumberTheory LD.0; LogicAndDefinabilityInNumberTheory LD.1.
+Build this from Layer 1, nice pfister presentations; Layer 0, global arithmetic formula inputs; GlobalQuadraticForms layer-5-hasseminkowski-isotropy; LogicAndDefinabilityInNumberTheory LD.0; LogicAndDefinabilityInNumberTheory LD.1.
 
-### 4.3 the guarded geometric-valuation formula
+### 4.2 the guarded geometric-valuation formula
 
 At fixed d≥3 let raw_b(x) express x·b_a⊆b_a, with b_a defined using all nonzero θ in the definable relative constant field and the degree-at-most-four auxiliary root fields. Let G(b) assert all field, independence, slot, niceness and ε-unit conditions. Let V(b) assert that raw_b contains 0,1, is closed under addition, negation and multiplication, satisfies raw_b(x) or raw_b(x⁻¹) for each x≠0, and omits some element. Define val_d(x; b) to be G(b) and V(b) and raw_b(x).
 
@@ -952,9 +952,9 @@ These serve Theorem 1.3 — is the actual defining formula; Proposition 5.1 — 
 
 (Philip Dittmann and Florian Pop, Recipe 4.3, pp.14–15.)
 
-Build this from Layer 0, uniform definable families with empty fibers; Layer 0, the relative constant field k_t; Layer 1, test presentations over a global base; Layer 2, auxiliary root fields; Layer 3, the anisotropy set b_a; Layer 3, the intersection-of-rings identity; Layer 4, first-order niceness and unit triggers; LogicAndDefinabilityInNumberTheory LD.0.
+Build this from Layer 0, uniform definable families with empty fibers; Layer 0, the relative constant field k_t; Layer 1, test presentations over a global base; Layer 2, auxiliary root fields; Layer 3, the anisotropy set b_a; Layer 3, the intersection-of-rings identity; Layer 4, first-order niceness and unit triggers; LogicAndDefinabilityInNumberTheory LD.0; `TauCeti.Place.exists_ne_zero_forall_mem_ord_eq`.
 
-### 4.4 uniform geometric prime divisors in dimension at least three
+### 4.3 uniform geometric prime divisors in dimension at least three
 
 For each d≥3 there exist a natural m_d and a ring formula val_d(x; y₁,…, y_m_d) such that on every H_d field K its fibers are exactly the rings of geometric prime divisors of K, together with the empty set. In particular every such divisor ring is definable with parameters.
 
@@ -972,7 +972,7 @@ Check in particular: No resolution condition is added when d=3, even in characte
 
 Build this from Layer 4, the guarded geometric-valuation formula; Layer 3, isolation of each geometric divisor.
 
-### 4.5 dimension-two symbol and local–global inputs
+### 4.4 dimension-two symbol and local–global inputs
 
 For a smooth geometrically integral curve X over a global field k, K=k(X), put n=2 if char k≠2 and n=3 otherwise, and work first after adjoining μ₂ₙ. Degree-three symbols f∪α∪β in H³(K,μ_n^{⊗2}) are tested by whether β is a reduced norm of the prime-degree cyclic algebra (f,α)_n. The regular arithmetic surface Kato complex and the relevant local duality detect these symbols at horizontal divisors and finite arithmetic places, with an ordering-free formulation.
 
@@ -986,7 +986,7 @@ Check in particular: In characteristic two use n=3; using quadratic symbols woul
 
 Build this from HigherLocalFieldsAndHigherClassFieldTheory HL.2 / norm-residue-and-the-symbol-identification; HigherLocalFieldsAndHigherClassFieldTheory HL.6 / kato-complexes-and-boundary-square-zero; Chebotarev layer-10-dirichlet-density-chebotarev; FunctionFieldArithmetic FA.5 / degree-sensitive-chebotarev; GlobalNumberFields layer-6-additive-strong-approximation-and-ideles.
 
-### 4.6 the low-dimensional shifted-ring construction
+### 4.5 the low-dimensional shifted-ring construction
 
 For K=k(X) as above, choose f,α∈K× with α in the global base k and suitable δ∈k×. Put c_n=2n if char k≠2, and c_n=n=3 if char k=2. Let H_δ consist of β∈k× with v_s(β−1)>2v_s(c_n) at each finite base place where v_s(δ)≠0. Let H^f_{δα} be the subgroup of degree-three symbols f∪α∪β for β∈H_δ. For c∈k× and u∈K× put u_c=1+c(u−1) and u_{α, c}=u_c+αcⁿ(1−u)ⁿ. Define U^f_α by requiring that H^f_{δ*α} remain nonzero over K(ⁿ√u_c,ⁿ√u_{α, c}) for every c,δ*∈k×. On subsets of K use the shifted operations x*y=x+y−1 and x∘y=(x−1)(y−1)+1. Form X={u∈U:u*U⊆U}, then R={u∈X:u∘X⊆X}. These are fixed-arity definable predicates using the symbol-norm test.
 
@@ -1028,9 +1028,9 @@ These serve Pop Key Lemma 4.7 — constructs shifted intersections of maximal id
 
 (Florian Pop, Pop §§3B–4B, pp.2101–2107; Key Lemma 4.7, p.2106.)
 
-Build this from Layer 4, dimension-two symbol and local–global inputs; Layer 4, global arithmetic formula inputs; LogicAndDefinabilityInNumberTheory LD.0.
+Build this from Layer 4, dimension-two symbol and local–global inputs; Layer 0, global arithmetic formula inputs; LogicAndDefinabilityInNumberTheory LD.0.
 
-### 4.7 key shifted-ring identity and singleton isolation
+### 4.6 key shifted-ring identity and singleton isolation
 
 For the good choices in Pop Key Lemma 4.7, R^f_α=1+⋂_{P∈D_{f,α}}m_P, where D_{f,α} consists of horizontal places with v_P(f) not divisible by n and α not an n-th power in the residue. For any prescribed place P there are f, g=f+1 with P their sole common pole of order prime to n and a suitable α such that D_{f,α}∩D_{g,α}={P}; the product of the shifted-ideal sets, followed by subtraction of 1, gives m_P. Its multiplicative stabilizer is O_P.
 
@@ -1050,7 +1050,7 @@ Check in particular: The formula cannot assume every parameter tuple satisfies K
 
 Build this from Layer 4, the low-dimensional shifted-ring construction; `TauCeti.Place.exists_ord_eq_neg_and_forall_ne_ord_nonneg`; `TauCeti.Place.exists_ne_zero_forall_mem_ord_eq`; Layer 3, the stabilizer of a discrete ball; AlgebraicCurves layer-6-extensions-of-function-fields; LogicAndDefinabilityInNumberTheory LD.1.
 
-### 4.8 uniform geometric divisor families in dimensions one and two
+### 4.7 uniform geometric divisor families in dimensions one and two
 
 There are fixed-arity families val₁ and val₂ which, among finitely generated fields of the indicated Kronecker dimension, exhaust geometric prime divisor rings and otherwise have empty fibers. In dimension one only global function fields have geometric prime divisors; number fields contribute no nonempty fiber. In dimension two the assertion holds in every characteristic without resolution.
 
@@ -1066,7 +1066,7 @@ Check in particular: For Q there are no geometric fibers; for F_q(t) all finite 
 
 (Philip Dittmann and Florian Pop, Remark 4.4, p.15; Pop Theorem 1.2, p.2093 and Conclusion 5.2, p.2110.)
 
-Build this from Layer 4, global arithmetic formula inputs; Layer 4, key shifted-ring identity and singleton isolation; Layer 0, uniform maximal global subfields; Layer 0, fixed arithmetic dimension is first-order; AlgebraicCurves layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts.
+Build this from Layer 0, global arithmetic formula inputs; Layer 4, key shifted-ring identity and singleton isolation; Layer 0, uniform maximal global subfields; Layer 0, fixed arithmetic dimension is first-order; AlgebraicCurves layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts.
 
 ### Examples
 
@@ -1116,21 +1116,21 @@ These serve Proposition 5.1 — provides a definable finitely generated ring ins
 
 (Philip Dittmann and Florian Pop, Proposition 5.1, pp.15–16.)
 
-Build this from Layer 0, uniform definition of the constant field; Layer 4, global arithmetic formula inputs; AlgebraicModuliForArithmeticGeometry A0-extension / arithmetic-normalization.
+Build this from Layer 0, uniform definition of the constant field; Layer 0, global arithmetic formula inputs; AlgebraicModuliForArithmeticGeometry A0-extension / arithmetic-normalization.
 
 ### 5.2 finite normalizations with full fraction field
 
-For every such K, T, R_T is a normal finitely generated domain, finite as an A[T]-module, and its fraction field in K is K. The analogous assertions hold for S_T over κ[T].
+For every such K,T, R_T is a normal domain, finite as an A[T]-module and finitely generated as a ring, with fraction field K inside K. The normal domain S_T is finite as a κ[T]-module and finitely generated as a κ-algebra, with the same fraction field K. Finite generation of S_T as a ring is not asserted in characteristic zero.
 
 K/κ(T) is finite, possibly inseparable.
 
 Import arithmetic-normalization for the excellent bases A and κ; the finite-normalization theorem does not require a separating transcendence basis.
 
-A is finitely generated over the prime ring, hence a finite A[T]-module is finitely generated as a ring.
+A is finitely generated over the prime ring, hence a finite A[T]-module is finitely generated as a ring. The corresponding argument for S_T gives finite generation as a κ-algebra; κ need not be finitely generated as a ring.
 
 For x∈K, clear the denominators in a monic equation over κ(T) after scaling x by a nonzero element of A[T]; this produces b≠0 with bx∈R_T. The same argument applies to S_T.
 
-Check in particular: For inseparable finite extensions the finiteness statement remains required.
+Check in particular: For inseparable finite extensions the finiteness statement remains required. For K=Q(t) and T={t}, R_T=Z[t] is finitely generated as a ring, whereas S_T=Q[t] is not; S_T is finite over κ[T].
 
 (Philip Dittmann and Florian Pop, Proposition 5.1, p.16.)
 
@@ -1192,7 +1192,7 @@ These serve Lemma 5.3 — defines the arithmetic intersection; Remark 5.4 — bo
 
 (Philip Dittmann and Florian Pop, Fact 5.2 and Proposition 5.1, pp.16–17.)
 
-Build this from Layer 5, arithmetic and geometric normalizations; Layer 4, uniform geometric prime divisors in dimension at least three; Layer 4, uniform geometric divisor families in dimensions one and two; Layer 4, global arithmetic formula inputs; LogicAndDefinabilityInNumberTheory LD.1.
+Build this from Layer 5, arithmetic and geometric normalizations; Layer 4, uniform geometric prime divisors in dimension at least three; Layer 4, uniform geometric divisor families in dimensions one and two; Layer 0, global arithmetic formula inputs; LogicAndDefinabilityInNumberTheory LD.1.
 
 ### 5.5 full flags refine pole-detecting divisors
 
@@ -1270,7 +1270,7 @@ Check in particular: In Q(s), this gives Z[s]; the geometric intersection alone 
 
 (Philip Dittmann and Florian Pop, Proposition 5.1 and Remark 5.4, pp.16–17.)
 
-Build this from Layer 5, finite normalizations with full fraction field; Layer 5, geometric height-one intersection; Layer 5, arithmetic normalization as a composite-valuation intersection; Layer 4, global arithmetic formula inputs; LogicAndDefinabilityInNumberTheory LD.0; LogicAndDefinabilityInNumberTheory LD.1.
+Build this from Layer 5, finite normalizations with full fraction field; Layer 5, geometric height-one intersection; Layer 5, arithmetic normalization as a composite-valuation intersection; Layer 0, global arithmetic formula inputs; LogicAndDefinabilityInNumberTheory LD.0; LogicAndDefinabilityInNumberTheory LD.1.
 
 ### Examples
 
@@ -1304,7 +1304,7 @@ Check in particular: For an order enlarged by finitely many inverses, the least-
 
 (Matthias Aschenbrenner, Anatole Khélif, Eudes Naziazeno and Thomas Scanlon, AKNS Lemmas3.7–3.8, pp.22–23; Corollary2.24 and its proof, pp.17–19.)
 
-Build this from Layer 4, global arithmetic formula inputs; LogicAndDefinabilityInNumberTheory LD.0.
+Build this from Layer 0, global arithmetic formula inputs; LogicAndDefinabilityInNumberTheory LD.0.
 
 ### 6.2 finiteness of the relative arithmetic core
 
@@ -1458,7 +1458,7 @@ q is a fixed prime power, q≥2; the finite conjunction is constructed separatel
 
 Write the exact-cardinality sentence using q variables and all finitely many disequalities.
 
-A finite field of order q is unique up to isomorphism; import that standard classification rather than choosing an arbitrary ring of that cardinality.
+The exact-cardinality witnesses supply a Fintype presentation. Apply the pinned `FiniteField.ringEquivOfCardEq` to identify any field model with F_q; this uses field axioms as well as cardinality.
 
 The interface consists of the following operations and comparisons.
 
@@ -1482,7 +1482,7 @@ These serve Theorem 1.1 — handles δ=0 independently; The final characterizing
 
 (Philip Dittmann and Florian Pop, Theorem 1.1, p.2, finite-field case.)
 
-Build this from `FirstOrder.Language.ring`; LogicAndDefinabilityInNumberTheory LD.0.
+Build this from `FirstOrder.Language.ring`; `FiniteField.ringEquivOfCardEq`; LogicAndDefinabilityInNumberTheory LD.0.
 
 ### 7.4 a single field axiom in every characteristic
 
