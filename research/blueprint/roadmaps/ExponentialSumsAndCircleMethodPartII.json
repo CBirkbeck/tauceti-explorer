@@ -1,0 +1,212 @@
+{
+  "id": "ExponentialSumsAndCircleMethodPartII",
+  "title": "Exponential sums, decoupling and the circle method, Part II: geometric arcs and mapping-space cohomology",
+  "area": "functionfields",
+  "parent": "ExponentialSumsAndCircleMethod",
+  "summary": "This continuation constructs the geometric circle method for polynomial maps to smooth affine hypersurfaces, with rank-Hankel arc strata, compact-support Fourier complexes, signed configuration-space first pages and monodromy parity. It separates independent dimension, polynomial-counting and prime-choice prefixes from the parent arithmetic estimates. Conservative comparison and irreducibility ranges are distinguished from unproved sharper targets. Explicit infinity-germ obstructions and controlled collars delimit a conditional, rather than unconditional, mapping-space degeneration argument.",
+  "readme": "See research/blueprint/readmes/ExponentialSumsAndCircleMethodPartII.md for conventions, every target, proof plan, API, discriminating checks, sources and unresolved gates. GCM.0–2 are independent prefixes; the parent field records lineage, and only the explicit stage edges describe execution order.",
+  "prerequisites": [
+    "SchemeAndStackFoundations",
+    "EtaleDualityAndPerverseSheaves",
+    "FiniteFieldsAndCharacterSums",
+    "ExponentialSumsAndCircleMethod",
+    "LefschetzPencilsAndVanishingCycles",
+    "tauceti:TauCetiRoadmap/AlgebraicTopology",
+    "FunctionFieldArithmetic"
+  ],
+  "stages": [
+    {
+      "key": "GCM.0",
+      "title": "Affine dimension and degree geometry",
+      "description": "Export componentwise codimension bounds, the affine intersection inequality, constructible fibre-dimension strata, and the finite-projection/degree contract needed by polynomial counting. This is an independent geometry prefix. Its only external mathematical input is scheme/commutative-algebra foundations; it has no arithmetic circle-method, configuration or mapping-space input.",
+      "requires": [
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "GCM.1",
+      "title": "Polynomial boxes over a function field",
+      "description": "For V in affine N-space over F_q(T), bound polynomial points of strict height less than q^h by C(degree V,N) q^(h dim V), uniformly in q and coefficients. Treat empty and zero-dimensional V and nonpositive h explicitly. The BV15 projection and height-uniformity proof audit is a recorded gap. This independent prefix exports polynomialbox to ES.0 and to ES.5 separately.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.0"
+      ]
+    },
+    {
+      "key": "GCM.2",
+      "title": "Admissible coefficient and residue primes",
+      "description": "Choose arbitrarily large coefficient primes of order two modulo a fixed odd characteristic. For a fixed coefficient prime choose arbitrarily large good residue characteristics in which it is a nonsquare and has even order, avoiding a prescribed finite bad set. Use the pinned Dirichlet and reciprocity theorems; no late geometric or arithmetic estimates enter.",
+      "requires": []
+    },
+    {
+      "key": "GCM.3",
+      "title": "Polynomial maps and compact-support Fourier transform",
+      "description": "Represent fixed-leading-vector polynomial maps as a coefficient scheme, obtain the component dimension lower bound, prove smoothness and geometric irreducibility of the projective closure, and construct the residue phase and its Artin–Schreier compact-support transform. Identify the mapping-scheme cohomology by Fourier orthogonality, with coefficient extension, shift and twist fixed.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.0",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "FiniteFieldsAndCharacterSums:FF.2"
+      ]
+    },
+    {
+      "key": "GCM.4",
+      "title": "Hankel rank arcs and rational approximation",
+      "description": "Define the saturated rank-Hankel filtration, prove closedness, nesting and the ceiling threshold at odd kd, and establish existence and uniqueness of reduced Padé data on exact strata. Construct the good-arc chart and its regular inverse and prove the dimension bound.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.0",
+        "ExponentialSumsAndCircleMethodPartII:GCM.3"
+      ]
+    },
+    {
+      "key": "GCM.5",
+      "title": "Major-arc complexes and signed configuration descent",
+      "description": "Cancel bad arcs and repeated denominators, divide polynomials by a monic denominator, compute the affine-fibre shift, and factor the reduced phase by CRT. Identify the one-root complex with trace-reduced hypersurface cohomology and descend along the ordered-root torsor. Prove concentration in degree n−1 and the exact signed, twisted stratum formula for 0≤m≤d.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.3",
+        "ExponentialSumsAndCircleMethodPartII:GCM.4",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.4",
+        "FiniteFieldsAndCharacterSums:FF.2",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+      ]
+    },
+    {
+      "key": "GCM.6",
+      "title": "Universal pairs and monodromy parity",
+      "description": "Construct the universal smooth polynomial/nonzero boundary-vector parameter space and its lisse middle cohomology extension. Prove the relevant fundamental-group surjections and specialize the companion universal-monodromy theorem to an element with eigenvalues −1, retaining the two cubic exceptions. Compute relative stratum cohomology for m≤d.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.5",
+        "EtaleDualityAndPerverseSheaves:EDC.4",
+        "LefschetzPencilsAndVanishingCycles:LPV.5"
+      ]
+    },
+    {
+      "key": "GCM.7",
+      "title": "Finite arc filtration and the first page",
+      "description": "Adapt the existing Mathlib spectral-object carrier to a finite localization filtration, including its abutment and functoriality. Construct absolute and relative major-arc spectral sequences, with differential degree (r,1−r). Derive odd-page vanishing from relative monodromy and give the normalized first page including every shift, Tate twist and symmetric-group sign.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.5",
+        "ExponentialSumsAndCircleMethodPartII:GCM.6",
+        "EtaleDualityAndPerverseSheaves:EDC.0"
+      ]
+    },
+    {
+      "key": "GCM.8",
+      "title": "Geometric Weyl differencing",
+      "description": "Define k-indexed differencing loci and extended cohomological degree. Use coefficient-field conjugation, Künneth, finite-type fibre-dimension strata and detection at all closed points to prove the geometric Weyl inequality. Retain k as data when the actual polynomial degree drops, and retain minus infinity for acyclic complexes.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.0",
+        "ExponentialSumsAndCircleMethodPartII:GCM.2",
+        "ExponentialSumsAndCircleMethodPartII:GCM.3",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "FiniteFieldsAndCharacterSums:FF.2"
+      ]
+    },
+    {
+      "key": "GCM.9",
+      "title": "Minor arcs with a controlled remainder",
+      "description": "Import the parent ES.0–1 polarization, shrinking and all-extension polynomial count. Deduce differencing-dimension and stalk bounds, cover the minor arcs through ceil(kd/2)−1, and retain the remainder in division by k−1. Prove conservative vanishing above 2dn+4(k−1)−4 floor(d/(k−1))(n/2^k−k+1). Keep the printed +4 bound as an open target.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.1",
+        "ExponentialSumsAndCircleMethodPartII:GCM.4",
+        "ExponentialSumsAndCircleMethodPartII:GCM.8",
+        "ExponentialSumsAndCircleMethod:ES.0",
+        "ExponentialSumsAndCircleMethod:ES.1",
+        "FiniteFieldsAndCharacterSums:FF.2"
+      ]
+    },
+    {
+      "key": "GCM.10",
+      "title": "Comparison, spreading and irreducible mapping schemes",
+      "description": "Compare the normalized major-arc complex with mapping cohomology in the conservative strict range. Spread the entire pair (f,x), choosing a coefficient prime and good closed fibre with a common lisse open. Compute first-page and abutment support, the automatic high-degree degeneration range, and irreducibility when tδ>k−1. Record the sharper printed range and unconditional E1 degeneration as distinct unproved targets.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.2",
+        "ExponentialSumsAndCircleMethodPartII:GCM.3",
+        "ExponentialSumsAndCircleMethodPartII:GCM.7",
+        "ExponentialSumsAndCircleMethodPartII:GCM.9",
+        "EtaleDualityAndPerverseSheaves:EDC.0",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity",
+        "EtaleDualityAndPerverseSheaves:EDC.6",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent"
+      ]
+    },
+    {
+      "key": "GCM.11",
+      "title": "Infinity germs and the compact-open obstruction",
+      "description": "Define the prescribed pointwise infinity germ and its compact-open topology, and prove continuity of polynomial-map inclusion in that topology. Build a shrinking phase, a smooth Fermat reference and an escaping loop. Construct the end-winding homomorphism using uniform projective charts on compact families; prove it is onto Z and obstructs the proposed compact-open double-loop comparison.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.3",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+      ]
+    },
+    {
+      "key": "GCM.12",
+      "title": "Controlled collars and the topology gate",
+      "description": "Define a fixed-radius weighted collar with normal coordinate divided by z^d uniformly close to one. Straighten on an inner disc without creating zeros and without claiming a strong deformation retract. Specialize the existing CW restriction-fibration interface to fixed-boundary extension spaces. State the missing global stronger-germ topology, algebraic inclusion continuity and double-loop equivalence as an explicit gate.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.11",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-4-cw-pairs-cellular-homology-and-cofibrations",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead"
+      ]
+    },
+    {
+      "key": "GCM.13",
+      "title": "Trace comparison and conditional degeneration",
+      "description": "Define the trace-pairing conjecture for a specified topology and continuous algebraic inclusion. Disprove its compact-open interpretation in the cubic forty-variable example. Assuming the stronger-topology comparison and the trace conjecture, import configuration/rational-loop dimension formulas to obtain the conditional E1-degeneration argument. Separate negative-degree dimension equality from the range where an actual abutment comparison is known.",
+      "requires": [
+        "ExponentialSumsAndCircleMethodPartII:GCM.10",
+        "ExponentialSumsAndCircleMethodPartII:GCM.12",
+        "EtaleDualityAndPerverseSheaves:EDC.6",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-8-relative-homotopy-hurewicz-and-whitehead",
+        "FunctionFieldArithmetic:FA.5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BS20",
+      "title": "A geometric version of the circle method",
+      "authors": "Tim Browning and Will Sawin",
+      "edition": "Annals of Mathematics 191 (2020), no.3, pp.893–948; DOI 10.4007/annals.2020.191.3.4",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n3-p04-s.pdf",
+      "sha256": "f20c87e337c054e42134bf2daf577203ce4b391e0d22ff59b9425d1249c33c53",
+      "read": "2026-10-19",
+      "readSections": [
+        "Entire published article, §§1–7 and references, pp.893–948; formula images checked at pp.903,920,934."
+      ],
+      "scope": "Primary proof source. Topology counterexamples and corrected conservative bounds are explicitly identified as additions rather than attributed theorems."
+    },
+    {
+      "id": "BV15",
+      "title": "Rational points on cubic hypersurfaces over F_q(t)",
+      "authors": "Tim Browning and Pankaj Vishe",
+      "edition": "Geometric and Functional Analysis 25 (2015), pp.671–732; public preprint arXiv:1502.00772",
+      "url": "https://arxiv.org/pdf/1502.00772",
+      "sha256": "91eb60cd3ff2448581893e19824bb2f3f2e726f283d6e8335fa4821611421e3c",
+      "read": "2026-10-19",
+      "readSections": [
+        "§2.5, Lemma 2.8 and its proof, arXiv pp.12–13."
+      ],
+      "scope": "Statement and projection proof read. Uniform projection/height proof closure is not claimed."
+    },
+    {
+      "id": "STACKS",
+      "title": "The Stacks Project: fibre dimensions and finite filtered complexes",
+      "authors": "The Stacks Project Authors",
+      "edition": "Online stable tags, accessed 2026-10-19",
+      "url": "https://stacks.math.columbia.edu",
+      "read": "2026-10-19",
+      "readSections": [
+        "Lemma 37.30.3, tag 05F9, statement and proof.",
+        "§12.24, tag 012K, Lemma 12.24.2; Lemma 12.24.13, tag 0BK5, statement and proof."
+      ],
+      "scope": "Public replacements for the constructibility input and finite-filtration convergence. Other geometric dependencies are requested explicitly from their owners."
+    }
+  ],
+  "status": "draft"
+}
