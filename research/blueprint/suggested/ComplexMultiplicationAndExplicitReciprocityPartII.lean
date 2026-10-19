@@ -36,7 +36,8 @@ theorem sum_type_agreements (g : ℕ) (hg : 1 ≤ g) (fixedType : Fin g → Bool
 /-! ## Layer 1: Integral CM and total reflex families -/
 
 /-- The total-reflex embedding set has four elements in degree four;
-its Galois orbits need not form a single field. -/
+its Galois orbits need not form a single field. The actual maximal-order
+polarization target first clears denominators of its alternating form. -/
 example : Fintype.card (Fin 2 → Bool) = 4 := by
   sorry
 
@@ -47,6 +48,8 @@ example : 2 ^ (3 - 1 : ℕ) = (4 : ℕ) := by
 /-! ## Layer 2: CM integral realizations
 The tensor functor, its integral torsor and its restricted crystalline locus are
 stated in the document, where their carriers and comparison hypotheses are specified.
+The BK specialization uses a uniformizer of the actual completed local CM model;
+Newton slopes are imported from R07.2, separately from the inertia-character stage.
 -/
 
 /-! ## Layer 3: The total reflex determinant
@@ -78,6 +81,8 @@ its integral extension, and the ramified relative determinant comparison.
 /-! ## Layer 7: Quaternionic CM points and Hodge lines
 The document uses the actual inverse-limit CM point, the Petersson line and
 relative degree [F(P):F]. Its integral Hodge-line comparison retains the different.
+Functoriality makes height constant on each reciprocity orbit; the height formula
+is required for independence across all permitted CM points.
 -/
 
 /-! ## Layer 8: Quaternionic self-intersection and adjunction -/
