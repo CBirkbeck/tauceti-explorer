@@ -33,6 +33,7 @@
         "HeckeStacksAndLocalShtukas:HS1",
         "HeckeStacksAndLocalShtukas:HS3",
         "BunGAndNewtonStrata:BG0",
+        "BunGAndNewtonStrata:BG1",
         "GeometricSatakeAndFusion:GS4:integral-dual-group",
         "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
@@ -46,6 +47,7 @@
       "title": "Quantitative stable averaging",
       "description": "Construct the finite elliptic stable average, the dual-root sequence mu_m=4m rho_dual and normalized weight multiplicity kernels. Use the existing Weyl formula and finite Fourier basis to prove a group-uniform O(1/m) kernel error, then the discriminant-weighted compact-uniform character averaging estimate.",
       "requires": [
+        "BunGAndNewtonStrata:BG1",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
         "GeometricSatakeAndFusion:GS4:integral-dual-group",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
@@ -91,6 +93,7 @@
         "ExcursionOperatorsAndSpectralActionPartII:SC1",
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic",
         "BunGAndNewtonStrata:BG0",
+        "BunGAndNewtonStrata:BG1",
         "EndoscopicTransferAndUnitaryTraceComparison:ET.0",
         "SmoothRepresentationsOfLocalGroups:SR.2",
         "ExcursionOperatorsAndSpectralAction:ES1:spectral-center"
@@ -153,7 +156,8 @@
         "§3.3, pp. 17–18: Equation (3.3.3) sign",
         "§6.4, pp. 61–62: finite length and the stated star-extension Mant functor",
         "§6.5, pp. 65–66: Theorem 6.5.2",
-        "Appendix C, p. 75: finiteness theorem C.1.1"
+        "Appendix C, p. 75: Theorem C.1.1 characterizing nonelliptic virtual representations as proper-parabolic induced combinations",
+        "Appendix A.2, p. 72: Lemma A.2.1 and the half-sum convention for the sign in (3.3.3)"
       ]
     },
     {
