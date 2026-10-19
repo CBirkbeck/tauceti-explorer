@@ -9675,7 +9675,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-19",
-    "notes": "Independent bounded continuation by Codex, session codex-YFJHa3, following checkpoint PR #10442; entire predecessor review preserved once in reviewHistory. /11: Confirmed the formal versus positive-definite analytic boundary against GZ Theorem 3.1 pp.5-6 and GSWZ v2 Theorems 3/5 p.14, Definition 2.11 pp.29-30 and Theorem 8 pp.35-36. Preserve all formal-completion, prefactor, Kummer, scalar-change and gluing gaps; no new mathematical change was established. This is not a new whole-plan audit or a claim of roadmap implementation. All seven packets validate; all seven suggested files elaborate with only their remaining admitted-declaration warnings. Completion is blocked by four queue-required packet pairs omitted from the live issue scope; no excluded file was edited. Current AT README 8.1 still restricts NDR while its signatures allow arbitrary based pairs; that upstream documentation reconciliation remains open. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    "notes": "Independent bounded review by Codex, session codex-RhP4EX, following independent-review-REV-FIX-RT-AREA-topology~4; the complete predecessor object is preserved once in reviewHistory. /11: Checked the six-export contract against GZ v1 (13)-(14), p.4 and Theorem 3.1, pp.5-6, and GSWZ v2 Theorems 3/5, p.14, Definition 2.11, pp.29-30 and Theorem 8, pp.35-36. Formal moments over a rational algebra do not imply an analytic integral for indefinite precision or the singular figure-eight matrix. Keep positive-definite analytic hypotheses, restricted root orders, normalization, coefficientwise Kummer, scalar-change and all-order gluing gaps. The excluded reader still needs its positivity qualification and p.14 locator correction. This reviews the assigned fixes, not the whole plan or its implementation. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -10410,6 +10410,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-19",
       "notes": "Independent bounded fix review by Codex, session codex-waB1gJ, following codex-sP1hgJ checkpoint PR #10426; complete predecessor review preserved in reviewHistory. Rechecked /11 against GZ Theorem 3.1 pp.5-6 and GSWZ v2 Theorem 5 p.14, section 1.8 pp.16-17, equations (110)-(119) pp.28-30 and Theorem 8 pp.35-36. Clarified that only real positive-definite precision admits the analytic Gaussian comparison; distinguished the precision and covariance determinant normalizations. Added the formal negative-precision test to the packet and suggested file. All formal completion, coefficient transfer, Kummer, finite-etale and gluing gaps remain. All seven queue packets pass check_blueprint with zero errors/warnings; all seven suggested files elaborate serially with only admitted-declaration warnings. This is not a new whole-plan audit or a claim of formalisation. Completion remains blocked by four packet pairs required by the queue but omitted from the live issue. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-19",
+      "notes": "Independent bounded continuation by Codex, session codex-YFJHa3, following checkpoint PR #10442; entire predecessor review preserved once in reviewHistory. /11: Confirmed the formal versus positive-definite analytic boundary against GZ Theorem 3.1 pp.5-6 and GSWZ v2 Theorems 3/5 p.14, Definition 2.11 pp.29-30 and Theorem 8 pp.35-36. Preserve all formal-completion, prefactor, Kummer, scalar-change and gluing gaps; no new mathematical change was established. This is not a new whole-plan audit or a claim of roadmap implementation. All seven packets validate; all seven suggested files elaborate with only their remaining admitted-declaration warnings. Completion is blocked by four queue-required packet pairs omitted from the live issue scope; no excluded file was edited. Current AT README 8.1 still restricts NDR while its signatures allow arbitrary based pairs; that upstream documentation reconciliation remains open. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
     }
   ]
 }
