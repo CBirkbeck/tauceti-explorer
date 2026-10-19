@@ -2,6 +2,8 @@ import Mathlib.Data.Finset.Powerset
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Data.Int.Basic
 import Mathlib.Data.Fintype.Fin
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.GroupTheory.Index
 
 /-!
 # Sheaf convolution on abelian varieties: suggested targets
@@ -111,6 +113,19 @@ theorem fourfold_counting_impossible {m k d : ℕ} (w : Fin m → ℤ)
     (h : ∀ q : ℤ, wedgeMultiplicity w k (s + q) =
       if q = 0 ∨ q = 3 then d else if q = 1 ∨ q = 2 then 11 * d else 0) :
     False := by
+  sorry
+
+/-! ## SC.7: Jordan's theorem on finite linear groups
+
+The detecting-representation battery of SC.7 needs a bound, depending only on the
+dimension, for the index of an abelian normal subgroup of a finite linear group in
+characteristic zero. This is stated over Mathlib's `GL` and `Subgroup.index`. -/
+
+/-- Jordan's theorem: in characteristic zero a finite subgroup of `GL n` has an abelian normal
+subgroup whose index is bounded in terms of `n` alone. -/
+theorem jordan_finite_linear_groups (n : ℕ) :
+    ∃ J : ℕ, ∀ (F : Type) [Field F] [CharZero F] (Γ : Subgroup (GL (Fin n) F)), Finite Γ →
+      ∃ A : Subgroup Γ, A.Normal ∧ (∀ a ∈ A, ∀ b ∈ A, a * b = b * a) ∧ A.index ≤ J := by
   sorry
 
 /-! ## Discriminating examples (the README carries tests of the heavier objects) -/
