@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ExcursionOperatorsAndSpectralAction",
+    "date": "2026-10-19",
+    "notes": "Independent fixing review by Codex, session codex-BtZbVX, issue #11083. Corrected global product functions, selector Haar normalization, the noncompact Schur construction, unrestricted coefficient transport, normal wild cutoffs, and the universal integral category range. Supplied a closed-subgroup induction argument for the nonsmooth-centre reduction and precise Boyer locators and action conventions. Remaining defects: named supplier targets do not yet supply the required all-coefficient admissibility/finite-length results, DVR highest-weight stable-generation inputs, or open-curve functional equation and local-constant product formula; the equal-characteristic two-tower/Hecke-fibre comparison still lacks an explicit equivariant action conversion. Dependency order outside the tiered list is not certified. Suggested.lean elaborates with 24 sorry warnings only; all 12 examples are proved. See the review report for exact remaining obligations and source checks."
+  }
+}
