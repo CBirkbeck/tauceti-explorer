@@ -1,11 +1,11 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-gbB7sE**, 19 October 2026.
+Refs #6519. Codex, session **codex-vVhuFp**, 19 October 2026.
 Checkout and independently queried GitHub main:
-`77050f986591bf66a5451e158e28993500aadde6`.
-Branch: `codex-gbB7sE-review-padic-fixes`.
-The bot confirmed [claim comment 6258875598](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6258875598)
-in [comment 6258877114](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6258877114).
+`84c400fa116c1f6ec339db0fcd9a4843fef7e88d`.
+Branch: `codex-vVhuFp-review-padic-fixes`.
+The bot confirmed [claim comment 6259384877](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6259384877)
+in [comment 6259386591](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6259386591).
 This session wrote none of the fixes or prior reviews and claimed no second job.
 
 ## Work complete and blocker

@@ -1,33 +1,36 @@
 # Independent review of the round-four p-adic fixes
 
-**Blocked checkpoint, independently rechecked 19 October 2026 by Codex session
-codex-gbB7sE.** The issued three-packet review is complete; the generated queue
-still requires ten additional packets outside the issue's permitted scope.
-This continuation updates this notice and the
-[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md), preserving the mathematical
-verdicts and their original source-reading and Lean-check attribution below.
+**Blocked checkpoint, rechecked 19 October 2026 by Codex session
+codex-vVhuFp.** The issued three-packet review is already complete; the
+current generated queue still requires ten additional packets outside the
+issue's permitted scope. The mathematical review, its verdicts and its original
+source-reading and Lean-check attribution are preserved below.
 
-The bot confirmed [claim comment 6258875598](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6258875598)
-in [comment 6258877114](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6258877114).
-The issue was fetched again after confirmation. This session wrote none of
-the fixes or previous reviews and claimed no second job.
+Claim [6259384877](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6259384877)
+was confirmed by the bot in
+[6259386591](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6259386591).
+The full issue was fetched again after confirmation. This session wrote none
+of the fixes or earlier reviews and claimed no second job.
 
-The checkout and independently queried GitHub main are both
-[`77050f986591bf66a5451e158e28993500aadde6`](https://github.com/CBirkbeck/tauceti-explorer/commit/77050f986591bf66a5451e158e28993500aadde6).
-The issue permits **seven outputs / three packets**. Both generated queues
-require the same ordered **27 outputs / thirteen packets**; the corresponding
-fix requires 46 outputs. Every output exists. Fresh execution of the
-unmodified `issues.deliverables_complete` gives:
+Input checkout and independently queried GitHub main:
+[`84c400fa116c1f6ec339db0fcd9a4843fef7e88d`](https://github.com/CBirkbeck/tauceti-explorer/commit/84c400fa116c1f6ec339db0fcd9a4843fef7e88d).
+Freshly fetched current-main and local queue entries agree:
 
-| Contract | Complete |
-|---|---|
-| Issue's seven authorized outputs | `True` |
-| Local generated queue's 27 outputs | `False` |
-| Independently fetched current-main generated queue's 27 outputs | `False` |
+| Contract | Outputs | Packets | Unmodified completion predicate |
+|---|---:|---:|---|
+| Live issue | 7 | 3 | `True` |
+| Local generated queue | 27 | 13 | `False` |
+| Independently fetched current-main queue | 27 | 13 | `False` |
 
-All ten extra packets have accepted reviews from their own independent jobs:
+All outputs exist. The corresponding fix entry has 46 outputs. Each additional
+packet has an accepted review from another independent job. The predicate in
+`issues.deliverables_complete` requires this job's exact reviewer identifier
+on every packet. The three authorized packets already satisfy it, including
+Perfectoid's `needs_changes` verdict; that verdict does not cause this blocker.
+Inspection of these metadata is not a mathematical review of the extra packets.
 
-| Additional packet | Existing independent review job |
+
+| Additional packet | Existing accepted independent review |
 |---|---|
 | AInfCohomology | REV-AInfCohomology |
 | CohomologyComparisons | REV-CohomologyComparisons~2 |
@@ -40,39 +43,26 @@ All ten extra packets have accepted reviews from their own independent jobs:
 | AutomorphicGaloisRepresentationsPartII | REV-AutomorphicGaloisRepresentationsPartII~2 |
 | PadicDifferentialEquationsAndRigidCohomology | REV-PadicDifferentialEquationsAndRigidCohomology |
 
-This is metadata inspection, not a mathematical review of those ten packets.
-The completion predicate requires this job's exact reviewer identifier on
-all thirteen packets. The three authorized packets already have that id:
-Faltings and Adic are accepted for these fixes; Perfectoid has `needs_changes`.
-The predicate accepts `needs_changes` as a finished review, so that verdict
-is not the administrative blocker.
+Read the current `issues.py`, `intake.py` and `make_queue.py` implementations.
+The `fix_rounds` preservation condition still excludes the `missing` and
+`sent_back` cases. Fresh `intake.file_problems` calls reject both queue and
+generator files as outside swarm output paths. Together with the issue's
+explicit file restrictions, this prevents a worker on this job from applying
+the required scope repair. The existing historical recovery and write-free
+repair experiments below remain attributed to their original sessions; this
+continuation did not rerun those experiments.
 
-Read `issues.py`, `intake.py` and `make_queue.py` in the checkout whose
-commit matches the independently queried GitHub main. In `fix_rounds`, the
-`made` assignment still preserves an existing following round only when
-`not (missing or sent_back)`. Fresh
-`intake.file_problems` calls reject both `research/blueprint/queue.json` and
-`research/blueprint/make_queue.py` as outside swarm output paths. WORKERS.md
-also restricts edits to the issue's named files and the job's handoff.
-No authorized packet or report edit can repair the expanded contract.
-The earlier write-free repair experiments and their durable reproducer remain
-below; this continuation did not rerun them.
+Fresh packet checks against the manifest-matching pinned declaration index:
+**Faltings 56, Perfectoid 326, Adic 537 nodes; zero errors and zero warnings**.
+Pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`. These are structural and index
+checks, not new source audits. Only this notice and the
+[handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) change. Lean was not rerun for
+these documentation edits; prior elaboration results retain their attribution.
 
-Fresh checks of all three authorized packets against the manifest-matching
-pinned declaration index pass: **56, 326 and 537 nodes; zero errors and zero
-warnings**. The manifest records Mathlib
-`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. These are structural and indexed
-reference checks, not a fresh primary-source or mathematical audit.
-No packet, reader, source record, suggested file, link map or restructuring
-proposal changes. Lean was not rerun for this documentation-only continuation;
-previous successful runs remain attributed to the sessions that performed them.
-
-The maintainer must reconcile the issued and generated contracts and preserve
-the restored contracts through regeneration before assigning a continuation.
-Repeated assignment under the present contract cannot advance this job.
-The concrete repair and acceptance conditions are in the handoff. All durable
-reproduction material remains in this report; no scratch file is needed.
+The maintainer must restore and preserve the issued contracts through queue
+regeneration before this job can finish. The handoff gives the required repair
+and acceptance criteria. No scratch artifact is required to resume.
 
 Reviewer: **Codex**, session **codex-5FwGoc**, 10 October 2026. Review issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519); fix [#6518](https://github.com/CBirkbeck/tauceti-explorer/issues/6518), by Claude session claude-u7hFFB. Input commit: `b9ba38061383810d0da07c603653912ba7715c7c`. This session wrote none of the fix, preceding reviews, red team or verification.
 
