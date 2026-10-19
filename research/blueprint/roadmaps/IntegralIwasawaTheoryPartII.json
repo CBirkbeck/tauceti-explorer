@@ -1,0 +1,174 @@
+{
+  "id": "IntegralIwasawaTheoryPartII",
+  "title": "Arithmetic Iwasawa theory and the main conjecture, Part II: the Gross–Stark conjecture",
+  "area": "automorphic",
+  "parent": "IntegralIwasawaTheory",
+  "summary": "This roadmap proves the Gross–Stark leading-term formula for a totally odd finite-order character of a totally real field at every rational prime, including two. It develops the signed p-adic regulator, cyclotomic cohomology and orthogonality, weight-one cuspidal families, three infinitesimal Hecke quotients, the arithmetic specialization of shared Galois extension machinery, and the determinant comparison. Exact analytic order in arbitrary rank remains equivalent to regulator nonvanishing.",
+  "readme": "This Part II extends IntegralIwasawaTheory to the Gross–Stark leading-term formula for every rational prime, including two. Its endpoint identifies the rank-r Taylor coefficient of L_p(χω,z), divided by the nonzero complex value and nonexceptional Euler factors, with Gross’s signed p-adic regulator. The full target statements, APIs, Checks and locators are in research/blueprint/readmes/IntegralIwasawaTheoryPartII.md.\n\nFix a totally real field F, a finite-order totally odd character χ with faithful CM extension H/F, and a finite p-adic coefficient field containing its values. R consists of primes above p with χ(q)=1; ramified values are zero. The unit and divisor components use the χ^{-1}-eigenspace, local logarithm matrices are unsigned, and the regulator is det(−L)/det O. Empty determinants are one. Derivatives are divided by the factorial. Local reciprocity sends inverse uniformizers to arithmetic Frobenius. Weight one has coordinate π=T/log_p(u), with u=5 at two.\n\nThe layers are:\n- GS.0: arithmetic data, valuation equivalence, signed regulator, analytic normalization and the all-prime order inequality.\n- GS.1: restricted continuous cohomology, two orthogonality proofs and the cyclotomic regulator comparison.\n- GS.2: Ventullo’s auxiliary family, semi-cusp construction and normalized cuspidal projection in the three cases.\n- GS.3: the three specific Artin rings, their normal forms and actual infinitesimal Hecke maps.\n- GS.4: the arithmetic realization of the shared GMA extension, local ramification conditions and module bounds.\n- GS.5: exact and graded determinants, the inverse-character filtration and the all-prime theorem.\n\nThe proof follows Dasgupta–Kakde–Ventullo, Annals 188 (2018), Theorem 1, pp. 835–837, with the supporting constructions and order bound specified in the reader. General Hida theory, class field theory, continuous cohomology and GMA theory retain their existing owners. General exact order and higher characteristic-polynomial formulas remain conjectural; rank-zero and rank-one exact-order consequences are included.",
+  "prerequisites": [
+    "IntegralIwasawaTheory",
+    "AutomorphicPadicLFunctions",
+    "PadicFamilies",
+    "ArithmeticGaloisDuality",
+    "IntegralHeckeAndGaloisDeterminants",
+    "OrdinaryAutomorphicFormsAndModularityLifting",
+    "DirichletPadicLFunctions",
+    "DiophantineApproximationAndTranscendence",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/Chebotarev"
+  ],
+  "stages": [
+    {
+      "key": "GS.0",
+      "title": "Arithmetic data and the regulator",
+      "description": "Fix the all-prime arithmetic conventions, construct the odd p-unit and divisor components, prove the rational valuation isomorphism, and define Gross’s signed regulator and the normalized analytic leading terms. Derive the all-prime lower bound for the order of vanishing. Distinguish the leading-term theorem from the open exact-order conjecture.",
+      "requires": [
+        "IntegralIwasawaTheory:I.1",
+        "AutomorphicPadicLFunctions:L0",
+        "AutomorphicPadicLFunctions:L3",
+        "DirichletPadicLFunctions:L3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
+      ]
+    },
+    {
+      "key": "GS.1",
+      "title": "Cyclotomic cohomology and orthogonality",
+      "description": "Specialize the existing continuous cohomology carrier to ramification outside the exceptional primes. Prove the Kummer comparison and both orthogonality proofs, injectivity of the product of inertia restrictions, the r-dimensional cyclotomic subspace and its algebraic L-invariant, and its equality with the regulator.",
+      "requires": [
+        "IntegralIwasawaTheoryPartII:GS.0",
+        "ArithmeticGaloisDuality:R02.3",
+        "ArithmeticGaloisDuality:R02.4",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "DirichletPadicLFunctions:L3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
+    },
+    {
+      "key": "GS.2",
+      "title": "Weight-one families and cuspidal projection",
+      "description": "Pin weight, logarithm and reciprocity conventions in the supplied ordinary Hilbert theory. Construct Ventullo’s auxiliary family and the Gross–Stark semi-cusp family. Prove the normalized cuspidal projection theorem, retaining the normalized projection even when its weight-one value vanishes at w=−1, and establish the exhaustive three-case division without assuming exact order.",
+      "requires": [
+        "IntegralIwasawaTheoryPartII:GS.0",
+        "PadicFamilies:L0a",
+        "PadicFamilies:L5",
+        "AutomorphicPadicLFunctions:L3",
+        "DirichletPadicLFunctions:L3",
+        "IntegralIwasawaTheory:I.1",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev"
+      ]
+    },
+    {
+      "key": "GS.3",
+      "title": "Infinitesimal Hecke quotients",
+      "description": "Define the three actual Artin quotient rings with their nilpotent relations, bases, dimensions and needed nonzero graded classes. Compute the Hecke orbit and the quotient homomorphism in each case, including the w=−1 case and the Case 3 independence argument.",
+      "requires": [
+        "IntegralIwasawaTheoryPartII:GS.2",
+        "AutomorphicPadicLFunctions:L3",
+        "PadicFamilies:L5",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "DirichletPadicLFunctions:L3"
+      ]
+    },
+    {
+      "key": "GS.4",
+      "title": "The arithmetic Galois class",
+      "description": "Verify the all-prime Hida-family representation and reduced completed Hecke-ring hypotheses for the shared GMA machinery. Choose a simultaneous good element at every prime over p. Construct the actual off-diagonal class by specialization of the common API, refine its diagonal characters, and prove the local conditions, inertia generation and second-order bound.",
+      "requires": [
+        "IntegralIwasawaTheoryPartII:GS.1",
+        "IntegralIwasawaTheoryPartII:GS.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralHeckeAndGaloisDeterminants:IHG.4",
+        "OrdinaryAutomorphicFormsAndModularityLifting:R21.3",
+        "PadicFamilies:L5",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "ArithmeticGaloisDuality:R02.3",
+        "IntegralIwasawaTheoryPartII:GS.2",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
+      ]
+    },
+    {
+      "key": "GS.5",
+      "title": "Determinants and the Gross–Stark theorem",
+      "description": "Use orthogonality and the second-order bound to prove an exact determinant identity before passing to the Artin quotient. Evaluate its degree-r contribution in all three cases, prove the inverse-character argument in Case 3 with its y-adic filtration, and conclude the leading-term theorem at every prime. Give the rank-zero and rank-one consequences and exact-order equivalence with an explicit nonvanishing supplier.",
+      "requires": [
+        "IntegralIwasawaTheoryPartII:GS.4",
+        "DiophantineApproximationAndTranscendence:DT.3",
+        "IntegralIwasawaTheoryPartII:GS.1",
+        "IntegralIwasawaTheoryPartII:GS.0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "IntegralIwasawaTheoryPartII:GS.3",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1",
+        "IntegralIwasawaTheoryPartII:GS.2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "DKV18",
+      "title": "On the Gross–Stark Conjecture",
+      "authors": "Samit Dasgupta, Mahesh Kakde and Kevin Ventullo",
+      "edition": "Annals of Mathematics (2) 188 (2018), 833–870",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v188-n3-p03-s.pdf",
+      "sha256": "974e64272b1883923fac951f86f3491593543d050c8efaf739e53342623fb659",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Entire published paper, pp. 833–870"
+      ]
+    },
+    {
+      "id": "DKV16",
+      "title": "On the Gross–Stark Conjecture",
+      "authors": "Samit Dasgupta, Mahesh Kakde and Kevin Ventullo",
+      "edition": "arXiv:1605.08169v1 (2016)",
+      "url": "https://arxiv.org/pdf/1605.08169v1",
+      "sha256": "0bc900e2c7c16fa9aff1147ec138d121b4798fab3b4deb76eed415ba7f409a99",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Theorem 3.2, p. 16, compared with published p. 849"
+      ]
+    },
+    {
+      "id": "DDP11",
+      "title": "Hilbert modular forms and the Gross–Stark conjecture",
+      "authors": "Samit Dasgupta, Henri Darmon and Robert Pollack",
+      "edition": "Annals of Mathematics (2) 174 (2011), 439–484",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v174-n1-p12-p.pdf",
+      "sha256": "ea435711bca5526cdc06e57ae33fa485eebf486274b0899dc808b83bff567854",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Proposition 1.4 and Lemma 1.5, pp. 455–456",
+        "Lemma 2.9 and Corollary 2.10, pp. 469–470",
+        "Propositions 3.3–3.4 and Lemma 3.5, pp. 472–474"
+      ]
+    },
+    {
+      "id": "CD14",
+      "title": "Integral Eisenstein cocycles on GL_n, I: Sczech’s cocycle and p-adic L-functions of totally real fields",
+      "authors": "Pierre Charollois and Samit Dasgupta",
+      "edition": "Author version dated 4 November 2014; Cambridge Journal of Mathematics 2 (2014), 49–90; locators use author pagination",
+      "url": "https://sites.math.duke.edu/~dasgupta/papers/Charollois-Dasgupta.pdf",
+      "sha256": "251d025b3f2ead219abd22d2d686375255131f558debc9bf385e9cd2018200ef",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, Theorems 2–3, pp. 3–5",
+        "§5.1–§5.2, pp. 27–32, including the proofs of Theorems 5.1–5.2"
+      ]
+    },
+    {
+      "id": "V15",
+      "title": "On the rank one abelian Gross–Stark conjecture",
+      "authors": "Kevin Ventullo",
+      "edition": "arXiv:1308.2261; published in Commentarii Mathematici Helvetici 90 (2015), 939–963; locators use arXiv pagination",
+      "url": "https://arxiv.org/pdf/1308.2261",
+      "sha256": "6c9ae95e464110ec7210f18941fc19d7d02b6851eaab414d3bb1c3cd9cd7647a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2.1, pp. 4–5",
+        "§4.1–§4.2, pp. 14–20, including Theorem 2 and its construction"
+      ]
+    }
+  ],
+  "status": "draft"
+}
