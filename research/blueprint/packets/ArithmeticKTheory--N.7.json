@@ -476,6 +476,7 @@
         "Import N.4’s elementary divisibility and field-extension properties. The fixed element of order two gives evenness for positive i; this elementary corollary is the N.7 API wInvariant_even.",
         "Prove the value 2 for odd i over the rationals, which is the source's earlier computation.",
         "For i=2k with k≥1, compare the cyclotomic-character computation with von Staudt–Clausen and its denominator refinement to obtain w_{2k}(ℚ)=denominator(B_{2k}/(4k)) in the arithmetic convention. For every positive i, a prime l divides w_i(ℚ) exactly when l−1 divides i; for odd i only l=2 qualifies.",
+        "Discharge the existing Gaussian test using the same N.4 primewise inputs: for F = Q(i), N.4/two-primary-w-invariant case (a) has a = 2 and v_2(2) = 1, giving the factor 8. At an odd prime l, Q(i) is disjoint from the l-power cyclotomic tower over Q, so N.4/computing-w-from-the-cyclotomic-character has r = l-1 and a = 1. Only l = 3 contributes in weight two, with factor 3. Thus w_2(Q(i)) = 24, agreeing with K-book Example VI.2.1.2; this does not extend the rational odd-weight value 2 to Q(i), whose odd-weight value is 4.",
         "Record the two places where the invariant is used: the order of the torsion of the odd K-groups, and the Birch-Tate formula of N.8."
       ],
       "acceptance": [
@@ -490,13 +491,19 @@
         "ArithmeticKTheory:N.4/computing-w-from-the-cyclotomic-character",
         "mathlib:rootsOfUnity",
         "mathlib:IsPrimitiveRoot",
-        "mathlib:NumberField"
+        "mathlib:NumberField",
+        "ArithmeticKTheory:N.4/two-primary-w-invariant"
       ],
       "sources": [
         {
           "sourceId": "Kbook.2013",
           "locator": "VI.2.4 (Lemma 2.4) and the recall of 2.1.2 before it, printed p. 472 (PDF p. 480)",
           "match": "The value over the rationals, in the source's indexing"
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "VI.2.1.2 (Example 2.1.2), printed p. 470 (book PDF p. 478); author chapter VI PDF p. 7",
+          "match": "The even-weight invariants of Q and Q(i) coincide, including w_2 = 24; odd weights have different values."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1439,7 +1446,7 @@
       "realises": [
         "ArithmeticKTheory:N.8"
       ],
-      "title": "The Gaussian integers: a vanishing tame kernel and a third K-group of order twenty-four",
+      "title": "The Gaussian tame kernel and K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24",
       "kind": "application",
       "statement": "For the Gaussian rationals the required computations are that the tame kernel vanishes and that the third K-group is the direct sum of the integers and a cyclic group of order twenty-four. The first is Tate's computation, recorded by the source together with the other imaginary quadratic rings of class number one for which the same vanishing holds; this node owns it as a certified example in N.6's format (RT-AREA-ktheory-1/9): the tame kernel K₂(ℤ[i]) — T.5's unramified subgroup of K₂(ℚ(i)) — is certified trivial by the empty presentation, whose span obligation, that every element of K₂(ℤ[i]) is trivial, is N.8/gaussian-tame-kernel-vanishes (Tate's method, through N.8/tate-criterion), the lower bound being trivial. The second follows from the general structure theorem for the third K-group of a number field: for a totally imaginary field with r_2 complex places the group is the direct sum of r_2 copies of the integers and a cyclic group of order the invariant w_2; the Gaussian rationals have one complex place and no real place, and their invariant w_2 is twenty-four, so the group is as stated.",
       "hypotheses": [
@@ -13337,9 +13344,9 @@
   ],
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7~3",
-    "date": "2026-10-18",
-    "notes": "Codex session codex-KAtZYI, independent of fixer codex-ydlF4b. Follows independent-review-REV-FIX-RT-AREA-ktheory-1~2 and the round-two packet review, all preserved in reviewHistory. Both confirmed RT-BP findings remain repaired: genuine suggested signatures without admitted data and sole Vandiver ownership in IntegralIwasawaTheory L3. Independently checked the retained Gaussian proof and the replacement golden-field geometry, tied-prime descent, all 173 exact relation witnesses and 23 selected minors; a separate regular-representation and full relation-lattice calculation reproduces all eleven indices. The direct generation proof closes this packet’s former N.8 certificate obstruction without Birch–Tate. Read all 44 baseline statements at the pins and current upstream arithmetic ownership. Corrected N.7 coverage to planned with three precise remaining obligations, added missing N.4/T.5 dependencies to the certificate format, and updated stale review prose. The scoped fixes are accepted; the three separate N.7 gaps and ten supplier requests are retained, and no other area-review output is certified. Packet checker: zero errors/warnings; suggested file elaborates with 27 admitted-proof warnings only. Report: research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7~3.md."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+    "date": "2026-10-19",
+    "notes": "Codex session codex-kUKQAc, independent of the fixes; follows the immediately preceding review preserved verbatim in reviewHistory. Follows the accepted independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7~3 (2026-10-18), preserved verbatim in history. The replacement direct golden-field proof resolves area finding /11 without the former unsupported cyclotomic representatives: checked compact Minkowski bounds, ordinary-unit stretch and tied-prime descent, then independently recomputed all 173 exact witnesses and 23 selected determinants for eleven finite-prime certificates; a corrupted witness is rejected. Retained Gaussian descent was also checked. Corrected the misleading finite-order Gaussian K3 title and made the existing Gaussian w2=24 test explicitly depend on N.4 primewise computations and K-book VI.2.1.2. Three unrelated gaps and ten requests remain; no full roadmap closure is certified. The 551-line Lean file has no actual admitted data and elaborates with 27 admitted-declaration warnings. All seven authorized packets pass check_blueprint with zero errors/warnings, and their actual Lean declarations elaborate serially at Mathlib 082e2d3 / Tau Ceti f790474 with only admitted-declaration warnings (K.1 none). Source readings, retained evidence and per-finding boundaries are distinguished in the review report. The current nineteen-packet queue remains blocked by the seven-packet issue authorization; no additional supplier is certified by this verdict."
   },
   "sourceVersions": [
     {
@@ -13482,6 +13489,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
       "date": "2026-10-10",
       "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped needs_changes verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7~3",
+      "date": "2026-10-18",
+      "notes": "Codex session codex-KAtZYI, independent of fixer codex-ydlF4b. Follows independent-review-REV-FIX-RT-AREA-ktheory-1~2 and the round-two packet review, all preserved in reviewHistory. Both confirmed RT-BP findings remain repaired: genuine suggested signatures without admitted data and sole Vandiver ownership in IntegralIwasawaTheory L3. Independently checked the retained Gaussian proof and the replacement golden-field geometry, tied-prime descent, all 173 exact relation witnesses and 23 selected minors; a separate regular-representation and full relation-lattice calculation reproduces all eleven indices. The direct generation proof closes this packet’s former N.8 certificate obstruction without Birch–Tate. Read all 44 baseline statements at the pins and current upstream arithmetic ownership. Corrected N.7 coverage to planned with three precise remaining obligations, added missing N.4/T.5 dependencies to the certificate format, and updated stale review prose. The scoped fixes are accepted; the three separate N.7 gaps and ten supplier requests are retained, and no other area-review output is certified. Packet checker: zero errors/warnings; suggested file elaborates with 27 admitted-proof warnings only. Report: research/blueprint/reviews/REV-FIX-RT-BP-ArithmeticKTheory--N.7~3.md."
     }
   ],
   "upstreamNotes": [
