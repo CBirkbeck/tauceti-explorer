@@ -1,0 +1,180 @@
+{
+  "id": "LocalGaloisDeformationRingsPartII",
+  "title": "Local Galois deformation rings and their components, Part II: explicit tame GL₂ rings of small Hodge type",
+  "area": "langlands",
+  "parent": "LocalGaloisDeformationRings",
+  "summary": "For a sufficiently generic semisimple two-dimensional residual representation over an unramified p-adic field, this roadmap computes framed potentially crystalline deformation rings for one tame inertial type and for the types containing a fixed Serre weight. Rank-two gauge charts and effective monodromy approximation give Hodge-labelled components, reduced special fibres and an integral component-intersection identity needed in patching. The two Hodge profiles are (3,0) and (2,1); the construction therefore extends beyond potentially Barsotti–Tate weights.",
+  "readme": "The detailed mathematical plan and checks are in research/blueprint/readmes/LocalGaloisDeformationRingsPartII.md. T.0–T.4 fix tame types, gauge charts, monodromy and residual labels; T.5 supplies the effective polynomial comparison; T.6–T.7 prove the one-type and several-type presentations. General deformation rings, Breuil–Kisin carriers, Serre-weight coordinates and completed commutative algebra are imported. The independent unrestricted-ring and weight-zero Emerton–Gee directions are assigned to the split proposals in the packet. All source statements are rewritten with preprint page locators.",
+  "prerequisites": [
+    "LocalGaloisDeformationRings",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "DeformationAndDerivedPatchingAlgebra",
+    "ModpRepresentationsOfGL2OverLocalFields",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/LocalFieldsRamification"
+  ],
+  "stages": [
+    {
+      "key": "T.0",
+      "title": "Tame types and their weight labels",
+      "description": "Construct characteristic-zero rank-two tame types and orientations, and compare their reductions with the imported Serre-weight coordinates. Establish the one-unit loss of depth and the Jordan–Hölder formula, keeping the norm-determinant twist explicit.",
+      "requires": [
+        "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "LocalGaloisDeformationRings:R08.3"
+      ]
+    },
+    {
+      "key": "T.1",
+      "title": "Rank-two Kisin gauge charts",
+      "description": "On the imported Breuil–Kisin category with tame descent and coefficient change, define the rank-two eigenbasis matrices, residual shapes and gauge-basis predicate. Prove existence and uniqueness modulo the residual-trivial diagonal torus for (h+1)-generic type, and characterize the Hodge bound through minors.",
+      "requires": [
+        "LocalGaloisDeformationRingsPartII:T.0",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ]
+    },
+    {
+      "key": "T.2",
+      "title": "Monodromy and its finite jets",
+      "description": "Construct the Frobenius-compatible monodromy derivation and its regularity condition. Derive the leading matrix and finite jet equations with the actual Frobenius-coupled error terms and their explicit p-divisibility bounds.",
+      "requires": [
+        "LocalGaloisDeformationRingsPartII:T.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "LocalGaloisDeformationRingsPartII:T.0"
+      ]
+    },
+    {
+      "key": "T.3",
+      "title": "Residual representations and restriction",
+      "description": "Build the monomial étale φ-modules and their tame Galois extensions. Prove good-pair classification, the unramified-twist formula, cyclotomic-free full faithfulness on Hom, and descent of isomorphisms under 2-genericity.",
+      "requires": [
+        "LocalGaloisDeformationRingsPartII:T.0",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "LocalGaloisDeformationRings:R08.1"
+      ]
+    },
+    {
+      "key": "T.4",
+      "title": "Admissible types and residual Kisin modules",
+      "description": "For semisimple residual rank two with a normalized N-deep presentation, N≥12, construct the three-shape family of types, the unique semisimple residual Kisin module of each shape, and the weight-to-extreme-shape bijection. Identify precisely the 2^f types containing a fixed weight after the norm-determinant twist.",
+      "requires": [
+        "LocalGaloisDeformationRingsPartII:T.0",
+        "LocalGaloisDeformationRingsPartII:T.3",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.3",
+        "LocalGaloisDeformationRingsPartII:T.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.5",
+        "LocalGaloisDeformationRings:R08.3"
+      ]
+    },
+    {
+      "key": "T.5",
+      "title": "Polynomial charts and effective comparison",
+      "description": "Define the small-Hodge finite-union quotient of the existing fixed-profile rings. Write the three eight-variable polynomial charts, five equations and two component factors. Prove irreducibility and the p³ Jacobian bound, the chart-specific effective approximation theorem and Hodge-profile nonemptiness; obtain one ambient automorphism, equal to identity modulo p^(N−8), transporting all model equations and component ideals to the actual monodromy quotient.",
+      "requires": [
+        "LocalGaloisDeformationRings:R08.1",
+        "LocalGaloisDeformationRings:R08.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.4",
+        "LocalGaloisDeformationRingsPartII:T.1",
+        "LocalGaloisDeformationRingsPartII:T.2",
+        "LocalGaloisDeformationRingsPartII:T.4",
+        "LocalGaloisDeformationRingsPartII:T.0",
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.5",
+        "LocalGaloisDeformationRingsPartII:T.3",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "LocalGaloisDeformationRings:L7"
+      ]
+    },
+    {
+      "key": "T.6",
+      "title": "Single-type rings and their special fibres",
+      "description": "Specialize the existing framed potentially crystalline rings to the two Hodge profiles (3,0) and (2,1), with determinant unfixed. Prove the presentation after 2f versus four formal variables, identify all 2^f Hodge-labelled components of relative dimension f+4, and prove the normal-crossing special-fibre form and formal smoothness of each component.",
+      "requires": [
+        "LocalGaloisDeformationRingsPartII:T.5",
+        "DeformationAndDerivedPatchingAlgebra:R03.4",
+        "LocalGaloisDeformationRings:R08.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.6",
+        "DeformationAndDerivedPatchingAlgebra:R03.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.1"
+      ]
+    },
+    {
+      "key": "T.7",
+      "title": "Several tame types and component intersections",
+      "description": "Construct the nine-variable common charts for a fixed Serre weight, transport the actual single-type ideals into them, and present the reduced flat union by an intersection of type ideals. Identify its 4^f components. Define the exact local (2,1) ideals and prove the p-membership relation with the middle-shape (3,0) ideal, retaining the global dependence of the transported tails.",
+      "requires": [
+        "LocalGaloisDeformationRingsPartII:T.4",
+        "LocalGaloisDeformationRingsPartII:T.5",
+        "LocalGaloisDeformationRingsPartII:T.3",
+        "DeformationAndDerivedPatchingAlgebra:R03.1",
+        "DeformationAndDerivedPatchingAlgebra:R03.4",
+        "LocalGaloisDeformationRingsPartII:T.6",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4",
+        "LocalGaloisDeformationRingsPartII:T.1"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "BHHMS23",
+      "title": "Gelfand–Kirillov dimension and mod p cohomology for GL₂",
+      "authors": "Christophe Breuil, Florian Herzig, Yongquan Hu, Stefano Morra and Benjamin Schraen",
+      "edition": "arXiv:2009.03127v7, 9 June 2023; preprint pagination, 112 pages; published in Inventiones Mathematicae 234 (2023), 1–128",
+      "url": "https://arxiv.org/pdf/2009.03127v7",
+      "sha256": "8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "§§2–4, pp. 10–45",
+        "Lemma 8.1.2, p. 88",
+        "Theorem 8.3.9 proof, equations (78)–(79), pp. 101–102",
+        "References, pp. 110–112"
+      ]
+    },
+    {
+      "id": "Elkik73",
+      "title": "Solutions d’équations à coefficients dans un anneau hensélien",
+      "authors": "Renée Elkik",
+      "edition": "Annales scientifiques de l’École Normale Supérieure (4) 6 (1973), 553–603",
+      "url": "https://www.numdam.org/item/10.24033/asens.1258.pdf",
+      "sha256": "74ddbf6a04ca9fb4e6b9ef0da537231045a293d56242571749cda079349d40c5",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "§0.2 and Lemme 1, pp. 555–557"
+      ]
+    },
+    {
+      "id": "GHLS17",
+      "title": "Potentially crystalline lifts of certain prescribed types",
+      "authors": "Toby Gee, Florian Herzig, Tong Liu and David Savitt",
+      "edition": "arXiv:1506.01050v3, 7 February 2017; preprint pagination, 22 pages",
+      "url": "https://arxiv.org/pdf/1506.01050v3",
+      "sha256": "a216ee78611548869ea2211c7ee7808e6c3ec627aea78d90216e39c0497e3a85",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Theorem D, p. 4",
+        "§1.2, pp. 5–6",
+        "Theorem 3.1.5 and proof, p. 21"
+      ]
+    },
+    {
+      "id": "Hamann75",
+      "title": "On power-invariance",
+      "authors": "Eloise Hamann",
+      "edition": "Pacific Journal of Mathematics 61 (1975), 153–159",
+      "url": "https://msp.org/pjm/1975/61-1/pjm-v61-n1-p17-p.pdf",
+      "sha256": "29b601cf166b3c8c9771a1e57e659b77f8b731f61fca6d484db8900cedd52931",
+      "accessDate": "2026-10-19",
+      "readSections": [
+        "Theorem 4 and proof, pp. 155–156"
+      ]
+    }
+  ],
+  "status": "draft"
+}
