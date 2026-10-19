@@ -8,6 +8,8 @@ A point of the principal splitting torsor is weaker than a neutralization of the
 
 This is a complete target-level pass: all 36 routed items have targets and all six stages are **planned**. No stage is mathematically closed. Twelve named gaps and the supplier requests below are part of the plan. Every implementation status is **unchecked**. Statements called targets specify what the formalisation must establish; proof outlines are not claims of implemented proofs. The full published genus range is retained, including a separate gate for the degree-zero elliptic case where the generic smooth spectral cover need not support stable objects.
 
+Independent review on 19 October 2026 accepted this target-level pass after checking all 44 nodes, all nine pinned baseline declarations and all 29 published-source findings. The relative-splitting API below now distinguishes Gm line-bundle differences from μr-torsor differences with their power trivializations; a fifth check detects forgetting that data. All twelve gaps remain open. The [review report](../reviews/REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems.md) records the per-node and per-finding verdicts and the successful pinned Suggested elaboration.
+
 ## Conventions and library boundary
 
 | Notation | Convention |
@@ -38,7 +40,7 @@ The pinned baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and M
 | `mathlib:AddMonoidAlgebra` | Finite formal sums with additive-monoid exponents and convolution; use rational bidegrees without inventing a polynomial carrier. |
 | `mathlib:Matrix.trace` | Matrix trace is the sum of diagonal entries; used for the identity/Jordan-block regression test. |
 
-The current upstream roadmap repository was inspected read-only at `0d144d044dacebca17b654695b6f1ad58f159b27`, with its current Tau Ceti library at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The complete HodgeStructures and AlgebraicVectorBundles reader documents were read for style and ownership. The latter’s Suggested declaration inventory and the current library were checked as well. AlgebraicVectorBundles already owns tensor products, exterior powers, determinants and total spaces: TMS.3 imports that theory. The nine roadmaps newer than the atlas snapshot were checked for ownership. None of those upstream directories was built or modified.
+The current upstream roadmap repository was inspected read-only at `0d144d044dacebca17b654695b6f1ad58f159b27`, with its current Tau Ceti library at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The complete Completed/HodgeStructures and AlgebraicVectorBundles reader documents were read for style and ownership. The latter’s Suggested declaration inventory and the current library were checked as well. AlgebraicVectorBundles already owns tensor products, exterior powers, determinants and total spaces: TMS.3 imports that theory. The nine roadmaps newer than the atlas snapshot were checked for ownership. None of those upstream directories was built or modified.
 
 The inspected reviewed supplier rows classify R09.4/R09.5 as partly built, A2/A3 as not built/partly built, R02.4, DWP.7 and R01.5 as not built. These are planning/audit verdicts, not implementation claims about the requested extensions. Fresh searches covered Higgs/Hitchin/stringy, gerbes/splittings, geometric realizations, finite characters, line bundles, abelian varieties and trace in the pinned and current libraries.
 
@@ -498,12 +500,12 @@ Uses that determine the API:
 
 | Planned declaration | API role | Specification |
 |---|---|---|
-| `TauCeti.HitchinMirror.relativeSplit_tensor` | structure | Tensor product of neutralizations defines the Picard-stack action with unit and associativity isomorphisms. |
-| `TauCeti.HitchinMirror.relativeSplit_difference` | universal-property | The action map Pic̃×Split̃→Split̃×Split̃ is an equivalence over V. |
+| `TauCeti.HitchinMirror.relativeSplit_tensor` | structure | Tensoring a Gm-neutralization by a line bundle defines the Picard-stack action with unit and associativity isomorphisms. For μr-neutralizations use the relative μr-torsor stack and retain the rth-power trivialization. |
+| `TauCeti.HitchinMirror.relativeSplit_difference` | universal-property | For Gm-neutralizations, the action map Pic̃×Split̃→Split̃×Split̃ is an equivalence over V. For μr-neutralizations replace Pic̃ by the relative μr-torsor stack; after μr-rigidification its acting sheaf is Pic(U/V)[r]. |
 | `TauCeti.HitchinMirror.relativeSplit_baseChange` | functoriality | Pullback identifies the splitting stack with the splitting stack of the pulled-back gerbe. |
 | `TauCeti.HitchinMirror.relativeSplit_rigidification` | projection | The μr-rigidification map is a μr-gerbe and removes precisely the scalar μr automorphisms. |
 | `TauCeti.HitchinMirror.relativeSplit_kummer` | compatibility | The rigidified relative μr-torsor group is Pic(U/V)[r], via the relative Kummer sequence, not Pic(U/V)/r. |
-| `TauCeti.HitchinMirror.relativeSplit_neutralOrigin` | constructor | A neutralization identifies Split̃ with Pic̃ and Split_μr with Pic[r]. |
+| `TauCeti.HitchinMirror.relativeSplit_neutralOrigin` | constructor | A chosen Gm-neutralization identifies its splitting stack with Pic̃. A chosen μr-neutralization identifies its splitting stack with the relative μr-torsor stack and its rigidification Split_μr with Pic[r]. |
 
 Definition checks:
 
@@ -511,6 +513,7 @@ Definition checks:
 - **relativeSplit_point** (degenerate): For U=V and a base gerbe, the rigidified relative splitting sheaf is the terminal sheaf even if the base gerbe has no global neutralization.
 - **relativeSplit_automorphisms** (non-example): Before rigidification a neutralization of a μr-gerbe has μr automorphisms; after rigidification these scalar automorphisms are trivial.
 - **relativeSplit_lineComparison** (compatibility): For a neutral Gm-gerbe the difference between the trivialization and its tensor by an existing InvertibleSheaf L is exactly the class of L in the imported Picard group.
+- **relativeSplit_kummerTrivialization** (non-example): Over Spec ℝ, the μ2-torsors t²=1 and t²=−1 are not isomorphic, although their associated line bundles are both trivial. They give different objects in the neutral μ2-gerbe splitting groupoid before rigidification; the relative rigidified sheaf for U=V is nevertheless terminal. Forgetting the square trivialization before forming the groupoid loses this distinction.
 
 Construction or proof:
 
@@ -520,7 +523,7 @@ Construction or proof:
 
 Check:
 
-- Any two neutralizations differ by a uniquely determined line-bundle class, with its full groupoid before rigidification.
+- For Gm-neutralizations the difference is a line bundle; for μr-neutralizations it is a μr-torsor, equivalently a line bundle together with its rth-power trivialization. Retain the full difference groupoid before rigidification.
 
 Direct prerequisites: [TMS.1/arithmetic-gerbe](#TMS1-arithmetic-gerbe), `tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme`, `AbelianSchemesAndArithmeticModuli:A2/normalized-poincare-comparison`, `AlgebraicModuliForArithmeticGeometry:R09.4`, `AlgebraicModuliForArithmeticGeometry:R09.5/rigidification`, `AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-base-change`, `AlgebraicModuliForArithmeticGeometry:R09.4/h2-classification`, `AlgebraicModuliForArithmeticGeometry:R09.4/neutralization`, `AlgebraicModuliForArithmeticGeometry:R09.4/change-band`, `AlgebraicModuliForArithmeticGeometry:R09.4/isom-torsor`.
 
@@ -2246,7 +2249,7 @@ All entries concern the published 2020 version at the checksum in the bibliograp
 
 **E29 (gap), Published §7.2 Propositions7.11–7.12 and proofs, pp.580–582; application in Proposition7.20, p.588.** The generic smooth spectral torsor/admissibility argument is used in the full genus range without isolating the degree-zero elliptic case. Check the full abstract-system conditions on the actual nonempty stable locus and supply separate low-genus calculations where that argument does not apply. Keep the main theorem’s stated range as a target. Reason: For g=1,D=ω≃O,n>1, a trace-free Higgs field with distinct constant eigenvalues decomposes E by polynomial projectors; each summand is Higgs-invariant, so stability is impossible. Smoothness of this disconnected spectral cover alone cannot give a nonempty stable torsor or a generically free Γ action. This does not contradict the final invariant equality.
 
-The additional findings were checked against the published PDF. A bounded correction search on 19 October 2026 opened the publisher article record and arXiv version history and searched the paper title with correction/erratum and the authors with mirror/erratum. It returned no correction for these points. This does not establish that no correction exists. The inherited entries retain their earlier search provenance in the packet; no author was contacted.
+All 29 findings were independently confirmed at their published-PDF locators in REV-DESIGN-TopologicalMirrorSymmetryForHitchinSystems. Gap verdicts identify an unsupported inference; they do not assert that the geometric conclusion is false. The additional findings were also checked against the published PDF during design. A bounded correction search on 19 October 2026 opened the publisher article record and arXiv version history and searched the paper title with correction/erratum and the authors with mirror/erratum. It returned no correction for these points. This does not establish that no correction exists. The inherited entries retain their earlier search provenance in the packet; no author was contacted.
 
 ## Suggested forms and acceptance
 
