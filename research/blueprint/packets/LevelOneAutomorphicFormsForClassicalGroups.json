@@ -23,42 +23,42 @@
         "kind": "def",
         "module": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean",
         "provides": "The split integral symplectic group scheme, reused as the level-one symplectic model.",
-        "checked": "Full declaration statement read at the pinned commit; not inferred from its name."
+        "checked": "Independently read the full declaration at the stated pinned commit in REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups; its hypotheses and narrow use are confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Symplectic.pointsMulEquiv",
         "kind": "def",
         "module": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Basic.lean",
         "provides": "Functor-of-points multiplicative equivalence with the standard matrix symplectic group.",
-        "checked": "Full declaration statement read at the pinned commit; not inferred from its name."
+        "checked": "Independently read the full declaration at the stated pinned commit in REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups; its hypotheses and narrow use are confirmed."
       },
       {
         "ref": "tauceti:TauCeti.Symplectic.instSmoothCoordinateHopfAlgebra",
         "kind": "instance",
         "module": "TauCeti/Algebra/AlgebraicGroup/Symplectic/Smooth.lean",
         "provides": "Smoothness of the symplectic coordinate Hopf algebra; the existing scheme must not be replanned.",
-        "checked": "Full declaration statement read at the pinned commit; not inferred from its name."
+        "checked": "Independently read the full declaration at the stated pinned commit in REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups; its hypotheses and narrow use are confirmed."
       },
       {
         "ref": "mathlib:IsSelfAdjoint.hasEigenvector_of_isLocalExtrOn",
         "kind": "theorem",
         "module": "Mathlib/Analysis/InnerProductSpace/Rayleigh.lean",
         "provides": "A nonzero local extremum of the self-adjoint Rayleigh quotient on its norm sphere is an eigenvector; least-eigenvalue minimality needs an additional proof.",
-        "checked": "Full declaration statement read at the pinned commit; not inferred from its name."
+        "checked": "Independently read the full declaration at the stated pinned commit in REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups; its hypotheses and narrow use are confirmed."
       },
       {
         "ref": "mathlib:ModularForm.dimension_level_one",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean",
         "provides": "For even natural k, the complex module rank is k/12 when k≡2 mod12 and k/12+1 otherwise.",
-        "checked": "Full declaration statement read at the pinned commit; not inferred from its name."
+        "checked": "Independently read the full declaration at the stated pinned commit in REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups; its hypotheses and narrow use are confirmed."
       },
       {
         "ref": "mathlib:CuspForm.discriminantEquiv",
         "kind": "def",
         "module": "Mathlib/NumberTheory/ModularForms/LevelOne/DimensionFormula.lean",
-        "provides": "Multiplication by the discriminant gives the linear equivalence between modular weight k−12 and cusp weight k over the full modular group.",
-        "checked": "Full declaration statement read at the pinned commit; not inferred from its name."
+        "provides": "The linear equivalence from cusp weight k to modular weight k−12 divides by the discriminant; its inverse multiplies by the discriminant.",
+        "checked": "Independently read the full declaration at the stated pinned commit in REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups; its hypotheses and narrow use are confirmed."
       }
     ]
   },
@@ -96,7 +96,7 @@
       "sha256": "ee20dcf191d37290a74c79c4b15d9fbfe5c2b3673bd6c53283ff44d19762708d",
       "accessed": "2026-10-19",
       "readSections": [
-        "Introduction, Theorems E–F pp.11–14; V §1 pp.135–137 and §2 pp.137–140; V §4.1 and Proposition-Definition 4.4 pp.143–146; IX §3.16, Lemma 3.15 and Proposition 3.17 pp.303–305; IX Lemma 3.36 and Propositions 3.37–3.38 pp.321–323; IX §4.4 pp.326–327 and §5.2 pp.328–330; Table C.5 p.440. These are targeted readings, not a claim to have read the entire preprint."
+        "Introduction, Theorem E pp.12–14 and Theorem F p.15; V §1 pp.135–137 and §2 pp.137–140; V §4.1 and Proposition-Definition 4.4 pp.143–146; IX §3.16, Lemma 3.15 and Proposition 3.17 pp.303–305; IX Lemma 3.36 and Propositions 3.37–3.38 pp.321–323; IX §4.3, Theorem 4.4 p.326 and §5.2 pp.328–330; Table C.5 p.440. These are targeted readings, not a claim to have read the entire preprint."
       ]
     },
     {
@@ -379,7 +379,7 @@
       "sources": [
         {
           "sourceId": "CT20",
-          "locator": "§2.1 pp.273–274; formulas preceding (2.1.1)",
+          "locator": "§2.1 pp.273–274, determinant, gamma-factor and epsilon-factor paragraphs",
           "match": "On K∞ use additive dimension dim(1)=dim(e)=1, dim(I_w)=2; multiplicative determinant det(I_w)=e^{w+1}; additive weights 0 for 1,e and ±w/2 for I_w. Extend Γ(s,−) multiplicatively from Γ_R(s), Γ_R(s+1), Γ_C(s+w/2), with Γ_R(s)=π^{−s/2}Γ(s/2) and Γ_C(s)=2(2π)^{−s}Γ(s)."
         }
       ],
@@ -459,7 +459,7 @@
       "sources": [
         {
           "sourceId": "CT20",
-          "locator": "§2.1 p.274, assertions (P1)–(P3); §1.2 p.264",
+          "locator": "§2.1 pp.273–274, purity and motivic-weight paragraphs; §1.2 pp.263–264",
           "match": "For π∈Π_alg the positive real scalars act trivially on L(π∞), −1 acts by a scalar, and all weights lie either in ℤ or in ½+ℤ. The weight multiset is invariant under negation; π∨ has the same archimedean parameter."
         }
       ],
@@ -663,7 +663,7 @@
       "sources": [
         {
           "sourceId": "CT20",
-          "locator": "§2.2 pp.274–275, (2.2.1); §5.1 p.301",
+          "locator": "§2.2 pp.274–275, self-dual type and invariant-pairing paragraphs; §5.1 p.301",
           "match": "Import the orthogonal/symplectic dichotomy for self-dual unitary cuspidal GL_m representations and specialize it to Π_alg. A regular self-dual member is symplectic when its motivic weight is odd and orthogonal when it is even."
         }
       ],
@@ -1718,7 +1718,7 @@
       ],
       "kind": "application",
       "title": "Recovering classical level-one dimensions from the bound",
-      "statement": "Specialize the exclusion algorithm to the GL₂ infinity type I_w, adjoining the known eigenforms from S_{w+1}(SL₂(ℤ)). Certified rejection of one additional class proves that this known eigensystem list is complete; compare its cardinal with the pinned level-one dimension formula rather than replanning that theorem. The method of CT20 §2.4.7 gives an independent explicit-formula upper bound, not a new construction of classical Hecke theory.",
+      "statement": "Specialize the exclusion algorithm to the GL₂ infinity type I_w, adjoining the known eigenforms from S_{w+1}(SL₂(ℤ)). Certified rejection of one additional class proves that this known eigensystem list is complete; compare its cardinal with the pinned level-one dimension formula rather than replanning that theorem. This is a specialization of the general algorithm in CT20 §2.4.5, compared with the GL₂ dimension discussion on p.271; it asserts completeness only when the required certificate is supplied. It constructs no new classical Hecke theory.",
       "hypotheses": [],
       "proofSteps": [
         "Import the normalized eigenform-to-unitary-cuspidal dictionary and the classical dimension theorem.",
@@ -1742,11 +1742,53 @@
       "sources": [
         {
           "sourceId": "CT20",
-          "locator": "§2.4.7 pp.284–285",
-          "match": "Specialize the exclusion algorithm to the GL₂ infinity type I_w, adjoining the known eigenforms from S_{w+1}(SL₂(ℤ)). Certified rejection of one additional class proves that this known eigensystem list is complete; compare its cardinal with the pinned level-one dimension formula rather than replanning that theorem."
+          "locator": "§1.4 p.271, GL₂ dimension comparison; §2.4.5 pp.283–284, general exclusion algorithm",
+          "match": "The general exclusion algorithm gives an upper bound after a negative certificate is supplied; the GL₂ comparison with classical dimensions is a specialization, not the repeated-weight GL₄ theorem of §2.4.7."
         }
       ],
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/repeated-weight-gl4-vanishing",
+      "parentStageId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2",
+      "realises": [
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.2"
+      ],
+      "kind": "theorem",
+      "title": "Repeated-weight self-dual GL₄ vanishing through weight 53",
+      "statement": "For each odd integer w with 1≤w≤53, no self-dual level-one algebraic cuspidal class π of PGL₄ over ℚ has L(π∞)=2I_w. Apply the exclusion algorithm with U=2I_w, δ=1, m=1, ℓ=5 and the complete known set of classical level-one eigenforms of weight w+1. Its cardinal is dim S_{w+1}(SL₂(ℤ)), with actual classes counted separately; it need not be zero or one. This is the GL₄ vanishing theorem of CT20 §2.4.7, separate from GL₂ dimension recovery.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Import the normalized GL₂ eigenform dictionary and complete classical Hecke decomposition; derive the size of its known set from the pinned modular/cusp dimension results.",
+        "For all 27 odd values of w, construct the rational nonnegative witness and strict interval-negative bound at ℓ=5 with the corrected known-set cardinal. Bind these witnesses into the CN manifest before invoking intrinsic cone positivity.",
+        "Apply LO.2/exclusion-algorithm to rule out the additional rank-four class. No genus-two classical/adelic comparison is inferred without a separate supplier."
+      ],
+      "acceptance": [
+        "At w=23 the known set has two classes from S₂₄, despite their equal infinity type.",
+        "At w=53 it has four classes from S₅₄; a one-class substitution does not verify the stated recipe.",
+        "Keep self-duality and the odd range 1≤w≤53 explicit; a certificate for I_w is not one for 2I_w."
+      ],
+      "prerequisites": [
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.2/exclusion-algorithm",
+        "mathlib:ModularForm.dimension_level_one",
+        "mathlib:CuspForm.discriminantEquiv",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+        "AutomorphicFormsOnReductiveGroups:AF.5/gl2-dictionary",
+        "ComputationalNumberTheory:CN.4/ct-explicit-formula-values"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/Automorphic/LevelOne/Layer2.lean",
+        "namespace": "TauCeti.LevelOne"
+      },
+      "sources": [
+        {
+          "sourceId": "CT20",
+          "locator": "§2.4.7 p.285; cardinal correction E22",
+          "match": "The source excludes self-dual PGL₄ classes with repeated I_w for odd w through 53 using its general algorithm; its stated size of the known GL₂ set must be replaced by the actual cusp dimension."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "addedBy": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/arthur-parameters",
@@ -3568,7 +3610,7 @@
       ],
       "kind": "lemma",
       "title": "The weight-23 candidate cover and its residuals",
-      "statement": "At ℓ=487/50 certify positive definiteness of the weight-23 Gram matrix and construct the rational enlarged covers used by CT19b: the multiplicity-two cover has 265 entries and the one-class cover has 12293 entries with the documented 1.001 safety factor. Interpret both exclusion runs as tests for additional classes outside the duality-stable set S of 27 known classes. The one-class cover has 12106 checked exclusions of an additional self-dual class, leaving 187 candidates. Exactly six are multiplicity-free: I₃+I₁₁+I₁₇+I₂₁+I₂₃; I₇+I₁₅+I₂₁+I₂₃; I₃+I₉+I₁₅+I₂₁+I₂₃; I₁+I₉+I₁₇+I₂₁+I₂₃; I₅+I₁₃+I₁₇+I₂₁+I₂₃; I₅+I₁₃+I₁₉+I₂₃. The coarse mass/count algorithm gives N⊥=1 at the first of these six types, already occupied by the known GL₁₀ class, and N⊥=0 at the other five. Thus none admits an additional self-dual class, leaving 181 vectors V, each with repeated I₂₃, dimensions 10 through 38, and a simple I_w for some w∈{1,3,5}.",
+      "statement": "At ℓ=487/50 certify positive definiteness of the weight-23 Gram matrix and construct complete rational candidate covers. CT20 reports 265 entries in its multiplicity-two cover at cutoff A_F/2. This is distinct from the 269 stored types in CT19b’s db_w23_mult2 and from its PARI search with a 1.001 enlarged cutoff. Bind any certified replacement cover to its own safe cutoff and cardinality rather than identifying those lists. The author’s enlarged one-class dataset has 12293 entries. Interpret both exclusion runs as tests for additional classes outside the duality-stable set S of 27 known classes. The one-class cover has 12106 checked exclusions of an additional self-dual class, leaving 187 candidates. Exactly six are multiplicity-free: I₃+I₁₁+I₁₇+I₂₁+I₂₃; I₇+I₁₅+I₂₁+I₂₃; I₃+I₉+I₁₅+I₂₁+I₂₃; I₁+I₉+I₁₇+I₂₁+I₂₃; I₅+I₁₃+I₁₇+I₂₁+I₂₃; I₅+I₁₃+I₁₉+I₂₃. The coarse mass/count algorithm gives N⊥=1 at the first of these six types, already occupied by the known GL₁₀ class, and N⊥=0 at the other five. Thus none admits an additional self-dual class, leaving 181 vectors V, each with repeated I₂₃, dimensions 10 through 38, and a simple I_w for some w∈{1,3,5}.",
       "hypotheses": [],
       "proofSteps": [
         "Check the complete rational cover rather than reproducing an approximate qfminim enumeration.",
@@ -3577,7 +3619,8 @@
       ],
       "acceptance": [
         "The 187 residuals belong to the one-class list, not the multiplicity-two list.",
-        "The cardinal 12293 describes the actual enlarged author dataset; any replacement manifest states its own cutoff and cardinal."
+        "The cardinal 12293 describes the actual enlarged author dataset; any replacement manifest states its own cutoff and cardinal.",
+        "The reported 265-element paper cover, 269 raw two-class database rows and a certified replacement cover are separate objects; do not infer equality from their common test length."
       ],
       "prerequisites": [
         "LevelOneAutomorphicFormsForClassicalGroups:LO.5/classification-certificates",
@@ -3592,7 +3635,12 @@
         {
           "sourceId": "CT20",
           "locator": "§4.1 pp.295–297; corrections E4, E5, E7 and E21",
-          "match": "At ℓ=487/50 certify positive definiteness of the weight-23 Gram matrix and construct the rational enlarged covers used by CT19b: the multiplicity-two cover has 265 entries and the one-class cover has 12293 entries with the documented 1.001 safety factor. Interpret both exclusion runs as tests for additional classes outside the duality-stable set S of 27 known classes."
+          "match": "At ℓ=487/50 certify positive definiteness of the weight-23 Gram matrix and construct complete rational candidate covers. CT20 reports 265 entries in its multiplicity-two cover at cutoff A_F/2. This is distinct from the 269 stored types in CT19b’s db_w23_mult2 and from its PARI search with a 1.001 enlarged cutoff. Bind any certified replacement cover to its own safe cutoff and cardinality rather than identifying those lists. The author’s enlarged one-class dataset has 12293 entries. Interpret both exclusion runs as tests for additional classes outside the duality-stable set S of 27 known classes."
+        },
+        {
+          "sourceId": "CT19b",
+          "locator": "contradict_vect/db_w23_mult1 and db_w23_mult2; gp/qfminim_trie.gp liste_qfminim; sage/verify.sage enum_possible_pi",
+          "match": "The raw databases have 12293 and 269 distinct types. PARI uses an enlarged 1.001 bound, while the Sage verifier enumerates a rational lower-Gram cover at N/mult. These are different data objects, whose completeness and cardinality require their own manifests."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3664,7 +3712,7 @@
       "sources": [
         {
           "sourceId": "CT20",
-          "locator": "§1.3 p.265; §2.4.6 pp.284–285; CL14 Theorem F pp.13–14",
+          "locator": "§1.3 p.265; §2.4.6 pp.284–285; CL14 Theorem F p.15",
           "match": "Exactly eleven members of Π_alg have motivic weight≤22: 1; the five GL₂ classes Δ₁₁,Δ₁₅,Δ₁₇,Δ₁₉,Δ₂₁; the four GL₄ classes Δ₁₉,₇,Δ₂₁,₅,Δ₂₁,₉,Δ₂₁,₁₃, where Δ_{a,b} has weights ±a/2,±b/2; and Sym²Δ₁₁ with weights −11,0,11. Each label denotes an actual isomorphism class, and no pair of distinct listed classes is identified."
         }
       ],
@@ -4254,7 +4302,7 @@
       "sources": [
         {
           "sourceId": "CT20",
-          "locator": "§5.3.2 p.311; CL14 V §2 and IX §4.4 pp.326–327",
+          "locator": "§5.3.2 p.311; CL14 V §§1–2 pp.135–140; IX §4.3, Theorem 4.4 p.326",
           "match": "For a nonzero simultaneous lattice-Hecke eigenvector v∈ℂ[X_n], define g₀(v) as the least genus g≥0 for which θ_g(v)≠0. Existence follows from injectivity at genus n: a full-rank Gram coefficient distinguishes lattice classes."
         }
       ],
@@ -4349,7 +4397,7 @@
       ],
       "kind": "theorem",
       "title": "The small-rank lattice eigenparameters and degrees",
-      "statement": "The lattice Hecke modules ℂ[X₈],ℂ[X₁₆],ℂ[X₂₄] have respectively 1,2,24 distinct joint eigenlines, each one-dimensional. Their standard Arthur parameters and first-occurrence degrees are the CL14 lists: rank eight has [7]⊕[1], degree 0; rank sixteen has [15]⊕[1], degree 0, and Δ₁₁[4], degree 4. The rank-twenty-four list is the 24 explicit rows reproduced as mathematical data in the reader’s eigenparameter table, sourced to CL14 Theorem E and Table C.5 p.440. Its degree distribution for g=0,…,12 is (1,1,1,1,2,2,3,3,4,2,2,1,1); the sole degree-12 row is Δ₁₁[12]. This result precedes the new low-weight Siegel dimension classification.",
+      "statement": "The lattice Hecke modules ℂ[X₈],ℂ[X₁₆],ℂ[X₂₄] have respectively 1,2,24 distinct joint eigenlines, each one-dimensional. Their standard Arthur parameters and first-occurrence degrees are the CL14 lists: rank eight has [7]⊕[1], degree 0; rank sixteen has [15]⊕[1], degree 0, and Δ₁₁[4]⊕[7]⊕[1], degree 4. The rank-twenty-four list is the 24 explicit rows reproduced as mathematical data in the reader’s eigenparameter table, sourced to CL14 Theorem E and Table C.5 p.440. Its degree distribution for g=0,…,12 is (1,1,1,1,2,2,3,3,4,2,2,1,1); the sole degree-12 row is Δ₁₁[12]. This result precedes the new low-weight Siegel dimension classification.",
       "hypotheses": [],
       "proofSteps": [
         "Import lattice class completeness and the Hecke-neighbour interface from their owners.",
@@ -4358,7 +4406,8 @@
       ],
       "acceptance": [
         "Use the public French preprint’s theorem numbering and pages; the unavailable English book is not claimed read.",
-        "This is an input from the earlier lattice-theta analysis and must not depend on LO.7’s new Theorem 2."
+        "This is an input from the earlier lattice-theta analysis and must not depend on LO.7’s new Theorem 2.",
+        "Every compact standard parameter has dimension equal to the lattice rank: the rank-sixteen nontrivial row has 2·4+7+1=16; Δ₁₁[4] alone has dimension eight and must be rejected."
       ],
       "prerequisites": [
         "LevelOneAutomorphicFormsForClassicalGroups:LO.6/lattice-spectrum-input",
@@ -4374,8 +4423,8 @@
       "sources": [
         {
           "sourceId": "CL14",
-          "locator": "I Theorem E pp.11–13; IX §4.4 pp.326–327, §5.2 pp.328–330; Table C.5 p.440",
-          "match": "The lattice Hecke modules ℂ[X₈],ℂ[X₁₆],ℂ[X₂₄] have respectively 1,2,24 distinct joint eigenlines, each one-dimensional. Their standard Arthur parameters and first-occurrence degrees are the CL14 lists: rank eight has [7]⊕[1], degree 0; rank sixteen has [15]⊕[1], degree 0, and Δ₁₁[4], degree 4."
+          "locator": "I Theorem E p.12 and Table I.2 pp.13–14; V §§1–2 pp.135–140; IX §4.3, Theorem 4.4 p.326 and §5.2 pp.328–330; Table C.5 p.440",
+          "match": "The lattice Hecke modules ℂ[X₈],ℂ[X₁₆],ℂ[X₂₄] have respectively 1,2,24 distinct joint eigenlines, each one-dimensional. Their standard Arthur parameters and first-occurrence degrees are the CL14 lists: rank eight has [7]⊕[1], degree 0; rank sixteen has [15]⊕[1], degree 0, and Δ₁₁[4]⊕[7]⊕[1], degree 4."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4812,7 +4861,7 @@
       "sources": [
         {
           "sourceId": "CT20",
-          "locator": "Theorem 2 p.262 and Table 5 p.319",
+          "locator": "Theorem 2 p.263 and Table 5 p.319",
           "match": "For nonscalar dominant k with 13≥k₁≥⋯≥k_g>g≥1, dim S_k is one precisely at the 29 weight vectors in the reader’s nonscalar table, and zero at all other such weights. Each row also gives its unique standard parameter."
         }
       ],
@@ -4852,7 +4901,7 @@
       "sources": [
         {
           "sourceId": "CT20",
-          "locator": "Theorem 2 p.262 and Table 6 p.320",
+          "locator": "Theorem 2 p.263 and Table 6 p.320",
           "match": "For every g≥1 and integer 0≤k≤13, dim S_k(Γ_g) is the number of rows of the reader’s scalar table with that pair (g,k); it is zero when there are no rows. The table has 32 eigenparameters, the 29 regular scalar rows plus (12,12),(16,13),(24,13)."
         }
       ],
@@ -5001,7 +5050,8 @@
         "LevelOneAutomorphicFormsForClassicalGroups:LO.6/harmonic-coefficient-module",
         "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
-        "FiniteFieldsAndCharacterSums:FF.4"
+        "FiniteFieldsAndCharacterSums:FF.4",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-5-tetracode-hexacode-and-the-extended-golay-codes"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/LevelOne/Layer8.lean",
@@ -5058,12 +5108,12 @@
       ],
       "kind": "lemma",
       "title": "Stable scalar parameters and genus-independent signs",
-      "statement": "For k≥1,g≥2k, Weissauer gives M_k=L²_k. Every realized parameter is case H1 with distinguished trivial block [2(g−k)+1], and its remainder ψ′ is a compact-SO(2k) Adams–Johnson parameter. A nontrivial distinguished constituent would produce an infinitesimal weight exceeding g−k. The component groups for genera g,g′≥2k are canonically identified by block labels. For each symplectic remainder block d_i≤k<2(g′−k)+1 and d_i is even, so ε(π_i)^{min(d_i,2(g′−k)+1)}=1; orthogonal blocks also have standard epsilon 1. Thus global and local characters depend only on ψ′, not g. Their equality forces (−1)^{k/2}=1 and hence 4|k.",
+      "statement": "For k≥1,g≥2k, Weissauer gives M_k=L²_k. For a realized parameter the trivial distinguished block forces k even by the H1 type condition. Every such parameter is case H1 with distinguished trivial block [2(g−k)+1], and its remainder ψ′ is a compact-SO(2k) Adams–Johnson parameter. A nontrivial distinguished constituent would produce an infinitesimal weight exceeding g−k. The component groups for genera g,g′≥2k are canonically identified by block labels. For each symplectic remainder block d_i≤k<2(g′−k)+1 and d_i is even, so ε(π_i)^{min(d_i,2(g′−k)+1)}=1; orthogonal blocks also have standard epsilon 1. Thus global and local characters depend only on ψ′, not g. For this even k, their equality forces (−1)^{k/2}=1 and hence 4|k.",
       "hypotheses": [],
       "proofSteps": [
         "Import Weissauer’s square-integrability range, then eliminate I and H2 using g≥2k.",
         "Show the long block must be trivial by comparing its shifted weights with the scalar infinitesimal multiset.",
-        "Evaluate the product of even generators, adding the odd-pair generator when needed, to obtain local sign (−1)^{k/2} and global sign 1."
+        "First derive even k from the trivial H1 constituent. Then evaluate the product of even generators, adding the odd-pair generator when needed, to obtain local sign (−1)^{k/2} and global sign 1."
       ],
       "acceptance": [
         "Handle k=0 separately in the dimension theorem.",
@@ -5171,7 +5221,7 @@
       ],
       "kind": "construction",
       "title": "The normalized Golay alternating forms",
-      "statement": "Import the extended binary Golay code C⊂𝔽₂²⁴ and its coordinate Leech lattice realization from FF.4/GN.3. Put M₂₄=Aut(C) acting by coordinate permutations. For a codeword subset S of cardinal g∈{0,8,12,16,24}, choose an orientation and set σ_S=Σ_{h∈M₂₄/(M₂₄)_S}h(e_{s₁}∧⋯∧e_{s_g}). Under the inner-product identification of ∧^gΛ_ℚ with alternating g-forms, let ω_g correspond to σ_S. It is well defined up to sign, nonzero, and invariant under the full O(Λ). In degree 24 choose a lattice orientation so ω₂₄ is its determinant. The full-group invariance follows by comparing the one-dimensional Golay-subgroup and full-group invariant spaces, not by assuming M₂₄=O(Λ).",
+      "statement": "Import the extended binary Golay code C⊂𝔽₂²⁴ from current AlgebraicCodingTheory Layer 5 (native TauCeti.BinaryGolay.code on current library main), the extra permutation/orientation data requested through FF.4, and its coordinate Leech comparison through GN.3. The ordinary binary Construction A lattice is not identified with the rootless Leech lattice. Put M₂₄=Aut(C) acting by coordinate permutations. For a codeword subset S of cardinal g∈{0,8,12,16,24}, choose an orientation and set σ_S=Σ_{h∈M₂₄/(M₂₄)_S}h(e_{s₁}∧⋯∧e_{s_g}). Under the inner-product identification of ∧^gΛ_ℚ with alternating g-forms, let ω_g correspond to σ_S. It is well defined up to sign, nonzero, and invariant under the full O(Λ). In degree 24 choose a lattice orientation so ω₂₄ is its determinant. The full-group invariance follows by comparing the one-dimensional Golay-subgroup and full-group invariant spaces, not by assuming M₂₄=O(Λ).",
       "hypotheses": [],
       "proofSteps": [
         "Use the orientability of codeword subsets and transitivity at each allowed cardinality.",
@@ -5185,7 +5235,8 @@
         "LevelOneAutomorphicFormsForClassicalGroups:LO.8/oriented-orbit-basis",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-invariants",
         "FiniteFieldsAndCharacterSums:FF.4",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-5-tetracode-hexacode-and-the-extended-golay-codes"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/LevelOne/Layer8.lean",
@@ -5195,7 +5246,7 @@
         {
           "sourceId": "CT19a",
           "locator": "§1, Proposition 1.4 and Definition 1.5 pp.7–8",
-          "match": "Import the extended binary Golay code C⊂𝔽₂²⁴ and its coordinate Leech lattice realization from FF.4/GN.3. Put M₂₄=Aut(C) acting by coordinate permutations."
+          "match": "CT19a uses the existing extended binary Golay code and its permutation automorphisms to construct the alternating forms; the coordinate Leech realization and full-group invariant-line comparison are separate inputs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5556,11 +5607,12 @@
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/G-scalar-certificates",
       "title": "Materialized complete candidate and interval manifests",
-      "detail": "No proof-bearing CN manifests for the 12293/265 covers, 1256 weight-24 exclusions, GRH exclusions or every vanishing row were produced in this design. Each needs complete-domain, safe-cutoff, scalar-enclosure and strict-negativity witnesses bound by content hashes. Exact exploratory recomputation is distinguished from Lean certification.",
+      "detail": "No proof-bearing CN manifests for the one-class cover and a documented two-class cover (paper count 265; raw two-class database count 269), 1256 weight-24 exclusions, GRH exclusions or every vanishing row were produced in this design. Each needs complete-domain, safe-cutoff, scalar-enclosure and strict-negativity witnesses bound by content hashes. Exact exploratory recomputation is distinguished from Lean certification. Include the 27 repeated-weight GL₄ exclusions for odd 1≤w≤53 at ℓ=5, using the full known GL₂ eigenform set rather than the erroneous zero-or-one shortcut.",
       "neededBy": [
         "LevelOneAutomorphicFormsForClassicalGroups:LO.5/classification-certificates",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.5/weight23-cover",
-        "LevelOneAutomorphicFormsForClassicalGroups:LO.5/grh-weight23"
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.5/grh-weight23",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.2/repeated-weight-gl4-vanishing"
       ]
     },
     {
@@ -5620,7 +5672,7 @@
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/G-finite-leech-data",
       "title": "Exact Golay, automorphism and Leech embedding witnesses",
-      "detail": "Materialize the finite code/group certificates for oriented subset orbits and the averaged exterior character. Obtain the full lattice proofs of CT19a Proposition 2.2 and Proposition 3.13 from GN.3, including residue-form type, surjective stabilizer maps and the kernels of orders 3 and 10. The source’s intermediate §3 proof was only partly read in this design.",
+      "detail": "Reuse the current native binary Golay code and its proven weight enumerator; materialize the additional group certificates for oriented subset orbits and the averaged exterior character. Obtain the full lattice proofs of CT19a Proposition 2.2 and Proposition 3.13 from GN.3, including residue-form type, surjective stabilizer maps and the kernels of orders 3 and 10. The source’s intermediate §3 proof was only partly read in this design.",
       "neededBy": [
         "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-invariants",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-alternating-forms",
@@ -5712,7 +5764,8 @@
         "LevelOneAutomorphicFormsForClassicalGroups:LO.2/gl2-dimension-recovery",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.6/lattice-spectrum-input",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.6/small-lattice-eigenparameters",
-        "LevelOneAutomorphicFormsForClassicalGroups:LO.6/harmonic-theta"
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.6/harmonic-theta",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.2/repeated-weight-gl4-vanishing"
       ]
     },
     {
@@ -5763,14 +5816,15 @@
     },
     {
       "supplier": "ComputationalNumberTheory:CN.4",
-      "need": "Use the existing eight ct-explicit-formula-values scalars, sound interval enclosures, geometric/alternating tail bounds, Gram negativity soundness, complete effective ellipsoid cover and multiplicity-gram-lift. Supply any missing n-weighted alternating-tail monotonicity bound, including the condition ℓ(N+1)≥1. The intrinsic gamma-integral comparison belongs to LO.2.",
+      "need": "Use the existing eight ct-explicit-formula-values scalars, sound interval enclosures, geometric/alternating tail bounds, Gram negativity soundness, complete effective ellipsoid cover and multiplicity-gram-lift. Supply any missing n-weighted alternating-tail monotonicity bound, including the condition ℓ(N+1)≥1. The intrinsic gamma-integral comparison belongs to LO.2. Include sound scalar enclosures and rational witnesses for the 27 odd repeated-weight GL₄ cases through w=53 at ℓ=5, with all known GL₂ classes.",
       "neededBy": [
         "LevelOneAutomorphicFormsForClassicalGroups:LO.2/compressed-negativity",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.2/scalar-comparison",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.2/certified-search",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.2/positive-definite-cover",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.4/coarse-mass-tables",
-        "LevelOneAutomorphicFormsForClassicalGroups:LO.5/classification-certificates"
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.5/classification-certificates",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.2/repeated-weight-gl4-vanishing"
       ]
     },
     {
@@ -5783,7 +5837,7 @@
     },
     {
       "supplier": "FiniteFieldsAndCharacterSums:FF.4",
-      "need": "A native extended binary Golay code, coordinate action M₂₄ and proof-bearing finite incidence/orientation data (octads, dodecads, orientable subset orbits). Coordinate Leech construction and its isometry comparison belong to GN.3/current lattice owner.",
+      "need": "Consume the extended binary Golay code from current AlgebraicCodingTheory Layer 5 and native TauCeti.BinaryGolay.code; do not construct it again in FF.4. Extend the supplier only with its permutation automorphism action M₂₄ and proof-bearing incidence/orientation data (octads, dodecads, orientable subset orbits). FF.4 currently does not export these results. The twisted coordinate Leech construction and isometry comparison are the GN.3/current lattice-owner request, not ordinary binary Construction A.",
       "neededBy": [
         "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-invariants",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-alternating-forms"
@@ -5892,6 +5946,14 @@
         "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-invariants",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.8/oriented-orbit-basis"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-5-tetracode-hexacode-and-the-extended-golay-codes",
+      "need": "Reuse the extended binary Golay code and its generator, rank, Type II, minimum-distance and weight-enumerator API. Current library main already has TauCeti.BinaryGolay.code, finrank_code, isTypeII_code, hammingMinDist_code and weightEnumerator_code; these postdate the fixed compilation pin. Mathieu identification, orientable subset orbits and the Leech comparison are separate requested extensions.",
+      "neededBy": [
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-invariants",
+        "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-alternating-forms"
+      ]
     }
   ],
   "restructure": [
@@ -5934,6 +5996,10 @@
     {
       "owner": "ComputationalNumberTheory",
       "detail": "Current CN.4 already plans multiplicity-gram-lift and ct-explicit-formula-values. This design consumes those exact nodes; certificate plumbing is CN.5, while the intrinsic comparison to gamma integrals is LO.2."
+    },
+    {
+      "owner": "AlgebraicCodingTheory / FF.4 / GN.3",
+      "detail": "Current AlgebraicCodingTheory Layer 5 and current Tau Ceti Binary/Golay/Basic.lean already supply the extended binary Golay code. ConstructionA/Golay.lean supplies its even unimodular Construction A lattice, which has roots and is not the rootless Leech lattice. Reuse these current interfaces; request only the extra Mathieu incidence/orientation data and the twisted Leech comparison. No current declaration is asserted to exist at the older compilation pin."
     }
   ],
   "sourceIssues": [
@@ -5950,7 +6016,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Exact cyclotomic exponent enumeration modulo polynomial negation gives 1158 Sp₁₄ orbits; the printed 1157 is inconsistent with that list.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E2",
@@ -5965,7 +6037,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two GL₂ forms have motivic weight 23, hence classical weight 24; the pinned dimension formula gives two there and zero at odd weight 23.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E3",
@@ -5980,7 +6058,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct expansion of the block average t_i/m_i gives the A/m diagonal. For A=K=1 and multiplicity two the expanded and compressed normalized minima are −1 and −1/2, although strict negativity agrees.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E4",
@@ -5988,14 +6072,20 @@
       "locator": "CT20 published version: §4.1 p.296",
       "printed": "The cardinal quoted for the enlarged one-class candidate list disagrees with its actual stored rows and the residual subtraction.",
       "correction": "The enlarged dataset has 12293 entries, of which 12106 are excluded and 187 remain.",
-      "reason": "The companion dataset/verification convention uses a 1.001 enlarged cutoff; the arithmetic is 12106+187=12293. The count is not advertised as a fresh formal certificate.",
+      "reason": "Independent parsing of contradict_vect/db_w23_mult1 gives 12293 distinct types: 12106 stored negative outcomes and 187 nonnegative residuals. This verifies the dataset count, not a formal interval proof or completeness of the enlarged ellipsoid cover.",
       "affects": "nothing",
       "known": "Carried forward from PAPER-CHENEVIER-TAIBI-20/E4; not a new discovery. Targeted mathematical/source checks made in this design as specified in the reason. No independent-review verdict is claimed.",
       "searched": [
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independent parsing of contradict_vect/db_w23_mult1 gives 12293 distinct types: 12106 stored negative outcomes and 187 nonnegative residuals. This verifies the dataset count, not a formal interval proof or completeness of the enlarged ellipsoid cover.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E5",
@@ -6010,7 +6100,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The one-class cover is the list on which 12106 exclusions leave 187 residuals; the multiplicity-two cover has a different role in the preceding paragraph.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E6",
@@ -6025,7 +6121,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The source uses absence from the singleton residual to rule out an exceptional pair of self-dual classes, but does not provide that two-class self-dual exclusion. The added certificate gap is necessary; its approximate margin is not claimed certified.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E7",
@@ -6033,14 +6135,20 @@
       "locator": "CT20 published version: §4.1 p.295 after Proposition 4.1",
       "printed": "The stated dimension endpoints for the 181-vector residual do not match the actual residual.",
       "correction": "Use dimensions 10 through 38.",
-      "reason": "Each I_w has dimension two; the accepted extraction’s residual inspection and CT19b list determine these endpoints.",
+      "reason": "After the six multiplicity-free rows are removed from the 187 nonnegative database rows, the remaining 181 have dimensions 2 times their number of I_w summands, with minimum 10 and maximum 38. The published 14–42 endpoints fail this exact check.",
       "affects": "a stated result",
       "known": "Carried forward from PAPER-CHENEVIER-TAIBI-20/E7; not a new discovery. Targeted mathematical/source checks made in this design as specified in the reason. No independent-review verdict is claimed.",
       "searched": [
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "After the six multiplicity-free rows are removed from the 187 nonnegative database rows, the remaining 181 have dimensions 2 times their number of I_w summands, with minimum 10 and maximum 38. The published 14–42 endpoints fail this exact check.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E8",
@@ -6055,7 +6163,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The flag δ can only be zero or one; testing a nonself-dual dual pair means δ=0 and m=2, as opposed to the printed assignment.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E9",
@@ -6070,7 +6184,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The odd-rank regular candidates require the dual groups Sp₁₀, Sp₁₂ and Sp₁₄. A bound ending at Sp₈ cannot supply those counts.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E10",
@@ -6085,22 +6205,34 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Filtering the 27-class list to ranks at most four leaves 15 distinct infinity types and 16 classes because the weight-23 GL₂ entry has multiplicity two.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E11",
       "kind": "misprint",
       "locator": "CT20 published version: §2.4.3 p.281, CL19 tail-bound citation",
       "printed": "The English-book page reference does not locate the tail estimate used by the algorithm.",
-      "correction": "Use the public French preprint IX Proposition 3.17 pp.304–305 and the CN tail interface; the accepted extraction identifies English p.277 as the corrected page.",
-      "reason": "The French scalar derivation was read here. The English-page correction is attributed to the accepted extraction, not claimed independently checked against an uncleared book.",
+      "correction": "Use the verified public French preprint IX Proposition 3.17 pp.304–306 and the CN tail interface. No English-edition replacement page is verified here.",
+      "reason": "The public French formulas and tail argument were read. The English book is not a cleared source; neither the inherited claim nor CT20’s inconsistent page references proves the asserted English page correction.",
       "affects": "nothing",
       "known": "Carried forward from PAPER-CHENEVIER-TAIBI-20/E11; not a new discovery. Targeted mathematical/source checks made in this design as specified in the reason. No independent-review verdict is claimed.",
       "searched": [
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "The public French formulas and tail argument were read. The English book is not a cleared source; neither the inherited claim nor CT20’s inconsistent page references proves the asserted English page correction.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E12",
@@ -6115,7 +6247,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two distinct normalized eigenclasses in S₂₄ have equal infinity type, so the source final uniqueness assertion must exclude its GL₂ case.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E13",
@@ -6130,7 +6268,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The regular W₄ vector (1,0,0,−1) fails a literal unordered i≠j asymmetric exception. The ordered i<j condition fixes both pairs.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E14",
@@ -6145,7 +6289,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The type-D final sign is forgotten by the weight multiset, and the other two parity images have rank restrictions; an inverse on all regular W_m is false.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E15",
@@ -6160,7 +6310,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At active U₁=1 and U₂=e, ε(U₁U₂)=i, so the unguarded expression need not be real. Genuine self-dual inputs supply the missing real-sign condition.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E16",
@@ -6175,7 +6331,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At g=1,k=0 the standard infinitesimal eigenvalues 0,1,−1 are distinct, whereas k>g fails. Distinctness requires nonzero a_i and nonzero pair sums, separately from the holomorphic range.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E17",
@@ -6190,7 +6352,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For n=8 with g₀=0 but actual lift genus g=8, the standard dimension is 17=8+9. Using g₀ in the added string gives the wrong dimension.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E18",
@@ -6205,22 +6373,34 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The trivial SO₃ character at k=0 and order four is one; the printed doubled sine denominator does not have that value. The corrected traces give determinant 288.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E19",
       "kind": "misprint",
       "locator": "CT20 published version: §1.4 p.270 after (1.4.5)",
-      "printed": "The special-value sentence points to positive integers without its value-field qualifications.",
+      "printed": "The special-value sentence places the Artin L-values at non-negative integers without the needed value-field qualifications.",
       "correction": "Use the relevant non-positive critical integers and check the Artin-character/value-field hypotheses of the centralizer-motive application.",
-      "reason": "The claimed unrestricted positive-integer rationality is false; the exact generic theorem is a supplier/source obligation, not silently assumed.",
+      "reason": "The published sentence says non-negative, which includes positive integers; the intended centralizer-motive argument needs non-positive critical values with its Artin-character and value-field hypotheses. The generic theorem remains an explicit supplier obligation.",
       "affects": "the proof",
       "known": "Carried forward from PAPER-CHENEVIER-TAIBI-20/E19; not a new discovery. Targeted mathematical/source checks made in this design as specified in the reason. No independent-review verdict is claimed.",
       "searched": [
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The published sentence says non-negative, which includes positive integers; the intended centralizer-motive argument needs non-positive critical values with its Artin-character and value-field hypotheses. The generic theorem remains an explicit supplier obligation.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E20",
@@ -6235,7 +6415,13 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "An independent exact block/epsilon enumeration gives 198 collapsed shapes and 223 actual positive-genus candidates; all 25 extra actual candidates fail, leaving 58. Adding genus zero gives 199/59 shapes.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
     },
     {
       "id": "LevelOneAutomorphicFormsForClassicalGroups/E21",
@@ -6250,7 +6436,34 @@
         "Accepted PAPER-CHENEVIER-TAIBI-20 extraction and REV-PAPER findings; supplied issue brief.",
         "CT20 published PDF and journal landing page, accessed 2026-10-19; no linked CT20 erratum found.",
         "Author companion material and public French CL preprint. Author publication-page retrieval failed; this is not evidence of absence of an erratum."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The first listed regular residual is the known GL₁₀ class of Theorem 3(iv). The companion verify_enum routine tests an additional class and skips already known singleton types; its absolute-emptiness reading is false. The two known I₂₃ classes also defeat the literal absolute one-class claim.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      },
+      "source": "CT20"
+    },
+    {
+      "id": "LevelOneAutomorphicFormsForClassicalGroups/E22",
+      "source": "CT20",
+      "kind": "error",
+      "locator": "CT20 published version: §2.4.7 p.285, size of the classical known set",
+      "printed": "After defining the known set by the cusp dimension in weight w+1, the source assigns it size one for every odd 11≤w≤53 except w=13.",
+      "correction": "Use the actual value dim S_{w+1}(SL₂(ℤ)), including two at w=23 and four at w=53, with distinct eigenclasses retained. The GL₄ exclusion recipe needs a certificate with that full set.",
+      "reason": "The pinned cusp/modular discriminant equivalence and level-one dimension formula give dim S₂₄=dim M₁₂=2 and dim S₅₄=dim M₄₂=4. These directly contradict the asserted size-one range.",
+      "affects": "the proof",
+      "known": "New finding in this independent review; no matching correction located in the stated search.",
+      "searched": [
+        "CT20 version-of-record PDF §2.4.7 and journal article landing page, 2026-10-19: no linked erratum.",
+        "CT19b companion verification materials; targeted web searches for CT20 corrections and the weight-53 claim, 2026-10-19.",
+        "Chenevier publication-page retrieval timed out; no claim of an exhaustive author-page search."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The pinned cusp/modular discriminant equivalence and level-one dimension formula give dim S₂₄=dim M₁₂=2 and dim S₅₄=dim M₄₂=4. These directly contradict the asserted size-one range.",
+        "by": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups"
+      }
     }
   ],
   "sourceVersions": [
@@ -6277,14 +6490,14 @@
     },
     {
       "sourceId": "CT19b",
-      "kind": "authorcopy",
+      "kind": "author copy",
       "url": "https://otaibi.perso.math.cnrs.fr/levelone/levelone_src_data.tar.gz",
       "read": "2026-10-19",
       "sha256": "b0bd028b886b91d996d0562798c0800fdf465d7b39dc82eeea1a2e22ec6be87b"
     },
     {
       "sourceId": "BoechererNote",
-      "kind": "authorcopy",
+      "kind": "author copy",
       "url": "https://otaibi.perso.math.cnrs.fr/levelone/verif_bocherer.pdf",
       "read": "2026-10-19",
       "sha256": "40f4ae15a4130408aed1776b57d02ea44e8a5b505b88a2b6051e6584f431701f"
@@ -6296,5 +6509,553 @@
       "read": "2026-10-19",
       "sha256": "38e2e76048f7c31b5796039a39add872c0958a07c70fbea9fc08eb12653eb566"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups",
+    "date": "2026-10-19",
+    "notes": "Independently reviewed all 107 original targets and added one source target. Corrected 13 node statements, ownership edges or locators; confirmed all six pinned declarations (clarified discriminantEquiv direction), checked all 30 definition/construction APIs and their 92 discriminating tests, every supplier and request, source hypotheses, stage order, finite tables and suggested signatures. Twenty-one source findings are confirmed, including new E22; the unsupported English-page correction E11 is rejected and replaced by verified French references. Acceptance is of a complete target-level plan: all 12 implementation/source/certificate gaps, 27 precise supplier requests and the Arthur gate remain explicit; nothing is claimed implemented.",
+    "checked": [
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/pi-alg",
+        "verdict": "verified",
+        "note": "The PGL quotient, unitary normalization, finite unramifiedness and scalar −1 condition agree with CT20; tests distinguish conductor and algebraic normalization."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/archimedean-ring",
+        "verdict": "verified",
+        "note": "The parity-truncated additive subgroup is correctly distinguished from a subring; I₀=1+e and the a=b tensor case survive the API tests."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/classical-models",
+        "verdict": "verified",
+        "note": "The native Sp model is already pinned; the integral SO model and its dyadic comparison remain requested from ReductiveGroups 9."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/archimedean-invariants",
+        "verdict": "corrected",
+        "note": "Replaced the nonexistent equation locator with the actual determinant/gamma/epsilon paragraphs; Γ_C and ε(e)=i retain their normalizations."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/purity-and-duality",
+        "verdict": "corrected",
+        "note": "Removed nonexistent P1–P3 labels; purity and duality are the actual §2.1 paragraphs, with no assertion of uniqueness from weights."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/weight-space",
+        "verdict": "verified",
+        "note": "The i<j central-double-zero exception is correct; the dimension-four positive test and dimension-two negative test discriminate it."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/counts",
+        "verdict": "verified",
+        "note": "Finite fibres are explicitly an AS.4 input; duality proves the parity of the difference without identifying equal-weight classes."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/selfdual-type",
+        "verdict": "corrected",
+        "note": "Removed the nonexistent equation label; the simple-weight hypothesis is needed for parity to determine self-dual type."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.1/weight-dictionary",
+        "verdict": "verified",
+        "note": "Checked the three parity images, type-D outer sign convention and rank-one exception; no unrestricted inverse is asserted."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/test-functions",
+        "verdict": "verified",
+        "note": "The Fourier normalization and unconditional strip positivity agree with the explicit-formula source; GRH uses a separate weaker positivity hypothesis."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/local-rayleigh-minimum",
+        "verdict": "verified",
+        "note": "Mathlib supplies an eigenvector only; the second-order sphere argument adds least-eigenvalue minimality, including dimension one."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/archimedean-functional",
+        "verdict": "verified",
+        "note": "The gamma logarithmic-derivative integral is intrinsic, additive and separate from certified approximations; w=0 uses I₀=1+e."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/odlyzko-functions",
+        "verdict": "verified",
+        "note": "The convolution family has the required support and boundary regularity; unconditional F and GRH G are kept distinct."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/explicit-forms",
+        "verdict": "verified",
+        "note": "The zero half-factor, pole term and finite-prime quadratic term agree with (2.3.1)–(2.3.7); positivity is only on the nonnegative cone."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/admissible-quadratic-data",
+        "verdict": "verified",
+        "note": "The diagonal uses A/m and active epsilon factors must be real; the nonreal 1,e example detects the missing guard."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/scalar-comparison",
+        "verdict": "verified",
+        "note": "Compared the four F and four G scalar formulas with the public French proposition and CT20 Proposition 4.4; CN still owes safe tails and enclosures."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/explicit-identity",
+        "verdict": "verified",
+        "note": "The pole convention and symmetric-height zero convergence are explicit AN/AL supplier requirements; the factor 1/2 is retained."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/face-spectral-minimum",
+        "verdict": "verified",
+        "note": "A minimum on a principal face gives a positive least-eigenvector on that support; boundary faces and repeated eigenvalues are not omitted."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/equal-block-coordinates",
+        "verdict": "verified",
+        "note": "Averaging equal block coordinates preserves block sums and reduces the positive diagonal term; this does not identify normalized minima."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/selfdual-monotonicity",
+        "verdict": "verified",
+        "note": "Self-dual monotonicity is asserted only with real active epsilon signs, the guard required by its entrywise comparison."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/positivity",
+        "verdict": "verified",
+        "note": "The finite term is a sum of squared Satake trace sums and the forced central zero supplies the root-number correction on nonnegative coefficients."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/two-coordinate-criterion",
+        "verdict": "verified",
+        "note": "The two-coordinate criterion includes b<0, ac<b² and nonnegative diagonals; zero diagonal and zero margin are separately tested."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/compressed-negativity",
+        "verdict": "verified",
+        "note": "The 1/m average lift gives strict-negativity equivalence; the one-block counterexample rejects equality of unit-sphere minima."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/certified-search",
+        "verdict": "verified",
+        "note": "CN Gram soundness and explicit face enumeration justify verification; numerical eigenvector discovery alone is not a proof."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/multiplicity-bound",
+        "verdict": "verified",
+        "note": "Distinct classes sharing U give the A/m bound; the known-class overlap must be subtracted before applying an additional-class test."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/exclusion-algorithm",
+        "verdict": "verified",
+        "note": "The algorithm is an intrinsic contradiction only after strict certified negativity; candidate count, self-duality flag and known-class distinctness are explicit."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/miller",
+        "verdict": "verified",
+        "note": "The two Miller families, n≤12 range and trivial rank-one exception agree with the source; no higher-rank generalization is inferred."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/positive-definite-cover",
+        "verdict": "verified",
+        "note": "A rational lower Gram matrix and a safe upper cutoff produce a complete effective cover; a finite negative list alone cannot prove completeness."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/gl2-dimension-recovery",
+        "verdict": "corrected",
+        "note": "Corrected the citation: this conditional GL₂ comparison specializes the general algorithm and p.271; §2.4.7 instead proves repeated-weight GL₄ vanishing."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.2/repeated-weight-gl4-vanishing",
+        "verdict": "added",
+        "note": "Added the omitted CT20 §2.4.7 GL₄ vanishing target, separated from GL₂ dimension recovery. Its full known-class cardinal is corrected by E22; 27 strict certificates are an explicit CN obligation."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/arthur-parameters",
+        "verdict": "verified",
+        "note": "Distinct pairs (π,d), not necessarily distinct π, are essential; total standard rank, parity and determinant conditions agree with the Arthur interface."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/lowest-weight-dictionary",
+        "verdict": "verified",
+        "note": "Regular infinitesimal eigenvalues are distinct from the holomorphic discrete-series range; g=1,k=0 is a valid discriminating example."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/Rk-condition",
+        "verdict": "verified",
+        "note": "The R_k multiset retains repeated entries and zero; it is an exact necessary infinity-type condition, not sufficient for packet membership."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/ep-characteristic",
+        "verdict": "verified",
+        "note": "The full-real-group K and coefficient dual enter EP; residual spectrum is retained and the source's signed normalization is tested by SO₃."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/component-group",
+        "verdict": "verified",
+        "note": "The elementary component group is defined with its product relation and even-SO convention; characters descend only after that relation is checked."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/scalar-packet-cases",
+        "verdict": "verified",
+        "note": "The distinguished long block and the I/H1/H2 branches agree with §5.2.2; this is a partition, not a regularity test alone."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/level-one-multiplicity",
+        "verdict": "verified",
+        "note": "ML.0 remains an explicit Arthur dependency gate; spherical finite factors and even-SO global multiplicities are not silently dropped."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/regular-holomorphic-packet",
+        "verdict": "verified",
+        "note": "The regular holomorphic character uses descending positive weights and correct block signs; compared against the independently enumerated regular tables."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/scalar-packet-membership",
+        "verdict": "verified",
+        "note": "The MR packet condition includes the length bound, exceptional distinguished index and residual tempered parameter, not only the infinity multiset."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/scalar-I-character",
+        "verdict": "verified",
+        "note": "Checked (5.2.2)–(5.2.4), the exceptional trivial line and independence from auxiliary sign choices."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/scalar-H-structure",
+        "verdict": "verified",
+        "note": "The trivial H1 constituent and length split imply the remainder rank and parity; the auxiliary odd-block choice remains explicit."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/packet-ep-contribution",
+        "verdict": "verified",
+        "note": "Tai17's shuffle contribution and non-tempered EP coefficient are used with their stated packet hypotheses; this is not a tempered-only formula."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/scalar-H-even-character",
+        "verdict": "verified",
+        "note": "Checked the even-remainder local character in (5.2.5)–(5.2.8), including the generator relation and sign-product condition."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/ep-triangular",
+        "verdict": "verified",
+        "note": "The simple parameter coefficient is invertible and nonsimple constituents are lower rank; the recursion therefore has no same-rank circularity."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/scalar-H-odd-character",
+        "verdict": "verified",
+        "note": "Checked the odd-remainder generators and distinguished choices in (5.2.9)–(5.2.12); the global character is compared on the whole component group."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.3/scalar-character-choice-independence",
+        "verdict": "verified",
+        "note": "The source's choice-independence checks are necessary for the recipe to define a character on the intrinsic parameter."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/geometric-classes-masses",
+        "verdict": "verified",
+        "note": "Full versus connected centralizers and the signed EP measure are separated; polynomial aggregation does not assert a single conjugacy class per polynomial."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/cyclotomic-polynomials",
+        "verdict": "verified",
+        "note": "Cyclotomic exponent lists have the correct degree, reciprocal/determinant restrictions and central-negation quotient; exact counts were recomputed."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/spinor-polynomial-constraint",
+        "verdict": "verified",
+        "note": "The all-primes square obstruction follows only after the requested integral spinor/GSpin inputs, including p=2; field spinor norm alone is insufficient."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/mass-rationality",
+        "verdict": "verified",
+        "note": "Rationality is qualified by the centralizer-motive and critical-value inputs; signed masses need not be nonnegative. E19's source wording is corrected separately."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/trace-formula",
+        "verdict": "verified",
+        "note": "Read Tai17 Theorems 3.3.3–3.3.5: proper-Levi terms, shuffle coefficients and measures remain explicit, with SO₃ calibration."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/polynomial-fibres",
+        "verdict": "verified",
+        "note": "The symplectic polynomial parametrization and orthogonal two-orbit exceptions are kept separate from connected/full centralizer coefficients."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/spinor-support",
+        "verdict": "verified",
+        "note": "The square conditions are necessary support only; fixed points under central negation were included in the independent count."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/sp16-easy-hard",
+        "verdict": "verified",
+        "note": "The easy/hard partition uses the source's prime-collision criterion; exact cyclotomic enumeration reproduces 766 hard Sp₁₆ orbits."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/torsion-character-evaluation",
+        "verdict": "verified",
+        "note": "Read the companion character code and current Weyl-character supplier; singular evaluation and even-SO half factors are explicit, with the determinant proof still requested."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/polynomial-counts",
+        "verdict": "verified",
+        "note": "Exact independent exponent enumeration reproduces every P/P₁ orbit count, including corrected Sp₁₄=1158."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/linear-mass-recovery",
+        "verdict": "verified",
+        "note": "Full column rank and exact rational substitution are necessary; rectangular systems are allowed and floating rank is insufficient."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/so3-worked-example",
+        "verdict": "verified",
+        "note": "The displayed 5×5 matrix has determinant 288 and the stated signed mass solution; the trivial character detects the sine-denominator error."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/coarse-mass-tables",
+        "verdict": "verified",
+        "note": "The coarse range and restriction to permitted discrete-series groups agree with Table 4; proof-bearing row/rank certificates remain an explicit gap."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/twenty-seven-known",
+        "verdict": "verified",
+        "note": "The known-class list has 27 actual classes in 26 infinity-type groups, including two distinct weight-23 GL₂ forms; existence precedes exhaustion."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/refined-mass-tables",
+        "verdict": "verified",
+        "note": "The three enlarged systems use the earlier known classes and corrected 1158 columns; this avoids proving existence from its own refined table."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/sp16-masses",
+        "verdict": "verified",
+        "note": "Sp₁₆ adds direct easy orbital inputs and the 1086×766 hard system; the extension is not asserted to follow solely from the smaller-rank tables."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.4/mass-dataset-comparison",
+        "verdict": "verified",
+        "note": "The archive hash establishes provenance only; comparison to intrinsic coefficients requires parsing, exact equations and rank witnesses."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/classification-certificates",
+        "verdict": "verified",
+        "note": "The proposed manifest separates domain completeness, safe cutoffs, scalar enclosures and strict negativity; original author programs were read, not advertised as Lean proofs."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/low-weight-finiteness",
+        "verdict": "verified",
+        "note": "The positive-definite bound proves finite infinity-type possibilities; finite fibres come from AS.4 and known theta input rather than an infinite list of axioms."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/weight23-cover",
+        "verdict": "corrected",
+        "note": "Parsed 12293 distinct one-class database rows, 12106 stored negative outcomes and 187 residuals; removing six regular types leaves 181 in dimensions 10–38. Separated the paper’s 265-element two-class cover from 269 stored database types and the PARI 1.001 enlarged cutoff; each replacement cover needs its own manifest."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/weight24-rank-bound",
+        "verdict": "verified",
+        "note": "The four remaining regular weight-24 types and rank bound agree with Lemma 4.3; 16 actual known classes are grouped into 15 triples."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/weight22",
+        "verdict": "corrected",
+        "note": "Corrected public French Theorem F to p.15; the theorem and the new explicit-formula proof retain all low-weight hypotheses."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/repeated-top-pair",
+        "verdict": "verified",
+        "note": "The omitted exceptional self-dual two-class exclusion remains a precise new certificate obligation; the proof cannot simply delete U_exc from the residual list."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/weight24",
+        "verdict": "verified",
+        "note": "Theorem 5 uses corrected Sp masses through Sp₁₄; the three surviving types, dimensions and orthogonal parity agree with the displayed list."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/weight23",
+        "verdict": "verified",
+        "note": "Counted 2+3+7+1=13 classes; uniqueness by weights excludes the two GL₂ entries, which have the same infinity type."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/repeated-top-classification",
+        "verdict": "verified",
+        "note": "The residual singleton alternative is symplectic, with 181 possible vectors and at most 182 classes when the exceptional dual pair is included; no existence is asserted."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.5/grh-weight23",
+        "verdict": "verified",
+        "note": "GRH is a theorem hypothesis; the initial nonself-dual test uses δ=0,m=2 and the remaining unique possible type has rank 16."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/lattice-spectrum-input",
+        "verdict": "verified",
+        "note": "Current integral-lattice carriers and examples are imported; exhaustive rank-16/24 classifications and neighbour data are separately requested."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/harmonic-coefficient-module",
+        "verdict": "verified",
+        "note": "The harmonic coefficient is the specified O_n type with its determinant twist, and evaluation factors through the invariant/coinvariant normalization."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/central-nonvanishing",
+        "verdict": "verified",
+        "note": "Read public CL IX Proposition 3.38: these specific GL₄ central values, together with pole/zero orders, supply the nonzero leading factors."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/siegel-operator-standard-factor",
+        "verdict": "verified",
+        "note": "The normalized Siegel operator changes the standard parameter by the stated zeta strings; reciprocal conventions are not interchanged."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/higher-genus-theta",
+        "verdict": "verified",
+        "note": "The convergent Gaussian kernel and its Fourier/Hecke normalization are imported; genus-zero and genus-one tests fix constants and half-norms."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/harmonic-theta",
+        "verdict": "verified",
+        "note": "Harmonic kernels, determinant weight and full O-invariance are compatible with the coefficient-module API; odd harmonic behavior is tested."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/first-occurrence",
+        "verdict": "corrected",
+        "note": "Corrected the French locator to V §§1–2 and IX §4.3 Theorem 4.4; first occurrence is a theorem about the actual theta tower, not an index chosen from the new table."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/boecherer-criterion",
+        "verdict": "verified",
+        "note": "The complete three-page companion note was read; original Böcherer hypotheses remain a precise MP.6 request, distinct from the five computed cases."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/small-lattice-eigenparameters",
+        "verdict": "corrected",
+        "note": "Corrected the rank-16 parameter to Δ₁₁[4]⊕[7]⊕[1], of dimension 16; added a rank check and corrected the first-occurrence locators."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/rallis-parameter-relation",
+        "verdict": "verified",
+        "note": "The added Rallis string uses actual genus g and satisfies the standard-dimension checks in each branch; g₀ stays in the growth bound."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.6/square-integrable-higher-lift",
+        "verdict": "verified",
+        "note": "Lemma 5.8 supplies precisely its stated higher-lift range; cuspidality at first occurrence does not imply cuspidality at later genera."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/siegel-dictionary",
+        "verdict": "verified",
+        "note": "The full-level classical/adelic dictionary retains Wallach's k_g>g range and separates cusp, discrete and L² spaces."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/regular-dimension-algorithm",
+        "verdict": "verified",
+        "note": "The algorithm combines exact masses and Arthur packet characters only in the regular holomorphic range; no genus≤8 restriction is imposed on the general symbolic formula."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/scalar-case-I",
+        "verdict": "verified",
+        "note": "The I branch uses a genuine source lift and its multiplicity; it is not manufactured by assigning an arbitrary target line to a parameter."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/H2-low-weight",
+        "verdict": "verified",
+        "note": "The H2 restrictions and exceptional low-weight possibilities match Lemmas 5.9–5.10 and their subsequent elimination."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/theorem-one",
+        "verdict": "verified",
+        "note": "Theorem 1's implemented numerical genus≤8 claim agrees with the mass range; output dimensions are intrinsic cusp dimensions after the dictionary."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/low-weight-enumeration",
+        "verdict": "verified",
+        "note": "Independent doubled-weight/epsilon enumeration gives 198 shapes, 223 actual candidates and 58 survivors; all 58 regular reader rows match, 29 scalar and 29 nonscalar."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/H1-low-weight",
+        "verdict": "verified",
+        "note": "Lemmas 5.6–5.7 and the H1 theta/first-occurrence argument use the earlier compact eigensystems, not the later dimension theorem."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/nonscalar-table",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 2 to p.263; all 29 weight/parameter rows match exact independent enumeration and Table 5."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/scalar-table",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 2 to p.263; the 29 regular rows plus three singular rows agree with Table 6, with dimensions counted by fibre multiplicity."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.7/weight13",
+        "verdict": "verified",
+        "note": "The four weight-13 genera and their exact standard parameters agree with Corollary 1 and Table 6; odd-weight boundary vanishing gives M=S."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/low-weight-theta-surjectivity",
+        "verdict": "verified",
+        "note": "The old low-genus basis theorem is an input; the new dimension count then proves surjectivity without reversing that dependence."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/five-theta-orders",
+        "verdict": "verified",
+        "note": "Every meromorphic order row of the companion note matches and sums to zero; nonzero leading factors require the separate central-value theorem."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-invariants",
+        "verdict": "corrected",
+        "note": "Added the existing current Golay owner; exterior-invariant dimensions remain a separate finite character computation and do not identify M₂₄ with O(Λ)."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/oriented-orbit-basis",
+        "verdict": "verified",
+        "note": "Fact 1.2 uses orientable orbits; a nonorientable stabilizer kills its alternating sum, so unsigned orbit counting fails the test."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/stable-parameter-remainders",
+        "verdict": "corrected",
+        "note": "Made even k explicit before k/2 is used: the trivial distinguished H1 block forces it; the character relation then forces 4|k."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/low-weight-stable-dimensions",
+        "verdict": "verified",
+        "note": "The cumulative theta degrees give the listed stable dimensions for weights 4,8,12 and the weight-13 exceptions; no arbitrary-weight basis claim is made."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/weight13-theta",
+        "verdict": "verified",
+        "note": "The four image statements use precisely the five source order cases and the earlier theta invariants; a one-dimensional target alone cannot prove nonzero image."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/leech-alternating-forms",
+        "verdict": "corrected",
+        "note": "Replaced a planned duplicate Golay code by current AlgebraicCodingTheory/native code, with Mathieu orientation and twisted Leech data still requested; sign and determinant tests remain discriminating."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/stable-dimension",
+        "verdict": "verified",
+        "note": "The stable formula separates k=0, divisibility by four and the compact invariant sum; genus-independence is not inferred from finite numerical tables."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/direct-leech-nonvanishing",
+        "verdict": "verified",
+        "note": "The embedding counts retain the stabilizer kernel and |O(Q_g)| distinction; CT19a's specific lattice classification inputs remain with GN.3."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/rank16-harmonic-source",
+        "verdict": "verified",
+        "note": "The rank-16 harmonic source is genuinely two-dimensional and has two Hecke parameters; its finite invariant calculation remains an explicit gap."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/stable-siegel-operator",
+        "verdict": "verified",
+        "note": "The Siegel operator is an isomorphism at g≥2k, with cusp-kernel vanishing checked at the boundary; no assertion is extended to g=2k−1."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/harmonic-isomorphism",
+        "verdict": "verified",
+        "note": "The full invariant source dimensions 1,2,1,1 match the four cusp lines after the prescribed quotient; the kernel at genus 12 is not ignored."
+      },
+      {
+        "nodeId": "LevelOneAutomorphicFormsForClassicalGroups:LO.8/stable-theta-isomorphism",
+        "verdict": "verified",
+        "note": "The stable theta isomorphism uses the actual lattice class set at rank 2k and stated g≥2k, with odd/zero/negative weights separated."
+      }
+    ]
+  }
 }
