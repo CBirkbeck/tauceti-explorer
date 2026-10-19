@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T06:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T06:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -20,7 +20,7 @@ Generated 2026-10-19T06:00Z from the README supplier graph of every open pull re
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
@@ -28,13 +28,13 @@ Generated 2026-10-19T06:00Z from the README supplier graph of every open pull re
 - #248 LFunctions (roed-math, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
-- #1056 FormalConnectionsOpers (kim-em, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814
 - #253 ZerosOfLFunctions (roed-math, other author)
 - #894 TopologicalKTheory (kim-em, other author)
+- #1056 FormalConnectionsOpers (kim-em, other author)
 - #1104 AbhyankarLemma (tdupu, other author)
 
 ## Wave 4
@@ -187,7 +187,7 @@ Generated 2026-10-19T06:00Z from the README supplier graph of every open pull re
 - #1087 TorsionCohomologyInfrastructure — draft; waits on #1006, #1035, #1040, #1053, #1062, #1069, #1084, #1085, #785, #813, #818, #871, #913, #925, #929, #999
 
 ## Wave 31
-- #1075 PotentialModularityAndCompatibleSystems — draft; waits on #1001, #1005, #1006, #1007, #1013, #1019, #1034, #1037, #1062, #1066, #1071, #785, #792, #848, #849, #850, #852, #853, #856, #858, #879, #920, #923, #928, #931, #933, #938, #970, #999
+- #1075 PotentialModularityAndCompatibleSystems — draft; waits on #1001, #1005, #1006, #1007, #1013, #1019, #1020, #1034, #1037, #1062, #1066, #1071, #785, #792, #848, #849, #850, #852, #853, #856, #858, #879, #920, #923, #928, #931, #933, #938, #970, #999
 - #1090 IgusaVarietiesAndTorsionConcentration — draft; waits on #1006, #1040, #1053, #1062, #1084, #1085, #1087, #785, #792, #813, #814, #815, #818, #820, #849, #852, #858, #871, #873, #875, #879, #908, #922, #927, #938, #965, #966, #999
 
 ## Wave 32
