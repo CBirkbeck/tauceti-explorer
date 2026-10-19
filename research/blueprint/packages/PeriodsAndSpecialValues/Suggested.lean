@@ -82,6 +82,20 @@ conjugation. -/
 example : tateInfinitySign 1 = -1 := by
   simp [tateInfinitySign]
 
+/-- Deligne's comparison in the Betti cohomology basis dual to the row cycles of the
+integration matrix. Its interpretation as a comparison requires a nonsingular matrix (PS.0.5). -/
+def ellipticComparisonMatrix (B : Matrix (Fin 2) (Fin 2) ℂ) : Matrix (Fin 2) (Fin 2) ℂ := B⁻¹
+
+/-- A nonsymmetric matrix distinguishes the inverse from the inverse transpose. -/
+example : ellipticComparisonMatrix !![1, 2; 0, 1] = !![1, -2; 0, 1] := by
+  apply Matrix.inv_eq_left_inv
+  ext i j
+  fin_cases i <;> fin_cases j <;> norm_num [Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- The dual-cycle basis sends the identity integration matrix to the identity comparison. -/
+example : ellipticComparisonMatrix 1 = 1 := by
+  simp [ellipticComparisonMatrix]
+
 /-! ## Layer PS.1: critical values and algebraicity statements -/
 
 /-- `Γ_ℝ` is regular at the integer `m`: `m ∉ {0, -2, -4, …}` (PS.1.3). -/
@@ -385,7 +399,7 @@ def quinticConnectionMatrix (l : ℚ) : Matrix (Fin 4) (Fin 4) ℚ :=
   !![0, 0, 0, -24 * g; 1, 0, 0, -50 * g; 0, 1, 0, -35 * g; 0, 0, 1, -10 * g]
 
 /-- The boundary alternating pairing with `J₀₃ = Y`, `J₁₂ = -Y`. -/
-def quinticPairing {K : Type*} [CommRing K] (Y : K) : Matrix (Fin 4) (Fin 4) K :=
+def quinticBoundaryPairing {K : Type*} [CommRing K] (Y : K) : Matrix (Fin 4) (Fin 4) K :=
   !![0, 0, 0, Y; 0, 0, -Y, 0; 0, Y, 0, 0; -Y, 0, 0, 0]
 
 /-- Shapiro's boundary Frobenius matrix with `δ` standing for `Δ₃` (PS.8.16). -/
@@ -401,8 +415,8 @@ theorem quinticBoundary_horizontal {K : Type*} [Field K] [Algebra ℚ K] (p : �
 
 /-- `Fᵀ J F = p³ J`. -/
 theorem quinticBoundary_pairing {K : Type*} [Field K] (p : ℕ) (δ Y : K) :
-    (quinticBoundaryMatrix p δ).transpose * quinticPairing Y * quinticBoundaryMatrix p δ =
-      (p : K) ^ 3 • quinticPairing Y := by
+    (quinticBoundaryMatrix p δ).transpose * quinticBoundaryPairing Y * quinticBoundaryMatrix p δ =
+      (p : K) ^ 3 • quinticBoundaryPairing Y := by
   sorry
 
 /-- The residue at `λ = 0` is nilpotent of order exactly four. -/
@@ -593,8 +607,11 @@ theorem numerical_spanning (k : List ℕ) (hk : Admissible k) :
       {x : ℝ | ∃ w : List ℕ, IsHoffman w ∧ w.sum = k.sum ∧ x = multipleZeta w} := by
   sorry
 
-/-- The numerical dimension bound in each weight. -/
+/-- Finite dimensionality and the numerical dimension bound in each weight. The finiteness
+assertion is essential: `finrank` alone also takes value zero in infinite dimension. -/
 theorem mzv_span_finrank_le (N : ℕ) :
+    Module.Finite ℚ (Submodule.span ℚ
+      {x : ℝ | ∃ k : List ℕ, Admissible k ∧ k.sum = N ∧ x = multipleZeta k}) ∧
     Module.finrank ℚ (Submodule.span ℚ
       {x : ℝ | ∃ k : List ℕ, Admissible k ∧ k.sum = N ∧ x = multipleZeta k}) ≤ hoffmanDim N := by
   sorry
@@ -607,11 +624,13 @@ the comparison determinant line, period classes over all embeddings and Deligne'
 (PS.0.1–PS.0.4); motivic Euler products, completions, `DeligneAlgebraic`, the Dirichlet and
 modular adapters, `SerreSystem` and the Hasse–Weil predicates (PS.1); formal-period evaluation and
 the torsor comparison (PS.2.1–PS.2.2); fundamental lines, `realTrivialization`,
-`LeadingTermRational` and the regulator specializations (PS.3); integral lattices and local
+`LeadingTermRational` (PS.3); integral lattices and local
 corrections (PS.4); `tamagawaObstruction`, `ETNC` and the zeta-isomorphism comparisons (PS.5);
 Bloch–Kato pairs, measures, Sha and `BlochKatoTamagawa`, the elliptic adapter and `BBKRankZeroOne`
 (PS.6); certified boxes and `PeriodConjecture` (PS.7.2–PS.7.4); the resolved quartic family, its
-residue form, Picard–Fuchs equation, marking and local continuation, the quintic cohomology,
+residue form, Picard–Fuchs equation, marking and local continuation,
+`modularInvariant_schwarzian`, the quintic cohomology
+and its full flat pairing `quinticPairing`,
 Frobenius and crystalline comparison (PS.8); word algebras, iterated integrals, regularizations,
 `rho`, mixed Tate motives over `ℤ`, the motivic path torsor, Brown's algebra and coaction, the
 f-alphabet, the cut matrices and the motivic Hoffman basis (PS.9).
