@@ -4,7 +4,7 @@
   "area": "functionfields",
   "parent": null,
   "summary": "Count geometrically indecomposable bundles on smooth projective curves over finite fields through nilpotent-pair groupoids and universal spherical Hall algebras. Compute the counts by partition residues, identify coprime stable canonical Higgs point counts, derive pure cohomology and nilpotent-cone formulas, and incorporate Mellit’s degree-independence theorem. General bundles, stacks, HN theory, curve arithmetic and plethystic foundations are imported from their existing owners.",
-  "readme": "This roadmap counts geometrically indecomposable vector bundles over finite-field curves and relates the count to partition residues, coprime stable canonical Higgs moduli and their cohomology. It follows Schiffmann's Annals 2016 article, with Mellit's 2020 degree-independence theorem and the Mozgovoy–Schiffmann all-characteristic count.\n\nCB.0–CB.2 fix reciprocal Weil coordinates, automorphism-weighted groupoid masses and Jordan filtrations. CB.3–CB.6 compute these masses through the spherical Hall algebra and extract a finite residue formula. CB.7–CB.9 construct the canonical Higgs comparison and derive purity and nilpotent-cone formulas. CB.10 proves Laurent integrality and degree independence; CB.11 separates parabolic and HN refinements from the conjectural Euler-Hall Lie applications.\n\nThe geometric Frobenius convention pairs the parameters with product q. Hall multiplication places the quotient left and the subobject right; its twist uses v²=q. Ordinary differential residues and normalized Hall residues are distinguished. For coprime rank and degree, D=1+(g−1)r² is half the coarse Higgs dimension.\n\nGeneral bundles and quiver representations belong to their current upstream roadmaps; stacks, HN theory, curve arithmetic, formal-series machinery and monodromy are imported through their owners. Exact missing supplier interfaces and proof-closure gaps remain explicit, with no implementation claim. The authoritative target specification is the [reader](research/blueprint/readmes/CountingBundlesAndHallAlgebrasOfCurves.md), with its API and tests for every definition; the suggested Lean file is a compact arithmetic prototype over pinned carriers.",
+  "readme": "This roadmap counts geometrically indecomposable vector bundles over finite-field curves and relates the count to partition residues, coprime stable canonical Higgs moduli and their cohomology. It follows Schiffmann's Annals 2016 article, with Mellit's 2020 degree-independence theorem and the Mozgovoy–Schiffmann all-characteristic count.\n\nCB.0–CB.2 fix reciprocal Weil coordinates, automorphism-weighted groupoid masses and Jordan filtrations. CB.3–CB.6 compute these masses through the spherical Hall algebra and extract a finite residue formula. CB.7–CB.9 construct the canonical Higgs comparison and derive purity and nilpotent-cone formulas. CB.10 proves Laurent integrality and degree independence; CB.11 separates parabolic and HN refinements from the conjectural Euler-Hall Lie applications.\n\nThe geometric Frobenius convention pairs the parameters with product q. Hall multiplication places the quotient left and the subobject right; its twist uses v²=q. Ordinary differential residues and normalized Hall residues are distinguished. For g≥1 and coprime rank and degree, D=1+(g−1)r² is half the coarse Higgs dimension.\n\nGeneral bundles and quiver representations belong to their current upstream roadmaps; stacks, HN theory, curve arithmetic, formal-series machinery and monodromy are imported through their owners. Exact missing supplier interfaces and proof-closure gaps remain explicit, with no implementation claim. The authoritative target specification is the [reader](research/blueprint/readmes/CountingBundlesAndHallAlgebrasOfCurves.md), with its API and tests for every definition; the suggested Lean file is a compact arithmetic prototype over pinned carriers.",
   "prerequisites": [
     "AlgebraicModuliForArithmeticGeometry",
     "ClassicalGroupsPartII",
@@ -44,7 +44,7 @@
         "FunctionFieldArithmetic:FA.5/schmidt-degree-one",
         "GlobalShtukasAndFunctionFieldLanglands:GS.0",
         "QSeriesPartitionsAndMockModularForms:QM.0",
-        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.3/lang-theorem",
         "SchemeAndStackFoundations:SF.1",
         "SchemeAndStackFoundations:SF.3",
         "mathlib:Finite.isDomain_to_isField",
@@ -128,7 +128,7 @@
     {
       "key": "CB.7",
       "title": "Canonical Higgs moduli and two-line charts",
-      "description": "Own canonical-twist Higgs (semi)stability, the stable GL_r coarse space and its proper Hitchin map. Import generic vector bundles from current AlgebraicVectorBundles, strong generation and Quot geometry from R09.2, and the routed good-line boundedness from ET.2b. Construct only the two-line framed charts, cotangent sequence and Kronecker embedding specific to this counting proof.",
+      "description": "Import the canonical GL_r bundle Higgs carrier and existential good-line theorem from ET.2b. Specify the coherent and positive exact-category interfaces, the stable canonical coarse space and its proper Hitchin map. Import general bundles from current AlgebraicVectorBundles, and Quot geometry from R09.2. Construct the two-line framed charts, cotangent sequence and Kronecker embedding specific to this counting proof.",
       "requires": [
         "AlgebraicModuliForArithmeticGeometry:R09.2",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
@@ -142,7 +142,7 @@
     {
       "key": "CB.8",
       "title": "Central deformation and stable Higgs counts",
-      "description": "Choose an explicit safe pair of framing dimensions, fix λ and King’s character, prove the moment-map indecomposability criterion and the stability comparison, and form the central-line GIT quotient. Prove smoothness, contraction and equality of zero/nonzero fibre point counts, yielding Schiffmann’s characteristic-bounded theorem. Add the Mozgovoy–Schiffmann Hall-integration route for the all-characteristic coprime count, with genus zero handled separately.",
+      "description": "Choose an explicit safe pair of framing dimensions, fix λ and King’s character, prove the moment-map indecomposability criterion and the stability comparison, and form the central-line GIT quotient. Prove smoothness, contraction and equality of zero/nonzero fibre point counts, yielding Schiffmann’s characteristic-bounded theorem. Add the Mozgovoy–Schiffmann Hall-integration route for the all-characteristic coprime count, with relative positive-category semistability distinguished from usual semistability and genus zero handled separately.",
       "requires": [
         "AlgebraicModuliForArithmeticGeometry:R09.2",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
@@ -155,7 +155,7 @@
         "EndoscopicTransferAndUnitaryTraceComparison:ET.2b",
         "FunctionFieldArithmetic:FA.5/schmidt-degree-one",
         "QSeriesPartitionsAndMockModularForms:QM.0",
-        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.3/lang-theorem",
         "SchemeAndStackFoundations:SF.1",
         "SchemeAndStackFoundations:SF.3"
       ]
@@ -179,7 +179,7 @@
     {
       "key": "CB.10",
       "title": "Mellit integrality and degree independence",
-      "description": "Implement the curve-specific deformation of the partition kernel, with its normalization and variable exchange made explicit. Import modified Macdonald functions and admissibility closure through a requested continuation of the formal-series owner. Prove the z=1 cancellation and identify every degree count with a single Laurent polynomial; retain source-closure gaps for the generic combinatorial machinery.",
+      "description": "Implement the curve-specific deformation of the partition kernel, with its normalization and variable exchange made explicit. Import modified Macdonald functions and admissibility closure through a requested continuation of the formal-series owner. Prove global Laurent pole control and the z=1 comparison and identify every degree count with a single Laurent polynomial; retain source-closure gaps for the generic combinatorial machinery.",
       "requires": [
         "CountingBundlesAndHallAlgebrasOfCurves:CB.0",
         "CountingBundlesAndHallAlgebrasOfCurves:CB.1",

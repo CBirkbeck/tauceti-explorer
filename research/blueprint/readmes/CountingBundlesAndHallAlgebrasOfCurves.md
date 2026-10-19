@@ -18,7 +18,7 @@ Hall multiplication puts the quotient in the left slot and the subobject in the 
 
 Residues have two distinct conventions. If h=1−z/u, rRes at z=u is the coefficient of h⁻¹ in the function. dRes is the ordinary residue of the differential f(z) dz/z. At a simple pole dRes=−rRes. They differ at higher poles: f=h⁻² has rRes=0 and dRes=−1. Iterated Hall residues are ordered, starting with the highest specified index. The roots-of-unity extraction of CB.6 uses dRes, whereas the block kernels use rRes.
 
-For coprime (r,d), write D=1+(g−1)r². Stable canonical Higgs coarse moduli have dimension 2D, their scalar-gerbe stack has dimension 2D−1, and the nilpotent cone has dimension D. We use geometric Frobenius, so the twist (−a) contributes q^a. Compact Poincaré polynomials are signed unless explicitly called unsigned. Genus-zero bundles are treated directly by splitting on the projective line; the positive-genus Mellit theorem is not needed for them.
+For g≥1 and coprime (r,d), write D=1+(g−1)r². Stable canonical Higgs coarse moduli have dimension 2D, their scalar-gerbe stack has dimension 2D−1, and the nilpotent cone has dimension D. We use geometric Frobenius, so the twist (−a) contributes q^a. Compact Poincaré polynomials are signed unless explicitly called unsigned. Genus-zero bundles are treated directly by splitting on the projective line; the positive-genus Mellit theorem is not needed for them.
 
 ## Existing owners and the pinned starting point
 
@@ -29,7 +29,7 @@ General vector bundles come from the current upstream AlgebraicVectorBundles roa
 | Coherent sheaves, HN theory and fixed-degree bundle masses | GS.0, using the current bundle owner | Coherent add(M) transfer, nilpotent pairs and Jordan fibre exponents |
 | Curve arithmetic, Picard torsors, zeta function and degree-one divisor | SF.3 and the exact FA.5 nodes | Counting normalization and cutoff consequences |
 | Quot charts, character quotients and deformation theory | R09.2, requested R09.5 continuation, SF.4 | Canonical Higgs moduli, two-line chart and central deformation |
-| Good-line generation and Lang theorem | Requested ET.2b and RG2.3 extensions | Computable framing proposal and its indecomposability application |
+| Good-line generation and Lang theorem | Existing ET.2b canonical boundedness and RG2.3/lang-theorem, with the fixed-source integration below | Computable sufficient framing bound and its indecomposability application |
 | Adams series and modified Macdonald machinery | Requested QM.0 continuation and Part II | Curve partition kernels and Mellit's curve-specific deformation |
 | Weights, six operations and duality | DWP.0/8, SF.2 and EDC.2:pairings | Higgs purity, trace extraction and component count |
 | Universal curve monodromy and equidistribution | Requested LPV.5 continuation/Part II | Uniqueness of universal counting functions |
@@ -68,7 +68,7 @@ Rank one checks every normalization at once. A_X(1,d)=#Pic⁰_X(k)=P_X(1), inclu
 
 In genus zero, A_X(1,d)=1 and all higher-rank counts vanish. In genus one, every positive rank and every degree has count P_X(1). Substituting one reciprocal pair (a,q/a) into the rank-two expression gives P_X(1), while the empty pair list gives zero. The genus polynomials 4·binom(g,2)+g and 32·binom(g,3)+20·binom(g,2)+g are origin constants for ranks three and four: for g=2 they are 6 and 22, not the full Weil-parameter counts.
 
-The proposed computable framing choice in CB.8 is deliberately stronger than the source's existential choice. For g=2,r=2,d=1 it gives B=−3/2, d₁=5, l₁=9, d₂=24, l₂=47 and C=423. The congruence d₂−d₁≡1 mod l₁ makes l₂≡r mod l₁; coprimality of r,d then forces coprime frame dimensions. The kernel bound concerns K⊂L₁^l₁ with this fixed l₁. It is not a bound for arbitrary source dimension. G7 records the remaining verification of the uniform good-line argument; only existence of a sufficient bound is attributed to Schiffmann.
+The proposed computable framing choice in CB.8 is deliberately stronger than the source's existential choice. For g=2,r=2,d=1 it gives B=−3/2, d₁=5, l₁=9, d₂=24, l₂=47 and C=423. The congruence d₂−d₁≡1 mod l₁ makes l₂≡r mod l₁; coprimality of r,d then forces coprime frame dimensions. The kernel bound concerns K⊂L₁^l₁ with this fixed l₁. It is not a bound for arbitrary source dimension. The slope and fixed-source kernel calculation in CB.8 verifies this sufficient recipe using the requested strong-generation criterion, including torsion and zero-kernel cases. Only existence of a sufficient bound is attributed to Schiffmann.
 
 The suggested Lean file contains seven light definitions over existing integers, natural numbers, finite functions and fields. They name arithmetic subexpressions of the targets rather than introducing geometric carriers. Their interface and examples are:
 
@@ -87,6 +87,7 @@ The rank-two function is an expression over a field with total division. Its geo
 
 ## CB.0 — Universal coefficients and bundle counts
 
+
 Specialize the existing reciprocal GSp torus and full character ring to curve Weil data, with an explicit genus-zero convention, and form K_g by inverting q^m−1. Define geometric-indecomposable counts and their HN truncations. Basic finiteness, rank-one, genus-zero, duality and periodicity theorems follow in CB.1, using a degree-one divisor rather than a rational point. Density is an explicitly requested universal-family input, not a new monodromy proof here.
 
 
@@ -94,6 +95,7 @@ The stage requires `ClassicalGroupsPartII:CG.0/diagonal-torus`, `ClassicalGroups
 
 
 ### Universal counting coefficient ring
+
 
 Target `CB.0/coefficient-frame` (construction); proposed name `TauCeti.CurveCounting.coefficient_frame`.
 
@@ -148,6 +150,7 @@ Atlas planet: Universal counting coefficient ring.
 
 ### Geometrically indecomposable counts
 
+
 Target `CB.0/indecomposable-counts` (definition); proposed name `TauCeti.CurveCounting.indecomposable_counts`.
 
 
@@ -198,6 +201,7 @@ Atlas planet: Geometrically indecomposable counts.
 
 
 ### Normalized and differential residues
+
 
 Target `CB.0/residue-conventions` (definition); proposed name `TauCeti.CurveCounting.residue_conventions`.
 
@@ -252,13 +256,15 @@ Stage closure obligations: Discharge the exact supplier contracts from GlobalSht
 
 ## CB.1 — Coherent decompositions and finite-field descent
 
+
 Transfer finite-length module Krull–Schmidt to the additive subcategory generated by one coherent sheaf. Compute the endomorphism radical, nilpotent-to-unit ratio and finite-field Galois orbits. Establish the large-degree HN bound and the coprime absolute-indecomposability criterion. General bundle and HN definitions remain imports.
 
 
-The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `FunctionFieldArithmetic:FA.5/riemann-roch-zeta-rationality`, `FunctionFieldArithmetic:FA.5/schmidt-degree-one`, `GlobalShtukasAndFunctionFieldLanglands:GS.0`, `QSeriesPartitionsAndMockModularForms:QM.0`, `ReductiveGroupsPartII:RG2.3`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`, `mathlib:Finite.isDomain_to_isField`, `mathlib:IsArtinianRing.isNilpotent_jacobson_bot`, `mathlib:IsArtinianRing.isSemisimpleRing_iff_jacobson`, `mathlib:Matrix.card_GL_field`, `tauceti:TauCeti.exists_equiv_linearEquiv_of_directSum_of_isLocalRing_end`, `tauceti:TauCeti.isLocalRing_end_of_isIndecomposable`.
+The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `FunctionFieldArithmetic:FA.5/riemann-roch-zeta-rationality`, `FunctionFieldArithmetic:FA.5/schmidt-degree-one`, `GlobalShtukasAndFunctionFieldLanglands:GS.0`, `QSeriesPartitionsAndMockModularForms:QM.0`, `ReductiveGroupsPartII:RG2.3/lang-theorem`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`, `mathlib:Finite.isDomain_to_isField`, `mathlib:IsArtinianRing.isNilpotent_jacobson_bot`, `mathlib:IsArtinianRing.isSemisimpleRing_iff_jacobson`, `mathlib:Matrix.card_GL_field`, `tauceti:TauCeti.exists_equiv_linearEquiv_of_directSum_of_isLocalRing_end`, `tauceti:TauCeti.isLocalRing_end_of_isIndecomposable`.
 
 
 ### Basic count normalizations
+
 
 Target `CB.1/count-normalizations` (theorem); proposed name `TauCeti.CurveCounting.count_normalizations`.
 
@@ -286,6 +292,7 @@ Check: Check genus one: every coprime rank-degree count equals #Pic⁰(k), while
 
 
 ### Coherent additive Hom transfer
+
 
 Target `CB.1/hom-transfer` (construction); proposed name `TauCeti.CurveCounting.hom_transfer`.
 
@@ -340,6 +347,7 @@ Atlas planet: Coherent additive Hom transfer.
 
 ### Krull–Schmidt for coherent sheaves
 
+
 Target `CB.1/krull-schmidt` (theorem); proposed name `TauCeti.CurveCounting.krull_schmidt`.
 
 
@@ -366,6 +374,7 @@ Check: A rank-one bundle may have arbitrarily long coherent subsheaf chains. Rep
 
 
 ### Radical and semisimple matrix quotient
+
 
 Target `CB.1/endomorphism-radical` (theorem); proposed name `TauCeti.CurveCounting.endomorphism_radical`.
 
@@ -397,6 +406,7 @@ Atlas planet: Radical and semisimple matrix quotient.
 
 ### Finite-field nilpotent matrix count
 
+
 Target `CB.1/nilpotent-matrix-count` (theorem); proposed name `TauCeti.CurveCounting.nilpotent_matrix_count`.
 
 
@@ -424,6 +434,7 @@ Check: n=1 gives exactly one nilpotent. n=2 over F₂ gives four nilpotents.
 
 ### Nilpotent-to-automorphism ratio
 
+
 Target `CB.1/nilpotent-unit-ratio` (theorem); proposed name `TauCeti.CurveCounting.nilpotent_unit_ratio`.
 
 
@@ -449,13 +460,14 @@ Check: For an absolute indecomposable this ratio is 1/(q−1), even when End(M) 
 
 ### Neutrality for connected finite-field bands
 
+
 Target `CB.1/finite-field-neutrality` (theorem); proposed name `TauCeti.CurveCounting.finite_field_neutrality`.
 
 
 Let k be finite and G a smooth connected linear algebraic k-group, or a smooth connected band arising as the automorphism group of a coherent object. Every nonabelian H²(k,G)-class arising in its descent gerbe is neutral. Thus a Frobenius-stable geometric isomorphism class of coherent sheaves admits a k-form. Uniqueness of that form uses the separately imported H¹(k,G)=1.
 
 
-Prerequisites: `SchemeAndStackFoundations:SF.1`, `ReductiveGroupsPartII:RG2.3`.
+Prerequisites: `SchemeAndStackFoundations:SF.1`, `ReductiveGroupsPartII:RG2.3/lang-theorem`.
 
 
 Source: S16 §2.2, proof of Lemma 2.6, p.311, citing Springer 1966 Theorem 3.5.
@@ -479,13 +491,14 @@ Atlas planet: Neutrality for connected finite-field bands.
 
 ### Galois orbits of absolute summands
 
+
 Target `CB.1/galois-orbits` (theorem); proposed name `TauCeti.CurveCounting.galois_orbits`.
 
 
 A k-indecomposable M with residue field F_{q^e} becomes over k̄ the sum of e pairwise nonisomorphic absolute indecomposables, permuted transitively by Frobenius, each of class [M]/e. Conversely a length-e Frobenius orbit of absolute indecomposables descends to exactly one k-indecomposable. If c_e(α) counts those orbits in geometric class α, then A_{X_Fq^l}(α)=∑_{e|l} e c_e(α). In particular e divides both r and d for a bundle of class (r,d).
 
 
-Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.1/krull-schmidt`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/endomorphism-radical`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/finite-field-neutrality`, `ReductiveGroupsPartII:RG2.3`, `CountingBundlesAndHallAlgebrasOfCurves:CB.0/indecomposable-counts`.
+Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.1/krull-schmidt`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/endomorphism-radical`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/finite-field-neutrality`, `ReductiveGroupsPartII:RG2.3/lang-theorem`, `CountingBundlesAndHallAlgebrasOfCurves:CB.0/indecomposable-counts`.
 
 
 Source: S16 §2.2, Lemma 2.6 and equations (2.4)–(2.5), pp.310–311.
@@ -505,6 +518,7 @@ Check: For e=2 the geometric summands have half the rank and degree. A field-rat
 
 
 ### Coprime indecomposables are absolute
+
 
 Target `CB.1/coprime-absolute` (theorem); proposed name `TauCeti.CurveCounting.coprime_absolute`.
 
@@ -530,6 +544,7 @@ Check: A nontrivial self-extension can have nonzero radical. The zero bundle is 
 
 
 ### Large degree and nonnegative HN slopes
+
 
 Target `CB.1/large-degree` (theorem); proposed name `TauCeti.CurveCounting.large_degree`.
 
@@ -561,6 +576,7 @@ Stage closure obligations: Verify primary-proof obligations G1: Finite-field non
 
 ## CB.2 — Nilpotent pairs and Jordan fibre masses
 
+
 Define automorphism-weighted finite groupoid masses, nilpotent-pair groupoids, Jordan types, filtered-sheaf groupoids and the three grading functors. Prove the finite-field tower exponential identity and the Jordan-fibre Euler exponents. Fibre masses use homotopy fibres with chosen grading identifications.
 
 
@@ -568,6 +584,7 @@ The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.1`, `GlobalShtukas
 
 
 ### Finite groupoid mass
+
 
 Target `CB.2/groupoid-mass` (definition); proposed name `TauCeti.CurveCounting.groupoid_mass`.
 
@@ -622,6 +639,7 @@ Atlas planet: Finite groupoid mass.
 
 ### Nilpotent-pair groupoids
 
+
 Target `CB.2/nilpotent-pairs` (definition); proposed name `TauCeti.CurveCounting.nilpotent_pairs`.
 
 
@@ -675,6 +693,7 @@ Atlas planet: Nilpotent-pair groupoids.
 
 ### Nilpotent-pair exponential identity
 
+
 Target `CB.2/nilpotent-exponential` (theorem); proposed name `TauCeti.CurveCounting.nilpotent_exponential`.
 
 
@@ -704,6 +723,7 @@ Atlas planet: Nilpotent-pair exponential identity.
 
 
 ### Jordan type of a coherent nilpotent pair
+
 
 Target `CB.2/jordan-type` (definition); proposed name `TauCeti.CurveCounting.jordan_type`.
 
@@ -758,6 +778,7 @@ Atlas planet: Jordan type of a coherent nilpotent pair.
 
 ### Filtered-sheaf groupoids
 
+
 Target `CB.2/filtered-sheaves` (definition); proposed name `TauCeti.CurveCounting.filtered_sheaves`.
 
 
@@ -805,6 +826,7 @@ Consumers: CB.2/jordan-fibres: The intermediate target controls the truncated ni
 
 
 ### Jordan grading functors
+
 
 Target `CB.2/jordan-functors` (construction); proposed name `TauCeti.CurveCounting.jordan_functors`.
 
@@ -856,6 +878,7 @@ Consumers: CB.2/jordan-fibres: Uses these functors and their homotopy fibres..
 
 ### Jordan fibre mass formula
 
+
 Target `CB.2/jordan-fibres` (theorem); proposed name `TauCeti.CurveCounting.jordan_fibres`.
 
 
@@ -889,6 +912,7 @@ Stage closure obligations: Discharge the exact supplier contracts from GlobalSht
 
 ## CB.3 — Curve Hall algebra and flag integration
 
+
 Construct the curve-specific completed Hall algebra, its exact-sequence product, extended coproduct and Green pairing. Fix quotient-left/subobject-right order, Euler powers and automorphism weights. Define characteristic functions and recover filtered-sheaf masses by pairing. Import Siegel and torsion-stack masses from their designated GS.0 owner.
 
 
@@ -896,6 +920,7 @@ The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.2`, `FunctionField
 
 
 ### Hall algebra of a curve
+
 
 Target `CB.3/hall-algebra` (construction); proposed name `TauCeti.CurveCounting.hall_algebra`.
 
@@ -952,6 +977,7 @@ Atlas planet: Hall algebra of a curve.
 
 ### Green bialgebra and Hopf pairing
 
+
 Target `CB.3/green-pairing` (theorem); proposed name `TauCeti.CurveCounting.green_pairing`.
 
 
@@ -961,7 +987,7 @@ The extended curve Hall algebra with the specified graded completion is a bialge
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.3/hall-algebra`, `GlobalShtukasAndFunctionFieldLanglands:GS.0`, `SchemeAndStackFoundations:SF.3`.
 
 
-Source: S16 §4.1, p.315; Schiffmann 2010 §1.2, pp.2–3.
+Source: S16 §4.1, p.316; HN10 §1.2–1.3, pp.2–3.
 
 
 Proof route:
@@ -981,6 +1007,7 @@ Atlas planet: Green bialgebra and Hopf pairing.
 
 
 ### Hall characteristic functions
+
 
 Target `CB.3/characteristic-functions` (definition); proposed name `TauCeti.CurveCounting.characteristic_functions`.
 
@@ -1032,6 +1059,7 @@ Consumers: CB.4/eisenstein-series: Supplies coefficients of the generating serie
 
 ### Hall expression for filtered masses
 
+
 Target `CB.3/flag-pairing` (theorem); proposed name `TauCeti.CurveCounting.flag_pairing`.
 
 
@@ -1041,7 +1069,7 @@ For α=(α_1,…,α_s), mass(Filt_α^{≥0})=q^{−(1/2)∑_{i>j}E(α_i,α_j)}(1
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.2/filtered-sheaves`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/characteristic-functions`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/green-pairing`.
 
 
-Source: S16 §3.3, equation (3.3), p.315.
+Source: S16 §4.2, equation (4.1), p.316.
 
 
 Proof route:
@@ -1058,6 +1086,7 @@ Check: A one-step flag recovers the cutoff sheaf mass. The order α_s,…,α_1 i
 
 
 ### Curve stack mass interfaces
+
 
 Target `CB.3/basic-masses` (comparison); proposed name `TauCeti.CurveCounting.basic_masses`.
 
@@ -1089,6 +1118,7 @@ Stage closure obligations: Discharge the exact supplier contracts from GlobalSht
 
 ## CB.4 — Eisenstein series and universal spherical form
 
+
 Define bundle, coherent and truncated Eisenstein series with their regional expansions. Prove Hecke commutation, coproduct, residue and HN identities. Construct the spherical subalgebra and its generic coefficient form, then descend flag, Jordan and truncated count formulas to K_g. Density supplies uniqueness; square-root normalization descent is an explicit proof obligation.
 
 
@@ -1096,6 +1126,7 @@ The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `CountingBundl
 
 
 ### Curve Eisenstein series
+
 
 Target `CB.4/eisenstein-series` (definition); proposed name `TauCeti.CurveCounting.eisenstein_series`.
 
@@ -1106,7 +1137,7 @@ Set E_r(z)=∑_{d∈Z}1_(r,d)z^d and E_r^vec(z)=∑_d1^vec_(r,d)z^d for r>0. Set
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.3/characteristic-functions`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/basic-masses`.
 
 
-Source: S16 §4.3–4.5, pp.317–319.
+Source: S16 §4.3, pp.317–318; §4.4, p.319.
 
 
 Proof route:
@@ -1150,6 +1181,7 @@ Atlas planet: Curve Eisenstein series.
 
 ### Harder Hecke commutation
 
+
 Target `CB.4/harder-hecke` (theorem); proposed name `TauCeti.CurveCounting.harder_hecke`.
 
 
@@ -1159,7 +1191,7 @@ With |z|≪|w| and r≥0, E_0(z)E_r^vec(w)=∏_{i=0}^{r−1}ζ_X(q^{−r/2+i}z/w
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.4/eisenstein-series`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/hall-algebra`, `FunctionFieldArithmetic:FA.5/riemann-roch-zeta-rationality`.
 
 
-Source: S16 §4.4, Theorem 4.2(i), p.318.
+Source: S16 §4.3, Theorem 4.2(ii), p.318.
 
 
 Proof route:
@@ -1180,6 +1212,7 @@ Atlas planet: Harder Hecke commutation.
 
 ### Harder Eisenstein coproduct
 
+
 Target `CB.4/harder-coproduct` (theorem); proposed name `TauCeti.CurveCounting.harder_coproduct`.
 
 
@@ -1189,7 +1222,7 @@ For r=s+t, Δ′E_r(z)=∑_{s+t=r}q^{st(g−1)/2}E_s(q^{t/2}z)⊗E_t(q^{−s/2}z
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.4/eisenstein-series`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/green-pairing`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/harder-hecke`.
 
 
-Source: S16 §4.4, Theorem 4.2(ii)–(iii), p.318.
+Source: S16 §4.3, Theorem 4.2(iii), p.318.
 
 
 Proof route:
@@ -1207,6 +1240,7 @@ Check: r=0 gives group-like E_0. Terms with one rank zero retain the correct tor
 
 ### Bundle Eisenstein residue presentation
 
+
 Target `CB.4/bundle-residue` (theorem); proposed name `TauCeti.CurveCounting.bundle_residue`.
 
 
@@ -1216,7 +1250,7 @@ For r≥1, E_r^vec(q^{(1−r)/2}z_1)=q^{−(g−1)r(r−1)/4}V_1^{−r}V_r · rR
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.4/harder-coproduct`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/basic-masses`, `CountingBundlesAndHallAlgebrasOfCurves:CB.0/residue-conventions`.
 
 
-Source: S16 §4.4, Theorem 4.2(iv), p.318; §1.3, p.303.
+Source: S16 §4.3, Theorem 4.2(iv), p.318; §1.3, p.303.
 
 
 Proof route:
@@ -1237,6 +1271,7 @@ Atlas planet: Bundle Eisenstein residue presentation.
 
 ### HN relations for truncated Eisenstein series
 
+
 Target `CB.4/hn-relations` (theorem); proposed name `TauCeti.CurveCounting.hn_relations`.
 
 
@@ -1246,7 +1281,7 @@ In the HN completion E_r(z)=∑_{s+t=r}q^{(g−1)st/2}E_s^{<0}(q^{t/2}z)E_t^{≥
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.4/eisenstein-series`, `GlobalShtukasAndFunctionFieldLanglands:GS.0`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/hall-algebra`.
 
 
-Source: S16 §4.5, equation (4.4), p.319.
+Source: S16 §4.4, equation (4.4), p.319.
 
 
 Proof route:
@@ -1264,6 +1299,7 @@ Check: All torsion is in the ≥0 factor. The rank-zero bundle factor remains 1.
 
 ### Spherical curve Hall algebra
 
+
 Target `CB.4/spherical-algebra` (definition); proposed name `TauCeti.CurveCounting.spherical_algebra`.
 
 
@@ -1273,7 +1309,7 @@ H_sph is the subalgebra of H_fin generated by 1^vec_(1,d),d∈Z, and 1_(0,l),l>0
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.3/hall-algebra`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/characteristic-functions`.
 
 
-Source: S16 §4.6, pp.319–320; Schiffmann 2010 §1.3, p.3.
+Source: S16 §4.5, pp.319–320; HN10 §1.3, p.3.
 
 
 Proof route:
@@ -1317,6 +1353,7 @@ Atlas planet: Spherical curve Hall algebra.
 
 ### HN strata are spherical
 
+
 Target `CB.4/hn-membership` (theorem); proposed name `TauCeti.CurveCounting.hn_membership`.
 
 
@@ -1326,7 +1363,7 @@ For every fixed HN type τ the finite-support characteristic 1_τ belongs to H_s
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.4/spherical-algebra`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/hn-relations`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/bundle-residue`, `GlobalShtukasAndFunctionFieldLanglands:GS.0`.
 
 
-Source: HN10 Schiffmann 2010, Theorem 3.1, pp.5–7; S16 §4.6, p.319.
+Source: HN10 Theorem 3.1 and its proof, pp.5–8; Corollary 3.5, p.8; S16 §4.5, Theorem 4.3, p.319.
 
 
 Proof route:
@@ -1344,6 +1381,7 @@ Check: For a fixed class and HN lower bound only finitely many HN types enter. D
 
 ### Universal spherical Hall form
 
+
 Target `CB.4/generic-form` (theorem); proposed name `TauCeti.CurveCounting.generic_form`.
 
 
@@ -1353,7 +1391,7 @@ There is a torsion-free generic spherical form generated by the rank-one, torsio
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.4/spherical-algebra`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/hn-membership`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/harder-hecke`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/harder-coproduct`, `CountingBundlesAndHallAlgebrasOfCurves:CB.0/coefficient-frame`.
 
 
-Source: S16 §4.6, Theorem 4.4, pp.319–320; Schiffmann–Vasserot §1.11, pp.13–14; SV12 §1.11, preprint pp.13–14.
+Source: S16 §4.5, Theorem 4.4, pp.319–320; §4.6, p.321; SV12 §1.11, preprint pp.13–14.
 
 
 Proof route:
@@ -1374,6 +1412,7 @@ Atlas planet: Universal spherical Hall form.
 
 ### Universal truncated and bundle counts
 
+
 Target `CB.4/universal-counts` (theorem); proposed name `TauCeti.CurveCounting.universal_counts`.
 
 
@@ -1383,7 +1422,7 @@ There are unique elements C_α(K_g) for the truncated coherent masses and N_α(K
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.4/generic-form`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/flag-pairing`, `CountingBundlesAndHallAlgebrasOfCurves:CB.2/jordan-fibres`, `CountingBundlesAndHallAlgebrasOfCurves:CB.2/nilpotent-exponential`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/large-degree`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/count-normalizations`, `QSeriesPartitionsAndMockModularForms:QM.0`, `LefschetzPencilsAndVanishingCycles:LPV.5`.
 
 
-Source: S16 §4.6, Corollaries 4.5–4.6, pp.320–321; Theorem 1.1, p.299.
+Source: S16 §4.5, Corollaries 4.5–4.6, pp.320–321; §4.6, p.321; Theorem 1.1, p.299.
 
 
 Proof route:
@@ -1407,6 +1446,7 @@ Stage closure obligations: Verify primary-proof obligations G3: Invariant generi
 
 ## CB.5 — Shuffle pairings and the Jordan sum
 
+
 Introduce the G and Y pairing series with exact variable order and expansion regions. Separate the torsion factor, compute the bilateral series and rank-one shuffle functions, and pass to arbitrary ranks by block residues. Sum Jordan types coefficientwise and identify the Young-diagram product. No unrestricted multiplication of bilateral distributions is used. Define the normalized partition residue kernels here, before their Jordan-product and generating-identity uses.
 
 
@@ -1414,6 +1454,7 @@ The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `CountingBundl
 
 
 ### Eisenstein pairing series
+
 
 Target `CB.5/pairing-series` (definition); proposed name `TauCeti.CurveCounting.pairing_series`.
 
@@ -1468,6 +1509,7 @@ Atlas planet: Eisenstein pairing series.
 
 ### Separation of the torsion factor
 
+
 Target `CB.5/torsion-separation` (theorem); proposed name `TauCeti.CurveCounting.torsion_separation`.
 
 
@@ -1477,7 +1519,7 @@ With n=∑r_i and X=[1−∑α_j+q], set X_r(z;w)=Exp(X/(q−1)·[∑_i q^{−(n
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.5/pairing-series`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/harder-hecke`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/harder-coproduct`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/basic-masses`, `QSeriesPartitionsAndMockModularForms:QM.0`.
 
 
-Source: S16 §5.2, Proposition 5.1, pp.322–324.
+Source: S16 §5.1, Proposition 5.1 and proof, pp.321–323.
 
 
 Proof route:
@@ -1497,6 +1539,7 @@ Atlas planet: Separation of the torsion factor.
 
 
 ### Untruncated bundle pairing
+
 
 Target `CB.5/bilateral-pairing` (theorem); proposed name `TauCeti.CurveCounting.bilateral_pairing`.
 
@@ -1524,6 +1567,7 @@ Check: The source formula’s unrestricted integer sum is used only for positive
 
 
 ### Rank-one truncated shuffle formulas
+
 
 Target `CB.5/rank-one-shuffle` (theorem); proposed name `TauCeti.CurveCounting.rank_one_shuffle`.
 
@@ -1555,6 +1599,7 @@ Atlas planet: Rank-one truncated shuffle formulas.
 
 ### Separation of regional expansions
 
+
 Target `CB.5/expansion-separation` (lemma); proposed name `TauCeti.CurveCounting.expansion_separation`.
 
 
@@ -1581,6 +1626,7 @@ Check: Two expansions of 1/(1−z) differ as distributions but have the same rat
 
 
 ### Arbitrary-rank block residue formula
+
 
 Target `CB.5/block-residue-pairing` (theorem); proposed name `TauCeti.CurveCounting.block_residue_pairing`.
 
@@ -1611,6 +1657,7 @@ Atlas planet: Arbitrary-rank block residue formula.
 
 
 ### Generic Jordan-type generating sum
+
 
 Target `CB.5/jordan-sum` (definition); proposed name `TauCeti.CurveCounting.jordan_sum`.
 
@@ -1665,6 +1712,7 @@ Atlas planet: Generic Jordan-type generating sum.
 
 ### Positive-arm plethystic product
 
+
 Target `CB.5/positive-arm-product` (theorem); proposed name `TauCeti.CurveCounting.positive_arm_product`.
 
 
@@ -1692,6 +1740,7 @@ Check: For λ=(1^n) the product is empty and equals 1. For λ=(2) there is exact
 
 ### Jordan sum as a partition product
 
+
 Target `CB.5/jordan-product` (theorem); proposed name `TauCeti.CurveCounting.jordan_product`.
 
 
@@ -1718,6 +1767,7 @@ Check: The residual torsion exponential is independent of λ. Check the exponent
 
 
 ### Partition residue kernels
+
 
 Target `CB.5/partition-kernels` (construction); proposed name `TauCeti.CurveCounting.partition_kernels`.
 
@@ -1777,6 +1827,7 @@ Stage closure obligations: Discharge the exact supplier contracts from QSeriesPa
 
 ## CB.6 — Explicit residues and constant terms
 
+
 Use normalized and ordinary residues separately, and the J_λ,L_n,H_λ kernels on the imported Young diagrams. Establish the universal generating identity and the periodic residue extraction theorem, including genus-zero and elliptic rank-two checks. Prove regularity at the coordinate origin before defining the constant term, then derive its companion partition formula and the first four values.
 
 
@@ -1784,6 +1835,7 @@ The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `CountingBundl
 
 
 ### Universal partition generating identity
+
 
 Target `CB.6/generating-identity` (theorem); proposed name `TauCeti.CurveCounting.generating_identity`.
 
@@ -1815,6 +1867,7 @@ Atlas planet: Universal partition generating identity.
 
 ### Eventually periodic residue extraction
 
+
 Target `CB.6/residue-extraction` (theorem); proposed name `TauCeti.CurveCounting.residue_extraction`.
 
 
@@ -1841,6 +1894,7 @@ Check: For constant b the only pole is z=1 and its residue is −b. For r=2 oppo
 
 
 ### Schiffmann partition residue formula
+
 
 Target `CB.6/explicit-count` (theorem); proposed name `TauCeti.CurveCounting.explicit_count`.
 
@@ -1872,6 +1926,7 @@ Atlas planet: Schiffmann partition residue formula.
 
 ### Rank-two universal check
 
+
 Target `CB.6/rank-two-check` (theorem); proposed name `TauCeti.CurveCounting.rank_two_check`.
 
 
@@ -1898,6 +1953,7 @@ Check: Use the pair (a,q/a) for the genus-one specialization, without treating t
 
 
 ### Origin constant of the bundle invariant
+
 
 Target `CB.6/origin-constant` (definition); proposed name `TauCeti.CurveCounting.origin_constant`.
 
@@ -1952,6 +2008,7 @@ Atlas planet: Origin constant of the bundle invariant.
 
 ### Constant-term partition formula
 
+
 Target `CB.6/constant-formula` (theorem); proposed name `TauCeti.CurveCounting.constant_formula`.
 
 
@@ -1985,7 +2042,8 @@ Stage closure obligations: Verify primary-proof obligations G9: Universal monomi
 
 ## CB.7 — Canonical Higgs moduli and two-line charts
 
-Own canonical-twist Higgs (semi)stability, the stable GL_r coarse space and its proper Hitchin map. Import generic vector bundles from current AlgebraicVectorBundles, strong generation and Quot geometry from R09.2, and the routed good-line boundedness from ET.2b. Construct only the two-line framed charts, cotangent sequence and Kronecker embedding specific to this counting proof.
+
+Import the canonical GL_r bundle Higgs carrier and existential good-line theorem from ET.2b. Specify the coherent and positive exact-category interfaces, the stable canonical coarse space and its proper Hitchin map. Import general bundles from current AlgebraicVectorBundles, and Quot geometry from R09.2. Construct the two-line framed charts, cotangent sequence and Kronecker embedding specific to this counting proof.
 
 
 The stage requires `AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `EndoscopicTransferAndUnitaryTraceComparison:ET.2b`, `GlobalShtukasAndFunctionFieldLanglands:GS.0`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`, `SchemeAndStackFoundations:SF.4`.
@@ -1993,26 +2051,29 @@ The stage requires `AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModul
 
 ### Canonical Higgs sheaves and stability
 
+
 Target `CB.7/canonical-higgs` (definition); proposed name `TauCeti.CurveCounting.canonical_higgs`.
 
 
-A canonical Higgs sheaf is (F,θ:F→F⊗Ω_X), with morphisms commuting with θ. For rank r>0 its slope is d/r. It is semistable if every nonzero proper θ-invariant coherent subsheaf W has μ(W)≤μ(F), and stable if all such inequalities are strict, assigning torsion slope +∞. Saturated subsheaves suffice for bundles. Positive-rank semistable Higgs sheaves are bundles. This category has HN filtrations by Higgs subsheaves; its Ext groups are hypercohomology of the two-term Hom complex and need not vanish in degree 2.
+A canonical Higgs sheaf is (F,θ:F→F⊗Ω_X), with morphisms commuting with θ. For rank r>0 its slope is d/r. It is semistable if every nonzero proper θ-invariant coherent subsheaf W has μ(W)≤μ(F), and stable if all such inequalities are strict, assigning torsion slope +∞. Saturated subsheaves suffice for bundles. Positive-rank semistable Higgs sheaves are bundles. This category has HN filtrations by Higgs subsheaves; its Ext groups are hypercohomology of the two-term Hom complex and need not vanish in degree 2. On locally free objects this reuses ET.2b/hitchin-moduli-stack for G=GL_r and D=Ω_X. Also define the full positive subcategory A_K^+ by μ_min(F)≥0, with the exact structure induced from coherent Higgs sheaves. Relative (semi)stability tests invariant subobjects belonging to A_K^+ (the quotient is then positive). It is not defined by intersecting the usual semistable locus with A_K^+. For g≥1 and d>binom(r,2)(2g−2), the relative and usual semistable moduli agree; outside that range no equality is asserted.
 
 
-Prerequisites: `GlobalShtukasAndFunctionFieldLanglands:GS.0`, `SchemeAndStackFoundations:SF.3`, `SchemeAndStackFoundations:SF.1`.
+Prerequisites: `GlobalShtukasAndFunctionFieldLanglands:GS.0`, `SchemeAndStackFoundations:SF.3`, `SchemeAndStackFoundations:SF.1`, `EndoscopicTransferAndUnitaryTraceComparison:ET.2b/hitchin-moduli-stack`, `EndoscopicTransferAndUnitaryTraceComparison:ET.2b/schiffmann-boundedness`.
 
 
-Source: S16 §6.2, pp.336–337; Mozgovoy–Schiffmann §2, Theorem 2.1, pp.3–5.
+Source: S16 §6.2, pp.336–337; MS14 §1, p.2; §2.1, Theorem 2.1 and Corollaries 2.2–2.4, pp.3–4; §3, pp.5–7, especially Corollary 3.3, p.6.
 
 
 Proof route:
 
 
-1. Form the category of Ω-twisted sheaf endomorphisms using the supplier tensor and canonical bundle.
+1. Reuse the canonical GL_r bundle Higgs carrier from ET.2b; extend its interface to coherent sheaves and the HN-nonnegative exact subcategory without defining another bundle carrier.
 
 2. Show the torsion subsheaf is invariant; it destabilizes every positive-rank object with torsion.
 
 3. Establish bounded maximal Higgs slopes and the HN induction; compute the two-term deformation complex with the supplier coherent cohomology.
+
+4. For a semistable Higgs bundle of rank s, consecutive underlying HN slopes differ by at most 2g−2. The binomial degree bound forces positivity; applying the same bound to a semistable destabilizer proves the converse comparison of the two stability conditions (MS14 Corollary 3.3).
 
 
 Check: Do not require every underlying bundle to be semistable. The Higgs category is not asserted hereditary.
@@ -2029,6 +2090,12 @@ API:
 
 - `higgs_baseChange` (functoriality): Geometric (semi)stability is preserved and detected by field extension; the definition used for moduli is geometric.
 
+- `higgs_morphism_ext` (extensionality): Two Higgs morphisms are equal when their underlying coherent maps agree; a coherent isomorphism lifts to a Higgs isomorphism exactly when it intertwines the two fields.
+
+- `positiveHiggs_exact` (structure): A short exact coherent Higgs sequence with positive endpoints has positive middle object; positivity is preserved by quotients. Do not assert that every coherent subobject of a positive object is positive.
+
+- `positiveHiggs_stability_comparison` (compatibility): For g≥1 and d>binom(r,2)(2g−2), the relative semistable positive moduli identify with the usual semistable Higgs moduli, compatibly with field extension.
+
 
 Unit tests:
 
@@ -2039,6 +2106,10 @@ Unit tests:
 
 - `torsion_destabilizes` (non-example): A nonzero torsion summand in a positive-rank Higgs sheaf is invariant and violates semistability.
 
+- `positive_not_subobject_closed` (non-example): On P¹, O(−1) injects into O² with quotient O(1). The middle object and quotient are positive but the subobject is not; for zero Higgs fields the induced exact category must not be treated as an abelian subcategory.
+
+- `relative_test_domain` (non-example): The relative stability predicate quantifies only over invariant subobjects with μ_min≥0. A test with μ_min<0 belongs to the usual predicate but is excluded from the relative predicate, even when its average slope is positive.
+
 
 Consumers: CB.7/higgs-moduli: Defines the stable moduli problem.; CB.8/king-slope: Compares the stability condition to framed quiver stability.; YuCountingPartII: Imports canonical stable Higgs spaces from this owner..
 
@@ -2047,6 +2118,7 @@ Atlas planet: Canonical Higgs sheaves and stability.
 
 
 ### Serre-dual Higgs criterion
+
 
 Target `CB.7/serre-higgs` (comparison); proposed name `TauCeti.CurveCounting.serre_higgs`.
 
@@ -2074,6 +2146,7 @@ Check: For W=0 the criterion is automatic. For W=V it is automatic, but stabilit
 
 
 ### Stable canonical Higgs moduli
+
 
 Target `CB.7/higgs-moduli` (construction); proposed name `TauCeti.CurveCounting.higgs_moduli`.
 
@@ -2130,6 +2203,7 @@ Atlas planet: Stable canonical Higgs moduli.
 
 ### Two-line framed Quot chart
 
+
 Target `CB.7/two-line-chart` (construction); proposed name `TauCeti.CurveCounting.two_line_chart`.
 
 
@@ -2183,6 +2257,7 @@ Atlas planet: Two-line framed Quot chart.
 
 ### Cotangent sequence and Higgs zero level
 
+
 Target `CB.7/cotangent-moment` (theorem); proposed name `TauCeti.CurveCounting.cotangent_moment`.
 
 
@@ -2192,7 +2267,7 @@ At φ in Q°°, with L=(L_1⊗V_1)⊕(L_2⊗V_2), the dual tangent sequence is 0
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.7/two-line-chart`, `CountingBundlesAndHallAlgebrasOfCurves:CB.7/serre-higgs`, `SchemeAndStackFoundations:SF.4`.
 
 
-Source: S16 §6.4, equations (6.2)–(6.3), pp.339–340.
+Source: S16 §6.4, equation (6.2), p.340; §6.6, equation (6.3), p.341.
 
 
 Proof route:
@@ -2209,6 +2284,7 @@ Check: The map μ includes the chosen tangent/frame map, not an arbitrary map of
 
 
 ### Kronecker chart and doubled moment map
+
 
 Target `CB.7/kronecker-chart` (construction); proposed name `TauCeti.CurveCounting.kronecker_chart`.
 
@@ -2268,13 +2344,15 @@ Stage closure obligations: Verify primary-proof obligations G6: Canonical Higgs 
 
 ## CB.8 — Central deformation and stable Higgs counts
 
-Choose an explicit safe pair of framing dimensions, fix λ and King’s character, prove the moment-map indecomposability criterion and the stability comparison, and form the central-line GIT quotient. Prove smoothness, contraction and equality of zero/nonzero fibre point counts, yielding Schiffmann’s characteristic-bounded theorem. Add the Mozgovoy–Schiffmann Hall-integration route for the all-characteristic coprime count, with genus zero handled separately.
+
+Choose an explicit safe pair of framing dimensions, fix λ and King’s character, prove the moment-map indecomposability criterion and the stability comparison, and form the central-line GIT quotient. Prove smoothness, contraction and equality of zero/nonzero fibre point counts, yielding Schiffmann’s characteristic-bounded theorem. Add the Mozgovoy–Schiffmann Hall-integration route for the all-characteristic coprime count, with relative positive-category semistability distinguished from usual semistability and genus zero handled separately.
 
 
-The stage requires `AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1`, `CountingBundlesAndHallAlgebrasOfCurves:CB.2`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4`, `CountingBundlesAndHallAlgebrasOfCurves:CB.7`, `EndoscopicTransferAndUnitaryTraceComparison:ET.2b`, `FunctionFieldArithmetic:FA.5/schmidt-degree-one`, `QSeriesPartitionsAndMockModularForms:QM.0`, `ReductiveGroupsPartII:RG2.3`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
+The stage requires `AlgebraicModuliForArithmeticGeometry:R09.2`, `AlgebraicModuliForArithmeticGeometry:R09.5`, `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1`, `CountingBundlesAndHallAlgebrasOfCurves:CB.2`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4`, `CountingBundlesAndHallAlgebrasOfCurves:CB.7`, `EndoscopicTransferAndUnitaryTraceComparison:ET.2b`, `FunctionFieldArithmetic:FA.5/schmidt-degree-one`, `QSeriesPartitionsAndMockModularForms:QM.0`, `ReductiveGroupsPartII:RG2.3/lang-theorem`, `SchemeAndStackFoundations:SF.1`, `SchemeAndStackFoundations:SF.3`.
 
 
 ### Framing dimensions and characteristic cutoff
+
 
 Target `CB.8/framing-cutoff` (construction); proposed name `TauCeti.CurveCounting.framing_cutoff`.
 
@@ -2285,20 +2363,20 @@ For g≥1, r>0, gcd(r,d)=1 put l=2g−2 and B=d/r−(r−1)l. Choose the least i
 Prerequisites: `EndoscopicTransferAndUnitaryTraceComparison:ET.2b`, `SchemeAndStackFoundations:SF.3`, `FunctionFieldArithmetic:FA.5/schmidt-degree-one`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/large-degree`, `CountingBundlesAndHallAlgebrasOfCurves:CB.7/canonical-higgs`.
 
 
-Source: S16 §6.1, p.336; Lemma 6.1, pp.338–339; §6.7, p.343; explicit safe bound derived here.
+Source: S16 §6.1, p.336; §6.3, Lemma 6.1, pp.338–339; §6.5, pp.340–341; §6.7, p.344; explicit sufficient bound derived here.
 
 
 Proof route:
 
 
-1. Use the Higgs/indecomposable HN gap ≤l to get μ_min≥B; the same bound applies to a semistable destabilizing Higgs subobject of slope>d/r.
+1. For an indecomposable bundle or semistable canonical Higgs bundle, the adjacent HN gaps are ≤l=2g−2, so μ_min≥μ−(r−1)l≥B. A positive-rank semistable destabilizer has rank s≤r and slope>d/r, hence the same bound B. Every torsion sheaf is strongly generated by any line: its H¹ vanishes and its evaluation is surjective.
 
-2. The standard curve criterion μ_min(F)+d_i>2g−1 implies strong generation by degree −d_i. For K⊂L_1^{l_1}, μ_max(K)≤−d_1 gives μ_min(K)≥−d−(r+1)d_1 if K≠0.
+2. Use the requested degree-only criterion μ_min(F)+d_i>2g−1 for strong generation. For a nonzero kernel K of L1^{l1}↠F, let t=rk K=l1−r. Since μ_max(K)≤−d1 and deg K=−l1d1−d, μ_min(K)≥deg K−(t−1)μ_max(K)≥−d−(r+1)d1. If t=0, K is the zero bundle and is strongly generated.
 
-3. The chosen d_2 gives strong generation of all these kernels and L_1 itself. Since l_2≡r mod l_1 and gcd(l_1,r)=1, the dimensions are coprime; nonzero proper determinants have absolute value ≤l_1l_2.
+3. The bound on d2 is strictly stronger than the generation threshold for these kernels and for L1. The congruence gives l2≡r mod l1, while l1≡d mod r, so gcd(l1,l2)=1. Every nonzero proper bounded dimension vector has nonzero integer determinant, of absolute value at most l1l2; characteristic p>l1l2 preserves nonvanishing.
 
 
-Check: The cutoff depends on g as well as r,d. The explicit degree inequalities are a requested ET.2b strengthening whose verification is recorded as G7, rather than attributed verbatim to Lemma 6.1.
+Check: The cutoff depends on g as well as r,d. The explicit degree inequalities are verified by the displayed slope and fixed-source kernel argument, relative to the requested generation criterion; Lemma 6.1 supplies existence rather than this numerical recipe. The proof includes torsion destabilizers, zero kernels and l1=1. For g=2,r=2,d=1 the choice is d1=5,l1=9,d2=24,l2=47,C=423.
 
 
 API:
@@ -2325,6 +2403,7 @@ Consumers: CB.8/moment-indecomposable: Ensures λ pairs nontrivially with every 
 
 
 ### King character and slope determinant
+
 
 Target `CB.8/king-stability` (definition); proposed name `TauCeti.CurveCounting.king_stability`.
 
@@ -2379,6 +2458,7 @@ Atlas planet: King character and slope determinant.
 
 ### Moment-map criterion for indecomposability
 
+
 Target `CB.8/moment-indecomposable` (theorem); proposed name `TauCeti.CurveCounting.moment_indecomposable`.
 
 
@@ -2409,6 +2489,7 @@ Atlas planet: Moment-map criterion for indecomposability.
 
 ### Semistable points lie in the framed smooth open
 
+
 Target `CB.8/smooth-locus` (theorem); proposed name `TauCeti.CurveCounting.smooth_locus`.
 
 
@@ -2436,6 +2517,7 @@ Check: The entire closure P is not declared smooth. Submersivity onto g* is not 
 
 ### Higgs stability versus quiver stability
 
+
 Target `CB.8/king-slope` (theorem); proposed name `TauCeti.CurveCounting.king_slope`.
 
 
@@ -2462,6 +2544,7 @@ Check: An arbitrary subrepresentation is not simply declared equal to the sectio
 
 
 ### Central-line Higgs deformation
+
 
 Target `CB.8/deformation-family` (construction); proposed name `TauCeti.CurveCounting.deformation_family`.
 
@@ -2518,6 +2601,7 @@ Atlas planet: Central-line Higgs deformation.
 
 ### Białynicki–Birula deformation comparison
 
+
 Target `CB.8/bb-deformation` (theorem); proposed name `TauCeti.CurveCounting.bb_deformation`.
 
 
@@ -2548,13 +2632,14 @@ Atlas planet: Białynicki–Birula deformation comparison.
 
 ### Stable Higgs point count
 
+
 Target `CB.8/stable-higgs-count` (theorem); proposed name `TauCeti.CurveCounting.stable_higgs_count`.
 
 
 For g≥1,r>0,gcd(r,d)=1 and p>C(g,r,d), #H_(r,d)(F_q)=q^D A_X(r,d), D=1+(g−1)r². The same equation holds after every finite extension. Genus zero is handled directly: rank one has both counts 1, and higher-rank stable and absolute-indecomposable loci are empty.
 
 
-Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.8/bb-deformation`, `CountingBundlesAndHallAlgebrasOfCurves:CB.8/moment-indecomposable`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/coprime-absolute`, `CountingBundlesAndHallAlgebrasOfCurves:CB.0/indecomposable-counts`, `ReductiveGroupsPartII:RG2.3`, `SchemeAndStackFoundations:SF.3`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/finite-field-neutrality`.
+Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.8/bb-deformation`, `CountingBundlesAndHallAlgebrasOfCurves:CB.8/moment-indecomposable`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/coprime-absolute`, `CountingBundlesAndHallAlgebrasOfCurves:CB.0/indecomposable-counts`, `ReductiveGroupsPartII:RG2.3/lang-theorem`, `SchemeAndStackFoundations:SF.3`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1/finite-field-neutrality`.
 
 
 Source: S16 §1.2, Theorem 1.2, p.300; §6.5–6.9, pp.341–349.
@@ -2578,32 +2663,34 @@ Atlas planet: Stable Higgs point count.
 
 ### HN integration for canonical Higgs sheaves
 
+
 Target `CB.8/higgs-hall-integration` (theorem); proposed name `TauCeti.CurveCounting.higgs_hall_integration`.
 
 
-For g≥1 use the HN-nonnegative Higgs category. With K the canonical divisor, define I_K^+(r,d)=q^{(1−g)r²}mass(all canonical Higgs bundles of class (r,d) with underlying μ_min≥0). For semistable Higgs E,F with μ(E)<μ(F), Ext²(E,F)=Hom(F,E)*=0. With quotient-left/subobject-right Hall multiplication, the HN product is ordered from smaller slopes on the left to larger slopes on the right and integrates multiplicatively; this does not give a Green bialgebra for the whole Higgs category. The same-slope DT invariants Ω_K satisfy 1+∑_{r>0,d/r=τ}q^{(1−g)r²}mass(Higgs^ss_(r,d))T^rz^d=Exp(∑_{d/r=τ}Ω_K(r,d)T^rz^d/(q−1)).
+For g≥1 use A_K^+ and its relative semistability from CB.7/canonical-higgs. Define I_K^+(r,d)=q^{(1−g)r²}mass(all canonical Higgs bundles of class (r,d) with underlying μ_min≥0). Define Ω_K^+ by 1+∑I_K^+(r,d)T^rz^d=Exp(∑Ω_K^+(r,d)T^rz^d/(q−1)). MS14 Theorem 1.2 identifies each fixed-slope Exp factor with the q^{(1−g)r²}-normalized mass of relatively semistable positive Higgs bundles. With quotient-left/subobject-right multiplication, the HN product places smaller slopes on the left. For usual semistable E,F with μ(E)<μ(F), Ext²(E,F)=Hom(F,E)*=0; the positive-category factorization uses the ordered integration theorem of MS14 §3.1, rather than identifying relative factors with usual ones. No Green bialgebra for the whole Higgs category is inferred. The untruncated DT invariants are defined separately by 1+∑_{r>0,d/r=τ}q^{(1−g)r²}mass(Higgs^ss_(r,d))T^rz^d=Exp(∑_{d/r=τ}Ω_K(r,d)T^rz^d/(q−1)).
 
 
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.7/canonical-higgs`, `CountingBundlesAndHallAlgebrasOfCurves:CB.3/hall-algebra`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4/hn-relations`, `SchemeAndStackFoundations:SF.3`, `QSeriesPartitionsAndMockModularForms:QM.0`.
 
 
-Source: MS14 Mozgovoy–Schiffmann §2.1–2.3 and §3.1, pp.3–7.
+Source: MS14 Theorem 1.2, p.2; §2.1–2.3, pp.3–5; §3.1, pp.6–7.
 
 
 Proof route:
 
 
-1. Use the two-term Higgs deformation complex and its duality to show the needed Ext² vanishing in the HN order.
+1. Use the two-term Higgs deformation complex and Serre duality to prove Ext² vanishing for usual semistable factors in the displayed slope order.
 
-2. Apply the Hall integration map on precisely those ordered products, with the factor q^{(1−g)r²}.
+2. Apply MS14 Theorem 1.2 and §3.1 to the positive-category HN factorization, with relative semistable factors and the normalization q^{(1−g)r²}; keep this separate from any claim that relative semistability is usual semistability.
 
-3. Use unique Higgs HN filtrations and slopewise plethystic logarithms to define Ω_K.
+3. Take the coefficientwise plethystic logarithm and its slope factors to define Ω_K^+. Define Ω_K by the independent usual-semistable same-slope formula; compare them only in the eventual degree range.
 
 
-Check: State the order of slopes in the Ext² vanishing. For a coprime class, Ω_K=(q−1)q^{(1−g)r²}mass(Higgs^st).
+Check: State the order of slopes in the Ext² vanishing. For a coprime class, Ω_K=(q−1)q^{(1−g)r²}mass(Higgs^st). Relative positive semistable masses are not obtained merely by restricting the usual semistable stack to underlying μ_min≥0.
 
 
 ### All-characteristic coprime Higgs count
+
 
 Target `CB.8/all-characteristic-count` (theorem); proposed name `TauCeti.CurveCounting.all_characteristic_count`.
 
@@ -2622,7 +2709,7 @@ Proof route:
 
 1. For the positive bundle cutoff, apply the same Krull–Schmidt Euler product to the Serre-dual cotangent fibre: ∑I_K^+=Exp(∑q A_X^{≥0}/(q−1)).
 
-2. Compare its slope factors using HN integration. For d>binom(r,2)(2g−2), both the Higgs and indecomposable cutoff invariants agree with the untruncated ones.
+2. Compare the relative positive-category slope factors using MS14 Theorem 1.2. For d>binom(r,2)(2g−2), MS14 Corollary 3.3 and Theorem 1.2 identify both the positive Higgs invariants and the indecomposable cutoff counts with the untruncated ones.
 
 3. Remove the cutoff by degree-r periodicity; in a coprime class convert the stable stack mass to coarse points by its neutral G_m-gerbe.
 
@@ -2633,10 +2720,11 @@ Check: The canonical twist is essential to the duality comparison. Genus zero us
 Atlas planet: All-characteristic coprime Higgs count.
 
 
-Stage closure obligations: Verify primary-proof obligations G5: BB–Hesselink primary proof; G6: Canonical Higgs moduli and tight quiver comparison; G7: Uniform computable good-line characteristic bound. Discharge the exact supplier contracts from SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.3, AlgebraicModuliForArithmeticGeometry:R09.2, EndoscopicTransferAndUnitaryTraceComparison:ET.2b, AlgebraicModuliForArithmeticGeometry:R09.5, QSeriesPartitionsAndMockModularForms:QM.0, ReductiveGroupsPartII:RG2.3.
+Stage closure obligations: Verify primary-proof obligations G5: BB–Hesselink primary proof; G6: Canonical Higgs moduli and tight quiver comparison. Discharge the exact supplier contracts from SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.3, AlgebraicModuliForArithmeticGeometry:R09.2, EndoscopicTransferAndUnitaryTraceComparison:ET.2b, AlgebraicModuliForArithmeticGeometry:R09.5, QSeriesPartitionsAndMockModularForms:QM.0, ReductiveGroupsPartII:RG2.3.
 
 
 ## CB.9 — Purity, cohomology and the nilpotent cone
+
 
 Derive pure compactly supported Higgs cohomology from the contracting symplectic action. Separate all-extension trace identities from weight arguments. State the signed compact Poincaré polynomial, reciprocal nilpotent-cone trace and component count with the corrected dimensions and Tate shifts. Spread out and compare to complex cohomology through explicit supplier contracts.
 
@@ -2645,6 +2733,7 @@ The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `CountingBundl
 
 
 ### Pure Higgs cohomology and BB shifts
+
 
 Target `CB.9/higgs-purity` (theorem); proposed name `TauCeti.CurveCounting.higgs_purity`.
 
@@ -2675,6 +2764,7 @@ Atlas planet: Pure Higgs cohomology and BB shifts.
 
 
 ### Trace reconstruction and coprime positivity
+
 
 Target `CB.9/trace-positivity` (theorem); proposed name `TauCeti.CurveCounting.trace_positivity`.
 
@@ -2708,6 +2798,7 @@ Atlas planet: Trace reconstruction and coprime positivity.
 
 ### Compact Poincaré polynomial over C
 
+
 Target `CB.9/complex-poincare` (theorem); proposed name `TauCeti.CurveCounting.complex_poincare`.
 
 
@@ -2734,6 +2825,7 @@ Check: For rank one the signed answer is t^{2g}(1−t)^{2g}. Replacing t by −t
 
 
 ### Nilpotent-cone trace and components
+
 
 Target `CB.9/nilpotent-cone` (theorem); proposed name `TauCeti.CurveCounting.nilpotent_cone`.
 
@@ -2768,13 +2860,15 @@ Stage closure obligations: Verify primary-proof obligations G5: BB–Hesselink p
 
 ## CB.10 — Mellit integrality and degree independence
 
-Implement the curve-specific deformation of the partition kernel, with its normalization and variable exchange made explicit. Import modified Macdonald functions and admissibility closure through a requested continuation of the formal-series owner. Prove the z=1 cancellation and identify every degree count with a single Laurent polynomial; retain source-closure gaps for the generic combinatorial machinery.
+
+Implement the curve-specific deformation of the partition kernel, with its normalization and variable exchange made explicit. Import modified Macdonald functions and admissibility closure through a requested continuation of the formal-series owner. Prove global Laurent pole control and the z=1 comparison and identify every degree count with a single Laurent polynomial; retain source-closure gaps for the generic combinatorial machinery.
 
 
 The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `CountingBundlesAndHallAlgebrasOfCurves:CB.1`, `CountingBundlesAndHallAlgebrasOfCurves:CB.4`, `CountingBundlesAndHallAlgebrasOfCurves:CB.5`, `CountingBundlesAndHallAlgebrasOfCurves:CB.6`, `CountingBundlesAndHallAlgebrasOfCurves:CB.9`, `LefschetzPencilsAndVanishingCycles:LPV.5`, `QSeriesPartitionsAndMockModularForms:QM.0`, `tauceti:YoungDiagram.armLength`, `tauceti:YoungDiagram.legLength`.
 
 
 ### Mellit partition generating function
+
 
 Target `CB.10/mellit-kernel` (definition); proposed name `TauCeti.CurveCounting.mellit_kernel`.
 
@@ -2831,6 +2925,7 @@ Atlas planet: Mellit partition generating function.
 
 ### Schiffmann kernel as a regular deformation
 
+
 Target `CB.10/partition-deformation` (theorem); proposed name `TauCeti.CurveCounting.partition_deformation`.
 
 
@@ -2858,19 +2953,20 @@ Check: The regular-sequence shift multiplies variables by q here, which is t_M i
 
 ### Regular-sequence deformation at z=1
 
+
 Target `CB.10/admissible-deformation` (theorem); proposed name `TauCeti.CurveCounting.admissible_deformation`.
 
 
-Let R contain Q(t)[q±1] and inject into R*=R⊗_{Q(t)[q±1]}Q(q,t). Suppose Ω[X]=∑_λ c_λ H̃_λ[X] has c_empty=1 and (q−1)Log Ω with coefficients in R. For a regular symmetric Laurent sequence f(u)=1+∑_{j>0}u^j f^(j), put Ω_f[X]=∑_λ c_λ H̃_λ[X] f_λ(u). Then (q−1)Log Ω_f has coefficients in R[[u]], and its reduction modulo q−1 equals that of (q−1)Log Ω. In this theorem q is Mellit’s deformation parameter, hence z in the curve formula.
+Let R be a λ-ring containing Q(t)[q±1] and inject into R*=R⊗_{Q(t)[q±1]}Q(q,t). Suppose Ω[X]=∑_λ c_λ H̃_λ[X] has c_empty=1 and (q−1)Log Ω with coefficients in R. For a regular symmetric Laurent sequence f(u)=1+∑_{j>0}u^j f^(j), put Ω_f[X]=∑_λ c_λ H̃_λ[X] f_λ(u). Then (q−1)Log Ω_f has coefficients in R[[u]], and its reduction modulo q−1 equals that of (q−1)Log Ω. In this theorem q is Mellit’s deformation parameter, hence z in the curve formula.
 
 
-Additional hypotheses: The coefficient rings carry compatible Adams operations and the symmetric-function completion used by the imported Macdonald theory; R→R* is injective.
+Hypotheses: R is a rational λ-ring with Adams operations compatible with Q(t)[q±1] and the imported symmetric-function completion; R→R* is injective.
 
 
 Prerequisites: `QSeriesPartitionsAndMockModularForms:QM.0`, `CountingBundlesAndHallAlgebrasOfCurves:CB.10/partition-deformation`.
 
 
-Source: M20 Mellit 2020 §5, Definition 5.1 and Lemma 5.1, pp.315–319.
+Source: M20 §5, Definition 5.1, p.315, and Lemma 5.1, pp.316–319.
 
 
 Proof route:
@@ -2883,7 +2979,7 @@ Proof route:
 3. Expand regular sequences in symmetric functions and use the shift relation to show each positive u coefficient vanishes modulo q−1. The generic admissibility closure is a requested QM.0 continuation with proof-closure gap G8.
 
 
-Check: The coefficient-ring injection is a hypothesis. The conclusion concerns the logarithm and divisibility, not termwise regularity of Ω_f.
+Check: The coefficient-ring injection is a hypothesis. The conclusion concerns the logarithm and divisibility, not termwise regularity of Ω_f. A ring containing Q(t)[q±1] without the specified λ-ring and Adams structure is not an admissible input.
 
 
 Atlas planet: Regular-sequence deformation at z=1.
@@ -2891,16 +2987,17 @@ Atlas planet: Regular-sequence deformation at z=1.
 
 ### Laurent integrality of the Mellit coefficients
 
+
 Target `CB.10/z-one-regularity` (theorem); proposed name `TauCeti.CurveCounting.z_one_regularity`.
 
 
-For every g≥1,r>0, H_{g,r} belongs to Z[q±1,z±1,α_1±1,…,α_g±1]. In particular it is regular at z=1. The same regular-deformation argument proves that the S16 logarithmic numerator has only the pole controlled by (1−z), with z=1 value H_{g,r}(q,1,α).
+For every g≥1,r>0, H_{g,r} belongs to Z[q±1,z±1,α_1±1,…,α_g±1]. In particular it is regular at z=1. Separately, let H^Sch_{g,r}=(1−z)A_{g,r}(z), where A_{g,r}(z) is the Schiffmann logarithmic count series of CB.6/explicit-count. Mellit Theorem 5.2(i), with q_M=z and t_M=q, gives H^Sch_{g,r}∈Q(q)[z±1,α_1±1,…,α_g±1]. Theorem 5.2(ii) gives H^Sch_{g,r}(q,1,α)=H_{g,r}(q,1,α). Thus A_{g,r}(z) has no poles at nonzero finite z other than possibly z=1. No integral-coefficient assertion for H^Sch before specialization is inferred.
 
 
 Prerequisites: `CountingBundlesAndHallAlgebrasOfCurves:CB.10/admissible-deformation`, `CountingBundlesAndHallAlgebrasOfCurves:CB.10/partition-deformation`, `CountingBundlesAndHallAlgebrasOfCurves:CB.10/mellit-kernel`, `QSeriesPartitionsAndMockModularForms:QM.0`.
 
 
-Source: M20 Mellit 2020 §5, Theorem 5.2, pp.319–321; Mellit 2018 §7, Theorem 7.1 and Corollary 7.2, pp.29–31; M18 §7, Theorem 7.1 and Corollary 7.2, pp.29–31.
+Source: M20 §5, Theorem 5.2(i)–(ii), pp.319–321; M18 §7, Theorem 7.1 and Corollary 7.2, pp.29–31.
 
 
 Proof route:
@@ -2908,18 +3005,19 @@ Proof route:
 
 1. Apply HLV-kernel admissibility to remove denominators from H_g.
 
-2. Use the deformation theorem at z=1 and the partitionwise finite denominator bounds before setting u=1.
+2. Apply the regular-sequence deformation and finite denominator bounds to obtain the global Laurent conclusion of Mellit Theorem 5.2(i); use part (ii) for equality at z=1. Keep q_M=z and t_M=q throughout.
 
 3. Upgrade rational coefficients to integral coefficients through the integral modified-Macdonald expansion. This last generic input remains within G8.
 
 
-Check: Laurent integrality does not itself define evaluation at the affine-cone origin. No genus-zero claim is imported from Mellit’s g≥1 theorem.
+Check: Laurent integrality does not itself define evaluation at the affine-cone origin. No genus-zero claim is imported from Mellit’s g≥1 theorem. The function F(z)=1/(1−z²) has (1−z)F(z)=1/(1+z), regular at 1 but with a pole at −1. Local regularity alone would not imply degree independence; the global Laurent statement excludes this example.
 
 
 Atlas planet: Laurent integrality of the Mellit coefficients.
 
 
 ### Degree-independent universal bundle count
+
 
 Target `CB.10/mellit-identification` (theorem); proposed name `TauCeti.CurveCounting.mellit_identification`.
 
@@ -2938,18 +3036,19 @@ Proof route:
 
 1. Compare the S16 logarithmic numerator and Mellit H using the regular deformation.
 
-2. Regularity of the logarithmic numerator at z=1 forces the S16 count-generating rational function to have only the degree-independent simple-pole contribution; apply Fourier residue extraction.
+2. Global Laurentness of H^Sch=(1−z)A removes every nonzero finite pole of A except possibly 1. The CB.6 Taylor expansion at 0 removes negative powers there. Its rational form is therefore a polynomial plus H^Sch(1)/(1−z); the polynomial changes only finitely many truncated coefficients. Fourier residue extraction gives the same eventual count H(1) in every degree class.
 
 3. Use universal density to promote equality at every curve to equality in R_g.
 
 
-Check: Distinguish equality in R_g from an unjustified polynomial presentation in 2g independent variables. For g=1 all ranks give P_X(1).
+Check: Distinguish equality in R_g from an unjustified polynomial presentation in 2g independent variables. For g=1 all ranks give P_X(1). Equality at z=1 without global pole control does not establish the theorem; the nontrivial roots in the μ_r residue sum must first be excluded.
 
 
 Atlas planet: Degree-independent universal bundle count.
 
 
 ### Positivity and constants in every degree
+
 
 Target `CB.10/all-degree-positivity` (application); proposed name `TauCeti.CurveCounting.all_degree_positivity`.
 
@@ -2979,6 +3078,7 @@ Stage closure obligations: Verify primary-proof obligations G4: Universal curve 
 
 ## CB.11 — Parabolic counts and Hall-Lie questions
 
+
 Own the quasi-parabolic counting specialization, fixed-HN and slope-cut refinements, Euler-characteristic spherical Hall algebra and its primitive Lie algebra. Keep the stated parabolic R_g theorem distinct from the K_g argument available in the main source. Package the remaining positivity, HN and root-multiplicity questions as conjectural propositions, never as proved results or consequences of Mellit.
 
 
@@ -2986,6 +3086,7 @@ The stage requires `CountingBundlesAndHallAlgebrasOfCurves:CB.0`, `CountingBundl
 
 
 ### Quasi-parabolic bundles and absolute counts
+
 
 Target `CB.11/quasi-parabolic` (definition); proposed name `TauCeti.CurveCounting.quasi_parabolic`.
 
@@ -3042,6 +3143,7 @@ Atlas planet: Quasi-parabolic bundles and absolute counts.
 
 ### Universal parabolic counting functions
 
+
 Target `CB.11/parabolic-universality` (theorem); proposed name `TauCeti.CurveCounting.parabolic_universality`.
 
 
@@ -3071,6 +3173,7 @@ Atlas planet: Universal parabolic counting functions.
 
 
 ### Slope-cut and fixed-HN absolute counts
+
 
 Target `CB.11/hn-refined-counts` (definition); proposed name `TauCeti.CurveCounting.hn_refined_counts`.
 
@@ -3122,6 +3225,7 @@ Consumers: CB.11/cutoff-universality: Specifies the counts which have universal 
 
 ### Universal slope-cut counting functions
 
+
 Target `CB.11/cutoff-universality` (theorem); proposed name `TauCeti.CurveCounting.cutoff_universality`.
 
 
@@ -3151,6 +3255,7 @@ Atlas planet: Universal slope-cut counting functions.
 
 
 ### Euler-characteristic spherical Hall Lie algebra
+
 
 Target `CB.11/euler-hall-lie` (construction); proposed name `TauCeti.CurveCounting.euler_hall_lie`.
 
@@ -3205,6 +3310,7 @@ Atlas planet: Euler-characteristic spherical Hall Lie algebra.
 
 ### Precise remaining Hall and HN conjectures
 
+
 Target `CB.11/open-assertions` (definition); proposed name `TauCeti.CurveCounting.open_assertions`.
 
 
@@ -3258,8 +3364,7 @@ Stage closure obligations: Verify primary-proof obligations G10: Parabolic Hall 
 
 ## Exact supplier contracts
 
-A reference to an existing stage below requests these exports at its established owner. It does not manufacture a fine-grained identifier for an interface the atlas has not planned.
-
+These are precise exports to integrate or extend at their existing owners; they are not claims that all supplier stages are already closed.
 
 ### `GlobalShtukasAndFunctionFieldLanglands:GS.0`
 
@@ -3277,7 +3382,7 @@ Consumed by: `CB.0/indecomposable-counts`, `CB.1/finite-field-neutrality`, `CB.2
 
 ### `SchemeAndStackFoundations:SF.3`
 
-Riemann–Roch and natural Serre duality for coherent sheaves on a smooth projective geometrically connected curve, Picard schemes and degree-d torsors, canonical bundle of degree 2g−2, finite-dimensional proper coherent cohomology, genus-zero bundle splitting, and the criterion μ_min(F)>2g−1 for strong generation by O_X. Use the existing AlgebraicCurves/JacobianChallenge owners; no second bundle carrier.
+Riemann–Roch and natural Serre duality for coherent sheaves on a smooth projective geometrically connected curve, Picard schemes and degree-d torsors, canonical bundle of degree 2g−2, finite-dimensional proper coherent cohomology, genus-zero bundle splitting, and the criterion μ_min(F)>2g−1 for strong generation by O_X. Use the existing AlgebraicCurves/JacobianChallenge owners; no second bundle carrier. The existing SF.3/vector-bundle-riemann-roch and SF.3/curve-serre-duality nodes supply the locally free cases; the requested Ext¹(V,W)*≃Hom(W,V⊗Ω) must also cover coherent V,W, naturally in both variables.
 
 Consumed by: `CB.1/count-normalizations`, `CB.1/hom-transfer`, `CB.1/large-degree`, `CB.2/jordan-fibres`, `CB.3/hall-algebra`, `CB.3/green-pairing`, `CB.7/canonical-higgs`, `CB.7/serre-higgs`, `CB.8/framing-cutoff`, `CB.8/stable-higgs-count`, `CB.8/higgs-hall-integration`.
 
@@ -3298,9 +3403,9 @@ Consumed by: `CB.7/higgs-moduli`, `CB.7/two-line-chart`, `CB.7/kronecker-chart`,
 
 ### `EndoscopicTransferAndUnitaryTraceComparison:ET.2b`
 
-Extension of ET.2b in its canonical-twist direction: for fixed (g,r,d) choose negative lines L1,L2 strongly generating all indecomposable bundles and semistable canonical Higgs sheaves; L2 strongly generates L1 and every kernel of L1^{l1}↠F for this fixed l1, and each unstable Higgs object has a destabilizer strongly generated by both. Supply the explicit slope-derived degrees and congruence proposed in CB.8/framing-cutoff, or a corrected computable bound. Canonical stable coarse moduli and properness remain owned by CB.7, beyond ET.2b’s current sufficiently positive twist.
+Reuse ET.2b/hitchin-moduli-stack, whose carrier allows D=Ω_X, and ET.2b/schiffmann-boundedness, which already states canonical good-line existence. Integrate the corrected fixed-source form: L2 must strongly generate every kernel of L1^{l1}↠F for this fixed l1, rather than arbitrary source dimension. Export the degree-only strong-generation criterion needed by the explicit bound of CB.8/framing-cutoff. The new work here is the computable sufficient choice, positive Higgs category, stable canonical coarse geometry and two-line comparison; positive-twist smoothness or anisotropic properness does not supply the full canonical stable coarse result.
 
-Consumed by: `CB.7/higgs-moduli`, `CB.7/two-line-chart`, `CB.8/framing-cutoff`, `CB.8/king-slope`.
+Consumed by: `CB.7/canonical-higgs`, `CB.7/higgs-moduli`, `CB.7/two-line-chart`, `CB.8/framing-cutoff`, `CB.8/king-slope`.
 
 
 ### `AlgebraicModuliForArithmeticGeometry:R09.5`
@@ -3319,7 +3424,7 @@ Consumed by: `CB.0/coefficient-frame`, `CB.1/nilpotent-matrix-count`, `CB.2/nilp
 
 ### `ReductiveGroupsPartII:RG2.3`
 
-Requested extension of RG2.3 shared with the existing Lang source routes: for every smooth connected linear algebraic group over a finite field, the Lang map is surjective and H¹(k,G)=1, compatibly with extension fields. Apply also to unit groups of finite endomorphism algebras. The current parahoric/congruence statement alone does not provide it; connected-band H² is a distinct G1 obligation.
+Integrate the existing RG2.3/lang-theorem node: smooth connected algebraic groups over finite fields have surjective Lang map and trivial H¹, including extension fields. For a finite-dimensional endomorphism algebra, its unit group is a smooth geometrically connected open in affine space, so the theorem applies. This is use of an existing planned result, not a request for a new general Lang theorem. Connected-band H² neutrality remains the separate G1 obligation.
 
 Consumed by: `CB.1/finite-field-neutrality`, `CB.1/galois-orbits`, `CB.8/stable-higgs-count`.
 
@@ -3363,7 +3468,6 @@ Consumed by: `CB.4/universal-counts`, `CB.10/mellit-identification`.
 
 These obligations must be discharged before calling the dependency graph closed. They do not mark established results as conjectural; they record the exact part of the supporting proof or supplier theory that this planning pass has not verified.
 
-
 ### G1 — Finite-field nonabelian H² neutrality
 
 Read S16 Lemma 2.6, p.311, but not Springer 1966 Theorem 3.5 in primary full proof. Prove neutrality for the smooth connected bands arising as units of finite endomorphism algebras. Lang H¹ gives uniqueness only after existence. This is the exact descent-existence obligation.
@@ -3387,7 +3491,7 @@ Needed by: `CB.4/generic-form`.
 
 ### G4 — Universal curve monodromy and Weil density
 
-The S16 Appendix B argument was read. Its Katz–Sarnak universal-family monodromy and Deligne equidistribution primary inputs need a supplier continuation; no UniversalHypersurfaceMonodromy stage or DWP.8:equidistribution node exists in the current atlas. Fixed odd q and all finite extensions suffice for uniqueness; char-2 family monodromy is not needed.
+The S16 Appendix B argument was read. Weil II §3.5.1–3.5.3, pp.210–211, was also read to verify the equidistribution attribution. Its Katz–Sarnak universal-family monodromy, normalization and equidistribution application still need a supplier continuation; no UniversalHypersurfaceMonodromy stage or DWP.8:equidistribution node exists in the current atlas. Fixed odd q and all finite extensions suffice for uniqueness; char-2 family monodromy is not needed.
 
 Needed by: `CB.4/universal-counts`, `CB.10/mellit-identification`.
 
@@ -3401,16 +3505,9 @@ Needed by: `CB.8/bb-deformation`, `CB.9/higgs-purity`.
 
 ### G6 — Canonical Higgs moduli and tight quiver comparison
 
-The complete S16 application was read, but Hitchin properness, nilpotent Lagrangian equidimensionality, connectedness and characteristic-uniform stable moduli, and Álvarez-Cónsul–King Lemma 5.5 under the exact two-line tightness hypotheses need primary-proof closure. The requested GIT extension is also required. None follows from ET.2b’s current positive-twist statement.
+The complete S16 application was read, but Hitchin properness, nilpotent Lagrangian equidimensionality, connectedness and characteristic-uniform stable moduli, and Álvarez-Cónsul–King Lemma 5.5 under the exact two-line tightness hypotheses need primary-proof closure. The requested GIT extension is also required. ET.2b already supplies the canonical carrier and existential good lines; its positive-twist smoothness and anisotropic properness statements do not give this full canonical stable coarse theorem.
 
 Needed by: `CB.7/higgs-moduli`, `CB.8/king-slope`.
-
-
-### G7 — Uniform computable good-line characteristic bound
-
-The source gives sufficiently negative lines, not the displayed numerical recipe. Check the proposed HN spread and kernel-slope proof, including torsion destabilizers, l1=r zero-kernel cases and a single choice valid over every curve of genus g. Verify the congruence d2−d1≡1 mod l1 and the bound |l2a1−l1a2|≤l1l2. Until these are checked, the explicit C is a proposed strengthened target, while the source still proves existence of a bound.
-
-Needed by: `CB.8/framing-cutoff`.
 
 
 ### G8 — Generic Macdonald admissibility and integral kernel
@@ -3475,7 +3572,7 @@ The following entries paraphrase the published formulation and state the normali
 
 - **E11 (misprint), Examples after Corollary 1.9, p.306.** The rank-three and rank-four values omit the origin-evaluation argument. The displayed genus polynomials are A_{g,3,d}(0) and A_{g,4,d}(0), rather than the entire counting functions. All four examples are introduced as constants; the full rank-one count already varies with Weil eigenvalues. Already recorded as PAPER-SCHIFFMANN-16/E3; rechecked in print.
 
-- **E12 (misprint), Appendix B, p.357, Deligne reference.** The equidistribution theorem is attributed through the bibliography’s Weil I entry. Use Deligne, Weil II, Theorem 3.5.3, rather than Weil I. The required compact-group Frobenius equidistribution is the Weil II theorem identified in the extraction; the current DWP atlas has no promised equidistribution substage. Already recorded as PAPER-SCHIFFMANN-16/E5; the primary input remains G4.
+- **E12 (misprint), Appendix B, p.357, Deligne reference.** The equidistribution theorem is attributed through the bibliography’s Weil I entry. Use Deligne, Weil II, Theorem 3.5.3, p.211, rather than Weil I. The independent review read §3.5.1–3.5.3, pp.210–211, to confirm this attribution. The required compact-group Frobenius equidistribution is the Weil II theorem identified in the extraction; the current DWP atlas has no promised equidistribution substage. Already recorded as PAPER-SCHIFFMANN-16/E5; the primary input remains G4.
 
 - **E13 (gap), Theorem 7.1 and §7.2, pp.352–353.** The target lies in R_g, while the only argument described repeats a construction with values in K_g. Supply parabolic denominator removal separately; retain the published R_g target with G10 instead of declaring it proved by the sketch. With no marks, the stronger conclusion already needs the ordinary denominator-removal theorem, now supplied by Mellit for g≥1. Already recorded as PAPER-SCHIFFMANN-16/E12; no new disproof is asserted.
 
@@ -3484,17 +3581,16 @@ The following entries paraphrase the published formulation and state the normali
 
 ## Ownership continuations
 
-
 LPV.5 supplies pencil radical-quotient monodromy, whereas the accepted source route requests universal curve families; UniversalHypersurfaceMonodromy has no current definition or reserved identifiers. Create the routed Part II UniversalHypersurfaceMonodromy for universal-family geometric monodromy and the Weil-density application. Its density input includes a correctly owned Weil II 3.5.3 equidistribution interface. This packet requests the extension through the real LPV.5 stage and records G4, without inventing a supplied node.
-
 
 Formal-series QM.0 lacks the accepted shared plethystic input and the generic modified-Macdonald admissibility machinery. Extend QM.0 with complete filtered Adams/Exp/Log interfaces; put modified Macdonald functions, Hall pairings and HLV admissibility in its Part II. CB.10 retains only the curve partition deformation and its application.
 
-
-Existing stages do not yet state the routed good-line, reductive character-GIT or Lang contracts. Extend ET.2b by the canonical good-line boundedness contract, R09.5 by a Part II for reductive character quotients and RG2.3 by its shared Lang theorem extension. Stable canonical Higgs moduli and the central deformation remain CB.7–CB.8. These are requested extensions, not claims of existing coverage.
+R09.5 does not yet supply reductive character GIT. ET.2b already plans the canonical Higgs carrier and existential good lines, but its kernel clause needs the fixed-source interpretation used here. RG2.3/lang-theorem already supplies general finite-field Lang and needs no new planning. Request a R09.5 Part II for reductive character quotients. Integrate ET.2b’s existing canonical carrier and good-line theorem with the fixed-l1 kernel condition and degree-only generation criterion, rather than planning either again. Stable canonical coarse geometry, the positive exact category and central deformation remain CB.7–CB.8.
 
 
 ## Sources and read scope
+
+- **WII.** Pierre Deligne, [La conjecture de Weil : II](https://www.numdam.org/item/PMIHES_1980__52__137_0.pdf), Publications Mathématiques de l’IHÉS 52 (1980), 137–252. Independent review read §3.5.1–3.5.3, pp.210–211, for the equidistribution attribution; its preceding proof inputs remain outside this review’s closure claim. SHA-256: `b06eea61bf9cb2b596c162f5befcf85d1be69828910a6107c8aa3a99c4afcc71`.
 
 All target statements and proof routes above are written for this roadmap. The references below supply mathematical provenance; their unread supporting arguments remain identified as gaps rather than being attributed to the pinned libraries.
 
@@ -3513,3 +3609,9 @@ All target statements and proof routes above are written for this roadmap. The r
 
 
 The packet records all 58 assigned catalogue items, their target nodes, the exact source versions and the ten pinned baseline declarations. The reader and compact suggested file accompany that target-level plan; no implementation-complete claim is made.
+
+
+
+## Independent review clarification
+
+The canonical GL_r Higgs bundle carrier and existential good-line theorem are imported from ET.2b/hitchin-moduli-stack and ET.2b/schiffmann-boundedness. The general finite-field Lang theorem is already planned at RG2.3/lang-theorem. The positive exact category, corrected two-line chart and full stable canonical coarse comparison are the additional interfaces used here. The numerical framing recipe was checked from the displayed slope estimates; G7 is discharged relative to the requested degree-only strong-generation criterion. Eleven primary-proof/interface gaps remain, with their original identifiers. The reviewer independently read all target locators, selected proof passages and all fourteen source-issue locators; the longer full-article read scopes above record the design worker’s source coverage, not a claim that this reviewer reread every unreferenced page.
