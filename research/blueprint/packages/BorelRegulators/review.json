@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-BorelRegulators~adv",
+    "date": "2026-10-19",
+    "notes": "Completed independent fixing review. Corrected weighted cusp-bound domains, reused pinned low-degree Lie differentials, replaced invalid a.e.-cochain restriction by an actual prism comparison, aligned commuting-matrix signatures, and made all eight Lean examples proved tests of four retained definitions. Source sample of 15 plus flagged issues, current upstream/library ownership, every-subsection adversarial checks and ten signature comparisons recorded in the report. Three gaps remain: decompose Weil's norm-one Tamagawa proof in the supplied measure convention; specify Bloch's primitive pairing and local conversion factors from numbered sources (restored as section 7.3); evaluate the Bloch-Wigner scalar including sign and pi factors in the stated Tate coordinates. Real proportionality alone does not discharge the last target. Lean elaborates with only admitted-theorem warnings; packet and intake checks pass."
+  }
+}
