@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T21:50Z",
+  "updated": "2026-10-19T22:00Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -711,19 +711,20 @@
     "GL2AutomorphicRepresentationsAndTransfer": {
       "stage": "pr",
       "pr": 931,
-      "head": "8fba44f",
+      "head": "afa8e01",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); the enumeration instruction replaced by its mathematical targets; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 7035f1c; draft awaiting re-review",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at afa8e01; confirmation pass pending"
       }
     },
     "ShimuraVarieties": {
       "stage": "pr",
       "pr": 933,
-      "head": "a00f7e8",
+      "head": "ce10821",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N1 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 6cc4f59; draft awaiting re-review",
       "review": {
         "recommendation": "changes",
