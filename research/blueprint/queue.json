@@ -38327,8 +38327,9 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.0",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.0.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10799"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10799",
+   "finishedAt": "2026-10-19T21:48:53Z"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.2",
@@ -38374,8 +38375,9 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.2",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10800"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10800",
+   "finishedAt": "2026-10-19T21:48:56Z"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.4",
@@ -38398,8 +38400,9 @@
    ],
    "followUpOf": "BP-MotivesAndAlgebraicCycles",
    "prompt": "research/blueprint/prompts/BP-MotivesAndAlgebraicCycles--MC.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10830"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10830",
+   "finishedAt": "2026-10-19T21:48:59Z"
   },
   {
    "id": "REV-MotivesAndAlgebraicCycles--MC.4",
@@ -38466,7 +38469,8 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.5",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10802"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.6",
@@ -38512,7 +38516,8 @@
    ],
    "avoidAccountOf": "BP-MotivesAndAlgebraicCycles--MC.6",
    "prompt": "research/blueprint/prompts/REV-MotivesAndAlgebraicCycles--MC.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10803"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles--MC.7",
@@ -43129,8 +43134,8 @@
    ],
    "revisionOf": "BP-PadicHodgeRegulators",
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11092"
+   "state": "pending",
+   "note": "released on GitHub issue #11092"
   },
   {
    "priority": 2,
@@ -53762,7 +53767,8 @@
    ],
    "revisionOf": "PKG-EulerSystemsAndKolyvaginSystems",
    "prompt": "research/blueprint/prompts/PKG-EulerSystemsAndKolyvaginSystems~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #11135"
   },
   {
    "id": "REV-PKG-EulerSystemsAndKolyvaginSystems~2",
@@ -53971,8 +53977,9 @@
     "PKG-ExcursionOperatorsAndSpectralAction"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ExcursionOperatorsAndSpectralAction.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11083"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11083",
+   "finishedAt": "2026-10-19T21:49:00Z"
   },
   {
    "id": "PKG-ExcursionOperatorsAndSpectralActionPartII",
@@ -59479,8 +59486,9 @@
     "PKG-NoncommutativeAndEquivariantIwasawa"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11084"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11084",
+   "finishedAt": "2026-10-19T21:49:03Z"
   },
   {
    "id": "PKG-OrdinaryAutomorphicFormsAndModularityLifting",
@@ -60134,8 +60142,9 @@
    ],
    "revisionOf": "PKG-PeriodsAndSpecialValues",
    "prompt": "research/blueprint/prompts/PKG-PeriodsAndSpecialValues~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11113"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11113",
+   "finishedAt": "2026-10-19T21:49:08Z"
   },
   {
    "id": "REV-PKG-PeriodsAndSpecialValues~2",
@@ -151051,9 +151060,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/PKG-NoncommutativeAndEquivariantIwasawa~codex.md",
-   "note": "released on GitHub issue #11067"
+   "note": "claimed on GitHub issue #11067"
   },
   {
    "id": "PKG-K2SymbolsBrauer~codex",
@@ -151071,9 +151080,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/PKG-K2SymbolsBrauer~codex.md",
-   "note": "released on GitHub issue #11065"
+   "note": "claimed on GitHub issue #11065"
   },
   {
    "id": "FIX-PKG-K3BlochGroups~adv",
@@ -151112,9 +151121,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/PKG-ArithmeticKTheory~codex.md",
-   "note": "released on GitHub issue #11064"
+   "note": "claimed on GitHub issue #11064"
   },
   {
    "id": "PKG-MotivicEtaleKTheory~codex",
@@ -151132,9 +151141,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-MotivicEtaleKTheory~codex.md",
-   "note": "claimed on GitHub issue #11066"
+   "note": "deliverables arrived from an external worker on issue #11066",
+   "finishedAt": "2026-10-19T21:49:13Z"
   },
   {
    "id": "FIX-PKG-BorelRegulators~adv",
@@ -151218,9 +151228,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-Polylogarithms~adv.md",
-   "note": "claimed on GitHub issue #11071"
+   "note": "deliverables arrived from an external worker on issue #11071",
+   "finishedAt": "2026-10-19T21:49:16Z"
   },
   {
    "id": "REV-PKG-HabiroNumberFields~adv",
@@ -151239,9 +151250,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroNumberFields~adv.md",
-   "note": "claimed on GitHub issue #11070"
+   "note": "deliverables arrived from an external worker on issue #11070",
+   "finishedAt": "2026-10-19T21:49:19Z"
   },
   {
    "id": "FIX-PKG-PeriodsAndSpecialValues~adv",
@@ -151303,9 +151315,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-KTheoryLowDegrees~adv.md",
-   "note": "claimed on GitHub issue #11096"
+   "note": "deliverables arrived from an external worker on issue #11096",
+   "finishedAt": "2026-10-19T21:49:22Z"
   },
   {
    "id": "REV-PKG-HabiroNahmSeries~adv",
@@ -151324,9 +151337,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroNahmSeries~adv.md",
-   "note": "claimed on GitHub issue #11094"
+   "note": "deliverables arrived from an external worker on issue #11094",
+   "finishedAt": "2026-10-19T21:49:25Z"
   },
   {
    "id": "PKG-EisensteinIdealAndRationalTorsion~codex",
@@ -151365,9 +151379,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/PKG-RelativeJacobiansAndIntegralCurveModels~codex.md",
-   "note": "claimed on GitHub issue #11110"
+   "note": "deliverables arrived from an external worker on issue #11110",
+   "finishedAt": "2026-10-19T21:49:29Z"
   },
   {
    "id": "PKG-LawrenceVenkateshMethod~codex",
@@ -151425,9 +151440,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-EllipticKTheory~adv.md",
-   "note": "claimed on GitHub issue #11115"
+   "note": "deliverables arrived from an external worker on issue #11115",
+   "finishedAt": "2026-10-19T21:49:33Z"
   },
   {
    "id": "FIX-PKG-EllipticRegulators~adv",
@@ -151445,8 +151461,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticRegulators~adv.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EllipticRegulators~adv.md",
+   "note": "deliverables arrived from an external worker on issue #11116",
+   "finishedAt": "2026-10-19T21:49:36Z"
   },
   {
    "id": "REV-PKG-EisensteinIdealAndRationalTorsion~codex",
@@ -151465,8 +151483,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-EisensteinIdealAndRationalTorsion~codex.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/REV-PKG-EisensteinIdealAndRationalTorsion~codex.md",
+   "note": "deliverables arrived from an external worker on issue #11127",
+   "finishedAt": "2026-10-19T21:49:40Z"
   },
   {
    "id": "REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex",
@@ -151485,8 +151505,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex.md",
+   "note": "claimed on GitHub issue #11130"
   },
   {
    "id": "FIX-PKG-EisensteinIdealAndRationalTorsion~adv",
@@ -151504,8 +151525,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv.md",
+   "note": "claimed on GitHub issue #11137"
   },
   {
    "id": "FIX-PKG-BorelRegulators~adv2",
