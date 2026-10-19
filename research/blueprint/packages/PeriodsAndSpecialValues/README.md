@@ -330,7 +330,7 @@ The Hodge data and infinity action are those of PS.0.2. Poles of Gamma factors a
 
 To prove the bridge, compare the two Γ_ℂ normalizations one block at a time; multiplication with the finite Euler product happens on its half-plane of convergence, and continuation stays a separate predicate.
 
-API: `archimedeanFactor` (the list of Gamma blocks with their shifts and multiplicities); `completedL` (Λ = L_fin · L_∞ in a stated normalization); `completedL_deligne_eq` (Λ_D = 2^b Λ_B); `finiteL_eq_completedL_div` (L_fin = Λ/L_∞ where L_∞ is finite and nonzero); `archimedeanFactor_twist` (L_∞(M(n), s) = L_∞(M, s + n)). The BCGP factor is `gammaComplexBCGP` in `Suggested.lean`, with `gammaℂ_eq_two_mul_gammaComplexBCGP`: `Complex.Gammaℂ s = 2 · gammaComplexBCGP s`.
+API: `archimedeanFactor` (the list of Gamma blocks with their shifts and multiplicities); `completedL` (Λ = L_fin · L_∞ in a stated normalization); `completedL_deligne_eq` (Λ_D = 2^b Λ_B); `finiteL_eq_completedL_div` (L_fin = Λ/L_∞ where L_∞ is finite and nonzero); `archimedeanFactor_twist` (L_∞(M(n), s) = L_∞(M, s + n)). The BCGP factor is `gammaComplexBCGP` in `Suggested.lean`, with `gammaℂ_eq_two_mul_gammaComplexBCGP`: `Complex.Gammaℂ s = 2 · gammaComplexBCGP s`, and `gammaComplexBCGP_one`.
 
 **Checks.**
 
@@ -1140,7 +1140,7 @@ with M_γᵀ G₀ M_γ = G₀ for each γ and M_∞M₄M₃M₂M₁ = 1. For Ω 
 
 To prove this, compute the Picard–Lefschetz reflections in the marked vanishing cycles and multiply in the source's based-loop order; pass to the dual action on period coordinates and read the Möbius maps from the period line.
 
-API: `quarticMonodromy` (the five matrices); `quarticMonodromy_isometry` (each preserves G₀); `quarticMonodromy_product` (M_∞M₄M₃M₂M₁ = 1); `quarticMonodromy_moebius` (the actions p ↦ p + 4 and p ↦ −1/(2p)).
+API: `quarticMonodromy` (the five matrices); `quarticMonodromy_isometry` (each preserves G₀); `quarticMonodromy_product` (M_∞M₄M₃M₂M₁ = 1); `quarticMonodromy_infinity_unipotent` ((M_∞ − 1)³ = 0 ≠ (M_∞ − 1)²); `quarticMonodromy_moebius` (the actions p ↦ p + 4 and p ↦ −1/(2p)).
 
 **Checks.**
 
@@ -1206,7 +1206,7 @@ In ℚ⟦z⟧ put q(z) = z·exp(g(z)/w₀(z)), defined because g/w₀ has zero c
 
 To prove this, form the exponential and reuse Mathlib's compositional inverse; use PS.8.8 after the pullback s = −it to the γ₁ chart, the maximal unipotent translation and H Proposition 4.25 to match the ratio to the integral marking; the common rescaling by t cancels in the ratio.
 
-API: `quarticMirrorCoordinate` (q ∈ ℚ⟦z⟧); `quarticMirrorCoordinate_coeff_zero_one` (constant term 0, linear coefficient 1); `quarticMirrorInverse` (Z, with q∘Z = Z∘q = X); `quarticMirror_period` (q = exp(2πip) for the marked geometric p on the stated branch).
+API: `quarticMirrorCoordinate` (q ∈ ℚ⟦z⟧); `quarticMirrorCoordinate_coeff_zero_one` (constant term 0, linear coefficient 1); `quarticMirrorCoordinate_coeff` (the coefficients 1, 104, 15188); `quarticMirrorInverse` (Z, with q∘Z = Z∘q = X); `quarticMirror_period` (q = exp(2πip) for the marked geometric p on the stated branch).
 
 **Checks.**
 
@@ -1278,7 +1278,7 @@ Choose π with π^{p−1} = −p. In the degree-zero homogeneous overconvergent 
 
 To prove this, use the affine twisted hypersurface complex, keep the homogeneous projective component and the group invariants (SH §§3.2–3.3), and reduce monomial classes (SH Lemma 4.8 and Corollary 4.10). The logarithmic connection matrix in the column-input convention has first three columns e₁, e₂, e₃ and last column −g·(24, 50, 35, 10). The comparison of this formal model with the cohomology of the smooth fibres is PS.8.17.
 
-API: `quinticConnectionMatrix` (the companion matrix); `quinticResidue` (at λ = 0 the residue N sends e₀ ↦ e₁ ↦ e₂ ↦ e₃ ↦ 0); `quinticPairing` (the flat alternating cup pairing with (e₀, e₃) = Y₀/(1 + 5⁵λ⁵), Y₀ ≠ 0, and (e₁, e₂) = −Y₀ at λ = 0).
+API: `quinticConnectionMatrix` (the companion matrix); `quinticResidue` (at λ = 0 the residue N sends e₀ ↦ e₁ ↦ e₂ ↦ e₃ ↦ 0) and `quinticResidue_nilpotent` (N⁴ = 0 ≠ N³); `quinticPairing` (the flat alternating cup pairing with (e₀, e₃) = Y₀/(1 + 5⁵λ⁵), Y₀ ≠ 0, and (e₁, e₂) = −Y₀ at λ = 0).
 
 **Checks.**
 
@@ -1321,7 +1321,7 @@ The sums are defined through Mathlib's `HasSum` in ℚ_p, never through a total 
 
 For the monomial reduction in PS.8.16 also define D_{αβ} = [x^α] ∏_{i=1}^{β}(x + i), P_{α,i} = 5^{−α−1}D_{α,i−1} for i > 0 with P_{α,0} = δ_{α0}, and Q_{α,s} = (−1)^α D_{αs}; SH Theorem 5.13 expresses each normalized pairing c_{α,I} as the degree 3 − #I − α convolution of Q with five P factors, with the empty convolution 0 in negative degree.
 
-API: `dworkCoeff p n` (B_n); `dworkCoeff_recurrence` (B₀ = 1 and nB_n = B_{n−1} + B_{n−p}, with B_k = 0 for k < 0); `dworkSigma0_summable`, `dworkSigma2_summable` (convergence in ℚ_p); `dworkDelta`, `dworkBoundaryCoeff` (Δ₃ and C); `dworkMonomialReduction` (SH Theorem 5.13, with c_{3,0} = 1, c_{0,0} = c_{1,0} = c_{2,0} = 0 and c_{α,I} = 0 when α + #I > 3).
+API: `dworkSeries`, `dworkCoeff p n` (B_n), `dworkPairWeight`; `dworkCoeff_two` (B₂ = 1/2 for p ≥ 3); `dworkCoeff_recurrence` (B₀ = 1 and nB_n = B_{n−1} + B_{n−p}, with B_k = 0 for k < 0); `dworkSigma0_summable`, `dworkSigma2_summable` (convergence in ℚ_p); `dworkDelta`, `dworkBoundaryCoeff` (Δ₃ and C); `dworkMonomialReduction` (SH Theorem 5.13, with c_{3,0} = 1, c_{0,0} = c_{1,0} = c_{2,0} = 0 and c_{α,I} = 0 when α + #I > 3).
 
 **Checks.**
 
@@ -1397,7 +1397,7 @@ An index is a finite list k of positive integers, with weight Σ k_i and depth i
 
 To prove convergence, bound the inner nested harmonic sums by powers of 1 + log n₁ and sum n₁^{−2} times that bound; conversely if k₁ = 1 the sum dominates a harmonic series. The depth-one case is Mathlib `zeta_nat_eq_tsum_of_gt_one` after reconciling the zero summand.
 
-API: `PositiveIndex`, `Admissible`, `DescendingTuple`, `mzvTerm`, `multipleZeta` (in `Suggested.lean`); `mzv_weight`, `mzv_depth`; `mzv_summable_iff` (for a positive index, summability holds exactly when it is admissible); `mzv_depth_one` (ζ([n]) is the real part of Mathlib's `riemannZeta n` for n ≥ 2); `mzv_reverse` (the ascending dictionary).
+API: `PositiveIndex`, `Admissible`, `DescendingTuple`, `mzvTerm`, `multipleZeta` (in `Suggested.lean`); `mzv_weight`, `mzv_depth`; `mzv_summable_iff` (for a positive index, summability holds exactly when it is admissible); `mzv_depth_one` (ζ([n]) is the real part of Mathlib's `riemannZeta n` for n ≥ 2); `multipleZeta_nil`, `multipleZeta_two`, `mzvTerm_one_not_summable`; `mzv_reverse` (the ascending dictionary).
 
 **Checks.**
 

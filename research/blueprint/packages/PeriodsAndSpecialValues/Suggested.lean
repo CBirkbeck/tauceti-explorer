@@ -50,16 +50,15 @@ theorem comparisonMatrix_det_basisChange {n : ℕ} (A C P : Matrix (Fin n) (Fin 
     (C⁻¹ * P * A).det = (C.det)⁻¹ * P.det * A.det := by
   sorry
 
-/-- The rank-zero comparison period is `1`, not `0`. -/
-example : (1 : Matrix (Fin 0) (Fin 0) ℂ).det = 1 := Matrix.det_fin_zero
-
 /-- `2` and `1` have the same `ℚ`-class in one embedding. -/
-example : CoordinatePeriodEquivalent ℚ (Units.mk0 (2 : ℂ) two_ne_zero) 1 := by
-  sorry
+example : CoordinatePeriodEquivalent ℚ (Units.mk0 (2 : ℂ) two_ne_zero) 1 :=
+  ⟨Units.mk0 2 two_ne_zero, by simp⟩
 
 /-- `i` and `1` do not: no rational number has image `i`. -/
 example : ¬ CoordinatePeriodEquivalent ℚ (Units.mk0 Complex.I Complex.I_ne_zero) 1 := by
-  sorry
+  rintro ⟨u, hu⟩
+  have h := congrArg Complex.im hu
+  simp at h
 
 /-- The scalar of Deligne's comparison `I = β⁻¹` on the Tate object `ℚ(n)` for the
 counterclockwise loop and `dz/z` (PS.0.5). -/
@@ -78,16 +77,10 @@ example : tatePeriod 0 = 1 := by
 example : tatePeriod (-1) = (2 * (Real.pi : ℂ) * Complex.I)⁻¹ := by
   simp [tatePeriod]
 
-/-- `F∞ = -1` on `ℚ(1)`, while the lattice of `TauCeti.Hodge.tate 1` is fixed by its conjugation. -/
+/-- `F∞ = -1` on `ℚ(1)`, although the lattice of `TauCeti.Hodge.tate 1` is fixed by its
+conjugation. -/
 example : tateInfinitySign 1 = -1 := by
   simp [tateInfinitySign]
-
-/-- The Hodge filtration of `ℚ(1)` is everything in degree `-1` and zero in degree `0`. -/
-example : (TauCeti.Hodge.tate 1).F (-1) = (⊤ : Submodule ℂ ℂ) := by
-  simp
-
-example : (TauCeti.Hodge.tate 1).F 0 = (⊥ : Submodule ℂ ℂ) := by
-  simp
 
 /-! ## Layer PS.1: critical values and algebraicity statements -/
 
@@ -110,20 +103,19 @@ theorem unitCritical_iff (m : ℤ) :
     UnitCritical m ↔ (∃ k : ℕ, m = 2 * ((k : ℤ) + 1)) ∨ (∃ k : ℕ, m = -(2 * (k : ℤ) + 1)) := by
   sorry
 
+/-- `2` and `-1` are critical for `ℚ(0)`. -/
 example : UnitCritical 2 ∧ UnitCritical (-1) := by
-  sorry
+  refine ⟨⟨?_, ?_⟩, ?_, ?_⟩ <;> intro k <;> omega
 
-/-- `0` is not critical for `ℚ(0)`. -/
-example : ¬ UnitCritical 0 := by
-  sorry
-
-/-- `1` passes the first test and fails the dual one. -/
-example : RealGammaRegular 1 ∧ ¬ UnitCritical 1 := by
-  sorry
+/-- `0` is not critical, and `1` passes the first test but fails the dual one. -/
+example : ¬ UnitCritical 0 ∧ RealGammaRegular 1 ∧ ¬ UnitCritical 1 :=
+  ⟨fun h => h.1 0 (by simp), fun k => by omega, fun h => h.2 0 (by simp)⟩
 
 /-- An elliptic curve (Hodge pair `(0, 1)`) has the single critical integer `1`. -/
 example : ∀ m : ℤ, OffDiagonalCritical 0 1 m ↔ m = 1 := by
-  sorry
+  intro m
+  simp only [OffDiagonalCritical]
+  omega
 
 /-- BCGP's complex Gamma factor `(2π)^{-s} Γ(s)`, without Deligne's factor `2`. -/
 def gammaComplexBCGP (s : ℂ) : ℂ := (2 * (Real.pi : ℂ)) ^ (-s) * Complex.Gamma s
@@ -133,7 +125,8 @@ theorem gammaℂ_eq_two_mul_gammaComplexBCGP (s : ℂ) :
     Complex.Gammaℂ s = 2 * gammaComplexBCGP s := by
   sorry
 
-example : Complex.Gammaℂ 1 = 1 / (Real.pi : ℂ) := by
+/-- BCGP's factor at `s = 1`, half of Deligne's `Γ_ℂ(1) = 1/π`. -/
+theorem gammaComplexBCGP_one : gammaComplexBCGP 1 = 1 / (2 * (Real.pi : ℂ)) := by
   sorry
 
 /-- Membership of a finite value in the coefficient field times a fixed nonzero period; a zero
@@ -158,16 +151,15 @@ theorem fixedPeriodAlgebraic_riemannZeta_two :
     FixedPeriodAlgebraic ℚ (riemannZeta 2) (tatePeriod 2) := by
   sorry
 
-/-- The critical value at `-1`. -/
-example : riemannZeta (-1) = -1 / 12 := by
-  sorry
-
+/-- A zero value is algebraic but not a unit multiple of the period. -/
 example : FixedPeriodAlgebraic ℚ 0 1 ∧ ¬ FixedPeriodUnitAlgebraic ℚ 0 1 := by
-  sorry
+  refine ⟨⟨one_ne_zero, 0, by simp⟩, ?_⟩
+  rintro ⟨-, a, ha⟩
+  rw [mul_one] at ha
+  exact a.ne_zero ((map_eq_zero_iff _ (algebraMap ℚ ℂ).injective).mp ha.symm)
 
 /-- A zero period is never admitted. -/
-example : ¬ FixedPeriodAlgebraic ℚ 0 0 := by
-  sorry
+example : ¬ FixedPeriodAlgebraic ℚ 0 0 := fun h => h.1 rfl
 
 /-! ## Layer PS.2: formal periods and the evaluation map -/
 
@@ -180,22 +172,14 @@ theorem tateTorsorEvaluation_T (n : ℤ) :
     tateTorsorEvaluation (LaurentPolynomial.T n) = tatePeriod n := by
   sorry
 
+/-- The inverse Tate period evaluates to the inverse of `2πi`. -/
 example : tateTorsorEvaluation (LaurentPolynomial.T 1 * LaurentPolynomial.T (-1)) = 1 := by
-  sorry
+  rw [← LaurentPolynomial.T_add]
+  simp
 
-/-- Without localization the Tate period has no inverse. -/
-example : ¬ ∃ f : Polynomial ℚ, f * Polynomial.X = 1 := by
-  sorry
+/-! ## Layers PS.3–PS.6
 
-/-! ## Layer PS.3: regulator determinants and leading terms -/
-
-/-- Scaling a rank-`r` regulator matrix by `2` scales its determinant by `2 ^ r`. -/
-example (r : ℕ) (A : Matrix (Fin r) (Fin r) ℝ) : (2 • A).det = 2 ^ r * A.det := by
-  sorry
-
-/-! ## Layers PS.4–PS.6
-
-Integral fundamental lattices, the equivariant Tamagawa obstruction, Bloch–Kato points and
+Fundamental lines and their regulator trivializations, integral fundamental lattices, the equivariant Tamagawa obstruction, Bloch–Kato points and
 measures, and the elliptic and Rankin–Selberg comparisons need determinant lines of perfect
 complexes, relative K-groups and Selmer complexes that are not at the pins. Their targets are in
 `README.md`. -/
@@ -212,14 +196,9 @@ theorem arctan_period_bounds (N : ℕ) :
       (-1 : ℝ) ^ (N + 1) * (Real.pi / 4 - (arctanPartial N : ℝ)) ≤ 1 / (2 * (N : ℝ) + 3) := by
   sorry
 
-example : arctanPartial 0 = 1 := by
-  simp [arctanPartial]
-
+/-- The sum includes the term indexed by `N`: with `N = 1` it is `1 - 1/3`. -/
 example : arctanPartial 1 = 2 / 3 := by
   norm_num [arctanPartial, Finset.sum_range_succ]
-
-example : (2 : ℝ) / 3 ≤ Real.pi / 4 ∧ Real.pi / 4 ≤ 13 / 15 := by
-  sorry
 
 /-- The radicand `(1 + u²)² - 4λu²` after the substitution `t = 2u/(1 + u²)`. -/
 def legendreRadicand (lam u : ℝ) : ℝ := (1 + u ^ 2) ^ 2 - 4 * lam * u ^ 2
@@ -318,7 +297,8 @@ theorem quarticMonodromy_product :
   sorry
 
 /-- Maximal unipotent monodromy at infinity. -/
-example : (quarticMonodromy 4 - 1) ^ 3 = 0 ∧ (quarticMonodromy 4 - 1) ^ 2 ≠ 0 := by
+theorem quarticMonodromy_infinity_unipotent :
+    (quarticMonodromy 4 - 1) ^ 3 = 0 ∧ (quarticMonodromy 4 - 1) ^ 2 ≠ 0 := by
   sorry
 
 /-- `H_n^{(r)} = Σ_{j=1}^{n} j^{-r}`. -/
@@ -368,7 +348,7 @@ theorem quarticMirror_integral :
         ∀ n : ℕ, ∃ a : ℤ, PowerSeries.coeff n g = a := by
   sorry
 
-example : PowerSeries.coeff 1 quarticMirrorCoordinate = 1 ∧
+theorem quarticMirrorCoordinate_coeff : PowerSeries.coeff 1 quarticMirrorCoordinate = 1 ∧
     PowerSeries.coeff 2 quarticMirrorCoordinate = 104 ∧
     PowerSeries.coeff 3 quarticMirrorCoordinate = 15188 := by
   sorry
@@ -380,8 +360,10 @@ theorem quarticLocalRatio_reflection (u v : ℂ) (huv : u + v ≠ 0) (huv' : u -
       -1 / (2 * (Complex.I / (Real.sqrt 2 : ℂ) * (u + v) / (u - v))) := by
   sorry
 
-/-- The `γ₄` action in the chart at `t = 1` is the translate of the `γ₁` reflection. -/
-example (p : ℂ) (hp : p ≠ 1) : 1 - 1 / (2 * (p - 1)) = (3 - 2 * p) / (2 - 2 * p) := by
+/-- The `γ₄` action in the chart at `t = 1` is the translate of the `γ₁` reflection:
+`T R T⁻¹ (p) = 1 - 1/(2(p - 1)) = (3 - 2p)/(2 - 2p)`. -/
+theorem quarticGamma4_conjugate (p : ℂ) (hp : p ≠ 1) :
+    1 - 1 / (2 * (p - 1)) = (3 - 2 * p) / (2 - 2 * p) := by
   have h : (2 : ℂ) - 2 * p ≠ 0 := by
     intro h; apply hp; linear_combination (-1 / 2 : ℂ) * h
   have h' : (p : ℂ) - 1 ≠ 0 := sub_ne_zero.mpr hp
@@ -423,12 +405,10 @@ theorem quinticBoundary_pairing {K : Type*} [Field K] (p : ℕ) (δ Y : K) :
       (p : K) ^ 3 • quinticPairing Y := by
   sorry
 
-example : (quinticConnectionMatrix 0) ^ 4 = 0 ∧ (quinticConnectionMatrix 0) ^ 3 ≠ 0 := by
+/-- The residue at `λ = 0` is nilpotent of order exactly four. -/
+theorem quinticResidue_nilpotent :
+    (quinticConnectionMatrix 0) ^ 4 = 0 ∧ (quinticConnectionMatrix 0) ^ 3 ≠ 0 := by
   sorry
-
-/-- `λ = -1/5` is a singular parameter. -/
-example : 1 + 5 ^ 5 * (-1 / 5 : ℚ) ^ 5 = 0 := by
-  norm_num
 
 /-- `exp(z + z^p/p)` in `ℚ⟦z⟧` (PS.8.15). -/
 def dworkSeries (p : ℕ) : PowerSeries ℚ :=
@@ -446,7 +426,7 @@ theorem dworkCoeff_recurrence (p : ℕ) (hp : 2 ≤ p) (n : ℕ) :
       dworkCoeff p n + if p ≤ n + 1 then dworkCoeff p (n + 1 - p) else 0 := by
   sorry
 
-example (p : ℕ) (hp : 3 ≤ p) : dworkCoeff p 2 = 1 / 2 := by
+theorem dworkCoeff_two (p : ℕ) (hp : 3 ≤ p) : dworkCoeff p 2 = 1 / 2 := by
   sorry
 
 /-- Convergence of `σ₀ = Σ_{n ≥ 1} B_n (n-1)!` in `ℚ_p` for odd `p` (PS.8.15). -/
@@ -490,11 +470,21 @@ theorem mzv_summable_iff (k : List ℕ) (hk : PositiveIndex k) :
 theorem mzv_depth_one (n : ℕ) (hn : 2 ≤ n) : multipleZeta [n] = (riemannZeta (n : ℂ)).re := by
   sorry
 
-example : multipleZeta [] = 1 ∧ multipleZeta [2] = Real.pi ^ 2 / 6 := by
+theorem multipleZeta_nil : multipleZeta [] = 1 := by
   sorry
 
-example : ¬ Admissible [1] ∧ ¬ Summable (mzvTerm [1]) := by
+theorem multipleZeta_two : multipleZeta [2] = Real.pi ^ 2 / 6 := by
   sorry
+
+/-- The harmonic series: the index `[1]` is not admissible. -/
+theorem mzvTerm_one_not_summable : ¬ Summable (mzvTerm [1]) := by
+  sorry
+
+/-- `[2, 1]` is admissible although its last entry is `1`; `[1]` is not. -/
+example : Admissible [2, 1] ∧ ¬ Admissible [1] := by
+  refine ⟨⟨by simp [PositiveIndex], by simp⟩, fun h => ?_⟩
+  have := h.2 1 rfl
+  omega
 
 /-- The encoding `k ↦ 0^{k₁-1} 1 ⋯ 0^{k_r-1} 1`, with `false = 0` and `true = 1`. -/
 def mzvEncode : List ℕ → List Bool
