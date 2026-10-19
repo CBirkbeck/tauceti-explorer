@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-EisensteinIdealAndRationalTorsion~codex",
+    "date": "2026-10-19",
+    "notes": "Completed independent fixing review of all 56 targets. Corrected the bad-reduction formal-immersion specialization argument using existing formal identity charts/logarithm, the Mazur-Tate finite-flat kernel locator (section 4 Lemma, p. 47), and explicit admissible-group hypotheses. Verified the reproducible 15-target source sample plus all source-sensitive inputs, current upstream/library duplication boundaries, exact arithmetic certificates, and every Lean declaration. lean-check exited 0 with nine sorry warnings and no errors or other warnings. Not ready for an upstream draft: four supplier contracts lack owning targets: integral modular dualizing/cohomology comparison; global admissible-group cohomology/purity/dyadic saturation; connected-Neron cohomology/Sha comparison and optimal-new-quotient cotangents; inverse-cyclotomic ideal-class eigenspace vanishing. See report C1-C4 for exact boundaries and required repairs. Full all-prime, bad-fibre, dyadic and general-level scope is retained."
+  }
+}
