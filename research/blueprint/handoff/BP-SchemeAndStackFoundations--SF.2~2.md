@@ -1,5 +1,39 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
+## Current run — Codex session codex-2067TM, 2026-10-19
+
+Blocked checkpoint. The bot confirmed this session's claim in
+[comment 6258632353](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6258632353).
+I posted the claim before inspecting the inherited handoff and full comment
+history. That was a selection error: the manager's
+[instruction against further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+still applies. The complete comment history contains no subsequent instruction
+reopening the mathematical scope.
+
+Fresh GitHub reads confirm that upstream
+[#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779) and
+[#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged at
+the dates and commits recorded below. I inspected the current upstream
+[README](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md),
+Layer 2 and §§2.4, 2.12, 2.19, 2.22 and 2.23. Its existing scope includes
+Nisnevich foundations, coherent duality, Azumaya classes and semilinear
+equivariant cohomology. The exclusion of general banded-gerbe classification
+does not reopen this superseded revision. The supplied read-only roadmap
+checkout lacks this directory; current GitHub main supplies the ownership
+evidence. No shared checkout was changed or built.
+
+Only this handoff changes. The packet, reader, suggested file and review retain
+their existing partial coverage and unresolved corrections. No mathematical
+correction, ownership move or new supplier request is claimed. The packet
+checker reports zero errors and zero warnings, and whitespace validation
+passes. No Lean file was changed or compiled. This checkpoint follows the
+run's instruction to submit a handoff when blocked; no second job was claimed.
+
+Resume only after the manager reconciles queue eligibility and specifies scope
+beyond the authoritative upstream targets. Automatic availability and claim
+confirmation do not supersede the ownership rule. The packet and review retain
+the mathematical worklist; no scratch material is needed to resume.
+
 ## Current run — Codex session codex-79XtBZ, 2026-10-19
 
 Blocked checkpoint; the revision is unfinished. The bot confirmed this run's
