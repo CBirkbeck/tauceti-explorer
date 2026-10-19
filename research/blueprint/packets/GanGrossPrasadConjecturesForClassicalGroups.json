@@ -48,6 +48,13 @@
         "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
         "provides": "The orthogonal isometry subgroup intersected with the determinant-one kernel, on the existing quadratic-space carrier.",
         "checked": "Actual statement and membership theorem read by git show at f790474; also compared with the current Tau Ceti definition."
+      },
+      {
+        "ref": "tauceti:CliffordAlgebra.spinorNorm",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpinorNorm/Basic.lean",
+        "provides": "The spinor norm on SO(Q), as a homomorphism to the multiplicative square-class group for a finite-dimensional nondegenerate quadratic form over a field with 2 invertible. This is the θ used in the exceptional SO₃/SO₂ self-twist condition.",
+        "checked": "Actual definition and reflection formula read at f790474 and compared with current Tau Ceti. The pinned orthogonal extension uses the star-norm convention [−Q(v)] on a reflection; on SO the even number of reflection signs cancels, agreeing with the classical convention. Only the SO restriction is used."
       }
     ]
   },
@@ -113,7 +120,7 @@
       "readSections": [
         "§13 pp. 91–95; Theorem 14.2 and Definition 14.3 p. 97; §15 pp. 103–107",
         "§18 pp. 121–122; §§20–21 selected pp. 142–146; §24.1–24.3 pp. 157–160",
-        "§25 pp. 167–172; Lemma 27.3 original proof p. 182; selected §30 and §31 pp. 199–204; existing atlas verification of E1 also consulted"
+        "§25 pp. 167–172; Lemma 27.3 original proof p. 182; Theorem 30.1 p. 194 and proof pp. 196–199; selected §31 pp. 200–204; existing atlas verification of E1 also consulted"
       ],
       "readDate": "2026-10-19"
     },
@@ -227,7 +234,7 @@
         },
         {
           "sourceId": "jz20",
-          "locator": "§3.1, pp. 760–761",
+          "locator": "§2.1, p. 750; §3.2, p. 762",
           "match": "The classical-group relevance condition is phrased using a nondegenerate subspace and its split odd complement."
         },
         {
@@ -821,7 +828,7 @@
         },
         {
           "sourceId": "jz20",
-          "locator": "§6.2, pp. 802–804",
+          "locator": "§§6.2–6.3, pp. 802–804",
           "match": "Uses cuspidal members with generic global Arthur parameters."
         }
       ],
@@ -1182,7 +1189,7 @@
       "sources": [
         {
           "sourceId": "bplzz21",
-          "locator": "Remark 1.7, p. 4",
+          "locator": "Definition 1.6 and following uniqueness paragraph, pp. 3–4",
           "match": "Cites degree-one strong multiplicity one for the uniqueness assertion."
         },
         {
@@ -1678,7 +1685,7 @@
       "sources": [
         {
           "sourceId": "jz20",
-          "locator": "§2.2, (2.9), pp. 752–753; §4.1, (4.7), p. 766",
+          "locator": "§2.3, (2.7)–(2.9), pp. 754–755; §4.1, (4.7), p. 766",
           "match": "The Bessel period uses the character Fourier coefficient along the specified unipotent radical."
         },
         {
@@ -2253,7 +2260,7 @@
       "sources": [
         {
           "sourceId": "nv21",
-          "locator": "§18, (18.1)–(18.2), p. 121; §25.4, p. 168",
+          "locator": "§18, (18.1)–(18.2), p. 121; §25.4, pp. 168–169",
           "match": "Uses the product of two oppositely ordered coefficients as the local branching form."
         },
         {
@@ -2718,7 +2725,7 @@
       "sources": [
         {
           "sourceId": "nv21",
-          "locator": "Lemma 13.1, p. 93",
+          "locator": "Lemma 13.1 and proof, pp. 93–94",
           "match": "Relates the adjusted spectrum to isotropic eigenvectors on the two standard factors."
         }
       ],
@@ -2841,7 +2848,7 @@
       "sources": [
         {
           "sourceId": "nv21",
-          "locator": "Lemma 15.2, pp. 104–105",
+          "locator": "§15.1, p. 103; Lemma 15.2, pp. 104–105",
           "match": "Checks the parameter-to-infinitesimal-character comparison by normalized induction, discrete series and tori."
         }
       ],
@@ -2882,7 +2889,7 @@
       "sources": [
         {
           "sourceId": "nv21",
-          "locator": "Lemma 15.3, pp. 105–106",
+          "locator": "Lemma 15.3 and §15.4, (15.3), pp. 105–107",
           "match": "Computes dual standard-representation weights and the archimedean gamma factors, including the unitary ± duplication."
         }
       ],
@@ -3054,7 +3061,7 @@
         },
         {
           "sourceId": "nv21",
-          "locator": "§20, p. 142; §21.1, p. 146",
+          "locator": "§20, p. 142; Remark 22.1, p. 145",
           "match": "Records the nonarchimedean support theorem and the real unitary extension; the printed Waldspurger reference is corrected in sourceIssues."
         }
       ],
@@ -3698,7 +3705,8 @@
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/admissible-family",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/global-branching-coefficient",
         "AutomorphicSpectralTheory:AS.6/compact-trace-specialization",
-        "AdelicAlgebraicGroups:AA.2"
+        "AdelicAlgebraicGroups:AA.2",
+        "tauceti:CliffordAlgebra.spinorNorm"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Automorphic/GanGrossPrasad/Layer7",
@@ -3707,7 +3715,7 @@
       "sources": [
         {
           "sourceId": "nv21",
-          "locator": "Theorem 30.1, Corollaries 31.4 and 31.8, pp. 199, 201–202; §27, p. 182",
+          "locator": "Theorem 30.1, p. 194 and proof pp. 196–199; Corollaries 31.4 and 31.8, pp. 201–202; §27, p. 182",
           "match": "Transfers limit-state equidistribution through positive approximation to unweighted windows; the SO₃/SO₂ condition repairs the identified obstruction."
         }
       ],
@@ -3876,7 +3884,7 @@
       "sources": [
         {
           "sourceId": "nv21",
-          "locator": "Introduction, (1.4), p. 4; §§27.1 and 31.2–31.6, pp. 177–182, 201–204",
+          "locator": "Introduction, (1.4), p. 4; §§26.4–27.2, pp. 177–182; §§31.2–31.6, pp. 201–204",
           "match": "Uses positive local windows and equidistribution to obtain a little-o improvement over the convexity-size period bound; E1 records the correction required in the self-twist exception."
         }
       ],
@@ -4170,11 +4178,11 @@
       ],
       "title": "The weak arithmetic GGP proposition",
       "kind": "definition",
-      "statement": "For the same arithmetic Π₀,Π₁ define WeakArithmeticGGP(Π₀,Π₁) to be the following implication: if L(1/2,Π₀×Π₁)=0 and L′(1/2,Π₀×Π₁)≠0, there exist a standard indefinite V_n, its fixed positive-line extension V_{n+1}, self-dual lattices away from S_min and infinity, and a neat compatible level pair hyperspecial there, such that the graph of sh↑ is nonzero in CH^n(Sh(V_{n₀},K_{n₀})×_E Sh(V_{n₁},K_{n₁}))_L/(ker φ_{Π₀},ker φ_{Π₁}). The notation is the quotient by the sum of the two Hecke-kernel actions, not a choice of an idempotent when none is supplied. The Shimura product has dimension 2n−1 and the graph dimension n−1, hence graph codimension n. Its graph class is imported from MotivesAndAlgebraicCycles and U1. The proposition asserts Chow nonvanishing, and does not assert nonvanishing of an Abel–Jacobi realization. No λ appears in this coefficient-field Chow assertion.",
+      "statement": "For the same arithmetic Π₀,Π₁ define WeakArithmeticGGP(Π₀,Π₁) to be the following implication: if L(1/2,Π₀×Π₁)=0 and L′(1/2,Π₀×Π₁)≠0, there exist a standard indefinite V_n, its fixed positive-line extension V_{n+1}, self-dual lattices away from S_min and infinity, and a neat compatible level pair hyperspecial there, such that the graph of sh↑ is nonzero in CH^n(Sh(V_{n₀},K_{n₀})×_E Sh(V_{n₁},K_{n₁}))_L/(ker φ_{Π₀},ker φ_{Π₁}). The notation is the quotient by the sum of the two Hecke-kernel actions, not a choice of an idempotent when none is supplied. The Shimura product has dimension 2n−1 and the graph dimension n−1, hence graph codimension n. Its Chow graph class is the incoming U1 cycle contract, including smooth quasi-projective varieties; the projective-only MC.0/graph-correspondence does not supply that generality. No properness hypothesis absent from LTX is imposed. The proposition asserts Chow nonvanishing, and does not assert nonvanishing of an Abel–Jacobi realization. No λ appears in this coefficient-field Chow assertion.",
       "hypotheses": [],
       "proofSteps": [
         "Use the supplied standard indefinite Shimura varieties, their dimension theorem and level map.",
-        "Import the graph correspondence, regard it in codimension n, and form the stated Hecke quotient with coefficient field L.",
+        "Use U1’s smooth quasi-projective Chow graph construction: separatedness makes the graph closed, and the dimension comparison puts its fundamental cycle in codimension n. Form the two-action Hecke quotient over L. MC.0/graph-correspondence can be used only in the smooth projective subcase.",
         "Package the implication as a proposition. Its proof remains conjectural; no arithmetic GGP theorem or Abel–Jacobi injectivity is assumed."
       ],
       "acceptance": [
@@ -4184,7 +4192,6 @@
       "prerequisites": [
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.8/arithmetic-period-data",
         "ShimuraVarieties:V8/plan/datum-functoriality",
-        "MotivesAndAlgebraicCycles:MC.0/graph-correspondence",
         "AutomorphicLFunctionsAndLocalFactors:AL.3/rs-global-functional-equation"
       ],
       "library": {
@@ -4276,7 +4283,7 @@
     },
     {
       "supplier": "AdelicAlgebraicGroups:AA.2",
-      "need": "Part II extension requested by A1: the numerical Tamagawa value two for the stated nontrivial anisotropic unitary and special orthogonal groups, including the anisotropic SO₂ torus. AA.2/tamagawa-number defines the volume but does not compute it.",
+      "need": "Part II extension requested by A1: the numerical Tamagawa value two for the stated nontrivial anisotropic unitary groups. AA.2/tamagawa-number defines the volume but does not compute it. For special orthogonal groups, including the anisotropic SO₂ torus, consume the theorem from OrthogonalSpinGroups’s named successor OrthogonalTamagawaAndLatticeMass instead of duplicating its project.",
       "neededBy": [
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/automorphic-branching-data",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/weighted-period-limit",
@@ -4338,7 +4345,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation",
-      "need": "Use existing U, SO and split GL standard representations and form-preserving embeddings; import their carriers rather than restating the classical-group development.",
+      "need": "Use the complex finite-dimensional GL, SL, O and Sp standard representations actually planned in Layer 0, after the required scalar-extension and Lie-algebra comparisons. General hermitian U(V) is supplied by GN.2/signed-hermitian-space, and determinant-one orthogonal carriers by Tau Ceti and OrthogonalSpinGroups. The remaining general-field Lie/flag comparison is the explicit O1 contract.",
       "neededBy": [
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/eigenvalue-invariant",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/sphericity"
@@ -4518,7 +4525,7 @@
     },
     {
       "title": "O1: Stable orbit and adjoint-quotient interface",
-      "detail": "The proposed QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups owns stable coadjoint loci, stable fibres, affine quotient measures and limit orbits. Supply the spectral stability criterion ev(λ)∩ev(μ)=∅, stable-fibre torsor geometry and the specified affine measure on [h∧]∩image(𝒪_stab). General Chevalley/adjoint-quotient, Jordan centralizer and affine GIT results remain with the LieHighestWeight/Reductive Groups extensions; the present roadmap only owns their GGP spectral specialization and the explicit free flag orbit. These proposed owners are not registered dependencies, so this is an exact incoming contract rather than a fabricated node ID.",
+      "detail": "The proposed QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups owns stable coadjoint loci, stable fibres, affine quotient measures and limit orbits. Supply the spectral stability criterion ev(λ)∩ev(μ)=∅, stable-fibre torsor geometry and the specified affine measure on [h∧]∩image(𝒪_stab). General Chevalley/adjoint-quotient, Jordan centralizer and affine GIT results remain with the LieHighestWeight/Reductive Groups extensions; the present roadmap only owns their GGP spectral specialization and the explicit free flag orbit. These proposed owners are not registered dependencies, so this is an exact incoming contract rather than a fabricated node ID. Include the general-field orthogonal/unitary Lie-algebra and flag-variety comparison, and its scalar-extension compatibility with the complex ClassicalGroups standard representations. GN.2 already owns the hermitian isometry group; Tau Ceti and OrthogonalSpinGroups own the orthogonal carriers, so this interface introduces no new group carrier.",
       "neededBy": [
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/eigenvalue-invariant",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/regularity-criterion",
@@ -4530,7 +4537,7 @@
     },
     {
       "title": "O2: Relative characters and allowable approximation",
-      "detail": "Supply H_σ as the convergent orthonormal-basis sum of the local four-vector period, with its trace/tensor evaluation, smooth factorization, continuity on unitary induction tori and compact spectral specialization. Supply NV Definition 24.3’s two positive approximation conditions for allowable components, Theorem 24.4’s supercuspidal-type case and Theorem 24.5’s approximation; do not replace allowability by mere compact support. This roadmap imports that definition and never introduces a competing H_σ.",
+      "detail": "Supply H_σ as the convergent orthonormal-basis sum of the local four-vector period, with its trace/tensor evaluation, smooth factorization, continuity on unitary induction tori and compact spectral specialization. Supply NV Definition 24.3’s two positive approximation conditions for allowable components, Remark 24.4’s positive majorants and Theorem 24.5’s cuspidal-type allowability (pp. 159–160); do not replace allowability by mere compact support. This roadmap imports that definition and never introduces a competing H_σ.",
       "neededBy": [
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/local-period-support",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/phase-normalized-intertwiner",
@@ -4562,14 +4569,14 @@
     },
     {
       "title": "A1: Tamagawa number two for the anisotropic pairs",
-      "detail": "Supply τ(U(V))=2 and τ(SO(V))=2 for the nontrivial anisotropic unitary and special orthogonal groups in NV §25.7, including the anisotropic SO₂ torus. Use the actual Tamagawa measures and quotient conventions. The general construction of a Tamagawa measure and compactness of the quotient do not compute its volume. NV points to Weil and Ono; their numerical-volume proof has not been read in this pass.",
+      "detail": "Supply τ(U(V))=2 and τ(SO(V))=2 for the nontrivial anisotropic unitary and special orthogonal groups in NV §25.7, including the anisotropic SO₂ torus. Use the actual Tamagawa measures and quotient conventions. The general construction of a Tamagawa measure and compactness of the quotient do not compute its volume. NV points to Weil and Ono; their numerical-volume proof has not been read in this pass. OrthogonalSpinGroups names OrthogonalTamagawaAndLatticeMass as the orthogonal numerical-volume owner; consume that successor’s orthogonal theorem rather than proposing a second proof under AA.2. Only the unitary computation is requested from an AA.2 Part II extension.",
       "neededBy": [
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/automorphic-branching-data",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/weighted-period-limit",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/family-weyl-law",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/mean-period-theorem"
       ],
-      "owner": "AdelicAlgebraicGroups arithmetic-volume extension"
+      "owner": "OrthogonalTamagawaAndLatticeMass for SO; AdelicAlgebraicGroups Part II for U"
     },
     {
       "title": "J1: Known unitary global and refined theorem exports",
@@ -4584,7 +4591,7 @@
     },
     {
       "title": "U1: Arithmetic unitary models and level maps",
-      "detail": "The proposed UnitaryRapoportZinkSpacesAndRSZModels owns standard definite unitary Shimura sets, standard indefinite Shimura varieties of dimension N−1, compatible neat level pairs and sh↑, hyperspecial lattices, the strong coefficient-field/Hecke-eigencharacter interface, and the projective graph map over its reflex field. Supply finite double-coset sets and the stabilizer-weight formula, plus the indefinite graph’s dimension. General neat sublevels and canonical datum functoriality come from ShimuraVarieties; cycle/graph carriers come from MotivesAndAlgebraicCycles. A nonabelian definite double-coset set is not supplied by the zero-dimensional torus Shimura theorem alone.",
+      "detail": "The proposed UnitaryRapoportZinkSpacesAndRSZModels owns standard definite unitary Shimura sets, standard indefinite Shimura varieties of dimension N−1, compatible neat level pairs and sh↑, hyperspecial lattices, the strong coefficient-field/Hecke-eigencharacter interface, and the level map over its reflex field. Supply finite double-coset sets and the stabilizer-weight formula, plus the indefinite graph’s dimension. General neat sublevels and canonical datum functoriality come from ShimuraVarieties. Require from MotivesAndAlgebraicCycles an extension constructing the Chow class of a closed graph for smooth quasi-projective varieties, with Hecke actions and the displayed coefficient quotient; MC.0/graph-correspondence is only a smooth projective correspondence and is insufficient in this generality. The CM setup permits F=ℚ, so projectivity must not be inferred from its signatures. In the projective subcase reuse MC.0, without reversing the graph’s factors. A nonabelian definite double-coset set is not supplied by the zero-dimensional torus Shimura theorem alone.",
       "neededBy": [
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.8/arithmetic-period-data",
         "GanGrossPrasadConjecturesForClassicalGroups:GGP.8/definite-integral-comparison",
@@ -4607,7 +4614,12 @@
       "searched": [
         "2026-10-19: read the cited source version at this locator.",
         "2026-10-19: consulted the existing atlas extraction and its review/verification; this is reuse of the recorded correction, not a new priority or exhaustive erratum claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the published argument at p. 182 and the weighted/unweighted endpoints pp. 201–204. The prior independent review’s real definite spinor-image counterexample and dihedral self-twist calculation invalidate the universal equality. The retained non-self-twist restriction and unrestricted factor-two bound have the separate scopes recorded here.",
+        "by": "REV-DESIGN-GanGrossPrasadConjecturesForClassicalGroups"
+      }
     },
     {
       "id": "GanGrossPrasadConjecturesForClassicalGroups/E2",
@@ -4621,7 +4633,12 @@
       "searched": [
         "2026-10-19: read the cited source version at this locator.",
         "2026-10-19: consulted the existing atlas extraction and its review/verification; this is reuse of the recorded correction, not a new priority or exhaustive erratum claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At JZ p. 762 the displayed trailing exponent makes the partition sum to dim V+2. Subtracting two gives dim V and agrees with the Fourier partition at p. 755.",
+        "by": "REV-DESIGN-GanGrossPrasadConjecturesForClassicalGroups"
+      }
     },
     {
       "id": "GanGrossPrasadConjecturesForClassicalGroups/E3",
@@ -4635,7 +4652,12 @@
       "searched": [
         "2026-10-19: read the cited source version at this locator.",
         "2026-10-19: consulted the existing atlas extraction and its review/verification; this is reuse of the recorded correction, not a new priority or exhaustive erratum claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At JZ p. 750 the inner twist is described from the quasi-split source, so its cocycle must be valued in that source. Simultaneous relevant inclusion twists use H¹(F,H*), not independent twists or adjoint cohomology.",
+        "by": "REV-DESIGN-GanGrossPrasadConjecturesForClassicalGroups"
+      }
     },
     {
       "id": "GanGrossPrasadConjecturesForClassicalGroups/E4",
@@ -4649,7 +4671,12 @@
       "searched": [
         "2026-10-19: read the cited source version at this locator.",
         "2026-10-19: consulted the existing atlas extraction and its review/verification; this is reuse of the recorded correction, not a new priority or exhaustive erratum claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Remark 1.7 and all of Theorem 4.14, pp. 39–40. Items (1)–(2) and the proof of (4) use a cuspidal automorphic source. The isolated formulations cannot be exported for arbitrary admissible representations; the packet correctly retains cuspidality.",
+        "by": "REV-DESIGN-GanGrossPrasadConjecturesForClassicalGroups"
+      }
     },
     {
       "id": "GanGrossPrasadConjecturesForClassicalGroups/E5",
@@ -4663,7 +4690,12 @@
       "searched": [
         "2026-10-19: read the cited source version at this locator.",
         "2026-10-19: consulted the existing atlas extraction and its review/verification; this is reuse of the recorded correction, not a new priority or exhaustive erratum claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The citation key at NV p. 142 names the wrong author for the stated proposition. BP Theorem 7.2.1 discussion p. 163 explicitly identifies the orthogonal input as Waldspurger Proposition 5.7. The original analytic proof is still the L4 follow-up.",
+        "by": "REV-DESIGN-GanGrossPrasadConjecturesForClassicalGroups"
+      }
     },
     {
       "id": "GanGrossPrasadConjecturesForClassicalGroups/E6",
@@ -4677,14 +4709,19 @@
       "searched": [
         "2026-10-19: read the cited source version at this locator.",
         "2026-10-19: consulted the existing atlas extraction and its review/verification; this is reuse of the recorded correction, not a new priority or exhaustive erratum claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read LTX Conjecture 8.3.1 and following discussion on p. 315 in the cleared published copy. Neither the coefficient-field Chow group nor its graph uses λ. The subsequent Abel–Jacobi condition uses λ and is a separate nonvanishing hypothesis.",
+        "by": "REV-DESIGN-GanGrossPrasadConjecturesForClassicalGroups"
+      }
     }
   ],
   "ownership": {
     "upstreamRead": "Current TauCetiRoadmap main 0d144d044dacebca17b654695b6f1ad58f159b27 and current TauCeti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 audited read-only; ClassicalGroups and CompactGroups read in full, relevant OrthogonalSpinGroups, SmoothRepresentations and ReductiveGroups Part II interfaces inspected. Nine newer roadmaps checked for overlap. Pinned declaration statements were checked separately.",
     "relativeCharacters": "QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups owns H_σ and allowability; imports the raw period from GGP.4.",
     "globalProofs": "JacquetRallisRelativeTraceComparison owns stable and endoscopic global/refined proofs, not their shared proposition definitions. Framework export precedes returned theorem consumption in GGP.8.",
-    "arithmeticModels": "UnitaryRapoportZinkSpacesAndRSZModels owns definite/indefinite spaces, levels and sh↑; MotivesAndAlgebraicCycles supplies graph correspondences.",
+    "arithmeticModels": "UnitaryRapoportZinkSpacesAndRSZModels owns definite/indefinite spaces, levels and sh↑; MotivesAndAlgebraicCycles must extend its projective graph API to the smooth quasi-projective Chow graph and Hecke quotient required in U1.",
     "tierPolicy": "No higher-tier roadmap is added as a prerequisite. Unregistered incoming contracts are explicit gaps, never nonexistent node references. Generic residual exclusion is kept as this roadmap’s routed target."
   },
   "restructure": [
@@ -4710,7 +4747,7 @@
         "AdelicAlgebraicGroups"
       ],
       "detail": "The existing Tamagawa number definition and finiteness theorem do not compute the arithmetic volume A1.",
-      "proposal": "Add Adelic algebraic groups, Part II: Classical Tamagawa numbers, with AdelicAlgebraicGroups as its first prerequisite. It starts after the existing measure, quotient and finiteness API and supplies the numerical theorem A1, without redefining the measure."
+      "proposal": "Add Adelic algebraic groups, Part II: Unitary Tamagawa numbers, with AdelicAlgebraicGroups as its first prerequisite. It starts after the existing measure, quotient and finiteness API and supplies the unitary part of A1, without redefining the measure. The orthogonal part is consumed from the OrthogonalTamagawaAndLatticeMass successor already named by OrthogonalSpinGroups."
     }
   ],
   "upstreamNotes": [],
@@ -5054,5 +5091,318 @@
     "blueprint": "61 target nodes; 9/9 stages planned; no implementation claimed. Validate with scripts/check_blueprint.py.",
     "lean": "Suggested file elaborated with lean-check at the pinned Mathlib/TauCeti build on 2026-10-19; only expected proof-admission warnings. Two real-bodied light definitions, nine theorem signatures and six examples; no absent carrier or data placeholder.",
     "coverage": "All 44 items in the five coalesced design briefs map to targets, including the generic-discrete cuspidality target added by the Jiang–Zhang review."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-GanGrossPrasadConjecturesForClassicalGroups",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 61 nodes, their cited source locations, hypotheses, APIs, discriminating tests, proof routes, supplier scopes and routed coverage. Confirmed the four original pinned baseline declarations and added the existing pinned SO spinor norm as a direct dependency. Corrected eleven locators, allowability attribution, general-field supplier scope, arithmetic graph generality and Tamagawa ownership; independently confirmed all six carried source corrections. Acceptance is of a complete planning pass with 15 explicit proof/supplier contracts, not analytic proof closure or formalization. All nine layers remain planned, none closed. See the review report for scope and checks.",
+    "checked": [
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.0/relevant-pair",
+        "verdict": "corrected",
+        "note": "GGP §§2,12 and NV §13.2 agree on the retained odd split complement and codimension-one cases. Corrected JZ locator to §2.1/§3.2. GN.2 supplies U(V); its opposite sesquilinear convention is explicitly transported."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.0/relevant-inner-forms",
+        "verdict": "verified",
+        "note": "GGP Lemma 2.1 and BP introduction index simultaneous twists by H¹(F,H). Read GN.2 classification and ET.0 cohomology/inner-twist contracts; P1 honestly retains oriented SO and coherence refinements."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.0/bessel-datum",
+        "verdict": "verified",
+        "note": "GGP §12 and JZ §3.2 support the flag-character construction and trivial ℓ=0 case. E2 repairs the partition to have the right total dimension. SR.2 imports the unipotent and smooth machinery."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.0/bessel-functional",
+        "verdict": "verified",
+        "note": "GGP §§14–15 and JZ §3.2 support the ψ-equivariance and smooth/continuous distinction. Native intertwiners only supply algebraic Hom. API and three tests distinguish dual, zero and character conventions."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.0/twisted-jacquet-comparison",
+        "verdict": "verified",
+        "note": "JZ §3.2 and GGP §15 identify the unnormalized twisted quotient with its Hom universal property; SR.2 is asked for that quotient, without a hidden normalized modulus."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.0/bessel-uniqueness",
+        "verdict": "verified",
+        "note": "GGP Theorems 14.1/15.1, Corollary 15.3 and NV Remark 18.2 support the stated individual bound, including split restriction. The distribution arguments remain explicit L1, not Schur-lemma consequences."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/local-relevant-packet",
+        "verdict": "verified",
+        "note": "Read JZ (3.4) and GGP §17. The packet imports classification, tags relevant forms and preserves even-SO outer orbits; P1 prevents pretending a stronger representation-valued classification is already supplied."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/global-coherent-packet",
+        "verdict": "corrected",
+        "note": "GGP §§25–26 distinguish global form coherence from occurrence and multiplicity. Corrected JZ scope to §§6.2–6.3; ML.4 supplies classification, while P1 retains the remaining coherence comparison."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/hermitian-isobaric-parameter",
+        "verdict": "verified",
+        "note": "BPLZZ Definition 1.5 and BCZ §1.1.3 require distinct conjugate-self-dual cuspidal summands with total-rank Asai parity and regularity. AL tensor factors alone are insufficient; F1 is retained."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/ii-component-group",
+        "verdict": "verified",
+        "note": "BCZ §1.1.3 and Theorem 1.1.6.1 use the unquotiented sign group. Stable product order four and larger endoscopic examples correctly distinguish it from quotient component groups."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/weak-base-change",
+        "verdict": "verified",
+        "note": "BPLZZ Definition 1.6 and BCZ §1.1.4 use the almost-everywhere split condition. Existence remains cuspidal, and E4 prevents exporting an unrestricted admissible existence theorem."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/weak-base-change-unique",
+        "verdict": "corrected",
+        "note": "The uniqueness argument follows Definition 1.6, before Remark 1.7; corrected that locator. The imported degree-one strong multiplicity-one theorem is the required supplier, not local classification alone."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/quasi-split-unitary-pair",
+        "verdict": "verified",
+        "note": "BPLZZ §4.4 and GGP §2 support the fixed-line quasi-split pair. The packet preserves the global form-existence obligation P1 rather than inferring global existence from arbitrary local choices."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/weak-strong-base-change",
+        "verdict": "verified",
+        "note": "BCZ Remark 1.1.4.1 and BPLZZ Theorem 4.14(1)–(2) support the stated classification-compatible range. J1 exports the cuspidal existence theorem; no general adelic strong comparison is assumed."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.1/generic-discrete-members-cuspidal",
+        "verdict": "verified",
+        "note": "JZ §6.3 p. 803 records the target. P2 explicitly requires the cited Jiang–Liu residual exclusion and its classification range; the review verifies the target, not a completed audit of that unprovided proof."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.2/local-ggp-proposition",
+        "verdict": "verified",
+        "note": "JZ Conjecture 3.1 and GGP Conjecture 17.1 support the generic-parameter packet sum. Individual multiplicity one makes count-one equivalent to a unique distinguished pair, without making every member generic."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.2/unitary-tempered",
+        "verdict": "verified",
+        "note": "Read BP Theorem 1, 11.4.2 and 12.4.1. Their all-relevant-form tempered multiplicity identity has the claimed nonarchimedean/real scope; L2 explicitly retains the relative trace proof rather than attributing it to ordinary transfer."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.2/orthogonal-generic-nonarch",
+        "verdict": "verified",
+        "note": "Read Mœglin–Waldspurger introduction, §1.3 proposition and §3. Classification/twisted-trace qualifications and even-SO orbit conventions remain; L2/L3 retain the tempered and standard-module proof inputs."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.2/orthogonal-tempered-arch",
+        "verdict": "verified",
+        "note": "Luo Theorem 8.3.2 counts the unique tempered distinguished pair over relevant pure twists. The theorem endpoint is read; analytic closure stays L2 and is not silently supplied by JZ’s theorem summary."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.2/unitary-generic-nonarch",
+        "verdict": "verified",
+        "note": "Gan–Ichino Propositions 9.3–9.4 support all odd Bessel codimensions with the generic standard-module reduction. L3 names ordered exponents, support avoidance and multiplicity preservation still required."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.2/distinguished-transfer-injective",
+        "verdict": "verified",
+        "note": "BPLZZ Lemma 4.9 proof and BCZ §10.3.5 use local GGP on matching transferred distributions. The node’s hypotheses retain distinction and relevant packet, so this is not general injectivity of base change."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.3/bessel-fourier-coefficient",
+        "verdict": "corrected",
+        "note": "Corrected JZ to §2.3 (2.7)–(2.9), pp. 754–755 and (4.7), p. 766. The global ψ inverse, quotient integral and ℓ=0 test agree with GGP §23 and the local convention."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.3/global-bessel-period",
+        "verdict": "verified",
+        "note": "JZ (4.7)–(4.8), (5.6), GGP §23 and BCZ §1.1.5 support the bilinear integral. Dualizing the second factor is required when comparing with sesquilinear branching."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.3/global-period-convergence",
+        "verdict": "verified",
+        "note": "JZ’s post-(4.7) convergence claim has the stated either-factor-cuspidal scope. C1 precisely records the nontrivial stabilizer restriction/decay theorem absent from ambient AF.3 rapid decay."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.3/nonzero-implies-local",
+        "verdict": "verified",
+        "note": "GGP §24 and JZ (4.11)–(4.13) support extracting a local functional from a nonzero global period using restricted tensor factorization and convergence, with the fixed Bessel character."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.3/global-fixed-proposition",
+        "verdict": "verified",
+        "note": "GGP Conjecture 24.1 is correctly packaged as a proposition requiring local distinction as well as completed central nonvanishing. No general global theorem is asserted."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.3/global-packet-proposition",
+        "verdict": "verified",
+        "note": "Read GGP 26.1, JZ §6.3, BPLZZ 1.8/4.14 and BCZ 1.1.5.1. Coherence, automorphic occurrence, Hermitian/cuspidal unitary ranges and conditional descent are distinguished; J1 supplies proofs."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.4/normalized-l-quotient",
+        "verdict": "verified",
+        "note": "BCZ §1.1.6 and Harris Conjecture 1.3 fix the shifted completed quotient, adjoint denominators and measure factors. F1 explicitly extends the tensor-factor supplier to Asai and adjoint data."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.4/local-raw-period",
+        "verdict": "corrected",
+        "note": "NV (18.1)–(18.2) and BCZ §1.1.6 support the four-vector form. Expanded §25.4 locator through p. 169. Under linear-first inner products the two smaller-factor slots are exchanged in the tensor form."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.4/local-period-convergence",
+        "verdict": "verified",
+        "note": "Read Harris Proposition 2.1 proof and NV §18. The codimension-one tempered integrability and continuous extension require the stated relative Ξ bounds; L4 retains the orthogonal/split proof refinement."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.4/normalized-local-period",
+        "verdict": "verified",
+        "note": "BCZ (1.1.6.1) and Harris §1/2.12 support division by the finite nonzero local quotient. Rescaling Haar measure and metrics is tracked, and F1 retains the necessary nonvanishing factor theorem."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.4/unramified-period",
+        "verdict": "verified",
+        "note": "Read Harris Theorem 2.12 and BCZ normalization. The spherical calculation assumes unramified groups, vectors, characters and compatible hyperspecial volume; it does not assert value one for arbitrary ramified data."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.4/unitary-refined-proposition",
+        "verdict": "verified",
+        "note": "BCZ Theorem 1.1.6.1/footnote 3 and BPLZZ 1.10 support the everywhere-tempered cuspidal formula, full component denominator and Tamagawa normalization. Its proof is an imported J1 result."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/eigenvalue-invariant",
+        "verdict": "verified",
+        "note": "NV §13.3–13.4.1 supports the adjusted spectrum and even-SO Pfaffian warning. Narrowed ClassicalGroups supply to complex GL/SL/O/Sp and recorded the needed general-field Lie comparison in O1; this node’s spectral assertion is unchanged."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/isotropic-eigenvectors",
+        "verdict": "corrected",
+        "note": "NV Lemma 13.1 has the stated simple-eigenvalue isotropy relations; expanded citation to include proof p. 94. Zero/opposite eigenvalue and characteristic-zero hypotheses are retained."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/regularity-criterion",
+        "verdict": "verified",
+        "note": "NV Lemma 13.2 gives the multiplicity criterion with the zero-eigenspace orthogonal exception. O1 owns the centralizer/adjoint-quotient interface rather than asserting that a spectral multiset determines every SO orbit."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/sphericity",
+        "verdict": "verified",
+        "note": "NV Lemma 13.3 and BP Proposition 6.4.1(i) support the explicit free flag orbit. The clarified ClassicalGroups request and O1 retain the field/Lie/flag transport; no new general classical-group theory is planned."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/infinitesimal-parameter",
+        "verdict": "corrected",
+        "note": "Added NV §15.1 p. 103 for the infinitesimal-character notation to Lemma 15.2. The real parameter comparison keeps even-orthogonal ambiguity and the supplied classification assumptions."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/rankin-selberg-weights",
+        "verdict": "corrected",
+        "note": "Added NV §15.4 (15.3) p. 107 to Lemma 15.3. The gamma weights and their complex-place doubling are actual factor-theoretic input F1, not a formal consequence of the eigenvalue definition."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.5/stability-and-conductor",
+        "verdict": "verified",
+        "note": "NV Theorem 14.2, Definition 14.3 and Lemma 15.4 identify disjoint spectra with stability and nonzero tensor weights. O1/F1 provide the geometric and gamma/conductor comparisons."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/distinguished-tempered-dual",
+        "verdict": "verified",
+        "note": "NV §§20/24 supports the smooth Hom locus. Topological/continuous representation categories come from AF/SR, not the baseline algebraic dual. The full-induction issue is separately S1."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/local-period-support",
+        "verdict": "corrected",
+        "note": "BP Theorem 7.2.1 proves nonvanishing exactly at positive multiplicity, not archimedean positivity. Replaced nonexistent NV §21.1 with §20 and Remark 22.1; L4 retains nonvanishing inputs."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/nonarchimedean-positivity",
+        "verdict": "verified",
+        "note": "NV Remark 18.2 and §20 support positivity in the stated nonarchimedean category. This node does not turn the archimedean support theorem into positivity."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/phase-normalized-intertwiner",
+        "verdict": "verified",
+        "note": "NV (20.1) factors the rank-one positive period through a smooth branching map, unique up to unit phase. L4 explicitly requires the smooth target theorem beyond an abstract Hilbert/GNS quotient."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/induction-parameter-injective",
+        "verdict": "verified",
+        "note": "Read NV Lemma 24.1. The injection needs the full induced model multiplicity formula across a reducible induction; S1/L2 make that explicit instead of summing an individual Hom bound."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/distinguished-spectrum-topology",
+        "verdict": "verified",
+        "note": "NV Lemma 24.2 and (24.1)–(24.2) give the torus-component topology and good-level truncation. The packet does not claim a Fell-topology identification from the weaker induction topology."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.6/compact-spectral-realization",
+        "verdict": "verified",
+        "note": "NV §21 realizes finite weights by smooth finite-rank tensors, positive for nonnegative weights. Read CompactGroups Layer 5’s isotypic projectors; O2 retains their relative-character normalization and smooth specialization."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/automorphic-branching-data",
+        "verdict": "verified",
+        "note": "NV §§25.1–25.7 fixes anisotropy, actual automorphic copies, distinguished quasi-split place and level factorizations. A1 keeps numerical Tamagawa values separate from mere compactness/measure construction."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/global-branching-coefficient",
+        "verdict": "verified",
+        "note": "NV (25.1)–(25.3) supports the normalized squared bilinear-with-dual period and local rank-one comparison. Actual automorphic embeddings and multiplicities are retained rather than using an abstract representation alone."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/removed-place-refined-proposition",
+        "verdict": "verified",
+        "note": "NV Conjecture 25.1/Remark 25.2 supports the displayed removed-place quotient, with the second factor dualized. It stays a proposition unless its exact known global theorem is imported."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/admissible-family",
+        "verdict": "verified",
+        "note": "NV Definitions 24.3/31.1/31.5/31.7 distinguish allowable positive approximation, stable windows, level and induction data. Corrected O2 to Remark 24.4 and Theorem 24.5’s cuspidal-type allowability."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/weighted-period-limit",
+        "verdict": "corrected",
+        "note": "Corrected Theorem 30.1 statement page to 194. Read Corollaries 31.4/31.8 and E1: weighted equality needs the exceptional SO₃/SO₂ non-self-twist condition. Added the actual pinned CliffordAlgebra.spinorNorm dependency, with its SO convention checked."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/family-weyl-law",
+        "verdict": "verified",
+        "note": "NV Lemma 31.9 has a counting scope independent of the extra exceptional non-self-twist condition. Compact trace and approximation are named inputs, and actual automorphic copies are counted."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/conductor-family-size",
+        "verdict": "verified",
+        "note": "NV Lemma 31.10, Table 1 and (15.3) support the displayed conductor growth and family-cardinality exponents. Complex distinguished places use the recorded doubling, not the real dimension unchanged."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/mean-period-theorem",
+        "verdict": "verified",
+        "note": "NV Theorem 31.11 and (31.3)–(31.4) follow from the corrected weighted limit divided by Weyl counting. Their scope retains the exceptional restriction for the equality."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.7/weak-subconvexity",
+        "verdict": "corrected",
+        "note": "Corrected NV proof range to §§26.4–27.2 and §§31.2–31.6. The little-o bound is broader than the weighted equality: in the exceptional self-twist case the bounded factor-two estimate suffices."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.8/arithmetic-period-data",
+        "verdict": "verified",
+        "note": "Read LTX pp. 110, 140, 143–145 and 286. The exact argument-character weights, parity, strong coefficient field, integral Hecke characters and compatible neat levels are retained; U1 owns the arithmetic models."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.8/finite-diagonal-period",
+        "verdict": "verified",
+        "note": "LTX Lemma 8.2.1 uses the finite graph sum. Native finite carriers/sums suffice; tensor-factor order is swapped when parity interchanges ranks, and no complex conjugation is inserted."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.8/definite-integral-comparison",
+        "verdict": "verified",
+        "note": "LTX §3.2/Lemma 8.2.1 and AA quotient decomposition support the common positive volume at neat level. Non-neat levels retain inverse stabilizer weights; no universal unweighted formula is claimed."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.8/definite-diagonal-nonvanishing",
+        "verdict": "verified",
+        "note": "LTX Lemma 8.2.1 and BPLZZ Theorem 1.8/Remark 4.17 support integral Hecke-eigenspace nonvanishing with self-dual lattices and hyperspecial good levels. Clearing denominators preserves a nonzero period."
+      },
+      {
+        "nodeId": "GanGrossPrasadConjecturesForClassicalGroups:GGP.8/weak-arithmetic-proposition",
+        "verdict": "corrected",
+        "note": "LTX Conjecture 8.3.1 is a derivative-to-Chow proposition, not an Abel–Jacobi theorem. Removed the projective-only MC.0 prerequisite: U1 now explicitly requires a smooth quasi-projective closed-graph Chow/Hecke interface, without excluding F=ℚ."
+      }
+    ]
   }
 }
