@@ -28015,7 +28015,8 @@
    ],
    "avoidAccountOf": "BP-PadicHodgeRegulators",
    "prompt": "research/blueprint/prompts/REV-PadicHodgeRegulators.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10797"
   },
   {
    "id": "BP-PadicHodgeTheory",
@@ -30090,7 +30091,7 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AdicSpacesPartII",
     "BP-AutomorphicBundles",
@@ -30103,7 +30104,8 @@
     "BP-PerfectoidShimuraVarieties",
     "BP-PerfectoidSpaces",
     "BP-ShimuraCompactifications"
-   ]
+   ],
+   "note": "claimed on GitHub issue #10836"
   },
   {
    "id": "REV-OverconvergentAutomorphicForms",
@@ -44265,7 +44267,8 @@
     "BP-NoncommutativeAndEquivariantIwasawa~3"
    ],
    "prompt": "research/blueprint/prompts/REV-NoncommutativeAndEquivariantIwasawa~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10964"
   },
   {
    "kind": "blueprint",
@@ -50867,7 +50870,8 @@
     "PKG-BunGAndNewtonStrata"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-BunGAndNewtonStrata.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10893"
   },
   {
    "id": "PKG-ChromaticHomotopyTheory",
@@ -59829,7 +59833,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PadicLocalLanglandsForGL2Qp.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10774"
   },
   {
    "id": "REV-PKG-PadicLocalLanglandsForGL2Qp",
@@ -60079,7 +60084,8 @@
     "PKG-PeriodsAndSpecialValues"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PeriodsAndSpecialValues.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10907"
   },
   {
    "id": "PKG-PhiGammaModulesAndIwasawaCohomology",
@@ -150366,7 +150372,7 @@
     "research/blueprint/handoff/BP-EulerSystemsAndKolyvaginSystems--ES.0~5.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.0~5.md",
    "scope": [
     "EulerSystemsAndKolyvaginSystems:ES.0",
@@ -150381,7 +150387,8 @@
    "after": [
     "REV-EulerSystemsAndKolyvaginSystems--ES.0~4"
    ],
-   "revisionOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0"
+   "revisionOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0",
+   "note": "claimed on GitHub issue #10988"
   },
   {
    "id": "REV-EulerSystemsAndKolyvaginSystems--ES.0~5",
@@ -150509,7 +150516,7 @@
     "research/blueprint/handoff/BP-ExcursionOperatorsAndSpectralAction--ES0~5.md"
    ],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0~5.md",
    "scope": [
     "ExcursionOperatorsAndSpectralAction:ES0",
@@ -150525,7 +150532,8 @@
    "after": [
     "REV-ExcursionOperatorsAndSpectralAction--ES0~4"
    ],
-   "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES0"
+   "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES0",
+   "note": "claimed on GitHub issue #11015"
   },
   {
    "id": "REV-ExcursionOperatorsAndSpectralAction--ES0~5",
@@ -150693,8 +150701,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-NoncommutativeAndEquivariantIwasawa~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-NoncommutativeAndEquivariantIwasawa~codex.md",
+   "note": "claimed on GitHub issue #11067"
   },
   {
    "id": "PKG-K2SymbolsBrauer~codex",
@@ -150712,8 +150721,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-K2SymbolsBrauer~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-K2SymbolsBrauer~codex.md",
+   "note": "claimed on GitHub issue #11065"
   },
   {
    "id": "FIX-PKG-K3BlochGroups~adv",
@@ -150731,8 +150741,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-K3BlochGroups~adv.md",
+   "note": "claimed on GitHub issue #11063"
   },
   {
    "id": "PKG-ArithmeticKTheory~codex",
@@ -150750,8 +150761,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/PKG-ArithmeticKTheory~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/PKG-ArithmeticKTheory~codex.md",
+   "note": "claimed on GitHub issue #11064"
   },
   {
    "id": "PKG-MotivicEtaleKTheory~codex",
