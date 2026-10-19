@@ -197,8 +197,11 @@ example {Δ : Type*} [Group Δ] [Fintype Δ] (x : ℤ) :
 example : chiSum (Representation.trivial ℤ (Multiplicative (ZMod 1)) ℤ) 1 (5 : ℤ) = 5 := sorry
 
 /-- The quotient printed as an Euler-system element in RJW is torsion. -/
-example {F : Type*} [Field F] {ζ : F} (h : ζ ≠ 1) :
+example {F : Type*} [Field F] {ζ : F} (hζ0 : ζ ≠ 0) (hζ1 : ζ ≠ 1) :
     (ζ⁻¹ - 1) / (ζ - 1) = -ζ⁻¹ := sorry
+
+/-- Zero is not a root of unity: omitting its exclusion makes the ratio identity false. -/
+example : (((0 : ℚ)⁻¹ - 1) / (0 - 1)) = 1 ∧ -(0 : ℚ)⁻¹ = 0 := by norm_num
 
 /-- The invertibility hypothesis on the root order cannot be omitted. -/
 example : ¬ IsUnit (1 - (-1 : ℤ)) := by decide

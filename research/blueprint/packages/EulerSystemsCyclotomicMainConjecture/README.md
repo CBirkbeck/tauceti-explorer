@@ -413,7 +413,7 @@ These interfaces are used in Rubin, Chapter III §2.1: the Euler system for ℤ_
 - `pCycNumber_three_one` (value): For p = 3, c̃_1 = 3.
 - `pCycNumber_five_three` (value): For p = 5, c̃_3 = −ζ_3: an individual c̃_m can be a root of unity.
 - `pCycNumber_five_five` (value): For p = 5, c̃_5 = 1 − ζ_5.
-- `rjw_ratio_torsion` (non-example): (ζ^{−1} − 1)/(ζ − 1) = −ζ^{−1} for every root of unity ζ ≠ 1: RJW's c_m is torsion.
+- `rjw_ratio_torsion` (non-example): (ζ^{−1} − 1)/(ζ − 1) = −ζ^{−1} for every root of unity ζ ≠ 1: RJW's c_m is torsion. A root of unity is nonzero, and ζ ≠ 1 makes the denominator nonzero. For a general field element both hypotheses are necessary: at ζ=0 the quotient is 1, whereas −ζ^{−1}=0.
 
 **Checks.**
 

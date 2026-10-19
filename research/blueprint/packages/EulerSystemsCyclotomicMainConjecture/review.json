@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-EulerSystemsCyclotomicMainConjecture",
+    "date": "2026-10-19",
+    "notes": "Independent package review completed. Fixed the false general-field quotient example by requiring zeta nonzero and added a proved zero counterexample; Suggested.lean compiles. Four inherited proof-route gaps remain: uniform circular-unit norm descent (README 3.3), odd-prime split valuation/logarithm lattice comparison (4.21), exceptional Gauss-ideal character projection and Baker-Brumer comparison (4.18), and the pure cyclotomic Coleman/Greither normalization comparison (4.7-4.8). See research/blueprint/reviews/REV-PKG-EulerSystemsCyclotomicMainConjecture.md for source checks, exact closure requirements, library and dependency audit, and the adversarial pass. These are missing verified comparison inputs, not merely unimplemented Lean proofs. The package is not ready for the upstream draft PR."
+  }
+}
