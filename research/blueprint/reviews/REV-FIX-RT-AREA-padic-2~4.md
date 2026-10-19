@@ -1,6 +1,58 @@
 # Independent review of the round-four p-adic fixes
 
 **Blocked checkpoint, independently rechecked 19 October 2026 by Codex session
+codex-ESvajv.** The live issue's three-packet review is already recorded. The
+generated job still requires ten other packets outside that issue's permitted
+scope. This continuation verifies that administrative blocker and preserves
+the mathematical review, source-reading attribution and prior Lean evidence.
+
+The bot confirmed [claim 6263926956](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6263926956)
+in [comment 6263930173](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6263930173).
+The complete issue was fetched and re-read after confirmation. This session
+did none of the fixes or earlier reviews and claimed no second job.
+
+Checkout: `3e0797a48ffa72f490c00bf83579f92011c2034b`. An independent fetch of
+GitHub main at [`8ef33b78858968d3ba365ab147d3adb965f4d20c`](https://github.com/CBirkbeck/tauceti-explorer/commit/8ef33b78858968d3ba365ab147d3adb965f4d20c)
+has the same ordered review outputs and dependencies. Fresh execution of the
+unmodified `issues.deliverables_complete` against the checkout gives:
+
+| Contract | Outputs | Packets | Complete |
+|---|---:|---:|---|
+| Live issue's permitted scope | 7 | 3 | True |
+| Checkout's generated queue | 27 | 13 | False |
+| Independently fetched GitHub-main queue | 27 | 13 | False |
+
+Every generated output exists. The three permitted packets name this review
+with accepted / needs_changes / accepted verdicts. All ten extra packets have
+accepted reviews under different job identifiers; the exact reviewer-id test
+fails for those packets. Perfectoid's `needs_changes` already counts as a
+completed review. The [handoff](../handoff/REV-FIX-RT-AREA-padic-2~4.md) lists
+the ten extra packets explicitly.
+
+A fresh historical-queue fetch at `888f12f5c9d80d8205c6f7dd55cbbb933633b5e6`
+confirms the issued ten-output fix and seven-output review, including the
+review's exact ordered output list. The current generator still conditions
+preservation of an existing following round on `not (missing or sent_back)`.
+Actual `intake.file_problems` calls reject both `queue.json` and
+`make_queue.py` as outside swarm output paths. The issue and WORKERS.md also
+restrict this worker's edits. The repair and its earlier write-free controls
+below remain proposals; this session did not rerun those generator experiments
+or apply administrative edits.
+
+Fresh `scripts/check_blueprint.py` checks using the index whose manifest
+matches Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369` pass: **56, 326 and 537 nodes,
+zero errors and zero warnings**. These are structural/index checks. Only this
+notice and the handoff change. No new mathematical review or source reading
+is claimed, and Lean was not rerun for documentation edits.
+
+Restore and preserve the issued contracts before assigning this job again.
+Actual persistence, issue synchronization and intake remain unverified until
+that separately authorized repair is applied.
+
+## Prior checkpoint: codex-ARcNcm
+
+**Blocked checkpoint, independently rechecked 19 October 2026 by Codex session
 codex-ARcNcm.** The issued three-packet review is already complete. The current
 generated queue still requires ten additional packets outside the live issue's
 permitted scope. The mathematical review, source records and Lean evidence
