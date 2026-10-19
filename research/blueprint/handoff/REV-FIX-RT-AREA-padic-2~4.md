@@ -1,11 +1,12 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-jF7cls**, 19 October 2026.
-Checkout: `bcb332fc47701d4ee0a51e0070f271b65b99baa2`.
-Independently fetched GitHub main: `bcb332fc47701d4ee0a51e0070f271b65b99baa2`.
-Branch: `codex-jF7cls-padic-review-checkpoint`.
-The bot confirmed [claim 6265184802](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6265184802)
-in [comment 6265188099](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6265188099).
+Refs #6519. Codex, session **codex-hclUFj**, 19 October 2026.
+Checkout: `34cc5c40aa9a0e26a949f649aabf0e6869da5207`.
+Independently fetched GitHub main: `c000685ae5a742cd8b533866d4eb046fe65f8a9d`.
+The immutable-commit queue agrees with the separately fetched main queue.
+Branch: `codex-hclUFj-padic-review-checkpoint`.
+The bot confirmed [claim 6266400086](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6266400086)
+in [comment 6266402697](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6266402697).
 The issue was fetched and re-read after confirmation. This session wrote none
 of the fixes or previous reviews and claimed no second job.
 
@@ -21,7 +22,9 @@ blocker and changes only the report's current notice and this handoff.
 The live issue permits **seven outputs / three packets**. The checkout and
 independently fetched GitHub-main queues require **27 outputs / thirteen
 packets**, with identical ordered output lists and dependencies. The fix
-requires 46 outputs. All outputs exist. Fresh execution of the unmodified
+requires 46 outputs and depends on the preceding fix, whereas its historical
+contract has ten outputs and depends on the preceding review. All outputs
+exist. Fresh execution of the unmodified
 `issues.deliverables_complete` returns **True** for a copy with the issued
 seven outputs and **False** for both generated job entries. The three scoped
 verdicts already name this job. Perfectoid's `needs_changes` counts as a
@@ -73,6 +76,10 @@ contracts, while stock generation mutated them. Those experiments were not
 rerun here, and no proposed repair was applied. The harness excludes real
 persistence, issue synchronization and intake; those checks remain necessary
 under separate authorization. No scratch artifact is needed to resume.
+The preceding checkpoint
+[#10703](https://github.com/CBirkbeck/tauceti-explorer/pull/10703) already
+reported this blocker; the current report notice replaces that session's status
+while preserving its evidence and attribution.
 
 ## Fresh validation and preserved evidence
 
