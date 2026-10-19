@@ -7,7 +7,8 @@ import TauCeti.NumberTheory.ArithmeticDirichletSeries.Estimates
 
 The roadmap is `README.md`; this file is not exhaustive. It records the definitions and theorem
 signatures of the roadmap that can be stated against the pinned Mathlib and Tau Ceti, together
-with `example` checks that pin every sign, twist and normalisation by a computed witness.
+with representative `example` checks for signs, twists and normalisations. The README also
+records the supplier gaps affecting the independent certificates and the classical comparison.
 References §k.n are to the subsections of `README.md`.
 
 Design choices made explicit here:
@@ -158,6 +159,15 @@ theorem chiFive_apply_four : chiFive 4 = 1 := by sorry
 /-- §3.2. `χ₅` is even, `χ₅(-1) = χ₅(4) = 1`; an odd character would have `L(-1, χ) = 0`. -/
 theorem chiFive_even : chiFive.Even := by sorry
 
+/-- Check (§3.2): zero and the inert prime `2` distinguish `χ₅` from the constant-one function
+and from the principal Dirichlet character. -/
+example : chiFive 0 = 0 ∧ chiFive 2 = -1 := by
+  exact ⟨chiFive.map_zero, chiFive_apply_two⟩
+
+/-- Check (§3.2): the other inert residue `3` and split residue `4` have different signs. -/
+example : chiFive 3 = -1 ∧ chiFive 4 = 1 :=
+  ⟨chiFive_apply_three, chiFive_apply_four⟩
+
 /-- §3.2. `χ₅` is not the trivial character modulo `5`. -/
 theorem chiFive_ne_one : chiFive ≠ 1 := by sorry
 
@@ -240,6 +250,12 @@ example (S : Finset (IsDedekindDomain.HeightOneSpectrum (𝓞 F))) (hS : S.Nonem
   obtain ⟨v, hv⟩ := hS
   exact Finset.prod_eq_zero hv (by simp)
 
+/-- Check (§4.1, excluded weight): at `n = 0` the complex exponent is `-1`, while natural
+subtraction truncates `0 - 1` to `0`. The formula requires `1 ≤ n`. -/
+example : 1 - (2 : ℂ) ^ (-1 : ℂ) = 1 / 2 ∧
+    1 - (2 : ℂ) ^ (0 - 1 : ℕ) = 0 := by
+  norm_num [Complex.cpow_neg]
+
 end EulerFactors
 
 /-- Check (§4.1, §4.4): deleting `2` and `3` over `ℚ` at `s = -1`: the factors are
@@ -268,7 +284,15 @@ example (ℓ f : ℕ) (hℓ : 2 ≤ ℓ) (hf : 1 ≤ f) : ¬ ℓ ∣ ℓ ^ f - 1
   rw [Nat.sub_sub_self h2] at this
   exact absurd (Nat.le_of_dvd one_pos this) (by omega)
 
+/-- Check (§4.6): in the exponent group `ℤ/3` for `𝔽₇ˣ/(𝔽₇ˣ)³`, the negative Kummer
+class of a generator is `2`, whereas its positive class is `1`. -/
+example : -(1 : ZMod 3) = 2 ∧ -(1 : ZMod 3) ≠ 1 := by decide
+
 /-! ## Layer 5: the odd-primary theorem -/
+
+/-- Check (§5.1): for the trivial `C₂` action, corestriction multiplies by `2`, and its
+normalized inverse to restriction is `(1/2) cor`. This rational calculation is valid in `ℤ₃`. -/
+example : (1 / 2 : ℚ) * (2 * 1) = 1 ∧ (2 : ℚ) * 1 ≠ 1 := by norm_num
 
 /-- Check (§5.2, §5.3): the odd valuation identities `v_ℓ(#K₂) + v_ℓ(b) = v_ℓ(w₂) + v_ℓ(a)` for
 `|ζ_F(-1)| = a/b`: over `ℚ` at `ℓ = 3` (`|ζ(-1)| = 1/12`, `#K₂ = 2`, `w₂ = 24`) and over `ℚ(√5)`
@@ -304,6 +328,20 @@ example : (1 / 12 : ℚ) * (1 / 5 - 5) = -2 / 5 ∧ padicValRat 2 (-2 / 5) = 1 �
     simp only [padicValNat.prime_pow]
     simp [padicValNat.eq_zero_of_not_dvd]
 
+/-- Check (§6.3): the covariant dual of multiplication by `2` on `ℤ/5` has eigenvalue `2`;
+the contragredient dual instead has eigenvalue `3`. -/
+example : (2 : ZMod 5) * 1 = 2 ∧ (2 : ZMod 5)⁻¹ * 1 = 3 ∧
+    (2 : ZMod 5) ≠ (2 : ZMod 5)⁻¹ := by
+  have hi : (2 : ZMod 5)⁻¹ = 3 := inv_eq_of_mul_eq_one_right (by decide)
+  rw [hi]
+  decide
+
+/-- Check (§6.5): an order-four character distinguishes inverse second-kind twisting. This is
+an algebraic coefficient model, without identifying complex and 2-adic L-values. -/
+example : Complex.I⁻¹ * 5 - 1 = -1 - 5 * Complex.I ∧
+    Complex.I * 5 - 1 ≠ Complex.I⁻¹ * 5 - 1 := by
+  norm_num [Complex.inv_def, Complex.ext_iff]
+
 /-! ## Layer 7: the 2-part for every totally real field -/
 
 /-- Check (§7.1, §7.2): over `ℚ` with `u = 5`, `(u² - 1) · ζ_{ℚ,{2}}(-1) = 24 · (1/12) = 2`,
@@ -331,7 +369,21 @@ example : padicValNat 2 2 + padicValNat 2 12 = padicValNat 2 24 + padicValNat 2 
   simp only [padicValNat.prime_pow]
   simp [padicValNat.eq_zero_of_not_dvd]
 
+/-- Check (§7.5): the involution `γ ↦ uγ⁻¹` contributes the unit `-γ⁻¹` to the pole
+factor. For `u = 5`, `γ = 25`, the alternative `u⁻¹γ` gives a different value. -/
+example : (5 : ℚ) / 25 - 1 = -(25 : ℚ)⁻¹ * (25 - 5) ∧
+    (5 : ℚ) / 25 - 1 ≠ (5 : ℚ)⁻¹ * 25 - 1 := by norm_num
+
 /-! ## Layer 8: higher special values -/
+
+/-- Check (§8.2): a rank-one regulator of determinant `2` has covolume `2`, unchanged by
+reversing the basis; its index-two sublattice has covolume `4`. -/
+example : |(2 : ℝ)| = 2 ∧ |(-2 : ℝ)| = 2 ∧ |(4 : ℝ)| = 2 * |(2 : ℝ)| ∧
+    |(2 : ℝ)| ≠ (2 : ℝ)⁻¹ := by norm_num
+
+/-- Check (§8.6): the plus sign in the relative determinant class cancels inverse
+trivialisations; changing that sign gives the nonunit `4`. -/
+example : (2 : ℚ) * (1 / 2) = 1 ∧ (2 : ℚ) * (1 / 2)⁻¹ ≠ 1 := by norm_num
 
 /-- Check (§8.2, §8.5): the even-weight formula over `ℚ`,
 `ζ(-1) = (-1)·2·2/48`, `ζ(-3) = (+1)·2·1/240`; without `2^{r₁}` the weight-two value would be
@@ -375,5 +427,5 @@ norm-kernel comparison, Federer's conjecture for abelian fields and Birch–Tate
 theorem `birchTateFormula_of_isTotallyReal`, the series dictionary, the comparison theorem and
 Federer's conjecture for every totally real field (§7.1–§7.5); `hInvariant`, the motivic regulator,
 the Lichtenbaum predicates and their proofs for totally real fields, the real-place correction and
-`TateMotiveETNC` (§8.1–§8.6).
+`TateMotiveETNC`, its input data and rationality predicate (§8.1–§8.6).
 -/

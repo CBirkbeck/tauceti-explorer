@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-SpecialValuesBirchTate~adv",
+    "date": "2026-10-19",
+    "notes": "Independent source, ownership, signature and adversarial review completed; fixes applied to Euler exponent bounds, transfer normalisation, all-real-place parity, dual/inverse-character conventions, regulator API/tests and ETNC data/rationality/sign. Suggested.lean elaborates: exit 0, only 20 sorry warnings. Five supplier proof gaps remain: T.2 finite-rank monomial kernel for K2(Z); N.8 generalized Thue input for the Q(zeta_5) tame kernel; I.10 explicit classical-modern module/finite-specialisation diagram; I.8-I.9 bounded Burns-Flach dyadic model; L4 all-prime Ferrero-Washington adapters. See REV-PKG-SpecialValuesBirchTate~adv.md for exact owners, evidence, full pass table and handoff."
+  }
+}
