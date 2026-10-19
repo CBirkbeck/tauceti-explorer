@@ -121,7 +121,7 @@
     {
       "key": "KB.10",
       "title": "The characteristic-two comparison",
-      "description": "Specify Dwork congruence data, prove the signed 2-adic refinement, and compare the two explicit Bessel solution series. Identify maximal-slope quotients on a common constant-Newton locus with their shared q^n Frobenius scale and apply the imported curve minimal-slope theorem. Transport the appendix coordinate x↦−x by convergent Taylor isomorphisms.",
+      "description": "Specify Dwork congruence data, prove the signed 2-adic refinement, and compare the two explicit Bessel solution series. Identify maximal-slope quotients on a common constant-Newton locus with the full q=2^s iterated Frobenius multipliers and their shared q^n scale, then apply the imported curve minimal-slope theorem. Transport the appendix coordinate x↦−x by convergent Taylor isomorphisms.",
       "requires": [
         "KloostermanSheavesAndBesselIsocrystals:KB.9",
         "KloostermanSheavesAndBesselIsocrystals:KB.5",

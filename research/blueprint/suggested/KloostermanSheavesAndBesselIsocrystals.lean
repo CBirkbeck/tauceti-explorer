@@ -6,6 +6,7 @@ import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.LinearAlgebra.Matrix.Notation
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.Ring
 
 /-!
 # Kloosterman sheaves and Bessel F-isocrystals: suggested signatures
@@ -27,7 +28,8 @@ Conventions: raw sums have no sign or weight factor; the normalized rank-r trace
 is (-1)^(r-1) q^(-(r-1)/2) times the raw sum. Matrices use column connections.
 The rank-three lowest-root matrix has both coefficients 2. The signed appendix
 series is written in its x ↦ -x coordinate; its maximal quotient is dual to the
-solution line in the column cyclic convention, with multiplier q^n/f.
+solution line in the column cyclic convention, with multiplier q^n/f_q, where
+f_q = F(x)/F(x^q) is the full iterated multiplier for q = 2^s.
 -/
 
 noncomputable section
@@ -83,6 +85,10 @@ example :
 /-- The exceptional signed congruence is visible already at this coefficient ratio. -/
 example : signedCoefficient 1 4 / signedCoefficient 1 2 = (1 : ℚ) / 27 := by
   norm_num [signedCoefficient, Nat.factorial]
+
+/-- KB.10: q = 4 requires both squaring factors in the geometric-series multiplier. -/
+example (x : ℚ) : (1 - x) * ((1 + x) * (1 + x ^ 2)) = 1 - x ^ 4 := by
+  ring
 
 /-- KB.11: Carlitz's raw characteristic-two identity, with no extra q factor. -/
 theorem carlitz_char_two {F : Type*} [Field F] [Fintype F] [DecidableEq F] [CharP F 2]

@@ -79,7 +79,7 @@
       "accessed": "2026-10-19",
       "readSections": [
         "§§1.2–1.4, pp. 250–255: root-depth levels, bundle stack and big cell",
-        "§§2.1–2.6, pp. 257–263: clean datum, Hecke eigenobject and monodromy statements; original prime restrictions are not used to infer all-prime statements"
+        "§§2.1–2.6, pp. 256–263: clean datum, Hecke eigenobject and monodromy statements; original prime restrictions are not used to infer all-prime statements"
       ]
     },
     {
@@ -93,7 +93,7 @@
       "readSections": [
         "§§5–6, pp. 8–14: principal grading, oper form and classical matrices",
         "Theorem 1, p. 16: cohomological rigidity in the stated representations",
-        "§§13–14, pp. 27–29: subgroup classification, Proposition 8 and Corollaries 9–10"
+        "§§13–14, pp. 27–29: subgroup classification, Proposition 8 and Corollaries 9–10 and the local terms in Proposition 11"
       ]
     },
     {
@@ -190,20 +190,28 @@
           "name": "Bessel.coefficients.half_twist",
           "role": "structure",
           "statement": "The chosen half Tate twist has q^d-Frobenius c_q^(−d); its square is the Tate twist (1)."
+        },
+        {
+          "name": "Bessel.coefficients.iterate_half_twist",
+          "role": "compatibility",
+          "statement": "After a degree-d constant extension the half-twist scalar is c_q^{−d}; successive degree-d and degree-e extensions multiply the exponent to de. The normalized raw trace uses the same character trace tower."
         }
       ],
       "tests": [
         {
           "name": "rank_two",
-          "statement": "At r=2,d=1 the scalar trace is −RawKl₂/c_q, not RawKl₂ or −RawKl₂/q."
+          "statement": "At r=2,d=1 the scalar trace is −RawKl₂/c_q, not RawKl₂ or −RawKl₂/q.",
+          "kind": "computation"
         },
         {
           "name": "nonprimitive_point",
-          "statement": "For a∈k× viewed in k_d, the Frobenius product has d repeated factors, not one."
+          "statement": "For a∈k× viewed in k_d, the Frobenius product has d repeated factors, not one.",
+          "kind": "compatibility"
         },
         {
           "name": "coefficient_extension",
-          "statement": "The field Q₃(μ₃) alone is rejected for the uniform datum unless √3 is adjoined; the normalized rank-two trace can lie outside it."
+          "statement": "The field Q₃(μ₃) alone is rejected for the uniform datum unless √3 is adjoined; the normalized rank-two trace can lie outside it.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -236,12 +244,12 @@
       ],
       "prerequisites": [
         "KloostermanSheavesAndBesselIsocrystals:KB.0/coefficients",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.1/dwork-exponential-module"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.2/dwork-exponential-artin-schreier-example"
       ],
       "proofSteps": [
         "Differentiate the multipliers and use C′+A C=C A_F for the column connection.",
         "Evaluate the Kummer multiplier on Teichmüller units and compare the character.",
-        "Use E_λ at λ=−π; match rational Kummer exponents modulo integers rather than differentiating an algebraic character."
+        "Take the dual of the existing all-prime Dwork object with connection d+πdt to obtain E_{−π}; the RD.1 local example by itself assumes p odd. Match rational Kummer exponents modulo integers rather than differentiating an algebraic character."
       ],
       "sources": [
         {
@@ -316,20 +324,28 @@
           "name": "Bessel.affine_depth.torus_action",
           "role": "functoriality",
           "statement": "T_ad acts on the functional coordinates by their root characters; the action preserves genericity."
+        },
+        {
+          "name": "Bessel.affine_depth.functional_ext",
+          "role": "extensionality",
+          "statement": "Two linear functionals on V are equal if their restrictions to every affine-simple root line agree, including the empty torus case."
         }
       ],
       "tests": [
         {
           "name": "sl_two",
-          "statement": "For SL₂, the quotient has exactly the finite simple-root coordinate and the affine lowest-root coordinate."
+          "statement": "For SL₂, the quotient has exactly the finite simple-root coordinate and the affine lowest-root coordinate.",
+          "kind": "computation"
         },
         {
           "name": "torus",
-          "statement": "For G=G_m the quotient is zero and its zero functional is generic by the empty condition."
+          "statement": "For G=G_m the quotient is zero and its zero functional is generic by the empty condition.",
+          "kind": "degenerate"
         },
         {
           "name": "gl_two_char_two",
-          "statement": "For GL₂ over F₂, diag(1+y,1) lies in the root-depth kernel. Its determinant shows that a commutator-plus-scalar kernel would fail this test."
+          "statement": "For GL₂ over F₂, diag(1+y,1) lies in the root-depth kernel. Its determinant shows that a commutator-plus-scalar kernel would fail this test.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -401,20 +417,28 @@
           "name": "Bessel.level_model.level_change",
           "role": "compatibility",
           "statement": "Bun_G(1,2)→Bun_G(0,2) is the torus-level change; its big cell is the specified torus extension times V."
+        },
+        {
+          "name": "Bessel.level_model.base_change",
+          "role": "compatibility",
+          "statement": "Pullback of the specified level model, its neutral bundle and each indexed big-cell immersion along a finite residue-field extension agrees with the construction over that field; the common-DVR version requires G1."
         }
       ],
       "tests": [
         {
           "name": "neutral_point",
-          "statement": "j₀(0) is the trivial bundle with the prescribed levels, rather than its classifying stack BT."
+          "statement": "j₀(0) is the trivial bundle with the prescribed levels, rather than its classifying stack BT.",
+          "kind": "characterisation"
         },
         {
           "name": "sl_two_chart",
-          "statement": "For SL₂ the neutral big cell is A², whose dimension agrees with the two affine-root lines."
+          "statement": "For SL₂ the neutral big cell is A², whose dimension agrees with the two affine-root lines.",
+          "kind": "computation"
         },
         {
           "name": "component_translation",
-          "statement": "A nonidentity γ sends the neutral point to its own component; a chart confined to the neutral component cannot pass."
+          "statement": "A nonidentity γ sends the neutral point to its own component; a chart confined to the neutral component cannot pass.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -456,7 +480,7 @@
       "sources": [
         {
           "sourceId": "XZ",
-          "locator": "XZ Lemma 4.1.4 and (4.1.3.2), pp. 38–39; HNY Lemma 2.3 and Definition 2.4, pp. 257–258",
+          "locator": "XZ Lemma 4.1.4 and (4.1.3.2), pp. 38–39; HNY Lemma 2.3 and Definition 2.4, pp. 256–257",
           "match": "Clean automorphic datum: For generic φ on V, define A on the γ component of Bun_G(0,2) as the shifted extension of φ*AS_ψ along j_γ, with the shift prescribed by the holonomic heart."
         }
       ],
@@ -485,20 +509,28 @@
           "name": "Bessel.clean_datum.evaluation_equivalence",
           "role": "universal-property",
           "statement": "Every generic-equivariant holonomic object is A tensored with its fiber at the chosen base point; this description is fully faithful."
+        },
+        {
+          "name": "Bessel.clean_datum.morphism_ext",
+          "role": "extensionality",
+          "statement": "A morphism of generic-equivariant clean objects is determined by its coefficient-fiber map at the fixed chart origin, as follows from the evaluation equivalence."
         }
       ],
       "tests": [
         {
           "name": "base_fiber",
-          "statement": "The coefficient fiber of A at the chart origin is the unit rank-one object."
+          "statement": "The coefficient fiber of A at the chart origin is the unit rank-one object.",
+          "kind": "computation"
         },
         {
           "name": "boundary_vanishing",
-          "statement": "Every ! and ordinary stalk on the complement of the big cell is zero."
+          "statement": "Every ! and ordinary stalk on the complement of the big cell is zero.",
+          "kind": "characterisation"
         },
         {
           "name": "nongeneric_rejected",
-          "statement": "For SL₂ with φ=0, the boundary-stabilizer proof fails and the generic cleanness theorem is not applicable."
+          "statement": "For SL₂ with φ=0, the boundary-stabilizer proof fails and the generic cleanness theorem is not applicable.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -570,20 +602,28 @@
           "name": "Bessel.hecke_action.base_point_formula",
           "role": "compatibility",
           "statement": "Restriction to the chosen bundle equals the exponential direct image on GR_W^o, with the Satake shift and half twist."
+        },
+        {
+          "name": "Bessel.hecke_action.intertwiner_composition",
+          "role": "simp",
+          "statement": "The Hecke maps induced by identity intertwiners are identities, and a composite of intertwiners induces the composite map; these identities commute with fusion."
         }
       ],
       "tests": [
         {
           "name": "unit_shift",
-          "statement": "W=1 gives rank one in degree zero and no Tate twist."
+          "statement": "W=1 gives rank one in degree zero and no Tate twist.",
+          "kind": "degenerate"
         },
         {
           "name": "tensor_rank",
-          "statement": "For a rank-two standard W, the W⊗W dual coefficient has rank four, rather than the rank of W."
+          "statement": "For a rank-two standard W, the W⊗W dual coefficient has rank four, rather than the rank of W.",
+          "kind": "computation"
         },
         {
           "name": "minuscule_shift",
-          "statement": "For a minuscule coweight of dimension d, IC_W is the constant coefficient shifted by d and twisted by d/2 in the normalized arithmetic realization."
+          "statement": "For a minuscule coweight of dimension d, IC_W is the constant coefficient shifted by d and twisted by d/2 in the normalized arithmetic realization.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -667,7 +707,7 @@
       "sources": [
         {
           "sourceId": "XZ",
-          "locator": "§§4.1.11–4.1.13, pp. 41–42; HNY Definitions 2.6 and 2.10, pp. 258–260",
+          "locator": "§§4.1.11–4.1.13, pp. 41–42; HNY Remark 2.5 and Definition 2.6, p. 257; Definition 2.11, p. 260",
           "match": "Tame-character eigenobject: For a character χ:T(k)→K× and a splitting s:T⋊Ω≅T̃, use on the γ chart K_{χγ}⊠φ*AS_ψ, with χγ=χ∘Adγ."
         }
       ],
@@ -696,20 +736,28 @@
           "name": "Bessel.character_variant.splitting_change",
           "role": "functoriality",
           "statement": "Transport along a new splitting is described by the resulting torus-character cocycle; no unconditional independence is asserted for nontrivial χ."
+        },
+        {
+          "name": "Bessel.character_variant.exponent_mod_integers",
+          "role": "compatibility",
+          "statement": "Changing a rational Kummer exponent by an integral character gives an algebraic gauge isomorphism; a Frobenius comparison must transport that gauge as well. The induced tame character depends on the rational class modulo integers."
         }
       ],
       "tests": [
         {
           "name": "trivial_exponent",
-          "statement": "For χ=1 the rational exponent 0 gives the base construction."
+          "statement": "For χ=1 the rational exponent 0 gives the base construction.",
+          "kind": "degenerate"
         },
         {
           "name": "finite_order_test",
-          "statement": "For k=F₅, the nontrivial Teichmüller character must use an exponent with denominator 4; exponent 1 gives a trivial algebraic monodromy instead."
+          "statement": "For k=F₅, the nontrivial Teichmüller character must use an exponent with denominator 4; exponent 1 gives a trivial algebraic monodromy instead.",
+          "kind": "non-example"
         },
         {
           "name": "conjugation_test",
-          "statement": "A component γ with nontrivial action on T changes χ by Adγ; replacing every χγ by χ fails on that component."
+          "statement": "A component γ with nontrivial action on T changes χ by Adγ; replacing every χγ by χ fails on that component.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -829,20 +877,28 @@
           "name": "Bessel.fg_connection.parameter_scale",
           "role": "compatibility",
           "statement": "In an almost-simple factor, λ scales the affine invariant by λ^h; its standard A-type cyclic operator agrees with the imported scalar Bessel dictionary."
+        },
+        {
+          "name": "Bessel.fg_connection.dual",
+          "role": "structure",
+          "statement": "On W dual the connection matrix is the negative transpose of the matrix on W; evaluation W dual⊗W→1 is horizontal, naturally in H-intertwiners."
         }
       ],
       "tests": [
         {
           "name": "torus",
-          "statement": "For H=G_m and any character W, the resulting connection is d."
+          "statement": "For H=G_m and any character W, the resulting connection is d.",
+          "kind": "degenerate"
         },
         {
           "name": "sl_two",
-          "statement": "For H=SL₂ with N=E₁₂,E=E₂₁, A_λ=[[0,1],[λ²x,0]]."
+          "statement": "For H=SL₂ with N=E₁₂,E=E₂₁, A_λ=[[0,1],[λ²x,0]].",
+          "kind": "computation"
         },
         {
           "name": "product_exponents",
-          "statement": "For SL₂×SL₃ the affine terms are λ²xE₂₁ and λ³xE₃₁; using λ² in both factors fails."
+          "statement": "For SL₂×SL₃ the affine terms are λ²xE₂₁ and λ³xE₃₁; using λ² in both factors fails.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -957,20 +1013,28 @@
           "name": "Bessel.oper_slice.filtered_functions",
           "role": "structure",
           "statement": "Functions on the slice carry the oper filtration with associated graded the invariant polynomial algebra of affine-generic parameters."
+        },
+        {
+          "name": "Bessel.oper_slice.parameter_ext",
+          "role": "extensionality",
+          "statement": "Two points in the stated principal-graded slice have the same oper normal form exactly when their affine invariant parameter is equal; use the pinned coordinate identification."
         }
       ],
       "tests": [
         {
           "name": "adjoint_rank_one",
-          "statement": "For H=PGL₂ the slice has one parameter; it is A¹ after fixing the root vector."
+          "statement": "For H=PGL₂ the slice has one parameter; it is A¹ after fixing the root vector.",
+          "kind": "computation"
         },
         {
           "name": "zero_parameter",
-          "statement": "The origin is in the bounded slice but is not generic; its irregularity at ∞ drops."
+          "statement": "The origin is in the bounded slice but is not generic; its irregularity at ∞ drops.",
+          "kind": "degenerate"
         },
         {
           "name": "residue_condition",
-          "statement": "An oper with a different regular-singular residue at zero is not admitted even when its maximal slope at ∞ is ≤1/h."
+          "statement": "An oper with a different regular-singular residue at zero is not admitted even when its maximal slope at ∞ is ≤1/h.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -1113,7 +1177,8 @@
       ],
       "acceptance": [
         "SL₃ has characteristic-zero SL₃ monodromy; the SO₃ result at p=2 must not be substituted into this algebraic theorem.",
-        "G₂ and SO₇ have the same seven-dimensional connection but are different ambient group carriers; retain the image of the actual central map."
+        "G₂ and SO₇ have the same seven-dimensional connection but are different ambient group carriers; retain the image of the actual central map.",
+        "Use the D_{n+1}→B_n row for n≥4, not the misindexed D_{2n+1} row in FG Corollary 10; D₄ remains the separate G₂ case."
       ],
       "implementationStatus": "unchecked",
       "realises": [
@@ -1139,9 +1204,10 @@
       "prerequisites": [
         "KloostermanSheavesAndBesselIsocrystals:KB.1/eigenobject",
         "KloostermanSheavesAndBesselIsocrystals:KB.0/rank-one-dictionary",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
         "GlobalShtukasAndFunctionFieldLanglands:GS.1/beilinson-drinfeld-grassmannian",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4/algebraic-rigid-specialization-maps",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4/specialization-forget-supports-square"
       ],
       "proofSteps": [
         "Use the minuscule flag variety as a smooth projective compactification of the Hecke fiber over R.",
@@ -1180,10 +1246,11 @@
       "prerequisites": [
         "KloostermanSheavesAndBesselIsocrystals:KB.3/minuscule-comparison",
         "KloostermanSheavesAndBesselIsocrystals:KB.1/clean-datum",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.4",
         "PadicDifferentialEquationsAndRigidCohomology:RD.3",
         "GlobalShtukasAndFunctionFieldLanglands:GS.1/beilinson-drinfeld-grassmannian",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.0"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.0",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4/algebraic-rigid-specialization-maps",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.4/specialization-forget-supports-square"
       ],
       "proofSteps": [
         "Use the quasi-minuscule resolution and the localization triangle at its closed vertex.",
@@ -1304,20 +1371,28 @@
           "name": "Bessel.bessel_isocrystal.companion",
           "role": "compatibility",
           "statement": "For every closed point and W, its characteristic polynomial equals that of the normalized étale Hecke eigenobject."
+        },
+        {
+          "name": "Bessel.bessel_isocrystal.coefficient_extension",
+          "role": "compatibility",
+          "statement": "Finite extension of K carrying the chosen π and c_p to their fixed images commutes with the Bessel tensor functor, its Frobenius, and its closed-point characteristic polynomials."
         }
       ],
       "tests": [
         {
           "name": "unit_representation",
-          "statement": "The trivial H representation gives the constant rank-one F-isocrystal with Frobenius 1."
+          "statement": "The trivial H representation gives the constant rank-one F-isocrystal with Frobenius 1.",
+          "kind": "degenerate"
         },
         {
           "name": "rank_two_normalization",
-          "statement": "For H=SL₂, the degree-one standard trace is −RawKl₂/c_q."
+          "statement": "For H=SL₂, the degree-one standard trace is −RawKl₂/c_q.",
+          "kind": "computation"
         },
         {
           "name": "torus_factor",
-          "statement": "For a split torus with trivial tame character, every character yields the constant rank-one F-isocrystal, consistent with 2ρ=0."
+          "statement": "For a split torus with trivial tame character, every character yields the constant rank-one F-isocrystal, consistent with 2ρ=0.",
+          "kind": "degenerate"
         }
       ],
       "uses": [
@@ -1389,20 +1464,28 @@
           "name": "Bessel.log_extension.unique_extension",
           "role": "universal-property",
           "statement": "Every morphism between these unipotent objects extends uniquely to the nilpotent log extension."
+        },
+        {
+          "name": "Bessel.log_extension.tensor_dual",
+          "role": "compatibility",
+          "statement": "The canonical nilpotent-log extension preserves tensor products and duals; its residues are N⊗1+1⊗N′ and −N transpose, respectively, with the induced logarithmic Frobenius."
         }
       ],
       "tests": [
         {
           "name": "sl_two_residue",
-          "statement": "For SL₂ the standard residue has rank one and square zero; it is not the zero residue."
+          "statement": "For SL₂ the standard residue has rank one and square zero; it is not the zero residue.",
+          "kind": "computation"
         },
         {
           "name": "trivial_representation",
-          "statement": "The unit representation has residue zero and log Frobenius 1."
+          "statement": "The unit representation has residue zero and log Frobenius 1.",
+          "kind": "degenerate"
         },
         {
           "name": "infinity_boundary",
-          "statement": "A generic nonzero affine parameter has positive irregularity at infinity and cannot be extended there by the same nilpotent-log rule."
+          "statement": "A generic nonzero affine parameter has positive irregularity at infinity and cannot be extended there by the same nilpotent-log rule.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -1645,7 +1728,8 @@
         "KloostermanSheavesAndBesselIsocrystals:KB.4/bessel-isocrystal",
         "KloostermanSheavesAndBesselIsocrystals:KB.2/fg-connection",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-        "MotivesAndAlgebraicCycles:MC.6"
+        "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6/coefficient-category-is-neutral-tannakian"
       ],
       "proofSteps": [
         "Use the existing neutral Tannaka carrier and exact tensor subcategory generation.",
@@ -1684,20 +1768,28 @@
           "name": "Bessel.generated_groups.fiber_change",
           "role": "compatibility",
           "statement": "Changing a fiber functor changes the embedded group by its tensor-isomorphism torsor; statements are made up to the corresponding conjugation."
+        },
+        {
+          "name": "Bessel.generated_groups.tensor_invariants",
+          "role": "characterisation",
+          "statement": "In the generated category with Frobenius forgotten, a tensor is geometrically invariant exactly when it comes from the corresponding constant subobject. This is the specialized coefficient-category invariant criterion, not a reconstruction of the generic Tannakian carrier."
         }
       ],
       "tests": [
         {
           "name": "trivial_object",
-          "statement": "For the trivial tensor functor on Rep(G_m), generation has trivial monodromy, not G_m."
+          "statement": "For the trivial tensor functor on Rep(G_m), generation has trivial monodromy, not G_m.",
+          "kind": "degenerate"
         },
         {
           "name": "scalar_rank_two",
-          "statement": "The normalized SL₂ standard object generates geometric SL₂, agreeing with the scalar supplier at every p."
+          "statement": "The normalized SL₂ standard object generates geometric SL₂, agreeing with the scalar supplier at every p.",
+          "kind": "compatibility"
         },
         {
           "name": "include_subquotients",
-          "statement": "A reducible tensor construction contributes its invariant line as a subobject; restricting to the literal image instead of subquotient closure fails this test."
+          "statement": "A reducible tensor construction contributes its invariant line as a subobject; restricting to the literal image instead of subquotient closure fails this test.",
+          "kind": "characterisation"
         }
       ],
       "uses": [
@@ -1862,12 +1954,14 @@
         "KloostermanSheavesAndBesselIsocrystals:KB.6/principal-exclusion",
         "KloostermanSheavesAndBesselIsocrystals:KB.4/log-extension",
         "PadicDifferentialEquationsAndRigidCohomology:RD.2",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.5"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.5",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.6/grothendieck-ogg-shafarevich-formula"
       ],
       "proofSteps": [
         "Apply duality and the GOS Euler characteristic to the localization sequence for j_!+E.",
         "The zero fiber contributes r invariant residue vectors; combine the upper bound r with exactness to force all middle cohomology and infinity invariants to vanish.",
-        "A nonzero adjoint N_∞ would lie in the inertia-invariant adjoint subspace, so vanishing forces N_∞=0. Apply the simple-wild structure theorem only for p∤|W_H|; the generic Weil-parameter supplier is gap G7."
+        "A nonzero adjoint N_∞ would lie in the inertia-invariant adjoint subspace, so vanishing forces N_∞=0. Apply the simple-wild structure theorem only for p∤|W_H|; the generic Weil-parameter supplier is gap G7.",
+        "In the characteristic-zero middle-cohomology check, subtract one inertia-invariant dimension at zero and one at infinity. FG (14.1), p. 29, repeats I₀ typographically; its preceding boundary sequence gives the correct I₀⊕I∞."
       ],
       "sources": [
         {
@@ -1911,7 +2005,7 @@
         "KloostermanSheavesAndBesselIsocrystals:KB.4/bessel-isocrystal",
         "KloostermanSheavesAndBesselIsocrystals:KB.6/global-monodromy",
         "KloostermanSheavesAndBesselIsocrystals:KB.4/zero-frobenius",
-        "MotivesAndAlgebraicCycles:MC.6"
+        "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
       ],
       "proofSteps": [
         "Apply neutral Tannaka to a horizontal tensor automorphism of the underlying connection.",
@@ -2204,20 +2298,28 @@
           "name": "Bessel.orthogonal_matrices.odd_operator",
           "role": "compatibility",
           "statement": "The cyclic presentation is the specified odd scalar operator; its normalized holomorphic solution at zero has coefficients (2r−1)!!(2λ^{2n})^r/(r!)^{2n+1}."
+        },
+        {
+          "name": "Bessel.orthogonal_matrices.coefficient_base_change",
+          "role": "compatibility",
+          "statement": "The integral matrix entries commute with characteristic-zero coefficient extension; the form and invariant-line identities hold under the same scalar map. A coefficient field of residue characteristic two still has characteristic zero."
         }
       ],
       "tests": [
         {
           "name": "odd_rank_three",
-          "statement": "For n=1, N=E₁₂+E₂₃, E=2E₂₁+2E₃₂ and the operator is δ³−λ²x(4δ+2)."
+          "statement": "For n=1, N=E₁₂+E₂₃, E=2E₂₁+2E₃₂ and the operator is δ³−λ²x(4δ+2).",
+          "kind": "computation"
         },
         {
           "name": "even_rank_six",
-          "statement": "For n=3, N has E₁₂,E₂₃,E₄₅,E₅₆,E₂₄,E₃₅ and kills e₃−e₄; adding E₃₄ would fail."
+          "statement": "For n=3, N has E₁₂,E₂₃,E₄₅,E₅₆,E₂₄,E₃₅ and kills e₃−e₄; adding E₃₄ would fail.",
+          "kind": "computation"
         },
         {
           "name": "factor_two",
-          "statement": "Replacing E by E/2 changes the coefficient of x in the normalized odd formal solution from 2λ^{2n} to λ^{2n}; it fails the parameter/Frobenius normalization."
+          "statement": "Replacing E by E/2 changes the coefficient of x in the normalized odd formal solution from 2λ^{2n} to λ^{2n}; it fails the parameter/Frobenius normalization.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -2331,20 +2433,28 @@
           "name": "Bessel.quadric_potential.hecke_chart",
           "role": "compatibility",
           "statement": "The standard orthogonal Hecke chart is Q°×G_m with character W, respecting the chosen invariant parameter."
+        },
+        {
+          "name": "Bessel.quadric_potential.constant_extension",
+          "role": "compatibility",
+          "statement": "Finite constant-field extension commutes with the open quadric, its potential and its exponential direct image. Its degree-d trace uses ψ composed with Tr_{k_d/k} and q^{−d(n−1)}."
         }
       ],
       "tests": [
         {
           "name": "n_three",
-          "statement": "For n=3 the δ_l sum is empty and W=p₁/p₀+p₃/p₂+p₃/p′₂+x p₁/p₄ on p₂p′₂−p₁p₃+p₀p₄=0."
+          "statement": "For n=3 the δ_l sum is empty and W=p₁/p₀+p₃/p₂+p₃/p′₂+x p₁/p₄ on p₂p′₂−p₁p₃+p₀p₄=0.",
+          "kind": "computation"
         },
         {
           "name": "projective_scaling",
-          "statement": "Rescaling every p coordinate by a nonzero scalar leaves W unchanged; scaling x changes only the final term."
+          "statement": "Rescaling every p coordinate by a nonzero scalar leaves W unchanged; scaling x changes only the final term.",
+          "kind": "compatibility"
         },
         {
           "name": "n_two_excluded",
-          "statement": "n=2 is rejected for this chart formula and is computed instead by the SO₄ product realization."
+          "statement": "n=2 is rejected for this chart formula and is computed instead by the SO₄ product realization.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -2466,20 +2576,28 @@
           "name": "Bessel.hypergeometric_normalization.empty_denominators",
           "role": "compatibility",
           "statement": "For m=0 the normalized object is the scalar Bessel F-isocrystal already supplied by KM, including its sign."
+        },
+        {
+          "name": "Bessel.hypergeometric_normalization.gauss_extension",
+          "role": "compatibility",
+          "statement": "Under degree-d constant extension, Hasse–Davenport gives g_{j,d}=(−1)^{d−1}g_j^d; the hypergeometric trace sign and the d-th power of the fixed normalizing scalar must be transported together."
         }
       ],
       "tests": [
         {
           "name": "odd_rank_three",
-          "statement": "For n=3,m=1 the zero spectrum is q^{−1},1,q, not a set containing 0."
+          "statement": "For n=3,m=1 the zero spectrum is q^{−1},1,q, not a set containing 0.",
+          "kind": "computation"
         },
         {
           "name": "rank_two_empty",
-          "statement": "For n=2,m=0 the trace is −RawKl₂/c_q and the spectrum is c_q^{−1},c_q."
+          "statement": "For n=2,m=0 the trace is −RawKl₂/c_q and the spectrum is c_q^{−1},c_q.",
+          "kind": "compatibility"
         },
         {
           "name": "extension_field",
-          "statement": "For d=2 the normalizing scalar is the square of the base scalar; substituting an extension-field Gauss sum without the Hasse–Davenport sign is rejected."
+          "statement": "For d=2 the normalizing scalar is the square of the base scalar; substituting an extension-field Gauss sum without the Hasse–Davenport sign is rejected.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -2595,7 +2713,7 @@
       "kind": "definition",
       "title": "Dwork congruence data",
       "parentStageId": "KloostermanSheavesAndBesselIsocrystals:KB.10",
-      "statement": "Let R be a complete mixed-characteristic DVR and B^{(i)}:N→K×, i≥0. Require (a) B^{(i)}(0)∈R×; (b) B^{(i)}(a+pn)/B^{(i+1)}(n)∈R for 0≤a<p; (c) the difference of that quotient with n replaced by n+mp^s belongs to p^{s+1}R for every a,n,m,s. In the signed p=2 version, replace the latter quotient by u(i,s,m) times the former, with u∈{±1} independent of a,n and u=1 unless s=1. Define F^{(i)}=Σ_j B^{(i)}(j)x^j and F^{(i)}_{m,s}=Σ_{mp^s≤j<(m+1)p^s}B^{(i)}(j)x^j. The normalized periodic version adds B^{(i)}(0)=1 and B^{(i+r)}=B^{(i)} for a fixed r≥1.",
+      "statement": "Let R be a complete mixed-characteristic DVR and B^{(i)}:N→K×, i≥0. Require (a) B^{(i)}(0)∈R×; (b) B^{(i)}(a+pn)/B^{(i+1)}(n)∈R for 0≤a<p; (c) the difference of that quotient with n replaced by n+mp^s belongs to p^{s+1}R for every a,n,m,s. Writing R_i(a,n)=B^{(i)}(a+pn)/B^{(i+1)}(n), the signed p=2 version requires R_i(a,n+m2^s)−u(i,s,m)R_i(a,n)∈2^{s+1}R, with u∈{±1} independent of a,n and u=1 unless s=1. Define F^{(i)}=Σ_j B^{(i)}(j)x^j and F^{(i)}_{m,s}=Σ_{mp^s≤j<(m+1)p^s}B^{(i)}(j)x^j. The normalized periodic version adds B^{(i)}(0)=1 and B^{(i+r)}=B^{(i)} for a fixed r≥1.",
       "hypotheses": [
         "Use the normalized datum of KB.0: split pinned G, dual H, X=G_m over k=F_q, K containing π and the chosen square root of p. Group-valued monodromy assertions assume H almost simple unless their statement explicitly takes products or a torus. All further rank, prime and character restrictions are stated in the target."
       ],
@@ -2640,20 +2758,28 @@
           "name": "Bessel.dwork_data.periodic_normalized",
           "role": "structure",
           "statement": "A normalized periodic datum has F^{(i)}(0)=1 and is unchanged after r shifts of i; this is extra structure, not a consequence of (a)–(c)."
+        },
+        {
+          "name": "Bessel.dwork_data.shift",
+          "role": "structure",
+          "statement": "Deleting the first sequence yields the shifted datum B^{(i+1)} with inherited congruences and signs u(i+1,s,m); a normalized period-r datum retains its period. This is the shift used in every block identity."
         }
       ],
       "tests": [
         {
           "name": "constant_sequence",
-          "statement": "B^{(i)}(j)=1 for all i,j satisfies the ordinary conditions and has period 1."
+          "statement": "B^{(i)}(j)=1 for all i,j satisfies the ordinary conditions and has period 1.",
+          "kind": "degenerate"
         },
         {
           "name": "block_endpoints",
-          "statement": "For p=2,m=1,s=2 the block has exactly j=4,5,6,7; an inclusive upper endpoint gives the wrong polynomial."
+          "statement": "For p=2,m=1,s=2 the block has exactly j=4,5,6,7; an inclusive upper endpoint gives the wrong polynomial.",
+          "kind": "computation"
         },
         {
           "name": "signed_exception",
-          "statement": "For the rank-three sequence B(j)=(−2)^{3j}/(j!)³, B(4)/B(2)=1/27≡−1 mod4, whereas B(0)/B(0)=1: the ordinary s=1 congruence fails, and the signed one succeeds."
+          "statement": "For the rank-three sequence B(j)=(−2)^{3j}/(j!)³, B(4)/B(2)=1/27≡−1 mod4, whereas B(0)/B(0)=1: the ordinary s=1 congruence fails, and the signed one succeeds.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -2720,7 +2846,7 @@
       "kind": "construction",
       "title": "Dwork unit-root line",
       "parentStageId": "KloostermanSheavesAndBesselIsocrystals:KB.10",
-      "statement": "Work first over k=F_p with p-Frobenius fixing K. For a period-one normalized Dwork series F, let U be the formal open where its first p-truncation is nonzero modulo p. The functions f=F(x)/F(x^p) and η=F′(x)/F(x) extend to U, f is invertible and f′/f+px^{p−1}η(x^p)=η(x). Define E_F=(O,d−η dx) with F*→E_F multiplier f. It is a convergent unit-root F-isocrystal on U, with value f(0)=1 when 0∈U. This construction alone does not make E_F the maximal-slope F-quotient of an arbitrary Bessel object.",
+      "statement": "Work first over k=F_p with p-Frobenius fixing K. For a period-one normalized Dwork series F, let U be the formal open where its first p-truncation is nonzero modulo p. The functions f=F(x)/F(x^p) and η=F′(x)/F(x) extend to U, f is invertible and f′/f+px^{p−1}η(x^p)=η(x). Define E_F=(O,d−η dx) with F*→E_F multiplier f. It is a convergent unit-root F-isocrystal on U, with value f(0)=1 when 0∈U. This construction alone does not make E_F the maximal-slope F-quotient of an arbitrary Bessel object. After constant extension to F_q, q=p^s, for a series whose coefficients are fixed by the chosen p-Frobenius, set f_{F,q}(x)=∏_{i=0}^{s−1}f(x^{p^i})=F(x)/F(x^q). This is the q-Frobenius multiplier; it still has value 1 at zero and unit values on U.",
       "hypotheses": [
         "Use the normalized datum of KB.0: split pinned G, dual H, X=G_m over k=F_q, K containing π and the chosen square root of p. Group-valued monodromy assertions assume H almost simple unless their statement explicitly takes products or a torus. All further rank, prime and character restrictions are stated in the target."
       ],
@@ -2744,7 +2870,8 @@
         "For B(j)=1, F=(1−x)^{−1}, U is x≠1, η=(1−x)^{−1} and f=(1−x^p)/(1−x).",
         "The inverse multiplier would give the opposite derivative of log f and does not satisfy the same horizontal equation unless η is Frobenius-invariant in that way.",
         "On x=1 for the geometric series, the reduction of the first truncation vanishes; a global unit-root line on that larger formal open is not asserted.",
-        "Check naturality of every API map at the actual uses listed below; all generic supplier contracts must be fulfilled."
+        "Check naturality of every API map at the actual uses listed below; all generic supplier contracts must be fulfilled.",
+        "For the geometric series at p=2,q=4, f_{F,4}=(1+x)(1+x²)=(1−x⁴)/(1−x), whereas the single-step multiplier is only 1+x."
       ],
       "implementationStatus": "unchecked",
       "realises": [
@@ -2765,20 +2892,33 @@
           "name": "Bessel.dwork_line.normalized_value",
           "role": "simp",
           "statement": "F(0)=1 implies f(0)=1; multiplying F by a nonzero constant leaves η and f unchanged in period 1."
+        },
+        {
+          "name": "Bessel.dwork_line.iterate_frobenius",
+          "role": "compatibility",
+          "statement": "For q=p^s and coefficients fixed by p-Frobenius, composition of the s pullback maps gives f_{F,q}(x)=∏_{i=0}^{s−1}f(x^{p^i})=F(x)/F(x^q), with f_{F,q}(0)=1. A single p-step multiplier is insufficient when s>1."
         }
       ],
       "tests": [
         {
           "name": "geometric_series",
-          "statement": "For B(j)=1, F=(1−x)^{−1}, U is x≠1, η=(1−x)^{−1} and f=(1−x^p)/(1−x)."
+          "statement": "For B(j)=1, F=(1−x)^{−1}, U is x≠1, η=(1−x)^{−1} and f=(1−x^p)/(1−x).",
+          "kind": "computation"
         },
         {
           "name": "orientation",
-          "statement": "The inverse multiplier would give the opposite derivative of log f and does not satisfy the same horizontal equation unless η is Frobenius-invariant in that way."
+          "statement": "The inverse multiplier would give the opposite derivative of log f and does not satisfy the same horizontal equation unless η is Frobenius-invariant in that way.",
+          "kind": "non-example"
         },
         {
           "name": "nonunit_excluded",
-          "statement": "On x=1 for the geometric series, the reduction of the first truncation vanishes; a global unit-root line on that larger formal open is not asserted."
+          "statement": "On x=1 for the geometric series, the reduction of the first truncation vanishes; a global unit-root line on that larger formal open is not asserted.",
+          "kind": "non-example"
+        },
+        {
+          "name": "degree_two_frobenius",
+          "kind": "compatibility",
+          "statement": "For the geometric series at p=2,q=4, f_{F,4}=(1+x)(1+x²)=(1−x⁴)/(1−x), whereas the single-step multiplier is only 1+x."
         }
       ],
       "uses": [
@@ -2817,7 +2957,8 @@
       "proofSteps": [
         "Check factorial valuations and unit parts in each quotient congruence, keeping the single exceptional s=1 sign.",
         "Apply the alternating period-two congruence theorem to extend F(x)/G(x²), and divide by the period-one unit for G to extend F/G as a unit.",
-        "Use h′/h=η_F−η_G and h(x)f_G(x)=f_F(x)h(x²) to verify horizontal and Frobenius compatibility."
+        "Use h′/h=η_F−η_G and h(x)f_G(x)=f_F(x)h(x²) to verify horizontal and Frobenius compatibility.",
+        "Iterate the squaring identity s times for q=2^s to obtain h(x)f_{G,q}(x)=f_{F,q}(x)h(x^q); both series have rational coefficients, fixed by the coefficient Frobenius."
       ],
       "sources": [
         {
@@ -2828,7 +2969,8 @@
       ],
       "acceptance": [
         "At p=2 both first truncations are 1 modulo 2, so the formal domain is the completed affine line.",
-        "Check both h′/h=η_F−η_G and h f_G=f_F h(x²); a horizontal map alone is insufficient."
+        "Check both h′/h=η_F−η_G and h f_G=f_F h(x²); a horizontal map alone is insufficient.",
+        "For a constant extension of degree s use the s-fold products f_{F,q} and f_{G,q}, rather than relabeling the squaring multiplier as q-Frobenius."
       ],
       "implementationStatus": "unchecked",
       "realises": [
@@ -2847,7 +2989,7 @@
       "kind": "theorem",
       "title": "Frobenius on the maximal-slope quotient",
       "parentStageId": "KloostermanSheavesAndBesselIsocrystals:KB.10",
-      "statement": "On a common connected constant-Newton locus for the two normalized rank-(2n+1) Bessel objects, adjoining the log point zero with its ordinary polygon, their maximal-slope quotients are rank one of slope n. For the column cyclic module with ∇δe_i=e_{i+1}, Ore division by δ−xF′/F gives the quotient connection d+η_F dx, hence E_F dual, and likewise for G. Its quotient Frobenius is q^n/f_F, respectively q^n/f_G, fixed by the common zero-fiber eigenvalue q^n. Thus multiplication by h^{-1}, h=F/G, is a Frobenius-compatible map from the G quotient to the F quotient. The dual sign is part of the cyclic-module dictionary; one cannot use the solution-line connection d−η as the same quotient in this convention. All these identifications must be proved on that common locus; A.9 only supplies an underlying log-isocrystal comparison.",
+      "statement": "On a common connected constant-Newton locus for the two normalized rank-(2n+1) Bessel objects, adjoining the log point zero with its ordinary polygon, their maximal-slope quotients are rank one of slope n. For the column cyclic module with ∇δe_i=e_{i+1}, Ore division by δ−xF′/F gives the quotient connection d+η_F dx, hence E_F dual, and likewise for G. Its quotient Frobenius is q^n/f_{F,q}, respectively q^n/f_{G,q}, where q=2^s and f_{F,q}=∏_{i=0}^{s−1}f_F(x^{2^i})=F(x)/F(x^q) (and likewise for G), fixed by the common zero-fiber eigenvalue q^n. Thus multiplication by h^{-1}, h=F/G, is a Frobenius-compatible map from the G quotient to the F quotient. The dual sign is part of the cyclic-module dictionary; one cannot use the solution-line connection d−η as the same quotient in this convention. All these identifications must be proved on that common locus; A.9 only supplies an underlying log-isocrystal comparison.",
       "hypotheses": [
         "Use the normalized datum of KB.0: split pinned G, dual H, X=G_m over k=F_q, K containing π and the chosen square root of p. Group-valued monodromy assertions assume H almost simple unless their statement explicitly takes products or a torus. All further rank, prime and character restrictions are stated in the target."
       ],
@@ -2861,7 +3003,7 @@
       "proofSteps": [
         "Use generic ordinarity independently of A.1 to choose a common ordinary locus whose log extension contains zero.",
         "Factor the Ore operators and prove the horizontal quotient identifies the maximal-slope quotient; use the global slope filtration supplier, not only local Robba slope theory.",
-        "Dualize the solution line as dictated by the cyclic basis; check δc+η c=q c η(x^q) for c=q^n/f. The Frobenius ratio to this multiplier is horizontal and hence constant on the connected locus. Evaluate at zero to obtain q^n. The global slope/continuation hypotheses and full proof are G10."
+        "Dualize the solution line as dictated by the cyclic basis; check c′+η(x)c=q x^{q−1}cη(x^q) for c=q^n/f_{F,q}. The Frobenius ratio to this multiplier is horizontal and hence constant on the connected locus. Evaluate at zero to obtain q^n, using f_{F,q}(0)=1. The global slope/continuation hypotheses and full proof are G10."
       ],
       "sources": [
         {
@@ -2872,8 +3014,8 @@
       ],
       "acceptance": [
         "In the column cyclic basis, the relation e₂=xηe₁ makes the quotient connection d+η dx; it is the dual of the d−η solution line.",
-        "The quotient multiplier q^n/f has slope n, is horizontal for d+η dx and has value q^n at zero. Using f itself would give the wrong slope and horizontal equation.",
-        "Multiplication by h^{-1} intertwines the two quotient multipliers because h f_G=f_F h(x^q); prove the ratio is constant on the common connected log locus before evaluating it at zero."
+        "The quotient multiplier q^n/f_{F,q} has slope n, is horizontal for d+η dx and has value q^n at zero. Using f_F itself would give the wrong slope and horizontal equation.",
+        "Multiplication by h^{-1} intertwines the two quotient multipliers because h f_{G,q}=f_{F,q} h(x^q); prove the ratio is constant on the common connected log locus before evaluating it at zero."
       ],
       "implementationStatus": "unchecked",
       "realises": [
@@ -2899,7 +3041,9 @@
       "prerequisites": [
         "KloostermanSheavesAndBesselIsocrystals:KB.10/maximal-quotient-bridge",
         "KloostermanSheavesAndBesselIsocrystals:KB.8/classical-scalar",
-        "PadicDifferentialEquationsAndRigidCohomology:RD.3"
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3",
+        "KloostermanSheavesAndBesselIsocrystals:KB.6/global-monodromy",
+        "PadicDifferentialEquationsAndRigidCohomology:RD.3/taylor-comparison-of-pullbacks"
       ],
       "proofSteps": [
         "Use geometric irreducibility of the scalar and odd orthogonal standard objects, already available outside even A.",
@@ -3003,7 +3147,8 @@
       ],
       "acceptance": [
         "For d=1 the slopes are 0,1,…,2n; for d=2 they are 0,1/2,…,2n+1/2.",
-        "S_m(f₂)−S_m(f₁) is the raw hypergeometric sum, hence minus its unnormalized Frobenius trace; track this sign in the quotient determinant."
+        "S_m(f₂)−S_m(f₁) is the raw hypergeometric sum, hence minus its unnormalized Frobenius trace; track this sign in the quotient determinant.",
+        "The unnormalized trace of the (2n+1; one quadratic) object is minus the raw hypergeometric sum. This sign has valuation zero and leaves the Newton polygon unchanged."
       ],
       "implementationStatus": "unchecked",
       "realises": [
@@ -3211,7 +3356,7 @@
     },
     {
       "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.3",
-      "need": "Use frame-independent overconvergent/convergent F-isocrystal categories, finite coefficient extension, restriction and full-faithfulness in their proven scope. The global/log slope filtration, Taylor-lift transport and minimal-slope curve theorem required by G10 are a separate Part II contract, with no fabricated stage id.",
+      "need": "Use frame-independent overconvergent/convergent F-isocrystals, finite coefficient extension, restriction and full faithfulness in their stated scopes. RD.3/taylor-comparison-of-pullbacks already supplies lift transport and its cocycle; check its Frobenius compatibility in this application. Only the global/log constant-Newton slope filtration and curve minimal-slope theorem in G10 require an additional contract.",
       "neededBy": [
         "KloostermanSheavesAndBesselIsocrystals:KB.3/quasi-minuscule-comparison",
         "KloostermanSheavesAndBesselIsocrystals:KB.4/log-extension",
@@ -3223,7 +3368,7 @@
     },
     {
       "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.4",
-      "need": "Use absolute algebraic de Rham/rigid specialization and support/cosupport compatibility for exponential coefficients. Supply the relative horizontal specialization map over the lifted bounded Hecke family as an extension, with fiberwise tests at all finite residue extensions; do not replan the absolute comparison.",
+      "need": "Import RD.4/algebraic-rigid-specialization-maps and RD.4/specialization-forget-supports-square with their smooth proper compactification and overconvergent-coefficient hypotheses. The support map has the opposite direction to the ordinary map; they are maps, not unconditional comparison isomorphisms. The relative horizontal version for the bounded Hecke family remains an extension, with all finite-residue-extension fiber tests.",
       "neededBy": [
         "KloostermanSheavesAndBesselIsocrystals:KB.3/minuscule-comparison",
         "KloostermanSheavesAndBesselIsocrystals:KB.3/quasi-minuscule-comparison"
@@ -3231,7 +3376,7 @@
     },
     {
       "supplier": "PadicDifferentialEquationsAndRigidCohomology:RD.5",
-      "need": "Use coefficient finiteness, Poincaré duality, localization and the exact GOS Euler characteristic for the adjoint overconvergent F-isocrystal on G_m; preserve the inertia-invariant and logarithmic boundary contributions.",
+      "need": "Use coefficient finiteness, Poincaré duality and localization. The GOS formula is supplied separately by RD.6/grothendieck-ogg-shafarevich-formula; keep local invariant and logarithmic boundary terms explicit in the adjoint rigidity calculation.",
       "neededBy": [
         "KloostermanSheavesAndBesselIsocrystals:KB.6/rigidity-local"
       ]
@@ -3246,8 +3391,8 @@
       ]
     },
     {
-      "supplier": "MotivesAndAlgebraicCycles:MC.6",
-      "need": "Use the generic neutral Tannakian reconstruction and tensor-isomorphism torsor for a proved rigid abelian category with an exact faithful fiber functor. Specialize to the subquotient-closed tensor category generated by the Bessel functor, including forgetting Frobenius and fiber change. No motivic structure on a Bessel object is asserted.",
+      "supplier": "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
+      "need": "Import generic neutral Tannakian reconstruction and the tensor-isomorphism torsor for a rigid abelian category with an exact faithful fiber functor. RD.6/coefficient-category-is-neutral-tannakian already supplies the overconvergent category with Frobenius forgotten and its invariant criterion. Specialize these to Bessel generation; the retained-Frobenius category needs its own exact faithful fiber functor (enlarge coefficients and choose a rational base point). No motivic structure is asserted.",
       "neededBy": [
         "KloostermanSheavesAndBesselIsocrystals:KB.6/generated-groups",
         "KloostermanSheavesAndBesselIsocrystals:KB.7/central-torsor"
@@ -3345,7 +3490,7 @@
       "remaining": [
         "G6: Slope comparison and exact-radius inputs",
         "G7: Generic monodromy and Lie-theoretic proof inputs",
-        "Fulfil the exact requested contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, PadicDifferentialEquationsAndRigidCohomology:RD.1, PadicDifferentialEquationsAndRigidCohomology:RD.2, PadicDifferentialEquationsAndRigidCohomology:RD.5, MotivesAndAlgebraicCycles:MC.6, KloostermanMomentsAndPotentialAutomorphy:KM.1/monodromy"
+        "Fulfil the exact requested contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, PadicDifferentialEquationsAndRigidCohomology:RD.1, PadicDifferentialEquationsAndRigidCohomology:RD.2, PadicDifferentialEquationsAndRigidCohomology:RD.5, MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction, KloostermanMomentsAndPotentialAutomorphy:KM.1/monodromy"
       ]
     },
     {
@@ -3354,7 +3499,7 @@
       "remaining": [
         "G6: Slope comparison and exact-radius inputs",
         "G7: Generic monodromy and Lie-theoretic proof inputs",
-        "Fulfil the exact requested contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, PadicDifferentialEquationsAndRigidCohomology:RD.1, MotivesAndAlgebraicCycles:MC.6"
+        "Fulfil the exact requested contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, PadicDifferentialEquationsAndRigidCohomology:RD.1, MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction"
       ]
     },
     {
@@ -3511,7 +3656,7 @@
     {
       "id": "G10",
       "title": "Global slope filtration and normalized maximal quotient",
-      "detail": "The routed PadicDifferentialEquationsPartIIMinimalSlope proposal has no actual supplier stage in this clone. Require the convergent and nilpotent-log constant-Newton slope filtration, generic constancy, the curve dual minimal-slope theorem for irreducible overconvergent F-isocrystals, and full-faithful extension. For the appendix, prove the Ore quotient is the maximal-slope line on a common connected ordinary/log locus containing zero. In this packet’s column cyclic convention it is E_F dual with Frobenius q^n/f_F (and E_G dual with q^n/f_G), not the unit-root object with multiplier f_F. Show the Frobenius ratio constant and evaluate at zero, then use h^{-1}. Check the x and −x lift Taylor isomorphism including Frobenius, and constant-field descent from F₂ to F_q. This is a precise unresolved proof repair, not an assertion that A.9 proved Frobenius compatibility.",
+      "detail": "The routed PadicDifferentialEquationsPartIIMinimalSlope proposal has no actual supplier stage in this clone. Require the convergent and nilpotent-log constant-Newton slope filtration, generic constancy, the curve dual minimal-slope theorem for irreducible overconvergent F-isocrystals, and full-faithful extension. For the appendix, prove the Ore quotient is the maximal-slope line on a common connected ordinary/log locus containing zero. In this packet’s column cyclic convention it is E_F dual with Frobenius q^n/f_{F,q} (and E_G dual with q^n/f_{G,q}), using the full q=2^s iterate f_{F,q}=∏_{i=0}^{s−1}f_F(x^{2^i}), not the unit-root object with multiplier f_F. Show the Frobenius ratio constant and evaluate at zero, then use h^{-1}. Use the existing RD.3/taylor-comparison-of-pullbacks for x and −x, checking the induced Frobenius square, and constant-field descent from F₂ to F_q. This is a precise unresolved proof repair, not an assertion that A.9 proved Frobenius compatibility.",
       "neededBy": [
         "KloostermanSheavesAndBesselIsocrystals:KB.10/dwork-line",
         "KloostermanSheavesAndBesselIsocrystals:KB.10/maximal-quotient-bridge",
@@ -3557,7 +3702,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at XZ pp. 3–5 against the coefficient assumption on p. 37; the F₃ rank-two trace gives the stated field obstruction.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E2",
@@ -3573,7 +3723,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the root-depth coordinates of HNY pp. 250–252 and the determinant obstruction in GL₂/F₂; use this as a bad-isogeny-degree correction, not a rejection of the root-depth construction.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E3",
@@ -3589,7 +3744,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at XZ pp. 42–43: differentiating integral algebraic characters loses the nonintegral Kummer class. The χ=1 main construction is unaffected.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E4",
@@ -3605,7 +3765,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a failure of the printed affineness/exactness step at XZ pp. 44–45. The replacement middle-image theorem remains G4; this verdict does not claim to disprove the main comparison.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E5",
@@ -3621,7 +3786,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as missing detection/intertwiner arguments in XZ pp. 44, 46; finite rational points alone and an unspecified equivalence of fibers do not prove the asserted relative tensor map is invertible.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E6",
@@ -3637,7 +3807,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by differentiating the displayed rank-one multipliers at XZ pp. 10, 42 in the packet’s explicitly fixed F*→object column convention; using the dual reverses both signs coherently.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E7",
@@ -3653,7 +3828,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at XZ p. 50: the residue conjugation direction must follow the actual gauge equation. The half-integral grading requires 2ρ and √q. The full source-to-column dictionary remains G5, not an asserted inverse-gauge identification.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E8",
@@ -3669,23 +3849,33 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof gap at XZ p. 53; an ambient embedding of both groups does not make an arbitrary surjection an isomorphism. No unsupported cross-coefficient map is used here.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E9",
       "kind": "misprint",
       "sourceId": "XZ",
-      "locator": "arXiv:1910.13391v2: Theorem 4.5.2(ii), pp. 51–53; Lemma 4.5.5, p. 53",
-      "printed": "The even-A characteristic-two branch is explicit only for SL, and the principal decomposition shifts the exponents.",
-      "correction": "Include images under every central quotient of SL_{2n+1}; use Sym^{2e_i} for the principal-SL₂ decomposition.",
-      "reason": "Dimension and principal weights force the exponent formula. Pushout through the actual central kernel supplies the missing forms.",
+      "locator": "arXiv:1910.13391v2: Lemma 4.5.5, p. 53",
+      "printed": "The displayed principal-SL₂ decomposition shifts each exponent by one.",
+      "correction": "Use Sym^{2e_i}, where e_i are the exponents, for the principal-SL₂ decomposition.",
+      "reason": "The adjoint dimension and principal weights force Sym^{2e_i}; already in rank one the adjoint is Sym². The extension of Theorem 4.5.2(ii) from SL_{2n+1} to its central forms is a planned pushout consequence, not an error in the source’s explicitly narrower SL statement.",
       "affects": "a stated result",
       "known": "Recorded in the XZ extraction/red-team material; rechecked at the cited preprint locator. No separate published erratum identified in the limited search.",
       "searched": [
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only for the exponent misprint in Lemma 4.5.5, XZ p. 53. Removed the unsupported implication that the deliberately SL-only statement of Theorem 4.5.2(ii) is itself an error; central pushout is a valid additional roadmap target.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E10",
@@ -3701,7 +3891,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in XZ pp. 59–61 by tracking the invariant-line eigenvalue and rank-dependent normalizations. Finite-field checks distinguish Q^{n−1}−Q from the printed constant; the all-rank boundary proof remains G9.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E11",
@@ -3717,7 +3912,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the stated chart at n=2, where divisor labels overlap. The n≥3 chart remains the target, with SO₄ handled by the product case.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E12",
@@ -3733,7 +3933,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at XZ pp. 57, 61: rank determines the endpoint, and invertibility rules out a zero middle Frobenius eigenvalue. The normalized middle value is 1.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E13",
@@ -3749,7 +3954,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the pinned root directions and the Lie-form equation at XZ pp. 58–61. The rank-three factor-two and even-rank invariant-vector checks use the packet’s explicit basis.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E14",
@@ -3765,7 +3975,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing Frobenius identification in A.9/A.11, XZ pp. 66–67. The zero-fiber eigenvalue distinguishes the slope-n quotient from the unit-root solution line; G10 remains open.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E15",
@@ -3773,7 +3988,7 @@
       "sourceId": "XZ",
       "locator": "arXiv:1910.13391v2: Proposition A.9(i), cyclic-basis proof, p. 66",
       "printed": "The cyclic quotient relation is identified with the solution-line connection using the same differential sign.",
-      "correction": "In the fixed column convention, ∇δe₁=e₂ and e₂=xηe₁ give quotient d+ηdx, the dual of E_F=(O,d−ηdx). Its multiplier is q^n/f_F. Use h^{-1} on the quotient comparison.",
+      "correction": "In the fixed column convention, ∇δe₁=e₂ and e₂=xηe₁ give quotient d+ηdx, the dual of E_F=(O,d−ηdx). Its multiplier is q^n/f_{F,q}, where f_{F,q}=F(x)/F(x^q) is the full q-Frobenius iterate. Use h^{-1} on the quotient comparison.",
       "reason": "Apply the connection directly to the quotient generator. Rank-two rows give the same check: the horizontal functional is (δF,F), and division by F makes its target connection d+ηdx. This is a convention repair; a different cyclic-module convention must supply its duality equivalence explicitly.",
       "affects": "the proof",
       "known": "Additional convention issue identified in this design pass. No published correction identified; independent review should check the source’s cyclic-module equivalence against this fixed column convention.",
@@ -3781,7 +3996,12 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a convention correction in the cyclic basis on XZ p. 66: applying ∇δ directly gives d+ηdx on the quotient. Also corrected this packet’s multiplier to the full q-iterate and its horizontal equation to include the powers of x.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     },
     {
       "id": "KloostermanSheavesAndBesselIsocrystals/E16",
@@ -3797,7 +4017,72 @@
         "XZ arXiv version metadata and v2 PDF",
         "Existing PAPER-XU-ZHU-22 extraction and independently reviewed red-team findings",
         "Web search for the title with correction/erratum, 2026-10-19"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the appendix coordinate and parity block indices at XZ pp. 63, 68–69. Existing Taylor transport supplies the lift isomorphism, but the application must carry its Frobenius square; this does not close G10.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
+    },
+    {
+      "id": "KloostermanSheavesAndBesselIsocrystals/E17",
+      "kind": "misprint",
+      "sourceId": "FG",
+      "locator": "arXiv:0901.2163v3: Corollary 10, p. 28",
+      "printed": "The D-type row uses D_{2n+1} while the indicated subgroup has type B_n.",
+      "correction": "The row is D_{n+1}→B_n for n≥4; D₄ has its separate G₂ row.",
+      "reason": "The immediately preceding so_{2n+1}⊂so_{2n+2} diagram and the correct XZ table (1.2.6.1), p. 6, determine the indices. The packet already used the correct table.",
+      "affects": "a stated result",
+      "known": "Independently identified at the specified preprint locator in this review; no separate published erratum found in the limited title/correction search. No claim is made about a different version.",
+      "searched": [
+        "Specified version PDF and nearby proof or diagram",
+        "Author/arXiv metadata and title with correction/erratum, 2026-10-19"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The immediately preceding so_{2n+1}⊂so_{2n+2} diagram and the correct XZ table (1.2.6.1), p. 6, determine the indices. The packet already used the correct table.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
+    },
+    {
+      "id": "KloostermanSheavesAndBesselIsocrystals/E18",
+      "kind": "misprint",
+      "sourceId": "FG",
+      "locator": "arXiv:0901.2163v3: Proposition 11, (14.1), and the following general formula, p. 29",
+      "printed": "Both local invariant terms in the middle-cohomology dimension formula are labeled I₀.",
+      "correction": "Subtract dim V^{I₀}+dim V^{I∞}; in the general formula also add 2 dim V^{G∇}.",
+      "reason": "The boundary exact sequence immediately above has one summand at each puncture. For the adjoint representation, repeating I₀ would give a negative dimension. This correction informs the rigidity proof rather than adding a generic cohomology construction.",
+      "affects": "a stated result",
+      "known": "Independently identified at the specified preprint locator in this review; no separate published erratum found in the limited title/correction search. No claim is made about a different version.",
+      "searched": [
+        "Specified version PDF and nearby proof or diagram",
+        "Author/arXiv metadata and title with correction/erratum, 2026-10-19"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The boundary exact sequence immediately above has one summand at each puncture. For the adjoint representation, repeating I₀ would give a negative dimension. This correction informs the rigidity proof rather than adding a generic cohomology construction.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
+    },
+    {
+      "id": "KloostermanSheavesAndBesselIsocrystals/E19",
+      "kind": "misprint",
+      "sourceId": "XZ",
+      "locator": "arXiv:1910.13391v2: proof of Lemma 5.4.3, after (5.4.3.1), p. 63",
+      "printed": "The raw odd-rank hypergeometric sum is identified there with the Frobenius trace without its cohomological sign.",
+      "correction": "For upper rank 2n+1 and lower rank 1, the unnormalized trace is minus the raw H sum by Theorem 5.2.2(iii), p. 57.",
+      "reason": "The exponent n_upper+n_lower−1 is 2n+1 and is odd. This sign does not change Newton slopes, but trace comparisons must retain it. The stated Hodge slope range itself is correct and is not an erratum.",
+      "affects": "the proof",
+      "known": "Independently identified at the specified preprint locator in this review; no separate published erratum found in the limited title/correction search. No claim is made about a different version.",
+      "searched": [
+        "Specified version PDF and nearby proof or diagram",
+        "Author/arXiv metadata and title with correction/erratum, 2026-10-19"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The exponent n_upper+n_lower−1 is 2n+1 and is odd. This sign does not change Newton slopes, but trace comparisons must retain it. The stated Hodge slope range itself is correct and is not an erratum.",
+        "by": "REV-DESIGN-KloostermanSheavesAndBesselIsocrystals"
+      }
     }
   ],
   "restructure": [
@@ -3854,7 +4139,281 @@
     }
   ],
   "review": {
-    "status": "unreviewed",
-    "notes": "Design by Codex, session codex-plXSes; requires an independent mathematical review."
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-KloostermanSheavesAndBesselIsocrystals",
+    "date": "2026-10-19",
+    "notes": "Independent source, baseline, closure, ownership, API and test audit of all 54 target-level nodes. Corrected full q-Frobenius iteration and the rank-one quotient horizontal equation, narrowed supplier contracts to their actual statements, added precise existing prerequisites, expanded every definition/construction API and classified all tests. Reviewed all 16 inherited source issues (E9 narrowed to an actual misprint), added three version-specific findings. The twelve explicit gaps and open supplier contracts remain; accepted as a complete planning pass, not a closed or implemented roadmap.",
+    "checked": [
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.0/coefficients",
+        "verdict": "corrected",
+        "note": "Checked against XZ §1.1.1, pp. 2–3; §1.3.8, p. 9; §4.1 opening, p. 37; §4.4.3, p. 50. Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.0/rank-one-dictionary",
+        "verdict": "corrected",
+        "note": "Checked against XZ §2.1.5, p. 10; §4.1.13–§4.2.1, pp. 42–43 (with sign corrections recorded below). Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.0/affine-depth",
+        "verdict": "corrected",
+        "note": "Checked against HNY HNY §1.2–1.3, pp. 250–252; XZ §4.1.1, p. 37 (the commutator description is not used). Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.0/level-model",
+        "verdict": "corrected",
+        "note": "Checked against HNY HNY Proposition 1.1, Corollaries 1.2–1.3, pp. 253–255; XZ §4.1.1, pp. 37–38. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G1. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.1/clean-datum",
+        "verdict": "corrected",
+        "note": "Checked against XZ XZ Lemma 4.1.4 and (4.1.3.2), pp. 38–39; HNY Lemma 2.3 and Definition 2.4, pp. 256–257. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G2. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.1/hecke-action",
+        "verdict": "corrected",
+        "note": "Checked against XZ §4.1.2, (4.1.2.1)–(4.1.2.3), pp. 38–39; §4.1.8, (4.1.8.1)–(4.1.8.4), p. 40. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G1, G2. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.1/eigenobject",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 4.1.5, §§4.1.6–4.1.8, pp. 39–40; HNY Theorem 1, p. 261. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G2. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.1/character-variant",
+        "verdict": "corrected",
+        "note": "Checked against XZ §§4.1.11–4.1.13, pp. 41–42; HNY Remark 2.5 and Definition 2.6, p. 257; Definition 2.11, p. 260. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G2. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.1/trace-companions",
+        "verdict": "verified",
+        "note": "Checked against XZ §4.1.12–4.1.13, p. 42; arithmetic trace/independence inputs cited there. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G2. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.2/fg-connection",
+        "verdict": "corrected",
+        "note": "Checked against XZ §4.3.1–4.3.2, pp. 46–47; FG §§5–6, pp. 9–14; FG FG §§5–6, pp. 9–14. Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.2/invariant-parameter",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 4.3.3 and §4.3.4, (4.3.3.1)–(4.3.4.2), pp. 47–48. Statement and proof route agree with the cited source subject to the packet’s named repairs. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.2/oper-slice",
+        "verdict": "corrected",
+        "note": "Checked against XZ §4.3.5, pp. 48–49; Zhu §5, Lemma 20, pp. 21–22; Zhu Zhu Lemma 20, pp. 21–22. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G3. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.2/quantized-hitchin",
+        "verdict": "verified",
+        "note": "Checked against XZ §4.3.5, (4.3.5.1), pp. 48–49; Zhu Theorem 8, Corollary 9, pp. 8–10 and Lemmas 18–21, pp. 20–23; Zhu Zhu Lemma 21 and final localization argument, p. 23. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G3. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.2/zhu-identification",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 4.3.3 and §§4.3.5–4.3.6, pp. 47–49; Zhu §5, p. 23. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G3. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.2/differential-monodromy",
+        "verdict": "corrected",
+        "note": "Checked against XZ §1.2.6, table (1.2.6.1), p. 6; §4.5.1, p. 51; FG Corollaries 9–10, pp. 28–29; FG FG Theorem 1, p. 16, Proposition 8 and Corollaries 9–10, pp. 27–29. Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.3/minuscule-comparison",
+        "verdict": "corrected",
+        "note": "Checked against XZ §§4.2.2–4.2.4, Lemma 4.2.3 and (4.2.4.1)–(4.2.4.2), pp. 43–44. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G1, G4. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.3/quasi-minuscule-comparison",
+        "verdict": "corrected",
+        "note": "Checked against XZ §§4.2.5–4.2.7, Lemma 4.2.6 and (4.2.6.3), pp. 44–45. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G1, G4. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.3/tensor-comparison",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 4.2.1 and §4.2.8, pp. 42–46. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G2, G4. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.4/bessel-isocrystal",
+        "verdict": "corrected",
+        "note": "Checked against XZ §4.4.1, (4.4.1.1)–(4.4.1.3), pp. 49–50. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G2. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.4/log-extension",
+        "verdict": "corrected",
+        "note": "Checked against XZ §4.4.2, (4.4.2.1), p. 50; §2.9.3, pp. 23–24. Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.4/zero-frobenius",
+        "verdict": "verified",
+        "note": "Checked against XZ Proposition 4.4.5 and its proof, p. 50; §2.9.3, pp. 23–24 (convention reconciliation required). Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G5. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.4/frobenius-matrix",
+        "verdict": "verified",
+        "note": "Checked against XZ §4.4.3–Theorem 4.4.4, (4.4.3.1)–(4.4.4.1), p. 50. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G5. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.5/newton-specialization",
+        "verdict": "verified",
+        "note": "Checked against XZ §5.4.1, (5.4.1.1), p. 62. Statement and proof route agree with the cited source subject to the packet’s named repairs. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.5/cuspidal-newton-bound",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 5.4.2(i), proof, p. 62; §1.3.4, pp. 7–8. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G8. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.5/generic-ordinarity",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 5.4.2(i) and proof, p. 62; Appendix A.2, p. 64. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G8. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.6/generated-groups",
+        "verdict": "corrected",
+        "note": "Checked against XZ §4.5.1, (4.5.1.1), p. 51. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G7. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.6/wild-nontrivial",
+        "verdict": "verified",
+        "note": "Checked against XZ Lemma 4.5.3 and §4.5.4, pp. 51–52. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G7. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.6/principal-exclusion",
+        "verdict": "verified",
+        "note": "Checked against XZ Lemma 4.5.5, (4.5.5.1), pp. 52–53. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G6, G7. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.6/global-monodromy",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 4.5.2(i),(iii), pp. 51–53. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G6, G7. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.6/rigidity-local",
+        "verdict": "corrected",
+        "note": "Checked against XZ Corollary 4.5.7 and Remark 4.5.8, p. 54; HNY Corollary 2.15, p. 262; GR §5.3, Proposition 5.6, pp. 34–35; §6 definition, p. 35. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G7. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.7/central-torsor",
+        "verdict": "corrected",
+        "note": "Checked against XZ Lemma 5.1.1, p. 55; §4.4.1 and Theorem 4.4.4, pp. 49–50. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G7. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.7/symmetry-central",
+        "verdict": "verified",
+        "note": "Checked against XZ §§4.1.9–4.1.10, (4.1.9.1)–(4.1.10.5), pp. 40–41. Statement and proof route agree with the cited source subject to the packet’s named repairs. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.7/integral-functoriality",
+        "verdict": "verified",
+        "note": "Checked against XZ Proposition 5.1.3 and §5.1.2, p. 55. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G6. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.7/etale-functoriality",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 5.1.4, pp. 55–56. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G7. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.7/etale-monodromy",
+        "verdict": "verified",
+        "note": "Checked against XZ Corollary 4.5.6, p. 53 (the cited cross-coefficient group-map argument requires replacement). Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G7. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.8/classical-scalar",
+        "verdict": "verified",
+        "note": "Checked against XZ §§5.3.1–5.3.2, (5.3.1.1)–(5.3.1.3), pp. 57–58. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G5. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.8/orthogonal-matrices",
+        "verdict": "corrected",
+        "note": "Checked against XZ §5.3.3, (5.3.3.1)–(5.3.3.2), p. 58; §5.3.6, (5.3.6.1)–(5.3.6.4), pp. 60–61 (root-coordinate misprints corrected). Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.8/orthogonal-decomposition",
+        "verdict": "verified",
+        "note": "Checked against XZ §5.3.3, p. 58; (5.3.6.5), p. 60; Corollary 5.3.11(ii), p. 61. Statement and proof route agree with the cited source subject to the packet’s named repairs. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.8/quadric-potential",
+        "verdict": "corrected",
+        "note": "Checked against XZ §5.3.4, (5.3.4.1)–(5.3.4.6), pp. 58–59. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G9. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.8/even-toric-trace",
+        "verdict": "verified",
+        "note": "Checked against XZ Proposition 5.3.5, (5.3.5.1)–(5.3.5.2), pp. 59–60 (corrected constant); extraction source issue PAPER-XU-ZHU-22/E4. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G9. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.9/hypergeometric-normalization",
+        "verdict": "corrected",
+        "note": "Checked against XZ §§5.2.1–5.2.3, (5.2.1.1)–(5.2.3.1), pp. 56–57; Theorem 5.2.2; Miy Main theorem, pp. 2–3; Theorems 3.2.5, p. 23 and 4.1.3, pp. 27–28; Proposition 3.3.3, p. 26. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G11. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.9/odd-hypergeometric",
+        "verdict": "verified",
+        "note": "Checked against XZ Proposition 5.3.8(i), (5.3.8.1), p. 61. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G11. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.9/convolution",
+        "verdict": "verified",
+        "note": "Checked against XZ §5.3.9 and Corollary 5.3.11(i), p. 61, corrected by PAPER-XU-ZHU-22/E3; Miyatani Main theorem(ii) and §3.3.3 as cited there; Miy Main theorem(ii), p. 3; Proposition 3.3.3, p. 26. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G11. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.10/dwork-data",
+        "verdict": "corrected",
+        "note": "Checked against XZ Appendix A.4–A.6, (A.5.1)–(A.5.4), pp. 64–65. Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.10/signed-refinement",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem A.5, pp. 64–65; proof A.13, pp. 67–69. Statement and proof route agree with the cited source subject to the packet’s named repairs. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.10/dwork-line",
+        "verdict": "corrected",
+        "note": "Checked against XZ A.6–Corollary A.7, p. 65. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G10. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.10/series-ratio",
+        "verdict": "corrected",
+        "note": "Checked against XZ Lemma A.12, pp. 66–67; Proposition A.1, p. 63; compare §5.3.8, p. 61. Corrected or expanded as documented in the review report. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.10/maximal-quotient-bridge",
+        "verdict": "corrected",
+        "note": "Checked against XZ A.8–Proposition A.9 and A.11, pp. 65–66, with the missing Frobenius step made explicit. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G5, G8, G10. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.10/characteristic-two-comparison",
+        "verdict": "corrected",
+        "note": "Checked against XZ Proposition A.1 and Theorem A.3, pp. 63–64; proof A.11–A.12, pp. 66–67; Proposition 5.3.8(ii), p. 61. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G10. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.11/sum-identities",
+        "verdict": "verified",
+        "note": "Checked against XZ §1.2.9, pp. 6–7 and Corollary 5.3.11, p. 61 (PAPER-XU-ZHU-22/E1–E4 corrections). Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G9. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.11/toric-slopes",
+        "verdict": "corrected",
+        "note": "Checked against XZ Lemma 5.4.3, (5.4.3.1)–(5.4.3.2), pp. 62–63. Corrected or expanded as documented in the review report. Explicit unresolved contracts: G12. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.11/everywhere-ordinary",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 5.4.2(ii), p. 62; Lemma 5.4.3, pp. 62–63. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G12. This verdict validates the proposed target and gap boundary, not a completed proof."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.11/even-a-char-two-monodromy",
+        "verdict": "verified",
+        "note": "Checked against XZ Theorem 4.5.2(ii),(iii), pp. 51–53; Corollary 5.3.10, p. 61. Statement and proof route agree with the cited source subject to the packet’s named repairs. Prerequisite chain and stated supplier scopes checked; implementation remains unchecked."
+      },
+      {
+        "nodeId": "KloostermanSheavesAndBesselIsocrystals:KB.11/all-prime-corollaries",
+        "verdict": "verified",
+        "note": "Checked against XZ Corollaries 4.5.6–4.5.7 and Remark 4.5.8(iv), pp. 53–54; §§5.3.9–5.3.11, p. 61. Statement and proof route agree with the cited source subject to the packet’s named repairs. Explicit unresolved contracts: G7, G11. This verdict validates the proposed target and gap boundary, not a completed proof."
+      }
+    ]
   }
 }

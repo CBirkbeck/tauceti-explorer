@@ -2,7 +2,7 @@
 
 This roadmap constructs the normalized Kloosterman Hecke eigenobject for a split reductive group and identifies its algebraic connection with the pinned Frenkel–Gross connection. It transports Frobenius to that explicit connection, then uses the resulting Bessel F-isocrystal to determine functoriality, local and global monodromy, and Newton polygons. The characteristic-two comparison is a separate proof branch: it completes even-A monodromy and the everywhere-ordinary theorem for classical groups and G₂.
 
-The scope is the reductive-group construction and its comparisons. The all-rank scalar Kloosterman sum, sheaf, Bessel equation and rigid realization belong to **Kloosterman moments and potential automorphy**. Generic Satake geometry, rigid cohomology and slope theory are inputs from their existing owners. Each layer below gives exact targets, proof routes and Checks; each new definition or construction has its own API and three discriminatory unit tests. These are proposed mathematical interfaces, and every packet node has implementation status `unchecked`.
+The scope is the reductive-group construction and its comparisons. The all-rank scalar Kloosterman sum, sheaf, Bessel equation and rigid realization belong to **Kloosterman moments and potential automorphy**. Generic Satake geometry, rigid cohomology and slope theory are inputs from their existing owners. Each layer below gives exact targets, proof routes and Checks; each new definition or construction has its own API and at least three discriminatory unit tests. These are proposed mathematical interfaces, and every packet node has implementation status `unchecked`.
 
 This is a **complete target-level planning pass**, with 54 nodes and 12 planned layers. It is not a gap-free closure: the twelve gaps and fifteen supplier requests at the end are part of the plan, and no layer is marked closed. In particular, the quasi-minuscule middle-image argument, the embedded companion-monodromy comparison and the normalized maximal-slope quotient need the stated repairs before their target theorems can be regarded as established along this proof route.
 
@@ -20,7 +20,7 @@ Write G for the split pinned automorphic group and H for its split Langlands dua
 | Closed-point degree | For a point of degree d use q^d-Frobenius and normalize v(q^d)=1. A k_d-valued point of smaller degree uses the repeated product of length d. |
 | Principal grading | ρ is the half sum of positive coroots of H, a rational cocharacter. Use the integral 2ρ evaluated at c_q; do not assume ρ is integral. |
 | Newton dominance | Use the raw coroot dominance relation imported from BG1. On GL it corresponds to the opposite polygon height order, with equal endpoints. The order on B(H) has the additional Kottwitz-class condition. |
-| Appendix coordinate and quotient | The signed scalar series uses x↦−x at p=2. In a column cyclic basis ∇δe_i=e_{i+1}, the maximal rank-one quotient is dual to the solution line E_F=(O,d−ηdx), with multiplier q^n/f_F. The comparison on the quotient is multiplication by (F/G)^{-1}. |
+| Appendix coordinate and quotient | The signed scalar series uses x↦−x at p=2. In a column cyclic basis ∇δe_i=e_{i+1}, the maximal rank-one quotient is dual to the solution line E_F=(O,d−ηdx), with multiplier q^n/f_{F,q}, using f_{F,q}=∏_{i=0}^{s−1}f_F(x^{2^i})=F(x)/F(x^q). The comparison on the quotient is multiplication by (F/G)^{-1}. |
 
 The source locators below refer to the specific preprints in the bibliography. Corrections are mathematical statements in our own words; no source excerpt is reproduced. A source-proof dependency that has not been independently verified is a named gap, not an extra theorem hidden in a proof sketch.
 
@@ -35,7 +35,7 @@ The source locators below refer to the specific preprints in the bibliography. C
 | KloostermanMomentsAndPotentialAutomorphy:KM.0, KM.1, KM.2, KM.4 | The unique scalar raw sum, normalized scalar object, monodromy, cyclic connection and rigid realization. The missing full scalar ordinarity input remains in that same direction. |
 | BunGAndNewtonStrata:BG1 | Dominant rational Newton-orbit construction and representation detection of dominance; no new generic Newton order is introduced here. |
 | FiniteFieldsAndCharacterSums:FF.1 | Gauss-sum absolute values and Hasse–Davenport lifting, including the extension-field sign. |
-| MotivesAndAlgebraicCycles:MC.6 | Generic neutral Tannakian reconstruction and fiber-isomorphism torsors, used only after the Bessel coefficient category and its exact faithful fiber functor are proved. |
+| MotivesAndAlgebraicCycles:MC.6 | Generic neutral Tannakian reconstruction (MC.6/neutral-tannaka-reconstruction) and fiber-isomorphism torsors; RD.6/coefficient-category-is-neutral-tannakian supplies the overconvergent category with Frobenius forgotten. The retained-Frobenius category needs its own exact faithful fiber functor. |
 
 The current upstream roadmaps and Tau Ceti library were checked beyond the atlas snapshot; exact commits and the four baseline declaration statements are recorded in the packet. In particular, the point-valued `WittVector.Isocrystal` carrier does not supply overconvergent coefficients on a curve. A pending arithmetic D-module or minimal-slope proposal is not cited under an invented stage id.
 
@@ -64,12 +64,13 @@ Fix k=F_q, q=p^s, coefficient field K containing the Dwork parameter and a chose
 - `Bessel.coefficients.scalar_trace` (projection): Extract the scalar normalization (−1)^(r−1)c_q^(−d(r−1)); it is compatible with finite coefficient extension.
 - `Bessel.coefficients.extension_character` (compatibility): The additive character on k_d is ψ composed with the field trace, compatible with trace in towers.
 - `Bessel.coefficients.half_twist` (structure): The chosen half Tate twist has q^d-Frobenius c_q^(−d); its square is the Tate twist (1).
+- `Bessel.coefficients.iterate_half_twist` (compatibility): After a degree-d constant extension the half-twist scalar is c_q^{−d}; successive degree-d and degree-e extensions multiply the exponent to de. The normalized raw trace uses the same character trace tower.
 
 **Unit tests.**
 
-- **rank_two.** At r=2,d=1 the scalar trace is −RawKl₂/c_q, not RawKl₂ or −RawKl₂/q.
-- **nonprimitive_point.** For a∈k× viewed in k_d, the Frobenius product has d repeated factors, not one.
-- **coefficient_extension.** The field Q₃(μ₃) alone is rejected for the uniform datum unless √3 is adjoined; the normalized rank-two trace can lie outside it.
+- **rank_two.** (computation) At r=2,d=1 the scalar trace is −RawKl₂/c_q, not RawKl₂ or −RawKl₂/q.
+- **nonprimitive_point.** (compatibility) For a∈k× viewed in k_d, the Frobenius product has d repeated factors, not one.
+- **coefficient_extension.** (non-example) The field Q₃(μ₃) alone is rejected for the uniform datum unless √3 is adjoined; the normalized rank-two trace can lie outside it.
 
 **Checks.**
 
@@ -85,9 +86,9 @@ Fix k=F_q, q=p^s, coefficient field K containing the Dwork parameter and a chose
 
 **Additional hypotheses.** Frobenius is taken relative to the displayed lift and constant coefficient automorphism; use the iterated p-Frobenius for q.
 
-**Inputs:** [KB.0/coefficients](#kb-0-coefficients); `PadicDifferentialEquationsAndRigidCohomology:RD.1/dwork-exponential-module`.
+**Inputs:** [KB.0/coefficients](#kb-0-coefficients); `PadicDifferentialEquationsAndRigidCohomology:RD.2/dwork-exponential-artin-schreier-example`.
 
-**Proof route.** 1. Differentiate the multipliers and use C′+A C=C A_F for the column connection. 2. Evaluate the Kummer multiplier on Teichmüller units and compare the character. 3. Use E_λ at λ=−π; match rational Kummer exponents modulo integers rather than differentiating an algebraic character.
+**Proof route.** 1. Differentiate the multipliers and use C′+A C=C A_F for the column connection. 2. Evaluate the Kummer multiplier on Teichmüller units and compare the character. 3. Take the dual of the existing all-prime Dwork object with connection d+πdt to obtain E_{−π}; the RD.1 local example by itself assumes p odd. Match rational Kummer exponents modulo integers rather than differentiating an algebraic character.
 
 **Checks.**
 
@@ -113,12 +114,13 @@ Fix k=F_q, q=p^s, coefficient field K containing the Dwork parameter and a chose
 - `Bessel.affine_depth.quotient_coordinates` (equivalence): V is identified with the direct sum of affine-simple root lines, naturally for pinned automorphisms.
 - `Bessel.affine_depth.generic_iff` (characterisation): A functional is generic exactly when every affine-simple coefficient is a unit over R, or nonzero over a field.
 - `Bessel.affine_depth.torus_action` (functoriality): T_ad acts on the functional coordinates by their root characters; the action preserves genericity.
+- `Bessel.affine_depth.functional_ext` (extensionality): Two linear functionals on V are equal if their restrictions to every affine-simple root line agree, including the empty torus case.
 
 **Unit tests.**
 
-- **sl_two.** For SL₂, the quotient has exactly the finite simple-root coordinate and the affine lowest-root coordinate.
-- **torus.** For G=G_m the quotient is zero and its zero functional is generic by the empty condition.
-- **gl_two_char_two.** For GL₂ over F₂, diag(1+y,1) lies in the root-depth kernel. Its determinant shows that a commutator-plus-scalar kernel would fail this test.
+- **sl_two.** (computation) For SL₂, the quotient has exactly the finite simple-root coordinate and the affine lowest-root coordinate.
+- **torus.** (degenerate) For G=G_m the quotient is zero and its zero functional is generic by the empty condition.
+- **gl_two_char_two.** (non-example) For GL₂ over F₂, diag(1+y,1) lies in the root-depth kernel. Its determinant shows that a commutator-plus-scalar kernel would fail this test.
 
 **Checks.**
 
@@ -143,12 +145,13 @@ Fix k=F_q, q=p^s, coefficient field K containing the Dwork parameter and a chose
 - `Bessel.level_model.big_cell` (projection): For every γ∈Ω, j_γ is an affine open immersion, with origin the Hecke translate of the trivial bundle.
 - `Bessel.level_model.translation` (functoriality): Hk_γ transports the neutral chart to the γ chart and respects composition in Ω.
 - `Bessel.level_model.level_change` (compatibility): Bun_G(1,2)→Bun_G(0,2) is the torus-level change; its big cell is the specified torus extension times V.
+- `Bessel.level_model.base_change` (compatibility): Pullback of the specified level model, its neutral bundle and each indexed big-cell immersion along a finite residue-field extension agrees with the construction over that field; the common-DVR version requires G1.
 
 **Unit tests.**
 
-- **neutral_point.** j₀(0) is the trivial bundle with the prescribed levels, rather than its classifying stack BT.
-- **sl_two_chart.** For SL₂ the neutral big cell is A², whose dimension agrees with the two affine-root lines.
-- **component_translation.** A nonidentity γ sends the neutral point to its own component; a chart confined to the neutral component cannot pass.
+- **neutral_point.** (characterisation) j₀(0) is the trivial bundle with the prescribed levels, rather than its classifying stack BT.
+- **sl_two_chart.** (computation) For SL₂ the neutral big cell is A², whose dimension agrees with the two affine-root lines.
+- **component_translation.** (compatibility) A nonidentity γ sends the neutral point to its own component; a chart confined to the neutral component cannot pass.
 
 **Checks.**
 
@@ -181,18 +184,19 @@ Construct clean generic automorphic data and their Hecke eigenobjects in étale,
 - `Bessel.clean_datum.restriction` (simp): j_γ* A recovers φ*AS_ψ with the stated shift.
 - `Bessel.clean_datum.clean_map` (equivalence): The canonical support-to-ordinary extension map is invertible, naturally in coefficient objects.
 - `Bessel.clean_datum.evaluation_equivalence` (universal-property): Every generic-equivariant holonomic object is A tensored with its fiber at the chosen base point; this description is fully faithful.
+- `Bessel.clean_datum.morphism_ext` (extensionality): A morphism of generic-equivariant clean objects is determined by its coefficient-fiber map at the fixed chart origin, as follows from the evaluation equivalence.
 
 **Unit tests.**
 
-- **base_fiber.** The coefficient fiber of A at the chart origin is the unit rank-one object.
-- **boundary_vanishing.** Every ! and ordinary stalk on the complement of the big cell is zero.
-- **nongeneric_rejected.** For SL₂ with φ=0, the boundary-stabilizer proof fails and the generic cleanness theorem is not applicable.
+- **base_fiber.** (computation) The coefficient fiber of A at the chart origin is the unit rank-one object.
+- **boundary_vanishing.** (characterisation) Every ! and ordinary stalk on the complement of the big cell is zero.
+- **nongeneric_rejected.** (non-example) For SL₂ with φ=0, the boundary-stabilizer proof fails and the generic cleanness theorem is not applicable.
 
 **Checks.**
 
 - Check naturality of every API map at the actual uses listed below; all generic supplier contracts must be fulfilled.
 
-**Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), XZ Lemma 4.1.4 and (4.1.3.2), pp. 38–39; HNY Lemma 2.3 and Definition 2.4, pp. 257–258. Clean automorphic datum: For generic φ on V, define A on the γ component of Bun_G(0,2) as the shifted extension of φ*AS_ψ along j_γ, with the shift prescribed by the holonomic heart.
+**Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), XZ Lemma 4.1.4 and (4.1.3.2), pp. 38–39; HNY Lemma 2.3 and Definition 2.4, pp. 256–257. Clean automorphic datum: For generic φ on V, define A on the γ component of Bun_G(0,2) as the shifted extension of φ*AS_ψ along j_γ, with the shift prescribed by the holonomic heart.
 
 <a id="kb-1-hecke-action"></a>
 
@@ -211,12 +215,13 @@ Construct clean generic automorphic data and their Hecke eigenobjects in étale,
 - `Bessel.hecke_action.unit` (simp): The trivial representation acts by exterior product with the coefficient unit on X.
 - `Bessel.hecke_action.fusion` (structure): The collision comparison gives the associativity-compatible tensor constraint; all representation intertwiners act naturally.
 - `Bessel.hecke_action.base_point_formula` (compatibility): Restriction to the chosen bundle equals the exponential direct image on GR_W^o, with the Satake shift and half twist.
+- `Bessel.hecke_action.intertwiner_composition` (simp): The Hecke maps induced by identity intertwiners are identities, and a composite of intertwiners induces the composite map; these identities commute with fusion.
 
 **Unit tests.**
 
-- **unit_shift.** W=1 gives rank one in degree zero and no Tate twist.
-- **tensor_rank.** For a rank-two standard W, the W⊗W dual coefficient has rank four, rather than the rank of W.
-- **minuscule_shift.** For a minuscule coweight of dimension d, IC_W is the constant coefficient shifted by d and twisted by d/2 in the normalized arithmetic realization.
+- **unit_shift.** (degenerate) W=1 gives rank one in degree zero and no Tate twist.
+- **tensor_rank.** (computation) For a rank-two standard W, the W⊗W dual coefficient has rank four, rather than the rank of W.
+- **minuscule_shift.** (compatibility) For a minuscule coweight of dimension d, IC_W is the constant coefficient shifted by d and twisted by d/2 in the normalized arithmetic realization.
 
 **Checks.**
 
@@ -258,18 +263,19 @@ Construct clean generic automorphic data and their Hecke eigenobjects in étale,
 - `Bessel.character_variant.trivial_character` (compatibility): Kl(ψφ,1,s)=Kl(ψφ) with the trivial exponent, independently of the splitting.
 - `Bessel.character_variant.chart_character` (projection): The γ chart restriction is K_{χ∘Adγ}⊠φ*AS_ψ with the fixed shift.
 - `Bessel.character_variant.splitting_change` (functoriality): Transport along a new splitting is described by the resulting torus-character cocycle; no unconditional independence is asserted for nontrivial χ.
+- `Bessel.character_variant.exponent_mod_integers` (compatibility): Changing a rational Kummer exponent by an integral character gives an algebraic gauge isomorphism; a Frobenius comparison must transport that gauge as well. The induced tame character depends on the rational class modulo integers.
 
 **Unit tests.**
 
-- **trivial_exponent.** For χ=1 the rational exponent 0 gives the base construction.
-- **finite_order_test.** For k=F₅, the nontrivial Teichmüller character must use an exponent with denominator 4; exponent 1 gives a trivial algebraic monodromy instead.
-- **conjugation_test.** A component γ with nontrivial action on T changes χ by Adγ; replacing every χγ by χ fails on that component.
+- **trivial_exponent.** (degenerate) For χ=1 the rational exponent 0 gives the base construction.
+- **finite_order_test.** (non-example) For k=F₅, the nontrivial Teichmüller character must use an exponent with denominator 4; exponent 1 gives a trivial algebraic monodromy instead.
+- **conjugation_test.** (compatibility) A component γ with nontrivial action on T changes χ by Adγ; replacing every χγ by χ fails on that component.
 
 **Checks.**
 
 - Check naturality of every API map at the actual uses listed below; all generic supplier contracts must be fulfilled.
 
-**Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), §§4.1.11–4.1.13, pp. 41–42; HNY Definitions 2.6 and 2.10, pp. 258–260. Tame-character eigenobject: For a character χ:T(k)→K× and a splitting s:T⋊Ω≅T̃, use on the γ chart K_{χγ}⊠φ*AS_ψ, with χγ=χ∘Adγ.
+**Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), §§4.1.11–4.1.13, pp. 41–42; HNY Remark 2.5 and Definition 2.6, p. 257; Definition 2.11, p. 260. Tame-character eigenobject: For a character χ:T(k)→K× and a splitting s:T⋊Ω≅T̃, use on the γ chart K_{χγ}⊠φ*AS_ψ, with χγ=χ∘Adγ.
 
 <a id="kb-1-trace-companions"></a>
 
@@ -313,12 +319,13 @@ Define the group-valued irregular connection from the pinning. Match its invaria
 - `Bessel.fg_connection.representation` (projection): In W the connection matrix is dρ_W(A_λ)dx/x and naturality holds for every H-intertwiner.
 - `Bessel.fg_connection.tensor` (structure): The connection on W⊗W′ is the sum of the two tensor-factor connection operators; the unit is (O,d).
 - `Bessel.fg_connection.parameter_scale` (compatibility): In an almost-simple factor, λ scales the affine invariant by λ^h; its standard A-type cyclic operator agrees with the imported scalar Bessel dictionary.
+- `Bessel.fg_connection.dual` (structure): On W dual the connection matrix is the negative transpose of the matrix on W; evaluation W dual⊗W→1 is horizontal, naturally in H-intertwiners.
 
 **Unit tests.**
 
-- **torus.** For H=G_m and any character W, the resulting connection is d.
-- **sl_two.** For H=SL₂ with N=E₁₂,E=E₂₁, A_λ=[[0,1],[λ²x,0]].
-- **product_exponents.** For SL₂×SL₃ the affine terms are λ²xE₂₁ and λ³xE₃₁; using λ² in both factors fails.
+- **torus.** (degenerate) For H=G_m and any character W, the resulting connection is d.
+- **sl_two.** (computation) For H=SL₂ with N=E₁₂,E=E₂₁, A_λ=[[0,1],[λ²x,0]].
+- **product_exponents.** (computation) For SL₂×SL₃ the affine terms are λ²xE₂₁ and λ³xE₃₁; using λ² in both factors fails.
 
 **Checks.**
 
@@ -360,12 +367,13 @@ Define the group-valued irregular connection from the pinning. Match its invaria
 - `Bessel.oper_slice.normal_form` (equivalence): The slice point xE gives the principal-graded oper d+(N+xE)dx/x and exhausts the slice.
 - `Bessel.oper_slice.tame_origin` (simp): At E=0 the distinguished point is regular singular at both ends.
 - `Bessel.oper_slice.filtered_functions` (structure): Functions on the slice carry the oper filtration with associated graded the invariant polynomial algebra of affine-generic parameters.
+- `Bessel.oper_slice.parameter_ext` (extensionality): Two points in the stated principal-graded slice have the same oper normal form exactly when their affine invariant parameter is equal; use the pinned coordinate identification.
 
 **Unit tests.**
 
-- **adjoint_rank_one.** For H=PGL₂ the slice has one parameter; it is A¹ after fixing the root vector.
-- **zero_parameter.** The origin is in the bounded slice but is not generic; its irregularity at ∞ drops.
-- **residue_condition.** An oper with a different regular-singular residue at zero is not admitted even when its maximal slope at ∞ is ≤1/h.
+- **adjoint_rank_one.** (computation) For H=PGL₂ the slice has one parameter; it is A¹ after fixing the root vector.
+- **zero_parameter.** (degenerate) The origin is in the bounded slice but is not generic; its irregularity at ∞ drops.
+- **residue_condition.** (non-example) An oper with a different regular-singular residue at zero is not admitted even when its maximal slope at ∞ is ≤1/h.
 
 **Checks.**
 
@@ -421,6 +429,7 @@ Define the group-valued irregular connection from the pinning. Match its invaria
 
 - SL₃ has characteristic-zero SL₃ monodromy; the SO₃ result at p=2 must not be substituted into this algebraic theorem.
 - G₂ and SO₇ have the same seven-dimensional connection but are different ambient group carriers; retain the image of the actual central map.
+- Use the D_{n+1}→B_n row for n≥4, not the misindexed D_{2n+1} row in FG Corollary 10; D₄ remains the separate G₂ case.
 
 **Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), §1.2.6, table (1.2.6.1), p. 6; §4.5.1, p. 51; FG Corollaries 9–10, pp. 28–29. Frenkel–Gross monodromy: For almost-simple H over an algebraically closed characteristic-zero field, the differential Galois group of the generic Frenkel–Gross connection is connected. [FG](https://arxiv.org/pdf/0901.2163v3), FG Theorem 1, p. 16, Proposition 8 and Corollaries 9–10, pp. 27–29. The local-to-global subgroup argument and the adjoint rigidity computation.
 
@@ -438,7 +447,7 @@ Prove the comparison for minuscule and quasi-minuscule Hecke kernels over a comm
 
 **Target (comparison).** For an integral generic φ and a minuscule representation W, the canonical relative specialization map (Kl_W^dR(−πφ))†→Kl_W^rig(ψφ) is an isomorphism of connections. In each lifted closed-point fiber the compact/ordinary comparison square and cleanness identify its degree-zero cohomology, all other shifted degrees vanish and the common dimension is dim W. Extend residue/coefficient fields to test every rigid closed point; R-valued points alone do not suffice.
 
-**Inputs:** [KB.1/eigenobject](#kb-1-eigenobject); [KB.0/rank-one-dictionary](#kb-0-rank-one-dictionary); `PadicDifferentialEquationsAndRigidCohomology:RD.4`; `GlobalShtukasAndFunctionFieldLanglands:GS.1/beilinson-drinfeld-grassmannian`; `PadicDifferentialEquationsAndRigidCohomology:RD.0`.
+**Inputs:** [KB.1/eigenobject](#kb-1-eigenobject); [KB.0/rank-one-dictionary](#kb-0-rank-one-dictionary); `GlobalShtukasAndFunctionFieldLanglands:GS.1/beilinson-drinfeld-grassmannian`; `PadicDifferentialEquationsAndRigidCohomology:RD.0`; `PadicDifferentialEquationsAndRigidCohomology:RD.4/algebraic-rigid-specialization-maps`; `PadicDifferentialEquationsAndRigidCohomology:RD.4/specialization-forget-supports-square`.
 
 **Proof route.** 1. Use the minuscule flag variety as a smooth projective compactification of the Hecke fiber over R. 2. Apply the imported absolute support/cosupport specialization square and the clean middle-cohomology calculation. 3. Construct the relative horizontal map. Complete the dagger ring faithfully flatly and test fibers after all finite residue extensions, then descend the isomorphism.
 
@@ -455,7 +464,7 @@ Prove the comparison for minuscule and quasi-minuscule Hecke kernels over a comm
 
 **Target (comparison).** For a quasi-minuscule W, the comparison isomorphism is obtained for the intermediate-extension coefficient on the quasi-minuscule Schubert variety, not by asserting affine direct-image exactness for its punctured smooth stratum. The vertex correction identifies the image of compact-to-ordinary cohomology in degree zero on each fiber. On a dense open of X this yields the relative comparison, which extends uniquely to X after establishing convergence and overconvergence of the algebraic-side coefficient.
 
-**Inputs:** [KB.3/minuscule-comparison](#kb-3-minuscule-comparison); [KB.1/clean-datum](#kb-1-clean-datum); `PadicDifferentialEquationsAndRigidCohomology:RD.4`; `PadicDifferentialEquationsAndRigidCohomology:RD.3`; `GlobalShtukasAndFunctionFieldLanglands:GS.1/beilinson-drinfeld-grassmannian`; `PadicDifferentialEquationsAndRigidCohomology:RD.0`.
+**Inputs:** [KB.3/minuscule-comparison](#kb-3-minuscule-comparison); [KB.1/clean-datum](#kb-1-clean-datum); `PadicDifferentialEquationsAndRigidCohomology:RD.3`; `GlobalShtukasAndFunctionFieldLanglands:GS.1/beilinson-drinfeld-grassmannian`; `PadicDifferentialEquationsAndRigidCohomology:RD.0`; `PadicDifferentialEquationsAndRigidCohomology:RD.4/algebraic-rigid-specialization-maps`; `PadicDifferentialEquationsAndRigidCohomology:RD.4/specialization-forget-supports-square`.
 
 **Proof route.** 1. Use the quasi-minuscule resolution and the localization triangle at its closed vertex. 2. Replace the false affineness step for τ by a proved perverse-truncation/intermediate-extension image calculation; this exact missing lemma is gap G4. 3. Apply the support/cosupport comparison to the middle image, construct the relative map on a dense smooth open, and extend using convergence detection and full faithfulness.
 
@@ -508,12 +517,13 @@ Transport the rigid Hecke Frobenius to the Frenkel–Gross connection. Extend lo
 - `Bessel.bessel_isocrystal.underlying_connection` (compatibility): For every W the underlying dagger connection is the representation of d+(N+xΣ(−π)^{h_i}E_i)dx/x.
 - `Bessel.bessel_isocrystal.tensor_frobenius` (structure): The Frobenius commutes with all intertwiners and the tensor unit, dual and product constraints.
 - `Bessel.bessel_isocrystal.companion` (compatibility): For every closed point and W, its characteristic polynomial equals that of the normalized étale Hecke eigenobject.
+- `Bessel.bessel_isocrystal.coefficient_extension` (compatibility): Finite extension of K carrying the chosen π and c_p to their fixed images commutes with the Bessel tensor functor, its Frobenius, and its closed-point characteristic polynomials.
 
 **Unit tests.**
 
-- **unit_representation.** The trivial H representation gives the constant rank-one F-isocrystal with Frobenius 1.
-- **rank_two_normalization.** For H=SL₂, the degree-one standard trace is −RawKl₂/c_q.
-- **torus_factor.** For a split torus with trivial tame character, every character yields the constant rank-one F-isocrystal, consistent with 2ρ=0.
+- **unit_representation.** (degenerate) The trivial H representation gives the constant rank-one F-isocrystal with Frobenius 1.
+- **rank_two_normalization.** (computation) For H=SL₂, the degree-one standard trace is −RawKl₂/c_q.
+- **torus_factor.** (degenerate) For a split torus with trivial tame character, every character yields the constant rank-one F-isocrystal, consistent with 2ρ=0.
 
 **Checks.**
 
@@ -538,12 +548,13 @@ Transport the rigid Hecke Frobenius to the Frenkel–Gross connection. Extend lo
 - `Bessel.log_extension.restriction` (compatibility): Restriction to G_m recovers Be_H† as an F-isocrystal.
 - `Bessel.log_extension.residue` (projection): The logarithmic residue in representation W is dρ_W(N); tensor residues add.
 - `Bessel.log_extension.unique_extension` (universal-property): Every morphism between these unipotent objects extends uniquely to the nilpotent log extension.
+- `Bessel.log_extension.tensor_dual` (compatibility): The canonical nilpotent-log extension preserves tensor products and duals; its residues are N⊗1+1⊗N′ and −N transpose, respectively, with the induced logarithmic Frobenius.
 
 **Unit tests.**
 
-- **sl_two_residue.** For SL₂ the standard residue has rank one and square zero; it is not the zero residue.
-- **trivial_representation.** The unit representation has residue zero and log Frobenius 1.
-- **infinity_boundary.** A generic nonzero affine parameter has positive irregularity at infinity and cannot be extended there by the same nilpotent-log rule.
+- **sl_two_residue.** (computation) For SL₂ the standard residue has rank one and square zero; it is not the zero residue.
+- **trivial_representation.** (degenerate) The unit representation has residue zero and log Frobenius 1.
+- **infinity_boundary.** (non-example) A generic nonzero affine parameter has positive irregularity at infinity and cannot be extended there by the same nilpotent-log rule.
 
 **Checks.**
 
@@ -658,7 +669,7 @@ Construct the three Bessel-generated Tannakian groups by specialization of exist
 
 **Target (construction).** Specialize neutral Tannakian subcategory generation to the images of Rep(H) under Be_H, Be_H† with Frobenius forgotten, and Be_H† with Frobenius retained. Their tensor automorphism groups are respectively G_alg, G_geo and G_arith. They are defined using all subquotients of finite tensor constructions, not merely the original image. Compatible fiber choices give closed embeddings G_geo→G_alg→H and G_geo→G_arith→H. Cross-coefficient monodromy comparison is a different theorem, not a formal arrow between these three categories.
 
-**Inputs:** [KB.4/bessel-isocrystal](#kb-4-bessel-isocrystal); [KB.2/fg-connection](#kb-2-fg-connection); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`; `MotivesAndAlgebraicCycles:MC.6`.
+**Inputs:** [KB.4/bessel-isocrystal](#kb-4-bessel-isocrystal); [KB.2/fg-connection](#kb-2-fg-connection); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`; `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`; `PadicDifferentialEquationsAndRigidCohomology:RD.6/coefficient-category-is-neutral-tannakian`.
 
 **Proof route.** 1. Use the existing neutral Tannaka carrier and exact tensor subcategory generation. 2. Specify the fiber functors and the analytic/forget-Frobenius functors which induce each arrow. 3. Use the quotient universal property of tensor generation to obtain the closed embeddings.
 
@@ -669,12 +680,13 @@ Construct the three Bessel-generated Tannakian groups by specialization of exist
 - `Bessel.generated_groups.image_factorization` (universal-property): Each original Rep(H) functor factors through its generated tensor category; the associated group embeds into H.
 - `Bessel.generated_groups.forget_frobenius` (functoriality): Forgetting Frobenius gives the indicated G_geo→G_arith embedding with compatible fibers.
 - `Bessel.generated_groups.fiber_change` (compatibility): Changing a fiber functor changes the embedded group by its tensor-isomorphism torsor; statements are made up to the corresponding conjugation.
+- `Bessel.generated_groups.tensor_invariants` (characterisation): In the generated category with Frobenius forgotten, a tensor is geometrically invariant exactly when it comes from the corresponding constant subobject. This is the specialized coefficient-category invariant criterion, not a reconstruction of the generic Tannakian carrier.
 
 **Unit tests.**
 
-- **trivial_object.** For the trivial tensor functor on Rep(G_m), generation has trivial monodromy, not G_m.
-- **scalar_rank_two.** The normalized SL₂ standard object generates geometric SL₂, agreeing with the scalar supplier at every p.
-- **include_subquotients.** A reducible tensor construction contributes its invariant line as a subobject; restricting to the literal image instead of subquotient closure fails this test.
+- **trivial_object.** (degenerate) For the trivial tensor functor on Rep(G_m), generation has trivial monodromy, not G_m.
+- **scalar_rank_two.** (compatibility) The normalized SL₂ standard object generates geometric SL₂, agreeing with the scalar supplier at every p.
+- **include_subquotients.** (characterisation) A reducible tensor construction contributes its invariant line as a subobject; restricting to the literal image instead of subquotient closure fails this test.
 
 **Checks.**
 
@@ -739,9 +751,9 @@ Construct the three Bessel-generated Tannakian groups by specialization of exist
 
 **Target (theorem).** For almost-simple H outside the even-A p=2 branch already reserved for KB.11, put E=Be_H†,Ad. Then H^i(P¹,j_!+E)=0 for every i, Irr_∞E=rank H, the adjoint inertia invariants at ∞ vanish and the local nilpotent operator N_∞ is zero. The local Weil datum obtained from the Frobenius object is discrete with minimal adjoint Swan, hence has the simple-wild property in the Gross–Reeder sense. If p∤|W_H|, its nonzero adjoint upper breaks are all 1/h; retain this stronger hypothesis. Merely specifying a bare inertia map is not the full Weil-parameter definition.
 
-**Inputs:** [KB.6/global-monodromy](#kb-6-global-monodromy); [KB.6/principal-exclusion](#kb-6-principal-exclusion); [KB.4/log-extension](#kb-4-log-extension); `PadicDifferentialEquationsAndRigidCohomology:RD.2`; `PadicDifferentialEquationsAndRigidCohomology:RD.5`.
+**Inputs:** [KB.6/global-monodromy](#kb-6-global-monodromy); [KB.6/principal-exclusion](#kb-6-principal-exclusion); [KB.4/log-extension](#kb-4-log-extension); `PadicDifferentialEquationsAndRigidCohomology:RD.2`; `PadicDifferentialEquationsAndRigidCohomology:RD.5`; `PadicDifferentialEquationsAndRigidCohomology:RD.6/grothendieck-ogg-shafarevich-formula`.
 
-**Proof route.** 1. Apply duality and the GOS Euler characteristic to the localization sequence for j_!+E. 2. The zero fiber contributes r invariant residue vectors; combine the upper bound r with exactness to force all middle cohomology and infinity invariants to vanish. 3. A nonzero adjoint N_∞ would lie in the inertia-invariant adjoint subspace, so vanishing forces N_∞=0. Apply the simple-wild structure theorem only for p∤|W_H|; the generic Weil-parameter supplier is gap G7.
+**Proof route.** 1. Apply duality and the GOS Euler characteristic to the localization sequence for j_!+E. 2. The zero fiber contributes r invariant residue vectors; combine the upper bound r with exactness to force all middle cohomology and infinity invariants to vanish. 3. A nonzero adjoint N_∞ would lie in the inertia-invariant adjoint subspace, so vanishing forces N_∞=0. Apply the simple-wild structure theorem only for p∤|W_H|; the generic Weil-parameter supplier is gap G7. 4. In the characteristic-zero middle-cohomology check, subtract one inertia-invariant dimension at zero and one at infinity. FG (14.1), p. 29, repeats I₀ typographically; its preceding boundary sequence gives the correct I₀⊕I∞.
 
 **Checks.**
 
@@ -750,7 +762,7 @@ Construct the three Bessel-generated Tannakian groups by specialization of exist
 
 **Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), Corollary 4.5.7 and Remark 4.5.8, p. 54; HNY Corollary 2.15, p. 262. Adjoint rigidity and simple wildness: For almost-simple H outside the even-A p=2 branch already reserved for KB.11, put E=Be_H†,Ad. [GR](https://people.math.harvard.edu/~gross/preprints/AdjointGamma5.pdf), §5.3, Proposition 5.6, pp. 34–35; §6 definition, p. 35. Discrete Weil parameters with vanishing adjoint inertia invariants and minimal Swan have the stated prime-to-Weyl-order ramification description.
 
-**Coverage:** planned. Remaining contracts: G6: Slope comparison and exact-radius inputs; G7: Generic monodromy and Lie-theoretic proof inputs; Fulfil the exact requested contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, PadicDifferentialEquationsAndRigidCohomology:RD.1, PadicDifferentialEquationsAndRigidCohomology:RD.2, PadicDifferentialEquationsAndRigidCohomology:RD.5, MotivesAndAlgebraicCycles:MC.6, KloostermanMomentsAndPotentialAutomorphy:KM.1/monodromy.
+**Coverage:** planned. Remaining contracts: G6: Slope comparison and exact-radius inputs; G7: Generic monodromy and Lie-theoretic proof inputs; Fulfil the exact requested contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, PadicDifferentialEquationsAndRigidCohomology:RD.1, PadicDifferentialEquationsAndRigidCohomology:RD.2, PadicDifferentialEquationsAndRigidCohomology:RD.5, MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction, KloostermanMomentsAndPotentialAutomorphy:KM.1/monodromy.
 
 ## KB.7. Functoriality and companions
 
@@ -766,7 +778,7 @@ Prove pinning-compatible functoriality between the groups in one Frenkel–Gross
 
 **Additional hypotheses.** For the characteristic-two even-A branch, use the final KB.11 monodromy theorem when applying this torsor statement; the earlier functoriality application uses the non-even-A rows.
 
-**Inputs:** [KB.4/bessel-isocrystal](#kb-4-bessel-isocrystal); [KB.6/global-monodromy](#kb-6-global-monodromy); [KB.4/zero-frobenius](#kb-4-zero-frobenius); `MotivesAndAlgebraicCycles:MC.6`.
+**Inputs:** [KB.4/bessel-isocrystal](#kb-4-bessel-isocrystal); [KB.6/global-monodromy](#kb-6-global-monodromy); [KB.4/zero-frobenius](#kb-4-zero-frobenius); `MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction`.
 
 **Proof route.** 1. Apply neutral Tannaka to a horizontal tensor automorphism of the underlying connection. 2. Use the centralizer calculation for the Bessel monodromy subgroup; record the characteristic-two even-A use after KB.11. 3. Compare the scalar on the highest/lowest residue lines in every irreducible representation to remove the central ratio.
 
@@ -845,7 +857,7 @@ Prove pinning-compatible functoriality between the groups in one Frenkel–Gross
 
 **Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), Corollary 4.5.6, p. 53 (the cited cross-coefficient group-map argument requires replacement). Companion monodromy comparison: The normalized étale companions have the same geometric and arithmetic monodromy types, component groups and compatible embedded H-subgroups as the p-adic Bessel classification, outside even-A at p=2.
 
-**Coverage:** planned. Remaining contracts: G6: Slope comparison and exact-radius inputs; G7: Generic monodromy and Lie-theoretic proof inputs; Fulfil the exact requested contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, PadicDifferentialEquationsAndRigidCohomology:RD.1, MotivesAndAlgebraicCycles:MC.6.
+**Coverage:** planned. Remaining contracts: G6: Slope comparison and exact-radius inputs; G7: Generic monodromy and Lie-theoretic proof inputs; Fulfil the exact requested contracts: tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, PadicDifferentialEquationsAndRigidCohomology:RD.1, MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction.
 
 ## KB.8. Classical realizations and orthogonal sums
 
@@ -887,12 +899,13 @@ Identify special-linear and symplectic standard objects with the all-rank scalar
 - `Bessel.orthogonal_matrices.lie_form` (characterisation): Both N and E satisfy the infinitesimal form-preservation equation in the specified anti-diagonal form.
 - `Bessel.orthogonal_matrices.invariant_line` (simp): For the even matrix, (N+λ^{2n−2}xE)(e_n−e_{n+1})=0.
 - `Bessel.orthogonal_matrices.odd_operator` (compatibility): The cyclic presentation is the specified odd scalar operator; its normalized holomorphic solution at zero has coefficients (2r−1)!!(2λ^{2n})^r/(r!)^{2n+1}.
+- `Bessel.orthogonal_matrices.coefficient_base_change` (compatibility): The integral matrix entries commute with characteristic-zero coefficient extension; the form and invariant-line identities hold under the same scalar map. A coefficient field of residue characteristic two still has characteristic zero.
 
 **Unit tests.**
 
-- **odd_rank_three.** For n=1, N=E₁₂+E₂₃, E=2E₂₁+2E₃₂ and the operator is δ³−λ²x(4δ+2).
-- **even_rank_six.** For n=3, N has E₁₂,E₂₃,E₄₅,E₅₆,E₂₄,E₃₅ and kills e₃−e₄; adding E₃₄ would fail.
-- **factor_two.** Replacing E by E/2 changes the coefficient of x in the normalized odd formal solution from 2λ^{2n} to λ^{2n}; it fails the parameter/Frobenius normalization.
+- **odd_rank_three.** (computation) For n=1, N=E₁₂+E₂₃, E=2E₂₁+2E₃₂ and the operator is δ³−λ²x(4δ+2).
+- **even_rank_six.** (computation) For n=3, N has E₁₂,E₂₃,E₄₅,E₅₆,E₂₄,E₃₅ and kills e₃−e₄; adding E₃₄ would fail.
+- **factor_two.** (non-example) Replacing E by E/2 changes the coefficient of x in the normalized odd formal solution from 2λ^{2n} to λ^{2n}; it fails the parameter/Frobenius normalization.
 
 **Checks.**
 
@@ -934,12 +947,13 @@ Identify special-linear and symplectic standard objects with the all-rank scalar
 - `Bessel.quadric_potential.regular_potential` (characterisation): Every denominator of W is invertible on Q°, and its homogeneous degree is zero in the projective coordinates.
 - `Bessel.quadric_potential.trace` (projection): At degree d the trace is q^{−d(n−1)}Σ_{z∈Q°(k_d)}ψ(Tr W(z,a)); the even cohomological shift introduces no sign.
 - `Bessel.quadric_potential.hecke_chart` (compatibility): The standard orthogonal Hecke chart is Q°×G_m with character W, respecting the chosen invariant parameter.
+- `Bessel.quadric_potential.constant_extension` (compatibility): Finite constant-field extension commutes with the open quadric, its potential and its exponential direct image. Its degree-d trace uses ψ composed with Tr_{k_d/k} and q^{−d(n−1)}.
 
 **Unit tests.**
 
-- **n_three.** For n=3 the δ_l sum is empty and W=p₁/p₀+p₃/p₂+p₃/p′₂+x p₁/p₄ on p₂p′₂−p₁p₃+p₀p₄=0.
-- **projective_scaling.** Rescaling every p coordinate by a nonzero scalar leaves W unchanged; scaling x changes only the final term.
-- **n_two_excluded.** n=2 is rejected for this chart formula and is computed instead by the SO₄ product realization.
+- **n_three.** (computation) For n=3 the δ_l sum is empty and W=p₁/p₀+p₃/p₂+p₃/p′₂+x p₁/p₄ on p₂p′₂−p₁p₃+p₀p₄=0.
+- **projective_scaling.** (compatibility) Rescaling every p coordinate by a nonzero scalar leaves W unchanged; scaling x changes only the final term.
+- **n_two_excluded.** (non-example) n=2 is rejected for this chart formula and is computed instead by the SO₄ product realization.
 
 **Checks.**
 
@@ -991,12 +1005,13 @@ Use the generic hypergeometric coefficient supplier to normalize the (2n+1; quad
 - `Bessel.hypergeometric_normalization.zero_spectrum` (simp): The n eigenvalues are q^{−(n−1)/2},…,q^{(n−1)/2}; the middle one in odd rank is 1.
 - `Bessel.hypergeometric_normalization.degree_one_trace` (projection): At a k-point the trace is H_ψ(n;ρ)/((−c_q)^{n−1}∏_j g_j).
 - `Bessel.hypergeometric_normalization.empty_denominators` (compatibility): For m=0 the normalized object is the scalar Bessel F-isocrystal already supplied by KM, including its sign.
+- `Bessel.hypergeometric_normalization.gauss_extension` (compatibility): Under degree-d constant extension, Hasse–Davenport gives g_{j,d}=(−1)^{d−1}g_j^d; the hypergeometric trace sign and the d-th power of the fixed normalizing scalar must be transported together.
 
 **Unit tests.**
 
-- **odd_rank_three.** For n=3,m=1 the zero spectrum is q^{−1},1,q, not a set containing 0.
-- **rank_two_empty.** For n=2,m=0 the trace is −RawKl₂/c_q and the spectrum is c_q^{−1},c_q.
-- **extension_field.** For d=2 the normalizing scalar is the square of the base scalar; substituting an extension-field Gauss sum without the Hasse–Davenport sign is rejected.
+- **odd_rank_three.** (computation) For n=3,m=1 the zero spectrum is q^{−1},1,q, not a set containing 0.
+- **rank_two_empty.** (compatibility) For n=2,m=0 the trace is −RawKl₂/c_q and the spectrum is c_q^{−1},c_q.
+- **extension_field.** (compatibility) For d=2 the normalizing scalar is the square of the base scalar; substituting an extension-field Gauss sum without the Hasse–Davenport sign is rejected.
 
 **Checks.**
 
@@ -1042,7 +1057,7 @@ Use the generic hypergeometric coefficient supplier to normalize the (2n+1; quad
 
 ## KB.10. The characteristic-two comparison
 
-Specify Dwork congruence data, prove the signed 2-adic refinement, and compare the two explicit Bessel solution series. Identify maximal-slope quotients on a common constant-Newton locus with their shared q^n Frobenius scale and apply the imported curve minimal-slope theorem. Transport the appendix coordinate x↦−x by convergent Taylor isomorphisms.
+Specify Dwork congruence data, prove the signed 2-adic refinement, and compare the two explicit Bessel solution series. Identify maximal-slope quotients on a common constant-Newton locus with the full q=2^s iterated Frobenius multipliers and their shared q^n scale, then apply the imported curve minimal-slope theorem. Transport the appendix coordinate x↦−x by convergent Taylor isomorphisms.
 
 **Layer inputs:** `KloostermanSheavesAndBesselIsocrystals:KB.9`; `KloostermanSheavesAndBesselIsocrystals:KB.5`; `PadicDifferentialEquationsAndRigidCohomology:RD.3`.
 
@@ -1050,7 +1065,7 @@ Specify Dwork congruence data, prove the signed 2-adic refinement, and compare t
 
 ### dwork-data: Dwork congruence data
 
-**Target (definition).** Let R be a complete mixed-characteristic DVR and B^{(i)}:N→K×, i≥0. Require (a) B^{(i)}(0)∈R×; (b) B^{(i)}(a+pn)/B^{(i+1)}(n)∈R for 0≤a<p; (c) the difference of that quotient with n replaced by n+mp^s belongs to p^{s+1}R for every a,n,m,s. In the signed p=2 version, replace the latter quotient by u(i,s,m) times the former, with u∈{±1} independent of a,n and u=1 unless s=1. Define F^{(i)}=Σ_j B^{(i)}(j)x^j and F^{(i)}_{m,s}=Σ_{mp^s≤j<(m+1)p^s}B^{(i)}(j)x^j. The normalized periodic version adds B^{(i)}(0)=1 and B^{(i+r)}=B^{(i)} for a fixed r≥1.
+**Target (definition).** Let R be a complete mixed-characteristic DVR and B^{(i)}:N→K×, i≥0. Require (a) B^{(i)}(0)∈R×; (b) B^{(i)}(a+pn)/B^{(i+1)}(n)∈R for 0≤a<p; (c) the difference of that quotient with n replaced by n+mp^s belongs to p^{s+1}R for every a,n,m,s. Writing R_i(a,n)=B^{(i)}(a+pn)/B^{(i+1)}(n), the signed p=2 version requires R_i(a,n+m2^s)−u(i,s,m)R_i(a,n)∈2^{s+1}R, with u∈{±1} independent of a,n and u=1 unless s=1. Define F^{(i)}=Σ_j B^{(i)}(j)x^j and F^{(i)}_{m,s}=Σ_{mp^s≤j<(m+1)p^s}B^{(i)}(j)x^j. The normalized periodic version adds B^{(i)}(0)=1 and B^{(i+r)}=B^{(i)} for a fixed r≥1.
 
 **Inputs:** [KB.0/coefficients](#kb-0-coefficients); `PadicDifferentialEquationsAndRigidCohomology:RD.0`.
 
@@ -1063,12 +1078,13 @@ Specify Dwork congruence data, prove the signed 2-adic refinement, and compare t
 - `Bessel.dwork_data.block` (projection): The block F_{m,s} starts at mp^s and ends before (m+1)p^s; F_s means F_{0,s}.
 - `Bessel.dwork_data.integral_coefficients` (characterisation): Conditions (a),(b) force B^{(i)}(j)∈R for all i,j by induction on j.
 - `Bessel.dwork_data.periodic_normalized` (structure): A normalized periodic datum has F^{(i)}(0)=1 and is unchanged after r shifts of i; this is extra structure, not a consequence of (a)–(c).
+- `Bessel.dwork_data.shift` (structure): Deleting the first sequence yields the shifted datum B^{(i+1)} with inherited congruences and signs u(i+1,s,m); a normalized period-r datum retains its period. This is the shift used in every block identity.
 
 **Unit tests.**
 
-- **constant_sequence.** B^{(i)}(j)=1 for all i,j satisfies the ordinary conditions and has period 1.
-- **block_endpoints.** For p=2,m=1,s=2 the block has exactly j=4,5,6,7; an inclusive upper endpoint gives the wrong polynomial.
-- **signed_exception.** For the rank-three sequence B(j)=(−2)^{3j}/(j!)³, B(4)/B(2)=1/27≡−1 mod4, whereas B(0)/B(0)=1: the ordinary s=1 congruence fails, and the signed one succeeds.
+- **constant_sequence.** (degenerate) B^{(i)}(j)=1 for all i,j satisfies the ordinary conditions and has period 1.
+- **block_endpoints.** (computation) For p=2,m=1,s=2 the block has exactly j=4,5,6,7; an inclusive upper endpoint gives the wrong polynomial.
+- **signed_exception.** (non-example) For the rank-three sequence B(j)=(−2)^{3j}/(j!)³, B(4)/B(2)=1/27≡−1 mod4, whereas B(0)/B(0)=1: the ordinary s=1 congruence fails, and the signed one succeeds.
 
 **Checks.**
 
@@ -1097,7 +1113,7 @@ Specify Dwork congruence data, prove the signed 2-adic refinement, and compare t
 
 ### dwork-line: Dwork unit-root line
 
-**Target (construction).** Work first over k=F_p with p-Frobenius fixing K. For a period-one normalized Dwork series F, let U be the formal open where its first p-truncation is nonzero modulo p. The functions f=F(x)/F(x^p) and η=F′(x)/F(x) extend to U, f is invertible and f′/f+px^{p−1}η(x^p)=η(x). Define E_F=(O,d−η dx) with F*→E_F multiplier f. It is a convergent unit-root F-isocrystal on U, with value f(0)=1 when 0∈U. This construction alone does not make E_F the maximal-slope F-quotient of an arbitrary Bessel object.
+**Target (construction).** Work first over k=F_p with p-Frobenius fixing K. For a period-one normalized Dwork series F, let U be the formal open where its first p-truncation is nonzero modulo p. The functions f=F(x)/F(x^p) and η=F′(x)/F(x) extend to U, f is invertible and f′/f+px^{p−1}η(x^p)=η(x). Define E_F=(O,d−η dx) with F*→E_F multiplier f. It is a convergent unit-root F-isocrystal on U, with value f(0)=1 when 0∈U. This construction alone does not make E_F the maximal-slope F-quotient of an arbitrary Bessel object. After constant extension to F_q, q=p^s, for a series whose coefficients are fixed by the chosen p-Frobenius, set f_{F,q}(x)=∏_{i=0}^{s−1}f(x^{p^i})=F(x)/F(x^q). This is the q-Frobenius multiplier; it still has value 1 at zero and unit values on U.
 
 **Inputs:** [KB.10/signed-refinement](#kb-10-signed-refinement); `PadicDifferentialEquationsAndRigidCohomology:RD.3`.
 
@@ -1110,12 +1126,14 @@ Specify Dwork congruence data, prove the signed 2-adic refinement, and compare t
 - `Bessel.dwork_line.connection` (projection): The logarithmic derivative is η and the connection is d−η dx; F is its local horizontal solution.
 - `Bessel.dwork_line.frobenius` (compatibility): The multiplier f satisfies the F*→object horizontal equation and has all Newton slopes zero.
 - `Bessel.dwork_line.normalized_value` (simp): F(0)=1 implies f(0)=1; multiplying F by a nonzero constant leaves η and f unchanged in period 1.
+- `Bessel.dwork_line.iterate_frobenius` (compatibility): For q=p^s and coefficients fixed by p-Frobenius, composition of the s pullback maps gives f_{F,q}(x)=∏_{i=0}^{s−1}f(x^{p^i})=F(x)/F(x^q), with f_{F,q}(0)=1. A single p-step multiplier is insufficient when s>1.
 
 **Unit tests.**
 
-- **geometric_series.** For B(j)=1, F=(1−x)^{−1}, U is x≠1, η=(1−x)^{−1} and f=(1−x^p)/(1−x).
-- **orientation.** The inverse multiplier would give the opposite derivative of log f and does not satisfy the same horizontal equation unless η is Frobenius-invariant in that way.
-- **nonunit_excluded.** On x=1 for the geometric series, the reduction of the first truncation vanishes; a global unit-root line on that larger formal open is not asserted.
+- **geometric_series.** (computation) For B(j)=1, F=(1−x)^{−1}, U is x≠1, η=(1−x)^{−1} and f=(1−x^p)/(1−x).
+- **orientation.** (non-example) The inverse multiplier would give the opposite derivative of log f and does not satisfy the same horizontal equation unless η is Frobenius-invariant in that way.
+- **nonunit_excluded.** (non-example) On x=1 for the geometric series, the reduction of the first truncation vanishes; a global unit-root line on that larger formal open is not asserted.
+- **degree_two_frobenius.** (compatibility) For the geometric series at p=2,q=4, f_{F,4}=(1+x)(1+x²)=(1−x⁴)/(1−x), whereas the single-step multiplier is only 1+x.
 
 **Checks.**
 
@@ -1131,12 +1149,13 @@ Specify Dwork congruence data, prove the signed 2-adic refinement, and compare t
 
 **Inputs:** [KB.10/dwork-data](#kb-10-dwork-data); [KB.10/signed-refinement](#kb-10-signed-refinement); [KB.10/dwork-line](#kb-10-dwork-line); [KB.8/orthogonal-matrices](#kb-8-orthogonal-matrices).
 
-**Proof route.** 1. Check factorial valuations and unit parts in each quotient congruence, keeping the single exceptional s=1 sign. 2. Apply the alternating period-two congruence theorem to extend F(x)/G(x²), and divide by the period-one unit for G to extend F/G as a unit. 3. Use h′/h=η_F−η_G and h(x)f_G(x)=f_F(x)h(x²) to verify horizontal and Frobenius compatibility.
+**Proof route.** 1. Check factorial valuations and unit parts in each quotient congruence, keeping the single exceptional s=1 sign. 2. Apply the alternating period-two congruence theorem to extend F(x)/G(x²), and divide by the period-one unit for G to extend F/G as a unit. 3. Use h′/h=η_F−η_G and h(x)f_G(x)=f_F(x)h(x²) to verify horizontal and Frobenius compatibility. 4. Iterate the squaring identity s times for q=2^s to obtain h(x)f_{G,q}(x)=f_{F,q}(x)h(x^q); both series have rational coefficients, fixed by the coefficient Frobenius.
 
 **Checks.**
 
 - At p=2 both first truncations are 1 modulo 2, so the formal domain is the completed affine line.
 - Check both h′/h=η_F−η_G and h f_G=f_F h(x²); a horizontal map alone is insufficient.
+- For a constant extension of degree s use the s-fold products f_{F,q} and f_{G,q}, rather than relabeling the squaring multiplier as q-Frobenius.
 
 **Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), Lemma A.12, pp. 66–67; Proposition A.1, p. 63; compare §5.3.8, p. 61. The two Bessel solution series: For n≥1 at p=2 put r=2n+1, F(x)=Σ_{j≥0}(−2)^{rj}x^j/(j!)^r and G(x)=Σ_{j≥0}2^{rj}(2j−1)!!x^j/(j!)^r, with (−1)!!=1.
 
@@ -1144,17 +1163,17 @@ Specify Dwork congruence data, prove the signed 2-adic refinement, and compare t
 
 ### maximal-quotient-bridge: Frobenius on the maximal-slope quotient
 
-**Target (theorem).** On a common connected constant-Newton locus for the two normalized rank-(2n+1) Bessel objects, adjoining the log point zero with its ordinary polygon, their maximal-slope quotients are rank one of slope n. For the column cyclic module with ∇δe_i=e_{i+1}, Ore division by δ−xF′/F gives the quotient connection d+η_F dx, hence E_F dual, and likewise for G. Its quotient Frobenius is q^n/f_F, respectively q^n/f_G, fixed by the common zero-fiber eigenvalue q^n. Thus multiplication by h^{-1}, h=F/G, is a Frobenius-compatible map from the G quotient to the F quotient. The dual sign is part of the cyclic-module dictionary; one cannot use the solution-line connection d−η as the same quotient in this convention. All these identifications must be proved on that common locus; A.9 only supplies an underlying log-isocrystal comparison.
+**Target (theorem).** On a common connected constant-Newton locus for the two normalized rank-(2n+1) Bessel objects, adjoining the log point zero with its ordinary polygon, their maximal-slope quotients are rank one of slope n. For the column cyclic module with ∇δe_i=e_{i+1}, Ore division by δ−xF′/F gives the quotient connection d+η_F dx, hence E_F dual, and likewise for G. Its quotient Frobenius is q^n/f_{F,q}, respectively q^n/f_{G,q}, where q=2^s and f_{F,q}=∏_{i=0}^{s−1}f_F(x^{2^i})=F(x)/F(x^q) (and likewise for G), fixed by the common zero-fiber eigenvalue q^n. Thus multiplication by h^{-1}, h=F/G, is a Frobenius-compatible map from the G quotient to the F quotient. The dual sign is part of the cyclic-module dictionary; one cannot use the solution-line connection d−η as the same quotient in this convention. All these identifications must be proved on that common locus; A.9 only supplies an underlying log-isocrystal comparison.
 
 **Inputs:** [KB.10/series-ratio](#kb-10-series-ratio); [KB.5/generic-ordinarity](#kb-5-generic-ordinarity); [KB.4/zero-frobenius](#kb-4-zero-frobenius); `PadicDifferentialEquationsAndRigidCohomology:RD.3`; `PadicDifferentialEquationsAndRigidCohomology:RD.2`.
 
-**Proof route.** 1. Use generic ordinarity independently of A.1 to choose a common ordinary locus whose log extension contains zero. 2. Factor the Ore operators and prove the horizontal quotient identifies the maximal-slope quotient; use the global slope filtration supplier, not only local Robba slope theory. 3. Dualize the solution line as dictated by the cyclic basis; check δc+η c=q c η(x^q) for c=q^n/f. The Frobenius ratio to this multiplier is horizontal and hence constant on the connected locus. Evaluate at zero to obtain q^n. The global slope/continuation hypotheses and full proof are G10.
+**Proof route.** 1. Use generic ordinarity independently of A.1 to choose a common ordinary locus whose log extension contains zero. 2. Factor the Ore operators and prove the horizontal quotient identifies the maximal-slope quotient; use the global slope filtration supplier, not only local Robba slope theory. 3. Dualize the solution line as dictated by the cyclic basis; check c′+η(x)c=q x^{q−1}cη(x^q) for c=q^n/f_{F,q}. The Frobenius ratio to this multiplier is horizontal and hence constant on the connected locus. Evaluate at zero to obtain q^n, using f_{F,q}(0)=1. The global slope/continuation hypotheses and full proof are G10.
 
 **Checks.**
 
 - In the column cyclic basis, the relation e₂=xηe₁ makes the quotient connection d+η dx; it is the dual of the d−η solution line.
-- The quotient multiplier q^n/f has slope n, is horizontal for d+η dx and has value q^n at zero. Using f itself would give the wrong slope and horizontal equation.
-- Multiplication by h^{-1} intertwines the two quotient multipliers because h f_G=f_F h(x^q); prove the ratio is constant on the common connected log locus before evaluating it at zero.
+- The quotient multiplier q^n/f_{F,q} has slope n, is horizontal for d+η dx and has value q^n at zero. Using f_F itself would give the wrong slope and horizontal equation.
+- Multiplication by h^{-1} intertwines the two quotient multipliers because h f_{G,q}=f_{F,q} h(x^q); prove the ratio is constant on the common connected log locus before evaluating it at zero.
 
 **Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), A.8–Proposition A.9 and A.11, pp. 65–66, with the missing Frobenius step made explicit. Frobenius on the maximal-slope quotient: On a common connected constant-Newton locus for the two normalized rank-(2n+1) Bessel objects, adjoining the log point zero with its ordinary polygon, their maximal-slope quotients are rank one of slope n.
 
@@ -1164,7 +1183,7 @@ Specify Dwork congruence data, prove the signed 2-adic refinement, and compare t
 
 **Target (theorem).** For p=2 and n≥1, Be_SO2n+1,Std†≅Be_{2n+1}† as normalized overconvergent F-isocrystals on G_m, compatibly with all finite constant-field extensions. Compare irreducible objects on the common constant-Newton open via their maximal-slope quotients and the curve minimal-slope theorem; then extend by full faithfulness. The appendix sign of the scalar operator is transported by the convergent Taylor isomorphism for the two lifts x and −x of the same characteristic-two map, with the Frobenius transported at the same time.
 
-**Inputs:** [KB.10/maximal-quotient-bridge](#kb-10-maximal-quotient-bridge); [KB.8/classical-scalar](#kb-8-classical-scalar); `PadicDifferentialEquationsAndRigidCohomology:RD.3`.
+**Inputs:** [KB.10/maximal-quotient-bridge](#kb-10-maximal-quotient-bridge); [KB.8/classical-scalar](#kb-8-classical-scalar); `PadicDifferentialEquationsAndRigidCohomology:RD.3`; [KB.6/global-monodromy](#kb-6-global-monodromy); `PadicDifferentialEquationsAndRigidCohomology:RD.3/taylor-comparison-of-pullbacks`.
 
 **Proof route.** 1. Use geometric irreducibility of the scalar and odd orthogonal standard objects, already available outside even A. 2. Apply the dual curve minimal-slope theorem to the Frobenius-compatible maximal quotients on the common smooth connected open. 3. Extend uniquely to the whole curve by overconvergent full faithfulness and explicitly transport the coordinate-lift Taylor isomorphism; gap G10 names the pending minimal-slope owner.
 
@@ -1217,6 +1236,7 @@ Compute the toric hypergeometric slopes by nondegeneracy and boundary decomposit
 
 - For d=1 the slopes are 0,1,…,2n; for d=2 they are 0,1/2,…,2n+1/2.
 - S_m(f₂)−S_m(f₁) is the raw hypergeometric sum, hence minus its unnormalized Frobenius trace; track this sign in the quotient determinant.
+- The unnormalized trace of the (2n+1; one quadratic) object is minus the raw hypergeometric sum. This sign has valuation zero and leaves the Newton polygon unchanged.
 
 **Sources.** [XZ](https://arxiv.org/pdf/1910.13391v2), Lemma 5.4.3, (5.4.3.1)–(5.4.3.2), pp. 62–63. Toric hypergeometric slopes: For odd p, n≥1, d|p−1 and a≠0, let f_d=Σ_{i=1}^{2n}x_i−z^d+a z^d/(∏_{i=1}^{2n}x_i) on G_m^{2n+1}.
 
@@ -1365,7 +1385,7 @@ XZ cites Lam–Templier’s geometric identification of the standard even-orthog
 
 ### G10. Global slope filtration and normalized maximal quotient
 
-The routed PadicDifferentialEquationsPartIIMinimalSlope proposal has no actual supplier stage in this clone. Require the convergent and nilpotent-log constant-Newton slope filtration, generic constancy, the curve dual minimal-slope theorem for irreducible overconvergent F-isocrystals, and full-faithful extension. For the appendix, prove the Ore quotient is the maximal-slope line on a common connected ordinary/log locus containing zero. In this packet’s column cyclic convention it is E_F dual with Frobenius q^n/f_F (and E_G dual with q^n/f_G), not the unit-root object with multiplier f_F. Show the Frobenius ratio constant and evaluate at zero, then use h^{-1}. Check the x and −x lift Taylor isomorphism including Frobenius, and constant-field descent from F₂ to F_q. This is a precise unresolved proof repair, not an assertion that A.9 proved Frobenius compatibility.
+The routed PadicDifferentialEquationsPartIIMinimalSlope proposal has no actual supplier stage in this clone. Require the convergent and nilpotent-log constant-Newton slope filtration, generic constancy, the curve dual minimal-slope theorem for irreducible overconvergent F-isocrystals, and full-faithful extension. For the appendix, prove the Ore quotient is the maximal-slope line on a common connected ordinary/log locus containing zero. In this packet’s column cyclic convention it is E_F dual with Frobenius q^n/f_{F,q} (and E_G dual with q^n/f_{G,q}), using the full q=2^s iterate f_{F,q}=∏_{i=0}^{s−1}f_F(x^{2^i}), not the unit-root object with multiplier f_F. Show the Frobenius ratio constant and evaluate at zero, then use h^{-1}. Use the existing RD.3/taylor-comparison-of-pullbacks for x and −x, checking the induced Frobenius square, and constant-field descent from F₂ to F_q. This is a precise unresolved proof repair, not an assertion that A.9 proved Frobenius compatibility.
 
 **Owner/direction:** Proposed global minimal-slope Part II plus the Bessel-specific KB.10 bridge.
 
@@ -1401,15 +1421,15 @@ KM owns the scalar objects for all ranks. Its current nodes do not yet supply th
 
 6. **PadicDifferentialEquationsAndRigidCohomology:RD.2.** Use the p-adic local monodromy theorem, nilpotent logarithmic/Robba equivalence, Tannakian inertia realization and irregularity/Swan comparison for Bessel coefficients. Keep local Weil data including Frobenius and the exact Gross–Reeder hypotheses distinct from bare inertia. Consumers: [KB.4/log-extension](#kb-4-log-extension); [KB.6/wild-nontrivial](#kb-6-wild-nontrivial); [KB.6/rigidity-local](#kb-6-rigidity-local); [KB.10/maximal-quotient-bridge](#kb-10-maximal-quotient-bridge).
 
-7. **PadicDifferentialEquationsAndRigidCohomology:RD.3.** Use frame-independent overconvergent/convergent F-isocrystal categories, finite coefficient extension, restriction and full-faithfulness in their proven scope. The global/log slope filtration, Taylor-lift transport and minimal-slope curve theorem required by G10 are a separate Part II contract, with no fabricated stage id. Consumers: [KB.3/quasi-minuscule-comparison](#kb-3-quasi-minuscule-comparison); [KB.4/log-extension](#kb-4-log-extension); [KB.5/generic-ordinarity](#kb-5-generic-ordinarity); [KB.10/dwork-line](#kb-10-dwork-line); [KB.10/maximal-quotient-bridge](#kb-10-maximal-quotient-bridge); [KB.10/characteristic-two-comparison](#kb-10-characteristic-two-comparison).
+7. **PadicDifferentialEquationsAndRigidCohomology:RD.3.** Use frame-independent overconvergent/convergent F-isocrystals, finite coefficient extension, restriction and full faithfulness in their stated scopes. RD.3/taylor-comparison-of-pullbacks already supplies lift transport and its cocycle; check its Frobenius compatibility in this application. Only the global/log constant-Newton slope filtration and curve minimal-slope theorem in G10 require an additional contract. Consumers: [KB.3/quasi-minuscule-comparison](#kb-3-quasi-minuscule-comparison); [KB.4/log-extension](#kb-4-log-extension); [KB.5/generic-ordinarity](#kb-5-generic-ordinarity); [KB.10/dwork-line](#kb-10-dwork-line); [KB.10/maximal-quotient-bridge](#kb-10-maximal-quotient-bridge); [KB.10/characteristic-two-comparison](#kb-10-characteristic-two-comparison).
 
-8. **PadicDifferentialEquationsAndRigidCohomology:RD.4.** Use absolute algebraic de Rham/rigid specialization and support/cosupport compatibility for exponential coefficients. Supply the relative horizontal specialization map over the lifted bounded Hecke family as an extension, with fiberwise tests at all finite residue extensions; do not replan the absolute comparison. Consumers: [KB.3/minuscule-comparison](#kb-3-minuscule-comparison); [KB.3/quasi-minuscule-comparison](#kb-3-quasi-minuscule-comparison).
+8. **PadicDifferentialEquationsAndRigidCohomology:RD.4.** Import RD.4/algebraic-rigid-specialization-maps and RD.4/specialization-forget-supports-square with their smooth proper compactification and overconvergent-coefficient hypotheses. The support map has the opposite direction to the ordinary map; they are maps, not unconditional comparison isomorphisms. The relative horizontal version for the bounded Hecke family remains an extension, with all finite-residue-extension fiber tests. Consumers: [KB.3/minuscule-comparison](#kb-3-minuscule-comparison); [KB.3/quasi-minuscule-comparison](#kb-3-quasi-minuscule-comparison).
 
-9. **PadicDifferentialEquationsAndRigidCohomology:RD.5.** Use coefficient finiteness, Poincaré duality, localization and the exact GOS Euler characteristic for the adjoint overconvergent F-isocrystal on G_m; preserve the inertia-invariant and logarithmic boundary contributions. Consumers: [KB.6/rigidity-local](#kb-6-rigidity-local).
+9. **PadicDifferentialEquationsAndRigidCohomology:RD.5.** Use coefficient finiteness, Poincaré duality and localization. The GOS formula is supplied separately by RD.6/grothendieck-ogg-shafarevich-formula; keep local invariant and logarithmic boundary terms explicit in the adjoint rigidity calculation. Consumers: [KB.6/rigidity-local](#kb-6-rigidity-local).
 
 10. **PadicDifferentialEquationsAndRigidCohomology:RD.6.** Use trace, Fourier, weights and exponential coefficients in their established scope. The arithmetic D-module six operations/ULA smoothness of G2, Miyatani multiplicative convolution of G11 and toric ordinarity of G12 require explicit additional contracts, not a blanket interpretation of Fourier transform as all three. Consumers: [KB.1/trace-companions](#kb-1-trace-companions); [KB.9/convolution](#kb-9-convolution); [KB.11/toric-slopes](#kb-11-toric-slopes).
 
-11. **MotivesAndAlgebraicCycles:MC.6.** Use the generic neutral Tannakian reconstruction and tensor-isomorphism torsor for a proved rigid abelian category with an exact faithful fiber functor. Specialize to the subquotient-closed tensor category generated by the Bessel functor, including forgetting Frobenius and fiber change. No motivic structure on a Bessel object is asserted. Consumers: [KB.6/generated-groups](#kb-6-generated-groups); [KB.7/central-torsor](#kb-7-central-torsor).
+11. **MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction.** Import generic neutral Tannakian reconstruction and the tensor-isomorphism torsor for a rigid abelian category with an exact faithful fiber functor. RD.6/coefficient-category-is-neutral-tannakian already supplies the overconvergent category with Frobenius forgotten and its invariant criterion. Specialize these to Bessel generation; the retained-Frobenius category needs its own exact faithful fiber functor (enlarge coefficients and choose a rational base point). No motivic structure is asserted. Consumers: [KB.6/generated-groups](#kb-6-generated-groups); [KB.7/central-torsor](#kb-7-central-torsor).
 
 12. **GlobalShtukasAndFunctionFieldLanglands:GS.1/beilinson-drinfeld-grassmannian.** Use the equal-characteristic finite-field Beilinson–Drinfeld Grassmannian and bounded Hecke geometry; G1 requests its common-DVR relative extension, not the Witt-vector affine Grassmannian. Consumers: [KB.0/level-model](#kb-0-level-model); [KB.1/hecke-action](#kb-1-hecke-action); [KB.3/minuscule-comparison](#kb-3-minuscule-comparison); [KB.3/quasi-minuscule-comparison](#kb-3-quasi-minuscule-comparison).
 
@@ -1421,32 +1441,35 @@ KM owns the scalar objects for all ranks. Its current nodes do not yet supply th
 
 ### Source corrections
 
-The following corrections use the v2 preprint pagination. The packet records the evidence, reach and search for existing corrections for each item. They refine the existing extraction/red-team findings; E15 additionally states the cyclic quotient duality check in this document’s fixed convention. Source-proof repairs remain explicit gaps.
+All nineteen findings have an independent confirmed verdict in the packet. E9 concerns the exponent misprint only: extending an explicitly SL-only theorem to central forms is an additional consequence, not an erratum. E15 is relative to the fixed column cyclic convention. E17–E18 concern the FG v3 preprint; E19 concerns the XZ v2 preprint. No claim is made about uninspected versions or a published erratum. Source-proof repairs remain explicit gaps.
 
-| Finding | Locator | Corrected statement or required repair |
+| Finding | Source and locator | Corrected statement or required repair |
 | --- | --- | --- |
-| E1 | Theorems 1.1.4 and 1.2.4, pp. 3–5 | Use K containing π and √p, as in the body’s §4 standing hypothesis. |
-| E2 | §4.1.1, (4.1.1.1), pp. 37–38 | Use the root-depth/Moy–Prasad kernel containing T(1) and the nonsimple positive affine root groups. |
-| E3 | Theorem 4.2.1 and §4.1.13, pp. 42–43 | The main comparison has χ=1. A tame-character extension must use sign-compatible rational Kummer exponents. |
-| E4 | Lemma 4.2.6(i), pp. 44–45 | Replace that concentration assertion by the required perverse middle-image calculation and prove it; G4 remains open. |
-| E5 | §4.2.4 and §4.2.8, pp. 44, 46 | Test every rigid closed fiber after finite residue extensions and prove the comparison commutes with generator intertwiners, convolution and idempotent images. |
-| E6 | §2.1.5 and §4.1.13, pp. 10, 42 | Use d−πdt with exp(π(t−t^p)); use d−a dx/x with multiplier x^{−(q−1)a}, giving the inverse Teichmüller character. |
-| E7 | Proposition 4.4.5 proof and §4.4.3, p. 50 | For the source displayed gauge S use Ad_{S₀}N=qN. In the column convention use N C₀=q C₀N; its inverse has Ad_{C₀^{-1}}N=qN but a different differential equation from S. State the class as (2ρ)(√q). |
-| E8 | Corollary 4.5.6, p. 53 | Use a verified compatible-system neutral-group/component theorem and then identify the embeddings by tensor invariants. |
-| E9 | Theorem 4.5.2(ii), pp. 51–53; Lemma 4.5.5, p. 53 | Include images under every central quotient of SL_{2n+1}; use Sym^{2e_i} for the principal-SL₂ decomposition. |
-| E10 | Proposition 5.3.5, pp. 59–60; Corollary 5.3.11, p. 61 | Use Q^{n−1}−Q in the even toric trace, raw U_n−Q=R_{2n+1} at p=2, and (Be_SO3⋆Be_{2n−2})(1/2). Require n≥2 for convolution. |
-| E11 | §5.3.4, pp. 58–59 | Use that chart for n≥3 and compute SO₄ through SL₂×SL₂. |
-| E12 | §5.2.3 and Proposition 5.3.8(i), pp. 57, 61 | For hypergeometric rank r use αq^j for 0≤j<r; after odd-rank normalization the middle eigenvalue is 1. |
-| E13 | §§5.3.3 and 5.3.6, pp. 58–61 | Use the specified lowest-root matrices, the Sp_{2n} middle root E_{n,n+1}, and every affine-simple coefficient; the dual odd E entries both have factor 2. |
-| E14 | Proposition A.9 and proof A.11, pp. 66–67 | Use a common connected ordinary/log locus, prove the quotient identification, determine its multiplier at zero and then apply the minimal-slope theorem. |
-| E15 | Proposition A.9(i), cyclic-basis proof, p. 66 | In the fixed column convention, ∇δe₁=e₂ and e₂=xηe₁ give quotient d+ηdx, the dual of E_F=(O,d−ηdx). Its multiplier is q^n/f_F. Use h^{-1} on the quotient comparison. |
-| E16 | Appendix A.1 and A.13, pp. 63, 68–69 | Transport x↦−x by the convergent Taylor isomorphism at p=2, including Frobenius; use the corrected block indices in the signed induction. |
+| E1 | XZ: arXiv:1910.13391v2: Theorems 1.1.4 and 1.2.4, pp. 3–5 | Use K containing π and √p, as in the body’s §4 standing hypothesis. |
+| E2 | XZ: arXiv:1910.13391v2: §4.1.1, (4.1.1.1), pp. 37–38 | Use the root-depth/Moy–Prasad kernel containing T(1) and the nonsimple positive affine root groups. |
+| E3 | XZ: arXiv:1910.13391v2: Theorem 4.2.1 and §4.1.13, pp. 42–43 | The main comparison has χ=1. A tame-character extension must use sign-compatible rational Kummer exponents. |
+| E4 | XZ: arXiv:1910.13391v2: Lemma 4.2.6(i), pp. 44–45 | Replace that concentration assertion by the required perverse middle-image calculation and prove it; G4 remains open. |
+| E5 | XZ: arXiv:1910.13391v2: §4.2.4 and §4.2.8, pp. 44, 46 | Test every rigid closed fiber after finite residue extensions and prove the comparison commutes with generator intertwiners, convolution and idempotent images. |
+| E6 | XZ: arXiv:1910.13391v2: §2.1.5 and §4.1.13, pp. 10, 42 | Use d−πdt with exp(π(t−t^p)); use d−a dx/x with multiplier x^{−(q−1)a}, giving the inverse Teichmüller character. |
+| E7 | XZ: arXiv:1910.13391v2: Proposition 4.4.5 proof and §4.4.3, p. 50 | For the source displayed gauge S use Ad_{S₀}N=qN. In the column convention use N C₀=q C₀N; its inverse has Ad_{C₀^{-1}}N=qN but a different differential equation from S. State the class as (2ρ)(√q). |
+| E8 | XZ: arXiv:1910.13391v2: Corollary 4.5.6, p. 53 | Use a verified compatible-system neutral-group/component theorem and then identify the embeddings by tensor invariants. |
+| E9 | XZ: arXiv:1910.13391v2: Lemma 4.5.5, p. 53 | Use Sym^{2e_i}, where e_i are the exponents, for the principal-SL₂ decomposition. |
+| E10 | XZ: arXiv:1910.13391v2: Proposition 5.3.5, pp. 59–60; Corollary 5.3.11, p. 61 | Use Q^{n−1}−Q in the even toric trace, raw U_n−Q=R_{2n+1} at p=2, and (Be_SO3⋆Be_{2n−2})(1/2). Require n≥2 for convolution. |
+| E11 | XZ: arXiv:1910.13391v2: §5.3.4, pp. 58–59 | Use that chart for n≥3 and compute SO₄ through SL₂×SL₂. |
+| E12 | XZ: arXiv:1910.13391v2: §5.2.3 and Proposition 5.3.8(i), pp. 57, 61 | For hypergeometric rank r use αq^j for 0≤j<r; after odd-rank normalization the middle eigenvalue is 1. |
+| E13 | XZ: arXiv:1910.13391v2: §§5.3.3 and 5.3.6, pp. 58–61 | Use the specified lowest-root matrices, the Sp_{2n} middle root E_{n,n+1}, and every affine-simple coefficient; the dual odd E entries both have factor 2. |
+| E14 | XZ: arXiv:1910.13391v2: Proposition A.9 and proof A.11, pp. 66–67 | Use a common connected ordinary/log locus, prove the quotient identification, determine its multiplier at zero and then apply the minimal-slope theorem. |
+| E15 | XZ: arXiv:1910.13391v2: Proposition A.9(i), cyclic-basis proof, p. 66 | In the fixed column convention, ∇δe₁=e₂ and e₂=xηe₁ give quotient d+ηdx, the dual of E_F=(O,d−ηdx). Its multiplier is q^n/f_{F,q}, where f_{F,q}=F(x)/F(x^q) is the full q-Frobenius iterate. Use h^{-1} on the quotient comparison. |
+| E16 | XZ: arXiv:1910.13391v2: Appendix A.1 and A.13, pp. 63, 68–69 | Transport x↦−x by the convergent Taylor isomorphism at p=2, including Frobenius; use the corrected block indices in the signed induction. |
+| E17 | FG: arXiv:0901.2163v3: Corollary 10, p. 28 | The row is D_{n+1}→B_n for n≥4; D₄ has its separate G₂ row. |
+| E18 | FG: arXiv:0901.2163v3: Proposition 11, (14.1), and the following general formula, p. 29 | Subtract dim V^{I₀}+dim V^{I∞}; in the general formula also add 2 dim V^{G∇}. |
+| E19 | XZ: arXiv:1910.13391v2: proof of Lemma 5.4.3, after (5.4.3.1), p. 63 | For upper rank 2n+1 and lower rank 1, the unnormalized trace is minus the raw H sum by Theorem 5.2.2(iii), p. 57. |
 
 ### Definition/API and suggested-file boundary
 
-The packet has five definitions and eleven constructions, with 48 named API items and 48 unit tests, plus 33 theorem targets and five comparison targets. Forty-nine nodes are atlas planets, with at most six in a layer. The README contains the complete interfaces, including the tests of the stack, coefficient and analytic objects whose carriers are absent at the pins. The compact [suggested Lean file](../suggested/KloostermanSheavesAndBesselIsocrystals.lean) contains three light real-bodied formulas, four directly statable milestones/end theorems and five examples. It introduces no replacement coefficient category or formalization claim. Elaborating those signatures checks only their syntax and existing-carrier interfaces; the mathematical gaps remain as stated.
+The packet has five definitions and eleven constructions, with 64 named API items and 49 unit tests, plus 33 theorem targets and five comparison targets. Forty-nine nodes are atlas planets, with at most six in a layer. The README contains the complete interfaces, including the tests of the stack, coefficient and analytic objects whose carriers are absent at the pins. The compact [suggested Lean file](../suggested/KloostermanSheavesAndBesselIsocrystals.lean) contains three light real-bodied formulas, four directly statable milestones/end theorems and six examples. It introduces no replacement coefficient category or formalization claim. Elaborating those signatures checks only their syntax and existing-carrier interfaces; the mathematical gaps remain as stated.
 
-The roadmap needs independent review before acceptance. Follow-up must fulfill the exact supplier contracts and the source-proof repairs, then reconcile the same convention dictionary in the packet, this reader and the suggested signatures. All twelve layers retain planned status until that work removes their gaps and remaining lists.
+The independent review accepted this complete planning pass on 2026-10-19 after checking all 54 node records, correcting 26, and confirming the four baseline declarations; the detailed report records the remaining proof contracts. Follow-up must fulfill the exact supplier contracts and the source-proof repairs, then reconcile the same convention dictionary in the packet, this reader and the suggested signatures. All twelve layers retain planned status until that work removes their gaps and remaining lists.
 
 ## Sources and baseline
 
