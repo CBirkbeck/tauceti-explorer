@@ -1,0 +1,120 @@
+{
+  "id": "PadicHodgeTheoryPartII",
+  "title": "P-adic Hodge theory and geometric comparison, Part II: generic crystalline monodromy",
+  "area": "padic",
+  "parent": "PadicHodgeTheory",
+  "summary": "This direction connects generic filtrations of crystalline G-objects to large p-adic Galois images. Starting from the shared period and admissibility theories, it uses decent Frobenius fibres, coefficient lines and corrected highest-weight averages to force the connected monodromy group to contain the derived group. Infinite transcendence produces the required finite-extension period points. Compact torsor components and a separately supplied quasisplit converse form the final applications.",
+  "readme": "Generic crystalline monodromy extends the rational p-adic Hodge interfaces, without rebuilding period rings, neutral Tannaka, generic flag filtrations or local shtuka spaces. The reader document research/blueprint/readmes/PadicHodgeTheoryPartII.md fixes GLX signs, full versus connected groups, coefficient actions and nonnormal-reflex orbit weights. GM0–GM3 prove the forward existence theorem. GM4 consumes it and an independent reverse geometric contract. The Simpson, relative-crystalline and equivariant-curve directions are split in the packet, retaining all assigned routes.",
+  "prerequisites": [
+    "PadicHodgeTheory",
+    "ArithmeticGaloisRepresentations",
+    "VectorBundlesAndIsocrystals",
+    "MotivesAndAlgebraicCycles",
+    "BunGAndNewtonStrata",
+    "ReductiveGroupsPartIII",
+    "ReductiveGroupsPartII",
+    "HeckeStacksAndLocalShtukas",
+    "SchemeAndStackFoundations",
+    "DiamondsAndVStacks",
+    "tauceti:TauCetiRoadmap/ReductiveGroups"
+  ],
+  "stages": [
+    {
+      "key": "GM0",
+      "title": "Decent fibres and crystalline invariant lines",
+      "description": "Construct the finite Q_{p^s}-fibre functor from normalized φ^s-eigenspaces, filtration jumps, full-period degree sums and the nonzero Newton–Hodge sets. Classify rank-one coefficient subobjects and prove the full-group invariant-line criterion. Transfer derived containment by the ambient period torsor, keeping full closure H distinct from MT=H°. Imported carriers and period equivalences are not reconstructed.",
+      "requires": [
+        "PadicHodgeTheory:R06.1",
+        "PadicHodgeTheory:R06.2",
+        "VectorBundlesAndIsocrystals:VB0",
+        "MotivesAndAlgebraicCycles:MC.6",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
+      ]
+    },
+    {
+      "key": "GM1",
+      "title": "Lowest weights and strict Hodge–Newton estimates",
+      "description": "Consume the quasisplit generic-filtration supplier and prove the arithmetic degree bound using every distinct Γ_E-orbit and its size weight, including nonnormal reflex fields. Sum through a complete Frobenius period to obtain d_s(v)≤s⟨w_0λ,μ^diamond⟩. The Newton equation gives the opposite lowest-weight bound. Strict positivity of every simple-coroot coefficient forces central highest weights.",
+      "requires": [
+        "PadicHodgeTheoryPartII:GM0",
+        "ReductiveGroupsPartIII:RG3.0",
+        "BunGAndNewtonStrata:BG1"
+      ]
+    },
+    {
+      "key": "GM2",
+      "title": "Generic admissibility and derived monodromy",
+      "description": "Use the unfiltered decent fibre functor to descend all isocrystal subobjects to one finite coefficient field. Determinantal incidence loci show that a topologically generic flag minimizes their Hodge degrees. Import independent finite-point nonemptiness to prove weak admissibility and apply the parent equivalence. Under strict HN positivity, coefficient lines, the numerical estimates and period comparison yield G_der⊆MT for arbitrary reductive G.",
+      "requires": [
+        "PadicHodgeTheoryPartII:GM0",
+        "PadicHodgeTheoryPartII:GM1",
+        "HeckeStacksAndLocalShtukas:HS2",
+        "SchemeAndStackFoundations:SF.0"
+      ]
+    },
+    {
+      "key": "GM3",
+      "title": "Finite-extension period points and central lifting",
+      "description": "Prove the sparse Witt-coordinate estimate and infinite transcendence of breve Q_p over Q_p. Étale coordinates then give a topologically generic flag over a finite extension containing its reflex field. For every HN-irreducible bounded datum, construct a classical admissible period point with open derived Galois image. Prove equivalence of this existence assertion through a fixed bounded z-extension lift, with the reflex base change and algebraic-monodromy step explicit.",
+      "requires": [
+        "PadicHodgeTheoryPartII:GM2",
+        "BunGAndNewtonStrata:BG0",
+        "ReductiveGroupsPartII:RG2.0",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
+      ]
+    },
+    {
+      "key": "GM4",
+      "title": "Compact torsor stabilizers and the quasisplit converse",
+      "description": "Identify components of a crystalline G(Q_p)-torsor over Spd K with compact-image cosets, proving compact-orbit connectedness and invariant clopen separation. Obtain open derived stabilizers for reached ambient components, and for all components under an explicit transitivity hypothesis. Finally consume the independent reverse ADLV component/HN implication to deduce HN-irreducibility from MT⊇G_der for quasisplit G. This layer never supplies an input to GM0–GM3.",
+      "requires": [
+        "PadicHodgeTheoryPartII:GM3",
+        "DiamondsAndVStacks:D5"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "GLX26",
+      "title": "The connected components of affine Deligne–Lusztig varieties",
+      "authors": "Ian Gleason, Dong Gyu Lim and Yujie Xu",
+      "edition": "Inventiones mathematicae 243 (2026), 805–861; version of record, online 12 November 2025",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-025-01386-1.pdf",
+      "sha256": "c40fe1fc5e0941812cf3aca5ba77c471ee49122c63ed7b0d864d322136031485",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§§2.1–2.2, pp. 817–819 (invariants and decency)",
+        "§5, pp. 835–845 (complete generic monodromy proof)",
+        "Theorems 6.1–6.2, pp. 845–846; Propositions 6.6–6.7, pp. 849–851; Lemma 6.12, pp. 855–856, with context through Lemma 6.15"
+      ]
+    },
+    {
+      "id": "Chen14",
+      "title": "Composantes connexes géométriques de la tour des espaces de modules de groupes p-divisibles",
+      "authors": "Miaofen Chen",
+      "edition": "Annales scientifiques de l’École normale supérieure (4) 47 (2014), 723–764; published text",
+      "url": "https://smf.emath.fr/system/files/2017-08/ens_ann-sc_47_723-764.pdf",
+      "sha256": "7f0a33b3659ba049aadfeb571e150ae80a95a53e9cd3731cfbc7242600619698",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2, Proposition 2.0.3 and Lemma 2.0.4, pp. 734–737",
+        "§3.1, pp. 738–740 (slope fibre functors)",
+        "§§3.2–3.3, pp. 740–745 (monodromy, coefficient lines and comparison)",
+        "§5, Theorem 5.0.6 and proof, pp. 750–752"
+      ]
+    },
+    {
+      "id": "Stacks",
+      "title": "The Stacks Project",
+      "authors": "The Stacks Project Authors",
+      "edition": "Stable tags, accessed 19 October 2026",
+      "url": "https://stacks.math.columbia.edu",
+      "readSections": [
+        "Tag 054L, Lemma 29.37.21 (étale coordinates for smooth morphisms)",
+        "Tag 02GL, Lemma 29.37.7 (étale schemes over fields)",
+        "Tag 02GH, §29.37 (base change and openness of étale morphisms)"
+      ]
+    }
+  ],
+  "status": "draft"
+}
