@@ -40,6 +40,17 @@ theorem completed_derivative_at_central_zero (N : ℝ) (hN : 0 < N)
     HasDerivAt (fun s : ℂ => (N : ℂ) ^ (s / 2) * Complex.Gammaℂ s * L s)
       ((Real.sqrt N / Real.pi : ℝ) * d) 1 := by sorry
 
+/-! ## Layer 6: the terminating classical Rankin polynomial -/
+
+/-- The source normalization of `pₙ`, with its binomial coefficient and `j!`. -/
+def rankinPolynomial (n : ℕ) (t : ℚ) : ℚ :=
+  ∑ j ∈ Finset.range (n + 1), (Nat.choose n j : ℚ) * (-t) ^ j / (Nat.factorial j : ℚ)
+
+example (t : ℚ) : rankinPolynomial 0 t = 1 := by sorry
+example (t : ℚ) : rankinPolynomial 1 t = 1 - t := by sorry
+example (t : ℚ) : rankinPolynomial 2 t = 1 - 2 * t + t ^ 2 / 2 := by sorry
+example : rankinPolynomial 2 1 = -(1 / 2 : ℚ) := by sorry
+
 /-! ## Layer 8: global Gross–Zagier formulas -/
 
 section Characters
