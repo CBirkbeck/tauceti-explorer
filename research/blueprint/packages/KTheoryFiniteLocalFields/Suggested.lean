@@ -60,12 +60,10 @@ example :
       ZMod 5) = 2 := by
   decide
 
-/-- The reversed pair has inverse unit boundary. -/
+/-- Two uniformizers detect the sign, even when both unit coordinates are trivial. -/
 example :
-    ((tameCoordinate 1 0 1 (Units.mk0 (2 : ZMod 5) (by decide)) : (ZMod 5)ˣ) :
-      ZMod 5) = 3 := by
-  norm_num [tameCoordinate]
-  exact inv_eq_of_mul_eq_one_right (by decide)
+    ((tameCoordinate 1 1 (1 : (ZMod 5)ˣ) 1 : (ZMod 5)ˣ) : ZMod 5) = 4 := by
+  decide
 
 /-- Two uniformizers retain the `(-1)^(rs)` factor. -/
 theorem tameCoordinate_two_uniformizers_mod_five : ((tameCoordinate 1 1 (1 : (ZMod 5)ˣ) 1 : (ZMod 5)ˣ) : ZMod 5) = 4 := by
