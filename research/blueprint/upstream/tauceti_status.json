@@ -447,10 +447,10 @@
       ],
       "note": "ported 2026-10-13 (Codex); Lean 605 lines, README 10,285 lines; Part II continuation (swarm split); root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
       "review": {
-        "recommendation": "approve",
+        "recommendation": "changes",
+        "head": "105c9fa",
         "current": true,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "date": "2026-10-12"
       }
     },
     "ArithmeticLocallySymmetricSpaces": {
