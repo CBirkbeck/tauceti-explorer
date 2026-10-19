@@ -884,10 +884,10 @@
       "head": "250e889",
       "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
       "review": {
-        "recommendation": "approve",
-        "current": false,
-        "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "recommendation": "changes",
+        "head": "250e889",
+        "current": true,
+        "date": "2026-10-12"
       }
     },
     "AutomorphicGaloisRepresentationsPartII": {
