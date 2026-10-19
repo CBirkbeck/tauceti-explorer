@@ -26913,7 +26913,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.6",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10790"
   },
   {
    "id": "BP-KTheoryFiniteLocalFields",
@@ -37015,7 +37016,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.3-symbols",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.3-symbols.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10787"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.4",
@@ -37061,7 +37063,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.4",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10788"
   },
   {
    "id": "BP-K2SymbolsBrauer--T.5",
@@ -37107,7 +37110,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.5",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10789"
   },
   {
    "id": "BP-KTheoryLowDegrees--U.3",
@@ -39947,7 +39951,8 @@
    ],
    "avoidAccountOf": "BP-K2SymbolsBrauer--T.3-2",
    "prompt": "research/blueprint/prompts/REV-K2SymbolsBrauer--T.3-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10785"
   },
   {
    "kind": "design",
@@ -149361,7 +149366,8 @@
     "BP-EulerSystemsAndKolyvaginSystems--ES.0~3",
     "BP-EulerSystemsAndKolyvaginSystems--ES.0~4"
    ],
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #10961"
   },
   {
    "id": "BP-ExcursionOperatorsAndSpectralAction--ES0~4",
@@ -149460,8 +149466,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-SpecialValuesBirchTate~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-SpecialValuesBirchTate~adv.md",
+   "note": "claimed on GitHub issue #10991"
   },
   {
    "id": "BP-EulerSystemsAndKolyvaginSystems--ES.0~5",
@@ -149538,8 +149545,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsCyclotomicMainConjecture~adv.md",
+   "note": "claimed on GitHub issue #10989"
   },
   {
    "id": "FIX-PKG-ModularIwasawaMainConjectures~adv",
@@ -149557,8 +149565,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ModularIwasawaMainConjectures~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ModularIwasawaMainConjectures~adv.md",
+   "note": "claimed on GitHub issue #10990"
   },
   {
    "id": "REV-PKG-K3BlochGroups~adv",
@@ -149577,8 +149586,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-K3BlochGroups~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-K3BlochGroups~adv.md",
+   "note": "claimed on GitHub issue #10993"
   }
  ]
 }
