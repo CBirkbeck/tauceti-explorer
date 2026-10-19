@@ -349,8 +349,8 @@
       "sources": [
         {
           "sourceId": "SOM",
-          "locator": "§2.1–§2.4, pp.11–13",
-          "match": "Nilpotent elements are classified by the adjoint action; zero is included."
+          "locator": "§3.1, pp.15–16",
+          "match": "The adjoint action defines nilpotent orbits, and the triple-orbit correspondence includes the zero homomorphism."
         }
       ],
       "acceptance": [
@@ -445,11 +445,6 @@
           "sourceId": "BAL",
           "locator": "§5, proof of Theorem 5.1, pp.14–15",
           "match": "The induction uses Jordan stability and the proper derived centralizer; these algebraic steps also work over K."
-        },
-        {
-          "sourceId": "SOM",
-          "locator": "§2.4, pp.12–13",
-          "match": "Semisimple centralizers supply the induction in Jacobson–Morozov."
         }
       ],
       "acceptance": [
@@ -732,7 +727,7 @@
         {
           "name": "restriction_sign",
           "kind": "non-example",
-          "statement": "Swapping E and F requires replacing H by −H; swapping only E,F does not define this restriction."
+          "statement": "For the standard nonzero triple of sl2, swapping E and F while fixing H violates [E,F]=H. Replacing H by −H as well gives a valid swapped triple."
         }
       ],
       "uses": [
@@ -1554,7 +1549,7 @@
       "sources": [
         {
           "sourceId": "CH",
-          "locator": "Lemma 2.4, p.7; Appendix Lemma 10.9, p.35",
+          "locator": "Lemma 2.4, pp.6–7; Appendix Lemma 10.9, p.35",
           "match": "The simple result is assembled over simple factors, with all finite Lie modules as tests."
         }
       ],
@@ -2041,7 +2036,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
-      "need": "The normalized Chevalley system and the Serre-presentation isomorphism Matrix.ToLieAlgebra(K,CM)≅L for simple L, assembled componentwise for semisimple L. This supplies the Lie-algebra isomorphism from a classical root type to its standard model and the root-generator bracket conventions for finite appendix witnesses; a root-system isomorphism alone is not a Lie-algebra isomorphism.",
+      "need": "The normalized Chevalley system and the Serre-presentation isomorphism Matrix.ToLieAlgebra(K,Aᵀ)≅L for simple L, where Aij=αi(hj) is the root-row/coroot-column Cartan matrix, assembled componentwise for semisimple L. The transpose is required because the Serre constructor uses [Hi,Ej]=CMij Ej. This supplies the Lie-algebra isomorphism from a classical root type to its standard model and the root-generator bracket conventions for finite appendix witnesses; a root-system isomorphism alone is not a Lie-algebra isomorphism.",
       "neededBy": [
         "LieHighestWeightPartII:N2/classical-recognition",
         "LieHighestWeightPartII:N3/appendix-table-interface"
@@ -2198,7 +2193,12 @@
         "2026-10-18: arXiv abs/2311.15300 still lists only v1.",
         "2026-10-18: Annals article metadata gives a later revision; no revised text was read, so no claim is made about its wording.",
         "Existing reviewed PAPER-CIUBOTARU-HARRIS-26 sourceIssues E4,E6,E17 were read as correction leads and their source passages rechecked. This is not a new-discovery claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The principal F4 profile begins 4,0,4, which cannot be dimensions of nested subspaces. The finite half-spin maximum likewise concerns graded support. The correction preserves the cumulative recognition hypothesis through finite differences.",
+        "by": "REV-DESIGN-LieHighestWeightPartII"
+      }
     },
     {
       "id": "LieHighestWeightPartII/E2",
@@ -2214,7 +2214,12 @@
         "2026-10-18: arXiv abs/2311.15300 still lists only v1.",
         "2026-10-18: Annals article metadata gives a later revision; no revised text was read, so no claim is made about its wording.",
         "Existing reviewed PAPER-CIUBOTARU-HARRIS-26 sourceIssues E4,E6,E17 were read as correction leads and their source passages rechecked. This is not a new-discovery claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Levi summand profile alone does not determine the complementary E8 summands or conjugacy inside the Levi. Direct E6/E7 candidate enumeration independently succeeds and supplies the missing proof route.",
+        "by": "REV-DESIGN-LieHighestWeightPartII"
+      }
     },
     {
       "id": "LieHighestWeightPartII/E3",
@@ -2230,7 +2235,12 @@
         "2026-10-18: arXiv abs/2311.15300 still lists only v1.",
         "2026-10-18: Annals article metadata gives a later revision; no revised text was read, so no claim is made about its wording.",
         "Existing reviewed PAPER-CIUBOTARU-HARRIS-26 sourceIssues E4,E6,E17 were read as correction leads and their source passages rechecked. This is not a new-discovery claim."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "With ascending (1,1,3,3), the printed descending-chain root has pairing −2. Reversing that chain gives a dominant chamber and the half-spin maxima remain 4 and 3.",
+        "by": "REV-DESIGN-LieHighestWeightPartII"
+      }
     },
     {
       "id": "LieHighestWeightPartII/E4",
@@ -2245,7 +2255,12 @@
       "searched": [
         "2026-10-18: author-hosted notes read at the exact SHA-256 listed above.",
         "2026-10-18: author-site search for part1 corrections did not locate a correction; no inference about unpublished corrections."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "BAL p.15 triangularizes too much: h cannot be strictly upper triangular when [h,e]=2e and e is nonzero. Only the centralizer terms need strict triangularity; h is upper triangular, which still gives the required vanishing trace.",
+        "by": "REV-DESIGN-LieHighestWeightPartII"
+      }
     },
     {
       "id": "LieHighestWeightPartII/E5",
@@ -2259,8 +2274,14 @@
       "known": "No corresponding entry found in the author’s course-note errata on 2026-10-18; no claim of novelty or of the wording of another edition.",
       "searched": [
         "2026-10-18: author RG page still identifies v2.00 March 2018.",
-        "2026-10-18: https://www.jmilne.org/math/CourseNotes/errata.html, Reductive Groups and algebraic-group sections checked; no matching correction found."
-      ]
+        "2026-10-18: https://www.jmilne.org/math/CourseNotes/errata.html, Reductive Groups and algebraic-group sections checked; no matching correction found.",
+        "Independent review, 2026-10-18: the author’s CourseNotes/errata.html RG subsection lists earlier v1.00 corrections, but does not list this issue; the identified v2.00 source text was rechecked directly."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The statement in Milne §20.30 lacks the characteristic-zero restriction required by the simple-character formula. In characteristic p the simple SL2 module of highest weight pω is the two-dimensional Frobenius twist, whereas the Weyl expression has dimension p+1. The roadmap assumes characteristic zero.",
+        "by": "REV-DESIGN-LieHighestWeightPartII"
+      }
     },
     {
       "id": "LieHighestWeightPartII/E6",
@@ -2274,8 +2295,14 @@
       "known": "No corresponding entry found in the checked author errata; no exhaustive novelty claim.",
       "searched": [
         "2026-10-18: author course-note errata, Reductive Groups section checked.",
-        "2026-10-18: internal comparison with §17.60 p.80 and §20.29 p.108."
-      ]
+        "2026-10-18: internal comparison with §17.60 p.80 and §20.29 p.108.",
+        "Independent review, 2026-10-18: the author’s CourseNotes/errata.html RG subsection lists earlier v1.00 corrections, but does not list this issue; the identified v2.00 source text was rechecked directly."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Milne §17.59 includes PGL_n in its zero-Picard claim, contradicting §17.60 and §20.29 for PGL2. The local Laurent-UFD extension proof avoids that false global assertion.",
+        "by": "REV-DESIGN-LieHighestWeightPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -2646,5 +2673,153 @@
     "Filtrations are increasing W_i=Σ_(j≤i)M_j; e has degree +2. Printed CH table entries mean dim gr_i, not dim W_i.",
     "Exceptionals use Bourbaki order, Cartan rows indexed by roots and columns by coroots. E6 opposition swaps 1↔6,3↔5.",
     "Only N5 positive parts and weight patterns require K=C; its real functionals act on the abstract real weight lattice."
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-LieHighestWeightPartII",
+    "date": "2026-10-18",
+    "notes": "Independent target-level review of all 28 nodes, all 17 pinned baseline declarations, 19 supplier requests, nine definition/construction APIs and their 32 tests, six source issues, the reader, the six layers and the compact Lean outline. Corrected two unsupported/misplaced SOM citations, the CH Lemma 2.4 page span and a zero-sensitive sign non-example, and made the Serre-constructor transpose explicit in the supplier contract. All five candidate computations and all 91 printed numeric profiles were independently reproduced. No nodes added or baseline declarations removed. Accepted as a complete plan; implementation remains unchecked and formal finite certificates and representative witnesses remain targets. See research/blueprint/reviews/REV-DESIGN-LieHighestWeightPartII.md.",
+    "checked": [
+      {
+        "nodeId": "LieHighestWeightPartII:N0/zero-triple",
+        "verdict": "verified",
+        "note": "The three relations force h=0 iff e=f=0 in characteristic zero. The adapter preserves the native nonzero IsSl2Triple contract and admits precisely the extra zero triple."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N0/nilpotent-orbit",
+        "verdict": "corrected",
+        "note": "Moved the SOM locator to §3.1, pp.15–16, where adjoint orbits and the triple correspondence occur. Quotients use the connected inner action, include zero and retain the distinction between O and SO."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N0/jordan-centralizer",
+        "verdict": "corrected",
+        "note": "Removed SOM §2.4 as unsupported for this reduction. BAL Theorem 5.1 proof, pp.14–15, supplies the proper derived-centralizer induction; generalized eigenspace brackets and inner derivations justify the stated algebraic adaptation."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N0/jacobson-morozov",
+        "verdict": "verified",
+        "note": "Checked the induction, Jordan-centralizer reduction and the centralizer-nilpotent Engel/Lie alternative. The trace argument yields h in im(ad e), then the degree −2 projection supplies f. The new current-library first-bracket facts are reused, not re-planned."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N0/triple-integration",
+        "verdict": "verified",
+        "note": "Finite sl2 decomposition gives the algebraic SL2 action in a faithful ambient representation. The finite exponential preserves the defining ideal in characteristic zero; root generators supply membership in G. This also proves inner invariance for arbitrary Lie modules without group descent."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N0/kostant-conjugacy",
+        "verdict": "verified",
+        "note": "At fixed e the difference of neutral elements has positive centralizer weights. Successive finite exponentials remove them, with the degree −2 kernel condition giving uniqueness of f. Nilpotent exponentials are supplied by the integration step."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N0/neutral-conjugacy",
+        "verdict": "verified",
+        "note": "DG Lemmas 2–3, pp.4–5, support the degree-two open-orbit argument. Surjectivity of ad(e):L0→L2 follows from sl2 strings; characteristic-zero separability and irreducibility give a unique open orbit, followed by uniqueness of f."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N1/restriction",
+        "verdict": "corrected",
+        "note": "Native basis-to-hom and Lie-module restriction supply the construction and its API. Restricted the sign non-example to the standard nonzero triple, since swapping the zero triple does not fail."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N1/weight-filtration",
+        "verdict": "verified",
+        "note": "The increasing sum of integer eigenspaces has the stated zero jump, finite bounds and native FilteredObject comparison. The generic decreasing filtered-space owner is reused by reindexing, not duplicated."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N1/graded-comparison",
+        "verdict": "verified",
+        "note": "Integral diagonalization identifies gr_i with the i-eigenspace. Finite differences recover cumulative dimensions and sl2 irreducible multiplicities d_n−d_(n+2), including the zero and trivial summands."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N1/tensor-exactness",
+        "verdict": "verified",
+        "note": "Maps preserve neutral eigenspaces, yielding strictness and levelwise exactness. Tensor convolution and the dual index −i−1 agree with the increasing convention and the existing weight laws."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N2/classical-partitions",
+        "verdict": "verified",
+        "note": "The invariant-form parity on sl2 irreducibles gives the orthogonal/symplectic partition constraints. The determinant of a centralizer reflection is (−1)^block-size, so precisely the very-even orthogonal class splits under SO."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N2/half-spin-separation",
+        "verdict": "verified",
+        "note": "Checked ascending D_r root signs, the actual half-sign weight lattice and the even-sign Weyl action. In the very-even case the fixed half-spin maxima are A and A−a1; the example (1,1,3,3) gives 4 and 3. No descent to SO is assumed."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N2/classical-recognition",
+        "verdict": "corrected",
+        "note": "The standard module recovers the partition; one fixed Lie half-spin separates the SO split pair. A classical root-type identification is upgraded using the existing Lie Serre presentation rather than being treated as a Lie-algebra isomorphism by itself. Made the supplier contract explicit: the Serre constructor takes the transpose of the root-row Cartan matrix, as stated by the current upstream presentation theorem."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N3/dominant-characteristic",
+        "verdict": "verified",
+        "note": "Root sl2 strings give labels 0,1,2; the SL2 Weyl element conjugates h to −h, giving opposition invariance. The adjoint sl2 decomposition gives every multiplicity inequality used by the finite candidate set."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N3/root-profile",
+        "verdict": "verified",
+        "note": "The formula counts root coefficient pairings and adds rank at degree zero. Independently generated the finite roots using the pinned Cartan orientation; root counts are 12,48,72,126,240 and support bounds 10,22,22,34,58."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N3/candidate-certificate",
+        "verdict": "verified",
+        "note": "The finite checker uses a necessary-condition superset, not an asserted orbit classification. Exhaustive exact integer enumeration independently reproduces candidate counts 7,28,34,274,245, with zero and the principal label included."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N3/candidate-profile-injective",
+        "verdict": "verified",
+        "note": "Independent exhaustive profile comparison gives 7,28,34,274,245 distinct profiles on the respective candidate sets. Removing E6 opposition gives 212 candidates but only 123 profiles. Lean certificates and root-datum comparison remain explicit implementation targets."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N3/exceptional-separation",
+        "verdict": "verified",
+        "note": "Actual neutral elements lie in the checked candidate set; profile injectivity identifies their dominant characteristics, and neutral conjugacy identifies the triples. E6 and E7 are checked directly, avoiding the unsupported E8-Levi inference."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N3/appendix-table-interface",
+        "verdict": "verified",
+        "note": "Independently parsed and matched all 91 numeric CH profiles to profiles recomputed from the pinned SLA diagrams: 5 G2,16 F4,70 E8. The construction additionally requires root-vector witnesses; those and semantic Bala–Carter labels are not claimed verified by this arithmetic check."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N4/filtration-recognition",
+        "verdict": "corrected",
+        "note": "Expanded the CH Lemma 2.4 locator to pp.6–7. Factor-selective modules prevent permutation of repeated simple factors; the adjoint-group product conjugator lifts on algebraically closed points. Finite differences give the stated equivalence with restricted sl2 modules."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N5/root-coset-half-integrality",
+        "verdict": "verified",
+        "note": "The integer/half-integer test uses the abstract real root space and the actual root lattice, so no order on K or unrestricted algebraic-group weight lattice is introduced. Root-coset invariance gives the claimed implication."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N5/highest-weight-test",
+        "verdict": "verified",
+        "note": "The occurring highest weight and λ minus nonnegative root combinations give both implications, with all weights quantified. Differentiation preserves irreducibility here by torus weights and root subgroup generation in characteristic zero."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N5/weight-pattern",
+        "verdict": "verified",
+        "note": "The finite pattern records moduli q^(i/2) for q>1, including zero-dimensional, direct-sum, tensor and dual tests. Equal moduli deliberately forget phases; the semisimple invertibility hypothesis excludes zero eigenvalues."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N5/positive-real-part",
+        "verdict": "verified",
+        "note": "Absolute value of every genuine torus character is a multiplicative positive character. Weyl compatibility and maximal-torus conjugacy make its orbit intrinsic; this does not force semisimple elements with different phases to be conjugate."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N5/algebraic-highest-weight-existence",
+        "verdict": "verified",
+        "note": "Read Jantzen II.2.2, p.176 and II.2.6–2.7, pp.178–179, in the cleared second edition. The regular semi-invariant on U+TU−, rank-one boundary exponents and Laurent-UFD extension give the algebraic representation on the actual character lattice; local finiteness gives a finite module. Lie-module existence alone would not suffice."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N5/character-separation",
+        "verdict": "verified",
+        "note": "Dominance induction on leading orbit sums spans Weyl-invariant Laurent characters using allowed algebraic highest weights. Finite-orbit interpolation and averaging separate positive Weyl orbits. Milne §20.30 is used only in characteristic zero."
+      },
+      {
+        "nodeId": "LieHighestWeightPartII:N5/real-part-recognition",
+        "verdict": "verified",
+        "note": "A geometric pattern determines each trace at the positive part by summing n_i q^(i/2). Character separation then gives Weyl conjugacy and hence conjugacy of positive real parts, with no conclusion about phases."
+      }
+    ]
+  }
 }

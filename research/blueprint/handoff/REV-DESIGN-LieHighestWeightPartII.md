@@ -1,0 +1,17 @@
+# REV-DESIGN-LieHighestWeightPartII — complete
+
+Issue #3560. Independent reviewer: Codex, session codex-pfMxCX; input designer was session codex-hbEHD0. The bot confirmed the claim before work began. This run claimed one job only.
+
+The review accepts the complete target-level plan after local corrections. The packet now has an accepted independent review with verdicts and reasons for all 28 nodes, and all six source issues have explicit confirmed review objects. The full audit, pinned-baseline table, supplier boundaries, exact-integer computation method and results are in `research/blueprint/reviews/REV-DESIGN-LieHighestWeightPartII.md`.
+
+Corrected the nilpotent-orbit locator to Sommers §3.1, pp.15–16; removed an unsupported Sommers citation from the Jordan-centralizer reduction; restricted the sign non-example to the standard nonzero triple; expanded the CH Lemma 2.4 locator to pp.6–7; and specified the transpose in the existing Serre-presentation supplier contract. The reader agrees with these changes and records the independent comparison of all 91 printed numeric profiles. No node was added, no baseline declaration removed, and the roadmap definition and suggested Lean file were unchanged.
+
+All 17 baseline declarations were read at the pinned commits. The current Tau Ceti trace/first-bracket additions are already acknowledged as reusable inputs. Current upstream roadmap readers and Suggested files were checked, including the newer OrthogonalSpinGroups boundary. Ordinary highest-weight, spin and root-system theory remain with their existing owners. The 19 supplier requests remain explicit planned contracts.
+
+The independent integer computation reproduced the candidate/profile counts G2 7/7, F4 28/28, E6 34/34, E7 274/274, E8 245/245. Removing E6 opposition gives 212 candidates and 123 profiles. All 91 CH numeric rows match profiles recomputed from pinned SLA diagrams (5 G2, 16 F4, 70 E8, including zero). These checks establish numerical consistency; formal root-datum comparison, Lean certificates and root-vector representative witnesses remain implementation targets. Semantic Bala–Carter labels are not certified.
+
+The source bytes and hashes were rechecked. Jantzen II.2.2 and II.2.6–2.7, pp.176,178–179, were read in the cleared second edition in place; no book material was copied. The later Annals revision was not collated, and CH errata verdicts are expressly restricted to arXiv v1. No required source passage remains unread for this review.
+
+Validation: the blueprint checker reports zero errors and zero warnings; the suggested Lean file compiled successfully through lean-check at the pins, with only twelve expected proof-placeholder warnings; no placeholder data was found; reader/packet consistency, complete review coverage, acyclic dependencies, file scope and whitespace checks pass. The compact outline has 144 lines. Scratch computation scripts and downloaded public sources are disposable; the durable review records their algorithms, versions, results and limits.
+
+Nothing remains for this review job. Packaging, implementing the six planned layers, and routing the already documented PadicEnvelopingAlgebras/completed-category-O successor proposals are separate work. The design brief explicitly permits the split; this review does not claim that the 178 successor items have been planned here. Resume from the accepted packet and reader when the appropriate package job is assigned.
