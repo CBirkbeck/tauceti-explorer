@@ -2,39 +2,41 @@
 
 This continuation starts with weakly holomorphic modular forms on arbitrary finite-index subgroups of SL₂(ℤ). It constructs the modular λ coordinate and the fields of bounded-denominator and congruence modular functions. A quantitative holonomy bound and Ihara leveraging identify those fields and prove that one integral Fourier expansion forces congruence. The application layers treat differential equations, selected components of vector-valued forms, quasimodular examples, arithmetic coefficient growth, and the connected cuspal modular model.
 
-The base is [Modular forms — Hecke theory, newforms, and L-functions](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/ModularForms), roadmap `tauceti:TauCetiRoadmap/ModularForms`. Its characters, parity, graded rings, Hecke theory, eigenforms, newforms and L-functions are inputs. The general finite-index valence formula, cusp widths and ordinary holomorphic form carrier are already library inputs. This continuation does not construct them again. The atlas extraction calls this direction `NoncongruenceModularForms`; its issue and file identifier is `ModularFormsPartII`.
+The base is [Modular forms — Hecke theory, newforms, and L-functions](https://github.com/TauCetiProject/TauCetiRoadmap/tree/0d144d044dacebca17b654695b6f1ad58f159b27/ModularForms), roadmap `tauceti:TauCetiRoadmap/ModularForms`. Its characters, parity, graded rings, Hecke theory, eigenforms, newforms and L-functions are inputs. The general finite-index valence formula, cusp widths and ordinary holomorphic form carrier are library inputs. This continuation does not construct them again. The atlas extraction calls this direction `NoncongruenceModularForms`; its issue and file identifier is `ModularFormsPartII`.
+
+Four other atlas roadmaps already plan parts of the argument, and this roadmap imports them rather than planning them again. QSeriesPartitionsAndMockModularForms (QM.3) owns the space M^!\_k(Γ) of weakly holomorphic forms. ModularCurvesPartII (R14.4; TauCetiRoadmap pull request #913, Layer 15) owns congruence classes, the principal-level SL₂ amalgam, the congruence subgroup property of SL₂(ℤ[1/p]), the abelian and enhanced Ihara lemmas, and the congruence-invariance criterion together with the whole cohomological calculation of CDT §4.5. DiophantineApproximationAndTranscendencePartII (AA.4) owns the integral holonomic ring and the corrected rank bound of CDT Corollary 2.0.5. ConformalMappingPartII owns the uniformization of ℂ∖μ\_N, its conformal radius (CDT Theorem 5.1.4) and the uniform mean-growth estimate (CDT Theorem 6.0.1).
 
 ## Conventions and boundaries
 
 Write E={±I}, T=[[1,1],[0,1]], Γ(N)=ker(SL₂(ℤ)→SL₂(ℤ/N)), Γ₀(p) for lower-left divisibility, and Γ₁(p) for diagonal entries one and lower-left zero modulo p. A group is congruence when it contains some Γ(N), with N positive; it need not contain E. Analytic weight-k slash actions use the existing determinant-normalized carrier. Unless a target says otherwise, k is an arbitrary integer and finite index is a hypothesis.
 
-A weak form is holomorphic on ℍ and meromorphic at every rational cusp, with finite principal part. A meromorphic function with an interior pole is not a weak form. Strict cusp widths specify honest translation periods. Signed widths specify the projective geometric ramification and can be half a strict width when E is absent. All statements using signed principal groups retain this distinction. A nonzero odd-weight form on Γ(2) requires a character; θ₃² uses χ₋₄(d).
+A weak form is an element of the imported space M^!\_k(Γ) for a finite-index Γ≤SL₂(ℤ): holomorphic on ℍ and meromorphic at every rational cusp, with finite principal part (W1/weak-form). A meromorphic function with an interior pole is not a weak form. Strict cusp widths specify honest translation periods. Signed widths specify the projective geometric ramification and can be half a strict width when E is absent. All statements using signed principal groups retain this distinction. A nonzero odd-weight form on Γ(2) requires a character; θ₃² uses χ₋₄(d).
 
-The Fourier conventions are q=exp(πiτ), Q=q²=exp(2πiτ), t=q^(1/N), and x=λ/16. Thus t has strict period 2N, the library `UpperHalfPlane.qExpansion (2N)` gives its Taylor coefficients only for the corresponding analytic periodic germ, λ=16q+…, and Δ=q²+…. Bounded denominators means one scalar clears every coefficient. It is stronger than having coefficients in a ring with finitely many primes inverted. In the derivative layer θ_q=q d/dq=(1/πi)d/dτ=2D, where D=(1/2πi)d/dτ. Consequently θ_qΔ=2E₂Δ.
+The Fourier conventions are q=exp(πiτ), Q=q²=exp(2πiτ), t=q^(1/N), and x=λ/16. Thus t has strict period 2N, the library `UpperHalfPlane.qExpansion (2N)` gives its Taylor coefficients only for the corresponding analytic periodic germ, λ=16q+…, and Δ=q²+…. Bounded denominators means one scalar clears every coefficient. It is stronger than having coefficients in a ring with finitely many primes inverted. In the derivative layer θ\_q=q d/dq=(1/πi)d/dτ=2D, where D=(1/2πi)d/dτ. Consequently θ\_qΔ=2E₂Δ.
 
 The Laurent fields M₂N and R₂N sit in one specified ℚ((t)). They are defined as ℚ(λ)-linear spans. Their generators are holomorphic away from cusps; scalar rational functions in λ can introduce interior poles in general span elements. Finiteness precedes the proof that each span is a field and the selection of a finite basis. The constant field is ℚ. Complex scalar extension and rational cusp-model descent are separate proof steps.
 
 Vector-valued forms in W7 use projective representations and therefore have even weight when nonzero. The ambient local system has rank n over ℂ. The continuation space of one component has rank at most n and need not be irreducible. Only the span of the values of a form is detected by its coefficients. The whole representation has a congruence kernel only when this span is the whole space.
 
-Generic analytic algebraization, punctured-plane uniformization, covering spaces, profinite cohomology, Lazard theory, differential arithmetic, and regular modular-curve models retain their established owners. The two analytic continuations have proposed names but no registered stage ids in the atlas; their exact contracts appear under ALG and UNI. No identifier is invented to make a dependency appear closed.
+Arithmetic algebraization, punctured-plane uniformization, covering spaces, congruence cohomology, G-function arithmetic, and regular modular-curve models retain their owners, named above and in the targets. The holonomic rank bound is used for the ℚ(λ)-span W of integral holonomic germs, not for the larger span V: for the nonintegral λ-root coordinate the printed V bound can fail (E24).
 
 ## Layer order and milestones
 
-The cohomology layer precedes the enhanced Ihara argument. The broad application layer is separated into differential equations and components, quasimodular and arithmetic growth, and the arithmetic fundamental group. This order follows the proof dependencies.
+The Ihara group theory (W4) precedes leveraging (W5), and the application layer is separated into differential equations and components, quasimodular and arithmetic growth, and the arithmetic fundamental group. This order follows the proof dependencies.
 
 | Layer | Targets | Atlas planets | Mathematical output |
 | --- | ---: | ---: | --- |
-| W1 — Weak forms and geometric levels | 8 | 6 | Extend the existing slash-invariant carrier to functions holomorphic on ℍ and meromorphic at every rational cusp. Pin strict and signed widths, bounded denominators and geometric Wohlfahrt level. Prove intersection, normal-core and p-scaling laws and the signed Wohlfahrt theorem; clear cusp poles by Δ. |
+| W1 — Weak forms and geometric levels | 8 | 5 | Characterize weak forms on finite-index subgroups of SL₂(ℤ) by meromorphic cusp germs, importing the weakly holomorphic carrier of QSeriesPartitionsAndMockModularForms QM.3. Pin strict and signed widths, bounded denominators and geometric Wohlfahrt level. Prove intersection, normal-core and p-scaling laws and the signed Wohlfahrt theorem; clear cusp poles by Δ. |
 | W2 — The modular λ coordinate | 7 | 5 | Construct λ by the existing η function, identify X(2) with ℙ¹ and λ as its three-punctured covering coordinate, prove integral inverse reparametrization and Kummer normalization, and the hypergeometric–theta identity with its character. Connect the N=2 and N=3 punctured-plane acceptance examples. |
-| W3 — Bounded-denominator fields and holonomy rank | 8 | 5 | Define the ℚ(λ)-spans M₂N and R₂N in rational Laurent series, prove inclusion, multiplication and field structure, construct the normal stabilizer with exact level, and supply the λ-root holonomy embedding and quantitative rank bound from the two analytic supplier contracts. |
-| W4 — Congruence cohomology and invariant vectors | 17 | 5 | Define congruence classes and the all-level direct limit of H¹. Compute finite and p-adic SL₂ cohomology through Hochschild–Serre, Lazard, adjoint H¹ and certified small-level linear algebra; prove absence of invariant vectors, the congruence-difference criterion, and the final p-adic H² calculation. |
-| W5 — Ihara generation and leveraging | 10 | 5 | Prove the nonabelian Ihara and triple-surjectivity statements with the corrected reduction kernel, the generation identity and enhanced abelian lemma. Establish field-intersection and base-change degree identities, p-scaling separation, degree doubling, and the Chebyshev contradiction. |
-| W6 — The unbounded denominators theorem | 8 | 4 | Assemble R₂N=M₂N, reduce arbitrary integral weight to weight zero, and deduce congruence from one integral Fourier expansion, its rational bounded-denominator form, and its algebraic-integer form with number-field descent. Verify the j cube root, h roots, and Fermat tests. |
-| W7 — Differential equations and vector-valued forms | 14 | 5 | Apply strict overconvergence to integral three-point ODE solutions with finite monodromy at zero. Define vector-valued forms and continuation spaces of individual components, separate their analytic and arithmetic differential-module realizations, and apply exact G-function inputs to componentwise congruence and the corrected effective-span Mason corollary. |
+| W3 — Bounded-denominator fields and holonomy rank | 8 | 5 | Define the ℚ(λ)-spans M₂N and R₂N in rational Laurent series, prove inclusion, multiplication and field structure, construct the normal stabilizer with exact level, place R₂N in the ℚ(λ)-span W of integral holonomic germs for the λ-root coordinate, and derive finiteness and the quantitative rank bound from the corrected holonomic rank theorem of DiophantineApproximationAndTranscendencePartII and the uniformization of ℂ∖μ\_N of ConformalMappingPartII. |
+| W4 — The nonabelian Ihara lemma and the generation identity | 3 | 2 | From the principal-level amalgam, the congruence subgroup property of SL₂(ℤ[1/p]) and the enhanced Ihara lemma of ModularCurvesPartII R14.4, prove nonabelian Ihara surjectivity, triple surjectivity on the unsigned domain with its corrected reduction kernel, and the generation identity used by leveraging. |
+| W5 — Leveraging and degree doubling | 5 | 2 | Establish the field intersection and degree-preserving base change, p-scaling separation, degree doubling, the congruence degree formula and the Chebyshev contradiction. |
+| W6 — The unbounded denominators theorem | 8 | 4 | Assemble R₂N=M₂N from the rank bound, the ConformalMappingPartII radius and mean-growth estimates and leveraging; reduce arbitrary integral weight to weight zero; deduce congruence from one integral Fourier expansion, its rational bounded-denominator form, and its algebraic-integer form with number-field descent. Verify the j cube root, h roots, and Fermat tests. |
+| W7 — Differential equations and vector-valued forms | 14 | 5 | Apply the corrected holonomic rank theorem to integral three-point ODE solutions with finite monodromy at zero. Define vector-valued forms and continuation spaces of individual components, build the minimal operator of a component by Wronskians, descend it to ℚ(x), and apply the G-function inputs to componentwise congruence and the corrected effective-span Mason corollary. |
 | W8 — Quasimodular and arithmetic growth applications | 7 | 5 | Define weakly holomorphic quasimodular forms using E₂ and Δ localization and prove derivative minimality with the q normalization fixed. Verify the elliptic-integral and Catalan identities. Define deficient places and state their congruence and effective arithmetic-component consequences with the necessary detection hypotheses. |
 | W9 — The arithmetic fundamental-group application | 3 | 2 | On the connected cusp component of the smooth locus of a regular X(N) model, derive the split étale fundamental-group isomorphism from the arithmetic finite-cover criterion and algebraic-integer unbounded denominators; specify model and cover-descent inputs explicitly. |
 
-The packet contains 82 targets: 12 definitions, 3 constructions and 67 theorems, with 63 API items and 59 discriminating unit tests. All nine layers are planned at target level. The 13 exact input gaps and 16 supplier contracts are part of the specification; none of the targets is claimed implemented. Each target below gives its hypotheses in the statement, its direct dependencies, source match, proof or construction, and acceptance checks. API and test names are proposed declaration names; the target id is the stable cross-reference for a theorem without a separate Lean spelling. Proposed modules are `TauCeti/NumberTheory/ModularForms/Noncongruence/W1.lean` through `W9.lean`, under namespace `TauCeti.ModularForms.Noncongruence`.
+The packet contains 63 targets (2 constructions, 9 definitions, 52 theorems), with 47 API items and 45 discriminating unit tests. All nine layers are planned at target level. The 5 exact input gaps and 14 request entries are part of the specification; none of the targets is claimed implemented. Each target below gives its hypotheses in the statement, its direct dependencies, source match, proof or construction, and acceptance checks. API and test names are proposed declaration names; the target id is the stable cross-reference for a theorem without a separate Lean spelling. Proposed modules are `TauCeti/NumberTheory/ModularForms/Noncongruence/W1.lean` through `W9.lean`, under namespace `TauCeti.ModularForms.Noncongruence`.
 
 ## Library baseline and imported contracts
 
@@ -42,7 +44,6 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 
 | Existing declaration | Module | Functionality used |
 | --- | --- | --- |
-| `mathlib:SlashInvariantForm` | `Mathlib.NumberTheory.ModularForms.SlashInvariantForms` | Functions on ℍ with the existing determinant-normalized slash invariance; no cusp or holomorphy condition. |
 | `mathlib:ModularForm` | `Mathlib.NumberTheory.ModularForms.Basic` | Holomorphic slash-invariant functions bounded at every group cusp; used as the pole-free comparison, not as a weak-form carrier. |
 | `mathlib:CongruenceSubgroup.Gamma` | `Mathlib.NumberTheory.ModularForms.CongruenceSubgroups` | Kernel of reduction SL₂(ℤ)→SL₂(ℤ/N). |
 | `mathlib:CongruenceSubgroup.IsCongruenceSubgroup` | `Mathlib.NumberTheory.ModularForms.CongruenceSubgroups` | Contains Γ(N) for some N≠0, without a −I hypothesis. |
@@ -54,7 +55,7 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 | `mathlib:ModularForm.discriminant` | `Mathlib.NumberTheory.ModularForms.Discriminant` | Δ(τ)=η(τ)^24, hence Δ starts at q² in the CDT q parameter. |
 | `mathlib:ModularForm.discriminant_ne_zero` | `Mathlib.NumberTheory.ModularForms.Discriminant` | Δ is nowhere zero on ℍ. |
 | `mathlib:CuspForm.discriminant` | `Mathlib.NumberTheory.ModularForms.Discriminant` | The existing weight-12 full modular cusp form with underlying function Δ. |
-| `mathlib:jacobiTheta` | `Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable` | θ₃(τ)=Σ_{n∈ℤ} exp(πin²τ). |
+| `mathlib:jacobiTheta` | `Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable` | θ₃(τ)=Σ\_{n∈ℤ} exp(πin²τ). |
 | `mathlib:jacobiTheta_S_smul` | `Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable` | The principal square-root S transformation of θ₃; branch is retained. |
 | `mathlib:jacobiTheta_T_sq_smul` | `Mathlib.NumberTheory.ModularForms.JacobiTheta.OneVariable` | θ₃ is invariant under τ↦τ+2. |
 | `mathlib:Subgroup.normalCore` | `Mathlib.Algebra.Group.Subgroup.Basic` | Largest subgroup of H normal in the ambient group, with conjugate-membership definition. |
@@ -62,7 +63,6 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 | `mathlib:Chebyshev.theta_ge` | `Mathlib.NumberTheory.Chebyshev` | θ(n)≥n log2−log(n+1)−2√n log n, enough for a positive linear lower bound eventually. |
 | `mathlib:Chebyshev.theta_le_log4_mul_x` | `Mathlib.NumberTheory.Chebyshev` | θ(x)≤(log4)x for x≥0; bounds log of primorials without PNT. |
 | `tauceti:TauCeti.Subgroup.integerCuspWidth` | `TauCeti.NumberTheory.ModularForms.Cusps.Basic` | Smallest positive strict integral translation period for finite relative index; geometric signed width is distinguished here. |
-| `tauceti:TauCeti.ModularForm.valence_formula_finiteIndex` | `TauCeti.NumberTheory.ModularForms.Norm.Cusps` | Already-proved general finite-index valence formula, with cusp translation orbits and rational orders; no replanning. |
 | `tauceti:TauCeti.char_neg_one_of_modFormCharSpace_ne_bot` | `TauCeti.NumberTheory.ModularForms.Parity` | Nonzero character space requires χ(−1)=(−1)^k. |
 | `mathlib:MeromorphicAt` | `Mathlib.Analysis.Meromorphic.Basic` | Finite-order pole condition on a punctured neighbourhood; actual value at the pole is irrelevant. |
 | `mathlib:CongruenceSubgroup.Gamma0` | `Mathlib.NumberTheory.ModularForms.CongruenceSubgroups` | Integral matrices whose lower-left entry vanishes modulo N. |
@@ -71,125 +71,137 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 | `mathlib:Derivative.serreDerivativeMF` | `Mathlib.NumberTheory.ModularForms.Derivative` | Serre derivative sends ModularForm Γ k to weight k+2 when Γ≤SL₂(ℤ), for every integer k. |
 | `mathlib:Derivative.normalizedDerivOfComplex_E₂` | `Mathlib.NumberTheory.ModularForms.RamanujanFormula` | D E₂=(E₂²−E₄)/12 for D=(1/(2πi))d/dτ; supplies derivative closure after adjoining E₂. |
 
-Stage-level imports with no exact supplier node have the following required contracts. Node-level imports are named directly in the consuming targets. A contract requests the specified mathematics from its owner; it does not assert that the owner already supplies an additional missing bridge.
+Stage-level citations of other roadmaps carry the following request entries. R11–R13 ask for Part IIs of roadmaps that are already Tau Ceti pull requests or merged; the others cite Tau Ceti stages as they stand and add nothing to them.
 
-**Supplier contract 1: `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.** Retain the parent character eigenspace and χ(−I)=(−1)^k parity convention; use the existing modular-form graded ring rather than rebuilding it.
+**R1: `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.** Cited as it stands: the character eigenspaces, the parity convention χ(−I)=(−1)^k and the integral-weight graded ring of modular forms of the parent. Nothing is added to the parent.
 
 Consumers: `ModularFormsPartII:W7/vector-valued-form`, `ModularFormsPartII:W7/induced-scalar`, `ModularFormsPartII:W8/weak-quasimodular`, `ModularFormsPartII:W8/congruence-no-deficiency`.
 
-**Supplier contract 2: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order`.** Supply the parent’s lower level-one j/E₄/Δ identity and q normalization used by the cube-root example; its normalized j inputs are separate from the higher dimension-formula module.
+**R2: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order`.** Cited as it stands: the level-one quotient X(1) with the normalized j-function and its q-expansion consumed from ModularForms, used with j=E₄³/Δ in the cube-root example.
 
 Consumers: `ModularFormsPartII:W6/j-cube-root`.
 
-**Supplier contract 3: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`.** Supply finite polygon/Schreier presentations and torsion-free freeness for Γ(N), N≥3, with its S,T coset action and rank; no arithmetic congruence subgroup property is assumed.
+**R3: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`.** Cited as it stands: the presentation of PSL₂(ℤ) as the (2,3,∞) triangle group ⟨S,R | S²=R³=1⟩ (Layer 2, item 6), used to define the representation σ of the invisible-summand test.
 
-Consumers: `ModularFormsPartII:W4/sl2z-cohom`, `ModularFormsPartII:W4/hs-comparison`, `ModularFormsPartII:W4/small-level-invariants`, `ModularFormsPartII:W7/invisible-summand-test`.
+Consumers: `ModularFormsPartII:W7/invisible-summand-test`.
 
-**Supplier contract 4: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates`.** Supply finite rational cusp representatives, scaling charts, strict translation widths and order comparison with boundedness; irregular cusp signs remain visible.
+**R4: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates`.** Cited as it stands: cusp orbits, normalized cusp data with primitive width, q-coordinates and the Laurent/q-expansion criterion (Layer 3, items 1–5). These are projective; the signed-width bookkeeping is done in W1.
 
 Consumers: `ModularFormsPartII:W1/weak-form`, `ModularFormsPartII:W1/wohlfahrt-level`, `ModularFormsPartII:W1/clear-cusp-poles`.
 
-**Supplier contract 5: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces`.** Supply the compactified analytic quotient X(Γ), cusp local charts and extension of cusp-meromorphic functions.
+**R5: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces`.** Cited as it stands: the compactified quotient X(Γ), its cusp charts, and the extension of finite-index quotient maps over the cusps with ramification w\_{Γ′}/w\_Γ.
 
 Consumers: `ModularFormsPartII:W2/lambda-covering`.
 
-**Supplier contract 6: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`.** Supply degree/index and ramification for finite holomorphic maps of compactified quotients, including projective stabilizers and X(2) degree-one identification.
+**R6: `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`.** Cited as it stands: degree of finite holomorphic maps, the degree-one biholomorphism theorem and descent of invariant meromorphic functions to the compactification. The identification X(2)≅ℙ¹ by λ is W2's own target.
 
 Consumers: `ModularFormsPartII:W2/lambda-covering`, `ModularFormsPartII:W2/small-uniformizations`, `ModularFormsPartII:W5/field-base-change`, `ModularFormsPartII:W5/congruence-degree`.
 
-**Supplier contract 7: `tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle`.** Supply Schwarz reflection and monodromy continuation to identify the λ fundamental-domain map, not an already constructed λ function.
+**R7: `tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle`.** Cited as it stands: Schwarz reflection and the monodromy theorem, which the parent's L4 description names as the input of the modular λ-covering; W2 builds the covering.
 
 Consumers: `ModularFormsPartII:W2/lambda-covering`.
 
-**Supplier contract 8: `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`.** Supply universal-cover lifting and the covering/monodromy correspondence, with effective deck group; holomorphic descent and local systems use its analytic refinement.
+**R8: `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`.** Cited as it stands: the lifting criterion and the Galois correspondence between covers and subgroups with the deck group, used for the λ covering and for the local system of ρ.
 
 Consumers: `ModularFormsPartII:W2/lambda-covering`, `ModularFormsPartII:W7/complex-local-system`.
 
-**Supplier contract 9: `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`.** Supply algebraicity and number-field models for finite three-point covers. The distinguished Fourier-germ descent is the additional NF gap.
+**R9: `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`.** Cited as it stands: algebraization of finite analytic three-point covers with their meromorphic function fields. The descent of a distinguished Fourier germ is the separate gap NF.
 
 Consumers: `ModularFormsPartII:W3/holonomy-embedding`, `ModularFormsPartII:W6/number-field-variant`.
 
-**Supplier contract 10: `tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples`.** Supply finite-cover and function-field correspondence for three-point covers, including compactification and meromorphic branching.
+**R10: `tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples`.** Cited as it stands: the classification of finite covers of the thrice-punctured sphere by permutation triples, with deck transformations and regular covers.
 
 Consumers: `ModularFormsPartII:W2/lambda-covering`, `ModularFormsPartII:W9/arithmetic-cover-criterion`.
 
-**Supplier contract 11: `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.** Supply continuous finite-coefficient cohomology, filtered-colimit comparisons and smooth actions. FIN and COEFF separately identify periodic/amalgam and compact-integral extensions not already in this stage.
+**R11: `ModularCurvesPartII:R12.6`.** Part II (ModularCurvesPartII, Part II: rational cusps of twisted models and all-prime cuspal models; not yet designed). ModularCurvesPartII is TauCetiRoadmap pull request #913 (README at head 2f3a763). R13.4a/twisted-coarse-curve, R12.4/twisted-analytic-comparison, R12.4/twisted-geometric-irreducibility, R12.3/cusp-fields-and-component-labels and R12.6/canonical-generic-fibre-descent are cited as they stand. Needed beyond them: for V=ℤ/m⊕μ\_m with its standard pairing and m≥3, the cusp ∞ of X(V) is ℚ-rational and split with Tate parameter q^{1/m}, compatibly with the analytic comparison, so that the rational functions on X(V) are exactly the meromorphic functions on X(m) with rational q^{1/m}-expansion at ∞. See gap MODEL.
 
-Consumers: `ModularFormsPartII:W4/congruence-class`, `ModularFormsPartII:W4/completed-h1`, `ModularFormsPartII:W4/uniform-kernels`, `ModularFormsPartII:W4/local-h1`, `ModularFormsPartII:W4/integral-local-h2`.
+Consumers: `ModularFormsPartII:W5/field-base-change`, `ModularFormsPartII:W5/congruence-degree`.
 
-**Supplier contract 12: `ModularCurvesPartII:R12.4`.** Supply the specific geometrically connected symplectic-twist modular curve over ℚ with E[m]≃ℤ/m⊕μ_m and a rational ∞ cusp, as an extension of the fixed-pairing contract; see MODEL.
+**R12: `ModularCurvesPartII:R13.5`.** Part II (the same ModularCurvesPartII Part II; not yet designed). Pull request #913 §11 constructs regular resolutions and semistable models for Γ₀ levels at primes p>3 and for the listed mixed and Cartan levels; these are cited as they stand. Needed beyond them: for N≥1 and K/ℚ(μ\_N) finite, the minimal regular model of X(N) over O\_K at every prime including p∣N, the extension of the ∞ cusp to a section through the smooth locus, the fibrewise component through it, and compatibility with finite base change. See gap NERON.
 
-Consumers: `ModularFormsPartII:W5/field-base-change`, `ModularFormsPartII:W5/congruence-degree`, `ModularFormsPartII:W6/number-field-variant`, `ModularFormsPartII:W9/cuspal-model`.
+Consumers: `ModularFormsPartII:W9/cuspal-model`, `ModularFormsPartII:W9/arithmetic-cover-criterion`.
 
-**Supplier contract 13: `ModularCurvesPartII:R13.5`.** Supply regular models and smooth cuspal sections at all levels and all finite primes, plus base-change compatibility needed by the connected cuspal model. NERON records what the present level-raising contract does not cover.
-
-Consumers: `ModularFormsPartII:W5/field-base-change`, `ModularFormsPartII:W9/cuspal-model`, `ModularFormsPartII:W9/arithmetic-cover-criterion`.
-
-**Supplier contract 14: `ModularCurvesPartII:R14.4`.** Extend the Ihara owner with the level-N arithmetic amalgam in SL₂(ℤ[1/p]) and its precise congruence subgroup property, including signs; see CSP.
-
-Consumers: `ModularFormsPartII:W5/abelian-ihara`, `ModularFormsPartII:W5/nonabelian-ihara`.
-
-**Supplier contract 15: `DiophantineApproximationAndTranscendence:DT.5`.** Supply the minimal G-operator/global nilpotence/quasi-unipotence theorem at every singularity, for the actual descended possibly reducible cyclic component module; see GLOCAL.
+**R13: `DiophantineApproximationAndTranscendence:DT.5`.** Part II (DiophantineApproximationAndTranscendence, Part II: G-operators and global nilpotence; not yet designed, and distinct from the designed DiophantineApproximationAndTranscendencePartII on arithmetic algebraization). DiophantineApproximationAndTranscendence is merged into TauCetiRoadmap main (#855, head 0d1c47b); DT.5/g-function and DT.5/chudnovsky-galochkin-condition are cited as they stand. Needed beyond them: the Bombieri–André theorem that Galochkin's condition implies global nilpotence, and Katz's theorem that a globally nilpotent operator over ℚ̄(x) is regular singular with quasi-unipotent local monodromy at every point of ℙ¹. See gap GLOCAL.
 
 Consumers: `ModularFormsPartII:W7/arithmetic-component`.
 
-**Supplier contract 16: `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`.** Supply character decomposition at principal level, an eigenform/newform basis and oldform reindexing, including coefficient recurrences needed to extend Deligne’s prime bound to all cusp coefficients.
+**R14: `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`.** Cited as it stands: character decomposition, the eigenform and newform bases and oldform reindexing, which with Deligne's bound extend the prime-coefficient bound to all coefficients of a cusp form.
 
 Consumers: `ModularFormsPartII:W8/congruence-no-deficiency`.
 
+Node-level imports from other atlas roadmaps are exact supplier nodes; they need no request.
+
+| Imported node | Consumers |
+| --- | --- |
+| `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison` | `W6/number-field-variant` |
+| `AlgebraicModularFormsAndSerreWeights:R15.2/bounded-denominators-congruence-application` | `W3/congruence-inclusion`, `W6/h-root-test`, `W6/fermat-test`, `W8/congruence-no-deficiency` |
+| `AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture` | `W8/congruence-no-deficiency` |
+| `ConformalMappingPartII:M0/uniform-mean-growth` | `W6/field-equality` |
+| `ConformalMappingPartII:O0/meromorphic-basis-monodromy` | `W3/holonomy-embedding`, `W7/ode-algebraicity` |
+| `ConformalMappingPartII:O0/path-continuation` | `W7/regular-singular-component` |
+| `ConformalMappingPartII:R0/conformal-radius-formula` | `W2/small-uniformizations` |
+| `ConformalMappingPartII:R0/positive-radius-expansion` | `W3/finite-rank`, `W6/field-equality`, `W7/ode-algebraicity` |
+| `ConformalMappingPartII:U0/roots-cover` | `W2/small-uniformizations`, `W3/finite-rank`, `W3/quantitative-rank`, `W7/ode-algebraicity` |
+| `DiophantineApproximationAndTranscendence:DT.5/chudnovsky-galochkin-condition` | `W7/arithmetic-component` |
+| `DiophantineApproximationAndTranscendence:DT.5/g-function` | `W7/arithmetic-component` |
+| `DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-closure` | `W7/ode-algebraicity` |
+| `DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring` | `W3/holonomy-embedding`, `W7/ode-algebraicity` |
+| `DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-spans` | `W3/holonomy-embedding` |
+| `DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound` | `W3/finite-rank`, `W3/quantitative-rank`, `W7/ode-algebraicity` |
+| `InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group` | `W9/cuspal-model`, `W9/arithmetic-cover-criterion`, `W9/arithmetic-pi1` |
+| `ModularCurvesPartII:R12.3/cusp-fields-and-component-labels` | `W9/cuspal-model`, `W9/arithmetic-cover-criterion` |
+| `ModularCurvesPartII:R12.4/twisted-analytic-comparison` | `W5/field-base-change` |
+| `ModularCurvesPartII:R12.4/twisted-geometric-irreducibility` | `W5/field-base-change` |
+| `ModularCurvesPartII:R13.4a/twisted-coarse-curve` | `W5/field-base-change`, `W5/congruence-degree` |
+| `ModularCurvesPartII:R14.4/congruence-classes` | `W4/triple-surjectivity` |
+| `ModularCurvesPartII:R14.4/congruence-subgroup-property` | `W4/nonabelian-ihara` |
+| `ModularCurvesPartII:R14.4/enhanced-ihara` | `W4/triple-surjectivity` |
+| `ModularCurvesPartII:R14.4/modular-amalgam` | `W4/nonabelian-ihara` |
+| `QSeriesPartitionsAndMockModularForms:QM.0/gauss-theta-four-product-identity` | `W2/lambda`, `W6/h-root-test`, `W6/fermat-test`, `W8/elliptic-integral-test`, `W8/catalan-tests` |
+| `QSeriesPartitionsAndMockModularForms:QM.0/theta-three-product-identity` | `W2/lambda`, `W6/h-root-test`, `W6/fermat-test`, `W8/elliptic-integral-test`, `W8/catalan-tests` |
+| `QSeriesPartitionsAndMockModularForms:QM.0/theta-two-product-identity` | `W2/lambda`, `W6/fermat-test`, `W8/elliptic-integral-test`, `W8/catalan-tests` |
+| `QSeriesPartitionsAndMockModularForms:QM.1/dedekind-eta-multiplier` | `W6/weight-reduction`, `W6/j-cube-root`, `W7/vv-weight-normalization` |
+| `QSeriesPartitionsAndMockModularForms:QM.1/eta-quotient-transformation` | `W2/lambda`, `W6/weight-reduction`, `W6/j-cube-root`, `W6/fermat-test`, `W7/vv-weight-normalization`, `W8/elliptic-integral-test`, `W8/catalan-tests` |
+| `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-triple-product-analytic` | `W2/lambda`, `W6/fermat-test`, `W8/elliptic-integral-test`, `W8/catalan-tests` |
+| `QSeriesPartitionsAndMockModularForms:QM.1/theta-gamma-two-transformation` | `W2/lambda`, `W2/jacobi-hypergeometric`, `W6/weight-reduction`, `W7/vv-weight-normalization`, `W8/elliptic-integral-test`, `W8/catalan-tests` |
+| `QSeriesPartitionsAndMockModularForms:QM.3/weakly-holomorphic-laurent-expansion` | `W1/weak-form` |
+| `QSeriesPartitionsAndMockModularForms:QM.3/weakly-holomorphic-modular-form` | `W1/weak-form` |
+
 ## W1. Weak forms and geometric levels
 
-Extend the existing slash-invariant carrier to functions holomorphic on ℍ and meromorphic at every rational cusp. Pin strict and signed widths, bounded denominators and geometric Wohlfahrt level. Prove intersection, normal-core and p-scaling laws and the signed Wohlfahrt theorem; clear cusp poles by Δ.
+Characterize weak forms on finite-index subgroups of SL₂(ℤ) by meromorphic cusp germs, importing the weakly holomorphic carrier of QSeriesPartitionsAndMockModularForms QM.3. Pin strict and signed widths, bounded denominators and geometric Wohlfahrt level. Prove intersection, normal-core and p-scaling laws and the signed Wohlfahrt theorem; clear cusp poles by Δ.
 
-**Layer dependencies:** `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates`.
+**Layer dependencies:** `QSeriesPartitionsAndMockModularForms:QM.3`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates`.
 
-**Planets:** Weakly holomorphic modular forms; Bounded denominators; Wohlfahrt level; Normal core and level; Level under scaling; Wohlfahrt’s theorem.
+**Planets:** Bounded denominators; Wohlfahrt level; Normal core and level; Level under scaling; Wohlfahrt’s theorem.
 
-### W1.1. Weakly holomorphic modular forms
+### W1.1. Weak forms on finite-index subgroups: the cusp-germ characterization
 
-**Target:** `ModularFormsPartII:W1/weak-form` (definition).
+**Target:** `ModularFormsPartII:W1/weak-form` (theorem).
 
-For k∈ℤ and finite-index Γ≤SL₂(ℤ), a weak form is a function f:ℍ→ℂ holomorphic on ℍ, invariant under the existing weight-k slash action of Γ, whose slash f|ₖg has a meromorphic germ at q_h=0 for every g∈SL₂(ℤ) and some positive strict translation period h. The local Laurent series has finite principal part. A weak modular function has k=0. The holomorphic-at-all-cusps subspace is the existing ModularForm carrier, not a second holomorphic-form definition. Character-valued forms retain the parent character carrier and are not folded into this trivial-character definition.
+Let Γ≤SL₂(ℤ) have finite index, regarded in GL₂(ℝ) through the existing coercion, and let k∈ℤ. The space M^!\_k(Γ) of weakly holomorphic modular forms is imported from QSeriesPartitionsAndMockModularForms:QM.3/weakly-holomorphic-modular-form: functions holomorphic on ℍ, invariant under the weight-k slash action of Γ, with exponential growth at every cusp. A function f:ℍ→ℂ lies in M^!\_k(Γ) if and only if it is holomorphic on ℍ, Γ-invariant, and for every g∈SL₂(ℤ) the slash f|ₖg is periodic with some positive strict period h and its cusp function in q\_h is meromorphic at q\_h=0, so that its Laurent series has finite principal part. The elements with no negative Laurent term at any cusp are exactly the existing ModularForm Γ k. M^!\_k(Γ) is preserved by restriction to a finite-index subgroup, and products add weights. In this roadmap a weak form is an element of M^!\_k(Γ) for a finite-index Γ≤SL₂(ℤ), and a weak modular function is the case k=0. Character-valued forms keep the parent character carrier and are not folded into this trivial-character space.
 
-**Direct dependencies:** `mathlib:SlashInvariantForm`, `mathlib:ModularForm`, `mathlib:UpperHalfPlane.cuspFunction`, `mathlib:MeromorphicAt`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates`.
+**Direct dependencies:** `QSeriesPartitionsAndMockModularForms:QM.3/weakly-holomorphic-modular-form`, `QSeriesPartitionsAndMockModularForms:QM.3/weakly-holomorphic-laurent-expansion`, `mathlib:ModularForm`, `mathlib:UpperHalfPlane.cuspFunction`, `mathlib:MeromorphicAt`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-3-cusps-and-q-coordinates`.
 
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 1.0.1, p.627; Definition 4.2.1, p.655; Definition 7.4.3, p.692. The main theorem allows holomorphy on the upper half-plane with finite cusp principal parts; the field and quasimodular definitions use that same weak form convention. The target expresses it through the existing slash and cusp-germ carriers.
+**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 1.0.1, p.627; Definition 4.2.1, p.655; Definition 7.4.3, p.692. The main theorem and the later definitions work with functions holomorphic on the upper half-plane and meromorphic at every cusp. The target identifies that convention with the exponential-growth carrier owned by QSeriesPartitionsAndMockModularForms QM.3.
 
 **Construction and proof.**
 
-1. Use the existing slash action and MDifferentiable predicate. Express the new condition using MeromorphicAt of cuspFunction after a slash; allow any positive strict period.
-2. Prove equivalence with a finite Laurent principal part using the punctured-disc cusp chart; compare nonnegative Laurent support with the existing boundedness-at-cusps condition.
-
-**Uses that determine the API.**
-
-- W3 and CDT25 Definition 4.2.1: Weight-zero generators have poles only at cusps.
-- W6 and CDT25 Theorem 1.0.1: The main theorem accepts every integral weight and finite principal parts.
-
-**API.**
-
-- `WeakModularForm.ext` (extensionality): Equality is pointwise equality on ℍ.
-- `WeakModularForm.ofModularForm` (coercion): The existing ModularForm embeds injectively with the same slash action and function.
-- `WeakModularForm.restrict` (functoriality): For H≤Γ of finite index, restriction changes the group and preserves the function; restriction composes.
-- `WeakModularForm.mul` (structure): Weights add under pointwise multiplication; weight zero is a ℂ-algebra.
-- `WeakModularForm.mem_iff_cuspLaurent` (characterisation): Membership is holomorphy, slash invariance, and a finite Laurent principal part in every cusp chart.
-
-**Unit tests.**
-
-- `weak_constant` (degenerate): The constant 1 belongs in weight zero for SL₂(ℤ).
-- `weak_inverse_delta` (non-example): Δ⁻¹ is weak of weight −12 and is not an existing holomorphic modular form, since its expansion starts at Q⁻¹.
-- `weak_existing_comparison` (compatibility): A weak form with no negative Laurent terms at every cusp corresponds uniquely to ModularForm Γ k.
-- `weak_no_interior_poles` (non-example): For a∈ℂ, (j−a)⁻¹ is rejected whenever j−a has a zero on ℍ.
+1. For g∈SL₂(ℤ), f|ₖg is weakly holomorphic for the finite-index conjugate g⁻¹Γg, which is arithmetic with determinant one. Apply the imported Laurent-expansion theorem QM.3/weakly-holomorphic-laurent-expansion at its cusp ∞: exponential growth there is equivalent to a Laurent series with finite principal part, that is, to meromorphy of the cusp function at q\_h=0.
+2. Every rational cusp is g∞ for some g∈SL₂(ℤ), so the condition for all g is exponential growth at every cusp. Changing g inside its coset of the cusp stabilizer, or replacing h by a positive multiple, changes the Laurent variable by a root of unity or a power and preserves the condition. Nonnegative Laurent support at every cusp is boundedness at every cusp (FuchsianOrbifolds Layer 3, item 5), the existing ModularForm condition.
+3. A cusp of a finite-index subgroup is a cusp of Γ, and growth at a cusp does not depend on the group, which gives restriction. For determinant-one matrices the slash of a product is the product of the slashes, and principal parts multiply.
 
 **Acceptance checks.**
 
-- No pole on ℍ is allowed; a pole at a rational cusp is allowed.
-- Changing the scaling matrix or replacing a strict period by a positive multiple preserves membership.
+- The constant 1 lies in M^!\_0(SL₂(ℤ)); Δ⁻¹ lies in M^!\_{−12}(SL₂(ℤ)), its expansion begins with Q⁻¹, and it is not an existing ModularForm.
+- For a∈ℂ, (j−a)⁻¹ is rejected because j−a has a zero on ℍ: weak forms have no interior poles; a pole at a rational cusp is allowed.
+- Changing the scaling matrix or replacing a strict period by a positive multiple preserves the cusp-germ condition.
 
 ### W1.2. Bounded denominators of a Fourier germ
 
 **Target:** `ModularFormsPartII:W1/bounded-denominators` (definition).
 
-For an embedded number field K⊆ℂ and a Laurent series a(t)∈K((t)), bounded denominators means there is one nonzero d∈O_K with d a_n∈O_K for every coefficient, including the finite principal part. Over ℚ use one integer D≥1. This is scalar denominator clearing, not substitution t↦t/M. For a holomorphic germ f with positive strict period 2N, its Taylor series is UpperHalfPlane.qExpansion (2N) f in t=e^{πiτ/N}. Integral coefficients mean every coefficient lies in the embedded ℤ, or O_K, as appropriate.
+For an embedded number field K⊆ℂ and a Laurent series a(t)∈K((t)), bounded denominators means there is one nonzero d∈O\_K with d a\_n∈O\_K for every coefficient, including the finite principal part. Over ℚ use one integer D≥1. This is scalar denominator clearing, not substitution t↦t/M. For a holomorphic germ f with positive strict period 2N, its Taylor series is UpperHalfPlane.qExpansion (2N) f in t=e^{πiτ/N}. Integral coefficients mean every coefficient lies in the embedded ℤ, or O\_K, as appropriate.
 
 **Direct dependencies:** `mathlib:UpperHalfPlane.qExpansion`, `ModularFormsPartII:W1/weak-form`.
 
@@ -197,13 +209,14 @@ For an embedded number field K⊆ℂ and a Laurent series a(t)∈K((t)), bounded
 
 **Construction and proof.**
 
-1. Use coefficientwise membership in the image of O_K and quantify a single clearing scalar.
+1. Use coefficientwise membership in the image of O\_K and quantify a single clearing scalar.
 2. Addition and convolution preserve a common clearing scalar after multiplying denominators; finite Laurent support below zero permits the same argument.
 
 **Uses that determine the API.**
 
 - W3 R₂N: Defines the arithmetic restriction on generators.
 - W6 rational and number-field variants: Converts bounded denominators to integral coefficients by a single scalar.
+- W6 h-root and Fermat tests: A bounded-denominator root of an integral unit series is integral, which decides the exponents.
 
 **API.**
 
@@ -211,17 +224,19 @@ For an embedded number field K⊆ℂ and a Laurent series a(t)∈K((t)), bounded
 - `HasBoundedDenominators.add_mul` (structure): Sums and products preserve the predicate with the product of the clearing scalars.
 - `HasBoundedDenominators.reindex` (functoriality): Substitution t↦t^m for m>0 preserves and reflects the predicate.
 - `HasBoundedDenominators.qExpansion_compat` (compatibility): For an analytic 2N-periodic cusp germ, coefficients are precisely those of the existing qExpansion (2N).
+- `HasBoundedDenominators.integral_of_pow` (relation): If a∈1+tℚ[[t]] has bounded denominators and a^n is integral for some n≥1, then a is integral: reduce ℓ^c·a modulo ℓ in the domain 𝔽\_ℓ[[t]].
 
 **Unit tests.**
 
 - `bd_rational_constant` (computation): The constant 1/2 is bounded, with D=2, and is not integral.
-- `bd_unbounded_prime` (non-example): Σ_{n≥0}t^n/2^n has unbounded denominators although every coefficient lies in ℤ[1/2].
+- `bd_unbounded_prime` (non-example): Σ\_{n≥0}t^n/2^n has unbounded denominators although every coefficient lies in ℤ[1/2].
 - `bd_integral_unit_inverse` (compatibility): An integral power series with constant term ±1 has integral inverse, hence bounded denominators.
 - `bd_exp` (non-example): Σ t^n/n! fails every common denominator.
+- `bd_root_integral` (characterisation): If a∈1+tℚ[[t]] has bounded denominators and a^n∈ℤ[[t]] for some n≥1, then a∈ℤ[[t]]; hence (1−16t)^{1/16}, whose t²-coefficient is −15/2, has unbounded denominators.
 
 **Acceptance checks.**
 
-- Never infer bounded denominators from membership in O_K[1/S][[t]].
+- Never infer bounded denominators from membership in O\_K[1/S][[t]].
 - State the period separately: existence of Taylor coefficients alone does not identify a Fourier germ.
 
 ### W1.3. Geometric Wohlfahrt level
@@ -361,13 +376,13 @@ If a finite-index congruence G contains E, then Γ(L(G))≤G. For an arbitrary c
 
 - H′ at level 2 gives a counterexample to removing E from the first conclusion.
 
-**Layer completion checks.** Every target above must be proved with the stated imported contracts. The supplier contracts remain explicit even where this layer has no separate input gap.
+**Layer completion checks.** Every target above must be proved with the stated imported contracts. This layer has no open input gap.
 
 ## W2. The modular λ coordinate
 
 Construct λ by the existing η function, identify X(2) with ℙ¹ and λ as its three-punctured covering coordinate, prove integral inverse reparametrization and Kummer normalization, and the hypergeometric–theta identity with its character. Connect the N=2 and N=3 punctured-plane acceptance examples.
 
-**Layer dependencies:** `ModularFormsPartII:W1`, `QSeriesPartitionsAndMockModularForms:QM.1`, `QSeriesPartitionsAndMockModularForms:QM.0`, `tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle`, `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples`.
+**Layer dependencies:** `QSeriesPartitionsAndMockModularForms:QM.1`, `ModularFormsPartII:W1`, `QSeriesPartitionsAndMockModularForms:QM.0`, `tauceti:TauCetiRoadmap/ConformalMapping#milestone-l4--analytic-continuation--the-reflection-principle`, `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-4-compactified-quotient-riemann-surfaces`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples`, `ConformalMappingPartII:U0`, `ConformalMappingPartII:R0`.
 
 **Planets:** Modular λ function; Modular λ covering; Integral λ reparametrization; Jacobi’s hypergeometric identity; Modular uniformization examples.
 
@@ -375,7 +390,7 @@ Construct λ by the existing η function, identify X(2) with ℙ¹ and λ as its
 
 **Target:** `ModularFormsPartII:W2/lambda` (definition).
 
-Using the pinned η on ℂ, set x(τ)=(η(τ/2)η(2τ)²/η(τ)³)^8 and λ(τ)=16x(τ). On ℍ the denominator is nonzero. Pin q=e^{πiτ}: x=q∏_{n≥1}((1+q^{2n})/(1+q^{2n−1}))^8. The associated formal series is the integral q-adic product; agreement with the analytic product is a theorem, not a choice of a formal expansion. Its λ-normalization sends the three Γ(2)-cusps ∞,0,1 to 0,1,∞.
+Using the pinned η on ℂ, set x(τ)=(η(τ/2)η(2τ)²/η(τ)³)^8 and λ(τ)=16x(τ). On ℍ the denominator is nonzero. Pin q=e^{πiτ}: x=q∏\_{n≥1}((1+q^{2n})/(1+q^{2n−1}))^8. The associated formal series is the integral q-adic product; agreement with the analytic product is a theorem, not a choice of a formal expansion. Its λ-normalization sends the three Γ(2)-cusps ∞,0,1 to 0,1,∞.
 
 **Direct dependencies:** `mathlib:ModularForm.eta`, `mathlib:ModularForm.eta_ne_zero`, `mathlib:jacobiTheta`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-gamma-two-transformation`, `ModularFormsPartII:W1/weak-form`, `QSeriesPartitionsAndMockModularForms:QM.0/theta-three-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.0/theta-two-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.0/gauss-theta-four-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-triple-product-analytic`, `QSeriesPartitionsAndMockModularForms:QM.1/eta-quotient-transformation`.
 
@@ -474,7 +489,7 @@ The formal x(q)=λ(q)/16 has a unique compositional inverse q(x) in x+x²ℤ[[x]
 
 **Target:** `ModularFormsPartII:W2/kummer-coordinate` (theorem).
 
-For N≥1 and t=q^{1/N}, there is a unique x_N(t)∈t+t²ℚ[[t]] with x_N(t)^N=x(t^N). It belongs to t+t²ℤ[1/N][[t]], and x_N^N is integral. Branches are fixed by x_N/t→1. No claim is made that x_N itself is integral for arbitrary N. Pulling back x=λ/16 by u↦u^N leaves possible singularities at 16^{−1/N}μ_N and ∞; width dividing 2N removes monodromy at u=0.
+For N≥1 and t=q^{1/N}, there is a unique x\_N(t)∈t+t²ℚ[[t]] with x\_N(t)^N=x(t^N). It belongs to t+t²ℤ[1/N][[t]], and x\_N^N is integral. Branches are fixed by x\_N/t→1. No claim is made that x\_N itself is integral for arbitrary N. Pulling back x=λ/16 by u↦u^N leaves possible singularities at 16^{−1/N}μ\_N and ∞; width dividing 2N removes monodromy at u=0.
 
 **Direct dependencies:** `ModularFormsPartII:W2/inverse-integrality`, `ModularFormsPartII:W1/wohlfahrt-level`.
 
@@ -488,13 +503,13 @@ For N≥1 and t=q^{1/N}, there is a unique x_N(t)∈t+t²ℚ[[t]] with x_N(t)^N=
 **Acceptance checks.**
 
 - N=1 recovers x.
-- For N=3, x_N=t−(8/3)t⁴+⋯, so general integral-root claims fail.
+- For N=3, x\_N=t−(8/3)t⁴+⋯, so general integral-root claims fail.
 
 ### W2.6. Jacobi’s hypergeometric identity with character
 
 **Target:** `ModularFormsPartII:W2/jacobi-hypergeometric` (theorem).
 
-Let K₀(x)=Σ_{n≥0}binom(2n,n)²x^n = ₂F₁(1/2,1/2;1;16x). Then K₀(x(τ))=θ₃(τ)². This is weight 1 on Γ(2) with χ(γ)=χ_{−4}(dγ), and is a trivial-character form on H′={γ∈Γ(2):dγ≡1 mod4}. The series is integral and transcendental over ℚ(x); its equation x(1−16x)y″+(1−32x)y′−4y=0 has nontrivial unipotent local monodromy at 0, despite this particular holomorphic branch.
+Let K₀(x)=Σ\_{n≥0}binom(2n,n)²x^n = ₂F₁(1/2,1/2;1;16x). Then K₀(x(τ))=θ₃(τ)². This is weight 1 on Γ(2) with χ(γ)=χ\_{−4}(dγ), and is a trivial-character form on H′={γ∈Γ(2):dγ≡1 mod4}. The series is integral and transcendental over ℚ(x); its equation x(1−16x)y″+(1−32x)y′−4y=0 has nontrivial unipotent local monodromy at 0, despite this particular holomorphic branch.
 
 **Direct dependencies:** `ModularFormsPartII:W2/lambda`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-gamma-two-transformation`, `mathlib:jacobiTheta`, `mathlib:jacobiTheta_S_smul`, `mathlib:jacobiTheta_T_sq_smul`, `tauceti:TauCeti.char_neg_one_of_modFormCharSpace_ne_bot`, `ModularFormsPartII:W2/lambda-covering`.
 
@@ -503,7 +518,7 @@ Let K₀(x)=Σ_{n≥0}binom(2n,n)²x^n = ₂F₁(1/2,1/2;1;16x). Then K₀(x(τ)
 **Construction and proof.**
 
 1. Compare the normalized analytic solution of the hypergeometric equation with the theta product.
-2. Square the imported theta transformation, retaining χ_{−4}(d). Obtain logarithmic continuation at 0 from the second independent solution to prove infinite monodromy.
+2. Square the imported theta transformation, retaining χ\_{−4}(d). Obtain logarithmic continuation at 0 from the second independent solution to prove infinite monodromy.
 
 **Acceptance checks.**
 
@@ -514,29 +529,30 @@ Let K₀(x)=Σ_{n≥0}binom(2n,n)²x^n = ₂F₁(1/2,1/2;1;16x). Then K₀(x(τ)
 
 **Target:** `ModularFormsPartII:W2/small-uniformizations` (theorem).
 
-With C(z)=i(1−z)/(1+z), F₂(z)=2λ(C(z))−1 universally covers ℂ∖{±1}, sends 0 to 0, and |F₂′(0)|=Γ(1/4)^4/(4π²)>4. The supplier’s N=3 normalized covering has |F₃′(0)|=Γ(1/6)^3/(12π^{3/2})>16^{1/3}; its η-quotient in Example 5.1.22 agrees with that covering after the chosen rotation. Among N≥2, ℂ∖μ_N is isomorphic to Y(N) only for N=2,3.
+With C(z)=i(1−z)/(1+z), F₂(z)=2λ(C(z))−1 universally covers ℂ∖{±1}, sends 0 to 0, and |F₂′(0)|=Γ(1/4)^4/(4π²)>4. The supplier’s N=3 normalized covering has |F₃′(0)|=Γ(1/6)^3/(12π^{3/2})>16^{1/3}; its η-quotient in Example 5.1.22 agrees with that covering after the chosen rotation. Among N≥2, ℂ∖μ\_N is isomorphic to Y(N) only for N=2,3.
 
-**Direct dependencies:** `ModularFormsPartII:W2/lambda-covering`, `ModularFormsPartII:W2/lambda`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`.
+**Direct dependencies:** `ModularFormsPartII:W2/lambda-covering`, `ModularFormsPartII:W2/lambda`, `ConformalMappingPartII:U0/roots-cover`, `ConformalMappingPartII:R0/conformal-radius-formula`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Example 5.1.22, p.673; Theorem 5.1.4, pp.667–668. The example evaluates the N=2 and N=3 covering radii using gamma values and eta quotients. These are acceptance cases for the imported punctured-plane theorem, not a new general uniformization theory.
 
 **Construction and proof.**
 
-1. Compose the λ covering with the Cayley transform and the affine map u↦2u−1.
-2. Use the imported gamma formula at N=2,3 and the η transformation identities for the printed F₃. For the last assertion compare genus and cusp counts from the parent geometric theory.
+1. Compose the λ covering with the Cayley transform and the affine map u↦2u−1; F₂ is a pointed universal covering of ℂ∖{±1}.
+2. Specialize ConformalMappingPartII:R0/conformal-radius-formula at N=2 and N=3; for N=2 the pointed cover is unique up to rotation (ConformalMappingPartII:U0/roots-cover), so |F₂′(0)| is the stated Gamma value. Match the η-quotient of CDT Example 5.1.22 at N=3 with the normalized cover by its value and derivative at 0.
+3. For the last assertion compare punctures and genus: ℂ∖μ\_N is the sphere minus N+1 points, Y(2) and Y(3) are spheres minus 3 and 4 points with the matching cross-ratio, Y(4) and Y(5) have 6 and 12 cusps, and Y(N) has positive genus for N≥6.
 
 **Acceptance checks.**
 
 - F₂(0)=0 and its target omits exactly ±1.
 - The N=2 derivative is about 4.37687923 and the N=3 derivative about 2.5810565.
 
-**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: UNI.
+**Layer completion checks.** Every target above must be proved with the stated imported contracts. This layer has no open input gap.
 
 ## W3. Bounded-denominator fields and holonomy rank
 
-Define the ℚ(λ)-spans M₂N and R₂N in rational Laurent series, prove inclusion, multiplication and field structure, construct the normal stabilizer with exact level, and supply the λ-root holonomy embedding and quantitative rank bound from the two analytic supplier contracts.
+Define the ℚ(λ)-spans M₂N and R₂N in rational Laurent series, prove inclusion, multiplication and field structure, construct the normal stabilizer with exact level, place R₂N in the ℚ(λ)-span W of integral holonomic germs for the λ-root coordinate, and derive finiteness and the quantitative rank bound from the corrected holonomic rank theorem of DiophantineApproximationAndTranscendencePartII and the uniformization of ℂ∖μ\_N of ConformalMappingPartII.
 
-**Layer dependencies:** `ModularFormsPartII:W1`, `ModularFormsPartII:W2`, `AlgebraicModularFormsAndSerreWeights:R15.2`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`.
+**Layer dependencies:** `ModularFormsPartII:W1`, `ModularFormsPartII:W2`, `AlgebraicModularFormsAndSerreWeights:R15.2`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`, `DiophantineApproximationAndTranscendencePartII:AA.4`, `ConformalMappingPartII:O0`, `ConformalMappingPartII:U0`, `ConformalMappingPartII:R0`.
 
 **Planets:** Congruence modular-function field; Bounded-denominator modular-function field; Modular holonomy embedding; Normal stabilizer of R₂N; Holonomy rank bound.
 
@@ -564,7 +580,7 @@ For N≥1 take t=q^{1/N}, x=λ/16 and the common ambient Laurent field ℚ((t)).
 
 - `mem_M2N_of_modularFunction` (constructor): A rational-coefficient weight-zero weak form on Γ(2N) maps into M₂N.
 - `M2N_one` (simp): M₂ is the specified ℚ(λ) subspace.
-- `M2N_map_dvd` (functoriality): If N∣M then t_N↦t_M^(M/N) embeds M₂N into M₂M.
+- `M2N_map_dvd` (functoriality): If N∣M then t\_N↦t\_M^(M/N) embeds M₂N into M₂M.
 - `M2N_qExpansion_injective` (compatibility): The analytic-to-Laurent map is injective and agrees with the pinned qExpansion after clearing the principal part.
 
 **Unit tests.**
@@ -641,41 +657,44 @@ For all N≥1, M₂N⊆R₂N as subspaces in the specified Laurent field.
 
 **Target:** `ModularFormsPartII:W3/holonomy-embedding` (theorem).
 
-For N≥1, U_N=ℂ∖16^{−1/N}μ_N, t=q^{1/N} and u(t)=x_N(t), the reparametrized field R₂N embeds in V(U_N,u(t),ℤ) over ℚ(u^N)=ℚ(λ). The H and V carriers and their monodromy convention are imported from the proposed arithmetic-algebraization owner. Generators enter after denominator and principal-part clearing; arbitrary elements enter the rational-function span.
+For N≥1 let U\_N=ℂ∖16^{−1/N}μ\_N, t=q^{1/N}, let χ=x\_N(t) be the normalized Kummer coordinate of W2/kummer-coordinate and p(u)=u^N, so that p(χ(t))=x(t^N)=λ/16 is integral and ℚ(p)=ℚ(λ). Read through the formal inverse of χ, every element of R₂N lies in the ℚ(p)-span W(U\_N,χ,p) of the integral holonomic ring H(U\_N,χ,ℤ) of DiophantineApproximationAndTranscendencePartII:AA.4. Each generator enters H after multiplication by a nonzero integer clearing its denominators and by a power of p clearing its pole at ∞; general elements are ℚ(λ)-combinations of these. The containment is in W and not only in the larger ℚ(u)-span V, because χ is not integral for N≥2.
 
-**Direct dependencies:** `ModularFormsPartII:W3/bounded-field`, `ModularFormsPartII:W2/kummer-coordinate`, `ModularFormsPartII:W2/lambda-covering`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`.
+**Direct dependencies:** `ModularFormsPartII:W3/bounded-field`, `ModularFormsPartII:W2/kummer-coordinate`, `ModularFormsPartII:W2/lambda-covering`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`, `DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring`, `DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-spans`, `ConformalMappingPartII:O0/meromorphic-basis-monodromy`.
 
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Proof of Proposition 3.0.1, pp.650–651; Definition 2.0.4, pp.635–636. The proposition pulls modular functions back along the lambda root and places their span in the arithmetic holonomy space. The target states the whole-operator local monodromy condition and imports the H/V theory from its owner.
+**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Proof of Proposition 3.0.1, pp.650–651; Definition 2.0.4, pp.635–636. The proof places a basis of R₂N in the arithmetic holonomic ring for the λ-root coordinate and then bounds the larger span V. The target records the containment in the ℚ(λ)-span W, to which the corrected rank theorem applies; see E24.
 
 **Construction and proof.**
 
-1. Use the finite cover Y(H)→Y(2) and its algebraic function field to obtain a differential equation for a generator.
-2. Pull back by u↦u^N; its whole algebraic solution space has trivial monodromy away from the omitted punctures and at 0 because all cusp widths divide 2N.
-3. Clear apparent poles with a polynomial and the generator denominator, then use the defining ℚ(u)-span V.
+1. A generator f of R₂N is invariant under a finite-index H containing E with cusp widths dividing 2N, so it is a rational function on the algebraic curve Y(H), finite étale over Y(2) (W2/lambda-covering, BelyiMaps Layer 9). Its continuations along paths in ℂ∖{0,1} are the finitely many conjugate functions on Y(H), so its minimal operator over ℚ̄(λ) has a full meromorphic local basis, in the sense of ConformalMappingPartII:O0/meromorphic-basis-monodromy, at every point of ℂ∖{0,1}.
+2. Pull back along u↦16u^N. Because every cusp width of H divides 2N, a local coordinate at each cusp above λ=0 is a positive power of u, so the pulled-back operator also has a full meromorphic local basis at u=0. Its remaining finite singularities lie in 16^{−1/N}μ\_N, outside U\_N.
+3. Multiply f by an integer clearing its common denominator and by a power of p clearing its pole at ∞. The product has χ-pullback in ℤ[[t]], so it lies in H(U\_N,χ,ℤ). The multipliers lie in ℚ(p)^×, so the ℚ(λ)-span R₂N lies in W(U\_N,χ,p).
 
 **Acceptance checks.**
 
 - Do not infer trivial monodromy of an entire operator from one single-valued solution.
-- u(t)^N is integral; u(t) need not be.
+- p(χ(t))=x(t^N) is integral; χ itself need not be (for N=3, χ=t−(8/3)t⁴+⋯).
+- The containment is stated for W. The printed bound for V over ℚ(p) fails for nonintegral χ (DiophantineApproximationAndTranscendencePartII/E1), so the rank argument runs on W.
 
 ### W3.5. Finiteness of the bounded-denominator field
 
 **Target:** `ModularFormsPartII:W3/finite-rank` (theorem).
 
-For each N≥1, dim_{ℚ(λ)}R₂N is finite. The qualitative argument uses a pointed disc map to U_N with derivative 1 which is not a universal covering; comparison with the universal covering makes the uniformization radius strictly greater than 1. The N=1 case can instead be embedded into N=2.
+For each N≥1, R₂N is finite-dimensional over ℚ(λ). For N≥2 this follows from a holomorphic map φ, defined near the closed unit disc with image in U\_N, φ(0)=0 and |φ′(0)|>1. Since R₂⊆R₄ under t↦t², the case N=1 follows from N=2; U₁=ℂ∖{1/16} is not hyperbolic and is not treated by a universal covering.
 
-**Direct dependencies:** `ModularFormsPartII:W3/holonomy-embedding`, `ModularFormsPartII:W2/lambda-covering`.
+**Direct dependencies:** `ModularFormsPartII:W3/holonomy-embedding`, `ConformalMappingPartII:U0/roots-cover`, `ConformalMappingPartII:R0/positive-radius-expansion`, `DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.2.2, p.655; §1.1.6, p.632. The field lemma uses a uniformization radius greater than one to obtain finite rank from the arithmetic holonomy bound. The target orders this before any finite-basis construction and treats the smallest level separately.
 
 **Construction and proof.**
 
-1. Apply Corollary 2.0.5 to the holonomy embedding and a pointed uniformization of radius >1.
-2. For N≥2 strictness follows because the λ-root disc map is not a covering; the Schwarz equality case rules out equality of radii. Use the exact quantitative supplier as an alternative.
+1. Fix N≥2 and the normalized covering F\_N of ℂ∖μ\_N (ConformalMappingPartII:U0/roots-cover). By ConformalMappingPartII:R0/positive-radius-expansion |F\_N′(0)|=γ\_N>16^{1/N}. Choose r<1 with rγ\_N16^{−1/N}>1 and set φ(z)=16^{−1/N}F\_N(rz).
+2. Apply DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound with p(u)=u^N and χ=x\_N: W(U\_N,χ,p) is finite-dimensional over ℚ(p)=ℚ(λ), and it contains R₂N by W3/holonomy-embedding.
+3. For N=1 use R₂⊆R₄. The λ-root disc map u=x\_N(t) has derivative one at 0 and is not a covering, so the Schwarz equality case (ConformalMappingPartII:U0/radius-schwarz) also gives the strict inequality without the explicit radius.
 
 **Acceptance checks.**
 
 - Finiteness is proved before selecting a finite basis of R₂N.
+- The strict inequality |F\_N′(0)|>16^{1/N} is needed; a disc map with derivative exactly one does not suffice.
 
 ### W3.6. The two spans are fields
 
@@ -719,506 +738,81 @@ There is a normal finite-index subgroup G₂N of SL₂(ℤ) with E≤G₂N≤⟨
 
 **Target:** `ModularFormsPartII:W3/quantitative-rank` (theorem).
 
-Suppose normalized coverings F_N:𝔻→ℂ∖μ_N satisfy, for all sufficiently large N, |F_N′(0)|≥16^{1/N}(1+A/N³) for some A>0, and for each fixed B>0 their circle means at r=1−B/N³ satisfy ∫log⁺|F_N(re^{iθ})|dθ/(2π)≤C_B(log N)/N. Then [R₂N:ℚ(λ)]≤C N³ log(2N) for all N≥1, after enlarging C for finitely many small levels.
+Let F\_N:𝔻→ℂ∖μ\_N be the normalized coverings of ConformalMappingPartII:U0/roots-cover. Suppose that for all sufficiently large N, |F\_N′(0)|≥16^{1/N}(1+A/N³) for some A>0, and that for each fixed B>0 their circle means at r=1−B/N³ satisfy ∫log⁺|F\_N(re^{iθ})|dθ/(2π)≤C\_B(log N)/N. Then [R₂N:ℚ(λ)]≤C N³ log(2N) for all N≥1, after enlarging C for finitely many small levels.
 
-**Direct dependencies:** `ModularFormsPartII:W3/holonomy-embedding`, `ModularFormsPartII:W3/finite-rank`, `ModularFormsPartII:W2/kummer-coordinate`.
+**Direct dependencies:** `ModularFormsPartII:W3/holonomy-embedding`, `ModularFormsPartII:W3/finite-rank`, `ModularFormsPartII:W2/kummer-coordinate`, `ConformalMappingPartII:U0/roots-cover`, `DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Proposition 3.0.1, pp.649–651; Corollary 2.0.5, p.636; §6.3, p.685. The proposition combines a covering derivative gain of order N to the minus third power with a logarithmic boundary mean estimate. The target isolates those two inputs and obtains the uniform cubic-logarithmic field bound.
 
 **Construction and proof.**
 
-1. Set φ(z)=16^{−1/N}F_N(rz) with r=1−A/(2N³), adjusting the fixed constant for sufficiently large N. Its log derivative at 0 is bounded below by c/N³.
-2. Use p(u)=u^N, p(u(t))=x(t^N) integral. The numerator e∫log⁺|φ^N| is O(log N), so Corollary 2.0.5 gives O(N³log N).
-3. Absorb all small N into C using finite rank; log(2N) avoids the meaningless zero bound at N=1.
+1. Set φ(z)=16^{−1/N}F\_N(rz) with r=1−A/(2N³). For N large, log|φ′(0)|≥log(1+A/N³)+log r≥cN⁻³ with c=A/3.
+2. Use p(u)=u^N, so p∘χ=x(t^N) is integral. DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound bounds dim\_{ℚ(p)}W(U\_N,χ,p) by e·∫log⁺|p∘φ|/log|φ′(0)|. Since log⁺|F^N/16|≤N log⁺|F|, the hypothesis with B=A/2 makes the numerator O(log N), so the bound is O(N³log N); R₂N⊆W by W3/holonomy-embedding.
+3. Absorb all small N into C using W3/finite-rank; log(2N) avoids the zero bound that log N would give at N=1.
 
 **Acceptance checks.**
 
 - All constants in the final bound are independent of N.
 - The mean estimate, not a supremum estimate exponential in N, is essential.
 
-**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: ALG, UNI.
+**Layer completion checks.** Every target above must be proved with the stated imported contracts. This layer has no open input gap.
 
-## W4. Congruence cohomology and invariant vectors
+## W4. The nonabelian Ihara lemma and the generation identity
 
-Define congruence classes and the all-level direct limit of H¹. Compute finite and p-adic SL₂ cohomology through Hochschild–Serre, Lazard, adjoint H¹ and certified small-level linear algebra; prove absence of invariant vectors, the congruence-difference criterion, and the final p-adic H² calculation.
+From the principal-level amalgam, the congruence subgroup property of SL₂(ℤ[1/p]) and the enhanced Ihara lemma of ModularCurvesPartII R14.4, prove nonabelian Ihara surjectivity, triple surjectivity on the unsigned domain with its corrected reduction kernel, and the generation identity used by leveraging.
 
-**Layer dependencies:** `ModularFormsPartII:W1`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `NoncommutativeAndEquivariantIwasawa:NE.0`, `ArithmeticGaloisDuality:D7`, `ArithmeticGaloisDuality:R02.2`, `ArithmeticGaloisRepresentations:G7`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`.
+**Layer dependencies:** `ModularFormsPartII:W1`, `ModularCurvesPartII:R14.4`.
 
-**Planets:** Congruence cohomology classes; All-level modular cohomology; Vanishing of all-level invariants; Congruence-difference criterion; Low-degree p-adic SL₂ cohomology.
+**Planets:** Nonabelian Ihara lemma; Triple Ihara surjectivity.
 
-### W4.1. Congruence cohomology classes
+### W4.1. Nonabelian Ihara surjectivity
 
-**Target:** `ModularFormsPartII:W4/congruence-class` (definition).
+**Target:** `ModularFormsPartII:W4/nonabelian-ihara` (theorem).
 
-For a finite-index Γ≤SL₂(ℤ) and a finite trivial coefficient module A, H¹_cong(Γ,A) is the union of the kernels of restriction H¹(Γ,A)→H¹(Γ∩Γ(m),A), m≥1. Equivalently these are continuous homomorphisms from the congruence completion Γ̂=lim Γ/(Γ∩Γ(m)). The completion is the closure of Γ inside SL₂(ℤ̂), not its full profinite completion.
+Let N≥3, let E≤G≤⟨E,Γ(N)⟩ with G normal of finite index in SL₂(ℤ) and L(G)=N, and let p∤N be prime. Put S=⟨E,Γ(N)⟩/G, A=diag(p,1), D±=⟨E,Γ(N)⟩∩Γ₀(p) and D=Γ(N)∩Γ₀(p). The map D±→S×S, g↦(gG,AgA⁻¹G), is surjective, and so is its restriction to D. For g∈D± the conjugate AgA⁻¹ lies in ⟨E,Γ(N)⟩ and has upper-right entry divisible by p; conjugation by A does not preserve Γ₀(p).
 
-**Direct dependencies:** `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`, `mathlib:CongruenceSubgroup.Gamma`.
+**Direct dependencies:** `ModularFormsPartII:W1/wohlfahrt`, `ModularFormsPartII:W1/wohlfahrt-level`, `ModularCurvesPartII:R14.4/modular-amalgam`, `ModularCurvesPartII:R14.4/congruence-subgroup-property`, `mathlib:Subgroup.goursat_surjective`, `mathlib:CongruenceSubgroup.Gamma0`.
 
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Definition 4.5.1, p.660. The definition distinguishes congruence characters by their vanishing on a deeper principal-level intersection. The target makes their relation to the congruence completion, rather than the full profinite completion, explicit.
-
-**Construction and proof.**
-
-1. Use the imported continuous H¹ and inverse-limit carriers; a finite-valued homomorphism factors through a congruence quotient exactly when its kernel contains a principal-level intersection.
-
-**Uses that determine the API.**
-
-- W4 invariant theorem: Remove exactly the congruence submodule.
-- W5 enhanced Ihara: The conclusion says classes become zero after congruence restriction.
-
-**API.**
-
-- `congruenceClass_iff_kernel` (characterisation): A class is congruence iff its kernel contains Γ∩Γ(m) for some m.
-- `congruenceClass_completion` (compatibility): Inflation identifies H¹_cont(Γ̂,A) with this submodule.
-- `congruenceClass_restrict` (functoriality): Restriction to finite-index subgroups preserves the predicate.
-- `congruenceClass_add` (structure): Congruence classes form an A-submodule when A is a finite field.
-
-**Unit tests.**
-
-- `cong_principal_reduction` (computation): Any homomorphism factoring through Γ/(Γ∩Γ(m)) is congruence.
-- `cong_zero` (degenerate): The zero class is congruence, already at m=1.
-- `cong_not_profinite` (non-example): Being continuous for the full profinite topology alone does not imply congruence.
-- `cong_restrict_zero` (compatibility): A congruence class has zero image in the all-level direct limit.
-
-**Acceptance checks.**
-
-- An arbitrary finite quotient need not be congruence.
-
-### W4.2. The all-level H¹ module
-
-**Target:** `ModularFormsPartII:W4/completed-h1` (definition).
-
-For A=𝔽ℓ or ℚ/ℤ, put H̃¹(A)=colim_m H¹(Γ(m),A), with restriction maps for divisibility of positive levels. Its smooth SL₂(ℤ̂)-action extends conjugation by SL₂(ℤ). For finite A the kernel of H¹(Γ(m),A)→H̃¹(A) is exactly H¹_cong. For ℚ/ℤ, take the filtered union of finite torsion coefficient groups. This is an all-level direct limit, not a fixed-prime completed cohomology object.
-
-**Direct dependencies:** `ModularFormsPartII:W4/congruence-class`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 4.5.2 and construction preceding (4.5.10), pp.660,663–664. The invariant argument passes through the direct limit of first cohomology over all principal levels. The target fixes the indexing, smooth action and kernel of the map from a level class.
+**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.4.1, pp.658–659. The nonabelian lemma uses Goursat, an arithmetic amalgam and the congruence subgroup property of SL₂(ℤ[1/p]) to rule out a common quotient. The target works on the unsigned domain, where the amalgam of ModularCurvesPartII applies, and corrects the codomain of conjugation by diag(p,1) (E17).
 
 **Construction and proof.**
 
-1. Normal congruence levels make the action on each finite set of classes factor through a finite quotient after sufficiently deep restriction.
-2. Use exactness of filtered colimits and the finite generation of each Γ(m) to identify the kernel and commute finite coefficient limits.
-
-**Uses that determine the API.**
-
-- W4 Theorem 4.5.2: The invariant space is the central vanishing target.
-- W4 Corollary 4.5.3: An almost invariant class maps to an invariant vector here.
-
-**API.**
-
-- `allLevelH1_ofLevel` (constructor): Every level class has a canonical direct-limit image.
-- `allLevelH1_kernel` (characterisation): The image is zero exactly for congruence classes.
-- `allLevelH1_action` (structure): The smooth action restricts to ordinary conjugation and is compatible with coefficient maps.
-- `allLevelH1_torsion_union` (compatibility): H̃¹(ℚ/ℤ) is the filtered coefficient union of finite torsion modules.
-
-**Unit tests.**
-
-- `limit_cong_killed` (computation): Every character obtained from reduction modulo an integer vanishes in H̃¹.
-- `limit_level_one_h1` (degenerate): H¹(SL₂(ℤ),𝔽ℓ) maps to zero, as its characters factor through level 12.
-- `limit_all_levels` (non-example): A limit using only m=ℓ^a is not substituted for the divisibility limit over all m.
-- `limit_action` (compatibility): The action on an image from level m agrees with conjugation after passing to a common normal level.
-
-**Acceptance checks.**
-
-- Do not confuse the limit with H¹ of the full profinite completion.
-
-### W4.3. Uniform principal p-adic kernels
-
-**Target:** `ModularFormsPartII:W4/uniform-kernels` (construction).
-
-For p prime let G_p(p^a)=ker(SL₂(ℤ_p)→SL₂(ℤ/p^a)). For odd p and a≥1, and for p=2 and a≥2, these are torsion-free uniform pro-p groups of dimension 3. The map g↦(g−I)/p^a mod p identifies G_p(p^a)/G_p(p^{a+1}) with sl₂(𝔽_p), equivariantly under conjugation by SL₂(ℤ_p).
-
-**Direct dependencies:** `NoncommutativeAndEquivariantIwasawa:NE.0/lazard-exterior-cohomology`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Proof of Lemma 4.5.6 and Lemma 4.5.9, pp.661–663. The local calculation uses Lazard theory on sufficiently deep principal p-adic kernels. The target checks the uniformity ranges, excluding the level-two kernel containing central two-torsion.
-
-**Construction and proof.**
-
-1. Check the determinant expansion, successive p-power maps and commutator valuation directly, retaining the stronger 2-adic bound.
-2. Invoke the generic Lazard theorem only after proving the special kernel satisfies its hypotheses.
-
-**Uses that determine the API.**
-
-- W4 local H²: Identify H¹ and exterior H² with the adjoint representation.
-- W4 restriction at 2: Restriction G₂(4)→G₂(8) kills H¹ and therefore H².
-
-**API.**
-
-- `principalPadicKernel_quotient` (characterisation): The successive quotient is the additive trace-zero matrix module.
-- `principalPadicKernel_uniform` (structure): The specified odd and 2-adic ranges are uniform of rank 3.
-- `principalPadicKernel_conjugation` (compatibility): The quotient identification respects the reduced adjoint action.
-- `principalPadicKernel_restriction` (relation): Restriction to the next p-power kernel is zero on H¹(−,𝔽_p).
-
-**Unit tests.**
-
-- `kernel_rank_three` (computation): H¹(G_p(p^a),𝔽_p) has dimension 3 in the stated range.
-- `kernel_two_torsion` (non-example): −I lies in G₂(2), contradicting torsion-freeness at a=1.
-- `kernel_restriction_two` (compatibility): H²(G₂(4),𝔽₂)→H²(G₂(8),𝔽₂) is zero by the exterior algebra and vanishing H¹ restriction.
-
-**Acceptance checks.**
-
-- G₂(2) contains −I and is excluded from the uniform claim.
-
-### W4.4. The Schur multiplier of SL₂ over a prime field
-
-**Target:** `ModularFormsPartII:W4/finite-schur` (theorem).
-
-For every prime p, H₂(SL₂(𝔽_p),ℤ)=0. This is finite-group integral homology, not integral cohomology.
-
-**Direct dependencies:** `ArithmeticGaloisDuality:D7/finite-group-uct-sylow`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.4, pp.660–661. The lemma proves vanishing of the integral Schur multiplier by Sylow detection and periodic groups. The target handles the prime-two cyclic Sylow case separately and distinguishes homology from cohomology.
-
-**Construction and proof.**
-
-1. Use Sylow restriction to detect primary Schur-multiplier classes. Odd Sylow subgroups are cyclic; for odd p the 2-Sylow subgroups are generalized quaternion.
-2. Apply the cyclic and generalized-quaternion integral homology calculation; treat SL₂(𝔽₂)≃S₃ directly, since its 2-Sylow is cyclic, not quaternion. The periodic-cohomology input is recorded in FIN.
-
-**Acceptance checks.**
-
-- Test p=2 and p=3 independently of the generic perfect-group range.
-
-### W4.5. Finite SL₂ low-degree cohomology
-
-**Target:** `ModularFormsPartII:W4/finite-low-cohom` (theorem).
-
-For primes p,ℓ and n=1,2, Hⁿ(SL₂(𝔽_p),𝔽ℓ)≃𝔽ℓ when p=ℓ∈{2,3}, and is zero otherwise.
-
-**Direct dependencies:** `ModularFormsPartII:W4/finite-schur`, `ArithmeticGaloisDuality:D7/finite-group-uct-sylow`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.5, p.661. The finite-group lemma deduces degree-one and degree-two mod-prime cohomology from abelianization and the Schur multiplier. Only the matching primes two and three survive.
-
-**Construction and proof.**
-
-1. Compute the abelianizations S₃^ab=C₂, SL₂(𝔽₃)^ab=C₃, and trivial abelianization for p≥5 by elementary transvections.
-2. Apply the finite-group UCT, duality and the zero integral Schur multiplier.
-
-**Acceptance checks.**
-
-- p=5 has zero H² here; the exceptional adjoint H¹ at 5 occurs in the p-adic calculation.
-
-### W4.6. The p-adic abelianization without a cohomology cycle
-
-**Target:** `ModularFormsPartII:W4/local-abelianization` (theorem).
-
-The continuous abelianization of SL₂(ℤ_p) is C₄ for p=2, C₃ for p=3 and zero for p≥5. At p=2 the quotient factors through level 4, and at p=3 through level 3.
-
-**Direct dependencies:** `ModularFormsPartII:W4/uniform-kernels`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.6 proof, p.662; Lemma 4.5.12, p.665. The local first-cohomology argument requires the p-adic abelianization, with a special order-four answer at two. The target supplies this directly before using local second cohomology, removing a possible cycle.
-
-**Construction and proof.**
-
-1. Compute elementary-transvection commutators and close the derived subgroup. For p≥5 a diagonal unit with u²−1 invertible kills each transvection.
-2. At 2 use the explicit abelianization of SL₂(ℤ/4); at 3 use SL₂(𝔽₃). Show deeper elementary kernels lie in the closed commutator subgroup. This direct calculation precedes every H² use.
-
-**Acceptance checks.**
-
-- The mod-2 abelianization is C₂; replacing the 2-adic answer C₄ by C₂ loses a character.
-
-### W4.7. Continuous H¹ of p-adic SL₂
-
-**Target:** `ModularFormsPartII:W4/local-h1` (theorem).
-
-For all primes p,ℓ, H¹_cont(SL₂(ℤ_p),𝔽ℓ) has dimension 1 when p=ℓ∈{2,3} and dimension 0 otherwise.
-
-**Direct dependencies:** `ModularFormsPartII:W4/local-abelianization`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.6, p.661–662. The first part of the local lemma computes continuous additive characters. The independently computed abelianization gives precisely the two exceptional one-dimensional cases.
-
-**Construction and proof.**
-
-1. Identify H¹ with continuous additive characters of the abelianization computed independently above.
-
-**Acceptance checks.**
-
-- At p=2 this does not appeal forward to Lemma 4.5.12.
-
-### W4.8. The preliminary local H² bound
-
-**Target:** `ModularFormsPartII:W4/local-h2-preliminary` (theorem).
-
-H²_cont(SL₂(ℤ_p),𝔽ℓ)=0 unless p=ℓ∈{2,3,5}. For odd p, the Hochschild–Serre filtration injects this H² into an extension of H²(SL₂(𝔽_p),𝔽_p) by H¹(SL₂(𝔽_p),sl₂(𝔽_p)), with no invariant exterior-square contribution. No dimension claim at 2 is made here.
-
-**Direct dependencies:** `ModularFormsPartII:W4/finite-low-cohom`, `ModularFormsPartII:W4/uniform-kernels`, `ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence`, `NoncommutativeAndEquivariantIwasawa:NE.0/lazard-exterior-cohomology`, `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.6 and (4.5.8), pp.661–662; source correction E1. The preliminary second-cohomology argument combines the finite quotient, Lazard exterior powers and adjoint first cohomology. It leaves the possible exceptional primes two, three and five for the invariant argument.
-
-**Construction and proof.**
-
-1. For ℓ≠p, the pro-p kernel has no positive cohomology with ℓ-primary coefficients, so use the finite quotient.
-2. For odd p identify the dual adjoint module by trace, H² of the kernel with its exterior square, and prove its invariant space zero. The imported adjoint H¹ is nonzero only at p=5.
-3. The p=2 case remains for the invariant argument.
-
-**Acceptance checks.**
-
-- The exceptional adjoint group at p=5 is over 𝔽₅, not 𝔽₃.
-
-### W4.9. Localization of product H²
-
-**Target:** `ModularFormsPartII:W4/product-h2` (theorem).
-
-Projection induces H²_cont(SL₂(ℤ̂),𝔽ℓ)≃H²_cont(SL₂(ℤℓ),𝔽ℓ). Also H²_cont(Γ̂(ℓ^a),𝔽ℓ)≃H²_cont(G_ℓ(ℓ^a),𝔽ℓ) for a≥1.
-
-**Direct dependencies:** `ModularFormsPartII:W4/local-h1`, `ModularFormsPartII:W4/local-h2-preliminary`, `ArithmeticGaloisDuality:D7/profinite-product-kunneth`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.9, pp.662–663. The comparison lemma isolates the coefficient prime in degree-two cohomology of the product of all p-adic factors. Degree-one cross terms vanish because only one local factor can contribute.
-
-**Construction and proof.**
-
-1. Use the product decomposition SL₂(ℤ̂)=∏_p SL₂(ℤ_p) and its principal-level variant.
-2. In degree two, cross terms use two nonzero H¹ factors, impossible since only the ℓ factor can contribute. Continuous cochains with finite coefficients reduce to finite products.
-
-**Acceptance checks.**
-
-- The ℓ=2 and ℓ=3 factors remain, rather than being discarded by perfectness.
-
-### W4.10. Deep principal restriction kills H²
-
-**Target:** `ModularFormsPartII:W4/restriction-h2` (theorem).
-
-For odd ℓ the restriction H²_cont(SL₂(ℤ̂),𝔽ℓ)→H²_cont(Γ̂(ℓ^a),𝔽ℓ) is zero for a≥1. For ℓ=2 it is zero for a≥3.
-
-**Direct dependencies:** `ModularFormsPartII:W4/product-h2`, `ModularFormsPartII:W4/uniform-kernels`, `ModularFormsPartII:W4/local-h2-preliminary`, `NoncommutativeAndEquivariantIwasawa:NE.0/lazard-exterior-cohomology`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.9, p.663. The restriction part of the comparison lemma kills degree two after passing to a principal kernel. At two the proof needs an extra restriction from level four to level eight.
-
-**Construction and proof.**
-
-1. For odd ℓ the restriction lands in invariant exterior-square cohomology, which is zero.
-2. At 2 first restrict to G₂(4); restriction onward to G₂(8) is zero on H¹ and hence on its exterior algebra.
-
-**Acceptance checks.**
-
-- The 2-adic threshold asserted here is 8, not 2.
-
-### W4.11. Integral modular-group comparison
-
-**Target:** `ModularFormsPartII:W4/sl2z-cohom` (theorem).
-
-For n>0, Hⁿ(SL₂(ℤ),ℤ) is ℤ/12 in positive even degree and zero in odd degree. The abelianization is C₁₂ and the map H¹_cont(SL₂(ℤ̂),𝔽ℓ)→H¹(SL₂(ℤ),𝔽ℓ) is an isomorphism for every ℓ.
-
-**Direct dependencies:** `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`, `ModularFormsPartII:W4/local-h1`, `ArithmeticGaloisDuality:D7/profinite-product-kunneth`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Equations (4.5.10) and (4.5.14), pp.664–665. The comparison diagram uses the modular group's abelianization and integral cohomology, obtained from its cyclic amalgam presentation. Congruence level twelve detects its additive finite characters.
-
-**Construction and proof.**
-
-1. Use the presentation C₄ *_{C₂} C₆ and the amalgam cohomology sequence, including the maps induced by the central inclusions.
-2. The abelianization C₁₂ is detected by congruence level 12, and product H¹ has the same primary characters. The exact generic amalgam cohomology input is part of FIN.
-
-**Acceptance checks.**
-
-- H¹(SL₂(ℤ),ℤ)=0 does not say its abelianization is zero.
-
-### W4.12. The all-level Hochschild–Serre diagram
-
-**Target:** `ModularFormsPartII:W4/hs-comparison` (theorem).
-
-There is a natural exact row 0→H¹(SL₂(ℤ̂),𝔽ℓ)→H¹(SL₂(ℤ),𝔽ℓ)→H̃¹(𝔽ℓ)^{SL₂(ℤ̂)}→H²(SL₂(ℤ̂),𝔽ℓ)→H²(SL₂(ℤ),𝔽ℓ). For N≥3 the corresponding row for Γ(N) ends with H²(Γ(N),𝔽ℓ)=0, and restriction gives the commutative comparison diagram.
-
-**Direct dependencies:** `ModularFormsPartII:W4/completed-h1`, `ArithmeticGaloisDuality:R02.2/hochschild-serre-spectral-sequence`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Equation (4.5.10), p.664. The diagram is the all-level Hochschild–Serre five-term comparison between the modular group and its congruence completion. At torsion-free principal levels the discrete degree-two term is zero.
-
-**Construction and proof.**
-
-1. Apply the finite-level Hochschild–Serre five-term sequences, then the filtered-colimit comparison giving the all-level module.
-2. Use the torsion-free finite-rank freeness of Γ(N), N≥3. Prove compatibility of both rows and transgression under restriction.
-
-**Acceptance checks.**
-
-- The free-group assertion is not applied to Γ(2), which contains −I.
-
-### W4.13. Certified small-level invariant calculations
-
-**Target:** `ModularFormsPartII:W4/small-level-invariants` (theorem).
-
-The SL₂(ℤ/N)-invariants in H¹(Γ(N),𝔽ℓ) have dimension 0 for (N,ℓ)=(3,3),(5,5), and dimension 1 for (N,ℓ)=(4,2),(8,2),(16,2). In the first two cases even the semisimplification has no invariant constituent. At N=4 the semisimplification invariant dimension is also 1. At N=4,8,16 the invariant line is congruence and factors through Γ(N)/Γ(2N).
-
-**Direct dependencies:** `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`, `ModularFormsPartII:W4/congruence-class`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.11 and final part of Theorem 4.5.2 proof, pp.664–665. The proof reduces the remaining primes to invariant calculations at levels three, five, four, eight and sixteen. The target replaces software output by verifiable Schreier, row-reduction and composition-factor certificates.
-
-**Construction and proof.**
-
-1. Produce a Schreier basis from the S,T coset action and exact matrices for conjugation on its abelianization. The respective free ranks are 3,11,5,33,257 when listed as levels 3,5,4,8,16.
-2. Certify invariant dimensions by row reduction of stacked S−I,T−I over the finite field; certify the semisimplified claims by explicit composition-factor filtrations at levels 3,5,4.
-3. For N=4,8,16 the character g↦a+b+c mod2, where (g−I)/N≡[[a,b],[c,a]], gives the nonzero congruence invariant. Its invariance follows from conjugation by S and T.
-
-**Acceptance checks.**
-
-- Supply finite certificates and their verification; a Magma dimension printout alone is not the planned proof.
-
-### W4.14. No invariant all-level classes
-
-**Target:** `ModularFormsPartII:W4/all-level-invariants` (theorem).
-
-For A=𝔽ℓ, every prime ℓ, and for A=ℚ/ℤ, H̃¹(A)^{SL₂(ℤ̂)}=0.
-
-**Direct dependencies:** `ModularFormsPartII:W4/hs-comparison`, `ModularFormsPartII:W4/sl2z-cohom`, `ModularFormsPartII:W4/restriction-h2`, `ModularFormsPartII:W4/small-level-invariants`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 4.5.2, p.660, proof pp.664–665. The theorem proves that the all-level direct limit has no invariant classes. The proof combines the comparison diagram, deep restriction and the small-level calculations before returning to final local cohomology.
-
-**Construction and proof.**
-
-1. For ℓ>5 the preliminary local H² vanishes, and H¹ comparison kills the invariant term. For ℓ=3,5 restrict to the corresponding principal level and use its zero invariants.
-2. For ℓ=2 restrict to level 8; the possible invariant is congruence and can be subtracted. Its image at level 16 is again the unique congruence line, hence zero in the direct limit.
-3. For ℚ/ℤ reduce any nonzero invariant torsion element to an invariant of prime order, using finite generation at its representing level.
-
-**Acceptance checks.**
-
-- No use of the final local H² calculation is permitted before this proof.
-
-### W4.15. The congruence-difference criterion
-
-**Target:** `ModularFormsPartII:W4/difference-criterion` (theorem).
-
-Let N≥1, let A=𝔽ℓ or ℚ/ℤ, and ψ∈H¹(Γ(N),A). If ψ^g−ψ is a congruence class for every g∈SL₂(ℤ), then ψ is congruence.
-
-**Direct dependencies:** `ModularFormsPartII:W4/all-level-invariants`, `ModularFormsPartII:W4/completed-h1`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Corollary 4.5.3, p.660. The corollary says that a character whose conjugation differences are all congruence is itself congruence. Its image in the all-level limit is invariant and hence zero.
-
-**Construction and proof.**
-
-1. Its image in the smooth all-level module is fixed by the dense SL₂(ℤ), hence by SL₂(ℤ̂). Use vanishing and the kernel characterization.
-
-**Acceptance checks.**
-
-- The conclusion is congruence after deeper restriction, not ψ=0 at its original level.
-
-### W4.16. The final p-adic H² computation
-
-**Target:** `ModularFormsPartII:W4/local-h2-final` (theorem).
-
-For all primes p,ℓ and n=1,2, Hⁿ_cont(SL₂(ℤ_p),𝔽ℓ) has dimension 1 if p=ℓ∈{2,3}, and 0 otherwise.
-
-**Direct dependencies:** `ModularFormsPartII:W4/all-level-invariants`, `ModularFormsPartII:W4/hs-comparison`, `ModularFormsPartII:W4/sl2z-cohom`, `ModularFormsPartII:W4/product-h2`, `ModularFormsPartII:W4/local-abelianization`, `ArithmeticGaloisDuality:D7/finite-group-uct-sylow`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.12 and (4.5.14), p.665. The final local lemma removes the preliminary prime-five exception using invariant vanishing. At primes two and three the independently computed abelianization supplies the matching lower bound.
-
-**Construction and proof.**
-
-1. All-level vanishing injects product H² into H²(SL₂(ℤ),𝔽ℓ), whose dimension is at most one exactly at ℓ=2,3.
-2. Local abelianization and UCT give the matching lower bound in these two cases. The p=5 exception in the preliminary bound disappears.
-
-**Acceptance checks.**
-
-- Check both p=2 and p=5; a proof assuming perfectness throughout misses the former.
-
-### W4.17. The integral homology conclusion with a coefficient contract
-
-**Target:** `ModularFormsPartII:W4/integral-local-h2` (theorem).
-
-In the continuous completed-bar homology theory with compact ℤ̂ coefficients, H₂(SL₂(ℤ_p),ℤ̂)=0 for every p. This is the precise compact-coefficient interpretation required for the integral homology clause of Lemma 4.5.12; no assertion about abstract discrete homology is made.
-
-**Direct dependencies:** `ModularFormsPartII:W4/local-h2-final`, `ModularFormsPartII:W4/local-abelianization`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.5.12 and (4.5.13), p.665. The lemma includes an integral homology conclusion whose continuous coefficient theory is not specified there. The target fixes compact completed coefficients and records the UCT and finite-generation bridge that must justify it.
-
-**Construction and proof.**
-
-1. Use the compact-coefficient UCT and finite-generation/completion contract COEFF. The H₂-to-mod-ℓ quotient is zero because all mod-ℓ degree-two classes are already accounted for by torsion in H₁.
-2. Apply topological Nakayama to each primary compact homology module, with the supplier ensuring finite generation and compatibility.
-
-**Acceptance checks.**
-
-- The symbol ℤ in the source must not silently switch between ordinary and compact continuous coefficients.
-
-**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: FIN, COEFF.
-
-## W5. Ihara generation and leveraging
-
-Prove the nonabelian Ihara and triple-surjectivity statements with the corrected reduction kernel, the generation identity and enhanced abelian lemma. Establish field-intersection and base-change degree identities, p-scaling separation, degree doubling, and the Chebyshev contradiction.
-
-**Layer dependencies:** `ModularFormsPartII:W1`, `ModularFormsPartII:W2`, `ModularFormsPartII:W3`, `ModularFormsPartII:W4`, `ModularCurvesPartII:R14.4`, `ModularCurvesPartII:R12.4`, `ModularCurvesPartII:R13.5`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`.
-
-**Planets:** Enhanced Ihara lemma; Nonabelian Ihara lemma; Triple Ihara surjectivity; Leveraging by p-scaling; Degree doubling.
-
-### W5.1. Abelian Ihara lemma at principal level
-
-**Target:** `ModularFormsPartII:W5/abelian-ihara` (theorem).
-
-For N≥3 and primes p,q with p∤N, set D=Γ(N)∩Γ₀(p), A=diag(p,1). The kernel of H¹(Γ(N),𝔽q)²→H¹(D,𝔽q), (ψ,φ)↦ψ|D−φ∘Ad_A, lies in H¹_cong(Γ(N),𝔽q)².
-
-**Direct dependencies:** `ModularFormsPartII:W4/congruence-class`, `ModularCurvesPartII:R14.4`, `mathlib:Subgroup.goursat_surjective`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.6.2, p.666. The ordinary Ihara lemma controls pairs of characters with equal restrictions under the two degeneracy maps. The target retains every coefficient prime and isolates the arithmetic amalgam/CSP input.
-
-**Construction and proof.**
-
-1. Dualize the two restriction maps to the maximal elementary q-abelian quotient. A failure of product surjectivity gives a common quotient by Goursat.
-2. The common quotient extends to the arithmetic amalgam SL₂(ℤ[1/p])(N). Its congruence subgroup property makes both characters congruence. The exact arithmetic amalgam/CSP input is recorded in CSP.
-
-**Acceptance checks.**
-
-- The source imposes no restriction q∤Np; keep torsion coefficient primes.
-
-### W5.2. Enhanced Ihara lemma
-
-**Target:** `ModularFormsPartII:W5/enhanced-ihara` (theorem).
-
-For N≥3, p∤N and any prime q, the kernel of the same difference map followed by restriction to Γ(N)∩Γ₁(p) is contained in H¹_cong(Γ(N),𝔽q)².
-
-**Direct dependencies:** `ModularFormsPartII:W5/abelian-ihara`, `ModularFormsPartII:W4/difference-criterion`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.6.3, p.666. The enhanced lemma replaces the intermediate group by its Gamma-one subgroup. Applying the congruence-difference criterion to the two characters upgrades the ordinary lemma.
-
-**Construction and proof.**
-
-1. Conjugation by the level-N quotient preserves the kernel of the second restriction. For a kernel pair, subtract each conjugate pair; it now lies in the ordinary Ihara kernel.
-2. Both differences are congruence by ordinary Ihara, so Corollary 4.5.3 applies separately to ψ and φ.
-
-**Acceptance checks.**
-
-- The target group is Γ₁(p), not Γ(p).
-
-### W5.3. Nonabelian Ihara surjectivity
-
-**Target:** `ModularFormsPartII:W5/nonabelian-ihara` (theorem).
-
-Let E≤G≤⟨E,Γ(N)⟩, with G normal of finite index in SL₂(ℤ), L(G)=N, and p∤N prime. Put S=⟨E,Γ(N)⟩/G and D±=⟨E,Γ(N)⟩∩Γ₀(p). The map D±→S×S, g↦(gG,AgA⁻¹G), is surjective. The second conjugate belongs to ⟨E,Γ(N)⟩; conjugation does not preserve Γ₀(p).
-
-**Direct dependencies:** `ModularFormsPartII:W1/wohlfahrt`, `ModularFormsPartII:W1/wohlfahrt-level`, `ModularCurvesPartII:R14.4`, `mathlib:Subgroup.goursat_surjective`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
-
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.4.1, pp.658–659. The nonabelian lemma uses Goursat and the arithmetic congruence subgroup property to rule out a common quotient. The target corrects the codomain of diagonal conjugation and retains central signs.
-
-**Construction and proof.**
-
-1. Goursat turns a proper subdirect product into a common nontrivial quotient. The two maps extend across the arithmetic amalgam, using the corrected conjugation codomain.
-2. The CSP supplier makes its restriction a congruence quotient. Its kernel contains G and E, hence has geometric level dividing N; Wohlfahrt forces the entire ⟨E,Γ(N)⟩ into this kernel, contradiction.
+1. Since E≤G, S≅Γ(N)/(G∩Γ(N)), so it suffices to treat the unsigned domain D=Γ(N)∩A⁻¹Γ(N)A. If the image were proper, Goursat (mathlib:Subgroup.goursat\_surjective) would give a nontrivial common quotient Δ of S and maps g₁:Γ(N)→Δ, g₂:A⁻¹Γ(N)A→Δ agreeing on D.
+2. By ModularCurvesPartII:R14.4/modular-amalgam (N≥3, p∤N), Γ\_N(ℤ[1/p]) is the amalgam of Γ(N) and A⁻¹Γ(N)A over D, so g₁ and g₂ extend to one homomorphism Γ\_N(ℤ[1/p])→Δ. By ModularCurvesPartII:R14.4/congruence-subgroup-property its kernel contains the principal congruence kernel of some level m prime to p, so K=ker(Γ(N)→Δ) is a congruence subgroup containing G∩Γ(N).
+3. ⟨E,K⟩ is congruence and contains E and G, so its signed level divides L(G)=N. W1/wohlfahrt gives Γ(N)≤⟨E,K⟩; since −I∉Γ(N) for N≥3, Γ(N)≤K, so Δ is trivial, a contradiction.
 
 **Acceptance checks.**
 
 - If S is trivial, the result is the unique map onto the one-point product.
+- For N≤2 the cited amalgam is not asserted; the leveraging argument uses only levels 2N≥4.
 
-### W5.4. Triple surjectivity with the correct kernel
+### W4.2. Triple surjectivity with the correct kernel
 
-**Target:** `ModularFormsPartII:W5/triple-surjectivity` (theorem).
+**Target:** `ModularFormsPartII:W4/triple-surjectivity` (theorem).
 
 Under the preceding hypotheses with N≥3, let D=Γ(N)∩Γ₀(p), and let B be the upper triangular subgroup of SL₂(𝔽p). The map D→S×S×B given by the two quotient maps and reduction modulo p is surjective. On this unsigned domain the reduction kernel is Γ(Np).
 
-**Direct dependencies:** `ModularFormsPartII:W5/nonabelian-ihara`, `ModularFormsPartII:W5/enhanced-ihara`, `ModularFormsPartII:W1/wohlfahrt`, `mathlib:Subgroup.goursat_surjective`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
+**Direct dependencies:** `ModularFormsPartII:W4/nonabelian-ihara`, `ModularCurvesPartII:R14.4/enhanced-ihara`, `ModularCurvesPartII:R14.4/congruence-classes`, `ModularFormsPartII:W1/wohlfahrt`, `mathlib:Subgroup.goursat_surjective`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Lemma 4.4.4, pp.659–660, corrected unsigned domain. The triple map adds the diagonal reduction character to the two noncongruence quotients. The target computes its reduction kernel on the unsigned principal-level domain before restoring the signs.
 
 **Construction and proof.**
 
-1. Because E⊆G, restricting from the signed to unsigned domain leaves the S×S image unchanged. The level-N unipotent lies in both quotient kernels and reduces onto the unipotent radical of B.
-2. Any common nontrivial quotient now comes from the torus B/U, hence has a prime-order character. Enhanced Ihara makes its two S-characters congruence; Wohlfahrt and the exact level of G kill them.
-3. Use CRT to identify the reduction kernel on Γ(N); adjoining E is done only after this computation.
+1. Because E⊆G, restricting from the signed to the unsigned domain leaves the S×S image unchanged (W4/nonabelian-ihara). The level-N unipotent [[1,N],[0,1]] lies in both quotient kernels and reduces onto the unipotent radical U of B.
+2. Any proper image then comes, by Goursat, from a common quotient of S×S and the torus B/U, hence from a prime-order character. Restricted to Γ(N)∩Γ₁(p) it gives a pair of characters of S in the kernel of the enhanced Ihara map, which are congruence classes by ModularCurvesPartII:R14.4/enhanced-ihara.
+3. A congruence class factoring through S has kernel containing G∩Γ(N) and some Γ(M); the signed closure of that kernel is congruence of level dividing N, so W1/wohlfahrt and N≥3 force the character to vanish. Reduction modulo p on Γ(N)∩Γ₀(p) has kernel Γ(Np) by CRT; E is adjoined only after this computation.
 
 **Acceptance checks.**
 
 - −I is not silently identified with I modulo Np.
 
-### W5.5. The group generation identity
+### W4.3. The group generation identity
 
-**Target:** `ModularFormsPartII:W5/generation` (theorem).
+**Target:** `ModularFormsPartII:W4/generation` (theorem).
 
 With N≥3 and the same G,p,A, the subgroup generated by E, G∩Γ(Np), and A⁻¹GA∩Γ₀(p) equals ⟨E,Γ(N)⟩∩Γ₀(p).
 
-**Direct dependencies:** `ModularFormsPartII:W5/triple-surjectivity`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
+**Direct dependencies:** `ModularFormsPartII:W4/triple-surjectivity`, `mathlib:CongruenceSubgroup.Gamma0`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Equation (4.4.9), p.660. The generation formula follows by comparing images and kernels in the triple-surjectivity map. Its two generating subgroups and its intersection with Gamma-zero are retained exactly.
 
@@ -1231,51 +825,63 @@ With N≥3 and the same G,p,A, the subgroup generated by E, G∩Γ(Np), and A⁻
 
 - This formulation remains correct when the signed reduction kernel is larger than Γ(Np).
 
-### W5.6. Geometric intersection and degree-preserving base change
+**Layer completion checks.** Every target above must be proved with the stated imported contracts. This layer has no open input gap.
+
+## W5. Leveraging and degree doubling
+
+Establish the field intersection and degree-preserving base change, p-scaling separation, degree doubling, the congruence degree formula and the Chebyshev contradiction.
+
+**Layer dependencies:** `ModularFormsPartII:W3`, `ModularFormsPartII:W1`, `ModularCurvesPartII:R13.4a`, `ModularCurvesPartII:R12.4`, `ModularCurvesPartII:R12.6`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`, `ModularFormsPartII:W4`, `ModularFormsPartII:W2`.
+
+**Planets:** Leveraging by p-scaling; Degree doubling.
+
+### W5.1. Geometric intersection and degree-preserving base change
 
 **Target:** `ModularFormsPartII:W5/field-base-change` (theorem).
 
-For p∤2N, R₂N∩M₂Np=M₂N and [R₂N M₂Np:M₂Np]=[R₂N:M₂N], with every field embedded by the stated q parameter. The second equality is a separate linear-disjointness assertion, not a formal consequence of intersection for arbitrary extensions.
+For p∤2N, R₂N∩M₂Np=M₂N and [R₂N M₂Np:M₂Np]=[R₂N:M₂N], with every field embedded by the stated q parameter. The second equality is a linear-disjointness assertion; it is not a formal consequence of the intersection for arbitrary extensions.
 
-**Direct dependencies:** `ModularFormsPartII:W3/field-structures`, `ModularFormsPartII:W3/normal-stabilizer`, `ModularFormsPartII:W1/wohlfahrt`, `ModularCurvesPartII:R12.4`, `ModularCurvesPartII:R13.5`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
+**Direct dependencies:** `ModularFormsPartII:W3/field-structures`, `ModularFormsPartII:W3/normal-stabilizer`, `ModularFormsPartII:W1/wohlfahrt`, `ModularCurvesPartII:R13.4a/twisted-coarse-curve`, `ModularCurvesPartII:R12.4/twisted-analytic-comparison`, `ModularCurvesPartII:R12.4/twisted-geometric-irreducibility`, `ModularCurvesPartII:R12.6`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Proof of Theorem 4.3.2, pp.656–657; model statement in Lemma 4.2.3, p.656. The degree proof uses a congruence intersection statement together with geometric base change over rational cusp models. The target separates these assertions because intersection alone does not imply linear disjointness.
 
 **Construction and proof.**
 
-1. Over ℂ, use finite Galois covers arising from principal subgroups and the normal stabilizer. Intersecting a congruence stabilizer with G preserves the level bound, so any congruence function in R₂N descends to level 2N by Wohlfahrt.
-2. Prove the geometric Galois linear-disjointness statement, then descend the degree through geometrically connected ℚ-models with the distinguished rational cusp and faithful q-expansion embedding. MODEL records the exact descent contract absent from the named supplier stages.
+1. Intersection: an f in R₂N∩M₂Np is invariant under G₂N (W3/normal-stabilizer) and under Γ(2Np), so its stabilizer is a congruence subgroup containing E of signed level dividing 2N, and W1/wohlfahrt gives invariance under Γ(2N). By the rational-cusp model (MODEL) the rational-coefficient functions on X(2N) are exactly M₂N.
+2. Complex scalars change no degree: ℚ((t)) and ℂ are linearly disjoint over ℚ inside ℂ((t)) (compare coefficients), so for finite extensions K⊆L of subfields of ℚ((t)), L⊗\_K ℂK is a field mapping isomorphically onto ℂL and [ℂL:ℂK]=[L:K].
+3. Over ℂ, MODEL identifies ℂM₂m with the function field of X(m). ℂM₂Np is Galois over ℂM₂N, with group a quotient of ⟨E,Γ(2N)⟩/⟨E,Γ(2Np)⟩, and ℂR₂N∩ℂM₂Np=ℂM₂N by the argument of the first step. A Galois extension is linearly disjoint from any extension meeting it only in the base, which gives the degree identity over ℂ and hence over ℚ.
 
 **Acceptance checks.**
 
-- A field-intersection equality without the geometric Galois/base-change argument is insufficient.
+- A field-intersection equality without the Galois linear-disjointness step is insufficient.
+- The descent from ℂ to ℚ is formal; the only modular input is the rational ∞-cusp model.
 
-### W5.7. p-scaling separates a noncongruence function
+### W5.2. p-scaling separates a noncongruence function
 
 **Target:** `ModularFormsPartII:W5/scaling-separation` (theorem).
 
 For N≥1 and p∤2N, if a weight-zero function f∈R₂N is not invariant under any congruence subgroup, then f(pτ) is not in the M₂Np-algebra generated by R₂N. Consequently f(pτ)∈R₂Np supplies a genuinely new field element.
 
-**Direct dependencies:** `ModularFormsPartII:W5/generation`, `ModularFormsPartII:W3/normal-stabilizer`, `ModularFormsPartII:W1/level-scaling`, `ModularFormsPartII:W5/field-base-change`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
+**Direct dependencies:** `ModularFormsPartII:W4/generation`, `ModularFormsPartII:W3/normal-stabilizer`, `ModularFormsPartII:W1/level-scaling`, `ModularFormsPartII:W5/field-base-change`, `mathlib:CongruenceSubgroup.Gamma0`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 4.3.1, p.656, proof (4.4.6)–(4.4.10), p.660. The leveraging theorem says that p-scaling a noncongruence modular function creates an element outside the old-level compositum. The corrected generation formula is the group-theoretic obstruction to such an expression.
 
 **Construction and proof.**
 
-1. Any polynomial or rational expression in the compositum is fixed by Γ(2Np)∩G₂N. The assumed expression for f(pτ) is also fixed by A⁻¹G₂NA.
-2. Apply the generation identity with the harmless passage to a multiple of 2N≥4; unwind conjugation to obtain congruence invariance of f, contradiction. If the starting level is 2, first enlarge to 4 and retain noncongruence.
+1. Any polynomial or rational expression in the compositum of R₂N and M₂Np is fixed by Γ(2Np)∩G₂N. The assumed expression for f(pτ) is also fixed by A⁻¹G₂NA∩SL₂(ℤ), whose level divides 2Np by W1/level-scaling.
+2. Apply W4/generation at the level 2N≥4; if the starting level is 2, first pass to 4, which keeps f noncongruence since R₂⊆R₄ and M₂p⊆M₄p. The two groups generate ⟨E,Γ(2N)⟩∩Γ₀(p); unwinding the conjugation shows that f is invariant under a congruence subgroup, a contradiction.
 
 **Acceptance checks.**
 
 - The initial f belongs to R₂N, correcting the inconsistent level in the printed degree proof.
 
-### W5.8. Degree doubling
+### W5.3. Degree doubling
 
 **Target:** `ModularFormsPartII:W5/degree-doubling` (theorem).
 
 If [R₂N:M₂N]>1 and p∤2N is prime, then [R₂Np:M₂Np]≥2[R₂N:M₂N].
 
-**Direct dependencies:** `ModularFormsPartII:W5/scaling-separation`, `ModularFormsPartII:W5/field-base-change`, `ModularFormsPartII:W3/field-structures`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
+**Direct dependencies:** `ModularFormsPartII:W5/scaling-separation`, `ModularFormsPartII:W5/field-base-change`, `ModularFormsPartII:W3/field-structures`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 4.3.2, pp.656–657. The degree theorem combines separation of the scaled function with degree-preserving base change. The counterexample is chosen at the old level, correcting an inconsistent field label in the proof.
 
@@ -1288,32 +894,33 @@ If [R₂N:M₂N]>1 and p∤2N is prime, then [R₂Np:M₂Np]≥2[R₂N:M₂N].
 
 - The chosen generator is at the old level; the new field is produced by scaling.
 
-### W5.9. The congruence degree comparison
+### W5.4. The congruence degree comparison
 
 **Target:** `ModularFormsPartII:W5/congruence-degree` (theorem).
 
-For N>1, [M₂N:ℚ(λ)]=(2N)³/12·∏_{p∣2N}(1−p⁻²)>4N³/π². For N=1 the degree is 1. The formula uses the projective index: −I∈Γ(2) and −I∉Γ(2N) for N>1.
+For N>1, [M₂N:ℚ(λ)]=(2N)³/12·∏\_{p∣2N}(1−p⁻²)>4N³/π². For N=1 the degree is 1. The formula uses the projective index: −I∈Γ(2) and −I∉Γ(2N) for N>1.
 
-**Direct dependencies:** `ModularFormsPartII:W2/lambda-covering`, `ModularFormsPartII:W3/congruence-field`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`, `ModularCurvesPartII:R12.4`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
+**Direct dependencies:** `ModularFormsPartII:W2/lambda-covering`, `ModularFormsPartII:W3/congruence-field`, `ModularCurvesPartII:R13.4a/twisted-coarse-curve`, `ModularCurvesPartII:R12.6`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-5-compact-surface-degree-theory-and-fuchsian-applications`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Equation (4.3.3), p.657. The index formula supplies the cubic lower bound for the congruence field. The target uses the projective index and separates N=1, where the displayed generic formula does not apply.
 
 **Construction and proof.**
 
-1. Count SL₂(ℤ/m) by prime-power reduction and CRT, then divide the Γ(2)-relative index by two.
-2. Bound the finite Euler product below by 1/ζ(2); use the classical ζ(2)=π²/6 value.
+1. By MODEL, ℂM₂N is the function field of X(2N); so [M₂N:ℚ(λ)] is the degree of X(2N)→X(2), which is the projective index [Γ(2):±Γ(2N)] (FuchsianOrbifolds Layer 5, W2/lambda-covering). Linear disjointness of ℚ((t)) and ℂ over ℚ transfers the degree to ℚ.
+2. Count SL₂(ℤ/m) by prime-power reduction and CRT, then divide the Γ(2)-relative index by two since −I∈Γ(2) and −I∉Γ(2N) for N>1.
+3. Bound the finite Euler product below by 1/ζ(2)=6/π².
 
 **Acceptance checks.**
 
 - N=2 yields degree 4; substituting N=1 into the generic formula would incorrectly yield 1/2.
 
-### W5.10. Leveraging contradicts logarithmic normalized degree
+### W5.5. Leveraging contradicts logarithmic normalized degree
 
 **Target:** `ModularFormsPartII:W5/leveraging-contradiction` (theorem).
 
 If [R₂N:ℚ(λ)]≤C N³ log(2N) for a constant C and all N≥1, then R₂N=M₂N for every N.
 
-**Direct dependencies:** `ModularFormsPartII:W5/degree-doubling`, `ModularFormsPartII:W5/congruence-degree`, `mathlib:Chebyshev.theta_ge`, `mathlib:Chebyshev.theta_le_log4_mul_x`, `mathlib:CongruenceSubgroup.Gamma0`, `mathlib:CongruenceSubgroup.Gamma1`.
+**Direct dependencies:** `ModularFormsPartII:W5/degree-doubling`, `ModularFormsPartII:W5/congruence-degree`, `mathlib:Chebyshev.theta_ge`, `mathlib:Chebyshev.theta_le_log4_mul_x`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Proposition 4.3.5 and (4.3.6)–(4.3.7), pp.657–658. The proposition iterates degree doubling along primes until it exceeds the cubic-logarithmic bound after normalization. The target uses the pinned Chebyshev estimates, which suffice in place of the stronger prime number theorem.
 
@@ -1327,13 +934,13 @@ If [R₂N:ℚ(λ)]≤C N³ log(2N) for a constant C and all N≥1, then R₂N=M�
 
 - Uniformity of C in N is essential.
 
-**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: CSP, MODEL.
+**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: MODEL.
 
 ## W6. The unbounded denominators theorem
 
-Assemble R₂N=M₂N, reduce arbitrary integral weight to weight zero, and deduce congruence from one integral Fourier expansion, its rational bounded-denominator form, and its algebraic-integer form with number-field descent. Verify the j cube root, h roots, and Fermat tests.
+Assemble R₂N=M₂N from the rank bound, the ConformalMappingPartII radius and mean-growth estimates and leveraging; reduce arbitrary integral weight to weight zero; deduce congruence from one integral Fourier expansion, its rational bounded-denominator form, and its algebraic-integer form with number-field descent. Verify the j cube root, h roots, and Fermat tests.
 
-**Layer dependencies:** `ModularFormsPartII:W2`, `ModularFormsPartII:W3`, `ModularFormsPartII:W5`, `QSeriesPartitionsAndMockModularForms:QM.1`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`, `AlgebraicModularFormsAndSerreWeights:R15.1`, `ModularCurvesPartII:R12.4`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order`, `AlgebraicModularFormsAndSerreWeights:R15.2`, `QSeriesPartitionsAndMockModularForms:QM.0`.
+**Layer dependencies:** `ModularFormsPartII:W3`, `ModularFormsPartII:W5`, `ConformalMappingPartII:R0`, `ConformalMappingPartII:M0`, `ModularFormsPartII:W2`, `ModularFormsPartII:W1`, `QSeriesPartitionsAndMockModularForms:QM.1`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`, `AlgebraicModularFormsAndSerreWeights:R15.1`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-6-the-level-one-modular-quotient-in-construction-order`, `AlgebraicModularFormsAndSerreWeights:R15.2`, `QSeriesPartitionsAndMockModularForms:QM.0`.
 
 **Planets:** Equality R₂N = M₂N; Unbounded denominators theorem; Algebraic-integer unbounded denominators; Root denominator tests.
 
@@ -1343,14 +950,15 @@ Assemble R₂N=M₂N, reduce arbitrary integral weight to weight zero, and deduc
 
 For every N≥1 the embedded fields R₂N and M₂N coincide.
 
-**Direct dependencies:** `ModularFormsPartII:W3/quantitative-rank`, `ModularFormsPartII:W5/leveraging-contradiction`.
+**Direct dependencies:** `ModularFormsPartII:W3/quantitative-rank`, `ModularFormsPartII:W5/leveraging-contradiction`, `ConformalMappingPartII:R0/positive-radius-expansion`, `ConformalMappingPartII:M0/uniform-mean-growth`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), §6.3, pp.685–686, assembling Proposition 3.0.1 with Theorems 5.1.4 and 6.0.1. The final proof combines the analytic rank bound with leveraging to identify the bounded-denominator and congruence fields at every level.
 
 **Construction and proof.**
 
-1. Import the exact derivative boost and integrated mean-growth estimates of UNI into W3. Choose the fixed radius loss proportional to N⁻³.
-2. Apply the uniform rank bound and leveraging contradiction.
+1. ConformalMappingPartII:R0/positive-radius-expansion gives |F\_N′(0)|=γ\_N≥16^{1/N}(1+ζ(3)/(2N³)) for every N≥2, which is the first hypothesis of W3/quantitative-rank with A=ζ(3)/2.
+2. ConformalMappingPartII:M0/uniform-mean-growth with p(x)=x^N and r=1−B/N³ bounds ∫log⁺|F\_N^N| by C log(N⁴/B). Dividing by N gives the second hypothesis, with C\_B depending only on B.
+3. W3/quantitative-rank then gives [R₂N:ℚ(λ)]≤CN³log(2N) for all N, and W5/leveraging-contradiction gives R₂N=M₂N.
 
 **Acceptance checks.**
 
@@ -1417,16 +1025,16 @@ A rational Fourier expansion of a weak modular form, with one common denominator
 
 **Target:** `ModularFormsPartII:W6/number-field-variant` (theorem).
 
-If a weak modular form of integer weight has an expansion at ∞ in O_K[[q^{1/N}]] for a number field K⊆ℂ, then it is a congruence weak form. The same conclusion holds for an expansion in the algebraic integers Q̄ with the common-number-field and conjugation bridge NF supplied. One scalar denominator over O_K and finitely many negative exponents are also allowed.
+If a weak modular form of integer weight has an expansion at ∞ in O\_K[[q^{1/N}]] for a number field K⊆ℂ, then it is a congruence weak form. The same conclusion holds for an expansion in the algebraic integers Q̄ with the common-number-field and conjugation bridge NF supplied. One scalar denominator over O\_K and finitely many negative exponents are also allowed.
 
-**Direct dependencies:** `ModularFormsPartII:W6/unbounded-denominators`, `ModularFormsPartII:W6/weight-reduction`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`, `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`, `ModularCurvesPartII:R12.4`.
+**Direct dependencies:** `ModularFormsPartII:W6/unbounded-denominators`, `ModularFormsPartII:W6/weight-reduction`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-9-algebraic-belyi-pairs-and-algebraization`, `AlgebraicModularFormsAndSerreWeights:R15.1/all-weight-analytic-comparison`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Remarks 6.3.1–6.3.2, pp.685–686. The remarks extend the conclusion to algebraic-integer coefficients using number-field conjugates. The target identifies the noncongruence germ-descent step that must precede that trace argument.
 
 **Construction and proof.**
 
 1. After reducing weight and making the algebraic modular-function model explicit, realize coefficientwise conjugates as weak modular functions on finite-index groups.
-2. For an integral basis α_i of O_K, take coefficientwise Tr(α_i f); these have integral rational expansions and are weak on intersections of finitely many conjugate groups. Apply the rational theorem and invert the nondegenerate trace matrix.
+2. For an integral basis α\_i of O\_K, take coefficientwise Tr(α\_i f); these have integral rational expansions and are weak on intersections of finitely many conjugate groups. Apply the rational theorem and invert the nondegenerate trace matrix.
 3. For Q̄ coefficients first prove the single-number-field assertion in NF; it is not a property of arbitrary algebraic-integer power series.
 
 **Acceptance checks.**
@@ -1456,20 +1064,22 @@ In the standard parameter Q=e^{2πiτ}, the branch j^(1/3)=E₄/η⁸=Q^(−1/3)
 
 **Target:** `ModularFormsPartII:W6/h-root-test` (theorem).
 
-Set h=λ(1−λ)/16=q∏_{n≥1}((1+q^{2n})/(1+q^n))^{24}. For n≥1, the branch h^(1/n) with leading q^(1/n) has bounded denominators if and only if n∣24, and is a congruence weak modular function if and only if n∣24.
+Set h=λ(1−λ)/16=q∏\_{n≥1}((1+q^{2n})/(1+q^n))^{24}=q∏\_{m odd}(1+q^m)^{−24}. It is a nowhere-vanishing weak modular function for the theta group ⟨Γ(2),S⟩, the conjugate of Γ₀(2) containing S. For n≥1, the branch h^{1/n} with leading term q^{1/n} has bounded denominators if and only if n∣24, and is a congruence weak modular function if and only if n∣24.
 
-**Direct dependencies:** `ModularFormsPartII:W2/lambda`, `ModularFormsPartII:W6/rational-contrapositive`, `AlgebraicModularFormsAndSerreWeights:R15.2/bounded-denominators-congruence-application`, `ModularFormsPartII:W1/bounded-denominators`.
+**Direct dependencies:** `ModularFormsPartII:W2/lambda`, `ModularFormsPartII:W1/weak-form`, `ModularFormsPartII:W1/bounded-denominators`, `ModularFormsPartII:W6/rational-contrapositive`, `AlgebraicModularFormsAndSerreWeights:R15.2/bounded-denominators-congruence-application`, `QSeriesPartitionsAndMockModularForms:QM.0/gauss-theta-four-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.0/theta-three-product-identity`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Equation (1.0.4) and its group-theoretic discussion, p.629. The example distinguishes the roots of lambda times one minus lambda by divisibility of their exponent into twenty-four. The special congruence abelianization or a direct denominator calculation remains an explicit proof input.
 
 **Construction and proof.**
 
-1. If n∣24 the product has integral unit coefficients. For the converse, compute a prime-adic obstruction to a bounded common denominator of the normalized root product, or compute the congruence abelianization of Γ₀(2).
-2. The special Γ₀(2) computation needed for that second proof is ROOT; it is not the abelianization of the full modular group. Apply both directions of the bounded-denominator criterion.
+1. Write h=q·u with u=∏\_{m odd}(1+q^m)^{−24}∈1+qℤ[[q]], using λ=(θ₂/θ₃)⁴, 1−λ=(θ₄/θ₃)⁴ and the theta product identities. If n∣24 every factor of u^{1/n} has integral exponent, so h^{1/n}=q^{1/n}u^{1/n} has integral coefficients.
+2. Conversely let u^{1/n} have bounded denominators, let ℓ be prime and let c be minimal with ℓ^c u^{1/n}∈ℤ\_(ℓ)[[q]]. If c≥1, the reduction of ℓ^c u^{1/n} modulo ℓ is nonzero while its n-th power ℓ^{cn}u reduces to 0, impossible in the domain 𝔽\_ℓ[[q]]. So u^{1/n} is integral, and its q-coefficient −24/n is an integer.
+3. S maps λ to 1−λ, so h is invariant under ⟨Γ(2),S⟩; it has no zeros on ℍ, so h^{1/n} is a weak modular function on the kernel of the induced character to ℤ/n. Bounded denominators give congruence by W6/rational-contrapositive, and congruence gives bounded denominators by the congruence bounded-denominator theorem.
 
 **Acceptance checks.**
 
-- n=24 is integral after its monomial shift, while n=5 is not bounded.
+- n=24 is integral after its monomial shift, while n=5 is not bounded: the coefficients of u^{1/5} have denominators 5, 25, 125, ….
+- With q=e^{πiτ}, T sends q to −q and h is not T-invariant; the invariance group is ⟨Γ(2),S⟩, not Γ₀(2) itself (E22).
 
 ### W6.8. The Fermat-cover test
 
@@ -1490,13 +1100,13 @@ The cover u^n+v^n=1 above λ=u^n, for n≥1, is congruence precisely for n∈{1,
 
 - n=8 passes and n=16 fails. Odd n>1 fails at an odd prime divisor.
 
-**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: MODEL, NF, ROOT.
+**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: NF.
 
 ## W7. Differential equations and vector-valued forms
 
-Apply strict overconvergence to integral three-point ODE solutions with finite monodromy at zero. Define vector-valued forms and continuation spaces of individual components, separate their analytic and arithmetic differential-module realizations, and apply exact G-function inputs to componentwise congruence and the corrected effective-span Mason corollary.
+Apply the corrected holonomic rank theorem to integral three-point ODE solutions with finite monodromy at zero. Define vector-valued forms and continuation spaces of individual components, build the minimal operator of a component by Wronskians, descend it to ℚ(x), and apply the G-function inputs to componentwise congruence and the corrected effective-span Mason corollary.
 
-**Layer dependencies:** `ModularFormsPartII:W2`, `ModularFormsPartII:W6`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`, `DiophantineApproximationAndTranscendence:DT.5`, `QSeriesPartitionsAndMockModularForms:QM.1`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`.
+**Layer dependencies:** `DiophantineApproximationAndTranscendencePartII:AA.4`, `ConformalMappingPartII:U0`, `ConformalMappingPartII:R0`, `ConformalMappingPartII:O0`, `ModularFormsPartII:W6`, `ModularFormsPartII:W2`, `ModularFormsPartII:W1`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`, `DiophantineApproximationAndTranscendence:DT.5`, `QSeriesPartitionsAndMockModularForms:QM.1`, `tauceti:TauCetiRoadmap/FuchsianOrbifolds#layer-2-hyperbolic-polygons-and-cofinite-groups`.
 
 **Planets:** Integral ODE algebraicity; Congruence for integral ODE solutions; Vector-valued modular forms; Integral vector-valued component theorem; Mason’s effective-span corollary.
 
@@ -1506,15 +1116,15 @@ Apply strict overconvergence to integral three-point ODE solutions with finite m
 
 Let f∈ℤ[[x]] solve a nonzero linear differential operator over ℚ̄(x), with no genuine singularities outside {0,1/16,∞}, and with finite local monodromy at 0 in the supplier’s meromorphic-after-finite-ramification sense. Apparent singularities are allowed only when every local solution is meromorphic. Then f is algebraic over ℚ(x). In the regular-singular case the stated finite-monodromy condition is the usual finite-order local monodromy condition.
 
-**Direct dependencies:** `ModularFormsPartII:W2/kummer-coordinate`, `ModularFormsPartII:W2/lambda-covering`.
+**Direct dependencies:** `DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring`, `DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-closure`, `DiophantineApproximationAndTranscendencePartII:AA.4/rank-bound`, `ConformalMappingPartII:U0/roots-cover`, `ConformalMappingPartII:R0/positive-radius-expansion`, `ConformalMappingPartII:O0/meromorphic-basis-monodromy`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 7.2.1 and footnote 4, pp.687–688; Definition 2.0.4 convention, p.635. The theorem applies the arithmetic rank bound to all powers of an integral solution after a ramified pullback at zero. The target retains the source's meromorphic local-monodromy convention and its restriction on apparent singularities.
 
 **Construction and proof.**
 
-1. Choose an exponent N≥2 killing the local monodromy at 0, taking a multiple when its order is one. The pullback g(u)=f(u^N) is integral and belongs to the imported holonomy ring on ℂ∖16^{−1/N}μ_N.
-2. Clear meromorphic apparent poles if necessary. The strict conformal radius boost of UNI and the ALG bound give finite dimension for all powers of g. Their algebraic dependence makes g, and hence f, algebraic.
-3. The meromorphic-after-ramification convention must be checked before applying the holonomy ring input; bare single-valuedness does not remove an irregular essential singularity.
+1. Let N be the order of the local monodromy at 0, replaced by 2N if N=1, so that N≥2. The pullback g(u)=f(u^N) is integral and is annihilated by the pulled-back operator. That operator has a full meromorphic local basis at u=0 and at every apparent singularity, in the sense of ConformalMappingPartII:O0/meromorphic-basis-monodromy; its genuine finite singularities lie in 16^{−1/N}μ\_N. So g∈H(U\_N,t,ℤ) (DiophantineApproximationAndTranscendencePartII:AA.4/holonomic-ring).
+2. Take φ(z)=16^{−1/N}F\_N(rz) with |φ′(0)|>1, using ConformalMappingPartII:R0/positive-radius-expansion. All powers g^k lie in the ring H (AA.4/holonomic-closure), so they span a subspace of W(U\_N,t,u) of finite dimension over ℚ(u) by AA.4/rank-bound.
+3. Hence g is algebraic over ℚ(u), and f(x)=g(x^{1/N}) is algebraic over ℚ(x). The meromorphic-basis convention matters: bare single-valuedness does not exclude an essential singularity.
 
 **Acceptance checks.**
 
@@ -1543,7 +1153,7 @@ Under W7/ode-algebraicity, the distinguished continuation f(λ(τ)/16) is invari
 
 **Target:** `ModularFormsPartII:W7/vector-valued-form` (definition).
 
-For n≥0, k∈ℤ, a vector-valued form consists of ρ:PSL₂(ℤ)→GL_n(ℂ) and a holomorphic F:ℍ→ℂⁿ with F|ₖγ=ρ(γ)F after pullback to SL₂(ℤ), semisimple ρ(T), and the following growth: for every real a<b and C>0 there are A,B>0 such that each |F_j(τ)|≤A exp(B Im τ) when a≤Re τ≤b and Im τ≥C. Since ρ(−I)=1, nonzero such forms have even weight. The SL₂ version with central character is a separate imported parity convention.
+For n≥0, k∈ℤ, a vector-valued form consists of ρ:PSL₂(ℤ)→GL\_n(ℂ) and a holomorphic F:ℍ→ℂⁿ with F|ₖγ=ρ(γ)F after pullback to SL₂(ℤ), semisimple ρ(T), and the following growth: for every real a<b and C>0 there are A,B>0 such that each |F\_j(τ)|≤A exp(B Im τ) when a≤Re τ≤b and Im τ≥C. Since ρ(−I)=1, nonzero such forms have even weight. The SL₂ version with central character is a separate imported parity convention.
 
 **Direct dependencies:** `ModularFormsPartII:W1/weak-form`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `tauceti:TauCeti.char_neg_one_of_modFormCharSpace_ne_bot`.
 
@@ -1582,7 +1192,7 @@ For n≥0, k∈ℤ, a vector-valued form consists of ρ:PSL₂(ℤ)→GL_n(ℂ) 
 
 **Target:** `ModularFormsPartII:W7/generalized-expansion` (theorem).
 
-In a basis diagonalizing ρ(T), each component has a convergent expansion Q^μ Σ_{m≥m₀}a_m Q^m, Q=e^{2πiτ}, where exp(2πiμ) is its T-eigenvalue and μ may be complex. Conversely such expansions with finite lower support give the required moderate exponential strip growth. There are no logarithms; rational exponents or finite-order T are not asserted.
+In a basis diagonalizing ρ(T), each component has a convergent expansion Q^μ Σ\_{m≥m₀}a\_m Q^m, Q=e^{2πiτ}, where exp(2πiμ) is its T-eigenvalue and μ may be complex. Conversely such expansions with finite lower support give the required moderate exponential strip growth. There are no logarithms; rational exponents or finite-order T are not asserted.
 
 **Direct dependencies:** `ModularFormsPartII:W7/vector-valued-form`, `mathlib:UpperHalfPlane.cuspFunction`.
 
@@ -1620,7 +1230,7 @@ For E≤Γ of finite index and even k, a weak scalar form on Γ yields a vector-
 
 **Target:** `ModularFormsPartII:W7/complex-local-system` (construction).
 
-For a weight-zero vector-valued form, let L_ρ be the rank-n complex local system on Y(2)=ℙ¹∖{0,1/16,∞} associated to ρ restricted to Γ(2)/E. Build it by descent of the trivial bundle on ℍ with its flat connection. It has this specified rank independently of linear relations between component functions. This does not define an integral free module or an arithmetic connection.
+For a weight-zero vector-valued form, let L\_ρ be the rank-n complex local system on Y(2)=ℙ¹∖{0,1/16,∞} associated to ρ restricted to Γ(2)/E. Build it by descent of the trivial bundle on ℍ with its flat connection. It has this specified rank independently of linear relations between component functions. This does not define an integral free module or an arithmetic connection.
 
 **Direct dependencies:** `ModularFormsPartII:W7/vector-valued-form`, `ModularFormsPartII:W2/lambda-covering`, `tauceti:TauCetiRoadmap/UniversalCovers#stage-2-lifting-criterion-and-galois-correspondence`.
 
@@ -1657,7 +1267,7 @@ For a weight-zero vector-valued form, let L_ρ be the rank-n complex local syste
 
 **Target:** `ModularFormsPartII:W7/component-continuation` (definition).
 
-For a fixed weight-zero component f=F_j, let W_j be the complex vector space of its analytic continuation germs at a fixed ordinary point of Y(2). The slash transformation expresses each branch as a constant linear combination of the n component functions, so dim W_j≤n. Use the resulting monodromy subquotient of L_ρ, retaining the actual scalar germ and all its linear relations. Do not assert irreducibility.
+For a fixed weight-zero component f=F\_j, let W\_j be the complex vector space of its analytic continuation germs at a fixed ordinary point of Y(2). The slash transformation expresses each branch as a constant linear combination of the n component functions, so dim W\_j≤n. Use the resulting monodromy subquotient of L\_ρ, retaining the actual scalar germ and all its linear relations. Do not assert irreducibility.
 
 **Direct dependencies:** `ModularFormsPartII:W7/complex-local-system`.
 
@@ -1670,12 +1280,12 @@ For a fixed weight-zero component f=F_j, let W_j be the complex vector space of 
 
 **Uses that determine the API.**
 
-- W7 arithmetic equation: Only W_j needs arithmetic descent.
+- W7 arithmetic equation: Only W\_j needs arithmetic descent.
 - W7 component theorem: No invisible summand is used in the G-function argument.
 
 **API.**
 
-- `componentContinuation_rank_le` (relation): dim W_j≤n.
+- `componentContinuation_rank_le` (relation): dim W\_j≤n.
 - `componentContinuation_germ` (constructor): The selected f is a specified element of the continuation fibre.
 - `componentContinuation_monodromy` (structure): Continuation acts linearly and realizes the selected scalar branches.
 - `componentContinuation_quotient` (compatibility): Linear relations among the components are quotiented before taking the rank.
@@ -1691,44 +1301,47 @@ For a fixed weight-zero component f=F_j, let W_j be the complex vector space of 
 
 - A cyclic differential module can be reducible.
 
-### W7.8. Regular-singular realization preserving the component germ
+### W7.8. The minimal operator of a component germ
 
 **Target:** `ModularFormsPartII:W7/regular-singular-component` (theorem).
 
-The complex continuation system W_j admits a regular-singular algebraic differential-module realization over ℂ(x), with no genuine singularities outside {0,1/16,∞}, and with the specified scalar germ f as a cyclic matrix coefficient. Its local monodromies are semisimple, inherited as subquotients of the cusp monodromies of L_ρ. Scalar cyclic equations may introduce only meromorphic apparent singularities.
+With x=λ/16, the continuation space W\_j of a weight-zero component f=F\_j is the full solution space, at an ordinary point, of a unique monic operator L\_j∈ℂ(x)[∂] of order dim W\_j. L\_j is the minimal operator of the germ f. It is regular singular, has no genuine singularities outside {0,1/16,∞}, and has apparent singularities only at points of ℍ where all its local solutions are holomorphic. Its local monodromies are those of W\_j, hence semisimple.
 
-**Direct dependencies:** `ModularFormsPartII:W7/component-continuation`, `ModularFormsPartII:W7/generalized-expansion`.
+**Direct dependencies:** `ModularFormsPartII:W7/component-continuation`, `ModularFormsPartII:W7/generalized-expansion`, `ModularFormsPartII:W2/lambda-covering`, `ConformalMappingPartII:O0/path-continuation`.
 
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 7.3.3 proof, pp.690–691, regular-singular bridge required before arithmetic descent. The component proof needs an algebraic regular-singular realization preserving the selected scalar germ. The target separates this analytic bridge from arithmetic descent and allows meromorphic apparent poles in a cyclic equation.
+**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 7.3.3 proof, pp.690–691. The component proof needs a differential equation for the selected scalar germ with regular singularities and the local monodromy of the component. The target constructs it from the continuation space by Wronskians instead of the rank-6n bundle of the printed proof (E13).
 
 **Construction and proof.**
 
-1. Apply the exact analytic-to-algebraic regular-singular realization contract of UNI to the component system, using strip growth at all cusps after conjugation.
-2. Preserve the scalar matrix coefficient through the realization; distinguish its minimal scalar operator from an arbitrarily enlarged ambient operator.
+1. Choose a basis w₁,…,w\_m of W\_j and set L\_j(y)=Wr(y,w₁,…,w\_m)/Wr(w₁,…,w\_m), with Wronskians in x. Continuation multiplies both Wronskians by the same determinant, so the coefficients of L\_j are single-valued on Y(2). They are meromorphic on ℍ because x is a local coordinate there (W2/lambda-covering).
+2. Each w\_i is a constant combination of the components of F, which have moderate growth at the cusps (W7/generalized-expansion). So the coefficients have moderate growth at the three cusps, extend meromorphically to X(2)≅ℙ¹ and lie in ℂ(x). Moderate growth of all solutions gives regular singularities by Fuchs' criterion.
+3. Every operator annihilating f annihilates all its continuations, so L\_j right-divides it; L\_j is the minimal operator of f. Zeros of the Wronskian on ℍ are apparent singularities with holomorphic local solutions. Local monodromy on W\_j is the action of the semisimple cusp monodromy on an invariant subquotient (W7/component-continuation).
 
 **Acceptance checks.**
 
-- A Riemann–Hilbert existence theorem without the actual scalar germ is insufficient.
+- An abstract Riemann–Hilbert existence statement without the actual scalar germ is insufficient.
+- For f=1 the operator is ∂, of order one.
 
 ### W7.9. Arithmetic descent and finite component monodromy
 
 **Target:** `ModularFormsPartII:W7/arithmetic-component` (theorem).
 
-If the selected weight-zero component has an integral x-series, then its minimal scalar annihilator descends to ℚ̄(x), realizes its actual continuation space, is a G-operator in the sense needed by DT.5, and has quasi-unipotent local monodromy. Together with the preceding semisimplicity this makes every local monodromy of W_j finite order.
+If the selected weight-zero component has an integral x-series f∈ℤ[[x]], then its minimal operator L\_j has coefficients in ℚ(x), f is a G-function, the companion system of L\_j satisfies Galochkin's condition, L\_j is globally nilpotent and its local monodromies are quasi-unipotent. Together with semisimplicity, every local monodromy of W\_j has finite order.
 
-**Direct dependencies:** `ModularFormsPartII:W7/regular-singular-component`, `DiophantineApproximationAndTranscendence:DT.5/g-function`, `DiophantineApproximationAndTranscendence:DT.5/chudnovsky-galochkin-condition`, `DiophantineApproximationAndTranscendence:DT.5`, `ModularFormsPartII:W2/inverse-integrality`.
+**Direct dependencies:** `ModularFormsPartII:W7/regular-singular-component`, `ModularFormsPartII:W2/inverse-integrality`, `DiophantineApproximationAndTranscendence:DT.5/g-function`, `DiophantineApproximationAndTranscendence:DT.5/chudnovsky-galochkin-condition`, `DiophantineApproximationAndTranscendence:DT.5`.
 
-**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 7.3.3 proof, pp.690–691; extraction E13 arithmetic bridge. The argument uses G-function differential arithmetic to obtain finite-order cusp monodromy. The target spells out descent of the minimal scalar annihilator and its compatibility with the actual continuation system before invoking quasi-unipotence.
+**Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 7.3.3 proof, pp.690–691. The proof applies the Chudnovsky, Bombieri–André and Katz theorems to obtain quasi-unipotent and hence finite local monodromy. The target applies them to the minimal operator of the selected integral series, after proving that operator is defined over ℚ(x).
 
 **Construction and proof.**
 
-1. Obtain positive convergence radius from the holomorphic cusp germ; integral coefficients give the arithmetic growth and denominator bounds for a G-function.
-2. Prove descent and compatibility of the minimal scalar operator with W_j before using Galochkin/Bombieri–André/Katz. These are the exact missing contracts ARITH and GLOCAL.
-3. Apply the local quasi-unipotence theorem to the minimal arithmetic module, then use its semisimple monodromies.
+1. For σ∈Aut(ℂ/ℚ), applying σ to the coefficients of L\_j gives a monic operator of the same order that still annihilates the formal series f, whose coefficients are rational. By minimality it equals L\_j, so the coefficients of L\_j are fixed by Aut(ℂ/ℚ) and lie in ℚ(x).
+2. f converges near 0, since its q-expansion converges on the unit disc and x is a local coordinate at the cusp, and its coefficients are integers; with the equation of the previous step it is a G-function (DiophantineApproximationAndTranscendence:DT.5/g-function), and so are its derivatives. By minimality f,f′,…,f^{(m−1)} are linearly independent over ℚ̄(x) and solve the companion system, which therefore satisfies Galochkin's condition (DT.5/chudnovsky-galochkin-condition).
+3. Galochkin's condition implies global nilpotence (Bombieri–André), and a globally nilpotent operator has quasi-unipotent local monodromy at every point (Katz). These two theorems are the request GLOCAL. Quasi-unipotent and semisimple local monodromy has finite order.
 
 **Acceptance checks.**
 
-- A theorem for a Q̄(x)-linearly independent vector of G-functions cannot be applied to an unspecified complex ambient system containing one integral component.
+- A theorem for a ℚ̄(x)-linearly independent vector of G-functions is applied to the companion system of the minimal operator of f, not to an unspecified ambient system.
+- The descent to ℚ(x) uses only that f has rational coefficients; no arithmetic model of the representation is needed.
 
 ### W7.10. Arithmetic normalization of a vector-valued component
 
@@ -1753,7 +1366,7 @@ For a nonzero even-weight vector-valued form of weight k, choose an integral sca
 
 **Target:** `ModularFormsPartII:W7/component-congruence` (theorem).
 
-Let (F,ρ) be as defined above and let F_j have an actual expansion in ℤ[[q]], q=e^{πiτ}. Then F_j is a classical weight-k weak form on some Γ(M). No assertion is made about an unused summand of ρ.
+Let (F,ρ) be as defined above and let F\_j have an actual expansion in ℤ[[q]], q=e^{πiτ}. Then F\_j is a classical weight-k weak form on some Γ(M). No assertion is made about an unused summand of ρ.
 
 **Direct dependencies:** `ModularFormsPartII:W7/vv-weight-normalization`, `ModularFormsPartII:W7/arithmetic-component`, `ModularFormsPartII:W7/ode-congruence`, `ModularFormsPartII:W7/vector-valued-form`.
 
@@ -1772,7 +1385,7 @@ Let (F,ρ) be as defined above and let F_j have an actual expansion in ℤ[[q]],
 
 **Target:** `ModularFormsPartII:W7/effective-mason` (theorem).
 
-Suppose each component of F becomes an integral Fourier series after multiplication by a nonzero scalar and enlargement of its strict period. Put V_F=span_ℂ{F(τ):τ∈ℍ}. Then V_F is ρ-stable and Γ(M) acts identically on V_F for some M. If V_F=ℂⁿ, ker ρ contains Γ(M) and ρ has finite image. Without spanning, the conclusion applies only to ρ|V_F.
+Suppose each component of F becomes an integral Fourier series after multiplication by a nonzero scalar and enlargement of its strict period. Put V\_F=span\_ℂ{F(τ):τ∈ℍ}. Then V\_F is ρ-stable and Γ(M) acts identically on V\_F for some M. If V\_F=ℂⁿ, ker ρ contains Γ(M) and ρ has finite image. Without spanning, the conclusion applies only to ρ|V\_F.
 
 **Direct dependencies:** `ModularFormsPartII:W7/component-congruence`, `ModularFormsPartII:W7/vector-valued-form`.
 
@@ -1780,8 +1393,9 @@ Suppose each component of F becomes an integral Fourier series after multiplicat
 
 **Construction and proof.**
 
-1. Apply the component theorem after each scalar clearing and intersect the finitely many congruence groups. The vector slash law then fixes every value F(τ), hence its span.
-2. Finite index gives finite image only for the representation restricted to that span.
+1. If a component F\_j has, after a scalar, an integral expansion in Q^{1/M}, replace τ by Mτ: τ↦F(Mτ) is a vector-valued form for the finite-index group SL₂(ℤ)∩diag(M,1)⁻¹SL₂(ℤ)diag(M,1), and inducing it to SL₂(ℤ) keeps T semisimple and the strip growth. Its component F\_j(Mτ) has an integral expansion in Q, so the component theorem applies, and congruence of F\_j(Mτ) gives congruence of F\_j.
+2. Intersect the finitely many congruence groups. The vector slash law then fixes every value F(τ), hence its span.
+3. Finite index gives finite image only for the representation restricted to that span.
 
 **Acceptance checks.**
 
@@ -1810,7 +1424,7 @@ Set σ(S)=diag(1,−1), σ(R)=[[2,1],[−7,−3]] for the presentation PSL₂(�
 
 **Target:** `ModularFormsPartII:W7/stiller-zagier` (theorem).
 
-For a nonzero congruence form h of positive integer weight k, its germ expressed in x=λ/16 satisfies, on a finite étale cover of Y(2), a linear scalar equation of order at most k+1 associated with Sym^k of the standard rank-2 modular local system. The cyclic system has infinite monodromy; the full symmetric-power system has nontrivial unipotent local monodromy at cusps. If h has an actual expansion in ℤ[[q]], integral inverse λ reparametrization gives an integral x-series. For a fractional q-expansion retain the corresponding Puiseux germ; integrality after a fractional change is not asserted without checking its unit root. The precise order-equality and scalar apparent-singularity statement require SZ.
+Let h be a nonzero congruence form of positive integer weight k, modular on Γ′, and express it as a germ in x=λ/16 on the finite étale cover Y(Γ′∩Γ(2))→Y(2). Its continuation space is spanned by τ^i h for 0≤i≤k, so its minimal operator has order exactly k+1. The monodromy on this space is Sym^k of the standard representation, has infinite image, and is unipotent and nontrivial at every cusp. Apparent singularities on ℍ occur exactly at the zeros of h. If h has an actual expansion in ℤ[[q]], integral inverse λ reparametrization gives an integral x-series; for a fractional q-expansion the corresponding Puiseux germ is retained, and integrality after a fractional change is not asserted without checking its unit root.
 
 **Direct dependencies:** `ModularFormsPartII:W2/inverse-integrality`, `ModularFormsPartII:W2/lambda-covering`, `ModularFormsPartII:W7/component-continuation`.
 
@@ -1818,20 +1432,22 @@ For a nonzero congruence form h of positive integer weight k, its germ expressed
 
 **Construction and proof.**
 
-1. Use the k+1 translates coming from the degree-k automorphy factor, and descend derivatives in the modular coordinate to the finite cover.
-2. Identify the symmetric-power monodromy and its cusp unipotent. Irreducibility on a Zariski-dense congruence subgroup gives infinite monodromy for the nonzero cyclic system.
+1. Continuing h along a loop that represents γ=[[a,b],[c,d]]∈Γ′ replaces it by (cτ+d)^k h. Since Γ′ is Zariski dense in SL₂, these span all of {P(τ)h : deg P≤k}, of dimension k+1; this is the continuation space, so the minimal operator has order k+1.
+2. The Wronskian of h,τh,…,τ^k h in x is a nonzero constant times h^{k+1}(dτ/dx)^{k(k+1)/2}, and dτ/dx has no zeros or poles on ℍ. So the singular points of the operator on ℍ are the zeros of h, where all local solutions are holomorphic.
+3. The monodromy acts on polynomials of degree at most k in τ through Sym^k of the standard representation of Γ′; parabolic elements act unipotently and nontrivially for k≥1, and the image is infinite.
 
 **Acceptance checks.**
 
-- This provides the positive-weight boundary example; it is not an application of the finite-monodromy ODE theorem.
+- This is the positive-weight boundary example: its local monodromy at 0 is infinite, so the finite-monodromy ODE theorem does not apply.
+- For Δ (k=12) the operator has order 13 on Y(2), with apparent singularities only where Δ vanishes, which is nowhere on ℍ.
 
-**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: ALG, UNI, NF, ARITH, GLOCAL, SZ.
+**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: GLOCAL.
 
 ## W8. Quasimodular and arithmetic growth applications
 
 Define weakly holomorphic quasimodular forms using E₂ and Δ localization and prove derivative minimality with the q normalization fixed. Verify the elliptic-integral and Catalan identities. Define deficient places and state their congruence and effective arithmetic-component consequences with the necessary detection hypotheses.
 
-**Layer dependencies:** `ModularFormsPartII:W2`, `ModularFormsPartII:W6`, `ModularFormsPartII:W7`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `QSeriesPartitionsAndMockModularForms:QM.1`, `QSeriesPartitionsAndMockModularForms:QM.0`, `AlgebraicModularFormsAndSerreWeights:R15.2`, `AutomorphicGaloisRepresentations:R19.3`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`.
+**Layer dependencies:** `ModularFormsPartII:W1`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`, `ModularFormsPartII:W2`, `QSeriesPartitionsAndMockModularForms:QM.1`, `QSeriesPartitionsAndMockModularForms:QM.0`, `ModularFormsPartII:W7`, `AlgebraicModularFormsAndSerreWeights:R15.2`, `AutomorphicGaloisRepresentations:R19.3`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`, `ModularFormsPartII:W6`.
 
 **Planets:** Weakly holomorphic quasimodular forms; Differential closure of weak forms; Elliptic-integral quasimodular identity; Deficient places; No deficient places for congruence kernels.
 
@@ -1877,7 +1493,7 @@ For a finite-index Γ≤SL₂(ℤ), use its integral-weight modular-form ring M(
 
 **Target:** `ModularFormsPartII:W8/derivative-minimality` (theorem).
 
-With θ_q=(1/πi)d/dτ and q=e^{πiτ}, M̃!(Γ) is the smallest ℂ-subalgebra of holomorphic functions on ℍ containing M!(Γ) and closed under θ_q. In this normalization θ_qΔ=2E₂Δ, so E₂=(θ_qΔ)/(2Δ). For D=(1/2πi)d/dτ, DΔ=E₂Δ.
+With θ\_q=(1/πi)d/dτ and q=e^{πiτ}, M̃!(Γ) is the smallest ℂ-subalgebra of holomorphic functions on ℍ containing M!(Γ) and closed under θ\_q. In this normalization θ\_qΔ=2E₂Δ, so E₂=(θ\_qΔ)/(2Δ). For D=(1/2πi)d/dτ, DΔ=E₂Δ.
 
 **Direct dependencies:** `ModularFormsPartII:W8/weak-quasimodular`, `ModularFormsPartII:W1/clear-cusp-poles`, `mathlib:ModularForm.logDeriv_eta_eq_E2`, `mathlib:ModularForm.discriminant_ne_zero`, `mathlib:Derivative.serreDerivativeMF`, `mathlib:Derivative.normalizedDerivOfComplex_E₂`, `mathlib:EisensteinSeries.E2`.
 
@@ -1890,13 +1506,13 @@ With θ_q=(1/πi)d/dτ and q=e^{πiτ}, M̃!(Γ) is the smallest ℂ-subalgebra 
 
 **Acceptance checks.**
 
-- Leading terms: Δ=q²+⋯, θ_qΔ=2q²+⋯, E₂Δ=q²+⋯.
+- Leading terms: Δ=q²+⋯, θ\_qΔ=2q²+⋯, E₂Δ=q²+⋯.
 
 ### W8.3. The elliptic integral of the second kind
 
 **Target:** `ModularFormsPartII:W8/elliptic-integral-test` (theorem).
 
-Let K₀(x)=Σ binom(2n,n)²x^n and E₀(x)=₂F₁(−1/2,1/2;1;16x). Then E₀=(1−16x)K₀+8∫₀ˣK₀(t)dt. At x=λ/16, E₀=(θ₃θ₄⁴+4θ_qθ₃)/θ₃³ belongs to M̃!(Γ(12)) and has q-series 1−4q+20q²−64q³+164q⁴−392q⁵+⋯.
+Let K₀(x)=Σ binom(2n,n)²x^n and E₀(x)=₂F₁(−1/2,1/2;1;16x). Then E₀=(1−16x)K₀+8∫₀ˣK₀(t)dt. At x=λ/16, E₀=(θ₃θ₄⁴+4θ\_qθ₃)/θ₃³ belongs to M̃!(Γ(12)) and has q-series 1−4q+20q²−64q³+164q⁴−392q⁵+⋯.
 
 **Direct dependencies:** `ModularFormsPartII:W2/jacobi-hypergeometric`, `ModularFormsPartII:W8/derivative-minimality`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-gamma-two-transformation`, `QSeriesPartitionsAndMockModularForms:QM.0/theta-three-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.0/theta-two-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.0/gauss-theta-four-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-triple-product-analytic`, `QSeriesPartitionsAndMockModularForms:QM.1/eta-quotient-transformation`, `mathlib:Derivative.normalizedDerivOfComplex_E₂`, `mathlib:Derivative.serreDerivativeMF`.
 
@@ -1915,7 +1531,7 @@ Let K₀(x)=Σ binom(2n,n)²x^n and E₀(x)=₂F₁(−1/2,1/2;1;16x). Then E₀
 
 **Target:** `ModularFormsPartII:W8/catalan-tests` (theorem).
 
-The series I₁(x)=Σ binom(2n,n)²x^(n+1)/(n+1) and I₂(x)=Σ C_n²x^(n+1), C_n=binom(2n,n)/(n+1), are integral. Their derivatives satisfy I₁′=K₀ and xI₂′=I₁. Moreover Σ C_n²(λ/16)^n=(4/θ₂⁴)(4θ₃² θ_qθ₂/θ₂+4θ₃ θ_qθ₃−θ₃⁴) belongs to M̃!(Γ(12)).
+The series I₁(x)=Σ binom(2n,n)²x^(n+1)/(n+1) and I₂(x)=Σ C\_n²x^(n+1), C\_n=binom(2n,n)/(n+1), are integral. Their derivatives satisfy I₁′=K₀ and xI₂′=I₁. Moreover Σ C\_n²(λ/16)^n=(4/θ₂⁴)(4θ₃² θ\_qθ₂/θ₂+4θ₃ θ\_qθ₃−θ₃⁴) belongs to M̃!(Γ(12)).
 
 **Direct dependencies:** `ModularFormsPartII:W8/weak-quasimodular`, `ModularFormsPartII:W8/derivative-minimality`, `ModularFormsPartII:W2/lambda`, `QSeriesPartitionsAndMockModularForms:QM.1/theta-gamma-two-transformation`, `QSeriesPartitionsAndMockModularForms:QM.0/theta-three-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.0/theta-two-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.0/gauss-theta-four-product-identity`, `QSeriesPartitionsAndMockModularForms:QM.1/jacobi-triple-product-analytic`, `QSeriesPartitionsAndMockModularForms:QM.1/eta-quotient-transformation`, `mathlib:Derivative.normalizedDerivOfComplex_E₂`, `mathlib:Derivative.serreDerivativeMF`.
 
@@ -1935,7 +1551,7 @@ The series I₁(x)=Σ binom(2n,n)²x^(n+1)/(n+1) and I₂(x)=Σ C_n²x^(n+1), C_
 
 **Target:** `ModularFormsPartII:W8/deficient-places` (definition).
 
-Fix a number field K⊆ℂ and a representation ρ. Let S_k(ρ;K) be the K-space of cuspidal vector-valued forms whose components have actual expansions in tK[[t]] for t=q^(1/N), some common N. For each normalized place v of K declare it deficient if some such component Σ_{m≥1}a_m t^m has unbounded |a_m|_v at a finite v, or unbounded |a_m|_v/m^((k−1)/2+ε) for some ε>0 at an archimedean v. An archimedean place uses its usual modulus, not its square. The source’s Q̄-version is obtained by ranging over finite coefficient fields and chosen extensions of places.
+Fix a number field K⊆ℂ and a representation ρ. Let S\_k(ρ;K) be the K-space of cuspidal vector-valued forms whose components have actual expansions in tK[[t]] for t=q^(1/N), some common N. A normalized place v of K is deficient if some such component Σ\_{m≥1}a\_m t^m has unbounded |a\_m|\_v at a finite v, or unbounded |a\_m|\_v/m^((k−1)/2+ε) for some ε>0 at an archimedean v. An archimedean place uses its usual modulus, not its square. The source's version is K=ℚ; the number-field version specializes to it.
 
 **Direct dependencies:** `ModularFormsPartII:W7/vector-valued-form`, `ModularFormsPartII:W7/generalized-expansion`, `ModularFormsPartII:W1/bounded-denominators`.
 
@@ -1960,7 +1576,7 @@ Fix a number field K⊆ℂ and a representation ρ. Let S_k(ρ;K) be the K-space
 
 **Unit tests.**
 
-- `deficient_zero_space` (degenerate): If every S_k(ρ;K) is zero, the deficient-place set is empty regardless of an undetected ambient summand.
+- `deficient_zero_space` (degenerate): If every S\_k(ρ;K) is zero, the deficient-place set is empty regardless of an undetected ambient summand.
 - `deficient_common_scalar` (compatibility): One scalar denominator bounds coefficients at every finite place; it creates no finite-place witness.
 - `deficient_local_denominator` (non-example): The coefficient sequence p^(−m) is unbounded at p even though all coefficients lie in K[1/p]. This tests the growth predicate, without asserting that the series is a modular component.
 - `deficient_parameter` (compatibility): Zero-inserting by t↦t² preserves both the finite-place test and the exponent threshold at infinity.
@@ -1973,7 +1589,7 @@ Fix a number field K⊆ℂ and a representation ρ. Let S_k(ρ;K) be the K-space
 
 **Target:** `ModularFormsPartII:W8/congruence-no-deficiency` (theorem).
 
-If ker ρ contains a principal congruence subgroup, then every Σ_K(ρ) is empty. At finite places a common scalar denominator bounds the coefficients. At every archimedean place the coefficients of a weight-k cuspidal component satisfy |a_m|≪_ε m^((k−1)/2+ε) for every ε>0.
+If ker ρ contains a principal congruence subgroup, then every Σ\_K(ρ) is empty. At finite places a common scalar denominator bounds the coefficients. At every archimedean place the coefficients of a weight-k cuspidal component satisfy |a\_m|≪\_ε m^((k−1)/2+ε) for every ε>0.
 
 **Direct dependencies:** `ModularFormsPartII:W8/deficient-places`, `AlgebraicModularFormsAndSerreWeights:R15.2/bounded-denominators-congruence-application`, `AutomorphicGaloisRepresentations:R19.3/hilbert-ramanujan-conjecture`, `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`, `tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus`.
 
@@ -2000,12 +1616,13 @@ Let a cuspidal component f over K be noncongruence. If its coefficient denominat
 
 **Construction and proof.**
 
-1. If every v∈S were bounded, their finitely many bounds could be cleared by a single element of O_K. Places outside S are already integral, giving a global common denominator.
+1. If every v∈S were bounded, their finitely many bounds could be cleared by a single element of O\_K. Places outside S are already integral, giving a global common denominator.
 2. The component congruence theorem contradicts the noncongruence witness. Without finite S use precisely the missing LOCALGLOBAL bridge, not a false inference from globally unbounded denominators alone.
 
 **Acceptance checks.**
 
 - An infinite ambient summand on which F vanishes gives no such arithmetic component.
+- For ρ=1⊕σ of W7/invisible-summand-test every element of S\_k(ρ;K) has zero σ-part, because σ(T)^M−1 is invertible; so the deficient set is empty although ker ρ is not congruence (E19).
 
 **Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: LOCALGLOBAL.
 
@@ -2013,7 +1630,7 @@ Let a cuspidal component f over K be noncongruence. If its coefficient denominat
 
 On the connected cusp component of the smooth locus of a regular X(N) model, derive the split étale fundamental-group isomorphism from the arithmetic finite-cover criterion and algebraic-integer unbounded denominators; specify model and cover-descent inputs explicitly.
 
-**Layer dependencies:** `ModularFormsPartII:W6`, `ModularCurvesPartII:R13.5`, `ModularCurvesPartII:R12.4`, `InverseGaloisAndArithmeticFundamentalGroups:IG.0`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples`.
+**Layer dependencies:** `ModularCurvesPartII:R13.5`, `ModularCurvesPartII:R12.3`, `InverseGaloisAndArithmeticFundamentalGroups:IG.0`, `ModularFormsPartII:W6`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples`.
 
 **Planets:** Connected cuspal modular model; Arithmetic modular-model fundamental group.
 
@@ -2021,9 +1638,9 @@ On the connected cusp component of the smooth locus of a regular X(N) model, der
 
 **Target:** `ModularFormsPartII:W9/cuspal-model` (construction).
 
-For N≥1 and a finite extension K/ℚ(μ_N), start with a minimal regular model of X(N) over O_K and the extension ε of its rational ∞ cusp. Let 𝒳_cusp(N) denote the smooth open selecting the connected fibre component through ε at each finite place, with the same generic fibre. Require existence, uniqueness and compatibility of this selection as the model contract NERON. This pins the intended connected Néron model; it does not confuse a global connected component of an irreducible total space with a component in each fibre.
+For N≥1 and a finite extension K/ℚ(μ\_N), start with a minimal regular model of X(N) over O\_K and the extension ε of its rational ∞ cusp. Let 𝒳\_cusp(N) denote the smooth open selecting the connected fibre component through ε at each finite place, with the same generic fibre. Require existence, uniqueness and compatibility of this selection as the model contract NERON. This pins the intended connected Néron model; it does not confuse a global connected component of an irreducible total space with a component in each fibre.
 
-**Direct dependencies:** `ModularCurvesPartII:R13.5`, `ModularCurvesPartII:R12.4`, `InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group`.
+**Direct dependencies:** `ModularCurvesPartII:R13.5`, `ModularCurvesPartII:R12.3/cusp-fields-and-component-labels`, `InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Theorem 7.4.10, p.696, connected-model convention. The final theorem uses the connected cuspal smooth part of a regular modular-curve model. The target pins the fibrewise connected-component selection and cusp section rather than using global connectedness of the total space.
 
@@ -2039,14 +1656,14 @@ For N≥1 and a finite extension K/ℚ(μ_N), start with a minimal regular model
 
 **API.**
 
-- `cuspalModel_genericFibre` (compatibility): The generic fibre is the specified X(N)_K.
-- `cuspalModel_smooth` (structure): The structure morphism to Spec O_K is smooth with the selected connected fibres.
+- `cuspalModel_genericFibre` (compatibility): The generic fibre is the specified X(N)\_K.
+- `cuspalModel_smooth` (structure): The structure morphism to Spec O\_K is smooth with the selected connected fibres.
 - `cuspalModel_cuspSection` (constructor): ε is a section through the smooth cuspal component.
 - `cuspalModel_basePoint` (functoriality): Every geometric η on the base gives ε(η) and π∘ε=id.
 
 **Unit tests.**
 
-- `cuspal_level_one` (computation): For X(1)=ℙ¹ with its usual smooth model, the cuspal model is ℙ¹_{O_K}.
+- `cuspal_level_one` (computation): For X(1)=ℙ¹ with its usual smooth model, the cuspal model is ℙ¹\_{O\_K}.
 - `cuspal_section_identity` (compatibility): The maps induced by π∘ε=id compose to the identity on the base π₁.
 - `cuspal_bad_fibre` (non-example): A different connected component in a bad special fibre is not retained merely because the total regular model is globally connected.
 - `cuspal_field_requirement` (non-example): The claimed distinguished cusp section is not silently descended to a field not containing its field of definition.
@@ -2059,16 +1676,16 @@ For N≥1 and a finite extension K/ℚ(μ_N), start with a minimal regular model
 
 **Target:** `ModularFormsPartII:W9/arithmetic-cover-criterion` (theorem).
 
-Every finite étale cover of 𝒳_cusp(N) is the pullback of a finite étale cover of Spec O_K, with morphisms descending uniquely. This statement includes all primes dividing N. It is the precise arithmetic geometric input to the fundamental-group theorem.
+Every finite étale cover of 𝒳\_cusp(N) is the pullback of a finite étale cover of Spec O\_K, with morphisms descending uniquely. This statement includes all primes dividing N. It is the precise arithmetic geometric input to the fundamental-group theorem.
 
-**Direct dependencies:** `ModularFormsPartII:W9/cuspal-model`, `ModularFormsPartII:W6/number-field-variant`, `InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group`, `ModularCurvesPartII:R13.5`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples`.
+**Direct dependencies:** `ModularFormsPartII:W9/cuspal-model`, `ModularFormsPartII:W6/number-field-variant`, `InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group`, `ModularCurvesPartII:R13.5`, `ModularCurvesPartII:R12.3/cusp-fields-and-component-labels`, `tauceti:TauCetiRoadmap/BelyiMaps#layer-6-finite-covers-and-their-triples`.
 
 **Source:** [CDT25](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), Sketch of Theorem 7.4.10, p.696, citing Ihara (1994), §4 p.252 and Theorem 1 pp.248–249. The proof sketch invokes Ihara to descend all finite etale covers from this model to the integer base. The target states that precise missing input at bad primes and checks the lambda coordinate's level doubling.
 
 **Construction and proof.**
 
 1. Read and adapt the arithmetic formal-rationality/cover criterion in IHARA94, with its model assumptions retained. A finite étale cover gives an algebraic-integer expansion along the cuspal section; W6 forces its modular germ to be congruence.
-2. Prove that étaleness over the selected smooth model at every finite place forces this congruence cover to be arithmetically constant, then descend it over O_K. The exact missing input is NERON.
+2. Prove that étaleness over the selected smooth model at every finite place forces this congruence cover to be arithmetically constant, then descend it over O\_K. The exact missing input is NERON.
 3. Use λ(τ/N)/16 as a parameter only after the appropriate level doubling or formal cover: its leading term is exp(πiτ/N), whereas the usual width-N X(N) parameter is exp(2πiτ/N). Prove the resulting formal descent.
 
 **Acceptance checks.**
@@ -2079,7 +1696,7 @@ Every finite étale cover of 𝒳_cusp(N) is the pullback of a finite étale cov
 
 **Target:** `ModularFormsPartII:W9/arithmetic-pi1` (theorem).
 
-For N≥1, K/ℚ(μ_N) finite and every geometric η of Spec O_K, the maps π_*:π₁(𝒳_cusp(N),ε(η))→π₁(Spec O_K,η) and ε_* in the opposite direction are mutually inverse isomorphisms.
+For N≥1, K/ℚ(μ\_N) finite and every geometric η of Spec O\_K, the maps π\_\*:π₁(𝒳\_cusp(N),ε(η))→π₁(Spec O\_K,η) and ε\_\* in the opposite direction are mutually inverse isomorphisms.
 
 **Direct dependencies:** `ModularFormsPartII:W9/arithmetic-cover-criterion`, `ModularFormsPartII:W9/cuspal-model`, `InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group`.
 
@@ -2088,13 +1705,13 @@ For N≥1, K/ℚ(μ_N) finite and every geometric η of Spec O_K, the maps π_*:
 **Construction and proof.**
 
 1. The finite-cover criterion identifies the two pointed Galois categories, so the induced maps on automorphism groups are inverse.
-2. The section checks π_*ε_*=id and fixes the base-point ambiguity.
+2. The section checks π\_\*ε\_\*=id and fixes the base-point ambiguity.
 
 **Acceptance checks.**
 
 - The result is stated for every geometric base point, including points over finite primes.
 
-**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: MODEL, NF, NERON.
+**Layer completion checks.** Every target above must be proved with the stated imported contracts. Exact additional inputs for this layer: NERON, NF.
 
 ## Worked acceptance calculations
 
@@ -2105,104 +1722,60 @@ These small cases fix normalizations used across the layers and distinguish the 
 3. At level 2N=4, the function-field degree over ℚ(λ) is four. At 2N=2 it is one. Applying the generic projective-index formula at N=1 would give one half, so this boundary must be split off.
 4. For n=2^a>1, the coefficient of x^m in (1−16x)^(1/n) has 2-adic valuation (4−a)m−v₂(m!). The exponents a=1,2,3 give bounded denominators, while a=4 gives valuations tending to minus infinity. An odd prime dividing n also gives unbounded valuations. This is the arithmetic distinction between the Fermat exponents 1,2,4,8 and all others.
 5. For a constant vector F=(1,0,0), use ρ=1⊕σ with S=diag(1,−1), R=[[2,1],[−7,−3]], and T=SR=[[2,1],[7,3]]. Direct multiplication gives S²=R³=I. The characteristic polynomial of T is X²−5X−1; its two roots are distinct and one has modulus greater than one. The ambient image is infinite, but the value span is one-dimensional and trivial. This tests both the rank of component continuation and the effective-span formulation of Mason's corollary.
-6. At the first two q-coefficients, Δ=q²+…, θ_qΔ=2q²+…, and E₂Δ=q²+…. The normalized elliptic integral E₀ has constant term one, as does (1−16x)K₀+8∫₀ˣK₀. Negating that expression fails already at the constant term.
+6. At the first two q-coefficients, Δ=q²+…, θ\_qΔ=2q²+…, and E₂Δ=q²+…. The normalized elliptic integral E₀ has constant term one, as does (1−16x)K₀+8∫₀ˣK₀. Negating that expression fails already at the constant term.
 7. The degree-two theta monomial θ₂θ₃ changes sign under T¹², although T¹² lies in Γ(12). A common Γ(12) claim for every even-degree theta Laurent monomial therefore fails. The specific quotients in W8 require their own multiplier checks.
+8. With u=∏\_{m odd}(1+q^m)^{−24}, the coefficients of u^{1/5} have denominators 5, 25, 125, 625, …, while u^{1/24}=∏\_{m odd}(1+q^m)^{−1} is integral. A root of u with bounded denominators is integral (reduce modulo ℓ in the domain 𝔽\_ℓ[[q]]), so its linear coefficient −24/n must be an integer.
+9. With q=e^{πiτ}, T sends h=λ(1−λ)/16=q+⋯ to −q+⋯, so h is not Γ₀(2)-invariant; S sends λ to 1−λ and fixes h. The invariance group is the theta group ⟨Γ(2),S⟩.
 
 ## Exact additional proof inputs
 
 These inputs have identified owners or mathematical boundaries. They must be supplied before a proof plan can be marked closed. The targets above remain in scope with the specified statements.
 
-### ALG. Unregistered arithmetic holonomy supplier
+### MODEL. Rational ∞ cusp of the ℤ/m⊕μ\_m model
 
-The extraction proposes ArithmeticAlgebraizationAndHolonomyBounds, but no roadmap, packet or reserved stage exists at this baseline. Needed: Definition 2.0.4 H/V including meromorphic trivial-monodromy singularities, and Corollary 2.0.5 with p nonconstant, p(u(t)) integral, φ holomorphic near the closed disc, |φ′(0)|>1 and its mean-log dimension bound over ℚ(p). This is the exact external input to W3 and W7; no fictitious supplier id is used. Register the proposed Part II of DiophantineApproximationAndTranscendence and import its final layer.
+ModularCurvesPartII (TauCetiRoadmap pull request #913, head 2f3a763) constructs the compactified twisted curve X(V) over ℚ for a rank-two V with alternating pairing to μ\_m (R13.4a/twisted-coarse-curve, §5.14), its analytic comparison and geometric irreducibility (R12.4, §§6.4–6.5), the cusp fields of fixed-pairing curves (R12.3, §6.3) and descent of sections from a split K-rational cusp by q-expansion (R12.6, §8.1); these are cited as they stand. Not stated there: for V=ℤ/m⊕μ\_m with its standard pairing and m≥3, the cusp ∞ of X(V) is ℚ-rational and split, with Tate parameter q^{1/m} (q=e^{2πiτ}) compatible with the analytic comparison, so that ℚ(X(V)) is exactly the field of meromorphic functions on X(m) whose q^{1/m}-expansion at ∞ is rational. W5 uses this to identify ℂM₂m with the function field of X(m); the rest of the degree comparison is formal (W5/field-base-change). Requested from a Part II of ModularCurvesPartII.
 
-Required by `ModularFormsPartII:W3/holonomy-embedding`, `ModularFormsPartII:W3/finite-rank`, `ModularFormsPartII:W3/quantitative-rank`, `ModularFormsPartII:W7/ode-algebraicity`.
-
-### UNI. Unregistered punctured-plane supplier
-
-The extraction proposes PuncturedPlaneUniformizationAndValueDistribution, but it has no registered roadmap or packet here. Needed: complex ODE continuation and regular singularities; normalized universal covers F_N for N≥2; Theorem 5.1.4 gamma formula and positive N⁻³ derivative boost; Theorem 6.0.1 mean log⁺|F_N^N|≪log(N/(1−r)); Schwarz equality and holomorphic uniformization radius. Own the generic results there as Part II of ConformalMapping. N=1 is treated by a small-level embedding, not the hyperbolic formula.
-
-Required by `ModularFormsPartII:W2/small-uniformizations`, `ModularFormsPartII:W3/holonomy-embedding`, `ModularFormsPartII:W3/finite-rank`, `ModularFormsPartII:W3/quantitative-rank`, `ModularFormsPartII:W7/ode-algebraicity`, `ModularFormsPartII:W7/regular-singular-component`.
-
-### FIN. Finite periodic and amalgam cohomology inputs
-
-The finite UCT/Sylow supplier supplies detection, but not the integral H₂ computations for cyclic and generalized-quaternion groups, their primary Sylow classification inside SL₂(𝔽_p), or the C₄ *_{C₂} C₆ cohomology sequence. Plan these as a ProfiniteCohomology extension, with the finite S₃ case separate. The special SL₂ calculations stay here.
-
-Required by `ModularFormsPartII:W4/finite-schur`, `ModularFormsPartII:W4/sl2z-cohom`.
-
-### COEFF. Continuous integral homology conventions
-
-Specify and supply the completed-bar compact ℤ̂ coefficient theory, UCT with finite discrete coefficients, primary finite generation, and Nakayama used to pass from zero mod-ℓ H₂ quotients to zero compact H₂. CDT25 p.665 does not spell out this interface. Do not read it as a proof of abstract-group integral homology vanishing.
-
-Required by `ModularFormsPartII:W4/integral-local-h2`.
-
-### CSP. The arithmetic amalgam and congruence subgroup property
-
-ModularCurvesPartII:R14.4 owns an Ihara application but not the exact group-theoretic input used here. Required: the two level-N copies of SL₂(ℤ) in SL₂(ℤ[1/p]) form the stated amalgam over Γ₀(p), and every finite quotient of the relevant arithmetic subgroup is congruence away from p, with central signs and N≥3 variants. Supply a read primary proof (CDT25 cites Berger, Serre and Mennicke) and extend that owner. This is not generic Goursat and is not supplied by a cohomological Ihara injectivity theorem alone.
-
-Required by `ModularFormsPartII:W5/abelian-ihara`, `ModularFormsPartII:W5/nonabelian-ihara`.
-
-### MODEL. Rational cusp models and geometric degree descent
-
-Supply the specific geometrically connected ℚ-model of Y(m) classifying an elliptic curve with symplectic identification E[m]≃ℤ/m⊕μ_m, its rational ∞ cusp, and coefficientwise Galois-compatible Fourier germ. The existing ModularCurvesPartII:R12.4 fixed-pairing model and R13.5 level-raising contracts do not explicitly give this twist and cusp. Prove the geometric Galois base-change step for R₂N M₂Np; field intersection alone is not enough.
-
-Required by `ModularFormsPartII:W5/field-base-change`, `ModularFormsPartII:W5/congruence-degree`, `ModularFormsPartII:W6/number-field-variant`, `ModularFormsPartII:W9/arithmetic-cover-criterion`.
+Required by `ModularFormsPartII:W5/field-base-change`, `ModularFormsPartII:W5/congruence-degree`.
 
 ### NF. Arithmetic descent of noncongruence Fourier germs
 
 Supply a number-field model and q-germ for an arbitrary finite-index modular function with algebraic coefficients; show all coefficients lie in one number field, and coefficientwise Galois conjugation produces finite-index weak modular functions with compatible cusp parameters. Reduce arbitrary weight via the explicit congruence factor. Belyi existence alone does not identify its distinguished Fourier germ, and the congruence q-expansion comparison alone does not cover a noncongruence group. This is the precise missing bridge in the short trace proof of Remark 6.3.2.
 
-Required by `ModularFormsPartII:W6/number-field-variant`, `ModularFormsPartII:W7/arithmetic-component`, `ModularFormsPartII:W9/arithmetic-cover-criterion`.
+Required by `ModularFormsPartII:W6/number-field-variant`, `ModularFormsPartII:W9/arithmetic-cover-criterion`.
 
-### ROOT. Special congruence abelianization for Γ₀(2)
+### GLOCAL. Bombieri–André and Katz for G-operators
 
-The h-root example can be completed by an explicit denominator calculation, or by proving that the congruence completion of Γ₀(2) has abelianization ℤ/24⊕ℤ/2 and identifying the h-cover character. CDT25 p.629 states this computation without proof. Supply the local elementary-matrix computation and identify the order-2 factor, rather than confusing it with SL₂(ℤ_p)^ab.
-
-Required by `ModularFormsPartII:W6/h-root-test`.
-
-### ARITH. Arithmetic equation for the actual selected component
-
-Prove that the regular-singular complex realization of W_j with its chosen integral germ descends to ℚ̄(x), and that the minimal arithmetic scalar operator realizes precisely this continuation module, including reducible cases and apparent poles. A rank-n complex local system, rational Taylor coefficients, or a bare Riemann–Hilbert existence assertion alone does not prove this. This special modular bridge belongs to W7; the generic arithmetic G-function theory remains in DT.5.
+DiophantineApproximationAndTranscendence is merged into TauCetiRoadmap main (pull request #855, head 0d1c47b). Its DT.5 G-functions (§5.2), the Galochkin condition for ℚ̄(z)-independent G-function solutions of a system (Chudnovsky, §5.3) and the regularity at 0 of the minimal operator of a G-function are cited as they stand. Not stated there: (a) the Bombieri–André theorem that Galochkin's condition implies Bombieri's condition and global nilpotence of the connection; (b) Katz's theorem that a globally nilpotent operator over ℚ̄(x) is regular singular with quasi-unipotent local monodromy at every point of ℙ¹. Requested from a Part II of DiophantineApproximationAndTranscendence in the G-function direction; the designed DiophantineApproximationAndTranscendencePartII (arithmetic algebraization, AA.0–AA.5) does not contain them.
 
 Required by `ModularFormsPartII:W7/arithmetic-component`.
-
-### GLOCAL. Exact G-operator local-monodromy input
-
-DT.5 supplies the definition of a G-function and a Chudnovsky–Galochkin condition for a linearly independent system, but its regular-singularity node only controls the specified point. Needed here: the minimal operator of one G-function, compatibility with the descended possibly reducible cyclic module, and the global nilpotence/quasi-unipotence theorem at every singularity. Request this precise extension of DT.5; semisimplicity then yields finite order.
-
-Required by `ModularFormsPartII:W7/arithmetic-component`.
-
-### SZ. Primary Stiller–Zagier differential-equation proof
-
-CDT25 Remark 7.2.3 cites the positive-weight differential equation without proving its scalar order and singularity claims. Read the primary Stiller (1984) or Zagier (2008), §5.4 proof, and pin the finite cover, cyclic order, apparent poles and symmetric-power identification. The target uses order at most k+1 until those hypotheses are supplied.
-
-Required by `ModularFormsPartII:W7/stiller-zagier`.
 
 ### LOCALGLOBAL. Deficient-place converse needs an arithmetic witness
 
-The unconditional ambient converse asserted on CDT25 p.695 requires (i) noncongruence to be detected by an actual arithmetic cuspidal component and (ii) a theorem converting the relevant all-place local bounds into one global common denominator. Neither follows merely from the component theorem or from noncongruence of an invisible summand. W8 proves the precise finite-denominator-support witness version. The unrestricted archimedean and finiteness questions remain questions, not roadmap theorem targets. Selberg’s asserted bound also needs its primary hypothesis/normalization check before use.
+The unconditional ambient converse asserted on CDT25 p.695 requires (i) noncongruence to be detected by an actual arithmetic cuspidal component and (ii) a theorem converting the relevant all-place local bounds into one global common denominator. Neither follows merely from the component theorem or from noncongruence of an invisible summand. W8 proves the precise finite-denominator-support witness version. The unrestricted archimedean and finiteness questions remain questions, not roadmap theorem targets. Selberg’s asserted bound also needs its primary hypothesis/normalization check before use. The printed converse is false as stated: for ρ=1⊕σ of W7/invisible-summand-test the deficient set is empty although ker ρ is not congruence (E19).
 
 Required by `ModularFormsPartII:W8/noncongruence-witness`.
 
 ### NERON. All-prime cuspal-model cover descent
 
-The source gives only a sketch referring to Ihara (1994), Horizontal divisors on arithmetic surfaces associated with Belyi uniformizations, Theorem 1 pp.248–249 and §4 p.252 (DOI 10.1017/CBO9780511569302.011). No lawful full text was available from the cleared library or official publisher/author endpoints checked. Supply and read that proof, fix the fibrewise connected-model convention, verify the smooth cusp section and regular-model hypotheses for every N and all bad primes, and prove the λ(τ/N)/16 formal-coordinate/level-doubling descent. The existing modular-curve and étale π₁ suppliers do not state this arithmetic criterion.
+The source gives only a sketch referring to Ihara (1994), Horizontal divisors on arithmetic surfaces associated with Belyi uniformizations, Theorem 1 pp.248–249 and §4 p.252 (DOI 10.1017/CBO9780511569302.011). No lawful full text was available from the cleared library or official publisher/author endpoints checked. Supply and read that proof, fix the fibrewise connected-model convention, verify the smooth cusp section and regular-model hypotheses for every N and all bad primes, and prove the λ(τ/N)/16 formal-coordinate/level-doubling descent. The existing modular-curve and étale π₁ suppliers do not state this arithmetic criterion. ModularCurvesPartII (pull request #913) §11 (R13.5) builds regular resolutions and semistable models for Γ₀ levels at primes p>3 and for the listed mixed and Cartan levels; it is cited as it stands and does not cover X(N) at every prime, including p∣N.
 
 Required by `ModularFormsPartII:W9/cuspal-model`, `ModularFormsPartII:W9/arithmetic-cover-criterion`.
 
 ## Source corrections used by the targets
 
-Every description here is a paraphrase. The packet's legacy `printed` field also contains only a paraphrase and is marked accordingly. These observations govern the target statements; they do not assert the existence of a published erratum. The bounded checks recorded in the packet distinguish what was inspected from historical checks attributed to the extraction.
+Every description here is a paraphrase. The packet's `printed` field also contains only a paraphrase and is marked accordingly. These observations govern the target statements; they do not assert the existence of a published erratum. Each was checked at its locator by the independent review, whose verdict follows.
 
-**ModularFormsPartII/E1 — misprint, affecting the proof.** CDT25 published offprint; Lemma 4.5.6 proof, p.663.
+**ModularFormsPartII/E1 — misprint, affecting the proof.** CDT25 published offprint; Lemma 4.5.11, second displayed line, p.663 (the same in the arXiv version).
 
-Source wording, paraphrased: The p=5 adjoint cohomology exception is labelled with 𝔽₃.
+Source wording, paraphrased: The level-five invariant dimension is stated for H¹(Γ(5),𝔽₃) with SL₂(𝔽₅) acting.
 
-Correction: Use 𝔽₅.
+Correction: Use 𝔽₅ coefficients, as in the application at ℓ=5 in the proof of Theorem 4.5.2.
 
-Check: The representation and the exceptional adjoint H¹ are over the field of characteristic p.
+Check: Inflation–restriction injects H¹(SL₂(ℤ),𝔽₃)=𝔽₃ into H¹(Γ(5),𝔽₃)^{SL₂(𝔽₅)}, because SL₂(𝔽₅) is perfect, so the printed dimension zero is false over 𝔽₃.
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
+
+Review: confirmed. Corrected locator: the misprint is in Lemma 4.5.11 on p.663, not in the proof of Lemma 4.5.6. Over 𝔽₃ the level-five claim fails: inflation–restriction gives an injection H¹(SL₂(ℤ),𝔽₃)=𝔽₃ into H¹(Γ(5),𝔽₃)^{SL₂(𝔽₅)}, since SL₂(𝔽₅) is perfect. The proof of Theorem 4.5.2 uses ℓ=5 at level 5. The lemma is now owned by ModularCurvesPartII §15.9, whose README records the same correction.
 
 **ModularFormsPartII/E4 — misprint, affecting the proof.** CDT25 published offprint; Lemma 4.1.7 proof, second cusp case, p.654.
 
@@ -2214,6 +1787,8 @@ Check: Multiplying the preceding matrix by this diagonal gives C=(a/p,b;c,pd) an
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
 
+Review: confirmed. Checked at p.654: the displayed C=(A⁻¹BA)·diag(p,1/p) does not have determinant one; right multiplication by diag(1/p,p) gives (a/p,b;c,pd) and the translation exponent np.
+
 **ModularFormsPartII/E5 — misprint, affecting the proof.** CDT25 published offprint; Theorem 4.3.2 proof, p.656.
 
 Source wording, paraphrased: The selected old-level counterexample is placed in R₂Np.
@@ -2223,6 +1798,8 @@ Correction: Select it in R₂N outside M₂N before applying p-scaling.
 Check: Theorem 4.3.1 takes the old-level input.
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
+
+Review: confirmed. Checked at p.656: the proof selects f in R₂Np although Theorem 4.3.1 is applied to an element of R₂N.
 
 **ModularFormsPartII/E6 — error, affecting the proof.** CDT25 published offprint; Reduction map preceding Lemma 4.4.4, p.659.
 
@@ -2234,6 +1811,8 @@ Check: For N>2, a matrix congruent to −I modulo N and I modulo p lies in the s
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
 
+Review: confirmed. Checked at p.659: on ⟨E,Γ(N)⟩∩Γ₀(p) a matrix congruent to −I mod N and to I mod p lies in the reduction kernel but not in Γ(Np) when N≥3. W4 computes on the unsigned domain.
+
 **ModularFormsPartII/E7 — gap, affecting the proof.** CDT25 published offprint; Lemma 4.2.3 proof, p.656.
 
 Source wording, paraphrased: The core of the generator stabilizers is said to have exact geometric level 2N without an added level constraint.
@@ -2243,6 +1822,8 @@ Correction: Intersect also with ⟨E,Γ(2N)⟩ before taking the core.
 Check: For R₂=M₂ the basis {1} by itself gives the full-group stabilizer of level one. The additional intersection forces exact level two.
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
+
+Review: confirmed. Checked at p.656: the normal core of the generator stabilizers need not fix ℚ(λ) nor lie in ⟨E,Γ(2N)⟩ (for R₂=M₂ the basis {1} gives SL₂(ℤ)). Intersecting with ⟨E,Γ(2N)⟩ first gives exact level 2N.
 
 **ModularFormsPartII/E10 — error, affecting a stated result.** CDT25 published offprint; E–K relation, §7.4.2, p.693.
 
@@ -2254,6 +1835,8 @@ Check: Both normalized integrals have constant coefficient one; the printed righ
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
 
+Review: confirmed. Recomputed with exact arithmetic: (1−16x)K₀+8∫₀ˣK₀ agrees with ₂F₁(−1/2,1/2;1;16x) through x¹³, and the printed expression is its negative.
+
 **ModularFormsPartII/E11 — gap, affecting the proof.** CDT25 published offprint; Lemma 4.5.6, p.662.
 
 Source wording, paraphrased: The elementary H¹ calculation suppresses the p=2 abelianization proof.
@@ -2263,6 +1846,8 @@ Correction: Compute SL₂(ℤ₂)^ab=C₄ directly before the H² argument.
 Check: Deriving it from the final H² lemma would create a dependency cycle.
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
+
+Review: confirmed. Checked at p.662: the proof of Lemma 4.5.6 assumes p>2, so the n=1 claim at p=ℓ=2 is not proved there; SL₂(ℤ₂)^ab≅ℤ/4 supplies it. The lemma is now owned by ModularCurvesPartII §15.9.
 
 **ModularFormsPartII/E12 — error, affecting a stated result.** CDT25 published offprint; Equation (1.1.5), p.631, and (7.2.4), p.688.
 
@@ -2274,25 +1859,31 @@ Check: −I belongs to Γ(2), but a nonzero odd-weight trivial-character form ca
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
 
+Review: confirmed. Checked at pp.631 and 688. Since −I∈Γ(2), a nonzero weight-one form with trivial character on Γ(2) is impossible; θ₃² transforms with χ₋₄(d). The intended meaning is clear, so the result is unaffected in substance.
+
 **ModularFormsPartII/E13 — gap, affecting the proof.** CDT25 published offprint; Local-system construction and Theorem 7.3.3 proof, pp.690–691.
 
 Source wording, paraphrased: Six cosets times the components are asserted to form a free integral rank-6n bundle, and the selected system is treated as irreducible with arithmetic coefficients.
 
-Correction: Use rank-n complex Lρ and the actual continuation space W_j of dimension at most n; separately prove regular-singular realization, arithmetic descent and minimal-operator compatibility.
+Correction: Use rank-n complex Lρ and the actual continuation space W\_j of dimension at most n; separately prove regular-singular realization, arithmetic descent and minimal-operator compatibility.
 
 Check: Slash translates are constant linear combinations of the original components. For F=1 the scalar equation is f′=0, of rank one. Neither integral freeness nor irreducibility follows.
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
 
+Review: confirmed. Checked at p.690: the slash translates F\_j|γ are constant combinations of F₁,…,F\_n, so their span has rank at most n, and replacing the system by an irreducible one can lose the selected component. W7 constructs the minimal operator of the component by Wronskians instead.
+
 **ModularFormsPartII/E14 — error, affecting a stated result.** CDT25 published offprint; Corollary 7.3.4, p.691.
 
 Source wording, paraphrased: Integrality of all components is used to force a congruence kernel for the full ambient representation.
 
-Correction: Conclude congruence on V_F; conclude it on the ambient representation only if V_F=ℂⁿ.
+Correction: Conclude congruence on V\_F; conclude it on the ambient representation only if V\_F=ℂⁿ.
 
 Check: The explicit nonzero example F=(1,0,0),ρ=1⊕σ in W7 has integral coefficients and an invisible infinite-image summand.
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
+
+Review: confirmed. Verified: σ(S)=diag(1,−1) and σ(R)=[[2,1],[−7,−3]] satisfy S²=R³=I, σ(T)=[[2,1],[7,3]] has distinct eigenvalues (5±√29)/2, and F=(1,0,0) with ρ=1⊕σ has integral components while ρ has infinite image.
 
 **ModularFormsPartII/E17 — misprint, affecting the proof.** CDT25 published offprint; Second map in §4.4, p.658.
 
@@ -2304,6 +1895,8 @@ Check: The lower unipotent with entry Np is sent to one with entry N, which is o
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
 
+Review: confirmed. Checked at p.658: conjugation by diag(p,1) maps ⟨E,Γ(N)⟩∩Γ₀(p) into ⟨E,Γ(N)⟩∩Γ⁰(p); [[1,0],[Np,1]] goes to [[1,0],[N,1]], which is not in Γ₀(p).
+
 **ModularFormsPartII/E18 — misprint, affecting the proof.** CDT25 published offprint; θ convention and Lemma 7.4.4, pp.692–693.
 
 Source wording, paraphrased: The displayed θ=(1/πi)d/dτ is combined with θΔ=E₂Δ.
@@ -2314,15 +1907,19 @@ Check: The pinned η logarithmic derivative gives d log Δ/dτ=2πi E₂; Δ sta
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
 
-**ModularFormsPartII/E19 — gap, affecting a stated result.** CDT25 published offprint; Deficient-place converse, §7.4.8, p.695.
+Review: confirmed. Checked at pp.692–693: with q=e^{πiτ}, θ=q d/dq=(1/πi)d/dτ, and Ramanujan's DΔ=E₂Δ for D=(1/2πi)d/dτ gives θΔ=2E₂Δ. The lemma's conclusion is unaffected.
+
+**ModularFormsPartII/E19 — error, affecting a stated result.** CDT25 published offprint; Deficient-place converse, §7.4.8, p.695.
 
 Source wording, paraphrased: A finite deficient place is asserted from noncongruence of the ambient representation alone.
 
 Correction: Require an arithmetic noncongruence component detecting the effective representation, and a local-to-global denominator theorem or finite denominator support.
 
-Check: The definition quantifies arithmetic cuspidal forms; invisible summands supply no witness. Global unbounded denominators do not by themselves identify one unbounded finite place.
+Check: The definition quantifies arithmetic cuspidal forms; invisible summands supply no witness. Global unbounded denominators do not by themselves identify one unbounded finite place. Counterexample: for ρ=1⊕σ of W7/invisible-summand-test every element of S\_k(ρ) has zero σ-part, because σ(T)^M−1 is invertible, so Σ(ρ)=∅ while ker ρ is not congruence.
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
+
+Review: confirmed. Strengthened to an error: for ρ=1⊕σ of W7/invisible-summand-test, a cuspidal form with rational Puiseux expansion has σ-part g with (σ(T)^M−1)g=0, so g=0; hence Σ(ρ)=∅ although ker ρ is not congruence.
 
 **ModularFormsPartII/E20 — error, affecting a stated result.** CDT25 published offprint; Theta monomial congruence-level assertion, §7.4.2, p.693.
 
@@ -2334,6 +1931,8 @@ Check: θ₂θ₃ has degree two but changes sign under T¹²: θ₂(τ+12)=−�
 
 Correction status: No correction located in the bounded checks on 2026-10-19; the published offprint still has this wording.
 
+Review: confirmed. Checked at p.693 with q=e^{πiτ}: θ₂(τ+12)=−θ₂(τ) and θ₃(τ+12)=θ₃(τ), so θ₂θ₃ is not invariant under T¹²∈Γ(12). The quotients actually used in W8 have the character χ₋₄(d), trivial on Γ(4).
+
 **ModularFormsPartII/E21 — misprint, affecting the proof.** KSV10 arXiv:0905.4798v4, §3, Proposition 3 proof, p.6, factorization of L following equation (1).
 
 Source wording, paraphrased: The further expression of L as a conjugate of a translation uses the two transpose-translation factors in the opposite order.
@@ -2344,15 +1943,53 @@ Check: At a=2 the intended L is [[2,1],[−1,0]], whereas the product in that li
 
 Correction status: No correction located in the bounded author/arXiv/publisher searches on 2026-10-19. The finding is checked in arXiv v4; the published journal formula was not compared.
 
+Review: confirmed. Checked in arXiv:0905.4798v4 p.6: the printed factorization L=T′T^{a−1}T′⁻¹ fails at a=2; L=(T′)⁻¹T^{a−1}T′ holds by direct multiplication.
+
+**ModularFormsPartII/E22 — misprint, affecting nothing.** CDT25 published offprint; equation (1.0.4) and the following paragraph, p.629.
+
+Source wording, paraphrased: The function h=λ(1−λ)/16 is described as having level Γ₀(2).
+
+Correction: With q=e^{πiτ}, h is invariant under the theta group ⟨Γ(2),S⟩, which is conjugate to Γ₀(2) in SL₂(ℤ) but different from it. The abelianization statements are invariant under conjugation and stand.
+
+Check: S sends λ to 1−λ and fixes h, while T∈Γ₀(2) sends q to −q and changes the sign of the leading term of h=q+⋯.
+
+Correction status: new
+
+Review: confirmed. Added by this review; checked with exact q-series arithmetic.
+
+**ModularFormsPartII/E23 — misprint, affecting nothing.** CDT25 published offprint; Proposition 3.0.1, p.650, and Proposition 4.3.5, p.657.
+
+Source wording, paraphrased: The rank bound is written as C N³ log N for all N.
+
+Correction: Write C N³ log(2N), or restrict to N≥2.
+
+Check: R₂ contains ℚ(λ), so [R₂:ℚ(λ)]≥1 while C·1³·log 1=0; read literally for all integers N, the hypothesis of Proposition 4.3.5 can never hold.
+
+Correction status: new
+
+Review: confirmed. Added by this review.
+
+**ModularFormsPartII/E24 — gap, affecting the proof.** CDT25 published offprint; proof of Proposition 3.0.1, (3.0.5), p.650.
+
+Source wording, paraphrased: R₂N is placed in the larger span V(U,x(t),ℤ), and the dimension of V over ℚ(x^N) is bounded by Corollary 2.0.5 for the nonintegral coordinate x(t)=(λ/16)^{1/N}.
+
+Correction: Bound instead the ℚ(x^N)-span W of H(U,x(t),ℤ). It contains R₂N, because the generators enter H after clearing by integers and by powers of λ/16, both in ℚ(x^N); the corrected rank theorem applies to W.
+
+Check: For a nonintegral coordinate the printed V bound over ℚ(p) can fail by the factor [ℚ(x):ℚ(p)] (DiophantineApproximationAndTranscendencePartII/E1). Here that factor is N, which would spoil the N³log N bound that Proposition 4.3.5 needs.
+
+Correction status: The correction to Corollary 2.0.5 is DiophantineApproximationAndTranscendencePartII/E1; its consequence for Proposition 3.0.1 is new here.
+
+Review: confirmed. Added by this review after reading DiophantineApproximationAndTranscendencePartII AA.4.
+
 ## Suggested Lean coverage
 
-[The suggested file](../suggested/ModularFormsPartII.lean) is provisional and nonexhaustive; this document is definitive. It contains light definitions of weak holomorphy, integral Fourier expansion, bounded rational denominators, the actual eta-quotient λ, and the vector slash law over carriers available at the pins. It states selected closure, λ, unbounded-denominator, effective-span and derivative milestones, with representative examples. Its predicates keep analytic cusp-germ and period hypotheses explicit. The vector slash statement uses SL₂ and starts after scalar component modularity; the README's projective and growth hypotheses enter the component theorem before that linear-algebra milestone.
+[The suggested file](../suggested/ModularFormsPartII.lean) is provisional and nonexhaustive; this document is definitive. It contains light definitions of weak holomorphy (a stand-in for the QSeriesPartitionsAndMockModularForms QM.3 carrier, which is not at the pins), integral Fourier expansion, bounded rational denominators, the actual eta-quotient λ, and the vector slash law over carriers available at the pins. It states selected closure, λ, unbounded-denominator, effective-span and derivative milestones, with representative examples. Its predicates keep analytic cusp-germ and period hypotheses explicit. The vector slash statement uses SL₂ and starts after scalar component modularity; the README's projective and growth hypotheses enter the component theorem before that linear-algebra milestone.
 
-Field-span carriers with their analytic comparison, continuous cohomology, arithmetic H/V, regular-singular differential modules, the full vector-valued and quasimodular bundles, deficient-place witnesses and arithmetic models are specified above with their complete API and tests. Their construction requires mathematics beyond the pinned carriers and belongs in the implementation directed by this document. They are not replaced by unspecified proposition fields or unimplemented data in the compact prototype. Existing derivatives, theta functions and modular-form carriers remain imports.
+Field-span carriers with their analytic comparison, the imported holonomic spans, the minimal operators of components, the full vector-valued and quasimodular bundles, deficient-place witnesses and arithmetic models are specified above with their complete API and tests. Their construction requires mathematics beyond the pinned carriers and belongs in the implementation directed by this document. They are not replaced by unspecified proposition fields or unimplemented data in the compact prototype. Existing derivatives, theta functions and modular-form carriers remain imports.
 
 ## Source and route inventory
 
-The published article is used for the modular targets and applications, with its analytic tools imported by exact contracts. The elementary signed Wohlfahrt argument has a separate primary source. Page numbers below are the source's printed page numbers; the CDT25 PDF begins at journal page 627. All mathematical statements and source descriptions in this document are written in our own words.
+The published article is used for the modular targets and applications, with its analytic tools imported from their atlas owners. The elementary signed Wohlfahrt argument has a separate primary source. Page numbers below are the source's printed page numbers; the CDT25 PDF begins at journal page 627. All mathematical statements and source descriptions in this document are written in our own words.
 
 - **CDT25:** Frank Calegari, Vesselin Dimitrov and Yunqing Tang, [The unbounded denominators conjecture](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf), J. Amer. Math. Soc. 38 (2025), 627–702; published author offprint.
   SHA-256: `867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e`.
@@ -2367,7 +2004,7 @@ The published article is used for the modular targets and applications, with its
   SHA-256: `47b1b84db45e4e774a8705d75df323558352885c7a81e3f786b9cd0168d55ef6`.
   Reading boundary: §3, Lemma 7, proof of Proposition 3, equation (1) and Remark 8, pp.4–6.
 
-The paper extraction is a routing lead, not an independent proof source. All 60 items in its `NoncongruenceModularForms` route are accounted for below by the stable target ids. One route item can require several targets when a proof bridge has to be separated. Imported generic theories remain with their suppliers. The questions about logarithmic vector-valued forms, archimedean deficient places and finiteness of deficient-place sets are not asserted as theorems.
+The paper extraction is a routing lead, not an independent proof source. All 60 items in its `NoncongruenceModularForms` route are accounted for below. Items whose mathematics another roadmap already plans list that owner's node; Lemma 4.5.12 is not planned here. The questions about logarithmic vector-valued forms, archimedean deficient places and finiteness of deficient-place sets are not asserted as theorems.
 
 | Extraction item | Targets |
 | --- | --- |
@@ -2398,24 +2035,24 @@ The paper extraction is a routing lead, not an independent proof source. All 60 
 | `PAPER-CALEGARI-DIMITROV-TANG-25/thm-4.3.2` | `ModularFormsPartII:W5/degree-doubling` |
 | `PAPER-CALEGARI-DIMITROV-TANG-25/index-formula-4.3.3` | `ModularFormsPartII:W5/congruence-degree` |
 | `PAPER-CALEGARI-DIMITROV-TANG-25/prop-4.3.5` | `ModularFormsPartII:W5/leveraging-contradiction` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.4.1` | `ModularFormsPartII:W5/nonabelian-ihara` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.4.4` | `ModularFormsPartII:W5/triple-surjectivity` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/generation-4.4.9` | `ModularFormsPartII:W5/generation` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/def-4.5.1` | `ModularFormsPartII:W4/congruence-class` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/completed-h1` | `ModularFormsPartII:W4/completed-h1` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/thm-4.5.2` | `ModularFormsPartII:W4/all-level-invariants` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/cor-4.5.3` | `ModularFormsPartII:W4/difference-criterion` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.4` | `ModularFormsPartII:W4/finite-schur` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.5` | `ModularFormsPartII:W4/finite-low-cohom` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.6-h1` | `ModularFormsPartII:W4/local-h1` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.6-h2` | `ModularFormsPartII:W4/local-h2-preliminary` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.9-isomorphisms` | `ModularFormsPartII:W4/product-h2` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.9-vanishing` | `ModularFormsPartII:W4/restriction-h2` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/diagram-4.5.10` | `ModularFormsPartII:W4/hs-comparison` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.11` | `ModularFormsPartII:W4/small-level-invariants` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.12` | `ModularFormsPartII:W4/local-h2-final`, `ModularFormsPartII:W4/integral-local-h2` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/sl2z-cohomology` | `ModularFormsPartII:W4/sl2z-cohom` |
-| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.6.3` | `ModularFormsPartII:W5/enhanced-ihara` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.4.1` | `ModularFormsPartII:W4/nonabelian-ihara` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.4.4` | `ModularFormsPartII:W4/triple-surjectivity` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/generation-4.4.9` | `ModularFormsPartII:W4/generation` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/def-4.5.1` | `ModularCurvesPartII:R14.4/congruence-classes` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/completed-h1` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/thm-4.5.2` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/cor-4.5.3` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.4` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.5` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.6-h1` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.6-h2` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.9-isomorphisms` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.9-vanishing` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/diagram-4.5.10` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.11` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.5.12` | not planned (see packet note) |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/sl2z-cohomology` | `ModularCurvesPartII:R14.4/congruence-invariance` |
+| `PAPER-CALEGARI-DIMITROV-TANG-25/lemma-4.6.3` | `ModularCurvesPartII:R14.4/enhanced-ihara` |
 | `PAPER-CALEGARI-DIMITROV-TANG-25/example-5.1.22` | `ModularFormsPartII:W2/small-uniformizations` |
 | `PAPER-CALEGARI-DIMITROV-TANG-25/thm-7.2.1-algebraicity` | `ModularFormsPartII:W7/ode-algebraicity` |
 | `PAPER-CALEGARI-DIMITROV-TANG-25/thm-7.2.1-congruence` | `ModularFormsPartII:W7/ode-congruence` |
