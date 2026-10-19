@@ -14,7 +14,7 @@ The pinned baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` with 
 
 The reviewed audit is `data/library-coverage.json`, AUDIT-15, especially PadicFamilies L0–L5 and the overconvergent coefficient layers O0–O8. Its positive Fitting finding was confirmed in source. The current read-only Tau Ceti tree was also searched at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` (current Mathlib `6b7abb3c7686292736be2955bd3eb9ebf63b456a`). No implementation of the new higher coherent-family or Sen–Cousin carriers was found in that search. This is a scoped source-search result, not an assertion that an index is exhaustive.
 
-Current upstream AdicSpaces and AlgebraicVectorBundles were read in full. The former owns analytic/formal comparison and the latter owns ordinary vector-bundle foundations. Current IntegralHeckeAndGaloisDeterminants already plans finite Hecke images, derived ordinary summands, telescope comparisons and the ghost-nilpotence bound for bounded finite complexes. Current SmoothRepresentationsOfLocalGroups already plans the positive genus-two Klingen Hecke algebra. Those generic constructions stay with their owners. The new geometric formulas below must match their conventions. The finite-dimensional Verma stage of current LieHighestWeight was checked: it does not provide completed category O or analytic localization. That missing continuation is explicit, and the unrelated nilpotent-orbit roadmap is not used as its substitute.
+Current upstream AdicSpaces and AlgebraicVectorBundles were read in full. The former supplies Huber/adic-space foundations, with the analytic/formal comparison requested from AdicSpacesPartII; the latter owns ordinary vector-bundle foundations. Current IntegralHeckeAndGaloisDeterminants already plans finite Hecke images, derived ordinary summands, telescope comparisons and the ghost-nilpotence bound for bounded finite complexes. Current SmoothRepresentationsOfLocalGroups already plans the positive genus-two Klingen Hecke algebra. Those generic constructions stay with their owners. The new geometric formulas below must match their conventions. The algebraic Verma stage of current LieHighestWeight was checked: its Lie algebra is finite-dimensional, but Verma modules need not be. It does not provide the canonical completion/continuous-dual analytic localization required here. That missing continuation is explicit, and the unrelated nilpotent-orbit roadmap is not used as its substitute.
 
 The following exact imported declarations organize the interface. Each is a planned declaration of its supplier, with that supplier’s hypotheses and open obligations; it is not a baseline implementation.
 
@@ -46,12 +46,12 @@ The PEL continuation branch allows the BPS unramified type-A/C data; the Hilbert
 
 - **P0 — PEL degrees and normalized correspondences.** Fix Morita-normalized degrees, the multi-place Iwahori correspondences and their scalar factors. Prove degree monotonicity and the uniform progress estimate used by continuation.
 - **P1 — PEL analytic continuation and classicality.** Construct the bad-complement filtration and Kassaei path sums. Prove bounded gluing and algebraization under an explicit positive-weight strict inequality; state the boundary and dimension hypotheses.
-- **K2 — Singular Siegel weight: spherical and slope refinements.** Extend the imported Klingen complex by the spherical operator, rank-zero nilpotence, a corrected BGG slope comparison, and the localized Euler theorem. Keep the stronger torsion claim as a conjectural boundary.
-- **H3 — Hilbert partial-ordinary Hida complexes.** Build the multivariable height-one tower, universal coefficient sheaf and normalized commuting operators. Prove fixed-weight amplitude and derived family control, keeping the precise degree-zero and degree-one spherical comparison.
-- **D4 — Hilbert weight-two doubling.** Define the partial Frobenius and its normalized trace actions. Prove the quadratic operator relation, generalized-eigenspace doubling injection and the two unit-root projectors without importing the stronger auxiliary vanishing theorem.
+- **K2 — Singular Siegel weight: spherical and slope refinements.** Extend the imported Klingen complex by the spherical operator, rank-zero nilpotence and special-fiber rank-open amplitude, a corrected BGG slope comparison, and the localized Euler theorem. Keep the stronger torsion claim as a conjectural boundary.
+- **H3 — Hilbert partial-ordinary Hida complexes.** Build the multivariable height-one tower, universal coefficient sheaf and normalized commuting operators. Prove cuspidal amplitude on the spherical special-fiber mixed-rank open and, separately, integral derived family control, keeping the H⁰/H¹ global restriction endpoints.
+- **D4 — Hilbert weight-two doubling.** Define partial Frobenius on the interior special fiber and its normalized integral trace actions. Prove the quadratic relation, generalized-eigenspace doubling injection and two unit-root projectors; retain the domains when extending the cohomological action.
 - **C5 — Hilbert higher Coleman families and comparison.** Use analytic coefficient torsors on all mixed loci, finite perfect slope blocks and corrected relative BGG scaling. Prove multi-place small-slope continuation, then the rational one-Klingen-place ordinary comparison.
-- **E6 — Completed cohomology and Eichler–Shimura.** Bind the completed tower to coherent analytic localization. Construct the higher-Coleman spectral sequence and its arithmetic Sen action, with the ordinary degree indexing and the genus-two boundary localization explicit.
-- **S7 — Singular Sen operator and classicality.** At λ=(1,1;w), construct the two-step repeated Sen block. Identify its nilpotent map with the supported Cousin differential and deduce classicality from a de Rham eigenpacket with balanced four-piece multiplicities.
+- **E6 — Completed cohomology and Eichler–Shimura.** Bind the completed tower to analytic localization of O(𝔤,𝔟)_{λ-alg} through its canonical completion and continuous dual. Construct the higher-Coleman spectral sequence and arithmetic Sen action, with ordinary degree indexing and the genus-two boundary localization explicit.
+- **S7 — Singular Sen operator and classicality.** At λ=(1,1;w), construct the repeated Sen block. Identify its nilpotent map with the supported Cousin differential and deduce classicality for a de Rham eigenpacket under the independent four-piece balance assumption of BCGP25 Theorem 4.12.4(3).
 - **F8 — Four integral projective Hida modules.** Extract the four finite projective genus-two modules from the imported ordinary complexes. Prove classical and higher-Coleman specialization, integral duality, tame group-ring projectivity and fixed-central-character base change.
 
 The following targets carry their exact packet identifiers. Proposed declaration names and tests on heavy carriers are specifications for the future library; the compact Lean file includes only light statements available at the pins.
@@ -242,15 +242,15 @@ On a quasi-compact degree box let N(x,β) count complements of Morita degree at 
 
 ### First-good path decomposition — `P1/path-decomposition`
 
-For every N, U_i^N is the sum of all length≤N paths whose first good step is specified, followed by the all-bad length-N remainder. The labels form a finite lexicographically ordered tree compatible with the bad-count strata and their strict neighborhoods.
+For N≥1, partition every length-N correspondence path by its first good step: T_j consists of j bad steps followed by one good step, for 0≤j<N, and R_N consists of N bad steps. In the source’s correspondence-composition convention, U_i^N=Σ_{j=0}^{N−1}U_i^{N−1−j}∘T_j+R_N, where the left factor supplies the remaining arbitrary steps. After contravariant pullback the first-good terms give the ordered bad-then-good section operators in the Kassaei sum. The labels form a finite ordered tree compatible with the bad-count strata and their strict neighborhoods.
 
 **Proof plan.** Induct on N by replacing each all-bad remainder by its next good and bad parts. Use the strict-neighborhood preservation of Proposition 4.3.10 to make every composed correspondence defined. Use individual coordinate maps to verify quasi-compactness at every finite level.
 
 **Direct inputs.** `PadicFamiliesPartII:P1/bad-filtration`; `PadicFamiliesPartII:P1/first-extension`.
 
-**Source.** BPS, Proposition 4.3.10, p. 1000; Theorem 4.4.1 and Lemma 4.4.3, pp. 1001–1003. Makes iterated operators and their domains explicit.
+**Source.** BPS, Proposition 4.3.10 and Theorem 4.4.1, pp. 1000–1001; Lemma 4.4.3, p. 1003. Makes iterated operators and their domains explicit.
 
-**Acceptance.** For N=1 the identity is U=U_good+U_bad; for N=2 the first-good terms and the all-bad remainder each occur exactly once.
+**Acceptance.** At N=2 the four good/bad words all occur exactly once; the first-good term at step j+1 has N−j−1 further steps. Domains and operator order are checked before passing from correspondences to sections.
 
 ### Bad-path contraction — `P1/contraction`
 
@@ -376,21 +376,21 @@ There is C(p), independent of tame level, such that for k≥C(p),r≥p²+p the o
 
 **Direct inputs.** `PadicFamiliesPartII:K2/spherical`.
 
-**Source.** P20, Proposition 7.4.2.2 and Lemmas 7.4.2.3–7.4.2.6, pp. 49–50. The key vanishing behind the two-term spherical complex.
+**Source.** P20, Proposition 7.4.2.2, pp. 49–50; Lemma 7.4.2.6, p. 50. The key vanishing behind the two-term spherical complex.
 
 **Acceptance.** The nilpotence bound is independent of tame level, and passage to a thickening retains a quantitative power rather than asserting immediate vanishing there.
 
 ### Spherical ordinary amplitude — `K2/spherical-amplitude`
 
-For k>p+1,r≥2 the T-action is locally finite. For k≥C(p),r≥2, e(T)RΓ(X,Ω(k,r)(−D)) is perfect of amplitude [0,1]. Restriction to the rank≥1 open is a quasi-isomorphism when r≥3; at r=2 it is an isomorphism on H⁰ and injective on H¹.
+Write X₁ for the spherical special fiber over F_p and X₁^{≥1} for its p-rank≥1 open. For k>p+1,r≥2 the T-action on RΓ(X₁^{≥1},Ω(k,r)(−D)) is locally finite. For k≥C(p),r≥2 its ordinary part e(T)RΓ(X₁^{≥1},Ω(k,r)(−D)) is a perfect F_p-complex of amplitude [0,1]. The restriction from the global spherical X₁ ordinary complex is a quasi-isomorphism when r≥3; at r=2 it is an isomorphism on H⁰ and injective on H¹. Thus the same global amplitude follows here only for r≥3. No integral global amplitude is inferred from this special-fiber theorem.
 
 **Proof plan.** Build the two-term Hasse resolution over the minimal compactification. Use relative acyclicity and affine rank-one/rank-two minimal strata. Remove the rank-zero contribution by nilpotence and use the exact support sequence; retain the r=2 endpoint.
 
-**Direct inputs.** `PadicFamiliesPartII:K2/rank-zero`; `HigherHidaAndColemanTheory:D1/ordinary-localization`.
+**Direct inputs.** `PadicFamiliesPartII:K2/rank-zero`; `HigherHidaAndColemanTheory:D1/ordinary-localization`; `ShimuraCompactifications:C5`.
 
-**Source.** P20, Lemma 8.2.1 and Proposition 8.2.1, pp. 53–54. Provides the spherical precursor without strengthening the endpoint.
+**Source.** P20, Lemma 8.2.1, pp. 52–53; Proposition 8.2.1, pp. 53–54. The local-finiteness and [0,1] conclusions concern X₁^{≥1}; the separate restriction statement has the r=2 endpoint.
 
-**Acceptance.** At r=2 the endpoint comparison remains H⁰-isomorphic/H¹-injective; the higher quasi-isomorphism assertion uses r≥3.
+**Acceptance.** The [0,1] assertion is on the spherical rank≥1 special fiber. For r=2 the global-to-open map supplies only H⁰-isomorphism and H¹-injectivity; higher global cohomology is not discarded.
 
 ### Klingen extension threshold — `K2/extension-bound`
 
@@ -446,7 +446,7 @@ For k,r≥0, 0≤ε<1 and a nonzero finite U-slope block whose roots all have va
 
 **Source.** P20, §14.6, pp. 97–99; Lemma and Theorem 14.7.1, pp. 99–100. Extends eigenvectors and generalized finite-slope blocks through increasing torsion precision.
 
-**Acceptance.** A nonzero-slope block with a nontrivial Jordan part uses the inverse polynomial modulo its annihilator, rather than an inverse of a single selected eigenvalue.
+**Acceptance.** A nonzero-slope block with a nontrivial Jordan part uses the inverse polynomial modulo its annihilator, rather than an inverse of a single selected eigenvalue. For P=X²+2X+1 and U=−1, R=−(P−P(0))/P(0) satisfies R(U)=1; omitting the coefficient 2 in its linear term gives 0. This distinguishes the continuation polynomial R=XQ from the inverse polynomial Q.
 
 **Open proof leaves.** Finite-block topology in torsion comparison; Klingen integral analytic lattice estimates.
 
@@ -488,13 +488,13 @@ Write ω^κ=⊗_v Sym^{k_v−l_v}(ω_v)det(ω_v)^{l_v}, k_v≥l_v, k_v≡l_v mod
 
 ### Hilbert mixed ordinary locus — `H3/mixed-locus`
 
-For I⊆S_p let X^{≥1,I} be the spherical locus of p-rank at least one at v∈I and ordinary at v∈Iᶜ. At mixed Klingen/Iwahori level select the open-and-closed component with distinguished H_v multiplicative for v∈I and the specified ordinary flag for v∈Iᶜ. It is strictly smaller than the unrestricted inverse image of the rank locus. Let the partial Igusa tower trivialize T_p(H_{∞,v}ᴰ) at every v and T_p((G_v^m/H_{∞,v})ᴰ) additionally at v∈Iᶜ.
+For I⊆S_p let X^{≥1,I} be the spherical locus of p-rank at least one at v∈I and ordinary at v∈Iᶜ. At mixed Klingen/Iwahori level select the open subscheme with distinguished H_v multiplicative for v∈I and the specified ordinary flag for v∈Iᶜ. It is strictly smaller than the unrestricted inverse image of the rank locus. Let the partial Igusa tower trivialize T_p(H_{∞,v}ᴰ) at every v and T_p((G_v^m/H_{∞,v})ᴰ) additionally at v∈Iᶜ.
 
-**Proof plan.** Use the height-one maximal multiplicative p-divisible subgroup over the imported rank strata. Form the affine étale tower and its torsor of Tate-module trivializations. Retain the selected flag component and boundary log structure.
+**Proof plan.** Use the height-one maximal multiplicative p-divisible subgroup over the imported rank strata. Form the affine étale tower and its torsor of Tate-module trivializations. Retain the selected multiplicative-flag open and boundary log structure.
 
 **Direct inputs.** `PELModuli:M2`; `HodgeTateAndCanonicalSubgroups:T5`.
 
-**Source.** BCGP21, §§4.1–4.3, pp. 73–74, 83–98. Specifies the partial-ordinary geometry and the two character coordinates outside I.
+**Source.** BCGP21, §4.1, pp. 73–74; §4.3.4, pp. 96–97. Defines the selected multiplicative-flag open and the partial tower; no clopen decomposition of the full rank-locus preimage is asserted.
 
 **API.**
 
@@ -586,7 +586,7 @@ On the universal coefficient complex use U_{v,1} at Iwahori places, normalized b
 
 ### Hilbert fixed-weight amplitude — `H3/fixed-amplitude`
 
-There is C(p,F), independent of tame level, such that l_v≥2 everywhere, k_v−l_v≥C for v∈I and l_v≥C for v∈Iᶜ imply local finiteness of T^I=∏_{v∈I}T_v∏_{v∈Iᶜ}T_{v,1} and perfect cuspidal ordinary cohomology in [0,|I|]. Restriction to the mixed rank locus is H⁰-isomorphic and H¹-injective; it is a quasi-isomorphism if l_v≥3 for every v∈I. The corresponding generalized ≤1/≥1/ordinary partial strata obey the same support-dependent endpoint statements.
+Let X_{G₁,1}^{I} denote the spherical special-fiber open of rank≥1 at v∈I and ordinary at v∈Iᶜ. There is C(p,F), independent of tame level, such that l_v≥2 everywhere, k_v−l_v≥C for v∈I and l_v≥C for v∈Iᶜ imply local finiteness of T^I=∏_{v∈I}T_v∏_{v∈Iᶜ}T_{v,1} on its cuspidal cohomology and perfect ordinary F_p-cohomology of amplitude [0,|I|]. Restriction from the global spherical special fiber to this open is H⁰-isomorphic and H¹-injective; it is a quasi-isomorphism if l_v≥3 for every v∈I. The generalized ≤1/≥1/ordinary partial strata in Theorem 4.2.12 have the stated perfectness and support-dependent endpoint comparisons, without an additional uniform numerical amplitude claim. Integral formal-family control is a separate theorem in H3.
 
 **Proof plan.** Use partial Hasse invariants and their companion sections to form the |I|+1-term supported resolution. Use relative minimal-compactification acyclicity and affineness of its rank strata. Eliminate rank-zero pieces by local nilpotence and trace the support triangle; do not assert the cuspidal amplitude for arbitrary canonical coefficients.
 
@@ -594,7 +594,7 @@ There is C(p,F), independent of tame level, such that l_v≥2 everywhere, k_v−
 
 **Source.** BCGP21, Theorems 4.2.1 and 4.2.12, pp. 77–82; §4.2.30, Lemma 4.2.31, Proposition 4.2.33 and Remark 4.2.34, pp. 92–94. Establishes multivariable fixed-weight control with correct endpoints.
 
-**Acceptance.** I empty gives ordinary amplitude [0,0], and a single Klingen place gives [0,1]. The l_v=2 endpoint does not become a spherical quasi-isomorphism by notation.
+**Acceptance.** The numerical [0,|I|] bound is for cuspidal ordinary cohomology of the spherical mixed-rank special-fiber open. The l_v=2 global comparison has only the stated H⁰/H¹ endpoints. Generalized supported strata retain their own perfectness and comparison conclusions.
 
 ### Hilbert Hida family complex — `H3/family-complex`
 
@@ -620,7 +620,7 @@ Define M_I=e(U^I)RΓ(formal mixed-level infinite height-one tower,Ω^{κ_I}(−D
 
 - `TauCeti.PadicFamiliesPartII.hilbertComplex_Iempty` (degenerate): For I=∅ the stated amplitude is [0,0].
 
-- `TauCeti.PadicFamiliesPartII.hilbertComplex_FQ` (compatibility): For F=Q,I={p}, the formal complex agrees with the imported singular Klingen construction after matching the determinant and character convention.
+- `TauCeti.PadicFamiliesPartII.hilbertComplex_FQ` (compatibility): For F=Q,I={p}, compare with the imported singular Klingen complex after base change from its full Z_p[[Z_p×]] to the trivial finite-character component used by Λ_I=Z_p[[1+pZ_p]], and match the determinant and character convention.
 
 - `TauCeti.PadicFamiliesPartII.hilbertComplex_derived` (non-example): Before flatness, ordinary H^j⊗κ is not substituted for the derived fiber.
 
@@ -684,7 +684,7 @@ Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doub
 
 ### Partial Frobenius on the rank-one divisor — `D4/partial-frobenius`
 
-On the special fiber in characteristic p, let D_w be the nonordinary rank-one divisor within the w-rank≥1 locus. The partial Frobenius F_w quotients by ker(Frob G_w) at w and by A[v] at v≠w, with polarization p²x_wλ and transported tame level. It is finite flat of degree p³ on the rank locus and p² on D_w, and F_w^*ω_w=ω_w^p. The polarization and tame identifications remain part of the map.
+Work on the interior Y₁^I of the mixed multiplicative-flag special fiber, and let D_w=Y₁^{I,=w1} be its nonordinary rank-one divisor. The map F_w:Y₁^I→Y₁^I quotients by ker(Frob G_w) at w and by A[v] at v≠w, with polarization descended from p²x_wλ and tame marking p⁻¹πη, where π is the quotient isogeny. It is finite flat of degree p³ on Y₁^I and p² on D_w, and F_w^*ω_w≃ω_w^p. The polarization and tame identifications remain part of the map. Extending these finite-flat statements to a toroidal boundary is not asserted.
 
 Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doubling assertions in this layer are on the special fiber in characteristic p, after constructing the normalized correspondence maps integrally. Write X₁ for that special fiber; the abstract companion calculation alone works over any commutative coefficient ring.
 
@@ -692,13 +692,13 @@ Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doub
 
 **Direct inputs.** `PadicFamiliesPartII:H3/mixed-locus`.
 
-**Source.** BCGP21, Definition 5.6.2 and Proposition 5.6.3, pp. 126–127. Constructs the geometric Frobenius used by the trace factorization.
+**Source.** BCGP21, Definition 5.6.2 and Proposition 5.6.3, p. 126. The map and both finite-flat degree assertions are on the interior special fiber and its rank-one divisor.
 
 **API.**
 
 - `TauCeti.PadicFamiliesPartII.hilbertPartialFrobenius` (constructor): The polarized partial-primary quotient with its level transport.
 
-- `TauCeti.PadicFamiliesPartII.hilbertPartialFrobenius_degree` (data): Its degrees are p³ on the rank locus and p² on D_w.
+- `TauCeti.PadicFamiliesPartII.hilbertPartialFrobenius_degree` (data): Its degrees are p³ on the interior Y₁^I and p² on its divisor D_w.
 
 - `TauCeti.PadicFamiliesPartII.hilbertPartialFrobenius_hodge` (compatibility): F_w^*ω_w≃ω_w^p.
 
@@ -718,23 +718,23 @@ Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doub
 
 ### Isogeny-compatible Kodaira–Spencer scaling — `D4/kodaira-spencer`
 
-The Kodaira–Spencer identification of the canonical sheaf with the product of determinant Hodge cubes is compatible with the relevant O_F-linear isogenies over Z_(p), including partial Frobenius. On the w-factor the normalization contributes Norm(x_w)³. Consequently Ha_w U_Iw extends to the rank-one locus and its restriction is the normalized Frobenius trace γ₁.
+The O_F-linear Kodaira–Spencer identification of the canonical sheaf with the product of determinant Hodge cubes has the isogeny compatibility of BCGP21 Proposition 5.5.1 for prime-to-p quasi-isogenies over Z_(p). For the first p-correspondence, first form its normalized cohomological trace integrally using Propositions 5.5.2–5.5.3 and 5.6.1. The factor Norm(x_w)³/p³ is an integral unit. After reduction to the interior rank-one divisor and the coefficient identifications of §5.6, Ha_w U_Iw restricts to the normalized partial-Frobenius trace γ₁. A raw inseparable differential is not substituted into the prime-to-p statement.
 
 Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doubling assertions in this layer are on the special fiber in characteristic p, after constructing the normalized correspondence maps integrally. Write X₁ for that special fiber; the abstract companion calculation alone works over any commutative coefficient ring.
 
-**Proof plan.** Use the de Rham pairing and the differential of an O_F-linear isogeny. Extend the compatibility beyond prime-to-p isogenies by the integral formula, with the polarization factor retained. Apply finite-flat duality to the restricted partial Frobenius.
+**Proof plan.** Use the de Rham pairing and prime-to-p quasi-isogeny compatibility of Kodaira–Spencer with its polarization factor. Form the normalized integral correspondence trace before reduction; track the norm-cube and p³ factors through the canonical-sheaf map. Use the partial-Frobenius identification on the interior divisor and finite-flat duality to identify γ₁.
 
 **Direct inputs.** `PadicFamiliesPartII:D4/partial-frobenius`; `PadicFamiliesPartII:D4/first-operator`; `SchemeAndStackFoundations:key/coherent-duality`; `AutomorphicBundles:B2`; `SchemeAndStackFoundations:SF.2`.
 
-**Source.** BCGP21, Proposition 5.5.1, pp. 124–125; Proposition 5.6.7, pp. 128–129. Justifies the trace scaling at the inseparable correspondence.
+**Source.** BCGP21, Propositions 5.5.1–5.5.3, pp. 123–124; Proposition 5.6.1, p. 125; Propositions 5.6.4–5.6.7, pp. 127–128. Identifies the special-fiber trace through an integral normalization, not through an unnormalized inseparable pullback.
 
-**Acceptance.** The same coefficient normalization holds for partial Frobenius, a p-isogeny, as for the prime-to-p comparison; the norm-cube factor is retained.
+**Acceptance.** The prime-to-p quasi-isogeny compatibility and the normalized integral p-correspondence are separate steps. The factor Norm(x_w)³/p³ is retained before reduction to the partial-Frobenius trace.
 
 **Open proof leaves.** Integral fundamental-class trace extension.
 
 ### Second operator on the rank-one divisor — `D4/second-operator`
 
-The U_{w,2} correspondence has first projection finite flat of degree p⁴. On D_w its second projection is an isomorphism and its first projection identifies with F_w². The isogeny divided by p gives the determinant unit δ; with this unit retained, the normalized restriction satisfies U_{w,2}=γ₂γ₁.
+On the interior formal locus Y^I, the U_{w,2} correspondence has first projection finite flat of degree p⁴. On the interior special-fiber divisor D_w=Y₁^{I,=w1}, its second projection is an isomorphism and its first projection identifies with F_w². The isogeny differential divided by p gives the determinant unit δ; with this unit retained, the normalized restriction satisfies U_{w,2}=γ₂γ₁. The finite-flat degree assertion is not extended to the toroidal boundary.
 
 Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doubling assertions in this layer are on the special fiber in characteristic p, after constructing the normalized correspondence maps integrally. Write X₁ for that special fiber; the abstract companion calculation alone works over any commutative coefficient ring.
 
@@ -742,7 +742,7 @@ Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doub
 
 **Direct inputs.** `PadicFamiliesPartII:D4/kodaira-spencer`; `PadicFamiliesPartII:H3/operators`; `SchemeAndStackFoundations:key/coherent-duality`; `SchemeAndStackFoundations:SF.2`.
 
-**Source.** BCGP21, Lemma 5.7.2 and Propositions 5.7.3 and 5.7.9, pp. 130–133. Provides the factorization needed for the operator relation.
+**Source.** BCGP21, Lemma 5.7.2 and Proposition 5.7.3, p. 129; Proposition 5.7.4, p. 130; Proposition 5.7.9, pp. 131–132. Provides the factorization needed for the operator relation.
 
 **Acceptance.** The ambient degree p⁴ agrees with the degree of F_w² on the divisor, where F_w has degree p². The determinant unit is included in the coefficient comparison.
 
@@ -798,7 +798,7 @@ Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doub
 
 ### No everywhere-regular simultaneous eigenvector — `D4/no-global-eigenvector`
 
-In scalar weight two, an everywhere-regular eigenform satisfying U_Kli=α+β, U_Iw=α, U_{w,2}=αβ with αβ≠0 is zero. The same excludes a nonzero generalized-eigenspace kernel of the geometric doubling map.
+In scalar weight two, an eigenform regular on the whole mixed rank open X_{G₁,1}^{I} satisfying U_Kli=α+β, U_Iw=α, U_{w,2}=αβ with αβ≠0 is zero. The same excludes a nonzero generalized-eigenspace kernel of the geometric doubling map.
 
 Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doubling assertions in this layer are on the special fiber in characteristic p, after constructing the normalized correspondence maps integrally. Write X₁ for that special fiber; the abstract companion calculation alone works over any commutative coefficient ring.
 
@@ -806,7 +806,7 @@ Additional hypothesis: The geometric Frobenius, rank-divisor, quadratic and doub
 
 **Direct inputs.** `PadicFamiliesPartII:D4/quadratic`; `PadicFamiliesPartII:D4/kodaira-spencer`; `PadicFamiliesPartII:D4/second-operator`.
 
-**Source.** BCGP21, Proposition 5.4.3 and Corollary 5.4.5, pp. 123–124; Theorem 5.8.4, p. 134. The vanishing actually needed for the injection, without the stronger §5.9 theorem.
+**Source.** BCGP21, Proposition 5.4.3 and Corollary 5.4.5, pp. 122–123; Theorem 5.8.4, p. 134. The vanishing actually needed for the injection, without the stronger §5.9 theorem.
 
 **Acceptance.** The two cases of vanishing and nonvanishing restriction to D_w exhaust the possibilities; the argument treats a generalized Hecke kernel by extracting a genuine eigenvector.
 
@@ -856,7 +856,7 @@ For a weight affinoid A in the specified Λ_I component and radii (n,ε,w), desc
 
 **Direct inputs.** `PadicFamiliesPartII:H3/mixed-locus`; `PadicFamiliesPartII:H3/universal-coefficients`; `HigherHidaAndColemanTheory:F5/analytic-sheaves`; `HodgeTateAndCanonicalSubgroups:T5`.
 
-**Source.** BCGP21, §§6.1–6.3, pp. 138–149. Defines the specific multivariable Coleman family.
+**Source.** BCGP21, §6.1, pp. 138–145; §6.3, pp. 147–152. Defines the specific multivariable Coleman family.
 
 **API.**
 
@@ -902,7 +902,7 @@ The operator U_{v,2} improves analytic radii for v∈I. For v∈Iᶜ the composi
 
 **Direct inputs.** `PadicFamiliesPartII:C5/analytic-amplitude`; `PadicFamiliesPartII:H3/operators`; `HigherHidaAndColemanTheory:F5/perfect-slopes`; `HodgeTateAndCanonicalSubgroups:T5`.
 
-**Source.** BCGP21, §6.3, pp. 147–151, especially Propositions 6.3.4–6.3.14. Identifies the compact operator actually used by the family machine.
+**Source.** BCGP21, §6.3, pp. 147–152, especially Propositions 6.3.4–6.3.14. Identifies the compact operator actually used by the family machine.
 
 **Acceptance.** At an Iwahori place the compactness argument uses U_{v,1}U_{v,2}; replacing it by U_{v,2} alone must fail the specified kernel/radius check.
 
@@ -914,7 +914,7 @@ On germs of analytic radii, use the product of the GL₂ relative BGG sequences.
 
 **Direct inputs.** `PadicFamiliesPartII:K2/bgg-scaling`; `PadicFamiliesPartII:C5/analytic-complex`; `HigherHidaAndColemanTheory:F5/automorphic-bgg`.
 
-**Source.** BCGP21, §6.4, pp. 151–154. Fixes the operator direction and degree-dependent comparison.
+**Source.** BCGP21, §6.4, pp. 153–154. Fixes the operator direction and degree-dependent comparison.
 
 **Acceptance.** At gap k_v−l_v=3, the reflected all-degree ordinary contribution is excluded by the ≥−3 bound; H⁰ uses the stronger lower bound 0.
 
@@ -926,7 +926,7 @@ On a joint finite nonzero slope block, restriction of classical coherent cohomol
 
 **Direct inputs.** `PadicFamiliesPartII:C5/compact-action`; `PadicFamiliesPartII:C5/hilbert-bgg`; `PadicFamiliesPartII:K2/torsion-continuation`; `PadicFamiliesPartII:P0/uniform-progress`.
 
-**Source.** BCGP21, Theorem 6.5.8, p. 156; Lemmas 6.5.12–6.5.28, pp. 157–162. Provides cohomological continuation in the actual local slope coordinates.
+**Source.** BCGP21, Theorem 6.5.8, p. 156; Lemmas 6.5.12–6.5.28, pp. 157–164. Provides cohomological continuation in the actual local slope coordinates.
 
 **Acceptance.** The inequalities are strict at every relevant place. All other degree coordinates and joint finite-block actions survive each successive continuation.
 
@@ -940,7 +940,7 @@ The alternating rank of the U^I-ordinary finite perfect block is locally constan
 
 **Direct inputs.** `PadicFamiliesPartII:C5/compact-action`; `PadicFamiliesPartII:C5/multi-continuation`; `PadicFamiliesPartII:H3/derived-control`; `PadicFamiliesPartII:K2/euler-zero`; `AutomorphicSpectralTheory:AS.5`; `AutomorphicBundles:B5`.
 
-**Source.** BCGP21, Theorem 6.3.16, p. 151; Proposition 6.6.2 and Remark 6.6.3, pp. 163–164. Relates virtual ranks without asserting false flatness.
+**Source.** BCGP21, Theorem 6.3.16, pp. 152–153; Proposition 6.6.2 and Remark 6.6.3, pp. 165–167. Relates virtual ranks without asserting false flatness.
 
 **Acceptance.** Only the alternating rank is constant on a connected weight component; individual cohomology dimensions can jump.
 
@@ -952,7 +952,7 @@ Assume |I|=1 and a non-Eisenstein localization with the residual irreducibility 
 
 **Direct inputs.** `PadicFamiliesPartII:C5/euler-family`; `PadicFamiliesPartII:C5/analytic-amplitude`; `PadicFamiliesPartII:H3/derived-control`.
 
-**Source.** BCGP21, Proposition 6.6.1, pp. 163–164; Theorems 6.6.4–6.6.5, pp. 164–168. Repairs the printed map-direction/Euler argument and retains the one-place bound.
+**Source.** BCGP21, Proposition 6.6.1, pp. 164–165; Theorems 6.6.4–6.6.5, p. 167. Repairs the printed map-direction/Euler argument and retains the one-place bound.
 
 **Acceptance.** For the actual map direction, the two nonnegative defects a and b satisfy χ(K†)−χ(M_I)=−a−b, so equality forces both to vanish.
 
@@ -966,21 +966,21 @@ Assume |I|=1 and a non-Eisenstein localization with the residual irreducibility 
 
 Use a Hodge-type Shimura datum with G/Q_p quasi-split, B⊂P, torus T, coefficient field E containing the reflex and splitting fields, neat tame level and compatible compactifications. Work with derived locally Q_p-analytic vectors of the completed tower; do not replace them by locally analytic vectors of individual completed cohomology groups.
 
-The higher Coleman complexes, weights κ_w(λ)=−w₀,M w(λ+ρ)−ρ, support orders, nonzero finite-slope windows and normalized torus action are those of HigherHidaAndColemanTheory. Completed category O, analytic localization and solid automorphic vector-bundle functors are requested inputs, not baseline objects.
+The higher Coleman complexes, weights κ_w(λ)=−w₀,M w(λ+ρ)−ρ, support orders, nonzero finite-slope windows and normalized torus action are those of HigherHidaAndColemanTheory. Coefficients lie in the BGG category O(𝔤,𝔟)_{λ-alg}: their weights differ from λ by algebraic torus characters. Analytic localization uses the canonical enveloping-algebra completion and its continuous dual, with the λ-action twist. This completion comparison, analytic localization and solid automorphic vector-bundle functors are requested inputs, not baseline objects.
 
 ### Coherent completed-cohomology functor — `E6/completed-functor`
 
-For M in the algebraic-weight completed category O at λ, define CC_λ(M)=RHom_𝔤(M,RΓ_completed^{la}); the cuspidal version uses the compact-support completed tower. Derived locally analytic vectors, the topology on M and the continuous derived Hom are part of the imported functors. The action of the arithmetic Galois group is inherited from the tower, not introduced as a free action on a new record.
+For M∈O(𝔤,𝔟)_{λ-alg}, define CC_λ(M)=RHom_𝔤(M,RΓ_completed^{la}); the cuspidal version uses the compact-support completed tower. Here M is the algebraic BGG object; its analytic realization uses M̂=M⊗_{U(𝔤)}Û(𝔤) and the continuous dual M̂∨, with the required λ-twist and completion comparison. Derived locally analytic vectors and the derived-Hom comparison are imported functors. The arithmetic Galois action is inherited from the tower. No extension to arbitrary topological coefficient modules is asserted.
 
-**Proof plan.** Import the derived completed tower and its compact-support triangle. Apply the continuous derived locally analytic functor and then the completed Lie-algebra derived Hom. Transport the canonical Hecke and Galois actions through the actual functors.
+**Proof plan.** Import the derived completed tower and its compact-support triangle. Use M∈O(𝔤,𝔟)_{λ-alg}, the derived locally analytic tower and the canonical completion/continuous-dual comparison for Lie-algebra derived Hom. Transport the canonical Hecke and Galois actions through the actual functors.
 
 **Direct inputs.** `CompletedCohomologyPartII:CC.2/derived-completed-tower`; `CompletedCohomologyPartII:CC.6/analytic-classical-comparison`; `LocallyAnalyticDistributions:L0`; `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`.
 
-**Source.** BCGP25, §4.7 and Theorem 4.7.1, pp. 99–100. Defines the new automorphic binding rather than reconstructing the generic completed tower.
+**Source.** BCGP25, Definition 3.4.5 and Proposition 3.4.3, p. 53; §4.7 and Theorem 4.7.1, p. 99. The automorphic functor has BGG domain O(𝔤,𝔟)_{λ-alg}; completion supplies its analytic realization.
 
 **API.**
 
-- `TauCeti.PadicFamiliesPartII.coherentCompletedFunctor` (constructor): M maps to the continuous RHom_𝔤 complex of the completed locally analytic tower.
+- `TauCeti.PadicFamiliesPartII.coherentCompletedFunctor` (constructor): M in O(𝔤,𝔟)_{λ-alg} maps to the derived RHom_𝔤 complex of the derived locally analytic completed tower.
 
 - `TauCeti.PadicFamiliesPartII.coherentCompletedFunctor_map` (functoriality): A map M→N gives CC_λ(N)→CC_λ(M), with identity and composition laws.
 
@@ -994,7 +994,7 @@ For M in the algebraic-weight completed category O at λ, define CC_λ(M)=RHom_�
 
 - `TauCeti.PadicFamiliesPartII.coherentCompleted_zero` (degenerate): The zero coefficient object gives the zero complex.
 
-- `TauCeti.PadicFamiliesPartII.coherentCompleted_derived` (non-example): Replacing the derived locally analytic tower by the collection H̃^j_la can lose extension data and is not this definition.
+- `TauCeti.PadicFamiliesPartII.coherentCompleted_triangle` (characterisation): A short exact sequence 0→M₁→M₂→M₃→0 in O(𝔤,𝔟)_{λ-alg} induces the distinguished triangle CC_λ(M₃)→CC_λ(M₂)→CC_λ(M₁)→CC_λ(M₃)[1]; the connecting morphism is induced by its Yoneda extension class.
 
 **Consumers.** BCGP25 Theorem 4.7.2: Abuts the Bruhat spectral sequence. BCGP25 Theorem 4.10.12: Retains the extension whose Sen operator measures classicality.
 
@@ -1004,9 +1004,9 @@ For M in the algebraic-weight completed category O at λ, define CC_λ(M)=RHom_�
 
 ### Completed-to-coherent localization — `E6/localization-comparison`
 
-For admissible M, CC_λ(M)⊗_E C_p is naturally equivalent to RΓ(VB_red(Loc(M))). The same comparison with the compact-support tower yields the cuspidal functor. The Galois Sen action corresponds to the horizontal µ-action on the localized equivariant sheaf.
+For M∈O(𝔤,𝔟)_{λ-alg}, CC_λ(M)⊗_E C_p is naturally equivalent to RΓ(VB_red(Loc(M))). The same comparison with the compact-support tower yields the cuspidal functor. The Galois Sen action corresponds to the horizontal µ-action on the localized equivariant sheaf.
 
-**Proof plan.** Use the supplied completed category-O analytic localization with non-Liouville conditions where required. Use the solid vector-bundle functor on the Hodge–Tate period space and its Chevalley–Eilenberg compatibility. Identify horizontal µ with arithmetic Sen through the period-map comparison; retain all topological tensor completions.
+**Proof plan.** Use the canonical completion and continuous-dual localization of the BGG coefficient; invoke non-Liouville conditions only for the exactness statements that require them. Use the solid vector-bundle functor on the Hodge–Tate period space and its Chevalley–Eilenberg compatibility. Identify horizontal µ with arithmetic Sen through the period-map comparison; retain all topological tensor completions.
 
 **Direct inputs.** `PadicFamiliesPartII:E6/completed-functor`; `HigherHidaAndColemanTheory:C4/finite-level-geometry`; `LocallyAnalyticDistributions:L0`; `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`; `PerfectoidShimuraVarieties:S3`.
 
@@ -1018,13 +1018,13 @@ For admissible M, CC_λ(M)⊗_E C_p is naturally equivalent to RΓ(VB_red(Loc(M)
 
 ### Higher Eichler–Shimura spectral sequence — `E6/spectral-sequence`
 
-For the non-Liouville parameter λ and admissible completed category-O coefficient M, there is a finite Bruhat spectral sequence E₁^{p,q}=⊕_{ℓ(w)=p} H^{p+q}(HC_{w,λ}(E⊗^L_{𝔲_{P_w}}M))⇒H^{p+q}(CC_λ(M)⊗C_p). The horizontal wµ action on each term gives the arithmetic Sen action. The coefficient Lie homology is derived; higher terms are not discarded.
+For the non-Liouville parameter λ and coefficient M∈O(𝔤,𝔟)_{λ-alg}, there is a finite Bruhat spectral sequence E₁^{p,q}=⊕_{ℓ(w)=p} H^{p+q}(HC_{w,λ}(E⊗^L_{𝔲_{P_w}}M))⇒H^{p+q}(CC_λ(M)⊗C_p). The horizontal wµ action on each term gives the arithmetic Sen action. The coefficient Lie homology is derived; higher terms are not discarded.
 
 **Proof plan.** Filter the localized sheaf by Bruhat supports using the imported supported Cousin formalism. Identify each associated graded with its supplied higher-Coleman coefficient functor. Apply derived global sections and the completed-to-coherent comparison, keeping total degrees.
 
 **Direct inputs.** `PadicFamiliesPartII:E6/localization-comparison`; `HigherHidaAndColemanTheory:C4/bruhat-cousin`; `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`.
 
-**Source.** BCGP25, Theorem 4.7.2, p. 100. Constructs the filtered comparison, including Sen and degree conventions.
+**Source.** BCGP25, Theorem 4.7.2, pp. 99–100. Constructs the filtered comparison, including Sen and degree conventions.
 
 **Acceptance.** The coefficient E⊗^L_{𝔲_{P_w}}M retains all Lie-homology degrees, and the abutment is indexed by total degree p+q.
 
@@ -1032,9 +1032,9 @@ For the non-Liouville parameter λ and admissible completed category-O coefficie
 
 ### Ordinary Eichler–Shimura degrees — `E6/ordinary-degrees`
 
-Let λ be non-Liouville and use the completed Verma coefficient M(𝔤)_λ. If the Shimura variety is proper or Siegel, its finite-slope completed functor and its cuspidal variant have nonnegative normalized slopes. On the ordinary part there is a spectral sequence E₁^{p,q}=⊕_{ℓ(w)=p}H^{2p+q−d}(HC^{ord}_{w,λ}(M(𝔪_w)_{λ+w⁻¹w₀,Mρ+ρ}))⇒H^{p+q}(CC_λ(M(𝔤)_λ)^{ord}⊗C_p), and the cuspidal analogue. If the variety is proper, the ordinary abutment is concentrated in degree d, without an antidominance restriction. Separately, for proper varieties and antidominant λ the unspecialized spectral sequence also gives middle-degree concentration and its higher-Coleman filtration. Properness is retained in both middle-degree assertions.
+Let λ be non-Liouville and use the BGG Verma coefficient M(𝔤)_λ. If the Shimura variety is proper or Siegel, its finite-slope completed functor and its cuspidal variant have nonnegative normalized slopes. On the ordinary part there is a spectral sequence E₁^{p,q}=⊕_{ℓ(w)=p}H^{2p+q−d}(HC^{ord}_{w,λ}(M(𝔪_w)_{λ+w⁻¹w₀,Mρ+ρ}))⇒H^{p+q}(CC_λ(M(𝔤)_λ)^{ord}⊗C_p), and the cuspidal analogue. If the variety is proper, the ordinary abutment is concentrated in degree d, without an antidominance restriction. Separately, for proper varieties and antidominant λ the unspecialized spectral sequence also gives middle-degree concentration and its higher-Coleman filtration. Properness is retained in both middle-degree assertions.
 
-**Proof plan.** Specialize the general spectral sequence to the completed Verma module, whose derived nilpotent homology is computed by the supplied Verma comparison. Use the nonnegative finite-slope estimates and insert the Bruhat/duality shift to obtain 2p+q−d on the ordinary part. For proper varieties, use the sharp support-dependent amplitude bounds to force the single total degree. For the separate unspecialized antidominant assertion, use the corresponding Verma vanishing and degeneration.
+**Proof plan.** Specialize the general spectral sequence to the BGG Verma module with its canonical analytic completion, whose derived nilpotent homology is computed by the supplied Verma comparison. Use the nonnegative finite-slope estimates and insert the Bruhat/duality shift to obtain 2p+q−d on the ordinary part. For proper varieties, use the sharp support-dependent amplitude bounds to force the single total degree. For the separate unspecialized antidominant assertion, use the corresponding Verma vanishing and degeneration.
 
 **Direct inputs.** `PadicFamiliesPartII:E6/spectral-sequence`; `HigherHidaAndColemanTheory:B7/sharp-siegel`; `HigherHidaAndColemanTheory:C4/geometric-vanishing`.
 
@@ -1076,7 +1076,7 @@ Additional hypothesis: Specialize to GSp₄/Q, ρ=(−1,−2;0), d=3 and the fou
 
 Use a Hodge-type Shimura datum with G/Q_p quasi-split, B⊂P, torus T, coefficient field E containing the reflex and splitting fields, neat tame level and compatible compactifications. Work with derived locally Q_p-analytic vectors of the completed tower; do not replace them by locally analytic vectors of individual completed cohomology groups.
 
-The higher Coleman complexes, weights κ_w(λ)=−w₀,M w(λ+ρ)−ρ, support orders, nonzero finite-slope windows and normalized torus action are those of HigherHidaAndColemanTheory. Completed category O, analytic localization and solid automorphic vector-bundle functors are requested inputs, not baseline objects.
+The higher Coleman complexes, weights κ_w(λ)=−w₀,M w(λ+ρ)−ρ, support orders, nonzero finite-slope windows and normalized torus action are those of HigherHidaAndColemanTheory. Coefficients lie in the BGG category O(𝔤,𝔟)_{λ-alg}: their weights differ from λ by algebraic torus characters. Analytic localization uses the canonical enveloping-algebra completion and its continuous dual, with the λ-action twist. This completion comparison, analytic localization and solid automorphic vector-bundle functors are requested inputs, not baseline objects.
 
 ### Singular two-term Cousin complex — `S7/cousin-complex`
 
@@ -1166,31 +1166,35 @@ Additional hypothesis: Use the arithmetic Sen normalization in which Q_p(1) has 
 
 **Open proof leaves.** Singular localization overlap kernel.
 
-### Four-piece eigenpacket balance — `S7/multiplicity-balance`
+### Balanced eigenpacket exactness — `S7/multiplicity-balance`
 
-Let f be an ordinary overconvergent weight-(2,2;−w) eigenform with attached globally irreducible ρ_f. Assume its Zariski closure contains Sp₄, or contains SL₂×SL₂ with reducibility on an index-two subgroup, as in the source. The localized completed eigenspace V[m_f] is ρ_f⊗W with n=dim W>0 and dim V[m_f]=4n; each of its four graded eigenspaces has dimension n. These dimension statements ensure exactness of the two-step sequence after taking m_f-annihilated eigenspaces, a functor not exact in general.
+Let f be an ordinary overconvergent weight-(2,2;−w) eigenform with attached globally irreducible ρ_f. Assume its Zariski closure contains Sp₄, or contains SL₂×SL₂ with reducibility on an index-two subgroup, as in the source. Then V[m_f]≃ρ_f⊗W with n=dim W>0 and dim V[m_f]=4n. Assume separately that dim_{C_p}(Gr^i V_{C_p})[m_f]=n for every i=0,1,2,3, as in Theorem 4.12.4(3). Under this balance assumption, the two-step repeated-block sequence remains exact after taking m_f-annihilated eigenspaces. The image alternatives alone do not prove the four graded dimensions.
 
 Additional hypothesis: Specialize to GSp₄/Q, ρ=(−1,−2;0), d=3, the four representatives i_w of lengths i=0,1,2,3, and λ=(1,1;w) with w even. Localize at a prime-to-p Hecke maximal ideal with absolutely irreducible residual four-dimensional Galois representation.
 
 Additional hypothesis: Use the arithmetic Sen normalization in which Q_p(1) has Hodge–Tate weight −1 and Sen eigenvalue +1. Multiplicity assertions concern finite-dimensional eigenpackets after the explicitly stated localization.
 
-**Proof plan.** Use the Eichler–Shimura Hecke polynomial relation and the specified semisimplicity/multiplicity theorem to identify V[m_f]. Use the four-character ordinary filtration and the local refinement to bound each graded multiplicity. Use the total dimension 4n to turn the bounds into equality and obtain exactness of the repeated block on the eigenpacket.
+Additional hypothesis: Assume independently the four-piece dimension balance of BCGP25 Theorem 4.12.4(3); Lemma 4.12.3 and its global-image alternatives do not establish that balance.
+
+**Proof plan.** Use the Eichler–Shimura polynomial relation and the specified semisimplicity/multiplicity theorem to identify V[m_f]≃ρ_f⊗W. Keep the four equal graded dimensions as an independent assumption. If separately supplied multiplicity-one bounds each graded eigenspace by one, total dimension a positive multiple of four forces n=1; this is the conditional verification in Remark 4.12.5. The filtration on V[m_f] injects on each graded into (Gr^i V_{C_p})[m_f]. Equality of the sum of these upper bounds with dim V[m_f]=4n forces equality at every step and exactness on the repeated block.
 
 **Direct inputs.** `PadicFamiliesPartII:E6/four-pieces`; `PadicFamiliesPartII:S7/sen-block`; `AutomorphicGaloisRepresentationsPartII:AG2.1a`; `AutomorphicSpectralTheory:AS.5`.
 
-**Source.** BCGP25, Proposition 4.11.1, Corollary 4.11.2, Lemma 4.12.3 and proof of Theorem 4.12.4, pp. 109–114. States the exact multiplicity input needed before killing the Cousin obstruction.
+**Source.** BCGP25, Propositions 4.11.1–4.11.2, pp. 109–112; Lemma 4.12.3 and Theorem 4.12.4(3), p. 113; Remark 4.12.5, p. 114. Lemma 4.12.3 supplies the tensor multiplicity; Theorem 4.12.4 assumes the graded balance independently.
 
-**Acceptance.** The four graded eigenspace dimensions add to the total 4n. Exactness after taking m_f-annihilated eigenspaces is deduced from this balance.
+**Acceptance.** The global-image assumptions supply total dimension 4n, while the four graded dimensions n are a separate hypothesis. Their sum forces exactness after taking m_f-annihilated eigenspaces. A claim deriving the graded balance solely from the image alternatives fails this check.
 
 **Open proof leaves.** Exact eigenpacket and packet balance.
 
 ### De Rham ordinary classicality — `S7/de-rham-classicality`
 
-In the preceding residual, global-image and ordinary-weight setting, assume ρ_f|G_{Q_p} is de Rham. Then f is classical. Indeed the arithmetic Sen operator is semisimple on V[m_f]=ρ_f⊗W, so N_a vanishes on this packet. The Sen–Cousin comparison kills the singular obstruction, and the balanced classical packet has enough degree-zero forms to contain f.
+In the preceding residual, global-image and ordinary-weight setting, assume the independent balance dim(Gr^i V_{C_p})[m_f]=n for all four i, dim V[m_f]=4n, and that ρ_f|G_{Q_p} is de Rham. Then f is classical. Indeed the arithmetic Sen operator is semisimple on V[m_f]=ρ_f⊗W, so N_a vanishes on this packet. The Sen–Cousin comparison kills the singular obstruction, and the balanced classical packet has enough degree-zero forms to contain f.
 
 Additional hypothesis: Specialize to GSp₄/Q, ρ=(−1,−2;0), d=3, the four representatives i_w of lengths i=0,1,2,3, and λ=(1,1;w) with w even. Localize at a prime-to-p Hecke maximal ideal with absolutely irreducible residual four-dimensional Galois representation.
 
 Additional hypothesis: Use the arithmetic Sen normalization in which Q_p(1) has Hodge–Tate weight −1 and Sen eigenvalue +1. Multiplicity assertions concern finite-dimensional eigenpackets after the explicitly stated localization.
+
+Additional hypothesis: Assume independently the four-piece dimension balance of BCGP25 Theorem 4.12.4(3); Lemma 4.12.3 and its global-image alternatives do not establish that balance.
 
 **Proof plan.** Use de Rham Hodge–Tate semisimplicity on the actual finite-dimensional eigenpacket, not on the whole completed space. Use the dimension balance to retain exactness after taking eigenspaces and conclude the Cousin map vanishes there. Use the localized stable-packet coherent multiplicity comparison to identify the resulting classical weight-two eigenspace of dimension n. Match the ordinary refinements and conclude that the given eigenform lies in it.
 
@@ -1198,7 +1202,7 @@ Additional hypothesis: Use the arithmetic Sen normalization in which Q_p(1) has 
 
 **Source.** BCGP25, Theorem 4.12.4, pp. 113–114. Exports the source’s classicality theorem with its indispensable packet hypotheses.
 
-**Acceptance.** The argument applies Sen semisimplicity to the finite-dimensional eigenpacket, then matches the ordinary refinement in the classical eigenspace.
+**Acceptance.** The independent four-piece balance of Theorem 4.12.4(3) is checked before applying Sen semisimplicity to the finite-dimensional eigenpacket and matching the ordinary refinement in the classical eigenspace.
 
 **Open proof leaves.** Exact eigenpacket and packet balance; Singular localization overlap kernel.
 
@@ -1349,13 +1353,13 @@ These contracts extend existing owners where an exact supplying node was not fou
 
 - **`AdicSpacesPartII:R3`.** Supply Bartenwerfer bounded-section completeness and gluing of coherent integral lattices modulo increasing precision on the admissible strict-neighborhood covers used in BPS Proposition 4.1.2. Consumers: `P1/bounded-extension`.
 
-- **`ShimuraCompactifications:C5`.** Supply normality of the actual type-A/C Iwahori local models and integral Koecher extension for the coefficient sheaves on each dimension>1 component, including the cuspidal variant. Supply partial Hasse regular sequences on the supported Hilbert–Siegel formal strata, including regularity after arbitrary powers of the other partial Hasse equations and the required relative acyclicity. Supply the mixed-locus 2^{|I|} affinoid cube with all finite intersections acyclic after toroidal-to-minimal pushforward of the analytic coefficients. For all Klingen levels p^n supply the coefficient/++-lattice higher-direct-image vanishing and a uniform bounded-torsion Čech-to-derived comparison on the chosen analytic torsor cover, including completed sums and finite-level invariants. Consumers: `P1/classicality`, `H3/fixed-amplitude`, `H3/trace-control`, `C5/analytic-amplitude`, `K2/bgg-scaling`, `K2/torsion-continuation`.
+- **`ShimuraCompactifications:C5`.** Supply normality of the actual type-A/C Iwahori local models and integral Koecher extension for the coefficient sheaves on each dimension>1 component, including the cuspidal variant. Supply partial Hasse regular sequences on the supported Hilbert–Siegel formal strata, including regularity after arbitrary powers of the other partial Hasse equations and the required relative acyclicity. Supply the mixed-locus 2^{|I|} affinoid cube with all finite intersections acyclic after toroidal-to-minimal pushforward of the analytic coefficients. For all Klingen levels p^n supply the coefficient/++-lattice higher-direct-image vanishing and a uniform bounded-torsion Čech-to-derived comparison on the chosen analytic torsor cover, including completed sums and finite-level invariants. Supply the two-affine rank≥1 minimal-special-fiber cover and the relative cuspidal acyclicity used for P20 Proposition 8.2.1 and BCGP21 Theorem 4.2.1; these give the numerical amplitudes on the rank opens, not an integral global amplitude. Consumers: `P1/classicality`, `H3/fixed-amplitude`, `H3/trace-control`, `C5/analytic-amplitude`, `K2/bgg-scaling`, `K2/torsion-continuation`, `K2/spherical-amplitude`.
 
 - **`AutomorphicBundles:B5`.** Supply integral q-expansion injection and p³U-stability for the Klingen H⁰ lattice, plus normalized away-from-Np Hecke commutation. Supply integrality of each selected U_{v,1},U_{v,2} on the relevant ordinary cohomology lattices, sufficient to infer individual unit slopes from a unit product. Consumers: `K2/bgg-scaling`, `K2/euler-zero`, `C5/euler-family`.
 
 - **`SmoothRepresentationsOfLocalGroups:SR.4`.** Supply the spherical-to-Klingen comparison on the selected ordinary Satake root with only its necessary eigenvalue separation; do not assume pairwise distinct Satake roots or compare different finite representations. Supply the geometric-to-positive-Hecke operator identification for the Hilbert Klingen/Iwahori local factors, retaining the chosen symplectic convention. Consumers: `K2/euler-zero`, `D4/first-operator`, `D4/quadratic`.
 
-- **`AutomorphicSpectralTheory:AS.5`.** Supply the localized genus-two coherent automorphic decomposition and the balanced holomorphic/generic limit-of-discrete-series multiplicities at the same finite representation used in Pilloni Proposition 15.2.4.1 and §15.2.5. Supply the non-Eisenstein Hilbert coherent automorphic Euler comparison at the large-weight witness, including the Arthur input of BCGP21 Theorem 3.10.1(2). Supply the localized stable-packet coherent multiplicity computation at weight (2,2), with the same finite representation and ordinary refinements, used in BCGP25 Theorem 4.12.4. Consumers: `K2/euler-zero`, `C5/euler-family`, `S7/multiplicity-balance`, `S7/de-rham-classicality`.
+- **`AutomorphicSpectralTheory:AS.5`.** Supply the localized genus-two coherent automorphic decomposition and the balanced holomorphic/generic limit-of-discrete-series multiplicities at the same finite representation used in Pilloni Proposition 15.2.4.1 and §15.2.5. Supply the non-Eisenstein Hilbert coherent automorphic Euler comparison at the large-weight witness, including the Arthur input of BCGP21 Theorem 3.10.1(2). Supply the localized stable-packet coherent multiplicity computation at weight (2,2), with the same finite representation and ordinary refinements, used in BCGP25 Theorem 4.12.4. The four graded eigenspace dimensions in Theorem 4.12.4(3) remain an independent hypothesis: supply them, or the separate multiplicity-one bounds of Remark 4.12.5, for any application claiming them. The stable classical-packet comparison is another input, not a proof of this completed graded balance. Consumers: `K2/euler-zero`, `C5/euler-family`, `S7/multiplicity-balance`, `S7/de-rham-classicality`.
 
 - **`PELModuli:M2`.** Supply Hilbert–Siegel integral models, the height-one maximal multiplicative subgroup on the rank≥1 locus and the selected Klingen/Iwahori flag components, with the log/toroidal extension. Consumers: `H3/mixed-locus`.
 
@@ -1363,11 +1367,11 @@ These contracts extend existing owners where an exact supplying node was not fou
 
 - **`DeformationAndDerivedPatchingAlgebra:P7`.** Supply derived Nakayama for a complete multivariable Iwasawa algebra, detection of perfect amplitude by all residue fibers, and concentration-implies-projectivity criteria with no finite-character semisimplicity assumption. Supply the finite group-ring/Sylow projectivity criterion and derived-coinvariant residue-fiber test of BCGP25 Lemma 7.3.2, also when p divides the deck-group order. Consumers: `H3/derived-control`, `F8/projectivity`, `F8/tame-projectivity`.
 
-- **`AutomorphicBundles:B2`.** Supply the O_F-linear isogeny-compatible Kodaira–Spencer identification, including p-isogenies and the Norm(x_w)³ coefficient factor. Consumers: `D4/kodaira-spencer`.
+- **`AutomorphicBundles:B2`.** Supply O_F-linear Kodaira–Spencer compatibility for prime-to-p quasi-isogenies over Z_(p), followed by the normalized integral p-correspondence identities of BCGP21 Propositions 5.5.2–5.5.3 and 5.6.1. Retain Norm(x_w)³/p³ and reduce only after constructing the integral trace; do not infer compatibility of a raw inseparable differential. Consumers: `D4/kodaira-spencer`.
 
 - **`LocallyAnalyticDistributions:L0`.** Supply continuous derived locally Q_p-analytic vectors and Lie-algebra derived Hom on the completed tower, with completed tensor/base-change and Chevalley–Eilenberg comparison. Consumers: `E6/completed-functor`, `E6/localization-comparison`.
 
-- **`tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`.** The finite-dimensional algebraic Verma theory is an existing input. A genuine Part II is needed for completed category O, continuous analytic localization, non-Liouville exactness and dual-Verma fibers in BCGP25 Theorems 3.5.11 and 4.7.2. This request records that extension rather than claiming the current finite-dimensional stage supplies it. Consumers: `E6/completed-functor`, `E6/localization-comparison`, `E6/spectral-sequence`.
+- **`tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-3-enveloping-algebra-verma-modules-and-lλ`.** The algebraic Verma theory for a finite-dimensional Lie algebra is an existing input. A dedicated continuation must supply O(𝔤,𝔟)_{λ-alg}, canonical completion M⊗_{U(𝔤)}Û(𝔤), its continuous dual and λ-twist, completion/Lie-homology comparison, analytic localization, non-Liouville exactness and dual-Verma fibers (BCGP25 Theorem 2.2.39, §3.4, Theorem 3.5.11 and Theorem 4.7.2). The automorphic comparison is stated on this BGG domain. The current Verma stage supplies neither this analytic realization nor a theorem for arbitrary completed topological coefficients. Consumers: `E6/completed-functor`, `E6/localization-comparison`, `E6/spectral-sequence`.
 
 - **`PerfectoidShimuraVarieties:S3`.** Supply the solid analytic automorphic vector-bundle functor VB_red, its localization/Chevalley–Eilenberg comparison, and the arithmetic-Sen/horizontal-µ identification (BCGP25 Theorem 4.5.20 and Theorem 4.7.1). Consumers: `E6/localization-comparison`.
 
@@ -1403,9 +1407,9 @@ The following gaps remain even though every stage has a target-level plan. Suppl
 
 - **Strength of Hilbert rational comparison.** The two-term Euler argument applies to |I|=1 after non-Eisenstein localization and individual-operator integrality. A full classical comparison for arbitrary |I| or an integral comparison without the stated deck condition is not a consequence of these sources. Affected targets: `C5/one-place-comparison`.
 
-- **Completed analytic localization carrier.** Finite-dimensional highest-weight modules do not supply the completed category-O and localized dual-Verma topologies. Their exactness and non-Liouville conditions must be established by a dedicated LieHighestWeight extension before E6 can be closed. Affected targets: `E6/completed-functor`, `E6/localization-comparison`, `E6/spectral-sequence`.
+- **Completed analytic localization carrier.** The current algebraic highest-weight roadmap does not supply the canonical completion, continuous dual, λ-action twist and analytic localization of O(𝔤,𝔟)_{λ-alg}. Their completion and non-Liouville exactness comparisons need a dedicated LieHighestWeight continuation before E6 closes. No comparison for arbitrary topological coefficients is inferred. Affected targets: `E6/completed-functor`, `E6/localization-comparison`, `E6/spectral-sequence`.
 
-- **Exact eigenpacket and packet balance.** Taking m-annihilated eigenspaces is not exact. The source’s four-piece multiplicity balance and the stable automorphic packet calculation must be supplied before de Rham classicality follows. This roadmap neither assumes exactness without balance nor replaces it with a definition carrying the desired conclusion. Affected targets: `S7/multiplicity-balance`, `S7/de-rham-classicality`.
+- **Exact eigenpacket and packet balance.** Taking m-annihilated eigenspaces is not exact. BCGP25 Theorem 4.12.4(3) assumes four equal graded eigenspace dimensions independently of the image hypotheses; Lemma 4.12.3 proves only total tensor multiplicity. The corrected classicality target retains that balance as a hypothesis. Applying it requires a separate verification, such as the multiplicity-one bounds in Remark 4.12.5, as well as the stable classical automorphic-packet comparison. Affected targets: `S7/multiplicity-balance`, `S7/de-rham-classicality`.
 
 - **Full-torus and tame descent refinement.** The projectivity argument needs the cofinal full-torus integral control and tame-boundary stabilizer calculation, including p=2 and p-divisible Δ. These are requested explicitly; semisimple finite-character splitting or averaging would not close this stage. Affected targets: `F8/projectivity`, `F8/tame-projectivity`, `F8/central-character`.
 
@@ -1433,21 +1437,23 @@ Every description here is in the roadmap’s own words. The packet field named `
 
 - **E07 (gap): P20 proof of Theorem 15.2.1, author p. 109.** Take a sufficiently large witness in every finite-character component; at p=2 use the full local algebra. For odd p the Iwasawa algebra has p−1 components, and one arithmetic point determines only its component’s virtual rank. Reach: the proof. PAPER-PILLONI-20/E165; repair incorporated.
 
-- **E08 (error): BCGP21 Proposition 4.6.19, printed pp. 113–114.** Induct in one exponent at a time with the correct twists and regularity after arbitrary powers. In k[x,y], length k[x,y]/(x^n,y^n)=n², whereas the proposed recurrence would give (n−1)²+1. Reach: the proof. Reviewed BCGP21 extraction; corrected induction still needs the requested regular-sequence input.
+- **E08 (error): BCGP21 Proposition 4.6.19 proof, arXiv v3 pp. 113–114; published pp. 289–290.** Induct in one exponent at a time with the correct twists and regularity after arbitrary powers. In k[x,y], length k[x,y]/(x^n,y^n)=n², whereas the proposed recurrence would give (n−1)²+1. Reach: the proof. Reviewed BCGP21 extraction; corrected induction still needs the requested regular-sequence input.
 
-- **E09 (gap): BCGP21 Proposition 4.4.3 and its descent use, printed p. 99.** For this integral theorem impose p∤|Δ|; unrestricted descent requires derived invariants or a cohomological-triviality argument. Neat tame level does not exclude p-torsion in the finite deck quotient, and averaging is then unavailable. Reach: a stated result. Reviewed BCGP21 extraction; restricted theorem recorded.
+- **E09 (gap): BCGP21 Proposition 4.4.3, arXiv v3 p. 99, published p. 272; Proposition 3.8.3 and Lemma 3.8.5, arXiv v3 pp. 57–58, published p. 220.** For this integral theorem impose p∤|Δ|; unrestricted descent requires derived invariants or a cohomological-triviality argument. Neat tame level does not exclude p-torsion in the finite deck quotient, and averaging is then unavailable. Reach: a stated result. Reviewed BCGP21 extraction; restricted theorem recorded.
 
-- **E10 (misprint): BCGP21 §6.4, printed pp. 152–154.** Use θ_v U_source=p^{k_v−l_v+1}U_target θ_v. The local derivative calculation fixes the direction and the slope gain. Reach: the proof. Reviewed BCGP21 extraction; same check as P20/E119.
+- **E10 (misprint): BCGP21 §6.4, arXiv v3 p. 154; published pp. 338–339.** Use θ_v U_source=p^{k_v−l_v+1}U_target θ_v. The local derivative calculation fixes the direction and the slope gain. Reach: the proof. Reviewed BCGP21 extraction; same check as P20/E119.
 
-- **E11 (error): BCGP21 Theorem 6.6.4 proof, printed p. 164.** Use the actual restriction r:K†→M; H⁰(r) injective and H¹(r) surjective imply χ(K†)−χ(M)=−a−b. Equality forces a=b=0. Here a is the dimension of coker H⁰(r) and b of ker H¹(r), both nonnegative. The opposite map is not supplied. Reach: the proof. Reviewed BCGP21 extraction; finite-dimensional linear-algebra repair incorporated.
+- **E11 (error): BCGP21 Theorem 6.6.4 proof, arXiv v3 p. 167; published p. 355 (compare Proposition 6.6.2, arXiv v3 pp. 165–166, published pp. 353–354).** Use the actual restriction r:K†→M; H⁰(r) injective and H¹(r) surjective imply χ(K†)−χ(M)=−a−b. Equality forces a=b=0. Here a is the dimension of coker H⁰(r) and b of ker H¹(r), both nonnegative. The opposite map is not supplied. Reach: the proof. Reviewed BCGP21 extraction; finite-dimensional linear-algebra repair incorporated.
 
-- **E12 (gap): BCGP21 finite-flat degree discussion in §6.5, printed pp. 154–158.** Use the untruncated determinant valuation in Fargues degree calculations, and only then pass to bounded Hasse coordinates. Truncation can lose information for p²-kernel groups, so it cannot determine their total finite-flat degree. Reach: the proof. Reviewed BCGP21 extraction; untruncated degree required.
+- **E12 (gap): BCGP21 §6.5.1, arXiv v3 p. 154; published p. 339.** Use the untruncated determinant valuation in Fargues degree calculations, and only then pass to bounded Hasse coordinates. Truncation can lose information for p²-kernel groups, so it cannot determine their total finite-flat degree. Reach: the proof. Reviewed BCGP21 extraction; untruncated degree required.
 
 - **E13 (misprint): BCGP25 Remark 4.10.7, printed p. 107.** Use (2,2;−w) for the degree-zero piece, as in §4.10.8. The four Weyl-weight formulas give two (1,1) and two (2,2) pieces. Reach: nothing. Corrected here using the four Weyl-weight formulas and §4.10.8; no separate published erratum located.
 
 - **E14 (gap): BCGP25 Proposition 3.6.15 proof, printed pp. 66–67.** Identify the constrained fiber excluding the kernel germ, or prove the needed nonzero intertwiner another way. The ambient analytic germ 1/(1+x) is killed by (x+1)∂_x+1. Membership in the constrained fiber has not been established; no counterexample to the proposition is claimed. Reach: the proof. PAPER-BOXER-CALEGARI-GEE-PILLONI-25/E015, independently confirmed by its review; reproduced here.
 
 - **E15 (misprint): BCGP25 choice before Lemma 7.3.8, printed p. 167.** Read the conditions by cases: p odd needs p∤r−1; p=2 needs 4∤r−1. Every odd prime is 1 modulo 2, so the literal conjunction has no solution at p=2. The quotient (F_r×)/{±1} has odd order precisely in the second case. Reach: the proof. Reviewed BCGP25 extraction; casewise repair incorporated.
+
+- **E16 — continuation polynomial (P20 Corollary 14.6.2 proof, author p. 99).** The final linear term of its displayed continuation polynomial omits a₁. Use R=−(P−P(0))/P(0) and Q=R/X: R(U)=1 and UQ(U)=1 on the P-annihilated block. For P=X²+2X+1,U=−1, the correct continuation value is 1; dropping the coefficient 2 gives 0. This is a version-scoped misprint, confirmed by the independent review. The corrected inverse polynomial was already in K2/torsion-continuation.
 
 ## Routed coverage and source editions
 
@@ -1479,4 +1485,10 @@ The cleared Pilloni author PDF was read in place; neither the PDF nor an extract
 
 [PadicFamiliesPartII.lean](../suggested/PadicFamiliesPartII.lean) follows the current worker shape: light real-bodied definitions over existing carriers, selected end statements and examples. It does not define a fake Shimura variety, family complex, completed category-O object or Sen filtration by filling a data field with an admitted term. The three light definitions are the rational strict-slope predicate, the integer Klingen threshold, and the companion linear operator. Their API names and examples match the packet. Heavy definitions, their 56 remaining API specifications and 42 tests remain reader targets until their carriers exist.
 
-The packet proposes merging the two Part II identities by an assembly with an explicit node-alias map. It also proposes a genuine completed-category-O continuation of LieHighestWeight, rather than treating the unrelated existing LieHighestWeightPartII as a supplier. This job changes no upstream roadmap or supplier packet. Review should first check the gap propagation in S7, the finite-character inversion in F8, the multivariable devissage in H3 and the distinction between a quasi-compact bad domain and an ambient finite étale tuple correspondence in P1.
+The packet proposes an assembly of the two Part II identities with an explicit node-alias map, and a dedicated analytic-localization continuation of LieHighestWeight for the BGG coefficient domain. These remain decisions for the orchestrator. The independent review checked gap propagation in S7, finite-character inversion in F8, multivariable devissage in H3 and quasi-compact bad domains in P1; the unresolved mathematical inputs remain in the gap and request lists.
+
+## Independent review refinements
+
+The independent review retains all 62 targets, 14 explicit gaps and 21 requests. In particular, the spherical amplitude bounds belong to the indicated special-fiber rank opens; the integral family theorem is separate. Singular de Rham classicality assumes the four-piece balance in BCGP25 Theorem 4.12.4(3). Its global-image alternatives supply total tensor multiplicity and do not supply the graded balance.
+
+All 16 source findings were checked. Findings E08–E12 were also compared with the published BCGP21 PDF: Lemma 3.8.5 p. 220, Proposition 4.4.3 p. 272, Proposition 4.6.19 pp. 289–290, §6.4 pp. 338–339, §6.5.1 p. 339 and Theorem 6.6.4 p. 355. They remain present in those passages. Other P20 findings are scoped to the cleared 17 June 2019 author copy; no unread published text is claimed to have been checked. The packet records version URLs, access dates and hashes.
