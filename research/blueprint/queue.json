@@ -28723,8 +28723,9 @@
    ],
    "avoidAccountOf": "BP-RefinedTraceMethods",
    "prompt": "research/blueprint/prompts/REV-RefinedTraceMethods.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #10798"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #10798",
+   "finishedAt": "2026-10-19T23:07:40Z"
   },
   {
    "id": "BP-RelativeFarguesFontaine",
@@ -40303,8 +40304,8 @@
    ],
    "revisionOf": "DESIGN-PrismaticCohomologyPartII",
    "prompt": "research/blueprint/prompts/DESIGN-PrismaticCohomologyPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11169"
+   "state": "pending",
+   "note": "released on GitHub issue #11169"
   },
   {
    "priority": 2,
@@ -43142,8 +43143,8 @@
    ],
    "revisionOf": "BP-PadicHodgeRegulators",
    "prompt": "research/blueprint/prompts/BP-PadicHodgeRegulators~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #11092"
+   "state": "external",
+   "note": "claimed on GitHub issue #11092"
   },
   {
    "priority": 2,
@@ -53775,8 +53776,8 @@
    ],
    "revisionOf": "PKG-EulerSystemsAndKolyvaginSystems",
    "prompt": "research/blueprint/prompts/PKG-EulerSystemsAndKolyvaginSystems~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11135"
+   "state": "pending",
+   "note": "released on GitHub issue #11135"
   },
   {
    "id": "REV-PKG-EulerSystemsAndKolyvaginSystems~2",
@@ -60178,8 +60179,9 @@
     "PKG-PeriodsAndSpecialValues~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PeriodsAndSpecialValues~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #11114"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #11114",
+   "finishedAt": "2026-10-19T23:07:44Z"
   },
   {
    "id": "PKG-PhiGammaModulesAndIwasawaCohomology",
@@ -151069,9 +151071,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "pending",
    "prompt": "research/blueprint/prompts/PKG-NoncommutativeAndEquivariantIwasawa~codex.md",
-   "note": "claimed on GitHub issue #11067"
+   "note": "released on GitHub issue #11067"
   },
   {
    "id": "PKG-K2SymbolsBrauer~codex",
@@ -151664,9 +151666,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-MotivicEtaleKTheory~adv.md",
-   "note": "claimed on GitHub issue #11150"
+   "note": "deliverables arrived from an external worker on issue #11150",
+   "finishedAt": "2026-10-19T23:07:47Z"
   },
   {
    "id": "FIX-PKG-Polylogarithms~adv",
@@ -151684,9 +151687,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv.md",
-   "note": "claimed on GitHub issue #11149"
+   "note": "deliverables arrived from an external worker on issue #11149",
+   "finishedAt": "2026-10-19T23:07:51Z"
   },
   {
    "id": "REV-PKG-K2SymbolsBrauer~adv",
@@ -151705,8 +151709,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~adv.md",
+   "note": "claimed on GitHub issue #11228"
   },
   {
    "id": "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3",
@@ -151724,8 +151729,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3.md"
+   "state": "done",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3.md",
+   "note": "deliverables arrived from an external worker on issue #11229",
+   "finishedAt": "2026-10-19T23:07:54Z"
   },
   {
    "id": "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3",
@@ -151743,8 +151750,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3.md",
+   "note": "claimed on GitHub issue #11231"
   },
   {
    "id": "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2",
@@ -151762,8 +151770,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2.md",
+   "note": "claimed on GitHub issue #11233"
   },
   {
    "id": "REV-PKG-BorelRegulators~codex",
@@ -151782,8 +151791,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-BorelRegulators~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-BorelRegulators~codex.md",
+   "note": "claimed on GitHub issue #11234"
   },
   {
    "id": "REV-PKG-KTheoryFiniteLocalFields~codex",
@@ -151802,8 +151812,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex.md",
+   "note": "claimed on GitHub issue #11235"
   },
   {
    "id": "REV-PKG-ArithmeticKTheory~adv",
