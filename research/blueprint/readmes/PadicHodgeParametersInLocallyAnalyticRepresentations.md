@@ -2,7 +2,7 @@
 
 The classical smooth representation together with the Hodge–Tate weights fixes a locally algebraic representation, but in rank at least three it leaves Hodge flags undetermined. This roadmap records how Ding’s comparison detects those extra parameters inside extensions of locally analytic representations. Its first output is a canonical surjection t_D:B→Q. The kernel selects π_min(D), whose embeddingwise pieces recover precisely the modified objects D_σ. A second description realizes the same representation as the maximal-ideal annihilator of a universal extension with an Artinian action.
 
-This is a local comparison roadmap. It imports the entire GL_n representation theory from LocallyAnalyticRepresentationsOfLocalGroups (design #3411) and the entire trianguline/Hodge theory from TriangulineVarietyAndItsLocalModel (design #3412). Neither supplier has a roadmap definition, reserved stage or packet in this checkout. The reader specifies their exact contracts and records gaps; provisional requests to existing foundational stages are filing references, not evidence that those stages already provide the missing theories. The design pass is complete, but no layer is closed and no theorem is implemented. In rank two the kernel is zero and π_min=π_1, so this construction adds no Hodge parameter. It is expected to be far smaller than the full locally analytic representation of a p-adic correspondence. Ding’s global applications in §4 belong to the separate local-global compatibility roadmap.
+This is a local comparison roadmap. Its two input theories are the locally analytic representation theory of GL_n(K) planned by LocallyAnalyticRepresentationsOfLocalGroups and the trianguline deformation theory planned by TriangulineVarietyAndItsLocalModel. Neither roadmap has been designed yet, so the reader states exactly what is imported from each (contracts LA1–LA6 and TR1–TR5) and records two gaps. Everything those inputs rest on that the atlas already plans is consumed from its owner: distribution algebras and coadmissible modules (LocallyAnalyticDistributionsPartII ND.1–ND.2), Robba and rank-one modules, Herr Ext and the étale equivalence (PhiGammaModulesAndIwasawaCohomology PG.1–PG.3 and PG.7), labelled de Rham realizations and the modified object D_σ (PadicHodgeTheory P7), the (φ,Γ)-module deformation rings (LocalGaloisDeformationRings R08.1), the principal-series Bernstein centre with its ordered-character maps (SmoothRepresentationsOfLocalGroups SR.3), and Harish-Chandra theory (Tau Ceti's LieHighestWeight, Layers 7 and 9). No layer is closed and no theorem is implemented. In rank two the kernel is zero and π_min=π_1, so this construction adds no Hodge parameter. It is expected to be far smaller than the full locally analytic representation of a p-adic correspondence. Ding’s global applications in §4 belong to the separate local-global compatibility roadmap.
 
 The six layers follow mathematical dependencies: common refinement parameters; comparison and kernel; minimal extensions and scalar characters; parabolic and embedding compatibility; recovery; universal Artinian actions. The definitive targets, APIs, discriminating tests, source corrections and ownership boundaries are in research/blueprint/readmes/PadicHodgeParametersInLocallyAnalyticRepresentations.md. Every source statement is restated in our own words, with locators in the published 74-page version.
 
@@ -18,11 +18,11 @@ The comparison is a surjection B→Q, not a map onto the full deformation tangen
 
 ## Ownership and exact supplier contracts
 
-The following are import contracts, not definitions or proof targets of this roadmap. Their original mathematical statements are read at the published locators listed below. Their owners must establish them before the conditional comparison targets can be implemented. The generic Robba category and Herr Ext dictionary are already planned by `PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category` and `PG.3/herr-ext`; those exact nodes are consumed. They do not imply the specialized contracts.
+The following are import contracts, not definitions or proof targets of this roadmap. Their original mathematical statements are read at the published locators listed below. Their owners must establish them before the conditional comparison targets can be implemented. What the atlas already plans is consumed node by node: the distribution algebras and coadmissible modules of `LocallyAnalyticDistributionsPartII:ND.1/distribution-algebra` and `ND.2/coadmissible-theorems`; the Artinian Robba category, rank-one modules, Herr Ext and the étale equivalence of `PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category`, `PG.7/rank-one-characters`, `PG.1/rank-one-dictionary`, `PG.3/herr-ext` and `PG.2/etale-tilde-equivalence`; the modified object D_σ of `PadicHodgeTheory:P7/embedding-selective-crystalline-modification`; the (φ,Γ)-module deformation rings of `LocalGaloisDeformationRings:R08.1/phi-gamma-module-deformation-rings`; and the principal-series Bernstein centre of `SmoothRepresentationsOfLocalGroups:SR.3/part-ii-principal-series-completion`, `part-ii-ordered-character-map` and `part-ii-principal-series-tangent`. They do not imply the specialized contracts below, which is why those remain.
 
 ### LA1 — LocallyAnalyticRepresentationsOfLocalGroups (design #3411)
 
-The category of admissible locally Q_p-analytic E-representations of GL_n(K), strong continuous duality with coadmissible distribution modules, and Ext¹ as Yoneda extensions; its identification with Ext in the category of abstract distribution modules with arguments reversed. Supply push-forward, pullback, exact Hom–Ext sequences, finite coefficient tensor products, tautological extension classes and subspace detection under scalar endomorphisms.
+The category of admissible locally Q_p-analytic E-representations of GL_n(K), strong continuous duality with coadmissible distribution modules, and Ext¹ as Yoneda extensions; its identification with Ext in the category of abstract distribution modules with arguments reversed. Supply push-forward, pullback, exact Hom–Ext sequences, finite coefficient tensor products, tautological extension classes and subspace detection under scalar endomorphisms. The distribution algebras D(H,E) of compact open H⊂GL_n(K), their Fréchet–Stein structure and the abelian category of coadmissible modules are LocallyAnalyticDistributionsPartII ND.1/distribution-algebra and ND.2/coadmissible-theorems, consumed from there; this contract is the passage to GL_n(K), admissibility and the Ext calculus.
 
 Source boundary: §3.1.1, p. 33; Remark 3.9 and (3.16), p. 39.
 
@@ -36,59 +36,59 @@ Source boundary: §3.1.2, Propositions 3.1,3.3, Lemma 3.5, Proposition 3.8, Rema
 
 Supply injective ζ_w:H_T→B with images B_w; dim B=n+(2^n−1)d_K, dim B_w=n(1+d_K), and Σ_wB_w=B. Supply common B_g and B_g′, B_g≤B_g′≤B_w, with dim B_g=n and dim B_g′=n+d_K. Supply smooth parameter compatibility and Weyl invariance on actual block determinant directions.
 
-Source boundary: §3.1.2, (3.10),(3.17),(3.18), Proposition 3.8, pp. 38–39; §3.1.3, (3.30), p. 43.
+Source boundary: §3.1.2, (3.10), (3.17), (3.18), Proposition 3.8, pp. 37–39; §3.1.3, (3.30), p. 43.
 
 ### LA4 — LocallyAnalyticRepresentationsOfLocalGroups (design #3411)
 
 Supply normalized parabolic Ext images B_F, the isomorphism ζ_F:∏B(M_i)≃B_F, compatible-refinement spanning, and 0→B_g′→B_F⊕B_G→B→0 for the two endpoint parabolics, with first arrow b↦(b,−b). Supply π_F and its inclusion, Emerton induction I_{P⁻}^G, completed external tensor product, and their extension-class compatibilities. Use θ_P constant −Σ_{k<i}n_k on block i and twist ε⁻¹∘θ_P.
 
-Source boundary: §3.1.3, Proposition 3.12, Proposition 3.13 and (3.27)–(3.30), pp. 42–43.
+Source boundary: §3.1.3, Propositions 3.12–3.13 and (3.27)–(3.30), pp. 42–44.
 
 ### LA5 — LocallyAnalyticRepresentationsOfLocalGroups (design #3411)
 
 Supply π_{1,σ}, Ext¹_σ(A,π_{1,σ}) and its image B_σ⊂B, with algebraicity at every τ≠σ, dim B_σ=n+2^n−1. Supply the partially algebraic Hom–Ext and parabolic compatibilities, the common smooth space, and ⊕_σ(B_σ/B_g)≃B/B_g. Supply the analogous amalgamation of π_{1,σ} over A and its maximal partial algebraic subrepresentations.
 
-Source boundary: §3.1.4, Propositions 3.16,3.18,3.19, Corollary 3.20, pp. 44–47.
+Source boundary: §3.1.4, Propositions 3.16, 3.18, 3.19 and 3.20, pp. 44–47.
 
 ### LA6 — LocallyAnalyticRepresentationsOfLocalGroups (design #3411)
 
-Supply Jacquet–Emerton/Orlik–Strauch character-to-Ext compatibility (3.10), Proposition 3.6(1), Remark 3.7 and surjectivity in (3.14), including their use on the universal character extension. Supply the completed smooth Bernstein-center map 𝒥_w and its compatibility with rank-one smooth character deformations, independent of w after mapping to de Rham tangents.
+Supply the Jacquet–Emerton/Orlik–Strauch character-to-Ext compatibility (3.10), Proposition 3.6(1), Remark 3.7 and the surjectivity in (3.14), including their use on the universal character extension. The completed principal-series Bernstein centre Ĥ_φ, the maps 𝒥_w and their smooth tangent compatibility are already planned in SmoothRepresentationsOfLocalGroups SR.3 (part-ii-principal-series-centre, part-ii-ordered-character-map, part-ii-principal-series-completion, part-ii-principal-series-tangent) and are consumed from there.
 
 Source boundary: §3.1.2, Proposition 3.3(2), Proposition 3.6 and Remark 3.7, pp. 35–38; §3.2.2, p. 57.
 
 ### TR1 — TriangulineVarietyAndItsLocalModel (design #3412)
 
-Supply the actual Robba ring, continuous semilinear (φ,Γ)-modules, rank-one parameters R_{K,E}(δ), and ΦΓ_nc(φ,h). All refinements are noncritical; strict Hodge flags give saturated submodules D_1 and rank-one subobjects and quotients C_1 with the weights used in PH.1. The theory includes nonétale objects.
+Supply ΦΓ_nc(φ,h): generic noncritical crystabelline (φ,Γ)-modules over R_{K,E}, all of whose refinements are noncritical, with the bijection between refinements and triangulations and the saturated D_1 and quotient C_1 of (2.1)–(2.2) carrying the weights used in PH.1. The theory includes nonétale objects. The Robba ring, rank-one modules R_{K,E}(δ) with the criterion that R_{K,E}(δ) is de Rham exactly when δ is locally algebraic, Ext¹ as first-order deformations, labelled de Rham realizations and B-pairs are already planned (PhiGammaModulesAndIwasawaCohomology PG.1/rank-one-dictionary, PG.3/herr-ext, PG.7/rank-one-characters; PadicHodgeTheory P7/labelled-bdr-realisation, P7/b-pair-robba-equivalence) and are consumed from there.
 
-Source boundary: §2.1–2.2, pp. 9–16; §2.3.2, p. 19.
+Source boundary: §2.1, pp. 9–11; §2.2, (2.1)–(2.2), p. 11.
 
 ### TR2 — TriangulineVarietyAndItsLocalModel (design #3412)
 
-Supply Ext¹, Ext¹_w, Ext¹_g, the common Ext¹_0=ker κ_w, its dimension n(n−1)d_K/2+1−n, and the quotient Q and its actual subspaces Q_w,Q_g,Q_g′. Supply κ_w:Q_w≃H_T, dim Q=n+n(n+1)d_K/2, dim Q_w=n(1+d_K), dim Q_g=n, and spanning by the Q_w. Supply Q_g′ and the parameter compatibility corresponding to B_g′.
+Supply Ext¹, Ext¹_w, Ext¹_g, the common Ext¹_0=ker κ_w, its dimension n(n−1)d_K/2+1−n, and the quotient Q and its actual subspaces Q_w,Q_g,Q_g′. Supply κ_w:Q_w≃H_T, dim Q=n+n(n+1)d_K/2, dim Q_w=n(1+d_K), dim Q_g=n, and spanning by the Q_w. Supply Q_g′ and the parameter compatibility corresponding to B_g′. The deformation rings R_D,R_{D,w},R_{D,g}, their tangent spaces Ext¹,Ext¹_w,Ext¹_g, the parameter maps and Proposition 2.10(2)–(3), in the form of the first-order Cartesian square (3.55), are already planned in LocalGaloisDeformationRings R08.1/phi-gamma-module-deformation-rings; this contract is the rest: the dimension formulas of Proposition 2.10(1), Lemma 2.11, Ext¹_0, the quotient subspaces and Proposition 2.12.
 
-Source boundary: §2.3.1, Proposition 2.10, Lemma 2.11, Proposition 2.12 and (2.12)–(2.16), pp. 16–18.
+Source boundary: §2.3.1, Proposition 2.10, Lemma 2.11, Proposition 2.12 and (2.12)–(2.16), pp. 15–18.
 
 ### TR3 — TriangulineVarietyAndItsLocalModel (design #3412)
 
 Supply parabolic quotient spaces Q_F, κ_F:Q_F≃∏Q(M_i), compatible-refinement spanning and invariance on block determinant directions, with the explicit parameter normalization used by ζ_F. The correct block dimension is Σ_i[n_i+n_i(n_i+1)d_K/2].
 
-Source boundary: §2.3.2, Corollaries 2.14–2.15 and (2.19)–(2.21), pp. 19–20.
+Source boundary: §2.3.1, Corollaries 2.14–2.15 and (2.19)–(2.21), pp. 19–20.
 
 ### TR4 — TriangulineVarietyAndItsLocalModel (design #3412)
 
-Supply Q_σ for deformations de Rham of fixed weights away from σ, dim Q_σ=n+n(n+1)/2, the embeddings in Q, and the embedding modification 𝔗_σ(D)=D_σ retaining the σ filtration and replacing every other embedding’s weights by h_{n,τ}. Supply D↪D_σ with the same localization and Q_σ(D)≃Q_σ(D_σ), respecting parabolic decompositions. Supply the surjections ⊕_wQ_{σ,w}(D)↠Q_σ(D) and ⊕_wQ_{σ,w}(D_σ)↠Q_σ(D_σ). Away from σ the modified weights are repeated; a globally regular theorem cannot be invoked anew on D_σ.
+The modified object D_σ itself (Proposition 2.5(1): D⊂D_σ, D_σ[1/t]=D[1/t], the σ-Hodge filtration retained and every other embedding's weights replaced by h_{n,τ}) is already planned in PadicHodgeTheory P7/embedding-selective-crystalline-modification and is consumed from there. Supply the deformation-level theory: Q_σ for deformations de Rham of fixed weights away from σ, dim Q_σ=n+n(n+1)/2, the embeddings in Q, the deformation map 𝔗_σ of Propositions 2.23–2.24 with Q_σ(D)≃Q_σ(D_σ) respecting parabolic decompositions (Corollary 2.27), and the surjections ⊕_wQ_{σ,w}(D)↠Q_σ(D) and ⊕_wQ_{σ,w}(D_σ)↠Q_σ(D_σ) (Corollary 2.40). Away from σ the modified weights are repeated; a globally regular theorem cannot be invoked anew on D_σ.
 
-Source boundary: §2.2, Proposition 2.5 and (2.7), pp. 13–14; §2.3.2, Lemma 2.16, Proposition 2.17, Corollaries 2.18–2.19, pp. 20–21; Corollary 2.27, p. 25; Corollary 2.40, p. 32.
+Source boundary: §2.2, Proposition 2.5 and (2.7), pp. 13–14; §2.3.2, Lemma 2.16, Proposition 2.17, Corollaries 2.18–2.19, pp. 20–21; Propositions 2.23–2.24 and Corollary 2.27, pp. 23–25; Corollary 2.40, p. 32.
 
 ### TR5 — TriangulineVarietyAndItsLocalModel (design #3412)
 
-Supply the higher-intertwining relation L(D_σ,D_{1,σ},C_{1,σ}) as a specified embedded subspace of V(D_{1,σ},C_{1,σ})_σ, exact sequence (2.42), and Corollary 2.38(1): equality of such embedded relations with fixed identified blocks determines D_σ. Supply the n≤2 base case and the étale fully faithful D_rig dictionary for the K=Q_p consequence only.
+Supply the higher-intertwining relation L(D_σ,D_{1,σ},C_{1,σ}) as a specified embedded subspace of V(D_{1,σ},C_{1,σ})_σ, the exact sequence (2.42), and Corollary 2.38(1): equality of such embedded relations with fixed identified blocks determines D_σ. Supply the n≤2 base case. The étale equivalence used for the K=Q_p consequence is PhiGammaModulesAndIwasawaCohomology PG.2/etale-tilde-equivalence, consumed directly by PH.4/recovery.
 
-Source boundary: §2.4, (2.39)–(2.42), Corollaries 2.38–2.40, pp. 30–32; proof of Theorem 3.34, p. 56.
+Source boundary: §2.4, (2.39)–(2.42), Corollaries 2.38–2.40, pp. 29–32; proof of Theorem 3.34, p. 56.
 
-### TR6 — TriangulineVarietyAndItsLocalModel (design #3412)
+### TR6 — Already planned: LocalGaloisDeformationRings:R08.1/phi-gamma-module-deformation-rings and SmoothRepresentationsOfLocalGroups:SR.3 (part-ii nodes)
 
-Supply representability and formal smoothness of R_D,R_{D,w},R_{D,g} and the character rings on local Artinian E-algebras, tangent–Ext identifications, and the first-order Cartesian parameter square (3.55). These are Robba-module deformation rings for possibly nonétale D. Supply the smooth Bernstein/de Rham tangent compatibility with LA6.
+Representability and formal smoothness of R_D,R_{D,w},R_{D,g},R_δ,R_{δ,g} for possibly nonétale D, the tangent–Ext identifications and the first-order Cartesian square (3.55) are LocalGaloisDeformationRings R08.1/phi-gamma-module-deformation-rings. The completed centre Ĥ_φ, the isomorphisms 𝒥_w:Ĥ_φ≃R_{w(φ),g} and their reordering compatibility are SmoothRepresentationsOfLocalGroups SR.3/part-ii-principal-series-completion, part-ii-ordered-character-map and part-ii-principal-series-tangent. Nothing here is left to design #3412 beyond the Lemma 2.11 input of TR2.
 
 Source boundary: §3.2.2, pp. 56–57; Proposition 2.10(2),(3) and Lemma 2.11, pp. 16–17.
 
@@ -100,9 +100,9 @@ Source boundary: Ding Proposition 3.26 and (3.46)–(3.47), pp. 51–52; upstrea
 
 ### Unresolved input chains
 
-Design #3411 has no roadmap or stage yet. The request filed against `LocallyAnalyticDistributions:L0` keeps the missing analytic-foundation chain visible, but L0 does not cover LA1–LA6. Design #3412 likewise has no roadmap or stage yet. The request filed against `PhiGammaModulesAndIwasawaCohomology:PG.7` keeps the relative Robba chain visible, but PG.7 does not cover TR1–TR6. Neither filing stage is represented as satisfying the future owner’s contract. Repoint both requests to exact nodes when those designs land; never invent supplier ids or duplicate their theory here.
+LocallyAnalyticRepresentationsOfLocalGroups (design #3411) and TriangulineVarietyAndItsLocalModel (design #3412) have no roadmap definition or stage yet. Gaps G-LA and G-TR record exactly what each must still supply: LA1–LA6 less the distribution-algebra and Bernstein-centre parts named above, and TR1–TR5 less the Robba, rank-one, de Rham, modified-object and deformation-ring parts named above. Contract TR6 is already met by existing nodes. When the two designs exist, point the consuming targets at their exact nodes; never invent supplier ids or duplicate their theory here.
 
-G-HC separately records the finite-E reductive application of the existing highest-weight roadmap. Its central projection is already in current Tau Ceti; the full normalized isomorphism needed by the scalar-character argument is not supplied by that fact alone. No layer is marked closed. Packet status `complete` means that the design pass covers all six layers, with these exact gaps retained. It makes no implementation claim.
+G-HC separately records the finite-E reductive application of the existing highest-weight roadmap. Its central projection is already in current Tau Ceti; the full normalized isomorphism needed by the scalar-character argument is not supplied by that fact alone. No layer is marked closed. The plan covers all six layers, with these exact gaps retained, and makes no implementation claim.
 
 ## What the libraries and upstream roadmaps already provide
 
@@ -112,7 +112,10 @@ G-HC separately records the finite-E reductive application of the existing highe
 - **Current TauCetiRoadmap main, RepresentationTheory/LieHighestWeight README and Suggested.lean, Layers 3,7,9.** Owns Verma modules, highest weights, central characters, Harish–Chandra and split gl_n transfer. PH.2 imports these. Layer 7’s semisimple setup and Layer 9’s scalar-center bridge require an explicit finite-E reductive application, recorded in G-HC.
 - **Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; Algebra/Lie/HighestWeight/CentralCharacter/HarishChandra.lean and DotOrbit.lean.** TauCeti.hcProjection is an implemented algebra map from the enveloping-algebra center to SymmetricAlgebra; hcProjection_mem_dotInvariants proves containment in the dot-invariants. Neither is re-planned. They are later than the pin and do not supply the full Harish–Chandra isomorphism required by Proposition 3.26.
 - **Current upstream roadmap directory, including the nine additions beyond the atlas snapshot and LocalGaloisGroups.** Searched target names and relevant Suggested declarations. LocalGaloisGroups supplies local-field/Galois foundations, not the Robba deformation quotient or local analytic Ext comparison. No current upstream roadmap or current Tau Ceti declaration already plans the comparison targets.
-- **PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category and PG.3/herr-ext.** Read exact existing nodes: consume the genuine relative Robba category and Herr Ext/deformation dictionary. They do not assert Ding’s generic quotient/de Rham/σ identities, the embedded recovery relation, or universal deformation representability. Those remain TR contracts.
+- **PhiGammaModulesAndIwasawaCohomology PG.1, PG.2, PG.3, PG.7 (accepted packet).** Consumed nodes: PG.7/relative-category (Artinian-coefficient Robba modules), PG.7/rank-one-characters, PG.1/rank-one-dictionary, PG.3/herr-ext (Ext¹ as first-order deformations) and PG.2/etale-tilde-equivalence. They do not assert Ding's quotient, de Rham or σ identities, the embedded recovery relation or the noncritical class ΦΓ_nc; those remain TR contracts.
+- **PadicHodgeTheory P7 (accepted packets PadicHodgeTheory and PadicHodgeTheory--P7).** Already plans, for Ding's §2.1–2.2, labelled de Rham realizations, B-pairs with their Robba equivalence and Herr comparison, and the modified object D_σ of Proposition 2.5(1) (P7/embedding-selective-crystalline-modification). PH.3/modified-comparison consumes the last; the deformation-level 𝔗_σ remains contract TR4.
+- **LocalGaloisDeformationRings R08.1 and SmoothRepresentationsOfLocalGroups SR.3 (accepted packets).** R08.1/phi-gamma-module-deformation-rings plans the (φ,Γ)-module deformation rings of §3.2.2 and the square (3.55); SR.3/part-ii-principal-series-centre, -ordered-character-map, -principal-series-completion and -principal-series-tangent plan Ĥ_φ, 𝒥_w and their tangents. PH.5/first-order-algebras consumes them, so contract TR6 and the smooth half of LA6 are already met.
+- **LocallyAnalyticDistributionsPartII ND.1–ND.2 (accepted packet).** Plans D(G,K) for compact G, Fréchet–Stein algebras and coadmissible modules. These are the foundation of LA1 and are consumed by PH.0/comparison-presentation, PH.2/minimal-extensions and PH.5/universal-extensions in place of LocallyAnalyticDistributions:L0, which is one level further down. The admissible category of the noncompact GL_n(K) is not planned there.
 
 The baseline commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. All eight baseline statements below were read at those commits and checked by full name against the index. Current upstream was inspected read-only; no build was run there.
 
@@ -135,7 +138,7 @@ Every target below includes its own statement, source, dependency chain and chec
 
 Define endpoint refinement families and determinant-pullback block character directions; prove their telescoping spanning formula. Form the two surjective maps from the sum of quotient trianguline tangents to representation Ext and quotient deformation space. This layer imports all underlying representation and deformation objects.
 
-Layer prerequisites: `LocallyAnalyticDistributions:L0`, `PhiGammaModulesAndIwasawaCohomology:PG.7`.
+Layer prerequisites: `LocallyAnalyticDistributionsPartII:ND.1`, `LocallyAnalyticDistributionsPartII:ND.2`, `PhiGammaModulesAndIwasawaCohomology:PG.3`, `PhiGammaModulesAndIwasawaCohomology:PG.7`.
 
 ### PH.0/endpoint-refinements — Endpoint refinement families
 
@@ -170,8 +173,6 @@ Prerequisites: `mathlib:Equiv.Perm`.
 **Uses.** PH.1/comparison-map: Indexes the two rank n−1 comparison maps before gluing. PH.0/character-spanning: For an interior placement, a block Weyl permutation moves φ_n to one of these endpoint positions.
 
 **Source.** Ding [DING25], §3.2.1, proof of Theorem 3.21, pp. 48–50 (S′_{n−1} on p. 48). The two endpoint families supply the two inductive parabolic comparisons.
-
-Atlas planet: **Endpoint refinements**.
 
 ### PH.0/block-characters — Block character subspaces
 
@@ -239,13 +240,14 @@ Atlas planet: **Levi-center character spanning**.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `LocallyAnalyticDistributions:L0`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, `PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category`, `PhiGammaModulesAndIwasawaCohomology:PG.3/herr-ext`, `mathlib:LinearMap`.
+Prerequisites: `PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category`, `PhiGammaModulesAndIwasawaCohomology:PG.3/herr-ext`, `mathlib:LinearMap`, `LocallyAnalyticDistributionsPartII:ND.1/distribution-algebra`, `LocallyAnalyticDistributionsPartII:ND.2/coadmissible-theorems`, `PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-characters`.
 
 **Proof or construction.**
 
-1. Use the common Ext¹_0 quotient on every deformation term, before defining C.
-2. Compose κ_w with the imported injective ζ_w:H_T→B, then use the direct-sum map.
-3. Import Proposition 3.8(2) for R_D and Proposition 2.12 for s_D; these are different supplier facts.
+1. The representation-side Ext groups are Ext groups of strong duals, which are coadmissible modules over the distribution algebras D(H,E) of compact open H⊂GL_n(K): import those algebras, their Fréchet–Stein structure and the abelian category of coadmissible modules from LocallyAnalyticDistributionsPartII ND.1–ND.2. The admissible category of GL_n(K) itself and the objects A, V, ζ_w are contracts LA1–LA3 (gap G-LA).
+2. Use the common Ext¹_0 quotient on every deformation term, before defining C.
+3. Compose κ_w with the imported injective ζ_w:H_T→B, then use the direct-sum map.
+4. Import Proposition 3.8(2) for R_D and Proposition 2.12 for s_D; these are different supplier facts. The trianguline parameters use the rank-one modules R_{K,E}(δ) of PhiGammaModulesAndIwasawaCohomology PG.7/rank-one-characters, and Ext¹ is the first-order deformation space of PG.3/herr-ext.
 
 **Check.** Retain both maps and their restrictions to every summand. The target Q is the quotient, not the full tangent Ext¹(D,D).
 
@@ -310,15 +312,13 @@ Prerequisites: natural-number arithmetic.
 
 **Source.** Ding [DING25], §3.2.1, Remark 3.22(1), p. 50. This is the numerical coefficient of the comparison kernel.
 
-Atlas planet: **Kernel multiplicity coefficient**.
-
 ### PH.1/endpoint-gluing — Gluing the two endpoint comparisons
 
 **Construction.** For n≥2 assume the comparison theorem in smaller ranks. Put F=(D_1⊂D), G=(R(φ_n z^{h_1})⊂D), where D_1 has parameters φ_1,…,φ_{n−1} and weights h_1,…,h_{n−1}, while C_1=D/R(φ_n z^{h_1}) has those parameters and weights h_2,…,h_n. Via ζ_F,κ_F and ζ_G,κ_G define t_F:B_F→Q_F↪Q and t_G:B_G→Q_G↪Q by the smaller-rank comparisons and the rank-one character map. These maps agree on B_g′. Hence there is a unique τ_D:B→Q restricting to both, by 0→B_g′→B_F⊕B_G→B→0 with anti-diagonal first arrow. It satisfies the refinement equation for w(n)=n or w(n)=1.
 
 Hypotheses: H and the notation fixed above; n≥2; the smaller-rank comparison theorem is the strong-induction hypothesis, not a same-rank prerequisite..
 
-Prerequisites: `PH.0/endpoint-refinements`, `LocallyAnalyticDistributions:L0`, `PhiGammaModulesAndIwasawaCohomology:PG.7`.
+Prerequisites: `PH.0/endpoint-refinements`.
 
 **Proof or construction.**
 
@@ -345,7 +345,7 @@ Prerequisites: `PH.0/endpoint-refinements`, `LocallyAnalyticDistributions:L0`, `
 
 **Uses.** PH.1/all-refinements: Supplies the map known on endpoint refinements. PH.1/comparison-map: Provides the inductive construction before verifying all refinements.
 
-**Source.** Ding [DING25], §3.2.1, (3.40)–(3.41), pp. 48–49; Proposition 3.13, p. 43. The inductive block maps glue along the representation-theoretic exact sequence.
+**Source.** Ding [DING25], §3.2.1, (3.40)–(3.41), pp. 48–49; Proposition 3.13, p. 44. The inductive block maps glue along the representation-theoretic exact sequence.
 
 ### PH.1/all-refinements — Compatibility beyond the endpoint refinements
 
@@ -353,7 +353,7 @@ Prerequisites: `PH.0/endpoint-refinements`, `LocallyAnalyticDistributions:L0`, `
 
 Hypotheses: H and the notation fixed above; n≥2; τ_D is the endpoint map constructed using smaller-rank comparisons..
 
-Prerequisites: `PH.1/endpoint-gluing`, `PH.0/character-spanning`, `LocallyAnalyticDistributions:L0`, `PhiGammaModulesAndIwasawaCohomology:PG.7`.
+Prerequisites: `PH.1/endpoint-gluing`, `PH.0/character-spanning`.
 
 **Proof or construction.**
 
@@ -447,7 +447,7 @@ Atlas planet: **Refinement transversality**.
 
 Construct the tautological kernel extension π_min and its finite-slope pushout; identify its Ext group with Q, characterize it by socle layers and refinement maps, and prove the determinant-normalized group-center and infinitesimal-character scalar actions.
 
-Layer prerequisites: `PH.1`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n`.
+Layer prerequisites: `PH.1`, `LocallyAnalyticDistributionsPartII:ND.2`, `PhiGammaModulesAndIwasawaCohomology:PG.1`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n`.
 
 ### PH.2/minimal-extensions — Minimal and finite-slope kernel extensions
 
@@ -455,7 +455,7 @@ Layer prerequisites: `PH.1`, `tauceti:TauCetiRoadmap/RepresentationTheory/LieHig
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.1/comparison-map`, `PH.1/kernel-dimension`, `LocallyAnalyticDistributions:L0`.
+Prerequisites: `PH.1/comparison-map`, `PH.1/kernel-dimension`, `LocallyAnalyticDistributionsPartII:ND.2/coadmissible-theorems`.
 
 **Proof or construction.**
 
@@ -574,13 +574,13 @@ Atlas planet: **Socle and refinement characterization**.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.0/comparison-presentation`.
+Prerequisites: `PH.0/comparison-presentation`, `PhiGammaModulesAndIwasawaCohomology:PG.1/rank-one-dictionary`, `PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-characters`.
 
 **Proof or construction.**
 
 1. Form the coordinate sums in Z^{Σ_K}, then the algebraic character z^{|λ|}.
 2. Compute Σ_iλ_{i,σ}−N=Σ_ih_{i,σ} at each σ; the norm powers cancel in χ_Dε^{−N}.
-3. Use the imported rank-one parameter of det D.
+3. Use the rank-one parameter of det D (PhiGammaModulesAndIwasawaCohomology PG.7/rank-one-characters) and the geometric-Frobenius normalization ε=N_{K/Q_p}|·|_K of PG.1/rank-one-dictionary.
 
 **Check.** The central matrix xI_n acts via this character; no extra power of χ_D is taken. Retain the geometric Frobenius and cyclotomic conventions from p. 9.
 
@@ -632,7 +632,7 @@ Atlas planet: **Central and infinitesimal characters**.
 
 Compare parabolic block kernels and their maximal push-forward subextensions. Construct the σ comparison and maximal partial algebraic minimal representation, split the kernel by embeddings and amalgamate over A. Transport comparison to D_σ without imposing regularity at the modified embeddings.
 
-Layer prerequisites: `PH.2`.
+Layer prerequisites: `PH.2`, `PadicHodgeTheory:P7`.
 
 ### PH.3/parabolic-comparison — Compatibility with parabolic induction
 
@@ -640,7 +640,7 @@ Layer prerequisites: `PH.2`.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.1/comparison-map`, `LocallyAnalyticDistributions:L0`, `PhiGammaModulesAndIwasawaCohomology:PG.7`.
+Prerequisites: `PH.1/comparison-map`.
 
 **Proof or construction.**
 
@@ -798,11 +798,11 @@ Atlas planet: **Embedding decomposition**.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.3/sigma-comparison`, `PhiGammaModulesAndIwasawaCohomology:PG.7`.
+Prerequisites: `PH.3/sigma-comparison`, `PadicHodgeTheory:P7/embedding-selective-crystalline-modification`.
 
 **Proof or construction.**
 
-1. Use the imported functorial modification and Corollary 2.27, not a new definition of 𝔗_σ in this roadmap.
+1. Use the modified object D_σ of PadicHodgeTheory P7/embedding-selective-crystalline-modification (Proposition 2.5(1)) and the deformation-level modification with Corollary 2.27 (contract TR4); this roadmap gives no new definition of 𝔗_σ.
 2. Compose with its quotient-deformation isomorphism, so the kernel is unchanged.
 3. Check the σ-refinement presentation in Corollary 3.32(1); it is determined by D_σ and the fixed (φ,h) representation side, and its surjection makes the kernel intrinsic.
 4. Transport the σ-parabolic square, using the supplier’s compatible modifications of each graded block.
@@ -852,7 +852,7 @@ Prerequisites: `PH.3/modified-comparison`, `PH.3/sigma-minimal-extension`, `PH.3
 
 Extract from the two parabolic minimal subextensions the embedded higher-intertwining relation in its fixed block ambient space. Prove π_min(D)_σ≃π_min(D′)_σ exactly when D_σ≃D′_σ, and deduce the full family and K=Q_p consequences.
 
-Layer prerequisites: `PH.3`.
+Layer prerequisites: `PH.3`, `PhiGammaModulesAndIwasawaCohomology:PG.2`.
 
 ### PH.4/recovery-relation — The embedded relation detected by the representation
 
@@ -860,7 +860,7 @@ Layer prerequisites: `PH.3`.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.3/modified-ext-comparison`, `PH.3/parabolic-minimal-extension`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, `mathlib:LinearMap.ker`.
+Prerequisites: `PH.3/modified-ext-comparison`, `PH.3/parabolic-minimal-extension`, `mathlib:LinearMap.ker`.
 
 **Proof or construction.**
 
@@ -900,7 +900,7 @@ Atlas planet: **Embedded recovery relation**.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.4/recovery-relation`, `PH.3/modified-comparison`, `PH.3/sigma-kernel-splitting`, `PH.2/minimal-extensions`.
+Prerequisites: `PH.4/recovery-relation`, `PH.3/modified-comparison`, `PH.3/sigma-kernel-splitting`, `PH.2/minimal-extensions`, `PhiGammaModulesAndIwasawaCohomology:PG.2/etale-tilde-equivalence`.
 
 **Proof or construction.**
 
@@ -909,6 +909,7 @@ Prerequisites: `PH.4/recovery-relation`, `PH.3/modified-comparison`, `PH.3/sigma
 3. For n≥3, an isomorphism of σ minimal representations identifies the embedded kernels using the intrinsic socle and scalar-endomorphism property. Intersect with the two parabolic images and apply the block kernel formula; induction identifies D_{1,σ},C_{1,σ} for the two inputs.
 4. The invariant ambient map of the recovery-relation construction now gives equality of the two Galois relation subspaces. Import Corollary 2.38(1) to identify D_σ and D′_σ.
 5. Extract maximal partial algebraic subrepresentations and apply the amalgamation theorem to pass between the fixed-σ and full statements.
+6. For K=Q_p, 𝔗_σ is the identity; for étale D=D_rig(ρ) pass from D to ρ through the étale equivalence of PhiGammaModulesAndIwasawaCohomology PG.2/etale-tilde-equivalence, applied with E-coefficients.
 
 **Check.** State both directions with their actual logical direction, correcting the reversed labels in the printed proof. Use equality of embedded relation subspaces, not a dimension count or an abstract linear equivalence. Specialize to K=Q_p only after using 𝔗_σ=id there.
 
@@ -920,7 +921,7 @@ Atlas planet: **Recovery of Hodge parameters**.
 
 Form A_D and A_{D,w} as first-order algebra fiber products, equip the universal refinement extensions with their parameter-ring actions, and construct the unique A_D-action on the full universal extension. Identify its maximal-ideal annihilator with π_min(D).
 
-Layer prerequisites: `PH.1`, `PH.2`.
+Layer prerequisites: `PH.1`, `PH.2`, `LocallyAnalyticDistributionsPartII:ND.2`, `LocalGaloisDeformationRings:R08.1`, `SmoothRepresentationsOfLocalGroups:SR.3`.
 
 ### PH.5/first-order-algebras — The comparison Artinian algebras
 
@@ -928,12 +929,12 @@ Layer prerequisites: `PH.1`, `PH.2`.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.0/comparison-presentation`, `LocallyAnalyticDistributions:L0`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, `mathlib:TrivSqZeroExt`, `mathlib:Module.Dual`.
+Prerequisites: `PH.0/comparison-presentation`, `mathlib:TrivSqZeroExt`, `mathlib:Module.Dual`, `LocalGaloisDeformationRings:R08.1/phi-gamma-module-deformation-rings`, `SmoothRepresentationsOfLocalGroups:SR.3/part-ii-principal-series-completion`, `SmoothRepresentationsOfLocalGroups:SR.3/part-ii-ordered-character-map`, `SmoothRepresentationsOfLocalGroups:SR.3/part-ii-principal-series-tangent`.
 
 **Proof or construction.**
 
-1. Import representability and formal smoothness in the generic noncritical setting; do not substitute unrestricted Galois deformation rings for nonétale Robba deformation rings.
-2. Dualize the κ_w tangent diagram to get (3.55), and use the refinement-independent smooth Bernstein tangent map to define A_0.
+1. Import R_D,R_{D,w},R_{D,g},R_δ,R_{δ,g}, their formal smoothness, tangent identifications and the Cartesian square (3.55) from LocalGaloisDeformationRings R08.1/phi-gamma-module-deformation-rings, which treats possibly nonétale Robba modules; do not substitute unrestricted Galois deformation rings.
+2. Take Ĥ_φ, the maps 𝒥_w and Ĥ_φ≃R_{w(φ),g} from SmoothRepresentationsOfLocalGroups SR.3 (part-ii-principal-series-completion, part-ii-ordered-character-map), and twist by z^{−h}. The composite A_0→R_{D,g}/m² is independent of w by the reordering compatibility of SR.3/part-ii-principal-series-tangent together with Lemma 2.11 (contract TR2).
 3. Form the actual algebra fiber products with their structure maps. Their tangent spaces are Ext¹(D,D)/Ext¹_0 and the analogous trianguline quotient, by the supplier’s smooth parameter and Ext¹_0 identifications.
 4. Use the canonical residue E-section and square-zero maximal ideal: cotangent is Q∨ and the algebra is E⊕Q∨ with square-zero multiplication, consuming TrivSqZeroExt.
 5. Dualizing the spanning map ⊕_wQ_w↠Q shows A_D→∏A_{D,w} injective.
@@ -972,7 +973,7 @@ Atlas planet: **Comparison Artinian algebras**.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.2/minimal-extensions`, `PH.5/first-order-algebras`, `LocallyAnalyticDistributions:L0`.
+Prerequisites: `PH.2/minimal-extensions`, `PH.5/first-order-algebras`, `LocallyAnalyticDistributionsPartII:ND.2/coadmissible-theorems`.
 
 **Proof or construction.**
 
@@ -1013,7 +1014,7 @@ Atlas planet: **Universal comparison extensions**.
 
 Hypotheses: H and the notation fixed above.
 
-Prerequisites: `PH.5/universal-extensions`, `LocallyAnalyticDistributions:L0`.
+Prerequisites: `PH.5/universal-extensions`.
 
 **Proof or construction.**
 
@@ -1107,9 +1108,9 @@ For d_K>1, D_σ deliberately has repeated weights at τ≠σ. Its transported σ
 
 ## Suggested Lean coverage
 
-The companion file imports Mathlib and has four light real-bodied definitions: `endRefinements`, `startRefinements`, `blockTuple`, and `kernelMultiplicity`. It states `endpoint_card`, `character_spanning`, `kernelMultiplicity_bound`, and `finrank_kernel_of_comparison_dimensions`, with concrete examples for each definition family. The last theorem is only the rank-nullity consequence for an existing linear map with the stated dimensions and surjectivity. It does not formalize the comparison or define any missing Ext category.
+The companion file imports individual Mathlib modules and has four light real-bodied definitions: `endRefinements`, `startRefinements`, `blockTuple`, and `kernelMultiplicity`. It states `endpoint_membership`, `endpoint_card`, `blockTuple_apply`, `diagonal_in_block`, `character_spanning`, `kernelMultiplicity_bound`, and `finrank_kernel_of_comparison_dimensions`, and gives every discriminating test of the three PH.0–PH.1 definitions as a named `example`. The last theorem is only the rank-nullity consequence for an existing linear map with the stated dimensions and surjectivity. It does not formalize the comparison or define any missing Ext category.
 
-PH.0’s permutation and tuple statements and PH.1’s numerical statements therefore have Lean signatures. The common presentation, endpoint gluing, actual comparison, and every representation/Hodge/Artinian target remain in this reader, because their carriers require the supplier contracts. The file has no sorry data definitions, opaque carriers, proposition-field packages or auxiliary theory development. It elaborated with `lean-check` at the pinned shared build on 19 October 2026, exit 0; only declaration-uses-sorry warnings were emitted. Every packet node remains `implementationStatus: unchecked`.
+PH.0’s permutation and tuple statements and PH.1’s numerical statements therefore have Lean signatures. The common presentation, endpoint gluing, actual comparison, and every representation, Hodge and Artinian target remain in this reader, because their carriers require the supplier contracts. The file has no data definitions without bodies, opaque carriers, proposition-field packages or auxiliary theory development. It elaborates with `lean-check` at the pinned shared build (19 October 2026, exit 0, proof-admission warnings only). Every packet node remains `implementationStatus: unchecked`.
 
 ## Source verification and repairs
 
@@ -1127,7 +1128,7 @@ Correction: Use a spanning sum of determinant-pullback block character subspaces
 
 Reason: Each two-block character space already contains the diagonal. The proposed sum has dimension (2n−1)(1+d_K), whereas H_T has dimension n(1+d_K); at n=3,d_K=1 these are 10 and 6. The coordinate telescoping proof supplies exactly what the comparison proof uses.
 
-Reach: the proof. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: the proof. Review verdict: confirmed. Checked at p. 49: (3.43) asserts Hom(T(K),E)≅⊕_{j=1}^{n−1}Hom(Z_j(K),E)⊕Hom(Z(K),E). The right side has dimension (2n−1)(1+d_K) against n(1+d_K), so the isomorphism fails for every n≥2. The determinant-pullback subspaces only span, with overlaps along the diagonal, and the closing argument on p. 50 needs only that spanning, which the telescoping identity of PH.0/character-spanning supplies.
 
 ### E2 — misprint at DING25, published version: paragraph defining χ_D before Proposition 3.26, p. 51
 
@@ -1137,7 +1138,7 @@ Correction: Define |λ|_σ=Σ_iλ_{i,σ} for each σ.
 
 Reason: For n=2 and two embeddings with λ=(2,0) and (5,1), the exponents must be 2 and 6. A scalar sum cannot recover the determinant parameter at both embeddings.
 
-Reach: nothing. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: nothing. Review verdict: confirmed. Checked at p. 51: |λ| is defined as a sum over both i and σ, while z^k requires k∈Z^{Σ_K}. With |λ|_σ=Σ_iλ_{i,σ} the character is exactly the central character of π_sm(φ)⊗L(λ) (η contributes |·|_K^{n(n−1)/2}), and χ_Dε^{−n(n−1)/2} has exponents Σ_ih_{i,σ}, the determinant parameter; both recomputed.
 
 ### E3 — misprint at DING25, published version: Theorem 3.36 proof, (3.58), p. 58
 
@@ -1147,7 +1148,7 @@ Correction: The final inclusion is A↪U, the same full universal extension as t
 
 Reason: A ring action on U is an endomorphism of U; the displayed formula has no chosen w. On restriction to U_w the formula agrees with its existing action.
 
-Reach: nothing. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: nothing. Review verdict: confirmed. Checked at p. 58: the composition (3.58), which is to define an endomorphism of π_1(φ,h)^univ for x in the cotangent space of A_D, ends in π_1(φ,h)^univ_w although no w is fixed; the subscript is a slip, and the restriction to each U_w agrees with (3.57).
 
 ### E4 — misprint at DING25, published version: Theorem 3.34 proof, second relation after (3.54), p. 56
 
@@ -1157,7 +1158,7 @@ Correction: Use L(D′_σ,D_{1,σ},C_{1,σ}). Both relation subspaces are images
 
 Reason: The proof compares two potentially different objects. Its conclusion requires equality of their embedded relations, not an abstract isomorphism of spaces of the same dimension.
 
-Reach: nothing. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: nothing. Review verdict: confirmed. Checked at p. 56: after replacing D_σ by D′_σ the text again writes ℒ(D_σ,D_{1,σ},C_{1,σ}); the next sentence compares ℒ(D_σ,…) with ℒ(D′_σ,…) inside V(D_{1,σ},C_{1,σ})_σ, so the first slot must be D′_σ.
 
 ### E5 — misprint at DING25, published version: Theorem 3.34 proof, first paragraph, p. 56
 
@@ -1167,9 +1168,9 @@ Correction: D_σ≃D′_σ implies equality of comparisons by Corollary 3.32. Th
 
 Reason: Corollary 3.32 transports comparison under a modified-object isomorphism; it cannot itself recover the object from a representation.
 
-Reach: nothing. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: nothing. Review verdict: confirmed. Checked at p. 56: Corollary 3.32(1) gives D_σ≅D′_σ ⇒ Ker t_{D_σ}=Ker t_{D′_σ} ⇒ π_min(D)_σ≅π_min(D′)_σ, the 'if' half of the stated equivalence; the induction proves the 'only if' half. The printed labels are swapped.
 
-### E6 — error at DING25, published version: Corollary 2.14 proof, final dimension comparison, p. 19
+### E6 — misprint at DING25, published version: Corollary 2.14 proof, final dimension comparison, p. 19
 
 Printed claim, paraphrased: The dimension comparison for the quotient parabolic tangent has a term d_K dim(B∩L_P)−n and then identifies it with the block dimensions.
 
@@ -1177,17 +1178,17 @@ Correction: Use dim Q_F=n+d_K dim(B∩L_P)=Σ_i[n_i+n_i(n_i+1)d_K/2]; the block 
 
 Reason: Subtracting dim Ext¹_0 from Proposition 2.13 and using the parabolic block ranks gives this formula. For P=B it is n(1+d_K), while the printed expression would be n(d_K−1).
 
-Reach: the proof. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: the proof. Review verdict: confirmed. Checked at p. 19: subtracting dim Ext¹_0=n(n−1)d_K/2+1−n from dim Ext¹_{F_P}=1+d_K dim P gives d_K dim(B∩L_P)+n=Σ_i[n_i+n_i(n_i+1)d_K/2]; the printed −n is a sign slip (for P=B it would give n(d_K−1) against n(1+d_K)). The bijectivity concluded from the comparison is right, so this review reclassifies the finding from error to misprint.
 
-### E7 — misprint at DING25, published version: Proposition 3.8, (3.12) and (3.15), pp. 38–39
+### E7 — misprint at DING25, published version: Proposition 3.8, (3.12) and (3.15), pp. 38–39; Proposition 3.18(1), (3.33), p. 46
 
-Printed claim, paraphrased: The subset index for C(I,s_{i,σ}) is restricted to {1,…,n−1}.
+Printed claim, paraphrased: The subset index for C(I,s_{i,σ}) is restricted to {1,…,n−1} in the exact sequences (3.12) and (3.33) and in diagram (3.15).
 
 Correction: Use I⊂{1,…,n} with 1≤|I|≤n−1, consistently with the definition on p. 34.
 
 Reason: At n=2 both singleton subsets label constituents, while the printed index omits one. Summing all binomial coefficients for proper nonempty subsets gives 2^n−2 and the stated dimension formula.
 
-Reach: a stated result. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: a stated result. Review verdict: confirmed. Checked at pp. 35, 38, 39 and 46: π_1 has the (2^n−2)d_K constituents C(I,s_{i,σ}) with I⊂{1,…,n}, #I=i (p. 35), and dim n+(2^n−1)d_K uses all of them, whereas I⊂{1,…,n−1} gives only 2^{n−1}−1 labels for each σ. The review found the same slip in (3.33) of Proposition 3.18(1), p. 46, and added it to the locator.
 
 ### E8 — misprint at DING25, published version: Lemma 2.11 proof, last parameter of the displayed triangulation, p. 16
 
@@ -1197,7 +1198,7 @@ Correction: Its algebraic factor is z^{h_n}, the n-th ordered weight, rather tha
 
 Reason: The ordered weights in a noncritical triangulation are h_1,…,h_n. The next page uses the corresponding h_k and h_{k+1} in the simple-reflection comparison.
 
-Reach: nothing. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: nothing. Review verdict: confirmed. Checked at p. 16: the displayed triangulation of D̃ ends with the factor z^{h_1}; noncriticality and the following page's use of h_k and h_{k+1} require z^{h_n}.
 
 ### E9 — misprint at DING25, published version: parabolic-induction paragraph after (3.30), p. 43
 
@@ -1207,9 +1208,39 @@ Correction: The expression with the rank n−1 block first uses P_{n−1}; the e
 
 Reason: Their Levi shapes are (n−1,1) and (1,n−1), respectively, and p. 33 fixes this indexing. The intrinsic filtrations F and G remain the ones used in PH.1.
 
-Reach: nothing. No published corrigendum located in the searches recorded here. Prior extraction findings were used as leads and the printed formula was checked directly; no independent-review verdict is assigned.
+Reach: nothing. Review verdict: confirmed. Checked at p. 43 on the rendered page: the two inductions are labelled P_1^- and P_2^-, while p. 33 defines P_i by deleting simple root i, so the Levi shapes (n−1,1) and (1,n−1) belong to P_{n−1} and P_1.
 
-The Springer record, published PDF and a targeted title/DOI search for errata were checked on 19 October 2026. No separate published corrigendum was located. Prior extraction findings were leads, checked again against the source; no new independent review verdict is assigned.
+### E10 — misprint at DING25, published version: definition of the σ-relation subspace before Corollary 2.38, pp. 31–32
+
+Printed claim, paraphrased: The relation subspace attached to the modified object is named with D_{2,σ} in its third slot.
+
+Correction: Write ℒ(D_σ,D_{1,σ},C_{1,σ})_σ, the notation used in Corollary 2.38 and in (2.42) immediately afterwards.
+
+Reason: No object D_{2,σ} is defined; the ambient space V(D_{1,σ},C_{1,σ})_σ and the defining condition involve only D_{1,σ} and C_{1,σ}.
+
+Reach: nothing. Review verdict: confirmed. Found and checked by this review at pp. 31–32 of the published PDF.
+
+### E11 — gap at DING25, published version: proof of Proposition 3.26, the bijection HC:X_h→X_{ξ_λ}, p. 51
+
+Printed claim, paraphrased: The map between the tangent spaces of U(t_{Σ_K}) at h and of its Weyl invariants at the image point is said to be bijective because the invariants form a polynomial algebra.
+
+Correction: The tangent map of Spec U(t_{Σ_K})→Spec U(t_{Σ_K})^{W} is bijective at h because h is regular: at each σ the Jacobian of the elementary symmetric polynomials at (h_{1,σ},…,h_{n,σ}) is, up to sign, the Vandermonde determinant ∏_{i<j}(h_{i,σ}−h_{j,σ}), which is nonzero since h is strictly dominant.
+
+Reason: Polynomiality of the invariants alone does not give the bijection: for n=2 at a point with equal coordinates the Jacobian of (x_1+x_2,x_1x_2) is singular, so the tangent map is not injective there. Under the paper's standing hypothesis the claim holds, and PH.2/scalar-characters uses the Vandermonde argument.
+
+Reach: the proof. Review verdict: confirmed. Found and checked by this review at p. 51 of the published PDF; the regularity argument was verified directly.
+
+### E12 — misprint at DING25, published version: the two endpoint inductions in the paragraph after (3.30), p. 43
+
+Printed claim, paraphrased: In both displayed endpoint inductions the cyclotomic twist is attached to the other Levi block: ε on the rank n−1 block in the first, and ε^{n−1} on the rank-one block in the second.
+
+Correction: With the normalization ε^{−1}∘θ_P fixed in (3.19), p. 40, the twist is 1⊠ε^{n−1} for the Levi shape (n−1,1) and 1⊠(ε∘det) for (1,n−1): the inductions are of π_1(φ^1,h^1)⊠φ_nz^{h_n}ε^{n−1} and of φ_nz^{h_1}⊠(π_1(φ^1,h^2)⊗ε∘det).
+
+Reason: θ_P is (0,…,0,−(n−1)) and (0,−1,…,−1) for these two parabolics (p. 33), and only these twists put π_alg(φ,h) in the socle. At n=2 the printed first induction has algebraic part z^{(h_1+1,h_2)}, whereas PS(φ,h) on p. 34 has z^λ=z^{(h_1,h_2+1)}. The representations π_F and π_G used later are fixed intrinsically by Lemma 3.10 and (3.19), so nothing downstream changes.
+
+Reach: nothing. Review verdict: confirmed. Found and checked by this review at pp. 33, 34, 40 and 43 of the published PDF (rendered page 43); recomputed at n=2.
+
+The Springer record, the published PDF, a targeted title and DOI search for errata, and the arXiv listing (versions v1 and v2) were checked on 19 October 2026. No published corrigendum was located.
 
 ## Routed-item coverage and planets
 
@@ -1242,4 +1273,4 @@ All 24 items routed to this roadmap by PAPER-DING-25 have targets. This table is
 | `3.2-thm-3-36` | `PH.5/universal-artinian-action` |
 | `3.2-cor-3-37` | `PH.5/annihilator-realisation` |
 
-Planets are the named definitions, constructions and theorems shown beside the targets; at most six occur in any layer. The packet is authoritative for their ids. Packaging waits for the missing supplier designs and their exact references, and then for independent review of this conditional plan.
+Planets are the named definitions, constructions and theorems shown beside the targets; at most six occur in any layer, and indexing devices or numerical coefficients carry none. The packet is authoritative for their ids. Packaging waits for the missing supplier designs and their exact references.

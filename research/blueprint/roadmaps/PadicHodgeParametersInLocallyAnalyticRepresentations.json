@@ -3,11 +3,14 @@
   "title": "p-adic Hodge parameters in locally analytic representations of GL_n",
   "area": "langlands",
   "parent": null,
-  "summary": "Construct the quotient-deformation comparison for generic noncritical crystabelline (φ,Γ)-modules and use its kernel to select a minimal locally analytic representation of GL_n(K). The plan proves parabolic and embedding compatibility, recovery of modified Hodge flags, scalar character statements, and the first-order Artinian universal-extension reformulation. Its two input theories are imported with explicit unresolved supplier contracts.",
-  "readme": "The classical smooth representation together with the Hodge–Tate weights fixes a locally algebraic representation, but in rank at least three it leaves Hodge flags undetermined. This roadmap records how Ding’s comparison detects those extra parameters inside extensions of locally analytic representations. Its first output is a canonical surjection t_D:B→Q. The kernel selects π_min(D), whose embeddingwise pieces recover precisely the modified objects D_σ. A second description realizes the same representation as the maximal-ideal annihilator of a universal extension with an Artinian action.\n\nThis is a local comparison roadmap. It imports the entire GL_n representation theory from LocallyAnalyticRepresentationsOfLocalGroups (design #3411) and the entire trianguline/Hodge theory from TriangulineVarietyAndItsLocalModel (design #3412). Neither supplier has a roadmap definition, reserved stage or packet in this checkout. The reader specifies their exact contracts and records gaps; provisional requests to existing foundational stages are filing references, not evidence that those stages already provide the missing theories. The design pass is complete, but no layer is closed and no theorem is implemented. In rank two the kernel is zero and π_min=π_1, so this construction adds no Hodge parameter. It is expected to be far smaller than the full locally analytic representation of a p-adic correspondence. Ding’s global applications in §4 belong to the separate local-global compatibility roadmap.\n\nThe six layers follow mathematical dependencies: common refinement parameters; comparison and kernel; minimal extensions and scalar characters; parabolic and embedding compatibility; recovery; universal Artinian actions. The definitive targets, APIs, discriminating tests, source corrections and ownership boundaries are in research/blueprint/readmes/PadicHodgeParametersInLocallyAnalyticRepresentations.md. Every source statement is restated in our own words, with locators in the published 74-page version.",
+  "summary": "Construct the quotient-deformation comparison for generic noncritical crystabelline (φ,Γ)-modules and use its kernel to select a minimal locally analytic representation of GL_n(K). The plan proves parabolic and embedding compatibility, recovery of modified Hodge flags, scalar character statements, and the first-order Artinian universal-extension reformulation. Its two input theories, neither yet designed, are imported through explicit supplier contracts, and the parts of them the atlas already plans are consumed from their owners.",
+  "readme": "The classical smooth representation together with the Hodge–Tate weights fixes a locally algebraic representation, but in rank at least three it leaves Hodge flags undetermined. This roadmap records how Ding’s comparison detects those extra parameters inside extensions of locally analytic representations. Its first output is a canonical surjection t_D:B→Q. The kernel selects π_min(D), whose embeddingwise pieces recover precisely the modified objects D_σ. A second description realizes the same representation as the maximal-ideal annihilator of a universal extension with an Artinian action.\n\nThis is a local comparison roadmap. Its two input theories are the locally analytic representation theory of GL_n(K) planned by LocallyAnalyticRepresentationsOfLocalGroups and the trianguline deformation theory planned by TriangulineVarietyAndItsLocalModel. Neither roadmap has been designed yet, so the reader states exactly what is imported from each (contracts LA1–LA6 and TR1–TR5) and records two gaps. Everything those inputs rest on that the atlas already plans is consumed from its owner: distribution algebras and coadmissible modules (LocallyAnalyticDistributionsPartII ND.1–ND.2), Robba and rank-one modules, Herr Ext and the étale equivalence (PhiGammaModulesAndIwasawaCohomology PG.1–PG.3 and PG.7), labelled de Rham realizations and the modified object D_σ (PadicHodgeTheory P7), the (φ,Γ)-module deformation rings (LocalGaloisDeformationRings R08.1), the principal-series Bernstein centre with its ordered-character maps (SmoothRepresentationsOfLocalGroups SR.3), and Harish-Chandra theory (Tau Ceti's LieHighestWeight, Layers 7 and 9). No layer is closed and no theorem is implemented. In rank two the kernel is zero and π_min=π_1, so this construction adds no Hodge parameter. It is expected to be far smaller than the full locally analytic representation of a p-adic correspondence. Ding’s global applications in §4 belong to the separate local-global compatibility roadmap.\n\nThe six layers follow mathematical dependencies: common refinement parameters; comparison and kernel; minimal extensions and scalar characters; parabolic and embedding compatibility; recovery; universal Artinian actions. The definitive targets, APIs, discriminating tests, source corrections and ownership boundaries are in research/blueprint/readmes/PadicHodgeParametersInLocallyAnalyticRepresentations.md. Every source statement is restated in our own words, with locators in the published 74-page version.",
   "prerequisites": [
-    "LocallyAnalyticDistributions",
+    "LocallyAnalyticDistributionsPartII",
     "PhiGammaModulesAndIwasawaCohomology",
+    "PadicHodgeTheory",
+    "LocalGaloisDeformationRings",
+    "SmoothRepresentationsOfLocalGroups",
     "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
   ],
   "stages": [
@@ -16,7 +19,9 @@
       "title": "Refinement parameters and the common presentation",
       "description": "Define endpoint refinement families and determinant-pullback block character directions; prove their telescoping spanning formula. Form the two surjective maps from the sum of quotient trianguline tangents to representation Ext and quotient deformation space. This layer imports all underlying representation and deformation objects.",
       "requires": [
-        "LocallyAnalyticDistributions:L0",
+        "LocallyAnalyticDistributionsPartII:ND.1",
+        "LocallyAnalyticDistributionsPartII:ND.2",
+        "PhiGammaModulesAndIwasawaCohomology:PG.3",
         "PhiGammaModulesAndIwasawaCohomology:PG.7"
       ]
     },
@@ -34,6 +39,9 @@
       "description": "Construct the tautological kernel extension π_min and its finite-slope pushout; identify its Ext group with Q, characterize it by socle layers and refinement maps, and prove the determinant-normalized group-center and infinitesimal-character scalar actions.",
       "requires": [
         "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
+        "LocallyAnalyticDistributionsPartII:ND.2",
+        "PhiGammaModulesAndIwasawaCohomology:PG.1",
+        "PhiGammaModulesAndIwasawaCohomology:PG.7",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-7-the-center-of-ul-harish-chandra-freudenthal-and-serres-relations",
         "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-9-reductive-lie-algebras-and-gl_n"
       ]
@@ -43,7 +51,8 @@
       "title": "Parabolic and embedding compatibility",
       "description": "Compare parabolic block kernels and their maximal push-forward subextensions. Construct the σ comparison and maximal partial algebraic minimal representation, split the kernel by embeddings and amalgamate over A. Transport comparison to D_σ without imposing regularity at the modified embeddings.",
       "requires": [
-        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2"
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+        "PadicHodgeTheory:P7"
       ]
     },
     {
@@ -51,7 +60,8 @@
       "title": "Recovery of modified Hodge parameters",
       "description": "Extract from the two parabolic minimal subextensions the embedded higher-intertwining relation in its fixed block ambient space. Prove π_min(D)_σ≃π_min(D′)_σ exactly when D_σ≃D′_σ, and deduce the full family and K=Q_p consequences.",
       "requires": [
-        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3"
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.3",
+        "PhiGammaModulesAndIwasawaCohomology:PG.2"
       ]
     },
     {
@@ -60,7 +70,10 @@
       "description": "Form A_D and A_{D,w} as first-order algebra fiber products, equip the universal refinement extensions with their parameter-ring actions, and construct the unique A_D-action on the full universal extension. Identify its maximal-ideal annihilator with π_min(D).",
       "requires": [
         "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.1",
-        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2"
+        "PadicHodgeParametersInLocallyAnalyticRepresentations:PH.2",
+        "LocallyAnalyticDistributionsPartII:ND.2",
+        "LocalGaloisDeformationRings:R08.1",
+        "SmoothRepresentationsOfLocalGroups:SR.3"
       ]
     }
   ],
