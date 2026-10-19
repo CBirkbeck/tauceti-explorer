@@ -12,6 +12,10 @@ The second principal construction is the vector-valued crystalline Iwasawa regul
 
 For curves the roadmap distinguishes the raw syntomic class, the canonical syntomic coordinate and the Bloch–Kato-normalized regulator. Relative families retain their compactification and vanishing hypotheses. Semistable curves have continuous and discrete regulator components; a formula paired against ker N does not determine both components. Global p-adic regulator injectivity is a conjectural target and is not a consequence of the local theorem.
 
+**Independent review, 19 October 2026: needs changes.** The 132 intended targets have been checked, together with their sources, library baseline, supplier contracts, APIs and tests. This reader renders the intended corrected mathematical view. The current atlas merger reads only `nodes`: it ignores this root packet’s imports, source aliases and 27 correction records. With the two parts present it therefore retains uncorrected declarations for 26 targets, including a dual-exponential formula with reversed pairing arguments. The root packet alone contributes one declaration. A supported assembly or coordinated canonical migration is required before promotion; the parts’ earlier acceptance does not approve this mismatch. See [the independent report](../reviews/REV-PadicHodgeRegulators.md).
+
+The review retains the 21 explicit mathematical/supplier gaps and adds the assembly blocker as a separate gap. All ten stages remain planned, with none closed. The source register now has 25 independently checked entries: 24 confirmed and the higher-weight Gros factorial allegation rejected. Three GSWZ entries were already known from the paper review and are now also recorded in this packet.
+
 ## Conventions and the imported library
 
 Write v_r=ε^{⊗r} for the chosen representation vector of Q_p(r), and d_r=t^{-r}⊗v_r for its canonical de Rham/crystalline vector. The source notation e_r denotes d_r in the Bloch–Kato and local-regulator formulas, but denotes v_r inside the étale/Wach module and cocycle formulas. This dictionary is used before composing those formulas. Changing ε changes t and v_r together and preserves d_r.
@@ -41,6 +45,8 @@ Write v_r=ε^{⊗r} for the chosen representation vector of Q_p(r), and d_r=t^{-
 The period rings, continuous Galois cohomology, completed K-theory, local-field structure, distribution algebras and Wach modules are imported from their owners. L0 records conventions and comparison interfaces; it introduces no new period-ring carrier. The integral finite-weight Bloch–Kato image is asserted in the unramified range 2 ≤ r ≤ p−2. The classical divided syntomic small-weight comparison has r ≤ p−2; bounded undivided comparisons and rational semistable exponentials are distinct assertions.
 
 The pinned libraries are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Existing local-field and global-local structure belongs to the upstream **LocalFieldsRamification** and **NumberFieldArithmetic** roadmaps. The Teichmüller section and finite Kummer class at these pins do not supply completed continuous Kummer theory or the regulator engine.
+
+Current upstream **LocalGaloisGroups Layer 7, Steps 1–2** also owns the completed multiplicative carrier A(L)=lim_m L×/(L×)^(p^m), its transition maps, Z_p-action, Galois action and torsion/free-quotient description. The Selmer supplier must reuse that carrier when proving the continuous Kummer comparison. That cohomological comparison and the completed Chern/regulator maps are separate targets. This screen used upstream roadmap commit `0d144d04` and current Tau Ceti commit `a91d3aa`; the pinned baseline remains unchanged.
 
 ### Library interfaces
 
@@ -3590,7 +3596,7 @@ For W with nonnegative weights r_1<=...<=r_d admitting a noncritical refinement 
 
 **Dependencies.** [PadicHodgeRegulators:L4/refinement-saturated-flag](#target-padichodgeregulators-l4-refinement-saturated-flag), [PadicHodgeRegulators:L4/good-wach-basis](#target-padichodgeregulators-l4-good-wach-basis), [PadicHodgeRegulators:L4/logarithmic-matrix](#target-padichodgeregulators-l4-logarithmic-matrix), [PadicHodgeRegulators:L3/logarithmic-factors](#target-padichodgeregulators-l3-logarithmic-factors), [LocallyAnalyticDistributions:L2](LocallyAnalyticDistributions.md), [LocallyAnalyticDistributions:L2/order-r-distributions](LocallyAnalyticDistributions.md), [LocallyAnalyticDistributions:L2/amice-velu-vishik](LocallyAnalyticDistributions.md), [LocallyAnalyticDistributions:L2/locally-algebraic-determination](LocallyAnalyticDistributions.md).
 
-**Sources.** [LLZ2011](https://msp.org/ant/2011/5-8/ant-v5-n8-p06-s.pdf), Corollary1.12, Theorem2.10 and Corollary3.2, pp.1103,1114,1117: States the actual analytic elementary divisors.
+**Sources.** [LLZ2011](https://msp.org/ant/2011/5-8/ant-v5-n8-p06-s.pdf), Corollary1.12, Theorem2.10 and Corollary3.2, pp.1107,1114,1117: States the actual analytic elementary divisors.
 
 <a id="target-padichodgeregulators-l4-specialization-subspaces"></a>
 
@@ -4409,6 +4415,8 @@ It is therefore invertible over Z₅. Solving for D(ξ)=c₁D(ζ)+c₂D(ζ²)+c�
 
 These reproduce the displayed initial digits of GSWZ (271)–(274). The second line of (273) is D(ζ²), rather than the printed D(ζ⁵). Reflection D(z)+D(1−z)=0 and inversion D(z)+D(1/z)=0 hold modulo 5¹⁴ at a and 1−a² in the same computation. The calculation supplies finite-precision acceptance evidence; the exact identities and completed K-theory interpretation still require the stated theorems.
 
+The independent review recomputed these quantities at working precision 20 using exact finite-ring arithmetic. All recorded 12-digit values and coordinates matched, as did the two functional identities modulo 5¹⁴. This independently checks the numerical receipt; it does not prove the arithmetic identifications.
+
 ## External contracts and mathematical boundaries
 
 The exact supplier nodes below provide the listed inputs under their own hypotheses. A supplier's recorded proof gap remains an input obligation; an interface is not a formalisation claim.
@@ -4538,6 +4546,8 @@ The exact supplier nodes below provide the listed inputs under their own hypothe
 
 **Representation-level L2 comparison versus general de Rham Robba modules.** The new precise dependency L2/fontaine-iwasawa-map applies to etale D(T) attached to a representation. L2/character-specialisation likewise specializes representation Iwasawa classes. These nodes support only that specialization of the L4 construction. RJ’s general de Rham D and N_rig(D) need the separately requested PG.5 Nakamura comparison and its localization/exponential interface; no etaleness or representation realization is inferred from the new node reference. Retain the existing N_rig/exponential and crystalline normalization gaps. Applies to [PadicHodgeRegulators:L4/derham-regulator](#target-padichodgeregulators-l4-derham-regulator), [PadicHodgeRegulators:L4/derham-interpolation-growth](#target-padichodgeregulators-l4-derham-interpolation-growth), [PadicHodgeRegulators:L4/crystalline-derham-comparison](#target-padichodgeregulators-l4-crystalline-derham-comparison).
 
+**Unsupported root assembly drops mathematical corrections.** The live merge/promotion path does not apply the root’s imports, source aliases or ordered corrections. The reader and canonical merged declarations therefore disagree. Resolve this through a supported, validated assembler or coordinated canonical-node migration, then recheck all affected targets and planets. This is the independent review’s blocking finding; it is separate from the mathematical boundaries above.
+
 ## Suggested-file correspondence
 
 The [suggested file](../suggested/PadicHodgeRegulators.lean) states only light definitions and named milestones whose genuine carriers exist at the pins. Its first theorem is the finite-free Zₚ conclusion needed at the end of the completed local K₃ proof. It explicitly assumes the basis, integral normalized linear map and spanning modulo p; it does not provide any of those arithmetic identifications. The Frobenius norm identity is a Qₚ-linear algebra milestone, with the filtered comparison and transported K-action specified in D.5. The analytic Iwasawa, syntomic and general de Rham headline constructions remain full mathematical targets above because their carriers are absent at these pins.
@@ -4559,6 +4569,38 @@ The [suggested file](../suggested/PadicHodgeRegulators.lean) states only light d
 | `shearMatrix_unit` | L4/integral-shear-choice: unit determinant |
 
 There are two proved examples per kept definition when its discriminating checks fit the native carriers: finitePolylog at (5,2,2) and the p=3 boundary; empty evaluation constraints and the X-versus-1 condition at zero; and integral shear determinants including a nonunit determinant. The residue-value check is the named theorem `residueDilogValue_five_values`, rather than an admitted example. Its remaining checks distinguish the excluded points and Frobenius direction. The complete API and all discriminating mathematical tests remain with each target above.
+
+## Independently checked source issues
+
+The verdicts below concern the exact public versions in the references. Earlier workers’ publication/errata searches remain attributed to them; this review checked the cited mathematical passages and does not claim a new general errata search. The full reasons and historical verdicts are in the packet.
+
+| Issue | Source and locator | Verdict and resolution |
+| --- | --- | --- |
+| E101 | GSWZ2024, §1.5, after (19), p. 9 (arXiv 2412.04241v2) | confirmed: Unrestricted dilogarithm formula exceeds the proved special-unit domain. |
+| E102 | GSWZ2024, Theorem 9 and proof, p. 39 (arXiv 2412.04241v2) | confirmed: Product generation needs difference-spanning to isolate components. |
+| E103 | BdJ2003, Remark 1.13, p. 6 (arXiv math/0110334v2) | rejected: No demonstrated error without identifying the higher-weight input-symbol normalizations. |
+| E104 | BdJ2003, Proof of Theorem 1.12, p. 41 (arXiv math/0110334v2) | confirmed: Include p-primary exponent one and retain the theorem’s sign/factorial. |
+| E105 | BdJ2003, Proof of Lemma 4.10 and (4.4), pp. 24–25 (arXiv math/0110334v2) | confirmed: Correct differential scope and the eta/epsilon variable in the proof. |
+| E106 | CN2017, §1, p. 2 and §2.4.3, p. 23 (arXiv 1505.06471v4) | confirmed: Use the strict residue bound b<p−1 for uniqueness. |
+| E107 | CN2017, Theorem 1.1(ii), p. 2, against Theorem 5.4(ii), p. 54 (arXiv 1505.06471v4) | confirmed: The proved bound retains N_K; the stronger introduction statement lacks that proof. |
+| E108 | NN2016, Remark 4.14, p. 54 (arXiv 1309.7620v5) | confirmed: The stated vanishing range misses the local weight-one exception. |
+| E109 | NN2016, Theorem 5.9, p. 59 (arXiv 1309.7620v5) | confirmed: Regulator degree is i, consistent with the preceding construction. |
+| E110 | NN2016, Proposition 2.16, p. 15 (arXiv 1309.7620v5) | confirmed: Retain the degree-one weight-zero and degree-two weight-one exceptions. |
+| E111 | HK2011, Definition 0.4.5, p. 6 (arXiv math/0612611v1) | confirmed: Permute factors in the antisymmetrized trace. |
+| E112 | Berger2003, Lemma II.1, p. 10 (arXiv math/0209283v1) | confirmed: Use the corrected psi=1 and level restrictions of the published lemma. |
+| E113 | FO, Proof of Proposition 6.36(1), p. 150 | confirmed: Degree-one local duality pairs with degree one, rather than degree zero. |
+| E114 | HK2, Appendix A, Proposition A.3, p. 47 (arXiv math/0101071v2) | confirmed: Replace the local field label K by the statement’s global field F. |
+| E115 | Berger2003DM, Proof of Theorem A.3, p. 126 (Documenta version) | confirmed: Correct the weight-sign word under the paper’s declared convention. |
+| E116 | LZ2014, §2, p. 7 (arXiv 1108.5954v3) | confirmed: The psi-fixed containment is Berger Theorem A.3, rather than A.2. |
+| E117 | AC20, Remark 3.2(1), p. 15 (arXiv 2003.08888v2) | confirmed: AC20 prints Remark 8.6.3; the correct reference is Besser2000 Proposition 8.6(3), author pp.26–27. The prior review’s reading of 8.6.6 was mistaken. |
+| E301 | LLZ2011, Published Proposition 5.11, first sentence of proof, p. 1129; compare arXiv:1006.5163v2 Proposition 5.11 and Remark 5.12, p. 25. | confirmed: Integral shear requires a unit determinant; the preprint maximal-ideal choice supplies it. |
+| E302 | LLZ2011, Published Proposition 4.2 proof, p. 1118, after the definition of S double-prime. | confirmed: The newly constrained module is contained in the prior module. |
+| E303 | LLZ2011, Published Proposition5.9, p.1127, displayed ordered-pair quotient functional; compared arXiv1006.5163v2. | confirmed: Use the ordered functional (p−1)g(0)−(2−a_p)h(0). |
+| E304 | LLZ2011, Published Corollary4.13, p.1124; scalar ring of the displayed sequence. | confirmed: Keep the bounded source over Lambda_E, or extend the entire sequence. |
+| E305 | LLZ2011, Published Proposition4.11, p.1123, identification of the Coleman coefficient-space subspaces. | confirmed: Transport the period subspace by M(x) inverse in row coordinates. |
+| E118 | GSWZ2024, Example 4.3, equation (273), p.54 | confirmed: Equation (273)’s second root exponent is 2. Already recorded as paper issue E56. |
+| E119 | GSWZ2024, Proposition 3.3, equation (179), p.38, and Theorem 9, p.39 | confirmed: Exclude the identity in every root component. Already recorded as paper issue E38. |
+| E120 | GSWZ2024, Theorem 9 and proof, p.39, compared with Lemma 3.1, p.38 | confirmed: Prove completed integral containment independently of root generation. Already recorded as paper issue E39. |
 
 ## References
 
