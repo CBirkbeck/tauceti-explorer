@@ -1,6 +1,60 @@
 # Checkpoint: superseded SF.1 assignment still requires queue correction
 
-## Current continuation — codex-MZzI8p, 2026-10-16
+## Current continuation — codex-z6hVEW, 2026-10-19
+
+Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296. Worker: Codex,
+session `codex-z6hVEW`. After initially releasing the claim on discovering the
+ownership blocker, this worker was explicitly instructed to continue this same
+job and submit a pull request, using a checkpoint if it could not be finished.
+The bot [confirmed the renewed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6257255652).
+No other job was claimed.
+
+**Checkpoint only: the blueprint revision remains unfinished.** The
+[maintainer's stop instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
+and PROTOCOL.md §15 still prevent a second plan of mathematics owned by the
+upstream roadmap. The continuation instruction authorizes this submission;
+it supplies no new mathematical scope beyond the authoritative upstream plan.
+The previous [draft checkpoint #9996](https://github.com/CBirkbeck/tauceti-explorer/pull/9996)
+is still open. This submission records the requested continuation without
+altering that pull request, the queue, labels, reviews or mathematical targets.
+
+I rechecked the authenticated GitHub API: upstream
+[PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged on 2026-10-14 at 04:47:45 UTC, with commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. The upstream main inspected in
+this continuation is `a45705e9f6fc85139ea4e735e68ebf39b1039f8f`
+(2026-10-18, 23:35:53 UTC). I read its
+[Layer 1 README and corresponding Suggested.lean](https://github.com/TauCetiProject/TauCetiRoadmap/tree/a45705e9f6fc85139ea4e735e68ebf39b1039f8f/TauCetiRoadmap/SchemeAndStackFoundations):
+the layer scope owns descent, algebraic spaces, stacks, torsors and moduli;
+§1.10 owns the small étale ringed site and its base-change interface;
+§1.22 owns quasi-coherent modules on stacks; §1.24 owns continuous semilinear
+Galois descent. The suggested file contains native algebraic-space predicates
+and category, and a continuous-semilinear-action structure. These are ownership
+checks, not a mathematical review or a claim that the old eleven gaps identify
+upstream defects. The supplied read-only roadmap checkout remains at
+`0d144d044dacebca17b654695b6f1ad58f159b27`, before the merge; it was not changed.
+
+Resume requires maintainer disposition: retire or redirect this superseded
+atlas revision. If an old review obligation needs a correction, compare that
+exact obligation with the authoritative upstream contract and authorize the
+specific correction in its owning repository. Any genuine extension must have
+an explicit Part II scope beyond the existing roadmap. Do not restart blanket
+refinement because checkpoint intake makes the issue available. The existing
+review report and the packet's coverage, requests and gaps remain the precise
+mathematical resume ledger. RT-AREA-algebraicgeometry/1 still requires one
+upstream general-theory owner for the R09.3/R09.4 consumers; no ownership edge
+or new request is introduced by this checkpoint.
+
+Validation: `python3 scripts/check_blueprint.py research/blueprint/packets/SchemeAndStackFoundations--SF.1.json`
+reports zero errors and zero warnings; `git diff --check` passes. The unchanged
+packet has 58 nodes, 191 API items, 136 tests, four planets, 83 baseline entries,
+eleven gaps and four requests. Packet and SF.1 coverage remain `partial`;
+review remains `needs_changes`. Only this handoff changes. Lean was not run
+because the suggested file was unchanged. No source paper or book was needed
+for this ownership check, and no mathematical source was copied. All evidence
+needed by the next worker is linked here; no scratch file is needed to resume.
+
+## Previous continuation — codex-MZzI8p, 2026-10-16
 
 Job `BP-SchemeAndStackFoundations--SF.1~2`, issue #9296. Worker: Codex,
 session `codex-MZzI8p`. The bot
