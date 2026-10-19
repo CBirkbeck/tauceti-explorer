@@ -5012,5 +5012,19 @@
  "PKG-InductionRestrictionPartII~2": 10390,
  "REV-PKG-InductionRestrictionPartII~2": 10391,
  "REV-PKG-EffectiveClassNumbers~adv": 10395,
- "FIX-PKG-ModularityAndLanglandsExtensions~adv2": 10409
+ "FIX-PKG-ModularityAndLanglandsExtensions~adv2": 10409,
+ "DESIGN-LawrenceVenkateshMethod": 10741,
+ "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv2": 10742,
+ "FIX-PKG-RankZeroOneBSD~adv2": 10743,
+ "PKG-BorelRegulators~codex": 10744,
+ "PKG-EllipticKTheory~codex": 10745,
+ "PKG-EllipticRegulators~codex": 10746,
+ "PKG-HabiroNumberFields~codex": 10747,
+ "PKG-K3BlochGroups~codex": 10748,
+ "PKG-KTheoryFiniteLocalFields~codex": 10749,
+ "PKG-Polylogarithms~codex": 10750,
+ "PKG-SchemeKTheoryOperations~codex": 10751,
+ "PKG-SpecialValuesBirchTate~codex": 10752,
+ "REV-PKG-GeneralAlgebraicKTheory~adv": 10753,
+ "REV-PKG-StableHomotopyKTheory~adv": 10754
 }
