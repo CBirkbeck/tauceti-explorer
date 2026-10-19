@@ -307,3 +307,80 @@ review. The blocking instruction is [WORKERS.md, Doing the work](../WORKERS.md):
 the queue, or expanded scope explicitly authorized, before those ten reviews
 can be written. No issue body, queue, atlas, supplier packet or review verdict
 was changed to bypass that boundary.
+
+## Continuation by Codex codex-jVGtcb, 19 October 2026
+
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6259434416)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6259435860).
+This continuation independently checked the specific evidence below. It preserves
+the earlier seven verdicts and their attribution; it does not represent a new
+whole-packet review of the ten additional queue outputs.
+
+### Source and ownership checks
+
+The following checks used the public author-hosted K-book chapters, read on
+19 October 2026. They concern the disputed contracts, not a replacement account
+of the chapters.
+
+| Contract checked | Source locator | Assessment |
+| --- | --- | --- |
+| Resolution hypotheses in K.3 | [K-book V](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf), Theorem 3.1 and its proof, chapter pp.20–21 | Extension closure and closure under kernels of admissible surjections between objects of the resolving subcategory must remain explicit. The packet retains these hypotheses and its separate bounded-resolution induction. |
+| Early products needed by the nonconnective construction | [K-book IV](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf), Definition 10.1 and the construction following it, chapter pp.79–80 | The Bass construction uses multiplication by the Laurent coordinate before iteration. The K.7 input of K.6 cannot be discarded merely to remove the ordering conflict. |
+| Localization product and degree-two convention | K-book V, Exercise 5.3, chapter p.38, and §6.6, chapter pp.41–42 | The right product action is compatible with the boundary; moving a graded factor to the left requires its sign. The packet distinguishes the ring boundary from its uniformizer-last normalization instead of identifying the two tame-symbol conventions. |
+| Universal central extensions and stable Steinberg ownership | [K-book III](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf), Definition 5.3.1, Lemmas 5.3.2–5.3.3, Example 5.3.4, Recognition Theorem 5.4 and Theorem 5.5, chapter pp.37–38 | T.1 owns perfectness, rigidity and superperfect recognition; V.1 imports these. The stable Steinberg statement is not evidence for an unrestricted finite-rank version; Proposition 5.5.1 on p.38 has its rank qualification. |
+| The Gaussian K₃ control | [K-book VI](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf), Example 2.1.2, chapter p.7, and Corollary 5.3, chapter p.24 | The free rank and torsion invariant give `K₃(ℚ(i)) ≅ ℤ ⊕ ℤ/24`. V.5 owns the computation and N.8 consumes it. |
+
+The integral bar-kernel and positive transgression proof plans in T.1 were
+also inspected directly. In the quotient of the bar-kernel chains, the class
+`[a]−[b]` maps to `ab⁻¹` in `N/[E,N]`; the mixed bar relations impose the
+conjugation relations. Its odd-order Heisenberg control distinguishes the
+chosen positive boundary from its inverse. This inspection does not establish
+the proposed natural comparison or the CFT6 evaluation theorem in Lean.
+
+Current upstream GrothendieckEulerForms and AlgebraicTopology were inspected
+read-only against their ownership boundaries. In particular, the exact-category
+and degree-zero Grothendieck substrate is consumed rather than replanned.
+The statements of pinned `ExactK0`, `ExactK0.of_conflation`,
+`finiteProjectiveModulesExactStructure`, its split-structure theorem and its
+conflation characterization were read in the shared source snapshot. These
+support K.1's three existing examples; they do not supply higher K-theory.
+No restricted-source reading is newly certified.
+
+### Independent finite-data and dependency reproduction
+
+A fresh exact-arithmetic verifier reproduced all eleven golden-field
+certificates, all 173 relation witnesses and all 23 specified determinants.
+It checked the residue images and generated multiplicative groups, the
+successive earlier-prime lists, all three stored factorizations per witness,
+the witness equations, exponent differences and determinant gcds. The indices
+were again `3,4,8,10,10,18,18,28,28,30,30`. Changing the first coordinate of a
+stored `differenceOverPrime` witness was rejected. The reproduction procedure
+above contains everything needed to repeat this without the disposable script.
+
+Separately, a fresh topological sort of the 470 concrete nodes succeeded.
+Both K.7-to-earlier-stage dependencies and their opposing actual atlas paths
+listed above were recovered directly from `prerequisites`, `parentStageId`
+and `atlas/stage-edges.json`. This confirms the two negative ordering verdicts;
+the concrete-node DAG does not remove the actual-stage conflict.
+
+### Fresh validation and remaining blocker
+
+All seventeen queue packets passed `scripts/check_blueprint.py`. All seven
+issue-listed companions were elaborated serially with `lean-check`, with
+72–76 GB available before each invocation. Each exited zero; their only
+warnings were the expected uses of `sorry`, with counts respectively
+10, 0, 30, 27, 3, 8 and 10 in the table's order. No companion was changed in
+this continuation. No extra supplier companion was compiled or certified.
+
+The live issue was re-read after the claim and again before submission. It
+still names seven pairs. Expanded authorization was requested from the
+operator, but no reply authorizing the ten extra pairs arrived. Directly
+calling `issues.py`'s `deliverables_complete` on the real queue job returns
+**false**, and the ten missing area-review stamps are exactly those listed in
+the handoff. Neither K.1 nor K.6's negative verdict causes this result.
+
+This is a **blocked checkpoint**. The binding scope instruction remains
+[WORKERS.md, Doing the work](../WORKERS.md): “Edit only the files the issue
+names.” The issue needs to name the seventeen queue pairs, or the operator
+needs to authorize the ten additional reviews. No issue, queue, atlas, packet
+or prior review attribution was modified to bypass the mismatch.
