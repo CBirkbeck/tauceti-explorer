@@ -1,6 +1,58 @@
 # Checkpoint: superseded SF.1 assignment still requires queue correction
 
-## Current continuation — codex-qeWLAw, 2026-10-19
+## Current continuation — codex-Zzx80V, 2026-10-19
+
+Issue #9296, job `BP-SchemeAndStackFoundations--SF.1~2`; worker: Codex,
+session `codex-Zzx80V`. The bot [confirmed the claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6259890102).
+**Blocked checkpoint; the blueprint revision remains unfinished.** No second
+job was claimed. Only this handoff changes.
+
+The post-claim read of the complete issue discussion found the still-operative
+[maintainer instruction](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6147004968)
+stopping further atlas blueprint rounds because the upstream roadmap is
+authoritative. No subsequent comment supplies a new scope. Replanning its
+mathematics would also violate WORKERS.md and PROTOCOL.md §15. The run
+instructions require a checkpoint when blocked.
+
+The authenticated GitHub API confirms [upstream PR #779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+merged on 2026-10-14 at 04:47:45 UTC, merge commit
+`d23fdaf388733bd9bcb0dc9b7963cc336f21461d`. Current upstream main inspected
+here is `661f8ac947c4b124ccd83d4acb1d89caad158879`, dated 2026-10-19
+04:08:25 UTC. I read its [Layer 1 scope and relevant README contracts](https://github.com/TauCetiProject/TauCetiRoadmap/blob/661f8ac947c4b124ccd83d4acb1d89caad158879/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-1-descent-algebraic-spaces-and-stacks)
+and [corresponding Suggested.lean declarations](https://github.com/TauCetiProject/TauCetiRoadmap/blob/661f8ac947c4b124ccd83d4acb1d89caad158879/TauCetiRoadmap/SchemeAndStackFoundations/Suggested.lean).
+Layer 1 owns descent, algebraic spaces, stacks, torsors and moduli; §1.10
+owns the enlarged small étale ringed-site interface, §1.22 the quasi-coherent
+right adjoint and flat-test comparison, and §1.24 continuous semilinear
+descent. The suggested file contains native algebraic-space predicates and
+category, and a continuous-semilinear-action carrier. This establishes
+ownership only; the old atlas gaps are not thereby findings against upstream.
+The browser's cached PR page still showed the pre-merge state; the live
+authenticated API and the files at the recorded main commit settle the status.
+
+The supplied read-only roadmap checkout remains at pre-merge commit
+`0d144d044dacebca17b654695b6f1ad58f159b27`; its missing directory cannot
+establish missing upstream work. The supplied Tau Ceti checkout was inspected
+read-only. Neither checkout was changed, and no Lake command ran.
+
+**Resume condition:** retire or redirect this superseded assignment. Compare
+any specific proposed correction with the authoritative upstream contract and
+assign it to its owning repository. A genuine extension requires an explicit
+Part II scope. Checkpoint intake making this issue available does not supply
+that scope. The existing review, packet gaps and coverage list preserve the
+unfinished mathematical ledger. RT-AREA-algebraicgeometry/1 retains one
+upstream general-theory owner for R09.3/R09.4; no consumer edge or request
+changes here.
+
+Validation: `check_blueprint.py` reports zero errors and zero warnings for
+the unchanged packet; `git diff --check` passes. Inventory remains 58 nodes
+(19 definitions, 15 constructions, 24 theorems), 191 API items, 136 unit tests,
+four planets, 83 baseline entries, eleven gaps and four requests. Packet and
+SF.1 coverage remain `partial`; review remains `needs_changes`. Lean was not
+run because no Lean changed. No mathematical paper or book was needed for
+this ownership check. All resume evidence is linked here; no scratch file is
+required.
+
+## Previous continuation — codex-qeWLAw, 2026-10-19
 
 Issue #9296, job `BP-SchemeAndStackFoundations--SF.1~2`; Codex session
 `codex-qeWLAw`. The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/9296#issuecomment-6259303484).
