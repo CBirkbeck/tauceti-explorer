@@ -20,20 +20,20 @@ Height means Mathlib's ringKrullDim(V), identified with the convex-subgroup rank
 
 ## Existing theory and ownership
 
-The pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The packet records the individual declarations whose actual source statements were read. Use ValuationSubring and its canonical valuation, Valuation.HasExtension for compatibility, HenselianLocalRing, IntermediateField.LinearDisjoint, the algebraic tensor-field theorem, the separable/purely-inseparable disjointness theorem, IsPurelyInseparable.finrank_eq_pow, Valuation.RankOne, IsKrasner and ringKrullDim. Use the existing ValuationSubring.decompositionSubgroup stabilizer and inertiaSubgroup residue-action kernel; the new tower target proves their fixed-field comparisons. For coarsenings reuse ValuationSubring.ofPrime, idealOfLE and their inverse laws. TauCeti.AbsoluteGaloisGroup and the algebraic/separable-closure restriction equivalence supply the existing Galois carrier and topology. Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat supplies the existing descent statement.
+The pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The packet records the individual declarations whose actual source statements were read. Use ValuationSubring and its canonical valuation, Valuation.HasExtension for compatibility, HenselianLocalRing, IntermediateField.LinearDisjoint, the algebraic tensor-field theorem, the separable/purely-inseparable disjointness theorem, IsPurelyInseparable.finrank_eq_pow, Valuation.RankOne, IsKrasner and ringKrullDim. Use the existing ValuationSubring.decompositionSubgroup stabilizer and inertiaSubgroup residue-action kernel; the new tower target proves their fixed-field comparisons. For coarsenings reuse ValuationSubring.ofPrime, idealOfLE and their inverse laws. TauCeti.AbsoluteGaloisGroup and the algebraic/separable-closure restriction equivalence supply the existing Galois carrier and topology. Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat supplies scalar-extension descent; the source-side EGA descent used by the étale criterion is a separate SF.0 request. TauCeti.IsProPSylow, exists_isProPSylow, IsProPSylow.exists_map_conj_eq and IsProPSylow.eq_of_normal already supply the Sylow carrier, existence, conjugacy and normal uniqueness at the pin. Only the surjective-image adapter remains at the Layer 2 boundary; it is already implemented in current main as IsProPSylow.map_of_surjective and is imported when the pin advances.
 
 The current LocalFieldsRamification, LocalGaloisGroups, ProfiniteArithmetic and ProfiniteProPGroups roadmap sources and the current Tau Ceti library have been screened in addition to the pinned baseline. Their local-field and profinite results are imported, not restated as new work. The boundary table gives the direction of each import.
 
 | Supplier | Imported interface | Consumer |
 | --- | --- | --- |
 | LocalFieldsRamification Layers 2–4 | Unramified local fields, ramification, tame inertia and arithmetic Frobenius | GF.2 local-field comparison |
-| ModularCurves 4D | Local-ring strict henselization, with one consolidated request for non-strict semilocal henselization and filtered compatibility | GF.1, GF.2, GF.4 |
+| SchemeAndStackFoundations key/henselization and SF.0/ordinary-local-henselization; PerfectoidSpaces P3/henselisation-of-pairs | One ordinary pair-henselization carrier, its local comparison and filtered compatibility; two precise SF.0 requests for semilocal tensors and finite-presentation/étale descent | GF.1, GF.2, GF.4 |
 | ClassicalAdicEtaleCohomology H1:valuation-nearby-cycles | Strict localization of a valuation ring and the arbitrary-rank strictly henselian pro-p/tame-quotient theorem | GF.2 ramification tower |
 | ProfiniteProPGroups Layers 2, 5, 6 | Sylow theory, finite embedding problems and the Sylow comparison of cohomological dimension | GF.2–GF.3 |
-| ProfiniteCohomology Layers 9, 11 | Galois cohomology interface, ordinary cd_p and its reductions | GF.3 |
+| ProfiniteCohomology Layer 11 | Ordinary cd_p, finite-coefficient reduction and closed-subgroup monotonicity | GF.3 |
 | SchemeAndStackFoundations SF.4/flattening-by-blowup | General flattening and finite-presentation input, specialized over a finite-height valuation ring | GF.5 unramified composition |
 
-The H1 edge points into this roadmap. The valued-field construction proves that the supplied henselized local rings are valuation rings; it does not define another local-ring functor. The additional ModularCurves request includes EGA IV₄ 18.6.8 for integral semilocal normalization, not only finite algebras, and 18.6.14 for filtered local colimits. The overlapping draft PerfectoidSpaces P3 and H1/SF.2 requests belong at that same owner.
+The H1 edge points into this roadmap. The valued-field construction proves that the supplied henselized local rings are valuation rings; it does not define another local-ring functor. SchemeAndStackFoundations:key/henselization reexports the single PerfectoidSpaces:P3/henselisation-of-pairs carrier, whose contract already includes filtered colimits; SF.0/ordinary-local-henselization supplies the local comparison. The SF.0 requests are the integral semilocal tensor formula of EGA IV₄ 18.6.8, without module finiteness, and the valuation-ring finite-presentation/source-side étale-descent inputs of the étale criterion. ModularCurves 4D retains strict henselization and is reached through the H1 import. These imports specify the supplier contracts; the valued-field specializations and comparisons are the targets here.
 
 Two precise additional cohomological inputs are required by the henselian Pank proof: the characteristic-p bound cd_p(G_F)≤1 for every field F of characteristic p, and the section theorem for an arbitrary profinite surjection with pro-p kernel when its quotient has cd_p≤1. ProfiniteProPGroups Layer 5's projectivity interface for total pro-p groups does not state the second result. The packet records these as G1/G2 and proposes a ProfiniteCohomology Part II. They are proof-closure obligations, with exact statements and proof routes, rather than new variants of the existing group or cohomology carriers.
 
@@ -249,7 +249,7 @@ Target `LocalFieldsRamificationPartII:GF.1/valued-henselization` (construction).
 
 For V ⊆ K construct K^h = Frac(V^h), using the imported local-ring henselization. V^h is a valuation ring, K^h/K is separable algebraic and immediate (unchanged residue field and value group), and every compatible embedding into a henselian valued field has a unique extension from K^h. Henselianity of K means exactly HenselianLocalRing(V).
 
-Construction and proof: Apply the supplier local-ring universal property. Local essentially étale extensions of valuation rings are valuation rings with unchanged value group; pass to the filtered union of pointed étale neighborhoods and take fraction fields. Identify immediate residue and value-group maps and use the local universal property to obtain the valued-field universal property.
+Construction and proof: Use the single pair-henselization carrier reexported by SchemeAndStackFoundations:key/henselization and its ordinary-local comparison. The local HenselianRing instance gives HenselianLocalRing by the simple-root criterion, and the canonical quotient gives the residue-field comparison. Local essentially étale extensions of valuation rings are valuation rings with unchanged value group; pass to the filtered union of pointed étale neighborhoods and take fraction fields. Identify immediate residue and value-group maps and use the local universal property to obtain the valued-field universal property.
 
 API:
 
@@ -269,9 +269,9 @@ Uses: Temkin Lemma 2.3.2 — Produces the factors of the henselian tensor decomp
 
 Check: For the trivial valuation K^h=K. For a complete rank-one nonarchimedean field K, K^h=K. The p-adic henselization of Q is algebraic and immediate over Q and embeds densely in Q_p; it is not Q_p.
 
-Inputs: `mathlib:ValuationSubring`, `mathlib:HenselianLocalRing`, `tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem`.
+Inputs: `mathlib:ValuationSubring`, `mathlib:HenselianLocalRing`, `SchemeAndStackFoundations:key/henselization`, `SchemeAndStackFoundations:SF.0/ordinary-local-henselization`.
 
-Sources: temkin17, §2.3.1, p. 104; Stacks §15.125, Lemmas 15.125.5–6 (tag 0ASF) (Constructs the immediate separable algebraic henselization and its valued universal property; the Stacks input proves the valuation-ring property.).
+Sources: temkin17, §2.3.1, p. 104 (Uses the immediate separable algebraic henselization of the valued field.); stacks, §15.125, Lemmas 15.125.5–6 (tag 0ASF) (The local étale and henselian constructions preserve the valuation-ring property.).
 
 Atlas planet: Valued-field henselization.
 
@@ -285,9 +285,9 @@ Construction and proof: The normalization B is semilocal, integral over V, with 
 
 Check: For a henselian K there is one factor; for a split prime of a number field there are several factors, so the tensor cannot be called a field.
 
-Inputs: `LocalFieldsRamificationPartII:GF.1/normalization-and-prolongations`, `LocalFieldsRamificationPartII:GF.1/valued-henselization`, `tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem`.
+Inputs: `LocalFieldsRamificationPartII:GF.1/normalization-and-prolongations`, `LocalFieldsRamificationPartII:GF.1/valued-henselization`, `SchemeAndStackFoundations:SF.0`.
 
-Sources: temkin17, Lemma 2.3.2 and proof, pp. 104–105; EGA IV₄ Proposition 18.6.8, p. 139 (Decomposes a finite field extension after henselization into the henselizations at its distinct prolongations, using integral semilocal normalization.).
+Sources: temkin17, Lemma 2.3.2 and proof, pp. 104–105 (The finite field tensor splits into the henselizations at its distinct prolongations, including inseparable extensions.); ega4, Proposition 18.6.8 and proof, p. 139 (The ring-level product comparison applies to an integral semilocal algebra over a local ring, without module finiteness.).
 
 Atlas planet: Henselian tensor decomposition.
 
@@ -301,13 +301,13 @@ Target `LocalFieldsRamificationPartII:GF.2/unramified-etale-criterion` (theorem)
 
 For finite valued L/K, L^h/K^h is unramified exactly when O_L is essentially étale over O_K. Adding equality of residue fields gives the strict version. Étale implies essentially étale always; if the valuation has finite height the two are equivalent. There is no noetherian or rank-one hypothesis in the essentially étale equivalence.
 
-Construction and proof: The essentially étale direction identifies the strict henselizations. In the other direction, descend the finite field generators from a pointed étale neighborhood of O_K^sh. Intersect the étale domain with L. Its localizations are valuation rings by the Prüfer result, so the larger domain is flat over it. Apply the requested finite-presentation/descent input to obtain an étale algebra whose selected localization is O_L. At finite height Spec(O_K) has finitely many points; an étale algebra has finite fibres, so the relevant localization is obtained by one inversion and remains étale.
+Construction and proof: The essentially étale direction identifies the strict henselizations. In the other direction, descend the finite field generators from a pointed étale neighborhood of O_K^sh. Intersect the pointed étale domain A′ with L to obtain a Prüfer domain A. The domain A′ is torsion-free and hence flat over A. It is of finite type over A; apply the requested valuation-ring finite-presentation theorem locally on Spec(A). On the open image of Spec(A′)→Spec(A), use EGA IV₄ 17.7.5(iv) to descend finite presentation and 17.7.7 to descend étaleness at the selected point. The selected localization of A is O_L. This source-side descent is distinct from the pinned scalar-extension descent theorem. At finite height Spec(O_K) has finitely many points; an étale algebra has finite fibres, so the relevant localization is obtained by one inversion and remains étale.
 
 Check: The definition of unramified used here is the henselized one specified in GF.2. Strictly essentially étale means equal residue fields, not separably closed residue fields.
 
-Inputs: `LocalFieldsRamificationPartII:GF.1/normalization-and-prolongations`, `LocalFieldsRamificationPartII:GF.1/valued-henselization`, `tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem`, `LocalFieldsRamificationPartII:GF.2/unramified-extension`, `mathlib:Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat`.
+Inputs: `LocalFieldsRamificationPartII:GF.1/normalization-and-prolongations`, `LocalFieldsRamificationPartII:GF.1/valued-henselization`, `SchemeAndStackFoundations:SF.0`, `LocalFieldsRamificationPartII:GF.2/unramified-extension`, `mathlib:Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat`.
 
-Sources: temkin17, Lemma 2.3.8 and proof, pp. 105–106; EGA IV₄ Lemma 17.7.5(iv) and Proposition 17.7.7, pp. 80–81 (Identifies finite unramified extensions with essentially étale valuation-ring maps and upgrades essential étaleness at finite height.).
+Sources: temkin17, Lemma 2.3.8 and proof, pp. 105–106 (Proves the essentially étale equivalence without a height bound and the étale equivalence at finite height.); ega4, Lemma 17.7.5(iv), pp. 73–74; Proposition 17.7.7, pp. 74–75 (Finite presentation descends along a faithfully flat morphism locally of finite presentation, with the stated quasi-compactness or quasi-separatedness condition; for locally finitely presented source and target, étaleness of the composite descends at a point where the intermediate map is flat.); stacks-finiteness, §15.26, Lemmas 15.26.2 and 15.26.6(1), tag 054A (A flat finite-type algebra over an arbitrary valuation ring is finitely presented; applying this at valuation localizations supplies the Prüfer step.).
 
 Atlas planet: Unramified étale criterion.
 
@@ -315,14 +315,14 @@ Atlas planet: Unramified étale criterion.
 
 Target `LocalFieldsRamificationPartII:GF.2/ramification-tower` (construction).
 
-Fix a prolongation of V to K^a and the embedded separable closure K^s. Define K^h ⊆ K^u ⊆ K^t ⊆ K^s, where K^u is the maximal unramified extension of K^h and K^t its maximal tame extension. The integer ring of K^u is V^sh. In Gal(K^s/K), use the existing ValuationSubring.decompositionSubgroup for D and its existing inertiaSubgroup for I; view I in G_K through its subgroup inclusion. Prove that D fixes K^h and I fixes K^u, and construct W fixing K^t. D/I ≅ Gal(κ^s/κ). D and I may be proper subgroups; K^h/K need not be normal, so no quotient by D is used.
+Fix a prolongation of V to K^a and the embedded separable closure K^s. Define K^h ⊆ K^u ⊆ K^t ⊆ K^s, where K^u is the maximal unramified extension of K^h and K^t its maximal tame extension. The integer ring of K^u is V^sh. In Gal(K^s/K), use the existing ValuationSubring.decompositionSubgroup for D and its existing inertiaSubgroup for I; view I in G_K through its subgroup inclusion. Prove that D fixes K^h and I fixes K^u, and use the H1 wild subgroup W to identify its fixed field with K^t. D/I ≅ Gal(κ^s/κ). D and I may be proper subgroups; K^h/K need not be normal, so no quotient by D is used.
 
-Construction and proof: Use the imported strict-localization theorem to realize K^u and the decomposition/inertia correspondence. Over K^u apply the strictly henselian arbitrary-rank tame theorem to form K^t. Translate closed subgroups and fixed fields by infinite Galois theory. The Kummer pairing describes Gal(K^t/K^u) using the prime-to-p divisible hull of Γ_K and all prime-to-p roots of unity in K^u.
+Construction and proof: Use the imported strict-localization theorem to realize K^u and the decomposition/inertia correspondence. Over K^u apply the strictly henselian arbitrary-rank tame theorem to form K^t. Translate closed subgroups and fixed fields by infinite Galois theory. The Kummer pairing describes Gal(K^t/K^u) using the prime-to-p divisible hull of Γ_K and all prime-to-p roots of unity in K^u. For prime p use the pinned IsProPSylow carrier and its existence, conjugacy and normal uniqueness results to compare the supplied wild subgroup and to transport it under a change of prolongation. For p=1 use W=1 directly.
 
 API:
 
 - `RamificationTower.integerRing_unramified` (compatibility): O_(K^u) is the supplied strict henselization V^sh.
-- `RamificationTower.fixedFields` (characterisation): On the existing decomposition and inertia subgroup carriers, the fixed fields of D,I,W are K^h,K^u,K^t, respectively; no duplicate stabilizer or inertia kernel is introduced.
+- `RamificationTower.fixedFields` (characterisation): Inside K^s, the fixed fields of the existing D,I and the supplied W are K^h,K^u,K^t, respectively. Fixed fields inside K^a can contain purely inseparable elements and are not used for these identifications; no duplicate stabilizer or inertia kernel is introduced.
 - `RamificationTower.residueQuotient` (equivalence): D/I identifies topologically with the residue absolute Galois group.
 - `RamificationTower.tamePairing` (relation): Gal(K^t/K^u) is the continuous character group of Γ_K ⊗ Z_(p)/Γ_K into prime-to-p roots of unity.
 - `RamificationTower.prolongation_conjugate` (functoriality): A different prolongation conjugates D,I,W and transports the embedded tower.
@@ -333,12 +333,13 @@ Unit tests:
 - `tower_trivial_valuation` (degenerate): For trivial V, K^u=K^t=K^s and I=W=1.
 - `tower_char_zero_residue` (characterisation): If exp.char κ=1 then K^t=K^s and W=1.
 - `tower_not_galois_bottom` (non-example): The p-adic henselization of Q need not be normal over Q; treat D as a subgroup, not a quotient.
+- `tower_imperfect_ambient` (non-example): For trivially valued F_p(t), W=1 and (K^s)^W=K^s, whereas (K^a)^W=K^a is strictly larger. The fixed-field comparison must name its ambient separable closure.
 
 Uses: Temkin §2.3.12 — Defines total ramification and pure wildness by disjointness.; ClassicalAdicEtaleCohomology H1 — Supplies, rather than consumes, the strictly henselian quotient theorem.
 
-Check: For henselian K, K^h=K and D is the whole Galois group. For trivial V, K^u=K^t=K^s and I=W=1. If exp.char κ=1 then K^t=K^s and W=1. The p-adic henselization of Q need not be normal over Q; treat D as a subgroup, not a quotient.
+Check: For henselian K, K^h=K and D is the whole Galois group. For trivial V, K^u=K^t=K^s and I=W=1. If exp.char κ=1 then K^t=K^s and W=1. The p-adic henselization of Q need not be normal over Q; treat D as a subgroup, not a quotient. For trivially valued F_p(t), W=1 and (K^s)^W=K^s, whereas (K^a)^W=K^a is strictly larger. The fixed-field comparison must name its ambient separable closure.
 
-Inputs: `LocalFieldsRamificationPartII:GF.1/valued-henselization`, `ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/strict-localisation-of-a-valuation-ring`, `ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/tame-quotient-of-a-henselian-valued-field`, `tauceti:TauCeti.AbsoluteGaloisGroup`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`, `mathlib:ValuationSubring.decompositionSubgroup`, `mathlib:ValuationSubring.inertiaSubgroup`.
+Inputs: `LocalFieldsRamificationPartII:GF.1/valued-henselization`, `ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/strict-localisation-of-a-valuation-ring`, `ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/tame-quotient-of-a-henselian-valued-field`, `tauceti:TauCeti.AbsoluteGaloisGroup`, `mathlib:ValuationSubring.decompositionSubgroup`, `mathlib:ValuationSubring.inertiaSubgroup`, `tauceti:TauCeti.IsProPSylow`, `tauceti:TauCeti.exists_isProPSylow`, `tauceti:TauCeti.IsProPSylow.exists_map_conj_eq`, `tauceti:TauCeti.IsProPSylow.eq_of_normal`.
 
 Sources: temkin17, §§2.2.3–2.2.6, p. 104; §2.3.5 and Remark 2.3.6, p. 105 (Defines the decomposition, inertia and wild subgroups and their fixed fields after selecting a prolonged valuation.).
 
@@ -472,9 +473,9 @@ Construction and proof: For finite L/K the tensor decomposition has one field fa
 
 Check: For Q(sqrt(2))/Q at 7 the tensor has two factors and disjointness fails. For a purely inseparable extension the tensor with the separable henselization is a field.
 
-Inputs: `LocalFieldsRamificationPartII:GF.2/henselian-extension`, `LocalFieldsRamificationPartII:GF.1/henselian-tensor-decomposition`, `mathlib:IntermediateField.LinearDisjoint`, `tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem`.
+Inputs: `LocalFieldsRamificationPartII:GF.2/henselian-extension`, `LocalFieldsRamificationPartII:GF.1/henselian-tensor-decomposition`, `mathlib:IntermediateField.LinearDisjoint`, `PerfectoidSpaces:P3/henselisation-of-pairs`.
 
-Sources: temkin17, Lemma 2.3.11 and proof, p. 106; EGA IV₄ Proposition 18.6.14(ii), pp. 141–142 (Proves that unique prolongation is equivalent to linear disjointness from the henselization, by the tensor decomposition and filtered passage.).
+Sources: temkin17, Lemma 2.3.11 and proof, p. 106 (Unique prolongation is equivalent to linear disjointness from the henselization.); ega4, Proposition 18.6.14(ii) and proof, pp. 141–142 (Local henselization commutes with filtered local colimits, giving the infinite algebraic passage; this is already in the imported P3 contract.).
 
 ### Totally ramified extensions
 
@@ -605,7 +606,7 @@ Construction and proof: The first three properties are membership in their maxim
 
 Check: Check each of the six properties separately on identity towers. The compositum formulas must use the chosen prolongations and preserve the two multiplication maps.
 
-Inputs: `LocalFieldsRamificationPartII:GF.2/strictly-unramified-extension`, `LocalFieldsRamificationPartII:GF.2/unramified-extension`, `LocalFieldsRamificationPartII:GF.2/tame-extension`, `LocalFieldsRamificationPartII:GF.2/henselian-disjointness`, `LocalFieldsRamificationPartII:GF.2/totally-ramified-extension`, `LocalFieldsRamificationPartII:GF.2/purely-wild-extension`, `tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem`.
+Inputs: `LocalFieldsRamificationPartII:GF.2/strictly-unramified-extension`, `LocalFieldsRamificationPartII:GF.2/unramified-extension`, `LocalFieldsRamificationPartII:GF.2/tame-extension`, `LocalFieldsRamificationPartII:GF.2/henselian-disjointness`, `LocalFieldsRamificationPartII:GF.2/totally-ramified-extension`, `LocalFieldsRamificationPartII:GF.2/purely-wild-extension`, `PerfectoidSpaces:P3/henselisation-of-pairs`.
 
 Sources: temkin17, Lemma 2.4.2(i)–(ii) and proof, p. 107 (Proves transitivity in both directions and stability under filtered unions for the six extension classes, together with the closure-compositum formulas.).
 
@@ -710,11 +711,11 @@ Target `LocalFieldsRamificationPartII:GF.3/henselian-pank` (theorem).
 
 Let K be henselian with arbitrary-rank valuation and residual characteristic exponent p. Every maximal purely wild K_w/K gives a multiplication isomorphism K^t ⊗_K K_w ≅ K^a. The separable version gives K^t ⊗_K K_sw ≅ K^s for every maximal separable purely wild K_sw. For p=1 these statements reduce to K^t=K^s and K_w=K^perf.
 
-Construction and proof: For p prime, the pro-p Sylow subgroups of G_(κ_K) are free pro-p by the characteristic-p Artin–Schreier cohomological bound. Since I/W has prime-to-p order, the p-Sylow subgroups of G_K/W are isomorphic to those of G_(κ_K), so cd_p(G_K/W)≤1. Use the general pro-p-kernel lifting theorem on G_K→G_K/W and on the closed subgroup corresponding to any given purely wild subextension. The section yields a complement containing that subextension on the field side, giving the result for every maximal choice. Pass between the separable and full algebraic closures through perfection, which preserves the tame tower. The p=1 case is separate and uses no pro-1 Sylow terminology.
+Construction and proof: For prime p, G1 gives cd_p(G_(κ_K))≤1. A p-Sylow S of G_K/W maps onto a p-Sylow T of G_(κ_K); its kernel lies in the prime-to-p group I/W and is trivial, so S≅T. The existing Sylow comparison of ordinary cohomological dimension gives cd_p(G_K/W)=cd_p(S)=cd_p(T)=cd_p(G_(κ_K))≤1. No finite-generation hypothesis or free-pro-p criterion is needed. Use the general pro-p-kernel lifting theorem on G_K→G_K/W and on the closed subgroup corresponding to any given purely wild subextension. The section yields a complement containing that subextension on the field side, giving the result for every maximal choice. Pass between the separable and full algebraic closures through perfection, which preserves the tame tower. The p=1 case is separate and uses no pro-1 Sylow terminology.
 
 Check: A Schur–Zassenhaus argument alone is insufficient when the residue absolute Galois group has p-quotients. The two additional supplier inputs are listed as gaps and a proposed Profinite Cohomology Part II.
 
-Inputs: `LocalFieldsRamificationPartII:GF.3/splitting-equivalences`, `LocalFieldsRamificationPartII:GF.2/ramification-tower`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory`, `LocalFieldsRamificationPartII:GF.2/perfection-tame-tower`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups`.
+Inputs: `LocalFieldsRamificationPartII:GF.3/splitting-equivalences`, `LocalFieldsRamificationPartII:GF.2/ramification-tower`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-2-profinite-sylow-theory`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension`, `LocalFieldsRamificationPartII:GF.2/perfection-tame-tower`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-6-cohomological-dimension-of-pro-p-groups`, `tauceti:TauCeti.IsProPSylow`, `tauceti:TauCeti.exists_isProPSylow`, `tauceti:TauCeti.IsProPSylow.exists_map_conj_eq`, `tauceti:TauCeti.IsProPSylow.eq_of_normal`.
 
 Sources: temkin17, Theorem 2.4.9, p. 109; Kuhlmann–Pank–Roquette Theorems 2.1–2.2, pp. 42–44, Corollary 2.5 and proof of Theorem 2.2, p. 44 (States the henselian splitting of the tame tower by maximal purely wild fields; the original proof identifies the additional cohomological inputs G1 and G2.); kpr86, Theorems 2.1–2.2, pp. 42–44; Corollary 2.5 and proof of Theorem 2.2, p. 44 (Gives the original henselian complement theorem and its group-theoretic proof route.).
 
@@ -730,13 +731,13 @@ Target `LocalFieldsRamificationPartII:GF.4/rank-one-krasner` (theorem).
 
 For a nontrivially valued height-one K, choose an order embedding of its actual value group into positive reals and the associated ultrametric norm. Its completion is henselian, contains K^h, and K is dense in K^h. In a normal algebraic extension of a henselian rank-one normed field the Krasner inequality gives x∈K(y), with x separable, y algebraic, and |x−y| strictly smaller than every distance from x to a distinct conjugate. Roots of a monic separable polynomial vary continuously with its coefficients; sufficiently close monic polynomials of the same degree have their roots uniquely paired beyond the largest conjugate-closeness bound.
 
-Construction and proof: Embed the archimedean ordered value group in the reals, transfer the norm and use Newton approximation in the complete ultrametric field to obtain Hensel lifting. The henselization universal property embeds K^h in the completion, proving density. Extend the rank-one norm to a normal algebraic closure of the henselian field. Uniqueness of valuation prolongations makes all automorphisms isometries. The usual conjugate-separation argument proves the IsKrasner interface even without completeness of the base; the pinned complete-space theorem alone does not provide this generality. For root continuity evaluate f−g at each root, bound its value by the coefficient minimum, and factor the other polynomial into linear terms. If no root were close, the sum of the factor values would contradict that bound. Separability and disjoint small balls give uniqueness.
+Construction and proof: Embed the archimedean ordered value group in the reals, transfer the norm and use Newton approximation in the complete ultrametric field to obtain Hensel lifting. The henselization universal property embeds K^h in the completion, proving density. Extend the rank-one norm to a normal algebraic closure of the henselian field. Uniqueness of valuation prolongations makes all automorphisms isometries. The usual conjugate-separation argument proves the IsKrasner interface even without completeness of the base; the pinned complete-space theorem alone does not provide this generality. For root continuity evaluate f−g at each root, bound its value by the coefficient minimum, and factor the other polynomial into linear terms. If no root were close, the sum of the factor values would contradict that bound. Theorems 14 and 16 give a non-strict root-distance bound at a threshold chosen strictly beyond all conjugate distances; separability and disjoint balls then give uniqueness. To require a strict root-distance bound at a prescribed threshold, first enlarge that threshold.
 
 Check: Strict inequalities are required: for f=(X−1)(X+1) over Q with the 2-adic valuation, taking the conjugate-closeness bound itself does not distinguish the two roots.
 
 Inputs: `mathlib:Valuation.RankOne`, `mathlib:IsKrasner.krasner`, `mathlib:IsKrasner.of_completeSpace_of_normal`, `LocalFieldsRamificationPartII:GF.1/valued-henselization`.
 
-Sources: temkin17, §2.5.1 and Lemma 2.5.2 proof, p. 109; Ćmiel–Kuhlmann–Szewczyk, Theorems 14 and 16, author pp. 12–15 (Uses density in the rank-one completion and Krasner separation to descend a finite separable polynomial; the supporting root-continuity theorem supplies strict bounds.); cks23, Theorems 14 and 16 and proofs, author pp. 12–15 (Supplies the coefficient-to-root approximation statement with strict separation bounds.).
+Sources: temkin17, §2.5.1 and Lemma 2.5.2 proof, p. 109 (Uses rank-one density and Krasner separation to descend a finite separable polynomial.); cks23, Theorems 14 and 16 and proofs, author pp. 12–15 (Gives root-distance at least the chosen threshold; uniqueness requires the threshold strictly greater than every conjugate-closeness value. The local proof misprint E12 does not strengthen this conclusion.).
 
 Atlas planet: Krasner approximation.
 
@@ -750,7 +751,7 @@ Construction and proof: At finite degree choose a primitive element of L/K^h and
 
 Check: For L=K^h one may take E=K. At finite degree require [E:K]=[L:K^h]. In the infinite case verify compatibility of the chosen embeddings along every chain.
 
-Inputs: `LocalFieldsRamificationPartII:GF.4/rank-one-krasner`, `LocalFieldsRamificationPartII:GF.2/henselian-disjointness`, `LocalFieldsRamificationPartII:GF.0/split-tower`, `tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem`.
+Inputs: `LocalFieldsRamificationPartII:GF.4/rank-one-krasner`, `LocalFieldsRamificationPartII:GF.2/henselian-disjointness`, `LocalFieldsRamificationPartII:GF.0/split-tower`, `PerfectoidSpaces:P3/henselisation-of-pairs`.
 
 Sources: temkin17, Lemma 2.5.2 and proof, pp. 109–110 (Approximates a finite separable generator over the henselization and extends to infinite algebraic extensions through maximal compatible pairs.).
 
@@ -895,7 +896,7 @@ Construction and proof: Reduce to finite extensions by the tower/union laws. Fro
 
 Check: For the composite valuation on Q_p((t)), an unramified constant extension gives both required unramified steps. The extension s^ell=t, ell>1, fails at the coarse step.
 
-Inputs: `LocalFieldsRamificationPartII:GF.5/composed-valuation`, `LocalFieldsRamificationPartII:GF.5/finite-height-chain`, `LocalFieldsRamificationPartII:GF.2/unramified-etale-criterion`, `LocalFieldsRamificationPartII:GF.2/unramified-extension`, `tauceti:TauCetiRoadmap/ModularCurves#4d-regularity-of-a-moduli-problem`, `SchemeAndStackFoundations:SF.4/flattening-by-blowup`.
+Inputs: `LocalFieldsRamificationPartII:GF.5/composed-valuation`, `LocalFieldsRamificationPartII:GF.5/finite-height-chain`, `LocalFieldsRamificationPartII:GF.2/unramified-etale-criterion`, `LocalFieldsRamificationPartII:GF.2/unramified-extension`, `SchemeAndStackFoundations:SF.4/flattening-by-blowup`.
 
 Sources: temkin17, Lemma 2.6.3(i) and proof, p. 111; Temkin 2010 Proposition 2.2.2 and proof, author pp. 11–12 (Proves unramifiedness of a composed extension from the coarse and residual conditions; the auxiliary finite-presentation input is imported from general flattening.); stacks-finiteness, Tag 054A, Lemmas 15.26.3–4 and 15.26.6, accessed 18 October 2026 (Alternative public proof of the valuation-ring finite-type/flat to finite-presentation implication; the general flattening theorem is imported from its owner.); temkin10, Proposition 2.2.2 and proof, author pp. 11–12 (Provides the composed-ring generation and maximal-ideal argument.).
 
@@ -1033,6 +1034,8 @@ Use the subgroup factorization W H=G with W∩H=1 in the separable splitting com
 
 The packet also retains three previously recorded source corrections: remove the nonexistent part number from the citation of Corollary 2.5.6; use the final residue exponent in Lemma 2.6.3(ii); and supply the separable valued-field input for the geometric distillation repair. The last geometric step belongs to PrimeToDegreeAlterations. The auxiliary reading of Lemma 3.3.7, p. 120 also confirms its previously recorded direction and field-label misprints (E2): the compositum of the conjugates is the Galois closure, whose tameness is the conclusion.
 
+The author-hosted Ćmiel–Kuhlmann–Szewczyk copy has a local sign misprint in the proof of Theorem 16(c), p. 14 (E12): the computed threshold gives a non-strict root-distance bound. For f=X and g=X−2 over Q_2 that bound is attained. The theorem statement on p. 13 is correct. GF.4 chooses a threshold strictly beyond the conjugate distances, which is sufficient for Krasner and unique pairing.
+
 ## Proof-closure obligations and interfaces
 
 GF.0 is closed as a target-level plan. GF.1–GF.6 are planned, with precise supplier and proof-closure obligations recorded in the packet. No implementation is asserted. G1 requires the full characteristic-p absolute Galois bound, including arbitrary discrete p-primary coefficients. Its proposed route is Artin–Schreier exactness, additive normal-basis acyclicity, filtered passage and cohomological dévissage. G2 requires continuous sections through arbitrary profinite pro-p kernels, including the relative form needed to enlarge a prescribed purely wild subextension. Its proposed route starts with finite embedding problems and must establish compatible inverse-limit lifting for arbitrary, possibly infinite-rank quotients. These inputs are used only in GF.3; GF.4 and GF.6 inherit them through Pank.
@@ -1051,6 +1054,6 @@ Statements, proofs and examples above are expressed in our own words. The main s
 - **kkv16**: F.-V. Kuhlmann, K. Kuhlmann, C. Vişan, *Valuations on rational function fields that are invariant under permutation of the variables*, Journal of Algebra 464 (2016), 279–296; author preprint pagination. [Source](https://www.fvkuhlmann.de/symmval.pdf). Read: §2 Lemma 2.1, author pp. 6–7; Abhyankar inequality (12), author p. 8.
 - **cks23**: H. Ćmiel, F.-V. Kuhlmann, P. Szewczyk, *Continuity of roots for polynomials over valued fields*, Communications in Algebra 51 (2023), 1383–1412; author preprint pagination. [Source](https://www.fvkuhlmann.de/CoRfinal.pdf). Read: Theorems 14 and 16, Example 15 and proof, author pp. 12–15.
 - **stacks**: The Stacks Project Authors, *The Stacks Project: Extensions of valuation rings*, §15.125, tag 0ASF, accessed 2026-10-18. [Source](https://stacks.math.columbia.edu/tag/0ASF). Read: Lemmas 15.125.2–6 and proofs (fundamental inequality, purely inseparable normalization, étale and henselian valuation rings).
-- **ega4**: A. Grothendieck, with J. Dieudonné, *Éléments de géométrie algébrique IV, quatrième partie*, Publications Mathématiques de l’IHÉS 32 (1967). [Source](https://www.numdam.org/item/PMIHES_1967__32__5_0/). Read: Lemma 17.7.5(iv), Proposition 17.7.7, pp. 80–81; Proposition 18.6.8 and proof, p. 139; Proposition 18.6.14 and proof, pp. 141–142; read in the cleared reference copy, without copying text.
+- **ega4**: A. Grothendieck, with J. Dieudonné, *Éléments de géométrie algébrique IV, quatrième partie*, Publications Mathématiques de l’IHÉS 32 (1967). [Source](https://www.numdam.org/item/PMIHES_1967__32__5_0/). Read: Lemma 17.7.5(iv), pp. 73–74; Proposition 17.7.7, pp. 74–75; Proposition 18.6.8 and proof, p. 139; Proposition 18.6.14 and proof, pp. 141–142; read in the cleared reference copy, without copying text.
 - **aid25**: Cédric Aïd, *A Choice-free look at algebraic extensions of valuations*, arXiv:2511.07177v1, 10 November 2025. [Source](https://arxiv.org/pdf/2511.07177v1). Read: Propositions 2.6–2.7, pp. 4–5; Propositions 3.3 and 3.6 and Theorem 3.7, pp. 5–9; Propositions 4.1–4.3 and Theorem 4.4 with proofs, pp. 10–13.
-- **stacks-finiteness**: The Stacks Project Authors, *The Stacks Project: Flatness and finiteness conditions*, §15.26, tag 054A, accessed 18 October 2026. [Source](https://stacks.math.columbia.edu/tag/054A). Read: Lemmas 15.26.3–4 and 15.26.6 with proofs; numbering at access date.
+- **stacks-finiteness**: The Stacks Project Authors, *The Stacks Project: Flatness and finiteness conditions*, §15.26, tag 054A, accessed 18 October 2026. [Source](https://stacks.math.columbia.edu/tag/054A). Read: Lemmas 15.26.2–4 and 15.26.6 with proofs; numbering at access date.
