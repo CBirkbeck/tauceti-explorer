@@ -61,15 +61,15 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Unit tests.**
 
-- perfectField: For R=k, Ŵ(R)=W(k), Î_R=VW(k).
-- decay: A Witt vector with every coordinate the same nonzero nilpotent ε over k[ε]/ε² is excluded, whereas one with finitely many ε coordinates is allowed.
-- mixedCharacteristic: R=W(k) is permitted although no characteristic-p ring section k→R exists.
+- perfectField (compatibility): For R=k, Ŵ(R)=W(k), Î_R=VW(k).
+- decay (non-example): A Witt vector with every coordinate the same nonzero nilpotent ε over k[ε]/ε² is excluded, whereas one with finitely many ε coordinates is allowed.
+- mixedCharacteristic (computation): R=W(k) is permitted although no characteristic-p ring section k→R exists.
 
-**Uses.** TD.0/display: The coefficient ring must support V inverse.; TD.1/connection-comparison: The inverse-limit construction controls square-zero reductions..
+**Uses.** TD.0/display: The coefficient ring must support V inverse.; TD.1/connection-comparison: The inverse-limit construction controls square-zero reductions.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1, pp.47–48.
+**Sources.** KPZ26, §5.1, pp.47–48.
 
 **Atlas planet:** Zink ring.
 
@@ -80,7 +80,7 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.0/frame.
 
-**Direct prerequisites:** mathlib:DividedPowers.
+**Direct prerequisites:** mathlib:DividedPowers; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.0/zink-ring.
 
 **Construction or proof.** Package the listed axioms and strict morphisms; check composition and identity directly. Construct the Dieudonné–Witt instance using the preceding ring, and the power-series instance separately.
 
@@ -90,25 +90,26 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 - Frame.strictMap (structure): Strict maps form a category and induce maps on residue rings S/I.
 - Frame.frobeniusOnIdeal (simp): For a∈I, φ(a)=pφ₁(a).
 - Frame.powerSeries (constructor): For W(k)[[u]], I=(p), φ(u)=uᵖ and φ₁(pa)=φ(a), obtain a p-frame.
+- Frame.ext (extensionality): On a fixed ring S and ideal I, two p-frame structures with the same φ and φ₁ are equal; equality of their axiom proofs is irrelevant.
 
 **Unit tests.**
 
-- witt: D_k has I=VW(k) and φ₁(Vx)=x.
-- powerSeries: φ₁(pu)=uᵖ, not puᵖ.
-- nonstrict: A map multiplying divided Frobenius by a unit other than 1 is excluded from strict morphisms.
+- witt (computation): D_k has I=VW(k) and φ₁(Vx)=x.
+- powerSeries (computation): φ₁(pu)=uᵖ, not puᵖ.
+- nonstrict (non-example): A map multiplying divided Frobenius by a unit other than 1 is excluded from strict morphisms.
 
-**Uses.** TD.0/tilde-functor: The lower-left block uses φ₁.; TD.3/arithmetic-criterion: Keeps strict and nonstrict comparison arguments distinct..
+**Uses.** TD.0/tilde-functor: The lower-left block uses φ₁.; TD.3/arithmetic-criterion: Keeps strict and nonstrict comparison arguments distinct.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1.1–5.1.2, pp.48–49.
+**Sources.** KPZ26, §5.1.1–5.1.2, pp.47–49.
 
 **Atlas planet:** Display frames.
 
 
 ### perfect-dieudonne — Dieudonné modules over perfect rings
 
-**Comparison.** For a perfect F_p-algebra R, contravariant Dieudonné theory is an anti-equivalence between p-divisible groups over Spec R and finite projective W(R)-modules M with semilinear F,V satisfying FV=VF=p. Equivalently the linearization β:σ*M→M obeys pM⊂β(σ*M)⊂M and becomes an isomorphism after inverting p. Height is locally constant; do not impose a global basis or confuse perfect with a general reduced smooth base.
+**Comparison.** For a perfect F_p-algebra R, contravariant Dieudonné theory is an anti-equivalence between p-divisible groups over Spec R and finite projective W(R)-modules M with σ-linear F and σ⁻¹-linear V satisfying FV=VF=p. Equivalently the linearization β:σ*M→M obeys pM⊂β(σ*M)⊂M and becomes an isomorphism after inverting p. Height is locally constant; do not impose a global basis or confuse perfect with a general reduced smooth base.
 
 **Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.0/perfect-dieudonne.
 
@@ -118,7 +119,7 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Check.** Recover the perfect-field base theorem, permit disconnected perfect rings of locally varying rank, and export the induced GL-shtuka β with its height-one bound.
 
-**Source.** Lau14, Lemma2.4, p.2216 and Theorem5.3, p.2243; vanHoften24 Example2.2.10, p.14.
+**Sources.** Lau14, Lemma2.4, p.2216 and Theorem5.3, p.2243; vanHoften24, Example2.2.10, p.14.
 
 
 ### pd-logarithm — Logarithmic Witt coordinates on a PD kernel
@@ -139,15 +140,15 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Unit tests.**
 
-- zeroKernel: For b=0 one recovers Î_B and V⁻¹.
-- squareZero: For B=k[ε]/ε²→k with trivial higher PD operations, the logarithmic ε direction is killed by φ₁.
-- notTeichmuller: The logarithmic bracket is additive; raw Teichmüller addition is not the defining operation.
+- zeroKernel (degenerate): For b=0 one recovers Î_B and V⁻¹.
+- squareZero (computation): For B=k[ε]/ε²→k with trivial higher PD operations, the logarithmic ε direction is killed by φ₁.
+- notTeichmuller (characterisation): For x,y∈b, [x+y]_log=[x]_log+[y]_log and [0]_log=0 in Î_{B/R}; the brackets use logarithmic coordinates, not Teichmüller representatives.
 
-**Uses.** TD.0/relative-frame: Extends the divided Frobenius.; TD.1/connection-comparison: Supplies the square-zero comparison independently of a noninjective matrix..
+**Uses.** TD.0/relative-frame: Extends the divided Frobenius.; TD.1/connection-comparison: Supplies the square-zero comparison independently of a noninjective matrix.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1.1(b), p.48; Hoff23 Lemma1.21, p.13.
+**Sources.** KPZ26, §5.1.1(b), p.48; Hoff23, Lemma1.21, p.13.
 
 
 ### normal-pair — Normal-decomposable frame pair
@@ -166,18 +167,19 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 - NormalPair.quotientRank (projection): M/M₁ is finite free over S/I of rank h−d.
 - NormalPair.mapBlocks (characterisation): In normal coordinates a preserving map has blocks A,B,C,D with C having entries in I.
 - NormalPair.changeSplitting (equivalence): Changing the normal decomposition induces the identity on the underlying pair.
+- NormalPair.hom_ext (extensionality): Two morphisms of fixed normal pairs are equal if their underlying S-linear maps on M agree; preserving the distinguished submodule is a property.
 
 **Unit tests.**
 
-- zeroWeight: d=0 gives M₁=IM, not zero.
-- fullWeight: d=h gives M₁=M.
-- forbiddenBlock: For M=S² and M₁=Se₁⊕Ie₂, a map e₁↦e₂ is excluded when 1∉I.
+- zeroWeight (degenerate): d=0 gives M₁=IM, not zero.
+- fullWeight (degenerate): d=h gives M₁=M.
+- forbiddenBlock (non-example): For M=S² and M₁=Se₁⊕Ie₂, a map e₁↦e₂ is excluded when 1∉I.
 
-**Uses.** TD.0/tilde-functor: Provides the normal block formula.; TD.1/universal-filtered-pair: Constructs the pair from the universal Grassmannian filtration..
+**Uses.** TD.0/tilde-functor: Provides the normal block formula.; TD.1/universal-filtered-pair: Constructs the pair from the universal Grassmannian filtration.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1.2, pp.48–49.
+**Sources.** KPZ26, §5.1.2, pp.48–49.
 
 **Atlas planet:** Normal pairs.
 
@@ -194,7 +196,7 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** vanHoften24, Example2.2.10, p.14; Zhu17 §3.2 and proof of Proposition3.11, pp.461–463.
+**Sources.** vanHoften24, Example2.2.10, p.14; Zhu17, §3.2 and proof of Proposition3.11, pp.461–463.
 
 
 ### tilde-functor — Invariant tilde module
@@ -216,15 +218,15 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Unit tests.**
 
-- upperRight: A map with only upper-right entry b gives pφ(b) there; omitting p fails.
-- lowerLeft: A lower-left entry Vx over D_R is sent to x, not φ(Vx).
-- torsionBase: Over a characteristic-p coefficient quotient, τ remains free even when its comparison to φ*M has kernel.
+- upperRight (computation): A map with only upper-right entry b gives pφ(b) there; omitting p fails.
+- lowerLeft (computation): A lower-left entry Vx over D_R is sent to x, not φ(Vx).
+- torsionBase (non-example): Over a characteristic-p coefficient quotient, τ remains free even when its comparison to φ*M has kernel.
 
-**Uses.** TD.0/display: Ψ has domain τ.; TD.2/tilde-tensor-torsor: Tensors must lie in this integral lattice..
+**Uses.** TD.0/display: Ψ has domain τ.; TD.2/tilde-tensor-torsor: Tensors must lie in this integral lattice.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1.2, (5.1.3), pp.48–49.
+**Sources.** KPZ26, §5.1.2, (5.1.3), pp.48–49.
 
 **Atlas planet:** Tilde functor.
 
@@ -247,15 +249,15 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Unit tests.**
 
-- identity: B=R gives the absolute frame.
-- relativeEpsilon: For k[ε]→k, φ₁ kills the logarithmic ε summand.
-- pdCompatibility: An arbitrary kernel without compatible divided powers supplies no relative frame by this construction.
+- identity (degenerate): B=R gives the absolute frame.
+- relativeEpsilon (computation): For k[ε]→k, φ₁ kills the logarithmic ε summand.
+- pdCompatibility (non-example): An arbitrary kernel without compatible divided powers supplies no relative frame by this construction.
 
-**Uses.** TD.1/relative-comparison: Enlarging the frame ideal factors τ.; TD.1/display-deformations: Crystalline descent is along the relative frame..
+**Uses.** TD.1/relative-comparison: Enlarging the frame ideal factors τ.; TD.1/display-deformations: Crystalline descent is along the relative frame.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1.1(b), p.48; Hoff23 Notation1.19–Lemma1.21, pp.13–14.
+**Sources.** KPZ26, §5.1.1(b), p.48; Hoff23, Notation1.19–Lemma1.21, pp.13–14.
 
 
 ### tilde-base-change — Strict base change of tilde modules
@@ -270,7 +272,7 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Check.** Verify the comparison for a nonflat quotient and a two-step base change. Do not use this theorem for a nonstrict Breuil frame map.
 
-**Source.** KPZ26, (5.1.4), p.49.
+**Sources.** KPZ26, (5.1.4), p.49.
 
 
 ### tilde-frobenius-map — Comparison with Frobenius pullback
@@ -291,15 +293,15 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Unit tests.**
 
-- weightZero: For d=0, j is multiplication by p on φ*M.
-- weightOne: For d=h, j is the identity.
-- torsionKernel: For S=F_p and d=0, j=0 although τ is nonzero; injectivity cannot survive this quotient.
+- weightZero (degenerate): For d=0, j is multiplication by p on φ*M.
+- weightOne (degenerate): For d=h, j is the identity.
+- torsionKernel (non-example): For S=F_p and d=0, j=0 although τ is nonzero; injectivity cannot survive this quotient.
 
-**Uses.** TD.2/horizontal-tensors: Defines rational tilde tensors.; TD.1/connection-comparison: Shows why its commutative square is not a uniqueness principle..
+**Uses.** TD.2/horizontal-tensors: Defines rational tilde tensors.; TD.1/connection-comparison: Shows why its commutative square is not a uniqueness principle.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1.7, p.49.
+**Sources.** KPZ26, §5.1.7, p.49.
 
 
 ### display — Contravariant Dieudonné display
@@ -318,18 +320,19 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 - Display.psiEquivalence (equivalence): The Ψ and divided-Frobenius descriptions are equivalent.
 - Display.morphism (characterisation): A pair map is a display map exactly when it commutes with Ψ after τ.
 - Display.dual (structure): The Cartier-dual display uses the contravariant normalization and the standard Tate pairing.
+- Display.hom_iff (characterisation): A map of underlying normal pairs is a display morphism exactly when its induced tilde map commutes with Ψ. An invertible such pair map is a display isomorphism.
 
 **Unit tests.**
 
-- etale: For Q_p/Z_p over k, Φ=σ and M₁=pM.
-- multiplicative: For μ_{p∞}, Φ=pσ and M₁=M.
-- heightDimension: The ordinary height-two example has rank M=2 and rank(M₁/ÎM)=1; swapping the two ranks changes dim H.
+- etale (compatibility): For Q_p/Z_p over k, Φ=σ and M₁=pM.
+- multiplicative (compatibility): For μ_{p∞}, Φ=pσ and M₁=M.
+- heightDimension (computation): The ordinary height-two example has rank M=2 and rank(M₁/ÎM)=1; swapping the two ranks changes dim H.
 
-**Uses.** TD.1/universal-display: Ψ is lifted with fixed first-order value.; TD.4/versal-adapted: Produces the p-divisible deformation..
+**Uses.** TD.1/universal-display: Ψ is lifted with fixed first-order value.; TD.4/versal-adapted: Produces the p-divisible deformation.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Hoff23, Definition1.10, p.10; Theorem1.29 and Remark1.30, pp.15–16.
+**Sources.** Hoff23, Definition1.10, p.10; Theorem1.29 and Remark1.30, pp.15–16.
 
 **Atlas planet:** Dieudonné displays.
 
@@ -352,15 +355,15 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Unit tests.**
 
-- identity: Identity base change preserves the given Ψ.
-- nonflat: Reduction R→R/m² is allowed and retains a free tilde module.
-- doubleQuotient: Reduction through R/m³→R/m² agrees with direct reduction.
+- identity (degenerate): Identity base change preserves the given Ψ.
+- nonflat (computation): Reduction R→R/m² is allowed and retains a free tilde module.
+- doubleQuotient (compatibility): Reduction through R/m³→R/m² agrees with direct reduction.
 
-**Uses.** TD.1/constant-first-order: Reduces Ψ on both sides of c.; TD.2/adapted-deformation: Tests the DVR deformation against its special fibre..
+**Uses.** TD.1/constant-first-order: Reduces Ψ on both sides of c.; TD.2/adapted-deformation: Tests the DVR deformation against its special fibre.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Hoff23, §1.1, pp.8–10; KPZ26 §5.1.19, p.52.
+**Sources.** Hoff23, §1.1, pp.8–10; KPZ26, §5.1.19, p.52.
 
 
 ### display-classification — Displays and p-divisible groups
@@ -375,10 +378,7 @@ Starting with pinned Witt vectors and divided powers, construct the Zink ring, r
 
 **Check.** Check Q_p/Z_p and μ_{p∞}, including which module is Fil¹; identify arrows contravariantly, not merely object isomorphism classes.
 
-**Source.** Hoff23, Theorem1.29 and Remark1.30, pp.15–16; Lau14 Corollaries5.5–5.6, p.2244.
-
-
-**Layer coverage: planned.** Verify coherent descent of the four-block formula across arbitrary normal decompositions and compare the contravariant complete-local Lau equivalence with the base Dieudonné functor, including Cartier-dual signs and the admissible topology.
+**Sources.** Hoff23, Theorem1.29 and Remark1.30, pp.15–16; Lau14, Corollaries5.5–5.6, p.2244.
 
 
 ## TD.1. Canonical first-order transport and universal displays
@@ -404,15 +404,15 @@ Construct c through relative-frame factorization for a=m²+pR, and base change b
 
 **Unit tests.**
 
-- heightOne: For h=1,d=0 or1, the parameter ring is O_F.
-- ordinaryTwo: For h=2,d=1, the ring is a one-variable formal power-series ring.
-- rankConvention: A rank-d filtration gives dim H=d, not h−d.
+- heightOne (degenerate): For h=1,d=0 or1, the parameter ring is O_F.
+- ordinaryTwo (computation): For h=2,d=1, the ring is a one-variable formal power-series ring.
+- rankConvention (characterisation): A rank-d filtration gives dim H=d, not h−d.
 
-**Uses.** TD.1/universal-display: Supports the universal Ψ.; TD.2/orbit-deformation-ring: Supplies the ambient ring and quotient map..
+**Uses.** TD.1/universal-display: Supports the universal Ψ.; TD.2/orbit-deformation-ring: Supplies the ambient ring and quotient map.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Hoff23, Construction1.27, p.15; KP18 §3.1.8, pp.164–165.
+**Sources.** Hoff23, Construction1.27, p.15; KP18, §3.1.8, pp.165–166.
 
 **Atlas planet:** Universal filtration.
 
@@ -435,15 +435,15 @@ Construct c through relative-frame factorization for a=m²+pR, and base change b
 
 **Unit tests.**
 
-- equalIdeal: I=I′ gives identity.
-- epsilon: D_{k[ε]}→D_{k[ε]/k} forgets the first-order filtration direction before τ.
-- threeIdeals: The comparison for a three-ideal chain is independent of the intermediate ideal.
+- equalIdeal (degenerate): I=I′ gives identity.
+- epsilon (computation): D_{k[ε]}→D_{k[ε]/k} forgets the first-order filtration direction before τ.
+- threeIdeals (compatibility): The comparison for a three-ideal chain is independent of the intermediate ideal.
 
-**Uses.** TD.1/connection-comparison: Constructs the canonical first-order transport.; TD.1/display-deformations: Supplies the relative linear algebra..
+**Uses.** TD.1/connection-comparison: Constructs the canonical first-order transport.; TD.1/display-deformations: Supplies the relative linear algebra.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1.8–Lemma5.1.9, p.50.
+**Sources.** KPZ26, §5.1.8–Lemma5.1.9, p.50.
 
 
 ### connection-comparison — Canonical first-order comparison
@@ -465,15 +465,15 @@ Construct c through relative-frame factorization for a=m²+pR, and base change b
 
 **Unit tests.**
 
-- constantPair: For the constant pair in the constant trivialization, c is identity.
-- epsilonGraph: For a rank-one graph direction Z=Vε, c has lower-left ε; identity transport would fail.
-- squareNotUnique: After a p-torsion quotient diag(1,p) has kernel, so a commuting square alone cannot select the lower-left block.
+- constantPair (degenerate): For the constant pair in the constant trivialization, c is identity.
+- epsilonGraph (computation): For a rank-one graph direction Z=Vε, c has lower-left ε; identity transport would fail.
+- squareNotUnique (non-example): After a p-torsion quotient diag(1,p) has kernel, so a commuting square alone cannot select the lower-left block.
 
-**Uses.** TD.2/very-good: Tests tensor horizontality.; TD.1/constant-first-order: Defines constancy of Ψ correctly..
+**Uses.** TD.2/very-good: Tests tensor horizontality.; TD.1/constant-first-order: Defines constancy of Ψ correctly.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Lemma5.1.11, Lemma5.1.15, Remark5.1.17 and (5.1.18), pp.50–52.
+**Sources.** KPZ26, Lemma5.1.11, Lemma5.1.15, Remark5.1.17 and (5.1.18), pp.50–52.
 
 **Atlas planet:** Canonical first-order comparison.
 
@@ -496,15 +496,15 @@ Construct c through relative-frame factorization for a=m²+pR, and base change b
 
 **Unit tests.**
 
-- constant: For a constant display the section is the constant embedding.
-- topology: Inverting p does not make lattice neighborhoods pⁿŴ(A) equal to the whole underlying additive space.
-- dvr: For A=O_K the evaluation retains the deformation Hodge filtration rather than the constant residual one.
+- constant (degenerate): For a constant display the section is the constant embedding.
+- topology (non-example): Inverting p does not make lattice neighborhoods pⁿŴ(A) equal to the whole underlying additive space.
+- dvr (compatibility): For A=O_K the evaluation retains the deformation Hodge filtration rather than the constant residual one.
 
-**Uses.** TD.4/adapted-tangent: Identifies the correct Fil⁰ tensor condition.; TD.2/adapted-deformation: Defines the generic cocharacter type using the canonical comparison..
+**Uses.** TD.4/adapted-tangent: Identifies the correct Fil⁰ tensor condition.; TD.2/adapted-deformation: Defines the generic cocharacter type using the canonical comparison.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KP18, Lemma3.1.17 and §3.1.18, pp.169–170; KPZ26 §7.3.1(2), pp.85–86.
+**Sources.** KP18, Lemma3.1.17 and §3.1.18, pp.169–170; KPZ26, §7.3.1(2), pp.85–86.
 
 **Atlas planet:** Rational Frobenius section.
 
@@ -527,15 +527,15 @@ Construct c through relative-frame factorization for a=m²+pR, and base change b
 
 **Unit tests.**
 
-- nontrivialC: When c has lower-left ε, the constant Ψ is Ψ₀c⁻¹, not generally Ψ₀ in that coordinate basis.
-- reflexUniformizer: For ramified E the quotient uses π_E, which can kill more than p.
-- residue: Reduction to the residue display satisfies the equation identically.
+- nontrivialC (computation): When c has lower-left ε, the constant Ψ is Ψ₀c⁻¹, not generally Ψ₀ in that coordinate basis.
+- reflexUniformizer (compatibility): For ramified E the quotient uses π_E, which can kill more than p.
+- residue (degenerate): Reduction to the residue display satisfies the equation identically.
 
-**Uses.** TD.1/universal-display: Selects the universal display lift.; TD.4/tensor-section: Makes the lifted tensor isomorphism an adapted deformation..
+**Uses.** TD.1/universal-display: Selects the universal display lift.; TD.4/tensor-section: Makes the lifted tensor isomorphism an adapted deformation.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.1.19, p.52 and (5.2.2), pp.53–54; Hoff23 Remark2.37, p.29.
+**Sources.** KPZ26, §5.1.19, p.52 and (5.2.2), pp.53–54; Hoff23, Remark2.37, p.29.
 
 **Atlas planet:** First-order rigid displays.
 
@@ -552,7 +552,7 @@ Construct c through relative-frame factorization for a=m²+pR, and base change b
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KP18, Lemma3.2.13, p.174.
+**Sources.** KP18, Lemma3.2.13, p.174.
 
 
 ### display-deformations — Crystalline deformation of displays
@@ -567,7 +567,7 @@ Construct c through relative-frame factorization for a=m²+pR, and base change b
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Hoff23, Theorem1.23 and Proposition1.26, pp.14–15.
+**Sources.** Hoff23, Theorem1.23 and Proposition1.26, pp.14–15.
 
 
 ### universal-display — Universal display with rigid first order
@@ -582,10 +582,7 @@ Construct c through relative-frame factorization for a=m²+pR, and base change b
 
 **Check.** State the residual marking and O_F base; verify the d=0,h case and the h=2,d=1 tangent dimension.
 
-**Source.** Hoff23, Construction1.27 and Theorem1.28, p.15; KPZ26 §5.1.19, p.52.
-
-
-**Layer coverage: planned.** Check inverse-limit continuity of the relative PD comparison on complete bases, the universal display’s residual marking and first-order equation over the reflex coefficients, and Frobenius-section convergence in the stated p-adic lattice topology.
+**Sources.** Hoff23, Construction1.27 and Theorem1.28, p.15; KPZ26, §5.1.19, p.52.
 
 
 ## TD.2. Integral tensors and very-good embeddings
@@ -612,16 +609,16 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Unit tests.**
 
-- emptyFamily: The empty family has fixer GL(Λ).
-- endomorphism: An endomorphism tensor has centralizer as fixer; this does not demand commuting with its values only at geometric points.
-- fullFixer: If the integral fixer is disconnected, identifying it with its connected parahoric is rejected.
-- dual: The identity in Λ⊗Λ∨ is fixed by every automorphism; treating Λ∨ as another covariant copy fails.
+- emptyFamily (degenerate): The empty family has fixer GL(Λ).
+- endomorphism (characterisation): An endomorphism tensor has centralizer as fixer; this does not demand commuting with its values only at geometric points.
+- fullFixer (non-example): If the integral fixer is disconnected, identifying it with its connected parahoric is rejected.
+- dual (compatibility): The identity in Λ⊗Λ∨ is fixed by every automorphism; treating Λ∨ as another covariant copy fails.
 
-**Uses.** TD.2/very-good: Defines which integral group c must preserve.; TD.4/etale-adaptedness: Requires the same integral tensor type on the deformation..
+**Uses.** TD.2/very-good: Defines which integral group c must preserve.; TD.4/etale-adaptedness: Requires the same integral tensor type on the deformation.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.2, pp.52–54; KZ25 §3.2.1–3.2.3, pp.22–23.
+**Sources.** KPZ26, §5.2, pp.52–54; KZ25, §3.2.1–3.2.3, pp.22–23.
 
 **Atlas planet:** Integral tensor data.
 
@@ -644,15 +641,15 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Unit tests.**
 
-- etale: For Fil¹=0, F=E·(D⊗𝔖).
-- multiplicative: For full Fil¹, F=D⊗𝔖.
-- ordinary: For a split height-two filtration, F=𝔖e₁⊕E𝔖e₂; replacing E by p changes its O_K quotient.
+- etale (degenerate): For Fil¹=0, F=E·(D⊗𝔖).
+- multiplicative (degenerate): For full Fil¹, F=D⊗𝔖.
+- ordinary (computation): For a split height-two filtration, F=𝔖e₁⊕E𝔖e₂; replacing E by p changes its O_K quotient.
 
-**Uses.** TD.2/filtration-tensor-torsor: Extends the rational tensor reduction integrally.; TD.6/central-bk-lift: Constructs the ordinary height-one module..
+**Uses.** TD.2/filtration-tensor-torsor: Extends the rational tensor reduction integrally.; TD.6/central-bk-lift: Constructs the ordinary height-one module.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KP18, §3.2.1–3.2.4, pp.170–172; Hoff23 Lemma2.7, pp.18–19.
+**Sources.** KP18, Lemma3.2.6 and its lattice construction, pp.171–172; Hoff23, Lemma2.7, pp.18–19.
 
 
 ### orbit-deformation-ring — Completed orbit deformation ring
@@ -673,15 +670,15 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Unit tests.**
 
-- GL: For Gscr=GL(Λ) and the full Grassmannian, R_G=R_E.
-- closedCondition: A filtration outside the local-model closed subscheme does not correspond to a map from R_G.
-- reflexBase: For ramified E the base is O_Ĕ, not W(k) with the ramification silently removed.
+- GL (degenerate): For Gscr=GL(Λ) and the full Grassmannian, R_G=R_E.
+- closedCondition (non-example): A filtration outside the local-model closed subscheme does not correspond to a map from R_G.
+- reflexBase (compatibility): For ramified E the base is O_Ĕ, not W(k) with the ramification silently removed.
 
-**Uses.** TD.4/versal-adapted: Defines the proposed deformation quotient.; TD.2/horizontal-tensors: Specifies a_G and the first-order tensor comparison..
+**Uses.** TD.4/versal-adapted: Defines the proposed deformation quotient.; TD.2/horizontal-tensors: Specifies a_G and the first-order tensor comparison.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.2.1, pp.52–53; KZ25 §3.2.3, p.23.
+**Sources.** KPZ26, §5.2.1, pp.52–53; KZ25, §3.2.3, p.23.
 
 **Atlas planet:** Tensor deformation ring.
 
@@ -698,7 +695,7 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Check.** Distinguish integrality, torsor representability, torsor extension and existence of an integral frame as separate assertions. No theorem here changes an arbitrary full fixer to its connected parahoric.
 
-**Source.** KP18, §3.2.1–3.2.4, pp.170–172; Hoff23 Lemma2.7, pp.18–19; Anschuetz22 Proposition10.3, p.33.
+**Sources.** KP18, Lemma3.2.6 and proof, pp.171–172; Hoff23, Lemma2.7, pp.18–19; Anschuetz22, Proposition10.3, p.33.
 
 
 ### bk-witt-lattice-comparison — Breuil–Kisin to tilde lattice comparison
@@ -713,7 +710,7 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Check.** Check both rank-one filtrations; do not invert φ(E([π])) inside Ŵ(O_K).
 
-**Source.** KP18, (3.2.10), pp.172–173; Hoff23 Lemma2.7, p.18.
+**Sources.** KP18, Lemma3.2.9 and (3.2.10), pp.172–173; Hoff23, Lemma2.7, p.18.
 
 
 ### tilde-tensor-torsor — Integral tilde tensors and tensor frames
@@ -728,7 +725,7 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Check.** Separate the normality argument from the pointwise flatness argument; an integral tensor at closed points alone is not a proof of a flat torsor.
 
-**Source.** KPZ26, §5.2.1, p.53; KP18 Proposition3.2.6, Lemma3.2.7 and Corollary3.2.11, pp.172–174.
+**Sources.** KPZ26, §5.2.1, p.53; KP18, Lemma3.2.6, Lemma3.2.9 and Corollary3.2.11, pp.171–173.
 
 
 ### horizontal-tensors — First-order tensor horizontality
@@ -749,15 +746,15 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Unit tests.**
 
-- identityEndomorphism: The identity endomorphism is horizontal by functoriality of c.
-- wrongQuotient: A nonzero ε graph at R=k[ε] is detected; reduction merely to k would make every tensor falsely horizontal.
-- dualTransport: An evaluation tensor in Λ⊗Λ∨ is transported using c and its inverse dual, hence remains the evaluation tensor.
+- identityEndomorphism (compatibility): The identity endomorphism is horizontal by functoriality of c.
+- wrongQuotient (non-example): As a test of the transport equation on an ambient module, take A=k[ε]/ε², c=1+εE₂₁ and t₀=t=E₁₁ in End_A(A²). Then ct₀c⁻¹=t+εE₂₁≠t, although the tensors agree after reduction to k. This tests detection of first-order transport; it does not assert that these data form a good local-model tensor datum.
+- dualTransport (compatibility): An evaluation tensor in Λ⊗Λ∨ is transported using c and its inverse dual, hence remains the evaluation tensor.
 
-**Uses.** TD.2/very-good: Defines very-goodness.; TD.3/curve-criterion: Tests equality on curve-generated tangent directions..
+**Uses.** TD.2/very-good: Defines very-goodness.; TD.3/curve-criterion: Tests equality on curve-generated tangent directions.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.2.2, (5.2.2), pp.53–54.
+**Sources.** KPZ26, §5.2.2, (5.2.2), pp.53–54.
 
 **Atlas planet:** Horizontal display tensors.
 
@@ -781,15 +778,15 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Unit tests.**
 
-- GL: For Gscr=GL_h and its Grassmannian, recover ordinary displays of type (h,d).
-- torsion: Over R/p, define Ψ as a torsor isomorphism; do not recover it uniquely from rational Frobenius, which has lost information.
-- endomorphisms: For an endomorphism-cut group, Ψ must commute with the induced endomorphisms of the pair and tilde pair.
+- GL (compatibility): For Gscr=GL_h and its Grassmannian, recover ordinary displays of type (h,d).
+- torsion (non-example): Over R/p, define Ψ as a torsor isomorphism; do not recover it uniquely from rational Frobenius, which has lost information.
+- endomorphisms (characterisation): For an endomorphism-cut group, Ψ must commute with the induced endomorphisms of the pair and tilde pair.
 
-**Uses.** TD.4/g-display-universality: Represents the marked G-display deformation functor.; TD.4/hoff-compatibility: Identifies the tensor and torsor definitions under very-goodness..
+**Uses.** TD.4/g-display-universality: Represents the marked G-display deformation functor.; TD.4/hoff-compatibility: Identifies the tensor and torsor definitions under very-goodness.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Hoff23, Definitions2.3 and2.11, Proposition2.6 and Remark2.9, pp.17–20.
+**Sources.** Hoff23, Definitions2.3 and2.11, Proposition2.6 and Remark2.9, pp.17–20.
 
 **Atlas planet:** Parahoric displays.
 
@@ -812,15 +809,15 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Unit tests.**
 
-- GL: For GL with empty cutting family, every good embedding is very good.
-- tensorFrameNotEnough: Two integral Gscr-torsors with a GL isomorphism not preserving a defining endomorphism fail the condition.
-- pointwise: A proof at one x does not establish the quantified all-points predicate.
+- GL (degenerate): For GL with empty cutting family, every good embedding is very good.
+- tensorFrameNotEnough (non-example): Two integral Gscr-torsors with a GL isomorphism not preserving a defining endomorphism fail the condition.
+- pointwise (characterisation): A proof at one x does not establish the quantified all-points predicate.
 
-**Uses.** TD.4/tensor-section: Allows the residual tensor-frame section to lift with constant first order.; TD.3/nonexceptional-embedding: This is the conclusion of the embedding existence theorem..
+**Uses.** TD.4/tensor-section: Allows the residual tensor-frame section to lift with constant first order.; TD.3/nonexceptional-embedding: This is the conclusion of the embedding existence theorem.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Definition5.2.5, p.54.
+**Sources.** KPZ26, Definition5.2.5, p.54.
 
 **Atlas planet:** Very good embeddings.
 
@@ -844,15 +841,15 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Unit tests.**
 
-- GL: For empty tensors, adaptedness reduces to the usual prescribed height/dimension deformation type.
-- integralType: Rational tensors with a different integral stabilizer type do not satisfy the integral-frame requirement.
-- inverseCocharacter: For μ_{p∞}, Fil¹ is the whole rank-one module; changing μ_y to its inverse changes the local-model convention and must be recorded.
+- GL (degenerate): For empty tensors, adaptedness reduces to the usual prescribed height/dimension deformation type.
+- integralType (non-example): Rational tensors with a different integral stabilizer type do not satisfy the integral-frame requirement.
+- inverseCocharacter (compatibility): For μ_{p∞}, Fil¹ is the whole rank-one module; changing μ_y to its inverse changes the local-model convention and must be recorded.
 
-**Uses.** TD.4/versal-adapted: Its DVR points are characterized by a quotient ring.; TD.6/ordinary-adapted-lift: The explicit ordinary lift must satisfy this independently defined condition..
+**Uses.** TD.4/versal-adapted: Its DVR points are characterized by a quotient ring.; TD.6/ordinary-adapted-lift: The explicit ordinary lift must satisfy this independently defined condition.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, Definition3.2.4, pp.23–24; KP18 §3.2.15, p.175.
+**Sources.** KZ25, Definition3.2.4, pp.22–23; KP18, Proposition3.2.17, pp.175–177 (antecedent integral tensors and filtration conditions).
 
 **Atlas planet:** Adapted deformations.
 
@@ -869,7 +866,7 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Lemma5.2.3, p.54.
+**Sources.** KPZ26, Lemma5.2.3, p.54.
 
 
 ### very-good-unramified — Unramified coefficient detection
@@ -884,7 +881,7 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.2.6–Lemma5.2.7, p.54.
+**Sources.** KPZ26, §5.2.6–Lemma5.2.7, p.54.
 
 
 ### very-good-lattice-chain — Very-good periodic lattice-chain embedding
@@ -905,18 +902,15 @@ Package a smooth full-fixer tensor datum with its supplied good normal flat loca
 
 **Unit tests.**
 
-- singleLattice: A one-step chain reduces to its single integral representation.
-- periodShift: Replacing Λ_i by the periodic copies pΛ_i yields an isomorphic segment representation and the same condition.
-- selfdualChain: A paired chain Λ_i⊕Λ_{−i}^⊥ can be selfdual without Λ_i=Λ_i^⊥; requiring equality of every lattice is too strong.
+- singleLattice (degenerate): A one-step chain reduces to its single integral representation.
+- periodShift (compatibility): Replacing Λ_i by the periodic copies pΛ_i yields an isomorphic segment representation and the same condition.
+- selfdualChain (non-example): A paired chain Λ_i⊕Λ_{−i}^⊥ can be selfdual without Λ_i=Λ_i^⊥; requiring equality of every lattice is too strong.
 
-**Uses.** TD.3/nonexceptional-embedding: States the lattice-chain existence output.; TD.3/A-central-cover: Uses the paired indexing in the symplectic construction..
+**Uses.** TD.3/nonexceptional-embedding: States the lattice-chain existence output.; TD.3/A-central-cover: Uses the paired indexing in the symplectic construction.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.2.4, p.54; §6.1.1, p.62.
-
-
-**Layer coverage: planned.** G1: Integral local-model geometry and good-embedding existence; G2: Parahoric purity with full-fixer component descent; G3: Normal-base tensor-section and flatness descent
+**Sources.** KPZ26, §5.2.4, p.54; §6.1.1, p.62.
 
 
 ## TD.3. Criteria and existence of very-good embeddings
@@ -936,7 +930,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Lemma5.3.13, pp.57–58.
+**Sources.** KPZ26, Lemma5.3.13, pp.57–58.
 
 
 ### invariant-endomorphisms — Invariant endomorphisms are horizontal
@@ -951,7 +945,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Lemma5.3.2, pp.54–55.
+**Sources.** KPZ26, Lemma5.3.2, pp.54–55.
 
 
 ### curvewise-horizontal — Curvewise horizontality of the canonical comparison
@@ -966,7 +960,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Proof of Proposition5.3.11, (5.3.12)–(5.3.14), pp.56–60.
+**Sources.** KPZ26, Proof of Proposition5.3.11, (5.3.12)–(5.3.14), pp.56–60.
 
 
 ### summand-very-good — Very-goodness descends to a summand
@@ -981,7 +975,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Lemma5.3.7(a), p.55.
+**Sources.** KPZ26, Lemma5.3.7(a), p.55.
 
 
 ### product-very-good — Products preserve very-goodness
@@ -996,7 +990,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Lemma5.3.9, p.56.
+**Sources.** KPZ26, Lemma5.3.9, p.56.
 
 
 ### curve-criterion — Curve-spanned tangent criterion
@@ -1011,7 +1005,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Proposition5.3.11 and Corollary5.3.16, pp.56–60.
+**Sources.** KPZ26, Proposition5.3.11 and Corollary5.3.16, pp.56–60.
 
 **Atlas planet:** Curve tangent criterion.
 
@@ -1028,7 +1022,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Record the reflex extension E⊂E° and prove the smooth-closure hypothesis separately; do not replace it by generic connectedness.
 
-**Source.** KPZ26, §5.3.19–Proposition5.3.20, pp.61–62.
+**Sources.** KPZ26, §5.3.19–Proposition5.3.20, pp.61–62.
 
 
 ### centralizer-very-good — Endomorphism and centralizer criterion
@@ -1043,7 +1037,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Require both good local-model immersions and scheme-theoretic intersection; group equality on Q_p-points is insufficient.
 
-**Source.** KPZ26, Corollaries5.3.3–5.3.4, p.55.
+**Sources.** KPZ26, Corollaries5.3.3–5.3.4, p.55.
 
 **Atlas planet:** Endomorphism criterion.
 
@@ -1060,7 +1054,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, §5.3.17–Proposition5.3.18, pp.60–61.
+**Sources.** KPZ26, §5.3.17–Proposition5.3.18, pp.60–61.
 
 
 ### isomorphic-sums — Isomorphic copies preserve very-goodness
@@ -1075,84 +1069,9 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KPZ26, Lemma5.3.7(b) and Remark5.3.8, pp.55–56.
+**Sources.** KPZ26, Lemma5.3.7(b) and Remark5.3.8, pp.55–56.
 
 **Atlas planet:** Isomorphic-sum criterion.
-
-
-### D-PEL — Very-good Dᴴ PEL representations
-
-**Theorem.** For the Dᴴ case n≥4 over K/Q_p, use G=Res_{K/Q_p}GO⁺(V,h), or the quaternionic GU⁺(T,φ) with anti-Hermitian φ. For the specified PEL representations V₀⊗_K V (V₀ alternating), or T₀⊗_D T (T₀ right-D Hermitian with the trace alternating form), a fixer at a point generic in its facet admits a periodic selfdual chain giving a very-good integral embedding at every point. Maintain the type-D and representation hypotheses of §6.2, and use the trace/different form after restriction of scalars.
-
-**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/D-PEL.
-
-**Direct prerequisites:** ReductiveGroupsPartII:RG2.3; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/neutral-closure; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/centralizer-very-good; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2/very-good-unramified.
-
-**Construction or proof.** Import current RG2.3.5’s GO⁺ lattice rescaling, Γ-stable selfdual lattice and quaternionic Morita/hermitian-basis reductions. Own only the display conclusion: after the unramified splitting, the representation becomes isomorphic copies of the orthogonal PEL representation; use the scheme intersection GL_End(V₀)∩GSp, endomorphism horizontality, smooth generic-neutral closure and descent.
-
-**Check.** The RG supplier owns the algebraic lattice theorem. Verify connected-closure and pairing assumptions before invoking TD.3/neutral-closure.
-
-**Source.** KPZ26, §6.2.1–Theorem6.2.3, pp.67–69.
-
-
-### A-standard — Standard wild type-A representations
-
-**Theorem.** For K/Q_p finite and a central division K-algebra D, put G=Res_{K/Q_p}GL_m(D), with standard representation on D^m or its specified opposite-dual representation. Every building point has a right-O_D periodic chain realizing its fixer; for the weight-(0,1) Hodge cocharacter types of this standard representation, the resulting good integral embedding is very good at all points. This includes p|ind(D) for these representations and does not cover arbitrary central quotients or other fundamental-weight representations.
-
-**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/A-standard.
-
-**Direct prerequisites:** ReductiveGroupsPartII:RG2.3; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/centralizer-very-good.
-
-**Construction or proof.** Import the lattice-chain stabilizer from RG2.3 and the stated good local-model immersion from the missing local-model extension. The standard integral group is cut out by the right-O_D endomorphisms, so apply the endomorphism criterion. The opposite action is the contragredient action, with its matching cocharacter sign.
-
-**Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
-
-**Source.** KPZ26, §6.3.1–6.3.2, p.70; good-embedding input Theorem3.3.25.
-
-
-### chain-segment-independence — Independence of the determining segment
-
-**Theorem.** Very-goodness of a periodic chain embedding is independent of its determining segment. Adding complete periodic repeats only adds isomorphic representations; removing them uses summand descent. Shifting the segment uses the periodicity isomorphisms of its lattices. All comparisons retain the chain’s transition maps and the induced local-model good embedding.
-
-**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/chain-segment-independence.
-
-**Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2/very-good-lattice-chain; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/isomorphic-sums; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/summand-very-good.
-
-**Construction or proof.** Place two determining segments in a common finite repeated segment. Use the periodic lattice scaling isomorphisms, then the two established very-goodness criteria. This supplies the segment API promised in TD.2.
-
-**Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
-
-**Source.** KPZ26, §5.2.4 and Lemma5.3.7, pp.54–56.
-
-
-### D-central-cover — Dᴴ central enlargement with very-good chains
-
-**Theorem.** For the central enlargement G₁′ and representation σ₁ of KPZ26 §6.2.8–6.2.9, obtained by adjoining the indicated two scalar factors in the split case or the unramified quadratic-field scalar action in the quaternionic case, every s≥1 copies of σ₁ at a generic-facet fixer admit a periodic selfdual chain with very-good integral embedding. The enlargement and balanced scalar weights are part of the input; do not replace it by an arbitrary central extension of a Dᴴ group.
-
-**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/D-central-cover.
-
-**Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/D-PEL; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/isomorphic-sums; ReductiveGroupsPartII:RG2.3.
-
-**Construction or proof.** Use the exact scalar extension of the classical lattice model from RG2.3.5, preserve the PEL centralizer equations, and apply the isomorphic-copy criterion. Check the cocharacter remains of Hodge type after adjoining scalars.
-
-**Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
-
-**Source.** KPZ26, §6.2.8–Corollary6.2.10, pp.69–70.
-
-
-### A-central-cover — Symplectic type-A central enlargement
-
-**Theorem.** Let V=D^m and V̄=(Dopp)^m be the paired standard and opposite-dual modules. On W=V⊕V̄ use the alternating trace form defined by the factor-swap involution τ and ξ=(a,−a), as in §6.3.4. For the group G₁ generated by diagonal GL_m(D) and the two scalar factors, its representation and any s≥1 isomorphic copies have periodic selfdual chains with very-good embeddings. The paired chain has terms Λ_i⊕(Λ_{−i})^⊥; an arbitrary term Λ_i⊕Λ_i^⊥ need not form the required indexed selfdual chain.
-
-**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/A-central-cover.
-
-**Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/A-standard; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/isomorphic-sums; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/centralizer-very-good; ReductiveGroupsPartII:RG2.3.
-
-**Construction or proof.** Import the involutive trace-pairing and lattice-chain group from RG2.3. Check G₁=(G×G)∩GSp scheme-theoretically, construct the indexed paired chain, and apply the endomorphism/PEL criterion plus the isomorphic-copy criterion.
-
-**Check.** State the inverse indexing explicitly and test duality of the i-th and −i-th terms.
-
-**Source.** KPZ26, §6.3.4–Corollary6.3.5, p.71.
 
 
 ### nonexceptional-embedding — Very-good chains in the nonexceptional cases
@@ -1167,9 +1086,84 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** Retain the Q̆_p-split-torus R-smoothness hypothesis and every representation condition; do not assert this for all wild type-A central quotients.
 
-**Source.** KPZ26, Standard assumptions3.1.5, p.16; Theorem6.1.1, pp.62–65.
+**Sources.** KPZ26, Standard assumptions3.1.5, p.16; Theorem6.1.1, pp.62–65.
 
 **Atlas planet:** Nonexceptional very-good chains.
+
+
+### D-PEL — Very-good Dᴴ PEL representations
+
+**Theorem.** For the Dᴴ case n≥4 over K/Q_p, use G=Res_{K/Q_p}GO⁺(V,h), or the quaternionic GU⁺(T,φ) with anti-Hermitian φ. For the specified PEL representations V₀⊗_K V (V₀ alternating), or T₀⊗_D T (T₀ right-D Hermitian with the trace alternating form), a fixer at a point generic in its facet admits a periodic selfdual chain giving a very-good integral embedding at every point. Maintain the type-D and representation hypotheses of §6.2, and use the trace/different form after restriction of scalars.
+
+**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/D-PEL.
+
+**Direct prerequisites:** ReductiveGroupsPartII:RG2.3; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/neutral-closure; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/centralizer-very-good; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2/very-good-unramified; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/nonexceptional-embedding; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/isomorphic-sums; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/summand-very-good.
+
+**Construction or proof.** Import current RG2.3.5’s GO⁺ lattice rescaling, Γ-stable selfdual lattice and quaternionic Morita/hermitian-basis reductions. Reduce repeated copies by the isomorphic-sum and summand criteria. The ambient restriction-of-scalars GSp embedding is very good by the nonexceptional theorem applied to GSp. Cut out GO by its endomorphism equations inside GSp, then pass to the smooth generic-neutral GO⁺ closure. Apply the fixed-point, total-lattice summand and unramified descent argument as in Theorem6.2.3. These are display consequences of the imported algebraic lattices.
+
+**Check.** The RG supplier owns the algebraic lattice theorem. Verify connected-closure and pairing assumptions before invoking TD.3/neutral-closure.
+
+**Sources.** KPZ26, §6.2.1–Theorem6.2.3, pp.67–69.
+
+
+### A-standard — Standard wild type-A representations
+
+**Theorem.** For K/Q_p finite and a central division K-algebra D, put G=Res_{K/Q_p}GL_m(D), with standard representation on D^m or its specified opposite-dual representation. Every building point has a right-O_D periodic chain realizing its fixer; for the weight-(0,1) Hodge cocharacter types of this standard representation, the resulting good integral embedding is very good at all points. This includes p|ind(D) for these representations and does not cover arbitrary central quotients or other fundamental-weight representations.
+
+**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/A-standard.
+
+**Direct prerequisites:** ReductiveGroupsPartII:RG2.3; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/centralizer-very-good.
+
+**Construction or proof.** Import the lattice-chain stabilizer from RG2.3 and the stated good local-model immersion from the missing local-model extension. The standard integral group is cut out by the right-O_D endomorphisms, so apply the endomorphism criterion. The opposite action is the contragredient action, with its matching cocharacter sign.
+
+**Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
+
+**Sources.** KPZ26, §6.3.1–Proposition6.3.2 and Remark6.3.3, pp.70–71; good-embedding input Theorem3.3.25, p.26.
+
+
+### chain-segment-independence — Independence of the determining segment
+
+**Theorem.** Very-goodness of a periodic chain embedding is independent of its determining segment. Adding complete periodic repeats only adds isomorphic representations; removing them uses summand descent. Shifting the segment uses the periodicity isomorphisms of its lattices. All comparisons retain the chain’s transition maps and the induced local-model good embedding.
+
+**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/chain-segment-independence.
+
+**Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2/very-good-lattice-chain; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/isomorphic-sums; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/summand-very-good.
+
+**Construction or proof.** Place two determining segments in a common finite repeated segment. Use the periodic lattice scaling isomorphisms, then the two established very-goodness criteria. This supplies the segment API promised in TD.2.
+
+**Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
+
+**Sources.** KPZ26, §5.2.4 and Lemma5.3.7, pp.54–56.
+
+
+### D-central-cover — Dᴴ central enlargement with very-good chains
+
+**Theorem.** For the central enlargement G₁′ and representation σ₁ of KPZ26 §6.2.8–6.2.9, obtained by adjoining the indicated two scalar factors in the split case or the unramified quadratic-field scalar action in the quaternionic case, every s≥1 copies of σ₁ at a generic-facet fixer admit a periodic selfdual chain with very-good integral embedding. The enlargement and balanced scalar weights are part of the input; do not replace it by an arbitrary central extension of a Dᴴ group.
+
+**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/D-central-cover.
+
+**Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/D-PEL; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/isomorphic-sums; ReductiveGroupsPartII:RG2.3; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/product-very-good; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/summand-very-good; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/nonexceptional-embedding.
+
+**Construction or proof.** Use the specified scalar enlargement and classical lattice model from RG2.3.5. From D-PEL and summand descent obtain the very-good single GO⁺ representation, then use the product criterion for GO⁺×GO⁺. Its scheme-theoretic intersection with the ambient GSp is the required enlarged group. The GSp embedding is very good by the nonexceptional theorem applied to GSp. The union of the two cutting tensor families is horizontal and cuts out the intersection. Descend as in D-PEL and use isomorphic sums for s copies; keep the balanced Hodge weights.
+
+**Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
+
+**Sources.** KPZ26, §6.2.8–Corollary6.2.10, pp.69–70.
+
+
+### A-central-cover — Symplectic type-A central enlargement
+
+**Theorem.** Let V=D^m and V̄=(Dopp)^m be the paired standard and opposite-dual modules. On W=V⊕V̄ use the alternating trace form defined by the factor-swap involution τ and ξ=(a,−a), as in §6.3.4. For the group G₁ generated by diagonal GL_m(D) and the two scalar factors, its representation and any s≥1 isomorphic copies have periodic selfdual chains with very-good embeddings. The paired chain has terms Λ_i⊕(Λ_{−i})^⊥; an arbitrary term Λ_i⊕Λ_i^⊥ need not form the required indexed selfdual chain.
+
+**Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/A-central-cover.
+
+**Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/A-standard; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/isomorphic-sums; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/centralizer-very-good; ReductiveGroupsPartII:RG2.3; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/product-very-good; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.3/nonexceptional-embedding.
+
+**Construction or proof.** Import the involutive trace-pairing and indexed paired lattice chain from RG2.3. The two standard representations give a very-good product embedding by A-standard and the product criterion. Check G₁=(G×G)∩GSp scheme-theoretically. The ambient GSp embedding is very good by the nonexceptional theorem applied to GSp. The union of the product and GSp cutting families is horizontal and defines this intersection. Apply isomorphic sums for s copies. Endomorphism equations alone do not impose the alternating similitude condition.
+
+**Check.** State the inverse indexing explicitly and test duality of the i-th and −i-th terms.
+
+**Sources.** KPZ26, §6.3.4–Corollary6.3.5, p.71.
 
 
 ### polarized-chain — Very-good chains with a perfect pairing
@@ -1184,10 +1178,7 @@ Prove the endomorphism, scheme-intersection, summand, isomorphic-copy, product a
 
 **Check.** A lattice dual here is with respect to ψ; it is not the abstract linear-module dual without the pairing identification.
 
-**Source.** KPZ26, Theorem6.1.9 and (6.1.10)–(6.1.11), pp.66–67.
-
-
-**Layer coverage: planned.** G1: Integral local-model geometry and good-embedding existence; G3: Normal-base tensor-section and flatness descent
+**Sources.** KPZ26, Theorem6.1.9 and (6.1.10)–(6.1.11), pp.66–67.
 
 
 ## TD.4. Versal adapted deformations and integral tensor comparison
@@ -1207,7 +1198,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** A nonexact sequence at the closed point is not ruled out by this export; each specialization agrees with the imported functor.
 
-**Source.** KP18, Theorem3.3.2 and its opening discussion, pp.177–178.
+**Sources.** KP18, Theorem3.3.2 and its opening discussion, pp.177–178.
 
 
 ### kottwitz-image — The crystalline Galois image has trivial Kottwitz invariant
@@ -1222,7 +1213,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KP18, §3.3.3–Proposition3.3.4, pp.178–179.
+**Sources.** KP18, §3.3.3–Proposition3.3.4, pp.178–179.
 
 
 ### integral-tensor-frame — Tensor frames for crystalline lattices
@@ -1237,7 +1228,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KP18, Lemma3.3.5–Corollary3.3.6, p.179; KZ25 Proposition3.3.2, p.25; Anschuetz22 Proposition10.3, p.33.
+**Sources.** KP18, Lemma3.3.5 and Corollary3.3.6, pp.179–180; KZ25, Proposition3.3.2, p.25; Anschuetz22, Proposition10.3, p.33.
 
 **Atlas planet:** Integral crystalline tensor frames.
 
@@ -1254,7 +1245,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Check the Cartier-dual Tate twist on μ_{p∞}; do not replace L by T_p(H*) without (−1).
 
-**Source.** KZ25, Proposition3.3.2(1), p.25; KP18 Proposition3.3.8, p.180.
+**Sources.** KZ25, Proposition3.3.2(1), p.25; KP18, Proposition3.3.8, p.180.
 
 
 ### tensor-section — A tensor-preserving first-order rigid section
@@ -1275,32 +1266,32 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Unit tests.**
 
-- nonVeryGood: Without tensor compatibility of c the prescribed reduced section need not lie in the Gscr-torsor.
-- GL: For empty tensors this is the ordinary first-order rigid GL lift.
-- choice: Two allowable lifts may differ by a Gscr congruence element; the construction is existence with specified reduction, not uniqueness.
+- nonVeryGood (non-example): Without tensor compatibility of c the prescribed reduced section need not lie in the Gscr-torsor.
+- GL (degenerate): For empty tensors this is the ordinary first-order rigid GL lift.
+- choice (characterisation): Two allowable lifts may differ by a Gscr congruence element; the construction is existence with specified reduction, not uniqueness.
 
-**Uses.** TD.4/versal-adapted: Defines the versal ambient deformation and its quotient.; TD.4/g-display-universality: Supplies Hoff’s universal G-display candidate..
+**Uses.** TD.4/versal-adapted: Defines the versal ambient deformation and its quotient.; TD.4/g-display-universality: Supplies Hoff’s universal G-display candidate.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, §3.2.6, p.24; KP18 §3.2.12, pp.173–174 (corrected by KPZ26 §5.2).
+**Sources.** KZ25, §3.2.5–3.2.6, p.23; KP18, §3.2.12, pp.173–174 (requires the correction in KPZ26 §5.2 and §7.1.4(1), p.73).
 
 **Atlas planet:** Tensor-preserving display section.
 
 
 ### cocharacter-splitting — Tensor Hodge filtrations and residual lifts
 
-**Theorem.** In the integral crystalline-tensor setting the generic Hodge filtration is induced by a G_K-valued cocharacter whose conjugacy class contains a representative μ_y over K₀=W(k)[1/p] with an integral filtration on D(H₀)⊗O_K lifting the special Hodge filtration. The comparison of the actual generic filtration with this representative is by G(K)-conjugacy; no unproved integral G(O_K)-conjugacy is asserted.
+**Theorem.** In the integral crystalline-tensor setting over O_K, the generic Hodge filtration is induced by a cocharacter of G_K. There is a representative μ_y defined over K whose induced filtration on D(H₀)⊗K extends to an integral direct-summand filtration on D(H₀)⊗O_K lifting the special Hodge filtration, and the canonical generic filtration is G(K)-conjugate to that representative. Its geometric conjugacy class has a reflex field E/K₀ contained in a field of definition; μ_y need not be defined over K₀=W(k)[1/p]. No integral G(O_K)-conjugacy of the canonical generic filtration is asserted.
 
 **Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.4/cocharacter-splitting.
 
 **Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.4/crystalline-tensor-integrality; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2/tensor-datum; ReductiveGroupsPartII:RG2.3; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bt-type-equivalence.
 
-**Construction or proof.** Apply the splitting of the filtered fibre functor on the category generated by the G-representation, not reductivity of the entire weakly admissible Tannakian group. Use the integral frame and parabolic/cocharacter lifting to choose the residual-filtration representative.
+**Construction or proof.** Split the filtered fibre functor on the tensor category generated by the representation over K. An integral tensor frame lifting the identity on the special fibre transports the actual Hodge direct summand to D(H₀)⊗O_K. The rational comparison differs from that frame by G(K), giving the stated conjugacy. A cocharacter valued in G_{K₀} is allowed a field of definition larger than K₀; the reflex field is not silently made unramified.
 
 **Check.** Export both the generic conjugacy and the integral residual-filtration lift; neither is shorthand for the other.
 
-**Source.** KZ25, Proposition3.3.2(2), pp.25–26; KP18 Corollary3.3.10, pp.180–181 and §3.2.5 footnote4, pp.170–171.
+**Sources.** KZ25, Proposition3.3.2(2), p.25; KP18, Corollary3.3.10, pp.180–181 and §3.2.5 footnote4, pp.170–171.
 
 
 ### hoff-compatibility — Hoff’s infinitesimal compatibility condition
@@ -1315,7 +1306,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Hoff23, Assumption2.28 and Remark2.29, pp.24–25; KPZ26 Definition5.2.5, p.54.
+**Sources.** Hoff23, Assumption2.28 and Remark2.29, pp.24–25; KPZ26, Definition5.2.5, p.54.
 
 
 ### dvr-tangent — Tangent lifting at a DVR point
@@ -1330,7 +1321,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KP18, Lemma3.1.15 and §3.1.14, pp.168–169.
+**Sources.** KP18, Lemma3.1.15 and §3.1.14, pp.168–169.
 
 
 ### adapted-interpolation — Interpolation of two tensor displays
@@ -1351,15 +1342,15 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Unit tests.**
 
-- residueMismatch: Displays with incompatible residual Ψ cannot define a point over O_K×_k O_K.
-- constantEndpoints: For identical endpoint Ψ the constant display is an allowed interpolation.
-- notProduct: The pair (0,1) does not belong to O_K×_k O_K, so the endpoint map is not claimed surjective onto the unrestricted product.
+- residueMismatch (non-example): Displays with incompatible residual Ψ cannot define a point over O_K×_k O_K.
+- constantEndpoints (degenerate): For identical endpoint Ψ the constant display is an allowed interpolation.
+- notProduct (non-example): The pair (0,1) does not belong to O_K×_k O_K, so the endpoint map is not claimed surjective onto the unrestricted product.
 
-**Uses.** TD.4/dvr-factorization: Reduces the global ideal inclusion to infinitesimal criteria along a one-parameter family.; TD.4/g-display-universality: Proves the DVR-point part of representability..
+**Uses.** TD.4/dvr-factorization: Reduces the global ideal inclusion to infinitesimal criteria along a one-parameter family.; TD.4/g-display-universality: Proves the DVR-point part of representability.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KP18, Proof of Proposition3.2.17, pp.176–177; Hoff23 Lemma2.34, p.28.
+**Sources.** KP18, Proof of Proposition3.2.17, pp.176–177; Hoff23, Lemma2.34, p.28.
 
 
 ### adapted-tangent — Four infinitesimal adaptedness criteria
@@ -1374,7 +1365,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Do not infer equality of integral tangent lattices from equal ranks alone; retain the scaling argument and p-torsion-free coefficient ring.
 
-**Source.** KP18, Lemma3.2.14, (3.2.16) and proof, pp.174–175.
+**Sources.** KP18, Lemma3.2.14, (3.2.16) and proof, pp.174–175.
 
 **Atlas planet:** Infinitesimal adaptedness criterion.
 
@@ -1391,7 +1382,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** List precisely where regularity of R_G[1/p], finite-dimensional stabilization, p-torsion-freeness and T-adic separatedness are used.
 
-**Source.** KP18, Proposition3.2.17, pp.175–177; KZ25 Proposition3.2.7, pp.24–25.
+**Sources.** KP18, Proposition3.2.17, pp.175–177; KZ25, Proposition3.2.7, pp.24–25.
 
 
 ### versal-adapted — Versal adapted deformation theorem
@@ -1406,7 +1397,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, Proposition3.2.7, pp.24–25; KPZ26 §7.1.3, pp.72–74.
+**Sources.** KZ25, Proposition3.2.7, pp.24–25; KPZ26, §7.1.3, pp.72–74.
 
 **Atlas planet:** Versal adapted deformations.
 
@@ -1423,7 +1414,7 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Hoff23, Construction2.27 and Theorem2.36, pp.24–29.
+**Sources.** Hoff23, Construction2.27 and Theorem2.36, pp.24–29.
 
 **Atlas planet:** Universal parahoric display.
 
@@ -1440,12 +1431,9 @@ Use very-good c to lift a tensor section. Prove the four infinitesimal adaptedne
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, Proposition3.3.4, p.26; KP18 Proposition3.3.13, pp.181–182.
+**Sources.** KZ25, Proposition3.3.4, p.25; KP18, Proposition3.3.13, pp.181–182.
 
 **Atlas planet:** Étale adaptedness criterion.
-
-
-**Layer coverage: planned.** G1: Integral local-model geometry and good-embedding existence; G2: Parahoric purity with full-fixer component descent; G4: Integral Tannakian representability on the punctured disc
 
 
 ## TD.5. Hyperspecial lifts, horizontal loci and specialization
@@ -1465,7 +1453,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Theorem1.1.4 and Corollary1.1.7, pp.7–8.
+**Sources.** Kisin17, Theorem1.1.4 and Corollary1.1.7, pp.7–8.
 
 **Atlas planet:** Hyperspecial tensor frames.
 
@@ -1488,15 +1476,15 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Unit tests.**
 
-- absoluteDVR: For R=W(k), use the completed algebraic integral closure before applying the envelope; do not replace it by W(k) itself.
-- coverChoice: Changing the geometric closure transports the construction by an isomorphism, with the expected conjugacy of the Galois action.
-- nonNormal: A nonnormal coefficient algebra does not satisfy this input specification without first replacing its cover construction.
+- absoluteDVR (computation): For R=W(k), use the completed algebraic integral closure before applying the envelope; do not replace it by W(k) itself.
+- coverChoice (compatibility): Changing the geometric closure transports the construction by an isomorphism, with the expected conjugacy of the Galois action.
+- nonNormal (non-example): A nonnormal coefficient algebra does not satisfy this input specification without first replacing its cover construction.
 
-**Uses.** TD.5/relative-period-comparison: Provides its coefficient ring using the lower crystalline owner.; TD.5/global-etale-tensors: Evaluates parallel tensors on the geometric cover..
+**Uses.** TD.5/relative-period-comparison: Provides its coefficient ring using the lower crystalline owner.; TD.5/global-etale-tensors: Evaluates parallel tensors on the geometric cover.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, §1.1.15, p.10.
+**Sources.** Kisin17, §1.1.15, p.10.
 
 
 ### toral-admissibility — Weak admissibility of the toral filtration
@@ -1511,7 +1499,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Proof of Theorem2.2.3, p.32 (citing Rapoport–Zink Proposition1.21).
+**Sources.** Kisin17, Proof of Theorem2.2.3, p.32 (citing Rapoport–Zink Proposition1.21).
 
 
 ### hyperspecial-adapted — Hyperspecial adapted lift
@@ -1532,15 +1520,15 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Unit tests.**
 
-- GL: Without cutting tensors this is an ordinary lift with the given Hodge type.
-- wrongRing: An element integral only after inverting E(u) in 𝔖 does not qualify as an integral S-crystal tensor.
-- linearDual: For μ_{p∞} use T_p(H)∨=Z_p(−1), matching contravariant D(H); omitting the Cartier-dual twist gives the wrong comparison.
+- GL (degenerate): Without cutting tensors this is an ordinary lift with the given Hodge type.
+- wrongRing (non-example): An element integral only after inverting E(u) in 𝔖 does not qualify as an integral S-crystal tensor.
+- linearDual (compatibility): For μ_{p∞} use T_p(H)∨=Z_p(−1), matching contravariant D(H); omitting the Cartier-dual twist gives the wrong comparison.
 
-**Uses.** TD.5/hyperspecial-adapted-quotient: Specifies the functor cut out by the smooth quotient.; TD.5/isogenous-admissible-lift: Specifies the tensor structure after changing an integral lattice..
+**Uses.** TD.5/hyperspecial-adapted-quotient: Specifies the functor cut out by the smooth quotient.; TD.5/isogenous-admissible-lift: Specifies the tensor structure after changing an integral lattice.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, §1.1.5–1.1.9, pp.7–9.
+**Sources.** Kisin17, §1.1.5–1.1.9, pp.7–9.
 
 **Atlas planet:** Hyperspecial adapted lifts.
 
@@ -1557,7 +1545,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, (1.1.16) and proof of Lemma1.1.17, pp.10–11.
+**Sources.** Kisin17, (1.1.16) and proof of Lemma1.1.17, pp.10–11.
 
 
 ### hodge-double-coset — Hodge cocharacter and Frobenius double coset
@@ -1572,7 +1560,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Lemma1.1.12 and proof, p.9.
+**Sources.** Kisin17, Lemma1.1.12 and proof, p.9.
 
 
 ### explicit-hyperspecial-lift — Explicit height-one adapted lift
@@ -1593,15 +1581,15 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Unit tests.**
 
-- etale: The weight-zero rank-one case gives invertible Frobenius.
-- multiplicative: The rank-one Hodge-weight-one case has cokernel killed by E(u), not Frobenius invertible over 𝔖.
-- Ezero: Replacing μ₀(E(0)) by μ₀(p) without its unit correction can change the residual φ-module; test with E(0)=ap and a≠1.
+- etale (computation): The weight-zero rank-one case gives invertible Frobenius.
+- multiplicative (computation): The rank-one Hodge-weight-one case has cokernel killed by E(u), not Frobenius invertible over 𝔖.
+- Ezero (non-example): Replacing μ₀(E(0)) by μ₀(p) without its unit correction can change the residual φ-module; test with E(0)=ap and a≠1.
 
-**Uses.** TD.5/global-etale-tensors: Provides a point where rational tensors are integral.; TD.5/isogenous-admissible-lift: Supplies the reference adapted representation for comparing torsors..
+**Uses.** TD.5/global-etale-tensors: Provides a point where rational tensors are integral.; TD.5/isogenous-admissible-lift: Supplies the reference adapted representation for comparing torsors.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Proof of Proposition1.1.13, pp.9–10.
+**Sources.** Kisin17, Proof of Proposition1.1.13, pp.9–10.
 
 **Atlas planet:** Explicit adapted height-one lift.
 
@@ -1618,7 +1606,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, §1.4.5 and Lemma1.4.6, pp.23–24.
+**Sources.** Kisin17, §1.4.5 and Lemma1.4.6, pp.24–25.
 
 
 ### framed-hyperspecial-data — A correctly framed hyperspecial Dieudonné datum
@@ -1639,15 +1627,15 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Unit tests.**
 
-- etale: b=1 has zero Fil¹.
-- multiplicative: b=p has full Fil¹.
-- ordinaryFrame: Conjugating diag(p,1) by a basis change can move Fil¹; fixing the original coordinate line while changing b fails unless the compatibility is rechecked.
+- etale (computation): b=1 has zero Fil¹.
+- multiplicative (computation): b=p has full Fil¹.
+- ordinaryFrame (non-example): Conjugating diag(p,1) by a basis change can move Fil¹; fixing the original coordinate line while changing b fails unless the compatibility is rechecked.
 
-**Uses.** TD.5/hyperspecial-adapted: Supplies a marked special group and its actual filtration.; HeckeStacksAndLocalShtukas:HS2: Exports the corrected hyperspecial framing for local deformation moduli..
+**Uses.** TD.5/hyperspecial-adapted: Supplies a marked special group and its actual filtration.; HeckeStacksAndLocalShtukas:HS2: Exports the corrected hyperspecial framing for local deformation moduli.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Zhu17, §3.2, pp.460–461; KZ25 §3.4.1, pp.25–26.
+**Sources.** Zhu17, §3.2, pp.460–461; KZ25, §3.4.1, p.26.
 
 
 ### horizontal-fil0-locus — Horizontal Fil⁰ deformation locus
@@ -1668,15 +1656,15 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Unit tests.**
 
-- origin: The origin factors through A′_G.
-- emptyFamily: No tensors impose the zero ideal and A′_G=A.
-- LieAlgebra: Connection coefficients must lie in Lie(G), and need not lie in the Lie algebra of its opposite unipotent; reject the latter replacement.
+- origin (degenerate): The origin factors through A′_G.
+- emptyFamily (degenerate): No tensors impose the zero ideal and A′_G=A.
+- LieAlgebra (non-example): Connection coefficients must lie in Lie(G), and need not lie in the Lie algebra of its opposite unipotent; reject the latter replacement.
 
-**Uses.** TD.5/horizontal-locus-equality: Provides the independently defined tensor locus.; TD.5/hyperspecial-adapted-quotient: Repairs the adapted factorization argument..
+**Uses.** TD.5/horizontal-locus-equality: Provides the independently defined tensor locus.; TD.5/hyperspecial-adapted-quotient: Repairs the adapted factorization argument.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Errata E.1–E.3, p.96.
+**Sources.** Kisin17, Errata E.1–E.3, p.96.
 
 
 ### horizontal-locus-equality — Corrected equality of the horizontal and adapted loci
@@ -1691,7 +1679,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Errata E.1 and Lemma E.3, p.96.
+**Sources.** Kisin17, Errata E.1 and Lemma E.3, p.96.
 
 **Atlas planet:** Horizontal adapted locus.
 
@@ -1708,7 +1696,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Proposition1.1.10, p.9 and Errata E.2–E.4, p.96.
+**Sources.** Kisin17, Proposition1.1.10, p.9 and Errata E.2–E.4, p.96.
 
 **Atlas planet:** Smooth adapted deformation space.
 
@@ -1731,15 +1719,15 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Unit tests.**
 
-- explicitPoint: Specialization at TD.5/explicit-hyperspecial-lift recovers its constant lattice tensors.
-- connectedness: For a disconnected base one point cannot control the integral type on a different component.
-- dualVariance: The tensor local system is formed from Hom(T_pH,Z_p), consistent with the displayed comparison map.
+- explicitPoint (compatibility): Specialization at TD.5/explicit-hyperspecial-lift recovers its constant lattice tensors.
+- connectedness (non-example): For a disconnected base one point cannot control the integral type on a different component.
+- dualVariance (compatibility): The tensor local system is formed from Hom(T_pH,Z_p), consistent with the displayed comparison map.
 
-**Uses.** TD.5/hyperspecial-etale-recognition: Gives the adapted-to-étale implication.; ShimuraVarietiesAndIntegralModels: Supplies the p-divisible part of comparison with global Hodge tensors..
+**Uses.** TD.5/hyperspecial-etale-recognition: Gives the adapted-to-étale implication.; ShimuraVarietiesAndIntegralModels: Supplies the p-divisible part of comparison with global Hodge tensors.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Lemma1.1.17, pp.10–11 and proof of Proposition1.1.13, pp.9–10.
+**Sources.** Kisin17, Lemma1.1.17, pp.10–11 and proof of Proposition1.1.13, pp.9–10.
 
 
 ### hyperspecial-etale-recognition — Hyperspecial étale recognition
@@ -1754,7 +1742,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Proposition1.1.13 and (1.1.14), pp.9–10.
+**Sources.** Kisin17, Proposition1.1.13 and (1.1.14), pp.9–10.
 
 
 ### realization-tensor-interface — Comparison with geometric realization tensors
@@ -1769,7 +1757,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** vanHoften24, §3.1.5–3.1.7, pp.27–28; Kisin17 proof of Proposition1.3.9, p.21.
+**Sources.** vanHoften24, §3.1.5–3.1.7, pp.27–28; Kisin17, proof of Proposition1.3.9, p.21.
 
 
 ### comparison-torsor-independence — Rational tensor torsor for conjugate admissible filtrations
@@ -1784,12 +1772,12 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Wintenberger97, §4.5.2–Proposition4.5.3 and following unnumbered corollary, pp.1330–1332; Kisin17 proof of Proposition1.1.19, p.11.
+**Sources.** Wintenberger97, §4.5.2–Proposition4.5.3 and following unnumbered corollary, pp.1330–1332; Kisin17, proof of Proposition1.1.19, p.11.
 
 
 ### lattice-specialization — Specialization of a tensor-compatible Tate lattice
 
-**Construction.** For an adapted H/O_K with k=F̄_p and a fixed tensor W-frame, let g∈G(Q_p). After a finite extension making g⁻¹T_pH stable under Galois, form the isogenous p-divisible group and its Breuil–Kisin lattice, and reduce at u=0. This gives g₀G(W)∈G(W[1/p])/G(W), depending only on gG(Z_p). Changing the initial W-frame changes the map by left multiplication by G(W). The output is a rational-lattice coset; g₀ is not required to lie in G(W).
+**Construction.** For an adapted H/O_K with k=F̄_p and a fixed tensor W-frame, let g∈G(Q_p). Let L=Hom_Zp(T_pH,Z_p), with G acting on L. After a finite extension making gL Galois-stable, form the isogenous p-divisible group with dual Tate lattice gL (its Tate lattice is (gL)∨), form its Breuil–Kisin lattice, and reduce at u=0. The inverse notation on Tate modules is interpreted via this dual action. This gives g₀G(W)∈G(W[1/p])/G(W), depending only on gG(Z_p). Changing the initial W-frame changes the map by left multiplication by G(W). The output is a rational-lattice coset; g₀ is not required to lie in G(W).
 
 **Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.5/lattice-specialization.
 
@@ -1805,15 +1793,15 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Unit tests.**
 
-- identity: The identity Tate lattice specializes to the residual crystal lattice.
-- centralP: For g=p in G_m, the output has the same nonzero valuation; it cannot be represented by an integral unit.
-- rightCoset: Replacing g by gh with h∈G(Z_p) does not change the lattice or output coset.
+- identity (degenerate): The identity Tate lattice specializes to the residual crystal lattice.
+- centralP (computation): For g=p in G_m, the output has the same nonzero valuation; it cannot be represented by an integral unit.
+- rightCoset (compatibility): Replacing g by gh with h∈G(Z_p) does not change the lattice or output coset.
 
-**Uses.** TD.5/specialization-kottwitz: Relates the specialized lattice to the ADLV and component invariant.; TD.5/specialization-central-quotient: Controls quotient maps when the quotient Galois image is central..
+**Uses.** TD.5/specialization-kottwitz: Relates the specialized lattice to the ADLV and component invariant.; TD.5/specialization-central-quotient: Controls quotient maps when the quotient Galois image is central.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, §1.2.16–Lemma1.2.18, pp.15–16.
+**Sources.** Kisin17, §1.2.16–Lemma1.2.18, pp.15–16.
 
 
 ### isogenous-admissible-lift — An admissible filtration produces an adapted isogenous lift
@@ -1834,15 +1822,15 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Unit tests.**
 
-- originalFiltration: For the explicit reference filtration one may take its adapted lift and the identity quasi-isogeny.
-- rationalLattice: A p-power isogeny may change the integral lattice; requiring g∈G(W(k′)) loses such examples.
-- residueExtension: A ramified finite extension may be insufficient to trivialize all required integral tensor data; retain the finite extension and its residue k′.
+- originalFiltration (degenerate): For the explicit reference filtration one may take its adapted lift and the identity quasi-isogeny.
+- rationalLattice (non-example): A p-power isogeny may change the integral lattice; requiring g∈G(W(k′)) loses such examples.
+- residueExtension (compatibility): A ramified finite extension may be insufficient to trivialize all required integral tensor data; retain the finite extension and its residue k′.
 
-**Uses.** TD.5/toral-admissibility: Realizes the resulting toral filtration.; ShimuraVarietiesAndIntegralModels: Provides the local p-divisible input to special-point lifts..
+**Uses.** TD.5/toral-admissibility: Realizes the resulting toral filtration.; ShimuraVarietiesAndIntegralModels: Provides the local p-divisible input to special-point lifts.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Proposition1.1.19 and proof, pp.11–12.
+**Sources.** Kisin17, Proposition1.1.19 and proof, pp.11–12.
 
 
 ### specialization-kottwitz — Hodge bound and Kottwitz invariant under specialization
@@ -1857,7 +1845,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Lemma1.2.18 and proof, pp.15–16.
+**Sources.** Kisin17, Lemma1.2.18 and proof, pp.15–16.
 
 
 ### specialization-central-quotient — Specialization through a quotient with central Galois image
@@ -1872,10 +1860,7 @@ Give the reductive hyperspecial specialization with its residue-field frame hypo
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Kisin17, Lemma1.2.19, p.16.
-
-
-**Layer coverage: planned.** G4: Integral Tannakian representability on the punctured disc; G5: Relative crystalline period comparison and constants; G6: Perfect-residue extension of admissible-to-Barsotti–Tate realization; G7: Toral weak admissibility in the centralizer normalization; G8: Global Hodge-realization input
+**Sources.** Kisin17, Lemma1.2.19, p.16.
 
 
 ## TD.6. Ordinary lifts and rational symmetries
@@ -1901,15 +1886,15 @@ Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected f
 
 **Unit tests.**
 
-- ordinaryGL2: For the height-two ordinary group M is the diagonal Levi and the two slopes are 0 and 1.
-- supersingular: A height-two supersingular group is not μ-ordinary for the ordinary GL₂ Hodge type.
-- components: A disconnected full fixer cannot be silently substituted for the connected parahoric required here.
+- ordinaryGL2 (computation): For the height-two ordinary group M is the diagonal Levi and the two slopes are 0 and 1.
+- supersingular (non-example): A height-two supersingular group is not μ-ordinary for the ordinary GL₂ Hodge type.
+- components (non-example): A disconnected full fixer cannot be silently substituted for the connected parahoric required here.
 
-**Uses.** TD.6/central-bk-lift: Supplies the central filtration used in the height-one modification.; TD.6/sigma-centralizer-action: Identifies the rational automorphism group of the ordinary lift..
+**Uses.** TD.6/central-bk-lift: Supplies the central filtration used in the height-one modification.; TD.6/sigma-centralizer-action: Identifies the rational automorphism group of the ordinary lift.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, §3.4.1–3.4.2, pp.26–27.
+**Sources.** KZ25, §3.4.1–3.4.2, pp.26–27.
 
 **Atlas planet:** Ordinary tensor datum.
 
@@ -1926,7 +1911,7 @@ Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected f
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, §3.4.2, pp.26–27.
+**Sources.** KZ25, §3.4.2, pp.26–27.
 
 
 ### central-filtration — Central Hodge filtration in the ordinary Levi
@@ -1941,7 +1926,7 @@ Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected f
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, Lemma3.4.3, p.27.
+**Sources.** KZ25, Lemma3.4.3, p.27.
 
 
 ### central-bk-lift — Central ordinary Breuil–Kisin lift
@@ -1950,9 +1935,9 @@ Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected f
 
 **Declaration:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.6/central-bk-lift.
 
-**Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.6/central-filtration; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.6/levi-full-fixer; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-integral-comparisons; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2/filtration-lattice; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.4/integral-tensor-frame.
+**Direct prerequisites:** FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.6/central-filtration; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.6/levi-full-fixer; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/bk-integral-comparisons; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2/filtration-lattice; FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.2/filtration-tensor-torsor.
 
-**Construction or proof.** Form the E(u)-elementary modification and its integral M-torsor. Apply the precise parahoric purity input for 𝔖, and trivialize over the strictly local residue base. Centrality of λ̃ ensures the modification is M-equivariant; verify the height bound and transfer through the existing integral equivalence. This uses an explicit central construction instead of a very-good deformation theorem.
+**Construction or proof.** Apply the elementary filtration-lattice tensor-torsor construction to the Newton Levi M and its central Hodge cocharacter. Apply G2’s precise parahoric purity input over 𝔖 and trivialize the extended torsor on the strictly local base. This step precedes construction of a crystalline Galois representation and does not invoke its tensor-frame theorem. Centrality of λ̃ makes the modification M-equivariant. Compose with residual Frobenius, verify the height-one bound, and transfer through the existing integral equivalence to the marked adapted lift.
 
 **API.**
 
@@ -1962,15 +1947,15 @@ Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected f
 
 **Unit tests.**
 
-- etaleFactor: The slope-zero factor has invertible Frobenius.
-- multiplicativeFactor: The slope-one factor has the E(u) factor and correct Hodge summand.
-- noncentral: If λ̃ is not central in M, the assertion that every M-endomorphism preserves the modification fails, so the construction cannot be used unchanged.
+- etaleFactor (computation): The slope-zero factor has invertible Frobenius.
+- multiplicativeFactor (computation): The slope-one factor has the E(u) factor and correct Hodge summand.
+- noncentral (non-example): If λ̃ is not central in M, the assertion that every M-endomorphism preserves the modification fails, so the construction cannot be used unchanged.
 
-**Uses.** TD.6/ordinary-adapted-lift: Provides the ordinary adapted lift over each allowed O_K.; TD.6/sigma-centralizer-action: Centrality carries rational M-symmetries through the modification..
+**Uses.** TD.6/ordinary-adapted-lift: Provides the ordinary adapted lift over each allowed O_K.; TD.6/sigma-centralizer-action: Centrality carries rational M-symmetries through the modification.
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, Theorem3.4.5 and proof, pp.27–28.
+**Sources.** KZ25, Theorem3.4.5 and proof, pp.27–28.
 
 **Atlas planet:** Central ordinary lift.
 
@@ -1987,7 +1972,7 @@ Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected f
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** KZ25, Theorem3.4.5 and proof, pp.27–28.
+**Sources.** KZ25, Theorem3.4.5 and proof, pp.27–28.
 
 **Atlas planet:** Adapted ordinary lift.
 
@@ -2004,7 +1989,7 @@ Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected f
 
 **Check.** For a central element p, verify that the lift gives a quasi-isogeny and not a unit automorphism.
 
-**Source.** KZ25, Theorem3.4.5 and proof, pp.27–28.
+**Sources.** KZ25, Theorem3.4.5 and proof, pp.27–28.
 
 **Atlas planet:** Ordinary σ-centralizer action.
 
@@ -2021,10 +2006,7 @@ Import the ordinary σ-straight/Newton-Levi normalization. Prove its connected f
 
 **Check.** Prove the stated comparison with all displayed base rings and conventions; expose the actual maps, not only an existence proposition.
 
-**Source.** Zhou20, Author arXiv v2, §5.5, pp.18–19; vanHoften24 AppendixA.4.3, pp.64–65.
-
-
-**Layer coverage: planned.** G1: Integral local-model geometry and good-embedding existence; G2: Parahoric purity with full-fixer component descent; G9: Very-good Levi input in the nonordinary application
+**Sources.** Zhou20, Author arXiv v2, §5.5, pp.18–19; vanHoften24, AppendixA.4.3, pp.64–65.
 
 
 ## Supplier requests and explicit gaps
@@ -2116,41 +2098,47 @@ Needed by FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII:TD.6/levi-adapted-in
 
 ## Source corrections
 
-The following are paraphrases of the claims checked, with corrections. They contain no source excerpts.
-
+The following are independent-review-confirmed paraphrases, with no source excerpts. Proof-hypothesis gaps below do not assert counterexamples to the printed conclusions.
 
 **E01 — KP18 Lemma3.1.9, p.166; KPZ26 Remark5.1.17, p.52; editions as specified in sources and sourceVersions.** The old construction treats the Frobenius-image comparison square as determining c. Construct c using relative-frame factorization; retain diag(1,p) only as its comparison map. That matrix has a kernel after p-torsion base change, so its square cannot determine the lower-left block. Published correction: KPZ26 §§5.1–5.2.
 
+Review: confirmed. Confirmed against KP18 Lemma3.1.9 and KPZ26 Lemma5.1.15/Remark5.1.17: the p-torsion comparison square does not determine c; relative-frame factorization does.
 
 **E02 — KP18 Lemma3.1.17, p.169; KPZ26 §7.3.1(2), p.86; editions as specified in sources and sourceVersions.** The convergence argument uses a localization topology for which completeness was assumed. Use the p-adic lattice topology on Ŵ(A)[1/p] and the logarithmic contraction proof. Convergence in the original incomplete topology does not justify the limiting section. Published correction: KPZ26 §7.3.1(2).
 
+Review: confirmed. Confirmed by the explicit published topology correction in KPZ26 §7.3.1(2), p.86 and its contraction argument.
 
-**E03 — KP18 §3.2.12, p.173; KPZ26 §7.3.2, p.87; Hoff23 Assumption2.28, pp.24–25; editions as specified in sources and sourceVersions.** The tensor section is assigned the prescribed first-order comparison without an added compatibility condition. Require very-goodness, equivalently the explicit G-compatibility of c. Integral tensor torsors do not imply every underlying GL comparison preserves their reductions. Published correction: KPZ26 §§5.2,7.3.2; explicit condition in Hoff23.
+**E03 — KP18 §3.2.12, p.173; KPZ26 §7.1.4(1), p.73 and Definition5.2.5, p.54; Hoff23 Assumption2.28, p.25; editions as specified in sources and sourceVersions.** The tensor section is assigned the prescribed first-order comparison without an added compatibility condition. Require very-goodness, equivalently the explicit G-compatibility of c. Integral tensor torsors do not imply every underlying GL comparison preserves their reductions. Published correction: KPZ26 §7.1.4(1), p.73 explicitly covers KP18 and KZ25; §7.3.2, p.87 treats the related Pappas argument. Hoff23 states the compatibility as Assumption2.28.
 
+Review: confirmed. Confirmed by KPZ26 §7.1.4(1), p.73, which explicitly identifies the omitted first-order condition in KP18 and KZ25. Corrected the locator; smooth torsor lifting applies only after c preserves tensors.
 
-**E04 — KP18 Proposition3.3.13, pp.181–182; KZ25 Proposition3.3.4, p.26; editions as specified in sources and sourceVersions.** The recognition criterion mentions corresponding étale tensors without requiring their fixed integral stabilizer type. Require an isomorphism of the integral tensor lattice with the fixed smooth full-fixer type, as in TD.4/etale-adaptedness. Rational identification and residual tensors do not prove smoothness of the new integral stabilizer. Recorded in the routed independent source review; no further correction established in the versions read.
+**E04 — KP18 Proposition3.3.13, pp.181–182; KZ25 Proposition3.3.4, p.25; editions as specified in sources and sourceVersions.** The recognition criterion mentions corresponding étale tensors without requiring their fixed integral stabilizer type. Require an isomorphism of the integral tensor lattice with the fixed smooth full-fixer type, as in TD.4/etale-adaptedness. Rational identification and residual tensors do not prove smoothness of the new integral stabilizer. The proof invokes KP18 Proposition3.3.8, respectively KZ25 Proposition3.3.2, for the new tensor lattice without separately checking that hypothesis. This is a proof-hypothesis gap, not a demonstrated counterexample to either conclusion. Recorded in the routed independent source review; no further correction established in the versions read.
 
+Review: confirmed. Confirmed only as the proof-hypothesis gap now stated: the recognition proofs apply a smooth-integral-stabilizer result to a new tensor lattice. Fixed integral type is a sufficient correction; no falsity of the printed conclusion is established.
 
 **E06 — Kisin17 Errata E.1, p.96, correcting Kisin2010 §1.5; editions as specified in sources and sourceVersions.** The earlier connection iteration omitted φ-stability and put universal coefficients in too small a Lie algebra. Assume Lie(H) stable under conjugate Frobenius, use Lie(G) for the universal connection, and remove the deleted Lemma1.5.3. Iteration must stay in its Lie algebra; the smaller opposite-unipotent algebra need not contain the connection. Published correction: Kisin17 Errata E.1–E.4.
 
+Review: confirmed. Confirmed directly against Kisin17 Errata E.1–E.4, p.96, including Frobenius-stability, Lie(G) coefficients and deletion of Lemma1.5.3.
 
-**E07 — Kisin17 Proposition1.1.13 and (1.1.14), pp.9–10; Proposition1.1.19, pp.11–12; editions as specified in sources and sourceVersions.** The integral W-frame is used without repeating its residue-field torsor-triviality hypotheses. Retain k separably closed, or k finite and the reductive integral group connected, when that frame theorem is applied. Theorem1.1.4(2) has these hypotheses; part(1) only proves reductivity and cannot replace the missing frame. Identified by the routed independent extraction; no published extension found in the versions read.
+**E07 — Kisin17 Proposition1.1.13 and (1.1.14), pp.9–10; Proposition1.1.19, pp.11–12; editions as specified in sources and sourceVersions.** The integral W-frame is used without repeating its residue-field torsor-triviality hypotheses. Retain k separably closed, or k finite and the reductive integral group connected, when that frame theorem is applied. Theorem1.1.4(2) has these hypotheses; part(1) only proves reductivity and cannot replace the missing frame. The later invocation does not repeat or establish the needed torsor triviality for a general perfect residue field. This finding records the unsupported use, not a counterexample to the proposition. Identified by the routed independent extraction; no published extension found in the versions read.
 
+Review: confirmed. Confirmed as an unverified hypothesis in the cited proof: Theorem1.1.4(2)/Corollary1.1.7 impose residue-field conditions absent from the general-perfect-field application. The roadmap safely retains those conditions.
 
 **E08 — Kisin17 Proposition1.1.13, p.9, and inherited notation; footnote8, p.7; editions as specified in sources and sourceVersions.** Several tensor formulas use a covariant Tate-module expression for a contravariant crystal. Use Hom_Zp(T_pH,Z_p)=T_p(H*)⊗Z_p(−1). The multiplicative rank-one case tests both the direction and the Tate twist. Kisin17 footnote8 prints the twist correction to Kisin2010; TD conventions apply it consistently.
 
+Review: confirmed. Confirmed by the dual-Tate comparison and footnote8. For μ_{p∞}, the contravariant crystalline representation is the linear dual Z_p(−1); a covariant Tate lattice reverses this normalization.
 
-**E09 — Zhu17 §3.2, pp.460–461; editions as specified in sources and sourceVersions.** The framing fixes an arbitrary bounded b and an independently chosen μ-weight filtration simultaneously. Compute the Hodge lattice σ⁻¹(b⁻¹)pΛ_W; require the prescribed filtration to equal its reduction, or adjust b and the frame together. The double coset fixes relative position, not the chosen coordinate subspace. A GL₂ basis change moves that subspace. Routed source review identifies this compatibility issue; no correction established in the source read.
+**E09 — Zhu17 §3.2, pp.460–461; editions as specified in sources and sourceVersions.** The framing fixes an arbitrary bounded b and an independently chosen μ-weight filtration simultaneously. Compute the Hodge lattice σ⁻¹(b⁻¹)pΛ_W; require the prescribed filtration to equal its reduction, or adjust b and the frame together. The double coset fixes relative position, not the chosen coordinate subspace. A GL₂ basis change moves that subspace. Explicitly, for GL₂ and μ(z)=diag(z,1), b=[[p,0],[p−1,1]] is integrally σ-conjugate to diag(p,1), but the reduction of p b⁻¹Λ has line k(e₁+e₂), not ke₁. Routed source review identifies this compatibility issue; no correction established in the source read.
 
+Review: confirmed. Confirmed by the explicit GL₂ calculation in the reason: the double coset does not fix the coordinate Hodge line. The source’s simultaneous framing requires compatibility or a joint choice of b and μ.
 
-**E10 — Kisin17 proof of Lemma1.2.18, p.16; editions as specified in sources and sourceVersions.** The specializing matrix is at one point placed in the integral group. The matrix represents a coset in G(W[1/p])/G(W). For a scalar p in G_m its Kottwitz invariant is1, incompatible with an integral unit. The surrounding statement and construction require the rational group.
+**E10 — Kisin17 proof of Lemma1.2.18, p.16; editions as specified in sources and sourceVersions.** The proof places g₀ in G(O_L) and later the matrix g̃ in G(𝔖), although it is a change between rational lattices. Use g₀∈G(W[1/p]) and g̃∈G(𝔖[1/p]); the output is the coset g₀G(W). Integrality of a lattice relative to itself does not make its change matrix integral relative to the original lattice. For a scalar p in G_m its Kottwitz invariant is1, incompatible with an integral unit. The same scalar p also has no inverse integral over 𝔖, so the later G(𝔖) membership has the same localization omission. The surrounding statement and construction require the rational group.
 
+Review: confirmed. Confirmed both localization omissions in the proof on p.16. The scalar-p example detects the incorrect integral-group memberships while preserving the rational-coset statement.
 
 **Edition and scaling note.** KP18 Lemma3.2.9 and (3.2.10), pp.172–173: the proof computes the Eisenstein-scaled image as the p-scaled lattice. The useful formula is φ(E([π]))=p times a unit. This scaling check is not a claim of a printed unit misstatement.
 
-
 **Edition and scaling note.** vanHoften24 AppendixA.4.3, pp.64–65 uses published Zhou numbering. The author arXiv v2 read here instead supplies the lift construction in §5.5, pp.18–19, with its explicit M-valued filtration-lift assumption. Its Definition6.11 is unrelated. This is an edition reconciliation, not an error attributed to the published citation.
-
 
 ## Route coverage and separate continuations
 
@@ -2403,13 +2391,13 @@ Every routed tensor item appears below once, with its precise target assignments
 **KZ25.** Mark Kisin and Rong Zhou. Independence of ℓ for Frobenius conjugacy classes attached to abelian varieties. arXiv:2103.09945v2,7 October2024,63-page author version; published Annals202 (2025). [Public source](https://arxiv.org/pdf/2103.09945v2). Accessed 2026-10-19. Read: §§3.2–3.4, pp.22–28; the numbering here is the author version: Lemma3.4.3 and Theorem3.4.5. SHA-256: 62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8.
 
 
-**Kisin17.** Mark Kisin. Mod p points on Shimura varieties of abelian type. Author 99-page version dated27 August2016; JAMS30 (2017),819–914; page numbers below are author pages. [Public source](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf). Accessed 2026-10-19. Read: §§1.1–1.2, pp.5–16; proof of Proposition1.3.9, p.21; §1.4.5–Lemma1.4.6, pp.23–24; proof of Theorem2.2.3, p.32; Errata E.1–E.4, p.96. SHA-256: d3c19cddc9e8b073428de559a7215aae4f793490227b6c71d87477ccdb5d994a.
+**Kisin17.** Mark Kisin. Mod p points on Shimura varieties of abelian type. Author 99-page version dated27 August2016; JAMS30 (2017),819–914; page numbers below are author pages. [Public source](https://people.math.harvard.edu/~kisin/dvifiles/lr.pdf). Accessed 2026-10-19. Read: §§1.1–1.2, pp.5–16; proof of Proposition1.3.9, p.21; §1.4.5–Lemma1.4.6, pp.24–25; proof of Theorem2.2.3, p.32; Errata E.1–E.4, p.96. SHA-256: d3c19cddc9e8b073428de559a7215aae4f793490227b6c71d87477ccdb5d994a.
 
 
 **Zhu17.** Xinwen Zhu. Affine Grassmannians and the geometric Satake in mixed characteristic. Annals of Mathematics185 (2017),403–492. [Public source](https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf). Accessed 2026-10-19. Read: §0.3, p.410; §3.2 and proof of Proposition3.11, pp.460–463. SHA-256: 5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7.
 
 
-**vanHoften24.** Pol van Hoften. Mod p points on Shimura varieties of parahoric level. Forum of Mathematics, Pi12 (2024), e21, published67-page PDF. [Public source](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf). Accessed 2026-10-19. Read: Example2.2.10, p.14; §§3.1.5–3.1.7, pp.27–28; AppendixA.4.3, pp.64–65. SHA-256: d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0.
+**vanHoften24.** Pol van Hoften. Mod p points on Shimura varieties of parahoric level. Forum of Mathematics, Pi12 (2024), e20, published67-page PDF. [Public source](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/EC6F7AD8C8B489FEB8FC4D64485ABE1D/S2050508624000222a.pdf/mod_p_points_on_shimura_varieties_of_parahoric_level.pdf). Accessed 2026-10-19. Read: Example2.2.10, p.14; §§3.1.5–3.1.7, pp.27–28; AppendixA.4.3, pp.64–65. SHA-256: d86da9a0e35c93d22df291979be37a5acf1ddc44fbd762e11f2a5f6c92961be0.
 
 
 **Hoff23.** Manuel Hoff. On parahoric (G,μ)-displays. arXiv:2311.00127v1,2023,37 pages. [Public source](https://arxiv.org/pdf/2311.00127v1). Accessed 2026-10-19. Read: §1.3–1.5, pp.13–16; §2.1, pp.16–20; §2.3, pp.24–29, particularly Assumption2.28 and Theorem2.36. SHA-256: 4ada497769174b02d9229818e1120be14ccf4d5157ab8c2c87c64dd20f74b98c.
