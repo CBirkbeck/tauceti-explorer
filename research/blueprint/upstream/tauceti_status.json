@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-19T10:30Z",
+ "updated": "2026-10-19T10:40Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -137,10 +137,10 @@
     818
    ],
    "note": "maintainer-ordered: no dependency on #453 (seminormality owned in D6.9) 10-16",
-   "head": "0cf6a42",
+   "head": "9bb32b0",
    "review": {
     "recommendation": "changes",
-    "current": true,
+    "current": false,
     "draft": true,
     "maintainer": ""
    }
@@ -221,7 +221,7 @@
   "AbelianSchemesAndArithmeticModuli": {
    "stage": "pr",
    "pr": 849,
-   "head": "8c67a7e",
+   "head": "4f9da15",
    "depends_on": [
     779,
     848,
@@ -230,7 +230,7 @@
    "note": "ChatGPT Pro N3 APPROVE 10-16; ready",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1483,12 +1483,12 @@
   "ResolutionOfSingularitiesCharacteristicZero": {
    "stage": "pr",
    "pr": 1199,
-   "head": "dbb9589",
+   "head": "f685752",
    "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
    "review": {
     "recommendation": null,
     "current": false,
-    "draft": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   }

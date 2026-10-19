@@ -1,10 +1,10 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T10:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T10:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
-- #1199 ResolutionOfSingularitiesCharacteristicZero — draft
+- #1199 ResolutionOfSingularitiesCharacteristicZero — ready (approved at an earlier head)
 - #279 ComplexManifolds (Paul-Lez, other author)
 - #280 ComplexTori (Paul-Lez, other author)
 - #284 HomotopySpheres (Paul-Lez, other author)
@@ -70,7 +70,7 @@ Generated 2026-10-19T10:30Z from the README supplier graph of every open pull re
 - #848 ComplexComparisonPartII — draft; waits on #853, #857, #868, #908, #938, #1056, #279, #887, #896, #918, #953, #954, #973, #992
 
 ## Wave 11
-- #849 AbelianSchemesAndArithmeticModuli — ready; waits on #848, #853, #857, #908, #938, #280
+- #849 AbelianSchemesAndArithmeticModuli — ready (approved at an earlier head); waits on #848, #853, #857, #908, #938, #280
 - #871 ArithmeticLocallySymmetricSpaces — ready (approved at an earlier head); waits on #785, #792, #848, #938
 
 ## Wave 12
