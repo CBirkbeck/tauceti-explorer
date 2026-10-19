@@ -14,9 +14,9 @@ Several useful pieces already exist and must be used directly:
 - `LinearEquiv.ofSubmodules` in `Mathlib/Algebra/Module/Submodule/Equiv.lean`, line 57, restricts an equivalence when the submodule images agree. Together with `LinearMap.range_comp` and `LinearEquiv.range_comp`, it supplies the linear algebra for projector images below.
 - `AlgebraicGeometry.Scheme.ellAdicSheaf` and `Scheme.EllAdicCohomology` in `Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean` are real native carriers. The former is the pro-étale sheaf of continuous ℤℓ-valued functions; the latter is cohomology of its universe lift and has an additive-group instance. These declarations do **not** supply a ℚℓ-vector space, the classical finite-tower comparison, cycle classes or normalized traces.
 
-The current read-only TauCetiRoadmap tree at `0d144d044dacebca17b654695b6f1ad58f159b27` and its Tau Ceti at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` were also screened, including all nine roadmaps newer than the atlas snapshot. AlgebraicTopology stage 6 already plans singular cup products, Künneth and manifold duality. DifferentialGeometry layers 6 and 8 already plan smooth de Rham cohomology and integration. AlgebraicVectorBundles' further-direction §3 expressly leaves the geometric Betti/de Rham/cycle comparison to the realization direction. These are boundaries, not invitations to duplicate those theories. The canonical prerequisite for the topology import is `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; the newer DifferentialGeometry material is recorded in the screen rather than assigned an invented atlas id.
+The current read-only TauCetiRoadmap tree at `0d144d044dacebca17b654695b6f1ad58f159b27` and its Tau Ceti at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` were also screened, including all nine roadmaps newer than the atlas snapshot. AlgebraicTopology Stages 5–6 already plan singular products, Künneth and manifold duality. DifferentialGeometry Layers 6,8–9 already plan smooth de Rham cohomology, integration and its multiplicative comparison. AlgebraicVectorBundles' further-direction §3 expressly leaves the geometric Betti/de Rham/cycle comparison to the realization direction. These are boundaries, not invitations to duplicate those theories. The canonical prerequisite for the topology import is `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`; the newer DifferentialGeometry material is recorded in the screen rather than assigned an invented atlas id.
 
-C5 of ComplexComparisonPartII owns algebraic/analytic cohomology comparison and analytic cycle integration. SF.5 owns Chow groups, intersection theory, Chern classes, K₀ and rational Riemann–Roch. SF.2 owns sites, coefficients, limits, geometric base change and their actual cohomology carriers. EDC.3 owns geometric étale cycle classes; EDC.2:pairings owns finite/adic/rational Poincaré duality. The SF.6 packet is a process-only interface report with no mathematical nodes. Its proposal for an additional comparison layer C7 has not created a supplier theorem. Section 12 records exactly what is still missing.
+C5 of ComplexComparisonPartII owns algebraic/analytic de Rham comparison and analytic cycle integration. SF.5 owns Chow groups, intersection theory and geometric Chern classes; SchemeKTheoryOperations S.7 owns the rational K₀/Chow isomorphism and Adams compatibility. SF.2 integrates the existing CohomologicalPointCounting roadmaps for finite Artin comparison and native ℓ-adic realization. EDC.3 owns geometric étale cycle classes; EDC.2:pairings owns finite/adic/rational Poincaré duality; EDC.6 owns operation transport and Tate/orientation normalization. The older process-only SF.6 absence report and proposed C7 do not supersede these existing owners. Section 12 distinguishes their planned targets from the remaining export and integration obligations.
 
 ## 2. Conventions shared by every target
 
@@ -41,7 +41,7 @@ The sources for these conventions are Scholl, *Classical motives*, §§1.4 and 1
 
 ## 3. A common rational cycle map from first Chern classes
 
-**Target `chern-character-cycle-map`.** Suppose a contravariant graded characteristic-zero cohomology ring `H` on smooth projective schemes has a Tate line and a natural first Chern class in `H²(X)(1)`. Require finite-disjoint-union compatibility, the projective bundle isomorphism
+**Target `chern-character-cycle-map`.** Suppose a contravariant nonnegatively graded characteristic-zero cohomology ring `H` on smooth projective schemes has a Tate line and a natural first Chern class in `H²(X)(1)`. Set `H^q=0` for `q<0`. Require finite-disjoint-union compatibility, the projective bundle isomorphism
 
 \[
 \bigoplus_{j=0}^{r-1}H^{q-2j}(X)(-j)\ \longrightarrow\ H^q(\mathbb P(E)),
@@ -50,7 +50,7 @@ The sources for these conventions are Scholl, *Classical motives*, §§1.4 and 1
 
 and the Cartier-divisor support condition: for a smooth effective Cartier divisor `i:D↪X`, an element in the kernel of `i*` is annihilated by `c₁(O(D))`. Products, pullbacks and Tate identifications in this formula are the same ones used in all subsequent targets.
 
-Import SF.5's ring isomorphism
+Import SchemeKTheoryOperations S.7/`gamma-chow-comparison`'s ring isomorphism
 
 \[
 \mathrm{ch}_{CH}:K_0(\operatorname{Vect}(X))\otimes\mathbb Q\ \simeq\ \operatorname{CH}^*(X)_{\mathbb Q}.
@@ -72,7 +72,7 @@ c([\mathcal O_z])=\frac{1-2h}{(1-h)^2}=1-h^2\pmod {h^3}.
 
 Consequently `c₂([O_z])=−h²`, while the point cycle class is `h²`. The character construction is primary and avoids depending on a misprinted structure-sheaf formula.
 
-Source: Stacks, §12, Propositions 12.1 (0FI5) and 12.4 (0FI9), pp.41–45; §14, Lemmas 14.1–14.2 (0FIE, 0FIF), pp.48–49. The corrected structure-sheaf formula is Grothendieck, *La théorie des classes de Chern*, §4.3, formulas (15)–(16), printed pp.150–151. SF.5 supplies its Chow-theoretic input; this node owns only the cohomological construction.
+Source: Stacks, §12, Propositions 12.1 (0FI5) and 12.4 (0FI9), pp.41–45; §14, Lemmas 14.1–14.2 (0FIE, 0FIF), pp.48–49. The corrected structure-sheaf formula is Grothendieck, *La théorie des classes de Chern*, §4.3, formulas (15)–(16), printed pp.150–151. SF.5 supplies the Chow ring and geometric Chern classes. Import S.7/`chern-character-adams` and `chern-class-of-subvariety`, with S.2's bundle/perfect/coherent comparison, for the Adams rule and structure-sheaf formula. Their smooth quasi-projective scope includes smooth projective schemes over arbitrary fields; SF.5's narrower finite-resolution statement alone would not justify that scope. MC.2 owns only the cohomological construction.
 
 **Planned API.**
 
@@ -251,7 +251,7 @@ T_\ell=\mathbb Q_\ell(1)=\bigl(\varprojlim_n\mu_{\ell^n}(\bar k)\bigr)\otimes_{\
 
 These are **geometric** groups, not arithmetic `H^q(X,ℚℓ)`. SF.2 supplies the coefficient carrier, finite generation, continuous action, Künneth and geometric base change. EDC.3's cycle class is applied on the smooth scheme over the perfect field `k̄`, so its perfect-base condition is satisfied even when `k` is imperfect. Its finite Kummer first Chern class and the rational class agree with §3's character construction. EDC.2:pairings supplies the rational perfect pairings and normalized trace, including the finite-to-adic torsion/Ext bookkeeping.
 
-Identification with the native pinned pro-étale carrier is a theorem still requested from SF.2. One must compare it with the **derived** finite-coefficient tower and retain
+Identification with the native pinned pro-étale carrier is already planned in CohomologicalPointCounting/`EllAdicRealization` Layers 0–9, imported through SF.2's `upstreamIntegration`. Its Layers 4–6 explicitly compare `ellAdicSheaf`, derived finite coefficients and the native cohomology, including finiteness and smallness; Layers 7–9 supply rationalization, Galois action and adic operations. These are roadmap targets in open PR #196, not theorems implemented at the pins. Use this existing owner and EDC.6's `classical-and-proetale-adic-categories` and `mapping-limit-and-integral-class-transport` for the specified operations. Compare with the **derived** finite-coefficient tower and retain
 
 \[
 0\to\varprojlim{}^1 H^{q-1}(K_n)\to H^q(R\varprojlim K_n)
@@ -262,7 +262,7 @@ until Mittag–Leffler has been justified. Finite finite-level groups give stabi
 
 The geometric action through the separable closure and purely inseparable invariance identifies the algebraic-closure realization for imperfect `k`; do not assert that `k̄/k` is Galois. Base-changed `k`-correspondences act equivariantly. Images of equivariant idempotents remain finite-dimensional continuous representations, so MC.1 extends the correspondence functor without forgetting `G_k`.
 
-Sources: Milne, *Lectures on Étale Cohomology* v2.21, §19, pp.121–125; §22, Theorems 22.1 and 22.4, pp.135–136; §23, Lemma 23.1 and Theorems 23.2–23.3, pp.138–141; §24, Theorem 24.1 and Remark 24.2, pp.144–145. These supply the classical theory; they do not establish the pinned native-carrier conversion by definition.
+Sources: Milne, *Lectures on Étale Cohomology* v2.21, §19, pp.123–126; §22, Theorems 22.1 and 22.4, pp.135–136; §23, Lemma 23.1 and Theorems 23.2–23.3, pp.138–141; §24, Theorem 24.1 and Remark 24.2, pp.144–145. These supply the classical theory; they do not establish the pinned native-carrier conversion by definition. The exact upstream roadmap head and import boundary are recorded in §12 and the packet.
 
 **Planned API.**
 
@@ -275,7 +275,7 @@ Sources: Milne, *Lectures on Étale Cohomology* v2.21, §19, pp.121–125; §22,
 | `EtaleRealization.trace` | Tr_ℓ:H_et^{2d}(X_k̄,Q_ℓ(d))→Q_ℓ is G_k-equivariant, a geometric point has trace one, and component traces are summed. |
 | `EtaleRealization.map` | Correspondence maps are G_k-equivariant pull–cup–push maps restricted to projector images. |
 | `EtaleRealization.geometricBaseChange` | An extension of algebraically closed fields carrying the fixed closures induces a natural monoidal realization isomorphism, with cycle/trace compatibility; the named base-change maps obey the tower cocycle. |
-| `EtaleRealization.nativeComparison` | The specified SF.2 native/derived-tower identification commutes with coefficients, pullback, cup, Kummer classes and normalized trace; it is a required supplier theorem, not a definition. |
+| `EtaleRealization.nativeComparison` | The native/derived-tower comparison imported from EllAdicRealization through SF.2, coordinated with EDC.6, commutes with coefficients, pullback, cup, Kummer classes and normalized trace; it is a supplier theorem, not a definition. |
 
 **Discriminating tests.**
 
@@ -319,7 +319,7 @@ a_n:H_{\mathrm{et}}^q(X_{\mathbb C},\mu_{\ell^n}^{\otimes m})
 \ \longrightarrow\ H_{\mathrm{sing}}^q(X_\sigma(\mathbb C),\mathbb Z/\ell^n(m)),
 \]
 
-where the singular twist is identified by the exponential coefficient map `t_B mod ℓ^nℤ(1) ↦ exp(2πi/ℓ^n)`; the displayed étale→singular map uses its inverse. SGA 4 XVI, §4, Theorem 4.1, marginal pp.232–234 (public retypesetting PDF pp.13–14), supplies the all-degree torsion comparison for the proper structural map. Milne §21, Theorem 21.1 and Remark 21.2, p.130, supplies its classical variety form. A comparison of finite covers alone would not supply these all-degree maps.
+where the singular twist uses the **integral** lattice `ℤ(1)=2πiℤ` and the coefficient map `[2πi a]∈ℤ(1)/ℓ^nℤ(1) ↦ exp(2πi a/ℓ^n)`; the displayed étale→singular map uses its inverse. Tensor powers and duals give every integer twist. The rational Tate line is used after the integral comparison. SGA 4 XVI, §4, Theorem 4.1, marginal pp.232–234 (public retypesetting PDF pp.13–14), supplies the all-degree torsion comparison for the proper structural map. Milne §21, Theorem 21.1 and Remark 21.2, p.130, supplies its classical variety form. A comparison of finite covers alone would not supply these all-degree maps.
 
 Require compatibility of `a_n` with coefficient reduction, pullback, unit/cup, Kummer boundaries and point-normalized trace. Use finite-level finiteness and the derived-limit conversion of §8, plus finite generation of integral singular cohomology and its coefficient comparison, before rationalizing. If `b` is geometric base change from `X_k̄` to `X_ℂ`, the requested **Betti→étale** direction is `b⁻¹∘a⁻¹` on the resulting rational groups. Its Tate map takes `t_B` to the compatible roots
 
@@ -329,7 +329,7 @@ Require compatibility of `a_n` with coefficient reduction, pullback, unit/cup, K
 
 using `σ̄` to identify the roots in the fixed closure. Kummer/exponential compatibility proves the first-Chern equation; point normalization and Poincaré adjunction supply the trace and pushforward equations. Extend by §5 to a symmetric monoidal natural isomorphism on motives.
 
-The displayed target explicitly forgets `G_k`. One can transport an action to the Betti ℚℓ space using this chosen comparison, but that action depends on the closure embedding and is not independent datum of rational Betti cohomology. There is no claimed canonical map `ℂ→ℚℓ`. The roots, coefficient direction, inverse site map and geometric base-change map are all part of the normalization. The all-degree supplier still needs an accepted owner-level node; SF.6's proposed C7 is not used as an existing prerequisite.
+The displayed target explicitly forgets `G_k`. One can transport an action to the Betti ℚℓ space using this chosen comparison, but that action depends on the closure embedding and is not independent datum of rational Betti cohomology. There is no claimed canonical map `ℂ→ℚℓ`. The roots, coefficient direction, inverse site map and geometric base-change map are all part of the normalization. Import finite Artin comparison from CohomologicalPointCounting/`ComplexComparison` Layers 7,9–12 and finite CW type from Layer 4; `EllAdicRealization` Layer 10 supplies the normalized topological adic comparison. EDC.6's `complex-analytic-comparison`, `complex-tate-orientation-identification` and `complex-supported-class-transport` coordinate the coefficient, Kummer and trace squares. Their exact carrier exports and upstream integration remain obligations in §12; no new C5 Artin theorem or C7 is planned here.
 
 ## 10. Exact quotient descent
 
@@ -387,13 +387,16 @@ The packet's requests are exact obligations, not exports credited to a process d
 
 | Owner | Required shared interface | Status in this pass |
 | --- | --- | --- |
-| SF.5 | Rational Chow ring, refined smooth pullbacks, products, degree and pushforward; `ch_CH:K₀⊗ℚ≃CH*ℚ`, Chern/Adams and field-base-change compatibility | Import existing ownership; no second cycle theory |
-| AlgebraicTopology stage 6, coordinated with C5 | The same singular carrier for cup/Künneth, orientation, projective bundles, manifold duality and Gysin adjunction | Shared-carrier export request |
-| C5 | Arbitrary characteristic-zero algebraic de Rham base change and cocycle; negative-dlog Chern normalization; exact `I_X`, Tate and normalized trace square, plus divisor-support and analytic cycle/Gysin agreement | **Gap 1:** existing proper comparison and multiplicative-period nodes do not state every strengthened export |
-| C5, pending the maintainer's C7 ownership decision | All-degree finite Artin comparison with named coefficient/site maps and reduction/cup/Kummer/trace equations | **Gap 2:** SF.6 reports the absence and proposes C7; no nonexistent supplier node is imported |
-| SF.2, coordinated with EDC | Native pro-étale carrier versus derived finite tower, ℚℓ linearity, lim¹ vanishing under finiteness, operation compatibility, continuous action and purely inseparable invariance; singular coefficient conversion for comparison | **Gap 3:** not supplied by the existing additive native carrier |
+| SF.5 | Rational Chow ring, refined smooth pullbacks, products, degree, pushforward, geometric Chern classes and field-extension maps | Import existing ownership; no second cycle theory |
+| SchemeKTheoryOperations S.7 | `gamma-chow-comparison`, `chern-character-adams`, `chern-class-of-subvariety`, with the S.2 K₀/G₀ bridge in the arbitrary-field smooth projective scope | Existing planned rational isomorphism and Adams inputs |
+| AlgebraicTopology Stages 5–6 and DifferentialGeometry Layers 6,8–9, coordinated with C5 | Singular cup/Künneth, compact oriented duality and smooth integration; additional cohomological projective-bundle and supported Thom/Gysin/divisor agreement on these carriers | Existing theories imported; additional exports belong to their Part II direction, as already recorded by EDC.6 |
+| C5 and the same topology owners | Arbitrary characteristic-zero algebraic de Rham base change and cocycle; negative-dlog Chern normalization; exact `I_X`, Tate and normalized trace square; projective-bundle/divisor-support and analytic cycle/Gysin agreement | **Gap 1:** existing nodes do not state every strengthened export; Stage 6 alone does not contain the projective-bundle/Gysin interface |
+| SF.2 integration of ComplexComparison Layers 4,7,9–12; EDC.6 operation comparison | Existing all-degree finite Artin/site maps and finite CW type, specialized with exponential Tate, reduction/cup/Kummer/trace equations on the MC.2 carriers | **Gap 2:** reconcile the existing PR196 route and EDC.6 exports; the generic theorem already has a plan |
+| SF.2 integration of EllAdicRealization Layers 0–10; EDC.6 operation comparison | Existing native/derived tower, ℚℓ realization, lim¹/finiteness, action and topological adic comparison; transport cycle/trace maps and purely inseparable invariance on the same carriers | **Gap 3:** integration/export obligations remain; generic native realization already has a plan |
 
-These gaps prevent marking the stage closed, but not completing the planning pass: every MC.2 target now has a statement, construction route, exact use and named supplier frontier. They must be resolved by the owners before implementation or package assembly claims dependency closure. EDC's rational pairings/cycle nodes remain mathematical imports; they do not discharge the native carrier identification. The accepted RS-08 narrowing concerns MC.4 and does not remove either MC.2 comparison target.
+The two CohomologicalPointCounting imports are read at [PR196 head `4bd7237`](https://github.com/bwangpj/TauCetiRoadmap/tree/4bd72379658126cbe9be935656396f0c9dac4de0/TauCetiRoadmap/CohomologicalPointCounting), already mapped by SF.2's `upstreamIntegration`. Their READMEs and compact suggested files were checked. PR196 is open and absent from the read-only main at `0d144d0`; these are existing upstream plans, not merged or implemented results. MC.2 imports their targets through SF.2, and EDC.6 imports their operation-level consequences. C5 retains algebraic de Rham comparison.
+
+These gaps prevent marking the stage closed, but not completing the planning pass: every MC.2 target has a statement, construction route, exact use and named supplier frontier. The owners must resolve them before implementation or package assembly claims dependency closure. EDC's rational pairings/cycle nodes alone do not identify the native carrier; the existing EllAdicRealization route supplies that planned comparison. The accepted RS-08 narrowing concerns MC.4 and does not remove either MC.2 comparison target.
 
 Assembly must retain the twenty-five inherited MC.2 nodes without duplicating their ids. Their five existing planet names are Classical Weil cohomology theory, Cohomological pushforward, Class of the diagonal, Euler characteristic of a variety, and Realisations are monoidal functors. Add only **Normalized realization comparisons**, keeping the total at six. The definitive statements and all geometric tests remain in this reader. The compact suggested file imports Mathlib and states two important range/kernel fragments using existing carriers; it introduces no opaque stand-in and no admitted data definition. There are no retained light definitions requiring executable examples, and no admitted examples.
 
@@ -407,4 +410,4 @@ Three incidental source findings are recorded as `MotivesAndAlgebraicCycles/E48`
 - **E49:** both copies' codimension-`r` structure-sheaf formula omit `(-1)^{r-1}`. Section 3's `ℙ²` calculation checks the correction against Grothendieck 1958 §4.3, (15)–(16), pp.150–151. No correction was located in the author's listed addendum. The plan uses the Chern character, so this typo affects none of its targets.
 - **E50:** Stacks Lemma 14.16 (0FIT), p.55, assumes A1–A8 but its proof invokes A9 for the exceptional divisor's class; Proposition 14.17 (0FIU), p.56, uses that lemma. Adding A9 suffices for the displayed argument, or an independent derivation is needed. This is a proof-dependency gap, not a claim that the weaker statement is false. The live tags and their comments were checked on 19 October 2026. This plan uses 0FIF for its ring cycle map and independently supplied Gysin/trace for pushforward, so it does not depend on that problematic proof.
 
-The checks of these findings belong to the present source reading; no separate source or red-team job was claimed. The handoff records mechanical validation and the Lean elaboration result. Independent review must still check the normalization squares, supplier contracts and the source findings before acceptance.
+Independent review confirmed all three findings, corrected the supplier ownership and Milne page range, and checked the normalization squares and exact quotient criterion. Its verdict is acceptance as a complete planning pass with the three supplier frontiers above. The review report and handoff record the source, library and Lean checks. No separate source or red-team job was claimed.
