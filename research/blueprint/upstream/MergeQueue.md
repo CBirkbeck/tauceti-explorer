@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T13:50Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T14:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -15,13 +15,12 @@ Generated 2026-10-19T13:50Z from the README supplier graph of every open pull re
 - #451 LinearFormsInLogarithms (mkaratarakis, other author)
 - #887 SmoothBundlesConnections (kim-em, other author)
 - #889 VonNeumannAlgebras (kim-em, other author)
-- #896 CharacteristicClasses (kim-em, other author)
 - #899 GroebnerGeometry (kim-em, other author)
 - #934 QuaternionicModularForms (WilliamCoram, other author)
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 2
 - #814 AdicEtaleGeometry — draft; waits on #813
@@ -29,7 +28,7 @@ Generated 2026-10-19T13:50Z from the README supplier graph of every open pull re
 - #859 BanachAlgebras (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — draft; waits on #813, #814
@@ -43,13 +42,14 @@ Generated 2026-10-19T13:50Z from the README supplier graph of every open pull re
 - #815 AdicSpacesPartIV — draft; waits on #813, #814, #818
 - #820 DiamondsAndVStacks — ready (approved at an earlier head); waits on #1199, #813, #814, #818
 - #908 EnhancedDerivedSheaves — ready (approved at an earlier head); waits on #818
-- #942 TangentialBordism (kim-em, other author)
+- #896 CharacteristicClasses (kim-em, other author)
 - #954 GeometricCurrents (kim-em, other author)
 
 ## Wave 5
 - #785 ReductiveGroupsPartII — draft; waits on #908, #446, #447
 - #816 PerfectoidTowers — draft; waits on #813, #814, #815, #818, #820
 - #938 EtaleCohomologyFoundations — ready (approved at an earlier head); waits on #813, #818, #908
+- #942 TangentialBordism (kim-em, other author)
 
 ## Wave 6
 - #792 AdelicAlgebraicGroups — draft; waits on #785, #248, #286, #934
@@ -155,8 +155,8 @@ Generated 2026-10-19T13:50Z from the README supplier graph of every open pull re
 - #1005 HilbertModularVarietiesAndShimuraCurves — ready (approved at an earlier head); waits on #1001, #1034, #1038, #785, #792, #813, #848, #849, #852, #853, #856, #857, #858, #869, #871, #873, #875, #879, #913, #920, #923, #925, #928, #929, #931, #933, #938, #966, #934
 - #1080 PrismaticCohomologyPartIV — draft; waits on #1042, #1044, #1057, #1062, #1065, #1070, #814, #818, #820, #857, #868, #875, #908, #922
 - #1174 ArithmeticStatisticsPartIII — draft; waits on #1126, #1167, #1171, #1173, #792, #849, #850, #851, #869, #924, #929
-- #1205 VectorBundlesAndIsocrystals — draft; waits on #1002, #1062, #785, #813, #814, #818, #820, #857, #879, #922, #927, #940, #964
-- #1208 WeilConjectures — draft; waits on #1002, #1040, #1062, #785, #848, #849, #850, #856, #870, #929, #938
+- #1205 VectorBundlesAndIsocrystals — ready (approved at an earlier head); waits on #1002, #1062, #785, #813, #814, #818, #820, #857, #879, #922, #927, #940, #964
+- #1208 WeilConjectures — ready (approved at an earlier head); waits on #1002, #1040, #1062, #785, #848, #849, #850, #856, #870, #929, #938
 
 ## Wave 26
 - #1006 AutomorphicGaloisRepresentationsPartII — ready (approved at an earlier head); waits on #1001, #1002, #1037, #1040, #1062, #785, #815, #818, #820, #852, #854, #856, #857, #858, #871, #873, #879, #908, #922, #923, #925, #927, #928, #929, #931, #933, #938, #940, #964, #965, #966, #970, #999
