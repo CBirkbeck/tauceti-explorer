@@ -5284,5 +5284,6 @@
  "REV-RT-DESIGN-HeightsRationalPointsAndObstructionsPartII": 11223,
  "REV-RT-DESIGN-ModularityAndLanglandsExtensionsPartII": 11224,
  "REV-PKG-K2SymbolsBrauer~adv": 11228,
- "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3": 11229
+ "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3": 11229,
+ "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3": 11231
 }
