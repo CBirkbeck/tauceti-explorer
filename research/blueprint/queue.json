@@ -151447,6 +151447,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-EllipticRegulators~adv.md"
+  },
+  {
+   "id": "REV-PKG-EisensteinIdealAndRationalTorsion~codex",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EisensteinIdealAndRationalTorsion"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-EisensteinIdealAndRationalTorsion~codex.md",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/review.json",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/README.md",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/Suggested.lean",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-EisensteinIdealAndRationalTorsion~codex.md"
   }
  ]
 }
