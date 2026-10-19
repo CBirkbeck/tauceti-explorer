@@ -10240,8 +10240,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ModularIwasawaMainConjecturesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3338"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3338",
+   "finishedAt": "2026-10-19T10:23:24Z"
   },
   {
    "id": "REV-DESIGN-ModularIwasawaMainConjecturesPartII",
@@ -10285,7 +10286,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-RankZeroOneBSDPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3339"
   },
   {
    "id": "REV-DESIGN-RankZeroOneBSDPartII",
@@ -10643,8 +10645,9 @@
    "avoidAccountOf": "DESIGN-HermitianKTheoryOfPoincareCategories",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HermitianKTheoryOfPoincareCategories.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3545"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3545",
+   "finishedAt": "2026-10-19T10:23:24Z"
   },
   {
    "id": "DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII",
@@ -10834,7 +10837,8 @@
    "avoidAccountOf": "DESIGN-GlobalShtukasAndFunctionFieldLanglandsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GlobalShtukasAndFunctionFieldLanglandsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3541"
   },
   {
    "id": "DESIGN-EndoscopicTransferAndUnitaryTraceComparisonPartII",
@@ -11138,7 +11142,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GeometricSatakeAndFusionPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3354"
   },
   {
    "id": "REV-DESIGN-GeometricSatakeAndFusionPartII",
@@ -11182,7 +11187,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3355"
   },
   {
    "id": "REV-DESIGN-FiniteFlatGroupsAndIntegralPadicHodgeTheoryPartII",
@@ -11554,8 +11560,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EtaleDualityAndPerverseSheavesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3363"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3363",
+   "finishedAt": "2026-10-19T10:23:24Z"
   },
   {
    "id": "REV-DESIGN-EtaleDualityAndPerverseSheavesPartII",
@@ -11913,7 +11920,8 @@
    "avoidAccountOf": "DESIGN-MotivicStructuresInModuliOfCurves",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-MotivicStructuresInModuliOfCurves.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3578"
   },
   {
    "id": "DESIGN-LogarithmicPotentialTheoryAndAlgebraicIntegers",
@@ -12073,8 +12081,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3376"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3376",
+   "finishedAt": "2026-10-19T10:23:26Z"
   },
   {
    "id": "REV-DESIGN-AutomorphicLFunctionsAndLocalFactorsPartII",
@@ -12118,7 +12127,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AlgebraicModuliForArithmeticGeometryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3377"
   },
   {
    "id": "REV-DESIGN-AlgebraicModuliForArithmeticGeometryPartII",
@@ -12402,8 +12412,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PadicDifferentialEquationsAndRigidCohomologyPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3439"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3439",
+   "finishedAt": "2026-10-19T10:23:27Z"
   },
   {
    "id": "REV-DESIGN-PadicDifferentialEquationsAndRigidCohomologyPartII",
@@ -12662,7 +12673,9 @@
    "avoidAccountOf": "DESIGN-MetaplecticAutomorphicFormsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-MetaplecticAutomorphicFormsPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3569",
+   "finishedAt": "2026-10-19T10:23:29Z"
   },
   {
    "id": "DESIGN-PELModuliPartII",
@@ -12774,7 +12787,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GrossZagierAndArithmeticHeightsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3392"
   },
   {
    "id": "REV-DESIGN-GrossZagierAndArithmeticHeightsPartII",
@@ -13276,7 +13290,9 @@
    "avoidAccountOf": "DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3510",
+   "finishedAt": "2026-10-19T10:23:33Z"
   },
   {
    "id": "DESIGN-TwistedAutomorphicDescents",
@@ -13322,7 +13338,9 @@
    "avoidAccountOf": "DESIGN-TwistedAutomorphicDescents",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-TwistedAutomorphicDescents.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3623",
+   "finishedAt": "2026-10-19T10:23:36Z"
   },
   {
    "id": "DESIGN-ExponentialSumsAndCircleMethodPartII",
@@ -13656,7 +13674,9 @@
    "avoidAccountOf": "DESIGN-IntegralIwasawaTheoryPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-IntegralIwasawaTheoryPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3552",
+   "finishedAt": "2026-10-19T10:23:41Z"
   },
   {
    "id": "DESIGN-HeckeStacksAndLocalShtukasPartII",
@@ -13676,8 +13696,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HeckeStacksAndLocalShtukasPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3408"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3408",
+   "finishedAt": "2026-10-19T10:23:44Z"
   },
   {
    "id": "REV-DESIGN-HeckeStacksAndLocalShtukasPartII",
@@ -13884,8 +13905,9 @@
    "avoidAccountOf": "DESIGN-LocallyAnalyticRepresentationsOfLocalGroups",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LocallyAnalyticRepresentationsOfLocalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3565"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3565",
+   "finishedAt": "2026-10-19T10:23:45Z"
   },
   {
    "id": "DESIGN-TriangulineVarietyAndItsLocalModel",
@@ -13979,7 +14001,9 @@
    "avoidAccountOf": "DESIGN-IgusaVarietiesAndTorsionConcentrationPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-IgusaVarietiesAndTorsionConcentrationPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3549",
+   "finishedAt": "2026-10-19T10:23:45Z"
   },
   {
    "id": "DESIGN-FuchsianOrbifoldsPartII",
@@ -14239,7 +14263,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-PadicFamiliesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3422"
   },
   {
    "id": "REV-DESIGN-PadicFamiliesPartII",
@@ -14379,8 +14404,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AutomorphicBundlesPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3423"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3423",
+   "finishedAt": "2026-10-19T10:23:49Z"
   },
   {
    "id": "REV-DESIGN-AutomorphicBundlesPartII",
@@ -14830,7 +14856,9 @@
    "avoidAccountOf": "DESIGN-LocalGaloisDeformationRingsPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LocalGaloisDeformationRingsPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3562",
+   "finishedAt": "2026-10-19T10:23:49Z"
   },
   {
    "id": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII",
@@ -14876,7 +14904,9 @@
    "avoidAccountOf": "DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-HilbertModularVarietiesAndShimuraCurvesPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3546",
+   "finishedAt": "2026-10-19T10:23:53Z"
   },
   {
    "id": "DESIGN-PolynomialGaloisGroupsPartII",
@@ -15328,8 +15358,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GL2ModularityLiftingPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3443"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3443",
+   "finishedAt": "2026-10-19T10:23:57Z"
   },
   {
    "id": "REV-DESIGN-GL2ModularityLiftingPartII",
@@ -15465,7 +15496,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-CstConjectureForDaggerVarieties.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3445"
   },
   {
    "id": "REV-DESIGN-CstConjectureForDaggerVarieties",
@@ -15601,7 +15633,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-MixedHodgeModulesAndIrregularHodgeTheory.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3448"
   },
   {
    "id": "REV-DESIGN-MixedHodgeModulesAndIrregularHodgeTheory",
@@ -15671,8 +15704,9 @@
    "avoidAccountOf": "DESIGN-GSp4NonregularModularityLifting",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-GSp4NonregularModularityLifting.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3535"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3535",
+   "finishedAt": "2026-10-19T10:23:58Z"
   },
   {
    "id": "DESIGN-AlgebraicModularFormsAndSerreWeightsPartII",
@@ -15960,8 +15994,9 @@
    "avoidAccountOf": "DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3608"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3608",
+   "finishedAt": "2026-10-19T10:23:58Z"
   },
   {
    "id": "DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity",
@@ -16103,8 +16138,9 @@
    "avoidAccountOf": "DESIGN-LocalLanglandsCorrespondenceForG2",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-LocalLanglandsCorrespondenceForG2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3563"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3563",
+   "finishedAt": "2026-10-19T10:23:58Z"
   },
   {
    "id": "DESIGN-CompletedCohomologyAndLocalGlobalCompatibilityPartII",
@@ -16308,7 +16344,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-MotivesAndAlgebraicCyclesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3463"
   },
   {
    "id": "REV-DESIGN-MotivesAndAlgebraicCyclesPartII",
@@ -17185,8 +17222,9 @@
    "avoidAccountOf": "DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-QuantitativeOrbitMethodAndMicrolocalAnalysisOnLieGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3599"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3599",
+   "finishedAt": "2026-10-19T10:24:01Z"
   },
   {
    "id": "DESIGN-StableHomotopyKTheoryPartII",
@@ -17542,8 +17580,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-RelativeFarguesFontainePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #4971"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #4971",
+   "finishedAt": "2026-10-19T10:24:01Z"
   },
   {
    "id": "REV-DESIGN-RelativeFarguesFontainePartII",
@@ -44121,8 +44160,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #9297"
+   "state": "pending",
+   "note": "released on GitHub issue #9297"
   },
   {
    "priority": 2,
