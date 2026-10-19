@@ -40304,8 +40304,8 @@
    ],
    "revisionOf": "DESIGN-PrismaticCohomologyPartII",
    "prompt": "research/blueprint/prompts/DESIGN-PrismaticCohomologyPartII~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #11169"
+   "state": "external",
+   "note": "claimed on GitHub issue #11169"
   },
   {
    "priority": 2,
@@ -151625,9 +151625,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/DESIGN-CyclotomicClassGroupsAndStickelberger.md",
-   "note": "claimed on GitHub issue #11183"
+   "note": "deliverables arrived from an external worker on issue #11183",
+   "finishedAt": "2026-10-19T23:17:38Z"
   },
   {
    "id": "FIX-PKG-ExcursionOperatorsAndSpectralAction~adv",
@@ -151910,8 +151911,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex2.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex2.md",
+   "note": "claimed on GitHub issue #11243"
   },
   {
    "id": "PKG-CyclotomicClassGroupsAndStickelberger~codex",
