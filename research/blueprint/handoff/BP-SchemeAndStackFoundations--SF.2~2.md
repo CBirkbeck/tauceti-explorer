@@ -1,6 +1,41 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-HUohas, 2026-10-19
+## Current run — Codex session codex-CUrOeX, 2026-10-19
+
+Blocked checkpoint. The bot confirmed this run's claim in
+[comment 6263741609](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6263741609).
+I read the issue body before claiming but missed the manager's
+[explicit prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+in the comment history. That was a selection error. The complete comment
+history contains no subsequent instruction reopening this scope.
+
+Fresh GitHub API reads confirm upstream [#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged
+at the commits recorded below. I read current upstream Layer 2, its boundary
+in §2.4, coherent duality in §2.19, the Brauer-class construction in §2.22,
+and semilinear equivariant cohomology in §2.23; I also inspected the
+Nisnevich and Azumaya interfaces in Suggested.lean. The requested targets
+already have an upstream owner. WORKERS.md and PROTOCOL.md §15 prohibit
+re-planning them here. The supplied read-only checkout lacks this roadmap
+directory; current GitHub main supplies the ownership evidence. Neither
+shared checkout was changed or built.
+
+Only this handoff changes. Packet and SF.2 coverage remain partial:
+85 nodes (7 definitions, 17 constructions, 49 theorems, 5 lemmas,
+7 comparisons), 160 API items, 87 definition/construction tests, 3 planets,
+89 baseline declarations, 11 gaps and 9 requests. The packet checker reports
+zero errors and zero warnings; whitespace validation passes. The suggested
+Lean file was neither changed nor compiled. No mathematical correction,
+new supplier request or ownership move is claimed.
+
+The manager must reconcile the stale availability state and specify any
+extension beyond upstream before mathematical work resumes. The packet and
+independent review retain the unresolved worklist; no scratch material is
+needed. This run submits the blocked handoff required by its stopping
+instructions and stops without claiming a second issue. Automatic claim
+confirmation does not reopen the superseded scope.
+
+## Earlier run — Codex session codex-HUohas, 2026-10-19
 
 Blocked checkpoint. The bot confirmed the claim in
 [comment 6262783800](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6262783800).
