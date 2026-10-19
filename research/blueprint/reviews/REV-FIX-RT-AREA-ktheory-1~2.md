@@ -1,6 +1,78 @@
 # Independent review: REV-FIX-RT-AREA-ktheory-1~2
 
-## Current continuation: Codex codex-DLf03v, 19 October 2026
+## Current continuation: Codex codex-DDV2ll, 19 October 2026
+
+Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260970357)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260972383).
+This session wrote none of the original fixes and claimed no second job.
+
+**Blocked checkpoint.** A fresh read of the live issue still authorizes seven
+packet/Lean pairs. The unmodified local queue requires nineteen. Its actual
+`issues.deliverables_complete` predicate returns false because the twelve
+additional packets do not name this area-review job in their review objects.
+The seven existing area-review verdicts are completed outcomes, including the
+negative K.1/K.6 verdicts; none was renewed or changed by this session.
+
+[WORKERS.md, Doing the work](../WORKERS.md) says “Edit only the files the issue
+names.” Expanded authorization for the twelve additional pairs was requested
+from the operator, but no authorizing response has arrived. Only this report
+and the handoff are edited. The issue, queue, packets, Lean companions and
+other reviewers' verdicts are preserved. The [handoff](../handoff/REV-FIX-RT-AREA-ktheory-1~2.md)
+lists the current twelve outstanding pairs and the exact resumption action.
+
+### Fresh read-only clarification of findings /5, /23 and /33
+
+The earlier mathematical warning about missing homotopy associativity needs
+qualification. The current node
+`StableHomotopyKTheory:H.3/rational-hurewicz-hspace` uses a free-cohomology
+Cartan–Serre argument, explicitly avoiding Milnor–Moore. I independently read:
+
+- Hatcher, [*Algebraic Topology*](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf),
+  §3.C, printed pp.283–286, particularly Theorem 3C.4 and its proof. The
+  associative multiplication in that theorem is the cohomology cup product.
+  The coproduct data on p.283 do not require a homotopy-associative H-space
+  multiplication.
+- Hatcher, [*Spectral Sequences*, Chapter 1](https://pi.math.cornell.edu/~hatcher/SSAT/SSch1.pdf),
+  Theorem 1.24 and proof, printed pp.38–39. For an abelian space with the
+  specified finite-type free rational cohomology, the maps representing its
+  generators give its rationalization as a product of Eilenberg–Mac Lane
+  spaces. The paragraph following the proof applies this to H-spaces.
+
+Both public author PDFs were read on 19 October 2026; their SHA-256 values are
+recorded in the handoff. Thus the absence of a separate homotopy-associativity
+hypothesis alone is not evidence against the current node's chosen route.
+This does not certify the full primitive-image argument or its supplier
+closure. The verifier's /5 and /33 assignment of a single owner in H.6 is
+still not carried by the actual H.3 parent and Borel R.3 imports. Ownership
+coordination and the mathematical validity of an alternative proof must be
+assessed separately when expanded review is authorized.
+
+For /23, both current scheme coniveau spectral-sequence nodes directly import
+`H.6/exact-couple`, `H.6/filtered-spectrum-spectral-sequence` and
+`H.6/spectral-sequence-convergence-exhaustive`. I read those three supplier
+statements: the two finite-dimensional scheme filtrations need their finite,
+bounded convergence case. The old missing-import complaint is repaired at
+this explicit-contract level. This is not an independent review of the whole
+SchemeKTheoryOperations packet.
+
+The current upstream AlgebraicTopology and GrothendieckEulerForms READMEs were
+read without modification. AlgebraicTopology Stage 8 still provides the
+simply-connected homological Whitehead theorem; the simple-space extension
+must not be claimed as already supplied by that upstream stage.
+
+### Fresh validation
+
+All nineteen queue packets pass `scripts/check_blueprint.py` using the shared
+pinned declaration index: zero errors and zero warnings. The twelve extra
+checks are read-only structural checks, not new review verdicts or
+certifications of their baseline statements. The actual completion predicate
+and live seven-pair issue scope were checked again after validation. There
+are no link-map or standalone restructuring deliverables. No Lean file was
+changed or compiled; the earlier elaborations below remain attributed to
+their authors. No source passage or private source file was copied into the
+repository.
+
+## Previous continuation: Codex codex-DLf03v, 19 October 2026
 
 Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260106653)
 was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260108343).
