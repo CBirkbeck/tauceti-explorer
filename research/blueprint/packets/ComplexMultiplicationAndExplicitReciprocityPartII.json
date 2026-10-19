@@ -28,55 +28,118 @@
         "ref": "mathlib:NumberField.IsCMField",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "The native CM-field class: characteristic zero, totally complex and quadratic over the maximal real subfield.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/CMField.lean",
+          "note": "The native CM-field class: characteristic zero, totally complex and quadratic over the maximal real subfield."
+        }
       },
       {
         "ref": "mathlib:NumberField.IsCMField.complexConj",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "Canonical CM involution on the actual field, with the integral-over-Q hypothesis of the declaration.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/CMField.lean",
+          "note": "Canonical CM involution on the actual field, with the integral-over-Q hypothesis of the declaration."
+        }
       },
       {
         "ref": "mathlib:NumberField.IsCMField.complexConj_apply_apply",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "The canonical CM involution squares to the identity.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/CMField.lean",
+          "note": "The canonical CM involution squares to the identity."
+        }
       },
       {
         "ref": "mathlib:NumberField.IsCMField.regulator_div_regulator_eq_two_pow_mul_indexRealUnits_inv",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "R_E/R_F=2^rank(E)/indexRealUnits(E); it is not generally 1.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/CMField.lean",
+          "note": "R_E/R_F=2^rank(E)/indexRealUnits(E); it is not generally 1."
+        }
       },
       {
         "ref": "mathlib:NumberField.IsCMField.indexRealUnits_eq_one_or_two",
         "module": "Mathlib/NumberTheory/NumberField/CMField.lean",
         "provides": "The real-unit index is 1 or 2, hence the regulator ratio is dimension-bounded.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/CMField.lean",
+          "note": "The real-unit index is 1 or 2, hence the regulator ratio is dimension-bounded."
+        }
       },
       {
         "ref": "mathlib:NumberField.classNumber_pos",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "The native number-field class number is positive.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+          "note": "The native number-field class number is positive."
+        }
       },
       {
         "ref": "mathlib:NumberField.exists_ideal_in_class_of_norm_le",
         "module": "Mathlib/NumberTheory/NumberField/ClassNumber.lean",
         "provides": "Every ideal class has a nonzero integral representative with the specified Minkowski norm bound.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/NumberField/ClassNumber.lean",
+          "note": "Every ideal class has a nonzero integral representative with the specified Minkowski norm bound."
+        }
       },
       {
         "ref": "tauceti:NumberField.card_ideal_absNorm_le",
         "module": "TauCeti/NumberTheory/EffectiveBounds/IdealCount/Basic.lean",
         "provides": "For X≥1, the nonzero integral ideals with absNorm≤X are finite and number at most X²2^[K:Q]. This alone is too weak for the distant-isogeny exponent.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/IdealCount/Basic.lean",
+          "note": "For X≥1, the nonzero integral ideals with absNorm≤X are finite and number at most X²2^[K:Q]. This alone is too weak for the distant-isogeny exponent."
+        }
       },
       {
         "ref": "tauceti:NumberField.abs_discr_le_of_basis_isIntegral",
         "module": "TauCeti/NumberTheory/EffectiveBounds/Discriminant/Basic.lean",
         "provides": "For an integral rational basis b, |disc(K)|≤|disc_Q(b)|; the exact order index-square identity is a separate imported order theorem.",
-        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file."
+        "verification": "Actual source statement read at the named pin; chosen native interfaces are also elaborated in the suggested file.",
+        "review": {
+          "verdict": "confirmed",
+          "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+          "date": "2026-10-19",
+          "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/EffectiveBounds/Discriminant/Basic.lean",
+          "note": "For an integral rational basis b, |disc(K)|≤|disc_Q(b)|; the exact order index-square identity is a separate imported order theorem."
+        }
       }
     ]
   },
@@ -114,7 +177,7 @@
       "accessed": "2026-10-19",
       "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507",
       "readSections": [
-        "§1, pp. 534–541; §2.2, pp. 544–550; §5.2–5.3, pp. 573–577; §9.1–9.2 target statements and adjunction setup, pp. 624–631"
+        "§1, pp. 534–541; §2.2, pp. 544–550; §4.2, pp. 566–568; §5.2–5.3, pp. 573–577; §9.1–9.2, pp. 624–635, including the complete adjunction proof"
       ]
     },
     {
@@ -133,7 +196,7 @@
       "id": "T12",
       "title": "Brauer–Siegel for arithmetic tori and lower bounds for Galois orbits of special points",
       "authors": "Jacob Tsimerman",
-      "edition": "arXiv:1103.5619v2; use preprint pagination, not JAMS pagination",
+      "edition": "arXiv:1103.5619v2, preprint pagination; JAMS 25 (2012), 1091–1117 edition identified but not collated",
       "url": "https://arxiv.org/pdf/1103.5619v2",
       "accessed": "2026-10-19",
       "sha256": "009738151269039a3a8afc231c4af6bad3cb7e6756d8967c58c111ed191e980d",
@@ -145,7 +208,7 @@
       "id": "PT",
       "title": "The André–Oort conjecture for the moduli space of Abelian surfaces",
       "authors": "Jonathan Pila; Jacob Tsimerman",
-      "edition": "arXiv:1106.4023v1; Compositio 149 (2013), 204–216",
+      "edition": "arXiv:1106.4023v1, preprint pagination; Compositio 149 (2013), 204–216 edition identified but not collated",
       "url": "https://arxiv.org/pdf/1106.4023v1",
       "accessed": "2026-10-19",
       "sha256": "c84c82b6df4b3c59b015228658005fd2fca11aac87948094ab1cc75cab0b599d",
@@ -186,7 +249,7 @@
       "accessed": "2026-10-19",
       "sha256": "58bfe161fbcdb8605c9c2fe50bbd390404376388db1133a0c5d53714e8125f01",
       "readSections": [
-        "Introduction, definitions and statements, pp. 627–632, especially component generators on p. 630 and Theorem 0.3, p. 631; underlying period-relation proofs remain a gate"
+        "Component generators and Theorem 0.3, pp. 630–631; Conjecture 0.4, p. 632; underlying period-relation proofs remain a gate"
       ]
     }
   ],
@@ -254,32 +317,47 @@
           "name": "CMHeights.cm_class_functions.height_span",
           "role": "characterisation",
           "statement": "H_CM is the Q-span of all overlap characters; every member is inversion-invariant and has value zero at c."
+        },
+        {
+          "name": "CMHeights.cm_class_functions.of_finite_quotient",
+          "role": "constructor",
+          "statement": "A rational central function on a finite Galois quotient with central conjugation and constant a(σ)+a(cσ) pulls back to CM⁰; compatible pullbacks along refinements agree."
+        },
+        {
+          "name": "CMHeights.cm_class_functions.ext",
+          "role": "extensionality",
+          "statement": "Two CM⁰ functions agree iff their evaluations agree; two linear functionals on H_CM agree if they agree on every a⁰_Φ. No such uniqueness is inferred on full CM⁰."
+        },
+        {
+          "name": "CMHeights.cm_class_functions.linear_structure",
+          "role": "structure",
+          "statement": "CM⁰ and H_CM are Q-subspaces of locally constant class functions. Z̃ is Q-linear and compatible with products of CM pairs and conductor-compatible induction."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.cm_class_functions.check1",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For an imaginary quadratic field, a⁰ on {1,c} has values (1,0), hence equals (1+χ)/2."
         },
         {
           "name": "CMHeights.cm_class_functions.check2",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "For E=E₁×E₂ with product type, the overlap function is the sum of the two overlap functions."
         },
         {
           "name": "CMHeights.cm_class_functions.check3",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "A nontrivial even character of a finite quotient fails the CM⁰ constant-sum condition; the constant function passes."
         },
         {
           "name": "CMHeights.cm_class_functions.check4",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "The constant function 1 satisfies the CM⁰ constant-sum condition but is not in H_CM, because every overlap function vanishes at c."
         },
         {
           "name": "CMHeights.cm_class_functions.check5",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For the cyclic CM Galois quotient C6 with c=r³, the class function with successive values (0,1,1,0,−1,−1) lies in CM⁰ but is not inversion-invariant and cannot lie in H_CM."
         }
       ],
@@ -433,22 +511,37 @@
           "name": "CMHeights.height_torus.reflex_norm",
           "role": "compatibility",
           "statement": "The reflex norm attached to ι₀ is the quotient map."
+        },
+        {
+          "name": "CMHeights.height_torus.of_quotient",
+          "role": "constructor",
+          "statement": "Construct T as the quotient of Res_E/Q G_m by ker(Nm_F/Q) embedded through Res_F/Q G_m, and expose the quotient morphism r and its kernel."
+        },
+        {
+          "name": "CMHeights.height_torus.character_ext",
+          "role": "extensionality",
+          "statement": "Two torus morphisms into T agree if their pullbacks on every character agree; the displayed constant-pair-sum lattice determines the CM quotient."
+        },
+        {
+          "name": "CMHeights.height_torus.cm_isomorphism",
+          "role": "functoriality",
+          "statement": "An isomorphism of CM fields preserving conjugation transports r, the norm-character map, the quotient T→T_so and the reflex cocharacter, with identities and compositions respected."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.height_torus.check1",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For d=1, T=Res_E G_m and the diagonal has trivial kernel."
         },
         {
           "name": "CMHeights.height_torus.check2",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For d=2, the diagonal factors through squaring on the kernel G_m and has kernel μ₂."
         },
         {
           "name": "CMHeights.height_torus.check3",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For any d, the vector supported on one embedding alone is not a T-character when d>1, whereas each CM-type characteristic vector is."
         }
       ],
@@ -512,22 +605,32 @@
           "name": "CMHeights.integral_level.unramified",
           "role": "compatibility",
           "statement": "At p unramified in E this level is T(Z_p)."
+        },
+        {
+          "name": "CMHeights.integral_level.unit_image",
+          "role": "constructor",
+          "statement": "Construct K_so,p as r_so(O_E,p×), then K₀,p=Z_p×·r(O_E,p×), with exact sequence 1→Z_p×→K₀,p→K_so,p→1; expose its inclusion into T(Q_p)."
+        },
+        {
+          "name": "CMHeights.integral_level.subgroup_ext",
+          "role": "extensionality",
+          "statement": "An equality of these compact subgroups follows from equality of their membership predicates; transport under a CM local-algebra isomorphism preserves both groups."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.integral_level.check1",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For d=1 recover the unit subgroup (O_E⊗Z_p)×."
         },
         {
           "name": "CMHeights.integral_level.check2",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For E_p/F_p ramified quadratic, the uniformizer class in E_p×/F_p× has order two but is not in the image of O_E,p×; reject it from K_so,p."
         },
         {
           "name": "CMHeights.integral_level.check3",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "At an unramified place, compare the constructor to the integral-point subgroup, including p=2."
         }
       ],
@@ -582,12 +685,12 @@
       ],
       "title": "The total reflex CM pair",
       "kind": "construction",
-      "statement": "Let E♯ be the finite étale Q-algebra whose embedding Γ_Q-set is CM(E). Complementing a type is its CM involution, so E♯ is a product of CM fields of total degree 2^d. For a chosen ι₀, Φ♯ consists of the types containing ι₀ and has size 2^(d−1). Its T-representation H♯=E♯ has character pullback [Φ]↦Σ_{ι∈Φ}[ι]. Choose ξ∈E♯× with ξ̄=−ξ and Im ι_Φ(ξ)>0 for Φ containing ι₀; Tr(ξxȳ) polarizes H♯, giving an abelian scheme A♯/Y₀ of dimension 2^(d−1). Its maximal-order lattice is O_E♯.",
+      "statement": "Let E♯ be the finite étale Q-algebra whose embedding Γ_Q-set is CM(E). Complementing a type is its CM involution, so E♯ is a product of CM fields of total degree 2^d. For a chosen ι₀, Φ♯ consists of the types containing ι₀ and has size 2^(d−1). Its T-representation H♯=E♯ has character pullback [Φ]↦Σ_{ι∈Φ}[ι]. Choose ξ∈E♯× with ξ̄=−ξ and Im ι_Φ(ξ)>0 for Φ containing ι₀; after multiplying ξ by a positive integer so that ψ(x,y)=Tr(ξxȳ) is integral on O_E♯, this form polarizes H♯, giving an abelian scheme A♯/Y₀ of dimension 2^(d−1). Its maximal-order lattice is O_E♯.",
       "hypotheses": [],
       "proofSteps": [
         "Use finite étale Galois descent on the finite set of CM types.",
         "Use complement and the half-set containing ι₀ to define the CM algebra and type.",
-        "Use the CM-type character vectors to descend the T-action; weak approximation supplies ξ.",
+        "Use the CM-type character vectors to descend the T-action; weak approximation supplies ξ. Clear the denominators of ψ on the maximal-order lattice by a positive integer, preserving all positivity conditions.",
         "Apply the polarized-CM family theorem and extend by the good-reduction criterion."
       ],
       "acceptance": [
@@ -606,7 +709,7 @@
         {
           "sourceId": "A",
           "locator": "§3.4, Proposition 3.4.2, pp. 420–421; §9.2, p. 510",
-          "match": "Let E♯ be the finite étale Q-algebra whose embedding Γ_Q-set is CM(E). Complementing a type is its CM involution, so E♯ is a product of CM fields of total degree 2^d. For a chosen ι₀, Φ♯ consists of the types containing ι₀ and has size 2^(d−1). Its T-representation H♯=E♯ has character pullback [Φ]↦Σ_{ι∈Φ}[ι]. Choose ξ∈E♯× with ξ̄=−ξ and Im ι_Φ(ξ)>0 for Φ containing ι₀; Tr(ξxȳ) polarizes H♯, giving an abelian scheme A♯/Y₀ of dimension 2^(d−1). Its maximal-order lattice is O_E♯."
+          "match": "Let E♯ be the finite étale Q-algebra whose embedding Γ_Q-set is CM(E). Complementing a type is its CM involution, so E♯ is a product of CM fields of total degree 2^d. For a chosen ι₀, Φ♯ consists of the types containing ι₀ and has size 2^(d−1). Its T-representation H♯=E♯ has character pullback [Φ]↦Σ_{ι∈Φ}[ι]. Choose ξ∈E♯× with ξ̄=−ξ and Im ι_Φ(ξ)>0 for Φ containing ι₀; after multiplying ξ by a positive integer so that ψ(x,y)=Tr(ξxȳ) is integral on O_E♯, this form polarizes H♯, giving an abelian scheme A♯/Y₀ of dimension 2^(d−1). Its maximal-order lattice is O_E♯."
         }
       ],
       "implementationStatus": "unchecked",
@@ -637,22 +740,32 @@
           "name": "CMHeights.total_reflex_pair.polarization",
           "role": "structure",
           "statement": "The trace pairing is alternating, nondegenerate and positive for the specified Hodge type."
+        },
+        {
+          "name": "CMHeights.total_reflex_pair.of_galois_set",
+          "role": "constructor",
+          "statement": "Finite étale descent of the CM-type Galois set constructs E♯ together with its embedding-set equivalence and complement involution. The construction is unique up to the unique compatible algebra isomorphism."
+        },
+        {
+          "name": "CMHeights.total_reflex_pair.transport",
+          "role": "functoriality",
+          "statement": "An isomorphism of pointed CM fields (E,ι₀) transports E♯, its CM type and the character map. A polarization is additional integral positive data and is transported with ξ."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.total_reflex_pair.check1",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For an imaginary quadratic E, E♯=E and A♯ is an elliptic CM family."
         },
         {
           "name": "CMHeights.total_reflex_pair.check2",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For E=Q(i,√2), its four CM types split into two Galois orbits, giving E♯≅Q(i)×Q(√−2), not a quartic field."
         },
         {
           "name": "CMHeights.total_reflex_pair.check3",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "When d=3, verify degree 8 and abelian dimension 4, and reject a pure-imaginary ξ with the wrong sign at one selected embedding."
         }
       ],
@@ -671,8 +784,10 @@
       ],
       "title": "Integral polarized CM families",
       "kind": "theorem",
-      "statement": "A faithful rational T-representation H of Hodge types (−1,0),(0,−1), with a polarizing T-equivariant alternating form valued in the norm character and a K-stable integral adelic lattice, gives a polarized abelian scheme A_H over the normalized integral CM model Y_K. Its generic fiber is the supplied canonical-model family and its ℓ-adic Tate module over Y_K[1/ℓ] is the chosen lattice.",
-      "hypotheses": [],
+      "statement": "A faithful rational T-representation H of Hodge types (−1,0),(0,−1), with a polarizing T-equivariant alternating form valued in the norm character and a K-stable full adelic lattice on which that form is integral, gives a polarized abelian scheme A_H over the normalized integral CM model Y_K. Its generic fiber is the supplied canonical-model family and its ℓ-adic Tate module over Y_K[1/ℓ] is the chosen lattice.",
+      "hypotheses": [
+        "The alternating polarization form takes the chosen lattice into the integral lattice of its norm-character line; unimodularity is not required."
+      ],
       "proofSteps": [
         "Apply the existing Siegel moduli comparison on the generic fiber.",
         "At each local model inertia acts trivially on the prime-to-p representation after passing to the field defined by Y_K.",
@@ -687,13 +802,14 @@
         "AbelianSchemesAndArithmeticModuli:A4",
         "AbelianSchemesAndArithmeticModuli:A5",
         "ShimuraVarieties:V5",
-        "NeronModelsAndSemistableAbelianVarieties:R11.5"
+        "NeronModelsAndSemistableAbelianVarieties:R11.5",
+        "AbelianSchemesAndArithmeticModuli:A6/relative-hom-and-normal-extension"
       ],
       "sources": [
         {
           "sourceId": "A",
           "locator": "Proposition 3.4.1, pp. 419–420",
-          "match": "A faithful rational T-representation H of Hodge types (−1,0),(0,−1), with a polarizing T-equivariant alternating form valued in the norm character and a K-stable integral adelic lattice, gives a polarized abelian scheme A_H over the normalized integral CM model Y_K. Its generic fiber is the supplied canonical-model family and its ℓ-adic Tate module over Y_K[1/ℓ] is the chosen lattice."
+          "match": "A faithful rational T-representation H of Hodge types (−1,0),(0,−1), with a polarizing T-equivariant alternating form valued in the norm character and a K-stable full adelic lattice on which that form is integral, gives a polarized abelian scheme A_H over the normalized integral CM model Y_K. Its generic fiber is the supplied canonical-model family and its ℓ-adic Tate module over Y_K[1/ℓ] is the chosen lattice."
         }
       ],
       "implementationStatus": "unchecked",
@@ -786,7 +902,7 @@
       ],
       "title": "CM Breuil–Kisin comparison",
       "kind": "theorem",
-      "statement": "For N_p as above, the integral Breuil–Kisin module M(N_p,y) is tensor-compatible. For a local Eisenstein polynomial E_q(u), its crystalline realization is φ*M/uφ*M and its de Rham realization is φ*M/E_q(u)φ*M. These have the B_cris and filtered B_dR comparisons to N_p,y, compatibly with duals, tensors and changing the local CM representation. The cohomological realization of an abelian scheme uses the dual of its Tate module.",
+      "statement": "For N_p as above, the integral Breuil–Kisin module M(N_p,y) is tensor-compatible. Use W=W(k̄_y), a uniformizer π_y of the actual completed local ring O_y, and its Eisenstein polynomial E_y(u) over W. Then its crystalline realization is φ*M/uφ*M and its de Rham realization is φ*M/E_y(u)φ*M. These have the B_cris and filtered B_dR comparisons to N_p,y, compatibly with duals, tensors and changing the local CM representation. The cohomological realization of an abelian scheme uses the dual of its Tate module.",
       "hypotheses": [],
       "proofSteps": [
         "Apply the integral classification with its variance fixed.",
@@ -794,7 +910,8 @@
         "Use the period comparisons for each tensor operation, including at p=2."
       ],
       "acceptance": [
-        "Specializing M itself in place of φ*M must fail the comparison check."
+        "Specializing M itself in place of φ*M must fail the comparison check.",
+        "At a ramified level, the specialization polynomial belongs to π_y in O_y, rather than to a uniformizer of the smaller CM completion E_q."
       ],
       "prerequisites": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/local-crystalline",
@@ -804,7 +921,7 @@
         {
           "sourceId": "A",
           "locator": "Corollary 3.5.4, pp. 424–425",
-          "match": "For N_p as above, the integral Breuil–Kisin module M(N_p,y) is tensor-compatible. For a local Eisenstein polynomial E_q(u), its crystalline realization is φ*M/uφ*M and its de Rham realization is φ*M/E_q(u)φ*M. These have the B_cris and filtered B_dR comparisons to N_p,y, compatibly with duals, tensors and changing the local CM representation. The cohomological realization of an abelian scheme uses the dual of its Tate module."
+          "match": "For N_p as above, the integral Breuil–Kisin module M(N_p,y) is tensor-compatible. Use W=W(k̄_y), a uniformizer π_y of the actual completed local ring O_y, and its Eisenstein polynomial E_y(u) over W. Then its crystalline realization is φ*M/uφ*M and its de Rham realization is φ*M/E_y(u)φ*M. These have the B_cris and filtered B_dR comparisons to N_p,y, compatibly with duals, tensors and changing the local CM representation. The cohomological realization of an abelian scheme uses the dual of its Tate module."
         }
       ],
       "implementationStatus": "unchecked",
@@ -941,7 +1058,7 @@
       ],
       "title": "The standard CM quadratic line",
       "kind": "definition",
-      "statement": "For H₀=E, let V₀={f∈End_Q(E):f(ax)=āf(x)}. Write f_a(x)=a x̄; then f_a∘f_a is multiplication by aā. This gives a rank-one E-module with hermitian form ⟨f_a,f_b⟩=a b̄, rational quadratic form Q₀(f_a)=Tr_F/Q(aā), and an integral lattice from O_E. Its filtered realization has Hodge line ω₀=Fil¹V₀,dR on Y₀. Equip this line with ||z||²=|[z,z̄]₀|, where [,]₀ is the bilinear form of Q₀. The absolute value is essential at the selected real place, where the value is positive.",
+      "statement": "For H₀=E, let V₀={f∈End_Q(E):f(ax)=āf(x)}. Write f_a(x)=a x̄; then f_a∘f_a is multiplication by aā. This gives a rank-one E-module with hermitian form ⟨f_a,f_b⟩=a b̄, rational quadratic form Q₀(f_a)=Tr_F/Q(aā), and an integral lattice from O_E. Its filtered realization has Hodge line ω₀=Fil¹V₀,dR on Y₀. Equip this line with ||z||²=|[z,z̄]₀|, where [,]₀ is the bilinear form of Q₀. Since Q₀ is positive definite, [z,z̄]₀ is positive for z≠0 and the absolute value is redundant. The printed negative sign would give a negative squared norm.",
       "hypotheses": [],
       "proofSteps": [
         "Identify a semilinear endomorphism by its value at 1.",
@@ -959,8 +1076,8 @@
       "sources": [
         {
           "sourceId": "A",
-          "locator": "§3.6, pp. 427–428; §9.4, p. 513, with the metric correction",
-          "match": "For H₀=E, let V₀={f∈End_Q(E):f(ax)=āf(x)}. Write f_a(x)=a x̄; then f_a∘f_a is multiplication by aā. This gives a rank-one E-module with hermitian form ⟨f_a,f_b⟩=a b̄, rational quadratic form Q₀(f_a)=Tr_F/Q(aā), and an integral lattice from O_E. Its filtered realization has Hodge line ω₀=Fil¹V₀,dR on Y₀. Equip this line with ||z||²=|[z,z̄]₀|, where [,]₀ is the bilinear form of Q₀. The absolute value is essential at the selected real place, where the value is positive."
+          "locator": "§3.6, pp. 428–429; §9.4, pp. 513–514 (metric on p. 514), with the positive-metric correction",
+          "match": "For H₀=E, let V₀={f∈End_Q(E):f(ax)=āf(x)}. Write f_a(x)=a x̄; then f_a∘f_a is multiplication by aā. This gives a rank-one E-module with hermitian form ⟨f_a,f_b⟩=a b̄, rational quadratic form Q₀(f_a)=Tr_F/Q(aā), and an integral lattice from O_E. Its filtered realization has Hodge line ω₀=Fil¹V₀,dR on Y₀. Equip this line with ||z||²=|[z,z̄]₀|, where [,]₀ is the bilinear form of Q₀. Since Q₀ is positive definite, [z,z̄]₀ is positive for z≠0 and the absolute value is redundant. The printed negative sign would give a negative squared norm."
         }
       ],
       "implementationStatus": "unchecked",
@@ -986,22 +1103,32 @@
           "name": "CMHeights.standard_line.hodge_metric",
           "role": "compatibility",
           "statement": "The ω₀ metric equals the absolute bilinear value and scales by |λ|²."
+        },
+        {
+          "name": "CMHeights.standard_line.of_scalar",
+          "role": "constructor",
+          "statement": "For a∈E the map x↦a x̄ is in V₀; evaluation at 1 and this construction are inverse E-linear maps."
+        },
+        {
+          "name": "CMHeights.standard_line.ext",
+          "role": "extensionality",
+          "statement": "Two conjugate-semilinear maps agree iff they agree at 1. Transport along a CM algebra isomorphism preserves composition, conjugation, the norm quadratic form and its positive metric."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.standard_line.check1",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For E=Q(i), f₁ is conjugation, f₁²=1, Q₀(f₁)=1."
         },
         {
           "name": "CMHeights.standard_line.check2",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For E=Q(i), f_i²=1, whereas the complex-linear multiplication-by-i map has square −1 and is excluded."
         },
         {
           "name": "CMHeights.standard_line.check3",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "At the distinguished real place the positive bilinear value gives a positive norm; the printed negative sign fails this test."
         }
       ],
@@ -1070,12 +1197,13 @@
       "prerequisites": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/tautological-crystal",
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/cm-actions",
-        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5"
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-manin-classification"
       ],
       "sources": [
         {
           "sourceId": "A",
-          "locator": "Proposition 3.6.1, Remark 3.6.2, Lemma 3.6.3 and Corollary 3.6.4, pp. 429–431",
+          "locator": "Propositions 3.6.1–3.6.2 and Lemma 3.6.3, pp. 430–431",
           "match": "The Newton cocharacter of a geometric CM fiber factors through T. For the distinguished prime 𝔭 of F under q, the Frobenius invariants in V₀,cris,𝔭 span its rational crystal exactly when 𝔭 is nonsplit in E. The associated polarized weight-one fibers A_H are supersingular exactly in that nonsplit case, with the nonzero faithful realization understood."
         }
       ],
@@ -1142,22 +1270,32 @@
           "name": "CMHeights.determinant_section.base_change",
           "role": "compatibility",
           "statement": "Δ and its divisor commute with flat base change and finite étale level pullback."
+        },
+        {
+          "name": "CMHeights.determinant_section.of_graded_action",
+          "role": "constructor",
+          "statement": "The actual map ω₀⊗gr^(−1)H♯→Fil⁰H♯ induces its determinant section Δ in L by the determinant tensor-power isomorphism; no generator of a determinant line is chosen."
+        },
+        {
+          "name": "CMHeights.determinant_section.vanishing",
+          "role": "characterisation",
+          "statement": "At a geometric point the determinant section vanishes iff the rank-r graded-action map fails to be invertible. Flat base change preserves the section and its effective Cartier divisor where the generic map is invertible."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.determinant_section.check1",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For d=1 the action is a map of lines and its determinant has exponent 1."
         },
         {
           "name": "CMHeights.determinant_section.check2",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "For d=3 verify exponent 4 rather than 8."
         },
         {
           "name": "CMHeights.determinant_section.check3",
-          "kind": "example",
+          "kind": "computation",
           "statement": "Over the generic splitting field each type coordinate is nonzero; after swapping the two Hodge pieces the inverse line is detected."
         }
       ],
@@ -1219,22 +1357,32 @@
           "name": "CMHeights.dvr_partition.invertible_twist",
           "role": "compatibility",
           "statement": "Its length is invariant under replacing B by an invertible B-module M."
+        },
+        {
+          "name": "CMHeights.dvr_partition.quotient_map",
+          "role": "constructor",
+          "statement": "The canonical C-linear projection M⊗_A C→M(Υ) has kernel K_Υ(M)+K_Υc(M); maps out of the quotient are exactly maps annihilating both kernels."
+        },
+        {
+          "name": "CMHeights.dvr_partition.map_iso",
+          "role": "functoriality",
+          "statement": "A B-linear isomorphism M≅M′ induces an isomorphism of partition quotients, respecting identities, composition and the complement symmetry. A finite extension C′/C multiplies the length by its ramification index."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.dvr_partition.check1",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For an empty part the quotient is zero."
         },
         {
           "name": "CMHeights.dvr_partition.check2",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For B=A×A and the two singleton parts the quotient is zero."
         },
         {
           "name": "CMHeights.dvr_partition.check3",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For B=A[√π] over a DVR of odd residue characteristic and C containing √π, the singleton partition has length v_C(2√π)>0."
         }
       ],
@@ -1330,22 +1478,32 @@
           "name": "CMHeights.local_conductor.pair_sum",
           "role": "characterisation",
           "statement": "a_Υ=Σ_{η,η′∈Υ}a_ηη′."
+        },
+        {
+          "name": "CMHeights.local_conductor.finite_quotient_linear",
+          "role": "structure",
+          "statement": "On a fixed finite quotient μ_p is the linear functional taking each irreducible character to its Artin conductor exponent. Inflation-compatible character expansions make these functionals agree on common refinements."
+        },
+        {
+          "name": "CMHeights.local_conductor.finite_quotient_unique",
+          "role": "extensionality",
+          "statement": "Two linear conductor functionals on a finite quotient agree if they agree on all irreducible characters; this asserts neither boundedness nor a measure on the full space of continuous functions."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.local_conductor.check1",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "A trivial finite representation has conductor zero."
         },
         {
           "name": "CMHeights.local_conductor.check2",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For a tamely ramified nontrivial quadratic character the exponent is 1, with no logarithm factor."
         },
         {
           "name": "CMHeights.local_conductor.check3",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "An arbitrary continuous function with no finite quotient is excluded from the domain."
         }
       ],
@@ -1460,7 +1618,7 @@
       "sources": [
         {
           "sourceId": "A",
-          "locator": "Proof of Proposition 9.4.1, equations (9.4.8)–(9.4.13), pp. 519–521",
+          "locator": "Proof of Proposition 9.4.1, equations (9.4.8)–(9.4.13), pp. 519–522",
           "match": "For 𝔭|p in F put d_𝔭=[F_𝔭:Q_p], E_𝔭=E⊗F F_𝔭, and form its total reflex algebra from the local CM-type Galois set. Restriction CM(E)→CM(E_𝔭) has fibers 2^(d−d_𝔭). Its local total reflex character equals 2^(d_𝔭−2)(1+d_𝔭⁻¹Ind χ_𝔭), including split χ_𝔭=1. With the integral filtered identification of the total reflex graded pieces, this comparison gives length_q(Δ)=2^(d−2)v_q(d_F/Q)."
         }
       ],
@@ -1501,7 +1659,7 @@
       "sources": [
         {
           "sourceId": "A",
-          "locator": "Proposition 9.4.1, Theorem 9.4.2 and (9.4.4), pp. 514–516, 521",
+          "locator": "Proposition 9.4.1, Theorem 9.4.2 and (9.4.4), pp. 515–516; end of the local calculation on p. 522",
           "match": "With all preceding integral and metric gates established, deĝ(Δ)/deg_C Y₀=2^(d−1)log D_F and deĝ(Ω♯)/deg_C Y₀=Σ_Φ h_Falt(E,Φ). Hence 2^(−d)Σ_Φ h_Falt(E,Φ)=deĝ(ω₀)/(4 deg_C Y₀)+(log D_F)/4−d log(2π)/2. These normalized degrees are unchanged by finite étale change of level."
         }
       ],
@@ -1618,7 +1776,7 @@
       "sources": [
         {
           "sourceId": "A",
-          "locator": "§9.5, before Lemma 9.5.3, p. 524; Definition 5.3.3, pp. 451–452",
+          "locator": "Definition 5.3.3, p. 460; §9.5, pp. 522–525",
           "match": "An auxiliary pair is a fractional O_E-ideal a and ξ∈F× negative at the distinguished real embedding and positive at all others. It is good at p when ξ·Nm_E/F(a)·d_F/Q is the unit ideal after localizing at p. A compatible maximal Z-lattice L⊂(E,Tr_F/Q(ξx x̄)) is good at p in the integral quadratic sense of Definition 5.3.3. The field trace is Tr_F/Q, because its argument lies in F."
         }
       ],
@@ -1645,22 +1803,32 @@
           "name": "CMHeights.good_auxiliary.signature",
           "role": "structure",
           "statement": "The trace form has signature (2d−2,2)."
+        },
+        {
+          "name": "CMHeights.good_auxiliary.of_local_data",
+          "role": "constructor",
+          "statement": "A fractional O_E-ideal a and ξ∈F× with the specified real signs give the quadratic lattice (a,Tr_F/Q(ξ Nm_E/F)); goodness is a separate local unit/maximal-lattice condition."
+        },
+        {
+          "name": "CMHeights.good_auxiliary.isometric_change",
+          "role": "functoriality",
+          "statement": "Replacing a by b a and ξ by ξ/(b b̄), b∈E×, gives an isometric quadratic lattice, preserving goodness at every prime and the real signature."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.good_auxiliary.check1",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "For d=1 and a=O_E, ξ=−1, the signature is (0,2)."
         },
         {
           "name": "CMHeights.good_auxiliary.check2",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "At a place where ξ Nm(a)d_F has valuation 1, reject goodness."
         },
         {
           "name": "CMHeights.good_auxiliary.check3",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "A positive ξ at every real place gives a positive definite form and fails the auxiliary signature condition."
         }
       ],
@@ -1697,7 +1865,7 @@
       "sources": [
         {
           "sourceId": "A",
-          "locator": "Proposition 9.5.2, Lemma 9.5.3 and Theorem 9.5.4, pp. 523–525",
+          "locator": "Proposition 9.5.2 and Lemmas 9.5.3–9.5.4, pp. 523–525",
           "match": "For every finite set S of rational primes, auxiliary (a,ξ) and a compatible maximal L can be chosen good at every p∈S. In particular there are two choices with coprime bad-prime products. The arithmetic input is: Nm Cl(E)→Cl⁺(F) is surjective if E/F ramifies at a finite place, and otherwise has image ker χ_E/F. In the everywhere-finite-unramified case d is even and χ_E/F(d_F)=(-1)^(d/2)."
         }
       ],
@@ -1917,22 +2085,32 @@
           "name": "CMHeights.nearby_height.edge_count",
           "role": "structure",
           "statement": "There are g·2^(g−1) unordered edges and degree g at each vertex."
+        },
+        {
+          "name": "CMHeights.nearby_height.of_edge",
+          "role": "constructor",
+          "statement": "An unordered pair of CM types differing at exactly one conjugate pair determines the two distinguished embeddings and their mean component height; the definition is independent of the ordering."
+        },
+        {
+          "name": "CMHeights.nearby_height.transport",
+          "role": "functoriality",
+          "statement": "A CM algebra isomorphism transports the type edge and component-height labels. Product additivity uses actual component heights; equality for arbitrary isogenous varieties is not an API rule."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.nearby_height.check1",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "For g=1 the two complementary types form one edge."
         },
         {
           "name": "CMHeights.nearby_height.check2",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For g=2 there are four vertices and four unordered edges, not eight."
         },
         {
           "name": "CMHeights.nearby_height.check3",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For g=2 opposite vertices have symmetric difference of size four and fail adjacency."
         }
       ],
@@ -2032,22 +2210,32 @@
           "name": "CMHeights.different_graph_datum.base_change",
           "role": "functoriality",
           "statement": "The datum pulls back to every finite extension preserving the O_E-actions."
+        },
+        {
+          "name": "CMHeights.different_graph_datum.of_torsion_isomorphism",
+          "role": "constructor",
+          "statement": "A specified O_E-linear isomorphism A₁[δ_E/F]≅A₂[δ_E/F] embeds its graph in A₁×A₂ and yields the finite-kernel quotient isogeny. Its graph is not selected from an unspecified existence theorem."
+        },
+        {
+          "name": "CMHeights.different_graph_datum.graph_ext",
+          "role": "extensionality",
+          "statement": "Two such graph kernels agree iff their torsion isomorphisms agree, after the fixed projection identifications. Simultaneous O_E-isomorphisms of the two factors transport the graph by conjugating its specified map."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.different_graph_datum.check1",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "If δ_E/F is the unit ideal, both ideal-torsion groups and the graph kernel are zero."
         },
         {
           "name": "CMHeights.different_graph_datum.check2",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "An arbitrary nonzero multiplication-by-n kernel is rejected unless it equals the required graph."
         },
         {
           "name": "CMHeights.different_graph_datum.check3",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "At a ramified quadratic local place the two projection images equal δ⁻¹Λ_i/Λ_i, not all n-torsion for an unrelated n."
         }
       ],
@@ -2164,8 +2352,13 @@
       "sources": [
         {
           "sourceId": "YE",
-          "locator": "Erratum, §3, Proposition 6 and proof, pp. 9–10; original Proposition 5.4, pp. 573–574",
-          "match": "If f:A→B is an O_E-isogeny of good-reduction abelian varieties with kernel Q O_E-linearly self-dual and with conjugation acting trivially on its O_E-action, the desired equality is h(A,τ)=h(B,τ) for the relative O_F component determinant. At places ramified in F/Q this requires a comparison of the relative/image Hodge pieces and their determinant lengths with the paper’s raw τ-quotients. Self-duality alone does not make tensoring with O_K along τ exact or make those quotients locally free."
+          "locator": "Author erratum, §3, Proposition 6 and proof, pp. 9–10",
+          "match": "The proposed self-dual-kernel component cancellation is the target, subject to the explicit ramified relative/image determinant repair."
+        },
+        {
+          "sourceId": "Y",
+          "locator": "Proposition 5.4, p. 575",
+          "match": "The original component argument uses raw embedding quotients. Its replacement must supply the integral relative/image determinant comparison, not assume exactness at ramified places."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2306,7 +2499,7 @@
       ],
       "title": "Quaternionic CM point and height",
       "kind": "definition",
-      "statement": "For this datum let X=lim_U X_U with right 𝔹_f×-action. A CM point is P∈X fixed by E× through the chosen embedding. Its image P_U lies in X_U(E^ab). Restrict the metrized Hodge bundle L̄_U to the Zariski closure P̄_U in the integral curve model and put h_L(P_U)=deĝ(L̄_U|P̄_U)/[F(P_U):F]. The archimedean metric is ||dz||=2 Im z. The value is independent of P because the CM points form one reciprocity orbit.",
+      "statement": "For this datum let X=lim_U X_U with right 𝔹_f×-action. A CM point is P∈X fixed by E× through the chosen embedding. Its image P_U lies in X_U(E^ab). Restrict the metrized Hodge bundle L̄_U to the Zariski closure P̄_U in the integral curve model and put h_L(P_U)=deĝ(L̄_U|P̄_U)/[F(P_U):F]. The archimedean metric is ||dz||=2 Im z. The value is constant on each Galois reciprocity orbit by functoriality of the metrized degree. Independence across all permitted CM points is a consequence of the quaternionic height formula in CMH.8; it is not assumed in this definition.",
       "hypotheses": [],
       "proofSteps": [
         "Use the integral curve and canonical CM-point orbit from the curve and reciprocity owners.",
@@ -2327,7 +2520,7 @@
         {
           "sourceId": "Y",
           "locator": "§1.2–1.3, pp. 537–539; Theorem 4.7 for the Hodge line, pp. 566–568",
-          "match": "For this datum let X=lim_U X_U with right 𝔹_f×-action. A CM point is P∈X fixed by E× through the chosen embedding. Its image P_U lies in X_U(E^ab). Restrict the metrized Hodge bundle L̄_U to the Zariski closure P̄_U in the integral curve model and put h_L(P_U)=deĝ(L̄_U|P̄_U)/[F(P_U):F]. The archimedean metric is ||dz||=2 Im z. The value is independent of P because the CM points form one reciprocity orbit."
+          "match": "For this datum let X=lim_U X_U with right 𝔹_f×-action. A CM point is P∈X fixed by E× through the chosen embedding. Its image P_U lies in X_U(E^ab). Restrict the metrized Hodge bundle L̄_U to the Zariski closure P̄_U in the integral curve model and put h_L(P_U)=deĝ(L̄_U|P̄_U)/[F(P_U):F]. The archimedean metric is ||dz||=2 Im z. The value is constant on each Galois reciprocity orbit by functoriality of the metrized degree. Independence across all permitted CM points is a consequence of the quaternionic height formula in CMH.8; it is not assumed in this definition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2353,22 +2546,32 @@
           "name": "CMHeights.quaternion_point_height.metric",
           "role": "compatibility",
           "statement": "The analytic Hodge metric is ||dz||=2 Im z and pulls back along the permitted level maps."
+        },
+        {
+          "name": "CMHeights.quaternion_point_height.of_fixed_point",
+          "role": "constructor",
+          "statement": "An E×-fixed point of the canonical tower yields its level image and the restricted hermitian Q-line on its closure. Define its height only after this point and line have been supplied."
+        },
+        {
+          "name": "CMHeights.quaternion_point_height.field_extension",
+          "role": "functoriality",
+          "statement": "A finite extension of a definition field scales the arithmetic degree and the relative denominator by the same factor; the resulting height is unchanged. The permitted level pullbacks preserve this normalized value."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.quaternion_point_height.check1",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "An extension of the field of definition multiplies both degree and denominator by the same amount."
         },
         {
           "name": "CMHeights.quaternion_point_height.check2",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "When [F:Q]>1, replacing the denominator by [F(P_U):Q] changes the value by 1/[F:Q] and is rejected."
         },
         {
           "name": "CMHeights.quaternion_point_height.check3",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For z=i and local section dz the norm is 2, not 1."
         }
       ],
@@ -2409,7 +2612,7 @@
       "sources": [
         {
           "sourceId": "Y",
-          "locator": "Proposition 5.7, p. 577; Proposition 5.5, pp. 574–576",
+          "locator": "Proposition 5.7, p. 577; Propositions 5.3–5.4 and Corollary 5.5, pp. 574–576",
           "match": "For the CM abelian variety A₀ over a good-reduction field K represented by the auxiliary PEL CM point, let N̄(A₀,τ) use the relative/image O_F Hodge determinants. Define N̄_U=L̄_U²(−d_𝔹). The target is an isometry N̄(A₀,τ)≅N̄_U|P̄_U⊗O_K. It includes the integral Kodaira–Spencer comparison at every prime and the complex Hodge/Petersson isometry; identifying raw ramified τ-quotients is a separate required theorem."
         }
       ],
@@ -2519,7 +2722,7 @@
         "Compute finite and ramified vertical corrections and match the modified intersection, including the e factor."
       ],
       "acceptance": [
-        "G-Adjunction records unread detailed ramified calculations; the local CM closure can be ramified."
+        "G-Adjunction retains the conormal, local-lift and vertical-correction verification after reading the detailed proof; the cover can ramify at a CM point, as recorded in E37."
       ],
       "prerequisites": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.7/quaternion-point-height",
@@ -2610,7 +2813,7 @@
       "sources": [
         {
           "sourceId": "A",
-          "locator": "AGHMP Theorem A, p. 392 and Theorem 9.5.5, pp. 525–526; Yuan–Zhang Theorem 1.1, p. 535",
+          "locator": "Theorem A, p. 392; Theorem 9.5.5, pp. 525–526",
           "match": "For every maximal-order CM field E/F with [F:Q]=g≥1, averaging over all 2^g types gives 2^(−g)Σ_Φ h_Falt(E,Φ)=−(L_f′/L_f)(0,χ_E/F)/2−log(D_E/D_F)/4−g log(2π)/2. Equivalently in the Yuan–Zhang metric the last term is absent. Imprimitive types are included. The individual Colmez conjecture is neither assumed nor proved."
         },
         {
@@ -2753,8 +2956,13 @@
       "sources": [
         {
           "sourceId": "T",
-          "locator": "Corollary 3.3 proof, pp. 383–384, repaired via the quadratic average; Yuan–Zhang Theorem 1.1, p. 535",
-          "match": "For fixed g and every ε>0, the quadratic Hecke character χ_E/F of every degree-2g CM field satisfies |(L_f′/L_f)(1,χ)|≤C_g,ε D_E^ε. With Q=D_E/D_F, functional equation gives the unscaled average as (log Q)/4+(L_f′/L_f)(1,χ)/2−gγ/2−g log(2π). Hence the absolute value of the average is ≤C′_g,ε D_E^ε."
+          "locator": "Corollary 3.3 proof, pp. 383–384, repaired via the quadratic average",
+          "match": "The subpolynomial derivative estimate needed for CM height growth is obtained by the entire quadratic Hecke route, in place of the printed general-Artin Cauchy step."
+        },
+        {
+          "sourceId": "Y",
+          "locator": "Theorem 1.1, p. 535",
+          "match": "The average height formula uses the finite quadratic Hecke logarithmic derivative. The varying-base derivative estimates are additional AN.4 analytic inputs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2951,8 +3159,13 @@
       "sources": [
         {
           "sourceId": "T",
-          "locator": "§5, p. 385; Tsimerman (2012), §7.1–7.2, preprint pp. 15–18",
+          "locator": "§5, p. 385",
           "match": "For a principally polarized CM point x∈A_g(Q̄), put R_x=Z(End(A_x)). After an isogeny decomposition A_x∼∏_i A_i^n_i into pairwise nonisogenous simple CM factors, R_x is a full order in E_x=∏_i K_i with maximal order O_x=∏_i O_Ki. A repeated isotypic power contributes its field once; nonisogenous factors with isomorphic abstract CM fields retain separate factors. Set D_x=|disc_Z R_x| using the trace form on E_x, and J_x=[O_x:R_x]."
+        },
+        {
+          "sourceId": "T12",
+          "locator": "§7.1–7.2, preprint pp. 15–18",
+          "match": "The general CM orbit invariant uses the full center order of the integral endomorphism ring, retaining distinct nonisogenous isotypic factors and their order indices."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2978,22 +3191,32 @@
           "name": "CMHeights.centre_order.isotypic",
           "role": "compatibility",
           "statement": "For a maximal-order simple A, the center of End(A^n) is O_E, with no n-fold field repetition."
+        },
+        {
+          "name": "CMHeights.centre_order.endomorphism_center",
+          "role": "constructor",
+          "statement": "Take the center of the actual integral End ring, embed it in the center of End⁰, and transport it through the isotypic decomposition. Rational identification does not replace this integral order by its integral closure."
+        },
+        {
+          "name": "CMHeights.centre_order.presentation_independent",
+          "role": "extensionality",
+          "statement": "Changing a Z-basis or permuting the isotypic factors preserves |disc R_x| and [O_x:R_x]. An isomorphism of polarized abelian varieties induces the compatible order isomorphism."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.centre_order.check1",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For a CM elliptic curve of conductor f in E, D_x=f²D_E."
         },
         {
           "name": "CMHeights.centre_order.check2",
-          "kind": "example",
-          "statement": "For E₀^n with E₀ simple CM, the center is its one CM field rather than an n-fold product."
+          "kind": "non-example",
+          "statement": "For A₀^n with A₀ simple CM, Z(End⁰(A₀^n)) is one CM field. The integral center is Z(End(A₀)), an order, and equals O_E only when End(A₀)=O_E; it is never an n-fold product."
         },
         {
           "name": "CMHeights.centre_order.check3",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "Two nonisogenous simple CM factors with isomorphic underlying fields still give two center factors."
         }
       ],
@@ -3030,8 +3253,13 @@
       "sources": [
         {
           "sourceId": "T12",
-          "locator": "Tsimerman (2012), §7.2, preprint p. 18, with the corrected index; Pila–Tsimerman (2013), Lemma 3.2, preprint p. 4",
+          "locator": "§7.2, preprint p. 18, with the order index distinguished from the compact index",
           "match": "For every CM point, D_x=J_x²∏_i D_Ki, with the factors indexed as in the center-order definition. This is the integral trace-pairing change-of-basis formula. The Mumford–Tate compact index is a different invariant and cannot replace J_x in this equality."
+        },
+        {
+          "sourceId": "PT",
+          "locator": "Lemma 3.2, preprint p. 4",
+          "match": "The trace-discriminant change of basis contributes the square of [O:R], rather than the square of an adelic compact-subgroup index."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3054,13 +3282,14 @@
       "statement": "For a primitive degree-2h CM type, let r:Cl(E*)→Cl(E) be its reflex ideal map and r̃=r∘Nm_L/E* for a normal closure L. There are dimension-only factors comparing |im r| with the absolute polarized moduli orbit of a maximal-CM realization. The relative marked orbit over E* is Cl(E*)/H, with H⊂ker r and [ker r:H]≤2^h. Passing to the absolute unmarked point changes sizes by at most the reflex degree and the finite number of CM markings, both bounded in h. Therefore the primitive absolute orbit bound gives a power lower bound on |im r|.",
       "hypotheses": [],
       "proofSteps": [
-        "Use the actual polarized reciprocity action and its unit obstruction.",
+        "Use the actual polarized reciprocity action. For arbitrary polarization data (I,ξ), a principal reflex image (u) fixes the polarized lattice precisely when its positive norm multiplier is uū up to a real unit norm. Thus the stabilizer quotient injects into O_F^{×,+}/Nm O_E×, of size at most 2^h. This proves the needed nonprincipal-polarization extension of the principal supplier statement.",
         "Bound the forgetful fiber by the embeddings E→End⁰(A)=E, hence by |Aut_Q E|≤2h.",
         "Compare relative and absolute point degrees via the compositum with E*, whose degree is bounded by (2h)!.",
         "Choose a maximal-CM polarized realization and apply the primitive orbit lower bound."
       ],
       "acceptance": [
-        "The source’s direct equality [Q(A):Q]=|Cl(E*)/H| is not used."
+        "The source’s direct equality [Q(A):Q]=|Cl(E*)/H| is not used.",
+        "A principally polarized maximal-CM realization need not exist for an arbitrary type. Choose a polarization of any type and derive its stabilizer equation from the lattice data before applying the unit bound."
       ],
       "prerequisites": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.11/primitive-orbit",
@@ -3109,8 +3338,13 @@
       "sources": [
         {
           "sourceId": "T",
-          "locator": "§5, p. 386; Tsimerman (2012), proof of Theorem 7.1, preprint p. 18",
+          "locator": "§5, p. 386",
           "match": "For finite number-field extension L/K, [Cl(K):Nm_L/K Cl(L)]≤[L:K]. For K=E* inside the normal closure of a degree-2h CM field this is bounded in h. Hence |im(r∘Nm)|≥|im r|/[L:E*], so its primitive positive-power discriminant bound persists."
+        },
+        {
+          "sourceId": "T12",
+          "locator": "Proof of Theorem 7.1, preprint pp. 17–18",
+          "match": "The relative reflex-class map is compared to the normal-closure map by the ideal-class norm. Its cokernel loss is bounded by the extension degree."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3188,8 +3422,13 @@
       "sources": [
         {
           "sourceId": "T12",
-          "locator": "Tsimerman (2012), Theorem 7.1 and equations (4)–(5), preprint pp. 17–20; Tsimerman (2018), §5, pp. 385–386",
+          "locator": "Theorem 7.1 and equations (4)–(5), preprint pp. 17–20",
           "match": "Fix g. Suppose every primitive degree-2h type for each 1≤h≤g has |im r̃|≥c_h D_E^δ_h with δ_h>0. Then every principally polarized CM point x∈A_g has |Gal(Q̄/Q)·x|≥c_g D_x^δ_g for some c_g,δ_g>0. This includes nonmaximal center orders, imprimitive types and repeated simple factors; the smaller-dimensional primitive inputs are all required."
+        },
+        {
+          "sourceId": "T",
+          "locator": "§5, pp. 385–386",
+          "match": "The primitive-field bounds feed the general order-discriminant Galois-orbit argument in every dimension h≤g, with bounded reflex/normal-closure losses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3225,8 +3464,13 @@
       "sources": [
         {
           "sourceId": "T",
-          "locator": "Theorem 5.2, pp. 385–386; Pila–Tsimerman (2014), Conjecture 7.1, p. 673",
+          "locator": "Theorem 5.2, pp. 385–386",
           "match": "For every g≥1 there are C_g,b_g>0 such that D_x≤C_g |Gal(Q̄/Q)·x|^b_g for every CM point x∈A_g(Q̄). Equivalently the absolute polarized coarse orbit has a uniform positive-power lower bound in the center-order discriminant. This is unconditional in all dimensions; it does not retain the older g≤6 or GRH restriction."
+        },
+        {
+          "sourceId": "PT14",
+          "locator": "Conjecture 7.1, p. 673",
+          "match": "This earlier conjectural orbit inequality is the input subsequently established unconditionally by Tsimerman (2018), not an additional proof of it."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3264,8 +3508,18 @@
       "sources": [
         {
           "sourceId": "T",
-          "locator": "Tsimerman (2018), §6.2, p. 387; Pila–Tsimerman (2013), §3, preprint pp. 3–9; (2014), Lemma 7.4, p. 675",
+          "locator": "§6.2, p. 387, using the corrected splitting-field degree adapter",
           "match": "For fixed g, the complex entries of a CM period matrix Z representing a point of A_g lie in a normal closure of the product center algebra, of degree at most (2g)!. The real and imaginary entries lie after adjoining i, so each has degree at most d_g=2·(2g)!. Integral symplectic fractional transformations preserve the complex field; taking real and imaginary parts is accounted for separately. This safe bound suffices, with no claim that each coordinate has degree≤2g."
+        },
+        {
+          "sourceId": "PT",
+          "locator": "§3, preprint pp. 3–9",
+          "match": "Embedding matrices of the CM lattices give algebraic period coordinates in a common normal closure; bounded center-order discriminant controls the height after quantitative reduction."
+        },
+        {
+          "sourceId": "PT14",
+          "locator": "Lemma 7.4 and proof, p. 675",
+          "match": "The bounded-discriminant finiteness argument uses a uniform algebraic degree bound for CM period coordinates together with their polynomial height bound."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3386,8 +3640,13 @@
       "sources": [
         {
           "sourceId": "PT",
-          "locator": "Pila–Tsimerman (2013), Theorem 3.1, preprint pp. 3–9; Tsimerman (2018), §6.2, p. 387",
+          "locator": "Theorem 3.1, preprint pp. 3–9",
           "match": "For every g≥1 there are C_g,a_g>0 such that each CM point x∈A_g has a representative Z∈F_g with max(1,max_ij H_abs(Z_ij),max_ij H_abs(Re Z_ij),max_ij H_abs(Im Z_ij))≤C_g D_x^a_g. H_abs is absolute multiplicative Weil height. Together with coordinate degree≤2·(2g)!, this is equivalent up to dimension-only powers to the naive algebraic-coordinate height convention needed for counting."
+        },
+        {
+          "sourceId": "T",
+          "locator": "§6.2, p. 387",
+          "match": "The lift-height estimate, with absolute algebraic height and the full center-order discriminant, is combined with the unconditional Galois-orbit bound."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3426,8 +3685,18 @@
       "sources": [
         {
           "sourceId": "MZ",
-          "locator": "Masser–Zannier (2020), §5.4, p. 667; Pila–Tsimerman (2014), Lemma 7.4, p. 675; Tsimerman (2018), Theorem 5.2, pp. 385–386",
-          "match": "For every g≥1 and N≥1, only finitely many CM points x∈A_g(Q̄) satisfy [Q(x):Q]≤N. The field is the polarized coarse moduli field. The general orbit bound bounds D_x by C_g N^b_g, then the lift-height and coordinate-degree bounds put all chosen representatives in a finite Northcott set. Thus any family with uniformly bounded moduli degrees contains only boundedly many distinct CM points, as used by Masser–Zannier; no bound on multiplicities in a parameterization is asserted."
+          "locator": "§5.4, p. 667",
+          "match": "Finiteness of CM points with bounded moduli degree is the consumer here; no Jacobian-isogeny-count result is imported."
+        },
+        {
+          "sourceId": "PT14",
+          "locator": "Lemma 7.4 and proof, p. 675",
+          "match": "CM points of bounded center-order discriminant form a finite set, using period-coordinate height, bounded degree and Northcott."
+        },
+        {
+          "sourceId": "T",
+          "locator": "Theorem 5.2, pp. 385–386",
+          "match": "The unconditional power lower bound for the absolute moduli orbit bounds the center-order discriminant when moduli degree is bounded."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3493,22 +3762,32 @@
           "name": "CMHeights.colmez_conjecture.linear_combination",
           "role": "compatibility",
           "statement": "Equality at a and b implies equality at each rational linear combination of a and b."
+        },
+        {
+          "name": "CMHeights.colmez_conjecture.of_generator_values",
+          "role": "constructor",
+          "statement": "Equality ht_H=Z̃ on H_CM follows from equality on every overlap generator; the predicate on all CM⁰ additionally needs the separately specified component-period functional."
+        },
+        {
+          "name": "CMHeights.colmez_conjecture.products_and_induction",
+          "role": "functoriality",
+          "statement": "Generator equalities transport under CM-pair isomorphisms, add under products and scale by the extension degree under induced types. An average equality alone does not establish a generator equality."
         }
       ],
       "tests": [
         {
           "name": "CMHeights.colmez_conjecture.check1",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "For the zero class function both linear maps vanish, irrespective of whether the predicate holds."
         },
         {
           "name": "CMHeights.colmez_conjecture.check2",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "For d=1 the averaged character is already the quadratic type character; the classical case supplies that equality."
         },
         {
           "name": "CMHeights.colmez_conjecture.check3",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "For linear maps f(x,y)=x and g(x,y)=y on Q², equality at (1,1) does not imply equality of the maps; reject an API deriving IndividualColmez from one averaged equality."
         }
       ],
@@ -3623,7 +3902,7 @@
   "requests": [
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A4",
-      "need": "Good-reduction abelian schemes, extension of morphisms and uniqueness over the normal CM base; use actual schemes and base change, not an abstract moduli placeholder.",
+      "need": "Import A4/etale-tate-module and A4/realization-conventions for the actual rank-2g Tate lattice, its arbitrary base change and its dual cohomological realization. Extension of homomorphisms over the normal CM base is A6/relative-hom-and-normal-extension, not A4.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/polarized-family"
       ]
@@ -3638,7 +3917,7 @@
     },
     {
       "supplier": "AbelianSchemesAndArithmeticModuli:A6",
-      "need": "Hom rigidity, rational endomorphisms, complete reducibility, finite isogeny kernels and extension to good-reduction schemes; coarse polarized isomorphism is distinguished from an unpolarized isogeny.",
+      "need": "Hom rigidity, rational endomorphisms, complete reducibility, finite isogeny kernels and extension to good-reduction schemes; coarse polarized isomorphism is distinguished from an unpolarized isogeny. In particular use A6/relative-hom-and-normal-extension over a locally noetherian normal base to extend the polarization and CM morphisms once good models exist.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/cm-actions",
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6/different-graph-datum",
@@ -3647,7 +3926,8 @@
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/centre-order",
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/compact-index",
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.13/cm-coordinate-degree",
-        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.13/cm-symplectic-reduction"
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.13/cm-symplectic-reduction",
+        "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/polarized-family"
       ]
     },
     {
@@ -3691,7 +3971,7 @@
     },
     {
       "supplier": "AutomorphicLFunctionsAndLocalFactors:AL.1",
-      "need": "Finite-image Artin characters, induction, conductor-discriminant compatibility, ramification-group conductor exponents and finite quadratic Hecke factors; regularity and nonvanishing at zero for the CM odd-character combination are required without assuming general Artin holomorphy.",
+      "need": "Finite-image Artin characters, induction, conductor-discriminant compatibility, ramification-group conductor exponents and finite quadratic Hecke factors; regularity and nonvanishing at zero for the CM odd-character combination are required without assuming general Artin holomorphy. Its cm-quadratic-completion and cm-logarithmic-gamma-correction state the exact quadratic completion and gamma adapter; the varying-base analytic estimates and Artin-conductor bounds are supplied by AN.4.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0/cm-class-functions",
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0/average-character",
@@ -3723,8 +4003,8 @@
       ]
     },
     {
-      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5",
-      "need": "Newton cocharacters, slope decompositions and the slope-1/2 supersingularity criterion for the supplied CM abelian family.",
+      "supplier": "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2/dieudonne-slopes",
+      "need": "The slope multiset and Dieudonné–Manin classification of R07.2, with the usual slope-1/2 supersingularity criterion. The CM Newton-cocharacter calculation is proved here; the R07.5 inertia-character stage is not its supplier.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/newton-and-nonsplit"
       ]
@@ -3761,14 +4041,14 @@
     },
     {
       "supplier": "GrossZagierAndArithmeticHeights:GZ.0",
-      "need": "One common analytic/arithmetic normalization: arithmetic Artin, finite L-functions, Petersson metric, degree denominator [F(P):F], units e and all archimedean constants.",
+      "need": "One common analytic/arithmetic normalization: arithmetic Artin, finite L-functions, Petersson metric, degree denominator [F(P):F], units e and all archimedean constants. The artin-map-convention and identity-rescaling nodes give the convention adapters; the elliptic regulator normalization is not substituted for an arithmetic CM Hodge degree.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/modified-self-intersection"
       ]
     },
     {
       "supplier": "GrossZagierAndArithmeticHeights:GZ.2",
-      "need": "Admissible arithmetic curve pairings, Green functions and adjunction with vertical corrections on the integral model, including ramified horizontal CM closures.",
+      "need": "Admissible arithmetic curve pairings, Green functions and adjunction with vertical corrections on the integral model, including ramified horizontal CM closures. Use arithmetic-intersection-gluing, admissible-arithmetic-extension and colmez-residue-line, rather than the degree-zero Jacobian pairing alone.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/modified-self-intersection",
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/arithmetic-adjunction"
@@ -3776,14 +4056,14 @@
     },
     {
       "supplier": "GrossZagierAndArithmeticHeights:GZ.6",
-      "need": "Retain the noncuspidal/degenerate terms in the Yuan–Zhang analytic derivative and geometric height kernels; export their modified self-intersection rather than a formula only after cuspidal projection. Carry the existing paper E43/E44/E51/E52 audits into the comparison.",
+      "need": "Retain the noncuspidal/degenerate terms in the Yuan–Zhang analytic derivative and geometric height kernels; export their modified self-intersection rather than a formula only after cuspidal projection. Carry the existing paper E43/E44/E51/E52 audits into the comparison. The concrete interfaces are colmez-pseudo-comparison, colmez-torus-average and the colmez kernel nodes; generating-series-arithmetic-theta-lifting-and-the-kernel-identity supplies only a cuspidal projection.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/modified-self-intersection"
       ]
     },
     {
       "supplier": "GrossZagierAndArithmeticHeights:GZ.7",
-      "need": "Whittaker/intersection lengths at all finite places, including the compensated S₂ normalization, dyadic and ramified CM adjunction terms, with exact unit and different factors.",
+      "need": "Whittaker/intersection lengths at all finite places, including the compensated S₂ normalization, dyadic and ramified CM adjunction terms, with exact unit and different factors. Read colmez-omega-self, colmez-modified-projection, colmez-arithmetic-adjunction and colmez-s2-assumption with their complete compact maximal-order hypotheses.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/modified-self-intersection",
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/arithmetic-adjunction"
@@ -3855,7 +4135,7 @@
     },
     {
       "supplier": "PELModuli:M6",
-      "need": "Fine rigid level and descent over the polarized coarse residue field: degree≤3^(4g²) for level three, then a common field for A and B with transported polarization. Supply bounded-level injectivity of the torus orbit; unpolarized coarse descent is not an acceptable replacement.",
+      "need": "Fine rigid level and descent over the polarized coarse residue field: degree≤2·3^(4g²) after the level-three marking and adjoining μ₃, then a common field for A and B with transported polarization. Supply bounded-level injectivity of the torus orbit; unpolarized coarse descent is not an acceptable replacement.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.11/common-definition-field",
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.11/primitive-orbit",
@@ -3879,7 +4159,7 @@
     },
     {
       "supplier": "ShimuraData:D3",
-      "need": "Shimura data for tori and the cocharacter/reflex-field dictionary, used to define the distinguished zero-dimensional CM datum.",
+      "need": "Import the Hodge cocharacter conjugacy class, its Galois stabilizer and reflex-field/flag-variety dictionary. The category of Shimura data and torus subdata is D4, available through ShimuraVarieties:V4/torus-model; D3 alone is not asserted to construct a torus canonical model.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/height-torus"
       ]
@@ -3949,7 +4229,7 @@
     {
       "id": "G-Colmez",
       "title": "Primary height-linearity theorem",
-      "detail": "Colmez (1993), pp. 627–632 and Theorem 0.3 have now been read at statement level. The theorem specifies the full functional by component-period values, not by total heights alone. The underlying monomial period relations and local comparison proofs remain unread. Prove the exact sign/conductor/unscaled-metric adapter and linear-relation compatibility on H_CM, with maximal-order type invariance, products and induction. Do not infer uniqueness on all CM⁰ from overlap values.",
+      "detail": "Colmez (1993), pp. 630–632 and Theorem 0.3 have now been read at statement level. The theorem specifies the full functional by component-period values, not by total heights alone. The underlying monomial period relations and local comparison proofs remain unread. Prove the exact sign/conductor/unscaled-metric adapter and linear-relation compatibility on H_CM, with maximal-order type invariance, products and induction. Do not infer uniqueness on all CM⁰ from overlap values.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0/colmez-linearity"
       ],
@@ -4039,7 +4319,7 @@
     {
       "id": "G-CMKisin",
       "title": "All-prime CM Kisin classification proof",
-      "detail": "The revised author erratum pp. 3–9 is read; its underlying integral classification references are not. Obtain the actual all-prime rank-one CM BK construction, semilinear embedding permutation, reduction modulo the different, and extension of all generic unit automorphisms.",
+      "detail": "The revised author erratum pp. 3–9 is read; its underlying integral classification references are not. Obtain the actual all-prime rank-one CM BK construction, semilinear embedding permutation and reduction modulo the different. Once the integral torsion isomorphism is established, scalar units of O_E/δ_E/F extend its chosen generic isomorphism: this last unit argument is routine, not an additional source gap (rejected E22).",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6/cm-kisin-torsion"
       ],
@@ -4067,7 +4347,7 @@
     {
       "id": "G-IntegralKS",
       "title": "Ramified integral Kodaira–Spencer comparison",
-      "detail": "Yuan–Zhang Propositions 5.4–5.5 use raw component quotients whose local freeness is not automatic. Establish integral Kodaira–Spencer on relative/image Hodge lattices and its exact comparison with N(A,τ), including the different twist and archimedean metric. The determinant of an O_E-linear rank-two Hom is not the rank-one O_B-linear deformation condition.",
+      "detail": "Yuan–Zhang Proposition 5.4 and Corollary 5.5 use raw component quotients whose local freeness is not automatic. Establish integral Kodaira–Spencer on relative/image Hodge lattices and its exact comparison with N(A,τ), including the different twist and archimedean metric. The determinant of an O_E-linear rank-two Hom is not the rank-one O_B-linear deformation condition.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.7/quaternion-hodge-comparison"
       ],
@@ -4085,7 +4365,7 @@
     {
       "id": "G-Adjunction",
       "title": "Detailed ramified arithmetic adjunction",
-      "detail": "Theorem 9.3 and its setup are read but the full pp. 631–635 local proof is not. Verify the conormal/different calculation, invariant lift and vertical correction at ramified CM points on the actual integral model; an étale-section simplification is unavailable.",
+      "detail": "Theorem 9.3 and the full §9.2 proof, pp. 629–635, have been read. Supply the conormal/different calculation and vertical correction on the actual integral model, using the invariant local lift in Lemmas 9.4–9.5. The level projection can ramify at an elliptic CM point: its pulled-back horizontal divisor has multiplicity e, so the sentence on p. 633 calling that projection étale cannot justify the section assertion. The existing GZ.7/colmez-modified-projection target states the needed section and multiplicity explicitly; verify its local-model proof before closure.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/arithmetic-adjunction"
       ],
@@ -4094,7 +4374,7 @@
     {
       "id": "G-HeckeUniform",
       "title": "Uniform quadratic Hecke analytic estimates",
-      "detail": "The quadratic Hecke L-function is entire and permits Cauchy bounds; a general Artin function is not assumed entire. Establish fixed-degree uniform lower bounds at 1 and bounds on L′(1,χ)/L(1,χ), with varying totally real base field and constants depending only on g and ε. The named primary analytic estimates are unread.",
+      "detail": "The quadratic Hecke L-function is entire and permits Cauchy bounds; a general Artin function is not assumed entire. Establish fixed-degree uniform lower bounds at 1 and bounds on L′(1,χ)/L(1,χ), with varying totally real base field and constants depending only on g and ε. The named primary analytic estimates are unread. The exact supplier targets quadratic-hecke-cauchy-derivative and quadratic-hecke-log-derivative-one have been checked; the gate concerns their primary analytic estimates and uniform constants, not the absence of a stated supplier interface.",
       "neededBy": [
         "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.10/quadratic-hecke-bound"
       ],
@@ -4154,7 +4434,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E1",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E1"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E1",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The resultant valuation is the positive cross-pair sum. For a ramified quadratic factor it is v_C(2√π)>0; the printed negative sum cannot be a length.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E2",
@@ -4170,7 +4455,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E2",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E2"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Proposition 9.4.5 and (9.4.13) use the same negative sign carried from Lemma 9.4.4. The repaired conductor formula gives a nonnegative length.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E3",
@@ -4186,7 +4476,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E3",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E3"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E3",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The trace-one top de Rham class has absolute period (2π)^r. An arbitrary generator can differ by a unit; only the global normalized degree discards its product-formula contribution.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E4",
@@ -4202,7 +4497,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E4",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E4"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The standard form Q₀ is positive definite, so [z,z̄]₀>0 for z≠0. Its negative is not a squared hermitian norm.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E5",
@@ -4211,14 +4511,19 @@
       "locator": "Equation (9.5.3), p. 523",
       "printed": "A full orthogonal lattice is identified with the proposed scalar rescaling of the standard CM lattice.",
       "correction": "Replace the full-lattice step by a proved comparison of the actual integral filtered Hodge lines; G-OrthogonalAdapter retains the missing argument.",
-      "reason": "The different-ideal scaling on the two lattices does not follow from the displayed scalar norm equation.",
+      "reason": "The different-ideal scaling on the two lattices does not follow from the displayed scalar norm equation. For example, locally F_p=Q_p, E_p/Q_p unramified quadratic and ξ=−p² give a maximal integral lattice p⁻¹O_E,p for Q(x)=ξ Nm(x). With L₀=O_E,p and d_F=1, the printed right side is p²O_E,p, a different lattice. The norm-ideal goodness condition can be met with a=p⁻¹O_E,p.",
       "affects": "the proof",
       "known": "Already recorded in PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E6; no separate published correction was established in the sources examined.",
       "searched": [
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E6",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E6"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The integral lattice scaling in (9.5.3) fails already in the explicit unramified quadratic local example in the reason. The Hodge-line adapter remains a gate rather than using that equality.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E6",
@@ -4234,7 +4539,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E7",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E7"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E7",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A finite étale change of CM level multiplies an arithmetic degree and its weighted complex degree together, while the naked log D_F term stays fixed. The comparison therefore needs normalized degrees.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E7",
@@ -4250,7 +4560,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E11",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E11"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E11",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The representation in Proposition 3.5.2 is N_p. The displayed Λ_p has not been defined in that statement; substituting N_p restores the tensor-functor types.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E8",
@@ -4266,7 +4581,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E12",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E12"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E12",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The prime is declared nonsplit in E in the hypotheses and crystal calculation. A prime of F cannot be called nonsplit in F in this assertion.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E9",
@@ -4282,7 +4602,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E23",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E23"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E23",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Finite-image irreducible characters span locally constant central functions via finite quotients, not every continuous class function. Only the former domain is used by the conductor calculation.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E10",
@@ -4298,7 +4623,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E24",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E24"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E24",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Equation (9.5.5) discards supported bad-prime logarithms. Its required conclusion at a chosen good p is coefficientwise modulo the other primes, rather than an unconditional exact intermediate equality.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E11",
@@ -4314,7 +4644,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E25",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E25"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E25",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A condition annihilating every represented coefficient would annihilate the nonzero constant term as well. Restricting the forbidden support to negative principal-part indices supplies the needed proper intersection condition.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E12",
@@ -4330,7 +4665,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E32",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E32"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E32",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On the diagonal G_m the norm N_F/Q is t↦t^d. Its kernel is μ_d. The kernel torus of T→T_so is G_m only through the norm quotient, as the node now distinguishes.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E13",
@@ -4346,7 +4686,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E34",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E34"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E34",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For a ramified quadratic local extension the uniformizer class has order two in E_p×/F_p× but does not come from local units. Thus the unit-image K_so,p can be smaller than the maximal compact.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E14",
@@ -4362,7 +4707,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E35",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E35"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E35",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The extension proof on pp. 426–427 supplies the F-crystal on the étale CM locus. The packet correctly separates the everywhere integral de Rham bundle and geometric-point crystalline comparisons from that locus.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E15",
@@ -4378,7 +4728,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E1",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E1"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E1",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The original arbitrary-isogeny assertion is the error explicitly replaced by Theorem 1 of the read author erratum. Its graph-of-different-torsion restriction is retained in CMH.6.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E16",
@@ -4394,7 +4749,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E2",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E2"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E2",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The target on p. 11 must have the same different-torsion ideal as its source. A target indexed by a single uniformizer is not the displayed isomorphism when the different exponent exceeds one.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E17",
@@ -4410,7 +4770,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E3",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E3"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E3",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The ramified embedding quotient O_L/(2√p) is nonzero torsion, so tensoring need not preserve the asserted exact locally free sequence. The replacement determinant comparison is explicitly unresolved.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E18",
@@ -4426,7 +4791,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E4",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E4"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E4",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For Q(i) at p=5, both embeddings land in Q₅ and no element of G_Q₅ interchanges their images. The global involution can instead pair the complete product of embeddings.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E19",
@@ -4442,7 +4812,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E5",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E5"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E5",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At p=2 in Q(√17,√−7), the reduction of the split algebra is F₂⁴, which no one element generates over F₂. Unramified enlargement and factorwise monogenicity repair the argument.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E20",
@@ -4458,7 +4833,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E6",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E6"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E6",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The introductory formula on p. 537 lacks the absolute field-degree normalization present on p. 544. Without it, extending the definition field scales the component height.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E21",
@@ -4474,7 +4854,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E31",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E31"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E31",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Proposition 5.4 uses ramified raw component quotients. The same opposite-eigenvalue torsion test as E17 prevents treating them as free lines without the stated image/relative comparison.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E22",
@@ -4490,7 +4875,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E40",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E40"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E40",
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected as an additional gap. Once an integral O_E-linear different-torsion isomorphism exists, every generic O_E-linear automorphism is multiplication by a unit in O_E/δ. Lift that scalar to O_E to obtain an integral endomorphism; its inverse modulo δ is also integral. Composing extends any chosen generic isomorphism. The rank-one argument on p. 11 already uses this fact; the underlying CM Kisin classification remains a separate gate.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E23",
@@ -4498,15 +4888,20 @@
       "sourceId": "YE",
       "locator": "Erratum CM Kisin formulas, pp. 7–9",
       "printed": "The Frobenius multiplier notation suppresses the permutation of coefficient embeddings.",
-      "correction": "Write φ(e_ι)=a_ι e_(φ∘ι) with semilinear coefficients, or use the explicit linearized Frobenius pullback.",
-      "reason": "Frobenius acts nontrivially on unramified coefficient embeddings; a fixed-idempotent formula changes the module.",
+      "correction": "For the semilinear map retain the permutation of unramified coefficient idempotents. Alternatively use the linearized map 1⊗φ:φ*M→M, labeling its source factors after Frobenius pullback; its multiplication formula can then be diagonal.",
+      "reason": "Semilinear Frobenius permutes unramified embedding factors. This is a notation/convention warning: it does not refute the diagonal formula for the explicitly linearized map already used in the author erratum.",
       "affects": "nothing",
       "known": "Already recorded in PAPER-YUAN-ZHANG-18/E41; no separate published correction was established in the sources examined.",
       "searched": [
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E41",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E41"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E41",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only as a notation warning: semilinear φ permutes coefficient embeddings, while 1⊗φ on φ*M can be diagonal with correctly relabeled source factors. The printed linearized formula is not itself refuted.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E24",
@@ -4514,7 +4909,7 @@
       "sourceId": "YE",
       "locator": "Erratum Frobenius contraction, p. 7",
       "printed": "The asserted contraction is used at a starting exponent that can equal one.",
-      "correction": "Start sufficiently deep, in particular n≥2, so the Frobenius filtration strictly increases.",
+      "correction": "Choose n≥max(2,e_v), rather than merely n≥e_v. In the coefficient DVR, each type-product constant has valuation e_v, while p has valuation 2e_v; at n≥2 the iterated product is in (p,u).",
       "reason": "If the local ramification index is one, a bound n≥e_v alone does not ensure the claimed strict contraction.",
       "affects": "the proof",
       "known": "Already recorded in PAPER-YUAN-ZHANG-18/E42; no separate published correction was established in the sources examined.",
@@ -4522,7 +4917,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E42",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E42"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E42",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "When e_v=1, n≥e_v allows n=1, whose single type-product constant has valuation one while p has valuation two. Taking n≥max(2,e_v) makes the required product divisible by p and restores the contraction step.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E25",
@@ -4538,23 +4938,33 @@
         "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json, sourceIssues/E9",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-TSIMERMAN-18/E9"
+      "sourceIssueReference": "PAPER-TSIMERMAN-18/E9",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The Cauchy argument for arbitrary Artin functions needs holomorphy not provided unconditionally. The entire quadratic Hecke function with the exact varying-base AN.4 estimates supplies the needed repaired route.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E26",
       "kind": "gap",
       "sourceId": "T",
       "locator": "Lemma 4.1 and Theorem 4.2 proof, pp. 384–385",
-      "printed": "Coarse descent and the common-field bound are used without consistently retaining the polarization transported to B.",
+      "printed": "The level-three argument treats an unpolarized abelian variety as rigid and then uses a common field without keeping the polarization transported to its quotient.",
       "correction": "Descend polarized objects with rigid level three; transport λ_A along the E-linear isogeny and use a common field of degree bounded by the product of the two polarized moduli degrees times dimension constants.",
-      "reason": "A polarization on B chosen independently need not be carried by the fixed E-linear isogeny, and unpolarized descent does not yield the stated comparison.",
+      "reason": "For a degree-2g maximal-CM abelian variety with g≥2, O_E× has positive rank. Its reduction modulo 3 has finite image, hence a nontrivial unit lies in 1+3O_E and gives an unpolarized automorphism acting trivially on A[3]. Polarized automorphisms are finite and admit the required rigidity. For the quotient B, the pullback along g₀:B→A of λ_A is defined over the quotient field; an unrelated chosen polarization need not be.",
       "affects": "the proof",
       "known": "Already recorded in PAPER-TSIMERMAN-18/E10; no separate published correction was established in the sources examined.",
       "searched": [
         "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json, sourceIssues/E10",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-TSIMERMAN-18/E10"
+      "sourceIssueReference": "PAPER-TSIMERMAN-18/E10",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The positive-rank unit kernel modulo 3 gives a concrete counterexample to unpolarized level-three rigidity. Polarized rigidification, adjoining μ₃ and transporting the quotient polarization give the bounded common field actually used here.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E27",
@@ -4570,23 +4980,33 @@
         "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json, sourceIssues/E11",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-TSIMERMAN-18/E11"
+      "sourceIssueReference": "PAPER-TSIMERMAN-18/E11",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A real uniform lower bound suffices; stable Faltings heights can be negative in the unscaled convention. The packet and suggested max(1,h,[K:Q]) do not impose the unnecessary positivity.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E28",
       "kind": "error",
       "sourceId": "T",
       "locator": "CM coordinate degree, §6.2, p. 387",
-      "printed": "The displayed degree bound for the CM lift coordinates is too small in general.",
+      "printed": "The field degree of the entire CM period-matrix point is bounded by 2g.",
       "correction": "Use the splitting-field bound (2g)! for complex entries and 2(2g)! for real/imaginary entries; bounded degree is all the argument needs.",
-      "reason": "The coordinates come from composita of CM embeddings, rather than necessarily a single degree-2g field.",
+      "reason": "The joint field is governed by the reflex-type stabilizer, not just one embedding of E. A primitive sextic CM field with full signed permutation Galois group C₂³⋊S₃ has eight CM types in one orbit, so its type plane, and hence the field generated by its period matrix, has degree eight, exceeding six. This concerns the joint field and does not assert that every individual coordinate has degree greater than 2g.",
       "affects": "a stated result",
       "known": "Already recorded in PAPER-TSIMERMAN-18/E12; no separate published correction was established in the sources examined.",
       "searched": [
         "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json, sourceIssues/E12",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-TSIMERMAN-18/E12"
+      "sourceIssueReference": "PAPER-TSIMERMAN-18/E12",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The claim on p. 387 concerns the joint degree of the period-matrix point. The eight-element reflex-type orbit for full signed sextic CM data exceeds 2g=6. The normal-closure bound used by the packet is sufficient for the later absolute-degree finiteness argument.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E29",
@@ -4602,7 +5022,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E33",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E33"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E33",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The norm of a product algebra is a product of norm images. A Q_p factor makes the common quotient trivial, even if another summand has a nontrivial separate norm quotient. The printed direct sum is not that quotient.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E30",
@@ -4618,7 +5043,12 @@
         "research/blueprint/papers/PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18.result.json, sourceIssues/E36",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E36"
+      "sourceIssueReference": "PAPER-ANDREATTA-GOREN-HOWARD-ETAL-18/E36",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At the specified geometric point the Witt ring is W(k̄_y). Replacing it by the finite-residue-field Witt ring omits the indicated geometric base change.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E31",
@@ -4634,7 +5064,12 @@
         "research/blueprint/papers/PAPER-YUAN-ZHANG-18.result.json, sourceIssues/E32",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E32"
+      "sourceIssueReference": "PAPER-YUAN-ZHANG-18/E32",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At the changed real place the unconstrained O_E-linear deformation Hom has rank two; the O_B-linear curve deformation direction has rank one. The quaternionic and polarization conditions cannot be dropped.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E32",
@@ -4650,7 +5085,12 @@
         "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json, sourceIssues/cm-centre-order-discriminant",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-TSIMERMAN-18/cm-centre-order-discriminant"
+      "sourceIssueReference": "PAPER-TSIMERMAN-18/cm-centre-order-discriminant",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In arXiv:1103.5619v2, p. 18, the discriminant formula uses the compact index I. The trace-form identity instead uses J=[O_x:R_x]; Lemma 7.2 supplies a separate comparison. The journal text was not obtained, so the verdict concerns only this preprint.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E33",
@@ -4666,7 +5106,12 @@
         "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json, sourceIssues/cm-lattice-bounded-basis",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-TSIMERMAN-18/cm-lattice-bounded-basis"
+      "sourceIssueReference": "PAPER-TSIMERMAN-18/cm-lattice-bounded-basis",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In arXiv:1106.4023v1, p. 4, the embedding covolume misses the square root and complex-place factor. Z[i] has ordinary covolume one. The publisher endpoint did not supply a PDF, so no journal-text finding is asserted.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E34",
@@ -4682,22 +5127,74 @@
         "research/blueprint/papers/PAPER-TSIMERMAN-18.result.json, sourceIssues/cm-siegel-reduction-height",
         "The primary version identified in sources and its cited corrections; public publisher/author erratum search on 2026-10-19."
       ],
-      "sourceIssueReference": "PAPER-TSIMERMAN-18/cm-siegel-reduction-height"
+      "sourceIssueReference": "PAPER-TSIMERMAN-18/cm-siegel-reduction-height",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The preprint proof uses e_RJ⊂I⊂J, so the intermediate isogeny/lattice index depends on e_R=[O_A:R]. A maximal-algebra discriminant bound alone omits this dependence; the final Disc(R) theorem can retain it.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     },
     {
       "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E35",
       "kind": "error",
       "sourceId": "A",
-      "locator": "Theorem 9.1.5, p. 509, compared with Colmez (1993), Theorem 0.3, p. 631",
+      "locator": "Theorem 9.1.5, p. 510, compared with Colmez (1993), Theorem 0.3, p. 631",
       "printed": "The full CM⁰ functional is asserted to be uniquely specified by its values on the total-height overlap functions.",
       "correction": "State uniqueness on H_CM, their Q-span. For the full CM⁰ functional retain Colmez’s extra component-period values and prove the normalization adapter.",
       "reason": "All a⁰_Φ(c)=0, while the constant function 1 belongs to CM⁰. Evaluation at c therefore gives a nonzero linear functional vanishing on every specified overlap. Also all overlaps are inversion-invariant, unlike general members of CM⁰. Colmez’s original theorem uses component characters, not just overlaps.",
       "affects": "a stated result",
       "known": "Domain/uniqueness discrepancy identified in this planning pass by comparing the two primary statements. No separate published correction was established; the underlying existence and averaged-height results are not refuted by this counterexample.",
       "searched": [
-        "AGHMP Theorem 9.1.5, p. 509; Colmez component generators, p. 630 and Theorem 0.3, p. 631.",
+        "AGHMP Theorem 9.1.5, p. 510; Colmez component generators, p. 630 and Theorem 0.3, p. 631.",
         "Direct finite-quotient checks on C2 and C6; comparison with the existing paper-audit sourceIssues."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The actual AGHMP Theorem 9.1.5 is on p. 510. Evaluation at c annihilates every overlap a⁰_Φ but not the constant function, disproving unrestricted uniqueness from these values. Colmez p. 630 uses additional component generators, as the repaired domain states.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
+    },
+    {
+      "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E36",
+      "kind": "misprint",
+      "sourceId": "T",
+      "locator": "§2.2, p. 382, regulator comparison in the class-number argument",
+      "printed": "The regulators of the CM field and its maximal real subfield are identified.",
+      "correction": "Use R_E/R_F=2^(g−1)/Q_E, with Q_E∈{1,2}. Only upper and lower bounds depending on g are needed.",
+      "reason": "For a sextic CM field the unit rank is two, and the ratio is two or four, so equality fails. Both native regulator and unit-index statements are present at the Mathlib pin; the class-number exponent is unchanged.",
+      "affects": "nothing",
+      "known": "New finding in this review; no separate correction was located in the bounded author/publisher search.",
+      "searched": [
+        "https://annals.math.princeton.edu/2018/187-2/p02 (checked 2026-10-19)",
+        "https://www.math.toronto.edu/jacobt/ and title/regulator erratum search (2026-10-19)",
+        "Mathlib CMField.lean at 082e2d37e8b0463410cdb532e111cd43d5a66174, regulator ratio and real-unit index statements"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The actual pinned formula gives 2^(g−1)/Q_E with Q_E one or two; in degree six this ratio is two or four. Fixed-dimension comparability preserves the argument on p. 382.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
+    },
+    {
+      "id": "ComplexMultiplicationAndExplicitReciprocityPartII/E37",
+      "kind": "misprint",
+      "sourceId": "Y",
+      "locator": "§9.2, p. 633, sentence following Lemma 9.4 on p. 632",
+      "printed": "The level projection π is called étale when explaining that the lifted CM closure is a section.",
+      "correction": "Establish the section over the indicated unramified local base from the CM local model, retaining the elliptic ramification index e of π and the multiplicity e in π*P.",
+      "reason": "At a CM point with e>1 the finite map has a nonreduced geometric fiber of multiplicity e, as the same paragraph records. An étale morphism has reduced geometric fibers, so this cover cannot be étale there. The adjunction target already retains the local lift and modified projection formula instead.",
+      "affects": "the proof",
+      "known": "New finding in this review; the read author erratum corrects Theorem 2.7 and does not address this sentence.",
+      "searched": [
+        "Annals 187 (2018), pp. 632–635, Lemmas 9.4–9.5 and their proof",
+        "https://web.math.princeton.edu/~shouwu/publications/Erratum5.pdf (18 December 2022 revision, read 2026-10-19)",
+        "https://annals.math.princeton.edu/2023/198-2/p08 (journal erratum identified; full journal text not obtained)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The sentence on p. 633 calls the projection étale and then records multiplicity e at its CM fiber. For e>1 this is impossible for an étale map. Retain the section/lift construction and ramification in the modified projection formula.",
+        "by": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII"
+      }
     }
   ],
   "routeCoverage": [
@@ -5438,12 +5935,474 @@
     "audit": "Read base CM.0–CM.6 library-coverage records, all four paper routes, exact cited supplier targets/stages, linked CM ownership records, current upstream roadmap additions and current Tau Ceti library. Read source statements at the pinned commits before citing baseline declarations.",
     "currentUpstreamRoadmapsCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
     "currentTauCetiCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
-    "sourceDiscipline": "All source matches and issue descriptions are our own mathematical statements; no source passages or section-by-section source summaries are stored."
+    "sourceDiscipline": "All source matches and issue descriptions are our own mathematical statements; no source passages or section-by-section source summaries are stored.",
+    "independentReview": {
+      "agent": "Codex",
+      "session": "codex-hUQQOA",
+      "job": "REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+      "issue": 3510,
+      "date": "2026-10-19",
+      "independence": "The original design was by codex-jxfcHU, issue 3405; this reviewer did not write it."
+    }
   },
   "validation": {
     "blueprint": "scripts/check_blueprint.py: 0 errors, 0 warnings on 2026-10-19; rerun after any edit.",
     "lean": "Suggested file elaborated with lean-check at the pinned shared build; exit 0, only expected admitted-proof warnings. No carriers or data definitions are supplied by admitted terms.",
     "routeCoverage": "All 94 distinct items in the four routes are mapped to targets: 1 Masser–Zannier, 21 Tsimerman, 56 AGHMP, 16 Yuan–Zhang.",
     "implementation": "Every node is unchecked; complete denotes the target-level planning pass, not proof closure."
+  },
+  "sourceVersions": [
+    {
+      "sourceId": "T",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p02-p.pdf",
+      "citation": "Annals 187 (2018), 379–390",
+      "read": "2026-10-19",
+      "sha256": "43259ca3cfedfb574bf1fe2f80e1023cb736ea299a76588536fd816340722abc",
+      "scope": "Entire article, §§1–6, pp. 379–390"
+    },
+    {
+      "sourceId": "A",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p03-p.pdf",
+      "citation": "Annals 187 (2018), 391–531",
+      "read": "2026-10-19",
+      "sha256": "e1274468312566b3b062e9612cd89818349e9c98cf9e58a728f85704b740c6bb",
+      "scope": "Introduction, pp. 391–396; §3, pp. 414–431; §9, pp. 508–526; statements of Theorems 6.4.2 and 8.3.4; local source repairs listed below"
+    },
+    {
+      "sourceId": "Y",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf",
+      "citation": "Annals 187 (2018), 533–638",
+      "read": "2026-10-19",
+      "sha256": "29dfd5f19dec401116f1eaf0305305acf5f2fc68aa3c90d4eb6e5222de50d507",
+      "scope": "§1, pp. 534–541; §2.2, pp. 544–550; §4.2, pp. 566–568; §5.2–5.3, pp. 573–577; §9.1–9.2, pp. 624–635, including the complete adjunction proof"
+    },
+    {
+      "sourceId": "YE",
+      "kind": "author copy",
+      "url": "https://web.math.princeton.edu/~shouwu/publications/Erratum5.pdf",
+      "citation": "Author revision dated 18 December 2022, 11 pages; journal erratum Annals 198 (2023), 867–878 not collated",
+      "read": "2026-10-19",
+      "sha256": "18b46acd0f6be352d4bc5b4d7797650be3e228712e13de94bbb45ec25b576c91",
+      "scope": "Entire revised author erratum, §§1–3, pp. 1–11"
+    },
+    {
+      "sourceId": "T12",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1103.5619v2",
+      "citation": "arXiv:1103.5619v2, preprint pagination; JAMS 25 (2012), 1091–1117 edition identified but not collated",
+      "read": "2026-10-19",
+      "sha256": "009738151269039a3a8afc231c4af6bad3cb7e6756d8967c58c111ed191e980d",
+      "scope": "§7.1–7.2, pp. 15–20"
+    },
+    {
+      "sourceId": "PT",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1106.4023v1",
+      "citation": "arXiv:1106.4023v1, preprint pagination; Compositio 149 (2013), 204–216 edition identified but not collated",
+      "read": "2026-10-19",
+      "sha256": "c84c82b6df4b3c59b015228658005fd2fca11aac87948094ab1cc75cab0b599d",
+      "scope": "§3: CM coordinates and height bounds; preprint pagination"
+    },
+    {
+      "sourceId": "PT14",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v179-n2-p05-p.pdf",
+      "citation": "Annals 179 (2014), 659–681",
+      "read": "2026-10-19",
+      "sha256": "261af339f1ff909701e74bc2e28fd9c77d186fb4df9e6eeb0b2aa411718143a7",
+      "scope": "§7, Conjecture 7.1, p. 673 and Lemma 7.4, p. 675"
+    },
+    {
+      "sourceId": "MZ",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf",
+      "citation": "Annals 191 (2020), 635–674, public supplemental article PDF",
+      "read": "2026-10-19",
+      "sha256": "8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60",
+      "scope": "§5.4, CM-point finiteness consumer"
+    },
+    {
+      "sourceId": "C",
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~pierre.colmez/artin.pdf",
+      "citation": "Annals 138 (1993), 625–683; author-hosted scan",
+      "read": "2026-10-19",
+      "sha256": "58bfe161fbcdb8605c9c2fe50bbd390404376388db1133a0c5d53714e8125f01",
+      "scope": "Component generators and Theorem 0.3, pp. 630–631; Conjecture 0.4, p. 632; underlying period-relation proofs remain a gate"
+    }
+  ],
+  "editionChecks": [
+    {
+      "sourceId": "YE",
+      "published": "https://annals.math.princeton.edu/2023/198-2/p08",
+      "doi": "10.4007/annals.2023.198.2.8",
+      "result": "Publisher metadata identifies Annals 198 (2023), 867–878. The available author revision has 11 pages. No public final PDF was obtained; G-ErratumEdition remains open."
+    },
+    {
+      "sourceId": "T12",
+      "published": "https://doi.org/10.1090/S0894-0347-2012-00739-5",
+      "result": "The public AMS PDF endpoint returned HTTP 403. E32 is limited to the downloaded arXiv v2; no claim about the journal wording is made."
+    },
+    {
+      "sourceId": "PT",
+      "published": "https://doi.org/10.1112/S0010437X12000589",
+      "result": "The Cambridge content endpoint returned HTML rather than a PDF. E33–E34 are limited to the downloaded arXiv v1; no claim about the journal wording is made."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ComplexMultiplicationAndExplicitReciprocityPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review against the nine identified public texts, all nine pinned baseline declarations, the reviewed CM library audit, exact supplier statements and current upstream ownership. Corrected hypotheses, local coefficient base, slope/extension suppliers, orbit invariance, nonprincipal reciprocity, API/test coverage and source locators, separating combined citations by their actual editions. All 69 targets are verified or corrected as planning targets, with 21 explicit proof/edition gates and no layer marked proof-closed. All 37 source findings have individual verdicts (36 confirmed, E22 rejected); three publisher editions remain explicitly uncollated. Reader, roadmap and compact native-carrier suggested file are synchronized.",
+    "checked": [
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0/cm-class-functions",
+        "verdict": "corrected",
+        "note": "Checked CM⁰ versus its proper total-height span, finite quotient refinement and odd-character regularity; added finite-quotient constructor, evaluation extensionality and linear structure."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0/colmez-linearity",
+        "verdict": "verified",
+        "note": "Verified the statement on H_CM against AGHMP p. 510 and Colmez pp. 630–631, with the explicit primary period/normalization gate; no unrestricted uniqueness is asserted."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0/average-character",
+        "verdict": "verified",
+        "note": "Checked all 2^d types, the factor 1/(2d), d=1,2 specializations, induction conductor D_E/D_F and the finite-L archimedean constant."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/height-torus",
+        "verdict": "corrected",
+        "note": "Checked the character annihilator, dimension, distinguished cocharacter and μ_d diagonal kernel; added quotient construction, character extensionality and CM-isomorphism transport."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/integral-level",
+        "verdict": "corrected",
+        "note": "Checked the local unit-image exact sequence and ramified uniformizer non-example; added subgroup construction and extensionality and corrected test categories."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/integral-cm-model",
+        "verdict": "verified",
+        "note": "Verified the maximal-level inertia argument, non-neat stack/coarse distinction in V4, and absence of an unramifiedness claim at arbitrary smaller levels."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/total-reflex-pair",
+        "verdict": "corrected",
+        "note": "Added the positive-integer scaling making the polarization integral on O_E♯; checked product CM algebra, dimension and embedding-set descent and transport API."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/polarized-family",
+        "verdict": "corrected",
+        "note": "Added integrality of the alternating form on the actual full lattice and the A6 normal-base extension prerequisite. A4 supplies the Tate realization, not the extension theorem."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.1/reflex-average",
+        "verdict": "verified",
+        "note": "Checked orbit decomposition into reflex pairs, the 1/(2d) height identity and use of linearity/product additivity without the individual conjecture."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/local-crystalline",
+        "verdict": "verified",
+        "note": "Checked the local reciprocity/Lubin–Tate comparison and restriction to the image torus at the actual completed CM point; the claimed property is rational crystallinity."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/integral-bk-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the Eisenstein polynomial to that of the actual ramified completed local ring O_y over W(k̄_y), retaining φ* and the dual Tate convention."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/integral-realizations",
+        "verdict": "verified",
+        "note": "Checked homological versus cohomological duality, geometric Witt vectors and the F-crystal restriction to the étale locus."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/integral-tensor-torsor",
+        "verdict": "verified",
+        "note": "Checked the unramified/maximal-level open and tensor stabilizer; absolute-Hodge compatibility and its unread primary proof remain explicit G-AbsoluteHodge."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/cm-actions",
+        "verdict": "verified",
+        "note": "Checked rational T-action versus integral endomorphisms and the tautological T_E-action; extension uses the imported normal-base Hom theorem."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/standard-line",
+        "verdict": "corrected",
+        "note": "Corrected the explanation of the positive metric and source locator; added scalar construction and evaluation-at-one extensionality/transport."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/tautological-crystal",
+        "verdict": "verified",
+        "note": "Checked the distinguished Lubin–Tate factor, the other Frobenius-trivial factors and the cohomological dual-Tate convention at a geometric point."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.2/newton-and-nonsplit",
+        "verdict": "corrected",
+        "note": "Corrected the source to Propositions 3.6.1–3.6.2 and Lemma 3.6.3; replaced the inertia stage R07.5 by the actual R07.2 slope and Dieudonné–Manin targets."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3/determinant-section",
+        "verdict": "corrected",
+        "note": "Checked determinant variance and effectiveness from the actual graded-action map; added its construction and vanishing/base-change API."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3/dvr-partition",
+        "verdict": "corrected",
+        "note": "Checked complete DVR, invertible B-module, all embeddings and unramified factorization hypotheses; added quotient universal map and length/base-change transport."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3/partition-length",
+        "verdict": "verified",
+        "note": "Checked the positive cross-resultant valuation, complement symmetry and ramified quadratic test; no global monogenicity assumption is used."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3/local-conductor",
+        "verdict": "corrected",
+        "note": "Checked finite-quotient domain, conjugacy averaging and inflation compatibility; added linearity and uniqueness on finite quotients without a measure claim."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3/conductor-length",
+        "verdict": "verified",
+        "note": "Checked diagonal different exponent, negative off-diagonal values and the positive e_P/2 length identity, including unramified-factor additivity."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3/volume-and-metric",
+        "verdict": "verified",
+        "note": "Checked the trace-one top period (2π)^r and normalized degree. The complete integral metrized isometry remains G-Metric."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3/local-total-reflex",
+        "verdict": "corrected",
+        "note": "Checked the local type restriction multiplicity and character calculation. The separate all-prime filtered quotient identification remains G-IntegralReflex. Corrected the final local calculation locator to p. 522."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.3/reflex-height-bridge",
+        "verdict": "corrected",
+        "note": "Checked powers of two, normalized complex degrees and log D_F term; finite étale level changes scale both degrees. Corrected the final local calculation locator to p. 522."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.4/orthogonal-line-adapter",
+        "verdict": "verified",
+        "note": "Checked the supported-error Hodge-line target and explicit rejection of the printed full-lattice identity; the precise integral comparison remains G-OrthogonalAdapter."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.4/orthogonal-error",
+        "verdict": "verified",
+        "note": "Checked d≥2, nonzero constant coefficient, proper intersection and bad-prime support against Theorems 6.4.2 and 8.3.4; long primary proofs remain G-GSpin."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.4/good-auxiliary",
+        "verdict": "corrected",
+        "note": "Corrected Definition 5.3.3 to p. 460; checked trace/sign and norm-ideal goodness and added local-data construction and isometric change API."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.4/auxiliary-choice",
+        "verdict": "corrected",
+        "note": "Corrected theorem kinds in the locator; checked narrow norm image and unramified sign case, retaining the primary Armitage gate."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.4/prime-elimination",
+        "verdict": "verified",
+        "note": "Checked why two auxiliary choices only give logarithmic support and why each good prime needs a support-controlled negative principal part; G-Borcherds remains open."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.4/quadratic-classical",
+        "verdict": "verified",
+        "note": "Checked the d=1 formula and unscaled metric constant; the primary period-formula proof remains G-Classical rather than applying the d≥2 argument."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.5/component-invariance",
+        "verdict": "verified",
+        "note": "Checked maximal-order/type hypotheses, normalized component degree and the product of all p-adic embeddings rather than nonexistent simultaneous local conjugation."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.5/height-decomposition",
+        "verdict": "verified",
+        "note": "Checked the two reflex-order discriminants and averaged −log D_F/4 correction; the existing primary Hodge-filtration supplier gate is retained."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.5/nearby-height",
+        "verdict": "corrected",
+        "note": "Checked unordered edges, half-sum and conjugate pair; added edge construction and CM-algebra transport."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.5/cube-average",
+        "verdict": "verified",
+        "note": "Checked every component appears once and each unoriented edge twice in the required height sum, including g=1."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6/different-graph-datum",
+        "verdict": "corrected",
+        "note": "Checked specified ideal-torsion graph and good-reduction data against the read revised author erratum; added constructor and graph extensionality."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6/cm-kisin-torsion",
+        "verdict": "verified",
+        "note": "Checked the proposed all-prime complementary-type multiplier target, linearized Frobenius indexing and the deep-start repair; primary CM classification remains a gate. E22 supplies no extra unit-extension gap."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6/integral-graph",
+        "verdict": "verified",
+        "note": "Checked extension of the specified graph after making torsion constant, conjugation modulo the different, and the O_E-linear self-duality target."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6/relative-determinant-cancellation",
+        "verdict": "corrected",
+        "note": "Corrected the original proposition locator to p. 575; retained the explicit ramified image/relative determinant gate instead of asserting exactness of raw tensor quotients."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6/corrected-nearby",
+        "verdict": "verified",
+        "note": "Checked the graph-only corrected height identity and factor 1/2; it is conditional on the ramified determinant comparison, not on original arbitrary-isogeny Theorem 2.7."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.6/quaternion-graph",
+        "verdict": "verified",
+        "note": "Checked split and division local order models and ideal different torsion. Primary maximal-order classification, including the dyadic split case, remains G-QuaternionOrders."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.7/auxiliary-quaternion",
+        "verdict": "verified",
+        "note": "Checked compactness, disjoint finite ramification, E-embedding and prime-avoidance hypotheses; no arithmetic adjunction or height identity is imported from group algebra."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.7/quaternion-point-height",
+        "verdict": "corrected",
+        "note": "Removed the claim that all CM points form one reciprocity orbit: functoriality gives invariance within an orbit, and the later formula gives full independence. Added point construction and field-extension API."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.7/quaternion-hodge-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the source to Propositions 5.3–5.4 and Corollary 5.5; retained the different twist, metric and ramified Kodaira–Spencer gate."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.7/quaternion-height-bridge",
+        "verdict": "verified",
+        "note": "Checked the nearby-edge combinatorics and cancellation of different twists, with the relative curve-height denominator and exact quaternion/real discriminant term."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/modified-self-intersection",
+        "verdict": "verified",
+        "note": "Checked Theorem 9.1 and its assembly, unit e and both discriminants. Exact noncuspidal GZ colmez targets are identified; local kernel proofs remain G-YZKernels."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/arithmetic-adjunction",
+        "verdict": "corrected",
+        "note": "Read the full pp. 629–635 proof and identified the non-étale cover slip E37. Retained invariant local lifts, multiplicity e, conormal and vertical corrections as G-Adjunction."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.8/quaternion-height",
+        "verdict": "verified",
+        "note": "Checked cancellation of the same modified self-intersection/unit factor between Theorems 9.1 and 9.3; sign and discriminant ratio agree."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.9/averaged-colmez",
+        "verdict": "corrected",
+        "note": "Checked both alternative branches, their d=1 boundary and the h_YZ-to-unscaled adapter. No individual Colmez conjecture or quantitative orbit theorem enters either branch."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.10/relative-class-number",
+        "verdict": "verified",
+        "note": "Checked maximal-order class numbers, fixed-degree ineffective Brauer–Siegel, discriminant inequality and the actual regulator ratio; added missing source slip E36."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.10/distant-isogenies",
+        "verdict": "verified",
+        "note": "Checked relative class-number exponent versus degree-uniform near-linear ideal counting and exclusion of small-degree maps; the pinned X² count is explicitly insufficient."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.10/quadratic-hecke-bound",
+        "verdict": "corrected",
+        "note": "Checked unconditional quadratic Hecke completion, uniformity in the varying real base and finite-L conventions against exact AN.4 targets; retained the primary estimate gate."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.10/individual-height",
+        "verdict": "verified",
+        "note": "Checked the real dimension-only lower bound and average-to-individual inequality with all types; no positivity assumption on an individual height is used."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.11/common-definition-field",
+        "verdict": "verified",
+        "note": "Checked polarized level-three descent, μ₃ factor, ideal-kernel quotient and transported polarization against M6/bounded-field-of-definition; synchronized the request bound."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.11/exponent-budget",
+        "verdict": "verified",
+        "note": "Checked strict inequalities and order of choices δκ<a<1/4 and εκ<a; matches the native numerical signature."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.11/primitive-orbit",
+        "verdict": "verified",
+        "note": "Checked geometric isogeny degree bound with actual common field and max(1,h,[k:Q]), and absorption of constants for the chosen exponents."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/centre-order",
+        "verdict": "corrected",
+        "note": "Corrected the repeated-factor test to distinguish the integral center order from its rational center field; added actual-center construction and presentation invariance."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/order-discriminant",
+        "verdict": "corrected",
+        "note": "Checked the exact index-square identity for the full center product, separated from all Mumford–Tate compact indices."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/primitive-reciprocity-image",
+        "verdict": "corrected",
+        "note": "Extended the principal-only CM.2 supplier argument explicitly to arbitrary polarizations via (I,ξ); bounded the unit obstruction and relative/absolute marked/unmarked fibers without assuming a principal maximal-CM realization."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/norm-image",
+        "verdict": "corrected",
+        "note": "Checked the class norm cokernel bound via the Hilbert class-field intersection and the bounded normal-closure degree; norm maps and reflex maps are distinguished."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/compact-index",
+        "verdict": "verified",
+        "note": "Checked the separate local comparison retaining the field-discriminant factor, and the need for sufficiently deep dyadic exponential. Uniform local proof remains G-TorusIndex."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/general-orbit-reduction",
+        "verdict": "corrected",
+        "note": "Checked primitive factors in every dimension h≤g, normal-closure norm loss, compact index and bad-prime factor B^#S; quantitative orbit/moduli injectivity remains G-TorusOrbit."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.12/all-cm-orbit",
+        "verdict": "corrected",
+        "note": "Checked absorption of the bad-prime loss and combination of order index and field discriminants to a positive power of D_x with g-only constants."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.13/cm-coordinate-degree",
+        "verdict": "corrected",
+        "note": "Checked rational homology linear algebra over the normal closure and adjoining i separately, giving (2g)! and 2(2g)!. Refined E28 to the joint field actually claimed by the source."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.13/bounded-cm-basis",
+        "verdict": "verified",
+        "note": "Checked 2^(−g)√D covolume, bounded-degree integral-basis/minima inputs and conductor-index dependence; generic lattice duality is not treated as quantitative reduction."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.13/cm-symplectic-reduction",
+        "verdict": "verified",
+        "note": "Checked analytic h₀ versus absolute algebraic height, arbitrary center orders and repeated isotypic hermitian factors; the precise quantitative supplier refinement remains G-PeriodReduction."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.13/cm-lift-height",
+        "verdict": "corrected",
+        "note": "Checked all dimensions, full center-order D_x and the coordinate-degree adapter; it states absolute multiplicative Weil height rather than only analytic period size."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.13/bounded-degree-cm",
+        "verdict": "corrected",
+        "note": "Checked D_x bounded by the absolute polarized orbit, polynomial lift height, bounded algebraic coordinate degree and Qbar Northcott; no fixed-field substitution or André–Oort input is used."
+      },
+      {
+        "nodeId": "ComplexMultiplicationAndExplicitReciprocityPartII:CMH.0/colmez-conjecture",
+        "verdict": "corrected",
+        "note": "Checked the predicate on the actual height span and its generator equivalence; added generator construction and product/induction compatibility without assuming it in any proof."
+      }
+    ]
   }
 }
