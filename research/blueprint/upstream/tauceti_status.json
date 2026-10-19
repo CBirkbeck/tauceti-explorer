@@ -1,6 +1,6 @@
 {
   "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
-  "updated": "2026-10-19T17:50Z",
+  "updated": "2026-10-19T18:00Z",
   "roadmaps": {
     "SchemeAndStackFoundations": {
       "stage": "main",
@@ -457,7 +457,7 @@
     "ArithmeticLocallySymmetricSpaces": {
       "stage": "pr",
       "pr": 871,
-      "head": "d824ab9",
+      "head": "fa3b7a1",
       "depends_on": [
         792,
         793,
@@ -467,8 +467,9 @@
       "review": {
         "recommendation": "changes",
         "head": "d824ab9",
-        "current": true,
-        "date": "2026-10-12"
+        "current": false,
+        "date": "2026-10-12",
+        "note": "final-review repairs applied at fa3b7a1; confirmation pass pending"
       }
     },
     "DeformationAndDerivedPatchingAlgebraPartII": {
@@ -574,7 +575,7 @@
     "ModularCurvesPartII": {
       "stage": "pr",
       "pr": 913,
-      "head": "5eb074a",
+      "head": "50fdda9",
       "note": "N3 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "approve",
@@ -600,7 +601,7 @@
     "GlobalGaloisDeformations": {
       "stage": "pr",
       "pr": 920,
-      "head": "ed5a28c",
+      "head": "29e415c",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); companions DeformationAndDerivedPatchingAlgebra R03 and LocalGaloisDeformationRings cited by name (the latter being ported next); draft until the red team and a deep review pass",
       "review": {
         "recommendation": "approve",
@@ -629,7 +630,7 @@
     "LocalGaloisDeformationRings": {
       "stage": "pr",
       "pr": 923,
-      "head": "2ddf094",
+      "head": "3132915",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); companion of GlobalGaloisDeformations; draft until the red team and a deep review pass; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at 15bab3b; draft awaiting re-review",
       "review": {
         "recommendation": "approve",
@@ -641,7 +642,7 @@
     "AutomorphicLFunctionsAndLocalFactors": {
       "stage": "pr",
       "pr": 924,
-      "head": "54ce95e",
+      "head": "a004576",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
       "review": {
         "recommendation": "approve",
@@ -653,7 +654,7 @@
     "AutomorphicSpectralTheory": {
       "stage": "pr",
       "pr": 925,
-      "head": "8e0edb5",
+      "head": "4b0c2fa",
       "note": "N3 CHANGES answered 10-16; draft",
       "review": {
         "recommendation": "changes",
@@ -879,7 +880,7 @@
     "HilbertModularVarietiesAndShimuraCurves": {
       "stage": "pr",
       "pr": 1005,
-      "head": "85c7a8b",
+      "head": "250e889",
       "note": "ported 2026-10-16 (tier 14); both red-team passes + first ChatGPT Pro round answered; draft",
       "review": {
         "recommendation": "approve",
@@ -915,7 +916,7 @@
     "SerreWeightAndLevelOptimisation": {
       "stage": "pr",
       "pr": 1013,
-      "head": "f145be8",
+      "head": "b3015b4",
       "note": "ported 2026-10-16 (tier 19); first red-team pass applied, second pass running; first ChatGPT Pro round received; draft",
       "review": {
         "recommendation": "approve",
@@ -939,7 +940,7 @@
     "ClassicalSerreModularity": {
       "stage": "pr",
       "pr": 1020,
-      "head": "017501a",
+      "head": "5d32d1d",
       "note": "ported 2026-10-16 from the accepted explorer package (tier 24); red team running",
       "review": {
         "recommendation": "changes",
@@ -1011,7 +1012,7 @@
     "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": {
       "stage": "pr",
       "pr": 1036,
-      "head": "aeefa1e",
+      "head": "0aed419",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 72); red team running",
       "review": {
         "recommendation": "approve",
@@ -1120,7 +1121,7 @@
     "EllipticCurveModularityImaginaryQuadratic": {
       "stage": "pr",
       "pr": 1048,
-      "head": "886bca7",
+      "head": "b859dc9",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 73); red team running",
       "review": {
         "recommendation": "changes",
@@ -1192,7 +1193,7 @@
     "OrdinaryAutomorphicFormsAndModularityLifting": {
       "stage": "pr",
       "pr": 1066,
-      "head": "8972a7c",
+      "head": "f9355df",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 64); red team running",
       "review": {
         "recommendation": "changes",
@@ -1240,7 +1241,7 @@
     "GL2ModularityLifting": {
       "stage": "pr",
       "pr": 1071,
-      "head": "d923507",
+      "head": "da07622",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 65); red team running",
       "review": {
         "recommendation": "changes",
@@ -1288,7 +1289,7 @@
     "HodgeTateAndCanonicalSubgroups": {
       "stage": "pr",
       "pr": 1084,
-      "head": "8917ea7",
+      "head": "c024ddc",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 48); red team running",
       "review": {
         "recommendation": "changes",
@@ -1432,7 +1433,7 @@
     "ArithmeticStatisticsPartVI": {
       "stage": "pr",
       "pr": 1176,
-      "head": "330cff2",
+      "head": "f227b2e",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; Part VI of the ArithmeticStatistics split); red team running",
       "review": {
         "recommendation": null,
@@ -1468,7 +1469,7 @@
     "ModularityAndLanglandsExtensions": {
       "stage": "pr",
       "pr": 1180,
-      "head": "f81ef45",
+      "head": "c4750c6",
       "note": "ported 2026-10-18 from the accepted explorer package (Caraiani–Newton closure; final tier before CrystallineLocalGlobalCompatibilityCM); red team running",
       "review": {
         "recommendation": null,
