@@ -68,13 +68,13 @@
       {
         "ref": "tauceti:TauCeti.SplitK0.finrankEquiv",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/FiniteDimensionalVectorSpace.lean",
-        "provides": "Split K₀ of finite-dimensional vector spaces is additively equivalent to ℤ by dimension. Identification with the connective K₀ model remains the owning K-theory roadmap’s comparison.",
+        "provides": "For a division ring k with Small.{v} k, split K₀ of FGModuleCat.{v} k is additively equivalent to ℤ by dimension. The smallness condition is automatic when scalars and carriers have the same universe. Identification with the connective K₀ model remains the owning K-theory roadmap’s comparison.",
         "checked": "Statement read at the recorded pinned commits, 2026-10-19."
       },
       {
         "ref": "tauceti:TauCeti.SplitK0.finrankEquiv_of",
         "module": "TauCeti/CategoryTheory/GrothendieckGroup/FiniteDimensionalVectorSpace.lean",
-        "provides": "The dimension equivalence takes an object class to its dimension; in particular a line has value 1.",
+        "provides": "With the same Small.{v} k hypothesis, the dimension equivalence takes an object class to its dimension; in particular a line has value 1.",
         "checked": "Statement read at the recorded pinned commits, 2026-10-19."
       }
     ]
@@ -89,6 +89,7 @@
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
       "accessed": "2026-10-19",
       "readSections": [
+        "II.6.4.1, printed p.120 / PDF p.128: localization as a quotient of finitely generated module categories; checked in independent review.",
         "III.1.5.4, printed p.185 / PDF p.193; III.1.7.1 and its following paragraph, printed p.187 / PDF p.195.",
         "III.6.1–6.1.5, printed pp.231–232 / PDF pp.239–240; III.6.3–6.5.3, printed pp.234–238 / PDF pp.242–246.",
         "III.7.1–7.6.4, printed pp.245–252 / PDF pp.253–260; the residue and norm theory is imported from its existing owners.",
@@ -121,7 +122,7 @@
       ],
       "acceptance": [
         "At ℚ with the 5-adic valuation: t₅(2,5)=2, D₂Φ₂{2,5}=3; t₅(5,2)=3, D₂Φ₂{5,2}=2; D₂Φ₂{5,5}=4 in 𝔽₅ˣ. These distinguish inversion from the identity.",
-        "D₁Φ₁{π}=1 and D₃Φ₃{u,v,π}=Φ₂{ū,v̄}; the sign alternates with the total degree, not with the valuation of π.",
+        "D₁Φ₁{π}=1. For k=ℚ(t), R=k[[π]] and x={2,t,π}, D₃Φ₃(x)=Φ₂{2,t}. The t-adic boundary of the right side is 1/2∈ℚˣ, while that of its negative is 2. This detects the positive degree-three sign; a finite-field K₂ target cannot do so.",
         "All-unit symbols have zero boundary. δ₂ and D₂ have the same kernel and inverse values, but their map equality is never asserted.",
         "Transport through θ₂ carries ε explicitly. A finite-field K₂=0 test cannot determine that sign."
       ],
@@ -262,23 +263,38 @@
       "tests": [
         {
           "name": "MilnorK.globalResidueHom_empty",
-          "statement": "For V empty the codomain is trivial and every input maps to zero. For x=0 all coordinates are zero for any V."
+          "statement": "For V empty the codomain is trivial and every input maps to zero. For x=0 all coordinates are zero for any V.",
+          "kind": "degenerate"
+        },
+        {
+          "name": "MilnorK.globalResidueHom_principal_divisor",
+          "kind": "compatibility",
+          "statement": "For F=ℚ and V the rational primes, globalResidueHom(V,1){25/2} has coefficient −1 at 2, coefficient 2 at 5, and zero elsewhere. These are the coefficients of the existing principal divisor of 25/2; degree zero of each residue group is ℤ, not a residue-field unit group."
         },
         {
           "name": "MilnorK.globalResidueHom_rational_symbol",
-          "statement": "For F=ℚ and V the rational primes, globalResidueHom(V,2){2,5} has only its 5-coordinate nontrivial, with value 2∈𝔽₅ˣ. The coordinate at 2 is 1 because 𝔽₂ˣ is trivial. The Quillen-boundary coordinate is 3 at 5."
+          "statement": "For F=ℚ and V the rational primes, globalResidueHom(V,2){2,5} has only its 5-coordinate nontrivial, with value 2∈𝔽₅ˣ. The coordinate at 2 is 1 because 𝔽₂ˣ is trivial. The Quillen-boundary coordinate is 3 at 5.",
+          "kind": "computation"
         },
         {
           "name": "MilnorK.globalResidueHom_steinberg",
-          "statement": "For the same family, {2,−1}={2,1−2} maps to zero at every prime. Its entries have a nonzero-order support at 2, so the support bound can be strict."
+          "statement": "For the same family, {2,−1}={2,1−2} maps to zero at every prime. Its entries have a nonzero-order support at 2, so the support bound can be strict.",
+          "kind": "computation"
         },
         {
           "name": "MilnorK.globalResidueHom_inverse_and_diagonal",
-          "statement": "For ℚ at the prime 5, {5,2} has coordinate 3 and {5,5} has coordinate 4. Adding a symbol to its additive inverse yields the zero direct-sum element."
+          "statement": "For ℚ at the prime 5, {5,2} has coordinate 3 and {5,5} has coordinate 4. Adding a symbol to its additive inverse yields the zero direct-sum element.",
+          "kind": "computation"
+        },
+        {
+          "name": "MilnorK.globalResidueHom_degree_three",
+          "kind": "computation",
+          "statement": "For k=ℚ(t), F=k((π)) and V the singleton π-adic family, globalResidueHom(V,3){2,t,π} has coordinate {2,t}∈K⁽ᴹ⁾₂(k). Its image under Φ₂ has t-adic Quillen boundary 1/2∈ℚˣ. The actual D₃ has the positive coordinate Φ₂{2,t}; negating it would give t-adic boundary 2."
         },
         {
           "name": "MilnorK.globalResidueHom_infinite_family",
-          "statement": "For V=ℕ with every indexed valuation the same 5-adic valuation on ℚ, {2,5} has the nontrivial coordinate 2 at every index. Finite character fails, so this input cannot be sent to a dependent direct sum by the proposed coordinates."
+          "statement": "For V=ℕ with every indexed valuation the same 5-adic valuation on ℚ, {2,5} has the nontrivial coordinate 2 at every index. Finite character fails, so this input cannot be sent to a dependent direct sum by the proposed coordinates.",
+          "kind": "non-example"
         }
       ]
     },
@@ -379,7 +395,7 @@
     {
       "id": "K2SymbolsBrauer:T.3/milnor-quillen-transfer-comparison",
       "from": "K2SymbolsBrauer--T.3",
-      "use": "The equality of the two finite-field transfers in degree two stays imported for every finite extension, including inseparable ones.",
+      "use": "The equality of the two finite-field transfers in degree two stays imported for every finite extension, including inseparable ones. First reduce an arbitrary finite extension to a tower of simple extensions using transitivity of both transfers. Apply T.4/transfer-base-change only to those simple steps before prime-to-p detection; it is not cited as an arbitrary-extension theorem.",
       "normalization": "Use N^Q Φ₂,E=Φ₂,F N^M. A constant ε commutes with both additive transfers, so this is equivalent to the earlier normalized classical statement; higher-degree transfer equality is not asserted.",
       "prerequisites": [
         "K2SymbolsBrauer:T.4/milnor-transfer-transitivity",
@@ -502,11 +518,17 @@
   "suggestedLean": {
     "policy": "Compact statements over carriers that exist at the pins. Milnor/Quillen groups and every new target remain README-only until their owner constructions exist. The file calibrates inversion, direct-sum sign transport and existing determinant norms; it supplies no axiomatized substitute K-groups.",
     "compiled": true,
-    "validation": "lean-check at the recorded pins, 2026-10-19: exit 0; only nine proof-placeholder warnings; 96 lines, no data definitions. Available memory before checking: 83 GB."
+    "validation": "Independent review: lean-check at the recorded pins, 2026-10-19: exit 0; only ten proof-placeholder warnings; 101 lines, no data definitions. Available memory before checking: 80 GB."
   },
   "author": {
     "agent": "Codex",
     "session": "codex-QcGmv4",
     "date": "2026-10-19"
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-K2SymbolsBrauer--T.3-localization-comparison",
+    "date": "2026-10-19",
+    "notes": "Independent review by Codex, session codex-sr7SnE (#10786), of codex-QcGmv4’s plan. Accepted as a complete planning pass with coverage planned, not closed. Corrected the ineffective finite-field degree-three sign check, added degree-one and degree-three total-residue tests and all required test kinds, made the Small universe hypothesis explicit, and reduced the two-transfer proof to simple extensions before invoking its base-change input. Two supplier requests and two inherited gap records remain explicit. See the review report for source, baseline, dependency and validation checks."
   }
 }
