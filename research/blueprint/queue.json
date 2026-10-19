@@ -148806,6 +148806,277 @@
    "prompt": "research/blueprint/prompts/FIX-PKG-GeneralAlgebraicKTheory~adv.md",
    "note": "deliverables arrived from an external worker on issue #10924",
    "finishedAt": "2026-10-19T14:14:13Z"
+  },
+  {
+   "id": "FIX-PKG-RankZeroOneBSD~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "RankZeroOneBSD"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-RankZeroOneBSD~adv.md",
+    "research/blueprint/packages/RankZeroOneBSD/review.json",
+    "research/blueprint/packages/RankZeroOneBSD/README.md",
+    "research/blueprint/packages/RankZeroOneBSD/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-RankZeroOneBSD~adv.md"
+  },
+  {
+   "id": "REV-PKG-SpecialValuesBirchTate~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "SpecialValuesBirchTate"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-SpecialValuesBirchTate~adv.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/review.json",
+    "research/blueprint/packages/SpecialValuesBirchTate/README.md",
+    "research/blueprint/packages/SpecialValuesBirchTate/Suggested.lean",
+    "research/blueprint/packages/SpecialValuesBirchTate/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-SpecialValuesBirchTate~adv.md"
+  },
+  {
+   "id": "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ComplexMultiplicationAndExplicitReciprocity"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv.md",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/review.json",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/README.md",
+    "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv.md"
+  },
+  {
+   "id": "FIX-PKG-GrossZagierAndArithmeticHeights~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GrossZagierAndArithmeticHeights"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-GrossZagierAndArithmeticHeights~adv.md",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/review.json",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/README.md",
+    "research/blueprint/packages/GrossZagierAndArithmeticHeights/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-GrossZagierAndArithmeticHeights~adv.md"
+  },
+  {
+   "id": "BP-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "outputs": [
+    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
+    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems--ES.0.md",
+    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean",
+    "research/blueprint/handoff/BP-EulerSystemsAndKolyvaginSystems--ES.0~4.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-EulerSystemsAndKolyvaginSystems--ES.0~4.md",
+   "scope": [
+    "EulerSystemsAndKolyvaginSystems:ES.0",
+    "EulerSystemsAndKolyvaginSystems:ES.1",
+    "EulerSystemsAndKolyvaginSystems:ES.2",
+    "EulerSystemsAndKolyvaginSystems:ES.3",
+    "EulerSystemsAndKolyvaginSystems:ES.4",
+    "EulerSystemsAndKolyvaginSystems:ES.5",
+    "EulerSystemsAndKolyvaginSystems:ES.6",
+    "EulerSystemsAndKolyvaginSystems:ES.7"
+   ],
+   "after": [
+    "REV-EulerSystemsAndKolyvaginSystems--ES.0~3"
+   ],
+   "revisionOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0"
+  },
+  {
+   "id": "REV-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 205900,
+   "roadmapIds": [
+    "EulerSystemsAndKolyvaginSystems"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-EulerSystemsAndKolyvaginSystems--ES.0~4.md",
+    "research/blueprint/packets/EulerSystemsAndKolyvaginSystems--ES.0.json",
+    "research/blueprint/readmes/EulerSystemsAndKolyvaginSystems--ES.0.md",
+    "research/blueprint/suggested/EulerSystemsAndKolyvaginSystems--ES.0.lean"
+   ],
+   "after": [
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~4"
+   ],
+   "avoidAccountOf": "BP-EulerSystemsAndKolyvaginSystems--ES.0~4",
+   "independentOf": [
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0",
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~2",
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~3",
+    "BP-EulerSystemsAndKolyvaginSystems--ES.0~4"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "BP-NoncommutativeAndEquivariantIwasawa~3",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "NoncommutativeAndEquivariantIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+    "research/blueprint/readmes/NoncommutativeAndEquivariantIwasawa.md",
+    "research/blueprint/suggested/NoncommutativeAndEquivariantIwasawa.lean",
+    "research/blueprint/handoff/BP-NoncommutativeAndEquivariantIwasawa~3.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-NoncommutativeAndEquivariantIwasawa~3.md",
+   "scope": [
+    "NoncommutativeAndEquivariantIwasawa:NE.0",
+    "NoncommutativeAndEquivariantIwasawa:NE.1",
+    "NoncommutativeAndEquivariantIwasawa:NE.2",
+    "NoncommutativeAndEquivariantIwasawa:NE.3",
+    "NoncommutativeAndEquivariantIwasawa:NE.4",
+    "NoncommutativeAndEquivariantIwasawa:NE.5",
+    "NoncommutativeAndEquivariantIwasawa:NE.6",
+    "NoncommutativeAndEquivariantIwasawa:NE.7"
+   ],
+   "after": [
+    "REV-NoncommutativeAndEquivariantIwasawa~2"
+   ],
+   "revisionOf": "BP-NoncommutativeAndEquivariantIwasawa"
+  },
+  {
+   "id": "REV-NoncommutativeAndEquivariantIwasawa~3",
+   "kind": "review",
+   "priority": 1,
+   "order": 313500,
+   "roadmapIds": [
+    "NoncommutativeAndEquivariantIwasawa"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-NoncommutativeAndEquivariantIwasawa~3.md",
+    "research/blueprint/packets/NoncommutativeAndEquivariantIwasawa.json",
+    "research/blueprint/readmes/NoncommutativeAndEquivariantIwasawa.md",
+    "research/blueprint/suggested/NoncommutativeAndEquivariantIwasawa.lean"
+   ],
+   "after": [
+    "BP-NoncommutativeAndEquivariantIwasawa~3"
+   ],
+   "avoidAccountOf": "BP-NoncommutativeAndEquivariantIwasawa~3",
+   "independentOf": [
+    "BP-NoncommutativeAndEquivariantIwasawa",
+    "BP-NoncommutativeAndEquivariantIwasawa~2",
+    "BP-NoncommutativeAndEquivariantIwasawa~3"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "BP-ExcursionOperatorsAndSpectralAction--ES0~4",
+   "kind": "blueprint",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES0.json",
+    "research/blueprint/readmes/ExcursionOperatorsAndSpectralAction--ES0.md",
+    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES0.lean",
+    "research/blueprint/handoff/BP-ExcursionOperatorsAndSpectralAction--ES0~4.md"
+   ],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES0~4.md",
+   "scope": [
+    "ExcursionOperatorsAndSpectralAction:ES0",
+    "ExcursionOperatorsAndSpectralAction:ES0:classical-center",
+    "ExcursionOperatorsAndSpectralAction:ES1",
+    "ExcursionOperatorsAndSpectralAction:ES1:finite-ramification",
+    "ExcursionOperatorsAndSpectralAction:ES1:spectral-center",
+    "ExcursionOperatorsAndSpectralAction:ES2",
+    "ExcursionOperatorsAndSpectralAction:ES3",
+    "ExcursionOperatorsAndSpectralAction:ES4",
+    "ExcursionOperatorsAndSpectralAction:ES5"
+   ],
+   "after": [
+    "REV-ExcursionOperatorsAndSpectralAction--ES0~3"
+   ],
+   "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES0"
+  },
+  {
+   "id": "REV-ExcursionOperatorsAndSpectralAction--ES0~4",
+   "kind": "review",
+   "priority": 1,
+   "order": 206100,
+   "roadmapIds": [
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-ExcursionOperatorsAndSpectralAction--ES0~4.md",
+    "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES0.json",
+    "research/blueprint/readmes/ExcursionOperatorsAndSpectralAction--ES0.md",
+    "research/blueprint/suggested/ExcursionOperatorsAndSpectralAction--ES0.lean"
+   ],
+   "after": [
+    "BP-ExcursionOperatorsAndSpectralAction--ES0~4"
+   ],
+   "avoidAccountOf": "BP-ExcursionOperatorsAndSpectralAction--ES0~4",
+   "independentOf": [
+    "BP-ExcursionOperatorsAndSpectralAction--ES0",
+    "BP-ExcursionOperatorsAndSpectralAction--ES0~2",
+    "BP-ExcursionOperatorsAndSpectralAction--ES0~3",
+    "BP-ExcursionOperatorsAndSpectralAction--ES0~4"
+   ],
+   "state": "pending"
+  },
+  {
+   "id": "REV-PKG-KTheoryFiniteLocalFields~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "KTheoryFiniteLocalFields"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-KTheoryFiniteLocalFields~adv.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/review.json",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/README.md",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/Suggested.lean",
+    "research/blueprint/packages/KTheoryFiniteLocalFields/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~adv.md"
   }
  ]
 }
