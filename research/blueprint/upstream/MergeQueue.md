@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T07:00Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T07:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -20,15 +20,15 @@ Generated 2026-10-19T07:00Z from the README supplier graph of every open pull re
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1102 LocalPurity (tdupu, other author)
-- #1142 AlgebraicKTheory (kim-em, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 2
 - #814 AdicEtaleGeometry — maintainer approved; waits on #813
 - #248 LFunctions (roed-math, other author)
+- #859 BanachAlgebras (kim-em, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814
@@ -36,6 +36,7 @@ Generated 2026-10-19T07:00Z from the README supplier graph of every open pull re
 - #894 TopologicalKTheory (kim-em, other author)
 - #1056 FormalConnectionsOpers (kim-em, other author)
 - #1104 AbhyankarLemma (tdupu, other author)
+- #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 4
 - #815 AdicSpacesPartIV — draft; waits on #813, #814, #818
@@ -76,7 +77,7 @@ Generated 2026-10-19T07:00Z from the README supplier graph of every open pull re
 
 ## Wave 13
 - #858 ArithmeticGaloisDuality — ready (approved at an earlier head); waits on #792, #816, #849, #853, #856, #908, #938, #940
-- #1037 AutomorphicFormsOnReductiveGroups — draft; waits on #785, #792, #856, #871, #938, #934
+- #1037 AutomorphicFormsOnReductiveGroups — draft; waits on #785, #792, #856, #871, #938, #859, #934
 
 ## Wave 14
 - #850 InverseGaloisAndArithmeticFundamentalGroups — ready; waits on #785, #792, #814, #848, #849, #853, #856, #858, #908, #938
@@ -108,7 +109,7 @@ Generated 2026-10-19T07:00Z from the README supplier graph of every open pull re
 - #1044 AInfCohomology — draft; waits on #1042, #813, #814, #818, #857, #858, #868, #875, #879, #908, #940, #942
 
 ## Wave 19
-- #924 AutomorphicLFunctionsAndLocalFactors — ready (approved at an earlier head); waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
+- #924 AutomorphicLFunctionsAndLocalFactors — draft; waits on #1037, #785, #792, #850, #853, #856, #858, #871, #929, #938, #248, #253
 - #927 DiamondSixOperations — ready; waits on #785, #814, #816, #818, #820, #875, #908, #922
 - #1057 PrismaticCohomology — draft; waits on #1042, #1044, #818, #857, #868, #908, #938
 
