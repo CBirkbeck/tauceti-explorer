@@ -151764,6 +151764,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2.md"
+  },
+  {
+   "id": "REV-PKG-BorelRegulators~codex",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "BorelRegulators"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-BorelRegulators~codex.md",
+    "research/blueprint/packages/BorelRegulators/review.json",
+    "research/blueprint/packages/BorelRegulators/README.md",
+    "research/blueprint/packages/BorelRegulators/Suggested.lean",
+    "research/blueprint/packages/BorelRegulators/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-BorelRegulators~codex.md"
   }
  ]
 }
