@@ -128,7 +128,8 @@
         "ComplexComparisonPartII:C5/deligne-regular-singular-equivalence",
         "HodgeStructuresPartII:H.2",
         "PadicHodgeTheory:P8",
-        "DeligneWeightsAndPurity:DWP.0"
+        "DeligneWeightsAndPurity:DWP.0/weil-q-number",
+        "DeligneWeightsAndPurity:DWP.0/endomorphism-weights"
       ],
       "sources": [
         {
@@ -205,7 +206,8 @@
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system",
-        "DeligneWeightsAndPurity:DWP.0"
+        "DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic",
+        "DeligneWeightsAndPurity:DWP.0/purity-under-subquotients-and-extensions"
       ],
       "sources": [
         {
@@ -288,7 +290,7 @@
         "MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system",
         "MotivesAndAlgebraicCycles:MC.6/neutral-tannaka-reconstruction",
         "HodgeStructuresPartII:H.2",
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.2/plan/admissible-category-tannakian"
       ],
       "sources": [
         {
@@ -438,8 +440,13 @@
         "MordellLawrenceVenkateshPartII:M2.0/integral-polarized-system",
         "ComplexComparisonPartII:C5/gauss-manin-connection",
         "PadicHodgeTheory:P8",
-        "PadicHodgeTheory:R06.5",
-        "HodgeStructuresPartII:H.2"
+        "DeligneWeightsAndPurity:DWP.4/smooth-projective-purity",
+        "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity",
+        "HodgeStructuresPartII:H.2/geometric-pure",
+        "HodgeStructuresPartII:H.2/gauss-manin",
+        "PadicHodgeTheory:R06.5/proper-smooth-rational-de-rham-comparison",
+        "PadicHodgeTheory:R06.5/proper-smooth-formal-crystalline-comparison",
+        "PadicHodgeTheory:R06.5/geometric-period-functoriality-duality-twists"
       ],
       "sources": [
         {
@@ -596,7 +603,7 @@
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system",
         "PadicHodgeTheory:P8",
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.2/plan/admissible-category-tannakian"
       ],
       "sources": [
         {
@@ -696,10 +703,10 @@
       ],
       "title": "Finite étale coefficient operations",
       "kind": "construction",
-      "statement": "Construct H⁰-algebras from the trivial algebra O_E, the rational group algebra Q[B] of a finite abelian group B, the function algebra on a finite étale commutative group scheme, R⁰ of a proper smooth family, and pushforward along a finite étale base map. In the finite-monodromy case define crystalline realization by D_cris of the actual Galois representation. If K_v/Q_p is unramified of degree f, its semilinear Frobenius satisfies φ^f equal, under the unramified comparison, to the representation action of geometric Frobenius; the naive formula using the same residue-Frobenius action on both factors is not imposed.",
+      "statement": "Construct H⁰-algebras from the trivial algebra O_E, the rational group algebra Q[B] of a finite abelian group B, the convolution dual of the function algebra on a finite étale commutative group scheme, R⁰ of a proper smooth family, and pushforward along a finite étale base map. In the finite-monodromy case define crystalline realization by D_cris of the actual Galois representation. If K_v/Q_p is unramified of degree f, its semilinear Frobenius satisfies φ^f equal, under the unramified comparison, to the representation action of geometric Frobenius; the naive formula using the same residue-Frobenius action on both factors is not imposed.",
       "hypotheses": [],
       "proofSteps": [
-        "Use multiplication or cup product for the algebra structures and finite étale pushforward for descent.",
+        "Use group multiplication for the convolution dual, ordinary multiplication or cup product for the other algebra structures, and finite étale pushforward for descent.",
         "Construct the crystalline component through the invariants functor, then compute its f-th iterate rather than prescribing a false semilinear formula."
       ],
       "acceptance": [
@@ -708,7 +715,7 @@
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.1/h0-algebra",
         "MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system",
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.2/plan/admissible-category-tannakian"
       ],
       "sources": [
         {
@@ -737,6 +744,11 @@
           "name": "H0Algebra.group_algebra_realization",
           "role": "compatibility",
           "statement": "The Betti realization of the group-algebra construction is exactly Q[B], with its usual basis and multiplication."
+        },
+        {
+          "name": "H0Algebra.finite_group_scheme_convolution",
+          "role": "characterisation",
+          "statement": "For finite étale commutative B, the coefficient algebra is O(B)∨ with multiplication dual to the group-law comultiplication; for constant B its rational realization is Q[B]."
         }
       ],
       "tests": [
@@ -754,6 +766,11 @@
           "name": "h0-algebra-operations.3",
           "kind": "characterisation",
           "statement": "The pushforward of the unit under a split two-sheeted étale cover has rank two, not rank one."
+        },
+        {
+          "name": "h0-algebra-operations.4",
+          "kind": "characterisation",
+          "statement": "For constant cyclic B of order three, the convolution dual is Q[C₃]≅Q×Q(ζ₃); the pointwise function algebra Q³ is a different Q-algebra."
         }
       ],
       "uses": [
@@ -1242,7 +1259,9 @@
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.1/classical-coefficient-structure",
-        "AbelianSchemesAndArithmeticModuli:A6"
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-functor",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-of-quasi-projective-schemes",
+        "AbelianSchemesAndArithmeticModuli:A6/weil-restriction-over-a-separable-extension-splits"
       ],
       "sources": [
         {
@@ -1832,10 +1851,10 @@
       ],
       "title": "Finitely many semisimplification geometries",
       "kind": "theorem",
-      "statement": "Let G be a characteristic-zero algebraic group with reductive identity component and H⊂G a G-completely reducible subgroup. Up to the action of Z_G(H), only finitely many pairs (P,M) occur with P a Richardson parabolic, M a Levi of P and H⊂M. Consequently a fixed completely reducible image gives finitely many parabolic/Levi semisimplification types. This is a finiteness statement up to centralizer conjugacy, not finiteness of actual parabolics.",
+      "statement": "Let G be an algebraic group over a characteristic-zero field E with reductive identity component and H⊂G an E-defined G-completely reducible subgroup. Up to the action of Z_G(H)(E), only finitely many E-defined pairs (P,M) occur with P a Richardson parabolic, M a Levi of P and H⊂M. Consequently a fixed completely reducible image gives finitely many parabolic/Levi semisimplification types. This is a finiteness statement up to centralizer conjugacy, not finiteness of actual parabolics.",
       "hypotheses": [],
       "proofSteps": [
-        "Choose a maximal torus in the connected centralizer and express allowable Levi factors by its centralizing cocharacters.",
+        "Choose a maximal E-split torus in Z_G(H) and use conjugacy of maximal E-split tori under Z_G(H)(E) to express allowable E-defined Levi factors by its E-cocharacters.",
         "The finitely many root-weight hyperplanes partition cocharacter space into finitely many faces; use each face to record its parabolic and Levi.",
         "Treat the finite component action without identifying its parabolic with the identity-component parabolic."
       ],
@@ -1880,8 +1899,10 @@
         "MordellLawrenceVenkateshPartII:M2.0/differential-monodromy",
         "MordellLawrenceVenkateshPartII:M2.0/crystalline-residue-fibres",
         "MordellLawrenceVenkateshPartII:M2.2/tensor-g-filtration",
-        "HodgeStructuresPartII:H.3",
-        "MotivesAndAlgebraicCycles:MC.6"
+        "MotivesAndAlgebraicCycles:MC.6",
+        "HodgeStructuresPartII:H.3/polarized-compact-dual",
+        "HodgeStructuresPartII:H.3/represented-complex-orbit",
+        "HodgeStructuresPartII:H.3/period-map-holomorphic"
       ],
       "sources": [
         {
@@ -1916,7 +1937,9 @@
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.3/period-monodromy-orbit",
         "HodgeStructuresPartII:H.2",
-        "HodgeStructuresPartII:H.3"
+        "HodgeStructuresPartII:H.3/polarized-compact-dual",
+        "HodgeStructuresPartII:H.3/represented-complex-orbit",
+        "HodgeStructuresPartII:H.3/period-map-holomorphic"
       ],
       "sources": [
         {
@@ -1993,7 +2016,7 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Corollary 6.3, pp. 64–65",
+          "locator": "Lemma 6.3, pp. 64–65",
           "match": "The period-map Ax–Schanuel argument makes components over a sufficiently high-codimension algebraic flag locus algebraically degenerate. The plan uses the pure polarized integral scope of the external theorem."
         },
         {
@@ -2037,7 +2060,10 @@
         "MordellLawrenceVenkateshPartII:M2.3/local-analytic-nullstellensatz",
         "MordellLawrenceVenkateshPartII:M2.0/crystalline-residue-fibres",
         "mathlib:Ideal.iInf_pow_eq_bot_of_isLocalRing",
-        "MordellLawrenceVenkatesh:LV.2"
+        "MordellLawrenceVenkatesh:LV.2/residue-disk",
+        "MordellLawrenceVenkatesh:LV.2/formal-horizontal-sections",
+        "MordellLawrenceVenkatesh:LV.2/horizontal-sections-complex-convergence",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras"
       ],
       "sources": [
         {
@@ -2297,7 +2323,7 @@
       ],
       "title": "Non-density for semisimple integral fibres",
       "kind": "theorem",
-      "statement": "Let 𝓧/Z[S⁻¹] have smooth geometrically connected generic fibre X of positive dimension. For an integral polarized pure compatible system with integral Frobenius and rational Frobenius characteristic polynomials outside S, uniform coefficient filtration and strongly c-balanced monodromy, assume A≥(dim X+dim H)/c. The integral points whose global coefficient-group representations are G-completely reducible are not Zariski dense in X. Fix the coefficient permutation representation and enlarge S only by finitely many primes.",
+      "statement": "Let 𝓧 be of finite type over Z[S⁻¹] with smooth geometrically connected generic fibre X of positive dimension. For an integral polarized pure compatible system with integral Frobenius and rational Frobenius characteristic polynomials outside S, uniform coefficient filtration and strongly c-balanced monodromy, assume A≥(dim X+dim H)/c. The integral points whose global coefficient-group representations are G-completely reducible are not Zariski dense in X. Fix the coefficient permutation representation and enlarge S only by finitely many primes.",
       "hypotheses": [],
       "proofSteps": [
         "Global finiteness leaves finitely many semisimple G-representations.",
@@ -2337,7 +2363,7 @@
       ],
       "title": "Central weights of filtrations",
       "kind": "definition",
-      "statement": "For a characteristic-zero reductive group S, let a_S=X_*(Z(S)°)⊗Q, equivalently the Q-dual of rational characters of S via the nondegenerate central pairing. The weight w_S(μ) of a rational cocharacter μ is its projection to a_S. For a Levi M⊂G, restriction of rational characters gives a canonical inclusion ι_GM:a_G→a_M and a splitting of the opposite projection. Define the modular character γ_P as the inverse determinant of Ad on Lie(P), with additive pairing against cocharacters.",
+      "statement": "For a characteristic-zero algebraic group S with reductive identity component, let a_S=X_*(Z(S°)°)⊗Q, equivalently the Q-dual of X^*(S°)⊗Q via the central pairing. Compute these geometric character spaces after algebraic closure and retain their Galois action for descent; rational cocharacters give invariant classes. The weight w_S(μ) of a rational cocharacter μ is its projection to a_S. For a Levi M⊂G, restriction of rational characters gives a canonical inclusion ι_GM:a_G→a_M and a splitting of the opposite projection. Define the modular character γ_P as the inverse determinant of Ad on Lie(P), with additive pairing against cocharacters.",
       "hypotheses": [],
       "proofSteps": [
         "Use the root decomposition to split the central and derived rational cocharacter spaces.",
@@ -2416,11 +2442,11 @@
       ],
       "title": "Filtrations induced on a Levi quotient",
       "kind": "construction",
-      "statement": "Let G be as in M2.2, P a Richardson parabolic with Levi quotient M and F a G-filtration. Choose a splitting cocharacter of F taking values in P; its projection defines a filtration F_M independent of this choice. On a flag variety the fixed points of a cocharacter in a given homogeneous orbit are conjugate under its centralizer; use this to establish independence. For GL(V), F_M is the filtration induced by F on the graded vector space of the P-flag.",
+      "statement": "Let G be as in M2.2, P a Richardson parabolic with Levi quotient M and F a G-filtration. Choose a splitting cocharacter of F taking values in P; its projection defines a filtration F_M independent of this choice. Put Q=P_μ, the stabilizer of F. On each Q-homogeneous orbit Q·x in a flag variety, its μ-fixed points are conjugate under Z_Q(μ); use this for the Q-orbit of the point representing P to establish independence. For GL(V), F_M is the filtration induced by F on the graded vector space of the P-flag.",
       "hypotheses": [],
       "proofSteps": [
         "Place a maximal torus of the filtration stabilizer in P after conjugacy, giving a splitting in P.",
-        "Compare two choices by the centralizer action on fixed points; their Levi projections differ by the subgroup fixing the induced filtration.",
+        "Compare two P-valued choices inside the Q-homogeneous orbit Q·P in G/P, using the fixed-point lemma for Q=P_μ. Their Levi projections differ by the subgroup fixing the induced filtration.",
         "Identify the construction on each representation with the associated-graded filtration."
       ],
       "acceptance": [
@@ -2433,7 +2459,7 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemmas 8.2–8.3, pp. 73–74",
+          "locator": "Lemma 8.2 and Definition 8.3, pp. 73–74",
           "match": "Intersecting two parabolics and passing to the Levi quotient induces a well-defined filtration, which has the usual intersection-and-quotient description for GL."
         },
         {
@@ -2479,6 +2505,11 @@
           "name": "induced-levi-filtration.3",
           "kind": "characterisation",
           "statement": "Two upper-unipotently conjugate splittings give the same quotient filtration."
+        },
+        {
+          "name": "induced-levi-filtration.4",
+          "kind": "characterisation",
+          "statement": "For diagonal μ in SL₂, the two fixed points of the whole flag variety P¹ lie in distinct upper-Borel orbits and are not conjugate under its torus. The fixed-point lemma requires one Q-homogeneous orbit."
         }
       ],
       "uses": [
@@ -2634,7 +2665,7 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Definitions 8.8–8.9, pp. 77–78",
+          "locator": "Definition 8.8 and Remark 8.9, pp. 77–78",
           "match": "An auxiliary Frobenius-stable filtration and a Hodge filtration give an associated-graded filtered Frobenius object. Its type forgets the auxiliary grading labels while retaining Hodge degrees and classical tensors."
         }
       ],
@@ -2952,7 +2983,7 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Lemma 8.16, pp. 82–83",
+          "locator": "Lemma 8.16, pp. 81–83",
           "match": "The fixed-graded estimate is applied to independent factors in one Frobenius cycle, then the varying graded-pair cost is subtracted to obtain the prescribed codimension."
         }
       ],
@@ -2973,7 +3004,7 @@
       ],
       "title": "The coefficient non-density theorem",
       "kind": "theorem",
-      "statement": "Let 𝓧/Z[S⁻¹] have smooth geometrically connected generic fibre X of dimension d>0. Let V be a pure polarized integral Hodge–Deligne system with integral Frobenius and rational Frobenius characteristic polynomials outside S, an equidimensional E-module of classical rank N and the required coefficient pairing. Assume a uniform factor profile h, strongly c-balanced differential monodromy relative to residue Frobenius and, writing t=rank H, A≥(d+dim H)/c and B>T((d+dim H)/c)+T((h⁰−t)/2+(d+dim H)/c). All T arguments must be in [0,dim H]. Then 𝓧(Z[S⁻¹]) is not Zariski dense in X. No semisimplicity hypothesis is imposed on the actual fibres.",
+      "statement": "Let 𝓧 be of finite type over Z[S⁻¹] with smooth geometrically connected generic fibre X of dimension d>0. Let V be a pure polarized integral Hodge–Deligne system with integral Frobenius and rational Frobenius characteristic polynomials outside S, an equidimensional E-module of classical rank N and the required coefficient pairing. Assume a uniform factor profile h, strongly c-balanced differential monodromy relative to residue Frobenius and, writing t=rank H, A≥(d+dim H)/c and B>T((d+dim H)/c)+T((h⁰−t)/2+(d+dim H)/c). All T arguments must be in [0,dim H]. Then 𝓧(Z[S⁻¹]) is not Zariski dense in X. No semisimplicity hypothesis is imposed on the actual fibres.",
       "hypotheses": [],
       "proofSteps": [
         "There are finitely many global G-semisimplifications by arithmetic finiteness.",
@@ -3106,7 +3137,10 @@
         "MordellLawrenceVenkateshPartII:M2.7/hodge-torus-image-adapter",
         "MordellLawrenceVenkatesh:LV.1/faltings-finiteness",
         "PadicHodgeTheory:R06.4/plan/fontaine-laffaille-rational-consequences",
-        "DeligneWeightsAndPurity:DWP.0"
+        "DeligneWeightsAndPurity:DWP.0/endomorphism-weights",
+        "DeligneWeightsAndPurity:DWP.0/reciprocal-pairing-of-eigenvalues",
+        "DeligneWeightsAndPurity:DWP.4/smooth-projective-purity",
+        "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity"
       ],
       "sources": [
         {
@@ -3186,7 +3220,7 @@
         "MordellLawrenceVenkateshPartII:M2.7/classical-bad-filtration-codimension",
         "MordellLawrenceVenkateshPartII:M2.3/padic-period-nondensity",
         "MordellLawrenceVenkateshPartII:M2.5/global-purity-implies-balance",
-        "PadicHodgeTheory:R06.2"
+        "PadicHodgeTheory:R06.2/plan/admissible-category-tannakian"
       ],
       "sources": [
         {
@@ -3209,7 +3243,7 @@
       ],
       "title": "Higher-dimensional integral-point non-density",
       "kind": "theorem",
-      "statement": "Let π:𝓩→𝓨 be smooth projective with geometrically connected relative dimension r, a relative ample class, and smooth geometrically connected generic base Y/Q of dimension d>0. Let V be primitive degree-r cohomology and assume geometric monodromy contains GAut(V,⟨,⟩)°. For its adjoint profile require A≥h⁰+d and B>T(h⁰+d)+T(3h⁰/2+d), with valid T arguments. Then 𝓨(Z[S⁻¹]) is not Zariski dense in Y. The theorem is the classical first instance of the shared period/codimension mechanism; the bounded-prime step is distinct from the coefficient-orbit construction.",
+      "statement": "Let 𝓨 be smooth of finite type over Z[S⁻¹], and let π:𝓩→𝓨 be smooth projective with geometrically connected relative dimension r, a relative ample class, and smooth geometrically connected generic base Y/Q of dimension d>0. Let V be primitive degree-r cohomology and assume the Zariski closure of geometric monodromy contains Aut(V,⟨,⟩)°, the identity component of the isometry group. Its adjoint profile is still computed in the similitude group GAut(V,⟨,⟩). For its adjoint profile require A≥h⁰+d and B>T(h⁰+d)+T(3h⁰/2+d), with valid T arguments. Then 𝓨(Z[S⁻¹]) is not Zariski dense in Y. The theorem is the classical first instance of the shared period/codimension mechanism; the bounded-prime step is distinct from the coefficient-orbit construction.",
       "hypotheses": [],
       "proofSteps": [
         "Choose finitely many possible small-centralizer primes using the bounded-prime lemma.",
@@ -3217,7 +3251,8 @@
         "Apply the preceding nondensity theorem to each resulting fibre and take their finite union."
       ],
       "acceptance": [
-        "This theorem gives nondensity without assuming full monodromy on subvarieties."
+        "This theorem gives nondensity without assuming full monodromy on subvarieties.",
+        "For an elliptic family, geometric monodromy may be Sp₂=SL₂ while the similitude group is GSp₂=GL₂. The monodromy hypothesis must not demand the scalar similitude direction."
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.7/bounded-small-frobenius-centralizer",
@@ -3228,8 +3263,8 @@
       "sources": [
         {
           "sourceId": "LV",
-          "locator": "Theorem 10.1, pp. 969–970; proofs §§10.3–10.5, pp. 975–982",
-          "match": "The theorem assumes full connected primitive monodromy and two numerical adjoint inequalities; the proof combines finitely many bounded primes, global types and residue disks."
+          "locator": "Theorem 10.1, pp. 969–970, monodromy hypothesis (10.1), p. 968; proofs §§10.3–10.5, pp. 975–982",
+          "match": "The theorem assumes the full connected primitive isometry group in geometric monodromy and two numerical adjoint inequalities; the proof combines finitely many bounded primes, global types and residue disks."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3249,7 +3284,7 @@
       ],
       "title": "Finiteness under monodromy on every subvariety",
       "kind": "theorem",
-      "statement": "In the preceding setup, assume every positive-dimensional geometrically irreducible subvariety of Y retains full connected primitive monodromy after passage to its smooth locus and finite field of definition, with the required rational arithmetic model or restriction-of-scalars comparison. Then the integral point set is finite. This stronger monodromy condition is an additional hypothesis; it is not established for the universal hypersurface family by large generic monodromy alone.",
+      "statement": "In the preceding setup, assume every positive-dimensional geometrically irreducible subvariety of Y retains the full connected primitive isometry monodromy after passage to its smooth locus and finite field of definition, with the required rational arithmetic model or restriction-of-scalars comparison. Then the integral point set is finite. This stronger monodromy condition is an additional hypothesis; it is not established for the universal hypersurface family by large generic monodromy alone.",
       "hypotheses": [],
       "proofSteps": [
         "Apply nondensity on every positive-dimensional irreducible component of the closure of the integral points, over its field of definition with the specified arithmetic comparison.",
@@ -3287,15 +3322,18 @@
       "proofSteps": [
         "Normalize Frobenius eigenvalues onto the unit circle using purity and identify centralizer dimension with the sum of squared eigenvalue multiplicities.",
         "Use the squared Dirichlet kernel with frequencies −2N,…,2N and coefficients 2N+1−|j| to bound this sum by its weighted power sums.",
-        "Apply the point-count trace bound through frequency 2N and the displayed cutoff; sum the geometric series to obtain the constant 3."
+        "Use the complete-intersection trace identity to cancel the ambient P^n terms. The elementary bounds 0≤#Y(F_(q^j))≤#P^(n+1)(F_(q^j)) imply |Σ_s(λ_s/q^(n/2))^j|≤q^((n/2+1)j). Apply this through frequency 2N and the displayed cutoff; sum the geometric series to obtain the constant 3."
       ],
       "acceptance": [
         "N=0 is excluded.",
         "The exponent 2N is required because squaring the kernel doubles its Fourier support."
       ],
       "prerequisites": [
-        "DeligneWeightsAndPurity:DWP.0",
-        "MordellLawrenceVenkateshPartII:M2.2/adjoint-hodge-profile"
+        "MordellLawrenceVenkateshPartII:M2.2/adjoint-hodge-profile",
+        "DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces",
+        "DeligneWeightsAndPurity:DWP.4/smooth-projective-purity",
+        "WeilConjectures:WC.5/complete-intersection-point-count",
+        "EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology"
       ],
       "sources": [
         {
@@ -3370,7 +3408,8 @@
         "Changing q−j to j−q is harmless only after proving symmetry of the individual Eulerian distribution."
       ],
       "prerequisites": [
-        "ClassicalArithmeticCompletion:CA.2"
+        "ClassicalArithmeticCompletion:CA.2/eulerian-numbers",
+        "ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities"
       ],
       "sources": [
         {
@@ -3450,7 +3489,9 @@
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.8/eulerian-difference-law",
-        "ClassicalArithmeticCompletion:CA.2"
+        "ClassicalArithmeticCompletion:CA.2",
+        "ClassicalArithmeticCompletion:CA.2/eulerian-numbers",
+        "ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities"
       ],
       "sources": [
         {
@@ -3552,7 +3593,7 @@
       ],
       "title": "Primitive hypersurface Hodge numbers from the Jacobian ring",
       "kind": "theorem",
-      "statement": "For a smooth degree-d hypersurface in P^n over C, primitive middle Hodge multiplicity h^{p,n−1−p} is the coefficient of t^((p+1)d−n−1) in (1+t+⋯+t^(d−2))^(n+1), for 0≤p<n. Use the residue/Jacobian identification and the regular-sequence Hilbert series for the n+1 partial derivatives. This supplies the omitted justification of LV (10.6).",
+      "statement": "For a smooth degree-d hypersurface in P^n over C with n≥2 and d≥2, the primitive middle Hodge multiplicity h^{p,n−1−p} equals the coefficient of t^((p+1)d−n−1) in (1+t+⋯+t^(d−2))^(n+1), for 0≤p<n. Use the residue/Jacobian identification and the regular-sequence Hilbert series for the n+1 partial derivatives. This supplies the omitted justification of LV (10.6).",
       "hypotheses": [],
       "proofSteps": [
         "Specialize the toric residue construction to the Cox ring C[x₀,…,x_n], with degree class d and anticanonical degree n+1.",
@@ -3564,8 +3605,8 @@
         "For a quartic surface in P³, primitive h=(1,19,1), not the full h=(1,20,1)."
       ],
       "prerequisites": [
-        "HodgeStructuresPartII:H.2",
-        "AlgebraicModuliForArithmeticGeometry:R09.2"
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "HodgeStructuresPartII:H.2/geometric-pure"
       ],
       "sources": [
         {
@@ -3601,7 +3642,7 @@
         "Compare the parameter-space growth O(d^n) with adjoint h⁰ of order d^(2n)."
       ],
       "acceptance": [
-        "The parameter dimension uses binomial(n+d,d), not binomial(n+d−1,d−1)."
+        "The parameter dimension is binomial(n+d,d)−1. For plane quartics it is 14, whereas the published binomial(n+d,d−1)−1 gives 19; plane cubics give 9 under both formulas."
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.8/projective-jacobian-hodge-formula",
@@ -3641,7 +3682,9 @@
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.8/eulerian-second-moment-logconcavity",
-        "ClassicalArithmeticCompletion:CA.2"
+        "ClassicalArithmeticCompletion:CA.2",
+        "ClassicalArithmeticCompletion:CA.2/eulerian-numbers",
+        "ClassicalArithmeticCompletion:CA.2/eulerian-basic-identities"
       ],
       "sources": [
         {
@@ -3707,14 +3750,17 @@
       "hypotheses": [],
       "proofSteps": [
         "Use the projective space of coefficients, universal equation and open smoothness locus.",
-        "Apply supplied weak/hard Lefschetz and primitive-pairing theory to split off ambient cohomology rationally."
+        "Use EDC.4/complete-intersection-cohomology and the existing realization comparisons. The ambient middle Tate line in even dimension has nonzero self-pairing equal to the degree, so its orthogonal complement is a rational primitive summand with nondegenerate pairing. LPV.4 alone supplies only a radical quotient; general hard Lefschetz is unnecessary for this hypersurface calculation."
       ],
       "acceptance": [
         "The primitive projector need not preserve the original integral lattice; use its rational image intersected with a lattice."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.2",
-        "LefschetzPencilsAndVanishingCycles:LPV.4"
+        "EtaleDualityAndPerverseSheaves:EDC.4/complete-intersection-cohomology",
+        "AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-quotient-and-its-pairing",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/pencil-restriction-and-gysin"
       ],
       "sources": [
         {
@@ -3788,14 +3834,16 @@
         "Use Zariski density of the resulting infinite arithmetic form group in its connected algebraic group."
       ],
       "acceptance": [
-        "LPV.5 supplies the symplectic criterion; its stated scope does not supply the even-middle-dimensional orthogonal theorem, whose supplier extension is recorded explicitly."
+        "LPV.5 supplies open symplectic monodromy and a conditional orthogonal open-or-finite alternative. Excluding the finite alternative for this universal family and obtaining Beauville’s arithmetic finite-index theorem remain separate supplier work."
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.9/universal-projective-family",
-        "LefschetzPencilsAndVanishingCycles:LPV.2",
-        "LefschetzPencilsAndVanishingCycles:LPV.3",
-        "LefschetzPencilsAndVanishingCycles:LPV.4",
-        "LefschetzPencilsAndVanishingCycles:LPV.5"
+        "LefschetzPencilsAndVanishingCycles:LPV.2/complex-picard-lefschetz-comparison",
+        "LefschetzPencilsAndVanishingCycles:LPV.3/existence-of-lefschetz-pencils",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/vanishing-quotient-and-its-pairing",
+        "LefschetzPencilsAndVanishingCycles:LPV.4/pencil-restriction-and-gysin",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/kazhdan-margulis-open-image",
+        "LefschetzPencilsAndVanishingCycles:LPV.5/conditional-orthogonal-open-or-finite"
       ],
       "sources": [
         {
@@ -3878,7 +3926,11 @@
       "prerequisites": [
         "AbelianSchemesAndArithmeticModuli:A1",
         "AbelianSchemesAndArithmeticModuli:A2",
-        "AlgebraicModuliForArithmeticGeometry:R09.2"
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme",
+        "AbelianSchemesAndArithmeticModuli:A1/relative-rigidity-comparison",
+        "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
+        "AbelianSchemesAndArithmeticModuli:A2/ample-cohomology-and-degree"
       ],
       "sources": [
         {
@@ -3957,7 +4009,10 @@
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.10/good-reduction-primitive-hypersurface",
         "AlgebraicModuliForArithmeticGeometry:R09.2",
-        "AbelianSchemesAndArithmeticModuli:A2"
+        "AbelianSchemesAndArithmeticModuli:A2",
+        "AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme",
+        "AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi",
+        "AbelianSchemesAndArithmeticModuli:A2/ample-cohomology-and-degree"
       ],
       "sources": [
         {
@@ -4038,7 +4093,7 @@
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Proof of Theorem 9.2, p. 86",
+          "locator": "Proof of Theorem 9.2, pp. 85–86",
           "match": "The proof passes from the number field to Q by restriction of scalars. The plan first inverts ramified primes and imports existing quasi-projective and abelian representability statements."
         }
       ],
@@ -4068,12 +4123,13 @@
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.10/weil-restriction-arithmetic-adapter",
-        "AlgebraicModuliForArithmeticGeometry:R09.7"
+        "AlgebraicModuliForArithmeticGeometry:R09.7",
+        "AlgebraicModuliForArithmeticGeometry:R09.7/local-isomorphism-resolution"
       ],
       "sources": [
         {
           "sourceId": "LS",
-          "locator": "Proof of Theorem 9.2, p. 86",
+          "locator": "Proof of Theorem 9.2, pp. 85–86",
           "match": "The argument resolves an arithmetic closure before applying the period method on a smooth base. The plan restricts rational lifting to the dense open where resolution is an isomorphism, and uses properness for integral extension."
         }
       ],
@@ -4182,7 +4238,8 @@
       ],
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.10/good-reduction-primitive-hypersurface",
-        "AbelianSchemesAndArithmeticModuli:A3"
+        "AbelianSchemesAndArithmeticModuli:A3/nonaffine-abelian-quotient",
+        "AbelianSchemesAndArithmeticModuli:A3/theta-group"
       ],
       "sources": [
         {
@@ -4335,7 +4392,9 @@
       "prerequisites": [
         "MordellLawrenceVenkateshPartII:M2.1/orbit-cohomology-system",
         "MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system",
-        "DeligneWeightsAndPurity:DWP.0"
+        "DeligneWeightsAndPurity:DWP.0/characteristic-power-series-and-traces",
+        "DeligneWeightsAndPurity:DWP.0/weil-number-arithmetic",
+        "WeilConjectures:WC.3/integral-factors-and-ell-independence-from-purity"
       ],
       "sources": [
         {
@@ -4361,20 +4420,10 @@
     },
     {
       "supplier": "HodgeStructuresPartII:H.2",
-      "need": "Pure and mixed Hodge structures and exact tensor variations, strictness of morphisms, Gauss–Manin polarization and integral lattices for smooth projective cohomology; additionally André normality of connected monodromy in the derived generic Mumford–Tate group for pure polarizable variations, with its connected-base hypotheses. The integral lattice is geometric extra data, not supplied by rational polarizability.",
+      "need": "Compatible pure/mixed variations and fibrewise strict Hodge morphisms for the system category; additionally André normality of connected geometric monodromy in the derived generic Mumford–Tate group for pure polarizable integral variations on the stated connected algebraic base. Existing H.2/geometric-pure and /gauss-manin are imported directly. H.2/connected-semisimple alone proves semisimplicity, not this normality theorem.",
       "neededBy": [
         "MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system",
         "MordellLawrenceVenkateshPartII:M2.0/system-tannakian-category",
-        "MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system",
-        "MordellLawrenceVenkateshPartII:M2.3/parabolic-period-stabilizer",
-        "MordellLawrenceVenkateshPartII:M2.8/projective-jacobian-hodge-formula"
-      ]
-    },
-    {
-      "supplier": "HodgeStructuresPartII:H.3",
-      "need": "Hodge cocharacter flag spaces, compact duals and holomorphic period maps preserving all tensor constraints; identify their connected monodromy orbit and tangent dimensions. This request does not include Ax–Schanuel.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.3/period-monodromy-orbit",
         "MordellLawrenceVenkateshPartII:M2.3/parabolic-period-stabilizer"
       ]
     },
@@ -4389,55 +4438,32 @@
     },
     {
       "supplier": "PadicHodgeTheory:R06.2",
-      "need": "Exact faithful tensor D_cris/D_dR with coefficient algebras and duality, weak-admissibility and arithmetic descent; additionally a tensor-compatible Sen/Wintenberger splitting placing the Hodge cocharacter in the algebraic local Galois image. The existing admissible-category node is used where its statement suffices, and does not by itself prove this cocharacter-image theorem.",
+      "need": "A tensor-compatible Sen/Wintenberger splitting placing the Hodge cocharacter in the algebraic local Galois image. Import the existing admissible-category tensor theorem directly for exact D_cris/D_dR and coefficient operations; it does not by itself prove the cocharacter-image theorem.",
       "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.0/system-tannakian-category",
-        "MordellLawrenceVenkateshPartII:M2.0/crystalline-residue-fibres",
-        "MordellLawrenceVenkateshPartII:M2.1/h0-algebra-operations",
-        "MordellLawrenceVenkateshPartII:M2.7/hodge-torus-image-adapter",
-        "MordellLawrenceVenkateshPartII:M2.7/classical-semisimplification-fibre"
-      ]
-    },
-    {
-      "supplier": "PadicHodgeTheory:R06.5",
-      "need": "Geometric proper smooth comparisons and their filtration, connection, Frobenius, cup-product and primitive-projector compatibility through the actual CP.2/CP.3 comparison diagram. Do not use this application layer to recreate those foundations.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system"
+        "MordellLawrenceVenkateshPartII:M2.7/hodge-torus-image-adapter"
       ]
     },
     {
       "supplier": "MotivesAndAlgebraicCycles:MC.6",
       "need": "For any neutral Tannakian category over a field and two fibre functors, Iso^⊗(ω,η) is represented by a faithfully flat torsor under Aut^⊗(ω); for a finite tensor generator it is finite type and has a point over an algebraic closure. Existing MC.6/tensor-iso-scheme and /iso-torsor are for a particular graded diagram and are not this general theorem.",
       "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.3/period-monodromy-orbit",
-        "MordellLawrenceVenkateshPartII:M2.7/crystalline-fibre-functor-comparison",
         "MordellLawrenceVenkateshPartII:M2.0/differential-monodromy",
-        "MordellLawrenceVenkateshPartII:M2.2/crystalline-inner-forms"
-      ]
-    },
-    {
-      "supplier": "DeligneWeightsAndPurity:DWP.0",
-      "need": "Use rational versus integral Weil numbers, powers and tensor operations, purity of geometric cohomology and integrality at good primes; request the exact coefficient-projector trace/rationality interface for V_I. Weight and integrality alone do not imply rational characteristic coefficients.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system",
-        "MordellLawrenceVenkateshPartII:M2.0/integral-polarized-system",
-        "MordellLawrenceVenkateshPartII:M2.7/bounded-small-frobenius-centralizer",
-        "MordellLawrenceVenkateshPartII:M2.7/point-count-centralizer-bound",
-        "MordellLawrenceVenkateshPartII:M2.1/rational-orbit-frobenius-polynomials"
+        "MordellLawrenceVenkateshPartII:M2.2/crystalline-inner-forms",
+        "MordellLawrenceVenkateshPartII:M2.3/period-monodromy-orbit",
+        "MordellLawrenceVenkateshPartII:M2.7/crystalline-fibre-functor-comparison"
       ]
     },
     {
       "supplier": "ClassicalArithmeticCompletion:CA.2",
-      "need": "Eulerian ascent numbers with zero extension, factorial sum, symmetry, recurrence, inclusion–exclusion generating formula, one-copy variance (n+1)/12 and finite-sequence log-concavity. The normalized convolution and asymptotic Hodge application stay here; the central-limit extension is separately recorded as a gap and Part II proposal.",
+      "need": "Extend the existing exact Eulerian-number and basic-identity nodes by the one-copy centered variance (n+1)/12 and finite-sequence log-concavity on contiguous support, including preservation under reflection and convolution. The written unimodality node is weaker than log-concavity. Inclusion–exclusion follows from the imported recurrence/Worpitzky identity. The central-limit theorem remains a separately recorded Part II gap.",
       "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.8/eulerian-difference-law",
         "MordellLawrenceVenkateshPartII:M2.8/eulerian-second-moment-logconcavity",
         "MordellLawrenceVenkateshPartII:M2.8/eulerian-normal-limit-adapter"
       ]
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.2",
-      "need": "Hilbert representability for a fixed projective Hilbert polynomial, the smooth effective Cartier-divisor open, numerical-class components, universal families and spreading over finite localizations. Supply the graded regular-sequence Hilbert-series calculation used with the projective residue theorem, or route this general commutative-algebra input to its owner.",
+      "need": "Beyond the imported fixed-polynomial Hilbert scheme, supply its smooth effective Cartier-divisor open, the specified numerical-class components and universal families spread over finite localizations. Also route the graded regular-sequence Hilbert-series calculation for the projective Jacobian formula to its general commutative-algebra owner.",
       "neededBy": [
         "MordellLawrenceVenkateshPartII:M2.8/projective-jacobian-hodge-formula",
         "MordellLawrenceVenkateshPartII:M2.9/universal-projective-family",
@@ -4447,7 +4473,7 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.7",
-      "need": "Characteristic-zero proper resolution, isomorphic over a dense smooth open, and spreading that proper map over a finite localization. The rational lifts used here occur only over that open.",
+      "need": "Spread the proper characteristic-zero resolution from the imported local-isomorphism-resolution node over a finite localization, retaining its isomorphism on the chosen dense smooth open. Rational lifts are used only on that open.",
       "neededBy": [
         "MordellLawrenceVenkateshPartII:M2.10/dense-closure-proper-resolution"
       ]
@@ -4468,20 +4494,6 @@
       ]
     },
     {
-      "supplier": "AbelianSchemesAndArithmeticModuli:A3",
-      "need": "Finite flat subgroup quotients and their universal property, multiplication and characteristic-zero étaleness; descend invariant ample divisors through their finite translation stabilizers.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.10/stabilizer-isogeny-reduction"
-      ]
-    },
-    {
-      "supplier": "MordellLawrenceVenkatesh:LV.2",
-      "need": "Only the existing local period construction and Tate-algebra/affinoid framework at smooth good-reduction points. Its one-dimensional applications do not supply the higher-dimensional transcendence theorem.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.3/padic-period-nondensity"
-      ]
-    },
-    {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
       "need": "Use the existing absolute root, Weyl, dynamic parabolic/Levi, common torus and Bruhat structure theory in characteristic zero. The coefficient-normalizer specialization and its filtered objects are targets here. The disconnected complete-reducibility/rational-conjugacy extension is a recorded gap, not supplied by connected root theory.",
       "neededBy": [
@@ -4491,39 +4503,10 @@
       ]
     },
     {
-      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.2",
-      "need": "Picard–Lefschetz reflection and transvection formulas on primitive vanishing cycles, including the even-middle-dimensional orthogonal reflection formula.",
+      "supplier": "tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras",
+      "need": "Use current AdicSpaces §0.5 restricted-series substitution/evaluation, Weierstrass division/preparation and Noetherianity of K⟨T₁,…,T_m⟩ over a complete rank-one nonarchimedean field; quotients and localizations are Noetherian. These are the affinoid algebra inputs to finite minimal-prime decomposition and localized Krull intersection.",
       "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.9/beauville-monodromy-adapter"
-      ]
-    },
-    {
-      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.3",
-      "need": "Existence and geometric properties of Lefschetz pencils in the projective hypersurface family.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.9/beauville-monodromy-adapter"
-      ]
-    },
-    {
-      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.4",
-      "need": "Primitive vanishing cohomology, nondegenerate intersection pairing and comparison with primitive cohomology of the universal family.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.9/universal-projective-family",
-        "MordellLawrenceVenkateshPartII:M2.9/beauville-monodromy-adapter"
-      ]
-    },
-    {
-      "supplier": "LefschetzPencilsAndVanishingCycles:LPV.5",
-      "need": "The symplectic big-monodromy criterion for odd middle dimension; the orthogonal extension is outside this stage and separately recorded.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.9/beauville-monodromy-adapter"
-      ]
-    },
-    {
-      "supplier": "AbelianSchemesAndArithmeticModuli:A6",
-      "need": "Finite-separable affine coefficient-algebra restriction of scalars and its functor of points, already owned by A6; use it only to specialize Res_E/E0 H and its coefficient-normalizer representation. Quasi-projective and abelian cases are imported by their exact A6 nodes elsewhere.",
-      "neededBy": [
-        "MordellLawrenceVenkateshPartII:M2.2/semilinear-normalizer"
+        "MordellLawrenceVenkateshPartII:M2.3/padic-period-nondensity"
       ]
     }
   ],
@@ -4532,77 +4515,88 @@
       "stageId": "MordellLawrenceVenkateshPartII:M2.0",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor.",
+        "Discharge the precise open supplier requests from: HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, MotivesAndAlgebraicCycles:MC.6."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.1",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; Katz–Messing and correspondence rationality.",
+        "Discharge the precise open supplier requests from: HodgeStructuresPartII:H.2, PadicHodgeTheory:P8."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.2",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor; Disconnected complete reducibility and rational global types.",
+        "Discharge the precise open supplier requests from: HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, MotivesAndAlgebraicCycles:MC.6, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.3",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor; Disconnected complete reducibility and rational global types; Pure integral period-map Ax–Schanuel supplier; Further extensions of written supplier contracts.",
+        "Discharge the precise open supplier requests from: ComplexComparisonPartII:C0, HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, MotivesAndAlgebraicCycles:MC.6, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.4",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor; Disconnected complete reducibility and rational global types; Pure integral period-map Ax–Schanuel supplier; Further extensions of written supplier contracts.",
+        "Discharge the precise open supplier requests from: ComplexComparisonPartII:C0, HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, MotivesAndAlgebraicCycles:MC.6, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.5",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor; Disconnected complete reducibility and rational global types.",
+        "Discharge the precise open supplier requests from: HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, MotivesAndAlgebraicCycles:MC.6, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.6",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor; Disconnected complete reducibility and rational global types; Pure integral period-map Ax–Schanuel supplier; Further extensions of written supplier contracts.",
+        "Discharge the precise open supplier requests from: ComplexComparisonPartII:C0, HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, MotivesAndAlgebraicCycles:MC.6, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.7",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor; Disconnected complete reducibility and rational global types; Pure integral period-map Ax–Schanuel supplier; Katz–Messing and correspondence rationality; Number-field subvarieties in the stronger finiteness clause; Further extensions of written supplier contracts.",
+        "Discharge the precise open supplier requests from: ComplexComparisonPartII:C0, HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, PadicHodgeTheory:R06.2, MotivesAndAlgebraicCycles:MC.6, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.8",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; Disconnected complete reducibility and rational global types; Eulerian central limit supplier; Further extensions of written supplier contracts.",
+        "Discharge the precise open supplier requests from: HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, ClassicalArithmeticCompletion:CA.2, AlgebraicModuliForArithmeticGeometry:R09.2, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.9",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor; Disconnected complete reducibility and rational global types; Pure integral period-map Ax–Schanuel supplier; Eulerian central limit supplier; Katz–Messing and correspondence rationality; Orthogonal universal-hypersurface monodromy; Further extensions of written supplier contracts.",
+        "Discharge the precise open supplier requests from: ComplexComparisonPartII:C0, HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, PadicHodgeTheory:R06.2, MotivesAndAlgebraicCycles:MC.6, ClassicalArithmeticCompletion:CA.2, AlgebraicModuliForArithmeticGeometry:R09.2, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras."
       ]
     },
     {
       "stageId": "MordellLawrenceVenkateshPartII:M2.10",
       "status": "planned",
       "remaining": [
-        "Resolve the exact external supplier contracts and recorded gaps affecting this layer or its prerequisite chain; independent review must verify the corrected source generalities."
+        "Resolve these recorded gaps in this layer or its prerequisite chain: Relative crystalline coefficient comparison; General tensor-isomorphism torsor; Disconnected complete reducibility and rational global types; Pure integral period-map Ax–Schanuel supplier; Katz–Messing and correspondence rationality; Curve Shafarevich consequence; Further extensions of written supplier contracts.",
+        "Discharge the precise open supplier requests from: ComplexComparisonPartII:C0, HodgeStructuresPartII:H.2, PadicHodgeTheory:P8, MotivesAndAlgebraicCycles:MC.6, ClassicalArithmeticCompletion:CA.2, AlgebraicModuliForArithmeticGeometry:R09.2, AlgebraicModuliForArithmeticGeometry:R09.7, AbelianSchemesAndArithmeticModuli:A1, AbelianSchemesAndArithmeticModuli:A2, tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory, tauceti:TauCetiRoadmap/AdicSpaces#layer-0-topological-algebra-huber-rings-and-tate-algebras."
       ]
     }
   ],
@@ -4660,7 +4654,7 @@
     },
     {
       "title": "Orthogonal universal-hypersurface monodromy",
-      "detail": "LPV.5 explicitly covers odd-middle-dimensional symplectic monodromy, not the even-dimensional orthogonal criterion. Add a LefschetzPencilsAndVanishingCycles, Part II orthogonal/reflection and arithmetic-density supplier, with Beauville’s exceptions. M2.9 applies it in the safe n≥4,d≥4 range.",
+      "detail": "LPV.5 already has open symplectic monodromy and a conditional orthogonal open-or-finite node. Reuse those nodes; the extension still needed is to exclude finite orthogonal monodromy for universal hypersurfaces and provide Beauville’s arithmetic finite-index theorem with its exceptions. Route only that extension to LefschetzPencilsAndVanishingCycles, Part II. M2.9 applies it in the safe n≥4,d≥4 range.",
       "neededBy": [
         "MordellLawrenceVenkateshPartII:M2.9/beauville-monodromy-adapter"
       ]
@@ -4678,6 +4672,18 @@
       "neededBy": [
         "MordellLawrenceVenkateshPartII:M2.7/all-subvarieties-finiteness"
       ]
+    },
+    {
+      "title": "Further extensions of written supplier contracts",
+      "detail": "ComplexComparisonPartII C0 states Weierstrass division/preparation and Noetherianity but not the local analytic Nullstellensatz requested here. PadicHodgeTheory R06.2 supplies admissible tensor categories but not the requested tensor-compatible Sen/Wintenberger cocharacter-image theorem. AlgebraicModuliForArithmeticGeometry R09.2 supplies Hilbert/Quot representability but not the graded regular-sequence Hilbert-series calculation. These are explicit requested extensions at their owners, not consequences of the currently written supplier statements. HodgeStructuresPartII H.2/connected-semisimple does not supply André normality in the generic Mumford–Tate group. CA.2/eulerian-unimodal supplies only unimodality; exact centered variance, Eulerian log-concavity and reflection/convolution closure remain requested extensions. Keep these extensions in the corresponding precise requests.",
+      "neededBy": [
+        "MordellLawrenceVenkateshPartII:M2.3/local-analytic-nullstellensatz",
+        "MordellLawrenceVenkateshPartII:M2.7/hodge-torus-image-adapter",
+        "MordellLawrenceVenkateshPartII:M2.8/projective-jacobian-hodge-formula",
+        "MordellLawrenceVenkateshPartII:M2.3/parabolic-period-stabilizer",
+        "MordellLawrenceVenkateshPartII:M2.8/eulerian-second-moment-logconcavity",
+        "MordellLawrenceVenkateshPartII:M2.8/eulerian-normal-limit-adapter"
+      ]
     }
   ],
   "sourceIssues": [
@@ -4686,16 +4692,21 @@
       "source": "LV",
       "kind": "error",
       "locator": "Published article, p. 971, parameter-space dimension before (10.8)",
-      "printed": "The parameter dimension uses binomial(n+d−1,d−1)−1.",
+      "printed": "The displayed parameter dimension uses binomial(n+d,d−1)−1, with growth of degree n+1 in d.",
       "correction": "Use binomial(n+d,d)−1∼d^n/n!.",
-      "reason": "There are binomial(n+d,d) monomials of degree d in n+1 variables. Plane cubics give dimension 9, not 5.",
+      "reason": "There are binomial(n+d,d) degree-d monomials in n+1 variables. Plane quartics give parameter dimension 14, whereas the printed formula gives 19; plane cubics do not distinguish the formulas.",
       "affects": "the proof",
       "known": "PAPER-LAWRENCE-VENKATESH-20/E1, confirmed in its independent review.",
       "searched": [
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed published p.971 formula has d−1 in the lower entry. Its error is confirmed, but this review corrects the earlier record of what is printed: plane quartics distinguish 14 from 19; plane cubics coincide at 9.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E2",
@@ -4711,7 +4722,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The squared Dirichlet kernel has nonzero coefficient at frequency 2N. The strengthened cutoff controls every used power sum; the positive-N restriction and constant 3 are consistent with the resulting coefficient estimate.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E3",
@@ -4727,7 +4743,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Cup-product compatibility in primitive degree r gives similitude multiplier ℓ^r. The printed ℓ cannot hold uniformly in degree r.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E4",
@@ -4743,7 +4764,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The increasing flag has f_(k−1) inside f_k and f_(k+1) outside it; the induced graded quotient must use the preceding flag term.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E5",
@@ -4759,13 +4785,18 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The displayed inversion-root sets require a negative Weyl action. The bijections are -w and -w^-1, also checked on a non-involutive A2 Weyl element.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E6",
       "source": "LS",
       "kind": "misprint",
-      "locator": "arXiv v5 only, Remark 5.44, p. 60",
+      "locator": "arXiv v5 only, Definition 5.44, p. 60",
       "printed": "A decreasing associated-graded quotient uses the preceding filtration index.",
       "correction": "Use gr^a=F^a/F^(a+1).",
       "reason": "The preceding term contains F^a, while the next term is its subspace.",
@@ -4775,7 +4806,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The cited item is Definition 5.44, not a remark. The decreasing filtration quotient uses F^(a+1); the index correction is confirmed.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E7",
@@ -4791,7 +4827,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The identity translation fixes every hypersurface. The exclusion must concern nonzero geometric translations.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E8",
@@ -4807,7 +4848,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The finite cyclic-cocycle lemma requires ψ^r=id. From (uφ)^r=φ^r one gets u commuting with φ^r, so restriction to Z_U(φ^r) supplies the missing hypothesis.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E9",
@@ -4823,7 +4869,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The coefficient-linear subgroup denoted G⁰ can contain an even-dimensional GO factor and need not be connected. The corrected plan tracks its actual identity component and records rational orbit descent separately; no finiteness counterexample is asserted.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E10",
@@ -4839,7 +4890,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The invoked LV Lemma2.3 requires integer Frobenius polynomials. Algebraic-integral Weil eigenvalues need not give rational coefficients. The plan states the stronger rational-coefficient interface and records the geometric trace-rationality bridge.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E11",
@@ -4855,7 +4911,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Positive tail weights multiply an upper bound, so the second-moment comparison must point downward. The printed direction does not yield the claimed contradiction.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E12",
@@ -4871,7 +4932,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Log-concavity propagates the geometric bound at the varying index i. Retaining the earlier exponent j prevents the tail summation used next.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E13",
@@ -4887,7 +4953,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The exact centered variance is (n+1)/12 for n≥2. Its square root is a standard deviation; the n=2 Bernoulli law already distinguishes these quantities.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     },
     {
       "id": "MordellLawrenceVenkateshPartII/E14",
@@ -4903,7 +4974,12 @@
         "The actual arXiv versions and the source corrections recorded in the atlas extraction and parent packet, checked 2026-10-19.",
         "Annals article metadata/DOI and Inventiones publisher-formatted article; no separate correction identified in the journal/author-page searches.",
         "Akshay Venkatesh research page; Brian Lawrence page access refused; LS v5 acknowledgment of the LV 2.6 repair."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The written arbitrary-group scope fails for the hyperbolic GO2 example with n=2,d=1. The geometrically compatible alternating case is GSp2; restricting the pairing parity repairs the planned statement.",
+        "by": "REV-DESIGN-MordellLawrenceVenkateshPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -4960,8 +5036,8 @@
         "MordellLawrenceVenkateshPartII",
         "LefschetzPencilsAndVanishingCycles"
       ],
-      "detail": "LPV.5 supplies symplectic monodromy only; the universal even-middle-dimensional hypersurface needs the orthogonal arithmetic-density theorem.",
-      "proposal": "Extend that owner in LefschetzPencilsAndVanishingCycles, Part II, with the orthogonal criterion and Beauville exceptions. M2.9 owns the universal-family application in the safe range."
+      "detail": "LPV.5 supplies symplectic openness and a conditional orthogonal open-or-finite alternative; the universal family still needs exclusion of the finite branch and Beauville’s arithmetic finite-index theorem.",
+      "proposal": "Extend that owner in LefschetzPencilsAndVanishingCycles, Part II, only with the universal-family infinite-monodromy and arithmetic finite-index input, including Beauville exceptions. Import its existing conditional orthogonal criterion. M2.9 owns the application in the safe range."
     },
     {
       "action": "rescope",
@@ -4990,7 +5066,7 @@
     },
     "currentTauCeti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "checked": [
-      "Reviewed library-coverage rows for the parent and named suppliers; no Part II decomposition exists.",
+      "The reviewed coverage file has no rows for MordellLawrenceVenkatesh or its Part II. Read the available supplier rows, especially CA.2, A6 and R28.5, and inspect current source declarations separately; absence of an audit row is not evidence of absence from the library.",
       "Current upstream ReductiveGroups and AlgebraicVectorBundles README and Suggested files; the nine newer roadmaps named in WORKERS checked for ownership.",
       "Current and pinned Tau Ceti: dynamic parabolic/Levi functors and Tannaka point reconstruction already exist; abelian-variety carrier exists. None of the multi-realization, balanced-type or hypersurface non-density targets was found.",
       "CA.2 has partly built classical Euler/zigzag material, not the Eulerian ascent distribution; A6 already owns generic Hom finiteness, Rosati positivity and Weil restriction."
@@ -5511,5 +5587,408 @@
       ],
       "note": "The exact hypotheses and supplier/gap qualifications are those of these targets; the route label alone is not a proof of supplier coverage."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-MordellLawrenceVenkateshPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 79 nodes (36 corrected, 43 verified), all 61 routed items, four pinned baseline bodies, supplier statements, APIs/tests, 39 planets, source versions and all 14 source issues. Corrected mathematical interfaces, source locators, exact-node imports and reader/roadmap synchronization. The complete planning pass is accepted under Protocol §0: all 11 stages are planned, none closed; 10 explicit gaps and 12 precise requests remain. No theorem is claimed implemented. Suggested Lean unchanged and successfully elaborated at the pinned Mathlib with nine expected admitted-proof warnings only. Full evidence and corrections are in research/blueprint/reviews/REV-DESIGN-MordellLawrenceVenkateshPartII.md.",
+    "checked": [
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.0/hodge-deligne-system",
+        "verdict": "corrected",
+        "note": "The four realizations and compatibility maps match LS Definition 5.2; relative crystalline and variation supplier extensions remain explicit."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.0/integral-polarized-system",
+        "verdict": "corrected",
+        "note": "Integral Frobenius means algebraic-integral eigenvalues, not rational coefficients; the Tate dual example correctly separates the dual-closed category from this subcollection."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.0/system-tannakian-category",
+        "verdict": "corrected",
+        "note": "The ambient category, not the integral-Frobenius subcollection, is neutral Tannakian; exact admissible-category input is now cited by node."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.0/constant-system",
+        "verdict": "verified",
+        "note": "Constant arithmetic systems retain their Galois representation and are characterized by trivial differential monodromy, not trivial arithmetic action."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.0/geometric-cohomology-system",
+        "verdict": "corrected",
+        "note": "Finite-cover cohomology and invariant projectors use exact proper-comparison, geometric purity and integer-factor suppliers; the relative crystalline gap is retained."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.0/differential-monodromy",
+        "verdict": "verified",
+        "note": "Differential monodromy is the tensor automorphism group of the connection fibre functor; the general fibre-functor torsor is an explicit extension."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.0/crystalline-residue-fibres",
+        "verdict": "corrected",
+        "note": "Residue fibres require smooth good reduction and compatible connection/Frobenius transport, with the missing relative crystalline theorem recorded."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/h0-algebra",
+        "verdict": "verified",
+        "note": "An H0-algebra is an algebra object with the specified constant realizations; its realization compatibilities and nontrivial arithmetic action are retained."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/h0-algebra-operations",
+        "verdict": "corrected",
+        "note": "Replaced the ambiguous finite-group function algebra by its linear dual with convolution; the new C3 test distinguishes Q[C3] from Q^3."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/coefficient-module",
+        "verdict": "verified",
+        "note": "The coefficient action commutes with realization comparisons and Frobenius acts semilinearly; no linear-Frobenius simplification is allowed."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/equidimensional-module",
+        "verdict": "verified",
+        "note": "Equidimensionality is constant rank after all coefficient embeddings; ranks and restriction of scalars match LS 5.24–5.26."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/classical-coefficient-structure",
+        "verdict": "verified",
+        "note": "The pairing targets the stated coefficient line and keeps GL, symplectic and orthogonal cases, including the multiplier direction, distinct."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/torsion-character-system",
+        "verdict": "verified",
+        "note": "Finite-order character systems use the SC.0 supplier and invariant finite-cover construction; a nontrivial character is not a constant arithmetic representation."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/orbit-cohomology-system",
+        "verdict": "verified",
+        "note": "A complete Galois orbit, rather than one character, supplies rational coefficient data; the deck-projector rationality bridge is a direct prerequisite."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/inversion-polarization",
+        "verdict": "verified",
+        "note": "Inversion duality has alternating parity for even ambient dimension and symmetric parity for odd ambient dimension; the SC.4 rank and torsion restrictions are retained."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/semilinear-normalizer",
+        "verdict": "corrected",
+        "note": "The semilinear normalizer and its coefficient-linear kernel now use the exact Weil restriction functor, representability and separable-splitting nodes."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/semilinear-centralizer-bound",
+        "verdict": "verified",
+        "note": "The bound uses the semilinear coefficient permutation and one classical factor per orbit, as in LS 5.33 and the parent centralizer node."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/coefficient-semisimplification",
+        "verdict": "verified",
+        "note": "Disconnected complete reducibility is a coefficient specialization, with rational conjugacy and continuity explicitly left as a supplier gap."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/tensor-g-structure",
+        "verdict": "verified",
+        "note": "Tensor G-structure is functorial on representations and does not depend on a single arbitrary faithful matrix realization."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/tensor-g-filtration",
+        "verdict": "verified",
+        "note": "G-filtrations use tensor-compatible decreasing filtrations and cocharacter equivalence; representationwise flags alone are insufficient."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/crystalline-inner-forms",
+        "verdict": "verified",
+        "note": "Crystalline G-structures give inner forms through two fibre functors, with the general tensor-isomorphism torsor extension stated separately."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/adjoint-hodge-profile",
+        "verdict": "verified",
+        "note": "The finite adjoint profile, positive mass, weighted mass and interpolated top-sum have distinct conventions; restriction-of-scalars scaling is correct."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/uniform-hodge-filtration",
+        "verdict": "verified",
+        "note": "Uniformity is across coefficient factors with a common classical type and Hodge profile, not merely a common total dimension."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/finite-global-g-types",
+        "verdict": "verified",
+        "note": "Finite global G-types require rational Frobenius polynomials in addition to algebraic integrality; disconnected rational orbit splitting remains a named gap."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.2/finite-parabolic-levi-types",
+        "verdict": "corrected",
+        "note": "Corrected the rational proof to use maximal E-split tori in the centralizer and rational conjugacy there; geometric conjugacy alone would not suffice."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.3/period-monodromy-orbit",
+        "verdict": "corrected",
+        "note": "The period image lies in a single differential-monodromy orbit, using the exact compact-dual, represented-orbit and holomorphic-period supplier nodes."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.3/parabolic-period-stabilizer",
+        "verdict": "corrected",
+        "note": "André normality is needed beyond the supplier's connected-semisimplicity theorem; this precise missing extension is now recorded."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.3/local-analytic-nullstellensatz",
+        "verdict": "verified",
+        "note": "The local complex analytic Nullstellensatz does not follow from Weierstrass preparation alone; its extension is explicitly requested at C0."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.3/complex-period-codimension",
+        "verdict": "corrected",
+        "note": "Corrected the LS locator to Lemma 6.3; the pure integral Ax–Schanuel theorem remains an explicit external gap with its precise monodromy-orbit use."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.3/padic-period-nondensity",
+        "verdict": "corrected",
+        "note": "Added exact multivariable horizontal-section imports and current AdicSpaces Tate-algebra inputs; Krull intersection is applied after localization in a Noetherian local ring."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.4/monodromy-index-partition",
+        "verdict": "verified",
+        "note": "Index classes record projected derived-monodromy factors and the Frobenius permutation; existing root/Bruhat foundations are imported."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.4/strongly-balanced-monodromy",
+        "verdict": "verified",
+        "note": "Strong balance controls every induced Frobenius orbit class and is stronger than a single large projection; the distinguishing tests are appropriate."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.4/torsion-orbit-strong-balance",
+        "verdict": "verified",
+        "note": "SC.8 supplies conjugate-uniform torsion-orbit selection, so the strong-balance adapter does not duplicate convolution monodromy."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.4/semisimple-orbit-codimension",
+        "verdict": "verified",
+        "note": "The semisimple estimate separates centralizer dimension from per-factor Hodge data and keeps the full inequality domains."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.4/semisimple-points-nondense",
+        "verdict": "corrected",
+        "note": "Made finite type of the arithmetic model explicit. The semisimple theorem is a separate first case and does not assert that all geometric Galois representations split."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/central-weight-space",
+        "verdict": "corrected",
+        "note": "Corrected the central weight space to the connected center of the identity component of a possibly disconnected group, retaining the Galois action on character data."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/induced-levi-filtration",
+        "verdict": "corrected",
+        "note": "Restricted the Levi fixed-point construction to one Q-parabolic homogeneous orbit and corrected its LS locator; the SL2 two-fixed-points test catches the broader false claim."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/balanced-filtration",
+        "verdict": "verified",
+        "note": "Balanced and semibalanced conditions use the inverse modular character with the stated sign; upper triangular GL2 fixes the convention."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/global-purity-implies-balance",
+        "verdict": "verified",
+        "note": "Global purity gives average de Rham weight over the number-field embeddings in the supplier's scope, not arbitrary embeddingwise equality over CM fields."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/bifiltered-frobenius-type",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to Definition 8.8 and Remark 8.9; graded Frobenius data retains more than an underlying semisimplified representation."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/unipotent-cyclic-cocycle",
+        "verdict": "verified",
+        "note": "The unipotent cyclic-cocycle lemma requires a finite-order automorphism in characteristic zero; that hypothesis is explicit."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/frobenius-stable-levi",
+        "verdict": "verified",
+        "note": "The Frobenius-stable Levi construction first restricts to the centralizer of the r-th power, repairing the finite-order cocycle application."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/finite-types-from-global-semisimplification",
+        "verdict": "verified",
+        "note": "Finitely many graded types follow from a fixed semisimplification only after the rational Levi and Frobenius-stable reduction inputs."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/weyl-root-pairing",
+        "verdict": "verified",
+        "note": "The root pairing uses -w with inverse -w^-1; the sign and unequal weights are essential and an A2 computation confirms the convention."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/fixed-graded-semibalanced-codimension",
+        "verdict": "verified",
+        "note": "The codimension bound fixes associated graded data and a semibalance condition; the rank correction and allowed top-sum arguments are explicit."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/graded-pair-dimension",
+        "verdict": "verified",
+        "note": "The graded-pair dimension estimate separately accounts for the Levi factor and unipotent directions as in LS 8.15 and LV 11.6."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.5/balanced-type-monodromy-codimension",
+        "verdict": "corrected",
+        "note": "Corrected the locator to LS 8.16, pp.81–83; strong balance and single-factor rather than total restricted-scalar profiles govern its inequalities."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.6/integral-points-nondense",
+        "verdict": "corrected",
+        "note": "Made finite type of the arithmetic model explicit; the non-density proof uses a finite list of semisimplifications without assuming actual fibres are semisimple."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.7/crystalline-fibre-functor-comparison",
+        "verdict": "verified",
+        "note": "The crystalline fibre-functor comparison follows a tensor-isomorphism torsor, not the pinned finite-comodule tensor automorphism equivalence by itself."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.7/hodge-torus-image-adapter",
+        "verdict": "verified",
+        "note": "The Hodge cocharacter's inclusion in the local algebraic Galois image needs a tensor-compatible Sen/Wintenberger extension; admissibility alone is insufficient."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.7/bounded-small-frobenius-centralizer",
+        "verdict": "corrected",
+        "note": "Added exact smooth-projective purity, reciprocal-pairing and integral-factor imports; higher-degree Katz–Messing and primitive-projector compatibility remain a gap."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.7/classical-bad-filtration-codimension",
+        "verdict": "verified",
+        "note": "The classical bad-filtration estimate retains the published non-strict first inequality and strict weighted inequality; all interpolated arguments stay in their domain."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.7/classical-semisimplification-fibre",
+        "verdict": "corrected",
+        "note": "Fontaine–Laffaille is used only after the stated weight shift and prime-range restriction, with exact tensor admissibility imported separately."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.7/higher-dimensional-nondensity",
+        "verdict": "corrected",
+        "note": "Corrected geometric monodromy to contain the connected isometry group, retaining the similitude group for the adjoint profile; made the finite-type smooth arithmetic base explicit."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.7/all-subvarieties-finiteness",
+        "verdict": "corrected",
+        "note": "The stronger finiteness conclusion requires monodromy on all subvarieties and arithmetic comparison over their fields of definition; generic monodromy gives only non-density."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.7/point-count-centralizer-bound",
+        "verdict": "corrected",
+        "note": "The 2N Fourier cutoff is retained; the proof now states ambient-Tate trace cancellation and the elementary projective point-count estimate explicitly."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/eulerian-adjoint-profile",
+        "verdict": "verified",
+        "note": "The Eulerian adjoint calculation keeps the geometric GSp/GO parity restriction and the scalar similitude direction; arbitrary GO2 would fail strictness."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/eulerian-difference-law",
+        "verdict": "corrected",
+        "note": "The difference distribution is normalized finite convolution with reflection; exact CA.2 Eulerian definitions and identities replace a broad stage import."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/eulerian-second-moment-logconcavity",
+        "verdict": "corrected",
+        "note": "The exact variance and log-concavity/convolution extension is now distinguished from the supplier's weaker unimodality result."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/eulerian-central-mass",
+        "verdict": "verified",
+        "note": "The central-mass proof uses the corrected upper-tail inequality and geometric denominator, with exact small Eulerian cases separated."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/large-c-numerical-criterion",
+        "verdict": "verified",
+        "note": "The large-c criterion keeps the strict rank margin and valid top-sum domains; it is an existence statement rather than an explicit universal cutoff."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/projective-jacobian-hodge-formula",
+        "verdict": "corrected",
+        "note": "Added n≥2 and d≥2 and exact geometric Hodge inputs; the regular-sequence Hilbert-series calculation remains an explicit supplier extension."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/projective-eulerian-asymptotics",
+        "verdict": "corrected",
+        "note": "Corrected the parameter-space dimension record and distinguishing example to plane quartics, where the dimensions are 14 and 19; cubics give 9 in both formulas."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/eulerian-normal-limit-adapter",
+        "verdict": "corrected",
+        "note": "The normal-limit adapter records uniform integrability in addition to weak convergence and imports exact Eulerian nodes; the general CLT remains an owner extension."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.8/large-dimension-degree-criterion",
+        "verdict": "verified",
+        "note": "The large-dimension/degree criterion has sequential quantifiers n≥n0 then d≥D0(n), with the boundary and parity conditions retained."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.9/universal-projective-family",
+        "verdict": "corrected",
+        "note": "Imported the fixed-polynomial Hilbert scheme and rational complete-intersection primitive splitting; LPV's radical quotient alone is not the full primitive summand."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.9/beauville-monodromy-adapter",
+        "verdict": "corrected",
+        "note": "Reused LPV's existing symplectic openness and conditional orthogonal alternative; only universal-family infinite monodromy and Beauville arithmetic finite index remain an extension."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.9/projective-hypersurface-nondensity",
+        "verdict": "verified",
+        "note": "The projective application uses the same classical non-density theorem and safe monodromy range; it does not create a second Part II."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/good-reduction-primitive-hypersurface",
+        "verdict": "corrected",
+        "note": "The geometric nonzero-translation condition, exact abelian rigidity/NS/degree nodes and Hilbert-scheme input are retained in the good-reduction specification."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/abelian-divisor-parameter-space",
+        "verdict": "corrected",
+        "note": "Imported the exact Hilbert, numerical-class and degree nodes while keeping the additional Cartier-open/component/spreading contract explicit."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/weil-restriction-arithmetic-adapter",
+        "verdict": "corrected",
+        "note": "Corrected the proof locator to pp.85–86; finite étale restriction and rational integral-point comparison are kept separate from geometric closure properties."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/dense-closure-proper-resolution",
+        "verdict": "corrected",
+        "note": "Imported the exact resolution theorem and requested its finite-localization spreading; rational lifts are asserted only over the dense open where it is an isomorphism."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/nontranslation-family-nondensity",
+        "verdict": "verified",
+        "note": "Nontranslation families use SC torsion-orbit monodromy and the coefficient non-density theorem; the resolution/parameter-space hypotheses are not dropped."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/primitive-shafarevich-finiteness",
+        "verdict": "verified",
+        "note": "Primitive finiteness combines closure components with the nontranslation contradiction and makes no unconditional claim that all parameter components are translation orbits."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/stabilizer-isogeny-reduction",
+        "verdict": "corrected",
+        "note": "Finite stabilizer quotient and theta-group descent now cite exact A3 nodes; the exceptional-degree restrictions remain those of SC.5."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/rational-translation-descent",
+        "verdict": "verified",
+        "note": "Rational translation descent uses weak Mordell–Weil and descent data, rather than equating geometric translation with rational translation."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/hypersurface-shafarevich-finiteness",
+        "verdict": "verified",
+        "note": "The final Shafarevich clauses retain the ambient-dimension and dimension-three exceptional-degree restrictions and normalized degree convention."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.10/abelian-surface-hypersurfaces",
+        "verdict": "verified",
+        "note": "The dimension-two consequence records the missing Torelli/descent/good-reduction bridge from abelian to curve Shafarevich, rather than importing it silently."
+      },
+      {
+        "nodeId": "MordellLawrenceVenkateshPartII:M2.1/rational-orbit-frobenius-polynomials",
+        "verdict": "corrected",
+        "note": "Added exact trace and Weil-arithmetic nodes; the rational orbit projector still needs correspondence trace rationality to strengthen integral eigenvalues to integer Frobenius polynomials."
+      }
+    ]
+  }
 }
