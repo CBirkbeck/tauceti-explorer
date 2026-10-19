@@ -8,6 +8,8 @@ This part owns ES0, ES0:classical-center, ES1, ES1:finite-ramification, ES1:spec
 
 Mathlib supplies the ordinary categorical center and the commutative algebra of reduced support. The current TauCetiRoadmap SmoothRepresentationsOfLocalGroups supplies smooth categories, the ordinary smooth center and Hecke-corner description (SR.0–SR.1), closed-subgroup compact induction and Whittaker data (SR.2), and complex Bernstein block theory (SR.3). Here the additional targets are enhanced stratum/heart restriction, ordinary center transport along a chosen field isomorphism, and geometric Whittaker extension. Closed-subgroup compact induction is used through its function-support definition, without assuming the open-subgroup algebraic model or a left adjunction for nonopen U(E).
 
+Its SR.0d also owns the ordinary derived smooth category, its standard heart and its dg K-injective model. E5 and VS must supply the stable infinity-category comparison needed here. ClassFieldTheory Layer 9 owns the local Weil group and its topology; SR.6.1 owns the finite-wild discrete cocycle input. Current TauCeti supplies `TauCeti.wildInertiaSubgroup` and `TauCeti.tameQuotientEquiv` in the local-field library. These are imported foundations, distinct from the coherent quotient descent of the entire geometric Hecke family proved here.
+
 The [ES5–ES6 part](ExcursionOperatorsAndSpectralAction--ES5.md) supplies the semisimple parameter assignment and its functorial consequences. [ES7](ExcursionOperatorsAndSpectralAction--ES7.md) owns the general spectral stratum/constant-term composites and parabolic compatibility; the early ordinary b=1 center restriction here is a different comparison. GS4 supplies normalized Satake and the Chevalley involution; HS supplies the coherent Hecke family and local-shtuka comparison; VS supplies strata and compact lisse Bernstein–Zelevinsky duality. These suppliers’ constructions are not repeated.
 
 ## Conventions
@@ -58,7 +60,7 @@ Import the existing HS1/condensed-enrichment relatively discrete animated Hom(A,
 
 ### From LanglandsParameterStacks:LP0
 
-The actual Weil group/wild inertia carriers and eligibility of open normal P, tensor-compatible dense discretizations, and pro-p versus pro-ell image argument used by IX.5.1.
+Import the Weil-group/topology target from ClassFieldTheory Layer 9, current TauCeti's `TauCeti.wildInertiaSubgroup` and `TauCeti.tameQuotientEquiv`, and the finite-wild discretization/cocycle contracts from SR.6.1 and LP0. The additional input is tensor-compatible refinement for all legs of a compact object's Hecke family and the pro-p versus pro-ell image argument of IX.5.1. The topological Weil carrier is an upstream roadmap target, not a declaration in the current TauCeti library.
 
 ### From LanglandsParameterStacks:LP1
 
@@ -80,7 +82,7 @@ The supplied targets are `TauCetiRoadmap/SmoothRepresentationsOfLocalGroups#SR.0
 
 ### From SmoothRepresentationsOfLocalGroups:SR.0:derived-extension
 
-Enhanced derived smooth category and its heart, with the supplied stratum equivalence and ordinary-heart restriction of enhanced central transformations.
+Import SR.0d's `derived-smooth-category` and `dg-enhancement`, including its standard heart. The remaining input is their stable infinity-category upgrade from E5/VS, compatible with the geometric stratum equivalence and restriction of enhanced central transformations to the ordinary heart.
 
 ### From SmoothRepresentationsOfLocalGroups:SR.1
 
@@ -1014,7 +1016,7 @@ The construction proceeds as follows.
 4. Use the biproduct projections/inclusions to identify the direct-sum annihilator intersection.
 5. Rotate the distinguished triangle, using the specified shift compatibility for the two other support inclusions. Iterate the binary biproduct law for finite sums; the empty sum uses the zero-object law.
 
-The exact sequence 0->k->R->k->0 for R=k[epsilon]/epsilon^2 gives a triangle in D(R): epsilon kills the endpoints but need not kill the middle; epsilon^2 does. This tests the general central-action lemma on possibly noncompact objects; k is not perfect over R. For a compact nilpotent-support test use Perf(k) with the central R action through R->k, as in finite-wild-central-support. Check zero and finite direct sums. If both endpoint identities are zero, the distinguished triangle has empty middle support. The Lean example support_triangle_zero_ends states this on an actual triangle without assuming the annihilator-product conclusion.
+The exact sequence 0->k->R->k->0 for R=k[epsilon]/epsilon^2 gives a triangle in D(R): epsilon kills the endpoints but need not kill the middle; epsilon^2 does. This tests the general central-action lemma on possibly noncompact objects; k is not perfect over R. For a compact nilpotent-support test use Perf(k) with the central R action through R->k, as in finite-wild-central-support. Check zero and finite direct sums. If both endpoint identities are zero, their supports are empty, and the triangle-containment clause of `support_exact_operations` gives empty middle support. This is a consequence of that theorem target and the zero-object computation.
 
 *Needs:* `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:PrimeSpectrum.zeroLocus_mul`, `mathlib:PrimeSpectrum.zeroLocus_inf`, `mathlib:CategoryTheory.Pretriangulated.Triangle`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:CategoryTheory.Pretriangulated.Triangle.yoneda_exact₂`, `mathlib:CategoryTheory.shiftFunctor`, `mathlib:CategoryTheory.Limits.biprod`.
 
@@ -1037,7 +1039,7 @@ The construction proceeds as follows.
 3. Identify S tensor_R R with S. The image of the tensor kernel inclusion is the extended ideal Ideal.map(R->S)(Ann_R(A)). S-linearity and the identity condition on the supplied End comparison identify tensor evaluation with s->s id_(A_S), whose kernel is Ann_S(A_S).
 4. Use PrimeSpectrum.preimage_comap_zeroLocus, Ideal.map and zeroLocus_span to obtain the equality of supports.
 
-Keep the flatness and actual endomorphism comparison hypotheses in the equality statement. For reduction modulo ell do not assert equality merely from exactness of the categorical action. The suggested centralAnnihilator_map_le and centralSupport_map state unconditional compatible-action containment. support_coefficient_change states flat annihilator and support equality with a genuine identity-preserving End tensor equivalence. Over the flat identity map on Z, the scalar module Z and the zero module have annihilators zero and the unit ideal: compatible additive functors alone do not supply an End comparison. For Z->Z/2, Q tensors to zero and its End tensor comparison preserves the identity, but the annihilator grows from zero to the unit ideal. This checks that the equality theorem retains flatness.
+Keep the flatness and actual endomorphism comparison hypotheses in the equality statement. For reduction modulo ell do not assert equality merely from exactness of the categorical action. The suggested `support_compatible_functor` states both unconditional compatible-action containments. `support_coefficient_change` states flat annihilator and support equality with a genuine identity-preserving End tensor equivalence. Over the flat identity map on Z, the scalar module Z and the zero module have annihilators zero and the unit ideal: compatible additive functors alone do not supply an End comparison. For Z->Z/2, Q tensors to zero and its End tensor comparison preserves the identity, but the annihilator grows from zero to the unit ideal. This checks that the equality theorem retains flatness.
 
 *Needs:* `ExcursionOperatorsAndSpectralAction:ES4/finite-wild-central-support`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/center-change-of-data`, `ExcursionOperatorsAndSpectralAction:ES3/derived-reduction-and-rationalization`, `EnhancedDerivedSheaves:E5:presentability`, `mathlib:PrimeSpectrum.comap`, `mathlib:Module.Flat`, `mathlib:Module.Flat.lTensor_exact`, `mathlib:LinearMap.toSpanSingleton`, `mathlib:Ideal.map`, `mathlib:PrimeSpectrum.preimage_comap_zeroLocus`, `mathlib:PrimeSpectrum.zeroLocus_span`, `mathlib:ZMod`.
 
@@ -1267,9 +1269,11 @@ LP1 supplies the tangent/deformation complex, local Tate duality and amplitude/E
 
 ## Suggested statements at the library pins
 
-The [suggested Lean file](../suggested/ExcursionOperatorsAndSpectralAction--ES0.lean) contains representative statements whose carriers already exist at the pins. It defines evaluation of the ordinary center, its kernel annihilator and reduced central support. It states the exact-operation theorem with actual distinguished triangles and shift-compatible central action, compatible-functor containment, flat identity-preserving End comparison, idempotent support and the principal radical/power criterion. The last criterion is only the ring-theoretic part of categorical localization.
+The [suggested Lean file](../suggested/ExcursionOperatorsAndSpectralAction--ES0.lean) contains representative statements whose carriers already exist at the pins. Its three light definitions are `centerEvaluation`, evaluation of the ordinary center at an object, `centralAnnihilator`, the kernel of the evaluated action, and `centralSupport`, its reduced prime zero locus. It states the exact-operation theorem with actual distinguished triangles and shift-compatible central action, compatible-functor containment, flat identity-preserving End comparison, idempotent support and the principal radical/power criterion. The last criterion is only the ring-theoretic part of categorical localization.
 
-Enhanced stable categories, coherent action anima, stacky Perf, the integral approximation, geometric Whittaker extension and elliptic algebraic centralizers are specified above with all their APIs and Checks. Their carriers are not supplied by the pinned libraries; the suggested file does not declare ordinary substitutes or build those foundations. The native ModuleCat examples compute only the degree-zero phenomena they state.
+The three proved examples compute scalar evaluation, unit membership in the annihilator and empty support when the identity is zero. The remaining boundary computations are named theorem targets: `centralSupport_of_faithful_action`, `centralSupport_free`, `centralSupport_nilpotent`, `support_coefficient_change_requires_End_comparison` and `support_coefficient_change_requires_flatness`. They respectively state full support for a faithful evaluation, the rank-one ModuleCat computation, the dual-number residue computation and the two coefficient counterexamples above. These five targets still require proofs.
+
+Enhanced stable categories, coherent action anima, stacky Perf, the integral approximation, geometric Whittaker extension and elliptic algebraic centralizers are specified above with all their APIs and Checks. Their carriers are not supplied by the pinned libraries; the suggested file does not declare ordinary substitutes or build those foundations. The native ModuleCat theorem targets concern only degree-zero phenomena; they do not identify ModuleCat with Perf.
 
 ## Existing library inputs
 
@@ -1320,5 +1324,8 @@ At VIII.4.1, p. 292 of the hash-identified author copy, use a commutative reinde
 - Mathlib contributors, [Prime spectrum: zero loci and radical ideals](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Spectrum/Prime/Basic.lean). Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174
 - Mathlib contributors, [Flat modules and tensor exactness](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RingTheory/Flat/Basic.lean). Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174
 - The Stacks Project authors, [Flat modules and flat ring maps](https://stacks.math.columbia.edu/tag/00H9). Online Section 10.39, tag 00H9
+- TauCetiProject, [Smooth representations of local groups](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/SmoothRepresentationsOfLocalGroups/README.md). SR.0d supplies the derived model; SR.0.4, SR.1.3, SR.2, SR.3.2 and SR.6.1 supply the ordinary and finite-wild inputs above.
+- TauCetiProject, [Class field theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/0d144d044dacebca17b654695b6f1ad58f159b27/TauCetiRoadmap/ClassFieldTheory/README.md#layer-9-the-local-weil-group). Layer 9 supplies the local Weil-group carrier and topology as roadmap targets.
+- TauCetiProject, [Wild inertia](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/NumberTheory/LocalField/WildInertia.lean#L235) and [tame quotient presentation](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/NumberTheory/LocalField/Tame/Presentation.lean#L398). Current-library inputs for the supplier boundary; neither is imported by the pinned suggested file.
 
 The Fargues–Scholze manuscript used here has SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`; printed page numbers equal PDF page numbers.
