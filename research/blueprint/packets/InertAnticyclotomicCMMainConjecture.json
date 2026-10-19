@@ -30,6 +30,34 @@
         "module": "Mathlib/RingTheory/Ideal/Span.lean",
         "provides": "Multiplying a principal-ideal generator by a unit on the left preserves its ideal.",
         "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; local shared-build source matched pinned bytes."
+      },
+      {
+        "ref": "mathlib:Module.length",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "The length of a module, valued in ℕ∞, as the Krull dimension of its lattice of submodules.",
+        "checked": "Definition read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (line 32)."
+      },
+      {
+        "ref": "mathlib:Module.length_le_of_surjective",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "For a surjective linear map M → P, the length of P is at most the length of M.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (line 203; the surjectivity hypothesis hg is the section variable)."
+      },
+      {
+        "ref": "mathlib:IsLocalRing.length_restrictScalars",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/LocalRing/Length.lean",
+        "provides": "For a local homomorphism of local rings A → B and a B-module M, the A-length of M is its B-length times the length of the residue field of B over that of A.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (line 54); applied with B the residue field of A."
+      },
+      {
+        "ref": "mathlib:Module.length_eq_finrank",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Length.lean",
+        "provides": "Over a division ring, the length of a finite-dimensional module is its finrank.",
+        "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (line 294)."
       }
     ]
   },
@@ -55,7 +83,8 @@
       "sha256": "24f7a3ee7afd3f6bc2bc51ac2df48eb456be9878c9f63b1f6fce1baef9e53c5c",
       "accessed": "2026-10-18",
       "readSections": [
-        "Entire paper, all proofs §§1–5, pp.611–620, and references p.621; compared arXiv math/0401124v2"
+        "Entire paper, all proofs §§1–5, pp.611–620, and references p.621; compared arXiv math/0401124v2",
+        "Reviewer: entire paper again; arXiv math/0401124v2 compared at Theorem 4.1 and Proposition 5.3."
       ]
     },
     {
@@ -67,7 +96,32 @@
       "sha256": "1c176f86e757830dd18d36568c3066e2682733e8e3de6193133f886090280741",
       "accessed": "2026-10-18",
       "readSections": [
-        "Lemma 1.1.9 and proof pp.1009–1010; Propositions 2.4.15–2.4.16 and proofs pp.1032–1033; numbering of Remark 2.1.2 p.1016 checked. This paper assumes ordinary p and is a proof template, not the inert theorem."
+        "Lemma 1.1.9 and proof pp.1009–1010; Propositions 2.4.15–2.4.16 and proofs pp.1032–1033; numbering of Remark 2.1.2 p.1016 checked. This paper assumes ordinary p and is a proof template, not the inert theorem.",
+        "Reviewer: Lemma 1.1.4 p.1006, Lemma 1.2.1 and Theorem 1.2.2 pp.1010–1011, Lemma 2.4.5 and Corollary 2.4.6 pp.1028–1029, Propositions 2.4.15–2.4.16 and Theorem 2.4.17 pp.1032–1034. The numbering of §§1–2 was compared with arXiv math/0302319 v1 and v3 (TeX sources of February 2003 and April 2004) and v2, v4 (PDF)."
+      ]
+    },
+    {
+      "id": "RUB91",
+      "title": "The “main conjectures” of Iwasawa theory for imaginary quadratic fields",
+      "authors": "Karl Rubin",
+      "edition": "Inventiones Mathematicae 103 (1991), 25–68; scan from the Göttingen Digitization Center (GDZ)",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0103/LOG_0009.pdf",
+      "sha256": "96ca08e8ed1a7646d4bf40e2e088e0ea6e068319978ac7e5c5e3d45cc39ee23a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§4 pp.36–37 in full: standing hypotheses on p, K₀ and K_∞; the modules A, Ē, C̄, U, X and the exact sequence (5); χ-parts; Theorem 4.1 and Remarks (1)–(2). Read by the reviewer from the page images."
+      ]
+    },
+    {
+      "id": "BIL86",
+      "title": "Quelques aspects de la descente sur une courbe elliptique dans le cas de réduction supersingulière",
+      "authors": "Patrick Billot",
+      "edition": "Compositio Mathematica 58 (1986), 341–369; Numdam CM_1986__58_3_341_0",
+      "url": "http://www.numdam.org/item/CM_1986__58_3_341_0.pdf",
+      "sha256": "988d73e2e16c48591bc292eb557b5ade1f6d99dd78d133c5ebed1f811a4e4fb8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction pp.341–342; §3 Remark 3.3 p.351, Proposition 3.8 and the Leopoldt hypothesis p.353; Lemmas 3.18–3.21 and Theorems 3.22–3.24 pp.362–365; Proposition 3.26 p.365."
       ]
     }
   ],
@@ -514,7 +568,7 @@
       "proofSteps": [
         "Pass to a finite local extension where the potentially good CM curve has good reduction; restriction on rational cohomology is injective because the extension degree is invertible in Q_p.",
         "For good reduction at residue characteristic different from p, inertia is trivial on the Tate representation. The Frobenius eigenvalues have complex absolute value q^(1/2), so neither 1 nor q occurs. Compute the unramified and tame contributions to H¹, or apply local duality and the local Euler characteristic, to obtain zero.",
-        "A selected rank-one CM summand inherits the vanishing. The identification with Arnold Proposition 2.10 is recorded as G4 until its original statement is read."
+        "A selected rank-one CM summand inherits the vanishing. This is the argument of AHI Lemma 1.1.4 (p.1006): when neither the representation nor its Tate dual twist has invariants at v∤p, H¹ vanishes. BKO cite Arnold Proposition 2.10 for the same vanishing; this proof does not need it."
       ],
       "acceptance": [
         "The argument covers bad potentially good primes by rational restriction, not an integral vanishing assertion.",
@@ -531,6 +585,11 @@
           "sourceId": "BKO21",
           "locator": "§6.0.2 p.962, reference to Arnold Proposition 2.10",
           "match": "BKO uses rational vanishing to replace the usual finite W-condition by zero."
+        },
+        {
+          "sourceId": "AHI06",
+          "locator": "Lemma 1.1.4 and the sentence after it, p.1006",
+          "match": "No invariants of V and of its Tate twist dual at a place v∤p forces H¹(F_v,V)=0, by local duality and the local Euler characteristic; AHI apply it to the CM Tate module."
         }
       ],
       "implementationStatus": "unchecked",
@@ -656,7 +715,7 @@
       ],
       "title": "Infinite Selmer duals and compact Selmer modules",
       "kind": "construction",
-      "statement": "Put Sel_∞,a=colim_res Sel_a(K_n,W) and X_a=Hom_Zp,cts(Sel_∞,a,Q_p/Z_p) for a=str,rel,+,− and ordinary. Give X_a the compact topology and contragredient Λ_R action (γf)(x)=f(γ⁻¹x), (rf)(x)=f(rx). Define S_s=lim_cor Sel_s(K_n,T′) for s=+,− using the exact annihilator of L_n^s. Separately define S_str and S_rel by zero and full compact p-local condition, respectively, with the same finite conditions away from p; thus compact strict pairs with discrete relaxed and compact relaxed with discrete strict. The trace identifies the Z_p-dual with the R-linear dual valued in the inverse-different quotient. A choice of its R-basis affects no characteristic ideal.",
+      "statement": "Put Sel_∞,a=colim_res Sel_a(K_n,W) and X_a=Hom_Zp,cts(Sel_∞,a,Q_p/Z_p) for a=str,rel,+,− and ordinary. Give X_a the compact topology and contragredient Λ_R action (γf)(x)=f(γ⁻¹x), (rf)(x)=f(rx). Define S_s=lim_cor Sel_s(K_n,T′) for s=+,− using the exact annihilator of L_n^s at p and, at every finite v∤p, the full group H¹((K_n)_v,T′), which is the annihilator of the zero discrete condition (AHII §2 p.612 defines each compact condition as the orthogonal complement of the discrete one). Separately define S_str and S_rel by zero and full compact p-local condition, respectively, with that same full condition away from p; thus compact strict pairs with discrete relaxed and compact relaxed with discrete strict. The trace identifies the Z_p-dual with the R-linear dual valued in the inverse-different quotient. A choice of its R-basis affects no characteristic ideal.",
       "hypotheses": [
         "p≥5 is prime and inert in the imaginary quadratic field K; p does not divide h_K. H is the Hilbert class field.",
         "φ has infinity type (1,0), conductor f prime to p, φ((α))=α for α≡1 mod f, and φ(conjugate(a))=conjugate(φ(a)). The character φ∘N_(H/K) belongs to a maximal-CM Gross Q-curve E/H with good reduction above p.",
@@ -1098,7 +1157,7 @@
         "R is the integer ring of a finite extension L/Φ containing the p-adic avatar φ_p. T=R(φ_p), W=T⊗_O(Φ/O)≃(T⊗_R L)/T. Λ_R=R[[Γ⁻]], Γ⁻=Gal(K∞/K)≃Z_p; ε=W(φ)∈{+1,−1}."
       ],
       "proofSteps": [
-        "Import the general elliptic-unit Euler system and distribution relations from the missing shared supplier G2; instantiate its full auxiliary-ideal family and integral CM twist on the tower where the twisting character is trivial, then descend with its recorded action.",
+        "Import the elliptic units, their distribution relations and the Euler system for Z_p(1) from CMAllPrimeMainConjectures CZ.0/standard-elliptic-unit and CZ.2/elliptic-unit-euler-system. Instantiate the full auxiliary-ideal family and the integral CM twist (AHII §3 p.614 twists by ω_cyc⁻¹ψ_p; here by the inverse avatar) on the tower where the twisting character is trivial, then descend with its recorded action.",
         "Verify each localized global class satisfies the signed condition using explicit reciprocity and the root number.",
         "Keep the complete family through specialization, so the integral index cannot silently change when a convenient class is selected. The comparison with ξ is a later target."
       ],
@@ -1108,7 +1167,9 @@
       ],
       "prerequisites": [
         "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules",
-        "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class"
+        "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+        "CMAllPrimeMainConjectures:CZ.0/standard-elliptic-unit",
+        "CMAllPrimeMainConjectures:CZ.2/elliptic-unit-euler-system"
       ],
       "sources": [
         {
@@ -1347,8 +1408,8 @@
         "R is the integer ring of a finite extension L/Φ containing the p-adic avatar φ_p. T=R(φ_p), W=T⊗_O(Φ/O)≃(T⊗_R L)/T. Λ_R=R[[Γ⁻]], Γ⁻=Gal(K∞/K)≃Z_p; ε=W(φ)∈{+1,−1}."
       ],
       "proofSteps": [
-        "Obtain Rubin 1991 Theorem 4.1(ii) in the exact inert character component and verify its hypotheses: integral char(X₂^η)=char(U₂^η/C̄₂^η), together with the global units/class group exact sequence. G2 records that neither the primary theorem nor a registered CMAllPrime supplier stage is yet available.",
-        "Use the global units, local units, ramified module and class group sequence to identify the corresponding two-variable S/C and strict dual.",
+        "Import Rubin 1991 Theorem 4.1(ii) from CMAllPrimeMainConjectures CZ.2/classical-two-variable-main-conjecture, with Rubin's modules from CZ.2/rubin-iwasawa-modules. For p inert it is the class-group/global-units form: char(A_∞) divides char(Ē_∞/C̄_∞), with equality of χ-parts for every irreducible χ of Δ=Gal(K₀/K) that is nontrivial on the decomposition group of p in Δ (RUB91 p.37). Since X_∞ and U_∞/C̄_∞ are not torsion for nonsplit p (Remark 2, p.37), no equality char(X_∞)=char(U_∞/C̄_∞) exists or is used. Check Rubin's standing hypotheses for K₀=H(E[p]): p∤#μ(H), p∤[K₀:K], and nontriviality of the relevant Δ-character on the decomposition group of p, where K_p(E[p])/K_p is totally ramified of degree p²−1 (AHII Lemma 5.1 proof, p.618). G2 records the remaining translation.",
+        "Translate through a twisting dictionary as in AHI Lemma 2.4.5 and Corollary 2.4.6 (pp.1028–1029): the twist identifies the two-variable strict Selmer dual with the twisted χ-part of A_∞ and S_rel/C with the twisted χ-part of Ē_∞/C̄_∞, using Rubin's sequence (5) (p.36). At the inert prime, 'unramified' and 'locally trivial', and units and p-units, differ by modules induced from the decomposition group of p in Δ; their χ-parts vanish because χ is nontrivial on that group. AHI's local argument at an ordinary prime, where completions contain the local unramified Z_p-extension, does not apply at p here.",
         "Specialize through Γ⁺−1. Carry the actual kernel, cokernel and Tor modules into both characteristic-divisor formulas, and prove equality of the correction divisors before cancellation. AHI Propositions 2.4.15–2.4.16 explain this mechanism but are not an inert-prime import.",
         "Apply height-one multiplicativity over Λ_R, including the prime (π)."
       ],
@@ -1361,7 +1422,9 @@
         "InertAnticyclotomicCMMainConjecture:IC.3/global-unit-module",
         "InertAnticyclotomicCMMainConjecture:IC.3/gross-descent",
         "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
-        "SelmerIwasawaCohomology:L3/iwasawa-descent"
+        "SelmerIwasawaCohomology:L3/iwasawa-descent",
+        "CMAllPrimeMainConjectures:CZ.2/classical-two-variable-main-conjecture",
+        "CMAllPrimeMainConjectures:CZ.2/rubin-iwasawa-modules"
       ],
       "sources": [
         {
@@ -1373,6 +1436,16 @@
           "sourceId": "AHI06",
           "locator": "Propositions 2.4.15–2.4.16 pp.1032–1033",
           "match": "The specialization proof retains a common correction divisor, which must be justified again in the inert setting."
+        },
+        {
+          "sourceId": "RUB91",
+          "locator": "§4, Theorem 4.1(ii) and Remark (2), pp.36–37",
+          "match": "For p inert or ramified, Rubin proves divisibility of char(A_∞) into char(Ē_∞/C̄_∞) and equality of χ-parts for χ nontrivial on the decomposition group of p; the remark records that X_∞ and U_∞/C̄_∞ are not torsion in that case."
+        },
+        {
+          "sourceId": "AHI06",
+          "locator": "Lemma 2.4.5 and Corollary 2.4.6, pp.1028–1029",
+          "match": "The twisting isomorphisms identify relaxed, true and strict Selmer groups of the twist with Galois groups and unit modules of the big field, and transport characteristic ideals."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1494,8 +1567,8 @@
       ],
       "proofSteps": [
         "Obtain the two-variable rank-one module and its exact specialization control. Use equality of the generic ranks to prove γ⁺−1 does not divide the torsion characteristic divisor; verify the Tor terms in this argument.",
-        "Apply the rank-one two-variable duality/specialization theorem underlying AH’s appeal to Billot Theorem 3.24, explicitly checking its finite error modules and hypotheses for the Gross component.",
-        "Do not use AH’s AHI Lemma 2.1.2 citation without locating its preprint version: in published AHI the same number is a remark about Katz measures. G5 records this source and proof gap."
+        "Apply BIL86 Theorem 3.24 (pp.364–365). It assumes the Leopoldt conjecture for every intermediate field of the Z_p²-extension (p.353; true here because these fields are abelian over K, by Brumer's theorem) and that the specializing γ−1 is prime to the characteristic series of the torsion of the two-variable Selmer dual. It equates, over the one-variable algebra with Z_p coefficients, the characteristic series of the dual of Billot's strict module Σ (classes unramified everywhere and split at p, Proposition 3.8, p.353) with that of the torsion of the Selmer dual (relaxed and true Selmer groups agree, Corollary 3.2 and Remark 3.3, p.351) composed with the involution T↦(1+T)⁻¹−1. Transport it to the Gross φ-component and Λ_R, checking each pseudo-isomorphism and finite error.",
+        "Remove the involution. AH cite '[1, Lemma 2.1.2]' here, but no public version of AHI has a lemma with that number (issue E2). The input that removes the involution is the complex-conjugation symmetry of AHI Lemma 1.2.1 (p.1010). Over O and R conjugation also acts on the coefficients, so it gives invariance under the involution composed with the coefficient automorphism; the Λ_R statement must check this, or keep the involution. G5 records the work."
       ],
       "acceptance": [
         "Rank information alone is not substituted for the duality/specialization theorem.",
@@ -1513,6 +1586,16 @@
           "sourceId": "AHII05",
           "locator": "Theorem 4.1 and proof p.616",
           "match": "The proof uses two-variable ranks, coprimality and Billot’s duality theorem; those inputs require reconstruction in the Gross setting."
+        },
+        {
+          "sourceId": "BIL86",
+          "locator": "Theorem 3.24 and proof, pp.364–365; Remark 3.3 p.351; Proposition 3.8 and the Leopoldt hypothesis p.353",
+          "match": "The specialization theorem AH invoke: under coprimality of γ−1 with the two-variable torsion and the Leopoldt hypothesis, the strict module and the torsion of the Selmer dual have characteristic series related by the involution of the Iwasawa algebra."
+        },
+        {
+          "sourceId": "AHI06",
+          "locator": "Lemma 1.2.1 p.1010; Theorem 1.2.2 p.1011",
+          "match": "Complex conjugation identifies a Selmer dual with the involution twist of its conjugate; the ordinary analogue of the comparison holds only up to powers of p there."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1836,13 +1919,13 @@
       ],
       "proofSteps": [
         "Compare the global localization kernels by inflation–restriction and the snake lemma, retaining the image of localization rather than assuming the right local map surjective.",
-        "Use local signed control at p. At every v∤p compute the inertia and decomposition errors for the ramified CM avatar; bound them by the finite local groups in AH’s argument.",
-        "Use H⁰(K∞,W)=0 for global injectivity and the actual finite error computation for the cokernel. The extra finite-local input not supplied by rational vanishing alone is G4.",
+        "Use local signed control at p. Away from p only the places above f matter, because the comparison is made in cohomology unramified outside fp. At w|v|f the extension (K_∞)_w/(K_n)_w is trivial or the unramified Z_p-extension, and the kernel of restriction is a quotient of W^(G_(K_∞,w)), which lies in W^(I_v). Since φ has conductor f, I_v acts nontrivially on W≃L/R, so W^(I_v) is a proper R-submodule of a module cofree of corank one over R, hence finite (the argument of AHII Theorem 5.2, p.619).",
+        "Use H⁰(K∞,W)=0 for global injectivity (IC.5/local-control) and the finite groups of the previous step for the cokernel. Rational vanishing away from p is not used here.",
         "Dualize with Γ-inversion to obtain the stated direction of the map."
       ],
       "acceptance": [
         "The kernel direction agrees with dualizing injective discrete restriction.",
-        "Rational away-p H¹=0 is not mistaken for vanishing of every integral local control error."
+        "Rational away-p H¹=0 is not mistaken for vanishing of every integral local control error; the integral errors are finite because a proper submodule of L/R is finite."
       ],
       "prerequisites": [
         "InertAnticyclotomicCMMainConjecture:IC.5/local-control",
@@ -1920,14 +2003,60 @@
       }
     },
     {
+      "id": "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound",
+      "parentStageId": "InertAnticyclotomicCMMainConjecture:IC.5",
+      "realises": [
+        "InertAnticyclotomicCMMainConjecture:IC.5"
+      ],
+      "title": "Specialization dimension is bounded by the local length",
+      "kind": "lemma",
+      "statement": "Let A be a commutative local ring with residue field κ and M an A-module. Then dim_κ(κ⊗_A M) ≤ length_A(M) in ℕ∪{∞}. Apply it to the discrete valuation ring A=(Λ_R)_P, whose residue field is L(ρ), where P=ker(ρ:Λ_R→Lρ) is the height-one prime of a finite character ρ of Γ⁻, and to M=X_P for a finitely generated torsion Λ_R-module X: dim_(L(ρ))(X⊗_(Λ_R,ρ)L(ρ)) ≤ length_A(X_P)=ord_ρ char(X), where ord_ρ f is the order of vanishing of f at ρ(γ)−1. If f is a unit multiple of an element of Λ_O, ord_ρ f=ord_(ρ⁻¹) f.",
+      "hypotheses": [
+        "A is a commutative local ring; M is arbitrary (both sides may be infinite).",
+        "In the application X is finitely generated and torsion over Λ_R=R[[Γ⁻]], and ρ is a finite character of Γ⁻ with values in a finite extension Lρ of L."
+      ],
+      "proofSteps": [
+        "κ⊗_A M is an A-module quotient of M, so its A-length is at most that of M (Module.length_le_of_surjective).",
+        "The A-length of a κ-vector space equals its κ-length (IsLocalRing.length_restrictScalars with B=κ, residue degree one), which is its κ-dimension (Module.length_eq_finrank).",
+        "Λ_R is a two-dimensional regular local ring, so its localization at the height-one prime P is a discrete valuation ring with residue field Frac(Λ_R/P)=L(ρ), and X⊗κ(P) is the specialization X⊗_(Λ_R,ρ)L(ρ).",
+        "The length of X_P is the coefficient of P in the characteristic divisor (PadicMeasuresIwasawaAlgebras L4; TauCetiRoadmap README §4.6, charDivisor). P is generated by the minimal polynomial of ρ(γ)−1 over L, which has simple roots, so this coefficient is the order of vanishing at ρ(γ)−1 of a generator of char(X).",
+        "If f is a unit multiple of an element with coefficients in O, an automorphism of Φ(μ_(p^r)) over Φ sends ρ(γ) to ρ(γ)⁻¹, because Φ/Q_p is unramified, and it fixes the coefficients of f; hence ord_ρ f=ord_(ρ⁻¹) f."
+      ],
+      "acceptance": [
+        "For A a discrete valuation ring, M=A/𝔪^k has dimension one and length k.",
+        "M=κ² gives equality: dimension two and length two.",
+        "X=Λ_R/(g²), with g the minimal polynomial of ρ(γ)−1, has specialization dimension one and ord_ρ char(X)=2."
+      ],
+      "prerequisites": [
+        "mathlib:Module.length",
+        "mathlib:Module.length_le_of_surjective",
+        "mathlib:IsLocalRing.length_restrictScalars",
+        "mathlib:Module.length_eq_finrank",
+        "PadicMeasuresIwasawaAlgebras:L4"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKO21",
+          "locator": "Proof of Theorem 6.2, pp.962–963",
+          "match": "The standard step from a control map to a bound by ord_χ L_p is this inequality between the dimension of a specialization and the multiplicity of the character's prime in the characteristic ideal."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/Iwasawa/InertAnticyclotomicCM/IC5",
+        "namespace": "TauCeti.InertAnticyclotomicCM"
+      },
+      "addedBy": "REV-DESIGN-InertAnticyclotomicCMMainConjecture"
+    },
+    {
       "id": "InertAnticyclotomicCMMainConjecture:IC.5/strict-control",
       "parentStageId": "InertAnticyclotomicCMMainConjecture:IC.5",
       "realises": [
         "InertAnticyclotomicCMMainConjecture:IC.5"
       ],
-      "title": "Strict Selmer control and specialization inequality",
+      "title": "Strict Selmer specialization inequality",
       "kind": "theorem",
-      "statement": "For every finite χ factoring through K_n/K, strict restriction/control identifies the χ-rational strict Selmer component with the appropriate specialization of X_str up to finite errors and dual inversion. Therefore dim_(Lχ)Sel_str(K_n,V_pE)^χ≤ord_χ char(X_str). Here ord_χ is the height-one multiplicity at the characteristic-zero character prime, after coefficient extension to Lχ, with the dual action translated back to χ.",
+      "statement": "For every finite χ factoring through K_n/K, dim_(Lχ)Sel_str(K_n,V_pE)^χ ≤ dim_(Lχ)(X_str⊗_(Λ_R,χ⁻¹)Lχ) ≤ ord_(χ⁻¹)char(X_str). The middle term is the specialization of X_str at χ⁻¹, because the dual action inverts characters; ord_ρ is the order of vanishing at ρ(γ)−1, equivalently the length at the height-one prime ker(ρ:Λ_R→Lχ) (IC.5/specialization-length-bound). Only injectivity of restriction is used; no finite-cokernel control theorem is asserted.",
       "hypotheses": [
         "p≥5 is prime and inert in the imaginary quadratic field K; p does not divide h_K. H is the Hilbert class field.",
         "φ has infinity type (1,0), conductor f prime to p, φ((α))=α for α≡1 mod f, and φ(conjugate(a))=conjugate(φ(a)). The character φ∘N_(H/K) belongs to a maximal-CM Gross Q-curve E/H with good reduction above p.",
@@ -1936,28 +2065,37 @@
         "For finite-level rank/control statements E descends to K, and the chosen CM component of V_pE is T⊗_R L. Character values lie in a finite extension Lχ/L; dimensions are over Lχ."
       ],
       "proofSteps": [
-        "Reconstruct the strict control diagram from global inflation–restriction, the zero p-condition and the away-p local comparison, retaining finite invariants and H²/Tor modules.",
-        "Show the error groups used at finite characters are finite or contribute a proved zero rational component. Do not assume that tensoring any arbitrary control error kills it.",
-        "Apply the generic characteristic-order inequality from the supplier: over the character DVR, the number of elementary divisors bounds the dimension of the residue specialization by their total lengths. Keep inversion from duality in the dictionary.",
-        "BKO cites Rubin’s Euler Systems Proposition 7.3.4, but that book was not available under the cleared-source policy. G6 records the missing checked strict-control proof; this target is a reconstruction, not a claim to have read that proposition."
+        "Restriction Sel_str(K_n,W)→Sel_str(K_∞,W)^(Γ_n) is injective: its kernel lies in H¹(Γ_n,W^(G_(K_∞))) (SelmerIwasawaCohomology L3/kernel-control), and W^(G_(K_∞)) lies in H⁰(Ψ_∞,W)=0, because W|G_Φ≃F[π∞]⊗_O R (IC.0/local-coefficients) and Φ(F[π]) is tamely ramified of degree p²−1, hence disjoint from the pro-p field Ψ_∞ (AHII Lemma 5.1 proof, p.618). Restriction preserves the zero local conditions. Nothing here excludes χ=1.",
+        "After tensoring with Lχ, the corank of the χ-part of Sel_str(K_n,W) equals dim_(Lχ)Sel_str(K_n,V_pE)^χ, since the strict conditions on V and W are propagated from each other (SelmerIwasawaCohomology L2/selmer-kernel) and the chosen CM component of V_pE is T⊗_R L.",
+        "The Pontryagin dual of Sel_str(K_∞,W)^(Γ_n) is X_str/ω_nX_str with ω_n=γ^(p^n)−1, whose ideal is stable under the involution. After tensoring with Lχ its χ⁻¹-part is X_str⊗_(Λ_R,χ⁻¹)Lχ. With step 1 this gives the first inequality.",
+        "Apply IC.5/specialization-length-bound at the prime of χ⁻¹ for the finitely generated torsion module X_str (IC.3/global-ranks). Pseudo-null parts are finite and vanish after tensoring with Lχ.",
+        "BKO cite Rubin, Euler Systems, Proposition 7.3.4 for strict control. The inequality needs only steps 1–4, so the book is not used."
       ],
       "acceptance": [
         "Repeated powers of a character factor increase ord_χ and do not force equality with specialization dimension.",
-        "The strict-control proof must address χ=1 as well as nontrivial finite characters."
+        "The argument covers χ=1: injectivity uses only H⁰(K_∞,W)=0.",
+        "No surjectivity or finite-cokernel statement for restriction is claimed."
       ],
       "prerequisites": [
         "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules",
+        "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels",
+        "InertAnticyclotomicCMMainConjecture:IC.0/local-coefficients",
         "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+        "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound",
         "SelmerIwasawaCohomology:L3/kernel-control",
-        "SelmerIwasawaCohomology:L3/rational-specialization",
-        "PadicMeasuresIwasawaAlgebras:L4",
-        "PadicMeasuresIwasawaAlgebras:L5"
+        "SelmerIwasawaCohomology:L2/selmer-kernel",
+        "PadicMeasuresIwasawaAlgebras:L4"
       ],
       "sources": [
         {
           "sourceId": "BKO21",
           "locator": "Proof of Theorem 6.2 pp.962–963",
-          "match": "The first inequality uses strict control and characteristic multiplicity; the cited book input requires an independent accessible reconstruction."
+          "match": "The first inequality of the proof combines strict control with characteristic multiplicity; only the injective half of control is needed for it."
+        },
+        {
+          "sourceId": "AHII05",
+          "locator": "Lemma 5.1 and proof, p.618",
+          "match": "The torsion field of the Lubin–Tate group is tamely ramified of degree p²−1 and meets the anticyclotomic tower only in K_p, so W has no invariants over the tower."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1987,7 +2125,8 @@
       "proofSteps": [
         "Use the exact sequence for s=−ε and the proved torsion of X_(−ε).",
         "Apply height-one length additivity to its kernel, quotient and middle term.",
-        "Translate multiplication of integral ideals to containment in the displayed direction and then to character valuations."
+        "Translate multiplication of integral ideals to containment in the displayed direction and then to character valuations.",
+        "For the finite-rank theorem, where E/K forces h_K=1 and R=O may be taken (IC.6/rank-bounds), ξ and a generator of V∞*,ε are O-integral (BKO p.961), so the ideal (L_p) is extended from Λ_O and ord_(χ⁻¹)L_p=ord_χ L_p by IC.5/specialization-length-bound; this converts the χ⁻¹-bounds of the dual modules into BKO's ord_χ L_p. For a general Gross datum L_p is only R-integral (BKO Proposition 3.3, p.953) and the two orders are kept apart."
       ],
       "acceptance": [
         "For a model char(X_(−ε))=(fg) and char(X_str)=(f), the containment is (fg)⊂(f).",
@@ -1996,7 +2135,8 @@
       "prerequisites": [
         "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture",
         "InertAnticyclotomicCMMainConjecture:IC.4/duality-sequence",
-        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2"
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
+        "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound"
       ],
       "sources": [
         {
@@ -2072,7 +2212,7 @@
       ],
       "proofSteps": [
         "The polynomial ω_n^(−ε) vanishes on χ∈Ξ^ε. Apply signed control at that character, with the dual inversion convention.",
-        "Use the characteristic-order inequality for the torsion module X_(−ε); its characteristic ideal is (L_p).",
+        "Apply IC.5/specialization-length-bound to the torsion module X_(−ε) at the prime of χ⁻¹. Its characteristic ideal is (L_p), so the bound is ord_(χ⁻¹)L_p. Under E/K one may take R=O, so the ideal (L_p) is extended from Λ_O and ord_(χ⁻¹)L_p=ord_χ L_p.",
         "Use the finite signed decomposition to identify the rational signed Selmer component with the ordinary one. The finite error modules vanish only after the stated coefficient-field tensor."
       ],
       "acceptance": [
@@ -2083,7 +2223,8 @@
         "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture",
         "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
         "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition",
-        "PadicMeasuresIwasawaAlgebras:L4"
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound"
       ],
       "sources": [
         {
@@ -2120,13 +2261,14 @@
       "proofSteps": [
         "Use the Kummer injection from the Mordell–Weil CM component to the rational Selmer component, with torsion removed by tensoring with Lχ.",
         "For matching χ use IC.6/matching-bound.",
-        "For other χ combine dim Sel≤dim Sel_str+1≤ord_χ char(X_str)+1≤ord_χ L_p+1.",
+        "For other χ combine dim Sel^χ≤dim Sel_str^χ+1≤ord_(χ⁻¹)char(X_str)+1≤ord_(χ⁻¹)L_p+1=ord_χ L_p+1.",
         "Separate conductor exponent from least-layer index and record the trivial-character branch for either ε."
       ],
       "acceptance": [
         "For ε=+, χ=1 receives no +1; for ε=−, χ=1 receives the +1 bound.",
         "If ord_χ L_p=0, the matching rational Selmer component is zero and the opposite one has dimension at most one.",
-        "The main-conjecture theorem over H is not silently strengthened into this E/K finite-rank assertion."
+        "The main-conjecture theorem over H is not silently strengthened into this E/K finite-rank assertion.",
+        "The hypothesis E/K forces h_K=1: E has CM by O_K, so j(E) generates H over K, and j(E)∈K gives H=K. Then φ is the Grössencharacter of E/K and R=O suffices. The h_K=3 example of IC.0/cm-datum is covered by IC.4/main-conjecture, not by this theorem."
       ],
       "prerequisites": [
         "InertAnticyclotomicCMMainConjecture:IC.6/strict-divisor",
@@ -2154,11 +2296,12 @@
   "requests": [
     {
       "supplier": "PadicMeasuresIwasawaAlgebras:L4",
-      "need": "For the actual Λ_R≃R[[T]], provide the completed-group-algebra/power-series comparison, integral rank-one character and height-one length machinery, nonzero-series finite finite-character-zero lemma from Weierstrass preparation, finite-character specialization dimension≤characteristic order with contragredient inversion, and restriction-of-scalars norms for every finite DVR extension R/O (the existing api-9 states the special base Z_p). Do not discard the (π) divisor.",
+      "need": "PadicMeasuresIwasawaAlgebras is merged in TauCetiRoadmap (#780). Its README §4.6 supplies charIdeal and charDivisor, multiplicativity, charIdeal_quotient_span, semilinear transport, base change along finite free O→O′ and restriction of scalars to Z_p⟦T⟧; §4.3 supplies Weierstrass preparation. Still needed for Λ_R≃R[[T]], with Γ⁻≃Z_p and coefficients R (§1.7 compares completed group algebras): restriction of scalars from Λ_R to Λ_O for a finite extension R/O of discrete valuation rings whose base is not Z_p, giving the norm ideal; and the identification of the characteristic-divisor coefficient at the prime of a finite character with the order of vanishing there, used by IC.5/specialization-length-bound. Do not discard the (π) divisor.",
       "neededBy": [
         "InertAnticyclotomicCMMainConjecture:IC.0/signed-scalar-extension",
         "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
         "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture",
+        "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound",
         "InertAnticyclotomicCMMainConjecture:IC.5/strict-control",
         "InertAnticyclotomicCMMainConjecture:IC.6/matching-bound"
       ]
@@ -2170,8 +2313,7 @@
         "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
         "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
         "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
-        "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition",
-        "InertAnticyclotomicCMMainConjecture:IC.5/strict-control"
+        "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition"
       ]
     },
     {
@@ -2238,7 +2380,6 @@
       "stageId": "InertAnticyclotomicCMMainConjecture:IC.1",
       "status": "planned",
       "remaining": [
-        "InertAnticyclotomicCMMainConjecture/G4: Away-p integral control errors and the Arnold source",
         "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
       ]
     },
@@ -2254,9 +2395,9 @@
       "stageId": "InertAnticyclotomicCMMainConjecture:IC.3",
       "status": "planned",
       "remaining": [
-        "InertAnticyclotomicCMMainConjecture/G2: Integral inert two-variable elliptic-unit theorem and its shared owner",
+        "InertAnticyclotomicCMMainConjecture/G2: Inert units-form translation of Rubin's Theorem 4.1(ii) to the Gross avatar",
         "InertAnticyclotomicCMMainConjecture/G3: Integral Gross descent, trace, period and primitive-lattice comparisons",
-        "InertAnticyclotomicCMMainConjecture/G5: Two-variable dual characteristic comparison and source-version mismatch",
+        "InertAnticyclotomicCMMainConjecture/G5: Two-variable relaxed/strict comparison: Billot's theorem with R-coefficients and the involution",
         "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
       ]
     },
@@ -2265,7 +2406,7 @@
       "status": "planned",
       "remaining": [
         "InertAnticyclotomicCMMainConjecture/G3: Integral Gross descent, trace, period and primitive-lattice comparisons",
-        "InertAnticyclotomicCMMainConjecture/G5: Two-variable dual characteristic comparison and source-version mismatch",
+        "InertAnticyclotomicCMMainConjecture/G5: Two-variable relaxed/strict comparison: Billot's theorem with R-coefficients and the involution",
         "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
       ]
     },
@@ -2273,8 +2414,6 @@
       "stageId": "InertAnticyclotomicCMMainConjecture:IC.5",
       "status": "planned",
       "remaining": [
-        "InertAnticyclotomicCMMainConjecture/G4: Away-p integral control errors and the Arnold source",
-        "InertAnticyclotomicCMMainConjecture/G6: Strict control reconstructed without an uncleared book",
         "Discharge the explicit supplier requests used in this layer and inherit the imported suppliers’ unresolved proof obligations."
       ]
     },
@@ -2300,13 +2439,12 @@
     },
     {
       "id": "InertAnticyclotomicCMMainConjecture/G2",
-      "title": "Integral inert two-variable elliptic-unit theorem and its shared owner",
+      "title": "Inert units-form translation of Rubin's Theorem 4.1(ii) to the Gross avatar",
       "neededBy": [
-        "InertAnticyclotomicCMMainConjecture:IC.3/global-unit-module",
         "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
         "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison"
       ],
-      "detail": "CMAllPrimeMainConjectures has no registered stage yet. Its shared contract is the full auxiliary-ideal elliptic-unit Euler system and integral inert two-variable units equality char(X₂^η)=char(U₂^η/C̄₂^η), with the exact global-units/class-group sequence and all character-component, torsion and coefficient hypotheses of Rubin 1991 Theorem 4.1(ii) verified from the primary paper. AHII Proposition 3.3 names this input; it is not a substitute for reading Rubin. Author and publisher access failed in this run. Keep this source/proof request open. A p-inverted equality, an ordinary split-prime theorem or a downstream signed main conjecture cannot discharge it."
+      "detail": "The supplier is now registered: the CMAllPrimeMainConjectures design (merged 2026-10-19, its review pending) states Rubin 1991 Theorem 4.1 as CZ.2/classical-two-variable-main-conjecture, with Rubin's modules in CZ.2/rubin-iwasawa-modules and the elliptic-unit Euler system in CZ.2/elliptic-unit-euler-system. The reviewer read Theorem 4.1 and its standing hypotheses in the GDZ scan (RUB91 pp.36–37). For p inert the input is the χ-part equality char(A_∞)^χ=char(Ē_∞/C̄_∞)^χ for χ nontrivial on the decomposition group of p; X_∞ and U_∞/C̄_∞ are not torsion there (Remark 2, p.37). What remains here: (i) the twisting dictionary of AHI Lemma 2.4.5 and Corollary 2.4.6 (pp.1028–1029), written for E/Q at an ordinary prime, redone for the Gross φ-component with coefficient ring R, identifying the strict two-variable dual with the twisted χ-part of A_∞ and S_rel/C with that of Ē_∞/C̄_∞ (at the inert prime the χ-hypothesis, not AHI's local argument, removes the contribution of the primes above p); (ii) Rubin's hypotheses for K₀=H(E[p]): p∤#μ(H), p∤[K₀:K] and nontriviality of the relevant Δ-character on the decomposition group of p; (iii) the descent from the Z_p²-tower to K_∞ with its common correction divisor (AHI Propositions 2.4.15–2.4.16). A p-inverted equality, an ordinary split-prime theorem or a downstream signed main conjecture cannot discharge this gap."
     },
     {
       "id": "InertAnticyclotomicCMMainConjecture/G3",
@@ -2320,34 +2458,79 @@
       "detail": "BKO Theorem 6.1 extends AH by a similar-argument assertion. The planned proof must verify integral exactness of the finite prime-to-p descent and actual finite character components, the Cartier dual/inverse different and CM-conjugation identifications, specialization correction modules, and the equality between the full localized auxiliary-family ideal and the primitive ξ coordinate ideal. In particular it must prove that period/trace comparison factors are units; interpolation alone cannot remove a p-power index. The target statements and proof obligations are explicit, but the complete integral Gross proof has not been established from a primary treatment."
     },
     {
-      "id": "InertAnticyclotomicCMMainConjecture/G4",
-      "title": "Away-p integral control errors and the Arnold source",
-      "neededBy": [
-        "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing",
-        "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
-        "InertAnticyclotomicCMMainConjecture:IC.5/strict-control"
-      ],
-      "detail": "The planned rational vanishing proof via potential good reduction and Frobenius weights is independent of Arnold Proposition 2.10, but Arnold 2007 was not obtained from the publisher. Its exact formulation remains unchecked. For global finite control, prove the actual away-p inertia/decomposition kernel and cokernel are finite using AHII Theorem 5.2’s argument in the ramified Gross avatar; rational H¹-vanishing alone does not establish these integral error estimates."
-    },
-    {
       "id": "InertAnticyclotomicCMMainConjecture/G5",
-      "title": "Two-variable dual characteristic comparison and source-version mismatch",
+      "title": "Two-variable relaxed/strict comparison: Billot's theorem with R-coefficients and the involution",
       "neededBy": [
         "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
         "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic"
       ],
-      "detail": "Reconstruct the two-variable rank-one relaxed/strict duality theorem and prove the coprimality and correction-factor hypotheses used in AHII Theorem 4.1, including Billot Theorem 3.24 or an accessible replacement. AHII’s citation to AHI Lemma 2.1.2 refers to an earlier numbering: in published AHI, Remark 2.1.2 p.1016 discusses Katz normalization. The intended algebra statement has not been matched. This is a version-location gap, not an assertion that AH’s theorem is false."
-    },
-    {
-      "id": "InertAnticyclotomicCMMainConjecture/G6",
-      "title": "Strict control reconstructed without an uncleared book",
-      "neededBy": [
-        "InertAnticyclotomicCMMainConjecture:IC.5/strict-control"
-      ],
-      "detail": "BKO cites Rubin, Euler Systems, Proposition 7.3.4. That book is absent from the cleared library index and was not obtained elsewhere. Supply a proof from the imported inflation–restriction, finite local errors, kernel-control and rational-specialization interfaces, checking both trivial and nontrivial characters and every H²/Tor term. Until then the strict-control input remains an explicit proof gap; no book statement is attributed as read."
+      "detail": "Reconstruct AHII Theorem 4.1 (p.616) for the Gross φ-component over Λ_R. Its inputs are now located. (a) BIL86 Theorem 3.24 (pp.364–365), proved under the Leopoldt hypothesis for every intermediate field of the Z_p²-extension (p.353; true here by Brumer's theorem, the fields being abelian over K) and the hypothesis that γ−1 is prime to the characteristic series of the torsion of the two-variable Selmer dual. Over the one-variable algebra with Z_p coefficients it equates the characteristic series of the strict module with that of the torsion of the Selmer dual composed with the involution T↦(1+T)⁻¹−1. (b) AH's '[1, Lemma 2.1.2]': no public version of AHI has a lemma with that number (issue E2); the input that removes Billot's involution is the complex-conjugation symmetry of AHI Lemma 1.2.1 (p.1010). Still to do: Billot's theorem with O- or R-coefficients (conjugation acts on these coefficients, so symmetry gives invariance under the involution composed with the coefficient automorphism, not under the involution alone), the coprimality hypothesis for the Gross avatar from Rubin's two-variable rank-one result, and every finite error. AHI's own ordinary analogue, Theorem 1.2.2 (p.1011), gets the equality only up to powers of p."
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "InertAnticyclotomicCMMainConjecture/E1",
+      "source": "AHII05",
+      "kind": "misprint",
+      "locator": "Proof of Proposition 5.3, p.620, published author PDF; the same line in arXiv math/0401124v2",
+      "printed": "The product of the plus and minus control polynomials ω_n^± ω_n^∓ is written as γ raised to p^k, minus one.",
+      "correction": "ω_n^+ω_n^− = γ^(p^n) − 1.",
+      "reason": "By the definitions on p.618, ω_n^+ω_n^− = (γ−1)∏_(1≤k≤n)Φ_(p^k)(γ), and X^(p^n)−1 is the product of Φ_(p^k)(X) for 0≤k≤n; k is the bound variable of those products.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "arXiv math/0401124v2",
+        "the published author PDF",
+        "the first author's publication page, which lists corrections for other papers but none for this one"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked at p.620 against the definitions of p.618; the index n is forced.",
+        "by": "REV-DESIGN-InertAnticyclotomicCMMainConjecture"
+      }
+    },
+    {
+      "id": "InertAnticyclotomicCMMainConjecture/E2",
+      "source": "AHII05",
+      "kind": "gap",
+      "locator": "Proof of Theorem 4.1, p.616, reference [1, Lemma 2.1.2]; the same reference in arXiv math/0401124v2",
+      "printed": "The theorem is said to follow from Billot's Theorem 3.24 and a Lemma 2.1.2 of the first Agboola–Howard paper.",
+      "correction": "No version of that paper has a Lemma 2.1.2: in arXiv math/0302319 v1–v4 and in the published paper (Ann. Inst. Fourier 56, 2006) item 2.1.2 is a remark on Katz's measure. The input needed is the complex-conjugation symmetry of Lemma 1.2.1 (p.1010), which removes the involution in Billot's theorem; with O-coefficients it must be combined with the coefficient automorphism.",
+      "reason": "Billot's Theorem 3.24 (Compositio 58, pp.364–365) relates the two characteristic series through the involution T↦(1+T)⁻¹−1, while AH's Theorem 4.1 asserts equality with no involution, so a symmetry input is required. Numbering of every arXiv version and of the published paper was compared.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "arXiv math/0302319 v1 and v3 TeX sources, v2 and v4 PDFs",
+        "Ann. Inst. Fourier 56 (2006) published version",
+        "arXiv math/0401124v2",
+        "the first author's publication page (no correction listed for either paper)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Added by the reviewer after comparing all five versions; recorded as a gap because the intended reference cannot be identified with certainty.",
+        "by": "REV-DESIGN-InertAnticyclotomicCMMainConjecture"
+      }
+    },
+    {
+      "id": "InertAnticyclotomicCMMainConjecture/E3",
+      "source": "BIL86",
+      "kind": "misprint",
+      "locator": "Introduction, p.342 (Numdam scan of Compositio Math. 58)",
+      "printed": "The introduction attributes the pseudo-isomorphism between Σ(F_∞) and the torsion of S(F_∞) to Theorem 3.24, and the equality of the two characteristic series over a Z_p-extension to Theorem 3.25.",
+      "correction": "In the body these are Theorem 3.23 (p.364) and Theorem 3.24 (pp.364–365); Lemma 3.25 is an unrelated lemma.",
+      "reason": "Compare the statements on pp.364–365 with the two cases described on p.342. AHII cites the body's Theorem 3.24.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Numdam record CM_1986__58_3_341_0, which links no erratum or corrigendum"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked on pp.342 and 364–365.",
+        "by": "REV-DESIGN-InertAnticyclotomicCMMainConjecture"
+      }
+    }
+  ],
   "sourceVersions": [
     {
       "kind": "published",
@@ -2369,17 +2552,44 @@
       "citation": "Annales de l’Institut Fourier 56 (2006), 1001–1048",
       "read": "2026-10-18",
       "sha256": "1c176f86e757830dd18d36568c3066e2682733e8e3de6193133f886090280741"
+    },
+    {
+      "kind": "published",
+      "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0103/LOG_0009.pdf",
+      "citation": "Inventiones Mathematicae 103 (1991), 25–68",
+      "read": "2026-10-19",
+      "sha256": "96ca08e8ed1a7646d4bf40e2e088e0ea6e068319978ac7e5c5e3d45cc39ee23a"
+    },
+    {
+      "kind": "published",
+      "url": "http://www.numdam.org/item/CM_1986__58_3_341_0.pdf",
+      "citation": "Compositio Mathematica 58 (1986), 341–369",
+      "read": "2026-10-19",
+      "sha256": "988d73e2e16c48591bc292eb557b5ade1f6d99dd78d133c5ebed1f811a4e4fb8"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/math/0401124v2",
+      "citation": "Agboola–Howard II, arXiv v2 (2004)",
+      "read": "2026-10-19"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/abs/math/0302319v3",
+      "citation": "Agboola–Howard I, arXiv v3 (April 2004), TeX source; v1, v2 and v4 also compared",
+      "read": "2026-10-19"
     }
   ],
   "sourceAccess": [
     {
       "citation": "Karl Rubin, The main conjecture of Iwasawa theory for imaginary quadratic fields, Inventiones Mathematicae 103 (1991), 25–68, Theorem 4.1(ii), DOI 10.1007/BF01239508",
-      "status": "not obtained",
+      "status": "obtained by the reviewer",
       "attempts": [
         "Author preprint index and math.uci.edu endpoints timed out or returned a gateway error.",
-        "Springer PDF endpoint returned a blocked HTML response; EuDML document 143852 returned 403."
+        "Springer PDF endpoint returned a blocked HTML response; EuDML document 143852 returned 403.",
+        "Reviewer, 2026-10-19: the GDZ scan https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0103/LOG_0009.pdf (SHA-256 96ca08e8ed1a7646d4bf40e2e088e0ea6e068319978ac7e5c5e3d45cc39ee23a), the copy CMAllPrimeMainConjectures cites; §4 pp.36–37 read from the page images."
       ],
-      "consequence": "G2 remains open; the statement is a requested contract supported secondarily by AHII, not a primary-source verification."
+      "consequence": "Source RUB91. G2 is narrowed to the inert units-form translation; the supplier node is CMAllPrimeMainConjectures CZ.2."
     },
     {
       "citation": "Trevor Arnold, Anticyclotomic main conjectures for CM modular forms, J. Reine Angew. Math. 606 (2007), 41–78, Proposition 2.10, DOI 10.1515/CRELLE.2007.034",
@@ -2387,7 +2597,7 @@
       "attempts": [
         "Publisher PDF endpoint returned no usable document."
       ],
-      "consequence": "G4 remains open; the rational-vanishing proof is independently outlined."
+      "consequence": "Not needed. IC.1/away-p-vanishing has a complete proof by the local Euler characteristic and weights (the argument of AHI Lemma 1.1.4), and the integral away-p errors in IC.5/global-control are finite by AHII's proper-submodule argument. The reviewer closed G4."
     },
     {
       "citation": "Karl Rubin, Euler Systems, Proposition 7.3.4",
@@ -2395,7 +2605,7 @@
       "attempts": [
         "Checked the supplied cleared-source index; did not obtain another book copy."
       ],
-      "consequence": "G6 reconstructs strict control from accessible cohomological interfaces rather than attributing the book proof as read."
+      "consequence": "Not needed. The strict bound used by Theorem 6.2 needs only injectivity of restriction (IC.5/strict-control); the reviewer closed G6."
     }
   ],
   "upstreamNotes": [
@@ -2414,6 +2624,198 @@
     {
       "topic": "Planning and formalization boundary",
       "detail": "All scoped targets have precise statements, proof plans, direct dependencies and checks. They remain unchecked. Six explicit gaps and supplier requests prevent closure. The suggested file only states the real-carrier coordinate and principal-ideal facets available at the pins; the heavy CM and cohomological endpoints remain fully specified reader targets."
+    },
+    {
+      "topic": "Suppliers registered since the design",
+      "detail": "PadicMeasuresIwasawaAlgebras is merged in TauCetiRoadmap (#780); the cited packet ids L4/characteristic-ideal-api-2, -4, -7, -8 and -9 correspond to README §4.6 targets charIdeal_mul_of_exact, charIdeal_quotient_span, charIdeal_comap_of_semilinearEquiv, base change and restriction of scalars. CMAllPrimeMainConjectures was designed on 2026-10-19 and owns Rubin's Theorem 4.1 (CZ.2). NonordinaryCMSpecialValues is still an unstarted design job, so G1 stays."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-InertAnticyclotomicCMMainConjecture",
+    "date": "2026-10-19",
+    "notes": "Claude (Opus), session claude-VApKDW; the design was by Codex (codex-VY453x). Read BKO21 §2, §3 pp.950–953 and §6 (formulas on pp.961–962 checked on page images), AHII in full, AHI at every cited place plus Lemma 1.1.4, Lemma 1.2.1, Theorem 1.2.2 and Lemma 2.4.5–Corollary 2.4.6, Rubin 1991 §4 (GDZ scan) and Billot 1986 §3 (Numdam), and compared AHI arXiv v1–v4 with the published paper. Corrections: the inert input of IC.3 was stated in the split-prime form char(X)=char(U/C̄); it is now Rubin's Theorem 4.1(ii) on χ-parts, imported from the newly registered CMAllPrimeMainConjectures CZ.2, and G2 is narrowed to the inert translation for the Gross avatar. G4 and G6 are closed with complete arguments (finite away-p errors; strict bound from injectivity of restriction), and a lemma node bounds a specialization's dimension by the local length (four Mathlib declarations read at 082e2d3). G5 now names Billot Theorem 3.24 with its hypotheses and involution. Three source issues added (E1–E3). All six baseline declarations confirmed at the pin. The suggested file gains real-bodied conductor/sign and control-element definitions and elaborates with lean-check with admitted-proof warnings only (no other warnings). The reader document is not a deliverable of this review and still shows the design's text; it must be re-rendered from this packet before it is shown (see the review report). Open: G1, G2, G3, G5 and nine requests.",
+    "checked": [
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/cm-datum",
+        "verdict": "verified",
+        "note": "BKO §3 pp.950–951 ((3.1)–(3.2), Shimura condition, smooth model, Ω, R, T) and §6 pp.960–961 read; the K=Q(√−23), p=5 test checked (h_K=3, −23≡2 mod 5 a nonsquare)."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/tower-comparison",
+        "verdict": "verified",
+        "note": "BKO p.950 (p splits completely in H, H_p=Φ) and pp.961–962 (K_(n,p)=Ψ_n; Gal(Φ∞/Φ0) identified with the Z_p²-extension of K)."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/character-dictionary",
+        "verdict": "verified",
+        "note": "BKO pp.948–949 and AHII p.613 compared: order p^r gives conductor exponent r+1, Ξ_AH^s=Ξ_BKO^(−s), and point/Selmer labels agree. The swap is proved in the suggested file (ahSign_eq_neg_bkoSign)."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/local-coefficients",
+        "verdict": "verified",
+        "note": "BKO pp.961–962 (W≃F[π∞]⊗R over G_Φ); Cartier-dual and inverse-different conventions are consistent."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.0/signed-scalar-extension",
+        "verdict": "verified",
+        "note": "BKO Theorem 2.1 and Corollary 2.2 p.949; the Weierstrass argument for the kernel characterisation is sound."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/signed-kummer",
+        "verdict": "verified",
+        "note": "BKO p.962: F^± kills Ξ^± and H¹_± is its Kummer image; matches ALU.8/finite-signed-point-export."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/choice-independence",
+        "verdict": "verified",
+        "note": "BKO p.962 asserts independence; the centralizer argument is correct."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/away-p-vanishing",
+        "verdict": "corrected",
+        "note": "Proof made self-contained (weights and local Euler characteristic, the argument of AHI Lemma 1.1.4, p.1006); Arnold is no longer needed and G4 is closed."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/selmer-kernels",
+        "verdict": "verified",
+        "note": "BKO p.962 definition; AHII pp.612–613. Unramified classes outside S vanish because Frob−1 acts invertibly on the divisible module W."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.1/infinite-modules",
+        "verdict": "corrected",
+        "note": "Stated that the compact condition at v∤p is the full local cohomology, the annihilator of the zero discrete condition (AHII p.612)."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/primitive-class",
+        "verdict": "verified",
+        "note": "BKO Proposition 3.3 pp.951–953 with ν=1 and p.961; ξ lies in U∞*⊗R."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/normalization",
+        "verdict": "verified",
+        "note": "BKO Proposition 3.3(1)–(2) p.953 and p.961; conjugation bars checked on the page image."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/sign-and-nonzero",
+        "verdict": "verified",
+        "note": "BKO Proposition 3.3(3) p.953 and p.961; AHII Proposition 3.1 and Remark 3.2 p.614; early inputs remain G1."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/rubin-lfunction",
+        "verdict": "verified",
+        "note": "BKO p.961; coordinate definition and basis-change behaviour checked; the Lean facet elaborates."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.2/interpolation",
+        "verdict": "verified",
+        "note": "BKO p.961 formula with the derivative at χ⁻¹, rederived from δ_χ(x^β)=χ(β)⁻¹δ_χ(x) (p.949)."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-unit-module",
+        "verdict": "corrected",
+        "note": "The missing Euler-system supplier is now CMAllPrimeMainConjectures CZ.0/standard-elliptic-unit and CZ.2/elliptic-unit-euler-system."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/gross-descent",
+        "verdict": "verified",
+        "note": "BKO p.962 extends AH by a similar-argument sentence; the obligations listed are the right ones (G3)."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/local-dictionary",
+        "verdict": "verified",
+        "note": "AHII Proposition 3.4 and (3.2) p.615; ALU.2 and ALU.3/signed-annihilator supply the duality and annihilators."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/global-ranks",
+        "verdict": "verified",
+        "note": "AHII Proposition 3.3(i) p.615 and the proof of Theorem 4.1 p.616; AHI Lemma 1.1.9 is correctly treated as a template."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.3/integral-unit-comparison",
+        "verdict": "corrected",
+        "note": "The design stated the input as char(X)=char(U/C̄), which is the split-prime part (i) of Rubin's Theorem 4.1; for p inert X∞ and U∞/C̄∞ are not torsion (Remark 2, p.37). Replaced by part (ii) on χ-parts, imported from CMAllPrimeMainConjectures CZ.2, with the twisting dictionary and hypothesis check spelled out (G2)."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/duality-sequence",
+        "verdict": "verified",
+        "note": "AHII (3.3) p.616."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/opposite-torsion",
+        "verdict": "verified",
+        "note": "AHII Theorem 3.6 p.616 and the proof of Theorem 4.2 p.617; BKO Theorem 2.1 supplies Conjecture 3.5."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/relaxed-dual-characteristic",
+        "verdict": "corrected",
+        "note": "Located Billot Theorem 3.24 (pp.364–365) with its Leopoldt and coprimality hypotheses and its involution; AH's '[1, Lemma 2.1.2]' exists in no version of AHI (E2); AHI Lemma 1.2.1 (p.1010) is the symmetry input. G5 rewritten."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/signed-characteristic",
+        "verdict": "verified",
+        "note": "AHII Theorem 4.2 and (4.1)–(4.4) pp.616–617."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/primitive-lattice-comparison",
+        "verdict": "verified",
+        "note": "AHII Theorem 4.3 and the paragraph after it p.617; BKO p.962. The all-auxiliary versus primitive comparison is correctly left to G3."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.4/main-conjecture",
+        "verdict": "verified",
+        "note": "BKO Theorem 6.1 p.962, read over Λ_R with the norm under restriction of scalars."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/control-polynomials",
+        "verdict": "verified",
+        "note": "AHII p.618 definitions and (5.1); the zero sets and the level-zero test were checked, and the n=0 example is proved in the suggested file."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/local-control",
+        "verdict": "verified",
+        "note": "AHII Lemma 5.1 and proof pp.618–619."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/global-control",
+        "verdict": "corrected",
+        "note": "The integral away-p errors are finite by AHII's proper-submodule argument (p.619), which applies verbatim to the avatar; G4 is closed."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/finite-decomposition",
+        "verdict": "verified",
+        "note": "AHII Proposition 5.3 p.620 (misprint E1 recorded) and BKO p.963."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/specialization-length-bound",
+        "verdict": "added",
+        "note": "Added: the commutative-algebra step behind every bound by ord_χ, with four Mathlib declarations read at the pin."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.5/strict-control",
+        "verdict": "corrected",
+        "note": "Narrowed to the inequality BKO use and proved from injectivity of restriction (H⁰(K∞,W)=0, AHII p.618) and IC.5/specialization-length-bound; Rubin's book is not needed and G6 is closed."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/strict-divisor",
+        "verdict": "corrected",
+        "note": "BKO pp.962–963; added the conversion between ord at χ⁻¹ and ord_χ, valid when R=O."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/local-codimension",
+        "verdict": "verified",
+        "note": "BKO p.963; the χ-part of the local Kummer image is one-dimensional by the logarithm and the normal basis theorem."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/matching-bound",
+        "verdict": "corrected",
+        "note": "BKO p.963, AHII Theorem 5.2 and Proposition 5.3; the bound is made explicit at χ⁻¹ through IC.5/specialization-length-bound."
+      },
+      {
+        "nodeId": "InertAnticyclotomicCMMainConjecture:IC.6/rank-bounds",
+        "verdict": "corrected",
+        "note": "BKO Theorem 6.2 pp.962–963. Recorded that E/K forces h_K=1 (j(E) generates H over K), so R=O; χ⁻¹ step made explicit."
+      }
+    ]
+  }
 }
