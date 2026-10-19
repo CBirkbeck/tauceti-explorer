@@ -5165,5 +5165,13 @@
  "PKG-KTheoryLowDegrees~codex": 11018,
  "REV-ExcursionOperatorsAndSpectralAction--ES0~5": 11020,
  "REV-PKG-BorelRegulators~adv": 11021,
- "REV-PKG-SchemeKTheoryOperations~adv": 11022
+ "REV-PKG-SchemeKTheoryOperations~adv": 11022,
+ "PKG-EulerSystemsAndKolyvaginSystems": 11030,
+ "PKG-EulerSystemsCyclotomicMainConjecture~2": 11031,
+ "PKG-GrossZagierAndArithmeticHeights~3": 11032,
+ "PKG-ModularIwasawaMainConjectures~2": 11033,
+ "REV-PKG-EulerSystemsAndKolyvaginSystems": 11034,
+ "REV-PKG-EulerSystemsCyclotomicMainConjecture~2": 11035,
+ "REV-PKG-GrossZagierAndArithmeticHeights~3": 11037,
+ "REV-PKG-ModularIwasawaMainConjectures~2": 11038
 }
