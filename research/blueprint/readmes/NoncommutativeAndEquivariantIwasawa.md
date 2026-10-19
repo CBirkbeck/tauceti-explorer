@@ -1,676 +1,5564 @@
-# Noncommutative and equivariant Iwasawa theory — blueprint
-
-This blueprint covers stages NE.0–NE.7. After the eighth checkpoint:
-- **NE.1 is source-decomposed.**
-- **NE.0 is partial.**
-- **NE.2 is partial:** CFKSV §§3–4 — the localisation sequence and characteristic elements.
-- **NE.3 is partial:** CFKSV §3 — twists, Φ_ρ, evaluation at representations, Akashi series and Euler characteristics.
-- **NE.4 and NE.5 are partial:** CFKSV §5 — the dual Selmer module, the 𝔐_H(G) conjecture, the conjectural p-adic
-  L-function and the main conjecture (checkpoint 4).
-- **NE.6 is partial.** Kakde is read in full, and the proof of his main theorem (Theorem 11) is decomposed end to end
-  (checkpoints 5–7). Ritter–Weiss and the coverage table remain.
-- **NE.7 is partial:** Burns–Venjakob §§2–4. This covers Bockstein maps, semisimplicity, leading terms at
-  representations, generalised Euler characteristics and the Fukaya–Kato zeta isomorphism (checkpoint 8).
-
-The accepted restructuring RS-16 moves the construction of completed group algebras, with restriction, induction and
-augmentation, to PadicMeasuresIwasawaAlgebras L1. NE.0 therefore keeps only:
-- the noetherian and module-finiteness facts about Iwasawa algebras of compact p-adic analytic groups;
-- the group theory those facts need.
-
-The sources are:
-- **CFKSV:** Coates–Fukaya–Kato–Sujatha–Venjakob, *The GL₂ main conjecture for elliptic curves without complex
-  multiplication*, Publ. Math. IHÉS 101 (2005), §§2–5. It is open access on Numdam; arXiv math/0404297 was compared.
-- **Lazard:** *Groupes analytiques p-adiques*, Publ. Math. IHÉS 26 (1965), Chap. II §2.2 and Chap. V §2.2. It is on
-  Numdam.
-- **Ardakov–Brown:** *Ring-theoretic properties of Iwasawa algebras: a survey*, arXiv math/0511345, §§2–4. Used for the
-  statements of Lazard's and Dixon–du Sautoy–Mann–Segal's results.
-- **Burns–Venjakob:** *On the leading terms of zeta isomorphisms…*, arXiv math/0511672v2, §2.2 (the category Σ_S).
-
-## Purpose
-
-The GL₂ main conjecture and its successors are formulated in K-theory of a localisation of the Iwasawa algebra
-Λ(G) = ℤ_p⟦G⟧ of a compact p-adic Lie group G.
-
-NE.1 constructs the denominator set:
-- the canonical Ore set S of CFKSV, for a closed normal subgroup H with G/H ≅ ℤ_p;
-- its saturation S* = ⋃ pⁿS;
-- the localisations Λ(G)_S and Λ(G)_{S*} = Λ(G)_S[1/p];
-- the category 𝔐_H(G) of finitely generated S*-torsion modules (for H = 1 these are the torsion Λ(Γ)-modules);
-- the category Σ_S of perfect complexes that become acyclic after localisation.
-
-NE.2 consumes all of these for the localisation sequence K₁(Λ(G)) → K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) and for
-characteristic elements.
-
-## What the libraries and other roadmaps supply
-
-**Mathlib has:**
-- Ore localisation for noncommutative rings (`OreLocalization`, `OreLocalization.OreSet`), its universal property
-  (`OreLocalization.universalHom`, `universalHom_unique`), and injectivity for nonzero divisors
-  (`OreLocalization.numeratorHom_inj`);
-- p-groups (`IsPGroup`), open normal subgroups, subgroup closures and commutators;
-- noetherian rings and polynomial rings (`MvPolynomial.isNoetherianRing`), and flat modules.
-
-It has no flatness theorem for Ore localisation, which is planned here.
-
-**Tau Ceti has** pro-p groups (`TauCeti.IsProP`) and the maximal pro-p quotient. Its ProfiniteProPGroups Layer 9
-builds `completedGroupAlgebra` with the power-series coordinate for ℤ_p; that coordinate is requested.
-
-**Imported by request:**
-- **PadicMeasuresIwasawaAlgebras L1:** Λ(G) and Ω(G) for nonabelian profinite G, the maps φ_J and ψ_J, augmentation,
-  and restriction/induction.
-- **ProfiniteProPGroups Layer 9:** Λ(ℤ_p) ≅ ℤ_p⟦T⟧.
-- **GeneralAlgebraicKTheory K.4:** the category C^p(R) of bounded complexes of finitely generated projective modules.
-
-## Conventions
-
-- **The standing hypotheses.**
-  - G is a compact p-adic analytic group, defined as a profinite group with an open normal uniform pro-p subgroup.
-    Lazard's equivalence with the analytic definition is a gap.
-  - H ◁ G is closed, and Γ = G/H ≅ ℤ_p.
-- **The algebras.** Λ(−) = ℤ_p⟦−⟧ and Ω(−) = F_p⟦−⟧. Coefficients O (integers of a finite extension of ℚ_p) are
-  admitted through O⟦G⟧ = O ⊗ Λ(G).
-- **Modules** are left modules unless stated otherwise.
-- **Ore conditions.**
-  - CFKSV write them as s w₁ = r t₁ and w₂ s = t₂ r.
-  - Mathlib's `OreSet` localises on the left, S⁻¹R, with t r = w s. The prototype uses Mathlib's orientation.
-- **Distinct hypotheses.** "No element of order p", "torsion-free" and "pro-p" are different, and NE.1 does not use
-  the first.
-
-## Milestones
-
-Library modules:
-- `TauCeti/NumberTheory/NoncommIwasawa/AnalyticGroup` (NE.0);
-- `TauCeti/NumberTheory/NoncommIwasawa/CanonicalOre` (NE.1).
-
-The namespace is `TauCeti.NoncommIwasawa`.
-
-### NE.0, Milestone 1: uniform and compact p-adic analytic groups
-
-**Definition: the lower p-series** (`lowerPSeries`; node `lower-p-series`; Ardakov–Brown §2.3).
-- P₁ = G, and P_{i+1} is the closure of P_i^p [P_i, G].
-- *Unit tests.*
-  - ℤ_p gives P_i = p^{i−1}ℤ_p.
-  - The trivial group.
-  - ℤ/p², with indices p, p, 1.
-
-**Definition: uniform groups** (`IsUniform`; node `uniform-pro-p-group`). A uniform group is powerful, finitely
-generated, and has constant indices |P_i : P_{i+1}|.
-- *Unit tests.*
-  - ℤ_p^d is uniform.
-  - ℤ/p is powerful but not uniform.
-  - The trivial group is uniform.
-
-**Definition: compact p-adic analytic groups** (`IsCompactPAdicAnalytic`; node `compact-padic-analytic-group`; planet
-"Compact p-adic analytic groups"; Ardakov–Brown §§2.1, 2.3). A profinite group with an open normal uniform pro-p
-subgroup.
-- *Unit tests.*
-  - Finite groups.
-  - ℤ_p.
-  - ∏ ℤ/p is not an example.
-
-### NE.0, Milestone 2: ring-theoretic finiteness
-
-**Lemma: freeness over open subgroups** (node `iwasawa-free-over-open-subgroup`; Lazard II.2.2.7; CFKSV p. 166).
-Λ(H) is free of rank [H : H′] over Λ(H′), on coset representatives.
-
-**Theorem: local iff pro-p** (node `iwasawa-local-iff-pro-p`; Lazard II.2.2.2; Ardakov–Brown 4.1(2)).
-- For J pro-p, Λ(J) is local with maximal ideal ker(Λ(J) → F_p).
-- *Test.* ℤ_p[ℤ/ℓ] with ℓ ≠ p is not local.
-
-**Theorem: the graded ring of a uniform group** (node `uniform-graded-polynomial`; planet "PBW theorem for uniform
-groups"; Ardakov–Brown 3.1, 3.4).
-- Every element has a PBW expansion Σ c_α b^α.
-- gr_J Ω(G) ≅ F_p[X₁, …, X_d].
-
-**Lemma: Zariskian filtrations** (node `zariskian-noetherian`; Ardakov–Brown 3.4–3.5). A complete filtration with
-noetherian gr gives a noetherian ring.
-
-**Theorem: Lazard's noetherian theorem** (node `iwasawa-noetherian`; planet "Lazard's noetherian theorem"; Lazard
-V.2.2.4; Ardakov–Brown 4.1(1)). Λ(G) and Ω(G) are left and right noetherian and complete semilocal.
-
-**Lemma: compact Nakayama** (node `compact-nakayama`). For compact Λ(J)-modules:
-- M is finitely generated iff M/𝔪_J M is finite, iff M_J is a finitely generated ℤ_p-module.
-- The proof comes from Lazard II.2.2.2.
-- CFKSV use the lemma without a proof.
-
-### NE.1, Milestone 3: the canonical Ore set
-
-**Definition: the canonical set** (`canonicalSet`; node `canonical-ore-set`; planet "Canonical Ore set"; CFKSV §2).
-S = {f : Λ(G)/Λ(G)f is finitely generated over Λ(H)}. It is prototyped abstractly for a ring A that is a left B-module
-through left multiplication.
-
-*API.*
-- `mem_canonicalSet_iff`.
-- `one_mem_canonicalSet`.
-- `mul_mem_canonicalSet`.
-
-*Unit tests.*
-- **B = A:** S = A, including 0. This shows that the zero-divisor statement needs the group hypotheses.
-- **F_p⟦T⟧ over F_p:** S = {f ≠ 0}.
-- **ℚ[X] over ℚ:** S = {f ≠ 0}.
-- **Λ(ℤ_p) with H = 1:** p ∉ S and T ∈ S.
-
-**Lemmas:**
-- `central-zp-subgroup`: an open central Π ≅ ℤ_p in G/J (CFKSV (5)).
-- `quotient-total-algebra`: V(G/J) = R(Π) ⊗ Ω(G/J), finite-dimensional over the central field R(Π), with the
-  left–right unit symmetry.
-- `canonical-set-left-criteria`: Lemma 2.1. The criteria are:
-  - finite generation of the J-coinvariants over ℤ_p;
-  - finiteness of Ω(G/J)/Ω(G/J)ψ_J(f);
-  - injectivity of right multiplication by ψ_J(f).
-- `canonical-set-right-criteria`: Lemma 2.2.
-
-**Theorem: S-torsion equals finite generation over Λ(H)** (node `s-torsion-iff-finitely-generated`; planet;
-Proposition 2.3). The proof is an ascending chain argument in the noetherian Λ(J), with the monic element
-s_n = τⁿ − … − a₀.
-
-**Theorem: the canonical Ore theorem** (node `canonical-ore-theorem`; planet "CFKSV Ore theorem"; Theorem 2.4).
-- S is multiplicatively closed.
-- S is left and right Ore.
-- S consists of nonzero divisors.
-
-This gives Mathlib's `OreSet` structure (`oreSet` in the prototype).
-
-**Lemma and theorem:**
-- `nilpotent-transition-kernel`: Lemma 2.5.
-- `regular-modulo-prime-radical`: Proposition 2.6, Schneider's description of S as the elements regular modulo the
-  prime radical.
-
-### NE.1, Milestone 4: localisations and torsion categories
-
-**Construction: S\*** (node `saturated-ore-set`). S* = ⋃ pⁿS and Λ(G)_{S*} = Λ(G)_S[1/p].
-- *Unit tests.*
-  - G = Γ, H = 1 gives S* = Λ ∖ {0}.
-  - p ∈ S* but p ∉ S.
-  - Λ(G)/p is S*-torsion.
-
-**Construction: the canonical localisation** (node `canonical-localization`; planet "Canonical localisation Λ(G)_S").
-The localisation is Mathlib's `OreLocalization`.
-- It is injective and universal.
-- Left and right localisations agree.
-- *Test.* For G = Γ, H = 1 it is the localisation at the height-one prime (p).
-
-**Lemma: flatness** (node `ore-localization-flat`).
-- R_S is flat.
-- The kernel of M → R_S ⊗ M is the S-torsion submodule.
-- A complex is acyclic after localisation iff its cohomology is S-torsion.
-
-**Definition: 𝔐_H(G)** (node `category-MHG`; planet "The category 𝔐_H(G)"). Finitely generated S*-torsion modules,
-equivalently those with M/M(p) finitely generated over Λ(H).
-- It is a Serre subcategory.
-- For H = 1 it is the category of torsion Λ(Γ)-modules.
-
-**Definition: Σ_S** (node `torsion-perfect-complexes`; Burns–Venjakob §2.2). Σ_S consists of the perfect complexes C
-with R_S ⊗ C acyclic. It is:
-- closed under quasi-isomorphism, shifts and extensions;
-- described cohomologically, through flatness.
-
-### NE.2, Milestone 5: the localisation sequence and characteristic elements
-
-The source is CFKSV §3 (pp. 172–176) and §4 (pp. 187–193). Library module:
-`TauCeti/NumberTheory/NoncommIwasawa/CharacteristicElement`.
-
-**Theorem: finite global dimension** (NE.0 node `iwasawa-finite-global-dimension`). If G has no element of order p,
-then gl.dim Λ(G) = d + 1 (Brumer).
-
-**Lemma: K₀ and complete ideals** (node `k0-complete-quotient`; Lemma 4.1). K₀(R) ≅ K₀(R/I) for R I-adically complete.
-
-**Theorem: the localisation sequence** (node `localization-sequence`; planet "Localisation sequence"; (24)). The exact
-sequence
-K₁(Λ(G)) → K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) → K₀(Λ(G)) → K₀(Λ(G)_{S*}) → 0.
-
-**Construction: the boundary map** (node `boundary-map`).
-- ∂_G[s] = [Λ(G)/Λ(G)s]. The sign is fixed by CFKSV's ∂(f(a)) = [coker α].
-- *API.*
-  - `boundaryMap_unit`.
-  - `boundaryMap_exact`.
-  - `boundaryMap_natural`.
-- *Unit tests.*
-  - For G = Γ, ∂[f] = [Λ/f].
-  - ∂ of a unit is 0.
-  - ∂[p] = [Λ/p].
-
-**Lemma: detection at a finite level** (node `k0-finite-level-injective`; Lemma 3.5). K₀(Λ(G)) → K₀(ℤ_p[G/P]) is
-injective for P pro-p.
-
-**Lemma: detection by characters** (node `k0-representation-injective`). λ = ⊕_ρ j∘τ∘tw_ρ is injective, with
-τ[U] = Σ(−1)^i[H_i(G, U)].
-
-**Lemmas: 𝔐_H(G) inputs:**
-- `homology-torsion` (Lemma 3.1): H_i(H, M) is a finitely generated torsion Λ(Γ)-module.
-- `twist-preserves-MHG` (Lemma 3.2).
-
-**Theorem: surjectivity of ∂_G** (node `boundary-surjective`; Proposition 3.4). ∂_G is surjective when G has no element
-of order p.
-
-**Definition: characteristic elements** (node `characteristic-element`; planet "Characteristic elements"; (33)).
-- ξ_M satisfies ∂_G ξ_M = [M].
-- It is unique up to the image of K₁(Λ(G)).
-- *Unit tests.*
-  - A cyclic module Λ/Λs has ξ = [s].
-  - M = 0.
-  - For G = Γ, the characteristic power series up to units.
-
-**Theorem: semilocality** (node `canonical-localization-semilocal`; Proposition 4.2, Lemma 4.3).
-- Λ(G)_S is semilocal.
-- Λ(ℤ_p²)_{S*} is not.
-
-**Theorem: units and K₁** (node `units-surject-k1`; Theorem 4.4). Units surject onto K₁(Λ(G)_S) and K₁(Λ(G)_{S*}).
-
-**Comparison: one variable** (node `commutative-cyclic-comparison`). For G = Γ:
-- K₁(Q(Γ)) = Q(Γ)^×;
-- the characteristic element is char(M) up to Λ(Γ)^×.
-
-Requested: GeneralAlgebraicKTheory K.5 (Quillen's localisation for Ore localisations), K.3 (resolution theorem) and
-PadicMeasuresIwasawaAlgebras L4 (characteristic power series).
-
-### NE.3, Milestone 6: evaluation at representations (partial)
-
-Library module: `TauCeti/NumberTheory/NoncommIwasawa/Evaluation`. The source is CFKSV §3, pp. 170–187.
-
-**Construction: twists** (node `twisted-module`). tw_ρ(M) = M_𝒪 ⊗ 𝒪ⁿ with the diagonal action. tw_ρ is exact,
-preserves freeness, and maps 𝔐_H(G) to itself (Lemma 3.2).
-- *API:* `twist`, `twist_exact`, `twist_free`, `twist_mem_MHG`.
-- *Tests:*
-  - ρ = 1;
-  - a character twist of Λ_𝒪(G);
-  - direct sums.
-
-**Construction: Φ_ρ** (node `twist-homomorphism`; planet). Φ_ρ : Λ(G) → M_n(Λ_𝒪(Γ)) is induced by σ ↦ ρ(σ) ⊗ σ̄, and
-its augmentation is ρ.
-- *API:* `representationRingHom`, `twistRingHom`, `twistRingHom_augmentation`, `twistRingHom_p`.
-- *Tests:*
-  - for G = Γ, ρ = 1, Φ_ρ is the identity;
-  - det Φ_ρ(σ) = det ρ(σ)σ̄ⁿ;
-  - direct sums are block diagonal.
-
-**Lemma: extension to S*** (node `twist-extends-to-localisation`). This is Lemma 3.3: Φ_ρ(s) is invertible in
-M_n(Q_𝒪(Γ)) for s ∈ S*. The proof reduces mod the maximal ideal and uses the central ℤ_p of G/J from NE.1.
-
-**Construction: evaluation** (node `artin-evaluation`; planet). Φ′_ρ : K₁(Λ(G)_{S*}) → Q_𝒪(Γ)^× is defined by Morita
-and the determinant, and ξ(ρ) = φ(Φ′_ρ(ξ)) ∈ L ∪ {∞}. Conventions: [g](ρ) = det ρ(g), and evaluation is multiplicative
-in ρ ⊕ ρ′.
-- *API:* `twistK1`, `evaluate`, `evaluate_groupElement`, `evaluate_mul`, `evaluate_directSum`, `evaluate_units`.
-- *Tests:*
-  - a known unit, [g](ρ) = det ρ(g) (Lean check for n = 2);
-  - the cyclic case (T ↦ 0, 1/T ↦ ∞);
-  - induced representations, whose determinant includes the permutation sign;
-  - evaluations do not detect K₁ (the SK₁ question, still open here).
-
-**Construction: Akashi series** (node `akashi-series`). Ak(M) = ∏f_{i,M}^{(−1)^i} on K₀(𝔐_H(G)) (Lemma 3.1, (37)–(40)),
-with N(Ak_𝒪) = Ak.
-- *API:* `akashiSeries`, `akashiSeriesO`, `akashiSeries_norm`, `homology_torsion`.
-- *Tests:*
-  - the cyclic case;
-  - H finite of order prime to p;
-  - Λ(G)/p.
-
-**Lemma: the diagram** (node `evaluation-akashi-diagram`). This is Lemma 3.7: ∂_Γ ∘ Φ′_ρ = Ak_𝒪 ∘ tw_{ρ̂} ∘ ∂_G, with
-the contragredient ρ̂(g) = ρ(g^{−1})^t, via Morita row vectors.
-
-**Theorem: Euler characteristics** (node `euler-characteristic-evaluation`; planet). This is Theorem 3.6: if
-χ(G, tw_{ρ̂}(M)) is finite, then ξ_M(ρ) ≠ 0, ∞ and χ = |ξ_M(ρ)|_p^{−[L:ℚ_p]}.
-
-**Theorem: Artin representations** (node `artin-evaluation-integral`). Theorem 3.8 and Lemma 3.9: under (51), ξ_M(ρ) ≠ ∞
-for every Artin ρ, and it is nonzero iff the Euler characteristic is finite.
-
-**Theorem: Artin formalism** (node `artin-formalism-euler`). This is Theorem 3.10:
-χ(G′, M)^{[L:ℚ_p]} = ∏_ρ χ(G, tw_ρ(M))^{n_ρ}.
-
-**Application: X₁(11) at p = 5** (node `gl2-euler-example`). This is Proposition 3.11: χ(G, tw_{ρ₁}X) = 5³ and
-χ(G, tw_{ρ₂}X) = 5, from 5¹⁶/5⁴ and 5⁸/5⁴ by Theorem 3.10. The arithmetic inputs are a gap.
-
-### NE.3–NE.5, Milestone 7: the integrality conjecture and the GL₂ main conjecture (checkpoint 4)
-
-Source: CFKSV §4, from (91) to the end, and §5 in full, pp. 195–206, read on the page images. Every conjecture below is
-stated as a proposition; no node assumes one.
-
-**Definition: the integrality conjecture** (node `NE.3/characteristic-element-integrality-conjecture`). Conjecture 4.8 has
-four cases relating ξ ∈ α(…) to ξ(ρ) and Φ′_ρ(ξ). Lemma 4.9 gives (a) ⇒ (b) ⇔ (c) ⇒ (d), with the twisting identity (94).
-
-**Construction: the dual Selmer module** (node `NE.4/gl2-dual-selmer-module`). F_∞ = ℚ(E_{p^∞}), G, H and Γ, with 𝒮(E/L)
-and X(E/L) over Λ(Gal(L/F)). The hypotheses are p ≥ 5 and good ordinary reduction.
-
-**Definition: Conjectures 5.1–5.2** (node `NE.4/mh-conjecture-and-mazur`): X(E/F_∞) ∈ 𝔐_H(G), and Mazur's torsion
-conjecture.
-
-**Theorem: 𝔐_H(G) criteria** (node `NE.4/mh-criteria`): Lemmas 5.3–5.4, Corollary 5.5 (the CM case) and Proposition 5.6,
-with the conductor-11 isogeny class at p = 5. Its Coates–Howson, Venjakob and Schneps inputs are a gap.
-
-**Definition: the p-adic L-function** (node `NE.5/gl2-padic-l-function-conjecture`). Conjecture 5.7 gives ℒ_E ∈
-K₁(Λ_A(G)_{S(A)*}), with the interpolation (107), the periods Ω_±, the set R, f_ρ, and u and w, over the coefficient
-ring A.
-
-**Definition: the main conjecture** (node `NE.5/gl2-main-conjecture`). Conjecture 5.8 says i(ξ_E) ≡ ℒ_E modulo the image of
-K₁(Λ_A(G)).
-
-**Theorem: consequences** (node `NE.5/gl2-main-conjecture-consequences`): Corollaries 5.9–5.10, conditional on 5.8.
-
-**Application: X₁(11) at p = 5** (node `NE.5/gl2-main-conjecture-example-x1-11`). The data (108)–(115) are checked
-against Proposition 3.11. The valuations −1/2 + 3/2 + 2 = 3 and −3/2 + 5/2 = 1 give 5³ and 5.
-
-### NE.2–NE.6, Milestone 8: Kakde's totally real main conjecture, §§1–4 (checkpoint 5)
-
-Source: Kakde, *The main conjecture of Iwasawa theory for totally real fields*, arXiv:1008.0142v3, pp. 1–30. p is odd
-throughout, and μ = 0 is carried as a hypothesis wherever it is used.
-
-**Theorem: ∂ is surjective with p-torsion** (node `NE.2/boundary-surjective-p-torsion`). Kakde's Lemma 5 removes CFKSV's
-hypothesis that G has no element of order p.
-
-**Construction: SK₁ and K′₁** (node `NE.3/k1-prime`). Definitions 6–7, with K′₁(Λ_𝒪(G)) ≅ lim K′₁(𝒪[Δ]) (Lemma 19) and
-K′₁(Λ(G)) ≅ lim_U K′₁(Λ(G/U)) (Corollary 20).
-- *API:* `SK1`, `K1Prime`, the two limit equivalences, functoriality, and evaluation through K′₁.
-- *Unit tests:* abelian G; G_ab × Δ; cyclic P; and the non-example that uniqueness fails in K₁.
-
-**Definition: admissible extensions and μ = 0** (node `NE.4/admissible-extension`). Definitions 1 and 8, and Lemma 9:
-μ = 0 ⇔ X is finitely generated over Λ(H).
-- *Unit tests:* F_cyc; ℚ(μ_p)^+ with Ferrero–Washington.
-- *Non-examples:* F(μ_{p^∞}), which is not totally real, and finite extensions.
-
-**Construction: the complex C(F_∞/F)** (node `NE.4/totally-real-iwasawa-complex`; planet). RHom(RΓ_ét(𝒪_{F_∞}[1/Σ],
-ℚ_p/ℤ_p), ℚ_p/ℤ_p), with H^{−1} = X and H⁰ = ℤ_p, perfect, with base change (1), and S-torsion under μ = 0.
-Perfectness is Fukaya–Kato's (gap).
-
-**Definition: the main conjecture** (node `NE.5/totally-real-main-conjecture`; planet). There is a unique
-ζ ∈ K′₁(Λ(G)_S) with ∂ζ = −[C(F_∞/F)] and ζ(ρκ^r) = L_Σ(ρ, 1 − r). Uniqueness is in K′₁ (Remark 12).
-
-**Theorem: the abelian case** (node `NE.6/abelian-case`; planet). Lemma 15 and Theorems 16–18: G_ab × Δ with p ∤ #Δ. It
-uses Deligne–Ribet (AutomorphicPadicLFunctions L3), Wiles (IntegralIwasawaTheory I.5) and Brauer induction.
-
-**Lemma: Burns–Kato patching** (node `NE.6/burns-kato-patching`). The argument common to every reduction: describe the image
-Φ of θ on K′₁, show Φ_S ∩ ∏K′₁ = Φ, then glue the zeta elements of the subquotients.
-
-**Theorems: the reductions** (nodes `NE.6/reduction-to-dimension-one`, `reduction-to-qp-elementary`, `l-elementary-case`,
-`reduction-to-p-elementary`; planets). These are Theorems 21, 27, 33 and 36. They reduce the main conjecture to
-G = Δ × G_p with Δ cyclic of order prime to p and G_p one-dimensional pro-p. That remaining case, Kakde §§5–6, is the
-next checkpoint.
-
-The results of Oliver's *Whitehead groups of finite groups* that Kakde cites are a gap:
-- Dress–Wall induction;
-- Proposition 11.6 and Theorems 12.3(4), 12.7;
-- Wall's torsion theorem;
-- the integral logarithm.
-
-### NE.6, Milestone 9: Kakde's algebraic core, §5 and §6.1 (checkpoint 6)
-
-Source: Kakde, arXiv:1008.0142v3, pp. 30–68. Throughout, G is one-dimensional pro-p with G/H ≅ ℤ_p, Z = Γ^{p^e} is
-central and open, Ḡ = G/Z, U_P is the preimage of P ≤ Ḡ, and 𝒪 is unramified over ℤ_p (or a finite sum of such rings,
-e.g. ℤ_p[Δ]). Library module: `TauCeti/NumberTheory/NoncommIwasawa/KakdeCongruences`.
-
-**Construction: the twisted group ring** (`TwistedGroupRing`; node `NE.6/twisted-group-ring-presentation`). Λ_𝒪(G) =
-Λ_𝒪(Z)[Ḡ]^τ with the symmetric carry cocycle τ(h₁γ^{a₁}, h₂γ^{a₂}) = γ^{[(a₁+a₂)/p^e]p^e}; Λ_𝒪(U_P) = Λ_𝒪(Z)[P]^τ;
-T = Λ_𝒪(Z) ∖ pΛ_𝒪(Z) is Ore with Λ_𝒪(G)_T = Λ_𝒪(G)_S (Lemma 37); and R[Ḡ]^τ/[R[Ḡ]^τ, R[Ḡ]^τ] ≅ R[Conj Ḡ]^τ (Lemma 43).
-- *API:* the ring structure, the presentation, the cocycle simp lemmas, the Ore instance, the two equivalences.
-- *Unit tests:*
-  - τ ≡ 1 recovers `MonoidAlgebra`;
-  - ℤ_p × C_p gives Λ(ℤ_p)[C_p];
-  - the carry for Z = Γ^p gives Λ(Γ) = Λ(Z)[X]/(X^p − γ^p);
-  - *non-example:* Z = 1 is not open, and T then gives Λ(G) rather than Λ(G)_{(p)}.
-
-**Construction: θ^G and the congruence groups** (`thetaMap`, `Phi`; node `NE.6/congruence-group-phi`). θ^G_P is the norm
-to U_P followed by abelianisation. Φ^G ⊆ ∏_P Λ_𝒪(U_P^ab)^× is cut out by:
-- M1: norms equal projections;
-- M2: invariance under conjugation;
-- M3: ver ≡ restriction mod T_{P,P′};
-- M4: α_P(x_P) ≡ ∏ ϕ(α_{P′}(x_{P′})) mod pT_P, with its variant at P = {1}.
-
-Here α_P(x) = x^p/∏_k ω_P^k(x). Lemma 50 computes nr and tr for [P′ : P] = p as the product and sum of the twists ω^k.
-- *Unit tests:*
-  - Ḡ = 1 gives Φ^G = Λ_𝒪(Z)^×;
-  - Ḡ = C₂ gives the graph of the norm;
-  - Lemma 50 at p = 2;
-  - *non-example:* (1, g) fails M1, since nr(g) = −1.
-
-**Construction: the additive side** (`beta`, `Psi`; node `NE.6/additive-map-beta`). t^G_P counts conjugates landing in
-P; η_P keeps the generators of a cyclic P; β^G_P = η_P ∘ t^G_P (cyclic P) or t^G_P; ψ^G_R is cut out by A1–A3; δ is a left
-inverse of β.
-- *Unit tests:*
-  - Ḡ = 1;
-  - Ḡ = C_p, where ψ^G_R = pR × {b : b₁ = 0};
-  - η_P via Σ_k ζ^k = 0;
-  - *non-example:* β is not multiplicative.
-
-**Theorem: the additive theorem** (node `NE.6/additive-theorem`). β^G_R : R[Conj Ḡ]^τ ≅ ψ^G_R (Theorem 58), with the
-rational version and integrality criterion of Proposition 64.
-
-**Construction: the logarithm on relative K₁** (`logRel`; node `NE.6/iwasawa-algebra-logarithm`). log_I : K₁(R[Ḡ]^τ, I) →
-(I/[R[Ḡ]^τ, I]) ⊗ ℚ_p for I ⊆ J_R. It is integral under Oliver's ξ-hypothesis and bijective if I^p ⊆ pIJ_R
-(Lemmas 65–66, Proposition 67). Relative K₁ and E(A, I) come from KTheoryLowDegrees U.5.
-- *Unit tests:*
-  - the commutative case;
-  - nilpotence of J_R/p for ℤ_p × C_p;
-  - *non-examples:* torsion is killed; the ℤ₂ case shows the bijectivity hypothesis is needed.
-
-**Construction: the integral logarithm** (`integralLog`; node `NE.6/integral-logarithm`). L = log − (ϕ/p)log, with
-1 → μ(𝒪) × G^ab → K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab → 1 exact (Definition 70, from Oliver's Theorem 6.6), and its
-extension to K′₁(Λ̂_𝒪(G)_S), independent of the splitting (Lemmas 71–72, Proposition 74).
-- *Unit tests:*
-  - p^n ∣ v^{p^n} − v^{p^{n−1}} on ℤ/27;
-  - Lemma 72 via `ZMod.expand_card`;
-  - L(g) = 0;
-  - *non-example:* L ≠ log.
-
-**Theorem: the θ–β relation** (node `NE.6/theta-beta-relation`). β^G_P(L(x)) = (1/p)log(α_P(θ^G_P(x))/u^G_P(α(θ^G(x))))
-for nontrivial cyclic P, with the noncyclic and trivial variants (Proposition 84). It chains Lemmas 76, 77, 79, 81 and 82;
-Lemma 82 uses Schneider–Venjakob's Proposition 2.3 (norm then inclusion is the [H : N]-th power on K₁(𝔽_p⟦H⟧)).
-
-**Lemma: the multiplicative sequence** (node `NE.6/phi-integral-log-sequence`). θ^G lands in Φ^G (Lemma 85), and
-1 → μ(𝒪) × G^ab → Φ^G → ψ^G → G^ab → 1 is exact (Lemmas 86–89).
-
-**Theorem: Kakde's congruence description of K′₁** (node `NE.6/main-algebraic-theorems`; planet). K′₁(Λ_𝒪(G)) ≅ Φ^G
-(Theorem 52, by the five lemma), and Φ^G_S ∩ ∏Λ_𝒪(U_P^ab)^× = θ^G(K′₁(Λ_𝒪(G))) (Theorem 53).
-
-**Theorem: injectivity into the localisation** (node `NE.6/k1-injects-localisation`). Corollary 90, which is printed
-without proof. The plan reconstructs it from Theorem 52, the K′₁ halves of the §4 reductions, and Corollary 20.
-
-**Theorem: the congruence criterion** (node `NE.6/main-conjecture-congruence-criterion`). MC(F_∞/F) holds iff
-(ζ_P)_P ∈ Φ^G_S, for the Deligne–Ribet zeta functions ζ_P of K_P/F_P (Proposition 93, with Lemma 92). The printed proof
-gives "if"; "only if" is reconstructed. The proof needs:
-- Clifford theory and monomiality of p-group representations (requested from Tau Ceti InductionRestriction Layer 5);
-- inductivity of Artin L-functions (requested from AnalyticNumberTheory AN.4).
-
-**Lemma: M1 and M2 for (ζ_P)** (node `NE.6/zeta-tuple-m1-m2`). Proposition 95, by interpolation. M3 and M4 (Propositions
-96–99 and §6.13) are the next checkpoint.
-
-The text layer drops fraction bars: Theorem 94's M4 reads as a product ≡ 1, but the page image shows the quotient form
-of Definition 51.
-
-### NE.6, Milestone 10: Kakde's congruences and the main theorem, §§6.2–6.13 (checkpoint 7)
-
-Source: Kakde, arXiv:1008.0142v3, pp. 69–90. The setting is that of Milestone 9, with Δ × G, p odd and μ = 0.
-
-**Definition: partial zeta values** (`smoothedValue`; node `NE.6/partial-zeta-values`). ζ(δ(x), s) for cosets of
-Z^{p^j}, the values L_{Σ_P}(ε, 1 − k) (15), and the smoothed values Δ^u_P(ε, 1 − k) = L(ε, 1 − k) − κ(u)^kL(ε_u, 1 − k)
-(16), invariant under conjugation (Lemma 103).
-- *Unit tests:*
-  - L_{{3}}(1, −1) = 1/6 (checked through Mathlib's ζ(−1) = −1/12);
-  - ε ≡ 0;
-  - u = 1 gives 0;
-  - odd k is excluded.
-
-**Lemma: finite-level approximations** (node `NE.6/deligne-ribet-approximation`). Λ(Δ × U_P^ab) = lim ℤ_p[…/Z^{p^j}]/(p^{f+j})
-(Lemma 101), and (1 − u)ζ_P ↦ Σ_x Δ^u_P(δ(x), 1 − k)κ(x)^{−k}x (Proposition 102, after Ritter–Weiss). It uses
-Deligne–Ribet's Theorem 0.4.
-
-**Lemma: the reduction to value congruences** (node `NE.6/basic-congruence-reduction`; Propositions 104 and 106–108).
-Each basic congruence follows from a congruence between Δ-values, by orbit sums over P′, W_ḠP or N_ḠP′/P.
-
-**Lemma: the Hilbert Eisenstein toolkit** (node `NE.6/hilbert-eisenstein-toolkit`; §§6.6–6.11). It covers restriction
-along the diagonal (Lemma 109), U_β (Lemma 110), Deligne–Ribet's G_{k,ε} (Proposition 111) and the q-expansion
-principle (Remark 112). These are requested from AutomorphicPadicLFunctions L3.
-
-**Lemma 114** (node `NE.6/transfer-image-not-generator`). The transfer into a maximal cyclic P misses its generators.
-
-**Theorem: the value congruences** (node `NE.6/basic-congruence-values`; Propositions 113 and 115–117). They are proved
-from Eisenstein combinations and the q-expansion principle. The step modulo r_P in 116–117 is repaired to its
-p-part (E7).
-
-**Theorem: the basic congruences** (node `NE.6/basic-congruences`; Propositions 96–99). These are (10)–(14); (10) is M3.
-
-**Lemma: the enlarged extension** (node `NE.6/enlarged-extension`; §6.13.1–2, Lemma 118). F̃_∞ = F_∞K with
-K ⊆ ℚ(μ_l), and T_P ⊆ p·i_P²Λ. Its admissibility and μ = 0 are supplied here (E10).
-
-**Lemma: M4** (node `NE.6/m4-from-basic-congruences`; Lemma 119 and §6.13.3). It follows from (11)–(14) through the
-logarithm.
-
-**Theorem 94** (node `NE.6/zeta-tuple-in-phi`). (ζ_P) ∈ Φ_S for F̃_∞/F, hence MC(F̃_∞/F).
-
-**Theorem: Kakde's main theorem** (node `NE.6/kakde-main-theorem`; planet; Theorem 11). For p odd, F_∞/F admissible and
-μ = 0, a unique ζ ∈ K′₁(Λ(G)_S) exists with ∂ζ = −[C(F_∞/F)] and the interpolation property. The proof assembles
-Milestones 8–10.
-
-**Source findings (E5–E10):**
-- misprints in (21) (E5), in the proof of Proposition 106 (E6), in the proof of Proposition 117 (E8) and on p. 89 (E9);
-- an incorrect congruence modulo r_P in the proofs of Propositions 116–117 (E7, repaired);
-- the unargued admissibility and μ = 0 for F̃_∞ (E10).
-
-### NE.2 and NE.7, Milestone 11: leading terms (Burns–Venjakob §§2–4, checkpoint 8)
-
-Source: Burns–Venjakob, arXiv:math/0511672v2, pp. 1–21. Library modules:
-`TauCeti/NumberTheory/NoncommIwasawa/LocalizedK1` and `…/LeadingTerms`.
-
-**Construction: determinant functors** (node `NE.2/determinant-functor`). d_R : (C^p(R), quasi) → 𝒞_R has properties
-d)–i), with Aut(1_R) = K_1(R), Remark 2.3 (d(φ)^{−1}) and Remark 2.4 (ord = length). The construction (Deligne's virtual
-objects) is requested from GeneralAlgebraicKTheory K.4.
-
-**Construction: the localized K₁** (node `NE.2/localized-k1`). K_1(R, Σ) by generators [C, a] and relations (0)–(3),
-and ch_{R,Σ_S} : K_1(R, Σ_S) ≅ K_1(R_S) (Fukaya–Kato 1.3.7, cited).
-
-**Construction: Bockstein maps** (node `NE.7/bockstein-homomorphism`). θ ∈ Hom(G, ℤ_p), the extension E_θ, and
-B_i : Tor_i → Tor_{i−1}; for G = Γ, B_i factors through κ : H^Γ → H_Γ (Lemma 3.1).
-
-**Definition: semisimplicity** (node `NE.7/semisimple-complexes`).
-- The Bockstein complex has torsion cohomology (Definitions 3.2, 3.11), finiteness at ρ (3.12), and r_G(A·)(ρ).
-- The DVR normal form is Lemma 3.9, and the reduction to Λ_𝒪(Γ) is Lemma 3.13.
-- *Unit tests:*
-  - [Λ --T--> Λ] (r = −1);
-  - [Λ --f--> Λ] with f(0) ≠ 0 (finite);
-  - the E11 extension is not semisimple.
-
-**Construction: the Bockstein trivialisation** (node `NE.7/canonical-trivialization`). t(A·), multiplicative on
-triangles (Lemma 3.6).
-
-**Definition: leading terms** (node `NE.7/leading-term`; planet). (A·, a)^*(ρ) = (−1)^{r}·(t ∘ (L^n ⊗ a)) ∈ L^×
-(Definitions 3.7, 3.14), and the value when A· is finite at ρ (Remark 3.15).
-- *Unit tests* (the stage's acceptance):
-  - a pole with leading term ε(0);
-  - its shift, a zero with its Bockstein determinant;
-  - a finite value;
-  - the non-semisimple E11 complex.
-
-**Theorems:**
-- The leading coefficient of the characteristic series (node `NE.7/leading-term-characteristic-series`, Proposition 3.8).
-- Its extension to the canonical localisation (node `NE.7/leading-term-canonical-localization`, Proposition 3.16).
-- The derivative in the cyclotomic direction (node `NE.7/partial-derivative-interpretation`, Lemma 3.17).
-- Generalised Euler–Poincaré characteristics (node `NE.7/generalized-euler-characteristic`; planet;
-  Proposition 3.19). This recovers CFKSV Theorem 3.6.
-
-**Definition: the Fukaya–Kato zeta isomorphism** (node `NE.7/fukaya-kato-zeta-isomorphism`; planet). Conjecture 4.1,
-with the fundamental line and the period-regulators as explicit conjectural inputs, stated as a proposition.
-
-**Finding E11** (error). BV state that the extension-closed Σ_{A·} lies in Σ^{ss}. It does not:
-[Λ² --((T,1),(0,T))--> Λ²] is an extension of two copies of [Λ --T--> Λ], but its H⁰ is Λ/T², which is not
-semisimple. The repair is to use closure under direct sums (iv′), as BV's own weakening intends.
-
-### NE.7, Milestone 12: interpolation formulas (Burns–Venjakob §§5–6, checkpoint 9)
-
-Source: Burns–Venjakob, arXiv:math/0511672v2, pp. 21–36, collated with the authors' final version. Library modules:
-`TauCeti/NumberTheory/NoncommIwasawa/TateMotive` and `…/CriticalMotives`.
-
-**Lemma: descent for the Tate motive** (node `NE.7/leopoldt-tate-motive-descent`, Lemma 5.1).
-- Under Leopoldt at ρ, the only cohomology of RΓ_c(U, 𝕋_E) at ρ is cok λ_p (degree 2) and ℚ_p (degree 3).
-- RΓ_c(U, 𝕋) is semisimple at ρ with r = ⟨ρ, 1⟩.
-- The Bockstein is −c_γ^{−1}log_p ∘ N.
-- Leopoldt's conjecture is imported from Polylogarithms P.6.
-
-**Definition: the p-adic Stark conjecture at s = 1** (node `NE.7/padic-stark-conjecture`, Conjecture 5.2).
-- It is stated for Greenberg's L_{p,S} (requested from AutomorphicPadicLFunctions L3), using the maps μ_∞ and μ_p.
-- *API:* independence of g, additivity, inductivity, and the permutation case.
-- *Unit tests:* the trivial character (the Kubota–Leopoldt residue); a real quadratic field; ⟨ρ, 1⟩ = 0; failure of Leopoldt.
-
-**Theorems.**
-- The permutation case: P-Stark(Ind 1_J) is equivalent to Leopoldt for E^J (node `NE.7/padic-stark-permutation-case`, Remark 5.4 with Colmez).
-- The interpolation formula c_γ^{⟨ρ,1⟩}ζ_{Λ(G)}(𝕋)^*(ρ) = L^*_{p,S}(1, ρ) (node `NE.7/tate-motive-interpolation`; planet; Theorem 5.5).
-- Its unconditional form for ℚ-valued characters under Leopoldt (node `NE.7/tate-motive-interpolation-rational`, Corollary 5.7 with the scope corrected, E12).
-
-**Definition: local ε-isomorphisms** (node `NE.7/local-epsilon-isomorphism`). ε_{p,L}(V) = Γ_L(V)·η·ε_dR(V), and Fukaya–Kato's local Conjecture 6.1. Γ^* is corrected by E13.
-
-**Definition: Dabrowski–Panchishkin Selmer complexes** (node `NE.7/dabrowski-panchishkin-selmer-complexes`). Condition (DP), SC_U and SC, conditions (A1)–(C3), and Lemma 6.2. The mapping-fibre construction is requested from SelmerIwasawaCohomology L2.
-
-**Theorem: heights as Bocksteins** (node `NE.7/height-pairing-bockstein`).
-- Nekovář's height is the Bockstein of SC_U (32)–(33).
-- Descent is Proposition 6.4.
-- The complex is semisimple iff the height is non-degenerate (Proposition 6.6).
-
-**Theorem: interpolation for critical motives** (node `NE.7/critical-motive-interpolation`; planet; Theorem 6.7). The leading term (38) is a product:
-- the complex leading term over Ω_∞R_∞;
-- the p-adic period Ω_p and regulator R_p = det h_p;
-- Γ(V̂)^{−1};
-- the Euler-factor ratio P_{L,p}(Ŵ^*(1), 1)/P_{L,p}(Ŵ, 1).
-
-**Findings.**
-- **E12 (error).** Corollary 5.7's "ℚ_p-rational characters" should be ℚ-valued ones: permutation characters are ℚ-valued.
-- **E13 (misprint).** Γ^*(−j) should be Γ^*(j).
-- **E14 (misprint).** Proposition 6.6 numbers two items "(i)".
-
-The authors' final version has the same text.
-
-## Dependencies
-
-- **NE.0 imports:**
-  - PadicMeasuresIwasawaAlgebras L1 (requested);
-  - Tau Ceti `TauCeti.IsProP`.
-- **NE.1 imports:**
-  - NE.0;
-  - ProfiniteProPGroups Layer 9 (requested);
-  - GeneralAlgebraicKTheory K.4 (requested).
-- **NE.1 is consumed by:**
-  - NE.2 (localisation sequence, characteristic elements, K₁(R, Σ_S) ≅ K₁(R_S));
-  - NE.4 (equivariant complexes in Σ_{S*}).
-
-## Acceptance tests
-
-- **The cyclic case.** H = 1, G = Γ:
-  - S = Λ(Γ) ∖ pΛ(Γ);
-  - S* = Λ(Γ) ∖ {0};
-  - 𝔐_H(G) is the category of finitely generated torsion modules;
-  - Λ(Γ)_S = Λ(Γ)_{(p)}.
-- **The Ore conditions.** Both are proved, together with the nonzero-divisor statement; S is never replaced by the
-  set of all nonzero divisors.
-- **p ∉ S** (Γ is infinite), so S and S* are distinct.
-- **Separated hypotheses.** No element of order p, torsion-free and pro-p are kept apart. NE.1 uses none of them
-  beyond the standing ones.
-- **The degenerate pair B = A** shows which statements need the group structure.
-
-## Remaining stages
-
-- **NE.0.** Decompose the uniform-group theory (gap):
-  - powerful and uniform groups;
-  - the PBW theorem;
-  - gr Ω ≅ F_p[X];
-  - Lazard's characterisations.
-
-  Also give the concrete nonabelian finite-level example.
-- **NE.2.** CFKSV §3 onward (Akashi series, localisation sequence) and Burns–Venjakob §2.2.
-- **NE.3 (partial).** Still to do: reduced norms and SK₁, and what character evaluations determine (Ritter–Weiss, with the
-  2026 uniqueness preprint); evaluation under induction and restriction.
-- **NE.4 (partial).** Equivariant Galois complexes (Fukaya–Kato, Burns–Venjakob §3, Kakde, Ritter–Weiss). The inputs to
-  CFKSV §5 (Coates–Howson, Venjakob, Schneps) are a gap.
-- **NE.5 (partial).** Fukaya–Kato's formulation, and the abelian comparison with IntegralIwasawaTheory I.9. The
-  Dokchitser data are a gap.
-- **NE.6 (partial).** Still to do:
-  - Kakde is complete (checkpoint 7); his cited inputs remain gaps (Oliver, Fukaya–Kato) or requests (Deligne–Ribet
-    and Hilbert Eisenstein series from AutomorphicPadicLFunctions L3);
-  - Ritter–Weiss;
-  - the source-by-source coverage table.
-- **NE.7 (partial).** Burns–Venjakob is complete (checkpoints 8–9). Still to do: exceptional zeros and noncommutative Fitting
-  invariants. The Fukaya–Kato and Nekovář inputs of §6 are a gap.
-
-## Sources
-
-- **Coates, Fukaya, Kato, Sujatha, Venjakob,** Publ. Math. IHÉS 101 (2005), Numdam. Read §§2–3 in full and p. 192.
-- **Lazard,** Publ. Math. IHÉS 26 (1965), Numdam. Read II.2.2 and V.2.2.
-- **Ardakov–Brown,** arXiv math/0511345v1. Read §§2–4.
-- **Burns–Venjakob,** arXiv math/0511672v2. Read in full (pp. 1–36); the authors' final version was collated for E12–E14.
-- **Kakde,** arXiv:1008.0142v3. Read in full (pp. 1–90).
-- **Schneider–Venjakob,** *A splitting for K₁ of completed group rings*, arXiv:1006.1493v1. Read Proposition 2.3 (p. 11).
+# Noncommutative and equivariant Iwasawa theory
+
+This roadmap builds the algebra and arithmetic needed to formulate, compare and apply noncommutative Iwasawa main conjectures. It begins with completed group rings and uniform groups, proves the canonical Ore localization theorem, and fixes the relative K-theory and determinant conventions before introducing arithmetic zeta objects. It separates the existence of a zeta class, its normalized interpolation, its boundary, and the group in which uniqueness is claimed. The final layer develops Bockstein leading terms and denominator-corrected noncommutative Fitting invariants.
+
+The scope is target level: each named definition, construction or key theorem below has its hypotheses, proof route and dependencies. A conjectural predicate specifies a mathematical assertion without supplying its truth. The source and supplier obligations at the end are part of the specification; they prevent an unproved comparison or unread source leaf from being treated as a completed theorem. Every implementation status is unchecked.
+
+## Conventions and boundaries
+
+Fix a prime p. Write Λ_O(G)=O[[G]], Λ(G)=Z_p[[G]] and Ω(G)=F_p[[G]]. Unless a statement says otherwise, O is the ring of integers of a finite extension of Q_p, G is a Hausdorff compact p-adic analytic group, and modules are left modules with the compact topology appropriate to finite generation. The unramified coefficient restriction in Kakde’s logarithmic route is retained in that route. The canonical localization additionally fixes a closed normal H with G/H=Γ≅Z_p and a topological generator γ, with T=γ−1. Neither torsion-freeness nor absence of p-torsion follows merely from compact analyticity; a finite prime-to-p factor is permitted whenever the stated theorem permits it.
+
+For closed powers, U^n denotes the closed subgroup generated by n-th powers, not the set of powers without closure. A pro-p group is powerful if its commutator subgroup lies in U^p at odd p and in U⁴ at 2. Uniformity includes topological finite generation and torsion-freeness. The lower-p series has P₁=U; current Tau Ceti uses a zero-based series, so P_i=λ_(i−1). Ordered coordinates specify an order of multiplication and need not be group homomorphisms.
+
+Use cohomological degrees and the boundary convention ∂[s]=[Λ/Λs]. For C=[Λ --f→Λ] in degrees −1,0, [C]=[Λ/Λf]. Burns–Venjakob’s characteristic map associated with the identity determinant trivialization gives ch(C)=f⁻¹ and ∂ch(C)=−[C]. A shift negates the relative class and inverts the characteristic function. The totally real dual Galois complex has H^(−1)=X_Σ and H⁰=Z_p, so [C]=[Z_p]−[X_Σ] whenever its cohomology classes can be used. Thus ∂ζ=−[C] has the opposite module expression. No sign is left as an unspecified plus or minus.
+
+Twisting uses g(m⊗v)=gm⊗ρ(g)v, while the evaluation–Akashi comparison uses the contragredient ρ∨. Arithmetic versus geometric Frobenius, the removed Euler factors, periods and cyclotomic variable are fixed by the selected source formula. A comparison of ideals does not identify normalized zeta elements. At a zero or pole, ordinary augmentation evaluation is replaced only by a leading-term construction whose semisimplicity and regulator assumptions are stated.
+
+The generic completed Z_p group algebra and cyclic-coordinate carrier belong to current **ProfiniteProPGroups**, while **ProfiniteArithmetic** supplies the lower-p series and p-adic power operation. **PadicMeasuresIwasawaAlgebras L1** supplies additional coefficient/module comparisons. This roadmap owns group-side uniform coordinates, valuations, ordered Iwasawa series and their homological consequences; the Lazard Lie lattice, logarithm/exponential and compatible analytic structure belong to **NoncommutativeAnalyticDistributions**. **GeneralAlgebraicKTheory** supplies generic K-theory and determinant categories; **InductionRestriction** supplies generic twisted algebras and induction; **IntegralHeckeAndGaloisDeterminants** supplies reduced norms. The arithmetic cochains, Selmer conditions and duality are imported from their stated owners. No generic object already owned by these roadmaps is rebuilt here.
+
+## Layer map
+
+| Layer | Mathematical output | Critical distinction |
+|---|---|---|
+| NE.0 | Uniform groups, coordinates, completed-series and homological finiteness | Mod-p polynomial grading versus the more restrictive integral grading |
+| NE.1 | Canonical S, its p-saturation, localization and torsion categories | Canonical denominators versus all nonzero elements or a microlocal set |
+| NE.2 | Relative perfect classes, localization boundary and characteristic lifts | Perfect complexes remain available when finite global dimension fails |
+| NE.3 | Artin evaluation, total quotient and reduced norms | Finite-level integral SK₁ and total-quotient SK₁ are distinct |
+| NE.4 | Selmer and equivariant arithmetic complexes | Dual cochains, compact support and real-place corrections have different conventions |
+| NE.5 | Zeta interpolation and functoriality contracts | Normalized elements, their divisors, existence and uniqueness are separate assertions |
+| NE.6 | Kakde, Ritter–Weiss and unconditional abelian theorem records | Every source keeps its own prime, μ, field and coefficient hypotheses |
+| NE.7 | Bockstein descent, leading terms and Fitting annihilation | Semisimplicity and denominator ideals are substantive inputs |
+
+## Source-qualified main-theorem comparison
+
+| Source | Admitted setting | Output and μ hypothesis | Uniqueness | Prime 2 |
+|---|---|---|---|---|
+| Kakde, Theorem 11; §§4–6, pp. 19–90 | Totally real admissible p-adic Lie extension containing the cyclotomic tower; the stated μ=0 condition | Canonical-localized zeta class through elementary reductions and the M1–M4 congruences; μ=0 retained | In K′₁, with the integral SK₁ image quotiented out | Outside this theorem |
+| Ritter–Weiss 2010, theorem p. 1; Theorem 7 p. 4 | Totally real K/k, finite over k_cyc; odd p | Θ in K₁(QG) with prescribed Det and relative boundary; μ=0 retained | Existence theorem leaves uniqueness open | Outside this theorem |
+| Ritter–Weiss 2026, Theorem 1A, pp. 6–8 | Dimension-one total quotient components and the explicit D_(r,s,F) family | Conditional reduction of total SK₁ vanishing; does not prove all family members vanish | Upgrade requires the stated SK₁ hypothesis and comparison kernels | No upgrade to a two-primary main theorem |
+| Gambheera–Popescu, Theorem 6.30, pp. 33–34; published Theorem 1.12 | Finite abelian CM H/F, its cyclotomic tower, odd p, exact S,T conditions | Minus smoothed Selmer Fitting formula and injective square presentation; no μ=0 premise | Equality of Fitting ideals, not uniqueness in a noncommutative K₁ group | Outside this theorem |
+| Burns–Venjakob, Theorems 5.5 and 6.7 | Tate or critical-motive descent with named zeta, local and height hypotheses | Leading-term interpolation under the stated conjectural and semisimplicity inputs | No independent unconditional zeta existence assertion | Arithmetic statements use odd p |
+
+The Kakde route below contains its reductions, additive theorem, integral logarithm, multiplicative comparison, abelian zeta approximation, Hilbert Eisenstein congruences and auxiliary-extension descent. The RW route records the separate logarithmic pseudomeasure and support-reduction theorem. The unconditional abelian minus theorem uses its own smoothed Selmer module. Its comparison with the Tate-module dual has a separate μ=0 input and cannot be used to erase that hypothesis from a different theorem.
+
+## Worked convention checks
+
+1. **Canonical denominators.** For Γ=Z_p and H=1, S consists of the series whose reduction modulo p is nonzero. T belongs to S because Λ/ΛT=Z_p, whereas p does not. Its p-saturation includes p; in this one-variable case S* is every nonzero element. The canonical S-localization is distinct from the fraction field.
+2. **An actual noncommutative finite quotient.** For p=5 and G=S₃×Z₅, Λ(G) is free of rank 6 over Λ(Z₅). Setting the Z₅ coordinate equal to zero gives Z₅[S₃]. The products of the basis elements (12) and (123) depend on their order. A commutative series algebra fails this comparison.
+3. **Why the integral grading needs more.** At odd p, the uniform semidirect product with aba⁻¹=b^(1+p) has [a,b]=b^p. In the maximal-ideal grading of Z_p[[G]], the degree-two relation is AB−BA=P B, with A,B,P the symbols of a−1,b−1,p. Thus the integral graded ring need not be commutative. Modulo p the corresponding higher-degree term does not obstruct the polynomial augmentation grading. The integral polynomial statement below uses the extra commutator condition.
+4. **Carry inverses.** For G=Γ and Z=Γ^(p^e), e>0, the selected representatives have exponents 0 through p^e−1. The pair γ̄,γ̄⁻¹ produces one carry, so τ(γ̄,γ̄⁻¹)=γ^(p^e). A basis inverse needs the inverse carry factor even though the cocycle is normalized at 1.
+5. **A pole, a zero and a failed semisimplicity test.** For C=[Λ --T→Λ] in degrees −1,0 with trivialization a_ε, the characteristic function is ε/T, the order is −1 and the leading term is ε(0). Its shift has order 1 and leading term ε(0)⁻¹. In contrast, the extension with matrix [[T,1],[0,T]] has cokernel Λ/T² and zero Bockstein on its two surviving coinvariant groups; it is not semisimple. This is why the category for leading terms is generated under direct sums rather than arbitrary extensions.
+6. **Maximizing Fitting presentations.** Over Λ=M₂(Z₃), the two-block presentation of the zero module with blocks [[4,1],[1,4]] and [[5,1],[1,5]] has reduced norms 15 and 24, generating 3Z₃. The identity presentation gives Z₃. The maximal invariant of zero is Z₃, so an arbitrary presentation cannot define it. Denominator ideals must then be applied before a reduced-norm formula yields an integral central annihilator.
+
+## NE.0. Uniform groups and Iwasawa homological foundations
+
+The construction of the completed ring is imported. The targets here make that carrier usable for nonabelian analytic groups, keeping p-torsion and coefficient restrictions explicit. The foundational diagonal twist retains its stable NE.3 node id but is introduced here, where Fu’s homology needs it. The source’s mod-p and integral filtrations are different objects.
+
+<a id="ne0-uniform-pro-p-group"></a>
+
+### NE.0.1. Uniform pro-p groups
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/uniform-pro-p-group` · definition.
+
+For prime p and a pro-p group U, write U^n for the closed subgroup generated by n-th powers. U is powerful when [U,U]⊆U^p for odd p, and [U,U]⊆U⁴ for p=2. A uniform group is a finitely generated powerful torsion-free pro-p group; equivalently its lower-p-series successive indices are constant. Its dimension d is the minimal number of topological generators, so |U:U^p|=p^d. The equivalence with the constant-index definition is part of this target.
+
+**Hypotheses.**
+
+- p is prime; U is a Hausdorff compact pro-p group.
+
+**Construction or proof.**
+
+1. Import the closed lower p-series and p-adic powers from ProfiniteArithmetic, with P_i=λ_(i−1).
+2. Use the uniform-group criterion cited in Ardakov–Brown §2.3 to compare torsion-freeness and constant indices; the nontrivial equivalence is a source gap until its primary proof is checked.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.closedPowerSubgroup` (constructor): U^n is the topological closure of the subgroup generated by n-th powers; it is closed and contains every x^n. This light subgroup operation is not a new lower-p series.
+- `TauCeti.NoncommIwasawa.IsPowerful` (structure): G/G^p abelian (G/G⁴ at p = 2).
+- `TauCeti.NoncommIwasawa.IsUniform` (structure): For a profinite pro-p group: powerful, topologically finitely generated and torsion-free. The constant-index condition is an equivalent characterization proved in the target.
+- `TauCeti.NoncommIwasawa.IsUniform.dim` (data): d with |G : P₂| = p^d.
+- `TauCeti.NoncommIwasawa.IsUniform.lowerPSeries_index` (characterisation): |P_i : P_{i+1}| = p^d for all i.
+- `TauCeti.NoncommIwasawa.IsUniform.iff_powerful_torsionFree` (characterisation): For a finitely generated pro-p group, uniformity is equivalent to powerfulness and torsion-freeness; use the fourth-power condition at 2.
+
+**Unit tests.**
+
+- `isUniform_padicInt_pow`: ℤ_p^d is uniform of dimension d.
+- `not_isUniform_zmod`: ℤ/p is not uniform although it is powerful.
+- `isUniform_trivial`: The trivial group is uniform of dimension 0 (degenerate case).
+
+**Check.**
+
+- ℤ_p^d is uniform of dimension d; the first congruence subgroup Γ₁(GL_d(ℤ_p)) (p odd) is uniform.
+- ℤ/p is powerful but not uniform (indices p, 1).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group: the open normal uniform subgroup in the definition.
+- NoncommutativeAndEquivariantIwasawa:NE.0/uniform-graded-polynomial: the PBW basis and gr Ω(G) ≅ F_p[X₁, …, X_d].
+
+**Prerequisites:** `tauceti:TauCeti.IsProP`.
+
+**Current upstream input:** ProfiniteArithmetic: `TauCeti.pLowerCentralSeries`, `TauCeti.IsProP.padicPow`. The closed lower-p series, its zero-based indexing and continuous p-adic power operation; these exist on current main, not at the recorded pins.
+
+**Sources.**
+
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §2.3, pp. 3–4 (arXiv v1): Powerful, then uniform = powerful, finitely generated and |G : P₂| = |P_i : P_{i+1}|.
+- [CDT-2025](#source-cdt-2025), Lemmas 4.5.6 and 4.5.9, pp. 662–663: Powerful torsion-free congruence groups are the groups on which Lazard cohomology is applied; the 2-adic level must be 4.
+
+<a id="ne0-compact-padic-analytic-group"></a>
+
+### NE.0.2. Compact p-adic analytic groups
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/compact-padic-analytic-group` · definition.
+
+The group-side model of a compact p-adic analytic group is a profinite G containing an open normal uniform pro-p subgroup U. Its dimension is dim U, independent of U. The equivalence of this model with a compatible p-adic Lie-group structure is imported from the analytic-distributions owner (Schneider Theorems 27.1 and 29.8), rather than rebuilding an analytic atlas here.
+
+**Hypotheses.**
+
+- The group-theoretic characterisation is taken as the definition. Its equivalence with a compatible analytic manifold group is supplied by NoncommutativeAnalyticDistributions; registering the exact supplier stage and checking the primary uniform-basis criterion remain explicit gaps.
+
+**Construction or proof.**
+
+1. Package: profinite (compact, Hausdorff, totally disconnected) topological group with ∃ U open normal, pro-p and uniform.
+2. Closure properties used later: open subgroups, closed normal subgroups and quotients by closed normal subgroups of compact p-adic analytic groups are compact p-adic analytic (Ardakov–Brown §2.1, citing Dixon–du Sautoy–Mann–Segal).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.IsCompactPAdicAnalytic` (structure): Profinite with an open normal uniform pro-p subgroup.
+- `TauCeti.NoncommIwasawa.IsCompactPAdicAnalytic.of_open` (constructor): Open subgroups inherit the property.
+- `TauCeti.NoncommIwasawa.IsCompactPAdicAnalytic.quotient` (constructor): Quotients by closed normal subgroups inherit it.
+- `TauCeti.NoncommIwasawa.IsCompactPAdicAnalytic.exists_open_proP` (projection): An open normal pro-p subgroup exists.
+
+**Unit tests.**
+
+- `isCompactPAdicAnalytic_finite`: A finite discrete group is compact p-adic analytic (U = 1).
+- `isCompactPAdicAnalytic_padicInt`: ℤ_p is compact p-adic analytic of dimension 1.
+- `not_isCompactPAdicAnalytic_prod`: ∏_{n∈ℕ} ℤ/p is pro-p but not of finite rank, hence not analytic.
+
+**Check.**
+
+- Finite groups, ℤ_p^d × (finite), GL_d(ℤ_p), SL_d(ℤ_p) and their congruence subgroups are examples.
+- Separate: 'no element of order p', 'torsion-free' and 'pro-p' are different hypotheses (ℤ_p × ℤ/ℓ for ℓ ≠ p has no element of order p but is not pro-p; ℤ_p ⋊ ℤ/p may have p-torsion).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian: Lazard's noetherian theorem for Λ(G), Ω(G).
+- NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-set: the standing hypothesis on G in CFKSV §2.
+- NoncommutativeAndEquivariantIwasawa:NE.4: Galois groups of p-adic Lie extensions.
+
+**Prerequisites:** [NE.0/uniform-pro-p-group](#ne0-uniform-pro-p-group), `mathlib:OpenNormalSubgroup`, `tauceti:TauCeti.IsProP`.
+
+**Sources.**
+
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §2.1, p. 2 (arXiv v1): Lazard's characterisation.
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §2.3, p. 4 (arXiv v1): The characterisation used as the definition.
+- [SCHNEIDER-2011](#source-schneider-2011), Theorem 27.1, pp. 192–194; Theorem 29.8, pp. 206–208: Small analytic groups acquire saturated valuations; a finite-rank valued group acquires a unique compatible analytic structure.
+
+**Atlas planet:** Compact p-adic analytic groups.
+
+<a id="ne0-iwasawa-free-over-open-subgroup"></a>
+
+### NE.0.3. Completed group algebras are free over open subgroups
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-free-over-open-subgroup` · lemma.
+
+Let G be profinite and H′ ≤ H closed subgroups with H′ open in H. Then Λ(H) is a free left (and right) Λ(H′)-module of rank [H : H′], with basis any set of right (resp. left) coset representatives; likewise Ω(H) over Ω(H′). If H′ is open normal in H, Λ(H) ≅ Λ(H′) ∗ (H/H′) is a crossed product. Consequently a Λ(H)-module is finitely generated over Λ(H) iff it is finitely generated over Λ(H′).
+
+**Hypotheses.**
+
+- Λ(−) = ℤ_p⟦−⟧, Ω(−) = F_p⟦−⟧, the completed group algebras of PadicMeasuresIwasawaAlgebras L1.
+
+**Construction or proof.**
+
+1. Compute Λ(H) as lim ℤ_p[H/V] over open normal V ≤ H′ of H; at each level ℤ_p[H/V] is free over ℤ_p[H′/V] on coset representatives; the bases are compatible, so the limit is free on the same set.
+2. Finite generation transfers because Λ(H) is finite free over Λ(H′).
+
+**Check.**
+
+- The basis is a set of coset representatives, independent of the level V.
+- For p=5, G=S₃×Z₅ and U=Z₅, Λ(G) is free of rank 6 over Λ(U). Its Γ-augmentation quotient is Z₅[S₃], where the basis products (12)(123) and (123)(12) differ. Commutative power series cannot replace this group ring.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1`.
+
+**Sources.**
+
+- [LAZARD-1965](#source-lazard-1965), Chap. II, (2.2.7), p. 62 (Numdam PDF; printed page = PDF page + 3): Lazard: coset representatives form a basis of Λ(G) over Λ(U).
+- [CFKSV-2005](#source-cfksv-2005), §2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162): CFKSV's use for H′ open in H.
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §2.2, p. 3 (arXiv v1): The crossed-product form for open normal subgroups.
+
+<a id="ne0-iwasawa-local-iff-pro-p"></a>
+
+### NE.0.4. Iwasawa algebras of pro-p groups are local
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-local-iff-pro-p` · theorem.
+
+For a pro-p group G, Λ(G) is a compact local ring whose maximal ideal is the kernel of Λ(G) → F_p (reduction of the augmentation), and its open ideals form a basis of neighbourhoods of 0; likewise Ω(G) with maximal ideal the augmentation ideal. For G compact p-adic analytic, Λ(G) and Ω(G) are semilocal, and local iff G is pro-p.
+
+**Hypotheses.**
+
+- G pro-p for the first statement; compact p-adic analytic for the equivalence.
+
+**Construction or proof.**
+
+1. For G finite p-group, the augmentation ideal of F_p[G] is nilpotent, so 1 + (augmentation ideal) consists of units; pass to the limit: every element of Λ(G) with unit image in F_p is a unit (geometric series converge).
+2. If G is not pro-p, some finite quotient G/U has order divisible by a prime ℓ ≠ p or is not a p-group, and F_p[G/U] has more than one simple module; Λ(G) is then not local.
+3. Semilocal: Λ(G) is a crossed product of Λ(U) (U open normal pro-p) by a finite group, whose Jacobson radical contains that of Λ(U).
+
+**Check.**
+
+- CFKSV use this for J pro-p to apply Nakayama's lemma to Λ(J)-modules.
+- Test: Λ(ℤ/ℓ) = ℤ_p[ℤ/ℓ] for ℓ ≠ p splits as a product of local rings, not local.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1`, [NE.0/compact-padic-analytic-group](#ne0-compact-padic-analytic-group), [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup), `mathlib:IsLocalRing`, `tauceti:TauCeti.IsProP`.
+
+**Sources.**
+
+- [LAZARD-1965](#source-lazard-1965), Chap. II, (2.2.2), p. 59: Lazard II.2.2.2.
+- [CFKSV-2005](#source-cfksv-2005), §2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162): The maximal ideal as CFKSV use it.
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §4.1, Theorem (2), p. 9 (arXiv v1): The equivalence.
+
+<a id="ne0-zariskian-noetherian"></a>
+
+### NE.0.5. Complete filtrations with noetherian graded ring
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/zariskian-noetherian` · lemma.
+
+For a complete separated nonnegative adic filtration with F¹R⊆Jac(R) and left/right noetherian associated graded ring, the Rees filtration is Zariskian and R is left/right noetherian. If gr R is a domain, R is a domain. If gr R has finite left/right global dimension, the filtered lifting theorem gives gldim R≤gldim gr R. For Auslander regularity use the additional filtered Ext comparison and the Auslander condition, rather than claiming it follows from noetherianity alone.
+
+**Hypotheses.**
+
+- Complete separated descending adic filtration, with its usual exhaustive extension to integer degrees; F¹R⊆Jac(R).
+- Associated graded ring noetherian on both sides; homological conclusions require the respective graded hypotheses.
+
+**Construction or proof.**
+
+1. Lift a finite homogeneous generating set of each graded ideal by successive approximation, using completeness.
+2. Use the Zariskian filtered resolution and filtered Ext comparison of Venjakob Theorems 3.19–3.21 for the global-dimension and Auslander clauses.
+3. Do not infer primality in the absence of a suitable filtered primeness theorem; only the domain implication is used here.
+
+**Check.**
+
+- State both sides; Iwasawa algebras are noncommutative.
+- Only noetherianity is needed for NE.1; the inherited homological properties are recorded for NE.2.
+
+**Prerequisites:** `mathlib:IsNoetherianRing`.
+
+**Sources.**
+
+- [VENJAKOB-2002](#source-venjakob-2002), Theorems 3.19–3.21, pp. 16–17: Gives the filtered transfer hypotheses needed in the Iwasawa application. Refers to Björk for the general filtered theorem, recorded as a gap.
+
+<a id="ne0-compact-nakayama"></a>
+
+### NE.0.6. Nakayama's lemma for compact modules over Λ(J)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/compact-nakayama` · lemma.
+
+Let J be a pro-p group, 𝔪_J the maximal ideal of Λ(J), and M a compact (Hausdorff, linearly topologised) Λ(J)-module, for instance a quotient of a finitely generated Λ(G)-module for J ≤ G closed. Then M is finitely generated over Λ(J) iff M/𝔪_J M is finite iff the coinvariants M_J are a finitely generated ℤ_p-module; and M = 0 iff M/𝔪_J M = 0.
+
+**Hypotheses.**
+
+- Compactness of M is essential (ℚ_p as a Λ(ℤ_p)-module with trivial action has M/𝔪M = 0).
+
+**Construction or proof.**
+
+1. Lazard II.2.2.2: every neighbourhood of 0 in Λ(J) contains 𝔪_J^n for large n, so for compact M the submodules 𝔪_J^n M shrink to 0.
+2. If P is compact with 𝔪_J P = P then P = 𝔪_J^n P for all n, hence P = 0.
+3. Lift generators of M/𝔪_J M to x₁, …, x_r; N = Σ Λ(J)x_i is compact, hence closed, and P = M/N satisfies 𝔪_J P = P.
+4. M_J/p M_J = M/𝔪_J M because 𝔪_J is generated by p and the augmentation ideal.
+
+**Check.**
+
+- Record the compactness hypothesis explicitly in every application (CFKSV Lemma 2.1, Proposition 2.3).
+
+**Prerequisites:** [NE.0/iwasawa-local-iff-pro-p](#ne0-iwasawa-local-iff-pro-p), `PadicMeasuresIwasawaAlgebras:L1`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162): CFKSV's use of the lemma; the proof here follows from Lazard II.2.2.2.
+- [LAZARD-1965](#source-lazard-1965), Chap. II, (2.2.2), p. 59: The topological input.
+
+<a id="ne0-ordered-uniform-coordinates"></a>
+
+### NE.0.7. Ordered coordinates of a uniform group
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/ordered-uniform-coordinates` · construction.
+
+For uniform U of dimension d and an ordered minimal generating set (u₁,…,u_d), the map c:Z_p^d→U given by c(x)=u₁^{x₁}⋯u_d^{x_d} is a homeomorphism of spaces. Coordinate order is fixed. For every n≥0 it identifies p^n Z_p^d with U^{p^n}, and the resulting coordinate residues parameterize U/U^{p^n}; c is a group homomorphism only in the abelian case.
+
+**Hypotheses.**
+
+- p prime; U uniform; an ordered minimal generating set is selected.
+
+**Construction or proof.**
+
+1. Use pro-p p-adic powers from ProfiniteArithmetic.
+2. Successive approximation along the lower p-series gives existence and uniqueness of ordered digits; compactness and Hausdorffness give the homeomorphism.
+3. Compare with the valuation-basis criterion of Schneider Proposition 26.5 and the power-subgroup calculation in Corollary 26.12. The equivalence for every minimal generating set uses the uniform-group supplier gap.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.UniformCoordinates.toHomeomorph` (constructor): The ordered product c is bundled with its continuous inverse.
+- `TauCeti.NoncommIwasawa.UniformCoordinates.eval` (simp): c(x) is the ordered product of u_i^{x_i}, c(0)=1 and c(e_i)=u_i.
+- `TauCeti.NoncommIwasawa.UniformCoordinates.powerSubgroup` (compatibility): c(p^n Z_p^d)=U^{p^n}; |U:U^{p^n}|=p^{nd}.
+- `TauCeti.NoncommIwasawa.UniformCoordinates.changeBasis` (functoriality): Two ordered bases give the transition homeomorphism c₂⁻¹∘c₁, with identity and composition laws.
+
+**Unit tests.**
+
+- `ordered_uniform_coordinates_1`: For U=Z_p^2 with its standard additive generators, c is the identity and the level-n quotient has p^{2n} elements.
+- `ordered_uniform_coordinates_2`: For U=1, the empty product identifies Z_p^0 with the one-point group.
+- `ordered_uniform_coordinates_3`: In a nonabelian uniform semidirect product, c(x+y) differs from c(x)c(y) for suitable x,y; a group-equivalence implementation must fail.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.0/ordered-iwasawa-series: indexes the ordered monomial basis
+- FU-2024 §4: provides the coordinates of the group filtration
+
+**Prerequisites:** [NE.0/uniform-pro-p-group](#ne0-uniform-pro-p-group).
+
+**Current upstream input:** ProfiniteArithmetic: `TauCeti.pLowerCentralSeries`, `TauCeti.IsProP.padicPow`. The closed lower-p series, its zero-based indexing and continuous p-adic power operation; these exist on current main, not at the recorded pins.
+
+**Sources.**
+
+- [SCHNEIDER-2011](#source-schneider-2011), Definition of ordered basis, p. 182; Proposition 26.5, pp. 184–185; Corollary 26.12, p. 188: Proves the coordinate and graded-basis criteria and the coordinate description of power subgroups; supplies an accessible alternative to DDMS Theorem 4.9.
+- [FU-2024](#source-fu-2024), §4, pp. 12–13, equations (10)–(13): Uses ordered group coordinates before passing to ordered Iwasawa series.
+
+**Atlas planet:** Ordered uniform coordinates.
+
+<a id="ne0-p-valuation"></a>
+
+### NE.0.8. Finite-rank p-valuations
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/p-valuation` · definition.
+
+A p-valuation is ω:U→R∪{∞} with ω(x)=∞ iff x=1, ω(xy⁻¹)≥min(ω(x),ω(y)), ω([x,y])≥ω(x)+ω(y), ω(x)>1/(p−1) for x≠1, and ω(x^p)=ω(x)+1. The valuation topology is the given topology. Finite rank means the graded Lie algebra is finite free over F_p[P], where P raises degree by 1. An ordered valued basis satisfies ω(∏u_i^{x_i})=min_i(ω(u_i)+v_p(x_i)).
+
+**Hypotheses.**
+
+- p prime; U a complete topological group with the stated valuation topology.
+
+**Construction or proof.**
+
+1. Adjoin ∞ and impose Lazard III.2.1.2, including the strict lower bound and exact p-power identity.
+2. Construct filtration subgroups U_ν and graded pieces; import their generic filtered-group/Lie operations instead of assuming a commutative graded algebra.
+3. For a uniform group use lower-series coordinates with weight c=1 at odd p and c=2 at p=2; the latter offset is necessary.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.PValuation.filtration` (data): U_ν={x:ω(x)≥ν}; U_ν U_μ⁻¹⊆U_min(ν,μ).
+- `TauCeti.NoncommIwasawa.PValuation.pow_p` (simp): For x≠1, ω(x^p)=ω(x)+1, hence U has no p-torsion.
+- `TauCeti.NoncommIwasawa.PValuation.commutator` (relation): ω([x,y])≥ω(x)+ω(y).
+- `TauCeti.NoncommIwasawa.PValuation.orderedBasis_iff` (characterisation): Ordered symbols form a free F_p[P]-basis iff the minimum formula holds.
+
+**Unit tests.**
+
+- `p_valuation_1`: For additive Z_p, ω(x)=1+v_p(x) is valid at odd p and ω(0)=∞.
+- `p_valuation_2`: At p=2 the value 1+v₂(x) fails the strict bound on a unit; 2+v₂(x) works.
+- `p_valuation_3`: A group with an element x of order p cannot carry such a valuation: the exact p-power identity would assign a finite value to 1.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.0/ordered-iwasawa-series: defines coefficient weights
+- NoncommutativeAnalyticDistributions, requested owner: input for the Lazard Lie lattice, not its replacement
+
+**Prerequisites:** [NE.0/uniform-pro-p-group](#ne0-uniform-pro-p-group), [NE.0/ordered-uniform-coordinates](#ne0-ordered-uniform-coordinates).
+
+**Current upstream input:** ProfiniteArithmetic: `TauCeti.pLowerCentralSeries`, `TauCeti.IsProP.padicPow`. The closed lower-p series, its zero-based indexing and continuous p-adic power operation; these exist on current main, not at the recorded pins.
+
+**Sources.**
+
+- [LAZARD-1965](#source-lazard-1965), III.2.1.2, p. 81; filtration conventions II.1.2.10: Pins the strict bound and p-power identity.
+- [SCHNEIDER-2011](#source-schneider-2011), §26, pp. 181–188, Lemma 26.4 and Proposition 26.5: Relates a valued basis to the graded F_p[P]-module basis.
+
+<a id="ne0-ordered-iwasawa-series"></a>
+
+### NE.0.9. Ordered Iwasawa series and rationalization
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/ordered-iwasawa-series` · construction.
+
+Let U be uniform with ordered generators and O a complete finite-free Z_p coefficient DVR. For b_i=u_i−1, ordered summation identifies ∏_(α∈N^d) O with O[[U]] as topological O-modules: (c_α)↦Σ c_α b₁^{α₁}⋯b_d^{α_d}. The topology is the complete maximal-ideal topology. This is a power-series ring isomorphism when U is abelian; multiplication is ordered and noncommutative in general. With K=Frac(O), K⊗_O O[[U]] consists exactly of ordered K-coefficient series with a common bounded denominator, not all formal K-series.
+
+**Hypotheses.**
+
+- p prime; U uniform of dimension d; O finite free over Z_p and complete; the unramified coefficient case is the directly checked Schneider statement.
+
+**Construction or proof.**
+
+1. Use the supplied finite-quotient completion and the ordered coordinate basis.
+2. Prove finite-level ordered monomials give the compatible bases; complete to obtain existence and uniqueness of all coefficient families.
+3. Tensor the product by the field by inverting a single uniformizer: each element admits one common denominator, giving the bounded-denominator criterion. For ramified O use the finite-free completed coefficient comparison.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.IwasawaSeries.ofCoefficients` (constructor): Send a coefficient family to its convergent ordered sum.
+- `TauCeti.NoncommIwasawa.IwasawaSeries.coeff` (projection): Recover c_α; coefficient recovery and reconstruction are inverse continuous maps.
+- `TauCeti.NoncommIwasawa.IwasawaSeries.coeff_basis` (simp): The coefficient of b^β in b^α is δ_(α,β).
+- `TauCeti.NoncommIwasawa.IwasawaSeries.weightedGraded` (compatibility): gr O[[U]]≅gr O⊗_(F_p[P])U(gr U); abelian graded Lie algebra gives a polynomial algebra.
+- `TauCeti.NoncommIwasawa.IwasawaSeries.rational_iff_bounded` (characterisation): A K-coefficient family is in K⊗O[[U]] iff its coefficient valuations are bounded below.
+
+**Unit tests.**
+
+- `ordered_iwasawa_series_1`: For U=Z_p, recover the supplied coordinate γ↦1+T, with b^n mapping to T^n.
+- `ordered_iwasawa_series_2`: For U=1 only the constant monomial remains; O[[1]]=O and rationalization is K.
+- `ordered_iwasawa_series_3`: The family c_n=π^(−n) is a formal K-series but has no common bounded denominator, hence is excluded from K⊗O[[Z_p]].
+- `ordered_iwasawa_series_4`: For noncommuting u₁,u₂, b₁b₂ and b₂b₁ need not have the same coefficients; the module equivalence cannot silently be a commutative ring equivalence.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.0/uniform-graded-polynomial: identifies symbols and filtrations
+- FU-2024 §4: distinguishes integral completion and rationalization
+
+**Prerequisites:** [NE.0/ordered-uniform-coordinates](#ne0-ordered-uniform-coordinates), [NE.0/p-valuation](#ne0-p-valuation), `PadicMeasuresIwasawaAlgebras:L1`, `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs`.
+
+**Sources.**
+
+- [SCHNEIDER-2011](#source-schneider-2011), §28, pp. 195–201, Theorem 28.3 and Corollaries 28.4–28.6: Establishes the ordered complete-module basis and its weighted associated graded ring.
+- [FU-2024](#source-fu-2024), §4, pp. 12–13, equations (14)–(15): Uses integral ordered series and their localization; the rational algebra is distinct from unrestricted formal K-series.
+
+<a id="ne0-uniform-graded-polynomial"></a>
+
+### NE.0.10. The graded ring of Ω(G) for uniform G
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/uniform-graded-polynomial` · theorem.
+
+For uniform U of dimension d, Ω(U)=F_p[[U]] has augmentation ideal J, is J-adically complete, and gr_J Ω(U)≅F_p[X₁,…,X_d], with X_i the symbol of u_i−1 for an ordered basis. For Λ(U)=Z_p[[U]] with maximal ideal m=(p,u_i−1), the analogous gr_m Λ(U)≅F_p[X₀,…,X_d] is asserted here only if [U,U]⊆U^{p²} for odd p, or [U,U]⊆U⁴ for p=2. Weighted p-valuations give the general uniform case; an unweighted integral polynomial claim for every uniform U is false.
+
+**Hypotheses.**
+
+- p prime; U uniform with ordered generators; the extra commutator condition is required for the integral m-adic clause.
+
+**Construction or proof.**
+
+1. Use the ordered series target to identify the coefficient filtration and augmentation generators.
+2. For Ω, powerfulness puts commutators above degree two and the graded ordered monomials give the polynomial basis.
+3. For Λ use Venjakob Theorem 3.22 with the stated stronger commutator condition; otherwise use the enveloping-algebra description of Schneider Theorem 28.3, not an unweighted polynomial identification.
+
+**Check.**
+
+- For U=Z_p^d obtain d mod-p variables and d+1 integral variables.
+- For odd p, the uniform semidirect product generated by a,b with aba⁻¹=b^{1+p} has [a−1,b−1] with leading term p(b−1); its integral m-adic graded ring is not commutative.
+- Passing to a sufficiently small open extra-powerful subgroup repairs the integral polynomial step.
+
+**Prerequisites:** [NE.0/uniform-pro-p-group](#ne0-uniform-pro-p-group), [NE.0/iwasawa-local-iff-pro-p](#ne0-iwasawa-local-iff-pro-p), `mathlib:MvPolynomial`, [NE.0/ordered-iwasawa-series](#ne0-ordered-iwasawa-series).
+
+**Current upstream input:** ProfiniteArithmetic: `TauCeti.pLowerCentralSeries`, `TauCeti.IsProP.padicPow`. The closed lower-p series, its zero-based indexing and continuous p-adic power operation; these exist on current main, not at the recorded pins.
+
+**Sources.**
+
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §3.1, Theorem, p. 5 (arXiv v1): The PBW theorem.
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §3.4, Theorem, p. 7 (arXiv v1): gr_J Ω(G) ≅ F_p[X₁, …, X_d].
+- [VENJAKOB-2002](#source-venjakob-2002), Theorem 3.22, pp. 17–18; Theorems 3.26 and 3.30, pp. 18–20: The integral polynomial filtration uses an extra-powerful subgroup; the mod-p result holds for uniform groups.
+
+**Atlas planet:** PBW theorem for uniform groups.
+
+<a id="ne0-iwasawa-noetherian"></a>
+
+### NE.0.11. Lazard's noetherian theorem
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-noetherian` · theorem.
+
+For a compact p-adic analytic group G, Λ(G) = ℤ_p⟦G⟧ and Ω(G) = F_p⟦G⟧ are left and right noetherian complete semilocal rings; for G pro-p they are local (Lazard V.2.2.4). The same holds for O⟦G⟧ = O ⊗_{ℤ_p} Λ(G), O the integers of a finite extension of ℚ_p.
+
+**Hypotheses.**
+
+- G compact p-adic analytic.
+
+**Construction or proof.**
+
+1. Choose an open normal extra-powerful subgroup by the compact analytic structure and apply the corrected integral graded theorem.
+2. Transfer noetherianity from the graded ring using the complete filtration; pass to a finite crossed product for G.
+3. For O finite free over Z_p, use completed coefficient comparison from PMIA L1 (the ordinary tensor suffices because O is finite free).
+
+**Check.**
+
+- CFKSV cite this as 'well known'; it is used for the ascending chain argument of Proposition 2.3.
+- Finite global dimension is not asserted when G has p-torsion.
+
+**Prerequisites:** [NE.0/compact-padic-analytic-group](#ne0-compact-padic-analytic-group), [NE.0/uniform-graded-polynomial](#ne0-uniform-graded-polynomial), [NE.0/zariskian-noetherian](#ne0-zariskian-noetherian), [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup), [NE.0/iwasawa-local-iff-pro-p](#ne0-iwasawa-local-iff-pro-p), `mathlib:IsNoetherianRing`, `mathlib:MvPolynomial.isNoetherianRing`.
+
+**Sources.**
+
+- [LAZARD-1965](#source-lazard-1965), Chap. V, (2.2.4) and proof, p. 166: Lazard's theorem for pro-p analytic G.
+- [ARDAKOV-BROWN-2006](#source-ardakov-brown-2006), §4.1, Theorem (1), p. 9 (arXiv v1): The general compact p-adic analytic case.
+- [CFKSV-2005](#source-cfksv-2005), §2, p. 165: The use in CFKSV.
+
+**Atlas planet:** Lazard's noetherian theorem.
+
+<a id="ne0-iwasawa-auslander-regularity"></a>
+
+### NE.0.12. Auslander regularity of Iwasawa algebras
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-auslander-regularity` · theorem.
+
+For compact p-adic analytic G without p-torsion, Λ=Z_p[[G]] is noetherian with finite global dimension and satisfies the two-sided Auslander condition: for every finitely generated left Λ-module M and every right submodule N⊆Ext^i_Λ(M,Λ), Ext^j_(Λ^op)(N,Λ)=0 for j<i, with the analogous opposite-ring statement. For uniform U, Ω(U) is Auslander regular of global dimension dim U. These hypotheses are the homological input required by Fu.
+
+**Hypotheses.**
+
+- G compact p-adic analytic; no element of order p. For the Ω clause U is uniform.
+
+**Construction or proof.**
+
+1. Choose an open extra-powerful uniform subgroup with polynomial filtered algebra.
+2. Apply the Zariskian filtered Ext transfer, including the graded Auslander condition.
+3. Pass from the open subgroup to G by the finite crossed-product Ext comparison in Venjakob Theorem 3.26; retain absence of p-torsion at the finite-global-dimension step.
+
+**Check.**
+
+- G=Z_p^d has integral dimension d+1 and mod-p dimension d.
+- For G=C_p, the trivial mod-p module has an infinite periodic resolution; the finite-dimension conclusion is unavailable.
+
+**Prerequisites:** [NE.0/iwasawa-noetherian](#ne0-iwasawa-noetherian), [NE.0/zariskian-noetherian](#ne0-zariskian-noetherian), [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup).
+
+**Sources.**
+
+- [VENJAKOB-2002](#source-venjakob-2002), Definition 3.3, p. 7; Theorems 3.26 and 3.30, pp. 18–20: States the two-sided Ext condition and proves it for integral Iwasawa algebras without p-torsion and mod-p uniform algebras.
+- [FU-2024](#source-fu-2024), §6, pp. 22–23, proof of Theorem 1.4: Finite projective resolutions and dimension bounds are used in the homology argument.
+
+**Atlas planet:** Auslander regularity.
+
+<a id="ne0-iwasawa-finite-global-dimension"></a>
+
+### NE.0.13. Finite global dimension without p-torsion
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-finite-global-dimension` · theorem.
+
+Let G be compact p-adic analytic of dimension d with no element of order p. Then Λ(G)=Z_p[[G]] is Auslander regular on both sides and has global dimension d+1. In particular every finitely generated Λ(G)-module has a bounded resolution by finitely generated projectives. The same integral dimension statement for O[[G]], O a finite extension ring of integers, needs the finite coefficient comparison and the DVR coefficient form of the filtered argument. No finite-global-dimension assertion is made for a group containing p-torsion.
+
+**Hypotheses.**
+
+- No element of order p is essential: ℤ_p[ℤ/p] has infinite global dimension.
+
+**Construction or proof.**
+
+1. cd_p(G) = d for G without p-torsion (Lazard V.2.2.3 for p-valued groups, Serre's theorem that cd_p is inherited by open subgroups when there is no p-torsion).
+2. Brumer: for a pro-p (or virtually pro-p) group without p-torsion, gl.dim Λ(G) = cd_p(G) + 1 (minimal resolutions of ℤ_p over the local ring Λ(U), then Serre's theorem for the finite extension Λ(G) ⊃ Λ(U)).
+
+**Check.**
+
+- Brumer's paper (J. Algebra 1966) and Serre's cd theorem are not freely available; the node records the route through Lazard's minimal complexes (V.2.2.5), read on Numdam.
+
+**Prerequisites:** [NE.0/iwasawa-noetherian](#ne0-iwasawa-noetherian), [NE.0/compact-padic-analytic-group](#ne0-compact-padic-analytic-group), [NE.0/iwasawa-auslander-regularity](#ne0-iwasawa-auslander-regularity).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, p. 174 (Numdam PDF page 12; printed page = PDF page + 162): The statement as CFKSV use it (citing Brumer).
+- [CFKSV-2005](#source-cfksv-2005), §3, p. 174 (Numdam PDF page 12; printed page = PDF page + 162): The hypothesis.
+- [VENJAKOB-2002](#source-venjakob-2002), Theorem 3.26, pp. 18–19; Theorem 3.29, p. 19: No p-torsion gives Auslander regularity; integral and rational global dimensions are d+1 and d.
+
+<a id="ne0-rational-iwasawa-global-dimension"></a>
+
+### NE.0.14. Rational Iwasawa global dimension
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/rational-iwasawa-global-dimension` · theorem.
+
+For G compact p-adic analytic of dimension d with no p-torsion, Q_p⊗_(Z_p) Z_p[[G]]=Z_p[[G]][1/p] is Auslander regular of left and right global dimension d. This is the bounded-denominator rational Iwasawa algebra; it is not the localization at all nonzero elements or Fu’s microlocal completion. The integral dimension is d+1.
+
+**Hypotheses.**
+
+- G compact p-adic analytic of dimension d, without elements of order p.
+
+**Construction or proof.**
+
+1. Localize the Auslander Ext condition centrally at p and choose finitely generated integral lattices for rational modules.
+2. Use Venjakob Theorem 3.29 to kill the top integral Ext after rationalization; its upper bound uses the torsion-free lattice argument, not a general rule that localization drops dimension.
+3. Use the degree-d duality Ext of Q_p against the rational Iwasawa algebra to attain the lower bound.
+
+**Check.**
+
+- For G=1 the integral ring has dimension 1 and its fraction field dimension 0.
+- For G=Z_p the bounded-denominator rational algebra has dimension 1; treating it as the field of all fractions would incorrectly give 0.
+
+**Prerequisites:** [NE.0/iwasawa-auslander-regularity](#ne0-iwasawa-auslander-regularity), [NE.0/ordered-iwasawa-series](#ne0-ordered-iwasawa-series), [NE.0/iwasawa-finite-global-dimension](#ne0-iwasawa-finite-global-dimension).
+
+**Sources.**
+
+- [VENJAKOB-2002](#source-venjakob-2002), Proposition 3.28 and Theorem 3.29, p. 19: Proves rational Auslander regularity and the exact global dimension.
+- [FU-2024](#source-fu-2024), §6, pp. 22–23: Uses the rational dimension bound to truncate group homology.
+
+<a id="ne0-lazard-exterior-cohomology"></a>
+
+### NE.0.15. Lazard exterior cohomology of uniform groups
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/lazard-exterior-cohomology` · theorem.
+
+For a finitely generated powerful torsion-free pro-p group U of dimension d, continuous cohomology with trivial coefficients is naturally the graded F_p-algebra H*(U,F_p)≅∧*_(F_p) H¹(U,F_p), where dim H¹=d. Equivalently this is the Yoneda Ext algebra of the trivial module over Ω(U) in the continuous/compact module comparison. In particular the cup-product generators have square zero, including at p=2, and dim H^i=binomial(d,i). At 2 powerful means [U,U]⊆U⁴.
+
+**Hypotheses.**
+
+- U uniform, p prime; coefficients trivial F_p; cohomology is continuous.
+
+**Construction or proof.**
+
+1. Use Lazard’s minimal resolution with binomial ranks and zero mod-p differentials to compute cohomology dimensions.
+2. Use the multiplicative comparison of Lazard V.2.5.7.1 to identify cup products with exterior products; dimensions alone do not prove the ring assertion.
+3. Import the continuous cohomology/Ext equivalence and identify the augmentation module.
+
+**Check.**
+
+- For U=Z_p², dimensions are 1,2,1 and H¹ generators square to zero.
+- For U=Z₂, the degree-one generator has square zero; replacing exterior by a symmetric algebra in characteristic 2 is wrong.
+- For U=C_p the positive cohomology does not truncate; powerfulness alone does not suffice.
+
+**Prerequisites:** [NE.0/uniform-pro-p-group](#ne0-uniform-pro-p-group), [NE.0/uniform-graded-polynomial](#ne0-uniform-graded-polynomial), `SelmerIwasawaCohomology:L0`.
+
+**Sources.**
+
+- [LAZARD-1965](#source-lazard-1965), V.2.2.6.3 and V.2.2.7.2, p. 167 (551); V.2.5.7.1, p. 183 (567): The first statements give the minimal resolution; the last supplies the exterior cup-product algebra.
+- [CDT-2025](#source-cdt-2025), Proofs of Lemmas 4.5.6 and 4.5.9, pp. 662–663: Applies the result to level-p SL₂ at odd p and level 4 at p=2.
+
+**Atlas planet:** Lazard exterior cohomology.
+
+<a id="ne3-twisted-module"></a>
+
+### NE.0.16. Twisting modules by a representation
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/twisted-module` · construction.
+
+Let G be compact p-adic analytic, O a finite-free Z_p coefficient DVR and ρ:G→GL_n(O) continuous. For a finitely generated compact Λ_O(G)-module N, its O-linear diagonal twist is tw_ρ(N)=N⊗_O O^n, with g(m⊗z)=gm⊗ρ(g)z. For a Λ(G)-module M, first form M_O=O⊗_(Z_p)M, then take this twist. It is exact, is functorial on equivariant O-linear maps and sends Λ_O(G)^m to a free Λ_O(G)-module of rank mn. The 𝔐_H(G) preservation statement belongs to NE.2/twist-preserves-MHG; no quotient G/H is needed just to define twisting.
+
+**Hypotheses.**
+
+- G compact p-adic analytic; ρ continuous on a finite-free O-lattice; N finitely generated and compact.
+
+**Construction or proof.**
+
+1. Exactness: tensoring with the free 𝒪-module 𝒪ⁿ.
+2. Freeness: Λ_𝒪(G) ⊗ 𝒪ⁿ with the diagonal action is isomorphic to Λ_𝒪(G)ⁿ with the left action (the untwisting g ⊗ z ↦ g ⊗ ρ(g)^{−1}z).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.twist` (constructor): For an O-coefficient module N take N⊗_O O^n with diagonal action; for M over Z_p first extend coefficients to M_O.
+- `TauCeti.NoncommIwasawa.twist_exact` (functoriality): tw_ρ is exact.
+- `TauCeti.NoncommIwasawa.twist_free` (characterisation): tw_ρ of a free Λ_𝒪(G)-module is free.
+
+**Unit tests.**
+
+- `twist_trivial`: For ρ = 1 (n = 1), tw_ρ(M) = M_𝒪.
+- `twist_character`: For a character ρ = κ : G → 𝒪^×, tw_κ(Λ_𝒪(G)) ≅ Λ_𝒪(G) via g ↦ κ(g)^{−1}g.
+- `twist_direct_sum`: tw_{ρ₁ ⊕ ρ₂}(M) = tw_{ρ₁}(M) ⊕ tw_{ρ₂}(M).
+
+**Check.**
+
+- The action is diagonal, not ρ on the coefficients alone; tw is used with the contragredient ρ̂ in the Euler characteristic formula.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram: Δ_ρ([M]) = Ak_𝒪(tw_{ρ̂}(M)).
+- NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-group-homology: provides the diagonal finite-free algebraic twists used by Fu
+- NoncommutativeAndEquivariantIwasawa:NE.2/twist-preserves-MHG: supplies the exact twist and the free-module comparison
+
+**Prerequisites:** [NE.0/compact-padic-analytic-group](#ne0-compact-padic-analytic-group), `PadicMeasuresIwasawaAlgebras:L1`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, (13) and Lemma 3.2, p. 171 (Numdam PDF page 9; printed page = PDF page + 162): (13) and Lemma 3.2.
+
+<a id="ne0-iwasawa-group-homology"></a>
+
+### NE.0.17. Iwasawa group homology and diagonal twists
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.0/iwasawa-group-homology` · construction.
+
+For compact p-adic analytic G without p-torsion and A=Q_p⊗Z_p[[G]], define H_i(G,M)=Tor_i^A(Q_p,M) for a finitely generated left A-module, with Q_p a right module by augmentation. For an integral compact Λ-module use completed Tor in the compact module category. If W is a finite-dimensional continuous Q_p representation admitting a G-stable Z_p lattice, the diagonal action g(m⊗w)=gm⊗gw defines M⊗W as a finitely generated A-module. Then H_i(G,M⊗W) is finite dimensional over Q_p and is zero for i>dim G. Integral lattices and completed tensor products must be compared before using the rational Tor formula.
+
+**Hypotheses.**
+
+- G compact p-adic analytic, without p-torsion; M finitely generated over A; W finite dimensional with a continuous G-action and stable integral lattice.
+
+**Construction or proof.**
+
+1. Import continuous cohomology/compact homology and the completed Shapiro comparison from SelmerIwasawaCohomology L0 and L3.
+2. A stable lattice makes the diagonal action continuous; the inverse diagonal twist identifies a twisted free A-module with a free module of rank dim W.
+3. Resolve M by finitely generated projectives of length ≤d and tensor with the augmentation module. Each resulting term is finite dimensional; finite resolution length gives vanishing above d.
+4. Compare compact integral resolutions after inverting p to justify the rational Tor description.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.IwasawaHomology.coinvariants` (compatibility): H₀(G,M)=Q_p⊗_A M; in the integral compact category use the Hausdorff completed coinvariant quotient.
+- `TauCeti.NoncommIwasawa.IwasawaHomology.twist` (constructor): Diagonal tensor by W, compatible with sums, tensor products and coefficient extension.
+- `TauCeti.NoncommIwasawa.IwasawaHomology.freeTwist` (equivalence): A⊗W with diagonal action is A-free of rank dim W by the inverse-action formula.
+- `TauCeti.NoncommIwasawa.IwasawaHomology.vanish_above_dim` (relation): H_i(G,M⊗W)=0 for i>d; all homology groups are finite dimensional.
+
+**Unit tests.**
+
+- `iwasawa_group_homology_1`: For G=1, H₀(1,M)=M and all positive homology vanishes; here finitely generated A-modules are finite dimensional.
+- `iwasawa_group_homology_2`: For G=Z_p and trivial M=Q_p, the resolution A --(γ−1)→ A gives H₀=H₁=Q_p and higher homology zero.
+- `iwasawa_group_homology_3`: For G=Z_p acting on a one-dimensional W with γ acting by a≠1, the same resolution has differential a−1, so H₀=H₁=0.
+- `iwasawa_group_homology_4`: The free diagonal twist has H₀ dimension dim W and no positive homology; a twist that forgets the inverse action fails this comparison.
+
+**Uses.**
+
+- FU-2024 Theorem 1.4: supplies the homological foundation; multiplicity bounds belong to the paper’s analytic owners
+- NoncommutativeAndEquivariantIwasawa:NE.3/akashi-series: fixes homology and twist conventions
+
+**Prerequisites:** [NE.0/rational-iwasawa-global-dimension](#ne0-rational-iwasawa-global-dimension), [NE.3/twisted-module](#ne3-twisted-module), `SelmerIwasawaCohomology:L0`, `SelmerIwasawaCohomology:L3/iwasawa-shapiro`.
+
+**Sources.**
+
+- [VENJAKOB-2002](#source-venjakob-2002), §2, pp. 4–5: Defines homology through derived compact coinvariants and completed Tor.
+- [FU-2024](#source-fu-2024), §6, pp. 22–23, proof of Theorem 1.4: Uses finite resolutions, diagonal algebraic twists and dimension-shifting of group homology.
+
+## NE.1. Canonical Ore localization and torsion categories
+
+The exact denominator set is part of the theorem. The proof passes through finite quotients by open pro-p subgroups of H, uses a central procyclic subgroup and finite-dimensional quotient algebra, and proves both left and right criteria before invoking OreLocalization. The p-saturated category and the perfect subcategory are specified separately.
+
+<a id="ne1-canonical-ore-set"></a>
+
+### NE.1.1. The canonical Ore set S
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-set` · definition.
+
+Let G be a compact p-adic analytic group with a closed normal subgroup H such that G/H ≅ ℤ_p. The canonical set is S = {f ∈ Λ(G) : Λ(G)/Λ(G)f is finitely generated as a left Λ(H)-module}. With O-coefficients, S_O is defined in the same way with Λ_O(G), Λ_O(H).
+
+**Hypotheses.**
+
+- No hypothesis of 'no element of order p' is needed for S itself; CFKSV assume it only for later sections.
+- Abstractly: for a ring A that is a left B-module through left multiplication, S = {f : A/Af finitely generated over B}.
+
+**Construction or proof.**
+
+1. Define S by the finiteness condition on the cyclic module Λ(G)/Λ(G)f.
+2. By iwasawa-free-over-open-subgroup, H may be replaced by any open subgroup of H in the definition.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.canonicalSet` (constructor): S = {f | Module.Finite B (A ⧸ A f)} for (A, B) = (Λ(G), Λ(H)).
+- `TauCeti.NoncommIwasawa.mem_canonicalSet_iff` (characterisation): The three criteria of Lemma 2.1 and the right-sided ones of Lemma 2.2.
+- `TauCeti.NoncommIwasawa.one_mem_canonicalSet` (simp): 1 ∈ S.
+- `TauCeti.NoncommIwasawa.mul_mem_canonicalSet` (structure): S is multiplicatively closed.
+
+**Unit tests.**
+
+- `canonicalSet_self`: B = A: S = A, including 0 (degenerate case: the zero-divisor statement needs the group hypotheses).
+- `canonicalSet_powerSeries`: A = F_p⟦T⟧ = Ω(ℤ_p), B = F_p (H = 1): S = {f ≠ 0}.
+- `canonicalSet_polynomial`: A = ℚ[X], B = ℚ: S = {f ≠ 0}.
+- `canonicalSet_padic`: Λ(ℤ_p) with H = 1: p ∉ S and T ∈ S (Λ/ΛT ≅ ℤ_p); S ≠ Λ ∖ {0}.
+
+**Check.**
+
+- For H = 1, G = Γ ≅ ℤ_p: Λ(Γ)/Λ(Γ)f is finitely generated over ℤ_p iff f ≠ 0 and p ∤ f (Weierstrass), so S = Λ(Γ) ∖ pΛ(Γ).
+- Never replace S by the set of all nonzero divisors: localisation at all nonzero elements is neither defined in general nor equal to Λ(G)_S.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem: S is a left and right Ore set of nonzero divisors.
+- NoncommutativeAndEquivariantIwasawa:NE.1/canonical-localization: the denominator set of Λ(G)_S.
+- NoncommutativeAndEquivariantIwasawa:NE.2: the localisation sequence K₁(Λ(G)) → K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) and characteristic elements.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1`, [NE.0/compact-padic-analytic-group](#ne0-compact-padic-analytic-group), `mathlib:Module.Finite`, `mathlib:Submodule.span`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, p. 166 (Numdam PDF of the published article; printed page = PDF page + 162): The definition.
+
+**Atlas planet:** Canonical Ore set.
+
+<a id="ne1-central-zp-subgroup"></a>
+
+### NE.1.2. A central copy of ℤ_p in G/J
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/central-zp-subgroup` · lemma.
+
+Let H ◁ G closed with G/H ≅ ℤ_p and J ≤ H open, normal in G. Then G/J contains a subgroup Π ≅ ℤ_p that is open, central, and maps isomorphically onto an open subgroup of Γ = G/H; hence Ω(Π) ≅ F_p⟦T⟧ is a discrete valuation ring in the centre of Ω(G/J), and Λ(Π) ≅ ℤ_p⟦T⟧.
+
+**Hypotheses.**
+
+- J open in H (so H/J is finite) and normal in G.
+
+**Construction or proof.**
+
+1. Lift a topological generator of Γ to γ ∈ G/J; then G/J = (H/J) ⋊ ⟨γ⟩̄ with ⟨γ⟩̄ ≅ ℤ_p.
+2. ⟨γ⟩̄ acts on the finite group H/J by conjugation through a finite quotient, so an open subgroup Π = ⟨γ^{p^k}⟩̄ acts trivially; Π commutes with H/J and with ⟨γ⟩̄, hence is central.
+3. Ω(Π) ≅ F_p⟦T⟧ by the power-series coordinate of ProfiniteProPGroups Layer 9.
+
+**Check.**
+
+- Π is central in G/J, not in G.
+- Test: G = ℤ_p ⋊ ℤ_p acting by a unit u ≠ 1 with H = ℤ_p: Π = ⟨γ^{p^k}⟩ with u^{p^k} ≡ 1 mod |H/J|.
+
+**Prerequisites:** [NE.0/compact-padic-analytic-group](#ne0-compact-padic-analytic-group), `PadicMeasuresIwasawaAlgebras:L1`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, (5) and proof of Lemma 2.1, p. 167: CFKSV's equation (5).
+
+<a id="ne1-quotient-total-algebra"></a>
+
+### NE.1.3. The algebra V(G/J)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/quotient-total-algebra` · construction.
+
+With Π as in central-zp-subgroup and R(Π) = Frac Ω(Π) ≅ F_p((T)), put V(G/J) = R(Π) ⊗_{Ω(Π)} Ω(G/J). It is a finite-dimensional algebra over the central field R(Π); Ω(G/J) → V(G/J) is injective; and for x ∈ Ω(G/J), right multiplication by x on V(G/J) is injective iff surjective iff x is a unit of V(G/J), and the same holds on the left.
+
+**Hypotheses.**
+
+- Ω(G/J) is a finite free Ω(Π)-module (iwasawa-free-over-open-subgroup), of rank [G/J : Π].
+
+**Construction or proof.**
+
+1. V(G/J) = R(Π)^{[G/J:Π]} as an R(Π)-vector space; left and right multiplications are R(Π)-linear because R(Π) is central.
+2. Linear algebra: an injective endomorphism of a finite-dimensional vector space is surjective.
+3. If x z = 1 in V then z x = 1 (finite-dimensional algebra), which gives the left–right symmetry used in Lemma 2.2.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.totalAlgebra` (constructor): V(G/J) = R(Π) ⊗_{Ω(Π)} Ω(G/J).
+- `TauCeti.NoncommIwasawa.totalAlgebra_finiteDimensional` (instance): V(G/J) is finite-dimensional over R(Π).
+- `TauCeti.NoncommIwasawa.algebraMap_totalAlgebra_injective` (characterisation): Ω(G/J) ↪ V(G/J).
+- `TauCeti.NoncommIwasawa.isUnit_iff_mul_right_injective` (characterisation): x is a unit in V iff right multiplication by x is injective.
+
+**Unit tests.**
+
+- `totalAlgebra_abelian`: G = Γ, J = 1: V = F_p((T)), a field.
+- `totalAlgebra_product`: G = Γ × ℤ/p, J = 1: V ≅ F_p((T))[ε]/(ε^p) (ε = σ − 1), with nilpotents.
+- `totalAlgebra_dim`: dim_{R(Π)} V(G/J) = [G/J : Π].
+
+**Check.**
+
+- V(G/J) is not a division ring in general (G/J may be nonabelian with zero divisors in Ω(G/J)).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.1/canonical-set-left-criteria: criterion (iii): injectivity of right multiplication.
+- NoncommutativeAndEquivariantIwasawa:NE.1/canonical-set-right-criteria: the left–right symmetry z α_J(f) = 1 ⇔ α_J(f) z = 1.
+- NoncommutativeAndEquivariantIwasawa:NE.1/regular-modulo-prime-radical: units modulo the nilpotent radical of V(G/J).
+
+**Prerequisites:** [NE.1/central-zp-subgroup](#ne1-central-zp-subgroup), [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup), `mathlib:FractionRing`, `mathlib:LinearMap.injective_iff_surjective`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, (6), p. 167: CFKSV's V(G/J).
+
+<a id="ne1-canonical-set-left-criteria"></a>
+
+### NE.1.4. Criteria for membership in S (left)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/canonical-set-left-criteria` · lemma.
+
+Let J ≤ H be pro-p, open in H and normal in G, with φ_J : Λ(G) → Λ(G/J) and ψ_J : Λ(G) → Ω(G/J). For f ∈ Λ(G) the following are equivalent: (i) f ∈ S; (ii) Λ(G/J)/Λ(G/J)φ_J(f) is a finitely generated ℤ_p-module; (iii) Ω(G/J)/Ω(G/J)ψ_J(f) is finite; (iv) right multiplication by ψ_J(f) on Ω(G/J) is injective.
+
+**Hypotheses.**
+
+- J pro-p, open in H, normal in G (such J exist and are cofinal).
+
+**Construction or proof.**
+
+1. For M = Λ(G)/Λ(G)f: M_J = Λ(G/J)/Λ(G/J)φ_J(f) and M/𝔪_J M = Ω(G/J)/Ω(G/J)ψ_J(f); (i) ⇔ (ii) ⇔ (iii) by compact-nakayama (with H replaced by J).
+2. Ω(Π) is a DVR, so a finitely generated Ω(Π)-module is torsion iff finite; Ω(G/J)/Ω(G/J)ψ_J(f) is finite iff right multiplication by ψ_J(f) has finite kernel, iff it is injective on V(G/J).
+3. Ω(G/J) has no nonzero finite submodule, so finite kernel means zero kernel.
+
+**Check.**
+
+- Test on H = 1, G = Γ, J = 1: (iii) says F_p⟦T⟧/(f̄) finite, i.e. f̄ ≠ 0.
+
+**Prerequisites:** [NE.1/canonical-ore-set](#ne1-canonical-ore-set), [NE.0/compact-nakayama](#ne0-compact-nakayama), [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup), [NE.1/quotient-total-algebra](#ne1-quotient-total-algebra), [NE.1/central-zp-subgroup](#ne1-central-zp-subgroup).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, Lemma 2.1, p. 166: Lemma 2.1(iii).
+- [CFKSV-2005](#source-cfksv-2005), §2, proof of Lemma 2.1, p. 167: The key step.
+
+<a id="ne1-canonical-set-right-criteria"></a>
+
+### NE.1.5. Criteria for membership in S (right)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/canonical-set-right-criteria` · lemma.
+
+With J as before, f ∈ S iff Λ(G)/fΛ(G) is finitely generated as a right Λ(H)-module, iff Λ(G/J)/φ_J(f)Λ(G/J) is a finitely generated ℤ_p-module, iff Ω(G/J)/ψ_J(f)Ω(G/J) is finite, iff left multiplication by ψ_J(f) on Ω(G/J) is injective. In particular S is the same set whether defined with left or right modules.
+
+**Hypotheses.**
+
+- As in canonical-set-left-criteria.
+
+**Construction or proof.**
+
+1. f ∈ S iff α_J(f) = image of ψ_J(f) in V(G/J) has a left inverse, iff it has a right inverse (quotient-total-algebra), iff left multiplication by ψ_J(f) is injective.
+2. Reverse the argument of canonical-set-left-criteria for right modules.
+
+**Check.**
+
+- This symmetry is what makes S both a left and a right Ore set.
+
+**Prerequisites:** [NE.1/canonical-set-left-criteria](#ne1-canonical-set-left-criteria), [NE.1/quotient-total-algebra](#ne1-quotient-total-algebra).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, Lemma 2.2, p. 167: Lemma 2.2(iv).
+
+<a id="ne1-s-torsion-iff-finitely-generated"></a>
+
+### NE.1.6. S-torsion equals finite generation over Λ(H)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/s-torsion-iff-finitely-generated` · theorem.
+
+A finitely generated left (or right) Λ(G)-module M is S-torsion (every x ∈ M is killed by some s ∈ S) iff M is finitely generated over Λ(H).
+
+**Hypotheses.**
+
+- G compact p-adic analytic, H ◁ G closed, G/H ≅ ℤ_p.
+
+**Construction or proof.**
+
+1. S-torsion ⇒ finitely generated: M is a quotient of ⊕ Λ(G)/Λ(G)f_i with f_i ∈ S, each finitely generated over Λ(H).
+2. Conversely fix x ∈ M, J and Π as above, τ ∈ Λ(G) lifting T; the Λ(J)-submodules U_n = Σ_{k≤n} Λ(J)τ^k x of the finitely generated Λ(J)-module M stabilise (Λ(J) noetherian), giving s_n = τ^n − a_{n−1}τ^{n−1} − … − a₀ with s_n x = 0.
+3. ψ_J(s_n) is a nonzero element of Ω(Π) (its image mod the augmentation of J is T^n + …), so right multiplication by it is injective on Ω(G/J), and s_n ∈ S by canonical-set-left-criteria (iv).
+
+**Check.**
+
+- The abstract direction (S-torsion ⇒ finitely generated over B) holds for any pair (A, B); the converse is the group-theoretic input.
+
+**Prerequisites:** [NE.1/canonical-ore-set](#ne1-canonical-ore-set), [NE.1/canonical-set-left-criteria](#ne1-canonical-set-left-criteria), [NE.1/central-zp-subgroup](#ne1-central-zp-subgroup), [NE.0/iwasawa-noetherian](#ne0-iwasawa-noetherian), [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, Proposition 2.3, p. 168: Proposition 2.3.
+- [CFKSV-2005](#source-cfksv-2005), §2, proof of Proposition 2.3, p. 168: The noetherian step.
+
+**Atlas planet:** S-torsion = finitely generated over Λ(H).
+
+<a id="ne1-canonical-ore-theorem"></a>
+
+### NE.1.7. The canonical Ore set theorem
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/canonical-ore-theorem` · theorem.
+
+S is multiplicatively closed, a left and right Ore set in Λ(G) (for s ∈ S, r ∈ Λ(G) there are t₁, t₂ ∈ S and w₁, w₂ with s w₁ = r t₁ and w₂ s = t₂ r), and consists of nonzero divisors. Hence Mathlib's OreSet structure exists on S, on either side.
+
+**Hypotheses.**
+
+- G compact p-adic analytic, H ◁ G closed, G/H ≅ ℤ_p.
+
+**Construction or proof.**
+
+1. Multiplicative: 0 → Λs₂/Λs₁s₂ → Λ/Λs₁s₂ → Λ/Λs₂ → 0 with the first term a quotient of Λ/Λs₁.
+2. Ore: Λ/Λf and Λ/fΛ are finitely generated over Λ(H), hence S-torsion (Proposition 2.3): s x ∈ Λf and x s′ ∈ fΛ.
+3. Nonzero divisors: φ_J(f) is not a zero divisor in Λ(G/J) for every J (criteria (iv) of Lemmas 2.1 and 2.2 lifted from Ω to Λ), and Λ(G) = lim_J Λ(G/J).
+4. Mathlib's OreSet needs the left Ore condition in the form t r = w s and right cancellation, which follows from S consisting of nonzero divisors.
+
+**Check.**
+
+- The scope is the source’s Z_p quotient, not the arbitrary-normal-subgroup generalization.
+- p ∉ S always: Λ(G)/pΛ(G) = Ω(G) is not finitely generated over Λ(H) because Γ = G/H is infinite; keep S and S* distinct.
+
+**Prerequisites:** [NE.1/s-torsion-iff-finitely-generated](#ne1-s-torsion-iff-finitely-generated), [NE.1/canonical-set-left-criteria](#ne1-canonical-set-left-criteria), [NE.1/canonical-set-right-criteria](#ne1-canonical-set-right-criteria), `mathlib:OreLocalization.OreSet`, `mathlib:OreLocalization.ore_right_cancel`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, Theorem 2.4, p. 168: Theorem 2.4.
+- [CFKSV-2005](#source-cfksv-2005), §2, definition of Ore set, p. 166: The Ore conditions in CFKSV's orientation.
+
+**Atlas planet:** CFKSV Ore theorem.
+
+<a id="ne1-nilpotent-transition-kernel"></a>
+
+### NE.1.8. Nilpotent kernels between finite levels
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/nilpotent-transition-kernel` · lemma.
+
+For pro-p subgroups J ⊆ J′ of H, open in H and normal in G, the kernel K of Ω(G/J) → Ω(G/J′) is a nilpotent two-sided ideal: K = Ω(G/J) I_Δ with Δ = J′/J a finite p-group and I_Δ^n = 0.
+
+**Hypotheses.**
+
+- J ⊆ J′ as stated.
+
+**Construction or proof.**
+
+1. K is generated by δ − 1 for δ ∈ Δ; Δ is normal so K = Ω(G/J) I_Δ = I_Δ Ω(G/J).
+2. The augmentation ideal of F_p[Δ] is nilpotent for a finite p-group Δ, so K^n = Ω(G/J) I_Δ^n = 0.
+
+**Check.**
+
+- Test: G = Γ × ℤ/p, J = 1, J′ = ℤ/p: K = (σ − 1) with (σ − 1)^p = 0.
+
+**Prerequisites:** `PadicMeasuresIwasawaAlgebras:L1`, `mathlib:IsPGroup`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, Lemma 2.5, p. 169: Lemma 2.5 (Ardakov's proof).
+
+<a id="ne1-regular-modulo-prime-radical"></a>
+
+### NE.1.9. S as the elements regular modulo the prime radical
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/regular-modulo-prime-radical` · theorem.
+
+Let 𝒩 be the preimage in Λ(G) of the prime radical of Ω(G/J) (independent of J by nilpotent-transition-kernel). Then S is the set of elements of Λ(G) that are regular (nonzero divisors) modulo 𝒩.
+
+**Hypotheses.**
+
+- The prime radical of a noetherian ring is nilpotent and contains every nilpotent ideal.
+- The prime radical is the intersection of two-sided prime ideals, not Mathlib’s commutative nilradical; its nilpotence and semiprime Goldie quotient are explicit missing noncommutative inputs.
+
+**Construction or proof.**
+
+1. Λ(G)/𝒩 = Ω(G/J)/𝒩(Ω(G/J)); f is regular modulo 𝒩 iff α_J(f) is a unit of V(G/J)/𝒩(V(G/J)).
+2. Units modulo nilpotent ideals are units, so this holds iff ψ_J(f) is a nonzero divisor in Ω(G/J), iff f ∈ S by Lemmas 2.1(iv) and 2.2(iv).
+
+**Check.**
+
+- This characterisation (due to Schneider) shows S is intrinsic in Λ(G) and H.
+
+**Prerequisites:** [NE.1/nilpotent-transition-kernel](#ne1-nilpotent-transition-kernel), [NE.1/canonical-set-left-criteria](#ne1-canonical-set-left-criteria), [NE.1/canonical-set-right-criteria](#ne1-canonical-set-right-criteria), [NE.1/quotient-total-algebra](#ne1-quotient-total-algebra).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2, Proposition 2.6, p. 169: Proposition 2.6.
+- [CFKSV-2005](#source-cfksv-2005), §2, proof of Proposition 2.6, p. 170: The key step.
+
+<a id="ne1-saturated-ore-set"></a>
+
+### NE.1.10. The saturated Ore set S*
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/saturated-ore-set` · construction.
+
+S* = ⋃_{n≥0} p^n S. It is a multiplicatively closed left and right Ore set of nonzero divisors, and Λ(G)_{S*} = Λ(G)_S[1/p]. A finitely generated Λ(G)-module M is S*-torsion iff M/M(p) is finitely generated over Λ(H), where M(p) is the p-power torsion.
+
+**Hypotheses.**
+
+- p is central in Λ(G).
+
+**Construction or proof.**
+
+1. p central and a nonzero divisor, so {p^n} is a central Ore set; products of Ore sets with a central Ore set are Ore.
+2. Λ(G)_{S*} is the localisation of Λ(G)_S at p.
+3. M/M(p) finitely generated over Λ(H) iff it is S-torsion (Proposition 2.3), iff M is S*-torsion.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.saturatedSet` (constructor): S* = ⋃ p^n S.
+- `TauCeti.NoncommIwasawa.saturatedSet_oreSet` (instance): S* is an Ore set of nonzero divisors.
+- `TauCeti.NoncommIwasawa.saturatedLocalization_equiv` (equivalence): Λ(G)_{S*} ≃ Λ(G)_S[1/p].
+- `TauCeti.NoncommIwasawa.isSTorsion_saturated_iff` (characterisation): S*-torsion iff M/M(p) finitely generated over Λ(H).
+
+**Unit tests.**
+
+- `saturatedSet_padic`: G = Γ, H = 1: S* = Λ(Γ) ∖ {0} and Λ(Γ)_{S*} = Frac Λ(Γ).
+- `saturatedSet_p_mem`: p ∈ S* but p ∉ S.
+- `saturatedSet_torsion_module`: M = Λ(G)/p is S*-torsion for every G.
+
+**Check.**
+
+- p ∉ S (Γ is infinite), so S* ≠ S.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG: 𝔐_H(G) is the category of finitely generated S*-torsion modules.
+- NoncommutativeAndEquivariantIwasawa:NE.2: the localisation sequence for Λ(G)_{S*}.
+
+**Prerequisites:** [NE.1/canonical-ore-theorem](#ne1-canonical-ore-theorem), [NE.1/s-torsion-iff-finitely-generated](#ne1-s-torsion-iff-finitely-generated).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, definition of S*, p. 170: S*.
+
+<a id="ne1-canonical-localization"></a>
+
+### NE.1.11. The canonical localisation Λ(G)_S
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/canonical-localization` · construction.
+
+Λ(G)_S is Mathlib's Ore localisation of Λ(G) at the Ore set S (on the left; the right localisation is canonically isomorphic because S is two-sided Ore). The map Λ(G) → Λ(G)_S is injective, every s ∈ S becomes a unit, and any ring map Λ(G) → T inverting S factors uniquely through Λ(G)_S. Likewise Λ(G)_{S*}, O-coefficients included.
+
+**Hypotheses.**
+
+- S an Ore set of nonzero divisors (canonical-ore-theorem).
+
+**Construction or proof.**
+
+1. Instantiate OreLocalization with the OreSet structure of canonical-ore-theorem.
+2. Injectivity: numeratorHom_inj, since S consists of (left) nonzero divisors.
+3. Universal property: universalHom and universalHom_unique.
+4. Left and right localisations agree: both satisfy the universal property for maps inverting S.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.canonicalLocalization` (constructor): Λ(G)_S := OreLocalization S Λ(G).
+- `TauCeti.NoncommIwasawa.canonicalLocalization.algebraMap_injective` (characterisation): Λ(G) ↪ Λ(G)_S.
+- `TauCeti.NoncommIwasawa.canonicalLocalization.isUnit` (simp): Images of elements of S are units.
+- `TauCeti.NoncommIwasawa.canonicalLocalization.lift` (universal-property): Maps inverting S factor uniquely.
+
+**Unit tests.**
+
+- `canonicalLocalization_padic`: G = Γ, H = 1: Λ(Γ)_S = Λ(Γ)_{(p)}, the localisation at the height-one prime (p).
+- `canonicalLocalization_p_not_unit`: p is not a unit in Λ(G)_S: Λ(G)_S/p is the nonzero localisation of Ω(G) at the image of S.
+- `canonicalLocalization_commutes`: For G abelian, Λ(G)_S agrees with the commutative localisation.
+
+**Check.**
+
+- Do not construct Λ(G)_S as a commutative fraction ring; Λ(G) is noncommutative.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.1/ore-localization-flat: flatness and the kernel of M → Λ(G)_S ⊗ M.
+- NoncommutativeAndEquivariantIwasawa:NE.1/torsion-perfect-complexes: Σ_S is defined by acyclicity after Λ(G)_S ⊗ −.
+- NoncommutativeAndEquivariantIwasawa:NE.2: K₁(Λ(G)_{S*}) and the boundary map.
+
+**Prerequisites:** [NE.1/canonical-ore-theorem](#ne1-canonical-ore-theorem), [NE.1/saturated-ore-set](#ne1-saturated-ore-set), `mathlib:OreLocalization`, `mathlib:OreLocalization.numeratorRingHom`, `mathlib:OreLocalization.numeratorHom_inj`, `mathlib:OreLocalization.universalHom`, `mathlib:OreLocalization.universalHom_unique`, `mathlib:OreLocalization.numerator_isUnit`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, (11), p. 170: The localisations Λ(G)_S and Λ(G)_{S*} = Λ(G)_S[1/p] (CFKSV (11)).
+
+**Atlas planet:** Canonical localisation Λ(G)_S.
+
+<a id="ne1-ore-localization-flat"></a>
+
+### NE.1.12. Ore localisation is flat
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/ore-localization-flat` · lemma.
+
+For a left Ore set S of a ring R, the localisation R_S = S⁻¹R is flat as a right R-module, R_S ⊗_R M ≅ S⁻¹M naturally, and the kernel of M → R_S ⊗_R M is the S-torsion submodule of M. Hence a complex C of R-modules has R_S ⊗_R C acyclic iff every H^i(C) is S-torsion.
+
+**Hypotheses.**
+
+- S left Ore; for the last statement C is bounded above with flat or projective terms, or any complex since R_S is flat.
+
+**Construction or proof.**
+
+1. S⁻¹M (Mathlib's OreLocalization of a module) is exact in M: a fraction m/s vanishes iff t m = 0 for some t ∈ S.
+2. The natural map R_S ⊗_R M → S⁻¹M is an isomorphism (both are left adjoint-like; check on free modules and use right exactness).
+3. Exactness of left fractions gives flatness of the (R_S,R)-bimodule and commutation with cohomology. This is a noncommutative bimodule assertion; pinned Module.Flat only covers commutative scalars and cannot supply it.
+
+**Check.**
+
+- CFKSV use exactness of localisation at S (p. 192).
+
+**Prerequisites:** [NE.1/canonical-localization](#ne1-canonical-localization), `mathlib:OreLocalization`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §4, proof of Theorem 4.4, p. 192: The fact used.
+
+<a id="ne1-category-mhg"></a>
+
+### NE.1.13. The category 𝔐_H(G)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/category-MHG` · definition.
+
+𝔐_H(G) is the full subcategory of finitely generated left Λ(G)-modules that are S*-torsion; equivalently those M with M/M(p) finitely generated over Λ(H). It is a Serre subcategory (closed under submodules, quotients and extensions). For H = 1, G = Γ it is the category of finitely generated torsion Λ(Γ)-modules.
+
+**Hypotheses.**
+
+- G, H as in canonical-ore-set.
+
+**Construction or proof.**
+
+1. Closure under submodules uses that Λ(G) is noetherian (submodules of finitely generated modules are finitely generated); quotients and extensions are immediate from the torsion description.
+2. For H = 1: S* = Λ(Γ) ∖ {0}, so S*-torsion means torsion.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.MH` (constructor): The full subcategory of finitely generated S*-torsion modules.
+- `TauCeti.NoncommIwasawa.mem_MH_iff` (characterisation): M ∈ 𝔐_H(G) iff M/M(p) is finitely generated over Λ(H).
+- `TauCeti.NoncommIwasawa.MH.isSerre` (structure): Closed under submodules, quotients, extensions.
+- `TauCeti.NoncommIwasawa.MH_trivial_H` (equivalence): For H = 1: finitely generated torsion Λ(Γ)-modules.
+
+**Unit tests.**
+
+- `MH_cyclic`: Λ(G)/Λ(G)f ∈ 𝔐_H(G) for f ∈ S*.
+- `not_MH_free`: Λ(G) ∉ 𝔐_H(G) (G infinite).
+- `MH_padic`: For G = Γ: Λ(Γ)/(T) ∈ 𝔐 and Λ(Γ)/(p) ∈ 𝔐 (μ-type), Λ(Γ) ∉ 𝔐.
+
+**Check.**
+
+- Test: Λ(G)/Λ(G)f for f ∈ S is in 𝔐_H(G); Λ(G) itself is not.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.2: K₀(𝔐_H(G)) and characteristic elements.
+- NoncommutativeAndEquivariantIwasawa:NE.4: the torsion hypothesis on Selmer groups X(E/F∞).
+
+**Prerequisites:** [NE.1/saturated-ore-set](#ne1-saturated-ore-set), [NE.1/s-torsion-iff-finitely-generated](#ne1-s-torsion-iff-finitely-generated), [NE.0/iwasawa-noetherian](#ne0-iwasawa-noetherian).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, p. 170: The definition.
+- [CFKSV-2005](#source-cfksv-2005), §3, p. 170: The commutative specialisation.
+
+**Atlas planet:** The category 𝔐_H(G).
+
+<a id="ne1-torsion-perfect-complexes"></a>
+
+### NE.1.14. Perfect complexes acyclic after localisation
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.1/torsion-perfect-complexes` · definition.
+
+For a left denominator (Ore) set S of a ring R, Σ_S is the full subcategory of the category C^p(R) of perfect complexes of R-modules consisting of the C with R_S ⊗_R C acyclic. Σ_S contains 0, is closed under quasi-isomorphism, shifts and extensions; by ore-localization-flat, C ∈ Σ_S iff every H^i(C) is S-torsion. For R = Λ(G) and S = S*, a module in 𝔐_H(G) of finite projective dimension, viewed as a complex, lies in Σ_{S*}.
+
+**Hypotheses.**
+
+- C^p(R): bounded complexes of finitely generated projective R-modules, up to quasi-isomorphism (GeneralAlgebraicKTheory K.4).
+
+**Construction or proof.**
+
+1. Define Σ_S by the acyclicity condition; check (i) 0 ∈ Σ_S, (ii) quasi-isomorphism invariance (R_S ⊗ − preserves quasi-isomorphisms of perfect complexes), (iii) shifts, (iv) extensions (long exact sequence after the exact functor R_S ⊗ −).
+2. The cohomological description follows from flatness.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.SigmaS` (constructor): Σ_S ⊆ C^p(R), R_S ⊗ C acyclic.
+- `TauCeti.NoncommIwasawa.mem_SigmaS_iff` (characterisation): C ∈ Σ_S iff every H^i(C) is S-torsion.
+- `TauCeti.NoncommIwasawa.SigmaS.of_quasiIso` (compatibility): Closed under quasi-isomorphism.
+- `TauCeti.NoncommIwasawa.SigmaS.extension` (structure): Closed under shifts and extensions.
+
+**Unit tests.**
+
+- `SigmaS_zero`: 0 ∈ Σ_S.
+- `SigmaS_cone`: The cone of multiplication by s ∈ S on R lies in Σ_S.
+- `not_SigmaS_R`: R (in degree 0) is not in Σ_S unless R_S = 0.
+
+**Check.**
+
+- Burns–Venjakob need a weaker condition (iv′) for subcategories not closed under extensions; Σ_S itself satisfies (iv).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.2: K₁(R, Σ_S) ≅ K₁(R_S) and the boundary map.
+- NoncommutativeAndEquivariantIwasawa:NE.4: equivariant arithmetic complexes in Σ_{S*}.
+
+**Prerequisites:** [NE.1/ore-localization-flat](#ne1-ore-localization-flat), [NE.1/canonical-localization](#ne1-canonical-localization), [NE.1/category-MHG](#ne1-category-mhg), `GeneralAlgebraicKTheory:K.4`, `mathlib:HomologicalComplex`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §2.2, p. 6 (arXiv v2): The definition.
+
+## NE.2. Relative K-theory and characteristic elements
+
+The generic K-theory spectrum and determinant Picard category are suppliers. These targets fix the Iwasawa-relative comparison and boundary signs. Without p-torsion the module and perfect-complex descriptions agree by finite global dimension; with p-torsion use the perfect complex and relative triple directly.
+
+<a id="ne2-k0-complete-quotient"></a>
+
+### NE.2.1. K₀ is insensitive to complete ideals
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/k0-complete-quotient` · lemma.
+
+If I is a two-sided ideal of R and R is I-adically complete, then K₀(R) → K₀(R/I) is an isomorphism; in particular K₀(Λ(G)) ≅ K₀(Ω(G)) ≅ K₀(F_p[G/U]) ≅ K₀(F_p[G/U]/Jac) for U open normal pro-p.
+
+**Hypotheses.**
+
+- I-adic completeness; idempotents lift modulo I.
+
+**Construction or proof.**
+
+1. Surjectivity: idempotent matrices lift modulo I (completeness).
+2. Injectivity: a projective P with P/IP free is free (Nakayama for the complete ideal I ⊂ Jac(R)).
+
+**Check.**
+
+- Test: R = ℤ_p, I = pℤ_p: K₀(ℤ_p) = ℤ = K₀(F_p).
+
+**Prerequisites:** `GeneralAlgebraicKTheory:K.3`, `mathlib:Ideal.Quotient.mk`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §4, Lemma 4.1, p. 187 (Numdam PDF page 25; printed page = PDF page + 162): Lemma 4.1.
+
+<a id="ne2-k0-finite-level-injective"></a>
+
+### NE.2.2. K₀(Λ(G)) injects into K₀ of a finite level
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/k0-finite-level-injective` · lemma.
+
+For P an open normal pro-p subgroup of G, K₀(Λ(G)) → K₀(ℤ_p[G/P]) is injective.
+
+**Hypotheses.**
+
+- P pro-p (Nakayama over Λ(P)).
+
+**Construction or proof.**
+
+1. Lift a ℤ_p[Δ]-isomorphism M/IM ⊕ ℤ_p[Δ]^r ≅ N/IN ⊕ ℤ_p[Δ]^r to β : M ⊕ Λ^r → N ⊕ Λ^r (M projective).
+2. coker(β)_P = 0 gives coker β = 0 by Nakayama; H₁(P, N ⊕ Λ^r) = 0 gives ker(β)_P = 0, hence ker β = 0.
+
+**Check.**
+
+- P must be pro-p for Nakayama.
+
+**Prerequisites:** [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup), [NE.0/compact-nakayama](#ne0-compact-nakayama), [NE.0/iwasawa-local-iff-pro-p](#ne0-iwasawa-local-iff-pro-p).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Lemma 3.5, p. 174 (Numdam PDF page 12; printed page = PDF page + 162): Lemma 3.5.
+
+<a id="ne2-k0-representation-injective"></a>
+
+### NE.2.3. Detecting K₀(Λ(G)) by characters of a finite quotient
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/k0-representation-injective` · lemma.
+
+With Δ = G/P and L ⊃ ℚ_p splitting ℚ̄_p[Δ], the composite λ : K₀(Λ(G)) → K₀(ℤ_p[Δ]) → K₀(ℚ_p[Δ]) → K₀(L[Δ]) ≅ ⊕_{ρ ∈ Irr(Δ)} K₀(L) ≅ ⊕_ρ ℤ is injective, and λ([M]) = ⊕_ρ j(τ[tw_ρ(M)]) with τ[U] = Σ_i (−1)^i [H_i(G, U)] for finitely generated M (finite global dimension).
+
+**Hypotheses.**
+
+- Uses the Cartan–Brauer injectivity K₀(ℤ_p[Δ]) → K₀(ℚ_p[Δ]) and K₀(ℚ_p[Δ]) → K₀(L[Δ]) (Serre, Linear representations, 16 Theorem 34 Cor. 2 and 14.6; not freely available).
+
+**Construction or proof.**
+
+1. Compose the four maps; λ₁ is injective by k0-finite-level-injective, λ₂, λ₃ by the representation theory of finite groups, λ₄ is an isomorphism (Wedderburn and Morita).
+2. Compute τ on modules through a finite projective resolution: τ[U] = Σ(−1)^i[Tor_i^{Λ(G)}(𝒪, U)] = Σ(−1)^i[H_i(G, U)], and similarly ε with Λ(Γ) and H_i(H, −).
+
+**Check.**
+
+- The Euler-characteristic formula needs finite global dimension (no element of order p).
+
+**Prerequisites:** [NE.2/k0-finite-level-injective](#ne2-k0-finite-level-injective), [NE.0/iwasawa-finite-global-dimension](#ne0-iwasawa-finite-global-dimension).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, proof of Proposition 3.4, p. 175 (Numdam PDF page 13; printed page = PDF page + 162): Injectivity of λ.
+- [CFKSV-2005](#source-cfksv-2005), §3, (29), p. 176 (Numdam PDF page 14; printed page = PDF page + 162): The formula for τ.
+
+<a id="ne2-homology-torsion"></a>
+
+### NE.2.4. H-homology of modules in 𝔐_H(G)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/homology-torsion` · lemma.
+
+For M ∈ 𝔐_H(G) the homology groups H_i(H, M) = Tor_i^{Λ(G)}(Λ(Γ), M) are finitely generated torsion Λ(Γ)-modules for all i ≥ 0, and vanish for i ≥ d if G has no element of order p.
+
+**Hypotheses.**
+
+- cd_p(H) = d − 1 when H has no p-torsion.
+
+**Construction or proof.**
+
+1. Finite generation over Λ(Γ): Tor over Λ(G) of finitely generated modules.
+2. M(p) is killed by p^t, so H_i(H, M(p)) is torsion; M_f = M/M(p) is finitely generated over Λ(H), so H_i(H, M_f) is a finitely generated ℤ_p-module, hence torsion over Λ(Γ); long exact sequence.
+
+**Check.**
+
+- Test: G = Γ, H = 1: H₀(1, M) = M is a torsion Λ(Γ)-module and higher homology vanishes.
+
+**Prerequisites:** [NE.1/category-MHG](#ne1-category-mhg), [NE.1/saturated-ore-set](#ne1-saturated-ore-set), [NE.0/iwasawa-noetherian](#ne0-iwasawa-noetherian).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Lemma 3.1, p. 171 (Numdam PDF page 9; printed page = PDF page + 162): Lemma 3.1.
+
+<a id="ne2-twist-preserves-mhg"></a>
+
+### NE.2.5. Twisting preserves 𝔐_H(G)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/twist-preserves-MHG` · lemma.
+
+For a continuous ρ : G → GL_n(𝒪) and M ∈ 𝔐_H(G), the diagonal twist tw_ρ(M) = (M ⊗ 𝒪) ⊗_𝒪 𝒪ⁿ lies in 𝔐_H(G).
+
+**Hypotheses.**
+
+- 𝒪 finite free over ℤ_p.
+
+**Construction or proof.**
+
+1. M ⊗ 𝒪 ∈ 𝔐_H(G); tw_ρ of the p-power torsion is killed by the same power of p.
+2. tw_{ρ|H}(Λ(H)^m) is free of finite rank over Λ(H), so tw_ρ(M_f) is finitely generated over Λ(H).
+
+**Check.**
+
+- Needed to evaluate characteristic elements at twists (NE.3).
+
+**Prerequisites:** [NE.1/category-MHG](#ne1-category-mhg), [NE.3/twisted-module](#ne3-twisted-module).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Lemma 3.2, p. 171 (Numdam PDF page 9; printed page = PDF page + 162): Lemma 3.2.
+
+<a id="ne2-canonical-localization-semilocal"></a>
+
+### NE.2.6. Λ(G)_S is semilocal, Λ(G)_{S*} need not be
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/canonical-localization-semilocal` · theorem.
+
+Λ(G)_S is a semilocal ring: for J ≤ H pro-p, open in H and normal in G, the image S_J of S consists of all nonzero divisors of Ω(G/J), Ω(G/J)_{S_J} is Artinian (= Ω(G/J) localised at the central Ω(Π) ∖ 0), and the kernel of Λ(G)_S → Ω(G/J)_S lies in the Jacobson radical. For G = ℤ_p² with H one factor, Λ(G)_{S*} = ℤ_p[[U, V]]_{(p,U)}[1/p] has infinitely many maximal ideals.
+
+**Hypotheses.**
+
+- G, H as in NE.1.
+
+**Construction or proof.**
+
+1. Lemma 4.3: every s ∈ S_J is integral over the central Ω(Π) with nonzero constant term, so invertible after inverting Ω(Π) ∖ 0; Ω(G/J)_Σ is finite-dimensional over R(Π).
+2. For x = s⁻¹θ with θ ∈ ker ψ_J, s − θ ∈ S, so 1 − x = s⁻¹(s − θ) is a unit: ker ⊂ Jac.
+
+**Check.**
+
+- Keep the non-semilocal example for S*.
+
+**Prerequisites:** [NE.1/canonical-localization](#ne1-canonical-localization), [NE.1/canonical-set-left-criteria](#ne1-canonical-set-left-criteria), [NE.1/quotient-total-algebra](#ne1-quotient-total-algebra), [NE.1/central-zp-subgroup](#ne1-central-zp-subgroup).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §4, Proposition 4.2, p. 188 (Numdam PDF page 26; printed page = PDF page + 162): Proposition 4.2.
+- [CFKSV-2005](#source-cfksv-2005), §4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162): The counterexample.
+
+<a id="ne2-localized-k1"></a>
+
+### NE.2.7. The localized K₁ of Fukaya and Kato
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/localized-k1` · construction.
+
+For a full subcategory Σ of C^p(R) containing 0 and closed under quasi-isomorphism, shifts and direct sums ((i)–(iii), (iv′)), K_1(R, Σ) is the abelian group generated by symbols [C, a] with C ∈ Σ and a : 1_R → d_R(C), subject to [0, id] = 1, [C′, d_R(f)∘a] = [C, a] for quasi-isomorphisms f, [C, a] = [C′, a′][C″, a″] for short exact sequences in Σ, and [C[1], a^{−1}] = [C, a]^{−1} (Definition 2.5, after Fukaya–Kato). For a left denominator set S and Σ_S the complexes with R_S ⊗ C acyclic, [C, a] ↦ θ_{C,a} (the composite 1 → d(R_S ⊗ C) → 1) is an isomorphism ch_{R,Σ_S} : K_1(R, Σ_S) ≅ K_1(R_S) (Fukaya–Kato Proposition 1.3.7), and any Σ ⊆ Σ_S gives ch_{R,Σ} : K_1(R, Σ) → K_1(R_S).
+
+**Hypotheses.**
+
+- R a ring; S a left denominator set; Σ as stated. When Σ satisfies (iv) (closure under extensions) the definition is Fukaya–Kato's.
+
+**Construction or proof.**
+
+1. Relation (3) follows from (0)–(2) (Remark 2.6).
+2. ch_{R,Σ_S} is well defined because each relation is respected by base change to R_S and acyclicity; it is bijective by Fukaya–Kato Proposition 1.3.7 (see the gap on Fukaya–Kato).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.LocalizedK1` (constructor): K_1(R, Σ) by generators [C, a] and relations (0)–(3).
+- `TauCeti.NoncommIwasawa.LocalizedK1.mk` (constructor): The class [C, a].
+- `TauCeti.NoncommIwasawa.LocalizedK1.mk_shift` (simp): [C[1], a^{−1}] = [C, a]^{−1}.
+- `TauCeti.NoncommIwasawa.chLocalized` (constructor): ch_{R,Σ} : K_1(R, Σ) → K_1(R_S) for Σ ⊆ Σ_S.
+- `TauCeti.NoncommIwasawa.chLocalized_bijective` (equivalence): ch_{R,Σ_S} is an isomorphism (Fukaya–Kato 1.3.7).
+
+**Unit tests.**
+
+- `two_term`: For R=Z_p[[T]], C=[R --f→ R] in degrees −1,0 with f∈S and the identity determinant trivialization, ch([C,id])=f⁻¹. Hence ∂ch=−[C]=−[R/Rf].
+- `zero_complex`: [0, id] = 1.
+- `not_extension_closed`: Σ^{ss} satisfies (iv′) but not (iv), which is why Burns–Venjakob weaken (iv) to (iv′).
+
+**Check.**
+
+- This supplies the NE.2 remaining item "the Fukaya–Kato localized K_1(R, Σ_S) ≅ K_1(R_S)"; the proof of bijectivity is cited to Fukaya–Kato.
+- For Σ_{A·} use the smallest subcategory with (i)–(iii) and (iv′) containing A·: the extension-closed version need not lie in Σ^{ss} (finding E11).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/leading-term: the domain K_1(Λ(G), Σ) of the leading-term homomorphism
+- NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-canonical-localization: ch_{G,A·} into K_1(Λ(G)_{S*})
+
+**Prerequisites:** `GeneralAlgebraicKTheory:K.4`, [NE.1/canonical-ore-theorem](#ne1-canonical-ore-theorem), [NE.1/torsion-perfect-complexes](#ne1-torsion-perfect-complexes).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §2.2, Definition 2.5, Remark 2.6 and the isomorphism ch_{R,Σ_S}, pp. 5–6 (arXiv v2): Definition 2.5 (Fukaya–Kato, weakened to (iv′)), Remark 2.6 and the isomorphism ch_{R,Σ_S}.
+
+<a id="ne2-relative-perfect-class"></a>
+
+### NE.2.8. Relative classes of torsion perfect complexes
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/relative-perfect-class` · construction.
+
+For a regular two-sided Ore localization Λ→Λ_S, K₀(Λ,Λ_S) is represented by triples (P,α,Q), with finitely generated projectives P,Q and α:Λ_S⊗P≅Λ_S⊗Q, modulo stabilization, direct-sum and composition relations. Equivalently it is K₀ of perfect complexes acyclic over Λ_S. Fix ∂[s]=[Λ/Λs] for a regular denominator s. For a perfect torsion C set [C]=Σ_i(−1)^i[H^i(C)] whenever the cohomology modules have finite projective resolutions. Cone triangles obey [Cone(f)]=[D]−[C] for f:C→D. Burns–Venjakob’s characteristic map uses ∂ch(C,a)=−[C].
+
+**Hypotheses.**
+
+- Λ noetherian; S a regular two-sided Ore set. For the displayed cohomology sum, each H^i(C) has a finite projective resolution.
+
+**Construction or proof.**
+
+1. Import relative K-theory and the perfect fibre comparison from GeneralAlgebraicKTheory K.4–K.5.
+2. Send a relative triple to its localized acyclic comparison complex and check the relations; clear denominators for the inverse.
+3. Fix signs on the one-term torsion module and its two-term resolution; transport additivity and shift through this comparison.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.RelativePerfectClass.ofTriple` (constructor): The class of (P,α,Q), with composition and direct-sum relations.
+- `TauCeti.NoncommIwasawa.RelativePerfectClass.ofComplex` (constructor): The relative class of an S-acyclic perfect complex, invariant under quasi-isomorphism.
+- `TauCeti.NoncommIwasawa.RelativePerfectClass.triangle` (relation): For C→D→E→C[1], [D]=[C]+[E]; a shift negates the class.
+- `TauCeti.NoncommIwasawa.RelativePerfectClass.boundary_sign` (compatibility): ∂[s]=[Λ/Λs], while ∂ch(C,a)=−[C].
+- `TauCeti.NoncommIwasawa.RelativePerfectClass.baseChange` (functoriality): An exact derived coefficient/localization square carries [C] to its derived base-change class.
+
+**Unit tests.**
+
+- `relative_perfect_class_1`: For C=[Λ --T→ Λ] in degrees −1,0, [C]=[Λ/T], ∂[T]=[C], and ch(C)=T⁻¹.
+- `relative_perfect_class_2`: Shifting C once negates its relative class and inverts ch(C), detecting the boundary convention.
+- `relative_perfect_class_3`: For f:C→D, the cone has [Cone(f)]=[D]−[C]; the identity cone has zero class.
+- `relative_perfect_class_4`: For Λ=Z_p[C_p][[T]], the perfect complex [Λ --T→ Λ] is admitted even though the trivial F_p-module has no finite projective resolution.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective-p-torsion: keeps the proof in the category of perfect complexes
+- NoncommutativeAndEquivariantIwasawa:NE.7/leading-term: matches the determinant and boundary signs
+
+**Prerequisites:** [NE.1/torsion-perfect-complexes](#ne1-torsion-perfect-complexes), [NE.1/canonical-localization](#ne1-canonical-localization), `GeneralAlgebraicKTheory:K.5`, `GeneralAlgebraicKTheory:K.4`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §1, pp. 6–8, relative triples and Lemma 5: Gives the relative triple model and boundary formula even when G has p-torsion.
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §2.2, pp. 6–7; Proposition 3.8, pp. 10–11: Determines the opposite sign of the characteristic map associated with a determinant trivialization.
+
+**Atlas planet:** Relative perfect classes.
+
+<a id="ne2-localization-sequence"></a>
+
+### NE.2.9. The localisation sequence for the canonical Ore set
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/localization-sequence` · theorem.
+
+For Λ=Z_p[[G]] and the regular two-sided canonical denominator set S (or S*), the perfect-complex localization theorem gives K₁(Λ)→K₁(Λ_S)→∂K₀(Λ,Λ_S)→K₀(Λ)→K₀(Λ_S). The relative group is modeled by S-acyclic perfect complexes. If G has no p-torsion, finite global dimension identifies it with K₀ of finitely generated S-torsion modules, or with K₀(𝔐_H(G)) for S*. The module identification requires that extra hypothesis; the relative-perfect sequence does not.
+
+**Hypotheses.**
+
+- G compact p-adic analytic; H closed normal with G/H≅Z_p; canonical regular Ore set S or its p-saturation.
+- Absence of p-torsion is assumed only for replacing relative perfect classes by all finitely generated torsion modules.
+
+**Construction or proof.**
+
+1. Apply the Waldhausen localization/fibration comparison to bounded projective complexes and its S-acyclic subcategory; identify π₀ of the fibre with relative triples.
+2. With no p-torsion, use the resolution theorem and noetherian finite global dimension to compare torsion complexes with the Grothendieck group of torsion modules.
+3. Do not use an abelian-category localization theorem as if it directly constructed the perfect-complex sequence.
+
+**Check.**
+
+- Keep the hypothesis 'no element of order p'; without it one works with perfect complexes (Σ_S*) instead of modules.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element: a characteristic element is a preimage under ∂_G.
+- NoncommutativeAndEquivariantIwasawa:NE.5: the main conjecture is formulated through ∂_G.
+
+**Prerequisites:** [NE.1/canonical-ore-theorem](#ne1-canonical-ore-theorem), [NE.1/saturated-ore-set](#ne1-saturated-ore-set), [NE.1/category-MHG](#ne1-category-mhg), [NE.1/ore-localization-flat](#ne1-ore-localization-flat), `GeneralAlgebraicKTheory:K.5`, [NE.2/relative-perfect-class](#ne2-relative-perfect-class), `GeneralAlgebraicKTheory:K.3/resolution-theorem`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, (24), p. 174 (Numdam PDF page 12; printed page = PDF page + 162): The localisation sequence (24).
+
+**Atlas planet:** Localisation sequence.
+
+<a id="ne2-boundary-map"></a>
+
+### NE.2.10. The boundary map ∂_G
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/boundary-map` · construction.
+
+∂_G : K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) is the connecting map of the localisation sequence, normalised so that for s ∈ S* (a nonzero divisor, unit in Λ(G)_{S*}), ∂_G([s]) = [Λ(G)/Λ(G)s] = [coker(x ↦ xs)]; it is a homomorphism, natural for the maps induced by G → G′ with H ↦ H′.
+
+**Hypotheses.**
+
+- The sign convention is the one of CFKSV §4 (∂(f(a)) = [Coker α] for right multiplication α by a).
+
+**Construction or proof.**
+
+1. For a matrix A ∈ GL_n(Λ_{S*}) ∩ M_n(Λ) acting by right multiplication on Λⁿ, ∂_G[A] = [coker A] (Swan's description).
+2. Every class of K₁(Λ_{S*}) is represented by such matrices up to units of Λ (clearing denominators).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.boundaryMap` (constructor): ∂_G : K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)).
+- `TauCeti.NoncommIwasawa.boundaryMap_unit` (simp): ∂_G[s] = [Λ(G)/Λ(G)s] for s ∈ S*.
+- `TauCeti.NoncommIwasawa.boundaryMap_exact` (characterisation): ker ∂_G = image of K₁(Λ(G)).
+- `TauCeti.NoncommIwasawa.boundaryMap_natural` (functoriality): Compatible with the maps induced by quotients G → G/N.
+
+**Unit tests.**
+
+- `boundaryMap_padic`: G = Γ, H = 1: ∂[f] = [Λ(Γ)/(f)] for 0 ≠ f ∈ Λ(Γ).
+- `boundaryMap_unit_trivial`: ∂[u] = 0 for u ∈ Λ(G)^× (degenerate case).
+- `boundaryMap_p`: ∂[p] = [Ω(G)] = [Λ(G)/p] ∈ K₀(𝔐_H(G)).
+
+**Check.**
+
+- Fix the sign: ∂[s] = +[Λ/Λs]; the opposite convention changes characteristic elements to their inverses.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element: defines the characteristic elements.
+- NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective: its surjectivity.
+
+**Prerequisites:** [NE.2/localization-sequence](#ne2-localization-sequence).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §4, proof of Lemma 4.6, p. 191 (Numdam PDF page 29; printed page = PDF page + 162): The explicit description of ∂.
+
+<a id="ne2-boundary-surjective"></a>
+
+### NE.2.11. Surjectivity of ∂_G
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective` · theorem.
+
+If G has no element of order p, then ∂_G : K₁(Λ(G)_{S*}) → K₀(𝔐_H(G)) is surjective; equivalently every M ∈ 𝔐_H(G) has [M] = 0 in K₀(Λ(G)).
+
+**Hypotheses.**
+
+- No element of order p.
+
+**Construction or proof.**
+
+1. By exactness, surjectivity of ∂_G is equivalent to [M] ↦ 0 in K₀(Λ(G)).
+2. For each ρ ∈ Irr(Δ): H_i(H, tw_ρ M) is Λ_𝒪(Γ)-torsion, so ε[tw_ρ M] = 0 in K₀(Λ_𝒪(Γ)) ≅ ℤ (rank), hence τ = 0.
+3. λ[M] = ⊕ j(τ[tw_ρ M]) = 0 and λ is injective.
+
+**Check.**
+
+- For G = Γ this is the statement that finitely generated torsion Λ(Γ)-modules have zero class in K₀(Λ(Γ)) = ℤ.
+
+**Prerequisites:** [NE.2/localization-sequence](#ne2-localization-sequence), [NE.2/k0-representation-injective](#ne2-k0-representation-injective), [NE.2/homology-torsion](#ne2-homology-torsion), [NE.2/twist-preserves-MHG](#ne2-twist-preserves-mhg).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Proposition 3.4, p. 174 (Numdam PDF page 12; printed page = PDF page + 162): Proposition 3.4.
+
+<a id="ne2-characteristic-element"></a>
+
+### NE.2.12. Characteristic elements
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/characteristic-element` · definition.
+
+For M ∈ 𝔐_H(G) (G without element of order p), a characteristic element of M is any ξ_M ∈ K₁(Λ(G)_{S*}) with ∂_G(ξ_M) = [M]. Characteristic elements exist (boundary-surjective) and two of them differ by an element of the image of K₁(Λ(G)) → K₁(Λ(G)_{S*}).
+
+**Hypotheses.**
+
+- A characteristic element is a lift of a class, not a canonical scalar; its ambiguity is exactly the image of K₁(Λ(G)).
+
+**Construction or proof.**
+
+1. Existence by surjectivity of ∂_G; ambiguity by exactness at K₁(Λ(G)_{S*}).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.IsCharacteristicElement` (structure): ∂_G ξ = [M].
+- `TauCeti.NoncommIwasawa.exists_characteristicElement` (constructor): Existence for M ∈ 𝔐_H(G).
+- `TauCeti.NoncommIwasawa.characteristicElement_unique` (characterisation): Two characteristic elements differ by the image of K₁(Λ(G)).
+- `TauCeti.NoncommIwasawa.characteristicElement_exact` (compatibility): ξ_M = ξ_{M′}ξ_{M″} up to K₁(Λ(G)) for 0 → M′ → M → M″ → 0.
+
+**Unit tests.**
+
+- `characteristicElement_cyclic`: M = Λ(G)/Λ(G)s with s ∈ S*: ξ_M = [s].
+- `characteristicElement_zero`: M = 0: ξ_M ∈ image of K₁(Λ(G)) (degenerate case).
+- `characteristicElement_padic`: G = Γ: ξ_M is the characteristic power series of M up to Λ(Γ)^×.
+
+**Check.**
+
+- Recover the characteristic power series up to Λ(Γ)^× for G = Γ (commutative-cyclic-comparison).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.3: evaluation of ξ_M at Artin representations and Euler characteristics.
+- NoncommutativeAndEquivariantIwasawa:NE.5: the main conjecture compares ξ_{X(E/F∞)} with the p-adic L-function.
+
+**Prerequisites:** [NE.2/boundary-surjective](#ne2-boundary-surjective), [NE.2/boundary-map](#ne2-boundary-map), [NE.2/localization-sequence](#ne2-localization-sequence).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, definition (33), p. 176 (Numdam PDF page 14; printed page = PDF page + 162): The definition.
+- [CFKSV-2005](#source-cfksv-2005), §1, introduction, p. 163 (Numdam PDF page 1; printed page = PDF page + 162): The analogy with the commutative case.
+
+**Atlas planet:** Characteristic elements.
+
+<a id="ne2-units-surject-k1"></a>
+
+### NE.2.13. Units surject onto K₁ of the localisations
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/units-surject-k1` · theorem.
+
+If G has no element of order p, the natural maps Λ(G)_S^× → K₁(Λ(G)_S) and Λ(G)_{S*}^× → K₁(Λ(G)_{S*}) are surjective. Hence characteristic elements can be represented by units of Λ(G)_{S*}.
+
+**Hypotheses.**
+
+- Vaserstein: units of a semilocal ring surject onto K₁ (not freely available; cited).
+
+**Construction or proof.**
+
+1. Λ(G)_S is semilocal (Proposition 4.2): surjectivity for S by Vaserstein.
+2. For S*: the localisation sequence K₁(Λ(G)_S) → K₁(Λ(G)_{S*}) → K₀(Ω′(G)) and the surjectivity of (Λ(G)[1/p])^× → K₀(Ω(G)) through the classes [P/pP] of direct summands (Lemmas 4.5–4.6: right multiplication by a = α(1) with α = p on P and 1 on P′, ∂(a) = [P/pP]).
+
+**Check.**
+
+- The second assertion uses the explicit boundary ∂(a) = [coker α], fixing the sign convention.
+
+**Prerequisites:** [NE.2/canonical-localization-semilocal](#ne2-canonical-localization-semilocal), [NE.2/k0-complete-quotient](#ne2-k0-complete-quotient), [NE.2/boundary-map](#ne2-boundary-map), [NE.2/localization-sequence](#ne2-localization-sequence).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §4, Theorem 4.4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162): Theorem 4.4.
+- [CFKSV-2005](#source-cfksv-2005), §4, p. 189 (Numdam PDF page 27; printed page = PDF page + 162): The semilocal input.
+
+<a id="ne2-commutative-cyclic-comparison"></a>
+
+### NE.2.14. The commutative one-variable case
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/commutative-cyclic-comparison` · comparison.
+
+For G = Γ ≅ ℤ_p and H = 1: S* = Λ(Γ) ∖ {0}, Λ(Γ)_{S*} = Q(Γ) is the fraction field, K₁(Q(Γ)) = Q(Γ)^×, K₀(𝔐_H(G)) is the Grothendieck group of finitely generated torsion Λ(Γ)-modules, and ∂ sends f/g to [Λ/f] − [Λ/g]. A characteristic element of a torsion module M is its characteristic power series char(M) (PadicMeasuresIwasawaAlgebras L4) up to Λ(Γ)^×.
+
+**Hypotheses.**
+
+- Λ(Γ) ≅ ℤ_p[[T]] is a regular local ring of dimension 2; K₁(Λ(Γ)) = Λ(Γ)^×.
+
+**Construction or proof.**
+
+1. Q(Γ) is a field, so K₁ = units by the determinant.
+2. For M ≅ ⊕Λ/(f_i) up to pseudo-isomorphism, [M] = Σ[Λ/f_i]: a pseudo-null (finite) module has class 0 in K₀(𝔐), e.g. 0 → Λ/p →^T Λ/p → F_p → 0 gives [F_p] = 0; then ∂(∏ f_i) = [M].
+
+**Check.**
+
+- The ambiguity K₁(Λ(Γ)) = Λ(Γ)^× is exactly 'up to units'.
+- Check a pseudo-null (finite) module: its characteristic element is a unit.
+
+**Prerequisites:** [NE.2/characteristic-element](#ne2-characteristic-element), [NE.2/boundary-map](#ne2-boundary-map), `PadicMeasuresIwasawaAlgebras:L4`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §2–3, p. 170 (Numdam PDF page 8; printed page = PDF page + 162): The commutative specialisation.
+
+<a id="ne2-boundary-surjective-p-torsion"></a>
+
+### NE.2.15. Surjectivity of ∂ for every compact p-adic Lie group
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.2/boundary-surjective-p-torsion` · theorem.
+
+Let G be a compact p-adic Lie group with closed normal H and G/H ≅ ℤ_p, possibly with elements of order p. In the localisation sequence K₁(Λ(G)) → K₁(Λ(G)_S) → K₀(Λ(G), Λ(G)_S) → K₀(Λ(G)) → K₀(Λ(G)_S), the boundary map ∂ is surjective: the map η : K₀(Λ(G), Λ(G)_S) → K₀(Λ(G)) is zero.
+
+**Hypotheses.**
+
+- No hypothesis on p-torsion in G (CFKSV assume none; see boundary-surjective).
+
+**Construction or proof.**
+
+1. Use Kakde Lemma 5’s injective representation map λ:K₀(Λ)→∏_ρK₀(L), with ρ factoring through a finite quotient by an open normal pro-p subgroup.
+2. Represent a relative class by a bounded perfect S-acyclic complex C. Twist its finite projective complex by each ρ and derive H-coinvariants. After the Γ fraction-field localization the complex is acyclic; its Euler rank over O[[Γ]] is therefore zero.
+3. Apply derived augmentation to obtain zero Euler rank over O, hence λ(η[C])=0. Injectivity implies η[C]=0 and exactness gives surjectivity of ∂.
+4. Equivalently, a cleared-denominator map a:P→Q is injective because Q is S-torsion-free and localized a is an isomorphism, so its cokernel has a length-one projective resolution. Never assert such a resolution for every finitely generated module when p-torsion occurs.
+
+**Check.**
+
+- For G=C_p×Z_p, the relative boundary is still surjective although the ring does not have finite global dimension.
+- A relative triple has projective terms and a localized isomorphism; clearing denominators gives a perfect cokernel, not a resolution theorem for arbitrary modules.
+
+**Prerequisites:** [NE.2/localization-sequence](#ne2-localization-sequence), [NE.2/relative-perfect-class](#ne2-relative-perfect-class), [NE.2/k0-representation-injective](#ne2-k0-representation-injective), [NE.2/twist-preserves-MHG](#ne2-twist-preserves-mhg).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §2.2, Lemma 5, p. 8 (arXiv v3): Lemma 5 and its proof (pp. 8–9).
+
+## NE.3. Artin evaluation, reduced norms and SK₁
+
+The matrix twist precedes scalar augmentation, and the domain of augmentation must be respected. The total-quotient and reduced-norm targets have dimension-one hypotheses. Equality of full determinant functions and equality at isolated Artin points are not interchangeable without a separation argument.
+
+<a id="ne3-twist-homomorphism"></a>
+
+### NE.3.1. The ring homomorphism Φ_ρ : Λ(G) → M_n(Λ_𝒪(Γ))
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/twist-homomorphism` · construction.
+
+G is a compact p-adic Lie group with a closed normal H and G/H = Γ ≅ ℤ_p (topological generator fixed, Λ(Γ) = ℤ_p[[T]]), 𝒪 the ring of integers of a finite extension L of ℚ_p, Λ_𝒪(Γ) = 𝒪[[T]] with fraction field Q_𝒪(Γ), and ρ : G → GL_n(𝒪) continuous. By continuity ρ gives ρ : Λ(G) → M_n(𝒪) (14). The continuous homomorphism G → (M_n(𝒪) ⊗_{ℤ_p} Λ(Γ))^×, σ ↦ ρ(σ) ⊗ σ̄ (σ̄ the image of σ in Γ) (16), extends to a ring homomorphism Φ_ρ : Λ(G) → M_n(Λ_𝒪(Γ)) (15), with Φ_ρ(p) = pI_n; composing with the augmentation Λ_𝒪(Γ) → 𝒪 gives (14).
+
+**Construction or proof.**
+
+1. M_n(𝒪) ⊗_{ℤ_p} Λ(Γ) = M_n(Λ_𝒪(Γ)) because 𝒪 is free of finite rank over ℤ_p.
+2. The map on G is a continuous homomorphism into the units of a compact ring, so it extends to the completed group algebra (PadicMeasuresIwasawaAlgebras L1).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.representationRingHom` (constructor): ρ : Λ(G) → M_n(𝒪) (14).
+- `TauCeti.NoncommIwasawa.twistRingHom` (constructor): Φ_ρ : Λ(G) → M_n(Λ_𝒪(Γ)) (15).
+- `TauCeti.NoncommIwasawa.twistRingHom_augmentation` (compatibility): Augmentation ∘ Φ_ρ = ρ.
+- `TauCeti.NoncommIwasawa.twistRingHom_p` (characterisation): Φ_ρ(p) = pI_n.
+
+**Unit tests.**
+
+- `twistRingHom_trivial`: G = Γ, H = 1, ρ = 1: Φ_ρ is the identity Λ(Γ) → Λ(Γ).
+- `twistRingHom_groupElement`: Φ_ρ(σ) = ρ(σ)·σ̄, so det Φ_ρ(σ) = det ρ(σ)·σ̄ⁿ.
+- `twistRingHom_directSum`: Φ_{ρ₁⊕ρ₂} is block diagonal with blocks Φ_{ρ₁}, Φ_{ρ₂}.
+
+**Check.**
+
+- Φ_ρ records the Γ-component σ̄ as well as ρ(σ); for H = 1 and ρ trivial it is the identity of Λ(Γ).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.3/twist-extends-to-localisation: the extension to Λ(G)_{S*}.
+
+**Prerequisites:** [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup), `PadicMeasuresIwasawaAlgebras:L1`, `mathlib:Matrix`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, (14)–(16), p. 172 (Numdam PDF page 10; printed page = PDF page + 162): (14), (15) and (16).
+
+**Atlas planet:** The twist homomorphism Φ_ρ.
+
+<a id="ne3-twist-extends-to-localisation"></a>
+
+### NE.3.2. Φ_ρ extends to the localisation at S*
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/twist-extends-to-localisation` · lemma.
+
+(Lemma 3.3.) Φ_ρ extends to a ring homomorphism Φ_ρ : Λ(G)_{S*} → M_n(Q_𝒪(Γ)) (17): Φ_ρ(s) is invertible for every s ∈ S* = ∪_n pⁿS.
+
+**Hypotheses.**
+
+- S the canonical Ore set of NE.1.
+
+**Construction or proof.**
+
+1. It suffices that the reduction Φ̃_ρ(s) ∈ M_n(k[[T]]) has nonzero determinant for s ∈ S.
+2. Φ̃_ρ factors through δ : Ω(G/J) → M_n(k[[T]]) for a pro-p open J ⊆ H normal in G inside ker ρ̃ (GL_n(k) is finite).
+3. A central Π ≅ ℤ_p of G/J inside ker ρ̃ has δ(Ω(Π)) ⊆ k[[T]]I_n, and Q(k[[T]]) is finite over R(Π); δ extends to R(Π) ⊗_{Ω(Π)} Ω(G/J), where ψ_J(s) is a unit (NE.1), so δ(ψ_J(s)) is invertible.
+
+**Check.**
+
+- The extension is to matrices over the fraction field Q_𝒪(Γ), not over Λ_𝒪(Γ): elements of S become invertible only after inverting nonzero power series.
+
+**Prerequisites:** [NE.3/twist-homomorphism](#ne3-twist-homomorphism), [NE.1/canonical-ore-theorem](#ne1-canonical-ore-theorem), [NE.1/central-zp-subgroup](#ne1-central-zp-subgroup), [NE.1/quotient-total-algebra](#ne1-quotient-total-algebra), [NE.1/saturated-ore-set](#ne1-saturated-ore-set).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Lemma 3.3, p. 172 (Numdam PDF page 10; printed page = PDF page + 162): Lemma 3.3 and the start of its proof.
+- [CFKSV-2005](#source-cfksv-2005), §3, proof of Lemma 3.3, p. 173 (Numdam PDF page 11; printed page = PDF page + 162): The end of the proof.
+
+<a id="ne3-artin-evaluation"></a>
+
+### NE.3.3. Evaluation of K₁-elements at representations
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation` · construction.
+
+(17) induces Φ′_ρ : K₁(Λ(G)_{S*}) → K₁(M_n(Q_𝒪(Γ))) = Q_𝒪(Γ)^× (22) (Morita equivalence and the determinant of the field Q_𝒪(Γ)). Let φ : Λ_𝒪(Γ) → 𝒪 be the augmentation with kernel 𝔭, extended to φ : Λ_𝒪(Γ)_𝔭 → L. For ξ ∈ K₁(Λ(G)_{S*}), ξ(ρ) := φ(Φ′_ρ(ξ)) ∈ L if Φ′_ρ(ξ) ∈ Λ_𝒪(Γ)_𝔭, and ξ(ρ) := ∞ otherwise. On K₁(Λ(G)) this restricts to K₁(Λ(G)) → K₁(M_n(𝒪)) = 𝒪^× (21).
+
+**Hypotheses.**
+
+- ρ : G → GL_n(𝒪) continuous (Artin or not).
+
+**Construction or proof.**
+
+1. Morita invariance K₁(M_n(A)) ≅ K₁(A) and K₁(F) = F^× for a field (determinant) come from GeneralAlgebraicKTheory K.7.
+2. Functoriality of K₁ along the ring maps (14) and (17), compatible with K₁(Λ(G)) → K₁(Λ(G)_{S*}).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.twistK1` (constructor): Φ′_ρ : K₁(Λ(G)_{S*}) → Q_𝒪(Γ)^×.
+- `TauCeti.NoncommIwasawa.evaluate` (constructor): ξ ↦ ξ(ρ) ∈ L ∪ {∞}.
+- `TauCeti.NoncommIwasawa.evaluate_groupElement` (characterisation): [g](ρ) = det ρ(g) for g ∈ G ⊆ Λ(G)^×.
+- `TauCeti.NoncommIwasawa.evaluate_mul` (characterisation): (ξη)(ρ) = ξ(ρ)η(ρ) when both are finite.
+- `TauCeti.NoncommIwasawa.evaluate_directSum` (characterisation): ξ(ρ₁ ⊕ ρ₂) = ξ(ρ₁)ξ(ρ₂).
+- `TauCeti.NoncommIwasawa.evaluate_units` (compatibility): On K₁(Λ(G)) the evaluation is (21), with values in 𝒪^×.
+
+**Unit tests.**
+
+- `evaluate_known_unit`: For g ∈ G, Φ′_ρ([g]) = det(ρ(g)ḡ I_n) = det ρ(g)·ḡⁿ, so [g](ρ) = det ρ(g) (augmentation ḡ ↦ 1).
+- `evaluate_trivial_group`: G = Γ, H = 1, ρ = 1: Λ(Γ)_{S*} = Q(Γ), and ξ(1) = f(0) for ξ = f ∈ Λ(Γ)_𝔭, while ξ = T gives 0 and ξ = 1/T gives ∞.
+- `evaluate_induced`: For an open subgroup G′ ⊆ G and a character ψ of G′, [g](Ind_{G′}^G ψ) = det(Ind ψ)(g) = sgn(g on G/G′)·ψ(V(g)) with V the transfer: the sign of the permutation action survives.
+- `evaluate_not_injective`: If x≠1 lies in the reduced-norm kernel, multiplying a K₁-element by x leaves all reduced determinant functions unchanged wherever defined. This is a conditional obstruction to uniqueness; the test does not assert existence of such x for every G.
+
+**Check.**
+
+- Keep the conventions: Φ′_ρ is a determinant of Φ_ρ, so for a group element g, [g](ρ) = det ρ(g) (not trace, not det ρ(g^{−1})); the value ∞ is part of the definition.
+- Only the value at the augmentation is taken: Φ′_ρ(ξ) ∈ Q_𝒪(Γ)^× carries more information than ξ(ρ).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation: Theorem 3.6.
+- NoncommutativeAndEquivariantIwasawa:NE.5: interpolation of zeta elements at Artin representations.
+
+**Prerequisites:** [NE.3/twist-extends-to-localisation](#ne3-twist-extends-to-localisation), [NE.2/localization-sequence](#ne2-localization-sequence), `GeneralAlgebraicKTheory:K.7`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, (21)–(22), p. 173 (Numdam PDF page 11; printed page = PDF page + 162): The definition of ξ(ρ) ∈ L ∪ {∞}.
+
+**Atlas planet:** Evaluation at Artin representations.
+
+<a id="ne3-akashi-series"></a>
+
+### NE.3.4. Akashi series
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/akashi-series` · construction.
+
+For M ∈ 𝔐_H(G) the H_i(H, M) are finitely generated torsion Λ(Γ)-modules, zero for i ≥ d if G has no element of order p (Lemma 3.1). With f_{i,M} a characteristic power series of H_i(H, M), Ak(M) = ∏_i f_{i,M}^{(−1)^i} mod Λ(Γ)^× (37) defines Ak : K₀(𝔐_H(G)) → Q(Γ)^×/Λ(Γ)^× (38); for an 𝒪-module M, Ak_𝒪(M) uses characteristic series over Λ_𝒪(Γ) (39), and the norm N : Λ_𝒪(Γ) → Λ(Γ) gives N(Ak_𝒪(M)) = Ak(M) (40).
+
+**Hypotheses.**
+
+- G without elements of order p for the vanishing statement (cd_p H = d − 1).
+
+**Construction or proof.**
+
+1. H_i(H, M) = Tor_i^{Λ(G)}(Λ(Γ), M) is finitely generated over Λ(Γ); torsion because H_i(H, M(p)) is killed by a power of p and H_i(H, M/M(p)) is finitely generated over ℤ_p.
+2. Additivity on short exact sequences from the long exact sequence of H-homology and multiplicativity of characteristic series.
+3. (40): N(g_i) = f_i mod Λ(Γ)^× (Bourbaki, Commutative Algebra VII §4.8, Prop. 18; PadicMeasuresIwasawaAlgebras L4).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.akashiSeries` (constructor): Ak : K₀(𝔐_H(G)) → Q(Γ)^×/Λ(Γ)^×.
+- `TauCeti.NoncommIwasawa.akashiSeriesO` (constructor): Ak_𝒪 over Λ_𝒪(Γ).
+- `TauCeti.NoncommIwasawa.akashiSeries_norm` (compatibility): N(Ak_𝒪(M)) = Ak(M).
+- `TauCeti.NoncommIwasawa.homology_torsion` (characterisation): H_i(H, M) torsion over Λ(Γ) (Lemma 3.1).
+
+**Unit tests.**
+
+- `akashiSeries_commutative`: G = Γ, H = 1: Ak(M) is the characteristic power series of M (only H_0 = M).
+- `akashiSeries_H_finite`: If H is finite of order prime to p, only H_0(H, M) = M_H contributes.
+- `akashiSeries_p_torsion`: For G=Z_p², H the first factor and M=Λ(G)/p, multiplication by the H-coordinate is injective on F_p[[T_H,T_Γ]]. Thus H₀(H,M)=F_p[[T_Γ]], higher H-homology vanishes, and Ak(M)=p modulo Λ(Γ)^×.
+
+**Check.**
+
+- Ak is defined only modulo units; the Euler-characteristic formula uses its value at T = 0 up to p-adic units.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram: Δ_ρ = Ak_𝒪 ∘ tw_{ρ̂}.
+- NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-integral: integrality of Ak_𝒪(tw_ρ(M)) (Lemma 3.9).
+
+**Prerequisites:** [NE.1/category-MHG](#ne1-category-mhg), [NE.2/homology-torsion](#ne2-homology-torsion), `PadicMeasuresIwasawaAlgebras:L4`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Lemma 3.1, p. 171 (Numdam PDF page 9; printed page = PDF page + 162): Lemma 3.1.
+- [CFKSV-2005](#source-cfksv-2005), §3, (37)–(39), p. 177 (Numdam PDF page 15; printed page = PDF page + 162): The Akashi series.
+- [CFKSV-2005](#source-cfksv-2005), §3, (40), p. 178 (Numdam PDF page 16; printed page = PDF page + 162): (40).
+
+<a id="ne3-evaluation-akashi-diagram"></a>
+
+### NE.3.5. The evaluation–Akashi diagram
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/evaluation-akashi-diagram` · lemma.
+
+(Lemma 3.7.) With Δ_ρ([M]) = Ak_𝒪(tw_{ρ̂}(M)) (41)–(42), where ρ̂(g) = ρ(g^{−1})^t is the contragredient, and ∂_Γ : Q_𝒪(Γ)^× → Q_𝒪(Γ)^×/Λ_𝒪(Γ)^×, the square ∂_Γ ∘ Φ′_ρ = Δ_ρ ∘ ∂_G (43) commutes.
+
+**Hypotheses.**
+
+- G without elements of order p (so ∂_G is defined on modules).
+
+**Construction or proof.**
+
+1. Functoriality of the localisation sequence with Morita equivalence gives (47): ∂_1 ∘ v_1 ∘ u_1 = v_0 ∘ u_0 ∘ ∂_G.
+2. For a finite projective resolution P_• of M, u_0([M]) = Σ(−1)^i[M_n(Λ_𝒪(Γ)) ⊗_{Λ(G)} P_i] (49); the row-vector Morita functor identifies (Rⁿ)^t ⊗_{M_n(R)} M_n(R) ⊗_{Λ(G)} P_i with Λ_𝒪(Γ) ⊗_{Λ_𝒪(G)} tw_{ρ̂}(P_i) (50), since the right action (τ ⊗ x^t)g = τḡ ⊗ x^tρ(g)^t is the left action through ρ̂.
+3. tw_{ρ̂}(P_•) resolves tw_{ρ̂}(M), and Λ_𝒪(Γ) ⊗ − computes H_i(H, tw_{ρ̂}(M)), whose alternating class is Ak_𝒪.
+
+**Check.**
+
+- The contragredient ρ̂ appears on the module side: the evaluation at ρ corresponds to twisting by ρ̂.
+
+**Prerequisites:** [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.3/akashi-series](#ne3-akashi-series), [NE.3/twisted-module](#ne3-twisted-module), [NE.2/boundary-map](#ne2-boundary-map), `GeneralAlgebraicKTheory:K.7`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Lemma 3.7, p. 178 (Numdam PDF page 16; printed page = PDF page + 162): Lemma 3.7.
+- [CFKSV-2005](#source-cfksv-2005), §3, proof of Lemma 3.7, p. 179 (Numdam PDF page 17; printed page = PDF page + 162): The proof.
+
+<a id="ne3-euler-characteristic-evaluation"></a>
+
+### NE.3.6. Characteristic elements compute twisted Euler characteristics
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/euler-characteristic-evaluation` · theorem.
+
+(Theorem 3.6.) Assume G has no element of order p. Let M ∈ 𝔐_H(G) with characteristic element ξ_M. For every continuous ρ : G → GL_n(𝒪) with χ(G, tw_{ρ̂}(M)) finite, ξ_M(ρ) ≠ 0, ∞ and χ(G, tw_{ρ̂}(M)) = |ξ_M(ρ)|_p^{−m_ρ}, where m_ρ = [L : ℚ_p] and |p|_p = 1/p.
+
+**Hypotheses.**
+
+- G has no element of order p; χ(G, tw_{ρ̂}(M)) finite.
+
+**Construction or proof.**
+
+1. If χ(G, W) is finite (W = tw_{ρ̂}(M)), then φ(f_{i,W}) ≠ 0 for all i, φ(Ak(W)) ≠ 0, ∞ and χ(G, W) = |φ(Ak(W))|_p^{−1} (44) (Coates–Schneider–Sujatha, via Hochschild–Serre and χ(Γ, N) = |f_N(0)|_p^{−1}; requested from IntegralIwasawaTheory I.4).
+2. By (40) and N ∘ φ = φ ∘ N, χ(G, W) = |φ(Ak_𝒪(W))|_p^{−m_ρ} (45).
+3. Lemma 3.7 gives ∂_Γ(Φ′_ρ(ξ_M)) = Ak_𝒪(tw_{ρ̂}(M)) (46), and the value at T = 0 is ξ_M(ρ).
+
+**Check.**
+
+- The formula determines |ξ_M(ρ)|_p only; the unit part of ξ_M(ρ) is not an Euler-characteristic invariant.
+
+**Prerequisites:** [NE.3/evaluation-akashi-diagram](#ne3-evaluation-akashi-diagram), [NE.2/characteristic-element](#ne2-characteristic-element), `SelmerIwasawaCohomology:L3`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Theorem 3.6, p. 177 (Numdam PDF page 15; printed page = PDF page + 162): Theorem 3.6.
+- [CFKSV-2005](#source-cfksv-2005), §3, proof of Theorem 3.6, p. 178 (Numdam PDF page 16; printed page = PDF page + 162): (41)–(45).
+
+**Atlas planet:** Euler characteristics from characteristic elements.
+
+<a id="ne3-artin-evaluation-integral"></a>
+
+### NE.3.7. Evaluation at Artin representations under a finiteness condition
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-integral` · theorem.
+
+(Theorem 3.8, Lemma 3.9.) Assume G has no element of order p and let M ∈ 𝔐_H(G) satisfy H_i(H′, M) finite for all i ≥ 1 and all open H′ ⊆ H normal in G (51). Then for every Artin representation ρ (ker ρ open), Ak_𝒪(tw_ρ(M)) ∈ Λ_𝒪(Γ)[1/p] modulo units (52), ξ_M(ρ) ≠ ∞, and ξ_M(ρ) ≠ 0 iff χ(G, tw_{ρ̂}(M)) is finite.
+
+**Hypotheses.**
+
+- G without elements of order p; (51).
+
+**Construction or proof.**
+
+1. With H′ = ker ρ ∩ H, W = tw_ρ(M) is M_𝒪ⁿ as an H′-module, so H_i(H′, W) is finite for i ≥ 1 (54); Hochschild–Serre for Δ = H/H′ shows H_i(H, W) is killed by a power of p for i ≥ 1, so g_{i,W} = π^{μ_i} (53).
+2. Hence Ak_𝒪(W) = g_{0,W}∏π^{(−1)^iμ_i} (56), and φ(Ak_𝒪(W)) ≠ 0 iff φ(g_{0,W}) ≠ 0 iff χ(G, W) is finite.
+3. Lemma 3.7 then gives Φ′_ρ(ξ_M) ∈ Λ_𝒪(Γ)_𝔭 and the finiteness criterion.
+
+**Check.**
+
+- Condition (51) is on all open normal H′ ⊆ H; it holds for M iff it holds for M(p) and M/M(p).
+
+**Prerequisites:** [NE.3/euler-characteristic-evaluation](#ne3-euler-characteristic-evaluation), [NE.3/evaluation-akashi-diagram](#ne3-evaluation-akashi-diagram), `SelmerIwasawaCohomology:L3`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Theorem 3.8, p. 180 (Numdam PDF page 18; printed page = PDF page + 162): Theorem 3.8.
+- [CFKSV-2005](#source-cfksv-2005), §3, Lemma 3.9, p. 181 (Numdam PDF page 19; printed page = PDF page + 162): Lemma 3.9.
+
+<a id="ne3-artin-formalism-euler"></a>
+
+### NE.3.8. Artin formalism for G-Euler characteristics
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/artin-formalism-euler` · theorem.
+
+(Theorem 3.10.) Let G be a compact p-adic Lie group without elements of order p (no H needed), G′ ⊆ G open normal, Δ = G/G′, V the irreducible Q̄_p-representations of Δ, all realised over L with integers 𝒪. For finitely generated M, χ(G′, M) is finite iff χ(G, tw_ρ(M)) is finite for all ρ ∈ V, and then χ(G′, M)^{[L:ℚ_p]} = ∏_{ρ∈V} χ(G, tw_ρ(M))^{n_ρ} (58).
+
+**Hypotheses.**
+
+- G without elements of order p.
+
+**Construction or proof.**
+
+1. 0 → 𝒪[Δ] → ⊕_ρ L_ρ^{n_ρ} → W → 0 with W finite (59); tensor with a projective resolution P_• of M_𝒪 (61).
+2. H_i(C) = H_i(G′, M_𝒪), H_i(D_ρ) = H_i(G, tw_ρ(M)) (64)–(65).
+3. K_i = W ⊗ C_i is finite and [C] = 0 in K₀(𝒪[Δ]) (injectivity into K₀(L[Δ])), so ∏♯H_i(K)^{(−1)^i} = θ([C]) = 1 (67)–(69).
+
+**Check.**
+
+- The exponent [L : ℚ_p] on the left accounts for the 𝒪-coefficients.
+
+**Prerequisites:** [NE.3/twisted-module](#ne3-twisted-module), [NE.2/k0-representation-injective](#ne2-k0-representation-injective), `PadicMeasuresIwasawaAlgebras:L1`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, p. 182 (Numdam PDF page 20; printed page = PDF page + 162): Theorem 3.10.
+- [CFKSV-2005](#source-cfksv-2005), §3, proof of Theorem 3.10, p. 184 (Numdam PDF page 22; printed page = PDF page + 162): The end of the proof.
+
+<a id="ne3-gl2-euler-example"></a>
+
+### NE.3.9. The GL₂ example: X₁(11) at p = 5
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/gl2-euler-example` · application.
+
+(Proposition 3.11.) For E = X₁(11), p = 5, F_∞ = ℚ(E_{5^∞}), G = Gal(F_∞/ℚ), H = Gal(F_∞/ℚ^cyc), M = X(E/F_∞) ∈ 𝔐_H(G), and the degree-4 Artin representations ρ_i induced from nontrivial characters of Gal(F_i/ℚ(μ_5)) with F_1 = ℚ(E_5), F_2 = ℚ(E_{2,5}) (E_2 the conductor-11 curve with E_2(ℚ) = 0): χ(G, tw_{ρ_1}(M)) = 5³ and χ(G, tw_{ρ_2}(M)) = 5, so |ξ_{E,5}(ρ_1)|_5^{−1} = 5³ and |ξ_{E,5}(ρ_2)|_5^{−1} = 5 (ρ̂_i = ρ_i).
+
+**Hypotheses.**
+
+- The arithmetic inputs χ(G_F, X) = 5⁴, χ(G_{F_1}, X) = 5¹⁶, χ(G_{F_2}, X) = 5⁸ ((78)–(80)) come from Coates–Howson's Euler characteristic formula (77) and Fisher's computations, cited by CFKSV; they are recorded as a gap.
+
+**Construction or proof.**
+
+1. Theorem 3.10 with G′ = G_F (Δ cyclic of order 4, four characters over ℚ_5) and G′ = G_{F_1} (Δ = Gal(F_1/ℚ) of order 20: the four characters and ρ_1) gives χ(G, tw_{ρ_1}X)⁴ = 5¹⁶/5⁴ = 5¹².
+2. Likewise χ(G, tw_{ρ_2}X)⁴ = 5⁸/5⁴ = 5⁴.
+3. Theorem 3.6 converts these into the absolute values of the evaluations.
+
+**Check.**
+
+- Checks the Frobenius/contragredient conventions: ρ_i are self-dual, so tw_{ρ̂_i} = tw_{ρ_i}.
+
+**Prerequisites:** [NE.3/artin-formalism-euler](#ne3-artin-formalism-euler), [NE.3/euler-characteristic-evaluation](#ne3-euler-characteristic-evaluation).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, Example, p. 185 (Numdam PDF page 23; printed page = PDF page + 162): The example.
+- [CFKSV-2005](#source-cfksv-2005), §3, Proposition 3.11, p. 186 (Numdam PDF page 24; printed page = PDF page + 162): Proposition 3.11 and (75).
+- [CFKSV-2005](#source-cfksv-2005), §3, proof of Proposition 3.11, p. 187 (Numdam PDF page 25; printed page = PDF page + 162): The computation.
+
+<a id="ne3-characteristic-element-integrality-conjecture"></a>
+
+### NE.3.10. The integrality conjecture for characteristic elements (Conjecture 4.8)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/characteristic-element-integrality-conjecture` · definition.
+
+Assume G has no element of order p. Put R₁ = Λ(G), R₂ = Λ(G)[1/p], R₃ = Λ(G)_{S*} (so R₁ ⊂ R₂ ⊂ R₃), A₁ = Λ_𝒪(Γ), A₂ = Λ_𝒪(Γ)[1/p], and α : R₃^× → K₁(R₃) the canonical map (surjective by NE.2/units-surject-k1). Let ℜ(G) be the continuous representations ρ of the form (11) (over the integers of finite extensions of ℚ_p) and 𝔄(G) ⊂ ℜ(G) the Artin ones. Conjecture 4.8 is the proposition that, for every ξ ∈ K₁(R₃), in each of four cases the assertions (a)–(d) are equivalent: Case 1: (a) ξ ∈ α(R₂ ∩ R₃^×), (b) ξ(ρ) ≠ ∞ for all ρ, (c) Φ′_ρ(ξ) ∈ A₂ for all ρ, (d) Φ′_ρ(ξ) ∈ A₂ for all Artin ρ; Case 2: α(R₁ ∩ R₃^×), ξ(ρ) finite and in 𝒪, Φ′_ρ(ξ) ∈ A₁; Case 3: α(R₂^×), ξ(ρ) ≠ 0, ∞, Φ′_ρ(ξ) ∈ A₂^×; Case 4: α(R₁^×), ξ(ρ) finite and in 𝒪^×, Φ′_ρ(ξ) ∈ A₁^×. (Lemma 4.9.) In each case (a) ⇒ (b), (b) ⇔ (c) and (c) ⇒ (d).
+
+**Hypotheses.**
+
+- a conjecture: it is stated as a proposition, never assumed by a downstream theorem
+- CFKSV report it true for G = ℤ_p^d × Δ (Δ finite of order prime to p), proof omitted, and cite Kato [21] Proposition 8.19 as further evidence; neither is planned (recorded as remaining)
+- The supporting direct-product case and the cited Kato Proposition 8.19 still require their precise source proofs; they do not turn the general integrality conjecture into a theorem.
+
+**Construction or proof.**
+
+1. Lemma 4.9: (c) ⇒ (d) is trivial, (c) ⇒ (b) because ξ(ρ) is the image of Φ′_ρ(ξ) under augmentation; (a) ⇒ (b) since ξ = α(p^{−m}f) gives ξ(ρ) = p^{−mn} det ρ(f).
+2. (b) ⇒ (c): the twisting identity Φ′_{ρη}(ξ) = Φ′_ρ(ξ)(η(γ)^{−1}(1 + T) − 1) (94) for continuous η : Γ → 𝒪^×, proved on characteristic elements (they generate K₁(R₃)) from (87) and Lemma 3.7; a pole of Φ′_ρ(ξ) at T = α in the maximal ideal would give ξ(ηρ) = ∞ for η(γ₀) = (1 + α)^{−1}.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.IntegralityConjecture` (data): The proposition 'for all ξ, (a)–(d) are equivalent' in each case.
+- `TauCeti.NoncommIwasawa.integrality_a_imp_b` (relation): Lemma 4.9: (a) ⇒ (b).
+- `TauCeti.NoncommIwasawa.integrality_b_iff_c` (relation): Lemma 4.9: (b) ⇔ (c).
+- `TauCeti.NoncommIwasawa.integrality_c_imp_d` (relation): Lemma 4.9: (c) ⇒ (d).
+- `TauCeti.NoncommIwasawa.artinEvaluation_twist` (compatibility): (94): Φ′_{ρη}(ξ) = Φ′_ρ(ξ)(η(γ)^{−1}(1 + T) − 1).
+
+**Unit tests.**
+
+- `integrality_zp`: G = ℤ_p: Case 2 is the Weierstrass-preparation statement about poles in the open disc.
+- `integrality_unit`: ξ = α(u) with u ∈ Λ(G)^× satisfies Case 4 (a), hence (b)–(d).
+- `integrality_pole`: ξ = α((T − p)^{−1}) for G = ℤ_p fails Case 1 (b) at the character with η(γ₀) − 1 = p.
+- `integrality_conjecture_not_assumed`: No node in the packet has IntegralityConjecture as an unconditional prerequisite.
+
+**Check.**
+
+- For G = ℤ_p (so H = 1) Case 2 says: a characteristic power series lies in ℤ_p[[T]] up to units exactly when it has no poles at the points of the open unit disc; check this on f = T/(T − p).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-consequences: Case 1 would put ξ_E in the image of Λ(G)[1/p]^× ∩ Λ(G)_{S*}^×.
+- NoncommutativeAndEquivariantIwasawa:NE.6: integrality of the p-adic L-function in the source-qualified main theorems.
+
+**Prerequisites:** [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.3/evaluation-akashi-diagram](#ne3-evaluation-akashi-diagram), [NE.2/units-surject-k1](#ne2-units-surject-k1), [NE.2/characteristic-element](#ne2-characteristic-element).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §4, Conjecture 4.8 and Lemma 4.9, p. 196 (Numdam PDF page 34; printed page = PDF page + 162): Conjecture 4.8 (above this remark) and the consequence of Case 1 for modules satisfying (51).
+- [CFKSV-2005](#source-cfksv-2005), §4, after Lemma 4.9, p. 197 (Numdam PDF page 35; printed page = PDF page + 162): The evidence (ℤ_p^d × Δ; Kato).
+
+<a id="ne3-k1-prime"></a>
+
+### NE.3.11. SK₁ and the quotient K′₁ of Iwasawa algebras
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/k1-prime` · construction.
+
+For a finite group P and 𝒪 the integers of a finite extension L/ℚ_p, SK₁(𝒪[P]) = ker(K₁(𝒪[P]) → K₁(L[P])). For a compact p-adic Lie group G, SK₁(Λ_𝒪(G)) := lim_U SK₁(𝒪[G/U]), and SK₁(Λ_𝒪(G)_S), SK₁(Λ̂_𝒪(G)_S) are its images in K₁(Λ_𝒪(G)_S) and K₁ of the p-adic completion Λ̂_𝒪(G)_S. K′₁(R) := K₁(R)/SK₁(R) for R each of these rings. Then K′₁(Λ_𝒪(G)) ≅ lim_Δ K′₁(𝒪[Δ]) over the finite quotients Δ of G, and K′₁(Λ(G)) ≅ lim_{Ḡ} K′₁(Λ(Ḡ)) over the quotients Ḡ = G/U by open pro-p subgroups U ≤ H normal in G.
+
+**Hypotheses.**
+
+- G compact p-adic Lie.
+
+**Construction or proof.**
+
+1. K₁(Λ(G)) ≅ lim_n K₁(Λ(G)/J^n) for the Jacobson radical J (Fukaya–Kato, Proposition 1.5.1; see the gap on Fukaya–Kato).
+2. For the finite groups K₁(Λ(G)/J^n, I_{Δ,n}/J^n) the limits over Δ and n commute, and ⋂_n⋂_Δ I_{Δ,n} = 0, so K₁(Λ_𝒪(G)) ≅ lim_Δ K₁(𝒪[Δ]) (Lemma 19).
+3. Each SK₁(𝒪[Δ]) is finite (Wall; see the gap on Oliver's book), so the quotients pass to the limit.
+4. Corollary 20 by cofinality of the finite quotients.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.SK1` (constructor): SK₁ of 𝒪[P], of Λ_𝒪(G) (as a limit) and its images.
+- `TauCeti.NoncommIwasawa.K1Prime` (constructor): K′₁(R) = K₁(R)/SK₁(R).
+- `TauCeti.NoncommIwasawa.k1Prime_equiv_limit` (equivalence): K′₁(Λ_𝒪(G)) ≅ lim_Δ K′₁(𝒪[Δ]) (Lemma 19).
+- `TauCeti.NoncommIwasawa.k1Prime_equiv_limit_proP` (equivalence): K′₁(Λ(G)) ≅ lim K′₁(Λ(G/U)) over open pro-p U ≤ H normal in G (Corollary 20).
+- `TauCeti.NoncommIwasawa.k1Prime_map` (functoriality): Natural in G: quotient maps and norms.
+- `TauCeti.NoncommIwasawa.evaluate_k1Prime` (compatibility): Artin evaluation factors through K′₁ (NE.3/artin-evaluation).
+
+**Unit tests.**
+
+- `abelian`: G abelian: SK₁(Λ(G)) = 1 and K′₁(Λ(G)) = K₁(Λ(G)) ≅ Λ(G)^×.
+- `prime_to_p_times_abelian`: G = G_ab × Δ with #Δ prime to p: K′₁(Λ(G)_S) = K₁(Λ(G)_S) (Kakde, Lemma 17).
+- `finite_cyclic`: P cyclic: SK₁(ℤ_p[P]) = 1, so K′₁(ℤ_p[P]) = K₁(ℤ_p[P]) = ℤ_p[P]^×.
+- `sk1_invisible`: Elements differing by the image of integral SK₁ have identical Artin evaluations and identical boundary. If that image is nontrivial, these data cannot give uniqueness in K₁; no nontriviality or vanishing for every group is assumed.
+
+**Check.**
+
+- K′₁ is used because SK₁ is invisible to Artin evaluations; uniqueness in the main conjecture holds in K′₁.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture: the group where ζ(F_∞/F) lives
+- NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one: Corollary 20
+
+**Prerequisites:** [NE.2/localization-sequence](#ne2-localization-sequence), [NE.0/iwasawa-local-iff-pro-p](#ne0-iwasawa-local-iff-pro-p).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §2.2, Definitions 6 and 7, p. 9 (arXiv v3): Definitions 6–7; Lemma 19 and Corollary 20 (pp. 17–19).
+
+<a id="ne3-semisimple-total-quotient"></a>
+
+### NE.3.12. Semisimple total quotient in dimension one
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/semisimple-total-quotient` · construction.
+
+Suppose G is compact p-adic analytic with an open central Γ₀≅Z_p, and O is a finite extension ring of integers. With R=O[[Γ₀]] and F=Frac(R), define Q_O(G)=F⊗_R O[[G]]. It is the classical total ring of fractions and a finite-dimensional separable semisimple F-algebra; changing Γ₀ gives the canonically isomorphic total quotient. It is distinct from Λ(G)_S and Λ(G)[1/p].
+
+**Hypotheses.**
+
+- G has an open central Z_p-subgroup (the one-dimensional situation of the cited routes); O finite over Z_p; coefficients are characteristic zero after tensoring.
+
+**Construction or proof.**
+
+1. The finite free Λ_O(Γ₀)-basis from open-subgroup freeness has multiplication given by a central finite-group cocycle; use the generic crossed/twisted algebra from InductionRestriction Layer 7. This argument does not depend on the later Kakde carry calculations.
+2. After extending to an algebraic closure of F, the finite twisted group algebra is semisimple by averaging in characteristic zero.
+3. Every regular element becomes an invertible endomorphism of the finite-dimensional semisimple algebra; use the universal localization property.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.IwasawaTotalQuotient.ofCentralSubgroup` (constructor): Q_O(G)=Frac(O[[Γ₀]])⊗O[[G]].
+- `TauCeti.NoncommIwasawa.IwasawaTotalQuotient.map` (coercion): The injective map Λ_O(G)→Q_O(G) inverts all regular elements.
+- `TauCeti.NoncommIwasawa.IwasawaTotalQuotient.centralChange` (equivalence): For two open central subgroups the two constructions commute with the Λ_O(G) embeddings.
+- `TauCeti.NoncommIwasawa.IwasawaTotalQuotient.split` (structure): After a common finite splitting extension the simple factors become matrix algebras, with their individual centers retained.
+
+**Unit tests.**
+
+- `semisimple_total_quotient_1`: For G=Z_p, Q_O(G)=Frac(O[[T]]), whereas the canonical S-localization still does not invert p.
+- `semisimple_total_quotient_2`: For G=C₂×Z_p with p odd, Q_Qp(G) is the product of two copies of Frac(Z_p[[T]]); it is not a field.
+- `semisimple_total_quotient_3`: For the trivial finite quotient, the construction is just the central field F; changing Γ₀ to Γ₀^p gives the same total quotient of the larger algebra.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.3/reduced-norm-sk1-comparison: provides the semisimple algebra on which characterwise reduced norms are meaningful
+- NoncommutativeAndEquivariantIwasawa:NE.7/fitting-order: supplies the ambient semisimple algebra
+
+**Prerequisites:** [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup), [NE.1/canonical-localization](#ne1-canonical-localization), `tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs`, `tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.1.4, Lemma 37, pp. 31–32: Identifies the total fraction algebra with the central fraction-field scalar extension.
+- [NICKEL-FITTING](#source-nickel-fitting), Example 2.7 and §2.2, pp. 7–8: Treats one-dimensional Iwasawa algebras as orders in separable semisimple total quotient algebras.
+
+<a id="ne3-reduced-norm-sk1-comparison"></a>
+
+### NE.3.13. Reduced norms and the surviving SK₁ ambiguity
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/reduced-norm-sk1-comparison` · theorem.
+
+For the dimension-one total quotient Q=∏_i M_(n_i)(D_i), use the componentwise reduced norms supplied by IntegralHeckeAndGaloisDeterminants Layer 0. They induce Nrd:K₁(Q)→ζ(Q)^×, with kernel SK₁(Q). After a common splitting field, equality of determinant functions on all simple factors is equivalent to equality of reduced norms. Thus equality of all such characterwise determinants determines a localized class only modulo the inverse image of SK₁(Q); without injectivity K₁(Λ_S)→K₁(Q), it need not even determine a unique class modulo an internally defined kernel. Artin evaluations at admissible cyclotomic points require a separate separation argument. Kakde’s finite-level SK₁(Λ) and this SK₁(Q) are different definitions.
+
+**Hypotheses.**
+
+- Dimension-one Q as above; all simple factors and their centers retained; a common splitting field.
+- For conclusions about Λ_S additionally state the kernel of its map to Q; equality at isolated points is not substituted for equality of determinant functions.
+
+**Construction or proof.**
+
+1. Import the reduced norm as the splitting-independent determinant law, extend to stable matrices and factor through K₁ using elementary matrices.
+2. Read equality of split determinants componentwise; faithful extension of centers detects equality of the reduced norms.
+3. Take the kernel of K₁(Λ_S)→K₁(Q)→ζ(Q)^× and retain it explicitly; use a proved power-series separation theorem only when converting interpolation values to functions.
+
+**Check.**
+
+- For Q=M₂(F), Nrd is the ordinary determinant, so diag(a,b) maps to ab, not (ab)².
+- For Q=F×F the two components remain ordered; (a,b) and (b,a) cannot be identified by multiplying them.
+- A hypothetical nontrivial x∈SK₁(Q) has every split determinant equal to 1 but x≠1; no proof of uniqueness can discard this possibility.
+
+**Prerequisites:** [NE.3/semisimple-total-quotient](#ne3-semisimple-total-quotient), [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.3/k1-prime](#ne3-k1-prime), `KTheoryLowDegrees:U.3`, `IntegralHeckeAndGaloisDeterminants:IHG.0/azumaya-determinant`.
+
+**Sources.**
+
+- [RITTER-WEISS-2010](#source-ritter-weiss-2010), Introduction and §1, pp. 1–5: Uses Det as the reduced-norm-valued character function; the main theorem is an existence assertion.
+- [RITTER-WEISS-2026](#source-ritter-weiss-2026), Introduction and Theorem 1A, pp. 1–7: Makes the total quotient SK₁ obstruction explicit and reduces its vanishing conditionally.
+- [NICKEL-FITTING](#source-nickel-fitting), §2.2, pp. 7–8; Remark 2.19, p. 11: Relates splitting determinants to reduced norms and explains why a Fitting equality cannot recover a relative boundary.
+
+**Atlas planet:** Reduced norms and SK₁.
+
+<a id="ne3-artin-evaluation-functoriality"></a>
+
+### NE.3.14. Functoriality and induction of Artin evaluation
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.3/artin-evaluation-functoriality` · theorem.
+
+For the CFKSV twist Φ_ρ(g)=ρ(g)⊗ḡ and Artin representations admitting the localized map, coefficient extension carries its determinant to the extended determinant, Φ_(ρ⊕σ) gives the product of evaluations, and the trivial n-dimensional representation evaluates a scalar unit u as u^n. For an open subgroup U⊆G with compatible canonical denominator sets, the transfer in K₁ evaluates at σ as the original class at Ind_U^G σ. Quotient descent evaluates at a representation of G/N by inflation. All augmentation evaluations are asserted only on the regular-at-zero domain, with zeros/poles recorded separately.
+
+**Hypotheses.**
+
+- Representations continuous with finite image on stable O-lattices; coefficient extension contains their values.
+- For transfer/quotient statements require the relevant ring maps or finite-projective restriction functors to carry the localized perfect subcategories to each other.
+
+**Construction or proof.**
+
+1. Compare the matrix twisting maps on group elements and use continuity of the coefficient extension.
+2. Use block determinants for sums and the coset matrix for an induced representation; apply Morita invariance with the same left-module convention.
+3. Transport through the Ore universal property when denominators are invertible; restrict augmentation to its domain of regularity.
+
+**Check.**
+
+- For a scalar unit u∈O^× and dim ρ=n, evaluation is u^n.
+- For G=C₂×Γ, U=Γ and σ=1, Ind σ=1⊕sgn; evaluation after transfer is the product of the two scalar evaluations.
+- A class represented by T has augmentation zero and T⁻¹ a pole; neither belongs to an everywhere O^×-valued evaluation map.
+
+**Prerequisites:** [NE.3/twist-homomorphism](#ne3-twist-homomorphism), [NE.3/twist-extends-to-localisation](#ne3-twist-extends-to-localisation), [NE.3/artin-evaluation](#ne3-artin-evaluation), `GeneralAlgebraicKTheory:K.7`, `tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §3, pp. 171–173, equations (13)–(22); Theorem 3.10, pp. 183–184: Defines the matrix map and its augmentation, and gives the induction comparison behind Artin formalism.
+- [KAKDE-2011](#source-kakde-2011), §§3–4, pp. 13–30; Proposition 95, pp. 67–69: Uses norm, quotient and induced-character compatibilities in the interpolation reductions.
+
+## NE.4. Equivariant arithmetic complexes
+
+The module-level GL₂ example and the equivariant complex-level objects are both targets. The dual totally real cochain complex is not identified with ordinary compact support without duality, shifts and local corrections. The p=2 comparison is a separate contract.
+
+<a id="ne4-gl2-dual-selmer-module"></a>
+
+### NE.4.1. The dual Selmer module over the trivialising extension of E[p^∞]
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.4/gl2-dual-selmer-module` · construction.
+
+Let E/ℚ be an elliptic curve and p ≥ 5 a prime of good ordinary reduction ('our hypotheses on p'), F_∞ = ℚ(E_{p^∞}) ⊇ ℚ(μ_{p^∞}) ⊇ ℚ^cyc (Weil pairing), G = Gal(F_∞/ℚ) (a closed subgroup of GL₂(ℤ_p), of dimension 4 without CM and 2 with CM, and with no element of order p), H = Gal(F_∞/ℚ^cyc), Γ = Gal(ℚ^cyc/ℚ). For an algebraic extension L/ℚ the Selmer group is 𝒮(E/L) = ker(H¹(L, E_{p^∞}) → Π_w H¹(L_w, E(L̄_w))) over the non-archimedean w, and X(E/L) = Hom(𝒮(E/L), ℚ_p/ℤ_p); for L Galois over F, X(E/L) is a finitely generated left Λ(Gal(L/F))-module. Also G_F = Gal(F_∞/F), H_F = Gal(F_∞/F^cyc) and Y(E/K) = X(E/K)/X(E/K)(p).
+
+**Hypotheses.**
+
+- p ≥ 5 and good ordinary reduction; p ≥ 5 is what rules out p-torsion in G ⊂ GL₂(ℤ_p)
+- This is the module-level Selmer instance; the separate equivariant-compact-support and dual-complex targets specify the complex-level objects.
+
+**Construction or proof.**
+
+1. Definitions; finite generation of X(E/L) over Λ(Gal(L/F)) by compact Nakayama (NE.0/compact-nakayama) from the finiteness of X(E/F) ⊗ over the augmentation.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.trivialisingField` (constructor): F_∞ = ℚ(E_{p^∞}) with G, H, Γ.
+- `TauCeti.NoncommIwasawa.selmerGroup` (constructor): 𝒮(E/L) for an algebraic extension L/ℚ.
+- `TauCeti.NoncommIwasawa.dualSelmer` (constructor): X(E/L) = Hom(𝒮(E/L), ℚ_p/ℤ_p) as a Λ(Gal(L/F))-module.
+- `TauCeti.NoncommIwasawa.dualSelmer_fg` (characterisation): X(E/L) is finitely generated over Λ(Gal(L/F)).
+- `TauCeti.NoncommIwasawa.G_noPTorsion` (characterisation): G has no element of order p when p ≥ 5.
+
+**Unit tests.**
+
+- `selmer_cm_dim`: For E with CM, G has dimension 2; without CM, dimension 4 (Serre).
+- `selmer_weil_pairing`: F_∞ ⊇ ℚ(μ_{p^∞}) ⊇ ℚ^cyc, so Γ is a quotient of G.
+- `selmer_p3_excluded`: p = 3: GL₂(ℤ_3) contains elements of order 3, e.g. (0 −1; 1 −1), so G may have 3-torsion; the hypotheses exclude p = 3.
+- `selmer_Y`: Y(E/K) = X(E/K)/X(E/K)(p) removes the p-primary torsion.
+
+**Check.**
+
+- Check that for L = F finite X(E/F) is the usual Pontryagin dual of the p-primary Selmer group, with ℤ_p-corank the Mordell–Weil rank plus the corank of Ш[p^∞].
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.4/mh-conjecture-and-mazur: the module whose membership in 𝔐_H(G) is conjectured.
+- NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture: its characteristic element ξ_E.
+- ModularIwasawaMainConjectures: the cyclotomic specialisation X(E/ℚ^cyc).
+
+**Prerequisites:** [NE.0/compact-nakayama](#ne0-compact-nakayama), [NE.1/category-MHG](#ne1-category-mhg), `ArithmeticGaloisDuality:R02.4`.
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §5, set-up, p. 197 (Numdam PDF page 35; printed page = PDF page + 162): F_∞ = ℚ(E_{p^∞}), G, H, Γ.
+- [CFKSV-2005](#source-cfksv-2005), §5, Selmer groups and the hypotheses on p, p. 198 (Numdam PDF page 36; printed page = PDF page + 162): 𝒮(E/L), X(E/L) and the hypotheses on p.
+
+<a id="ne4-mh-conjecture-and-mazur"></a>
+
+### NE.4.2. The 𝔐_H(G) conjecture and Mazur's torsion conjecture (Conjectures 5.1–5.2)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.4/mh-conjecture-and-mazur` · definition.
+
+(Conjecture 5.1.) Under the hypotheses on p, X(E/F_∞) belongs to 𝔐_H(G), i.e. is S*-torsion (NE.1/category-MHG). (Conjecture 5.2, Mazur.) If E has good ordinary reduction at p, then for each finite extension F of ℚ, X(E/F^cyc) is Λ(Γ_F)-torsion. Both are propositions, not assumptions of any downstream theorem.
+
+**Hypotheses.**
+
+- CFKSV hope Conjecture 5.1 is equivalent to Conjecture 5.2 for all F ⊂ F_∞, and prove only the partial results of NE.4/mh-criteria
+
+**Construction or proof.**
+
+1. Definitions.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.MHConjecture` (data): X(E/F_∞) ∈ 𝔐_H(G).
+- `TauCeti.NoncommIwasawa.MazurTorsionConjecture` (data): X(E/F^cyc) is Λ(Γ_F)-torsion for every finite F.
+- `TauCeti.NoncommIwasawa.MHConjecture.of_criteria` (relation): The sufficient conditions of NE.4/mh-criteria.
+
+**Unit tests.**
+
+- `mh_cm_case`: For CM curves Conjecture 5.2 holds (two-variable main conjecture; CFKSV p. 200), and 5.1 reduces to μ = 0 over some L (Corollary 5.5).
+- `mh_conductor11`: For the conductor-11 curves at p = 5, Conjecture 5.1 holds (NE.4/mh-criteria).
+- `mh_not_assumed`: No node uses MHConjecture as an unconditional prerequisite.
+
+**Check.**
+
+- Conjecture 5.2 is the cyclotomic input of every GL₂ main-conjecture statement; keep it separate from 5.1.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.4/mh-criteria: the criteria relating the two conjectures.
+- NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture: the main conjecture assumes X(E/F_∞) ∈ 𝔐_H(G).
+
+**Prerequisites:** [NE.4/gl2-dual-selmer-module](#ne4-gl2-dual-selmer-module), [NE.1/category-MHG](#ne1-category-mhg).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §5, Conjectures 5.1 and 5.2, p. 198 (Numdam PDF page 36; printed page = PDF page + 162): The two conjectures (stated just above) and their relation.
+
+<a id="ne4-mh-criteria"></a>
+
+### NE.4.3. Criteria for X(E/F_∞) ∈ 𝔐_H(G) (Lemmas 5.3–5.4, Corollary 5.5, Proposition 5.6)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.4/mh-criteria` · theorem.
+
+(Lemma 5.3.) If X(E/F_∞) ∈ 𝔐_H(G), then for each finite F ⊂ F_∞: (i) X(E/F^cyc) is Λ(Γ_F)-torsion; (ii) H_i(H_F, X(E/F_∞)) = 0 for i ≥ 1; (iii) H_i(H_F, Y(E/F_∞)) is finite for i = 1, 2 and zero for i > 2; and μ_{G_L}(X(E/F_∞)) = μ_{Γ_L}(X(E/L^cyc)) when G_L is pro-p. (Lemma 5.4.) If X(E/F^cyc) is Λ(Γ_F)-torsion for all finite F and some L has G_L pro-p, μ_{G_L}(X(E/F_∞)) = μ_{Γ_L}(X(E/L^cyc)) and H₁(H_L, Y(E/F_∞)) finite, then X(E/F_∞) ∈ 𝔐_H(G). (Corollary 5.5.) If E has CM, X(E/F_∞) ∈ 𝔐_H(G) iff μ_{Γ_L}(X(E/L^cyc)) = 0 for some L with G_L pro-p. (Proposition 5.6.) If some L ⊂ F_∞ with G_L pro-p carries an elliptic curve E′ isogenous to E over L with X(E′/L^cyc) finitely generated over ℤ_p, then X(E/F_∞) ∈ 𝔐_H(G). Example: the three conductor-11 curves E₀, E₁, E₂ at p = 5 with L = ℚ(μ₅) (G_L pro-5 and X(E₁/L^cyc) = 0) satisfy Conjecture 5.1.
+
+**Hypotheses.**
+
+- the proofs use Coates–Howson-type results ([8], [9], [11] of CFKSV: the finiteness of H¹(H_F, E_{p^∞}), Proposition 2.13 and Lemma 2.5 of [9]), Venjakob's pseudo-null theory [26], Schneps' thesis [28] and the two-variable CM main conjecture [27] ; their supplier and primary-proof obligations are recorded as an arithmetic gap
+- the vanishing X(E₁/ℚ(μ₅)^cyc) = 0 is quoted from [16] (a gap)
+
+**Construction or proof.**
+
+1. Lemma 5.3: the restriction map r_F : X(E/F_∞)_{H_F} → X(E/F^cyc) has finite cokernel (dual to ker t_F ⊂ H¹(H_F, E_{p^∞}), finite), so Y(E/F^cyc) is finitely generated over ℤ_p and X(E/F^cyc) is Λ(Γ_F)-torsion; the rest from [9].
+2. Lemma 5.4: H₀(H_L, Y(E/F_∞)) is Λ(Γ_L)-torsion, and formula (25) of [9] forces its μ-invariant to vanish; Nakayama over the pro-p H_L.
+3. Corollary 5.5 from Lemmas 5.3–5.4 with Schneps and Venjakob; Proposition 5.6 by Nakayama from r_L and an isogeny f : E′ → E whose induced map X(E/F_∞) → X(E′/F_∞) has kernel killed by a power of p.
+
+**Check.**
+
+- Check that Proposition 5.6's example uses the same F_∞ for all three isogenous curves.
+
+**Prerequisites:** [NE.4/mh-conjecture-and-mazur](#ne4-mh-conjecture-and-mazur), [NE.0/compact-nakayama](#ne0-compact-nakayama), [NE.1/s-torsion-iff-finitely-generated](#ne1-s-torsion-iff-finitely-generated).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §5, Lemma 5.3, p. 199 (Numdam PDF page 37; printed page = PDF page + 162): Lemma 5.3 (statement on this page).
+- [CFKSV-2005](#source-cfksv-2005), §5, Lemma 5.4 and Corollary 5.5, p. 200 (Numdam PDF page 38; printed page = PDF page + 162): Corollary 5.5 and the lead-in to Proposition 5.6.
+- [CFKSV-2005](#source-cfksv-2005), §5, Proposition 5.6 and the conductor-11 example, p. 201 (Numdam PDF page 39; printed page = PDF page + 162): The example E₀, E₁, E₂ at p = 5.
+
+<a id="ne4-admissible-extension"></a>
+
+### NE.4.4. Admissible p-adic Lie extensions and the hypothesis μ = 0
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.4/admissible-extension` · definition.
+
+Let F be a totally real number field and p odd. An admissible p-adic Lie extension F_∞/F is a Galois extension, unramified outside a finite set of primes, with F_∞ totally real, G = Gal(F_∞/F) a p-adic Lie group and F_cyc ⊆ F_∞; put H = Gal(F_∞/F_cyc), Γ = G/H, and fix a finite set Σ of finite primes containing those ramified in F_∞. F_∞/F satisfies μ = 0 if some open pro-p subgroup H′ ≤ H has Gal(M/F_∞^{H′}) finitely generated over ℤ_p, M the maximal abelian pro-p extension of F_∞^{H′} unramified outside Σ; equivalently, the Iwasawa μ-invariant of L(μ_p) vanishes for L with L_cyc = F_∞^{H′}. Equivalently (Lemma 9), X = Gal(M_∞/F_∞) is finitely generated over Λ(H), M_∞ the maximal abelian pro-p extension of F_∞ unramified outside Σ.
+
+**Hypotheses.**
+
+- F totally real, p odd, Σ finite containing the ramified primes.
+
+**Construction or proof.**
+
+1. Lemma 9: for H′ pro-p, Λ(H′) is local, so by Nakayama X is finitely generated over Λ(H) iff X_{H′} is finitely generated over ℤ_p; the inflation–restriction sequence for Gal(F_Σ/F_∞) ⊆ Gal(F_Σ/F_∞^{H′}) with ℚ_p/ℤ_p coefficients (ArithmeticGaloisDuality R02.2) and the cofiniteness of H^i(H′, ℚ_p/ℤ_p) compare X_{H′} with Gal(M/F_∞^{H′}).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.AdmissibleExtension` (constructor): F_∞/F with G, H, Γ and Σ.
+- `TauCeti.NoncommIwasawa.MuZero` (constructor): The hypothesis μ = 0 (Definition 8).
+- `TauCeti.NoncommIwasawa.muZero_iff_fg` (characterisation): μ = 0 ⇔ Gal(M_∞/F_∞) is finitely generated over Λ(H) (Lemma 9).
+- `TauCeti.NoncommIwasawa.AdmissibleExtension.sub` (functoriality): F_∞^U/F for U ≤ H closed normal in G is admissible, and μ = 0 passes to it.
+- `TauCeti.NoncommIwasawa.AdmissibleExtension.res` (functoriality): F_∞/F′ for F ⊆ F′ ⊆ F_∞ with [F′:F] finite is admissible.
+
+**Unit tests.**
+
+- `cyclotomic`: F_∞ = F_cyc: G = Γ ≅ ℤ_p and H = 1; μ = 0 is Iwasawa's μ = 0 for F(μ_p).
+- `abelian_q`: F = ℚ(μ_p)^+, F_∞ the maximal abelian p-extension of F_cyc unramified outside p: admissible, and μ = 0 holds by Ferrero–Washington (Kakde's first example).
+- `cm_nonexample`: F(μ_{p^∞})/F is not admissible: it is not totally real.
+- `no_cyclotomic`: A finite totally real extension is not admissible: it does not contain F_cyc.
+
+**Check.**
+
+- μ = 0 is a hypothesis, recorded separately; Ferrero–Washington proves it for abelian L/ℚ, and nothing more general is claimed.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex: the extension whose complex is taken
+- NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture: the hypotheses of the conjecture
+
+**Prerequisites:** [NE.0/compact-padic-analytic-group](#ne0-compact-padic-analytic-group), [NE.0/compact-nakayama](#ne0-compact-nakayama), [NE.1/s-torsion-iff-finitely-generated](#ne1-s-torsion-iff-finitely-generated), `ArithmeticGaloisDuality:R02.2/five-term-transgression`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §2.1, Definition 1, p. 4 (arXiv v3): Definition 1; Definition 8 and Lemma 9 (pp. 9–10).
+
+<a id="ne4-totally-real-iwasawa-complex"></a>
+
+### NE.4.5. The complex C(F_∞/F)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.4/totally-real-iwasawa-complex` · construction.
+
+For an admissible F_∞/F, C(F_∞/F) = RHom(RΓ_ét(Spec 𝒪_{F_∞}[1/Σ], ℚ_p/ℤ_p), ℚ_p/ℤ_p) ≅ RHom(RΓ(Gal(F_Σ/F_∞), ℚ_p/ℤ_p), ℚ_p/ℤ_p), with H^{−1} = Gal(M_∞/F_∞), H⁰ = ℤ_p and H^i = 0 otherwise. It is a perfect complex of Λ(G)-modules, Λ(Gal(K/F)) ⊗^L_{Λ(G)} C(F_∞/F) ≅ C(K/F) for F ⊆ K ⊆ F_∞, and, under μ = 0, it is S-torsion, so it has a class [C(F_∞/F)] ∈ K₀(Λ(G), Λ(G)_S).
+
+**Hypotheses.**
+
+- F_∞/F admissible; μ = 0 for the class in relative K₀.
+- This is the dual Galois-cochain complex in degrees −1,0, not the ordinary compact-support cone; compare them only through the requested duality/local correction theorem.
+
+**Construction or proof.**
+
+1. The étale–Galois comparison, since ℚ_p/ℤ_p is a colimit of finite p-groups.
+2. Cohomology: H⁰ = ℤ_p is the dual of H⁰(Gal(F_Σ/F_∞), ℚ_p/ℤ_p); H^{−1} is the dual of Hom(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = Gal(M_∞/F_∞)^∨; H²(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = 0 for totally real F_∞ and odd p (weak Leopoldt along F_cyc and ArithmeticGaloisDuality R02.4's cohomological dimension).
+3. Perfectness and base change (1) are Fukaya–Kato's (see the gap on Fukaya–Kato).
+4. S-torsion: its cohomology is finitely generated over Λ(H) by admissible-extension's Lemma 9, so Λ(G)_S ⊗^L C is acyclic (NE.1/s-torsion-iff-finitely-generated); the class is in NE.1/torsion-perfect-complexes.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.iwasawaComplex` (constructor): C(F_∞/F) as a perfect complex of Λ(G)-modules.
+- `TauCeti.NoncommIwasawa.iwasawaComplex_cohomology` (characterisation): H^{−1} = Gal(M_∞/F_∞), H⁰ = ℤ_p, and H^i = 0 otherwise.
+- `TauCeti.NoncommIwasawa.iwasawaComplex_baseChange` (compatibility): Λ(Gal(K/F)) ⊗^L C(F_∞/F) ≅ C(K/F) (Kakde (1)).
+- `TauCeti.NoncommIwasawa.iwasawaComplex_class` (constructor): [C(F_∞/F)] ∈ K₀(Λ(G), Λ(G)_S) under μ = 0.
+- `TauCeti.NoncommIwasawa.iwasawaComplex_restrict` (functoriality): Restriction to an open subgroup G′ is the complex of F_∞/F_∞^{G′}.
+
+**Unit tests.**
+
+- `cyclotomic`: For F∞=F_cyc, with H^(−1)(C)=X and H⁰(C)=Z_p, the cohomological class is [C]=[Z_p]−[X]. Thus ∂ζ=−[C] has module expression [X]−[Z_p] whenever those module classes exist.
+- `h0`: H⁰(C(F_∞/F)) = ℤ_p with trivial action for every admissible F_∞/F.
+- `module_not_enough`: For G with p-torsion, X = Gal(M_∞/F_∞) can fail to have a finite projective resolution, so [X] need not be defined in K₀(Λ(G), Λ(G)_S), while [C(F_∞/F)] is.
+
+**Check.**
+
+- When G has elements of order p, X itself need not have finite projective dimension; the complex, not the module, is what has a class.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture: ∂ζ = −[C(F_∞/F)]
+- NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case: the characterwise complexes C_ψ
+
+**Prerequisites:** [NE.4/admissible-extension](#ne4-admissible-extension), [NE.1/torsion-perfect-complexes](#ne1-torsion-perfect-complexes), [NE.1/s-torsion-iff-finitely-generated](#ne1-s-torsion-iff-finitely-generated), `ArithmeticGaloisDuality:R02.4/cohomological-dimension-bound`, `ArithmeticGaloisDuality:R02.4`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §2.3, p. 11 (arXiv v3): The complex, its cohomology, and Fukaya–Kato's results (i)–(ii).
+
+**Atlas planet:** Equivariant Iwasawa complex.
+
+<a id="ne4-equivariant-compact-support"></a>
+
+### NE.4.6. Equivariant compactly supported Iwasawa complexes
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.4/equivariant-compact-support` · construction.
+
+Let p be odd, F∞/F an admissible p-adic Lie extension unramified outside a finite Σ containing p, ramified and archimedean places, and T a finite free Z_p Galois lattice unramified outside Σ. Define RΓ_Iw,c(F∞,T)=Rlim_L RΓ_c(O_(L,Σ),T), with corestriction transitions and left Λ(G)-action. At finite L, compact support is Cone(RΓ(O_(L,Σ),T)→⊕_(v∈Σ_L)RΓ(L_v,T))[−1], with the ordinary odd-primary real-place convention. Greenberg/Selmer local conditions replace the indicated local targets by their specified quotients or mapping fibres. The construction imports continuous Galois cochains, local conditions and the derived inverse limit; it adds the noncommutative coefficient action and comparison squares.
+
+**Hypotheses.**
+
+- p odd; G=Gal(F∞/F) compact p-adic analytic; F∞ contains the cyclotomic tower; finite ramification set Σ as stated.
+- T finite free, with continuous Galois action; local conditions and their transition maps are specified.
+
+**Construction or proof.**
+
+1. Use SelmerIwasawaCohomology L2’s mapping-fibre construction and L3’s Iwasawa cochains at the finite layers.
+2. Use compatible corestriction and conjugation maps to give the derived inverse limit its Λ(G)-action.
+3. Compare the global and every local cochain by the same Shapiro bimodule, so base change respects the defining triangle; do not infer the local comparison from the global one alone.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.EquivariantCompactSupport.triangle` (constructor): The cone shifted by −1 fits in the stated global-to-local distinguished triangle.
+- `TauCeti.NoncommIwasawa.EquivariantCompactSupport.action` (structure): The conjugation/corestriction actions extend to the left completed group ring.
+- `TauCeti.NoncommIwasawa.EquivariantCompactSupport.quotient` (functoriality): For N closed normal with derived base-change hypotheses, Λ(G/N)⊗^L_Λ RΓ_Iw,c(F∞,T)≅RΓ_Iw,c(F∞^N,T), including the local terms.
+- `TauCeti.NoncommIwasawa.EquivariantCompactSupport.openRestriction` (compatibility): Restriction of scalars to Λ(U), U open in G, agrees with the complex over F∞^U.
+- `TauCeti.NoncommIwasawa.EquivariantCompactSupport.duality` (compatibility): The duality comparison with the totally real dual cochain complex includes its twist, shift and local correction triangle; no silent equality of these two complexes is allowed.
+
+**Unit tests.**
+
+- `equivariant_compact_support_1`: For a cyclotomic abelian tower and the same T and local conditions, recover SelmerIwasawaCohomology L3’s complex with identical cohomological degrees.
+- `equivariant_compact_support_2`: At a finite real place and odd p, higher C₂-cohomology is zero by averaging; degree-zero invariants still occur in the compact-support triangle.
+- `equivariant_compact_support_3`: For Σ enlarged by a finite prime, the difference is the corresponding local correction complex; dropping it changes the determinant.
+- `equivariant_compact_support_4`: Taking N=1 gives the identity base-change map on both global and local terms.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.4/equivariant-perfect-base-change: supplies the actual complex whose perfection must be proved
+- NoncommutativeAndEquivariantIwasawa:NE.5/abelian-normalization-comparison: requires its arithmetic determinant
+
+**Prerequisites:** `SelmerIwasawaCohomology:L2`, `SelmerIwasawaCohomology:L3/iwasawa-cohomology`, `SelmerIwasawaCohomology:L3/iwasawa-shapiro`, `PadicMeasuresIwasawaAlgebras:L5`, [NE.0/iwasawa-noetherian](#ne0-iwasawa-noetherian).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §4, pp. 20–21; §6, pp. 28–36: Uses compactly supported and Selmer determinant complexes with specified local conditions.
+- [KAKDE-2011](#source-kakde-2011), §1, pp. 3–5, especially base change (1): The totally real dual complex is the specialized arithmetic input; its comparison with compact support must include duality and shifts.
+
+**Atlas planet:** Equivariant compact support.
+
+<a id="ne4-equivariant-perfect-base-change"></a>
+
+### NE.4.7. Perfection, torsion and derived arithmetic base change
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.4/equivariant-perfect-base-change` · theorem.
+
+Let p be odd and G have no element of order p. If the equivariant compact-support complex is bounded and all its cohomology groups are finitely generated over Λ(G), then it is perfect, by the finite-global-dimension theorem. Under the global/local Shapiro and duality hypotheses, quotient derived base change and open-subgroup restriction identify it with the corresponding arithmetic complexes and commute with the local triangles. It belongs to Σ_S exactly when its localized cohomology vanishes. In the totally real odd-primary μ=0 setting, the dual complex C has H^(−1)=X_Σ, H⁰=Z_p and Λ(H)-finite cohomology, hence is S-torsion. When G has p-torsion, perfection of that specific C is a separate Fukaya–Kato theorem requested in the source gap; finite global dimension supplies no argument.
+
+**Hypotheses.**
+
+- For the finite-global-dimension route: p odd, G compact p-adic analytic with no element of order p, bounded complex and finitely generated Λ(G)-cohomology; boundedness and finite generation must come from the stated arithmetic hypotheses, not from rational dimensions alone.
+- For the comparisons: F∞/F unramified outside finite Σ containing p and infinity, finite-free continuous coefficient lattice and compatible perfect local conditions, with global and local Shapiro/duality supplied.
+- For the final torsion clause: totally real admissible F∞/F and Kakde μ=0. For a group with p-torsion the specific cochain-perfection theorem is an additional input.
+
+**Construction or proof.**
+
+1. Use the cochain supplier for boundedness and finite generation. Without p-torsion replace the bounded finite-cohomology complex by a finite-projective resolution using global dimension d+1. Import the distinct arithmetic perfection theorem for C if p-torsion is allowed.
+2. Use exact derived base change on the bounded projective model; keep finite correction modules under control in the resulting cohomology long exact sequences.
+3. Apply flatness of canonical Ore localization to test acyclicity on cohomology. For C use the explicit weak-Leopoldt input and the Λ(H)-finiteness criterion of Kakde Lemma 9.
+4. At p=2 this target does not assert perfection of ordinary compact support; the separate real-place correction contract is an open gap.
+
+**Check.**
+
+- A complex with a single Λ-free cohomology module is perfect but is not S-torsion.
+- For the totally real cyclotomic specialization H=1, verify H^(−1)=X_Σ and H⁰=Z_p, rather than shifting both degrees by one.
+- Derived specialization of a two-term resolution [Λ --T→ Λ] at T=0 has two nonzero terms; underived tensor of its cokernel loses Tor₁.
+
+**Prerequisites:** [NE.4/equivariant-compact-support](#ne4-equivariant-compact-support), [NE.4/totally-real-iwasawa-complex](#ne4-totally-real-iwasawa-complex), [NE.1/ore-localization-flat](#ne1-ore-localization-flat), [NE.1/torsion-perfect-complexes](#ne1-torsion-perfect-complexes), `SelmerIwasawaCohomology:L3`, `ArithmeticGaloisDuality:R02.4`, [NE.0/iwasawa-finite-global-dimension](#ne0-iwasawa-finite-global-dimension).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §1, pp. 3–5, equation (1); Lemma 9, pp. 10–11: States the dual complex’s perfectness and quotient base change and gives the μ=0 finiteness input.
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §4, pp. 20–21; Lemma 6.2, pp. 29–30: Uses precisely the perfect arithmetic complexes required by determinant descent; the Fukaya–Kato proof is a recorded gap.
+
+<a id="ne4-real-two-primary-correction"></a>
+
+### NE.4.8. Real-place correction at the prime two
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.4/real-two-primary-correction` · comparison.
+
+At p=2 an ordinary real-place local cochain term cannot be erased or replaced by the odd-primary averaging argument. The required extension is a compact-support/local-condition triangle with complete Tate cochains for Gal(C/R)=C₂ at real places and a specified comparison with the chosen arithmetic dual complex. Its bounded/perfect replacement, duality shift and localization class require a separate theorem under explicit hypotheses. This node records that comparison target, not a theorem that the odd-primary complexes already satisfy it.
+
+**Hypotheses.**
+
+- p=2; number field with real places; a chosen integral Tate-cochain model and arithmetic local conditions.
+
+**Construction or proof.**
+
+1. Compute the real local cohomology and Tate complex explicitly; nonvanishing 2-primary terms rule out the odd-prime simplification.
+2. Request the bounded perfect replacement and its comparison from arithmetic duality and IntegralIwasawaTheory’s all-prime compact-support owner.
+3. Transport a relative class only after that theorem proves both perfection and localized acyclicity.
+
+**Check.**
+
+- For the trivial Z₂-module, H²(C₂,Z₂)=Z/2, whereas positive cohomology vanishes with Z_p coefficients at odd p.
+- For a totally imaginary field there is no real-place correction sum.
+- An alleged p=2 comparison that discards the real Tate term cannot preserve the compact-support triangle.
+
+**Prerequisites:** `ArithmeticGaloisDuality:R02.4`, `IntegralIwasawaTheory:I.9`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), Standing assumption in §4, pp. 20–21, and §6, p. 28: The arithmetic descent theorems are stated with p odd; no two-primary real-place conclusion is supplied there.
+
+## NE.5. Zeta elements and normalized interpolation
+
+The contracts carry the entire arithmetic normalization. Their existence is stated separately from interpolation and from uniqueness in a chosen quotient. Functoriality transports the arithmetic complex as well as the scalar values.
+
+<a id="ne5-gl2-padic-l-function-conjecture"></a>
+
+### NE.5.1. The conjectural GL₂ p-adic L-function ℒ_E (Conjecture 5.7)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.5/gl2-padic-l-function-conjecture` · definition.
+
+For an Artin representation ρ of G realised over K_ρ, L(E, ρ, s) = Π_q P_q(E, ρ, q^{−s})^{−1} with P_q(E, ρ, T) = det(1 − Frob_q^{−1}T | (H¹_l(E) ⊗ V_{ρ,λ})^{I_q}); Ω_±(E) are the periods of the Néron differential over the ±-eigenvectors of complex conjugation on H₁(E(ℂ), ℤ); d^±(ρ) are the ±-dimensions of ρ; L_R(E, ρ, s) omits the Euler factors at R = {p} ∪ {q : ord_q(j_E) < 0}; p^{f_ρ} is the p-part of the conductor of ρ; 1 − a_pX + pX² = (1 − uX)(1 − wX) with u ∈ ℤ_p^×; e_p(ρ) is the local ε-factor at p. Assume (103): L(E, ρ, 1)/(Ω_+^{d⁺(ρ)}Ω_−^{d⁻(ρ)}) ∈ ℚ̄ and the analytic continuation of L(E, ρ, s) to s = 1. Let K(F_∞) be the maximal abelian extension of ℚ in F_∞ unramified at p (a finite extension), A the integers of the completion of K(F_∞) at a prime above p, Λ_A(G) = Λ(G) ⊗_{ℤ_p} A and S(A)* the corresponding Ore set, with Λ_A(G)_{S(A)*} = Λ(G)_{S*} ⊗ A. Conjecture 5.7 (p ≥ 5, good ordinary reduction) is the proposition that there is ℒ_E ∈ K₁(Λ_A(G)_{S(A)*}) with ℒ_E(ρ) ≠ ∞ and ℒ_E(ρ) = L_R(E, ρ, 1)/(Ω_+^{d⁺(ρ)}Ω_−^{d⁻(ρ)}) · e_p(ρ) · P_p(ρ̂, u^{−1})/P_p(ρ, w^{−1}) · u^{−f_ρ} for all Artin ρ (107).
+
+**Hypotheses.**
+
+- a conjecture; the period conjecture (103) and analytic continuation are assumptions of its formulation
+- the enlarged coefficient ring A comes from the Tamagawa number conjecture (Fukaya–Kato [17], Theorem 4.2.26); evaluation extends to K₁(Λ_A(G)_{S(A)*}) as in §3
+
+**Construction or proof.**
+
+1. Definitions; S(A) is a left and right Ore set by the arguments of §2 (NE.1/canonical-ore-theorem), and Λ_A(G) = Λ(G) ⊗ A since A is free of finite rank over ℤ_p.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.twistedEllipticL` (constructor): L(E, ρ, s) and L_R(E, ρ, s) for Artin ρ.
+- `TauCeti.NoncommIwasawa.interpolationFactor` (constructor): The right-hand side of (107).
+- `TauCeti.NoncommIwasawa.coefficientRingA` (constructor): A from K(F_∞) and Λ_A(G)_{S(A)*}.
+- `TauCeti.NoncommIwasawa.PAdicLFunctionConjecture` (data): Existence of ℒ_E with (107) and ℒ_E(ρ) ≠ ∞.
+- `TauCeti.NoncommIwasawa.PAdicLFunctionConjecture.unique_mod_K1` (characterisation): ℒ_E is determined only through its evaluations; no uniqueness in K₁ is claimed.
+
+**Unit tests.**
+
+- `padicL_trivial_rho`: ρ = 1: d⁺ = 1, d⁻ = 0, f = 0, e_p = 1, and restoring the Euler factor (1 − u/p)(1 − u^{−1}) removed in L_R, (107) becomes L(E, 1)(1 − u^{−1})²/Ω₊, the Mazur–Swinnerton-Dyer value.
+- `padicL_factorisation`: 1 − a_pX + pX² = (1 − uX)(1 − wX) with uw = p and u + w = a_p.
+- `padicL_x111`: E = X₁(11), p = 5: A is the integers of the unramified extension of ℚ₅ of degree 5 (NE.5/gl2-main-conjecture-example-x1-11).
+- `padicL_not_assumed`: No node uses PAdicLFunctionConjecture as an unconditional prerequisite.
+
+**Check.**
+
+- The abelian specialisation (ρ a Dirichlet character of Γ-type) must recover the Mazur–Swinnerton-Dyer p-adic L-function with the same normalisation, not merely one with the same ideal (the stage's acceptance).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture: ℒ_E is compared with the characteristic element.
+- NoncommutativeAndEquivariantIwasawa:NE.6: source-qualified cases where ℒ_E exists.
+- IntegralIwasawaTheory:I.9: the abelian comparison.
+
+**Prerequisites:** [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.1/canonical-ore-theorem](#ne1-canonical-ore-theorem), [NE.4/gl2-dual-selmer-module](#ne4-gl2-dual-selmer-module).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §5, the L-functions L(E, ρ, s), p. 202 (Numdam PDF page 40; printed page = PDF page + 162): L(ρ, s), L(E, ρ, s) and (101)–(102).
+- [CFKSV-2005](#source-cfksv-2005), §5, (103)–(106), p. 203 (Numdam PDF page 41; printed page = PDF page + 162): Periods, L_R, f_ρ, u, w.
+- [CFKSV-2005](#source-cfksv-2005), §5, Conjecture 5.7, p. 204 (Numdam PDF page 42; printed page = PDF page + 162): K(F_∞), A and Conjecture 5.7 with (107).
+
+<a id="ne5-gl2-main-conjecture"></a>
+
+### NE.5.2. The GL₂ main conjecture (Conjecture 5.8)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture` · definition.
+
+Assume p ≥ 5, good ordinary reduction and X(E/F_∞) ∈ 𝔐_H(G), and let ξ_E be a characteristic element of X(E/F_∞) (NE.2/characteristic-element). Let i : K₁(Λ(G)_{S*}) → K₁(Λ_A(G)_{S(A)*}) be induced by the ring extension. Granted Conjecture 5.7, Conjecture 5.8 is the proposition that i(ξ_E) and ℒ_E have the same image in K₁(Λ_A(G)_{S(A)*})/(image of K₁(Λ_A(G))).
+
+**Hypotheses.**
+
+- existence (5.7) and the equality (5.8) are separate propositions; a conjectural interpolation object discharges no downstream theorem (the stage's boundary)
+- for CM curves (G of dimension 2) CFKSV say 5.8 follows from the two-variable main conjecture of Rubin and Yager once X(E/F_∞) ∈ 𝔐_H(G) (Corollary 5.5); this is recorded, not planned
+
+**Construction or proof.**
+
+1. Definition; well defined since characteristic elements are unique up to the image of K₁(Λ(G)) (NE.2/characteristic-element).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.GL2MainConjecture` (data): i(ξ_E) ≡ ℒ_E modulo the image of K₁(Λ_A(G)).
+- `TauCeti.NoncommIwasawa.GL2MainConjecture.welldefined` (characterisation): Independent of the choice of ξ_E.
+- `TauCeti.NoncommIwasawa.GL2MainConjecture.evaluation` (compatibility): Evaluations of i(ξ_E) and ℒ_E agree up to p-adic units.
+
+**Unit tests.**
+
+- `mc_ambiguity`: Changing ξ_E by the image of u ∈ K₁(Λ(G)) changes every evaluation by a p-adic unit (|η(ρ)|_p = 1).
+- `mc_cm`: E with CM: the conjecture reduces to Rubin–Yager given X(E/F_∞) ∈ 𝔐_H(G).
+- `mc_not_assumed`: No node uses GL2MainConjecture as an unconditional prerequisite.
+
+**Check.**
+
+- The ambiguity is exactly the image of K₁(Λ_A(G)); an equality in K₁(Λ_A(G)_{S(A)*}) itself is not asserted.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-consequences: Corollaries 5.9–5.10.
+- NoncommutativeAndEquivariantIwasawa:NE.6: source-qualified cases (Kakde, Ritter–Weiss for totally real fields).
+- NoncommutativeAndEquivariantIwasawa:NE.7: descent to finite layers.
+
+**Prerequisites:** [NE.5/gl2-padic-l-function-conjecture](#ne5-gl2-padic-l-function-conjecture), [NE.4/mh-conjecture-and-mazur](#ne4-mh-conjecture-and-mazur), [NE.2/characteristic-element](#ne2-characteristic-element), [NE.4/gl2-dual-selmer-module](#ne4-gl2-dual-selmer-module).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §5, Conjecture 5.8, p. 204 (Numdam PDF page 42; printed page = PDF page + 162): Conjecture 5.8 (stated just above) and the lead-in to its corollaries.
+
+<a id="ne5-gl2-main-conjecture-consequences"></a>
+
+### NE.5.3. Consequences of the main conjecture (Corollaries 5.9–5.10)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-consequences` · theorem.
+
+Assume CFKSV Conjecture 5.8, including the 𝔐_H(G) and interpolation hypotheses. For an Artin representation ρ and its contragredient ρ∨, the twisted Euler characteristic χ(G,tw_(ρ∨)X(E/F∞)) is finite if and only if L(E,ρ,1)≠0 (equivalently reindex the whole statement by ρ∨). When finite it equals |ℒ_E(ρ)|_p^(−[L:Q_p]), with ℒ_E(ρ) the complete period- and Euler-factor-normalized expression (107). The coefficient-field degree and every local factor are retained; no scalar equality with an unnormalized complex L-value is asserted.
+
+**Hypotheses.**
+
+- conditional on Conjecture 5.8 (hence on 5.1 and 5.7)
+- CFKSV note that Case 1 of Conjecture 4.8 would put ξ_E in the image of Λ(G)[1/p]^× ∩ Λ(G)_{S*}^×
+
+**Construction or proof.**
+
+1. Corollary 5.9: for X in 𝔐_H(G), Lemma 5.3 and Theorem 3.8 (NE.3/artin-evaluation-integral) give ξ_E(ρ) ≠ 0 iff χ(G, tw_ρ̂(X)) is finite; |η(ρ)|_p = 1 for η in the image of K₁(Λ_A(G)); and ℒ_E(ρ) ≠ 0 iff L(E, ρ, 1) ≠ 0.
+2. Corollary 5.10 from (36) (NE.3/euler-characteristic-evaluation) and (107).
+
+**Check.**
+
+- The source proves Corollary 5.9 with ρ and ρ̂ interchanged relative to the statement; since L(E, ρ̂, 1) is the complex conjugate of L(E, ρ, 1) for Artin ρ, the two readings agree — check this in the formalisation.
+
+**Prerequisites:** [NE.5/gl2-main-conjecture](#ne5-gl2-main-conjecture), [NE.4/mh-criteria](#ne4-mh-criteria), [NE.3/artin-evaluation-integral](#ne3-artin-evaluation-integral), [NE.3/euler-characteristic-evaluation](#ne3-euler-characteristic-evaluation), [NE.3/characteristic-element-integrality-conjecture](#ne3-characteristic-element-integrality-conjecture).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §5, Corollaries 5.9–5.10, p. 204 (Numdam PDF page 42; printed page = PDF page + 162): Corollary 5.9 (on this page) and Corollary 5.10 (p. 205) with their proofs.
+
+<a id="ne5-gl2-main-conjecture-example-x1-11"></a>
+
+### NE.5.4. The main conjecture for X₁(11) at p = 5: the data and the consistency check
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.5/gl2-main-conjecture-example-x1-11` · application.
+
+For E = X₁(11) and p = 5 (continuing NE.3/gl2-euler-example): K(F_∞) = ℚ(μ₁₁)⁺, 5 is inert in it, and A is the integers of the unramified extension of ℚ₅ of degree 5. For the two degree-4 Artin representations ρ₁, ρ₂: d⁺ = d⁻ = 2; f_{ρ₁} = 3, f_{ρ₂} = 5; P₅(ρ₁, X) = 1 − X, P₅(ρ₂, X) = 1; P₅(E, ρ₁, X) = 1 − X + 5X², P₅(E, ρ₂, X) = 1; P₁₁(E, ρ_i, X) = 1; |e₅(ρ₁)|₅ = 5^{−3/2}, |e₅(ρ₂)|₅ = 5^{−5/2}; 1 − a₅X + 5X² = 1 − X + 5X²; and L(E, ρ₁, 1)/(Ω₊Ω₋)² = −2²/(11²√5), L(E, ρ₂, 1)/(Ω₊Ω₋)² = −2⁶/(11²·5√5). Both L-values are nonzero, so with Proposition 3.11 Corollary 5.9 holds for ρ₁, ρ₂; the right-hand side of (107) has the 5-adic valuations predicted by (74), so Corollary 5.10 holds for them too.
+
+**Hypotheses.**
+
+- the numerical data are quoted from Dokchitser–Dokchitser [15], not recomputed (a gap for formalisation)
+- this checks consistency, not the conjecture
+
+**Construction or proof.**
+
+1. Insert (108)–(115) into (107): u, w are the roots of Y² − Y + 5 with u ≡ 1, w ≡ 0 mod 5, so v₅(1 − u^{−1}) = v₅(w) = 1 and v₅(1 − w^{−1}) = −1.
+2. ρ₁: v₅ = −1/2 (L-value) + 3/2 (e₅) + (1 − (−1)) (the P₅ ratio) = 3; ρ₂: v₅ = −3/2 + 5/2 + 0 = 1. These match Proposition 3.11's Euler characteristics 5³ and 5 (with m_ρ = 1, ρ_i realised over ℤ₅).
+
+**Check.**
+
+- The numerical consistency checks give −1/2+3/2+2=3 and −3/2+5/2=1; they do not validate the source L-values independently.
+
+**Prerequisites:** [NE.5/gl2-main-conjecture-consequences](#ne5-gl2-main-conjecture-consequences), [NE.3/gl2-euler-example](#ne3-gl2-euler-example).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), §5, Example, p. 205 (Numdam PDF page 43; printed page = PDF page + 162): The data (108)–(114).
+- [CFKSV-2005](#source-cfksv-2005), §5, the L-values (115) and the conclusion, p. 206 (Numdam PDF page 44; printed page = PDF page + 162): The modest evidence, after (115).
+
+<a id="ne5-totally-real-main-conjecture"></a>
+
+### NE.5.5. The main conjecture for totally real fields
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture` · definition.
+
+For an admissible F_∞/F satisfying μ = 0, MC(F_∞/F) is the proposition: there is a unique ζ(F_∞/F) ∈ K′₁(Λ(G)_S) with ∂(ζ(F_∞/F)) = −[C(F_∞/F)] and ζ(F_∞/F)(ρκ_F^r) = L_Σ(ρ, 1 − r) for every Artin character ρ of G and every positive integer r divisible by [F_∞(μ_p) : F_∞], where κ_F is the p-adic cyclotomic character and L_Σ(ρ, 1 − r) the Klingen–Siegel value with the Euler factors at Σ removed.
+
+**Hypotheses.**
+
+- μ = 0; p odd; F totally real. Kakde states it as Theorem 11 because he proves it (NE.6).
+
+**Construction or proof.**
+
+1. Definition; the evaluation is NE.3/artin-evaluation on K′₁ (k1-prime), ∂ is the boundary of the localisation sequence, surjective by boundary-surjective-p-torsion.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.MainConjecture` (constructor): MC(F_∞/F) as a proposition.
+- `TauCeti.NoncommIwasawa.IsZetaElement` (constructor): ζ ∈ K′₁(Λ(G)_S) with ∂ζ = −[C] and the interpolation property.
+- `TauCeti.NoncommIwasawa.isZetaElement_unique` (extensionality): Two zeta elements agree (uniqueness is part of MC; in K′₁ it follows from Burns's description of SK₁).
+- `TauCeti.NoncommIwasawa.mainConjecture_quotient` (functoriality): MC for F_∞/F gives MC for F_∞^U/F, U ≤ H closed normal (inflation of Artin characters).
+- `TauCeti.NoncommIwasawa.mainConjecture_open` (functoriality): MC for F_∞/F gives MC for F_∞/F′, F′ ⊆ F_∞ finite over F (norms; induction of characters).
+
+**Unit tests.**
+
+- `cyclotomic`: F_∞ = F_cyc: MC is Wiles's theorem, with ζ the Deligne–Ribet pseudomeasure G₁(T)/T (Kakde §3).
+- `sigma_independence`: Enlarging Σ by a prime v multiplies ζ by the Euler factor at v and changes [C] accordingly (Remark 14).
+- `k1_nonuniqueness`: Stated in K₁(Λ(G)_S) instead of K′₁, uniqueness fails whenever SK₁(Λ(G)_S) ≠ 1.
+- `wrong_sign`: ∂ζ = +[C(F_∞/F)] is the conjecture for ζ^{−1}, which does not interpolate L-values.
+
+**Check.**
+
+- Uniqueness is in K′₁; in K₁ it can fail (Kakde, Remark 12). The formulation in K₁ is equivalent because SK₁(Λ(G)_S) = ker ∂ ∩ ⋂_ρ ker(evaluation at ρ) (Burns, recorded, not planned).
+- Independence of Σ (Remark 14) is recorded as the test below, not proved here.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case: the conjecture proved for abelian × prime-to-p groups
+- NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one: the conjecture reduced along quotients
+
+**Prerequisites:** [NE.3/k1-prime](#ne3-k1-prime), [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.2/boundary-surjective-p-torsion](#ne2-boundary-surjective-p-torsion), [NE.4/totally-real-iwasawa-complex](#ne4-totally-real-iwasawa-complex), [NE.4/admissible-extension](#ne4-admissible-extension).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §2.5, Theorem 11 (Main Conjecture), p. 13 (arXiv v3): The statement, with Remarks 12–14.
+
+**Atlas planet:** Main conjecture for totally real fields.
+
+<a id="ne5-zeta-interpolation-contract"></a>
+
+### NE.5.6. Localized zeta interpolation contract
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.5/zeta-interpolation-contract` · definition.
+
+For a specified perfect S-torsion arithmetic complex C, a specified sign ε∈{1,−1}, an allowed Artin/Tate-twist set A and normalized values I(ρ,r), define ZetaContract(C,ε,A,I) to be the set of ζ∈K₁(Λ_S) with ∂ζ=ε[C] and ev_(ρκ^r)(ζ)=I(ρ,r) wherever ordinary evaluation is defined. At exceptional zeros replace the last equality by the stated leading-term formula, with its Bockstein trivialization. Existence means this set is nonempty; uniqueness means it has at most one element in the specified group, or only after passing to an explicitly named quotient. Periods, removed Euler factors and contragredients are part of I, not adjustable units.
+
+**Hypotheses.**
+
+- C perfect and S-acyclic; its boundary sign is specified; evaluation maps are defined on the chosen domain.
+- Interpolation data include coefficient field, periods, Frobenius convention, Artin dual and Euler factors.
+
+**Construction or proof.**
+
+1. Use the existing CFKSV and totally real formulations as two choices of the data, keeping their different signs.
+2. Express the contract as a predicate on actual localized K₁, with a separate quotient version for K′₁.
+3. For leading-term clauses require the semisimplicity/Bockstein data of NE.7; never manufacture these from nonzero interpolation values.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.ZetaContract.boundary` (projection): Every member has exactly the specified boundary ε[C].
+- `TauCeti.NoncommIwasawa.ZetaContract.interpolate` (projection): Every allowed nonexceptional representation/twist has the prescribed normalized value I.
+- `TauCeti.NoncommIwasawa.ZetaContract.exists` (characterisation): Existence is nonemptiness, distinct from uniqueness in K₁ or K′₁.
+- `TauCeti.NoncommIwasawa.ZetaContract.quotient` (compatibility): A contract descends through a quotient only when its boundary and evaluations kill that quotient kernel.
+- `TauCeti.NoncommIwasawa.ZetaContract.leadingTerm` (relation): At an exceptional zero compare the normalized leading coefficient with the Bockstein determinant and specified local factors.
+
+**Unit tests.**
+
+- `zeta_interpolation_contract_1`: For C=[Λ --T→ Λ], the positive-boundary characteristic lift is T, while the Burns–Venjakob characteristic map is T⁻¹ with negative boundary.
+- `zeta_interpolation_contract_2`: Multiplying by a nontrivial integral unit preserves a boundary class but can change the normalized interpolation value; boundary equality does not imply the contract.
+- `zeta_interpolation_contract_3`: If x≠1 belongs to the common kernel of boundary and every evaluation, then ζ and ζx meet the same contract; uniqueness needs an extra kernel theorem.
+- `zeta_interpolation_contract_4`: Changing an Artin representation to its dual without changing the period/local-factor formula is a different contract.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.5/zeta-functoriality: tests whether maps preserve both boundary and normalization
+- NoncommutativeAndEquivariantIwasawa:NE.6/kakde-main-theorem: states the precise quotient version proved by Kakde
+
+**Prerequisites:** [NE.2/relative-perfect-class](#ne2-relative-perfect-class), [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison), [NE.4/equivariant-perfect-base-change](#ne4-equivariant-perfect-base-change).
+
+**Sources.**
+
+- [CFKSV-2005](#source-cfksv-2005), Conjectures 5.7–5.8, pp. 201–204, equation (107): Fixes periods, local factors, the Artin dual and the boundary formulation.
+- [KAKDE-2011](#source-kakde-2011), Conjecture 10, pp. 11–12: Uses the negative class of the totally real dual complex and a uniqueness statement in K′₁.
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), Conjecture 4.1, pp. 20–21; Theorems 5.5 and 6.7: Connects a determinant zeta isomorphism to specialized leading-term data.
+
+**Atlas planet:** Zeta interpolation contract.
+
+<a id="ne5-zeta-functoriality"></a>
+
+### NE.5.7. Norm, quotient and restriction of zeta contracts
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.5/zeta-functoriality` · theorem.
+
+Let a quotient G→G/N or an open subgroup U⊆G induce a compatible localization square; for U require Λ(G)_S finite projective over the chosen Λ(U)-localization. Quotient derived base change induces a map on relative K₀ and localized K₁; open-subgroup restriction of scalars induces the K-theory transfer. Their boundaries commute. Evaluation after quotient uses inflated representations; evaluation after transfer uses induced representations. Consequently the image of a zeta element satisfies the transported contract exactly when the arithmetic complex comparison and the normalized interpolation identities hold. For G^ab use N=[G,G] only when this quotient localization is admitted.
+
+**Hypotheses.**
+
+- Canonical denominator/localization compatibility is proved for the chosen quotient or open subgroup.
+- The arithmetic base-change/restriction and normalized L-function induction identities hold, with identical Euler-factor sets and periods.
+
+**Construction or proof.**
+
+1. Use functoriality of the perfect localization fibre sequence; quotient tensor and finite-projective restriction carry the supported subcategories into the correct supported subcategories.
+2. Apply the evaluation induction and inflation identities from NE.3.
+3. Use the arithmetic complex comparison to identify the transported relative boundary, then compare the actual normalized interpolation values. No equality of ideals suffices for the last step.
+
+**Check.**
+
+- The identity quotient and identity subgroup induce identity maps on contracts.
+- For U=Γ⊆C₂×Γ, transfer evaluation at 1 equals the product of the 1 and sign evaluations.
+- A chosen map that sends an S-denominator to a nonunit cannot define a map from Λ_S; the theorem must refuse it.
+
+**Prerequisites:** [NE.5/zeta-interpolation-contract](#ne5-zeta-interpolation-contract), [NE.3/artin-evaluation-functoriality](#ne3-artin-evaluation-functoriality), [NE.4/equivariant-perfect-base-change](#ne4-equivariant-perfect-base-change), `GeneralAlgebraicKTheory:K.5`, `AnalyticNumberTheory:AN.4`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §1, equation (1), pp. 3–5; §4, pp. 17–30; Proposition 95, pp. 67–69: Uses quotient base change, subgroup norms and induction of Artin L-values.
+- [CFKSV-2005](#source-cfksv-2005), Theorem 3.10, pp. 183–184: Supplies the determinant/induction convention for the evaluation comparison.
+
+<a id="ne5-abelian-normalization-comparison"></a>
+
+### NE.5.8. Normalized abelian determinant comparison
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.5/abelian-normalization-comparison` · comparison.
+
+For an abelian specialization shared with IntegralIwasawaTheory I.9, compare the transported arithmetic complex and determinant trivialization, then identify the NE zeta image with that owner’s actual normalized p-adic L-function. The comparison fixes the variable γ↦1+T, arithmetic/geometric Frobenius convention, Artin dual, S-removal and T-smoothing, and any period or epsilon factors. An equality of principal ideals or Fitting ideals is only the divisor-level consequence. The stronger element-level comparison is a target with an explicit supplier gap until the normalized determinant data are provided.
+
+**Hypotheses.**
+
+- A common abelian extension, coefficient ring, prime and local conventions in the two formulations; both arithmetic complexes are perfect and the same localization is admitted.
+- The imported all-prime theorem is used only in its proved hypotheses; an odd-prime result does not settle the real two-primary comparison.
+
+**Construction or proof.**
+
+1. Use derived base change and duality to identify the arithmetic determinant lines and their trivializations, retaining local correction factors.
+2. Compare normalized interpolation formulas at a dense allowed set and invoke the exact one-variable/pseudomeasure separation theorem.
+3. Apply the reduced-norm kernel statement only if lifting the scalar identity back to noncommutative K₁; leave every undetected kernel explicit.
+
+**Check.**
+
+- Multiplication of a power series by 1+p preserves its ideal and changes its value at T=0, detecting a comparison that proves only ideal equality.
+- Under γ↦1+T, replacing γ by γ⁻¹ sends T to (1+T)⁻¹−1; the normalized formula must track this substitution.
+- T-smoothing multiplies the L-element by the prescribed local factor; deleting it while retaining the same Selmer module fails the comparison.
+
+**Prerequisites:** [NE.5/zeta-functoriality](#ne5-zeta-functoriality), [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison), `IntegralIwasawaTheory:I.9`, `PadicMeasuresIwasawaAlgebras:L3`, `PadicMeasuresIwasawaAlgebras:L5`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §3, pp. 13–17, abelian comparison: The abelian pseudomeasure interpolation and boundary use the established classical main conjecture.
+- [GAMBHEERA-POPESCU-2025](#source-gambheera-popescu-2025), Theorem 6.30, pp. 33–34; §2.3, pp. 5–6: The newer abelian minus formula is a Fitting equality with a fixed covariant dual action; it does not alone provide the stronger determinant trivialization.
+
+## NE.6. Source-qualified main theorems
+
+The Kakde targets below give the complete chain within that source, subject to its explicitly requested generic and arithmetic inputs. The RW theorem is stated in its own total quotient and logarithmic language. The 2026 uniqueness reduction and the unconditional abelian minus theorem have separate records and do not strengthen the other records by implication.
+
+<a id="ne6-abelian-case"></a>
+
+### NE.6.1. The main conjecture for abelian × prime-to-p Galois groups
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/abelian-case` · theorem.
+
+Let F_∞/F be admissible with μ = 0 and Gal(F_∞/F) = G × Δ, G abelian and Δ finite of order prime to p. Then MC(F_∞/F) holds, and K₁(Λ(G × Δ)) → K₁(Λ(G × Δ)_S) is injective. For G = H × Γ with H finite abelian, the Deligne–Ribet pseudomeasure ζ is a unit of Λ(G)_S (Lemma 15) with ∂ζ = −[C(F_∞/F)] (Theorem 16).
+
+**Hypotheses.**
+
+- μ = 0; p odd; #Δ prime to p.
+
+**Construction or proof.**
+
+1. Lemma 15: Λ(G)_S ≅ ⊕_{ψ∈Ĥ′} Λ_{𝒪_ψ}(H_p × Γ)_S, each summand local; (ψ × 1)(ζ) ∉ π_ψΛ_{𝒪_ψ}(Γ)_S by μ = 0 and Wiles's theorem, so ζ is a unit.
+2. Theorem 16: characterwise, ∂(ψ(ζ)) = −[C_ψ] is Wiles's main conjecture (IntegralIwasawaTheory I.5) for the Deligne–Ribet functions G_ψ (AutomorphicPadicLFunctions L3); θ₀ : K₀(Λ(G), Λ(G)_S) → ∏_ψ K₀(Λ_{𝒪_ψ}(Γ), Λ_{𝒪_ψ}(Γ)_S) is injective, because x = |H|^{−1}Σ_h h Σ_ψ x_ψ ψ(h^{−1}) shows the cokernel of θ injects into that of θ_S (snake lemma).
+3. Lemma 17: for p ∤ #Δ, K₁(Λ(G × Δ)_S) ≅ ⊕_{χ∈R(Δ)} Λ_{𝒪_χ}(G)_S^×, and ζ = Σ e_χ L_p(χ), with L_p(χ) built from Deligne–Ribet functions by Brauer induction (Tau Ceti InductionRestriction Layer 6), is the zeta element.
+4. Theorem 18: K₀(Λ(G × Δ), Λ(G × Δ)_S) ≅ ⊕_χ K₀(Λ_{𝒪_χ}(G), Λ_{𝒪_χ}(G)_S), and the same decomposition for K₁ gives injectivity.
+
+**Check.**
+
+- The analytic input (Deligne–Ribet) and the arithmetic input (Wiles) are imported, not reproved; μ = 0 is used for the unit property.
+
+**Prerequisites:** [NE.5/totally-real-main-conjecture](#ne5-totally-real-main-conjecture), [NE.4/totally-real-iwasawa-complex](#ne4-totally-real-iwasawa-complex), [NE.3/k1-prime](#ne3-k1-prime), [NE.2/localization-sequence](#ne2-localization-sequence), `AutomorphicPadicLFunctions:L3`, `IntegralIwasawaTheory:I.5`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §3, Theorem 18, p. 17 (arXiv v3): Theorem 18 with Lemma 15, Theorem 16 and Lemma 17 (pp. 14–17).
+
+**Atlas planet:** Main conjecture: the abelian case.
+
+<a id="ne6-burns-kato-patching"></a>
+
+### NE.6.2. The Burns–Kato patching principle
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/burns-kato-patching` · lemma.
+
+Let 𝒞 be a family of pairs (U, V), U open in G and V closed normal in U with U/V admissible, and θ = (θ_{U,V}) : K′₁(Λ(G)) → ∏_𝒞 K′₁(Λ(U/V)), θ_S the same on the localisations, each θ_{U,V} the norm to U followed by the quotient map. Suppose θ is an isomorphism onto a subgroup Φ, θ_S lands in a subgroup Φ_S with Φ_S ∩ ∏ K′₁(Λ(U/V)) = Φ, MC holds for every F_∞^V/F_∞^U with (ζ_{U,V}) ∈ Φ_S, and every Artin character of G is a ℤ-combination of characters induced or inflated from the U/V. Then MC(F_∞/F) holds, and K′₁(Λ(G)) → K′₁(Λ(G)_S) is injective when each K′₁(Λ(U/V)) → K′₁(Λ(U/V)_S) is.
+
+**Hypotheses.**
+
+- The hypotheses listed; μ = 0 for each subquotient.
+
+**Construction or proof.**
+
+1. Choose f ∈ K′₁(Λ(G)_S) with ∂f = −[C(F_∞/F)] (boundary-surjective-p-torsion); θ_S(f) has components f_{U,V} with ∂f_{U,V} = −[C(F_∞^V/F_∞^U)] by base change (totally-real-iwasawa-complex).
+2. u_{U,V} = ζ_{U,V} f_{U,V}^{−1} has ∂ = 0, so lies in K′₁(Λ(U/V)); (u_{U,V}) ∈ Φ_S ∩ ∏ K′₁ = Φ, so u_{U,V} = θ(u)_{U,V} for a unique u, and ζ = uf.
+3. ∂ζ = −[C]; interpolation by writing ρ = Σ n_i Ind/Inf ρ_i and using the norm and inflation compatibilities of evaluation (Kakde §2.4 (i)–(iii)); uniqueness and injectivity by the same diagram.
+
+**Check.**
+
+- This is the argument Kakde repeats in Theorems 21, 27, 33 and 36; planning it once lets each reduction supply only the description of Φ.
+
+**Prerequisites:** [NE.5/totally-real-main-conjecture](#ne5-totally-real-main-conjecture), [NE.2/boundary-surjective-p-torsion](#ne2-boundary-surjective-p-torsion), [NE.4/totally-real-iwasawa-complex](#ne4-totally-real-iwasawa-complex), [NE.3/artin-evaluation](#ne3-artin-evaluation).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §1, the observation of Burns and Kato, p. 3 (arXiv v3): The principle stated in the introduction and carried out in each reduction.
+
+<a id="ne6-reduction-to-dimension-one"></a>
+
+### NE.6.3. Burns's reduction to one-dimensional extensions
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-dimension-one` · theorem.
+
+Let F_∞/F be admissible with μ = 0. If MC holds for every F_∞^U/F with U ≤ H open pro-p and normal in G, and each K′₁(Λ(G/U)) injects into K′₁(Λ(G/U)_S), then MC(F_∞/F) holds.
+
+**Hypotheses.**
+
+- μ = 0; the quotients G/U are one-dimensional.
+
+**Construction or proof.**
+
+1. k1-prime (Corollary 20): K′₁(Λ(G)) ≅ lim_U K′₁(Λ(G/U)).
+2. Uniqueness makes (ζ_{G/U}) a compatible system; burns-kato-patching with 𝒞 = {(G, U)} and Φ the inverse limit; every Artin character of G factors through some G/U, and [F_∞(μ_p) : F_∞] = [F_∞^U(μ_p) : F_∞^U] as U is pro-p.
+
+**Check.**
+
+- The injectivity hypothesis on K′₁ is carried, not dropped.
+
+**Prerequisites:** [NE.6/burns-kato-patching](#ne6-burns-kato-patching), [NE.3/k1-prime](#ne3-k1-prime).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §4.1, Theorem 21, p. 19 (arXiv v3): Theorem 21 and its proof (pp. 19–20).
+
+**Atlas planet:** Burns's reduction to dimension one.
+
+<a id="ne6-reduction-to-qp-elementary"></a>
+
+### NE.6.4. Reduction to ℚ_p-elementary Galois groups
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-qp-elementary` · theorem.
+
+Let F_∞/F be admissible, one-dimensional, with μ = 0. If MC holds, and K′₁(Λ(U)) → K′₁(Λ(U)_S) is injective, for every admissible subextension whose Galois group U is ℚ_p-elementary (U = P ⋊ Γ with a central open Γ^{p^r} and (P ⋊ Γ)/Γ^{p^r} an l-ℚ_p-elementary finite group C_n ⋊ P₁, the image of P₁ in (ℤ/n)^× lying in Gal(ℚ_p(μ_n)/ℚ_p)), then MC(F_∞/F) holds and K′₁(Λ(G)) injects into K′₁(Λ(G)_S).
+
+**Hypotheses.**
+
+- G one-dimensional: G ≅ H ⋊ Γ with Γ^{p^e} central.
+
+**Construction or proof.**
+
+1. Dress–Wall induction: K′₁(𝒪[P]) ≅ lim_π K′₁(𝒪[π]) over the K-elementary subgroups π, with norms and conjugations (Oliver, Theorem 11.2; see the gap on Oliver's book).
+2. Lemma 26: K′₁(Λ(G)) ≅ lim_P K′₁(Λ(U_P)) over the ℚ_p-elementary P ≤ G_n = G/Γ^{p^{e+n}}, U_P their preimages (k1-prime's Lemma 19 in the limit).
+3. burns-kato-patching, with compatibility of (ζ_P) under conjugation and norms from uniqueness and the invariance of L_Σ under conjugation and induction; interpolation by Brauer's induction theorem (Tau Ceti InductionRestriction Layer 6), elementary subgroups being ℚ_p-elementary.
+
+**Check.**
+
+- Uses ℚ_p-elementary subgroups for the K₁ isomorphism, although Brauer induction needs only elementary ones.
+
+**Prerequisites:** [NE.6/burns-kato-patching](#ne6-burns-kato-patching), [NE.3/k1-prime](#ne3-k1-prime).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §4.2, Theorem 27, p. 21 (arXiv v3): Theorem 27 with Definitions 23–24, Theorem 25 and Lemma 26 (pp. 20–23).
+
+<a id="ne6-l-elementary-case"></a>
+
+### NE.6.5. The l-ℚ_p-elementary case, l ≠ p
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/l-elementary-case` · theorem.
+
+If F_∞/F is admissible with μ = 0 and G = Gal(F_∞/F) is l-ℚ_p-elementary for a prime l ≠ p, then MC(F_∞/F) holds and K₁(Λ(G)) injects into K₁(Λ(G)_S). Here G ≅ Γ^{p^e} × Ḡ with Ḡ = C ⋊ P finite (Lemma 28); reducing to C a cyclic p-group and P of order prime to p, with C̄ = H⁰(P, C), P₁ = ker(P → Aut C) and G₁ = Γ × C × P₁, the map θ = (quotient, norm) : K₁(Λ(G)) → K₁(Λ(Γ × C̄ × P)) × K₁(Λ(G₁)) is an isomorphism onto Φ = {(x₀, x₁) : norm(x₀) = can(x₁), x₁ fixed by P} (Proposition 30).
+
+**Hypotheses.**
+
+- l ≠ p; μ = 0.
+
+**Construction or proof.**
+
+1. Lemma 28: the minimal central Γ^{p^e} splits off.
+2. If p ∤ #C, abelian-case applies. Otherwise SK₁(Λ(G)) = 1 (Oliver 12.7), and θ lands in Φ: conjugation by P preserves the norm's matrix class, and the norm square commutes.
+3. Surjectivity: J = ker(K₁(Λ(G₁)) → K₁(Λ(Γ × C̄ × P₁))) is pro-p (Oliver 2.10; Fukaya–Kato 1.5.3), so n = (P : P₁)-th roots exist in J^P.
+4. Injectivity: Lemma 31 (every irreducible representation is inflated from C̄ × P or induced from G₁) makes β dual to (χ, ρ) ↦ Inf χ + Ind ρ injective; Oliver–Taylor's logarithm has kernel μ_{p−1} × G^ab (Wall), which the first component detects.
+5. Then burns-kato-patching with abelian-case for the two components.
+
+**Check.**
+
+- Oliver's and Wall's theorems are cited inputs (see the gap on Oliver's book).
+
+**Prerequisites:** [NE.6/burns-kato-patching](#ne6-burns-kato-patching), [NE.6/abelian-case](#ne6-abelian-case), [NE.3/k1-prime](#ne3-k1-prime).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §4.3, Theorem 33, p. 27 (arXiv v3): Theorem 33 with Lemmas 28, 31, Definition 29 and Proposition 30 (pp. 23–27).
+
+<a id="ne6-reduction-to-p-elementary"></a>
+
+### NE.6.6. Reduction of the p-ℚ_p-elementary case to Δ × pro-p
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/reduction-to-p-elementary` · theorem.
+
+Let F_∞/F be admissible with μ = 0 and G p-ℚ_p-elementary, G/Γ^{p^e} = C_n ⋊ H_p with p ∤ n, U the preimage of H_p, and for χ ∈ Ĉ_n let U_χ = ker(U → Gal(L_χ/ℚ_p)), L_χ = ℚ_p(χ). Then K′₁(Λ(G)) ≅ ⊕_{χ∈C} K′₁(Λ_{𝒪_χ}(U_χ))^{U/U_χ} (Proposition 35), and if MC holds for each F_∞^{C_χ}/F_∞^{C_n ⋊ U_χ} with K′₁(Λ_{𝒪_χ}(U_χ)) → K′₁(Λ_{𝒪_χ}(U_χ)_S) injective, then MC(F_∞/F) holds and K′₁(Λ(G)) injects into K′₁(Λ(G)_S). This reduces the main conjecture to G = Δ × G_p with Δ cyclic of order prime to p and G_p one-dimensional pro-p.
+
+**Hypotheses.**
+
+- G p-ℚ_p-elementary; μ = 0.
+
+**Construction or proof.**
+
+1. Proposition 35 at finite level is Oliver's Proposition 11.6 and Theorem 12.3(4) (gap on Oliver's book); pass to the limit with k1-prime.
+2. Gal(F_∞^{C_χ}/F_∞^{C_n ⋊ U_χ}) ≅ C_n/C_χ × U_χ, and [F_∞(μ_p) : F_∞] is unchanged.
+3. burns-kato-patching; every irreducible ρ is Ind(χρ_χ) (Serre, Proposition 25), giving interpolation.
+
+**Check.**
+
+- This reduction leaves the pro-p dimension-one case, supplied by the congruence and zeta-tuple targets in this layer.
+
+**Prerequisites:** [NE.6/burns-kato-patching](#ne6-burns-kato-patching), [NE.3/k1-prime](#ne3-k1-prime).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §4.4, Theorem 36, p. 29 (arXiv v3): Theorem 36 with Remark 34 and Proposition 35 (pp. 27–30).
+
+<a id="ne6-twisted-group-ring-presentation"></a>
+
+### NE.6.7. The Iwasawa algebra of a one-dimensional pro-p group as a twisted group ring
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/twisted-group-ring-presentation` · construction.
+
+In the standing dimension-one setting choose representatives hγ^a, 0≤a<p^e, of G/Z, where Z=Γ^(p^e) is central. The carry cocycle τ(hγ̄^a,h′γ̄^b)=γ^(p^e floor((a+b)/p^e)) gives an Iwasawa-specific isomorphism Λ_O(G)≅Λ_O(Z)[G/Z]^τ, using the generic twisted algebra imported from InductionRestriction Layer 7. The cocycle is symmetric and normalized at the identity; in general τ(g,g⁻¹)≠1, and the inverse of a basis element is τ(g,g⁻¹)⁻¹ times the inverse-labelled basis element. Changing the selected section gives the corresponding cohomologous presentation rather than literal equality of cocycles. Restriction gives Λ_O(U_P)≅Λ_O(Z)[P]^τ; U_P is abelian for cyclic P. With T=Λ_O(Z)∖pΛ_O(Z), both canonical localizations identify as Λ_O(G)_T=Λ_O(G)_S=Λ_O(Z)_(p)[G/Z]^τ, and their p-adic completions agree. For R=Λ_O(Z) or its localized p-adic completion the cocenter is the free R-module on Conj(G/Z), with the inherited carry convention.
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+
+**Construction or proof.**
+
+1. Expand products of the selected section hγ^a. The integer carry is central, verifies the cocycle identity, and is symmetric; identity normalization does not imply inverse-pair normalization. Changing section conjugates the presentation by the associated central 1-cochain.
+2. T is central and consists of regular denominators. Apply Kakde Lemma 37 componentwise in the admitted unramified coefficient rings to identify localization at T with localization at S; in each coefficient domain the finite free central algebra embeds in its total quotient. The p-divisibility intersection calculation removes common p-powers from denominators.
+3. Lemma 43: the map is surjective, and its kernel contains the commutators because τ is symmetric; conversely an element of the kernel is Σ_{x∈Ḡ/C_g} r_{xgx⁻¹}(xgx⁻¹ − g) = Σ r_{xgx⁻¹} τ(xg, x⁻¹)⁻¹(xg·x⁻¹ − x⁻¹·xg), a sum of commutators.
+4. Lemma 45 by restricting the presentation to U_P; Lemma 46 because U_P/Z is cyclic and Z is central.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.iwasawaCarryCocycle` (constructor): For the chosen section of G→G/Z, the central carry formula defines a normalized 2-cocycle valued in Λ_O(Z)^×. The generic twisted algebra is imported, not redefined.
+- `TauCeti.NoncommIwasawa.iwasawaAlgebra_equiv_twisted` (equivalence): Λ_𝒪(G) ≃ Λ_𝒪(Z)[Ḡ]^τ, restricting to Λ_𝒪(U_P) ≃ Λ_𝒪(Z)[P]^τ (Lemma 45).
+- `TauCeti.NoncommIwasawa.twistingCocycle_symm` (simp): τ(g,g′)=τ(g′,g) and τ(g,1)=τ(1,g)=1. The basis inverse uses τ(g,g⁻¹)⁻¹; no inverse-pair normalization is imposed.
+- `TauCeti.NoncommIwasawa.oreSetT` (instance): T = Λ_𝒪(Z) ∖ pΛ_𝒪(Z) is a left and right Ore set of Λ_𝒪(G) without zero divisors.
+- `TauCeti.NoncommIwasawa.localizationT_equiv_localizationS` (equivalence): Λ_𝒪(G)_T ≃ Λ_𝒪(G)_S (Lemma 37).
+- `TauCeti.NoncommIwasawa.cocenter_equiv_conj` (equivalence): R[Ḡ]^τ/[R[Ḡ]^τ, R[Ḡ]^τ] ≃ R[Conj Ḡ]^τ (Lemma 43).
+
+**Unit tests.**
+
+- `trivial_cocycle`: τ ≡ 1 gives R[P]^1 = MonoidAlgebra R P.
+- `direct_product`: G = ℤ_p × C_p with e = 0: Z = Γ, Ḡ = C_p and τ ≡ 1, so Λ(G) = Λ(ℤ_p)[C_p].
+- `carry`: G = Γ = ℤ_p with Z = Γ^p (e = 1): Ḡ = ℤ/p and τ(γ^a, γ^b) = γ^p when a + b ≥ p (0 ≤ a, b < p), so γ̄^p = γ^p·1 and Λ(Γ) = Λ(Z)[X]/(X^p − γ^p).
+- `Z_must_be_open`: For G = ℤ_p and Z = 1 (no open Z), T = ℤ_p^× and Λ(G)_T = Λ(G) ≠ Λ(G)_S = Λ(G)_{(p)}; Lemma 37 needs Z open.
+- `carry_inverse_not_one`: For G/Z generated by γ̄ of order p^e>1, τ(γ̄,γ̄⁻¹)=γ^{p^e}≠1; multiplying the two basis elements requires this central carry.
+
+**Check.**
+
+- For Ḡ = 1 (G = Z ≅ ℤ_p) the construction is Λ_𝒪(ℤ_p) itself, and Conj Ḡ is a point.
+- For trivial carry the imported twisted algebra agrees with MonoidAlgebra; no separate generic twisted group ring is owned here.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi: the rings Λ_𝒪(U_P^ab) = Λ_𝒪(Z)[P^ab]^τ where the tuples live
+- NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta: R[Conj Ḡ]^τ as the cocentre of R[Ḡ]^τ (Lemma 43)
+- NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm: Λ_𝒪(G)_S = Λ_𝒪(Z)_{(p)}[Ḡ]^τ and its p-adic completion
+
+**Prerequisites:** [NE.1/canonical-ore-theorem](#ne1-canonical-ore-theorem), [NE.0/iwasawa-local-iff-pro-p](#ne0-iwasawa-local-iff-pro-p), `mathlib:MonoidAlgebra`, `mathlib:ConjClasses`, `tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.1.2, p. 31, with Lemmas 37, 43, 45, 46 and Remark 38, pp. 31–33 (arXiv v3): §§5.1.1–5.1.4: the twisted group ring, the Ore set T (Lemma 37, Remark 38), Lemma 43 and Lemmas 45–46. The text layer drops the bar on G = G/Z.
+
+<a id="ne6-congruence-group-phi"></a>
+
+### NE.6.8. The maps θ^G and the congruence subgroups Φ^G, Φ^G_S
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/congruence-group-phi` · construction.
+
+For P ≤ Ḡ, θ^G_P : K′₁(Λ_𝒪(G)) → K′₁(Λ_𝒪(U_P)) → K′₁(Λ_𝒪(U_P^ab)) = Λ_𝒪(U_P^ab)^× is the norm followed by abelianisation (just the norm when P is cyclic), θ^G = (θ^G_P)_{P≤Ḡ}, and θ^G_S, θ̂^G are the same maps on K′₁(Λ_𝒪(G)_S) and K′₁(Λ̂_𝒪(G)_S). The data: ver^{P′}_P : U_{P′}^ab → U_P^ab the transfer and ϕ : U_P → U_{P^p} the transfer for cyclic P, both extended to Iwasawa algebras with Frobenius on 𝒪 (Notations 40); for [P′,P′] ≤ P ≤ P′, the trace tr^{P′}_P, norm nr^{P′}_P and projection π^{P′}_P into Λ_𝒪(U_P/[U_{P′},U_{P′}]) (Definition 48); T_{P,P′} the image of x ↦ Σ_{g∈P′/P} g̃xg̃⁻¹ on Λ_𝒪(U_P), T_P = T_{P,N_ḠP} (Definition 49); and α_P(x) = x^p/∏_{k=0}^{p−1}ω_P^k(x) for nontrivial cyclic P, where ω_P is a fixed character of order p and ω_P(g) acts by g ↦ ω_P(g)g, and α_P(x) = x^p otherwise (Definition 47). Φ^G is the subgroup of ∏_{P≤Ḡ} Λ_𝒪(U_P^ab)^× of tuples (x_P) with M1: nr^{P′}_P(x_{P′}) = π^{P′}_P(x_P) whenever [P′,P′] ≤ P ≤ P′; M2: (x_P) is fixed by conjugation by G; M3: ver^{P′}_P(x_{P′}) ≡ x_P mod T_{P,P′} when [P′ : P] = p; M4: α_P(x_P) ≡ ∏_{P′} ϕ(α_{P′}(x_{P′})) mod pT_P for nontrivial cyclic P, over the cyclic P′ ≠ P with P′^p = P, and x_{1}^p ≡ ϕ(x_{1})∏_{P′} ϕ(α_{P′}(x_{P′})) mod pT_{1} over the nontrivial cyclic P′ with P′^p = 1. Φ^G_S and Φ̂^G_S impose the same conditions in ∏Λ_𝒪(U_P^ab)^×_S and ∏Λ̂_𝒪(U_P^ab)_S^× (Definition 51). For [P′ : P] = p and ω a nontrivial character of P′/P, nr^{P′}_P(x) = ∏_k ω^k(x) and tr^{P′}_P(x) = Σ_k ω^k(x) (Lemma 50).
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+- For 𝒪 = 𝒪₁ ⊕ ⋯ ⊕ 𝒪_n the groups split as ⊕ Φ^G_{𝒪_i} (Remark 54), so 𝒪 is unramified in the proofs.
+
+**Construction or proof.**
+
+1. Lemma 50: in the basis 1, g, …, g^{p−1} of R[P′^ab]^τ over R[P/[P′,P′]]^τ, multiplication by x = Σ a_i g^i is the twisted circulant matrix with rows (a₀, …, a_{p−1}), (g^p a_{p−1}, a₀, …), …; the vectors (1, ω^k(g)g, …, ω^k(g^{p−1})g^{p−1}) are eigenvectors with eigenvalues ω^k(x), so the determinant and trace are the product and sum.
+2. M4 is well posed: α_C(x) ≡ 1 mod p for nontrivial cyclic C (Remark 83), and T_P is an ideal of Λ_𝒪(U_P)^{W_ḠP}.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.thetaMap` (constructor): θ^G_P = abelianisation ∘ norm, θ^G = (θ^G_P)_P, and θ^G_S, θ̂^G.
+- `TauCeti.NoncommIwasawa.alphaMap` (constructor): α_P(x) = x^p/∏_k ω_P^k(x) for nontrivial cyclic P, x^p otherwise.
+- `TauCeti.NoncommIwasawa.traceIdeal` (constructor): T_{P,P′} and T_P, with their localised and completed versions.
+- `TauCeti.NoncommIwasawa.Phi` (constructor): Φ^G, Φ^G_S and Φ̂^G_S as subgroups of the products (M1–M4).
+- `TauCeti.NoncommIwasawa.norm_eq_prod_twists` (characterisation): Lemma 50: nr^{P′}_P(x) = ∏_k ω^k(x) and tr^{P′}_P(x) = Σ_k ω^k(x) for [P′ : P] = p.
+- `TauCeti.NoncommIwasawa.Phi_directSum` (compatibility): Φ^G_{𝒪₁⊕𝒪₂} = Φ^G_{𝒪₁} ⊕ Φ^G_{𝒪₂} (Remark 54).
+
+**Unit tests.**
+
+- `trivial_quotient`: Ḡ = 1 (G = Z ≅ ℤ_p): C(Ḡ) = {1}, T_{1} = Λ_𝒪(Z), and M4 reads x^p ≡ ϕ(x) mod p, which every unit satisfies (Lemma 72), so Φ^G = Λ_𝒪(Z)^×.
+- `cyclic_order_two`: p = 2, Ḡ = C₂ = ⟨g⟩, G = ℤ₂ × C₂: M1 forces x_{1} = nr(x_{C₂}) = a² − b² for x_{C₂} = a + bg, so Φ^G is the graph of the norm on Λ(G)^×; M4 at {1} then holds (checked at finite level in the suggested file).
+- `lemma50_p2`: p = 2 and g² = c: the norm of a + bg is a² − cb² = (a + sb)(a − sb) when c = s².
+- `group_element_pair`: (x_{1}, x_{C₂}) = (1, g) is not in Φ^G: nr(g) = g·(−g) = −1 ≠ 1, so M1 fails.
+
+**Check.**
+
+- The conditions are the multiplicative analogue of the pair condition of Proposition 30 (Remark 54); compare l-elementary-case.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems: the image of θ^G
+- NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion: the criterion (ζ_P) ∈ Φ^G_S
+- NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence: the domain of the multiplicative logarithm ℒ
+
+**Prerequisites:** [NE.6/twisted-group-ring-presentation](#ne6-twisted-group-ring-presentation), [NE.3/k1-prime](#ne3-k1-prime), `mathlib:MonoidHom.transfer`, `mathlib:Algebra.norm`, `mathlib:Algebra.trace`, `mathlib:Abelianization`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.2.2, Definition 51, p. 35 (arXiv v3): Definition 51 (M1–M4) with §5.2.1 (θ^G) and Notations 40, Definitions 47–49 and Lemma 50 (pp. 32–35). Theorem 94 restates M4 as quotients ≡ 1; the page image shows fraction bars that the text layer drops, and the two forms agree.
+
+<a id="ne6-additive-map-beta"></a>
+
+### NE.6.9. The additive maps t^G_P, η_P, β^G and the group ψ^G_R
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/additive-map-beta` · construction.
+
+Let R = Λ_𝒪(Z) or Λ̂_𝒪(Z)_{(p)}. For P ≤ Ḡ, t^G_P : R[Conj Ḡ]^τ → R[P^ab]^τ is t^G_P([g]) = Σ_{x∈C(Ḡ,P)} {x⁻¹gx : x⁻¹gx ∈ P} over left coset representatives, independent of their choice. For cyclic P, η_P : R[P]^τ → R[P]^τ is the R-linear map with η_P(h) = h for generators h of P and 0 otherwise, i.e. η_P(x) = x − (1/p)Σ_k ω_P^k(x). β^G_P = η_P ∘ t^G_P for cyclic P and t^G_P otherwise, and β^G_R = (β^G_P)_P (Definition 55). For cyclic P, T_{P,R} is the image of x ↦ Σ_{g∈W_ḠP} gxg⁻¹ on R[P]^τ, W_ḠP = N_ḠP/P (Definition 56). ψ^G_R ⊂ ∏_{P≤Ḡ} R[P^ab]^τ is the group of tuples (a_P) with A1: for [P′,P′] ≤ P ≤ P′ (and [P′,P′] ≠ P if P is nontrivial cyclic), tr^{P′}_P(a_{P′}) = π^{P′}_P(a_P) if P is not cyclic, η_P(tr^{P′}_P(a_{P′})) = π^{P′}_P(a_P) if P is cyclic and P′ is not, and tr^{P′}_P(a_{P′}) = 0 if P′ is cyclic; A2: (a_P)_{P∈C(Ḡ)} is invariant under conjugation by Ḡ; A3: a_P ∈ T_{P,R} for every cyclic P (Definition 57). δ = Σ_{P cyclic} δ_P : ∏_P R[P^ab]^τ → R[Conj Ḡ]^τ[1/p], δ_P(x) = [x]/[Ḡ : P], is a left inverse of β^G_R (Definition 61, Lemma 62), and β^G_R lands in ψ^G_R (Lemma 60).
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+- R[Conj Ḡ]^τ is only an R-module (Remark 42).
+
+**Construction or proof.**
+
+1. Lemma 60, A1: tr^{P′}_P ∘ t^G_{P′} = π^{P′}_P ∘ t^G_P, since both send [h] to [P′ : P]·h for h ∈ P and to 0 otherwise; apply η_P when P is cyclic; if P < P′ are both cyclic, β^G_{P′}([g]) involves only generators of P′, whose traces to P vanish.
+2. Lemma 60, A2: transport coset representatives, t^G_{g₁Pg₁⁻¹}([g]) = g₁t^G_P([g])g₁⁻¹. A3: t^G_P = t^{N_ḠP}_P ∘ t^G_{N_ḠP}, and t^{N_ḠP}_P([g]) = Σ_{x∈W_ḠP} x⁻¹gx ∈ T_{P,R} for g ∈ P.
+3. Lemma 62: for P = ⟨g⟩ and its conjugates P′, δ(β([g])) = ([Ḡ : P])⁻¹ Σ_{P′}[N_ḠP′ : P′][g] = [g].
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.tMap` (constructor): t^G_P : R[Conj Ḡ]^τ → R[P^ab]^τ.
+- `TauCeti.NoncommIwasawa.etaGen` (constructor): η_P : R[P]^τ → R[P]^τ, keeping generators of P.
+- `TauCeti.NoncommIwasawa.beta` (constructor): β^G_R = (β^G_P)_P.
+- `TauCeti.NoncommIwasawa.Psi` (constructor): ψ^G_R ⊂ ∏_P R[P^ab]^τ cut out by A1–A3.
+- `TauCeti.NoncommIwasawa.delta` (constructor): δ = Σ_{P cyclic} δ_P with δ_P(x) = [x]/[Ḡ : P].
+- `TauCeti.NoncommIwasawa.delta_comp_beta` (simp): δ ∘ β^G_R = id (Lemma 62).
+- `TauCeti.NoncommIwasawa.beta_mem_Psi` (relation): β^G_R lands in ψ^G_R (Lemma 60).
+
+**Unit tests.**
+
+- `trivial_quotient`: Ḡ = 1: β^G is the identity of R and ψ^G_R = T_{1,R} = R.
+- `cyclic_p`: Ḡ = C_p: C(Ḡ) = {1, Ḡ}, t^G_{1}(Σ r_g[g]) = p·r₁ and β^G_Ḡ(Σ r_g[g]) = Σ_{g≠1} r_g g; ψ^G_R = pR × {b : b has no identity coefficient} (A1 for {1} ≤ Ḡ forces p·b₁ = 0, A3 gives a_{1} ∈ pR), and β is the bijection onto it.
+- `eta_values`: η_P(1) = 0 and η_P(h) = h for a generator h, because Σ_{k<p} ζ^k = 0 for a primitive p-th root ζ.
+- `not_multiplicative`: β^G_R is R-linear but not multiplicative, and ψ^G_R is only a group: for Ḡ = C_p, β^G_{1}(1) = p while β^G_{1}(1·1) ≠ β^G_{1}(1)² = p².
+
+**Check.**
+
+- Checked on Ḡ = C_p below, where ψ^G_R ≅ R^p.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem: β^G_R : R[Conj Ḡ]^τ ≅ ψ^G_R
+- NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation: β^G_P(L(x)) computed from θ^G(x)
+- NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence: the target ψ^G of ℒ
+
+**Prerequisites:** [NE.6/twisted-group-ring-presentation](#ne6-twisted-group-ring-presentation), `mathlib:ConjClasses`, `mathlib:IsPrimitiveRoot.geom_sum_eq_zero`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.3, Definitions 55–57, p. 37 (arXiv v3): Definitions 55–57 with the map t^G_P (p. 36), Definition 61 and Lemmas 60, 62 (pp. 38–40). "Cong(G)" on pp. 36, 38, 41, 47–51 is a misprint for Conj(G).
+
+<a id="ne6-additive-theorem"></a>
+
+### NE.6.10. Kakde's additive theorem
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/additive-theorem` · theorem.
+
+β^G_R induces an isomorphism R[Conj Ḡ]^τ ≅ ψ^G_R (Theorem 58). Moreover id_{ℚ_p} ⊗ β^G_R : ℚ_p ⊗ R[Conj Ḡ]^τ → ∏_P ℚ_p ⊗ R[P^ab]^τ is injective with image the tuples satisfying A1 and A2, and if (id ⊗ β^G_R)(a) = (a_P) with a_P ∈ T_{P,R} for every cyclic P, then a ∈ R[Conj Ḡ]^τ and a_P ∈ R[P^ab]^τ for all P (Proposition 64).
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+
+**Construction or proof.**
+
+1. Lemma 63, cyclic components: δ_P(a_P) and δ_{P′}(a_{P′}) can cancel only for conjugate P, P′, where A2 makes them equal; so δ((a_P)) = 0 gives a_P = 0 for cyclic P (the coefficients are constant on N_ḠP-orbits by A2).
+2. Lemma 63, noncyclic components: take P′ of least order with a_{P′} ≠ 0, h₀ in its support and a maximal P ∋ h̃₀ of index p. If P is cyclic, h̃₀ generates P (otherwise A1 for P^p ⋊ C_p ≤ P′, or for {1} ≤ P′ = P × C_p, contradicts minimality), and η_P(tr^{P′}_P(a_{P′})) ≠ 0 = π^{P′}_P(a_P) contradicts A1; if P is not cyclic, the coefficient p·a_{h₀} of tr^{P′}_P(a_{P′}) contradicts A1.
+3. δ(ψ^G_R) ⊆ R[Conj Ḡ]^τ: by A3 write a_P = Σ_{x∈W_ḠP} xb_Px⁻¹; summing δ over the conjugates of P gives [Ḡ : P]δ_P(b_P) ∈ R[Conj Ḡ]^τ.
+4. Theorem 58: δ ∘ β = id (Lemma 62) and β(R[Conj Ḡ]^τ) ⊆ ψ^G_R (Lemma 60); δ injective on ψ^G_R gives β ∘ δ = id there.
+5. Proposition 64 from Theorem 58 after ⊗ℚ_p; A2 puts a_P in ℚ_p ⊗ T_{P,R}, and δ recovers a from the cyclic components.
+
+**Check.**
+
+- Artin's induction theorem would give injectivity after projecting to cyclic P (Remark 59); Kakde proves injectivity directly, so no request is needed.
+- The cyclic test of additive-map-beta (Ḡ = C_p) is an instance.
+
+**Prerequisites:** [NE.6/additive-map-beta](#ne6-additive-map-beta), [NE.6/twisted-group-ring-presentation](#ne6-twisted-group-ring-presentation).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.3.1, Theorem 58, p. 38 (arXiv v3): Theorem 58 with Lemmas 60, 62, 63 and Proposition 64 (pp. 38–42).
+
+<a id="ne6-iwasawa-algebra-logarithm"></a>
+
+### NE.6.11. The p-adic logarithm on relative K₁ of Iwasawa algebras
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/iwasawa-algebra-logarithm` · construction.
+
+Let R = Λ̂_𝒪(Z)_{(p)} and J_R the Jacobson radical of the local ring R[Ḡ]^τ. Then J_R/pR[Ḡ]^τ is nilpotent (Lemma 65). For every ideal I ⊆ J_R, Log(1 + x) = Σ_{i≥1}(−1)^{i+1}x^i/i (x ∈ I) induces a unique homomorphism log_I : K₁(R[Ḡ]^τ, I) → (I/[R[Ḡ]^τ, I]) ⊗_{ℤ_p} ℚ_p; if I ⊆ ξR[Ḡ]^τ for a central ξ with ξ^p ∈ pξR[Ḡ]^τ, it lands in I/[R[Ḡ]^τ, I], and it is an isomorphism if moreover I^p ⊆ pIJ_R (Proposition 67). For Λ_𝒪(G), with G_n = G/Z^{p^n} and F = Frac 𝒪, the logarithms log : K₁(𝒪[G_n]) → F[Conj G_n] of Oliver kill torsion and pass to the limit, log : K′₁(Λ_𝒪(G)) → lim_n F[Conj G_n] = F⟦Z⟧[Conj Ḡ]^τ.
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+- G pro-p, so R[Ḡ]^τ is local.
+
+**Construction or proof.**
+
+1. Lemma 65: over k = 𝒪/p there is an exact sequence 0 → J_R/p → Q(k⟦G⟧) → Q(k⟦Γ⟧) → 0; the kernel N of k⟦G⟧ → k⟦Γ⟧ is k⟦G⟧I_H with I_H nilpotent (H is a finite p-group), and by Lemma 37 the denominators can be taken central.
+2. Lemma 66 (Oliver's Lemma 2.7 for twisted Iwasawa algebras): R[Ḡ]^τ is J_R-adically complete, so Log converges on 1 + I into I[1/p] (into I under the ξ-hypothesis, since then I^n ⊆ nI); Log(uv) ≡ Log u + Log v modulo U(I) = Σ_{m≥0,n≥1}(1/(m+n))[I^m, I^n] by summing the coefficients of cyclically equivalent words; under I^p ⊆ pIJ_R, Exp converges and inverts Log, and Exp([R[Ḡ]^τ, I]) ⊆ E(R[Ḡ]^τ, I) by Vaserstein's identity Exp(rx)Exp(xr)⁻¹ ∈ E(R[Ḡ]^τ, I) and successive approximation through D_k = ⟨rx − xr : rx, xr ∈ IJ_R^k⟩.
+3. Proposition 67 (Oliver's Theorem 2.8): apply Lemma 66 to M_n(I) ⊆ M_n(R[Ḡ]^τ), compose with the trace Tr_n, note L_n([r, u]) = Tr_n(rLog(u)r⁻¹) − Tr_n(Log u) = 0, and pass to K₁(R[Ḡ]^τ, I) = GL(R[Ḡ]^τ, I)/[GL(R[Ḡ]^τ), GL(R[Ḡ]^τ, I)].
+4. The logarithm on K′₁(Λ_𝒪(G)) is Oliver's finite-level one in the limit (see the gap on Oliver's book).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.logRel` (constructor): log_I : K₁(R[Ḡ]^τ, I) → (I/[R[Ḡ]^τ, I]) ⊗ ℚ_p.
+- `TauCeti.NoncommIwasawa.logRel_integral` (characterisation): Under the ξ-hypothesis, log_I lands in I/[R[Ḡ]^τ, I].
+- `TauCeti.NoncommIwasawa.logRel_bijective` (equivalence): log_I is an isomorphism when moreover I^p ⊆ pIJ_R.
+- `TauCeti.NoncommIwasawa.log_mul_mod_commutators` (relation): Log(uv) ≡ Log u + Log v mod [R[Ḡ]^τ[1/p], I[1/p]] (Lemma 66).
+- `TauCeti.NoncommIwasawa.logK1Prime` (constructor): log : K′₁(Λ_𝒪(G)) → F⟦Z⟧[Conj Ḡ]^τ, the limit of the finite-level logarithms.
+- `TauCeti.NoncommIwasawa.log_natural` (functoriality): log commutes with the maps induced by group homomorphisms (used in Lemma 81).
+
+**Unit tests.**
+
+- `commutative_case`: Ḡ = 1: [R, I] = 0 and log_I(1 + x) = log(1 + x) is the usual p-adic logarithm.
+- `jacobson_nilpotent`: G = ℤ_p × C_p, k = 𝔽_p: J_R/p is generated by g − 1, and (g − 1)^p = g^p − 1 = 0 in k[C_p].
+- `torsion_killed`: log is not injective: for G = ℤ_p × C_p the class of g has order p in K′₁(Λ(G)), so log(g) = 0 although g ≠ 1.
+- `bijectivity_hypothesis`: The analogue over ℤ₂ with I = 2ℤ₂ fails I^p ⊆ pIJ_R (4ℤ₂ ⊄ 8ℤ₂), and log(1 + 2ℤ₂) = 4ℤ₂ ≠ 2ℤ₂; for odd p and I = pℤ_p the hypothesis holds and log : 1 + pℤ_p ≅ pℤ_p.
+
+**Check.**
+
+- Kakde notes (Remark 68) that for R = Λ̂_𝒪(Z)_{(p)} it is unclear whether log_{J_R} extends canonically to K₁(R[Ḡ]^τ); only log_{J_R} is used.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation: Lemmas 76, 77 and 81
+- NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm: L = log − (ϕ/p)log
+
+**Prerequisites:** [NE.6/twisted-group-ring-presentation](#ne6-twisted-group-ring-presentation), `KTheoryLowDegrees:U.5/relative-K1`, `KTheoryLowDegrees:U.5/relative-elementary-subgroup`, `KTheoryLowDegrees:U.5/relative-K1-radical-ideal`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.4, Proposition 67, p. 46 (arXiv v3): Proposition 67 with Lemmas 65–66 (pp. 42–47), Remark 68, and the limit of finite-level logarithms (p. 47).
+
+<a id="ne6-integral-logarithm"></a>
+
+### NE.6.12. The integral logarithm on K′₁ of Iwasawa algebras
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/integral-logarithm` · construction.
+
+Let ϕ be the endomorphism of R (Frobenius on 𝒪, p-power map on Z), extended to R[Conj Ḡ]^τ by [g] ↦ [g^p] (Definition 69). Oliver–Taylor's integral logarithm L = log − (ϕ/p)log : K′₁(𝒪[G_n]) → 𝒪[Conj G_n] sits in an exact sequence 1 → μ(𝒪) × G_n^ab → K′₁(𝒪[G_n]) → 𝒪[Conj G_n] → G_n^ab → 1 with ω(Σ a_g g) = ∏ g^{tr_{𝒪/ℤ_p}(a_g)} (Oliver, Theorem 6.6); its inverse limit is L : K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ with 1 → μ(𝒪) × G^ab → K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab → 1 exact (Definition 70). On the completed localisation, with J = ker(Λ̂_𝒪(G)_S → Λ̂_𝒪(Γ)_{(p)}) and the splitting Γ ↪ G, every x ∈ K′₁(Λ̂_𝒪(G)_S) is x = uy with u in the image of K₁(Λ̂_𝒪(G)_S, J) and y ∈ K′₁(Λ̂_𝒪(Γ)_{(p)}) (Lemma 71); y^p/ϕ(y) ≡ 1 mod p (Lemma 72); and L(uy) = log(u) − (ϕ/p)log(u) + (1/p)log(y^p/ϕ(y)) is a homomorphism K′₁(Λ̂_𝒪(G)_S) → Λ̂_𝒪(Z)_{(p)}[Conj Ḡ]^τ, independent of the splitting (Definition 73, Proposition 74).
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+- G pro-p; 𝒪 unramified, so (p) is the maximal ideal of 𝒪.
+
+**Construction or proof.**
+
+1. Definition 70: the sequences (9) for n ≥ 0 are compatible sequences of profinite groups, so the inverse limit is exact (the finite-level sequence is Oliver's; see the gap on Oliver's book).
+2. Lemma 71: Λ̂_𝒪(G)_S is local, so its units surject onto K′₁ and 1 + J onto K₁(Λ̂_𝒪(G)_S, J); 1 → 1 + J → Λ̂_𝒪(G)_S^× → Λ̂_𝒪(Γ)_{(p)}^× → 1 splits by Γ ↪ G.
+3. Lemma 72: modulo p, Λ̂_𝒪(Γ)_{(p)} is the domain 𝔽_q⟦X⟧, on which ϕ is X ↦ (1 + X)^p − 1 = X^p with Frobenius on 𝔽_q, so y^p = ϕ(y).
+4. Integrality: L(1 − v) ≡ Σ_k (v^{pk} − ϕ(v^k))/(pk) modulo the integral elements, and pk ∣ v^{pk} − ϕ(v^k) follows from p^n ∣ v^{p^n} − ϕ(v^{p^{n−1}}), proved by grouping the monomials of v^{p^n} into orbits under cyclic permutation (legitimate because τ is symmetric) and p^t ∣ r̂^{p^t} − ϕ(r̂^{p^{t−1}}).
+5. Independence of the splitting: the finitely many splittings agree on an open A ≤ G; L is independent on the images of K₁(Λ̂_𝒪(G)_S, J_R) and K₁(Λ̂_𝒪(A)_S), whose product has torsion cokernel in K′₁(Λ̂_𝒪(G)_S), and the target is torsion free.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.frobeniusPhi` (constructor): ϕ on R and on R[Conj Ḡ]^τ, [g] ↦ [g^p].
+- `TauCeti.NoncommIwasawa.integralLog` (constructor): L : K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ.
+- `TauCeti.NoncommIwasawa.omegaMap` (constructor): ω : Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab.
+- `TauCeti.NoncommIwasawa.integralLog_exact` (characterisation): 1 → μ(𝒪) × G^ab → K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab → 1 is exact.
+- `TauCeti.NoncommIwasawa.integralLogCompleted` (constructor): L : K′₁(Λ̂_𝒪(G)_S) → Λ̂_𝒪(Z)_{(p)}[Conj Ḡ]^τ (Definition 73).
+- `TauCeti.NoncommIwasawa.integralLogCompleted_indep` (characterisation): Independent of the splitting Γ ↪ G (Proposition 74).
+- `TauCeti.NoncommIwasawa.integralLog_compat` (compatibility): The completed L restricts to L on the image of K′₁(Λ_𝒪(G)).
+
+**Unit tests.**
+
+- `scalar_integrality`: 𝒪 = ℤ_p and v scalar: p^n ∣ v^{p^n} − v^{p^{n−1}}; for p = 3, n = 3 checked on ℤ/27.
+- `frobenius_mod_p`: Lemma 72 over 𝔽_p: expand p f = f^p for f ∈ 𝔽_p[X] (suggested file, via ZMod.expand_card).
+- `torsion_kernel`: G = ℤ_p × C_p, 𝒪 = ℤ_p: L(g) = log g − (1/p)ϕ(log g) = 0, as g ∈ G^ab ⊆ ker L.
+- `not_log`: L ≠ log: for Ḡ = 1, 𝒪 = ℤ_p and x = 1 + p (p odd), L(x) = (1 − 1/p)log(1 + p) ≠ log(1 + p), because ϕ is trivial on ℤ_p.
+
+**Check.**
+
+- Kakde leaves the kernel and cokernel of L on K′₁(Λ̂_𝒪(G)_S) open (Remark 75, citing Ritter–Weiss); only the homomorphism is planned.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation: β^G_P(L(x)) through θ^G(x)
+- NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence: the top row of the five-lemma ladder
+- NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems: the exact sequence of Definition 70
+
+**Prerequisites:** [NE.6/iwasawa-algebra-logarithm](#ne6-iwasawa-algebra-logarithm), [NE.6/twisted-group-ring-presentation](#ne6-twisted-group-ring-presentation), [NE.3/k1-prime](#ne3-k1-prime), `mathlib:ZMod.expand_card`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.5, Definition 70 and Proposition 74, pp. 48–49 (arXiv v3): Definitions 69–70 with the sequence (9) (p. 48), Lemmas 71–72, Definition 73 and Proposition 74 (pp. 48–50), Remark 75 (p. 51).
+
+<a id="ne6-theta-beta-relation"></a>
+
+### NE.6.13. The additive and multiplicative sides: β^G(L(x)) through θ^G(x)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/theta-beta-relation` · theorem.
+
+Define v^G_P on ∏_C F⟦Z⟧[C^ab] by v^G_P((x_C)) = Σ_{P′} ([P′ : P′^p]/[P : P′^p])ϕ(x_{P′}) over cyclic P′ with P′^p ≤ P when P is not cyclic, and Σ_{P′ ≠ P′^p = P} [P′ : P′^p]ϕ(x_{P′}) when P is cyclic (Definition 78); and u^G_P on ∏_C Λ_𝒪(U_C^ab)^× by u^G_P((x_C)) = ∏_{P′^p ≤ P} ϕ(x_{P′})^{|P′|} for noncyclic P and ∏_{P′ ≠ P′^p = P} ϕ(x_{P′}) for cyclic P, over cyclic P′ (Definition 80). Then for x ∈ K′₁(Λ_𝒪(G)): β^G_P(L(x)) = (1/(p²|P|))log(α_P(θ^G_P(x))^{p|P|}/u^G_P(α(θ^G(x)))) for noncyclic P; β^G_P(L(x)) = (1/p)log(α_P(θ^G_P(x))/u^G_P(α(θ^G(x)))) for nontrivial cyclic P; and β^G_{1}(L(x)) = (1/p)log(α_{1}(θ^G_{1}(x))/(ϕ(θ^G_{1}(x))u^G_{1}(α(θ^G(x))))) (Proposition 84); the same holds on K′₁(Λ̂_𝒪(G)_S). The logarithms are defined: α_P(θ^G_P(x))^{p|P|} ≡ u^G_P(α(θ^G(x))) mod p for noncyclic P (Lemma 82), and the cyclic quotients are ≡ 1 mod p (Remark 83).
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+
+**Construction or proof.**
+
+1. Lemma 76: log ∘ θ^G_P = t^G_P ∘ log (Oliver, Theorem 6.8); in the completed case from log(u) = lim p^{−n}(u^{p^n} − 1) and θ̂^G_P(u) = lim (1 + t^G_P(u^{p^n} − 1))^{1/p^n}.
+2. Lemma 77: log ∘ α_P = pη_P ∘ log for nontrivial cyclic P, since ω_P commutes with log and η_P = (1/p)(p − Σ_k ω_P^k).
+3. Lemma 79: β^G_P ∘ ϕ = v^G_P ∘ β^G for P ≠ {1}, and β^G_{1} ∘ ϕ = (ϕ + v^G_{1}) ∘ β^G, by counting cosets.
+4. Lemma 81: log ∘ u^G_P = |P|·v^G_P ∘ log for noncyclic P and (1/p)·v^G_P ∘ log for cyclic P, by naturality of log.
+5. Lemma 82: modulo p, α_C(θ^G_C(x)) ≡ 1 for nontrivial cyclic C and θ^G_P(x)^{|P|} ≡ θ^G_{1}(x), the latter by Schneider–Venjakob, Proposition 2.3 (on K₁(𝔽_p⟦H⟧), the norm to an open normal N followed by the inclusion is x ↦ x^{[H:N]}).
+6. Proposition 84 by chaining Lemmas 76, 77, 79 and 81. On the completed ring write x = uy (Lemma 71): u is handled identically; for y ∈ Λ̂_𝒪(Z)_{(p)}, θ^G_P(y) = y^{[Ḡ:P]}, α_P(θ^G_P(y)) = 1 for nontrivial cyclic P and β^G_P(L(y)) = [Ḡ : P]L(y) or 0; a general y has ϕ^r(y) ∈ Λ̂_𝒪(Z)_{(p)} and y^{p^r}/ϕ^r(y) ≡ 1 mod p, and the targets are torsion free.
+
+**Check.**
+
+- At Ḡ = 1 both sides are (1/p)log(x^p/ϕ(x)).
+
+**Prerequisites:** [NE.6/integral-logarithm](#ne6-integral-logarithm), [NE.6/iwasawa-algebra-logarithm](#ne6-iwasawa-algebra-logarithm), [NE.6/additive-map-beta](#ne6-additive-map-beta), [NE.6/congruence-group-phi](#ne6-congruence-group-phi).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.6, Proposition 84, p. 56 (arXiv v3): Proposition 84 with Lemmas 76, 77, 79, 81, 82, Definitions 78, 80 and Remark 83 (pp. 51–58).
+- [SCHNEIDER-VENJAKOB-2010](#source-schneider-venjakob-2010), Proposition 2.3 and proof, pp. 11–12 (arXiv v1): Proposition 2.3 continues: K₁(Ω(H)) → K₁(Ω(N)) → K₁(Ω(H)), the norm followed by the canonical map, is x ↦ x^{[H:N]}, with Ω = 𝔽_p⟦−⟧. This is the input to Kakde's Lemma 82.
+
+<a id="ne6-phi-integral-log-sequence"></a>
+
+### NE.6.14. The multiplicative sequence for Φ^G
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/phi-integral-log-sequence` · lemma.
+
+θ^G(K′₁(Λ_𝒪(G))) ⊆ Φ^G and θ̂^G_S(K′₁(Λ̂_𝒪(G)_S)) ⊆ Φ̂^G_S (Lemma 85). The map μ(𝒪) × G^ab → ∏_P Λ_𝒪(U_P^ab)^×, the identity on μ(𝒪) and the transfer G^ab → U_P^ab in each component, is injective and commutes with θ^G (Lemma 86). There is a surjection ω : ψ^G → G^ab, ω((a_P)) = ω(a_Ḡ), with ω ∘ β^G = ω (Lemma 87). The map ℒ = (ℒ_P) : Φ^G → ψ^G, with ℒ_P((x_C)) given by the right-hand sides of Proposition 84 with x_C in place of θ^G_C(x), sits in an exact sequence 1 → μ(𝒪) × G^ab → Φ^G → ψ^G → G^ab → 1 (Lemma 88).
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+
+**Construction or proof.**
+
+1. Lemma 85, M1: the norm to U_P equals the norm to U_{P′} followed by nr^{P′}_P after abelianising, because the bases agree. M2: the norm is conjugation-equivariant.
+2. Lemma 85, M3: write x = Σ x_k g^k over Λ_𝒪(U_P) for g ∈ U_{P′} ∖ U_P; the norm is the determinant of the twisted circulant matrix, whose terms not fixed by σ = conjugation by g cancel modulo T_{P,P′}, and Σ_h a_h^p ∏_k σ^k(h) ≡ Σ_h ϕ(a_h)∏_k σ^k(h) = ver^{P′}_P modulo T_{P,P′}.
+3. Lemma 85, M4: by Proposition 84 and Lemma 60, pβ^G_P(L(x)) = log(α_P(θ^G_P(x))/u^G_P(α(θ^G(x)))) ∈ pT_P, and log : 1 + pT_P ≅ pT_P.
+4. Lemma 89: if C^p ⊆ P′ but C^p ⊄ P with [P′ : P] = p, then nr^{P′}_P(ϕ(α_C(x_C))) = 1, by Lemma 50.
+5. ℒ lands in ψ^G: A1 by cases (P not cyclic; P cyclic and P′ not, using α_P(ϕ(α_C(x_C))) = 1 unless C^p = P; P′ cyclic by Lemma 89) from M1; A2 and A3 from M2 and M4; integrality from Proposition 64.
+6. Exactness at Φ^G: ℒ((x_P)) = 0 gives α_P(x_P) = u^G_P(α((x_C))) for cyclic P, hence α_P(x_P) = 1 by induction from the maximal cyclic P; so x_P is torsion, hence in μ(𝒪) × U_P^ab (Higman's theorem), for noncyclic P, and x_{1} ∈ μ(𝒪) × U_{1} by Definition 70; M1 with Lemma 50 and induction extend this to all cyclic P, and M3 with induction on [Ḡ : P] puts (x_P) in the image of μ(𝒪) × G^ab.
+7. Exactness at ψ^G: summing (1/[Ḡ : P])ℒ_P gives ℒ_Ḡ((x_C)) = (1/p)log(x_Ḡ^p/ϕ(x_Ḡ)), so ω ∘ ℒ = 1 by Definition 70; conversely lift a ∈ ker ω through the additive theorem and L to x ∈ K′₁(Λ_𝒪(G)), and ℒ(θ^G(x)) = β^G(L(x)) = a.
+
+**Check.**
+
+- Higman's theorem (the torsion units of Λ_𝒪(U_P^ab) are μ(𝒪) × U_P^ab) is a cited input (see the gap on Oliver's book).
+
+**Prerequisites:** [NE.6/congruence-group-phi](#ne6-congruence-group-phi), [NE.6/theta-beta-relation](#ne6-theta-beta-relation), [NE.6/additive-theorem](#ne6-additive-theorem), [NE.6/integral-logarithm](#ne6-integral-logarithm).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.7, Lemma 85, p. 58 (arXiv v3): Lemmas 85–89 (pp. 58–65).
+
+<a id="ne6-main-algebraic-theorems"></a>
+
+### NE.6.15. Kakde's congruence description of K′₁
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/main-algebraic-theorems` · theorem.
+
+Let G be a one-dimensional pro-p p-adic Lie group with G/H ≅ ℤ_p, Z ≤ G central open pro-cyclic, Ḡ = G/Z, and 𝒪 the integers of a finite unramified extension of ℚ_p or a finite direct sum of such rings. Then θ^G induces an isomorphism K′₁(Λ_𝒪(G)) ≅ Φ^G (Theorem 52); θ^G_S maps K′₁(Λ_𝒪(G)_S) into Φ^G_S, and Φ^G_S ∩ ∏_{P≤Ḡ} Λ_𝒪(U_P^ab)^× = θ^G(K′₁(Λ_𝒪(G))) (Theorem 53).
+
+**Hypotheses.**
+
+- G is a one-dimensional pro-p p-adic Lie group with a closed normal H, G/H ≅ Γ ≅ ℤ_p, a fixed lift G = H ⋊ Γ, Z = Γ^{p^e} open in Γ and acting trivially on H (so Z is central), Ḡ = G/Z, and U_P ≤ G the preimage of P ≤ Ḡ; 𝒪 is the ring of integers of a finite unramified extension of ℚ_p, or a finite direct sum of such rings.
+
+**Construction or proof.**
+
+1. Reduce to 𝒪 unramified over ℤ_p (Remark 54).
+2. Theorem 52: the five lemma on the ladder μ(𝒪) × G^ab → K′₁(Λ_𝒪(G)) → Λ_𝒪(Z)[Conj Ḡ]^τ → G^ab (integral-logarithm) over μ(𝒪) × G^ab → Φ^G → ψ^G → G^ab (phi-integral-log-sequence), with θ^G, β^G (an isomorphism by additive-theorem) and the identities as vertical maps; the squares commute by Lemmas 86–87 and ℒ ∘ θ^G = β^G ∘ L (theta-beta-relation).
+3. Theorem 53: θ^G_S lands in Φ̂^G_S ∩ ∏Λ_𝒪(U_P^ab)^×_S = Φ^G_S (Lemma 85 on the completed ring), and Φ^G_S ∩ ∏Λ_𝒪(U_P^ab)^× = Φ^G, which is θ^G(K′₁(Λ_𝒪(G))) by Theorem 52.
+
+**Check.**
+
+- Source-qualified: G pro-p of dimension one and 𝒪 unramified. The general one-dimensional G reaches this case through reduction-to-p-elementary, with 𝒪 = ℤ_p[Δ] ≅ ⊕_χ 𝒪_χ.
+- Checked on Ḡ = 1 and Ḡ = C₂ in congruence-group-phi's tests.
+
+**Prerequisites:** [NE.6/phi-integral-log-sequence](#ne6-phi-integral-log-sequence), [NE.6/additive-theorem](#ne6-additive-theorem), [NE.6/theta-beta-relation](#ne6-theta-beta-relation), [NE.6/integral-logarithm](#ne6-integral-logarithm), [NE.6/congruence-group-phi](#ne6-congruence-group-phi), [NE.3/k1-prime](#ne3-k1-prime).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.2.3, Theorems 52–53, p. 36 (arXiv v3); proofs p. 65: Theorems 52 and 53 (p. 36) with their proofs (p. 65).
+
+**Atlas planet:** Kakde's congruence description of K′₁.
+
+<a id="ne6-k1-injects-localisation"></a>
+
+### NE.6.16. K′₁(Λ_𝒪(G)) injects into K′₁(Λ_𝒪(G)_S)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/k1-injects-localisation` · theorem.
+
+Let G be a compact p-adic Lie group with a quotient G/H ≅ ℤ_p, and 𝒪 the ring of integers of a finite unramified extension of ℚ_p. Then the map K′₁(Λ_𝒪(G)) → K′₁(Λ_𝒪(G)_S) is injective (Corollary 90).
+
+**Hypotheses.**
+
+- G compact p-adic Lie with G/H ≅ ℤ_p; 𝒪 unramified.
+
+**Construction or proof.**
+
+1. G pro-p of dimension one: θ^G_S composed with K′₁(Λ_𝒪(G)) → K′₁(Λ_𝒪(G)_S) is θ^G followed by the injection ∏Λ_𝒪(U_P^ab)^× ↪ ∏Λ_𝒪(U_P^ab)^×_S, and θ^G is injective (Theorem 52).
+2. G of dimension one: reduction-to-qp-elementary, l-elementary-case and reduction-to-p-elementary each carry the injectivity of K′₁ → K′₁ of the localisation from their subquotients to G; they end at Δ × G_p with 𝒪[Δ] ≅ ⊕_χ 𝒪_χ unramified, which is the pro-p case.
+3. Arbitrary dimension: if x ↦ 1 in K′₁(Λ_𝒪(G)_S), then for every open U ≤ H normal in G and pro-p its image in K′₁(Λ_𝒪(G/U)_S) is 1, hence its image in K′₁(Λ_𝒪(G/U)) is 1 by the dimension-one case, and x = 1 because K′₁(Λ_𝒪(G)) ≅ lim_U K′₁(Λ_𝒪(G/U)) (k1-prime, Corollary 20).
+
+**Check.**
+
+- The source prints the corollary without a proof (p. 65). The route above is reconstructed and flagged. It runs the §4 reductions with 𝒪 = ℤ_p, as printed; a larger unramified 𝒪 needs the same reductions over 𝒪, which Kakde does not write out.
+
+**Prerequisites:** [NE.6/main-algebraic-theorems](#ne6-main-algebraic-theorems), [NE.6/reduction-to-qp-elementary](#ne6-reduction-to-qp-elementary), [NE.6/l-elementary-case](#ne6-l-elementary-case), [NE.6/reduction-to-p-elementary](#ne6-reduction-to-p-elementary), [NE.3/k1-prime](#ne3-k1-prime), [NE.1/canonical-ore-theorem](#ne1-canonical-ore-theorem).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §5.7, Corollary 90, p. 65 (arXiv v3): Corollary 90, stated after the proofs of Theorems 52–53; no proof is printed.
+
+<a id="ne6-main-conjecture-congruence-criterion"></a>
+
+### NE.6.17. The main conjecture as congruences between abelian zeta functions
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/main-conjecture-congruence-criterion` · theorem.
+
+Let F_∞/F be admissible with μ = 0 and Gal(F_∞/F) = Δ × G, with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; fix Z ≤ G central open pro-cyclic, Ḡ = G/Z. For P ≤ Ḡ put F_P = F_∞^{Δ×U_P} and K_P = F_∞^{[U_P,U_P]}, so that Gal(K_P/F_P) = Δ × U_P^ab, and let ζ_P ∈ Λ(Δ × U_P^ab)^×_S be the Deligne–Ribet (Cassou-Noguès, Barsky) p-adic zeta function of K_P/F_P (Notations 91). Then MC(F_∞/F) holds if and only if (ζ_P)_P ∈ Φ^G_S, where Φ^G_S = Φ^G_{ℤ_p[Δ],S} (Proposition 93). Every irreducible Artin representation ρ of G has a one-dimensional χ inflated from Γ with ρ ⊗ χ trivial on Z (Lemma 92).
+
+**Hypotheses.**
+
+- F_∞/F admissible, μ = 0, p odd; Gal(F_∞/F) = Δ × G as stated.
+
+**Construction or proof.**
+
+1. Lemma 92 by induction on |G/Z|: by Clifford (Serre, Proposition 24) either ρ|_Z is isotypic, and χ = χ_i^{−1} works, or ρ = Ind_A^G η for a proper A ⊇ Z, and a χ for η on Γ^{p^r} extends to Γ.
+2. If: take f ∈ K′₁(Λ(Δ × G)_S) with ∂f = −[C(F_∞/F)] (boundary-surjective-p-torsion). By Theorem 53, θ_S(f) = (f_P) ∈ Φ^G_S. Since ∂ζ_P = ∂f_P = −[C(K_P/F_P)] (abelian-case and base change of C), u_P = ζ_Pf_P^{−1} lies in K′₁(Λ(Δ × U_P^ab)), and (u_P) ∈ Φ^G_S ∩ ∏Λ(Δ × U_P^ab)^× = θ(K′₁(Λ(Δ × G))) (Theorem 53); with θ(u) = (u_P) (Theorem 52), ζ = uf has ∂ζ = −[C(F_∞/F)].
+3. Interpolation: for irreducible ρ choose σ by Lemma 92, so ρ ⊗ σ factors through the p-group Ḡ and equals Ind_{U_P}^G η for some P ≤ Ḡ (Serre, Theorem 16: representations of supersolvable groups are monomial); then ρ = Ind_{U_P}^G(η ⊗ σ^{−1}) and ζ(χρκ^r) = ζ_P(χησ^{−1}κ^r_{F_P}) = L_{Σ_P}(χησ^{−1}, 1 − r) = L_Σ(χρ, 1 − r) by inductivity of Artin L-functions.
+4. Only if (not printed): if ζ satisfies MC, the components of θ_S(ζ) interpolate the same values as the ζ_P, hence equal them, so (ζ_P) = θ_S(ζ) ∈ Φ^G_S by Theorem 53.
+
+**Check.**
+
+- The printed proof gives the 'if' direction; the converse is the standard argument and is flagged as reconstructed.
+- This is burns-kato-patching with Φ = Φ^G, Φ_S = Φ^G_S and the pairs (U_P, [U_P, U_P]).
+- Theorem 94 reduces MC to M1–M4. The zeta-tuple-m1-m2, basic-congruences and m4-from-basic-congruences targets supply the four conditions.
+
+**Prerequisites:** [NE.6/main-algebraic-theorems](#ne6-main-algebraic-theorems), [NE.6/burns-kato-patching](#ne6-burns-kato-patching), [NE.6/abelian-case](#ne6-abelian-case), [NE.5/totally-real-main-conjecture](#ne5-totally-real-main-conjecture), [NE.2/boundary-surjective-p-torsion](#ne2-boundary-surjective-p-torsion), [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.4/totally-real-iwasawa-complex](#ne4-totally-real-iwasawa-complex), `AutomorphicPadicLFunctions:L3`, `AnalyticNumberTheory:AN.4`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.1, Proposition 93, pp. 66–67 (arXiv v3): Notations 91, Lemma 92 and Proposition 93 with its proof (pp. 66–67), and the statement of Theorem 94 (p. 67).
+
+<a id="ne6-zeta-tuple-m1-m2"></a>
+
+### NE.6.18. The abelian zeta functions satisfy M1 and M2
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-m1-m2` · lemma.
+
+In the setting of main-conjecture-congruence-criterion, the tuple (ζ_P)_P satisfies M1: nr^{P′}_P(ζ_{P′}) = π^{P′}_P(ζ_P) in Λ(Δ × U_P/[U_{P′}, U_{P′}])_S whenever [P′, P′] ≤ P ≤ P′; and M2: gζ_Pg^{−1} = ζ_{gPg^{−1}} in Λ(Δ × U_{gPg^{−1}}^ab)_S for every g ∈ G (Proposition 95).
+
+**Hypotheses.**
+
+- As in main-conjecture-congruence-criterion.
+
+**Construction or proof.**
+
+1. M1: for an irreducible Artin representation ρ of U_P/[U_{P′}, U_{P′}], a character χ of Δ and r divisible by [F_∞(μ_p) : F_∞], nr^{P′}_P(ζ_{P′})(χρκ^r) = ζ_{P′}(χ Ind_{U_P}^{U_{P′}}(ρ)κ^r) = L_{Σ_{P′}}(χ Ind ρ, 1 − r) = L_{Σ_P}(χρ, 1 − r) = π^{P′}_P(ζ_P)(χρκ^r).
+2. Two elements of the abelian Λ(Δ × U_P/[U_{P′}, U_{P′}])_S interpolating the same values on this dense set of characters are equal.
+3. M2: (gζ_Pg^{−1})(χρκ^r) = ζ_P(χ gρg^{−1} κ^r) = L_Σ(χ Ind_{U_P}^G(gρg^{−1}), 1 − r) and ζ_{gPg^{−1}}(χρκ^r) = L_Σ(χ Ind_{U_{gPg^{−1}}}^G ρ, 1 − r), and the two induced representations agree.
+
+**Check.**
+
+- Proposition 96 proves M3; Propositions 97–99 and §6.13 prove M4, through the basic-congruences and m4-from-basic-congruences targets.
+
+**Prerequisites:** [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion), [NE.6/congruence-group-phi](#ne6-congruence-group-phi), [NE.6/abelian-case](#ne6-abelian-case), [NE.3/artin-evaluation](#ne3-artin-evaluation), `AutomorphicPadicLFunctions:L3`, `AnalyticNumberTheory:AN.4`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.1, Proposition 95, pp. 67–68 (arXiv v3): Proposition 95 and its proof (pp. 67–68).
+
+<a id="ne6-partial-zeta-values"></a>
+
+### NE.6.19. Partial zeta values and the smoothed values Δ^u_P
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/partial-zeta-values` · definition.
+
+For j ≥ 0 and a coset x of Z^{p^j} in Δ × U_P^ab, δ(x) is its characteristic function and ζ(δ(x), s) = Σ_𝔞 δ(x)(g_𝔞)N𝔞^{−s} (Re s > 1, over integral ideals 𝔞 of F_P prime to Σ_P, g_𝔞 the Artin symbol) is the partial zeta function; by Klingen and Siegel it continues meromorphically with a simple pole at s = 1 only, and ζ(δ(x), 1 − k) ∈ ℚ for even k ≥ 2. For a locally constant ε = Σ ε(x)δ(x) with values in a ℚ-vector space V, L_{Σ_P}(ε, 1 − k) = Σ_x ε(x)ζ(δ(x), 1 − k) ∈ V (15); for a degree-one Artin character it is the Σ_P-truncated L-value. For ε locally constant ℚ_p-valued, u ∈ U_P^ab and k divisible by [F_∞(μ_p) : F_∞], Δ^u_P(ε, 1 − k) = L_{Σ_P}(ε, 1 − k) − κ(u)^k L_{Σ_P}(ε_u, 1 − k) with ε_u(g) = ε(ug) (16). These values are invariant under conjugation: Δ^u_P(δ(y), 1 − k) = Δ^u_{gPg^{−1}}(δ(gyg^{−1}), 1 − k) for u ∈ Z, g ∈ G (Lemma 103).
+
+**Hypotheses.**
+
+- F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).
+
+**Construction or proof.**
+
+1. L_{Σ_P}(ε, 1 − k) is well defined: refining j splits δ(x) into the δ of its sub-cosets, and ζ is additive in δ.
+2. Lemma 103: for Re s > 1, ζ(δ(gyg^{−1}), s) = Σ_𝔞 δ(y)(g_{𝔞^g})N(𝔞^g)^{−s} = ζ(δ(y), s) by reindexing 𝔞 ↦ 𝔞^g, and meromorphic continuation carries the equality to s = 1 − k; δ(y)_u = δ(u^{−1}y) and u ∈ Z is central.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.partialZeta` (constructor): ζ(δ(x), s) for a coset x of Z^{p^j}.
+- `TauCeti.NoncommIwasawa.sigmaLValue` (constructor): L_{Σ_P}(ε, 1 − k) for locally constant ε with values in a ℚ-vector space.
+- `TauCeti.NoncommIwasawa.sigmaLValue_linear` (relation): ε ↦ L_{Σ_P}(ε, 1 − k) is ℚ-linear and compatible with refining j.
+- `TauCeti.NoncommIwasawa.smoothedValue` (constructor): Δ^u_P(ε, 1 − k) = L(ε, 1 − k) − κ(u)^k L(ε_u, 1 − k).
+- `TauCeti.NoncommIwasawa.smoothedValue_conj` (relation): Lemma 103: invariance under conjugation by G.
+- `TauCeti.NoncommIwasawa.sigmaLValue_character` (compatibility): For a degree-one Artin character, the Σ_P-truncated L-value at 1 − k.
+
+**Unit tests.**
+
+- `rational_value`: F_P = ℚ, Σ = {3}, ε = 1 and k = 2: L_Σ(1, −1) = (1 − 3)ζ(−1) = (−2)(−1/12) = 1/6.
+- `zero_function`: ε ≡ 0 gives L_{Σ_P}(0, 1 − k) = 0.
+- `trivial_u`: u = 1: κ(1) = 1 and ε_1 = ε, so Δ^1_P(ε, 1 − k) = 0; the smoothing needs u of infinite order.
+- `odd_k`: For F_P = ℚ and odd k ≥ 3, ζ(1 − k) = 0; the construction uses k divisible by [F_∞(μ_p) : F_∞], which is even.
+
+**Check.**
+
+- The Klingen–Siegel rationality and continuation are cited inputs, requested with the Deligne–Ribet package from AutomorphicPadicLFunctions L3.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.6/deligne-ribet-approximation: the coefficients of the finite-level approximations of (1 − u)ζ_P
+- NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-reduction: the value congruences (18), (22), (24), (28), (29)
+
+**Prerequisites:** [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion), `AutomorphicPadicLFunctions:L3`, `AnalyticNumberTheory:AN.4`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.3, (15)–(16), pp. 69–70, and Lemma 103, p. 73 (arXiv v3): The definitions (15) and (16) of §6.3 and Lemma 103 of §6.5.
+
+<a id="ne6-deligne-ribet-approximation"></a>
+
+### NE.6.20. Finite-level approximations of the abelian zeta functions
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/deligne-ribet-approximation` · lemma.
+
+Let f be such that κ^{p−1}(Z) = 1 + p^fℤ_p. For P normal in P′ let T_{P,P′,j} be the image of x ↦ Σ_{g∈P′/P} gxg^{−1} on ℤ_p[Δ × U_P^ab/Z^{p^j}]/(p^{f+j}), T_{P,j} = T_{P,N_ḠP,j} (Definition 100). Then Λ(Δ × U_P^ab) ≅ lim_j ℤ_p[Δ × U_P^ab/Z^{p^j}]/(p^{f+j}), and T_{P,P′} ≅ lim_j T_{P,P′,j} (Lemma 101). For u ∈ U_P^ab, j ≥ 0 and k divisible by [F_∞(μ_p) : F_∞], the image of (1 − u)ζ_P in ℤ_p[Δ × U_P^ab/Z^{p^j}]/(p^{f+j}) is Σ_x Δ^u_P(δ(x), 1 − k)κ(x)^{−k}x mod p^{f+j}; in particular the limit does not depend on k (Proposition 102, attributed to Ritter–Weiss).
+
+**Hypotheses.**
+
+- F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).
+
+**Construction or proof.**
+
+1. Lemma 101: a compatible family (x_j) lifts canonically — for t ≥ j the images of x_t in ℤ_p[Δ × U^ab/Z^{p^j}]/(p^{f+t}) converge to x̃_j — and the x̃_j form an element of the limit; for T_{P,P′} pass to the limit in 0 → ker(tr_{P,P′,j}) → ℤ_p[…]/(p^{f+j}) → T_{P,P′,j} → 0, exact on the right because the groups are finite.
+2. Step 1: the sums form an inverse system, since κ(x)^k ≡ κ(y)^k mod p^{f+j} when x ↦ y.
+3. Step 2: independence of k is congruence (17), Δ^u_P(δ(x), 1 − k)κ(x)^{−k} ≡ Δ^u_P(δ(x), 1 − k′)κ(x)^{−k′} mod p^{f+j}; with η locally constant, η^{[F_∞(μ_p):F_∞]} ≡ κ^{[F_∞(μ_p):F_∞]} mod p^{f+j}, and ε_k = p^{−f−j}η^{−k}δ(x), the function ε_kκ^{k−1} − ε_{k′}κ^{k′−1} is ℤ_p-valued, so Deligne–Ribet Theorem 0.4 applies.
+4. Step 3: ζ_u = lim_j(Σ_x Δ^u_P(δ(x), 1 − k)κ(x)^{−k}x) satisfies ζ_u(κ^kε) = Δ^u_P(ε, 1 − k) = (1 − u)ζ_P(κ^kε) for all locally constant ε, by the Deligne–Ribet construction of ζ_P; so (1 − u)ζ_P = ζ_u.
+
+**Check.**
+
+- The Deligne–Ribet congruences (their Theorem 0.4) and the interpolation property of ζ_P are imported from AutomorphicPadicLFunctions L3.
+
+**Prerequisites:** [NE.6/partial-zeta-values](#ne6-partial-zeta-values), [NE.6/abelian-case](#ne6-abelian-case), `AutomorphicPadicLFunctions:L3`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.4, Definition 100, Lemma 101 and Proposition 102, pp. 70–73 (arXiv v3): Definition 100, Lemma 101 and Proposition 102 with its three-step proof.
+
+<a id="ne6-basic-congruence-reduction"></a>
+
+### NE.6.21. Reduction of the basic congruences to congruences between values
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-reduction` · lemma.
+
+The basic congruences follow from congruences between the smoothed values Δ, for all j, all cosets y of Z^{p^j}, all u ∈ Z and all k divisible by [F_∞(μ_p) : F_∞]: (10) follows from (18), Δ^{u^p}_P(δ(y), 1 − k) ≡ Δ^u_{P′}(δ(y)∘ver^{P′}_P, 1 − pk) mod pℤ_p for y fixed by P′ (Proposition 104); (11) from (22), Δ^{u^{d_P}}_P(δ(y), 1 − k) ≡ 0 mod |(W_ḠP)_y|ℤ_p for y whose image generates P (Proposition 106); (12) from (24), Δ^{u^{d_P}}_P(δ(y), 1 − k) ≡ Σ_{P′} Δ^{u^{d_P/p}}_{P′}(δ(y)∘ϕ, 1 − pk) mod |(W_ḠP)_y|ℤ_p over P′ ≠ P with P′^p = P (Proposition 107); (13) from (28), Δ^{u^{pd_{P′}}}_P(δ(y), 1 − k) ≡ Δ^{u^{d_{P′}}}_{P′}(δ(y)∘ϕ, 1 − pk) mod |(N_ḠP′/P)_y|ℤ_p (Proposition 108); and (14) from (29), Δ^{u^{p|Ḡ|}}_0(δ(y), 1 − k) ≡ Δ^{u^{|Ḡ|}}_{{1}}(δ(y)∘ϕ, 1 − pk) mod p|Ḡ|ℤ_p (Proposition 108).
+
+**Hypotheses.**
+
+- F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).
+
+**Construction or proof.**
+
+1. Proposition 104: by Proposition 102, (1 − u^p)ζ_P and (1 − u^p)ver^{P′}_P(ζ_{P′}) have images (19) and (20) at level j; ver^{P′}_P is injective on Δ × U_{P′}^ab/V_{P,P′}Z^{p^{j−1}} with V_{P,P′} = ker ver and κ(V_{P,P′})^k = 1, and κ(y)^k = κ(x)^{pk} for y = ver(x). The difference (21) is summed over P′-orbits: a P′-fixed y contributes a multiple of py = tr(y) ∈ T_{P,P′,j} by (18), and a free orbit contributes (Δ − Δ)κ(y)^{−k}Σ_g gyg^{−1} ∈ T_{P,P′,j} by Lemma 103. Lemma 101 and the centrality of u give (10).
+2. Remark 105: Propositions 106–108 follow the same pattern with ω^k_P, ϕ and the Weyl-group orbits: in 106 the W_ḠP-orbit of a y generating P contributes Δκ^{−k}Σ(gyg^{−1} − ω^k_P(gyg^{−1})) ∈ 𝔭T_{P,j} by (22); in 107 the orbit sum lies in T_{P,j}; in 108 the N_ḠP′/P-orbit sum lies in T_{P,N_ḠP′,j}.
+
+**Check.**
+
+- The printed proofs contain misprints recorded as E5 and E6: the placement of ∘ver in (21), and 1 − p for 1 − k in the proof of Proposition 106.
+
+**Prerequisites:** [NE.6/deligne-ribet-approximation](#ne6-deligne-ribet-approximation), [NE.6/partial-zeta-values](#ne6-partial-zeta-values), [NE.6/congruence-group-phi](#ne6-congruence-group-phi).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.5, Lemma 103, Propositions 104 and 106–108 and Remark 105, pp. 73–77 (arXiv v3): Propositions 104, 106, 107 and 108 with their proofs, and Remark 105.
+
+<a id="ne6-hilbert-eisenstein-toolkit"></a>
+
+### NE.6.22. Hilbert Eisenstein series, restriction along the diagonal and the q-expansion principle
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/hilbert-eisenstein-toolkit` · lemma.
+
+For L totally real of degree r, Hilbert modular forms of weight k on Γ₀₀(𝔣) have standard q-expansions c(0, f) + Σ_μ c(μ, f)q^μ_L over totally positive μ ∈ 𝒪_L (§6.6). For L′ ⊇ L of degree r′, restriction along the diagonal R_{L′/L} maps M_k(Γ₀₀(𝔣𝒪_{L′})) to M_{r′k}(Γ₀₀(𝔣)) with c(μ, R_{L′/L}f) = Σ_{tr(ν)=μ} c(ν, f) (§6.7), and its constant term at the cusp of α is that of f at α^* (Lemma 109). For β ∈ 𝒪_L totally positive with 𝔣 ⊆ β𝒪_L, the Hecke operator U_β has c(μ, f|U_β) = c(μβ, f) (Lemma 110). Deligne–Ribet: for locally constant ε on Gal(L_Σ/L) and even k ≥ 2 there is G_{k,ε} ∈ M_k(Γ₀₀(𝔣)) with q-expansion 2^{−r}L(ε, 1 − k) + Σ_μ(Σ_{𝔞∋μ} ε(g_𝔞)N𝔞^{k−1})q^μ and constant term N^k((α))2^{−r}L(ε_g, 1 − k) at the cusp of α (Proposition 111); the q-expansion principle: if f ∈ M_k(Γ₀₀(𝔣), ℚ) has non-constant standard coefficients in ℤ_(p), then c(0, f) − N(α_p)^{−k}c(0, α, f) ∈ ℤ_p (§6.11); hence c(0, G_{k,ε}) − N(α_p)^{−k}c(0, α, G_{k,ε}) = 2^{−r}Δ^u(ε, 1 − k) when α has Artin symbol u (Remark 112).
+
+**Hypotheses.**
+
+- L totally real; Σ a finite set of finite primes containing those above p; 𝔣 an integral ideal supported on Σ.
+
+**Construction or proof.**
+
+1. Lemma 109: (R_{L′/L}f)|α = R_{L′/L}(f|α^*), and constant terms are read off at τ → i∞.
+2. Lemma 110: U_β is the double coset of diag(β, 1), f|U_β(τ) = N(β)^{k/2−1}Σ_b f|(1 b; 0 β), and the character sum Σ_b e^{2πi tr(μb/β)} is N(β) for μ ∈ β𝒪_L and 0 otherwise.
+3. Proposition 111 and the q-expansion principle are Deligne–Ribet (Proposition 6.1, 2.22, 0.3 and 5.13–5.15); Remark 112 combines them with N((α))^kN(α_p)^{−k} = κ(u)^k.
+
+**Check.**
+
+- Deligne–Ribet's Eisenstein series, their constant terms at cusps and the q-expansion principle are requested from AutomorphicPadicLFunctions L3, which the atlas makes their owner.
+
+**Prerequisites:** [NE.6/partial-zeta-values](#ne6-partial-zeta-values), `AutomorphicPadicLFunctions:L3`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §§6.6–6.11, Lemmas 109–110, Proposition 111 and Remark 112, pp. 77–81 (arXiv v3): The Hilbert-modular toolkit of §§6.6–6.11; Lemmas 109 and 110 are proved in the text, Proposition 111 and the q-expansion principle are cited to Deligne–Ribet.
+
+<a id="ne6-transfer-image-not-generator"></a>
+
+### NE.6.23. The transfer into a maximal cyclic subgroup misses its generators
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/transfer-image-not-generator` · lemma.
+
+Let P ∈ C(Ḡ) be such that no P′ ∈ C(Ḡ) has P′^p = P, and let P ⊊ N ≤ N_ḠP. Then the image of the transfer ver : N^ab → P is a proper subgroup of P (Lemma 114).
+
+**Hypotheses.**
+
+- Ḡ a finite p-group.
+
+**Construction or proof.**
+
+1. With double coset representatives x_j of ⟨g⟩\N/P and m the order of g, ver(g) = ∏_j x_j^{−1}g^mx_j.
+2. If g ∉ P, g^m is not a generator of P by the hypothesis on P, so neither is ver(g).
+3. If g ∈ P, ver(g) = ∏_{x∈N/P} x^{−1}gx; N acts trivially on the order-p subgroup of P, so ver(g)^{p^{r−1}} = ∏ g^{p^{r−1}} = g^{p^{r−1}[N:P]} = 1 for #⟨g⟩ = p^r, since p divides [N : P].
+
+**Check.**
+
+- Used in Proposition 115: nontrivial stabilisers kill δ(y)(g_𝔟).
+
+**Prerequisites:** `mathlib:MonoidHom.transfer`.
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.12, Lemma 114, pp. 82–83 (arXiv v3): Lemma 114 and its proof.
+
+<a id="ne6-basic-congruence-values"></a>
+
+### NE.6.24. The value congruences via Hilbert Eisenstein series
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruence-values` · theorem.
+
+The value congruences (18), (22), (24), (28) and (29) of basic-congruence-reduction hold (Propositions 113, 115, 116 and 117). In each case an Eisenstein combination E is formed: E = R_{F_P/F_{P′}}(G_{k,δ(y)})|U_p − G_{pk,δ(y)∘ver} for (18); E = R_{F_P/F_{W_ḠP}}(G_{k,δ(y)}) for (22); E = R_{F_P/F_{W_ḠP}}(G_{k,δ(y)})|U_{d_P} − Σ_{P′}R_{F_{P′}/F_{W_ḠP}}(G_{pk,δ(y)∘ϕ})|U_{d_P/p} for (24); and similarly for (28) and (29). Its constant-term difference is 2^{−r} times the required difference of Δ-values, and its non-constant coefficients lie in the required ideal, so the q-expansion principle gives the congruence.
+
+**Hypotheses.**
+
+- F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).
+
+**Construction or proof.**
+
+1. Proposition 113 (M3): the non-constant coefficient of E at μ is Σ_{(𝔟,η)}δ(y)(g_𝔟)N𝔟^{k−1} − Σ_𝔞 δ(y)(g_{𝔞𝒪_{F_P}})N𝔞^{pk−1}; P′/P-fixed pairs come from 𝔞 with N𝔟 = N𝔞^p, contributing δ(y)(g_𝔟)(N𝔞^{p(k−1)} − N𝔞^{pk−1}) ∈ pℤ_(p) by Fermat; free orbits contribute p times a term; and 2^{−r_P} ≡ 2^{−r_{P′}} mod p.
+2. Proposition 115: for E = R(G_{k,δ(y)}), (W_ḠP)_y acts on the pairs (𝔟, ν); a nontrivial stabiliser V gives δ(y)(g_𝔟) = 0 by transfer-image-not-generator, and free orbits contribute |(W_ḠP)_y| times a term.
+3. Propositions 116–117: orbits with stabiliser V contribute |(W_ḠP)_y/V|δ(y)(g_𝔟)(N𝔠^{|V|(k−1)} − N𝔠^{|V|(pk−1)/p}) ∈ |(W_ḠP)_y|ℤ_(p), since N𝔠^{|V|} ≡ N𝔠^{|V|/p} mod |V|.
+4. The comparison of 2^{−r_P} with 2^{−r_P/p} (116) and 2^{−r_{P′}} (117) holds modulo p^{v_p(r_P)}, because r_P − r_P/p is divisible by φ(p^{v_p(r_P)}); |(W_ḠP)_y| and |(N_ḠP′/P)_y| divide d_P, hence p^{v_p(r_P)}. The printed justification, modulo r_P, is false in general (E7).
+
+**Check.**
+
+- Checked numerically in the suggested file: the Fermat step for p = 3, the |V| = 9 congruence, and the counterexample r_P = 15, p = 3 to the printed step.
+
+**Prerequisites:** [NE.6/hilbert-eisenstein-toolkit](#ne6-hilbert-eisenstein-toolkit), [NE.6/transfer-image-not-generator](#ne6-transfer-image-not-generator), [NE.6/basic-congruence-reduction](#ne6-basic-congruence-reduction), [NE.6/partial-zeta-values](#ne6-partial-zeta-values).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.12, Propositions 113 and 115–117, pp. 81–86 (arXiv v3): Propositions 113, 115, 116 and 117 with their proofs (the proof for (29) is said to be similar).
+
+<a id="ne6-basic-congruences"></a>
+
+### NE.6.25. The basic congruences between abelian zeta functions
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/basic-congruences` · theorem.
+
+The tuple (ζ_P) satisfies (10) ver^{P′}_P(ζ_{P′}) ≡ ζ_P mod T_{P,P′,S} for [P′ : P] = p, which is M3 (Proposition 96); (11) ζ_P ≡ ω^k_P(ζ_P) mod 𝔭T_{P,S} for P ∈ C(Ḡ) not properly contained in a cyclic subgroup, 𝔭 the maximal ideal of ℤ_p[μ_p] (Proposition 97); (12) ζ_P ≡ Σ_{P′}ϕ(ζ_{P′}) mod T_{P,S} over P′ ≠ P with P′^p = P, when such P′ exist (Proposition 98); (13) ζ_P ≡ ϕ(ζ_{P′}) mod T_{P,N_ḠP′,S} for P′^p = P ≠ P′, and (14) ζ_0 ≡ ϕ(ζ_{1}) mod p|Ḡ| (Proposition 99).
+
+**Hypotheses.**
+
+- F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).
+
+**Construction or proof.**
+
+1. Each congruence reduces to a value congruence (basic-congruence-reduction), and the value congruences hold (basic-congruence-values).
+
+**Check.**
+
+- These are the additive congruences that the Deligne–Ribet method reaches; M4 is multiplicative and is assembled from them in m4-from-basic-congruences.
+
+**Prerequisites:** [NE.6/basic-congruence-reduction](#ne6-basic-congruence-reduction), [NE.6/basic-congruence-values](#ne6-basic-congruence-values), [NE.6/congruence-group-phi](#ne6-congruence-group-phi).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.2, Propositions 96–99, p. 69 (arXiv v3): Propositions 96–99 and the remark that (10) is M3.
+
+<a id="ne6-enlarged-extension"></a>
+
+### NE.6.26. The auxiliary extension F̃_∞ and the trace-ideal bound
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/enlarged-extension` · lemma.
+
+Choose a prime l ≡ 1 mod |Ḡ| with ℚ(μ_l) ∩ F_∞ = ℚ, let K ⊆ ℚ(μ_l) have degree |Ḡ| over ℚ, and put F̃ = KF, F̃_∞ = F̃F_∞. Then Gal(F̃_∞/F) = H̃ × Δ × G with H̃ cyclic of order |Ḡ|, and G̃/Z ≅ H̃ × Δ × Ḡ. For P ∈ C(G̃) let i_P = max{[P′ : P] : P ⊆ P′ ∈ C(G̃)}. If P ≠ {1} then T_P ⊆ p·i_P²·Λ(Δ × U_P), and T_{1} = |G̃|Λ(Δ × Z); the same holds for T_{P,S} and T̂_P (Lemma 118). The main conjecture for F̃_∞/F implies it for F_∞/F.
+
+**Hypotheses.**
+
+- F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).
+
+**Construction or proof.**
+
+1. Case P ⊆ H̃: i_P = [H̃ : P] and N_{G̃}P = G̃ acts trivially on Λ(Δ × U_P), so T_P = [G̃ : P]Λ = |Ḡ|[H̃ : P]Λ ⊆ p·i_P²Λ since |Ḡ| ≥ p·i_P.
+2. Case P ⊄ H̃: P = ⟨(h̃, h)⟩ with h ≠ 1; for P′ = ⟨(h̃₀, h₀)⟩ realising i_P, H̃ × ⟨h₀⟩ ⊆ N_{G̃}P acts trivially, so T_P ⊆ (|H̃||⟨h₀⟩|/|P|)Λ = |H̃|i_PΛ ⊆ p·i_P²Λ as |H̃| ≥ p·i_P.
+3. Admissibility and μ = 0 for F̃_∞, which the source asserts without argument (E10): K is totally real because |Ḡ| is odd and divides (l − 1)/2, and μ = 0 passes from F_∞ to the finite p-extension F̃_∞ (the vanishing of μ is inherited by finite p-extensions, a theorem of Iwasawa, cited here).
+4. Descent: MC for F̃_∞/F gives MC for its quotient F_∞/F by the compatibility of ∂, C and interpolation with the quotient map (as in reduction-to-dimension-one).
+
+**Check.**
+
+- The descent along G̃ → G uses Fukaya–Kato's base change for C, recorded in the gap on Fukaya–Kato.
+
+**Prerequisites:** [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion), [NE.6/congruence-group-phi](#ne6-congruence-group-phi), [NE.6/reduction-to-dimension-one](#ne6-reduction-to-dimension-one), [NE.4/admissible-extension](#ne4-admissible-extension).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §§6.13.1–6.13.2, Lemma 118, pp. 86–87 (arXiv v3): The trick of §6.13, the field F̃_∞ and Lemma 118 with its proof.
+
+<a id="ne6-m4-from-basic-congruences"></a>
+
+### NE.6.27. M4 from the basic congruences
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/m4-from-basic-congruences` · lemma.
+
+For the enlarged extension F̃_∞/F: for every P ∈ C(G̃) and 0 ≤ k ≤ p − 1, ζ_P − ω^k_P(ζ_P) ∈ 𝔭T_{P,S}/i_P, hence ζ_P^p/∏_kω^k_P(ζ_P) ∈ 1 + pT_{P,S}/i_P (Lemma 119); and the tuple (ζ_P) satisfies M4: ∏_{P′}ϕ(α_{P′}(ζ_{P′}))·(ζ_P^p/∏_kω^k_P(ζ_P))^{−1} ∈ 1 + pT_{P,S} for nontrivial P, and ∏_{P′}ϕ(α_{P′}(ζ_{P′}))·(ζ_{1}^p/ϕ(ζ_{1}))^{−1} ∈ 1 + pT_{{1},S} (§6.13.3).
+
+**Hypotheses.**
+
+- F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).
+- Applied to F̃_∞/F (enlarged-extension).
+
+**Construction or proof.**
+
+1. Lemma 119 by reverse induction on |P|: for maximal cyclic P, i_P = 1 and (11) applies; otherwise (12) gives ζ_P − ω^k_P(ζ_P) ≡ Σ_{P′}ϕ(ζ_{P′} − ω^k_{P′}(ζ_{P′})) mod 𝔭T_{P,S} (34), the induction hypothesis puts each term in ϕ(𝔭T_{P′,S}/i_{P′}), and ϕ(Σ_x xT_{P′,S}x^{−1}) ⊆ T_{P,S}/p with i_P = p·i_{P′}; Galois invariance over ℚ_p(μ_p)/ℚ_p upgrades 𝔭 to p.
+2. log(ω^k_P(ζ_P)/ζ_P) ≡ 1 − ω^k_P(ζ_P)/ζ_P mod (pT̂_P/i_P)², so log(∏_kω^k_P(ζ_P)/ζ_P^p) ≡ (pζ_P − Σ_kω^k_P(ζ_P))/ζ_P, and (pT̂_P/i_P)² ⊆ pT̂_P by Lemma 118.
+3. Using (34), log(∏ϕ(α_{P′}(ζ_{P′}))/(ζ_P^p/∏ω^k_P(ζ_P))) ≡ Σ_{P′}(pϕ(ζ_{P′}) − Σ_kω^k_P(ϕ(ζ_{P′})))(ζ_P − ϕ(ζ_{P′}))/(ζ_Pϕ(ζ_{P′})) mod pT̂_P; the first factor lies in pϕ(T̂_{P′}/i_{P′}) by Lemma 119 and the second in T̂_{P,N_{G̃}P′} by (13), so the sum lies in pT̂_P.
+4. log : 1 + pT̂_P ≅ pT̂_P, and (1 + pT̂_P) ∩ (1 + pT_{P,S}/i_P) = 1 + pT_{P,S}.
+5. For P = {1}: ∏_kω^k_{1}(ζ_{1}) = ζ_0 (Lemma 50 or interpolation), and (14) with T_{{1},S} = |G̃|Λ(Δ × Z)_S replaces ζ_0 by ϕ(ζ_{1}).
+
+**Check.**
+
+- The printed computation has a misprint recorded as E9 (ω^k_P(ζ_{P′}) for ω^k_P(ϕ(ζ_{P′})) in the second line on p. 89).
+
+**Prerequisites:** [NE.6/basic-congruences](#ne6-basic-congruences), [NE.6/enlarged-extension](#ne6-enlarged-extension), [NE.6/congruence-group-phi](#ne6-congruence-group-phi), [NE.6/iwasawa-algebra-logarithm](#ne6-iwasawa-algebra-logarithm).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.13.3, Lemma 119 and the completion of the proof, pp. 88–90 (arXiv v3): Lemma 119 and the logarithm computation of §6.13.3, including the case P = {1}.
+
+<a id="ne6-zeta-tuple-in-phi"></a>
+
+### NE.6.28. The abelian zeta functions satisfy M1–M4
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/zeta-tuple-in-phi` · theorem.
+
+For the enlarged extension F̃_∞/F, the tuple (ζ_P)_{P≤G̃/Z} lies in Φ^{G̃}_S: it satisfies M1 and M2 (Proposition 95), M3 (Proposition 96) and M4 (§6.13) — Theorem 94 for F̃_∞/F. Hence MC(F̃_∞/F) holds by the congruence criterion (Proposition 93).
+
+**Hypotheses.**
+
+- F_∞/F is admissible with μ = 0 and p odd; Gal(F_∞/F) = Δ × G with Δ cyclic of order prime to p and G a one-dimensional pro-p p-adic Lie group; Z ≤ G is central open pro-cyclic, Ḡ = G/Z, U_P ≤ G the preimage of P ≤ Ḡ, F_P = F_∞^{Δ×U_P}, d_P = [F_P : F], r_P = [F_P : ℚ], Σ_P the primes of F_P above Σ, and ζ_P the Deligne–Ribet p-adic zeta function of the abelian extension with group Δ × U_P^ab (Notations 91).
+
+**Construction or proof.**
+
+1. M1 and M2: zeta-tuple-m1-m2. M3: basic-congruences (10). M4: m4-from-basic-congruences.
+2. Proposition 93 (main-conjecture-congruence-criterion) turns (ζ_P) ∈ Φ^{G̃}_S into MC(F̃_∞/F).
+
+**Check.**
+
+- Theorem 94 is stated for F_∞/F but proved for F̃_∞/F; F_∞/F is reached by descent (enlarged-extension).
+
+**Prerequisites:** [NE.6/zeta-tuple-m1-m2](#ne6-zeta-tuple-m1-m2), [NE.6/basic-congruences](#ne6-basic-congruences), [NE.6/m4-from-basic-congruences](#ne6-m4-from-basic-congruences), [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion), [NE.6/enlarged-extension](#ne6-enlarged-extension).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §6.1, Theorem 94, p. 67, with §6.13, pp. 86–90 (arXiv v3): Theorem 94 (M1–M4, whose M4 display is a quotient, as the page image shows) and its proof assembled in §§6.2–6.13.
+
+<a id="ne6-kakde-main-theorem"></a>
+
+### NE.6.29. The main conjecture for totally real fields (Kakde)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/kakde-main-theorem` · theorem.
+
+Let p be odd and F_∞/F an admissible p-adic Lie extension satisfying μ = 0, with G = Gal(F_∞/F). There is a unique ζ(F_∞/F) ∈ K′₁(Λ(G)_S) with ∂(ζ(F_∞/F)) = −[C(F_∞/F)] and ζ(F_∞/F)(ρκ^r_F) = L_Σ(ρ, 1 − r) for every Artin character ρ of G and every r ≥ 1 divisible by [F_∞(μ_p) : F_∞] (Theorem 11). That is, MC(F_∞/F) of NE.5/totally-real-main-conjecture holds.
+
+**Hypotheses.**
+
+- p odd; F_∞/F admissible; μ = 0 (Definition 8, known when F_∞ is abelian over ℚ by Ferrero–Washington).
+
+**Construction or proof.**
+
+1. Reduce to dimension one (reduction-to-dimension-one), then to ℚ_p-elementary groups (reduction-to-qp-elementary).
+2. The l-ℚ_p-elementary case for l ≠ p is l-elementary-case; the p-ℚ_p-elementary case reduces to Δ × G_p with G_p one-dimensional pro-p (reduction-to-p-elementary).
+3. For Δ × G_p: MC holds for the enlarged extension (zeta-tuple-in-phi), hence for F_∞/F (enlarged-extension). The K′₁-injectivity hypotheses of the reductions are k1-injects-localisation, and the ℚ_p[Δ]-coefficients are handled by main-algebraic-theorems with 𝒪 = ℤ_p[Δ].
+4. Uniqueness: two solutions differ by an element of K′₁(Λ(G)) (∂ = 0 and Corollary 90) with trivial evaluations, which is 1 by the diagram chases of the reductions.
+
+**Check.**
+
+- This completes the Kakde route: every intermediate congruence and descent lemma of Kakde §§2–6 is a node, with Oliver's book, Fukaya–Kato §1, Deligne–Ribet and Wiles as cited inputs (gaps and requests). This meets NE.6's acceptance clause for one completed theorem.
+- Ritter–Weiss's independent route and the source-by-source coverage table remain.
+
+**Prerequisites:** [NE.6/zeta-tuple-in-phi](#ne6-zeta-tuple-in-phi), [NE.6/enlarged-extension](#ne6-enlarged-extension), [NE.6/reduction-to-dimension-one](#ne6-reduction-to-dimension-one), [NE.6/reduction-to-qp-elementary](#ne6-reduction-to-qp-elementary), [NE.6/l-elementary-case](#ne6-l-elementary-case), [NE.6/reduction-to-p-elementary](#ne6-reduction-to-p-elementary), [NE.6/k1-injects-localisation](#ne6-k1-injects-localisation), [NE.6/main-algebraic-theorems](#ne6-main-algebraic-theorems), [NE.6/abelian-case](#ne6-abelian-case), [NE.5/totally-real-main-conjecture](#ne5-totally-real-main-conjecture).
+
+**Sources.**
+
+- [KAKDE-2011](#source-kakde-2011), §1, Theorem 11, p. 11 (arXiv v3); proof completed on p. 90: Theorem 11, whose proof ends on p. 90 ("This ﬁnishes proof of the main theorem 11").
+
+**Atlas planet:** Kakde's main conjecture for totally real fields.
+
+<a id="ne6-rw-logarithmic-pseudomeasure"></a>
+
+### NE.6.30. Ritter–Weiss logarithmic pseudomeasure
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/rw-logarithmic-pseudomeasure` · construction.
+
+In the one-dimensional Ritter–Weiss setting, let Λ^G be the p-adic completion after inverting central elements regular modulo p, Q^G its total quotient, and T(R)=R/[R,R]_add the additive commutator quotient. The reduced-trace character map Tr identifies T(Q^G) with the admissible character-function space. Define t_(K/k) by Tr(t)=L(L_(K/k)), where L(f)(χ)=p⁻¹ log(f(χ)^p/Ψ(f(ψ_pχ))) and Ψ is induced by γ↦γ^p. For p-elementary G the integral group logarithm satisfies Tr∘L=L∘Det and has image in T(Λ^G). This completion and this t are distinct from the canonical localization and a multiplicative zeta element.
+
+**Hypotheses.**
+
+- p odd; K/k totally real, k/Q finite and K/k_cyc finite; the stated character functions satisfy Galois and cyclotomic twisting compatibilities.
+- For integrality of the group logarithm use p-elementary G=C×P with C finite cyclic of order prime to p and P pro-p.
+
+**Construction or proof.**
+
+1. Import reduced trace and the additive commutator quotient; form the central localization and p-adic completion.
+2. Use the reduced-trace character isomorphism to define t uniquely.
+3. Use the integral logarithm square and Adams/Frobenius normalization from Ritter–Weiss diagram (D1); its earlier-paper inputs are recorded as a gap.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.RWLogarithmicPseudomeasure.ofCharacterFunction` (constructor): t is the inverse reduced-trace image of L(L_(K/k)).
+- `TauCeti.NoncommIwasawa.RWLogarithmicPseudomeasure.trace` (characterisation): Tr(t)=L(L_(K/k)); injectivity of Tr gives uniqueness in the additive quotient.
+- `TauCeti.NoncommIwasawa.RWLogarithmicPseudomeasure.deflation` (functoriality): Deflation and the source-defined additive restriction commute with t and with the trace character maps.
+- `TauCeti.NoncommIwasawa.RWLogarithmicPseudomeasure.logDet` (compatibility): Tr(L(x))=L(Det(x)); additive restriction is the Ritter–Weiss map, not naive deletion of basis terms.
+
+**Unit tests.**
+
+- `rw_logarithmic_pseudomeasure_1`: For an abelian group, T(Λ^G)=Λ^G and the trace comparison is the scalar character comparison.
+- `rw_logarithmic_pseudomeasure_2`: For the group-like unit γ, p⁻¹log(γ^p/Ψγ)=0; a logarithm omitting Ψ fails this test.
+- `rw_logarithmic_pseudomeasure_3`: For the scalar unit 1+p over Z_p, the logarithm is (1−p⁻¹)log(1+p), not the ordinary log.
+- `rw_logarithmic_pseudomeasure_4`: The zero additive pseudomeasure is uniquely determined by zero trace but does not imply uniqueness of a multiplicative preimage when SK₁ survives.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.6/rw-logarithmic-integrality: turns existence into an additive integrality test
+- NoncommutativeAndEquivariantIwasawa:NE.6/rw-main-theorem: supplies the support-reduction argument
+
+**Prerequisites:** [NE.3/semisimple-total-quotient](#ne3-semisimple-total-quotient), [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison), [NE.6/integral-logarithm](#ne6-integral-logarithm), `KTheoryLowDegrees:U.5`.
+
+**Sources.**
+
+- [RITTER-WEISS-2010](#source-ritter-weiss-2010), §1, diagram (D1), pp. 4–5; §6, Lemma i, pp. 22–24: Defines the additive logarithmic object and gives the integral logarithm comparison, with references to the earlier papers for the general trace character space.
+
+<a id="ne6-rw-mobius-congruences"></a>
+
+### NE.6.31. Möbius–Wall and abelian pseudomeasure congruences
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/rw-mobius-congruences` · theorem.
+
+Let A be an abelian normal open subgroup of p-elementary G and Q=G/A a finite p-group. For ε∈(Λ^G)^×, Σ_(A⊆U⊆G) μ_Q(U/A) ver_A^U(res_U^G ε) lies in tr_Q(Λ^A). The same Möbius sum with the abelian pseudomeasures λ_(K^[U,U]/K^U) lies in the corresponding trace ideal in the central localization Λ•A. Here res denotes the K₁ transfer before the abelian group-transfer map ver, and μ_Q is the subgroup-poset Möbius function. These are distinct algebraic and analytic congruences.
+
+**Hypotheses.**
+
+- p odd; one-dimensional totally real Ritter–Weiss setting; A includes the prime-to-p cyclic direct factor.
+- The analytic clause uses the S-truncated abelian pseudomeasures and their Deligne–Ribet congruences.
+
+**Construction or proof.**
+
+1. Expand the finite-projective norm determinant using a coset permutation sum and group the terms by Q-stabilizers.
+2. Apply subgroup Möbius cancellation to the orbit sums; the remaining terms are traces.
+3. For the analytic clause apply the Deligne–Ribet q-expansion congruence to the compatible abelian pseudomeasures. Its precise earlier Ritter–Weiss congruence input remains a source gap.
+
+**Check.**
+
+- If Q=C_p, μ_Q(1)=1 and μ_Q(Q)=−1, giving the norm-transfer difference in the Q-trace ideal.
+- If Q=C_p², the subgroup Möbius coefficients are 1 on 1, −1 on each line and p on Q.
+- If A=G, the trace ideal is all Λ^A; the resulting congruence imposes no extra condition.
+
+**Prerequisites:** [NE.6/rw-logarithmic-pseudomeasure](#ne6-rw-logarithmic-pseudomeasure), [NE.6/hilbert-eisenstein-toolkit](#ne6-hilbert-eisenstein-toolkit), `AutomorphicPadicLFunctions:L3`, `tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction`.
+
+**Sources.**
+
+- [RITTER-WEISS-2010](#source-ritter-weiss-2010), Propositions 5–6, p. 3; §2, pp. 6–10; §3, pp. 10–12: The two congruences supply the algebraic and analytic trace-ideal constraints.
+
+<a id="ne6-rw-logarithmic-integrality"></a>
+
+### NE.6.32. Ritter–Weiss logarithmic integrality criterion
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/rw-logarithmic-integrality` · theorem.
+
+Under the odd-prime, totally real, one-dimensional Ritter–Weiss hypotheses and μ_(K/k)=0, existence of Θ∈K₁(QG) with Det Θ=L_(K/k) and ∂Θ=℧_(K/k) is equivalent to L_(K/k)∈Det K₁(Λ^G). After p-elementary reduction, this is equivalent to t_(K/k)∈T(Λ^G). The implication from integral t to a multiplicative preimage requires the torsion congruence; the logarithm alone loses torsion information. The refined class ℧ is not silently identified with −[C] without the requested arithmetic comparison.
+
+**Hypotheses.**
+
+- p odd; K/k totally real, k/Q finite, K/k_cyc finite; finite S contains all archimedean and ramified primes; μ_(K/k)=0.
+- For the second equivalence use p-elementary G and the source’s compatible character-function space.
+
+**Construction or proof.**
+
+1. Use Wiles’s abelian main conjecture to identify the localization boundary in the central-completion reduction.
+2. Apply character induction to reduce to p-elementary G.
+3. Use the integral logarithm square for the easy implication; for the converse isolate the torsion correction and kill it using the index-p torsion congruence.
+
+**Check.**
+
+- A torsion character function may have zero logarithm; zero logarithm alone does not put it in Det of the integral K₁.
+- The μ=0 hypothesis is retained when moving the boundary problem to the central completed localization.
+
+**Prerequisites:** [NE.6/rw-logarithmic-pseudomeasure](#ne6-rw-logarithmic-pseudomeasure), [NE.6/rw-mobius-congruences](#ne6-rw-mobius-congruences), `IntegralIwasawaTheory:I.5`, `KTheoryLowDegrees:U.3`.
+
+**Sources.**
+
+- [RITTER-WEISS-2010](#source-ritter-weiss-2010), Propositions 1–3, pp. 2–5; §6, Lemma k, pp. 25–27: States both reductions and explains the indispensable torsion correction in the logarithmic converse.
+
+<a id="ne6-rw-main-theorem"></a>
+
+### NE.6.33. Ritter–Weiss main theorem with μ = 0
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/rw-main-theorem` · theorem.
+
+Let p be odd and K/k a totally real Galois extension with k/Q finite, K containing k_cyc and [K:k_cyc]<∞. Let S contain all archimedean and ramified places and suppose μ_(K/k)=0. There exists Θ∈K₁(QG) with Det Θ=L_(K/k,S) and ∂Θ=℧_(K/k,S). The theorem proves existence; uniqueness in K₁(QG) is not part of its conclusion. Its comparison with the canonical-localization version requires both the localization maps and the refined-module/dual-complex sign comparison.
+
+**Hypotheses.**
+
+- Exactly the odd-prime, finite-over-cyclotomic, totally real and μ=0 hypotheses in the statement.
+
+**Construction or proof.**
+
+1. Apply the logarithmic integrality criterion and the p-elementary reduction.
+2. Use the Möbius congruences and Theorem 7 to lift integral logarithmic pseudomeasures through a central subgroup of exponent p.
+3. Induct on the order of the commutator subgroup and the index of the center. Lemma h detects additive classes by all abelianized restrictions.
+4. Choose a lift with support of minimal size; Lemma g and Claims 1–3 construct a correction that removes a minimal cyclic support subgroup without introducing new support. This contradiction gives integral t and hence existence. Earlier-paper inputs are requested explicitly.
+
+**Check.**
+
+- The abelian case reduces to the normalized abelian pseudomeasure theorem with the same S.
+- No p=2 or arbitrary higher-dimensional statement follows from this theorem.
+
+**Prerequisites:** [NE.6/rw-logarithmic-integrality](#ne6-rw-logarithmic-integrality), [NE.6/rw-mobius-congruences](#ne6-rw-mobius-congruences), [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison), `IntegralIwasawaTheory:I.6`.
+
+**Sources.**
+
+- [RITTER-WEISS-2010](#source-ritter-weiss-2010), Theorem, p. 1; Theorem 7, p. 4; §5, Lemmas g–h and Claims 1–3, pp. 17–22: The final support-reduction proof proves the stated existence theorem and explicitly leaves uniqueness out.
+
+**Atlas planet:** Ritter–Weiss main theorem.
+
+<a id="ne6-rw2026-conditional-sk1-reduction"></a>
+
+### NE.6.34. Conditional Ritter–Weiss SK₁ reduction
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/rw2026-conditional-sk1-reduction` · theorem.
+
+For odd p, the universal vanishing SK₁(QG)=0 for the one-dimensional totally real Galois groups in Ritter–Weiss would follow if SK₁(D_(r,s,F))=0 for every finite unramified F/Q_p and positive r,s. Here O_m is the integer ring of F(ζ_(p^m)), A=O_r[[T]], B=O_(r+s)[[T]], and D_(r,s,F)=(Frac(B)/Frac(A),g,1+T), with g(ζ_(p^(r+s)))=ζ_(p^(r+s))^{1+p^r}. Thus an element u satisfies ub=g(b)u and u^{p^s}=1+T. The source’s Theorem 1A is this reduction; it is not a proof of all the required SK₁ vanishings. No unconditional uniqueness upgrade is exported.
+
+**Hypotheses.**
+
+- p odd; F/Q_p finite unramified; r,s≥1; compatible p-power roots of unity.
+- The vanishing for every displayed cyclic division algebra is a premise, presently a recorded gap.
+
+**Construction or proof.**
+
+1. Use the cited Wedderburn-component classification to reduce to a matrix algebra over one of the listed cyclic division algebras.
+2. Use Morita invariance of K₁ and SK₁ and product compatibility.
+3. Normalize a unit exponent m prime to p by the automorphism T↦(1+T)^m−1. Do not replace the unresolved norm-one commutator problem by an asserted surjectivity claim.
+
+**Check.**
+
+- The hypothesis is a family of SK₁ vanishing assertions, not merely a single split-matrix calculation.
+- The parameter change with m=1 is the identity; a prime-to-p m has the inverse exponent 1/m in Z_p.
+- The statement supplies no result at p=2.
+
+**Prerequisites:** [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison), `GeneralAlgebraicKTheory:K.7`, `KTheoryLowDegrees:U.3`.
+
+**Sources.**
+
+- [RITTER-WEISS-2026](#source-ritter-weiss-2026), Introduction, pp. 1–5; Theorem 1A, pp. 6–8: Gives the cyclic-algebra classification/reduction and explains that the vanishing argument is unfinished.
+
+<a id="ne6-unconditional-abelian-minus-main-theorem"></a>
+
+### NE.6.35. Unconditional abelian minus main theorem
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.6/unconditional-abelian-minus-main-theorem` · theorem.
+
+Let H/F be finite abelian CM with F totally real, p odd, H∞/H cyclotomic and G=Gal(H∞/F). Let S,T be disjoint finite sets with S∞∪S_p⊆S, S_ram⊆S∪T and Hyp_p^T: T is not contained in S_ram and H has no nontrivial p-power root of unity congruent to 1 above every place of T∖S_ram. Then over R=Z_p[[G]]^− the source’s covariantly dualized smoothed Selmer module M=Sel_S^T(H∞)_p^− has Fitt_R(M)=(Θ_S^T), and admits an injective square finite-free presentation (hence projective dimension at most one). No μ=0 premise is used. Its comparison with the abstract Picard module’s Pontryagin dual is unconditional; identifying that dual with the Z_p-dual of the Tate module uses μ=0.
+
+**Hypotheses.**
+
+- Exactly the field, parity and S,T conditions in the statement; complex conjugation defines the minus idempotent (1−j)/2.
+- The source uses the covariant action (g f)(x)=f(gx) on duals, not an unrecorded contragredient convention.
+
+**Construction or proof.**
+
+1. Import the finite-level smoothed Selmer presentations and their compatible restriction maps from the IntegralIwasawaTheory I.6 extension request.
+2. Apply Theorem 6.28 at every finite layer; Proposition 3.16 and Lemma 4.7 pass the Fitting ideals and the specified Θ elements to the inverse limit.
+3. Use Proposition 4.6’s nonzero-divisor Θ and Proposition 4.9 over the semilocal Iwasawa ring to obtain an injective square presentation.
+4. Use Proposition 7.10’s diagram to identify the Pontryagin dual; invoke μ=0 only for the further Tate-module comparison. These subsidiary proofs and suppliers are recorded precisely as refinements.
+
+**Check.**
+
+- The idempotent (1−j)/2 requires odd p; it is not an integral two-primary construction.
+- A finite-level theorem allowing fewer p-adic places in S does not remove S_p⊆S from the Iwasawa theorem.
+- The theorem cannot remove μ=0 from the nonabelian Kakde or Ritter–Weiss statements.
+
+**Prerequisites:** `IntegralIwasawaTheory:I.6`, `SelmerIwasawaCohomology:L3`, `PadicMeasuresIwasawaAlgebras:L5`, [NE.5/abelian-normalization-comparison](#ne5-abelian-normalization-comparison).
+
+**Sources.**
+
+- [GAMBHEERA-POPESCU-2025](#source-gambheera-popescu-2025), Theorems 6.28 and 6.30, pp. 33–34; Proposition 7.10, p. 36 (arXiv v1); published Theorem 1.12: The actual unconditional result is a smoothed abelian minus Fitting theorem; the Tate-module comparison retains a separate μ=0 hypothesis.
+
+**Atlas planet:** Unconditional abelian minus theorem.
+
+## NE.7. Descent, leading terms and Fitting invariants
+
+The construction starts with the Bockstein complex and its acyclicity after rationalization. It then defines the trivialization and leading term, states conditional arithmetic interpolation, and develops Fitting invariants over admitted orders. Local exceptional factors and global semisimplicity remain separate inputs.
+
+<a id="ne7-bockstein-homomorphism"></a>
+
+### NE.7.1. Bockstein homomorphisms
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/bockstein-homomorphism` · construction.
+
+Let θ ∈ H^1(G, ℤ_p) = Hom_cont(G, ℤ_p) be G ↠ Γ → ℤ_p with γ ↦ 1; it corresponds to the extension 0 → ℤ_p → E_θ → ℤ_p → 0 with E_θ = ℤ_p² and G acting by (1 θ; 0 1), which gives θ : A· → A·[1] in D^b(Λ(G)). The Bockstein morphism in degree i is B_i = H^{−i}(θ_*) : Tor_i^{Λ(G)}(T_ρ, A·) → Tor_{i−1}^{Λ(G)}(T_ρ, A·), with T_ρ = 𝒪^n a right module through ρ^t. For G = Γ, the triangle A· --T--> A· → ℤ_p ⊗^L A· gives 0 → H^i(A·)_Γ … exact sequences (3), and B_i is the composite H_i(Γ, A·) → H^{−i+1}(A·)^Γ --κ--> H^{−i+1}(A·)_Γ → H_{i−1}(Γ, A·), with κ induced by the identity (Lemma 3.1); so (H_·(Γ, A·), B_·) is a complex (4).
+
+**Hypotheses.**
+
+- G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.
+
+**Construction or proof.**
+
+1. E_θ ∈ Ext^1_{Λ(G)}(ℤ_p, ℤ_p) ≅ H^1(G, ℤ_p) (NSW 5.2.14); tensoring A· with it gives the triangle defining θ.
+2. Lemma 3.1: with cone(A·) = cone(T) and the quasi-isomorphism π : cone(A·) → A·_0, θ is (a, b) ↦ (b, 0) (Schneider); for a cycle ā lift to (a, b) with b = −T^{−1}d(a), and the class maps to −T^{−1}d(a), which is the stated composite.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.thetaClass` (constructor): θ ∈ Hom_cont(G, ℤ_p) from the generator γ.
+- `TauCeti.NoncommIwasawa.cupTheta` (constructor): θ : A· → A·[1] in D^b(Λ(G)).
+- `TauCeti.NoncommIwasawa.bockstein` (constructor): B_i : Tor_i(T_ρ, A·) → Tor_{i−1}(T_ρ, A·).
+- `TauCeti.NoncommIwasawa.bockstein_eq_kappa` (characterisation): Lemma 3.1: for G = Γ, B_i factors through κ : H^{−i+1}(A·)^Γ → H^{−i+1}(A·)_Γ.
+- `TauCeti.NoncommIwasawa.bockstein_sq` (simp): B_{i−1} ∘ B_i = 0, so (H_·, B_·) is a complex.
+
+**Unit tests.**
+
+- `two_term_T`: A· = [Λ(Γ) --T--> Λ(Γ)] in degrees −1, 0: H_1 = H_0 = ℤ_p and B_1 = −1 (proof of Proposition 3.8).
+- `acyclic_after_T`: If T acts invertibly on H^·(A·) the Bockstein complex is 0.
+- `square_zero_extension`: A· = [Λ² --((T,1),(0,T))--> Λ²] has H^0 = Λ/T² and κ = 0, so B_1 = 0 on H_1 = H_0 = ℤ_p (finding E11).
+
+**Check.**
+
+- The mapping-cone sign convention is BV's: d_cone = (d_B f; 0 −d_A).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes: semisimplicity is exactness of (H_·, B_·) up to torsion
+- NoncommutativeAndEquivariantIwasawa:NE.7/canonical-trivialization: d((H_·, 0)) = d((H_·, B_·))
+
+**Prerequisites:** `GeneralAlgebraicKTheory:K.4`, [NE.1/canonical-ore-set](#ne1-canonical-ore-set).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §§3.1–3.2, Lemma 3.1, pp. 7–9 (arXiv v2): §3.1, the definition of θ and B_i; §3.2, the cone, the sequences (3) and Lemma 3.1.
+
+<a id="ne7-semisimple-complexes"></a>
+
+### NE.7.2. Semisimple complexes and the order r(ρ)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/semisimple-complexes` · definition.
+
+A· ∈ C^p(Λ(Γ)) is semisimple if the Bockstein complex (H_·(Γ, A·), B_·) has ℤ_p-torsion (hence finite) cohomology; Σ^{ss} is the full subcategory of such complexes, and r_Γ(A·) = Σ_i (−1)^{i+1} dim_{ℚ_p}(H^i(A·)^Γ ⊗ ℚ_p) (Definition 3.2). Semisimple complexes have Λ(Γ)-torsion cohomology, and A· ∈ Σ^{ss} iff κ_i ⊗ ℚ_p is bijective in every degree, in which case r_Γ(A·) = Σ(−1)^{i+1} dim H^i(A·)_Γ ⊗ ℚ_p (Remark 3.3). For general G: A· is semisimple at ρ if (H_·(G, A·(ρ^*)), B_·) has ℤ_p-torsion cohomology (Definition 3.11), finite at ρ if H_·(G, A·(ρ^*)) is ℤ_p-torsion (Definition 3.12, so Σ^{fin−ρ} ⊆ Σ^{ss−ρ}), and r_G(A·)(ρ) = Σ(−1)^{i+1} dim_L(H^i(H, A·(ρ^*))^Γ ⊗ L). A· is semisimple at ρ iff A·_ρ = (Λ_𝒪(Γ) ⊗ 𝒪^n) ⊗^L A· is semisimple, with the same Bockstein maps and r_G(A·)(ρ) = r_Γ(A·_ρ) (Lemma 3.13). Over a discrete valuation ring with uniformizer T, a semisimple complex is a finite direct sum of [R --1--> R] and [R --T--> R] (Lemma 3.9).
+
+**Hypotheses.**
+
+- G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.
+
+**Construction or proof.**
+
+1. Remark 3.3(ii): Lemma 3.1 gives 0 → cok(κ_{−i}) → ker B_i/im B_{i+1} → ker(κ_{−i+1}) → 0.
+2. Lemma 3.9: T kills H^·(A·); split off [R^d --H--> R^d] with H diagonal in {1, T} from the top degree and induct on length.
+3. Lemma 3.13: 𝒪^n ⊗^L_{Λ(G)} A· ≅ 𝒪 ⊗^L_{Λ_𝒪(Γ)} A·_ρ, and Λ_𝒪(Γ) ⊗^L_{Λ(G)} A· ≅ 𝒪 ⊗^L_{Λ(H)} A·; the Bockstein map is functorial.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.IsSemisimple` (constructor): The Bockstein complex has ℤ_p-torsion cohomology.
+- `TauCeti.NoncommIwasawa.IsSemisimpleAt` (constructor): Semisimple at ρ (Definition 3.11).
+- `TauCeti.NoncommIwasawa.IsFiniteAt` (constructor): Finite at ρ (Definition 3.12).
+- `TauCeti.NoncommIwasawa.orderAt` (constructor): r_G(A·)(ρ) ∈ ℤ.
+- `TauCeti.NoncommIwasawa.isSemisimple_iff_kappa` (characterisation): κ_i ⊗ ℚ_p bijective in every degree.
+- `TauCeti.NoncommIwasawa.IsFiniteAt.isSemisimpleAt` (relation): Σ^{fin−ρ} ⊆ Σ^{ss−ρ}.
+- `TauCeti.NoncommIwasawa.isSemisimpleAt_iff_twist` (equivalence): Lemma 3.13: reduction to Λ_𝒪(Γ) and A·_ρ.
+- `TauCeti.NoncommIwasawa.semisimple_dvr_decomposition` (characterisation): Lemma 3.9 over a discrete valuation ring.
+
+**Unit tests.**
+
+- `two_term_T`: [Λ --T--> Λ] is semisimple with r_Γ = −1.
+- `finite_at_trivial`: [Λ --f--> Λ] with f(0) ≠ 0 is finite at ρ_triv, with r = 0.
+- `square_zero_extension`: [Λ² --((T,1),(0,T))--> Λ²] is an extension of two copies of [Λ --T--> Λ] but is not semisimple (E11).
+- `acyclic`: An acyclic complex is finite at every ρ, with r = 0.
+
+**Check.**
+
+- Σ^{ss} and Σ^{ss−ρ} satisfy (i)–(iii) and (iv′) but not (iv): they are not closed under extensions (finding E11).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/leading-term: the domain of the leading term
+- NoncommutativeAndEquivariantIwasawa:NE.7/generalized-euler-characteristic: χ_add and χ_mult are defined on Σ^{ss−ρ}
+
+**Prerequisites:** [NE.7/bockstein-homomorphism](#ne7-bockstein-homomorphism), [NE.2/localized-k1](#ne2-localized-k1).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §3.2, Definition 3.2 and Remark 3.3, p. 9; §3.3, Definitions 3.11–3.12, Lemma 3.13; Lemma 3.9 (arXiv v2): Definitions 3.2, 3.11, 3.12, Remark 3.3, Lemmas 3.9 and 3.13.
+
+<a id="ne7-canonical-trivialization"></a>
+
+### NE.7.3. The Bockstein trivialisation t(A·)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/canonical-trivialization` · construction.
+
+For A· ∈ Σ^{ss}, t(A·) : d_{ℤ_p}(ℤ_p ⊗^L_{Λ(Γ)} A·)_{ℚ_p} ≅ d((H_·(Γ, A·), 0))_{ℚ_p} = d((H_·(Γ, A·), B_·))_{ℚ_p} ≅ 1_{ℚ_p}, using property h) and then e) for the acyclic rational Bockstein complex (Definition 3.4, (5)). If ℚ_p ⊗^L A· is already acyclic, t(A·) is the acyclicity trivialisation (Remark 3.5). For an exact triangle A· → B· → C· of semisimple complexes, r_Γ(B·) = r_Γ(A·) + r_Γ(C·) and t(B·) = t(A·)t(C·) (Lemma 3.6). For general G, t(A·(ρ^*)) is the same composite (7) for 𝒪 ⊗^L_{Λ_𝒪(G)} A·(ρ^*), equal to t(A·_ρ) (Lemma 3.13).
+
+**Hypotheses.**
+
+- G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.
+
+**Construction or proof.**
+
+1. Definition: the rational Bockstein complex is acyclic by semisimplicity, so e) trivialises it; h) identifies ℤ_p ⊗^L A· with its cohomology complex.
+2. Lemma 3.6 ("easy and left to the reader" in the source): the long exact sequence of the triangle is compatible with the Bockstein maps, so the alternating determinants multiply; ranks add.
+3. Lemma 3.13(iii) transports Lemma 3.6 along A· ↦ A·_ρ.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.bocksteinTrivialization` (constructor): t(A·) : d(ℤ_p ⊗^L A·)_{ℚ_p} ≅ 1.
+- `TauCeti.NoncommIwasawa.bocksteinTrivialization_of_acyclic` (compatibility): Remark 3.5: the acyclicity trivialisation when ℚ_p ⊗^L A· is acyclic.
+- `TauCeti.NoncommIwasawa.bocksteinTrivialization_triangle` (relation): Lemma 3.6: t(B·) = t(A·)t(C·) and r adds.
+- `TauCeti.NoncommIwasawa.bocksteinTrivialization_twist` (compatibility): t(A·(ρ^*)) = t(A·_ρ).
+
+**Unit tests.**
+
+- `acyclic`: ℚ_p ⊗^L A· acyclic: t(A·) is the acyclicity isomorphism.
+- `two_term_T`: [Λ --T--> Λ]: t is the inverse of the Bockstein B_1 = −1 on ℚ_p (proof of Proposition 3.8).
+- `triangle_additivity`: For [Λ --T--> Λ] ⊕ [Λ --T--> Λ], t is the product of the two trivialisations and r = −2.
+
+**Check.**
+
+- Lemma 3.6 is stated without proof in the source; the proof step above is a sketch to be completed.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/leading-term: the second arrow in the definition of the leading term
+
+**Prerequisites:** [NE.7/semisimple-complexes](#ne7-semisimple-complexes), [NE.7/bockstein-homomorphism](#ne7-bockstein-homomorphism), `GeneralAlgebraicKTheory:K.4`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §3.2, Definition 3.4, Remark 3.5 and Lemma 3.6, pp. 9–10; (7) in §3.3 (arXiv v2): Definition 3.4 with (5), Remark 3.5, Lemma 3.6, and (7).
+
+<a id="ne7-leading-term"></a>
+
+### NE.7.4. The leading term at a representation
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/leading-term` · definition.
+
+For A· ∈ Σ^{ss−ρ} and a : 1_{Λ(G)} → d_{Λ(G)}(A·), the leading term (A·, a)^*(ρ) ∈ L^× is (−1)^{r_G(A·)(ρ)} times the element of L^× ≅ K_1(L) ≅ Aut(1_L) given by 1_L --L^n ⊗ a--> d_L(L^n ⊗^L_{Λ(G)} A·) --t(A·(ρ^*))--> 1_L (Definition 3.14; for G = Γ and ρ = ρ_triv, Definition 3.7). It gives a homomorphism (−)^*(ρ) : K_1(Λ(G), Σ) → L^× on subcategories Σ ⊆ Σ^{ss−ρ} with (i)–(iii), (iv′). If A· ∈ Σ^{fin−ρ}, the leading term is the value [A·, a](ρ) in the sense of Fukaya–Kato 4.1.5 (Remark 3.15).
+
+**Hypotheses.**
+
+- G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.
+
+**Construction or proof.**
+
+1. Well defined on K_1(Λ(G), Σ): relations (1) and (2) are respected by Lemma 3.13(iii) and Lemma 3.6, relation (0) trivially.
+2. Compatibility of Definitions 3.7 and 3.14 for G = Γ, ρ = ρ_triv is immediate.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.leadingTerm` (constructor): (A·, a)^*(ρ) ∈ L^×.
+- `TauCeti.NoncommIwasawa.leadingTermHom` (constructor): (−)^*(ρ) : K_1(Λ(G), Σ) → L^× for Σ ⊆ Σ^{ss−ρ}.
+- `TauCeti.NoncommIwasawa.leadingTerm_mul` (relation): Multiplicative on the relations of K_1(Λ(G), Σ).
+- `TauCeti.NoncommIwasawa.leadingTerm_eq_value` (compatibility): Remark 3.15: the Fukaya–Kato value when A· is finite at ρ.
+- `TauCeti.NoncommIwasawa.leadingTerm_shift` (simp): The leading term of [A·[1], a^{−1}] is the inverse, with r negated.
+
+**Unit tests.**
+
+- `pole_case`: A· = [Λ --T--> Λ], trivialisation a_ε: leading term ε(0), r = −1 (Proposition 3.8).
+- `zero_case`: Its shift has r = +1 and leading term ε(0)^{−1}: a vanishing case with its Bockstein determinant.
+- `finite_case`: For C=[Λ --f→Λ] in degrees −1,0, f(0)≠0 and the identity determinant trivialization, r=0 and the leading term is exactly f(0)⁻¹. A different trivialization must be specified to introduce a unit factor.
+- `not_semisimple`: The square-zero extension of E11 is not semisimple, so no leading term is defined for it.
+
+**Check.**
+
+- The acceptance case: A· = [R --T--> R] with a_ε from ε ∈ R^× has leading term ε(0) and order r = −1; its shift [R --T--> R][1] has order +1 and leading term ε(0)^{−1} (a vanishing case with its Bockstein determinant); [R --f→R] in degrees −1,0, f(0)≠0, has value f(0)⁻¹ with the identity determinant trivialization.
+- BV define (−)^*(ρ) on K_1(Λ(G), Σ_{A·}) and claim Σ_{A·} ⊆ Σ^{ss−ρ}; that inclusion fails for the extension-closed Σ_{A·} (E11), so the domain is taken with (iv′).
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-characteristic-series: comparison with F^*(0)
+- NoncommutativeAndEquivariantIwasawa:NE.7/generalized-euler-characteristic: ord_L and |·|_p of the leading term
+- NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism: leading terms of the conjectural zeta isomorphisms (BV §§5–6)
+
+**Prerequisites:** [NE.7/canonical-trivialization](#ne7-canonical-trivialization), [NE.7/semisimple-complexes](#ne7-semisimple-complexes), [NE.2/localized-k1](#ne2-localized-k1).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §3.3, Definition 3.14 and Remark 3.15, pp. 14–15; Definition 3.7, p. 10 (arXiv v2): Definitions 3.7 and 3.14 and Remark 3.15.
+
+**Atlas planet:** Leading terms at representations.
+
+<a id="ne7-leading-term-characteristic-series"></a>
+
+### NE.7.5. Leading terms as leading coefficients of characteristic series
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-characteristic-series` · theorem.
+
+Let L = [A·, a] with A· ∈ Σ^{ss} for G = Γ, and ch_Γ : K_1(Λ(Γ), Σ^{ss}) → K_1(Q(Γ)) = Q(Γ)^×. Writing F = T^rG(T) with G(0) ∈ L^× (6), (i) r(ch_Γ(L)) = r_Γ(A·), and (ii) (−)^*(ρ_triv) = (−)^*(0) ∘ ch_Γ, where F^*(0) = G(0) (Proposition 3.8). The same holds with 𝒪, L, Λ_𝒪(Γ) and Q_𝒪(Γ) (Remark 3.10).
+
+**Hypotheses.**
+
+- G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.
+
+**Construction or proof.**
+
+1. Both maps factor through the localisation R = Λ(Γ)_𝔭 at the augmentation ideal, a discrete valuation ring with uniformizer T and residue field ℚ_p, and K_1(R, Ξ) for the semisimple complexes Ξ over R.
+2. Lemma 3.9 reduces to A· = [R --a--> R] with a = 1 or T; the acyclic case is trivial.
+3. For a = T and the trivialisation a_ε (ε ∈ R^×): ch_Γ(L_ε) = T^{−1}ε, so ch_Γ(L_ε)^*(0) = ε(0). The Bockstein B_1 is ℤ_p --(−1)--> ℤ_p, so the composite in the definition is ℚ_p --ε(0)--> ℚ_p --(B_1)^{−1} = −1--> ℚ_p, of determinant −ε(0); with r_Γ(A·) = −1 = r(ch_Γ(L_ε)) the sign (−1)^{−1} gives L_ε^*(ρ_triv) = ε(0).
+
+**Check.**
+
+- This is the acceptance example: order −1 with leading term ε(0).
+
+**Prerequisites:** [NE.7/leading-term](#ne7-leading-term), [NE.7/semisimple-complexes](#ne7-semisimple-complexes), [NE.2/localized-k1](#ne2-localized-k1), [NE.2/commutative-cyclic-comparison](#ne2-commutative-cyclic-comparison).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §3.2, Proposition 3.8 and Remark 3.10, pp. 11–12 (arXiv v2): Proposition 3.8 with its proof via Lemma 3.9, and Remark 3.10.
+
+<a id="ne7-leading-term-canonical-localization"></a>
+
+### NE.7.6. Leading terms on the canonical localisation
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/leading-term-canonical-localization` · theorem.
+
+For A· ∈ Σ_{S*} ∩ Σ^{ss−ρ} and ch_{G,A·} : K_1(Λ(G), Σ_{A·}) → K_1(Λ(G)_{S*}), let ρ_* : K_1(Λ(G)_{S*}) → K_1(M_n(Q_𝒪(Γ))) ≅ Q_𝒪(Γ)^× be induced by g ↦ ρ(g)ḡ. Then (i) r_G(A·)(ρ) = r_Γ(A·_ρ) = r(ρ_*(ch_{G,A·}(A·))), and (ii) (−)^*(ρ) = (ρ_*(−))^*(0) ∘ ch_{G,A·} (Proposition 3.16). Accordingly F^*(ρ) := ρ_*(F)^*(0) for F ∈ K_1(Λ(G)_{S*}), and F(ρ) := F^*(ρ) when r(ρ_*(F)) = 0.
+
+**Hypotheses.**
+
+- G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.
+- S, S* the canonical Ore sets of CFKSV.
+
+**Construction or proof.**
+
+1. (i) from Lemma 3.13(i), H_i(H, A·(ρ^*)) = H^{−i}(A·_ρ), and Proposition 3.8.
+2. (ii) by composing the square (Λ_𝒪(Γ) ⊗ 𝒪^n) ⊗ − over ch with the square of Proposition 3.8, as in Fukaya–Kato Lemma 4.3.10.
+
+**Check.**
+
+- F(ρ) agrees with CFKSV's evaluation at ρ (NE.3/artin-evaluation) when r = 0.
+- The domain K_1(Λ(G), Σ_{A·}) is taken with (iv′), as in leading-term (E11).
+
+**Prerequisites:** [NE.7/leading-term-characteristic-series](#ne7-leading-term-characteristic-series), [NE.7/leading-term](#ne7-leading-term), [NE.1/saturated-ore-set](#ne1-saturated-ore-set), [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.2/localized-k1](#ne2-localized-k1).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §§3.4.1–3.4.2, Proposition 3.16, pp. 15–16 (arXiv v2): The canonical Ore sets, ch_{G,A·}, ρ_* and Proposition 3.16 with its proof.
+
+<a id="ne7-partial-derivative-interpretation"></a>
+
+### NE.7.7. Leading terms as derivatives in the cyclotomic direction
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/partial-derivative-interpretation` · lemma.
+
+Fix χ : G ↠ Γ → ℤ_p^× of infinite order, c_{χ,γ} = log_p(χ(γ)) ∈ ℚ_p^×, L = [A·, a] with A· ∈ Σ_{S*}, f_ρ(T) = ρ_*(ch_{G,A·}(L)) ∈ Q_𝒪(Γ)^×, and f_L(ρχ^s) = f_ρ(χ(γ)^s − 1), a p-adic meromorphic function of s ∈ ℤ_p. With r = r_G(A·)(ρ): (i) near 0, L^*(ρχ^s) = L(ρχ^s) = f_L(ρχ^s) for s ≠ 0; (ii) c_{χ,γ}^r L^*(ρ) is the leading coefficient at s = 0 of f_L(ρχ^s); (iii) if r ≥ 0, c_{χ,γ}^r L^*(ρ) = (1/r!)(d^r/ds^r) f_L(ρχ^s)|_{s=0} (Lemma 3.17). For χ = χ_cyc this is partial derivation in the cyclotomic direction (Remark 3.18).
+
+**Hypotheses.**
+
+- G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.
+
+**Construction or proof.**
+
+1. Near 0, f_{ρχ^s}(0) ∈ L^× for s ≠ 0 and f_{ρχ^s}(T) = f_ρ(χ(γ)^s(T + 1) − 1), so Proposition 3.16 gives (i).
+2. Factor f_ρ = T^rG_ρ with G_ρ(0) = f_ρ^*(0); then f_ρ(χ(γ)^s − 1)/s^r = ((χ(γ)^s − 1)/s)^rG_ρ(χ(γ)^s − 1) → log_p(χ(γ))^rG_ρ(0).
+
+**Check.**
+
+- For r < 0 only the leading-coefficient statement (ii) holds.
+
+**Prerequisites:** [NE.7/leading-term-canonical-localization](#ne7-leading-term-canonical-localization).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §3.4.3, Lemma 3.17 and Remark 3.18, pp. 16–17 (arXiv v2): Lemma 3.17 with its proof and Remark 3.18.
+
+<a id="ne7-generalized-euler-characteristic"></a>
+
+### NE.7.8. Generalized Euler–Poincaré characteristics
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/generalized-euler-characteristic` · theorem.
+
+For A· ∈ Σ^{ss−ρ}, put H^i_B(G, −) = H^i((H_{−·}(G, −), B_{−·})), χ_add(G, A·(ρ^*)) = Σ_i (−1)^i length_𝒪 H^i_B(G, A·(ρ^*)) and χ_mult = (#κ_L)^{χ_add}. For any trivialisation a and L = [A·, a]: χ_add(G, A·(ρ^*)) = ord_L(L^*(ρ)) and χ_mult(G, A·(ρ^*)) = |L^*(ρ)|_p^{−[L:ℚ_p]} (Proposition 3.19). The Pontryagin dual of the Hochschild–Serre differentials used by Coates–Schneider–Sujatha and others is the Bockstein map, and when A·(ρ^*) ⊗ ℚ_p is acyclic this recovers CFKSV Theorem 3.6, Venjakob Proposition 6.3 and Fukaya–Kato Remark 4.1.13 (Remark 3.20).
+
+**Hypotheses.**
+
+- G is a compact p-adic Lie group with a closed normal H and Γ = G/H ≅ ℤ_p, with a fixed generator γ and T = γ − 1; ρ : G → GL_n(𝒪) is continuous, 𝒪 = 𝒪_L for L/ℚ_p finite.
+
+**Construction or proof.**
+
+1. Lemma 3.13, property h) and regularity of 𝒪 give 1_𝒪 → d_𝒪(𝒪^n ⊗^L A·) ≅ ∏_i d_𝒪(H^i_B(G, A·(ρ^*)))^{(−1)^i}.
+2. After ⊗L and acyclicity, the leading term is, modulo 𝒪^×, the product of the elements attached to the finite modules H^i_B, whose valuations are their lengths (Remark 2.4).
+
+**Check.**
+
+- This is the "nonvanishing scalar specialisation" of the acceptance when A· is finite at ρ: the value's valuation is the Euler characteristic.
+
+**Prerequisites:** [NE.7/leading-term](#ne7-leading-term), `GeneralAlgebraicKTheory:K.4`, [NE.3/euler-characteristic-evaluation](#ne3-euler-characteristic-evaluation).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §3.5, Proposition 3.19 and Remark 3.20, pp. 17–18 (arXiv v2): The definitions of χ_add, χ_mult, Proposition 3.19 and Remark 3.20.
+
+**Atlas planet:** Generalized Euler–Poincaré characteristic.
+
+<a id="ne7-fukaya-kato-zeta-isomorphism"></a>
+
+### NE.7.9. The Fukaya–Kato global zeta isomorphism (as a proposition)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/fukaya-kato-zeta-isomorphism` · definition.
+
+For p odd, U = Spec ℤ[1/S] with S ⊇ {p, ∞}, a motive M over ℚ with a G_ℚ-stable lattice T_p of M_p, F_∞/ℚ a p-adic Lie extension with G = Gal(F_∞/ℚ), and 𝕋 = Λ(G) ⊗ T_p with the diagonal action g(x ⊗ y) = xḡ^{−1} ⊗ gy: the conjecture (Fukaya–Kato 2.3.2) asserts a unique isomorphism ζ_Λ(M) : 1_Λ → d_Λ(RΓ_c(U, 𝕋))^{−1} in 𝒞_Λ whose base change along every motivic ρ : G → GL_n(𝒪_λ) is the composite of ζ_K(M(ρ^*))_{K_λ} : 1 → Δ_K(M(ρ^*))_{K_λ} with the p-adic period-regulator ϑ_λ, where ζ_K(M(ρ^*)) is the isomorphism matching L^*_K(M(ρ^*)) through the period-regulator ϑ_∞ on the fundamental line Δ_K(M) = d(H^0_f(M))^{−1}d(H^1_f(M))d(H^0_f(M^*(1))^*)d(H^1_f(M^*(1))^*)^{−1}d(M_B^+)d(t_M)^{−1} (Conjecture 4.1). It implies the equivariant Tamagawa number conjecture of Burns–Flach. This is a proposition; no node assumes it.
+
+**Hypotheses.**
+
+- p odd; the finiteness of motivic cohomology, ϑ_∞ and ϑ_λ are themselves conjectural inputs (standard conjectures).
+
+**Construction or proof.**
+
+1. Definitions only: RΓ_c(U, 𝕋) is perfect over Λ(G) (Fukaya–Kato; NE.4), and the base change is property i) of the determinant functor.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.fundamentalLine` (constructor): Δ_K(M), the fundamental line.
+- `TauCeti.NoncommIwasawa.PeriodRegulatorData` (structure): ϑ_∞ and ϑ_λ, recorded as data.
+- `TauCeti.NoncommIwasawa.FukayaKatoZetaConjecture` (constructor): The proposition of Conjecture 4.1 for (M, F_∞/ℚ).
+- `TauCeti.NoncommIwasawa.fukayaKato_implies_etnc` (relation): Conjecture 4.1 implies the equivariant Tamagawa number conjecture at finite level (cited).
+
+**Unit tests.**
+
+- `abelian_tate_motive`: For the Tate motive and the cyclotomic abelian tower, the conjectural determinant isomorphism specializes to the normalized Iwasawa zeta contract; its existence is still stated as a conjecture here.
+- `not_assumed`: No theorem node takes Conjecture 4.1 as a hypothesis without naming it.
+- `trivial_group`: The finite-level determinant conjecture obtained by derived specialization recovers the Bloch–Kato Tamagawa-number formulation with its period maps; a trivial group is used only in that finite-level formulation.
+
+**Check.**
+
+- This is a proposition with named conjectural inputs. The Tate-motive and critical-motive targets state the conditional leading-term formulas of Burns–Venjakob §§5–6.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/leading-term: BV §§5–6: leading terms of ζ_Λ(M) at ρ
+- NoncommutativeAndEquivariantIwasawa:NE.5/totally-real-main-conjecture: the totally real case as a special case
+
+**Prerequisites:** `GeneralAlgebraicKTheory:K.4`, [NE.7/leading-term](#ne7-leading-term), [NE.4/totally-real-iwasawa-complex](#ne4-totally-real-iwasawa-complex), `ArithmeticGaloisDuality:R02.4`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §4, (8)–(14) and Conjecture 4.1, pp. 18–21 (arXiv v2): §§4.1–4.3: compactly supported cohomology, the fundamental line, the period-regulators, and Conjecture 4.1 (Fukaya–Kato 2.3.2).
+
+**Atlas planet:** Fukaya–Kato zeta isomorphism.
+
+<a id="ne7-leopoldt-tate-motive-descent"></a>
+
+### NE.7.10. Descent for the Tate motive at ρ under Leopoldt (BV Lemma 5.1)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/leopoldt-tate-motive-descent` · lemma.
+
+Fix ρ ∈ R_{ℂ_p}(Ḡ) with Leopoldt's conjecture valid at ρ, i.e. (ℚ_p ⊗ ker λ_p)^ρ = 0 for λ_p : O_E[1/p]^× ⊗ ℤ_p → ∏_{w|p}E_w^× ⊗̂ ℤ_p. (i) (H^i_c(U, 𝕋_E) ⊗ ℚ_p)^ρ is (cok λ_p ⊗ ℚ_p)^ρ for i = 2, (ℚ_p)^ρ for i = 3, and 0 otherwise. (ii) RΓ_c(U, 𝕋) ∈ Σ_{ss−ρ} and r_G(RΓ_c(U, 𝕋))(ρ) = ⟨ρ, 1⟩ = dim_{ℂ_p}(ℚ_p)^ρ. (iii) Under (i), the Bockstein morphism (B²)^ρ : H²_c → H³_c is induced by log_{p,γ,E} : ∏_{w|p}E_w^× ⊗̂ ℤ_p → ℤ_p, (e_w) ↦ −Σ_w c_γ^{−1}log_p(N_{E_w/ℚ_p}(e_w)).
+
+**Hypotheses.**
+
+- p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}.
+
+**Construction or proof.**
+
+1. (i): the triangle RΓ_c(U, 𝕋_E) → RΓ(U, 𝕋_E) → ⊕_{ℓ∈S}RΓ(ℚ_ℓ, 𝕋_E) with H^i(O_E[1/S], ℤ_p(1)) and H^i(E_w, ℤ_p(1)); H²_c ⊗ ℚ_p ≅ cok λ_p ⊗ ℚ_p always, and (H¹_c ⊗ ℚ_p)^ρ = 0 iff (ker λ_p ⊗ ℚ_p)^ρ = 0 since E is totally real.
+2. (ii): (15) gives Gal(E_cyc/ℚ) ≅ Γ × Ḡ; RΓ_c(U, 𝕋)_ρ ≅ O^n ⊗ RΓ_c(U, 𝕋_{E_cyc}) (18), and Lemma 3.13 with the semisimplicity criterion of Remark 3.3(ii).
+3. (iii): compare the global Bockstein with the local ones B¹_w through the triangle, then with B¹_p on RΓ(ℚ_{p,cyc}, ℤ_p(1)), which is c_γ^{−1}·log_p.
+
+**Check.**
+
+- Check the trivial character ρ = 1 with E = ℚ: ⟨1, 1⟩ = 1, cok λ_p = (ℚ_p^× ⊗̂ ℤ_p)/⟨p⟩ ≅ 1 + pℤ_p, so cok λ_p ⊗ ℚ_p ≅ ℚ_p via log_p, and the Bockstein is −c_γ^{−1}log_p.
+
+**Prerequisites:** [NE.7/bockstein-homomorphism](#ne7-bockstein-homomorphism), [NE.7/semisimple-complexes](#ne7-semisimple-complexes), `Polylogarithms:P.6/leopoldt-statement`, `mathlib:Padic`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §5.1, Lemma 5.1 and proof, pp. 22–24 (arXiv v2): Leopoldt's conjecture as injectivity of λ_p, and Lemma 5.1.
+
+<a id="ne7-padic-stark-conjecture"></a>
+
+### NE.7.11. The p-adic Stark conjecture at s = 1 (Serre; BV Conjecture 5.2)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-conjecture` · definition.
+
+For ρ ∈ R_{ℂ_p}(Ḡ), let L_{p,S}(s, ρ) be Greenberg's S-truncated p-adic Artin L-function (L_{p,S}(n, ρ) = L_S(n, ρω^{n−1}) for n < 0) and L^*_{p,S}(1, ρ) := lim_{s→1}(s − 1)^{⟨ρ,1⟩}L_{p,S}(s, ρ). Let μ_∞ : ℂ ⊗ log_∞(O_E^×) ≅ ℂ ⊗ E₀ (E₀ the trace-zero part of E) and μ_p : ℚ_p ⊗ log_∞(O_E^×) ≅ ℚ_p ⊗ E₀ the maps induced by exp_∞ followed by λ_p and log_p (19). The conjecture P-Stark(ρ) asserts that L^*_{p,S}(1, ρ) is the leading term of L_{p,S}(s, ρ) at s = 1 and, for every ℚ[Ḡ]-isomorphism g : E₀ → O_E^× ⊗ ℚ, L^*_{p,S}(1, ρ)/det_{ℂ_p}((ℂ_p ⊗ μ_p) ∘ (ℂ_p ⊗ g))^ρ = L^*_S(1, ρ)/det_ℂ(μ_∞ ∘ (ℂ ⊗ g))^ρ, the two sides compared through a fixed j : ℂ_p ≅ ℂ.
+
+**Hypotheses.**
+
+- p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}.
+- A fixed isomorphism j : ℂ_p ≅ ℂ.
+
+**Construction or proof.**
+
+1. Well-definedness: log_∞(O_E^×) is a lattice in ℝ ⊗ E₀ (Dirichlet), so μ_∞ is an isomorphism; (19) factors through ℚ_p ⊗ E₀, so μ_p is an isomorphism under Leopoldt.
+2. Independence of g: changing g multiplies both determinants by the same algebraic number det(ℚ ⊗ h)^ρ.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.PadicStarkAtOne` (data): The proposition P-Stark(ρ) for ρ ∈ R_{ℂ_p}(Ḡ).
+- `TauCeti.NoncommIwasawa.padicStark_indep_g` (characterisation): The identity does not depend on the choice of g.
+- `TauCeti.NoncommIwasawa.padicStark_add` (compatibility): P-Stark is additive in ρ (both sides are multiplicative in ρ).
+- `TauCeti.NoncommIwasawa.padicStark_induction` (compatibility): P-Stark is inductive: P-Stark(Ind ρ) ⇔ P-Stark(ρ) for subfields.
+- `TauCeti.NoncommIwasawa.padicStark_permutation` (relation): P-Stark(Ind_J^{Ḡ}1_J) ⇔ the p-adic class number formula for E^J (padic-stark-permutation-case).
+
+**Unit tests.**
+
+- `TauCeti.NoncommIwasawa.padicStark_trivial`: ρ = 1, E = ℚ: ⟨1, 1⟩ = 1 and P-Stark(1) is Res_{s=1}ζ_{p,S}(s) = (1 − p^{−1})·∏_{ℓ∈S∖{p}}(1 − ℓ^{−1}), the S-truncated Kubota–Leopoldt residue.
+- `TauCeti.NoncommIwasawa.padicStark_quadratic`: E real quadratic, ρ the quadratic character: both sides involve log_p ε resp. log|ε| of a fundamental unit (Leopoldt's p-adic class number formula).
+- `TauCeti.NoncommIwasawa.padicStark_no_zero`: ρ with ⟨ρ, 1⟩ = 0 (nontrivial irreducible): the leading term is the value L_{p,S}(1, ρ).
+- `TauCeti.NoncommIwasawa.padicStark_needs_leopoldt`: The displayed quotient formula requires μ_p to be invertible on the ρ-part. If Leopoldt fails there, its determinant is zero and this quotient is undefined; use the cross-multiplied conjectural formulation instead of inferring a higher-order zero from this test.
+
+**Check.**
+
+- Check that Remark 5.3's point is recorded: Tate's formulation (Chapter VI §5) is imprecise about "log U" and μ_p, and BV's statement is the clarification.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation: the hypothesis of Theorem 5.5
+
+**Prerequisites:** `AutomorphicPadicLFunctions:L3`, `Polylogarithms:P.6/leopoldt-statement`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §5.2, Conjecture 5.2 and Remark 5.3, pp. 24–25 (arXiv v2): Greenberg's L_{p,S}, the maps μ_∞, μ_p and Conjecture 5.2.
+
+<a id="ne7-padic-stark-permutation-case"></a>
+
+### NE.7.12. The p-adic Stark conjecture for permutation characters (BV Remark 5.4, after Colmez)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/padic-stark-permutation-case` · theorem.
+
+For a subgroup J ⊆ Ḡ and ρ = Ind_J^{Ḡ}1_J, P-Stark(ρ) holds iff the residue at s = 1 of the p-adic zeta function of E^J is nonzero and equal to 2^{[E^J:ℚ]−1}hR_p e_p/√|d|, with e_p = ∏_{v|p}(1 − Nv^{−1}); by Colmez this holds iff Leopoldt's conjecture holds for E^J. Leopoldt for E implies it for every E^J.
+
+**Hypotheses.**
+
+- p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}.
+
+**Construction or proof.**
+
+1. Inductivity of L-functions reduces ρ = Ind 1_J to the Dedekind and p-adic zeta functions of E^J; the complex side is the analytic class number formula (AnalyticNumberTheory AN.4).
+2. Colmez 1988 (the p-adic class number formula for totally real fields; cited, requested from AutomorphicPadicLFunctions L3).
+
+**Check.**
+
+- Check E^J = ℚ: the formula reduces to Res_{s=1}ζ_p(s) = 1 − 1/p (Kubota–Leopoldt).
+
+**Prerequisites:** [NE.7/padic-stark-conjecture](#ne7-padic-stark-conjecture), `AutomorphicPadicLFunctions:L3`, `AnalyticNumberTheory:AN.4/dedekind-zeta-continuation-and-residue`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §5.2, Remark 5.4, p. 25 (arXiv v2): Remark 5.4 (with Tate's remark p. 138 and Colmez).
+
+<a id="ne7-tate-motive-interpolation"></a>
+
+### NE.7.13. Interpolation formula for the Tate motive (BV Theorem 5.5)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation` · theorem.
+
+If P-Stark(ρ) holds for all ρ ∈ R_{ℂ_p}(Ḡ), then for each ρ: RΓ_c(U, 𝕋) ∈ Σ_{ss−ρ}, r_G(RΓ_c(U, 𝕋))(ρ) = ⟨ρ, 1⟩, and c_γ^{⟨ρ,1⟩}·ζ_{Λ(G)}(𝕋)^*(ρ) = L^*_{p,S}(1, ρ) (20), where ζ_{Λ(G)}(𝕋) is the Fukaya–Kato zeta isomorphism for M = h⁰(Spec E)(1). By Lemma 3.17 the left side is the leading term at s = 0 of s ↦ f_𝓛(ρχ_cyc^s) for 𝓛 = [RΓ_c(U, 𝕋), ζ_{Λ(G)}(𝕋)].
+
+**Hypotheses.**
+
+- p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}.
+- The Fukaya–Kato isomorphism ζ_{Λ(G)}(𝕋) (Conjecture 4.1) is assumed to exist.
+
+**Construction or proof.**
+
+1. P-Stark implies Leopoldt for E (padic-stark-permutation-case), so Lemma 5.1(ii) gives the semisimplicity and the rank.
+2. For M = h⁰(Spec E)(1): H¹_f(M) = O_E^× ⊗ ℚ, H⁰_f(M^*(1)) = ℚ, t_M = E and the other terms vanish; ζ_K(M([ρ]^*))_{K_λ} is the composite (21) (multiplication by L^*_S(1, ρ), the regulator sequence (22), Lemma 5.1(i) with the p-adic logarithm (23)).
+3. t(RΓ_c(U, 𝕋)(ρ^*)) is the composite (24) with −c_γ^{−1}log_{p,γ,E} (Lemma 5.1(iii)); the sign (−1)^{⟨ρ,1⟩} of Definition 3.14 cancels the −1 of the trace diagram, giving (25).
+4. The correction factor ξ equals det(μ_p ∘ g)^ρ/det(μ_∞ ∘ g)^ρ (26), and P-Stark turns (25) into (20).
+
+**Check.**
+
+- Check the trivial character: (20) says c_γ·ζ_{Λ(G)}(𝕋)^*(1) is the residue of ζ_{p,S} at s = 1, the Kubota–Leopoldt p-adic class number formula for ℚ.
+- Check the leading-term interpretation (Remark 5.6): both sides are leading terms of p-adic meromorphic functions, at s = 1 and s = 0 respectively.
+
+**Prerequisites:** [NE.7/leopoldt-tate-motive-descent](#ne7-leopoldt-tate-motive-descent), [NE.7/padic-stark-conjecture](#ne7-padic-stark-conjecture), [NE.7/padic-stark-permutation-case](#ne7-padic-stark-permutation-case), [NE.7/fukaya-kato-zeta-isomorphism](#ne7-fukaya-kato-zeta-isomorphism), [NE.7/leading-term](#ne7-leading-term), [NE.7/partial-derivative-interpretation](#ne7-partial-derivative-interpretation).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §5.3, Theorem 5.5 and proof, pp. 25–27 (arXiv v2): Theorem 5.5, Remark 5.6 and the proof.
+
+<a id="ne7-tate-motive-interpolation-rational"></a>
+
+### NE.7.14. The interpolation formula for ℚ-rational characters under Leopoldt (BV Corollary 5.7, corrected scope)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/tate-motive-interpolation-rational` · theorem.
+
+If Leopoldt's conjecture holds for E at p, then for every ℚ-valued character ρ of Ḡ there is n_ρ ≥ 1 with (c_γ^{⟨ρ,1⟩}·ζ_{Λ(G)}(𝕋)^*(ρ))^{n_ρ} = L^*_{p,S}(1, ρ)^{n_ρ}; for a permutation character one can take n_ρ = 1. (BV state this for "ℚ_p-rational" characters; the proof covers ℚ-valued ones, see NoncommutativeAndEquivariantIwasawa/E12.)
+
+**Hypotheses.**
+
+- p odd; F_∞/ℚ totally real Galois, containing ℚ_cyc, unramified outside a finite set S ∋ p, with G = Gal(F_∞/ℚ) a compact p-adic Lie group, H = Gal(F_∞/ℚ_cyc), Γ = G/H; E ⊆ F_∞ finite over ℚ with E ∩ ℚ_cyc = ℚ and E_w ∩ ℚ_{p,cyc} = ℚ_p for w | p (condition (15)); Ḡ = Gal(E/ℚ); 𝕋 = Λ(G) with σ acting by multiplication by χ_cyc(σ̄)σ̄^{−1}; U = Spec ℤ[1/S]; c_γ = c_{χ_cyc,γ}.
+- Leopoldt's conjecture for E at p; the Fukaya–Kato isomorphism exists.
+
+**Construction or proof.**
+
+1. Artin's induction theorem: for ℚ-valued ρ, n_ρ·ρ = Σ_H n_H·Ind_H^{Ḡ}1_H with integers n_H (Tate, Chapitre II, Théorème 1.2).
+2. Both sides of (20) are additive and inductive in ρ; padic-stark-permutation-case (via Colmez) gives (20) for each Ind_H 1_H under Leopoldt.
+
+**Check.**
+
+- Check the scope: the permutation characters Ind_H 1_H are ℚ-valued, so only ℚ-valued n_ρ·ρ are ℤ-combinations of them; a ℚ_p-valued cubic character (p ≡ 1 mod 3) is not.
+
+**Prerequisites:** [NE.7/tate-motive-interpolation](#ne7-tate-motive-interpolation), [NE.7/padic-stark-permutation-case](#ne7-padic-stark-permutation-case).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §5.3, Corollary 5.7 and proof, p. 27 (arXiv v2): Corollary 5.7 and its proof by Artin induction.
+
+<a id="ne7-local-epsilon-isomorphism"></a>
+
+### NE.7.15. The local ε-isomorphism ε_{p,L}(V) and Fukaya–Kato's local conjecture (BV §6.1, Conjecture 6.1)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/local-epsilon-isomorphism` · definition.
+
+Fix t = (t_n) a generator of ℤ_p(1) and ψ_p : ℚ_p → Q̄_p^× with kernel ℤ_p, 1/p^n ↦ t_n. For a de Rham L-representation V of G_{ℚ_p}, with L̃ = Q̂_p^nr ⊗ L, Γ^*(j) = Γ(j) = (j − 1)! for j > 0 and Res_{s=j}Γ(s) = (−1)^j((−j)!)^{−1} for j ≤ 0, h(j) = dim_L gr^jD_dR(V) and Γ_L(V) = ∏_j Γ^*(j)^{−h(−j)}, ε_{p,L}(V) : 1_{L̃} → (d_L(RΓ(ℚ_p, V))d_L(V))_{L̃} is the product of Γ_L(V), η_l(V)·η_l(V^*(1))^* and Fukaya–Kato's ε_dR(V) : 1 → d(V)d(D_dR(V))^{−1} (which involves Deligne's ε(D_pst(V))). Conjecture 6.1 (Fukaya–Kato 3.4.3): for 𝕋 = Λ ⊗ T there is a unique ε_{p,Λ}(𝕋) : 1_{Λ̃} → (d_Λ(RΓ(ℚ_p, 𝕋))d_Λ(𝕋))_{Λ̃} (Λ̃ = W(F̄_p)⟦G⟧) whose base change along each ρ : G → GL_n(O) is ε_{p,L}(T(ρ^*)).
+
+**Hypotheses.**
+
+- L/ℚ_p finite; V de Rham; the Haar measure and t are fixed and suppressed.
+
+**Construction or proof.**
+
+1. Definitions; ε_dR(V) exists by Fukaya–Kato Proposition 3.3.5 (cited, source not freely available).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.localEpsilon` (constructor): ε_{p,L}(V) = Γ_L(V)·η_l(V)η_l(V^*(1))^*·ε_dR(V).
+- `TauCeti.NoncommIwasawa.gammaStar` (constructor): Γ^*(j): Γ(j) for j > 0, the residue of Γ at j for j ≤ 0.
+- `TauCeti.NoncommIwasawa.gammaL` (constructor): Γ_L(V) = ∏_j Γ^*(j)^{−h(−j)}.
+- `TauCeti.NoncommIwasawa.LocalEpsilonConjecture` (data): Conjecture 6.1: ε_{p,Λ}(𝕋) interpolating ε_{p,L}(T(ρ^*)).
+- `TauCeti.NoncommIwasawa.localEpsilon_baseChange` (compatibility): L_n ⊗_Λ ε_{p,Λ}(𝕋) = ε_{p,L}(T(ρ^*)) (the defining property).
+
+**Unit tests.**
+
+- `TauCeti.NoncommIwasawa.gammaStar_pos`: Γ^*(3) = 2! = 2.
+- `TauCeti.NoncommIwasawa.gammaStar_nonpos`: Γ^*(−2) = (−1)^{−2}/2! = 1/2 = Res_{s=−2}Γ(s).
+- `TauCeti.NoncommIwasawa.gammaL_trivial`: V = ℚ_p: h(0) = 1, so Γ_L(V) = Γ^*(0)^{−1} = 1.
+- `TauCeti.NoncommIwasawa.gammaStar_not_gamma`: Γ^* is not Γ at j ≤ 0, where Γ has poles; the residue is used instead.
+
+**Check.**
+
+- Check the Γ-factor convention on V = ℚ_p(1): D_dR has one jump at j = −1, so Γ_L(V) = Γ^*(1)^{−1} = 1; on V = ℚ_p it is Γ^*(0)^{−1} = 1.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation: the factors (45), (46), (48), (49) of the leading term
+
+**Prerequisites:** `PadicHodgeTheory:R06.3/weil-deligne-parameter`, `mathlib:Complex.Gamma`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §6.1, pp. 28–29, and Conjecture 6.1 (arXiv v2): The local ε-isomorphism and Conjecture 6.1 (the Γ^* display is corrected, E13).
+
+<a id="ne7-dabrowski-panchishkin-selmer-complexes"></a>
+
+### NE.7.16. Dabrowski–Panchishkin representations and their Selmer complexes (BV §6.2, Lemma 6.2)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/dabrowski-panchishkin-selmer-complexes` · definition.
+
+A representation W of G_ℚ satisfies (DP) if it is de Rham and has a G_{ℚ_p}-subrepresentation Ŵ with D⁰_dR(Ŵ) = t_p(W) := D_dR(W)/D⁰_dR(W); then 0 → Ŵ → W → W̃ → 0 with D⁰_dR(Ŵ) = t_p(W̃) = 0, and Z = W^*(1) satisfies (DP) with Ẑ = W̃^*(1). The Selmer complexes SC_U(Ŵ, W) and SC(Ŵ, W) are the mapping fibres of RΓ(U, W) → RΓ(ℚ_p, W/Ŵ) ⊕ ⊕_{ℓ∈S_f∖S_p}RΓ(ℚ_ℓ, W) (resp. RΓ_{/f}(ℚ_ℓ, W) with RΓ_{/f} = cone(RΓ_f → RΓ)). Conditions: (A1) P_ℓ(W, 1)P_ℓ(Z, 1) ≠ 0 for ℓ ∈ S_f ∖ S_p; (B1) P_p(W, 1)P_p(Z, 1) ≠ 0; (C1) P_p(W̃, 1)P_p(Z̃, 1) ≠ 0 (each with equivalent forms). Lemma 6.2: under (A1) the complexes at ℓ ≠ p are acyclic; under (C1), RΓ_{/f}(ℚ_p, X) ≅ RΓ(ℚ_p, X̃) and RΓ_f(ℚ_p, X) ≅ RΓ(ℚ_p, X̂); under both, SC_U(Ŵ, W) ≅ RΓ_f(ℚ, W).
+
+**Hypotheses.**
+
+- W a finite-dimensional L-representation of G_{ℚ,S}; P_ℓ(V, u) = det(1 − φ_ℓu | V^{I_ℓ}) (ℓ ≠ p), det(1 − φ_pu | D_cris(V)) (ℓ = p), φ geometric Frobenius.
+
+**Construction or proof.**
+
+1. (A1): local duality and the Euler characteristic formula make RΓ(ℚ_ℓ, X) acyclic.
+2. (C1): complexes of vector spaces are quasi-isomorphic to their cohomology, and RΓ(ℚ_p, X̂) ≅ RΓ_f(ℚ_p, X̂) ≅ RΓ_f(ℚ_p, X) (Fukaya–Kato 4.1.7); compare the two triangles.
+3. (iii) from (i), (ii) and the definitions.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.IsDabrowskiPanchishkin` (data): (DP): de Rham with Ŵ ⊆ W, D⁰_dR(Ŵ) = t_p(W).
+- `TauCeti.NoncommIwasawa.selmerComplexU` (constructor): SC_U(Ŵ, W) as a mapping fibre.
+- `TauCeti.NoncommIwasawa.selmerComplex` (constructor): SC(Ŵ, W) with the RΓ_{/f} conditions at ℓ ≠ p.
+- `TauCeti.NoncommIwasawa.selmerComplexU_iso_f` (characterisation): Under (A1) and (C1), SC_U(Ŵ, W) ≅ RΓ_f(ℚ, W).
+- `TauCeti.NoncommIwasawa.isDabrowskiPanchishkin_dual` (compatibility): W (DP) ⇒ W^*(1) (DP) with Ẑ = W̃^*(1).
+
+**Unit tests.**
+
+- `TauCeti.NoncommIwasawa.dp_ordinary_abelian`: A/ℚ good ordinary at p: Ŵ is the Kummer part of V_p(A)(1)|_{G_{ℚ_p}} (Example 6.3).
+- `TauCeti.NoncommIwasawa.dp_multiplicative_fails_B1`: E with split multiplicative reduction at p: P_p(W, 1) = 0 for W = V_p(E)(1), so (B1) fails (exceptional zero).
+- `TauCeti.NoncommIwasawa.dp_trivial`: W = ℚ_p(1): Ŵ = W, W̃ = 0.
+- `TauCeti.NoncommIwasawa.dp_not_de_rham`: A non-de Rham W does not satisfy (DP).
+
+**Check.**
+
+- Check Example 6.3: for an abelian variety A/ℚ with good ordinary reduction at p, W = V_p(A)(ρ^*) satisfies (DP), (A1), (B1), (C1); with split multiplicative reduction (B1) fails.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein: the Selmer complex whose Bockstein is the height
+- NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation: the Selmer complexes SC_U(𝕋̂, 𝕋) and SC(𝕋̂, 𝕋)
+
+**Prerequisites:** `SelmerIwasawaCohomology:L2`, `PadicHodgeTheory:R06.3/weil-deligne-parameter`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §6.2, conditions (DP), (A1)–(C3), (27)–(29), Lemma 6.2, pp. 29–30 (arXiv v2): The (DP) condition, the Selmer complexes and Lemma 6.2.
+
+<a id="ne7-height-pairing-bockstein"></a>
+
+### NE.7.17. Nekovář's p-adic height as a Bockstein map; semisimplicity iff non-degenerate (BV §6.2, Propositions 6.4, 6.6)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/height-pairing-bockstein` · theorem.
+
+Nekovář's height h_p(W) : H¹_f(ℚ, W) × H¹_f(ℚ, Z) → L (his h̃_{π,1,1}, agreeing up to sign with Schneider, Perrin-Riou, Mazur–Tate and Zarhin) has adjoint equal to H¹_f(ℚ, W) ≅ H¹(SC_U) →^B H²(SC_U) ≅ H²_f(ℚ, W) ≅ H¹_f(ℚ, Z)^* with B the Bockstein of SC_U(𝕋̂_{cyc,ρ}, 𝕋_{cyc,ρ}) (32)–(33). Descent (Proposition 6.4, Fukaya–Kato 1.6.5): L_n ⊗_{Λ,ρ} commutes with RΓ(U, ·), RΓ_c(U, ·), RΓ(ℚ_ℓ, ·) and SC_U, and with RΓ_f(ℚ_ℓ, ·) for ℓ ∉ Υ ∪ S_p, while SC descends only up to the triangle (34) over ℓ ∈ Υ. Proposition 6.6: under (A1), (C1) and (D2), SC_U(𝕋̂_{cyc,ρ}, 𝕋_{cyc,ρ}) ∈ Σ_ss iff h_p(W) is non-degenerate (F), and then r_Γ = dim_L H¹_f(ℚ, W).
+
+**Hypotheses.**
+
+- W = N_λ = V ⊗ [ρ]^*_λ for a motive M satisfying (DP) and a critical twist; (D2): H⁰_f(ℚ, W) = H⁰_f(ℚ, Z) = 0; Υ the primes ℓ ≠ p of infinite ramification in F_∞.
+
+**Construction or proof.**
+
+1. (32)–(33): Nekovář, Selmer Complexes, the sentence after (11.1.3.2) and Theorem 11.3.9 (cited, gap).
+2. Proposition 6.6: under (D2), H^i(SC_U(Ŵ, W)) = 0 for i ≠ 1, 2, and semisimplicity is the invertibility of the Bockstein in degree 1, which is (F).
+
+**Check.**
+
+- Check Example 6.5: for an abelian variety over ℚ, (D1) and (D2) hold, but non-degeneracy (F) is open except Bertrand's CM result.
+
+**Prerequisites:** [NE.7/dabrowski-panchishkin-selmer-complexes](#ne7-dabrowski-panchishkin-selmer-complexes), [NE.7/bockstein-homomorphism](#ne7-bockstein-homomorphism), [NE.7/semisimple-complexes](#ne7-semisimple-complexes), `SelmerIwasawaCohomology:L2`.
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §6.2, (32)–(34), Propositions 6.4 and 6.6, pp. 31–33 (arXiv v2): The Bockstein description of the height, descent, and Proposition 6.6.
+
+<a id="ne7-critical-motive-interpolation"></a>
+
+### NE.7.18. Interpolation formula for critical motives (BV Theorem 6.7)
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/critical-motive-interpolation` · theorem.
+
+Assume W satisfies (A1), (B1), (C1), (D1) and (F), and that ζ_Λ(M) (Conjecture 4.1) and ε_{p,Λ}(𝕋̂) (Conjecture 6.1) exist. Then SC_U(𝕋̂, 𝕋) and SC(𝕋̂, 𝕋) belong to Σ_ss, r = r_G(SC_U)(ρ) = r_G(SC)(ρ) = dim_L H¹_f(ℚ, W), and the leading term 𝓛^*(ρ) (resp. 𝓛_U^*(ρ)) of the Fukaya–Kato p-adic L-function equals (−1)^r·L^*_{K,B}(M(ρ^*))/(Ω_∞(M(ρ^*))R_∞(M(ρ^*)))·Ω_p(M(ρ^*))R_p(M(ρ^*))·Γ(V̂)^{−1}·P_{L,p}(Ŵ^*(1), 1)/P_{L,p}(Ŵ, 1) (38), with L^*_{K,B} truncated at B = Υ ∪ S_p (resp. B = S ∖ S_∞), Ω_∞, R_∞ the archimedean period and regulator (42)–(43), Ω_p the p-adic period (46) and R_p = det h_p(W) (50).
+
+**Hypotheses.**
+
+- The hypotheses of height-pairing-bockstein and of Fukaya–Kato's Conjectures 4.1 and 6.1.
+
+**Construction or proof.**
+
+1. Model: Fukaya–Kato Theorem 4.2.26 (as amplified by Venjakob, proof of Theorem 6.4). Choose good bases γ, δ of M_B^+ and t_M and bases P^∨, P of H¹_f(N), H¹_f(N^*(1)); can = can_{γ′,δ′}·can_{P^∨,P} identifies ζ_K(N) with L^*_K(M)/(Ω_∞R_∞)·can.
+2. 𝓛_U^*(ρ) is the product of the factors (44)–(50): the complex leading term over Ω_∞R_∞; Γ_L(Ŵ)^{−1}; the p-adic period Ω_p; the Euler factors at ℓ ≠ p; {P_{L,p}(W, u)P_{L,p}(Ŵ, u)^{−1}}_{u=1}; P_{L,p}(Ŵ^*(1), 1); and the p-adic regulator R_p = det h_p(W), which is t(SC_U(ρ^*)) by height-pairing-bockstein.
+3. For 𝓛^*(ρ) use the triangle SC_U(Ŵ, W) → L_n ⊗ SC(𝕋̂, 𝕋) → ⊕_{S_f∖(S_p∪Υ)}RΓ_f(ℚ_ℓ, W) and L^*_{K,Υ′} = L^*_{K,B′}∏_{B∖Υ}P_{L,ℓ}(W, 1)^{−1}.
+
+**Check.**
+
+- Check Remark 6.8: without (B1), replace P_{L,p}(Ŵ, 1) by the leading coefficient of P_{L,p}(Ŵ, p^s) at s = 0 (the exceptional-zero situation).
+- Check Example 6.9: for an elliptic curve and F_∞ = ℚ(E[p^∞]), (38) predicts the leading terms of the CFKSV p-adic L-function 𝓛_E at Artin characters with non-degenerate heights.
+
+**Prerequisites:** [NE.7/height-pairing-bockstein](#ne7-height-pairing-bockstein), [NE.7/local-epsilon-isomorphism](#ne7-local-epsilon-isomorphism), [NE.7/dabrowski-panchishkin-selmer-complexes](#ne7-dabrowski-panchishkin-selmer-complexes), [NE.7/fukaya-kato-zeta-isomorphism](#ne7-fukaya-kato-zeta-isomorphism), [NE.7/leading-term](#ne7-leading-term).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), §6.3, Theorem 6.7, Remark 6.8, proof and Example 6.9, pp. 33–36 (arXiv v2): Theorem 6.7 with its proof and Remark 6.8.
+
+<a id="ne7-fitting-order"></a>
+
+### NE.7.19. Orders admitted for noncommutative Fitting invariants
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/fitting-order` · definition.
+
+A Fitting order is an o-order Λ in a finite-dimensional separable semisimple algebra A over F=Frac(o), where o is an integrally closed commutative noetherian complete local domain. Thus Λ is a finite torsion-free o-subalgebra with FΛ=A. Fix a containing maximal order Λ′ for computations, retaining its center ζ(Λ′), and the componentwise reduced norm on every matrix algebra over A. A one-dimensional Iwasawa algebra with an open central Γ₀≅Z_p is such an order over o=Z_p[[Γ₀]]. This is the admitted order data for NE.7, not a definition of arbitrary noncommutative fraction rings.
+
+**Hypotheses.**
+
+- o integrally closed, commutative, noetherian, complete and local; Λ finite torsion-free over o; A=F⊗Λ finite-dimensional separable semisimple.
+
+**Construction or proof.**
+
+1. Import the ambient finite-dimensional algebra, orders and reduced norms; package exactly the hypotheses Nickel Definition 2.1 needs.
+2. For the Iwasawa example use the finite central crossed-product presentation and semisimple total quotient.
+3. Separate ζ(Λ), ζ(Λ′) and ζ(A) throughout; reduced norms of integral matrices need not lie in ζ(Λ).
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.FittingOrder.ambient` (data): The embedding Λ⊆A and an identified scalar extension F⊗Λ≅A.
+- `TauCeti.NoncommIwasawa.FittingOrder.maximalOrder` (data): A chosen containing maximal order with the same total quotient; results are independent of this computational choice.
+- `TauCeti.NoncommIwasawa.FittingOrder.reducedNorm` (compatibility): For M_n(Λ) use the norm inherited from M_n(A), valued in ζ(A).
+- `TauCeti.NoncommIwasawa.FittingOrder.iwasawa` (constructor): An open central Γ₀ supplies the Iwasawa example over Z_p[[Γ₀]].
+
+**Unit tests.**
+
+- `fitting_order_1`: For Λ=M₂(Z₃), take o=Z₃ and A=M₂(Q₃); the reduced norm is the 2×2 determinant.
+- `fitting_order_2`: For Λ=Z_p[C_p], A=Q_p[C_p] is semisimple despite p dividing the group order; semisimplicity is required over F, not over the residue field.
+- `fitting_order_3`: For Λ=Z_p[[Z_p]], use o=Λ and A=Frac(Λ); the coefficient domain need not be a DVR.
+- `fitting_order_4`: An arbitrary higher-dimensional nonabelian Iwasawa algebra is not admitted by the central dimension-one construction.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/fitting-integrality-denominators: fixes the actual order and centers
+- NoncommutativeAndEquivariantIwasawa:NE.7/maximal-noncommutative-fitting: defines the module invariant
+
+**Prerequisites:** [NE.3/semisimple-total-quotient](#ne3-semisimple-total-quotient), [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison), `IntegralHeckeAndGaloisDeterminants:IHG.0/azumaya-determinant`.
+
+**Sources.**
+
+- [NICKEL-FITTING](#source-nickel-fitting), Definition 2.1 and Examples 2.3–2.7, pp. 7–8: Specifies the coefficient domain and semisimple ambient algebra; Example 2.7 covers dimension-one Iwasawa algebras.
+
+<a id="ne7-fitting-integrality-denominators"></a>
+
+### NE.7.20. Integrality ring and denominator ideal
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/fitting-integrality-denominators` · construction.
+
+For a Fitting order Λ⊆Λ′⊆A, define I(Λ) as the ζ(Λ)-module generated by nr(H) for square matrices H over Λ of all sizes; it is a commutative order between ζ(Λ) and ζ(Λ′). Let H* be the generalized adjoint computed from the reduced characteristic polynomials of the simple factors, so H*H=HH*=nr(H)I. Define H(Λ)={x∈ζ(Λ): xH* has entries in Λ for every square H over Λ}. It is a central ideal satisfying H(Λ)I(Λ)=H(Λ)⊆ζ(Λ). The central conductor F(Λ)={x∈ζ(Λ′):xΛ′⊆Λ} lies in H(Λ).
+
+**Hypotheses.**
+
+- The Fitting order hypotheses and its reduced norms; all matrix sizes enter the definitions.
+
+**Construction or proof.**
+
+1. Use reduced Cayley–Hamilton in each simple factor to form the generalized adjoint.
+2. Block sums and matrix products show that the norm-generated module is a ring and is finite over ζ(Λ).
+3. Use the integral adjoint condition to prove the ideal and conductor inclusions, retaining the actual integral order.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.FittingIntegralityRing.mem` (characterisation): I(Λ) is generated over ζ(Λ) by all square-matrix reduced norms.
+- `TauCeti.NoncommIwasawa.GeneralizedAdjoint.mul` (relation): H*H=HH*=nr(H)I over the ambient semisimple algebra.
+- `TauCeti.NoncommIwasawa.FittingDenominatorIdeal.mem` (characterisation): x∈H(Λ) iff x∈ζ(Λ) clears every generalized-adjoint denominator.
+- `TauCeti.NoncommIwasawa.FittingDenominatorIdeal.integrality` (relation): H(Λ)I(Λ)=H(Λ) and F(Λ)⊆H(Λ).
+- `TauCeti.NoncommIwasawa.FittingDenominatorIdeal.maximal` (compatibility): For a maximal order, H(Λ)=I(Λ)=ζ(Λ).
+
+**Unit tests.**
+
+- `fitting_integrality_denominators_1`: For a commutative order, generalized adjoints are ordinary adjugates, so H(Λ)=I(Λ)=Λ.
+- `fitting_integrality_denominators_2`: For Λ=M₂(Z₃), the center and both auxiliary ideals identify with Z₃.
+- `fitting_integrality_denominators_3`: For Λ=Z_p[D_(2p)] with p odd, nr(σ+τ)=(1/p)Σ_g g lies in I(Λ) but not ζ(Λ); forcing all norms into the integral center is false.
+- `fitting_integrality_denominators_4`: For finite Z_p[G], H(Λ)=ζ(Λ) iff p does not divide |G′|, as in Proposition 3.8; this is not the condition p∤|G|.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/fitting-annihilation: clears norm denominators before an annihilator statement
+- NoncommutativeAndEquivariantIwasawa:NE.7/maximal-noncommutative-fitting: provides the ring of values
+
+**Prerequisites:** [NE.7/fitting-order](#ne7-fitting-order), `IntegralHeckeAndGaloisDeterminants:IHG.0/azumaya-determinant`.
+
+**Sources.**
+
+- [NICKEL-FITTING](#source-nickel-fitting), §2.2 and Example 2.8, pp. 8–9; §3.1, pp. 11–12; Proposition 3.8, p. 13: Defines the norm integrality ring and adjoint denominator ideal and explains the conductor relation.
+
+**Atlas planet:** Fitting denominator ideals.
+
+<a id="ne7-maximal-noncommutative-fitting"></a>
+
+### NE.7.21. Maximal noncommutative Fitting invariant
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/maximal-noncommutative-fitting` · construction.
+
+For a finite presentation Λ^a --h→ Λ^b→M→0 of a left module (row vectors, h acts on the right), put Fitt_Λ(h)=0 if a<b and otherwise take the I(Λ)-ideal generated by reduced norms of all b×b row submatrices. This invariant can depend on the presentation. Define Fitt_Λ^max(M) as the largest such ideal among all finite presentations; it exists by noetherianity and the ability to enlarge presentations. It is an I(Λ)-ideal in ζ(A), not in general an ideal of ζ(Λ). An epimorphism M→N gives Fitt^max(M)⊆Fitt^max(N).
+
+**Hypotheses.**
+
+- Λ a Fitting order; M finitely presented; matrix convention for left modules as stated.
+
+**Construction or proof.**
+
+1. Take norms of all maximal square submatrices and generate an ideal in the integrality ring.
+2. Compare enlarged presentations and use noetherianity to obtain a maximal invariant independent of a chosen presentation.
+3. For a surjection adjoin its kernel’s generators to compare presentations. Do not assert general direct-sum multiplicativity without the extra hypotheses in Nickel’s later sections.
+
+**API.**
+
+- `TauCeti.NoncommIwasawa.NoncommFitting.ofPresentation` (constructor): Generate the I(Λ)-ideal of maximal-square reduced norms, using zero for a<b.
+- `TauCeti.NoncommIwasawa.NoncommFitting.maximal` (universal-property): Fitt(h)⊆Fitt^max(M) for every presentation, and equality for at least one presentation.
+- `TauCeti.NoncommIwasawa.NoncommFitting.iso` (functoriality): An isomorphism of Λ-modules preserves the maximal invariant.
+- `TauCeti.NoncommIwasawa.NoncommFitting.epimorphism` (relation): For a surjection M→N, Fitt^max(M)⊆Fitt^max(N).
+- `TauCeti.NoncommIwasawa.NoncommFitting.commutative` (compatibility): For commutative Λ, this is the usual zeroth Fitting ideal.
+
+**Unit tests.**
+
+- `maximal_noncommutative_fitting_1`: For Λ=Z₃ and M=Z₃/9, the maximal invariant is (9); for a free nonzero module it is 0.
+- `maximal_noncommutative_fitting_2`: For Λ=M₂(Z₃) and M=0, the identity presentation gives I(Λ)=Z₃. The surjective two-block presentation with blocks [[4,1],[1,4]] and [[5,1],[1,5]] has norms 15,24, giving the smaller presentation invariant 3Z₃.
+- `maximal_noncommutative_fitting_3`: For M=0, Fitt^max(M)=I(Λ); maximizing is essential in the preceding matrix example.
+- `maximal_noncommutative_fitting_4`: The exact-sequence product inclusion holds, but a general equality for direct sums is not part of this API.
+
+**Uses.**
+
+- NoncommutativeAndEquivariantIwasawa:NE.7/fitting-characteristic-class: relates square presentations to a characteristic class
+- NoncommutativeAndEquivariantIwasawa:NE.7/fitting-annihilation: produces an integral annihilator
+
+**Prerequisites:** [NE.7/fitting-integrality-denominators](#ne7-fitting-integrality-denominators), [NE.7/fitting-order](#ne7-fitting-order), `mathlib:Matrix`, `mathlib:IsNoetherianRing`.
+
+**Sources.**
+
+- [NICKEL-FITTING](#source-nickel-fitting), §2.3, Example 2.11, Theorem 2.13, Definition 2.14 and Lemma 2.17, pp. 9–11: Defines the presentation invariant, demonstrates dependence and constructs its maximal version.
+
+<a id="ne7-fitting-characteristic-class"></a>
+
+### NE.7.22. Fitting invariant of a characteristic class
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/fitting-characteristic-class` · theorem.
+
+Let Λ be a Fitting order with total quotient A and suppose 0→Λ^b --h→Λ^b→M→0 is exact. Then h is invertible over A, ∂[h]=[M] for the NE.2 positive boundary, and Fitt_Λ^max(M)=nr(h)I(Λ). More generally any x∈K₁(A) with ∂x=[M] gives Fitt_Λ^max(M)=nr(x)I(Λ), since changing x by K₁(Λ) changes its reduced norm by an I(Λ)-unit. If a zeta element has ∂ζ=−[M], use nr(ζ⁻¹). Equality of the resulting Fitting ideals does not imply equality of boundary classes or zeta elements.
+
+**Hypotheses.**
+
+- Λ a Fitting order; M has an injective square finite-free presentation.
+- For an arbitrary perfect complex with cohomology in several degrees, first specify the virtual/determinant invariant; this theorem concerns the module M.
+
+**Construction or proof.**
+
+1. Apply Nickel Proposition 2.18 to the square presentation.
+2. Use the localization relative triple to compute the boundary sign.
+3. Use exactness of the K₁/relative-K₀ sequence and nr(K₁(Λ))⊆I(Λ)^× to prove independence of the characteristic lift.
+
+**Check.**
+
+- For Λ=Z_p[[T]], h=(T), obtain Fitt(Λ/T)=(T), not (T⁻¹).
+- Multiplying h by a Λ-invertible matrix changes its norm by an I(Λ)-unit and leaves the Fitting ideal unchanged.
+- Equality of fractional ideals permits units of I(Λ) that need not arise from nr K₁(Λ); it is insufficient for equality of relative classes.
+
+**Prerequisites:** [NE.7/maximal-noncommutative-fitting](#ne7-maximal-noncommutative-fitting), [NE.2/relative-perfect-class](#ne2-relative-perfect-class), [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison).
+
+**Sources.**
+
+- [NICKEL-FITTING](#source-nickel-fitting), Proposition 2.18 and Remark 2.19, p. 11: The square-presentation formula and the one-way K-theory implication are explicit; the converse fails in general.
+
+<a id="ne7-fitting-annihilation"></a>
+
+### NE.7.23. Denominator-corrected Fitting annihilation
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/fitting-annihilation` · theorem.
+
+For every finitely presented module M over a Fitting order Λ, H(Λ)Fitt_Λ^max(M)⊆Ann_(ζ(Λ))(M). Thus a characteristic-element/Fitting formula yields an integral central annihilator only after the stated denominator ideal is applied. For a commutative order H(Λ)=Λ and this reduces to the usual Fitting annihilator inclusion. For noncommutative orders no assertion that the raw reduced norm annihilates M integrally is made.
+
+**Hypotheses.**
+
+- Λ a Fitting order; M finitely presented; the actual Λ, I(Λ) and H(Λ) are used.
+
+**Construction or proof.**
+
+1. For a chosen presentation use the generalized-adjoint identity to show nr(H) kills the relevant generators after denominator clearing.
+2. Multiply by x∈H(Λ) to make the adjoint entries integral; sum over maximal submatrices and extend to the maximal invariant.
+3. Use H(Λ)I(Λ)=H(Λ) to keep the resulting elements in ζ(Λ).
+
+**Check.**
+
+- For Z_p/ p^n, the formula gives (p^n)⊆Ann(M), with equality.
+- For Λ=Z_p[G] and augmentation ideal Δ_pG, the source computes Fitt^max(Δ_pG)=(1/|G′|)N_G Z_p, while the denominator-corrected product is N_G Z_p=Ann_(ζΛ)(Δ_pG).
+- For G=S₃ and p=3 the raw generator (1/3)N_G is not integral, so an annihilator claim in ζΛ before clearing denominators fails.
+
+**Prerequisites:** [NE.7/fitting-integrality-denominators](#ne7-fitting-integrality-denominators), [NE.7/maximal-noncommutative-fitting](#ne7-maximal-noncommutative-fitting), [NE.7/fitting-characteristic-class](#ne7-fitting-characteristic-class).
+
+**Sources.**
+
+- [NICKEL-FITTING](#source-nickel-fitting), Theorem 3.16, p. 14; Examples 3.9 and 3.18, pp. 13–15: Proves denominator-corrected annihilation and shows why the integrality factor is necessary.
+
+**Atlas planet:** Fitting annihilation.
+
+<a id="ne7-exceptional-euler-leading-term"></a>
+
+### NE.7.24. Exceptional Euler factors and Bockstein leading terms
+
+**Target:** `NoncommutativeAndEquivariantIwasawa:NE.7/exceptional-euler-leading-term` · comparison.
+
+Suppose a representation-specialized characteristic function has a proved Laurent factorization f(T)=E(T)g(T), with E a specified product of local Euler factors and g(T)=T^m u(T), u(0)≠0. Write E(T)=T^e v(T), v(0)≠0. Then ord_T f=e+m and the leading coefficient is v(0)u(0). When the specialized perfect complex is semisimple in the Burns–Venjakob sense, identify this coefficient with its Bockstein determinant, retaining the boundary sign and the Γ-generator logarithmic conversion to an s-derivative. This conditional comparison separates an explicit local zero from any further zero in g; interpolation away from zeros alone supplies neither semisimplicity nor a regulator.
+
+**Hypotheses.**
+
+- A proved local factorization and orders e,m; leading coefficients nonzero.
+- For the determinant assertion, the source’s semisimplicity, rational acyclicity and chosen Bockstein trivialization hypotheses.
+
+**Construction or proof.**
+
+1. Factor the scalar Laurent series and multiply the first nonzero coefficients.
+2. Apply the existing leading-term/characteristic-series and partial-derivative comparisons with the same Γ-coordinate.
+3. For arithmetic exceptional zeros request the local cohomology factorization and nondegenerate height/regulator input; do not infer them from a main-conjecture ideal equality.
+
+**Check.**
+
+- E(T)=1−(1+T)=−T and g(0)=a≠0 give a simple zero with leading coefficient −a; losing the local sign fails.
+- For C=[Λ --T→Λ] in degrees −1,0, BV’s characteristic function T⁻¹ has order −1; its shift has order 1 and the inverse leading coefficient, according to the determinant convention.
+- If E(T)=−T and g(T)=T u(T), the total order is 2; a single local exceptional factor does not prove the global order is 1.
+
+**Prerequisites:** [NE.7/leading-term-characteristic-series](#ne7-leading-term-characteristic-series), [NE.7/partial-derivative-interpretation](#ne7-partial-derivative-interpretation), [NE.7/height-pairing-bockstein](#ne7-height-pairing-bockstein), [NE.5/zeta-interpolation-contract](#ne5-zeta-interpolation-contract).
+
+**Sources.**
+
+- [BURNS-VENJAKOB-2006](#source-burns-venjakob-2006), Proposition 3.8, pp. 10–11; Remark 3.15 and Proposition 3.16, pp. 13–15; Theorem 6.7, pp. 33–36: Relates scalar order, Bockstein determinant, cyclotomic derivative and the additional height hypotheses.
+
+## Supplier contracts
+
+These contracts state the additional interfaces used above. An exact existing node is cited directly in its consuming target; a stage is used only where no finer supplied statement meets the need. Current upstream carriers that postdate the pins are distinguished from new requests.
+
+### Contract 1. PadicMeasuresIwasawaAlgebras:L1
+
+Beyond the Z_p completed group algebra and cyclic-coordinate carrier already provided by current ProfiniteProPGroups Layer 9: F_p and finite-free O coefficient comparison, continuous compact-module universal property, augmentation, and closed-subgroup induction/restriction maps, compatible with finite quotient projections. Do not reconstruct the current completed Z_p carrier.
+
+**Consumers:** [NE.0/iwasawa-free-over-open-subgroup](#ne0-iwasawa-free-over-open-subgroup), [NE.0/iwasawa-local-iff-pro-p](#ne0-iwasawa-local-iff-pro-p), [NE.0/compact-nakayama](#ne0-compact-nakayama), [NE.1/canonical-ore-set](#ne1-canonical-ore-set), [NE.1/central-zp-subgroup](#ne1-central-zp-subgroup), [NE.1/nilpotent-transition-kernel](#ne1-nilpotent-transition-kernel), [NE.3/twisted-module](#ne3-twisted-module), [NE.3/twist-homomorphism](#ne3-twist-homomorphism), [NE.3/artin-formalism-euler](#ne3-artin-formalism-euler), [NE.0/ordered-iwasawa-series](#ne0-ordered-iwasawa-series).
+
+### Contract 2. GeneralAlgebraicKTheory:K.4
+
+The category C^p(R) of bounded complexes of finitely generated projective modules over a (noncommutative) ring R with quasi-isomorphisms and degreewise split cofibrations, as K.4 states for the Gillet–Waldhausen comparison; NE.1 defines the subcategory Σ_S of it.
+
+**Consumers:** [NE.1/torsion-perfect-complexes](#ne1-torsion-perfect-complexes), [NE.2/localized-k1](#ne2-localized-k1), [NE.7/bockstein-homomorphism](#ne7-bockstein-homomorphism), [NE.7/canonical-trivialization](#ne7-canonical-trivialization), [NE.7/generalized-euler-characteristic](#ne7-generalized-euler-characteristic), [NE.7/fukaya-kato-zeta-isomorphism](#ne7-fukaya-kato-zeta-isomorphism), [NE.2/relative-perfect-class](#ne2-relative-perfect-class).
+
+### Contract 3. GeneralAlgebraicKTheory:K.5
+
+Noncommutative Ore localization via the category of S-acyclic bounded perfect complexes: exact sequence K₁(A)→K₁(A_S)→K₀(A,A_S)→K₀(A)→K₀(A_S), natural for denominator-preserving ring maps, with ∂[s]=[A/As]. A torsion-module description requires its separate resolution/finite-projective-dimension hypotheses; it is not automatic for all modules when p-torsion is allowed.
+
+**Consumers:** [NE.2/localization-sequence](#ne2-localization-sequence), [NE.2/relative-perfect-class](#ne2-relative-perfect-class), [NE.5/zeta-functoriality](#ne5-zeta-functoriality).
+
+### Contract 4. GeneralAlgebraicKTheory:K.3
+
+Invariance K₀(A)≅K₀(A/I) for a complete separated ring and an ideal I⊆Jac(A), by lifting idempotents and their conjugacies. The separate resolution-theorem input is cited by its exact K.3 node.
+
+**Consumers:** [NE.2/k0-complete-quotient](#ne2-k0-complete-quotient).
+
+### Contract 5. PadicMeasuresIwasawaAlgebras:L4
+
+Characteristic power series/ideals of finitely generated torsion Λ(Γ)-modules with the structure theorem up to pseudo-isomorphism. Also the norm of characteristic series under Λ_𝒪(Γ) → Λ(Γ) (Bourbaki VII §4.8, Prop. 18).
+
+**Consumers:** [NE.2/commutative-cyclic-comparison](#ne2-commutative-cyclic-comparison), [NE.3/akashi-series](#ne3-akashi-series).
+
+### Contract 6. GeneralAlgebraicKTheory:K.7
+
+Morita invariance K_i(M_n(A)) ≅ K_i(A) (i = 0, 1), compatible with the connecting maps of the localisation sequence, and K₁(F) = F^× via the determinant for a field F.
+
+**Consumers:** [NE.3/artin-evaluation](#ne3-artin-evaluation), [NE.3/evaluation-akashi-diagram](#ne3-evaluation-akashi-diagram), [NE.3/artin-evaluation-functoriality](#ne3-artin-evaluation-functoriality), [NE.6/rw2026-conditional-sk1-reduction](#ne6-rw2026-conditional-sk1-reduction).
+
+### Contract 7. SelmerIwasawaCohomology:L3
+
+For Γ≅Z_p and a finitely generated torsion O[[Γ]]-module N with characteristic series f, finiteness of Γ-Euler characteristic is equivalent to f(0)≠0 and χ(Γ,N)=|f(0)|_p^(−[L:Q_p]); also the Hochschild–Serre Euler-product formula over 1→H→G→Γ→1, under finite homology and Euler-characteristic hypotheses. RS-16 moves these general Iwasawa cohomology inputs from IntegralIwasawaTheory I.4 to this owner.
+
+**Consumers:** [NE.3/euler-characteristic-evaluation](#ne3-euler-characteristic-evaluation), [NE.3/artin-evaluation-integral](#ne3-artin-evaluation-integral), [NE.4/equivariant-perfect-base-change](#ne4-equivariant-perfect-base-change), [NE.6/unconditional-abelian-minus-main-theorem](#ne6-unconditional-abelian-minus-main-theorem).
+
+### Contract 8. ArithmeticGaloisDuality:R02.4
+
+Selmer groups of an elliptic curve over algebraic extensions L/ℚ, 𝒮(E/L) = ker(H¹(L, E_{p^∞}) → Π_w H¹(L_w, E)), their Pontryagin duals X(E/L) with the Λ(Gal(L/F))-action, and the restriction maps between layers (CFKSV §5); later, the Poitou–Tate duality behind equivariant Selmer complexes (NE.4). Also: the cohomological dimension and weak Leopoldt inputs for H²(Gal(F_Σ/F_∞), ℚ_p/ℤ_p) = 0 in the complex C(F_∞/F) (cohomological-dimension-bound is cited).
+
+**Consumers:** [NE.4/gl2-dual-selmer-module](#ne4-gl2-dual-selmer-module), [NE.4/totally-real-iwasawa-complex](#ne4-totally-real-iwasawa-complex), [NE.7/fukaya-kato-zeta-isomorphism](#ne7-fukaya-kato-zeta-isomorphism), [NE.4/equivariant-perfect-base-change](#ne4-equivariant-perfect-base-change), [NE.4/real-two-primary-correction](#ne4-real-two-primary-correction).
+
+### Contract 9. AutomorphicPadicLFunctions:L3
+
+The Deligne–Ribet (Cassou-Noguès, Barsky) p-adic L-functions G_ψ ∈ 𝒪_ψ⟦T⟧ of a totally real field and the pseudomeasure ζ ∈ Q(Λ(H × Γ)) for H finite abelian, with the interpolation G_ψ(u^n − 1) = L_Σ(ψ, 1 − n) and G₁(u^n − 1)/(u^n − 1) = L_Σ(1, 1 − n) (Kakde §3).
+
+**Consumers:** [NE.6/abelian-case](#ne6-abelian-case), [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion), [NE.6/zeta-tuple-m1-m2](#ne6-zeta-tuple-m1-m2), [NE.6/partial-zeta-values](#ne6-partial-zeta-values), [NE.6/deligne-ribet-approximation](#ne6-deligne-ribet-approximation), [NE.6/hilbert-eisenstein-toolkit](#ne6-hilbert-eisenstein-toolkit), [NE.7/padic-stark-conjecture](#ne7-padic-stark-conjecture), [NE.7/padic-stark-permutation-case](#ne7-padic-stark-permutation-case), [NE.6/rw-mobius-congruences](#ne6-rw-mobius-congruences).
+
+### Contract 10. IntegralIwasawaTheory:I.5
+
+Wiles's main conjecture for totally real fields at odd p (Annals 1990, Theorems 1.3–1.4): h_ψ(T) and G*_ψ(T) generate the same ideal, and μ_ψ = 0 when p ∤ #Gal(F_ψ/F).
+
+**Consumers:** [NE.6/abelian-case](#ne6-abelian-case), [NE.6/rw-logarithmic-integrality](#ne6-rw-logarithmic-integrality).
+
+### Contract 11. tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction
+
+Brauer's induction theorem, for the p-adic L-functions of nonabelian Artin characters and for interpolation in the reductions (Kakde §§3–4).
+
+**Consumers:** [NE.6/abelian-case](#ne6-abelian-case), [NE.6/reduction-to-qp-elementary](#ne6-reduction-to-qp-elementary), [NE.6/reduction-to-p-elementary](#ne6-reduction-to-p-elementary), [NE.3/artin-evaluation-functoriality](#ne3-artin-evaluation-functoriality), [NE.6/rw-mobius-congruences](#ne6-rw-mobius-congruences).
+
+### Contract 12. tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup
+
+Clifford's dichotomy for a normal subgroup A (Serre, Linear representations of finite groups, Proposition 24: an irreducible ρ either restricts to an isotypic representation of A or is induced from a proper subgroup containing A), and its consequence that irreducible representations of supersolvable, in particular finite p-, groups are monomial (Serre, Theorem 16). Kakde's Lemma 92 and Proposition 93 use both.
+
+**Consumers:** [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion).
+
+### Contract 13. AnalyticNumberTheory:AN.4
+
+Inductivity of Σ-truncated Artin L-functions, L_{Σ_K}(Ind_K^F ρ, s) = L_{Σ_F}(ρ, s) for Σ_K the primes of K above Σ, at the negative integers s = 1 − r, for the interpolation in Kakde §6.1 (Propositions 93 and 95).
+
+**Consumers:** [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion), [NE.6/zeta-tuple-m1-m2](#ne6-zeta-tuple-m1-m2), [NE.6/partial-zeta-values](#ne6-partial-zeta-values), [NE.5/zeta-functoriality](#ne5-zeta-functoriality).
+
+### Contract 14. AutomorphicPadicLFunctions:L3
+
+The Deligne–Ribet toolkit behind Kakde §6: rationality and continuation of partial zeta values ζ(δ(x), 1 − k) (Klingen, Siegel); the Hilbert Eisenstein series G_{k,ε} with its standard q-expansion and constant terms at the cusps (Deligne–Ribet Proposition 6.1 and 2.22); the q-expansion principle (Deligne–Ribet 0.3, 5.13–5.15); and the congruences of Deligne–Ribet Theorem 0.4.
+
+**Consumers:** [NE.6/partial-zeta-values](#ne6-partial-zeta-values), [NE.6/deligne-ribet-approximation](#ne6-deligne-ribet-approximation), [NE.6/hilbert-eisenstein-toolkit](#ne6-hilbert-eisenstein-toolkit), [NE.6/abelian-case](#ne6-abelian-case), [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion), [NE.6/zeta-tuple-m1-m2](#ne6-zeta-tuple-m1-m2), [NE.7/padic-stark-conjecture](#ne7-padic-stark-conjecture), [NE.7/padic-stark-permutation-case](#ne7-padic-stark-permutation-case), [NE.6/rw-mobius-congruences](#ne6-rw-mobius-congruences).
+
+The L3 description assigns Hilbert Eisenstein series, the integral q-expansion principle and the constant-term argument to L3; its packet has not read L3 yet.
+
+### Contract 15. GeneralAlgebraicKTheory:K.4
+
+Deligne's Picard category of virtual objects of P(R) for a noncommutative ring R and the determinant functor d_R on (C^p(R), quasi-isomorphisms) with Burns–Venjakob's properties d)–i): additivity on short exact sequences, acyclicity trivialisations, shifts, extension to D^p(R), Knudsen's description of d_R(C) ≅ ∏ d_R(H^i(C))^{(−1)^i}, and base change; Aut(1_R) = K_1(R).
+
+**Consumers:** [NE.2/localized-k1](#ne2-localized-k1), [NE.2/relative-perfect-class](#ne2-relative-perfect-class), [NE.7/leading-term](#ne7-leading-term), [NE.7/fukaya-kato-zeta-isomorphism](#ne7-fukaya-kato-zeta-isomorphism), [NE.1/torsion-perfect-complexes](#ne1-torsion-perfect-complexes), [NE.7/bockstein-homomorphism](#ne7-bockstein-homomorphism), [NE.7/canonical-trivialization](#ne7-canonical-trivialization), [NE.7/generalized-euler-characteristic](#ne7-generalized-euler-characteristic).
+
+### Contract 16. AutomorphicPadicLFunctions:L3
+
+Greenberg's S-truncated p-adic Artin L-functions L_{p,S}(s, ρ) for totally real fields (Brauer induction from the Deligne–Ribet and Cassou-Noguès p-adic L-functions), with the interpolation L_{p,S}(n, ρ) = L_S(n, ρω^{n−1}) for n < 0; and Colmez's p-adic class number formula for the residue at s = 1 of the p-adic zeta function of a totally real field. Used for BV Conjecture 5.2 and Remark 5.4.
+
+**Consumers:** [NE.7/padic-stark-conjecture](#ne7-padic-stark-conjecture), [NE.7/padic-stark-permutation-case](#ne7-padic-stark-permutation-case), [NE.6/abelian-case](#ne6-abelian-case), [NE.6/main-conjecture-congruence-criterion](#ne6-main-conjecture-congruence-criterion), [NE.6/zeta-tuple-m1-m2](#ne6-zeta-tuple-m1-m2), [NE.6/partial-zeta-values](#ne6-partial-zeta-values), [NE.6/deligne-ribet-approximation](#ne6-deligne-ribet-approximation), [NE.6/hilbert-eisenstein-toolkit](#ne6-hilbert-eisenstein-toolkit), [NE.6/rw-mobius-congruences](#ne6-rw-mobius-congruences).
+
+### Contract 17. SelmerIwasawaCohomology:L2
+
+Nekovář's Selmer complexes as mapping fibres RΓ(U, W) → ⊕_v RΓ(ℚ_v, W)/U_v^+ with explicit local conditions (Greenberg-type at p), their base change along Λ → O^n and Nekovář's p-adic height pairing (Selmer Complexes §11) with its Bockstein description; used for BV §6.
+
+**Consumers:** [NE.7/dabrowski-panchishkin-selmer-complexes](#ne7-dabrowski-panchishkin-selmer-complexes), [NE.7/height-pairing-bockstein](#ne7-height-pairing-bockstein), [NE.4/equivariant-compact-support](#ne4-equivariant-compact-support).
+
+### Contract 18. tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-9-prerequisites-two-owned-inputs
+
+Current upstream completed Z_p group algebra, its finite quotient projections and cyclic power-series equivalence. These are supplied on current main but postdate f790474, so using them at the pin needs the recorded foundational port, without a new plan of the same objects.
+
+**Consumers:** [NE.0/ordered-iwasawa-series](#ne0-ordered-iwasawa-series), [NE.3/semisimple-total-quotient](#ne3-semisimple-total-quotient).
+
+**Availability:** supplied by the current upstream library or roadmap; the pinned-environment distinction still applies.
+
+### Contract 19. tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier
+
+Generic normalized central twisted group algebras, their basis multiplication and change-of-section equivalence; NE.6 instantiates the central carry cocycle only.
+
+**Consumers:** [NE.6/twisted-group-ring-presentation](#ne6-twisted-group-ring-presentation), [NE.3/semisimple-total-quotient](#ne3-semisimple-total-quotient).
+
+**Availability:** supplied by the current upstream library or roadmap; the pinned-environment distinction still applies.
+
+### Contract 20. SelmerIwasawaCohomology:L0
+
+Continuous compact group homology via completed bar resolutions, the comparison with completed Tor for finitely generated pseudocompact Iwasawa modules, and continuous mod-p cohomology identified with Ext. Keep compact and discrete coefficient conventions separate.
+
+**Consumers:** [NE.0/iwasawa-group-homology](#ne0-iwasawa-group-homology), [NE.0/lazard-exterior-cohomology](#ne0-lazard-exterior-cohomology).
+
+### Contract 21. KTheoryLowDegrees:U.3
+
+Reduced Whitehead kernels and functorial reduced determinants for semisimple algebras and p-adic finite group orders; state integral-kernel images separately from SK₁ of a total quotient. Oliver/Wall finite-group inputs and the specific division algebras of RW Theorem 1A require an extension of the existing number-ring scope.
+
+**Consumers:** [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison), [NE.6/rw-logarithmic-integrality](#ne6-rw-logarithmic-integrality), [NE.6/rw2026-conditional-sk1-reduction](#ne6-rw2026-conditional-sk1-reduction).
+
+### Contract 22. KTheoryLowDegrees:U.5
+
+Oliver–Taylor integral logarithms for p-adic group orders, their kernel and norm compatibility, additive conjugacy-class targets and passage to completed one-dimensional Iwasawa rings; this extends the existing K-theory/logarithm scope and has the precise source-access gap recorded below.
+
+**Consumers:** [NE.6/rw-logarithmic-pseudomeasure](#ne6-rw-logarithmic-pseudomeasure).
+
+### Contract 23. PadicMeasuresIwasawaAlgebras:L5
+
+Pseudocompact inverse limits, derived completed coefficient base change and norm-compatible abelian pseudomeasures, including smoothed minus S,T complexes at the cyclotomic level. These supply coefficient/limit comparisons, not a general noncommutative main conjecture.
+
+**Consumers:** [NE.4/equivariant-compact-support](#ne4-equivariant-compact-support), [NE.5/abelian-normalization-comparison](#ne5-abelian-normalization-comparison), [NE.6/unconditional-abelian-minus-main-theorem](#ne6-unconditional-abelian-minus-main-theorem).
+
+### Contract 24. IntegralIwasawaTheory:I.9
+
+The normalized abelian zeta determinant contract with exact Euler factors, period trivializations and conventions, and the real-place two-primary correction in any admitted p=2 comparison. Equality of characteristic ideals alone is insufficient; ordinary compact support at real places is not a bounded perfect model at 2.
+
+**Consumers:** [NE.4/real-two-primary-correction](#ne4-real-two-primary-correction), [NE.5/abelian-normalization-comparison](#ne5-abelian-normalization-comparison).
+
+### Contract 25. PadicMeasuresIwasawaAlgebras:L3
+
+Normalized cyclotomic/abelian p-adic measures and pseudomeasures, with distribution relations and specializations matching the chosen cyclotomic coordinate, local factors and coefficient norm.
+
+**Consumers:** [NE.5/abelian-normalization-comparison](#ne5-abelian-normalization-comparison).
+
+### Contract 26. IntegralIwasawaTheory:I.6
+
+The RW abelian pseudomeasure/norm congruence inputs and finite p-extension transfer of μ=0; for the GP comparison provide the abelian CM S,T minus Selmer and 1-motive exact sequences with the stated covariant dual action, without presupposing μ=0. Generic RW group-presentation/logarithm work moved by RS-16 remains in NE.6.
+
+**Consumers:** [NE.6/rw-main-theorem](#ne6-rw-main-theorem), [NE.6/unconditional-abelian-minus-main-theorem](#ne6-unconditional-abelian-minus-main-theorem).
+
+### Contract 27. KTheoryLowDegrees:U.3
+
+For a possibly noncommutative semilocal ring A, the natural units map A^×→K₁(A) is surjective. Combine with the admitted localization’s semilocality; do not infer an isomorphism with units or apply this to arbitrary S*-localizations.
+
+**Consumers:** [NE.2/units-surject-k1](#ne2-units-surject-k1), [NE.3/reduced-norm-sk1-comparison](#ne3-reduced-norm-sk1-comparison), [NE.6/rw-logarithmic-integrality](#ne6-rw-logarithmic-integrality), [NE.6/rw2026-conditional-sk1-reduction](#ne6-rw2026-conditional-sk1-reduction).
+
+## Source and proof-leaf obligations
+
+All eight layers have their targets specified. The following obligations prevent a claim of gap-free closure. They identify the exact statements or source checks a refinement must discharge, rather than silently weakening a theorem.
+
+### Obligation 1. Uniform-group criterion and analytic supplier boundary
+
+NE.0 owns the group-side powerful/uniform criterion, ordered coordinates and Iwasawa homology. Schneider §26 supplies ordered valued bases, and §§27–29 supply analytic comparison, but a primary proof that every finitely generated powerful torsion-free pro-p group has the required uniform basis remains to be checked; DDMS is not cleared and was not accessed. NoncommutativeAnalyticDistributions owns L_G, log/exp, and the analytic-structure equivalence routed by PAPER-FU-24. That owner has no registered stage here, so no guessed node id is used.
+
+**Needed by:** [NE.0/uniform-pro-p-group](#ne0-uniform-pro-p-group), [NE.0/ordered-uniform-coordinates](#ne0-ordered-uniform-coordinates), [NE.0/compact-padic-analytic-group](#ne0-compact-padic-analytic-group), [NE.0/p-valuation](#ne0-p-valuation).
+
+### Obligation 2. Arithmetic inputs of CFKSV Proposition 3.11
+
+The Euler characteristic formula (77) (Coates–Howson, Theorem 1.1) and the Mordell–Weil and Tate–Shafarevich data of E = X₁(11) over ℚ(μ_5), F_1 and F_2 (CFKSV [12], [16]) are quoted, not proved; they belong to the Selmer and Euler-characteristic owners (SelmerIwasawaCohomology), which do not plan them.
+
+**Needed by:** [NE.3/gl2-euler-example](#ne3-gl2-euler-example).
+
+### Obligation 3. CFKSV §5's inputs from Coates–Howson, Venjakob, Schneps and the CM two-variable main conjecture are not planned
+
+Verified: the proofs of Lemmas 5.3–5.4, Corollary 5.5 and Proposition 5.6 (pp. 199–201) cite [8] and [9] (Coates–Howson; Proposition 2.13, Lemma 2.1, Lemma 2.5, Remark 2.6), [11] (finiteness of H¹(H_F, E_{p^∞})), Venjakob [26], Schneps [28], Rubin [27] and, for the example, [16] (X(E₁/ℚ(μ₅)^cyc) = 0). None is read or planned.
+
+**Needed by:** [NE.4/mh-criteria](#ne4-mh-criteria).
+
+### Obligation 4. The numerical data for X₁(11) at p = 5 are quoted from Dokchitser–Dokchitser
+
+CFKSV equations (108)–(115) attribute their numerical L-values and arithmetic data to Dokchitser–Dokchitser. Those computations have not been reproduced, so the node is a consistency check conditional on that table, not an independent numerical proof.
+
+**Needed by:** [NE.5/gl2-main-conjecture-example-x1-11](#ne5-gl2-main-conjecture-example-x1-11).
+
+### Obligation 5. Finite p-adic group-ring Whitehead and logarithm inputs
+
+The exact finite-group prerequisites used by Kakde are Oliver Theorems 2.5, 2.8–2.10, 6.6, 6.8, 7.4, 11.2, 12.3(4) and Proposition 12.7, with Wall norm and torsion comparisons. The book is not cleared and was not read; the statements are supported only by Kakde’s explicit citations. KTheoryLowDegrees U.3/U.5 must extend its existing scope to these p-adic group-order theorems. Kakde’s Iwasawa-specific proofs of Lemma 66 and Proposition 67 are planned here, not substituted for the finite-level inputs.
+
+**Needed by:** [NE.3/k1-prime](#ne3-k1-prime), [NE.6/reduction-to-qp-elementary](#ne6-reduction-to-qp-elementary), [NE.6/l-elementary-case](#ne6-l-elementary-case), [NE.6/reduction-to-p-elementary](#ne6-reduction-to-p-elementary), [NE.6/iwasawa-algebra-logarithm](#ne6-iwasawa-algebra-logarithm), [NE.6/integral-logarithm](#ne6-integral-logarithm), [NE.6/theta-beta-relation](#ne6-theta-beta-relation), [NE.6/phi-integral-log-sequence](#ne6-phi-integral-log-sequence).
+
+### Obligation 6. Fukaya–Kato's §1 results on Iwasawa algebras and the complex C(F_∞/F) are not freely available
+
+A cleared primary copy of Fukaya–Kato was not established. Required inputs are Propositions 1.5.1 and 1.5.3 (K₁ continuity and pro-p kernel), Proposition 1.3.7 (localized characteristic isomorphism), and the perfection/base-change theorem for the dual arithmetic complex with possible p-torsion. The zeta statement is taken as a conjectural contract from Burns–Venjakob Conjecture 4.1; it never supplies existence. Noncommutative finite generation plus no p-torsion gives the separate finite-global-dimension route in NE.4, but does not discharge the p-torsion case.
+
+**Needed by:** [NE.3/k1-prime](#ne3-k1-prime), [NE.4/totally-real-iwasawa-complex](#ne4-totally-real-iwasawa-complex), [NE.6/l-elementary-case](#ne6-l-elementary-case), [NE.2/localized-k1](#ne2-localized-k1), [NE.7/fukaya-kato-zeta-isomorphism](#ne7-fukaya-kato-zeta-isomorphism), [NE.7/leading-term-canonical-localization](#ne7-leading-term-canonical-localization).
+
+### Obligation 7. BV §6 rests on unread Fukaya–Kato and Nekovář results
+
+The local epsilon-isomorphism contract uses Fukaya–Kato Propositions 3.3.5, 1.6.5 and 4.2.17, Conjecture 3.4.3 and Theorem 4.2.26 as restated in Burns–Venjakob §6. The arithmetic height comparison uses Nekovář Theorem 11.3.9. These originals were not read; SelmerIwasawaCohomology L2 supplies the requested Selmer/height constructions. The statement retains all local, semisimplicity and height assumptions.
+
+**Needed by:** [NE.7/local-epsilon-isomorphism](#ne7-local-epsilon-isomorphism), [NE.7/height-pairing-bockstein](#ne7-height-pairing-bockstein), [NE.7/critical-motive-interpolation](#ne7-critical-motive-interpolation).
+
+### Obligation 8. Current upstream foundations postdate the pinned baseline
+
+Current Tau Ceti and ProfiniteArithmetic already own pLowerCentralSeries and IsProP.padicPow; current ProfiniteProPGroups Layer 9 owns the completed Z_p group algebra and cyclic coordinate. These were read in the current checkout, not asserted present at f790474. Formal work at that pin needs an upstream update or a port of the existing declarations, never a duplicate definition. The current library/roadmap source identities are recorded under upstreamSnapshot.
+
+**Needed by:** [NE.0/uniform-pro-p-group](#ne0-uniform-pro-p-group), [NE.0/uniform-graded-polynomial](#ne0-uniform-graded-polynomial), [NE.0/ordered-uniform-coordinates](#ne0-ordered-uniform-coordinates), [NE.0/p-valuation](#ne0-p-valuation), [NE.0/ordered-iwasawa-series](#ne0-ordered-iwasawa-series), [NE.3/semisimple-total-quotient](#ne3-semisimple-total-quotient).
+
+### Obligation 9. Filtered Auslander transfer and ramified coefficient proof leaves
+
+Venjakob Theorems 3.19–3.22 and 3.26–3.30 provide the precise filtered and Iwasawa statements. The general Björk filtered Auslander transfer cited there was not read independently, nor was the Brumer coefficient generalization. For ramified O, prove the finite-free coefficient comparison and run the DVR filtered argument; do not deduce regularity merely from module finiteness or quote a commutative flatness instance.
+
+**Needed by:** [NE.0/zariskian-noetherian](#ne0-zariskian-noetherian), [NE.0/iwasawa-auslander-regularity](#ne0-iwasawa-auslander-regularity), [NE.0/iwasawa-finite-global-dimension](#ne0-iwasawa-finite-global-dimension), [NE.0/rational-iwasawa-global-dimension](#ne0-rational-iwasawa-global-dimension).
+
+### Obligation 10. Real two-primary arithmetic complex
+
+No p=2 main theorem is supplied by the odd-prime sources. An admitted two-primary extension needs real-place complete Tate cochains, duality and a bounded perfect replacement with explicit correction terms. Ordinary real-place cohomology is unbounded 2-periodic and is not silently discarded. The comparison node is the exact input contract, not a constructed perfect complex at 2.
+
+**Needed by:** [NE.4/real-two-primary-correction](#ne4-real-two-primary-correction), [NE.5/abelian-normalization-comparison](#ne5-abelian-normalization-comparison).
+
+### Obligation 11. Ritter–Weiss earlier-paper congruences and SK₁ classification
+
+RW2010 Propositions 5–6 import Möbius–Wall and abelian pseudomeasure congruences from earlier papers, and its support reduction uses the listed trace and logarithm inputs. Those originals need a proof-leaf audit. RW2026 Theorem 1A imports Lau’s classification of the explicit division-algebra components; only the introduction and reduction theorem were read, not every classification proof or later case calculation. Its D_(r,s,F) SK₁-vanishing hypothesis remains a hypothesis, not a theorem.
+
+**Needed by:** [NE.6/rw-mobius-congruences](#ne6-rw-mobius-congruences), [NE.6/rw-logarithmic-integrality](#ne6-rw-logarithmic-integrality), [NE.6/rw-main-theorem](#ne6-rw-main-theorem), [NE.6/rw2026-conditional-sk1-reduction](#ne6-rw2026-conditional-sk1-reduction).
+
+### Obligation 12. Unconditional abelian minus comparison and local hypotheses
+
+Gambheera–Popescu Theorem 6.30 is stated with its published S,T hypotheses and its minus Selmer/1-motive module. Supplier exact sequences and the covariant Z_p-dual action must be formalized before identifying it with another complex. Their Proposition 7.10 comparison to the Tate module invokes μ=0, so that comparison cannot be used to remove μ=0 in a different statement.
+
+**Needed by:** [NE.6/unconditional-abelian-minus-main-theorem](#ne6-unconditional-abelian-minus-main-theorem), [NE.5/abelian-normalization-comparison](#ne5-abelian-normalization-comparison).
+
+### Obligation 13. Noncommutative Fitting-order and reduced-norm foundations
+
+IntegralHeckeAndGaloisDeterminants supplies the generic reduced norm; its current roadmap is already upstream. Nickel’s checked survey supplies Fitting-order, integrality-ring, denominator-ideal and annihilation proofs at target level. The survey’s original references for existence of maximal orders, reduced Cayley–Hamilton and maximal Fitting invariants require a primary proof-leaf check. No higher-dimensional noncentral Iwasawa order or arbitrary converse from Fitting equality is asserted.
+
+**Needed by:** [NE.7/fitting-order](#ne7-fitting-order), [NE.7/fitting-integrality-denominators](#ne7-fitting-integrality-denominators), [NE.7/maximal-noncommutative-fitting](#ne7-maximal-noncommutative-fitting), [NE.7/fitting-characteristic-class](#ne7-fitting-characteristic-class), [NE.7/fitting-annihilation](#ne7-fitting-annihilation).
+
+### Obligation 14. Arithmetic semisimplicity and exceptional-zero factorization
+
+The scalar Laurent-factor identity is elementary; its arithmetic application needs the stated local Euler-factor factorization and the source’s nondegenerate height/regulator and semisimplicity hypotheses. A global main-conjecture equality or interpolation at nonzero values does not prove those hypotheses. BV’s Tate/critical-motive comparisons are conditional as specified at their nodes.
+
+**Needed by:** [NE.7/exceptional-euler-leading-term](#ne7-exceptional-euler-leading-term), [NE.7/height-pairing-bockstein](#ne7-height-pairing-bockstein), [NE.7/critical-motive-interpolation](#ne7-critical-motive-interpolation).
+
+### Obligation 15. Semilocal K₁ and integrality-evidence proof leaves
+
+CFKSV cites the semilocal units-surject-K₁ theorem of Vaserstein and invokes supporting cases for Conjecture 4.8, including Kato Proposition 8.19. Their precise primary proofs were not checked here. The former is requested from KTheoryLowDegrees U.3; the latter remains evidence for a conjectural predicate, not a claimed general theorem.
+
+**Needed by:** [NE.2/units-surject-k1](#ne2-units-surject-k1), [NE.2/canonical-localization-semilocal](#ne2-canonical-localization-semilocal), [NE.3/characteristic-element-integrality-conjecture](#ne3-characteristic-element-integrality-conjecture).
+
+### Obligation 16. Noncommutative radical and finite-group augmentation leaves
+
+CFKSV Proposition 2.6 uses the two-sided prime radical’s nilpotence for a noetherian ring and compatibility with the central total quotient, citing [24] §§0.2.6 and 2.3.7. The commutative nilradical does not supply this. Lemma 2.5 also needs nilpotence of the augmentation ideal of F_p[Δ] for a finite p-group Δ. No matching statement was found in the pinned libraries by augmentation/nilpotence search. Both statements are precise proof leaves; complete their finite-dimensional/group-ring arguments or import a verified supplier before closing NE.1.
+
+**Needed by:** [NE.1/regular-modulo-prime-radical](#ne1-regular-modulo-prime-radical), [NE.1/nilpotent-transition-kernel](#ne1-nilpotent-transition-kernel).
+
+## Pinned library and current upstream
+
+The checked baseline is Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Every declaration below was checked by reading its source statement at those pins. A declaration is used only for the scope described here.
+
+- `mathlib:Subgroup.closure` — The subgroup generated by a set. Source module: `Mathlib/Algebra/Group/Subgroup/Lattice.lean`.
+- `mathlib:Subgroup.topologicalClosure` — The closure of a subgroup of a topological group. Source module: `Mathlib/Topology/Algebra/Group/Subgroup.lean`.
+- `mathlib:commutatorElement` — The commutator ⁅g, h⁆ = g h g⁻¹ h⁻¹. Source module: `Mathlib/Algebra/Group/Commutator.lean`.
+- `tauceti:TauCeti.IsProP` — Pro-p groups: every open normal quotient is a p-group. Source module: `TauCeti/Topology/Algebra/Group/Profinite/ProP/Basic.lean`.
+- `mathlib:OpenNormalSubgroup` — Open normal subgroups of a topological group. Source module: `Mathlib/Topology/Algebra/OpenSubgroup.lean`.
+- `mathlib:IsLocalRing` — Local rings. Source module: `Mathlib/RingTheory/LocalRing/Defs.lean`.
+- `mathlib:MvPolynomial` — Multivariate polynomial rings. Source module: `Mathlib/Algebra/MvPolynomial/Basic.lean`.
+- `mathlib:IsNoetherianRing` — Left noetherian rings (right via the opposite ring). Source module: `Mathlib/RingTheory/Noetherian/Defs.lean`.
+- `mathlib:MvPolynomial.isNoetherianRing` — Polynomial rings in finitely many variables over a noetherian ring are noetherian. Source module: `Mathlib/RingTheory/Polynomial/Basic.lean`.
+- `mathlib:Module.Finite` — Finitely generated modules. Source module: `Mathlib/RingTheory/Finiteness/Defs.lean`.
+- `mathlib:Submodule.span` — The submodule spanned by a set (the left ideal A f for {f}). Source module: `Mathlib/LinearAlgebra/Span/Defs.lean`.
+- `mathlib:FractionRing` — The field of fractions of a domain. Source module: `Mathlib/RingTheory/Localization/FractionRing.lean`.
+- `mathlib:LinearMap.injective_iff_surjective` — An endomorphism of a finite-dimensional vector space is injective iff surjective. Source module: `Mathlib/LinearAlgebra/FiniteDimensional/Basic.lean`.
+- `mathlib:OreLocalization.OreSet` — Left Ore sets. Source module: `Mathlib/GroupTheory/OreLocalization/OreSet.lean`.
+- `mathlib:OreLocalization.ore_right_cancel` — Right cancellation field of an Ore set. Source module: `Mathlib/GroupTheory/OreLocalization/OreSet.lean`.
+- `mathlib:IsPGroup` — p-groups. Source module: `Mathlib/GroupTheory/PGroup.lean`.
+- `mathlib:OreLocalization` — The Ore localisation R[S⁻¹] (and X[S⁻¹] for modules). Source module: `Mathlib/GroupTheory/OreLocalization/Basic.lean`.
+- `mathlib:OreLocalization.numeratorRingHom` — The ring map R → R[S⁻¹]. Source module: `Mathlib/RingTheory/OreLocalization/Ring.lean`.
+- `mathlib:OreLocalization.numeratorHom_inj` — R → R[S⁻¹] is injective when S consists of left nonzero divisors. Source module: `Mathlib/RingTheory/OreLocalization/Ring.lean`.
+- `mathlib:OreLocalization.universalHom` — The universal property of R[S⁻¹]. Source module: `Mathlib/RingTheory/OreLocalization/Ring.lean`.
+- `mathlib:OreLocalization.universalHom_unique` — Uniqueness in the universal property. Source module: `Mathlib/RingTheory/OreLocalization/Ring.lean`.
+- `mathlib:OreLocalization.numerator_isUnit` — Elements of S become units. Source module: `Mathlib/GroupTheory/OreLocalization/Basic.lean`.
+- `mathlib:HomologicalComplex` — Complexes. Source module: `Mathlib/Algebra/Homology/HomologicalComplex.lean`.
+- `mathlib:Ideal.Quotient.mk` — The quotient map R → R/I. Source module: `Mathlib/RingTheory/Ideal/Quotient/Defs.lean`.
+- `mathlib:Matrix` — Matrices M_n(R), the target of Φ_ρ. Source module: `Mathlib/LinearAlgebra/Matrix/Defs.lean`.
+- `mathlib:MonoidAlgebra` — The group ring R[P]; the twisted group ring R[P]^τ agrees with it for τ ≡ 1. Source module: `Mathlib/Algebra/MonoidAlgebra/Defs.lean`.
+- `mathlib:ConjClasses` — Conjugacy classes, indexing the cocentre R[Conj Ḡ]^τ. Source module: `Mathlib/Algebra/Group/Conj.lean`.
+- `mathlib:MonoidHom.transfer` — The transfer homomorphism, for ver^{P′}_P and ϕ. Source module: `Mathlib/GroupTheory/Transfer.lean`.
+- `mathlib:Algebra.norm` — The norm of a finite free algebra, for nr^{P′}_P at the abelian level. Source module: `Mathlib/RingTheory/Norm/Defs.lean`.
+- `mathlib:Algebra.trace` — The trace of a finite free algebra, for tr^{P′}_P. Source module: `Mathlib/RingTheory/Trace/Defs.lean`.
+- `mathlib:Abelianization` — The abelianisation U_P → U_P^ab. Source module: `Mathlib/GroupTheory/Abelianization/Defs.lean`.
+- `mathlib:IsPrimitiveRoot.geom_sum_eq_zero` — Σ_{k<n} ζ^k = 0 for a primitive n-th root ζ, n > 1; used for η_P. Source module: `Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean`.
+- `mathlib:ZMod.expand_card` — expand p f = f^p over ℤ/p (Lemma 72). Source module: `Mathlib/FieldTheory/Finite/Basic.lean`.
+- `mathlib:Complex.Gamma` — The Gamma function, for Γ^*(j) and its residues. Source module: `Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean`.
+- `mathlib:Padic` — The p-adic numbers ℚ_p. Source module: `Mathlib/NumberTheory/Padics/PadicNumbers.lean`.
+
+The current-upstream ownership screen is additional to this baseline. In particular, the current lower-p series, p-adic powers and completed group-algebra carrier are not claimed to exist at the pins. Their source identities and the resulting import obligation are recorded in the packet. The two full style references were ProfiniteArithmetic and InductionRestriction.
+
+The suggested Lean file contains the five light definitions and two ring/determinant milestones listed in the packet’s prototype inventory, together with concrete examples. All heavy completed-ring, K-theory and arithmetic carriers are specified here, rather than replaced by opaque stand-ins or data with missing bodies. The Gamma-factor examples compute actual rational values; the matrix example checks the actual determinant.
+
+## Source corrections used by the targets
+
+The following findings are stated in our own words. E1–E14 retain the source work and credit of Claude Code cc-39fac3. E15 is the carry-cocycle check by Codex codex-pjS4kZ. These are source findings awaiting independent review, not claims of published errata.
+
+### E1. KAKDE-2011, Definition 49, p. 34 (arXiv v3)
+
+The abbreviation for the completed trace ideal refers to an unrelated second subgroup. Use the completed trace from P to its normalizer N_G P, consistently with the two uncompleted abbreviations.
+
+**Reason:** T_P is the N_GP-trace image in all three settings, as the first two entries and the uses of pT̂_P in Definition 51 (M4) and Lemma 118 show; P′ is not bound in that sentence.
+
+**Effect:** nothing. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E2. KAKDE-2011, §5.3.1, p. 36; also Remark 59 (p. 38), the proof of Lemma 63 (p. 41), and pp. 47–51 (arXiv v3)
+
+Several domains of the additive maps use an undefined conjugacy-class label. Use the free module on Conj(G), as in Definition 55 and Theorem 58.
+
+**Reason:** Only Conj(G) is defined (Remark 42, Lemma 43); the same map is written with Conj(G) in Definition 55 and Theorem 58.
+
+**Effect:** nothing. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E3. KAKDE-2011, Proof of Proposition 74, p. 50 (arXiv v3)
+
+The Frobenius terms in the expanded logarithm do not carry the successive powers of v. The degree-k term of the second sum is ϕ(v^k)/(pk), because ϕ is applied to the logarithm series.
+
+**Reason:** L = log − (ϕ/p)log and log(1 − v) = −Σ_k v^k/k, so the second sum is (1/p)Σ_k ϕ(v^k)/k; the next line of the proof, Σ_k (v^{pk} − ϕ(v^k))/(pk), uses this corrected form.
+
+**Effect:** nothing. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E4. KAKDE-2011, Corollary 90, p. 65 (arXiv v3)
+
+Corollary 90 states injection of integral K′₁ into localized K′₁ for general compact analytic G. Reconstruct the proof by Theorems 52–53 in the pro-p dimension-one case, the three elementary reductions, and Corollary 20 for the inverse limit. The unramified coefficient extension needs the reductions over O, not only their printed Z_p case.
+
+**Reason:** For G that is not pro-p of dimension one, the statement needs the §4 reductions and a limit argument, which the text does not spell out; the plan records the reconstruction in node NE.6/k1-injects-localisation.
+
+**Effect:** the proof. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E5. KAKDE-2011, Proof of Proposition 104, display (21) and the next line, p. 74 (arXiv v3)
+
+The transfer pullback is attached to the wrong smoothed partial-zeta term in display (21). Evaluate the P-term on δ(y) and the P′-term on δ(y) composed with transfer, preserving the arguments 1−k and 1−pk respectively.
+
+**Reason:** (19) has Δ^{u^p}_P(δ(y), 1 − k) and (20) has Δ^u_{P′}(δ(y)∘ver^{P′}_P, 1 − pk); δ(y)∘ver^{P′}_P is a function on U_{P′}^ab, so it cannot be the argument of Δ_P. The orbit computation two lines later uses the corrected form.
+
+**Effect:** nothing. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E6. KAKDE-2011, Proof of Proposition 106, the W_GP-orbit sum, p. 75 (arXiv v3)
+
+An orbit-sum L-value is evaluated with the prime p in place of the varying weight. Use the argument 1−k, consistently with display (23) and the next application of Lemma 103.
+
+**Reason:** The terms come from (23), where the value is at 1 − k; the next line of the proof, after Lemma 103, has Δ^v_P(δ(y), 1 − k).
+
+**Effect:** nothing. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E7. KAKDE-2011, Proofs of Propositions 116 (p. 84) and 117 (p. 85) (arXiv v3)
+
+The proof uses a congruence modulo the full integer r_P and then only a size comparison with a stabilizer. Use the congruence modulo p^v_p(r_P); the stabilizer order divides this p-part. The exponent difference (r_P/p)(p−1) is divisible by the corresponding Euler totient. The full modulus is false, for p=3 and r_P=15, since 2^10=4 modulo 15.
+
+**Reason:** The congruence modulo r_P fails when r_P has a prime factor other than p: for [F : ℚ] = 5, p = 3 and d_P = 3, r_P = 15 and 2^{−15} ≡ 2^{−5} (mod 15) would need 2^{10} ≡ 1 (mod 15), but 2^{10} ≡ 4. An inequality r_P ≥ |(W_GP)_y| does not give a congruence modulo |(W_GP)_y| in any case. The p-part version suffices for the conclusion.
+
+**Effect:** the proof. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E8. KAKDE-2011, Proof of Proposition 117, the constant-term identity, p. 85 (arXiv v3)
+
+The constant-term comparison omits the weight from a norm exponent and omits the pullback in the second partial-zeta term. The norm exponent contains pd_(P′)k, and the P′-term is evaluated on δ(y) composed with ϕ, matching the second Eisenstein series.
+
+**Reason:** E has weight pd_{P′}k, and the second Eisenstein series in E is G_{pk,δ(y)∘ϕ}, as in the definition of E and in (28).
+
+**Effect:** nothing. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E9. KAKDE-2011, §6.13.3, second congruence of the logarithm computation, p. 89 (arXiv v3)
+
+The second congruence in the logarithm calculation loses Frobenius inside the character operator. Each term has ω_P^k applied to ϕ(ζ_(P′)); the following summation starts at k=0.
+
+**Reason:** The step replaces pζ_P − Σ_kω^k_P(ζ_P) using (34), whose right side involves ω^k_P(ϕ(ζ_{P′})); the third line combines the two fractions with numerator pϕ(ζ_{P′}) − Σ_kω^k_P(ϕ(ζ_{P′})).
+
+**Effect:** nothing. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E10. KAKDE-2011, §6.13, the construction of F̃_∞ (pp. 86–87, arXiv v3)
+
+The auxiliary enlarged extension is used under admissibility and μ=0 without justifying those hypotheses. Check total reality using the odd degree of the cyclotomic subfield, enlarge Σ by the auxiliary prime, and import the finite p-extension μ=0 transfer theorem before applying Proposition 93.
+
+**Reason:** §6.13.1 defines F̃ = KF and F̃_∞ = F̃F_∞ and states the Galois group, but gives no argument for admissibility (total reality of F̃) or for the μ = 0 hypothesis (Definition 8) for F̃_∞/F, both of which Proposition 93 needs.
+
+**Effect:** the proof. **Correction status:** new.
+
+- arXiv 1008.0142 abstract page: v3 (19 May 2011) is the latest version
+- Invent. Math. 193 (2013), 539–626: not accessed (publisher paywall), so the published text was not compared
+
+### E11. BURNS-VENJAKOB-2006, §2.2, p. 6, and Definition 3.14, p. 14 (arXiv v2)
+
+The category generated by a semisimple complex is taken closed under extensions, and then asserted to remain semisimple. Generate it using quasi-isomorphisms, shifts and direct sums. Semisimple complexes are not extension closed: the upper triangular matrix with diagonal T and upper entry 1 has cokernel Λ/T², whose Bockstein differential vanishes, although its two diagonal pieces are semisimple.
+
+**Reason:** Σ^{ss} is not closed under extensions (the source itself notes it fails (iv), Remark 3.5). For R = Λ(Γ) and A· = [R --T--> R] (semisimple, the example in the proof of Proposition 3.8), B· = [R² --M--> R²] with M = ((T, 1), (0, T)) is an extension 0 → A· → B· → A· → 0, so B· ∈ Σ_{A·}; but H^0(B·) ≅ R/T², κ_0 : (R/T²)^Γ → (R/T²)_Γ is zero, and the Bockstein complex of B· is ℤ_p in degrees 0 and 1 with zero differential, so B· ∉ Σ^{ss}.
+
+**Effect:** a stated result. **Correction status:** new.
+
+- arXiv math/0511672: v2 (20 January 2006) is the version read; the published version (Documenta Math. Extra Volume Coates (2006), 165–209) was not compared.
+
+### E12. BURNS-VENJAKOB-2006, arXiv v2 and the authors' final version, §5.3, Corollary 5.7 and proof, p. 27
+
+Corollary 5.7 applies permutation-character induction to every Q_p-valued character. Restrict this proof to Q-valued characters. For C₃ and p≡1 modulo 3, a nonrational character takes values in Q_p but no positive multiple is an integer combination of rational-valued permutation characters.
+
+**Reason:** Every permutation character Ind_H 1_H is ℚ-valued, so an integer combination of them is ℚ-valued; a character of ℤ/3 with values in ℚ(ζ₃) ⊂ ℚ_p (p ≡ 1 mod 3) is ℚ_p-rational but n·ρ is never ℚ-valued. Artin's theorem as cited (Tate, Chapitre II, Théorème 1.2) concerns ℚ-rational characters.
+
+**Effect:** a stated result. **Correction status:** new (the authors' final version has the same text).
+
+- 2026-09-29: arXiv math/0511672 (v1, v2 listed); the authors' final version on O. Venjakob's page (sha 3b59955e…) has the same wording; the Documenta Math. article page now redirects to EMS Press and could not be fetched.
+
+### E13. BURNS-VENJAKOB-2006, arXiv v2 and the authors' final version, §6.1, definition of Γ^*, p. 28
+
+The Gamma-star definition puts the negated integer on the left but evaluates the Gamma function or residue at the unnegated integer on the right. Index Γ*(j) at j: it is (j−1)! for j>0 and (−1)^j/((−j)!) for j≤0. This agrees with the subsequent Hodge-factor product.
+
+**Reason:** The right-hand sides are functions of j (and the residue formula is the residue of Γ at s = j ≤ 0), and the next line uses Γ^*(j) in Γ_L(V) = ∏Γ^*(j)^{−h(−j)}; with the printed left-hand side, Γ^*(−j) for j > 0 would be (j − 1)!, contradicting the residue at negative arguments.
+
+**Effect:** nothing. **Correction status:** new (the authors' final version has the same text).
+
+- 2026-09-29: as for E12.
+
+### E14. BURNS-VENJAKOB-2006, arXiv v2 and the authors' final version, §6.3, Proposition 6.6, p. 32
+
+Both parts of Proposition 6.6 have the same enumeration label. Number the second assertion (ii).
+
+**Reason:** Two consecutive items are numbered (i).
+
+**Effect:** nothing. **Correction status:** new (the authors' final version has the same text).
+
+- 2026-09-29: as for E12.
+
+### E15. KAKDE-2011, §5.1.2, p. 31 (arXiv v3), carry cocycle assertions
+
+The cocycle assertions include inverse-pair normalization and literal independence from the selected generator. For the displayed fixed section, τ(γ̄,γ̄⁻¹)=γ^(p^e) when p^e>1. Retain normalization at the identity, compute basis inverses with this carry factor, and express a changed section by the induced cohomologous presentation.
+
+**Reason:** Take G=Γ and Z=Γ^(p^e). The representatives of γ̄ and γ̄⁻¹ have exponents 1 and p^e−1; their sum crosses exactly one central period.
+
+**Effect:** a stated result. **Correction status:** not compared with the published edition.
+
+- arXiv 1008.0142v3, §5.1.2 and its carry formula checked 2026-10-19; no accessible published correction established.
+
+## References
+
+Locators in the targets use the editions below. Downloaded public sources have their SHA-256 and access date recorded in the packet. Schneider’s authorized reference copy was read in place; no copy, extraction or source passage is included. The inaccessible originals are identified in the obligations above.
+
+<a id="source-cfksv-2005"></a>
+
+**CFKSV-2005.** John Coates, Takako Fukaya, Kazuya Kato, Ramdorai Sujatha and Otmar Venjakob, [The GL₂ main conjecture for elliptic curves without complex multiplication](https://www.numdam.org/article/PMIHES_2005__101__163_0.pdf). Publ. Math. IHÉS 101 (2005), 163–208, DOI 10.1007/s10240-004-0029-3; Numdam open-access PDF (46 pages; printed page = PDF page + 162). The arXiv version math/0404297v1 (16 April 2004) was compared for §2.
+
+Public-source SHA-256: `c0955aa2b2f15cfc68f9e136cccae41d71935bb3b2b0566ecea6021fcd074b47`.
+
+<a id="source-ardakov-brown-2006"></a>
+
+**ARDAKOV-BROWN-2006.** Konstantin Ardakov and Kenneth A. Brown, [Ring-theoretic properties of Iwasawa algebras: a survey](https://arxiv.org/pdf/math/0511345v1). arXiv:math/0511345v1 (14 November 2005), 27 pages; published in Documenta Math. Extra Volume Coates (2006), 7–33.
+
+Public-source SHA-256: `a665d599485fdbf33a550393731f51fdf733bbd0d5be5c71e443e55ae8d81668`.
+
+<a id="source-lazard-1965"></a>
+
+**LAZARD-1965.** Michel Lazard, [Groupes analytiques p-adiques](https://www.numdam.org/item/10.1007/BF02684303.pdf). Publ. Math. IHÉS 26 (1965), 5–219, DOI 10.1007/BF02684303; Numdam open-access scan (printed page = PDF page + 3). OCR renders Λ as 'Al'.
+
+Public-source SHA-256: `b0b50cf55528fd4abb94f9e1de10b23f0711c0dd804682a9853b70b3b378f380`.
+
+<a id="source-burns-venjakob-2006"></a>
+
+**BURNS-VENJAKOB-2006.** David Burns and Otmar Venjakob, [On the leading terms of zeta isomorphisms and p-adic L-functions in non-commutative Iwasawa theory](https://arxiv.org/pdf/math/0511672v2). arXiv:math/0511672v2 (20 January 2006), 38 pages; published in Documenta Math. Extra Volume Coates (2006), 165–209.
+
+Public-source SHA-256: `4b33fb11251340c88a8f8a590d9f9296a413aadf4fae98968ea7191a14c857bc`.
+
+<a id="source-kakde-2011"></a>
+
+**KAKDE-2011.** Mahesh Kakde, [The main conjecture of Iwasawa theory for totally real fields](https://arxiv.org/pdf/1008.0142v3). arXiv:1008.0142v3 (19 May 2011), 92 pages; published in Invent. Math. 193 (2013), 539–626 (not accessed); printed page = PDF page
+
+Public-source SHA-256: `5a05da0d58f2717422fb401510d9cad4aeeac707313929a796870b92e27ea45c`.
+
+<a id="source-schneider-venjakob-2010"></a>
+
+**SCHNEIDER-VENJAKOB-2010.** Peter Schneider and Otmar Venjakob, [A splitting for K1 of completed group rings](https://arxiv.org/pdf/1006.1493v1). arXiv:1006.1493v1 (8 June 2010), 24 pages; printed page = PDF page
+
+Public-source SHA-256: `dda52df49265b1c8859b00eb6c181cf23e10a205874bb7d416a591e5daa06cc1`.
+
+<a id="source-schneider-2011"></a>
+
+**SCHNEIDER-2011.** Peter Schneider, [p-Adic Lie Groups](https://doi.org/10.1007/978-3-642-21147-8). Springer Grundlehren 344 (2011); cleared reference copy. No extracted text or passages retained in the repository.
+
+<a id="source-venjakob-2002"></a>
+
+**VENJAKOB-2002.** Otmar Venjakob, [On the structure theory of the Iwasawa algebra of a p-adic Lie group](https://arxiv.org/pdf/math/0106269). arXiv:math/0106269; published JEMS 4 (2002), 271–311. Locators below use the arXiv pagination.
+
+Public-source SHA-256: `e0941131157703e16013f02b65a046a3f6051ec92b7efe061006eff71b8d0f64`.
+
+<a id="source-fu-2024"></a>
+
+**FU-2024.** Weibo Fu, [Sharp bounds for multiplicities of Bianchi modular forms](https://arxiv.org/pdf/2201.11190). Annals of Mathematics 200 (2024), 123–152; arXiv:2201.11190, locators use downloaded arXiv pagination.
+
+Public-source SHA-256: `d71e9d3f8d3a1217743c3ba72c9a9630981f054ecefd943ff4edb4879b842614`.
+
+<a id="source-cdt-2025"></a>
+
+**CDT-2025.** Frank Calegari, Vesselin Dimitrov and Yunqing Tang, [The unbounded denominators conjecture](https://www.math.uchicago.edu/~fcale/papers/UDC.pdf). JAMS 38 (2025), 627–702; published author PDF.
+
+Public-source SHA-256: `867026fbcc5592728173e5c4d6a87f58d57a55b0d0d8b0109b9774e84290ee1e`.
+
+<a id="source-ritter-weiss-2010"></a>
+
+**RITTER-WEISS-2010.** Jürgen Ritter and Alfred Weiss, [On the main conjecture of equivariant Iwasawa theory](https://arxiv.org/pdf/1004.2578v2). arXiv:1004.2578v2; JAMS 24 (2011), 1015–1050. Locators use preprint pages.
+
+Public-source SHA-256: `48811a99c75f3b826f2315cc914563ffab1dd98381fd0af141816e05b99f2dee`.
+
+<a id="source-ritter-weiss-2026"></a>
+
+**RITTER-WEISS-2026.** Jürgen Ritter and Alfred Weiss, [On Uniqueness in Equivariant Iwasawa Theory](https://arxiv.org/pdf/2608.22601v1). arXiv:2608.22601v1 (2026); a conditional reduction, not an unconditional SK1-vanishing theorem.
+
+Public-source SHA-256: `546d7dd0efb4d7563cc7048d31338c656cd74a92e5c3a4d0f4c7a3f7dca80ec9`.
+
+<a id="source-gambheera-popescu-2025"></a>
+
+**GAMBHEERA-POPESCU-2025.** Rusiru Gambheera and Cristian D. Popescu, [An unconditional equivariant main conjecture in Iwasawa theory and applications](https://arxiv.org/pdf/2303.13603v1). Research in the Mathematical Sciences 12:95 (2025), DOI 10.1007/s40687-025-00578-8; arXiv:2303.13603v1 (2023). Published introduction numbers the main theorem 1.12, versus 1.11 in v1; Theorem 6.30 is stable.
+
+Public-source SHA-256: `ff36bc77629fc5e8eed142145839ca1c137d78a5e942ea037e0a537f7d5f9d2d`.
+
+<a id="source-nickel-fitting"></a>
+
+**NICKEL-FITTING.** Andreas Nickel, [Notes on noncommutative Fitting invariants](https://www.unibw.de/timor/mitarbeiter/mitarbeiter/univ-prof-dr-andreas-nickel/nickel/fitting-survey.pdf). Author survey PDF; section, definition and theorem numbering of the downloaded version.
+
+Public-source SHA-256: `50cd354a51d4904aef5c20b68d6b9cdbebd9d9152b6d7e6630b6440cc0ea32d8`.
+
+## Layer coverage and attribution
+
+The target-level pass is complete, with every NE.0–NE.7 layer planned and no layer claimed closed. The packet is the machine-readable inventory; every target statement, hypothesis, proof step, API item, unit test, acceptance check and source locator in it is reproduced above. The source and supplier obligations specify the remaining mathematical refinement. No implementation is claimed.
+
+Claude Code cc-39fac3 supplied the retained CFKSV, Kakde and Burns–Venjakob analysis and E1–E14. Codex codex-pjS4kZ supplied the Fu/CDT, recent-theorem and Fitting extensions, current-upstream ownership reconciliation, sign and cocycle corrections, the synchronized document and the compact pinned-library Lean sketch.
