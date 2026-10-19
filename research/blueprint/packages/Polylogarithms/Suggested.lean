@@ -175,6 +175,13 @@ example : blochWigner 0 = 0 := by
 noncomputable def lobachevsky (θ : ℝ) : ℝ :=
   -∫ t : ℝ in (0 : ℝ)..θ, Real.log |2 * Real.sin t|
 
+/-- The analytic angle formula, before its identification with a geometric volume. -/
+theorem blochWigner_lobachevsky (z : ℂ) (hz : 0 < z.im) :
+    blochWigner z = lobachevsky (Complex.arg z) +
+      lobachevsky (Complex.arg (1 / (1 - z))) +
+      lobachevsky (Complex.arg (1 - z⁻¹)) := by
+  sorry
+
 /-- The truncated unit-circle Fourier series. -/
 noncomputable def circlePartial (N : ℕ) (w : ℂ) : ℝ :=
   ∑ k ∈ Finset.range N, (w ^ (k + 1)).im / ((k + 1 : ℕ) : ℝ) ^ 2
@@ -211,6 +218,35 @@ noncomputable def tripleRatio {F : Type*} [Field F]
     (v : Fin 6 → Fin 3 → F) : F :=
   let d (i j k : Fin 6) := Matrix.det (Matrix.of ![v i, v j, v k])
   d 0 1 3 * d 1 2 4 * d 0 2 5 / (d 0 1 4 * d 1 2 5 * d 0 2 3)
+
+/-- G95's triangle parameter for the order (x₁,x₂,x₃,y₁,y₂,y₃).
+Its four determinants must be nonzero in the geometric API. -/
+noncomputable def triangleParameter {F : Type*} [Field F]
+    (v : Fin 6 → Fin 3 → F) : F :=
+  let d (i j k : Fin 6) := Matrix.det (Matrix.of ![v i, v j, v k])
+  d 5 0 4 * d 5 1 3 / (d 5 0 3 * d 5 1 4)
+
+example : triangleParameter (fun i : Fin 6 =>
+    match i.val with
+    | 0 => (![0,1,0] : Fin 3 → ℚ)
+    | 1 => ![1,0,0]
+    | 2 => ![0,0,1]
+    | 3 => ![1,1,0]
+    | 4 => ![1,0,1]
+    | _ => ![0,1,-2]) = 2 := by
+  norm_num [triangleParameter, Matrix.det_fin_three, Matrix.of_apply,
+    Matrix.cons_val_two, Matrix.vecHead, Matrix.vecTail]
+
+example : triangleParameter (fun i : Fin 6 =>
+    match i.val with
+    | 0 => (![0,1,0] : Fin 3 → ℚ)
+    | 1 => ![1,0,0]
+    | 2 => ![0,0,1]
+    | 3 => ![1,1,0]
+    | 4 => ![1,0,1]
+    | _ => ![0,1,-1]) = 1 := by
+  norm_num [triangleParameter, Matrix.det_fin_three, Matrix.of_apply,
+    Matrix.cons_val_two, Matrix.vecHead, Matrix.vecTail]
 
 example : projectedCrossRatio
     (![![1,1,1], ![1,2,4], ![1,3,9], ![1,5,25], ![1,7,49]] :
@@ -289,6 +325,24 @@ example {F : Type u} [Field F] : IsCycle4 (Finsupp.single (1 : F) (1 : ℚ)) := 
 
 /-! ## Layer 4: determinant conventions and lifting -/
 
+/-- The canonical weight-four correction vanishes on explicit cycles, giving 5/16
+times the classical period. The assertion concerns a whole cycle, not each symbol. -/
+theorem weightFour_cycle_period {F : Type u} [Field F] (σ : F →+* ℂ)
+    (c : F →₀ ℚ) (hc : IsCycle4 c) :
+    c.sum (fun x a => (a : ℝ) * blochWigner (σ x) *
+      (Real.log ‖σ x‖) ^ 2) = 0 ∧
+    c.sum (fun x a => (a : ℝ) *
+      ((5 * singleValued 4 (σ x) + (1 / 3 : ℝ) * blochWigner (σ x) *
+        (Real.log ‖σ x‖) ^ 2) / 16)) =
+      (5 / 16 : ℝ) * c.sum (fun x a => (a : ℝ) * singleValued 4 (σ x)) := by
+  sorry
+
+example : (5 * (16 : ℚ) + (1 / 3 : ℚ) * 0 * 1 ^ 2) / 16 = 5 := by
+  norm_num
+
+example : (5 * (16 : ℚ) + (1 / 3 : ℚ) * 48 * 1 ^ 2) / 16 = 6 := by
+  norm_num
+
 /-- For a presentation square, a cycle lifts precisely when its boundary can be
 cancelled by an element of the presentation kernel. This does not assume kernel surjectivity. -/
 theorem cycleLift_iff {C D E J : Type*}
@@ -316,6 +370,16 @@ example (σ : Fin 0 → ℚ →+* ℂ) (c : Fin 0 → ℚ →₀ ℚ) :
   norm_num [normalizedPeriod, NumberField.discr_rat]
 
 /-! ## Layer 5: curve regulator formulas -/
+
+/-- The point-cycle family t ↦ [t]+[-t], retaining integral multiplicities at collision. -/
+noncomputable def collidingPointCycle {F : Type*} [Field F] (t : F) : F →₀ ℕ :=
+  Finsupp.single t 1 + Finsupp.single (-t) 1
+
+example : collidingPointCycle (0 : ℚ) = Finsupp.single 0 2 := by
+  simp [collidingPointCycle, ← Finsupp.single_add]
+
+example : collidingPointCycle (1 : ℚ) 1 = 1 := by
+  norm_num [collidingPointCycle]
 
 /-- Evaluation of the real curve-regulator one-form on a tangent vector, from its jets. -/
 noncomputable def etaJet (f g df dg : ℂ) : ℝ :=
@@ -351,17 +415,20 @@ theorem singleValued_three_derivative_half (v : ℂ) :
 
 /-
 README targets whose carriers require further construction:
-Bloch–Wigner descent, embedding regulators and the Borel comparison; ideal tetrahedron volume;
+Bloch–Wigner descent, embedding regulators and the Borel comparison; the upper-half-space
+metric adapter, ideal regions, compact truncations, cusp estimates and ideal tetrahedron volume;
 rational unit-circle arithmetic certificates; explicit Bloch groups and geometric trilogarithm
 presentations; the Bigrassmannian, Gale duality and its signed configuration maps; primitive
 K-theory comparisons, transfers and regulator-image containment; inductive higher Bloch groups,
 specialization and their complexes; the three distinct Zagier assertions, presentation lifting
 and its obstruction; weight-four polynomial residues and the stated homotopy conjecture;
 compact test-form LF topology, currents, LF and normalization adapters for cycle integrals;
-admissible multiplicity-bearing incidence cycles, logarithmic Green forms;
+relative Chow families with arbitrary Noetherian characteristic-zero base change,
+tautological multiplicity-bearing incidence cycles and their faces, logarithmic Green forms;
 logarithmic r and Wang forms, normal-variety residues and current identities; Deligne and support
 complexes, cubical/simplicial/mixed regulators and the universal Beilinson comparison; Chow
-parameter forms and Arakelov cones; curve complexes, Chow dilogarithms and reciprocity homotopies;
+parameter forms via resolved smooth test families and Arakelov cones; curve complexes,
+Chow dilogarithms and reciprocity homotopies;
 weight-three curve Chern comparison, generalized elliptic trilogarithms and their Fourier pairing;
 the completed-unit Leopoldt adapter and the full p-adic embedding regulator matrix.
 -/
