@@ -1087,7 +1087,7 @@
       ],
       "proofSteps": [
         "On the vertex-semilocal simplex an admissible positive-codimension closed support is empty. Moving and the bisimplicial contraction turn this observation into the vanishing of the zero layer of E^(p), p>0.",
-        "Use purity and noetherian stratification by smooth pieces with trivial normal bundle to propagate this vanishing to layers of indices below p and to layers of E^(p/p+1) above p.",
+        "Use purity and noetherian stratification by smooth pieces with trivial normal bundle to propagate this vanishing to layers of indices below p and to layers of E^(p/p+1) above p. Existence of a local normal frame suffices to prove that an object is zero; independence of the frame is not needed for this vanishing argument.",
         "Apply these vanishing statements to the finite range of adjacent tower triangles between indices a and b. The resulting comparison maps give the two idempotence statements and the orthogonality formula.",
         "Interchange the two realisations using the requested homotopy-colimit Fubini equivalence; no convergence claim for an infinite tower enters this argument."
       ],
@@ -1173,12 +1173,13 @@
       "prerequisites": [
         "MotivicEtaleKTheory:M.6a/point-layer-model",
         "MotivicEtaleKTheory:M.4/admissible-cycles",
+        "StableHomotopyKTheory:H.5:spectra/postnikov-sections",
         "StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-spectrum",
         "StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-of-chain-complex",
         "StableHomotopyKTheory:H.5:spectra"
       ],
       "proofSteps": [
-        "Use the canonical degree-zero rank identification on each field coefficient spectrum, and identify its zero Postnikov spectrum with Hℤ.",
+        "Since the point-supported model is concentrated in degree zero, use its canonical Postnikov map B_X^p(n)→H(π₀B_X^p(n)). Identify the latter coefficient group with z^p(X,n) by rank. This describes r_{p,n} without a choice of inverse to a wedge decomposition; under that decomposition it is exactly the wedge of coefficient rank maps.",
         "Use the coproduct universal property to send the x-summand to the basis vector for its closure in z^p(X,n). The index sets are the same by admissibility.",
         "The wedge of these equivalences is an equivalence. Prove compatibility with simplex maps in the following theorem, using the actual supported pullback."
       ],
@@ -1686,7 +1687,8 @@
       "status": "planned",
       "remaining": [
         "Discharge the three explicit supplier contracts: general spectrum diagrams/realisation, the normal-crossing KH input for the semilocal criterion, and the general-field Serre–Tor intersection formula. These are requests to the existing owners, not missing M.6a target definitions.",
-        "Reconcile the tower, cycle-layer normalisation and global-model comparisons with M.6b’s exact-couple and convergence work at assembly. M.6a establishes no infinite-tower convergence, operations or degeneration."
+        "Reconcile the tower, cycle-layer normalisation and global-model comparisons with M.6b’s exact-couple and convergence work at assembly. M.6a establishes no infinite-tower convergence, operations or degeneration.",
+        "At assembly, redirect the legacy M.5d packet’s six M.6a IDs to these refined targets, preserving existing references. The M.6/chern-character-edge-comparison request addressed to the old global-model-comparison also asks for equality with Levine’s rational cubical cycle class; that map-level adapter remains with M.6/M.6b assembly and is not proved by this integral layer calculation."
       ]
     }
   ],
@@ -1704,12 +1706,20 @@
       "known": "new: no correction was identified in the versions and searches listed; this does not assert novelty of the observation.",
       "searched": [
         "arXiv:math/0510334v1, Theorem 6.4.1 and surrounding text",
-        "arXiv record and web search for Levine homotopy coniveau tower boundary K₀ correction, 2026-10-19"
+        "arXiv record and web search for Levine homotopy coniveau tower boundary K₀ correction, 2026-10-19",
+        "Independent review, 2026-10-19: https://arxiv.org/abs/math/0510334 lists only v1; no later arXiv correction is available there.",
+        "Independent review, 2026-10-19: https://www.esaga.uni-due.de/marc.levine/pub/ links the journal paper without an erratum or corrigendum entry for it.",
+        "Independent review, 2026-10-19: https://londmathsoc.onlinelibrary.wiley.com/doi/pdf/10.1112/jtopol/jtm004 returned HTTP 403; the published text could not be collated. Findings are restricted to the cited preprint."
       ],
       "nodes": [
         "MotivicEtaleKTheory:M.6a/semilocal-simplex",
         "MotivicEtaleKTheory:M.6a/k-well-connected"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Theorem 6.4.1, p. 36 of arXiv v1. For n=1 the Chinese remainder theorem gives boundary F×F and K₀=ℤ², so the asserted single rank group is false. The corrected injectivity argument through any vertex, together with K₁ surjectivity, proves the same relative K₀ vanishing.",
+        "by": "REV-MotivicEtaleKTheory--M.6a"
+      }
     },
     {
       "id": "MotivicEtaleKTheory/E-HCT-normal-frame",
@@ -1723,12 +1733,20 @@
       "known": "new: no correction was identified in the versions and searches listed; the stated purity conclusion is not declared false.",
       "searched": [
         "arXiv:math/0510334v1, Proposition 4.2.2 and Corollary 4.2.4",
-        "Web search for Levine homotopy coniveau tower errata 4.2.4 normal bundle, 2026-10-19"
+        "Web search for Levine homotopy coniveau tower errata 4.2.4 normal bundle, 2026-10-19",
+        "Independent review, 2026-10-19: https://arxiv.org/abs/math/0510334 lists only v1; no later arXiv correction is available there.",
+        "Independent review, 2026-10-19: https://www.esaga.uni-due.de/marc.levine/pub/ links the journal paper without an erratum or corrigendum entry for it.",
+        "Independent review, 2026-10-19: https://londmathsoc.onlinelibrary.wiley.com/doi/pdf/10.1112/jtopol/jtm004 returned HTTP 403; the published text could not be collated. Findings are restricted to the cited preprint."
       ],
       "nodes": [
         "MotivicEtaleKTheory:M.6a/purity-t-loop-shift",
         "MotivicEtaleKTheory:M.6a/point-layer-model"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof gap at Corollary 4.2.4, p. 26 of arXiv v1: the displayed rank-d pullback is identified with a line using one diagonal section. This cannot be a full frame for d>1. Trivialised local purity suffices for the vanishing argument; K-specific dévissage and rank give the coefficient comparison. No general canonical purity theorem or error in its conclusion is asserted here.",
+        "by": "REV-MotivicEtaleKTheory--M.6a"
+      }
     }
   ],
   "sourceVersions": [
@@ -1737,7 +1755,8 @@
       "url": "https://arxiv.org/pdf/math/0510334v1",
       "citation": "The homotopy coniveau tower; arXiv:math/0510334v1, 16 October 2005; all page numbers below are manuscript pages, not Journal of Topology pagination",
       "read": "2026-10-19",
-      "sha256": "5f268002b5ec36a74932a48ac051712c9c19c41a8b76e5bcb5dcdf0800538190"
+      "sha256": "5f268002b5ec36a74932a48ac051712c9c19c41a8b76e5bcb5dcdf0800538190",
+      "accessNote": "Independent review on 2026-10-19 re-read the preprint locators and verified its SHA-256. The publisher PDF at https://londmathsoc.onlinelibrary.wiley.com/doi/pdf/10.1112/jtopol/jtm004 returned HTTP 403; no collation with the version of record is claimed."
     },
     {
       "kind": "preprint",
@@ -1760,5 +1779,132 @@
       "read": "2026-10-19",
       "sha256": "a1b0ab836b72516b64ac15a9969d53018a59a7f98c340ba19912c0e9c7ffc266"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-MotivicEtaleKTheory--M.6a",
+    "date": "2026-10-19",
+    "notes": "Independent review by Codex, session codex-QtLh43, of all 21 nodes, 4 pinned baseline declarations, 45 exact supplier nodes and 3 supplier extensions, 59 API items, 26 Checks and 5 planets. Clarified the local-frame vanishing argument and canonical Postnikov rank map, corrected the compact Lean imports/examples, confirmed both preprint source issues and recorded publisher access limits. M.6a is a complete planning pass with planned coverage; the three supplier contracts and assembly adapters remain explicit, and no implementation or convergence result is claimed.",
+    "checked": [
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/facewise-supports",
+        "verdict": "verified",
+        "note": "Verified HCT §2.1 p.10 and Moving Definitions 2.3.1/2.6.1 pp.9–13. Face quotient heights, all nonempty faces and componentwise codimension give the intended predicate; the four geometric Checks discriminate it."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/support-tower",
+        "verdict": "verified",
+        "note": "Verified HCT §§2.1–2.2 pp.9–12. Support hocolimits and realisation define actual spectra independently of their layers; S.4 is reused in simplex degree zero. Stable finite exactness is explicitly requested."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/k-support-axioms",
+        "verdict": "verified",
+        "note": "Verified HCT A1–A3 pp.10–11 and Theorem 6.4.1 p.35, with Moving Proposition 3.3.4 pp.23–24. Averaging follows only after inverting the Galois degree; coprime extensions recover the integral finite-field result."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/moving-with-constraints",
+        "verdict": "verified",
+        "note": "Verified Moving Theorem 2.6.2 pp.13–14, translation §§3.2–3.3 pp.19–25, and projecting-cone proof §§5–6 pp.27–40. The asserted affine/local scope and realised, rather than degreewise, equivalence are correct."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/localisation-excision",
+        "verdict": "verified",
+        "note": "Verified HCT Theorem 3.2.1/Corollary 3.2.2 pp.14–18 and Global §6 pp.17–20. The extendable-support step precedes realisation, and S.4 descent supplies derived sections."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/functorial-tower",
+        "verdict": "verified",
+        "note": "Verified HCT Theorem 4.1.1 pp.20–22 and Moving §§7.3–7.5 pp.47–58. The entire tower is rectified together; the roof, transition compatibility and pullback Checks retain the required coherence."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/tower-homotopy-invariance",
+        "verdict": "verified",
+        "note": "Verified Moving Theorem 3.3.5/Lemma 3.3.6 pp.24–25 and HCT Proposition 2.1.3 pp.11–12. Section-adapted supports and multiplication give realised invariance; weight zero is the actual K-spectrum."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/semilocal-simplex",
+        "verdict": "verified",
+        "note": "Verified HCT §5.1 pp.26–27 and §6.3 pp.32–34. Simultaneous vertex localisation differs from a product of local rings; the punctured face cube is distinguished from the singular closed union."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/well-connected-theory",
+        "verdict": "verified",
+        "note": "Verified HCT Definition 3.3.1 pp.18–19 and Definition 6.1.1/Lemma 6.1.3 pp.30–31. Supported connectivity, every T-loop and the field zero-layer condition are all retained; the rank coefficient is not the full field K-spectrum."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/purity-t-loop-shift",
+        "verdict": "verified",
+        "note": "Verified HCT Theorem 3.3.4 pp.19–20 and Lemma 4.2.1/Proposition 4.2.2 pp.24–25. The normal frame is a hypothesis, indices shift by codimension and negative layers vanish. The flawed canonical-frame argument is not imported."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/semilocal-criterion",
+        "verdict": "verified",
+        "note": "Verified HCT Lemmas 6.3.1–6.3.2 and Proposition 6.3.4 pp.32–35. The condition is multirelative π₀ vanishing for n≥1 and every T-loop, not concentration of the multirelative spectrum."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/k-well-connected",
+        "verdict": "verified",
+        "note": "Verified HCT Theorem 6.4.1 pp.35–36 with the corrected boundary-rank argument. I is in the Jacobson radical, so GL lifts; vertex rank proves K₀ injectivity. The KH closed-descent input is an explicit S.5 contract."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/layer-idempotence",
+        "verdict": "corrected",
+        "note": "Verified HCT Lemma 5.2.1, Propositions 5.2.2–5.2.3 and Theorem 5.3.1 pp.27–29. Clarified that local frames suffice for vanishing; no canonical frame or infinite-tower convergence is used."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/point-layer-model",
+        "verdict": "verified",
+        "note": "Verified HCT Corollary 5.3.2 pp.29–30 and Theorem 6.4.2 pp.36–37 in the K-specific form. Reapplying the layer is essential; K-dévis­sage and rank remove normal-coordinate choices, while simplex maps remain those of the theory."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/pointwise-cycle-map",
+        "verdict": "corrected",
+        "note": "Verified HCT equation (6.4.1), p.36. Made the construction explicitly the canonical zero-Postnikov map followed by rank and added its direct Postnikov prerequisite; an arbitrary inverse to a degreewise wedge equivalence is unnecessary."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/face-rank-compatibility",
+        "verdict": "verified",
+        "note": "Verified HCT Theorem 6.4.2 pp.36–37. Derived coherent restriction gives alternating Tor lengths, preserving multiplicity in the s=x² test. SF.5’s algebraically closed-base theorem needs exactly the stated general-field extension."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/layer-cycle-equivalence",
+        "verdict": "verified",
+        "note": "Verified HCT Theorem 6.4.2 pp.36–37. Realisation of the simplicial rank equivalence gives π_m=CH^p(X,m), with no extra suspension. Weight-zero, weight-one field and P¹ examples check the convention."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/face-exact-coherent-model",
+        "verdict": "verified",
+        "note": "Verified Global §2.2/Remark 2.3 pp.8–9 and Appendix B.2–B.8 pp.81–83. Positive face Tor vanishing makes ordinary restriction exact. The vector-bundle, vertex skyscraper, degree-zero and empty-support Checks are valid."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/levine-global-comparison",
+        "verdict": "verified",
+        "note": "Verified Global Lemma 3.3/Remark 3.4 p.13, Appendix B.8–B.9 pp.83–84 and A.2/A.3 p.81. Quasi-projectivity ensures finite locally free resolutions, including open complements; the comparison is on supported spectra before realisation."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/friedlander-suslin-support-tower",
+        "verdict": "verified",
+        "note": "Verified FS (5.0.1)–(5.0.2) p.794, (6.0) p.798 and Appendix C.4–C.7 pp.866–867. Big bundles supply strict pullbacks; every finite Waldhausen diagram lies in one admissible finite union, giving the support hocolimit and full tower."
+      },
+      {
+        "nodeId": "MotivicEtaleKTheory:M.6a/friedlander-suslin-global-layer",
+        "verdict": "verified",
+        "note": "Verified FS Proposition 12.1/Corollary 12.2 pp.829–830, Proposition 13.10 pp.837–838 and the relative-cycle identification p.816. MC.4 supplies quasi-finite dominant cycles; the whole Ω-prespectrum fixes the shift."
+      }
+    ],
+    "scopeRouting": [
+      {
+        "item": "RT-AREA-ktheory-1/2",
+        "routing": "M.5d/M.7 supply Beilinson–Lichtenbaum and the reduction over number rings; the finite-coefficient comparison in M.6b must import that theorem. M.6a asserts only the integral cycle layer and needs no étale identification."
+      },
+      {
+        "item": "RT-AREA-ktheory-1/3",
+        "routing": "M.7 and ArithmeticKTheory:N.5 require real KO/BO, real Bott periodicity and Suslin’s real comparison. This packet asserts no dyadic real-place differential or arithmetic table."
+      },
+      {
+        "item": "RT-AREA-ktheory-2/18",
+        "routing": "The common Soulé finite-coefficient Chern classes and product formula belong once in the M.7-dependent portion of M.8, imported by HB.1/HB.2 and D.2. This packet constructs no Chern class."
+      }
+    ]
+  }
 }

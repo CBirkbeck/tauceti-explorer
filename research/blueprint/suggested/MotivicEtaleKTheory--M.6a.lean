@@ -1,7 +1,4 @@
-import Mathlib.RingTheory.Ideal.Height
-import Mathlib.RingTheory.Ideal.Quotient.Defs
-import Mathlib.RingTheory.Ideal.Maps
-import Mathlib.Algebra.Polynomial.Basic
+import Mathlib
 
 /-!
 This file is not the roadmap and is not exhaustive. The reader document
@@ -20,8 +17,8 @@ simplex coordinates (whose sum is one). The predicate is meaningful for any
 coordinate family, so its definition does not assume an equation it does not
 use. It checks prime heights in each face ring, not heights in R.
 
-Theorem proofs and examples are specification stubs. No data definition uses
-sorry; no spectrum or scheme theory is developed in this file.
+Named theorem proofs are specification stubs; the examples are proved tests.
+No data definition uses sorry; no spectrum or scheme theory is developed here.
 -/
 
 namespace TauCeti.HomotopyConiveau
@@ -62,31 +59,54 @@ theorem admissibleAffineSupport_radical (p : ℕ) (t : Fin (n + 1) → R)
     admissibleAffineSupport p t J.radical ↔ admissibleAffineSupport p t J := by
   sorry
 
-/-! A few Checks on real affine simplex rings; the reader carries all Checks. -/
-
--- support_empty: V(⊤) is empty in every face.
-example (p : ℕ) (t : Fin (n + 1) → R) :
-    admissibleAffineSupport p t (⊤ : Ideal R) := by
-  sorry
-
--- support_vertex_fails: the vertex has codimension zero inside its own face.
-example :
+/-- support_vertex_fails: the vertex has codimension zero inside its own face. -/
+theorem support_vertex_fails :
     ¬ admissibleAffineSupport 1
       (fun i : Fin 2 => if i = 0 then Polynomial.X else 1 - Polynomial.X)
       (Ideal.span ({Polynomial.X} : Set (Polynomial ℚ))) := by
   sorry
 
--- support_interior_point: its intersections with the two vertices are empty.
-example :
+/-- support_interior_point: its intersections with the two vertices are empty. -/
+theorem support_interior_point :
     admissibleAffineSupport 1
       (fun i : Fin 2 => if i = 0 then Polynomial.X else 1 - Polynomial.X)
       (Ideal.span ({Polynomial.X - Polynomial.C (1 / 2 : ℚ)} : Set (Polynomial ℚ))) := by
   sorry
 
--- The degree-zero field simplex has no nonempty positive-codimension support.
+/-! Proved tests of the two light definitions; the reader carries all Checks. -/
+
+-- Keeping every vertex imposes no equations.
+example (t : Fin (n + 1) → R) : faceIdeal t Finset.univ = ⊥ := by
+  simp [faceIdeal]
+
+-- The face retaining vertex 0 kills coordinate 1, rather than coordinate 0.
+example (t : Fin 2 → R) : faceIdeal t {0} = Ideal.span ({t 1} : Set R) := by
+  have h : {i : Fin 2 | i ∉ ({0} : Finset (Fin 2))} = {1} := by
+    ext i
+    fin_cases i <;> simp
+  unfold faceIdeal
+  rw [h]
+  simp
+
+-- support_empty: the unit ideal defines an empty support in every face ring.
+example (p : ℕ) (t : Fin (n + 1) → R) :
+    admissibleAffineSupport p t (⊤ : Ideal R) := by
+  intro τ _ P hP hle
+  rw [Ideal.map_top] at hle
+  exact (hP.ne_top (top_le_iff.mp hle)).elim
+
+-- Positive weight excludes the whole degree-zero field simplex.
 example :
     ¬ admissibleAffineSupport 1 (fun _ : Fin 1 => (1 : ℚ)) (⊥ : Ideal ℚ) := by
-  sorry
+  intro h
+  have hface : faceIdeal (fun _ : Fin 1 => (1 : ℚ)) Finset.univ = ⊥ := by
+    simp [faceIdeal]
+  have : (faceIdeal (fun _ : Fin 1 => (1 : ℚ)) Finset.univ).IsPrime := by
+    rw [hface]
+    infer_instance
+  have hfull := h Finset.univ (by simp)
+  have hbad := hfull ⊥ (by infer_instance) (by simp)
+  simp at hbad
 
 end
 
