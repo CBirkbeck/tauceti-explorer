@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-19T13:10Z",
+ "updated": "2026-10-19T13:20Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -153,8 +153,8 @@
    "review": {
     "recommendation": "changes",
     "current": false,
-    "draft": false,
-    "maintainer": "APPROVED"
+    "draft": null,
+    "maintainer": null
    }
   },
   "AdicSpacesPartIII": {
@@ -477,9 +477,9 @@
    ],
    "note": "ported 2026-10-13 (Codex); Lean 619 lines, README 1,722 lines; Part II continuation, Part I not yet upstream; root README index line reverted 2026-10-13 (CONTRIBUTING: the sync bot regenerates it)",
    "review": {
-    "recommendation": "changes",
-    "current": false,
-    "draft": true,
+    "recommendation": "approve",
+    "current": true,
+    "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
   },
@@ -1483,11 +1483,11 @@
   "ResolutionOfSingularitiesCharacteristicZero": {
    "stage": "pr",
    "pr": 1199,
-   "head": "30a4a19",
+   "head": "6acd776",
    "note": "ported 2026-10-19 from the accepted explorer package (resolution supplier); red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -1532,7 +1532,13 @@
    "stage": "pr",
    "pr": 1209,
    "head": "8cf34ac",
-   "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running"
+   "note": "ported 2026-10-19 from the accepted explorer package (phase 2: Fargues–Scholze); red team running",
+   "review": {
+    "recommendation": null,
+    "current": false,
+    "draft": true,
+    "maintainer": "REVIEW_REQUIRED"
+   }
   }
  },
  "_decycling": "2026-10-14 23:05Z: dependency cycles among our open roadmap PRs RESOLVED (gate: 46 roadmaps, 245 edges, 0 problems); global order in decycle/ORDER.txt; foundation drafts #938 EtaleCohomologyFoundations, #940 PadicPeriodRings, #944 DerivedModuleAlgebra, main follow-up #943 SchemeAndStackFoundations; adic stack restacked 817<813<814<818<815<820<816; every PR description carries a merge-order paragraph"

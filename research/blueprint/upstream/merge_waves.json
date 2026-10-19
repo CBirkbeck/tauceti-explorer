@@ -113,6 +113,7 @@
   "ResolutionOfSingularitiesCharacteristicZero": 1,
   "LanglandsParameterStacks": 16,
   "VectorBundlesAndIsocrystals": 25,
-  "WeilConjectures": 25
+  "WeilConjectures": 25,
+  "RelativeFarguesFontaine": 26
  }
 }
