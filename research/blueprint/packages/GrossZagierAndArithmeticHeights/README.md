@@ -10,7 +10,7 @@ This roadmap owns the arithmetic height comparisons and the local-to-global kern
 
 Tau Ceti already provides the elliptic canonical height, its polarized pairing and the regulator: `WeierstrassCurve.Affine.Point.canonicalHeight`, the limit of the naive x-height of 2ⁿP divided by 4ⁿ (`Point.tendsto_naiveHeight_two_pow_nsmul_div_four_pow`); `WeierstrassCurve.Affine.neronTatePairing`, its half polar form (`neronTatePairing_self`); and `regulator`, with `regulator_eq_abs_det_neronTateGramMatrix` and the rank-zero value `regulator_eq_one_of_finrank_eq_zero`. These definitions are used as they stand. Layer 0 fixes their relation to the normalizations used by the sources; the rational tensor extension in Layer 0 and the dual-abelian, coefficient-field pairing in Layer 1 add different domains.
 
-TauCetiRoadmap.EllipticCurves, Layer 7, supplies the full real period and connected-component factor; its Layer 3 Hasse bound is in Tau Ceti as `WeierstrassCurve.hasse_bound` and `WeierstrassCurve.frobeniusTrace_sq_le_four_mul_card`. TauCetiRoadmap.ModularCurves supplies the curve, Jacobian, Picard duality and Cartier–Nishi pairing of isogenies; the arithmetic height of the Poincaré biextension is the additional construction here. MetaplecticAutomorphicForms, Layers 4–6, supplies the Weil representation, the theta kernels and the ordinary and regularized Siegel–Weil identities. The degree-(3,1) split quaternionic Shimizu identity required here has its own target and hypotheses; a general regularized identity does not automatically supply it. AutomorphicSpectralTheory, AS.2.23–AS.2.24, constructs the level-N resolvent kernel G_{N,s} on Γ₀(N), its meromorphic continuation to s=1 and its residue κ_N=−12/[SL₂(ℤ):Γ₀(N)]; Layer 7 uses them as they stand. IntegralLattices supplies quadratic lattices, and OrthogonalSpinGroups supplies the general Clifford and orthogonal-group structures. DifferentialGeometry's integration pairing is the de Rham Poincaré pairing; the height pairing here uses metrized line bundles on abelian varieties.
+TauCetiRoadmap.EllipticCurves, Layer 7, supplies the full real period and connected-component factor; its Layer 3 Hasse bound is in Tau Ceti as `WeierstrassCurve.hasse_bound` and `WeierstrassCurve.frobeniusTrace_sq_le_four_mul_card`. TauCetiRoadmap.ModularCurves supplies the curve, Jacobian, Picard duality and Cartier–Nishi pairing of isogenies; its Layer 7F ST-1 supplies the elliptic Serre–Tate deformation equivalence, while the explicit CM coordinates, lift filtrations and local lengths here are additional comparisons; the arithmetic height of the Poincaré biextension is the additional construction here. MetaplecticAutomorphicForms, Layers 4–6, supplies the Weil representation, the theta kernels and the ordinary and regularized Siegel–Weil identities. The degree-(3,1) split quaternionic Shimizu identity required here has its own target and hypotheses; a general regularized identity does not automatically supply it. AutomorphicSpectralTheory, AS.2.23–AS.2.24, constructs the level-N resolvent kernel G_{N,s} on Γ₀(N), its meromorphic continuation to s=1 and its residue κ_N=−12/[SL₂(ℤ):Γ₀(N)]; Layer 7 uses them as they stand. IntegralLattices supplies quadratic lattices, and OrthogonalSpinGroups supplies the general Clifford and orthogonal-group structures. DifferentialGeometry's integration pairing is the de Rham Poincaré pairing; the height pairing here uses metrized line bundles on abelian varieties.
 
 General projective heights, field-extension compatibility and the product formula belong to HeightsRationalPointsAndObstructions, RP.0, and to the upstream roadmap [ArithmeticHeights (TauCetiRoadmap #287)](https://github.com/rwst/TauCetiRoadmap/blob/b8aec35b6cd8e68031df1038a2cae63088be4a17/TauCetiRoadmap/ArithmeticHeights/README.md). Abelian schemes and arithmetic moduli, A2 and A6, supply abelian varieties, duals, polarizations and endomorphism algebras. Local/global Jacquet–Langlands and rational models belong to GL₂ automorphic representations and transfer, R17.3. The primitive integral differential line and its ratio-integrality theorem are constructed in Layer 9; a rational JL map is not asserted to preserve integral lattices. The p-adic measure algebra, Amice transform, twisting and pushforward belong to p-adic measures and Iwasawa algebras, L1–L2. Automorphic p-adic L-functions supplies the ordinary linear root measure; its square and its weight-two specialization belong here.
 
@@ -407,6 +407,8 @@ The interface should expose these named statements:
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 7, Sec. 7.1.1 and Thm. 7.2, printed p. 208; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §7.1.1, Theorems 7.1.1–7.1.2 and Proposition 7.1.3, pp. 217–219.)
 
+**Gap.** The YZZ theorem/page locators above have not been independently verified from an accessible copy. The mathematical construction uses the stated biextension and RP.0 height inputs; its source locator still needs confirmation.
+
 *Needs:* `HeightsRationalPointsAndObstructions:RP.0`, [0.1 The dictionary of height conventions](#target-height-convention-dictionary), `AbelianSchemesAndArithmeticModuli:A2/normalized-poincare-comparison`, `AbelianSchemesAndArithmeticModuli:A2/mumford-map-and-biextension`, `AbelianSchemesAndArithmeticModuli:A2/polarization-representatives-and-graph`.
 
 <a id="target-coefficient-valued-height"></a>
@@ -436,6 +438,8 @@ The interface should expose these named statements:
 *Consequences.* No individual coefficient embedding is substituted for the trace characterization.
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 7, Sec. 7.1.1 and Thm. 7.2, printed p. 208; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §1.2.4, printed p.15; §7.1.1 Proposition7.1.3, printed p.219.)
+
+A public source for this interface is [Cai–Shu–Tian, Explicit Gross–Zagier and Waldspurger formulae](https://arxiv.org/abs/1408.1733v2), §1.2, p. 6 (coefficient-field trace characterization).
 
 *Needs:* [1.1 Poincaré height pairing](#target-neron-tate-height-and-the-poincare-pairing), `AbelianSchemesAndArithmeticModuli:A6/trace-and-degree-on-a-subfield`, Mathlib `TensorProduct`.
 
@@ -712,7 +716,7 @@ The interface should expose these named statements:
 
 ### 2.9 Admissible arithmetic extension
 
-Fix a compatible arithmetic class ξ̂ of degree one on each geometric connected component of X. For D, its ξ̂-admissible extension D̄ is characterized by: D̄−deg(D)ξ̂ has zero curvature and is orthogonal to every finite vertical component; ∫g_D c₁(ξ̂)=0 at each infinite place; and the vertical correction V_D has (V_D·ξ̂)v=0. The singular fibre matrix is solved on the quotient by the total fibre; the last condition fixes that remaining fibre ambiguity. The construction is unique in the compatible model system and extends by rational linearity. Distinguish a weakly ξ̂-admissible extension: impose the flatness/component-orthogonality condition and the finite vertical normalization, but allow a nonzero archimedean Green mean. Subtracting that mean on each component produces the fully normalized extension. The resolvent finite part used later is weakly admissible: for the unnormalized Hodge line L_U its Green mean is ∫g(P,·)c₁(L_U)=−1. For ξ̂=L_U/κ_U° the mean is −1/κ_U° on the component of P. This constant must, retained in positive-degree pairings; componentwise degree-zero pairings eliminate it.
+Fix a compatible arithmetic class ξ̂ of degree one on each geometric connected component of X. For D, its ξ̂-admissible extension D̄ is characterized by: D̄−deg(D)ξ̂ has zero curvature and is orthogonal to every finite vertical component; ∫g_D c₁(ξ̂)=0 at each infinite place; and the vertical correction V_D has (V_D·ξ̂)v=0. The singular fibre matrix is solved on the quotient by the total fibre; the last condition fixes that remaining fibre ambiguity. The construction is unique in the compatible model system and extends by rational linearity. Distinguish a weakly ξ̂-admissible extension: impose the flatness/component-orthogonality condition and the finite vertical normalization, but allow a nonzero archimedean Green mean. Subtracting that mean on each component produces the fully normalized extension. The resolvent finite part used later is weakly admissible: for the unnormalized Hodge line L_U its Green mean is ∫g(P,·)c₁(L_U)=−1. For ξ̂=L_U/κ_U° the mean is −1/κ_U° on the component of P. This constant must be retained in positive-degree pairings; componentwise degree-zero pairings eliminate it.
 
 Assume Semistable regular model after base change; degree taken componentwise; ξ̂ fixed with compatible admissible Green data.
 
@@ -956,6 +960,8 @@ The interface should expose these named statements:
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.2.1, printed pp. 2-3; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §3.1.3, Lemma 3.1.1, pp. 70–71.)
 
+A public source for this interface is [Cai–Shu–Tian, Explicit Gross–Zagier and Waldspurger formulae](https://arxiv.org/abs/1408.1733v2), §1.2, p. 4 (componentwise Hodge class, including orbifold and cusp terms).
+
 *Needs:* `HilbertModularVarietiesAndShimuraCurves:R18.2/arithmetic-hodge-line`, `ModularCurvesPartII:R12.5`, `ModularCurvesPartII:R13.3`, `ModularCurvesPartII:R13.4a`.
 
 <a id="target-rational-xi-realization"></a>
@@ -986,6 +992,8 @@ The interface should expose these named statements:
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.2.1, printed pp. 2-3; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §3.2.3, pp. 86–87.)
 
+A public source for this interface is [Cai–Shu–Tian, Explicit Gross–Zagier and Waldspurger formulae](https://arxiv.org/abs/1408.1733v2), §1.2, p. 4 (rational ξ-normalized maps and Hom⁰(J_U,A) colimit).
+
 *Needs:* [3.2 Normalized Hodge class](#target-normalised-hodge-class-and-xi-parametrised-realisation), TauCetiRoadmap.JacobianChallenge Layer F, `AbelianSchemesAndArithmeticModuli:A6/hom-is-free-of-finite-rank`.
 
 <a id="target-strict-gl2-realization"></a>
@@ -1001,6 +1009,8 @@ Assume the relevant weight-two cohomological constituent occurs in the Jacobian;
 *Consequences.* The theorem contains no assertion that every abelian variety is modular.
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.2.1, printed pp. 2-3; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, Theorem 3.2.6 and Lemma 3.2.7, pp. 87–88.)
+
+A public source for this interface is [Cai–Shu–Tian, Explicit Gross–Zagier and Waldspurger formulae](https://arxiv.org/abs/1408.1733v2), §1.2, p. 4 (strict GL₂ type and rational realization).
 
 *Needs:* [3.3 Rational ξ-normalized realization](#target-rational-xi-realization), `GL2AutomorphicRepresentationsAndTransfer:R17.3/rational-models`, `AbelianSchemesAndArithmeticModuli:A6/endomorphisms-of-simple-abelian-varieties`, `GL2AutomorphicRepresentationsAndTransfer:R17.3`.
 
@@ -1060,6 +1070,8 @@ The interface should expose these named statements:
 *Consequences.* Both composition order and dualization are type-correct before taking the scalar coefficient.
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.2.2, printed pp. 3-4; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §3.2.4, Lemma 3.2.9 and Theorem 3.2.10, pp. 89–91.)
+
+A public source for this interface is [Cai–Shu–Tian, Explicit Gross–Zagier and Waldspurger formulae](https://arxiv.org/abs/1408.1733v2), §1.2, pp. 4–5 (composition through Jacobian duality and geometric volume).
 
 *Needs:* [3.3 Rational ξ-normalized realization](#target-rational-xi-realization), [3.4 Strict GL₂ realization and transfer](#target-strict-gl2-realization), `AbelianSchemesAndArithmeticModuli:A2`, `AbelianSchemesAndArithmeticModuli:A6/degree-formulas-for-polarized-isogenies`.
 
@@ -1450,13 +1462,19 @@ Assume Ratio notation used only when each stated denominator is nonzero; Explici
 
 ### 5.6 Petersson pairing as a product of local Whittaker pairings
 
-Let σ be a cuspidal automorphic representation of GL₂(𝔸_F) with contragredient σ̃, ψ the fixed additive character, W_φ(g)=∫_{N(F)\N(𝔸)}φ(ng)ψ(n)⁻¹dn the Whittaker function of φ∈σ, ⟨W₁,W₂⟩_v=∫_{F_v^×}W₁(diag(a,1))W₂(diag(a,1))d^×a the invariant pairing of the local Whittaker models of σ_v and σ̃_v, and ⟨φ₁,φ₂⟩_Pet=∫_{Z(𝔸)GL₂(F)\GL₂(𝔸)}φ₁(g)φ₂(g)dg with the measures of Layer 0. Prove that for pure tensors φ₁∈σ, φ₂∈σ̃ with W_{φ_i}=⊗_vW_{i,v}, ⟨φ₁,φ₂⟩_Pet=2L(1,σ,ad)L(2,1_F)⁻¹∏_vα_v(W_{1,v},W_{2,v}), where α_v(W₁,W₂)=⟨W₁,W₂⟩_v/(L(1,σ_v,ad)L(1,1_v)L(2,1_v)⁻¹). For the normalized new vectors almost every factor is 1 by [4.7 Explicit local toric constants at test vectors](#target-explicit-local-toric-constants)(a), so the product is finite.
+Let σ be a cuspidal automorphic representation of GL₂(𝔸_F) with contragredient σ̃, ψ the fixed additive character, W₁(g)=∫_{N(F)\N(𝔸)}φ₁(ng)ψ(n)⁻¹dn and W₂(g)=∫_{N(F)\N(𝔸)}φ₂(ng)ψ(n)dn for φ₁∈σ and φ₂∈σ̃, so W₁∈W(σ,ψ) and W₂∈W(σ̃,ψ⁻¹), ⟨W₁,W₂⟩_v=∫_{F_v^×}W₁(diag(a,1))W₂(diag(a,1))d^×a the invariant pairing of the local Whittaker models of σ_v and σ̃_v, and ⟨φ₁,φ₂⟩_Pet=∫_{Z(𝔸)GL₂(F)\GL₂(𝔸)}φ₁(g)φ₂(g)dg with the measures of Layer 0. Prove that for pure tensors φ₁∈σ, φ₂∈σ̃ with W_i=⊗_vW_{i,v}, ⟨φ₁,φ₂⟩_Pet=2L(1,σ,ad)L(2,1_F)⁻¹∏_vα_v(W_{1,v},W_{2,v}), where α_v(W₁,W₂)=⟨W₁,W₂⟩_v/(L(1,σ_v,ad)L(1,1_v)L(2,1_v)⁻¹). For the normalized new vectors almost every factor is 1 by [4.7 Explicit local toric constants at test vectors](#target-explicit-local-toric-constants)(a), so the product is finite.
 
 Assume σ cuspidal; ψ and the local Haar measures as in Layer 0, with dg=|b|dx d^×a d^×b dk in the Iwasawa coordinates and the maximal compact subgroup of volume L(2,1_v)⁻¹|δ_v|² at finite v; L(1,σ,ad) and L(2,1_F)=ζ_F(2) in the same completion convention as [5.3 Waldspurger period formula](#target-waldspurger-period-formula-and-its-siegel-weil-proof).
 
 *Outline.* Unfold the Petersson pairing against the Eisenstein series E(s,g,Φ) built from a Schwartz function on 𝔸², use the local identity ∫_{F_v^××U_v}Φ([0,b]k)|b|²d^×b dk=Φ̂_v(0) for the compact volumes, and take the residue at s=1, where the Rankin–Selberg integral of σ×σ̃ has the pole whose residue is the adjoint value. Normalize each local Rankin–Selberg zeta integral by its L-factor.
 
 *Consequences.* It is the comparison of L(1,σ,ad) with the Petersson norm (φ,φ)_{U₀(N)} of the newform used by [8.14 The explicit Gross–Zagier formula of Cai–Shu–Tian](#target-explicit-gross-zagier-formula). Scaling one local Whittaker pairing by c scales α_v and the product by c, consistently with the bilinear form; the global constant 2 is the quotient volume of Layer 0 and changes if that volume is changed.
+
+**Checks.**
+
+- In the unitary case φ₂=overline(φ₁), the opposite-character definition gives W₂=overline(W₁), so the local integral is ∫|W₁|²d^×a.
+- At a real place, the holomorphic weight-two vector and its antiholomorphic contragredient have opposite support if both use ψ; their product then vanishes. Giving the second vector ψ⁻¹ recovers the nonzero Petersson norm.
+- A zero tensor gives zero on both sides without division by its pairing.
 
 ([Explicit Gross–Zagier and Waldspurger formulae](https://arxiv.org/abs/1408.1733v2), §2.1, Proposition 2.1 and (2.2), p. 14.)
 
@@ -2059,7 +2077,7 @@ Assume the classical Rankin data (C) and the classical Heegner local data (H).
 
 ### 6.29 Classical Rankin unfolding
 
-In the classical Rankin setting, let f = Σ a(n)qⁿ ∈ S_{2k}(Γ₀(N)) (any cusp form) and M = N|D|. For Re(s) large, Γ(s+2k−1)(4π)^{−s−2k+1} L_𝒜(f, s+2k−1) = ∬_𝓕 f(z) \overline{θ_𝒜(z) E_s̄(z)} y^{2k} dxdy/y² = (f, θ_𝒜 E_s̄)_{Γ₀(M)}, with E_s as in [6.30 Möbius level decomposition](#target-classical-mobius-level-decomposition) and 𝓕 a fundamental domain for Γ₀(M). Proof as printed: Γ(s+2k−1)(4π)^{−s−2k+1} Σ a(n)r_𝒜(n)n^{−s−2k+1} = ∬_{Γ_∞\ℌ} f \overline{θ_𝒜} y^{s+2k} dxdy/y². Proof: write Γ_∞\ℌ = ∪_{γ ∈ Γ_∞\Γ₀(M)} γ𝓕, use the transformation laws of f and θ_𝒜 under Γ₀(M), and interchange sum and integral.
+In the classical Rankin setting, let f = Σ a(n)qⁿ ∈ S_{2k}(Γ₀(N)) (any cusp form) and M = N|D|. For Re(s) large, Γ(s+2k−1)(4π)^{−s−2k+1} L_𝒜(f, s+2k−1) = ∬_𝓕 f(z) \overline{θ_𝒜(z) E_s̄(z)} y^{2k} dxdy/y² = (f, θ_𝒜 E_s̄)_{Γ₀(M)}, with E_s(z)=½Σ_{c,d∈ℤ, M|c, gcd(d,M)=1} ε(d)y^s(cz+d)^(−2k+1)|cz+d|^(−2s), and 𝓕 a fundamental domain for Γ₀(M). The unfolded equality is: Γ(s+2k−1)(4π)^{−s−2k+1} Σ a(n)r_𝒜(n)n^{−s−2k+1} = ∬_{Γ_∞\ℌ} f \overline{θ_𝒜} y^{s+2k} dxdy/y². Proof: write Γ_∞\ℌ = ∪_{γ ∈ Γ_∞\Γ₀(M)} γ𝓕, use the transformation laws of f and θ_𝒜 under Γ₀(M), and interchange sum and integral.
 
 Assume the classical Rankin data (C).
 
@@ -2073,7 +2091,7 @@ Assume the classical Rankin data (C).
 
 ### 6.30 Möbius level decomposition
 
-In the classical Rankin setting, with M = N|D| and E^{(1)}_s as in [6.41 Rankin kernel pairing](#target-classical-rankin-kernel-pairing): E_s(z) = ½ Σ_{e|N} μ(e) Σ_{c,d∈ℤ, M|c, e|d} ε(d)(cz+d)^{−(2k−1)} y^s|cz+d|^{−2s} = Σ_{e|N} μ(e)ε(e) e^{−(2s+2k−1)} (N/e)^{−s} E^{(1)}_s(Nz/e). Only e squarefree and prime to D contribute. For e > 1 the term Tr^M_N(θ_𝒜(z)E^{(1)}_s(Nz/e)) has level N/e < N: any system of representatives of Γ₀(M)\Γ₀(N) is one of Γ₀(M/e)\Γ₀(N/e), because (e, D) = 1. Hence, for f ∈ S^new_{2k}(Γ₀(N)), those terms are orthogonal to f. For non-holomorphic terms this uses §5: the product of f with a non-holomorphic form equals its product with a holomorphic form of the same level.
+In the classical Rankin setting, with M=N|D|, let E^{(1)}_s be the Eisenstein sum of 6.29 with N=1, hence M=|D|; equivalently its primitive condition on d may be omitted because ε(d)=0 when gcd(d,D)>1. Initially take Re(s) large. Then E_s(z) = ½ Σ_{e|N} μ(e) Σ_{(c,d)∈ℤ²∖{(0,0)}, M|c, e|d} ε(d)(cz+d)^{−(2k−1)} y^s|cz+d|^{−2s} = Σ_{e|N} μ(e)ε(e) e^{−(2s+2k−1)} (N/e)^{−s} E^{(1)}_s(Nz/e). Only e squarefree and prime to D contribute. For e > 1 the term Tr^M_N(θ_𝒜(z)E^{(1)}_s(Nz/e)) has level N/e < N: any system of representatives of Γ₀(M)\Γ₀(N) is one of Γ₀(M/e)\Γ₀(N/e), because (e, D) = 1. Hence, for f ∈ S^new_{2k}(Γ₀(N)), those terms are orthogonal to f. For non-holomorphic terms this uses §5: the product of f with a non-holomorphic form equals its product with a holomorphic form of the same level.
 
 Assume the classical Rankin data (C).
 
@@ -2081,7 +2099,7 @@ Assume the classical Rankin data (C).
 
 ([Heegner points and derivatives of L-series](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01388809/fulltext.pdf), published Invent. Math. 84 (1986), Chapter IV, §1, pp. 271–272.)
 
-*Needs:* [6.12 Classical trace adjunction](#target-classical-trace-adjunction), `ModularCurvesPartII:R14.5`.
+*Needs:* [6.29 Classical Rankin unfolding](#target-classical-rankin-unfolding), [6.12 Classical trace adjunction](#target-classical-trace-adjunction), `ModularCurvesPartII:R14.5`.
 
 <a id="target-classical-rankin-kernel"></a>
 
@@ -2169,7 +2187,7 @@ Assume the classical Rankin data (C).
 
 ### 6.35 Signed divisor sums
 
-In the explicit Fourier-kernel setting, for an integer n ≠ 0: σ_A(n) := Σ_{d|n, d>0} ε_A(n,d). For n > 0: σ′_A(n) := Σ_{d|n, d>0} ε_A(n,d) log(n/d²). p_{k−1}(t) := Σ_{j=0}^{k−1} C(k−1, j)(−t)^j/j! (= p_{k,k−1}(t) of Prop. (3.3d)). Note that ε_A(n,d), hence σ_A(n), depends on the sign of n: ε_A(−n,d) = ε_{D₂}(−1)ε_A(n,d), D₂ as in the definition of ε_A. The polynomial p_(k−1) is this terminating Laguerre-type polynomial; its continuation identities are those of the AL.0 contract.
+In the explicit Fourier-kernel setting, for an integer n ≠ 0: σ_A(n) := Σ_{d|n, d>0} ε_A(n,d). For n > 0: σ′_A(n) := Σ_{d|n, d>0} ε_A(n,d) log(n/d²). p_{k−1}(t) := Σ_{j=0}^{k−1} C(k−1, j)(−t)^j/j! (= p_{k,k−1}(t) of Prop. (3.3d)). Note that ε_A(n,d), hence σ_A(n), depends on the sign of n: ε_A(−n,d) = ε_{D₂}(−1)ε_A(n,d), D₂ as in the definition of ε_A. The polynomial p_(k−1) is this terminating Laguerre-type polynomial; its kernel identities are proved in [6.2 The classical V-kernel, terminating polynomials and decay](#target-classical-kernel-special-functions).
 
 Assume the classical Rankin data (C).
 
@@ -2285,7 +2303,7 @@ Assume the CM quaternionic data (Q).
 
 ### 6.41 Rankin kernel pairing
 
-In the classical Rankin setting, let D be a fundamental discriminant, N ≥ 1 prime to D, and define Φ̃_s = Φ̃_{s,𝒜} ∈ M̃_{2k}(Γ₀(N)) by Φ̃_s(z) = Tr^{ND}_N(θ_𝒜(z) E^{(1)}_s(Nz)), where θ_𝒜 is the theta series (1.1) and E^{(1)}_s(z) = ½ Σ_{c,d∈ℤ, D|c} ε(d)(cz+d)^{−(2k−1)} y^s|cz+d|^{−2s}. Prove that for every f ∈ S^new_{2k}(Γ₀(N)): (4π)^{−s−2k+1} N^s Γ(s+2k−1) L_𝒜(f, s+2k−1) = (f, Φ̃_s̄), first for Re(s) large, with the Petersson product (f, g) = ∬_{Γ₀(N)\ℌ} f ḡ y^{2k} dxdy/y².
+In the classical Rankin setting, let D be a fundamental discriminant, N ≥ 1 prime to D, and define Φ̃_s = Φ̃_{s,𝒜} ∈ M̃_{2k}(Γ₀(N)) by Φ̃_s(z) = Tr^{ND}_N(θ_𝒜(z) E^{(1)}_s(Nz)), where θ_𝒜 is the theta series (1.1) and E^{(1)}_s(z) = ½ Σ_{(c,d)∈ℤ²∖{(0,0)}, D|c} ε(d)(cz+d)^{−(2k−1)} y^s|cz+d|^{−2s}. Prove that for every f ∈ S^new_{2k}(Γ₀(N)): (4π)^{−s−2k+1} N^s Γ(s+2k−1) L_𝒜(f, s+2k−1) = (f, Φ̃_s̄), first for Re(s) large, with the Petersson product (f, g) = ∬_{Γ₀(N)\ℌ} f ḡ y^{2k} dxdy/y².
 
 Assume the classical Rankin data (C).
 
@@ -2550,7 +2568,7 @@ Assume the classical Rankin data (C).
 
 ### 6.59 Logarithmic coefficient parity
 
-In the explicit Fourier-kernel setting, under the hypotheses of (4.6b) (ε(N) = +1, n > 0, n satisfying (4.2)): Σ_{d|n} ε_A(n,d) = 0 (from (4.3)), hence σ′_A(n) = −2 Σ_{d|n} ε_A(n,d) log d; and every a_p(n) is even, since δ(n) is even if n is divisible by a ramified prime and ord_p(n) + 1 is even if n is divisible by an inert prime p with R(n/p) ≠ 0.
+In the explicit Fourier-kernel setting, under the hypotheses of (4.6b) (ε(N) = +1, n > 0, n satisfying (4.2)): Σ_{d|n} ε_A(n,d) = 0 (from (4.3)), hence σ′_A(n) = −2 Σ_{d|n} ε_A(n,d) log d; and every a_p(n) lies in 2ℤ. For a ramified divisor of n, the factor δ(n) supplies the 2. For an inert divisor p with R(n/p)≠0, the valuation ord_p(n) is odd, so its successor supplies the 2.
 
 Assume the classical Rankin data (C).
 
@@ -2746,13 +2764,15 @@ Assume the classical Rankin data (C).
 
 ### 6.73 Central-value genus-sum filter
 
-In the explicit Fourier-kernel setting, for n, l ∈ ℕ: Σ_A R_{A𝔫}(n) r_A(l) = Σ_{genera G} R_{G𝔫}(n) R_G(l), which equals R(n)R(l) if the genus of an ideal of norm nl (if any) is {𝔫}, and 0 otherwise; here R(n) = Σ_{d|n} ε(d). If ε(N) = −1 (so N(𝔫) ≡ −N mod D) and l = m|D| − nN > 0, the genus conditions at the primes p | D with p ∤ n are automatic (l ≡ N(𝔫)n mod p), and δ(n) Σ_A R_{A𝔫}(n) r_A(m|D| − nN) = R(n) R(m|D| − nN) ∏_{p|(n,D)} (1 + ε̂_p((nN − m|D|)/(nN))), where ε̂_p : ℚ^× → {±1} is the homomorphism with ε̂_p(q) = (q/p) for primes q ≠ p, ε̂_p(−1) = (−1/p), and ε̂_p(p) = ((|D|/p)/p). [The source prints the prime-divisor condition with p|N where p|D is required.]
+In the explicit Fourier-kernel setting, for positive integers n and l: Σ_A R_{A𝔫}(n) r_A(l) = Σ_{genera G} R_{G𝔫}(n) R_G(l), which equals R(n)R(l) if the genus of an ideal of norm nl (if any) is {𝔫}, and 0 otherwise; here R(n) = Σ_{d|n} ε(d). If ε(N) = −1 (so N(𝔫) ≡ −N mod D) and l = m|D| − nN > 0, the genus conditions at the primes p | D with p ∤ n are automatic (l ≡ N(𝔫)n mod p), and δ(n) Σ_A R_{A𝔫}(n) r_A(m|D| − nN) = R(n) R(m|D| − nN) ∏_{p|(n,D)} (1 + ε̂_p((nN − m|D|)/(nN))), where ε̂_p : ℚ^× → {±1} is the homomorphism with ε̂_p(q) = (q/p) for primes q ≠ p, ε̂_p(−1) = (−1/p), and ε̂_p(p) = ((|D|/p)/p). [The source prints the prime-divisor condition with p|N where p|D is required.]
 
 Assume the classical Rankin data (C).
 
 *Outline.* Sum the ideal-class central value over its genus characters. Apply orthogonality to isolate the stated class/genus contribution and its 2^t factor.
 
 ([Heegner points and derivatives of L-series](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01388809/fulltext.pdf), published Invent. Math. 84 (1986), Chapter IV, §5, p. 292 (first half).)
+
+**Negative control.** n=0 is excluded: the argument of ε̂_p contains nN in its denominator. The separate boundary coefficients of 6.72 handle that endpoint.
 
 *Needs:* [6.69 Weight-two central-value formula](#target-classical-weight-two-central-value), [6.46 Genus sigma identity](#target-classical-genus-sigma-identity), `AnalyticNumberTheory:AN.4`.
 
@@ -2857,7 +2877,7 @@ Let G be an ordinary height-two p-divisible group over an algebraically closed f
 
 ([ARGOS seminar](https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/argos.pdf), Meusers, Chapter 9 §2 Proposition 2.1, p. 102, §3 Propositions 3.4–3.5, pp. 104–105; [Heegner points and derivatives of L-series](https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/BF01388809/fulltext.pdf), III §§3–6, pp. 257–260; [On the averaged Colmez conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf), §§8.2–8.3, pp. 614–619.)
 
-*Needs:* `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2` for the deformation category, `HilbertModularVarietiesAndShimuraCurves:R18.2/carayol-split-model`, `HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation` for division-place charts, Mathlib length of finite modules.
+*Needs:* TauCetiRoadmap.ModularCurves Layer 7F ST-1 for the elliptic deformation equivalence, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2` for the deformation category, `HilbertModularVarietiesAndShimuraCurves:R18.2/carayol-split-model`, `HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation` for division-place charts, Mathlib length of finite modules.
 
 <a id="target-canonical-and-quasicanonical-cm-lifts"></a>
 
@@ -2869,6 +2889,18 @@ Thus the exponent for a quotient written A/π_L^m is m−1, not m. This theorem 
 
 For O_s=O_(K_v)+π_(K_v)^s O_L, s≥1, construct the level-s quasi-canonical lifts together with their marking and canonical-to-quasi-canonical isogeny of degree q^s. Their marked Galois orbit is O_L×/O_s×, of size q^(s−1)(q+1) for unramified L/K_v and q^s for ramified L/K_v. Level 0 is one canonical lift. Compute liftability of a special-fibre endomorphism by the length of its intersection with this lift, retaining the different exponent and the uniformizer of L. Derive the negative-norm congruence counts used below from this filtration, not from an unramified formula with q substituted for p.
 
+More precisely, let M=Frac(A) and choose the standard totally ramified field of definition M′/M of the marked level-s lift, of degree # (O_L×/O_s×). Put A′=O_(M′), let π′ be its uniformizer, e_s=e(A′/O_(K_v)), and π_D a uniformizer of O_D. Set a(j)=(q^j−1)(q+1)/(q−1) for integers j. Then e_s=2q^s in the ramified case and q^s+q^(s−1) in the unramified case for s≥1. For an integer ℓ≥0 and an element in the nonempty stratum
+(O_s+π_D^ℓO_D)∖(O_s+π_D^(ℓ+1)O_D),
+the lift exists over A′/(π′)^n, n≥1, precisely for n≤n_ℓ, where
+
+```text
+n_ℓ = a(ℓ/2)+1                                      if ℓ≤2s and ℓ even,
+      a((ℓ−1)/2)+q^((ℓ−1)/2)+1                      if ℓ≤2s and ℓ odd,
+      a(s−1)+q^(s−1)+((ℓ+1)/2−s)e_s+1               if ℓ≥2s−1.
+```
+
+The overlapping formulas agree on every nonempty stratum. For unramified L/K_v the even strata ℓ≥2s are empty; applying the last formula to such an ℓ can produce a noninteger and is forbidden. Elements of O_s lift at every order. The quotient exponent n is one more than the index of F′_(n−1). Transport to another base multiplies lengths by its ramification index.
+
 *Outline.* Deform the marked formal O_L-module with its Lie condition; uniqueness fixes the canonical lift. Wewers's lifting argument identifies successively the congruence order above; valuations are on L. Construct level-s quotients by cyclic O_(K_v)-subgroups and identify stabilizer O_s× to get orbit sizes. For intersection lengths use the quasi-canonical deformation rings and Vollaard's endomorphism-lifting formula, separating canonical level 0, positive level and ramified different. Combine the height-two formal calculation with Serre–Tate equivalence and the diagram rigidity target to count elliptic isogeny diagrams. Ordinary and quaternionic cases remain distinct.
 
 *API.* `canonicalCMLift` with action, marking and uniqueness; `canonicalCMLift_endomorphismOrder`; `quasiCanonicalCMLift(level)` with its order and marking; `quasiCanonicalCMLift_isogenyDegree`; `quasiCanonicalCMLift_orbitCard`; `cmEndomorphism_liftLength`; `cmNegativeNorm_liftCount`; `cmLift_uniformizer_transport` keeps the ramification index in lengths.
@@ -2878,12 +2910,12 @@ For O_s=O_(K_v)+π_(K_v)^s O_L, s≥1, construct the level-s quasi-canonical lif
 - Modulo π_L the whole O_D acts; modulo π_L² the order is O_L+π_LO_D.
 - At unramified level 1 the orbit has q+1 elements, at ramified level 1 it has q, while level 0 has one; a single q^s formula fails.
 - Replacing π_L-length by π_(K_v)-length in the ramified case changes the answer unless the ramification factor is included.
-- A positive-level quasi-canonical lift agrees with the canonical lift modulo its first uniformizer but need not agree modulo its square.
+- At q=3,s=1, a nonempty stratum ℓ=1 has n_ℓ=2, while ℓ=3 has n_ℓ=6 in the unramified case and 8 in the ramified case. The element lifts modulo (π′)^n_ℓ but fails modulo (π′)^(n_ℓ+1).
 - In the dyadic ramified case keep v(D_(L/K_v)); the tame value cannot be assumed.
 
 ([ARGOS seminar on intersections of modular correspondences](https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/argos.pdf), Wewers, Chapter 8 §1 Theorem 1.4, p. 79 and §3 Theorem 3.2, p. 84; Vollaard, Chapter 11 §2 Theorems 2.1 and 2.3, pp. 114–115; [On the averaged Colmez conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf), §8.3, p. 618.)
 
-*Needs:* `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2` for Serre–Tate deformation theory, `ComplexMultiplicationAndExplicitReciprocity:CM.5/supersingular-curve-versus-level-pair` for the special-fibre quaternion/Eichler orders.
+*Needs:* TauCetiRoadmap.ModularCurves Layer 7F ST-1 for transport between elliptic and p-divisible deformations, `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2` for the formal-module deformation category, `ComplexMultiplicationAndExplicitReciprocity:CM.5/supersingular-curve-versus-level-pair` for the special-fibre quaternion/Eichler orders.
 
 <a id="target-cm-isogeny-diagram-hom"></a>
 
@@ -2914,7 +2946,7 @@ End_R(x)=Hom_R(x,x), with componentwise addition and composition. Define Hom_R(y
 
 ### 7.4 Degenerate Schwartz classes
 
-At a finite place v, fix B_v=E_v⊕E_v j_v and write x=x₁+x₂ in these orthogonal summands. Define S¹ by Φ_v(x,u)=0 whenever ord_v(uq(x))≥−ord_v(d_v) or ord_v(uq(x₂))≥−ord_v(d_v), where d_v generates the different of F_v. Define S² by (r(g)Φ_v)(0,u)=0 for every g∈GL₂(F_v) and u∈F_v×. For the YZZ reduction choose an exceptional finite set S₁ of nonsplit places containing the ramification of F, E, B, σ and χ, and two auxiliary split unramified places S₂ disjoint from S₁. Use S¹ at S₁ and S² at S₂, with standard functions at nonsplit places outside S₁ and standard archimedean data. These subspaces impose different conditions; zero-evaluation for the identity Weil translate is insufficient for S².
+At a finite place v, fix B_v=E_v⊕E_v j_v and write x=x₁+x₂ in these orthogonal summands. Define S¹ by Φ_v(x,u)=0 whenever ord_v(uq(x))≥−ord_v(d_v) or ord_v(uq(x₂))≥−ord_v(d_v), where d_v generates the different of F_v. Define S² by (r(g)Φ_v)(0,u)=0 for every g∈GL₂(F_v) and u∈F_v×. For the YZZ reduction choose an exceptional finite set S₁ of nonsplit places containing every nonsplit place at which F, E, B, σ or χ is ramified, and two auxiliary split unramified places S₂ disjoint from S₁. Use S¹ at S₁ and S² at S₂, with standard functions at nonsplit places outside S₁ and standard archimedean data. These subspaces impose different conditions; zero-evaluation for the identity Weil translate is insufficient for S².
 
 Assume Finite v with the specified quadratic extension, orthogonal decomposition, different and actual extended Weil representation; For the global reduction, S₁ contains at least two finite places and all exceptional nonsplit places; S₂ consists of two split places unramified for σ and χ. Choose principal-congruence local levels at finite places, sufficiently deep at S₁, maximal at nonsplit places outside S₁ and at S₂. Exclude −1 globally and require the quotient maps used in the comparison to be unramified.
 
@@ -2937,6 +2969,8 @@ The interface should expose these named statements:
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.5.8, printed p. 17; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, Assumptions 5.2.1–5.2.5 and Proposition 5.2.7, pp. 185–187; Propositions 5.3.1–5.3.2, pp. 189–191; Proposition 5.4.1 and proof, pp. 191–193.)
 
+**Gap.** The displayed valuation inequalities, global level restrictions and nonzero toric-contraction assertion have not been verified against the cited YZZ draft. They cannot yet certify the test-data interface for the unrestricted comparison.
+
 *Needs:* `MetaplecticAutomorphicForms:MP.5/extended-schwartz-weil`, [4.6 Nonzero toric test vectors](#target-toric-test-vectors).
 
 <a id="target-nearby-coherent-orthogonality"></a>
@@ -2952,6 +2986,8 @@ Assume B(v) is coherent and K embeds as required; the local sign mismatch is at 
 *Consequences.* A nonzero coherent kernel with wrong local sign is allowed; only its σ-component is zero.
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.5.10, printed p. 19; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §7.4.3, pp. 236–237.)
+
+**Gap.** The cited YZZ locators remain unverified. The local zero-Hom argument uses 4.2, but the precise global coherent-kernel interface still needs confirmation from the stated source.
 
 *Needs:* [7.3 Hom of actual integral CM isogeny diagrams](#target-cm-isogeny-diagram-hom), [4.2 Saito–Tunnell dichotomy](#target-saito-tunnell-dichotomy-and-the-local-toric-functional), [5.1 Coherent quaternionic theta specialization](#target-coherent-quaternionic-specialization), `MetaplecticAutomorphicForms:MP.6/global-see-saw-and-projection`.
 
@@ -3330,6 +3366,8 @@ Assume Good local level/conductor and degeneracy conditions as specified in the 
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.5.9, printed pp. 18-19; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, Theorem 7.4.1 and its hypotheses in §7.4.1, pp. 233–236; Proposition 8.1.1, pp. 242–243; Proposition 8.2.7, pp. 248–249.)
 
+**Gap.** The good-place statement still needs its exact local Schwartz/lattice hypotheses and normalized equality, separately for split, inert and ramified places. Referring to the source’s conditions and a matching calculation does not specify that interface. The YZZ locators above remain unverified.
+
 *Needs:* [7.4 Degenerate Schwartz classes](#target-degenerate-schwartz-classes), [2.12 Faltings–Hriljac comparison](#target-hodge-index-theorem-and-admissible-arithmetic-extensions), [6.24 Incoherent central derivative](#target-incoherent-central-derivative), `HilbertModularVarietiesAndShimuraCurves:R18.5/totally-real-uniformisation`, [6.1 Petersson projectors and their growth domains](#target-weight-two-petersson-projectors), `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`.
 
 <a id="target-colmez-k-inert"></a>
@@ -3679,6 +3717,8 @@ Assume the S₁/S₂ support, level, unramified and nonzero toric-contraction co
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.5.10, printed p. 19; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §7.4.2–§7.4.3, Theorem 7.4.1 and (7.4.1), pp. 235–237.)
 
+**Gap.** The exceptional set S, the actual nearby functions Φ(v), and their bad-place comparison formula have not been specified with all the restrictions of the cited theorem. The density argument alone supplies none of these. The YZZ locators above remain unverified.
+
 *Needs:* [7.4 Degenerate Schwartz classes](#target-degenerate-schwartz-classes), [7.25 Good-place arithmetic identity](#target-good-local-arithmetic-identity), [7.5 Nearby coherent kernel orthogonality](#target-nearby-coherent-orthogonality), [6.38 Arithmetic height kernel](#target-arithmetic-height-kernel), [6.24 Incoherent central derivative](#target-incoherent-central-derivative), Tau Ceti `TauCeti.GlobalNumberFields.weakApproximation_denseRange`.
 
 <a id="target-colmez-arch-proper"></a>
@@ -3755,11 +3795,11 @@ Assume the CM quaternionic data (Q) and the Colmez computation data (Q′).
 
 ### 7.53 Geometric realization of extended self-intersection
 
-Fix (B,E,U), as in §7.2 with |Σ| > 1, P = [1]_U ∈ X_U(H) (H the Hilbert class field of E), w a finite place of H over v, and R = O_{H_w^ur}. Let U′ = U_vU′^v, where U′^v ⊂ U^v is open, normal and small enough that X_{U′,R} is regular, E^× ∩ U′μ_U = μ_U, and Lemma [9.10 Compatibility with isogenies, differentials and characters](#target-isogeny-and-differential-compatibility) holds. Let π: X_{U′,R} → X_{U,R} be the projection. Prove that every irreducible component 𝒫′ of the divisor π^*𝒫_R is the image of a section Spec R → X_{U′,R} and occurs in π^*𝒫_R with multiplicity e = [O_E^×:O_F^×]. Moreover i_w(P,P) = ī_v(P,P) = ⟨π^*𝒫_R − e𝒫′, 𝒫′⟩, a proper intersection on the special fibre of X_{U′,R}. If v is split in E, both sides are 0.
+Fix (B,E,U), as in §7.2 with |Σ| > 1, P = [1]_U ∈ X_U(H) (H the Hilbert class field of E), w a finite place of H over v, and R = O_{H_w^ur}. Let U′ = U_vU′^v, where U′^v ⊂ U^v is open, normal and small enough that X_{U′,R} is regular, E^× ∩ U′μ_U = μ_U, and Yuan–Zhang Lemma 9.5 (p. 634) holds. Let π: X_{U′,R} → X_{U,R} be the projection. Prove that every irreducible component 𝒫′ of the divisor π^*𝒫_R is the image of a section Spec R → X_{U′,R} and occurs in π^*𝒫_R with multiplicity e = [O_E^×:O_F^×]. Moreover i_w(P,P) = ī_v(P,P) = ⟨π^*𝒫_R − e𝒫′, 𝒫′⟩, a proper intersection on the special fibre of X_{U′,R}. If v is split in E, both sides are 0.
 
 Assume the CM quaternionic data (Q) and the Colmez computation data (Q′).
 
-*Outline.* Choose U′ away from v so the model is regular and E^× ∩ U′μ_U = μ_U. Since U′_v = U_v contains O_{E_v}^×, the class fields defining the CM lifts and their U-translates are unramified at w over the Hilbert class field H. Thus the lifts are H_w^ur-rational; properness extends them to sections over R. The stabilizer condition gives ramification multiplicity e in π^*𝒫_R. Use small-level diagonal vanishing, Lemma [9.10 Compatibility with isogenies, differentials and characters](#target-isogeny-and-differential-compatibility) and the U/U′ projection sum, dividing by [μ_U:μ_{U′}], to obtain the proper intersection. The coarse projection need not be étale.
+*Outline.* Choose U′ away from v so the model is regular and E^× ∩ U′μ_U = μ_U. Since U′_v = U_v contains O_{E_v}^×, the class fields defining the CM lifts and their U-translates are unramified at w over the Hilbert class field H. Thus the lifts are H_w^ur-rational; properness extends them to sections over R. The stabilizer condition gives ramification multiplicity e in π^*𝒫_R. Use small-level diagonal vanishing, Yuan–Zhang Lemma 9.5 (p. 634) and the U/U′ projection sum, dividing by [μ_U:μ_{U′}], to obtain the proper intersection. The coarse projection need not be étale.
 
 ([On the averaged Colmez conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf), published Annals 187 (2018), Lemma9.4 pp632–635, )
 
@@ -3769,7 +3809,7 @@ Assume the CM quaternionic data (Q) and the Colmez computation data (Q′).
 
 ### 7.54 Resolvent cusp expansion
 
-(Quoted from Hejhal [20], (6.5); Fourier development in z.) G_{N,s}(z, z′) = −(4π/(2s − 1)) E_N(z′, s) y^{1−s} + O(e^{−y}) as y = Im z → ∞; at any other cusp G_{N,s}(z, z′) = α(s) Y^{1−s} + O(e^{−Y}), Y = Im(γz) for γ ∈ SL₂(ℝ) carrying the cusp to ∞.
+At the cusp ∞, the Fourier expansion in z gives G_{N,s}(z, z′) = −(4π/(2s − 1)) E_N(z′, s) y^{1−s} + O(e^{−y}) as y = Im z → ∞; at any other cusp G_{N,s}(z, z′) = α(s) Y^{1−s} + O(e^{−Y}), Y = Im(γz) for γ ∈ SL₂(ℝ) carrying the cusp to ∞.
 
 Assume the classical Rankin data (C) and the classical Heegner local data (H). Assume also Off-diagonal resolvent sums are formed initially for Re(s)>1; use Laurent continuation, rather than an unregularized sum at s=1.
 
@@ -3907,7 +3947,7 @@ The interface should expose these named statements:
 
 ### 7.62 Ramified quaternionic order model
 
-In the finite CM intersection setting, p ramified in K with prime 𝔭; f = order of [𝔭] in Cl_K. There are h/f places v | 𝔭 in H, each with q_v = p^f (printed 'residual degree p^f'). Choose a prime q with (q/p′) = (−1/p′) for all primes p′ ≠ p dividing D and (−q/p) = −1; for the order model one must also impose −q ≡ 1 (mod D/p). Prove that q = 𝔮𝔮̄ splits in K, B has Hilbert symbol (D, −q), and B = K + Kj with j² = −q. With 𝔟 normalised by 𝔟R = S𝔟 as in the printed ([9.8 In weight two the p-adic Abel–Jacobi map is the formal logarithm](#target-weight-two-abel-jacobi-is-logarithm)) (with R𝔟 = 𝔟S replace 𝔟 by 𝔟̄ throughout): ([9.13 Heegner points have nonzero logarithm in every eigencomponent](#target-eigenlogarithm-nonvanishing)) R𝔞 = {α + βj : α ∈ 𝔭𝔡^{−1}𝔞, β ∈ 𝔭𝔡^{−1}𝔮^{−1}𝔫𝔟̄𝔟^{−1}𝔞̄, α ≡ (−1)^{ord_𝔣(𝔟)}β mod O_𝔣 for 𝔣 | 𝔡} (β missing in print). The class of 𝔟 is well defined in Cl_K/[𝔭] by v. For b = α + βj ∈ R𝔞 with N(b) = m·N(𝔞) and N(b₋) ≠ 0, ([9.15 The BDP anticyclotomic p-adic L-function in weight two](#target-bdp-p-adic-l-function)) 𝔠 = (α)𝔡𝔞^{−1} ∈ 𝒜^{−1} and 𝔠′ = (β)𝔡𝔮𝔫^{−1}𝔟̄^{−1}𝔟𝔞̄^{−1} ∈ 𝒜[𝔮𝔫^{−1}]𝔅² are integral and both divisible by 𝔭, and ([9.16 The quaternionic weight-two formula of Brooks and JSW](#target-quaternionic-weight-two-formula)) N𝔠 + N·N𝔠′ = m|D|. The integer n = N𝔠′ is non-zero, with ord_p(n) = ord_p(D·N(b₋)).
+In the finite CM intersection setting, p ramified in K with prime 𝔭; f = order of [𝔭] in Cl_K. There are h/f places v | 𝔭 in H, each with q_v = p^f (printed 'residual degree p^f'). Choose a prime q with (q/p′) = (−1/p′) for all primes p′ ≠ p dividing D and (−q/p) = −1; for the order model one must also impose −q ≡ 1 (mod D/p). Prove that q = 𝔮𝔮̄ splits in K, B has Hilbert symbol (D, −q), and B = K + Kj with j² = −q. With 𝔟 normalised by 𝔟R = S𝔟 as in the printed (9.8) (with R𝔟 = 𝔟S replace 𝔟 by 𝔟̄ throughout): (9.13) R𝔞 = {α + βj : α ∈ 𝔭𝔡^{−1}𝔞, β ∈ 𝔭𝔡^{−1}𝔮^{−1}𝔫𝔟̄𝔟^{−1}𝔞̄, α ≡ (−1)^{ord_𝔣(𝔟)}β mod O_𝔣 for 𝔣 | 𝔡} (β missing in print). The class of 𝔟 is well defined in Cl_K/[𝔭] by v. For b = α + βj ∈ R𝔞 with N(b) = m·N(𝔞) and N(b₋) ≠ 0, (9.15) 𝔠 = (α)𝔡𝔞^{−1} ∈ 𝒜^{−1} and 𝔠′ = (β)𝔡𝔮𝔫^{−1}𝔟̄^{−1}𝔟𝔞̄^{−1} ∈ 𝒜[𝔮𝔫^{−1}]𝔅² are integral and both divisible by 𝔭, and (9.16) N𝔠 + N·N𝔠′ = m|D|. The integer n = N𝔠′ is non-zero, with ord_p(n) = ord_p(D·N(b₋)).
 
 Assume the classical Rankin data (C) and the classical Heegner local data (H).
 
@@ -3984,7 +4024,7 @@ For split finite v, with the chosen order and original 𝔧_v of test-function, 
 
 Assume the CM quaternionic data (Q) and the Colmez computation data (Q′).
 
-*Outline.* For v ∉ S2, n_φ = ½v(q(y))φ_v, c_φ = φ_v log|d_v q(𝔧_v)|, and u is a unit on support. Substitute in d_φ = 2n_φ log N_v − c_φ + log|u q(y)|φ_v (p. 626). Since log|q(y)| = −v(q(y))log N_v, the valuation terms cancel, leaving −c_φ. At S2 use the separate corrected formulas n_φ = −ψ2/(1+N_v+N_v²), c_φ = 2n_φ log N_v and log|u q(y)| = 0. With the same d_φ convention as Proposition [9.7 The Euler factor at the BDP point](#target-euler-factor-at-bdp-point), the two correction contributions cancel, giving d_φ = 0. The different is a unit since F_v/Q_p is unramified, and the original 𝔧_v has norm −1. Never replace the S2 computation by the usual valuation formula.
+*Outline.* For v ∉ S2, n_φ = ½v(q(y))φ_v, c_φ = φ_v log|d_v q(𝔧_v)|, and u is a unit on support. Substitute in d_φ = 2n_φ log N_v − c_φ + log|u q(y)|φ_v (p. 626). Since log|q(y)| = −v(q(y))log N_v, the valuation terms cancel, leaving −c_φ. At S2 use the separate corrected formulas n_φ = −ψ2/(1+N_v+N_v²), c_φ = 2n_φ log N_v and log|u q(y)| = 0. With the same d_φ convention as Yuan–Zhang Proposition 9.2 (p. 628), the two correction contributions cancel, giving d_φ = 0. The different is a unit since F_v/Q_p is unramified, and the original 𝔧_v has norm −1. Never replace the S2 computation by the usual valuation formula.
 
 ([On the averaged Colmez conjecture](https://annals.math.princeton.edu/wp-content/uploads/annals-v187-n2-p04-p.pdf), published Annals 187 (2018), Proposition9.2(2) p628.)
 
@@ -4145,7 +4185,7 @@ Assume W is the complete characteristic-zero DVR with uniformizer π and normali
 
 ### 7.75 Inert norm-ideal map
 
-In the finite CM intersection setting, p inert. For b = α + βj ∈ R𝔞 with ([9.9 The Waldspurger formula at CM points of X_{N⁺,N⁻}](#target-quaternionic-cm-waldspurger-formula)) N(b) = N(α) + pq·N(β) = m·N(𝔞) and N(b₋) = pq·N(β) ≠ 0, define, with 𝔟 normalised as in the printed ([9.8 In weight two the p-adic Abel–Jacobi map is the formal logarithm](#target-weight-two-abel-jacobi-is-logarithm)), i.e. 𝔟R = S𝔟 (with R𝔟 = 𝔟S replace 𝔟 by 𝔟̄ throughout), the integral ideals ([9.10 Compatibility with isogenies, differentials and characters](#target-isogeny-and-differential-compatibility)) 𝔠 = (α)𝔡𝔞^{−1} and 𝔠′ = (β)𝔡𝔮𝔫^{−1}𝔟̄^{−1}𝔟𝔞̄^{−1}. Prove that 𝔠 ∈ 𝒜^{−1} and 𝔠′ ∈ 𝒜𝔅²[𝔮𝔫^{−1}], and ([9.11 Brooks's quaternionic p-adic L-function](#target-quaternionic-bdp-construction)) N𝔠 + N·p·N𝔠′ = m|D|. The integer n = p·N𝔠′ is non-zero and ord_p(n) = ord_p(N b₋) (using p ∤ N𝔞). δ(n) = Π_{l | (n,D)} 2 as in Ch. II (3.15).
+In the finite CM intersection setting, p inert. For b = α + βj ∈ R𝔞 with (9.9) N(b) = N(α) + pq·N(β) = m·N(𝔞) and N(b₋) = pq·N(β) ≠ 0, define, with 𝔟 normalised as in the printed (9.8), i.e. 𝔟R = S𝔟 (with R𝔟 = 𝔟S replace 𝔟 by 𝔟̄ throughout), the integral ideals (9.10) 𝔠 = (α)𝔡𝔞^{−1} and 𝔠′ = (β)𝔡𝔮𝔫^{−1}𝔟̄^{−1}𝔟𝔞̄^{−1}. Prove that 𝔠 ∈ 𝒜^{−1} and 𝔠′ ∈ 𝒜𝔅²[𝔮𝔫^{−1}], and (9.11) N𝔠 + N·p·N𝔠′ = m|D|. The integer n = p·N𝔠′ is non-zero and ord_p(n) = ord_p(N b₋) (using p ∤ N𝔞). δ(n) = Π_{l | (n,D)} 2 as in Ch. II (3.15).
 
 Assume the classical Rankin data (C) and the classical Heegner local data (H).
 
@@ -4153,7 +4193,7 @@ Assume the classical Rankin data (C) and the classical Heegner local data (H).
 
 The interface should expose these named statements:
 
-- `inertNormIdeals`: From b=α+βj with N(b)=mN𝔞 and b₋≠0 form the two integral ideals 𝔠,𝔠′ of ([9.10 Compatibility with isogenies, differentials and characters](#target-isogeny-and-differential-compatibility)).
+- `inertNormIdeals`: From b=α+βj with N(b)=mN𝔞 and b₋≠0 form the two integral ideals 𝔠,𝔠′ of (9.10).
 - `inertNormIdeals_classes`: [𝔠]=A⁻¹ and [𝔠′]=AB²[𝔮𝔫⁻¹] in the printed connecting convention.
 - `inertNormIdeals_norm`: N𝔠+NpN𝔠′=m|D|.
 - `inertNormIdeals_valuation`: For p∤N𝔞, ord_p(pN𝔠′)=ord_p N(b₋).
@@ -4258,7 +4298,7 @@ Assume the classical Rankin data (C) and the classical Heegner local data (H). A
 
 ### 7.81 Hyperbolic norm parameter
 
-Fix τ₁, τ₂, Heegner points with the same 𝔫, roots of A_iτ_i² + B_iτ_i + C_i = 0 as in (1.4) with the same β. For γ = (a b; c d) ∈ R_N with det γ = m > 0: g_s(γτ₁, τ₂) = −2Q_{s−1}(1 + |γτ₁ − τ₂|²/(2 Im(γτ₁) Im τ₂)) = −2Q_{s−1}(1 + 2nN/(|D| det γ)) with n = (A₁A₂/N)|cτ₁τ₂ + dτ₂ − aτ₁ − b|² (3.4), and n = (1/N)[c²C₁C₂ + ad(D − B₁B₂)/2 − bc(D + B₁B₂)/2 + a²C₁A₂ + d²A₁C₂ − cdB₁C₂ + acC₁B₂ + b²A₁A₂ + bdA₁B₂ − abB₁A₂] ∈ ℤ (3.5, corrected). Hence G^m_{N,s}(τ₁, τ₂) = −2 Σ_{n≥1} ρ^m(n) Q_{s−1}(1 + 2nN/(m|D|)), ρ^m(n) = #{γ ∈ R_N/{±1} : det γ = m, n(γ) = n} (n ≥ 1 when r_{𝒜₁𝒜₂⁻¹}(m) = 0). Example N = 1, D = −4, τ₁ = τ₂ = i: n = a² + b² + c² + d² − 2(ad − bc), (a − d)² + (b + c)² = n, (a + d)² + (b − c)² = n + 4m.
+Fix τ₁, τ₂, Heegner points with the same 𝔫, roots of A_iτ_i² + B_iτ_i + C_i = 0 as in (1.4) with the same β. For γ = (a b; c d) ∈ R_N with det γ = m > 0: g_s(γτ₁, τ₂) = −2Q_{s−1}(1 + |γτ₁ − τ₂|²/(2 Im(γτ₁) Im τ₂)) = −2Q_{s−1}(1 + 2nN/(|D| det γ)) with n = (A₁A₂/N)|cτ₁τ₂ + dτ₂ − aτ₁ − b|² (3.4), and n = (1/N)[c²C₁C₂ + ad(D − B₁B₂)/2 − bc(D + B₁B₂)/2 + a²C₁A₂ + d²A₁C₂ − cdB₁C₂ + acC₁B₂ + b²A₁A₂ + bdA₁B₂ − abB₁A₂] ∈ ℤ (3.5, corrected). Hence G^m_{N,s}(τ₁, τ₂) = −2 Σ_{n≥1} ρ^m(n) Q_{s−1}(1 + 2nN/(m|D|)), ρ^m(n) = #{γ ∈ R_N/{±1} : det γ = m, n(γ) = n} (n ≥ 1 when r_{𝒜₁𝒜₂⁻¹}(m) = 0). As a matrix-identity check outside the standing odd-discriminant arithmetic range, take N = 1, D = −4, τ₁ = τ₂ = i: n = a² + b² + c² + d² − 2(ad − bc), (a − d)² + (b + c)² = n, (a + d)² + (b − c)² = n + 4m.
 
 Assume the classical Rankin data (C) and the classical Heegner local data (H). Assume also Off-diagonal resolvent sums are formed initially for Re(s)>1; use Laurent continuation, rather than an unregularized sum at s=1.
 
@@ -4300,7 +4340,7 @@ Assume the classical Rankin data (C) and the classical Heegner local data (H). A
 
 ### 7.84 Inert unit-orbit count
 
-Standing notation (Ch. III) with N > 1, p inert in K, the auxiliary prime q chosen with −pq ≡ 1 (mod D) and 𝔞 ∈ 𝒜 prime to pD. Let 𝔠 ∈ 𝒜^{−1} and 𝔠′ be integral ideals with 𝔠′ in the class 𝒜[𝔮𝔫^{−1}]𝔅² for some 𝔅 ∈ Cl_K, with N𝔠 + N·p·N𝔠′ = m|D| and n = p·N𝔠′ > 0. Reversing ([9.10 Compatibility with isogenies, differentials and characters](#target-isogeny-and-differential-compatibility)) determines α, β up to units of O; integrality of N(α) + pqN(β) = m·N𝔞 forces α ≡ ±β mod O_𝔣 for every prime 𝔣 | 𝔡, and the resulting b = α + βj lie in R_{v′}𝔞 for places v′ | p in one Gal(H/K)-orbit. Each such pair contributes exactly u²·δ(n) elements b ∈ ⊔_{v|p} R_v𝔞/±1 (printed '2·u²·δ(n)'), each of weight ½(1 + ord_p N(b₋)) = ½·ord_p(pn) in Σ_{v|p}(x·T_m x^σ)_v; summing over pairs and over 𝔅 gives the second term of ([9.12 The weight-two formula at a multiplicative prime](#target-multiplicative-prime-formula)).
+Standing notation (Ch. III) with N > 1, p inert in K, the auxiliary prime q chosen with −pq ≡ 1 (mod D) and 𝔞 ∈ 𝒜 prime to pD. Let 𝔠 ∈ 𝒜^{−1} and 𝔠′ be integral ideals with 𝔠′ in the class 𝒜[𝔮𝔫^{−1}]𝔅² for some 𝔅 ∈ Cl_K, with N𝔠 + N·p·N𝔠′ = m|D| and n = p·N𝔠′ > 0. Reversing (9.10) determines α, β up to units of O; integrality of N(α) + pqN(β) = m·N𝔞 forces α ≡ ±β mod O_𝔣 for every prime 𝔣 | 𝔡, and the resulting b = α + βj lie in R_{v′}𝔞 for places v′ | p in one Gal(H/K)-orbit. Each such pair contributes exactly u²·δ(n) elements b ∈ ⊔_{v|p} R_v𝔞/±1 (printed '2·u²·δ(n)'), each of weight ½(1 + ord_p N(b₋)) = ½·ord_p(pn) in Σ_{v|p}(x·T_m x^σ)_v; summing over pairs and over 𝔅 gives the second term of (9.12).
 
 Assume the classical Rankin data (C).
 
@@ -4400,7 +4440,7 @@ Assume the classical Rankin data (C) and the classical Heegner local data (H). A
 
 ### 7.91 Split total intersection formula
 
-In the finite CM intersection setting, assume v ∤ N, p = 𝔭𝔭̄ split in K, v | 𝔭. Prove that I_v^GZ(x,T_m x^σ) = u·r_𝒜(m)·k_𝔭, where k_𝔭 ≥ 0 and k_𝔭 + k_𝔭̄ = ord_𝔭(m) (printed with subscript 𝔭; equal to ord_p(m) since p splits). The k_𝔭 need not be integers: by Conrad (10.8), printed p.139, u·r_𝒜(m)·k_𝔭 = u·κ_𝔭 with κ_𝔭 = Σ_𝔟 ord_𝔭(𝔟) over the integral ideals 𝔟 of norm m in 𝒜^{−1}, so dividing the integer κ_𝔭 by r_𝒜(m) may give a noninteger. Conrad's form: I_v^GZ(x,T_m x^σ) = u·κ_𝔭 with κ_𝔭, κ_𝔭̄ ∈ ℤ≥0 intrinsic to 𝔭, 𝔭̄ and κ_𝔭 + κ_𝔭̄ = r_𝒜(m)·ord_p(m). Every intersection in this conclusion is the modified pairing. A cotangent pairing adds the tensor correction of [7.76 Modified CM intersection pairing](#target-classical-modified-intersection).
+In the finite CM intersection setting, assume v ∤ N, p = 𝔭𝔭̄ split in K, v | 𝔭. Prove that I_v^GZ(x,T_m x^σ) = u·r_𝒜(m)·k_𝔭, where k_𝔭 ≥ 0 and k_𝔭 + k_𝔭̄ = ord_𝔭(m) (printed with subscript 𝔭; equal to ord_p(m) since p splits). The k_𝔭 need not be integers: by Conrad (10.8), printed p.139, u·r_𝒜(m)·k_𝔭 = u·κ_𝔭 with κ_𝔭 = Σ_𝔟 ord_𝔭(𝔟) over the integral ideals 𝔟 of norm m in 𝒜^{−1}, so dividing the integer κ_𝔭 by r_𝒜(m), when r_𝒜(m)>0, may give a noninteger. When r_𝒜(m)=0, both κ values and the intersection vanish; use the intrinsic κ formula below, without defining k by 0/0. Conrad's form: I_v^GZ(x,T_m x^σ) = u·κ_𝔭 with κ_𝔭, κ_𝔭̄ ∈ ℤ≥0 intrinsic to 𝔭, 𝔭̄ and κ_𝔭 + κ_𝔭̄ = r_𝒜(m)·ord_p(m). Every intersection in this conclusion is the modified pairing. A cotangent pairing adds the tensor correction of [7.76 Modified CM intersection pairing](#target-classical-modified-intersection).
 
 Assume the classical Rankin data (C) and the classical Heegner local data (H). Assume also Use I_v^GZ rather than an uncorrected coarse tangent self-pairing when u>1.
 
@@ -4527,7 +4567,7 @@ Assume the classical Rankin data (C) and the classical Heegner local data (H).
 
 ### 7.99 Ramified-prime height sum
 
-In the marked finite CM intersection setting, if p is ramified in K with prime 𝔭 (r_𝒜(m) arbitrary), then ⟨c, T_m d^σ⟩_p^Δ = −r_𝒜(m)·h·u·ord_p(m)·log p − u²·log p·Σ_{0 < n < m|D|/N, n ≡ 0 (mod p)} ord_p(n)·r_𝒜(m|D| − nN)·δ(n)·R_{{𝒜𝔮𝔭𝔫}}(n/p), with δ and R as in [7.98 Inert-prime height sum](#target-classical-inert-height-sum) and 𝔮 the auxiliary prime of the ramified-case model of Gross–Zagier, Chapter III, ([9.13 Heegner points have nonzero logarithm in every eigencomponent](#target-eigenlogarithm-nonvanishing))–([9.16 The quaternionic weight-two formula of Brooks and JSW](#target-quaternionic-weight-two-formula)) (q, B = (D, −q), R𝔞 and the ideals 𝔠, 𝔠′).
+In the marked finite CM intersection setting, if p is ramified in K with prime 𝔭 (r_𝒜(m) arbitrary), then ⟨c, T_m d^σ⟩_p^Δ = −r_𝒜(m)·h·u·ord_p(m)·log p − u²·log p·Σ_{0 < n < m|D|/N, n ≡ 0 (mod p)} ord_p(n)·r_𝒜(m|D| − nN)·δ(n)·R_{{𝒜𝔮𝔭𝔫}}(n/p), with δ and R as in [7.98 Inert-prime height sum](#target-classical-inert-height-sum) and 𝔮 the auxiliary prime of the ramified-case model of Gross–Zagier, Chapter III, (9.13)–(9.16) (q, B = (D, −q), R𝔞 and the ideals 𝔠, 𝔠′).
 
 Assume the classical Rankin data (C) and the classical Heegner local data (H).
 
@@ -4569,7 +4609,7 @@ Assume the classical Rankin data (C) and the classical Heegner local data (H). A
 
 ### 7.102 Total finite CM height formula
 
-Standing notation of Chap. V §1 (= Chaps. II–III): as in Chap. IV and moreover every prime p | N splits in K; H = Hilbert class field of K; x ∈ X₀(N)(H) a Heegner point of discriminant D (one of the 2^s·h such points, permuted simply transitively by W × Gal(H/K), W = Atkin–Lehner group); J = J₀(N) = Jac X₀(N); c = class of (x) − (∞), d = class of (x) − (0) in J(H); σ ∈ G = Gal(H/K) corresponds to 𝒜 under the Artin map; <,> = global Néron–Tate height pairing on J(H) (heights over H), extended to J(H)⊗ℂ as a hermitian pairing; 𝕋 = ℚ-subalgebra of End_ℚ(J)⊗ℚ generated by the Hecke operators T_m. Combining Chap. III Props. ([9.7 The Euler factor at the BDP point](#target-euler-factor-at-bdp-point)), ([9.12 The weight-two formula at a multiplicative prime](#target-multiplicative-prime-formula)), ([9.17 The BDP p-adic Gross–Zagier formula in weight two](#target-bdp-weight-two-heegner-formula)) over all p and Chap. IV Prop. (4.6)(b): for (m, N) = 1, <c, T_m d^σ>_finite^Δ = −u² Σ_{0<n≤m|D|/N} σ′_𝒜(n) r_𝒜(m|D| − nN) + hu r_𝒜(m) log(N/m), where σ′_𝒜(n) = Σ_{d|n} ε_𝒜(n, d) log(n/d²). The finite superscript Δ means the sum over p of the contributions of [7.93 Rational-prime CM height sum](#target-classical-p-height-sum), with their discriminant correction; its archimedean partner uses the eta-normalized limit in [7.85 Tensor-normalized local-to-global CM height](#target-classical-tensor-global-decomposition).
+Standing notation of Chap. V §1 (= Chaps. II–III): as in Chap. IV and moreover every prime p | N splits in K; H = Hilbert class field of K; x ∈ X₀(N)(H) a Heegner point of discriminant D (one of the 2^s·h such points, permuted simply transitively by W × Gal(H/K), W = Atkin–Lehner group); J = J₀(N) = Jac X₀(N); c = class of (x) − (∞), d = class of (x) − (0) in J(H); σ ∈ G = Gal(H/K) corresponds to 𝒜 under the Artin map; <,> = global Néron–Tate height pairing on J(H) (heights over H), extended to J(H)⊗ℂ as a hermitian pairing; 𝕋 = ℚ-subalgebra of End_ℚ(J)⊗ℚ generated by the Hecke operators T_m. Combining Chap. III Props. (9.7), (9.12), (9.17) over all p and Chap. IV Prop. (4.6)(b): for (m, N) = 1, <c, T_m d^σ>_finite^Δ = −u² Σ_{0<n≤m|D|/N} σ′_𝒜(n) r_𝒜(m|D| − nN) + hu r_𝒜(m) log(N/m), where σ′_𝒜(n) = Σ_{d|n} ε_𝒜(n, d) log(n/d²). The finite superscript Δ means the sum over p of the contributions of [7.93 Rational-prime CM height sum](#target-classical-p-height-sum), with their discriminant correction; its archimedean partner uses the eta-normalized limit in [7.85 Tensor-normalized local-to-global CM height](#target-classical-tensor-global-decomposition).
 
 Assume the classical Rankin data (C) and the classical Heegner local data (H).
 
@@ -4702,6 +4742,8 @@ Assume All derivative, geometric regularization and projection hypotheses of the
 
 ([The Gross-Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, Sec. 1.5.6, printed p. 16; [The Gross–Zagier Formula on Shimura Curves](https://www.researchgate.net/profile/Xinyi-Yuan-11/publication/267551160_Gross-Zagier_Formula_On_Shimura_Curves/links/548e842c0cf225bf66a5ff13/Gross-Zagier-Formula-On-Shimura-Curves.pdf?origin=publication_detail), 6 November 2011 draft, §3.6.1, Theorem3.6.1, printed pp.109–110; §5.1.3, Theorem5.1.1 and Remark11, printed p.184; §5.2.2, Theorem5.2.6 and Proposition5.2.7, printed p.187.)
 
+**Gap.** The projected identity depends on the unresolved test-data and local-comparison interfaces in 7.4, 7.25 and 7.47. Its stated YZZ kernel-theorem locators have not been independently verified. It is a target contingent on closing those gaps.
+
 *Needs:* [6.24 Incoherent central derivative](#target-incoherent-central-derivative), [6.38 Arithmetic height kernel](#target-arithmetic-height-kernel), [6.39 Arithmetic theta lifting comparison](#target-arithmetic-theta-lifting), [7.47 Nearby quaternionic approximation](#target-degenerate-schwartz-functions-local-decomposition-and-approximation), [4.6 Nonzero toric test vectors](#target-toric-test-vectors), [6.1 Petersson projectors and their growth domains](#target-weight-two-petersson-projectors).
 
 <a id="target-chi-isotypic-mordell-weil-space"></a>
@@ -4796,10 +4838,10 @@ The interface should expose these named statements:
 
 **Checks.**
 
-- For K=ℚ(√−7), N=11, c=1, the image !![1,−1;22,−8] of (−7+√−7)/2 has lower-left entry divisible by 11 and satisfies X²+7X+14=0. This tests the explicit embedding fragment. Full admissibility and its CM-point identification require the actual CST order/curve supplier and are an additional prerequisite.
-- With trivial ω and the bottom torus subgroup, membership in the test-vector submodule equals the U-fixed condition. The full unramified maximal-order assertion also requires the irreducible local-representation supplier.
-- Given the actual line has finrank one, any two test vectors, the first nonzero, are proportional. Proving this dimension from admissibility is the missing arithmetic API, rather than an assumption for arbitrary representations.
-- For a local torus element t with χ(t)≠1, a nonzero t-fixed vector cannot satisfy the required χ^{-1}-eigencondition. This tests the eigenline fragment, modelled on the spherical vector at v ∤ N with χ_v ramified and t ∈ O_{K,v}^×, χ_v(t) ≠ 1; the geometric example additionally requires the CST local representation export.
+- For K=ℚ(√−7), N=11, c=1, the image !![1,−1;22,−8] of (−7+√−7)/2 has lower-left entry divisible by 11 and satisfies X²+7X+14=0. This tests the explicit embedding fragment. The matrix and its conjugate must satisfy the optimal-intersection and orientation conditions as well as the level condition; the displayed polynomial alone does not certify admissibility.
+- With trivial ω and no local torus conditions, the defining predicate is precisely U-fixedness. A vector moved by one u∈U fails it, even if fixed by all the selected tori.
+- An order of the correct discriminant whose intersection with K_v is O_{c_v+1}, instead of O_{c₁,v}, fails admissibility; equality of discriminants alone cannot pass the predicate.
+- For a local torus element t with χ(t)≠1, a nonzero t-fixed vector cannot satisfy the required χ^{-1}-eigencondition. For example, at v ∤ N with χ_v ramified, an O_{K,v}^×-fixed vector has zero toric evaluation as soon as χ_v is nontrivial on that unit group.
 - For T₁ = ⟨t⟩ with χ(t) = ζ (ζ³ = 1, ζ ≠ 1), U trivial and ω = 1: a vector f with t·f = ζ^{-1} f lies in V, while a nonzero g with t·g = ζ g does not. This detects the χ versus χ^{-1} convention.
 
 *Consequences.* F = ℚ, Heegner conditions: R = {(a b; c d) ∈ M₂(ℤ̂) : N | c} is admissible and f : X₀(N) → A, ∞ ↦ O lies in V(π_A, χ) (CST, Example after Theorem 1.5). The line depends on the optimal embedding, not just the level: at v ∤ N with χ_v ramified (c_v ≥ 1), the vector fixed by a maximal order meeting K_v in O_{K,v} is O_{K,v}^×-fixed and χ_v is nontrivial there, so its toric integral is 0; the test line is fixed by a maximal order meeting K_v in O_{c,v}. At v ∥ N, v | D, c_v = 0 the U₀(N)-newline is the test line (CST Proposition 3.8, Lemma 3.4).
@@ -4814,9 +4856,9 @@ The interface should expose these named statements:
 
 Fix N > 1, K = ℚ(√D) imaginary quadratic with D odd, (D, N) = 1 and every p | N split in K, x ∈ X₀(N)(H) a Heegner point of discriminant D, c the class of (x) − (∞) in J₀(N)(H), σ ∈ Gal(H/K) ↔ 𝒜 ∈ Cl_K under the Artin map, ⟨ , ⟩ the Néron–Tate pairing over H extended Hermitian to J(H) ⊗ ℂ, u = #O_K^×/2, and Φ_𝒜 = Σ a_{m,𝒜} q^m the weight-two cusp form of Gross–Zagier IV Theorem (6.9), which satisfies L'_𝒜(f, 1) = 8π²|D|^{-1/2} (f, Φ_𝒜) for newforms f. Prove that for every m ≥ 1 with (m, N) = 1, ⟨c, T_m c^σ⟩ = u² a_{m,𝒜}. Moreover g_𝒜 = Σ_{m ≥ 1} ⟨c, T_m c^σ⟩ q^m is a cusp form of weight two on Γ₀(N) (Gross–Zagier V §1 p.306), so g_𝒜 − u² Φ_𝒜 is an old form, and (f, g_𝒜) = u²|D|^{1/2}/(8π²) · L'_𝒜(f, 1) for every newform f (Gross–Zagier I Theorem (6.1)–(6.2)), where L_𝒜(f, s) = Σ_{(n,DN)=1} ε(n) n^{1−2s} · Σ a_n r_𝒜(n) n^{−s}.
 
-Assume N > 1 (N = 1 is treated separately by Gross–Zagier [18]); D odd, so D ≡ 1 mod 4 and (D, 2N) = 1; the Heegner hypothesis D ≡ β² mod 4N; g_𝒜 depends on the choice of the Heegner point x only through old forms; ⟨c, T_m c^σ⟩ for (m, N) = 1 does not depend on it (action of W × Gal(H/K)); x is built from HE.1/cm-cyclic-isogeny-pair, which assumes D_K ≠ −3, −4; for D = −3 (u = 3) the Heegner point is taken from HeegnerPointEulerSystems HE.1.
+Assume N > 1 (N = 1 is treated separately by Gross–Zagier [18]); D odd, so D ≡ 1 mod 4 and (D, 2N) = 1; the Heegner hypothesis D ≡ β² mod 4N; g_𝒜 depends on the choice of the Heegner point x only through old forms; ⟨c, T_m c^σ⟩ for (m, N) = 1 does not depend on it (action of W × Gal(H/K)); x is built from HE.1/cm-cyclic-isogeny-pair, which assumes D_K ≠ −3, −4; for D = −3 (u = 3), use the extra-unit CM cyclic-pair construction of 0.5, rather than the restricted HE.1 construction.
 
-*Outline.* g_𝒜 is a cusp form: 𝕋 × S₂(Γ₀(N))_ℚ → ℚ, (T, f) ↦ a₁(Tf), is perfect, so m ↦ ⟨y, T_m z⟩ is the coefficient sequence of a cusp form ([6.11 Hecke height-series cuspidality](#target-classical-height-series-cuspidality)). Replace c^σ by d^σ, d = (x) − (0), using that (0) − (∞) is torsion (Manin–Drinfeld), and decompose ⟨c, T_m d^σ⟩ (relatively prime divisors for (m, N) = 1, N > 1) into local heights: archimedean contribution from Chapter II Propositions (4.2) and (5.8) (Layer 7), finite contributions from Chapter III Propositions ([9.7 The Euler factor at the BDP point](#target-euler-factor-at-bdp-point)), ([9.12 The weight-two formula at a multiplicative prime](#target-multiplicative-prime-formula)) and ([9.17 The BDP p-adic Gross–Zagier formula in weight two](#target-bdp-weight-two-heegner-formula)) (Layer 7). Rewrite both through Chapter IV Proposition (4.6) (the Fourier coefficients of the holomorphic projection of the derivative of the Rankin kernel, Layer 6) and add: ⟨c, T_m c^σ⟩ = u² a_{m,𝒜} for (m, N) = 1. Two cusp forms whose m-th coefficients agree for (m, N) = 1 differ by an old form, which has the same Petersson product with every newform; use L'_𝒜(f, 1) = 8π² u^{-2} |D|^{-1/2} (f, g_𝒜).
+*Outline.* g_𝒜 is a cusp form: 𝕋 × S₂(Γ₀(N))_ℚ → ℚ, (T, f) ↦ a₁(Tf), is perfect, so m ↦ ⟨y, T_m z⟩ is the coefficient sequence of a cusp form ([6.11 Hecke height-series cuspidality](#target-classical-height-series-cuspidality)). Replace c^σ by d^σ, d = (x) − (0), using that (0) − (∞) is torsion (Manin–Drinfeld), and decompose ⟨c, T_m d^σ⟩ (disjoint divisors when r_A(m)=0; otherwise use the tangent-normalized extension) into local heights: archimedean contribution from Chapter II Propositions (4.2) and (5.8) (Layer 7), finite contributions from Chapter III Propositions (9.7), (9.12) and (9.17) (Layer 7). Rewrite both through Chapter IV Proposition (4.6) (the Fourier coefficients of the holomorphic projection of the derivative of the Rankin kernel, Layer 6) and add: ⟨c, T_m c^σ⟩ = u² a_{m,𝒜} for (m, N) = 1. Two cusp forms whose m-th coefficients agree for (m, N) = 1 differ by an old form, which has the same Petersson product with every newform; use L'_𝒜(f, 1) = 8π² u^{-2} |D|^{-1/2} (f, g_𝒜).
 
 *Consequences.* The identity is between coefficients with (m, N) = 1 only; a statement for all m would be false because g_𝒜 depends on x through old forms. Gross–Zagier V §3 announces the indefinite quaternionic analogue (the coefficients a_{m,𝒜} are a fixed multiple of ⟨x, T_m x^σ⟩ on Pic(X)); here that case is the specialisation of the Yuan–Zhang–Zhang formula (8.11) to F = ℚ, not a separate theorem.
 
@@ -4963,7 +5005,9 @@ Assume ω_A · χ|_{𝔸_F^×} = 1; Σ(A, χ) computed with ε(1/2, π_{A,v}, χ
 
 ([The Gross–Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Chapter 1, after Thm. 1.2, printed p. 9.)
 
-*Needs:* [8.10 The Heegner map is a toric-invariant functional](#target-heegner-functional-equivariance), [4.2 Saito–Tunnell dichotomy](#target-saito-tunnell-dichotomy-and-the-local-toric-functional), [8.11 The Yuan–Zhang–Zhang Gross–Zagier formula (YZZ Theorem 1.2)](#target-general-quaternionic-gross-zagier-identity).
+A public source for this interface is [Cai–Shu–Tian, Explicit Gross–Zagier and Waldspurger formulae](https://arxiv.org/abs/1408.1733v2), §1.2, p. 6 (Heegner map), and §3.1, p. 21 (zero local toric Hom); the vanishing follows by the tensor-factor argument above.
+
+*Needs:* [8.10 The Heegner map is a toric-invariant functional](#target-heegner-functional-equivariance), [4.2 Saito–Tunnell dichotomy](#target-saito-tunnell-dichotomy-and-the-local-toric-functional).
 
 <a id="target-nonvanishing-criterion"></a>
 
@@ -5531,11 +5575,17 @@ Assume Lie(A) is free of rank one over M ⊗ K_v (strict GL(2)-type), so A(K_v) 
 
 Fix A/K, an abelian variety with good reduction at v | p, V = V_p A, and κ : A(K) → H¹_f(K, V) the Kummer map (HE.3). Prove that loc_v κ(P) lies in H¹_f(K_v, V) = H¹_e(K_v, V) (D_cris(V)^{φ=1} = 0 by purity), and under D_dR(V)/Fil⁰ D_dR(V) ≅ Lie(A/K_v) the Bloch–Kato logarithm of loc_v κ(P) is the formal logarithm log_A(P). Hence for an invariant differential ω ∈ H⁰(A, Ω¹) ⊗ K_v, viewed in Fil⁰ D_dR(V^*(1)), the dual of D_dR(V)/Fil⁰ ≅ Lie(A/K_v), ⟨log_BK loc_v κ(P_K(f)), ω⟩ = log_ω(P_K(f)) for ω ∈ H⁰(A_f, Ω¹) ⊗ M_f with φ^*ω = ω_f, and the BDP-point formulas may be written L_p(f, 1) = E_p(f)² ⟨log_BK loc_v κ(P_K(f)), ω⟩² with the exact differential normalisation of the formula used.
 
-Assume Good reduction at v; V_p A crystalline, with crystalline Frobenius eigenvalues α/p, |α| = √p (weight −1; none equals 1, so H¹_e = H¹_f); The identification D_dR(V_p A)/Fil⁰ ≅ Lie(A) ⊗ K_v and the pairing with differentials use the de Rham comparison (PadicHodgeRegulators L0–L1); the sign convention of log_BK as the inverse of exp_BK is the one fixed there; V_f is the λ-summand of V_p(A_f), not its cohomological dual; the geometric L-function in JSW is that of V_f^∨⊗ψ. Identify D_dR(V_f)/Fil⁰ with Lie(A_f)_λ and its dual differential pairing with Fil⁰D_dR(V_f^*(1)) by the supplied comparison conventions. Purity for the Tate module has weight −1, so Frobenius eigenvalues cannot equal 1; dual H¹ has weight +1.
+Assume good reduction at v. Write q=p^f for the residue cardinality of K_v. On D_cris(V_p A), φ is semilinear and φ^f is linear over the maximal unramified subfield; its eigenvalues have complex absolute value q^(−1/2), equivalently they are α/q with |α|=√q. Hence φ has no fixed vector and H¹_e=H¹_f. Only for residue degree f=1 does this become the α/p formula; The identification D_dR(V_p A)/Fil⁰ ≅ Lie(A) ⊗ K_v and the pairing with differentials use the de Rham comparison (PadicHodgeRegulators L0–L1); the sign convention of log_BK as the inverse of exp_BK is the one fixed there; V_f is the λ-summand of V_p(A_f), not its cohomological dual; the geometric L-function in JSW is that of V_f^∨⊗ψ. Identify D_dR(V_f)/Fil⁰ with Lie(A_f)_λ and its dual differential pairing with Fil⁰D_dR(V_f^*(1)) by the supplied comparison conventions. Purity for the Tate module has weight −1, so Frobenius eigenvalues cannot equal 1; dual H¹ has weight +1.
 
 *Outline.* The Kummer image of A(K_v) ⊗ ℚ_p is H¹_f(K_v, V) (Bloch–Kato, Example 3.10.1), and the Bloch–Kato exponential Lie(A) ⊗ K_v → H¹(K_v, V) is the composite of the exponential of the formal group with the Kummer map (PadicHodgeRegulators L1). Invert: log_BK ∘ loc_v ∘ κ = log_A on A(K_v) ⊗ ℚ. Pair with ω ∈ Fil⁰ D_dR(V^*(1)) (for A = A_f, the differential with φ^*ω = ω_f) through the de Rham pairing, as Castella–Hsieh §4.5 do for generalized Heegner classes.
 
 *Consequences.* A global Selmer class with trivial localisation at v has log_BK = 0 although it may be nonzero: logarithms detect points, not Selmer classes ([9.19 The formal logarithm detects non-torsion Heegner points](#target-logarithm-detects-heegner-point)). Compatibility with GeneralizedHeegnerCycles GH.8's weight-two comparison: the étale Abel–Jacobi class of ε_f(P − ∞) maps to κ(P) under the modular quotient, so the same logarithm appears.
+
+**Checks.**
+
+- A torsion point has zero Kummer class after rationalization and zero logarithm.
+- Over an unramified quadratic extension, φ² has eigenvalues of absolute value p^(−1); treating φ as a linear operator with the same eigenvalues is invalid.
+- Replacing V_p A by its cohomological dual changes the weight and the de Rham quotient; the point exponential uses the Tate module.
 
 ([Heegner cycles and p-adic L-functions](https://arxiv.org/abs/1505.08165v2), §4.5, p. 19; [Heegner cycles and p-adic L-functions](https://arxiv.org/abs/1505.08165v2), §4.5, Theorem 4.9, p. 20.)
 
@@ -5584,7 +5634,7 @@ Earlier layers 0, 3, 4, 5, 7, 8. The direct external interfaces used above are M
 
 The geometric constructions require actual arithmetic models, metrized lines, admissible pairings and automorphic representations. The named local constructions, primitive lattices and projectors above are prerequisites of the global formulas. Generic reduction, rational transfer and a formal eigencondition do not replace them.
 
-The 2013 Yuan–Zhang–Zhang book locators identify the published proof inputs. The public 2011 formulation, Cai–Shu–Tian, Zhang's survey, Yuan–Zhang's Colmez paper and the 2026 author erratum provide accessible statements and many local calculations, with different numbering. The book locators are retained as published locators, not certified against a complete accessible copy. The local and projection targets here state the required mathematical work, including the split (3,1) Shimizu comparison; a public statement of the final formula is not its proof.
+The 2013 Yuan–Zhang–Zhang book locators identify the published proof inputs. The public 2011 formulation, Cai–Shu–Tian, Zhang's survey, Yuan–Zhang's Colmez paper and the 2026 author erratum provide accessible statements and many local calculations, with different numbering. The book locators are retained as published locators, not certified against a complete accessible copy. The precise YZZ interfaces in 1.1, 7.4, 7.5, 7.25, 7.47 and 8.1 remain explicitly marked gaps. In particular, 7.25 lacks the full good-place hypotheses and normalized local equations, and 7.47 lacks the bad-place nearby functions and comparison equations. Thus 8.1 and its unrestricted quaternionic consequences remain contingent on those inputs; the public statement of the final formula does not fill their proof interfaces. The split (3,1) Shimizu comparison is a separate owned target.
 
 The exact CM Waldspurger constants are stated only in the odd-discriminant range of the local calculations. Prasanna's ratio-integrality range also requires squarefree level and the displayed exclusions on p. The Manin p-unit theorem retains its optimality and reduction hypotheses. The coefficient Amice inverse and analytic uniqueness statements explicitly allow infinite residue fields, while algebraic preparation is imported from Mathlib's already general theorem.
 
@@ -5614,7 +5664,7 @@ Heegner point Euler systems consumes the character-height normalization and loga
 - [On Tunnell’s formula for characters of GL(2)](https://www.numdam.org/article/CM_1993__85_1_99_0.pdf), Hiroshi Saito; Compositio Mathematica 85 (1993), 99–108, Numdam published scan.
 - [Sur les valeurs de certaines fonctions L automorphes en leur centre de symétrie](https://www.numdam.org/item/CM_1985__54_2_173_0.pdf), Jean-Loup Waldspurger; Compositio Mathematica 54 (1985), 173–242, Numdam published scan.
 - [Edixhoven, Minimal resolution and stable reduction of X₀(N)](https://www.numdam.org/item/10.5802/aif.1202.pdf), Bas Edixhoven; Ann. Inst. Fourier40 (1990), pp.31–67.
-- [The Gross–Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Xinyi Yuan, Shou-Wu Zhang and Wei Zhang; Annals of Mathematics Studies 184, Princeton University Press, 2013. Book locators (chapter, theorem and printed page) refer to this edition; its statements used here are also stated in Cai–Shu–Tian §§1–2, Zhang (2010) §4 and Yuan–Zhang (2018) §§7–9, and the 2011 author draft has different numbering.
+- [The Gross–Zagier Formula on Shimura Curves](https://press.princeton.edu/books/paperback/9780691155920/the-gross-zagier-formula-on-shimura-curves-ams-184), Xinyi Yuan, Shou-Wu Zhang and Wei Zhang; Annals of Mathematics Studies 184, Princeton University Press, 2013. Book locators (chapter, theorem and printed page) refer to this edition; many of its statements used here have public counterparts in Cai–Shu–Tian §§1–2, Zhang (2010) §4 and Yuan–Zhang (2018) §§7–9. The remaining source and interface gaps are identified above. The 2011 author draft has different numbering.
 - [Erratum: Gross–Zagier Formula On Shimura Curves](https://math.berkeley.edu/~yxy/preprints/erratum-GZSC.pdf), Xinyi Yuan, Shou-Wu Zhang and Wei Zhang; Author erratum, dated 28 June 2026; Berkeley author copy.
 - [A converse to a theorem of Gross, Zagier, and Kolyvagin](https://arxiv.org/abs/1405.7294v1), Christopher Skinner; arXiv:1405.7294v1 (28 May 2014); published in Annals of Mathematics 191 (2020) 329–354.
 - [The Birch and Swinnerton-Dyer formula for elliptic curves of analytic rank one](https://arxiv.org/abs/1512.06894v1), Dimitar Jetchev, Christopher Skinner and Xin Wan; arXiv:1512.06894v1 (21 Dec 2015), published in Cambridge Journal of Mathematics 5 (2017) 369–434.
