@@ -1,19 +1,18 @@
 {
  "collected_at": null,
- "cutoff": "2026-10-18T21:15:46Z",
- "exported_at": "2026-10-18T21:15:46Z",
+ "cutoff": "2026-10-19T06:03:57Z",
+ "exported_at": "2026-10-19T06:03:57Z",
  "global": {
   "first_merge": "2026-06-03T00:19:04Z",
-  "open": 327,
-  "recent": 10141,
-  "total": 16712,
+  "open": 345,
+  "recent": 10296,
+  "total": 16930,
   "unattributed": {
-   "no_label": 1538,
+   "no_label": 1558,
    "several_labels": 0,
    "unknown_area": 0
   },
   "weekly": [
-   191,
    147,
    108,
    158,
@@ -28,22 +27,22 @@
    1649,
    2267,
    2827,
-   3026
+   3120,
+   124
   ]
  },
  "prs_source": "snapshot pr-snapshot.json",
  "recent_days": 30,
- "roadmap_head": "a08dc283184a9ec4d6c7fab2fb2b41866801994a",
+ "roadmap_head": "69bd802abd021be5efb158896d7c4930bd0775b0",
  "rows": [
   {
    "activity": {
-    "last": "2026-10-18T10:32:22Z",
+    "last": "2026-10-19T02:07:25Z",
     "open": 4,
-    "recent": 290,
-    "since_report": 81,
-    "total": 595,
+    "recent": 291,
+    "since_report": 82,
+    "total": 596,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -58,7 +57,8 @@
      42,
      61,
      83,
-     99
+     99,
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -146,11 +146,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T15:02:09Z",
-    "open": 2,
-    "recent": 9,
+    "last": "2026-10-19T01:40:31Z",
+    "open": 3,
+    "recent": 10,
     "since_report": null,
-    "total": 9,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -166,8 +166,8 @@
      0,
      0,
      0,
-     0,
-     9
+     9,
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -210,6 +210,58 @@
   },
   {
    "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "arxiv": "math.RT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/AffineLieAlgebras",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "AffineLieAlgebras",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/AffineLieAlgebras/README.md",
+   "readme_sha": "50d11440dca08efe2e56c2c2dadcc24d537c9fe24fc77ba9156f6ccadd7c3eac",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Affine Lie algebras, smooth modules and completed centers",
+   "topic": "Representation Theory"
+  },
+  {
+   "activity": {
     "last": "2026-10-18T12:51:22Z",
     "open": 6,
     "recent": 7,
@@ -230,8 +282,8 @@
      0,
      0,
      0,
-     0,
-     7
+     7,
+     0
     ]
    },
    "arxiv": "math.CV",
@@ -253,7 +305,7 @@
    "parent": null,
    "parent_id": null,
    "readme": "TauCetiRoadmap/AffineMorseLefschetz/README.md",
-   "readme_sha": "8c02ffa5570ad8443351cd9c60058c8b6593575e905959c1927119c07603addc",
+   "readme_sha": "a7446d13dc5f25b58dfdd6bedd58525964357e8f0c48ff939188d84f74687bfc",
    "retired": null,
    "states": [],
    "status": null,
@@ -262,13 +314,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T19:18:09Z",
-    "open": 11,
+    "last": "2026-10-19T00:48:55Z",
+    "open": 13,
     "recent": 225,
-    "since_report": 66,
-    "total": 307,
+    "since_report": 67,
+    "total": 308,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -283,7 +334,8 @@
      25,
      48,
      70,
-     77
+     77,
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -406,13 +458,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T15:02:10Z",
-    "open": 1,
-    "recent": 230,
-    "since_report": 71,
-    "total": 242,
+    "last": "2026-10-19T05:19:03Z",
+    "open": 2,
+    "recent": 233,
+    "since_report": 75,
+    "total": 246,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -427,7 +478,8 @@
      22,
      39,
      72,
-     89
+     92,
+     1
     ]
    },
    "arxiv": "math.AT",
@@ -530,13 +582,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T21:02:39Z",
-    "open": 5,
-    "recent": 108,
-    "since_report": 46,
-    "total": 110,
+    "last": "2026-10-19T05:31:54Z",
+    "open": 4,
+    "recent": 110,
+    "since_report": 50,
+    "total": 114,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -551,7 +602,8 @@
      16,
      28,
      26,
-     32
+     33,
+     3
     ]
    },
    "arxiv": "math.AG",
@@ -649,13 +701,100 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T17:56:14Z",
-    "open": 4,
-    "recent": 104,
-    "since_report": 40,
-    "total": 123,
+    "last": "2026-10-19T03:30:33Z",
+    "open": 0,
+    "recent": 1,
+    "since_report": null,
+    "total": 1,
     "weekly": [
      0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   },
+   "arxiv": "math.GR",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-report",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/AmenableGroups",
+   "layer_ids": [
+    "Layer 1",
+    "Layer 2",
+    "Layer 3",
+    "Layer 4",
+    "Layer 5",
+    "Layer 6",
+    "Layer 7",
+    "Layer 8"
+   ],
+   "layer_lines": [
+    98,
+    142,
+    187,
+    232,
+    289,
+    391,
+    415,
+    533
+   ],
+   "layers": [
+    "Layer 1: UCB, means and transport",
+    "Layer 2: discrete means, contents and finite groups",
+    "Layer 3: equidecompositions and the free-group obstruction",
+    "Layer 4: discrete closure theory",
+    "Layer 5: Følner criteria for arbitrary discrete groups",
+    "Layer 6: integers and abelian groups",
+    "Layer 7: locally compact Hausdorff groups and Haar L∞",
+    "Layer 8: Tarski's alternative for the whole discrete group"
+   ],
+   "links": [],
+   "name": "AmenableGroups",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/AmenableGroups/README.md",
+   "readme_sha": "51be0dfb64115f2b4fa585b7fdf7435900536966ec8f1a49a6143d3e25ca4710",
+   "retired": null,
+   "states": [
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
+   ],
+   "status": null,
+   "title": "amenable groups",
+   "topic": "Group Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-18T21:37:35Z",
+    "open": 5,
+    "recent": 103,
+    "since_report": 41,
+    "total": 124,
+    "weekly": [
      0,
      0,
      0,
@@ -670,7 +809,8 @@
      21,
      29,
      26,
-     22
+     23,
+     0
     ]
    },
    "arxiv": "math.AG",
@@ -772,11 +912,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T15:50:35Z",
-    "open": 1,
-    "recent": 30,
+    "last": "2026-10-19T04:32:58Z",
+    "open": 2,
+    "recent": 34,
     "since_report": null,
-    "total": 30,
+    "total": 34,
     "weekly": [
      0,
      0,
@@ -792,8 +932,8 @@
      0,
      0,
      0,
-     0,
-     30
+     31,
+     3
     ]
    },
    "arxiv": "math.FA",
@@ -824,13 +964,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T20:28:13Z",
-    "open": 3,
-    "recent": 134,
-    "since_report": 49,
-    "total": 153,
+    "last": "2026-10-19T05:07:25Z",
+    "open": 2,
+    "recent": 137,
+    "since_report": 53,
+    "total": 157,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -845,7 +984,8 @@
      18,
      47,
      31,
-     28
+     30,
+     2
     ]
    },
    "arxiv": "math.AG",
@@ -974,11 +1114,11 @@
   },
   {
    "activity": {
-    "last": null,
-    "open": 1,
-    "recent": 0,
+    "last": "2026-10-18T22:42:04Z",
+    "open": 2,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -994,7 +1134,7 @@
      0,
      0,
      0,
-     0,
+     1,
      0
     ]
    },
@@ -1036,7 +1176,6 @@
      0,
      0,
      0,
-     0,
      1,
      32,
      3,
@@ -1047,7 +1186,8 @@
      19,
      13,
      28,
-     6
+     6,
+     0
     ]
    },
    "arxiv": "math.GR",
@@ -1142,13 +1282,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-15T10:12:40Z",
-    "open": 1,
-    "recent": 52,
-    "since_report": 6,
-    "total": 104,
+    "last": "2026-10-18T22:16:15Z",
+    "open": 0,
+    "recent": 53,
+    "since_report": 7,
+    "total": 105,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -1163,7 +1302,8 @@
      33,
      10,
      5,
-     2
+     3,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -1276,13 +1416,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T18:09:04Z",
-    "open": 5,
-    "recent": 425,
-    "since_report": 138,
-    "total": 454,
+    "last": "2026-10-19T01:14:49Z",
+    "open": 8,
+    "recent": 423,
+    "since_report": 139,
+    "total": 455,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -1297,7 +1436,8 @@
      84,
      104,
      140,
-     91
+     91,
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -1428,7 +1568,31 @@
    "topic": "Number Theory"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": "2026-10-19T05:19:02Z",
+    "open": 2,
+    "recent": 3,
+    "since_report": null,
+    "total": 3,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     2
+    ]
+   },
    "arxiv": "math.NT",
    "assessment": {
     "detail": null,
@@ -1493,11 +1657,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T20:28:03Z",
-    "open": 1,
-    "recent": 21,
+    "last": "2026-10-19T04:32:30Z",
+    "open": 2,
+    "recent": 22,
     "since_report": null,
-    "total": 21,
+    "total": 22,
     "weekly": [
      0,
      0,
@@ -1513,8 +1677,8 @@
      0,
      0,
      0,
-     0,
-     21
+     21,
+     1
     ]
    },
    "arxiv": "math.AT",
@@ -1565,13 +1729,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T10:32:58Z",
+    "last": "2026-10-19T02:33:09Z",
     "open": 2,
-    "recent": 176,
-    "since_report": 36,
-    "total": 283,
+    "recent": 174,
+    "since_report": 37,
+    "total": 284,
     "weekly": [
-     5,
      4,
      5,
      1,
@@ -1586,7 +1749,8 @@
      19,
      65,
      42,
-     39
+     39,
+     1
     ]
    },
    "arxiv": "math.GT",
@@ -1677,11 +1841,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T08:40:21Z",
+    "last": "2026-10-19T02:32:48Z",
     "open": 1,
-    "recent": 8,
+    "recent": 9,
     "since_report": null,
-    "total": 8,
+    "total": 9,
     "weekly": [
      0,
      0,
@@ -1697,8 +1861,8 @@
      0,
      0,
      0,
-     0,
-     8
+     8,
+     1
     ]
    },
    "arxiv": "math.FA",
@@ -1752,14 +1916,41 @@
    "topic": "Functional Analysis"
   },
   {
+   "activity": null,
+   "arxiv": "math.AG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/ComplexCurveModuli",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "ComplexCurveModuli",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/ComplexCurveModuli/README.md",
+   "readme_sha": "2d13341aad80c75562e23223f77c044de7a68c4732596a31e497e32db8954d1b",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Analytic families and moduli of complex curves",
+   "topic": "Algebraic Geometry"
+  },
+  {
    "activity": {
-    "last": "2026-10-18T19:28:51Z",
-    "open": 1,
-    "recent": 110,
-    "since_report": 37,
-    "total": 316,
+    "last": "2026-10-19T03:19:34Z",
+    "open": 2,
+    "recent": 112,
+    "since_report": 40,
+    "total": 319,
     "weekly": [
-     8,
      8,
      5,
      8,
@@ -1774,7 +1965,8 @@
      30,
      27,
      27,
-     23
+     24,
+     2
     ]
    },
    "arxiv": "math.CV",
@@ -1869,13 +2061,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T16:12:33Z",
-    "open": 4,
-    "recent": 128,
-    "since_report": 31,
-    "total": 167,
+    "last": "2026-10-19T03:55:58Z",
+    "open": 3,
+    "recent": 127,
+    "since_report": 33,
+    "total": 169,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -1890,7 +2081,8 @@
      25,
      32,
      20,
-     42
+     42,
+     2
     ]
    },
    "arxiv": "math.CT",
@@ -2009,11 +2201,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T17:35:15Z",
-    "open": 3,
-    "recent": 110,
+    "last": "2026-10-18T23:52:00Z",
+    "open": 7,
+    "recent": 111,
     "since_report": null,
-    "total": 110,
+    "total": 111,
     "weekly": [
      0,
      0,
@@ -2028,9 +2220,9 @@
      0,
      0,
      0,
-     0,
      52,
-     58
+     59,
+     0
     ]
    },
    "arxiv": "math.SG",
@@ -2115,11 +2307,10 @@
    "activity": {
     "last": "2026-10-17T04:17:58Z",
     "open": 3,
-    "recent": 77,
+    "recent": 75,
     "since_report": 10,
     "total": 132,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -2134,7 +2325,8 @@
      32,
      18,
      7,
-     15
+     15,
+     0
     ]
    },
    "arxiv": "math.CO",
@@ -2247,11 +2439,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T20:50:24Z",
-    "open": 11,
-    "recent": 100,
+    "last": null,
+    "open": 1,
+    "recent": 0,
     "since_report": null,
-    "total": 100,
+    "total": 0,
     "weekly": [
      0,
      0,
@@ -2267,8 +2459,60 @@
      0,
      0,
      0,
+     0,
+     0
+    ]
+   },
+   "arxiv": "math.AC",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/DerivedModuleAlgebra",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "DerivedModuleAlgebra",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/DerivedModuleAlgebra/README.md",
+   "readme_sha": "c62a4d0b180deb119c2ee6f5828846f6a660bc88fb8228a2e11d39b550377dff",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Derived module algebra",
+   "topic": "Commutative Algebra"
+  },
+  {
+   "activity": {
+    "last": "2026-10-19T03:44:10Z",
+    "open": 11,
+    "recent": 111,
+    "since_report": null,
+    "total": 111,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      18,
-     82
+     90,
+     3
     ]
    },
    "arxiv": "math.DG",
@@ -2359,11 +2603,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T16:49:02Z",
-    "open": 4,
-    "recent": 60,
+    "last": "2026-10-19T03:30:34Z",
+    "open": 3,
+    "recent": 62,
     "since_report": null,
-    "total": 60,
+    "total": 62,
     "weekly": [
      0,
      0,
@@ -2379,8 +2623,8 @@
      0,
      0,
      0,
-     0,
-     60
+     61,
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -2439,13 +2683,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T10:32:24Z",
+    "last": "2026-10-19T02:07:27Z",
     "open": 5,
-    "recent": 263,
-    "since_report": 55,
-    "total": 618,
+    "recent": 262,
+    "since_report": 57,
+    "total": 620,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -2460,7 +2703,8 @@
      36,
      48,
      78,
-     92
+     93,
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -2580,13 +2824,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T18:09:06Z",
+    "last": "2026-10-19T04:20:11Z",
     "open": 1,
-    "recent": 121,
-    "since_report": 39,
-    "total": 351,
+    "recent": 120,
+    "since_report": 40,
+    "total": 352,
     "weekly": [
-     29,
      19,
      2,
      14,
@@ -2601,7 +2844,8 @@
      37,
      23,
      13,
-     41
+     41,
+     1
     ]
    },
    "arxiv": "math.PR",
@@ -2689,12 +2933,40 @@
    "topic": "Probability"
   },
   {
+   "activity": null,
+   "arxiv": "math.PR",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/FinancialMathematics",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "FinancialMathematics",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/FinancialMathematics/README.md",
+   "readme_sha": "236e11dba238ff7c341aee074d074fac56012f7cec615cbf071dd9e9cc148c13",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Financial mathematics: one-factor markets and replication",
+   "topic": "Probability"
+  },
+  {
    "activity": {
-    "last": "2026-10-18T19:28:52Z",
-    "open": 5,
-    "recent": 17,
+    "last": "2026-10-19T03:30:19Z",
+    "open": 6,
+    "recent": 18,
     "since_report": null,
-    "total": 17,
+    "total": 18,
     "weekly": [
      0,
      0,
@@ -2710,8 +2982,8 @@
      0,
      0,
      0,
-     0,
-     17
+     17,
+     1
     ]
    },
    "arxiv": "math.AC",
@@ -2742,11 +3014,11 @@
   },
   {
    "activity": {
-    "last": null,
+    "last": "2026-10-18T22:15:20Z",
     "open": 1,
-    "recent": 0,
+    "recent": 1,
     "since_report": null,
-    "total": 0,
+    "total": 1,
     "weekly": [
      0,
      0,
@@ -2762,7 +3034,7 @@
      0,
      0,
      0,
-     0,
+     1,
      0
     ]
    },
@@ -2794,13 +3066,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T15:38:33Z",
+    "last": "2026-10-18T22:14:40Z",
     "open": 1,
-    "recent": 125,
-    "since_report": 12,
-    "total": 139,
+    "recent": 126,
+    "since_report": 13,
+    "total": 140,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -2815,7 +3086,8 @@
      24,
      46,
      27,
-     24
+     25,
+     0
     ]
    },
    "arxiv": "math.CV",
@@ -2913,11 +3185,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T11:58:31Z",
-    "open": 3,
-    "recent": 9,
+    "last": "2026-10-19T04:44:42Z",
+    "open": 2,
+    "recent": 11,
     "since_report": null,
-    "total": 9,
+    "total": 11,
     "weekly": [
      0,
      0,
@@ -2933,8 +3205,8 @@
      0,
      0,
      0,
-     0,
-     9
+     10,
+     1
     ]
    },
    "arxiv": "math.AT",
@@ -2965,11 +3237,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T06:15:56Z",
+    "last": "2026-10-19T03:44:09Z",
     "open": 4,
-    "recent": 19,
+    "recent": 24,
     "since_report": null,
-    "total": 19,
+    "total": 24,
     "weekly": [
      0,
      0,
@@ -2985,8 +3257,8 @@
      0,
      0,
      0,
-     0,
-     19
+     20,
+     4
     ]
    },
    "arxiv": "math.MG",
@@ -3044,14 +3316,41 @@
    "topic": "Metric Geometry"
   },
   {
+   "activity": null,
+   "arxiv": "math.RT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/GeometricRepresentationCategories",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "GeometricRepresentationCategories",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/GeometricRepresentationCategories/README.md",
+   "readme_sha": "3cbca41228a63d26edd58bc3eb60a86d9eb3748638713f9356769a787014ef5b",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Geometric representation categories and coherent local transport",
+   "topic": "Representation Theory"
+  },
+  {
    "activity": {
-    "last": "2026-10-18T20:27:21Z",
-    "open": 3,
-    "recent": 381,
-    "since_report": 192,
-    "total": 490,
+    "last": "2026-10-19T03:20:02Z",
+    "open": 5,
+    "recent": 382,
+    "since_report": 195,
+    "total": 493,
     "weekly": [
-     5,
      3,
      3,
      9,
@@ -3066,7 +3365,8 @@
      19,
      80,
      214,
-     56
+     57,
+     2
     ]
    },
    "arxiv": "math.GT",
@@ -3190,13 +3490,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T21:02:37Z",
+    "last": "2026-10-18T22:31:49Z",
     "open": 2,
-    "recent": 126,
-    "since_report": 13,
-    "total": 146,
+    "recent": 127,
+    "since_report": 14,
+    "total": 147,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -3211,7 +3510,8 @@
      41,
      37,
      30,
-     15
+     16,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -3314,13 +3614,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T03:51:08Z",
-    "open": 0,
+    "last": "2026-10-19T00:26:24Z",
+    "open": 1,
     "recent": 41,
-    "since_report": 8,
-    "total": 59,
+    "since_report": 9,
+    "total": 60,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -3335,7 +3634,8 @@
      11,
      10,
      10,
-     9
+     9,
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -3448,11 +3748,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T21:02:38Z",
-    "open": 5,
-    "recent": 2,
+    "last": "2026-10-19T03:09:21Z",
+    "open": 3,
+    "recent": 8,
     "since_report": null,
-    "total": 2,
+    "total": 8,
     "weekly": [
      0,
      0,
@@ -3468,8 +3768,8 @@
      0,
      0,
      0,
-     0,
-     2
+     4,
+     4
     ]
    },
    "arxiv": "math.CO",
@@ -3511,7 +3811,6 @@
      0,
      0,
      0,
-     0,
      6,
      13,
      10,
@@ -3521,7 +3820,8 @@
      20,
      32,
      34,
-     41
+     41,
+     0
     ]
    },
    "arxiv": "math.RT",
@@ -3622,14 +3922,41 @@
    "topic": "Representation Theory"
   },
   {
+   "activity": null,
+   "arxiv": "math.SG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/HamiltonianFloerOperations",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "HamiltonianFloerOperations",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/HamiltonianFloerOperations/README.md",
+   "readme_sha": "8fab7b8b69a70853f90007883131fb91be8ba5dd3aad54e9f8858931d7063d98",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Hamiltonian Floer operations: geometric product and multiplicative PSS",
+   "topic": "Symplectic Geometry"
+  },
+  {
    "activity": {
-    "last": "2026-10-17T23:02:11Z",
-    "open": 2,
+    "last": "2026-10-18T23:51:39Z",
+    "open": 3,
     "recent": 185,
-    "since_report": 22,
-    "total": 318,
+    "since_report": 24,
+    "total": 320,
     "weekly": [
-     9,
      4,
      2,
      5,
@@ -3644,7 +3971,8 @@
      33,
      31,
      56,
-     60
+     62,
+     0
     ]
    },
    "arxiv": "math.SG",
@@ -3744,11 +4072,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T14:19:28Z",
-    "open": 4,
-    "recent": 20,
+    "last": "2026-10-18T23:52:58Z",
+    "open": 3,
+    "recent": 22,
     "since_report": null,
-    "total": 20,
+    "total": 22,
     "weekly": [
      0,
      0,
@@ -3764,8 +4092,8 @@
      0,
      0,
      0,
-     0,
-     20
+     22,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -3820,13 +4148,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T14:20:46Z",
-    "open": 0,
-    "recent": 61,
-    "since_report": 9,
-    "total": 105,
+    "last": "2026-10-19T05:46:15Z",
+    "open": 3,
+    "recent": 66,
+    "since_report": 14,
+    "total": 110,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -3841,7 +4168,8 @@
      30,
      19,
      3,
-     6
+     7,
+     4
     ]
    },
    "arxiv": "math.DG",
@@ -3914,11 +4242,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T16:48:26Z",
-    "open": 5,
-    "recent": 20,
+    "last": null,
+    "open": 1,
+    "recent": 0,
     "since_report": null,
-    "total": 20,
+    "total": 0,
     "weekly": [
      0,
      0,
@@ -3935,7 +4263,59 @@
      0,
      0,
      0,
-     20
+     0
+    ]
+   },
+   "arxiv": "math.CV",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/Hyperfunctions",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "Hyperfunctions",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/Hyperfunctions/README.md",
+   "readme_sha": "a8f1da65f43339dcd767dc811743f109854bd7bbbe6e389de95e965492558908",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Sato hyperfunctions and analytic generalized functions",
+   "topic": "Complex Variables"
+  },
+  {
+   "activity": {
+    "last": "2026-10-19T04:20:10Z",
+    "open": 5,
+    "recent": 23,
+    "since_report": null,
+    "total": 23,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     21,
+     2
     ]
    },
    "arxiv": "math.LO",
@@ -3986,13 +4366,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T11:25:54Z",
-    "open": 8,
-    "recent": 158,
-    "since_report": 14,
-    "total": 221,
+    "last": "2026-10-19T01:27:33Z",
+    "open": 5,
+    "recent": 161,
+    "since_report": 17,
+    "total": 224,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -4007,7 +4386,8 @@
      0,
      40,
      68,
-     50
+     52,
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -4125,11 +4505,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T19:28:53Z",
+    "last": "2026-10-19T01:40:32Z",
     "open": 2,
-    "recent": 20,
+    "recent": 23,
     "since_report": null,
-    "total": 20,
+    "total": 23,
     "weekly": [
      0,
      0,
@@ -4145,8 +4525,8 @@
      0,
      0,
      0,
-     0,
-     20
+     21,
+     2
     ]
    },
    "arxiv": "math.MG",
@@ -4205,13 +4585,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T19:05:29Z",
+    "last": "2026-10-19T00:15:04Z",
     "open": 3,
-    "recent": 129,
-    "since_report": 54,
-    "total": 223,
+    "recent": 128,
+    "since_report": 55,
+    "total": 224,
     "weekly": [
-     9,
      8,
      3,
      3,
@@ -4226,7 +4605,8 @@
      28,
      31,
      21,
-     40
+     40,
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -4320,7 +4700,31 @@
    "topic": "Algebraic Geometry"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 3,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "arxiv": "math.GT",
    "assessment": {
     "detail": null,
@@ -4351,11 +4755,10 @@
    "activity": {
     "last": "2026-10-18T06:57:35Z",
     "open": 0,
-    "recent": 139,
+    "recent": 136,
     "since_report": 12,
     "total": 157,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -4370,7 +4773,8 @@
      33,
      60,
      24,
-     15
+     15,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -4460,11 +4864,11 @@
      0,
      0,
      0,
-     0,
      1,
      55,
      42,
-     39
+     39,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -4572,7 +4976,7 @@
   {
    "activity": {
     "last": "2026-10-18T16:49:01Z",
-    "open": 2,
+    "open": 3,
     "recent": 9,
     "since_report": null,
     "total": 9,
@@ -4591,8 +4995,8 @@
      0,
      0,
      0,
-     0,
-     9
+     9,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -4647,13 +5051,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T09:28:58Z",
+    "last": "2026-10-19T01:00:29Z",
     "open": 3,
-    "recent": 184,
-    "since_report": 66,
-    "total": 184,
+    "recent": 186,
+    "since_report": 68,
+    "total": 186,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -4668,7 +5071,8 @@
      0,
      5,
      95,
-     84
+     85,
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -4784,13 +5188,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T00:03:51Z",
-    "open": 7,
+    "last": "2026-10-18T22:53:13Z",
+    "open": 5,
     "recent": 159,
-    "since_report": 7,
-    "total": 573,
+    "since_report": 9,
+    "total": 575,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -4805,7 +5208,8 @@
      48,
      37,
      34,
-     32
+     34,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -4933,7 +5337,31 @@
    "topic": "Number Theory"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "arxiv": "math.GT",
    "assessment": {
     "detail": null,
@@ -4962,11 +5390,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T21:03:14Z",
-    "open": 1,
-    "recent": 12,
+    "last": "2026-10-19T01:00:27Z",
+    "open": 4,
+    "recent": 13,
     "since_report": null,
-    "total": 12,
+    "total": 13,
     "weekly": [
      0,
      0,
@@ -4982,8 +5410,8 @@
      0,
      0,
      0,
-     0,
-     12
+     12,
+     1
     ]
    },
    "arxiv": "math.DG",
@@ -5014,11 +5442,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T19:18:08Z",
-    "open": 4,
-    "recent": 13,
+    "last": "2026-10-19T05:32:23Z",
+    "open": 2,
+    "recent": 16,
     "since_report": null,
-    "total": 13,
+    "total": 16,
     "weekly": [
      0,
      0,
@@ -5034,8 +5462,8 @@
      0,
      0,
      0,
-     0,
-     13
+     14,
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -5118,8 +5546,8 @@
      0,
      0,
      0,
-     0,
-     15
+     15,
+     0
     ]
    },
    "arxiv": "math.OA",
@@ -5150,13 +5578,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T06:05:28Z",
+    "last": "2026-10-18T22:15:21Z",
     "open": 1,
-    "recent": 104,
-    "since_report": 27,
-    "total": 159,
+    "recent": 103,
+    "since_report": 28,
+    "total": 160,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -5171,7 +5598,8 @@
      42,
      28,
      10,
-     17
+     18,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -5262,11 +5690,10 @@
    "activity": {
     "last": "2026-10-18T02:05:18Z",
     "open": 1,
-    "recent": 67,
+    "recent": 65,
     "since_report": 18,
     "total": 206,
     "weekly": [
-     10,
      4,
      5,
      7,
@@ -5281,7 +5708,8 @@
      16,
      20,
      10,
-     13
+     13,
+     0
     ]
    },
    "arxiv": "math.FA",
@@ -5348,11 +5776,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T10:32:23Z",
-    "open": 4,
-    "recent": 4,
+    "last": "2026-10-19T04:32:29Z",
+    "open": 3,
+    "recent": 7,
     "since_report": null,
-    "total": 4,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -5368,8 +5796,8 @@
      0,
      0,
      0,
-     0,
-     4
+     5,
+     2
     ]
    },
    "arxiv": "math.OA",
@@ -5400,11 +5828,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T09:01:28Z",
-    "open": 4,
-    "recent": 139,
+    "last": "2026-10-18T23:52:57Z",
+    "open": 5,
+    "recent": 142,
     "since_report": null,
-    "total": 139,
+    "total": 142,
     "weekly": [
      0,
      0,
@@ -5419,9 +5847,9 @@
      0,
      0,
      0,
-     0,
      39,
-     100
+     103,
+     0
     ]
    },
    "arxiv": "math.FA",
@@ -5715,25 +6143,25 @@
     "Part E"
    ],
    "layer_lines": [
-    132,
-    217,
-    654,
-    879,
-    1024
+    149,
+    252,
+    781,
+    1041,
+    1186
    ],
    "layers": [
     "Part A — one-parameter unitary groups and Stone's theorem",
     "Part B — the Borel functional calculus and projection-valued measures",
     "Part C — closed operators on `LinearPMap`: graphs, constructions, form bounds",
     "Part D — resolvents of self-adjoint `LinearPMap` operators, and semiboundedness",
-    "Part E — the spectral measure of an unbounded self-adjoint operator, Stone uniqueness, Yosida"
+    "Part E — the spectral measure of an unbounded self-adjoint operator and Stone compatibility"
    ],
    "links": [],
    "name": "SelfAdjointSpectralTheory",
    "parent": "OperatorTheory",
    "parent_id": "TauCetiRoadmap/OperatorTheory",
    "readme": "TauCetiRoadmap/OperatorTheory/SelfAdjointSpectralTheory/README.md",
-   "readme_sha": "faf80fbb7ee11b97d728f645239865222706a0e84db8462cd12d1bbff22e22ab",
+   "readme_sha": "0b5b1896d40129b351afcfcb4f96627c2b01ecfaf8601c07eb5831b9598f03ee",
    "retired": null,
    "states": [
     "unassessed",
@@ -5824,13 +6252,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T11:25:52Z",
-    "open": 1,
-    "recent": 209,
-    "since_report": 49,
-    "total": 260,
+    "last": "2026-10-19T04:19:46Z",
+    "open": 2,
+    "recent": 211,
+    "since_report": 52,
+    "total": 263,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -5845,7 +6272,8 @@
      18,
      29,
      64,
-     92
+     94,
+     1
     ]
    },
    "arxiv": "math.OC",
@@ -5985,7 +6413,31 @@
    "topic": "Optimization and Control"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": null,
+    "open": 1,
+    "recent": 0,
+    "since_report": null,
+    "total": 0,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
    "arxiv": "math.DG",
    "assessment": {
     "detail": null,
@@ -6031,11 +6483,11 @@
      0,
      0,
      0,
-     0,
      33,
      41,
      57,
-     26
+     26,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -6119,13 +6571,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T15:25:26Z",
+    "last": "2026-10-18T23:05:10Z",
     "open": 4,
-    "recent": 277,
-    "since_report": 94,
-    "total": 392,
+    "recent": 282,
+    "since_report": 100,
+    "total": 398,
     "weekly": [
-     13,
      4,
      5,
      10,
@@ -6140,7 +6591,8 @@
      34,
      36,
      86,
-     114
+     120,
+     0
     ]
    },
    "arxiv": "math.AP",
@@ -6234,11 +6686,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T16:48:28Z",
+    "last": "2026-10-19T04:19:44Z",
     "open": 3,
-    "recent": 9,
+    "recent": 13,
     "since_report": null,
-    "total": 9,
+    "total": 13,
     "weekly": [
      0,
      0,
@@ -6254,8 +6706,8 @@
      0,
      0,
      0,
-     0,
-     9
+     10,
+     3
     ]
    },
    "arxiv": "math.NT",
@@ -6314,11 +6766,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T13:23:39Z",
-    "open": 3,
-    "recent": 18,
+    "last": "2026-10-19T04:19:45Z",
+    "open": 4,
+    "recent": 20,
     "since_report": null,
-    "total": 18,
+    "total": 20,
     "weekly": [
      0,
      0,
@@ -6334,8 +6786,8 @@
      0,
      0,
      0,
-     0,
-     18
+     19,
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -6420,8 +6872,8 @@
      0,
      0,
      0,
-     0,
      18,
+     0,
      0,
      0
     ]
@@ -6506,11 +6958,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T21:02:10Z",
-    "open": 0,
-    "recent": 18,
+    "last": "2026-10-19T05:07:24Z",
+    "open": 1,
+    "recent": 19,
     "since_report": null,
-    "total": 18,
+    "total": 19,
     "weekly": [
      0,
      0,
@@ -6526,8 +6978,8 @@
      0,
      0,
      0,
-     0,
-     18
+     18,
+     1
     ]
    },
    "arxiv": "math.QA",
@@ -6610,13 +7062,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-17T22:26:34Z",
-    "open": 1,
-    "recent": 82,
-    "since_report": 6,
-    "total": 114,
+    "last": "2026-10-19T05:19:43Z",
+    "open": 0,
+    "recent": 83,
+    "since_report": 8,
+    "total": 116,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -6631,7 +7082,8 @@
      18,
      36,
      15,
-     6
+     6,
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -6719,7 +7171,31 @@
    "topic": "Number Theory"
   },
   {
-   "activity": null,
+   "activity": {
+    "last": "2026-10-19T05:46:16Z",
+    "open": 1,
+    "recent": 4,
+    "since_report": null,
+    "total": 4,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     4
+    ]
+   },
    "arxiv": "math.DG",
    "assessment": {
     "detail": null,
@@ -6766,9 +7242,9 @@
      0,
      0,
      0,
-     0,
      30,
      9,
+     0,
      0
     ]
    },
@@ -6838,13 +7314,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T20:40:05Z",
-    "open": 2,
-    "recent": 245,
-    "since_report": 43,
-    "total": 301,
+    "last": "2026-10-19T03:44:11Z",
+    "open": 3,
+    "recent": 247,
+    "since_report": 45,
+    "total": 303,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -6859,7 +7334,8 @@
      51,
      65,
      78,
-     48
+     48,
+     2
     ]
    },
    "arxiv": "math.GR",
@@ -6992,12 +7468,11 @@
   {
    "activity": {
     "last": "2026-10-18T02:59:30Z",
-    "open": 0,
-    "recent": 273,
+    "open": 1,
+    "recent": 271,
     "since_report": 9,
     "total": 299,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -7012,7 +7487,8 @@
      96,
      125,
      31,
-     14
+     14,
+     0
     ]
    },
    "arxiv": "math.GR",
@@ -7117,13 +7593,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T01:10:26Z",
-    "open": 1,
-    "recent": 171,
-    "since_report": 13,
-    "total": 192,
+    "last": "2026-10-19T03:09:09Z",
+    "open": 2,
+    "recent": 173,
+    "since_report": 15,
+    "total": 194,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -7138,7 +7613,8 @@
      40,
      50,
      43,
-     32
+     32,
+     2
     ]
    },
    "arxiv": "math.NT",
@@ -7244,11 +7720,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T13:13:38Z",
+    "last": "2026-10-19T01:52:53Z",
     "open": 1,
-    "recent": 12,
+    "recent": 14,
     "since_report": null,
-    "total": 12,
+    "total": 14,
     "weekly": [
      0,
      0,
@@ -7264,8 +7740,8 @@
      0,
      0,
      0,
-     0,
-     12
+     12,
+     2
     ]
    },
    "arxiv": "math.OA",
@@ -7296,13 +7772,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T20:27:20Z",
-    "open": 3,
-    "recent": 201,
-    "since_report": 79,
-    "total": 201,
+    "last": "2026-10-19T04:32:31Z",
+    "open": 5,
+    "recent": 202,
+    "since_report": 80,
+    "total": 202,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -7317,7 +7792,8 @@
      5,
      53,
      102,
-     41
+     41,
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -7419,13 +7895,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T20:40:04Z",
-    "open": 25,
-    "recent": 742,
-    "since_report": 418,
-    "total": 1596,
+    "last": "2026-10-19T05:31:53Z",
+    "open": 24,
+    "recent": 757,
+    "since_report": 435,
+    "total": 1613,
     "weekly": [
-     4,
      9,
      4,
      3,
@@ -7440,7 +7915,8 @@
      69,
      132,
      273,
-     248
+     256,
+     9
     ]
    },
    "arxiv": "math.AG",
@@ -7551,11 +8027,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T16:48:27Z",
-    "open": 6,
-    "recent": 9,
+    "last": null,
+    "open": 1,
+    "recent": 0,
     "since_report": null,
-    "total": 9,
+    "total": 0,
     "weekly": [
      0,
      0,
@@ -7572,7 +8048,59 @@
      0,
      0,
      0,
-     9
+     0
+    ]
+   },
+   "arxiv": "math.RT",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/ReflectionInvariantTheory",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "ReflectionInvariantTheory",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/ReflectionInvariantTheory/README.md",
+   "readme_sha": "3fa8a31576d2d107bc43585c9a29f5d21cd85c51766114f20ddbe93e0b21a165",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "finite reflection invariants, degrees, and Weyl exponents",
+   "topic": "Representation Theory"
+  },
+  {
+   "activity": {
+    "last": "2026-10-18T22:02:27Z",
+    "open": 7,
+    "recent": 10,
+    "since_report": null,
+    "total": 10,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     10,
+     0
     ]
    },
    "arxiv": "math.CO",
@@ -7647,13 +8175,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T21:02:12Z",
-    "open": 22,
-    "recent": 874,
-    "since_report": 308,
-    "total": 1710,
+    "last": "2026-10-19T04:19:47Z",
+    "open": 14,
+    "recent": 882,
+    "since_report": 316,
+    "total": 1718,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -7668,7 +8195,8 @@
      150,
      247,
      293,
-     153
+     158,
+     3
     ]
    },
    "arxiv": "math.RT",
@@ -8124,12 +8652,12 @@
    "activity": null,
    "arxiv": "math.RT",
    "assessment": {
-    "detail": null,
+    "detail": "marker assessed a different README than the one the layers were read from; layer ids differ from the README; missing ['Layer 2.1', 'Layer 2.2']",
     "notes": {},
     "readme_changed": false,
-    "reason": "ok",
+    "reason": "invalid-marker",
     "remaining": {},
-    "source": "marker"
+    "source": null
    },
    "completed": false,
    "id": "TauCetiRoadmap/RepresentationTheory/InductionRestriction",
@@ -8137,6 +8665,8 @@
     "Layer 0",
     "Layer 1",
     "Layer 2",
+    "Layer 2.1",
+    "Layer 2.2",
     "Layer 3",
     "Layer 3a",
     "Layer 3b",
@@ -8146,21 +8676,25 @@
     "Layer 7"
    ],
    "layer_lines": [
-    189,
-    216,
-    237,
-    282,
-    287,
-    307,
-    313,
-    344,
-    377,
-    430
+    213,
+    241,
+    268,
+    346,
+    433,
+    460,
+    465,
+    497,
+    503,
+    607,
+    661,
+    721
    ],
    "layers": [
     "Layer 0: the functorial core -- transitivity and the projection formula",
     "Layer 1: the conjugate representation",
     "Layer 2: induced characters and Frobenius reciprocity",
+    "Layer 2.1: almost-conjugacy and permutation representations",
+    "Layer 2.2: a nonconjugate almost-conjugate pair in `S₁₆`",
     "Layer 3: the Mackey decomposition formula",
     "Layer 3a: the decomposition as an isomorphism of representations",
     "Layer 3b: the character form",
@@ -8174,19 +8708,21 @@
    "parent": "RepresentationTheory",
    "parent_id": "TauCetiRoadmap/RepresentationTheory",
    "readme": "TauCetiRoadmap/RepresentationTheory/InductionRestriction/README.md",
-   "readme_sha": "32cb677fcc95ba1752ddf8abc5ad4970e7ac45577aa69ad1d9f585ac6785aff6",
+   "readme_sha": "c98eeb92f43cad2ffe3aec7cb0efcd65cb697ad5e17c24a1bf59724f8850d040",
    "retired": null,
    "states": [
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done",
-    "done"
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed",
+    "unassessed"
    ],
    "status": {
     "frontier": [
@@ -9006,11 +9542,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T14:51:35Z",
-    "open": 3,
-    "recent": 6,
+    "last": "2026-10-19T03:09:08Z",
+    "open": 4,
+    "recent": 7,
     "since_report": null,
-    "total": 6,
+    "total": 7,
     "weekly": [
      0,
      0,
@@ -9026,8 +9562,8 @@
      0,
      0,
      0,
-     0,
-     6
+     6,
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -9114,8 +9650,8 @@
      0,
      0,
      0,
-     0,
-     6
+     6,
+     0
     ]
    },
    "arxiv": "math.AG",
@@ -9178,11 +9714,11 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T15:38:34Z",
+    "last": "2026-10-19T03:09:10Z",
     "open": 4,
-    "recent": 22,
+    "recent": 23,
     "since_report": null,
-    "total": 22,
+    "total": 23,
     "weekly": [
      0,
      0,
@@ -9198,8 +9734,8 @@
      0,
      0,
      0,
-     0,
-     22
+     22,
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -9258,6 +9794,58 @@
   },
   {
    "activity": null,
+   "arxiv": "math.AG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/SchubertGeometry",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "SchubertGeometry",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/SchubertGeometry/README.md",
+   "readme_sha": "226d6fb60d549c0f132c0fc482e5fe5f12f0c9703f82d307ca6f0e596693af28",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Schubert geometry, Demazure sections and flag K-theory",
+   "topic": "Algebraic Geometry"
+  },
+  {
+   "activity": {
+    "last": "2026-10-19T05:31:54Z",
+    "open": 0,
+    "recent": 2,
+    "since_report": null,
+    "total": 2,
+    "weekly": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2
+    ]
+   },
    "arxiv": "math.DG",
    "assessment": {
     "detail": null,
@@ -9288,11 +9876,10 @@
    "activity": {
     "last": "2026-10-18T20:28:00Z",
     "open": 3,
-    "recent": 129,
+    "recent": 127,
     "since_report": 38,
     "total": 140,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -9307,7 +9894,8 @@
      21,
      30,
      22,
-     47
+     47,
+     0
     ]
    },
    "arxiv": "math.RT",
@@ -9416,13 +10004,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T18:09:05Z",
-    "open": 6,
-    "recent": 112,
-    "since_report": 43,
-    "total": 130,
+    "last": "2026-10-19T02:32:23Z",
+    "open": 5,
+    "recent": 114,
+    "since_report": 47,
+    "total": 134,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -9437,7 +10024,8 @@
      24,
      23,
      27,
-     28
+     31,
+     1
     ]
    },
    "arxiv": "math.AG",
@@ -9557,13 +10145,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T21:02:40Z",
-    "open": 9,
-    "recent": 139,
-    "since_report": 93,
-    "total": 273,
+    "last": "2026-10-19T05:31:52Z",
+    "open": 10,
+    "recent": 162,
+    "since_report": 117,
+    "total": 297,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -9578,7 +10165,8 @@
      36,
      2,
      3,
-     90
+     98,
+     16
     ]
    },
    "arxiv": "math.PR",
@@ -9694,12 +10282,40 @@
    "topic": "Probability"
   },
   {
+   "activity": null,
+   "arxiv": "math.SG",
+   "assessment": {
+    "detail": null,
+    "notes": {},
+    "readme_changed": false,
+    "reason": "no-layers",
+    "remaining": {},
+    "source": null
+   },
+   "completed": false,
+   "id": "TauCetiRoadmap/TaubesGromov",
+   "layer_ids": [],
+   "layer_lines": [],
+   "layers": [],
+   "links": [],
+   "name": "TaubesGromov",
+   "parent": null,
+   "parent_id": null,
+   "readme": "TauCetiRoadmap/TaubesGromov/README.md",
+   "readme_sha": "d974348431e88d52d66247ecdfeaea04f998d87f2ab3a3d03060faf29bf6a84b",
+   "retired": null,
+   "states": [],
+   "status": null,
+   "title": "Taubes–Gromov theory",
+   "topic": "Symplectic Geometry"
+  },
+  {
    "activity": {
-    "last": "2026-10-18T10:42:46Z",
-    "open": 1,
-    "recent": 8,
+    "last": "2026-10-19T05:32:22Z",
+    "open": 3,
+    "recent": 10,
     "since_report": null,
-    "total": 8,
+    "total": 10,
     "weekly": [
      0,
      0,
@@ -9715,8 +10331,8 @@
      0,
      0,
      0,
-     0,
-     8
+     8,
+     2
     ]
    },
    "arxiv": "math.DG",
@@ -9747,13 +10363,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T21:02:09Z",
+    "last": "2026-10-19T04:56:07Z",
     "open": 4,
     "recent": 191,
-    "since_report": 7,
-    "total": 243,
+    "since_report": 9,
+    "total": 245,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -9768,7 +10383,8 @@
      20,
      33,
      72,
-     61
+     62,
+     1
     ]
    },
    "arxiv": "math.RT",
@@ -9878,11 +10494,10 @@
    "activity": {
     "last": "2026-10-13T00:23:08Z",
     "open": 1,
-    "recent": 73,
+    "recent": 70,
     "since_report": 1,
     "total": 88,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -9897,7 +10512,8 @@
      25,
      29,
      0,
-     1
+     1,
+     0
     ]
    },
    "arxiv": "math.IT",
@@ -9980,11 +10596,10 @@
    "activity": {
     "last": "2026-10-14T01:13:31Z",
     "open": 0,
-    "recent": 66,
+    "recent": 64,
     "since_report": 4,
     "total": 136,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -9999,7 +10614,8 @@
      32,
      11,
      9,
-     5
+     5,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -10106,7 +10722,6 @@
     "since_report": 4,
     "total": 147,
     "weekly": [
-     12,
      21,
      32,
      7,
@@ -10121,7 +10736,8 @@
      6,
      1,
      2,
-     2
+     2,
+     0
     ]
    },
    "arxiv": "math.CV",
@@ -10210,10 +10826,10 @@
     "since_report": 0,
     "total": 37,
     "weekly": [
-     3,
      5,
      0,
      3,
+     0,
      0,
      0,
      0,
@@ -10304,11 +10920,10 @@
    "activity": {
     "last": "2026-10-13T09:53:42Z",
     "open": 0,
-    "recent": 35,
+    "recent": 34,
     "since_report": 6,
     "total": 75,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -10323,7 +10938,8 @@
      9,
      10,
      1,
-     5
+     5,
+     0
     ]
    },
    "arxiv": "math.AG",
@@ -10400,13 +11016,12 @@
   },
   {
    "activity": {
-    "last": "2026-10-18T11:25:54Z",
-    "open": 8,
-    "recent": 158,
-    "since_report": 134,
-    "total": 221,
+    "last": "2026-10-19T01:27:33Z",
+    "open": 5,
+    "recent": 161,
+    "since_report": 137,
+    "total": 224,
     "weekly": [
-     0,
      0,
      0,
      0,
@@ -10421,7 +11036,8 @@
      0,
      40,
      68,
-     50
+     52,
+     1
     ]
    },
    "arxiv": "math.NT",
@@ -10506,11 +11122,10 @@
    "activity": {
     "last": "2026-10-13T10:45:34Z",
     "open": 0,
-    "recent": 35,
+    "recent": 34,
     "since_report": 5,
     "total": 215,
     "weekly": [
-     10,
      6,
      4,
      12,
@@ -10525,7 +11140,8 @@
      12,
      14,
      2,
-     3
+     3,
+     0
     ]
    },
    "arxiv": "math.NT",
@@ -10600,7 +11216,6 @@
     "since_report": 3,
     "total": 61,
     "weekly": [
-     9,
      8,
      9,
      2,
@@ -10615,7 +11230,8 @@
      0,
      1,
      1,
-     2
+     2,
+     0
     ]
    },
    "arxiv": "math.CA",
@@ -10705,9 +11321,9 @@
      0,
      0,
      0,
-     0,
      20,
      1,
+     0,
      0,
      0
     ]
@@ -10792,7 +11408,6 @@
     "since_report": 7,
     "total": 128,
     "weekly": [
-     11,
      3,
      8,
      4,
@@ -10807,7 +11422,8 @@
      6,
      7,
      3,
-     4
+     4,
+     0
     ]
    },
    "arxiv": "math.AT",
@@ -10911,7 +11527,6 @@
  ],
  "update_due_prs": 10,
  "weeks": [
-  "2026-06-29",
   "2026-07-06",
   "2026-07-13",
   "2026-07-20",
@@ -10926,6 +11541,7 @@
   "2026-09-21",
   "2026-09-28",
   "2026-10-05",
-  "2026-10-12"
+  "2026-10-12",
+  "2026-10-19"
  ]
 }
