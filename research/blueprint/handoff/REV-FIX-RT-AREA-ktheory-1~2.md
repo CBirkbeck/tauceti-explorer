@@ -1,5 +1,86 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
+## Current checkpoint: Codex codex-RflGpa, 19 October 2026
+
+Refs #5542. Claim comment 6263900238 was confirmed by bot comment
+6263903165. This session did none of the original fixes and claimed no
+second job. Only the review report and this handoff change.
+
+**The job is blocked on edit scope, not on another mathematical check.**
+The live issue, re-read after the claim, names seven packet/Lean pairs.
+The actual queue entry has nineteen pairs. I independently compared the
+paths and called the unmodified `issues.deliverables_complete`: false.
+All seven issue-listed packets already satisfy its review predicate,
+including the two negative K.1/K.6 verdicts. Exactly the twelve additional
+packet verdicts below fail its reviewer-identity condition; none of their
+existing independent reviews can stand in for this area-fix review.
+
+[WORKERS.md, Doing the work](../WORKERS.md) says “Edit only the files the issue
+names.” Authorization for the additional pairs was requested from the
+operator; no authorizing response has arrived. The issue body and queue
+were not changed. No additional verdict was stamped. No source reading,
+mathematical review or Lean compilation is newly certified here.
+
+### Concrete maintainer action
+
+Add the following paths to issue #5542's Deliverables and to its full
+instructions' files-under-review list, or explicitly authorize these exact
+additional packet/Lean pairs. The corresponding work instruction is:
+
+> Review the area-fix dispositions affecting each additional packet against
+> the confirmed findings, read the relevant sources and actual supplier
+> statements, correct clear errors within these files, preserve review
+> history, and record this job's independent verdict. Check changed packets
+> and changed Lean companions under the standing protocol. A prior review
+> of another job is evidence to assess, not authorization to copy its verdict.
+
+Additional deliverables:
+
+- `research/blueprint/packets/BorelRegulators.json`
+- `research/blueprint/packets/K2SymbolsBrauer--T.1-classical.json`
+- `research/blueprint/packets/K3BlochGroups--V.1.json`
+- `research/blueprint/packets/KTheoryFiniteLocalFields.json`
+- `research/blueprint/packets/KTheoryLowDegrees--U.1.json`
+- `research/blueprint/packets/KTheoryLowDegrees--U.4.json`
+- `research/blueprint/packets/KTheoryLowDegrees--U.6.json`
+- `research/blueprint/packets/MotivicEtaleKTheory--M.1.json`
+- `research/blueprint/packets/MotivicEtaleKTheory--M.5d.json`
+- `research/blueprint/packets/SchemeKTheoryOperations.json`
+- `research/blueprint/packets/SpecialValuesBirchTate.json`
+- `research/blueprint/packets/StableHomotopyKTheory.json`
+- `research/blueprint/suggested/BorelRegulators.lean`
+- `research/blueprint/suggested/K2SymbolsBrauer--T.1-classical.lean`
+- `research/blueprint/suggested/K3BlochGroups--V.1.lean`
+- `research/blueprint/suggested/KTheoryFiniteLocalFields.lean`
+- `research/blueprint/suggested/KTheoryLowDegrees--U.1.lean`
+- `research/blueprint/suggested/KTheoryLowDegrees--U.4.lean`
+- `research/blueprint/suggested/KTheoryLowDegrees--U.6.lean`
+- `research/blueprint/suggested/MotivicEtaleKTheory--M.1.lean`
+- `research/blueprint/suggested/MotivicEtaleKTheory--M.5d.lean`
+- `research/blueprint/suggested/SchemeKTheoryOperations.lean`
+- `research/blueprint/suggested/SpecialValuesBirchTate.lean`
+- `research/blueprint/suggested/StableHomotopyKTheory.lean`
+
+After scope is resolved, perform the twelve reviews and call the actual
+completion predicate again. A scope update is not a substitute for those
+reviews. Do not change the queue, labels, completion predicate or other
+reviewers' identities merely to obtain a successful completion result.
+
+### Verification in this continuation
+
+- Live issue/queue comparison: 14 packet/Lean paths versus 38; the 24-path
+  difference is listed above.
+- Actual completion predicate: false; all seven issue-listed packet verdicts
+  pass, all twelve queue-only packet verdicts fail the area reviewer identity.
+- Intake file validation and `git diff --check` apply to this report/handoff
+  change. No packet or Lean companion changed, so their preceding validation
+  results remain attributed to the workers below and were not repeated.
+
+The previous handoff follows in full for its mathematical resumption notes.
+Scratch contains no material needed by the next worker.
+
+## Previous checkpoint: Codex codex-KwyvX3
+
 Codex, session `codex-KwyvX3`, 19 October 2026. Refs #5542.
 The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6262919229)
 was confirmed by the bot at 08:23:47 UTC. No second job was claimed. This is a

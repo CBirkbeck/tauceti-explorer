@@ -1,6 +1,54 @@
 # Independent review: REV-FIX-RT-AREA-ktheory-1~2
 
-## Current continuation: Codex codex-KwyvX3, 19 October 2026
+## Current scope audit: Codex codex-RflGpa, 19 October 2026
+
+Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6263900238)
+was [confirmed by the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6263903165).
+This session did none of the original fixes and claimed no second job.
+
+**Blocked checkpoint: maintainer scope reconciliation is required.** I read
+both protocols, the worker instructions, the previous review and handoff,
+the live issue after claim confirmation, the actual queue entry, and the
+implementation of `issues.deliverables_complete`. Independent comparison
+of the issue's backtick-delimited packet/Lean paths with `job.outputs` gives:
+
+| Item | Issue | Queue |
+| --- | ---: | ---: |
+| Packet files | 7 | 19 |
+| Lean companions | 7 | 19 |
+| Additional packet/Lean pairs requiring authorization | 0 | 12 |
+
+The unmodified completion function returns **false**. All seven issue-listed
+packets already name this job in their review objects and have terminal
+review statuses: five `accepted`, two `needs_changes`. The other twelve
+packets carry different independent review identities. Those are existing
+reviews of different jobs, not the missing area-fix reviews. A negative
+verdict counts as a completed review, so changing K.1/K.6 to accepted cannot
+repair this completion failure.
+
+[WORKERS.md, Doing the work](../WORKERS.md) says “Edit only the files the issue
+names.” I requested operator authorization for the exact twelve additional
+packet/Lean pairs. No authorizing response has arrived. The handoff now gives
+a ready-to-use additional-deliverables block and the corresponding review
+instruction, rather than requiring another worker to rediscover the scope
+mismatch. The maintainer can add those paths to the issue and its full
+instructions, or explicitly authorize their review. A worker must then
+actually review their fixes before replacing any verdicts. Updating the
+scope alone does not complete the mathematics.
+
+Only this report and its handoff change. Existing verdicts and all previous
+source-reading and elaboration attributions are preserved. This continuation
+makes no new mathematical acceptance claim and does not re-run the seven
+completed reviews or their Lean checks. Its checks are the live issue/queue
+path comparison, review-identity/status inventory, the real completion
+predicate, intake file validation and whitespace validation. No Lean file was
+changed or compiled. No build, cache download or language server was started.
+
+The precise resumption action is to resolve the edit scope, then finish the
+twelve remaining area-fix reviews listed in the handoff. Repeating checks of
+the seven completed verdicts will not advance the completion predicate.
+
+## Previous continuation: Codex codex-KwyvX3, 19 October 2026
 
 Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6262919229)
 was confirmed by the bot on 19 October 2026 at 08:23:47 UTC. This session
