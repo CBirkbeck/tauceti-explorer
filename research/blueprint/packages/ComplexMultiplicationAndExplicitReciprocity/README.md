@@ -15,7 +15,7 @@ CM.0 constructs embedding-partition types and compares their trace reflex field 
 | Arithmetic Artin map, class-field correspondence, quadratic ring and ray class fields | ClassFieldTheory, Layers 11–13 |
 | CM-action vocabulary, equation/scheme comparison, endomorphisms, twists, torsion, Weil pairing, local reduction | EllipticCurves, Layers 1–5 |
 | Elliptic complex uniformization, analytic/algebraic Hom comparison, regular level-function evaluation | ModularCurvesPartII, R12.1 and R12.6 |
-| Relative Lie theory, Hodge/period realization, polarized uniformization, Rosati and degree | AbelianSchemesAndArithmeticModuli, A0–A6; the required Serre-tensor extension is specified below |
+| Relative Lie theory, the Serre tensor and its realizations, Hodge/period realization, polarized uniformization, Rosati and degree | AbelianSchemesAndArithmeticModuli, A0–A6, in particular A1.3a and A4.7a for the Serre tensor |
 | Cocharacter reflex field, idelic reflex norm, main CM theorem, Siegel level-function action | ShimuraData D3; ShimuraVarieties V4, V5, V8 |
 | Covariant Tate realizations, local characters, inertia, induction, Artin/Swan conductors and Frobenius recognition | ArithmeticGaloisRepresentations R01.2, R01.3, R01.5, R01.6 |
 | H¹ étale local Euler polynomials and Néron–Ogg–Shafarevich | NeronModelsAndSemistableAbelianVarieties, R11.5 |
@@ -58,7 +58,7 @@ For the unit-obstruction bound, use current Tau Ceti's `NumberField.units_sq_ind
 
 **Artin and ideals.** Artin sends a prime uniformizer to arithmetic Frobenius x ↦ x^q. Milne's geometric-art convention is translated by s = t⁻¹. The left ideal action is [a] ⋆ [C/I] = [C/a⁻¹I]. For a nonmaximal order only proper invertible ideals enter this action. Extension/contraction and the reflex ideal map have the stated prime-to-conductor restrictions.
 
-**Polarization.** Write E_ξ(x,y) = Tr_{E/Q}(ξxȳ), with ξ̄ = −ξ and Im φ(ξ) > 0 for φ ∈ Φ; positivity is E_ξ(x,Jx) > 0. Translating Streng's E(Jx,y) > 0 changes the signs of the alternating form and its ξ. Lattice homothety by u sends (I,ξ) to (uI, ξ/(uū)). For f = N_Φ(t)⁻¹ = N_Φ(t⁻¹), the E-linear comparison α satisfies α(fx) = σ(x) and has polarization multiplier χ_cyc(σ)/(f f̄). The natural Galois torsion map has multiplier χ_cyc(σ). Uniformization therefore sends I to fI and ξ to ξχ_cyc(σ)/(f f̄). These are different maps with different multipliers.
+**Polarization.** Write E_ξ(x,y) = Tr_{E/Q}(ξxȳ), with ξ̄ = −ξ and Im φ(ξ) > 0 for φ ∈ Φ; positivity is E_ξ(x,Jx) > 0. Translating Streng's E(Jx,y) > 0 changes the signs of the alternating form and its ξ. The Riemann forms of AbelianSchemesAndArithmeticModuli A5.2 use the opposite positivity E(Jv,v) > 0, with E(i,1) = 1 on Z+Zi. The A5 Riemann form attached to (I,ξ) is therefore −E_ξ(x,y) = Tr_{E/Q}(ξx̄y). For (Z[i], i/2) one has E_ξ(1,i) = 1 and −E_ξ(i,1) = 1, the latter matching the supplier's Gaussian check. Lattice homothety by u sends (I,ξ) to (uI, ξ/(uū)). For f = N_Φ(t)⁻¹ = N_Φ(t⁻¹), the E-linear comparison α satisfies α(fx) = σ(x) and has polarization multiplier χ_cyc(σ)/(f f̄). The natural Galois torsion map has multiplier χ_cyc(σ). Uniformization therefore sends I to fI and ξ to ξχ_cyc(σ)/(f f̄). These are different maps with different multipliers.
 
 **Realizations and local factors.** H₁ and Tate modules are covariant; arithmetic Frobenius has polynomial X² − a_vX + q in the elliptic case. A positive ideal infinity type (1,0) corresponds to idelic exponents (−1,0). The R11.5 Euler convention instead uses H¹_et = V_l(A)∨ and geometric Frobenius. At potentially good CM places, finite-inertia averaging identifies its determinant with the arithmetic-Frobenius determinant on covariant Tate invariants. Keep the duality in the local comparison, including ramified primes.
 
@@ -69,10 +69,16 @@ For the unit-obstruction bound, use current Tau Ceti's `NumberField.units_sq_ind
 
 ## Exact supplier contracts
 
-- `AbelianSchemesAndArithmeticModuli:A0`: The abelian-scheme carrier and its field/elliptic comparisons.
-- `AbelianSchemesAndArithmeticModuli:A1`, §§A1.1–A1.3: Products, relative dimension, invariant differentials, Lie duality and arbitrary base change.
-- `AbelianSchemesAndArithmeticModuli:A4`: Degree-one de Rham/Betti realizations and Hodge exact sequence, integration pairing and duality, compatible with CM actions and base change.
-- `AbelianSchemesAndArithmeticModuli:A5`: Polarized complex uniformization and algebraization of C^Φ/Φ(I), integral Riemann forms, analytic/algebraic Hom comparison, symplectic periods and principal polarization criterion.
+- `AbelianSchemesAndArithmeticModuli:A0.1–A0.2`: The abelian-scheme carrier `AbelianScheme S` over an arbitrary base and its comparisons with Tau Ceti's field carrier and with elliptic curves.
+- `AbelianSchemesAndArithmeticModuli:A1.1–A1.3`: Products, arbitrary base change and the locally constant relative dimension (dimension zero is the identity scheme S); rigidity, including A1.2(3): a homomorphism vanishing on one geometric fibre of each connected component is zero; invariant differentials ω_A, locally free of rank g, with Lie(A/S)=ω_A^∨, all compatible with base change.
+- `AbelianSchemesAndArithmeticModuli:A1.3a/relativeSerreTensor`: For any scheme S, any abelian scheme A/S, any associative unital ring R with a unital map R→End_S(A), and any finitely generated projective right R-module M, the presheaf T↦M⊗_R A(T) is already an fppf sheaf and is represented by an abelian scheme M⊗_R A, unique up to unique isomorphism with its universal balanced map. It is built as the kernel of 1−e for the projector e on Aⁿ given by a splitting M⊕N≅Rⁿ, and M⊗_R A(T)≅Hom_R(M*,A(T)) with M*=Hom_{Rᵒᵖ}(M,R). Its Checks include M=R (giving A), M=0 (giving the identity scheme), M=Rⁿ (giving Aⁿ, also for n=0) and a nonprincipal invertible ideal.
+- `AbelianSchemesAndArithmeticModuli:A1.3a/relativeSerreTensor-functoriality`: Module maps M→N and R-linear homomorphisms A→B induce f⊗u, characterized on points by m⊗a↦f(m)⊗u(a), with identity, composition and additivity laws; (M⊕N)⊗A≅(M⊗A)×_S(N⊗A) including the empty sum; independence of the chosen projective splitting and complement, with the cocycle identity.
+- `AbelianSchemesAndArithmeticModuli:A1.3a/relativeSerreTensor-base-change`: (M⊗_R A)_{S′}≅M⊗_R A_{S′} for every S′→S, compatible with universal maps, module maps, homomorphisms and finite sums, with identity and iterated-pullback coherence.
+- `AbelianSchemesAndArithmeticModuli:A3.1/IsAbelianIsogeny`: Isogenies over a base are finite, flat, surjective homomorphisms; the kernel is finite locally free, the rank (degree) equals the rank of the kernel, is locally constant and multiplies under composition (`IsAbelianIsogeny.comp_rank`).
+- `AbelianSchemesAndArithmeticModuli:A4.1, A4.3`: The integral Tate module `AbelianTate` for ℓ invertible on S, functorial in homomorphisms and compatible with base change; first de Rham cohomology `AbelianH1dR` with the Hodge sequence 0→ω_A→H¹_dR(A/S)→Lie(A^∨)→0, base change, contravariant pullback along homomorphisms (hence the CM action) and the perfect pairing between H¹_dR(A/S) and H¹_dR(A^∨/S). The covariant sequence 0→ω_{A^∨}→H_A→Lie(A)→0 used in CM.1 is the A4.3 sequence of A^∨, with H_A=H¹_dR(A^∨/S)≅Hom(H¹_dR(A/S),O_S).
+- `AbelianSchemesAndArithmeticModuli:A4.5/BarsottiTate`: The p-divisible group of an abelian scheme over an arbitrary base, with truncations.
+- `AbelianSchemesAndArithmeticModuli:A4.7a/relativeSerreTensor-lie-tate`: For B=M⊗_R A as in A1.3a: Lie(B/S)≅M⊗_R Lie(A/S) as O_S-modules, with the differentiated R-action; T_ℓB≅M⊗_R T_ℓA and B[ℓʳ]≅M⊗_R A[ℓʳ] for ℓ invertible on S; H¹_dR(B/S)≅Hom_{Rᵒᵖ}(M,H¹_dR(A/S)) respecting the Hodge filtration (and the Gauss–Manin connection over a smooth base), equivalently H₁,dR(B/S)≅M⊗_R H₁,dR(A/S); B[p^∞]≅M⊗_R A[p^∞] and the contravariant Dieudonné comparison when p is locally nilpotent. All are natural in module maps and R-linear homomorphisms and commute with base change; its Checks show that M⊗Lie(A) can be nonzero when M is torsion and the fppf tensor sheaf vanishes, so finite projectivity is essential.
+- `AbelianSchemesAndArithmeticModuli:A5.1–A5.8`: Lattice uniformization A^an≅Lie(A)/Λ with Λ=H₁(A^an,Z) and T_ℓA=Λ⊗Z_ℓ (A5.1); integral Riemann forms with positivity E(Jv,v)>0, the negative of the E_ξ convention used here, and principality as a perfect pairing (A5.2); algebraization of a complex torus with a positive Riemann form, applied here to C^Φ/Φ(I) (A5.3); polarization types (A5.4); the polarized Hodge equivalence, i.e. the analytic/algebraic Hom comparison (A5.5); the de Rham–Betti comparison (A5.6) and the degree-one realization conventions over C (A5.7), whose composite is the integration pairing ω_A×H₁(A(C),Z)→C; symplectic period matrices and the Siegel family (A5.8).
 - `ArithmeticGaloisRepresentations:R01.2`: Rank-one local inertia and Weil–Deligne character, duality between covariant Tate and cohomological H¹, inertia-invariant Euler factors with geometric Frobenius on H¹, and induction/restriction at all primes.
 - `ArithmeticGaloisRepresentations:R01.3`: Artin/Swan conductors and local rank-one conductor additivity under direct sums, including ramified places.
 - `ArithmeticGaloisRepresentations:R01.5`: Semisimple representation recognition by good Frobenius polynomials and Chebotarev.
@@ -104,9 +110,9 @@ For the unit-obstruction bound, use current Tau Ceti's `NumberField.units_sq_ind
 - [ModularForms Layer 0][modularforms-0]: Independent LevelOne.JInputs: normalized modular j with q-expansion q⁻¹+744+196884q+…, modular invariance, holomorphy on the upper half-plane, and exact elliptic orders giving j(i)=1728 and j(exp(2πi/3))=0. This module has no dependency on CM.
 - [QuadraticFormInvariants Layer 2][quadraticforminvariants-2]: Existing quaternion algebra/reduced norm and split-or-division API; reuse actual QuaternionAlgebra and its naturality, not a new CM-specific division algebra carrier.
 
-The A3.9 `Polarization.rosati` and A6 degree, polarized-automorphism and characteristic-polynomial interfaces are used on the same abelian-variety action as the A4/A5 comparisons. R11.5/local-euler-polynomial and /elliptic-local-polynomial use cohomological geometric Frobenius, while /neron-ogg-shafarevich relates unramified Tate realization to good reduction. These comparisons must transport the equation, scheme, endomorphism and realization data together.
+The field-level interfaces of AbelianSchemesAndArithmeticModuli are used on the same abelian-variety action as the A4/A5 comparisons: A3.9 `Polarization.rosati`; A6.1 `Hom.deg` (finite-flat degree, inseparable part included, multiplicative, deg[n]=|n|^{2g}); A6.10 `End.charpoly`; A6.11 `charpolyTate` (P_α is the characteristic polynomial on V_ℓ for ℓ≠char); A6.12 `traceDegreeSubfield` (for a subfield F⊂End⁰A of degree f with the same identity, V_ℓA is free of rank 2g/f over F⊗Q_ℓ and deg α=N_{F/Q}(α)^{2g/f}); and A6.18 `polarizedAutomorphisms` (finiteness, and rigidity at level n≥3, tested on points when n is prime to the characteristic). R11.5/local-euler-polynomial and /elliptic-local-polynomial use cohomological geometric Frobenius, while /neron-ogg-shafarevich relates unramified Tate realization to good reduction. These comparisons must transport the equation, scheme, endomorphism and realization data together.
 
-**Required supplier extension: relative Serre tensor.** CM.1 needs a general construction `relativeSerreTensor`: for a ring R acting on an abelian scheme A/S and a finite projective right R-module M, the fppf sheaf associated to T↦M⊗_R A(T) is represented by an abelian scheme. Its API must give module-map functoriality, finite direct sums, independence of a projective splitting, arbitrary base change, and comparison of Lie and Tate realizations with tensor products. A0/A1 currently does not state this construction; its representability and comparison theorems are an unfilled prerequisite, not an available supplier. Source for the CM specialization: [KS](#source-ks), §1.2, Definition 1.8 and (1.2.3), p.9. Required Checks: M=R returns A, M=0 returns the zero abelian scheme, and Rⁿ returns Aⁿ; a projective summand must be independent of its chosen complement. The integral ideal-kernel/degree formulas in CM.1 remain separate conclusions, including inseparable degree.
+The general Serre tensor, its functoriality, base change and realizations are A1.3a and A4.7a above; CM.1.3 specializes them to rings of integers acting with [L:Q]=2·dim and adds only the CM conclusions: ideal-isogeny degrees with their inseparable parts, preservation of the CM type, and the eigenspace and period comparisons of an abelian scheme with its ideal twists.
 
 Primality, actual traces, residue sizes, endomorphism orders, root bounds, coefficient intervals and completeness of finite orbits are mathematical hypotheses wherever used. Their production by a search or numerical procedure is outside these contracts.
 
@@ -161,13 +167,13 @@ The light `conjugateEmbedding` composes an existing Q-algebra embedding with com
 
 **Required calculations and boundary cases.** For Q(i), {i↦i} has cardinal one; both embeddings together and the empty set fail. For Q(i)×Q(√−3), a type has one embedding of each factor, cardinal two. On Q(ζ₈), the type with ζ₈↦ζ₈ and ζ₈↦ζ₈³ is induced from Q(√−2); primitive must fail.
 
-<a id="cm-0-2"></a>
-
 **Checks.**
 
 - Restriction along E⊂E induces the original type, and conjugating an induced type conjugates its inducing type.
 - A quadratic CM field has no proper CM subfield and every type on it is primitive. A proper CM subfield inducing a type contradicts primitivity.
 - The two Q(ζ₈) embeddings above induce the same Q(√−2) type and are nonprimitive. Product types have no single primitive-core assertion.
+
+<a id="cm-0-2"></a>
 
 ### 0.2 Trace reflex field and inverse-coset type
 
@@ -208,17 +214,13 @@ Sources: [MilneCM](#source-milnecm), Proposition 1.23, Remark 1.24 and Propositi
 
 **Required calculations and boundary cases.** For an imaginary quadratic field, E*=the selected embedded copy of E. Inducing a type does not change its reflex field; this is not the primitive-core fixed field in general. A nonprimitive Q(ζ₈) type has quadratic double reflex, not the original quartic field. For quadratic E=E*, NΦ is the identity under the selected embedding; NΦ(2+i)·its conjugate=5. Replacing Φ by its conjugate conjugates the norm, rather than leaving it equal.
 
-The following API comparisons are used independently of the construction:
-
-- `CMType.reflexField_stabilizer`: Gal(L/E*) is the stabilizer of Φ in Hom_Q-alg(E,L); for E a field it is the left stabilizer of its extended type S. Sources: [MilneCM](#source-milnecm), Proposition 1.16, Definition 1.17 and Proposition 1.18, pp.13–14; [YZ](#source-yz), §2.2 p.546. Prerequisites: [CMType.reflexField](#cm-0-2).
-
-<a id="cm-0-3"></a>
-
 **Checks.**
 
 - On the selected Q(i) embedding, typeTrace(1)=1, typeTrace(i)=i and typeTrace(2+i)=2+i; on the conjugate type the last value is 2−i. The trace field is the selected Q(i), not Q.
 - On a product of two quadratic CM fields, typeTrace(1)=2, ruling out a replacement by an arbitrary embedding. The trace of zero is zero, also for the rank-zero étale algebra and its empty type.
 - The Gaussian reflex type is the same singleton; its conjugate gives the conjugate singleton; for the induced quartic type the double reflex is quadratic, so a rule always returning the original pair fails. The finite étale trace field remains available independently of the field-only reflex type.
+
+<a id="cm-0-3"></a>
 
 ### 0.3 Integral reflex data and concrete fields
 
@@ -288,7 +290,7 @@ Sources: [MIT20](#source-mit20), §20.3 p.5, ideal-action/class-group torsor and
 
 **Exceptional CM automorphism factors** — `idealLatticeCurve.automorphism_factors`. For E_I/C with full quadratic order O, Aut(E_I,0)=O×. Its order is 6 for O=Z[ζ₃] (j=0), 4 for O=Z[i] (j=1728), and 2 for every other quadratic order. This concerns origin-preserving automorphisms, not translations. In counting isogeny kernels or level orbits, retain these factors; level N≥3 rigidifies a polarized elliptic object when the characteristic is prime to N.
 
-Sources: [MIT22](#source-mit22), Remark 22.2, pp.1–2. Prerequisites: [idealLatticeCurve](#cm-1-1); [EllipticCurves Layer 1][ellipticcurves-1]; `AbelianSchemesAndArithmeticModuli:A6/automorphisms-of-polarized-abelian-varieties`; [idealLatticeCurve.endomorphismRing](#cm-1-1).
+Sources: [MIT22](#source-mit22), Remark 22.2, pp.1–2. Prerequisites: [idealLatticeCurve](#cm-1-1); [EllipticCurves Layer 1][ellipticcurves-1]; `AbelianSchemesAndArithmeticModuli:A6.18/polarizedAutomorphisms`; [idealLatticeCurve.endomorphismRing](#cm-1-1).
 
 **Basic API.**
 
@@ -312,18 +314,13 @@ Sources: [MIT22](#source-mit22), Remark 22.2, pp.1–2. Prerequisites: [idealLat
 
 **Required calculations and boundary cases.** For I=Z[i], j(E_I)=1728 and End is Z[i]. For I=Z+3Zi, End is precisely that order; its missing i cannot be inserted. For O=Z[i] and a=(2+i), the map has degree 5 and target is isomorphic to the original curve. For O=Z+3Zi, the norm-two nonprincipal ideal changes the CM isomorphism class. O=Z+3Zi yields exactly two classes, while O_E=Z[i] yields one. The nonmaximal Gaussian order of conductor 3 has only ±1, despite its CM field containing i.
 
-The following API comparisons are used independently of the construction:
-
-- `idealLatticeCurve.endomorphismRing`: End(E_I) is the actual multiplier ring of I, equal to O for proper I. Sources: [MIT16](#source-mit16), Introduction p.1; Theorem 16.4 p.4 and Corollary 16.5 p.5; §16.4, Definition 16.9 and Theorem 16.12, pp.6–7; [MilneCM](#source-milnecm), Proposition 3.17, p.31. Prerequisites: [idealLatticeCurve](#cm-1-1).
-- `idealAction.kernel`: For integral invertible a, ker φ_a=a⁻¹I/I as an O-module. Sources: [MIT20](#source-mit20), §20.3 p.5, ideal-action/class-group torsor and norm-degree formulas; [GZ](#source-gz), Chapter III §4 p.257, equation (4.2). Prerequisites: [idealAction](#cm-1-1).
-
-<a id="cm-1-2"></a>
-
 **Checks.**
 
 - The unit ideal gives the identity map; (2+i) on Z[i] gives degree five while fixing the class.
 - The norm-two nonprincipal ideal of Z+3Zi exchanges its two CM classes. Its square returns the class, although the composite isogeny is not the identity map.
 - The lattice curve has j=1728 for Z[i], j=0 for the Eisenstein lattice, and full endomorphism order Z+3Zi for that nonmaximal lattice.
+
+<a id="cm-1-2"></a>
 
 ### 1.2 Forms, isogeny degree and rational twisting
 
@@ -335,7 +332,7 @@ Sources: [MIT16](#source-mit16), §16.4, Definition 16.9 and Theorem 16.12, pp.6
 
 **Degree of an ideal isogeny** — `idealAction.degree_eq_norm`. For any nonzero integral proper invertible quadratic-order ideal a, deg(φ_a)=|a⁻¹I/I|=N_O(a)=[O:a]. Invertibility suffices; prime-to-conductor conditions are needed for the separate extension/contraction comparison. This is total scheme degree; in characteristic zero all these maps are separable. Multiplication by nonzero u∈O has degree |N_{E/Q}(u)|. Compatibility must identify this index with TauCeti.Isogeny.degree, not with a chosen equation’s polynomial degree.
 
-Sources: [MIT20](#source-mit20), §20.3 p.5, ideal-action/class-group torsor and norm-degree formulas; [GZ](#source-gz), Chapter III §4 p.257. Prerequisites: [idealAction](#cm-1-1); `tauceti:TauCeti.Isogeny.degree`; `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`; [GlobalNumberFields Layer 11][globalnumberfields-11]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic]; [idealAction.kernel](#cm-1-1).
+Sources: [MIT20](#source-mit20), §20.3 p.5, ideal-action/class-group torsor and norm-degree formulas; [GZ](#source-gz), Chapter III §4 p.257. Prerequisites: [idealAction](#cm-1-1); `tauceti:TauCeti.Isogeny.degree`; `AbelianSchemesAndArithmeticModuli:A6.1/Hom.deg`; `AbelianSchemesAndArithmeticModuli:A6.12/traceDegreeSubfield`; [GlobalNumberFields Layer 11][globalnumberfields-11]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic]; [idealAction.kernel](#cm-1-1).
 
 **The rational CM quadratic self-twist isogeny** — `rationalCMSelfTwist`. Let E/Q be an elliptic curve with End_Qbar(E) an order in an imaginary quadratic K. For its quadratic character χ_K, E and the Weierstrass quadratic twist E^{χ_K} are Q-isogenous. Choose a nonzero anti-invariant α∈O (ᾱ=−α); under the standard K-isomorphism from the twist to E, multiplication by α descends to the required Q-isogeny. Transport between the equation and elliptic-scheme carriers through EC1/R12.1. Its kernel/degree is the existing ideal/multiplication map, not an asserted isomorphism.
 
@@ -347,51 +344,54 @@ Sources: [BT](#source-bt), §3.1, proof of Theorem 1.1, preprint p.6. Prerequisi
 
 ### 1.3 Serre tensor, Lie and period comparisons
 
-Specialize the required relative Serre-tensor extension to invertible CM ideals. Its representability and realization comparisons are the unfilled supplier prerequisite specified above. Lie base change, finite-flat kernels, eigenspace ranks and both period pairings must refer to the same action and the same underlying abelian scheme.
+The Serre tensor, with its functoriality, base change and realizations, is AbelianSchemesAndArithmeticModuli A1.3a and A4.7a. Here it is specialized to a ring of integers acting with [L:Q] equal to twice the relative dimension. The CM content is the degree of the ideal isogenies, inseparable part included, the preservation of the CM type, and the eigenspace and period comparisons between an abelian scheme and its ideal twists. Lie algebras, finite-flat kernels, eigenspace ranks and both period pairings refer to the same action and the same underlying abelian scheme.
 
-**Serre tensoring by a CM ideal** — `cmSerreTensor`. Let L be a totally complex number field containing a CM field K, Σ the lifts to L of a fixed CM type on K, and A/S an abelian scheme of relative dimension [L:Q]/2 with O_L-action of lifted type Σ and Lie(A/S) projective over O_L⊗O_S. For a finite projective right O_L-module M of rank r, specialize the required `relativeSerreTensor` to M⊗_{O_L}A, of relative dimension r[L:Q]/2; for a fractional invertible ideal a it has the same lifted CM type. Rank zero gives the zero abelian scheme, not a positive-dimensional CM action. The inclusion of nonzero fractional ideals a⊂b gives an isogeny a⊗A→b⊗A. Do not re-own generic tensoring or relative Lie/cohomology carriers.
+**Serre tensoring by a CM ideal** — `cmSerreTensor`. Let L be a totally complex number field with [L:Q]=2d, S a scheme and A/S an abelian scheme of relative dimension d with an injective ring map ι:O_L→End_S(A). For a finite projective O_L-module M (O_L is commutative, so its left and right module structures agree), `cmSerreTensor M A` is the abelian scheme M⊗_{O_L}A of A1.3a `relativeSerreTensor`, with T-points M⊗_{O_L}A(T) and with O_L acting through M. Since Spec O_L is connected, M has constant rank r. By A4.7a, Lie(M⊗A/S)≅(M⊗_Z O_S)⊗_{O_L⊗O_S}Lie(A/S), and M⊗_Z O_S is free of rank r over each semilocal ring O_L⊗O_{S,s}; so M⊗A has relative dimension rd. Rank zero gives the identity scheme S of A1.3a, of relative dimension zero, which is not a CM object. A module map f:M→N induces f⊗A by A1.3a-functoriality; in particular nonzero fractional ideals a⊂b give a homomorphism a⊗A→b⊗A. For an invertible fractional ideal a, choose nonzero integers m∈Z with ma⊂O_L and n∈a. The maps induced by a→O_L, y↦my, and O_L→a, 1↦n, compose in both orders to multiplication by mn. So a⊗A is O_L-linearly isogenous to A. For M≠0 the O_L-action on M⊗A is again injective: End_S(M⊗A) is torsion-free, M⊗A has positive relative dimension, and every nonzero ideal of O_L has finite index. When Lie(A/S) is moreover projective over O_L⊗O_S, so that A has CM by O_L in the sense of KS, the same holds for a⊗A: a⊗_Z O_S is locally on S free of rank one over O_L⊗O_S, so Lie(a⊗A/S) is locally on S isomorphic to Lie(A/S) as an O_L⊗O_S-module. Over an O_{L^Gal}[1/d_L]-algebra, where the decomposition into embedding eigenspaces is defined, a⊗A therefore has the same CM type as A. The generic tensor, Lie and cohomology carriers are not constructed again.
 
-Sources: [KS](#source-ks), §1.2, Definition 1.8 and equation (1.2.3), p.9. Prerequisites: [CMType](#cm-0-1); the unfilled `relativeSerreTensor` supplier extension; `AbelianSchemesAndArithmeticModuli:A0`; `AbelianSchemesAndArithmeticModuli:A1`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`; [CommRing.Pic.mapAlgebra][mathlib-commring.pic.mapalgebra].
+Sources: [KS](#source-ks), §1.2, Definition 1.8, the Serre construction (1.2.3) and the Lie identification that follows it, p.9. Prerequisites: [CMType](#cm-0-1); `AbelianSchemesAndArithmeticModuli:A1.3a/relativeSerreTensor`; `AbelianSchemesAndArithmeticModuli:A1.3a/relativeSerreTensor-functoriality`; `AbelianSchemesAndArithmeticModuli:A4.7a/relativeSerreTensor-lie-tate`; `AbelianSchemesAndArithmeticModuli:A0.1–A0.2`; `AbelianSchemesAndArithmeticModuli:A1.1–A1.3`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`; [CommRing.Pic.mapAlgebra][mathlib-commring.pic.mapalgebra].
 
-**CM tensor ideal inclusions and their kernels** — `cmSerreTensor.ideal_kernel_degree`. Under the CM Serre-tensor hypotheses, a⊂b induces a finite flat isogeny of degree [b:a]. For a nonzero integral ideal c⊂O_L, A→c⁻¹⊗A is the c-multiplication map, its kernel is A[c]=⋂_{x∈c}ker[x], and its degree is N_L/Q(c). For c=(n) with n≠0, the degree is |n|^{[L:Q]}=|n|^{2d}; these are finite flat degrees, including inseparable contributions in residue characteristic.
+**CM tensor ideal inclusions and their kernels** — `cmSerreTensor.ideal_kernel_degree`. Assume only the hypotheses of `cmSerreTensor`: an injective O_L-action with [L:Q] twice the relative dimension, with no type or Lie condition. Then nonzero fractional ideals a⊂b induce an isogeny a⊗A→b⊗A in the sense of A3.1, whose kernel is finite locally free of rank [b:a]. For a nonzero integral ideal c⊂O_L, the map [c]:A→c⁻¹⊗A induced by O_L⊂c⁻¹ is the c-multiplication map. Under the A1.3a identification (c⁻¹⊗A)(T)≅Hom_{O_L}(c,A(T)), coming from Hom_{O_L}(c⁻¹,O_L)=c, it sends a point P to x↦xP. Its kernel is therefore A[c]=⋂_{x∈c}ker[x], already cut out by two generators of c, and its degree is N_{L/Q}(c)=[O_L:c]. For c=(n) with n≠0 the degree is |n|^{[L:Q]}=|n|^{2d}. These degrees are finite-flat ranks: inseparable contributions at residue characteristics dividing [b:a] are counted.
 
-Sources: [KS](#source-ks), §1.2, equation (1.2.3) p.9 and Definition 1.9 p.10. Prerequisites: [cmSerreTensor](#cm-1-3); `AbelianSchemesAndArithmeticModuli:A1`; `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`.
+The proof first shows that x∈O_L∖{0} acts with rank N_{L/Q}(x) on any abelian scheme B/S of relative dimension d with injective O_L-action, such as b⊗A. End_S(B) is torsion-free, and a homomorphism vanishing on a geometric fibre vanishes on that component (A1.2(3)); since O_L/I is finite for every nonzero ideal I, the action stays injective on every geometric fibre. There A6.12 `traceDegreeSubfield`, with F=L of degree 2d, gives deg x=N_{L/Q}(x); ranks are locally constant by A3.1. Now let a⊂b, put c=ab⁻¹⊂O_L, fix a prime ℓ, and choose x∈c with v_𝔭(x)=v_𝔭(c) at every prime 𝔭 above ℓ. The module maps b→xb (y↦xy), xb⊂a and a⊂b compose to multiplication by x on b. By A1.3a-functoriality the induced maps compose to the action of x on b⊗A, so all three are isogenies and their ranks multiply (A3.1 `IsAbelianIsogeny.comp_rank`) to N(x)=[b:xb]=[b:a]·[a:xb]. The integral ideal c′=xc⁻¹ is prime to ℓ, and z=N(c′)=[a:xb] lies in c′, so za⊂xb. The maps a→xb (y↦zy) and xb⊂a compose to multiplication by z on a, hence to [z] on a⊗A, of rank z^{2d}. So the map xb⊗A→a⊗A has rank prime to ℓ, and the ℓ-part of the rank of a⊗A→b⊗A is the ℓ-part of [b:a]. Since ℓ is arbitrary, the rank is [b:a].
 
-**CM Lie and Hodge eigenspace comparison** — `cmHodgeEigenspaces`. For the KS CM scheme over R⊂C containing O_{L^Gal}[1/d_L], with lifted type Σ, Lie(A/R) is of type Σ. The covariant Hodge exact sequence 0→ω_{A∨/R}→H_A→Lie(A/R)→0 splits as O_L-eigenspaces H_A(Σ̄)⊕H_A(Σ); the first is ω_{A∨}, the second Lie(A). For the source’s inverse torus action on invariant differentials, ω_A=⊕σ∈Σ ω_A(−σ) and γ∈O_L× acts by σ(γ)⁻¹. This inverse action is distinguished from pullback by the multiplication map.
+Sources: [KS](#source-ks), §1.2, the statement after equation (1.2.3), p.9, and Definition 1.9, p.10; KS state the degree formula without proof, and the argument above supplies it from the cited supplier targets. Prerequisites: [cmSerreTensor](#cm-1-3); `AbelianSchemesAndArithmeticModuli:A1.3a/relativeSerreTensor`; `AbelianSchemesAndArithmeticModuli:A1.3a/relativeSerreTensor-functoriality`; `AbelianSchemesAndArithmeticModuli:A1.1–A1.3`; `AbelianSchemesAndArithmeticModuli:A3.1/IsAbelianIsogeny`; `AbelianSchemesAndArithmeticModuli:A6.12/traceDegreeSubfield`; [GlobalNumberFields Layer 11][globalnumberfields-11].
 
-Sources: [KS](#source-ks), Proposition 1.11 and Corollary 1.12, pp.10–11. Prerequisites: [cmSerreTensor](#cm-1-3); `AbelianSchemesAndArithmeticModuli:A4`; `AbelianSchemesAndArithmeticModuli:A0`; [CommRing.Pic.mapAlgebra][mathlib-commring.pic.mapalgebra]; [cmSerreTensor.lie](#cm-1-3).
+**CM Lie and Hodge eigenspace comparison** — `cmHodgeEigenspaces`. Let R⊂C be an O_{L^Gal}[1/d_L]-algebra and A/R an abelian scheme with CM by O_L in the sense of `cmSerreTensor`: an injective O_L-action with [L:Q]=2d and Lie(A/R) projective over O_L⊗R. There is a CM type Σ of L, lifted from a CM subfield and called the type of A, such that Lie(A/R) has type Σ and ω_{A∨/R} has type Σ̄. The covariant Hodge sequence 0→ω_{A∨/R}→H_A→Lie(A/R)→0, with H_A=Hom(H¹_dR(A/R),O_R)≅H¹_dR(A∨/R), splits as T_{L,R}-modules into H_A(Σ̄)⊕H_A(Σ). The first summand is ω_{A∨/R}, and the second maps isomorphically onto Lie(A/R). The R-dual ω_A of Lie(A/R) carries the inverse torus action: ω_A=⊕_{σ∈Σ}ω_A(−σ), with γ∈O_L× acting on ω_A(−σ) by σ(γ)⁻¹. This inverse action is distinguished from pullback by the multiplication map. For an invertible fractional ideal a, a⊗A again has CM by O_L of type Σ. The covariant comparison of A4.7a, H_{a⊗A}≅a⊗_{O_L}H_A, gives H_{a⊗A}(σ)≅(a⊗_{O_L,σ}R)⊗_R H_A(σ) for every embedding σ, compatibly with the Hodge sequences of A and a⊗A. The isogeny [c] induces on H the map coming from O_L⊂c⁻¹.
 
-**CM period and de Rham pairings** — `cmPeriodPairings`. Under the same complex CM scheme hypotheses, the degree-one integration pairing restricts to ω_{A/C}×H₁(A(C),Z)→C^Σ. The O_L-linear de Rham duality and Hodge decomposition induce a nondegenerate pairing overline{ω_{A/C}}×ω_{A∨/C}→C^{Σ̄}. Its first argument is the complex-conjugate vector space; it is not the bilinear pairing ω_A×ω_{A∨} without conjugation. All degree-one carriers and their comparison maps are imported from A4.
+Sources: [KS](#source-ks), Proposition 1.11 and Corollary 1.12, pp.10–11; Definition 1.7, p.9, for H_A. Prerequisites: [cmSerreTensor](#cm-1-3); [cmSerreTensor.lie](#cm-1-3); `AbelianSchemesAndArithmeticModuli:A4.3/AbelianH1dR`; `AbelianSchemesAndArithmeticModuli:A4.7a/relativeSerreTensor-lie-tate`; `AbelianSchemesAndArithmeticModuli:A5.6–A5.7`; [CommRing.Pic.mapAlgebra][mathlib-commring.pic.mapalgebra].
 
-Sources: [KS](#source-ks), Corollary 1.13, p.11. Prerequisites: [cmHodgeEigenspaces](#cm-1-3); `AbelianSchemesAndArithmeticModuli:A4`.
+**CM period and de Rham pairings** — `cmPeriodPairings`. Under the same complex CM hypotheses, the degree-one integration pairing of A5.6–A5.7 restricts to ω_{A/C}×H₁(A(C),Z)→C^Σ. The O_L-linear de Rham duality of A4.3 and the Hodge decomposition induce a nondegenerate pairing overline{ω_{A/C}}×ω_{A∨/C}→C^{Σ̄}. Its first argument is the complex-conjugate vector space; it is not the bilinear pairing ω_A×ω_{A∨} without conjugation. The period pairing is natural in O_L-linear homomorphisms f:A→B, in the sense that ⟨f^*ω,γ⟩_A=⟨ω,f_*γ⟩_B; the de Rham pairing is natural with f^∨ on the dual side. For the ideal twists of `cmSerreTensor.periodLattice`, all Lie algebras are identified with the same C^Σ and H₁((a⊗A)(C),Z) is aΛ. The pairing of a⊗A is the evaluation of ω_{A/C}=Hom_C(C^Σ,C) on the lattice aΛ⊂C^Σ, made L⊗C-linear as for A, and [c]^* and [c]_* intertwine the pairings of A and c⁻¹⊗A.
+
+Sources: [KS](#source-ks), Corollary 1.13, p.11, and the period lattice (1.3.3)–(1.3.4), p.12. Prerequisites: [cmHodgeEigenspaces](#cm-1-3); [cmSerreTensor.periodLattice](#cm-1-3); `AbelianSchemesAndArithmeticModuli:A4.3/AbelianH1dR`; `AbelianSchemesAndArithmeticModuli:A5.1/AbelianLattice`; `AbelianSchemesAndArithmeticModuli:A5.6–A5.7`.
 
 **Basic API.**
 
-- `cmSerreTensor.unit`: O_L⊗A≅A as O_L-abelian schemes.
-- `cmSerreTensor.assoc`: M⊗(N⊗A)≅(M⊗N)⊗A with the tensor actions and associativity specified.
-- `cmSerreTensor.lie`: Lie(M⊗A)=M⊗_{O_L}Lie(A), compatible with the lifted Σ type.
-- `cmSerreTensor.baseChange`: Serre tensor commutes with every allowed base change S′→S.
+- `cmSerreTensor.unit`: O_L⊗A≅A as abelian schemes with O_L-action (A1.3a, the case M=R).
+- `cmSerreTensor.directSum`: (M⊕N)⊗A≅(M⊗A)×_S(N⊗A), including the empty sum (A1.3a-functoriality).
+- `cmSerreTensor.assoc`: M⊗(N⊗A)≅(M⊗N)⊗A, from the point formula of A1.3a and Yoneda; this uses that O_L is commutative, so that N⊗A carries an O_L-action.
+- `cmSerreTensor.faithful`: For M≠0 the O_L-action on M⊗A is injective, and a⊗A is O_L-linearly isogenous to A for every invertible a.
+- `cmSerreTensor.lie`: Lie(M⊗A)=M⊗_{O_L}Lie(A) as O_L⊗O_S-modules; for invertible a, Lie(a⊗A) is locally on S isomorphic to Lie(A), so the type is preserved (A4.7a; KS p.9).
+- `cmSerreTensor.baseChange`: (M⊗A)_{S′}≅M⊗A_{S′} with the pulled-back O_L-action, for every S′→S (A1.3a-base-change).
+- `cmSerreTensor.tate`: For ℓ invertible on S, T_ℓ(M⊗A)≅M⊗_{O_L}T_ℓA (A4.7a). On a geometric fibre T_ℓA is locally free of rank one over O_L⊗Z_ℓ (A6.12 and torsion-freeness over the product of discrete valuation rings O_L⊗Z_ℓ), so T_ℓ(a⊗A)≅a⊗T_ℓA has rank one as well.
+- `cmSerreTensor.periodLattice`: Over C, fix ω(A):Lie(A/C)≅C^Σ=(L⊗C)(Σ). Then Lie(a⊗A/C)=a⊗_{O_L}Lie(A/C) is identified with C^Σ through a⊗_{O_L}L=L, the period lattice of a⊗A is aΛ, and (a⊗A)(C)≅C^Σ/aΛ. Under these identifications [c] is the projection C^Σ/Λ→C^Σ/c⁻¹Λ. This follows from (a⊗A)(C)=a⊗A(C) (A1.3a), the Lie comparison, and the exponential sequence of A5.1 applied to the projector that defines a⊗A, since tensoring with the projective module a is exact.
 
 **Checks.**
 
-- `cmSerreTensor.test_unit`: Tensoring by O_L is the original CM abelian scheme.
-- `cmSerreTensor.test_directSum`: Tensoring by O_L⊕O_L is A×A, with doubled relative dimension.
-- `cmSerreTensor.test_torsion_excluded`: For a nonzero proper ideal c, O_L/c is nonzero torsion and not projective, so is outside the abelian-scheme preservation contract. For c=O_L the quotient is zero and is projective.
-- `cmSerreTensor.test_zero`: Tensoring by the zero projective module gives the zero abelian scheme, of relative dimension zero.
+- `cmSerreTensor.test_unit`: Tensoring by O_L returns the original CM abelian scheme; tensoring by a principal ideal xO_L returns an O_L-isomorphic one, through xO_L≅O_L, y↦y/x.
+- `cmSerreTensor.test_directSum`: Tensoring by O_L⊕O_L gives A×A, of relative dimension 2d.
+- `cmSerreTensor.test_zero`: Tensoring by the zero module gives the identity scheme S, of relative dimension zero.
+- `cmSerreTensor.test_nonprincipal`: For L=Q(√−5), A=C/O_L with its multiplication action and a=(2,1+√−5), a⊗A≅C/a has the same type and is O_L-isogenous to A, but is not O_L-isomorphic to it: an isomorphism would be multiplication by some u∈L× with ua=O_L, making a principal. Its j-invariant is the second root of H_{−20}.
+- `cmSerreTensor.test_torsion_excluded`: For a nonzero proper ideal c, O_L/c is nonzero torsion and not projective, so it is outside the contract. Over F̄₅, let Z[i] act on the ordinary curve y²=x³−x by i(x,y)=(−x,3y), so that i acts on Lie by 3. The fppf tensor sheaf (Z[i]/(2+i))⊗A vanishes, because the map induced by (2+i)⊂Z[i] is the isogeny 2+i, which is fppf surjective. But (Z[i]/(2+i))⊗Lie(A)=Lie(A)≠0, since 2+i acts on Lie by 2+3=0. The Lie formula therefore fails outside projective modules. For c=O_L the quotient is zero and projective.
 
-**Required calculations and boundary cases.** M=O_L returns A; M=a⊕b gives the product of the two ideal tensors. Nonprojective torsion M is outside the abelian-scheme preservation contract. For d=2, [n] has degree n⁴; n² would incorrectly reuse the elliptic result. For a Gaussian type, Lie selects i while the dual-abelian invariant form in the Hodge sequence selects the conjugate embedding. A diagonal action σ(γ) instead of σ(γ)⁻¹ fails the source invariant-differential convention. For dimension two, the codomain has two selected complex coordinates, not a single arbitrary period.
-
-The following API comparisons are used independently of the construction:
-
-- `cmSerreTensor.lie`: Lie(M⊗A)=M⊗_{O_L}Lie(A), compatible with the lifted Σ type. Sources: [KS](#source-ks), §1.2, Definition 1.8 and equation (1.2.3), p.9. Prerequisites: [cmSerreTensor](#cm-1-3).
+**Required calculations and boundary cases.** M=O_L returns A; M=a⊕b gives the product of the two ideal tensors. For equal ideals the degree is 1, for c=O_L the map [c] is the identity, and n=0 is excluded because (0) is not a nonzero ideal. For d=2, [n] has degree n⁴; n² would incorrectly reuse the elliptic result. For L=Q(i) and c=(2+i), [c] has degree 5. Over C its kernel is (2+i)⁻¹Z[i]/Z[i], with five points and lattice (2+i)⁻¹Z[i] for c⁻¹⊗A. Over F̄₅, with i acting on Lie by 3 as above, [2+i] has zero differential, so its kernel is connected of rank 5 with one geometric point, while [2−i] has étale kernel with five points. A degree defined by counting geometric kernel points therefore gives 1 for [2+i]. For a Gaussian type, Lie selects i while the dual-abelian invariant form in the Hodge sequence selects the conjugate embedding. A diagonal action σ(γ) instead of σ(γ)⁻¹ fails the source invariant-differential convention. For a principal twist (x), the eigenspace comparison multiplies H_A(σ) by σ(x), and an ideal twist never exchanges Σ and Σ̄. For dimension two, the codomain has two selected complex coordinates, not a single arbitrary period.
 
 ### Examples
 
-The Gaussian norm-five map fixes the curve class but has five-element kernel. The two conductor-three Gaussian classes are exchanged by the norm-two ideal. Serre tensor by O_L returns A, by zero returns the zero abelian scheme, and by a⊕b returns the product; multiplication by n≠0 in dimension two has degree n⁴. The square Gaussian differential has inverse i-action −i, while multiplication pullback has i-action.
+The Gaussian norm-five map fixes the curve class but has five-element kernel. The two conductor-three Gaussian classes are exchanged by the norm-two ideal. Serre tensor by O_L returns A, by zero returns the identity scheme, and by a⊕b returns the product; multiplication by n≠0 in dimension two has degree n⁴. Over F̄₅ the two Gaussian primes above 5 give one connected and one étale kernel of rank five. The nonprincipal ideal of Z[√−5] twists C/Z[√−5] into the other curve with CM by that order. The square Gaussian differential has inverse i-action −i, while multiplication pullback has i-action.
 
 ### Dependencies
 
-Layer 0; GlobalNumberFields 11; IntegralLattices B2/B5 for the consumed form/ideal dictionary; EllipticCurves 1/2/5; ModularCurvesPartII R12.1; AbelianSchemesAndArithmeticModuli A0/A1/A4/A5/A6.
+Layer 0; GlobalNumberFields 11; IntegralLattices B2/B5 for the consumed form/ideal dictionary; EllipticCurves 1/2/5; ModularCurvesPartII R12.1; AbelianSchemesAndArithmeticModuli A0.1–A0.2, A1.1–A1.3a, A3.1, A4.1, A4.3, A4.7a, A5.1–A5.7, A6.1, A6.12 and A6.18.
 
 ## Layer 2: Polarized lattices and explicit reciprocity
 
@@ -407,7 +407,7 @@ Sources: [MilneCM](#source-milnecm), §2.9 pp.25–26; Proposition 3.17 p.31. Pr
 
 **CM lattices and ideal isogenies in arbitrary dimension** — `arbitraryCMClassification`. The A5-algebraized polarized CM-action triples of type (E,Φ) correspond to polarized lattice data modulo the displayed E× equivalence. For a CM field with maximal order O_E, unpolarized O_E-equivariant isomorphism classes form a Pic(O_E)-torsor under a⁻¹I and have cardinal h_E. Integral ideals give O_E-linear isogenies of degree N_E/Q(a). If E is a field and Φ is primitive, the resulting complex abelian variety is simple and End⁰(A)=E; with full O_E action its full End(A)=O_E. A fixed polarization changes the torsor and its stabilizer.
 
-Sources: [MilneCM](#source-milnecm), Propositions 3.12–3.13 and 3.17, pp.29–31; [Tsimerman](#source-tsimerman), §4 pp.384–385. Prerequisites: [PolarizedCMLattice](#cm-2-1); [CMType.IsPrimitive](#cm-0-1); `AbelianSchemesAndArithmeticModuli:A5`; `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`; [GlobalNumberFields Layer 11][globalnumberfields-11]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic].
+Sources: [MilneCM](#source-milnecm), Propositions 3.12–3.13 and 3.17, pp.29–31; [Tsimerman](#source-tsimerman), §4 pp.384–385. Prerequisites: [PolarizedCMLattice](#cm-2-1); [CMType.IsPrimitive](#cm-0-1); `AbelianSchemesAndArithmeticModuli:A5`; `AbelianSchemesAndArithmeticModuli:A6.1/Hom.deg`; `AbelianSchemesAndArithmeticModuli:A6.12/traceDegreeSubfield`; [GlobalNumberFields Layer 11][globalnumberfields-11]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic].
 
 **Basic API.**
 
@@ -465,10 +465,6 @@ Sources: [MilneCM](#source-milnecm), Remark 9.11(c), p.78, and Theorem 9.17, pp.
 
 **Required calculations and boundary cases.** In the elliptic case this is the identity ideal map under E*=E. At a prime dividing F, invertibility and the contraction equality are not asserted. For an elliptic quadratic type, the lattice is a⁻¹I under arithmetic Art(a). An ℓ dividing the order index is not allowed to inherit a free rank-one integral O_l module. A formula changing I but keeping ξ without the norm/cyclotomic factor fails already for multiplication by an integer on a polarized surface.
 
-The following API comparisons are used independently of the construction:
-
-- `reflexIdealMap.principal`: NΦ,O((u))=(NΦ(u)) under the local prime-to-F condition. Sources: [Streng](#source-streng), §2.6 pp.6–7 and §4.2 p.13. Prerequisites: [reflexIdealMap](#cm-2-2).
-
 <a id="cm-2-3"></a>
 
 ### 2.3 Level functions, stabilizers and relative fields
@@ -510,8 +506,6 @@ Source: the marked stabilizer of [Streng](#source-streng), Theorem 2.5 pp.7–8;
 
 **Required calculations and boundary cases.** N=1 removes the finite level matrix action, but does not remove the lattice class action. For g=1, ν=det; reversing U to M changes arithmetic Frobenius to its inverse. At N=1 the congruence is vacuous; at N>1 it can shrink the field stabilizer. A principal image ideal with arbitrary generator is insufficient without µµ̄=N(a). In g=1 every generator has its required norm, so H=ker r and the obstruction is trivial. The class map has domain the reflex class group, not Cl(E). For the Gaussian elliptic curve j=1728, Q(j)=Q but E*=Q(i); equalities of these two moduli fields are false.
 
-<a id="cm-2-4"></a>
-
 **Checks.**
 
 - At N=5 the matrix M=diag(2,1) has inverse diag(3,1), with determinants 2 and 3 in F₅. Their actions on the first basis vector differ, pinning U rather than M.
@@ -519,13 +513,15 @@ Source: the marked stabilizer of [Streng](#source-streng), Theorem 2.5 pp.7–8;
 - Polarization-preserving automorphisms are essential for full-level rigidity: an unpolarized CM surface can have infinite-order units congruent to 1 modulo 3. No absolute unmarked moduli-degree identity follows from that rigidity.
 - For the Gaussian polarized elliptic curve, M_abs=Q and M_rel=E*=Q(i); after adjoining E* the two fields agree. If forgetting the action leaves the G_{E*}-stabilizer unchanged, the equality criterion gives E*M_abs=M_rel; a strictly larger stabilizer instead gives a proper subfield. These checks distinguish the two stabilizers and do not assert a field of definition.
 
+<a id="cm-2-4"></a>
+
 ### 2.4 A surface calculation
 
 Carry the normalization through an explicit product surface. This example uses a nonprimitive product type; the displayed CM algebra is not its full End⁰.
 
 **A dimension-two torsion and polarization example** — `dimensionTwoCMExample`. Let E₀:y²=x³−x over Q(i), with i acting by (x,y)↦(−x,iy), and A=E₀×E₀ with product principal polarization and CM algebra Q(i)×Q(i), type selecting the standard embedding on each factor. At P=(5,i−3), E₀ has arithmetic Frobenius π=−1+2i, so on prime-to-5 Tate modules A has diagonal CM action (π,π); on 3-torsion, (Z/3)^4, the same action is multiplication by π mod 3, represented in the (1,i) basis on each factor by [[2,1],[2,2]]. The Weil pairing multiplier is 5 mod 3=2, and the Frobenius characteristic polynomial is (X²+2X+5)². The ideal isogeny on the product has degree 25. Separately, the non-Galois quartic example in CM.0 has reflex real subfield Q(√7), demonstrating that higher-dimensional reflex fields need not equal the original CM field.
 
-Sources: [MilneCM](#source-milnecm), Theorem 9.10, Remark 9.11 and Theorem 9.17, pp.78–81. Prerequisites: [ideleTorsionDictionary](#cm-2-2); [polarizationReciprocityDictionary](#cm-2-2); [arbitraryCMClassification](#cm-2-1); [nonGaloisQuarticExample](#cm-0-3); [EllipticCurves Layer 3][ellipticcurves-3]; [EllipticCurves Layer 2][ellipticcurves-2]; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`.
+Sources: [MilneCM](#source-milnecm), Theorem 9.10, Remark 9.11 and Theorem 9.17, pp.78–81. Prerequisites: [ideleTorsionDictionary](#cm-2-2); [polarizationReciprocityDictionary](#cm-2-2); [arbitraryCMClassification](#cm-2-1); [nonGaloisQuarticExample](#cm-0-3); [EllipticCurves Layer 3][ellipticcurves-3]; [EllipticCurves Layer 2][ellipticcurves-2]; `AbelianSchemesAndArithmeticModuli:A6.11/charpolyTate`.
 
 **Required calculations and boundary cases.** Check the two rank-one CM components in each elliptic factor, four-dimensional rational Tate module, degree 25 and multiplier 2 on 3-torsion. The product type is not primitive; its full End⁰ is M₂(Q(i)), so the primitive End theorem cannot be applied.
 
@@ -583,10 +579,6 @@ Sources: [MIT21](#source-mit21), Theorem 21.1 and opening discussion, pp.1–3. 
 - `classPolynomial.test_nonmaximal_degree`: H_{−36} has degree two; substituting Cl(Z[i]) incorrectly gives degree one.
 
 **Required calculations and boundary cases.** H_{−4}=X−1728 and H_{−3}=X. For D=−36 its degree is two, not the maximal Gaussian class number one. The leading term is from −Φ_l(X,X); its sign and prime-degree hypothesis are essential. The cyclic level-four diagonal is nonzero but its negative is not monic, as computed above; a full-subgroup correspondence cannot replace the cyclic one. An order-two class swaps its two j-roots; a principal ideal fixes each j but may act nontrivially on level/torsion values. For K=Q(i), j=1728 gives L_1=K while Q(j)=Q.
-
-The following API comparisons are used independently of the construction:
-
-- `classPolynomial.roots`: The complex roots, each once, are exactly the normalized j-values of elliptic curves with full endomorphism order O_D. Sources: [MIT20](#source-mit20), Introduction p.1 and §20.3 p.5, defining product for H_D. Prerequisites: [classPolynomial](#cm-3-1).
 
 <a id="cm-3-2"></a>
 
@@ -647,15 +639,15 @@ Construct the character of the actual model with its full CM action defined over
 
 **The algebraic Hecke character of a CM abelian variety** — `cmHeckeCharacter`. Let A/k be a g-dimensional abelian variety over a number field, with a CM field E⊂End⁰_k(A) of degree 2g and all specified endomorphisms defined over k; its type has reflex field E*⊂k. Construct on GN9’s Hecke-character carrier ψ_A:I_k(m)→E× for a finite modulus m containing bad reduction and the integral-order exceptions. At a good prime v prime to m, ψ_A(v) is the E-linear Frobenius element on A_v. For a∈k× with a≡1 mod× m, ψ_A((a))=NΦ(N_{k/E*}a). Its complex components have the algebraic infinity type determined by Φ (positive ideal exponent; negative idelic exponent). The finite conductor f(ψ_A) is the least such modulus, not an arbitrary containing modulus. Values are in E×, not generally in O_E×.
 
-Sources: [MilneCM](#source-milnecm), §9, Frobenius and idele dictionary pp.74–84; [BT](#source-bt), §3.1, proof of Theorem 1.1, p.6; [Kato](#source-kato), §15.10 p.260. Prerequisites: [ideleTorsionDictionary](#cm-2-2); [reflexIdealMap](#cm-2-2); [arbitraryCMClassification](#cm-2-1); [GlobalNumberFields Layer 9][globalnumberfields-9]; [GlobalNumberFields Layer 10][globalnumberfields-10]; [GlobalNumberFields Layer 8][globalnumberfields-8]; `ShimuraVarieties:V5`; `ArithmeticGaloisRepresentations:R01.6`; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`.
+Sources: [MilneCM](#source-milnecm), §9, Frobenius and idele dictionary pp.74–84; [BT](#source-bt), §3.1, proof of Theorem 1.1, p.6; [Kato](#source-kato), §15.10 p.260. Prerequisites: [ideleTorsionDictionary](#cm-2-2); [reflexIdealMap](#cm-2-2); [arbitraryCMClassification](#cm-2-1); [GlobalNumberFields Layer 9][globalnumberfields-9]; [GlobalNumberFields Layer 10][globalnumberfields-10]; [GlobalNumberFields Layer 8][globalnumberfields-8]; `ShimuraVarieties:V5`; `ArithmeticGaloisRepresentations:R01.6`; `AbelianSchemesAndArithmeticModuli:A6.11/charpolyTate`.
 
 **One-dimensional CM components of the Tate module** — `cmTateComponents`. Under the CM-character hypotheses, V_l(A) is free of rank one over E⊗Q_l. For each embedding ι:E→Q_lbar, its coefficient summand is one-dimensional and carries GN9’s l-adic avatar ψ_{A,ι}, with arithmetic Frobenius eigenvalue ιψ_A(v) at every good v∤l. Thus V_l(A)⊗Q_lbar=⊕_ι ψ_{A,ι} as actual G_k modules. The underlying Q_l dimension is 2g. Integral rank-one freeness over O⊗Z_l requires l prime to the endomorphism-order index; it is not inferred from the rational comparison.
 
-Sources: [MilneCM](#source-milnecm), Proposition 7.3 p.53; Theorem 9.10 and footnote 25 p.78; [BT](#source-bt), §3.1, proof of Theorem 1.1, p.6. Prerequisites: [cmHeckeCharacter](#cm-4-1); [ideleTorsionDictionary](#cm-2-2); `ArithmeticGaloisRepresentations:R01.6`; [GlobalNumberFields Layer 9][globalnumberfields-9]; [GlobalNumberFields Layer 10][globalnumberfields-10]; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`.
+Sources: [MilneCM](#source-milnecm), Proposition 7.3 p.53; Theorem 9.10 and footnote 25 p.78; [BT](#source-bt), §3.1, proof of Theorem 1.1, p.6. Prerequisites: [cmHeckeCharacter](#cm-4-1); [ideleTorsionDictionary](#cm-2-2); `ArithmeticGaloisRepresentations:R01.6`; [GlobalNumberFields Layer 9][globalnumberfields-9]; [GlobalNumberFields Layer 10][globalnumberfields-10]; `AbelianSchemesAndArithmeticModuli:A6.11/charpolyTate`.
 
 **Frobenius and infinity-type identities** — `cmFrobeniusIdentities`. At a good prime v with residue size q and CM character ψ_A, its Frobenius element π_v=ψ_A(v) satisfies π_v̄π_v=q, all complex absolute values |τπ_v|=√q, and the Tate polynomial equals ∏_{τ:E→Qbar}(X−τπ_v). The component infinity types are those of Φ transported by τ. For elliptic A/K, the polynomial is X²−Tr_{K/Q}(π_v)X+q; at an inert rational good prime p for A/Q, the rational trace is zero while the prime of K has norm p² and Frobenius π_v=−p.
 
-Sources: [MilneCM](#source-milnecm), §8.1–8.3 pp.66–68; [Kato](#source-kato), §15.10 p.260 and §15.11 p.261. Prerequisites: [cmHeckeCharacter](#cm-4-1); [cmTateComponents](#cm-4-1); [GlobalNumberFields Layer 10][globalnumberfields-10]; `AutomorphicGaloisRepresentations:R19.3`; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`; `NeronModelsAndSemistableAbelianVarieties:R11.5/elliptic-local-polynomial`; [cmHeckeCharacter.frobenius](#cm-4-1).
+Sources: [MilneCM](#source-milnecm), §8.1–8.3 pp.66–68; [Kato](#source-kato), §15.10 p.260 and §15.11 p.261. Prerequisites: [cmHeckeCharacter](#cm-4-1); [cmTateComponents](#cm-4-1); [GlobalNumberFields Layer 10][globalnumberfields-10]; `AutomorphicGaloisRepresentations:R19.3`; `AbelianSchemesAndArithmeticModuli:A6.11/charpolyTate`; `NeronModelsAndSemistableAbelianVarieties:R11.5/elliptic-local-polynomial`; [cmHeckeCharacter.frobenius](#cm-4-1).
 
 **Basic API.**
 
@@ -671,10 +663,6 @@ Sources: [MilneCM](#source-milnecm), §8.1–8.3 pp.66–68; [Kato](#source-kato
 - `cmHeckeCharacter.test_inert_baseChange`: For the same curve at the inert rational prime 7, the K-prime has norm 49 and ψ((7))=−7, not an element of norm 7.
 
 **Required calculations and boundary cases.** For an elliptic curve over its endomorphism field the ideal infinity type is (1,0); the matching idelic type is (−1,0). A good Frobenius value has nontrivial norm q, so need not be a unit. A CM elliptic V_l has rank two over Q_l and rank one over K⊗Q_l; it is not one-dimensional over Q_l for inert coefficient primes. For y²=x³−x, rational good primes 5 and 7 give X²+2X+5 and X²+7; over K at 7 the factor is (X+7)².
-
-The following API comparisons are used independently of the construction:
-
-- `cmHeckeCharacter.frobenius`: At every good v away from m, ψ_A(v) is the actual E-linear arithmetic Frobenius. Sources: [MilneCM](#source-milnecm), §9, Frobenius and idele dictionary pp.74–84; [BT](#source-bt), §3.1, proof of Theorem 1.1, p.6; [Kato](#source-kato), §15.10 p.260. Prerequisites: [cmHeckeCharacter](#cm-4-1).
 
 <a id="cm-4-2"></a>
 
@@ -754,7 +742,7 @@ Distinguish model-field endomorphisms from geometric ones before applying the fi
 
 **Deuring’s characteristic-p endomorphism classification** — `deuringClassification`. For every elliptic curve A/k in characteristic p>0, let End_geom(A)=End_{kbar}(A_kbar). It is either Z, an order in an imaginary quadratic field where p splits and whose conductor is prime to p, or a maximal order in the definite rational quaternion algebra B_{p,∞} ramified exactly at p and ∞. The quaternion case is precisely supersingular. Over kbar=F_pbar the Z case does not occur; every ordinary curve has the quadratic-order case and every supersingular curve the maximal quaternion-order case. Every maximal-order conjugacy type occurs for a supersingular curve. This is a theorem about all characteristic-p elliptic curves, including p=2,3, not just CM reductions; End_k can be smaller than End_geom.
 
-Sources: [Deuring](#source-deuring), Introduction §§2–3 pp.198–199; §2.4 pp.212–213, §2.5–10 pp.213–218, and §8 conclusion p.258; [GZ](#source-gz), Chapter III §7 p.261. Prerequisites: [EllipticCurves Layer 3][ellipticcurves-3]; [EllipticCurves Layer 2][ellipticcurves-2]; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`; [QuadraticFormInvariants Layer 2][quadraticforminvariants-2]; `GeometryOfNumbersAndQuadraticArithmetic:GN.2`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`.
+Sources: [Deuring](#source-deuring), Introduction §§2–3 pp.198–199; §2.4 pp.212–213, §2.5–10 pp.213–218, and §8 conclusion p.258; [GZ](#source-gz), Chapter III §7 p.261. Prerequisites: [EllipticCurves Layer 3][ellipticcurves-3]; [EllipticCurves Layer 2][ellipticcurves-2]; `AbelianSchemesAndArithmeticModuli:A6.10/End.charpoly`; [QuadraticFormInvariants Layer 2][quadraticforminvariants-2]; `GeometryOfNumbersAndQuadraticArithmetic:GN.2`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`.
 
 For quaternionic maximality, compare finite quotient isogenies with local left ideals, retaining the inseparable p-power part. At l≠p the kernels have two torsion coordinates and the local ideal count at norm lⁿ is 1+l+⋯+lⁿ; the quaternion division order at p has a unique ideal at each norm pⁿ. Their product exhausts the quotient isogenies, so the corresponding endomorphism orders are maximal. In the ordinary case the one-dimensional p-adic action forces p to split in the quadratic field, and its integral local order is maximal at p; this is the conductor-prime-to-p conclusion. Finally realize every quaternion maximal-order type using the associated ideal quotient. These comparisons are on the actual torsion kernels and embedded endomorphism lattices, not on assumed numerical counts.
 
@@ -772,7 +760,7 @@ Sources: [MilneCM](#source-milnecm), Theorem 8.1 and Corollaries 8.2–8.3 pp.66
 
 **The slope formula, including ramified primes** — `cmNewtonSlopes`. Under the number-field CM-action and good-reduction hypotheses, without assuming p unramified in E, let H_v be the set of embeddings E→Q_pbar inducing v|p through the chosen embedding of the normal closure into Q_pbar. The v-component of the p-divisible group up to isogeny is isoclinic of slope |Φ∩H_v|/|H_v|, repeated [E_v:Q_p] times. The rational E⊗Q_p idempotent defines this component; an integral product decomposition at a nonmaximal order is not assumed. Thus the formula also applies to nonmaximal CM orders. For a product CM algebra apply the statement to each factor. It specializes in the unramified maximal-order case to ord_v(π)/ord_v(q)=|Φ∩H_v|/|H_v|. Every H_v is nonempty; the denominator is never an arbitrarily supplied zero cardinality. This comparison specializes V5’s general Shimura–Taniyama theorem and does not rebuild it.
 
-Sources: [MilneCM](#source-milnecm), Remark 8.4 p.69 and the p-divisible-group proof, Theorem 8.11 pp.71–73. Prerequisites: `ShimuraVarieties:V5`; `AbelianSchemesAndArithmeticModuli:A4`.
+Sources: [MilneCM](#source-milnecm), Remark 8.4 p.69 and the p-divisible-group proof, Theorem 8.11 pp.71–73. Prerequisites: `ShimuraVarieties:V5`; `AbelianSchemesAndArithmeticModuli:A4.5/BarsottiTate`.
 
 **Deuring lifting with an endomorphism** — `deuringLifting`. For an elliptic curve A over a finite field F_q and nonzero α∈End_{F_q}(A), there are a number field L, a prime P with residue field identified with F_q, an elliptic curve A*/L with good reduction at P and α*∈End_L(A*) reducing to the pair (A,α). A non-scalar α yields an imaginary-quadratic CM lift. The statement does not claim a lift of the entire supersingular quaternion endomorphism ring as characteristic-zero endomorphisms.
 
