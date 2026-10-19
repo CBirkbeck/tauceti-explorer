@@ -85,7 +85,7 @@ Define the existential proper smooth scheme models over W(F̄_p), with generic-f
 
 - `witt-good-reduction.1` (computation): P^n_Q has the property for every n≥0 through P^n over each Witt ring.
 
-- `witt-good-reduction.2` (characterisation): Every Z_p-model produces the same predicate through the existential introduction; the definition does not demand a Z-model.
+- `witt-good-reduction.2` (computation): For E:y²=x³−x, HasWittGoodReductionAt(E,3) holds: its integral Weierstrass model has discriminant 64, a unit in Z_3, so gives a proper smooth Z_3-model. Yet HasEverywhereWittGoodReduction(E) fails at 2 by the next test. Requiring a proper smooth Z-model in the local predicate would fail this example.
 
 - `witt-good-reduction.3` (non-example): A model only after a ramified field extension does not meet the witness type. For example the elliptic curve y²=x³−x has potentially good reduction at 2 but not good reduction over W(F̄_2); its 3-adic Tate module has nontrivial inertia at 2. The numerical minimal discriminant 64 and j=1728 are recorded by LMFDB 32.a3; the potential-good-reduction and Néron–Ogg–Shafarevich criteria are imported from TauCetiRoadmap EllipticCurves Layer 4. Proper smooth base change then rules out a Witt-ring model.
 
@@ -168,7 +168,7 @@ For unramified K=W(k)[1/p], perfect k, 0<r<p−1 and a killed-p Fontaine–Laffa
 
 - `truncated-valuation-ring.2` (characterisation): In E containing an element of valuation r/(p−1), its class is nonzero, whereas every element of larger valuation is zero.
 
-- `truncated-valuation-ring.3` (non-example): For p=2 no positive r satisfies the stated range; the object is not used as a weight-one dyadic Fontaine–Laffaille model.
+- `truncated-valuation-ring.3` (computation): At p=3,r=1, let E=Q_3(π) with π²=−3. Then v₀(π)=1/2, so [π] is nonzero in Fil^1 A_E and φ_1([π])=[π]. Using +p instead of −p gives −[π], which is distinct because 2 is a unit. This tests the divided-Frobenius sign at the strict cutoff.
 
 
 **Uses.**
@@ -179,7 +179,7 @@ For unramified K=W(k)[1/p], perfect k, 0<r<p−1 and a killed-p Fontaine–Laffa
 
 
 
-**Check.** At the boundary v₀(x)=r/(p−1), a nonzero class survives; replacing > by ≥ changes the object.
+**Check.** At the boundary v₀(x)=r/(p−1), a nonzero class survives; replacing > by ≥ changes the object. For p=2 no positive r satisfies the local hypotheses; no weight-one dyadic object is asserted.
 
 **Direct prerequisites:** `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-filtered-modules`; `PadicHodgeTheory:R06.1`.
 
@@ -288,7 +288,7 @@ For unramified K=W(k)[1/p], perfect k, 0<r<p−1 and a killed-p Fontaine–Laffa
 
 1. Use the period-truncation comparison to identify J_M(K̄) with a d-dimensional F_p-representation.
 
-2. Use the exact-solution description to identify J_M(E) with its G_E-fixed elements, including for algebraic E not complete.
+2. For this fixed-point argument choose all Frobenius-matrix lifts in W(k)⊆O_K, hence fixed by G_K. The exact-solution bijections are then G_K-equivariant. Coordinatewise G_E-fixed tuples lie in E, so J_M(E)=J_M(K̄)^{G_E}, including for algebraic E not complete; do not commute invariants with a valuation quotient without this lifting argument.
 
 3. All p^d elements are fixed exactly when the kernel field lies in E.
 
@@ -549,7 +549,7 @@ Define the finite global crystalline category of all 7-power exponents and the d
 
 **Direct prerequisites:** `SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/simple-objects`; `SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/extension-splitting`; `SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/cyclotomic-filtration`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3`; `SmallRamificationAndAbelianVarietyBaseCases:R25.3/etale-group-schemes-over-integers-are-constant`.
 
-**Source and scope:** [Fontaine93](https://www.imo.universite-paris-saclay.fr/~fontaine/Zschemas.pdf), §2.6, Lemma 4 and proof, printed p. 7. This higher-torsion induction is necessary before passing to rational representations.
+**Source and scope:** [Fontaine93](https://www.imo.universite-paris-saclay.fr/~fontaine/Zschemas.pdf), §2.6, Lemma 4 and proof, printed pp. 7–8. This higher-torsion induction is necessary before passing to rational representations.
 
 ### LH.2/torsion-filtration: The finite global cyclotomic filtration is exhaustive
 
@@ -824,4 +824,4 @@ All mathematical statements and proof plans above are written in this roadmap’
 
 Schröer’s §5 was read to check the application and the local input it consumes. The endpoint used here is Fontaine’s remark on unramified local models, while the K3 dimension-one calculation is recorded at Schröer Proposition 5.5. His canonical-cover and twist constructions remain with the Enriques roadmap. LMFDB is used solely for the numerical data in the negative elliptic test; the proof of its reduction properties uses the already planned elliptic criteria. No source error requiring a correction was established in this pass.
 
-The design has 24 targets: five definitions, two comparisons, fourteen theorems and three applications, with 28 API items, 15 definition tests and 13 planets. There are six baseline declaration citations, eleven supplier requests and three highlighted gaps: the certified root-discriminant-seven threshold, the exact period/local-FL exports, and the general approximate-embedding ramification export. Every prerequisite chain terminates in the inspected baseline, an existing roadmap node, or an explicit supplier contract. All stages LH.0–LH.4 are planned and none is marked closed. The next pass is independent mathematical review followed by discharge of these precise supplier interfaces, rather than further decomposition into proof lemmas.
+The design has 24 targets: five definitions, two comparisons, fourteen theorems and three applications, with 28 API items, 15 definition tests and 13 planets. There are six baseline declaration citations, eleven supplier requests and three highlighted gaps: the certified root-discriminant-seven threshold, the exact period/local-FL exports, and the general approximate-embedding ramification export. Every prerequisite chain terminates in the inspected baseline, an existing roadmap node, or an explicit supplier contract. All stages LH.0–LH.4 are planned and none is marked closed. Independent review REV-DESIGN-SmallRamificationAndAbelianVarietyBaseCasesPartII accepted this target-level plan on 2026-10-19 after checking all 24 nodes, six pinned declarations, source locators, supplier statements and the suggested file. It replaced the local-model test by the curve y²=x³−x at 3, added the p=3 divided-Frobenius sign calculation, made the fixed coefficient choices in the field-detection proof explicit, and extended the higher-torsion induction locator through p. 8. The next work is discharge of the listed supplier interfaces and formal proof of the targets. All five layers remain planned, with no implementation or proof-closure claim.

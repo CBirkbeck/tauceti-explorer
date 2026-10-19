@@ -10,7 +10,7 @@
     "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.4"
   ],
   "status": "complete",
-  "summary": "Complete target-level design for both routed Schröer items /147–/148: the full local and global proof route of Fontaine 1993 through low-degree Hodge vanishing and its K3 consequence. Existing finite-flat, discriminant, period and comparison constructions are imported. Coverage is planned, not closed: explicit supplier extensions remain.",
+  "summary": "Complete independently reviewed target-level design for both routed Schröer items /147–/148: the local and global proof route of Fontaine 1993 through low-degree Hodge vanishing and its K3 consequence. Existing finite-flat, discriminant, period and comparison constructions are imported. Coverage is planned, not closed: explicit supplier extensions remain.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -177,8 +177,8 @@
         },
         {
           "name": "witt-good-reduction.2",
-          "kind": "characterisation",
-          "statement": "Every Z_p-model produces the same predicate through the existential introduction; the definition does not demand a Z-model."
+          "kind": "computation",
+          "statement": "For E:y²=x³−x, HasWittGoodReductionAt(E,3) holds: its integral Weierstrass model has discriminant 64, a unit in Z_3, so gives a proper smooth Z_3-model. Yet HasEverywhereWittGoodReduction(E) fails at 2 by the next test. Requiring a proper smooth Z-model in the local predicate would fail this example."
         },
         {
           "name": "witt-good-reduction.3",
@@ -263,7 +263,7 @@
         "Check the filtered-object relations and transport under K-embeddings of algebraic E. Use the ambient MF category, not its finite-length subcategory."
       ],
       "acceptance": [
-        "At the boundary v₀(x)=r/(p−1), a nonzero class survives; replacing > by ≥ changes the object."
+        "At the boundary v₀(x)=r/(p−1), a nonzero class survives; replacing > by ≥ changes the object. For p=2 no positive r satisfies the local hypotheses; no weight-one dyadic object is asserted."
       ],
       "prerequisites": [
         "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3/fl-filtered-modules",
@@ -329,8 +329,8 @@
         },
         {
           "name": "truncated-valuation-ring.3",
-          "kind": "non-example",
-          "statement": "For p=2 no positive r satisfies the stated range; the object is not used as a weight-one dyadic Fontaine–Laffaille model."
+          "kind": "computation",
+          "statement": "At p=3,r=1, let E=Q_3(π) with π²=−3. Then v₀(π)=1/2, so [π] is nonzero in Fil^1 A_E and φ_1([π])=[π]. Using +p instead of −p gives −[π], which is distinct because 2 is a unit. This tests the divided-Frobenius sign at the strict cutoff."
         }
       ],
       "uses": [
@@ -546,7 +546,7 @@
       ],
       "proofSteps": [
         "Use the period-truncation comparison to identify J_M(K̄) with a d-dimensional F_p-representation.",
-        "Use the exact-solution description to identify J_M(E) with its G_E-fixed elements, including for algebraic E not complete.",
+        "For this fixed-point argument choose all Frobenius-matrix lifts in W(k)⊆O_K, hence fixed by G_K. The exact-solution bijections are then G_K-equivariant. Coordinatewise G_E-fixed tuples lie in E, so J_M(E)=J_M(K̄)^{G_E}, including for algebraic E not complete; do not commute invariants with a valuation quotient without this lifting argument.",
         "All p^d elements are fixed exactly when the kernel field lies in E."
       ],
       "acceptance": [
@@ -1052,7 +1052,7 @@
       "sources": [
         {
           "sourceId": "Fontaine93",
-          "locator": "§2.6, Lemma 4 and proof, printed p. 7",
+          "locator": "§2.6, Lemma 4 and proof, printed pp. 7–8",
           "match": "This higher-torsion induction is necessary before passing to rational representations."
         }
       ],
@@ -1479,21 +1479,21 @@
       "stageId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1",
       "status": "planned",
       "remaining": [
-        "Export the exact A_cris/p divided-power model and U_S normalization from R07.3, and the generic all-m>c approximate-embedding consequence with the 1/e refinement from R07.6. Independently review the two strict valuation cutoffs and Hensel precision."
+        "Export the exact A_cris/p divided-power model and U_S normalization from R07.3, and the generic all-m>c approximate-embedding consequence with the 1/e refinement from R07.6. Preserve the independently checked strict cutoffs, divided-Frobenius sign and Hensel precision in these exports."
       ]
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2",
       "status": "planned",
       "remaining": [
-        "Certify the requested totally complex rd<7 threshold in R25.1; export local FL weight-zero, rank-one inertia and oriented Ext calculations, the finite torsion/kernel-field dictionary and tame-conjugation formula. Review the degree-287 and degree-12 replacements, arbitrary 7-power devissage and compact lattice limit."
+        "Certify the requested totally complex rd<7 threshold in R25.1; export local FL weight-zero, rank-one inertia and oriented Ext calculations, the finite torsion/kernel-field dictionary and tame-conjugation formula. The degree-287 and degree-12 substitutions, arbitrary 7-power devissage and compact lattice-limit proof routes have been independently checked; their formal proofs remain targets."
       ]
     },
     {
       "stageId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.3",
       "status": "planned",
       "remaining": [
-        "Discharge LH.0 and LH.2 contracts; export the characteristic-polynomial weight argument with multiplicities and the scheme coherent Hodge/coefficient-extension interfaces. Review the passage from the unique degree-two grade to scalar action and the Hodge–Tate sign."
+        "Discharge LH.0 and LH.2 contracts; export the characteristic-polynomial weight argument with multiplicities and the scheme coherent Hodge/coefficient-extension interfaces. Preserve the independently checked scalar-action argument and Hodge–Tate sign; no semisimplicity theorem is supplied by purity alone."
       ]
     },
     {
@@ -1585,6 +1585,134 @@
       "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.4/k3-hodge-number",
       "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.4/k3-obstruction",
       "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.4/projective-space-check"
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-SmallRamificationAndAbelianVarietyBaseCasesPartII",
+    "date": "2026-10-19",
+    "notes": "Independently checked every node and source locator, all six actual pinned baseline statements, cross-roadmap supplier statements, the reviewed R25 library audit and current upstream ownership. Corrected two definition tests and made Galois-fixed coefficient lifts explicit in the solution-cardinality proof, and extended the higher-torsion induction locator to include p. 8; synchronized the reader and completion notes. No nodes or baseline citations added or removed. The 140-line suggested file elaborated via lean-check with only the 15 intended warnings for proof placeholders. Validator passes against a fresh pinned declaration index with zero errors and zero warnings. All five layers remain planned; eleven supplier requests and three explicit gaps remain. Acceptance certifies a sound target-level plan, not implemented mathematics or discharged supplier contracts.",
+    "checked": [
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.0/witt-good-reduction",
+        "verdict": "corrected",
+        "note": "Fontaine Theorem 1 and Remark (a), author p. 3, support the independent Witt scheme models. Replaced the generic second test with E:y²=x³−x at 3 (Δ=64 is a unit), contrasted with its bad prime 2; LMFDB 32.a3 and upstream EllipticCurves Layer 4 support the numerical and reduction inputs."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.0/geometric-inputs",
+        "verdict": "verified",
+        "note": "Fontaine §2.1 and footnotes, pp. 4–5; R06.5 comparison and R06.2 unramified-completion descent match the proper smooth hypotheses and HT(χ)=+1. DWP.7 supplies nonprojective purity after spreading; SF.2/SF.4 requested exports are explicit."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1/truncated-valuation-ring",
+        "verdict": "corrected",
+        "note": "Fontaine §3.2, pp. 8–9: strict >r/(p−1), filtration ≥i/p and denominator (−p)^i agree. Replaced the vacuous dyadic third test with p=3,r=1,π²=−3, φ₁([π])=[π]≠−[π]; retained the dyadic exclusion as a boundary check."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1/solution-functor",
+        "verdict": "verified",
+        "note": "Fontaine §§3.3–3.4, p. 9: the filtered basis, matrix column convention, intrinsic F_p-Hom and auxiliary polynomial set agree. Zero, weight-zero and weight-one tests distinguish the object and do not assert coordinatewise additivity of exact lifts."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1/hensel-solution-lifts",
+        "verdict": "verified",
+        "note": "Fontaine §3.4 Lemma 2 and sublemma, p. 9: the initial precision n>re/(p−1) is strict. Finite complete lifting and finite descent give the stated bijection for every algebraic E, with the transferred additive structure distinguished from ordinary coordinate addition."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1/period-truncation-comparison",
+        "verdict": "verified",
+        "note": "Fontaine §§3.1, 3.3 and 3.5, pp. 8–10: projection and recovery of divided-power coefficients give the stated contravariant comparison. R07.3 supplies dimension/exactness; the additional precise A_cris/p model is an explicit request and gap, not a baseline claim."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1/solution-cardinality",
+        "verdict": "corrected",
+        "note": "Fontaine §3.6 Lemma 3, p. 10: equality detects the kernel field. Made the Galois descent argument explicit by taking matrix lifts in W(k), so the exact-solution bijection is equivariant; invariants are not silently commuted with the truncated quotient."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1/approximate-embedding",
+        "verdict": "verified",
+        "note": "Fontaine §3.7 Lemma 4 and proof, pp. 10–11: m>1+r/(p−1) induces the needed filtered injection and therefore a field embedding. The ≥m ideal and the strictly truncated period ideal are correctly distinguished; no lifting of the given map is asserted."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1/fontaine-torsion-bound",
+        "verdict": "verified",
+        "note": "Fontaine Theorem 2, p. 3, and §3.8, pp. 11–12: shifted upper ≤1+r/(p−1) and strict different <1+r/(p−1) agree. R07.6 numbering supplies the shift and different identity; the generic P_m implication with its 1/e refinement remains an explicit supplier gap."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.1/crystalline-subquotient-bound",
+        "verdict": "verified",
+        "note": "Fontaine §1, p. 4, and Theorem 2, p. 3; R07.3 lattice correspondence and essential-image subquotient closure apply in the safe interval r≤p−2. Killed-p lattice subquotients, ramification normalization and excluded endpoints are stated correctly."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/global-crystalline-category",
+        "verdict": "verified",
+        "note": "Fontaine §2.2, p. 5; R07.3 torsion functor and subquotient closure justify all exponents 7^n and the closure assertions. The middle-term crystalline condition is required for extensions; F_7(4) is excluded by the safe-range tame-weight classification."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/cyclotomic-filtration",
+        "verdict": "verified",
+        "note": "Fontaine §§2.1–2.2, pp. 4–5: order 3,2,1,0 matches. Read the actual pinned Representation, invariants and comap definitions; the suggested intersection-of-comaps is real-bodied, its seven API signatures are sound, and all three distinguishing test patterns elaborate."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/trivial-extensions",
+        "verdict": "verified",
+        "note": "Fontaine §2.3 Lemma 1, pp. 5–6: strict FL exactness forces weight zero and unramifiedness. The requested local weight-zero export plus R25.3 Minkowski then trivializes the action. The nonsplit underlying Z/49 group extension correctly remains possible."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/simple-objects",
+        "verdict": "verified",
+        "note": "Fontaine §2.4 Lemma 2, p. 6: adjoining ζ₇ gives a totally complex field. Existing R25.1 degree bound 287 still gives n″≤6 and a unique seven-Sylow subgroup. The rd<7 threshold is an explicit new certificate request; tame weights restrict the four simple characters."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/extension-splitting",
+        "verdict": "verified",
+        "note": "Fontaine §2.5 Lemma 3, pp. 6–7: the exceptional orientation is quotient 1/sub χ³. Existing R25.1 rows exclude an unramified degree-42 field and the ramified a=1,2 fields: rd=7^(5/6)<5.72 and 7^((41+6a)/42)≤7^(53/42)<12. The b≤a and b≡a mod 6 inputs have explicit local supplier contracts."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/no-trivial-quotient",
+        "verdict": "corrected",
+        "note": "Fontaine §2.6 Lemma 4, pp. 7–8: induction covers arbitrary seven-power order. Rank-one FL forces the inertia character only; the global unramified ratio is removed using Minkowski before scalar χ^i action is asserted. The local export is explicitly requested. Extended its source locator to p. 8, where the induction finishes."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/torsion-filtration",
+        "verdict": "verified",
+        "note": "Fontaine §2.2 Proposition 1′, p. 5, and §2.7, p. 8: the induction uses no-trivial-quotient decomposition and trivial-endpoint rigidity. It establishes the particular filtration, not only a composition series or semisimplification."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.2/rational-filtration",
+        "verdict": "verified",
+        "note": "Fontaine §2.1 Proposition 1, p. 4, and §2.2, p. 5: stable lattices come from R01.1 and their reductions from R07.3. Nonempty finite sets of filtration witnesses admit a compatible compact inverse limit; inverting seven preserves the linear congruences."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.3/pure-low-cohomology",
+        "verdict": "verified",
+        "note": "Fontaine §2.1, pp. 4–5: geometric Frobenius has χ₇(q)=q^−1. Characteristic-polynomial multiplicativity and purity force m=2i. The unique degree-two grade makes the whole dual action scalar, yielding Q₇(−1) on cohomology without a semisimplicity assumption."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.3/low-degree-hodge-vanishing",
+        "verdict": "verified",
+        "note": "Fontaine Theorem 1 and Remark (a), p. 3; §2.1, pp. 4–5. The imported Hodge–Tate decomposition kills precisely i≠j with i+j≤3; coefficient-extension faithfulness gives the Q-vector-space conclusion. Total degree four is not included."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.3/integral-model-specialization",
+        "verdict": "verified",
+        "note": "Fontaine Theorem 1 and Remark (a), p. 3: proper smooth Z or independent Z_p scheme models base change to the defined Witt models. No converse or globalization of independent local models is used."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.4/k3-hodge-number",
+        "verdict": "verified",
+        "note": "Schröer Proposition 5.5 proof, author p. 16, uses h²⁰=1. Read the shared K3.0/k3-surface predicate: projective, geometrically integral, dimension two and trivial ω. Coherent base change and Ω²=ω establish the dimension without descending a chosen form."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.4/k3-obstruction",
+        "verdict": "verified",
+        "note": "Fontaine Theorem 1 and Remark (a), p. 3, and Schröer Proposition 5.5, p. 16. Nonzero h²⁰ contradicts everywhere Witt good reduction; the repaired Enriques consumer supplies projective Z_p scheme models. Covers and twisting retain their consumer owner."
+      },
+      {
+        "nodeId": "SmallRamificationAndAbelianVarietyBaseCasesPartII:LH.4/projective-space-check",
+        "verdict": "verified",
+        "note": "Fontaine §2.1, p. 4, motivates the Tate check. The actual Hodge computation is explicitly requested from SF.2, beyond line-bundle cohomology. Diagonal H¹(Ω¹) tests the off-diagonal qualifier; H²(Ω²) is only an out-of-range check, not a counterexample to degree-four off-diagonal vanishing."
+      }
     ]
   }
 }
