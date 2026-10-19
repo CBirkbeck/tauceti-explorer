@@ -20,9 +20,11 @@ The pins are Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f7904
 
 The underlying reductive-group roadmap supplies representations/comodules in Layer 1, subgroup and quotient theory in Layer 3, tori and Jordan decomposition in Layer 4, and root/normalizer theory in Layer 7. Current ReductiveGroupsPartII RG2.0, RG2.0a and RG2.3 respectively supply local point topology, Weil restriction and parahoric groups. The group quotient here is distinct from the Lie-algebra Chevalley quotient in ET.2b. Current Adelic Algebraic Groups §4.3 supplies neatness; the torus cyclic-closure comparison below uses that definition.
 
+Current Tau Ceti already proves Chevalley’s line-stabilizer theorem as [`TauCeti.HopfIdeal.exists_finite_subcomodule_exteriorPower_line_stabilizer`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/AlgebraicGroup/Representation/ExteriorStabilizer/Character.lean#L101). For a Hopf ideal with finitely generated underlying ideal, it produces a line in a finite-dimensional exterior-power comodule whose stabilizer is the quotient subgroup on every commutative value algebra, including nonreduced algebras. Finite type over a field makes the defining ideal finitely generated. Import this theorem through the Layer 1 representation/comodule dictionary; it is not a new target here. This declaration was checked at Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039; it postdates the fixed Tau Ceti pin. The suggested file continues to use only the fixed baseline. The current roadmap checkout was checked separately at 0d144d044dacebca17b654695b6f1ad58f159b27.
+
 ## Layer RG3.0: Regular class functions and group conjugacy quotients
 
-For commutative Hopf algebras define the equalizer algebra of regular class functions and its conjugation/pullback API. For connected reductive groups in characteristic zero construct the affine conjugacy quotient and prove group Chevalley restriction C(O(G))≅O(T)^W, geometric semisimple-class classification, character separation and finiteness of the quotient map induced by a faithful representation. Supply the scheme-theoretic line-stabilizer theorem and the full character-lattice highest-weight character basis required for restriction. Construct the finite étale orthogonal Out′ action on actual SO factors and Conj′, excluding triality and Spin substitutions.
+For commutative Hopf algebras define the equalizer algebra of regular class functions and its conjugation/pullback API. For connected reductive groups in characteristic zero construct the affine conjugacy quotient and prove group Chevalley restriction C(O(G))≅O(T)^W, geometric semisimple-class classification, character separation and finiteness of the quotient map induced by a faithful representation. Import the existing scheme-theoretic line-stabilizer theorem from Tau Ceti, and prove the full character-lattice highest-weight character basis required for restriction. Construct the finite étale orthogonal Out′ action on actual SO factors and Conj′, excluding triality and Spin substitutions.
 
 ### Regular class functions
 
@@ -61,26 +63,6 @@ For a commutative Hopf algebra H over a commutative ring k, define the subalgebr
 
 **Sources.** [KZ25](#kz25), §5.1.3, p.47: The affine group conjugacy quotient uses the conjugation-invariant coordinate algebra; the equalizer gives its universal coordinate meaning.
 
-### Chevalley’s line-stabilizer theorem
-
-Target `RG3.0/chevalley-line-stabilizer` (theorem).
-
-Let G be an affine algebraic group of finite type over a field k and H⊂G a closed subgroup scheme. There is a finite-dimensional rational representation V of G and a one-dimensional subspace L⊂V whose scheme-theoretic stabilizer is H: for every commutative k-algebra A, H(A)={g∈G(A):g(L⊗A)=L⊗A}. The theorem does not require reductivity.
-
-**Hypotheses and conventions.** The stabilizer preserves the line; it does not have to fix a chosen nonzero vector.
-
-**Construction or proof.**
-
-1. Take the Hopf ideal I of H. Local finiteness of the regular comodule gives a finite-dimensional G-subcomodule W⊂O(G) containing ideal generators of I.
-2. The stabilizer of U=I∩W equals H: its matrix-coefficient ideal is I, using the counit identity and the chosen generating set. This equality is scheme-theoretic.
-3. Replace U⊂W by its top exterior line in ∧^dim(U) W. The exterior annihilator identity recovers U⊗A from that line over every k-algebra A, including rings with nilpotents.
-
-**Check.** In GL₂ the stabilizer of the line ℚe₁ is the upper triangular Borel, while the stabilizer of the vector e₁ forces its upper-left entry to be 1.
-
-**Dependencies.** `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`.
-
-**Sources.** [MilneAG](#milneag), Theorem 4.27 and Lemma 4.28, pp.94–95: Proves the scheme-theoretic stabilizer statement using a finite regular subcomodule and an exterior line.
-
 ### Highest-weight characters and orbit sums
 
 Target `RG3.0/highest-weight-character-basis` (theorem).
@@ -91,16 +73,16 @@ For a connected split reductive group G over an algebraically closed characteris
 
 **Construction or proof.**
 
-1. For existence, use a parabolic line stabilizer to obtain positive multiples of fundamental weights. On the big Bruhat cell construct the B-equivariant regular function of a desired dominant weight; a positive power extends globally, and normality of G makes the original function extend.
+1. For existence, import Tau Ceti’s current Hopf-ideal line-stabilizer theorem through the requested Layer 1 dictionary and apply it to a parabolic subgroup to obtain positive multiples of fundamental weights. On the big Bruhat cell construct the B-equivariant regular function of a desired dominant weight; a positive power extends globally, and normality of G makes the original function extend.
 2. The regular representation is locally finite. Its generated highest-weight module has one-dimensional highest weight and a unique simple quotient. The root subgroup expansion proves all remaining weights lie below the highest weight; the direct-sum highest-vector argument proves uniqueness.
 3. Pass from a semisimple group times a torus through the central isogeny: a representation descends precisely when its highest character lies in X*(T). Normalizer representatives permute weight spaces, giving W-invariance.
 4. Subtract leading orbit sums, within each central-character coset; the dominance intervals involved are finite. This proves the triangular character basis needed for restriction, without planning modular representations or the Lie-algebra Weyl character formula again.
 
 **Check.** For PGL₂ only even SL₂ highest weights occur. For G_m all integers occur and the character basis is the Laurent monomial basis. Over ℂ for GL_n, SL_n, SO_n and Sp_n, identify this classification with ClassicalGroups Layer 3 by the unique simple highest-weight representation; do not reconstruct its classical carriers or Schur functors. The new theorem is the rational algebraic-group statement for arbitrary connected reductive G, not a second Lie-module classification.
 
-**Dependencies.** `RG3.0/chevalley-line-stabilizer`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification`.
+**Dependencies.** `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-3-maximal-torus-weights-and-the-highest-weight-classification`.
 
-**Sources.** [MilneAG](#milneag), Theorem 22.2, pp.464–465; §§22.11–22.12, p.466; §§22.17–22.27, pp.468–471: Gives and proves the rational group highest-weight classification and central-isogeny descent. [Steinberg65](#steinberg65), §6.1 and Proposition 6.2, p.64: Uses highest weights and orbit-sum triangularity for the character basis.
+**Sources.** [MilneAG](#milneag), Theorem 22.2, pp.464–465; §§22.11–22.12, p.466; §§22.17–22.27, pp.468–471: Gives and proves the rational group highest-weight classification and central-isogeny descent. [Steinberg65](#steinberg65), Theorem 6.1 and Lemma 6.3, pp.62–63: Uses highest weights and orbit-sum triangularity for the character basis.
 
 ### Group Chevalley restriction
 
@@ -120,7 +102,7 @@ For a connected reductive G over k of characteristic zero and a maximal k-torus 
 
 **Dependencies.** `RG3.0/class-functions`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `RG3.0/highest-weight-character-basis`.
 
-**Sources.** [Steinberg65](#steinberg65), §§6.1–6.6, pp.64–65: Proves the character and restriction statements for semisimple groups; the stated reductive extension uses the same highest-weight argument with central characters. [KZ25](#kz25), §5.1.3, p.47: Uses the maximal-torus quotient and the geometric semisimple-class description.
+**Sources.** [Steinberg65](#steinberg65), §§6.1–6.6, pp.62–63: Proves the character and restriction statements for semisimple groups; the stated reductive extension uses the same highest-weight argument with central characters. [KZ25](#kz25), §5.1.3, p.47: Uses the maximal-torus quotient and the geometric semisimple-class description.
 
 ### The affine conjugacy quotient
 
@@ -157,7 +139,7 @@ For a connected reductive group G over a characteristic-zero field k, construct 
 
 **Dependencies.** `RG3.0/class-functions`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`, `tauceti:TauCeti.reductiveCommHopfAlgProperty`, `RG3.0/torus-weyl-comparison`.
 
-**Sources.** [KZ25](#kz25), §5.1.3, p.47: Defines Conj(G) as an affine quotient, with χ_G and its geometric semisimple-class interpretation. [Steinberg65](#steinberg65), §§6.1–6.4, pp.64–65: Restriction identifies the semisimple-group invariant coordinate algebra with torus Weyl invariants; the reductive extension is an explicit target here.
+**Sources.** [KZ25](#kz25), §5.1.3, p.47: Defines Conj(G) as an affine quotient, with χ_G and its geometric semisimple-class interpretation. [Steinberg65](#steinberg65), §§6.1–6.4, pp.62–63: Restriction identifies the semisimple-group invariant coordinate algebra with torus Weyl invariants; the reductive extension is an explicit target here.
 
 ### Characters separate semisimple classes
 
@@ -176,7 +158,7 @@ For semisimple x,y∈G(Ω), where Ω is algebraically closed of characteristic z
 
 **Dependencies.** `RG3.0/torus-weyl-comparison`, `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`.
 
-**Sources.** [Steinberg65](#steinberg65), Corollary 6.6, p.65: For semisimple groups equates conjugacy with equality of characters and representation classes; the reductive extension is supplied by group restriction. [KZ25](#kz25), Proposition 5.3.5, p.54: Applies all-representation character data to compare Frobenius quotient points.
+**Sources.** [Steinberg65](#steinberg65), Corollary 6.6, p.63: For semisimple groups equates conjugacy with equality of characters and representation classes; the reductive extension is supplied by group restriction. [KZ25](#kz25), Proposition 5.3.5, p.54: Applies all-representation character data to compare Frobenius quotient points.
 
 ### Finite faithful representation quotient
 
@@ -376,7 +358,7 @@ For every ℚ-torus T and rational prime p, the localization map ker[H¹(ℚ,T)�
 
 **Dependencies.** `EndoscopicTransferAndUnitaryTraceComparison:ET.0/tate-nakayama-tori`, `EndoscopicTransferAndUnitaryTraceComparison:ET.0/kottwitz-duality`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`.
 
-**Sources.** [KMPS22](#kmps22), Lemma 1.2.1, p.13: Constructs a global torus class with specified real value and trivial p-component. [Kottwitz86](#kottwitz86), Theorem 2.2, Corollary 2.5 and Proposition 2.6, pp.374–377: Identifies the global obstruction and exactness of the adelic localization sequence needed for the construction.
+**Sources.** [KMPS22](#kmps22), Lemma 1.2.1, pp.13–14: Constructs a global torus class with specified real value and trivial p-component. [Kottwitz86](#kottwitz86), Theorem 2.2, Corollary 2.5 and Proposition 2.6, pp.374–377: Identifies the global obstruction and exactness of the adelic localization sequence needed for the construction.
 
 ### Approximation of maximal tori
 
@@ -395,7 +377,7 @@ Let G be connected reductive over a number field F, S a finite set of places, an
 
 **Dependencies.** `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`, `ReductiveGroupsPartII:RG2.0`, `tauceti:TauCetiRoadmap/GlobalNumberFields#layer-1-weak-approximation-and-multiplicative-congruences`.
 
-**Sources.** [KMPS22](#kmps22), Lemma 1.2.2, p.13: States simultaneous approximation of maximal tori, including archimedean places. [Borovoi98](#borovoi98), Lemma 5.6.3, p.37: Restates Harder’s maximal-torus approximation result with finite place set.
+**Sources.** [KMPS22](#kmps22), Lemma 1.2.2, p.14: States simultaneous approximation of maximal tori, including archimedean places. [Borovoi98](#borovoi98), Lemma 5.6.3, p.37: Restates Harder’s maximal-torus approximation result with finite place set.
 
 ### Global tori with elliptic real fibre
 
@@ -641,7 +623,7 @@ For a semisimple point γ∈H(F), F a number field with a fixed embedding in ℂ
 
 **Dependencies.** `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`, `tauceti:TauCeti.HopfAlgebra.IsSemisimplePoint`, `AdelicAlgebraicGroups:AA.4`.
 
-**Sources.** [KMPS22](#kmps22), §2.1.8, p.24; proof of Lemma 2.2.10, p.28: Uses connected cyclic closure for semisimple neat points and a uniform power to obtain them.
+**Sources.** [KMPS22](#kmps22), §2.1.8, p.24; proof of Lemma 2.2.10, pp.28–29: Uses connected cyclic closure for semisimple neat points and a uniform power to obtain them.
 
 ### Weil points from the Serre condition
 
@@ -682,7 +664,7 @@ If a ℚ-torus T satisfies the Serre condition and is split over ℚ_l, then T(�
 
 **Dependencies.** `RG3.3/serre-unit-criterion`, `RG3.3/cyclic-torus-and-neatness`, `AdelicAlgebraicGroups:AA.3/class-number-finite`.
 
-**Sources.** [KMPS22](#kmps22), Lemma 2.2.10 and proof, p.28: Uses finite adelic class number and a split distinguished prime to prove density, then a uniform power to obtain neat points.
+**Sources.** [KMPS22](#kmps22), Lemma 2.2.10 and proof, pp.28–29: Uses finite adelic class number and a split distinguished prime to prove density, then a uniform power to obtain neat points.
 
 ### Rigidity under a finite automorphism group
 
@@ -750,7 +732,7 @@ Let Γ_F act continuously on a finite set X and x∈X. If, for almost all finite
 
 Target `RG3.4/rational-torus-embedding` (theorem).
 
-For a ℚ-torus T and a quasi-split connected reductive G*/ℚ, a Γ_ℚ-invariant geometric conjugacy class of maximal-torus embeddings T_ℚ̄↪G*_ℚ̄ has a representative defined over ℚ. In particular a common geometric torus-embedding class defined over every ℚ_l descends to a rational maximal-torus embedding into G*.
+Let T be a ℚ-torus and G*/ℚ a quasi-split connected reductive group. Suppose a finite Galois orbit of geometric conjugacy classes of maximal-torus embeddings T_ℚ̄↪G*_ℚ̄ has the following property: at almost every finite place, a decomposition group fixes some class in that orbit. Then that orbit is a singleton and its class has a representative defined over ℚ. In particular, a common geometric maximal-torus embedding class with a local representative at every ℚ_l admits a rational representative. The general quasi-split embedding theorem is imported from ET.0; this target is its arithmetic descent application.
 
 **Hypotheses and conventions.** The embeddings identify T with a maximal torus, not an arbitrary subtorus. The conclusion is the rationality of a maximal-torus embedding, not just of an element in the affine quotient.
 
@@ -1032,15 +1014,15 @@ The following statements specify the additional interfaces used from the named o
 
 ### tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules
 
-The rational-representation/comodule dictionary, local finiteness of the regular representation and tensor generation from a closed faithful finite-dimensional representation, including duals and subquotients. No second construction is planned here.
+The rational-representation/comodule dictionary, local finiteness of the regular representation and tensor generation from a closed faithful finite-dimensional representation, including duals and subquotients. No second construction is planned here. For the highest-weight existence argument, expose the current Hopf-ideal line-stabilizer theorem through this dictionary: finite type gives a noetherian coordinate algebra and hence a finitely generated defining ideal. Import the existing exterior-power theorem; no line-stabilizer proof is requested.
 
-Consumers: `RG3.0/torus-weyl-comparison`, `RG3.0/character-separation`, `RG3.0/faithful-quotient-finite`, `RG3.3/prime-unit`, `RG3.3/weil-point`, `RG3.0/chevalley-line-stabilizer`, `RG3.0/highest-weight-character-basis`.
+Consumers: `RG3.0/torus-weyl-comparison`, `RG3.0/character-separation`, `RG3.0/faithful-quotient-finite`, `RG3.3/prime-unit`, `RG3.3/weil-point`, `RG3.0/highest-weight-character-basis`.
 
 ### tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components
 
 Affine scheme/Hopf duality, scheme-theoretic closed subgroups and central quotients, normality of smooth connected groups, finite affine group quotients, and faithfully flat descent of affine algebra maps. The equalizer construction uses universal algebra-valued points.
 
-Consumers: `RG3.0/conjugacy-quotient`, `RG3.0/orthogonal-outer-action`, `RG3.1/central-product-injection`, `RG3.3/finite-orbit-rigidity`, `RG3.0/chevalley-line-stabilizer`.
+Consumers: `RG3.0/conjugacy-quotient`, `RG3.0/orthogonal-outer-action`, `RG3.1/central-product-injection`, `RG3.3/finite-orbit-rigidity`.
 
 ### tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori
 
@@ -1152,7 +1134,7 @@ All results above are stated in the terminology of their targets. Page numbers r
 
 <a id="steinberg65"></a>
 
-- **Steinberg65.** Robert Steinberg, [Regular elements of semisimple algebraic groups](https://www.numdam.org/item/PMIHES_1965__25__49_0.pdf). Publications Mathématiques IHÉS 25 (1965), 49–80. Relevant locators: §§6.1–6.6, printed pp.64–65.
+- **Steinberg65.** Robert Steinberg, [Regular elements of semisimple algebraic groups](https://www.numdam.org/item/PMIHES_1965__25__49_0.pdf). Publications Mathématiques IHÉS 25 (1965), 49–80. Relevant locators: §§6.1–6.6, printed pp.62–63.
 
 <a id="kottwitz86"></a>
 
