@@ -5286,5 +5286,6 @@
  "REV-PKG-K2SymbolsBrauer~adv": 11228,
  "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3": 11229,
  "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv3": 11231,
- "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2": 11233
+ "FIX-PKG-NoncommutativeAndEquivariantIwasawa~adv2": 11233,
+ "REV-PKG-BorelRegulators~codex": 11234
 }
