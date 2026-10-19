@@ -1430,7 +1430,7 @@
       "neededBy": [
         "ExcursionOperatorsAndSpectralAction:ES7:parabolic/coefficient-reduction"
       ],
-      "detail": "Prove the requested ES1:spectral-center comparison S_D⊗ΛΛ′ = S_{D⊗ΛΛ′}, with the appropriate derived tensor product on sheaves, for arbitrary coefficient morphisms preserving √q. Check creation, Weil action, annihilation and stratum restriction under coefficient change. Integral Bernstein-centre separatedness alone does not imply the arbitrary-Λ comparison. The suggested coefficientReduction signature states separatedness only; its docstring names the unstated base-change obligation.",
+      "detail": "Prove the requested ES1:spectral-center comparison S_D⊗ΛΛ′ = S_{D⊗ΛΛ′}, with the appropriate derived tensor product on sheaves, for arbitrary coefficient morphisms preserving √q. Check creation, Weil action, annihilation and stratum restriction under coefficient change. Integral Bernstein-centre separatedness alone does not imply the arbitrary-Λ comparison. The owning ES7 suggested file’s coefficientReduction signature states separatedness only; its docstring names the unstated base-change obligation. The compact ES6 suggested file has no such signature; it does not discharge this obligation.",
       "origin": {
         "packet": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
         "array": "gaps",
@@ -1440,7 +1440,7 @@
     }
   ],
   "sourceIssues": [],
-  "inheritedSourceIssuePolicy": "No fresh source-error verdict is made. Retain the independently reviewed sourceIssues in the two owning packets, qualified by packet and ID; this part neither duplicates those IDs nor re-reviews their verdicts.",
+  "inheritedSourceIssuePolicy": "Retain the original independently reviewed sourceIssues in the two owning packets, qualified by packet and ID, without duplicating their canonical records or overwriting their reviews. The author coverage pass issued no fresh verdict. The independent ES6 review records its scoped, edition-qualified confirmations separately in review.sourceIssuesChecked.",
   "importedInventory": {
     "nodes": 63,
     "kinds": {
@@ -1675,7 +1675,7 @@
         "ExcursionOperatorsAndSpectralAction/E10",
         "ExcursionOperatorsAndSpectralAction/E11"
       ],
-      "policy": "Retain the owning independently reviewed records and verdicts unchanged; these are not new findings or an independent review by this worker."
+      "policy": "Retain the owning records and original verdicts unchanged. The author coverage pass inherited them; the independent ES6 review records separate owner-qualified checks in review.sourceIssuesChecked, without changing canonical IDs or extending the edition boundary."
     },
     {
       "packet": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
@@ -1692,7 +1692,7 @@
         "ExcursionOperatorsAndSpectralAction/E10",
         "ExcursionOperatorsAndSpectralAction/E11"
       ],
-      "policy": "Retain the owning independently reviewed records and verdicts unchanged; these are not new findings or an independent review by this worker."
+      "policy": "Retain the owning records and original verdicts unchanged. The author coverage pass inherited them; the independent ES6 review records separate owner-qualified checks in review.sourceIssuesChecked, without changing canonical IDs or extending the edition boundary."
     }
   ],
   "importAudit": {
@@ -1815,5 +1815,680 @@
       "scopeCheck": "Use the actual perfect pairing between dual isotypes with its Frobenius similitude; the theorem has equal finite dimensions and invertible similitude and needs no self-duality of one isotype.",
       "application": "This part consumes the current supplier node in place of the retired reference. The original ES7 file is outside the authorized paths; its prerequisite spelling must be repointed during its own authorized reconciliation or packaging. This resolution creates no new theorem."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ExcursionOperatorsAndSpectralAction--ES6",
+    "date": "2026-10-19",
+    "notes": "Independent review of all 63 imported scope targets, their source locators, ten exact-pin baseline declarations, 86-node same-roadmap dependency closure, supplier boundaries, APIs/tests, planets and six confirmed red-team findings. Corrected the reader by spelling out Kaiser’s exact reciprocal ratio; clarified references to owner prototypes and the fresh-reading boundary. Added the explicit suggested-file roadmap disclaimer. No owned node, canonical owner edit, promoted implementation or closed stage. All 24 inherited gaps and 45 supplier contracts remain; two current-upstream ordinary-centre resolutions remain distinct. See the review report for source, baseline and per-target evidence.",
+    "checked": [
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6/coefficient-policy-for-the-functorial-diagrams",
+        "verdict": "verified",
+        "note": "FS IX.5.2 and IX.6, pp. 329–330: the spectral comparison requires the order of the component group of Z(G), while excursion evaluation on Schur objects avoids this condition. Kept distinct from ES3 categorical-action restrictions."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/isogenies",
+        "verdict": "verified",
+        "note": "FS IX.6.1, pp. 330–331: the morphism induces an adjoint isomorphism; it need not be a finite isogeny. Read HS4 relative-homology and GS4 change-of-group interfaces before passing to constituents."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/products",
+        "verdict": "verified",
+        "note": "FS IX.6.2, p. 331, with VII.7.10, p. 276: checked both factors, the common divisor base and compact lisse generators. HS4 product and VS5 Kunneth supply the unevaluated comparison."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/weil-restriction",
+        "verdict": "verified",
+        "note": "FS IX.6.3, p. 332: finite separable extension, compatible Weil embedding, free-subgroup colimit and nonabelian Shapiro are required. HS4 includes the induced representation and compatible half twists."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-spectral-center",
+        "verdict": "verified",
+        "note": "FS IX.6.4, p. 333: inverse-limit group rings use open levels, whose quotient groups can be infinite. All-field torus classification and wild equal-characteristic reciprocity remain explicit supplier extensions."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/torus-two-leg-calculation",
+        "verdict": "verified",
+        "note": "FS II.2, III.2 and VI.1–2 with IX.6.5; Fargues Proposition 2.16, Remark 2.17 and Proposition 3.3 proof, pp. 9–13: checked the frame/descent inverse and geometric reciprocity. Regular-module equality retains arbitrary coefficients; a Q_l character identity alone would not suffice."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/tori-diagonal-embedding",
+        "verdict": "verified",
+        "note": "FS IX.6.5, p. 333: regular-module detection proves the same element acts in every degree, including nonreduced coefficients. Torus-resolution and reciprocity requests remain; no finite quotient or field-point separation assumption is used."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/central-characters-and-twisting",
+        "verdict": "verified",
+        "note": "FS IX.6 closing paragraph, p. 333: multiplication by the smooth connected torus centre, products and torus compatibility give the dual projection. The scheme-theoretic centre hypothesis is retained."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/twisting-by-abelianized-characters",
+        "verdict": "verified",
+        "note": "FS p. 333: the graph into G times its torus abelianization gives central multiplication of crossed cocycles. The Weil projection stays fixed."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding",
+        "verdict": "verified",
+        "note": "Kaletha preprint Definition 5.1, Proposition 5.2 and Facts 5.4–5.6, pp. 17–20: checked all cohomological conditions and p-adic standing hypothesis. Constructor, central factorization, extension API and three tests agree; upstream z-extensions are a different supplier."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:functoriality/z-embedding-central-character-comparison",
+        "verdict": "verified",
+        "note": "Read Henniart–Vigneras 2.2.4(2), section 3 and Proposition 3.3, Vigneras sections 4–5, Conrad 1.2.1/4.1.2/4.1.7 and Kaletha section 5. The weaker all-field route uses a closed cocompact image and an irreducible quotient lift, not a false central-surjectivity or H1 assertion; its topology, finite-length and central-cocycle interfaces remain requested."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:duality/bernstein-zelevinsky-duals",
+        "verdict": "verified",
+        "note": "FS IX.5.3, pp. 329–330 and VI.12.1, pp. 239–241: early BZ/centre involution uses switched Satake duality. VS5 supplies compact BZ; condensed mapping, centre and domain refinements remain stated rather than inferred for arbitrary objects."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES6:duality/smooth-duals",
+        "verdict": "verified",
+        "note": "FS IX.5.3 proof, p. 330: the smooth contragredient statement returns after parabolic induction. All-coefficient admissibility and the induction/duality dictionary remain contracts, preventing circular use of the endpoint."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:parabolic/stratum-maps",
+        "verdict": "verified",
+        "note": "FS Definition IX.7.1, p. 334 and IX.5.2, p. 329: checked the eligible lisse embedding, ES5 embedding independence and ES0 enhanced-to-ordinary comparison. API and tests distinguish the unrestricted excursion map from the conditional spectral map."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:parabolic/twisted-levi-inclusion",
+        "verdict": "verified",
+        "note": "FS p. 334: geometric degree one gives t=(2rho_Ghat−2rho_Mhat)(sqrt(q)); its centrality and Weil invariance prove the cocycle law. Basic, inertia and GL2 tests detect an omitted or inverted twist."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:parabolic/coefficient-reduction",
+        "verdict": "verified",
+        "note": "FS IX.7.2 proof, p. 335: separatedness applies at the universal integral coefficients. Arbitrary derived coefficient change is a separate gap; current SR.1 supplies the ordinary corner-centre theorem, not the enhanced comparison."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:parabolic/basic-case-and-quasisplit-reduction",
+        "verdict": "verified",
+        "note": "FS p. 335, Kaletha published pp. 78–80 and Kottwitz Proposition 10.4, p. 50 / Proposition 13.1, pp. 65–66: checked basic inner twisting and the needed BG1 bridge. The p-adic z-embedding reduction is not extended across the characteristic-p nonsmooth-centre obstruction."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:parabolic/increasingly-unstable-sequence",
+        "verdict": "verified",
+        "note": "FS pp. 335–336: central translation preserves the Levi group and eventually the bounded Hecke type preserves HN reduction. N is chosen after V; BG4 quantitative slope strength remains an explicit request."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:parabolic/constant-term-computation",
+        "verdict": "verified",
+        "note": "FS IX.7.2, pp. 336–337 and current HS4 Levi statement: checked the switched kernel, opposite-parabolic sign and compact-support character in Rpi_! together. The unresolved normalization is retained as proof work; the shift disappears only on excursion degree zero."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:parabolic/parabolic-induction",
+        "verdict": "verified",
+        "note": "FS Corollary IX.7.3, pp. 336–337: the neutral-stratum Hecke operation is unnormalized induction, with inverse central translation and the negative shift/half twist. The generator reduction and coefficient contracts remain visible."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:parabolic/normalised-induction-dictionary",
+        "verdict": "verified",
+        "note": "FS IX.7.3 with the stated modulus convention: checked GL2 cancellation and the abelianized-character supplier. The general root/modulus comparison is a recorded gap, not silently supplied by notation."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/two-tower-realisation",
+        "verdict": "verified",
+        "note": "FS IX.7.4, p. 338; SW20 24.2.5, pp. 227–228 and 24.3.5, pp. 230–231: Q_p theorem and general EL input are distinguished. ET.6/6a owns the action-preserving classical tower comparison downstream of HS2; restriction of scalars remains requested."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/two-leg-excursion-is-a-trace",
+        "verdict": "verified",
+        "note": "FS p. 338: diagonal Weil invariance, scalar endomorphisms of both factors and the identity-tuple nonzero-dimension normalization give trace(rho(gamma1 gamma2^-1)). This is not invariance under independent legs; the compact Lean contraction matches it."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/trace-determines-semisimplification",
+        "verdict": "verified",
+        "note": "FS p. 338 and R01.1 arbitrary-monoid Brauer–Nesbitt statement: characteristic zero supplies invertibility of d!, so equality of traces identifies semisimplifications of the actual Weil representations. No finite-group substitute is used."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/supercuspidal-agreement",
+        "verdict": "verified",
+        "note": "FS p. 338: classical two-operation input and the direct summand of the Hecke output transport the scalar excursion action from the division-algebra representation to the supercuspidal. No parameter is used circularly to define its classical realization."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:GLn-comparison/all-irreducible-representations",
+        "verdict": "verified",
+        "note": "FS IX.7.4, pp. 337–338: normalized induction and the independent segment classification extend characteristic-zero agreement. The endpoint is the semisimple Weil part; the theorem does not reconstruct N."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/maximal-orders",
+        "verdict": "verified",
+        "note": "Hausberger section 1.1, p. 1291: central simple D and local maximal-order pairs include the split matrix case. API/tests distinguish integral matrices from order units. Existence/gluing remains requested from the algebraic suppliers."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/division-quotient-compactness",
+        "verdict": "verified",
+        "note": "LRS 13.3, p. 291 and Hausberger setup: division gives compactness modulo centre, and a degree lattice removes the remaining direction. The idele-class quotient is compact, not finite; AA.1 needs a function-field extension."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/discrete-spectrum",
+        "verdict": "verified",
+        "note": "LRS 13.3 and 14.1–14.2, pp. 291, 294: finite-level admissibility/decomposition is used in the compact division quotient. AS.0 Hilbert theory alone is insufficient for Qbar_l descent and restricted tensor products; those requests remain."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/kernel-trace-identity",
+        "verdict": "verified",
+        "note": "LRS 13.5–13.6, pp. 292–293: finite-level smoothing on the compact quotient gives the kernel integral and spectral trace. Generic restricted-product Haar is imported; no unrestricted infinite-dimensional trace is substituted."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/euler-poincare-function",
+        "verdict": "verified",
+        "note": "LRS 13.1, p. 289: checked full facet normalizers, orientation characters, facet multiplicity and Haar denominator. Rank-one, rescaling and edge-reversal checks distinguish plausible wrong functions."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/euler-poincare-orbital-integrals",
+        "verdict": "verified",
+        "note": "LRS 13.2, pp. 289–290: nonelliptic orbital integrals vanish and elliptic matching has the division-algebra sign. The characteristic-p building proof remains a source-expansion gap."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/euler-poincare-character-traces",
+        "verdict": "verified",
+        "note": "LRS 13.2, pp. 289–290: unitary trivial and Steinberg traces are 1 and (-1)^(d−1); all other compatible unitary irreducibles vanish. Central compatibility and the primary-proof characteristic-p gap are retained."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/simple-trace-comparison",
+        "verdict": "verified",
+        "note": "LRS 13.6, pp. 292–293: the geometric/automorphic EP comparison uses the division quotient and selected local tests. Exact transfer/coefficient proof expansion remains requested, not supplied by a generic trace formula."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/globalisation",
+        "verdict": "verified",
+        "note": "LRS Lemma 15.10, pp. 314–315 / Hausberger 10.2, p. 1340: checked the fixed setup, prescribed supercuspidals, Steinberg place and extra elliptic test. The nonzero matrix-coefficient selector, not a subgroup indicator, supplies the local components."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/jacquet-langlands-transfer",
+        "verdict": "verified",
+        "note": "LRS 15.11, p. 315 / Hausberger 10.3–10.4, pp. 1340–1341: selected transfer retains the auxiliary split supercuspidal and multiplicity one. No unrestricted global JL theorem is claimed."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/D-elliptic-sheaf",
+        "verdict": "verified",
+        "note": "Hausberger Definition 1.1, pp. 1291–1293: right D-module rank d^2, rank-d cokernels, periodic j/t chain and Frobenius on S are retained. Extensionality/pullback and the matrix Morita check agree with the generic DM.7 owner."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/level-structure",
+        "verdict": "verified",
+        "note": "Hausberger section 1, pp. 1292–1293: checked the zero-avoiding Frobenius-compatible right-module trivialization. The unit action is precomposition by left multiplication; the noncentral M2(F3) check correctly rejects right multiplication."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/moduli-and-hecke",
+        "verdict": "verified",
+        "note": "LRS Theorems 4.1, 5.1, 6.1 and Corollary 6.2, pp. 236, 241, 246; Hausberger 6.1/6.4, pp. 1311–1313: nonempty level, normalized index shift, relative dimension and division properness have the required domains. The distinguished-place extension only uses levels away from o."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/frobenius-hecke-correspondences",
+        "verdict": "verified",
+        "note": "Hausberger section 7.1, pp. 1315–1316: an arbitrary g acts through refined-level finite correspondences, not necessarily level automorphisms. Read current EDC pushforward/composition suppliers and their proper finite-level applicability."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/special-formal-module",
+        "verdict": "verified",
+        "note": "Hausberger Definition 3.1, p. 1302: specialness is invertibility of the tangent module over O_d tensor B, not total dimension alone. The split-eigenspace counterexample detects that omission."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/special-formal-modules",
+        "verdict": "verified",
+        "note": "Hausberger Theorem 3.4 and section 7.2, pp. 1304, 1316–1320: the local formal object has height d^2 and rational endomorphisms M_d(K). Determinant/Frobenius and norm-valuation actions are recorded, without transferring cover actions to the base scheme."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/uniformisation",
+        "verdict": "verified",
+        "note": "Hausberger 8.1 and 8.3, pp. 1321–1323: the complementary division algebra swaps the invariants, with formal away-o and generic-cover o-level statements distinguished. Right tower actions and cohomological inverses remain part of the target."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/fundamental-local-representation",
+        "verdict": "verified",
+        "note": "Hausberger sections 9.2–9.3, pp. 1335–1337: Res-prime is the integer-indexed disjoint Frobenius sum; compact support has finite component support. API/tests preserve the combined determinant/norm/Weil stabilizer and all three commuting actions."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/local-cohomology-finiteness",
+        "verdict": "verified",
+        "note": "Hausberger Proposition A.12, pp. 1364–1365 and 10.6, pp. 1341–1342: quasi-algebraic compact-support complexes and finite-type GL_d statements are separated from a stronger unproved assertion of tower admissibility."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/global-cohomology",
+        "verdict": "verified",
+        "note": "LRS 14.1–14.2, p. 294 and Hausberger 10.1, pp. 1338–1339: good finite levels are proper smooth of dimension d−1. Admissible Hecke decomposition and semisimplified Galois factors are retained; the source superscript typo does not change the middle degree."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/geometric-automorphic-trace",
+        "verdict": "verified",
+        "note": "LRS 14.9, p. 297 and 14.12, p. 300: alternating Frobenius traces are compared with the EP automorphic side. The current EDC trace-class and proper Lefschetz–Verdier statements cover the finite-level division scheme, not arbitrary nonproper fixed loci."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/dual-isotypic-pairing",
+        "verdict": "verified",
+        "note": "LRS Corollary 14.11 as corrected by Kaiser p. 1: pair the Pi and dual-Pi isotypes. Read EDC adic duality and equal-dimensional similitude reciprocity; neither requires false self-duality of an individual isotype."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/kaiser-erratum",
+        "verdict": "verified",
+        "note": "Kaiser p. 1: both the dual and q_x^-1 T^-1 replacement are retained. Corrected general-chain input and the independent selected-generic route stay separate."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/kaiser-graded-chain-lemma",
+        "verdict": "corrected",
+        "note": "Kaiser Lemma 14.14-prime, pp. 1–2: independently checked the dual reciprocal ratio, orders-at-q^n relation, purity, m-prime divisibility and chain degrees. Expanded the reader to state the exact ratio and relation already present in the canonical node."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/kaiser-graded-chain-proposition",
+        "verdict": "verified",
+        "note": "Kaiser Proposition 14.17-prime, p. 1: checked the full chain decomposition and multiplicity m_Pi. It uses the amended lemma and the dual isotype, without restoring the deleted integrality/self-duality hypotheses."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/selected-isotypic-cohomology",
+        "verdict": "verified",
+        "note": "LRS 15.12 and its genericity remark, pp. 316–317 with Hausberger 10.5: the selected middle-degree factor follows using the strict generic Satake bound. The source route requiring proof expansion is explicit; the conclusion is not inferred from a trace identity alone."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/local-correspondence-independence",
+        "verdict": "verified",
+        "note": "LRS 15.13–15.14, pp. 317–319: determinant, twists, duals and pair factors compare auxiliary choices in one fixed global setup. The open-curve compact-support functional equation and local epsilon product exceed present WC.2 and remain requested."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/classical-local-correspondence",
+        "verdict": "verified",
+        "note": "LRS 15.13–15.17, pp. 317–322 / Hausberger 9.2, pp. 1334–1335: independently constructed finite-order supercuspidal parameters precede excursion comparison. Numerical surjectivity/uniqueness, twists and segment extension remain independent supplier obligations."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/local-character-identity",
+        "verdict": "verified",
+        "note": "Hausberger Theorem 9.1, pp. 1333–1334: local JL character matching has sign (-1)^(d−1) on corresponding elliptic regular elements. The underlying Badulescu proof remains unacquired and explicitly a gap; it is not replaced by the mixed-characteristic theorem."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/geometric-hochschild-serre",
+        "verdict": "verified",
+        "note": "Hausberger 10.6 and 10.8, pp. 1341–1342: checked the Ext degree 2d−2−j, Tate twist d−1 and transpose/inversion action. Generic arithmetic spectral sequences do not supply the analytic quotient construction; the exact H3/HS comparison remains requested."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/hochschild-serre-and-degeneration",
+        "verdict": "verified",
+        "note": "Hausberger 10.14–10.17, pp. 1353–1356: selected cuspidal degeneration uses compact matrix coefficients on GL_d(K)^0, corrected semisimple-block lifting, concentration and multiplicity one. Equal multiplicity alone is not used as an isomorphism criterion."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/drinfeld-carayol",
+        "verdict": "verified",
+        "note": "Hausberger Theorem 9.5, p. 1337 / final proof pp. 1356–1357: finite-order central character, supercuspidal domain, Hom isotype and twist |.|^((1−d)/2) match. The fixed-central-character argument uses the index-d subgroup and averaging, not a false equality with GL_d."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/hecke-fibre-transport",
+        "verdict": "verified",
+        "note": "FS IX.7.4, p. 338 with IX.3, pp. 324–325: the equal-characteristic second operation and action-preserving formal-module comparison remain explicit gaps. The Q_p p-divisible-group theorem does not supply them."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/equal-characteristic-agreement",
+        "verdict": "verified",
+        "note": "FS IX.7.4, p. 338: the equal-characteristic realization feeds the same trace and normalized-induction nodes. Both operations are prerequisites, and the conclusion identifies only the semisimple Weil parameter."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7/agreement-for-every-local-field",
+        "verdict": "verified",
+        "note": "FS IX.7.4, p. 338: combines two independent characteristic branches, each with its recorded proof obligations. This is a covered target, not a claim that the geometric prerequisites have been formalized."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7:function-field-automorphic/cuspidal-local-selector",
+        "verdict": "verified",
+        "note": "LRS 15.10 proof, pp. 314–315: the normalized matrix-coefficient test has nonzero value at one and selects the chosen irreducible with its fixed central character. Three tests distinguish the central law and nonvanishing from an indicator construction."
+      },
+      {
+        "nodeId": "ExcursionOperatorsAndSpectralAction:ES7/classical-centre-agreement",
+        "verdict": "verified",
+        "note": "FS after IX.7.4, p. 338: characteristic-zero irreducible evaluation plus centre separation identifies the maps. The integral centre map exists, but no integral/mod-l full Weil–Deligne correspondence follows."
+      }
+    ],
+    "baselineChecked": [
+      {
+        "ref": "mathlib:Representation",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "verdict": "verified",
+        "note": "Algebraic monoid representations on existing modules; neither smoothness nor continuity is implicit."
+      },
+      {
+        "ref": "mathlib:Representation.dual",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "verdict": "verified",
+        "note": "Dual action by precomposition with the inverse group element."
+      },
+      {
+        "ref": "mathlib:coevaluation",
+        "module": "Mathlib/LinearAlgebra/Coevaluation.lean",
+        "verdict": "verified",
+        "note": "Coevaluation into V tensor V-dual over a field for finite-dimensional V."
+      },
+      {
+        "ref": "mathlib:contractRight",
+        "module": "Mathlib/LinearAlgebra/Contraction.lean",
+        "verdict": "verified",
+        "note": "Evaluation from V tensor V-dual to the coefficient ring."
+      },
+      {
+        "ref": "mathlib:LinearMap.trace",
+        "module": "Mathlib/LinearAlgebra/Trace.lean",
+        "verdict": "verified",
+        "note": "Trace of a module endomorphism; use finite-dimensional vector spaces for the contraction endpoint."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "verdict": "verified",
+        "note": "Finite formal coefficient sums on a monoid. The index monoid need not be finite."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.single",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Defs.lean",
+        "verdict": "verified",
+        "note": "A single group-ring basis vector with a specified coefficient."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.mapDomainLinearMap",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Module.lean",
+        "verdict": "verified",
+        "note": "Linear transport of basis indices. A quotient map sends [x] to [q(x)] with unchanged coefficient."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.CatCenter",
+        "module": "Mathlib/CategoryTheory/Center/Basic.lean",
+        "verdict": "verified",
+        "note": "Endomorphisms of the identity of an ordinary category, not the enhanced degree-zero centre."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsSmoothDiscrete",
+        "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/SmoothDiscrete.lean",
+        "verdict": "verified",
+        "note": "Discrete underlying topology and open point stabilizers for a TopRep object. This supplies neither D_lis nor a local LLC."
+      }
+    ],
+    "sourceReadings": [
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "sourceId": "FS-geometrization",
+        "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+        "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+        "readLocators": "II.2.2–2.4 pp. 60–61; III.2 p. 91; VI.1.6–1.9 pp. 193–194; VI.2.2–2.4 pp. 197–198; VI.12 pp. 239–241; VII.7.10 p. 276; VIII.3.6 p. 288; IX.3 pp. 324–325; IX.4–7 pp. 327–338.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "sourceId": "Kaletha-2018",
+        "url": "https://arxiv.org/pdf/1502.00650v2",
+        "sha256": "067aa7999a96980da07ebf90ab5cf7b30819a34235460c0818ad6d96dae2cfb3",
+        "readLocators": "Standing hypothesis section 2 p. 4; Definition 5.1, Proposition 5.2, Corollary 5.3 and Facts 5.4–5.6, pp. 17–20.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "sourceId": "Fargues-AbelJacobi",
+        "url": "https://webusers.imj-prg.fr/~laurent.fargues/cdc.pdf",
+        "sha256": "35c7268fd6ce086f1267a00c18e02900c87ed5da65781d3b8695644d6e8fef73",
+        "readLocators": "Proposition 2.16 and Remark 2.17 pp. 9–11; Proposition 3.3 proof p. 13; coefficient-free torsor input distinguished from Q_l character specialization.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "sourceId": "Conrad-finiteness",
+        "url": "https://math.stanford.edu/~conrad/papers/cosetfinite.pdf",
+        "sha256": "a1b909e7fdaaf56a21811e0379c9370ae8e9e51e75e047c6f1db927e278fca3c",
+        "readLocators": "Remark 1.2.1 pp. 3–4; Lemma 4.1.2 p. 19; Proposition 4.1.7 p. 22; smoothness hypotheses retained.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "sourceId": "Henniart-Vigneras-2025",
+        "url": "https://msp.org/pjm/2025/335-2/pjm-v335-n2-p02-s.pdf",
+        "sha256": "55f167816a1ba5a084a8bf19ac9786a8d443e45e72bff9a789c39709ade87095",
+        "readLocators": "Section 2.2.4(2) p. 236; section 3, Lemma 3.1 and Proposition 3.3/proof pp. 238–240; adjacent square-class formula (4-1) checked for imported E10–E11.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "sourceId": "Vigneras-2023",
+        "url": "https://ems.press/content/book-chapter-files/33125",
+        "sha256": "7db5e703a2d1c29e902731d82a744c2a860a5d8eaf8ae2c50c2c841eeeca4936",
+        "readLocators": "Sections 4–5 pp. 337–340, in particular finite length of finitely generated admissible representations p. 340.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "sourceId": "Hausberger-2005",
+        "url": "https://aif.centre-mersenne.org/item/AIF_2005__55_4_1285_0.pdf",
+        "sha256": "d51dc22168dcd4831726197b1cef252ea784cc9abbce4cf521465423638daf48",
+        "readLocators": "Definition 1.1 pp. 1291–1293; Definition 3.1/Theorem 3.4 pp. 1302–1304; 6.1/6.4 pp. 1311–1313; section 7 and 8.1/8.3 pp. 1315–1323; sections 9–10 pp. 1333–1342 and 1352–1357; Proposition A.12 pp. 1364–1365.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "sourceId": "LRS-1993",
+        "url": "https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0113/LOG_0019.pdf",
+        "sha256": "05ea7ab8cb64577f5d421f37255a7cfd58b6fc763294038cd2e87475d80ab87e",
+        "readLocators": "Theorems 4.1/5.1/6.1 and Corollary 6.2 pp. 236–246; section 13 pp. 289–293; 14.1–14.2 p. 294; 14.9–14.12 pp. 297–300; old chain/correction context pp. 302, 306–307; 15.10–15.17 pp. 314–322. Journal scan read with OCR; Kaiser comparison also checked visually.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "sourceId": "Kaiser-erratum",
+        "url": "https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/ErratumvonChrKaiser.pdf",
+        "sha256": "6aa9e01d3551e3f0e3d8ca3d98acba98a1e163e723d342f9ccd719ae4dc02c54",
+        "readLocators": "Both pages: Corollary 14.11 correction, Lemma 14.14-prime and Proposition 14.17-prime, including lemma proof. Page 1 formulas checked visually against the scan.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "sourceId": "Kaletha-2018",
+        "url": "https://ems.press/content/serial-article-files/32267",
+        "sha256": "cfd4f90fd84806dcb328840e620d7934772d86439514e73c1bb060c222b6a030",
+        "readLocators": "Section 2 standing hypothesis p. 64 and Definition 5.1 / Proposition 5.2 / Facts 5.4–5.6 pp. 78–80; distinct from preprint pagination.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "sourceId": "Kottwitz-2014",
+        "url": "https://arxiv.org/pdf/1401.5728",
+        "sha256": "37c9980b749d315d014c5046f486ea9d8bac1acc3753fe766ae45ac7907f12a4",
+        "readLocators": "Proposition 10.4 and Lemma 10.5 p. 50; section 13 and Proposition 13.1 pp. 65–66. The H1(G_ad) bridge is still requested from BG1.",
+        "accessed": "2026-10-19"
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "sourceId": "SW20",
+        "url": "https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf",
+        "sha256": "225505171ef809aa0070c023c881ff1da844923775f2d631474c0b42eea4bffc",
+        "readLocators": "Theorem 24.2.5 pp. 227–228 and Corollary 24.3.5 pp. 230–231; Q_p versus EL/PEL scope and level/action data checked.",
+        "accessed": "2026-10-19"
+      }
+    ],
+    "readingBoundary": "Fresh readings cover the primary locators for the 63 scoped targets and the imported source-issue records. They do not claim to close the recorded primary-proof expansion gaps or independently re-review all earlier-stage support nodes. Lafforgue-2018 is inherited support for ES5 parameter extraction, not a new source reading in this review.",
+    "sourceIssuesChecked": [
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E2",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "The author FS p. 331 product display repeats G1 in the second factor; the product and parameter consequence require G2. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E3",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "The author FS p. 331 inputs belong to the two individual bundle stacks; putting both on Bun_G has the wrong external-product domain. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E4",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "The author FS p. 331 change-of-group prose reverses the group arrow. The displayed Grassmannian map and contravariant dual arrow fix the direction. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E5",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "The author FS p. 333 application requires the injective connected-centre object of Kaletha Definition 5.1. A surjective z-extension has a different kernel/centre condition. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E6",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "The author FS VII.7.10 p. 276 must retain the lisse target of its displayed functor for general coefficients; the isolated etale label is incompatible with it. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E7",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Henniart–Vigneras p. 240: pth powers over F_q((t)) give an infinite rational cokernel. Compactness of the unit quotient and finite valuation quotient suffice; finiteness is false. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E8",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Henniart–Vigneras p. 239: minimality of the parabolic is needed, and the inverse image of a split torus may contain an anisotropic torus. Choose a split subtorus instead. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E9",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Henniart–Vigneras p. 239: checked the unbound/image/ambient quotient symbols against the declared morphism and ensuing commutator calculation. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E10",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Henniart–Vigneras formula (4-1), p. 240: characteristic two must be the infinite square-class branch; odd leading exponents give distinct classes. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES5.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E11",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Henniart–Vigneras formula (4-1), p. 240: the finite dyadic dimension uses [F:Q_2], not just ramification index. The unramified quadratic example gives dimension four, not three. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E1",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "LRS pp. 299–300,306 versus Kaiser p. 1: the reciprocal factor must use the dual isotype and q_x^-1 T^-1; self-duality is not justified. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E2",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "FS p. 335 with Kaletha pp. 64,78–80: the p-adic z-embedding proof does not extend to nonsmooth centres in characteristic p. H1_fppf(E,mu_p)=E^times/(E^times)^p obstructs the proposed surjectivity, not the theorem itself. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E3",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "LRS p. 291: quotienting idele classes by the degree lattice gives compactness, while local-unit classes prevent finiteness. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E4",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "LRS p. 302 versus p. 306 and Kaiser p. 1: the chain numerator requires T^-1. The length-d chain checks that exponent. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E5",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "LRS p. 306: the ratio is Corollary 14.11(iii); the cited 14.10(ii) is a different result. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E6",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Hausberger p. 1335: a character used with sigma_1 is a rank-one input, not an element of the rank-d class. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E7",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Hausberger pp. 1339–1340: the globalized supercuspidal is on GL_d; the nearby n denotes a level, not its rank. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E8",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Hausberger section 10.2 with 10.1 and LRS 15.12: the selected factor is in cohomological degree d−1 and has dimension d. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E9",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Hausberger section 7.2 versus section 3: the isogeny-class result numbered 3.4 is a theorem, not a proposition. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E10",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Hausberger p. 1354: a surjection k^2 to k between trivial isotypes still has nonzero kernel. Semisimple splitting of the restricted surjection replaces the false zero-kernel assertion. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      },
+      {
+        "ownerPacket": "research/blueprint/packets/ExcursionOperatorsAndSpectralAction--ES7.json",
+        "issueId": "ExcursionOperatorsAndSpectralAction/E11",
+        "review": {
+          "verdict": "confirmed",
+          "reason": "Hausberger p. 1357: determinant valuation gives index d for Z(K)GL_d(K)^0 in GL_d(K). A characteristic-zero finite-index averaging argument is needed. This review checks the public edition named here; it does not extend the owner’s edition collation or claim a verdict on an unread full published FS text.",
+          "by": "REV-ExcursionOperatorsAndSpectralAction--ES6"
+        }
+      }
+    ]
+  }
 }
