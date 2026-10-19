@@ -1,6 +1,135 @@
 # Independent review: REV-FIX-RT-AREA-ktheory-1~2
 
-## Current scope audit: Codex codex-RflGpa, 19 October 2026
+## Current continuation: Codex codex-cIShm2, 19 October 2026
+
+Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6265192509)
+was confirmed by the bot at 10:33:05 UTC. This session did none of the
+original fixes and claimed no second job.
+
+**Blocked checkpoint, with new companion-file review evidence.** The live
+issue still authorizes seven packet/Lean pairs; the actual queue requires
+nineteen. The seven already have terminal verdicts under this job's reviewer
+identity. The twelve others retain different review identities, and the
+unmodified completion predicate returns false. Their paths and the exact
+authorization required are in the handoff. [WORKERS.md](../WORKERS.md),
+“Doing the work”, says “Edit only the files the issue names.” Expanded scope
+was requested from the operator; no authorizing response has arrived. No
+queue-only packet, Lean file or review object was changed.
+
+The earlier report contains the per-finding mathematical dispositions. This
+continuation preserves their attribution and does not renew all seven
+reviews. Its additional read-only checks establish specific obstacles to
+accepting eight of the remaining companions under the current binding
+shape rule. These are concrete negative observations, not completed reviews
+of every mathematical target in those packets.
+
+### Companion shape: eight confirmed negative observations
+
+The current worker instructions prohibit admitted data bodies and limit a
+suggested file to 5,000 lines. I stripped nested block comments and line
+comments in scratch, preserving line numbers, ran the repository's
+`check_sorry_data.py`, and inspected the original declarations below.
+Every listed declaration is active code producing data with an admitted
+body, rather than a theorem with an admitted proof.
+
+| Suggested basename | Lines | Confirmed data declaration and original line |
+| --- | ---: | --- |
+| BorelRegulators | 1,214 | `divisionBuilding_map`, 93: an order equivalence |
+| MotivicEtaleKTheory--M.1 | 2,586 | `galRestrict`, 146: a group homomorphism |
+| StableHomotopyKTheory | 3,931 | `Stub.piMap`, 98: a function on homotopy groups |
+| KTheoryLowDegrees--U.1 | 9,098 | `equivIdempotentModule`, 414: a linear equivalence |
+| MotivicEtaleKTheory--M.5d | 1,325 | `milnorMap`, 77: an additive homomorphism |
+| SchemeKTheoryOperations | 20,089 | `Scheme.K0VectSpecEquiv`, 1,613: an additive equivalence |
+| K3BlochGroups--V.1 | 223 | `comparison`, 60: an additive equivalence |
+| KTheoryFiniteLocalFields | 5,900 | `mul`, 215: a bilinear product |
+
+U.1, SchemeKTheoryOperations and KTheoryFiniteLocalFields also exceed the
+line limit. All eight require companion corrections before acceptance.
+Compilation alone cannot establish compliance with the shape rule.
+Conversely, the two U.4 checker hits are `Subgroup.Normal` instances, hence
+propositions; they are not admitted data violations. Comments account for
+the raw SpecialValuesBirchTate hits. U.6 and T.1-classical have no hits.
+These observations do not certify those four companions' entire shape or
+mathematics. The seven issue-listed companions have no hits after comment
+removal; their earlier elaboration results remain attributed below.
+
+For the small V.1 adapter, the intended repair is already determined by
+its application equation: compose the inverse of q, then h, the inverse
+of j, and b. Its cycle evaluator composes the native cycle-to-homology
+map with the inverse canonical comparison. These are light definitions
+over existing carriers; no new K-theory or homology construction is needed.
+For the larger companions, remove unsupported constructions from active
+Lean and retain their full mathematical contracts in the existing packet
+and reader. Do not replace admitted data by axioms or tautological tests.
+
+### Fresh U.1 elaboration: eleven error diagnostics
+
+I ran `lean-check` on the unchanged U.1 companion in the shared pinned build,
+with 85 GB available before the run. It exited 1 with **11 error diagnostics**
+and 946 warnings, all of the form `declaration uses sorry`:
+
+- Line 4,850: the finite-index inequality proof fails in `omega`.
+- Lines 7,977, 7,988, 7,993, 7,997 and 8,004: six universe diagnostics
+  involving `ObjectProperty.EssentiallySmall` in the Morita/ExactK0 square;
+  line 8,004 emits two diagnostics.
+- Lines 8,723 and 8,776: each determinant control emits a missing `Group ℚ`
+  instance and a type mismatch. Its homomorphism has target ℚˣ, while the
+  result ascription makes Lean infer target ℚ for the generic evaluator.
+
+The last two controls need the evaluator's group-valued result fixed to
+ℚˣ before taking its value in ℚ. The universe failures must be reconciled
+with the existing small-model parameter of `ExactK0.mapEquiv`; the pinned
+statement in `CategoryTheory/GrothendieckGroup/Exact.lean` was read. The
+current GrothendieckEulerForms roadmap already owns smallness and exact
+Grothendieck-group infrastructure, so a new categorical K0 is not a repair.
+The mandatory reduction of U.1 to a statement file should precede repairing
+errors in constructions that may need to leave the companion entirely.
+No other additional companion was compiled in this continuation.
+
+### Two source/consumer clarifications
+
+For finding /2 I read Geisser's public
+[*Motivic cohomology over Dedekind rings*](https://www2.rikkyo.ac.jp/web/geisser/Dedekind.pdf),
+Theorem 1.2(1),(2),(4), pp.774–775, the notation on p.775, and its §5 proof,
+pp.787–789. The Dedekind base, equidimensional essentially smooth X,
+nonnegative weight j and invertible coefficient assumptions in
+`M.7/dedekind-motivic-comparison` agree with that source. No perfect-residue-field
+restriction should be added. Its integral comparison is truncated through
+j+1; the coefficient sequence gives the finite comparison through j, and
+the étale cycle complex is identified with the Tate twist. To supply the
+full interface requested by the area finding, state the finite Zariski
+complex comparison with truncation through j, not just its hypercohomology
+consequences, and expose the required localization/finite-flat naturality.
+The existing resolution-free and arithmetic-tower gaps remain separate;
+this source check does not close them.
+
+For finding /11 the Birch–Tate consumer
+`B.3/sqrt-five-birch-tate-check` still says its N.8 supplier proves only a
+lower bound. That status sentence is obsolete: the issue-listed N.7 packet
+now contains the direct upper-generation plan and its independent finite
+certificates, as earlier continuations establish. After scope authorization,
+replace that sentence by the actual dependency on the independent N.8
+certificate, preserving the conditional application and its rule against
+deriving the input order from Birch–Tate. This is a consumer-status correction,
+not a new claim that the theorem has been formalized. I did not repeat the
+previous workers' finite-certificate computations.
+
+### Validation and resumption
+
+All nineteen queue packets pass `scripts/check_blueprint.py` with the shared
+pinned declaration index: zero errors and zero warnings. These are structural
+checks, not twelve new independent mathematical verdicts. There are no
+standalone link-map or restructuring outputs. The current read-only
+TauCetiRoadmap and Tau Ceti revisions were checked; AlgebraicTopology Stage 8
+and GrothendieckEulerForms' smallness/ownership statements were read.
+No library build, update, cache download or language server was started.
+
+Only this report and its handoff change. After authorization, finish the
+twelve scoped reviews, correct the companion defects above, preserve review
+history, and write terminal verdicts under this job's identity. A negative
+verdict is a completed review; copying a previous review identity is not.
+
+## Previous scope audit: Codex codex-RflGpa, 19 October 2026
 
 Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6263900238)
 was [confirmed by the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6263903165).
