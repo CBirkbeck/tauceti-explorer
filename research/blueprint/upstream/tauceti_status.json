@@ -1,6 +1,6 @@
 {
  "_about": "Where each tier 1–4 roadmap stands on its way into TauCetiProject/TauCetiRoadmap, kept by hand by the upstream coordinator. stage: gate = package under the final adversarial check on a Tau Ceti lane; pr = pull request open on TauCetiRoadmap; main = merged there. one pull request per roadmap; depends_on lists the pull requests a roadmap is stacked on (its Suggested.lean imports theirs). review: the independent reviewer's last recommendation on the pull request, with the head it reviewed and whether that is the current head (false after a README restoration or compaction pushed later).",
- "updated": "2026-10-19T01:40Z",
+ "updated": "2026-10-19T01:50Z",
  "roadmaps": {
   "SchemeAndStackFoundations": {
    "stage": "main",
@@ -723,11 +723,11 @@
   "EtaleCohomologyFoundations": {
    "stage": "pr",
    "pr": 938,
-   "head": "651c497",
+   "head": "f6257a7",
    "note": "foundation roadmap created 2026-10-14 by the de-cycling (LefschetzPencils layer F + ClassicalAdicEtale §§0.5–0.11); not an explorer package; red team running",
    "review": {
     "recommendation": "approve",
-    "current": true,
+    "current": false,
     "draft": false,
     "maintainer": "REVIEW_REQUIRED"
    }
@@ -751,7 +751,7 @@
   "FarguesFontaineDiamonds": {
    "stage": "pr",
    "pr": 964,
-   "head": "22570cb",
+   "head": "c0c245a",
    "note": "ported 2026-10-15 (tier 21); ChatGPT Pro CHANGES NEEDED at f572e3a answered; both red-team passes applied; draft awaiting re-review; ChatGPT Pro N2 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at cd66f9e; draft awaiting re-review",
    "review": {
     "recommendation": "approve",
