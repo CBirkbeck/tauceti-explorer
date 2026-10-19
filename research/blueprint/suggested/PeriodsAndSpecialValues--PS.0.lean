@@ -137,6 +137,10 @@ example : fixedPeriodAlgebraic ℚ ((-1 : ℂ) / 24 * tatePeriod 2) (tatePeriod 
 
 /-! PS.2–PS.6 remain reader targets at their actual missing supplier carriers.
 The existing localization lift and determinant theory are cited rather than reconstructed.
+In particular the inverse FK determinant is not an unshifted BV leading-term pair:
+the supplier must first provide the shifted/dual complex and its typed comparison.
+The Rankin derivative route uses the cycle-nonvanishing prediction of LTXZZ
+Conjecture 8.3.1 and a separate Abel–Jacobi injectivity premise.
 -/
 
 /-! PS.7: two explicit period-integral specializations and analytic error milestones. -/
