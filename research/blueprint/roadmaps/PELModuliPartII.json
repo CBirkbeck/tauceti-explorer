@@ -1,0 +1,412 @@
+{
+  "id": "PELModuliPartII",
+  "title": "Siegel and PEL moduli problems, Part II: unitary integral and formal moduli",
+  "area": "arithmeticgeometry",
+  "parent": "PELModuli",
+  "summary": "This continuation constructs the unitary integral and formal moduli needed for arithmetic applications: principal, almost self-dual, exotic and Krämer local spaces, their relative/absolute comparisons, global CM-pair models and basic-locus formal uniformization. It records the polarization, signature, coefficient and level hypotheses that distinguish the branches. General deformation, Hermitian arithmetic and formal geometry remain with their existing owners. Special-fibre incidence and geometric reciprocity form a proposed separate continuation.",
+  "readme": "The definitive target, API, test and dependency document is research/blueprint/readmes/PELModuliPartII.md. U0–U5 construct and compare local framed objects, U6 fixes global CM and local conditions, U7–U8 construct integral models and their adapters, and U9 proves basic-completion uniformization. Every definition is a mathematical planning target; implementation is unchecked. The exact 264-item route ledger and proposed special-fibre continuation are in the packet.",
+  "prerequisites": [
+    "PELModuli",
+    "AbelianSchemesAndArithmeticModuli",
+    "AdicSpacesPartII",
+    "AlgebraicModuliForArithmeticGeometry",
+    "FaltingsFinitenessAndIsogenyTheorems",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "GeometryOfNumbersAndQuadraticArithmetic",
+    "LubinTateFormalModulesAndQuasiCanonicalLifts",
+    "PadicHodgeTheory",
+    "ReductiveGroupsPartII",
+    "SchemeAndStackFoundations",
+    "ShimuraCompactifications",
+    "ShimuraVarieties"
+  ],
+  "stages": [
+    {
+      "key": "U0",
+      "title": "Relative unitary conventions",
+      "description": "Strict relative height, relative Cartier duality, principal Hermitian modules and simultaneous conjugation of signature/source/framing. For unramified L/K and Q_p⊂K₀⊂K construct Mihatsch’s supersingular relative comparison using the full P(r,s) determinant and structural-action clause; compare framed deformations and the rank-r Grassmannian local model of relative dimension rs.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "PELModuli:M0",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "U1",
+      "title": "Unramified unitary formal moduli",
+      "description": "Construct the exact-polarization height-zero unitary framed functor for unramified quadratic L/K, p>2, signature (1,n−1); prove formal representability and smoothness of dimension n−1. Construct its canonical principal rank-one source, nonsplit Hermitian special-Hom space, rank-raising closed immersion and equivariant diagonal graph, keeping relative and arithmetic dimensions distinct.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "PELModuli:M0",
+        "PELModuli:M2",
+        "PELModuliPartII:U0",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "U2",
+      "title": "Almost self-dual and mixed moduli",
+      "description": "For n≥2 define the signature-(1,n−1) framed functor with polarization kernel killed by ϖ of order q², and prove flat regular semistable geometry over its natural coefficient ring. Construct its split Hermitian special-Hom space and the mixed isogeny functor using the conjugate source bar ℰ, fixed rational framing, unique lift and pullback λ_Y×ϖλ_barℰ. Prove the first projection generically finite étale of degree q+1 and the second generically an isomorphism onto its image; the local isogeny degree is q².",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AdicSpacesPartII:R2",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "PELModuliPartII:U0",
+        "PELModuliPartII:U1",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "U3",
+      "title": "Relative exotic ramified moduli",
+      "description": "For ramified quadratic L/K, p>2 and even n≥2 impose the exact exotic polarization kernel X[i(u)], signature, wedge and nonzero-spin conditions; distinguish the symmetric principal factor. Construct the relative framed space, smooth of relative dimension n−1, its principal rank-one CM source and u^−2-normalized nonsplit special-Hom form. Certify the two components for K=Q_p and record G1 for arbitrary K.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "PELModuli:M0",
+        "PELModuliPartII:U0",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "U4",
+      "title": "Absolute and relative exotic comparison",
+      "description": "With K/Q_p unramified, construct the absolute embedding-graded exotic category and banal Frobenius contraction with all pairing units. Prove the supersingular display equivalence and identify framed formal moduli. Contract the principal CM source separately and prove the normalized Hermitian rational-Hom isometry, retaining integral Hom lifting and chosen framing identifications.",
+      "requires": [
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "PELModuli:M0",
+        "PELModuliPartII:U3",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "U5",
+      "title": "Krämer formal moduli",
+      "description": "At a ramified quadratic odd prime construct the principal-polarization Krämer framed functor with its rank-(n−1) conjugate Lie filtration and unit-compatible framing. Prove flat regular semistable geometry via the actual Krämer charts, treating rank two directly. Construct the canonical ramified rank-one source, Hermitian isocrystal fixed space, its trace recovery and scaled evaluation comparison; retain odd/even framing signs.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "PELModuliPartII:U0",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    },
+    {
+      "key": "U6",
+      "title": "Global CM and unitary comparison data",
+      "description": "Specialize the imported PEL and torus data to the RSZ fibre-product group, integral lattice/polarization levels and CM component. Define local admissibility at every p-place, justify the unramified coefficient compositum under its actual hypotheses, and impose the crystalline/Tate sign and actual Eisenstein annihilation conditions. Compare the auxiliary CM product conventions with RSZ arrows without discarding the common scalar quotient.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "PELModuli:M0",
+        "PELModuli:M1",
+        "PELModuli:M3",
+        "PELModuli:M4",
+        "PELModuliPartII:U0",
+        "PadicHodgeTheory:R06.2",
+        "PadicHodgeTheory:R06.5",
+        "ShimuraVarieties:V4",
+        "ShimuraVarieties:V5",
+        "ShimuraVarieties:V6"
+      ]
+    },
+    {
+      "key": "U7",
+      "title": "RSZ integral models and local geometry",
+      "description": "Construct localized and semi-global CM-pair models, the polarized multichain local-model diagram and their self-dual/ASD geometry with exact coefficient restrictions. Construct the split Drinfeld level through the finite Hom twist and Cartier-divisor fullness equation; prove finite flat regular level models using the owner’s integral Drinfeld theorem. Construct ramified wedge/Krämer and exotic even-rank models, their certified geometry and global level gluing. Keep the rank-two global reflex/base comparison as G2; normalizations alone imply no regularity.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "LubinTateFormalModulesAndQuasiCanonicalLifts:LT.3",
+        "PELModuli:M1",
+        "PELModuli:M2",
+        "PELModuli:M4",
+        "PELModuliPartII:U0",
+        "PELModuliPartII:U1",
+        "PELModuliPartII:U2",
+        "PELModuliPartII:U3",
+        "PELModuliPartII:U4",
+        "PELModuliPartII:U5",
+        "PELModuliPartII:U6",
+        "ReductiveGroupsPartII:RG2.3",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4",
+        "ShimuraCompactifications:C5"
+      ]
+    },
+    {
+      "key": "U8",
+      "title": "Integral isogenies and neat model adapters",
+      "description": "Construct the mixed global isogeny model using an actual totally positive F⁺ scalar and prove its required local degree q². In the special inert LTXZZ setting construct neat principal and almost self-dual pair models with the common-scalar arrow relation and retained CM factor. Prove the rank-one tangent formula and explicit smooth/crossing local equations, identify the correctly chosen generic Hermitian datum and integral tame Hecke system.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "AbelianSchemesAndArithmeticModuli:A6",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "PELModuli:M0",
+        "PELModuli:M1",
+        "PELModuli:M2",
+        "PELModuli:M3",
+        "PELModuli:M4",
+        "PELModuliPartII:U2",
+        "PELModuliPartII:U6",
+        "PELModuliPartII:U7",
+        "SchemeAndStackFoundations:SF.4",
+        "ShimuraCompactifications:C5",
+        "ShimuraVarieties:V1",
+        "ShimuraVarieties:V2",
+        "ShimuraVarieties:V6"
+      ]
+    },
+    {
+      "key": "U9",
+      "title": "Basic-locus formal uniformization",
+      "description": "Construct the nearby Hermitian framing datum, all CM/banal local factors and the effective arithmetic quotient morphism Θ to the selected basic completion. Prove the inert principal/ASD, mixed-isogeny and exotic comparisons; compare Krämer completions in the certified rank/base range. Prove the framing-class partition and Hasse condition needed for the full basic locus; compare the auxiliary CM product and its level changes without deleting discrete factors.",
+      "requires": [
+        "AbelianSchemesAndArithmeticModuli:A4",
+        "FaltingsFinitenessAndIsogenyTheorems:R28.4",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2",
+        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "PELModuli:M3",
+        "PELModuli:M4",
+        "PELModuliPartII:U0",
+        "PELModuliPartII:U1",
+        "PELModuliPartII:U2",
+        "PELModuliPartII:U3",
+        "PELModuliPartII:U4",
+        "PELModuliPartII:U5",
+        "PELModuliPartII:U6",
+        "PELModuliPartII:U7",
+        "PELModuliPartII:U8",
+        "SchemeAndStackFoundations:SF.1",
+        "SchemeAndStackFoundations:SF.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Zhang21",
+      "title": "Weil representation and Arithmetic Fundamental Lemma",
+      "authors": "Wei Zhang",
+      "edition": "Annals of Mathematics 193 (2021), 863–978; published PDF",
+      "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf",
+      "accessed": "2026-10-19",
+      "sha256": "6f8ac537b4f95cf26ba907dc1d25c1b9d9157a3a4006a311b114a522177d3b45",
+      "readSections": [
+        "§3.1, pp. 879–881",
+        "§6, pp. 901–905",
+        "§7.3 and Lemmas 7.10–7.11, pp. 908–913"
+      ]
+    },
+    {
+      "id": "LZ22",
+      "title": "Kudla–Rapoport cycles and derivatives of local densities",
+      "authors": "Chao Li and Wei Zhang",
+      "edition": "arXiv:1908.01701v3, 2 December 2020; locators use its printed pagination",
+      "url": "https://arxiv.org/pdf/1908.01701v3",
+      "accessed": "2026-10-19",
+      "sha256": "7db1843f90c3e79741f8d58d92b6bb42b0a3b7ae001c8f9419f43b08c2119d49",
+      "readSections": [
+        "§§2.1–2.2, pp. 10–12",
+        "§§4.3, 4.5, pp. 21, 23",
+        "§10, pp. 63–65",
+        "§11, pp. 73–77",
+        "§13, pp. 80–83",
+        "§14, pp. 84–85"
+      ]
+    },
+    {
+      "id": "LL21",
+      "title": "Chow groups and L-derivatives of automorphic motives for unitary groups",
+      "authors": "Chao Li and Yifeng Liu",
+      "edition": "Author final copy, 20 October 2021; Annals of Mathematics 194 (2021); author-copy page numbers",
+      "url": "https://www.math.columbia.edu/~chaoli/AIPF.pdf",
+      "accessed": "2026-10-19",
+      "sha256": "6ef2d63ea2cf55d8a2648f71ed7ac84e4d32f77e9e7eaeb62b47e584e4e5e566",
+      "readSections": [
+        "§4 and §6, pp. 22, 28",
+        "§5, pp. 26–28",
+        "§7, pp. 32–33",
+        "§8, pp. 36–38",
+        "§9, pp. 40–42, footnotes 18–19"
+      ]
+    },
+    {
+      "id": "LL22",
+      "title": "Chow groups and L-derivatives of automorphic motives for unitary groups, II",
+      "authors": "Chao Li and Yifeng Liu",
+      "edition": "Author copy dated 16 January 2022; Forum of Mathematics, Pi 10 (2022), e5; author-copy pagination and equation numbering",
+      "url": "https://www.math.columbia.edu/~chaoli/AIPF2.pdf",
+      "accessed": "2026-10-19",
+      "sha256": "ebc12f4ddc2dc8b998f91bbfa3329364b075240c4ee53be1bf409a4361be7d88",
+      "readSections": [
+        "Definition 1.1 and Remark 1.2, p. 3",
+        "§2.1, pp. 9–11",
+        "§2.8, pp. 37–43",
+        "Notation 4.19 and §4.3, pp. 57–59",
+        "§4.5 and Proposition 4.30, pp. 65–68"
+      ]
+    },
+    {
+      "id": "HLSY23",
+      "title": "A proof of Kudla–Rapoport conjecture for Krämer models",
+      "authors": "Qiao He, Chao Li, Yousheng Shi and Tonghai Yang",
+      "edition": "arXiv:2208.07988v2, 25 June 2023; locators are for this version, not the longer current author copy",
+      "url": "https://arxiv.org/pdf/2208.07988v2",
+      "accessed": "2026-10-19",
+      "sha256": "00e096d6e9b511934382db1e41dc4cf22419a021df06af58d2689dfb60b98b17",
+      "readSections": [
+        "Definitions 2.1–2.2 and §2.2, pp. 10–12",
+        "§10.1–10.2, pp. 76–79"
+      ]
+    },
+    {
+      "id": "LTXZZ22",
+      "title": "On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives",
+      "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu",
+      "edition": "Inventiones Mathematicae 228 (2022), 107–375; cleared published NSF copy",
+      "url": "https://par.nsf.gov/servlets/purl/10323568",
+      "accessed": "2026-10-19",
+      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
+      "readSections": [
+        "Definition 3.3.4, p. 147",
+        "§§4.1–4.2, pp. 159–163",
+        "§§5.1–5.2, pp. 188–193"
+      ]
+    },
+    {
+      "id": "RSZ20",
+      "title": "Arithmetic diagonal cycles on unitary Shimura varieties",
+      "authors": "Michael Rapoport, Brian Smithling and Wei Zhang",
+      "edition": "arXiv:1710.06962, version served 19 October 2026; dated source recorded by digest; locators use its printed pages",
+      "url": "https://arxiv.org/pdf/1710.06962",
+      "accessed": "2026-10-19",
+      "sha256": "eee08e2004bb46afecd7c71768a19816de829d35b7c52db6bacad3e13b04a185",
+      "readSections": [
+        "§3, pp. 8–14",
+        "§§4.1–4.4, pp. 15–27",
+        "§5, pp. 27–30",
+        "Lemma 8.16 and Remark 8.18, p. 53; Appendices A–B, pp. 54–60"
+      ]
+    },
+    {
+      "id": "RSZ21",
+      "title": "On Shimura varieties for unitary groups",
+      "authors": "Michael Rapoport, Brian Smithling and Wei Zhang",
+      "edition": "Author copy dated 16 April 2020; Pure and Applied Mathematics Quarterly 17 (2021)",
+      "url": "https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/unitshim.pdf",
+      "accessed": "2026-10-19",
+      "sha256": "4ba9a81a1fcbdbf167395b5f5da02d65b67c4a38366187608b9127993b25cdc5",
+      "readSections": [
+        "§§3–4, pp. 13–22",
+        "§5, pp. 24–27",
+        "§6, pp. 28–35"
+      ]
+    },
+    {
+      "id": "Mih19",
+      "title": "Relative unitary RZ-spaces and the Arithmetic Fundamental Lemma",
+      "authors": "Andreas Mihatsch",
+      "edition": "arXiv:1611.06520v2, 23 July 2019; Theorems 3.1 and 3.3 in this version",
+      "url": "https://arxiv.org/pdf/1611.06520v2",
+      "accessed": "2026-10-19",
+      "sha256": "1df1463952e54d98a6fe4c63ae04ec46ae03dc54648d841a53f3aae64af4fb97",
+      "readSections": [
+        "§2, pp. 6–11",
+        "§3, pp. 11–18",
+        "Appendix §§11–13, pp. 41–50"
+      ]
+    },
+    {
+      "id": "Cho18",
+      "title": "The basic locus of the unitary Shimura variety with parahoric level structure, and special cycles",
+      "authors": "Sungyoon Cho",
+      "edition": "arXiv:1807.09997, version served 19 October 2026; source digest fixes text",
+      "url": "https://arxiv.org/pdf/1807.09997",
+      "accessed": "2026-10-19",
+      "sha256": "2dbfdd6d7c5e44eb561ac4cc9dae47a9b2c7810e17c63b66ca5279895976d521",
+      "readSections": [
+        "Theorem 1.2, p. 4",
+        "§3.9, local-model and relative comparison arguments",
+        "Proposition 4.2 and Theorem 4.3, pp. 41–43"
+      ]
+    },
+    {
+      "id": "Howard19",
+      "title": "Linear invariance of intersections on unitary Rapoport–Zink spaces",
+      "authors": "Benjamin Howard",
+      "edition": "arXiv:1811.01482, source served 19 October 2026; Forum Mathematicum 31 (2019), 1265–1281",
+      "url": "https://arxiv.org/pdf/1811.01482",
+      "accessed": "2026-10-19",
+      "sha256": "2364b23e456a8a6cad4ad5ffc7971e24e20619953cff342d8d24274f24938742",
+      "readSections": [
+        "§2 and Proposition 2.2, pp. 5–7"
+      ]
+    },
+    {
+      "id": "RZ96",
+      "title": "Period Spaces for p-divisible Groups",
+      "authors": "Michael Rapoport and Thomas Zink",
+      "edition": "Annals of Mathematics Studies 141, Princeton University Press, 1996; public author-hosted scan",
+      "url": "https://www.math.uni-bonn.de/people/rapoport/myalggeom/preprints/Rapoport_Period%20spaces.pdf",
+      "accessed": "2026-10-19",
+      "sha256": "8ced3dfc636857d2bdd98b06f33586a30735a0820523fa1d001e6aa21cfa5a66",
+      "readSections": [
+        "Definition 3.21, pp. 81–82; Theorem 3.25, p. 88; local-model definition 3.27, p. 89",
+        "§§6.13–6.16, pp. 282–284; Theorems 6.24, 6.27 and 6.30, pp. 291–295"
+      ]
+    },
+    {
+      "id": "Wu16",
+      "title": "The supersingular locus of unitary Shimura varieties with exotic good reduction",
+      "authors": "Haifeng Wu",
+      "edition": "arXiv:1609.08775, version served 19 October 2026; ground field Q_p",
+      "url": "https://arxiv.org/pdf/1609.08775",
+      "accessed": "2026-10-19",
+      "sha256": "df0c71312bb35ed0255397d0114ecf152ddc994a1c695d90c41ca48780612123",
+      "readSections": [
+        "§3.4, Kottwitz components",
+        "Theorems 5.17–5.18 and proof, pp. 30–31"
+      ]
+    },
+    {
+      "id": "Kraemer03",
+      "title": "Local models for ramified unitary groups",
+      "authors": "Nicole Krämer",
+      "edition": "arXiv:math/0302025v1, 3 February 2003; printed page numbers; Theorem 4.5 assumes n≥3",
+      "url": "https://arxiv.org/pdf/math/0302025v1",
+      "accessed": "2026-10-19",
+      "sha256": "52a003a9ded4edf81f184c5e1138d2a499a0fefd6737ede4e5192d1f1393bcb8",
+      "readSections": [
+        "Definition 4.1, p. 7; Proposition 4.3, pp. 7–8",
+        "Theorem 4.5 and its chart calculation (4.11), pp. 8–13"
+      ]
+    },
+    {
+      "id": "LRZ26",
+      "title": "Quasi-canonical AFL and Arithmetic Transfer conjectures at parahoric levels",
+      "authors": "Chao Li, Michael Rapoport and Wei Zhang",
+      "edition": "arXiv:2404.02214v2, revised 1 May 2026; PDF dated 5 May 2026",
+      "url": "https://arxiv.org/pdf/2404.02214v2",
+      "accessed": "2026-10-19",
+      "sha256": "4e687dfc505fb8555f0155c486ec849508f7c1af384446ed155c506a894a1bba",
+      "readSections": [
+        "Theorem 14.6.2, pp. 60–61",
+        "§§15–16.5, pp. 62–71"
+      ]
+    }
+  ],
+  "status": "draft"
+}
