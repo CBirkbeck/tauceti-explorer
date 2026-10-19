@@ -643,13 +643,14 @@
     "AutomorphicLFunctionsAndLocalFactors": {
       "stage": "pr",
       "pr": 924,
-      "head": "a004576",
+      "head": "d1996dc",
       "note": "ported 2026-10-14 from the accepted explorer package (Codex); draft until the red team and a deep review pass; ChatGPT Pro N3 CHANGES 10-16 ~10:00Z; draft; answered 10-16 ~10:45Z at e59d80f; draft awaiting re-review",
       "review": {
         "recommendation": "approve",
         "current": false,
         "draft": false,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at d1996dc; confirmation pass pending"
       }
     },
     "AutomorphicSpectralTheory": {
