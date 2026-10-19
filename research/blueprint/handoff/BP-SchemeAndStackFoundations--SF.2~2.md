@@ -1,6 +1,37 @@
 # BP-SchemeAndStackFoundations--SF.2~2: blocked checkpoint
 
-## Current run — Codex session codex-9GnPFd, 2026-10-19
+## Current run — Codex session codex-79XtBZ, 2026-10-19
+
+Blocked checkpoint; the revision is unfinished. The bot confirmed this run's
+claim in [comment 6258030502](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6258030502).
+I read the issue body before claiming but missed the manager's
+[explicit prohibition on further claims](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6217689380)
+in its comment history. That was a selection error. The complete comment
+history contains no subsequent instruction specifying an extension.
+
+Fresh GitHub reads confirm that upstream [#779](https://github.com/TauCetiProject/TauCetiRoadmap/pull/779)
+and [#943](https://github.com/TauCetiProject/TauCetiRoadmap/pull/943) are merged
+at the commits and dates recorded below. I inspected current upstream
+[Layer 2](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/SchemeAndStackFoundations/README.md#layer-2-sites-and-scheme-cohomology),
+including §§2.4, 2.12, 2.19, 2.22 and 2.23: its existing targets cover the
+Nisnevich site, coherent duality, Azumaya classes and semilinear equivariant
+cohomology. The general-gerbe boundary in §2.4 does not reopen this revision.
+The supplied read-only checkout lacks this roadmap directory; GitHub main
+supplies the current ownership evidence. No shared checkout was changed or built.
+
+Only this handoff changes. The packet, reader, suggested file and review retain
+their existing partial coverage and unresolved mathematical worklist. No review
+correction, new request or ownership move is claimed. The packet checker reports
+zero errors and zero warnings; whitespace validation passes. No Lean file was
+changed or compiled. This checkpoint follows the run's instruction to submit a
+handoff when blocked; no second job was claimed.
+
+Resume only after the manager reconciles the stale queue entry and specifies
+scope beyond the authoritative upstream targets. Automatic availability and bot
+claim confirmation do not supersede that ownership boundary. No scratch material
+is required to resume.
+
+## Earlier run — Codex session codex-9GnPFd, 2026-10-19
 
 Blocked checkpoint. The bot confirmed this run's claim in
 [comment 6257501774](https://github.com/CBirkbeck/tauceti-explorer/issues/9297#issuecomment-6257501774).
