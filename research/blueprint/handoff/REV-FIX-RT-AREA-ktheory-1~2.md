@@ -1,8 +1,8 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
-Codex, session `codex-DDV2ll`, 19 October 2026. Refs #5542.
-The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260970357)
-was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260972383).
+Codex, session `codex-FcWva7`, 19 October 2026. Refs #5542.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6261679883)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6261682054).
 No second job was claimed. This is a **blocked checkpoint**; only the review
 report and this handoff change.
 
@@ -40,11 +40,55 @@ acceptances are evidence to inspect, not this area's verdicts. Earlier
 seventeen/ten inventories are obsolete for this checkout. Reproduce the
 inventory from the actual queue job rather than from an older handoff.
 
-## New source clarification for /5 and /33
+## Fresh /37 diagnosis: factorization is not recognition
 
-The current `H.3/rational-hurewicz-hspace` uses free rational cohomology and
+`KTheoryFiniteLocalFields:L.1/quillen-fibration` proof step 2 overstates the
+actual `StableHomotopyKTheory:H.3/plus-construction-universal-property`:
+that node supplies factorization into an abelian CW target, not equivalence.
+Its abelian-target proof is now present, so the consumer's unread-proof
+description is stale. The missing interface is `H.3/plus-hspace-recognition`,
+whose equivalence clause requires the plus source to be abelian as well as
+the original map to be an integral homology isomorphism.
+
+After scope authorization, review and repair this chain:
+
+1. Import `H.3/plus-hspace-recognition` and
+   `H.4/plus-hspace-block-sum` explicitly in `L.1/quillen-fibration`.
+2. Discharge perfectness of E(F_q) using the U.1 stable-elementary and
+   Whitehead-lemma contracts; obtain the abelian plus source from block sum
+   and `H.3/hspace-is-abelian`. Obtain the connected H-space target from
+   `L.1/fpsi` and its connectedness argument. Use
+   `L.1/quillen-homology-iso` for the integral homology hypothesis.
+3. Replace the consumer's equivalence claim attributed to the universal
+   property with this exact recognition application.
+4. Preserve the remaining supplier obligation: the first block-sum proof
+   step needs the general plus universal property before BGL(R)⁺ is known
+   abelian. The supplier itself records the nonabelian-target case as a gap.
+   Importing its statement does not prove that missing case.
+
+Direct source reading on 19 October 2026:
+
+- Haine, [*On the K-theory of finite fields*](https://math.berkeley.edu/~phaine/files/KFF.pdf),
+  §6, Theorem 6.5 and Goal 6.6, printed p.10; Construction 6.11, printed
+  p.11. The source separates factorization, simplicity and equivalence.
+  SHA-256: `88edeb5faa10102d70034802892daa820395d38d395b7ad861c76dd114758805`.
+- Hatcher, [*Algebraic Topology*](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf),
+  §4.3, Corollary 4.73 and Proposition 4.74 with proofs, printed pp.417–418.
+  The abelian-space homological Whitehead theorem uses obstruction theory
+  and relative Hurewicz. SHA-256 is below and was independently reproduced.
+
+The current upstream AlgebraicTopology Stage 8 supplies the simply-connected
+case, which does not suffice for general F_qˣ fundamental group. This
+diagnosis refines the earlier recorded /37 objection; neither extra packet
+was edited or assigned a new review. Do not mistake it for a complete source
+review of all of /37's representation-theoretic inputs.
+
+## Inherited source clarification for /5 and /33
+
+The preceding codex-DDV2ll continuation established that the current
+`H.3/rational-hurewicz-hspace` uses free rational cohomology and
 Cartan–Serre, expressly avoiding Milnor–Moore. Do not reject that route solely
-because its H-space hypothesis lacks homotopy associativity. Fresh reading:
+because its H-space hypothesis lacks homotopy associativity. Its reading:
 
 - Hatcher, [Algebraic Topology](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf),
   §3.C, printed pp.283–286, Theorem 3C.4 and proof. The associative
@@ -66,14 +110,15 @@ imports use H.3. This reading clarifies a mathematical objection; it does not
 approve the ownership change, the entire primitive-image proof or the two
 packets. Resolve those separately after scope authorization.
 
-## Current /23 contract
+## Inherited /23 contract
 
 Both `SchemeKTheoryOperations:S.4/k-coniveau-spectral-sequence` and
 `S.4/g-coniveau-spectral-sequence` directly import H.6's `exact-couple`,
 `filtered-spectrum-spectral-sequence` and
-`spectral-sequence-convergence-exhaustive` nodes. The three supplier statements
-were read; the finite-dimensional scheme filtrations use their bounded finite
-case. The older missing-import objection is stale at this contract level.
+`spectral-sequence-convergence-exhaustive` nodes. The preceding continuation
+read the three supplier statements; the finite-dimensional scheme filtrations
+use their bounded finite case. The older missing-import objection is stale
+at this contract level.
 No whole-packet review is certified here.
 
 ## Validation and inherited evidence

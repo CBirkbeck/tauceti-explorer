@@ -1,6 +1,88 @@
 # Independent review: REV-FIX-RT-AREA-ktheory-1~2
 
-## Current continuation: Codex codex-DDV2ll, 19 October 2026
+## Current continuation: Codex codex-FcWva7, 19 October 2026
+
+Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6261679883)
+was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6261682054).
+This session wrote none of the original fixes and claimed no second job.
+
+**Blocked checkpoint.** The live issue still lists seven packet/Lean pairs;
+the checked-out queue requires nineteen. The actual, unmodified
+`issues.deliverables_complete(job)` returns false for exactly the twelve
+additional packets listed in the [handoff](../handoff/REV-FIX-RT-AREA-ktheory-1~2.md).
+The seven issue-listed packets already carry completed area-review verdicts,
+including the negative K.1/K.6 outcomes. These inherited verdicts were not
+renewed in this session.
+
+[WORKERS.md, Doing the work](../WORKERS.md) says “Edit only the files the issue
+names.” Expanded authorization was requested from the operator; no response
+authorizing the twelve additional pairs has arrived. Only this report and its
+handoff change. Resolving the scope mismatch is required before those reviews
+can be completed. The queue and other reviewers' verdicts were not changed.
+
+### Finding /37: the exact missing supplier contract
+
+Fresh reading refines the previously recorded finite-field Whitehead concern.
+The current `KTheoryFiniteLocalFields:L.1/quillen-fibration` proof step 2
+attributes an equivalence conclusion to
+`StableHomotopyKTheory:H.3/plus-construction-universal-property`. Its actual
+supplier statement gives existence and homotopy uniqueness of a factorization
+into a connected abelian CW target. It does not give the claimed equivalence.
+The consumer's statement that this supplier's proof is unread is also stale:
+the supplier now has an abelian-target proof using obstruction theory.
+
+The exact recognition contract is `H.3/plus-hspace-recognition`. Its
+equivalence clause requires both an integral homology isomorphism and an
+abelian plus source. The consumer has the first through
+`L.1/quillen-homology-iso`, but its prerequisites do not import the second.
+`H.4/plus-hspace-block-sum` is the proposed supplier of an H-space structure
+on BGL(R)⁺, hence of the required trivial fundamental-group actions via
+`H.3/hspace-is-abelian`. The perfect elementary subgroup is supplied by
+`KTheoryLowDegrees:U.1/stable-elementary-perfect` and the accompanying
+Whitehead-lemma contract. `L.1/fpsi` supplies the target H-space; its
+connectedness is also required when applying recognition.
+
+The concrete repair after scope authorization is to import the recognition
+and block-sum contracts explicitly, discharge these hypotheses for R = F_q,
+and replace the consumer's overstatement of the universal property. Keep the
+supplier gap visible: the first block-sum proof step itself calls out the
+unproved universal property for nonabelian targets, since BGL(R)⁺ is not yet
+known to be abelian at that step. A mere import substitution does not close
+this chain. This is a read-only diagnosis, not a new verdict on either extra
+packet or a claim to have proved the missing supplier.
+
+I read the following public sources directly on 19 October 2026:
+
+- Haine, [*On the K-theory of finite fields*](https://math.berkeley.edu/~phaine/files/KFF.pdf),
+  §6, Theorem 6.5 and Goal 6.6, printed p.10. Goal 6.6 separates plus
+  factorization from the subsequent simplicity checks and homological
+  Whitehead argument. Construction 6.11, printed p.11, constructs the map;
+  it does not remove those checks.
+- Hatcher, [*Algebraic Topology*](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf),
+  §4.3, Corollary 4.73 and Proposition 4.74 with proofs, printed pp.417–418.
+  The latter applies to connected abelian CW complexes. Its proof uses
+  obstruction theory to obtain a retraction and then trivial relative
+  fundamental-group actions for relative Hurewicz. This supports the
+  separate supplier interface, rather than the consumer's stronger reading
+  of the plus universal property.
+
+The current upstream AlgebraicTopology Stage 8 was checked: its homological
+Whitehead theorem has simply-connected hypotheses. It cannot substitute for
+this contract for general q, when π₁(BGL(F_q)⁺) = F_qˣ. Source hashes and the
+exact resumption steps are in the handoff. All statements here are in my own
+words; no source passage is stored in the repository.
+
+### Validation and limits of this continuation
+
+All nineteen queue packets pass `scripts/check_blueprint.py` with the shared
+pinned declaration index: zero errors and zero warnings. Checks of the twelve
+extra packets are structural, read-only checks. They do not certify their
+mathematics or replace their independent reviews. There are no standalone
+link-map or restructuring deliverables. No Lean companion changed or was
+compiled; earlier successful elaborations below remain attributed to their
+authors. No build, update, cache download or language server ran.
+
+## Previous continuation: Codex codex-DDV2ll, 19 October 2026
 
 Refs #5542. The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260970357)
 was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6260972383).
