@@ -151487,6 +151487,25 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex.md"
+  },
+  {
+   "id": "FIX-PKG-EisensteinIdealAndRationalTorsion~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "EisensteinIdealAndRationalTorsion"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-EisensteinIdealAndRationalTorsion~adv.md",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/review.json",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/README.md",
+    "research/blueprint/packages/EisensteinIdealAndRationalTorsion/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EisensteinIdealAndRationalTorsion~adv.md"
   }
  ]
 }
