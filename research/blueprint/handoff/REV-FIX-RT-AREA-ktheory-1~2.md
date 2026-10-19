@@ -1,26 +1,30 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
-Codex, session `codex-FcWva7`, 19 October 2026. Refs #5542.
-The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6261679883)
-was [confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6261682054).
-No second job was claimed. This is a **blocked checkpoint**; only the review
-report and this handoff change.
+Codex, session `codex-KwyvX3`, 19 October 2026. Refs #5542.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5542#issuecomment-6262919229)
+was confirmed by the bot at 08:23:47 UTC. No second job was claimed. This is a
+**blocked checkpoint**; only the review report and this handoff change.
 
-## Required scope decision
+## Resolve scope before another review continuation
 
-The live issue authorizes seven packet/Lean pairs. The checked-out
-`research/blueprint/queue.json` requires nineteen. A fresh call to the actual
-`issues.deliverables_complete(job)` returns false. All seven issue-listed
-packets already carry this area's review, including the negative K.1/K.6
-verdicts, which count as completed review outcomes. Those seven verdicts are
-inherited and were not renewed in this session.
+The live issue names seven packet/Lean pairs. The actual queue requires
+nineteen. Calling the unmodified `issues.deliverables_complete` with the
+actual queue job returns false for exactly the twelve additional packets
+below. All seven issue-listed packets already carry this area's verdicts,
+including the negative K.1/K.6 outcomes, which count as completed reviews.
+This session did not renew those inherited verdicts. Historical seventeen/ten
+counts in their review notes are obsolete.
 
 [WORKERS.md, Doing the work](../WORKERS.md) says “Edit only the files the issue
-names.” Expanded authorization for the twelve additional pairs was requested
-from the operator; no authorizing response has arrived. Do not alter the queue
-or stamp additional packets to bypass the mismatch. Reconcile the issue's
-scope with the queue, or obtain explicit authorization for these additional
-basenames, each with a packet in `packets/` and a companion in `suggested/`:
+names.” Expanded authorization for all twelve additional packet/Lean pairs
+was requested from the operator; no authorizing response arrived. Do not
+change the queue or stamp extra packets to bypass the discrepancy. The next
+useful action is a maintainer/operator scope reconciliation, followed by the
+remaining reviews; repeating the completed seven-pair checks cannot finish
+this job.
+
+The extra basenames each have a packet in `packets/` and a companion in
+`suggested/`:
 
 1. `BorelRegulators`
 2. `MotivicEtaleKTheory--M.1`
@@ -35,123 +39,120 @@ basenames, each with a packet in `packets/` and a companion in `suggested/`:
 11. `K3BlochGroups--V.1`
 12. `KTheoryFiniteLocalFields`
 
-All twelve currently retain other independent reviewers. Their existing
-acceptances are evidence to inspect, not this area's verdicts. Earlier
-seventeen/ten inventories are obsolete for this checkout. Reproduce the
-inventory from the actual queue job rather than from an older handoff.
+All twelve retain different independent reviewers. Reproduce this inventory
+from the current queue rather than relying on an older handoff.
 
-## Fresh /37 diagnosis: factorization is not recognition
+## New /37 work: explicit general-target factorization argument
 
-`KTheoryFiniteLocalFields:L.1/quillen-fibration` proof step 2 overstates the
-actual `StableHomotopyKTheory:H.3/plus-construction-universal-property`:
-that node supplies factorization into an abelian CW target, not equivalence.
-Its abelian-target proof is now present, so the consumer's unread-proof
-description is stale. The missing interface is `H.3/plus-hspace-recognition`,
-whose equivalence clause requires the plus source to be abelian as well as
-the original map to be an integral homology isomorphism.
+The current report's first continuation records a six-step proof
+reconstruction, its precise hypotheses, source locations and three controls.
+It develops the pushout route already suggested but unused in
+`H.3/plus-construction-universal-property`:
 
-After scope authorization, review and repair this chain:
+- Replace the square by a double mapping cylinder W = Y ∪ (X × I) ∪ Z.
+- Van Kampen makes Z → W a fundamental-group isomorphism when g kills P.
+- Relative excision **with local coefficients** transports the vanishing
+  relative homology of the plus map to (W,Z).
+- Regular-module homology identifies the universal-cover homology maps.
+  Apply simply connected homological Whitehead there, then ordinary
+  Whitehead downstairs. This avoids assuming the target is abelian.
+- A homotopy inverse W → Z gives the factorization. Each competing
+  factorization extends over W to a left inverse of Z → W; uniqueness of
+  that inverse up to homotopy proves free homotopy uniqueness.
 
-1. Import `H.3/plus-hspace-recognition` and
-   `H.4/plus-hspace-block-sum` explicitly in `L.1/quillen-fibration`.
-2. Discharge perfectness of E(F_q) using the U.1 stable-elementary and
-   Whitehead-lemma contracts; obtain the abelian plus source from block sum
-   and `H.3/hspace-is-abelian`. Obtain the connected H-space target from
-   `L.1/fpsi` and its connectedness argument. Use
-   `L.1/quillen-homology-iso` for the integral homology hypothesis.
-3. Replace the consumer's equivalence claim attributed to the universal
-   property with this exact recognition application.
-4. Preserve the remaining supplier obligation: the first block-sum proof
-   step needs the general plus universal property before BGL(R)⁺ is known
-   abelian. The supplier itself records the nonabelian-target case as a gap.
-   Importing its statement does not prove that missing case.
+The missing explicit supplier interface is the cylinder-gluing excision
+isomorphism for a variable local coefficient system, with its naturality.
+Do not replace it by ordinary homology excision. The report includes the
+nonabelian B(S₃) identity control, the two-plus-model uniqueness control,
+and Hatcher Example 4.35's failure with constant coefficients.
+This is a report-level proof reconstruction, not an edit or new review of the
+extra supplier packet, and not a complete review of finding /37.
 
-Direct source reading on 19 October 2026:
+After authorization, the finite-field consumer still needs the repair already
+identified by codex-FcWva7:
 
-- Haine, [*On the K-theory of finite fields*](https://math.berkeley.edu/~phaine/files/KFF.pdf),
-  §6, Theorem 6.5 and Goal 6.6, printed p.10; Construction 6.11, printed
-  p.11. The source separates factorization, simplicity and equivalence.
-  SHA-256: `88edeb5faa10102d70034802892daa820395d38d395b7ad861c76dd114758805`.
+1. Import `H.3/plus-hspace-recognition` and `H.4/plus-hspace-block-sum`
+   explicitly in `L.1/quillen-fibration`.
+2. Supply perfectness of E(F_q) through U.1, the abelian plus source via
+   block sum and `H.3/hspace-is-abelian`, the connected H-space target via
+   `L.1/fpsi`, and the integral homology hypothesis via
+   `L.1/quillen-homology-iso`.
+3. Correct the claim that the restricted universal property gives the
+   equivalence, and remove the stale assertion that its abelian proof was
+   unread. Preserve the independent representation-theoretic/homology gaps.
+4. Decide whether the reconstructed general-target argument closes the
+   supplier's recorded gap after adding its exact missing interface. An
+   import substitution alone does not do this.
+
+## Source and current-library provenance
+
+Public sources directly read in this session:
+
+- Weibel, [*The K-book*, Chapter IV](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf),
+  Theorem 1.5 and preceding proof-reference paragraph, Lemma 1.6 with proof,
+  printed p. IV.5; Theorem 1.8 and Remark 1.8.1, printed p. IV.6.
+  SHA-256: `9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248`.
 - Hatcher, [*Algebraic Topology*](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf),
-  §4.3, Corollary 4.73 and Proposition 4.74 with proofs, printed pp.417–418.
-  The abelian-space homological Whitehead theorem uses obstruction theory
-  and relative Hurewicz. SHA-256 is below and was independently reproduced.
+  Theorem 1.20, printed p.43; §3.H, Example 3H.2, printed p.329, and the
+  relative/excision discussion, printed p.333; Corollary 4.33 with proof,
+  printed pp.367–368; Example 4.35, printed pp.368–369.
+  SHA-256: `bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618`.
+- Haine, [*On the K-theory of finite fields*](https://math.berkeley.edu/~phaine/files/KFF.pdf),
+  §6, Theorem 6.5, Goal 6.6 and Lemma 6.8, printed p.10. Factorization and
+  the subsequent simplicity/equivalence checks are separate.
+  SHA-256: `88edeb5faa10102d70034802892daa820395d38d395b7ad861c76dd114758805`.
 
-The current upstream AlgebraicTopology Stage 8 supplies the simply-connected
-case, which does not suffice for general F_qˣ fundamental group. This
-diagnosis refines the earlier recorded /37 objection; neither extra packet
-was edited or assigned a new review. Do not mistake it for a complete source
-review of all of /37's representation-theoretic inputs.
+Read the current upstream AlgebraicTopology and GrothendieckEulerForms
+READMEs without edits (roadmap checkout commit
+`0d144d044dacebca17b654695b6f1ad58f159b27`). AlgebraicTopology Stage 8's
+homological Whitehead has simply connected hypotheses. Those hypotheses
+suffice on the universal covers in the new argument, not directly on BGL(F_q)⁺.
 
-## Inherited source clarification for /5 and /33
+At current Tau Ceti commit `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`,
+`AlgebraicTopology/LocalCoefficient.lean` and
+`AlgebraicTopology/Singular/Twisted/Relative.lean` already supply
+`LocalCoefficientSystem`, pullback, relative twisted chains, their short
+exact sequence and the three homology exactness lemmas. Their actual
+statements were read. Consume them; do not plan them again. The relative
+file does not exist at the older f790474 pin, so this is a current-library
+observation rather than a pinned-baseline citation. The actual
+`TopPair.isIso_singularHomologyMap_of_open_cover` in
+`AlgebraicTopology/Singular/Excision.lean` has a single coefficient object;
+it does not state twisted excision. No twisted-excision declaration was
+found in the current tree. No lake command was run in either read-only tree.
 
-The preceding codex-DDV2ll continuation established that the current
-`H.3/rational-hurewicz-hspace` uses free rational cohomology and
-Cartan–Serre, expressly avoiding Milnor–Moore. Do not reject that route solely
-because its H-space hypothesis lacks homotopy associativity. Its reading:
+## Inherited findings and validation
 
-- Hatcher, [Algebraic Topology](https://pi.math.cornell.edu/~hatcher/AT/AT.pdf),
-  §3.C, printed pp.283–286, Theorem 3C.4 and proof. The associative
-  multiplication is the cup product; the coproduct data used there do not
-  assume an associative H-space multiplication.
-- Hatcher, [Spectral Sequences, Chapter 1](https://pi.math.cornell.edu/~hatcher/SSAT/SSch1.pdf),
-  Theorem 1.24, proof and following paragraph, printed pp.38–39: the
-  free-cohomology rationalization argument applies to the specified abelian
-  spaces and hence to H-spaces under its finiteness conditions.
+The report preserves earlier reviews and corrections with authorship:
 
-Read on 19 October 2026. SHA-256:
+- /5 and /33: the rational-Hurewicz node uses Hatcher's free-cohomology
+  Cartan–Serre route, expressly avoiding Milnor–Moore. Missing homotopy
+  associativity alone does not refute that route. The verifier's H.6 owner
+  still disagrees with the actual H.3 node and Borel imports. Assess
+  ownership and the entire proof separately after scope authorization.
+- /23: both scheme coniveau nodes already import H.6's exact-couple,
+  filtered-spectrum and convergence contracts. The old missing-import
+  complaint is stale; no entire scheme packet is certified here.
+- N.7's direct golden-field Tate argument and eleven exact finite
+  certificates replace the obsolete cyclotomic-representative objection.
+- T.3 retains arbitrary-residue complete-DVR Part II supplier work, Artin
+  lengths, inseparable residue possibilities and generic separability.
+  Field Matsumoto does not prove the commutative-ring monomial-kernel claim.
+- K.1/K.6 remain negative because the proposed early-product and
+  late-cofinality splits have not been applied to the actual stage graph.
+- T.1/V.1 and N.5/V.5/N.8 retain the UCE and arithmetic ownership boundaries.
+  The compact Lean companions are statements, not implementations.
 
-- AT: `bebb3032bf9021b956da3bd070eb6c67dc662cf849be9cdf6679f677560e5618`.
-- SSAT chapter: `d34a09b4559eade18dac2c01f6718d4689c5f565d9dc252c3a67de0167520eca`.
+All nineteen queue packets pass `scripts/check_blueprint.py` with the shared
+pinned declaration index: zero errors and zero warnings. Extra-packet checks
+are read-only structural checks, not independent mathematical reviews.
+There are no standalone link-map or restructuring outputs. No Lean file
+changed or was compiled, and inherited compilations were not repeated.
+No library build, update, cache download or language server ran.
 
-The missing-H.6-owner concern remains: the verifier's /5 and /33 assign the
-single rational comparison owner to H.6, while the actual node and Borel R.3
-imports use H.3. This reading clarifies a mathematical objection; it does not
-approve the ownership change, the entire primitive-image proof or the two
-packets. Resolve those separately after scope authorization.
-
-## Inherited /23 contract
-
-Both `SchemeKTheoryOperations:S.4/k-coniveau-spectral-sequence` and
-`S.4/g-coniveau-spectral-sequence` directly import H.6's `exact-couple`,
-`filtered-spectrum-spectral-sequence` and
-`spectral-sequence-convergence-exhaustive` nodes. The preceding continuation
-read the three supplier statements; the finite-dimensional scheme filtrations
-use their bounded finite case. The older missing-import objection is stale
-at this contract level.
-No whole-packet review is certified here.
-
-## Validation and inherited evidence
-
-All nineteen queue packets pass `check_blueprint.py` with the shared pinned
-declaration index, zero errors and zero warnings. Extra-packet checks are
-read-only structural checks. The actual completion predicate remains false
-for exactly the twelve unstamped packets above. The live issue was re-read
-and still lists seven pairs. There are no standalone link or restructuring
-outputs to check. No Lean file changed or was compiled; no library build,
-update, cache download or language server ran. The current upstream
-AlgebraicTopology and GrothendieckEulerForms READMEs were read without edits.
-
-The review report preserves earlier source readings, finite-certificate
-reproductions, Lean corrections and elaborations with their authorship. Those
-are not new certifications by this session. In particular:
-
-- N.7's direct golden-field route replaces the obsolete Zhang–Xu/Skalba
-  objection. Its eleven exact finite certificates are described in the report.
-- T.3's arbitrary-residue complete-DVR Part II remains proposed supplier work;
-  keep Artin lengths, inseparable residue possibilities and the generic
-  separability qualification. Field Matsumoto does not supply its distinct
-  commutative-ring monomial-kernel obligation.
-- K.1/K.6 retain negative reviews because actual-stage product/cofinality
-  ordering needs the maintainer's proposed restructuring. A concrete-node DAG
-  and a Lean elaboration do not settle that stage-order issue.
-- T.1/V.1 and N.5/V.5/N.8 retain the recorded UCE and arithmetic ownership
-  boundaries. The streamlined Lean companions do not implement their targets.
-
-After scope reconciliation, assess the twelve pairs against their assigned
-confirmed findings and current source/supplier contracts; preserve review
-history before replacing verdicts. Use the current compact Lean shape for any
-necessary companion repairs. Then validate the changed files and call the
-unmodified real completion predicate. Do not repeat the completed seven-pair
-checks as a substitute for resolving scope. All resumption-critical details
-are in this handoff and the report; scratch files may be deleted.
+After scope reconciliation, review the twelve extra pairs against the
+confirmed findings and current suppliers, preserving review history before
+replacing verdicts. Correct clear errors and retain precise negative verdicts
+where needed. Validate changed deliverables and call the unmodified actual
+completion predicate. All resumption-critical details are in this handoff
+and the report; scratch may be deleted after the pull request opens.
