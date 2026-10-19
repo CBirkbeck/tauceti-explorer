@@ -7,7 +7,7 @@
     "DESIGN-ClassicalAdicEtaleCohomologyPartII",
     "DESIGN-PadicFamiliesPartII"
    ],
-   "items": 2,
+   "items": 0,
    "name": "Coherent dualizing complexes and exceptional inverse image",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the maintainer decided on SchemeAndStackFoundations",
@@ -15,13 +15,13 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 13
+   "unrouted": 15
   },
   "algebraicgeometry/equivariant-sheaf-cohomology": {
    "importers": [
     "DESIGN-AlgebraicTopologyPartII"
    ],
-   "items": 2,
+   "items": 0,
    "name": "Equivariant sheaves and derived invariant sections",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "most of its items go here, of the 2 queued jobs they go to",
@@ -29,7 +29,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 2
+   "unrouted": 4
   },
   "algebraicgeometry/etale-k-pi-1": {
    "importers": [],
@@ -45,10 +45,9 @@
   },
   "algebraicgeometry/excellent-schemes": {
    "importers": [
-    "BP-LefschetzPencilsAndVanishingCycles",
     "DESIGN-SchemeAndStackFoundationsPartII"
    ],
-   "items": 11,
+   "items": 0,
    "name": "Excellent rings and schemes (G-rings, J-2, universal catenarity)",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the most foundational of the 3 queued jobs its items go to",
@@ -56,7 +55,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 7
+   "unrouted": 18
   },
   "algebraicgeometry/ferrand-pushouts": {
    "importers": [],
@@ -76,7 +75,7 @@
     "DESIGN-HeckeStacksAndLocalShtukasPartII",
     "DESIGN-ReductiveGroupsPartIII"
    ],
-   "items": 5,
+   "items": 0,
    "name": "Galois gerbs with algebraic kernels and projective limits",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the most foundational of the 4 queued jobs its items go to",
@@ -84,7 +83,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 3
+   "unrouted": 8
   },
   "algebraicgeometry/gerbes": {
    "importers": [],
@@ -102,7 +101,7 @@
    "importers": [
     "DESIGN-EndoscopicTransferAndUnitaryTraceComparisonPartII"
    ],
-   "items": 1,
+   "items": 0,
    "name": "Henselization of pairs and of local rings",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the most foundational of the 2 queued jobs its items go to",
@@ -110,7 +109,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 3
+   "unrouted": 4
   },
   "algebraicgeometry/higgs-parameter-connections": {
    "importers": [],
@@ -142,7 +141,7 @@
     "DESIGN-MappingClassGroupsAndCanonicalRepresentations",
     "DESIGN-MotivicStructuresInModuliOfCurves"
    ],
-   "items": 3,
+   "items": 0,
    "name": "Moduli stacks of smooth and stable pointed curves",
    "owner": "DESIGN-StableReductionPartII",
    "reason": "most of its items go here, of the 4 queued jobs they go to",
@@ -150,7 +149,7 @@
    "roadmap": "StableReductionPartII",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Stable reduction of curves and stable maps, Part II",
-   "unrouted": 5
+   "unrouted": 8
   },
   "algebraicgeometry/root-stacks": {
    "importers": [],
@@ -171,7 +170,7 @@
     "DESIGN-SchemeAndStackFoundationsPartII",
     "DESIGN-SemisimpleAlgebrasPartII"
    ],
-   "items": 3,
+   "items": 0,
    "name": "Azumaya algebras and Brauer groups on schemes",
    "owner": "BP-SchemeAndStackFoundations",
    "reason": "the most foundational of the 5 queued jobs its items go to",
@@ -179,7 +178,7 @@
    "roadmap": "SchemeAndStackFoundations",
    "survey": "data/keydefs/KEYDEF-algebraicgeometry.json",
    "title": "Scheme, stack, cohomology and intersection foundations",
-   "unrouted": 11
+   "unrouted": 14
   }
  },
  "purpose": "Who plans each promoted key definition that no layer plans yet (PROTOCOL.md section 19), as research/blueprint/make_queue.py assigns it: the owner job plans it under the reserved node id, and the importers cite that id."
