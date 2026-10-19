@@ -60,6 +60,21 @@ The graph uses the following exact imported nodes. Their fields were read, and t
 - `ShimuraCompactificationsPartII:C14/normal-lci`: Klingen and paramodular compactifications are normal and lci.
 - `ShimuraCompactificationsPartII:C14/tp2-correspondence`: The compactified T_{p,2}-correspondence over ℤ_p.
 
+- `HilbertModularVarietiesAndShimuraCurves:H2/hilbert-hasse-ideal`: Total Hasse ideal (p, det V*) on integral Hilbert charts, including its stated ramified hypotheses.
+- `SchemeAndStackFoundations:SF.2/ample-serre-vanishing`: Higher coherent-cohomology vanishing after sufficiently high ample twists.
+- `SchemeAndStackFoundations:SF.2/depth-local-cohomology-vanishing`: Finite-level H⁰ restriction isomorphism and H¹ injection from depth at least two.
+- `SchemeAndStackFoundations:SF.4/theorem-on-formal-functions`: Proper coherent formal functions; the open Milnor comparison is a separate requested extension.
+
+- `AbelianSchemesAndArithmeticModuli:A4/grothendieck-messing`: Polarized Hodge-filtration deformation criterion with its PD hypotheses.
+- `AbelianSchemesAndArithmeticModuli:A4/serre-tate-equivalence`: Equivalence of abelian and Barsotti–Tate deformations over nilpotent p-bases.
+- `AbelianSchemesAndArithmeticModuli:A4/ordinary-serre-tate-coordinates`: Generic ordinary bilinear coordinates and their polarized symmetry.
+- `AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham`: Abelian Hodge filtration, Gauss–Manin connection and polarized pairing under the stated degree hypotheses.
+- `SchemeAndStackFoundations:SF.2/relative-dualizing-complex`: Relative dualizing complexes for flat finitely presented maps.
+- `SchemeAndStackFoundations:SF.2/relative-dualizing-module`: The Cohen–Macaulay dualizing module and Gorenstein invertibility criterion.
+- `SchemeAndStackFoundations:SF.2/sheafified-grothendieck-duality`: Proper Noetherian coherent duality with the specified boundedness conditions.
+
+The generic double-coset and index-p lattice inputs are imported from `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`; S5 specializes the action to binary indices and states the extra congruence-level work explicitly.
+
 ## S1. Integral forms and Fourier expansions
 
 Build the genus-two section and expansion interface over arbitrary O-modules, importing the existing genus-two bundles and compactifications. The section lattice, all-component expansion principle and covariance are the common input to both geometric and formal operators.
@@ -83,7 +98,7 @@ Construction or proof route:
 API required by the uses:
 
 - `forms_eq_sections` (characterisation): The form module is the indicated global-section module, with its O-linear structure.
-- `cusp_to_form` (coercion): The inclusion of the subcanonical bundle induces the natural cusp-to-form map; its injectivity for the chosen M is stated with the necessary flatness or relative Cartier hypothesis.
+- `cusp_to_form` (coercion): For every O-module M the inclusion ω(j,k)^sub⊗M→ω(j,k)⊗M induces an injective cusp-to-form map. The boundary D is relative Cartier, so its quotient O_D and the locally free bundle restricted to D are O-flat; tensoring preserves this inclusion.
 - `change_coefficients` (functoriality): An O-linear M→N induces a form map, preserving identities and composition.
 - `refinement_equiv` (equivalence): Refinement induces canonical isomorphisms for forms and cusp forms with arbitrary O-module coefficients.
 - `omega_weight_translation` (compatibility): Tensoring by λ^t changes (j,k) to (j+t,k+t), leaving symmetric degree j−k fixed.
@@ -92,7 +107,7 @@ Discriminating checks:
 
 - `weight_zero` (degenerate): ω(0,0)=O_X and its constant section 1 has constant coefficient 1.
 - `parallel_rank` (compatibility): ω(k,k)=λ^k has rank one; ω(k+1,k) has rank two.
-- `cohomology_tensor` (non-example): M_(j,k)(O/ϖ^m) is not defined to be M_(j,k)(O)⊗O/ϖ^m; the obstruction belongs to H¹[ϖ^m].
+- `cohomology_tensor` (non-example): For m≥1 and E₀=ω(j,k) or ω(j,k)^sub, the sequence 0→H⁰(X,E₀)/ϖ^m→H⁰(X,E₀/ϖ^m)→H¹(X,E₀)[ϖ^m]→0 is exact. Thus a nonzero last term detects failure of the premature tensor definition.
 
 Uses:
 
@@ -322,7 +337,7 @@ Acceptance:
 - At odd p, the unsigned source basis would give ⟨Fe₂,Fe₃⟩=−p and fails the pairing identity.
 - The Hasse tangent term is a nonzero linear form at every rank-one point.
 
-Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/rank-geometry`, `AbelianSchemesAndArithmeticModuli:A4`, `ShimuraCompactificationsPartII:C14/normal-lci`, `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant`.
+Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/rank-geometry`, `AbelianSchemesAndArithmeticModuli:A4`, `ShimuraCompactificationsPartII:C14/normal-lci`, `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant`, `AbelianSchemesAndArithmeticModuli:A4/grothendieck-messing`, `AbelianSchemesAndArithmeticModuli:A4/serre-tate-equivalence`.
 
 Sources: P20, Lemma 6.4.1 and proof, pp. 35–36 — The deformation computation proves reducedness at both levels after the polarization sign is corrected.
 
@@ -349,11 +364,11 @@ Acceptance:
 - A disconnected smooth model still requires density on each component.
 - For the scalar operator in S8, Θh=0 supplies a counterexample to unrestricted injectivity.
 
-Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-simple-zero`, `AlgebraicModularFormsAndSerreWeightsPartII:S1/fourier-expansion`, `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant`, `HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-ordinary-locus`, `HilbertModularVarietiesAndShimuraCurves:H2`.
+Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-simple-zero`, `AlgebraicModularFormsAndSerreWeightsPartII:S1/fourier-expansion`, `HodgeTateAndCanonicalSubgroups:T0/semi-abelian-hasse-invariant`, `HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-ordinary-locus`, `HilbertModularVarietiesAndShimuraCurves:H2/hilbert-hasse-ideal`.
 
 Sources: Y16, Proposition 3.11(2), p. 22 — Computes the Mumford Hasse matrix and its constant expansion.; CG20, Lemma 6.2(1), internal p. 36 (836); proof of Lemma 7.4, pp. 48–49 (848–849) — Uses multiplication by the invariant; componentwise density and deck equivariance supply the needed hypotheses.
 
-Open obligations: R2.
+Exact import: `HilbertModularVarietiesAndShimuraCurves:H2/hilbert-hasse-ideal`.
 
 ## S3. The secondary Hasse invariant
 
@@ -628,7 +643,7 @@ API required by the uses:
 Discriminating checks:
 
 - `multiplication_on_mu` (computation): For [p]:μ_(p∞)→μ_(p∞), the normalized determinant map is the identity, while the differential modulo p is zero.
-- `identity` (degenerate): For the identity isogeny, s=0 and the normalized map is identity.
+- `identity` (degenerate): For the identity isogeny of a multiplicative Barsotti–Tate group G, the complement hypothesis holds with H_x=G[p] and L_x=0; s=0 and the normalized map is identity.
 - `quotient_factor` (compatibility): On G/G^m, an isogeny pµ contributes µ*, not the zero map (pµ)*.
 
 Uses:
@@ -687,11 +702,11 @@ Acceptance:
 
 - Ampleness is used on the minimal model, not asserted on the toroidal one.
 
-Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-q-expansion`, `HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-minimal-compactification`, `ShimuraCompactifications:C5/minimal-hodge-ampleness`, `ShimuraCompactificationsPartII:C14/klingen-paramodular-minimal`, `SchemeAndStackFoundations:SF.2`.
+Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-q-expansion`, `HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-minimal-compactification`, `ShimuraCompactifications:C5/minimal-hodge-ampleness`, `ShimuraCompactificationsPartII:C14/klingen-paramodular-minimal`, `SchemeAndStackFoundations:SF.2/ample-serre-vanishing`.
 
 Sources: CG20, Definition 6.1 and following paragraph, internal pp. 35–36 (835–836) — Obtains a characteristic-zero lift of a power using minimal Hodge ampleness.; T06, §3.2, p. 810 — Chooses a Hasse-power lift with constant reduction of its expansion.
 
-Open obligations: R3.
+Exact import: `SchemeAndStackFoundations:SF.2/ample-serre-vanishing`.
 
 ### Canonical powers modulo pⁿ
 
@@ -785,11 +800,11 @@ Acceptance:
 - D(s₂) may contain ordinary points; only its restriction to V(h) is prescribed.
 - A section defined only on V(p,h) is not treated as a section of the whole formal model before the lifting step.
 
-Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S3/global-secondary`, `AlgebraicModularFormsAndSerreWeightsPartII:S4/canonical-power-congruence`, `ShimuraCompactifications:C5/minimal-hodge-ampleness`, `HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-minimal-compactification`, `ShimuraCompactificationsPartII:C14/klingen-paramodular-minimal`, `SchemeAndStackFoundations:SF.2`.
+Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S3/global-secondary`, `AlgebraicModularFormsAndSerreWeightsPartII:S4/canonical-power-congruence`, `ShimuraCompactifications:C5/minimal-hodge-ampleness`, `HodgeTateAndCanonicalSubgroups:T0/hasse-invariant-minimal-compactification`, `ShimuraCompactificationsPartII:C14/klingen-paramodular-minimal`, `SchemeAndStackFoundations:SF.2/ample-serre-vanishing`.
 
 Sources: P20, Proof of Lemma 14.8.2, p. 101 — Uses equal-weight lifts of the two Hasse sections to give the spherical cover.; B15, Theorem 6.2.3 and Corollary 6.2.4, p. 190 — Provides minimal descent of generalized Hasse sections after a positive power; identifying that power with the present h′ requires a comparison.
 
-Open obligations: G3 — secondary minimal descent and comparison, R3.
+Open obligations: G3 — secondary minimal descent and comparison. Serre vanishing is imported from `SchemeAndStackFoundations:SF.2/ample-serre-vanishing`.
 
 ## S5. Formal coefficient operators and Q₂
 
@@ -821,9 +836,9 @@ API required by the uses:
 
 Discriminating checks:
 
-- `determinant_twist` (compatibility): On SL₂ the determinant twist is trivial, but determinant-p matrices still retain their explicit scalar normalization.
-- `module_coefficients` (degenerate): With M=K/O only addition and O-scalar multiplication are required.
-- `formal_not_geometric` (non-example): No theorem identifies all covariant coefficient functions with H⁰ of a fixed-weight bundle.
+- `determinant_twist` (compatibility): For d=1 and M=diag(p,1), ρ₁(M)x=px and ρ₁(M)y=y; inserting an extra determinant twist would instead give p²x and py. For γ∈SL₂ the determinant factor is 1.
+- `module_coefficients` (degenerate): In the scalar coefficient module K/O, the nonzero class 1/p+O is killed by p. The constant coefficient function with this value is a formal series killed by p, so the definition cannot require a coefficient algebra or a p-torsion-free module.
+- `formal_not_geometric` (non-example): At weight (0,0) over a field, the indicator of one Γ̄-orbit of a positive-definite index is a nonzero covariant formal series with zero constant term. On a proper geometrically connected X every global regular function is constant, so this series is not geometric.
 
 Uses:
 
@@ -842,7 +857,7 @@ Sources: CG20, §8.2, internal pp. 56–57 (856–857); terminology in §8.6–8
 
 Target `AlgebraicModularFormsAndSerreWeightsPartII:S5/determinant-p-cosets` (construction).
 
-Let Γ̄ be a congruence subgroup of SL₂(Z) of level prime to p. The left cosets in Γ̄ diag(p,1) Γ̄ have p+1 integral representatives M of determinant p and are parametrized by P¹(F_p). For the full group one may take diag(1,p) and [[p,a],[0,1]] for 0≤a<p, with the chosen action on Q; at general level choose compatible lifts by prime-to-p approximation. Only terms with M⁻¹·Q p-integral contribute. The associated projective line is the one on which the reduction of Q must vanish; specify it through this integrality criterion rather than an ambiguous kernel/image convention.
+Let Γ̄ be a congruence subgroup of SL₂(Z) of level prime to p. Import the generic double-coset and index-p lattice machinery from current TauCetiRoadmap/ModularForms Layer 2. The left cosets MΓ̄ in Γ̄ diag(p,1) Γ̄ have p+1 integral representatives M of determinant p and are parametrized by P¹(F_p). For the full group one may take diag(1,p) and [[p,a],[0,1]] for 0≤a<p, with the chosen action on Q; at general level choose compatible lifts by prime-to-p approximation. Only terms with M⁻¹·Q p-integral contribute. The associated projective line is the one on which the reduction of Q must vanish; specify it through this integrality criterion rather than an ambiguous kernel/image convention.
 
 Hypotheses and conventions:
 
@@ -851,9 +866,9 @@ Hypotheses and conventions:
 
 Construction or proof route:
 
-1. Reduce the lattice-index-p problem to lines in F_p².
-2. Use surjectivity of Γ̄→SL₂(F_p) to lift the standard representatives with the prescribed congruences.
-3. Changing a representative by γ∈Γ̄ cancels using a(γ·Q)=ρ_d(γ)a(Q).
+1. Import the generic double-coset/lattice correspondence and the full-group index-p count from current TauCetiRoadmap/ModularForms Layer 2; specialize its lines to the normalized binary-index transform.
+2. For the stated arbitrary prime-to-p congruence subgroup, use Γ(N)⊂Γ̄ and prime-to-p approximation to lift compatible representatives; prove any level extension not covered by the imported Γ₀/Γ₁ interfaces here.
+3. Changing M to Mγ, γ∈Γ̄, cancels using a(γ⁻¹·Q)=ρ_d(γ⁻¹)a(Q); then identify the projective line through the integral-transform criterion.
 
 API required by the uses:
 
@@ -878,7 +893,7 @@ Acceptance:
 
 - The source typo replacing M⁻¹·Q by an unnormalized matrix product is not adopted.
 
-Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S5/formal-series`.
+Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S5/formal-series`, `tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra`.
 
 Sources: CG20, Lemma 8.3, internal p. 58 (858); Definition 8.19, p. 72 (872) — Uses these cosets and their projective parametrization for Z and the neighbor multiset.
 
@@ -1003,6 +1018,7 @@ Fix j≥k≥2, d=j−k, and the CG20 similitude^(−3) normalization of the rati
 
 Hypotheses and conventions:
 
+- p is odd, as required for the discriminant and X₂ interface.
 - Negative p-exponents in these rational identities are interpreted only after inverting p.
 - The second equality is the characterization of V₂, not a definition of integral T₂ on torsion forms.
 
@@ -1039,7 +1055,7 @@ Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S5/u-z-v`, `Algebraic
 
 Sources: CG20, §5.5 and Remark 5.10, internal pp. 33–34 (833–834); Lemmas 8.3–8.4, p. 58 (858) — Fixes the rational normalization and the integral U,Z,V,U₂,Z₂,V₂ decomposition.; P20, §5.1.3, p. 21; §14.9.2, p. 104 — The source names for the first and second spherical generators are interchanged relative to CG20.
 
-Open obligations: G4 — explicit integral residual V₂ cosets, R4.
+Open obligations: G4 — explicit integral residual V₂ cosets, R2.
 
 ### Integral corrected Q₂ operator
 
@@ -1119,7 +1135,7 @@ Discriminating checks:
 
 - `multiplicity_two` (computation): For p=5,Q=x²+y²,Γ̄=SL₂(Z), the two isotropic projective points give the same discriminant −4 class twice.
 - `nonprimitive_count` (degenerate): If Q≡0 mod p, every one of the p+1 cosets contributes.
-- `matrix_weight_retained` (non-example): For d>0, replacing every ρ_d(M) by 1 changes the coefficient operator and is not an allowed orbit simplification.
+- `matrix_weight_retained` (non-example): For d=1 and M=diag(p,1), a contributing coefficient x is weighted to px, whereas a coefficient y is weighted to y. Replacing ρ₁(M) by the scalar 1 loses the first value and cannot define the same neighbor operator.
 - `tame_orientation` (non-example): At Γ̄=Γ(5), p=3 and Q=x², each M in Δ_p is diag(3,1) modulo 5, so its integral neighbor is 2x² modulo 5. A second forward neighbor is 4x² modulo 5, not Q; the reverse double coset is necessary.
 
 Uses:
@@ -1240,7 +1256,7 @@ Acceptance:
 - At r=1 the mixed product gives only p², so the same divisibility theorem is not asserted.
 - The three kernel types remain separately tested.
 
-Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S7/finite-rank-one-correspondence`, `AbelianSchemesAndArithmeticModuli:A4`, `AlgebraicModularFormsAndSerreWeightsPartII:S3/normalized-isogeny-pullback`, `ShimuraCompactificationsPartII:C14/genus-two-sheaves`.
+Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S7/finite-rank-one-correspondence`, `AbelianSchemesAndArithmeticModuli:A4`, `AlgebraicModularFormsAndSerreWeightsPartII:S3/normalized-isogeny-pullback`, `ShimuraCompactificationsPartII:C14/genus-two-sheaves`, `AbelianSchemesAndArithmeticModuli:A4/ordinary-serre-tate-coordinates`.
 
 Sources: P20, Spherical part of §14.9.2, p. 104 — Computes the three differential/trace bounds at r=2.; CG20, Lemma 8.3, internal p. 58 (858) — Its general-weight expansion matches the resulting r≥2 normalization.
 
@@ -1314,11 +1330,11 @@ Acceptance:
 - The codimension-two locus is the complement of rank at least one.
 - The formal n=∞ step is not replaced by a claim that H¹ always commutes with ordinary inverse limits.
 
-Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/rank-geometry`, `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-simple-zero`, `SchemeAndStackFoundations:SF.0/coherent-hartogs`, `SchemeAndStackFoundations:SF.2`.
+Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/rank-geometry`, `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-simple-zero`, `SchemeAndStackFoundations:SF.0/coherent-hartogs`, `SchemeAndStackFoundations:SF.2`, `SchemeAndStackFoundations:SF.2/depth-local-cohomology-vanishing`, `SchemeAndStackFoundations:SF.4/theorem-on-formal-functions`.
 
 Sources: P20, §8.2, p. 53; Lemma 14.9.2, spherical half, p. 103 — Uses codimension-two extension; the formal-limit justification is made explicit here.; CG20, Proof of Lemma 8.8, internal p. 60 (860) — Uses Hartogs for global degree-zero operators.
 
-Open obligations: R5.
+Open obligations: R3.
 
 ### Integral paramodular composite correspondence
 
@@ -1363,11 +1379,11 @@ Acceptance:
 - The difference C_r−Q₂ is (1+p²)p^(j−2), including a unit term when j=2.
 - Integral derived coefficient reduction constructs an action on every torsion section, even a section obstructed from lifting to O.
 
-Prerequisites: `ShimuraCompactificationsPartII:C14/klingen-paramodular-compactifications`, `ShimuraCompactificationsPartII:C14/normal-lci`, `ShimuraCompactificationsPartII:C14/genus-two-sheaves`, `ShimuraCompactifications:C3/coherent-cohomology-invariance`, `SchemeAndStackFoundations:SF.2`, `AlgebraicModularFormsAndSerreWeightsPartII:S5/hecke-decomposition`, `AlgebraicModularFormsAndSerreWeightsPartII:S5/corrected-q2`, `AbelianSchemesAndArithmeticModuli:A4`.
+Prerequisites: `ShimuraCompactificationsPartII:C14/klingen-paramodular-compactifications`, `ShimuraCompactificationsPartII:C14/normal-lci`, `ShimuraCompactificationsPartII:C14/genus-two-sheaves`, `ShimuraCompactifications:C3/coherent-cohomology-invariance`, `SchemeAndStackFoundations:SF.2`, `AlgebraicModularFormsAndSerreWeightsPartII:S5/hecke-decomposition`, `AlgebraicModularFormsAndSerreWeightsPartII:S5/corrected-q2`, `AbelianSchemesAndArithmeticModuli:A4`, `SchemeAndStackFoundations:SF.2/relative-dualizing-complex`, `SchemeAndStackFoundations:SF.2/relative-dualizing-module`, `SchemeAndStackFoundations:SF.2/sheafified-grothendieck-duality`.
 
 Sources: P20, §4.1–4.3, pp. 16–19; §7 and Lemmas 7.1.1–7.1.2, pp. 37–40 — Constructs integral normalized fundamental-class correspondences, their composite and its rational double-coset identity.
 
-Open obligations: R6.
+Open obligations: R4.
 
 ### Integral T and Q₂ on global forms
 
@@ -1415,7 +1431,7 @@ Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S7/integral-sheaf-t`,
 
 Sources: CG20, Lemma 8.8, internal p. 60 (860); Lemma 8.12, p. 64 (864) — Provides global T and Q₂ actions with K/O coefficients and the cancelled integral coefficient formula.; P20, §7, pp. 37–40 — Provides the integral composite used to construct Q₂ on torsion coefficients.
 
-Open obligations: R4.
+Open obligations: R2.
 
 ### Hasse equivariance at p
 
@@ -1521,7 +1537,7 @@ Discriminating checks:
 
 - `hasse_kernel` (computation): The nonzero form h of weight p−1 has Θh=0.
 - `theta_rank_one` (non-example): A coefficient y² at Q=x² can give nonzero θ₁ even though its scalar Θ coefficient is zero.
-- `characteristic_p_boundary` (degenerate): All operations are defined over k₀; a mod-p signature alone does not specify an operator on O/ϖ².
+- `scalar_determinant_p7` (computation): At p=7 and Q=x²+y², the scalar theta coefficient equals a(F,Q), since det Q=1; using Δ(Q)=−4 would instead multiply it by 3.
 
 Uses:
 
@@ -1533,11 +1549,11 @@ Acceptance:
 - Θ(h)=0 follows from the constant expansion of h.
 - The vector target symmetric degree is d−2, agreeing with con_d.
 
-Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S8/contraction`, `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-q-expansion`, `AlgebraicModularFormsAndSerreWeightsPartII:S1/q-expansion-principle`, `ShimuraCompactifications:C5/siegel-koecher-arbitrary-coefficients`, `AbelianSchemesAndArithmeticModuli:A4`.
+Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S8/contraction`, `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-q-expansion`, `AlgebraicModularFormsAndSerreWeightsPartII:S1/q-expansion-principle`, `ShimuraCompactifications:C5/siegel-koecher-arbitrary-coefficients`, `AbelianSchemesAndArithmeticModuli:A4`, `AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham`.
 
 Sources: Y16, Propositions 3.9, 3.11, 3.12, pp. 21–24 — Constructs the characteristic-p operators and computes their Fourier coefficients.; CG20, Proposition 8.9, internal p. 61 (861) — Uses these operators; the coefficient ring and vector formula require the stated corrections.
 
-Open obligations: R7.
+Open obligations: R5.
 
 ### Theta nonvanishing at superspecial points
 
@@ -1566,7 +1582,7 @@ Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S8/theta-operators`, 
 
 Sources: Y16, Theorem 4.7 and proof, p. 38; Theorem 4.9 and proof, p. 39 — Computes the superspecial scalar and vector leading terms and uses a local unipotent frame change.; CG20, Proof of Theorem 8.11, internal p. 62 (862) — Identifies the exceptional (6,2) case; the reference is Yamauchi v5 Theorem 4.9.
 
-Open obligations: R7.
+Open obligations: R5.
 
 ### Negative-weight section vanishing
 
@@ -1594,7 +1610,7 @@ Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S2/rank-geometry`, `A
 
 Sources: CG20, Proofs of Theorems 8.10–8.11, internal pp. 62–63 (862–863) — Uses the supersingular splitting and negative weights; the criterion pa−b<0 and the iteration make the missing vanishing argument explicit.
 
-Open obligations: G2 — global secondary square root and descent, R8.
+Open obligations: G2 — global secondary square root and descent, R6.
 
 ### Scalar theta injectivity in low weight
 
@@ -1726,7 +1742,7 @@ Prerequisites: `HodgeTateAndCanonicalSubgroups:T5`, `AlgebraicModularFormsAndSer
 
 Sources: P12, Definition 4.3, p. 352; frame comparison §4.2.1, pp. 353–354 — Defines ordinary Igusa functions, their invariant weight spaces and the inverse-transpose frame comparison.; T06, §3.2, pp. 808–810 — Describes the functions, group action and classical comparison in genus two.
 
-Open obligations: G5 — full-frame Klingen coefficient comparison, R9.
+Open obligations: G5 — full-frame Klingen coefficient comparison, R7.
 
 ### p-adic q-expansion and saturation
 
@@ -1772,7 +1788,7 @@ Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S9/padic-forms`, `Alg
 
 Sources: T06, Proposition 3.3 and preceding construction, pp. 808–809 — Defines the continuous-function-valued expansion and its saturated q-expansion principle.; P12, §4.2.1, pp. 353–354 — Fixes the relation between Igusa and differential frames.
 
-Open obligations: G5 — full-frame Klingen coefficient comparison, R9.
+Open obligations: G5 — full-frame Klingen coefficient comparison, R7.
 
 ### Classical-to-p-adic comparison
 
@@ -1818,7 +1834,7 @@ Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S9/padic-forms`, `Alg
 
 Sources: P12, §4.2.1, pp. 353–354 — Constructs the maps and explicitly distinguishes finite-level behavior from the injective inverse-limit comparison.; T06, Comparison diagram, pp. 809–810 — Relates classical algebraic coefficients to continuous-function-valued expansions.
 
-Open obligations: G5 — full-frame Klingen coefficient comparison, R9.
+Open obligations: G5 — full-frame Klingen coefficient comparison, R7.
 
 ### Klingen ordinary coefficient operator
 
@@ -1846,7 +1862,7 @@ Prerequisites: `AlgebraicModularFormsAndSerreWeightsPartII:S9/padic-q-expansion`
 
 Sources: T06, §3.2, p. 810 — Gives integral ordinary U operators on Igusa functions.; CG20, §5.5, internal p. 33 (833); Lemmas 8.3–8.4, pp. 58–59 (858–859) — Distinguishes the ordinary U_(p,2) congruence from the formal diagonal U₂.; P20, §13.3.1, p. 89 — Uses integral p-adic expansions for the analytic degree-zero comparison.
 
-Open obligations: G5 — full-frame Klingen coefficient comparison, R9.
+Open obligations: G5 — full-frame Klingen coefficient comparison, R7.
 
 ## Worked normalization checks
 
@@ -1862,61 +1878,57 @@ For the normalized contraction at d=2, con₂(x²⊗y²)=1/3 and con₂(y²⊗x�
 
 A formal H¹ comparison requires the Milnor sequence. The finite-level H⁰ restriction isomorphisms identify the lim¹H⁰ terms, and finite-level H¹ injections then give an injection on their inverse limits. This yields the formal H¹ injection by the diagram of short exact Milnor sequences; it does not rely on a general identity H¹(lim F_n)=lim H¹(F_n).
 
-## Supplier obligations
+## Supplier obligations and existing upstream import
+
+R1–R7 are open extensions. R8 records an existing upstream import and is not an unproved supplier obligation.
 
 ### R1. AbelianSchemesAndArithmeticModuli:A4
 
-Polarized Serre–Tate/Grothendieck–Messing deformation coordinates at genus-two p-rank-one points, and ordinary coordinates identifying the trace ideals for Lagrangian p-isogenies. In the basis specified in S2 the three tangent constraints are X=Z (principal) and Z=0 or X=0 (paramodular).
+Extend the imported A4/grothendieck-messing, A4/serre-tate-equivalence and A4/ordinary-serre-tate-coordinates interfaces to explicit genus-two p-rank-one polarized deformation coordinates and the ordinary trace ideals for Lagrangian p-isogenies. In the basis specified in S2 the three tangent constraints are X=Z (principal) and Z=0 or X=0 (paramodular). The deformation equivalences and generic ordinary coordinates themselves are already supplied.
 
 Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-simple-zero`, `AlgebraicModularFormsAndSerreWeightsPartII:S7/ordinary-trace`.
 
-### R2. HilbertModularVarietiesAndShimuraCurves:H2
-
-Identify its total Hasse ideal on integral Hilbert charts with the ideal (p,det V*) under the determinant-Hodge trivialization, including the specified ramified-prime hypotheses; no identification with a single partial invariant is intended.
-
-Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S2/hasse-q-expansion`.
-
-### R3. SchemeAndStackFoundations:SF.2
-
-Serre vanishing and the coherent reduction exact sequence over a proper DVR-model: sufficiently high powers of an ample line have surjective H⁰ reduction, including on the minimal Siegel model and a closed Hasse divisor.
-
-Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S4/hasse-power-lift`, `AlgebraicModularFormsAndSerreWeightsPartII:S4/minimal-hasse-cover`.
-
-### R4. AutomorphicBundles:B5
+### R2. AutomorphicBundles:B5
 
 Rational spherical GSp₄ pullback-and-trace actions on canonical and subcanonical bundles, including the similitude^(−3) twist, β₁=diag(1,1,p,p), β₂=diag(1,p,p,p²), pI₄ and their cusp/component transports. After p is inverted these identify the geometric actions with the double-coset coefficient formulas.
 
 Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S5/hecke-decomposition`, `AlgebraicModularFormsAndSerreWeightsPartII:S7/integral-h0-action`.
 
-### R5. SchemeAndStackFoundations:SF.2
+### R3. SchemeAndStackFoundations:SF.2
 
-For a CM O/ϖ^n scheme and a locally free sheaf, depth at least two on a closed complement gives H⁰ restriction isomorphism and H¹ injection via local cohomology. Supply the compatible formal Milnor/derived-inverse-limit sequence and proper coherent formal functions, and filtered-colimit compatibility on qcqs opens for K/O coefficients.
+Extend the existing finite-level depth/local-cohomology Hartogs theorem by a compatible formal Milnor/derived-inverse-limit sequence on the open, and filtered-colimit compatibility on qcqs opens for K/O coefficients. Proper coherent formal functions is imported separately from SF.4/theorem-on-formal-functions; neither existing result alone supplies the open formal-limit comparison.
 
 Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S7/siegel-hartogs`.
 
-### R6. SchemeAndStackFoundations:SF.2
+### R4. SchemeAndStackFoundations:SF.2
 
-Coherent duality for projectively embeddable proper maps between flat lci schemes of equal relative dimension: f!O is the relative dualizing line, the trace Rf_*f!→Id and projection formula with perfect coefficients. For normal source smooth outside codimension two, extend det(df) as the fundamental class and compare it with finite flat trace on the smooth finite locus. Include logarithmic boundary ideal compatibility and O-linear derived reduction of the resulting correspondence. This is an extension request, not a claim that étale six operations supply coherent duality.
+Extend the imported SF.2 relative-dualizing complex/module and sheafified Grothendieck duality interfaces by the determinant-of-cotangent-complex identification and fundamental class for projectively embeddable proper maps between flat lci schemes of equal relative dimension, including the projection formula with perfect coefficients. For normal source smooth outside codimension two, extend det(df) and compare with finite flat trace on the smooth finite locus. Include logarithmic boundary ideal compatibility and O-linear derived reduction. Generic coherent duality is imported; this requests the lci fundamental-class and boundary specialization, including nonflat correspondence maps.
 
 Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S7/paramodular-composite`.
 
-### R7. AbelianSchemesAndArithmeticModuli:A4
+### R5. AbelianSchemesAndArithmeticModuli:A4
 
-Gauss–Manin connection, polarized de Rham pairing, Kodaira–Spencer Sym²E≅Ω¹(log D), ordinary unit-root splitting and the first-order superspecial Hasse–Witt matrix for genus-two semiabelian degeneration, in the normalization used by Yamauchi Propositions 3.9–3.12.
+Extend A4/abelian-h1-de-rham (which already supplies the abelian Gauss–Manin connection and polarized pairing) to genus-two semiabelian logarithmic degeneration, with Kodaira–Spencer Sym²E≅Ω¹(log D), the ordinary unit-root splitting and the first-order superspecial Hasse–Witt matrix in the normalization of Yamauchi Propositions 3.9–3.12. Generic abelian de Rham theory is imported.
 
 Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S8/theta-operators`, `AlgebraicModularFormsAndSerreWeightsPartII:S8/superspecial-nonvanishing`.
 
-### R8. SchemeAndStackFoundations:SF.0
+### R6. SchemeAndStackFoundations:SF.0
 
 Krull intersection for a locally free module along a proper effective Cartier ideal in a Noetherian local ring, and the componentwise propagation of a section vanishing on a dense open of a reduced scheme.
 
 Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S8/negative-weight-vanishing`.
 
-### R9. HodgeTateAndCanonicalSubgroups:T5
+### R7. HodgeTateAndCanonicalSubgroups:T5
 
 Extend the currently Hilbert-specific Igusa node to the full ordinary genus-two multiplicative tower Ig_(m,n)=Isom(μ_(p^n)^2,G[p^n]^0) over X_m^ord, as a finite étale GL₂(Z/p^n)-torsor including toroidal boundary charts, with transition maps and compatible full-frame q-expansions. Supply connected-component/ordinary monodromy detection sufficient for the saturated expansion principle on each component. The present request is an additional Siegel interface, not a claim that the Hilbert node already proves it.
 
 Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S9/padic-forms`, `AlgebraicModularFormsAndSerreWeightsPartII:S9/padic-q-expansion`, `AlgebraicModularFormsAndSerreWeightsPartII:S9/classical-padic-comparison`, `AlgebraicModularFormsAndSerreWeightsPartII:S9/klingen-coefficient-operator`.
+
+### R8. tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra
+
+Import: generic double-coset representative independence, index-p lattice/projective-line parametrization and the full-group p+1 count. This is existing upstream roadmap ownership. S5 owns only the normalized binary-index integrality criterion and any additional arbitrary prime-to-p congruence-level specialization.
+
+Needed by: `AlgebraicModularFormsAndSerreWeightsPartII:S5/determinant-p-cosets`.
 
 ## Mathematical verification gaps
 
@@ -1969,13 +1981,13 @@ The following findings concern exactly the hashed versions below. E1–E9 are ca
 - **E5**, CG20, Proofs of Theorems 8.10–8.11, internal pp. 62–63 (862–863), author copy: Use the explicit pa−b<0 vanishing target, the closed S divisor and a local SL₂(F_p) frame change at SS. Check: The splitting on each supersingular P¹ gives largest degree pa−b; a global cusp-stabilizer action on forms is unnecessary and is not supplied.
 - **E6**, CG20, Lemma 6.2(2), internal p. 36 (836), compared with Lemma 8.12, p. 64 (864): Prove at-p Hasse equivariance using the cancelled Q₂ formula, whose reduction is Z₂ at (3,3). Check: At (3,3), T₂=−1+pX₂+Z₂+p³V₂, while Q₂=pX₂+Z₂+p³V₂+p². Their mod-p actions differ by the identity.
 - **E7**, P20, §6.3.3, Lemmas 6.3.3.3–6.3.3.5, pp. 32–34, 17 June 2019 author version: The zero set of V*_H, W and A is multiplicative rank zero; the dual section has zero set étale rank zero. Z is an isomorphism. Their product still has the required zero set, so the final extension theorem survives. Check: If the multiplicative rank stays one while the étale rank drops, H is still multiplicative and V*_H and W are units. Such fibers occur in μ_p times a height-three dimension-one formal-group degeneration. The crystalline image/kernel identities make Z an isomorphism, so A is a unit there as well.
-- **E8**, P20, §6.4, pp. 35–36, 17 June 2019 author version: The rank-r locus is dense in its rank-at-most-r closure, of dimension r+1. Check: The rank-at-least-zero locus is the whole threefold, so it cannot have dimension one.
+- **E8**, P20, §6.4, pp. 35–36, 17 June 2019 author version: The rank-r locus is dense in its rank-at-most-r closure, of dimension r+1. The ≥r and ≤r loci use inclusive inequalities. Check: The ordinary rank-two locus is open of dimension three, whereas 3−2=1. A rank-one point belongs to both ≥1 and ≤1, contradicting strict inequalities in those definitions.
 - **E9**, P20, Proof of Lemma 6.4.1, p. 35, 17 June 2019 author version: Use Fe₂=−pe₃, Fe₃=e₂ and the symplectic convention yielding X=Z in the principal case; in the paramodular alternatives the constraints are Z=0 or X=0. Check: With the stated pairing, moving F across it requires the p-similitude relation; the changed sign restores it and gives nonzero Hasse differential −Y on the polarized tangent spaces.
 - **E10**, CG20, Lemma 8.20 and proof, internal p. 72 (872), author copy: Use the reverse double coset, or impose/prove the self-duality and level-transport identification. The symmetric statement is valid for SL₂(Z). Check: For Γ(5), p=3 and Q=x², a forward neighbor is 2x² modulo 5 and a second forward neighbor is 4x², so Q cannot be its Γ(5)-class. An adjugate reverses diag(p,1) to diag(1,p), whose reductions differ modulo 5.
 
 ## Sources and reading ledger
 
-- **CG20**. Frank Calegari and David Geraghty, *Minimal modularity lifting for nonregular symplectic representations*. Duke Mathematical Journal 169 (2020), 801–896; author typeset copy, internal page N = journal page 800+N. [Text](https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf). Read: §5.2, internal pp. 21–22; §5.5, pp. 33–34; §6.1, pp. 35–37; §7.1, pp. 49–50; §§8.1–8.5, pp. 56–64; §8.7, pp. 72–73. SHA-256 `fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5`, accessed 2026-10-19.
+- **CG20**. Frank Calegari and David Geraghty, *Minimal modularity lifting for nonregular symplectic representations*. Duke Mathematical Journal 169 (2020), 801–896; author typeset copy, internal page N = journal page 800+N. [Text](https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf). Read: §5.2, internal pp. 21–22; §5.5, pp. 33–34; §6.1, pp. 35–37; §7.1, pp. 48–50; §§8.1–8.5, pp. 56–64; §8.7, pp. 72–73. SHA-256 `fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5`, accessed 2026-10-19.
 - **P20**. Vincent Pilloni, *Higher coherent cohomology and p-adic modular forms of singular weights*. Duke Mathematical Journal 169 (2020), 1647–1807; author version 17 June 2019, 113 pp.; journal revision not compared. [Text](https://www.imo.universite-paris-saclay.fr/~pilloni/complexhidatheorygsp4.pdf). Read: §4, pp. 16–19; §5.1.3, p. 21; §§6.2–6.4, pp. 30–37; §7, pp. 38–40; §8.2, p. 53; §11.2, pp. 69–71; §13.3.1, p. 89; §14.8, p. 101; §14.9, pp. 103–104. SHA-256 `4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58`, accessed 2026-10-19.
 - **Y16**. Takuya Yamauchi, *The weight reduction of mod p Siegel modular forms for GSp4*. arXiv:1410.7894v5, 30 August 2016; locators refer to v5. [Text](https://arxiv.org/pdf/1410.7894v5). Read: Propositions 3.9, 3.11, 3.12 and the Fourier computation, pp. 21–24; Theorems 4.7 and 4.9, pp. 38–39. SHA-256 `1fe3e4cf26907fae70b05a209e79cdff42aac93cff6410f98438fe7c89373c39`, accessed 2026-10-19.
 - **T06**. Jacques Tilouine, *Siegel varieties and p-adic Siegel modular forms*. Documenta Mathematica, Extra Volume Coates (2006), 781–817. [Text](https://ems.press/content/book-chapter-files/27485?nt=1). Read: §3.1, pp. 805–808, Definition 3.1 and Proposition 3.2; §3.2, pp. 808–810, Proposition 3.3 and the comparison diagram. SHA-256 `a257a1dfd9a8d89c43ae60b10d122ae8f7189a897cda455ead514dffd16dfcd9`, accessed 2026-10-19.

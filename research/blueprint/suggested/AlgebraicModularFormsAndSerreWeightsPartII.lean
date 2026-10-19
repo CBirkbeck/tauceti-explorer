@@ -70,7 +70,8 @@ noncomputable def formalU2 {R : Type*} [Ring R] (p : ℕ) [Fact p.Prime]
     (f : Coefficients R) : Coefficients R :=
   fun q => (u2Multiplier p q : R) * f q
 
-/-- The cancelled Q₂ formula. Z₂ and V₂ must come from the S5 constructions. -/
+/-- The cancelled Q₂ formula, interpreted at weights j ≥ k ≥ 2.
+Z₂ and V₂ must come from the S5 constructions; this chart does not construct them. -/
 noncomputable def correctedQ2 {R : Type*} [Ring R] (p : ℕ) [Fact p.Prime]
     (j k : ℕ) (z2 v2 : Coefficients R → Coefficients R)
     (f : Coefficients R) : Coefficients R :=
