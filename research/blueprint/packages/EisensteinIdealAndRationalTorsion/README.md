@@ -8,7 +8,7 @@ This roadmap owns the arithmetic specific to prime-level Eisenstein ideals and t
 
 `TauCetiRoadmap.ModularCurves` and `ModularCurvesPartII` own the curves, compactifications, generalized elliptic curves, Hecke correspondences, modular Jacobians and cohomological comparisons. `TauCetiRoadmap.ModularForms` owns integral cusp forms, q-expansions, modular symbols and the classical integral Hecke algebra. `AutomorphicFormsOnReductiveGroups` owns adelic Hecke actions and their classical normalization; the prime-level full Eisenstein order constructed below is specific to this roadmap. `FiniteFlatGroupsAndIntegralPadicHodgeTheory` owns generic finite-flat groups, admissibility, purity, extensions and their cohomology. `NeronModelsAndSemistableAbelianVarieties` owns the Néron model, components, monodromy and integral cohomological comparisons. `HeightsRationalPointsAndObstructions` owns Mordell–Weil and isogeny Kummer theory. `TauCetiRoadmap.EllipticCurves` owns local elliptic reduction, Tate uniformization and elliptic torsion representations. General connected abelian quotients are imported from `HeightsRationalPointsAndObstructions` §1.0, using `AbelianSchemesAndArithmeticModuli` §§A3.3 and A6.3–A6.5; cyclotomic class-field eigenspaces belong to `ClassFieldTheory`.
 
-The supplier extensions below specify the additional targets in those existing directions. In particular the integral differential comparison, global admissible-group arithmetic and connected-Néron cohomology are stronger than their nearby rational or local supplier statements. The level-13 cusp/intersection computation and the fixed cyclotomic class-number certificate are arithmetic targets here. The formal-immersion theorem retains its general level and the potential-good-reduction corollary retains its squarefree-level scope. The full composite-order classification, arbitrary squarefree-level Eisenstein ideals, an explicit list of all rational isogenies and general residual irreducibility are outside this roadmap’s statements. Place this roadmap after all its suppliers: in particular the abelian-scheme, finite-flat, Néron, height, integral modular-curve and automorphic-form packages, not merely after the height package.
+The supplier extensions below specify required interfaces in those existing directions; they do not identify numbered targets already present in those suppliers. In particular the integral differential comparison, global admissible-group arithmetic and connected-Néron cohomology are stronger than their nearby rational or local supplier statements. Generic dyadic amalgams belong to finite-flat theory; their Hecke-stable saturation belongs to §4.5 here. The level-13 cusp/intersection computation and the fixed cyclotomic class-number certificate are arithmetic targets here. The formal-immersion theorem retains its general level and the potential-good-reduction corollary retains its squarefree-level scope. The full composite-order classification, arbitrary squarefree-level Eisenstein ideals, an explicit list of all rational isogenies and general residual irreducibility are outside this roadmap’s statements. Place this roadmap after all its suppliers: in particular the abelian-scheme, finite-flat, Néron, height, integral modular-curve and automorphic-form packages, including the required extensions. The inverse-character class-field theorem also precedes any global finite-flat extension argument that uses it.
 
 ## Conventions
 
@@ -46,7 +46,18 @@ Tau Ceti’s `LeftCosetModule.deg` is the abstract Hecke ring degree homomorphis
 
 `TauCetiRoadmap.ModularForms` Layer 0 supplies the corrected weight-two Eisenstein series, q-expansions with character and their transformations. Its Layer 8 supplies the integral cusp-form lattice, integral Hecke algebra and coefficient pairing, modular symbols and coefficient-field decomposition. `AutomorphicFormsOnReductiveGroups` §7.3 identifies the raw adelic good-prime Hecke operator with the classical operator at weight two, with volume-one maximal compact; its unitary normalization still differs by √l. These are existing inputs. The prime-level full order and its integral Eisenstein character are constructed in §0.2 here.
 
-**Integral differential extension of ModularCurvesPartII.** For its proper flat integral modular curve, compare weight-two cusp forms with global relative dualizing differentials, with q-expansion and residue compatibility at every prime, including 2, 3 and the level. Supply the Serre-dual H¹(O) lattice and compatibility of the Hecke adjoints. State separately the stack/coarse comparison and any correction at elliptic points; do not infer integral base change from §7.2, which compares regular differentials only in characteristic zero. The exact prime-level congruence obstruction and Eisenstein-local freeness are proved in Layer 0 here. Sources: [Mazur1977] II §§4–6 and §9, pp. 78–88, 94–96. This is an extension in the `ModularCurvesPartII` direction.
+**Required integral differential extension of ModularCurvesPartII.** Start with relative duality for proper flat Cohen–Macaulay curves of pure relative dimension one. Supply the relative dualizing sheaf ω, its formation under base change, and the perfect pairing H⁰(ω)×H¹(O)→R under the coherent local-freeness hypotheses. On a nodal fibre describe ω by differentials on the normalization with at most simple poles at node branches and opposite residues. Import the general duality machinery from `SchemeAndStackFoundations` targets `SF.2/cm-serre-duality`, `SF.2/relative-dualizing-complex`, `SF.2/relative-dualizing-module` and `SF.2/curve-dualizing-comparison`, together with StableReduction's curve duality; this extension owns the modular comparison and its Hecke compatibility.
+
+For prime P≥5 distinguish the coarse integral model M₀(P), its minimal regular resolution X₀(P), and the stack. For coefficient rings R flat over ℤ or over some ℤ/m, identify the integral parabolic q-expansion lattice B⁰(R) with H⁰(M₀(P)_R,ω). Its noncuspidal counterpart B(R) is H⁰(M₀(P)_R,ω(cusps)). Identify the regular-resolution lattice with the coarse lattice under the flat-over-ℤ or field hypotheses of II Proposition 3.4. Include base change in the category of coefficient rings of II Proposition 3.3, integral Serre duality, residues, and the transpose relation for Hecke pullback and trace. These statements retain the level fibre and characteristics 2 and 3.
+
+Keep the moduli-theoretic weight-two space A(R) separate from B(R). Away from P, the cuspidal spaces A⁰(R) and B⁰(R) agree for R flat over ℤ[1/P] and for R=ℤ/m with (m,P)=1. For noncuspidal forms this agreement has additional elliptic-point conditions: over a field of characteristic 2 with P≡1 mod 4, or characteristic 3 with P≡1 mod 3, B has codimension one in A. A comparison at the level prime must use the integral differential lattice, rather than asserting A=B there. The exact prime-level congruence obstruction and Eisenstein-local freeness remain Layer 0 targets here. Sources: [Mazur1977] II §3, Definition 3.1, duality (3.2), Lemma/Proposition 3.3 and Proposition 3.4, pp. 67–69; §4, Lemmas 4.5–4.8 and convention 4.9, pp. 75–77; §§5–6, pp. 78–90; §9, pp. 94–96.
+
+**Checks.**
+
+- In genus zero H⁰(ω)=H¹(O)=0; no rank-one Hecke generator is imposed on these zero lattices.
+- At the two branches of a node, residues a and −a sum to zero, including in characteristic 2. Allowing independent residues gives the wrong dualizing sheaf.
+- At P=5 in characteristic 2, and P=7 in characteristic 3, the noncuspidal A/B correction has dimension one; the cuspidal spaces still agree and vanish. Inverting 6 would erase these tests.
+- Reduction at P uses B⁰ and the bad-fibre model; the characteristic-zero comparison in §7.2 does not supply it.
 
 ### From abelian varieties, Néron models and heights
 
@@ -60,22 +71,41 @@ Use `NeronModelsAndSemistableAbelianVarieties` §§1.2–1.3 and 1.9 for marked 
 
 Its §3.5 supplies the saturated toric–finite Tate filtration when ℓ differs from the residue prime. For ℓ equal to the level use instead §§3.13–3.14: the Raynaud extension 0→T→G→B→0 and the polarized analytic quotient by a lattice Y, with the generic finite-group exact sequence 0→G[n]→A[n]→Y/nY→0 for every n>0, even when n is divisible by the residue characteristic. For purely toric reduction G=T, the unramified character and period lattices imply that the inertia constituents on A[P] are 1 and χ_P. This statement concerns the generic fibre; A[P] need not be finite flat over the valuation ring. Source: [FaltingsChai1990] III §7, Theorem 7.1 and Corollaries 7.2–7.4, pp. 76–77; §8, pp. 77–78.
 
-**Connected-Néron cohomology extension.** For the semistable modular Jacobian and its isogenies, give the fppf sequences on connected Néron models with their component/skyscraper defects. Identify the image of H¹(ℤ,𝒥⁰) in H¹(ℚ,J) with Sha away from 2 and give the inclusions and finite error used for the dyadic bound. Separately give cotangent injectivity for an optimal new quotient away from residue characteristic 2, including at a prime dividing the level exactly once. Combine this with the integral differential comparison, rather than assuming all Néron sequences exact. Sources: [Mazur1977] III §3, pp. 148–151; [Mazur1978] §1 and §2(e), pp. 133–141. These are extensions in the `NeronModelsAndSemistableAbelianVarieties` direction; §6.4's isogeny lattice comparison alone is not the stated exactness theorem.
+**Required connected-Néron cohomology extension.** For a semistable abelian variety A/ℚ and its connected Néron model 𝒜⁰, supply the fppf Kummer sequence for every integer m>0 and its consequence
+0→𝒜⁰(ℤ)/m→H¹(ℤ,𝒜⁰[m])→H¹(ℤ,𝒜⁰)[m]→0.
+Retain the finite component quotient between 𝒜⁰(ℤ) and A(ℚ). Describe the generic restriction image in H¹(ℚ,A) with its local conditions and component defects. For J=J₀(P), its odd-primary image agrees with the odd-primary Sha; at 2 supply the inclusion Sha[2∞]⊂image(H¹(ℤ,𝒥⁰)→H¹(ℚ,J))[2∞] used for finiteness, rather than an equality or vanishing claim. For isogenies compute kernels and cokernels of the actual Néron sheaf maps, including skyscraper terms at bad primes. The Eisenstein-specific identification of these kernels and component maps is proved in Layer 6 here. Source: [Mazur1977] III Lemmas 3.2–3.3 and Proposition 3.6, pp. 148–151.
+
+Separately, let O be the integer ring of a finite extension K/ℚ_p with e(K/ℚ_p)<p−1. For every exact sequence 0→A→B→C→0 of abelian varieties with B semistable, the connected Néron models have exact free O-module tangent and cotangent sequences, in particular
+0→Cot(𝒞⁰)→Cot(ℬ⁰)→Cot(𝒜⁰)→0.
+Since the cokernel is free, the cotangent injection remains injective after residue-field base change. Specialize to an optimal new modular quotient over ℚ_p for odd p, including p∥N: J₀(N) is semistable there and e=1<p−1. Combine this with the integral dualizing-differential comparison over ℤ[1/m_N], where m_N is the square root of the largest square dividing N; do not add good reduction at p∥N. Sources: [Mazur1978] §1(d), Propositions 1.2–1.3 and Corollary 1.1, pp. 135–137; §2(d–e), pp. 140–141. These are extensions in the `NeronModelsAndSemistableAbelianVarieties` direction; §6.4's same-dimensional isogeny lattice comparison does not supply them.
+
+**Checks.**
+
+- A=0 and m=1 give zero Kummer groups; a nonzero finite component quotient is retained when replacing 𝒜⁰(ℤ) by A(ℚ).
+- Multiplication by p on an additive special fibre in characteristic p is not surjective. The Kummer assertion therefore keeps semistability.
+- For B=A×C the cotangent sequence is the split sequence of free modules of ranks dim C, dim A+dim C, dim A. An injective same-rank lattice map given by multiplication by p instead becomes zero modulo p and fails the required residue-field test.
+- At p=2 and e=1 the strict inequality fails. The counterexample in [Mazur1978] §1(e), p. 138, has zero special-fibre tangent map; it rules out extending the cotangent assertion to that boundary. The dyadic cohomology inclusion remains a separate requirement.
 
 ### From finite-flat groups
 
 `FiniteFlatGroupsAndIntegralPadicHodgeTheory` §§R07.1.2, .9, .12 and .20 supply étale/Galois descent, connected–étale sequences, formal Lie groups, and schematic closures with finite-flat quotients. §§R07.1.24 and .30–.35 supply prolongations, full faithfulness when e<ℓ−1, the boundary exception and Oort–Tate classification. §§R07.1.38–.40 give gluing, the Hom/Ext Mayer–Vietoris sequence and embeddings into abelian schemes. The inequality e<ℓ−1 fails for ℓ=2 over ℤ₂; generic constancy does not identify the dyadic integral model.
 
-**Global admissible-group extension.** For distinct primes P,ℓ, define admissible ℓ-groups over ℤ as commutative, killed by a power of ℓ, separated quasi-finite flat finitely presented groups, finite flat over ℤ[1/P], with a filtration there by ℤ/ℓ and μ_ℓ. Supply minimal/maximal prolongations, exact subquotients and the retained fibre at P. For a finite ℓ-power group G write length(G)=log_ℓ rank(G_ℚ), δ(G)=length(G)−log_ℓ #G(𝔽̄_P), α(G)=log_ℓ #G(𝔽̄_ℓ), and hⁱ=log_ℓ #Hⁱ_fppf(ℤ,G). Under P≡1 mod ℓ, and P≡1 mod 4 if ℓ=2, prove finiteness and h¹−h⁰≤δ−α. Prove additivity with the specified quasi-finite defects, the constant/multiplicative filtration, odd purity, saturation and the global rank-one classification (constant or cyclotomic). Supply Ext¹_ℤ(μ_ℓ,ℤ/ℓ)=0 and the nonsplit rank-four group D killed by 2, splitting field ℚ(i), together with the *-type amalgams used in dyadic saturation. These global assertions are additional targets of `FiniteFlatGroupsAndIntegralPadicHodgeTheory, Part II`; they are not consequences of local full faithfulness. Sources: [Mazur1977] I §§1–5, pp. 43–61, and II §17, pp. 129–135.
+**Required global admissible-group extension.** For distinct primes P,ℓ, use the marked admissible ℓ-groups over ℤ defined in the conventions. Supply minimal/maximal prolongations, exact subquotients and the retained fibre at P. Set length(G)=log_ℓ #G(ℚ̄), δ(G)=length(G)−log_ℓ #G(𝔽̄_P), α(G)=log_ℓ #G(𝔽̄_ℓ), and hⁱ(G)=log_ℓ #Hⁱ_fppf(ℤ,G) for i=0,1. Prove finiteness of these cohomology groups and h¹−h⁰≤δ−α for every admissible G. No congruence condition on P is needed for this inequality. The conditions P≡1 mod ℓ for odd ℓ, and P≡1 mod 4 for ℓ=2, occur in the elementary-group equality calculation, not in Proposition 1.7's hypotheses. Supply additivity of the fibre lengths in exact admissible sequences and the long-exact-cohomology subadditivity used in the proof. Sources: [Mazur1977] I §1, pp. 43–49, especially Proposition 1.7, p. 49.
 
-API for this extension: `admissible_subquotient`, `prolongation_min/max`, `length_exact`, `defect_exact`, `etaleLength_geometric`, `cohomology_bound`, `rankOne_constant_or_cyclotomic`, `odd_purity`, `dyadic_D`, and `starType_saturation`, each preserving the marked base and generic-fibre comparison.
+State the rank-one theorem on its global base: if k is a finite field of characteristic ℓ and V/ℤ is a finite-flat k-vector group scheme of k-rank one, then V is (ℤ/ℓ)⊗𝔽_ℓ k or μ_ℓ⊗𝔽_ℓ k. This is not a classification of all rank-one models over ℤ[1/P] or a ramified local base. Supply the constant/μ-type filtration, Ext¹_ℤ(μ_ℓ,ℤ/ℓ)=0, and odd purity: for odd ℓ an admissible group over ℤ[1/P] is a product of a constant group and a μ-type group exactly when its generic inertia at P is trivial, equivalently when it extends finite flat over ℤ. The global Ext calculation needs its class-field input as well as the Hom/Ext gluing sequence. Sources: [Mazur1977] I Proposition 1.5, pp. 46–47; Proposition 2.1, pp. 49–54; §§3–4, pp. 54–60, especially Proposition 4.5.
+
+At 2 supply the nonsplit extension 0→μ₂→D→ℤ/2→0 over ℤ, of rank four and killed by 2, with splitting field ℚ(i) and its integral-model rigidity. For a finite-flat admissible multiplicative-type group M over ℤ[1/P] with a specified μ₂-subgroup, construct the amalgam M⊕_{μ₂}D, with exact quotient ℤ/2 and its characteristic-two connected/étale comparison. Here M need not be μ-type. The Hecke-stable saturation of these amalgams is proved in §4.5, using §3.2 and §4.4; it is not an unconditional finite-flat theorem. These global constructions belong to an extension of `FiniteFlatGroupsAndIntegralPadicHodgeTheory` beyond its local theory. Sources: [Mazur1977] I §4, Propositions 4.2–4.4, pp. 58–59; II §17, the *-type definition and Lemma 17.3, pp. 130–131, with the additional Hecke hypotheses in Lemma 17.5, pp. 131–133.
+
+API for this extension: `admissible_subquotient`, `prolongation_min/max`, `length_exact`, `defect_exact`, `etaleLength_geometric`, `cohomology_bound`, `rankOne_constant_or_cyclotomic`, `odd_purity`, `dyadic_D`, `dyadic_amalgam` and `dyadic_amalgam_connectedEtale`, each preserving the marked base and generic-fibre comparison.
 
 **Checks.**
 
-- The zero group has all four lengths zero.
+- The zero group has length, δ, α, h⁰ and h¹ all zero.
 - Over ℤ_ℓ, ℤ/ℓ and μ_ℓ have geometric étale lengths 1 and 0 respectively; at ℓ=2 their generic characters coincide but these lengths still differ.
+- For the full constant ℤ/ℓ over ℤ, (δ,α,h⁰,h¹)=(0,1,1,0), so both sides of the inequality are −1. Dropping h⁰ gives a false bound. For μ₂ these values are (0,0,1,1), giving equality zero.
 - An unramified nontrivial rank-one character can have fewer 𝔽_ℓ-points than geometric points, so α cannot count rational points.
-- Losing a P-fibre changes δ even if the generic module is unchanged.
+- The extension-by-zero model of ℤ/ℓ at P has δ=1, whereas the full constant model has δ=0 with the same generic module.
+- D is unramified at every odd P but is not pure; the odd purity criterion fails at 2. The amalgam for M=μ₂ is D itself, of rank four, while rank(M)=4 gives amalgam rank eight rather than sixteen.
 
 ### From elliptic curves and class fields
 
@@ -83,7 +113,17 @@ API for this extension: `admissible_subquotient`, `prolongation_min/max`, `lengt
 
 `TauCetiRoadmap.ClassFieldTheory` Layer 13 supplies Hilbert/ray class-field reciprocity with cyclotomic equivariance, the ideal-class description of unramified abelian extensions and the local-unit contribution when a prime is inverted. Its Herbrand quotient of ideles is different from the class-group theorem below. Mathlib supplies `NumberField.exists_ideal_in_class_of_norm_le` and `RingOfIntegers.isPrincipalIdealRing_of_isPrincipal_of_norm_le_of_isPrime`, so the Minkowski ideal bound is imported, not developed here. `IsCyclotomicExtension.Rat.discr_prime`, `isIntegralClosure_adjoin_singleton` and `integralPowerBasis` give the cyclotomic integer/discriminant input to §8.5. The fixed class-number theorem is stated on Mathlib's `CyclotomicField 13 ℚ` and `NumberField.classNumber`.
 
-**Inverse-character extension of ClassFieldTheory.** At each odd prime P≥5, the χ_P⁻¹ eigenspace of the P-part of the ideal class group of ℚ(ζ_P) vanishes: the Stickelberger/Herbrand implication would force P to divide the numerator of B₂=1/6 if it were nonzero. Export the equivariant quotient statement for an everywhere unramified cyclic P-extension, not a full class-number-one assertion. This belongs to `ClassFieldTheory, Part II`. Sources: [Mazur1977] I Proposition 2.8 and Corollaries 2.9–2.10, pp. 52–54. The unrelated class number of ℚ(ζ₁₃) is computed directly in §8.5.
+**Required inverse-character extension of ClassFieldTheory.** Let Y be the P-primary ideal class group of ℚ(ζ_P) for odd prime P, and ω the Teichmüller lift of χ_P. Supply the Stickelberger/Herbrand annihilator theorem on Y: Y^(1)=0, and for odd j with 1<j<P−1 the nonvanishing of B_{P−j} modulo P implies Y^(j)=0, where the eigenspace uses ω^j. At P≥5 take j=P−2. Since B₂=1/6 is a P-adic unit, Y^(−1)=0. Using ω avoids treating a general P-power-torsion group as an 𝔽_P-vector space.
+
+Export the equivariant quotient statement for K=ℚ(ζ_P) and an everywhere unramified cyclic P-extension L/K with L/ℚ Galois. Reciprocity identifies the natural action on ideal classes with conjugation g·x=gxg⁻¹ on Gal(L/K); this action of Gal(K/ℚ) is independent of the lift g because Gal(L/K) is abelian. Consequently no nonzero quotient with residual action χ_P⁻¹ exists. This belongs to the `ClassFieldTheory, Part II` direction, following Layer 13 reciprocity and preceding the global Ext proof when that proof uses the same class-field obstruction. Sources: [Mazur1977] I Proposition 2.8 and Corollaries 2.9–2.10, pp. 53–54. The unrelated class number of ℚ(ζ₁₃) is computed directly in §8.5.
+
+**Checks.**
+
+- For P=5, j=3 and P−j=2; the Bernoulli numerator is 1 and its denominator 6 is a unit modulo 5.
+- At P=3 the inverse character has j=1 and must use Y^(1)=0, not the displayed B₂-unit argument. The torsion-descent specialization keeps P≥5.
+- A zero class group gives a zero quotient. Vanishing of this one eigenspace does not imply Y=0 at an irregular prime.
+- At P=5 an element with χ_P(g)=2 acts on Hom(μ_P,ℤ/P) by 2⁻¹=3 modulo 5. Replacing the inverse character by χ_P would give 2 and the wrong equivariant quotient.
+- If L is not Galois over ℚ, the stated Gal(K/ℚ)-action on Gal(L/K) is not supplied; retain the normality hypothesis when applying equivariance.
 
 ## How to read the build
 
@@ -605,13 +645,19 @@ The proof does not divide 1+w by 2.
 
 Prove `dyadic_local_ring`. For ell=2|n and good l, m_2 T_2=(2,η_l), T_2 is Gorenstein, the m_2 Tate module is free of rank two over T_2, and J[m_2]=D. For every P the global Eisenstein quotient J→A_Eis factors through J^−=J/(1+w)J, including the dyadic factors.
 
-Import the finite-flat *-type closure and saturation lemmas, whose groups are amalgams of a μ-type group with D along μ2. Induct through the η_l-torsion saturation and identify its étale special part as order 2. Apply Nakayama and the duality criterion for Gorensteinness; combine D∩J_+=0 with the odd-primary separation to factor the full quotient.
+Import the finite-flat amalgam M⊕_{μ₂}D for an admissible multiplicative-type M containing μ₂, together with its characteristic-two connected/étale comparison. Prove the Hecke-dependent saturation here. With good l≠2, if G⊂G′⊂J₂[η_l] are admissible T-stable subgroups, G is such an amalgam, G′/G has order 2, and 2 kills the characteristic-two étale part of G′, prove G′ is again such an amalgam. Use the Frobenius relation, §3.2's rank-one étale bound and §4.4's separation from the image of 1+w; these hypotheses exclude the unwanted constant rank-four quotient. Induct through the η_l-torsion saturation, preserving the global Galois stability of the connected parts, and identify its étale special part as order 2. Apply Nakayama and the duality criterion for Gorensteinness; combine D∩J_+=0 with the odd-primary separation to factor the full quotient.
 
 No odd-primary purity lemma is applied at 2. The formula J[m_2]=D is compatible with nonsplit complex conjugation.
 
 *Source:* [Mazur1977] II §17, Propositions 17.1,17.8,17.10 and 17.9, pp. 129–135.
 
 *Needs:* `dyadic_plus_separation`, `etale_multiplicity`, `good_auxiliary_prime`, `quotient_support`, the global admissible-group extension of `FiniteFlatGroupsAndIntegralPadicHodgeTheory`.
+
+**Checks.**
+
+- Starting with M=μ₂ gives G=D; its geometric étale special part has order 2 rather than 4.
+- Without the ambient étale multiplicity bound, D×(ℤ/2) has an order-two quotient over D and is killed by 2, but its special étale part has order 4. It cannot be an amalgam with a multiplicative-type M and quotient ℤ/2. The finite-flat amalgam construction alone therefore does not imply saturation.
+- At P=17 and P=41, n=4 and n=10 respectively; both dyadic branches use the same saturation argument after their distinct D embeddings. No odd purity argument is substituted.
 
 ### 4.6 Integral homology with complex conjugation
 
@@ -655,7 +701,7 @@ P=17 uses the construction of D inside C+Σ; P=41 uses the Nebentypus-cover cons
 
 ### Dependencies
 
-Layers 0–3; ModularForms Layers 0 and 8; ModularCurves Layer 10 and ModularCurvesPartII §§4, 9, 13 and 14; the finite-flat global D and *-type saturation extension. Odd and dyadic saturation have distinct hypotheses.
+Layers 0–3; ModularForms Layers 0 and 8; ModularCurves Layer 10 and ModularCurvesPartII §§4, 9, 13 and 14; the finite-flat global D and amalgam extension. Dyadic Hecke-stable saturation is proved in §4.5; odd and dyadic saturation have distinct hypotheses.
 
 ## Layer 5: Ogg’s rational torsion theorem
 
