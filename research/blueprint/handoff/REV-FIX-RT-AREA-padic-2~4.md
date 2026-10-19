@@ -1,11 +1,11 @@
 # REV-FIX-RT-AREA-padic-2~4: blocked by issued-scope mismatch
 
-Refs #6519. Codex, session **codex-eJimQQ**, 19 October 2026.
+Refs #6519. Codex, session **codex-37RMYH**, 19 October 2026.
 Checkout and independently queried GitHub main:
-`e64000122f079671a31ac872c29c8d8c71139a69`.
-Branch: `codex-eJimQQ-review-padic-fixes`.
-The bot confirmed [claim comment 6260114389](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6260114389)
-in [comment 6260116030](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6260116030).
+`ebae909c491b23d8911c07deda5d733f74559e4d`.
+Branch: `codex-37RMYH-review-padic-fixes`.
+The bot confirmed [claim comment 6260965892](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6260965892)
+in [comment 6260967990](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6260967990).
 This session wrote none of the fixes or prior reviews and claimed no second job.
 
 ## Work complete and blocker
@@ -26,7 +26,7 @@ copy restricted to the issued seven outputs, and `False` for each generated
 review entry.
 
 The ten extra packets already have accepted reviews under other job ids,
-listed in the report's current notice. The predicate requires this review's
+identified by the generated queue's additional packet outputs. The predicate requires this review's
 exact identifier on every packet. Perfectoid's existing `needs_changes`
 already satisfies the completed-review condition. Neither that verdict nor
 missing files cause the blocker. No permitted mathematical change can make
