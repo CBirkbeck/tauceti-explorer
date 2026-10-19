@@ -1,6 +1,7 @@
 import Mathlib.Basic.Complex.Basic
 import Mathlib.Data.Fin.VecNotation
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+import Mathlib.Tactic.NormNum
 
 /-!
 # The local Langlands correspondence for G₂
@@ -79,6 +80,12 @@ example (a b : ℂˣ) : a2Seven a b 3 = (((a * b)⁻¹ : ℂˣ) : ℂ) := by
   sorry
 
 example (a b : ℂˣ) : a2Polynomial a b = (Matrix.diagonal (a2Seven a b)).charpoly := by
+  sorry
+
+/-- Distinct reciprocal weights detect an erroneous second copy of Std₃. -/
+example :
+    a2Seven (Units.mk0 (2 : ℂ) (by norm_num)) (Units.mk0 (3 : ℂ) (by norm_num)) =
+      ![1, 2, 3, 1 / 6, 1 / 2, 1 / 3, 6] := by
   sorry
 
 end G2Atlas
