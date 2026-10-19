@@ -5205,5 +5205,7 @@
  "FIX-PKG-EllipticRegulators~adv": 11116,
  "FIX-PKG-EulerSystemsAndKolyvaginSystems~adv": 11117,
  "REV-PKG-EisensteinIdealAndRationalTorsion~codex": 11127,
- "REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex": 11130
+ "REV-PKG-RelativeJacobiansAndIntegralCurveModels~codex": 11130,
+ "PKG-EulerSystemsAndKolyvaginSystems~2": 11135,
+ "REV-PKG-EulerSystemsAndKolyvaginSystems~2": 11136
 }
