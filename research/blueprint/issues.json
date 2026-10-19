@@ -5185,5 +5185,9 @@
  "REV-PKG-EllipticKTheory~adv": 11068,
  "REV-PKG-EllipticRegulators~adv": 11069,
  "REV-PKG-HabiroNumberFields~adv": 11070,
- "REV-PKG-Polylogarithms~adv": 11071
+ "REV-PKG-Polylogarithms~adv": 11071,
+ "PKG-ExcursionOperatorsAndSpectralAction": 11081,
+ "PKG-NoncommutativeAndEquivariantIwasawa": 11082,
+ "REV-PKG-ExcursionOperatorsAndSpectralAction": 11083,
+ "REV-PKG-NoncommutativeAndEquivariantIwasawa": 11084
 }
