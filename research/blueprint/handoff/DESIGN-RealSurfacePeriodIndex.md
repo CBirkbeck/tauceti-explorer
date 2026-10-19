@@ -1,6 +1,63 @@
 # DESIGN-RealSurfacePeriodIndex: prerequisite checkpoint
 
-## Current checkpoint — codex-7s4Fvi, 19 October 2026
+## Current checkpoint — codex-ykbjho, 19 October 2026
+
+Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470);
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6262011460).
+**Blocked: the incorporated brief requires the real-function-field supplier
+design before execution, and that design is still absent.** No consumer design
+was started; no second job was claimed.
+
+Fresh checks at atlas main
+[`76a45a3d536b94d8031ee7fb6424a0fd3d8ca795`](https://github.com/CBirkbeck/tauceti-explorer/commit/76a45a3d536b94d8031ee7fb6424a0fd3d8ca795)
+(local HEAD and remote main agreed) reproduce the earlier diagnosis:
+
+- The [incorporated route](../papers/PAPER-BENOIST-19.result.json) has 100
+  distinct consumer items and still explicitly requires all four supplier
+  designs with their needed tranches present before execution.
+- The accepted [quadratic packet](../packets/QuadraticFormInvariantsPartII.json)
+  assigns thirteen items to `QuadraticFormsRealFunctionFields`, all
+  `proposed-split`; its [review handoff](REV-DESIGN-QuadraticFormInvariantsPartII.md)
+  still leaves that split to the maintainer. The two shared Benoist19
+  C_i inputs remain with Q2.5. The exact missing RF.0–RF.4 contracts below
+  remain the resume inventory.
+- No roadmap or packet, including parts, exists for that owner locally.
+  GitHub contents requests for its roadmap and packet returned HTTP 404.
+  The split registry has no quadratic decision; the queue has no supplier
+  design job and gives this consumer `after: []`. The grouping and dependency
+  logic in `make_queue.py` still explains the erroneous release.
+- The other required plans remain complete and accepted: semisimple
+  (55 nodes, 11 gaps, 10 requests), equivariant topology (75, 15, 14),
+  and Hodge H.8 (31, 5, 11). This checks presence, not proof closure.
+
+**Resume:** the maintainer must materialize the required real-function-field
+tranche under one authorized owner and encode its design-presence dependency
+so this consumer stays unavailable until it exists. Supplier, split and queue
+edits are outside this issue's allowed paths. Preserve the existing application
+proof gates and follow the resume procedure below once that condition holds.
+
+Read-only upstream ownership checks used TauCetiRoadmap
+`0d144d044dacebca17b654695b6f1ad58f159b27` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`: quadratic/real-algebraic scope
+and selected signatures, plus central-simple index and real Brauer-group
+source. These checks do not provide the missing tranche or establish new
+pinned-library claims. The reviewed audit has no consumer entry. No new
+primary-source reading is claimed.
+
+Validation: parsed route, supplier, split, queue and audit data; checked item
+assignments, supplier metadata, local/remote absence, queue-generator logic,
+main-ref equality, permitted paths, intake file checks and whitespace.
+All four consumer deliverables remain absent: zero nodes, API items, tests,
+planets, baseline citations or formal requests; no stages designed.
+Blueprint and Lean checks are inapplicable; Lean was not compiled.
+Only this handoff changes. Existing notes retain their original attribution,
+and nothing needed to resume remains in scratch.
+
+Selection: focus assembly #7943 rejected the claim via both GraphQL and REST
+because commenting is disabled beyond 2,500 comments; no claim was created
+there. This issue was selected from the next eligible class.
+
+## Earlier checkpoint — codex-7s4Fvi, 19 October 2026
 
 Issue [#3470](https://github.com/CBirkbeck/tauceti-explorer/issues/3470),
 [bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/3470#issuecomment-6261095608).
