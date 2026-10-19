@@ -134,10 +134,13 @@ linear coefficient is not divisible by the ray degree. -/
 example : ¬ (3 : ℤ) ∣ ((1 + X : ℤ[X]) - (1 + C 2 * X)).coeff 1 := by
   norm_num
 
-/-- Replacing `Q` by `Q²` repairs that denominator but changes the annihilating argument:
-for rational Frobenius `F=-2`, `P(2/F)=0` while `P(4/F)=-1`. -/
-example : (1 + X : ℚ[X]).eval (2 / (-2)) = 0 ∧
-    (1 + X : ℚ[X]).eval (4 / (-2)) = -1 := by
+/-- The rank-two local model at `Q=17` has dual polynomial `(17-3X+X²)/17`.
+Clearing the unit denominator 17, its ordinary divided numerator still has linear
+coefficient 48, which is not divisible by the chi-ray degree 9. The README retains
+the separate `Q²` Cayley--Hamilton check for the rank-one model. -/
+example : ¬ (9 : ℤ) ∣
+    ((C 17 - C 3 * X + X ^ 2 : ℤ[X]) -
+      (C 17 - C 51 * X + C 289 * X ^ 2)).coeff 1 := by
   norm_num
 
 /-- The polynomial identity behind Rubin's Example IV.8.2 (`T = ℤ_p(1)`, `P(x) = 1 − x`):

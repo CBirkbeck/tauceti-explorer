@@ -116,11 +116,13 @@ This supplies Layer 1.2 Finite and singular parts at an unramified prime; Layer 
 
 ### From ClassicalArithmeticCompletion Layer 7 and its planned Part II
 
-ClassicalArithmeticCompletion 7.21 and 7.56 supply existence of maximal orders. The separately planned **ClassicalArithmeticCompletion, Part II: local maximal orders and double-centralizer lattices** supplies CAII.1 division orders, lattice bases and finite cyclic decompositions; CAII.2 matrix maximal orders and projective lattices; CAII.3 centralizer-lattice maximality and rectangular bimodules with both multiplicities; CAII.4 common central conductors and reduction kernels; and CAII.5 the two-corner pairing comparison. Their exact hypotheses, proof routes, APIs and tests are in the [Part II brief](../../handoff/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv.md#maintainer-routing-classicalarithmeticcompletion-part-ii). These are named planning targets, not statements already in Layer 7. The current Tau Ceti module `TauCeti/RingTheory/Morita/Corner.lean` supplies `IsIdempotentElem.cornerEquivalence` and `moritaEquivalenceCorner` for a full idempotent; Part II consumes that equivalence.
+ClassicalArithmeticCompletion 7.21 supplies the maximal-order predicate, and 7.56 supplies existence for an order whose ambient algebra has nondegenerate regular-trace pairing. The characteristic-zero separable semisimple algebras used here satisfy that trace hypothesis. The separately planned **ClassicalArithmeticCompletion, Part II: local maximal orders and double-centralizer lattices** supplies CAII.1 division orders, lattice bases and finite cyclic decompositions; CAII.2 matrix maximal orders and projective lattices; CAII.3 centralizer-lattice maximality and rectangular bimodules with both multiplicities; CAII.4 common central conductors and reduction kernels; and CAII.5 the two-corner pairing comparison. Their exact hypotheses, proof routes, APIs and tests are in the [Part II brief](../../handoff/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv.md#maintainer-routing-classicalarithmeticcompletion-part-ii). These are named planning targets, not statements already in Layer 7. The current Tau Ceti module `TauCeti/RingTheory/Morita/Corner.lean` supplies `IsIdempotentElem.cornerEquivalence` and `moritaEquivalenceCorner` for a full idempotent; Part II consumes that equivalence.
 
 **Delivery boundary.** The Part II needs a maintainer-created owner packet and upstream delivery before Layers 4.8 and 4.12 can be implemented. This package plans the evaluation theorem that consumes it; it does not claim that generic Morita equivalence proves any of its order-theoretic hypotheses. The independent all-prime square-index length boundary in 4.12 is not supplied by CAII.1–CAII.5.
 
 This supplies Layer 4.8 Uniform cokernel bound for a separated pairing over orders.
+
+The field-level double-centralizer theorem is also consumed directly from current Tau Ceti: `TauCeti/RingTheory/Semisimple/DoubleCentralizer.lean`, `TauCeti.algEquivEndEnd` for a faithful semisimple module finite over its endomorphism ring, and `Subalgebra.centralizer_centralizer_of_isSemisimpleModule` for the corresponding subalgebra of endomorphisms. Finite dimensionality over the base field supplies the latter finiteness hypothesis in the present application. These theorems identify the rational centralizer algebra; they do not assert maximality or projectivity for an integral lattice order. Part II adds those integral statements to the existing field-level theorem and full-idempotent equivalence.
 
 ### Arithmetic hypotheses for the geometric and Rubin–Stark applications
 
@@ -1653,7 +1655,7 @@ Additional arithmetic check: X_{F(r)} is not free over O[Gal(F(r)/K)] in general
 
 - 𝒦′ contains a ℤ_p^d-extension of K′ with no completely split finite prime and with χ-conjugation action.
 - Every χ-ray class c_{K′(r)_χ} is in S^{Σ_p}, and there is γ∈G_K with ε_cyc(γ)=χ(γ), with γ^d fixing K′(1)_χ(μ_{p^∞},(O_{K′}^×)^{1/p^∞}), and with γ−1 injective on T.
-- Every χ-ray class is in S^{Σ_p}, every Fr_q^{p^a}−1 on T is injective for q∤N and a≥0, and the χ-ray version of the local congruence holds. **Gap:** Rubin IX.4.1(c) only specifies an analogue of IV.8.1; the exact semilocal formula, integral denominator and Frobenius action for this alternative still require a target and proof. The explicit alternatives above do not supply that missing third alternative.
+- Every χ-ray class is in S^{Σ_p}, every Fr_q^{p^a}−1 on T is injective for q∤N and a≥0, and the χ-ray version of the local congruence holds. **Congruence target:** Rubin IX.4.1(c), p.138 (draft), and published Definition 9.4.1(ii)(c), p.181, specify an analogue of the ordinary congruence without its formula. The exact semilocal formula, integral denominator and Frobenius action for this alternative still require a construction and proof. The other two alternatives do not supply that construction.
 
 The finite–singular map on semilocal χ-ray cohomology sends the χ^i-part to the χ^{i−1}-part, as fixed in Layer 3.16; it is not an equivariant map after removing its G_q factor. (d) An Euler system is trivial at a finite set Σ of primes not dividing p if c_F ∈ S_Σ^{Σ_p}(F, T) for all F.
 
@@ -1668,7 +1670,9 @@ The projector e_χ=d^{-1}∑_{g∈C}χ(g)^{-1}g gives a cyclic χ-part of order 
 
 For unramified T the finite local module at w is T/(Fr_q^f−1)T, with the analogous quotient for T/M. The singular module for finite coefficients is (T/M)(−1)^{Fr_q^f=1}. Thus the rational-to-K Frobenius is Fr_q, whereas the Frobenius used to evaluate an unramified cocycle at w is Fr_q^f; the singular action has the additional Q^{-1} twist. When M divides e_χ, Q≡χ(s) modulo M. This accounts for the χ^{−1} shift, but does not determine the missing congruence between the upper and lower Euler-system classes.
 
-Proof inputs are the ray class residue-unit exact sequence from ClassFieldTheory Layer 5 and the finite unramified/tame cohomology dictionary of Layers 1.2 and 1.8. Rubin IX §4 pp.137–139 supplies the χ-fields and character action. The displayed induced-module calculation is the additional local-field transport; no formula for the third rigidity alternative is attributed to that source. To finish that alternative one must still construct the integral operator relating the two local classes with denominator e_χ, and prove its compatibility with the Euler polynomial at Fr_q rather than Fr_q^f. Merely substituting Q^f−1 for Q−1 in IV.8.1 does not do this.
+Proof inputs are the ray class residue-unit exact sequence from GlobalNumberFields Layer 2, the ray class field correspondence from ClassFieldTheory Layer 13, tame reciprocity from its Layer 7, and the finite unramified/tame cohomology dictionary of Layers 1.2 and 1.8. ClassFieldTheory Layer 5 supplies local Tate duality, rather than the residue-unit exact sequence. Rubin IX §4 pp.137–139 (draft), or published §9.4 pp.180–182, supplies the χ-fields and character action. The displayed induced-module calculation is the additional local-field transport; no formula for the third rigidity alternative is attributed to either version. To finish that alternative one must still construct the integral operator relating the two local classes with denominator e_χ, and prove its compatibility with the Euler polynomial at Fr_q rather than Fr_q^f. Merely substituting Q^f−1 for Q−1 in IV.8.1 does not do this.
+
+**Norm convention comparison.** The χ-ray carrier here uses P_q(Fr_q^{-1}), as in draft Definition IX.4.1(i), p.138, and the ordinary carrier of Layer 2.2. Published Definition 9.4.1(i), p.181, instead prints P_q(Fr_q), although published Definition 2.1.1, p.34, uses P_q(Fr_q^{-1}) and Remark 9.4.2 claims the ordinary specialization. These actions cannot be identified for a general cyclic character. A proof using published Theorem 9.4.3 must therefore establish the derivative and bound in the inverse-action convention used here, or construct an explicit convention comparison preserving bottom classes, Euler factors and the character labels. The printed theorem alone does not discharge that comparison. This is separate from specifying the third rigidity alternative's local congruence.
 
 The precise hypotheses are as in each variant.
 
@@ -1707,6 +1711,10 @@ The definition exposes the following operations and relations.
 - `Anticyclotomic.eigenspace_shift`: For d=2, χ^0 finite classes map to χ-singular classes; χ-finite classes map to the trivial singular part. An equivariant scalar comparison would give the wrong parity.
 - `ChiRayLocalData.inert_quadratic` (computed): Take p=3, K=ℚ, K′=ℚ(√−11), q=2. The polynomial x²−x+3 is irreducible modulo 2, so f=2 and the residue field is 𝔽₄. Its unit group has order 3. The only global units are ±1 and have trivial image there. The Minkowski bound is less than 3, and there is no ideal of norm 2, so the class number is one. Hence e_χ=3, dividing Q−χ(s)=2−(−1)=3 but not Q−1=1. This rules out the ordinary ray denominator.
 - `ChiRayLocalData.divided_operator` (local negative control): In the same p=3, q=2 example take T=ℤ₃(1)⊗χ. Rational-to-ℚ Frobenius is F=−2 on T and P_q(X)=1+X. The ordinary candidate [P_q(X)−P_q(2X)]/e_χ=−X/3 is not in ℤ₃[X]. Replacing 2 by the residue cardinality 4 gives −X, but P_q(4F^{-1})=−1, whereas the required Cayley–Hamilton identity is P_q(2F^{-1})=0. Thus the two substitutions fail for different computed reasons. This is a test of the proposed local operator, not a claim to construct a global Euler system.
+- `ChiRayLocalData.all_roots_boundary`: The preceding rank-one lattice has τ=1 for complex conjugation, so T/(τ−1)T has rank one while T/(τ+1)T=0. It fails the all-roots hypothesis of published Theorem 9.4.3. Thus that local test obstructs a formula for the general carrier; it is not a counterexample under the corrected bound's hypotheses.
+- `ChiRayLocalData.precision_denominator` (local algebra model): Take p=3, K′=ℚ(√−11), q=17 and M=3. The prime is inert and the χ-ray inertia degree is 9: the residue χ-part has order 9, the class group is trivial and the units ±1 have no 3-primary image. Let F=[[0,−17],[1,3]] on ℤ₃². Its distinct eigenvalues modulo 3 are ±1, so Hensel lifting diagonalizes it over ℤ₃; the involution τ with signs on these lines satisfies every T/(τ−ζ)T≅ℤ₃ for ζ=±1 and F≡τ mod 3. With the cyclotomic multiplier Q=17, the dual polynomial is P_q(X)=1−(3/17)X+(1/17)X². Yet the linear coefficient of [P_q(X)−P_q(17X)]/9 is 48/153=16/51, which is not 3-integral. Agreement with τ at precision M does not justify division by a larger ray degree. This is a local model; residual irreducibility over G_{K′}, global cohomology vanishing and a global Euler family have not been supplied.
+- `ChiRayLocalData.local_norm_ambiguity` (same local model): F²−1=3[[-6,−17],[1,−3]], and the bracketed matrix has determinant 35. Thus T/(F²−1)T≅(ℤ/3)². The totally ramified χ-ray step of degree 9 leaves this unramified local module unchanged; restriction is the identity and corestriction is multiplication by 9. On its two Frobenius eigenspaces P_q(1)=15/17 and P_q(−1)=21/17 both act by zero. Consequently the local norm equation 9b=P_q(F^{-1})a imposes no condition on a or b in these groups. A divided congruence cannot be recovered uniquely from that equation; an additional construction or rigidity argument is necessary. This does not assert a global Euler family with arbitrary local components.
+- `Anticyclotomic.norm_action_order_three`: On a bottom C₃-module over 𝔽₇ with generator acting by 2, P=1−X gives P(s)=6 and P(s^{-1})=4. Inversion changes the norm operator. On a bottom C₂-module the two actions agree; at conductor one with trivial action they both give P(1). These tests do not identify the actions in a general higher-conductor field.
 - `ChiRayLocalData.norm_exponent`: For f=1 the residue norm exponent is 1; for f=2 it is 1+Q. In the preceding 𝔽₄/𝔽₂ example it is 3 and the norm kills the entire unit group. It is not multiplication by Q−1.
 - `ChiRayLocalData.unit_quotient`: If global units surject onto the χ-residue group, e_χ=1 even when p divides Q−χ(s); the local residue order is an upper bound, not a ray-degree equality. For d=1 the stabilizer has f=1 and the bound reduces to the p-part of Q−1.
 - `IsTrivialAt.empty`: For Σ=∅ the predicate imposes no additional strict local condition.
@@ -2254,25 +2262,39 @@ For n = ℓq the only π is the transposition, d_π = 1, and (κ_{ℓq})_{ℓ,f}
 
 ### 3.16 Derivative classes of χ-anticyclotomic Euler systems
 
-Let χ : G_K → ℤ_p^× have order d | p − 1, K′ the field cut out by χ, and c a χ-anticyclotomic Euler system for T. For a power M of p let R_{K′,M} be the squarefree ideals of K divisible only by primes q ∤ N with M | [K′(q)_χ : K′(1)_χ] and M | P(Fr_q^{-1} | T^*; 1). The construction of Layer 3.9 Kolyvagin's derivative classes κ_{F,r,M} gives κ_{K′,r,M} ∈ H¹(K′, W_M) for r ∈ R_{K′,M}, satisfying the analogues of Layer 3.13 Local behaviour of derivative classes (a) and (b): loc^s_q(κ_{K′,rq,M}) = φ^fs_q(κ_{K′,r,M}). The map φ^fs_q : H¹_f(K′_q, W_M) → H¹_s(K′_q, W_M) is not Gal(K′/K)-equivariant: it sends the χ^i-part into the χ^{i−1}-part.
+Let χ:G_K→ℤ_p^× have order d|p−1, K′=K^{ker χ}, c a χ-anticyclotomic Euler system for T, and M a power of p. There are two auxiliary-prime sets to distinguish.
 
-The precise hypotheses are d | p − 1; one of the rigidity conditions (a), (b), (c) of the anticyclotomic definition.
+- The divisibility set R_{K′,M} consists of squarefree ideals supported on q∤N with M dividing both [K′(q)_χ:K′(1)_χ] and P_q(1). This is the set in draft IX §4, p.138.
+- For τ satisfying the hypotheses of 4.20(b), put E_M=K′(1)_χ(μ_M,(O_{K′}^×)^{1/M},W_M). The refined set R_{K′,M,τ} consists of squarefree ideals supported on q∤N unramified in E_M/K with Frobenius conjugate to τ|E_M. The field is finite Galois over K; the τ condition refers to this whole field, including W_M. This is the set used in the proof of published Theorem 9.4.3, p.182.
 
-For alternatives (a) and (b), the local-lift and key-relation proofs use respectively the infinite decomposition direction and the injective γ−1 direction of 2.8. The branch using only alternative (c) remains conditional on the missing χ-ray local congruence there. The semilocal residue and Frobenius dictionary in `ChiRayLocalData` fixes the normalization, but is not a proof of that branch.
+The published construction gives κ_{K′,r,M}∈H¹(K′,W_M) on the refined set, with conductor-one value c_{K′} mod M, coefficient compatibility as in 3.9 and the local relations of 3.13. In particular
 
-([Karl Rubin, Euler Systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Chapter IX, Remark 4.4, p. 139). The eigenspace shift of the finite–singular map.
+```text
+loc^s_q(κ_{K′,rq,M}) = φ^fs_q(κ_{K′,r,M}),
+φ^fs_q : H¹_f(K′_q,W_M) → H¹_s(K′_q,W_M),
+φ^fs_q(H¹_f(K′_q,W_M)^{χ^i}) ⊆ H¹_s(K′_q,W_M)^{χ^{i−1}}.
+```
 
-([Karl Rubin, Euler Systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Chapter IX §4, p. 138). Derivative classes exist for χ-anticyclotomic systems.
+Here both local groups are sums over w|q. Removing the inertia tensor G_q produces the character shift; with that tensor retained the comparison is equivariant. After k successive derivative primes the character is shifted by χ^{-k}. The construction on the larger divisibility set is a further target: its two scalar divisibilities alone do not give the Frobenius action on every character part. No equality of the two prime sets is asserted.
 
-Proceed as in Chapter IV §4 with K′(q)_χ in place of K(q); the generator σ_q of Gal(K′(q)_χ/K′(1)_χ) is an eigenvector for χ under conjugation by Gal(K′/K), which shifts eigenspaces by one.
+The local proof must establish the inverse-action norm convention of 2.8. For rigidity alternatives (a) and (b), use respectively the infinite decomposition direction and the injective γ−1 direction to obtain the local lift. The branch using only (c) additionally needs the integral χ-ray congruence specified there. `ChiRayLocalData` supplies the residue and Frobenius normalization, rather than that congruence. These two proof obligations persist when one uses the refined prime set.
 
-For d = 1 this is derivative-class.
+One necessary polynomial step on that set follows from the corrected all-roots hypothesis. Write s=Fr_q|K′ and Q=Nq. Frobenius conjugacy gives Q≡χ(τ) mod M and Fr_q|T/M conjugate to τ. For every ζ∈μ_d, the free rank-one quotient T/(τ−ζ)T implies det(τ−ζ)=0. Since Fr_q^{-1} on the Cartier dual is Q^{-1} times the transpose of Fr_q on T, this gives P_q(η)=0 mod M for every η∈μ_d. The differences between distinct d-th roots are units, so X^d−1 divides P_q(X) in (O/M)[X]. Consequently both P_q(s) and P_q(s^{-1}) annihilate every O/M[C]-module. This proves the norm-factor vanishing needed for derivative invariance at the bottom; it does not prove the integral divided congruence or identify the two norm conventions before reduction. The ray-depth condition also uses the unit-root part of E_M and the χ-ray class exact sequence, rather than this polynomial argument alone.
 
-For d = 2 (Heegner points): the derivative classes for r with an even number of primes lie in the same eigenspace as c_{K′}, and with an odd number in the opposite one.
+([Karl Rubin, Euler Systems](https://www.wstein.org/people/rubin/book/hEulerSystems.pdf), Theorem 9.4.3 and its proof, p.182). The refined Frobenius set, all-roots hypothesis and semilocal character shift. Draft IX §4 pp.138–139 has the broader set and weaker τ condition; those are not substituted into the published proof.
 
-The finite–singular relation with the tensor factor G_q retained is equivariant; the shift is the action of Gal(K′/K) on G_q through χ.
+The API includes `Anticyclotomic.frobeniusPrimes`, `frobeniusPrimes.coefficient_mono` for M|M′ by restriction E_{M′}→E_M, `frobeniusPrimes.euler_root_vanishing`, `derivativeClass`, `derivativeClass_one`, `derivativeClass.coefficient_compat` and `finiteSingular_character_shift`. The broader-set construction must retain its separate prime-set argument.
 
-*Needs:* Layer 3.9 Kolyvagin's derivative classes κ_{F,r,M}; Layer 3.13 Local behaviour of derivative classes; Layer 2.8 Variants: rigidity conditions, finite depth and anticyclotomic systems.
+**Checks.**
+
+- At r=1 the derivative is the reduction of c_{K′}; it does not shift characters.
+- For d=2 each prime switches the ± parts, so two primes return to the starting part. For d=3 two primes give χ^{i−2}, which generally differs from χ^i. A parity-only implementation fails this test.
+- The Frobenius condition is imposed on E_M including W_M. Replacing it by a condition on the unit and cyclotomic fields alone leaves the action on the coefficient module uncontrolled.
+- Scalar-root negative control: over 𝔽₃ take C=C₂, s acting by −1 and P=1−X. Then P(1)=0, but P(s^{-1})=2. Thus the scalar Euler divisibility in R_{K′,M} does not supply norm-factor vanishing on all character parts. This is a module calculation, not a constructed global Euler system.
+- With τ=diag(1,−1) on ℤ₃² both root quotients have rank one. For a Frobenius congruent to τ and Q≡−1 mod 3 the dual polynomial reduces to 1−X² and kills both C₂ characters. The rank-one τ=1 lattice instead fails the ζ=−1 quotient test.
+- For d=1 the refined construction specializes to ordinary derivative classes on the corresponding prescribed-Frobenius subset. This specialization does not assert that every ordinary divisibility prime has that Frobenius class.
+
+*Needs:* Layer 3.9 Kolyvagin's derivative classes κ_{F,r,M}; Layer 3.13 Local behaviour of derivative classes; Layer 2.8 Variants: rigidity conditions, finite depth and anticyclotomic systems; ClassFieldTheory Layers 7 and 13; GlobalNumberFields Layer 2; Chebotarev Layer 10. The τ conditions are stated in full in 4.20(b); their formulation is independent of the bound proved there.
 
 ### 3.17 The map from Euler systems to Kolyvagin systems
 
@@ -2648,7 +2670,7 @@ A conductor power that works for the two fixed lattice orders works for every N;
 
 For B=ℚ_p acting by scalars on V=ℚ_p², D=M₂(ℚ_p); reducing D to a division algebra would drop a multiplicity. The rectangular example B=M₂(ℚ_p), V=M_{2,3}(ℚ_p) must retain the right order M₃(ℤ_p).
 
-*Needs:* ClassicalArithmeticCompletion 7.21/7.56 (maximal-order existence); planned ClassicalArithmeticCompletion Part II CAII.1–CAII.5; the imported Tau Ceti full-idempotent Morita equivalence.
+*Needs:* ClassicalArithmeticCompletion 7.21 (maximal-order predicate) and 7.56 (existence under the regular-trace hypothesis); planned ClassicalArithmeticCompletion Part II CAII.1–CAII.5; the imported Tau Ceti full-idempotent Morita equivalence.
 
 ### 4.9 Rubin's selection of primes with large localisation
 
@@ -2984,19 +3006,19 @@ Over a DVR, scaling a nonzero initial class by π raises the bound by one; the z
 
 ### 4.20 Bounds for the variants: finite depth and anticyclotomic systems
 
-(a) (Finite depth.) Let 0 ≠ M ∈ O and c an Euler system for W_M. Suppose Hyp(K, T) holds, n_W = n_W^* = 0 and W_M^{G_K} = 0. Put a₁ = ⋂_{q ∤ p} Ann_O(W^{I_q}/(W^{I_q})_div) and a₂ = Ann_O(a₁c_K) in H¹(K,W_M). Then ((M):a₂)·a₁·S_{Σ_p}(K,W_M^*) = 0, where ((M):a₂) = {x ∈ O : xa₂ ⊆ (M)}. Since a₂ contains (M), this is the integral ideal denoted M/a₂ in published Theorem9.3.3. For M=π^m, a₁=(π^a) and a₂=(π^b), 0≤b≤m, the annihilator is π^{m−b+a}. For compatible reductions of a nonzero lattice Euler class with uniformly bounded divisibility, these exponents are bounded independently of m; the resulting cofinitely generated infinite-depth strict Selmer module is finite. (b) (Anticyclotomic.) Let c be a χ-anticyclotomic Euler system for T with H¹(Ω′/K′, W) = H¹(Ω′/K′, W^*) = 0, T ⊗ k irreducible over G_{K′}, and τ ∈ G_K with ε_cyc(τ) = χ(τ), τ^d the identity on K′(1)_χ(μ_{p^∞}, (O_{K′}^×)^{1/p^∞}) and T/(τ − 1)T free of rank one. Then for every i, 𝔭^{ind_O(c, χ^i)} S_{Σ_p}(K′, W^*)^{χ^{1−i}} = 0, where ind_O(c, χ^i) is the index of divisibility of the χ^i-component of c_{K′}. This bounds exponents of eigenspaces, not lengths.
+(a) (Finite depth.) Let 0 ≠ M ∈ O and c an Euler system for W_M. Suppose Hyp(K, T) holds, n_W = n_W^* = 0 and W_M^{G_K} = 0. Put a₁ = ⋂_{q ∤ p} Ann_O(W^{I_q}/(W^{I_q})_div) and a₂ = Ann_O(a₁c_K) in H¹(K,W_M). Then ((M):a₂)·a₁·S_{Σ_p}(K,W_M^*) = 0, where ((M):a₂) = {x ∈ O : xa₂ ⊆ (M)}. Since a₂ contains (M), this is the integral ideal denoted M/a₂ in published Theorem9.3.3. For M=π^m, a₁=(π^a) and a₂=(π^b), 0≤b≤m, the annihilator is π^{m−b+a}. For compatible reductions of a nonzero lattice Euler class with uniformly bounded divisibility, these exponents are bounded independently of m; the resulting cofinitely generated infinite-depth strict Selmer module is finite. (b) (Anticyclotomic.) Let c be a χ-anticyclotomic Euler system for T with H¹(Ω′/K′, W) = H¹(Ω′/K′, W^*) = 0, T ⊗ k irreducible over G_{K′}, and τ ∈ G_K with ε_cyc(τ) = χ(τ), τ^d the identity on K′(1)_χ(μ_{p^∞}, (O_{K′}^×)^{1/p^∞}) and T/(τ−ζ)T free of rank one over O for **every** ζ∈μ_d⊂O^×. Put Ω′=K′(1)_χ(μ_{p^∞},(O_{K′}^×)^{1/p^∞},W). The target bound is 𝔭^{ind_O(c, χ^i)} S_{Σ_p}(K′, W^*)^{χ^{1−i}} = 0 for every i, where ind_O(c,χ^i)=sup{n : c_{K′}^{χ^i}∈𝔭^nH¹(K′,T)+H¹(K′,T)_tors}. An infinite index gives the zero ideal and hence a vacuous bound. This bounds exponents of eigenspaces, not lengths. The all-roots condition is the published hypothesis; the draft tests only ζ=1.
 
 The precise hypotheses are as stated.
 
 ([Karl Rubin, Euler Systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Chapter IX, Theorem 3.3, p.137 (1999 draft); corrected by published Theorem9.3.3, pp.179–180, published complementary-annihilator convention). The finite-depth bound, with the complementary ideal from the published edition; the draft formula is not used.
 
-([Karl Rubin, Euler Systems](https://swc-math.github.io/notes/files/99RubinES.pdf), Chapter IX, Theorem 4.3, p. 139). The anticyclotomic exponent bound.
+([Karl Rubin, Euler Systems](https://www.wstein.org/people/rubin/book/hEulerSystems.pdf), Theorem 9.4.3 and Remark 9.4.4, p.182). The anticyclotomic exponent bound with the all-roots condition. The weaker τ hypothesis of draft IX.4.3, p.139, is not used.
 
 (a): use published Theorem9.3.3, pp.179–180, correcting draft IX.3.3 (published complementary-annihilator convention). The derivative finite–singular relation persists at depth M. Multiplication by a₁ gives the required local finite conditions away from the derivative conductor, by Corollary IV.6.5; duality bounds the strict Selmer exponent by the complementary ideal ((M):a₂), with the additional a₁ loss. For a fixed lattice class of divisibility s, b=m−a−s at sufficiently large m and the bound is π^{2a+s}; pass through compatible local conditions and finite generation to obtain finiteness. The annihilator of a finite-depth class alone must not be substituted for its complementary index.
 
-(b): Layer 3.16 Derivative classes of χ-anticyclotomic Euler systems with r = 1 gives classes in the χ^{i−1}-part ramified at one prime, with ramification governed by the χ^i-part of c_{K′}; they annihilate S_{Σ_p}(K′, W^*)^{χ^{1−i}} by global duality.
+(b): Use the refined R_{K′,M,τ} of 3.16. At r=1 the one-prime derivatives lie in the χ^{i−1}-part, with ramification governed by c_{K′}^{χ^i}; global duality then pairs them against S_{Σ_p}(K′,W^*)^{χ^{1−i}}. The proof must establish this construction in the inverse-action norm convention of 2.8: published Definition 9.4.1(i) prints the other action. Thus the convention comparison in 2.8 and 3.16 is required even for the first two rigidity alternatives. The all-roots correction by itself does not prove that comparison.
 
-The third-rigidity-only branch of (b) has exactly the unresolved congruence prerequisite of 2.8(c) and 3.16. Neither the exponent bound nor the residue-unit calculation is used to assert that this prerequisite has been proved. The first two rigidity alternatives retain the same χ-generality.
+The third-rigidity-only branch of (b) additionally requires the integral local congruence of 2.8(c) and 3.16. Neither the target exponent bound nor the residue-unit calculation supplies it. All three branches retain general character order d; neither unresolved step is removed by restricting χ to quadratic characters.
 
 ([Karl Rubin, Euler Systems](https://www.wstein.org/people/rubin/book/hEulerSystems.pdf), published Theorem9.3.3, pp.179–180). The complementary ideal is essential; the earlier draft has the reversed factor.
 
@@ -3005,6 +3027,13 @@ Finite-depth zero control: if a₁=O and c_K=0, then a₂=O and ((π^m):a₂)=(�
 Finite-depth primitive control: if a₁=O and c_K has exact order π^m, then a₂=(π^m) and ((π^m):a₂)=O; the strict Selmer group vanishes. Greater class order must strengthen the bound.
 
 Finite-depth bounded-divisibility control: for a₁=(π^a) and a compatible lattice class of divisibility s, the eventual annihilator exponent is 2a+s, independent of m; a single nonzero class at one depth is not by itself this compatible-family argument.
+
+**Anticyclotomic hypothesis checks.**
+
+- If d=1, μ_d={1}, so the all-roots condition is the ordinary rank-one coinvariant condition. For d=2 and odd p, both the + and − quotients are required. On a rank-one lattice with τ=1 the first quotient is free of rank one and the second is zero; checking only ζ=1 is insufficient.
+- For a primitive cube root ζ₃∈ℤ₇, τ=diag(1,ζ₃,ζ₃²) on ℤ₇³ has a free rank-one quotient at each cube root. Omitting the ζ₃² line leaves the quotients at 1 and ζ₃ unchanged but makes the third zero. The hypothesis therefore retains all character orders.
+- A zero or torsion bottom χ^i-component has infinite index and gives a vacuous bound; a primitive component modulo torsion has index zero and forces the indicated Selmer eigenspace to vanish under the full theorem hypotheses. This is the torsion-quotient index convention of 4.3, rather than the finite-depth annihilator convention in (a).
+- For finite index n, scaling the bottom component by π increases its index by one and weakens the annihilator from 𝔭^n to 𝔭^{n+1}. It does not give a length bound or a statement about the opposite character without the χ^{1−i} label.
 
 For d = 1, (b) is the exponent form of Layer 4.16 Rubin's bound with error terms with zero error terms.
 

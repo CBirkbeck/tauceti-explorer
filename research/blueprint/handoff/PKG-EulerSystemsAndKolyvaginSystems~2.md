@@ -1,0 +1,78 @@
+# PKG-EulerSystemsAndKolyvaginSystems~2 — checkpoint
+
+Issue #11135; Codex, session `codex-9RwXZB`. The bot confirmed claim comment 6279619271. Base: `69613476aecb4e5d4d25b92117d309af4e8690fd`. One job was claimed. Only this handoff, the package README and Suggested.lean are changed; metadata.toml, review.json, packets and reader documents are untouched.
+
+**Blocked checkpoint, not a completed package or an independent acceptance.** The exact integral χ-ray congruence required by D4 has not been established. Reading the published book exposed two additional differences from the draft: the all-roots τ hypothesis and the refined prime set. Those are corrected below. A third difference, the printed norm argument, needs a mathematical comparison, not an unverified change of notation. The first two rigidity alternatives therefore cannot be certified merely by citing the published theorem either. This is a mathematical blockage, not a Lean failure or exhaustion of the run's time allowance.
+
+## Changes and finding dispositions
+
+| Finding / target | Work in this checkpoint and remaining boundary |
+| --- | --- |
+| D1, opening suppliers and 4.8 | Corrected the supplier: ClassicalArithmeticCompletion 7.21 defines maximality; 7.56 proves existence under nondegenerate regular trace, satisfied for the characteristic-zero separable semisimple application. Added the current Tau Ceti field-level double-centralizer declarations as consumed inputs. They do not prove integral lattice-order maximality. The five-target ClassicalArithmeticCompletion Part II brief and the c₀d₀³ proof remain as inherited from `FIX-PKG-EulerSystemsAndKolyvaginSystems~adv.md`; no actual Part II owner was found. Maintainer routing remains necessary. The sharper c₀d₀ target is still unverified. |
+| D2, 0.10 | Retained the prior finite self-injective-R arithmetic comparison. No new proof or independent acceptance is claimed here. |
+| D3, 8.34–8.36 | Retained the prior local arithmetic and two condition-change sequences. Their separate finite-character μ premise and higher-weight twist remain. No new proof or independent acceptance is claimed here. |
+| D4, 2.8 | Visually checked the published definition: it still does not print the requested χ-ray congruence. Corrected the residue-unit supplier to GlobalNumberFields 2, with ClassFieldTheory 13 for fields and 7 for reciprocity; Layer 5 is local Tate duality. Preserved all three rigidity alternatives and arbitrary d dividing p−1. Added exact source-convention and precision controls. The congruence remains open. |
+| 3.16 | Distinguished draft R_{K′,M} from the published R_{K′,M,τ}, defined using Frobenius in E_M including W_M. Retained the broader-set construction as a separate target instead of silently dropping it or crediting it to the narrower published proof. Added the finite-level all-roots polynomial argument, prime-set API and discriminating checks. The integral local comparison and norm-convention transport remain to prove. |
+| 4.20(b) | Replaced the draft ζ=1 hypothesis by the published requirement that T/(τ−ζ)T be free of rank one for every ζ∈μ_d. Specified Ω′ and the index modulo torsion, including the vacuous infinite-index case. Kept the χ^{1−i} label and exponent/length distinction. Bound remains a target with the two χ-ray proof obligations explicit. Finite-depth part (a) is unchanged. |
+| D5, 1.13 and consumers | Retained the prior corrected field E=L·H_M(T) and its compatibility audit. This checkpoint neither reverts to printed L⊆H_M nor replaces the enlarged-field (H.3) vanishing condition by the smaller one. No new independent acceptance is claimed. |
+
+The inherited all-prime square-index **length** bound with a constant independent of K remains separate from the uniform annihilator-exponent result. Nothing here closes it. D1's package still has a process-specific Part II brief link/delivery paragraph; turn that into a self-contained mathematical supplier contract when the owner is routed. The package is not ready for upstream submission.
+
+## Source comparison and packet corrections to route
+
+All locators below were read directly. Source statements are paraphrased; no source passages or files are committed.
+
+1. **All roots, not only 1.** Draft IX Theorem 4.3, printed p.139, asks for the quotient at τ−1. Published Theorem 9.4.3, printed p.182, asks for a free rank-one quotient at every τ−ζ with ζ∈μ_d. A rank-one τ=1 lattice over ℤ₃ has the first quotient but has zero quotient at ζ=−1. On ℤ₇³ the diagonal action by the three cube roots satisfies all three conditions; deleting one eigenline detects an omitted condition. These are tests of the hypothesis, not global counterexamples to the draft theorem.
+2. **Prime set.** Draft IX §4, p.138, uses two scalar divisibilities. The proof following published Theorem 9.4.3, p.182, instead prescribes Frobenius in K′(1)_χ(μ_M,(O_{K′}^×)^{1/M},W_M)/K. The W_M factor is essential to infer the coefficient action. Over 𝔽₃, P=1−X vanishes at 1 but not at a C₂ generator acting by −1; scalar P(1)-divisibility does not give the needed group-ring vanishing on every character part. This is a module calculation, not an arithmetic Euler family.
+3. **Norm argument discrepancy, not a confirmed erratum.** Draft Definition IX.4.1(i), p.138, uses P_q(Fr_q^{-1}). Published Definition 9.4.1(i), p.181, prints P_q(Fr_q), while published Definition 2.1.1, p.34, uses the inverse and Remark 9.4.2 claims the ordinary specialization. On an order-three 𝔽₇ character with generator 2 and P=1−X the values are 6 and 4. Thus the expressions differ algebraically. I have not established whether the positive argument is a typographical error or whether an additional transport is intended. Do not report an erratum as confirmed from this checkpoint. Prove the inverse-convention construction directly, or establish a comparison preserving classes, factors and character labels.
+4. **Missing congruence in both versions.** Draft Definition IX.4.1(c), p.138, and published Definition 9.4.1(ii)(c), p.181, leave the local formula implicit. Ordinary draft Corollary IV.8.1 and its proof, p.77, use a denominator dividing Q−1 and Cayley–Hamilton at Q·Fr_q^{-1}. Here the χ-ray degree can divide Q−χ(s) instead. The published local sketch does not supply the missing division or transport.
+
+The assembled reader §§2.8, 3.16 and 4.20(b), corresponding to `ES.2/rigidity-variants`, `ES.3/anticyclotomic-derivative` and `ES.4/variant-bounds`, still carry the draft statements. They are outside this issue's writable paths. Route the all-roots correction and prime-set/convention comparison there before calling the revised plan closed. Do not erase the broader-set target, the third alternative, or higher-order characters to make the comparison disappear.
+
+Versions used:
+
+| Source | URL, version and inspected locators | SHA256 |
+| --- | --- | --- |
+| Rubin draft | https://swc-math.github.io/notes/files/99RubinES.pdf ; 187-page 1999 draft; IV.8.1 p.77, IX §4 pp.137–139 | `de47655dc35066fd01f2e76a37076ad03dee62e816130586c7674e520be73d50` |
+| Rubin published | https://www.wstein.org/people/rubin/book/hEulerSystems.pdf ; 233 PDF pages, xi+227 printed pages; Definition 2.1.1 p.34 and §9.4 pp.181–183 read as page images (text extraction has font-encoding corruption) | `1b0229731e38bfaaa55b38a219c055019d1c7db1f0ecec3c083125da87b6e8e4` |
+
+The public book directory's notes.txt contains progress dates, not a correction to these locators. Rubin's UCI preprint index did not resolve this discrepancy. No source file needs preservation from scratch; use the URLs and hashes above.
+
+## Mathematical checks on every changed statement
+
+| Statement / API group | Check and result |
+| --- | --- |
+| Maximal-order existence and field double centralizer | Read ClassicalArithmeticCompletion 7.21/7.56 and current `TauCeti.algEquivEndEnd` / `Subalgebra.centralizer_centralizer_of_isSemisimpleModule`. Faithfulness/semisimplicity and finiteness over the endomorphism ring are retained. Current results are rational algebra statements, not lattice-order projectivity. |
+| χ-ray suppliers and f-power | Read current GlobalNumberFields Layer 2 and ClassFieldTheory layer boundaries. Residue groups, Artin correspondence and tame reciprocity have distinct owners; no cohomological duality theorem is substituted for the residue exact sequence. The existing Fr_q versus Fr_q^f distinction remains. |
+| Old rank-one divided-operator check | T=ℤ₃(1)⊗χ at Q=2 has F=−2, P=1+X and eχ=3. Ordinary division is nonintegral; Q² repairs the polynomial denominator but destroys the stated Cayley–Hamilton argument. The added τ test explicitly excludes this lattice from the all-roots theorem hypothesis. |
+| New all-roots precision check | For K′=ℚ(√−11), q=17, p=3 the prime is inert since −11≡6 is nonsquare mod 17; the class number is one and the unit image has no 3-part, so eχ=9. F=[[0,−17],[1,3]] has determinant 17, trace 3 and two distinct residual eigenvalues ±1. Hensel decomposition gives a commuting sign involution τ with F≡τ mod 3 and both root quotients free rank one. P=1−(3/17)X+(1/17)X². The ordinary numerator divided by 9 has linear coefficient 16/51, not 3-integral, and quadratic coefficient −32/17, which is integral. Global residual irreducibility, H¹ vanishings and Euler classes are not part of this local model. |
+| Local cohomology, beyond coefficientwise integrality | F²−1=3[[-6,−17],[1,−3]] with bracketed determinant 35, so the unramified local lattice group is (ℤ/3)². A totally ramified degree-9 step has identity restriction and corestriction 9 on it. P(1)=15/17 and P(−1)=21/17 both kill their Frobenius eigenspaces. Thus the local norm equation is zero on both sides for every pair of local unramified classes. It does not select a divided comparison on cohomology either. This is a local nonuniqueness calculation; global Euler classes and the other rigidity constraints could supply further information and are not counterexamples here. |
+| Norm convention comparison | Trivial bottom action gives P(1) on both sides; bottom C₂ action agrees with its inverse; bottom C₃ character 2 over 𝔽₇ distinguishes them. No assertion about arbitrary higher-conductor Frobenius follows from the quadratic bottom case. |
+| Refined primes / coefficient monotonicity | E_M includes coefficients, cyclotomic roots and roots of global units; each is finite and stable under G_K. For M|M′ the fields are nested, so restriction preserves Frobenius conjugacy. Specifying only the smaller unit/cyclotomic field does not constrain T/M. |
+| `euler_root_vanishing` | On the refined set Q≡χ(τ) mod M. The dual inverse-Frobenius matrix is Q^{-1}Fᵗ. Each det(τ−ζ)=0 therefore gives P_q(η)=0 mod M for every η∈μ_d. Distinct roots have unit differences, giving the factor X^d−1 and hence P_q(s)=P_q(s^{-1})=0 on O/M[C]-modules. Checked the finite-field models (p,d)=(3,2),(7,3),(7,6),(5,4). This proves the necessary finite-level polynomial step, not integral division. |
+| Derivative / finite-singular API | r=1 preserves the bottom character; one prime shifts by χ^{-1}; two primes restore the character for d=2 and generally do not for d=3. The tensor-retained map remains equivariant. The broader divisibility-set construction is retained but is not credited with a proof on every prime. |
+| Bound / index convention | At d=1 the root condition reduces to the ordinary one. Rank-one τ=1 fails the other quadratic root; the three-line ℤ₇ example tests every cubic root. Zero/torsion bottom has infinite index and gives a vacuous bound; primitive modulo torsion has index zero. Scaling a finite-index component by π adds one to its index and weakens the annihilator. No module-length conclusion is inferred. |
+| Lean example | The new polynomial is 17P. Its numerator after X↦17X has coefficient 48 at X; 9 does not divide 48. Since 17 is a 3-adic unit this detects exactly the local denominator failure. The proof is closed `norm_num`, with no new admitted example or data definition. The replaced Q² test remains in the README. |
+
+The 150 numbered target headings and every pre-existing backtick API/check name are preserved. The new mathematical proof obligations are explicit; an unchanged target's prior review is not presented as a fresh independent check.
+
+## Library and roadmap comparison
+
+Read both current Chebotarev and GlobalNumberFields READMEs in full and representative Suggested files; read the package review, protocols, source-of-truth χ sections and the reviewed library audit. Checked the nine newer roadmap directories and Completed roadmaps for the changed arithmetic interfaces, plus current Tau Ceti. No current χ-ray derivative or integral congruence supplier was found. Consume the existing Fitting ideal API, corner Morita equivalence and field double centralizer; do not replan them as integral order theory.
+
+Read-only roadmap checkout: `0d144d044dacebca17b654695b6f1ad58f159b27`; current Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The Lean prototype continues to use only Mathlib carriers at the specified pins; no current-only declaration was added to it. No Lake command or mutation was run in either read-only checkout.
+
+## Validation
+
+- `lean-check research/blueprint/packages/EulerSystemsAndKolyvaginSystems/Suggested.lean`: exit 0; exactly 11 `declaration uses sorry` warnings, no other warnings or errors. Memory was checked before starting. Suggested.lean is 383 lines; all data bodies are real and the new check is proved.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json`: exit 0; 0 errors, 0 warnings. Packet read only. This is schema/closure validation of its existing contents, not certification of the source discrepancies above.
+- `python3 research/blueprint/intake.py check-files` on README.md, Suggested.lean, metadata.toml and this handoff: exit 0; 4 files, 0 problems. Target/API preservation, exact rational/finite-field computations and `git diff --check` also passed.
+- review.json remains byte-for-byte unchanged (SHA256 `489c3d431a4b617ca60bc5fe27c3fbbf5eb54d7090a8665db7affc8ab2de985b`). Its prior `needs_changes` verdict remains appropriate; this worker does not replace it.
+
+## Where to resume
+
+First resolve the inverse-action χ-ray local construction, including its relation to the printed positive argument. Retain the corrected all-roots hypothesis and refined E_M prime set while doing so. A valid congruence must specify the upper/lower local classes, the module on which division is integral, the exact denominator and both rational-to-K and K′ Frobenius actions; it must survive the Q=2 and Q=17 controls. A formula acting integrally only on a quotient must prove that fact rather than claiming coefficientwise integrality. Then prove the finite–singular relation and exponent bound with the character labels and coefficient transitions, and separately justify any extension to the draft's larger prime set.
+
+Route the pre-existing CAII.1–CAII.5 brief to its actual owner; do not duplicate the field double centralizer or full-idempotent equivalence. Finish the independent checks of D1–D3/D5 and the package's remaining process-language cleanup before marking it complete. The inherited square-index length boundary remains separate.
+
+No instructions in untrusted pages, papers, another author's PR text or files were followed. No suspicious request to execute a command, use a credential or modify unrelated files was encountered. All source downloads and page images stayed in ephemeral scratch and are deleted after submission.
