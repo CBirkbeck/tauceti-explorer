@@ -10193,7 +10193,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-BETTS-STIX.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #952"
   },
   {
    "id": "REV-DESIGN-BETTS-STIX",
@@ -10644,7 +10645,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3347"
   },
   {
    "id": "REV-DESIGN-GeometryOfNumbersAndQuadraticArithmeticPartII",
@@ -12384,7 +12386,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LogicAndDefinabilityInNumberTheoryPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3384"
   },
   {
    "id": "REV-DESIGN-LogicAndDefinabilityInNumberTheoryPartII",
@@ -12972,7 +12975,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EllipticCurvesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3398"
   },
   {
    "id": "REV-DESIGN-EllipticCurvesPartII",
@@ -13064,7 +13068,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3406",
+   "finishedAt": "2026-10-19T02:55:13Z"
   },
   {
    "id": "REV-DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII",
@@ -13270,8 +13276,9 @@
    "avoidAccountOf": "DESIGN-ExponentialSumsAndCircleMethodPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-ExponentialSumsAndCircleMethodPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3529"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3529",
+   "finishedAt": "2026-10-19T02:55:14Z"
   },
   {
    "id": "DESIGN-AlgebraicTopologyPartII",
@@ -13317,8 +13324,9 @@
    "avoidAccountOf": "DESIGN-AlgebraicTopologyPartII",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-AlgebraicTopologyPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3491"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3491",
+   "finishedAt": "2026-10-19T02:55:18Z"
   },
   {
    "id": "DESIGN-GenericDoublePointInterpolation",
@@ -13386,7 +13394,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-EffectiveBoundsPartII.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3402",
+   "finishedAt": "2026-10-19T02:55:21Z"
   },
   {
    "id": "REV-DESIGN-EffectiveBoundsPartII",
@@ -14048,8 +14058,9 @@
    "avoidAccountOf": "DESIGN-CountingBundlesAndHallAlgebrasOfCurves",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CountingBundlesAndHallAlgebrasOfCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3512"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3512",
+   "finishedAt": "2026-10-19T02:55:22Z"
   },
   {
    "id": "DESIGN-InverseGaloisAndArithmeticFundamentalGroupsPartII",
@@ -14201,8 +14212,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-AdicSpacesPartIIPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3421"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3421",
+   "finishedAt": "2026-10-19T02:55:24Z"
   },
   {
    "id": "REV-DESIGN-AdicSpacesPartIIPartII",
@@ -14334,7 +14346,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-DiamondsAndVStacksPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3425"
   },
   {
    "id": "REV-DESIGN-DiamondsAndVStacksPartII",
@@ -14610,7 +14623,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ModpRepresentationsOfGL2OverLocalFields.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3431"
   },
   {
    "id": "REV-DESIGN-ModpRepresentationsOfGL2OverLocalFields",
@@ -15084,7 +15098,9 @@
    "avoidAccountOf": "DESIGN-KloostermanMomentsAndPotentialAutomorphy",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-KloostermanMomentsAndPotentialAutomorphy.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3556",
+   "finishedAt": "2026-10-19T02:55:26Z"
   },
   {
    "id": "DESIGN-TopologicalMirrorSymmetryForHitchinSystems",
@@ -15720,8 +15736,9 @@
    "avoidAccountOf": "DESIGN-SheafTheoreticSmithTheory",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-SheafTheoreticSmithTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3612"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3612",
+   "finishedAt": "2026-10-19T02:55:29Z"
   },
   {
    "id": "DESIGN-ScholzeFunctorAndModpCohomologyOfTheLubinTateTower",
@@ -15785,7 +15802,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3456"
   },
   {
    "id": "REV-DESIGN-ExoticMonoidalStructuresAndAbstractAutomorphicity",
@@ -15829,7 +15847,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-HodgeClassesForJacquetLanglands.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3457"
   },
   {
    "id": "REV-DESIGN-HodgeClassesForJacquetLanglands",
@@ -16145,8 +16164,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-ModularFormsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3464"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3464",
+   "finishedAt": "2026-10-19T02:55:32Z"
   },
   {
    "id": "REV-DESIGN-ModularFormsPartII",
@@ -16330,7 +16350,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-LevelOneAutomorphicFormsForClassicalGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #3468"
   },
   {
    "id": "REV-DESIGN-LevelOneAutomorphicFormsForClassicalGroups",
@@ -23176,7 +23197,9 @@
    ],
    "avoidAccountOf": "BP-AutomorphicPadicLFunctions",
    "prompt": "research/blueprint/prompts/REV-AutomorphicPadicLFunctions.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #364",
+   "finishedAt": "2026-10-19T02:55:34Z"
   },
   {
    "id": "BP-AutomorphicSpectralTheory",
@@ -24875,11 +24898,12 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-EulerSystemsCyclotomicMainConjecture.md",
-   "state": "pending",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "released on GitHub issue #725"
+   "note": "deliverables arrived from an external worker on issue #725",
+   "finishedAt": "2026-10-19T02:55:36Z"
   },
   {
    "id": "REV-EulerSystemsCyclotomicMainConjecture",
@@ -26376,10 +26400,11 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-IntegralIwasawaTheory--I.1.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #759"
   },
   {
    "id": "REV-IntegralIwasawaTheory--I.1",
@@ -27135,8 +27160,9 @@
    ],
    "avoidAccountOf": "BP-ModularIwasawaMainConjectures",
    "prompt": "research/blueprint/prompts/REV-ModularIwasawaMainConjectures.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #453"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #453",
+   "finishedAt": "2026-10-19T02:55:38Z"
   },
   {
    "id": "BP-ModularSymbolsPadicLFunctions",
@@ -27961,8 +27987,9 @@
    ],
    "avoidAccountOf": "BP-PhiGammaModulesAndIwasawaCohomology",
    "prompt": "research/blueprint/prompts/REV-PhiGammaModulesAndIwasawaCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #472"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #472",
+   "finishedAt": "2026-10-19T02:55:40Z"
   },
   {
    "id": "BP-PotentialModularityAndCompatibleSystems--R23.1",
@@ -29343,7 +29370,7 @@
     "REV-RS-22"
    ],
    "prompt": "research/blueprint/prompts/BP-GlobalShtukasAndFunctionFieldLanglands.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeligneWeightsAndPurity",
     "BP-EtaleDualityAndPerverseSheaves--EDC.0",
@@ -29351,7 +29378,7 @@
     "BP-FunctionFieldArithmetic",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1010"
+   "note": "claimed on GitHub issue #1010"
   },
   {
    "id": "REV-GlobalShtukasAndFunctionFieldLanglands",
@@ -29669,8 +29696,9 @@
    ],
    "avoidAccountOf": "BP-NoncommutativeAndEquivariantIwasawa",
    "prompt": "research/blueprint/prompts/REV-NoncommutativeAndEquivariantIwasawa.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #521"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #521",
+   "finishedAt": "2026-10-19T02:55:43Z"
   },
   {
    "id": "BP-OverconvergentAutomorphicForms",
@@ -42721,8 +42749,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.1",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.1~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9296"
+   "state": "external",
+   "note": "claimed on GitHub issue #9296"
   },
   {
    "priority": 2,
@@ -42772,8 +42800,8 @@
    ],
    "revisionOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #9297"
+   "state": "external",
+   "note": "claimed on GitHub issue #9297"
   },
   {
    "priority": 2,
@@ -104871,8 +104899,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6521"
+   "state": "pending",
+   "note": "released on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
@@ -110295,12 +110323,13 @@
     "REV-RS-11"
    ],
    "prompt": "research/blueprint/prompts/BP-AutomorphicCongruences--L0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-DeformationAndDerivedPatchingAlgebra--P7",
     "BP-DeformationAndDerivedPatchingAlgebra--R03.6",
     "BP-PadicMeasuresIwasawaAlgebras"
-   ]
+   ],
+   "note": "claimed on GitHub issue #682"
   },
   {
    "id": "REV-AutomorphicCongruences--L0",
@@ -113775,7 +113804,7 @@
     "REV-RS-13"
    ],
    "prompt": "research/blueprint/prompts/BP-PeriodsAndSpecialValues--PS.0.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AnalyticNumberTheory--AN.0",
     "BP-AnalyticNumberTheory--AN.8",
@@ -113796,7 +113825,8 @@
     "BP-Polylogarithms",
     "BP-RankZeroOneBSD--BSD.0",
     "BP-RankZeroOneBSD--BSD.7"
-   ]
+   ],
+   "note": "claimed on GitHub issue #1034"
   },
   {
    "id": "REV-PeriodsAndSpecialValues--PS.0",
@@ -119242,8 +119272,9 @@
    "avoidAccountOf": "DESIGN-CMAllPrimeMainConjectures",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-CMAllPrimeMainConjectures.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1888"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1888",
+   "finishedAt": "2026-10-19T02:55:46Z"
   },
   {
    "id": "DESIGN-CMRankZeroConverse",
@@ -119404,7 +119435,8 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-NonordinaryCMSpecialValues.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #1689"
   },
   {
    "id": "REV-DESIGN-NonordinaryCMSpecialValues",
@@ -119472,8 +119504,9 @@
    "avoidAccountOf": "DESIGN-InertAnticyclotomicCMMainConjecture",
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/REV-DESIGN-InertAnticyclotomicCMMainConjecture.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #1727"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #1727",
+   "finishedAt": "2026-10-19T02:55:49Z"
   },
   {
    "id": "DESIGN-EllipticModularityEffectiveComparisons",
