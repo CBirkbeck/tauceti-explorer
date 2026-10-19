@@ -42,6 +42,13 @@
         "module": "Mathlib/LinearAlgebra/BilinearMap.lean",
         "provides": "The native type of scalar-valued bilinear forms, an iterated linear map. Used for the rational Mukai coordinate sketch, not a replacement lattice carrier.",
         "checked": "Actual definition read in the 082e2d3 Mathlib source, lines 520–528; build manifest/revision checked."
+      },
+      {
+        "ref": "tauceti:TauCeti.Hodge.PeriodDomain.Point",
+        "kind": "structure",
+        "module": "TauCeti/Geometry/Hodge/PeriodDomain.lean",
+        "provides": "A polarized pure Hodge structure of fixed weight and Hodge type on the complexification of a finite free integral lattice, with the fixed integral form as polarization. Reuse for the IHS weight-two domain; topology, geometric realization and the projective-line comparison remain local targets.",
+        "checked": "Independently read at f790474: structure lines 71–80 and extensionality lines 90–95, and compared with current Tau Ceti. The base-change map and finite/free hypotheses are retained."
       }
     ]
   },
@@ -170,6 +177,11 @@
           "name": "K3Polarization.tensorPower",
           "role": "constructor",
           "statement": "Every positive tensor power of an ample polarization is allowed."
+        },
+        {
+          "name": "K3Surface.isomorphismInvariant",
+          "role": "equivalence",
+          "statement": "A k-isomorphism transports the K3 conditions and ample invertible sheaves. The K3 predicate is proof-irrelevant; a polarization is identified by its invertible-sheaf isomorphism class, not by a chosen equation or trivialization of ω."
         }
       ],
       "tests": [
@@ -269,6 +281,11 @@
           "name": "K3.nsSignature",
           "role": "characterisation",
           "statement": "For projective geometric X the real signature is (1,ρ−1)."
+        },
+        {
+          "name": "K3.nsQuotient",
+          "role": "universal-property",
+          "statement": "The divisor-class projection is additive and surjective; two classes agree exactly when their difference has zero intersection with every curve. Every additive map annihilating numerical equivalence factors uniquely through this projection."
         }
       ],
       "tests": [
@@ -340,18 +357,18 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "§2.1, p.492; §2.4 proof",
-          "match": "The target specializes the primitive cycle classes and the k3 cohomology lattice argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "§2.1 p.492; Theorem 2.4 proof, pp.494–497",
+          "match": "Charles uses the integral K3 Mukai lattice and the completed cycle-class/saturation argument. The separate classical-geometry gap retains the primary K3 cohomology computation rather than attributing an unread Huybrechts draft to Charles."
         },
         {
-          "sourceId": "Charles16",
-          "locator": "Huybrechts author draft, Chapter1 §3, pp16–18, Proposition3.5 and Remark3.7; LMS Lemma3.5.2 p302",
-          "match": "The target specializes the primitive cycle classes and the k3 cohomology lattice argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "sourceId": "LMS14",
+          "locator": "§2.2.2, p.289; Lemma 3.5.2 and proof, p.302",
+          "match": "The completed Kummer sequence and Frobenius-invariant/geometric lattice distinction are used here. These passages do not by themselves prove the full even unimodular Betti classification."
         },
         {
           "sourceId": "SSTT22",
           "locator": "§9.1, p.44",
-          "match": "This is the primitive cycle classes and the k3 cohomology lattice step in the K3 application, with its imported orthogonal and arithmetic interfaces separated in the prerequisites."
+          "match": "The K3 application records the even unimodular Betti lattice of signature (3,19); the determinant −1 follows from that signature under the ordinary Gram convention."
         }
       ],
       "implementationStatus": "unchecked",
@@ -389,18 +406,18 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "Proposition 1.5, p.491",
+          "locator": "Proposition 1.5 and proof, p.491",
           "match": "The target specializes the lifting picard data argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
         },
         {
           "sourceId": "Charles16",
-          "locator": "Proposition 1.5 proof; Lieblich–Maulik 2014 Cor.4.2",
-          "match": "The target specializes the lifting picard data argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "Proposition 1.5 proof, p.491; citing Lieblich–Maulik Corollary 4.2",
+          "match": "The target specializes the lifting picard data argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         },
         {
           "sourceId": "Charles16",
-          "locator": "Proposition 1.5 proof; Artin 1974",
-          "match": "The target specializes the lifting picard data argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "Proposition 1.5 proof, p.491; citing Artin’s infinite-height locus theorem",
+          "match": "The target specializes the lifting picard data argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -470,6 +487,11 @@
           "name": "Mukai.hyperbolic",
           "role": "compatibility",
           "statement": "The rank/top summand has Gram matrix [[0,−1],[−1,0]] in that ordered basis."
+        },
+        {
+          "name": "Mukai.coordinate_simp",
+          "role": "simp",
+          "statement": "The rank, middle and top projections of mk(r,D,s) are r,D,s; pairing with each pure summand recovers the intersection term or the negative cross coordinate. Additive maps out of the direct sum are determined by the three summands."
         }
       ],
       "tests": [
@@ -568,6 +590,11 @@
           "name": "K3.mukaiVector_ideal",
           "role": "simp",
           "statement": "For a length-n ideal sheaf I_Z, v(I_Z)=(1,0,1−n)."
+        },
+        {
+          "name": "K3.mukaiVector_coordinates",
+          "role": "characterisation",
+          "statement": "The three coordinates are rk(E),c₁(E),χ(E)−rk(E), and these identities characterize the vector by componentwise extensionality; the zero K₀ class has zero vector."
         }
       ],
       "tests": [
@@ -765,7 +792,7 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "§1.1 p.488; §3.2",
+          "locator": "§1.1 p.488; §3.2 pp.507–510",
           "match": "The target specializes the irreducible holomorphic symplectic manifolds argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
         }
       ],
@@ -870,7 +897,7 @@
         {
           "sourceId": "Charles16",
           "locator": "Proposition 2.6 proof, p.498; Beauville 1983 §6",
-          "match": "The target specializes the hilbert schemes of points on k3 surfaces argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "match": "The target specializes the hilbert schemes of points on k3 surfaces argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1042,6 +1069,11 @@
           "name": "IHS.bbBirational",
           "role": "functoriality",
           "statement": "The integral form is invariant under the H² isomorphism of birational IHS manifolds."
+        },
+        {
+          "name": "K3Moduli.bbForm_unique",
+          "role": "extensionality",
+          "statement": "On a fixed K3^[n] H² lattice, the Fujiki identity together with positivity on the Kähler cone fixes the normalized quadratic form; its bilinear pairing is recovered by polarization. A general IHS type retains its own Fujiki constant."
         }
       ],
       "tests": [
@@ -1158,6 +1190,11 @@
           "name": "Mukai.theta_cokernel",
           "role": "characterisation",
           "statement": "Only p-primary algebraic cokernel remains in characteristic p; in characteristic zero it vanishes."
+        },
+        {
+          "name": "Mukai.theta_independent",
+          "role": "compatibility",
+          "statement": "Normalize a quasi-universal sheaf by its similitude. Twisting it by a line bundle pulled back from the moduli space leaves the restriction to v^⊥ unchanged; compatible presentations give the same θ. The integral comparison proof, not formal division alone, establishes integrality."
         }
       ],
       "tests": [
@@ -1249,7 +1286,7 @@
         {
           "sourceId": "Charles16",
           "locator": "Proposition 2.6 proof; Fontaine–Messing 1987",
-          "match": "The target specializes the low-degree hodge and crystalline control argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "match": "The target specializes the low-degree hodge and crystalline control argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         },
         {
           "sourceId": "Charles16",
@@ -1358,7 +1395,7 @@
       ],
       "prerequisites": [
         "K3SurfacesAndSymplecticBoundedness:K3.1/mukai-lattice",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+        "tauceti:TauCeti.IntegralLattice"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/K3/Zarhin",
@@ -1399,7 +1436,7 @@
         "K3SurfacesAndSymplecticBoundedness:K3.3/rank-two-plane",
         "K3SurfacesAndSymplecticBoundedness:K3.2/theta",
         "K3SurfacesAndSymplecticBoundedness:K3.2/stable-moduli",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "tauceti:TauCeti.IntegralLattice",
         "K3SurfacesAndSymplecticBoundedness:K3.3/descent-refinement"
       ],
       "library": {
@@ -1530,13 +1567,13 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "Proposition 3.1 proof, p.505; Ogus 1.10, Huybrechts Ch.8",
-          "match": "The target specializes the k3 positive classes and linear series argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "Proposition 3.1 proof, p.505; citing Ogus and Huybrechts",
+          "match": "The target specializes the k3 positive classes and linear series argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         },
         {
           "sourceId": "Charles16",
-          "locator": "Proposition 3.1 proof, pp.505–506; Saint-Donat §§2,8",
-          "match": "The target specializes the k3 positive classes and linear series argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "Proposition 3.1 proof, pp.505–506; citing Saint-Donat §§2,8",
+          "match": "The target specializes the k3 positive classes and linear series argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1603,7 +1640,7 @@
       "prerequisites": [
         "K3SurfacesAndSymplecticBoundedness:K3.0/cycle-lattice",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+        "tauceti:TauCeti.IntegralLattice"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/K3/LinearSeries",
@@ -1612,8 +1649,13 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "Corollary 3.2 proof; LMS §2.3, extension degree 6983776800",
+          "locator": "Corollary 3.2 proof, pp.506–507",
           "match": "The target specializes the uniform ns descent over finite fields argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+        },
+        {
+          "sourceId": "LMS14",
+          "locator": "§2.3, pp.291–292",
+          "match": "LMS supplies the uniform exponent and finite-field Picard descent in its odd-characteristic scope. The finite-order integral-automorphism calculation with an invariant ample vector is requested separately for any broader use."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1712,13 +1754,13 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "§1.1 p.488; Lemma 3.5 proof; Huybrechts 1999 with 2003 erratum",
-          "match": "The target specializes the positive classes and ihs projectivity argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "§1.1 p.488; Lemma 3.5 proof pp.507–508; citing Huybrechts with the 2003 erratum",
+          "match": "The target specializes the positive classes and ihs projectivity argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         },
         {
           "sourceId": "Charles16",
-          "locator": "Lemma 3.5 proof, p.507; Beauville Th.5",
-          "match": "The target specializes the positive classes and ihs projectivity argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "Lemma 3.5 proof, p.507; citing Beauville Theorem 5",
+          "match": "The target specializes the positive classes and ihs projectivity argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1771,10 +1813,10 @@
       ],
       "title": "Polarized IHS period data",
       "kind": "construction",
-      "statement": "For a fixed deformation representative with BB lattice Λ and positive integral class l=c₁(L), form D={ [σ]∈P(l^⊥⊗C): (σ,σ)=0, (σ,bar σ)>0 }. The integral l need not itself be primitive. Use the subgroup of O(l^⊥) extending to O(Λ) and fixing l, retaining the chosen connected period component and markings compatible with parallel transport. This is a specialization of the existing Hodge period-domain API.",
+      "statement": "For a fixed deformation representative with BB lattice Λ and positive integral class l=c₁(L), form D={ [σ]∈P(l^⊥⊗C): (σ,σ)=0, (σ,bar σ)>0 }. The integral l need not itself be primitive. Use the subgroup of O(l^⊥) extending to O(Λ) and fixing l, retaining the chosen connected period component and markings compatible with parallel transport. Use TauCeti.Hodge.PeriodDomain.Point for the underlying polarized weight-two filtration on the finite free primitive lattice, with the chosen positive normalization/sign of its integral form. The comparison with the displayed projective-line domain and its complex geometry is the IHS specialization; no new general period-point carrier is defined.",
       "hypotheses": [],
       "proofSteps": [
-        "Specialize the existing polarized weight-two Hodge domain, using −cup for the polarization convention when required.",
+        "Specialize TauCeti.Hodge.PeriodDomain.Point at weight two and the IHS Hodge numbers; choose the sign of the primitive BB form that satisfies the existing polarization convention, then compare its filtration with the displayed line domain.",
         "Keep the ambient-lattice extension condition instead of enlarging to all isometries of l^⊥."
       ],
       "acceptance": [
@@ -1784,7 +1826,8 @@
         "K3SurfacesAndSymplecticBoundedness:K3.5/deformation-representatives",
         "tauceti:TauCeti.Hodge.HodgeStructureOn",
         "tauceti:TauCeti.IntegralLattice",
-        "ShimuraVarieties:V0"
+        "ShimuraVarieties:V0",
+        "tauceti:TauCeti.Hodge.PeriodDomain.Point"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/K3/Periods",
@@ -1820,7 +1863,12 @@
         {
           "name": "IHS.periodDomainComparison",
           "role": "compatibility",
-          "statement": "Identify this domain with the existing weight-two polarized Hodge period domain under the fixed sign convention."
+          "statement": "Identify the displayed line domain with TauCeti.Hodge.PeriodDomain.Point of the primitive weight-two type, under the fixed sign convention and base-change map."
+        },
+        {
+          "name": "IHS.periodPoint_ext",
+          "role": "extensionality",
+          "statement": "Equality of the Hodge filtrations gives equality of the underlying period points by TauCeti.Hodge.PeriodDomain.Point.ext; the comparison with projective lines respects this equality."
         }
       ],
       "tests": [
@@ -1881,7 +1929,7 @@
         {
           "sourceId": "Charles16",
           "locator": "Theorem 3.3 proof p.508; Sullivan, Markman Prop.1.9",
-          "match": "The target specializes the arithmetic polarized monodromy argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "match": "The target specializes the arithmetic polarized monodromy argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1956,7 +2004,7 @@
         {
           "sourceId": "Charles16",
           "locator": "Theorem 3.3 proof p.509; Verbitsky, Markman Th.1.10/Prop.1.9",
-          "match": "The target specializes the global torelli with parallel transport argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "match": "The target specializes the global torelli with parallel transport argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2072,8 +2120,8 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "Theorem 3.3 first conclusion p.507",
-          "match": "The target specializes the birational matsusaka theorem for ihs manifolds argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "Theorem 3.3 p.507; Lemma 3.6 and proof p.508; final boundedness argument p.510",
+          "match": "The theorem bounds a replacement L′ of the same top power. Lemma 3.6 is the non-routine uniform fiberwise-big family input, now requested explicitly from the general moduli/boundedness owner."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2176,6 +2224,11 @@
           "name": "AdmissibleTriple.forget",
           "role": "coercion",
           "statement": "Forget to the special-fiber polarized projective variety with positive L."
+        },
+        {
+          "name": "AdmissibleTriple.ofFamily",
+          "role": "constructor",
+          "statement": "A smooth projective W-family, the specified special point, H,L, comparison data, torsion-free H²/H³ and mod-p nondegenerate primitive complement produce an admissibility witness. Forgetting it recovers that special-fiber triple; distinct witnesses need not be equal."
         }
       ],
       "tests": [
@@ -2256,6 +2309,11 @@
           "name": "StronglyAdmissible.nsGeneric",
           "role": "characterisation",
           "statement": "Every rational NS class of that fiber is a rational combination of H,L."
+        },
+        {
+          "name": "StronglyAdmissible.ofWitness",
+          "role": "constructor",
+          "statement": "An admissibility witness whose generic special fiber is ordinary and has rational NS spanned by H,L gives a strong witness. Dominant eligible base change transports it when the geometric generic fiber and comparison hypotheses are preserved."
         }
       ],
       "tests": [
@@ -2315,7 +2373,7 @@
         {
           "sourceId": "Charles16",
           "locator": "§3.3, p.512; Ogus Ex.1.10",
-          "match": "The target specializes the superspecial k3 surfaces argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "match": "The target specializes the superspecial k3 surfaces argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2397,7 +2455,7 @@
         {
           "sourceId": "Charles16",
           "locator": "Proposition 3.10 proof, pp.512–513; Ogus",
-          "match": "The target specializes the nonsuperspecial polarized deformations argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "match": "The target specializes the nonsuperspecial polarized deformations argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2546,7 +2604,7 @@
         {
           "sourceId": "Charles16",
           "locator": "Lemma 3.15, pp.515–516; Charles 2013 Prop.22 and erratum context",
-          "match": "The target specializes the primitive divisors as special endomorphisms argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "match": "The target specializes the primitive divisors as special endomorphisms argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2575,7 +2633,7 @@
       ],
       "prerequisites": [
         "K3SurfacesAndSymplecticBoundedness:K3.7/ns-special-endomorphisms",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
+        "tauceti:TauCeti.IntegralLattice",
         "ShimuraVarieties:V6",
         "AlgebraicModuliForArithmeticGeometry:R09.5",
         "K3SurfacesAndSymplecticBoundedness:K3.5/deformation-representatives"
@@ -2619,7 +2677,7 @@
         "K3SurfacesAndSymplecticBoundedness:K3.7/finite-ns",
         "K3SurfacesAndSymplecticBoundedness:K3.2/mukai-discriminant",
         "K3SurfacesAndSymplecticBoundedness:K3.4/finite-k3",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.3"
+        "tauceti:TauCeti.IntegralLattice"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/K3/Admissible",
@@ -2673,6 +2731,11 @@
           "sourceId": "Charles16",
           "locator": "§4.2 p.520; LMS §3.2",
           "match": "The target specializes the arithmetic transcendental lattices argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+        },
+        {
+          "sourceId": "LMS14",
+          "locator": "§3.2, pp.294–296",
+          "match": "LMS defines the arithmetic invariant transcendental complement and its relation to Brauer classes; it is not the full geometric complement."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2699,6 +2762,11 @@
           "name": "K3.transcendental_geometric",
           "role": "compatibility",
           "statement": "The inclusion into geometric H² is injective; no surjectivity to its full complement is asserted."
+        },
+        {
+          "name": "K3.arithmeticTranscendental_lift",
+          "role": "universal-property",
+          "statement": "A Z_ℓ-linear map into invariant H² whose image pairs to zero with all arithmetic divisor classes factors uniquely through this native orthogonal submodule. Its inclusion is injective and preserves the restricted pairing."
         }
       ],
       "tests": [
@@ -2847,6 +2915,11 @@
           "sourceId": "Charles16",
           "locator": "§4.1 pp.518–519; LMS §3.3",
           "match": "The target specializes the rational mukai exponentials argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+        },
+        {
+          "sourceId": "LMS14",
+          "locator": "§3.3, pp.296–297",
+          "match": "The rational positive exponential supplies the coordinate isometry, and its integral algebraic intersection is a separate construction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3066,13 +3139,8 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "§4.1; LMS Prop.3.4.2(1) arXiv v5 = cited published Prop.3.4.1",
-          "match": "The target specializes the isotropic twisted k3 partners argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
-        },
-        {
-          "sourceId": "Charles16",
-          "locator": "LMS Prop.3.4.2(2), used by Charles §4.1",
-          "match": "The target specializes the isotropic twisted k3 partners argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "§4.1, pp.519–520",
+          "match": "Charles invokes the twisted-partner theorem. The directly checked published LMS Proposition 3.4.2 below supplies the gerbe/K3/FM interface with exact geometric order; no arXiv-to-publication renumbering is needed."
         },
         {
           "sourceId": "LMS14",
@@ -3114,8 +3182,8 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "LMS Prop.3.4.2(3), arXiv v5; Charles §4.2 partner construction",
-          "match": "The target specializes the coprime pairing kills the partner gerbe argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "§4.2, pp.521–522",
+          "match": "The partner gerbe is killed using a prime-to-ℓ pairing. The direct published LMS Proposition 3.4.2(3) and Lemma 3.4.3 below supply the required K₀ realization, with period-index inputs retained."
         },
         {
           "sourceId": "LMS14",
@@ -3156,7 +3224,7 @@
         {
           "sourceId": "Charles16",
           "locator": "§4.1 pp.519–520; Yoshioka Th.3.19(ii)",
-          "match": "The target specializes the isotropic mukai quotient comparisons argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "match": "The target specializes the isotropic mukai quotient comparisons argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         },
         {
           "sourceId": "Charles16",
@@ -3296,18 +3364,23 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "§4 opening; Lemma 4.5 proof; Tate 1995 and Milne 1975",
-          "match": "The target specializes the early tate–brauer and descent interface argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "§4 opening p.518; Lemma 4.5 proof pp.520–521; citing Tate and Milne",
+          "match": "The target specializes the early tate–brauer and descent interface argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         },
         {
           "sourceId": "Charles16",
-          "locator": "Theorem 4.4 p.520; LMS main theorem",
-          "match": "The target specializes the early tate–brauer and descent interface argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "Theorem 4.4 p.520; citing LMS main theorem",
+          "match": "The target specializes the early tate–brauer and descent interface argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
         },
         {
           "sourceId": "Charles16",
-          "locator": "§4.2 finite-extension reduction p.520; LMS §2.3",
-          "match": "The target specializes the early tate–brauer and descent interface argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "§4.2 finite-extension reduction p.520; citing LMS §2.3",
+          "match": "The target specializes the early tate–brauer and descent interface argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately. This records the argument in Charles and its cited input; the corresponding primary proof obligations remain in the named gaps."
+        },
+        {
+          "sourceId": "LMS14",
+          "locator": "§2.3, pp.291–292",
+          "match": "The finite-field Tate/Brauer and extension reductions motivate the early interface. The independent dyadic and trace statements retain their separate supplier qualifications."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3342,12 +3415,12 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "LMS Prop.2.1.3; Charles Lemma 4.5 input",
+          "locator": "Lemma 4.5 and proof, pp.520–521; invoking LMS Proposition 2.1.3",
           "match": "The target specializes the frobenius and infinite brauer input argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
         },
         {
           "sourceId": "Charles16",
-          "locator": "Lemma 4.5 proof; LMS Lemma 3.2.7, Prop.3.2.8",
+          "locator": "Lemma 4.5 proof, pp.520–521; invoking LMS Lemma 3.2.7 and Proposition 3.2.8",
           "match": "The target specializes the frobenius and infinite brauer input argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
         },
         {
@@ -3378,7 +3451,7 @@
       ],
       "prerequisites": [
         "K3SurfacesAndSymplecticBoundedness:K3.9/frobenius-brauer",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+        "tauceti:TauCeti.IntegralLattice"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/K3/Partners",
@@ -3419,7 +3492,7 @@
       "prerequisites": [
         "K3SurfacesAndSymplecticBoundedness:K3.9/frobenius-brauer",
         "K3SurfacesAndSymplecticBoundedness:K3.9/brauer-tate-interface",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
+        "tauceti:TauCeti.IntegralLattice",
         "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
         "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places"
       ],
@@ -3430,13 +3503,8 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "LMS Lemma 3.5.2, arXiv v5, substitute for Charles Lemma 4.5",
-          "match": "The target specializes the simultaneous primes and prescribed norms argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
-        },
-        {
-          "sourceId": "Charles16",
-          "locator": "LMS §3.5, published p302; Charles §4.2 pp520–522; proof supplied in this continuation",
-          "match": "The target specializes the simultaneous primes and prescribed norms argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+          "locator": "Lemma 4.5 and §4.2, pp.520–522",
+          "match": "The conditional original-field argument is replaced for the p≥5 route by directly checked published LMS Lemmas 3.5.1–3.5.2, with unit-representation and reciprocal-block corrections; one common splitting field gives the simultaneous choice."
         },
         {
           "sourceId": "LMS14",
@@ -3482,18 +3550,23 @@
       "sources": [
         {
           "sourceId": "Charles16",
-          "locator": "§4.2 p.521; LMS Prop.3.5.6 arXiv v5",
+          "locator": "§4.2 p.521; invoking the LMS partner construction",
           "match": "The target specializes the the growing-discriminant partner sequence argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
         },
         {
           "sourceId": "Charles16",
-          "locator": "§4.2 pp.521–522; LMS Prop.3.5.6",
+          "locator": "§4.2 pp.521–522; compare published LMS Proposition 3.5.6",
           "match": "The target specializes the the growing-discriminant partner sequence argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
         },
         {
           "sourceId": "Charles16",
-          "locator": "§4.2 pp.522–523; Proposition 4.3",
+          "locator": "§4.2 pp.522–523; Proposition 4.3 pp.519–520",
           "match": "The target specializes the the growing-discriminant partner sequence argument at this locator. Its precise normalization and restrictions are those in the target statement; corrections are recorded separately."
+        },
+        {
+          "sourceId": "LMS14",
+          "locator": "Proposition 3.5.6 and proof, pp.303–305",
+          "match": "The period-index and twisted-partner construction produces growing ℓ-adic discriminants. The target retains the finite-field and exact-order hypotheses and the corrected pairing sign."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3521,7 +3594,7 @@
       "prerequisites": [
         "K3SurfacesAndSymplecticBoundedness:K3.9/partner-sequence",
         "K3SurfacesAndSymplecticBoundedness:K3.8/isotropic-theta",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2"
+        "tauceti:TauCeti.IntegralLattice"
       ],
       "library": {
         "module": "TauCeti/AlgebraicGeometry/K3/Partners",
@@ -3719,7 +3792,6 @@
         "K3SurfacesAndSymplecticBoundedness:K3.0/ns-lattice",
         "tauceti:TauCeti.IntegralLattice",
         "tauceti:TauCeti.Hodge.HodgeStructureOn",
-        "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
         "MotivesAndAlgebraicCycles:MC.7",
         "ShimuraVarieties:V6"
       ],
@@ -3800,7 +3872,7 @@
       ],
       "title": "André’s arithmetic Kuga–Satake comparison",
       "kind": "theorem",
-      "statement": "After a finite extension of K, the Kuga–Satake abelian variety of the polarized K3 Hodge structure is defined over K, and André’s comparison identifies the even Clifford algebra of primitive rational H²(1) with the endomorphisms of H¹ commuting with the Clifford action, equivariantly for Galois and the stated involutions. With the orthogonal supplier’s level and lattice data this yields the required point x∈M(K). André Main Lemma 1.7.1 alone does not supply an integral special-fiber divisor correspondence.",
+      "statement": "After a finite extension of K, the Kuga–Satake abelian variety of the polarized K3 Hodge structure is defined over K, and André’s comparison identifies the even Clifford algebra of primitive rational H²(1) with the endomorphisms of H¹ commuting with the Clifford action, equivariantly for Galois. With the orthogonal supplier’s level and lattice data this yields the required point x∈M(K). André Main Lemma 1.7.1 alone does not supply an integral special-fiber divisor correspondence.",
       "hypotheses": [],
       "proofSteps": [
         "Apply the absolute-Hodge-cycle descent of the primitive Clifford comparison.",
@@ -3808,7 +3880,8 @@
         "Use the orthogonal canonical-model moduli interpretation to compare the chosen maximal transcendental datum with the polarized KS construction."
       ],
       "acceptance": [
-        "The generic Galois-equivariant even-Clifford comparison, including the integral modules in André’s stated scope, is distinguished from a theorem about divisors on a special fiber."
+        "The generic Galois-equivariant even-Clifford comparison, including the integral modules in André’s stated scope, is distinguished from a theorem about divisors on a special fiber.",
+        "Involution compatibility is not attributed to Main Lemma 1.7.1; any extra tensor or involution comparison required by the chosen moduli interpretation belongs to the orthogonal supplier contract."
       ],
       "prerequisites": [
         "K3SurfacesAndSymplecticBoundedness:K3.10/transcendental-datum",
@@ -3871,8 +3944,8 @@
         },
         {
           "sourceId": "Andre96",
-          "locator": "§9.1, p.240; Lemma 9.3.1 and proof, pp.241–242",
-          "match": "The inertia argument transfers good reduction of degree-two geometry to potentially good KS reduction."
+          "locator": "§9.1 p.240; Lemma 9.3.1, proof and Remark 9.3.2, p.241",
+          "match": "After choosing sufficiently fine level, the inertia argument gives good KS reduction; Remark 9.3.2 only uses unramified primitive degree-two cohomology. This justifies the smooth-proper good-reduction hypothesis without assuming a global ample model for this intermediate lemma."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4033,8 +4106,8 @@
       "sources": [
         {
           "sourceId": "SSTT22",
-          "locator": "Theorem 1.1, p.2; proof, §9.1, pp.44–45",
-          "match": "This is the low-dimensional picard-jump input step in the K3 application, with its imported orthogonal and arithmetic interfaces separated in the prerequisites."
+          "locator": "Theorem 1.1 p.2; footnote 1 p.4; §9.1 pp.44–45",
+          "match": "SSTT separates the low-dimensional cases from its b≥3 height theorem. This locator motivates the target; Charles 2018, Shankar–Tang 2019 and the rank-20 branch remain explicit source-acquisition obligations."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4225,7 +4298,7 @@
     },
     {
       "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
-      "need": "Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them.",
+      "need": "Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II.",
       "neededBy": [
         "K3SurfacesAndSymplecticBoundedness:K3.1/coprime-stability",
         "K3SurfacesAndSymplecticBoundedness:K3.1/hilbert-points",
@@ -4299,27 +4372,6 @@
       ]
     },
     {
-      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.2",
-      "need": "Extend beyond the existing generic lattice/localization nodes: Charles Proposition 2.9 primitive positive rank-two embeddings Λ⊂⟨2d⟩⊕U transported to ⟨2md⟩⊕U with m≡1 mod N and a,b square residues, preserving primitivity; absorb primes dividing (2d)! into N. Also supply odd-ℓ unimodular rank≥2 representation of every unit, the rank-one square-discriminant case, primitive isotropic quotient determinant and maximal-lattice local genus comparisons (including dyadic distinctions).",
-      "neededBy": [
-        "K3SurfacesAndSymplecticBoundedness:K3.3/rank-two-plane",
-        "K3SurfacesAndSymplecticBoundedness:K3.3/zarhin",
-        "K3SurfacesAndSymplecticBoundedness:K3.9/conditional-norm",
-        "K3SurfacesAndSymplecticBoundedness:K3.9/simultaneous-norm",
-        "K3SurfacesAndSymplecticBoundedness:K3.9/fixed-positive-square",
-        "K3SurfacesAndSymplecticBoundedness:K3.10/transcendental-datum"
-      ]
-    },
-    {
-      "supplier": "GeometryOfNumbersAndQuadraticArithmetic:GN.3",
-      "need": "Supply integral lattice finiteness at bounded rank/signature and nonzero absolute determinant, a bounded positive represented square for each of the finitely many hyperbolic classes, and the uniform finite-order integral-automorphism exponent in rank≤22. Existing mass/theta nodes are not these finiteness theorems.",
-      "neededBy": [
-        "K3SurfacesAndSymplecticBoundedness:K3.4/ns-descent",
-        "K3SurfacesAndSymplecticBoundedness:K3.7/finite-ns",
-        "K3SurfacesAndSymplecticBoundedness:K3.7/unpolarized-finiteness"
-      ]
-    },
-    {
       "supplier": "MotivesAndAlgebraicCycles:MC.7",
       "need": "Expose early independent leaves for the integral Lefschetz (1,1) theorem, Tate–Brauer equivalence over finite fields (including the dyadic qualification), and rational Tate finite-field descent via MC.0/MC.2 trace. Keep Charles Theorems 1.3/1.4 as late consumers of this roadmap. The broad known-cases register is not an acyclic substitute for the early leaves. For K3.10 special-fiber algebraicity choose an independently sourced K3 divisor theorem with no dependency on Picard jumps, or follow the late K3.9→MC.7→K3.10 route after discharging the K3.9 gates. This late input must not feed the partner contradiction.",
       "neededBy": [
@@ -4373,7 +4425,7 @@
     },
     {
       "supplier": "ShimuraVarieties:V6",
-      "need": "The generic orthogonal Hodge-type canonical model. The good-prime KS and all-prime GSpin integral models, primitive H²(1) tensor, finite unramified KS map, finite images over a fixed abelian fiber, special-endomorphism lattice and extension property are requested as OrthogonalIntegralModelsAndKugaSatake, a Part II of this owner, currently absent. This generic stage alone does not provide those integral theorems.",
+      "need": "The generic orthogonal Hodge-type canonical model. The good-prime KS and all-prime GSpin integral models, primitive H²(1) tensor, finite unramified KS map, finite images over a fixed abelian fiber, special-endomorphism lattice and extension property are requested as OrthogonalIntegralModelsAndKugaSatake, a Part II of this owner, currently absent. This generic stage alone does not provide those integral theorems. The absolute-Hodge tensor/moduli interpretation, passage from polarized primitive H² to the chosen maximal transcendental lattice and any required involution compatibility are extra supplier theorems; V6 bare canonical-model existence and André Main Lemma 1.7.1 alone do not assert them.",
       "neededBy": [
         "K3SurfacesAndSymplecticBoundedness:K3.7/ns-special-endomorphisms",
         "K3SurfacesAndSymplecticBoundedness:K3.7/finite-ns",
@@ -4432,7 +4484,7 @@
         "Mukai and Hilbert geometric comparison proof leaves: Charles Theorem 2.4 cites Mukai/Yoshioka and Beauville for the complex comparison and Hilbert-scheme geometry; Proposition 2.6 uses the corrected Hilbert–Chow open stratum. Check those primary proofs, integral θ normalization/similitude cancellation, and cohomology in degrees two/three before closing these targets. Deformation-equivalent is not replaced by birational.",
         "Resolve supplier SchemeAndStackFoundations:SF.5: Surface Riemann–Roch, adjunction, Chern character/Todd class, trace/cup and intersection, Hodge index for N¹_R, and the K3 linear-series vanishing inputs with their characteristic restrictions. Supply one shared intersection theory, not a private K3 copy.",
         "Resolve supplier ComplexComparisonPartII:C5: Supply multiplicative cup/trace/first-Chern compatibility of the concrete proper de Rham–Betti and pure-Hodge maps already referenced, plus the analytic family/local-system comparisons used by the IHS period map. No new Hodge-structure carrier is requested.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them."
+        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II."
       ],
       "targets": [
         "K3SurfacesAndSymplecticBoundedness:K3.1/mukai-lattice",
@@ -4452,7 +4504,7 @@
         "Mukai and Hilbert geometric comparison proof leaves: Charles Theorem 2.4 cites Mukai/Yoshioka and Beauville for the complex comparison and Hilbert-scheme geometry; Proposition 2.6 uses the corrected Hilbert–Chow open stratum. Check those primary proofs, integral θ normalization/similitude cancellation, and cohomology in degrees two/three before closing these targets. Deformation-equivalent is not replaced by birational.",
         "Small-weight and specialization endpoints: Pin the precise Fontaine–Messing low-degree freeness theorem and Elsenhans–Jahnel NS specialization hypotheses used in Proposition 2.6/Corollary 2.7. Distinguish a W-lift from a ramified lift, full p>dimension degeneration from low-degree degeneration, and [0,p−2] full faithfulness from endpoint restrictions. Keep the p=3 branch explicit.",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.2: Integral first Chern classes with Tate twists, cup/trace and correspondence realization, and compatibility of Betti, de Rham, crystalline and prime-to-p étale maps in the scopes supplied by their comparison owners.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them.",
+        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.5: Coarse moduli, rigidification, quasi-universal sheaves and descent obstructions, finite-field Br=0 and line-bundle descent. Stable/twisted-sheaf gerbes are the requested Part II extension, not objects already supplied by this stage.",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.0: Correspondence composition, trace/norm along finite field extension and push-pull identities needed by θ and rational Tate descent. Use the shared Chow/realization owner.",
         "Resolve supplier CrystallineCohomology:CR.2: Smooth-lift crystalline–de Rham identification, filtration/base-change maps and the Hodge/conjugate comparison for degree-two K3 cohomology.",
@@ -4474,9 +4526,9 @@
       "status": "planned",
       "remaining": [
         "Small-weight and specialization endpoints: Pin the precise Fontaine–Messing low-degree freeness theorem and Elsenhans–Jahnel NS specialization hypotheses used in Proposition 2.6/Corollary 2.7. Distinguish a W-lift from a ramified lift, full p>dimension degeneration from low-degree degeneration, and [0,p−2] full faithfulness from endpoint restrictions. Keep the p=3 branch explicit.",
-        "Primitive embedding and bounded integral lattice supplier: GN.2/GN.3 scope is broader than its current packet nodes but does not yet contain the exact requested Charles primitive embedding or bounded-determinant finite-class theorem. Read Charles Proposition 2.9 pp.500–502 with the primitive-subspace repair, W′ target repair and (2d)! exclusion. Supply the integral finite-class proof and unit-norm theorem there rather than in K3.",
+        "Primitive embedding and bounded integral lattice supplier: Current IntegralLattices already owns local lattices/Jordan/genus theory (3A–3H) and Nikulin primitive embeddings (5F–5I); import them, never replan them in GN.2/GN.3 or K3. Its Part II must supply the corrected Charles Proposition 2.9 congruence-transport corollary, unit-representation/isotropic-quotient/maximal-lattice corollaries and the bounded positive-square/finite-order-exponent consequences. For finite classes, 2G supplies the definite branch and 4E the rank-two branch. Indefinite rank≥3 finiteness is explicitly excluded there and assigned to OrthogonalTamagawaAndLatticeMass; that successor has no current roadmap/packet, so the full bounded-determinant finite-class consequence remains a gap. No generic class-finiteness theorem is presumed from either existing branch. The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.5: Coarse moduli, rigidification, quasi-universal sheaves and descent obstructions, finite-field Br=0 and line-bundle descent. Stable/twisted-sheaf gerbes are the requested Part II extension, not objects already supplied by this stage.",
-        "Resolve supplier GeometryOfNumbersAndQuadraticArithmetic:GN.2: Extend beyond the existing generic lattice/localization nodes: Charles Proposition 2.9 primitive positive rank-two embeddings Λ⊂⟨2d⟩⊕U transported to ⟨2md⟩⊕U with m≡1 mod N and a,b square residues, preserving primitivity; absorb primes dividing (2d)! into N. Also supply odd-ℓ unimodular rank≥2 representation of every unit, the rank-one square-discriminant case, primitive isotropic quotient determinant and maximal-lattice local genus comparisons (including dyadic distinctions)."
+        "Import current upstream tauceti:TauCetiRoadmap/IntegralLattices#layer-5-discriminant-forms-and-nikulins-theory: Import current IntegralLattices 5F primitivity and 5I general even-lattice primitive-embedding classification, with 5A/5B discriminant-form and existence inputs. Its additional consumer contract is IntegralLattices, Part II: the corrected Charles Proposition 2.9 pp.500–502 congruence transport from ⟨2d⟩⊕U to ⟨2md⟩⊕U for a primitive positive rank-two sublattice, m≡1 mod N and the stated two square-residue conditions; absorb primes dividing (2d)! into N and place the transported subgroup in A_(2md). That congruence theorem is not already supplied by Nikulin 5I and has no stage yet."
       ],
       "targets": [
         "K3SurfacesAndSymplecticBoundedness:K3.3/rank-two-plane",
@@ -4490,12 +4542,12 @@
       "status": "planned",
       "remaining": [
         "K3 classical geometry and coherent foundations: Acquire and check the exact primary proof leaves behind Charles: finite-rank/even primitive Picard lattice; K3 minimality; finite-height Picard lift (Lieblich–Maulik Corollary 4.2) and Artin dimension-9 infinite-height locus; K3 surface linear-series/fixed-component theorems. SF.2/SF.5 and R09.6 supply the shared geometry, but these K3 specializations are not baseline declarations.",
-        "Primitive embedding and bounded integral lattice supplier: GN.2/GN.3 scope is broader than its current packet nodes but does not yet contain the exact requested Charles primitive embedding or bounded-determinant finite-class theorem. Read Charles Proposition 2.9 pp.500–502 with the primitive-subspace repair, W′ target repair and (2d)! exclusion. Supply the integral finite-class proof and unit-norm theorem there rather than in K3.",
+        "Primitive embedding and bounded integral lattice supplier: Current IntegralLattices already owns local lattices/Jordan/genus theory (3A–3H) and Nikulin primitive embeddings (5F–5I); import them, never replan them in GN.2/GN.3 or K3. Its Part II must supply the corrected Charles Proposition 2.9 congruence-transport corollary, unit-representation/isotropic-quotient/maximal-lattice corollaries and the bounded positive-square/finite-order-exponent consequences. For finite classes, 2G supplies the definite branch and 4E the rank-two branch. Indefinite rank≥3 finiteness is explicitly excluded there and assigned to OrthogonalTamagawaAndLatticeMass; that successor has no current roadmap/packet, so the full bounded-determinant finite-class consequence remains a gap. No generic class-finiteness theorem is presumed from either existing branch. The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.",
         "Characteristic-two birationality leaf: Charles Proposition 3.1 p.506 requires a degree-one/separability argument for the map on a nonreduced general member in characteristic two. The rejected r=2 degree objection does not resolve this leaf. Prove the required jet separation and degree-one assertion, or provide a source-qualified replacement, before the all-characteristic boundedness/fixed-square endpoint is unconditional.",
         "Resolve supplier SchemeAndStackFoundations:SF.5: Surface Riemann–Roch, adjunction, Chern character/Todd class, trace/cup and intersection, Hodge index for N¹_R, and the K3 linear-series vanishing inputs with their characteristic restrictions. Supply one shared intersection theory, not a private K3 copy.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them.",
+        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.5: Coarse moduli, rigidification, quasi-universal sheaves and descent obstructions, finite-field Br=0 and line-bundle descent. Stable/twisted-sheaf gerbes are the requested Part II extension, not objects already supplied by this stage.",
-        "Resolve supplier GeometryOfNumbersAndQuadraticArithmetic:GN.3: Supply integral lattice finiteness at bounded rank/signature and nonzero absolute determinant, a bounded positive represented square for each of the finitely many hyperbolic classes, and the uniform finite-order integral-automorphism exponent in rank≤22. Existing mass/theta nodes are not these finiteness theorems."
+        "Import current upstream tauceti:TauCetiRoadmap/IntegralLattices#layer-4-classes-spinor-genera-eichlers-theorem-and-neighbors: Import current IntegralLattices 4A class sets, 3F/3G local genus data, 2G definite finite classes and the rank-two half of 4E. The indefinite rank≥3 half of 4E belongs to its named successor OrthogonalTamagawaAndLatticeMass, currently absent, and is a recorded gap. Request from that successor the bounded-rank/signature/nonzero-determinant finite-class consequence, combining finite local genera with finite classes in each genus. The bounded positive square for finitely many hyperbolic classes and the exponent 6983776800 for finite-order rank≤22 automorphisms fixing an ample vector are additional IntegralLattices Part II corollaries, not new K3 lattice theory."
       ],
       "targets": [
         "K3SurfacesAndSymplecticBoundedness:K3.4/nef-linear-series",
@@ -4508,11 +4560,11 @@
       "stageId": "K3SurfacesAndSymplecticBoundedness:K3.5",
       "status": "planned",
       "remaining": [
-        "IHS projectivity, period and birational proof leaves: Check Huybrechts 1999 Theorem 3.11 together with the 2003 erratum, Beauville local Torelli, Sullivan/Markman finite-index results, Verbitsky/Markman parallel-transport Torelli and period surjectivity in the exact scopes used by Charles Lemma 3.5/Theorem 3.3. R09.4 must export Kollár–Matsusaka and noetherian-family birational bounds, while V2/V3 export algebraization. In particular verify the finite algebraic period-cover construction rather than identifying local analytic openness with global algebraic coverage.",
+        "IHS projectivity, period and birational proof leaves: Check Huybrechts 1999 Theorem 3.11 together with the 2003 erratum, Beauville local Torelli, Sullivan/Markman finite-index results, Verbitsky/Markman parallel-transport Torelli and period surjectivity in the exact scopes used by Charles Lemma 3.5/Theorem 3.3. R09.4 must export Kollár–Matsusaka and noetherian-family birational bounds, while V2/V3 export algebraization. In particular verify the finite algebraic period-cover construction rather than identifying local analytic openness with global algebraic coverage. The R09.4 request now states the Kollár–Matsusaka and Charles Lemma 3.6 uniform-big-family contracts explicitly, including the common exponent across strata; the restricted current R09.4 does not certify either theorem.",
         "Early and late MC.7 interfaces need separation: The existing MC.7/tate-and-hodge-known-cases register bundles early Lefschetz (1,1) with late K3 Tate cases. Split out independent early (1,1), Tate–Brauer, and rational trace descent leaves, and make the Charles finite-field endpoints late consumers. The register is not used directly as a prerequisite here. Audit the finite-field and characteristic-two equivalences independently.",
         "Resolve supplier ComplexComparisonPartII:C5: Supply multiplicative cup/trace/first-Chern compatibility of the concrete proper de Rham–Betti and pure-Hodge maps already referenced, plus the analytic family/local-system comparisons used by the IHS period map. No new Hodge-structure carrier is requested.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.6: Polarized K3 formal deformation and Picard obstruction/representability machinery, smooth W-algebraization with ample bundle, Grothendieck existence for twisted sheaves, and the projective rank-one relative partner family. Supply the relative determinant-line correspondence that lifts a positive power of the auxiliary line bundle over the entire polarized formal base. K3-specific calculations remain in this roadmap. Formal representability and effectivity must be proved, not assumed.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them.",
+        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II.",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.7: Expose early independent leaves for the integral Lefschetz (1,1) theorem, Tate–Brauer equivalence over finite fields (including the dyadic qualification), and rational Tate finite-field descent via MC.0/MC.2 trace. Keep Charles Theorems 1.3/1.4 as late consumers of this roadmap. The broad known-cases register is not an acyclic substitute for the early leaves. For K3.10 special-fiber algebraicity choose an independently sourced K3 divisor theorem with no dependency on Picard jumps, or follow the late K3.9→MC.7→K3.10 route after discharging the K3.9 gates. This late input must not feed the partner contradiction.",
         "Resolve supplier ShimuraVarieties:V0: Arithmetic orthogonal quotients and torsion-free finite-index subgroups, applied to the extendable IHS polarization stabilizer; IHS monodromy finite index remains a local target.",
         "Resolve supplier ShimuraVarieties:V2: Baily–Borel algebraization of the arithmetic orthogonal period quotient with the actual group/action and component hypotheses.",
@@ -4531,9 +4583,9 @@
       "stageId": "K3SurfacesAndSymplecticBoundedness:K3.6",
       "status": "planned",
       "remaining": [
-        "IHS projectivity, period and birational proof leaves: Check Huybrechts 1999 Theorem 3.11 together with the 2003 erratum, Beauville local Torelli, Sullivan/Markman finite-index results, Verbitsky/Markman parallel-transport Torelli and period surjectivity in the exact scopes used by Charles Lemma 3.5/Theorem 3.3. R09.4 must export Kollár–Matsusaka and noetherian-family birational bounds, while V2/V3 export algebraization. In particular verify the finite algebraic period-cover construction rather than identifying local analytic openness with global algebraic coverage.",
+        "IHS projectivity, period and birational proof leaves: Check Huybrechts 1999 Theorem 3.11 together with the 2003 erratum, Beauville local Torelli, Sullivan/Markman finite-index results, Verbitsky/Markman parallel-transport Torelli and period surjectivity in the exact scopes used by Charles Lemma 3.5/Theorem 3.3. R09.4 must export Kollár–Matsusaka and noetherian-family birational bounds, while V2/V3 export algebraization. In particular verify the finite algebraic period-cover construction rather than identifying local analytic openness with global algebraic coverage. The R09.4 request now states the Kollár–Matsusaka and Charles Lemma 3.6 uniform-big-family contracts explicitly, including the common exponent across strata; the restricted current R09.4 does not certify either theorem.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.6: Polarized K3 formal deformation and Picard obstruction/representability machinery, smooth W-algebraization with ample bundle, Grothendieck existence for twisted sheaves, and the projective rank-one relative partner family. Supply the relative determinant-line correspondence that lifts a positive power of the auxiliary line bundle over the entire polarized formal base. K3-specific calculations remain in this roadmap. Formal representability and effectivity must be proved, not assumed.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them."
+        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II."
       ],
       "targets": [
         "K3SurfacesAndSymplecticBoundedness:K3.6/period-cover",
@@ -4547,7 +4599,7 @@
       "status": "planned",
       "remaining": [
         "Small-weight and specialization endpoints: Pin the precise Fontaine–Messing low-degree freeness theorem and Elsenhans–Jahnel NS specialization hypotheses used in Proposition 2.6/Corollary 2.7. Distinguish a W-lift from a ramified lift, full p>dimension degeneration from low-degree degeneration, and [0,p−2] full faithfulness from endpoint restrictions. Keep the p=3 branch explicit.",
-        "Primitive embedding and bounded integral lattice supplier: GN.2/GN.3 scope is broader than its current packet nodes but does not yet contain the exact requested Charles primitive embedding or bounded-determinant finite-class theorem. Read Charles Proposition 2.9 pp.500–502 with the primitive-subspace repair, W′ target repair and (2d)! exclusion. Supply the integral finite-class proof and unit-norm theorem there rather than in K3.",
+        "Primitive embedding and bounded integral lattice supplier: Current IntegralLattices already owns local lattices/Jordan/genus theory (3A–3H) and Nikulin primitive embeddings (5F–5I); import them, never replan them in GN.2/GN.3 or K3. Its Part II must supply the corrected Charles Proposition 2.9 congruence-transport corollary, unit-representation/isotropic-quotient/maximal-lattice corollaries and the bounded positive-square/finite-order-exponent consequences. For finite classes, 2G supplies the definite branch and 4E the rank-two branch. Indefinite rank≥3 finiteness is explicitly excluded there and assigned to OrthogonalTamagawaAndLatticeMass; that successor has no current roadmap/packet, so the full bounded-determinant finite-class consequence remains a gap. No generic class-finiteness theorem is presumed from either existing branch. The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.",
         "Orthogonal integral models Part II is absent: OrthogonalIntegralModelsAndKugaSatake has routed briefs but no stage to cite. ShimuraVarieties V6 supplies generic canonical models only. Its Part II must provide the p≥5 primitive nondegenerate lattice KS model/finiteness theorem of Charles Lemma 3.12 and the distinct all-prime maximal-lattice model, special cycles and extension theorem of SSTT Proposition 2.1. Good-prime smoothness does not supply all-prime normal models.",
         "Early and late MC.7 interfaces need separation: The existing MC.7/tate-and-hodge-known-cases register bundles early Lefschetz (1,1) with late K3 Tate cases. Split out independent early (1,1), Tate–Brauer, and rational trace descent leaves, and make the Charles finite-field endpoints late consumers. The register is not used directly as a prerequisite here. Audit the finite-field and characteristic-two equivalences independently.",
         "Strong admissibility deformation proof: Read Ogus’ exact nonsuperspecial polarized deformation and ordinary-lift theorems, including the de Rham Chern-class hypotheses, and Artin’s supersingular rank constancy. Establish global power-lifting of the auxiliary L by the relative Mukai/determinant correspondence over the full 19-variable formal base. Its obstruction module is a finite free tensor with the full symmetric power; the global power-lift then kills the obstruction by torsion-freeness.",
@@ -4556,11 +4608,11 @@
         "Resolve supplier CrystallineCohomology:CR.2: Smooth-lift crystalline–de Rham identification, filtration/base-change maps and the Hodge/conjugate comparison for degree-two K3 cohomology.",
         "Resolve supplier CrystallineCohomology:CR.3: Proper smooth finite crystalline complexes and their derived reductions with Frobenius; free individual H²/H³ is a separate K3/moduli theorem and is not assumed from perfectness.",
         "Resolve supplier CohomologyComparisons:CP.5: Integral lattice recovery with free adjacent degrees and the actual comparison maps. Supply the source-qualified saturation theorem needed for Corollary 2.7 and primitive special-endomorphism intersections; no integral conclusion from rational comparison alone.",
-        "Resolve supplier GeometryOfNumbersAndQuadraticArithmetic:GN.3: Supply integral lattice finiteness at bounded rank/signature and nonzero absolute determinant, a bounded positive represented square for each of the finitely many hyperbolic classes, and the uniform finite-order integral-automorphism exponent in rank≤22. Existing mass/theta nodes are not these finiteness theorems.",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.7: Expose early independent leaves for the integral Lefschetz (1,1) theorem, Tate–Brauer equivalence over finite fields (including the dyadic qualification), and rational Tate finite-field descent via MC.0/MC.2 trace. Keep Charles Theorems 1.3/1.4 as late consumers of this roadmap. The broad known-cases register is not an acyclic substitute for the early leaves. For K3.10 special-fiber algebraicity choose an independently sourced K3 divisor theorem with no dependency on Picard jumps, or follow the late K3.9→MC.7→K3.10 route after discharging the K3.9 gates. This late input must not feed the partner contradiction.",
         "Resolve supplier CohomologyComparisons:CP.2: Rational crystalline/étale comparison compatible with cup, Chern classes, Galois, Frobenius and Tate twist (1) for good-reduction K3 and KS families.",
         "Resolve supplier CrystallineCohomology:CR.4: Degree-two ordinary crystals, Newton/Hodge polygons and conjugate filtrations; the relevant K3 ordinary/deformation implications retain Ogus hypotheses.",
-        "Resolve supplier ShimuraVarieties:V6: The generic orthogonal Hodge-type canonical model. The good-prime KS and all-prime GSpin integral models, primitive H²(1) tensor, finite unramified KS map, finite images over a fixed abelian fiber, special-endomorphism lattice and extension property are requested as OrthogonalIntegralModelsAndKugaSatake, a Part II of this owner, currently absent. This generic stage alone does not provide those integral theorems."
+        "Resolve supplier ShimuraVarieties:V6: The generic orthogonal Hodge-type canonical model. The good-prime KS and all-prime GSpin integral models, primitive H²(1) tensor, finite unramified KS map, finite images over a fixed abelian fiber, special-endomorphism lattice and extension property are requested as OrthogonalIntegralModelsAndKugaSatake, a Part II of this owner, currently absent. This generic stage alone does not provide those integral theorems. The absolute-Hodge tensor/moduli interpretation, passage from polarized primitive H² to the chosen maximal transcendental lattice and any required involution compatibility are extra supplier theorems; V6 bare canonical-model existence and André Main Lemma 1.7.1 alone do not assert them.",
+        "Import current upstream tauceti:TauCetiRoadmap/IntegralLattices#layer-4-classes-spinor-genera-eichlers-theorem-and-neighbors: Import current IntegralLattices 4A class sets, 3F/3G local genus data, 2G definite finite classes and the rank-two half of 4E. The indefinite rank≥3 half of 4E belongs to its named successor OrthogonalTamagawaAndLatticeMass, currently absent, and is a recorded gap. Request from that successor the bounded-rank/signature/nonzero-determinant finite-class consequence, combining finite local genera with finite classes in each genus. The bounded positive square for finitely many hyperbolic classes and the exponent 6983776800 for finite-order rank≤22 automorphisms fixing an ample vector are additional IntegralLattices Part II corollaries, not new K3 lattice theory."
       ],
       "targets": [
         "K3SurfacesAndSymplecticBoundedness:K3.7/admissible",
@@ -4581,13 +4633,15 @@
       "remaining": [
         "Stable and twisted sheaf moduli Part II is absent: AlgebraicModuliStableTwistedSheaves has a routed brief but no roadmap definition, reserved stage or packet. R09.4–R09.6 do not currently promise this generality. Establish the Langer projective relative moduli theorem, μ_r fixed-determinant gerbes, twisted Chern/GRR, period-index rank-r existence and LMS Lemma 3.4.3 K₀ realization in that Part II. K3 nonemptiness, dimension, symplecticity, FM equivalence and θ remain here.",
         "Mukai and Hilbert geometric comparison proof leaves: Charles Theorem 2.4 cites Mukai/Yoshioka and Beauville for the complex comparison and Hilbert-scheme geometry; Proposition 2.6 uses the corrected Hilbert–Chow open stratum. Check those primary proofs, integral θ normalization/similitude cancellation, and cohomology in degrees two/three before closing these targets. Deformation-equivalent is not replaced by birational.",
+        "Primitive embedding and bounded integral lattice supplier: Current IntegralLattices already owns local lattices/Jordan/genus theory (3A–3H) and Nikulin primitive embeddings (5F–5I); import them, never replan them in GN.2/GN.3 or K3. Its Part II must supply the corrected Charles Proposition 2.9 congruence-transport corollary, unit-representation/isotropic-quotient/maximal-lattice corollaries and the bounded positive-square/finite-order-exponent consequences. For finite classes, 2G supplies the definite branch and 4E the rank-two branch. Indefinite rank≥3 finiteness is explicitly excluded there and assigned to OrthogonalTamagawaAndLatticeMass; that successor has no current roadmap/packet, so the full bounded-determinant finite-class consequence remains a gap. No generic class-finiteness theorem is presumed from either existing branch. The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.",
         "Resolve supplier SchemeAndStackFoundations:SF.2: Proper/smooth base change, Kummer and Hochschild–Serre with integral ℓ-adic coefficients, coherent cohomology for proper smooth surfaces, Serre duality, and completed cycle-class compatibility. Require ℓ invertible and use geometric versus arithmetic cohomology explicitly.",
         "Resolve supplier SchemeAndStackFoundations:SF.5: Surface Riemann–Roch, adjunction, Chern character/Todd class, trace/cup and intersection, Hodge index for N¹_R, and the K3 linear-series vanishing inputs with their characteristic restrictions. Supply one shared intersection theory, not a private K3 copy.",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.2: Integral first Chern classes with Tate twists, cup/trace and correspondence realization, and compatibility of Betti, de Rham, crystalline and prime-to-p étale maps in the scopes supplied by their comparison owners.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.6: Polarized K3 formal deformation and Picard obstruction/representability machinery, smooth W-algebraization with ample bundle, Grothendieck existence for twisted sheaves, and the projective rank-one relative partner family. Supply the relative determinant-line correspondence that lifts a positive power of the auxiliary line bundle over the entire polarized formal base. K3-specific calculations remain in this roadmap. Formal representability and effectivity must be proved, not assumed.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them.",
+        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.5: Coarse moduli, rigidification, quasi-universal sheaves and descent obstructions, finite-field Br=0 and line-bundle descent. Stable/twisted-sheaf gerbes are the requested Part II extension, not objects already supplied by this stage.",
-        "Resolve supplier MotivesAndAlgebraicCycles:MC.7: Expose early independent leaves for the integral Lefschetz (1,1) theorem, Tate–Brauer equivalence over finite fields (including the dyadic qualification), and rational Tate finite-field descent via MC.0/MC.2 trace. Keep Charles Theorems 1.3/1.4 as late consumers of this roadmap. The broad known-cases register is not an acyclic substitute for the early leaves. For K3.10 special-fiber algebraicity choose an independently sourced K3 divisor theorem with no dependency on Picard jumps, or follow the late K3.9→MC.7→K3.10 route after discharging the K3.9 gates. This late input must not feed the partner contradiction."
+        "Resolve supplier MotivesAndAlgebraicCycles:MC.7: Expose early independent leaves for the integral Lefschetz (1,1) theorem, Tate–Brauer equivalence over finite fields (including the dyadic qualification), and rational Tate finite-field descent via MC.0/MC.2 trace. Keep Charles Theorems 1.3/1.4 as late consumers of this roadmap. The broad known-cases register is not an acyclic substitute for the early leaves. For K3.10 special-fiber algebraicity choose an independently sourced K3 divisor theorem with no dependency on Picard jumps, or follow the late K3.9→MC.7→K3.10 route after discharging the K3.9 gates. This late input must not feed the partner contradiction.",
+        "Import current upstream tauceti:TauCetiRoadmap/IntegralLattices#layer-3-localization-jordan-splittings-the-genus-and-the-dyadic-density-data: Import current IntegralLattices 3A integral localization, 3B/3C odd-prime unimodular/Jordan classification, 3D dyadic distinctions and 3F–3H genus/rational comparison. Request only the additional consumer corollaries as IntegralLattices, Part II: every unit is represented by an odd-ℓ unimodular lattice of rank≥2, rank-one square-discriminant unit representation, the primitive-isotropic quotient determinant calculation, and the source-qualified maximal Q-integral lattice genus comparison. Do not infer representation of nonunits or dyadic uniqueness from 3C; neither generic carrier nor local classification is replanned here."
       ],
       "targets": [
         "K3SurfacesAndSymplecticBoundedness:K3.8/arithmetic-transcendental",
@@ -4605,7 +4659,7 @@
       "stageId": "K3SurfacesAndSymplecticBoundedness:K3.9",
       "status": "planned",
       "remaining": [
-        "Primitive embedding and bounded integral lattice supplier: GN.2/GN.3 scope is broader than its current packet nodes but does not yet contain the exact requested Charles primitive embedding or bounded-determinant finite-class theorem. Read Charles Proposition 2.9 pp.500–502 with the primitive-subspace repair, W′ target repair and (2d)! exclusion. Supply the integral finite-class proof and unit-norm theorem there rather than in K3.",
+        "Primitive embedding and bounded integral lattice supplier: Current IntegralLattices already owns local lattices/Jordan/genus theory (3A–3H) and Nikulin primitive embeddings (5F–5I); import them, never replan them in GN.2/GN.3 or K3. Its Part II must supply the corrected Charles Proposition 2.9 congruence-transport corollary, unit-representation/isotropic-quotient/maximal-lattice corollaries and the bounded positive-square/finite-order-exponent consequences. For finite classes, 2G supplies the definite branch and 4E the rank-two branch. Indefinite rank≥3 finiteness is explicitly excluded there and assigned to OrthogonalTamagawaAndLatticeMass; that successor has no current roadmap/packet, so the full bounded-determinant finite-class consequence remains a gap. No generic class-finiteness theorem is presumed from either existing branch. The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.",
         "Characteristic-two birationality leaf: Charles Proposition 3.1 p.506 requires a degree-one/separability argument for the map on a nonreduced general member in characteristic two. The rejected r=2 degree objection does not resolve this leaf. Prove the required jet separation and degree-one assertion, or provide a source-qualified replacement, before the all-characteristic boundedness/fixed-square endpoint is unconditional.",
         "Early and late MC.7 interfaces need separation: The existing MC.7/tate-and-hodge-known-cases register bundles early Lefschetz (1,1) with late K3 Tate cases. Split out independent early (1,1), Tate–Brauer, and rational trace descent leaves, and make the Charles finite-field endpoints late consumers. The register is not used directly as a prerequisite here. Audit the finite-field and characteristic-two equivalences independently.",
         "Strong admissibility deformation proof: Read Ogus’ exact nonsuperspecial polarized deformation and ordinary-lift theorems, including the de Rham Chern-class hypotheses, and Artin’s supersingular rank constancy. Establish global power-lifting of the auxiliary L by the relative Mukai/determinant correspondence over the full 19-variable formal base. Its obstruction module is a finite free tensor with the full symmetric power; the global power-lift then kills the obstruction by torsion-freeness.",
@@ -4616,10 +4670,10 @@
         "Resolve supplier MotivesAndAlgebraicCycles:MC.2: Integral first Chern classes with Tate twists, cup/trace and correspondence realization, and compatibility of Betti, de Rham, crystalline and prime-to-p étale maps in the scopes supplied by their comparison owners.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.6: Polarized K3 formal deformation and Picard obstruction/representability machinery, smooth W-algebraization with ample bundle, Grothendieck existence for twisted sheaves, and the projective rank-one relative partner family. Supply the relative determinant-line correspondence that lifts a positive power of the auxiliary line bundle over the entire polarized formal base. K3-specific calculations remain in this roadmap. Formal representability and effectivity must be proved, not assumed.",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.0: Correspondence composition, trace/norm along finite field extension and push-pull identities needed by θ and rational Tate descent. Use the shared Chow/realization owner.",
-        "Resolve supplier GeometryOfNumbersAndQuadraticArithmetic:GN.2: Extend beyond the existing generic lattice/localization nodes: Charles Proposition 2.9 primitive positive rank-two embeddings Λ⊂⟨2d⟩⊕U transported to ⟨2md⟩⊕U with m≡1 mod N and a,b square residues, preserving primitivity; absorb primes dividing (2d)! into N. Also supply odd-ℓ unimodular rank≥2 representation of every unit, the rank-one square-discriminant case, primitive isotropic quotient determinant and maximal-lattice local genus comparisons (including dyadic distinctions).",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.7: Expose early independent leaves for the integral Lefschetz (1,1) theorem, Tate–Brauer equivalence over finite fields (including the dyadic qualification), and rational Tate finite-field descent via MC.0/MC.2 trace. Keep Charles Theorems 1.3/1.4 as late consumers of this roadmap. The broad known-cases register is not an acyclic substitute for the early leaves. For K3.10 special-fiber algebraicity choose an independently sourced K3 divisor theorem with no dependency on Picard jumps, or follow the late K3.9→MC.7→K3.10 route after discharging the K3.9 gates. This late input must not feed the partner contradiction.",
         "Resolve supplier tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev: Import the current upstream Layer 10 identity-class positive Dirichlet density and hence infinitude of rational primes splitting completely in one prescribed finite Galois extension, after deleting any finite exceptional set. hasDirichletDensity_splitCompletely is the current suggested theorem, not a baseline implementation claim.",
-        "Resolve supplier tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places: Import current upstream Layer 5 canonical continuous completion maps and the degree-one completion identification at split rational primes, supplying embeddings of every element of the common splitting field into Q_ℓ. Arbitrary abstract Q_ℓ embeddings are not substituted."
+        "Resolve supplier tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places: Import current upstream Layer 5 canonical continuous completion maps and the degree-one completion identification at split rational primes, supplying embeddings of every element of the common splitting field into Q_ℓ. Arbitrary abstract Q_ℓ embeddings are not substituted.",
+        "Import current upstream tauceti:TauCetiRoadmap/IntegralLattices#layer-3-localization-jordan-splittings-the-genus-and-the-dyadic-density-data: Import current IntegralLattices 3A integral localization, 3B/3C odd-prime unimodular/Jordan classification, 3D dyadic distinctions and 3F–3H genus/rational comparison. Request only the additional consumer corollaries as IntegralLattices, Part II: every unit is represented by an odd-ℓ unimodular lattice of rank≥2, rank-one square-discriminant unit representation, the primitive-isotropic quotient determinant calculation, and the source-qualified maximal Q-integral lattice genus comparison. Do not infer representation of nonunits or dyadic uniqueness from 3C; neither generic carrier nor local classification is replanned here."
       ],
       "targets": [
         "K3SurfacesAndSymplecticBoundedness:K3.9/brauer-tate-interface",
@@ -4638,17 +4692,17 @@
       "stageId": "K3SurfacesAndSymplecticBoundedness:K3.10",
       "status": "planned",
       "remaining": [
-        "Primitive embedding and bounded integral lattice supplier: GN.2/GN.3 scope is broader than its current packet nodes but does not yet contain the exact requested Charles primitive embedding or bounded-determinant finite-class theorem. Read Charles Proposition 2.9 pp.500–502 with the primitive-subspace repair, W′ target repair and (2d)! exclusion. Supply the integral finite-class proof and unit-norm theorem there rather than in K3.",
+        "Primitive embedding and bounded integral lattice supplier: Current IntegralLattices already owns local lattices/Jordan/genus theory (3A–3H) and Nikulin primitive embeddings (5F–5I); import them, never replan them in GN.2/GN.3 or K3. Its Part II must supply the corrected Charles Proposition 2.9 congruence-transport corollary, unit-representation/isotropic-quotient/maximal-lattice corollaries and the bounded positive-square/finite-order-exponent consequences. For finite classes, 2G supplies the definite branch and 4E the rank-two branch. Indefinite rank≥3 finiteness is explicitly excluded there and assigned to OrthogonalTamagawaAndLatticeMass; that successor has no current roadmap/packet, so the full bounded-determinant finite-class consequence remains a gap. No generic class-finiteness theorem is presumed from either existing branch. The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.",
         "Orthogonal integral models Part II is absent: OrthogonalIntegralModelsAndKugaSatake has routed briefs but no stage to cite. ShimuraVarieties V6 supplies generic canonical models only. Its Part II must provide the p≥5 primitive nondegenerate lattice KS model/finiteness theorem of Charles Lemma 3.12 and the distinct all-prime maximal-lattice model, special cycles and extension theorem of SSTT Proposition 2.1. Good-prime smoothness does not supply all-prime normal models.",
         "Early and late MC.7 interfaces need separation: The existing MC.7/tate-and-hodge-known-cases register bundles early Lefschetz (1,1) with late K3 Tate cases. Split out independent early (1,1), Tate–Brauer, and rational trace descent leaves, and make the Charles finite-field endpoints late consumers. The register is not used directly as a prerequisite here. Audit the finite-field and characteristic-two equivalences independently.",
         "All-prime special-endomorphism algebraicity and normalization: André Main Lemma 1.7.1(ii), p.210, gives a Galois-equivariant even-Clifford comparison, with integral Z_ℓ modules in its stated scope. It is not a special-fiber divisor theorem. SSTT §9.1 p.45 additionally needs special-endomorphism algebraicity on the K3 reduction, all-prime specialization and denominator control. Supply that theorem from the integral orthogonal/K3 divisor theory, comparing its quadratic realization with the chosen Q_T=−cup/2. A nonzero rational negative divisor suffices for rank jumps once its algebraicity is proved.",
         "Resolve supplier SchemeAndStackFoundations:SF.2: Proper/smooth base change, Kummer and Hochschild–Serre with integral ℓ-adic coefficients, coherent cohomology for proper smooth surfaces, Serre duality, and completed cycle-class compatibility. Require ℓ invertible and use geometric versus arithmetic cohomology explicitly.",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.2: Integral first Chern classes with Tate twists, cup/trace and correspondence realization, and compatibility of Betti, de Rham, crystalline and prime-to-p étale maps in the scopes supplied by their comparison owners.",
         "Resolve supplier CohomologyComparisons:CP.5: Integral lattice recovery with free adjacent degrees and the actual comparison maps. Supply the source-qualified saturation theorem needed for Corollary 2.7 and primitive special-endomorphism intersections; no integral conclusion from rational comparison alone.",
-        "Resolve supplier GeometryOfNumbersAndQuadraticArithmetic:GN.2: Extend beyond the existing generic lattice/localization nodes: Charles Proposition 2.9 primitive positive rank-two embeddings Λ⊂⟨2d⟩⊕U transported to ⟨2md⟩⊕U with m≡1 mod N and a,b square residues, preserving primitivity; absorb primes dividing (2d)! into N. Also supply odd-ℓ unimodular rank≥2 representation of every unit, the rank-one square-discriminant case, primitive isotropic quotient determinant and maximal-lattice local genus comparisons (including dyadic distinctions).",
         "Resolve supplier MotivesAndAlgebraicCycles:MC.7: Expose early independent leaves for the integral Lefschetz (1,1) theorem, Tate–Brauer equivalence over finite fields (including the dyadic qualification), and rational Tate finite-field descent via MC.0/MC.2 trace. Keep Charles Theorems 1.3/1.4 as late consumers of this roadmap. The broad known-cases register is not an acyclic substitute for the early leaves. For K3.10 special-fiber algebraicity choose an independently sourced K3 divisor theorem with no dependency on Picard jumps, or follow the late K3.9→MC.7→K3.10 route after discharging the K3.9 gates. This late input must not feed the partner contradiction.",
         "Resolve supplier CohomologyComparisons:CP.2: Rational crystalline/étale comparison compatible with cup, Chern classes, Galois, Frobenius and Tate twist (1) for good-reduction K3 and KS families.",
-        "Resolve supplier ShimuraVarieties:V6: The generic orthogonal Hodge-type canonical model. The good-prime KS and all-prime GSpin integral models, primitive H²(1) tensor, finite unramified KS map, finite images over a fixed abelian fiber, special-endomorphism lattice and extension property are requested as OrthogonalIntegralModelsAndKugaSatake, a Part II of this owner, currently absent. This generic stage alone does not provide those integral theorems."
+        "Resolve supplier ShimuraVarieties:V6: The generic orthogonal Hodge-type canonical model. The good-prime KS and all-prime GSpin integral models, primitive H²(1) tensor, finite unramified KS map, finite images over a fixed abelian fiber, special-endomorphism lattice and extension property are requested as OrthogonalIntegralModelsAndKugaSatake, a Part II of this owner, currently absent. This generic stage alone does not provide those integral theorems. The absolute-Hodge tensor/moduli interpretation, passage from polarized primitive H² to the chosen maximal transcendental lattice and any required involution compatibility are extra supplier theorems; V6 bare canonical-model existence and André Main Lemma 1.7.1 alone do not assert them.",
+        "Import current upstream tauceti:TauCetiRoadmap/IntegralLattices#layer-3-localization-jordan-splittings-the-genus-and-the-dyadic-density-data: Import current IntegralLattices 3A integral localization, 3B/3C odd-prime unimodular/Jordan classification, 3D dyadic distinctions and 3F–3H genus/rational comparison. Request only the additional consumer corollaries as IntegralLattices, Part II: every unit is represented by an odd-ℓ unimodular lattice of rank≥2, rank-one square-discriminant unit representation, the primitive-isotropic quotient determinant calculation, and the source-qualified maximal Q-integral lattice genus comparison. Do not infer representation of nonunits or dyadic uniqueness from 3C; neither generic carrier nor local classification is replanned here."
       ],
       "targets": [
         "K3SurfacesAndSymplecticBoundedness:K3.10/transcendental-datum",
@@ -4668,7 +4722,7 @@
         "Li–Liedtke version, rigidity and stable-map leaves: Read arXiv:1012.3777v2 §3 pp.9–11, Proposition 3.2/Theorem 3.3. SSTT cites published §4 Proposition 4.2/Theorem 4.3; a publisher/author-version numbering and content comparison remains needed. Extract the genus-zero stable-map properness, rigidifier theorem (v2 Theorem 2.9), deformation dimension and horizontal divisor proof, and justify the substitution of finitely many unirational exceptions for the original non-supersingular density-one input. General stable-map construction belongs to the moduli Part II; K3 rigidity and lifting stay here.",
         "Potential-good-reduction model comparison: SSTT Theorem 1.1 assumes a globally smooth projective O_K model after finite extension, while Corollary 1.3 is phrased in terms of everywhere potentially good reduction. Supply the simultaneous polarized-model/base-extension theorem used to pass between these hypotheses and the unirational⇒supersingular K3 implication. Do not silently identify local smooth proper algebraic-space models with a globally projective scheme.",
         "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.6: Polarized K3 formal deformation and Picard obstruction/representability machinery, smooth W-algebraization with ample bundle, Grothendieck existence for twisted sheaves, and the projective rank-one relative partner family. Supply the relative determinant-line correspondence that lifts a positive power of the auxiliary line bundle over the entire polarized formal base. K3-specific calculations remain in this roadmap. Formal representability and effectivity must be proved, not assumed.",
-        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them.",
+        "Resolve supplier AlgebraicModuliForArithmeticGeometry:R09.4: Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II.",
         "Resolve supplier GrossZagierAndArithmeticHeights:GZ.6: Extend the curve-level arithmetic generating-series scope as GSpinSpecialDivisorHeights, currently absent: for b≥3, a maximal integral lattice of signature (b,2), and Y∈M(O_K) avoiding every special divisor generically, infinitely many finite places meet some Z(m), m>0 (SSTT Theorem 1.8). Retain the source corrections routed to that supplier; no GSpin height theory is duplicated here."
       ],
       "targets": [
@@ -4726,14 +4780,18 @@
     },
     {
       "title": "Primitive embedding and bounded integral lattice supplier",
-      "detail": "GN.2/GN.3 scope is broader than its current packet nodes but does not yet contain the exact requested Charles primitive embedding or bounded-determinant finite-class theorem. Read Charles Proposition 2.9 pp.500–502 with the primitive-subspace repair, W′ target repair and (2d)! exclusion. Supply the integral finite-class proof and unit-norm theorem there rather than in K3.",
+      "detail": "Current IntegralLattices already owns local lattices/Jordan/genus theory (3A–3H) and Nikulin primitive embeddings (5F–5I); import them, never replan them in GN.2/GN.3 or K3. Its Part II must supply the corrected Charles Proposition 2.9 congruence-transport corollary, unit-representation/isotropic-quotient/maximal-lattice corollaries and the bounded positive-square/finite-order-exponent consequences. For finite classes, 2G supplies the definite branch and 4E the rank-two branch. Indefinite rank≥3 finiteness is explicitly excluded there and assigned to OrthogonalTamagawaAndLatticeMass; that successor has no current roadmap/packet, so the full bounded-determinant finite-class consequence remains a gap. No generic class-finiteness theorem is presumed from either existing branch. The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.",
       "neededBy": [
         "K3SurfacesAndSymplecticBoundedness:K3.3/rank-two-plane",
         "K3SurfacesAndSymplecticBoundedness:K3.3/zarhin",
         "K3SurfacesAndSymplecticBoundedness:K3.4/ns-descent",
         "K3SurfacesAndSymplecticBoundedness:K3.7/unpolarized-finiteness",
         "K3SurfacesAndSymplecticBoundedness:K3.9/simultaneous-norm",
-        "K3SurfacesAndSymplecticBoundedness:K3.10/transcendental-datum"
+        "K3SurfacesAndSymplecticBoundedness:K3.10/transcendental-datum",
+        "K3SurfacesAndSymplecticBoundedness:K3.7/finite-ns",
+        "K3SurfacesAndSymplecticBoundedness:K3.8/partner-discriminant",
+        "K3SurfacesAndSymplecticBoundedness:K3.9/conditional-norm",
+        "K3SurfacesAndSymplecticBoundedness:K3.9/fixed-positive-square"
       ]
     },
     {
@@ -4747,7 +4805,7 @@
     },
     {
       "title": "IHS projectivity, period and birational proof leaves",
-      "detail": "Check Huybrechts 1999 Theorem 3.11 together with the 2003 erratum, Beauville local Torelli, Sullivan/Markman finite-index results, Verbitsky/Markman parallel-transport Torelli and period surjectivity in the exact scopes used by Charles Lemma 3.5/Theorem 3.3. R09.4 must export Kollár–Matsusaka and noetherian-family birational bounds, while V2/V3 export algebraization. In particular verify the finite algebraic period-cover construction rather than identifying local analytic openness with global algebraic coverage.",
+      "detail": "Check Huybrechts 1999 Theorem 3.11 together with the 2003 erratum, Beauville local Torelli, Sullivan/Markman finite-index results, Verbitsky/Markman parallel-transport Torelli and period surjectivity in the exact scopes used by Charles Lemma 3.5/Theorem 3.3. R09.4 must export Kollár–Matsusaka and noetherian-family birational bounds, while V2/V3 export algebraization. In particular verify the finite algebraic period-cover construction rather than identifying local analytic openness with global algebraic coverage. The R09.4 request now states the Kollár–Matsusaka and Charles Lemma 3.6 uniform-big-family contracts explicitly, including the common exponent across strata; the restricted current R09.4 does not certify either theorem.",
       "neededBy": [
         "K3SurfacesAndSymplecticBoundedness:K3.5/positive-projectivity",
         "K3SurfacesAndSymplecticBoundedness:K3.5/deformation-representatives",
@@ -4872,17 +4930,22 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E1",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The index calculation on pp.499–500 gives v²/I². The primitive vector (1,0,−1) has square 2 and index 2, so the factor is 1/2; the correction preserves the useful prime-to-p bound.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
       "id": "K3SurfacesAndSymplecticBoundedness/E2",
       "source": "Charles16",
-      "kind": "error",
+      "kind": "gap",
       "locator": "Proposition 2.9, p.500, as used in the proof of Theorem 2.10, p.503, in the published version, Annals of Mathematics 184 (2016), 487–526 (publisher PDF, SHA-256 3425f269…40e2)",
       "printed": "The rank-two embedding statement does not require the input sublattice to be primitive.",
       "correction": "Require primitivity. In the consumer use v=e+f, w=kh+e in ⟨2d⟩⊕U. Their span is split primitive and has determinant 4dk²−1>0.",
-      "reason": "The proof applies primitive embedding theory. The map (x,y,z)↦(z,y−z) retracts the displayed ordered pair; arbitrary nonprimitive inputs do not satisfy that proof.",
-      "affects": "a stated result",
+      "reason": "The cited proof uses primitive embedding theory. In the consumer, using coordinates (h,e,f), the map (x,y,z)↦(z,y−z) retracts the ordered pair (v,w). This repairs the consumer; no counterexample to the printed broader existence assertion is claimed.",
+      "affects": "the proof",
       "known": "Inherited accepted finding from PAPER-CHARLES-16, reviewed by REV-PAPER-CHARLES-16; no separate published correction identified in this pass. No novelty claim.",
       "searched": [
         "Published Charles 2016 publisher PDF and corresponding passages of published LMS 2014 PDF.",
@@ -4892,6 +4955,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E2",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The invoked Nikulin primitive-embedding argument needs a primitive input. The displayed consumer span is primitive: in basis (h,e,f), (x,y,z)↦(z,y−z) retracts (v,w). This confirms the proof-interface gap; no counterexample to the broader printed existence assertion is claimed.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -4912,6 +4980,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E4",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the setup p.513 and later choice p.516: the required lower bound is level≥3 prime to p. The reversed inequality in the later proof is a misprint.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -4932,6 +5005,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E5",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Proposition 3.17 and proof pp.517–518. Taking eligible tensor powers on one surface varies polarization degree indefinitely. Its argument bounds underlying surfaces via NS lattices, which is the corrected conclusion.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -4952,6 +5030,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E6",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Substitution into the rational exponential gives (r,D,−α²/(2r))=(r,D,d/r). Thus the claimed integral preimage need not contain the displayed generator, whereas the explicit span remains the intended lattice.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -4972,6 +5055,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E7",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On p.522 the class is constructed on X_n by the isotropic θ map. Its square is the Mukai square 2dℓ^(2n), so the initial-divisor label is incorrect.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -4992,6 +5080,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E8",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Lemma 4.5 pp.520–521. Valuations do not determine unit square classes. The stated Cayley repair needs F+1 invertible and pairing compatibility; the directly checked LMS quadratic-extension route remains a separate p≥5 substitute, not an unconditional original-field proof.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5012,6 +5105,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E9",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The final 4L in Proposition 3.1 p.506 has (4L)²=16s and, using the invoked vanishing, h⁰(4L)=2+8s. Earlier replacements must also enter the constants.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5032,6 +5130,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E10",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Published LMS p.302 has a reciprocal pair of d-dimensional eigenspaces. Its off-diagonal identity Gram matrix has determinant (−1)^d, not a halved exponent. This is a proof-display correction.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5052,6 +5155,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E11",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Published LMS p.302 overstates integral representation. Squares modulo 9 show x²+y² cannot equal 3 in Z₃. Odd-prime unit representation, with the target numerator/denominator excluded, is the sufficient replacement.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5072,6 +5180,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E12",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read LMS Proposition 2.1.2 pp.287–288: the pairing relation used for eigenspace orthogonality is missing from its abstract hypotheses. The stated rank-two counterfamily has ambient determinant −1 and fixed-line determinant ℓ^m, so the omitted relation is essential.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5092,13 +5205,18 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E13",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Compare the étale primitive weight-zero tensor and crystalline display on p.514. The correct crystalline input is its primitive H²(1) realization; full untwisted H² has both the wrong rank and weight for that displayed comparison.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
       "id": "K3SurfacesAndSymplecticBoundedness/E14",
       "source": "Charles16",
       "kind": "misprint",
-      "locator": "Charles §4.1 p. 519, gerbe convention; compare LMS §3.3 arXiv v5 p. 11",
+      "locator": "Charles §4.1 p.519; compare published LMS Notation 3.2.3 p.294 and §3.3 pp.296–297",
       "printed": "The gerbe label uses the opposite sign from the positive-exponential convention imported from LMS.",
       "correction": "For exp(+α/r), take the gerbe of class −[α_n]. A simultaneous change of both conventions is also consistent.",
       "reason": "The twisted Chern character and tensor action must use the same sign as LMS Notation 3.2.3 and Definition 3.3.1.",
@@ -5112,13 +5230,18 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E14",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Charles p.519 against published LMS pp.294,296–297. Under exp(+B), the LMS gerbe is −[α_n]. Changing both signs consistently is possible; mixing them changes the twisted Chern formula.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
       "id": "K3SurfacesAndSymplecticBoundedness/E16",
       "source": "Charles16",
       "kind": "gap",
-      "locator": "Charles §4.1 p. 519, isotropic moduli assertion; LMS Proposition 3.4.2 proof arXiv v5 p. 13",
+      "locator": "Charles §4.1 p.519; compare published LMS Proposition 3.4.2 and proof pp.299–300",
       "printed": "Automatic geometric stability is invoked without establishing the geometric order of the Brauer class.",
       "correction": "Show that r is the exact order of the class over the algebraic closure before applying the rank-r stability argument.",
       "reason": "A primitive integral algebraic numerator can have trivial Brauer image. Arithmetic order or numerator primitivity alone does not give the geometric rank divisibility used in that proof.",
@@ -5132,6 +5255,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E16",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Charles §4.1 and LMS Proposition 3.4.2/proof pp.299–300. Rank divisibility of twisted subsheaves uses geometric period equal to r. A primitive algebraic numerator can have zero Brauer class, so its primitivity alone cannot justify stability.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5152,6 +5280,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E17",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Direct pairing in the displayed v_n gives (γ+D)·D=+2d on p.522. Its θ-image is a divisor on the partner X_n. Both corrections agree with the construction.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5172,6 +5305,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E18",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The lattice parameter in Proposition 2.9 pp.500–501 is d; the unrelated n in the factorial exclusion is undefined there. Using (2d)! gives the required exclusion.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5192,6 +5330,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E19",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The target of the transported discriminant subgroup in Proposition 2.9 p.501 is the discriminant group of Λ_(2md). Keeping A_(2d) would put it in the source object.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5212,6 +5355,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E20",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 2.10 constructs a fourfold with dim M=v²+2=4. The p.517 use must therefore have v²=2. This correction does not remove E1’s rational index factor.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5232,6 +5380,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E21",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the final argument pp.522–523: its superspecial reduction is performed on X, while Proposition 3.17 requires nonsuperspecialness of each relevant input X_n. The missing infinite eligible subsequence is a proof gate, not a disproof of the endpoint.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5252,6 +5405,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E22",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read Proposition 3.10 pp.512–513. For a 19-variable augmentation ideal, I^(j+1)/I^(j+2) has rank binomial(j+19,18), already 19 at j=0. Only the H²(O_M) factor is rank one; the whole tensor is free and still requires the global power-lift.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5272,6 +5430,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E23",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Poincaré duality in complex dimension 2n pairs H²(1) with H^(4n−2)(2n−1), and cup by an ample class to power 2n−2 has exactly this degree/twist. The p.497 labels are inconsistent with that pairing.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5292,6 +5455,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E24",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The construction in Proposition 2.6 p.498 removes higher collision strata. For n≥3 these are nonempty, so its blowup quotient is the Hilbert–Chow open locus rather than the full Hilbert scheme.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5312,6 +5480,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E25",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the cycle-class argument p.496. The completed Kummer map is saturated; the raw abelian quotient Z_ℓ/Z has prime-to-ℓ torsion. Finite-field numerical descent must use Br(k)=0 with the integral geometric map.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5332,6 +5505,11 @@
       "provenance": {
         "finding": "PAPER-CHARLES-16/E26",
         "reviewJob": "REV-PAPER-CHARLES-16"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The form in Theorem 2.4, the Hodge cohomology in Proposition 2.6 and the top-Chern Brauer transfer p.504 are constructions on M_H(v); the original-surface subscripts are inconsistent with their domains.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
       }
     },
     {
@@ -5347,7 +5525,12 @@
       "searched": [
         "Version-of-record SSTT PDF, §9.1 pp.44–45 and Proposition 2.1/Definition 2.2 pp.10–11.",
         "GDZ scan of André 1996 §1 pp.205–210, especially the exact statement of Main Lemma 1.7.1."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the scanned Main Lemma 1.7.1 p.210 and SSTT §9.1 p.45. The lemma gives descent and a generic even-Clifford Galois comparison, not algebraicity of every special-fiber special endomorphism as a K3 divisor. The extra specialization/algebraicity and quadratic-normalization contract is therefore required; the Picard-jump theorem is not refuted.",
+        "by": "REV-DESIGN-K3SurfacesAndSymplecticBoundedness"
+      }
     }
   ],
   "restructure": [
@@ -5389,6 +5572,15 @@
       ],
       "detail": "MC.7 currently puts early divisor Hodge/Tate–Brauer interfaces and late K3 Tate conclusions in one theorem register, creating a circular route if imported wholesale.",
       "proposal": "Separate MC.7 into an early independent Lefschetz (1,1)/rational trace descent/Tate–Brauer interface and a late finite-field K3 Tate register. The early leaves feed K3.5/K3.7/K3.9/K3.10; the late register consumes K3.9 geometric-exports only after all stated gates are discharged. Do not use MC.7/tate-and-hodge-known-cases directly as an early prerequisite."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/IntegralLattices",
+        "K3SurfacesAndSymplecticBoundedness"
+      ],
+      "detail": "The input requests to GN.2/GN.3 overlapped the newer upstream IntegralLattices roadmap and omitted its deliberate split of class-number finiteness.",
+      "proposal": "Consume current IntegralLattices Layers 3–5 and the definite/rank-two finite-class branches. Put the additional Charles congruence-transport and local/determinant/finite-order consumer corollaries in IntegralLattices, Part II, without inventing stage ids. Preserve OrthogonalTamagawaAndLatticeMass as the existing named owner of indefinite rank≥3 finiteness; request its consequence only after that successor exists. Do not duplicate or fix the upstream roadmap here."
     }
   ],
   "inputCoverage": [
@@ -6064,10 +6256,10 @@
     "suppliers": [
       "SF.5 and R09 moduli/deformation layers are partly built; their current carriers do not supply the requested full geometric theorems.",
       "ComplexComparisonPartII:C5 is partly built; cite its exact cohomology/Hodge nodes and retain comparison-compatibility requests.",
-      "GN.0 is built and supplies elementary quadratic infrastructure; GN.2 is partly built and GN.3 lacks the required embedding/finiteness leaves. No general integral-lattice carrier is recreated.",
-      "No accepted supplier audit record was found for the CR/CP/MC leaves used here; their statements are planning requests, never baseline claims."
+      "No accepted supplier audit record was found for the CR/CP/MC leaves used here; their statements are planning requests, never baseline claims.",
+      "The reviewed GN.0/GN.2/GN.3 records were read against current upstream: native IntegralLattice and quadratic infrastructure are reused; IntegralLattices already plans local/genus/Nikulin theory. The old GN.2/GN.3 consumer requests are replaced by current upstream imports and explicit Part II/successor gaps."
     ],
-    "currentUpstream": "Current IntegralLattices and Completed/HodgeStructures read, alongside current OrthogonalSpinGroups and supplier searches. The current Tau Ceti source was read separately from the pinned git-show statements. No lake commands were run in the read-only upstream environment.",
+    "currentUpstream": "Independent review read Completed/HodgeStructures and AlgebraicVectorBundles, then checked the relevant current IntegralLattices README/Suggested and OrthogonalSpinGroups conventions/Suggested. Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 was searched separately from pinned f790474 declarations; upstream roadmap tree was 0d144d04. No build commands were run there.",
     "pinSearch": "No K3-surface, Mukai-sheaf-moduli or geometric Kuga–Satake carrier was found in the pinned/current searches; the native lattice, bilinear-form and Hodge filtration carriers are reused. Abstract symplectic linear algebra is not claimed absent."
   },
   "upstreamNotes": [
@@ -6077,6 +6269,426 @@
         "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
       ],
       "note": "Use current Chebotarev Layer 10 splitting-prime density and NumberFieldArithmetic Layer 5 canonical completion maps as roadmap inputs. Their suggested signatures were read; neither is asserted to be implemented at the pins."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/IntegralLattices"
+      ],
+      "note": "Current IntegralLattices Layers 3–5 replace stale generic GN requests. Its scope/4E assigns indefinite rank≥3 class finiteness to the absent OrthogonalTamagawaAndLatticeMass successor; no claim that IntegralLattices already exports that branch is made. The extra Charles transport and local/determinant/exponent corollaries require its Part II, not changes to upstream files in this job."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/IntegralLattices"
+      ],
+      "note": "The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-K3SurfacesAndSymplecticBoundedness",
+    "date": "2026-10-19",
+    "notes": "Independent source/statement, pin, current-upstream ownership, API/test and closure review of all 74 targets. Corrected provenance/locators, made existing period-point reuse explicit, completed object APIs, replaced stale GN lattice requests with current IntegralLattices imports and honest Part II/successor gaps, made two boundedness supplier contracts precise, removed unsupported André involution equivariance and independently confirmed all 25 source findings (E2 classified as a proof gap). All 12 stages remain planned with explicit remaining obligations; accepted as a complete planning pass, not mathematical closure or implementation. Suggested file elaborates at the Mathlib pin with only the 15 expected admitted-proof warnings. The current IntegralLattices layers are outside the atlas registry; exact source-layer imports and the registration limitation are recorded explicitly, without false baseline declarations.",
+    "checked": [
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.0/k3-surface",
+        "verdict": "corrected",
+        "note": "Charles §§1–2.1 pp.487–493: surface, canonical and H¹ conditions retained; nonprimitive ample bundles allowed. Add isomorphism transport and predicate extensionality to the API."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.0/ns-lattice",
+        "verdict": "corrected",
+        "note": "Charles §2.1 p.492: numerical, arithmetic and geometric groups distinguished. Add the numerical-quotient universal property; finite-rank/Picard comparison primary proofs remain in the classical-geometry gap."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.0/cycle-lattice",
+        "verdict": "corrected",
+        "note": "Repair the nonexistent §2.4 locator and misattributed Huybrechts/LMS citation. Charles Theorem 2.4 proof pp.494–497 and LMS §2.2.2 p.289 support completed cycle classes; SSTT §9.1 p.44 records the Betti lattice. Primary integral K3 computation remains a stated gap."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.0/picard-lift",
+        "verdict": "corrected",
+        "note": "Charles Proposition 1.5 p.491: ten bundles include the ample one; the dimension-9 infinite-height argument only yields a finite ramified Witt extension. Lieblich–Maulik and Artin proof acquisition remains explicit."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.1/mukai-lattice",
+        "verdict": "corrected",
+        "note": "Charles Definition 2.1 pp.492–493: cross pairing −1 and formal degree-one numerical generator retained. Componentwise equality and native bilinear/lattice compatibility are present; add coordinate simp rules."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.1/mukai-vector",
+        "verdict": "corrected",
+        "note": "Charles Definition 2.1(iii) p.493 gives (rk,c₁,χ−rk); add coordinate characterization. Structure and ideal-sheaf examples distinguish the sign of the final component."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.1/mukai-rr",
+        "verdict": "verified",
+        "note": "Charles Proposition 2.2 p.493: Ext Euler characteristic is minus the pairing. Shared RR/Chern/Todd theory is requested from SF.5 rather than assumed implemented."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.1/condition-c",
+        "verdict": "verified",
+        "note": "Charles Definition 2.3 p.493: positive rank, primitive vector, positive square and gcd(r,D·H,s)=1 all retained. Base change does not silently preserve primitivity; three arithmetic tests discriminate the conditions."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.1/coprime-stability",
+        "verdict": "verified",
+        "note": "Charles Theorem 2.4 proof p.494: equal reduced Hilbert polynomials force rank divisibility by the gcd hypothesis, excluding a proper equal-slope factor. General projective sheaf moduli remain a Part II request."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.1/ihs",
+        "verdict": "corrected",
+        "note": "Charles §1.1 p.488 and §3.2 pp.507–510: compact simply connected Kähler and a nondegenerate generator of H⁰Ω² retained. Projectivity is separate; abelian and product countertests are appropriate."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.1/hilbert-points",
+        "verdict": "corrected",
+        "note": "Charles Theorem 2.4/Proposition 2.6 pp.494–498: representability and base change are requested generically; the Hilbert–Chow blowup quotient covers only the open stratum. Beauville/cohomology primary proof leaves stay open. Clarify the indirect Charles citation: its cited primary input remains an explicit acquisition/proof obligation."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.2/stable-moduli",
+        "verdict": "verified",
+        "note": "Charles Theorem 2.4(i),(ii) pp.493–495: all condition-(C) hypotheses, dimension v²+2 and deformation equivalence to Hilbert points retained. No blanket birational-equivalence claim; geometric proof and moduli supplier gaps remain."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.2/bb-form",
+        "verdict": "corrected",
+        "note": "Charles Theorem 2.4(iii),(iv), equation (2.1), Definition 2.5 pp.493–497: Fujiki normalization restricted to K3^[n] type. Add uniqueness under the fixed positive normalization; n=1, n=2 and exceptional-divisor tests check factors."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.2/theta",
+        "verdict": "corrected",
+        "note": "Charles Theorem 2.4(v)–(vii) pp.494–497: integral étale isometry and p-primary algebraic cokernel separated, with corrected dual degree/twist. Add independence of quasi-universal presentation to the API; its primary integral proof remains a gap."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.2/hodge-moduli",
+        "verdict": "corrected",
+        "note": "Charles Proposition 2.6 p.498: full E₁ degeneration requires p>2n, while low-degree assertions have their own bounds. Adjacent-degree freeness and the p=3 Fontaine–Messing endpoint remain requested, not consequences of perfectness. Clarify the indirect Charles citation: its cited primary input remains an explicit acquisition/proof obligation."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.2/theta-specialization",
+        "verdict": "verified",
+        "note": "Charles Corollary 2.7 p.499: unramified W-lift and source-qualified saturation required. CP.5 request retains actual maps and adjacent-degree conditions; Elsenhans–Jahnel source endpoint remains open."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.2/mukai-discriminant",
+        "verdict": "verified",
+        "note": "Charles Corollary 2.8 pp.499–500 corrected by its index calculation: |disc NS(X)|=J²(v²/I²)|disc NS(M)|. The v=(1,0,−1), I=2 example gives 1/2, so integrality is correctly rejected."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.3/rank-two-plane",
+        "verdict": "corrected",
+        "note": "Charles Theorem 2.10 proof p.503: v=e+f,w=kh+e have Gram [[2,1],[1,2dk²]] and split primitive span. Specify the coordinate order (h,e,f) for the retraction; import existing IntegralLattices primitivity API."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.3/zarhin",
+        "verdict": "corrected",
+        "note": "Charles Theorem 2.10 pp.502–504: fourfold, v²=2, Chern class proportional to H and all congruence/residue hypotheses retained. Reroute the additional primitive transport theorem to IntegralLattices Part II, building on current Layer 5."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.3/descent-refinement",
+        "verdict": "verified",
+        "note": "Charles Theorem 2.10 proof/Remark 2.11 p.504: fourfold exponent 324 and distinct sixfold exponent 3200 retained. Odd-n algebraically closed and prime-to-6 arbitrary-field refinements are not conflated."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.3/zarhin-witt",
+        "verdict": "verified",
+        "note": "Charles Theorem 2.10 pp.502–504: an actual polarized W-lift, rather than merely a ramified lift, is required. The p>2 lift/construction compatibility remains distinct from later p≥5 strong admissibility."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.4/nef-linear-series",
+        "verdict": "corrected",
+        "note": "Charles Proposition 3.1 proof pp.505–506: Weyl reflections/sign choice preserve square, with elliptic fixed-component case separated. Ogus/Saint-Donat/Huybrechts primary linear-series proofs remain in the classical gap."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.4/k3-boundedness",
+        "verdict": "verified",
+        "note": "Charles Proposition 3.1 pp.504–506: final replacement 4L has square 16s and h⁰=8s+2. Conservative bounds propagate replacements; characteristic-two nonreduced-curve separability/jet separation remains an explicit proof gate."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.4/ns-descent",
+        "verdict": "corrected",
+        "note": "Charles Corollary 3.2 pp.506–507 and LMS §2.3 pp.291–292: exponent 6983776800 agrees with lcm of orders with φ≤21, after fixing an ample vector in rank≤22. Arithmetic line-bundle descent uses Br(k)=0. Reroute lattice corollaries to the existing owner."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.4/finite-k3",
+        "verdict": "verified",
+        "note": "Charles Corollary 3.2 pp.506–507 and LMS Proposition 2.4.1 pp.292–293: geometric finiteness at fixed positive square is separated from arithmetic forms in odd characteristic. Characteristic-two boundedness and cone proof leaves are not suppressed."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.5/positive-projectivity",
+        "verdict": "corrected",
+        "note": "Charles Lemma 3.5 proof pp.507–508: positive integral (1,1) class implies projectivity using Huybrechts with its erratum, and rank-one deformation supplies ampleness up to sign. The exact primary statements remain requested."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.5/deformation-representatives",
+        "verdict": "verified",
+        "note": "Charles Lemma 3.5 pp.507–508: finitely many ample representatives for ±L, allowing analytic deformations. Make the missing Kollár–Matsusaka supplier contract explicit; bounded pairs do not mean finitely many isomorphism classes."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.5/period-datum",
+        "verdict": "corrected",
+        "note": "Charles Theorem 3.3 proof pp.508–509: extendable stabilizer, positive line domain and parallel-transport markings retained. Cite the actual pinned TauCeti.Hodge.PeriodDomain.Point; add its filtration extensionality interface rather than replan a carrier."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.5/monodromy-arithmetic",
+        "verdict": "corrected",
+        "note": "Charles Theorem 3.3 proof p.508: Sullivan/Markman finite index and a torsion-free arithmetic subgroup are separate from Baily–Borel. Exact source proof leaves remain in the IHS gap; V0/V2 statements match the requested quotient infrastructure. Clarify the indirect Charles citation: its cited primary input remains an explicit acquisition/proof obligation."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.5/period-map",
+        "verdict": "verified",
+        "note": "Charles Theorem 3.3 proof p.509: actual family local system and monodromy factoring through Γ precede Borel algebraicity. Concrete relative C5 comparison is read; compatibility and algebraization requests remain explicit."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.5/torelli",
+        "verdict": "corrected",
+        "note": "Charles Theorem 3.3 proof p.509: a parallel-transport Hodge isometry yields birationality, with a Kähler-cone condition for isomorphism. No arbitrary Hodge-isometry replacement; Verbitsky/Markman proof acquisition stays open. Clarify the indirect Charles citation: its cited primary input remains an explicit acquisition/proof obligation."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.6/period-cover",
+        "verdict": "verified",
+        "note": "Charles Theorem 3.3 proof pp.509–510: global surjectivity, very general points and noetherian induction are needed for algebraic coverage. The packet correctly records this construction as a proof gap, not a consequence of local analytic openness."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.6/birational-transport",
+        "verdict": "verified",
+        "note": "Charles Theorem 3.3 proof p.510: codimension-two isomorphism transports Picard groups and all section spaces; BB/top intersection is also preserved. Primary birational IHS theorem remains requested, with no smoothness claim for the whole bounded family."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.6/ihs-boundedness",
+        "verdict": "corrected",
+        "note": "Charles Theorem 3.3 p.507 and Lemma 3.6 p.508: uniform constants apply after replacement by L′ of the same top power. Add the exact fiberwise-big noetherian-family supplier statement, including a common exponent across strata."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.6/ihs-family",
+        "verdict": "verified",
+        "note": "Charles Theorems 1.2/3.3 pp.489,507–510: a finite-type projective family contains birational representatives. The family is not required to parametrize only smooth IHS fibers; bounded images and the appropriate parameter-space request suffice conditionally."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/admissible",
+        "verdict": "corrected",
+        "note": "Charles setup/Definition 3.8 pp.511–512: an actual smooth W-family witness, torsion-free H²/H³ and mod-p nondegenerate primitive lattice are required. Add an explicit witness constructor; ramified lifts fail the prescribed test."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/strong-admissible",
+        "verdict": "corrected",
+        "note": "Charles Definition 3.8 p.512: ordinarity is at the generic special-fiber point, and generic rational NS is spanned by H,L. Add constructor over a fixed admissible witness and eligible dominant base change; dependent H,L remain allowed."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/superspecial",
+        "verdict": "corrected",
+        "note": "Charles §3.3 p.512: Hodge/conjugate filtration equalities define superspecialness; supersingularity or slope one alone does not. Tests and relation API preserve the distinction; exact Ogus primary hypotheses remain open. Clarify the indirect Charles citation: its cited primary input remains an explicit acquisition/proof obligation."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/polarized-deformation",
+        "verdict": "corrected",
+        "note": "Charles Proposition 3.10 proof pp.512–513: 19-variable formal smoothness and ordinary/minimal-Picard generic fiber are targets, with Ogus nonzero de Rham Chern-class hypotheses retained as a source gate. No unconditional representability assertion is imported. Clarify the indirect Charles citation: its cited primary input remains an explicit acquisition/proof obligation."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/line-lift",
+        "verdict": "verified",
+        "note": "Charles Proposition 3.10 proof pp.512–513: full obstruction module has rank binomial(j+19,18), not one. A global positive power-lift over the polarized formal base is required before torsion-freeness kills obstructions; R09.6 contract states this."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/strong-zarhin",
+        "verdict": "verified",
+        "note": "Charles Proposition 3.10 pp.512–513: p≥5, nonsuperspecial input, prime-to-p degree and an actual W-family are retained. The earlier Zarhin construction alone does not provide strong admissibility."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/admissible-hodge",
+        "verdict": "verified",
+        "note": "Charles Remark 3.9 p.512: low total degrees one/two are distinguished from full E₁ degeneration. The p>3 range and the exact comparison/freeness obligations remain explicit."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/ns-special-endomorphisms",
+        "verdict": "corrected",
+        "note": "Charles Lemma 3.15 pp.515–516 and setup p.514: use primitive H²_crys(1), integral intersections and ordinary lifting. Early independent (1,1) and integral KS Part II remain requests; the final Tate endpoint is not used. Clarify the indirect Charles citation: its cited primary input remains an explicit acquisition/proof obligation."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/finite-ns",
+        "verdict": "corrected",
+        "note": "Charles Proposition 3.16 pp.516–517: corrected level≥3 and fixed-fiber finite-image KS input retained. Reroute lattice classes to current IntegralLattices and its named indefinite successor; generic V6 cannot supply the integral theorem."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.7/unpolarized-finiteness",
+        "verdict": "corrected",
+        "note": "Charles Proposition 3.17 pp.517–518: count underlying nonsuperspecial surfaces, not infinitely many eligible ample powers. Fourfold v²=2 and rational discriminant factor retained. Correct the finite-class owner without assuming its missing indefinite branch."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/arithmetic-transcendental",
+        "verdict": "corrected",
+        "note": "Charles §4.2 p.520 and LMS §3.2 pp.294–296: complement is inside arithmetic invariant H². Add the native orthogonal-submodule universal property. Three tests reject its replacement by the entire geometric complement."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/b-field",
+        "verdict": "verified",
+        "note": "Charles §4.1 p.518 and LMS Definitions 3.2.1–3.2.3/Lemma 3.2.4 p.294: Brauer presentation, change of denominator and geometric order separated. Algebraic primitive numerators can have zero Brauer class; no automatic exact order."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/exponential",
+        "verdict": "corrected",
+        "note": "Charles §4.1 pp.518–519 and LMS §3.3 pp.296–297: positive rational exponential is an isometry and additive action, without integral-carrier preservation. Coordinate tests check rank, middle and top terms; suggested file matches."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/twisted-lattice",
+        "verdict": "verified",
+        "note": "Charles equation (4.1) pp.518–519 and LMS Definition 3.3.2/Lemma 3.3.3 pp.296–297: explicit even integral span and exp(+B)/negative-gerbe sign retained. Inverse exponential gives d/r in the top coordinate, ruling out the erroneous integral preimage."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/twisted-vector",
+        "verdict": "verified",
+        "note": "LMS Definitions 3.3.4/3.3.6, Remark 3.3.5/Lemma 3.3.7 pp.297–299: twisted Chern vector and RR use the signed gerbe and rational exponential. General twisted GRR and K₀ theory remain assigned to moduli Part II."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/isotropic-partner",
+        "verdict": "corrected",
+        "note": "Charles §4.1 pp.519–520 and published LMS Proposition 3.4.2 pp.299–300: exact geometric Brauer order equals rank before automatic stability. Fix stale arXiv numbering; K3 coarse space, μ_r-gerbe and FM assertion remain source-qualified."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/fine-partner",
+        "verdict": "corrected",
+        "note": "Charles §4.2 pp.521–522 and LMS Proposition 3.4.2(3)/Lemma 3.4.3 pp.299–301: prime-to-ℓ pairing kills the partner gerbe only with the period-index and K₀-realization inputs. Fix the source record to the published theorem; those inputs remain explicit."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/isotropic-theta",
+        "verdict": "corrected",
+        "note": "Charles equation (4.2) pp.519–520: quotient v^⊥/Z_ℓv is essential, and its numerical map has only p-primary cokernel under the stated hypotheses. Representative-independence and base change APIs/tests are sufficient; primary Yoshioka comparison remains a gap. Clarify the indirect Charles citation: its cited primary input remains an explicit acquisition/proof obligation."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.8/partner-discriminant",
+        "verdict": "corrected",
+        "note": "Charles Lemma 4.2/Proposition 4.3 pp.519–520: r² twisted discriminant, primitive isotropic quotient and square indices give the displayed p-power ambiguity. No equality of arithmetic and geometric Picard lattices is inferred. Reroute the primitive-isotropic-quotient supplier contract to current IntegralLattices rather than treating it as new GN theory."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/brauer-tate-interface",
+        "verdict": "corrected",
+        "note": "Charles §4/Theorem 4.4 pp.518,520 and LMS §2.3 pp.291–292: early Tate–Brauer equivalence and finite-field rational trace descent are separated from final K3 Tate cases. The dyadic branch remains qualified; MC.7 split prevents circular use."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/frobenius-brauer",
+        "verdict": "corrected",
+        "note": "Charles Lemma 4.5 pp.520–521 and LMS Proposition 2.1.3 p.288/Lemma 3.2.7/Proposition 3.2.8 pp.295–296: p≥5 semisimplicity and pairing-compatible Frobenius retained. Infinite arithmetic Brauer supplies nonzero invariant complement, not a geometric Tate assumption."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/conditional-norm",
+        "verdict": "corrected",
+        "note": "Charles Lemma 4.5 pp.520–521: valuation information alone is insufficient; Cayley transform requires F+1 invertible and pairing compatibility. Conditional square-class formula is consistent. Local unit-norm input is rerouted to current IntegralLattices."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/simultaneous-norm",
+        "verdict": "corrected",
+        "note": "Charles §4.2 pp.520–522 and published LMS Lemmas 3.5.1–3.5.2 p.302: one splitting field, quadratic extension, all finite exclusions and unit norms suffice. Fix source/version provenance and import current canonical completion/Chebotarev contracts."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/partner-sequence",
+        "verdict": "corrected",
+        "note": "Charles §4.2 pp.521–523 and LMS Proposition 3.5.6 pp.303–305: exact geometric order follows from the primitive unit-norm transcendental vector; ℓ-discriminants grow while p-discriminants stay bounded. Pairing with (0,D,0) is +2d."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/fixed-positive-square",
+        "verdict": "corrected",
+        "note": "Charles Theorem 1.4 proof p.522: a negative D and positive perpendicular B in rank≥2 give a fixed positive square on X_n. Transport is to the partner, not the original X; generic local lattice facts remain imported."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/growing-ample-square",
+        "verdict": "verified",
+        "note": "Charles Theorem 1.3 proof p.522: h_n has square 2dℓ^(2n). Projective relative partner, rank-one generic Picard and extension of proportionality to a relative ample bundle are explicit gates; reverse openness of ampleness is not used."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/partner-admissibility-gate",
+        "verdict": "verified",
+        "note": "Charles Theorem 1.3 proof pp.522–523: contradiction is conditional on infinitely many eligible nonsuperspecial partners. The statement preserves the missing hypothesis instead of applying starting-surface nonsuperspecialness to every partner."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/superspecial-transfer",
+        "verdict": "verified",
+        "note": "Charles Theorem 1.3 proof p.522: Ogus/Artin transfer concerns the starting X. It does not discharge the nonsuperspecial-partner gate or import the final Tate theorem; primary deformation proof leaves remain open."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.9/geometric-exports",
+        "verdict": "verified",
+        "note": "Charles Theorems 1.3–1.4 pp.489–490 and proofs pp.520–523: fixed-square all-characteristic and growing-degree p≥5 routes retain distinct hypotheses/gaps. MotivesAndAlgebraicCycles remains the final Tate owner; no late endpoint feeds this contradiction."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.10/transcendental-datum",
+        "verdict": "corrected",
+        "note": "SSTT §9.1 p.44 with §2 pp.7–11: signed lattice has signature (20−ρ,2), Q=−cup/2 and polar −cup. No-special-divisor genericity is weaker than maximal Mumford–Tate group. Maximal integral lattice/local genus belongs to current IntegralLattices and KS Part II."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.10/andre-descent",
+        "verdict": "corrected",
+        "note": "André Main Lemma 1.7.1 p.210 and axioms p.207 give generic Galois-equivariant even-Clifford descent, with integral modules in its stated scope. Remove unsupported involution equivariance; no special-fiber divisor theorem follows."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.10/andre-good-reduction",
+        "verdict": "corrected",
+        "note": "André Lemma 9.3.1/Remark 9.3.2 p.241: unramified primitive cohomology plus finite level/semistable reduction makes central inertia trivial. Correct the locator; one finite extension handles the finitely many bad KS places, without claiming every level field unramified."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.10/integral-point",
+        "verdict": "verified",
+        "note": "SSTT Proposition 2.1(4) p.10 and §9.1 pp.44–45: KS potential good reduction gives an integral orthogonal point after finite extension. This uses the extension theorem, not properness of the Shimura variety or a good-prime-only model."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.10/specialization-correspondence",
+        "verdict": "verified",
+        "note": "SSTT §9.1 p.45 compared with André Main Lemma 1.7.1 p.210: additional special-fiber algebraicity and integral normalization are genuinely needed. With Q=−cup/2, norm m yields cup square −2m before denominators; a rational negative class suffices for rank jump."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.11/picard-jump-high-dimension",
+        "verdict": "verified",
+        "note": "SSTT Theorem 1.1 p.2, Theorem 1.8 p.4 and §9.1 pp.44–45: ρ≤17 gives b≥3, and negative orthogonal specialized divisor gives a rank jump. GSpin height Part II and special-fiber algebraicity are separate explicit imports/gaps."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.11/picard-jump-low-dimension",
+        "verdict": "corrected",
+        "note": "SSTT footnote 1 p.4 and §9.1 pp.44–45 distinguish b=2,1,0. Add that locator; Charles 2018/Shankar–Tang and the rank-20 branch remain source-acquisition gaps, with no use of Theorem 1.8 outside b≥3."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.11/picard-jump",
+        "verdict": "verified",
+        "note": "SSTT Theorem 1.1 p.2, proof pp.44–45: the global smooth projective O_K-model hypothesis and both rank branches are retained. This is a target with explicit supplier/source gates, not a claim those gates are proved."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.11/rational-curves-criterion",
+        "verdict": "verified",
+        "note": "SSTT Corollary 1.3 proof p.45 and Li–Liedtke v2 Proposition 3.2/Theorem 3.3 pp.9–11: bounded-degree Hilbert specialization and rigid stable-map lifting are distinguished. Published numbering and replacing nonsupersingular density by nonunirational exceptions remain explicit proof gaps."
+      },
+      {
+        "nodeId": "K3SurfacesAndSymplecticBoundedness:K3.11/rational-curves",
+        "verdict": "verified",
+        "note": "SSTT Corollary 1.3 p.3, proof p.45: retain the alternative of infinitely many unirational supersingular reductions. Local potential good reduction versus a global smooth projective model and the K3 unirational⇒supersingular implication remain stated source gates."
+      }
+    ]
+  },
+  "upstreamImports": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/IntegralLattices#layer-5-discriminant-forms-and-nikulins-theory",
+      "need": "Import current IntegralLattices 5F primitivity and 5I general even-lattice primitive-embedding classification, with 5A/5B discriminant-form and existence inputs. Its additional consumer contract is IntegralLattices, Part II: the corrected Charles Proposition 2.9 pp.500–502 congruence transport from ⟨2d⟩⊕U to ⟨2md⟩⊕U for a primitive positive rank-two sublattice, m≡1 mod N and the stated two square-residue conditions; absorb primes dividing (2d)! into N and place the transported subgroup in A_(2md). That congruence theorem is not already supplied by Nikulin 5I and has no stage yet.",
+      "neededBy": [
+        "K3SurfacesAndSymplecticBoundedness:K3.3/rank-two-plane",
+        "K3SurfacesAndSymplecticBoundedness:K3.3/zarhin"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/IntegralLattices#layer-3-localization-jordan-splittings-the-genus-and-the-dyadic-density-data",
+      "need": "Import current IntegralLattices 3A integral localization, 3B/3C odd-prime unimodular/Jordan classification, 3D dyadic distinctions and 3F–3H genus/rational comparison. Request only the additional consumer corollaries as IntegralLattices, Part II: every unit is represented by an odd-ℓ unimodular lattice of rank≥2, rank-one square-discriminant unit representation, the primitive-isotropic quotient determinant calculation, and the source-qualified maximal Q-integral lattice genus comparison. Do not infer representation of nonunits or dyadic uniqueness from 3C; neither generic carrier nor local classification is replanned here.",
+      "neededBy": [
+        "K3SurfacesAndSymplecticBoundedness:K3.8/partner-discriminant",
+        "K3SurfacesAndSymplecticBoundedness:K3.9/conditional-norm",
+        "K3SurfacesAndSymplecticBoundedness:K3.9/simultaneous-norm",
+        "K3SurfacesAndSymplecticBoundedness:K3.9/fixed-positive-square",
+        "K3SurfacesAndSymplecticBoundedness:K3.10/transcendental-datum"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/IntegralLattices#layer-4-classes-spinor-genera-eichlers-theorem-and-neighbors",
+      "need": "Import current IntegralLattices 4A class sets, 3F/3G local genus data, 2G definite finite classes and the rank-two half of 4E. The indefinite rank≥3 half of 4E belongs to its named successor OrthogonalTamagawaAndLatticeMass, currently absent, and is a recorded gap. Request from that successor the bounded-rank/signature/nonzero-determinant finite-class consequence, combining finite local genera with finite classes in each genus. The bounded positive square for finitely many hyperbolic classes and the exponent 6983776800 for finite-order rank≤22 automorphisms fixing an ample vector are additional IntegralLattices Part II corollaries, not new K3 lattice theory.",
+      "neededBy": [
+        "K3SurfacesAndSymplecticBoundedness:K3.4/ns-descent",
+        "K3SurfacesAndSymplecticBoundedness:K3.7/finite-ns",
+        "K3SurfacesAndSymplecticBoundedness:K3.7/unpolarized-finiteness"
+      ]
     }
   ]
 }

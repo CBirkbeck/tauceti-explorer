@@ -15,6 +15,11 @@ These rational-coordinate identities specify the signs and normalization of
 K3.1 and K3.8. They do not construct an integral Mukai lattice or assert that
 translation preserves its integral carrier. Integral geometry uses the native
 TauCeti.IntegralLattice interface, as described in the README.
+
+Sources: Charles, Annals 184 (2016), Definition 2.1, pp.492–493 and
+Theorem 2.10 proof, p.503; Lieblich–Maulik–Snowden, Ann. Sci. ENS 47
+(2014), §3.3, pp.296–297. The geometric targets and open proof obligations
+remain in the README; these signatures only record rational identities.
 -/
 
 namespace TauCeti.K3.Suggested
