@@ -72,19 +72,19 @@ These are the nine open requests. Each names a real existing supplier stage; the
 
 *Used by:* [V/regular-locus-geometry](#v-regular-locus-geometry). BHS17 Theorem 2.6 and proof, author PDF pp. 8–12 (S_n and the framed étale locus).
 
-**R6 — `PhiGammaModulesAndIwasawaCohomology:PG.7`.** For an étale rank-two Robba module over Q_p arising from an absolutely irreducible Galois representation, prove that each φ-eigenspace is finite-dimensional and Γ-stable, with compatibility under finite coefficient extensions. Combine this with rank-one classification and saturation to extract a triangulation from a nonzero φ-eigenvector after extending coefficients. The present roadmap owns the resulting nontrianguline obstruction; do not import an unrestricted eigenvector ⇒ trianguline claim without these hypotheses.
+**R6 — `PhiGammaModulesAndIwasawaCohomology:PG.7`.** For a (φ,Γ)-module D over the Robba ring R_E with K=Q_p and E finite over Q_p, supply Colmez’s saturation lemma: if D contains a rank-one (φ,Γ)-submodule, it contains a saturated rank-one (φ,Γ)-submodule with finite free quotient, compatibly with finite extensions of E. The existing triangulation node defines saturation but does not prove that saturations exist. No finite-dimensionality of φ-eigenspaces is requested: the nontrianguline obstruction only uses subspaces stable under both φ and Γ.
 
-*Used by:* [N/rank-two-nontrianguline](#n-rank-two-nontrianguline). DLB17 Lemma 6.3 and proof, arXiv p. 31; Colmez08 Lemma 3.2 and Definition 3.4, p. 231, and Proposition 4.3, p. 238.
+*Used by:* [N/rank-two-nontrianguline](#n-rank-two-nontrianguline). Colmez08 Lemma 3.2, p. 231; DLB17 proof of Lemma 6.3, arXiv p. 31.
 
 **R7 — `PadicMeasuresIwasawaAlgebras:L0a`.** Coordinate with LocallyAnalyticDistributions to supply, for arbitrary finite K/Q_p, the rigid spaces T=Hom_cont(K×,G_m) and W=Hom_cont(O_K×,G_m), universal characters and coefficient base change. They are smooth of dimensions d+1 and d; restriction T→W is smooth of relative dimension one. The logarithmic derivative W→E^Σ is étale locally at every point, hence identifies their formal completions after translation. For each algebraic unit character and every C>0, algebraic tuples with adjacent decreasing weight gaps greater than C are Zariski dense on a neighbourhood basis at that tuple. This is local accumulation at algebraic points; it does not assert analytic density in every open of the full weight space. Import the current PFA §5 character coordinates; PFA explicitly leaves geometric character-space sheaves to other owners.
 
 *Used by:* [T/generic-parameters](#t-generic-parameters), [M/relative-representability](#m-relative-representability), [V/trianguline-variety](#v-trianguline-variety), [G/accumulation-theorem](#g-accumulation-theorem), [Y/weight-cycle-transfer](#y-weight-cycle-transfer), [N/regular-parameters](#n-regular-parameters), [N/ordered-deformation](#n-ordered-deformation). BHS19 §3.3.4, pp. 347–349; BHSsmooth17 proof of Proposition 2.12, author PDF pp. 16–17, especially its final weight-coordinate argument; NT21 §2.3.1, pp. 28–30; current upstream PFA §§5.1–5.3.
 
-**R8 — `AdicSpacesPartII:R1`.** Starting from the existing rigid-local-ring completion, normalization and rigid/adic comparison interfaces, supply excellence and descent of normality and Cohen–Macaulayness from completions, openness of those loci, injectivity into completed rings above a proper birational normalization of a reduced rigid space, openness of flat morphisms, and generic local freeness/base change for the coherent Herr sheaves. These are analytic supplier extensions, not a second definition of rigid spaces or completions.
+**R8 — `AdicSpacesPartII:R1`.** Starting from the existing rigid-local-ring completion, normalization and rigid/adic comparison interfaces, supply excellence and descent of normality and Cohen–Macaulayness from completions, openness of those loci, injectivity into completed rings above a proper birational normalization of a reduced rigid space, openness of flat morphisms, generic local freeness/base change for the coherent Herr sheaves, and the constructibility facts used in BHS17 Theorem 2.6: the image of a projective morphism of rigid spaces is Zariski-constructible, and a Zariski-constructible subset that is open for the adic topology is Zariski open (Hellmann–Schraen, Density of potentially crystalline representations of fixed weight, Lemmas 2.13–2.14). These are analytic supplier extensions, not a second definition of rigid spaces or completions.
 
-*Used by:* [V/trianguline-variety](#v-trianguline-variety), [V/completion-map](#v-completion-map), [V/normal-cm](#v-normal-cm), [G/accumulation-theorem](#g-accumulation-theorem), [N/closure-tangent](#n-closure-tangent), [N/density-repair](#n-density-repair). BHS19 proofs of Propositions 3.7.2–3.7.3, pp. 366–367, and Corollary 3.7.10, p. 371; NT21 Proposition 2.15 and Remark 2.16, pp. 36–38.
+*Used by:* [V/trianguline-variety](#v-trianguline-variety), [V/regular-locus-geometry](#v-regular-locus-geometry), [V/completion-map](#v-completion-map), [V/normal-cm](#v-normal-cm), [G/accumulation-theorem](#g-accumulation-theorem), [N/closure-tangent](#n-closure-tangent), [N/density-repair](#n-density-repair). BHS19 proofs of Propositions 3.7.2–3.7.3, pp. 366–367, and Corollary 3.7.10, p. 371; NT21 Proposition 2.15 and Remark 2.16, pp. 36–38. BHS17 proof of Theorem 2.6, author PDF pp. 10–12.
 
-**R9 — `PadicDifferentialEquationsAndRigidCohomology:RD.1`.** For the connection ∇ on D_rig(V) of a rank-two étale Q_p Robba module, prove finite E-dimensionality of ker P(∇) for every nonzero polynomial P∈E[X], compatibly with φ∇=∇φ. The existing finiteness of differential-equation cohomology for ∂ does not give this statement. Keep the RD owner, with a Part II extension if necessary; this roadmap only derives injectivity from absence of φ-eigenvectors.
+**R9 — `PadicDifferentialEquationsAndRigidCohomology:RD.1`.** For the connection ∇ on D_rig(V) of a rank-two étale Q_p Robba module, prove finite E-dimensionality of ker P(∇) for every nonzero polynomial P∈E[X], compatibly with φ∇=∇φ. The existing finiteness of differential-equation cohomology for ∂ does not give this statement. Keep the RD owner, with a Part II extension if necessary; this roadmap only derives injectivity from the absence of finite-dimensional subspaces stable under φ and Γ, using φ∇=∇φ and the commutation of ∇ with Γ.
 
 *Used by:* [N/polynomial-connection-kernel](#n-polynomial-connection-kernel). DLB17 Lemma 6.3 and its proof, arXiv p. 31, which invokes Dospinescu Proposition 2.1.
 
@@ -116,7 +116,7 @@ The first frame belongs to D_pdR, a rank-n module over the product A⊗K. The co
 
 *Proof plan:* 1. Use the coefficient Fontaine equivalence to show every Artinian deformation is almost de Rham. 2. Transport tensor pullback through that equivalence, with the canonical associativity isomorphisms; retain groupoids before removing automorphisms.
 
-*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), §3.1.2–3.1.3, pp. 330–334.
+*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), §3.1: Proposition 3.1.1, Corollary 3.1.2 and Lemma 3.1.4, pp. 330–332; definitions of X_W and X_W^□ with Remark 3.1.5, pp. 332–333.
 
 *Needs:* `PadicHodgeTheory:P7`, `DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions`, `PadicHodgeTheory:P7/coefficient-bdr-representations`, `PadicHodgeTheory:P7/fontaine-bdr-indecomposable-classification`.
 
@@ -340,7 +340,7 @@ An integral triangulation and a localized triangulation have different specializ
 
 *Proof plan:* 1. Import the character space and algebraic characters; form the indicated complements of exceptional characters. 2. Use the rank-one H⁰/H² formula to identify the cohomological meaning of each exclusion.
 
-*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), §3.4.2, p. 352, definition of T₀ⁿ (complement corrected as E7); [BHS17](https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/eigenvariete.pdf), §2.2, author PDF pp. 7–8, regular character locus.
+*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), §3.4, definition of T₀ and T₀ⁿ before Theorem 3.4.4, p. 352 (restatement corrected as E7); §3.7, definition of T_reg and T_regⁿ, p. 365; [BHS17](https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/eigenvariete.pdf), §2.2, author PDF pp. 7–8, regular character locus.
 
 *Needs:* `PadicMeasuresIwasawaAlgebras:L0a`, `PhiGammaModulesAndIwasawaCohomology:PG.7/character-cohomology`.
 
@@ -370,7 +370,7 @@ An integral triangulation and a localized triangulation have different specializ
 
 *Proof plan:* 1. Use the supplier’s relative localized category and rank-one classification. 2. A localized rank-one isomorphism differs by an algebraic character, which has no nontrivial infinitesimal variation with fixed residue. 3. Trivialize graded line bundles over local Artinian coefficients; show independence of those trivializations.
 
-*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Lemma 3.3.4, p. 343; Definition 3.3.8, p. 347; (3.15)–(3.16), pp. 348–349.
+*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Lemma 3.3.4, pp. 343–344; Definition 3.3.8 and the definition of ω_δ, p. 347; (3.15)–(3.16), p. 348.
 
 *Needs:* `PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category`, `PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-classification`, [T/generic-parameters](#t-generic-parameters).
 
@@ -396,15 +396,15 @@ An integral triangulation and a localized triangulation have different specializ
 
 ### 3.3 Rank-one torsion and localized isomorphisms
 
-**T/torsion-cohomology (lemma).** For k=(kτ)≥0, H⁰ and H¹ of R_A(δ)/(∏τtτ^kτ) vanish if every wtτ(δ) avoids {1−kτ,…,0}. If every labelled weight belongs to its indicated interval, both have E-dimension d for A=E. An isomorphism R_A[1/t](δ)≅R_A[1/t](δ′) exists exactly when δ/δ′ is an algebraic character with fixed integral exponents; this includes nilpotent coefficient information.
+**T/torsion-cohomology (lemma).** For k=(kτ)≥0 and a continuous δ:K×→E×, H⁰ and H¹ of R_E(δ)/(∏τtτ^kτ) vanish if every wtτ(δ) avoids {1−kτ,…,0}; by dévissage on A the same vanishing holds for R_A(δ)/(∏τtτ^kτ), A∈Art_E, when the residual character of δ satisfies this condition. If every labelled weight of a field-valued δ belongs to its indicated interval, both have E-dimension d. An isomorphism R_A[1/t](δ)≅R_A[1/t](δ′) exists exactly when δ/δ′ is an algebraic character with fixed integral exponents; this includes nilpotent coefficient information.
 
 *Additional hypotheses:* In the dimension clause kτ>0 and all weights satisfy the displayed membership condition; no mixed-embedding dimension formula is asserted.
 
-*Proof plan:* 1. Compute successive tτ-quotients using the Γ-eigenspaces of the coefficient Sen module. 2. Pass through the finite filtration for torsion cohomology. 3. Apply H⁰ after sufficiently large t-shifts to characterize an invertible localized rank-one morphism.
+*Proof plan:* 1. Compute successive tτ-quotients using the Γ-eigenspaces of the coefficient Sen module. 2. Pass through the finite filtration for torsion cohomology. 3. Apply H⁰ after sufficiently large t-shifts to characterize an invertible localized rank-one morphism. 4. For the converse direction of the isomorphism criterion use R_E(x_σ)≅(t_σ), so twisting by an algebraic character changes a rank-one module by a power of t and leaves its localization unchanged.
 
-*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Lemmas 3.3.3–3.3.4, pp. 343–345.
+*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Lemmas 3.3.3–3.3.4, pp. 343–344.
 
-*Needs:* `PhiGammaModulesAndIwasawaCohomology:PG.7/character-cohomology`, `PhiGammaModulesAndIwasawaCohomology:PG.7/character-weights`, `PadicHodgeTheory:P7/sen-module`.
+*Needs:* `PhiGammaModulesAndIwasawaCohomology:PG.7/character-cohomology`, `PhiGammaModulesAndIwasawaCohomology:PG.7/character-weights`, `PadicHodgeTheory:P7/sen-module`, `PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-characters`.
 **Checks.**
 
 - Acceptance: Establish the stated result with the specified coefficient category, all functorial maps and no additional genericity or étaleness hypothesis.
@@ -415,9 +415,9 @@ An integral triangulation and a localized triangulation have different specializ
 
 ### 3.4 Localized period realization over Artinian coefficients
 
-**T/period-functor (construction).** The B-pair functor gives an exact, coefficient-base-change-compatible W_dR from finite free localized Robba modules that admit a free stable lattice to finite free A⊗B_dR representations; it is independent of the lattice. W_dR⁺(D) is finite free of rank rk D and commutes with tensoring finite A-modules. On localized triangulations W_dR sends the full flag to a G_K-stable full flag.
+**T/period-functor (construction).** The B-pair functor gives an exact, coefficient-base-change-compatible W_dR from (φ,Γ)-modules M over R_{A,K}[1/t] to finite free A⊗B_dR representations of rank rk M. Here M is finite free over R_{A,K}[1/t] and contains a φ,Γ-stable R_K-lattice, which need not be free over R_{A,K}; W_dR(M) is independent of that lattice. For a (φ,Γ)-module D over R_{A,K}, W_dR⁺(D) is finite free of rank rk D and commutes with tensoring finite A-modules. On localized triangulations W_dR sends the full flag to a G_K-stable full flag.
 
-*Proof plan:* 1. Import the coefficient B-pair equivalence rather than rebuilding period rings. 2. Use the Artinian flatness criterion and Nakayama on each period realization. 3. Compare two lattices after bounding one between t-powers of the other; inverting t removes the choice.
+*Proof plan:* 1. Import the coefficient B-pair equivalence rather than rebuilding period rings. 2. Use the Artinian flatness criterion and Nakayama on each period realization; the freeness of W_dR(M) is proved directly from a stable R_K-lattice, without assuming an R_{A,K}-free lattice (BHS19 Lemma 3.3.5(ii)). 3. Compare two lattices after bounding one between t-powers of the other; inverting t removes the choice.
 
 *Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Lemma 3.3.5 and §3.3.3, pp. 344–345.
 
@@ -481,7 +481,7 @@ Formal lifting is an extension problem with two prescribed outputs: a character 
 
 *Proof plan:* 1. Use Yoneda extensions in the localized exact category, not a nonexistent isomorphism of arbitrary complexes. 2. Apply the coefficient almost de Rham cohomology calculation; a short exact sequence induces the kernel–cokernel sequence for ν.
 
-*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), §3.4.1–3.4.2, pp. 349–351.
+*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), §3.3, (3.11)–(3.13), p. 343; §3.4, (3.18)–(3.19) and the identifications H⁰=ker ν, H¹=coker ν, p. 349.
 
 *Needs:* [T/period-functor](#t-period-functor), `PhiGammaModulesAndIwasawaCohomology:PG.3/herr-ext`, `PhiGammaModulesAndIwasawaCohomology:PG.3/localized-herr`, `PadicHodgeTheory:P7`.
 
@@ -511,7 +511,7 @@ Formal lifting is an extension problem with two prescribed outputs: a character 
 
 *Proof plan:* 1. Use rank-one Herr cohomology and the torsion exact sequence to compute the localization map. 2. Compare the B-pair Bloch–Kato local condition with Herr duality for sufficiently large t-shifts. 3. Induct on the length of A; right exactness of period H¹ gives surjectivity, and ν=0 supplies the stronger isomorphism.
 
-*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Lemmas 3.4.1–3.4.3, pp. 348–352.
+*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Lemmas 3.4.1–3.4.3, pp. 349–352.
 
 *Needs:* [C/cohomology-comparison](#c-cohomology-comparison), [T/torsion-cohomology](#t-torsion-cohomology), `PhiGammaModulesAndIwasawaCohomology:PG.3/herr-tate-duality`, `PadicHodgeTheory:P7/b-pair-herr-comparison`.
 **Checks.**
@@ -590,13 +590,15 @@ Glue the localized module to its period lattice. The two flags then meet in X=g�
 
 ### 5.2 Representability of the comparison morphisms
 
-**M/relative-representability (theorem).** The morphisms X_M→X_W, X_{M,F}→X_{W,F}, X_D→X_{W⁺}, and X_{D,F}→X_{W⁺,F} are relatively prorepresentable; the last two are base changes of the first two. They satisfy the relative Schlessinger fibre-product criterion and have finite-dimensional relative tangent spaces. The character-weight map T̂_δⁿ→t̂₀ is formally smooth of relative dimension n.
+**M/relative-representability (theorem).** Assume the localized triangulation has a parameter in T₀ⁿ. The morphisms X_M→X_W, X_{M,F}→X_{W,F}, X_D→X_{W⁺}, and X_{D,F}→X_{W⁺,F} are relatively prorepresentable; the last two are base changes of the first two. They satisfy the relative Schlessinger fibre-product criterion and have finite-dimensional relative tangent spaces. The character-weight map T̂_δⁿ→t̂₀ is formally smooth of relative dimension n.
+
+*Additional hypotheses:* The localized triangulation of M admits a parameter in T₀ⁿ, the standing assumption of BHS19 from Lemma 3.5.3 on; finiteness of the relative tangent spaces uses dim H¹(R_E(δ)[1/t])=d for δ∈T₀.
 
 *Proof plan:* 1. Identify relative fibres with deformations equipped with a period isomorphism. 2. Use finite Herr H¹ and compatibility with Artinian fibre products for the relative Schlessinger conditions. 3. Compute character derivatives: the unit-character directions give dn coordinates and the unramified directions give n.
 
 *Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Lemma 3.5.3, Corollary 3.5.4 and Lemma 3.5.5, pp. 356–358.
 
-*Needs:* [M/gluing](#m-gluing), [C/cohomology-comparison](#c-cohomology-comparison), `DeformationAndDerivedPatchingAlgebra:R03.2/schlessinger-conditions-and-tangent-spaces`, `PadicMeasuresIwasawaAlgebras:L0a`.
+*Needs:* [M/gluing](#m-gluing), [C/cohomology-comparison](#c-cohomology-comparison), `DeformationAndDerivedPatchingAlgebra:R03.2/schlessinger-conditions-and-tangent-spaces`, `PadicMeasuresIwasawaAlgebras:L0a`, [T/generic-parameters](#t-generic-parameters), [C/rank-one-comparison](#c-rank-one-comparison).
 **Checks.**
 
 - Acceptance: Establish the stated result with the specified coefficient category, all functorial maps and no additional genericity or étaleness hypothesis.
@@ -675,7 +677,7 @@ Glue the localized module to its period lattice. The two flags then meet in X=g�
 
 *Proof plan:* 1. Use normality and CM of the supplier’s incidence components. 2. Pass to completion using excellence; preserve normality and CM under a power-series extension. 3. Exclude the empty case before applying domain statements.
 
-*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Corollary 3.5.11 and Remark 3.7.9, pp. 361 and 371.
+*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Corollary 3.5.11 and its proof, p. 361; Cohen–Macaulayness through Proposition 2.3.3 as used in Corollary 3.7.10, p. 371.
 
 *Needs:* [M/component-functors](#m-component-functors), [M/double-flag-model](#m-double-flag-model), `SpringerResolutionAndCharacteristicCycles:N/normal-components`, `SpringerResolutionAndCharacteristicCycles:C/cm-reductive-and-zero`, `DeformationAndDerivedPatchingAlgebra:R03.3/excellence-normalization-and-formal-fibres`, `DeformationAndDerivedPatchingAlgebra:R03.3/cm-completion-and-equidimensionality`.
 **Checks.**
@@ -786,11 +788,11 @@ The analytic space is defined by reduced closure. At a generic regular-Sen point
 
 **V/regular-locus-geometry (theorem).** U_tri is open and Zariski dense in X_tri, smooth of dimension n²+dn(n+1)/2; its full-character map ω′ is smooth, as is its unit-weight map ω. X_tri is equidimensional of that dimension. These assertions concern the actual saturated regular triangulation locus, not every point of its closure.
 
-*Proof plan:* 1. Import the relative moduli of rigidified regular triangulations and their smooth character map from the requested PG.7 interface. 2. On the admissible étale locus add a Galois frame, a GL_n torsor; quotient the n independent graded rigidifications. 3. Obtain the smooth full-character map and dimension n²+dn(n+1)/2, then use the definition of reduced closure to obtain equidimensionality.
+*Proof plan:* 1. Import from the requested PG.7 interface (R5) the moduli S_n of regular triangulated Robba modules with rigidified graded pieces, smooth over T_regⁿ of relative dimension dn(n−1)/2, and its admissible étale locus; add a Galois frame (a GL_n-torsor) and restrict to lifts of r̄. The resulting smooth space S^□(r̄), of dimension n²+n+dn(n+1)/2, maps onto U_tri with fibres the n independent graded rescalings. 2. Points of U_tri are strictly trianguline (N/strict-uniqueness; BHS T_regⁿ lies inside the NT-regular locus). Apply the global triangulation theorem on X_tri after a proper birational modification; over a Zariski-open dense V⊂X_tri on which the modification is an isomorphism, the G_mⁿ-torsor of trivializations of the graded line bundles identifies with an open subspace of S^□(r̄). Hence X_tri is equidimensional of dimension n²+dn(n+1)/2. 3. At y∈U_tri compare the completed local rings of S^□(r̄) and X_tri: the completion of the framed lifting space at r_y is its framed deformation ring, forgetting the regular triangulation is a closed immersion on deformations (N/ordered-representability), and X_tri is unibranch at y because the fibre of S^□(r̄) is connected. This gives Ô_{S,x}≅Ô_{X_tri,y}[[x_1,…,x_n]]. 4. The image of the smooth projection is open for the adic topology and Zariski-constructible as the image of a projective morphism (R8), hence Zariski open. Smoothness of U_tri and of ω′ on it follows from smoothness of S_n→T_regⁿ; ω is its composite with the smooth restriction Tⁿ→Wⁿ.
 
 *Source:* [BHS17](https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/eigenvariete.pdf), Theorem 2.6 and proof, author PDF pp. 8–12; cited as [19, Theorem 2.6] in BHS19 §3.7, p. 365.
 
-*Needs:* [V/trianguline-variety](#v-trianguline-variety), `PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category`, `LocalGaloisDeformationRings:R08.1/phi-gamma-module-deformation-rings`, `PhiGammaModulesAndIwasawaCohomology:PG.7`.
+*Needs:* [V/trianguline-variety](#v-trianguline-variety), `PhiGammaModulesAndIwasawaCohomology:PG.7/relative-category`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, `PhiGammaModulesAndIwasawaCohomology:PG.7/global-triangulation`, [N/strict-uniqueness](#n-strict-uniqueness), [N/ordered-representability](#n-ordered-representability), `LocalGaloisDeformationRings:R08.1/completion-at-points`, `AdicSpacesPartII:R1`.
 **Checks.**
 
 - Acceptance: Track the n graded rescalings separately from the n²-dimensional Galois frame.
@@ -858,7 +860,7 @@ The analytic space is defined by reduced closure. At a generic regular-Sen point
 
 *Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Corollary 3.7.8 and diagram (3.33), pp. 370–371.
 
-*Needs:* [V/regular-locus-geometry](#v-regular-locus-geometry), [V/sen-root-matching](#v-sen-root-matching), [M/galois-component-rings](#m-galois-component-rings), [M/double-flag-model](#m-double-flag-model), [M/component-detection](#m-component-detection), `LocalGaloisDeformationRings:R08.1/local-forget-framing`.
+*Needs:* [V/regular-locus-geometry](#v-regular-locus-geometry), [V/sen-root-matching](#v-sen-root-matching), [M/galois-component-rings](#m-galois-component-rings), [M/double-flag-model](#m-double-flag-model), [M/component-detection](#m-component-detection), `DeformationAndDerivedPatchingAlgebra:R03.2/formally-smooth-hull-framing`.
 **Checks.**
 
 - Acceptance: Establish the stated result with the specified coefficient category, all functorial maps and no additional genericity or étaleness hypothesis.
@@ -887,7 +889,7 @@ A closure point can have a unique localized flag with the displayed parameter an
 
 ### Dependencies
 
-`AdicSpacesPartII:R1`, `DeformationAndDerivedPatchingAlgebra:R03.3`, `LocalGaloisDeformationRings:R08.1`, `PadicHodgeTheory:P7`, `PadicMeasuresIwasawaAlgebras:L0a`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, [C](#c), [L](#l), [M](#m), [T](#t).
+`AdicSpacesPartII:R1`, `DeformationAndDerivedPatchingAlgebra:R03.3`, `LocalGaloisDeformationRings:R08.1`, `PadicHodgeTheory:P7`, `PadicMeasuresIwasawaAlgebras:L0a`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, [C](#c), [L](#l), [M](#m), [N](#n), [T](#t). The uniqueness and representability of lifted triangulations of regular parameter come from Layer N, which is presented later.
 
 **Planning status: planned.** Discharge R5, R7 and R8; use reduced closure and the single-component identification rather than imposing saturation at every closure point.
 
@@ -947,13 +949,13 @@ Flatness comes from the Cartan map. Crystalline accumulation additionally needs 
 
 ### 7.3 Large weight gaps force saturated crystalline refinements
 
-**G/large-gap-saturation (theorem).** Let x=(r,δ)∈X_tri have algebraic unit parameter weights k_{τ,i}. Put e=[K:K₀] and normalize v_p(p)=1. If k_{τ,i}−k_{τ,i+1}>e·v_p((δ₁⋯δ_i)(ϖ_K)) for every τ and i<n, then the point is saturated and r is semistable. If also δ∈T_regⁿ, r is crystalline, the parameter is strictly dominant and the refinement is noncritical. This result uses the decreasing parameter-weight convention, not the increasing sorting h of the local model.
+**G/large-gap-saturation (theorem).** Let x=(r,δ)∈X_tri have algebraic unit parameter weights k_{τ,i} that are dominant, k_{τ,1}≥⋯≥k_{τ,n} at every τ. Put e=[K:K₀] and normalize v_p(p)=1. If k_{τ,i}−k_{τ,i+1}>e·v_p((δ₁⋯δ_i)(ϖ_K)) for every τ and i<n, then the point is saturated and r is semistable. If also δ∈T_regⁿ, r is crystalline, the parameter is strictly dominant and the refinement is noncritical. The dominance hypothesis is missing from the source statement and is needed when [K:Q_p]≥2 (E17). This result uses the decreasing parameter-weight convention, not the increasing sorting h of the local model.
 
-*Additional hypotheses:* The algebraic parameter weights are strictly decreasing at every embedding; the valuation inequalities strengthen that order.
+*Additional hypotheses:* The algebraic parameter weights are dominant (k_{τ,1}≥⋯≥k_{τ,n}) at every embedding; once saturation is proved, the étale slope bound v_p((δ₁⋯δ_i)(ϖ_K))≥0 and the gap inequalities make them strictly decreasing. The source omits the dominance hypothesis (E17).
 
-*Proof plan:* 1. Use the specialization theorem to obtain a saturated parameter δ′ differing from δ by a labelled permutation of algebraic weights. 2. Apply slope-zero inequalities to each exterior power of the étale Robba module. Induct on i: a nonidentity first remaining permutation contradicts the strict gap bound. 3. With δ′=δ apply the semistability criterion for a trianguline representation with decreasing integral parameter weights. 4. The regular-character exclusions eliminate the Frobenius ratios permitting nonzero monodromy, so semistability becomes crystallinity and gives the stated noncriticality.
+*Proof plan:* 1. Use the specialization theorem to obtain a saturated parameter δ′ differing from δ by a labelled permutation of algebraic weights. 2. Apply slope-zero inequalities to each exterior power of the étale Robba module (sub-objects have slope ≥0). Induct on i: a nonidentity first remaining permutation contradicts the gap bound, because dominance makes every other summand of Σ_τ(k_{τ,i}−k_{τ,w⁻¹(i)}) nonnegative. 3. With δ′=δ apply the semistability criterion for a trianguline representation with decreasing integral parameter weights. 4. The regular-character exclusions eliminate the Frobenius ratios permitting nonzero monodromy, so semistability becomes crystallinity and gives the stated noncriticality.
 
-*Source:* [BHSsmooth17](https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/classicite.pdf), Lemma 2.10 and proof, author PDF pp. 15–16.
+*Source:* [BHSsmooth17](https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/classicite.pdf), Lemma 2.10 and proof, author PDF p. 15 (Lemma 3.12 in arXiv:1510.01222v1); dominance hypothesis added as E17.
 
 *Needs:* [V/trianguline-variety](#v-trianguline-variety), `PhiGammaModulesAndIwasawaCohomology:PG.7/triangulation-specialization`, `PadicHodgeTheory:R06.3/weak-admissibility-robba-slope-zero`, `PadicHodgeTheory:R06.3/filtered-module-robba-equivalence`, `PadicHodgeTheory:P7`.
 **Checks.**
@@ -997,17 +999,51 @@ Flatness comes from the Cartan map. Crystalline accumulation additionally needs 
 - Acceptance: Verify the source locator and the direct prerequisite contracts before implementing this target.
 
 
+<a id="g-refined-crystalline-space"></a>
+
+### 7.6 Refined crystalline deformation space and its embedding
+
+**G/refined-crystalline-space (construction).** Fix strictly dominant labelled weights k (equivalently increasing Hodge–Tate weights h with k=w₀(h)) and let X^{k-cr}_{r̄}⊂X_{r̄} be the smooth rigid space of framed crystalline lifts of r̄ with labelled Hodge–Tate weights k. The refined space X̃^{k-cr}_{r̄}=X^{k-cr}_{r̄}×_{T^rig/S_n}T^rig parametrizes pairs (r,(φ₁,…,φ_n)) with (φ_i) an ordering of the eigenvalues of the linearized crystalline Frobenius φ^{[K₀:Q_p]}. It is reduced and equidimensional of the dimension of X^{k-cr}_{r̄}. The locus where the φ_i are distinct is smooth, Zariski open and dense; on its dense open part W̃ where φ_iφ_j⁻¹∉{1,p^{[K₀:Q_p]}}, a local Frobenius-adapted basis of the family D_cris defines a smooth morphism h:W̃→(G/B)^rig recording the Hodge flag, whose Bruhat cell relative to the refinement flag is independent of the basis. The morphism ι_k:(r,φ)↦(r,z^{k}unr(φ)) is a closed immersion X̃^{k-cr}_{r̄}→X_tri(r̄), and the noncritical regular locus maps into U_tri.
+
+*Additional hypotheses:* r̄:G_K→GL_n(k_E) is fixed and k is strictly dominant at every embedding. Kisin’s crystalline deformation spaces of fixed weight, with their families of filtered φ-modules, are imported from LocalGaloisDeformationRings R08.3.
+
+*Proof plan:* 1. Import the smooth framed crystalline deformation space of weight k and the locally free family (D,Φ) of filtered φ-modules over it. 2. Form the fibre product with T^rig→T^rig/S_n, the map to T/S_n being the characteristic polynomial of Φ^{[K₀:Q_p]}; reducedness follows because T→T/S_n is finite flat and generically étale and the map to T/S_n is open (BHSsmooth17 Lemmas 2.2–2.3). 3. Locally choose a basis of D; the Frobenius matrix and the Hodge filtration define a smooth morphism to (Res GL_n×Flag)^rig, and distinct eigenvalues, the transversality condition and regularity of the ratios cut out smooth Zariski-open dense loci (BHSsmooth17 Lemma 2.4). On W̃ a Frobenius-adapted basis gives h, and changing the adapted basis acts through B, so Bruhat cells are well defined. 4. At noncritical regular points Berger’s dictionary turns the ordered refinement into a triangulation with parameter z^{k}unr(φ), so those points map into U_tri; reducedness and density then give ι_k into X_tri, a closed immersion because (r,φ)↦(r,z^kunr(φ)) is a closed immersion into X_{r̄}×Tⁿ.
+
+*Source:* [BHSsmooth17](https://www.imo.universite-paris-saclay.fr/~christophe.breuil/PUBLICATIONS/classicite.pdf), §2.2, (2.4)–(2.9), Lemmas 2.2–2.4 and Corollary 2.5, author PDF pp. 8–12; [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Proof of Theorem 4.2.3, (4.2)–(4.5), pp. 376–377.
+
+*Needs:* `LocalGaloisDeformationRings:R08.3/pcris-generic-smooth`, `LocalGaloisDeformationRings:R08.3/filtered-phi-N-deformations`, `PadicHodgeTheory:R06.3/filtered-module-robba-equivalence`, `SpringerResolutionAndCharacteristicCycles:F/flag-scheme`, [V/trianguline-variety](#v-trianguline-variety), [V/regular-locus-geometry](#v-regular-locus-geometry), `PadicMeasuresIwasawaAlgebras:L0a`, `AdicSpacesPartII:R1`.
+
+**API.**
+
+- `RefinedCrystalline.space` (constructor): The fibre product of the weight-k crystalline deformation space with T^rig over T^rig/S_n, given by the characteristic polynomial of the linearized Frobenius.
+- `RefinedCrystalline.toCrystalline` (projection): Forgetting the ordering is finite and surjective, and étale over the locus of distinct eigenvalues.
+- `RefinedCrystalline.hodgeFlag` (data): On W̃, the smooth morphism h to (G/B)^rig defined by a local Frobenius-adapted basis; its Bruhat cell relative to the refinement flag does not depend on the basis.
+- `RefinedCrystalline.embedding` (compatibility): ι_k is a closed immersion into X_tri(r̄) whose composite with ω′ is (r,φ)↦z^{k}unr(φ).
+- `RefinedCrystalline.noncritical_mem_Utri` (characterisation): A point with distinct eigenvalues, noncritical refinement and regular ratios maps into U_tri.
+
+*Used by:* G/companion-criterion (BHS19 Theorem 4.2.3, (4.2)–(4.5)) — embeds refined crystalline points into X_tri and supplies the Hodge-flag map whose Bruhat-cell closures realise every w with w_x≤w; Y/crystalline-multiplicity (through G/companion-criterion) — decides which companion parameter points lie on X_tri when the cycles at absent parameters are set to zero.
+
+**Checks.**
+
+- `rankOne`: For n=1 the refined space equals the crystalline space and ι_k sends r to (r,z^{k}unr(φ)) with φ its Frobenius eigenvalue.
+- `twoOrderings`: For n=2 and a point with Frobenius eigenvalues φ₁≠φ₂, the fibre over r consists of exactly the two points (φ₁,φ₂) and (φ₂,φ₁).
+- `repeatedEigenvalue`: At a point with φ₁=φ₂ the fibre has one point and forgetting the ordering is not étale there; such points lie outside the smooth locus of distinct eigenvalues.
+- `criticalImage`: A critical refinement still gives a point of X_tri through ι_k, but not a point of U_tri: z^{k}unr(φ) is not a parameter of a triangulation of r.
+- Acceptance: Keep the ordering of Frobenius eigenvalues as data: the refined space is finite over the crystalline space, not equal to it.
+- Acceptance: Prove that ι_k lands in X_tri through reducedness and density of the noncritical regular locus, not pointwise.
+
+
 <a id="g-companion-criterion"></a>
 
-### 7.6 Generic crystalline companion points
+### 7.7 Generic crystalline companion points
 
 **G/companion-criterion (theorem).** Let r be crystalline, with distinct labelled Hodge–Tate weights h and Frobenius eigenvalue ratios avoiding 1 and p^[K₀:Q_p]. Fix an ordered refinement φ and its relative position w_x. Put x_w=(r,z^{w(h)}unr(φ)) for w∈(S_n)^Σ, with the same ordered φ. Then x_w∈X_tri if and only if w_x≤w in product Bruhat order. Such algebraic changes of parameter with fixed r are the companion points in this statement.
 
-*Proof plan:* 1. Necessity follows from the local-model support inequality. 2. For sufficiency use the crystalline filtered-φ deformation family, its refinement cover and the smooth comparison with the flag variety to approach the desired relative position. 3. Keep the Frobenius ordering fixed while varying w; do not identify this criterion with the global companion theorem of BHS §5.
+*Proof plan:* 1. Necessity follows from the local-model support inequality. 2. For sufficiency use the refined crystalline space G/refined-crystalline-space: its Hodge-flag map h is smooth, so the preimage of the closure of the Bruhat cell of w is the closure of the preimage of the cell; the maps ι_{h,w} send that cell into U_tri by Berger’s dictionary, hence its closure into X_tri, and the given point lies in it exactly when w_x≤w. 3. Keep the Frobenius ordering fixed while varying w; do not identify this criterion with the global companion theorem of BHS §5.
 
 *Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Theorem 4.2.3 and its proof, pp. 375–377.
 
-*Needs:* [M/galois-tangent-comparison](#m-galois-tangent-comparison), [V/local-identification](#v-local-identification), `LocalGaloisDeformationRings:R08.3/filtered-phi-N-deformations`, `LocalGaloisDeformationRings:R08.3/pcris-generic-smooth`, `PadicHodgeTheory:R06.3/filtered-module-robba-equivalence`, `SpringerResolutionAndCharacteristicCycles:I/bruhat-support`.
+*Needs:* [M/galois-tangent-comparison](#m-galois-tangent-comparison), [V/local-identification](#v-local-identification), `LocalGaloisDeformationRings:R08.3/filtered-phi-N-deformations`, `LocalGaloisDeformationRings:R08.3/pcris-generic-smooth`, `PadicHodgeTheory:R06.3/filtered-module-robba-equivalence`, `SpringerResolutionAndCharacteristicCycles:I/bruhat-support`, [G/refined-crystalline-space](#g-refined-crystalline-space).
 **Checks.**
 
 - Acceptance: Establish the stated result with the specified coefficient category, all functorial maps and no additional genericity or étaleness hypothesis.
@@ -1019,11 +1055,11 @@ For a rank-two prefix valuation b and ramification index e, a positive adjacent 
 
 ### Dependencies
 
-`AdicSpacesPartII:R1`, `LocalGaloisDeformationRings:R08.3`, `PadicHodgeTheory:P7`, `PadicHodgeTheory:R06.3`, `PadicMeasuresIwasawaAlgebras:L0a`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, `SpringerResolutionAndCharacteristicCycles:C`, `SpringerResolutionAndCharacteristicCycles:I`, `SpringerResolutionAndCharacteristicCycles:T`, [M](#m), [V](#v).
+`AdicSpacesPartII:R1`, `LocalGaloisDeformationRings:R08.3`, `PadicHodgeTheory:P7`, `PadicHodgeTheory:R06.3`, `PadicMeasuresIwasawaAlgebras:L0a`, `PhiGammaModulesAndIwasawaCohomology:PG.7`, `SpringerResolutionAndCharacteristicCycles:C`, `SpringerResolutionAndCharacteristicCycles:F`, `SpringerResolutionAndCharacteristicCycles:I`, `SpringerResolutionAndCharacteristicCycles:T`, [M](#m), [V](#v).
 
 **Planning status: planned.** Discharge R4, R7 and R8; implement the large-gap density proof with its bounded valuations and neighbourhood-basis quantifier.
 
-**Atlas planets:** Flat trianguline character map; Crystalline accumulation property; Trianguline tangent bound; Crystalline companion-point criterion.
+**Atlas planets:** Flat trianguline character map; Crystalline accumulation property; Trianguline tangent bound; Refined crystalline deformation space; Crystalline companion-point criterion.
 
 ## Layer 8: Local trianguline cycles and the crystalline multiplicity formula
 
@@ -1216,7 +1252,7 @@ There are two cycle transfers: first fix logarithmic weights, then fix the remai
 
 *Proof plan:* 1. Apply the two-dimensional incidence calculation and retain the Galois framing directions. 2. Identify the two transferred components and their crystalline/noncrystalline loci. 3. Check dimensions against Y/full-character-transfer and verify the corresponding two principal-series constituents through G2.
 
-*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), Introductory split rank-two example, pp. 304–305.
+*Source:* [BHS19](https://www.numdam.org/item/10.1007/s10240-019-00111-y.pdf), §1, Examples (i) after Theorem 1.9, p. 305.
 
 *Needs:* [Y/crystalline-multiplicity](#y-crystalline-multiplicity), [G/flat-character](#g-flat-character), [Y/full-character-transfer](#y-full-character-transfer), `SpringerResolutionAndCharacteristicCycles:S/steinberg-components`.
 **Checks.**
@@ -2144,7 +2180,7 @@ Pullback and pushout must come from the same extension. Their signed image is th
 
 *Proof plan:* 1. Use I/partial-comparison to span the quotient partial tangent space by the first/last paraboline spaces. 2. Induct on rank using the partial graded product and compatible-refinement preimage formulas. 3. Since the relevant Ext¹₀ lies in every compatible refinement, lift quotient surjectivity to full partial Ext.
 
-*Source:* [Ding25](https://pmihes.centre-mersenne.org/item/10.1007/s10240-025-00156-2.pdf), Corollary 2.40, pp. 32–33.
+*Source:* [Ding25](https://pmihes.centre-mersenne.org/item/10.1007/s10240-025-00156-2.pdf), Corollary 2.40 and its proof, p. 32.
 
 *Needs:* [I/partial-comparison](#i-partial-comparison), [P/partial-dimensions](#p-partial-dimensions), [P/modified-zero-kernel](#p-modified-zero-kernel).
 **Checks.**
@@ -2166,7 +2202,7 @@ For f=g=id_E, the matched relation is {(a,−a)}. Its two projections are both a
 
 ## Layer 13: Ordered-regular local deformation applications
 
-This branch uses Newton–Thorne’s weaker, ordered regularity condition and their opposite sign for weights. It gives the local tangent and noncriticality inputs to eigenvariety arguments. The final rank-two application separates absence of Frobenius eigenvectors from the differential-equation theorem that makes a polynomial connection kernel finite.
+This branch uses Newton–Thorne’s weaker, ordered regularity condition and their opposite sign for weights. It gives the local tangent and noncriticality inputs to eigenvariety arguments. The final rank-two application separates the absence of finite-dimensional (φ,Γ)-stable subspaces from the differential-equation theorem that makes a polynomial connection kernel finite.
 
 <a id="n-regular-parameters"></a>
 
@@ -2380,15 +2416,15 @@ This branch uses Newton–Thorne’s weaker, ordered regularity condition and th
 
 <a id="n-rank-two-nontrianguline"></a>
 
-### 13.11 A nontrianguline rank-two module has no Frobenius eigenvector
+### 13.11 A nontrianguline rank-two module has no (φ,Γ)-stable finite-dimensional subspace
 
-**N/rank-two-nontrianguline (theorem).** For K=Q_p and an absolutely irreducible rank-two E-representation V that is nontrianguline even after finite coefficient extension, D_rig(V) has no nonzero φ-eigenvector, including after a finite coefficient extension. A φ-eigenvector lies in a finite-dimensional φ-eigenspace stable under Γ; after finite coefficient extension a common Γ-eigenline generates a rank-one submodule whose saturation is trianguline. Thus such a vector contradicts nontriangulinity.
+**N/rank-two-nontrianguline (theorem).** For K=Q_p and an absolutely irreducible two-dimensional E-representation V that is not trianguline, even after any finite extension of E, D_rig(V) contains no nonzero finite-dimensional E-subspace stable under both φ and Γ, and this persists after any finite extension of E. A φ-eigenvector alone is not claimed to span a Γ-stable line.
 
-*Additional hypotheses:* The finite-dimensionality and Γ-eigenline input is requested from PG.7; absolute nontriangulinity is the convention in this target.
+*Additional hypotheses:* Colmez’s saturation lemma for a rank-one (φ,Γ)-submodule is requested from PG.7 (R6); nontriangulinity is meant after every finite extension of coefficients, as in Colmez’s definition.
 
-*Proof plan:* 1. Use the finite-dimensional φ-eigenspace theorem in the Robba category. 2. Triangularize the commuting Γ-action after finite coefficient extension to obtain a common line. 3. Apply rank-one saturation and the rank-two quotient to construct a full triangulation; compare with the imported Colmez definition.
+*Proof plan:* 1. Let X be a nonzero finite-dimensional subspace stable under φ and Γ. The operators φ and γ∈Γ commute with each other, so after a finite extension of E they have a common eigenvector x≠0 in X. 2. The Robba-span of x is a rank-one (φ,Γ)-submodule of D_rig(V); by Colmez’s saturation lemma (R6) it lies in a saturated rank-one (φ,Γ)-submodule, whose quotient has rank one. 3. This is a triangulation of D_rig(V) after a finite extension of E, contradicting nontriangulinity.
 
-*Source:* [DLB17](https://arxiv.org/pdf/1509.00606v2), Proof of Lemma 6.3, arXiv p. 31 (using Colmez08, Lemma 3.2, p. 231).
+*Source:* [DLB17](https://arxiv.org/pdf/1509.00606v2), Proof of Lemma 6.3, arXiv p. 31 (published version p. 356), completed as in E18; [Colmez08](https://www.numdam.org/item/AST_2008__319__213_0.pdf), Lemma 3.2 and Definition 3.4, p. 231; Definition 4.1, p. 237.
 
 *Needs:* `PhiGammaModulesAndIwasawaCohomology:PG.7/triangulation`, `PhiGammaModulesAndIwasawaCohomology:PG.7/rank-one-classification`, `PhiGammaModulesAndIwasawaCohomology:PG.7`.
 **Checks.**
@@ -2401,11 +2437,11 @@ This branch uses Newton–Thorne’s weaker, ordered regularity condition and th
 
 ### 13.12 The nontrianguline polynomial-connection kernel argument
 
-**N/polynomial-connection-kernel (application).** Under N/rank-two-nontrianguline, suppose the differential-equation supplier gives finite-dimensionality of ker P(∇)⊂D_rig(V) for every nonzero P∈E[X]. Then P(∇) is injective: its kernel is φ-stable, and a nonzero finite-dimensional φ-stable kernel has a φ-eigenvector after finite coefficient extension, contradicting the preceding theorem. The finiteness theorem and the connection itself remain owned by the differential-equation and period suppliers.
+**N/polynomial-connection-kernel (application).** Under N/rank-two-nontrianguline, suppose the differential-equation supplier gives finite-dimensionality of ker P(∇)⊂D_rig(V) for every nonzero P∈E[X]. Then P(∇) is injective: ∇ commutes with φ and with Γ, so its kernel is a finite-dimensional subspace stable under φ and Γ, which vanishes by the preceding theorem. The finiteness theorem and the connection itself remain owned by the differential-equation and period suppliers.
 
-*Proof plan:* 1. Use commutation of φ with the infinitesimal Γ-action to preserve the kernel. 2. Invertibility of Frobenius excludes a zero eigenvalue on a nonzero finite-dimensional invariant subspace. 3. Extend E to split its characteristic polynomial and apply Frobenius-eigenvector vanishing.
+*Proof plan:* 1. φ∇=∇φ, and γ∇=∇γ for γ∈Γ because Γ is commutative, so ker P(∇) is stable under φ and Γ. 2. By the finiteness input (R9) the kernel is finite-dimensional over E. 3. Apply N/rank-two-nontrianguline: no nonzero such subspace exists, so P(∇) is injective.
 
-*Source:* [DLB17](https://arxiv.org/pdf/1509.00606v2), Lemma 6.3 and its proof, arXiv p. 31.
+*Source:* [DLB17](https://arxiv.org/pdf/1509.00606v2), Lemma 6.3 and its proof, arXiv p. 31 (published version p. 356).
 
 *Needs:* [N/rank-two-nontrianguline](#n-rank-two-nontrianguline), `PadicHodgeTheory:P7/connection-on-robba-realisation`, `PadicDifferentialEquationsAndRigidCohomology:RD.1`.
 **Checks.**
@@ -2415,7 +2451,7 @@ This branch uses Newton–Thorne’s weaker, ordered regularity condition and th
 
 ### Examples
 
-With one embedding and weights (0,3), prefix slope 2 passes the numerical criterion and slope 3 fails. With a second embedding of gap 1, slope 2 fails the all-embedding test. A fixed-unit-weight unramified infinitesimal twist is allowed and is de Rham. A nonzero φ-eigenvector obstructs absolute nontriangulinity only after the finite-eigenspace and saturation supplier hypotheses have been checked.
+With one embedding and weights (0,3), prefix slope 2 passes the numerical criterion and slope 3 fails. With a second embedding of gap 1, slope 2 fails the all-embedding test. A fixed-unit-weight unramified infinitesimal twist is allowed and is de Rham. A nonzero finite-dimensional subspace stable under φ and Γ, such as a nonzero kernel of P(∇), contradicts nontriangulinity through Colmez’s saturation lemma; a bare φ-eigenvector is not enough.
 
 ### Dependencies
 
@@ -2423,11 +2459,11 @@ With one embedding and weights (0,3), prefix slope 2 passes the numerical criter
 
 **Planning status: planned.** Discharge R2, R6–R9; the polynomial-connection injectivity target is conditional on the finite-kernel supplier, and the closure tangent is only an inclusion.
 
-**Atlas planets:** Ordered-regular trianguline parameters; Fixed-weight trianguline tangent lemma; Numerical noncriticality; Weil–Deligne noncriticality criterion; Local trianguline closure tangent constraint; Nontrianguline Frobenius eigenvector vanishing.
+**Atlas planets:** Ordered-regular trianguline parameters; Fixed-weight trianguline tangent lemma; Numerical noncriticality; Weil–Deligne noncriticality criterion; Local trianguline closure tangent constraint; Nontrianguline (φ,Γ)-eigenline vanishing.
 
 ## Source corrections and proof safeguards
 
-These findings are scoped to the exact versions in the references and packet hashes. They are mathematical checks awaiting independent review, not author-confirmed errata unless explicitly identified. The inherited findings were rechecked at their printed locators. Title/erratum and author/publisher searches on 19 October 2026 did not identify an author-issued correction. The new E16 finding identifies a proof inference and leaves its repair in the explicit G2 supplier contract; it does not allege the uniqueness result is false.
+These findings are scoped to the exact versions in the references and packet hashes. The independent review confirmed E1–E16 at their locators (reclassifying E7 as a misprint) and added E17–E20; none is an author-confirmed erratum. The inherited findings were rechecked at their printed locators. Title/erratum and author/publisher searches on 19 October 2026 did not identify an author-issued correction. The new E16 finding identifies a proof inference and leaves its repair in the explicit G2 supplier contract; it does not allege the uniqueness result is false.
 
 **E1 (BHS19, error).** Theorem 1.9, p. 305; Conjecture 4.3.4 and Remark 4.3.5, p. 381; (4.11)–(4.12), p. 382; Theorem 4.3.8 proof, pp. 384–385. The codimension assigned to the full-character cycles is dn(n+3)/2; the corresponding dimension is n²+dn(n−3)/2. Use codimension dn(n+1)/2+n and dimension n²−n+dn(n−1)/2. The fixed-weight codimension dn(n+1)/2 is unchanged. The smooth character space has dimension n(d+1), whereas unit weights have dimension nd. Fixing the unramified character coordinates removes n dimensions, not dn. For n=1,d=2 the ambient ring has dimension 3 and the full-character fibre is a point; the printed formula instead gives dimension −1. Affects: a stated result.
 
@@ -2441,7 +2477,7 @@ These findings are scoped to the exact versions in the references and packet has
 
 **E6 (NT21, misprint).** Proof of Lemma 2.4, printed p. 29. The strictness test runs through i=n while referring to δ_{i+1}. The test is for 0≤i≤n−1. There are n graded characters. At i=n the quotient is zero and δ_{n+1} is undefined; the stated one-dimensional H⁰ test is the strictness test for the n actual graded steps. Affects: the proof.
 
-**E7 (BHS19, error).** Definition of T₀ⁿ in §3.4.2, printed p. 352. The complement description uses simultaneous algebraicity of a ratio and its cyclotomic multiple. A tuple is excluded if either exceptional ratio family is algebraic for some ordered pair i≠j. Equivalently require δ_i/δ_j∈T₀ for every ordered pair. The cyclotomic character ε=N|N| is not algebraic. A ratio and its ε-multiple cannot both be algebraic, so the printed simultaneous condition would exclude nothing, contrary to the preceding rank-one definition. Affects: a stated result.
+**E7 (BHS19, misprint).** Definition of T₀ⁿ in §3.4, before Theorem 3.4.4, printed p. 352. The complement description uses simultaneous algebraicity of a ratio and its cyclotomic multiple. A tuple is excluded if either exceptional ratio family is algebraic for some ordered pair i≠j. Equivalently require δ_i/δ_j∈T₀ for every ordered pair. The cyclotomic character ε=N|N| is not algebraic. A ratio and its ε-multiple cannot both be algebraic, so the printed simultaneous condition would exclude nothing, contrary to the preceding rank-one definition. Affects: nothing.
 
 **E8 (BHS19, misprint).** Formula (3.6), p. 336; Lemma 3.2.2 setup, p. 337; regular-lattice completion point and reference, pp. 340–341. The filtration formula uses D_dR in place of D_pdR; the coefficient filtration wording imposes excessive freeness/rank, and the displayed completion point suppresses transport by the frame. Use D_pdR, ν-stable filtrations with finite projective A⊗K graded pieces, and the point (α⁻¹HodgeFlag,N). Each τ-graded piece is A-free of its own rank; zero and nonparallel pieces are allowed. The comparison is Theorem 3.2.5. The nonzero nilpotent period operator lives on D_pdR. Since A⊗K is a product over embeddings, a nonparallel rank-one object has a graded summand supported at only one factor; that summand is projective but need not have constant rank on the product. All other displayed frame comparisons require α⁻¹. Affects: nothing.
 
@@ -2461,6 +2497,14 @@ These findings are scoped to the exact versions in the references and packet has
 
 **E16 (BHS19, gap).** Beginning of the proof of Proposition 4.3.6, printed p. 382; cycle group convention, p. 377. For a parameter point absent from X_tri, the proof infers vanishing of every constituent cycle from vanishing of their multiplicity-weighted sum. Provide a unitriangular vanishing argument for all those constituent families, or assume effectivity for this inference. Y/conditional-uniqueness uses the first approach as an explicit pending G2 supplier contract; it does not silently add effectivity to Conjecture 4.3.4. The cycles lie in a free abelian group and are not required to be effective in the printed conjecture. A zero sum of signed cycles does not imply termwise vanishing: C+(−C)=0. The subsequent finite-linkage induction treats locally algebraic generic inducing data; extending the vanishing argument to the other constituent families needs its own input. This finding concerns that proof step, not a counterexample to the uniqueness theorem. Affects: the proof.
 
+**E17 (BHSsmooth17, error).** Lemma 2.10, author PDF p. 15 (Lemma 3.12 in arXiv:1510.01222v1). The lemma assumes only that ω(x)=δ_k is algebraic and that k_{τ,i}−k_{τ,i+1} exceeds [K:K₀] times the valuation of (δ₁⋯δ_i)(ϖ_K) for every τ and i, and concludes that x is saturated. The proof later uses that k is strictly dominant. Add the hypothesis that k is dominant, k_{τ,1}≥⋯≥k_{τ,n} for every τ. Then the induction goes through, and saturation together with the slope bound makes k strictly dominant. Every application (BHSsmooth17 Proposition 2.12, BHS19 Proposition 4.1.4) uses strictly dominant weights with large gaps, so they are unaffected. Counterexample for [K:Q_p]=2, K unramified, n=2: take r crystalline, generic, noncritical for the refinement (φ₁,φ₂), with Hodge–Tate weights {0,2} at both embeddings and v_p(φ₁)=−3, v_p(φ₂)=−1 (weakly admissible: the noncritical slope conditions −3+4≥0, −1+4≥0 and −4+4=0 hold). By BHS19 Theorem 4.2.3 with w_x=1 the anti-dominant companion x=(r,z^{(0,0),(2,2)}unr(φ)) lies on X_tri. At x, v_p(δ₁(p))=−3 and k_{τ,1}−k_{τ,2}=−2>−3 at both embeddings, so the hypothesis holds, but x is not saturated: the only saturated rank-one submodule with Frobenius label φ₁ has parameter z^{(2,2)}unr(φ₁). In the proof, the step from the gap inequality at one τ to the inequality for Σ_τ(k_{τ,i}−k_{τ,w⁻¹(i)}) fails when the other summands are negative. Affects: a stated result.
+
+**E18 (DLB17, gap).** Proof of Lemma 6.3, arXiv:1509.00606v2 p. 31; the same text in the published version, Ann. of Math. 186 (2017), p. 356. The proof passes from the nonzero finite-dimensional φ-stable kernel X of P(∇) to the existence of φ-eigenvectors on D_rig(V) and declares that this contradicts Colmez’s Lemma 3.2. Note that X is also Γ-stable (∇ commutes with Γ) and choose, after a finite extension of L, a common eigenvector of φ and Γ in X. It spans a rank-one (φ,Γ)-submodule, whose saturation (Colmez Lemma 3.2) gives a triangulation, contradicting nontriangulinity. A φ-eigenvector alone need not span a Γ-stable line, so it does not give a rank-one (φ,Γ)-submodule; Colmez’s Lemma 3.2 concerns rank-one (φ,Γ)-submodules. The missing step is short, and the lemma is true. Affects: nothing.
+
+**E19 (BHSsmooth17, misprint).** Proof of Lemma 2.10, author PDF p. 15. The slope inequality is written with the absolute value of δ′₁(ϖ_K)⋯δ′_i(ϖ_K) at least 1, and the induction step compares with indices j∈{i,…,n}. The absolute value is at most 1 (valuation at least 0), which is the direction used in (2.13); the comparison is with j∈{i+1,…,n}. Rank-one submodules of an étale (φ,Γ)-module have nonnegative slope, which is what (2.13) uses; for j=i the stated strict inequality would read val<0 and is not what the argument needs. Affects: nothing.
+
+**E20 (Ding25, misprint).** Paragraph after Lemma 2.6 and (2.7), printed p. 14. The text asserts D_{1,σ}=T_σ(D₁) with T_σ defined as in (2.7), that is, replacing the weights off σ by the module’s own lowest weight. For D₁ the weights off σ must be replaced by the ambient lowest weight h_{τ,n}, not by D₁’s own lowest weight h_{τ,n−1}; the Hodge–Tate–Sen weights of D_{1,σ} stated in the preceding sentence are the correct ones. For C₁ the two cutoffs agree. D_{1,σ} is the saturated submodule of D_σ, whose weights off σ are all h_{τ,n}; applying (2.7) to D₁ itself would give weights h_{τ,n−1} off σ. Affects: nothing.
+
 ## Downstream consumers
 
 **PadicFamilies:L2a and L3.** Pull back the injective local trianguline tangent and the inclusion of its fixed-weight kernel in H¹_g; no equality or absolute irreducibility-free ring claim is supplied. Inputs: [N/ordered-representability](#n-ordered-representability), [N/fixed-weight-de-rham](#n-fixed-weight-de-rham), [N/wd-noncriticality](#n-wd-noncriticality), [N/closure-tangent](#n-closure-tangent).
@@ -2471,9 +2515,11 @@ These findings are scoped to the exact versions in the references and packet has
 
 **Locally analytic crystabelline representation constructions.** Recover the full module only for K=Q_p from the original relation; recover a single σ-Hodge filtration for arbitrary K from the modified or partial relation. Inputs: [H/projective-iota](#h-projective-iota), [H/sigma-recovery](#h-sigma-recovery), [I/hodge-recovery-exact](#i-hodge-recovery-exact), [I/sigma-recovery-exact](#i-sigma-recovery-exact), [I/partial-comparison](#i-partial-comparison).
 
+**PadicHodgeParametersInLocallyAnalyticRepresentations (input contracts TR1–TR5).** TR1 is H/crystabelline-parameters with H/canonical-subquotients; TR2 is D/refinement-tangents, D/tangent-dimensions, D/common-kernel, D/de-rham-up-to-twist and I/refinement-generation; TR3 is D/paraboline-tangents, D/paraboline-dimensions and D/parabolic-up-to-twist; TR4 is P/partial-dimensions, P/modifying-first-order, P/modification-kernel, P/quotient-comparison and I/partial-refinement-generation, with D_σ itself from PadicHodgeTheory:P7/embedding-selective-crystalline-modification; TR5 is I/sigma-relation and I/sigma-recovery-exact. These targets assume n≥2; the n=1 case of TR5 is the rank-one statement P/partial-local-condition, and the consumer should point its G-TR gap at these node ids. Inputs: [H/crystabelline-parameters](#h-crystabelline-parameters), [H/canonical-subquotients](#h-canonical-subquotients), [D/refinement-tangents](#d-refinement-tangents), [D/tangent-dimensions](#d-tangent-dimensions), [D/common-kernel](#d-common-kernel), [D/de-rham-up-to-twist](#d-de-rham-up-to-twist), [D/paraboline-tangents](#d-paraboline-tangents), [D/paraboline-dimensions](#d-paraboline-dimensions), [D/parabolic-up-to-twist](#d-parabolic-up-to-twist), [I/refinement-generation](#i-refinement-generation), [P/partial-dimensions](#p-partial-dimensions), [P/modifying-first-order](#p-modifying-first-order), [P/modification-kernel](#p-modification-kernel), [P/quotient-comparison](#p-quotient-comparison), [I/partial-refinement-generation](#i-partial-refinement-generation), [I/sigma-relation](#i-sigma-relation), [I/sigma-recovery-exact](#i-sigma-recovery-exact).
+
 ## Completion and acceptance
 
-The packet has 100 target nodes: 20 definitions, 11 constructions, 56 theorems, 6 lemmas, 5 comparisons and 2 applications. Its 31 definitions/constructions carry 118 API items and 96 discriminating tests in total; every such node has at least three tests and recorded uses. The 63 planets respect the limit of six per layer. Seven pinned baseline declarations are cited directly. All thirteen layers are planned; none is marked closed while the nine supplier requests and G1/G2 remain open. Follow-up work must assign and accept those contracts, then implement the stated targets. No result in this plan is claimed formalized.
+The packet has 101 target nodes: 20 definitions, 12 constructions, 56 theorems, 6 lemmas, 5 comparisons and 2 applications. Its 32 definitions/constructions carry 123 API items and 100 discriminating tests in total; every such node has at least three tests and recorded uses. The 64 planets respect the limit of six per layer. Seven pinned baseline declarations are cited directly. All thirteen layers are planned; none is marked closed while the nine supplier requests and G1/G2 remain open. Follow-up work must assign and accept those contracts, then implement the stated targets. No result in this plan is claimed formalized.
 
 Acceptance includes the acyclic own-target graph, resolution of all external prerequisites, complete coverage of the 138 routed items, matching packet/reader statements and API/tests, and elaboration of the compact native Lean interfaces. The full arithmetic targets must eventually use the genuine supplier carriers; compiling the representative file does not discharge them. The general multiplicity conjecture remains a conjecture after those implementation tasks.
 

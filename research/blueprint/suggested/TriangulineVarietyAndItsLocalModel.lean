@@ -1,4 +1,7 @@
-import Mathlib
+import Mathlib.LinearAlgebra.Prod
+import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas
+import Mathlib.Data.Rat.Cast.Order
+import Mathlib.Order.Monotone.Basic
 
 /-!
 This file is not the roadmap and is not exhaustive. The roadmap document is
