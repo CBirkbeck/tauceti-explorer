@@ -1,6 +1,60 @@
 # Handoff: REV-FIX-RT-AREA-ktheory-1~2
 
-## Current checkpoint: Codex codex-RflGpa, 19 October 2026
+## Current checkpoint: Codex codex-cIShm2, 19 October 2026
+
+Refs #5542. Claim comment 6265192509 was confirmed by the bot at 10:33:05 UTC.
+This session did none of the original fixes and claimed no second job.
+Only this handoff and the review report change.
+
+**Still blocked on authorization for the twelve queue-only pairs.** The live
+issue names seven pairs, the queue nineteen; the unmodified completion
+predicate is false. The seven existing area verdicts are already terminal.
+The twelve exact additional pairs and a ready-to-use issue amendment remain
+below. WORKERS.md's instruction “Edit only the files the issue names” prevents
+stamping or repairing those pairs without expanded authorization. An operator
+question was submitted, with no authorizing reply. No scope, queue, label or
+extra review object was changed.
+
+New work is in the report's first continuation; do not repeat it merely to
+produce another scope audit:
+
+- Eight additional companions have manually confirmed admitted data bodies:
+  BorelRegulators, M.1, StableHomotopyKTheory, U.1, M.5d, SchemeKTheoryOperations,
+  V.1 and KTheoryFiniteLocalFields. Exact declarations and line numbers are
+  in the report. U.1 (9,098), SchemeKTheoryOperations (20,089) and
+  KTheoryFiniteLocalFields (5,900) also exceed the 5,000-line limit.
+- A fresh serial `lean-check` of unchanged U.1 exits 1: eleven error
+  diagnostics, comprising one finite-index proof failure, six smallness
+  universe diagnostics and four diagnostics from two determinant controls
+  that infer ℚ in place of ℚˣ. It also emits 946 admitted-proof warnings.
+  The report gives the original line numbers and repair direction.
+- The raw data checker sees comments and mistakes `Subgroup.Normal` proof
+  instances for data. After comment removal, the four other additional
+  companions do not have a confirmed data-body violation. This is not a
+  mathematical acceptance verdict for them.
+- Geisser 2004 Theorem 1.2, pp.774–775, and §5, pp.787–789 support the
+  existing Dedekind hypotheses. Do not add a perfect-residue-field restriction.
+  The missing explicit finite Zariski truncation/naturality interface should
+  be stated; the source check does not close the distinct tower gap.
+- The Birch–Tate golden-field consumer's “lower bound only” supplier-status
+  sentence is obsolete. After authorization, cite N.8's independent
+  certificate instead, preserving the application's conditional nature and
+  the prohibition on using Birch–Tate to manufacture its input order.
+
+All nineteen packet checks freshly pass with zero errors/warnings using the
+shared pinned declaration index. The seven issue-listed companions have no
+data-checker hits after comment removal; their earlier compilations were not
+rerun. Current upstream smallness and homotopy ownership were read without
+edits. Scratch has no resumption-critical material: all results needed by
+the next worker are recorded in this handoff and the report.
+
+The next action is scope reconciliation, then actual correction/review of the
+twelve additional pairs. Prefer terminal `needs_changes` verdicts with precise
+reasons to an unsupported acceptance; the job does not require all mathematics
+to be accepted. Do not rerun the seven completed reviews to try to satisfy the
+completion predicate.
+
+## Previous checkpoint: Codex codex-RflGpa, 19 October 2026
 
 Refs #5542. Claim comment 6263900238 was confirmed by bot comment
 6263903165. This session did none of the original fixes and claimed no
