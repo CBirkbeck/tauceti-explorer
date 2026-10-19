@@ -177044,6 +177044,26 @@
    "reviewReason": "Raised by the reviewer and checked by the S-unit count at F = Q, S = {p}."
   },
   {
+   "id": "ArithmeticKTheory/E-BP-FGV1",
+   "kind": "misprint",
+   "locator": "Published PDF, proof of Corollary 2.12, p. 245 (PDF p. 21), first cohomology multiplication display.",
+   "printed": "The target of multiplying H²(X,μ_q) by the (2k−1)-fold root-of-unity class is labelled with twist 2k−1.",
+   "correction": "The target twist is 2k: 1+(2k−1)=2k.",
+   "reason": "Tate-twist cup products add weights. The source group has weight 1 and the multiplier weight 2k−1; Lemma 2.11 on the preceding page requires H² of weight 2k in degree 4k−2. At k=0 the product must land in weight 0, not −1. The four table statements themselves have the correct indices.",
+   "affects": "the proof",
+   "known": "New observation in the published PDF read; no verified correction located. The tables and the corollary statement do not need changing.",
+   "searched": [
+    "Published Springer article page and PDF DOI 10.1007/s00222-022-01127-8, 2026-10-19.",
+    "arXiv:2007.15078 abstract/version record and author publication page; title plus corrigendum search, 2026-10-19; no correction notice found."
+   ],
+   "owner": "ArithmeticKTheory",
+   "file": "research/blueprint/packets/ArithmeticKTheory.json",
+   "citation": "Tony Feng, Søren Galatius and Akshay Venkatesh, The Galois action on symplectic K-theory, Inventiones mathematicae 230 (2022), 225–319, DOI 10.1007/s00222-022-01127-8; published PDF, printed page = PDF page + 224.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "ArithmeticKTheoryPartII/E1",
    "kind": "error",
    "locator": "§4.1, p. 259",
@@ -210991,8 +211011,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Karl Rubin, Euler Systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., TeX output of 4 August 1999; chapter-relative numbering; read 2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Corollary IV.8.1 divides P_q(Fr_q^{-1}) − P_q(N(q)Fr_q^{-1}) by [K(q) : K(1)], and for T = ℤ_p(1) this difference is (N(q) − 1)Fr_q^{-1}; [K(q) : K] = [K(q) : K(1)][K(1) : K] differs whenever the p-part of the class number of K is nontrivial. The two agree for K = ℚ."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The norm relation divides by the relative ray-class degree [K(q):K(1)]. The additional class-number factor in [K(q):K] changes the congruence. The published p.103 comparison corrects this denominator."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E1",
@@ -211015,8 +211035,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "David Burns, Ryotaro Sakamoto and Takamichi Sano, On the theory of higher rank Euler, Kolyvagin and Stark systems, II, arXiv:1805.08448v1 (22 May 2018), 51 pp., read 2026-10-14; the only version on arXiv",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. K(T) is by definition the minimal Galois extension of K such that G_{K(T)} acts trivially on T, so every τ ∈ G_{K(T)_{p^∞}} ⊆ G_{K(T)} acts trivially on T and T/(τ − 1)T = T, which is isomorphic to R only when T has rank one. The finite-level Hypothesis 3.2(ii) takes τ ∈ G_{K_M}, and Remark 4.9 asserts that Hypothesis 4.7 gives Hypotheses 3.2(i) and (ii) for T/p^mT, which is true for τ ∈ G_{K_{p^∞}} ⊆ G_{K_{p^m}} and false in rank at least two for the printed group."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "Read BSS Hypothesis4.7(ii) with its coefficient-trivializing field: membership in that field’s absolute Galois group makes tau act trivially, contradicting the rank-one quotient when rank(T)>1. The finite-level hypothesis identifies the intended smaller field."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E2",
@@ -211036,8 +211056,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Karl Rubin, Euler Systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., TeX output of 4 August 1999; chapter-relative numbering; read 2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The printed extension contains the cyclotomic Z_p-extension because p divides N, contrary to the following parenthesis. For a nontrivial extension ramified only at N, the Euler-factor product is empty, hence is 1, and the family c_F=0 for F≠K requires c_K=0. With no ramification at N and class number one, every nontrivial finite abelian extension ramifies at a prime outside N, where the stipulated factor vanishes; the claimed arbitrary c_K family then works."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "With ramification only at N the Euler-factor product away from N is empty, so the proposed zero-at-higher-level family cannot have an arbitrary nonzero bottom class. The ramification-away-from-N correction repairs this particular example; the published p.175 wording was also checked."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E3",
@@ -211058,8 +211078,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society168(2004), no.799; authors’ version dated20October2003,102PDFpages, printed pagination; relevant locators read2026-10-14. No comparison with the publisher’s file is asserted.",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Let R=Z_p and take the graph with one vertex and no edges, with S(v)=R/pR. The sheaf is locally cyclic, its vertex is a hub and monodromy is trivial. Γ(S)=R/pR is nonzero torsion, whereas every ideal of the domain R is torsion-free. The proof’s injection into a cyclic module does not imply injection into R."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "A one-vertex graph with stalk Z_p/p has cyclic sections but those sections cannot be an ideal of the domain Z_p. The free-hub or principal-artinian restrictions in the assembled target are essential."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E4",
@@ -211079,8 +211099,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society168(2004), no.799; authors’ version dated20October2003,102PDFpages, printed pagination; relevant locators read2026-10-14. No comparison with the publisher’s file is asserted.",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Over 𝔽₃ take the continuous G_ℚ-representation through S₃ from the splitting field of x³−2, generated on T=𝔽₃² by b=[[1,1],[0,1]] and a=diag(−1,1). These satisfy b³=a²=1 and aba=b⁻¹. Their common fixed space is zero, but 𝔽₃e₁ is stable and T/𝔽₃e₁ is a nonzero trivial representation. This quotient is not a coefficient-ideal quotient."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "For the F_3 representation generated by a nontrivial upper unipotent and diag(-1,1), the common invariant space is zero but the quotient by the first coordinate is trivial. This refutes arbitrary-subquotient propagation; coefficient-ideal propagation survives."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E5",
@@ -211102,8 +211122,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Barry Mazur and Karl Rubin, Kolyvagin systems, Memoirs of the American Mathematical Society168(2004), no.799; authors’ version dated20October2003,102PDFpages, printed pagination; relevant locators read2026-10-14. No comparison with the publisher’s file is asserted.",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. Let R=𝔽₃[[x,y]], with hub stalk R, one other vertex and edge stalk R/(y), and maps quotient and identity. Every vertex-to-edge map is surjective; the hub reaches the other vertex through the edge isomorphism at the endpoint, and monodromy is trivial. The section (x,x mod y) is nonzero and generates mS(u) at the other vertex, but (x)≠m=(x,y) at the hub."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "For R=F_3[[x,y]], the hub R mapping onto R/(y) has a section (x,x mod y) whose generated ideal at the hub is (x), while its value at the other vertex generates the maximal-ideal multiple. Thus the non-hub edge assertion needs its stated restriction."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E801",
@@ -211123,8 +211143,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Barry Mazur, Karl Rubin, Kolyvagin systems, Authors' version dated 20 October 2003 (102 pp.) of Memoirs of the American Mathematical Society 168 (2004), no. 799; the publisher's text (doi:10.1090/memo/0799) was not available.",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. For c = 0, (H¹(Q, T)/Λ·0)_tors = H¹(Q, T)_tors = 0 because H¹(Q, T) is torsion-free (Lemma 5.3.5), so the printed formula gives Ind(0) = char(0) = Λ, while the gcd description gives gcd(0, …, 0) = 0 and the proof of Theorem 5.3.10 states 'If κ1 = 0 then Ind(κ) = 0 and there is nothing to prove.' With the printed formula, Theorem 5.3.10(i) for κ_1 = 0 would assert char(X∞) = Λ, which is false in general (X∞ need not be torsion)."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "At the zero class, the coordinate gcd is zero while the characteristic ideal of the torsion part of a torsion-free module is the unit ideal. Definition5.3.8 and the subsequent zero branch cannot both use the latter convention. The explicit zero index is retained."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E802",
@@ -211142,8 +211162,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Karl Rubin, Euler systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000); 187 pp., TeX output of 4 August 1999. Numbering II.3.x etc.; the published text numbers the same results 2.3.x.",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The proof needs a functional on H¹_∞(K, T) whose value at c_{K,∞} lies in ind_Λ(c); ψ ∘ loc^s is one. The published version (Theorem 2.3.8, p. 43) prints ψ."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The draft proof needs the chosen local functional psi composed with localization; phi has not been introduced there. The published Theorem2.3.8 p.43 has the consistent symbol."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E803",
@@ -211161,8 +211181,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Karl Rubin, Euler systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000); 187 pp., TeX output of 4 August 1999. Numbering II.3.x etc.; the published text numbers the same results 2.3.x.",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Independently checked at the recorded locator and against the stated correction/counterexample; the whole-roadmap report records the version comparison and scope. The next sentence uses only that ρ is trivial on I and calls I 'also an inertia group' of w in G_{L_n}; the article 'an' also points to the intended word. A decomposition group of w ∤ p in G_L surjects onto the infinite decomposition group of w in Gal(LK∞/L), on which a character ρ of infinite order is nontrivial."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "An infinite-order unramified character is trivial on inertia, not on the whole decomposition group away from p. Read the draft local proof and compared the published Proposition6.2.1 p.122 argument; the finding is scoped to the draft."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E902",
@@ -211181,8 +211201,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Karl Rubin, Euler Systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., TeX output of 4 August 1999; chapter-relative numbering; read 2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "A uniformizer has valuation1 and a nonzero Kummer class outside the finite subgroup; residue-field units have valuation0. The Euler classes are unramified here, so the congruence computation remains valid on the finite subgroup."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The valuation of a uniformizer gives the missing full Kummer-cohomology summand. Residue units identify the finite/unramified subgroup, which is sufficient for the Euler-class calculation. This limitation remains necessary in both Rubin copies."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E903",
@@ -211201,8 +211221,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Murilo Zanarella, On Howard's main conjecture and the Heegner point Kolyvagin system, arXiv:1908.09197v1, 50 pp.; read 2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Λ/(p)=𝔽_p[[T]] has characteristic p and is not a finite ℤ_p-order. Λ/(p+T^m) has characteristic0 and ℤ_p-rank m, so those quotients cannot be isomorphic to Λ/(p); the claimed common approximation does not justify the branch. The clean-bound branch can be repaired as in the corrected proof outline."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The coefficient rings in the p-branch have different characteristic and Z_p-rank: F_p[[T]] is not a finite Z_p-order, whereas Z_p[[T]]/(p+T^m) is free of rank m. The revised proof uses primitive specialization and actual finite quotients."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E904",
@@ -211221,8 +211241,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Francesc Castella, Ming-Lun Hsieh, Heegner cycles and p-adic L-functions, Author's version (dated 2 July 2022) of Mathematische Annalen 370 (2018), 567–628, from the second author's page; read 2026-10-14 (p. 30 checked from the page image)",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "For ℤ/p²→ℤ/p the kernel and cokernel are annihilated by p but zero has p distinct preimages. An annihilated kernel gives independence after the prescribed scaling, not uniqueness among all solutions of the restriction identity."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The map Z/p^2 to Z/p has a p-annihilated kernel but several lifts of zero. Bounded kernel and cokernel permit the selected scaled construction, not uniqueness of the unrestricted fibre."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E906",
@@ -211241,8 +211261,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Francesc Castella, Ming-Lun Hsieh, Heegner cycles and p-adic L-functions, Author's version (dated 2 July 2022) of Mathematische Annalen 370 (2018), 567–628, from the second author's page; read 2026-10-14 (p. 30 checked from the page image)",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Conjugation sends T⊗χ⁻¹ to T⊗χ; for nonquadratic χ it is not an involution on that single coefficient module. χ(σ_𝔑) need not lie in {±1}. Nekovář’s untwisted Proposition10.2 uses actual ± eigenspaces and does not supply the displayed general-character scalar replacement."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "Conjugation interchanges the chi-inverse and chi coefficient modules. For nonquadratic chi it does not give an involution on either single module. The revised local Frobenius operator retains both twists and avoids this scalar assertion."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E907",
@@ -211261,8 +211281,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Jan Nekovář, The Euler system method for CM points on Shimura curves, Archived author manuscript, 51pp.; read2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "For B=ℚ_p,V=ℚ_p,T=ℤ_p,N=1,X=W=⊕_ℕ𝔽_p, the coordinate pairing is separated on both sides. Both orders are already maximal and c=d=1, but j embeds the direct sum into Hom(W,𝔽_p)=∏_ℕ𝔽_p and is not surjective. Thus Coker(j) is not killed by1."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The separated coordinate pairing of two countable direct sums of F_p has evaluation map direct-sum to direct-product. Even for maximal orders it is not surjective. Finiteness in the revised target removes this counterexample."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E905",
@@ -211281,8 +211301,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Karl Rubin, Euler Systems, Published version, Annals of Mathematics Studies 147 (Princeton University Press, 2000), xi + 227 pp.; the author's file hosted by W. Stein; read 2026-10-14 from page images",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "The displayed ideal calculation needs the cokernel condition; multiplication by p is a direct counterexample to the weaker map requirement. The draft gives the required condition."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "Multiplication by p has zero, hence pseudo-null, kernel, while its cokernel has height-one support and changes the value ideal. The draft’s cokernel condition is the condition needed in the published proof."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E908",
@@ -211302,8 +211322,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Inventiones mathematicae 228 (2022), 107–375; the NSF Public Access Repository copy, published pagination; read 2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Over A=O/λ^n with n>1, rows (1,0) and (1,λ) have image containing λA². A first basis vector killed by the second row has first coordinate in λA, while a second killed by the first has first coordinate zero. Their determinant cannot be a unit. Abundance therefore does not give the claimed basis. Smith normal form gives AC=CA=λ^cI and the retained conclusion. This revalidates PAPER-LIU-ETAL-22/E2."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "Rows (1,0) and (1,lambda) have lambda-abundant image but cannot be diagonalized by a basis with unit determinant in the claimed way. The scaled matrix inverse used by the packet has the required bounded loss without this basis claim."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E909",
@@ -211323,8 +211343,8 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Inventiones mathematicae 228 (2022), 107–375; the NSF Public Access Repository copy, published pagination; read 2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Restriction of scalars splits into Frobenius twists. For ℓ=7, k=F₄₉, V=χ⁷⊕χ⁶ for k×, End_k(V) has weights 0,±1, so its k-linear Hom to V vanishes; its prime-field Hom does not, because Frobenius carries weight1 to weight7. More concretely, in GL₂(W₂(k)) take the group generated by diag([u]⁷,[u]⁶) and 1+7tE₁₂. Its congruence kernel is additive k of weight1. Inflation–restriction gives a nonzero H¹(G,V), and H⁰(G,V)=0 makes H¹(G,V) inject into H¹(G,W₂(k)²). Thus the printed finite-group vanishing argument fails under its hypotheses. This revalidates PAPER-LIU-ETAL-22/E21."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "For k=F_49 and weights 7 and 6, coefficient-linear End has weights 0 and plus/minus1, but restriction of scalars introduces the Frobenius twist carrying weight1 to weight7. Thus the missing prime-field Hom is real. The revised hypotheses quantify over these twists."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E910",
@@ -211344,18 +211364,18 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Inventiones mathematicae 228 (2022), 107–375; the NSF Public Access Repository copy, published pagination; read 2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "Let F⁺=Q(√5), F=F⁺(i), ℓ=3, R=Z₃(1), j=2, m=1, and S the Kummer class of the fundamental unit u=(1+√5)/2. The coefficient field is F(ζ₃), and the S-extension adds a real cube root of u. Complex conjugation inverts the cyclic cubic kernel, so every lift in its coset squares to1. All associated evaluations are zero although the h_γ-fixed coefficient line and S are nonzero of rank one. The scalar criterion gives restriction injectivity and the lattice depth is zero. This directly revalidates PAPER-LIU-ETAL-22/E1 and its consequence E23; it makes no claim that an arithmetic main theorem is false."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "Checked the cyclotomic Kummer example over Q(sqrt(5),i) at 3: conjugation inverts the cubic kernel and every lift of that conjugation coset squares to one. The associated evaluations vanish despite a nonzero fixed line. Realised-span data, rather than a fixed-line assertion alone, are required."
   },
   {
    "id": "EulerSystemsAndKolyvaginSystems/E911",
    "kind": "misprint",
    "locator": "Lemma2.3.4, published p.127",
-   "printed": "The displayed free coefficient exponent reuses m, although the application uses a shorter quotient, and the proof appends a stray p to that quotient.",
-   "correction": "State S free over O_λ/λ^{m−m′}, 0≤m′<m, and remove the stray p.",
-   "reason": "The pairing takes values in the λ^{m−m′}-torsion of R. Apply the rank induction to that shorter coefficient quotient, retaining the reducibility-depth bound. This is the form needed by Proposition2.6.6 and revalidates PAPER-LIU-ETAL-22/E22. The error is notation, rather than a new obstruction to the saturation argument.",
+   "printed": "The proof of Lemma2.3.4 appends a stray p to the coefficient quotient O_λ/λ^m.",
+   "correction": "Remove the trailing p in that proof. The statement with S free over O_λ/λ^m is valid as written; using S free over O_λ/λ^{m−m′} is a separate extension, not a correction to this statement.",
+   "reason": "Read the published statement and proof on p.127. The induction is on the free rank; it does not require the exponent to be renamed. A shorter coefficient quotient may legitimately be used in the later saturation argument, but that application does not make the original full-exponent lemma false. The trailing p has no role in the coefficient ring.",
    "affects": "nothing",
-   "known": "Previously recorded in PAPER-LIU-ETAL-22; independently revalidated here.",
+   "known": "The typographical p was recorded in PAPER-LIU-ETAL-22; this review narrows E911 to that slip.",
    "searched": [
     "Read the maintainer-cleared published NSF copy at the recorded pages on2026-10-14",
     "Compared the existing PAPER-LIU-ETAL-22 finding; its historical preprint comparisons are not claimed as reading by this reviewer",
@@ -211365,8 +211385,65 @@
    "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
    "citation": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang, Xinwen Zhu, On the Beilinson–Bloch–Kato conjecture for Rankin–Selberg motives, Inventiones mathematicae 228 (2022), 107–375; the NSF Public Access Repository copy, published pagination; read 2026-10-14",
    "status": "confirmed",
-   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems",
-   "reviewReason": "The pairing takes values in the λ^{m−m′}-torsion of R. Apply the rank induction to that shorter coefficient quotient, retaining the reducibility-depth bound. This is the form needed by Proposition2.6.6 and revalidates PAPER-LIU-ETAL-22/E22. The error is notation, rather than a new obstruction to the saturation argument."
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "Read the published statement and proof on p.127. The induction is on the free rank; it does not require the exponent to be renamed. A shorter coefficient quotient may legitimately be used in the later saturation argument, but that application does not make the original full-exponent lemma false. The trailing p has no role in the coefficient ring."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E912",
+   "kind": "error",
+   "locator": "1999 draft ChapterIX, Theorem3.3, p.137; compare published Chapter9, Theorem9.3.3, pp.179–180",
+   "printed": "The draft uses the order n of m·c_K itself as the annihilating factor n·S_{Σ_p}(K,W_M^*).",
+   "correction": "Use the published ideals a₁=⋂_{q∤p}Ann_O(W^{I_q}/(W^{I_q})_div), a₂=Ann_O(a₁c_K), with annihilator ((M):a₂)a₁. Over a DVR, if M=π^m and a_i=(π^{a or b}), its exponent is m−b+a.",
+   "reason": "The printed 1999 factor reverses the expected dependence on class order: zero c_K has order1 and would force vanishing, whereas a primitive class gives only the automatic coefficient annihilator. The published formula gives the opposite, correct zero/primitive controls. Published p.179 explicitly displays (M/a₂)a₁. The roadmap additionally spells out the compatibility and bounded-divisibility condition used on passing to infinite depth.",
+   "affects": "a stated result",
+   "known": "Corrected in Rubin, Euler Systems (2000), Theorem9.3.3, pp.179–180.",
+   "searched": [
+    "Compared the 1999 draft p.137 with page images of the public published file, pp.179–180, on2026-10-19."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Karl Rubin, Euler Systems, Author's 1999 draft of Annals of Mathematics Studies 147 (Princeton University Press, 2000), 187 pp., TeX output of 4 August 1999; chapter-relative numbering; read 2026-10-14",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The printed 1999 factor reverses the expected dependence on class order: zero c_K has order1 and would force vanishing, whereas a primitive class gives only the automatic coefficient annihilator. The published formula gives the opposite, correct zero/primitive controls. Published p.179 explicitly displays (M/a₂)a₁. The roadmap additionally spells out the compatibility and bounded-divisibility condition used on passing to infinite depth."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E913",
+   "kind": "misprint",
+   "locator": "MPIM1990-78 preprint, §9, printed p.18 (PDFp.21), divided identity immediately before the key formula",
+   "printed": "The second coefficient on the left of the divided identity is M₁/N.",
+   "correction": "That coefficient is M₁/M. The following key formula already has this value.",
+   "reason": "The preceding identity has N·a_y−M₁·a_x on the left. Dividing the entire identity by M gives (N/M)·a_y−(M₁/M)·a_x. The next displayed key formula uses M₁/M consistently. This is a local intermediate display slip and does not alter the operator relation used here.",
+   "affects": "nothing",
+   "known": "The key formula immediately below the display in the same preprint already uses M₁/M. The Inventiones1992 version was not collated.",
+   "searched": [
+    "Read the preceding identity, divided identity and following key formula in the page image of MPIM1990-78, printed p.18, on2026-10-19; no claim about the uncollated 1992 version."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Jan Nekovář, Kolyvagin’s method for Chow groups of Kuga–Sato varieties, MPIM1990-78 author preprint, 32 PDF pages, printed pagination offset3; checked 2026-10-14. No comparison with the Inventiones1992 version of record is asserted.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The preceding identity has N·a_y−M₁·a_x on the left. Dividing the entire identity by M gives (N/M)·a_y−(M₁/M)·a_x. The next displayed key formula uses M₁/M consistently. This is a local intermediate display slip and does not alter the operator relation used here."
+  },
+  {
+   "id": "EulerSystemsAndKolyvaginSystems/E914",
+   "kind": "misprint",
+   "locator": "Published Theorem2.2.10 proof, p.1464, paragraph immediately before the functional equation; compare p.1463",
+   "printed": "For the P=(p) branch of the multiplicity argument the last paragraph uses Q=T+p^m.",
+   "correction": "Use Q=T^m+p, as the coefficient-prime divisibility branch on p.1463 already does.",
+   "reason": "The Q=T+p^m family approaches (T), not (p): Λ/(p^a,T+p^m) has Z_p-length a, with no slope m. The Eisenstein family Λ/(p^a,T^m+p) instead has length ma, which detects ord_(p). The packet already uses the latter family, so only the source register needs correction.",
+   "affects": "nothing",
+   "known": "The earlier coefficient-prime paragraph in the same published proof, p.1463, gives Q=T^m+p.",
+   "searched": [
+    "Read the published PDF proof on pp.1463–1464 and inspected the p.1464 page image on2026-10-19; compared the two choices within that proof."
+   ],
+   "owner": "EulerSystemsAndKolyvaginSystems",
+   "file": "research/blueprint/packets/EulerSystemsAndKolyvaginSystems.json",
+   "citation": "Benjamin Howard, The Heegner point Kolyvagin system, Compositio Mathematica140(2004),1439–1472; published version, relevant locators read2026-10-14.",
+   "status": "confirmed",
+   "reviewedBy": "REV-EulerSystemsAndKolyvaginSystems~2",
+   "reviewReason": "The Q=T+p^m family approaches (T), not (p): Λ/(p^a,T+p^m) has Z_p-length a, with no slope m. The Eisenstein family Λ/(p^a,T^m+p) instead has length ma, which detects ord_(p). The packet already uses the latter family, so only the source register needs correction."
   },
   {
    "id": "EulerSystemsCyclotomicMainConjecture/E1",
@@ -222136,6 +222213,282 @@
    "reviewReason": null
   },
   {
+   "id": "GeneralAlgebraicKTheory/E-double-origin",
+   "kind": "misprint",
+   "locator": "Author chapter Kbook.V.pdf, Remark 3.4.2, p. V.22; version hashed in sourceVersions, read 2026-09-29",
+   "printed": "The source uses a line that is affine and has two origins.",
+   "correction": "Use the affine plane with a double origin: glue two copies of Spec(k[x,y]) along the punctured plane. Then K₀(VB(X)) ≅ ℤ and G₀(X) ≅ K₀(Perf(X)) ≅ ℤ². The cited II.8.2.4 explicitly assumes dimension n ≥ 2, and II.Ex.9.10(d) uses the plane.",
+   "reason": "The line has a nontrivial Picard group: transition units k[t,t⁻¹]× modulo the two copies of k[t]× give Pic(X) ≅ ℤ. Rank and determinant show that the class of a nontrivial line bundle cannot equal the class of O_X, so K₀(VB(X)) cannot be just the rank group ℤ. The plane is the actual example in both of the cited chapter-II locations. The equivalence of vector-bundle categories for the plane is quoted there from EGA IV(5.9); its proof is not claimed read or formalised here.",
+   "affects": "a stated result",
+   "known": "No correction located in the searches listed; novelty is not established. Scoped to the author chapter copy, not the published edition.",
+   "searched": [
+    "Weibel author K-book page and its errata link, checked 2026-09-29; the linked Kbook.errata.pdf returned HTTP 404 on both math.rutgers.edu host variants.",
+    "Author chapter II, Example 8.2.4 (p. II.77) and Exercise 9.10(d) (p. II.100), read 2026-09-29: both already give the correct dimension.",
+    "Public search for Weibel K-book errata and affine-line/double-origin correction, including AMS-domain results, 2026-09-29; no published correction located. The version of record was not obtained."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Chapter V: The fundamental theorems of higher K-theory, Author's online chapter file Kbook.V.pdf, 90 pages; chapter page numbers equal PDF page numbers.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-relative-S-proof-roles",
+   "kind": "misprint",
+   "locator": "Author chapter Kbook.V.pdf, proof of Proposition 1.7, p. V.8; version hashed in sourceVersions, read 2026-09-30",
+   "printed": "The source identifies each Sn f from IV.8.5.3 with E(B, Sn f, Sn C), an extension of Sn C by B. It displays (s, q) : wS.(Sn f.) → wS.B × wS.(Sn C) and |wS.B| → |wS.(Sn f.)| → |wS.(Sn C)|, taking Xn = |wS.B| in every degree n.",
+   "correction": "For f : B → C with Sn f = Sn B ×_{Sn C} Sn+1 C as in IV.8.5.3, Sn f is equivalent to the extension category E(C, Sn f, Sn B) of Sn B by C; (s, q) : wS.(Sn f) → wS.C × wS.(Sn B) is a homotopy equivalence; the degreewise fibration sequences are |wS.C| → |wS.(Sn f)| → |wS.(Sn B)|, with Xn = |wS.C| for all n. Realising these gives the sequence Ω|wS.(S.B)| → |wS.C| → |wS.(S.f)| → |wS.(S.B)| that the proposition states.",
+   "reason": "In IV.8.5.3 an object of Sn f is a pair (B∗, C∗) with f(B∗) = ∂0 C∗, the subcategory C sits inside Sn f as the objects (0, C = ··· = C), and the exact projection is Sn f → Sn B; so the sub term of the extension is C and the quotient term Sn B. With the roles as printed the realisation would be Ω|wS.(S.C)| → |wS.B| → |wS.(S.f)| → |wS.(S.C)|, contradicting the displayed statement and Exercise V.1.7, which identifies the first map as the one induced by f : B → C.",
+   "affects": "nothing",
+   "known": "No correction located in the searches listed; novelty is not established. Scoped to the author chapter copy, not the published edition.",
+   "searched": [
+    "Weibel's K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html, 2026-09-30: its errata link Kbook.errata.pdf returns HTTP 404 on both host variants.",
+    "Wayback Machine capture of http://www.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf dated 2 December 2014 (two pages, SHA-256 9944293478d96b349d8f0864c11bbae849d86aaddac0c9c1b1bc9c67fd320567), read 2026-09-30; subsequent captures are redirects.",
+    "Chapter IV of the same author copy, 8.5.3 p. IV.69, which states the fibration with the roles as corrected here."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Chapter V: The fundamental theorems of higher K-theory, Author's online chapter file Kbook.V.pdf, 90 pages; chapter page numbers equal PDF page numbers.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-cofinality-saturated",
+   "kind": "error",
+   "locator": "Author chapter Kbook.IV.pdf, Waldhausen Cofinality 8.9, p. IV.72, and Kbook.V.pdf, Corollary 2.3.1, p. V.15; versions hashed in sourceVersions, read 2026-09-30",
+   "printed": "Waldhausen Cofinality 8.9 assumes B is a Waldhausen subcategory of C that is cofinal, is closed under extensions, and satisfies K0 (B) = K0 (C). Corollary 2.3.1 assumes B is a Waldhausen subcategory of A that is cofinal and is closed under extensions.",
+   "correction": "Add saturation to the cofinal, extension-closed Waldhausen-subcategory hypotheses in both statements; retain the extra K0 condition where specified.",
+   "reason": "Taken from the author's own correction list, which amends GSM 145 p.372 (IV.8.9), p.417 (V.2.3.1), p.180 (II.9.4) and p.189 (Ex. II.9.14) in this way; the packet did not re-derive the necessity of the hypothesis. The packet uses 8.9 only through the proof of Cofinality 6.4.1 for exact categories, whose weak equivalences are the isomorphisms and hence saturated, so no statement of the packet is affected.",
+   "affects": "a stated result",
+   "known": "Corrected in the author's errata list for The K-book (AMS Graduate Studies in Mathematics 145, 2013), as preserved in the Wayback Machine capture of 2 December 2014 of Kbook.errata.pdf; the corrections are given against the published pagination and the author chapter files read here still carry the uncorrected text.",
+   "searched": [
+    "Weibel's K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html, 2026-09-30: its errata link Kbook.errata.pdf returns HTTP 404 on both host variants.",
+    "Wayback Machine capture of http://www.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf dated 2 December 2014 (two pages, SHA-256 9944293478d96b349d8f0864c11bbae849d86aaddac0c9c1b1bc9c67fd320567), read 2026-09-30; subsequent captures are redirects."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Chapter IV: Definitions of higher K-theory, Author's online chapter file Kbook.IV.pdf, 93 pages; chapter page numbers equal PDF page numbers.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-relative-S-zero-term",
+   "kind": "misprint",
+   "locator": "Author chapter Kbook.IV.pdf, proof of Lemma 8.5.4, p. IV.69; SHA-256 in sourceVersions; read 2026-09-30",
+   "printed": "The source justifies contractibility by asserting S0f = 0 and that wS.S0f is contractible.",
+   "correction": "For f = id_C, S₀f ≃ S₁C ≃ C. The augmented simplicial path construction contracts by its extra degeneracy to the original degree-zero term S₀C = 0; after applying wS in the other direction the augmentation target wS.S₀C is likewise contractible.",
+   "reason": "Substitution of n = 0 in the defining pullback Sₙf = SₙC ×_{SₙC} Sₙ₊₁C gives S₀f ≃ C. The immediately preceding path-space identification proves the intended conclusion with augmentation to S₀C. IV.8.9.2 on p. IV.72 also correctly uses s₀B, rather than s₀id_B, as the point.",
+   "affects": "the proof",
+   "known": "Novelty not established; scoped only to the inspected author chapter. The live author errata PDF returned HTTP 404; search-result snippets do not establish absence from published corrections.",
+   "searched": [
+    "Author chapter IV.8.5.3–8.5.4, p.69, and IV.8.9.2, p.72, read 2026-09-30.",
+    "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf opened 2026-09-30: HTTP 404.",
+    "Web searches of the author site for errata and 8.5.4 on 2026-09-30; no correction established from the returned snippets."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Chapter IV: Definitions of higher K-theory, Author's online chapter file Kbook.IV.pdf, 93 pages; chapter page numbers equal PDF page numbers.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-extension-base-change-direction",
+   "kind": "misprint",
+   "locator": "Author chapter Kbook.IV.pdf, Lemma7.7 proof, p.IV.63, final two lines; read text and page image 2026-10-01; hash in sourceVersions.",
+   "printed": "η_E : E → φ*(E); A ↣ B′ → B′.",
+   "correction": "The cartesian arrow is η_E:φ*(E)→E, as in the lemma statement. Its middle-term arrow is β:B′→B, the pullback inclusion, not B′→B′.",
+   "reason": "The quotient functor takes the cartesian arrow to φ:C′→C. Its source must therefore have quotient C′, namely φ*E. The defining pullback gives β:B′=B×_C C″→B. Taking C′=0 and φ the inflation 0↣C gives φ*E=(A=A→0), whose middle term is A, distinguishing it from B for a nonzero quotient C.",
+   "affects": "the proof",
+   "known": "Novelty not established; only the inspected author chapter is implicated. The current author errata URL returned404; no assertion about the published book or absence from its corrections.",
+   "searched": [
+    "Author chapter IV.7.3 diagram and IV.7.7 statement and proof, freshly read 2026-10-01.",
+    "https://sites.math.rutgers.edu/~weibel/Kbook.html opened 2026-10-01 and author-site searches for K-book errata and7.7.",
+    "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf opened 2026-10-01:404."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Chapter IV: Definitions of higher K-theory, Author's online chapter file Kbook.IV.pdf, 93 pages; chapter page numbers equal PDF page numbers.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E1",
+   "kind": "misprint",
+   "locator": "IV.10.3 (Corollary 10.3), printed p. 349 (PDF p. 357); identical in the chapter file Kbook.IV.pdf of 17 August 2012",
+   "printed": "The source gives K−k(R) ≅ πnΛk−1K(R) ≅ π−kΛkK(R).",
+   "correction": "Replace the unbound homotopy index by −k, giving K_{−k}(R)≅π_{−k}Λ^{k−1}K(R)≅π_{−k}Λ^kK(R).",
+   "reason": "n is not bound in that clause (the preceding clause is 'for n > −k'); since Λ^{k−1}K(R) is the (−k)-connective cover of Λ^kK(R), the group meant is π_{−k}Λ^{k−1}K(R), which equals π_{−k}Λ^kK(R).",
+   "affects": "nothing",
+   "known": "Novelty not established; earlier part metadata labelled this new without a complete correction search.",
+   "searched": [
+    "Weibel's K-book page: its errata link (Kbook.errata.pdf) returned 404 on 2026-09-28.",
+    "The chapter file Kbook.IV.pdf (17 August 2012) prints the same text."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Charles A. Weibel, The K-book: An Introduction to Algebraic K-theory, Author-hosted combined draft dated 29 August 2013 (published as Graduate Studies in Mathematics 145, American Mathematical Society, 2013)",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-localisation-extension-quotient",
+   "kind": "misprint",
+   "locator": "DefinitionV.7.3, p.53/PDF53, inspected text and image",
+   "printed": "(Q,T⁻¹P↠T⁻¹M)",
+   "correction": "The localized quotient in f:G→F is T⁻¹Q, not T⁻¹M. The full split extension is T⁻¹K↣T⁻¹P↠T⁻¹Q.",
+   "reason": "M is S-torsion, hence T⁻¹M=0. The target extension category has quotient T⁻¹Q, which can be nonzero already for M=0 and P=Q.",
+   "affects": "the proof",
+   "known": "Novelty not established; scoped to the inspected author chapter.",
+   "searched": [
+    "Author K-book page and indexed errata search on2026-10-02; direct author errata PDF URL returned404. Published edition not inspected."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Charles A. Weibel, The K-book, separately hosted author chapterV, Author chapter downloaded2026-10-02; distinguish its chapter pagination from the combined2013 draft.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-resolution-fibre-contraction",
+   "kind": "error",
+   "locator": "LemmaV.7.3.1 proof, pp.53–54/PDF53–54, inspected text and both page images",
+   "printed": "The source takes admissible monics P′↣P as morphisms and gives the natural transformations (P↠M)←(P×_M P′↠M)→(P₀↠M).",
+   "correction": "Use P↠M ↦ P⊕P₀↠M with quotient q+q₀. The two summand inclusions give id→T←constant(P₀), through admissible monomorphisms.",
+   "reason": "The pullback projections are not generally monomorphisms: for M=0 and P=P₀=R≠0, projection R²→R has nonzero kernel. The sum inclusions are split monomorphisms and compatible with the quotient maps, so they give the required contraction in the stated category.",
+   "affects": "the proof",
+   "known": "Novelty not established; scoped to the inspected author chapter.",
+   "searched": [
+    "Author K-book page and indexed errata search on2026-10-02; direct author errata PDF URL returned404. Published edition not inspected."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Charles A. Weibel, The K-book, separately hosted author chapterV, Author chapter downloaded2026-10-02; distinguish its chapter pagination from the combined2013 draft.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-frobenius-factorization-domain",
+   "kind": "misprint",
+   "locator": "Remark11.2 p.20/PDF20, text and image inspected",
+   "printed": "The source specifies the projection (1,0):A⊕I→B.",
+   "correction": "The projection has domain B⊕I, following the preceding graph inflation A↣B⊕I.",
+   "reason": "The actual composite is pr_B∘(f,i)=f. The stated A⊕I domain is not composable with that graph.",
+   "affects": "the proof",
+   "known": "Novelty not established; discrepancy scoped to the hashed2003 preprint.",
+   "searched": [
+    "2026-10-02 author research/publication and title+errata searches found no independently inspected correction; published2006 text not compared."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Marco Schlichting, Negative K-theory of derived categories, Author preprint dated16June2003,28pages; no assertion about the published2006 edition.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-fp-functors-cokernels",
+   "kind": "misprint",
+   "locator": "Lemma10.3 proof, p.18/PDF18, text and image inspected",
+   "printed": "The source claims closure of representable functors under both cokernels and extensions.",
+   "correction": "Finitely presented functors are closed under cokernels and extensions; representables are projective and their extensions split, but their arbitrary cokernels need not be representable.",
+   "reason": "On finite free abelian groups, coker(Hom(−,ℤ)→×2 Hom(−,ℤ)) has value ℤ/2 at ℤ and cannot be represented by a finite free object. The subsequent argument uses finite presentations and effaceability to deduce the closure of fpC.",
+   "affects": "the proof",
+   "known": "Novelty not established; discrepancy scoped to the hashed2003 preprint.",
+   "searched": [
+    "2026-10-02 author research/publication and title+errata searches found no independently inspected correction; published2006 text not compared."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Marco Schlichting, Negative K-theory of derived categories, Author preprint dated16June2003,28pages; no assertion about the published2006 edition.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-arc-fibre-direction",
+   "kind": "misprint",
+   "locator": "Example 6.1, arXiv v4 p.47",
+   "printed": "The support explanation assigns its two K-theory fibres to the completion arrows.",
+   "correction": "Use the vertical localization arrows, whose fibres are K(Perf_(t)(A)) and K(Perf_(t)(Â)).",
+   "reason": "For A=k and t=0 the completion arrows are identities with zero fibres, while the support category is Perf(k) and has K0=Z.",
+   "affects": "the proof",
+   "known": "Novelty not established; scoped to the inspected public version. No claim about an author correction list or a different edition.",
+   "searched": [
+    "Example 6.1 and its preceding noetherian hypothesis read; existing PAPER-BHATT-MATHEW-21/E5 already records this correction."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Bhargav Bhatt and Akhil Mathew, The arc-topology, arXiv v4, 14 December 2020, 64 pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-dedekind-fibre-quotient",
+   "kind": "misprint",
+   "locator": "Lemma 2.1.2, arXiv v4 p.34",
+   "printed": "One fibre expression has the quotient in the reverse order.",
+   "correction": "The fibre of R→R_S is (R_S/R)[−1].",
+   "reason": "R embeds in R_S and its cokernel is R_S/R; the following filtered fractional-ideal argument uses this cokernel.",
+   "affects": "the proof",
+   "known": "Novelty not established; scoped to the inspected public version. No claim about an author correction list or a different edition.",
+   "searched": [
+    "The lemma and its proof, p.34, were compared directly; no external correction claim."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, Hermitian K-theory for stable infinity-categories III: Grothendieck–Witt groups of rings, arXiv v4, 28 April 2026, 63 pages; locators below are preprint pages, not Annals pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-inverse-prime-ambient",
+   "kind": "misprint",
+   "locator": "Lemma 2.2.2, arXiv v4 p.37",
+   "printed": "The displayed inverse-ideal set restricts its elements to R.",
+   "correction": "The defining elements of p^−1 lie in K=Frac(R) and satisfy x·p⊂R.",
+   "reason": "For R=Z and p=(2), the element 1/2 must belong to the inverse ideal. Restricting x to R gives the wrong ideal and destroys its residue line.",
+   "affects": "the proof",
+   "known": "Novelty not established; scoped to the inspected public version. No claim about an author correction list or a different edition.",
+   "searched": [
+    "Lemma 2.2.2 and adjacent exact sequence read; no external correction claim."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus and Wolfgang Steimle, Hermitian K-theory for stable infinity-categories III: Grothendieck–Witt groups of rings, arXiv v4, 28 April 2026, 63 pages; locators below are preprint pages, not Annals pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeneralAlgebraicKTheory/E-group-completion-loop-index",
+   "kind": "misprint",
+   "locator": "Remark 12.11, arXiv v3 p.58",
+   "printed": "The fundamental-group term in the component calculation is taken before delooping.",
+   "correction": "The component group of ΩBX is π1(BX), not π1(X).",
+   "reason": "For the discrete additive E∞ monoid N, π1(X)=0 while π0ΩBX=Z. The paper uses 1-connected to mean path connected, by its own footnote 29; that convention is retained.",
+   "affects": "nothing",
+   "known": "Novelty not established; scoped to the inspected public version. No claim about an author correction list or a different edition.",
+   "searched": [
+    "Remark 12.11 compared with Definitions 12.7–12.8, Proposition 12.10 and Corollary 12.12 on pp.57–58."
+   ],
+   "owner": "GeneralAlgebraicKTheory",
+   "file": "research/blueprint/packets/GeneralAlgebraicKTheory.json",
+   "citation": "Bhargav Bhatt and Peter Scholze, Projectivity of the Witt vector affine Grassmannian, arXiv v3, 21 February 2017, 61 pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "GeneralAlgebraicKTheoryPartII/E1",
    "kind": "error",
    "locator": "LMMT published introduction, p.1014, Redshift Theorem and its Nullstellensatz discussion; compare Definition 2.1, p.1016, with BSY §9 opening, p.86, Corollary 5.2, p.55, and Theorem 9.11, p.89.",
@@ -223705,6 +224058,49 @@
    "status": "confirmed",
    "reviewedBy": "REV-GeometricSatakeAndFusion--GS3~2",
    "reviewReason": "Confirmed at Zhu p436: boundary supports do not give the complementary filtration; replacing them by supports in the closures gives the correct opposite filtration. The intended two-filtration argument is also used by FS VI.7.6 p220. Reuses PAPER-ZHU-17/E51."
+  },
+  {
+   "id": "GeometricSatakeAndFusion/E36",
+   "kind": "error",
+   "locator": "Published CorollaryA.8 p447; compared with arXiv:1107.5762v3 p32",
+   "printed": "The proposed isomorphism between algebraic and geometric semidirect products changes g by adjoint conjugation depending on γ and preserves the section (1,γ).",
+   "correction": "After a lifted grading cocycle t, use (g,w)↦(g t(w),w) from geometric to pinned semidirect products, and (h,w)↦(h t(w)^−1,w) in the other direction. The source’s adjoint image need not lift before a half-Tate choice.",
+   "reason": "A group map preserving both the normal subgroup and W-section would have to intertwine the two actions directly. The displayed conjugation does not satisfy that product condition in general. The lifted cocycle multiplication does: expand the product and use t(wv)=t(w)σ_w(t(v)).",
+   "affects": "a stated result",
+   "known": "Corrected formula in Zhu, An introduction to affine Grassmannians, arXiv:1603.05593v2, Lemma5.5.7 pp76–77. This later preprint was read; no claim to collation of its typeset volume.",
+   "searched": [
+    "2026-10-19: read the published ENS Appendix pp446–449 at Numdam and the arXivv3 appendix.",
+    "2026-10-19: read ZhuIntro arXivv2 §5.5, including its multiplication formula; checked the arXiv version histories.",
+    "2026-10-19: bounded title/CorollaryA.8/erratum queries and Numdam article listing; no separate correction notice located."
+   ],
+   "owner": "GeometricSatakeAndFusion",
+   "file": "research/blueprint/packets/GeometricSatakeAndFusion--GS4.json",
+   "citation": "Timo Richarz; Xinwen Zhu, Construction of the full Langlands dual group via the geometric Satake correspondence, Appendix to Zhu, The geometric Satake correspondence for ramified groups, Ann. Sci. ENS48 (2015), 409–451; published PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "GeometricSatakeAndFusion/E37",
+   "kind": "error",
+   "locator": "Published RemarkA.9(i) p447, RemarkA.9(ii) and TheoremA.12 p448; compared with arXiv:1107.5762v3 pp32–33",
+   "printed": "Over a finite field the finite-quotient representation subcategory is identified with all semisimple representations pure of weight zero, and that identification is used to describe the perverse-sheaf category in A.12.",
+   "correction": "Retain the finite-image condition in the finite-quotient formulation, or allow arbitrary continuous Frobenius intertwiners in the larger weight-zero formulation and enlarge the representation target accordingly. The classical comparison here uses explicit Frobenius operators and their traces without either identification.",
+   "reason": "For G=1, take ℓ=3 and α=(3+4i)/5 in Q̄₃. It is a 3-adic unit, so geometric Frobenius↦α extends continuously from Z to Gal(F̄_q/F_q) for q of characteristic≠3. Both complex conjugates have absolute value1, so this one-dimensional representation is semisimple and pure of weight zero. But α has monic minimal polynomial x²−(6/5)x+1 and is not an algebraic integer, hence not a root of unity. Its image is infinite. Thus it is not in the finite-quotient subcategory already for the trivial group.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "2026-10-19: read the published Numdam Appendix pp447–449 and compared arXiv:1107.5762v3; both contain the identification.",
+    "2026-10-19: Numdam article page and arXiv version listing; no separate correction listed in the opened records.",
+    "2026-10-19: bounded queries for Richarz/Zhu AppendixA, RemarkA.9, pure weight zero, finite image and erratum; no correction of this point located. The Richarz erratum for a different IMRN paper is not evidence about this appendix.",
+    "2026-10-19: screened the atlas source-issue register for this appendix and finite-image/purity identification; no matching entry found. This is a bounded search, not a claim about unpublished correspondence."
+   ],
+   "owner": "GeometricSatakeAndFusion",
+   "file": "research/blueprint/packets/GeometricSatakeAndFusion--GS4.json",
+   "citation": "Timo Richarz; Xinwen Zhu, Construction of the full Langlands dual group via the geometric Satake correspondence, Appendix to Zhu, The geometric Satake correspondence for ramified groups, Ann. Sci. ENS48 (2015), 409–451; published PDF",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "GeometricSatakeAndFusionPartII/E1",
@@ -242986,6 +243382,48 @@
    "reviewReason": "Read the raster scan of printed p. 28, not just OCR: the opening list visibly repeats (S1). The adjacent definition names all three conditions and the bilinear hypotheses imply (S2) as well."
   },
   {
+   "id": "K2SymbolsBrauer/E9",
+   "kind": "error",
+   "locator": "Exercise III.7.1, author chapter III p. 72",
+   "printed": "The exercise requires both residue and specialization to be unchanged when the parameter changes.",
+   "correction": "Only the residue is parameter independent. For π′=cπ, λ_π′(x)=λ_π(x)−∂^last(x){c̄}.",
+   "reason": "At ord_5, λ_5{5}=1 and λ_10{5}=3 in 𝔽_5ˣ.",
+   "affects": "a stated result",
+   "known": "Inherited confirmed finding E9 in K2SymbolsBrauer--T.3.json, reviewed by REV-K2SymbolsBrauer--T.3; this is a convention carry-forward, not a new errata investigation.",
+   "searched": [
+    "The cited earlier packet and its independent review.",
+    "Author-hosted chapter III, freshly read on 2026-10-19.",
+    "The current author errata PDF URL returned 404 on 2026-10-19; the earlier packet records its historical errata evidence."
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.3-2.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Chapter III, Public author chapter PDF; locators use chapter/PDF pagination rather than whole-book pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "K2SymbolsBrauer/E11",
+   "kind": "error",
+   "locator": "Theorem III.7.3, author chapter III p. 62; Exercise III.7.10, p. 73",
+   "printed": "The theorem uses the first-uniformizer residue, whereas the exercise product rule has the signs of the last-uniformizer residue.",
+   "correction": "For the theorem convention, ∂^first(xy)=(−1)^iλ(x)∂^first(y)+∂^first(x)ρ(y). The printed exercise formula is valid for ∂^last.",
+   "reason": "With x={5} and y={2} at ord_5, the theorem convention gives 2 and the unadjusted exercise formula gives 3.",
+   "affects": "a stated result",
+   "known": "Inherited confirmed finding E11 in K2SymbolsBrauer--T.3.json, reviewed by REV-K2SymbolsBrauer--T.3; this is a convention carry-forward, not a new errata investigation.",
+   "searched": [
+    "The cited earlier packet and its independent review.",
+    "Author-hosted chapter III, freshly read on 2026-10-19.",
+    "The current author errata PDF URL returned 404 on 2026-10-19; the earlier packet records its historical errata evidence."
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.3-2.json",
+   "citation": "Charles A. Weibel, The K-book: an introduction to algebraic K-theory, Chapter III, Public author chapter PDF; locators use chapter/PDF pagination rather than whole-book pagination.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
    "id": "K2SymbolsBrauer/E1",
    "kind": "misprint",
    "locator": "III.5.11, the paragraph after (D1)–(D3), PDF p. 234 (draft p. 226), author-hosted draft of 29 August 2013",
@@ -243231,6 +243669,48 @@
    "owner": "K2SymbolsBrauer",
    "file": "research/blueprint/packets/K2SymbolsBrauer--T.3.json",
    "citation": "Philippe Gille and Tamás Szamuely, Central Simple Algebras and Galois Cohomology, Cambridge Studies in Advanced Mathematics 101, first edition, 2006; institutional author-hosted PDF.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "K2SymbolsBrauer/E-T5-division-ring-attribution",
+   "kind": "gap",
+   "locator": "Theorem III.5.10.5 and the sentence before it, p. 43 of the author's Chapter III file",
+   "printed": "The text says that the generation of K₂ by Steinberg symbols was proved for fields and division rings in §9 of Milnor's book. Theorem 5.10.5 then states it for fields, division rings, local rings and semilocal rings.",
+   "correction": "Milnor §9 proves generation by symbols for fields only. Theorem 9.11 (C_n generated by the symbols {u, v}) assumes the ring commutative, and Corollary 9.13 states the conclusion for fields. For skew fields §9 proves only that the Steinberg kernel lies in the monomial subgroup W and equals C_n (Theorem 9.12). The division-ring clause needs another reference, or should be dropped from the attribution.",
+   "reason": "Milnor states Theorem 9.11 for an arbitrary commutative ring (p. 76). Its proof needs h_1l(uv) ≡ h_1l(u)h_1l(v) modulo symbols, which is the bimultiplicativity of Lemma 9.7, also stated only for commutative rings. Corollary 9.13 (p. 78) draws the generation conclusion for fields. Theorem 9.12 is the only statement of the section that covers skew fields, and its conclusion is the containment of the kernel in W.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Weibel's corrections to the published K-book, Wayback snapshot (three pages, read in full); no entry concerns III.5.10.5.",
+    "Milnor, Introduction to Algebraic K-Theory, §9 (pp. 71–80), read in full.",
+    "The atlas's recorded K2SymbolsBrauer source issues (packets T.1, T.1-2, T.1-classical, T.1-plus, T.2, T.2-graded-map, T.2-symbols, T.3) and EllipticKTheory/E1–E6; none concerns this passage."
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.5.json",
+   "citation": "Charles A. Weibel, The K-book: An introduction to algebraic K-theory, Chapter III: K1 and K2 of a ring, Author's online chapter file Kbook.III.pdf; cited by the chapter's own printed page numbers, which equal its PDF pages.",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "K2SymbolsBrauer/E-T6-old-symbol-inverse",
+   "kind": "error",
+   "locator": "Warning after III.5.11, printed p.44 in the separately paginated author chapter PDF with the recorded SHA-256",
+   "printed": "The conversion from the pre-1980 plus-convention symbol to the modern minus-convention symbol includes an extra inverse after changing the first argument.",
+   "correction": "For the explicit old word P and modern word D, D(r,s)=P(−r,s), with no inverse. The unit formula is D(r,s)={r,1−rs} when r is invertible.",
+   "reason": "Literal substitution in Stein–Dennis Proposition 1.1 and van der Kallen §5.2 gives the same five-factor word. At ℚ(t), D(2,(1−t)/2)={2,t}, with tame residue 2, whereas the extra inverse has residue 1/2.",
+   "affects": "a stated result",
+   "known": "Morrow Remark 3.10, p.8, uses the corrected parameter change without inversion; no explicit erratum for this chapter version was located.",
+   "searched": [
+    "Weibel author K-book page https://sites.math.rutgers.edu/~weibel/Kbook.html and its errata link (the linked PDF returned 404 on 2026-10-19)",
+    "Morrow author PDF Remark 3.10",
+    "Stein–Dennis 1973 Proposition 1.1 and van der Kallen 1977 §5.2, read against the scanned formulas"
+   ],
+   "owner": "K2SymbolsBrauer",
+   "file": "research/blueprint/packets/K2SymbolsBrauer--T.6.json",
+   "citation": "Charles A. Weibel, The K-book, separate Chapter III: K₁ and K₂ of a ring, Author’s separately paginated chapter PDF; printed page numbers here are its own pp.1–72, not those of the bound book.",
    "status": "awaiting review",
    "reviewedBy": null,
    "reviewReason": null
@@ -257853,6 +258333,166 @@
    "status": "confirmed",
    "reviewedBy": "REV-MotivicEtaleKTheory--M.5d~2",
    "reviewReason": "Definition 4.21 gives pr₂=b₁²−2b₂. Thus ch₂=(2πi)²(b₁²/2−b₂), so its indecomposable b₂ coefficient is negative. Since b₂ is independent of the decomposable b₁² in H⁴(BGL(C),Q), the positive coefficient in the remark is incompatible with the source’s own definition. Proposition 4.20 preserves this sign upon suspension."
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-M6-1",
+   "kind": "misprint",
+   "locator": "Weibel, author PDF August 29, 2013, VI.4.3, printed p.481 / PDF p.489, last paragraph on c_{3,3}",
+   "printed": "The degree-three étale Chern-class composite on a Milnor symbol is assigned coefficient negative two. (Description in our own words.)",
+   "correction": "With the universal Chern convention and c_{1,1} equal to the Kummer map, the coefficient is positive two.",
+   "reason": "V.11.13 gives (−1)^{j−1}(j−1)! on the motivic Milnor diagonal, hence +2 for j=3. V.11.12(4) says its reduction recovers V.11.10’s étale classes. Equivalently applying V.11.3’s negative product coefficient twice gives +2 on a triple unit symbol. The sign does not affect the torsion/exponent conclusion printed there.",
+   "affects": "nothing",
+   "known": "No correction verified. The author errata PDF linked by the K-book page was inaccessible (404) on 2026-10-19; this does not establish that no published correction exists.",
+   "searched": [
+    "Author K-book page and its linked Kbook.errata.pdf (including the sites.math and www.math Rutgers hosts), 2026-10-19: PDF link returned 404.",
+    "Author August 29, 2013 PDF: V.11.3, V.11.10–11.13, and visual check of VI.4.3 p.481.",
+    "Web search for K-book errata c_{3,3} / page 481, 2026-10-19: no verified correction found."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6.json",
+   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-HCT-boundary-rank",
+   "kind": "error",
+   "locator": "arXiv:math/0510334v1, proof of Theorem 6.4.1, p. 36",
+   "printed": "In the final rank argument the manuscript identifies the K₀ group of the entire semilocal normal-crossing boundary with a single copy of ℤ. (Paraphrase.)",
+   "correction": "Only injectivity of K₀(R)→K₀(R/I) is required. It follows by evaluation at any vertex. For n=1 the boundary ring is F×F, its K₀ is ℤ², and the map is the diagonal ℤ→ℤ². The multirelative K₀ vanishing is unchanged.",
+   "reason": "For R=F[t] semilocalised at t=0,1 and I=(t(1−t)), the two maximal ideals are comaximal; the Chinese remainder theorem gives R/I≅F×F. A vector bundle of rank a restricts with rank a at both vertices.",
+   "affects": "the proof",
+   "known": "new: no correction was identified in the versions and searches listed; this does not assert novelty of the observation.",
+   "searched": [
+    "arXiv:math/0510334v1, Theorem 6.4.1 and surrounding text",
+    "arXiv record and web search for Levine homotopy coniveau tower boundary K₀ correction, 2026-10-19"
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6a.json",
+   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-HCT-normal-frame",
+   "kind": "gap",
+   "locator": "arXiv:math/0510334v1, proof of Corollary 4.2.4, p. 26",
+   "printed": "After pulling a rank-d normal bundle to its complement of the zero section, the manuscript uses the diagonal nonzero vector to claim a trivialisation of that whole pullback bundle. (Paraphrase.)",
+   "correction": "A nonzero vector supplies only a rank-one subbundle. A proof for general theories needs a full frame construction and its descent/independence argument, or an equivalent coordinate-independence proof. This packet uses purity only for explicitly trivialised smooth normal bundles and uses regular-support K-dévis­sage to make the generic rank coefficient independent of the local normal coordinates. It does not import that general canonical-trivialisation step.",
+   "reason": "Pullback preserves rank: q*N still has rank d, whereas the claimed trivial line has rank one if d>1. A single vector cannot be a basis of a d-dimensional fibre.",
+   "affects": "the proof",
+   "known": "new: no correction was identified in the versions and searches listed; the stated purity conclusion is not declared false.",
+   "searched": [
+    "arXiv:math/0510334v1, Proposition 4.2.2 and Corollary 4.2.4",
+    "Web search for Levine homotopy coniveau tower errata 4.2.4 normal bundle, 2026-10-19"
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6a.json",
+   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-M6b-1",
+   "kind": "gap",
+   "locator": "Original Theorem 2.42 proof, pp.496–498; corrected in the 1989 erratum pp.675–677",
+   "printed": "In own words: the original arbitrary-index homotopy-colimit comparison uses maps with homotopies that need not form the required coherent diagram.",
+   "correction": "Use corrected 2.42(a) for countably generated Galois extensions and 2.42(b), Bott annihilation of descent kernel/cokernel on homotopy groups, for general cd-one extensions.",
+   "reason": "Sequential telescopes can be assembled from adjacent homotopies; an arbitrary filtered diagram requires additional higher compatibility. The published erratum reduces the general argument to the countably generated case and proves precisely the Bott-annihilation statement needed after inversion.",
+   "affects": "the proof",
+   "known": "Published correction: R. W. Thomason, Ann. Sci. ENS 22 (1989), 675–677; descent conclusions 2.43/4.1 remain available with the corrected proof.",
+   "searched": [
+    "Numdam original article and its linked erratum; entire erratum read."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
+   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-M6b-2",
+   "kind": "misprint",
+   "locator": "Appendix D, proof of Lemma D.6, p.96, December 2001 author PDF",
+   "printed": "In own words: the sphere-interchange sentence assigns exponent n+m to the sign for S^n∧S^m.",
+   "correction": "The interchange degree is (−1)^(nm); the resulting Leibniz boundary uses (−1)^n when a degree-n sphere passes one suspension.",
+   "reason": "For n=m=1, interchanging the two circle factors on S² has degree −1, whereas the printed exponent gives +1. For n=0,m=1 the unit interchange has degree +1. The page was checked in the rendered PDF as well as text.",
+   "affects": "the proof",
+   "known": "No correction located in the author catalogue or targeted search; pending independent review, with no novelty claim.",
+   "searched": [
+    "Author publication catalogue https://esaga.net/marc.levine/pub/ and the linked KthyMotI12.01.pdf.",
+    "Targeted search for Levine Appendix D.6 and errata on 2026-10-19."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
+   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-M6b-3",
+   "kind": "misprint",
+   "locator": "VI Classical Data 8.1, printed p.513, August 29, 2013 PDF",
+   "printed": "In own words: the finite-even and finitely-generated odd K-group assertions are written for the number field F after introducing O_S.",
+   "correction": "Those finite-generation/rank assertions here concern K_n(O_S), with S finite, not K_n(F).",
+   "reason": "Localization for Q gives K₂(Q) a quotient ⊕_p F_p×, since K₁(Z)→K₁(Q) is injective. That direct sum is infinite. Arithmetic finite generation imported in this packet has ring-of-S-integers domain.",
+   "affects": "nothing",
+   "known": "Author errata page was located, but the linked Kbook.errata.pdf returned 404; no matching correction was obtained. Pending independent review; no novelty claim.",
+   "searched": [
+    "https://sites.math.rutgers.edu/~weibel/Kbook.html and its published-version errata link.",
+    "Targeted author-domain search for VI 8.1 on 2026-10-19."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
+   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-M6b-4",
+   "kind": "misprint",
+   "locator": "Theorem 5.9 display, p.59, arXiv:1309.7620v5",
+   "printed": "In own words: the theorem display uses geometric cohomological degree i+1 in both H¹_st and H¹, although the regulator just defined above and the final proof diagram use degree i.",
+   "correction": "Use H¹_st(G_K,H^i_et(X_bar,Q_p(r)))⊂H¹(G_K,H^i_et(X_bar,Q_p(r))) for the regulator r^et_(r,i).",
+   "reason": "The Hochschild–Serre edge lowers geometric degree from total i+1 to i. The definition directly preceding the theorem, its proof diagram and Remark 5.10 agree on H^i. The rendered page confirms the i+1 display.",
+   "affects": "a stated result",
+   "known": "No erratum found in the arXiv record/targeted author-title search. This is recorded as a display-index correction, pending independent review; the regulator proof uses the consistent i degree.",
+   "searched": [
+    "arXiv:1309.7620v5, p.59, including definition, proof and following remark.",
+    "Targeted search for an erratum to arXiv:1309.7620 on 2026-10-19."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
+   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
+  },
+  {
+   "id": "MotivicEtaleKTheory/E-M6b-5",
+   "kind": "misprint",
+   "locator": "VI proof of Theorem 9.12, printed p.525, August 29, 2013 PDF",
+   "printed": "In own words: in the residue-6 even K-group case the final proof paragraph expresses its order using h^(1,i)(2) divided by 2^r₁.",
+   "correction": "The numerator in that even-group sentence is h^(2,i)(2), the order of H²(R,Z₂(i)); the theorem’s order ratio is unchanged.",
+   "reason": "Theorem 9.11 identifies this even K group with ker[H²(R,Z₂(i))→(Z/2)^r₁]. Its order is therefore the H² order divided by the real quotient order, rather than the H¹ order. This packet does not use Theorem 9.12 as a prerequisite.",
+   "affects": "the proof",
+   "known": "Author errata link was unavailable (404); no matching correction located. Pending independent review; no novelty claim.",
+   "searched": [
+    "https://sites.math.rutgers.edu/~weibel/Kbook.html and linked errata.",
+    "Comparison with VI Theorem 9.11, pp.524–525, and targeted author-domain search on 2026-10-19."
+   ],
+   "owner": "MotivicEtaleKTheory",
+   "file": "research/blueprint/packets/MotivicEtaleKTheory--M.6b.json",
+   "citation": "Sources of the blueprint of MotivicEtaleKTheory",
+   "status": "awaiting review",
+   "reviewedBy": null,
+   "reviewReason": null
   },
   {
    "id": "MotivicStructuresInModuliOfCurves/E1",
