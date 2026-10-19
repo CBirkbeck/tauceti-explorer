@@ -142,7 +142,7 @@ Planet: **Z-embeddings**.
 
 **API.**
 
-- `ZEmbedding.ofMaps` (constructor): Bundle the injection and torus quotient with the full scheme and cohomological conditions; the prototype bundles only its rational exactness and central lifting.
+- `ZEmbedding.ofMaps` (constructor): Bundle the injection and torus quotient with the full scheme and cohomological conditions; the owning ES5 suggested file's prototype bundles only its rational exactness and central lifting. The compact ES6 suggested file does not introduce this carrier.
 - `ZEmbedding.quotient_inclusion` (simp): The quotient is one on the included G.
 - `ZEmbedding.central_lift` (data): Each c in C(F) has a lift in Z(Gz)(F).
 - `ZEmbedding.rational_factorization` (characterisation): Every x in Gz(F) can be written z times i(g) with central z and g in G(F).
@@ -793,7 +793,11 @@ Sources: Kaiser-erratum, Corollary 14.11 correction, p. 1.
 
 `ExcursionOperatorsAndSpectralAction:ES7:equal-characteristic/kaiser-graded-chain-lemma` — lemma. [Owning packet](../packets/ExcursionOperatorsAndSpectralAction--ES7.json).
 
-For d≥1, let V^bullet be a pure graded Frobenius-semisimple local representation in degrees 0,…,2d−2. Suppose its reciprocal L-factor ratio has the orders at T=q_∞^n of ((1−q_∞^{−d}T⁻¹)/(1−T))^m, and each inverse graded L-factor is an m′-th power, with m′ dividing m. The amended lemma extracts a direct summand consisting of m′ copies of chains of special representations of positive lengths i₀,…,i_s summing to d, successively twisted by −i₀−⋯−i_{j−1}. A length-i term after accumulated twist −a lies in degree i+2a−1, and the number of chains times m′ equals m. It does not assume the old integrality or self-duality conditions. The full equivalence relation on reciprocal factors is the one stated at the canonical node.
+For d≥1 and integers m,m′≥0 with m′ dividing m, let V^bullet be a pure graded Frobenius-semisimple local representation in degrees 0,…,2d−2, in the sense of LRS 14.13. Require
+
+L_∞(V^bullet,T) / L_∞((V^bullet)^∨,q_∞⁻¹T⁻¹) ∼ ((1−q_∞^{−d}T⁻¹)/(1−T))^m.
+
+Here f∼g means that f and g have the same order of zero or pole at T=q_∞^n for every integer n. Also require each L_∞(V^i,T)⁻¹ to be an m′-th power in 1+TQ̄_ℓ[T]. The amended lemma extracts a direct summand consisting of m′ copies of chains of special representations of positive lengths i₀,…,i_s summing to d, successively twisted by −i₀−⋯−i_{j−1}. A length-i term after accumulated twist −a lies in degree i+2a−1, and the number of chains times m′ equals m. This is a direct summand statement; additional summands with trivial local L-factor are not excluded. It does not assume the old integrality or self-duality conditions.
 
 Sources: Kaiser-erratum, Lemma 14.14′ and its proof, pp. 1–2.
 
@@ -978,7 +982,7 @@ There are 45 inherited supplier contracts in the packet, each retaining its orig
 
 The highest-risk proof work is specific. The all-E quasi-split reduction cannot carry Kaletha's p-adic flat-H¹ conditions unchanged across non-smooth centres: SL_p in characteristic p gives the Kummer obstruction. The all-field rational-central-character target has a separate pushout/quotient-lift route and does not solve that stratum-reduction problem. The HN proof must calculate the compact-support character and switched-kernel convention together. Equal-characteristic agreement still needs the first Lubin–Tate operation as well as Hausberger's Drinfeld operation, plus the local-shtuka transport. General graded chains use Kaiser's amended statements; selected middle-degree concentration uses the independent generic bound, with its hypotheses. The compact-support functional equation and ε-factor product formula are stronger than the current proper constant-coefficient WC.2 endpoint.
 
-The independently reviewed source-issue records remain in the owning packets. No fresh error verdict is issued here. This pass directly read FS IX.4–IX.7, printed/PDF pp. 327–338, in the author-hosted 356-page version with SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`. Locators above use each owner's recorded edition. The other papers' detailed readings and corrections are inherited from the accepted source manifests: they are not represented as fresh readings of every cited primary proof. The full catalogue and which proofs remain unacquired are in those manifests and the gap ledger. No source passage or chapter-by-chapter source summary is reproduced.
+The independently reviewed source-issue records remain in the owning packets, qualified by owner because their issue IDs overlap. The author pass directly read FS IX.4–IX.7, printed/PDF pp. 327–338, in the author-hosted 356-page version with SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`. The independent ES6 review subsequently read the scoped target locators in the public FS, Kaletha (both editions), Fargues, Conrad, Henniart–Vignéras, Vignéras, Hausberger, LRS, Kaiser, Kottwitz and Scholze–Weinstein sources. Its exact reading boundaries and hashes are recorded in the packet's `review.sourceReadings`; its owner-qualified source-issue checks are in `review.sourceIssuesChecked` and the [review report](../reviews/REV-ExcursionOperatorsAndSpectralAction--ES6.md). LRS was read from the published scan with OCR, with the Kaiser formulas also checked visually. Lafforgue remains inherited earlier-stage support, not a fresh reading of this review. None of these checks closes the named primary-proof expansion gaps or re-reviews every earlier-stage support node. No source passage or chapter-by-chapter source summary is reproduced.
 
 ## Source catalogue
 

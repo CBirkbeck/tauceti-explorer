@@ -8,6 +8,9 @@ import Mathlib.Data.ZMod.Basic
 /-!
 # Excursion operators: ES6 and ES7
 
+This is not the roadmap. The accompanying reader document is definitive for
+the targets, hypotheses, planning API and tests that Tau Ceti is to implement.
+
 The accompanying reader imports the existing ES5 and ES7 target nodes. This file
 gives only the algebraic endpoints whose actual carriers exist at the atlas pins
 (Mathlib 082e2d3, Tau Ceti f790474). It does not replace either packet's definitions.
