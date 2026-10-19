@@ -109,6 +109,7 @@
   "PadicPeriodRings": 6,
   "EllipticCurveModularityPartIIGL2TypeAbelianVarieties": 30,
   "MetaplecticAutomorphicForms": 25,
-  "InductionRestrictionPartII": 15
+  "InductionRestrictionPartII": 15,
+  "ResolutionOfSingularitiesCharacteristicZero": 1
  }
 }

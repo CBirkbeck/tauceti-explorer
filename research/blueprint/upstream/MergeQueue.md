@@ -1,9 +1,10 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T09:30Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T09:40Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
-- #813 AdicSpacesPartIII — ready (approved at an earlier head)
+- #813 AdicSpacesPartIII — draft
+- #1199 ResolutionOfSingularitiesCharacteristicZero — draft
 - #279 ComplexManifolds (Paul-Lez, other author)
 - #280 ComplexTori (Paul-Lez, other author)
 - #284 HomotopySpheres (Paul-Lez, other author)
