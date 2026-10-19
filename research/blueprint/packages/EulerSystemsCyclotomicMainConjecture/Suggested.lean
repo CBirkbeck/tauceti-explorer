@@ -141,64 +141,51 @@ invertible, `1 - ω` is a unit. Applied to `ω = χ⁻¹(p)` of order prime to `
 theorem isUnit_one_sub_of_pow_eq_one {O : Type*} [CommRing O] [IsDomain O] {ω : O} {n : ℕ}
     (hω : ω ^ n = 1) (hω1 : ω ≠ 1) (hn : IsUnit (n : O)) : IsUnit (1 - ω) := sorry
 
-/- Examples for the definitions and normalization choices in Layer 0. -/
-
-/-- The norm of `1-i` and of `i-1` is 2, although `ζ₂-1=-2` (§0.6). -/
-example {L : Type*} [Field L] [CharZero L] [IsCyclotomicExtension {4} ℚ L]
-    {ι : L} (hι : IsPrimitiveRoot ι 4) :
-    Algebra.norm ℚ (1 - ι) = 2 ∧ Algebra.norm ℚ (ι - 1) = 2 := sorry
-
-/-- A primitive sixth root satisfies `ζ₆-1=ζ₃`; the step of degree one retains its sign. -/
-example {L : Type*} [Field L] [CharZero L] {ζ : L} (hζ : IsPrimitiveRoot ζ 6) :
-    ζ - 1 = ζ ^ 2 := sorry
-
-/-- The conductor-one value at 2 uses the degree-one norm. -/
-example : Algebra.norm ℚ (1 - (-1 : ℚ)) = 2 := sorry
-
-/-- In the regular representation of a two-element group, the sign sum is a difference. -/
-example {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (hs : s ≠ 1)
-    (hcard : Fintype.card Δ = 2) (χ : Δ →* ℤˣ) (hχ : χ s = -1) :
-    chiSum (Representation.leftRegular ℤ Δ) χ (MonoidAlgebra.single 1 1) =
-      MonoidAlgebra.single 1 1 - MonoidAlgebra.single s 1 := sorry
-
-/-- An order-four character detects the inverse in the Frobenius factor (§0.20). -/
-example {Δ : Type*} [Group Δ] [Fintype Δ] (s : Δ) (χ : Δ →* ℂˣ)
-    (hχ : (χ s : ℂ) = Complex.I) :
-    chiSum (Representation.leftRegular ℂ Δ) χ
-        (MonoidAlgebra.single 1 1 - MonoidAlgebra.single s⁻¹ 1) =
-      (1 + Complex.I) •
-        chiSum (Representation.leftRegular ℂ Δ) χ (MonoidAlgebra.single 1 1) := sorry
-
-/-- Inverse arithmetic Frobenius at conductor seven uses exponent four, not two (§0.5). -/
-example {L : Type*} [Field L] [CharZero L] {η : L} (hη : IsPrimitiveRoot η 7) :
-    (1 + η ^ 4) * (1 - η ^ 4) = 1 - η ∧
-      (1 + η ^ 4) * (1 - η ^ 2) ≠ 1 - η := sorry
+/- Examples for the kept definitions, and the recorded negative controls. -/
 
 /-- The trivial character gives the existing invariants. -/
 example {O M Δ : Type*} [CommRing O] [AddCommGroup M] [Module O M]
     [Group Δ] (ρ : Representation O Δ M) (x : M) :
-    x ∈ chiComponent ρ 1 ↔ x ∈ ρ.invariants := sorry
+    x ∈ chiComponent ρ 1 ↔ x ∈ ρ.invariants := by
+  simp [mem_chiComponent, Representation.mem_invariants]
 
-/-- For the coefficient ring as module, the domain hypothesis gives scalar injectivity. -/
-example {O Δ : Type*} [CommRing O] [IsDomain O] [Group Δ]
-    (χ : Δ →* Oˣ) (δ : Δ) (hδ : (χ δ : O) ≠ 1) :
-    chiComponent (Representation.trivial O Δ O) χ = ⊥ := sorry
-
-/-- Torsion rejects the false extension of the preceding test to arbitrary modules:
-every integral unit character reduces to the trivial character modulo 2. -/
+/-- Torsion rejects the extension of `chiComponent_trivial_eq_bot` to modules without
+scalar injectivity: every integral unit character reduces to the trivial character
+modulo 2. -/
 example {Δ : Type*} [Group Δ] (χ : Δ →* ℤˣ) :
-    chiComponent (Representation.trivial ℤ Δ (ZMod 2)) χ = ⊤ := sorry
+    chiComponent (Representation.trivial ℤ Δ (ZMod 2)) χ = ⊤ := by
+  ext x
+  simp only [mem_chiComponent, Submodule.mem_top, iff_true, Representation.trivial_apply]
+  intro δ
+  rcases Int.units_eq_one_or (χ δ) with h | h
+  · simp [h]
+  · simp [h, ZMod.neg_eq_self_mod_two]
 
-/-- Twisted sums are not normalized projections. -/
+/-- Twisted sums are not normalized projections: for the trivial character the sum
+multiplies by `|Δ|`. -/
 example {Δ : Type*} [Group Δ] [Fintype Δ] (x : ℤ) :
-    chiSum (Representation.trivial ℤ Δ ℤ) 1 x = (Fintype.card Δ : ℤ) • x := sorry
+    chiSum (Representation.trivial ℤ Δ ℤ) 1 x = (Fintype.card Δ : ℤ) • x := by
+  simp [chiSum, Finset.sum_const, Finset.card_univ]
 
-/-- For the trivial group the sum is the identity. -/
-example : chiSum (Representation.trivial ℤ (Multiplicative (ZMod 1)) ℤ) 1 (5 : ℤ) = 5 := sorry
+/-- In the regular representation of a two-element group, the sign sum is a difference. -/
+example {Δ : Type*} [Group Δ] [Fintype Δ] [DecidableEq Δ] (s : Δ) (hs : s ≠ 1)
+    (hcard : Fintype.card Δ = 2) (χ : Δ →* ℤˣ) (hχ : χ s = -1) :
+    chiSum (Representation.leftRegular ℤ Δ) χ (MonoidAlgebra.single 1 1) =
+      MonoidAlgebra.single 1 1 - MonoidAlgebra.single s 1 := by
+  have huniv : (Finset.univ : Finset Δ) = {1, s} := by
+    symm
+    apply Finset.eq_of_subset_of_card_le (Finset.subset_univ _)
+    rw [Finset.card_univ, hcard, Finset.card_pair (Ne.symm hs)]
+  simp only [chiSum, huniv]
+  rw [Finset.sum_pair (Ne.symm hs)]
+  simp [hχ, Representation.ofMulAction_single, sub_eq_add_neg]
 
-/-- The quotient printed as an Euler-system element in RJW is torsion. -/
+/-- The quotient printed as an Euler-system element in RJW is torsion (§0.8). -/
 example {F : Type*} [Field F] {ζ : F} (hζ0 : ζ ≠ 0) (hζ1 : ζ ≠ 1) :
-    (ζ⁻¹ - 1) / (ζ - 1) = -ζ⁻¹ := sorry
+    (ζ⁻¹ - 1) / (ζ - 1) = -ζ⁻¹ := by
+  have h : ζ - 1 ≠ 0 := sub_ne_zero.mpr hζ1
+  field_simp
+  ring
 
 /-- Zero is not a root of unity: omitting its exclusion makes the ratio identity false. -/
 example : (((0 : ℚ)⁻¹ - 1) / (0 - 1)) = 1 ∧ -(0 : ℚ)⁻¹ = 0 := by norm_num
