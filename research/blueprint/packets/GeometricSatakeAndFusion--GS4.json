@@ -1,0 +1,2172 @@
+{
+  "roadmapId": "GeometricSatakeAndFusion",
+  "protocol": "blueprint-v1",
+  "part": "GS4",
+  "scope": [
+    "GeometricSatakeAndFusion:GS4",
+    "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+    "GeometricSatakeAndFusion:GS4:integral-dual-group",
+    "GeometricSatakeAndFusion:GS4:rational-reductivity"
+  ],
+  "status": "complete",
+  "summary": "Reconstruct the Satake group from the bounded fibre functor, recognize its rational fibre, identify the integral pinned dual group and transport the Weil action. Import the 24 established GS4 targets from GS3 under their stable identifiers. New nodes supply missing proof adapters, characteristic-two tests, exact all-prime perfect-complex contracts and a downstream Frobenius comparison, without reconstructing another roadmap's mathematics.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.Tannaka.tensorAutFunctor",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+        "provides": "For a given bialgebra H (a semiring) over a commutative ring R, tensor automorphisms of scalar extension on finitely generated H-comodules. Commutativity of H is not required here. Does not construct H from an arbitrary tensor category.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "tauceti:TauCeti.Tannaka.pointsFunctorIsoTensorAutFunctor",
+        "kind": "declaration",
+        "module": "TauCeti/Algebra/AlgebraicGroup/Representation/Tannaka/GroupFunctor.lean",
+        "provides": "Over a field k and a given commutative Hopf algebra H, identifies its points functor with the tensor automorphisms of scalar extension. This is a comparison after reconstruction, not the relative integral existence theorem.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "mathlib:HopfAlgebra",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/HopfAlgebra/Basic.lean",
+        "provides": "An antipode on a bialgebra satisfying the two convolution inverse identities; commutativity is an additional algebra hypothesis.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "mathlib:Bialgebra",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Bialgebra/Basic.lean",
+        "provides": "Compatible algebra and coalgebra structures on a semiring/module; the underlying coordinate algebra, not the representing object F(L1) before dualization.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "tauceti:TauCeti.AffineGroupSchemeCat",
+        "kind": "declaration",
+        "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Basic.lean",
+        "provides": "Affine group objects over Spec of a commutative ring; usable for the integral reconstructed group.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "tauceti:TauCeti.ReductiveAffineGroupSchemeCat",
+        "kind": "declaration",
+        "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
+        "provides": "Finite-type reductive affine group schemes over a field; usable for the generic fibre, not a definition over Z_ℓ.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "mathlib:Module.Flat",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Flat/Basic.lean",
+        "provides": "Injectivity of tensor maps for finitely generated submodules, with the standard injective-map characterization.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Monad.HasCoequalizerOfIsSplitPair",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
+        "provides": "For every F-split parallel pair, its coequalizer exists in the source category.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Monad.PreservesColimitOfIsSplitPair",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
+        "provides": "F preserves coequalizers of every F-split parallel pair.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Monad.ReflectsColimitOfIsSplitPair",
+        "kind": "class",
+        "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
+        "provides": "F reflects coequalizers of every F-split parallel pair.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "tauceti:TauCeti.reductiveAffineGroupSchemeProperty",
+        "kind": "declaration",
+        "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/Reductive.lean",
+        "provides": "Object property on finite-type affine group schemes over a field, transported from the reductive coordinate Hopf-algebra property.",
+        "checked": "Declaration, ambient variables and statement read at the pinned commit on 2026-10-19; scope checked against this application."
+      },
+      {
+        "ref": "mathlib:Even",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Group/Even.lean",
+        "provides": "Even d means d=a+a; the additive declaration generated from IsSquare, specialized here to integers.",
+        "checked": "Definition and ambient variables read at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:Units",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Group/Units/Defs.lean",
+        "provides": "A monoid element together with a two-sided inverse; integer powers of units permit every half-Tate degree.",
+        "checked": "Definition and ambient variables read at the pinned commit on 2026-10-19."
+      },
+      {
+        "ref": "mathlib:LinearMap",
+        "kind": "definition",
+        "module": "Mathlib/Algebra/Module/LinearMap/Defs.lean",
+        "provides": "Bundled semilinear maps; identity ring homomorphism specializes to the linear maps used by the flat-module test.",
+        "checked": "Definition and ambient variables read at the pinned commit on 2026-10-19."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "FS",
+      "title": "Geometrization of the local Langlands correspondence",
+      "authors": "Laurent Fargues; Peter Scholze",
+      "edition": "arXiv:2102.13459v4, 27 November 2024; author PDF, 356 pages",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "IV.7 pp164–166",
+        "VI.7.5–7.10 pp219–222",
+        "VI.9.6–12 pp230–241",
+        "IX.2 p321; IX.6 pp330–332; IX.7 p334"
+      ]
+    },
+    {
+      "id": "Zhu",
+      "title": "Affine Grassmannians and the geometric Satake in mixed characteristic",
+      "authors": "Xinwen Zhu",
+      "edition": "Annals of Mathematics 185 (2017), 403–492; published PDF",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
+      "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2.1 pp429–432: semisimplicity and semismallness; §2.2 pp433–437: weights",
+        "§2.5 pp454–455: rational group identification"
+      ]
+    },
+    {
+      "id": "Gross",
+      "title": "On the Satake isomorphism",
+      "authors": "Benedict H. Gross",
+      "edition": "Author preprint, 17 pages; published in Galois Representations in Arithmetic Algebraic Geometry (1998), 223–237",
+      "url": "https://people.math.harvard.edu/~gross/preprints/sat.pdf",
+      "sha256": "9bd0077b2057edd32885e46fd38872f423a4d45fef6bec0aa181af32dee062b3",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§3 pp6–8: Haar normalization and triangular transform",
+        "§4 pp8–9: IC basis"
+      ]
+    },
+    {
+      "id": "DM",
+      "title": "Tannakian categories",
+      "authors": "Pierre Deligne; James S. Milne",
+      "edition": "Milne revised author text, 2012; original in LNM900 (1982)",
+      "url": "https://www.math.columbia.edu/~dejong/tannakian/Deligne-Milne-Tannakian-Categories.pdf",
+      "sha256": "48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2 pp24–27, Proposition2.20, Corollary2.22, Proposition2.23"
+      ]
+    },
+    {
+      "id": "PY",
+      "title": "On quasi-reductive group schemes",
+      "authors": "Gopal Prasad; Jiu-Kang Yu; appendix by Brian Conrad",
+      "edition": "Author preprint, Corollary1.3; published J. Algebraic Geometry15 (2006), 507–549, Corollary5.2",
+      "url": "https://math.stanford.edu/~conrad/papers/qrg.pdf",
+      "sha256": "138d931a21fa522d97449c77acf429918826b1ef649be940d4721d616a1fc73b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Corollary1.3 p2; §5.4 p12"
+      ]
+    },
+    {
+      "id": "DH",
+      "title": "Decomposition of tensor products of modular irreducibles for SL2",
+      "authors": "Stephen Doty; Anne Henke",
+      "edition": "arXiv:math/0205186v1, 2002; author preprint",
+      "url": "https://arxiv.org/pdf/math/0205186",
+      "sha256": "8fb52434afec7149a85783fbc791f17cb2f7c539312bc3aec94a14ada10f4d6f",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Lemmas1.1 and1.4 pp3–4; Steinberg-square example p18"
+      ]
+    },
+    {
+      "id": "ZhuIntro",
+      "title": "An introduction to affine Grassmannians and the geometric Satake equivalence",
+      "authors": "Xinwen Zhu",
+      "edition": "arXiv:1603.05593v2, 4 April 2016; 86-page preprint, not the typeset Park City volume",
+      "url": "https://arxiv.org/pdf/1603.05593",
+      "sha256": "86fbada481347c63634167801b34d0865c3bbf682d5d20c0513b36feab7fa1a9",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§5.5 pp75–77, especially Lemmas5.5.5 and5.5.7",
+        "§5.6 pp82–84, Lemma5.6.1 and Theorem5.6.3"
+      ]
+    },
+    {
+      "id": "RZ",
+      "title": "Construction of the full Langlands dual group via the geometric Satake correspondence",
+      "authors": "Timo Richarz; Xinwen Zhu",
+      "edition": "Appendix to Zhu, The geometric Satake correspondence for ramified groups, Ann. Sci. ENS48 (2015), 409–451; published PDF",
+      "url": "https://numdam.org/item/10.24033/asens.2248.pdf",
+      "sha256": "0ee015b56f201e6a5a87b46f3ebbbfe2a09656e2997598429d6cb9340a4b3b7b",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Appendix pp444–449, especially A.6, A.8–A.13; compared with arXiv:1107.5762v3 pp30–34"
+      ]
+    },
+    {
+      "id": "Jantzen",
+      "title": "Representations of algebraic groups",
+      "authors": "Jens Carsten Jantzen",
+      "edition": "Second edition, AMS Mathematical Surveys and Monographs107 (2003); maintainer-cleared copy read in place",
+      "readSections": [
+        "II.3.16–3.19 pp197–200: Steinberg kernel and self-duality",
+        "II.4.16–4.21 pp210–213: good-filtration invariants and tensor products",
+        "II.E.1–E.7 pp457–462: tilting modules, summands and tensor products"
+      ],
+      "accessed": "2026-10-19"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/bounded-standard-filtration",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Bounded projectives and coefficient lifting",
+      "kind": "theorem",
+      "statement": "For Λ=Z/ℓ^c and a finite downward-closed bound W, the perverse representing object P_W for the restricted geometric total-cohomology functor has a finite filtration with standard subquotients Δ_μ tensored with finite free Λ-modules. Thus P_W is ULA flat perverse and represents the restriction to Satake. Under Λ→Λ′ among the source coefficient rings its representing maps base change, so the bounded adjunction and its finite-projective fibres commute with coefficients. The multileg generator is the fusion product of the single-leg generators.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS1/standard-costandard-objects",
+        "GeometricSatakeAndFusion:GS1/standard-costandard-torsion-bound",
+        "GeometricSatakeAndFusion:GS1/relative-perverse-t-structure",
+        "GeometricSatakeAndFusion:GS3:fusion/disjoint-leg-factorization-and-full-faithfulness"
+      ],
+      "proofSteps": [
+        "For a maximal μ in W, adjunction against ∇_μ identifies the free coefficient module on its stratum. Self-injectivity of Z/ℓ^c makes the dual coefficient module free. Remove the maximal stratum and use induction on W.",
+        "The potential kernel K in the standard extension is killed by a uniform ℓ^a from the standard-to-costandard comparison. Repeat the construction over Z/ℓ^(c+a). The transition K′→K is zero by the torsion bound and flat standard term, while coefficient reduction makes it surjective. Hence K=0; this supplies the standard filtration without an integral decomposition theorem.",
+        "The stratum calculation and representing maps commute with reduction, so uniqueness of adjoints gives the coefficient comparison. Over disjoint legs tensor the adjunctions, then use the full-faithful ULA extension to obtain the multileg assertion."
+      ],
+      "acceptance": [
+        "W={0} gives the tensor unit and L(V)=V.",
+        "The uniform exponent a is chosen before c; allowing an exponent depending on c would not prove the lifting argument.",
+        "No assertion that arbitrary integral perverse sheaves are semisimple is used."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.10.1 pp230–232; VI.7.5 pp219–220",
+          "match": "The representability proof supplies the maximal-stratum induction and the coefficient-lifting argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/split-coequalizer-adapter",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Split coequalizers for relative reconstruction",
+      "kind": "comparison",
+      "statement": "For an F-split parallel pair u,v:A⇉B in Satake, form f=u−v in the ambient perverse heart. Its fibre cokernel is a direct summand of F(B) and is finite projective. VI.7.10 therefore constructs Q=coker(f) in the ULA flat-perverse subcategory. B→Q is the coequalizer there, F carries it to the split coequalizer, and F reflects such colimit cocones. Consequently the exact MC.6 relative reconstruction hypotheses are satisfied on each enlarged support bound.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/bounded-standard-filtration",
+        "GeometricSatakeAndFusion:GS2:correspondences/satake-fibre-functor",
+        "MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction",
+        "mathlib:CategoryTheory.Monad.HasCoequalizerOfIsSplitPair",
+        "mathlib:CategoryTheory.Monad.PreservesColimitOfIsSplitPair",
+        "mathlib:CategoryTheory.Monad.ReflectsColimitOfIsSplitPair"
+      ],
+      "proofSteps": [
+        "Use the F-split fork to split the fibre quotient and its image; apply VI.7.10 to the cokernel. A quotient of a bounded-support object has that support bound, and its finite-projective fibre gives the requisite flatness.",
+        "The Satake category is a full subcategory of the perverse category, so the ambient cokernel universal property restricts to it. Exactness of total cohomology identifies its fibre with the split quotient, establishing preservation.",
+        "Given any candidate cocone whose F-image is the coequalizer, compare it with Q. The induced map becomes an isomorphism under F; conservativity makes it an isomorphism in Satake, establishing reflection. This is the preservation-and-reflection input of Beck, not mere reflection of isomorphisms alone."
+      ],
+      "acceptance": [
+        "A split epimorphism has its usual quotient.",
+        "An arbitrary perverse cokernel with nonprojective fibre is outside the assertion.",
+        "Compare the three separate pinned Beck classes rather than claiming they are interchangeable."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.7.10 p222; VI.10.2 pp232–234",
+          "match": "The direct-summand criterion supplies the categorical coequalizers; the relative reconstruction theorem consumes them."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/relative-tannaka-hypotheses"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/adic-coordinate-pieces",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Finite pieces in adic reconstruction",
+      "kind": "comparison",
+      "statement": "Write the Satake coordinate algebra as the filtered colimit of dual bounded fibres. For a fixed bound W the compatible finite-free systems (F_W X_W)^∨ over Z/ℓ^c lift to a finite-free Z_ℓ-module with the compatible structure maps. Construct the algebraic Hopf algebra over Z_ℓ by taking the filtered colimit of these lifted pieces, with tensor operations defined after enlarging bounds. Its reduction and rationalization give the reconstructed coefficient Hopf algebras. The algebraic coordinate ring is not defined as the unqualified inverse limit of the whole torsion coordinate rings.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-coordinate-hopf-algebra",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/bounded-standard-filtration",
+        "MotivesAndAlgebraicCycles:MC.6/relative-coalgebra-assembly",
+        "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
+        "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode",
+        "mathlib:Module.Flat",
+        "mathlib:HopfAlgebra",
+        "mathlib:Bialgebra"
+      ],
+      "proofSteps": [
+        "Use the bounded coefficient adjunction comparison before dualizing. Fixed finite rank and compatible basis lifting identify each piece with the inverse limit of its reductions.",
+        "For multiplication choose a common enlarged tensor-support bound, lift the finite-piece maps, and check identities modulo every ℓ^c. Finite-free separatedness proves the identities integrally. Pass to the filtered colimit only after this step.",
+        "Reduction commutes with filtered colimits and finite-projective duals. Tensor products handle the finite leg set; prime-to-p torsion rings decompose by CRT. Flatness follows from the filtered colimit of finite-free modules."
+      ],
+      "acceptance": [
+        "For a torus recover Z_ℓ[X_*(T)] with finite Laurent sums.",
+        "The ℓ-adic completion of Z_ℓ[x,x^−1] contains convergent infinite Laurent sums; it is not substituted for the algebraic torus coordinate ring.",
+        "The empty leg set gives the coefficient ring with the unit Hopf structure."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.10.3 pp234–235",
+          "match": "The coefficient and leg compatibilities are applied at the bounded representing objects, keeping the resulting group algebraic."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:rational-reductivity/geometric-rational-recognition",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Geometric finite-type and connectedness tests",
+      "kind": "comparison",
+      "statement": "On a geometric splitting fibre, the rational Satake category is semisimple with simples IC_μ indexed by dominant coweights. Finite generators of the dominant monoid and their duals tensor-generate this category under subquotients, so its Tannakian group is finite type. Any nontrivial simple has nonzero highest weight μ and tensor powers with distinct highest weights nμ, so it cannot generate a finite tensor subcategory. In characteristic zero the connectedness criterion therefore makes the group connected. The existing characteristic-zero reductive/linearly-reductive theorem then makes this finite-type group reductive. This concerns the geometric group, after forgetting Weil descent.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-coordinate-hopf-algebra",
+        "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
+        "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition",
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups"
+      ],
+      "proofSteps": [
+        "The highest-weight constituent of IC_μ⋆IC_ν is IC_(μ+ν). A finite generating set for the rational polyhedral dominant monoid therefore reaches every simple; adjoining duals gives the required tensor generator for DM2.20.",
+        "For every nonunit simple, nμ grows in the torsion-free coweight lattice. The characteristic-zero finite-hull test DM2.22 rules out a nontrivial finite quotient of the reconstructed group. Apply this only after the MC.6 recognition hypotheses are checked.",
+        "Import the finite-type characteristic-zero reductivity criterion of ReductiveGroups Layer6. A nontrivial unipotent arithmetic Frobenius action on a constant multiplicity space is not ruled out by geometric semisimplicity."
+      ],
+      "acceptance": [
+        "For G a torus, the simples are its lattice characters and the reconstructed group is the connected dual torus.",
+        "A two-dimensional trivial geometric object may have a unipotent Frobenius matrix; arithmetic semisimplicity is not a conclusion.",
+        "Do not apply the characteristic-zero connectedness or reductivity tests to a mod-ℓ fibre."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.11.1 pp235–236",
+          "match": "The geometric semisimple category gives finite type, connectedness and reductivity before integral recovery."
+        },
+        {
+          "sourceId": "DM",
+          "locator": "§2, Proposition2.20 pp24–25, Corollary2.22 p26, Proposition2.23 pp26–27",
+          "match": "The general recognition theorems are imported from MC.6; this node verifies their Satake hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/generic-fibre-reductivity"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/minuscule-tensor-invariants",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Minuscule fibres and integral invariant ranks",
+      "kind": "theorem",
+      "statement": "For G=PGL₂ split over an algebraic closure of F_p and n=2d, let f:Y_n→Gr be the n-fold minuscule convolution, Z_n=f^−1(1), and B₁ the minuscule Satake object. If Y_n is the smooth perfected iterated P¹-bundle of dimension n and f is proper semismall, then Hom(1,B₁^{⋆n}) is canonically BM_n(Z_n,Λ)(−d). This module is free with basis the d-dimensional irreducible components of the reduced fibre. Its rank is independent of ℓ and equals the characteristic-zero invariant multiplicity in the n-fold tensor power of the SL₂ standard module. For odd n the Hom group is zero by the component grading.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram",
+        "GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison",
+        "GeometricSatakeAndFusion:GS2:Satake-closure/one-leg-satake-comparison",
+        "EtaleDualityAndPerverseSheaves:EDC.1:biduality/dualizing-complex-of-smooth-scheme",
+        "EtaleDualityAndPerverseSheaves:EDC.1:biduality/constructible-biduality",
+        "EtaleDualityAndPerverseSheaves:EDC.1:adjoint/sheafified-adjunction",
+        "EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/top-degree-compact-cohomology",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+        "GeometricSatakeAndFusion:GS2:correspondences"
+      ],
+      "proofSteps": [
+        "The geometric GS2 input is only smoothness, properness and the semismall dimension bound; no modular decomposition theorem or modular Hom formula is assumed. Work on compatible finite-type deperfections and then transport étale cohomology through perfection.",
+        "Write B₁^{⋆n}=Rf_*Λ[n](d). Proper base change for exceptional pullback and smooth duality give Hom(δ₀,Rf_*Λ[n](d))=H^n(Z_n,i_Y^!Λ)(d). With K_Z=i_Y^!Λ[2n](n), this is H^−n(Z_n,K_Z)(−d)=BM_n(Z_n,Λ)(−d). Equivariance adds no extra morphisms for these objects by the existing connected-loop equivariance comparison.",
+        "Semismallness gives dim Z_n≤d. Duality and top compact cohomology identify its top Borel–Moore group with a free module on its d-dimensional components (after the displayed twist). There is no torsion contribution from smaller strata. Passing between Q_ℓ and F_ℓ preserves the rank.",
+        "Over Q_ℓ use the already geometric generic PGL₂→SL₂ identification to identify this rank with dim(V^{⊗n})^{SL₂}. This uses the generic result, not the integral rank-one statement being repaired."
+      ],
+      "acceptance": [
+        "n=0 gives rank1.",
+        "n=2 gives rank1, the alternating SL₂ tensor.",
+        "n=4 gives rank2 and n=6 gives rank5; these Catalan values remain the same in characteristic two.",
+        "Odd n lies in the nonneutral component and gives no unit morphisms."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.11 pp236–237, rank-one reduction; VI.7.3 p219",
+          "match": "The rank-one proof needs an all-coefficient invariant test; connected equivariance makes the nonequivariant Hom calculation applicable."
+        },
+        {
+          "sourceId": "Zhu",
+          "locator": "Proposition2.3 and Remark2.4 p432",
+          "match": "The convolution dimension theorem supplies the geometric semismall input. The modular Hom identification is the duality argument given here, not a claim of Zhu's rational decomposition theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/characteristic-two-image-test",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Characteristic-two rank-one repair",
+      "kind": "theorem",
+      "statement": "Let k be algebraically closed of characteristic two and H⊂SL₂ a closed subgroup scheme containing the diagonal torus. Suppose its irreducibles are uniquely indexed by their nonnegative highest weights and, for the standard module V, dim(V^{⊗n})^H equals the characteristic-zero SL₂ invariant multiplicity for every n. Then H=SL₂. In particular these strengthened hypotheses, supplied by the preceding geometric invariant calculation, repair the characteristic-two use of FS VI.11.2 in the integral PGL₂ identification. The highest-weight condition alone is insufficient.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/minuscule-tensor-invariants",
+        "LanglandsParameterStacks:LP3",
+        "ReductiveGroupsPartII:RG2.5"
+      ],
+      "proofSteps": [
+        "After a high Frobenius image H becomes reduced. Its identity component contains the torus, so is the torus, a Borel or SL₂. Negative highest-weight characters exclude the torus and Borel cases unless the reduced image is N(T). If the reduced image is SL₂, dimension and closedness imply H=SL₂. Otherwise H⊂H_a=(F^a)^−1N(T) for some a≥0.",
+        "Put n=6·2^a−2. The requested LP3 tilting identities give T(n)=A⊗T(4)^[a], with A=T(2^{a+1}−2)=St_a⊗St_a for a≥1 and A=k for a=0. The Steinberg module is self-dual and absolutely irreducible on the a-th Frobenius kernel, so A^{G_a}=k with trivial residual SL₂ action. Therefore T(n)^{H_a}=T(4)^{N(T)}.",
+        "T(4) has good-filtration character ∇(4)+∇(2). It has no SL₂ invariants, since the ∇(0)-multiplicity is zero, but its torus-zero-weight space has dimension2. The Weyl element is an involution in characteristic two, hence has a nonzero fixed vector there. Thus T(4)^{N(T)}≠0.",
+        "V^{⊗n} is tilting and contains T(n) as a highest-weight direct summand. On all other summands H_a-invariant dimensions are at least SL₂-invariant dimensions, while on T(n) they are strictly greater. Good-filtration theory makes the SL₂ invariant dimension of V^{⊗n} the characteristic-zero trivial multiplicity. This contradicts the geometric rank calculation because H⊂H_a.",
+        "The precise tilting, kernel and subgroup-classification interfaces are requests to their owners; the characteristic-two repair remains a recorded gap until those contracts are supplied. No prime-to-ℓ Donkin theorem is used for this purpose."
+      ],
+      "acceptance": [
+        "N(T) in characteristic two satisfies the simple highest-weight uniqueness condition but fails the tensor invariant test at n=4.",
+        "For a=1 use n=10, A=T(2)=St₁⊗St₁; for a=0 use n=4 directly.",
+        "The corresponding odd-characteristic normalizer has a nontrivial sign character of highest weight0 and already fails highest-weight uniqueness."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "LemmaVI.11.2 p237 and the PGL₂ proof pp236–237",
+          "match": "The printed characteristic-two highest-weight inference fails for the torus normalizer; tensor invariants provide the strengthened criterion."
+        },
+        {
+          "sourceId": "DH",
+          "locator": "Lemmas1.1 and1.4 pp3–4; Steinberg-square calculation p18",
+          "match": "These give the SL₂ tilting factorization and the character of T(4)."
+        },
+        {
+          "sourceId": "Jantzen",
+          "locator": "II.3.16–3.19 pp197–200; II.4.16–4.21 pp210–213; II.E.2,E.5–E.7 pp458–462",
+          "match": "Steinberg kernel irreducibility, good-filtration invariant dimensions and tilting direct-summand/tensor properties supply the requested modular representation input."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-model-recovery",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Recovering the integral Chevalley model",
+      "kind": "comparison",
+      "statement": "After base change to the completed maximal unramified ℓ-adic DVR O, the generic identification G^∨_K≅Ĝ_K and the integral torus and rank-one maps identify G^∨_O with the split Chevalley group Ĝ_O. First prove this for G_ad, whose dual has simply connected derived group. For a general G recover the central information by the π₁(G)-grading and its diagonalizable group, which may have torsion. This uses the existing RG2.3 extension principle and general Prasad–Yu criterion and RG2.4 integral-point generation, not a new lattice-existence theorem.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/generic-root-datum",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/characteristic-two-image-test",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.4",
+        "ReductiveGroupsPartII:RG2.5",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/flat-module-saturation"
+      ],
+      "proofSteps": [
+        "The integral torus and simple rank-one Levi images contain the generators of Ĝ(O), hence Ĝ(O)⊂G^∨(O). Choose a generic faithful representation coming from a Satake object and retain its existing finite-free Satake lattice F(A). The point inclusion already makes this lattice Ĝ(O)-stable.",
+        "The smooth-group extension principle extends Ĝ_K→GL(F(A)_K) over O. Prasad–Yu makes it a closed immersion when ℓ≠2 or Ĝ_K has no geometric normal SO_(2m+1) subgroup. Apply first to the dual of G_ad, whose simply connected derived group satisfies this exception at ℓ=2.",
+        "Now G^∨→GL(F(A)) factors through the closed subgroup Ĝ: equations of Ĝ vanish on its generic fibre and O[G^∨] is flat. Every point of the smooth Ĝ_k lifts to O; the integral-point inclusion lifts it further to G^∨(O). Density of these points in the reduced Ĝ_k makes O[Ĝ_k]→O[G^∨_k] injective.",
+        "Apply the flat-module saturation criterion to the coordinate map, which is generically an isomorphism and injective modulo ℓ, to get the integral isomorphism. Faithfully flat descent returns to Z_ℓ. Recover general G from G_ad and the refined component grading; D(π₁(G)) is diagonalizable, not automatically a torus."
+      ],
+      "acceptance": [
+        "The torus must be included among the integral-point generators in semisimple rank zero.",
+        "At ℓ=2 a generic odd orthogonal factor is a real exception to the closed-immersion criterion; it is not suppressed.",
+        "The lattice comes from a Satake object; no arbitrary maximal bounded subgroup assertion is needed."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.11.1 pp237–239; LemmasVI.11.3–11.4 pp237–238",
+          "match": "The integral recovery uses the integral-point inclusion, the closed-immersion criterion and the flat coordinate comparison."
+        },
+        {
+          "sourceId": "PY",
+          "locator": "Corollary1.3 p2; proof §5.4 p12; published Corollary5.2",
+          "match": "The source criterion has the residue-characteristic-two odd-orthogonal exception. Its general statement is already planned in the current upstream RG2.3 README."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-recovery-and-adjoint-reduction"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/flat-module-saturation",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Flat-module saturation criterion",
+      "kind": "theorem",
+      "statement": "Let R be a commutative ring, π∈R and f:M→N a linear map. Suppose multiplication by π is injective on M and N, f becomes an isomorphism after inverting π, and the induced map M/πM→N/πN is injective. Then f is an isomorphism, without finite-generation assumptions. In particular this applies to flat modules over a DVR with uniformizer π. An executable equivalent hypothesis for localization surjectivity is that every y has π^n y=f(x) for some n and x, and localization injectivity says f(x)=0 implies π^n x=0 for some n.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "mathlib:LinearMap",
+        "mathlib:Module.Flat"
+      ],
+      "proofSteps": [
+        "Localization injectivity and π-torsion-freeness of M give injectivity of f.",
+        "For y choose n minimal with π^n y=f(x). If n>0, reduction modulo π makes x divisible by π. Divide x=πz and cancel π in N to get π^(n−1)y=f(z), contradicting minimality. Hence n=0 and f is surjective."
+      ],
+      "acceptance": [
+        "No Nakayama lemma or finite generation occurs.",
+        "The inclusion πR→R over a DVR is generically an isomorphism but fails injectivity modulo π, so is correctly excluded.",
+        "The conclusion is false if the π-torsion-free hypotheses are dropped; R→R⊕R/πR is a generic isomorphism and injective modulo π but is not surjective."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "LemmaVI.11.3 p237",
+          "match": "The source proves the DVR flat-module case by saturation. The π-torsion-free formulation isolates exactly the elementary cancellation argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      }
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-pinning-descent",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Descent of the geometric pinning",
+      "kind": "comparison",
+      "statement": "The geometric generic identification and its integral recovery carry a canonical dual Cartan, Borel and simple-root lines on the divisor base. On the PGL₂ minuscule fibre the geometric simple-root line is Hom(H²(P¹),H⁰(P¹))=Z_ℓ(1). Transport by simple-Levi constant terms gives every root line; varying the auxiliary Borel and splitting extension descends the same pinned dual group with its geometric Weil action. A chosen square root of the transported Tate character identifies these root lines with the standard pinning.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/generic-root-datum",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-model-recovery",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+        "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
+        "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization",
+        "ReductiveGroupsPartII:RG2.5",
+        "VStackSheavesAndLisseCategories:VS1"
+      ],
+      "proofSteps": [
+        "The cohomological grading and the weight filtration recover Cartan and Borel intrinsically. The rank-one cohomology calculation fixes the root line, including its Tate character.",
+        "Over the flag variety vary the Borel; its geometric simple connectedness makes the locally constant pinning data independent of that variation. Simple-Levi constant terms commute with this smooth base change.",
+        "Use the full-faithful locally constant Drinfeld realization, and then finite Galois descent through a splitting field, to descend the root-line data. Keep the root-line character intrinsic until the stalk-versus-parameter orientation is fixed."
+      ],
+      "acceptance": [
+        "For a torus there are no root-line choices.",
+        "For PGL₂ the root line is Λ(1), whereas H²(P¹)=Λ(−1).",
+        "A choice of half Tate identifies pinning torsors; it is not a claim of a canonical square root of q."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.11.1 pp236–239; IV.7 pp164–166",
+          "match": "The pinning is built from rank-one root lines and descended through the locally constant realization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/normalization-cocycle-test",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "The normalization cocycle",
+      "kind": "construction",
+      "statement": "Let σ:W→Aut(Ĝ) be the pinned action and let t:W→Ĝ be a continuous σ-cocycle lifting the adjoint grading cocycle: t(wv)=t(w)σ_w(t(v)). Put α_w=Ad(t(w))σ_w. The normalized comparison is the group isomorphism Ĝ⋊_αW→Ĝ⋊_σW, (g,w)↦(g t(w),w), with inverse (h,w)↦(h t(w)^−1,w). Thus if Φ(w) is the geometric Weil operator and ρ is its Ĝ representation, the pinned operator is Ψ(w)=ρ(t(w))^−1Φ(w). In Satake t=(2ρ̂)(κ), where κ is the square root of the transported root-line Tate character. Identifying κ(Frob_geom) with a scalar stalk convention remains the named Drinfeld orientation obligation.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-pinning-descent",
+        "ReductiveGroupsPartII:RG2.5",
+        "GeometricSatakeAndFusion:GS3:fusion/drinfeld-fibre-realization",
+        "VStackSheavesAndLisseCategories:VS1"
+      ],
+      "proofSteps": [
+        "The cocycle equation makes α an action. Multiply two elements on both semidirect-product sides and use t(wv)=t(w)σ_w(t(v)) to verify the displayed map.",
+        "The inverse is right multiplication by t(w)^−1, not conjugation by its adjoint image. Pull a geometric representation through this inverse to obtain Ψ=ρ(t)^−1Φ.",
+        "The grading cocharacter 2ρ̂ and a chosen square root κ provide a lift; changing κ by a quadratic character changes t by a central cocycle. This algebraic correction is valid before identifying the Drinfeld action with geometric-Frobenius stalk action."
+      ],
+      "acceptance": [
+        "For t=1 the map is the identity.",
+        "On the central torus, a nontrivial central t still changes the W-section; conjugation would miss this change.",
+        "The formula with Ad(t(w)^−1)g generally fails the semidirect-product multiplication test."
+      ],
+      "sources": [
+        {
+          "sourceId": "ZhuIntro",
+          "locator": "Lemma5.5.7 pp76–77 (arXivv2)",
+          "match": "The corrected semidirect comparison is multiplication by the lifted cocycle."
+        },
+        {
+          "sourceId": "RZ",
+          "locator": "PropositionA.6 p446 and CorollaryA.8 p447",
+          "match": "A.6 supplies the grading twist; the conjugation formula of A.8 is corrected by the later lemma."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence"
+      ],
+      "uses": [
+        {
+          "where": "FS VI.11 normalized equivalence and IX.7",
+          "how": "Transports geometric Weil actions to pinned L-group representations before naturality comparisons."
+        },
+        {
+          "where": "Classical Frobenius comparison",
+          "how": "Distinguishes the corrected operator Ψ from unmodified geometric cohomology."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalizationCocycleIso",
+          "role": "constructor",
+          "statement": "The displayed isomorphism on the two semidirect products, with inverse and continuity."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalizationCocycleIso_mul",
+          "role": "compatibility",
+          "statement": "The two products agree using precisely t(wv)=t(w)σ_w(t(v)); no commutativity of Ĝ is assumed."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalizedWeilOperator",
+          "role": "data",
+          "statement": "Ψ(w)=ρ(t(w))^−1Φ(w), satisfying Ψ(w)ρ(g)Ψ(w)^−1=ρ(σ_w(g))."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalization_change_halfTate",
+          "role": "functoriality",
+          "statement": "If κ′=εκ for a quadratic character ε, the two comparisons differ by the central cocycle (2ρ̂)(ε)."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalizationCocycleIso_overWeil",
+          "role": "projection",
+          "statement": "Projection to W is unchanged; the W-section generally is changed."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_normalization_trivial",
+          "kind": "degenerate",
+          "statement": "For κ=1 and α=σ, the comparison is the identity."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_normalization_central",
+          "kind": "computation",
+          "statement": "For Ĝ=G_m and trivial σ, (1,w) maps to (t(w),w), even though Ad(t(w)) is trivial."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_normalization_rankOne",
+          "kind": "compatibility",
+          "statement": "For t(w)=diag(a,a^−1), conjugation sends the upper simple-root matrix E₁₂ to a²E₁₂ and the pinned operator is diag(a^−1,a)Φ(w)."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_normalization_conjugation",
+          "kind": "non-example",
+          "statement": "For a noncentral t, sending (1,w) to (1,w) while correcting only g by conjugation does not intertwine the two actions."
+        }
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-half-tate-transport",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Levi transport of the half-Tate correction",
+      "kind": "comparison",
+      "statement": "For a parabolic P with Levi M, compare the geometric normalized constant term with restriction of pinned dual representations. The discrepancy between G and M normalizations is the central M-dual cocycle (2ρ_G−2ρ_M)(κ(w)); in the FS parameter convention IX.7.1 the displayed cocycle is (2ρ_G−2ρ_M)(r)^{|w|}, with |Frob_geom|=1 and r²=q. The diagram commutes after the specified cocycle twist, including repeated Levi inclusions. The identification of the transported κ with this parameter convention is an explicit remaining obligation, rather than an assumed equality with the stalk half-Tate eigenvalue r^−1.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalization-cocycle-test",
+        "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+        "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
+        "ReductiveGroupsPartII:RG2.5",
+        "VStackSheavesAndLisseCategories:VS1"
+      ],
+      "proofSteps": [
+        "Apply the geometric constant-term tensor comparison before normalization. Subtract the two grading cocharacters to compute the relative cocycle, which centralizes ĤM.",
+        "Use the corrected semidirect isomorphism, not a conjugation formula, to transport both Weil operators. Under nested Levi inclusions the differences of 2ρ add, so the twists compose.",
+        "Record the positive exponent in IX.7.1 explicitly. A Drinfeld pullback/action-versus-stalk dictionary must account for it before identifying the same diagram with finite-field stalk traces."
+      ],
+      "acceptance": [
+        "M=G gives the trivial cocycle.",
+        "For GL₂ and its diagonal torus the relative cocharacter evaluates as diag(r,r^−1) in the stated FS parameter convention.",
+        "For L⊂M⊂G, the G/L cocycle is the product of the G/M and M/L cocycles."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.9.6 p230; IX.7.1 p334",
+          "match": "The symmetric constant term is the geometric input, and IX.7.1 fixes the sign of the parameter-side Levi cocycle."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-naturality"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-field-adapter",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Weil restriction and finite-index induction",
+      "kind": "comparison",
+      "statement": "For a finite extension E′/E and G=Res_(E′/E)G′ choose an embedding E′→Ē. The pinned dual group is the product of conjugate copies of Ĝ′, with W_E permuting them. On the selected W_E′ factor, pullback to Div¹_E′ followed by the closed Grassmannian immersion and divisor pushforward corresponds to inflation along Ĝ⋊W_E′→Ĝ′⋊W_E′ and then finite-index induction to Ĝ⋊W_E. This is compatible with conjugating the chosen embedding, base change of legs, and the projection formula. Induction itself is not a strong monoidal functor. If f is the residue degree, q′=q^f and use r′=r^f.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalization-cocycle-test",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction",
+        "GeometricSatakeAndFusion:GS0:loop-geometry/ordered-leg-base-change",
+        "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+        "ReductiveGroupsPartII:RG2.0a",
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group"
+      ],
+      "proofSteps": [
+        "Fix the embedding before writing the projection onto a dual factor. The decomposition over Ē identifies the selected Grassmannian as a closed subspace; pull the leg divisor to E′ and apply the source pushforward.",
+        "The Weil finite-index pushforward is induction of the inflated representation. Check equivariance on every conjugate factor; another embedding conjugates both descriptions. The finite-set comparison is assembled factor by factor.",
+        "Use the projection formula Ind(U⊗Res V)=Ind(U)⊗V and the Mackey restriction formula. The dimension of Ind(1) is [E′:E], so there is no unqualified strong monoidal induction claim.",
+        "The degree of geometric Frobenius on W_E′ restricts to f times the E degree, giving r′=r^f. The full conjugate product still has [E′:E] factors; do not replace this degree by only the residue degree in ramified extensions."
+      ],
+      "acceptance": [
+        "For E′=E the diagram is the identity.",
+        "A quadratic extension gives a two-factor dual product and induction of the trivial line has dimension2, whereas its tensor square has dimension4.",
+        "A totally ramified quadratic extension has f=1 and r′=r but still two conjugate factors."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "IX.6.3 pp331–332",
+          "match": "The source compares divisor pullback/pushforward with inflation and induction after choosing an embedding."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-naturality"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:integral-dual-group/perfect-kernel-extension-contract",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "All-prime perfect Satake kernels",
+      "kind": "comparison",
+      "statement": "For every ℓ≠p, R=Z_ℓ[r], finite pinned-action quotient Q and R-algebra Λ, the exact finite-projective representation Satake functor on H=(Ĝ⋊Q)^I, composed with relative Verdier duality and internal dual, extends to a Perf(BQ^I_Λ)-linear exact monoidal functor Perf(BH_Λ)→D■(Hck^I_G,Λ). The required foundational inputs are the relative classifying-stack base-change equivalence and the derived stable idempotent completion of the exact representation category, supplied by LP3/LP4. They must hold without inverting |Q| or π₁(Ĝ)_tors. GS4 owns this kernel application and HS1 consumes it. The conclusion is not full faithfulness or an equivalence with all enhanced sheaves.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction",
+        "GeometricSatakeAndFusion:GS3:fusion/fusion-verdier-duality",
+        "GeometricSatakeAndFusion:GS3:fusion/finite-set-functoriality-and-constant-terms",
+        "LanglandsParameterStacks:LP3",
+        "LanglandsParameterStacks:LP4",
+        "VStackSheavesAndLisseCategories:VS2",
+        "VStackSheavesAndLisseCategories:VS2/completed-ula-solid-duality",
+        "VStackSheavesAndLisseCategories:VS2/relative-solid-homology",
+        "VStackSheavesAndLisseCategories:VS2/solid-four-operations"
+      ],
+      "proofSteps": [
+        "Over R form the exact Rep(Q^I)-linear kernel functor A↦D(A)^∨, with Verdier dual relative to Hck→[(Div¹)^I/L⁺G]. Its convolution target uses the enhanced pullback, tensor and π♮ operations and their finite-set coherence.",
+        "Import Perf(BH_R)⊗_(Perf(BQ_R^I))Perf(BQ_Λ^I)≃Perf(BH_Λ). This is a relative base change over BQ, not an invalid assertion that invariants under a modular finite group are exact.",
+        "Use the universal property of the derived stable idempotent completion of the finite-projective exact representation category, including its exact-sequence relations. Extend the linear monoidal functor and finite-set compatibilities by that universal property.",
+        "Retain an explicit gap: the current LP3/LP4 nodes about good-prime parameter stacks and restricted Donkin subgroups do not state these all-prime classifying-stack inputs. The enhanced target must also supply the stated relative duality/π♮ coherence."
+      ],
+      "acceptance": [
+        "I empty gives the coefficient action and unit kernel.",
+        "Q=1 gives the split dual classifying-stack base-change theorem.",
+        "ℓ dividing |Q| is included; a proof that averages over Q is invalid.",
+        "An arbitrary enhanced endomorphism of a Satake kernel need not lift to the representation source; no essential-image equality follows."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "IX.2 p321, before DefinitionIX.2.1; IX.2.1–2.3 pp321–323",
+          "match": "The perfect extension uses integral highest-weight base change and the free derived stable extension, before the Hecke applications."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/Reconstruction",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/enhanced-perfect-satake-extension"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-scalar-conventions",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Parity and half-Tate scalars",
+      "kind": "definition",
+      "statement": "For a commutative coefficient ring R define s_R(d)=1 when the integer d is even and −1 when it is odd. For a unit r define h_r(d)=r^(−d), the half-Tate scalar in degree d. For a finite set J of cohomological degrees and scalar stalk traces a_i, put T_R(ε,J,a)=s_R(ε)·Σ_(i∈J)s_R(i)a_i. For an actual stalk the finite sum runs over its cohomology, ε is its support parity and a_i is its geometric-Frobenius trace. The half twist of IC_μ in dimension d_μ multiplies its open-stratum trace by h_r(d_μ). These scalar operations do not construct sheaves or assert Frobenius descent.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "mathlib:Even",
+        "mathlib:Units",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/normalized-frobenius-function",
+        "GeometricSatakeAndFusion:GS3:fusion/support-parity"
+      ],
+      "proofSteps": [
+        "Use integer parity, including negative cohomological degrees; finite sums make the formula meaningful in every commutative ring.",
+        "Evenness is additive modulo two, so support parity adds under tensor/convolution and the correction multiplies. Powers of the unit r define negative as well as positive half-Tate degrees.",
+        "For IC_μ=j_!*R[d](d/2), the open stalk lies in degree −d. Its cohomological sign is s_R(−d)=s_R(d); multiplying the support sign cancels it and leaves r^(−d)."
+      ],
+      "acceptance": [
+        "The IC leading coefficient is r^(−d), including odd d.",
+        "Changing r to −r changes this coefficient by (−1)^d.",
+        "In characteristic two the two signs coincide, while the half-Tate scalar still matters."
+      ],
+      "sources": [
+        {
+          "sourceId": "FS",
+          "locator": "VI.9.4–9.6 pp228–230",
+          "match": "Support parity is the sign correction for the ordinary symmetric fibre functor."
+        },
+        {
+          "sourceId": "ZhuIntro",
+          "locator": "§5.6 pp82–84, Lemma5.6.1 and Theorem5.6.3",
+          "match": "The sheaf-function comparison needs compatible shift and square-root conventions; this explicit parity convention replaces the source's negative square-root realization."
+        },
+        {
+          "sourceId": "Gross",
+          "locator": "§§3–4 pp6–9",
+          "match": "The resulting positive leading factor matches the normalized classical transform."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/ClassicalComparison",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "uses": [
+        {
+          "where": "Frobenius functions and convolution",
+          "how": "Separates the support-parity correction from the alternating stalk trace."
+        },
+        {
+          "where": "IC leading term and normalized constant term",
+          "how": "Pins the half-Tate and cohomological degree scalars before comparing with Haar normalization."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometricSatake.GS4.paritySign",
+          "role": "constructor",
+          "statement": "s_R(d)=1 for Even d and −1 otherwise, for every integer d."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.paritySign_zero",
+          "role": "simp",
+          "statement": "s_R(0)=1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.paritySign_add",
+          "role": "compatibility",
+          "statement": "s_R(a+b)=s_R(a)s_R(b)."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.halfTateFactor",
+          "role": "constructor",
+          "statement": "h_r(d) is the value of the unit r^(−d)."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.halfTateFactor_add",
+          "role": "relation",
+          "statement": "h_r(a+b)=h_r(a)h_r(b)."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalizedStalkTrace",
+          "role": "constructor",
+          "statement": "T_R(ε,J,a)=s_R(ε)Σ_(i∈J)s_R(i)a_i."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalizedStalkTrace_singleton",
+          "role": "simp",
+          "statement": "T_R(ε,{i},a)=s_R(ε)s_R(i)a_i."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalizedStalkTrace_add",
+          "role": "functoriality",
+          "statement": "For the same ε,J, T_R(ε,J,a+b)=T_R(ε,J,a)+T_R(ε,J,b)."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.normalizedStalkTrace_scale",
+          "role": "compatibility",
+          "statement": "For c∈R, T_R(ε,J,c·a)=c T_R(ε,J,a)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_parity_zero",
+          "kind": "degenerate",
+          "statement": "s_Z(0)=1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_parity_one",
+          "kind": "computation",
+          "statement": "s_Z(1)=−1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_parity_negative",
+          "kind": "computation",
+          "statement": "s_Z(−1)=−1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_halfTate_zero",
+          "kind": "degenerate",
+          "statement": "h_r(0)=1 for every unit r."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_halfTate_one",
+          "kind": "computation",
+          "statement": "h_r(1)=r^−1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_halfTate_negative",
+          "kind": "computation",
+          "statement": "h_r(−1)=r."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_trace_empty",
+          "kind": "degenerate",
+          "statement": "T_R(ε,∅,a)=0."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_trace_IC",
+          "kind": "computation",
+          "statement": "T_R(d,{−d},i↦h_r(d))=h_r(d)."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_trace_twoDegrees",
+          "kind": "computation",
+          "statement": "T_Z(1,{0,1},i↦if i=0 then2 else3)=1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_trace_unit",
+          "kind": "compatibility",
+          "statement": "T_R(0,{0},i↦1)=1, the unit stalk trace."
+        }
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/finite-model-trace-adapter",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Frobenius on bounded perfect models",
+      "kind": "comparison",
+      "statement": "A trace realization for an unramified hyperspecial Satake object consists of a bounded finite-type special-fibre model with explicit Frobenius descent, and compatible realizations of its bounded convolution and constant-term correspondences. Require trace exchange for proper/compactly supported pushforward, tensor, and the Frobenius-equivariant perfection equivalences, with the stated Haar normalization. Given that data, the parity-normalized stalk trace is well-defined under compatible changes of realization, sends the unit to 1_K, and sends convolution to Hecke convolution. A model related only by an unspecified Frobenius power is not enough to define the same Frob_q trace.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-scalar-conventions",
+        "GeometricSatakeAndFusion:GS0:Witt-geometry/perfect-model-and-etale-comparison",
+        "GeometricSatakeAndFusion:GS0:Witt-geometry",
+        "SchemeAndStackFoundations:SF.2",
+        "GeometricSatakeAndFusion:GS2:correspondences/convolution-diagram"
+      ],
+      "proofSteps": [
+        "Use the explicit finite model and the exact Frobenius operator, rather than rational-point counting on an arbitrary diamond or a bare perfection. Require every comparison used in changing the model to intertwine that operator.",
+        "Künneth makes stalk tensor traces multiply. The compact-support trace formula for the finite-type convolution fibre turns pushforward into the finite sum matching Hecke convolution with vol(K)=1. Support parities add.",
+        "For a Frobenius-stable semi-infinite weight λ, apply the same trace exchange to its finite-type intersection and constant-term correspondence. The remaining model/Frobenius compatibility and the exact trace-formula supplier adapter are recorded as a gap, not supplied by the model-existence statement alone."
+      ],
+      "acceptance": [
+        "A unit model is a point with Frobenius1 and yields 1_K.",
+        "Scaling the descent operator by a scalar a scales its trace function by a.",
+        "Replacing Frob_q by Frob_q^m changes an eigenvalue a to a^m, so an unspecified Frobenius power does not preserve trace."
+      ],
+      "sources": [
+        {
+          "sourceId": "ZhuIntro",
+          "locator": "Lemma5.6.1 pp82–83",
+          "match": "For ordinary finite-field Grassmannians the trace dictionary exchanges convolution and function multiplication."
+        },
+        {
+          "sourceId": "Zhu",
+          "locator": "§2.1 pp429–432; AppendixA on perfect spaces",
+          "match": "Perfect finite models provide geometric realizations; an explicit Frobenius-equivariant trace adapter is additional to their existence."
+        },
+        {
+          "sourceId": "FS",
+          "locator": "VI.7.1–7.5 pp218–220",
+          "match": "The Witt fibre comparison transports étale/perverse geometry, and must be enhanced by the stated Frobenius trace data for this application."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/ClassicalComparison",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-convolution"
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/frobenius-fixed-weight-trace",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "Twisted Frobenius character",
+      "kind": "definition",
+      "statement": "Let L be a characteristic-zero coefficient field, Ĝ/L split pinned, σ a finite-order pinned automorphism and (V,ρ,Ψ) a finite-dimensional representation with Ψρ(g)Ψ^−1=ρ(σ(g)). For the ĤT-weight decomposition V=⊕_λ V_λ define ch_σ(V,Ψ)=Σ_(σλ=λ)Tr(Ψ|V_λ)e^λ in L[X^*(ĤT)^σ]. It is the restriction of the regular function gσ↦Tr(ρ(g)Ψ) on the Frobenius component. Under the existing SR4 restriction isomorphism this is a W_rel-invariant function on ĤT/(1−σ)ĤT. Nonfixed weight orbits contribute zero; no averaging or division by the order of σ occurs.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "ReductiveGroupsPartII:RG2.5",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalization-cocycle-test"
+      ],
+      "proofSteps": [
+        "For t∈ĤT, ρ(t)Ψ sends V_λ to V_(σλ). Its block trace is zero on every nontrivial σ-orbit, and on a fixed weight it is λ(t)Tr(Ψ|V_λ). This gives the displayed group-algebra polynomial.",
+        "Conjugacy invariance of the trace makes it descend through the twisted torus quotient. The existing SR4 Frobenius-component restriction theorem supplies W_rel invariance and the target algebra; GS4 does not reprove that invariant-ring theorem.",
+        "Trace on a direct sum adds; trace on a tensor product multiplies. Hence the construction is additive and multiplicative for compatible intertwining operators, whether or not Ψ is semisimple or has finite order."
+      ],
+      "acceptance": [
+        "The exponent lattice is the fixed lattice, not the coinvariant lattice.",
+        "An orbit of length greater than one has zero trace, not the sum of its weight dimensions.",
+        "Finite order of σ does not imply finite order of Ψ."
+      ],
+      "sources": [
+        {
+          "sourceId": "RZ",
+          "locator": "A.11–A.13 pp448–449",
+          "match": "The Frobenius-component character square motivates this restriction. The finite-image/pure-zero identification in A.9 and A.12 is not used."
+        },
+        {
+          "sourceId": "ZhuIntro",
+          "locator": "§5.5 pp75–77; Theorem5.6.3 pp83–84",
+          "match": "Pinned normalization supplies the appropriate intertwiner; the character comparison is downstream of Satake."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/ClassicalComparison",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "planet": {
+        "name": "Twisted Frobenius character"
+      },
+      "uses": [
+        {
+          "where": "Unramified nonsplit classical Satake comparison",
+          "how": "Makes the Frobenius character an explicit polynomial on the correct fixed lattice."
+        },
+        {
+          "where": "SR4 Frobenius-component invariant algebra",
+          "how": "Applies the already constructed restriction isomorphism to actual dual representations."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.GeometricSatake.GS4.twistedFrobeniusCharacter",
+          "role": "constructor",
+          "statement": "The finite sum over fixed weights with trace coefficients."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.twistedFrobeniusCharacter_eval",
+          "role": "characterisation",
+          "statement": "At t, it equals Tr(ρ(t)Ψ); nonfixed weight blocks have trace0."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.twistedFrobeniusCharacter_add",
+          "role": "functoriality",
+          "statement": "The character of a direct sum is the sum of the characters."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.twistedFrobeniusCharacter_tensor",
+          "role": "compatibility",
+          "statement": "With Ψ_(V⊗W)=Ψ_V⊗Ψ_W, the character is the product in the SR4 target algebra."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.twistedFrobeniusCharacter_scale",
+          "role": "compatibility",
+          "statement": "Replacing Ψ by aΨ scales the character by a."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.twistedFrobeniusCharacter_split",
+          "role": "equivalence",
+          "statement": "For σ=1, Ψ=1 this is the ordinary character of V."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_twisted_unit",
+          "kind": "degenerate",
+          "statement": "The trivial representation with Ψ=1 has character1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_twisted_splitSL2",
+          "kind": "compatibility",
+          "statement": "For the standard SL₂ module with σ=1 and Ψ=1, obtain z+z^−1."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_twisted_swappedWeights",
+          "kind": "computation",
+          "statement": "For Ĝ=G_m², σ exchanging coordinates and V with weights (1,0),(0,1), Ψ exchanging their lines, the twisted character is0, not X₁+X₂."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_twisted_scalar",
+          "kind": "computation",
+          "statement": "A one-dimensional fixed weight λ with Ψ=a gives a e^λ, even for a of infinite multiplicative order."
+        },
+        {
+          "name": "TauCeti.GeometricSatake.GS4.test_twisted_inversion",
+          "kind": "non-example",
+          "statement": "For G_m with σ inversion, V of weights ±1 and Ψ swapping them, the fixed lattice is0 and the trace polynomial is0."
+        }
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/spherical-comparison-square",
+      "parentStageId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+      "realises": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+        "GeometricSatakeAndFusion:GS4"
+      ],
+      "title": "The geometric and spherical comparison square",
+      "kind": "comparison",
+      "statement": "Let G/E be unramified, K hyperspecial and L contain a chosen unit r with r²=q. Use geometric Frobenius, vol(K)=vol(N(O_E))=1, positive valuations λ(π), and the SR4 transform S(f)(λ)=r^(−⟨2ρ,λ⟩)∫_N f(λ(π)n)dn. Given the finite-model trace adapter and the Drinfeld/parameter orientation adapter, S(τ_A)=ch_σ(V_A,Ψ_A) for every Frobenius-descended rational Satake object A, with Ψ_A its pinned normalized Weil operator. In the split IC basis with canonical open-stratum descent this is the ordinary highest-weight character χ_μ. It is a downstream comparison of the two existing constructions.",
+      "hypotheses": [
+        "E is a nonarchimedean local field of residue characteristic p, G/E is connected reductive and ℓ≠p.",
+        "For reconstruction use bounded-support ULA flat-perverse Satake objects, the parity-corrected fusion tensor and total cohomology; finite-projective continuous Weil fibres.",
+        "Torsion coefficients are killed by an integer prime to p. ℓ-adic coefficients are obtained through compatible reductions; rational assertions are explicitly geometric."
+      ],
+      "prerequisites": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/finite-model-trace-adapter",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/frobenius-fixed-weight-trace",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-scalar-conventions",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-half-tate-transport",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence",
+        "GeometricSatakeAndFusion:GS1/semi-infinite-orbits-and-hyperbolic-localization",
+        "GeometricSatakeAndFusion:GS3:fusion/symmetric-constant-term",
+        "SmoothRepresentationsOfLocalGroups:SR.4",
+        "SchemeAndStackFoundations:SF.2"
+      ],
+      "proofSteps": [
+        "For a σ-fixed coweight λ put k=⟨2ρ,λ⟩. The constant-term weight space is H_c^k(S_λ,A)(k/2); if Φ_λ is the operator before this last twist, its normalized trace is r^(−k)Tr(Φ_λ). Support parity ε≡k modulo2 cancels the compact-support cohomological sign, and the scalar r^(−k) matches the Haar modulus.",
+        "The finite-model trace formula identifies that trace with the λ coefficient of S(τ_A). The orientation adapter identifies this normalized weight operator with the pinned Ψ_A. Nonfixed weights are permuted by Frobenius and contribute zero; the fixed-weight formula therefore proves the nonsplit equality without an absolute-weight orbit sum.",
+        "SR4 already constructs the normalized spherical transform, its invariant target and Frobenius-component restriction. Import its injectivity/isomorphism to get the comparison square; do not use the comparison as an input to SR4 or to dual reconstruction.",
+        "For split IC_μ, purity and the canonical constant-sheaf descent yield the normalized weight multiplicities and hence χ_μ. Its leading stalk coefficient is r^(−d_μ). Thus S(1_(KμK))=r^(d_μ)χ_μ plus lower dominant characters, with no lower terms for minuscule μ."
+      ],
+      "acceptance": [
+        "For a split torus, the delta function at λ(π) maps to e^λ.",
+        "For GL₂ and μ=(1,0), the raw transform of the minuscule indicator is qX₁+X₂ and the normalized transform is r(X₁+X₂); τ_IC=r^−1 times that indicator gives X₁+X₂.",
+        "For PGL₂ minuscule P¹, the positive/negative weight trace scalars before the last constant-term twist are r,r^−1. The matching twists r^−1,r give normalized coefficients1,1.",
+        "For the nonsplit swapped-weight test, the permuted pair contributes0.",
+        "Scaling Frobenius descent by a scales both sides; the equality is not restricted to finite-image or arithmetically semisimple descent."
+      ],
+      "sources": [
+        {
+          "sourceId": "Gross",
+          "locator": "§3 equations(3.9)–(3.13), pp6–8; §4 pp8–9",
+          "match": "The split transform normalization and IC triangular basis agree with the displayed leading coefficient."
+        },
+        {
+          "sourceId": "ZhuIntro",
+          "locator": "§5.6 Lemma5.6.1 and Theorem5.6.3 pp82–84",
+          "match": "The finite-field convolution and weight-trace argument is used with an explicit parity/root convention."
+        },
+        {
+          "sourceId": "RZ",
+          "locator": "LemmaA.13 and the constant-term square p449",
+          "match": "The nonsplit Frobenius-component square motivates the fixed-weight argument; it is not used as a mixed-characteristic trace-model theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/GeometricSatake/ClassicalComparison",
+        "namespace": "TauCeti.GeometricSatake.GS4"
+      },
+      "refines": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-constant-term",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/classical-satake-comparison"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.3",
+      "need": "Current upstream README §RG2.3.1: extension-principle and reductive-closed-immersion-criterion. Over a strictly henselian DVR, a generic homomorphism out of a smooth affine group extends when it carries integral points to integral points. The general Prasad–Yu closed-immersion theorem retains the residue-characteristic-two/no-geometric-normal-SO_(2m+1) exception. The README supplies the general criterion; the narrower Suggested lemma only covers char κ≠2. Import the README theorem, never extrapolate that Lean signature.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-model-recovery"
+      ],
+      "status": "provided_by_current_upstream_plan"
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.4",
+      "need": "Current upstream README §RG2.4 hyperspecial-generation: split Chevalley O-points are generated by the torus and root subgroups, equivalently the torus and simple rank-one Levi O-points. Include the torus in rank zero. No maximal-bounded/lattice-existence refinement is requested.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-model-recovery"
+      ],
+      "status": "provided_by_current_upstream_plan"
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.5",
+      "need": "Current upstream README §RG2.5: pinned integral dual group and root datum, simple Levi and central-isogeny maps, Galois action, grading cocharacter, geometric central/component grading and product/Weil-restriction data. Import highest-weight convex-hull and rank-one closed subgroup structure through the existing reductive-group representation owner; do not introduce a second reconstruction theorem.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/geometric-rational-recognition",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/characteristic-two-image-test",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-model-recovery",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-pinning-descent",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalization-cocycle-test",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-half-tate-transport",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-field-adapter",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/frobenius-fixed-weight-trace"
+      ],
+      "status": "provided_by_current_upstream_plan"
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.0a",
+      "need": "Finite separable Weil restriction has the product over embeddings after algebraic-closure base change, with the Galois permutation action. This is the existing upstream rational-point/Weil-restriction contract.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-field-adapter"
+      ],
+      "status": "provided_by_current_upstream_plan"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+      "need": "For a connected finite-type affine group over a characteristic-zero field, semisimplicity of finite-dimensional representations is equivalent to reductivity. Finite type and connectedness are first supplied by MC.6 recognition; no infinite pro-group theorem is attributed to this layer.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/geometric-rational-recognition"
+      ],
+      "status": "provided_by_existing_upstream_plan"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "need": "Use the existing local Weil group, continuous finite-projective representations, finite-extension inclusion W_E′⊂W_E and degree convention |Frob_geom|=1. The inclusion has residue degree f and q′=q^f. GS4’s separate field adapter proves the divisor pullback/pushforward comparison with restriction and finite-index induction; no Satake geometry is attributed to ClassFieldTheory.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-field-adapter"
+      ],
+      "status": "provided_by_existing_upstream_plan"
+    },
+    {
+      "supplier": "LanglandsParameterStacks:LP3",
+      "need": "Two exact additional interfaces are needed. (1) In characteristic two for SL₂, the tilting factorization T(6·2^a−2)=T(2^{a+1}−2)⊗T(4)^[a], Steinberg-square/kernel invariant identity, good-filtration invariant multiplicities, tensor closure and highest-weight direct summand of V^{⊗n}. (2) For every ℓ≠p and R=Z_ℓ[r], relative base change Perf(B(Ĝ⋊Q)^I_R)⊗_(Perf(BQ_R^I))Perf(BQ_Λ^I)≃Perf(B(Ĝ⋊Q)^I_Λ) for every R-algebra Λ. Neither interface follows from prime-to-ℓ Donkin or parameter-stack generation; do not invert |Q| or π₁(Ĝ)_tors.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/characteristic-two-image-test",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/perfect-kernel-extension-contract"
+      ],
+      "status": "refinement_needed"
+    },
+    {
+      "supplier": "LanglandsParameterStacks:LP4",
+      "need": "For H=(Ĝ⋊Q)^I over the stated coefficient rings, Perf(BH) is the derived stable idempotent completion of its exact category of finite-projective representations, with exact-sequence relations and the universal property for exact Perf(BQ^I)-linear monoidal functors. Retain multileg/exterior-product coherence for all ℓ≠p. This is an ordinary classifying-stack input, not the restricted parameter-stack Perf theorem.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/perfect-kernel-extension-contract"
+      ],
+      "status": "refinement_needed"
+    },
+    {
+      "supplier": "VStackSheavesAndLisseCategories:VS1",
+      "need": "Identify the transported root-line Tate character in the locally constant perfect Drinfeld equivalence IV.7.3, with its action on a geometric divisor fibre and its operator on representation parameters. Match the stalk half twist Frob_geom↦r^−1 with the positive parameter cocycle (2ρ_G−2ρ_M)(r)^{|w|} of IX.7.1, documenting any inverse/contravariant action and Borel convention. This is not an equivalence on all D_et.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-pinning-descent",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalization-cocycle-test",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-half-tate-transport"
+      ],
+      "status": "refinement_needed"
+    },
+    {
+      "supplier": "VStackSheavesAndLisseCategories:VS2",
+      "need": "Extend the imported completed-ULA solid-duality, relative-solid-homology and four-operation comparisons to the Λ-linear enhanced convolution target of IX.2, with arbitrary R-algebra coefficient extension, relative D(A)^∨, π♮ composition and finite-set coherence on the bounded Satake kernels. The existing completed-duality statement has a specified completed prime-to-p coefficient scope; expose the coefficient-extension adapter rather than silently enlarging it.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/perfect-kernel-extension-contract"
+      ],
+      "status": "refinement_needed"
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.2",
+      "need": "Integrate the already assigned finite-field constructible trace-formula input (SF.2 points to CohomologicalPointCounting/PR196) with proper/compact-support pushforward, Künneth and stalk traces on the bounded finite-type Witt models. Specify Frob_q, Λ(1) eigenvalue q^−1, and Frobenius-equivariant perfection/model changes. The current upstream checkout has no CohomologicalPointCounting folder, so its unverified module signatures are not baseline citations here. Do not replan a general trace theorem.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/finite-model-trace-adapter",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/spherical-comparison-square"
+      ],
+      "status": "refinement_needed"
+    },
+    {
+      "supplier": "SmoothRepresentationsOfLocalGroups:SR.4",
+      "need": "Current upstream README SR4.1: spherical algebra with vol(K)=1, transform δ_B^1/2∫_N with vol(N(O))=1, positive valuation λ(π) and δ_B^1/2=r^−⟨2ρ,λ⟩. Import satake-isomorphism, torus-character-dictionary and frobenius-component-invariants: target L[X_*(T)^σ]^(W_abs^σ), equivalently invariant functions on ĤT/(1−σ)ĤT. GS4 adds only the geometric trace comparison.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/frobenius-fixed-weight-trace",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/spherical-comparison-square"
+      ],
+      "status": "provided_by_current_upstream_plan"
+    },
+    {
+      "supplier": "GeometricSatakeAndFusion:GS0:Witt-geometry",
+      "need": "Supply bounded finite-type models and convolution/constant-term models with specified Frob_q descent, whose étale equivalences intertwine that exact Frobenius rather than only a power. The existing perfect-model node supplies the underlying geometry; this is its arithmetic trace adapter, used only downstream.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/finite-model-trace-adapter"
+      ],
+      "status": "refinement_needed"
+    },
+    {
+      "supplier": "GeometricSatakeAndFusion:GS2:correspondences",
+      "need": "For every n, the n-step PGL₂ minuscule convolution source is a smooth perfected iterated P¹-bundle of dimension n, its map is proper semismall and the base-point fibre has dimension≤n/2. Supply these geometric facts with compatible finite-type models. GS4 derives the modular Hom-to-top-Borel–Moore identification itself from EDC duality; no modular decomposition or modular Hom formula is requested from GS2.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/minuscule-tensor-invariants"
+      ],
+      "status": "refinement_needed"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "GeometricSatakeAndFusion:GS4",
+      "status": "planned",
+      "remaining": [
+        "GS4-G1: exact characteristic-two suppliers",
+        "GS4-G2: Drinfeld orientation",
+        "GS4-G3: all-prime Perf/enhanced adapters",
+        "GS4-G4: finite-model Frobenius trace",
+        "GS4-G5: independent rational Witt continuation"
+      ]
+    },
+    {
+      "stageId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison",
+      "status": "planned",
+      "remaining": [
+        "GS4-G2: normalization dictionary needed for the pinned representation square",
+        "GS4-G4: Frobenius-equivariant model and trace handoff"
+      ]
+    },
+    {
+      "stageId": "GeometricSatakeAndFusion:GS4:integral-dual-group",
+      "status": "planned",
+      "remaining": [
+        "GS4-G1: tilting and minuscule geometry supplier interfaces",
+        "GS4-G2: normalization orientation",
+        "GS4-G3: all-prime perfect extension inputs",
+        "GS4-G5: full Zhu variant beyond the FS comparison"
+      ]
+    },
+    {
+      "stageId": "GeometricSatakeAndFusion:GS4:rational-reductivity",
+      "status": "planned",
+      "remaining": [
+        "GS4-G5: larger algebraically closed Witt base fields and independent tensor constraint; the geometric FS generic-fibre recognition has no new mathematical gap"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GS4-G1",
+      "title": "Characteristic-two rank-one supplier interfaces",
+      "detail": "The invariant-count repair is derived in minuscule-tensor-invariants and characteristic-two-image-test. LP3 must export the stated tilting/Frobenius-kernel identities, and GS2 must expose the smooth semismall minuscule convolution input with its finite models. Existing weaker nodes do not yet certify these exact interfaces. This is not the false highest-weight-only LemmaVI.11.2.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/characteristic-two-image-test",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-model-recovery",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification"
+      ]
+    },
+    {
+      "id": "GS4-G2",
+      "title": "Drinfeld stalk and parameter orientation",
+      "detail": "The corrected cocycle multiplication is established algebraically, but an exact dictionary between the transported geometric root-line character, stalk Frob_q and FS IX.7.1 positive parameter exponent is still required from VS1. Identify the inverse-action/Borel convention explicitly; do not set κ(Frob)=r^−1 and assert both conventions agree without calculation.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalization-cocycle-test",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-half-tate-transport",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/spherical-comparison-square",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence"
+      ]
+    },
+    {
+      "id": "GS4-G3",
+      "title": "All-prime perfect and enhanced coefficient adapters",
+      "detail": "LP3/LP4 must supply the all-ℓ≠p relative classifying-stack base change and derived exact-representation completion, and VS2 must expose relative duality/π♮ coherence after arbitrary stated coefficient extension. Existing restricted parameter-stack theorems and completed-coefficient kernels are insufficient.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/perfect-kernel-extension-contract",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/enhanced-perfect-satake-extension"
+      ]
+    },
+    {
+      "id": "GS4-G4",
+      "title": "Finite-model Frobenius trace handoff",
+      "detail": "GS0 and SF.2 must jointly provide the exact Frobenius-equivariant bounded models and trace exchange specified above, including unramified nonsplit constant-term diagrams. RZ A.13 is an equal-characteristic pattern, not this mixed-characteristic model theorem. The comparison theorem explicitly retains this hypothesis.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/finite-model-trace-adapter",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/spherical-comparison-square",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/normalized-frobenius-function",
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/classical-satake-comparison"
+      ]
+    },
+    {
+      "id": "GS4-G5",
+      "title": "Larger Witt base fields and Zhu’s own tensor constraint",
+      "detail": "The imported FS comparison gives the rational Witt equivalence over an algebraic closure of a finite field, with the H* tensor constraint transported from fusion. It does not identify Zhu’s independently constructed monoidal constraint or cover every algebraically closed k. The accepted PartII design now routes the 29 rational Gelfand-proof items to the separate GeometricSatakeAndFusionPartIIRationalGelfandProof brief; no completed proof nodes of that continuation exist. That owner must provide its equivalence at full generality or a base-field/constraint comparison. It is not an input into the FS integral theorem.",
+      "neededBy": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/witt-rational-tannakian-category",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence"
+      ]
+    }
+  ],
+  "restructure": [
+    {
+      "action": "sublayers",
+      "roadmaps": [
+        "GeometricSatakeAndFusion"
+      ],
+      "detail": "The four reconstruction declarations of GS4:integral-dual-group (tannakian-left-adjoint, relative-tannaka-hypotheses, geometric-coordinate-hopf-algebra, multileg-and-coefficient-reconstruction) are used by GS4:rational-reductivity (generic-fibre-reductivity, witt-rational-tannakian-category), which is used by the identification declarations of GS4:integral-dual-group (torus-and-rank-one-identification, generic-root-datum, witt-rational-satake-equivalence). The induced layer edges GS4:integral-dual-group -> GS4:rational-reductivity -> GS4:integral-dual-group form a cycle, and the atlas skips one of them. The reconstruction declarations use only declarations of GS0–GS3 and each other; none uses GS4:rational-reductivity or the identification declarations of GS4:integral-dual-group.",
+      "proposal": "Add a sub-layer GS4:reconstruction, \"Reconstruction of the Satake group\", with parent GS4, holding the four reconstruction declarations under their present identifiers (geometric-coordinate-hopf-algebra keeps its planet \"Satake coordinate Hopf algebra\"). Its layer edges are GS3:fusion -> GS4:reconstruction -> GS4:rational-reductivity -> GS4:integral-dual-group; GS4:integral-dual-group keeps the identification, normalization, naturality and export declarations."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "LanglandsParameterStacks",
+        "GeometricSatakeAndFusion",
+        "HeckeStacksAndLocalShtukas"
+      ],
+      "detail": "RT-AREA-geomlanglands/19: GS4 owns the all-prime enhanced Satake-kernel application; LP3/LP4 own integral highest-weight and classifying-stack perfect completion. HS1 imports the GS4 export. Keep the parameter-stack good-prime statements separate and do not duplicate highest-weight theory in PotentialAutomorphyInfrastructure."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "GeometricSatakeAndFusion",
+        "GeometricSatakeAndFusionPartII",
+        "GeometricSatakeAndFusionPartIIRationalGelfandProof"
+      ],
+      "detail": "Use the accepted PartII split brief for Zhu’s independent rational Gelfand proof, including arbitrary algebraically closed Witt base fields and its own H* constraint. The GS4 FS-transported equivalence remains independent of this proof. No second design or renamed PartII is proposed."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "ReductiveGroupsPartII"
+      ],
+      "note": "The read-only current main already includes the general extension principle, Prasad–Yu exception and hyperspecial generation absent from the atlas snapshot. The narrower Suggested closed-immersion endpoint has char κ≠2; the README general theorem is the import for the simply connected characteristic-two case."
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "GeometricSatakeAndFusion/E36",
+      "source": "RZ",
+      "kind": "error",
+      "locator": "Published CorollaryA.8 p447; compared with arXiv:1107.5762v3 p32",
+      "printed": "The proposed isomorphism between algebraic and geometric semidirect products changes g by adjoint conjugation depending on γ and preserves the section (1,γ).",
+      "correction": "After a lifted grading cocycle t, use (g,w)↦(g t(w),w) from geometric to pinned semidirect products, and (h,w)↦(h t(w)^−1,w) in the other direction. The source’s adjoint image need not lift before a half-Tate choice.",
+      "reason": "A group map preserving both the normal subgroup and W-section would have to intertwine the two actions directly. The displayed conjugation does not satisfy that product condition in general. The lifted cocycle multiplication does: expand the product and use t(wv)=t(w)σ_w(t(v)).",
+      "affects": "a stated result",
+      "known": "Corrected formula in Zhu, An introduction to affine Grassmannians, arXiv:1603.05593v2, Lemma5.5.7 pp76–77. This later preprint was read; no claim to collation of its typeset volume.",
+      "searched": [
+        "2026-10-19: read the published ENS Appendix pp446–449 at Numdam and the arXivv3 appendix.",
+        "2026-10-19: read ZhuIntro arXivv2 §5.5, including its multiplication formula; checked the arXiv version histories.",
+        "2026-10-19: bounded title/CorollaryA.8/erratum queries and Numdam article listing; no separate correction notice located."
+      ]
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E37",
+      "source": "RZ",
+      "kind": "error",
+      "locator": "Published RemarkA.9(i) p447, RemarkA.9(ii) and TheoremA.12 p448; compared with arXiv:1107.5762v3 pp32–33",
+      "printed": "Over a finite field the finite-quotient representation subcategory is identified with all semisimple representations pure of weight zero, and that identification is used to describe the perverse-sheaf category in A.12.",
+      "correction": "Retain the finite-image condition in the finite-quotient formulation, or allow arbitrary continuous Frobenius intertwiners in the larger weight-zero formulation and enlarge the representation target accordingly. The classical comparison here uses explicit Frobenius operators and their traces without either identification.",
+      "reason": "For G=1, take ℓ=3 and α=(3+4i)/5 in Q̄₃. It is a 3-adic unit, so geometric Frobenius↦α extends continuously from Z to Gal(F̄_q/F_q) for q of characteristic≠3. Both complex conjugates have absolute value1, so this one-dimensional representation is semisimple and pure of weight zero. But α has monic minimal polynomial x²−(6/5)x+1 and is not an algebraic integer, hence not a root of unity. Its image is infinite. Thus it is not in the finite-quotient subcategory already for the trivial group.",
+      "affects": "a stated result",
+      "known": "new",
+      "searched": [
+        "2026-10-19: read the published Numdam Appendix pp447–449 and compared arXiv:1107.5762v3; both contain the identification.",
+        "2026-10-19: Numdam article page and arXiv version listing; no separate correction listed in the opened records.",
+        "2026-10-19: bounded queries for Richarz/Zhu AppendixA, RemarkA.9, pure weight zero, finite image and erratum; no correction of this point located. The Richarz erratum for a different IMRN paper is not evidence about this appendix.",
+        "2026-10-19: screened the atlas source-issue register for this appendix and finite-image/purity identification; no matching entry found. This is a bounded search, not a claim about unpublished correspondence."
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "FS",
+      "kind": "preprint",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+      "citation": "arXiv:2102.13459v4, 27 November 2024; author PDF, 356 pages",
+      "read": "2026-10-19",
+      "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905"
+    },
+    {
+      "sourceId": "Zhu",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v185-n2-p02-p.pdf",
+      "citation": "Annals of Mathematics 185 (2017), 403–492; published PDF",
+      "read": "2026-10-19",
+      "sha256": "5d50b415048f3a5ad14bccf1c8da83fc5a680fcf13b60911ca269daa474431a7"
+    },
+    {
+      "sourceId": "Gross",
+      "kind": "author copy",
+      "url": "https://people.math.harvard.edu/~gross/preprints/sat.pdf",
+      "citation": "Author preprint, 17 pages; published in Galois Representations in Arithmetic Algebraic Geometry (1998), 223–237",
+      "read": "2026-10-19",
+      "sha256": "9bd0077b2057edd32885e46fd38872f423a4d45fef6bec0aa181af32dee062b3"
+    },
+    {
+      "sourceId": "DM",
+      "kind": "author copy",
+      "url": "https://www.math.columbia.edu/~dejong/tannakian/Deligne-Milne-Tannakian-Categories.pdf",
+      "citation": "Milne revised author text, 2012; original in LNM900 (1982)",
+      "read": "2026-10-19",
+      "sha256": "48f8af5249081217fc4a806414a764d9d69d66eff9092ddd8e2cf0ea078579e8"
+    },
+    {
+      "sourceId": "PY",
+      "kind": "author copy",
+      "url": "https://math.stanford.edu/~conrad/papers/qrg.pdf",
+      "citation": "Author preprint, Corollary1.3; published J. Algebraic Geometry15 (2006), 507–549, Corollary5.2",
+      "read": "2026-10-19",
+      "sha256": "138d931a21fa522d97449c77acf429918826b1ef649be940d4721d616a1fc73b"
+    },
+    {
+      "sourceId": "DH",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0205186",
+      "citation": "arXiv:math/0205186v1, 2002; author preprint",
+      "read": "2026-10-19",
+      "sha256": "8fb52434afec7149a85783fbc791f17cb2f7c539312bc3aec94a14ada10f4d6f"
+    },
+    {
+      "sourceId": "ZhuIntro",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1603.05593",
+      "citation": "arXiv:1603.05593v2, 4 April 2016; 86-page preprint, not the typeset Park City volume",
+      "read": "2026-10-19",
+      "sha256": "86fbada481347c63634167801b34d0865c3bbf682d5d20c0513b36feab7fa1a9"
+    },
+    {
+      "sourceId": "RZ",
+      "kind": "published",
+      "url": "https://numdam.org/item/10.24033/asens.2248.pdf",
+      "citation": "Appendix to Zhu, The geometric Satake correspondence for ramified groups, Ann. Sci. ENS48 (2015), 409–451; published PDF",
+      "read": "2026-10-19",
+      "sha256": "0ee015b56f201e6a5a87b46f3ebbbfe2a09656e2997598429d6cb9340a4b3b7b"
+    },
+    {
+      "sourceId": "Jantzen",
+      "kind": "published",
+      "citation": "Second edition, AMS2003, maintainer-cleared reference copy, read in place; no copy or source passage stored",
+      "read": "2026-10-19"
+    }
+  ],
+  "imports": [
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Bounded left adjoints",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/relative-tannaka-hypotheses",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Relative Tannaka hypotheses for Satake",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-coordinate-hopf-algebra",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Geometric Satake coordinate Hopf algebra",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Multileg and coefficient reconstruction",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Geometric rational semisimplicity",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/generic-fibre-reductivity",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Reductivity of the generic Satake group",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/witt-rational-tannakian-category",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Rational Witt Satake category as a neutral Tannakian category",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Torus and rank-one identification",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Integral rank-one identification",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/generic-root-datum",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Weight torus and generic root datum",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-recovery-and-adjoint-reduction",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Integral recovery and the adjoint reduction",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Canonical pinned dual identification",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Rational Witt vector geometric Satake equivalence",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Normalized integral Satake equivalence",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-naturality",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Levi naturality and normalization",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/adjoint-isomorphism-naturality",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Naturality for adjoint-isomorphism maps",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/product-naturality",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Product naturality",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-naturality",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Weil restriction naturality",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Chevalley involution with its inner sign",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/enhanced-perfect-satake-extension",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Perfect-complex Satake extension",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/normalized-frobenius-function",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Normalized Frobenius function",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-convolution",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Frobenius trace and convolution",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-constant-term",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Frobenius trace and normalized constant terms",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/classical-satake-comparison",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "provides": "Classical and geometric Satake comparison",
+      "scope": "Imported target; refinements below qualify the proof, not its ownership."
+    }
+  ],
+  "upstreamAudit": {
+    "roadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "libraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "read": "2026-10-19",
+    "result": "Current main RG2.3 already plans extension and general Prasad–Yu; RG2.4 integral-point generation; RG2.5 dual data. Current SR4 already plans normalized spherical Satake and Frobenius-component invariant functions. The nine post-snapshot roadmaps and current library were screened; no geometric Satake category, arbitrary-category relative reconstruction or this perfect-kernel extension was found."
+  },
+  "sourceIssueRefs": [
+    {
+      "id": "GeometricSatakeAndFusion/E25",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E26",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E27",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E28",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E29",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E30",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E31",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E32",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E33",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E34",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    },
+    {
+      "id": "GeometricSatakeAndFusion/E35",
+      "packet": "GeometricSatakeAndFusion--GS3.json",
+      "use": "Use the corrected statement already recorded and independently reviewed there."
+    }
+  ],
+  "planetSelection": [
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-coordinate-hopf-algebra",
+      "name": "Satake coordinate Hopf algebra",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
+      "name": "Geometric Satake semisimplicity",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/generic-fibre-reductivity",
+      "name": "Generic Satake reductivity",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification",
+      "name": "Pinned geometric dual group",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence",
+      "name": "Witt vector geometric Satake",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence",
+      "name": "Normalized Satake equivalence",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution",
+      "name": "Chevalley involution",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/enhanced-perfect-satake-extension",
+      "name": "Perfect Satake kernels",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/normalized-frobenius-function",
+      "name": "Normalized Frobenius function",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/classical-satake-comparison",
+      "name": "Classical Satake comparison",
+      "ownership": "existing GS3 planet; reused without a duplicate node"
+    },
+    {
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/frobenius-fixed-weight-trace",
+      "name": "Twisted Frobenius character",
+      "ownership": "new companion node"
+    }
+  ],
+  "targetLedger": [
+    {
+      "target": "Bounded left adjoints",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/tannakian-left-adjoint",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/bounded-standard-filtration"
+      ]
+    },
+    {
+      "target": "Relative Tannaka hypotheses for Satake",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/relative-tannaka-hypotheses",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/split-coequalizer-adapter"
+      ]
+    },
+    {
+      "target": "Geometric Satake coordinate Hopf algebra",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-coordinate-hopf-algebra",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Multileg and coefficient reconstruction",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/multileg-and-coefficient-reconstruction",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/adic-coordinate-pieces"
+      ]
+    },
+    {
+      "target": "Geometric rational semisimplicity",
+      "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/rational-semisimplicity",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Reductivity of the generic Satake group",
+      "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/generic-fibre-reductivity",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:rational-reductivity/geometric-rational-recognition"
+      ]
+    },
+    {
+      "target": "Rational Witt Satake category as a neutral Tannakian category",
+      "nodeId": "GeometricSatakeAndFusion:GS4:rational-reductivity/witt-rational-tannakian-category",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Torus and rank-one identification",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/torus-and-rank-one-identification",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Integral rank-one identification",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/rank-one-integral-identification",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/minuscule-tensor-invariants",
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/characteristic-two-image-test"
+      ]
+    },
+    {
+      "target": "Weight torus and generic root datum",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/generic-root-datum",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Integral recovery and the adjoint reduction",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-recovery-and-adjoint-reduction",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/integral-model-recovery"
+      ]
+    },
+    {
+      "target": "Canonical pinned dual identification",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/dual-group-identification",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/geometric-pinning-descent"
+      ]
+    },
+    {
+      "target": "Rational Witt vector geometric Satake equivalence",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/witt-rational-satake-equivalence",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Normalized integral Satake equivalence",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/normalized-satake-equivalence",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/normalization-cocycle-test"
+      ]
+    },
+    {
+      "target": "Levi naturality and normalization",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-naturality",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/levi-half-tate-transport"
+      ]
+    },
+    {
+      "target": "Naturality for adjoint-isomorphism maps",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/adjoint-isomorphism-naturality",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Product naturality",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/product-naturality",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Weil restriction naturality",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-naturality",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/weil-restriction-field-adapter"
+      ]
+    },
+    {
+      "target": "Chevalley involution with its inner sign",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/chevalley-involution",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Perfect-complex Satake extension",
+      "nodeId": "GeometricSatakeAndFusion:GS4:integral-dual-group/enhanced-perfect-satake-extension",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:integral-dual-group/perfect-kernel-extension-contract"
+      ]
+    },
+    {
+      "target": "Normalized Frobenius function",
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/normalized-frobenius-function",
+      "ownership": "imported from GS3",
+      "refinements": []
+    },
+    {
+      "target": "Frobenius trace and convolution",
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-convolution",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/finite-model-trace-adapter"
+      ]
+    },
+    {
+      "target": "Frobenius trace and normalized constant terms",
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/trace-constant-term",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/spherical-comparison-square"
+      ]
+    },
+    {
+      "target": "Classical and geometric Satake comparison",
+      "nodeId": "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/classical-satake-comparison",
+      "ownership": "imported from GS3",
+      "refinements": [
+        "GeometricSatakeAndFusion:GS4:classical-Satake-comparison/spherical-comparison-square"
+      ]
+    }
+  ]
+}
