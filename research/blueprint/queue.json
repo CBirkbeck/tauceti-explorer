@@ -151605,6 +151605,64 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/DESIGN-CyclotomicClassGroupsAndStickelberger.md"
+  },
+  {
+   "id": "FIX-PKG-ExcursionOperatorsAndSpectralAction~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ExcursionOperatorsAndSpectralAction"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-ExcursionOperatorsAndSpectralAction~adv.md",
+    "research/blueprint/packages/ExcursionOperatorsAndSpectralAction/review.json",
+    "research/blueprint/packages/ExcursionOperatorsAndSpectralAction/README.md",
+    "research/blueprint/packages/ExcursionOperatorsAndSpectralAction/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-ExcursionOperatorsAndSpectralAction~adv.md"
+  },
+  {
+   "id": "REV-PKG-MotivicEtaleKTheory~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MotivicEtaleKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-MotivicEtaleKTheory~adv.md",
+    "research/blueprint/packages/MotivicEtaleKTheory/review.json",
+    "research/blueprint/packages/MotivicEtaleKTheory/README.md",
+    "research/blueprint/packages/MotivicEtaleKTheory/Suggested.lean",
+    "research/blueprint/packages/MotivicEtaleKTheory/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-MotivicEtaleKTheory~adv.md"
+  },
+  {
+   "id": "FIX-PKG-Polylogarithms~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "Polylogarithms"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-Polylogarithms~adv.md",
+    "research/blueprint/packages/Polylogarithms/review.json",
+    "research/blueprint/packages/Polylogarithms/README.md",
+    "research/blueprint/packages/Polylogarithms/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-Polylogarithms~adv.md"
   }
  ]
 }
