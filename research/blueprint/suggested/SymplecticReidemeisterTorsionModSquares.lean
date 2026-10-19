@@ -143,6 +143,14 @@ theorem even_rank_of_alternating_middle (B : V →ₗ[K] V →ₗ[K] K)
     (halt : ∀ x, B (d x) x = 0) : Even (Module.finrank K (LinearMap.range d)) := by
   sorry
 
+/-- RT.4/strict-circle-calculation: the alternating middle form places 1−A
+in the second argument of the cross pairing B((1+A)/2−,−). -/
+theorem circle_middle_alternating (B : V →ₗ[K] V →ₗ[K] K)
+    (hsymm : ∀ x y, B x y = B y x) (A : V ≃ₗ[K] V)
+    (hisom : ∀ x y, B (A x) (A y) = B x y) (x : V) :
+    B ((2 : K)⁻¹ • (A x + x)) (x - A x) = 0 := by
+  sorry
+
 /-- RT.4/zassenhaus: the no-minus-one case, using the existing spinor norm.
 The unit determinant hypothesis is exactly invertibility of (1+A)/2. -/
 theorem spinorNorm_eq_det_average (Q : QuadraticForm K V) (hQ : Q.Nondegenerate)

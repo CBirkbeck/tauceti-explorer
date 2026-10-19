@@ -24,7 +24,7 @@ The transformation's source is **H₃(BSp_{2r}(R);ℤ)/2**. It is not silently r
 
 ## Existing work and imported interfaces
 
-The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Declaration statements were read at these revisions. The three Tau Ceti square-class/spinor source files used by the prototype were also compared byte for byte with their pinned GitHub versions. The current upstream roadmap checkout and current Tau Ceti library were inspected separately to avoid planning work added after the atlas snapshot.
+The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Declaration statements were read at these revisions. All eight distinct source files behind the thirteen baseline declarations were independently read at the pins and compared byte for byte with the shared build. The current upstream roadmap checkout and current Tau Ceti library were inspected separately to avoid planning work added after the atlas snapshot.
 
 The reviewed audits AUDIT-29 and AUDIT-30 in `data/library-coverage.json` identify the relevant higher K-theory, determinant and étale Chern targets as absent or only partly built. Their partial results are retained as imports. The current AlgebraicTopology and OrthogonalSpinGroups readers were used as style and ownership references; relevant Suggested files and the GeometricTopology, Chebotarev and LieGroups supplier scopes were inspected. In particular, this roadmap does **not** construct a second spinor norm or a second general determinant functor.
 
@@ -49,17 +49,17 @@ The current AnalyticNumberTheory AN.4 scope does not supply Chebotarev for arbit
 
 ### Specialization and the normalized root line
 
-Raw torsion extends uniquely from a fraction field to a normal coefficient ring, but its value can change sign at a cohomology jump. Shift the dimension-three complex by one to a symmetric dimension-1 complex D. Locally strictify and add paired, canonically trivialized contractible summands until all term ranks are even. Let
+Raw torsion extends uniquely from a fraction field to a normal coefficient ring under the stated self-duality and volume hypotheses. In this generality its value can change sign at a cohomology jump. Shift the dimension-three complex by one to a symmetric dimension-1 complex D. Locally strictify and add paired, canonically trivialized contractible summands until all term ranks are even. Let
 
 s = Σ_{q≤0}(−1)^q rank D^q, and L=σ≥1 D.
 
 The local torsor representing the normalized invariant is **[(−1)^{s/2}] e_D/ν_L**. In a field fibre let h=χ≤0(D). The alternating middle differential has rank s−h=2r. Splitting into a hyperbolic cohomology part and an acyclic middle part gives ν_L=(−1)^rν_upperH. Therefore the displayed local value is (−1)^{h/2}RT. It uses term ranks and line data, so it commutes with specialization even when h changes. Undoing the shift gives h=−χ₁/₂(M,ρ), with the same half-sign. Normality glues the local torsors through their fixed generic identification; it is not used to pretend that a specialization induces an inclusion of fraction fields.
 
-A regression model uses the orthogonal circle over Q[s]_(s), form H⊕H and monodromy diag(1+s,(1+s)⁻¹)⊕I₂. The generic fixed-space dimension is two, while the special dimension is four. Generic raw torsion is [−(1+s)] and special raw torsion is 1. Their normalized values are [1+s] and 1. This makes the failure of raw base change visible without assuming the final Chern comparison. The three-dimensional symplectic family theorem uses the same strict shifted-complex calculation, together with the separately established evenness theorem.
+A regression model uses the orthogonal circle over Q[s]_(s), form H⊕H and monodromy diag(1+s,(1+s)⁻¹)⊕I₂. The generic fixed-space dimension is two, while the special dimension is four. Generic raw torsion is [−(1+s)] and special raw torsion is 1. Their normalized values are [1+s] and 1. This makes the failure of raw base change visible without assuming the final Chern comparison. The three-dimensional symplectic family theorem uses the same strict shifted-complex calculation, together with the separately established evenness theorem. The circle is a counterexample to the broad base-change assertion in §2.3.3, p. 13; it does not establish a geometric three-dimensional symplectic counterexample to the narrower B.10 discussion.
 
 ### The circle in every odd characteristic
 
-For A∈SO(V,B) with dim V=n even, first suppose 1+A invertible. The circle model is strict with cross pairing P=B((1+A)/2−,−). The form P((1−A)x,y) is alternating, so n−h=2r, h=dim ker(1−A). Relative to the based cellular generator e, the upper-term root has class (−1)^{n/2}det P, and its ratio with the upper-cohomology root is (−1)^r. Hence
+For A∈SO(V,B) with dim V=n even, first suppose 1+A invertible. The circle model is strict with cross pairing P=B((1+A)/2−,−). The form P(x,(1−A)y)=B((A−A⁻¹)x/2,y) is alternating, so n−h=2r, h=dim ker(1−A). Relative to the based cellular generator e, the upper-term root has class (−1)^{n/2}det P, and its ratio with the upper-cohomology root is (−1)^r. Hence
 
 **(−1)^{h/2}RT_based = disc(B) det((1+A)/2).**
 
@@ -428,7 +428,7 @@ For finite-dimensional V, equip det(V∨)≃det(V)^{-1} with the reverse-wedge c
 
 ### Strongly even complexes — `strongly-even`
 
-A finite projective complex is strongly even when every term has locally constant even rank. Over a field this means Even(dim C^q) for every integer q. This is stronger than even Euler characteristic and stronger than even-dimensional cohomology.
+A finite projective complex is strongly even when every term has locally constant even rank. Over a field this means Even(dim C^q) for every integer q. For bounded complexes this implies even Euler characteristic. It is independent of requiring every cohomology group to have even dimension: neither condition implies the other.
 
 **Construction/proof contract.**
 
@@ -448,6 +448,8 @@ A finite projective complex is strongly even when every term has locally constan
 
 - `StronglyEven.directSum` (compatibility): A direct sum of strongly even complexes is strongly even.
 
+- `StronglyEven.euler_even` (compatibility): The Euler characteristic of a bounded strongly even complex is even, over each field fibre.
+
 
 
 **Uses.** RT.1 termwise-determinant: Eliminates the signs from permuting degree factors.; RT.3 even-strict-model: Supplies local models for normalized specialization.
@@ -459,6 +461,8 @@ A finite projective complex is strongly even when every term has locally constan
 - `StronglyEven.odd_contractible` (non-example): K→id K is acyclic with Euler characteristic zero but is not strongly even.
 
 - `StronglyEven.rank2` (computation): Any complex whose nonzero terms are K² is strongly even, independently of its differential.
+
+- `StronglyEven.odd_cohomology` (computation): The complex K²→K² in degrees zero and one with differential diag(1,0) is strongly even, but both cohomology groups have dimension one.
 
 
 
@@ -610,7 +614,7 @@ For odd n, a Lagrangian L in a strict ε-symmetric C induces det C≃det L⊗det
 
 **Sources:** AV-v1, Appendix B.5, (B.18)–(B.19), pp. 76–78: Constructs the distinguished class and makes its multiplicative sign explicit.
 
-**Layer acceptance and remaining work.** Realize the imported KTheoryLowDegrees graded-line and determinant nodes; independently check the reverse-wedge and shift diagrams.
+**Layer acceptance and remaining work.** Realize the imported KTheoryLowDegrees graded-line and determinant nodes; formalize the reviewed reverse-wedge and shift diagrams.
 
 ## RT.2. Cellular torsion and bordism signs
 
@@ -880,7 +884,7 @@ For a normal integral R with 2 invertible, a closed smooth oriented odd-dimensio
 
 2. Classify the resulting determinant line with square trivialization by a μ₂-torsor.
 
-3. For normal integral R, finite étale torsors and their generic isomorphisms extend uniquely; glue and use injectivity H¹(R,μ₂)→H¹(Frac R,μ₂).
+3. Generic isomorphisms between finite étale torsors already defined over a normal integral R extend uniquely. Glue the local torsors and use injectivity H¹(R,μ₂)→H¹(Frac R,μ₂); no extension of an arbitrary ramified generic torsor is asserted.
 
 
 
@@ -910,7 +914,7 @@ For a normal integral R with 2 invertible, a closed smooth oriented odd-dimensio
 
 **Direct dependencies:** `SymplecticReidemeisterTorsionModSquares:RT.2/torsion`, `SymplecticReidemeisterTorsionModSquares:RT.0/local-strictification`, `SymplecticReidemeisterTorsionModSquares:RT.1/lagrangian-volume`, `MotivicEtaleKTheory:M.1/etale-kummer-sequences`, `MotivicEtaleKTheory:M.1`.
 
-**Sources:** AV-v1, §2.3.3, p. 13; Appendix B.10, (B.38)–(B.39), pp. 85–86: Separates existence and uniqueness from the false raw base-change assertion.
+**Sources:** AV-v1, §2.3.3, p. 13; Appendix B.10, (B.38)–(B.39), pp. 85–86: Separates extension and uniqueness from the broad raw base-change assertion of §2.3.3. The orthogonal circle disproves that broad assertion; it is not a geometric three-dimensional symplectic counterexample to B.10.
 
 ### Normalized torsion in families — `normalized-family`
 
@@ -952,7 +956,7 @@ For a closed smooth oriented three-manifold with a symplectic finite projective 
 
 **Direct dependencies:** `SymplecticReidemeisterTorsionModSquares:RT.3/normal-ring-torsion`, `SymplecticReidemeisterTorsionModSquares:RT.3/even-strict-model`, `SymplecticReidemeisterTorsionModSquares:RT.3/semicharacteristic-three`, `SymplecticReidemeisterTorsionModSquares:RT.0/strict-splitting`, `SymplecticReidemeisterTorsionModSquares:RT.1/lagrangian-volume`.
 
-**Sources:** AV-v1, §2.4–§2.6, pp. 14–16; Appendix B.10, pp. 85–86: Provides the corrected base-change theorem with a term-rank proof rather than the raw claim.
+**Sources:** AV-v1, §2.4–§2.6, pp. 14–16; Appendix B.10, pp. 85–86: Supplies the normalized three-dimensional base-change theorem by a term-rank calculation. The circle test checks the same shifted-complex sign, without asserting a three-dimensional symplectic counterexample.
 
 ### Labelled oriented bordism — `labelled-bordism`
 
@@ -1120,11 +1124,11 @@ For each rank 2r and normal integral Z[1/2]-algebra R, define B_r(R)=H₃(BSp_{2
 
 **Sources:** AV-v1, §2.4–§2.6, (2.8), pp. 14–16: Constructs the natural transformation that the arithmetic argument identifies.
 
-**Layer acceptance and remaining work.** Discharge geometric bordism, Kummer line-pair, universal Chern and cellular supplier contracts; review the even stabilization and normalized root-line formula.
+**Layer acceptance and remaining work.** Discharge geometric bordism, Kummer line-pair, universal Chern and cellular supplier contracts; formalize the reviewed even stabilization and normalized root-line formula.
 
 ## RT.4. Circle formula and explicit mapping tori
 
-Compare the pinned spinor norm with the bilinear convention; prove the Zassenhaus and circle formulas in every odd characteristic; compute mapping-torus torsion, a genus-two cocycle model and the nonsquare Gaussian example.
+Compare the pinned spinor norm with the bilinear convention; prove the Zassenhaus and circle formulas in every odd characteristic using the alternating cross pairing P(x,(1−A)y); compute mapping-torus torsion, a genus-two cocycle model and the nonsquare Gaussian example.
 
 **Layer inputs:** `SymplecticReidemeisterTorsionModSquares:RT.2`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent`, `tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality`.
 
@@ -1216,7 +1220,7 @@ Let dim V=n be even, A∈SO(V,B), 1+A invertible and h=dim ker(1−A). Use the b
 
 **Construction/proof contract.**
 
-1. Write P=B((1+A)/2−,−), an invertible cross pairing. The form P((1−A)x,y) is alternating, giving n−h=2r.
+1. Write P=B((1+A)/2−,−), an invertible cross pairing. The form P(x,(1−A)y)=B((A−A⁻¹)x/2,y) is alternating. Its right radical is ker(1−A), so n−h=2r.
 
 2. The upper-term root class divided by e is (−1)^{n/2}det(P) modulo squares; the inverse determinant gives the same square class.
 
@@ -1225,6 +1229,8 @@ Let dim V=n be even, A∈SO(V,B), 1+A invertible and h=dim ker(1−A). Use the b
 
 
 **Check.** Establish the stated result with its displayed conventions and all hypotheses; check the proof contracts named below.
+
+- `StrictCircle.argument_position` (computation): Over Q with B=I₂ and A=[[0,−1],[1,0]], P(e₁,(1−A)e₁)=0 whereas P((1−A)e₁,e₁)=1. The differential must act in the second argument of this P.
 
 **Direct dependencies:** `SymplecticReidemeisterTorsionModSquares:RT.4/circle-complex`, `SymplecticReidemeisterTorsionModSquares:RT.0/strict-splitting`, `SymplecticReidemeisterTorsionModSquares:RT.1/cohomology-determinant`, `SymplecticReidemeisterTorsionModSquares:RT.1/lagrangian-volume`.
 
@@ -1360,7 +1366,7 @@ Let i²=−1. On a genus-two surface use a₁=diag(−i,i), b₁=a₂=−I, b₂
 
 **Sources:** AV-v1, Appendix C.4.1–C.4.2, pp. 89–90: The explicit nonzero normalized torsion class is the arithmetic seed. Twist composition order is fixed to reproduce the matrices.
 
-**Layer acceptance and remaining work.** Discharge topology supplier contracts and independently review the new all-odd-characteristic strict-circle proof; Gaussian exact arithmetic is checked.
+**Layer acceptance and remaining work.** Discharge topology supplier contracts and formalize the reviewed all-odd-characteristic strict-circle proof with the corrected alternating form; both Gaussian examples were independently recomputed exactly.
 
 ## RT.5. Transfer and controlling extensions
 
@@ -2040,91 +2046,91 @@ No empty predicate is used to stand in for any of these. The Markdown targets re
 
 
 
-The published AV article is Inventiones Mathematicae 241 (2025), 717–839, DOI [10.1007/s00222-025-01349-6](https://doi.org/10.1007/s00222-025-01349-6). Its 123-page full text was not read. All AV locators and findings below concern the identified 98-page arXiv v1. The author PDF was compared for the relevant B.9/B.10 passages; its SHA-256 is `4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8`. No claim is made about whether the version of record corrects these points. The JRV finding is similarly confined to arXiv v3. Sources cited only inside AV, including Serre’s book and the real Chern comparison references, have not been promoted to sources read here.
+The published AV article is Inventiones Mathematicae 241 (2025), 717–839, DOI [10.1007/s00222-025-01349-6](https://doi.org/10.1007/s00222-025-01349-6). Its 123-page full text was not read. The independent review on 2026-10-19 reread all cited public-preprint passages, verified the three PDF hashes, and repeated the version-history and correction searches; it did not inspect the published passages or repeat the original author-PDF comparison. All AV locators and findings below concern the identified 98-page arXiv v1. The author PDF was compared for the relevant B.9/B.10 passages; its SHA-256 is `4bc8373b4252837b98a3c90a9adf8d75408a7a5ff7b39cd7ef39bdfcc7e0d4c8`. No claim is made about whether the version of record corrects these points. The JRV finding is similarly confined to arXiv v3. Sources cited only inside AV, including Serre’s book and the real Chern comparison references, have not been promoted to sources read here.
 
-## Source corrections used by the targets
+## Source findings and independent verdicts
 
-Each entry gives the source assertion in our own words. The packet carries its version, correction-search record and affected scope. None has an independent-review verdict in this design packet.
+All 20 findings were checked at the identified public-preprint locators. E2 and E18 are rejected; the other 18 are confirmed with the scope below. The packet retains the version and correction-search records. All descriptions are in our own words.
 
 ### E1 — AV-v1, §1.5, p. 8 (arXiv v1)
 
-**Misprint.** The symplectic basis index uses the genus letter although the module has rank 2r. **Correction:** Index e_i,f_i by 1≤i≤r. **Reason:** The form matrix and group name fix its rank. Affects: nothing.
+**Review: confirmed.** The symplectic basis uses a genus index for rank 2r and assigns self-pairing one to the two basis families. **Resolution:** Index e_i,f_i by 1≤i≤r and set the pairings within each basis family to zero; the cross pairings remain δ_ij. **Review reason:** Confirmed on p. 8, including a missed error within the original finding: internal pairings of the e and f families must be zero, not one. The form matrix fixes the intended alternating form.
 
 ### E2 — AV-v1, §2.4, Theorem 2.2, p. 14 (arXiv v1)
 
-**Misprint.** The dimension symbol also denotes half the representation rank in nearby notation. **Correction:** Use dimension 4j for N, j≥1, independently of rank 2r. **Reason:** Appendix B.8 uses precisely dimension divisible by four; no relation to rank enters the proof. Affects: nothing.
+**Review: rejected.** The theorem writes the bordism dimension as 4r, reusing a letter that denotes half the coefficient rank elsewhere. **Resolution:** No source correction is required: the dimension parameter is locally bound. This plan calls it j to keep it distinct from half the coefficient rank. **Review reason:** Rejected: Theorem 2.2 locally binds its dimension parameter. Reusing a letter is harmless; the theorem does not relate the manifold dimension to the coefficient rank. The plan may use j for clarity.
 
 ### E3 — AV-v1, §2.7, proof of Lemma 2.7.1, pp. 16–17 (arXiv v1)
 
-**Error.** The proof treats integral H₂ of the finite symplectic and special linear groups as always zero for odd q. **Correction:** Use that H₂ has odd order; in rank two over F₉ the multiplier is Z/3. The UCT mod-two comparison remains an isomorphism. **Reason:** The existing finite-classical-h2-no-two-torsion supplier includes the exceptional multiplier; only its 2-torsion matters here. Affects: the proof.
+**Review: confirmed.** The proof treats integral H₂ of the finite symplectic and special linear groups as always zero for odd q. **Resolution:** Use that H₂ has odd order; in rank two over F₉ the multiplier is Z/3. The UCT mod-two comparison remains an isomorphism. **Review reason:** Confirmed as an overstatement of the integral multiplier. The finite-classical-h2-no-two-torsion supplier retains the SL₂(F₉) order-three exception. Odd order, not vanishing, is what the mod-two UCT step needs.
 
 ### E12 — AV-v1, Appendix A.6.1, proof of (A.11), p. 66 (arXiv v1)
 
-**Error.** The argument assigns the perfect skew form to the cokernel of the middle differential. **Correction:** It is the quotient C⁰/ker d⁰, isomorphic to im d⁰, that has the induced perfect alternating form, hence even dimension. **Reason:** The radical of (x,y)↦T(d⁰x,y) is ker d⁰. An arbitrary cokernel need not be even-dimensional. Affects: the proof.
+**Review: confirmed.** The argument assigns the perfect skew form to the cokernel of the middle differential. **Resolution:** It is the quotient C⁰/ker d⁰, isomorphic to im d⁰, that has the induced perfect alternating form, hence even dimension. **Review reason:** Confirmed: the induced alternating form has radical ker d⁰ and is perfect on C⁰/ker d⁰. Thus rank d⁰ is even; the cokernel assertion does not supply that argument.
 
 ### E13 — AV-v1, Appendix A.7, pp. 66–67 (arXiv v1)
 
-**Misprint.** The displayed splitting table places the middle acyclic terms a degree too high relative to its labels. **Correction:** Place E₀,Z₀ in degree zero, B₁,E₁ in degree one, C⁻¹ in degree −1 and C² in degree two. **Reason:** This makes Q model τ≤0 C and the residual pair lie in degrees zero and one. Affects: nothing.
+**Review: confirmed.** The displayed splitting table places the middle acyclic terms a degree too high relative to its labels. **Resolution:** Place E₀,Z₀ in degree zero, B₁,E₁ in degree one, C⁻¹ in degree −1 and C² in degree two. **Review reason:** Confirmed by comparing the displayed arrows with the labelled degrees: the residual pair belongs in degrees zero and one, with the adjacent terms in degrees minus one and two.
 
 ### E14 — AV-v1, Appendix B.3 and B.4.1, pp. 70–71, 74 (arXiv v1)
 
-**Misprint.** Several iteration, basis-size and brutal-truncation indices disagree with their constructions. **Correction:** Use inverse iteration for n≤−1; index a basis by its own dimension; the quotient of σ≥r−1 by σ≥r is C^{r−1}[1−r]; the compatibility statement refers to the three entries of that exact sequence. **Reason:** These follow by taking the indicated degreewise quotient and reading the source and target of the shift map. Affects: nothing.
+**Review: confirmed.** Several iteration, basis-size and brutal-truncation indices disagree with their constructions. **Resolution:** Use inverse iteration for n≤−1; index a basis by its own dimension; the quotient of σ≥r−1 by σ≥r is C^{r−1}[1−r]; the compatibility statement refers to the three entries of that exact sequence. **Review reason:** Confirmed by the inverse shift iteration, the size of each chosen basis and the degreewise quotient of brutal truncations. The corrected quotient is concentrated in degree r−1.
 
 ### E15 — AV-v1, Appendix B.6, (B.20)–(B.23), pp. 78–80 (arXiv v1)
 
-**Misprint.** The cone Lagrangian is named C, the splitting summands are interchanged, and the cone rank formula omits a degree shift. **Correction:** The cone Lagrangian is C∨[−n]. Use a=b=(−1)^r c; label the acyclic and hyperbolic summands consistently, and dim D^i=dim C^{n−i}+dim C^{i+1}. The formula for the sign determines r modulo two. **Reason:** These are forced by Cone(C→C∨[−n]) and by which summand has zero cohomology. Affects: nothing.
+**Review: confirmed.** The cone Lagrangian is named C, the splitting summands are interchanged, and the cone rank formula omits a degree shift. **Resolution:** The cone Lagrangian is C∨[−n]. Use a=b=(−1)^r c; label the acyclic and hyperbolic summands consistently, and dim D^i=dim C^{n−i}+dim C^{i+1}. The formula for the sign determines r modulo two. **Review reason:** Confirmed from Cone(C→C∨[−n])=C∨[−n]⊕C[1]. This fixes the Lagrangian, rank shift and summand labels. The exponent formula specifies parity, not an exact acyclic rank.
 
 ### E16 — AV-v1, Appendix B.7–B.8, p. 81 (arXiv v1)
 
-**Misprint.** The torsion definition and its use refer to nearby labels that do not contain the needed construction. **Correction:** Refer to class (c) of B.6 for the cohomological square root and B.7 for the definition of RT. **Reason:** B.5.2 and the displayed formula labelled B.7 do not define that class. Affects: nothing.
+**Review: confirmed.** The torsion definition and its use refer to nearby labels that do not contain the needed construction. **Resolution:** Refer to class (c) of B.6 for the cohomological square root and B.7 for the definition of RT. **Review reason:** Confirmed: B.6 defines class (c), while B.7 is the torsion section. The cited nearby subsection/formula does not define the required object.
 
 ### E17 — AV-v1, Appendix B.9.2, (B.33)–(B.36), pp. 83–84 (arXiv v1)
 
-**Misprint.** The Jordan-block calculation uses the same truncated chain at both ends of its acyclic map and has inconsistent terminal indices and entries. **Correction:** The target of the acyclic block is spanned by Ne_j through N^{m_j}e_j, not by e_j through N^{m_j−1}e_j; use N^{m₂−1}e₂ at the indicated terminal wedge, the diagonal pairing matrix with determinant v₁v₂, and −⟨M^{m−1}e,Mf⟩ in B.36. **Reason:** The image of the displayed nilpotent chain is shifted by one. The corrected inner-product positions are imposed by its exponent and skew-adjointness. The present plan replaces this argument by the strict two-term computation. Affects: nothing.
+**Review: confirmed.** The Jordan-block acyclic map has an unshifted target chain; a terminal wedge uses the wrong block index, and B.36 uses the wrong second vector. **Resolution:** Use target Ne_j through N^{m_j}e_j, terminal N^{m₂−1}e₂ for the second block, and −⟨M^{m−1}e,Mf⟩ in B.36. The diagonal matrix with determinant v₁v₂ in B.35 is already correct. **Review reason:** Confirmed only for the three specific chain/vector index slips now recorded. The printed B.35 diagonal pairing matrix is already correct; the earlier correction overreached on that point.
 
 ### E18 — AV-v1, Appendix B.9, preceding (B.37), p. 85 (arXiv v1)
 
-**Misprint.** The bordism conclusion identifies raw circle torsion as the invariant that vanishes. **Correction:** The normalized value (−1)^{h/2}RT, equivalently the spinor norm in B.30, is trivial. **Reason:** The same half-sign occurs in the boundary formula; it cannot be discarded in general. Affects: nothing.
+**Review: rejected.** The paragraph refers to the quantity on the left side of B.30 when concluding bordism invariance. **Resolution:** No correction is needed. The left side of B.30 already includes (−1)^{h/2}RT and is the spinor norm. **Review reason:** Rejected: the paragraph explicitly uses the left side of B.30, which already contains the normalization sign. It does not identify raw torsion as the bordism invariant.
 
-### E19 — AV-v1, Appendix B.10, pp. 85–86 (arXiv v1)
+### E19 — AV-v1, §2.3.3, p. 13; Appendix B.10, pp. 85–86 (arXiv v1)
 
-**Error.** Raw RT is claimed to commute with every map of normal domains and its strict-model sign is treated as term-rank dependent. **Correction:** Only N=(−1)^{χ₁/₂/2}RT has arbitrary base change in dimension three. Raw RT acquires the specialization factor (−1)^{(χ_special−χ_generic)/2}; its local unnormalized sign depends on the middle differential rank. **Reason:** Over Q[s]_(s), take the orthogonal circle family on H⊕H with A=diag(1+s,(1+s)⁻¹)⊕I₂. Generic h=2 and RT=[−(1+s)]; special h=4 and RT=1. The normalized class [1+s] specializes to 1. Affects: a stated result.
+**Review: confirmed.** The general discussion asserts arbitrary normal-domain base change for raw RT. The B.10 strict-model argument also omits the fibre-dependent acyclic sign when identifying the raw class. **Resolution:** Prove functoriality of N=(−1)^{χ₁/₂/2}RT for three-dimensional symplectic families using term ranks. Where normalization is defined, raw fibre values differ from transported raw generic values by (−1)^{(χ_special−χ_generic)/2}. The orthogonal circle counterexample concerns the broader §2.3.3 assertion. **Review reason:** Confirmed with narrowed scope: the circle disproves the broad §2.3.3 assertion, and the strict splitting requires the acyclic sign. It supplies no geometric three-dimensional symplectic counterexample to B.10. The normalized family theorem is justified independently by its local term-rank formula.
 
 ### E20 — AV-v1, Appendix C.2, (C.2), p. 87 (arXiv v1)
 
-**Error.** The discriminant factor is assigned to the fixed subspace of T. **Correction:** Take the nondegenerate generalized 1-eigenspace instead. **Reason:** The fixed subspace can be degenerate for a nontrivial unipotent isometry, while the orthogonal primary component in Zassenhaus’s formula is nondegenerate. Affects: a stated result.
+**Review: confirmed.** The discriminant factor is assigned to the fixed subspace of T. **Resolution:** Take the nondegenerate generalized 1-eigenspace instead. **Review reason:** Confirmed: an ordinary fixed subspace can have a radical for a nontrivial unipotent orthogonal map. The nondegenerate primary component is the generalized eigenspace required by JRV Theorem 5.1.
 
 ### E21 — AV-v1, Appendix C.3–C.4, (C.8)–(C.9), pp. 89–90 (arXiv v1)
 
-**Misprint.** The cocycle diagram composes with the induced cohomology operator and the no-fixed-vector condition is attached to the mapping torus rather than the surface; the twist composition convention is unstated. **Correction:** Use T̃φ=M⁻¹φ∘t, with T acting on H¹ of the surface. Apply the printed twist words leftmost factor first. **Reason:** Exact cocycle recomputation in this run reproduces both six-dimensional action matrices and determinant ratios only with this convention. Affects: nothing.
+**Review: confirmed.** The cocycle diagram composes with the induced cohomology operator and the no-fixed-vector condition is attached to the mapping torus rather than the surface; the twist composition convention is unstated. **Resolution:** Use T̃φ=M⁻¹φ∘t, with T acting on H¹ of the surface. Apply the printed twist words leftmost factor first. **Review reason:** Confirmed for the typed source/target slips in C.8–C.9. Independently recomputed the relator, four intertwiners, invariant principal subspace, quotient characteristic polynomials and both determinant ratios using exact rational Gaussian arithmetic. The twist order is an explicit convention, not itself a theorem error.
 
 ### E25 — AV-v1, §2.3.2, p. 13; Appendix B.9.1, pp. 82–83; Lemma C.2.1, p. 87; (1.5), p. 3 (arXiv v1)
 
-**Gap.** The circle and mapping-torus formulas are proved using characteristic-zero Jordan/logarithm arguments, although their use requires odd finite fields. **Correction:** Prove the circle formula in all characteristics other than two. RT.4 gives a proof using the generalized −1 component, the strict cross pairing on its complement and Zassenhaus Theorem 5.1. **Reason:** A finite-field local system need not lift to characteristic zero, and logarithms and Jacobson–Morozov in the given form do not supply the claimed finite-field input. Affects: the proof.
+**Review: confirmed.** The circle and mapping-torus formulas are proved using characteristic-zero Jordan/logarithm arguments, although their use requires odd finite fields. **Resolution:** Prove the circle formula in all characteristics other than two. RT.4 gives a proof using the generalized −1 component, the strict cross pairing on its complement and Zassenhaus Theorem 5.1. **Review reason:** Confirmed as a proof-range gap, not a counterexample to the characteristic-zero statements. B.9 and C.2 use characteristic-zero tools; the finite-field mapping-class application needs the all-odd-characteristic proof supplied by RT.4, with its argument position corrected in this review.
 
 ### E26 — AV-v1, §2.7, p. 17; §2.11, Lemma 2.11.1, pp. 20–21 (arXiv v1)
 
-**Gap.** A nonsquare raw torsion class is used as if it were a nonzero value of N. **Correction:** Require a nonsquare normalized torsion value, or a square normalization sign. The Q(i) witness satisfies this requirement. **Reason:** A constant symplectic rank-two system on S³ has RT=[−1] but N=1; over F₃ this raw torsion is nonsquare and does not witness a nonzero transformation. Affects: the proof.
+**Review: confirmed.** A nonsquare raw torsion class is used as if it were a nonzero value of N. **Resolution:** Require a nonsquare normalized torsion value, or a square normalization sign. The Q(i) witness satisfies this requirement. **Review reason:** Confirmed: nonsquare raw torsion alone need not make N nonzero. The constant rank-two S³ system gives raw [−1] and normalized 1. The independently recomputed Q(i) witness has h=0 and avoids this problem.
 
 ### E27 — AV-v1, §2.11, Definition 2.11.1 and Lemma 2.11.2, pp. 20–21 (arXiv v1)
 
-**Error.** Exceptional sets are assigned zero density using a liminf definition, and the proof then unions them. **Correction:** Require their upper weighted density to be zero, equivalently their weighted counting ratio tends to zero. **Reason:** A finite union of sets of lower density zero can have positive density. Every propagation step is valid with the strengthened condition, and the constructed exceptions satisfy it. Affects: the proof.
+**Review: confirmed.** Exceptional sets are assigned zero density using a liminf definition, and the proof then unions them. **Resolution:** Require their upper weighted density to be zero, equivalently their weighted counting ratio tends to zero. **Review reason:** Confirmed: lower density zero is not stable under finite unions. The strengthened upper-density-zero condition is preserved by every compositum and descent step used here.
 
 ### E28 — AV-v1, §2.11, Lemma 2.11.2, p. 21 (arXiv v1)
 
-**Misprint.** The restriction map from a compositum Galois group is displayed as surjective onto the product. **Correction:** Only the individual projections are surjective; the product map has its usual fibre-product image unless the extensions are disjoint. **Reason:** Take E₁=E₂ a nontrivial quadratic extension. The domain then has order two, while the product has order four. Affects: nothing.
+**Review: confirmed.** The restriction map from a compositum Galois group is displayed as surjective onto the product. **Resolution:** Only the individual projections are surjective; the product map has its usual fibre-product image unless the extensions are disjoint. **Review reason:** Confirmed: equal nontrivial quadratic extensions already contradict product surjectivity. Only the two individual projections are required; the density proof uses a product solely for its separately proved disjoint quotient.
 
 ### E29 — AV-v1, §2.12, Lemma 2.12.2, pp. 22–23 (arXiv v1)
 
-**Misprint.** The subspace hypothesis excludes ⟨α⟩ but does not exclude W=0. **Correction:** Require dim W≥1 as well. **Reason:** For W=0 the proposed nonidentity controlling subset is empty, contrary to the definition. The density argument uses dimension at least two. Affects: nothing.
+**Review: confirmed.** The subspace hypothesis excludes ⟨α⟩ but does not exclude W=0. **Resolution:** Require dim W≥1 as well. **Review reason:** Confirmed: W=0 has no nonidentity characters and cannot give the required nonempty controlling subset. The added positive-dimension condition removes this unused degenerate case.
 
-### E30 — AV-v1, §2.14, p. 26 (arXiv v1)
+### E30 — AV-v1, §2.14, pp. 25–26 (arXiv v1)
 
-**Error.** With normalization Q^{−d}, the total logarithmically weighted count of closed points is asserted to tend to 1 in dimension d. **Correction:** Use the correct normalization from the scheme prime-counting theorem, or only the positive-order lower bound required by the proof. For Spec Z[t], d=2, the displayed normalization tends to 1/2. **Reason:** There are p closed points of norm p on A¹_Z, so Σ_{p≤Q}p log p is asymptotic to Q²/2; higher residue degrees contribute lower order. The comparison proof only needs a positive lower bound for nonsplit Frobenius. Affects: a stated result.
+**Review: confirmed.** With normalization Q^{−d}, the total logarithmically weighted count of closed points is asserted to tend to 1 in dimension d. **Resolution:** Use the correct normalization from the scheme prime-counting theorem, or only the positive-order lower bound required by the proof. For Spec Z[t], d=2, the displayed normalization tends to 1/2. **Review reason:** Confirmed at pp. 25–26: for Spec Z[t], the degree-one contribution has normalized limit 1/2 and higher residue degrees are lower order. The comparison only requires the positive lower bound now isolated as a supplier gap.
 
 ### E31 — JRV, arXiv:1004.4208v3, §5, paragraph preceding Theorem 5.1, p. 16
 
-**Error.** The preliminary discussion says the orthogonal spinor norm is surjective as soon as the quadratic space has dimension at least two. **Correction:** Do not use this surjectivity assertion without further hypotheses, such as an appropriate isotropy or value-representation condition. Only Theorem 5.1 is imported here. **Reason:** For the positive-definite plane over R every reflection has positive norm, so the spinor image is trivial although Rˣ/Rˣ² has two elements. Affects: a stated result.
+**Review: confirmed.** The preliminary discussion says the orthogonal spinor norm is surjective as soon as the quadratic space has dimension at least two. **Resolution:** Do not use this surjectivity assertion without further hypotheses, such as an appropriate isotropy or value-representation condition. Only Theorem 5.1 is imported here. **Review reason:** Confirmed in arXiv v3 §5. A positive-definite real plane has only positive reflection values, so its classical spinor image is trivial. No such unrestricted surjectivity is used in the imported Zassenhaus theorem.
 
 ## Pinned declaration evidence
 

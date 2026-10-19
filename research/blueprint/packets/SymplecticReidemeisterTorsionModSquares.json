@@ -24,91 +24,91 @@
         "kind": "abbrev",
         "module": "Mathlib/Algebra/Homology/HomologicalComplex.lean",
         "provides": "Cochain complexes are HomologicalComplex objects of shape up, with differentials and square-zero laws.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "mathlib:HomologicalComplex.homology",
         "kind": "def",
         "module": "Mathlib/Algebra/Homology/ShortComplex/HomologicalComplex.lean",
         "provides": "Homology object of the associated short complex at an index; over ModuleCat a cochain complex has these objects in every degree.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "mathlib:groupHomology",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Homological/GroupHomology/Basic.lean",
         "provides": "Homology of inhomogeneous chains of a linear representation; integral coefficients modulo two must be distinguished from homology with F₂ coefficients.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "mathlib:Sylow",
         "kind": "structure",
         "module": "Mathlib/GroupTheory/Sylow.lean",
         "provides": "A Sylow p-subgroup is a maximal p-subgroup of a group; transfer and congruence-lifting statements are additional inputs below.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "mathlib:SymplecticGroup.det_eq_one",
         "kind": "theorem",
         "module": "Mathlib/LinearAlgebra/SymplecticGroup.lean",
         "provides": "Every matrix in symplecticGroup l R over a commutative ring has determinant one, in all finite ranks.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "tauceti:TauCeti.SquareClassGroup",
         "kind": "abbrev",
         "module": "TauCeti/FieldTheory/SquareClassGroup/Basic.lean",
         "provides": "The additive quotient of Kˣ by squares, with its F₂-module structure.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "tauceti:TauCeti.squareClassHom",
         "kind": "def",
         "module": "TauCeti/FieldTheory/SquareClassGroup/Basic.lean",
         "provides": "Multiplicative quotient homomorphism Kˣ → Multiplicative (SquareClassGroup K).",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "tauceti:TauCeti.squareClass_eq_zero_iff",
         "kind": "theorem",
         "module": "TauCeti/FieldTheory/SquareClassGroup/Basic.lean",
         "provides": "The square class of a unit vanishes exactly when the unit is a square.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "tauceti:RingHom.squareClassMap",
         "kind": "def",
         "module": "TauCeti/FieldTheory/SquareClassGroup/Multiplicative.lean",
         "provides": "Field homomorphisms act on additive square classes; multiplicativeSquareClassMap is the multiplicative variant.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "tauceti:CliffordAlgebra.orthogonalSpinorNorm",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpinorNorm/Basic.lean",
         "provides": "The orthogonal-group homomorphism defined by Clifford star norm for a nondegenerate finite-dimensional quadratic form with two invertible.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "tauceti:CliffordAlgebra.orthogonalSpinorNorm_reflectionOrthogonal",
         "kind": "theorem",
         "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpinorNorm/Basic.lean",
         "provides": "On reflection in v the star-norm convention gives the square class of −Q(v), with Q(v) invertible.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The reflection value is [−Q(v)]; the comparison is restricted to SO."
       },
       {
         "ref": "tauceti:CliffordAlgebra.spinorNorm",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpinorNorm/Basic.lean",
         "provides": "The restriction of the existing orthogonal spinor norm to the special orthogonal group; do not reconstruct it.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       },
       {
         "ref": "tauceti:CliffordAlgebra.spinorNorm_apply",
         "kind": "theorem",
         "module": "TauCeti/LinearAlgebra/CliffordAlgebra/Spin/SpinorNorm/Basic.lean",
         "provides": "The special orthogonal spinor norm equals the orthogonal map evaluated on the inclusion.",
-        "checked": "Statement read in the shared build at the pinned commit; module revision checked."
+        "checked": "Independent review 2026-10-19: declaration and hypotheses read from the raw GitHub file at the full recorded pin; the file matches the shared pinned build byte for byte. The stated interface is sufficient for the citing nodes; stronger topology, determinant and Chern inputs remain explicit suppliers."
       }
     ]
   },
@@ -124,7 +124,8 @@
       "readSections": [
         "§1.1, pp. 1–4; §1.3.3, p. 6; §2, pp. 10–26; Appendices A–C, pp. 61–90",
         "TeX source consulted for signs and matrices; SHA-256 e18e82663000a365452b439e971bb49d05a7ea6ce03201309166120e30a44c9e. Arithmetic §§3–6 and Appendix D are outside this roadmap."
-      ]
+      ],
+      "independentlyReviewed": "2026-10-19: the public PDF at this URL was read at every cited node and source-issue locator; its recorded SHA-256 was checked."
     },
     {
       "id": "JRV",
@@ -136,7 +137,8 @@
       "accessed": "2026-10-18",
       "readSections": [
         "Theorem 5.1 and its proof, pp. 16–17; Lemma 6.1, p. 18. Only the Zassenhaus determinant formula is used."
-      ]
+      ],
+      "independentlyReviewed": "2026-10-19: the public PDF at this URL was read at every cited node and source-issue locator; its recorded SHA-256 was checked."
     },
     {
       "id": "Thom",
@@ -148,7 +150,8 @@
       "accessed": "2026-10-18",
       "readSections": [
         "Chapter IV §8, Theorem IV.13, p. 81: Ω₀^SO = ℤ and Ω₁^SO = Ω₂^SO = Ω₃^SO = 0. The extension to labelled CW complexes is a target proved by skeletal induction here, rather than attributed directly to this coefficient calculation."
-      ]
+      ],
+      "independentlyReviewed": "2026-10-19: the public PDF at this URL was read at every cited node and source-issue locator; its recorded SHA-256 was checked."
     }
   ],
   "nodes": [
@@ -861,7 +864,7 @@
       ],
       "title": "Strongly even complexes",
       "kind": "definition",
-      "statement": "A finite projective complex is strongly even when every term has locally constant even rank. Over a field this means Even(dim C^q) for every integer q. This is stronger than even Euler characteristic and stronger than even-dimensional cohomology.",
+      "statement": "A finite projective complex is strongly even when every term has locally constant even rank. Over a field this means Even(dim C^q) for every integer q. For bounded complexes this implies even Euler characteristic. It is independent of requiring every cohomology group to have even dimension: neither condition implies the other.",
       "hypotheses": [],
       "proofSteps": [
         "Use the rank predicate on each term; over a general ring impose it at every prime.",
@@ -870,7 +873,8 @@
       "acceptance": [
         "The zero complex is strongly even.",
         "K→id K is acyclic with Euler characteristic zero but is not strongly even.",
-        "Any complex whose nonzero terms are K² is strongly even, independently of its differential."
+        "Any complex whose nonzero terms are K² is strongly even, independently of its differential.",
+        "The complex K²→K² in degrees zero and one with differential diag(1,0) is strongly even, but both cohomology groups have dimension one."
       ],
       "prerequisites": [
         "mathlib:CochainComplex"
@@ -907,6 +911,11 @@
           "name": "StronglyEven.directSum",
           "role": "compatibility",
           "statement": "A direct sum of strongly even complexes is strongly even."
+        },
+        {
+          "name": "StronglyEven.euler_even",
+          "role": "compatibility",
+          "statement": "The Euler characteristic of a bounded strongly even complex is even, over each field fibre."
         }
       ],
       "tests": [
@@ -924,6 +933,11 @@
           "name": "StronglyEven.rank2",
           "kind": "computation",
           "statement": "Any complex whose nonzero terms are K² is strongly even, independently of its differential."
+        },
+        {
+          "name": "StronglyEven.odd_cohomology",
+          "kind": "computation",
+          "statement": "The complex K²→K² in degrees zero and one with differential diag(1,0) is strongly even, but both cohomology groups have dimension one."
         }
       ],
       "uses": [
@@ -1749,7 +1763,7 @@
       "proofSteps": [
         "Locally strictify and form the determinant root line from upper brutal truncation. Over the fraction field its class differs from RT by a sign; extend that constant unit sign on the neighbourhood.",
         "Classify the resulting determinant line with square trivialization by a μ₂-torsor.",
-        "For normal integral R, finite étale torsors and their generic isomorphisms extend uniquely; glue and use injectivity H¹(R,μ₂)→H¹(Frac R,μ₂)."
+        "Generic isomorphisms between finite étale torsors already defined over a normal integral R extend uniquely. Glue the local torsors and use injectivity H¹(R,μ₂)→H¹(Frac R,μ₂); no extension of an arbitrary ramified generic torsor is asserted."
       ],
       "acceptance": [
         "For R a field it agrees with torsion through the Kummer square-class isomorphism.",
@@ -1767,7 +1781,7 @@
         {
           "sourceId": "AV-v1",
           "locator": "§2.3.3, p. 13; Appendix B.10, (B.38)–(B.39), pp. 85–86",
-          "match": "Separates existence and uniqueness from the false raw base-change assertion."
+          "match": "Separates extension and uniqueness from the broad raw base-change assertion of §2.3.3. The orthogonal circle disproves that broad assertion; it is not a geometric three-dimensional symplectic counterexample to B.10."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1859,7 +1873,7 @@
         {
           "sourceId": "AV-v1",
           "locator": "§2.4–§2.6, pp. 14–16; Appendix B.10, pp. 85–86",
-          "match": "Provides the corrected base-change theorem with a term-rank proof rather than the raw claim."
+          "match": "Supplies the normalized three-dimensional base-change theorem by a term-rank calculation. The circle test checks the same shifted-complex sign, without asserting a three-dimensional symplectic counterexample."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2453,12 +2467,13 @@
       "statement": "Let dim V=n be even, A∈SO(V,B), 1+A invertible and h=dim ker(1−A). Use the based circle generator e, without requiring disc(B)=1 in this intermediate calculation. Then h is even and (−1)^{h/2}RT_based(Circle(A,B))=disc(B)det((1+A)/2). The based ratio is defined by e and the upper-cohomology root even when the orthogonal volume is not self-dual.",
       "hypotheses": [],
       "proofSteps": [
-        "Write P=B((1+A)/2−,−), an invertible cross pairing. The form P((1−A)x,y) is alternating, giving n−h=2r.",
+        "Write P=B((1+A)/2−,−), an invertible cross pairing. The form P(x,(1−A)y)=B((A−A⁻¹)x/2,y) is alternating. Its right radical is ker(1−A), so n−h=2r.",
         "The upper-term root class divided by e is (−1)^{n/2}det(P) modulo squares; the inverse determinant gives the same square class.",
         "By strict-splitting, upper-term versus upper-cohomology root contributes (−1)^r. Multiply the normalization (−1)^{h/2}; the total sign is (−1)^{h/2+n/2+r}=1."
       ],
       "acceptance": [
-        "Establish the stated result with its displayed conventions and all hypotheses; check the proof contracts named below."
+        "Establish the stated result with its displayed conventions and all hypotheses; check the proof contracts named below.",
+        "Over Q with B=I₂ and A=[[0,−1],[1,0]], P(e₁,(1−A)e₁)=0 whereas P((1−A)e₁,e₁)=1. The differential must act in the second argument of this P."
       ],
       "prerequisites": [
         "SymplecticReidemeisterTorsionModSquares:RT.4/circle-complex",
@@ -2477,7 +2492,14 @@
       "library": {
         "module": "TauCeti/Topology/ReidemeisterTorsion/Layer4",
         "namespace": "TauCeti.ReidemeisterTorsion"
-      }
+      },
+      "tests": [
+        {
+          "name": "StrictCircle.argument_position",
+          "kind": "computation",
+          "statement": "Over Q with B=I₂ and A=[[0,−1],[1,0]], P(e₁,(1−A)e₁)=0 whereas P((1−A)e₁,e₁)=1. The differential must act in the second argument of this P."
+        }
+      ]
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares:RT.4/circle-formula",
@@ -3886,7 +3908,7 @@
       "stageId": "SymplecticReidemeisterTorsionModSquares:RT.1",
       "status": "planned",
       "remaining": [
-        "Realize the imported KTheoryLowDegrees graded-line and determinant nodes; independently check the reverse-wedge and shift diagrams."
+        "Realize the imported KTheoryLowDegrees graded-line and determinant nodes; formalize the reviewed reverse-wedge and shift diagrams."
       ]
     },
     {
@@ -3900,14 +3922,14 @@
       "stageId": "SymplecticReidemeisterTorsionModSquares:RT.3",
       "status": "planned",
       "remaining": [
-        "Discharge geometric bordism, Kummer line-pair, universal Chern and cellular supplier contracts; review the even stabilization and normalized root-line formula."
+        "Discharge geometric bordism, Kummer line-pair, universal Chern and cellular supplier contracts; formalize the reviewed even stabilization and normalized root-line formula."
       ]
     },
     {
       "stageId": "SymplecticReidemeisterTorsionModSquares:RT.4",
       "status": "planned",
       "remaining": [
-        "Discharge topology supplier contracts and independently review the new all-odd-characteristic strict-circle proof; Gaussian exact arithmetic is checked."
+        "Discharge topology supplier contracts and formalize the reviewed all-odd-characteristic strict-circle proof with the corrected alternating form; both Gaussian examples were independently recomputed exactly."
       ]
     },
     {
@@ -3954,32 +3976,44 @@
       "source": "AV-v1",
       "kind": "misprint",
       "locator": "§1.5, p. 8 (arXiv v1)",
-      "printed": "The symplectic basis index uses the genus letter although the module has rank 2r.",
-      "correction": "Index e_i,f_i by 1≤i≤r.",
-      "reason": "The form matrix and group name fix its rank.",
+      "printed": "The symplectic basis uses a genus index for rank 2r and assigns self-pairing one to the two basis families.",
+      "correction": "Index e_i,f_i by 1≤i≤r and set the pairings within each basis family to zero; the cross pairings remain δ_ij.",
+      "reason": "An alternating form has zero self-pairings and each isotropic basis family has zero internal pairings. The rank fixes the index range.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on p. 8, including a missed error within the original finding: internal pairings of the e and f families must be zero, not one. The form matrix fixes the intended alternating form.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E2",
       "source": "AV-v1",
       "kind": "misprint",
       "locator": "§2.4, Theorem 2.2, p. 14 (arXiv v1)",
-      "printed": "The dimension symbol also denotes half the representation rank in nearby notation.",
-      "correction": "Use dimension 4j for N, j≥1, independently of rank 2r.",
-      "reason": "Appendix B.8 uses precisely dimension divisible by four; no relation to rank enters the proof.",
+      "printed": "The theorem writes the bordism dimension as 4r, reusing a letter that denotes half the coefficient rank elsewhere.",
+      "correction": "No source correction is required: the dimension parameter is locally bound. This plan calls it j to keep it distinct from half the coefficient rank.",
+      "reason": "The theorem and Appendix B.8 impose divisibility of the bordism dimension by four without requiring it to equal twice the coefficient rank.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected: Theorem 2.2 locally binds its dimension parameter. Reusing a letter is harmless; the theorem does not relate the manifold dimension to the coefficient rank. The plan may use j for clarity.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E3",
@@ -3994,8 +4028,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an overstatement of the integral multiplier. The finite-classical-h2-no-two-torsion supplier retains the SL₂(F₉) order-three exception. Odd order, not vanishing, is what the mod-two UCT step needs.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E12",
@@ -4010,8 +4050,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: the induced alternating form has radical ker d⁰ and is perfect on C⁰/ker d⁰. Thus rank d⁰ is even; the cokernel assertion does not supply that argument.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E13",
@@ -4026,8 +4072,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by comparing the displayed arrows with the labelled degrees: the residual pair belongs in degrees zero and one, with the adjacent terms in degrees minus one and two.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E14",
@@ -4042,8 +4094,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed by the inverse shift iteration, the size of each chosen basis and the degreewise quotient of brutal truncations. The corrected quotient is concentrated in degree r−1.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E15",
@@ -4058,8 +4116,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed from Cone(C→C∨[−n])=C∨[−n]⊕C[1]. This fixes the Lagrangian, rank shift and summand labels. The exponent formula specifies parity, not an exact acyclic rank.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E16",
@@ -4074,56 +4138,80 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: B.6 defines class (c), while B.7 is the torsion section. The cited nearby subsection/formula does not define the required object.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E17",
       "source": "AV-v1",
       "kind": "misprint",
       "locator": "Appendix B.9.2, (B.33)–(B.36), pp. 83–84 (arXiv v1)",
-      "printed": "The Jordan-block calculation uses the same truncated chain at both ends of its acyclic map and has inconsistent terminal indices and entries.",
-      "correction": "The target of the acyclic block is spanned by Ne_j through N^{m_j}e_j, not by e_j through N^{m_j−1}e_j; use N^{m₂−1}e₂ at the indicated terminal wedge, the diagonal pairing matrix with determinant v₁v₂, and −⟨M^{m−1}e,Mf⟩ in B.36.",
-      "reason": "The image of the displayed nilpotent chain is shifted by one. The corrected inner-product positions are imposed by its exponent and skew-adjointness. The present plan replaces this argument by the strict two-term computation.",
+      "printed": "The Jordan-block acyclic map has an unshifted target chain; a terminal wedge uses the wrong block index, and B.36 uses the wrong second vector.",
+      "correction": "Use target Ne_j through N^{m_j}e_j, terminal N^{m₂−1}e₂ for the second block, and −⟨M^{m−1}e,Mf⟩ in B.36. The diagonal matrix with determinant v₁v₂ in B.35 is already correct.",
+      "reason": "The differential shifts the nilpotent chain by one, and the terminal wedge must belong to its named block. The second line of B.36 follows from the preceding pairing with f and skew-adjointness. No error in the correctly printed B.35 matrix is claimed; RT.4 uses the strict two-term proof instead.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only for the three specific chain/vector index slips now recorded. The printed B.35 diagonal pairing matrix is already correct; the earlier correction overreached on that point.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E18",
       "source": "AV-v1",
       "kind": "misprint",
       "locator": "Appendix B.9, preceding (B.37), p. 85 (arXiv v1)",
-      "printed": "The bordism conclusion identifies raw circle torsion as the invariant that vanishes.",
-      "correction": "The normalized value (−1)^{h/2}RT, equivalently the spinor norm in B.30, is trivial.",
-      "reason": "The same half-sign occurs in the boundary formula; it cannot be discarded in general.",
+      "printed": "The paragraph refers to the quantity on the left side of B.30 when concluding bordism invariance.",
+      "correction": "No correction is needed. The left side of B.30 already includes (−1)^{h/2}RT and is the spinor norm.",
+      "reason": "The original finding read the reference as raw torsion, but the explicitly referenced expression is normalized torsion.",
       "affects": "nothing",
       "known": "new",
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected: the paragraph explicitly uses the left side of B.30, which already contains the normalization sign. It does not identify raw torsion as the bordism invariant.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E19",
       "source": "AV-v1",
       "kind": "error",
-      "locator": "Appendix B.10, pp. 85–86 (arXiv v1)",
-      "printed": "Raw RT is claimed to commute with every map of normal domains and its strict-model sign is treated as term-rank dependent.",
-      "correction": "Only N=(−1)^{χ₁/₂/2}RT has arbitrary base change in dimension three. Raw RT acquires the specialization factor (−1)^{(χ_special−χ_generic)/2}; its local unnormalized sign depends on the middle differential rank.",
-      "reason": "Over Q[s]_(s), take the orthogonal circle family on H⊕H with A=diag(1+s,(1+s)⁻¹)⊕I₂. Generic h=2 and RT=[−(1+s)]; special h=4 and RT=1. The normalized class [1+s] specializes to 1.",
+      "locator": "§2.3.3, p. 13; Appendix B.10, pp. 85–86 (arXiv v1)",
+      "printed": "The general discussion asserts arbitrary normal-domain base change for raw RT. The B.10 strict-model argument also omits the fibre-dependent acyclic sign when identifying the raw class.",
+      "correction": "Prove functoriality of N=(−1)^{χ₁/₂/2}RT for three-dimensional symplectic families using term ranks. Where normalization is defined, raw fibre values differ from transported raw generic values by (−1)^{(χ_special−χ_generic)/2}. The orthogonal circle counterexample concerns the broader §2.3.3 assertion.",
+      "reason": "For the orthogonal circle family over Q[s]_(s) on H⊕H with A=diag(1+s,(1+s)⁻¹)⊕I₂, generic h=2 and RT=[−(1+s)], while special h=4 and RT=1. Normalized [1+s] specializes to 1. This is not asserted to be a geometric three-dimensional symplectic counterexample; in that setting the corrected proof establishes normalized functoriality.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed with narrowed scope: the circle disproves the broad §2.3.3 assertion, and the strict splitting requires the acyclic sign. It supplies no geometric three-dimensional symplectic counterexample to B.10. The normalized family theorem is justified independently by its local term-rank formula.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E20",
@@ -4138,8 +4226,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: an ordinary fixed subspace can have a radical for a nontrivial unipotent orthogonal map. The nondegenerate primary component is the generalized eigenspace required by JRV Theorem 5.1.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E21",
@@ -4154,8 +4248,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the typed source/target slips in C.8–C.9. Independently recomputed the relator, four intertwiners, invariant principal subspace, quotient characteristic polynomials and both determinant ratios using exact rational Gaussian arithmetic. The twist order is an explicit convention, not itself a theorem error.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E25",
@@ -4170,8 +4270,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof-range gap, not a counterexample to the characteristic-zero statements. B.9 and C.2 use characteristic-zero tools; the finite-field mapping-class application needs the all-odd-characteristic proof supplied by RT.4, with its argument position corrected in this review.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E26",
@@ -4186,8 +4292,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: nonsquare raw torsion alone need not make N nonzero. The constant rank-two S³ system gives raw [−1] and normalized 1. The independently recomputed Q(i) witness has h=0 and avoids this problem.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E27",
@@ -4202,8 +4314,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: lower density zero is not stable under finite unions. The strengthened upper-density-zero condition is preserved by every compositum and descent step used here.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E28",
@@ -4218,8 +4336,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: equal nontrivial quadratic extensions already contradict product surjectivity. Only the two individual projections are required; the density proof uses a product solely for its separately proved disjoint quotient.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E29",
@@ -4234,14 +4358,20 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed: W=0 has no nonidentity characters and cannot give the required nonempty controlling subset. The added positive-dimension condition removes this unused degenerate case.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E30",
       "source": "AV-v1",
       "kind": "error",
-      "locator": "§2.14, p. 26 (arXiv v1)",
+      "locator": "§2.14, pp. 25–26 (arXiv v1)",
       "printed": "With normalization Q^{−d}, the total logarithmically weighted count of closed points is asserted to tend to 1 in dimension d.",
       "correction": "Use the correct normalization from the scheme prime-counting theorem, or only the positive-order lower bound required by the proof. For Spec Z[t], d=2, the displayed normalization tends to 1/2.",
       "reason": "There are p closed points of norm p on A¹_Z, so Σ_{p≤Q}p log p is asymptotic to Q²/2; higher residue degrees contribute lower order. The comparison proof only needs a positive lower bound for nonsplit Frobenius.",
@@ -4250,8 +4380,14 @@
       "searched": [
         "arXiv listing for 2303.13436 checked 18 October 2026: only v1 is listed.",
         "The author PDF at https://www.math.ias.edu/~akshay/research/RT.pdf was compared at the B.9/B.10 passages and retains the same relevant wording.",
-        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown."
-      ]
+        "The Inventiones DOI page and correction search were checked; the 123-page version of record was not available to read, so these findings concern only the identified 98-page preprint; published correction status is unknown.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at pp. 25–26: for Spec Z[t], the degree-one contribution has normalized limit 1/2 and higher residue degrees are lower order. The comparison only requires the positive lower bound now isolated as a supplier gap.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     },
     {
       "id": "SymplecticReidemeisterTorsionModSquares/E31",
@@ -4266,8 +4402,14 @@
       "searched": [
         "The arXiv listing and v3 were checked 18 October 2026.",
         "The author publication page and a title/correction search found no correction for this paper.",
-        "Journal of Algebra 400 (2014), 161–184, DOI 10.1016/j.jalgebra.2013.10.030: metadata checked; published §5 not read. This finding is limited to v3."
-      ]
+        "Journal of Algebra 400 (2014), 161–184, DOI 10.1016/j.jalgebra.2013.10.030: metadata checked; published §5 not read. This finding is limited to v3.",
+        "Independent review, 2026-10-19: arXiv version histories and title/correction searches checked, with https://www.math.ias.edu/~akshay/research.html and https://www.math.u-bordeaux.fr/~fjouve001/ as author-page search results. No dedicated correction found; the published passages were not independently read."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3 §5. A positive-definite real plane has only positive reflection values, so its classical spinor image is trivial. No such unrestricted surjectivity is used in the imported Zassenhaus theorem.",
+        "by": "REV-DESIGN-SymplecticReidemeisterTorsionModSquares"
+      }
     }
   ],
   "sourceVersions": [
@@ -4275,7 +4417,8 @@
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2303.13436v1",
       "read": "2026-10-18",
-      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306"
+      "sha256": "3e2736beea70ba3467ad30a24b518d82cf589d9ddd4a06f6b0684c7bfd7d6306",
+      "independentlyReviewed": "2026-10-19: cited passages read in the identified PDF, hash checked."
     },
     {
       "kind": "author copy",
@@ -4292,7 +4435,8 @@
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1004.4208v3",
       "read": "2026-10-18",
-      "sha256": "974292033622656f55a7aa39bf622cc745d672b5ceb43f99706fa1c2fa3e1011"
+      "sha256": "974292033622656f55a7aa39bf622cc745d672b5ceb43f99706fa1c2fa3e1011",
+      "independentlyReviewed": "2026-10-19: cited passages read in the identified PDF, hash checked."
     }
   ],
   "restructure": [
@@ -4562,5 +4706,328 @@
         "SymplecticReidemeisterTorsionModSquares:RT.4/gaussian-example"
       ]
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-SymplecticReidemeisterTorsionModSquares",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of all 63 nodes, all 13 pinned baseline declarations, 16 supplier requests, the library audit and current upstream ownership, definition APIs/tests, 41 planets and extraction routes, and all 20 source findings. Corrected strong-evenness/cohomology, the strict-circle alternating argument, normality wording and source-finding scope; rejected E2 and E18. The arithmetic-scheme producer/primary-proof gap remains explicitly open and all nine stages remain planned, with no implementation claim. See the review report for exact arithmetic and Lean validation receipts.",
+    "checked": [
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.0/cochain-conventions",
+        "verdict": "verified",
+        "note": "Read A.1–A.2; checked dual and shift signs against the pinned cochain carrier. The signed cone formula gives the stated comparison."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.0/symmetric-complex",
+        "verdict": "verified",
+        "note": "Read A.3 and Remark A.1; strictness and Poincaré nondegeneracy remain separate. The shift changes both dimension and symmetry as stated."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.0/algebraic-boundary",
+        "verdict": "verified",
+        "note": "Read A.5; checked symmetry and closedness of the displayed cross-term formula using the signed dual differential. Its off-diagonal unit blocks make the boundary strict."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.0/semicharacteristic",
+        "verdict": "verified",
+        "note": "Read A.6 and §2.3.4; boundedness makes the lower-half sum finite, and the three-dimensional specialization has the correct integer sign."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.0/strict-parity",
+        "verdict": "verified",
+        "note": "Read A.6.1–A.6.2; the plan already repairs the source cokernel slip. Alternating rank on C⁰/ker d⁰ and Euler cancellation yield parity; local strictification supplies local constancy."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.0/local-strictification",
+        "verdict": "verified",
+        "note": "Read A.6.2; unit cancellation gives a minimal local free model, whose residue-field adjoint is invertible. Nakayama and averaging justify the strict finite-free neighbourhood."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.0/strict-splitting",
+        "verdict": "verified",
+        "note": "Read A.7; the corrected degree-zero/one acyclic pair is essential. Orthogonal complements and averaging give the stated field splitting."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.0/manifold-pairing",
+        "verdict": "verified",
+        "note": "Read A.4–A.5 and current topology supplier scopes. Finite smooth cellulations, chain-level local-coefficient duality and boundary compatibility are explicit requests, not assumed library implementations."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.1/graded-line-adapter",
+        "verdict": "verified",
+        "note": "Read B.1 and all three Z.3 supplier statements. Only parity reduction and the right-evaluation/double-inverse sign are new here."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.1/line-square-class",
+        "verdict": "verified",
+        "note": "Read B.1.1; the nonzero-line quotient is a torsor until a reference vector is chosen. Tensor squares and basis changes give precisely the stated square classes."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.1/exotic-duality",
+        "verdict": "verified",
+        "note": "Read B.2–B.3.1 and Z.6 determinant suppliers. Reverse-wedge sign and Cone(id) fix the normalization; the generic determinant functor remains imported."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.1/strongly-even",
+        "verdict": "corrected",
+        "note": "Corrected the false implication to even-dimensional cohomology. Added bounded Euler-parity API and a K²→K² rank-one differential regression. The existing odd contractible example proves the reverse nonimplication."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.1/termwise-determinant",
+        "verdict": "verified",
+        "note": "Read B.4.1; the corrected brutal-truncation quotient and even grading remove precisely the permutation signs. Z.6 provides the coherent determinant construction."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.1/cohomology-determinant",
+        "verdict": "verified",
+        "note": "Read B.4.2; the boundary-cycle and cycle-term exact sequences cancel with the fixed shift convention. Zero-differential and acyclic tests detect normalization errors."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.1/lagrangian",
+        "verdict": "verified",
+        "note": "Read B.5; isotropy, projective quotient and the adjoint exact triangle state the derived Lagrangian condition without confusing it with a chosen splitting."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.1/lagrangian-volume",
+        "verdict": "verified",
+        "note": "Read B.5–B.6; determinant of the Lagrangian triangle provides a root line. The stated hyperbolic and acyclic examples retain the reverse-wedge signs."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.2/symplectic-volume",
+        "verdict": "verified",
+        "note": "Read §2.3 and B.5/B.7; pinned symplectic determinant-one supplies basis invariance over commutative rings without division by r!."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.2/cellular-volume",
+        "verdict": "verified",
+        "note": "Read §2.3 and B.7; even-rank orientation/order signs and volume-preserving monodromy make the generator independent of choices. Cellular models are supplied by their existing owner."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.2/cellular-invariance",
+        "verdict": "verified",
+        "note": "Read §2.3 and B.7; elementary acyclic cell pairs have determinant-one transition. The required smooth simple-comparison theorem is an explicit upstream extension, so arbitrary quasi-isomorphisms are not used to preserve a based volume."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.2/duality-volume",
+        "verdict": "verified",
+        "note": "Read B.7.1; a rank-2d reverse-wedge fibre correction gives (−1)^d per cell, hence (−1)^{dχ}. Relative orientations are explicitly supplied."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.2/torsion",
+        "verdict": "verified",
+        "note": "Read §2.1/§2.3 and B.7; the symmetry type matches dimension 2m+1 and upper cohomology is Lagrangian. The definition accommodates nonacyclic systems and requires the orthogonal volume where needed."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.2/orientation",
+        "verdict": "verified",
+        "note": "Read (1.13), §2.3.4 and (2.6); reversing orientation negates the pairing and contributes the lower-half cohomology determinant sign."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.2/boundary-volumes",
+        "verdict": "verified",
+        "note": "Read B.6; the source cone labels and degree shift are repaired in the input. Checked the acyclic half-rank sign and that the Euler formula determines only its parity."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.2/bordism",
+        "verdict": "verified",
+        "note": "Read Theorem 2.2 and B.8; cone and duality-volume signs cancel to the half-semicharacteristic sign. Dimension divisibility by four is independent of coefficient rank; source finding E2 is rejected."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.3/even-strict-model",
+        "verdict": "verified",
+        "note": "Read A.6–A.7 and B.10; paired contractible stabilization adjusts outer degree parities. The residual middle parity is the even lower-half Euler sum, and canonical acyclic determinants transport the volume."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.3/normal-ring-torsion",
+        "verdict": "corrected",
+        "note": "Clarified that normality extends generic isomorphisms between torsors already defined locally, not arbitrary generic torsors. Narrowed the source match: the orthogonal circle refutes the broad §2.3.3 base-change claim, not a geometric three-dimensional symplectic statement."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.3/normalized-family",
+        "verdict": "corrected",
+        "note": "Checked the local formula: s−h=2r and ν_L=(−1)^rν_upperH cancel the jumping sign. Clarified the circle regression scope. Term ranks and root lines commute with base change; normality is used only for gluing."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.3/labelled-bordism",
+        "verdict": "verified",
+        "note": "Read §2.3.4–§2.4 and the current geometric bordism supplier. The new labelled quotient imports collars/gluing and the BG carrier; fundamental-class naturality gives its homology map."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.3/low-bordism",
+        "verdict": "verified",
+        "note": "Read Thom IV §8, Theorem IV.13, p. 81. Only coefficient groups are attributed to Thom. The relative-cell filtration is explicitly part of this target, with no unimported spectrum or spectral sequence assumed."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.3/semicharacteristic-three",
+        "verdict": "verified",
+        "note": "Read §2.3.4/§2.7 and finite-field restriction/H₃ suppliers. Restriction to F_(q²) has even K₃ index q²+1; naturality kills parity, and local constancy spreads it. This does not assume the final comparison."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.3/etale-transgression",
+        "verdict": "verified",
+        "note": "Read §2.5–§2.7 and finite-rank Chern supplier. The full normal-ring universal c₂ is an explicit M.8 request. Evaluation factors through integral H₃/2, without an unjustified full-mod-two replacement."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.3/normalized-transformation",
+        "verdict": "verified",
+        "note": "Read §2.4–§2.6; low bordism, the boundary sign and orientation formula give a homomorphism. Its target has exponent two and family naturality is normalized."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/spinor-convention",
+        "verdict": "verified",
+        "note": "Read B.9.1 and pinned reflection theorem: baseline reflection value is [−Q(v)]. Even reflection length makes the comparison valid on SO; the input correctly avoids claiming it on all O."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/zassenhaus",
+        "verdict": "verified",
+        "note": "Read JRV Theorem 5.1 and proof, pp. 16–17, and Lemma 6.1, p. 18. The unsigned discriminant and generalized primary blocks match. The plus-one variant uses even block dimensions, and the false unrestricted surjectivity assertion is not imported."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/circle-complex",
+        "verdict": "verified",
+        "note": "Read A.4 (A.8) and B.9; the two directed averaged cross pairings satisfy closedness for d=1−A. Invertibility is required only when taking the strict model."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/strict-circle-calculation",
+        "verdict": "corrected",
+        "note": "Corrected the alternating form to P(x,(1−A)y), whose right radical is ker(1−A). The former first-argument formula is false. Added the rational rotation regression and a precise Lean milestone; the remaining determinant and half-rank signs cancel as stated."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/circle-formula",
+        "verdict": "verified",
+        "note": "Checked the all-odd-characteristic argument after correcting its prerequisite. The generalized −1 block has even dimension and square acyclic determinant; the complementary discriminant is retained before applying Zassenhaus. Identity, minus-identity and F₃ unipotent cases agree."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/surface-orthogonal-space",
+        "verdict": "verified",
+        "note": "Read C.1–C.2; twisted duality makes H¹ symmetric and the Euler calculation gives dimension 4r(g−1). Determinant-one cellular monodromy places the induced operator in SO; no characteristic-zero restriction is used."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/mapping-torus-torsion",
+        "verdict": "verified",
+        "note": "Read C.2; the requested Wang cone and determinant triangle reduce to the circle on H¹. Its generalized +1 discriminant repairs the printed fixed-space formula and the corrected circle proof supplies odd finite fields."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/genus-two-cocycles",
+        "verdict": "verified",
+        "note": "Read C.1/C.3 and checked the relator derivative: the a₁ coefficient is conjugate to 1−b₁. Principal cocycles give an injective V→V³ and T̃ι=ιM⁻¹. Both examples independently verify the quotient determinant rule."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.4/gaussian-example",
+        "verdict": "verified",
+        "note": "Independently rebuilt both twist word actions over exact Q(i), checked all four intertwiners and principal-subspace invariance, and obtained det ratios 4/2 and 8/2 with quotient polynomials x⁴+1 and (x²+1)². The first normalized class is genuinely nonsquare."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/good-field",
+        "verdict": "verified",
+        "note": "Read §2.7–§2.9; goodness uses equality of normalized torsion and the finite-rank Chern map over each odd finite field. Existing K-theory suppliers provide the one-dimensional target."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/liftable",
+        "verdict": "verified",
+        "note": "Read §2.10; the image of the degree-three Chern map is an F₂-subspace, compatible with field extension and finite-data spreading. Its integral homology source is kept explicit."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/transfer",
+        "verdict": "verified",
+        "note": "Read Lemma 2.9.1; a common nonzero Chern specialization and the finite-field one-dimensional comparison transport equality from the good residue field. The specialization used is normalized."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/liftable-rank",
+        "verdict": "verified",
+        "note": "Read §2.10 and the exact number-field V.2 Hurewicz supplier. The unstable SL₂ surjection and dyadic real-corrected M.7 Chern surjection are precise separate requests, not consequences of the weaker existing nodes."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/controlling",
+        "verdict": "verified",
+        "note": "Read §2.11; the plan correctly strengthens exceptional lower density zero to upper weighted density zero. Its nonempty conjugacy-invariant set and finite/high-degree exceptions support every later union."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/torsion-control",
+        "verdict": "verified",
+        "note": "Read Lemma 2.11.1; Frobenius detection selects a good place with both classes nonsquare, and finite-rank transfer propagates it. The witness is required to be normalized, avoiding the constant S³ counterexample."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/composita",
+        "verdict": "verified",
+        "note": "Read Lemma 2.11.2; individual Galois projections, rather than product surjectivity, pull back the two controlling subsets. Finite union of upper-density-zero exceptions remains valid."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/intermediate-field",
+        "verdict": "verified",
+        "note": "Read Lemma 2.11.3; residue-degree-one primes have matching norms and fields. The imported higher-degree tail and finite-fibre bound preserve the weighted zero-error statement."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.6/independent-classes",
+        "verdict": "verified",
+        "note": "Read Lemma 2.12.1; independence yields the required positive-density biquadratic Frobenius class. Transfer then gives goodness away from finitely many denominators."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.6/multiquadratic",
+        "verdict": "verified",
+        "note": "Read Lemma 2.12.2; a basis avoiding the fixed quadratic line exists under the stated positive-dimension and inequality conditions. Each nonidentity character detects a basis member, giving finite exceptions."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.6/auxiliary-cyclic",
+        "verdict": "verified",
+        "note": "Read the proof of Lemma 2.12.3 and current Chebotarev Layer 7. The reduced congruence 1+h modulo 2h, ramification disjointness and odd quotient index give degree h, disjointness and total imaginarity."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.6/density-improvement",
+        "verdict": "verified",
+        "note": "Read Lemma 2.12.3; only Gal(E)×Gal(L) uses a surjective product. The kernel count costs at most 1/(h2^N), and minimal even h yields the stated cubic decrease. Upper-density-zero exceptions survive the iteration."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.6/good-rational-primes",
+        "verdict": "verified",
+        "note": "Read §2.13; the nonsquare Q(i) normalized witness starts the induction. Residue-degree-one descent gives the identity controlling subset over Q, and the second induction makes the complement upper-density zero."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.5/quadratic-cover-detection",
+        "verdict": "verified",
+        "note": "Read §2.8 and §2.14; verified that neither current number-field Chebotarev nor AN.4 supplies the arithmetic-scheme theorem. This is an honest contract ending in the recorded producer/primary-source gap, not an unsupported library claim."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.7/characteristic-zero",
+        "verdict": "verified",
+        "note": "Read §2.14; bad residue fields contribute o(Q^d) using the stated point-count bound and prime-tail estimate. The explicit scheme-Chebotarev gap supplies exactly the positive nonsplit lower bound, avoiding the false universal limit-one normalization."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.7/sylow-witt-lift",
+        "verdict": "verified",
+        "note": "Read §2.15; odd-index transfer gives surjectivity modulo two only. The explicit smooth-congruence/averaging request lifts a Sylow representation; finite normalization and a finite bar cycle produce the stated normal characteristic-zero ring."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.7/all-finite-fields",
+        "verdict": "verified",
+        "note": "Read §2.15; the Sylow lift, characteristic-zero equality and naturality transport each finite-field class, with no assumption that a general local system lifts."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.7/all-rings-fields",
+        "verdict": "verified",
+        "note": "Read §2.6/§2.16; positive-characteristic Frobenius detection and finite normal subalgebras cover the ring/field cases. Filtered-colimit Chern compatibility is an explicit supplier obligation."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.7/topological-theorem",
+        "verdict": "verified",
+        "note": "Read Theorem 2.1 and (1.7); evaluation on the integral fundamental class and the separate evenness theorem give exactly the stated normalization over fields of characteristic other than two."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.7/mapping-class-identity",
+        "verdict": "verified",
+        "note": "Read (1.5) and C.2; the Wang sequence gives χ₁/₂=−h and hence the same half-sign. The chosen symplectic intertwiner specifies both T and the mapping-torus coefficient system."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.8/metaplectic-component",
+        "verdict": "verified",
+        "note": "Read §1.3.3 and current LieGroups Layer 5. The real Chern/metaplectic identification and π₁(Sp)=Z are explicit additional requests. The integral cover lifts its mod-two extension through Z/4, killing its coefficient Bockstein."
+      },
+      {
+        "nodeId": "SymplecticReidemeisterTorsionModSquares:RT.8/real-vanishing",
+        "verdict": "verified",
+        "note": "Read (1.10) and its Bockstein argument. The group Bockstein vanishes through the integral-cover lift, and the real Galois degree-one Bockstein is injective. This establishes the full-mod-two domain rather than just integral H₃/2."
+      }
+    ]
+  }
 }
