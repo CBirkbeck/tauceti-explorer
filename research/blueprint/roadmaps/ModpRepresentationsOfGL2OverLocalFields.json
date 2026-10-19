@@ -80,7 +80,7 @@
     {
       "key": "MP.5",
       "title": "Finite and first-order extension modules",
-      "description": "Iwahori character extensions and truncation embeddings: For p>3, Ext^1_{I/Z_1}(chi,chi′) is nonzero exactly when chi′=chi alpha_i or chi alpha_i^{-1} for some i, and then has dimension one. Write E_{chi′,chi} for its nonsplit extension 0→chi′→E→chi→0. It is K_1-trivial iff chi′=chi alpha_i. Every nonzero map W_{chi′,2}→W_{chi,3} for such chi′ is injective. For p>5, every chi′≠chi has multiplicity at most one in W_{chi,3}; the additional bound excludes the f=1,p=5 collision recorded in the source issues.\n\nFinite Borel injectives and their conjugates: Let B(k_F)=T(k_F)N(k_F). For a character chi of T(k_F), put I_chi=Ind_{T(k_F)}^{B(k_F)}chi, the injective envelope of chi for the finite Borel. Its socle and cosocle are chi; every other constituent is chi alpha_0^{-j}, 0<j<q−1, once. Writing j=∑j_i p^i, the unique proper submodule with cosocle chi alpha_0^{-j} has constituents chi alpha_0^{-ell} with 0≤ell_i≤j_i. Inflate to I and define J_chi by conjugation with w=((0,1),(p,0)); its socle/cosocle are chi^s and its other factors chi^s alpha_0^j with the same digit order.\n\nFinite principal series and finite injective hulls: For lambda with 0<r_i<p−1, Ind_I^K chi_lambda^s is multiplicity-free with factors F(t_lambda(−eta_A)), A⊆J. If 0<r_i<p−2, the distinct factors of Inj_{GL_2(k_F)}F(lambda) are F(t_lambda(∑a_i eta_i)), a_i∈{−1,0,1}. For such a factor sigma_a, the unique multiplicity-free submodule I(F(lambda),sigma_a) with cosocle sigma_a and F(lambda) once has factors indexed by b_i∈{0,a_i}, and length 2^{|{i:a_i≠0}|}.\n\nFirst-order Serre-weight hulls: Let p>2, A=k[[K/Z_1]]/m_{K_1}² and Gamma=GL_2(k_F). For a 2-deep Serre weight sigma and tau in JH(Inj_A sigma), a submodule V of this hull with cosoc V=tau and [V:sigma]=1 is unique and multiplicity-free. If tau already occurs in Inj_Gamma sigma, then K_1 acts trivially on V and V is the finite interval I(sigma,tau). Dually, for a 2-deep tau a quotient of Proj_A tau with simple socle sigma and [V:tau]=1 is unique. If Q is a quotient of Proj_A tau, [Q:tau]=1, and every simple socle constituent lies in JH(Proj_Gamma tau), then Q is multiplicity-free and K_1-trivial. For distinct regular Serre weights sigma,sigma′, inflation identifies Ext^1_Gamma(sigma,sigma′) with Ext^1_{K/Z_1}(sigma,sigma′), also with Ext^1_A(sigma,sigma′). Self-Ext vanishes for regular sigma when f≥2; when f=1 require 0≤r≤p−3 for this self-Ext assertion.",
+      "description": "Iwahori character extensions and truncation embeddings: For p>3, Ext^1_{I/Z_1}(chi,chi′) is nonzero exactly when chi′=chi alpha_i or chi alpha_i^{-1} for some i, and then has dimension one. Write E_{chi′,chi} for its nonsplit extension 0→chi′→E→chi→0. It is K_1-trivial iff chi′=chi alpha_i. Every nonzero map W_{chi′,2}→W_{chi,3} for such chi′ is injective. For p>5, every chi′≠chi has multiplicity at most one in W_{chi,3}; the additional bound excludes the f=1,p=5 collision recorded in the source issues.\n\nFinite Borel injectives and their conjugates: Let B(k_F)=T(k_F)N(k_F). For a character chi of T(k_F), put I_chi=Ind_{T(k_F)}^{B(k_F)}chi, the injective envelope of chi for the finite Borel. Its socle and cosocle are chi; every other constituent is chi alpha_0^{-j}, 0<j<q−1, once. Writing j=∑j_i p^i, the unique proper submodule with cosocle chi alpha_0^{-j} has constituents chi alpha_0^{-ell} with 0≤ell_i≤j_i. Inflate to I and define J_chi by conjugation with w=((0,1),(p,0)); its socle/cosocle are chi^s and its other factors chi^s alpha_0^j with the same digit order.\n\nFinite principal series and finite injective hulls: For lambda with 0<r_i<p−1, Ind_I^K chi_lambda^s is multiplicity-free with factors F(t_lambda(−eta_A)), A⊆J. If 0<r_i<p−2, the distinct factors of Inj_{GL_2(k_F)}F(lambda) are F(t_lambda(∑a_i eta_i)), a_i∈{−1,0,1}. For such a factor sigma_a, the unique multiplicity-free submodule I(F(lambda),sigma_a) with cosocle sigma_a and F(lambda) once has factors indexed by b_i∈{0,a_i}, and length 2^{|{i:a_i≠0}|}.\n\nAdjoint tensor and finite projective weight structure: Put Gamma=GL_2(k_F) and A_i=sl_2(k) with action through the i-th residue embedding. For a 2-deep lambda, A_i⊗F(lambda)≅F(lambda−alpha_i)⊕F(lambda)⊕F(lambda+alpha_i); the same decomposition holds for the corresponding algebraic highest-weight modules before restriction. For a 3-deep lambda and sigma=F(lambda), A_i⊗P_sigma≅P_{F(lambda−alpha_i)}⊕P_sigma⊕P_{F(lambda+alpha_i)}. Tensoring sigma→soc P_sigma and cosoc P_sigma→sigma with A_i identifies the full socle and cosocle of this tensor. Also [P_sigma:sigma]=2^f, whereas [P_{F(lambda±alpha_i)}:sigma]=0. If Ptilde_sigma is its projective O[Gamma]-lift, then after a finite unramified coefficient extension splitting Gamma, Ptilde_sigma[1/p] is a sum of exactly 2^f pairwise nonisomorphic absolutely irreducible representations.\n\nFirst-order Serre-weight hulls: Let p>2, A=k[[K/Z_1]]/m_{K_1}² and Gamma=GL_2(k_F). For a 2-deep Serre weight sigma and tau in JH(Inj_A sigma), a submodule V of this hull with cosoc V=tau and [V:sigma]=1 is unique and multiplicity-free. If tau already occurs in Inj_Gamma sigma, then K_1 acts trivially on V and V is the finite interval I(sigma,tau). Dually, for a 2-deep tau a quotient of Proj_A tau with simple socle sigma and [V:tau]=1 is unique. If Q is a quotient of Proj_A tau, [Q:tau]=1, and every simple socle constituent lies in JH(Proj_Gamma tau), then Q is multiplicity-free and K_1-trivial. For distinct regular Serre weights sigma,sigma′, inflation identifies Ext^1_Gamma(sigma,sigma′) with Ext^1_{K/Z_1}(sigma,sigma′), also with Ext^1_A(sigma,sigma′). Self-Ext vanishes for regular sigma when f≥2; when f=1 require 0≤r≤p−3 for this self-Ext assertion.",
       "requires": [
         "ModpRepresentationsOfGL2OverLocalFields:MP.3",
         "ModpRepresentationsOfGL2OverLocalFields:MP.4",
@@ -119,7 +119,7 @@
       "description": "The infinitesimal action and coinvariant Bockstein sequence: Assume p>2 and E/Q_p unramified with O=W(k). Let V° be a K/Z_1-stable finite free O-lattice in a continuous finite-dimensional E-representation, with K_1 acting trivially on V°/p. For x∈sl_2(k_F), v∈V°/p, choose lifts and set beta_{V°}(x⊗v)=p^{-1}(rho(exp(p x_tilde))v_tilde−v_tilde) mod p. This gives a well-defined k-linear map sl_2(k_F)⊗_{F_p}(V°/p)→V°/p and an exact sequence sl_2(k_F)⊗(V°/p)→^{beta}V°/p→^{p}(V°/p²)_{K_1}→V°/p→0.\n\nBockstein exactness for preimage lattices: With V° as in the Bockstein construction and W⊂V°/p a K-submodule, let V_1° be its preimage in V°. Then sl_2(k_F)⊗_{F_p}W→^{beta}V°/p→^{p}(V_1°/p²V°)_{K_1}→W→0 is exact. The inclusions W⊂V°/p and V_1°⊂V° give a commutative comparison with the original Bockstein sequence.\n\nThe adjoint contraction automorphism: For a 2-deep weight lambda=(a,b) of GL_2/k with r=a−b, let L(lambda) be the algebraic highest-weight module and v_lambda a highest-weight vector. Fix d_lambda:L(lambda)→sl_2(k)⊗L(lambda) by d_lambda(v_lambda)=2e⊗f v_lambda+r h⊗v_lambda. Put psi_lambda=([−,−]⊗id)∘(id⊗d_lambda). On the summands L(lambda+alpha),L(lambda),L(lambda−alpha), its eigenvalues are respectively −2r,4,2(r+2), hence it is invertible. For a Serre weight sigma=F(lambda) with every component 2-deep, choose nonzero d_{sigma,i} in each embedding component. Their sum d_sigma gives an invertible Psi=([−,−]⊗id)∘(id⊗d_sigma) on sl_2(k_F)⊗_{F_p}sigma.\n\nThe projective-cover fibre-product lattice: Assume p>2, E/Q_p unramified, O=W(k), and sigma=F(lambda) 3-deep. Let P_sigma be the finite GL_2(k_F) projective cover of sigma and Ptilde_sigma its finite free projective O[GL_2(k_F)] lift. Put R_1=Ptilde_sigma, R_2=sl_2(O_F)⊗_{Z_p}Ptilde_sigma=⊕_i R_{2,i}. Fix the projective decomposition R_{2,i}/p≅P_sigma⊕P_{F(lambda−alpha_i)}⊕P_{F(lambda+alpha_i)} and its inclusion iota_i:P_sigma→R_{2,i}/p. Let iota=(iota_i)_i and R_2′ be the preimage of iota(P_sigma) in R_2. Define R={(x_1,x_2)∈R_1⊕R_2:x_2 mod p=iota(x_1 mod p)}. It is a K-stable full O-lattice in (1⊕sl_2(F))⊗_{Q_p}Ptilde_sigma[1/p]. The partial fibre products L_j impose the same conditions only for i≤j, beginning at L_{−1}=R_1; L_{f−1} identifies with R.\n\nCoinvariants and reduction of the glued lattice: With the 3-deep projective lattice data, (R_2′/pR_2′)_{K_1}≅P_sigma, and the induced map R_2′/p→iota(P_sigma) is this quotient. There is a K-equivariant short exact sequence 0→R_2/pR_2→R/pR→P_sigma→0; its right map induces (R/pR)_{K_1}≅P_sigma. Tensoring the socle inclusion sigma→P_sigma with sl_2(k_F) identifies its image with the full socle of sl_2(k_F)⊗P_sigma; the dual projection gives the full cosocle.\n\nThe first radical truncation of a projective cover: For the 3-deep sigma above, cosoc_K(R/pR)=sigma and R/pR≅Proj_{K/Z_1}(sigma)/m_{K_1}² as K-representations. In particular dim_k(R/pR)=(3f+1)dim_k P_sigma. The same object is L_{f−1}/pL_{f−1} in the introductory iterated-gluing notation.",
       "requires": [
         "ModpRepresentationsOfGL2OverLocalFields:MP.3",
-        "ModpRepresentationsOfGL2OverLocalFields:MP.6",
+        "ModpRepresentationsOfGL2OverLocalFields:MP.5",
         "NoncommutativeAndEquivariantIwasawa:NE.0",
         "SmoothRepresentationsOfLocalGroups:SR.0",
         "SmoothRepresentationsOfLocalGroups:SR.2",
@@ -131,6 +131,7 @@
       "title": "Endomorphisms and relative projectivity",
       "description": "Endomorphisms of the first projective truncation: If sigma=F(lambda) with 2<r_i<p−4 for every i, then End_K(Proj_{K/Z_1}sigma/m_{K_1}²) is commutative of k-dimension 2^f(f+1).\n\nCyclic Hom modules between projective truncations: Assume 5<r_i<p−7 and let T_sigma=R_sigma/pR_sigma. For every Serre weight tau in JH(T_sigma), Hom_K(T_tau,T_sigma) is cyclic as a right End_K(T_tau)-module under precomposition.\n\nRelative projectivity of all quotients: Assume 5<r_i<p−7. For every quotient Q of T_sigma and every subquotient Q′ of Q, precomposition with T_sigma→Q induces Hom_K(Q,Q′)≅Hom_K(T_sigma,Q′). If cosoc_K Q′≅sigma, there is a K-equivariant surjection Q→Q′. Equivalently Q is projective in the smallest full abelian subcategory of k[[K/Z_1]]/m_{K_1}²-modules generated by its subquotients.",
       "requires": [
+        "ModpRepresentationsOfGL2OverLocalFields:MP.0",
         "ModpRepresentationsOfGL2OverLocalFields:MP.5",
         "ModpRepresentationsOfGL2OverLocalFields:MP.8",
         "tauceti:TauCetiRoadmap/RepresentationTheory/QuiverRepresentations#layer-3-the-structure-of-a-finite-dimensional-algebra"
@@ -146,7 +147,8 @@
       "url": "https://arxiv.org/pdf/2009.03127v7",
       "sha256": "8f06c68bbb85aa3d13420181197167b3ce9158dc117e96da6299718765f99e7a",
       "readSections": [
-        "Introduction pp. 2–10; §2 pp. 11–18; §5–7 pp. 46–86"
+        "Introduction pp. 2–10; §2 pp. 11–18; §5–7 pp. 46–86",
+        "Final paragraph of Lemma 4.1.2, p. 27 (finite projective lift constituents)"
       ]
     },
     {
@@ -164,7 +166,7 @@
       "id": "SHOTTON20",
       "title": "The category of finitely presented smooth mod p representations of GL_2(F)",
       "authors": "Jack Shotton",
-      "edition": "Doc. Math. 25 (2020), 143–157; 15-page author copy",
+      "edition": "Doc. Math. 25 (2020), 143–157; 12-page author copy",
       "url": "https://www.maths.dur.ac.uk/users/jack.g.shotton/papers/coherence.pdf",
       "sha256": "852bb5c8084cde5d723057fd7e4980cb7e77451b3cae472dcd1c1746e26dbab5",
       "readSections": [
@@ -179,7 +181,7 @@
       "url": "https://www.imo.universite-paris-saclay.fr/~breuil/PUBLICATIONS/supersingular.pdf",
       "sha256": "a63c41e222e226f1019282f6b7dab7078afe61f908572f1b0f90523f7fdf2d51",
       "readSections": [
-        "Corollary 3.12 p. 26; Corollaries 5.6–5.7 pp. 37–38; Proposition 13.1 and Corollary 13.2 pp. 75–76; Lemma 14.7 and Theorem 14.8 pp. 82–83"
+        "Lemmas 3.4–3.5 pp. 20–21 and Lemma 3.8 pp. 22–23; Corollary 3.12 p. 26; Corollaries 5.6–5.7 pp. 37–38; Proposition 13.1 and Corollary 13.2 pp. 75–76; Proposition 14.7 p. 83 and Theorem 14.8 p. 84"
       ]
     },
     {
@@ -201,7 +203,7 @@
       "url": "https://www.math.uchicago.edu/~emerton/pdffiles/ord-two.pdf",
       "sha256": "3ecb1ba39a611ad931caf29d2f5215ca7d72d3ffdf9f58a04ec4f27faa67c00a",
       "readSections": [
-        "Theorem 4.2.12 p. 30 and surrounding GL_2(Q_p) computations"
+        "§3.7, Remark 3.7.3 p. 23; Theorem 4.2.12 p. 30 and surrounding GL_2(Q_p) computations"
       ]
     },
     {
@@ -267,6 +269,39 @@
       "sha256": "7950a05ee57ab100abd005c300af8c02872d88cd220b4da87d1417db56ac9421",
       "readSections": [
         "Proposition 3.9 and Remark 3.10, pp. 18–19"
+      ]
+    },
+    {
+      "id": "HU10",
+      "title": "Sur quelques représentations supersingulières de GL_2(Q_{p^f})",
+      "authors": "Yongquan Hu",
+      "edition": "J. Algebra 324 (2010), 1577–1615; locators use arXiv:0909.0527v3, 19 March 2010",
+      "url": "https://arxiv.org/pdf/0909.0527v3",
+      "sha256": "f6f13dac6cfd541e2a5ed371ec8da9a3c398c703f5f1a8fee0b9814be3e1bf33",
+      "readSections": [
+        "Lemma 2.13(i) and proof, pp. 14–15; neighbouring conventions pp. 12–14 (numbered Lemma 2.12(i) in BHHMS’s journal citation)"
+      ]
+    },
+    {
+      "id": "LMS22",
+      "title": "Multiplicity one at full congruence level",
+      "authors": "Daniel Le, Stefano Morra, Benjamin Schraen",
+      "edition": "J. Inst. Math. Jussieu 21 (2022), no. 2, 637–658; locators use author copy and its separate corrigé",
+      "url": "https://www.math.univ-paris13.fr/~morra/MultiplicityOne.pdf",
+      "sha256": "7a685d6e2b8ec29836970ba7dfa8b9ef6366e3e4fbb3a8dddcfd9e8452fab8bb",
+      "readSections": [
+        "Proposition 3.3 and proof, pp. 7–8, read with item (2) of the author corrigé"
+      ]
+    },
+    {
+      "id": "LMS22-CORR",
+      "title": "Corrigé for Multiplicity one at full congruence level",
+      "authors": "Daniel Le, Stefano Morra, Benjamin Schraen",
+      "edition": "Two-page author correction, item (2), p. 1",
+      "url": "https://www.math.univ-paris13.fr/~morra/corrige.pdf",
+      "sha256": "052f77ff37581f92ebdd9a5aeb0940cac6961b1c657ebababb2ec5d13bdd7a3e",
+      "readSections": [
+        "Item (2)(a)–(b), p. 1"
       ]
     }
   ],
