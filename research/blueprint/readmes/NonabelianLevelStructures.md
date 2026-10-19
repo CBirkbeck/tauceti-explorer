@@ -6,7 +6,7 @@ The mathematical targets below are the specification. The accompanying [packet](
 
 ## Sources and conventions
 
-The primary source is William Y. Chen, *Nonabelian level structures, Nielsen equivalence, and Markoff triples*, Annals of Mathematics 199 (2024), 301–443, [DOI 10.4007/annals.2024.199.1.5](https://doi.org/10.4007/annals.2024.199.1.5). The [published author copy](https://www.williamyunchen.com/s/Chen-Nonabelian-level-structures-Nielsen-equivalence-and-Markoff-triples.pdf) was read on 18 October 2026, mathematical text pp. 301–434. Its SHA-256 is `9386db34c31671966440f18bccfefe11bd806aa221010e0e3336fecf8ff920ac`. All theorem numbers and pages below refer to that text; version differences are recorded separately. Statements and proof plans are in our own words.
+The primary source is William Y. Chen, *Nonabelian level structures, Nielsen equivalence, and Markoff triples*, Annals of Mathematics 199 (2024), 301–443, [DOI 10.4007/annals.2024.199.1.5](https://doi.org/10.4007/annals.2024.199.1.5). The [published author copy](https://www.williamyunchen.com/s/Chen-Nonabelian-level-structures-Nielsen-equivalence-and-Markoff-triples.pdf) was read on 18 October 2026, mathematical text pp. 301–434; its target locators and appendices were independently checked on 19 October 2026. Its SHA-256 is `9386db34c31671966440f18bccfefe11bd806aa221010e0e3336fecf8ff920ac`. All theorem numbers and pages below refer to that text; version differences are recorded separately. Statements and proof plans are in our own words.
 
 Use right G-actions on covers and left fundamental-group actions on fibres. Put [x,y]=xyx⁻¹y⁻¹. With the selected positive punctured-torus basis (a,b), the positive peripheral word is [b,a]. A compatible root-of-unity system fixes the Higman generator; its choice is retained, rather than asserting trace invariance under arbitrary coprime powers. Exterior epimorphisms are surjections modulo simultaneous inner conjugation. The mapping-class action uses right precomposition, so its polynomial realization is an anti-action.
 
@@ -20,7 +20,7 @@ The finite-field trace surface is the imported coefficient-one Markoff level x²
 
 General admissible-cover and Hurwitz-stack theory belongs to IG.5, tangential Galois theory to IG.1 and NC.0, stable curves and their graphs to the current StableReduction roadmap, and rigidification and coarse moduli to R09. The present roadmap specializes those carriers to the pointed genus-one target. It does not reconstruct them. Integral reductive invariant theory remains in LP3; Dickson classification remains in R01.4; the Markoff surface and its moves remain in CA.4; rational stack degree remains in SF.5; full abelian levels remain in R13.2; Faltings remains in RP.4.
 
-MappingClassGroupsAndCanonicalRepresentations owns the punctured-torus Nielsen comparison, stack Riemann existence and Asada/BBCL curve consequence. ArithmeticDynamicsPartII owns Φ, finite-field point and rotation counts, BGS strong approximation, the effective exceptional set and the Meiri–Puder density and alternating-image inputs. Neither supplier has a registered stage in this checkout: their exact contracts are explicit leaves G-MAPPING and G-DYNAMICS below. The necessary order is NL.6 → the counting/strong-approximation/large-image part of ArithmeticDynamicsPartII → NL.7. In particular the geometric orbit-divisibility theorem needed by BGS belongs to NL.6, while the count formulas used in NL.7 remain with dynamics. This is a stage order, not a mutual dependence of whole roadmaps.
+MappingClassGroupsAndCanonicalRepresentations supplies the analytic moduli identification through C.0/moduli-monodromy. Its required extensions are the punctured-torus Nielsen comparison, stack Riemann existence and Asada/BBCL curve consequence. ArithmeticDynamicsPartII owns Φ, finite-field point and rotation counts, BGS strong approximation, the effective exceptional set and the Meiri–Puder density and alternating-image inputs. The remaining mapping-class extensions and the unregistered dynamics supplier have exact contracts in G-MAPPING and G-DYNAMICS below. The necessary order is NL.6 → the counting/strong-approximation/large-image part of ArithmeticDynamicsPartII → NL.7. In particular the geometric orbit-divisibility theorem needed by BGS belongs to NL.6, while the count formulas used in NL.7 remain with dynamics. This is a stage order, not a mutual dependence of whole roadmaps.
 
 The current Tau Ceti roadmaps and current library were checked alongside the older atlas snapshot. StableReduction and PeripheralActions were read in full; relevant ModularCurves, BelyiMaps and SemisimpleAlgebras interfaces were read. PeripheralActions concerns pro-p punctured-sphere peripheral automorphisms and supplies no discrete punctured-torus comparison. The specific level, cusp, trace and Higman targets were also searched across the nine newer roadmaps and the current library. A name match alone is not treated as a supplying theorem.
 
@@ -116,7 +116,7 @@ Source: Chen, §2.1, pp. 317–322; §2.4, Theorem 2.4.9, pp. 328–332; Definit
 
 Target `NonabelianLevelStructures:NL.0/reduced-ramification` · definition · planet **Reduced ramification divisor**.
 
-For an elliptic admissible cover π:C→E over S, let Δ(H) be the smooth fixed locus C_sm^H with all fixed loci C_sm^K for strictly larger cyclic K removed. Define R_π as the disjoint union of Δ(H) over nontrivial cyclic H≤G, with the induced fixed-locus scheme structures. It is an effective Cartier divisor finite étale over S, with geometrically reduced fibres; it is reduced as a scheme exactly when S is reduced. On a connected base the origin ramification index e is constant; if e≥2, R_π has degree |G|/e and is the fibrewise reduced origin fibre. If e=1, R_π is empty and the full marking is the whole étale origin fibre.
+For an elliptic admissible cover π:C→E over S, let Δ(H) be the smooth fixed locus C_sm^H with all fixed loci C_sm^K for strictly larger cyclic K removed. Define R_π as the disjoint union of Δ(H) over nontrivial cyclic H≤G, with the induced fixed-locus scheme structures. It is an effective Cartier divisor finite étale over S, with geometrically reduced fibres; it is reduced as a scheme if S is reduced. The converse holds when R_π→S is surjective, in particular for e≥2 on a nonempty connected base. On a connected base the origin ramification index e is constant; if e≥2, R_π has degree |G|/e and is the fibrewise reduced origin fibre. If e=1, R_π is empty and the full marking is the whole étale origin fibre.
 
 Hypotheses and ambient setting: G finite; all bases over Z[1/|G|]; additional characteristic-zero or generation assumptions are stated in the target.
 
@@ -134,6 +134,7 @@ API:
 - `TauCeti.NonabelianLevel.reduced_ramification.baseChange` (functoriality): R for the pulled-back cover is the pullback of R_π.
 - `TauCeti.NonabelianLevel.reduced_ramification.degree` (characterisation): For e≥2, degree(R_π/S)=|G|/e; for e=1 the divisor is empty.
 - `TauCeti.NonabelianLevel.reduced_ramification.fixedLocus` (compatibility): Its geometric points are exactly points with nontrivial inertia above the origin.
+- `TauCeti.NonabelianLevel.reduced_ramification.reducedIff` (characterisation): If R_π→S is surjective, R_π is reduced iff S is reduced; without surjectivity only the implication from S to R_π is asserted.
 
 Definition checks:
 
@@ -141,6 +142,7 @@ Definition checks:
 - **computation**, `reduced_ramification.check_2`: For S3 inertia of order 3, R_π has degree 2.
 - **compatibility**, `reduced_ramification.check_3`: For the chart x=ξ^e, e≥2, R_π is ξ=0 with multiplicity one, not the different divisor of multiplicity e−1.
 - **non-example**, `reduced_ramification.nonreduced_base`: After base change to k[ε]/(ε²), R_π remains finite étale and fibrewise reduced but need not be a reduced scheme; taking absolute reduction would break base change.
+- **non-example**, `reduced_ramification.empty_nonreduced_base`: For G=1 over S=Spec(k[ε]/(ε²)), R_π is empty and reduced although S is not reduced. This rejects the converse without surjectivity.
 
 Acceptance:
 
@@ -150,17 +152,17 @@ Acceptance:
 
 Uses:
 
-- `CHEN2024, §2.2, pp. 322–325; Proposition 2.2.3 and Corollary 2.2.4; Definition 3.2.1, pp. 351–352`: The the reduced ramification divisor supplies R_π is a closed effective Cartier divisor in C_sm.; R for the pulled-back cover is the pullback of R_π.
+- `CHEN2024, §2.2, pp. 322–325; Proposition 2.2.3 and Remark 2.2.4; Definition 3.2.1, pp. 351–352`: The the reduced ramification divisor supplies R_π is a closed effective Cartier divisor in C_sm.; R for the pulled-back cover is the pullback of R_π.
 - `NonabelianLevelStructures:NL.0/ramification-monodromy`: Monodromy of the ramification divisor: The G-action commutes with finite étale monodromy and is transitive on the whole geometric fibre G/H.
 - `NonabelianLevelStructures:NL.3/section-cotangent`: The universal section cotangent line: Import the canonical map Ω→ω and its smooth-locus isomorphism, with representable stack base-change from request Q-DUAL.
 
-Source: Chen, §2.2, pp. 322–325; Proposition 2.2.3 and Corollary 2.2.4; Definition 3.2.1, pp. 351–352.
+Source: Chen, §2.2, pp. 322–325; Proposition 2.2.3 and Remark 2.2.4; Definition 3.2.1, pp. 351–352.
 
 ### Monodromy of the ramification divisor
 
 Target `NonabelianLevelStructures:NL.0/ramification-monodromy` · theorem · planet **Ramification monodromy**.
 
-Assume S connected and π as above with e≥2. For a geometric ramified point x with inertia H, all connected components of R_π are isomorphic finite étale Galois covers of S. Their deck groups embed in N_G(H)/H. If S is regular integral and contains a primitive e-th root of unity, these groups embed in C_G(H)/H. For a connected component X of A_G over Z[1/|G|,ζ_e], the same assertion holds for the universal ramification divisor, using a connected étale atlas and descent.
+Assume S connected and π as above with e≥2. For a geometric ramified point x with inertia H, all connected components of R_π are isomorphic finite étale Galois covers of S. Their deck groups embed in N_G(H)/H. If S is regular integral and contains a primitive e-th root of unity, these groups embed in C_G(H)/H. For a connected component X of A_G over Z[1/|G|,ζ_e], the same assertion holds for the universal ramification divisor, by finite étale monodromy and descent of the inertia character.
 
 Hypotheses and ambient setting: G finite; all bases over Z[1/|G|]; additional characteristic-zero or generation assumptions are stated in the target.
 
@@ -171,7 +173,7 @@ Construction or proof plan:
 1. The G-action commutes with finite étale monodromy and is transitive on the whole geometric fibre G/H.
 2. An equivariant permutation is determined by its value at H; its stabilizer condition gives the normalizer quotient.
 3. The faithful inertia character, constant over a regular integral base containing ζ_e, forces centralization.
-4. Apply this to an étale atlas of the universal stack, then descend the cover and deck action.
+4. For the universal stack, the fixed-subgroup loci of the finite étale ramification divisor are open and closed. On each connected component the faithful inertia character takes constant values in the constant group μ_e. Monodromy preserves that character, so its normalizer image centralizes H. Descend this character calculation through an atlas; a connected atlas alone need not preserve connected finite covers.
 
 Acceptance:
 
@@ -320,11 +322,11 @@ Over an algebraically closed characteristic-zero field, use a complex comparison
 
 Hypotheses and ambient setting: G finite; all bases over Z[1/|G|]; additional characteristic-zero or generation assumptions are stated in the target.
 
-Direct prerequisites: `NonabelianLevelStructures:NL.0/level-moduli`; `InverseGaloisAndArithmeticFundamentalGroups:IG.3/exterior-epimorphisms`; `InverseGaloisAndArithmeticFundamentalGroups:IG.3/general-riemann-existence`; `InverseGaloisAndArithmeticFundamentalGroups:IG.1/charzero-base-extension`; `tauceti:TauCeti.CoveringSpace.monodromyFunctor`.
+Direct prerequisites: `NonabelianLevelStructures:NL.0/level-moduli`; `InverseGaloisAndArithmeticFundamentalGroups:IG.3/exterior-epimorphisms`; `InverseGaloisAndArithmeticFundamentalGroups:IG.3/general-riemann-existence`; `InverseGaloisAndArithmeticFundamentalGroups:IG.1/charzero-base-extension`; `tauceti:TauCeti.CoveringSpace.monodromyFunctor`; `MappingClassGroupsAndCanonicalRepresentations:C.0/moduli-monodromy`.
 
 Construction or proof plan:
 
-1. Import the pending once-punctured-torus mapping-class and stack Riemann-existence contract G-MAPPING.
+1. Import C.0/moduli-monodromy for the analytic ordered moduli stack. The additional Nielsen identification for the punctured torus, stack Riemann existence and compatible orientation remain the exact G-MAPPING contract.
 2. Apply the existing exterior-epimorphism fibre description to the elliptic universal family.
 3. Compute the four words and the stabilizer quotients, distinguishing stack and coarse fibres.
 4. Transport through characteristic-zero algebraically closed base extension.
@@ -547,7 +549,7 @@ Layer inputs: `tauceti:TauCetiRoadmap/StableReduction#layer-1-nodes-normalizatio
 
 Target `NonabelianLevelStructures:NL.1/cusp-gluing-data` · definition · planet **Cusp gluing data**.
 
-Fix an algebraically closed characteristic-zero field k, compatible primitive roots, a nodal elliptic curve E and a standard normalization ν:P¹→E taking 1 to O and identifying 0 with ∞. A gluing datum is a possibly disconnected smooth right G-cover q:D→P¹, étale off {0,1,∞}, together with a G-equivariant bijection α between the reduced fibres D_0 and D_∞. Morphisms are G-equivariant cover isomorphisms respecting α. A precuspidal cover of E means the finite quotient obtained by gluing, without imposing flatness at its nodes.
+Fix an algebraically closed characteristic-zero field k, compatible primitive roots, a nodal elliptic curve E and a standard normalization ν:P¹→E taking 1 to O and identifying 0 with ∞. A gluing datum is a finite right G-equivariant map q:D→P¹ from a possibly disconnected smooth curve whose restriction over P*=P¹\{0,1,∞} is a right G-torsor, together with a G-equivariant bijection α between the reduced fibres D_0 and D_∞. Morphisms are G-equivariant cover isomorphisms respecting α. A precuspidal cover of E means the finite quotient obtained by gluing, without imposing flatness at its nodes.
 
 Hypotheses and ambient setting: Algebraically closed characteristic-zero field; finite G; fixed standard nodal normalization and good tangential path.
 
@@ -565,12 +567,14 @@ API:
 - `TauCeti.NonabelianLevel.cusp_gluing_data.normalization` (projection): Recover q and α from the normalization of the precuspidal cover.
 - `TauCeti.NonabelianLevel.cusp_gluing_data.iso` (extensionality): An isomorphism is determined by its map on D and compatibility with α.
 - `TauCeti.NonabelianLevel.cusp_gluing_data.changeNormalization` (functoriality): A change of standard normalization transports the datum and its gluing canonically.
+- `TauCeti.NonabelianLevel.cusp_gluing_data.torsorOnComplement` (characterisation): Every geometric fibre over P* is a free transitive right G-set; the normalized cover has degree |G|.
 
 Definition checks:
 
 - **degenerate**, `cusp_gluing_data.check_1`: G=1 with D=P¹ and α(0)=∞ glues to the standard nodal genus-one curve.
 - **non-example**, `cusp_gluing_data.check_2`: D need not be connected: for G=C2 and the generating pair (u,h)=(1,h), D is two copies of P¹, whose gluing is connected.
 - **compatibility**, `cusp_gluing_data.check_3`: Only reduced branch fibres are identified; gluing a scheme-theoretic fibre of length e at a branch would create the wrong singularity.
+- **non-example**, `cusp_gluing_data.nonfree_quotient`: For G=S3 and an order-two subgroup H, the faithful action on (H\G)×P¹ has quotient P¹ but is not a gluing datum: its fibres have three points with nontrivial stabilizer, rather than six torsor points.
 
 Acceptance:
 
@@ -1085,13 +1089,13 @@ Definition checks:
 
 - **degenerate**, `degree_obstructions.check_1`: If every vertical stabilizer acts trivially, m′_X=1, not 0.
 - **non-example**, `degree_obstructions.check_2`: d_X is the coarse degree, and cannot be replaced by the stack degree when generic stabilizers differ.
-- **compatibility**, `degree_obstructions.check_3`: For a trivial character family, the least positive killing exponent is 1, and every integer is a multiple of it.
+- **computation**, `degree_obstructions.check_3`: For a character family with image orders 2 and 4, the least common killing exponent is lcm(2,4)=4, rather than the product 8.
 
 Acceptance:
 
 - If every vertical stabilizer acts trivially, m′_X=1, not 0.
 - d_X is the coarse degree, and cannot be replaced by the stack degree when generic stabilizers differ.
-- For a trivial character family, the least positive killing exponent is 1, and every integer is a multiple of it.
+- For a character family with image orders 2 and 4, the least common killing exponent is lcm(2,4)=4, rather than the product 8.
 
 Uses:
 
@@ -1153,7 +1157,7 @@ Target `NonabelianLevelStructures:NL.3/combinatorial-obstructions` · definition
 
 For finite G and c∈G, let P_c be the generating pairs (u,h) for which [u,h] is conjugate to c. For each pair put M=⟨u,h^{-1}u^{-1}h⟩ and A={a∈C_G(M):[a,h]∈⟨u⟩}, as in NL.2. Define m′_c to be the least common multiple, over P_c, of the exponents of A∩⟨[u^{-1},h^{-1}]⟩. Define d′_c=|C_G(⟨c⟩)/⟨c⟩|. Each intersection is cyclic; the least common multiple of an empty family is 1. These are invariants of the conjugacy class of c.
 
-Hypotheses and ambient setting: Algebraically closed characteristic-zero field; connected admissible-cover component; origin inertia e≥2.
+Hypotheses and ambient setting: Finite group G and c∈G; no geometric component or nontrivial-inertia hypothesis is required.
 
 Direct prerequisites: `NonabelianLevelStructures:NL.2/cusp-automorphism-data`; `NonabelianLevelStructures:NL.2/cusp-stabilizers`; `mathlib:Subgroup.centralizer`; `mathlib:Subgroup.zpowers`.
 
@@ -1196,7 +1200,7 @@ Target `NonabelianLevelStructures:NL.3/combinatorial-congruence` · theorem · p
 
 For any nonempty characteristic-zero G-cover component with Higman class c, the integer |c|/gcd(|c|,m′_c d′_c) divides its coarse j-degree. It also divides the cardinality of every Out^+(F2)-orbit on Epi^ext(F2,G) of that class. The unquotiented orbit has the coarse degree or twice that degree, according as γ−I fixes or does not fix an exterior pair. The claim is not that this modulus divides the number of cusps.
 
-Hypotheses and ambient setting: Algebraically closed characteristic-zero field; connected admissible-cover component; origin inertia e≥2.
+Hypotheses and ambient setting: Finite G and c∈G; for the geometric assertion a nonempty connected component over an algebraically closed characteristic-zero field. The case c=1 is allowed and has modulus 1.
 
 Direct prerequisites: `NonabelianLevelStructures:NL.3/main-degree-congruence`; `NonabelianLevelStructures:NL.3/local-character-bounds`; `NonabelianLevelStructures:NL.3/combinatorial-obstructions`; `NonabelianLevelStructures:NL.0/monodromy-dictionary`.
 
@@ -1212,7 +1216,7 @@ Acceptance:
 - For D10 with rotation inertia 5, m′=5 and d′=1 make the modulus 1, consistently with degree 3.
 - The coarse orbit quotient can halve a Nielsen orbit; the displayed modulus still divides the larger orbit size.
 
-Source: Chen, Theorem 4.10.5 and Corollary 4.10.6, pp. 386–387.
+Source: Chen, Theorem 4.10.5 and Remark 4.10.6, pp. 386–387.
 
 ## NL.4. Finite group obstruction bounds
 
@@ -1488,7 +1492,7 @@ Acceptance:
 - (I,I) gives commutator trace 2.
 - The parabolic t=−2 locus is x²+y²+z²−xyz=0.
 
-Source: Chen, Proposition 5.2.4, p. 396.
+Source: Chen, Lemma 5.2.4, p. 396.
 
 ### Outer automorphisms in trace coordinates
 
@@ -1511,7 +1515,7 @@ Acceptance:
 - The homomorphism from Aut(F2) has inner automorphisms and γ−I in its kernel, so the published hooked arrow from Aut(F2) cannot mean injectivity. No nonfaithfulness of the induced PGL2(Z) action is claimed.
 - Even sign changes are induced by central twists of the representation, rather than by these three generators alone.
 
-Source: Chen, Proposition 5.2.5 and Remark 5.2.7, pp. 396–397.
+Source: Chen, Proposition 5.2.5, pp. 396–397; factorization by inner and central inversion invariance.
 
 Explicit open inputs: `G-MAPPING`.
 
@@ -1914,7 +1918,7 @@ Source: Chen, Theorem 5.4.3, p. 412, with the even-q case corrected.
 
 Target `NonabelianLevelStructures:NL.6/trace-orbit-congruence` · theorem · planet **Trace orbit congruence**.
 
-Under the same q≥3,t≠2 hypotheses, every Aut^+(F2)-orbit O on X_t*(q) has size divisible by the component modulus in NL.6/sl2-degree-congruence, with a possible loss of a factor 2 from quotienting by D(q,G): in odd characteristic one may uniformly use n/gcd(n,4(q∓1)/n), in the appropriate torus case; in even characteristic use n/gcd(n,(q∓1)/n). For prime p≥3 and t=−2, every such orbit has size divisible by p. Consequently every orbit of the larger full Markoff move group on the punctured prime-field Markoff surface also has size divisible by p. More generally for t≠±2 and odd ℓ with r=ν_ℓ(n_q(t)),r+s=ν_ℓ(q³−q), every such orbit has size divisible by ℓ^max(r−s,0).
+For q≥3 and t≠2, put n=n_q(t). In a semisimple case t≠±2, let m=q−1 if X²−tX+1 splits and m=q+1 if it is irreducible. Every Aut^+(F2)-orbit O on X_t*(q) has size divisible by n/gcd(n,4m/n) for odd q and by n/gcd(n,m/n) for even q. These are the moduli after the possible factor-two loss from the component congruence when quotienting by D(q,G). For prime p≥3 and t=−2, every such orbit has size divisible by p. Consequently every orbit of the larger full Markoff move group on the punctured prime-field Markoff surface also has size divisible by p. More generally for t≠±2 and odd ℓ with r=ν_ℓ(n_q(t)),r+s=ν_ℓ(q³−q), every such orbit has size divisible by ℓ^max(r−s,0).
 
 Hypotheses and ambient setting: q=p^f≥3 unless an explicit q=2 boundary example is given; t≠2 where required.
 
@@ -1968,7 +1972,7 @@ Layer inputs: `NonabelianLevelStructures:NL.6`; `NonabelianLevelStructures:NL.5`
 
 Target `NonabelianLevelStructures:NL.7/geometric-markoff-components` · theorem · planet **Markoff modular components**.
 
-Let p≥5 be prime. Assume the full Vieta/permutation move group is transitive on the punctured coefficient-one Markoff surface over F_p (input G-DYNAMICS). Then Aut^+(F2) is already transitive: an orientation-reversing coordinate transposition fixes the point (3,3,3), so the stabilizer meets both orientation cosets. The stack M(SL2(F_p))_{−2} has precisely two geometric connected components, distinguished by the two noncentral trace −2 Higman classes; the diagonal outer involution exchanges them. Each coarse component is isomorphic to the coarse absolute-level curve M_p and has j-degree D=p(p+3) for p≡1 mod4 and p(p−3) for p≡3 mod4. Its compactification is a smooth proper geometrically connected curve.
+Let p≥5 be prime. Assume the group generated by Vieta moves and coordinate permutations, without adjoining even sign changes, is transitive on the punctured coefficient-one Markoff surface over F_p (input G-DYNAMICS). Then Aut^+(F2) is already transitive: an orientation-reversing coordinate transposition fixes the point (3,3,3), so the stabilizer meets both orientation cosets. The stack M(SL2(F_p))_{−2} has precisely two geometric connected components, distinguished by the two noncentral trace −2 Higman classes; the diagonal outer involution exchanges them. Each coarse component is isomorphic to the coarse absolute-level curve M_p and has j-degree D=p(p+3) for p≡1 mod4 and p(p−3) for p≡3 mod4. Its compactification is a smooth proper geometrically connected curve.
 
 Hypotheses and ambient setting: p≥5 prime; characteristic-zero moduli geometry; transitivity and MP inputs only where explicitly assumed.
 
@@ -1977,7 +1981,7 @@ Direct prerequisites: `NonabelianLevelStructures:NL.6/trace-moduli-dictionary`; 
 Construction or proof plan:
 
 1. Import the finite-field transitivity and point count from the lower combinatorial part of G-DYNAMICS, with the cross-stage ordering stated in that contract.
-2. Use the fixed coordinate transposition at (3,3,3), an actual punctured point for p≥5, to pass from the full group to its orientation subgroup.
+2. Use the Vieta/permutation group specified in G-DYNAMICS, without extra sign generators. The coordinate transposition fixing (3,3,3), an actual punctured point for p≥5, meets the reversing coset, so the orientation subgroup is transitive.
 3. Separate the two SL2 Higman classes and the free diagonal outer interchange; an orbit on the quotient meets each class in exactly one exterior-pair orbit.
 4. Use the existing smooth proper compactification and the trace/coarse correspondence.
 
@@ -2062,7 +2066,7 @@ Acceptance:
 - A finite set of j-invariants is equivalent to finitely many isomorphism classes over an algebraic closure.
 - The proof must not count all quadratic twists as one K-isomorphism class.
 
-Source: Chen, Corollary 5.6.4, p. 419, with the isomorphism-class formulation corrected.
+Source: Chen, Theorem 5.6.4, p. 419, with the isomorphism-class formulation corrected.
 
 ### The projective absolute-level quotient
 
@@ -2119,7 +2123,7 @@ Direct prerequisites: `NonabelianLevelStructures:NL.7/projective-absolute-quotie
 Construction or proof plan:
 
 1. Import the large alternating subgroup theorem, its exact prime set and density-one conclusion from G-DYNAMICS.
-2. Use the geometric fibre identification to transfer the permutation group to projective level monodromy.
+2. The orientation-preserving subgroup has normal image of index at most two in the full permutation image on the even-sign quotient. Since the latter contains A_{d_p}, d_p≥7, and A_{d_p} has no nontrivial quotient of order two, its intersection with the orientation image is all of A_{d_p}. Transfer this image to the geometric fibre.
 3. Compute the signs of the projective γ0 and γ1728 permutations to decide A versus S in each mod16 class.
 
 Acceptance:
@@ -2300,9 +2304,9 @@ Consumers: `NonabelianLevelStructures:NL.5/finite-field-trace-bijection`, `Nonab
 
 ## Explicit open inputs and scope limits
 
-### G-MAPPING: Missing punctured-torus and stack comparison supplier
+### G-MAPPING: Missing extensions of the punctured-torus and stack comparison supplier
 
-MappingClassGroupsAndCanonicalRepresentations has a design issue (#3370), but no registered stage/node contract at this checkout. Needed exactly: Nielsen Out(F2)≅GL2(Z), orientation subgroup SL2(Z); the oriented punctured elliptic fundamental group and positive peripheral commutator; π1(M(1)^an) and stack Riemann existence identifying its profinite completion; Asada cofinality for its finite étale covers; and the BBCL22 Theorem 2.2.3 strengthened curve consequence, giving a level component finite étale Galois over a nonempty open of any smooth projective Qbar curve. These are not supplied by PeripheralActions, whose current targets concern pro-p punctured-sphere peripheral automorphisms. Register the new supplier before replacing this explicit leaf by an import.
+MappingClassGroupsAndCanonicalRepresentations now has a 62-node packet. Its C.0/moduli-monodromy supplies π1 of the ordered analytic moduli stack as the pure mapping-class group and is imported in NL.0/monodromy-dictionary. The remaining exact inputs are: Nielsen Out(F2)≅GL2(Z) with orientation subgroup SL2(Z), the oriented punctured elliptic fundamental group and positive peripheral commutator, stack Riemann existence extending the scheme-only IG.3 contract, Asada cofinality for finite étale covers of M(1), and the BBCL22 Theorem 2.2.3 curve consequence giving a level component finite étale Galois over a nonempty open of any smooth projective Qbar curve. Extend or register those supplier nodes before replacing this leaf. PeripheralActions supplies pro-p punctured-sphere peripheral automorphisms, not this comparison.
 
 Consumers: `NonabelianLevelStructures:NL.0/monodromy-dictionary`, `NonabelianLevelStructures:NL.0/cofinality`, `NonabelianLevelStructures:NL.5/outer-trace-action`, `NonabelianLevelStructures:NL.6/trace-moduli-dictionary`.
 
@@ -2326,32 +2330,37 @@ Consumers: `NonabelianLevelStructures:NL.4/j-zero-group-bound`, `NonabelianLevel
 
 ## Source corrections and version boundaries
 
-The packet records each finding with its locator, effect and correction search. These findings require independent review; they are not an assertion of an author-issued erratum. Searches of the Annals article record, arXiv version listing and author pages on 18 October 2026 found no separate correction. The published version already repairs some older statements, which are identified as version notes rather than objections to that version.
+Independent review on 19 October 2026 confirmed the following findings. Each is a correction or proof repair in our own words; E14, E15 and E17 concern only the historical arXiv v2 text. The published author copy governs the targets. The historical copy was read at [arXiv:2011.12940v2](https://arxiv.org/pdf/2011.12940v2), pp. 5, 26 and 82; its SHA-256 is `f60283b0b406554c064e3135b18d4446617aed05eb74f7b8d7b66a2f453980cc`. No separate erratum was located in the official article, author-site and title/author searches.
 
-- **E1**, error, Published Definition 4.1.2, p. 361, and cuspidal-cover wording in §4.1: Retain finite quotient maps; omit flatness at ramified nodes, consistently with the admissible local model. Reason: At the balanced node x=ξ²,y=η², ξη=0, the fibre over x=y=0 has basis 1,ξ,η of length 3, rather than the generic rank 2. Status: Verified red-team correction for PAPER-CHEN-24; published text checked.
-- **E2**, gap, Published Lemma 4.12.2 proof, pp. 389–390: Use only j=0, where one of the two cyclic intersections is trivial, until the general-j intersection argument is repaired. Reason: Bounding the intersection by ℓ^j does not by itself give the stated invariant factors after powering; the displayed powering step is insufficient. Status: PAPER-CHEN-24/E26; general j remains unestablished here.
-- **E3**, error, Published Proposition 5.2.5, p. 397: Use an anti-homomorphism; it factors through Out(F2)/⟨−I⟩. No assertion of nonfaithfulness of this latter quotient is intended. Reason: Inner automorphisms act by simultaneous conjugation and have identical trace coordinates; γ−I also acts trivially. Status: PAPER-CHEN-24/E27, present in the published display.
-- **E4**, error, Published proof of Lemma 5.3.1, nonsplit degenerate case, p. 408: Its full fibre is the singleton (a,0,0); its non-dihedral subset is empty. Reason: The norm of y−ωz is zero only at y=z=0. This point satisfies the original conic equation. Status: PAPER-CHEN-24/E30, still present in the published proof.
-- **E5**, misprint, Published Remark 5.2.21, p. 404: With columns given by images of a,b and γ∞(a,b)=(a,ab), the upper-right entry is +1. Reason: Abelianization sends b to a+b. Status: PAPER-CHEN-24/E29.
-- **E6**, error, Published Proposition 5.6.1(a), p. 418: The count is (D+2)/3. Reason: There is one cycle of length 1 and (D−1)/3 cycles of length 3; at p=5 the count is 14. Status: PAPER-CHEN-24/E1; the text describing cycle lengths already gives the corrected count.
-- **E7**, error, Published Theorem 5.6.4, p. 419; introductory Theorem 1.2.10, p. 310: Conclude finiteness of j-invariants in K, or geometric isomorphism classes; level points map to coarse j-values. Reason: Faltings bounds rational points on the level coarse curve, while quadratic twists can give infinitely many K-isomorphism classes with the same j. Status: PAPER-CHEN-24/E39; use its verified j-invariant correction.
-- **E8**, misprint, Published Proposition 6.4.1(E4) and its proof, pp. 428–429: Use S4 throughout the exceptional projective classification and recheck the central-extension calculation with that group. Reason: Dickson classification has A4,S4,A5; S5 is not the octahedral projective subgroup. Status: Verified red-team fix to PAPER-CHEN-24/104; no separate correction located.
-- **E9**, error, Published Proposition 6.4.1(b) and proof, p. 429: The relevant quotient is N/(G·C), the image in Out(G). Reason: For G=SL2(F5), the subgroup of inner automorphisms inside N/C already has order 60. Status: Verified red-team fix to PAPER-CHEN-24/104; no separate correction located.
-- **E10**, error, Published Proposition 5.4.2 and Theorems 5.4.3–5.4.4, pp. 411–413: For all q classify by whether X²−tX+1 splits or is irreducible. In even characteristic keep both q−1 and q+1 torus orders and use the vertical factor 1. Reason: Every element of F4 is a square, yet SL2(F4) contains a nonsplit torus of order 5; an irreducible X²−tX+1 gives such a matrix. Status: new
-- **E11**, error, Published Proposition 5.2.20, p. 403: Require that the actual image be non-dihedral, or use the full absolutely irreducible locus instead of X*. Reason: The definition of X* excludes absolutely irreducible representations of dihedral type; for example a suitable quaternion image in odd characteristic is excluded. Status: Verified red-team correction to PAPER-CHEN-24/83.
-- **E12**, misprint, Published proof of Proposition 5.2.16(d), p. 402: The trace must be different from 2. Reason: Lemma 5.2.9 gives a unit t−2; over a field this is precisely t≠2. Status: new
-- **E13**, misprint, Published proof of Corollary 4.12.4, p. 390: Refer to the second assertion of part (b). Reason: The corollary has parts (a) and (b), and the sentence concerns the bound on m′. Status: PAPER-CHEN-24/E41.
-- **E14**, error, arXiv v2 Theorem 2.5.2(7), compared with published pp. 337–338: Use a nonempty open U of the projective curve. The published version already states this correctly. Reason: A nonproper level component cannot be a finite étale cover of a proper curve. This is a version-collation note, not a new objection to the published theorem. Status: Corrected in published Theorem 2.5.2(7); the plan follows the published statement.
-- **E15**, misprint, arXiv v2 proof of Theorem 5.5.7(a), compared with published p. 416: Only an orientation-reversing coordinate transposition needs to fix it. The published proof uses exactly that argument. Reason: A stabilizer meeting the nontrivial orientation coset makes the orientation subgroup transitive when the full group is transitive. Status: Corrected in the published proof, p. 416; PAPER-CHEN-24/E32.
-- **E16**, error, Published introductory paragraph before Corollary 1.1.2, p. 305; compare Theorem 2.5.2(3)–(5), pp. 336–338: The coarse degree is the exterior orbit cardinality or half of it. Reason: The coarse fibre is the quotient of the exterior orbit by γ−I. A quotient by an involution cannot double cardinality. Status: PAPER-CHEN-24/E4; the detailed fibre dictionary supplies the correct quotient.
-- **E17**, error, arXiv v2 Corollary 1.1.2, compared with published Corollary 1.1.2, p. 305: The extra factor occurs when γ−I does not fix the exterior epimorphism class. The published corollary omits that strengthening. Reason: The unquotiented orbit is twice its quotient exactly when the central involution acts freely on that orbit. This version note makes no claim that the published corollary retains the older sentence. Status: PAPER-CHEN-24/E3; the plan uses the detailed exterior-class quotient.
-- **E18**, error, Published Theorem 1.2.10, p. 310, compared with its preceding p≥5 setup: Assume p≥5, consistently with the preceding setup and the geometric Markoff targets. Reason: At p=3 the trace −2 equals 1 and the punctured Markoff set is empty; the claimed connected curve is not obtained. Status: PAPER-CHEN-24/E7; the present targets explicitly exclude p=3.
-- **E19**, misprint, Published §4.2, p. 364, immediately before Definition 4.2.2: Remove the origin 0, so that the identification is with the multiplicative group. Reason: The tangent-line isomorphism sends zero to zero and the tangential base point to 1; the puncture is at zero. Status: PAPER-CHEN-24 source check; no separate correction located.
-- **E20**, misprint, Published Proposition 4.4.3(d), p. 369: The loop on the left side is based at t0. Reason: After transporting x∞ by δ⁻¹, its fibre is over t0; the source of its monodromy homomorphism is π1(P*,t0). Status: PAPER-CHEN-24 source check; no separate correction located.
-- **E21**, error, Published Lemma 4.4.4(g), proof on p. 370; compare Definition 4.1.2, p. 361: Keep the finite quotient and the balanced admissible local model; establish the normalization equivalence by the nodal clutching/conductor contract, without this flatness assertion. Reason: The ramified node of index 2 has generic rank 2 and special fibre length 3. The flatness conclusion cannot follow from the cited gluing application. Status: Same finite-flat obstruction as E1, recorded here at the separate proof step.
-- **E22**, error, Published proof of Proposition 5.4.2(c), p. 412: Infer instead that their ratio lies in F_q, so the eigenline is defined over F_q; an F_q-matrix preserving that line has its associated eigenvalue in F_q, contradicting irreducibility of the characteristic polynomial. Reason: The equations x^q=ax and y^q=ay give x^(q−1)=y^(q−1)=a when both coordinates are nonzero; they do not force a=1. The projective-line argument proves the required independence of v and v^σ. Status: new
-- **E23**, error, Published proof of Proposition 5.4.2, general eigenvector observation, p. 411: For ACA⁻¹=C^n, it is A⁻¹ that sends a λ-eigenvector of C to a λ^n-eigenvector. Reason: Applying the equation to v gives C(A⁻¹v)=λ^n A⁻¹v. The ensuing centralizer application uses n=1 and is unchanged. Status: new
-- **E24**, gap, Published proof of Lemma 4.12.1, p. 389: For possibly infinite U, compare their finite indices inside gUg⁻¹ instead; conjugation gives equal indices in G and both ambient cyclic groups have the same finite index in G. Reason: Two infinite subgroups of a cyclic group can have equal infinite orders but be different. Equality of their finite indices is what implies equality. In the finite groups used by NL.4 the original equal-order argument suffices. Status: new
+- **E1**, error, Published Proposition 2.4.4, p. 330; Definition 4.1.2, p. 361, and cuspidal-cover wording in §4.1: Retain finite quotient maps; omit flatness at ramified nodes, consistently with the admissible local model. Reason: At the balanced node x=ξ²,y=η², ξη=0, the fibre over x=y=0 has basis 1,ξ,η of length 3, rather than the generic rank 2. Review: confirmed.
+- **E2**, gap, Published Lemma 4.12.2 proof, pp. 389–390: Use only j=0, where one of the two cyclic intersections is trivial, until the general-j intersection argument is repaired. Reason: Bounding the intersection by ℓ^j does not by itself give the stated invariant factors after powering; the displayed powering step is insufficient. Review: confirmed.
+- **E3**, error, Published Proposition 5.2.5, p. 397: Use an anti-homomorphism; it factors through Out(F2)/⟨−I⟩. No assertion of nonfaithfulness of this latter quotient is intended. Reason: Inner automorphisms act by simultaneous conjugation and have identical trace coordinates; γ−I also acts trivially. Review: confirmed.
+- **E4**, error, Published proof of Lemma 5.3.1, nonsplit degenerate case, p. 408: Its full fibre is the singleton (a,0,0); its non-dihedral subset is empty. Reason: The norm of y−ωz is zero only at y=z=0. This point satisfies the original conic equation. Review: confirmed.
+- **E5**, misprint, Published Remark 5.2.21, p. 404: With columns given by images of a,b and γ∞(a,b)=(a,ab), the upper-right entry is +1. Reason: Abelianization sends b to a+b. Review: confirmed.
+- **E6**, error, Published Proposition 5.6.1(a), p. 418: The count is (D+2)/3. Reason: There is one cycle of length 1 and (D−1)/3 cycles of length 3; at p=5 the count is 14. Review: confirmed.
+- **E7**, error, Published Theorem 5.6.4, p. 419; introductory Theorem 1.2.10, p. 310: Conclude finiteness of j-invariants in K, or geometric isomorphism classes; level points map to coarse j-values. Reason: Faltings bounds rational points on the level coarse curve, while quadratic twists can give infinitely many K-isomorphism classes with the same j. Review: confirmed.
+- **E8**, misprint, Published Proposition 6.4.1(E4) and its proof, pp. 428–429: Use S4 throughout the exceptional projective classification and recheck the central-extension calculation with that group. Reason: Dickson classification has A4,S4,A5; S5 is not the octahedral projective subgroup. Review: confirmed.
+- **E9**, error, Published Proposition 6.4.1(b) and proof, p. 429: The relevant quotient is N/(G·C), the image in Out(G). Reason: For G=SL2(F5), the subgroup of inner automorphisms inside N/C already has order 60. Review: confirmed.
+- **E10**, error, Published Proposition 5.4.2 and Theorems 5.4.3–5.4.4, pp. 411–413: For all q classify by whether X²−tX+1 splits or is irreducible. In even characteristic keep both q−1 and q+1 torus orders and use the vertical factor 1. Reason: Every element of F4 is a square, yet SL2(F4) contains a nonsplit torus of order 5; an irreducible X²−tX+1 gives such a matrix. Review: confirmed.
+- **E11**, error, Published Proposition 5.2.20, p. 403: Require that the actual image be non-dihedral, or use the full absolutely irreducible locus instead of X*. Reason: The definition of X* excludes absolutely irreducible representations of dihedral type; for example a suitable quaternion image in odd characteristic is excluded. Review: confirmed.
+- **E12**, misprint, Published proof of Proposition 5.2.16(d), p. 402: The trace must be different from 2. Reason: Lemma 5.2.9 gives a unit t−2; over a field this is precisely t≠2. Review: confirmed.
+- **E13**, misprint, Published proof of Corollary 4.12.4, p. 390: Refer to the second assertion of part (b). Reason: The corollary has parts (a) and (b), and the sentence concerns the bound on m′. Review: confirmed.
+- **E14**, error, arXiv v2 Theorem 2.5.2(7), compared with published pp. 337–338: Use a nonempty open U of the projective curve. The published version already states this correctly. Reason: A nonproper level component cannot be a finite étale cover of a proper curve. This is a version-collation note, not a new objection to the published theorem. Review: confirmed.
+- **E15**, misprint, arXiv v2 proof of Theorem 5.5.7(a), compared with published p. 416: Only an orientation-reversing coordinate transposition needs to fix it. The published proof uses exactly that argument. Reason: A stabilizer meeting the nontrivial orientation coset makes the orientation subgroup transitive when the full group is transitive. Review: confirmed.
+- **E16**, error, Published introductory paragraph before Corollary 1.1.2, p. 305; compare Theorem 2.5.2(3)–(5), pp. 336–338: The coarse degree is the exterior orbit cardinality or half of it. Reason: The coarse fibre is the quotient of the exterior orbit by γ−I. A quotient by an involution cannot double cardinality. Review: confirmed.
+- **E17**, error, arXiv v2 Theorem 1.1.2, p. 5, compared with published Corollary 1.1.2, p. 305: The extra factor occurs when γ−I does not fix the exterior epimorphism class. The published corollary omits that strengthening. Reason: The unquotiented orbit is twice its quotient exactly when the central involution acts freely on that orbit. This version note makes no claim that the published corollary retains the older sentence. Review: confirmed.
+- **E18**, error, Published Theorem 1.2.10, p. 310, compared with its preceding p≥5 setup: Assume p≥5, consistently with the preceding setup and the geometric Markoff targets. Reason: At p=3 the trace −2 equals 1 and the punctured Markoff set is empty; the claimed connected curve is not obtained. Review: confirmed.
+- **E19**, misprint, Published §4.2, p. 364, immediately before Definition 4.2.2: Remove the origin 0, so that the identification is with the multiplicative group. Reason: The tangent-line isomorphism sends zero to zero and the tangential base point to 1; the puncture is at zero. Review: confirmed.
+- **E20**, misprint, Published Proposition 4.4.3(d), p. 369: The loop on the left side is based at t0. Reason: After transporting x∞ by δ⁻¹, its fibre is over t0; the source of its monodromy homomorphism is π1(P*,t0). Review: confirmed.
+- **E21**, error, Published Lemma 4.4.4(g), proof on p. 370; compare Definition 4.1.2, p. 361: Keep the finite quotient and the balanced admissible local model; establish the normalization equivalence by the nodal clutching/conductor contract, without this flatness assertion. Reason: The ramified node of index 2 has generic rank 2 and special fibre length 3. The flatness conclusion cannot follow from the cited gluing application. Review: confirmed.
+- **E22**, error, Published proof of Proposition 5.4.2(c), p. 412: Infer instead that their ratio lies in F_q, so the eigenline is defined over F_q; an F_q-matrix preserving that line has its associated eigenvalue in F_q, contradicting irreducibility of the characteristic polynomial. Reason: The equations x^q=ax and y^q=ay give x^(q−1)=y^(q−1)=a when both coordinates are nonzero; they do not force a=1. The projective-line argument proves the required independence of v and v^σ. Review: confirmed.
+- **E23**, error, Published proof of Proposition 5.4.2, general eigenvector observation, p. 411: For ACA⁻¹=C^n, it is A⁻¹ that sends a λ-eigenvector of C to a λ^n-eigenvector. Reason: Applying the equation to v gives C(A⁻¹v)=λ^n A⁻¹v. The ensuing centralizer application uses n=1 and is unchanged. Review: confirmed.
+- **E24**, gap, Published proof of Lemma 4.12.1, p. 389: For possibly infinite U, compare their finite indices inside gUg⁻¹ instead; conjugation gives equal indices in G and both ambient cyclic groups have the same finite index in G. Reason: Two infinite subgroups of a cyclic group can have equal infinite orders but be different. Equality of their finite indices is what implies equality. In the finite groups used by NL.4 the original equal-order argument suffices. Review: confirmed.
+- **E25**, error, Published Remark 2.2.4, p. 324; Proposition 3.2.2(a), p. 352: Reducedness of S implies reducedness of R_π; the converse requires R_π→S surjective. Its degree is |G|/e for e≥2, while e=1 gives the empty divisor. Reason: Take G=1 over Spec(k[ε]/(ε²)): the ramification divisor is empty and reduced over a nonreduced base and has degree 0, not 1. The nonempty finite étale case has the converse by faithfully flat descent. Review: confirmed.
+- **E26**, error, Published §4.11, p. 388, odd-dihedral example: For a primitive rotation c, C_G(⟨c⟩)=⟨c⟩, so d′=1. The normalizer quotient has order 2. Reason: A reflection conjugates c to c⁻¹ and does not centralize it for odd k≥3; quotienting its cyclic centralizer by ⟨c⟩ is trivial. The existing NL.2 example already uses the correct value. Review: confirmed.
+- **E27**, error, Published proof of Proposition 3.2.2(b), p. 353: Use smooth surjectivity with nonempty geometrically connected configuration-space fibres. Those properties suffice for connected pullback; no properness is needed. Reason: After a first marking, the next point varies on the curve minus its existing markings, an open nonproper fibre. The connected-cover argument uses openness and connected fibres and survives this repair. Review: confirmed.
+- **E28**, gap, Published proof of Proposition 5.2.16(d), p. 402: If one generator is a rotation and one a reflection, the reflection and their product are involutions; if both are reflections, use those two. Thus at least two of the three traces vanish. Reason: Over F7 take A=diag(2,4) and B with rows (0,6),(1,0). Their projective orders are 3 and 2, they generate a dihedral image, and their traces are (6,0,0). This missing case repairs the argument without changing the criterion. Review: confirmed.
+- **E29**, error, Published Lemma 5.3.1, p. 405, parenthetical before the orbit conclusion: Only the simultaneous vanishing of the last two coordinates is excluded. Full non-dihedral type additionally excludes the other two-zero patterns. The stated orbit calculation still works under its displayed weaker hypothesis. Reason: Swap the matrices of E28: the absolutely irreducible dihedral pair has trace triple (0,6,0) over F7 and commutator trace 6≠2, while the last two coordinates are not both zero. NL.6 already imposes the stronger non-dihedral hypothesis where needed. Review: confirmed.
 
 ## Suggested-file boundary and acceptance
 
@@ -2360,3 +2369,5 @@ The suggested file follows WORKERS.md's compact statement shape: the full target
 The kernel, period/cardinality, square and conditional cube bounds are NL.2/NL.4 milestones. The integral Fricke identity, matrix-algebra unit criterion, inversion invariance and finite-field surjectivity are NL.5 milestones. Exact rotation period and the corrected nonsplit degenerate fibre are NL.6 milestones. Three cusp, three trace and three rotation examples exercise these carriers. Heavy stacks, sheaves, character quotients and cusp quotient carriers are not fabricated to state their theorems at the pins. The file elaborates with admitted proofs as its only warnings; elaboration is a signature check, not a proof certificate.
 
 Acceptance of the plan requires the packet and reader to cover every target, every definition/construction to have its stated API and at least three discriminating tests, and every prerequisite chain to terminate at a checked baseline declaration, supplying node or requested layer, or an explicit open input. All 66 routed items have such a disposition; item 39 is imported from IG.5 rather than duplicated. All eight layers are planned, with no claim of closure while the supplying contracts and four open inputs remain. The dependency graph within the 65 targets is acyclic. Subsequent package preparation uses the reviewed supplier contracts and preserves the order through the dynamics stages.
+
+Independent design review accepted this plan on 19 October 2026 after checking all 65 targets, 22 pinned baseline declarations, supplier interfaces, APIs and definition tests. The review corrected the empty-divisor reducedness converse, the normalization torsor condition, the orbit-modulus wording and source locators; it also narrowed the mapping-class gap after importing its existing analytic moduli node. The four explicit gaps and fourteen supplier requests remain open. See [the review report](../reviews/REV-DESIGN-NonabelianLevelStructures.md) for the complete audit and finite verification results.
