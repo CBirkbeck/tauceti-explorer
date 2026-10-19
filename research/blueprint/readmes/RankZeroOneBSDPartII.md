@@ -2,7 +2,7 @@
 
 This continuation of RankZeroOneBSD proves the converse in Selmer coranks zero and one at a good odd Eisenstein prime. Its application converts finite 3-Selmer bounds into analytic-rank bounds on quadratic twists satisfying the same local hypotheses. The main route is complementary-twist nonvanishing, control at the anticyclotomic augmentation prime, the parent's Heegner index-square equality, and the complex Gross–Zagier formula. Arithmetic rank equality and finiteness of the whole Tate–Shafarevich group follow from the separately owned forward theorem after the analytic converse.
 
-This is a complete planning pass: six planned layers, seventeen target-level nodes, three definitions, fourteen API items and twelve definition tests. None of the layers is closed or implemented. Every node has implementation status `unchecked`. One explicit shared frontier, **GAP-CT**, records that the Cassels–Tate pairing modulo divisible subgroups has existing supplier requests but no exact registered endpoint. Ten requests specify the interfaces needed from existing owners. A target ending at a requested supplier is a plan, not an existing library theorem.
+This is a complete planning pass: six planned layers, seventeen target-level nodes, three definitions, eighteen API items and twelve definition tests. None of the layers is closed or implemented. Every node has implementation status `unchecked`. One explicit shared frontier, **GAP-CT**, records that the Cassels–Tate pairing modulo divisible subgroups has existing supplier requests but no exact registered endpoint. Ten requests specify the interfaces needed from existing owners. A target ending at a requested supplier is a plan, not an existing library theorem.
 
 ## Scope and the existing owners
 
@@ -88,7 +88,7 @@ Pin the actual isogeny kernel and the good odd-prime local exclusion. Import ord
 
 **Named target:** `TauCeti.RankZeroOneBSDPartII.EisensteinConverseData`.
 
-EisensteinConverseData(E,p,ι) records precisely the good odd prime, the actual rational cyclic degree-p isogeny and the local exclusion in the standing hypothesis. The character is the Galois action on ker ι, not an arbitrarily selected semisimple constituent. Reuse upstream isogeny, residual-character, reduction and conductor carriers; this is a hypothesis bundle, not a second elliptic-curve structure.
+EisensteinConverseData(E,p,ι) records precisely the good odd prime, the actual rational cyclic degree-p isogeny and the local exclusion in the standing hypothesis. The character is the Galois action on ker ι, not an arbitrarily selected semisimple constituent. Reuse upstream isogeny, residual-character, reduction and conductor carriers; this is a Prop-valued hypothesis bundle, not a second elliptic-curve structure. Witness equality is inherited from proof irrelevance; no separate extensionality theorem is needed.
 
 **Hypotheses and conventions.** E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.
 
@@ -107,10 +107,13 @@ EisensteinConverseData(E,p,ι) records precisely the good odd prime, the actual 
 
 **API.**
 
+- `TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.mk` (constructor): For fixed E,p,ι, proofs that p is prime and odd, E is good at p, ι is rational cyclic of degree p, and its actual kernel character avoids 1 and ω locally construct EisensteinConverseData(E,p,ι). No freely chosen residual character is an extra field.
 - `TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.good_odd` (projection): p>2 is prime, E has good reduction at p, and degree(ι)=p.
 - `TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.kernel_character` (projection): ker ι has character φ, ψ=ωφ⁻¹, and φ|G_p is neither 1 nor ω.
 - `TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.dual` (compatibility): The dual isogeny E′→E satisfies the same local exclusion; good reduction is preserved under isogeny.
 - `TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.transport` (functoriality): An isomorphism of rational isogeny diagrams transports the bundle and its actual kernel character.
+- `TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.transport_refl` (simp): Transport along the identity isogeny diagram is the identity on the hypothesis bundle.
+- `TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.transport_trans` (functoriality): Transport along a composite of rational isogeny-diagram isomorphisms equals successive transport, with the canonical identifications of kernel characters.
 
 **Discriminating unit tests.**
 
@@ -380,6 +383,7 @@ Fix an actual rational cyclic 3-isogeny ι:E→E′ with kernel character φ. In
 - `TauCeti.RankZeroOneBSDPartII.admissibleTwists_translate` (functoriality): For a fixed initial twist d₀, d∈A₃(E^d₀,ι^d₀) iff d₀d∈A₃(E,ι). This is a squareclass bijection; no height-preservation assertion is made.
 - `TauCeti.RankZeroOneBSDPartII.admissibleTwists_dual` (compatibility): The dual isogeny on E′ gives the same admissible squareclasses, using ψχ_d=ω(φχ_d)⁻¹ and isogeny invariance of good reduction.
 - `TauCeti.RankZeroOneBSDPartII.admissibleTwists_local` (characterisation): A₃ is the inverse image of a subset of the four local squareclasses ℚ₃ˣ/ℚ₃ˣ².
+- `TauCeti.RankZeroOneBSDPartII.mem_admissibleTwists_iff_converseData` (compatibility): For every squareclass d, d∈A₃(E,ι) iff EisensteinConverseData(E^d,3,ι^d). This supplies the hypothesis bundle used by the finite-Selmer converse directly from family membership, and conversely constructs membership from the bundle.
 
 **Discriminating unit tests.**
 
@@ -607,7 +611,7 @@ The finite nondivisible odd-primary quotient must have paired elementary divisor
 
 The compact suggested file gives `nineteenA3`, its five API signatures, four model-test signatures and one numerical scope diagnostic, all on existing pinned carriers. It elaborated through `lean-check` at the pinned libraries on 2026-10-19 with zero errors and only ten proof-placeholder warnings. Its coefficient definition is real-bodied. Elaboration checks the signatures; it does not prove the asserted mathematics.
 
-The other two definitions, their nine API items and eight tests, plus the arithmetic theorems, remain reader targets because the requisite actual isogeny/reduction/Selmer/analytic/family interfaces are supplier targets. The model's tangent test is represented by its exact polynomial substitution in Lean; identifying the flex as a nonidentity order-three point and deriving the local admissibility set use the specified upstream point and local-reduction interfaces. No fabricated analytic rank, Selmer module, Galois character, density or Heegner point stands in for those missing carriers.
+The other two definitions, their thirteen API items and eight tests, plus the arithmetic theorems, remain reader targets because the requisite actual isogeny/reduction/Selmer/analytic/family interfaces are supplier targets. The model's tangent test is represented by its exact polynomial substitution in Lean; identifying the flex as a nonidentity order-three point and deriving the local admissibility set use the specified upstream point and local-reduction interfaces. No fabricated analytic rank, Selmer module, Galois character, density or Heegner point stands in for those missing carriers.
 
 Before implementation can be considered complete, establish each supplier contract on its canonical carrier, resolve GAP-CT at its single owner, verify ordinary local control and compact saturation with all error terms, and connect the exact Heegner normalization to the general Gross–Zagier formula. Then prove the converse and carry the same local restrictions into each statistical application. Every definition must pass the listed discriminating tests; the density diagnostics must retain their actual denominator and the no-good-twist example must remain outside the positive-proportion theorem's hypotheses.
 
