@@ -14,13 +14,13 @@ Use exp(+B) for the rational B-field action and the gerbe of class −[α_n] for
 
 For the arithmetic orthogonal datum use the quadratic function Q_T(x)=−(x,x)_cup/2, with polar bilinear form −cup and Clifford relation x²=Q_T(x). Its signature is (b,2), b=20−ρ. An isometric special-endomorphism comparison therefore converts Q_T(s)=m into cup square −2m before clearing denominators. This specifies the factor of two independently of the source’s use of Q. “Hodge-generic” in SSTT means that the point avoids every special divisor (footnote 3, p.4). It does not assert maximal Mumford–Tate group.
 
-The baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 with Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reuse `TauCeti.IntegralLattice`, with its rational ambient space and integral symmetric form; `TauCeti.Hodge.HodgeStructureOn`, with its decreasing exhaustive opposed filtration; and `LinearMap.BilinForm`. IntegralLattices and Completed/HodgeStructures supply their surrounding abstract theories. General lattice and Hodge carriers are not reconstructed here.
+The baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 with Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. Reuse `TauCeti.IntegralLattice`, with its rational ambient space and integral symmetric form; `TauCeti.Hodge.HodgeStructureOn`, with its decreasing exhaustive opposed filtration; `TauCeti.Hodge.PeriodDomain.Point` (fixed polarized Hodge type on a finite free integral lattice); and `LinearMap.BilinForm`. IntegralLattices and Completed/HodgeStructures supply their surrounding abstract theories. General lattice and Hodge carriers are not reconstructed here.
 
 ## Boundaries and prerequisites
 
 General intersection/cohomology belongs to SchemeAndStackFoundations and MotivesAndAlgebraicCycles; generic relative moduli and deformation belong to AlgebraicModuliForArithmeticGeometry. Its Part II, AlgebraicModuliStableTwistedSheaves, supplies general stable/twisted sheaf stacks, gerbes and stable-map machinery. The K3 Ext calculation, symplectic forms, twisted partner geometry and Mukai comparison stay here.
 
-ShimuraVarieties and its Part II OrthogonalIntegralModelsAndKugaSatake supply generic and integral orthogonal models, Clifford tensors, KS abelian schemes and special divisors. GrossZagierAndArithmeticHeights and its Part II GSpinSpecialDivisorHeights supply the arithmetic special-divisor infinitude theorem. GeometryOfNumbersAndQuadraticArithmetic supplies primitive embeddings, local unit norms and integral-lattice finiteness. The current Chebotarev and NumberFieldArithmetic roadmaps supply simultaneous splitting primes and canonical local completion maps.
+ShimuraVarieties and its Part II OrthogonalIntegralModelsAndKugaSatake supply generic and integral orthogonal models, Clifford tensors, KS abelian schemes and special divisors. GrossZagierAndArithmeticHeights and its Part II GSpinSpecialDivisorHeights supply the arithmetic special-divisor infinitude theorem. Current IntegralLattices supplies localization/Jordan/genus theory and Nikulin primitive embeddings. Its additional Charles congruence-transport and unit/determinant/finite-order corollaries are requested as IntegralLattices, Part II. Its definite and binary finite-class branches are imported; indefinite rank≥3 class finiteness belongs to the named, currently absent successor OrthogonalTamagawaAndLatticeMass. No general lattice theory is replanned here. The current Chebotarev and NumberFieldArithmetic roadmaps supply simultaneous splitting primes and canonical local completion maps.
 
 MotivesAndAlgebraicCycles must expose early Lefschetz (1,1), Tate–Brauer and rational trace-descent interfaces separately from its late K3 Tate theorem register. The geometric partner contradiction does not import the Tate conclusion it is meant to support. Special-fiber divisor algebraicity in K3.10 can use an independently established finite-field K3 divisor theorem; it is not a consequence of generic Lefschetz (1,1) alone.
 
@@ -72,6 +72,7 @@ K3 surfaces with arbitrary ample polarizations, numerical/arithmetic/geometric N
 - `K3Surface.canonicalTrivial` (projection): The canonical invertible sheaf admits a trivialization.
 - `K3Surface.h1_zero` (projection): H¹(O_X)=0; prove Pic⁰ is trivial as a consequence, rather than identifying Pic with a numerical quotient by definition.
 - `K3Polarization.tensorPower` (constructor): Every positive tensor power of an ample polarization is allowed.
+- `K3Surface.isomorphismInvariant` (equivalence): A k-isomorphism transports the K3 conditions and ample invertible sheaves. The K3 predicate is proof-irrelevant; a polarization is identified by its invertible-sheaf isomorphism class, not by a chosen equation or trivialization of ω.
 
 **Uses.** Charles16 Theorems 2.4 and 2.10: Admits nonprimitive input polarizations and moduli after field extension.; K3SurfacesAndSymplecticBoundedness:K3.0/ns-lattice: The numerical and geometric néron–severi lattices target uses this k3 surfaces interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.1/hilbert-points: The hilbert schemes of points on k3 surfaces target uses this k3 surfaces interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.7/superspecial: The superspecial k3 surfaces target uses this k3 surfaces interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.11/rational-curves-criterion: The the li–liedtke lifting criterion target uses this k3 surfaces interface with the stated normalization and base-change conditions..
 
@@ -104,6 +105,7 @@ K3 surfaces with arbitrary ample polarizations, numerical/arithmetic/geometric N
 - `K3.picEquivNS` (equivalence): Pic(X) agrees with the numerical lattice for a K3 surface.
 - `K3.nsIntegralLattice` (compatibility): Its rational ambient lattice has the same carrier and integral form as TauCeti.IntegralLattice.
 - `K3.nsSignature` (characterisation): For projective geometric X the real signature is (1,ρ−1).
+- `K3.nsQuotient` (universal-property): The divisor-class projection is additive and surjective; two classes agree exactly when their difference has zero intersection with every curve. Every additive map annihilating numerical equivalence factors uniquely through this projection.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.0/cycle-lattice: The primitive cycle classes and the k3 cohomology lattice target uses this numerical and geometric néron–severi lattices interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.4/nef-linear-series: The k3 positive classes and linear series target uses this numerical and geometric néron–severi lattices interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.7/admissible: The admissible symplectic triples target uses this numerical and geometric néron–severi lattices interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.10/transcendental-datum: The the transcendental orthogonal datum of a k3 target uses this numerical and geometric néron–severi lattices interface with the stated normalization and base-change conditions..
 
@@ -132,7 +134,7 @@ K3 surfaces with arbitrary ample polarizations, numerical/arithmetic/geometric N
 
 **Acceptance:** Use Pic⊗Z_ℓ, not the raw Pic→Z_ℓ-module cokernel. Check determinant convention is the ordinary Gram determinant.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §2.1, p.492; §2.4 proof; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Huybrechts author draft, Chapter1 §3, pp16–18, Proposition3.5 and Remark3.7; LMS Lemma3.5.2 p302; [SSTT22](https://doi.org/10.1017/fmp.2022.14), §9.1, p.44.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §2.1 p.492; Theorem 2.4 proof, pp.494–497; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), §2.2.2, p.289; Lemma 3.5.2 and proof, p.302; [SSTT22](https://doi.org/10.1017/fmp.2022.14), §9.1, p.44.
 
 <a id="K3-0-picard-lift"></a>
 
@@ -150,7 +152,7 @@ K3 surfaces with arbitrary ample polarizations, numerical/arithmetic/geometric N
 
 **Acceptance:** The ample class is counted among the ten. W-lifting used in K3.3 is a stronger separate hypothesis.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 1.5, p.491; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 1.5 proof; Lieblich–Maulik 2014 Cor.4.2; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 1.5 proof; Artin 1974.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 1.5 and proof, p.491; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 1.5 proof, p.491; citing Lieblich–Maulik Corollary 4.2; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 1.5 proof, p.491; citing Artin’s infinite-height locus theorem.
 
 ## K3.1 — Mukai lattices and K3 moduli inputs
 
@@ -175,6 +177,7 @@ The algebraic and prime-to-characteristic Mukai lattices, vector (rk,c₁,χ−r
 - `Mukai.pair` (data): The displayed integral symmetric pairing is bilinear.
 - `Mukai.baseChange` (functoriality): Pullback fixes the rank and numerical top generator and pulls back D.
 - `Mukai.hyperbolic` (compatibility): The rank/top summand has Gram matrix [[0,−1],[−1,0]] in that ordered basis.
+- `Mukai.coordinate_simp` (simp): The rank, middle and top projections of mk(r,D,s) are r,D,s; pairing with each pure summand recovers the intersection term or the negative cross coordinate. Additive maps out of the direct sum are determined by the three summands.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.1/mukai-vector: The mukai vectors of sheaves target uses this mukai lattices interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.1/condition-c: The condition (c) target uses this mukai lattices interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.2/theta: The mukai comparison maps target uses this mukai lattices interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.3/rank-two-plane: The primitive norm-two plane target uses this mukai lattices interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.8/exponential: The rational mukai exponentials target uses this mukai lattices interface with the stated normalization and base-change conditions..
 
@@ -207,6 +210,7 @@ The algebraic and prime-to-characteristic Mukai lattices, vector (rk,c₁,χ−r
 - `K3.mukaiVector_exact` (relation): A short exact sequence gives an additive identity.
 - `K3.mukaiVector_tensor` (compatibility): Tensor by O(D) agrees with the integral exponential action.
 - `K3.mukaiVector_ideal` (simp): For a length-n ideal sheaf I_Z, v(I_Z)=(1,0,1−n).
+- `K3.mukaiVector_coordinates` (characterisation): The three coordinates are rk(E),c₁(E),χ(E)−rk(E), and these identities characterize the vector by componentwise extensionality; the zero K₀ class has zero vector.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.1/mukai-rr: The mukai riemann–roch target uses this mukai vectors of sheaves interface with the stated normalization and base-change conditions..
 
@@ -312,7 +316,7 @@ The algebraic and prime-to-characteristic Mukai lattices, vector (rk,c₁,χ−r
 
 **Acceptance:** An arbitrary symplectic variety is not an IHS manifold.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §1.1 p.488; §3.2.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §1.1 p.488; §3.2 pp.507–510.
 
 <a id="K3-1-hilbert-points"></a>
 
@@ -387,6 +391,7 @@ Smooth projective geometrically irreducible stable-sheaf moduli of dimension v²
 - `K3Moduli.fujiki` (characterisation): The top-power identity and positivity specify the normalization on K3^[n] type.
 - `K3Moduli.bbNS` (compatibility): The numerical NS form realizes in each prime-to-p cohomology theory.
 - `IHS.bbBirational` (functoriality): The integral form is invariant under the H² isomorphism of birational IHS manifolds.
+- `K3Moduli.bbForm_unique` (extensionality): On a fixed K3^[n] H² lattice, the Fujiki identity together with positivity on the Kähler cone fixes the normalized quadratic form; its bilinear pairing is recovered by polarization. A general IHS type retains its own Fujiki constant.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.2/theta: The mukai comparison maps target uses this beauville–bogomolov forms interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.3/descent-refinement: The prime-to-n classes and descent exponents target uses this beauville–bogomolov forms interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.5/positive-projectivity: The positive classes and ihs projectivity target uses this beauville–bogomolov forms interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.6/birational-transport: The picard and section transport target uses this beauville–bogomolov forms interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.7/admissible: The admissible symplectic triples target uses this beauville–bogomolov forms interface with the stated normalization and base-change conditions..
 
@@ -420,6 +425,7 @@ Smooth projective geometrically irreducible stable-sheaf moduli of dimension v²
 - `Mukai.theta_algebraic` (compatibility): The integral algebraic map commutes with completed first Chern classes.
 - `Mukai.theta_galois` (functoriality): θ commutes with geometric Galois action and eligible base change.
 - `Mukai.theta_cokernel` (characterisation): Only p-primary algebraic cokernel remains in characteristic p; in characteristic zero it vanishes.
+- `Mukai.theta_independent` (compatibility): Normalize a quasi-universal sheaf by its similitude. Twisting it by a line bundle pulled back from the moduli space leaves the restriction to v^⊥ unchanged; compatible presentations give the same θ. The integral comparison proof, not formal division alone, establishes integrality.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.2/theta-specialization: The saturation under specialization target uses this mukai comparison maps interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.2/mukai-discriminant: The corrected mukai discriminant relation target uses this mukai comparison maps interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.3/zarhin: The zarhin’s trick for k3 surfaces target uses this mukai comparison maps interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.3/descent-refinement: The prime-to-n classes and descent exponents target uses this mukai comparison maps interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.7/line-lift: The lifting the auxiliary moduli line bundle target uses this mukai comparison maps interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.8/isotropic-theta: The isotropic mukai quotient comparisons target uses this mukai comparison maps interface with the stated normalization and base-change conditions..
 
@@ -496,7 +502,7 @@ For d>0 construct uniform r,N,a,b and fourfold Mukai moduli for H²=2md under th
 
 **Theorem.** In Λ_2d=⟨2d⟩⊕U with (e,f)=1, let v=e+f and w=kh+e, where k≥1 and d≥1. Their span is primitive, has positive-definite Gram matrix [[2,1],[1,2dk²]], and l=2w−v lies in v^⊥ with l²=2(4dk²−1). If an odd integer n divides k then l² is prime to n.
 
-**Prerequisites:** [K3.1/mukai-lattice](#K3-1-mukai-lattice), `GeometryOfNumbersAndQuadraticArithmetic:GN.2`.
+**Prerequisites:** [K3.1/mukai-lattice](#K3-1-mukai-lattice), `tauceti:TauCeti.IntegralLattice`.
 
 **Construction or proof.**
 
@@ -513,7 +519,7 @@ For d>0 construct uniform r,N,a,b and fourfold Mukai moduli for H²=2md under th
 
 **Theorem.** For every positive integer d there exist positive integers r,N and nonzero integers a,b such that, for any field k and polarized K3 (X,H) with H²=2md, m>0, m≡1 mod N, gcd(m,ab)=1, and a,b squares modulo m, there exists v satisfying (C) with c₁(v) rationally proportional to H, dim M_H(v)=4, and a line bundle L on M_H(v) with L⁴=r and q(L)>0. The constants depend on d, not on k,X,H,m.
 
-**Prerequisites:** [K3.3/rank-two-plane](#K3-3-rank-two-plane), [K3.2/theta](#K3-2-theta), [K3.2/stable-moduli](#K3-2-stable-moduli), `GeometryOfNumbersAndQuadraticArithmetic:GN.2`, [K3.3/descent-refinement](#K3-3-descent-refinement).
+**Prerequisites:** [K3.3/rank-two-plane](#K3-3-rank-two-plane), [K3.2/theta](#K3-2-theta), [K3.2/stable-moduli](#K3-2-stable-moduli), `tauceti:TauCeti.IntegralLattice`, [K3.3/descent-refinement](#K3-3-descent-refinement).
 
 **Construction or proof.**
 
@@ -579,7 +585,7 @@ Reflect positive K3 classes into the nef cone, analyze fixed components and boun
 
 **Acceptance:** Reflections preserve r; they need not preserve the original ample chamber. A positive-square line bundle itself need not be ample.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 3.1 proof, p.505; Ogus 1.10, Huybrechts Ch.8; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 3.1 proof, pp.505–506; Saint-Donat §§2,8.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 3.1 proof, p.505; citing Ogus and Huybrechts; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 3.1 proof, pp.505–506; citing Saint-Donat §§2,8.
 
 <a id="K3-4-k3-boundedness"></a>
 
@@ -595,7 +601,7 @@ Reflect positive K3 classes into the nef cone, analyze fixed components and boun
 2. Separate tangent/separability and degree-one assertions for reduced and nonreduced general members, using the source jet-separation calculation.
 3. Correct the final calculation: if the last bundle is 4L with L²=s, then (4L)²=16s and h⁰(4L)=8s+2; include every preceding replacement.
 
-**Acceptance:** Do not use the printed final constants. In the nonreduced branch C=2C_red, positivity and K3 parity force C²≥8, so the inequality 3C²−4>C² applies.
+**Acceptance:** Do not use the printed final constants. In the nonreduced branch C=2C_red, positivity and K3 parity force C²≥8, so the inequality 3C²−4>C² applies. The rejected r=2 objection concerns a branch where the square is already divisible by four.
 
 **Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Proposition 3.1, pp.504–506.
 
@@ -605,7 +611,7 @@ Reflect positive K3 classes into the nef cone, analyze fixed components and boun
 
 **Theorem.** For a K3 surface over a finite field, an extension of degree 6983776800 suffices to trivialize the Galois action on its geometric NS lattice; over that extension every invariant geometric line bundle descends since the Brauer group of a finite field vanishes. The degree is a uniform multiple, not the asserted minimum for each surface.
 
-**Prerequisites:** [K3.0/cycle-lattice](#K3-0-cycle-lattice), `AlgebraicModuliForArithmeticGeometry:R09.5`, `GeometryOfNumbersAndQuadraticArithmetic:GN.3`.
+**Prerequisites:** [K3.0/cycle-lattice](#K3-0-cycle-lattice), `AlgebraicModuliForArithmeticGeometry:R09.5`, `tauceti:TauCeti.IntegralLattice`.
 
 **Construction or proof.**
 
@@ -614,7 +620,7 @@ Reflect positive K3 classes into the nef cone, analyze fixed components and boun
 
 **Acceptance:** Keep trivial NS action distinct from descent over a general field.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Corollary 3.2 proof; LMS §2.3, extension degree 6983776800.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Corollary 3.2 proof, pp.506–507; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), §2.3, pp.291–292.
 
 <a id="K3-4-finite-k3"></a>
 
@@ -654,7 +660,7 @@ Positive-class projectivity with corrected Huybrechts theorem, local Torelli ran
 
 **Acceptance:** A negative-square integral (1,1) class does not satisfy this criterion.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §1.1 p.488; Lemma 3.5 proof; Huybrechts 1999 with 2003 erratum; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Lemma 3.5 proof, p.507; Beauville Th.5.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §1.1 p.488; Lemma 3.5 proof pp.507–508; citing Huybrechts with the 2003 erratum; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Lemma 3.5 proof, p.507; citing Beauville Theorem 5.
 
 <a id="K3-5-deformation-representatives"></a>
 
@@ -677,13 +683,13 @@ Positive-class projectivity with corrected Huybrechts theorem, local Torelli ran
 
 ### K3.5/period-datum — Polarized IHS period data
 
-**Construction.** For a fixed deformation representative with BB lattice Λ and positive integral class l=c₁(L), form D={ [σ]∈P(l^⊥⊗C): (σ,σ)=0, (σ,bar σ)>0 }. The integral l need not itself be primitive. Use the subgroup of O(l^⊥) extending to O(Λ) and fixing l, retaining the chosen connected period component and markings compatible with parallel transport. This is a specialization of the existing Hodge period-domain API.
+**Construction.** For a fixed deformation representative with BB lattice Λ and positive integral class l=c₁(L), form D={ [σ]∈P(l^⊥⊗C): (σ,σ)=0, (σ,bar σ)>0 }. The integral l need not itself be primitive. Use the subgroup of O(l^⊥) extending to O(Λ) and fixing l, retaining the chosen connected period component and markings compatible with parallel transport. Use TauCeti.Hodge.PeriodDomain.Point for the underlying polarized weight-two filtration on the finite free primitive lattice, with the chosen positive normalization/sign of its integral form. The comparison with the displayed projective-line domain and its complex geometry is the IHS specialization; no new general period-point carrier is defined.
 
-**Prerequisites:** [K3.5/deformation-representatives](#K3-5-deformation-representatives), `tauceti:TauCeti.Hodge.HodgeStructureOn`, `tauceti:TauCeti.IntegralLattice`, `ShimuraVarieties:V0`.
+**Prerequisites:** [K3.5/deformation-representatives](#K3-5-deformation-representatives), `tauceti:TauCeti.Hodge.HodgeStructureOn`, `tauceti:TauCeti.IntegralLattice`, `ShimuraVarieties:V0`, `tauceti:TauCeti.Hodge.PeriodDomain.Point`.
 
 **Construction or proof.**
 
-1. Specialize the existing polarized weight-two Hodge domain, using −cup for the polarization convention when required.
+1. Specialize TauCeti.Hodge.PeriodDomain.Point at weight two and the IHS Hodge numbers; choose the sign of the primitive BB form that satisfies the existing polarization convention, then compare its filtration with the displayed line domain.
 2. Keep the ambient-lattice extension condition instead of enlarging to all isometries of l^⊥.
 
 **API.**
@@ -691,7 +697,8 @@ Positive-class projectivity with corrected Huybrechts theorem, local Torelli ran
 - `IHS.periodPoint` (constructor): A marking sends the H²⁰ line into D.
 - `IHS.periodPoint_rescale` (characterisation): Rescaling a generator of H²⁰ does not change the projective point.
 - `IHS.periodAction` (functoriality): An extending integral isometry acts on marked periods, with identity and composition laws.
-- `IHS.periodDomainComparison` (compatibility): Identify this domain with the existing weight-two polarized Hodge period domain under the fixed sign convention.
+- `IHS.periodDomainComparison` (compatibility): Identify the displayed line domain with TauCeti.Hodge.PeriodDomain.Point of the primitive weight-two type, under the fixed sign convention and base-change map.
+- `IHS.periodPoint_ext` (extensionality): Equality of the Hodge filtrations gives equality of the underlying period points by TauCeti.Hodge.PeriodDomain.Point.ext; the comparison with projective lines respects this equality.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.5/monodromy-arithmetic: The arithmetic polarized monodromy target uses this polarized ihs period data interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.5/torelli: The global torelli with parallel transport target uses this polarized ihs period data interface with the stated normalization and base-change conditions..
 
@@ -811,7 +818,7 @@ Finite algebraic period-covering families, codimension-two Picard/section transp
 
 **Acceptance:** Uniformity for the original L is not asserted. All constants depend only on n,r.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Theorem 3.3 first conclusion p.507.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Theorem 3.3 p.507; Lemma 3.6 and proof p.508; final boundedness argument p.510.
 
 <a id="K3-6-ihs-family"></a>
 
@@ -852,6 +859,7 @@ Actual W-family witnesses for admissible/strongly admissible triples in p≥5, s
 - `AdmissibleTriple.primitiveLattice` (data): Return Λ_l with its mod-p nondegenerate pairing.
 - `AdmissibleTriple.baseChange` (functoriality): Eligible perfect-field/Witt base change transports the witness and its comparison data.
 - `AdmissibleTriple.forget` (coercion): Forget to the special-fiber polarized projective variety with positive L.
+- `AdmissibleTriple.ofFamily` (constructor): A smooth projective W-family, the specified special point, H,L, comparison data, torsion-free H²/H³ and mod-p nondegenerate primitive complement produce an admissibility witness. Forgetting it recovers that special-fiber triple; distinct witnesses need not be equal.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.7/strong-admissible: The strong admissibility target uses this admissible symplectic triples interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.7/admissible-hodge: The low-degree admissible hodge–de rham control target uses this admissible symplectic triples interface with the stated normalization and base-change conditions..
 
@@ -882,6 +890,7 @@ Actual W-family witnesses for admissible/strongly admissible triples in p≥5, s
 - `StronglyAdmissible.toAdmissible` (coercion): Forget ordinarity and minimal generic NS span.
 - `StronglyAdmissible.ordinaryGeneric` (projection): The generic special-fiber H² crystal is ordinary.
 - `StronglyAdmissible.nsGeneric` (characterisation): Every rational NS class of that fiber is a rational combination of H,L.
+- `StronglyAdmissible.ofWitness` (constructor): An admissibility witness whose generic special fiber is ordinary and has rational NS spanned by H,L gives a strong witness. Dominant eligible base change transports it when the geometric generic fiber and comparison hypotheses are preserved.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.7/strong-zarhin: The strongly admissible zarhin fourfolds target uses this strong admissibility interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.7/ns-special-endomorphisms: The primitive divisors as special endomorphisms target uses this strong admissibility interface with the stated normalization and base-change conditions..
 
@@ -1019,7 +1028,7 @@ Actual W-family witnesses for admissible/strongly admissible triples in p≥5, s
 
 **Theorem.** For a fixed finite k of p≥5 and fixed dimension 2n and positive top power r, only finitely many geometric NS lattices occur among the strongly admissible triples of the source scope. Their integral BB forms, not merely rational quadratic spaces, are bounded.
 
-**Prerequisites:** [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), `GeometryOfNumbersAndQuadraticArithmetic:GN.3`, `ShimuraVarieties:V6`, `AlgebraicModuliForArithmeticGeometry:R09.5`, [K3.5/deformation-representatives](#K3-5-deformation-representatives).
+**Prerequisites:** [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), `tauceti:TauCeti.IntegralLattice`, `ShimuraVarieties:V6`, `AlgebraicModuliForArithmeticGeometry:R09.5`, [K3.5/deformation-representatives](#K3-5-deformation-representatives).
 
 **Construction or proof.**
 
@@ -1037,7 +1046,7 @@ Actual W-family witnesses for admissible/strongly admissible triples in p≥5, s
 
 **Theorem.** Fix a finite field k of p≥5, d>0 and t₀≥0. There exist N>0 and a,b≠0 such that the underlying nonsuperspecial K3 surfaces X/k admitting an ample H with H²=2md, m≡1 mod N, gcd(m,ab)=1, a,b squares modulo m, and v_p(|disc NS(X_kbar)|)≤t₀, form a finite set of k-isomorphism classes. Polarized pairs (X,H) are not claimed finite.
 
-**Prerequisites:** [K3.7/strong-zarhin](#K3-7-strong-zarhin), [K3.7/finite-ns](#K3-7-finite-ns), [K3.2/mukai-discriminant](#K3-2-mukai-discriminant), [K3.4/finite-k3](#K3-4-finite-k3), `GeometryOfNumbersAndQuadraticArithmetic:GN.3`.
+**Prerequisites:** [K3.7/strong-zarhin](#K3-7-strong-zarhin), [K3.7/finite-ns](#K3-7-finite-ns), [K3.2/mukai-discriminant](#K3-2-mukai-discriminant), [K3.4/finite-k3](#K3-4-finite-k3), `tauceti:TauCeti.IntegralLattice`.
 
 **Construction or proof.**
 
@@ -1072,6 +1081,7 @@ Arithmetic transcendental lattices and B-fields, rational exp(B), the explicit i
 - `K3.transcendental_pair_zero` (characterisation): Membership means orthogonality to every arithmetic divisor.
 - `K3.transcendental_baseExtension` (functoriality): Compare invariant lattices under a finite field extension, retaining the changed Frobenius power.
 - `K3.transcendental_geometric` (compatibility): The inclusion into geometric H² is injective; no surjectivity to its full complement is asserted.
+- `K3.arithmeticTranscendental_lift` (universal-property): A Z_ℓ-linear map into invariant H² whose image pairs to zero with all arithmetic divisor classes factors uniquely through this native orthogonal submodule. Its inclusion is injective and preserves the restricted pairing.
 
 **Uses.** K3SurfacesAndSymplecticBoundedness:K3.8/b-field: The ℓ-adic b-fields target uses this arithmetic transcendental lattices interface with the stated normalization and base-change conditions.; K3SurfacesAndSymplecticBoundedness:K3.9/frobenius-brauer: The frobenius and infinite brauer input target uses this arithmetic transcendental lattices interface with the stated normalization and base-change conditions..
 
@@ -1083,7 +1093,7 @@ Arithmetic transcendental lattices and B-fields, rational exp(B), the explicit i
 
 **Acceptance:** T may be zero even though the full geometric orthogonal complement has positive rank.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 p.520; LMS §3.2.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 p.520; LMS §3.2; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), §3.2, pp.294–296.
 
 <a id="K3-8-b-field"></a>
 
@@ -1147,7 +1157,7 @@ Arithmetic transcendental lattices and B-fields, rational exp(B), the explicit i
 
 **Acceptance:** Rational denominators are retained.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.1 pp.518–519; LMS §3.3.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.1 pp.518–519; LMS §3.3; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), §3.3, pp.296–297.
 
 <a id="K3-8-twisted-lattice"></a>
 
@@ -1215,7 +1225,7 @@ Arithmetic transcendental lattices and B-fields, rational exp(B), the explicit i
 
 **Acceptance:** Primitive arithmetic B-field data alone is not the rank-order condition.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.1; LMS Prop.3.4.2(1) arXiv v5 = cited published Prop.3.4.1; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), LMS Prop.3.4.2(2), used by Charles §4.1; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Definition 3.4.1, Proposition 3.4.2(1)–(2) and proof, pp.299–300.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.1, pp.519–520; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Definition 3.4.1, Proposition 3.4.2(1)–(2) and proof, pp.299–300.
 
 <a id="K3-8-fine-partner"></a>
 
@@ -1232,7 +1242,7 @@ Arithmetic transcendental lattices and B-fields, rational exp(B), the explicit i
 
 **Acceptance:** Do not infer rank-r sheaf existence from the Brauer period alone.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), LMS Prop.3.4.2(3), arXiv v5; Charles §4.2 partner construction; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Proposition 3.4.2(3), Lemma 3.4.3 and Remark 3.4.4, pp.299–301.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2, pp.521–522; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Proposition 3.4.2(3), Lemma 3.4.3 and Remark 3.4.4, pp.299–301.
 
 <a id="K3-8-isotropic-theta"></a>
 
@@ -1303,7 +1313,7 @@ Early Tate–Brauer/trace interface, Frobenius and infinite arithmetic Brauer in
 
 **Acceptance:** There is no dependency from an early input back to Charles Theorem 1.3 or 1.4.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4 opening; Lemma 4.5 proof; Tate 1995 and Milne 1975; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Theorem 4.4 p.520; LMS main theorem; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 finite-extension reduction p.520; LMS §2.3.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4 opening p.518; Lemma 4.5 proof pp.520–521; citing Tate and Milne; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Theorem 4.4 p.520; citing LMS main theorem; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 finite-extension reduction p.520; citing LMS §2.3; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), §2.3, pp.291–292.
 
 <a id="K3-9-frobenius-brauer"></a>
 
@@ -1321,7 +1331,7 @@ Early Tate–Brauer/trace interface, Frobenius and infinite arithmetic Brauer in
 
 **Acceptance:** An infinite geometric Brauer group is not the premise; Br(X) is arithmetic.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), LMS Prop.2.1.3; Charles Lemma 4.5 input; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Lemma 4.5 proof; LMS Lemma 3.2.7, Prop.3.2.8; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Proposition 2.1.3, p.288; Lemma 3.2.7 and Proposition 3.2.8, pp.295–296.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Lemma 4.5 and proof, pp.520–521; invoking LMS Proposition 2.1.3; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Lemma 4.5 proof, pp.520–521; invoking LMS Lemma 3.2.7 and Proposition 3.2.8; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Proposition 2.1.3, p.288; Lemma 3.2.7 and Proposition 3.2.8, pp.295–296.
 
 <a id="K3-9-conditional-norm"></a>
 
@@ -1329,7 +1339,7 @@ Early Tate–Brauer/trace interface, Frobenius and infinite arithmetic Brauer in
 
 **Theorem.** Conditional norm-one target: first pass to a finite extension killing all root-of-unity eigenvalues other than 1 on H²(1), assume semisimplicity on the 1-part and the integral invariant-lattice control. If g is the Frobenius polynomial on the noninvariant complement, then disc T has square class c=−g(1)g(−1)disc NS(X). At sufficiently large ℓ where c and −1 are squares and the lattice is unimodular, nonzero T represents 1. The original-field claim without these conditions is not supplied.
 
-**Prerequisites:** [K3.9/frobenius-brauer](#K3-9-frobenius-brauer), `GeometryOfNumbersAndQuadraticArithmetic:GN.2`.
+**Prerequisites:** [K3.9/frobenius-brauer](#K3-9-frobenius-brauer), `tauceti:TauCeti.IntegralLattice`.
 
 **Construction or proof.**
 
@@ -1347,7 +1357,7 @@ Early Tate–Brauer/trace interface, Frobenius and infinite arithmetic Brauer in
 
 **Theorem.** Let k have characteristic p≥5, enlarge to k₀ where all geometric divisors are defined and then to its quadratic extension k₁, and suppose rational Tate fails (hence Br remains infinite by rational descent). For fixed nonzero d₀∈Q, N>0 and a,b≠0, there are infinitely many odd primes ℓ away from all fixed denominators/discriminants and p such that ℓ≡1 mod N, a,b and 2 are squares modulo every ℓ-power, and a primitive γ∈T(X_k₁,Z_ℓ) has γ²=d₀. The same prime works for all partner indices n.
 
-**Prerequisites:** [K3.9/frobenius-brauer](#K3-9-frobenius-brauer), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface), `GeometryOfNumbersAndQuadraticArithmetic:GN.2`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`.
+**Prerequisites:** [K3.9/frobenius-brauer](#K3-9-frobenius-brauer), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface), `tauceti:TauCeti.IntegralLattice`, `tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`, `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`.
 
 **Construction or proof.**
 
@@ -1358,7 +1368,7 @@ Early Tate–Brauer/trace interface, Frobenius and infinite arithmetic Brauer in
 
 **Acceptance:** Use one common compositum, not separate unrelated infinite prime sets. A rank-two unimodular lattice need not represent every nonunit; unit representation suffices.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), LMS Lemma 3.5.2, arXiv v5, substitute for Charles Lemma 4.5; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), LMS §3.5, published p302; Charles §4.2 pp520–522; simultaneous splitting-field refinement; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Lemmas 3.5.1–3.5.2, p.302.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), Lemma 4.5 and §4.2, pp.520–522; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Lemmas 3.5.1–3.5.2, p.302.
 
 <a id="K3-9-partner-sequence"></a>
 
@@ -1377,7 +1387,7 @@ Early Tate–Brauer/trace interface, Frobenius and infinite arithmetic Brauer in
 
 **Acceptance:** The sign of v_n·(0,D,0) is positive. Exact geometric Brauer order is proved before automatic stability is used.
 
-**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 p.521; LMS Prop.3.5.6 arXiv v5; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 pp.521–522; LMS Prop.3.5.6; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 pp.522–523; Proposition 4.3.
+**Sources:** [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 p.521; invoking the LMS partner construction; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 pp.521–522; compare published LMS Proposition 3.5.6; [Charles16](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n2-p04-p.pdf), §4.2 pp.522–523; Proposition 4.3 pp.519–520; [LMS14](https://www.numdam.org/item/10.24033/asens.2215.pdf), Proposition 3.5.6 and proof, pp.303–305.
 
 <a id="K3-9-fixed-positive-square"></a>
 
@@ -1385,7 +1395,7 @@ Early Tate–Brauer/trace interface, Frobenius and infinite arithmetic Brauer in
 
 **Theorem.** If the geometric NS rank is at least two and all its classes are defined over the finite base field, choose a primitive D with D²=2d<0 and B⊥D with B²=2e>0. Run the partner sequence using γ²=−2d>0. The class (0,B,0) lies in v_n^⊥ and maps to B_n∈NS(X_n) with B_n²=2e. Thus the X_n have one fixed positive square despite unbounded ℓ-discriminants.
 
-**Prerequisites:** [K3.9/partner-sequence](#K3-9-partner-sequence), [K3.8/isotropic-theta](#K3-8-isotropic-theta), `GeometryOfNumbersAndQuadraticArithmetic:GN.2`.
+**Prerequisites:** [K3.9/partner-sequence](#K3-9-partner-sequence), [K3.8/isotropic-theta](#K3-8-isotropic-theta), `tauceti:TauCeti.IntegralLattice`.
 
 **Construction or proof.**
 
@@ -1477,7 +1487,7 @@ The signed transcendental K3 datum with b=20−ρ, André’s arithmetic rationa
 
 **Construction.** Let X/K be a K3 over a number field with all geometric Picard classes defined over K, and σ:K→C. In H²_Betti(X_σ,Z), Pic embeds primitively with signature (1,ρ−1); its rational orthogonal T has signature (2,20−ρ). Set Q_T(x)=−(x,x)_cup/2, so its polar bilinear form is −cup and the Clifford relation is x²=Q_T(x). Choose a lattice L maximal among lattices of T on which Q_T is integral; its signed signature is (b,2), b=20−ρ. Compare the genera for different σ and maximal choices through local realizations, retaining the required dyadic qualifications. The associated period avoids every rational special divisor by Lefschetz (1,1); no maximal Mumford–Tate-group assertion is made.
 
-**Prerequisites:** [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.0/ns-lattice](#K3-0-ns-lattice), `tauceti:TauCeti.IntegralLattice`, `tauceti:TauCeti.Hodge.HodgeStructureOn`, `GeometryOfNumbersAndQuadraticArithmetic:GN.2`, `MotivesAndAlgebraicCycles:MC.7`, `ShimuraVarieties:V6`.
+**Prerequisites:** [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.0/ns-lattice](#K3-0-ns-lattice), `tauceti:TauCeti.IntegralLattice`, `tauceti:TauCeti.Hodge.HodgeStructureOn`, `MotivesAndAlgebraicCycles:MC.7`, `ShimuraVarieties:V6`.
 
 **Construction or proof.**
 
@@ -1508,7 +1518,7 @@ The signed transcendental K3 datum with b=20−ρ, André’s arithmetic rationa
 
 ### K3.10/andre-descent — André’s arithmetic Kuga–Satake comparison
 
-**Theorem.** After a finite extension of K, the Kuga–Satake abelian variety of the polarized K3 Hodge structure is defined over K, and André’s comparison identifies the even Clifford algebra of primitive rational H²(1) with the endomorphisms of H¹ commuting with the Clifford action, equivariantly for Galois and the stated involutions. With the orthogonal supplier’s level and lattice data this yields the required point x∈M(K). André Main Lemma 1.7.1 alone does not supply an integral special-fiber divisor correspondence.
+**Theorem.** After a finite extension of K, the Kuga–Satake abelian variety of the polarized K3 Hodge structure is defined over K, and André’s comparison identifies the even Clifford algebra of primitive rational H²(1) with the endomorphisms of H¹ commuting with the Clifford action, equivariantly for Galois. With the orthogonal supplier’s level and lattice data this yields the required point x∈M(K). André Main Lemma 1.7.1 alone does not supply an integral special-fiber divisor correspondence.
 
 **Prerequisites:** [K3.10/transcendental-datum](#K3-10-transcendental-datum), `ShimuraVarieties:V6`, `MotivesAndAlgebraicCycles:MC.2`.
 
@@ -1518,7 +1528,7 @@ The signed transcendental K3 datum with b=20−ρ, André’s arithmetic rationa
 2. Pass to the finite extension defining the abelian variety, Clifford action, polarization and auxiliary level.
 3. Use the orthogonal canonical-model moduli interpretation to compare the chosen maximal transcendental datum with the polarized KS construction.
 
-**Acceptance:** The generic Galois-equivariant even-Clifford comparison, including the integral modules in André’s stated scope, is distinguished from a theorem about divisors on a special fiber.
+**Acceptance:** The generic Galois-equivariant even-Clifford comparison, including the integral modules in André’s stated scope, is distinguished from a theorem about divisors on a special fiber. Involution compatibility is not attributed to Main Lemma 1.7.1; any extra tensor or involution comparison required by the chosen moduli interpretation belongs to the orthogonal supplier contract.
 
 **Sources:** [SSTT22](https://doi.org/10.1017/fmp.2022.14), §9.1, pp.44–45; [Andre96](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0305/LOG_0026.pdf), §1.7, Main Lemma 1.7.1, p.210.
 
@@ -1538,7 +1548,7 @@ The signed transcendental K3 datum with b=20−ρ, André’s arithmetic rationa
 
 **Acceptance:** Use potential good reduction, not an unsupported integral canonical-model extension by generic properness.
 
-**Sources:** [SSTT22](https://doi.org/10.1017/fmp.2022.14), §9.1, pp.44–45; [Andre96](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0305/LOG_0026.pdf), §9.1, p.240; Lemma 9.3.1 and proof, pp.241–242.
+**Sources:** [SSTT22](https://doi.org/10.1017/fmp.2022.14), §9.1, pp.44–45; [Andre96](https://gdz.sub.uni-goettingen.de/download/pdf/PPN235181684_0305/LOG_0026.pdf), §9.1 p.240; Lemma 9.3.1, proof and Remark 9.3.2, p.241.
 
 <a id="K3-10-integral-point"></a>
 
@@ -1602,18 +1612,18 @@ SSTT Theorem 1.1 in its potential smooth projective model scope, split between b
 
 ### K3.11/picard-jump-low-dimension — Low-dimensional Picard-jump input
 
-**Theorem.** For K3 surfaces over number fields of geometric Picard rank 18,19 or20, supply the infinitely-many-rank-jumps conclusion by the separate b≤2 arithmetic arguments cited by SSTT (Charles 2018 and Shankar–Tang 2019), and the rank constraints in the b=0 case. State and prove the b=2, b=1 and b=0 cases separately; the b≥3 height theorem does not apply to them.
+**Theorem.** For K3 surfaces over number fields of geometric Picard rank 18,19 or20, supply the infinitely-many-rank-jumps conclusion by the separate b≤2 arithmetic arguments cited by SSTT (Charles 2018 and Shankar–Tang 2019), and the rank constraints in the b=0 case. These are an explicit source-acquisition/proof-contract target, not an application of the b≥3 height theorem.
 
 **Prerequisites:** [K3.10/transcendental-datum](#K3-10-transcendental-datum), [K3.0/cycle-lattice](#K3-0-cycle-lattice).
 
 **Construction or proof.**
 
-1. Separate b=2, b=1 and b=0. Use the exact exceptional-isogeny/arithmetic-intersection theorem needed in each case.
+1. Separate b=2, b=1 and b=0. Acquire the exact exceptional-isogeny/arithmetic-intersection theorem needed in each case.
 2. Compare that statement’s finite-extension and reduction hypotheses to the K3 datum; prove the Picard-rank translation as for the high-dimensional case.
 
-**Acceptance:** The low-dimensional arguments must include their exact reduction and field-extension hypotheses.
+**Acceptance:** The low-dimensional arguments must include their exact reduction and field-extension hypotheses. No unconditional low-dimensional proof is certified until these primary inputs are checked.
 
-**Sources:** [SSTT22](https://doi.org/10.1017/fmp.2022.14), Theorem 1.1, p.2; proof, §9.1, pp.44–45.
+**Sources:** [SSTT22](https://doi.org/10.1017/fmp.2022.14), Theorem 1.1 p.2; footnote 1 p.4; §9.1 pp.44–45.
 
 <a id="K3-11-picard-jump"></a>
 
@@ -1671,263 +1681,273 @@ SSTT Theorem 1.1 in its potential smooth projective model scope, split between b
 
 ## Required supplier interfaces
 
-Each interface below is a direct dependency of named targets. A parent-stage reference for a Part II denotes a required extension in that owner’s direction; its generic scope alone does not prove the stronger statement.
+These are precise consumer requests. A parent-stage reference does not certify an additional Part II theorem.
 
 ### SchemeAndStackFoundations:SF.2
 
 Proper/smooth base change, Kummer and Hochschild–Serre with integral ℓ-adic coefficients, coherent cohomology for proper smooth surfaces, Serre duality, and completed cycle-class compatibility. Require ℓ invertible and use geometric versus arithmetic cohomology explicitly.
 
-**Consumers:** [K3.0/k3-surface](#K3-0-k3-surface), [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.8/arithmetic-transcendental](#K3-8-arithmetic-transcendental), [K3.8/b-field](#K3-8-b-field), [K3.9/frobenius-brauer](#K3-9-frobenius-brauer), [K3.10/andre-good-reduction](#K3-10-andre-good-reduction).
+**Needed by:** [K3.0/k3-surface](#K3-0-k3-surface), [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.8/arithmetic-transcendental](#K3-8-arithmetic-transcendental), [K3.8/b-field](#K3-8-b-field), [K3.9/frobenius-brauer](#K3-9-frobenius-brauer), [K3.10/andre-good-reduction](#K3-10-andre-good-reduction).
 
 ### SchemeAndStackFoundations:SF.5
 
 Surface Riemann–Roch, adjunction, Chern character/Todd class, trace/cup and intersection, Hodge index for N¹_R, and the K3 linear-series vanishing inputs with their characteristic restrictions. Supply one shared intersection theory, not a private K3 copy.
 
-**Consumers:** [K3.0/ns-lattice](#K3-0-ns-lattice), [K3.1/mukai-vector](#K3-1-mukai-vector), [K3.1/mukai-rr](#K3-1-mukai-rr), [K3.4/nef-linear-series](#K3-4-nef-linear-series), [K3.8/twisted-vector](#K3-8-twisted-vector).
+**Needed by:** [K3.0/ns-lattice](#K3-0-ns-lattice), [K3.1/mukai-vector](#K3-1-mukai-vector), [K3.1/mukai-rr](#K3-1-mukai-rr), [K3.4/nef-linear-series](#K3-4-nef-linear-series), [K3.8/twisted-vector](#K3-8-twisted-vector).
 
 ### MotivesAndAlgebraicCycles:MC.2
 
 Integral first Chern classes with Tate twists, cup/trace and correspondence realization, and compatibility of Betti, de Rham, crystalline and prime-to-p étale maps in the scopes supplied by their comparison owners.
 
-**Consumers:** [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.2/bb-form](#K3-2-bb-form), [K3.2/theta](#K3-2-theta), [K3.8/isotropic-theta](#K3-8-isotropic-theta), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface), [K3.10/andre-descent](#K3-10-andre-descent).
+**Needed by:** [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.2/bb-form](#K3-2-bb-form), [K3.2/theta](#K3-2-theta), [K3.8/isotropic-theta](#K3-8-isotropic-theta), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface), [K3.10/andre-descent](#K3-10-andre-descent).
 
 ### ComplexComparisonPartII:C5
 
 Supply multiplicative cup/trace/first-Chern compatibility of the concrete proper de Rham–Betti and pure-Hodge maps already referenced, plus the analytic family/local-system comparisons used by the IHS period map. No new Hodge-structure carrier is requested.
 
-**Consumers:** [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.1/ihs](#K3-1-ihs), [K3.5/positive-projectivity](#K3-5-positive-projectivity), [K3.5/period-map](#K3-5-period-map).
+**Needed by:** [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.1/ihs](#K3-1-ihs), [K3.5/positive-projectivity](#K3-5-positive-projectivity), [K3.5/period-map](#K3-5-period-map).
 
 ### AlgebraicModuliForArithmeticGeometry:R09.6
 
 Polarized K3 formal deformation and Picard obstruction/representability machinery, smooth W-algebraization with ample bundle, Grothendieck existence for twisted sheaves, and the projective rank-one relative partner family. Supply the relative determinant-line correspondence that lifts a positive power of the auxiliary line bundle over the entire polarized formal base. K3-specific calculations remain in this roadmap. Formal representability and effectivity must be proved, not assumed.
 
-**Consumers:** [K3.0/picard-lift](#K3-0-picard-lift), [K3.5/period-map](#K3-5-period-map), [K3.6/period-cover](#K3-6-period-cover), [K3.7/polarized-deformation](#K3-7-polarized-deformation), [K3.7/line-lift](#K3-7-line-lift), [K3.8/isotropic-partner](#K3-8-isotropic-partner), [K3.9/growing-ample-square](#K3-9-growing-ample-square), [K3.9/superspecial-transfer](#K3-9-superspecial-transfer), [K3.11/rational-curves-criterion](#K3-11-rational-curves-criterion).
+**Needed by:** [K3.0/picard-lift](#K3-0-picard-lift), [K3.5/period-map](#K3-5-period-map), [K3.6/period-cover](#K3-6-period-cover), [K3.7/polarized-deformation](#K3-7-polarized-deformation), [K3.7/line-lift](#K3-7-line-lift), [K3.8/isotropic-partner](#K3-8-isotropic-partner), [K3.9/growing-ample-square](#K3-9-growing-ample-square), [K3.9/superspecial-transfer](#K3-9-superspecial-transfer), [K3.11/rational-curves-criterion](#K3-11-rational-curves-criterion).
 
 ### AlgebraicModuliForArithmeticGeometry:R09.4
 
-Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them.
+Hilbert/Quot and Chow parameter spaces, bounded-degree maps and Hilbert data, stackification and explicit relative stable-map stacks. The additional stable/twisted-sheaf and stable-map proof contracts exceed the current restricted elliptic/abelian scope and require the Part II extension recorded in gaps; the stage alone does not certify them. Also export the Kollár–Matsusaka bound used by Charles Lemma 3.5 pp.507–508 for ample pairs of dimension 2n, K_X=0 and fixed top power r, with its exact characteristic-zero hypotheses. For Charles Lemma 3.6 p.508 supply: for a projective family over a noetherian C-base with a line bundle big on every complex fiber, there are common a,N,d bounding h⁰(L_s^a) and the degree of the birational image for every complex s. Prove the generic-bigness/Baire step, spreading of birationality and passage to one common exponent over finitely many noetherian strata. These general boundedness theorems also exceed the currently restricted stage and belong to its Part II.
 
-**Consumers:** [K3.1/coprime-stability](#K3-1-coprime-stability), [K3.1/hilbert-points](#K3-1-hilbert-points), [K3.2/stable-moduli](#K3-2-stable-moduli), [K3.4/k3-boundedness](#K3-4-k3-boundedness), [K3.4/finite-k3](#K3-4-finite-k3), [K3.5/deformation-representatives](#K3-5-deformation-representatives), [K3.6/period-cover](#K3-6-period-cover), [K3.6/ihs-boundedness](#K3-6-ihs-boundedness), [K3.6/ihs-family](#K3-6-ihs-family), [K3.8/b-field](#K3-8-b-field), [K3.8/twisted-vector](#K3-8-twisted-vector), [K3.8/isotropic-partner](#K3-8-isotropic-partner), [K3.8/fine-partner](#K3-8-fine-partner), [K3.11/rational-curves-criterion](#K3-11-rational-curves-criterion).
+**Needed by:** [K3.1/coprime-stability](#K3-1-coprime-stability), [K3.1/hilbert-points](#K3-1-hilbert-points), [K3.2/stable-moduli](#K3-2-stable-moduli), [K3.4/k3-boundedness](#K3-4-k3-boundedness), [K3.4/finite-k3](#K3-4-finite-k3), [K3.5/deformation-representatives](#K3-5-deformation-representatives), [K3.6/period-cover](#K3-6-period-cover), [K3.6/ihs-boundedness](#K3-6-ihs-boundedness), [K3.6/ihs-family](#K3-6-ihs-family), [K3.8/b-field](#K3-8-b-field), [K3.8/twisted-vector](#K3-8-twisted-vector), [K3.8/isotropic-partner](#K3-8-isotropic-partner), [K3.8/fine-partner](#K3-8-fine-partner), [K3.11/rational-curves-criterion](#K3-11-rational-curves-criterion).
 
 ### AlgebraicModuliForArithmeticGeometry:R09.5
 
 Coarse moduli, rigidification, quasi-universal sheaves and descent obstructions, finite-field Br=0 and line-bundle descent. Stable/twisted-sheaf gerbes are the requested Part II extension, not objects already supplied by this stage.
 
-**Consumers:** [K3.2/stable-moduli](#K3-2-stable-moduli), [K3.3/descent-refinement](#K3-3-descent-refinement), [K3.4/ns-descent](#K3-4-ns-descent), [K3.4/finite-k3](#K3-4-finite-k3), [K3.7/finite-ns](#K3-7-finite-ns), [K3.8/isotropic-partner](#K3-8-isotropic-partner).
+**Needed by:** [K3.2/stable-moduli](#K3-2-stable-moduli), [K3.3/descent-refinement](#K3-3-descent-refinement), [K3.4/ns-descent](#K3-4-ns-descent), [K3.4/finite-k3](#K3-4-finite-k3), [K3.7/finite-ns](#K3-7-finite-ns), [K3.8/isotropic-partner](#K3-8-isotropic-partner).
 
 ### MotivesAndAlgebraicCycles:MC.0
 
 Correspondence composition, trace/norm along finite field extension and push-pull identities needed by θ and rational Tate descent. Use the shared Chow/realization owner.
 
-**Consumers:** [K3.2/theta](#K3-2-theta), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface).
+**Needed by:** [K3.2/theta](#K3-2-theta), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface).
 
 ### CrystallineCohomology:CR.2
 
 Smooth-lift crystalline–de Rham identification, filtration/base-change maps and the Hodge/conjugate comparison for degree-two K3 cohomology.
 
-**Consumers:** [K3.2/hodge-moduli](#K3-2-hodge-moduli), [K3.7/superspecial](#K3-7-superspecial), [K3.7/admissible-hodge](#K3-7-admissible-hodge).
+**Needed by:** [K3.2/hodge-moduli](#K3-2-hodge-moduli), [K3.7/superspecial](#K3-7-superspecial), [K3.7/admissible-hodge](#K3-7-admissible-hodge).
 
 ### CrystallineCohomology:CR.3
 
 Proper smooth finite crystalline complexes and their derived reductions with Frobenius; free individual H²/H³ is a separate K3/moduli theorem and is not assumed from perfectness.
 
-**Consumers:** [K3.2/hodge-moduli](#K3-2-hodge-moduli), [K3.7/admissible](#K3-7-admissible).
+**Needed by:** [K3.2/hodge-moduli](#K3-2-hodge-moduli), [K3.7/admissible](#K3-7-admissible).
 
 ### CohomologyComparisons:CP.5
 
 Integral lattice recovery with free adjacent degrees and the actual comparison maps. Supply the source-qualified saturation theorem needed for Corollary 2.7 and primitive special-endomorphism intersections; no integral conclusion from rational comparison alone.
 
-**Consumers:** [K3.2/hodge-moduli](#K3-2-hodge-moduli), [K3.2/theta-specialization](#K3-2-theta-specialization), [K3.7/admissible-hodge](#K3-7-admissible-hodge), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
+**Needed by:** [K3.2/hodge-moduli](#K3-2-hodge-moduli), [K3.2/theta-specialization](#K3-2-theta-specialization), [K3.7/admissible-hodge](#K3-7-admissible-hodge), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
 
 ### FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.3
 
 Unramified small-weight comparison and torsion-freeness in low cohomological degree, with filtration interval [0,p−2] after a common shift; prove separately any p=3 or weight-(p−1) endpoint needed by the source. The p≥5 degree-two use lies in the safe range.
 
-**Consumers:** [K3.2/hodge-moduli](#K3-2-hodge-moduli).
-
-### GeometryOfNumbersAndQuadraticArithmetic:GN.2
-
-Extend beyond the existing generic lattice/localization nodes: Charles Proposition 2.9 primitive positive rank-two embeddings Λ⊂⟨2d⟩⊕U transported to ⟨2md⟩⊕U with m≡1 mod N and a,b square residues, preserving primitivity; absorb primes dividing (2d)! into N. Also supply odd-ℓ unimodular rank≥2 representation of every unit, the rank-one square-discriminant case, primitive isotropic quotient determinant and maximal-lattice local genus comparisons (including dyadic distinctions).
-
-**Consumers:** [K3.3/rank-two-plane](#K3-3-rank-two-plane), [K3.3/zarhin](#K3-3-zarhin), [K3.9/conditional-norm](#K3-9-conditional-norm), [K3.9/simultaneous-norm](#K3-9-simultaneous-norm), [K3.9/fixed-positive-square](#K3-9-fixed-positive-square), [K3.10/transcendental-datum](#K3-10-transcendental-datum).
-
-### GeometryOfNumbersAndQuadraticArithmetic:GN.3
-
-Supply integral lattice finiteness at bounded rank/signature and nonzero absolute determinant, a bounded positive represented square for each of the finitely many hyperbolic classes, and the uniform finite-order integral-automorphism exponent in rank≤22. Existing mass/theta nodes are not these finiteness theorems.
-
-**Consumers:** [K3.4/ns-descent](#K3-4-ns-descent), [K3.7/finite-ns](#K3-7-finite-ns), [K3.7/unpolarized-finiteness](#K3-7-unpolarized-finiteness).
+**Needed by:** [K3.2/hodge-moduli](#K3-2-hodge-moduli).
 
 ### MotivesAndAlgebraicCycles:MC.7
 
 Expose early independent leaves for the integral Lefschetz (1,1) theorem, Tate–Brauer equivalence over finite fields (including the dyadic qualification), and rational Tate finite-field descent via MC.0/MC.2 trace. Keep Charles Theorems 1.3/1.4 as late consumers of this roadmap. The broad known-cases register is not an acyclic substitute for the early leaves. For K3.10 special-fiber algebraicity choose an independently sourced K3 divisor theorem with no dependency on Picard jumps, or follow the late K3.9→MC.7→K3.10 route after discharging the K3.9 gates. This late input must not feed the partner contradiction.
 
-**Consumers:** [K3.5/positive-projectivity](#K3-5-positive-projectivity), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.8/arithmetic-transcendental](#K3-8-arithmetic-transcendental), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface), [K3.9/superspecial-transfer](#K3-9-superspecial-transfer), [K3.10/transcendental-datum](#K3-10-transcendental-datum), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
+**Needed by:** [K3.5/positive-projectivity](#K3-5-positive-projectivity), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.8/arithmetic-transcendental](#K3-8-arithmetic-transcendental), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface), [K3.9/superspecial-transfer](#K3-9-superspecial-transfer), [K3.10/transcendental-datum](#K3-10-transcendental-datum), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
 
 ### ShimuraVarieties:V0
 
 Arithmetic orthogonal quotients and torsion-free finite-index subgroups, applied to the extendable IHS polarization stabilizer; IHS monodromy finite index remains a local target.
 
-**Consumers:** [K3.5/period-datum](#K3-5-period-datum), [K3.5/monodromy-arithmetic](#K3-5-monodromy-arithmetic).
+**Needed by:** [K3.5/period-datum](#K3-5-period-datum), [K3.5/monodromy-arithmetic](#K3-5-monodromy-arithmetic).
 
 ### ShimuraVarieties:V2
 
 Baily–Borel algebraization of the arithmetic orthogonal period quotient with the actual group/action and component hypotheses.
 
-**Consumers:** [K3.5/monodromy-arithmetic](#K3-5-monodromy-arithmetic).
+**Needed by:** [K3.5/monodromy-arithmetic](#K3-5-monodromy-arithmetic).
 
 ### ShimuraVarieties:V3
 
 Borel algebraicity for the family period map with its algebraic-source compactification and torsion-free target hypotheses.
 
-**Consumers:** [K3.5/period-map](#K3-5-period-map).
+**Needed by:** [K3.5/period-map](#K3-5-period-map).
 
 ### CohomologyComparisons:CP.2
 
 Rational crystalline/étale comparison compatible with cup, Chern classes, Galois, Frobenius and Tate twist (1) for good-reduction K3 and KS families.
 
-**Consumers:** [K3.7/admissible](#K3-7-admissible), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
+**Needed by:** [K3.7/admissible](#K3-7-admissible), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
 
 ### CrystallineCohomology:CR.4
 
 Degree-two ordinary crystals, Newton/Hodge polygons and conjugate filtrations; the relevant K3 ordinary/deformation implications retain Ogus hypotheses.
 
-**Consumers:** [K3.7/strong-admissible](#K3-7-strong-admissible), [K3.7/superspecial](#K3-7-superspecial).
+**Needed by:** [K3.7/strong-admissible](#K3-7-strong-admissible), [K3.7/superspecial](#K3-7-superspecial).
 
 ### ShimuraVarieties:V6
 
-The generic orthogonal Hodge-type canonical model. The good-prime KS and all-prime GSpin integral models, primitive H²(1) tensor, finite unramified KS map, finite images over a fixed abelian fiber, special-endomorphism lattice and extension property are requested as OrthogonalIntegralModelsAndKugaSatake, a Part II of this owner, currently absent. This generic stage alone does not provide those integral theorems.
+The generic orthogonal Hodge-type canonical model. The good-prime KS and all-prime GSpin integral models, primitive H²(1) tensor, finite unramified KS map, finite images over a fixed abelian fiber, special-endomorphism lattice and extension property are requested as OrthogonalIntegralModelsAndKugaSatake, a Part II of this owner, currently absent. This generic stage alone does not provide those integral theorems. The absolute-Hodge tensor/moduli interpretation, passage from polarized primitive H² to the chosen maximal transcendental lattice and any required involution compatibility are extra supplier theorems; V6 bare canonical-model existence and André Main Lemma 1.7.1 alone do not assert them.
 
-**Consumers:** [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.7/finite-ns](#K3-7-finite-ns), [K3.10/transcendental-datum](#K3-10-transcendental-datum), [K3.10/andre-descent](#K3-10-andre-descent), [K3.10/andre-good-reduction](#K3-10-andre-good-reduction), [K3.10/integral-point](#K3-10-integral-point), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
+**Needed by:** [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.7/finite-ns](#K3-7-finite-ns), [K3.10/transcendental-datum](#K3-10-transcendental-datum), [K3.10/andre-descent](#K3-10-andre-descent), [K3.10/andre-good-reduction](#K3-10-andre-good-reduction), [K3.10/integral-point](#K3-10-integral-point), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
 
 ### tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev
 
 Import the current upstream Layer 10 identity-class positive Dirichlet density and hence infinitude of rational primes splitting completely in one prescribed finite Galois extension, after deleting any finite exceptional set. hasDirichletDensity_splitCompletely is the current suggested theorem, not a baseline implementation claim.
 
-**Consumers:** [K3.9/simultaneous-norm](#K3-9-simultaneous-norm).
+**Needed by:** [K3.9/simultaneous-norm](#K3-9-simultaneous-norm).
 
 ### tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places
 
 Import current upstream Layer 5 canonical continuous completion maps and the degree-one completion identification at split rational primes, supplying embeddings of every element of the common splitting field into Q_ℓ. Arbitrary abstract Q_ℓ embeddings are not substituted.
 
-**Consumers:** [K3.9/simultaneous-norm](#K3-9-simultaneous-norm).
+**Needed by:** [K3.9/simultaneous-norm](#K3-9-simultaneous-norm).
 
 ### GrossZagierAndArithmeticHeights:GZ.6
 
 Extend the curve-level arithmetic generating-series scope as GSpinSpecialDivisorHeights, currently absent: for b≥3, a maximal integral lattice of signature (b,2), and Y∈M(O_K) avoiding every special divisor generically, infinitely many finite places meet some Z(m), m>0 (SSTT Theorem 1.8). Retain the source corrections routed to that supplier; no GSpin height theory is duplicated here.
 
-**Consumers:** [K3.11/picard-jump-high-dimension](#K3-11-picard-jump-high-dimension).
+**Needed by:** [K3.11/picard-jump-high-dimension](#K3-11-picard-jump-high-dimension).
+
+### Current upstream lattice imports
+
+The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.
+
+**tauceti:TauCetiRoadmap/IntegralLattices#layer-5-discriminant-forms-and-nikulins-theory**
+
+Import current IntegralLattices 5F primitivity and 5I general even-lattice primitive-embedding classification, with 5A/5B discriminant-form and existence inputs. Its additional consumer contract is IntegralLattices, Part II: the corrected Charles Proposition 2.9 pp.500–502 congruence transport from ⟨2d⟩⊕U to ⟨2md⟩⊕U for a primitive positive rank-two sublattice, m≡1 mod N and the stated two square-residue conditions; absorb primes dividing (2d)! into N and place the transported subgroup in A_(2md). That congruence theorem is not already supplied by Nikulin 5I and has no stage yet.
+
+**Needed by:** [K3.3/rank-two-plane](#K3-3-rank-two-plane), [K3.3/zarhin](#K3-3-zarhin).
+
+**tauceti:TauCetiRoadmap/IntegralLattices#layer-3-localization-jordan-splittings-the-genus-and-the-dyadic-density-data**
+
+Import current IntegralLattices 3A integral localization, 3B/3C odd-prime unimodular/Jordan classification, 3D dyadic distinctions and 3F–3H genus/rational comparison. Request only the additional consumer corollaries as IntegralLattices, Part II: every unit is represented by an odd-ℓ unimodular lattice of rank≥2, rank-one square-discriminant unit representation, the primitive-isotropic quotient determinant calculation, and the source-qualified maximal Q-integral lattice genus comparison. Do not infer representation of nonunits or dyadic uniqueness from 3C; neither generic carrier nor local classification is replanned here.
+
+**Needed by:** [K3.8/partner-discriminant](#K3-8-partner-discriminant), [K3.9/conditional-norm](#K3-9-conditional-norm), [K3.9/simultaneous-norm](#K3-9-simultaneous-norm), [K3.9/fixed-positive-square](#K3-9-fixed-positive-square), [K3.10/transcendental-datum](#K3-10-transcendental-datum).
+
+**tauceti:TauCetiRoadmap/IntegralLattices#layer-4-classes-spinor-genera-eichlers-theorem-and-neighbors**
+
+Import current IntegralLattices 4A class sets, 3F/3G local genus data, 2G definite finite classes and the rank-two half of 4E. The indefinite rank≥3 half of 4E belongs to its named successor OrthogonalTamagawaAndLatticeMass, currently absent, and is a recorded gap. Request from that successor the bounded-rank/signature/nonzero-determinant finite-class consequence, combining finite local genera with finite classes in each genus. The bounded positive square for finitely many hyperbolic classes and the exponent 6983776800 for finite-order rank≤22 automorphisms fixing an ample vector are additional IntegralLattices Part II corollaries, not new K3 lattice theory.
+
+**Needed by:** [K3.4/ns-descent](#K3-4-ns-descent), [K3.7/finite-ns](#K3-7-finite-ns), [K3.7/unpolarized-finiteness](#K3-7-unpolarized-finiteness).
 
 ## Required proof interfaces and endpoint restrictions
 
-The theorem statements above must be proved with the following inputs. They also specify exactly when the conditional finite-field and arithmetic arguments yield their endpoints.
+All twelve layers are planned. The following obligations remain open; none is a closed or implemented theorem.
 
 ### 1. K3 classical geometry and coherent foundations
 
-Establish the finite-rank even Picard lattice, K3 minimality, the finite-height Picard lift (Lieblich–Maulik Corollary 4.2), Artin’s dimension-nine infinite-height locus, and the K3 fixed-component/linear-series theorems. These are K3 specializations of the shared surface, coherent-cohomology and deformation interfaces.
+Acquire and check the exact primary proof leaves behind Charles: finite-rank/even primitive Picard lattice; K3 minimality; finite-height Picard lift (Lieblich–Maulik Corollary 4.2) and Artin dimension-9 infinite-height locus; K3 surface linear-series/fixed-component theorems. SF.2/SF.5 and R09.6 supply the shared geometry, but these K3 specializations are not baseline declarations.
 
-**Targets:** [K3.0/ns-lattice](#K3-0-ns-lattice), [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.0/picard-lift](#K3-0-picard-lift), [K3.4/nef-linear-series](#K3-4-nef-linear-series), [K3.4/finite-k3](#K3-4-finite-k3).
+**Needed by:** [K3.0/ns-lattice](#K3-0-ns-lattice), [K3.0/cycle-lattice](#K3-0-cycle-lattice), [K3.0/picard-lift](#K3-0-picard-lift), [K3.4/nef-linear-series](#K3-4-nef-linear-series), [K3.4/finite-k3](#K3-4-finite-k3).
 
-### 2. Stable and twisted sheaf moduli Part II
+### 2. Stable and twisted sheaf moduli Part II is absent
 
-The general moduli Part II must provide Langer’s relative projective stable-sheaf theorem, fixed-determinant μ_r-gerbes, twisted Chern characters and GRR, period-index rank-r existence, and the K₀ realization in LMS Lemma 3.4.3, pp.300–301. The K3-specific nonemptiness, dimension, symplecticity, FM and θ targets remain in K3.2/K3.8.
+AlgebraicModuliStableTwistedSheaves has a routed brief but no roadmap definition, reserved stage or packet. R09.4–R09.6 do not currently promise this generality. Establish the Langer projective relative moduli theorem, μ_r fixed-determinant gerbes, twisted Chern/GRR, period-index rank-r existence and LMS Lemma 3.4.3 K₀ realization in that Part II. K3 nonemptiness, dimension, symplecticity, FM equivalence and θ remain here.
 
-**Targets:** [K3.2/stable-moduli](#K3-2-stable-moduli), [K3.2/theta](#K3-2-theta), [K3.8/twisted-vector](#K3-8-twisted-vector), [K3.8/isotropic-partner](#K3-8-isotropic-partner), [K3.8/fine-partner](#K3-8-fine-partner).
+**Needed by:** [K3.2/stable-moduli](#K3-2-stable-moduli), [K3.2/theta](#K3-2-theta), [K3.8/twisted-vector](#K3-8-twisted-vector), [K3.8/isotropic-partner](#K3-8-isotropic-partner), [K3.8/fine-partner](#K3-8-fine-partner).
 
 ### 3. Mukai and Hilbert geometric comparison proof leaves
 
-Supply the Mukai/Yoshioka integral comparison and Beauville Hilbert-scheme geometry used in Charles Theorem 2.4, pp.493–497. Prove integral θ normalization despite quasi-universal similitudes, use only the Hilbert–Chow open stratum in Proposition 2.6, p.498, and verify the needed degree-two/three cohomology. Deformation equivalence does not imply birationality.
+Charles Theorem 2.4 cites Mukai/Yoshioka and Beauville for the complex comparison and Hilbert-scheme geometry; Proposition 2.6 uses the corrected Hilbert–Chow open stratum. Check those primary proofs, integral θ normalization/similitude cancellation, and cohomology in degrees two/three before closing these targets. Deformation-equivalent is not replaced by birational.
 
-**Targets:** [K3.1/hilbert-points](#K3-1-hilbert-points), [K3.2/stable-moduli](#K3-2-stable-moduli), [K3.2/bb-form](#K3-2-bb-form), [K3.2/theta](#K3-2-theta), [K3.8/isotropic-theta](#K3-8-isotropic-theta).
+**Needed by:** [K3.1/hilbert-points](#K3-1-hilbert-points), [K3.2/stable-moduli](#K3-2-stable-moduli), [K3.2/bb-form](#K3-2-bb-form), [K3.2/theta](#K3-2-theta), [K3.8/isotropic-theta](#K3-8-isotropic-theta).
 
 ### 4. Small-weight and specialization endpoints
 
-Supply Fontaine–Messing low-degree freeness and the precise Elsenhans–Jahnel specialization theorem used in Charles Proposition 2.6 and Corollary 2.7, pp.498–499. Distinguish W-lifts from ramified lifts, low-degree from full Hodge degeneration, and the [0,p−2] comparison range from endpoint claims. Retain p=3 explicitly.
+Pin the precise Fontaine–Messing low-degree freeness theorem and Elsenhans–Jahnel NS specialization hypotheses used in Proposition 2.6/Corollary 2.7. Distinguish a W-lift from a ramified lift, full p>dimension degeneration from low-degree degeneration, and [0,p−2] full faithfulness from endpoint restrictions. Keep the p=3 branch explicit.
 
-**Targets:** [K3.2/hodge-moduli](#K3-2-hodge-moduli), [K3.2/theta-specialization](#K3-2-theta-specialization), [K3.3/zarhin-witt](#K3-3-zarhin-witt), [K3.7/admissible-hodge](#K3-7-admissible-hodge).
+**Needed by:** [K3.2/hodge-moduli](#K3-2-hodge-moduli), [K3.2/theta-specialization](#K3-2-theta-specialization), [K3.3/zarhin-witt](#K3-3-zarhin-witt), [K3.7/admissible-hodge](#K3-7-admissible-hodge).
 
 ### 5. Primitive embedding and bounded integral lattice supplier
 
-GN.2/GN.3 must supply Charles Proposition 2.9, pp.500–502, with primitive input embedding, the A_(2md) discriminant group, and exclusion of primes dividing (2d)!. They also supply finite integral lattice classes with bounded rank/signature/determinant and the odd-prime unit-norm theorem. These are shared lattice targets.
+Current IntegralLattices already owns local lattices/Jordan/genus theory (3A–3H) and Nikulin primitive embeddings (5F–5I); import them, never replan them in GN.2/GN.3 or K3. Its Part II must supply the corrected Charles Proposition 2.9 congruence-transport corollary, unit-representation/isotropic-quotient/maximal-lattice corollaries and the bounded positive-square/finite-order-exponent consequences. For finite classes, 2G supplies the definite branch and 4E the rank-two branch. Indefinite rank≥3 finiteness is explicitly excluded there and assigned to OrthogonalTamagawaAndLatticeMass; that successor has no current roadmap/packet, so the full bounded-determinant finite-class consequence remains a gap. No generic class-finiteness theorem is presumed from either existing branch. The current IntegralLattices roadmap is absent from the atlas stage registry (only its older Completed predecessor is indexed). Its three current source-layer imports are recorded in upstreamImports and upstreamNotes rather than masquerading as pinned declarations or inventing stage ids. Nodes cite the actual native IntegralLattice carrier, and this gap plus coverage.remaining retain the non-routine external contracts. The maintainer must register the current upstream layers before packaging these references as machine-resolved stage prerequisites.
 
-**Targets:** [K3.3/rank-two-plane](#K3-3-rank-two-plane), [K3.3/zarhin](#K3-3-zarhin), [K3.4/ns-descent](#K3-4-ns-descent), [K3.7/unpolarized-finiteness](#K3-7-unpolarized-finiteness), [K3.9/simultaneous-norm](#K3-9-simultaneous-norm), [K3.10/transcendental-datum](#K3-10-transcendental-datum).
+**Needed by:** [K3.3/rank-two-plane](#K3-3-rank-two-plane), [K3.3/zarhin](#K3-3-zarhin), [K3.4/ns-descent](#K3-4-ns-descent), [K3.7/unpolarized-finiteness](#K3-7-unpolarized-finiteness), [K3.9/simultaneous-norm](#K3-9-simultaneous-norm), [K3.10/transcendental-datum](#K3-10-transcendental-datum), [K3.7/finite-ns](#K3-7-finite-ns), [K3.8/partner-discriminant](#K3-8-partner-discriminant), [K3.9/conditional-norm](#K3-9-conditional-norm), [K3.9/fixed-positive-square](#K3-9-fixed-positive-square).
 
 ### 6. Characteristic-two birationality leaf
 
-For Charles Proposition 3.1, p.506, prove jet separation and degree-one/separability for the map on a nonreduced general member in characteristic two, or give a replacement birational linear-series theorem. In the branch C=2C_red, positivity gives C²≥8; the small-degree inequality is not the unresolved point.
+Charles Proposition 3.1 p.506 requires a degree-one/separability argument for the map on a nonreduced general member in characteristic two. The rejected r=2 degree objection does not resolve this leaf. Prove the required jet separation and degree-one assertion, or provide a source-qualified replacement, before the all-characteristic boundedness/fixed-square endpoint is unconditional.
 
-**Targets:** [K3.4/k3-boundedness](#K3-4-k3-boundedness), [K3.4/finite-k3](#K3-4-finite-k3), [K3.9/geometric-exports](#K3-9-geometric-exports).
+**Needed by:** [K3.4/k3-boundedness](#K3-4-k3-boundedness), [K3.4/finite-k3](#K3-4-finite-k3), [K3.9/geometric-exports](#K3-9-geometric-exports).
 
 ### 7. IHS projectivity, period and birational proof leaves
 
-Use Huybrechts 1999 Theorem 3.11 with its 2003 erratum, Beauville local Torelli, Sullivan/Markman arithmeticity and the Verbitsky/Markman parallel-transport Torelli theorem. The finite algebraic period-cover construction must prove global coverage, not infer it from local analytic openness. Kollár–Matsusaka and family birational bounds are general-moduli inputs; Baily–Borel/Borel belong to the Shimura owner.
+Check Huybrechts 1999 Theorem 3.11 together with the 2003 erratum, Beauville local Torelli, Sullivan/Markman finite-index results, Verbitsky/Markman parallel-transport Torelli and period surjectivity in the exact scopes used by Charles Lemma 3.5/Theorem 3.3. R09.4 must export Kollár–Matsusaka and noetherian-family birational bounds, while V2/V3 export algebraization. In particular verify the finite algebraic period-cover construction rather than identifying local analytic openness with global algebraic coverage. The R09.4 request now states the Kollár–Matsusaka and Charles Lemma 3.6 uniform-big-family contracts explicitly, including the common exponent across strata; the restricted current R09.4 does not certify either theorem.
 
-**Targets:** [K3.5/positive-projectivity](#K3-5-positive-projectivity), [K3.5/deformation-representatives](#K3-5-deformation-representatives), [K3.5/monodromy-arithmetic](#K3-5-monodromy-arithmetic), [K3.5/torelli](#K3-5-torelli), [K3.6/period-cover](#K3-6-period-cover), [K3.6/ihs-boundedness](#K3-6-ihs-boundedness).
+**Needed by:** [K3.5/positive-projectivity](#K3-5-positive-projectivity), [K3.5/deformation-representatives](#K3-5-deformation-representatives), [K3.5/monodromy-arithmetic](#K3-5-monodromy-arithmetic), [K3.5/torelli](#K3-5-torelli), [K3.6/period-cover](#K3-6-period-cover), [K3.6/ihs-boundedness](#K3-6-ihs-boundedness).
 
-### 8. Orthogonal integral models Part II
+### 8. Orthogonal integral models Part II is absent
 
-The orthogonal Part II must provide both the p≥5 nondegenerate primitive-lattice KS finiteness theorem used in Charles Lemma 3.12, p.514, and the all-prime maximal-lattice model, special cycles and extension property of SSTT Proposition 2.1, p.10. Good-prime smoothness alone does not give the all-prime normal model.
+OrthogonalIntegralModelsAndKugaSatake has routed briefs but no stage to cite. ShimuraVarieties V6 supplies generic canonical models only. Its Part II must provide the p≥5 primitive nondegenerate lattice KS model/finiteness theorem of Charles Lemma 3.12 and the distinct all-prime maximal-lattice model, special cycles and extension theorem of SSTT Proposition 2.1. Good-prime smoothness does not supply all-prime normal models.
 
-**Targets:** [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.7/finite-ns](#K3-7-finite-ns), [K3.10/andre-descent](#K3-10-andre-descent), [K3.10/integral-point](#K3-10-integral-point), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
+**Needed by:** [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.7/finite-ns](#K3-7-finite-ns), [K3.10/andre-descent](#K3-10-andre-descent), [K3.10/integral-point](#K3-10-integral-point), [K3.10/specialization-correspondence](#K3-10-specialization-correspondence).
 
 ### 9. Early and late MC.7 interfaces need separation
 
-Separate early Lefschetz (1,1), Tate–Brauer and trace descent from the late K3 Tate register. The special-fiber divisor theorem for K3.10 must have an independent proof or follow the late K3.9→MC.7 route; it must not feed back into the partner contradiction. Include characteristic-two qualifications.
+The existing MC.7/tate-and-hodge-known-cases register bundles early Lefschetz (1,1) with late K3 Tate cases. Split out independent early (1,1), Tate–Brauer, and rational trace descent leaves, and make the Charles finite-field endpoints late consumers. The register is not used directly as a prerequisite here. Audit the finite-field and characteristic-two equivalences independently.
 
-**Targets:** [K3.5/positive-projectivity](#K3-5-positive-projectivity), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface), [K3.9/frobenius-brauer](#K3-9-frobenius-brauer), [K3.10/transcendental-datum](#K3-10-transcendental-datum).
+**Needed by:** [K3.5/positive-projectivity](#K3-5-positive-projectivity), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.9/brauer-tate-interface](#K3-9-brauer-tate-interface), [K3.9/frobenius-brauer](#K3-9-frobenius-brauer), [K3.10/transcendental-datum](#K3-10-transcendental-datum).
 
 ### 10. Strong admissibility deformation proof
 
-Establish the exact Ogus polarized deformation and ordinary-lift hypotheses, including de Rham Chern-class nonvanishing, and Artin’s supersingular rank constancy. Prove global power-lifting of L over the full formal base. Use the finite free obstruction module with rank-binomial symmetric-power factor, rather than asserting its rank is one.
+Read Ogus’ exact nonsuperspecial polarized deformation and ordinary-lift theorems, including the de Rham Chern-class hypotheses, and Artin’s supersingular rank constancy. Establish global power-lifting of the auxiliary L by the relative Mukai/determinant correspondence over the full 19-variable formal base. Its obstruction module is a finite free tensor with the full symmetric power; the global power-lift then kills the obstruction by torsion-freeness.
 
-**Targets:** [K3.7/polarized-deformation](#K3-7-polarized-deformation), [K3.7/line-lift](#K3-7-line-lift), [K3.7/strong-zarhin](#K3-7-strong-zarhin), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.9/superspecial-transfer](#K3-9-superspecial-transfer).
+**Needed by:** [K3.7/polarized-deformation](#K3-7-polarized-deformation), [K3.7/line-lift](#K3-7-line-lift), [K3.7/strong-zarhin](#K3-7-strong-zarhin), [K3.7/ns-special-endomorphisms](#K3-7-ns-special-endomorphisms), [K3.9/superspecial-transfer](#K3-9-superspecial-transfer).
 
 ### 11. Original-field norm and small-characteristic audit
 
-The original-field norm route requires the corrected Frobenius and discriminant hypotheses. The LMS quadratic-extension proof in p≥5 gives a separate sufficient route. For the all-characteristic rank≥2 export, supply characteristic-two/three norm, moduli and integral quotient comparisons independently.
+The repaired original-field norm statement is conditional on eliminating −1/root-of-unity eigenvalues and the stated semisimplicity/invariant lattice hypotheses. The safe LMS quadratic-extension proof was checked only in p≥5. Supply independently the characteristic-two/three Frobenius, norm, twisted-moduli and integral-quotient hypotheses before using the rank≥2 all-characteristic geometric export; do not infer them from the p≥5 substitute.
 
-**Targets:** [K3.9/conditional-norm](#K3-9-conditional-norm), [K3.9/geometric-exports](#K3-9-geometric-exports).
+**Needed by:** [K3.9/conditional-norm](#K3-9-conditional-norm), [K3.9/geometric-exports](#K3-9-geometric-exports).
 
 ### 12. Infinitely many nonsuperspecial partners
 
-In the growing-degree argument, prove infinitely many eligible X_n nonsuperspecial, or prove a superspecial-partner finiteness theorem compatible with their growing discriminants. Reducing the starting X to the nonsuperspecial case does not establish this property for its partners (Charles Theorem 1.3 proof, pp.522–523).
+Charles Theorem 1.3 pp.522–523 reduces the starting X to nonsuperspecial, but does not show that infinitely many eligible partners X_n are nonsuperspecial. Prove that assertion or supply a superspecial partner finiteness theorem compatible with the growing discriminants. This is a substantive missing proof leaf; the conditional node does not discharge it.
 
-**Targets:** [K3.9/partner-admissibility-gate](#K3-9-partner-admissibility-gate), [K3.9/geometric-exports](#K3-9-geometric-exports).
+**Needed by:** [K3.9/partner-admissibility-gate](#K3-9-partner-admissibility-gate), [K3.9/geometric-exports](#K3-9-geometric-exports).
 
 ### 13. Relative partner ampleness
 
-Construct the projective rank-one generic relative partner with a lift of h_n. Compare that class to a relative ample bundle and extend their rational proportionality to the special fiber. Openness of ampleness alone does not give special-fiber ampleness (Charles p.522).
+Construct the projective rank-one generic relative partner and lift h_n, with a relative ample class rationally proportional to it on the generic fiber. Prove that the proportion extends to the special fiber before concluding ±H_n ample. Openness of ampleness in the wrong direction does not prove this.
 
-**Targets:** [K3.9/growing-ample-square](#K3-9-growing-ample-square), [K3.9/partner-admissibility-gate](#K3-9-partner-admissibility-gate).
+**Needed by:** [K3.9/growing-ample-square](#K3-9-growing-ample-square), [K3.9/partner-admissibility-gate](#K3-9-partner-admissibility-gate).
 
 ### 14. All-prime special-endomorphism algebraicity and normalization
 
-Supply an all-prime K3 special-fiber divisor-algebraicity theorem compatible with the KS comparison, and compare its quadratic realization with Q_T=−cup/2. André Main Lemma 1.7.1, p.210, is a generic Clifford comparison; the rational negative divisor and its denominator control are separate inputs to the SSTT p.45 argument.
+André Main Lemma 1.7.1(ii), p.210, gives a Galois-equivariant even-Clifford comparison, with integral Z_ℓ modules in its stated scope. It is not a special-fiber divisor theorem. SSTT §9.1 p.45 additionally needs special-endomorphism algebraicity on the K3 reduction, all-prime specialization and denominator control. Supply that theorem from the integral orthogonal/K3 divisor theory, comparing its quadratic realization with the chosen Q_T=−cup/2. A nonzero rational negative divisor suffices for rank jumps once its algebraicity is proved.
 
-**Targets:** [K3.10/specialization-correspondence](#K3-10-specialization-correspondence), [K3.11/picard-jump-high-dimension](#K3-11-picard-jump-high-dimension).
+**Needed by:** [K3.10/specialization-correspondence](#K3-10-specialization-correspondence), [K3.11/picard-jump-high-dimension](#K3-11-picard-jump-high-dimension).
 
-### 15. GSpin height Part II
+### 15. GSpin height Part II is absent
 
-The GSpin height Part II supplies SSTT Theorem 1.8, p.4, for b≥3 and integral points avoiding all special divisors. It includes the uniformity required in the odd-b coefficient estimate. K3.11 consumes the special-divisor infinitude conclusion rather than reproducing its height proof.
+GSpinSpecialDivisorHeights is routed as a Part II of GrossZagierAndArithmeticHeights, but has no roadmap or packet. The existing GZ.6 is curve-level. It must supply SSTT Theorem 1.8 for b≥3 and the nonstandard no-special-divisor genericity condition, including the routed odd-b coefficient-uniformity correction. This roadmap imports the theorem, not its height proof.
 
-**Targets:** [K3.11/picard-jump-high-dimension](#K3-11-picard-jump-high-dimension).
+**Needed by:** [K3.11/picard-jump-high-dimension](#K3-11-picard-jump-high-dimension).
 
 ### 16. Low-dimensional exceptional-reduction sources
 
-Prove the separate b=2 and b=1 exceptional-reduction inputs cited from Charles 2018 and Shankar–Tang 2019, and the b=0/ρ=20 rank argument. Match their finite-extension and good-reduction hypotheses. SSTT footnote 1, p.4, excludes these cases from the b≥3 theorem.
+Acquire Charles 2018 and Shankar–Tang 2019 and pin the exact b=2 and b=1 exceptional-reduction theorems, plus the b=0/ρ=20 reduction argument. SSTT footnote 1 p.4 explicitly excludes these cases from its b≥3 theorem. They remain separate K3 arithmetic targets here, with no invocation of Theorem 1.8 outside its range.
 
-**Targets:** [K3.11/picard-jump-low-dimension](#K3-11-picard-jump-low-dimension), [K3.11/picard-jump](#K3-11-picard-jump).
+**Needed by:** [K3.11/picard-jump-low-dimension](#K3-11-picard-jump-low-dimension), [K3.11/picard-jump](#K3-11-picard-jump).
 
 ### 17. Li–Liedtke version, rigidity and stable-map leaves
 
-Identify published Li–Liedtke Proposition 4.2/Theorem 4.3 with the corresponding accessible v2 Proposition 3.2/Theorem 3.3, pp.9–11. Supply genus-zero stable-map properness, the rigidifier theorem (v2 Theorem 2.9), deformation dimensions and the horizontal divisor argument. Prove that the finite-unirational-exception hypothesis suffices for the rigidity branch used in the K3 application.
+Read arXiv:1012.3777v2 §3 pp.9–11, Proposition 3.2/Theorem 3.3. SSTT cites published §4 Proposition 4.2/Theorem 4.3; a publisher/author-version numbering and content comparison remains needed. Extract the genus-zero stable-map properness, rigidifier theorem (v2 Theorem 2.9), deformation dimension and horizontal divisor proof, and justify the substitution of finitely many unirational exceptions for the original non-supersingular density-one input. General stable-map construction belongs to the moduli Part II; K3 rigidity and lifting stay here.
 
-**Targets:** [K3.11/rational-curves-criterion](#K3-11-rational-curves-criterion), [K3.11/rational-curves](#K3-11-rational-curves).
+**Needed by:** [K3.11/rational-curves-criterion](#K3-11-rational-curves-criterion), [K3.11/rational-curves](#K3-11-rational-curves).
 
 ### 18. Potential-good-reduction model comparison
 
-Pass from everywhere local potential good reduction to the simultaneous polarized smooth projective model required by SSTT Theorem 1.1 after one finite extension. Prove the K3 unirational⇒supersingular implication. Smooth proper algebraic-space models and globally projective schemes must not be identified without the model theorem.
+SSTT Theorem 1.1 assumes a globally smooth projective O_K model after finite extension, while Corollary 1.3 is phrased in terms of everywhere potentially good reduction. Supply the simultaneous polarized-model/base-extension theorem used to pass between these hypotheses and the unirational⇒supersingular K3 implication. Do not silently identify local smooth proper algebraic-space models with a globally projective scheme.
 
-**Targets:** [K3.11/rational-curves](#K3-11-rational-curves).
+**Needed by:** [K3.11/rational-curves](#K3-11-rational-curves).
 
 ## Suggested statement file
 
