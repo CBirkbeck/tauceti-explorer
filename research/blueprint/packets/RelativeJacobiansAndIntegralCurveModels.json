@@ -1,0 +1,1856 @@
+{
+  "roadmapId": "RelativeJacobiansAndIntegralCurveModels",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.2",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.3",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.4",
+    "RelativeJacobiansAndIntegralCurveModels:RJ.5"
+  ],
+  "status": "complete",
+  "summary": "A target-level extension of the Jacobian challenge for pointed arithmetic curve families. It imports existing relative Jacobians and semistable Picard theory, supplies normalized representing bundles and divisor comparisons, constructs normalization models using the native normalization, and defines specialization through the full Néron model at every prime. Prime-to-residue torsion and small-ramification residue-primary torsion are separate theorems. Complete means all six layers are planned, not implemented or dependency-closed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "provides": "Relative normalization for a quasi-compact quasi-separated morphism; it is not by itself a finite normalization theorem.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationObjIso",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "provides": "Sections over the inverse image of an affine open are the integral closure in sections over its preimage.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.fromNormalization",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
+        "provides": "The integral morphism from the existing relative normalization to the base scheme.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Flat/TorsionFree.lean",
+        "provides": "An arbitrary module over a Dedekind domain is flat exactly when its torsion submodule is zero; no finiteness premise.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.Model",
+        "kind": "structure",
+        "module": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
+        "provides": "A flat finitely presented model over a DVR with a chosen generic-fibre isomorphism; properness is additional.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
+        "provides": "The full subcategory of rank-one locally free O_X-modules, not a represented Picard functor.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+        "provides": "Absolute sheaf cohomology of the underlying abelian sheaf of an O_X-module.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyOnRes",
+        "kind": "abbrev",
+        "module": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
+        "provides": "Restriction on open-subset cohomology, with source the larger open.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.mayerVietorisSequence_exact",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/Cohomology/MayerVietoris.lean",
+        "provides": "Exactness of the six-term sequence for two opens; its middle differential is first restriction minus second restriction.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      },
+      {
+        "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.epi_mayerVietorisδ",
+        "kind": "theorem",
+        "module": "TauCeti/AlgebraicGeometry/Cohomology/MayerVietoris.lean",
+        "provides": "The boundary onto H^(n+1) of a union is epi when the two open H^(n+1) groups vanish.",
+        "checked": "Actual declaration and surrounding hypotheses read with git show at the recorded pin, 2026-10-19."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "blr",
+      "title": "Néron Models",
+      "authors": "Siegfried Bosch, Werner Lütkebohmert and Michel Raynaud",
+      "edition": "Springer, Ergebnisse (3) 21, 1990; maintainer-cleared reference, 336 PDF pages; printed page p is PDF page p+9 in the numbered main text.",
+      "url": "https://doi.org/10.1007/978-3-642-51438-8",
+      "accessed": "2026-10-19",
+      "sha256": "4dbeab216aa023f4bc580fafc79f15587c8fc8e2d72ade93c68ff3abf9a09fd8",
+      "readSections": [
+        "§7.2 Corollary 2 p.177; §7.3 Lemma 2 and Proposition 3 p.179.",
+        "§8.1 Definition 2, Proposition 3 and Proposition 4, pp.202–205, including the section-rigidification argument; Theorem 7 and Corollary 8 pp.206–207.",
+        "§8.2 Lemma 6 and Proposition 7 pp.213–215; only these divisor passages, not the entire chapter.",
+        "§9.4 Theorems 1–2, Corollary 3 and Proposition 4 with proof pp.259–261.",
+        "§9.5 introductory extension argument, Lemma 2, Proposition 3, Theorem 4, Remark 5, Proposition 6 and Lemma 7, pp.264–269; Lemmas 8–10 pp.269–272 inspected for the vertical-divisor route. The complete second finite-type proof and Chapter 10 existence proof are supplier obligations."
+      ]
+    },
+    {
+      "id": "kleiman",
+      "title": "The Picard scheme",
+      "authors": "Steven L. Kleiman",
+      "edition": "arXiv:math/0504020v1, 1 April 2005; 83-page author manuscript; printed and PDF page numbers agree.",
+      "url": "https://arxiv.org/pdf/math/0504020v1",
+      "accessed": "2026-10-19",
+      "sha256": "cc14e62f0ebebb8617777651bbcd08bb7548cb9fe955f3a25bb6491c5f3beeaa",
+      "readSections": [
+        "Theorem 2.5, Definition 2.8 and Lemmas 2.9–2.10, pp.18–20: quotient comparison, rigidified classes and their automorphisms.",
+        "§4 Exercises 4.2–4.7 and Theorem 4.8, pp.26–28: representing schemes, universal bundles, base change, Abel morphisms and representability. Exercise statements were read; their complete appendix solutions are not claimed read."
+      ]
+    },
+    {
+      "id": "raynaud",
+      "title": "Schémas en groupes de type (p, …, p)",
+      "authors": "Michel Raynaud",
+      "edition": "Bulletin de la Société Mathématique de France 102 (1974), 241–280; Numdam journal copy; PDF page n has journal page n+239.",
+      "url": "https://www.numdam.org/item/BSMF_1974__102__241_0/",
+      "accessed": "2026-10-19",
+      "sha256": "05cad2f5c2c33a2eea5739d255a8bb7de724e48e38dadb30507adc5e84f2edfe",
+      "readSections": [
+        "§2.1 pp.259–260: closure of generic subschemes, flatness and subgroup compatibility; §2.2 pp.260–261 inspected for prolongations.",
+        "§3.2 Proposition 3.2.1 and §3.3 Proposition 3.3.2, Theorem 3.3.3 and Corollary 3.3.6, pp.264–268, including the valuation bound and dévissage. Classification inputs from §§1.2–1.5 are imported from the finite-flat owner."
+      ]
+    },
+    {
+      "id": "stacks-morphisms",
+      "title": "The Stacks Project: Morphisms of Schemes",
+      "authors": "The Stacks Project Authors",
+      "edition": "Chapter PDF downloaded 19 October 2026; chapter numbering omits the prefix 29; printed and PDF page numbers agree. Stable tags control changing section numbers.",
+      "url": "https://stacks.math.columbia.edu/download/morphisms.pdf",
+      "accessed": "2026-10-19",
+      "sha256": "0bebe1d93baa7e4e99cb4f36fe50c7bcb6094772b8a2f760885a492892eca75f",
+      "readSections": [
+        "§29.54 (tag 0BAK): Definitions 29.54.2–3 (035G, 035H), Lemmas 29.54.1, 4, 6, 13–14, chapter pp.136–140; affine closure, localization, normality and Nagata finiteness.",
+        "§29.18 Lemma 29.18.2 (035B), HTML statement and proof: standard Nagata bases. The page number is not used for this auxiliary HTML-only read."
+      ]
+    },
+    {
+      "id": "stacks-coherent",
+      "title": "The Stacks Project: Cohomology of Schemes",
+      "authors": "The Stacks Project Authors",
+      "edition": "Chapter PDF downloaded 19 October 2026; chapter numbering omits the prefix 30; printed and PDF page numbers agree.",
+      "url": "https://stacks.math.columbia.edu/download/coherent.pdf",
+      "accessed": "2026-10-19",
+      "sha256": "b4980a08a8cce98fed6a420364b18c119364a9436577031b28a16863bcbdbfb8",
+      "readSections": [
+        "§30.2 Lemmas 30.2.5–6 (0BDX, 01XD), chapter p.3, and §30.4 Lemma 30.4.2 (01XI) with both proofs, chapter pp.6–7."
+      ]
+    }
+  ],
+  "sourceIssues": [],
+  "nodes": [
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.0/rigidified-comparison",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0"
+      ],
+      "kind": "comparison",
+      "title": "Rigidified classes and the relative Picard sheaf",
+      "statement": "For every S-scheme T, normalization N_e(L)=L⊗π_T*e_T*L⁻¹ with its evaluation trivialization at e_T induces a natural group isomorphism Pic(X_T)/π_T*Pic(T) ≅ Pic^rig_(X/S,e)(T). The comparison of this functor with the fppf relative Picard sheaf is an isomorphism. It is compatible with tensor product, pullback and the distinguished trivial rigidified class. The rigidified functor itself is imported from current Tau Ceti, not defined here.",
+      "hypotheses": [
+        "π:X→S is proper, flat and finitely presented, e:S→X is a section, and O_T→(π_T)_*O_(X_T) is an isomorphism for every T→S."
+      ],
+      "proofSteps": [
+        "Use the imported rigidified line bundles and their pullback functor. Evaluation gives e_T*N_e(L)≅O_T, canonically.",
+        "Tensoring L by π_T*M gives the same normalized rigidified class. Conversely a normalized class has zero quotient class exactly when it is the trivial rigidified line.",
+        "Universal global functions make an automorphism fixing the section the identity. The section kills the Picard descent obstruction on every T; apply BLR 8.1/4 or Kleiman 2.5, 2.9–2.10 to obtain the sheaf comparison, not merely its field-valued points."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "JacobianChallengePartII:JC4/actual-to-relative-obstruction",
+        "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§8.1 Proposition 4 and section-rigidification discussion, pp.204–205",
+          "match": "The section removes the descent obstruction and provides the normalized line-bundle description. The displayed normalization is the induced functorial construction."
+        },
+        {
+          "sourceId": "kleiman",
+          "locator": "Theorem 2.5, Definition 2.8, Lemmas 2.9–2.10, pp.18–20",
+          "match": "These statements compare the sheaf and quotient functors and identify the rigidified classes with no remaining automorphisms."
+        }
+      ],
+      "acceptance": [
+        "For L=π_T*M the image is the identity, even when M is nontrivial on T.",
+        "The statement holds for T with nilpotents; a comparison only on geometric points fails acceptance."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.0/normalized-representation",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0"
+      ],
+      "kind": "definition",
+      "title": "A normalized representation of a Picard subfunctor",
+      "statement": "Let F be a subfunctor of the imported rigidified Picard functor, stable under pullback. A NormalizedPicardRepresentation of F consists of an S-scheme P, an invertible U on X×_S P with a specified trivialization τ along e×id_P, and a natural bijection η_T:Hom_S(T,P)≅F(T) whose composite with F(T)↪Pic^rig(T) sends a to [(id_X×a)*U,a*τ]. The bijection is for all S-schemes T. It includes uniqueness of the classifying morphism; membership in F alone is insufficient.",
+      "hypotheses": [
+        "π:X→S is proper, flat and finitely presented, e:S→X is a section, and O_T→(π_T)_*O_(X_T) is an isomorphism for every T→S.",
+        "F is a specified subfunctor; representability is data to prove, not an automatic property of an arbitrary subfunctor."
+      ],
+      "proofSteps": [
+        "Use existing InvertibleSheaf and the current rigidified Picard functor as carriers. Package the universal rigidified bundle together with the all-test-scheme representing bijection.",
+        "Transport the naturality and inclusion equation as named fields, then derive the classification and uniqueness API. Do not store an arbitrary point-set group as the representing scheme."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/rigidified-comparison",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme"
+      ],
+      "sources": [
+        {
+          "sourceId": "kleiman",
+          "locator": "§4 Exercises 4.3–4.4, p.27; §2 Lemmas 2.9–2.10, p.19",
+          "match": "Universal bundles classify normalized classes when the functor is represented. The structure here records the Yoneda condition explicitly for a subfunctor."
+        },
+        {
+          "sourceId": "blr",
+          "locator": "§8.1 Proposition 4, pp.204–205",
+          "match": "Rigidification makes the universal object unique up to its unique compatible isomorphism."
+        }
+      ],
+      "acceptance": [
+        "Recover P uniquely up to the unique isomorphism carrying the universal rigidified class."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "NormalizedPicardRepresentation.classify",
+          "role": "universal-property",
+          "statement": "For ξ∈F(T), classify(ξ):T→P is the unique morphism with η(classify(ξ))=ξ."
+        },
+        {
+          "name": "NormalizedPicardRepresentation.classify_pullback",
+          "role": "functoriality",
+          "statement": "For b:T′→T, classify(b*ξ)=b followed by classify(ξ)."
+        },
+        {
+          "name": "NormalizedPicardRepresentation.universal_eq",
+          "role": "characterisation",
+          "statement": "A morphism a classifies ξ exactly when (id×a)*U is rigidified-isomorphic to the line representing ξ."
+        },
+        {
+          "name": "NormalizedPicardRepresentation.uniqueIso",
+          "role": "equivalence",
+          "statement": "Two representations are uniquely isomorphic over S, preserving their universal rigidified bundles."
+        },
+        {
+          "name": "NormalizedPicardRepresentation.baseChange",
+          "role": "compatibility",
+          "statement": "For S′→S, P_S′ and U_S′ represent the restricted functor over S′."
+        }
+      ],
+      "tests": [
+        {
+          "name": "normalizedRepresentation_trivial",
+          "kind": "degenerate",
+          "statement": "For the functor consisting of the identity class alone, P=S and U=O_(X) with its canonical section trivialization give a representation."
+        },
+        {
+          "name": "normalizedRepresentation_projectiveLine",
+          "kind": "computation",
+          "statement": "For X=P¹_S with its infinity section and F=Pic^rig, P=the disjoint union of copies of S indexed by Z; on component d the universal bundle is the infinity-normalized O(d)."
+        },
+        {
+          "name": "normalizedRepresentation_infinitesimal",
+          "kind": "characterisation",
+          "statement": "For an elliptic curve E/k, F=Pic^rig,0 and P=E∨, the tangent fibre over the identity on T=Spec k[ε]/(ε²) is one-dimensional; replacing F(T) by F(T_red) does not represent it."
+        },
+        {
+          "name": "normalizedRepresentation_baseTwist",
+          "kind": "non-example",
+          "statement": "For a nontrivial M on T, π_T*M is the zero relative class but is not an actual trivial line; the classifying condition must use normalization rather than require π_T*M≅O."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJ.1 smooth Jacobian representation",
+          "how": "Provides the actual universal curve×Jacobian bundle, rather than only its geometric point classes."
+        },
+        {
+          "where": "RJ.2 divisor Abel morphism",
+          "how": "Its classify API turns normalized divisor families into a morphism to the representing scheme."
+        }
+      ],
+      "planet": {
+        "name": "Normalized Picard representation"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.0/universal-criterion",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0"
+      ],
+      "kind": "theorem",
+      "title": "Universal-bundle criterion for representability",
+      "statement": "Under RJ.0 hypotheses, giving a normalized representation of F is equivalent to giving a representing S-scheme P for F and its universal rigidified line-bundle class. The universal class admits an actual rigidified representative; the resulting (U,τ) is unique up to unique rigidified isomorphism. A family of classes without the natural bijection is not a representability proof.",
+      "hypotheses": [
+        "π:X→S is proper, flat and finitely presented, e:S→X is a section, and O_T→(π_T)_*O_(X_T) is an isomorphism for every T→S."
+      ],
+      "proofSteps": [
+        "Evaluate a representing natural isomorphism at id_P. This lies in F(P), hence in the existing set of rigidified isomorphism classes; choose a representative.",
+        "For every a:T→P, naturality identifies its pullback with the corresponding class. Conversely the all-T universal property defines the representing natural bijection.",
+        "The no-automorphism theorem upgrades uniqueness of class to unique compatible isomorphism of representatives. Apply Yoneda for uniqueness of P."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/normalized-representation",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/rigidified-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "kleiman",
+          "locator": "§4 Exercise 4.3, p.27; Lemma 2.10, p.19",
+          "match": "The universal-sheaf criterion and rigidity give this direct Yoneda consequence, here restricted to a specified subfunctor."
+        }
+      ],
+      "acceptance": [
+        "The criterion distinguishes a universal Poincaré bundle from a family that merely has the desired fibre classes."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Universal-bundle criterion"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.0/represented-subfunctor",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0"
+      ],
+      "kind": "construction",
+      "title": "Restriction of a universal bundle to a represented subfunctor",
+      "statement": "Suppose Q with U_Q represents the ambient rigidified Picard functor. Let i:P→Q be a monomorphism of S-schemes and suppose that for every T, F(T) is exactly the image of Hom_S(T,P) under i in Pic^rig(T). Pulling U_Q back along id_X×i gives a normalized representation of F on P. The conclusion requires the stated image equality on all test schemes, not just geometric fibres.",
+      "hypotheses": [
+        "π:X→S is proper, flat and finitely presented, e:S→X is a section, and O_T→(π_T)_*O_(X_T) is an isomorphism for every T→S.",
+        "Q and i:P→Q are as in the statement; no representability assertion is made for unspecified subfunctors."
+      ],
+      "proofSteps": [
+        "Monomorphy makes Hom(T,P)→Hom(T,Q) injective. The assumed image condition identifies its image with F(T).",
+        "Pull back the ambient universal bundle and its section trivialization. The representing bijections and pullback identities prove the defining equation of a normalized representation."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/normalized-representation",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/universal-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "kleiman",
+          "locator": "§4 Exercises 4.3–4.4, p.27",
+          "match": "Pullback of a universal bundle realizes the Yoneda restriction to a represented subfunctor. This is a formal consequence, not a theorem that every subfunctor is represented."
+        }
+      ],
+      "acceptance": [
+        "Open-and-closed degree-zero inclusion recovers the curve×J bundle."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "NormalizedPicardRepresentation.restrict",
+          "role": "constructor",
+          "statement": "Construct the representation on P by pulling the universal bundle along id×i."
+        },
+        {
+          "name": "NormalizedPicardRepresentation.restrict_classify",
+          "role": "simp",
+          "statement": "Classification in F followed by i equals ambient classification in Q."
+        },
+        {
+          "name": "NormalizedPicardRepresentation.restrict_baseChange",
+          "role": "compatibility",
+          "statement": "Restriction commutes with every S′→S, retaining the all-test-scheme image condition."
+        },
+        {
+          "name": "NormalizedPicardRepresentation.restrict_comp",
+          "role": "functoriality",
+          "statement": "For P′→P→Q, the two restriction constructions agree by the canonical rigidified isomorphism."
+        }
+      ],
+      "tests": [
+        {
+          "name": "representedSubfunctor_identity",
+          "kind": "degenerate",
+          "statement": "For i=id_Q the representation is isomorphic to the original ambient representation."
+        },
+        {
+          "name": "representedSubfunctor_degreeZero",
+          "kind": "compatibility",
+          "statement": "For P¹_S, restricting Z_S to component 0 gives P=S with trivial universal bundle."
+        },
+        {
+          "name": "representedSubfunctor_nonreduced",
+          "kind": "non-example",
+          "statement": "A morphism Spec k→Spec k[ε]/(ε²) is bijective on geometric points but does not have the same functor of points; replacing the image condition by geometric-point equality must fail."
+        },
+        {
+          "name": "representedSubfunctor_composition",
+          "kind": "characterisation",
+          "statement": "Restricting first to Pic⁰ and then to its zero section gives the same rigidified bundle as restricting directly to that zero section."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJ.1 degree-zero representation",
+          "how": "Restricts the full Picard universal bundle to the already owned degree-zero Jacobian."
+        },
+        {
+          "where": "Representable Picard subfunctors in arithmetic moduli",
+          "how": "Supplies a checked universal bundle only after the separate representability and image hypotheses have been proved."
+        }
+      ],
+      "planet": {
+        "name": "Universal bundles on Picard subfunctors"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.0/zero-normalization",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0"
+      ],
+      "kind": "theorem",
+      "title": "Normalization at the section and at zero",
+      "statement": "If F is a subgroup functor and (P,U,τ) is its normalized representation, the zero element defines z:S→P. There is a unique trivialization of U along X×z compatible with τ at e×z. Thus U is normalized along both e×P and X×z, their trivializations agree at the intersection, and the normalization is preserved by arbitrary base change. The group structure on P is transported from F by Yoneda.",
+      "hypotheses": [
+        "π:X→S is proper, flat and finitely presented, e:S→X is a section, and O_T→(π_T)_*O_(X_T) is an isomorphism for every T→S."
+      ],
+      "proofSteps": [
+        "Classify zero and classify the group operations using the natural bijection; Yoneda proves the group identities.",
+        "The restriction to X×z represents the trivial rigidified line. Its rigidified isomorphism to O is unique, so its overlap with τ is the prescribed unit identification.",
+        "Pullback preserves the two rigidifications, and uniqueness proves their compatibility without testing only geometric fibres."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/normalized-representation",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/universal-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§8.1 Proposition 4 and rigidification, pp.204–205",
+          "match": "Section normalization removes automorphisms; applying it to the identity class supplies the second axis normalization."
+        },
+        {
+          "sourceId": "kleiman",
+          "locator": "Lemma 2.10 p.19 and Exercise 4.3 p.27",
+          "match": "Uniqueness of rigidified representatives makes the two-axis compatibility canonical."
+        }
+      ],
+      "acceptance": [
+        "For a base line M, tensoring U by pr_P*M generally spoils τ; renormalization cancels M.",
+        "The zero of P must classify the trivial rigidified line, not a translated degree-zero class."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Zero-normalized Poincaré bundle"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.1/local-projectivity",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1"
+      ],
+      "kind": "theorem",
+      "title": "Pointed proper curves enter the projective suppliers",
+      "statement": "Under the smooth arithmetic hypotheses, the image Γ_e is an effective relative Cartier divisor of fibre degree one. O_X(Γ_e) is π-ample. In particular X is projective over each affine open of S, and the projective relative-Picard results apply there and glue canonically. This statement does not require a global embedding in P^n_S on a nonaffine base.",
+      "hypotheses": [
+        "S is a connected locally noetherian Dedekind scheme with function field K; π:X→S is smooth proper of relative dimension one with geometrically connected fibres and section e. Genus is locally constant; apply componentwise if S is disconnected."
+      ],
+      "proofSteps": [
+        "Import the section-Cartier theorem and the positive-degree criterion for proper curve fibres from StableReduction Layer 2.",
+        "On every geometric smooth connected fibre, O(Γ_e) has degree one and is ample. The proper-family fibrewise ampleness criterion gives relative ampleness.",
+        "Over an affine noetherian base, a sufficiently high power gives a projective presentation. Apply the relative Picard supplier locally; its natural all-test-scheme description identifies and glues the overlaps."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "JacobianChallengePartII:JC0/picard-representability"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§9.4 Proposition 4 and its proof, pp.260–261",
+          "match": "Smooth proper curves have abelian relative Picard identity component; the proof uses local projective presentations and compatibility of the Picard functor."
+        }
+      ],
+      "acceptance": [
+        "For P¹_S the section line has degree one on each fibre.",
+        "A section on a reducible semistable special fibre has degree zero on components it misses; this proof of ampleness cannot be reused there."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.1/smooth-jacobian-representation",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1"
+      ],
+      "kind": "application",
+      "title": "The rigidified relative Jacobian over the whole smooth base",
+      "statement": "Under the smooth arithmetic hypotheses, the existing J=Pic⁰_(X/S) represents the subgroup of rigidified line classes of degree zero on every geometric fibre of X_T/T, for all T→S. It is an abelian S-scheme of relative dimension the genus, with the normalized universal U on X×_S J. Formation of J, the representing isomorphism and U commute with arbitrary base change, including nonreduced tests. Positive-genus J is imported from JacobianChallengePartII; the genus-zero adapter below supplies the remaining case.",
+      "hypotheses": [
+        "S is a connected locally noetherian Dedekind scheme with function field K; π:X→S is smooth proper of relative dimension one with geometrically connected fibres and section e. Genus is locally constant; apply componentwise if S is disconnected."
+      ],
+      "proofSteps": [
+        "Use local-projectivity to apply the imported degree-component representability, relative Jacobian and arbitrary-base-change results on an affine cover.",
+        "Use RJ.0 rigidified comparison and represented-subfunctor restriction to identify the represented functor and obtain the actual universal bundle.",
+        "Glue using unique representing isomorphisms. Normalize at the identity by RJ.0; use the genus-zero adapter when g=0."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/local-projectivity",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/genus-zero",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/represented-subfunctor",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/zero-normalization",
+        "JacobianChallengePartII:JC0/relative-degree-components",
+        "JacobianChallengePartII:JC1/relative-jacobian",
+        "JacobianChallengePartII:JC1/jacobian-base-change",
+        "AbelianSchemesAndArithmeticModuli:A1/relative-products-and-dimension"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§9.4 Proposition 4, pp.260–261",
+          "match": "Pic⁰ for a smooth proper geometrically connected curve is an abelian scheme, compatible with change of base. The rigidified universal-bundle identification is the RJ.0 comparison."
+        }
+      ],
+      "acceptance": [
+        "An elliptic curve with its identity gives the usual relative Pic⁰ and its degree-one pointed identification.",
+        "In genus zero J=S; no positive-genus premise is hidden in the final arithmetic interface.",
+        "This good-family result is used on the smooth locus U of an integral model; RJ.4 supplies specialization at every point of S."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.1/genus-zero",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1"
+      ],
+      "kind": "application",
+      "title": "The zero-genus relative Jacobian adapter",
+      "statement": "For a smooth proper geometrically connected genus-zero curve with section over a locally noetherian base, Pic⁰_(X/S) is the trivial S-group scheme. Its rigidified universal line is O_X. This holds on every base change T→S and is the genus-zero extension of the positive-genus JacobianChallengePartII contract.",
+      "hypotheses": [
+        "The morphism is smooth proper of relative dimension one; every geometric fibre has genus zero; a section is specified."
+      ],
+      "proofSteps": [
+        "Use BLR 9.4/4 to obtain the smooth proper group scheme Pic⁰, whose tangent dimension is h¹(O)=0 by the imported curve cohomology theorem.",
+        "It is étale with one geometric point on each fibre, so its identity section is an isomorphism. Equivalently, the pointed genus-zero curve is a P¹-bundle locally on the base and its Picard degree-zero functor is trivial.",
+        "The rigidified comparison identifies the unique universal line and proves the arbitrary-base-change assertion."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/rigidified-comparison",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§9.4 Proposition 4, pp.260–261",
+          "match": "The smooth proper curve statement includes genus zero. Tangent-space dimension zero and connected fibres give the trivial abelian scheme; the general Picard construction is imported."
+        }
+      ],
+      "acceptance": [
+        "For P¹_S and any T→S, every fibre-degree-zero line is pulled back from T and normalizes to O."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.1/generic-class-equivalence",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1"
+      ],
+      "kind": "construction",
+      "title": "Generic points and degree-zero divisor classes",
+      "statement": "Let C=X_K and let Ω=K^sep be a chosen separable closure. There is a canonical group isomorphism genericClassEquiv:J_K(Ω)≅Cl⁰(C_Ω), where Cl is the group of divisors at all closed points modulo principal divisors, degree weights a closed point by [κ(x):Ω], and Cl⁰ is the kernel of degree. The inverse sends [D] to the relative class of the section-normalized O(D). This concerns actual divisor classes, not arbitrary effective divisors or only Ω-rational points.",
+      "hypotheses": [
+        "S is a connected locally noetherian Dedekind scheme with function field K; π:X→S is smooth proper of relative dimension one with geometrically connected fibres and section e. Genus is locally constant; apply componentwise if S is disconnected.",
+        "Ω is a separable closure with its specified K-algebra structure."
+      ],
+      "proofSteps": [
+        "Base change the represented rigidified degree-zero functor to Ω and use its Ω-points. The section removes the quotient by Pic(Ω), which is trivial.",
+        "Import the smooth regular proper curve divisor/line-bundle dictionary from JacobianChallenge Layer A and the scheme/function-field comparison from AlgebraicCurves Layer 12.",
+        "Restriction of the degree comparison identifies Pic⁰ with the kernel of the residue-weighted divisor degree. Multiplication of line bundles agrees with addition of divisors, giving the group isomorphism."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/smooth-jacobian-representation",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§8.1 Proposition 4 pp.204–205 and §9.4 Proposition 4 pp.260–261",
+          "match": "The pointed Picard representation identifies geometric-field points with actual line classes. The divisor-class step is the imported curve dictionary, not a new representability proof."
+        }
+      ],
+      "acceptance": [
+        "For a degree-zero principal divisor div(f), the image is the identity of J."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "genericClassEquiv",
+          "role": "equivalence",
+          "statement": "The displayed degree-preserving group isomorphism on Ω-points."
+        },
+        {
+          "name": "genericClassEquiv_ofDivisor",
+          "role": "simp",
+          "statement": "The classifying point of N_e(O(D)) maps to [D] for deg D=0."
+        },
+        {
+          "name": "genericClassEquiv_add",
+          "role": "structure",
+          "statement": "Addition in J corresponds to addition of divisor classes."
+        },
+        {
+          "name": "genericClassEquiv_scalarExtension",
+          "role": "compatibility",
+          "statement": "For a field extension Ω→Ω′, scalar extension of points corresponds to flat pullback of divisor classes, with its residue multiplicities."
+        },
+        {
+          "name": "genericClassEquiv_places",
+          "role": "compatibility",
+          "statement": "Using the imported closed-point/place equivalence, scheme divisor coefficients and residue-weighted degrees agree with the existing function-field class group."
+        }
+      ],
+      "tests": [
+        {
+          "name": "genericClassEquiv_principal",
+          "kind": "degenerate",
+          "statement": "For f≠0, genericClassEquiv sends the point represented by O(div f) to zero."
+        },
+        {
+          "name": "genericClassEquiv_elliptic",
+          "kind": "computation",
+          "statement": "For an elliptic C with origin e and P∈C(Ω), the usual point P corresponds to [P−e], with positive coefficient at P."
+        },
+        {
+          "name": "genericClassEquiv_genusZero",
+          "kind": "compatibility",
+          "statement": "For C=P¹_K the source and the degree-zero class group are trivial."
+        },
+        {
+          "name": "genericClassEquiv_inseparablePoint",
+          "kind": "non-example",
+          "statement": "If Ω has characteristic p and a∉Ω^p, the point x of P¹_Ω cut out by T^p−a has degree p; x−p∞ has degree zero. A sum over Ω-rational points alone loses this class representative and its degree formula."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EisensteinIdealAndRationalTorsion, proposed arithmetic torsion consumer",
+          "how": "Transfers rational torsion classes to the actual Jacobian point group before reduction."
+        },
+        {
+          "where": "RJ.5 every-prime export",
+          "how": "Identifies the generic arithmetic input to the specialization homomorphism without replacing it by a free divisor group."
+        }
+      ],
+      "planet": {
+        "name": "Generic divisor-class comparison"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.1/galois-equivariance",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1"
+      ],
+      "kind": "theorem",
+      "title": "Equivariance of the generic divisor-class comparison",
+      "statement": "For σ∈Gal(K^sep/K), genericClassEquiv(σP)=σ(genericClassEquiv(P)), where the action on divisor classes transports closed points, coefficients, residue fields and principal divisors by σ. Consequently J_K(K)≅Cl⁰(C_(K^sep))^Gal(K^sep/K) under this pointed comparison. The field of definition is K, and the action is the semilinear descent action.",
+      "hypotheses": [
+        "S is a connected locally noetherian Dedekind scheme with function field K; π:X→S is smooth proper of relative dimension one with geometrically connected fibres and section e. Genus is locally constant; apply componentwise if S is disconnected.",
+        "Use the Ω and residue-weighted degree conventions of genericClassEquiv."
+      ],
+      "proofSteps": [
+        "The Picard representing map, section normalization and divisor-to-line-bundle map are defined over K, hence commute with scalar automorphisms.",
+        "Check this on O(D), then descend through principal divisors. Residue-degree invariance makes the action preserve Cl⁰.",
+        "Galois descent for points of the K-scheme J identifies J(K) with its invariant Ω-points. Transport this statement through the equivariant group isomorphism."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/generic-class-equivalence",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+        "SchemeAndStackFoundations:SF.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§8.1 Proposition 4 pp.204–205; §9.4 Proposition 4 pp.260–261",
+          "match": "The representing descriptions and base-change compatibility yield the semilinear equivariance. The invariant-point conclusion is ordinary Galois descent, not a new Picard descent assertion without a section."
+        }
+      ],
+      "acceptance": [
+        "For an elliptic curve P↦[P−e], σ acts on both P and the divisor; e is fixed.",
+        "Without a K-rational section, invariant geometric classes may have a Brauer obstruction; that different statement is not asserted here."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.2/relative-divisor-degree",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.2",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2"
+      ],
+      "kind": "application",
+      "title": "Finite flat divisor degree in pointed curve families",
+      "statement": "For the smooth pointed curve X/S and r∈N, import Div^r_(X/S), the functor of effective relative Cartier divisors D⊂X_T which are finite locally free of rank r over T. The fibre degree of O(D) is r and of O(D−rΓ_(e_T)) is zero. The assertions and the identification Div^r≅Sym^r_S(X) commute with arbitrary base change. A relative Cartier divisor is flat over T as well as Cartier on every fibre; r is locally constant when bases are disconnected.",
+      "hypotheses": [
+        "S is a connected locally noetherian Dedekind scheme with function field K; π:X→S is smooth proper of relative dimension one with geometrically connected fibres and section e. Genus is locally constant; apply componentwise if S is disconnected.",
+        "The degree-r summand fixes one natural number on the chosen component; D is finite locally free of that rank."
+      ],
+      "proofSteps": [
+        "Use the imported Cartier and symmetric-power functors, not a replacement defined as finite sets of sections.",
+        "On each geometric fibre, length of D equals the rank of its finite flat structure sheaf. The Cartier/divisor line comparison gives degree O(D)=r.",
+        "Subtract r copies of the section divisor, use additivity of degree, and retain the flatness hypotheses under pullback."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/local-projectivity"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§8.2 Lemma 6 pp.213–214, and the divisor-to-Picard morphism preceding Proposition 7 p.214",
+          "match": "Relative effective Cartier divisors persist under base change and induce line classes. The finite-flat degree-r and symmetric-power facts are imported from the curve supplier."
+        }
+      ],
+      "acceptance": [
+        "On P¹_R, a monic polynomial of degree r cuts out a finite free divisor with basis 1,t,…,t^(r−1).",
+        "The doubled section 2Γ_e belongs to Div² even though it is not two distinct points.",
+        "A vertical special fibre over a DVR is an absolute effective Cartier divisor on a flat model, but is not a relative divisor over that DVR."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.2/divisor-abel",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.2",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2"
+      ],
+      "kind": "construction",
+      "title": "The normalized degree-r divisor Abel morphism",
+      "statement": "For every r≥0, define AJ_(r,e):Div^r_(X/S)≅Sym^r_S(X)→J by classifying the family N_e(O(D−rΓ_e)). The universal divisor is taken on X×Div^r; the section graph is pulled back from X. This is an S-morphism representing the natural transformation on all T, and the universal rigidified bundle pulls back to that normalized divisor bundle. In particular AJ_(r,e)(rΓ_e)=0.",
+      "hypotheses": [
+        "S is a connected locally noetherian Dedekind scheme with function field K; π:X→S is smooth proper of relative dimension one with geometrically connected fibres and section e. Genus is locally constant; apply componentwise if S is disconnected.",
+        "Use the imported Div^r universal divisor and the degree-zero representing isomorphism."
+      ],
+      "proofSteps": [
+        "The previous degree calculation puts N_e(O(D−rΓ_e)) in the represented degree-zero functor for every test scheme.",
+        "Cartier pullback, tensor product and normalization are natural in T. The representation classifies the universal family, yielding an actual morphism.",
+        "The classification equation gives the pullback of U on X×J, retaining its section trivialization, not merely the line-bundle class."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2/relative-divisor-degree",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/smooth-jacobian-representation",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/normalized-representation",
+        "JacobianChallengePartII:JC2/section-free-abel-map"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§8.2 divisor-to-Picard morphism and Proposition 7, pp.214–215",
+          "match": "The Abel morphism sends an effective relative Cartier divisor to its associated line class. Translation by rΓ_e and normalization place it in the rigidified degree-zero representation."
+        },
+        {
+          "sourceId": "kleiman",
+          "locator": "Definition 4.6 and Exercise 4.7, p.27",
+          "match": "The Abel construction is a morphism of the represented divisor and Picard functors. The point-normalized version is its indicated translate."
+        }
+      ],
+      "acceptance": [
+        "The definition remains valid for nonreduced test schemes and divisors with multiplicities."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "divisorAbel",
+          "role": "constructor",
+          "statement": "The S-morphism from Div^r to J classifying N_e(O(D−rΓ_e))."
+        },
+        {
+          "name": "divisorAbel_classify",
+          "role": "universal-property",
+          "statement": "Pullback of U by id×AJ equals the normalized universal divisor line as a rigidified line."
+        },
+        {
+          "name": "divisorAbel_baseChange",
+          "role": "functoriality",
+          "statement": "For S′→S the Abel morphism agrees with the one for X_S′, e_S′."
+        },
+        {
+          "name": "divisorAbel_sum",
+          "role": "compatibility",
+          "statement": "AJ_(r+s)(D+E)=AJ_r(D)+AJ_s(E) for finite flat relative effective Cartier divisors."
+        },
+        {
+          "name": "divisorAbel_one",
+          "role": "compatibility",
+          "statement": "For r=1 it is the existing pointed degree-one Abel map, via JC2 and the section-normalized line O(Γ_x−Γ_e)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "divisorAbel_zero",
+          "kind": "degenerate",
+          "statement": "Div⁰=S with empty divisor, and AJ_0 is the identity section of J."
+        },
+        {
+          "name": "divisorAbel_multipleSection",
+          "kind": "computation",
+          "statement": "AJ_r(rΓ_e)=0, including r>1 when the divisor is nonreduced."
+        },
+        {
+          "name": "divisorAbel_ellipticSum",
+          "kind": "compatibility",
+          "statement": "On an elliptic curve with origin e, AJ_r(P₁+…+P_r) is P₁+…+P_r in its group law, not its multiple by r."
+        },
+        {
+          "name": "divisorAbel_nonrationalDivisor",
+          "kind": "non-example",
+          "statement": "A finite flat closed divisor of rank two with no split sections still defines a T-point of Div² and hence an Abel point. A construction accepting only lists of T-sections is insufficient."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BLR §8.2 Proposition 7",
+          "how": "The divisor-to-Picard map gives the line-class family underlying the normalized Abel construction."
+        },
+        {
+          "where": "ModularCurvesPartII:R14.2",
+          "how": "Provides a morphism-level divisor-class input for correspondences; pullback/norm and Hecke relations remain owned by that consumer."
+        }
+      ],
+      "planet": {
+        "name": "Relative divisor Abel morphism"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.2/abel-comparisons",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.2",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2"
+      ],
+      "kind": "theorem",
+      "title": "Compatibility with the existing Abel and divisor APIs",
+      "statement": "The divisor Abel morphisms commute with base change and divisor addition. For r=1 they equal the pointed Abel map obtained from JacobianChallengePartII:JC2/degree-abel-map with α=O(Γ_e). On the generic fibre their value at D agrees through genericClassEquiv with [D−r e]. The line O(Γ_x−Γ_e) must be normalized at e before claiming equality of rigidified bundles: e*O(Γ_e) need not be O_S.",
+      "hypotheses": [
+        "S is a connected locally noetherian Dedekind scheme with function field K; π:X→S is smooth proper of relative dimension one with geometrically connected fibres and section e. Genus is locally constant; apply componentwise if S is disconnected."
+      ],
+      "proofSteps": [
+        "Compare the natural transformations on every T and apply the representing bijection, rather than compare only field points.",
+        "For addition use O(D+E)=O(D)⊗O(E) and the multiplicativity of normalization. For r=1 compare to the imported JC2 point formula.",
+        "Use the divisor-line dictionary on the generic fibre. Evaluation at e cancels the base line, including the section normal-bundle factor, so the comparison is rigidified."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2/divisor-abel",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/generic-class-equivalence",
+        "JacobianChallengePartII:JC2/degree-abel-map",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/rigidified-comparison"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§8.1 section normalization pp.204–205; §8.2 Abel morphism pp.214–215",
+          "match": "Tensor and pullback of divisor bundles give the comparisons. The section correction is needed for a statement about actual rigidified bundles, not just quotient classes."
+        }
+      ],
+      "acceptance": [
+        "For a section with nontrivial normal bundle, the normalized formula still restricts trivially along e.",
+        "The sign on a geometric degree-one divisor is [x−e], agreeing with genericClassEquiv."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.2/two-affine-cohomology",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.2",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2"
+      ],
+      "kind": "theorem",
+      "title": "Two-affine formulas for coherent cohomology",
+      "statement": "Let X be a locally noetherian separated scheme over Spec R and X=U∪V a cover by affine opens. For a quasi-coherent O_X-module M put d:Γ(U,M)⊕Γ(V,M)→Γ(U∩V,M), d(a,b)=a|−b|. Then restriction identifies H⁰(X,M) with ker d, the Mayer–Vietoris boundary identifies coker d with H¹(X,M), and H^i(X,M)=0 for i≥2, as R-modules naturally in M. Flat R→R′ preserves both identifications. No assertion that every proper curve over an arbitrary base admits a two-affine cover is included. The general Čech comparison belongs to the parent roadmap; the target here is its explicit two-chart formula.",
+      "hypotheses": [
+        "X is separated and locally noetherian; U,V are affine and cover X; M is quasi-coherent. Flatness is required only for the stated cohomology base-change consequence."
+      ],
+      "proofSteps": [
+        "The intersection U∩V is affine. Import affine acyclicity and the open-restriction cohomology comparison; current Tau Ceti already proves these for noetherian affines and the H^≥2 two-open vanishing.",
+        "Read the native Mayer–Vietoris differential as first restriction minus second restriction. Exactness at degree zero gives the kernel; vanishing of H¹ on U,V makes the boundary a cokernel.",
+        "The R-module structures come from the structure map; the restriction and boundary maps are R-linear. For flat base change use the affine tensor descriptions, exactness of flat tensor and the parent flat-base-change theorem."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
+        "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyOnRes",
+        "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.mayerVietorisSequence_exact",
+        "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.epi_mayerVietorisδ",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-coherent",
+          "locator": "Lemma 30.2.6 (01XD), chapter p.3; Lemma 30.4.2 (01XI), chapter pp.6–7",
+          "match": "The affine-cover Čech computation and the two-open Mayer–Vietoris proof yield the explicit kernel and cokernel formulas. The source general theorem is imported; this is the two-affine application."
+        }
+      ],
+      "acceptance": [
+        "For P¹_R with standard charts and M=O, d is difference in R[t,t⁻¹], so H⁰=R and H¹=0.",
+        "For O_(P¹)(−2), choose overlap coordinate t and the standard frames; the cokernel is R generated by t⁻¹, so H¹ has rank one.",
+        "An arbitrary coherent sheaf on a nonflat family need not satisfy H⁰ base change for nonflat R→R′; that strengthening is excluded."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Two-affine cohomology formulas"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.3/p1-normalization",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.3",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3"
+      ],
+      "kind": "construction",
+      "title": "Normalization of the projective line in a curve function field",
+      "statement": "With the model hypotheses, apply the existing relative normalization to Spec F→P¹_S determined by t and the generic point of S; denote the result X_t→P¹_S. Over Spec R⊂S its standard charts are Spec A₀ and Spec A_∞, with A₀ the integral closure of R[t] in F and A_∞ the integral closure of R[t⁻¹] in F. They glue over the common ring A₀[t⁻¹]=A_∞[t], the integral closure of R[t,t⁻¹] in F. This is an application of the native normalization, not a replacement definition of normalization or of TauCeti.Model.",
+      "hypotheses": [
+        "S is an integral noetherian Dedekind scheme, K its function field, C/K a smooth proper geometrically connected curve, F=K(C), and t∈F is nonconstant. Thus F/K(t) is finite, with no separability requirement on this chosen t."
+      ],
+      "proofSteps": [
+        "Use native Scheme.Hom.normalization and normalizationObjIso. Integral closure commutes with localization, so the two affine descriptions and their overlap maps agree inside the fixed field F.",
+        "The map Spec F→P¹_S is qcqs: the target is noetherian and the affine inverse images are either Spec F or empty. Its source is normal and integral, making X_t normal and integral.",
+        "Retain t and the function-field identification in the data. Different choices of t need not produce isomorphic total models. Finiteness of the map is a separate target with an explicit hypothesis."
+      ],
+      "prerequisites": [
+        "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationObjIso",
+        "mathlib:AlgebraicGeometry.Scheme.Hom.fromNormalization",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-morphisms",
+          "locator": "Definition 29.54.3 (035H), Lemmas 29.54.1, 6, 13, chapter pp.136–140",
+          "match": "Relative normalization is built from affine integral closures; localization and the normal integral source give these arithmetic chart and normality statements."
+        }
+      ],
+      "acceptance": [
+        "The overlap includes t as a unit; omitting localization fails the gluing equation."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "p1NormalizationModel",
+          "role": "constructor",
+          "statement": "The relative normalization associated to the specified S,C,F,t, using the native normalization carrier."
+        },
+        {
+          "name": "p1NormalizationModel.affineCharts",
+          "role": "characterisation",
+          "statement": "Over Spec R, the two rings are the indicated integral closures inside F, with the common localization as overlap."
+        },
+        {
+          "name": "p1NormalizationModel.functionField",
+          "role": "equivalence",
+          "statement": "The normalization has function field canonically identified with F over K, respecting t."
+        },
+        {
+          "name": "p1NormalizationModel.restrictBase",
+          "role": "functoriality",
+          "statement": "Restriction to an open S′⊂S agrees with the normalization construction over S′."
+        },
+        {
+          "name": "p1NormalizationModel.toModel",
+          "role": "compatibility",
+          "statement": "When the finiteness theorem applies, the generic-fibre identification and flatness package its DVR restriction as the existing TauCeti.Model, with additional integral and proper properties."
+        }
+      ],
+      "tests": [
+        {
+          "name": "p1Normalization_rational",
+          "kind": "computation",
+          "statement": "For C=P¹_K and t its coordinate, X_t=P¹_S because the Dedekind base is normal and P¹_S is normal."
+        },
+        {
+          "name": "p1Normalization_powerMap",
+          "kind": "computation",
+          "statement": "For C=P¹_K with coordinate u and t=u², X_t=P¹_S with finite morphism [u:v]↦[u²:v²]; it is not the identity morphism. This includes characteristic two, where the function-field extension is inseparable."
+        },
+        {
+          "name": "p1Normalization_genericOnly",
+          "kind": "non-example",
+          "statement": "Normalization does not imply regularity of an arithmetic surface: the normal local surface xy=π² over a DVR is singular at (x,y,π). Regularity or semistability of X_t requires separate hypotheses."
+        },
+        {
+          "name": "p1Normalization_native",
+          "kind": "compatibility",
+          "statement": "For the specified generic-point morphism, the total scheme and normalization map agree with Scheme.Hom.normalization and fromNormalization, up to the unique chart-compatible isomorphism."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJ.3 model and two-chart cohomology",
+          "how": "Provides the finite normalization map, the integral affine charts and their exact overlap."
+        },
+        {
+          "where": "Integral models consumed by ModularCurvesPartII:R13.5",
+          "how": "Supplies a proper flat normal starting model; resolution and semistable reduction remain separate inputs owned by StableReduction."
+        }
+      ],
+      "planet": {
+        "name": "Projective-line normalization model"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.3/normalization-model",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.3",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3"
+      ],
+      "kind": "theorem",
+      "title": "Finiteness, properness and flatness of the normalization model",
+      "statement": "Under the model hypotheses, assume X_t→P¹_S is finite; it is enough that S is Nagata, in particular excellent. Then X_t is an integral normal separated proper flat S-scheme of finite presentation with generic fibre C. On every affine Spec R⊂S, the rings A₀,A_∞ are torsion-free R-modules and hence flat. Thus its restriction to any local DVR is a proper TauCeti.Model of C. The Nagata sufficient condition permits arbitrary finite F/K(t), including inseparable extensions; a bare nonexcellent DVR is not silently assumed Nagata.",
+      "hypotheses": [
+        "S is an integral noetherian Dedekind scheme, K its function field, C/K a smooth proper geometrically connected curve, F=K(C), and t∈F is nonconstant. Thus F/K(t) is finite, with no separability requirement on this chosen t.",
+        "Either finiteness of the normalization is supplied directly, or S is Nagata so the requested general finite-normalization theorem applies."
+      ],
+      "proofSteps": [
+        "Apply the foundational Nagata finiteness theorem to Spec F→P¹_S. The target is Nagata; the source is reduced with one generic point and a finite extension of the target generic field.",
+        "A finite map to P¹_S is proper and separated, and finite presentation follows over noetherian S. Native normalization gives integral and normal total space.",
+        "Each affine chart embeds in F and receives R injectively, so it is torsion-free over the Dedekind domain R. Apply the pinned flat/torsion theorem and the affine-local definition of scheme flatness.",
+        "Localization to K identifies the generic normalization with C by the existing normal proper curve/function-field dictionary. Package the generic-fibre isomorphism, flatness and finite presentation into TauCeti.Model at each DVR."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/p1-normalization",
+        "mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot",
+        "tauceti:TauCeti.Model",
+        "SchemeAndStackFoundations:SF.0",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-morphisms",
+          "locator": "Lemma 29.54.14 (0AVK), chapter p.140; Lemma 29.54.13, pp.139–140",
+          "match": "Nagata finiteness applies to the generic field morphism, with no separability premise. Normality comes from the normal source. Flatness uses the pinned Dedekind-module theorem."
+        }
+      ],
+      "acceptance": [
+        "Over the ring of integers of a number field the Nagata condition applies and every finite place has a proper flat model.",
+        "The argument proves flatness over S, not finite flatness over P¹_S; the latter is a different assertion.",
+        "The normal total surface may have singularities or nonreduced fibres, so RJ.4 semistable Picard comparisons cannot be invoked without checking their hypotheses."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Proper flat integral curve model"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.3/generic-model-comparison",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.3",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3"
+      ],
+      "kind": "comparison",
+      "title": "Generic fibre, places and the existing curve dictionary",
+      "statement": "The normalization model comes with a canonical K-isomorphism (X_t)_K≅C that respects F and t. Under this isomorphism the imported closed-point/place equivalence identifies every closed point of (X_t)_K with a place of F/K, preserving valuation rings, residue fields, orders and degrees. This equivalence concerns the one-dimensional generic fibre; height-one points of the two-dimensional total space also include vertical divisors and are not its places.",
+      "hypotheses": [
+        "S is an integral noetherian Dedekind scheme, K its function field, C/K a smooth proper geometrically connected curve, F=K(C), and t∈F is nonconstant. Thus F/K(t) is finite, with no separability requirement on this chosen t.",
+        "Use the finite model of RJ.3/normalization-model."
+      ],
+      "proofSteps": [
+        "Integral closure commutes with localization from R to K, so the generic two charts are the normalizations of K[t] and K[t⁻¹] in F.",
+        "Apply AlgebraicCurves Layer 12 to identify this glued proper normal K-curve with C. Reuse current Tau Ceti CodimensionOnePoint.equivPlace rather than rebuild its valuative-criterion argument.",
+        "The chart inclusions identify local DVRs and normalized valuations, so the existing residue-field and degree comparisons apply. No point of a special fibre is inserted into this bijection."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/normalization-model",
+        "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-morphisms",
+          "locator": "Lemma 29.54.6 and affine closure description, chapter pp.136–138",
+          "match": "Localization identifies the generic normalization. The closed-point/place equivalence is the imported curve dictionary, implemented in current Tau Ceti beyond the pins."
+        }
+      ],
+      "acceptance": [
+        "For P¹_K, finite irreducible-polynomial places and the infinity place are all recovered.",
+        "The generic fibre excludes the height-one point defined by a uniformizer of R."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.3/normalization-cohomology",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.3",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3"
+      ],
+      "kind": "application",
+      "title": "Čech formulas on the normalization charts",
+      "statement": "For S=Spec R and the finite normalization model, write U=Spec A₀, V=Spec A_∞ and W=Spec A₀[t⁻¹]. For any quasi-coherent M, H⁰(X_t,M)=ker(Γ(U,M)⊕Γ(V,M)→Γ(W,M)) and H¹(X_t,M)=coker of the same difference map. In particular H⁰(X_t,O)=A₀∩A_∞ inside F and H¹(X_t,O)=A₀[t⁻¹]/(A₀+A_∞) as R-modules. Higher cohomology vanishes. These formulas are compatible with localization on R and flat base change of the scheme and sheaf; this does not assert that normalization itself commutes with arbitrary base change.",
+      "hypotheses": [
+        "S is an integral noetherian Dedekind scheme, K its function field, C/K a smooth proper geometrically connected curve, F=K(C), and t∈F is nonconstant. Thus F/K(t) is finite, with no separability requirement on this chosen t.",
+        "S=Spec R; the normalization map is finite."
+      ],
+      "proofSteps": [
+        "Finiteness makes inverse images of the two standard affine opens affine. The chart description gives the exact overlap inside F.",
+        "Apply the explicit two-affine theorem. For O, the kernel is the intersection in F and the image of the difference map is A₀+A_∞.",
+        "Use localization of integral closure for open base restrictions. For other flat base changes apply cohomology base change to the already constructed X_t; do not identify its new fibre with a freshly normalized P¹ without a separate comparison theorem."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/normalization-model",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2/two-affine-cohomology"
+      ],
+      "sources": [
+        {
+          "sourceId": "stacks-coherent",
+          "locator": "Lemma 30.2.6 p.3 and Lemma 30.4.2 pp.6–7 (chapter pages)",
+          "match": "The two finite preimage charts yield the kernel/cokernel computation."
+        },
+        {
+          "sourceId": "stacks-morphisms",
+          "locator": "Lemma 29.54.1 and 29.54.6, chapter pp.136–138",
+          "match": "The integral-closure charts and their localization identify the rings in the formula."
+        }
+      ],
+      "acceptance": [
+        "For F=K(t), A₀=R[t], A_∞=R[t⁻¹], the intersection is R and the quotient is zero.",
+        "The denominator is A₀+A_∞, not their intersection or their product."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.4/whole-base-neron",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.4",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4"
+      ],
+      "kind": "application",
+      "title": "The full-base Jacobian model interface",
+      "statement": "Let S be a noetherian connected Dedekind scheme with function field K and C/K a smooth proper geometrically connected pointed curve. Import the finite-type Néron model N/S of A=Jac(C). For every open U⊂S admitting a smooth proper pointed curve model X_U, there is a canonical group-scheme isomorphism N_U≅Pic⁰_(X_U/U), compatible on overlaps. N remains defined at every closed point of S, including those with singular curve fibres. Local existence for Jacobians over arbitrary DVRs is requested from the Néron owner using BLR 9.5/6(a); the existing excellent-DVR supplier already covers arithmetic excellent bases.",
+      "hypotheses": [
+        "S,C are as stated; use the specified full finite-type Néron model. The model is smooth separated with the Néron mapping property, without a connected-special-fibre requirement."
+      ],
+      "proofSteps": [
+        "Take the relative Jacobian on a dense good open from RJ.1 and the imported spreading theorem.",
+        "Use the Néron owner’s local existence and Dedekind gluing. The request records that smooth Jacobians over arbitrary DVRs require the general abelian-variety existence theorem, not excellence of the curve normalization.",
+        "An abelian scheme is the Néron model of its generic fibre. Uniqueness gives the good-open comparison and all overlap identities, while retaining N at the complementary closed points."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/smooth-jacobian-representation",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/spread-abelian",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-gluing",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/unique-iso",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§9.4 Proposition 4 pp.260–261; §9.5 Proposition 6(a) p.268",
+          "match": "Smooth-curve Jacobians are abelian varieties and have finite-type Néron models without an excellence assumption on the DVR. The general existence proof is an imported Chapter 10 obligation."
+        }
+      ],
+      "acceptance": [
+        "A reducible bad special fibre does not delete the corresponding point from S.",
+        "For C=P¹_K, A and N are trivial group schemes."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-hom",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.4",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4"
+      ],
+      "kind": "construction",
+      "title": "Specialization through the full Néron model",
+      "statement": "For every closed s∈S put R_s=O_(S,s), k_s=κ(s). The Néron mapping property gives a canonical group isomorphism A(K)≅N(R_s). Define sp_s:A(K)→N_s(k_s) by extension followed by restriction along Spec k_s→Spec R_s. It is a group homomorphism. Its target is the full special-fibre group, not just N_s⁰(k_s) or the component group. On a good smooth model it agrees with proper extension of J_K-points followed by reduction in J_s.",
+      "hypotheses": [
+        "A/K and N/S satisfy the full-base interface; s is a closed point. No good or semistable reduction assumption is needed for sp_s."
+      ],
+      "proofSteps": [
+        "Localize the Néron model; the étale-local Néron mapping property supplies the model over R_s. Apply it to the smooth R_s-scheme Spec R_s to extend each generic point.",
+        "Uniqueness shows extension respects identity, addition and inverse. Restricting a section along the residue map preserves the same operations.",
+        "At good reduction the Néron comparison identifies this extension with the one from properness; equality follows from separatedness."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/whole-base-neron",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/etale-basechange",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/extend",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/ramified-tate-counterexample"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§7.3 Proposition 3 p.179; §9.5 pp.264–268",
+          "match": "Reduction is restriction of integral group-valued points; the Néron model identifies these points with generic points. The full special fibre is essential in the reducible-fibre situation."
+        }
+      ],
+      "acceptance": [
+        "The map is defined at every closed point without choosing a regular model of C."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "Jacobian.specialization",
+          "role": "constructor",
+          "statement": "The homomorphism A(K)→N_s(k_s) for the specified full Néron model."
+        },
+        {
+          "name": "Jacobian.specialization_extend",
+          "role": "characterisation",
+          "statement": "sp_s(P) is the restriction to k_s of the unique integral extension of P."
+        },
+        {
+          "name": "Jacobian.specialization_add",
+          "role": "structure",
+          "statement": "sp_s(P+Q)=sp_s(P)+sp_s(Q); the zero and inverse identities follow."
+        },
+        {
+          "name": "Jacobian.specialization_good",
+          "role": "compatibility",
+          "statement": "Under N_Rs≅J_Rs for a good smooth model, sp_s is its ordinary proper reduction."
+        },
+        {
+          "name": "Jacobian.specialization_component",
+          "role": "compatibility",
+          "statement": "Projection N_s→Φ_s composed with sp_s records the component reached by the extended point; it is a different map from sp_s."
+        }
+      ],
+      "tests": [
+        {
+          "name": "specialization_zero",
+          "kind": "degenerate",
+          "statement": "The zero point specializes to the zero point in N_s, not just to its identity component."
+        },
+        {
+          "name": "specialization_goodElliptic",
+          "kind": "compatibility",
+          "statement": "For an elliptic curve with a smooth proper model over R_s, this is its usual reduction homomorphism on K-points."
+        },
+        {
+          "name": "specialization_splitMultiplicative",
+          "kind": "non-example",
+          "statement": "For a split Tate elliptic curve with v(q)=n>1, the full special fibre has component group Z/n; a point represented by u with v(u)=1 specializes to component 1. A map with target N_s⁰ loses it."
+        },
+        {
+          "name": "specialization_addition",
+          "kind": "characterisation",
+          "statement": "Two points specializing to different components still satisfy sp_s(P+Q)=sp_s(P)+sp_s(Q), and their component classes add."
+        }
+      ],
+      "uses": [
+        {
+          "where": "EisensteinIdealAndRationalTorsion, proposed torsion consumer",
+          "how": "Provides the specialization homomorphism at each prime before any injectivity restriction is imposed."
+        },
+        {
+          "where": "ModularCurvesPartII:R14.2 and R14.6",
+          "how": "Extends homomorphisms of generic Jacobians to the full integral model and retains bad-fibre component information."
+        }
+      ],
+      "planet": {
+        "name": "Jacobian specialization homomorphism"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-functoriality",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.4",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4"
+      ],
+      "kind": "theorem",
+      "title": "Functoriality and base extension of specialization",
+      "statement": "For a K-homomorphism h:A→B of Jacobians with Néron models N_A,N_B over S, the unique extended homomorphism satisfies sp_(B,s)∘h=h_s∘sp_(A,s). For an extension of DVRs R→R′ with fraction and residue extensions and Néron models on both sides, the canonical smooth-model comparison N_R′→N′ gives the corresponding commuting reduction diagram. For étale extensions, and for completion in the scope of BLR 7.2/2, this comparison is an isomorphism. For ramified extensions the diagram uses the comparison morphism; no isomorphism is asserted.",
+      "hypotheses": [
+        "All indicated Néron models exist. The base-extension comparison is between models of the same base-changed generic abelian variety; absolute ramification indices are recalculated over R′."
+      ],
+      "proofSteps": [
+        "Apply the Néron property to the smooth scheme N_A to extend h, and use uniqueness on products to see it is a group homomorphism.",
+        "Restrict the equality of extended sections to the closed point, proving the first diagram.",
+        "After a DVR extension the pullback of N is smooth; its generic identification maps uniquely into the new Néron model. Evaluate this morphism on the extended point and reduce. Invoke only the supplier’s exact étale/completion invariance theorem for an isomorphism."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-hom",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/extend",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/etale-basechange",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/ramified-tate-counterexample"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§7.2 Corollary 2 p.177 and §7.3 p.179",
+          "match": "The allowed unramified/completion comparisons preserve the Néron model. The ramified commuting diagram follows directly from its mapping property and does not give ramified invariance."
+        }
+      ],
+      "acceptance": [
+        "For h=[m], reduction commutes with multiplication even if the residue characteristic divides m.",
+        "A ramified extension may change the component group; replacing the comparison arrow by an isomorphism would fail."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.4/semistable-picard-reduction",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.4",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4"
+      ],
+      "kind": "comparison",
+      "title": "Semistable Picard identity components over the Dedekind base",
+      "statement": "Let X/S be a proper flat regular semistable curve with smooth geometrically connected generic fibre C, section e and geometrically connected reduced nodal fibres. Import the local Raynaud comparison at each DVR: Pic⁰_(X_R/R)≅N_R⁰, where degree zero means multidegree zero on every geometric irreducible component. These comparisons glue uniquely to Pic⁰_(X/S)≅N⁰ over S and agree with RJ.1 on the smooth open. For the full local model use the imported quotient P/E≅N_R, where P is the total-degree-zero Picard subfunctor and E is the schematic closure of the generic identity. Pic⁰ alone is not the full Néron model when the component group is nontrivial.",
+      "hypotheses": [
+        "X/S is regular and semistable in the stated sense; no splitness or perfect residue-field assumption is added. The local arbitrary-residue comparison is an explicit request to the Néron owner beyond its current strictly henselian algebraically closed residue-field nodes."
+      ],
+      "proofSteps": [
+        "Import the strictly local semistable Picard and Raynaud results by their exact node ids. Request the arbitrary-residue version justified by BLR 9.4/1, 9.5/4(b) and Remark 5: geometrically reduced fibres give an étale quasi-section and all geometric multiplicities are one.",
+        "The local identifications are canonical on the generic fibre. Their overlap restrictions agree by separatedness and the Néron uniqueness principle, so they glue over the Dedekind base.",
+        "Keep the full separated quotient P/E distinct from its open identity component. The multidegree condition, not only total degree, determines Pic⁰ on a reducible fibre."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/whole-base-neron",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-zero",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4/picard-neron-identity",
+        "NeronModelsAndSemistableAbelianVarieties:R11.4",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§9.4 Theorem 1 p.259; §9.5 Proposition 3, Theorem 4 and Remark 5, pp.266–268",
+          "match": "The semistable identity component is separated and semiabelian; the étale-quasi-section alternative removes the need for a perfect residue field. The quotient gives the full Néron model, while multidegree zero gives its identity component."
+        }
+      ],
+      "acceptance": [
+        "For a smooth fibre this restricts to the abelian scheme in RJ.1.",
+        "For a split nodal semistable elliptic model of type I_n, Pic⁰ of the special fibre is G_m while the full Néron fibre has n components.",
+        "A line of multidegree (1,−1) on two components has total degree zero but need not belong to Pic⁰."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.4/divisor-reduction",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.4",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4"
+      ],
+      "kind": "theorem",
+      "title": "Divisor families compute specialization when the hypotheses hold",
+      "statement": "For the regular semistable model of the preceding comparison, let L on X_R have total degree zero on the generic fibre and let its relative class lie in the imported total-degree-zero functor P(R). The image of L in (P/E)(R)≅N(R) extends its generic Jacobian point; its special value is sp_s of that point. If L is fibrewise multidegree zero it lies in Pic⁰(R) and this value is computed by L_k in Pic⁰_(X_k/k)(k)≅N_k⁰(k). Two extensions of the same generic class have the same image in P/E; without the multidegree hypothesis their reductions must not be forced into Pic⁰. For a smooth model and a degree-r relative divisor D, this specializes to reduction of AJ_(r,e)(D).",
+      "hypotheses": [
+        "Use a regular semistable X/R and the full local quotient from RJ.4. The line extends the specified actual generic class; e supplies its normalization."
+      ],
+      "proofSteps": [
+        "Map L through the imported Picard quotient. On the generic fibre the quotient is the identity on Jac(C), so this is an integral extension of the intended point.",
+        "Néron uniqueness identifies it with that used in specialization. A generic-trivial difference belongs to the closure E on flat tests and is killed by the quotient.",
+        "Under multidegree zero the map factors through Pic⁰≅N⁰. On a smooth model every degree-zero class has this property, giving the Abel reduction formula."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-hom",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/semistable-picard-reduction",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2/abel-comparisons"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§9.5 introductory extension discussion pp.264–265, Proposition 3 and Theorem 4 pp.266–268",
+          "match": "The quotient removes the ambiguity of vertical extensions and agrees generically with the Jacobian. The identity-component comparison applies only to the multidegree-zero classes."
+        }
+      ],
+      "acceptance": [
+        "Tensoring a chosen extension by a generic-trivial vertical divisor does not change the point in P/E.",
+        "It may change component multidegrees; comparing special Picard classes before passing to the quotient can give different answers."
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.5/finite-subgroup-closure",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.5",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5"
+      ],
+      "kind": "construction",
+      "title": "Finite flat closure of a finite group of integral points",
+      "statement": "Let R be a DVR with fraction field K, G/R a separated finite-type group scheme, and H⊂G(R) a finite subgroup whose generic points are distinct. The schematic closure H̄ of the finite reduced constant generic subgroup H_K in G is a finite flat closed subgroup scheme over R, with generic fibre H_K. The map H_R→H̄ from the finite constant R-group scheme is generically an isomorphism but need not be an isomorphism on the special fibre. For specialization injectivity it suffices to apply this construction to the finite cyclic subgroup generated by one torsion section; no finiteness of all of A(K)_tors is assumed.",
+      "hypotheses": [
+        "R is a DVR, G is separated and of finite type, H is a finite subgroup of its R-points. The generic embedding is part of the data."
+      ],
+      "proofSteps": [
+        "Every section Spec R→G is closed by separatedness. The finite disjoint union of these sections is finite over G and over R; its schematic image equals the generic schematic closure because its source is R-flat and the generic fibre is dense.",
+        "This finite surjective cover makes the image proper over R by descent of properness. Its fibres have finitely many points, so it is quasi-finite; proper quasi-finite implies finite. In affine coordinates the closure ring injects into K^H, so it is R-torsion-free and therefore flat.",
+        "Raynaud §2.1 gives compatibility of generic schematic closure with flat products, so multiplication, inverse and identity restrict to the closure. The constant-group map and its generic identity are retained explicitly."
+      ],
+      "prerequisites": [
+        "mathlib:IsDedekindDomain.flat_iff_torsion_eq_bot",
+        "SchemeAndStackFoundations:SF.0",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups"
+      ],
+      "sources": [
+        {
+          "sourceId": "raynaud",
+          "locator": "§2.1, pp.259–260",
+          "match": "The affine contraction-ideal description makes generic closures flat and preserves subgroup operations. Finiteness here is an additional finite-union-of-integral-sections argument; it is not inferred from an arbitrary closure inside a nonproper group."
+        }
+      ],
+      "acceptance": [
+        "The construction is of a finite flat scheme; a union of reductions as a set cannot replace it."
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "integralFiniteSubgroupClosure",
+          "role": "constructor",
+          "statement": "The finite flat closed subgroup of G generated schematically by the specified finite generic subgroup."
+        },
+        {
+          "name": "integralFiniteSubgroupClosure.genericIso",
+          "role": "equivalence",
+          "statement": "Its generic fibre is the reduced constant subgroup H_K with the specified embedding in G_K."
+        },
+        {
+          "name": "integralFiniteSubgroupClosure.constantMap",
+          "role": "data",
+          "statement": "The morphism H_R→H̄ extending the identity on H_K."
+        },
+        {
+          "name": "integralFiniteSubgroupClosure.flatBaseChange",
+          "role": "functoriality",
+          "statement": "Flat DVR base change of the closure agrees with closure of the base-changed generic subgroup."
+        },
+        {
+          "name": "integralFiniteSubgroupClosure.unique",
+          "role": "characterisation",
+          "statement": "A flat closed subgroup of G with that generic fibre equals the schematic closure."
+        }
+      ],
+      "tests": [
+        {
+          "name": "finiteSubgroupClosure_trivial",
+          "kind": "degenerate",
+          "statement": "For H={0}, the closure is the identity section Spec R."
+        },
+        {
+          "name": "finiteSubgroupClosure_distinctReductions",
+          "kind": "computation",
+          "statement": "If the finitely many sections have pairwise distinct reductions, the closure is their disjoint union and constantMap is an isomorphism."
+        },
+        {
+          "name": "finiteSubgroupClosure_rootsOfUnity",
+          "kind": "non-example",
+          "statement": "Over R=Z_l[ζ_l], let G=G_m and H be all l-th roots of unity. The closure is μ_l; its special fibre is nonreduced, while the constant group has l distinct special points. Generic equality does not make constantMap an isomorphism."
+        },
+        {
+          "name": "finiteSubgroupClosure_native",
+          "kind": "compatibility",
+          "statement": "When G is itself finite flat, this closure agrees with R07.1/schematic-closure-of-generic-subgroups. For general separated finite-type G, its affine ideal is still contraction of the generic subgroup ideal and its coordinate ring has zero R-torsion; the extra finite-union argument is required."
+        }
+      ],
+      "uses": [
+        {
+          "where": "RJ.5 residue-primary torsion injectivity",
+          "how": "Provides the actual finite flat prolongation to which Raynaud uniqueness applies."
+        },
+        {
+          "where": "Raynaud §2.1 and Theorem 3.3.3",
+          "how": "Connects integral sections of a possibly nonproper smooth group to the finite-flat generic-fibre theorem."
+        }
+      ],
+      "planet": {
+        "name": "Finite flat torsion closure"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.5/prime-to-injectivity",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.5",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5"
+      ],
+      "kind": "theorem",
+      "title": "Injectivity on prime-to-residue torsion",
+      "statement": "Let R be any DVR with residue field k and N/R the full Néron model of A/K. For every n≥1 invertible in k, specialization A(K)[n]→N_k(k)[n] is injective. If char k=ℓ>0, its restriction to the subgroup of torsion of order prime to ℓ is injective. If char k=0 it is injective on all torsion. No good-reduction, semistability, completeness or perfect-residue-field hypothesis is imposed.",
+      "hypotheses": [
+        "The Néron model exists; n is a unit of R. Torsion denotes points killed by n, not necessarily points of exact order n."
+      ],
+      "proofSteps": [
+        "Replace R by its strict henselization, which preserves the Néron model. The original point maps injectively to generic points after this faithfully flat field extension.",
+        "By BLR 7.3/2, multiplication by n on the smooth commutative group N is étale. BLR 7.3/3 identifies its n-torsion sections over the strict henselization with n-torsion points over the separable residue closure; hence an n-torsion section reducing to zero is zero.",
+        "Descend equality to R. To compare two prime-to-ℓ torsion points use a common annihilator prime to ℓ on their difference; characteristic-zero residue allows every n."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-hom",
+        "NeronModelsAndSemistableAbelianVarieties:R11.1/etale-basechange",
+        "NeronModelsAndSemistableAbelianVarieties:R11.2"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§7.3 Lemma 2 and Proposition 3, p.179",
+          "match": "For smooth commutative finite-type group schemes, unit-order torsion sections over the strict henselization are determined by their residue points. Applying this to the full Néron model proves injectivity."
+        }
+      ],
+      "acceptance": [
+        "At split multiplicative reduction the theorem still applies to torsion lying in nonidentity components.",
+        "For n=1 the source is trivial.",
+        "When n is divisible by ℓ the étale proof does not apply; the separate ramification theorem is required."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Prime-to-residue torsion injectivity"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.5/small-ramification-injectivity",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.5",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5"
+      ],
+      "kind": "theorem",
+      "title": "Residue-primary torsion at small absolute ramification",
+      "statement": "Let R be a DVR of mixed characteristic (0,ℓ), with normalized valuation v_R, e=v_R(ℓ), and e<ℓ−1. For the full Néron model N of A/K, specialization is injective on A(K)[ℓ^∞]. More generally the reduction G(R)[ℓ^∞]→G_k(k) is injective for any separated finite-type commutative R-group scheme G. Thus completeness, finite extension of Q_ℓ, perfect residue field and good reduction are not needed. The strict bound forces ℓ≥3.",
+      "hypotheses": [
+        "R has mixed characteristic, v_R(π)=1 and e=v_R(ℓ)<ℓ−1; points are defined over this K, so e is not inherited unchanged after ramified extension."
+      ],
+      "proofSteps": [
+        "For a point of order dividing ℓ^m in the reduction kernel, take the finite cyclic group H generated by its integral section and construct its finite flat schematic closure H̄.",
+        "Both H_R and H̄ are finite flat commutative ℓ-power group schemes with the same generic fibre. Import Raynaud uniqueness/full faithfulness from R07.1/raynaud-uniqueness to make constantMap an isomorphism.",
+        "Distinct elements of a finite constant group have distinct reductions; the chosen kernel point is therefore zero. Apply this to differences to obtain injectivity on the union of ℓ-power torsion subgroups."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5/finite-subgroup-closure",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-hom",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-uniqueness",
+        "NeronModelsAndSemistableAbelianVarieties:R11.3/ramified-tate-counterexample"
+      ],
+      "sources": [
+        {
+          "sourceId": "raynaud",
+          "locator": "§3.3 Theorem 3.3.3 and Corollary 3.3.6, p.268; §2.1 pp.259–260",
+          "match": "The strict ramification bound gives uniqueness of the finite flat prolongation. Applying it to the finite closure of a rational cyclic torsion group is the specialization consequence proved here."
+        }
+      ],
+      "acceptance": [
+        "For R=Z_ℓ and ℓ≥3, the ℓ-primary specialization is injective at good and bad reduction alike.",
+        "At e=ℓ−1 over Z_ℓ[ζ_ℓ], μ_ℓ and the constant group have identical generic fibres but different special fibres, so the proof and its bound cannot be weakened.",
+        "For a split Tate curve over Q_ℓ(ζ_ℓ), the nonzero ℓ-torsion point represented by ζ_ℓ reduces to the identity in its G_m identity component, exhibiting failure at the boundary."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Small-ramification torsion injectivity"
+      }
+    },
+    {
+      "id": "RelativeJacobiansAndIntegralCurveModels:RJ.5/every-prime-export",
+      "parentStageId": "RelativeJacobiansAndIntegralCurveModels:RJ.5",
+      "realises": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5"
+      ],
+      "kind": "theorem",
+      "title": "Arithmetic specialization at every prime",
+      "statement": "Let A be the pointed generic Jacobian over the function field K of a noetherian Dedekind scheme S, with full Néron model N. For every closed s, sp_s is the natural homomorphism A(K)→N_s(κ(s)). It is injective on torsion of order prime to char κ(s), with the characteristic-zero interpretation of RJ.5/prime-to-injectivity. At a mixed-characteristic s with v_s(ℓ)<ℓ−1 it is injective on all torsion, by primary decomposition. Through genericClassEquiv this specializes K-rational degree-zero divisor classes, equivalently the Galois-invariant geometric class group. The theorem applies to bad primes without discarding them. On regular semistable curve models, the Picard quotient and identity-component computations agree with sp_s under their exact multidegree hypotheses.",
+      "hypotheses": [
+        "Use the separate existence contract for N. At a given s, only the stated primary subgroup is claimed injective unless the strict ramification bound holds."
+      ],
+      "proofSteps": [
+        "Combine the point-class equivalence and Galois descent with the full Néron specialization construction.",
+        "Apply the prime-to theorem independently at every closed point. Under the mixed-characteristic bound apply the residue-primary theorem as well; split a finite-order point into its ℓ-primary and prime-to-ℓ parts to prove the full-torsion kernel is zero.",
+        "Use the functoriality and divisor-reduction comparisons to identify the maps in arithmetic consumers. Neither the finite residue-field point count nor a nonzero component group changes the target of the reduction map."
+      ],
+      "prerequisites": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/galois-equivariance",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-functoriality",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/divisor-reduction",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5/prime-to-injectivity",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5/small-ramification-injectivity"
+      ],
+      "sources": [
+        {
+          "sourceId": "blr",
+          "locator": "§7.3 Proposition 3 p.179; §9.5 Theorem 4 pp.267–268",
+          "match": "These supply reduction and the semistable Picard comparison."
+        },
+        {
+          "sourceId": "raynaud",
+          "locator": "§3.3 Theorem 3.3.3, p.268",
+          "match": "Its small-ramification consequence supplies the missing residue-primary injection. The all-torsion combination is the elementary primary-decomposition argument stated here."
+        }
+      ],
+      "acceptance": [
+        "Over a number field unramified at a prime above ℓ≥3, all rational torsion injects into the full Néron special-fibre group, even at a bad fibre.",
+        "At a prime above 2 the strict bound never holds; prime-to-2 torsion still injects and no general 2-primary injection is claimed.",
+        "At a semistable reducible fibre the component contribution is retained, so the export can serve integral modular-Jacobian correspondences."
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Every-prime Jacobian specialization"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-d-the-relative-picard-functor-and-the-jacobian-scheme",
+      "need": "For proper flat finitely presented pointed curve families with universally O_T=(π_T)_*O, provide the comparison between the fppf relative Picard sheaf and the existing rigidifiedPicardFunctor, its group operations, trivial point, pullback of invertible sheaves and uniqueness of rigidified isomorphisms. For smooth proper geometrically connected curves supply Pic⁰ representability in the scope of BLR 9.4/4, including genus zero. The current library already defines the rigidified functor and its point; use those carriers, not a replacement.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/rigidified-comparison",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.0/normalized-representation",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/genus-zero"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
+      "need": "Supply the Cartier/Weil divisor and invertible-sheaf dictionary for smooth proper integral curves over arbitrary fields, compatible with principal divisors, addition and pullback; fibre degree is the sum of coefficients weighted by residue-field degree, including inseparable closed points. Include degree of a section and the divisor-bundle degree identity.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/generic-class-equivalence",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2/relative-divisor-degree"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
+      "need": "Supply dimension of the Picard tangent space as h¹(O), genus-zero h¹=0, and the degree-zero/global-section comparisons used here. For an R-scheme, supply the natural R-module structure on the native cohomology groups with R-linear restriction and Mayer–Vietoris boundary maps. For two affine opens, use the current Tau Ceti affine quasi-coherent acyclicity and Mayer–Vietoris implementations; only the explicit H⁰-kernel/H¹-cokernel comparison and its functoriality remain this extension’s target.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/genus-zero",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2/two-affine-cohomology"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+      "need": "Supply the existing relative effective Cartier divisor functor Div^r≅Sym^r(X/S) for smooth proper curve families: finite locally free rank r, universal divisor, arbitrary-base-change compatibility, addition of divisors and fibre degree r. Provide flat base change for coherent cohomology in the explicit two-affine situation; do not introduce a second divisor carrier here.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/local-projectivity",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2/relative-divisor-degree",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.2/two-affine-cohomology"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+      "need": "Supply the smooth proper normal curve/function-field dictionary over arbitrary fields, closed-point/place equivalence with residue fields and normalized orders, residue-weighted divisor degree, and identification of a curve with the normalization of P¹_K in its function field. The place equivalence is already implemented in current Tau Ceti as CodimensionOnePoint.equivPlace; reuse it. Arithmetic normalization over S is the additional comparison in RJ.3.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/generic-class-equivalence",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/galois-equivariance",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/p1-normalization",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/normalization-model",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/generic-model-comparison"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "need": "Supply the coherent connected-curve facts giving universal O_S≅π_*O_X in a smooth proper geometrically connected family, relative ampleness from positive degree on every fibre component, and local projectivity of a smooth proper pointed curve via O(e). Preserve the distinction between fibrewise total degree and degree on each irreducible component for semistable curves.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/local-projectivity",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/genus-zero",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/semistable-picard-reduction"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.0",
+      "need": "Supply scheme-level finite normalization of P¹_S in a finite extension F/K(t) when S is Nagata Dedekind, applying Stacks 29.54.14 (0AVK), chapter p.140. Include normality, affine integral-closure charts, localization and flat DVR base change of generic schematic closures. For the finite-section-closure argument supply descent of properness under a finite surjective cover and proper quasi-finite→finite: the schematic image in a separated finite-type R-scheme of finitely many Spec R sections is finite over R. Reuse native Scheme.Hom.normalization. This stage also supplies finite→proper/separated, affine preimages, quasi-coherent affine restriction and the elementary group-scheme operations needed in that argument. No theorem asserting finite normalization for every Dedekind ring is requested.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/normalization-model",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5/finite-subgroup-closure"
+      ]
+    },
+    {
+      "supplier": "SchemeAndStackFoundations:SF.1",
+      "need": "Supply Galois descent for points: Y(K)≅Y(K^sep)^Gal for a K-scheme Y, with its semilinear action, together with effective descent/gluing of the canonical relative objects used here. In the imperfect-field case use the separable closure, not an unproved assertion that it is algebraically closed.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/galois-equivariance"
+      ]
+    },
+    {
+      "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.1",
+      "need": "Extend the existing excellent-DVR local-existence and gluing interfaces to Jacobians of smooth proper geometrically connected curves over any DVR, as in BLR 9.5 Proposition 6(a), p.268, using the general abelian-variety existence theorem of Chapter 10. Supply finite-type global Dedekind gluing, localization and strict henselization invariance. Include the ramification-index-one/completion comparison in precisely the scope of BLR 7.2 Corollary 2 p.177. The general existence proof remains owned here; RJ.4 imports it and does not reprove it.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/whole-base-neron",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-functoriality"
+      ]
+    },
+    {
+      "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.2",
+      "need": "Supply the smooth commutative finite-type group-scheme torsion interface: for n a unit, [n] is étale, and over a strictly henselian DVR reduction identifies n-torsion sections with n-torsion residue points (BLR 7.3 Lemma 2 and Proposition 3 p.179). Keep the full group, identity component and component quotient distinct. RJ.5 applies this to specialize rational Jacobian torsion.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5/prime-to-injectivity"
+      ]
+    },
+    {
+      "supplier": "NeronModelsAndSemistableAbelianVarieties:R11.4",
+      "need": "Broaden R11.4/picard-zero and /picard-neron-identity from the current strict-henselian algebraically-closed-residue scope to regular proper flat semistable pointed curves over arbitrary DVRs, including imperfect residue fields. Use BLR 9.4 Theorem 1 p.259 and 9.5 Theorem 4/Remark 5 pp.267–268: geometric reducedness supplies an étale quasi-section, so Pic⁰≅N⁰ and the total-degree-zero quotient P/E≅N. Include naturality and descent needed to glue over a Dedekind base. RJ.4 only assembles these canonical comparisons and evaluates sections; it does not duplicate the Raynaud theorem or graph/component computation.",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/semistable-picard-reduction"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "RelativeJacobiansAndIntegralCurveModels:RJ.0",
+      "status": "planned",
+      "remaining": [
+        "Fulfil the Jacobian Layer D rigidified/sheaf comparison request using the current native rigidified functor; independently review the all-test-scheme representation API."
+      ]
+    },
+    {
+      "stageId": "RelativeJacobiansAndIntegralCurveModels:RJ.1",
+      "status": "planned",
+      "remaining": [
+        "Fulfil the imported curve degree, positivity and descent interfaces; the relative Pic⁰ existence and base-change theorems remain imports from the Jacobian roadmaps."
+      ]
+    },
+    {
+      "stageId": "RelativeJacobiansAndIntegralCurveModels:RJ.2",
+      "status": "planned",
+      "remaining": [
+        "Fulfil the relative-divisor supplier request; implement the explicit cokernel comparison on native cohomology, reusing current affine acyclicity."
+      ]
+    },
+    {
+      "stageId": "RelativeJacobiansAndIntegralCurveModels:RJ.3",
+      "status": "planned",
+      "remaining": [
+        "Fulfil the SF.0 Nagata finiteness request; preserve the conditional finite-closure version over non-Nagata bases."
+      ]
+    },
+    {
+      "stageId": "RelativeJacobiansAndIntegralCurveModels:RJ.4",
+      "status": "planned",
+      "remaining": [
+        "Fulfil the R11.1 general-DVR and R11.4 arbitrary-residue requests and their gluing/naturality interfaces."
+      ]
+    },
+    {
+      "stageId": "RelativeJacobiansAndIntegralCurveModels:RJ.5",
+      "status": "planned",
+      "remaining": [
+        "Fulfil the Néron unit-torsion interface request and independently check the application of the existing Raynaud uniqueness node to finite closures of rational sections."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "General-DVR Jacobian existence exceeds the current supplier node",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/whole-base-neron"
+      ],
+      "detail": "R11.1/local-existence is stated only for excellent DVRs. BLR 9.5/6(a) p.268 supports the requested any-DVR smooth-Jacobian interface, but its Chapter 10 existence proof has not been decomposed here and is not a closed input. The R11.1 request must be fulfilled before dependency closure."
+    },
+    {
+      "title": "Arbitrary-residue semistable Picard comparison exceeds current nodes",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/semistable-picard-reduction",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/divisor-reduction"
+      ],
+      "detail": "The existing R11.4 exact nodes cover strict henselian DVRs with algebraically closed residue field. The required geometrically reduced semistable arbitrary-residue version is justified by BLR 9.5/4 and Remark 5 pp.267–268 and remains the explicit R11.4 supplier request, including its descent interface."
+    },
+    {
+      "title": "Finite arithmetic normalization needs the Nagata finiteness interface",
+      "neededBy": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/normalization-model"
+      ],
+      "detail": "The pinned native normalization is integral, not automatically finite. The SF.0 request supplies Stacks 29.54.14 (0AVK), chapter p.140, for Nagata bases. An arbitrary nonexcellent Dedekind ring is allowed only with finiteness of the two specified integral closures as an input. This precise foundational interface is not an existing closed library declaration."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "RelativeJacobiansAndIntegralCurveModels",
+        "JacobianChallengePartII"
+      ],
+      "reason": "The existing Part II already owns relative Picard degree components, positive-genus relative Jacobians, base change and point Abel morphisms. This arithmetic extension must import them.",
+      "proposal": "Keep all existing JacobianChallengePartII nodes as their owners. This Part II of the upstream Jacobian challenge adds the normalized curve×Jacobian representing-bundle API, genus-zero adapter, arithmetic divisor-class and normalization comparisons, full-base reduction interface and torsion applications. It does not relocate or re-plan any existing node. The separate Jacobian×Jacobian Poincaré bundle and theta/polarization theories remain in JacobianChallengePartII."
+    }
+  ],
+  "currentLibraryChecks": {
+    "date": "2026-10-19",
+    "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "mathlib": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
+    "roadmaps": [
+      "JacobianChallenge/README.md and Suggested.lean (read in full)",
+      "AlgebraicVectorBundles/README.md (read in full), including its determinant/divisor/positivity and base-change boundaries"
+    ],
+    "findings": [
+      {
+        "module": "TauCeti/AlgebraicGeometry/PicardFunctor/Rigidified.lean",
+        "declarations": [
+          "TauCeti.AlgebraicGeometry.rigidifiedPicardFunctor"
+        ],
+        "decision": "The current functor and pullback carriers are used by the plan; absent at the pinned commit, so heavy targets stay in the reader and are imported through Layer D."
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/PicardFunctor/Point.lean",
+        "declarations": [
+          "TauCeti.AlgebraicGeometry.rigidifiedPicardPoint"
+        ],
+        "decision": "Reuse the existing trivial rigidified point; no duplicate zero-point definition."
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/Cohomology/Affine.lean",
+        "declarations": [
+          "AlgebraicGeometry.Scheme.Modules.subsingleton_cohomology_succ_of_isQuasicoherent"
+        ],
+        "decision": "Current noetherian affine quasi-coherent acyclicity is implemented. Do not plan it again."
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/Cohomology/MayerVietoris.lean",
+        "declarations": [
+          "AlgebraicGeometry.Scheme.Modules.subsingleton_cohomology_of_two_le_of_isAffineOpen"
+        ],
+        "decision": "Current two-affine higher vanishing is implemented. The RJ.2 target concerns the explicit H⁰/H¹ comparison, with vanishing imported."
+      },
+      {
+        "module": "TauCeti/AlgebraicGeometry/Scheme/Place/Proper.lean",
+        "declarations": [
+          "TauCeti.AlgebraicGeometry.CodimensionOnePoint.equivPlace"
+        ],
+        "decision": "Current proper-curve codimension-one point/place equivalence is implemented. RJ.3 restricts normalization to the generic fibre and invokes it."
+      }
+    ]
+  },
+  "upstreamNotes": [],
+  "consumerInterfaces": [
+    {
+      "roadmap": "EisensteinIdealAndRationalTorsion",
+      "status": "Proposed consumer; no node dependency on this unwritten roadmap.",
+      "exports": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.1/galois-equivariance",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5/every-prime-export"
+      ]
+    },
+    {
+      "roadmap": "ModularCurvesPartII",
+      "stages": [
+        "ModularCurvesPartII:R13.5",
+        "ModularCurvesPartII:R14.2"
+      ],
+      "exports": [
+        "RelativeJacobiansAndIntegralCurveModels:RJ.3/generic-model-comparison",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.4/reduction-functoriality",
+        "RelativeJacobiansAndIntegralCurveModels:RJ.5/every-prime-export"
+      ],
+      "boundary": "Integral models, Picard pullback/norm and Hecke correspondences are supplied by that roadmap. This packet exports the canonical specialization diagram at every prime."
+    }
+  ]
+}
