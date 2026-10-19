@@ -169,7 +169,7 @@ end RationalCertificates
 /-! ## Normalization checks
 
 These computations test the scalar and existing algebraic carriers in the
-README conventions, §0.4, §2.4–§2.6, §4.1, §7.2–§7.4, §11.6–§11.8 and §14.6.
+README conventions, §0.4, §2.4–§2.6, §4.1, §7.2–§7.4, §10.8, §11.6–§11.8 and §14.6.
 They do not construct an elliptic L-function, Iwasawa class or example certificate.
 -/
 
@@ -238,6 +238,48 @@ example : PowerSeries.coeff 0 ((PowerSeries.X : PowerSeries ℚ) * (1 + PowerSer
     PowerSeries.coeff 1 ((PowerSeries.X : PowerSeries ℚ) * (1 + PowerSeries.X)) = 1 := by
   simp [PowerSeries.coeff_succ_X_mul]
 
+/-- A uniformizer factor vanishes modulo five, unlike an augmentation factor. -/
+example : (5 * (1 + PowerSeries.X) : PowerSeries (ZMod 5)) = 0 ∧
+    PowerSeries.coeff 1 ((PowerSeries.X : PowerSeries (ZMod 5)) *
+      (1 + PowerSeries.X)) = 1 := by
+  have h5 : (5 : PowerSeries (ZMod 5)) = 0 := by
+    simpa only [map_ofNat, map_zero] using congrArg (fun z : ZMod 5 => PowerSeries.C z)
+      (show (5 : ZMod 5) = 0 by decide)
+  simp [h5, PowerSeries.coeff_succ_X_mul]
+
+section TateParameters
+
+local instance : Fact (Nat.Prime 5) := ⟨by decide⟩
+
+/-- A Tate parameter of valuation one cannot be a fifth power. -/
+example : ¬ ∃ x : ℚ_[5], x ^ 5 = 5 := by
+  rintro ⟨x, hx⟩
+  have h5 : (5 : ℚ_[5]).valuation = 1 := by
+    norm_num [Padic.valuation_ofNat, padicValNat_self]
+  have hv := congrArg Padic.valuation hx
+  rw [Padic.valuation_pow, h5] at hv
+  norm_num at hv
+  omega
+
+/-- Positive valuation alone allows a fifth-power Tate parameter. -/
+example : ∃ x : ℚ_[5], x ^ 5 = 3125 := by
+  exact ⟨5, by norm_num⟩
+
+/-- A unit obstruction remains when the valuation of the parameter is divisible by five. -/
+example : (∀ u : ZMod 25, u ^ 5 ≠ 6) ∧
+    ((5 : ℚ_[5]) ^ 5 * 6).valuation = 5 := by
+  constructor
+  · decide
+  · have h5 : (5 : ℚ_[5]).valuation = 1 := by
+      norm_num [Padic.valuation_ofNat, padicValNat_self]
+    have h6 : (6 : ℚ_[5]).valuation = 0 := by
+      norm_num [Padic.valuation_ofNat,
+        padicValNat.eq_zero_of_not_dvd (show ¬ 5 ∣ 6 by decide)]
+    rw [Padic.valuation_mul (by norm_num) (by norm_num), Padic.valuation_pow, h5, h6]
+    norm_num
+
+end TateParameters
+
 /-- Nonsplit geometric I₅ has five components but only one rational component. -/
 example : Fintype.card (ZMod 5) = 5 ∧
     {x : ZMod 5 | -x = x} = {0} := by
@@ -269,6 +311,10 @@ example : (2 : ℚ) * 5 = 10 ∧ (2 : ℚ)^2 = 4 ∧ (2 * 5 : ℚ)^2 = 100 := by
 
 /-- Rank-one defect valuations are negatives of those of the rank-zero twist. -/
 example : (3 : ℤ) + (-3) = 0 ∧ (3 : ℤ) + 3 ≠ 0 := by
+  norm_num
+
+/-- A product equality and only one auxiliary inequality do not force zero defect. -/
+example : (-1 : ℤ) + 1 = 0 ∧ (0 : ℤ) ≤ 1 ∧ (-1 : ℤ) ≠ 0 := by
   norm_num
 
 /-- Missing torsion square changes the 11a3 analytic valuation by two. -/
