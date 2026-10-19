@@ -1,0 +1,1393 @@
+{
+  "roadmapId": "RankZeroOneBSDPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "RankZeroOneBSDPartII:EC.0",
+    "RankZeroOneBSDPartII:EC.1",
+    "RankZeroOneBSDPartII:EC.2",
+    "RankZeroOneBSDPartII:EC.3",
+    "RankZeroOneBSDPartII:EC.4",
+    "RankZeroOneBSDPartII:EC.5"
+  ],
+  "status": "complete",
+  "summary": "This Part II of RankZeroOneBSD supplies the good odd Eisenstein-prime converse in Selmer coranks zero and one, its finite-Selmer form, and positive proportions of low-rank quadratic twists on the precisely admissible local family. The proof combines complementary twists, rational augmentation control and the parent’s Heegner index-square equality. CM rank-zero converses and Skinner’s irreducible branch retain their existing owners. All six layers are planned; the shared Cassels–Tate supplier endpoint is an explicit frontier, and no implementation is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:NumberField.finite_setOfPred_logHeight₁_le",
+        "module": "Mathlib.NumberTheory.Height.NumberField",
+        "provides": "Over a number field, the set of elements of bounded logarithmic height is finite; the existing Northcott instances discharge the field-height hypothesis."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.finite_naiveHeight_le",
+        "module": "TauCeti.AlgebraicGeometry.EllipticCurve.MordellWeil.NaiveHeight",
+        "provides": "The finite-fiber x-coordinate comparison transfers Northcott from field height to point naive height; its bounded-height sets are finite."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_nonneg",
+        "module": "TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight",
+        "provides": "For an elliptic affine Weierstrass model over a field with admissible absolute values and decidable equality, the pinned canonical height of every point is nonnegative."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder",
+        "module": "TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight",
+        "provides": "Under the same field/ellipticity conditions and Northcott for canonical height, that height is zero exactly on points of finite additive order. The existing instances transfer Northcott from naive height."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve",
+        "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "provides": "The five-coefficient Weierstrass carrier over any ring; no replacement elliptic-curve carrier is introduced."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.Δ",
+        "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "provides": "The exact discriminant polynomial used in both concrete computations."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.c₄",
+        "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "provides": "The c₄ polynomial and hence the explicit j numerator."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.c₆",
+        "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "provides": "The c₆ polynomial; for the nineteen-a3 model its value is8."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.IsElliptic",
+        "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "provides": "The typeclass asserting the discriminant is a unit."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.j",
+        "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "provides": "The j-invariant using the inverse discriminant unit, with an IsElliptic instance."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.map",
+        "module": "Mathlib.AlgebraicGeometry.EllipticCurve.Weierstrass",
+        "provides": "Coefficientwise base change along a ring homomorphism."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.quadraticTwistOf",
+        "module": "TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist",
+        "provides": "The existing trace/norm-parameter twist by t,n with discriminant parameter t²−4n; it is not a one-parameter raw coefficient formula."
+      },
+      {
+        "ref": "tauceti:WeierstrassCurve.Δ_quadraticTwistOf",
+        "module": "TauCeti.AlgebraicGeometry.EllipticCurve.QuadraticTwist",
+        "provides": "For any commutative ring, Δ(E.quadraticTwistOf t n)=(t²−4n)⁶Δ(E)."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "CGLS",
+      "title": "On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes",
+      "authors": "Francesc Castella, Giada Grossi, Jaehoon Lee and Christopher Skinner",
+      "edition": "Inventiones Mathematicae 227 (2022), 517–580; published author PDF, 64 pages; DOI 10.1007/s00222-021-01072-y",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf",
+      "sha256": "d1c1afe0e91cd43851918d6999481bbfa7a34ec8473a3817468f769a13783f38",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, standing good-reduction/Eisenstein assumptions, pp. 517–521; §3.4, Theorem 3.4.1 and Corollary 3.4.2, pp. 564–566; §4.1, Theorems 4.1.1–4.1.2 and Remark 4.1.3, pp. 566–569; §4.2, Proposition 4.2.1, Theorem 4.2.2 and Corollary 4.2.3, pp. 569–570; §5.2, Theorem 5.2.1 and Corollaries 5.2.2–5.2.3, Remark 5.2.4, pp. 573–575."
+      ]
+    },
+    {
+      "id": "BKLOS",
+      "title": "Three-isogeny Selmer groups and ranks of abelian varieties in quadratic twist families over a number field",
+      "authors": "Manjul Bhargava, Zev Klagsbrun, Robert J. Lemke Oliver and Ari Shnidman",
+      "edition": "Public author version, 25 pages; Duke Mathematical Journal 168 (2019), 2951–2989",
+      "url": "https://lemkeoliver.github.io/papers/19-3IsogenySelmer.pdf",
+      "sha256": "af4e5ab9b250700c95c09946509e88b8a3f4a4f7efedf6ddc882a5f742478880",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2, squareclass height, local-condition families and Theorems 2.1, 2.5–2.6, pp. 2–5; §9.1–§9.2, Cassels ratio and restricted-family rank estimates, p. 14; §10, Propositions 10.1–10.4, Theorem 10.5 and Proposition 10.7, pp. 14–17; §11, proof of Theorem 2.6, p. 18. All locators refer to this author version."
+      ]
+    },
+    {
+      "id": "PS",
+      "title": "The Cassels–Tate pairing on polarized abelian varieties",
+      "authors": "Bjorn Poonen and Michael Stoll",
+      "edition": "Author version dated 6 November 1998, minor correction 23 August 2014, 32 pages; published Annals of Mathematics 150 (1999), 1109–1149",
+      "url": "https://math.mit.edu/~poonen/papers/sha.pdf",
+      "sha256": "3b9a619423358bc877fd2123b73a759157a728ec11e0f7b0aa48bd0333d7149a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1, elliptic alternation and divisible kernels, p. 2; §2, primary and nondivisible parts, pp. 3–4; §6, Theorem 8 and Corollary 9, pp. 11–12. Pairing construction is a shared supplier obligation, not a construction in this roadmap."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+      "parentStageId": "RankZeroOneBSDPartII:EC.0",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.0"
+      ],
+      "title": "The fixed-isogeny converse hypotheses",
+      "kind": "definition",
+      "statement": "EisensteinConverseData(E,p,ι) records precisely the good odd prime, the actual rational cyclic degree-p isogeny and the local exclusion in the standing hypothesis. The character is the Galois action on ker ι, not an arbitrarily selected semisimple constituent. Reuse upstream isogeny, residual-character, reduction and conductor carriers; this is a hypothesis bundle, not a second elliptic-curve structure.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹."
+      ],
+      "proofSteps": [
+        "Bundle the existing predicates and kernel-character equality. Import the Weil-pairing identity φψ=ω. Retain the actual isogeny throughout twisting and duality."
+      ],
+      "acceptance": [
+        "Good ordinarity and E(ℚ_p)[p]=0 are consequences supplied by BSD.7a; no irreducibility or parity condition on φ at infinity is added."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSD:BSD.7a/eisenstein-ordinary-local-exclusion",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer0",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Introduction, Theorem E and standing hypotheses, pp. 517–521; Theorem 5.2.1, p. 574",
+          "match": "The good odd Eisenstein setting and the two excluded local characters are the exact scope of the converse."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Eisenstein converse hypotheses"
+      },
+      "uses": [
+        {
+          "where": "EC.1–EC.3; CGLS Theorem 5.2.1",
+          "how": "Fix the same kernel character for parity, auxiliary fields and the main-conjecture input."
+        },
+        {
+          "where": "EC.4 admissible twists",
+          "how": "Transport the actual isogeny and its character, retaining good reduction."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.good_odd",
+          "role": "projection",
+          "statement": "p>2 is prime, E has good reduction at p, and degree(ι)=p."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.kernel_character",
+          "role": "projection",
+          "statement": "ker ι has character φ, ψ=ωφ⁻¹, and φ|G_p is neither 1 nor ω."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.dual",
+          "role": "compatibility",
+          "statement": "The dual isogeny E′→E satisfies the same local exclusion; good reduction is preserved under isogeny."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.transport",
+          "role": "functoriality",
+          "statement": "An isomorphism of rational isogeny diagrams transports the bundle and its actual kernel character."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.unramified_nontrivial",
+          "kind": "computation",
+          "statement": "At p=3 a good ordinary kernel with nontrivial unramified quadratic character η is admitted; its dual has character ωη and is also admitted."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.excluded_characters",
+          "kind": "non-example",
+          "statement": "The local characters 1 and ω are both rejected, including a good curve with a rational point of order p."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.bad_prime",
+          "kind": "non-example",
+          "statement": "A reducible residual action at a multiplicative prime, or any p=2, fails this bundle."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData.extension",
+          "kind": "compatibility",
+          "statement": "A nonsplit residual extension with the permitted actual kernel is admitted; splitting E[p] as a Galois module is not required."
+        }
+      ],
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.EisensteinConverseData"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.0/small-selmer-corank",
+      "parentStageId": "RankZeroOneBSDPartII:EC.0",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.0"
+      ],
+      "title": "A Selmer group of dimension zero or one",
+      "kind": "comparison",
+      "statement": "Under EisensteinConverseData, for r∈{0,1}, dim_𝔽p Sel_p(E/ℚ)=r implies corank_ℤp Sel_{p∞}(E/ℚ)=r. More precisely, E(ℚ)[p]=0 gives Sel_p≅Sel_{p∞}[p]; the latter dimension is corank Sel_{p∞}+2 dim_𝔽p M[p] for a finite p-group M from the paired elementary divisors of the nondivisible Sha part. No finiteness of the whole Sha group is assumed.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "Use cofinite generation of Sel_{p∞} and finite-level Kummer exactness. The requested Cassels–Tate result is on Sha modulo its maximal divisible subgroup."
+      ],
+      "proofSteps": [
+        "Use the coefficient sequence E[p]→E[p∞] and rational p-torsion vanishing to identify the p-torsion Selmer group.",
+        "Apply the shared pairing with its divisible kernels to the finite nondivisible p-primary Sha quotient. Its paired elementary divisors contribute an even number to the p-torsion dimension; the divisible Selmer part contributes its corank.",
+        "For r=0 or 1, nonnegativity in r=corank+2s forces s=0 and corank=r. This also shows the p∞ Selmer group is respectively zero or a divisible line."
+      ],
+      "acceptance": [
+        "A finite cyclic group of order p² has square order but cannot have a perfect alternating pairing; square order alone is not the needed argument.",
+        "For a divisible line plus a paired finite part with dim M[p]=1, dim Sel_p=3 and corank=1; equality of dimension and corank is not asserted in higher dimension."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+        "RankZeroOneBSD:BSD.7a/eisenstein-ordinary-local-exclusion",
+        "SelmerIwasawaCohomology:L2/elliptic-selmer-instance",
+        "SelmerIwasawaCohomology:L2/corank",
+        "SelmerIwasawaCohomology:L1",
+        "SelmerIwasawaCohomology:L2",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer0",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Corollary 5.2.2 and preceding paragraph, p. 575",
+          "match": "Finite Selmer dimension gives the same low-rank converse; the coefficient identification requires the paired-primary structure to finish the corank argument."
+        },
+        {
+          "sourceId": "PS",
+          "locator": "§1, p. 2; §6, Theorem 8 and Corollary 9, pp. 11–12",
+          "match": "Alternation is perfect after quotienting by the divisible kernel and yields paired finite primary factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.smallSelmerCorank"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.1/auxiliary-fields",
+      "parentStageId": "RankZeroOneBSDPartII:EC.1",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.1"
+      ],
+      "title": "Auxiliary Heegner fields selected from Selmer parity",
+      "kind": "theorem",
+      "statement": "Under EisensteinConverseData, if corank Sel_{p∞}(E/ℚ)=r∈{0,1}, infinitely many K satisfy the displayed Heegner/split/discriminant conditions and analyticRank(E^K/ℚ)=1−r. In the r=1 case this means L(E^K,1)≠0; in the r=0 case it means a simple central zero of the twist. No analytic-rank assumption on E enters the choice.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "The rational Selmer corank is r=0 or r=1."
+      ],
+      "proofSteps": [
+        "BSD.7a supplies ordinarity. Apply the modular parity theorem to the weight-two realization, using the rational newform bridge and elliptic Kummer comparison: w(E)=(−1)^r.",
+        "Apply the value branch of BSD.2/bfh-nonvanishing for w(E)=−1, and its derivative branch for w(E)=+1. In the finite splitting set include every prime dividing N and both 2 and p.",
+        "The sign of the negative discriminant is correct in each branch; splitting at 2 makes it odd. Infinitude excludes D=−3,−4. Splitting at every level prime gives (D,N)=1 and the classical Heegner hypothesis."
+      ],
+      "acceptance": [
+        "The r=0 branch uses a simple-zero twist and the r=1 branch a nonzero-value twist.",
+        "Every level prime is split. Skinner’s residual nonsplit-prime auxiliary field is a different input and cannot be substituted here."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+        "RankZeroOneBSD:BSD.7a/eisenstein-ordinary-local-exclusion",
+        "SelmerIwasawaCohomology:L4/ordinary-selmer-parity",
+        "SelmerIwasawaCohomology:L4/elliptic-finite-kummer",
+        "SelmerIwasawaCohomology:L2/corank",
+        "RankZeroOneBSD:BSD.0/rational-newform-bridge",
+        "RankZeroOneBSD:BSD.2/bfh-nonvanishing",
+        "RankZeroOneBSD:BSD.0/twist-root-number"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer1",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Proof of Theorem 5.2.1, pp. 574–575, conditions (a)–(d) and (d′)",
+          "match": "Parity determines which of the two complementary nonvanishing branches supplies K."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Complementary Heegner fields"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.auxiliaryHeegnerFields"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.1/selmer-corank-over-k",
+      "parentStageId": "RankZeroOneBSDPartII:EC.1",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.1"
+      ],
+      "title": "The selected field has Selmer corank one",
+      "kind": "comparison",
+      "statement": "For E,p,r and any K selected in EC.1/auxiliary-fields, corank_ℤp Sel_{p∞}(E/K)=1 and E(K)[p]=0. Thus the precise additional (Sel) hypothesis of CGLS Corollary 4.2.3 is satisfied before the Heegner main conjecture is applied.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "K/ℚ is imaginary quadratic with odd fundamental discriminant D<−4, every prime dividing N splits in K, and p splits as v v̄. No class-number restriction is imposed.",
+        "corank Sel_{p∞}(E/ℚ)=r∈{0,1} and analyticRank(E^K)=1−r."
+      ],
+      "proofSteps": [
+        "Apply the forward rank-at-most-one theorem only to E^K, whose analytic rank is already known. It gives its Mordell–Weil rank 1−r and finite Sha, hence that Selmer corank.",
+        "Use the odd-primary quadratic Selmer decomposition to add the two coranks: r+(1−r)=1.",
+        "Because p splits in K, its completions are ℚ_p. The imported local character exclusion kills local p-torsion and therefore E(K)[p]."
+      ],
+      "acceptance": [
+        "Full Sha finiteness for E is not an input. The forward theorem is used on the twist at this point."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.1/auxiliary-fields",
+        "RankZeroOneBSD:BSD.4/analytic-rank-at-most-one-theorem",
+        "RankZeroOneBSD:BSD.1/odd-selmer-sha-decomposition",
+        "RankZeroOneBSD:BSD.7a/eisenstein-ordinary-local-exclusion",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer1",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Theorem 5.2.1 proof, pp. 574–575",
+          "match": "The complementary twist and quadratic decomposition establish (Sel) without assuming the desired conclusion for E."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.selmerCorankOverHeegnerField"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.2/augmentation-control",
+      "parentStageId": "RankZeroOneBSDPartII:EC.2",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.2"
+      ],
+      "title": "Corank-one control at the augmentation prime",
+      "kind": "theorem",
+      "statement": "Under EisensteinConverseData and the Heegner conditions, suppose corank Sel_{p∞}(E/K)=1. Write Λ=ℤ_p⟦Γ⟧, P₀=(γ−1), M_E=T_pE⊗Λ∨ with inverse tautological action, T=M_E∨(1), S=H¹_FΛ(K,T), and X=H¹_FΛ(K,M_E)∨ in CGLS’s ordinary, self-dual convention. The Pontryagin-dual discrete control map has finite kernel and cokernel, so dim_ℚp((X/P₀X)⊗ℚ_p)=1. Together with the supplied rank-one pseudo-isomorphism X∼Λ⊕M⊕M, this gives length_(Λ_P₀)(X_tors,P₀)=0 and v_P₀(char X_tors)=0. Moreover the specialization S/P₀S→H¹_f(K,V_pE) is injective after inverting p.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "K/ℚ is imaginary quadratic with odd fundamental discriminant D<−4, every prime dividing N splits in K, and p splits as v v̄. No class-number restriction is imposed.",
+        "Use the exact ordinary local conditions and contragredient action in CGLS §3.4, not the torsion Greenberg dual X_E. Corank Sel_{p∞}(E/K)=1."
+      ],
+      "proofSteps": [
+        "Apply SI’s restriction-control diagram to the actual global and local images. The prime-to-p quotient characters stay nontrivial over a pro-p tower, killing the relevant p-adic invariant terms. At v|p use both nontrivial residual factors. Away from p retain the finite local Kummer/Tamagawa and localization-image errors; prove they have ℤ_p-corank zero, rather than assuming localization surjective.",
+        "Dualize the resulting finite-kernel/cokernel control and tensor ℚ_p. Localize the supplied pseudo-isomorphism at P₀: pseudo-null errors disappear and Λ_P₀ is a DVR. A nonzero finite-length torsion summand has a nonzero residue quotient, whereas the free rank-one summand already accounts for the entire one-dimensional quotient.",
+        "For compact specialization, the global coefficient exact sequence gives the kernel as (γ−1) times the same ordinary compact Selmer module after rationalization. Check saturation of the local conditions using the same local diagrams. The derived-control H²/Tor term can contribute to the cokernel and is retained; no surjectivity is claimed."
+      ],
+      "acceptance": [
+        "X denotes the rank-one ordinary dual throughout; replacing it by the Λ-torsion X_E changes the argument.",
+        "For Λ⊕Λ/P₀ the rational coinvariant dimension is 2, so corank one excludes this example.",
+        "Neither γ−1 nor P₀ is inverted. Finite p-power errors disappear after inverting p, which leaves P₀ available."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.1/selmer-corank-over-k",
+        "SelmerIwasawaCohomology:L3/kernel-control",
+        "SelmerIwasawaCohomology:L3/derived-control",
+        "SelmerIwasawaCohomology:L4/elliptic-finite-kummer",
+        "HeegnerPointEulerSystems:HE.8/weak-torsion-localized-divisibility",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem",
+        "SelmerIwasawaCohomology:L3"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer2",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "§3.4, Corollary 3.4.2 and proof, p. 566; Theorem 5.2.1 proof, p. 574",
+          "match": "Corank one kills the augmentation-primary ordinary torsion; this is the control input used for nonzero specialization."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Augmentation control"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.augmentationControl"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.2/heegner-specialization-factor",
+      "parentStageId": "RankZeroOneBSDPartII:EC.2",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.2"
+      ],
+      "title": "The bottom Heegner class and its normalization",
+      "kind": "comparison",
+      "statement": "Let κ∞ be the stabilized Heegner class used in CGLS Corollary 4.2.3, P_K=Tr_(K[1]/K)π(x₁), and α the p-adic unit root of X²−a_pX+p. Its bottom specialization is κ₀=u_K⁻¹(1−α⁻¹)²·Kummer(P_K) in H¹(K,V_pE), where u_K=#O_Kˣ/2=1 for D<−4. For the Howard-normalized class κ₁^Hg, pr_K(κ₁^Hg)=u_K α²(β−1)² κ₀ with β=pα⁻¹. The two tower classes generate the same Λ-line. Under the local exclusion both displayed scalar factors are p-adic units.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "K/ℚ is imaginary quadratic with odd fundamental discriminant D<−4, every prime dividing N splits in K, and p splits as v v̄. No class-number restriction is imposed.",
+        "Use the same modular parametrization and ring-class trace in the class and the complex Gross–Zagier formula."
+      ],
+      "proofSteps": [
+        "Import the actual norm-compatible Heegner family and its Kummer/Shapiro map from HE.8. At split p take the trace of (1−α⁻¹σ_v)(1−α⁻¹σ_v̄)P[1]/u_K; the Artin actions disappear after the full ring-class trace.",
+        "Use CGLS Remark 4.1.3, equations (4.4)–(4.5), to compare the Howard and stabilized normalizations. Keep α, β and u_K explicit.",
+        "Ordinarity and the two excluded residual factors imply a_p≠1 modulo p, hence α−1 is a unit; β is divisible by p and β−1 is a unit. The same comparison handles p dividing the ring-class number without division by that number."
+      ],
+      "acceptance": [
+        "Nonzero tower class alone does not imply nonzero bottom class; EC.2/augmentation-control and the equality are still required.",
+        "The normalization uses (1−α⁻¹)² after the full trace; it is not the finite group-ring initial factor before trace."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+        "RankZeroOneBSD:BSD.7a/eisenstein-ordinary-local-exclusion",
+        "HeegnerPointEulerSystems:HE.8/anticyclotomic-heegner-class",
+        "HeegnerPointEulerSystems:HE.8/initial-euler-factor",
+        "HeegnerPointEulerSystems:HE.8/lambda-bottom-class-nontorsion",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer2",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Remark 4.1.3, equations (4.4)–(4.5), pp. 568–569",
+          "match": "The exact norm-compatible stabilization and comparison identify the actual bottom Kummer class."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.heegnerSpecializationFactor"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.2/heegner-point-nontorsion",
+      "parentStageId": "RankZeroOneBSDPartII:EC.2",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.2"
+      ],
+      "title": "The Heegner point is non-torsion from corank one",
+      "kind": "theorem",
+      "statement": "Under EisensteinConverseData and the Heegner conditions, corank Sel_{p∞}(E/K)=1 implies that the specified classical trace point P_K has infinite order. In particular ord_(s=1)L(E/K,s)=1.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "K/ℚ is imaginary quadratic with odd fundamental discriminant D<−4, every prime dividing N splits in K, and p splits as v v̄. No class-number restriction is imposed.",
+        "The Heegner point, ordinary modules and stabilized class have the normalization fixed in EC.2/heegner-specialization-factor."
+      ],
+      "proofSteps": [
+        "Apply the parent’s CGLS prototype equality, including its explicit (Sel) hypothesis, to obtain char(X_tors)=char(S/Λκ∞)² in Λ[1/p], with S and X of Λ-rank one.",
+        "EC.2/augmentation-control gives valuation zero on the left. At P₀ this equality forces S_P₀=Λ_P₀ κ∞. In particular κ∞ has nonzero image in (S/P₀S)⊗ℚ_p.",
+        "Use the injective compact specialization map and the exact bottom factor to obtain Kummer(P_K)≠0, hence P_K is non-torsion. Use the existing canonical-height nonnegativity and zero-iff-torsion statements; number-field Northcott and the finite-fiber x-coordinate comparison discharge their finiteness hypothesis. Import GZ.0’s pinned/Poincaré height normalization, which changes this height only by explicit positive factors. Apply the classical X₀(N) Gross–Zagier formula with all level primes split and nonzero normalization to get L′(E/K,1)≠0. Its root number is −1, so the order is exactly one."
+      ],
+      "acceptance": [
+        "A divisibility after inverting γ−1 cannot yield this conclusion. The equality is used at P₀ before specialization.",
+        "Do not use the rank-one BSD control formula whose hypotheses already include Mordell–Weil rank one and finite Sha."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.2/augmentation-control",
+        "RankZeroOneBSDPartII:EC.2/heegner-specialization-factor",
+        "RankZeroOneBSD:BSD.7a/cgls-prototype-main-conjecture",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "GrossZagierAndArithmeticHeights:GZ.8/explicit-gross-zagier-formula",
+        "GrossZagierAndArithmeticHeights:GZ.0/pinned-height-normalization-comparison",
+        "mathlib:NumberField.finite_setOfPred_logHeight₁_le",
+        "tauceti:WeierstrassCurve.Affine.finite_naiveHeight_le",
+        "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_nonneg",
+        "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight_eq_zero_iff_isOfFinAddOrder",
+        "RankZeroOneBSD:BSD.0/base-change-central-identities",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer2",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Corollary 4.2.3, p. 570; Theorem 5.2.1 proof, p. 574",
+          "match": "The main-conjecture equality at augmentation proves nonzero classical Heegner specialization and then a simple analytic zero."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Heegner point from Selmer corank"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.heegnerPoint_nontorsion"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.3/p-converse",
+      "parentStageId": "RankZeroOneBSDPartII:EC.3",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.3"
+      ],
+      "title": "The Eisenstein-prime p-converse",
+      "kind": "theorem",
+      "statement": "Under EisensteinConverseData, for each r∈{0,1}, corank_ℤp Sel_{p∞}(E/ℚ)=r implies analyticRank(E)=r. Equivalently the shared CMRankZeroConverse:C.0/p-converse-property holds for r=0 and r=1 under these hypotheses. The analytic rank is the order of the actual arithmetic L-function at 1.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "r is a natural number equal to 0 or 1."
+      ],
+      "proofSteps": [
+        "Choose K by EC.1/auxiliary-fields and establish its Selmer corank one by EC.1/selmer-corank-over-k.",
+        "Apply EC.2/heegner-point-nontorsion to obtain analyticRank(E/K)=1.",
+        "Use the parent’s quadratic L-factorization and addition of central analytic orders: 1=analyticRank(E)+analyticRank(E^K). Subtract the already known complementary twist order 1−r."
+      ],
+      "acceptance": [
+        "For r=0 the conclusion is L(E,1)≠0; for r=1 it is a simple zero.",
+        "There is no squarefree-conductor, residual irreducibility, large-p or extra global parity assumption on the kernel character."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.1/auxiliary-fields",
+        "RankZeroOneBSDPartII:EC.1/selmer-corank-over-k",
+        "RankZeroOneBSDPartII:EC.2/heegner-point-nontorsion",
+        "RankZeroOneBSD:BSD.0/base-change-central-identities",
+        "CMRankZeroConverse:C.0/p-converse-property"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer3",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Theorem 5.2.1, pp. 574–575",
+          "match": "The two complementary-twist choices prove both low-corank converses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Eisenstein-prime p-converse"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.eisenstein_pConverse"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.3/rank-and-sha",
+      "parentStageId": "RankZeroOneBSDPartII:EC.3",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.3"
+      ],
+      "title": "Arithmetic rank equality and finite Sha",
+      "kind": "application",
+      "statement": "Under EisensteinConverseData and corank Sel_{p∞}(E/ℚ)=r∈{0,1}, rank_ℤ E(ℚ)=analyticRank(E)=r and Sha(E/ℚ) is finite as a whole group. This conclusion is stronger than finiteness of only Sha[p∞], but it asserts no BSD leading-coefficient or p-valuation identity.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "corank Sel_{p∞}(E/ℚ)=r∈{0,1}."
+      ],
+      "proofSteps": [
+        "First apply the p-converse to establish analytic rank r.",
+        "Apply the existing forward analytic-rank-at-most-one theorem over ℚ. Its separate outputs give the rank and full Sha finiteness."
+      ],
+      "acceptance": [
+        "Sha finiteness is an output reached after the analytic converse. It is never an assumption on E."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.3/p-converse",
+        "RankZeroOneBSD:BSD.4/analytic-rank-at-most-one-theorem"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer3",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Theorem 5.2.1, p. 574, final conclusions",
+          "match": "The forward Gross–Zagier–Kolyvagin theorem supplies the arithmetic consequences of the converse."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.eisenstein_rank_and_sha"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.3/mod-p-converse",
+      "parentStageId": "RankZeroOneBSDPartII:EC.3",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.3"
+      ],
+      "title": "The finite-Selmer converse",
+      "kind": "theorem",
+      "statement": "Under EisensteinConverseData, if dim_𝔽p Sel_p(E/ℚ)=r∈{0,1}, then analyticRank(E)=rank_ℤ E(ℚ)=r and Sha(E/ℚ) is finite.",
+      "hypotheses": [
+        "E/ℚ is a Weierstrass curve with IsElliptic, conductor N; p is prime, p>2 and p∤N; ι:E→E′ is a rational cyclic isogeny of degree p. Its actual kernel character φ:G_ℚ→𝔽_pˣ satisfies φ|G_p∉{1,ω}, with ω the mod-p cyclotomic character. The residual quotient character is ψ=ωφ⁻¹.",
+        "The finite-level Selmer group uses the Kummer local conditions, not a chosen abstract F_p-vector space."
+      ],
+      "proofSteps": [
+        "Use EC.0/small-selmer-corank, including the Cassels–Tate modulo-divisible pairing, to obtain the correct p∞ corank.",
+        "Apply EC.3/p-converse and EC.3/rank-and-sha."
+      ],
+      "acceptance": [
+        "A one-dimensional Sel_p does not give corank one by the coefficient identification alone; the paired finite-part argument is essential.",
+        "The theorem includes p=3. It does not import Skinner’s p≥5, irreducible residual localization criterion."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.0/small-selmer-corank",
+        "RankZeroOneBSDPartII:EC.3/p-converse",
+        "RankZeroOneBSDPartII:EC.3/rank-and-sha"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer3",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Corollary 5.2.2, p. 575",
+          "match": "The low-dimensional finite-Selmer hypothesis gives the same complete conclusion."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite-Selmer p-converse"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.eisenstein_modp_converse"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.4/admissible-twists",
+      "parentStageId": "RankZeroOneBSDPartII:EC.4",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.4"
+      ],
+      "title": "The admissible three-isogeny twist family",
+      "kind": "definition",
+      "statement": "Fix an actual rational cyclic 3-isogeny ι:E→E′ with kernel character φ. Inside the existing unweighted family ℚˣ/ℚˣ² set A₃(E,ι)={d : E^d has good reduction at 3 and (φχ_d)|G₃∉{1,ω}}. Here χ_d is the quadratic character of ℚ(√d), and the twisted isogeny has kernel character φχ_d. Count each squareclass once through its unique nonzero signed squarefree integer representative, ordered by |d|. A₃ is determined solely by its allowed local squareclasses at 3.",
+      "hypotheses": [
+        "E/ℚ is elliptic and ι is an actual degree-3 isogeny. No existence of a good-at-3 twist is built into the definition."
+      ],
+      "proofSteps": [
+        "Pull back the good-reduction and local-character conditions along localization ℚˣ/ℚˣ²→ℚ₃ˣ/ℚ₃ˣ². Use upstream quadratic twisting and the existing squareclass-height family.",
+        "Good reduction and the local kernel character depend only on the local isogeny diagram, so the subset is independent of representatives."
+      ],
+      "acceptance": [
+        "The family includes good reduction as well as the character exclusion. A rational 3-isogeny alone does not imply it is nonempty."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+        "ArithmeticStatistics:ST.0/quadratic-twist-squareclass-family",
+        "ArithmeticStatistics:ST.0/family-defined-by-local-conditions",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "RankZeroOneBSD:BSD.0/quadratic-field-character"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer4",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Corollary 5.2.3 and proof, p. 575",
+          "match": "The converse is applied only on twists satisfying its good-prime and local-character hypotheses."
+        },
+        {
+          "sourceId": "BKLOS",
+          "locator": "§2, family and height conventions, pp. 2–3",
+          "match": "The denominator is unweighted squareclasses ordered by the norm product of primes with odd valuation, which over ℚ is the absolute squarefree representative."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Admissible Eisenstein twists"
+      },
+      "uses": [
+        {
+          "where": "EC.4 restricted statistical bounds",
+          "how": "Keep the same local conditions on the family to which the converse is applied."
+        },
+        {
+          "where": "EC.5 19a3 calculation and no-good-twist diagnostic",
+          "how": "Distinguish a positive local family from an empty one and compute the actual denominator."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.mem_admissibleTwists_iff",
+          "role": "characterisation",
+          "statement": "Membership is exactly good reduction at 3 plus the displayed restricted kernel-character exclusion."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_squareclass",
+          "role": "compatibility",
+          "statement": "Replacing d by d·u², u∈ℚˣ, preserves membership and the associated isogeny diagram up to isomorphism."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_translate",
+          "role": "functoriality",
+          "statement": "For a fixed initial twist d₀, d∈A₃(E^d₀,ι^d₀) iff d₀d∈A₃(E,ι). This is a squareclass bijection; no height-preservation assertion is made."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_dual",
+          "role": "compatibility",
+          "statement": "The dual isogeny on E′ gives the same admissible squareclasses, using ψχ_d=ω(φχ_d)⁻¹ and isogeny invariance of good reduction."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_local",
+          "role": "characterisation",
+          "statement": "A₃ is the inverse image of a subset of the four local squareclasses ℚ₃ˣ/ℚ₃ˣ²."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_good_rational_kernel",
+          "kind": "computation",
+          "statement": "For good ordinary E at 3 with rational isogeny kernel, local classes represented by 1,2,3,6 have exactly the class 2 admissible: class 1 fails exclusion, and classes 3,6 fail good reduction."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_square_multiple",
+          "kind": "compatibility",
+          "statement": "For that E the signed squareclasses of 2 and 18 are equal and both admissible; counting both as distinct is rejected."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_no_good_twist",
+          "kind": "degenerate",
+          "statement": "If v₃(j(E))<0 then A₃(E,ι) is empty, regardless of its residual character twists."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.admissibleTwists_nontrivial_unramified",
+          "kind": "non-example",
+          "statement": "If E is good ordinary and φ|G₃ is nontrivial unramified, the identity squareclass is admissible and the unramified nonsquare twist becomes excluded. The rule d≡2 mod3 is not universal."
+        }
+      ],
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.admissibleTwists"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.4/admissible-ratio-strata",
+      "parentStageId": "RankZeroOneBSDPartII:EC.4",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.4"
+      ],
+      "title": "Positive Selmer-ratio strata within the admissible family",
+      "kind": "theorem",
+      "statement": "Suppose E/ℚ has a rational 3-isogeny and at least one quadratic twist with good reduction at 3. For the fixed isogeny write T_m={d:c(ι^d)=3^m} using the signed convention. Then A₃∩T₀ and A₃∩(T₁∪T₋₁) each contain a nonempty finite-local-condition family and have positive density among all signed squarefree parameters ordered by |d|.",
+      "hypotheses": [
+        "ι:E→E′ is a rational cyclic 3-isogeny. There exists d₀ with E^d₀ good at 3. No explicit numerical lower density independent of E is asserted."
+      ],
+      "proofSteps": [
+        "At 3 fix a local squareclass d₀u for which the twist is good ordinary and the kernel character is allowed: among the two unramified twists of a good model exactly one avoids both 1 and ω. This also kills local 3-torsion on E and E′.",
+        "Use the existing local Selmer-ratio formula: at 3 the good-model ratio is 1 or 3, depending on whether the kernel lies in the formal group. It stays fixed on this chosen local class. At each bad prime ℓ≠3 choose a local twist with c_ℓ=1 by BKLOS Proposition 10.7; outside 3N every twist has ratio 1.",
+        "At the real place the two signs give ratios 1 and 1/3. Hence the two choices give global ratios (1,1/3) or (3,1), providing both the zero and an odd signed stratum while preserving the chosen 3-adic class.",
+        "Weak approximation makes each compatible finite local prescription nonempty. Apply the rational squarefree local-density count with its nonuniform local squareclass masses to obtain positive density. The argument is directly on E’s family; translating by d₀ is not assumed to preserve height."
+      ],
+      "acceptance": [
+        "The local class at 3 is fixed before applying statistics, and cannot be changed independently after selecting a Selmer-rank set.",
+        "If the finite-place ratio is 1, the odd stratum obtained is T₋₁; if it is 3, it is T₁. Both are covered by the absolute-ratio-one bound."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.4/admissible-twists",
+        "ArithmeticStatistics:ST.5/selmer-ratio-of-an-isogeny",
+        "ArithmeticStatistics:ST.5",
+        "ArithmeticStatistics:ST.0/squarefree-integers-in-residue-classes",
+        "ArithmeticStatistics:ST.0/family-defined-by-local-conditions",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer4",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "BKLOS",
+          "locator": "Proposition 10.1, p. 14; Theorem 10.5, pp. 15–16; Proposition 10.7, p. 17; §11 proof of Theorem 2.6, p. 18",
+          "match": "Local ratios and the real sign produce nonempty zero and odd strata. The present application keeps an admissible good-reduction local class at 3 fixed."
+        },
+        {
+          "sourceId": "CGLS",
+          "locator": "Corollary 5.2.3 proof, p. 575",
+          "match": "Restricting the statistical input to the local family is the additional compatibility check required by the converse."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Admissible Selmer-ratio strata"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.admissible_ratio_strata"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.4/relative-proportion-bounds",
+      "parentStageId": "RankZeroOneBSDPartII:EC.4",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.4"
+      ],
+      "title": "Analytic-rank bounds in prescribed admissible families",
+      "kind": "theorem",
+      "statement": "Let Σ⊂A₃ be a nonempty family defined by finitely many local conditions. Put Σ₀=Σ∩T₀ and Σ₁=Σ∩(T₁∪T₋₁). For either nonempty stratum, the lower proportion within Σ₀ of twists with analytic rank and Mordell–Weil rank 0 and finite Sha is at least 1/2, and the lower proportion within Σ₁ with both ranks 1 and finite Sha is at least 5/6. Relative to all signed squarefree twists these give lower bounds (1/2)μ(Σ₀) and (5/6)μ(Σ₁), with μ the same height density.",
+      "hypotheses": [
+        "ι:E→E′ is a rational cyclic 3-isogeny. The finite local prescriptions defining Σ are globally compatible. Each displayed conditional proportion is asserted only when its denominator stratum is nonempty."
+      ],
+      "proofSteps": [
+        "Import ST.5’s restricted-family 3-Selmer-rank-zero and rank-one bounds, with their signed/absolute ratio convention.",
+        "For d∈A₃ the local exclusion gives E^d(ℚ)[3]=0, so the supplier’s adjusted 3-Selmer rank equals the actual F₃ dimension. Apply EC.3/mod-p-converse to the zero- and one-dimensional subsets.",
+        "Use the existing relative-density tower theorem. The stratum densities exist by finite local conditions; multiplication by their fixed density yields the absolute lower bounds, without asserting existence of an analytic-rank limiting density."
+      ],
+      "acceptance": [
+        "Keep the Σ₀ and Σ₁ denominators, and multiply by their actual densities before reporting percentages among all twists.",
+        "These are lower proportions, not exact Goldfeld densities or percentages for the original unrestricted ratio strata."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.4/admissible-twists",
+        "RankZeroOneBSDPartII:EC.3/mod-p-converse",
+        "ArithmeticStatistics:ST.5/three-selmer-rank-zero-in-selmer-ratio-one-twists",
+        "ArithmeticStatistics:ST.5/three-selmer-rank-one-in-odd-selmer-ratio-twists",
+        "ArithmeticStatistics:ST.0/relative-density",
+        "ArithmeticStatistics:ST.0/relative-density-is-multiplicative-in-towers"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer4",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "BKLOS",
+          "locator": "Theorem 2.5, p. 4; §9.1–§9.2, p. 14",
+          "match": "The average/parity argument gives the 1/2 and 5/6 bounds on finite local subfamilies."
+        },
+        {
+          "sourceId": "CGLS",
+          "locator": "Corollaries 5.2.2–5.2.3, p. 575",
+          "match": "The finite-Selmer converse converts the correctly restricted statistical subsets to analytic-rank subsets."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Twist-proportion bounds"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.admissible_relative_proportions"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.4/positive-twist-proportions",
+      "parentStageId": "RankZeroOneBSDPartII:EC.4",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.4"
+      ],
+      "title": "Positive proportions of rank-zero and rank-one twists",
+      "kind": "theorem",
+      "statement": "Let E/ℚ admit a rational cyclic 3-isogeny and at least one quadratic twist with good reduction at 3. Among the distinct nonzero signed squarefree integers d ordered by |d|, a positive lower proportion have rank E^d(ℚ)=analyticRank(E^d)=0 and finite Sha(E^d/ℚ), and a positive lower proportion have the analogous rank-one conclusion.",
+      "hypotheses": [
+        "Existence of a good-at-3 twist is an explicit hypothesis. The family is the unweighted squareclass family, not discriminants ordered by their absolute value or minimal curves ordered by naive height."
+      ],
+      "proofSteps": [
+        "Use EC.4/admissible-ratio-strata to find positive-density finite-local-condition families in the two relevant admissible strata.",
+        "Apply EC.4/relative-proportion-bounds and multiply their positive densities by 1/2 or 5/6. These products are strictly positive."
+      ],
+      "acceptance": [
+        "No analytic-rank conclusion is claimed for the complement of A₃ by this argument. No result about density one-half for either rank is asserted."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.4/admissible-ratio-strata",
+        "RankZeroOneBSDPartII:EC.4/relative-proportion-bounds",
+        "ArithmeticStatistics:ST.0/quadratic-twist-squareclass-family"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer4",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Corollary 5.2.3, p. 575, with the good-at-3 scope made explicit",
+          "match": "The restricted method proves positive proportions under the good-twist hypothesis; the larger printed scope is recorded in sourceIssues."
+        },
+        {
+          "sourceId": "BKLOS",
+          "locator": "Theorems 2.5–2.6, pp. 4–5; §11, p. 18",
+          "match": "Positive finite-local-condition Selmer strata combine with the converse."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Positive low-rank twist proportions"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.positive_low_rank_twist_proportions"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.5/nineteen-a3-model",
+      "parentStageId": "RankZeroOneBSDPartII:EC.5",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.5"
+      ],
+      "title": "The nineteen-a3 Weierstrass model",
+      "kind": "definition",
+      "statement": "Define nineteenA3:WeierstrassCurve ℚ by (a₁,a₂,a₃,a₄,a₆)=(0,1,1,1,0), so its equation is y²+y=x³+x²+x. This is only a concrete diagnostic model on the existing carrier; it introduces no database label, elliptic-curve type or new twist operation.",
+      "hypotheses": [
+        "The model is over ℚ. Its nonzero discriminant is a theorem, not a data placeholder."
+      ],
+      "proofSteps": [
+        "Fill the five existing coefficient fields and compute with the existing invariant formulas."
+      ],
+      "acceptance": [
+        "The coefficient a₂ is 1 and a₃ is 1. Replacing this by a short Weierstrass equation changes both the model and the tests."
+      ],
+      "prerequisites": [
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.Δ",
+        "mathlib:WeierstrassCurve.c₄",
+        "mathlib:WeierstrassCurve.c₆",
+        "mathlib:WeierstrassCurve.IsElliptic",
+        "mathlib:WeierstrassCurve.j",
+        "mathlib:WeierstrassCurve.map",
+        "tauceti:WeierstrassCurve.quadraticTwistOf",
+        "tauceti:WeierstrassCurve.Δ_quadraticTwistOf"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer5",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Remark 5.2.4, p. 575",
+          "match": "The displayed curve is the worked family used to test the local scope and denominator."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Nineteen-a3 model"
+      },
+      "uses": [
+        {
+          "where": "EC.5 local admissibility and CGLS Remark 5.2.4",
+          "how": "Compute reduction and the actual local 3 family behind the claimed twist percentages."
+        },
+        {
+          "where": "Suggested file",
+          "how": "Provide a concrete existing-carrier signature and discriminating tests without fabricating missing Selmer or analytic carriers."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_coefficients",
+          "role": "projection",
+          "statement": "The five coefficients are exactly (0,1,1,1,0)."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_invariants",
+          "role": "simp",
+          "statement": "Δ=−19, c₄=−32 and c₆=8."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_isElliptic",
+          "role": "compatibility",
+          "statement": "The model is elliptic over ℚ because its discriminant is a nonzero rational number."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_j",
+          "role": "compatibility",
+          "statement": "For any IsElliptic instance its existing Mathlib j is 32768/19."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_map",
+          "role": "functoriality",
+          "statement": "For every ring homomorphism f:ℚ→+*F into a commutative ring, map f gives the same five integer coefficients in F."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_discriminant_test",
+          "kind": "computation",
+          "statement": "The existing discriminant formula gives −19, not +19 or −19²."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_residue_three_test",
+          "kind": "computation",
+          "statement": "Reducing the integral coefficient tuple modulo3 gives an equation over F₃ with affine point count5; adding infinity gives 6 and a₃(Frobenius)=−2. The coefficient a₃ of the equation remains 1."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_twist_parameter_test",
+          "kind": "compatibility",
+          "statement": "The existing two-parameter twist nineteenA3.quadraticTwistOf(0,−2) has discriminant −19·8⁶. Its squareclass is 2; the raw discriminant does not equal −19·2⁶ without a change of variables."
+        },
+        {
+          "name": "TauCeti.RankZeroOneBSDPartII.nineteenA3_origin_tangent_test",
+          "kind": "computation",
+          "statement": "At the point (0,0) the tangent is y=x, and substitution gives x³=0. The point is a nonidentity rational point of order 3."
+        }
+      ],
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.nineteenA3"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.5/nineteen-a3-admissibility",
+      "parentStageId": "RankZeroOneBSDPartII:EC.5",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.5"
+      ],
+      "title": "The actual local family for nineteen-a3",
+      "kind": "theorem",
+      "statement": "For nineteenA3 with the cyclic isogeny generated by P=(0,0), the admissible signed squarefree parameters are exactly d≡2 modulo 3. Their density among all signed squarefree d ordered by |d| is 3/8. In particular a rank-one analytic subset obtained solely by EC.3/mod-p-converse at p=3 inside this family has upper density at most 3/8 in the full family; the number 41.6% cannot be obtained by that restricted conversion.",
+      "hypotheses": [
+        "Use the exact model, its actual rational kernel P, and signed squarefree parameters. This statement puts no upper bound on the actual full rank-one twist set."
+      ],
+      "proofSteps": [
+        "Compute Δ=−19, hence good reduction at 3. Count six points on E(F₃), giving a₃=−2 and ordinary reduction; the tangent calculation certifies P has order3, so φ is trivial.",
+        "The two unit squareclasses at 3 preserve good reduction, but only the nonsquare unit changes the local kernel character to the allowed nontrivial unramified one. The ramified squareclasses have bad reduction. Thus membership is precisely 3∤d and d mod3=2.",
+        "Apply the existing squarefree coprime-residue count with modulus3 separately to positive and negative parameters. The count of 3∤d is 3/4 of all squarefree parameters, and each unit residue accounts for half of it: density 3/8.",
+        "Any subset of this admissible family has upper density at most 3/8. For valid analytic lower bounds use the intersections with T₀ and T₁∪T₋₁ from EC.4; no unrestricted numerical percentages are transferred."
+      ],
+      "acceptance": [
+        "The density is 3/8 in signed squarefree parameters, not 1/2 from uniform weighting of the two unramified local classes.",
+        "P=(0,0) is a point distinct from the group identity at infinity.",
+        "The diagnostic rejects the proposed argument for the published percentages; it does not disprove those percentages for the full twist family."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.5/nineteen-a3-model",
+        "RankZeroOneBSDPartII:EC.4/admissible-twists",
+        "RankZeroOneBSDPartII:EC.4/relative-proportion-bounds",
+        "ArithmeticStatistics:ST.0/squarefree-integers-in-residue-classes",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "ArithmeticStatistics:ST.0/relative-density"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer5",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Remark 5.2.4, p. 575",
+          "match": "Its explicit example requires an admissible-family denominator before applying the converse."
+        },
+        {
+          "sourceId": "BKLOS",
+          "locator": "§2, pp. 2–5; §9.2, p. 14",
+          "match": "The Selmer-rank estimates must be restricted to the local family with the same counting measure."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Nineteen-a3 admissible density"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.nineteenA3_admissibility"
+    },
+    {
+      "id": "RankZeroOneBSDPartII:EC.5/no-good-three-twist",
+      "parentStageId": "RankZeroOneBSDPartII:EC.5",
+      "realises": [
+        "RankZeroOneBSDPartII:EC.5"
+      ],
+      "title": "A three-isogeny does not guarantee a good-at-three twist",
+      "kind": "theorem",
+      "statement": "The rational Weierstrass curve W:y²+xy+3y=x³ has a rational cyclic 3-isogeny, but no quadratic twist has good reduction at3. Indeed (0,0) has order3, Δ(W)=−2160, c₄(W)=−71, and j(W)=357911/2160 has 3-adic valuation−3. Every quadratic twist has the same j; good reduction would make j integral. Thus A₃(W,ι)=∅.",
+      "hypotheses": [
+        "W has coefficients (1,0,3,0,0) over ℚ and ι is the isogeny with kernel generated by (0,0)."
+      ],
+      "proofSteps": [
+        "The tangent at (0,0) is y=0; its intersection with the cubic has multiplicity3, proving the nonidentity point has order3. Use upstream quotient-by-stable-kernel to obtain the actual isogeny.",
+        "Compute the invariant formulas and v₃(j)=−3. Use existing twist invariance of j and the local integral-j consequence of good reduction to exclude every twist.",
+        "Apply the definition of A₃. This is a counterexample to the claim that the converse method’s good-reduction hypotheses can always be reached by quadratic twisting, not to the full printed analytic density conclusion by other methods."
+      ],
+      "acceptance": [
+        "Twisting can change the residual kernel character, but it cannot change j or make a negative valuation integral."
+      ],
+      "prerequisites": [
+        "RankZeroOneBSDPartII:EC.4/admissible-twists",
+        "mathlib:WeierstrassCurve",
+        "mathlib:WeierstrassCurve.Δ",
+        "mathlib:WeierstrassCurve.c₄",
+        "mathlib:WeierstrassCurve.j",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5"
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/RankZeroOneBSDPartII/Layer5",
+        "namespace": "TauCeti.RankZeroOneBSDPartII"
+      },
+      "sources": [
+        {
+          "sourceId": "CGLS",
+          "locator": "Corollary 5.2.3 proof, p. 575; standing good-reduction hypothesis, pp. 517–519",
+          "match": "The assertion that the local hypotheses can be arranged by twisting needs a separate good-reduction condition. The explicit invariant calculation supplies a diagnostic."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Good-reduction scope test"
+      },
+      "declarationName": "TauCeti.RankZeroOneBSDPartII.no_good_three_twist"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+      "need": "Reuse actual coordinate-pullback isogenies, duals, degree and quotient by the Galois-stable cyclic subgroup. Supply the chord/tangent-to-order3 check for the two diagnostic points; no new isogeny carrier is planned here.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+        "RankZeroOneBSDPartII:EC.5/nineteen-a3-admissibility",
+        "RankZeroOneBSDPartII:EC.5/no-good-three-twist"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "need": "Reuse the torsion module, its Weil-pairing determinant identity and the isogeny kernel Galois character. The diagonal product of the two residual characters is the mod-p cyclotomic character.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+        "RankZeroOneBSDPartII:EC.5/nineteen-a3-admissibility"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "Reuse good reduction, ordinary reduction, finite-flat connected/étale kernel dichotomy at3, and good reduction ⇒ integral j. Export that for good ordinary reduction at3 the two unramified quadratic twists give exactly one allowed kernel-character class, whereas ramified twists of a good model have bad reduction; isogeny preserves good reduction.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.0/eisenstein-converse-data",
+        "RankZeroOneBSDPartII:EC.4/admissible-twists",
+        "RankZeroOneBSDPartII:EC.4/admissible-ratio-strata",
+        "RankZeroOneBSDPartII:EC.5/nineteen-a3-admissibility",
+        "RankZeroOneBSDPartII:EC.5/no-good-three-twist"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+      "need": "Reuse actual quadratic twists and twisted isogenies; ker(ι^d) has character φχ_d; j is unchanged and local isomorphism types depend on the local squareclass. The two-parameter raw twist uses t²−4n, as in the pinned library.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.4/admissible-twists",
+        "RankZeroOneBSDPartII:EC.4/admissible-ratio-strata",
+        "RankZeroOneBSDPartII:EC.5/nineteen-a3-admissibility",
+        "RankZeroOneBSDPartII:EC.5/no-good-three-twist"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+      "need": "Finite-level and p∞ Kummer/Selmer sequences, finiteness of Sel_p, cofinite generation, and the coefficient exact sequence identifying Sel_p with Sel_(p∞)[p] under E(ℚ)[p]=0. Use the existing Sha carrier.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.0/small-selmer-corank",
+        "RankZeroOneBSDPartII:EC.1/selmer-corank-over-k",
+        "RankZeroOneBSDPartII:EC.2/heegner-specialization-factor",
+        "RankZeroOneBSDPartII:EC.2/heegner-point-nontorsion"
+      ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L1",
+      "need": "Export the shared elliptic Cassels–Tate pairing, with both kernels the maximal divisible subgroups and elliptic alternation, on the existing Sha carrier; its finite odd-primary nondivisible quotient has paired elementary divisors. This is the existing PAPER-SKINNER-20/83–86 and RankOneConverse request, not a second pairing construction. See GAP-CT.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.0/small-selmer-corank"
+      ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L2",
+      "need": "Export cofinite p-primary module structure and the Kummer-compatible comparison dim Sel_p=corank Sel_(p∞)+2 dim M[p] when rational p-torsion vanishes, using the shared pairing modulo divisible kernels. Whole Sha finiteness is not required. See GAP-CT.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.0/small-selmer-corank"
+      ]
+    },
+    {
+      "supplier": "SelmerIwasawaCohomology:L3",
+      "need": "Instantiate the existing kernel-control and derived-control targets for the CGLS self-dual ordinary anticyclotomic local conditions: finite rational discrete-control errors under both nontrivial local residual factors, ordinary compact specialization kernel equal to P₀S after inverting p, and retention of all H²/Tor cokernel terms. EC.2 proves the corank-one consequence and its use in the converse.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.2/augmentation-control"
+      ]
+    },
+    {
+      "supplier": "ArithmeticStatistics:ST.5",
+      "need": "Use the existing global Selmer ratio and signed T_m convention. Export BKLOS local calculations: c∞ is1 or1/3 with both signs attainable; for ℓ≠3 some local twist has cℓ=1 and all twists have cℓ=1 away from3N; at good ordinary3 the ratio is1 or3 by the connected/étale kernel. Keep the chosen admissible3-adic class fixed and use the already planned restricted-family Selmer bounds.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.4/admissible-ratio-strata"
+      ]
+    },
+    {
+      "supplier": "ArithmeticStatistics:ST.0/family-defined-by-local-conditions",
+      "need": "For ℚ and finitely many specified local squareclasses, use weak approximation and squarefree residue counts to give positive height density for each compatible nonempty local family, with signed representatives and additive-Haar-induced local masses. In particular a fixed unit nonsquare class at3 has mass3/8 among all signed squarefree parameters. No general-number-field denominator theorem is assumed.",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.4/admissible-twists",
+        "RankZeroOneBSDPartII:EC.4/admissible-ratio-strata"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "RankZeroOneBSDPartII:EC.0",
+      "status": "planned",
+      "remaining": [
+        "Register and prove the shared Cassels–Tate modulo-divisible endpoint GAP-CT and its finite-Selmer dimension interface."
+      ]
+    },
+    {
+      "stageId": "RankZeroOneBSDPartII:EC.1",
+      "status": "planned",
+      "remaining": [
+        "Implement the imported modular parity, two nonvanishing branches and quadratic Selmer comparison on the same arithmetic carriers."
+      ]
+    },
+    {
+      "stageId": "RankZeroOneBSDPartII:EC.2",
+      "status": "planned",
+      "remaining": [
+        "Discharge the requested ordinary-control instantiation, its local finite errors and compact saturation; implement the imported characteristic equality and actual Heegner/Gross–Zagier normalizations."
+      ]
+    },
+    {
+      "stageId": "RankZeroOneBSDPartII:EC.3",
+      "status": "planned",
+      "remaining": [
+        "Implement the EC.0–EC.2 prerequisites and import the parent forward theorem; GAP-CT is required for the finite-Selmer endpoint."
+      ]
+    },
+    {
+      "stageId": "RankZeroOneBSDPartII:EC.4",
+      "status": "planned",
+      "remaining": [
+        "Implement the local 3 admissibility dictionary and fixed-class ratio construction; discharge the exact rational local-family counting interface; GAP-CT propagates through the mod-p converse."
+      ]
+    },
+    {
+      "stageId": "RankZeroOneBSDPartII:EC.5",
+      "status": "planned",
+      "remaining": [
+        "Implement the local good/ramified-twist and point-order dictionaries; connect the elementary suggested model computations to the actual local-family carrier."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "id": "GAP-CT",
+      "title": "Shared Cassels–Tate modulo-divisible endpoint has no registered node",
+      "detail": "The existing PAPER-SKINNER-20/83–86 source extension and RankOneConverse requests assign the elliptic pairing, divisible kernels, alternation and paired finite odd-primary quotient to SelmerIwasawaCohomology L1–L2. Its accepted packet has no exact node stating that endpoint. Keep the stage requests and the supplied source PS explicit until the shared owner registers it; do not duplicate the construction or assume full Sha finiteness. This affects EC.0/small-selmer-corank, EC.3/mod-p-converse and the analytic twist applications, not the p∞ converse proof.",
+      "supplier": "SelmerIwasawaCohomology:L1",
+      "neededBy": [
+        "RankZeroOneBSDPartII:EC.0/small-selmer-corank",
+        "RankZeroOneBSDPartII:EC.3/mod-p-converse",
+        "RankZeroOneBSDPartII:EC.4/relative-proportion-bounds"
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "RankZeroOneBSDPartII/E1",
+      "source": "CGLS",
+      "kind": "gap",
+      "locator": "Published author PDF, Corollary 5.2.3 and proof, p. 575; standing good-reduction condition, pp. 517–519",
+      "printed": "The density conclusion is stated for every rational 3-isogeny, and the proof arranges the character exclusion by twisting before invoking the good-prime converse.",
+      "correction": "For the proof developed here, assume that some quadratic twist is good at3, then keep a good, character-admissible3-adic squareclass fixed throughout the statistical argument. EC.4 proves this scoped conclusion. The unrestricted theorem would require an additional input for curves having no good-at-3 twist.",
+      "reason": "For y²+xy+3y=x³, the point(0,0) gives a rational 3-isogeny, but j=357911/2160 has v₃=−3 and is invariant under twisting. Good reduction would force integral j. Thus twisting cannot always arrange the good-reduction hypothesis needed by Corollary5.2.2.",
+      "affects": "the proof",
+      "known": "Previously recorded as PAPER-CASTELLA-ETAL-22/E2; rechecked against the published author PDF. No separate correction located in the checked listings. This finding does not assert the unrestricted density conclusion is false.",
+      "searched": [
+        "Published author PDF, pp.517–519 and575, read2026-10-19",
+        "arXiv:2008.02571v2, §5.2, pp.31–32; version history checked2026-10-19",
+        "https://web.math.ucsb.edu/~castella/ — publication listing checked2026-10-19; no separate correction linked for this paper",
+        "https://link.springer.com/article/10.1007/s00222-021-01072-y — publication page checked2026-10-19; no correction link found"
+      ]
+    },
+    {
+      "id": "RankZeroOneBSDPartII/E2",
+      "source": "CGLS",
+      "kind": "gap",
+      "locator": "Published author PDF, Remark 5.2.4, p.575",
+      "printed": "The example19a3 is assigned rank-one and rank-zero analytic lower proportions41.6% and25% by transferring BKLOS bounds through the converse.",
+      "correction": "Use only the intersections of the statistical ratio strata with A₃. The valid absolute lower bounds are(5/6)μ(A₃∩(T₁∪T₋₁)) and(1/2)μ(A₃∩T₀), or the corresponding explicitly chosen finite local subfamilies. No numerical evaluation of these intersections is asserted here.",
+      "reason": "For y²+y=x³+x²+x and its rational isogeny kernel, admissible signed squarefree parameters satisfy d≡2 mod3, a family of density 3/8. Any rank-one subset produced solely by the p=3 admissible conversion has upper density at most37.5%, below41.6%. A full-family Selmer bound cannot be transferred without tracking this intersection. The argument also supplies no unrestricted25% analytic rank-zero bound.",
+      "affects": "the proof",
+      "known": "Previously recorded as PAPER-CASTELLA-ETAL-22/E33; rechecked against the published author PDF. No separate correction located in the checked listings. Neither numerical statement is disproved for the full actual analytic-rank sets.",
+      "searched": [
+        "Published author PDF, Remark5.2.4, p.575, read2026-10-19",
+        "arXiv:2008.02571v2, Remark5.2.4, p.32, collated2026-10-19",
+        "https://web.math.ucsb.edu/~castella/ — publication listing checked2026-10-19",
+        "https://link.springer.com/article/10.1007/s00222-021-01072-y — publication page checked2026-10-19"
+      ]
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf",
+      "citation": "Inventiones Mathematicae 227 (2022), 517–580; published author PDF, 64 pages; DOI 10.1007/s00222-021-01072-y",
+      "read": "2026-10-19",
+      "sha256": "d1c1afe0e91cd43851918d6999481bbfa7a34ec8473a3817468f769a13783f38"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2008.02571v2",
+      "citation": "arXiv:2008.02571v2, 14 September2021; §5.2, pp.31–32 collated",
+      "read": "2026-10-19",
+      "sha256": "7cd995e0d9ee1c931f728da8b39603c4205fa0a84c25df27d44b4451a81a2c59"
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "RankZeroOneBSDPartII",
+        "CMRankZeroConverse",
+        "RankOneConverse"
+      ],
+      "detail": "The aggregate issue brief routes23 BT items and43 Skinner items to directions that already have accepted complete planning passes. RankOneConverse’s accepted PC.0–PC.6 plan covers Skinner’s irreducible branch and does not contain CGLS5.2’s reducible Eisenstein branch.",
+      "proposal": "Keep all BT/CM targets in CMRankZeroConverse C.0–C.6 and all Skinner A,A′,B,C,E targets in RankOneConverse PC.0–PC.6. Place the missing CGLS5.2.1–5.2.3 branch in this roadmap EC.0–EC.5, reusing the one shared pConverse definition. Reconcile PAPER-CASTELLA-ETAL-22/35,/37,/38 routing to these layers (parity itself remains SI L4). Do not create duplicate CM or Skinner plans."
+    },
+    {
+      "action": "single-owner",
+      "roadmaps": [
+        "RankZeroOneBSDPartII",
+        "SelmerIwasawaCohomology",
+        "RankOneConverse",
+        "ArithmeticStatistics"
+      ],
+      "detail": "All three converse/statistics consumers need the same elliptic Cassels–Tate modulo-divisible structure.",
+      "proposal": "Register the existing PAPER-SKINNER-20/83–86 extension with SI L1–L2; replace GAP-CT with its exact node when available. No separate pairing, Selmer, characteristic-ideal or statistical distribution development belongs here."
+    }
+  ],
+  "libraryAudit": {
+    "read": "2026-10-19",
+    "source": "data/library-coverage.json",
+    "result": "Read AUDIT-27 entries for BSD.0–BSD.1, BSD.7–BSD.7a and SI L2/L4, and AUDIT-07 ST.5. Raw elliptic L-series, finite 2-descent and S-unit Selmer groups do not implement analytic rank, p∞ Selmer, Sha or this converse. The pinned TauCeti quadratic-twist and Mathlib Weierstrass statements were read directly. Screened all nine newer roadmap families and current TauCeti; no duplicate converse, Sha pairing or3-Selmer statistics was found.",
+    "currentRoadmapCommit": "0d144d044dacebca17b654695b6f1ad58f159b27",
+    "currentLibraryCommit": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039"
+  },
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/EllipticCurves"
+      ],
+      "note": "The current Layer7 README covers Kummer/Selmer/Sha and the Cassels isogeny-invariance duality inputs but does not explicitly promise the Cassels–Tate modulo-divisible alternating-pairing endpoint. The existing SI L1–L2 source extension owns this shared result; keep that request distinct from upstream Layer7 and coordinate the carrier rather than assuming either plan already proves the pairing."
+    }
+  ],
+  "targetCoverage": [
+    {
+      "target": "Burungale–Tian continuation: all23 routed items",
+      "disposition": "import-existing-owner",
+      "owner": "CMRankZeroConverse:C.0–C.6",
+      "endpoints": [
+        "CMRankZeroConverse:C.3/cm-newform-converse",
+        "CMRankZeroConverse:C.4/cm-elliptic-k",
+        "CMRankZeroConverse:C.4/cm-elliptic-q",
+        "CMRankZeroConverse:C.5/fundamental-discriminant-goldfeld",
+        "CMRankZeroConverse:C.6/cm-twist-nonvanishing",
+        "CMRankZeroConverse:C.6/nondescent-density"
+      ],
+      "note": "Accepted design and independent review already supply the full CM branch and its exact internal chains; this design does not re-read or re-plan those proofs."
+    },
+    {
+      "target": "Skinner continuation:43 routed items and A,A′,B,C,E",
+      "disposition": "import-existing-owner",
+      "owner": "RankOneConverse:PC.0–PC.6",
+      "endpoints": [
+        "RankOneConverse:PC.3/theorem-b",
+        "RankOneConverse:PC.4/theorem-a",
+        "RankOneConverse:PC.4/theorem-a-prime",
+        "RankOneConverse:PC.5/theorem-c",
+        "RankOneConverse:PC.6/theorem-e"
+      ],
+      "note": "Accepted design and independent review already supply the Skinner branch. No residual irreducibility or nonsplit auxiliary-prime assumption is imported into the Eisenstein proof."
+    },
+    {
+      "target": "PAPER-CASTELLA-ETAL-22/35",
+      "disposition": "import-existing-owner",
+      "owner": "SelmerIwasawaCohomology:L4/ordinary-selmer-parity",
+      "note": "Apply ordinary modular parity through the parent’s rational newform and SI elliptic Kummer comparisons."
+    },
+    {
+      "target": "PAPER-CASTELLA-ETAL-22/37",
+      "disposition": "planned-here",
+      "nodes": [
+        "RankZeroOneBSDPartII:EC.3/p-converse",
+        "RankZeroOneBSDPartII:EC.3/rank-and-sha",
+        "RankZeroOneBSDPartII:EC.3/mod-p-converse"
+      ]
+    },
+    {
+      "target": "PAPER-CASTELLA-ETAL-22/38",
+      "disposition": "planned-here-with-corrected-scope",
+      "nodes": [
+        "RankZeroOneBSDPartII:EC.4/relative-proportion-bounds",
+        "RankZeroOneBSDPartII:EC.4/positive-twist-proportions",
+        "RankZeroOneBSDPartII:EC.5/nineteen-a3-admissibility",
+        "RankZeroOneBSDPartII:EC.5/no-good-three-twist"
+      ]
+    }
+  ]
+}

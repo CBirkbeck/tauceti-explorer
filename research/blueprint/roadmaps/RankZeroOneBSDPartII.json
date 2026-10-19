@@ -1,0 +1,147 @@
+{
+  "id": "RankZeroOneBSDPartII",
+  "title": "Rank-zero and rank-one Birch–Swinnerton-Dyer theory, Part II: Eisenstein converses and twist proportions",
+  "area": "iwasawa",
+  "parent": "RankZeroOneBSD",
+  "summary": "This Part II of RankZeroOneBSD supplies the good odd Eisenstein-prime converse in Selmer coranks zero and one, its finite-Selmer form, and positive proportions of low-rank quadratic twists on the precisely admissible local family. The proof combines complementary twists, rational augmentation control and the parent’s Heegner index-square equality. CM rank-zero converses and Skinner’s irreducible branch retain their existing owners. All six layers are planned; the shared Cassels–Tate supplier endpoint is an explicit frontier, and no implementation is claimed.",
+  "readme": "The full specification is research/blueprint/readmes/RankZeroOneBSDPartII.md. This Part II of RankZeroOneBSD supplies the good odd Eisenstein-prime converse in Selmer coranks zero and one, its finite-Selmer form, and positive proportions of low-rank quadratic twists on the precisely admissible local family. The proof combines complementary twists, rational augmentation control and the parent’s Heegner index-square equality. CM rank-zero converses and Skinner’s irreducible branch retain their existing owners. All six layers are planned; the shared Cassels–Tate supplier endpoint is an explicit frontier, and no implementation is claimed. The exact good-reduction and local-character conditions persist in each twist application. The endpoint is equality of analytic and arithmetic ranks and full Sha finiteness, without a BSD leading-term identity. The CM and Skinner routes are imports from CMRankZeroConverse and RankOneConverse, with routing reconciliation recorded in the packet.",
+  "prerequisites": [
+    "RankZeroOneBSD",
+    "CMRankZeroConverse",
+    "SelmerIwasawaCohomology",
+    "HeegnerPointEulerSystems",
+    "GrossZagierAndArithmeticHeights",
+    "PadicMeasuresIwasawaAlgebras",
+    "ArithmeticStatistics",
+    "tauceti:TauCetiRoadmap/EllipticCurves"
+  ],
+  "stages": [
+    {
+      "key": "EC.0",
+      "title": "Fixed isogenies and low-dimensional Selmer groups",
+      "description": "Pin the actual isogeny kernel and the good odd-prime local exclusion. Import ordinarity and torsion vanishing, the canonical Selmer carriers and modular parity. Compare a zero- or one-dimensional finite Selmer group with p∞ corank using the shared Cassels–Tate pairing modulo its divisible kernels.",
+      "requires": [
+        "RankZeroOneBSD:BSD.7a",
+        "SelmerIwasawaCohomology:L1",
+        "SelmerIwasawaCohomology:L2",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ]
+    },
+    {
+      "key": "EC.1",
+      "title": "Complementary twists and Heegner fields",
+      "description": "Use the imported ordinary modular parity and both twist-nonvanishing branches to choose imaginary quadratic K with all level primes and p split, odd D<−4 and analytic twist rank1−r. Apply the forward theorem to the twist and odd-primary quadratic descent to establish corank Sel(E/K)=1 before using a main conjecture.",
+      "requires": [
+        "RankZeroOneBSDPartII:EC.0",
+        "RankZeroOneBSD:BSD.0",
+        "RankZeroOneBSD:BSD.1",
+        "RankZeroOneBSD:BSD.2",
+        "RankZeroOneBSD:BSD.4",
+        "SelmerIwasawaCohomology:L4",
+        "RankZeroOneBSD:BSD.7a",
+        "SelmerIwasawaCohomology:L2",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4"
+      ]
+    },
+    {
+      "key": "EC.2",
+      "title": "Augmentation control and the bottom Heegner point",
+      "description": "Prove rational ordinary control at P₀=(γ−1), with finite local errors and the compact specialization kernel explicit. Under corank1 show v_P₀(char X_tors)=0. Apply the parent’s CGLS Heegner index-square equality in Λ[1/p], identify the precise stabilized bottom-class factor and deduce a non-torsion classical Heegner point and a simple zero over K.",
+      "requires": [
+        "RankZeroOneBSDPartII:EC.0",
+        "RankZeroOneBSDPartII:EC.1",
+        "RankZeroOneBSD:BSD.7a",
+        "HeegnerPointEulerSystems:HE.8",
+        "SelmerIwasawaCohomology:L3",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "GrossZagierAndArithmeticHeights:GZ.8",
+        "SelmerIwasawaCohomology:L4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-7-selmer-groups-and-sha-aec-x4",
+        "GrossZagierAndArithmeticHeights:GZ.0",
+        "RankZeroOneBSD:BSD.0"
+      ]
+    },
+    {
+      "key": "EC.3",
+      "title": "The Eisenstein-prime converses",
+      "description": "For r=0,1 prove corank Sel_(p∞)(E/ℚ)=r implies analyticRank(E)=r by subtracting the complementary twist’s order from the simple base-change order. Import the shared p-converse proposition. Deduce equality of Mordell–Weil rank and full Sha finiteness from the forward theorem, then the finite-Selmer version without assuming Sha finite.",
+      "requires": [
+        "RankZeroOneBSDPartII:EC.0",
+        "RankZeroOneBSDPartII:EC.1",
+        "RankZeroOneBSDPartII:EC.2",
+        "CMRankZeroConverse:C.0",
+        "RankZeroOneBSD:BSD.0",
+        "RankZeroOneBSD:BSD.4"
+      ]
+    },
+    {
+      "key": "EC.4",
+      "title": "Admissible quadratic twists and positive proportions",
+      "description": "Define the local 3 admissible subset of the existing squareclass-height twist family. Under existence of a good-at-3 twist, choose zero and odd Selmer-ratio strata while holding an admissible3-adic class fixed. Import BKLOS’s restricted-family 1/2 and 5/6 Selmer bounds, apply the finite-Selmer converse, and state positive absolute lower proportions with all denominator factors.",
+      "requires": [
+        "RankZeroOneBSDPartII:EC.0",
+        "RankZeroOneBSDPartII:EC.3",
+        "ArithmeticStatistics:ST.0",
+        "ArithmeticStatistics:ST.5",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "RankZeroOneBSD:BSD.0"
+      ]
+    },
+    {
+      "key": "EC.5",
+      "title": "Concrete models and scope diagnostics",
+      "description": "Specify nineteenA3 on Mathlib’s Weierstrass carrier with invariant, twist-normalization and rational 3-torsion tests. Compute its local admissible density 3/8 and the resulting ceiling on this method’s conversion set. Exhibit y²+xy+3y=x³ with v₃(j)=−3, proving that a rational 3-isogeny does not guarantee any good-at-3 quadratic twist.",
+      "requires": [
+        "RankZeroOneBSDPartII:EC.4",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5",
+        "ArithmeticStatistics:ST.0"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "CGLS",
+      "title": "On the anticyclotomic Iwasawa theory of rational elliptic curves at Eisenstein primes",
+      "authors": "Francesc Castella, Giada Grossi, Jaehoon Lee and Christopher Skinner",
+      "edition": "Inventiones Mathematicae 227 (2022), 517–580; published author PDF, 64 pages; DOI 10.1007/s00222-021-01072-y",
+      "url": "https://web.math.ucsb.edu/~castella/Eisenstein-print.pdf",
+      "sha256": "d1c1afe0e91cd43851918d6999481bbfa7a34ec8473a3817468f769a13783f38",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "Introduction, standing good-reduction/Eisenstein assumptions, pp. 517–521; §3.4, Theorem 3.4.1 and Corollary 3.4.2, pp. 564–566; §4.1, Theorems 4.1.1–4.1.2 and Remark 4.1.3, pp. 566–569; §4.2, Proposition 4.2.1, Theorem 4.2.2 and Corollary 4.2.3, pp. 569–570; §5.2, Theorem 5.2.1 and Corollaries 5.2.2–5.2.3, Remark 5.2.4, pp. 573–575."
+      ]
+    },
+    {
+      "id": "BKLOS",
+      "title": "Three-isogeny Selmer groups and ranks of abelian varieties in quadratic twist families over a number field",
+      "authors": "Manjul Bhargava, Zev Klagsbrun, Robert J. Lemke Oliver and Ari Shnidman",
+      "edition": "Public author version, 25 pages; Duke Mathematical Journal 168 (2019), 2951–2989",
+      "url": "https://lemkeoliver.github.io/papers/19-3IsogenySelmer.pdf",
+      "sha256": "af4e5ab9b250700c95c09946509e88b8a3f4a4f7efedf6ddc882a5f742478880",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§2, squareclass height, local-condition families and Theorems 2.1, 2.5–2.6, pp. 2–5; §9.1–§9.2, Cassels ratio and restricted-family rank estimates, p. 14; §10, Propositions 10.1–10.4, Theorem 10.5 and Proposition 10.7, pp. 14–17; §11, proof of Theorem 2.6, p. 18. All locators refer to this author version."
+      ]
+    },
+    {
+      "id": "PS",
+      "title": "The Cassels–Tate pairing on polarized abelian varieties",
+      "authors": "Bjorn Poonen and Michael Stoll",
+      "edition": "Author version dated 6 November 1998, minor correction 23 August 2014, 32 pages; published Annals of Mathematics 150 (1999), 1109–1149",
+      "url": "https://math.mit.edu/~poonen/papers/sha.pdf",
+      "sha256": "3b9a619423358bc877fd2123b73a759157a728ec11e0f7b0aa48bd0333d7149a",
+      "accessed": "2026-10-19",
+      "readSections": [
+        "§1, elliptic alternation and divisible kernels, p. 2; §2, primary and nondivisible parts, pp. 3–4; §6, Theorem 8 and Corollary 9, pp. 11–12. Pairing construction is a shared supplier obligation, not a construction in this roadmap."
+      ]
+    }
+  ],
+  "status": "draft"
+}
