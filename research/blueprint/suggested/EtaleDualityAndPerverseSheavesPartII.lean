@@ -17,10 +17,11 @@ This file is not the roadmap and is not exhaustive. The definitive mathematical 
 `research/blueprint/readmes/EtaleDualityAndPerverseSheavesPartII.md`. The statements below
 suggest Lean forms so that contributors and reviewers converge on names and signatures.
 
-The pinned Mathlib and Tau Ceti have no derived étale cohomology of schemes (only the underived
-`AlgebraicGeometry.Scheme.ellAdicSheaf`), no strict henselization of schemes, no alteration
-topology and no perfectoid predicate. The cohomological targets of every layer are therefore
-README targets. What the pins can state is the commutative algebra of Layer EQ.1:
+The pins provide generic derived categories, Ext-based sheaf cohomology, pro-étale sites
+and ℓ-adic coefficient sheaves. The scheme-level constructible derived and six-operation interface
+used here, strict henselizations, alteration topology and the perfectoid predicate remain
+README targets supplied by the named roadmaps. What the pins can state is the commutative
+algebra of Layer EQ.1:
 
 * partially algebraizable complete local rings (Illusie–Laszlo–Orgogozo, Exposé V, 2.1.1),
   with their API and unit tests;
@@ -30,17 +31,17 @@ README targets. What the pins can state is the commutative algebra of Layer EQ.1
 The definitions and constructions whose carriers are not at the pins are specified in the README
 under the following names (API items and unit tests included):
 
-* `alteration-category` — `AltCat`, `AltCat.md`, `AltCat.hasPullbacks`, `AltCat.final`, `AltCat.flatBaseChange`, `MaximallyEllPrimeFinite`, `AltCat.test_final`, `AltCat.test_blowup_product`, `AltCat.test_closed_point_not_object`, `AltCat.test_alteration_compat`
+* `alteration-category` — `AltCat`, `AltCat.md`, `AltCat.md_lift`, `AltCat.hasPullbacks`, `AltCat.final`, `AltCat.flatBaseChange`, `MaximallyEllPrimeFinite`, `AltCat.test_final`, `AltCat.test_blowup_product`, `AltCat.test_closed_point_not_object`, `AltCat.test_alteration_compat`, `AltCat.test_affine_line_not_object`
 * `ell-prime-alteration-topology` — `AltTopology`, `AltTopology.etale_mem`, `AltTopology.proper_mem`, `AltTopology.flatBaseChange`, `AltTopology.mono`, `AltHypercover`, `AltTopology.test_gaussian_odd`, `AltTopology.test_gaussian_two`, `AltTopology.test_ell_one`, `AltTopology.test_open_not_cover`, `AltTopology.test_nisnevich`
 * `partially-algebraizable` — `PartiallyAlgebraizable.geometric`, `PartiallyAlgebraizable.test_not_finite_type_over_A`
 * `oriented-product-topos` — `OrientedProduct`, `OrientedProduct.fst`, `OrientedProduct.snd`, `OrientedProduct.twoCell`, `OrientedProduct.lift`, `OrientedProduct.map`, `OrientedProduct.coherent`, `OrientedProduct.test_point_base`, `OrientedProduct.test_trait`, `OrientedProduct.test_points`, `OrientedProduct.test_not_fibre_product`
 * `oriented-alteration-topology` — `OrientedAltSite`, `OrientedAltSite.ofAltHypercover`, `OrientedAltSite.augmentation`, `OrientedAltSite.baseChange`, `OrientedAltSite.test_trivial`, `OrientedAltSite.test_proper_base`, `OrientedAltSite.test_zariski_Y`, `OrientedAltSite.test_not_cover`
 * `dimension-function` — `DimensionFunction`, `DimensionFunction.etaleRestrict`, `DimensionFunction.sub_locallyConstant`, `DimensionFunction.ofStrictLocal`, `DimensionFunction.negCodim`, `DimensionFunction.ofFiniteType`, `DimensionFunction.supSheaf`, `DimensionFunction.test_trait`, `DimensionFunction.test_field`, `DimensionFunction.test_affine_line_over_trait`, `DimensionFunction.test_line_plane`, `DimensionFunction.test_finite_type_field`
-* `transition-morphism` — `TransitionMorphism`, `TransitionMorphism.natural`, `TransitionMorphism.comp`, `TransitionMorphism.finite`, `TransitionMorphism.trait`, `TransitionMorphism.etale`, `TransitionMorphism.test_trait_constant`, `TransitionMorphism.test_identity`, `TransitionMorphism.test_composition`, `TransitionMorphism.test_skyscraper`
+* `transition-morphism` — `TransitionMorphism`, `TransitionMorphism.natural`, `TransitionMorphism.comp`, `TransitionMorphism.finite`, `TransitionMorphism.trait`, `TransitionMorphism.etale`, `TransitionMorphism.test_trait_constant`, `TransitionMorphism.test_identity`, `TransitionMorphism.test_wild_projection`, `TransitionMorphism.test_skyscraper`
 * `potential-dualizing-complex` — `PotentialDualizing`, `PotentialDualizing.etaleRestrict`, `PotentialDualizing.shift`, `PotentialDualizing.regularPullback`, `PotentialDualizing.shriekPullback`, `PotentialDualizing.unique`, `PotentialDualizing.mem_perv`, `PotentialDualizing.test_point`, `PotentialDualizing.test_trait`, `PotentialDualizing.test_trait_unshifted`, `PotentialDualizing.test_empty`, `PotentialDualizing.test_finite_type_field`
 * `gabber-perverse-t-structure` — `GabberTStructure`, `GabberTStructure.le_iff`, `GabberTStructure.ge_iff`, `GabberTStructure.heartStack`, `GabberTStructure.etale`, `GabberTStructure.shift`, `GabberTStructure.test_point`, `GabberTStructure.test_trait_dualizing`, `GabberTStructure.test_trait_constant`, `GabberTStructure.test_middle`
-* `dualizing-complex` — `IsDualizingComplex`, `IsDualizingComplex.dual`, `IsDualizingComplex.biduality`, `IsDualizingComplex.restrictOpen`, `IsDualizingComplex.unique`, `IsDualizingComplex.sga5`, `IsDualizingComplex.test_point`, `IsDualizingComplex.test_double`, `IsDualizingComplex.test_empty`, `IsDualizingComplex.test_finite_type`
-* `matched-punctured-opens` — `MatchedPuncturedOpen`, `MatchedPuncturedOpen.mono`, `MatchedPuncturedOpen.top`, `MatchedPuncturedOpen.generic`, `MatchedPuncturedOpen.basicOpen`, `MatchedPuncturedOpen.completion`, `MatchedPuncturedOpen.test_top`, `MatchedPuncturedOpen.test_generic`, `MatchedPuncturedOpen.test_point_fibre`, `MatchedPuncturedOpen.test_not_arbitrary_open`
+* `dualizing-complex` — `IsDualizingComplex`, `IsDualizingComplex.dual`, `IsDualizingComplex.biduality`, `IsDualizingComplex.restrictOpen`, `IsDualizingComplex.unique`, `IsDualizingComplex.sga5`, `IsDualizingComplex.test_point`, `IsDualizingComplex.test_double`, `IsDualizingComplex.test_empty`, `IsDualizingComplex.test_finite_type`, `IsDualizingComplex.test_composite_shifts`
+* `matched-punctured-opens` — `MatchedPuncturedOpen`, `MatchedPuncturedOpen.mono`, `MatchedPuncturedOpen.top`, `MatchedPuncturedOpen.generic`, `MatchedPuncturedOpen.basicOpen`, `MatchedPuncturedOpen.completion`, `MatchedPuncturedOpen.ext`, `MatchedPuncturedOpen.test_top`, `MatchedPuncturedOpen.test_generic`, `MatchedPuncturedOpen.test_point_fibre`, `MatchedPuncturedOpen.test_not_arbitrary_open`
 -/
 
 namespace TauCetiRoadmap.EtaleDualityAndPerverseSheavesPartII
