@@ -1088,13 +1088,14 @@
     "ColemanIntegration": {
       "stage": "pr",
       "pr": 1043,
-      "head": "aa83660",
+      "head": "4d3c462",
       "note": "ported 2026-10-17 from the accepted explorer package (tier 40); red team running",
       "review": {
         "recommendation": "changes",
         "current": false,
         "draft": true,
-        "maintainer": "REVIEW_REQUIRED"
+        "maintainer": "REVIEW_REQUIRED",
+        "note": "final-review repairs applied at 4d3c462; confirmation pass pending"
       }
     },
     "AInfCohomology": {
