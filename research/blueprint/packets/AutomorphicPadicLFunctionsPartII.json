@@ -22,37 +22,68 @@
       {
         "ref": "mathlib:NumberField.IsCMField",
         "module": "Mathlib.NumberTheory.NumberField.CMField",
-        "provides": "The actual totally-complex quadratic-over-maximal-real predicate, read at the pin; it does not assert that L containing a CM subfield is itself CM."
+        "provides": "The actual totally-complex quadratic-over-maximal-real predicate, read at the pin; it does not assert that L containing a CM subfield is itself CM.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
       },
       {
         "ref": "mathlib:AbstractMeasure",
         "module": "Mathlib.NumberTheory.Padics.Measure.Basic",
-        "provides": "The existing continuous-linear-functional measure on continuous maps; use its native additive and scalar structures."
+        "provides": "The existing continuous-linear-functional measure on continuous maps; use its native additive and scalar structures.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
       },
       {
         "ref": "mathlib:AbstractMeasure.dirac",
         "module": "Mathlib.NumberTheory.Padics.Measure.Basic",
-        "provides": "Dirac as continuous evaluation, the native building block for auxiliary-ideal smoothing."
+        "provides": "Dirac as continuous evaluation, the native building block for auxiliary-ideal smoothing.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
       },
       {
         "ref": "mathlib:SchwartzMap.tsum_eq_tsum_fourier",
         "module": "Mathlib.Analysis.Fourier.PoissonSummation",
-        "provides": "Native one-dimensional Poisson summation for f∈𝓢(ℝ,ℂ) and real translate x. The finite-dimensional lattice formula is obtained in the continuation proof by iterating this theorem and changing a real lattice basis."
+        "provides": "Native one-dimensional Poisson summation for f∈𝓢(ℝ,ℂ) and real translate x. The finite-dimensional lattice formula is obtained in the continuation proof by iterating this theorem and changing a real lattice basis.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
       },
       {
         "ref": "mathlib:fourier_gaussian_innerProductSpace",
         "module": "Mathlib.Analysis.SpecialFunctions.Gaussian.FourierTransform",
-        "provides": "Finite-dimensional real inner-product-space Fourier transform of exp(−b‖v‖²), for 0<Re(b), with factor (π/b)^(finrank/2) and exp(−π²‖w‖²/b)."
+        "provides": "Finite-dimensional real inner-product-space Fourier transform of exp(−b‖v‖²), for 0<Re(b), with factor (π/b)^(finrank/2) and exp(−π²‖w‖²/b).",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
       },
       {
         "ref": "mathlib:mellin",
         "module": "Mathlib.Analysis.MellinTransform",
-        "provides": "Native Mellin integral over (0,∞) with kernel t^(s−1); the KS split-integral continuation specializes this existing integral."
+        "provides": "Native Mellin integral over (0,∞) with kernel t^(s−1); the KS split-integral continuation specializes this existing integral.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
       },
       {
         "ref": "mathlib:Complex.Gamma_eq_integral",
         "module": "Mathlib.Analysis.SpecialFunctions.Gamma.Basic",
-        "provides": "For 0<Re(s), Complex.Gamma s equals the existing Euler GammaIntegral. Used after positive-coordinate scaling, not as a claim of convergence at the meromorphically continued critical point."
+        "provides": "For 0<Re(s), Complex.Gamma s equals the existing Euler GammaIntegral. Used after positive-coordinate scaling, not as a claim of convergence at the meromorphically continued critical point.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
+      },
+      {
+        "ref": "tauceti:TauCeti.Comodule.isInternal_weightSpace",
+        "module": "TauCeti.Algebra.Coalgebra.Comodule.MonoidAlgebra.Basic",
+        "provides": "For a comodule over R[G], with R a commutative semiring and its usual module hypotheses, the weight submodules form an internal direct sum. Apply this existing theorem after identifying the split restriction-of-scalars torus with the character-group algebra; no new weight-decomposition theory is planned.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
+      },
+      {
+        "ref": "tauceti:TauCeti.Comodule.endOfPoint_tmul_of_mem_weightSpace",
+        "module": "TauCeti.Algebra.Coalgebra.Comodule.MonoidAlgebra.Basic",
+        "provides": "An algebra-map point of R[G] acts on a g-weight vector by the value of single g 1, after any commutative-semiring scalar extension. This supplies the scalar character action used to test unit invariants, including arithmetic base rings.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.logEmbeddingEquiv",
+        "module": "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
+        "provides": "The additive units modulo torsion are linearly equivalent over the integers to their logarithmic unit lattice. A finite-index torsion-free unit subgroup therefore gives a full sublattice; translate its weighted logarithmic coordinates to the product-one CM metric space.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
+      },
+      {
+        "ref": "mathlib:NumberField.Units.instZLattice_unitLattice",
+        "module": "Mathlib.NumberTheory.NumberField.Units.DirichletTheorem",
+        "provides": "The native logarithmic unit lattice is a full real Z-lattice. Together with the units-modulo-torsion equivalence and finite-index passage this makes the CM unit quotient a compact real torus, without a second proof of Dirichlet’s unit theorem.",
+        "checked": "Declaration and full statement read at the recorded baseline commit by REV-DESIGN-AutomorphicPadicLFunctionsPartII."
       }
     ]
   },
@@ -114,8 +145,9 @@
         "AutomorphicPadicLFunctions:L0/locally-algebraic-characters",
         "ComplexMultiplicationAndExplicitReciprocity:CM.0/cm-type",
         "ComplexMultiplicationAndExplicitReciprocity:CM.0/induced-and-primitive-type",
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
-        "mathlib:NumberField.IsCMField"
+        "mathlib:NumberField.IsCMField",
+        "tauceti:TauCeti.Comodule.isInternal_weightSpace",
+        "tauceti:TauCeti.Comodule.endOfPoint_tmul_of_mem_weightSpace"
       ],
       "sources": [
         {
@@ -152,15 +184,18 @@
       "tests": [
         {
           "name": "elliptic_weight",
-          "statement": "For K=L=ℚ(i), μ(i↦i)=−2 and μ(i↦−i)=1 gives a=1, β=1, after taking Γ in the kernel of the finite unit character."
+          "statement": "For K=L=ℚ(i), μ(i↦i)=−2 and μ(i↦−i)=1 gives a=1, β=1, after taking Γ in the kernel of the finite unit character.",
+          "kind": "computation"
         },
         {
           "name": "off_by_one",
-          "statement": "The type with μ|Σ=0 is not critical; a=0 corresponds to μ|Σ=−1."
+          "statement": "The type with μ|Σ=0 is not critical; a=0 corresponds to μ|Σ=−1.",
+          "kind": "degenerate"
         },
         {
           "name": "non_cm_extension",
-          "statement": "For L=ℚ(i,√(1+i)), the assignment α=(1,2), β=(0,0) fails norm-pullback admissibility although both α entries are positive."
+          "statement": "For L=ℚ(i,√(1+i)), the assignment α=(1,2), β=(0,0) fails norm-pullback admissibility although both α entries are positive.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -235,15 +270,18 @@
       "tests": [
         {
           "name": "elliptic_dual",
-          "statement": "For a CM elliptic curve the cotangent weights on A and A∨ have the stated opposite embedding conventions."
+          "statement": "For a CM elliptic curve the cotangent weights on A and A∨ have the stated opposite embedding conventions.",
+          "kind": "compatibility"
         },
         {
           "name": "basis_not_automatic",
-          "statement": "A nontrivial invertible eigensheaf supplies a datum without a global basis until the indicated localization; the based constructor cannot accept it directly."
+          "statement": "A nontrivial invertible eigensheaf supplies a datum without a global basis until the indicated localization; the based constructor cannot accept it directly.",
+          "kind": "non-example"
         },
         {
           "name": "degree_four_non_cm",
-          "statement": "O_L⊗_(ℤ[i])A₀ for L=ℚ(i,√(1+i)) has dimension two and the lifted Σ even though L has no CM involution."
+          "statement": "O_L⊗_(ℤ[i])A₀ for L=ℚ(i,√(1+i)) has dimension two and the lifted Σ even though L has no CM involution.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -265,30 +303,33 @@
       ],
       "title": "Critical coefficient invariants",
       "kind": "theorem",
-      "statement": "For a,β≥0 put C_(a,β)=TSym^a(ω_A)⊗TSym^β(ω_A∨)⊗det(ω_A), with multigraded divided symmetric powers imported from P0. Its Γ-action has weight β−a−1. Over R contained in a number field, C_(a,β)^Γ=C_(a,β) when that weight belongs to CI_L(Γ), and is zero otherwise. More generally the invariant part of an algebraic torus module is the direct sum of its weights trivial on Γ, which the imported unit theorem identifies with HCI_L(Γ).",
+      "statement": "For a,β≥0 put C_(a,β)=TSym^a(ω_A)⊗TSym^β(ω_A∨)⊗det(ω_A), with multigraded divided symmetric powers imported from P0. Its Γ-action has weight β−a−1. Over R contained in a number field, C_(a,β)^Γ=C_(a,β) when that weight belongs to CI_L(Γ), and is zero otherwise. More generally, for an R-torsion-free algebraic torus module M, its Γ-invariants are the direct sum of the weights trivial on Γ, identified with HCI_L(Γ) by the imported Hecke-type classification. The coefficient lines above are finite locally free, so they satisfy the torsion-free hypothesis. The generic weight decomposition itself exists in Tau Ceti for arbitrary modules; the extra hypothesis concerns invariants under the unit subgroup, not that decomposition.",
       "hypotheses": [
-        "Standard datum; finite-index Γ⊂O_L×; R embeds in a number field for the invariant-versus-zero assertion."
+        "Standard datum; finite-index Γ⊂O_L×; R embeds in a number field for the invariant-versus-zero assertion.",
+        "For the general assertion on M, require M to be R-torsion-free (finite locally free suffices). R being a domain alone does not imply this."
       ],
       "proofSteps": [
         "Compute weights using the Hodge decomposition and determinant.",
-        "Apply the imported weight decomposition and use absence of torsion by nonzero weight differences over the domain R."
+        "Apply the native comodule weight decomposition and point-action formula. On a nontrivial unit weight choose γ with μ(γ)−1≠0; R-torsion-freeness forces its invariant vectors to vanish. This is the missing hypothesis in Proposition 1.5 (E14)."
       ],
       "acceptance": [
         "At a=β=0 the determinant contributes −1 on each Σ embedding.",
-        "Do not replace Γ-invariants by invariants of a finite torsion subgroup or assert this dichotomy over arbitrary torsion coefficient rings."
+        "Do not replace Γ-invariants by invariants of a finite torsion subgroup or assert this dichotomy over arbitrary torsion coefficient rings.",
+        "For L=ℚ(ζ₃), R=ℤ[ζ₃,1/3], Γ=μ₆ and the weight 3σ, M=R/(2) has nonzero Γ-invariants although the weight is nontrivial over R: a primitive sixth root has weight −1, which becomes 1 modulo 2. The unrestricted-module version must be rejected."
       ],
       "prerequisites": [
         "AutomorphicPadicLFunctionsPartII:KV.0/critical-types",
         "AutomorphicPadicLFunctionsPartII:KV.0/standard-datum",
         "AbelianSchemesAndArithmeticModuliPartII:P0/multigrading",
         "AbelianSchemesAndArithmeticModuliPartII:P0/shuffle-divided-powers",
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori"
+        "tauceti:TauCeti.Comodule.isInternal_weightSpace",
+        "tauceti:TauCeti.Comodule.endOfPoint_tmul_of_mem_weightSpace"
       ],
       "sources": [
         {
           "sourceId": "KS-v4",
-          "locator": "Proposition 1.5, p.8; Corollary 1.14, p.11",
-          "match": "Critical coefficient invariants: For a,β≥0 put C_(a,β)=TSym^a(ω_A)⊗TSym^β(ω_A∨)⊗det(ω_A), with multigraded divided symmetric powers imported from P0. The target incorporates the version-specific source findings cited in its locator; the statement here is the specification, in our own words."
+          "locator": "Proposition 1.5, p.8; Corollary 1.14, p.11; Proposition 1.5 restricted to R-torsion-free modules as in E14",
+          "match": "Critical coefficient invariants: For a,β≥0 put C_(a,β)=TSym^a(ω_A)⊗TSym^β(ω_A∨)⊗det(ω_A), with multigraded divided symmetric powers imported from P0. Its Γ-action has weight β−a−1. Over R contained in a number field, C_(a,β)^Γ=C_(a,β) when that weight belongs to CI_L(Γ), and is zero otherwise. More generally, for an R-torsion-free algebraic torus module M, its Γ-invariants are the direct sum of the weights trivial on Γ, identified with HCI_L(Γ) by the imported Hecke-type classification. The coefficient lines above are finite locally free, so they satisfy the torsion-free hypothesis. The generic weight decomposition itself exists in Tau Ceti for arbitrary modules; the extra hypothesis concerns invariants under the unit subgroup, not that decomposition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -359,15 +400,18 @@
       "tests": [
         {
           "name": "degree_three",
-          "statement": "On a split kernel with three points f_c has values (2,−1,−1), hence trace zero."
+          "statement": "On a split kernel with three points f_c has values (2,−1,−1), hence trace zero.",
+          "kind": "computation"
         },
         {
           "name": "constant_not_zero_trace",
-          "statement": "On a nonempty split kernel in characteristic zero the constant function 1 is not trace zero."
+          "statement": "On a nonempty split kernel in characteristic zero the constant function 1 is not trace zero.",
+          "kind": "non-example"
         },
         {
           "name": "evaluation_on_support",
-          "statement": "With f=O_L and x=e the unmodified D=A[c] fails x∈U; a second auxiliary ideal is required."
+          "statement": "With f=O_L and x=e the unmodified D=A[c] fails x∈U; a second auxiliary ideal is required.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -391,7 +435,8 @@
       "kind": "theorem",
       "statement": "Put F_n=P^(n)⊗Ω_A^d and F=P_hat⊗Ω_A^d. The imported completed Poincaré trace gives H^i(A,Γ,F)=0 for i<d and H^d(A,Γ,F)≃R. For I the ideal of D, local complete-intersection duality gives Ext^q(I^k/I^(k+1),F_n)=0 for q<d and H^(q−d)(D,Hom(I^k/I^(k+1),i*P^(n))) for q≥d. Consequently support cohomology vanishes below d and contains R[D]^Γ canonically in degree d; its map to H^d(A,Γ,F) is Tr_(D/R). Prove H^(d−1)(U,Γ,F)≃lim_n H^(d−1)(U,Γ,F_n), including the vanishing inverse-limit obstruction used in Corollary 2.35. Do not infer vanishing of higher equivariant cohomology from the underlying coherent calculation.",
       "hypotheses": [
-        "Trace-zero datum, δ and δ∨ étale; finite symmetric levels and their compatible transition maps."
+        "Trace-zero datum, δ and δ∨ étale; finite symmetric levels and their compatible transition maps.",
+        "Γ acts by automorphisms of A over the fixed base S; it acts trivially on S."
       ],
       "proofSteps": [
         "Import the top coherent Poincaré calculation and the equivariant spectral sequence.",
@@ -400,7 +445,7 @@
       ],
       "acceptance": [
         "The injection and trace square commute before passing to the trace-zero submodule.",
-        "The assertion is compatible with a nontrivial Γ-action on the base scheme and is not H^i(A,F)^Γ by definition."
+        "The assertion is compatible with a nontrivial Γ-action on A over the fixed base S and is not H^i(A,F)^Γ by definition."
       ],
       "prerequisites": [
         "AutomorphicPadicLFunctionsPartII:KV.1/trace-zero-data",
@@ -488,15 +533,18 @@
       "tests": [
         {
           "name": "zero_residue",
-          "statement": "EK(0)=0 and a class in its image with zero residue vanishes."
+          "statement": "EK(0)=0 and a class in its image with zero residue vanishes.",
+          "kind": "degenerate"
         },
         {
           "name": "elliptic_section",
-          "statement": "For d=1 and Γ=1 the class is a section of P_hat⊗Ω¹ on U with the prescribed infinitesimal Kronecker residues."
+          "statement": "For d=1 and Γ=1 the class is a section of P_hat⊗Ω¹ on U with the prescribed infinitesimal Kronecker residues.",
+          "kind": "compatibility"
         },
         {
           "name": "invalid_residue",
-          "statement": "A split two-point function with values (1,1) in characteristic zero does not lie in the constructor domain."
+          "statement": "A split two-point function with values (1,1) in characteristic zero does not lie in the constructor domain.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -568,15 +616,18 @@
       "tests": [
         {
           "name": "degree_zero",
-          "statement": "At a=0 the image is the original pro-class, without an extra factorial."
+          "statement": "At a=0 the image is the original pro-class, without an extra factorial.",
+          "kind": "degenerate"
         },
         {
           "name": "second_coordinate_derivative",
-          "statement": "For a coordinate monomial z² the second ordinary derivative is 2; the divided-power basis conversion must account for this factor."
+          "statement": "For a coordinate monomial z² the second ordinary derivative is 2; the divided-power basis conversion must account for this factor.",
+          "kind": "computation"
         },
         {
           "name": "mixed_derivatives",
-          "statement": "For two commuting coordinate directions the (1,1) derivative of z₁z₂ is 1, not 2."
+          "statement": "For two commuting coordinate directions the (1,1) derivative of z₁z₂ is 1, not 2.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -646,15 +697,18 @@
       "tests": [
         {
           "name": "non_torsion_rejected",
-          "statement": "An arbitrary non-torsion x has no canonical torsion splitting and cannot enter this constructor."
+          "statement": "An arbitrary non-torsion x has no canonical torsion splitting and cannot enter this constructor.",
+          "kind": "non-example"
         },
         {
           "name": "bad_integral_isogeny",
-          "statement": "At residue characteristic p a p-torsion point whose killing dual is not étale only gives the generic-fiber construction."
+          "statement": "At residue characteristic p a p-torsion point whose killing dual is not étale only gives the generic-fiber construction.",
+          "kind": "non-example"
         },
         {
           "name": "elliptic_zero_degree",
-          "statement": "For d=1, Γ=1 and a=b=0 this is the scalar value of the augmented Kronecker section at x."
+          "statement": "For d=1, Γ=1 and a=b=0 this is the scalar value of the augmented Kronecker section at x.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -676,13 +730,13 @@
       ],
       "title": "Orientation-normalized critical Eisenstein classes",
       "kind": "construction",
-      "statement": "First take Γ torsion-free of rank d−1. Project Eis^(b,a) through H→ω_A∨, then to the critical (a,β) component C_(a,β). Cap with the fundamental class of BΓ=Γ\\EΓ, EΓ={(r_i)>0:∏r_i=1}, using the orientation ∧_(i<d)dr_i/r_i. An ordering of Σ also identifies det ω_A with the multidegree-one tensor line; the two permutation signs cancel. This gives EK^(β,a)_Γ(f,x)∈TSym^(a+1)ω_A⊗TSym^βω_A∨. Its coordinate in the chosen divided-power bases is denoted e_(β,a). For Γ with finite torsion T, define the normalized version only after |T| is a unit: choose a free complement Γ₀, evaluate there, and divide by |T|. Prove independence of the complement after this localization. No integral map on arbitrary H^(d−1)(Γ,−) for all torsion Γ is asserted.",
+      "statement": "First take Γ torsion-free of rank d−1. Project Eis^(b,a) through H→ω_A∨, then to the critical (a,β) component C_(a,β). Cap with the fundamental class of BΓ=Γ\\EΓ, EΓ={(r_i)>0:∏r_i=1}, using the orientation ∧_(i<d)dr_i/r_i. An ordering of Σ also identifies det ω_A with the multidegree-one tensor line; the two permutation signs cancel. Use the rank-one divided-tensor identification u^[a]⊗u↦u^[a+1] on each weight line, rather than shuffle multiplication. This gives EK^(β,a)_Γ(f,x)∈TSym^(a+1)ω_A⊗TSym^βω_A∨. Its coordinate in the chosen divided-power bases is denoted e_(β,a). For Γ with finite torsion T, define the normalized version only after |T| is a unit: choose a free complement Γ₀, evaluate there, and divide by |T|. Prove independence of the complement after this localization. No integral map on arbitrary H^(d−1)(Γ,−) for all torsion Γ is asserted.",
       "hypotheses": [
         "Critical β−a−1∈CI_L(Γ); Nf∈R× for this evaluation; torsion-free Γ for the integral version.",
         "For the torsion-normalized extension, |Γ_tors|∈R× is an explicit extra hypothesis."
       ],
       "proofSteps": [
-        "Use coefficient-invariants and the imported group homology/cap product; identify free-abelian top homology with its exterior power.",
+        "Use coefficient-invariants. The native logarithmic unit lattice and units-modulo-torsion equivalence identify Γ\\EΓ with an oriented compact torus. Apply the requested comparison of group cohomology with its singular local-system model and the imported cap product. Glue the rank-one shift from local generators; its degree a+1 homogeneity makes it basis-independent.",
         "Check ordering independence by simultaneous orientation and determinant changes.",
         "Use transfer only in its valid form: in degree zero transfer across a finite-index subgroup multiplies by the index. The unrestricted surjectivity assertion in Proposition 2.27 is not used (E11)."
       ],
@@ -693,7 +747,12 @@
       "prerequisites": [
         "AutomorphicPadicLFunctionsPartII:KV.2/torsion-moments",
         "AutomorphicPadicLFunctionsPartII:KV.0/coefficient-invariants",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:NumberField.Units.logEmbeddingEquiv",
+        "mathlib:NumberField.Units.instZLattice_unitLattice",
+        "AbelianSchemesAndArithmeticModuliPartII:P0/divided-power-comparison",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
       ],
       "sources": [
         {
@@ -725,20 +784,33 @@
           "name": "torsion_normalized_extension",
           "role": "compatibility",
           "statement": "When |T| is invertible, normalized evaluation is |T|⁻¹ times evaluation on a free complement and satisfies full-index change of group."
+        },
+        {
+          "name": "critical_rank_one_shift",
+          "role": "compatibility",
+          "statement": "For an invertible weight line, the canonical identification TSym^a(M)⊗M≃TSym^(a+1)(M) sends u^[a]⊗u to u^[a+1]. It is independent of the local generator and is distinct from shuffle multiplication, which gives (a+1)u^[a+1]."
         }
       ],
       "tests": [
         {
           "name": "rank_zero_cap",
-          "statement": "For d=1, Γ=1 and C=R, cap is the identity R→R."
+          "statement": "For d=1, Γ=1 and C=R, cap is the identity R→R.",
+          "kind": "degenerate"
         },
         {
           "name": "two_embedding_swap",
-          "statement": "For d=2 a transposition reverses the BΓ orientation and the determinant basis, leaving the final tensor unchanged."
+          "statement": "For d=2 a transposition reverses the BΓ orientation and the determinant basis, leaving the final tensor unchanged.",
+          "kind": "compatibility"
         },
         {
           "name": "torsion_denominator",
-          "statement": "For d=1 and Γ=μ₂ over a ring with 2 noninvertible, no extension of cap on all H⁰ with the claimed index rule can be integral: it would send 1 to 1/2."
+          "statement": "For d=1 and Γ=μ₂ over a ring with 2 noninvertible, no extension of cap on all H⁰ with the claimed index rule can be integral: it would send 1 to 1/2.",
+          "kind": "non-example"
+        },
+        {
+          "name": "rank_one_shift_degree_one",
+          "kind": "computation",
+          "statement": "For a free rank-one line Ru and a=1, the determinant shift sends u⊗u to u^[2], whereas shuffle multiplication gives 2u^[2]. The shift remains an isomorphism when 2 is a nonunit."
         }
       ],
       "uses": [
@@ -773,7 +845,9 @@
         "The case μ₂⊃1 is not passed off as an integral surjective transfer."
       ],
       "prerequisites": [
-        "AutomorphicPadicLFunctionsPartII:KV.2/critical-evaluation"
+        "AutomorphicPadicLFunctionsPartII:KV.2/critical-evaluation",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+        "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality"
       ],
       "sources": [
         {
@@ -793,7 +867,7 @@
       "realises": [
         "AutomorphicPadicLFunctionsPartII:KV.2"
       ],
-      "title": "Refined evaluation without inverting the torsion order",
+      "title": "Refined evaluation without inverting the conductor norm",
       "kind": "construction",
       "statement": "Let x be f-torsion, c≠O_L coprime to f, Nc∈R×, D=A[c], and B=A(f⁻¹). Without assuming Nf∈R×, map EK♮_A(f) to the pullback of P_hat♮_B via [f]_# and transport the determinant by [f]∨*. Differentiate using the connection on B, evaluate at x (whose image in B is zero), take the moment at e_B, project and cap for a torsion-free Γ. This gives _[f]EK^(β,a)_(Γ,B)(f,x)∈TSym^(a+1)ω_B⊗TSym^βω_B∨ over R. The symbol f for the residue function is distinguished from the ideal f in all formal signatures.",
       "hypotheses": [
@@ -807,7 +881,8 @@
       ],
       "acceptance": [
         "The result lies over R, with no 1/Nf introduced in the constructor.",
-        "Nc is still a unit; the refinement removes only the evaluation conductor denominator."
+        "Nc is still a unit; the refinement removes only the evaluation conductor denominator.",
+        "Removing Nf from the denominators does not remove the separate unit-group torsion normalization; keep the hypotheses of critical-evaluation and G3."
       ],
       "prerequisites": [
         "AutomorphicPadicLFunctionsPartII:KV.1/derivative-class",
@@ -850,15 +925,18 @@
       "tests": [
         {
           "name": "nonunit_conductor",
-          "statement": "At a prime dividing Nf the constructor still has an R-valued target, provided Nc is invertible."
+          "statement": "At a prime dividing Nf the constructor still has an R-valued target, provided Nc is invertible.",
+          "kind": "compatibility"
         },
         {
           "name": "nonunit_auxiliary",
-          "statement": "If Nc is a nonunit, this theorem does not assert a residue-class construction from an étale c-kernel."
+          "statement": "If Nc is a nonunit, this theorem does not assert a residue-class construction from an étale c-kernel.",
+          "kind": "non-example"
         },
         {
           "name": "identity_map",
-          "statement": "With [f]=id the pushforward and transported connection are identities and the zero-th moment is unchanged."
+          "statement": "With [f]=id the pushforward and transported connection are identities and the zero-th moment is unchanged.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -920,8 +998,9 @@
       ],
       "title": "Comparison with the de Rham polylogarithm",
       "kind": "comparison",
-      "statement": "In characteristic zero the Hodge-to-de Rham edge map sends EK♮_Γ(f) to the de Rham realization of the equivariant polylogarithm with residue f in degree 2d−1 on U. Its analytic image is the residue-normalized solution of ∇φ=δ_f·vol. This is a comparison of the existing Poincaré/logarithm-sheaf models with this residue class; no independent polylogarithm carrier is introduced.",
+      "statement": "For S=Spec(k), where k has characteristic zero, the Hodge-to-de Rham edge map sends EK♮_Γ(f) to the de Rham realization of the equivariant polylogarithm with residue f in degree 2d−1 on U. Its analytic image is the residue-normalized solution of ∇φ=δ_f·vol. This is a comparison of the existing Poincaré/logarithm-sheaf models with this residue class; no independent polylogarithm carrier is introduced.",
       "hypotheses": [
+        "The base is the spectrum of a characteristic-zero field; take a chosen embedding into ℂ for the analytic assertion. No comparison over arbitrary characteristic-zero bases is claimed.",
         "Finite Poincaré levels, flat connection and equivariant support comparison; compatible residue trace."
       ],
       "proofSteps": [
@@ -930,7 +1009,8 @@
       ],
       "acceptance": [
         "The de Rham degree is 2d−1, distinct from the coherent degree d−1.",
-        "Residue compatibility is checked rather than inferred from an isomorphism of unrigidified bundles."
+        "Residue compatibility is checked rather than inferred from an isomorphism of unrigidified bundles.",
+        "Do not use this field-base comparison as a theorem giving an absolute logarithm-sheaf connection over an arbitrary arithmetic model."
       ],
       "prerequisites": [
         "AutomorphicPadicLFunctionsPartII:KV.1/ek-class",
@@ -941,7 +1021,7 @@
         {
           "sourceId": "KS-v4",
           "locator": "Remark 2.37, p.29; Remark 3.21, p.41",
-          "match": "Comparison with the de Rham polylogarithm: In characteristic zero the Hodge-to-de Rham edge map sends EK♮_Γ(f) to the de Rham realization of the equivariant polylogarithm with residue f in degree 2d−1 on U. The target incorporates the version-specific source findings cited in its locator; the statement here is the specification, in our own words."
+          "match": "Comparison with the de Rham polylogarithm: For S=Spec(k), where k has characteristic zero, the Hodge-to-de Rham edge map sends EK♮_Γ(f) to the de Rham realization of the equivariant polylogarithm with residue f in degree 2d−1 on U. Its analytic image is the residue-normalized solution of ∇φ=δ_f·vol. This is a comparison of the existing Poincaré/logarithm-sheaf models with this residue class; no independent polylogarithm carrier is introduced."
         }
       ],
       "implementationStatus": "unchecked",
@@ -974,7 +1054,9 @@
         "AutomorphicPadicLFunctionsPartII:KV.0/standard-datum",
         "AutomorphicPadicLFunctionsPartII:KV.1/residue-calculation",
         "AbelianSchemesAndArithmeticModuliPartII:P3/smooth-dolbeault",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:NumberField.Units.logEmbeddingEquiv",
+        "mathlib:NumberField.Units.instZLattice_unitLattice"
       ],
       "sources": [
         {
@@ -1010,15 +1092,18 @@
       "tests": [
         {
           "name": "rank_zero",
-          "statement": "For d=1 the constraint r₁=1 leaves EΓ a point."
+          "statement": "For d=1 the constraint r₁=1 leaves EΓ a point.",
+          "kind": "degenerate"
         },
         {
           "name": "metric_scale",
-          "statement": "Multiplying z_i by σ_iγ⁻¹ and r_i by |σ_iγ|² leaves r_i|z_i|² fixed; using γ instead breaks this test."
+          "statement": "Multiplying z_i by σ_iγ⁻¹ and r_i by |σ_iγ|² leaves r_i|z_i|² fixed; using γ instead breaks this test.",
+          "kind": "compatibility"
         },
         {
           "name": "total_dimension",
-          "statement": "At d=2 the model has real dimension five and currents have complementary second degree 3−q, not 2−q."
+          "statement": "At d=2 the model has real dimension five and currents have complementary second degree 3−q, not 2−q.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -1090,15 +1175,18 @@
       "tests": [
         {
           "name": "complementary_degree",
-          "statement": "For d=1 a (1,0)-current tests (0,1)-forms, so their wedge is top real degree two."
+          "statement": "For d=1 a (1,0)-current tests (0,1)-forms, so their wedge is top real degree two.",
+          "kind": "computation"
         },
         {
           "name": "delta_trace",
-          "statement": "A single point Thom current pairs to 1 against a test function equal to 1 near that point under the chosen residue convention."
+          "statement": "A single point Thom current pairs to 1 against a test function equal to 1 near that point under the chosen residue convention.",
+          "kind": "compatibility"
         },
         {
           "name": "noncontinuous_dual",
-          "statement": "A discontinuous algebraic functional on the smooth test-form space is excluded, even if it has the correct linear type."
+          "statement": "A discontinuous algebraic functional on the smooth test-form space is excluded, even if it has the correct linear type.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -1171,15 +1259,18 @@
       "tests": [
         {
           "name": "square_lattice",
-          "statement": "For d=1, ν=0, H standard and z=w=0, K is Σ_(m,n)≠(0,0)(m²+n²)^(−s)."
+          "statement": "For d=1, ν=0, H standard and z=w=0, K is Σ_(m,n)≠(0,0)(m²+n²)^(−s).",
+          "kind": "computation"
         },
         {
           "name": "conjugate_numerator",
-          "statement": "For ν=1 and z+λ=i the numerator is −i, rather than i."
+          "statement": "For ν=1 and z+λ=i the numerator is −i, rather than i.",
+          "kind": "computation"
         },
         {
           "name": "omitted_zero",
-          "statement": "For z∈Λ the λ=−z term is excluded and never evaluated as 0 divided by 0."
+          "statement": "For z∈Λ the λ=−z term is excluded and never evaluated as 0 divided by 0.",
+          "kind": "degenerate"
         }
       ],
       "uses": [
@@ -1302,15 +1393,18 @@
       "tests": [
         {
           "name": "one_dimensional_contraction",
-          "statement": "For d=1, ι_v(dz∧dbarz)=−v·dz."
+          "statement": "For d=1, ι_v(dz∧dbarz)=−v·dz.",
+          "kind": "computation"
         },
         {
           "name": "two_dimensional_top",
-          "statement": "For d=2 and u₂=−u₁ the top contraction is −2C v₁v₂ u₁∧dz₁∧dz₂."
+          "statement": "For d=2 and u₂=−u₁ the top contraction is −2C v₁v₂ u₁∧dz₁∧dz₂.",
+          "kind": "computation"
         },
         {
           "name": "binomial_first_degree",
-          "statement": "(A+v)⁻¹=A⁻¹−vA⁻² modulo v²; using a positive linear term fails the flat-connection differential equation."
+          "statement": "(A+v)⁻¹=A⁻¹−vA⁻² modulo v²; using a positive linear term fails the flat-connection differential equation.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -1424,19 +1518,23 @@
       "tests": [
         {
           "name": "elliptic_units",
-          "statement": "For L=ℚ(i), Γ=μ₄ and α=4, β=0, one Γ-orbit contributes once, whereas the full lattice sum contributes four times."
+          "statement": "For L=ℚ(i), Γ=μ₄ and α=4, β=0, one Γ-orbit contributes once, whereas the full lattice sum contributes four times.",
+          "kind": "computation"
         },
         {
           "name": "inadmissible_weight",
-          "statement": "For Γ=μ₄ the weight α=1, β=0 is not invariant and cannot define an orbit sum with that Γ."
+          "statement": "For Γ=μ₄ the weight α=1, β=0 is not invariant and cannot define an orbit sum with that Γ.",
+          "kind": "non-example"
         },
         {
           "name": "zero_orbit",
-          "statement": "At t=0 the zero vector is excluded even when the continuation at s=0 exists."
+          "statement": "At t=0 the zero vector is excluded even when the continuation at s=0 exists.",
+          "kind": "degenerate"
         },
         {
           "name": "moving_torsion_orbit",
-          "statement": "For L=ℚ(i), Γ=μ₄, Γ′=1 and t=1/3 mod ℤ[i], the four translates are distinct. With α=4, β=0 each single-coset Γ′ series equals the Γ series, not four times it; summing the four Γ′ torsion orbits supplies the factor four."
+          "statement": "For L=ℚ(i), Γ=μ₄, Γ′=1 and t=1/3 mod ℤ[i], the four translates are distinct. With α=4, β=0 each single-coset Γ′ series equals the Γ series, not four times it; summing the four Γ′ torsion orbits supplies the factor four.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -1605,15 +1703,18 @@
       "tests": [
         {
           "name": "nonprincipal_ideal",
-          "statement": "An a-structure for a nonprincipal ideal still exists in the formulation; replacing it by a single integral generator is disallowed."
+          "statement": "An a-structure for a nonprincipal ideal still exists in the formulation; replacing it by a single integral generator is disallowed.",
+          "kind": "compatibility"
         },
         {
           "name": "period_rescale",
-          "statement": "Replacing ω_A by uω_A multiplies Ω by u and changes q by baru, with the dual period relation still valid."
+          "statement": "Replacing ω_A by uω_A multiplies Ω by u and changes q by baru, with the dual period relation still valid.",
+          "kind": "compatibility"
         },
         {
           "name": "different_factor",
-          "statement": "For an imaginary quadratic lattice O_KΩ, its trace-dual lattice is d_K⁻¹ rather than O_K unless the different is trivial."
+          "statement": "For an imaginary quadratic lattice O_KΩ, its trace-dual lattice is d_K⁻¹ rather than O_K unless the different is trivial.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -1682,15 +1783,18 @@
       "tests": [
         {
           "name": "factorial_coordinate",
-          "statement": "In d=1, α=3 and β=0 the normalizer is 2v/Ω³."
+          "statement": "In d=1, α=3 and β=0 the normalizer is 2v/Ω³.",
+          "kind": "computation"
         },
         {
           "name": "dual_period_power",
-          "statement": "In d=1, α=2 and β=1 it is (2πi)v/(Ω²Ω∨)."
+          "statement": "In d=1, α=2 and β=1 it is (2πi)v/(Ω²Ω∨).",
+          "kind": "computation"
         },
         {
           "name": "zero_value",
-          "statement": "𝒩_(α,β)(0)=0 even when all periods are nonzero; this prevents an erroneous target in algebraic units."
+          "statement": "𝒩_(α,β)(0)=0 even when all periods are nonzero; this prevents an erroneous target in algebraic units.",
+          "kind": "degenerate"
         }
       ],
       "uses": [
@@ -1923,12 +2027,13 @@
       ],
       "acceptance": [
         "At L=K the exponent [L:K] is one and the formula matches the CM-field normalization.",
-        "At L=ℚ(i,√(1+i)) the K-period exponent doubles without assuming L is CM."
+        "At L=ℚ(i,√(1+i)) the K-period exponent doubles without assuming L is CM.",
+        "The complex algebraicity statement has no p-ordinarity hypothesis; obtain its periods from CM.1 and ideal-periods, rather than the more restrictive ordinary L3/cm-periods node."
       ],
       "prerequisites": [
         "AutomorphicPadicLFunctionsPartII:KV.5/critical-integrality",
         "AutomorphicPadicLFunctionsPartII:KV.5/ideal-periods",
-        "AutomorphicPadicLFunctions:L3/cm-periods"
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor"
       ],
       "sources": [
         {
@@ -2053,15 +2158,18 @@
       "tests": [
         {
           "name": "split_elliptic",
-          "statement": "For K=ℚ(i) and p=5 the two CM embeddings induce distinct p-places, so the ordinary construction applies."
+          "statement": "For K=ℚ(i) and p=5 the two CM embeddings induce distinct p-places, so the ordinary construction applies.",
+          "kind": "compatibility"
         },
         {
           "name": "inert_elliptic",
-          "statement": "For K=ℚ(i) and p=3 both embeddings induce the same inert place, so the ordinary constructor rejects it."
+          "statement": "For K=ℚ(i) and p=3 both embeddings induce the same inert place, so the ordinary constructor rejects it.",
+          "kind": "non-example"
         },
         {
           "name": "non_cm_ordinary",
-          "statement": "For L=ℚ(i,√(1+i)) and p=5, the lifted type separates the primes by their restrictions to K and gives a valid ordinary dimension-two datum."
+          "statement": "For L=ℚ(i,√(1+i)) and p=5, the lifted type separates the primes by their restrictions to K and gives a valid ordinary dimension-two datum.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -2134,15 +2242,18 @@
       "tests": [
         {
           "name": "identity_level",
-          "statement": "When the algebraic basis is the canonical one, each p-adic period equals 1."
+          "statement": "When the algebraic basis is the canonical one, each p-adic period equals 1.",
+          "kind": "degenerate"
         },
         {
           "name": "unit_rescale",
-          "statement": "Multiplying ω_A by a unit u multiplies Ω_p by u, rather than by u⁻¹."
+          "statement": "Multiplying ω_A by a unit u multiplies Ω_p by u, rather than by u⁻¹.",
+          "kind": "compatibility"
         },
         {
           "name": "nonunit_rescale",
-          "statement": "Multiplication by p does not produce an integral basis and cannot be used to infer a unit period pΩ_p."
+          "statement": "Multiplication by p does not produce an integral basis and cannot be used to infer a unit period pΩ_p.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -2215,20 +2326,38 @@
           "name": "theta_integral_generic",
           "role": "compatibility",
           "statement": "The integral theta function maps to its generic-fiber counterpart whenever the killing dual is étale."
+        },
+        {
+          "name": "theta_augmentation",
+          "role": "compatibility",
+          "statement": "When β=a=0 is critical for Γ, evaluating the formal theta function at the identity gives Ω_p^1 e_(0,0), with the same algebraic-to-canonical determinant conversion as in eisenstein_moments. This follows by applying the augmentation before capping."
         }
       ],
       "tests": [
         {
           "name": "zero_residue",
-          "statement": "θ_Γ(0,y)=0 as a formal function."
+          "statement": "θ_Γ(0,y)=0 as a formal function.",
+          "kind": "degenerate"
         },
         {
           "name": "prime_to_p_torsion",
-          "statement": "A prime-to-p torsion y has an étale killing dual and gives an integral theta function."
+          "statement": "A prime-to-p torsion y has an étale killing dual and gives an integral theta function.",
+          "kind": "compatibility"
         },
         {
           "name": "etale_kernel_warning",
-          "statement": "For y in ker q_n on A_(n), q_n∨ is connected, so this argument gives its theta value only over the generic fiber."
+          "statement": "For y in ker q_n on A_(n), q_n∨ is connected, so this argument gives its theta value only over the generic fiber.",
+          "kind": "non-example"
+        },
+        {
+          "name": "theta_index_two",
+          "kind": "compatibility",
+          "statement": "For torsion-free Γ′⊂Γ of index 2, fixed f,y and unchanged canonical bases, θ_(Γ′)(f,y)=2θ_Γ(f,y), including when p=2; no division by the index is part of this restriction."
+        },
+        {
+          "name": "theta_elliptic_augmentation",
+          "kind": "compatibility",
+          "statement": "For d=1, Γ=1 and β=a=0, θ(f,y)(0,0)=Ω_p e_(0,0)(f,y). Thus a value with e_(0,0)≠0 cannot be replaced by the zero formal function."
         }
       ],
       "uses": [
@@ -2299,15 +2428,18 @@
       "tests": [
         {
           "name": "second_invariant_derivative",
-          "statement": "For g=(1+T)^2 the second invariant derivative at zero is 4; the second ordinary derivative would give 2."
+          "statement": "For g=(1+T)^2 the second invariant derivative at zero is 4; the second ordinary derivative would give 2.",
+          "kind": "computation"
         },
         {
           "name": "zero_exponents",
-          "statement": "The (0,0) monomial is 1 everywhere, including at zero."
+          "statement": "The (0,0) monomial is 1 everywhere, including at zero.",
+          "kind": "degenerate"
         },
         {
           "name": "mixed_product",
-          "statement": "In two coordinates, the (1,1) derivative of (1+T₁)^2(1+T₂)^3 at zero equals 6."
+          "statement": "In two coordinates, the (1,1) derivative of (1+T₁)^2(1+T₂)^3 at zero equals 6.",
+          "kind": "computation"
         }
       ],
       "uses": [
@@ -2383,15 +2515,18 @@
       "tests": [
         {
           "name": "dirac_model",
-          "statement": "For the generic Amice test g=(1+T)^m, the measure is δ_m and its k-th moment is m^k; the CM specialization uses that same convention."
+          "statement": "For the generic Amice test g=(1+T)^m, the measure is δ_m and its k-th moment is m^k; the CM specialization uses that same convention.",
+          "kind": "compatibility"
         },
         {
           "name": "constant_model",
-          "statement": "A constant formal function c corresponds to cδ₀, not normalized Haar measure."
+          "statement": "A constant formal function c corresponds to cδ₀, not normalized Haar measure.",
+          "kind": "compatibility"
         },
         {
           "name": "period_shift",
-          "statement": "At derivative index a=0 the algebraic-to-canonical moment conversion still contributes one Ω_p in each Σ coordinate."
+          "statement": "At derivative index a=0 the algebraic-to-canonical moment conversion still contributes one Ω_p in each Σ coordinate.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -2499,21 +2634,29 @@
         {
           "name": "partial_fourier_refinement",
           "role": "compatibility",
-          "statement": "Inflating a finite-level function and using the normalized sum agrees with the compatible higher-level torsion identification."
+          "statement": "For an inflation ρ_m=ρ_n∘π along the level surjection π:X_m→X_n, the normalized transform is zero at characters nontrivial on ker π. At a character descended from X_n it equals the level-n transform there. In a cyclic coordinate X_n=ℤ/p^n, at m≥n this means zero unless p^(m−n) divides the frequency, and then F_mρ_m(k)=F_nρ_n(k/p^(m−n)); the retained coordinate is simply inflated."
         }
       ],
       "tests": [
         {
           "name": "constant_to_delta",
-          "statement": "The constant function 1 in the transformed variable maps to the delta function at zero."
+          "statement": "The constant function 1 in the transformed variable maps to the delta function at zero.",
+          "kind": "computation"
         },
         {
           "name": "delta_to_constant",
-          "statement": "The indicator of x=0 maps to the constant p^(−dn), not to 1."
+          "statement": "The indicator of x=0 maps to the constant p^(−dn), not to 1.",
+          "kind": "computation"
         },
         {
           "name": "character_sign",
-          "statement": "The positive character ⟨y₀,x⟩ transforms to δ_(y₀), whereas the negative character transforms to δ_(−y₀)."
+          "statement": "The positive character ⟨y₀,x⟩ transforms to δ_(y₀), whereas the negative character transforms to δ_(−y₀).",
+          "kind": "computation"
+        },
+        {
+          "name": "fourier_inflation_annihilator",
+          "kind": "computation",
+          "statement": "For the reduction ℤ/4→ℤ/2, inflate the zero-point indicator to the indicator of {0,2}. With ζ₄=i the normalized transform is 1/2 at frequencies 0 and 2, and zero at frequencies 1 and 3. It is supported on the kernel annihilator, rather than a constant inflation in the frequency variable."
         }
       ],
       "uses": [
@@ -2631,15 +2774,18 @@
       "tests": [
         {
           "name": "trivial_component",
-          "statement": "A trivial Σ-component is extended by 1 on the entire local integer ring, including its nonunits."
+          "statement": "A trivial Σ-component is extended by 1 on the entire local integer ring, including its nonunits.",
+          "kind": "degenerate"
         },
         {
           "name": "ramified_gauss",
-          "statement": "For a primitive nontrivial character of a finite local unit quotient, the normalized Fourier coefficient at its conductor frequency is nonzero and includes the factor 1/N(v)^a_v."
+          "statement": "For a primitive nontrivial character of a finite local unit quotient, the normalized Fourier coefficient at its conductor frequency is nonzero and includes the factor 1/N(v)^a_v.",
+          "kind": "computation"
         },
         {
           "name": "decomposition_change",
-          "statement": "Replacing c by cλ and b by b(λ)⁻¹ for λ≡1 mod f changes the individual factors but leaves Local unchanged."
+          "statement": "Replacing c by cλ and b by b(λ)⁻¹ for λ≡1 mod f changes the individual factors but leaves Local unchanged.",
+          "kind": "compatibility"
         }
       ],
       "uses": [
@@ -2710,15 +2856,18 @@
       "tests": [
         {
           "name": "norm_inverse_distinction",
-          "statement": "For a test character value χ(c)=2 and Nc=7, δ_c evaluates to 13/2, while χ(c)Nc−1 is 13."
+          "statement": "For a test character value χ(c)=2 and Nc=7, δ_c evaluates to 13/2, while χ(c)Nc−1 is 13.",
+          "kind": "computation"
         },
         {
           "name": "trivial_character",
-          "statement": "At χ=1, δ_c has value Nc−1; for Nc≡1 mod p it is not a p-adic unit."
+          "statement": "At χ=1, δ_c has value Nc−1; for Nc≡1 mod p it is not a p-adic unit.",
+          "kind": "degenerate"
         },
         {
           "name": "conductor_one_atom",
-          "statement": "δ′_(c′) vanishes at the trivial character, so dividing by it requires cancellation rather than evaluating an inverse there."
+          "statement": "δ′_(c′) vanishes at the trivial character, so dividing by it requires cancellation rather than evaluating an inverse there.",
+          "kind": "degenerate"
         }
       ],
       "uses": [
@@ -2746,7 +2895,7 @@
         "Unit subgroup changes used to fix finite levels carry their exact index; normalized integral descent requires G3."
       ],
       "proofSteps": [
-        "Construct the measure using bounded restriction, continuous pushforward and multiplication by the indicated unit-valued continuous weight.",
+        "Use the native abstract-measure pushforward and the imported L2 continuous weighting/projection formula. Restrict to the clopen unit locus by extension of test functions by zero, then apply the indicated continuous inversion and determinant weight; compactness makes these operations bounded.",
         "Show the correct tame-unit quotient and representatives identify it with the ray-class tower.",
         "Insert the locally constant moment formula; compute ramified local factors from PF and unramified corrections from the difference between F and the zero extension.",
         "Use the corrected explicit EK formula and complete G1 before identifying its moment sign with the unsigned target."
@@ -2765,7 +2914,9 @@
         "AutomorphicPadicLFunctionsPartII:KV.2/finite-index",
         "AutomorphicPadicLFunctions:L0/ray-class-tower",
         "AutomorphicPadicLFunctions:L0/hecke-character-avatar",
-        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor"
+        "ComplexMultiplicationAndExplicitReciprocity:CM.1/cm-serre-tensor",
+        "PadicMeasuresIwasawaAlgebras:L2/weight",
+        "PadicMeasuresIwasawaAlgebras:L2/weight-pushforward"
       ],
       "sources": [
         {
@@ -2801,15 +2952,18 @@
       "tests": [
         {
           "name": "critical_shift",
-          "statement": "A test local algebraic monomial with Σ-exponent α becomes t^(α−1)s^β after inversion and the determinant weight."
+          "statement": "A test local algebraic monomial with Σ-exponent α becomes t^(α−1)s^β after inversion and the determinant weight.",
+          "kind": "compatibility"
         },
         {
           "name": "tame_unit_kernel",
-          "statement": "For a global unit ε not congruent to 1 mod f, its p-component is not killed merely by calling it a global unit; only the actual image of U_f is quotiented out."
+          "statement": "For a global unit ε not congruent to 1 mod f, its p-component is not killed merely by calling it a global unit; only the actual image of U_f is quotiented out.",
+          "kind": "non-example"
         },
         {
           "name": "conductor_one_support",
-          "statement": "At f=O_L and x=e a single f_c is invalid on U; the c′ support excluding e makes the residue evaluation admissible."
+          "statement": "At f=O_L and x=e a single f_c is invalid on U; the c′ support excluding e makes the residue evaluation admissible.",
+          "kind": "non-example"
         }
       ],
       "uses": [
@@ -2875,7 +3029,7 @@
       ],
       "title": "Critical Hecke-value interpolation over totally imaginary fields",
       "kind": "theorem",
-      "statement": "For a p-ordinary lifted type Σ of L and a tame integral ideal f prime to p, construct a bounded O_(ℂ_p)-valued measure μ_f on G_f=Gal(L(p∞f)/L) such that for every critical algebraic χ of conductor dividing p∞f and infinity type β−α,\n(Ω_p^α(Ω_p∨)^β)⁻¹∫_(G_f)χ(g)dμ_f(g)=𝒩_(α,β)(Local(χ,Σ)·∏_(v∈Σ_p)(1−χ(v⁻¹)/Nv)·∏_(v∈barΣ_p)(1−χ(v))·L_f(χ,0)).\nAt a prime ramified in χ set the corresponding ideal-character value to zero so the omitted Euler factor is one; χ(v⁻¹)=0 in that convention is not the inverse of zero. Primitive versus f-imprimitive L-functions are related by exactly the displayed depletion factors. Prove uniqueness from the finite-order-twist density after boundedness has been established. This is the target of Theorem 5.27 with the explicit G1–G3 proof obligations, not a claim that they have been discharged. At L=K compare it with Katz’s CM-field measure under the same periods, Artin convention, local factors and primitive/imprimitive convention.",
+      "statement": "For a p-ordinary lifted type Σ of L and a tame integral ideal f prime to p, construct a bounded O_(ℂ_p)-valued measure μ_f on G_f=Gal(L(p∞f)/L) such that for every critical algebraic χ of conductor dividing p∞f and infinity type β−α,\n(Ω_p^α(Ω_p∨)^β)⁻¹∫_(G_f)χ(g)dμ_f(g)=𝒩_(α,β)(Local(χ,Σ)·∏_(v∈Σ_p)(1−χ(v⁻¹)/Nv)·∏_(v∈barΣ_p)(1−χ(v))·L_f(χ,0)).\nAt a prime ramified in χ set the corresponding ideal-character value to zero so the omitted Euler factor is one; χ(v⁻¹)=0 in that convention is not the inverse of zero. Primitive versus f-imprimitive L-functions are related by exactly the displayed depletion factors. Prove uniqueness from the finite-order-twist density after boundedness has been established. This is the target of Theorem 5.27 with the explicit G1–G3 proof obligations, not a claim that they have been discharged. At L=K, tame conductor f=O_K and the overlapping Katz infinity types −kΣ−Σ_σ d(σ)(σ−barσ), k≥1 and d(σ)≥0, compare with the existing L3 Katz measure under the same periods, Artin convention, local factors and primitive/imprimitive convention. The current L3 target does not supply a comparison for arbitrary tame f or every critical type.",
       "hypotheses": [
         "Ordinary standard datum, O_L Betti structure, complex and p-adic periods fixed; all characters read through the chosen embeddings.",
         "G1 sign comparison, G2 bounded desmoothing and G3 integral unit normalization must be proved."
@@ -2883,12 +3037,13 @@
       "proofSteps": [
         "Combine the corrected smoothed interpolation with bounded-desmoothing.",
         "At ramified and unramified Σ-places compute the separate Fourier contributions; collect the complete barΣ-depletion.",
-        "Use density for uniqueness and compare the L=K specialization with L3/katz-padic-l-function after normalizing both sides."
+        "Use density for uniqueness after boundedness. Compare with L3/katz-padic-l-function only at L=K, f=O_K and its stated overlapping infinity-type range, after transporting the conventions."
       ],
       "acceptance": [
         "Test d=1 with a split ordinary prime, d>1 with L=K, and a non-CM quartic containing K.",
         "An inert prime for an imaginary quadratic K is outside this theorem; it belongs to the independent nonordinary direction.",
-        "Period rescaling agrees with the algebraic differential scaling on both sides."
+        "Period rescaling agrees with the algebraic differential scaling on both sides.",
+        "The general interpolation target allows tame f prime to p and arbitrary admissible critical β−α; only its Katz comparison is restricted to the existing supplier’s smaller range."
       ],
       "prerequisites": [
         "AutomorphicPadicLFunctionsPartII:KV.8/bounded-desmoothing",
@@ -2902,7 +3057,7 @@
         {
           "sourceId": "KS-v4",
           "locator": "Theorem 5.27, p.74 and proof pp.74–79; E6–E7, E10–E12 and gaps G1–G3",
-          "match": "Critical Hecke-value interpolation over totally imaginary fields: For a p-ordinary lifted type Σ of L and a tame integral ideal f prime to p, construct a bounded O_(ℂ_p)-valued measure μ_f on G_f=Gal(L(p∞f)/L) such that for every critical algebraic χ of conductor dividing p∞f and infinity type β−α,\n(Ω_p^α(Ω_p∨)^β)⁻¹∫_(G_f)χ(g)dμ_f(g)=𝒩_(α,β)(Local(χ,Σ)·∏_(v∈Σ_p)(1−χ(v⁻¹)/Nv)·∏_(v∈barΣ_p)(1−χ(v))·L_f(χ,0)).\nAt a prime ramified in χ set the corresponding ideal-character value to zero so the omitted Euler factor is one; χ(v⁻¹)=0 in that convention is not the inverse of zero. The target incorporates the version-specific source findings cited in its locator; the statement here is the specification, in our own words."
+          "match": "Critical Hecke-value interpolation over totally imaginary fields: For a p-ordinary lifted type Σ of L and a tame integral ideal f prime to p, construct a bounded O_(ℂ_p)-valued measure μ_f on G_f=Gal(L(p∞f)/L) such that for every critical algebraic χ of conductor dividing p∞f and infinity type β−α,\n(Ω_p^α(Ω_p∨)^β)⁻¹∫_(G_f)χ(g)dμ_f(g)=𝒩_(α,β)(Local(χ,Σ)·∏_(v∈Σ_p)(1−χ(v⁻¹)/Nv)·∏_(v∈barΣ_p)(1−χ(v))·L_f(χ,0)).\nAt a prime ramified in χ set the corresponding ideal-character value to zero so the omitted Euler factor is one; χ(v⁻¹)=0 in that convention is not the inverse of zero. Primitive versus f-imprimitive L-functions are related by exactly the displayed depletion factors. Prove uniqueness from the finite-order-twist density after boundedness has been established. This is the target of Theorem 5.27 with the explicit G1–G3 proof obligations, not a claim that they have been discharged. At L=K, tame conductor f=O_K and the overlapping Katz infinity types −kΣ−Σ_σ d(σ)(σ−barσ), k≥1 and d(σ)≥0, compare with the existing L3 Katz measure under the same periods, Artin convention, local factors and primitive/imprimitive convention. The current L3 target does not supply a comparison for arbitrary tame f or every critical type."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2985,11 +3140,19 @@
       ]
     },
     {
-      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
-      "need": "Use the existing Layer 4 diagonalizable-group/character duality and its comodule framework to supply the split norm-torus weight decomposition over R, compatible with base change and invariant tensor powers. This is an interface request to the existing owner, not a new plan for its theory.",
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent",
+      "need": "Use Stage 5 items 3–4 for finite-cover transfer and the exterior-power homology of a product of circles. Supply the comparison between native discrete group (co)homology for a finite-rank free abelian Γ and singular (co)homology of Γ\\EΓ through its contractible logarithmic universal cover, compatible with finite-index maps and the coefficient representation. The existing finite-deck Cartan–Leray theorem alone is not a comparison for the infinite deck group Γ. Dirichlet’s logarithmic lattice is already in Mathlib.",
       "neededBy": [
-        "AutomorphicPadicLFunctionsPartII:KV.0/critical-types",
-        "AutomorphicPadicLFunctionsPartII:KV.0/coefficient-invariants"
+        "AutomorphicPadicLFunctionsPartII:KV.2/critical-evaluation",
+        "AutomorphicPadicLFunctionsPartII:KV.2/finite-index"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality",
+      "need": "Supply the singular local-coefficient cap product and fundamental class for the oriented compact connected real torus Γ\\EΓ, with Γ torsion-free, and naturality under its finite covers. Use the existing orientation and Stage 5 comparison; identify the cap in top degree with the coefficient line and prove its projection formula. No surjective integral transfer through finite torsion is assumed.",
+      "neededBy": [
+        "AutomorphicPadicLFunctionsPartII:KV.2/critical-evaluation",
+        "AutomorphicPadicLFunctionsPartII:KV.2/finite-index"
       ]
     }
   ],
@@ -3033,23 +3196,34 @@
     {
       "stageId": "AutomorphicPadicLFunctionsPartII:KV.0",
       "status": "planned",
-      "remaining": []
+      "remaining": [
+        "Resolve supplier contract AutomorphicPadicLFunctions:L0/locally-algebraic-characters for KV.0/critical-types."
+      ]
     },
     {
       "stageId": "AutomorphicPadicLFunctionsPartII:KV.1",
       "status": "planned",
-      "remaining": []
+      "remaining": [
+        "Resolve supplier contract SchemeAndStackFoundations:SF.2 for KV.1/residue-calculation."
+      ]
     },
     {
       "stageId": "AutomorphicPadicLFunctionsPartII:KV.2",
       "status": "planned",
-      "remaining": []
+      "remaining": [
+        "Resolve supplier contract SchemeAndStackFoundations:SF.2 for KV.2/torsion-moments, KV.2/critical-evaluation.",
+        "Resolve supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-5-bundles-covers-products-and-finite-cover-descent for KV.2/critical-evaluation, KV.2/finite-index.",
+        "Resolve supplier contract tauceti:TauCetiRoadmap/AlgebraicTopology#stage-6-cohomology-products-and-manifold-duality for KV.2/critical-evaluation, KV.2/finite-index."
+      ]
     },
     {
       "stageId": "AutomorphicPadicLFunctionsPartII:KV.3",
       "status": "planned",
       "remaining": [
-        "AutomorphicPadicLFunctionsPartII:G1: Residue, current and p-adic sign comparison"
+        "AutomorphicPadicLFunctionsPartII:G1: Residue, current and p-adic sign comparison",
+        "Resolve supplier contract SchemeAndStackFoundations:SF.2 for KV.3/borel-complex.",
+        "Resolve supplier contract ComplexComparisonPartII:C1 for KV.3/current-resolution, KV.3/kronecker-series, KV.3/mellin-continuation.",
+        "Resolve supplier contract ComplexComparisonPartII:C5 for KV.3/current-resolution."
       ]
     },
     {
@@ -3064,21 +3238,26 @@
       "status": "planned",
       "remaining": [
         "AutomorphicPadicLFunctionsPartII:G1: Residue, current and p-adic sign comparison",
-        "AutomorphicPadicLFunctionsPartII:G3: Integral descent to full unit groups"
+        "AutomorphicPadicLFunctionsPartII:G3: Integral descent to full unit groups",
+        "Resolve supplier contract PeriodsAndSpecialValues:PS.0 for KV.5/weak-deligne.",
+        "Resolve supplier contract PeriodsAndSpecialValues:PS.1 for KV.5/weak-deligne."
       ]
     },
     {
       "stageId": "AutomorphicPadicLFunctionsPartII:KV.6",
       "status": "planned",
       "remaining": [
-        "AutomorphicPadicLFunctionsPartII:G3: Integral descent to full unit groups"
+        "AutomorphicPadicLFunctionsPartII:G3: Integral descent to full unit groups",
+        "Resolve supplier contract FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1 for KV.6/ordinary-level.",
+        "Resolve supplier contract PadicMeasuresIwasawaAlgebras:L2 for KV.6/differential-moments."
       ]
     },
     {
       "stageId": "AutomorphicPadicLFunctionsPartII:KV.7",
       "status": "planned",
       "remaining": [
-        "AutomorphicPadicLFunctionsPartII:G3: Integral descent to full unit groups"
+        "AutomorphicPadicLFunctionsPartII:G3: Integral descent to full unit groups",
+        "Resolve supplier contract PadicMeasuresIwasawaAlgebras:L2 for KV.7/eisenstein-measure."
       ]
     },
     {
@@ -3087,7 +3266,8 @@
       "remaining": [
         "AutomorphicPadicLFunctionsPartII:G1: Residue, current and p-adic sign comparison",
         "AutomorphicPadicLFunctionsPartII:G2: Uniform bounded division of smoothing factors",
-        "AutomorphicPadicLFunctionsPartII:G3: Integral descent to full unit groups"
+        "AutomorphicPadicLFunctionsPartII:G3: Integral descent to full unit groups",
+        "Resolve supplier contract PadicMeasuresIwasawaAlgebras:L3 for KV.8/bounded-desmoothing."
       ]
     }
   ],
@@ -3106,7 +3286,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "At the v4 Proposition 3.13 locator, exchanging the lattice variables in Poisson summation gives the phase with pairing (w,z); the alternating pairing reverses the printed ordering.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E2",
@@ -3115,14 +3300,19 @@
       "locator": "arXiv:1912.03657v4, Lemma 3.16 and Proposition 3.17, pp.37–38",
       "printed": "The displayed contraction coefficients have the opposite sign to that required by the preceding differential recurrence.",
       "correction": "For 0≤j≤d−1 the coefficient is (−1)^(j+1)j!C; the resulting top coefficient is (−1)^(d(d+1)/2)d!C. Carry the changed sign to the representative.",
-      "reason": "Exact exterior-algebra differentiation cancels adjacent terms only with these coefficients; in dimension one its first coefficient must be −C. Integer wedge computations for d=1,…,5 check the recurrence and the top coefficient.",
+      "reason": "Exact exterior-algebra differentiation cancels adjacent terms only with these coefficients; in dimension one its first coefficient must be −C. Integer wedge computations for d=1,…,6 check the recurrence and the top coefficient.",
       "affects": "a stated result",
       "known": "Rechecks PAPER-KINGS-SPRANG-25/E2 against v4; no published correction located. No claim about the unread journal PDF.",
       "searched": [
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Computed the exterior differentiation and contraction independently over integers for every 0≤j<d in dimensions 1–6, and imposed the product-one relation for the top form. The coefficients are (−1)^(j+1)j!C and (−1)^(d(d+1)/2)d!C. Already d=1 gives −C dz.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E3",
@@ -3138,7 +3328,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The inverse of A+v in the truncated symmetric algebra has degree-b coefficient with sign (−1)^b. Combining it with the checked contraction gives the recorded weight sign. This local calculation does not settle the later G1 comparison.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E4",
@@ -3154,7 +3349,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Corollary 4.15 and Remark 4.16 give algebraicity and a period comparison, but no nonvanishing input. The normalized finite value may be zero; only the separate comparison of nonzero periods belongs in a multiplicative quotient.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E5",
@@ -3170,7 +3370,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In equation (5.6.1), μ is indexed by embeddings, whereas λ is an ideal-generator variable. The exponent must be μ(σ).",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E6",
@@ -3186,7 +3391,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem 3.27 and Step 1 of Theorem 5.27 do not have the same displayed dimension prefactor. A comparison of orientations, coefficient bases and coordinate changes is required; neither dropping the sign nor claiming the final theorem false is justified.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E7",
@@ -3202,7 +3412,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The unramified transform/restriction is taken at every complementary p-place. Step 3 must use the full complementary-prime product, as the final expression in Step 4 does.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E8",
@@ -3218,7 +3433,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The two functors in Appendix A.1 must use the same Γ and the same linearized sheaf. The displayed inconsistent symbols are corrected by their domains and the subsequent derived composite.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E9",
@@ -3234,7 +3454,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The split Mellin integrals give residues of π^(−s)Γ(s)K(s). Dividing by Γ removes the zero pole and multiplies the d-residue by π^d/Γ(d). The square-lattice case d=1 has residue π at 1.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E10",
@@ -3250,7 +3475,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For the finite cyclic group of order p, (1/p)Σδ_g has integral Fourier values but evaluates an identity-point indicator to 1/p. Thus characterwise integrality and density do not establish integral boundedness; G2 asks for the missing uniform argument.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E11",
@@ -3266,7 +3496,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "On H₀ with trivial coefficients the transfer μ₂→1 is multiplication by 2 and is not onto over integers. The proposed normalized cap would require 1/2. The torsion-free/localized correction is valid, with specific integral EK descent left as G3.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E12",
@@ -3282,7 +3517,12 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "In the ray-class sequence over a fixed tame class, a principal generator must be 1 modulo f. Its ambiguity is the congruence-unit group, whose p-adic closure gives the kernel; the full unit group is valid only for trivial tame modulus.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     },
     {
       "id": "AutomorphicPadicLFunctionsPartII/E13",
@@ -3298,7 +3538,58 @@
         "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
         "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
         "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Orbit counting proves the index formula when t is fixed. For μ₄ acting on t=1/3 modulo ℤ[i] with α=4, the four single-coset sums agree, so their sum, rather than one of them, gives the factor 4.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
+    },
+    {
+      "id": "AutomorphicPadicLFunctionsPartII/E14",
+      "source": "KS-v4",
+      "kind": "error",
+      "locator": "arXiv:1912.03657v4, Proposition 1.5, p.8",
+      "printed": "The unit-invariant submodule is identified with the sum of unit-trivial torus weights for an arbitrary algebraic torus module M; the stated arithmetic-domain hypothesis is on R alone.",
+      "correction": "Require M to be R-torsion-free for this invariant-submodule formula. The finite locally free coefficient modules used by the EK construction satisfy this condition; generic torus weight decomposition itself remains valid without it.",
+      "reason": "Take L=ℚ(ζ₃), R=ℤ[ζ₃,1/3], Γ=μ₆ and the weight 3σ on M=R/(2). Its weight is nontrivial on Γ over R, since a primitive sixth root acts with weight −1; on M this action is trivial and M^Γ=M≠0. A domain coefficient ring does not prevent torsion in M.",
+      "affects": "a stated result",
+      "known": "No correction located in the checked lists; scoped to arXiv v4, not the unread journal PDF.",
+      "searched": [
+        "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
+        "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
+        "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)",
+        "https://homepages.uni-regensburg.de/~spj54141/research.html (author publication list checked 2026-10-19)",
+        "https://arxiv.org/abs/2603.15446v1 (later work’s introduction screened; not an erratum to the v4 text)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The PDF and its TeX both impose only R⊂k at this proposition. The explicit quotient-module example satisfies that base condition and disproves the unrestricted assertion. The corrected coefficient-line application is torsion-free.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
+    },
+    {
+      "id": "AutomorphicPadicLFunctionsPartII/E15",
+      "source": "KS-v4",
+      "kind": "misprint",
+      "locator": "arXiv:1912.03657v4, Theorem 2.30, p.24",
+      "printed": "The two chosen cotangent bases for B and its dual are both denoted ω(B) in the hypothesis.",
+      "correction": "Denote the second basis by ω(B∨), consistent with its cotangent sheaf and with the theorem’s evaluation formula.",
+      "reason": "The second basis belongs to ω_(B∨/R); the next displayed evaluation uses its dual-labelled basis. This is a label error, not an identification of the two eigenspaces.",
+      "affects": "nothing",
+      "known": "No correction located in the checked lists; scoped to arXiv v4, not the unread journal PDF.",
+      "searched": [
+        "https://arxiv.org/abs/1912.03657 (version history and v4 read 2026-10-19)",
+        "https://annals.math.princeton.edu/2025/202-1/p01 (journal metadata checked 2026-10-19; journal PDF inaccessible)",
+        "https://www.esaga.uni-due.de/johannes.sprang/research/ (author publication list checked 2026-10-19; no linked erratum located)",
+        "https://homepages.uni-regensburg.de/~spj54141/research.html (author publication list checked 2026-10-19)",
+        "https://arxiv.org/abs/2603.15446v1 (later work’s introduction screened; not an erratum to the v4 text)"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the v4 statement and matching TeX: the second basis label repeats B despite its sheaf and the following formula referring to B∨. The target already uses the correct dual basis.",
+        "by": "REV-DESIGN-AutomorphicPadicLFunctionsPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -3316,6 +3607,14 @@
       "url": "https://annals.math.princeton.edu/2025/202-1/p01",
       "readDate": "2026-10-19",
       "note": "Journal 202 (2025), 1–109 verified; the published PDF could not be read. Source issues are not attributed to that unread PDF."
+    },
+    {
+      "sourceId": "BKO-2021",
+      "kind": "published",
+      "url": "https://authors.library.caltech.edu/records/8svwt-jn031/files/annals.2021.194.3.8.pdf",
+      "sha256": "77ff329057e17cbad573cc309fce3f69f4ba6b73619c4ca203a4ed79a1cb790e",
+      "readDate": "2026-10-19",
+      "pagination": "Published pp.943–966, with a JSTOR cover sheet before printed p.943; independent review checked the cited boundary passages."
     }
   ],
   "routedItemLedger": [
@@ -3784,7 +4083,7 @@
   "upstreamNotes": [
     {
       "owner": "TauCetiRoadmap/ReductiveGroups",
-      "detail": "ReductiveGroups Layer 4 supplies diagonalizable-group/character duality and, with its comodule framework, the decomposition by character weights over a splitting base. Apply that framework to Res_(O_L/ℤ)Gm; the arithmetic classification of weights trivial on units is the L0 Hecke-type interface."
+      "detail": "The pinned Tau Ceti comodule theorems isInternal_weightSpace and endOfPoint_tmul_of_mem_weightSpace already supply the split weight decomposition over arithmetic base rings and its point action. They are cited directly. ReductiveGroups remains the owner of the generic group/character dictionary; this roadmap only identifies the split restriction-of-scalars torus coordinates and computes its critical unit-invariant lines."
     },
     {
       "owner": "TauCetiRoadmap/DifferentialGeometry",
@@ -3793,21 +4092,259 @@
     {
       "owner": "AbelianSchemesAndArithmeticModuliPartII",
       "detail": "This actual packet owns the completed Poincaré and ordinary trivialization targets previously routed under an obsolete PoincareBundle alias. Its exact P0–P4 nodes are imported without restating them."
+    },
+    {
+      "owner": "TauCetiRoadmap/AlgebraicTopology",
+      "detail": "Stages 5–6 already own finite-cover transfer, torus homology, local-coefficient cap products and fundamental classes. The critical-evaluation plan now cites these owners explicitly and requests the comparison with the native discrete group-(co)homology carrier; SF.2’s equivariant derived-functor contract does not itself supply this topological API."
+    },
+    {
+      "owner": "Kings–Sprang later-work routing",
+      "detail": "The author publication list now links arXiv:2603.15446v1 (2026), whose Introduction pp.1–4 describes arbitrary-prime rigid analytic interpolation for types supported on −α (β=0), using a different Fourier-theoretic framework. This is later work, not an erratum read as correcting v4 and not a uniform bounded two-weight measure input for G2. Its extraction/routing is outside this review."
     }
   ],
   "libraryAudit": {
     "reviewed": "data/library-coverage.json, AutomorphicPadicLFunctions L0, L3 and L5",
-    "findings": "Hecke/period/EK carriers at this generality were not found at the pins. The native CM predicate and abstract measures are cited directly. Read current TauCeti and the nine post-snapshot roadmaps, especially DifferentialGeometry; no EK critical-value theory found there.",
+    "findings": "Read the reviewed parent L0/L3/L5 audit and checked its relevant partial/absent distinctions. The current library has general Hecke-character and infinity-type carriers, owned by GlobalNumberFields and imported through L0 rather than planned here. At the pins, native CM predicates, abstract measures, split comodule weight decomposition and the logarithmic unit lattice are cited directly. Current DifferentialGeometry owns generic forms and Stokes; no EK residue class, theta measure or general critical-value interpolation implementation was found in the targeted current-library checks.",
     "currentTauCeti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "upstreamDocumentsRead": [
       "GlobalNumberFields/README.md",
       "ArithmeticDirichletSeries/README.md",
       "ReductiveGroups/README.md and Suggested.lean",
-      "DifferentialGeometry/README.md and Suggested.lean"
+      "DifferentialGeometry/README.md and Suggested.lean",
+      "AlgebraicTopology/README.md Stages 5–6 and corresponding Suggested.lean interfaces"
     ],
     "designSearch": [
       "2026-10-19: searched the public Lean Zulip archive for Eisenstein–Kronecker, Hecke characters and p-adic measures, and GitHub Mathlib PR search for Hecke character; no matching EK implementation was located. This is negative search evidence, not a library-absence proof.",
       "https://leanprover-community.github.io/archive/stream/217875-Is-there-code-for-X%3F/topic/measure.20theory.20for.20algebraists.html: the discussion distinguishes p-adic coefficient-valued distributions from real Haar measures; the actual pinned AbstractMeasure declaration determines the interface."
+    ],
+    "independentReview": "All eleven baseline declarations were read at the recorded commits. The current GlobalNumberFields and ArithmeticDirichletSeries documents were read in full, and the relevant ReductiveGroups, DifferentialGeometry and AlgebraicTopology reader and Suggested interfaces were checked. The redundant generic weight request was removed; finite-cover and cap-product contracts were made explicit."
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-AutomorphicPadicLFunctionsPartII",
+    "date": "2026-10-19",
+    "notes": "Independent target-level review of every node, source locator, source match, supplier statement, definition/construction API and test, layer target and planet. Corrected torsion-free coefficient hypotheses, fixed-base equivariance, conductor-refinement wording, field-base polylog scope, divided-tensor shift, Fourier level refinement, and overly broad Katz comparison. Replaced redundant weight-theory planning by native Tau Ceti declarations, added native logarithmic-unit inputs and explicit topological/weighting dependencies, classified all tests and synchronized the reader and suggested signatures. All eleven baseline entries are confirmed; all fifteen source issues have independent verdicts. Acceptance is of a complete planning pass: nine stages are planned, none closed; G1–G3 and eleven precise supplier requests remain, not proofs or formalized results.",
+    "checked": [
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.0/critical-types",
+        "verdict": "corrected",
+        "note": "Read §1.1 and Theorem 1.1, pp.6–8. The norm-pullback and parallel-conjugate-sum conditions, lifted CM type, and α=a+1 convention are retained. Replaced the generic weight-theory request by the two pinned comodule declarations; the exact Hecke-type classification remains requested from L0. Classified its three discriminating tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.0/standard-datum",
+        "verdict": "corrected",
+        "note": "Read §§1.2–1.3, pp.9–12, including Definition 1.15 and Notation 1.18. The covariant Hodge convention, opposite cotangent weights, local choice of bases and ideal localization agree. The Serre-tensor and pairing suppliers were checked. Classified its three tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.0/coefficient-invariants",
+        "verdict": "corrected",
+        "note": "Read Proposition 1.5, p.8 and Corollary 1.14, p.11. Corrected the general invariant formula to require R-torsion-free M, with the explicit μ6 quotient-module counterexample E14. The coefficient-line application satisfies this hypothesis. Generic weight decomposition and scalar point action are native, not new targets."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.1/trace-zero-data",
+        "verdict": "corrected",
+        "note": "Read Definitions 2.18 and 2.26, pp.19–22 and §4.4, p.52. Checked finite-étale trace before splitting, the one-auxiliary function, and the two-auxiliary function away from the identity. Its trace is zero; simply removing the identity from the first function would fail. Classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.1/residue-calculation",
+        "verdict": "corrected",
+        "note": "Read Corollary 2.17 and §2.6, pp.19,26–27. Corrected the action hypothesis: Γ may act nontrivially on A over the fixed base, while its action on S is trivial. Kept derived equivariance, finite-level transitions and the inverse-limit obstruction as an explicit SF.2 request; no false higher-degree vanishing is used."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.1/ek-class",
+        "verdict": "corrected",
+        "note": "Read Theorem 2.20 and Definition 2.21, p.20 and their proof pp.26–27. The trace-zero residue has a unique preimage by localization; equivariance is derived and base change requires the stated flatness/comparison. API and three tests detect wrong residue, support evaluation and nonzero zero-input behavior. Added test kinds."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.1/derivative-class",
+        "verdict": "corrected",
+        "note": "Read Definitions 2.21 and 2.23, pp.20–21. The universal-extension Poincaré connection and symmetric derivative convention are supplied by P1/P2, with finite-level compatibility. Degree zero, linearity and the factorial-sensitive derivative test distinguish the construction. Added test kinds."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.2/torsion-moments",
+        "verdict": "corrected",
+        "note": "Read Definition 2.24, equations (2.3.3)–(2.3.4) and Remark 2.25, pp.21–22. The killing dual is étale, evaluation avoids D, and the splitting is rigidification-normalized. P2 supplies that splitting; SF.2 supplies the affine comparison. Classified the three tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.2/critical-evaluation",
+        "verdict": "corrected",
+        "note": "Read Definitions 2.26/2.28 and Proposition 2.27, pp.22–23. Retained the torsion-free integral cap and explicitly localized torsion normalization, not the invalid integral transfer claim E11. Added native logarithmic-lattice citations and AlgebraicTopology comparison/cap requests. Specified the basis-independent rank-one divided-tensor shift, which differs from shuffle multiplication, and a nonunit-2 test."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.2/finite-index",
+        "verdict": "corrected",
+        "note": "Read Corollary 2.29, p.24 against Proposition 2.27. The index multiplication rule is valid for free groups and for the localized torsion normalization; cancellation at a nonunit is excluded. Added explicit finite-cover and cap-product prerequisites rather than attributing them to equivariant derived functors."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.2/refined-evaluation",
+        "verdict": "corrected",
+        "note": "Read Theorem 2.30 and its construction, pp.24–25. Corrected the title to conductor norm: the refinement avoids Nf but does not remove unit-torsion denominators. Both non-étale conductor maps and torsion-free capping remain explicit. Recorded the dual-basis label misprint E15 and classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.2/integral-comparison",
+        "verdict": "verified",
+        "note": "Read equation (2.5.1) and Proposition 2.31, p.25. The two different cotangent transports and their mixed bases agree after the injective localization; integral descent is along that injection, with unit-group normalization kept separate."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.2/polylog",
+        "verdict": "corrected",
+        "note": "Read Theorem 2.36 and Remark 2.37, pp.28–29 and Remark 3.21, p.41. Restricted the base to Spec(k), characteristic zero, and required a complex embedding for the analytic statement. P3 does not supply the broader comparison over arbitrary arithmetic bases."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.3/borel-complex",
+        "verdict": "corrected",
+        "note": "Read Definition 3.7 and Lemma 3.8, pp.33–34. The logarithmic unit lattice gives the compact real torus, while the actual Borel/coherent comparison remains an SF.2 request. Added the two native unit-lattice citations and classified the orientation/metric/rank-zero tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.3/current-resolution",
+        "verdict": "corrected",
+        "note": "Read Definition 3.9, Corollary 3.10 and Corollary 3.22, pp.34,41. Bundle-valued currents require the specified LF test-form topology and local current resolution. Current DifferentialGeometry supplies forms/integration, not that whole current comparison; C1/C5 requests retain the distinction. Classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.3/kronecker-series",
+        "verdict": "corrected",
+        "note": "Read Definition 3.11 and Remark 3.12, p.35. Checked the Hermitian metric, dual lattice/pairing, omitted zero term and initial convergence domain. The zero-orbit and translated examples catch different summation conventions. Added test kinds."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.3/mellin-continuation",
+        "verdict": "verified",
+        "note": "Read Proposition 3.13 and its proof, pp.35–36. Confirmed the phase ordering E1 and completed versus uncompleted residues E9. The native Poisson theorem is one-dimensional; finite-dimensional iteration and determinant change remain in the proof. Gamma integral is used only in its positive-real-part range."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.3/normalized-current",
+        "verdict": "corrected",
+        "note": "Read Definitions 3.15/3.18, Lemma 3.16, Proposition 3.17 and the expansion in Theorem 3.20, pp.37–41. Independently checked contraction coefficients for d=1,…,6 and the negative-binomial sign E2/E3. The current is residue-normalized, not an arbitrary multiple. Classified three tests; these local computations do not discharge G1."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.3/current-equation",
+        "verdict": "verified",
+        "note": "Read Definition 3.19, Theorem 3.20 and Corollary 3.22, pp.39–41. The distributional equation uses the corrected local recurrence and expansion, with finite-level connection compatibility. The global algebraic-residue/orientation normalization remains explicitly G1 rather than an inferred sign cancellation."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.4/orbit-eisenstein",
+        "verdict": "corrected",
+        "note": "Read Definition 3.24 and Lemma 3.25, p.43. The series is on Γ-orbits, with zero omitted, critical weight and its stated initial half-plane. The subgroup formula keeps the orbit multiplicity or requires fixed t, as E13 demonstrates. Classified its fixed/nonfixed-orbit tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.4/fibre-integral",
+        "verdict": "verified",
+        "note": "Read Lemma 3.26, p.44. Checked the sum over the whole finite torsion orbit, the product Gamma factors, the leading Jacobian d and the product-one orientation. Initial unfolding precedes continuation to the regular critical value; Γ is torsion-free."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.4/explicit-ek",
+        "verdict": "verified",
+        "note": "Read Proposition 3.23, Theorem 3.27 and Corollary 3.28, pp.42,44–45. Checked derivative factorials, the conjugate/dual de Rham pairing and period conversion. The corrected sign is a specified target contingent on G1; it is not advertised as an established final p-adic comparison."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/ideal-periods",
+        "verdict": "corrected",
+        "note": "Read Definitions 4.3/4.5/4.8 and Propositions 4.6/4.7, pp.47–50 with §4.5. An ideal structure is an O_L-linear Betti isomorphism, not a principal generator. The inverse different and independent dual periods are retained, and CM.1 supplies Serre tensors/pairings. Classified its three tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/value-normalizer",
+        "verdict": "corrected",
+        "note": "Read Theorems 4.9/4.10 and 5.27, pp.50–51,74. The definition uses coordinatewise factorials, α=a+1, the two independently based periods and (2πi)^|β|. It asserts linear normalization only, not integrality. The coordinate signatures and tests match; added test kinds."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/partial-l-identity",
+        "verdict": "verified",
+        "note": "Read Lemma 4.2 and equations (4.1.2)–(4.1.3), p.47. Checked χ(b), Nb^(−s), the lattice fb⁻¹, zero omission and the explicit unitary shift s−w/2 into AL.1. The AL.1 supplier statement was read; an algebraic and a unitary character are not silently identified."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/eisenstein-integrality",
+        "verdict": "verified",
+        "note": "Read Theorem 4.9 and equation (4.3.1), pp.50–51. The refined evaluation supplies the torsion-free integrality statement in the indicated ideal localization. Passing to normalized full-unit sums at nonunit indices is explicitly G3, not an application of unrestricted surjective transfer."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/torsion-distribution",
+        "verdict": "verified",
+        "note": "Read equation (4.4.1) and Proposition 4.12, p.52. The orbit-set decomposition gives Nc E(a)−E(c⁻¹a); it is not an unweighted sum over every torsion point. Coprimality and the evaluation class are retained."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/partial-critical-integrality",
+        "verdict": "verified",
+        "note": "Read Corollary 4.13, p.52. Checked the smoothed partial-value combination and ring O_E R[1/(f N(bc))]. Character values at b are integral only after the stated localization; the inherited G3 obligation is recorded."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/critical-integrality",
+        "verdict": "verified",
+        "note": "Read Theorem 4.10 and §4.4, pp.51–53. The conductor-one case needs two auxiliary ideals and its extra factor. Rationality follows after choosing nonzero smoothing factors; no nonvanishing of L is asserted. Model extension/localization and G3 remain explicit."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/shimura-formula",
+        "verdict": "corrected",
+        "note": "Read §4.5, equation (4.5.1) and Corollary 4.14, pp.53–54. The exponent [L:K] and conjugate-index transfer come from repeated K-periods. Removed the unnecessary ordinary-p L3/cm-periods dependency and cited CM.1 Serre tensors, so complex algebraicity acquires no p-ordinarity hypothesis."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.5/weak-deligne",
+        "verdict": "verified",
+        "note": "Read Corollary 4.15 and Remarks 4.16–4.17, pp.54–55. Confirmed E4: the L-value may be zero whereas the period relation is modulo Qbar×. PS.0/PS.1 requests precisely retain the missing Hecke-motive, norm-pullback and period interfaces; no sharper E-rationality is inferred."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.6/ordinary-level",
+        "verdict": "corrected",
+        "note": "Read Definitions 5.2/5.3 and Propositions 5.4–5.6, pp.56–58. The lifted type, connected/étale sides, paired isogenies and roots-of-unity convention match. The R07.1 request supplies ordinary finite-flat pairings over the required base; an inert elliptic prime is excluded. Classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.6/padic-periods",
+        "verdict": "corrected",
+        "note": "Read Definition 5.7 and Lemma 5.8, p.59. Both canonical bases are independent, their comparison factors are units, and prime-to-p transport is retained. O_(C_p) is used after base change and is not declared noetherian. Classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.6/theta-class",
+        "verdict": "corrected",
+        "note": "Read Lemma 5.15, Definition 5.16 and Lemma 5.17, pp.63–64. Integral theta requires the killing dual to be étale; arbitrary torsion gives only a generic-fiber function. Added the critical augmentation API and index-two/elliptic-nonzero tests, including nonunit index p=2, to distinguish zero or wrongly normalized functions. G3 is retained for full-unit normalization."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.6/differential-moments",
+        "verdict": "corrected",
+        "note": "Read Definitions 5.18/5.19, equation (5.4.1) and Proposition 5.20, pp.64–65. The derivatives are invariant divided-power coordinates and the monomials follow the two CM summands. General integral multivariate Amice is requested from its owner; only the CM specialization is planned. Classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.7/eisenstein-measure",
+        "verdict": "corrected",
+        "note": "Read Definition 5.21 and Theorem 5.22, pp.65–66. Native AbstractMeasure is used, and the L2 request includes integral, multivariate, basis-independent Amice. Checked Ω_p^(a+1)(Ω_p∨)^β and the critical weight condition. Classified tests and kept G3 rather than inferring integrality for full-unit normalization."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.7/translation",
+        "verdict": "verified",
+        "note": "Read Theorem 5.23 and equations (5.5.1)–(5.5.8), pp.66–70. The Weil pairing, unique lifts and all étale-kernel summands match. Its generic-fiber right side need not be termwise integral because the dual of q_n is connected; only the left-side integrality is asserted."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.7/partial-fourier",
+        "verdict": "corrected",
+        "note": "Read Definition 5.24 and equations (5.5.9)–(5.5.11), pp.70–72. Checked inverse kernel, p^(−dn) and the retained complementary variable. Made level refinement precise: support is on the kernel annihilator, not constant inflation of frequency. Added the Z/4→Z/2 countercheck and matching Lean examples; classified existing tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.7/locally-constant-moments",
+        "verdict": "verified",
+        "note": "Read Corollary 5.25, pp.71–72. The finite Fourier coefficients, paired-isogeny transport of both bases and common p-adic periods match. Right-side terms are generic and subgroup indices are explicit; no termwise integral conclusion is used."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.8/local-factor",
+        "verdict": "corrected",
+        "note": "Read equation (5.6.1) and Definition 5.26, pp.72–73. Checked local conductor/Gauss conventions against the L0 Gauss supplier and the corrected exponent μ(σ), E5. Ramified and unramified cases are kept separate. Classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.8/smoothing-atom",
+        "verdict": "corrected",
+        "note": "Read Theorem 5.27, Step 2 and Step 4, pp.77,79. Native Dirac/add/scalar operations give the atom at Art(c)⁻¹ and the separate conductor-one factor. Its character evaluation matches the stated smoothing factors, and mass/identity tests catch inversion or sign mistakes. Classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.8/smoothed-ray-measure",
+        "verdict": "corrected",
+        "note": "Read Theorem 5.27, Steps 1 and 3, pp.74–78. Added L2 weighting and its projection formula as direct prerequisites to the ray pushforward; unit restriction is clopen extension by zero. Confirmed the congruence-unit kernel E12 and full complementary depletion E7. G1 and G3 remain explicit; classified tests."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.8/bounded-desmoothing",
+        "verdict": "verified",
+        "note": "Read Theorem 5.27, Steps 2 and 4, pp.77,79. The finite cyclic-group measure counterexample confirms that individual integral character values do not prove uniform boundedness. The target and L3 request demand integral measure-algebra divisibility/Kummer congruences, including torsion components and common zeros; this is openly G2."
+      },
+      {
+        "nodeId": "AutomorphicPadicLFunctionsPartII:KV.8/interpolation",
+        "verdict": "corrected",
+        "note": "Read Theorem 5.27 and its proof, pp.74–79 against E6/E7/E10–E12. Retained general tame conductor and admissible critical types as the target, conditional on G1–G3. Restricted only the Katz comparison to L=K, f=O_K and the stated infinity-type range of the L3 supplier; density gives uniqueness only after boundedness."
+      }
     ]
   }
 }
