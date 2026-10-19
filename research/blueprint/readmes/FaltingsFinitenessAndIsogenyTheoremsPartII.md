@@ -12,11 +12,11 @@ Write D=[k:Q], h_F for stable logarithmic Faltings height, and H(A,k)=max(1,D,h_
 
 Three different traces must remain separate. The abelian trace Tr_A is normalized by Tr_A(1)=2g. The regular algebra trace tr_B(x) is the trace of left multiplication on the whole rational algebra B, so tr_B(1)=dim_Q B. The reduced trace is a third notion and is not substituted for either. The positive Rosati Gram determinant D_λ(O) uses Tr_A(vw†); the signed ordinary order discriminant uses tr_B(vw). Only the stated isotypic comparison relates them. The Hom cross-discriminant is the square of its pairing determinant.
 
-In normalized principally polarized coordinates P=(I,τ), κ(v)P=Pρ(v). The correct complex expression for the abelian squared norm is 2 Re tr(κ y overlineκᵀ y⁻¹). The factor 2 and conjugation also belong in the mixed Gram entries. In particular the elliptic identity has squared length 2, and the CM basis 1,i has Gram determinant 4. Source corrections E1–E3 below preserve these conventions.
+In normalized principally polarized coordinates P=(I,τ), κ(v)P=Pρ(v). The correct complex expression for the abelian squared norm is 2 Re tr(κ y overlineκᵀ y⁻¹). The factor 2 and conjugation also belong in the mixed Gram entries. In particular the elliptic identity has squared length 2, and the CM basis 1,i has Gram determinant 4. The published complex displays already include conjugation. Source corrections E1–E2 below fix their missing realification factor; E3–E6 record the other inspected misprints.
 
 Normalized subvariety degree is c₁(L)^b[B]/b!, with degree 1 on the zero-dimensional identity. All period norms in polynomial estimates are squared Hermitian norms; replacing them by norms changes the exponent. The period lattice basis supplied by geometry of numbers is a Z-basis. Independent short vectors alone are insufficient.
 
-Use the current ProfiniteArithmetic Layer 0 ring structure on Additive TauCeti.zHat and its product of Z_p components, including prime idempotents. It is already owned upstream; G6 asks only for its stage address in the older atlas inventory. The generated algebra B(V) means finite linear combinations over that ring. Its equality with the closed product of local algebras is a theorem, proved using the existing Serre-independence node. Local supported groups U_p=U∩GL(T_p) act trivially at every other prime; they are different from projected images.
+Use the current ProfiniteArithmetic Layer 0 ring structure on Additive TauCeti.zHat and its product of Z_p components, including prime idempotents. G6 records its exact existing stage address and native declarations. The sole remaining issue is registration in the older atlas inventory, whose checker rejects the current stage as an unknown supplier. The generated algebra B(V) means finite linear combinations over that ring. Its equality with the closed product of local algebras is a theorem, proved using the existing Serre-independence node. Local supported groups U_p=U∩GL(T_p) act trivially at every other prime; they are different from projected images.
 
 ## Build order and acceptance
 
@@ -43,7 +43,7 @@ A target is accepted only with its stated field, polarization, trace and integra
 
 For a polarized complex abelian variety A=V/Λ of dimension g, a Z-basis of Λ and a complex basis of V give injective ring representations ρ:End(A)→Mat(2g,Z) and κ:End(A)→Mat(g,C). For a period matrix P their convention is κ(v)P=Pρ(v). In normalized principally polarized coordinates with P=(I,τ), block signs are chosen so that ρ=[[a,−b],[−c,d]] and κ=a−τc. Extend both representations Q-linearly to End⁰(A). Changing either basis conjugates the corresponding representation.
 
-**Dependencies:** `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`, `AbelianSchemesAndArithmeticModuli:A5/complex-lattice-realization`, `AbelianSchemesAndArithmeticModuli:A5/riemann-form`.
+**Dependencies:** `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`, `AbelianSchemesAndArithmeticModuli:A5/complex-lattice-realization`, `AbelianSchemesAndArithmeticModuli:A5/riemann-form`, `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism`.
 
 **Argument.** Apply the existing complex-lattice functor to each native homomorphism. Choose bases and write the induced lattice map and complex-linear tangent map; the exponential comparison gives κP=Pρ. Injectivity follows because Λ spans V over R; conjugation follows from ordinary basis change.
 
@@ -56,6 +56,9 @@ For a polarized complex abelian variety A=V/Λ of dimension g, a Z-basis of Λ a
 - `IsogenyCoordinates.map_comp` (functoriality): Both send composition to matrix multiplication and identity to identity.
 - `IsogenyCoordinates.change_basis` (compatibility): An integral basis change in Λ conjugates ρ by its GL(2g,Z) matrix; a complex basis change conjugates κ.
 - `IsogenyCoordinates.trace` (compatibility): The A6 abelian trace is trρ(v)=2 Re trκ(v).
+- `IsogenyCoordinates.ext` (extensionality): For native endomorphisms v,w, ρ(v)=ρ(w) iff v=w, and κ(v)=κ(w) iff v=w.
+- `IsogenyCoordinates.map_add` (simp): Both representations send zero to zero and v+w to the sum of the matrices.
+- `IsogenyCoordinates.rational_extension` (compatibility): The Q-linear extensions agree with the integral representations on native End and send r·v to r times its matrix.
 
 **Discriminating tests.**
 
@@ -129,7 +132,7 @@ For an order O=End_k(A) or End_k̄(A), choose a Z-basis e₁,…,e_r of its fini
 
 **Check.** Verify every listed API law and each discriminating test, including the exact compatibility with the imported native carrier.
 
-**Source.** [mw94-preprint] §1 and §2 Lemma 2.1, internal pp 1–3; MZ20 §4 p653. The endomorphism estimate uses the Gram determinant of the abelian Rosati trace pairing.
+**Source.** [mw94-preprint] §1 and §2 Lemma 2.1, internal pp 1–3. The endomorphism estimate uses the Gram determinant of the abelian Rosati trace pairing.; [mz20] §4 p655, Gram determinant after Lemma 4.1. The coordinate Gram determinant uses the same abelian trace; the corrected complex expression takes 2 Re entrywise.
 
 ### Rosati submultiplicativity
 
@@ -157,7 +160,7 @@ Let A,B be complex abelian varieties of the same dimension g, and use positively
 
 **Check.** For [n] obtain n^(2g), including negative n. For Hom(E²,E²), a diagonal map (1,0) has degree zero; a shear has degree one. For g=0 keep degree 1; the positive-dimensional zero-map test must not be applied.
 
-**Source.** [mz20] §4 p656, degree-4g polynomial used in Lemma 4.2; MW94 author preprint §6 internal p12. The block-degree grid argument uses the determinant polynomial of the lattice representation, including its homogeneity.
+**Source.** [mz20] §4 p656, degree-4g polynomial used in Lemma 4.2. The block-degree grid argument uses the determinant polynomial of the lattice representation, including its homogeneity.; [mw94-preprint] §6 internal p12, equation (6.2). The homogeneous degree-2g polynomial is evaluated on a finite grid of Hom coefficients.
 
 ### Rosati degree inequality
 
@@ -248,7 +251,7 @@ For each g≥1 there are C_g,κ_g>0 such that for every principally polarized G/
 
 **Check.** For ω=0 the normalized degree is 1 and the right side is≥1 after enlargingC_g. For A simple and ω≠0 the bound applies to A itself, with its fixed principal degree 1.
 
-**Source.** [mw94-preprint] §4, internal p6; MW93 period theorem restated; Bost95 Theorem 2.2. The restatement supplies the dimension-uniform polynomial degree bound; the original auxiliary proof remains G1.
+**Source.** [mw94-preprint] §4 internal p6, restatement of the MW93 period theorem. The restatement supplies the dimension-uniform polynomial degree bound; the original auxiliary proof remains G1.; [bost95] Theorem 2.2 pp119–120; §5.1 pp132–136. The stated period bound and its auxiliary-section reduction corroborate the restatement; they do not close the primary-proof obligation G1.
 
 ### Short period bases
 
@@ -262,13 +265,13 @@ For each g there are C_g,c_g>0: if A/k is principally polarized of dimension≤g
 
 **Check.** The output spans the entire integral period lattice, not merely its rationalization. For B=0 the basis is empty; normalized degree remains1.
 
-**Source.** [mw93-isog-preprint] §4 Lemmas4.1–4.2, internal pp 5–6; used in MW94 §4 internal p7. Successive minima and the matrix-height lower bound give a genuine integral period basis with polynomial norms.
+**Source.** [mw93-isog-preprint] §4 Lemmas 4.1–4.2, internal pp5–6. Successive minima and the matrix-height lower bound give a genuine integral period basis with polynomial norms.; [mw94-preprint] §4 internal p7, application to the basis of periods. The period basis is used with bounded squared norms and the restricted-polarization degree.
 
 ### Cusp value height bound
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/cusp-value-height-lower-bound` (theorem).
 
-For each g fix once and for all a weight and a finite Q-rational Fourier-normalized family of scalar Siegel cusp forms with no common zero on H_g, and the analytic trivialization used for that Fourier normalization. For a ppav A/k represented by τ, at least one nonzero valueu from this fixed family satisfies log max(1,|u(τ)|⁻¹)≤C_g D max(1,h_F(A)). The choice and scaling of the family are part of the theorem, not arbitrary input.
+For each g fix once and for all a weight and a finite Q-rational Fourier-normalized family of scalar Siegel cusp forms with no common zero on H_g, and the analytic trivialization used for that Fourier normalization. For a ppav A/k represented by τ, at least one nonzero value u from this fixed family satisfies log max(1,|u(τ)|⁻¹)≤C_g D max(1,h_F(A)). The choice and scaling of the family are part of the theorem, not arbitrary input.
 
 **Dependencies:** `ArakelovGeometryAndAbelianHeights:R35.3/stable-faltings-height`, `AutomorphicBundles:B4/cusp-forms`, `AutomorphicBundles:B4/analytic-classical-comparison`.
 
@@ -276,13 +279,13 @@ For each g fix once and for all a weight and a finite Q-rational Fourier-normali
 
 **Check.** Fix the family and its Fourier scaling before choosingA. Multiplying a form by an arbitrarily tiny transcendental constant is outside the statement. The chosen value is nonzero; no logarithm of zero is used.
 
-**Source.** [mz20] Lemma 4.3 proof, p656; references MW93 periods Lemmas8.4 p439 and 8.6 p440, equation(7.4) p436. Algebraic height control and a fixed rational cusp family prevent every relevant value being too small.
+**Source.** [mz20] Lemma 4.3 proof pp656–657, citing MW93 periods Lemmas 8.4 p439 and 8.6 p440, equation (7.4) p436. Algebraic height control and a fixed rational cusp family prevent every relevant value being too small.
 
 ### Siegel imaginary-part height bound
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/weak-siegel-height-bound` (theorem).
 
-For each g and 0<δ≤1 there is C_(g,δ)>0. Let τ=x+iy represent a ppav A/k, with y₀=diag(y_i), y≥δy₀ and y_i≥δ. Then every y_i≤C_(g,δ)D max(1,h_F(A)). No bound on x and no upper comparison y≤δ⁻¹y₀ is require d.
+For each g and 0<δ≤1 there is C_(g,δ)>0. Let τ=x+iy represent a ppav A/k, with y₀=diag(y_i), y≥δy₀ and y_i≥δ. Then every y_i≤C_(g,δ)D max(1,h_F(A)). No bound on x and no upper comparison y≤δ⁻¹y₀ is required.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/cusp-value-height-lower-bound`.
 
@@ -296,7 +299,7 @@ For each g and 0<δ≤1 there is C_(g,δ)>0. Let τ=x+iy represent a ppav A/k, w
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/short-endomorphism-span` (theorem).
 
-For each g and polarization degree δ there are C_(g,δ),κ_g>0 such that End_k(A)⊗Q is spanned over Q by integral endomorphisms v with qλ(v)≤C_(g,δ)max(1,D,h_F(A))^κ_g, for A/k of dimension g with a k-defined polarization λ of map-degree δ. For δ=1 the constant depends only ong. This is a spanning set, not yet a Z-basis.
+For each g and polarization degree δ there are C_(g,δ),κ_g>0 such that End_k(A)⊗Q is spanned over Q by integral endomorphisms v with qλ(v)≤C_(g,δ)max(1,D,h_F(A))^κ_g, for A/k of dimension g with a k-defined polarization λ of map-degree δ. For δ=1 the constant depends only on g. This is a spanning set, not yet a Z-basis.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/period-theorem`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/short-period-basis`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1/rosati-submultiplicativity`, `AbelianSchemesAndArithmeticModuli:A6/hom-descent-at-full-level`, `AbelianSchemesAndArithmeticModuli:A3/nonaffine-abelian-quotient`, `ArakelovGeometryAndAbelianHeights:R35.4/isogeny-height-bounds`.
 
@@ -310,7 +313,7 @@ For each g and polarization degree δ there are C_(g,δ),κ_g>0 such that End_k(
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/endomorphism-discriminant-bound` (theorem).
 
-For each g≥1 there are C_g,κ_g>0 such that a ppav A/k of dimension g satisfies Dλ(End_k(A))≤C_g max(1,D,h_F(A))^κ_g. The same bound holds for End_k̄(A), after enlarging constants and exponent only ing. Both orders have a Z-basis whose qλ-lengths satisfy a bound of this form.
+For each g≥1 there are C_g,κ_g>0 such that a ppav A/k of dimension g satisfies Dλ(End_k(A))≤C_g max(1,D,h_F(A))^κ_g. The same bound holds for End_k̄(A), after enlarging constants and exponent only in g. Both orders have a Z-basis whose qλ-lengths satisfy a bound of this form.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/short-endomorphism-span`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1/rosati-discriminant`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/basis-from-minima`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/gram-uniform-bound`, `AbelianSchemesAndArithmeticModuli:A6/hom-descent-at-full-level`.
 
@@ -318,13 +321,13 @@ For each g≥1 there are C_g,κ_g>0 such that a ppav A/k of dimension g satisfie
 
 **Check.** For a non-CM elliptic curve the determinant is 2, consistent with a positive dimension constant. The geometric-End version uses a bounded torsion field and does not claimEnd_k=End_k̄.
 
-**Source.** [mw94-preprint] Main Theorem internal p1, Lemma 2.1 pp 2–3, Lemma 5.1 p10; MZ20 Lemma 4.4 p657. A bounded rational spanning set bounds successive minima; the lattice API yields a basis and its Gram determinant.
+**Source.** [mw94-preprint] Main Theorem internal p1, Lemma 2.1 pp2–3, Lemma 5.1 p10. A bounded rational spanning set bounds successive minima; the lattice API yields a basis and its Gram determinant.; [mz20] Lemma 4.4 p657. The dimension-uniform geometric End bound is the discriminant estimate used in the application.
 
 ### Short off-diagonal isogeny
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/short-offdiagonal-isogeny` (theorem).
 
-For principally polarized isogenous complexA,B of dimension g, there exist isogenies f:A→B andf̃:B→A such thatv∈End(A×B), v(x,y)=(f̃(y),f(x)), has ℓ(v)≤C_g sqrt(D(End(A×B))). No arithmetic height assumption is used here.
+For principally polarized isogenous complex A,B of dimension g, there exist isogenies f:A→B andf̃:B→A such thatv∈End(A×B), v(x,y)=(f̃(y),f(x)), has ℓ(v)≤C_g sqrt(D(End(A×B))). No arithmetic height assumption is used here.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1/rosati-discriminant`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1/rosati-degree`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/definite-minima-discriminant`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/basis-from-minima`, `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`, `AbelianSchemesAndArithmeticModuli:A6/endomorphism-algebra-is-semisimple`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1/rosati-submultiplicativity`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1/degree-polynomial`.
 
@@ -338,7 +341,7 @@ For principally polarized isogenous complexA,B of dimension g, there exist isoge
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/polarized-isogeny-estimate` (theorem).
 
-Fix dimension g and map-degreesδ_A,δ_B of k-defined polarizations. There are C_(g,δ_A,δ_B),κ_g>0 such that k-isogenous A,B/k admit a k-isogeny A→B of degree≤C_(g,δ_A,δ_B)max(1,D,h_F(A))^κ_g. The chosen isogeny is not require d to preserve the polarizations.
+Fix dimension g and map-degreesδ_A,δ_B of k-defined polarizations. There are C_(g,δ_A,δ_B),κ_g>0 such that k-isogenous A,B/k admit a k-isogeny A→B of degree≤C_(g,δ_A,δ_B)max(1,D,h_F(A))^κ_g. The chosen isogeny is not required to preserve the polarizations.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.2/short-endomorphism-span`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1/rosati-degree`, `ArakelovGeometryAndAbelianHeights:R35.4/isogeny-height-bounds`, `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`, `AbelianSchemesAndArithmeticModuli:A6/endomorphism-algebra-is-semisimple`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.1/degree-polynomial`.
 
@@ -361,7 +364,7 @@ Let B be a finite-dimensional semisimple Q-algebra of Q-dimension m, and O⊂B a
 
 **Dependencies:** `mathlib:LinearMap.trace`, `mathlib:Matrix.det`, `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness`.
 
-**Argument.** Use the existing full lattice and left multiplication linear map. The determinant changes by the square of an integral basis-change determinant. Nondegeneracy follows from separability of the number-field center and the reduced-trace pairing; the regular trace is its scalar multiple.
+**Argument.** Use the existing full lattice and left multiplication linear map. The determinant changes by the square of an integral basis-change determinant. For nondegeneracy, use Artin–Wedderburn block matrices over finite-dimensional division Q-algebras. Given a nonzero entry x_ij in one block, choose the single-entry matrix y_ji=x_ij⁻¹ in that block and zero elsewhere. Then tr_B(xy)=n·dim_Q(D)≠0 for that n×n block. This proves the regular-trace pairing nondegenerate without importing a reduced-trace theorem.
 
 **Uses.** MW95 §§2–3: Bound free submodule indices using the regular norm. MW95 §5: Remove polarization from endomorphism discriminants.
 
@@ -371,6 +374,7 @@ Let B be a finite-dimensional semisimple Q-algebra of Q-dimension m, and O⊂B a
 - `RegularOrderDiscriminant.basis_independent` (extensionality): disc(O) is invariant under GL(m,Z) basis changes.
 - `RegularOrderDiscriminant.index_square` (relation): IfO′⊂O has finite index I, disc(O′)=I²disc(O).
 - `RegularOrderDiscriminant.matrix_comparison` (compatibility): For any Q-basis of B, tr_B(x) is Mathlib LinearMap.trace of left multiplication, hence Matrix.trace of its multiplication matrix.
+- `RegularOrderDiscriminant.nonzero` (characterisation): The regular-trace pairing is nondegenerate and disc(O)≠0; its sign need not be positive.
 
 **Discriminating tests.**
 
@@ -387,11 +391,11 @@ Let B be a finite-dimensional semisimple Q-algebra of Q-dimension m, and O⊂B a
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/class-index` (definition).
 
-For O⊂D as above and e≥1, consider every finitely generated torsion-free left O-module M with dim_D(D⊗_O M)=e, where the rationalization is understood as Q⊗_Z M. Let b(M) be the least index[M:F] among free left O-submodulesF≅O^e of full Z-rank. Such F exist by clearing denominators in a D-basis. Define i_e(O)=sup_M b(M) in N∪{∞}; also i_0(O)=1. Finiteness is the class-index theorem, not a defining assumption.
+Let D be a finite-dimensional division Q-algebra and O⊂D a unital full Z-lattice subring. For e≥1 consider finitely generated left O-modules M whose underlying abelian group is Z-torsion-free and whose rationalization Q⊗_Z M is a left D-vector space of dimension e. Let b(M) be the least additive index [M:F] among free left O-submodules F≅O^e of full Z-rank. Such F exist by clearing denominators in a D-basis. Define i_e(O)=sup_M b(M) in N∪{∞}; also i_0(O)=1. Finiteness is the class-index theorem, not a defining assumption.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/regular-order-discriminant`, `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness`.
 
-**Argument.** RepresentM as a lattice in D^e after a rational basis choice. Clear common denominators to embedO^e and take the least positive finite index. Take the supremum in the extended naturals so that the definition does not presuppose Jordan–Zassenhaus finiteness.
+**Argument.** RepresentM as a lattice in D^e after a rational basis choice. Clear common denominators to embedO^e and take the least positive finite index. Take the supremum in the extended naturals so that the definition does not presuppose Jordan–Zassenhaus finiteness. Transport right modules to left modules over the opposite algebra. For x∈D, the subalgebra Q[x] is a field; its left and right actions on D have equal dimension over Q[x], so L_x and R_x have equal rational trace. Cyclicity gives tr_D(yx)=tr_D(xy), hence the opposite order has the same regular-trace discriminant.
 
 **Uses.** MW95 Lemma 4.1: A free submodule of Hom(B,A) supplies a mapB→A^e with controlled kernel.
 
@@ -402,6 +406,7 @@ For O⊂D as above and e≥1, consider every finitely generated torsion-free lef
 - `OrderClassIndex.rank_zero` (simp): i_0(O)=1.
 - `OrderClassIndex.module_equiv` (functoriality): An O-linear equivalence preserves b(M); an algebra/order equivalence preserves i_e.
 - `OrderClassIndex.integral_lattice` (compatibility): The additive index is exactly the index of the imported full Z-lattice, not an O-module cardinality over a field.
+- `OrderClassIndex.right_modules` (compatibility): For right O-modules use left Oᵒᵖ-modules and define i′_e(O)=i_e(Oᵒᵖ). The opposite algebra has the same regular-trace order discriminant: disc(Oᵒᵖ)=disc(O).
 
 **Discriminating tests.**
 
@@ -412,13 +417,13 @@ For O⊂D as above and e≥1, consider every finitely generated torsion-free lef
 
 **Check.** Verify every listed API law and each discriminating test, including the exact compatibility with the imported native carrier.
 
-**Source.** [mw95] §2 p8, definition preceding(2.1). The uniform free-sublattice index is the arithmetic quantity needed for stable powers.
+**Source.** [mw95] §2 p8, definition preceding(2.1). The uniform free-sublattice index is the arithmetic quantity needed for stable powers.; [mw95] End of §3 pp13–14, equation (3.11). The source also needs the right class index; opposite algebras give its uniform definition and the same discriminant bound.
 
 ### Division-algebra norm body
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/norm-body-invariant` (definition).
 
-For D/Q of dimension m, let N_D(x)=det_Q(L_x), extended to D_R. In any Q-lattice basis Λ put p(D)=sqrt(|disc(Λ)|) times the supremum of the coordinate volumes of bounded centrally symmetric convex bodiesC⊂{x:|N_D(x)|<1}. The use of strict interior may be replaced by limiting compact bodies. The product is independent of Λ and the chosen basis; it is a positive real number, with finite upper bound supplied by Minkowski applied to any full order lattice.
+Let D be a finite-dimensional division Q-algebra of Q-dimension m≥1. Put N_D(x)=det_Q(L_x), extended to D_R. In any full rational lattice basis Λ put p(D)=sqrt(|disc(Λ)|) times the supremum of the coordinate volumes of bounded convex bodies C with nonempty interior, C=−C, and C⊂{x:|N_D(x)|<1}. Symmetry is about zero. Strict interior may be replaced by limiting compact bodies. The product is independent of Λ and the chosen basis; it is a positive finite real number, with upper bound supplied by Minkowski applied to any full order lattice.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/regular-order-discriminant`, `mathlib:Matrix.det`, `GeometryOfNumbersAndQuadraticArithmetic:GN.0/mixed-embedding-normalization`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-first-native-interface`.
 
@@ -432,6 +437,7 @@ For D/Q of dimension m, let N_D(x)=det_Q(L_x), extended to D_R. In any Q-lattice
 - `DivisionNormBody.lattice_independent` (extensionality): Changing the full rational lattice or its basis leaves p(D) unchanged.
 - `DivisionNormBody.transport` (functoriality): A Q-algebra isomorphism preserves p(D).
 - `DivisionNormBody.volume_normalization` (compatibility): At a complex place use ordinary two-dimensional real volume and the GN mixed-embedding discriminant normalization.
+- `DivisionNormBody.positive_finite` (characterisation): The supremum defining p(D) is finite and p(D)>0; division ensures that a nonzero order element has nonzero integral regular norm.
 
 **Discriminating tests.**
 
@@ -454,7 +460,7 @@ Every finite-dimensional division Q-algebra D of Q-dimension m satisfies p(D)≥
 
 **Argument.** Use a cyclic maximal subfield over the number-field center and the resulting cyclic-algebra coordinates. Construct the symmetric convex bodies in each real/complex matrix factor as in Lemmas3.1–3.2, with the regular norm normalization. Multiply their normalized volumes to obtain 2^m. GapG3 keeps the algebraic/cohomological Brauer bridge and cyclic-maximal-subfield theorem separate from the already-owned global Brauer sequence.
 
-**Check.** For Q obtain p=2 and equality; for Q(i), p=2π≥4. Cyclicity is require d over the number-field center, not over Q when the center is larger.
+**Check.** For Q obtain p=2 and equality; for Q(i), p=2π≥4. Cyclicity is required over the number-field center, not over Q when the center is larger.
 
 **Source.** [mw95] §3, Lemmas3.1–3.3 pp 10–13, especially Lemma 3.3 p13. Cyclicity over the number-field center gives explicit convex bodies with adequate normalized volume.
 
@@ -462,15 +468,15 @@ Every finite-dimensional division Q-algebra D of Q-dimension m satisfies p(D)≥
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/class-index-bound` (theorem).
 
-For every full order O in a division Q-algebra D and e≥1, i_e(O) is finite and i_e(O)≤|disc(O)|^(e/2). In particular no qualitative finiteness theorem for order lattices is assumed in its definition.
+For every full order O in a division Q-algebra D and e≥1, i_e(O) is finite and i_e(O)≤|disc(O)|^(e/2). In particular no qualitative finiteness theorem for order lattices is assumed in its definition. The same bound holds for the right class index i′_e(O).
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/class-index`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/division-norm-body-bound`, `GeometryOfNumbersAndQuadraticArithmetic:GN.1/minkowski-first-native-interface`.
 
-**Argument.** Minkowski in the regular norm body gives i_1≤2^m sqrt|discO|/p(D). Use p(D)≥2^m to obtain i_1≤sqrt|discO|. Filter a rank-e lattice by a rational D-line; lift a free sublattice of the quotient and combine it with a rank-one sublattice to provei_e≤i_1 i_(e−1).
+**Argument.** Minkowski in the regular norm body gives i_1≤2^m sqrt|discO|/p(D). Use p(D)≥2^m to obtain i_1≤sqrt|discO|. Filter a rank-e lattice by a rational D-line; lift a free sublattice of the quotient and combine it with a rank-one sublattice to provei_e≤i_1 i_(e−1). Apply the same theorem to Oᵒᵖ⊂Dᵒᵖ and use disc(Oᵒᵖ)=disc(O) to obtain the right-module bound, including the rank-one case used in the Hom cross-discriminant argument.
 
 **Check.** Check the exponent e/2 against the page image, not OCR. The nonmaximal Gaussian order test is consistent with 2≤sqrt16.
 
-**Source.** [mw95] §2 Lemmas2.1–2.2 pp 9–10, Theorem in §2; §3 p13. The rank-one Minkowski estimate and induction yield the exponent e/2.
+**Source.** [mw95] §2 Class Index Lemma and Lemmas 2.1–2.2 pp8–10; §3 pp13–14, equation (3.11). The rank-one Minkowski estimate and induction yield exponent e/2. Equation (3.11) records the right rank-one bound; the opposite-algebra argument gives the right rank-e version.
 
 ### Isotypic trace comparison
 
@@ -544,7 +550,7 @@ For k-simple k-isogenousA,B of dimension g≥1 there is a k-isogeny B→A of deg
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.4/cross-discriminant`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/class-index-bound`, `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`.
 
-**Argument.** Apply the class-index argument to the two Hom lattices over the two simple End orders. Use the trace-dual lattice to obtain a compositionδ whose squared regular norm is bounded by c. Convert regular norm into abelian degree: degδ=|N_D(δ)|^(2g/m); select the require d factor and use positive integral degrees.
+**Argument.** Apply the left and right rank-one class-index bounds to the two Hom lattices over the simple End orders, using the opposite-algebra interface for the right action. Use the trace-dual lattice to obtain a compositionδ whose squared regular norm is bounded by c. Convert regular norm into abelian degree: degδ=|N_D(δ)|^(2g/m); select the required factor and use positive integral degrees.
 
 **Check.** WhenA=B use the identity of degree 1; the positive cross-discriminant bound must allow it. The regular norm exponent is 2g/m, and both Hom lattice indices enter the squared determinant.
 
@@ -596,7 +602,7 @@ For each g there are C_g,κ_g>0. Let A=∏A_i^(e_i) be an actual product overk o
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.4/product-dual-isogeny` (theorem).
 
-For A an actual product as in the previous node, there is a k-isogeny A→A∨ of degree≤C_g max(1,D,h_F(A))^κ_g, with constants depending only ong.
+For A an actual product as in the previous node, there is a k-isogeny A→A∨ of degree≤C_g max(1,D,h_F(A))^κ_g, with constants depending only on g.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.4/simple-cross-discriminant-isogeny`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.4/polarization-free-simple-discriminant`, `ArakelovGeometryAndAbelianHeights:R35.3/stable-height-properties`, `ArakelovGeometryAndAbelianHeights:R35.6/faltings-height-lower-bound`.
 
@@ -643,7 +649,7 @@ For each g≥1 there are C_g,κ_g>0 such that A/k of dimension g admits a k-isog
 
 **Target:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.5/rational-unpolarized-isogeny` (theorem).
 
-For each g≥1 there are C_g,κ_g>0: if A,B/k of dimension g are k-isogenous over a number field of degree D, some k-isogeny A→B has degree≤C_g max(1,D,h_F(A))^κ_g. No polarization is included in the input, and the constants depend only ong.
+For each g≥1 there are C_g,κ_g>0: if A,B/k of dimension g are k-isogenous over a number field of degree D, some k-isogeny A→B has degree≤C_g max(1,D,h_F(A))^κ_g. No polarization is included in the input, and the constants depend only on g.
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.5/quantitative-factorization`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.5/product-target-isogeny`, `AbelianSchemesAndArithmeticModuli:A3/nonaffine-abelian-quotient`, `AbelianSchemesAndArithmeticModuli:A3/torsion-divisibility`, `ArakelovGeometryAndAbelianHeights:R35.4/isogeny-height-bounds`.
 
@@ -665,7 +671,7 @@ Let k be a number field and k⊂K⊂k̄. For K-isogenousA,B defined overk, there
 
 **Check.** The field degree is[k:Q], not[K:Q]. The result applies to infiniteK/k by descending all Hom data to K∩k(A[3],B[3]).
 
-**Source.** [mw95] Lemma 7.2 and following proof, p22–23. All geometric homomorphisms are defined over a bounded torsion extension, and intersecting it with K preserves the require d Hom space.
+**Source.** [mw95] Lemma 7.2 and following proof, p22–23. All geometric homomorphisms are defined over a bounded torsion extension, and intersecting it with K preserves the required Hom space.
 
 ### Geometric isogeny estimate
 
@@ -677,9 +683,9 @@ For every g≥1 there are C_g,κ_g>0 such that geometrically isogenous dimension
 
 **Argument.** Apply the relative estimate to K=k̄. Use stable-height invariance under finite extension and clamp negative heights with 1. Transport geometric Hom along algebraically closed field extension using the existing relative Hom rigidity interface.
 
-**Check.** A nontrivial quadratic twist may be geometrically isogenous without any k-isogeny; the conclusion remains geometric. The constants depend only ong and the field-degree dependence is polynomial.
+**Check.** A nontrivial quadratic twist may be geometrically isogenous without any k-isogeny; the conclusion remains geometric. The constants depend only on g and the field-degree dependence is polynomial.
 
-**Source.** [ts18] Theorem 2.3 pp 382–383; MW95 Theorem II and final p23. Tsimerman’s dimension-only geometric bound follows by takingK=k̄ in the relative estimate.
+**Source.** [ts18] Theorem 2.3 pp382–383. Tsimerman’s dimension-only geometric bound follows by takingK=k̄ in the relative estimate.; [mw95] Theorem II p6; final field-degree argument p23. The relative-field reduction permits a geometric isogeny without asserting it is defined over the ground field.
 
 **Layer acceptance:** planned. Resolve and independently verify G1, G3 and the dependent proof interfaces.
 
@@ -726,7 +732,7 @@ There is an absoluteC>0 such that geometrically isogenous elliptic curvesE₁,E�
 
 **Check.** For D=1 the right side stays positive. The proof supplies degree quadratic in D; a dimension-dependent unspecified exponent from the coarse period theorem does not suffice.
 
-**Source.** [gr14] Theorem 1.4 p347; §7.2 pp 384–388, §7.4 pp 389–390; Proposition 6.9 invoked in those proofs. The sharper period/slope argument yields degree quadratic in D and the height-logarithm parameter.
+**Source.** [gr14] Theorem 1.4 p347; §7.2 Theorem 7.5 pp384–386; §7.3 pp386–389 and §7.4 pp389–390; Proposition 6.9 invoked in those proofs. The sharper period/slope argument yields degree quadratic in D and the height-logarithm parameter.
 
 ### Elliptic j-height isogeny bound
 
@@ -740,7 +746,7 @@ There is an absoluteC>0 such that for D=[k:Q]≥2, any geometrically isogenous e
 
 **Check.** Include CM curves and the field-degree-one exception.
 
-**Source.** [mz20] §5.3 pp 666–667; GR14 Theorem 1.4 p347. The explicit elliptic rate used by Masser–Zannier follows from the height form and the existing j-height comparison.
+**Source.** [mz20] §5.3 pp666–667. The explicit elliptic rate used by Masser–Zannier follows from the height form and the existing j-height comparison.; [gr14] Theorem 1.4 p347; §7.3 pp386–389 and §7.4 pp389–390. The elliptic height estimate supplies the quadratic field-degree rate after the j-height comparison.
 
 **Layer acceptance:** planned. Resolve and independently verify G4 and the dependent proof interfaces.
 
@@ -755,7 +761,7 @@ Let A/K in characteristic zero have all geometric endomorphisms defined over K. 
 
 **Dependencies:** `AbelianSchemesAndArithmeticModuli:A4/etale-tate-module`, `AbelianSchemesAndArithmeticModuli:A5/complex-lattice-realization`, `AbelianSchemesAndArithmeticModuli:A6/coefficient-hom-and-units`, `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`.
 
-**Argument.** Assemble the existing primewise Tate modules and continuous actions using the upstreamẐ ring/product equivalence. Define the unital image subalgebra by finite linear combinations; equivariance puts it in Z. Record the closure separately; the next target proves equality for number-field Galois images using Serre independence and a finite local-generator argument. G6 retains only the missing atlas address for the already-owned current upstream profinite-integer ring.
+**Argument.** Assemble the existing primewise Tate modules and continuous actions using the upstreamẐ ring/product equivalence. Define the unital image subalgebra by finite linear combinations; equivariance puts it in Z. Record the closure separately; the next target proves equality for number-field Galois images using Serre independence and a finite local-generator argument. The exact existing ProfiniteArithmetic Layer 0 supply is recorded under G6; only registration in the atlas stage inventory remains, not a new ring construction. Projection is surjective on finite spans by lifting local coefficients; a submodule of a finite free Z_ℓ-module is finite and closed. Compactness of the ambient adelic matrix space identifies the projection of the closure with the local span.
 
 **Uses.** RY25 Theorem 4.7: Uniformly bound[Z:B(U′)] for open subgroups of bounded index. RY25 Proposition 4.8: Apply monotonicity to a supported connected subgroup.
 
@@ -764,8 +770,9 @@ Let A/K in characteristic zero have all geometric endomorphisms defined over K. 
 - `IntegralImageAlgebra.span` (constructor): B(V) consists of finite sums∑a_iv_i with a_i∈Ẑ,v_i∈V.
 - `IntegralImageAlgebra.monotone` (functoriality): V⊂W impliesB(V)⊂B(W) and B̄(V)⊂B̄(W).
 - `IntegralImageAlgebra.centralizer` (compatibility): The action of native End_K̄(A) on T commutes with V, henceB(V)⊂Z.
-- `IntegralImageAlgebra.local_projection` (projection): Projection to ℓ sendsB(V) intoZ_ℓ[pr_ℓV]; closure projects into the corresponding closed local algebra.
+- `IntegralImageAlgebra.local_projection` (projection): The ℓ-projection of B(V) equals Z_ℓ[pr_ℓV]: lift each finite coefficient through the surjective native component map. The local span is a finite Z_ℓ-module, hence closed, so the same equality holds for the projection of B̄(V).
 - `IntegralImageAlgebra.trivial` (simp): B({1}) consists exactly of scalarẐ multiples of the identity.
+- `IntegralImageAlgebra.least` (universal-property): For every unital Ẑ-subalgebra C of the native endomorphism algebra, B(V)⊂C iff V⊂C. In particular V⊂B(V) and finite sums and products stay in B(V).
 
 **Discriminating tests.**
 
@@ -814,7 +821,7 @@ For A/k over a number field with End_k=End_k̄, fix ℓ andd≥1. There is M_ℓ
 
 **Dependencies:** `FaltingsFinitenessAndIsogenyTheorems:R28.4/semisimplicity-and-the-tate-homomorphism-comparison`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/integral-image-algebra`, `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness`, `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem`.
 
-**Argument.** EveryV corresponds to a finite field extension. Its rational Tate module is semisimple and its endomorphism commutant remainsE⊗Q_ℓ because all geometric endomorphisms already descend. The semisimple double-centralizer theorem identifiesQ_ℓ[V] with Z_ℓ⊗Q_ℓ, giving a finite local integral index. A compact subgroup of GL_(2g)(Z_ℓ) is an ℓ-adic analytic group and is topologically finitely generated, so it has only finitely many open subgroups of index≤d. Take their maximum. GapG8 records this group-structure input.
+**Argument.** EveryV corresponds to a finite field extension. Its rational Tate module is semisimple and its endomorphism commutant remainsE⊗Q_ℓ because all geometric endomorphisms already descend. The semisimple double-centralizer theorem identifiesQ_ℓ[V] with Z_ℓ⊗Q_ℓ, giving a finite local integral index. Gap G8 retains the compact ℓ-adic closed-subgroup/topological-generation input. Once finite generation is supplied, import current Tau Ceti’s TauCeti.IsTopologicallyFinitelyGenerated.finite_openSubgroup_index_eq and take the finite union of indices 1 through d; this generic finiteness theorem is already implemented upstream. Take the maximum of the finitely many local indices.
 
 **Check.** The maximum is over finitely many local open subgroups of index≤d, not over infinitely many finite extensions without identifying equal images. All geometric End is already rational overk, so it is unchanged by the extensions used.
 
@@ -893,7 +900,7 @@ For A/K with K/Q finitely generated, after a finite extension making all geometr
 
 **Check.** Preserve End and obtain adelic subgroup inclusion; only the selected ℓ₀ image is asserted equal. Integral End equality uses saturation in addition to equality after⊗Z_ℓ₀.
 
-**Source.** [noot95] §1.2, Proposition 1.3 and Corollary 1.5, pp 163–165; RY25 Proposition 4.8 pp 263–265. A full-image specialization at one prime preserves End, while the finite-étale torsion specialization gives adelic subgroup inclusion.
+**Source.** [noot95] §1.2, Proposition 1.3 and Corollary 1.5 pp163–165. A full-image specialization at one prime preserves End, while the finite-étale torsion specialization gives adelic subgroup inclusion.; [ry25] Proposition 4.8 and proof pp263–265. The specialization retains the integral endomorphism lattice and embeds its adelic image in the generic one; equality of all local images is not asserted.
 
 ### Supported connected adelic image
 
@@ -914,6 +921,7 @@ For the adelic image U⊂∏_pGL(T_p), embedGL(T_p) as the subgroup acting trivi
 - `SupportedConnectedImage.product_connected` (characterisation): IfU=∏V_p and each V_p has connected Zariski closure, W(U)=U.
 - `SupportedConnectedImage.independent_subgroup` (compatibility): IfV=∏V_p⊂U and each V_p has connected closure, then V⊂W(U).
 - `SupportedConnectedImage.endomorphisms` (compatibility): Every element of W(U) commutes with native geometric End wheneverEnd is defined over K.
+- `SupportedConnectedImage.ext` (extensionality): Two supported connected product subgroups are equal when every supported local identity-component subgroup agrees; the construction does not depend on an ordering of the primes.
 
 **Discriminating tests.**
 
@@ -958,7 +966,7 @@ Let K/Q be finitely generated, A/K with End_K=End_K̄, U its adelic image and Z 
 
 ## Exact external contracts
 
-- `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness`: The Artin–Wedderburn decomposition of a finite-dimensional semisimple Q- or Q_ℓ-algebra and the decomposition of its finite semisimple modules; regular-trace nondegeneracy in characteristic zero. Use the existing algebra/module carriers. Consumed by `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/regular-order-discriminant`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/class-index`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/fixed-prime-uniform-index`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/large-prime-full-algebra`.
+- `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness`: The Artin–Wedderburn decomposition of a finite-dimensional semisimple Q- or Q_ℓ-algebra and the decomposition of its finite semisimple modules. Use the existing algebra/module carriers. Regular-trace nondegeneracy is proved locally from its matrix blocks, rather than attributed to this layer. Consumed by `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/regular-order-discriminant`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.3/class-index`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/fixed-prime-uniform-index`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/large-prime-full-algebra`.
 
 - `tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-3-the-double-centralizer-density-theorem`: Using Layer 2, assemble the double-centralizer equality B=End_EndB(V)(V) for a faithful finite semisimple B-module V over Q_ℓ or F_ℓ, where B is its image algebra. The simple-module density statement is applied block by block, not to an arbitrary nonsemisimple module. Consumed by `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/fixed-prime-uniform-index`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/large-prime-full-algebra`.
 
@@ -968,7 +976,7 @@ Let K/Q be finitely generated, A/K with End_K=End_K̄, U its adelic image and Z 
 
 ## Open obligations
 
-These are proof or addressing boundaries of a finished planning pass. They do not assert that a theorem is false. A successor must resolve each exact input and update every dependent target before marking its layer closed.
+These are proof or registration boundaries of a finished planning pass. They do not assert that a theorem is false. A successor must resolve each exact input and update every dependent target before marking its layer closed.
 
 ### G1. Primary period-theorem and matrix-height proof
 
@@ -1000,9 +1008,9 @@ MW95 Refinements of the Tate conjecture for abelian varieties, Theorems1–2 and
 
 Direct consumers: `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/residual-uniform-semisimplicity`.
 
-### G6. Atlas address for the current profinite-integer ring
+### G6. Register the existing ProfiniteArithmetic Layer 0 supply
 
-The algebraic/closed product comparison now has an explicit argument using the existing Serre independence node. Import the native Additive TauCeti.zHat ring/product API from current upstream ProfiniteArithmetic Layer 0, read here, but absent from the atlas stage inventory; the maintainer must assign its current stage address. No new profinite-integer type is planned.
+The exact existing owner is tauceti:TauCetiRoadmap/ProfiniteArithmetic#layer-0-the-ring-structure-on-the-profinite-integers. Current Tau Ceti ZHat/Ring.lean and ZHat/Decomposition.lean implement the ring on Additive TauCeti.zHat, its continuous product equivalence, surjective components, prime idempotents and their finite-sum limit (TauCeti.zHat.ringEquivPiPadicInt and TauCeti.zHat.tendsto_sum_idem). The atlas stage inventory used by check_blueprint.py omits ProfiniteArithmetic and rejects its genuine stage address as an unknown supplier. Register that existing upstream stage, then move this precise supply into requests and both direct prerequisite lists. No mathematical profinite-integer gap or new ring plan is asserted; the older pinned baseline is not silently advanced.
 
 Direct consumers: `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/integral-image-algebra`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/adelic-algebra-product`.
 
@@ -1014,7 +1022,7 @@ Direct consumers: `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.8/finite-type-t
 
 ### G8. Compact ℓ-adic analytic group structure
 
-Supply the closed-subgroup theorem for compact subgroups of GL_n(Z_ℓ), their topological finite generation and finiteness of open subgroups of each bounded index, plus openness of the relevant profinite Frattini subgroup for the full-image Hilbert argument. The existing IG.2/frattini-full-image node gives the closed-image criterion conditional on this structural input and records the same gap. Noot Prop1.3 cites Serre’s compact-image Hilbert theorem. Route the shared ℓ-adic Lie input to its owner; neither ordinary finite-cover Hilbert irreducibility nor the pro-p Frattini theorem alone supplies it.
+Supply the closed-subgroup theorem for compact subgroups of GL_n(Z_ℓ), their topological finite generation, and openness of the relevant profinite Frattini subgroup for the full-image Hilbert argument. Bounded-index finiteness after topological finite generation is already proved in current Tau Ceti by TauCeti.IsTopologicallyFinitelyGenerated.finite_openSubgroup_index_eq; a finite union gives index≤d. Import that result when the baseline advances, rather than planning it again. The existing IG.2/frattini-full-image node supplies the closed-image criterion conditional on the remaining structural input. Noot Proposition 1.3 cites Serre’s compact-image Hilbert theorem. Route the shared ℓ-adic Lie input to its owner; ordinary finite-cover Hilbert irreducibility and pro-p Frattini alone do not supply it.
 
 Direct consumers: `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.7/fixed-prime-uniform-index`, `FaltingsFinitenessAndIsogenyTheoremsPartII:QI.8/endomorphism-preserving-specialization`.
 
@@ -1067,7 +1075,7 @@ For a dimension-two abelian variety over any number field with geometric End=Z, 
 
 ### OI.5. Real multiplication images
 
-Acquire Ribet1976 and state the RM image over the appropriate O_M residue fields with the exact endomorphism field, polarization, coefficient splitting and inner-twist hypotheses. Prove eventual containment of the require d product of SL₂ factors. Do not replace the RM theorem by the Endgeom=Z surface theorem.
+Acquire Ribet1976 and state the RM image over the appropriate O_M residue fields with the exact endomorphism field, polarization, coefficient splitting and inner-twist hypotheses. Prove eventual containment of the required product of SL₂ factors. Do not replace the RM theorem by the Endgeom=Z surface theorem.
 
 ### OI.6. Density and automorphy consumers
 
@@ -1077,11 +1085,19 @@ The open-image acceptance tests must include a nontrivial quadratic twist (geome
 
 ## Source corrections
 
-- **E1**, MZ20 §4 p653 equation(22): Use 2 Re tr(κ y overlineκᵀ y⁻¹) for q; the rational trace formula retains its normalization. For an elliptic identity the rational trace is 2 whereas the uncorrected complex trace is 1. Recorded already as PAPER-MASSER-ZANNIER-20/E1; no new published erratum is claimed.
+The findings concern the published MZ20 and RY25 files identified by URL, edition and SHA-256 in the bibliography and packet sourceVersions. Every entry below was independently checked in this review; conjugation already present in the published complex formulas is retained. No passage from a source is reproduced.
 
-- **E2**, MZ20 §4 p655, displayed complex Gram determinant preceding Lemma 4.2: Each Gram entry is 2 Re tr(κ_i y overlineκ_jᵀ y⁻¹). For the CM basis 1,i the correct Gram matrix isdiag(2,2); omitting conjugation gives the wrong sign on i and omitting2 gives the wrong determinant. Recorded already as PAPER-MASSER-ZANNIER-20/E9; no new published erratum is claimed.
+- **E1**, MZ20 §4 p653 equation(22): Keep the printed conjugation and replace the complex expression by 2 Re tr(κ y overlineκᵀ y⁻¹); leave the rational expression unchanged. The elliptic identity gives complex trace 1 and rational trace 2. The conjugation bar is already visible in the published page image; the defect is the missing factor 2. Recorded already as PAPER-MASSER-ZANNIER-20/E1; no new published erratum is claimed. Review: confirmed by REV-DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII.
 
-- **E3**, RY25 proof of Theorem 4.7 p263, large-prime threshold before the final product: Requireℓ>max(M_A,M′), where M′ controls residual semisimplicity and End reduction. The local equality argument uses exactly the two exceptional setsM_A and M′; the adelic bound is only assembled afterwards. Recorded already as PAPER-RICHARD-YAFAEV-25/E1; no new published erratum is claimed.
+- **E2**, MZ20 §4 p655, displayed complex Gram determinant preceding Lemma 4.2: Keep the printed conjugation and use entries 2 Re tr(κ_i y overlineκ_jᵀ y⁻¹). For the CM basis 1,i, the correct rational Gram matrix is diag(2,2), of determinant 4. Even with the printed conjugation the complex formula lacks the realification normalization; a rank-r discriminant scales by 2^r after taking real parts. Recorded already as PAPER-MASSER-ZANNIER-20/E9; no new published erratum is claimed. Review: confirmed by REV-DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII.
+
+- **E3**, RY25 proof of Theorem 4.7 p263, large-prime threshold before the final product: Requireℓ>max(M_A,M′), where M′ controls residual semisimplicity and End reduction. The local equality argument uses exactly the two exceptional setsM_A and M′; the adelic bound is only assembled afterwards. Recorded already as PAPER-RICHARD-YAFAEV-25/E1; no new published erratum is claimed. Review: confirmed by REV-DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII.
+
+- **E4**, Published §4 p655, scalar-length remark after Lemma 4.1: For every integer n, ℓ([n])=sqrt(2g)|n|. Taking n=−1 gives the same positive norm as the identity. The packet and suggested scalar theorem already use the absolute value. No published correction located in the bounded search; separate minor sign slip in the normalization discussion. Review: confirmed by REV-DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII.
+
+- **E5**, Published proof of Theorem 4.7 p263, saturation index M_A: Take sat(W)=(W⊗Q)∩E₀∨, so M_A=[sat(W):W]. The commutator rows are integral linear functionals. Saturation must use their dual ambient lattice, as in the corrected centralizer-reduction node; a chosen coordinate identification must be stated if used. No published correction located in the bounded search; the corrected dual-lattice formula was already in this packet. Review: confirmed by REV-DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII.
+
+- **E6**, Published proof of Lemma 4.2 p656, final construction of the off-diagonal map: Use equation (27), setting both diagonal maps to zero. Equation (27) is the displayed block decomposition of the endomorphism being constructed; equation (50) belongs to an unrelated later argument. Already recorded as PAPER-MASSER-ZANNIER-20/E2; no published correction is claimed. Review: confirmed by REV-DESIGN-FaltingsFinitenessAndIsogenyTheoremsPartII.
 
 ## Baseline and current-upstream audit
 
@@ -1107,11 +1123,11 @@ Pinned Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`; pinned Tau Ceti: `f7
 
 - **IntegralLattices**: Current completed README interfaces and Suggested.lean checked. Native integral lattice/discriminant modules exist currently; no generic lattice theory is replanned. This packet uses the exact GeometryOfNumbersAndQuadraticArithmetic nodes for its minima estimates.
 
-- **ProfiniteArithmetic**: Current README Layer 0 and surrounding ownership text read. Use its native Additive TauCeti.zHat ring/product API; absent atlas stage address is G6, not a second ring plan.
+- **ProfiniteArithmetic**: Current README Layer 0 and Suggested.lean checked against current Tau Ceti ZHat/Ring.lean and ZHat/Decomposition.lean. G6 now records the exact existing stage address and declarations; only registering that missing current stage in the atlas inventory remains. None of this is claimed at the older pins.
 
 - **ClassFieldTheory**: Current Layer 10 cohomological Brauer sequence read; not mistaken for an already-complete cyclic division-algebra theorem.
 
-- **Current Tau Ceti**: Read-only current source search at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 found native abelian objects/Hom/End/isogenies but no general abelian polarization/height/Tate-module/degree theory realizing these targets. No lake command was run there.
+- **Current Tau Ceti**: Read-only current source search at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 found native abelian objects/Hom/End/isogenies but no general abelian polarization/height/Tate-module/degree theory realizing these targets. No lake command was run there. The current generic bounded-index finiteness theorem TauCeti.IsTopologicallyFinitelyGenerated.finite_openSubgroup_index_eq was read with its compactness and topological finite-generation hypotheses; G8 now retains only the missing Lie/Frattini structure.
 
 - **Current TauCetiRoadmap**: Read-only inspection at0d144d044dacebca17b654695b6f1ad58f159b27. Nine additions newer than the atlas snapshot were considered; IntegralLattices and ProfiniteArithmetic are the relevant owners. No upstream files were edited.
 
@@ -1143,7 +1159,7 @@ Access date for every public file below: 2026-10-19. Author-preprint internal pa
 
 - **bost95**: Jean-Benoît Bost, [Périodes et isogénies des variétés abéliennes sur les corps de nombres](https://www.numdam.org/item/SB_1994-1995__37__115_0.pdf). Séminaire Bourbaki1994–1995, exp.795,115–161. §§2.1–3.2 and §5.1, statements and reduction of period theorem to auxiliary estimates. Full auxiliary-section proof not read. SHA-256: `13d2911a3b4460552d2ba649609f626a0342beae85966929940ab7df205b0edb`.
 
-- **mw93-periods**: David Masser and Gisbert Wüstholz, [Periods and minimal abelian subvarieties](https://annals.math.princeton.edu/wp-content/uploads/annals-v137-n2-p05-p.pdf). Annals137 (1993),407–458. Primary full proof unavailable in this run. Theorem and Lemmas8.4/8.6 are read only through MW94 §4, MZ20 Lemma 4.3 and Bost95; gap G1 records proof acquisition.
+- **mw93-periods**: David Masser and Gisbert Wüstholz, [Periods and minimal abelian subvarieties](https://annals.math.princeton.edu/1993/137-2/p05). Annals137 (1993),407–458. Primary full proof unavailable in this run. Theorem and Lemmas8.4/8.6 are read only through MW94 §4, MZ20 Lemma 4.3 and Bost95; gap G1 records proof acquisition.
 
 - **mw95-refine**: David Masser and Gisbert Wüstholz, [Refinements of the Tate conjecture for abelian varieties](https://www.degruyterbrill.com/document/doi/10.1515/9783110889437.211/pdf). In Abelian varieties, de Gruyter (1995), chapter beginning p211. Primary chapter unavailable: publisher PDF returned no document. Theorems1–2 and Corollary 1 are cited only as precisely restated and used in RY25 pp 261–262; gap G5 records the missing proof.
 
