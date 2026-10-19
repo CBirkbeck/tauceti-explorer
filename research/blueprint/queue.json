@@ -151072,9 +151072,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
+   "state": "external",
    "prompt": "research/blueprint/prompts/PKG-NoncommutativeAndEquivariantIwasawa~codex.md",
-   "note": "released on GitHub issue #11067"
+   "note": "claimed on GitHub issue #11067"
   },
   {
    "id": "PKG-K2SymbolsBrauer~codex",
@@ -151712,9 +151712,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-K2SymbolsBrauer~adv.md",
-   "note": "claimed on GitHub issue #11228"
+   "note": "deliverables arrived from an external worker on issue #11228",
+   "finishedAt": "2026-10-19T23:42:49Z"
   },
   {
    "id": "FIX-PKG-ComplexMultiplicationAndExplicitReciprocity~adv3",
@@ -151816,9 +151817,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-KTheoryFiniteLocalFields~codex.md",
-   "note": "claimed on GitHub issue #11235"
+   "note": "deliverables arrived from an external worker on issue #11235",
+   "finishedAt": "2026-10-19T23:42:52Z"
   },
   {
    "id": "REV-PKG-ArithmeticKTheory~adv",
@@ -151914,9 +151916,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity~codex2.md",
-   "note": "claimed on GitHub issue #11243"
+   "note": "deliverables arrived from an external worker on issue #11243",
+   "finishedAt": "2026-10-19T23:42:56Z"
   },
   {
    "id": "PKG-CyclotomicClassGroupsAndStickelberger~codex",
@@ -151954,8 +151957,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-EulerSystemsAndKolyvaginSystems~adv4.md",
+   "note": "claimed on GitHub issue #11250"
   }
  ]
 }
