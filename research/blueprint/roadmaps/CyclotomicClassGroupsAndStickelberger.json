@@ -1,0 +1,248 @@
+{
+  "id": "CyclotomicClassGroupsAndStickelberger",
+  "title": "Cyclotomic class groups, Stickelberger and Herbrand–Ribet",
+  "area": "automorphic",
+  "parent": null,
+  "summary": "A target-level plan of finite cyclotomic class groups and their tame characters, cyclic units and capitulation, integral Stickelberger annihilation at every conductor, Herbrand–Ribet, Kummer regularity and units, all prime-power unit indices, cyclotomic growth and Mazur’s inverse-character obstruction. Every prime is included, with dyadic and exceptional-character boundaries explicit. Supplier requests and three precise gaps remain; no formalization claim is made.",
+  "readme": "General cyclotomic arithmetic for every prime and every prime-power level, with full Stickelberger annihilation for all conductors. The finite core follows ClassFieldTheory. Native ideal classes, full unit groups and arithmetic Frobenius fix the conventions; odd-prime integral tame projections never become sign projections at 2. Herbrand–Ribet is proved by the modular converse. The tower layer specializes the existing general Iwasawa theory; the finite-unit ownership moves and two-roadmap packaging proposal are explicit. Vandiver remains a conjecture. See the companion reader for the complete statements, APIs, tests and source locators.",
+  "prerequisites": [
+    "ArithmeticGaloisRepresentations",
+    "AutomorphicGaloisRepresentations",
+    "DirichletPadicLFunctions",
+    "FiniteFlatGroupsAndIntegralPadicHodgeTheory",
+    "IntegralIwasawaTheory",
+    "ModularCurvesPartII",
+    "PadicMeasuresIwasawaAlgebras",
+    "tauceti:TauCetiRoadmap/Chebotarev",
+    "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "tauceti:TauCetiRoadmap/GlobalNumberFields",
+    "tauceti:TauCetiRoadmap/ModularForms",
+    "tauceti:TauCetiRoadmap/NumberFieldArithmetic"
+  ],
+  "stages": [
+    {
+      "key": "C0",
+      "title": "Finite cyclotomic class groups and tame characters",
+      "description": "For every prime p and r≥1 use K_(p,r)=Q(ζ_(p^r)), its native ideal class group and p-primary module A_(p,r). Compare Artin conjugation with the covariant ideal action. For odd p specialize integral tame Teichmüller projectors at every level, retain the wild action and prove real transfer. At p=2 preserve the integral sign defects. Identify the unique prime over p as principal and its unramified splitting quotient with A_(p,r).",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "PadicMeasuresIwasawaAlgebras:L4",
+        "PadicMeasuresIwasawaAlgebras:L6"
+      ]
+    },
+    {
+      "key": "C1",
+      "title": "Hilbert 90–94, relative units and capitulation",
+      "description": "Specialize the existing field Hilbert 90 without claiming a unit-valued lift. For arbitrary cyclic prime-degree number-field extensions with no infinite ramification, construct the saturated relative unit lattice and prove Hilbert 91’s independence modulo 1−σ and Hilbert 92’s cohomology count. Prove Hilbert 93’s different/invariant-ideal assertions, construct the capitulation cocycle and prove Hilbert 94’s exact kernel count in the everywhere-unramified case. Supply one-prime p-class control for all finite Galois p-extensions.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+        "CyclotomicClassGroupsAndStickelberger:C0"
+      ]
+    },
+    {
+      "key": "C2",
+      "title": "The integral Stickelberger ideal and annihilation",
+      "description": "For every conductor m≥2 define the rational element θ_m with inverse group-ring basis, the denominator ideal J_m, the integral Stickelberger image I_m and positive floor-coefficient smoothings. Prove Gauss-sum descent and ideal factorization with explicit residue-character compatibility. Deduce integral annihilation of the full class group, including even and composite conductors.",
+      "requires": [
+        "CyclotomicClassGroupsAndStickelberger:C0",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
+    },
+    {
+      "key": "C3",
+      "title": "Bernoulli values, reflection and Herbrand’s theorem",
+      "description": "Compare character evaluation of θ_p with the existing generalized Bernoulli numbers and ordinary B_k/k modulo p. Treat the exceptional ω component by integral smoothing. Prove Herbrand’s implication and reflection, with the different constant-dual and Kummer-dual character shifts distinguished. Compare native analytic class-number and regulator formulas with primitive-character products for CM abelian fields.",
+      "requires": [
+        "CyclotomicClassGroupsAndStickelberger:C2",
+        "DirichletPadicLFunctions:L0",
+        "CyclotomicClassGroupsAndStickelberger:C0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences"
+      ]
+    },
+    {
+      "key": "C4",
+      "title": "Ribet’s modular converse",
+      "description": "For every irregular pair (p,k), 2≤k≤p−3 even, prove the relative class-number bound needed for the weight-two auxiliary form and the integral Eisenstein congruence. Specialize the supplied newform realization and oriented nonsplit lattice theorem. Prove small-ramification finite-flat local splitting, form the residual splitting field compositum with Q(ζ_p), and obtain Ribet’s everywhere-unramified elementary abelian extension. Deduce the full Herbrand–Ribet equivalence independently of a main conjecture.",
+      "requires": [
+        "CyclotomicClassGroupsAndStickelberger:C3",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-0-diamond-operators-and-modular-forms-with-character-nebentypus",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-2-hecke-operators-and-the-hecke-algebra",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-8-modular-symbols-the-integral-hecke-algebra-and-coefficient-fields",
+        "tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor",
+        "AutomorphicGaloisRepresentations:R19.1",
+        "AutomorphicGaloisRepresentations:R19.3",
+        "ArithmeticGaloisRepresentations:R01.1",
+        "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+        "AutomorphicGaloisRepresentations:R19.6",
+        "ModularCurvesPartII:R13.6",
+        "FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1",
+        "CyclotomicClassGroupsAndStickelberger:C0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
+    },
+    {
+      "key": "C5",
+      "title": "Regular primes and Kummer’s lemma at every level",
+      "description": "Define regularity for every prime by total cyclotomic class-number indivisibility and prove Kummer’s Bernoulli criterion for odd primes. Prove the primary-unit radical criterion and Kummer’s integer-congruent unit lemma. Propagate vanishing to every odd regular prime-power level, and prove odd class number at every dyadic level, handling Q and Q(i) before cyclic unit arguments.",
+      "requires": [
+        "CyclotomicClassGroupsAndStickelberger:C0",
+        "CyclotomicClassGroupsAndStickelberger:C4",
+        "CyclotomicClassGroupsAndStickelberger:C3",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences",
+        "CyclotomicClassGroupsAndStickelberger:C1",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
+    },
+    {
+      "key": "C6",
+      "title": "Cyclotomic units, class-number indices and Vandiver",
+      "description": "For every prime-power conductor define circular numbers inside the field and intersect with integral units, retaining sign torsion at conductor two. Prove the ratio generators, real root corrections, Hasse index and full-to-real unit quotient. Establish the cyclotomic unit index h(K^+) at every level, including the dyadic adaptation. Define the per-prime Vandiver predicate, identify its equivalent even-component and unit-quotient vanishing conditions, and state universal Vandiver only as a conjecture.",
+      "requires": [
+        "CyclotomicClassGroupsAndStickelberger:C0",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "CyclotomicClassGroupsAndStickelberger:C3",
+        "CyclotomicClassGroupsAndStickelberger:C5"
+      ]
+    },
+    {
+      "key": "C7",
+      "title": "Cyclotomic towers and class-number growth",
+      "description": "Specialize the existing inverse-norm class module and general Iwasawa growth theorem to the cyclotomic towers F_n=Q(ζ_(p^(n+1))) for odd p and F_n=Q(ζ_(2^(n+2))) for p=2. Prove equivariant Artin comparison and exact coinvariant control using the unique totally ramified prime. Deduce the eventual μp^n+λn+ν valuation formula for all primes and zero valuations at all regular and dyadic levels. Generic inverse limits, compact Iwasawa modules and the theorem for arbitrary Z_p-extensions keep their existing owner.",
+      "requires": [
+        "CyclotomicClassGroupsAndStickelberger:C0",
+        "IntegralIwasawaTheory:I.2",
+        "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-10-archimedean-characters-infinity-types-and-cyclotomic-arithmetic",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "IntegralIwasawaTheory:L2",
+        "CyclotomicClassGroupsAndStickelberger:C5"
+      ]
+    },
+    {
+      "key": "C8",
+      "title": "Mazur’s inverse-character obstruction",
+      "description": "Prove Mazur’s inverse low odd-character vanishing at conductor p and propagate it to every prime-power level by exact control and compact Nakayama, with the p=691 exception for exponent −11. Show every everywhere-unramified abelian p-quotient of character ω⁻¹ is trivial and that killing the principal conductor prime does not change the Hilbert p-class quotient. Compare constant-coefficient étale H¹ with the inverse-character dual and μ_p coefficients with the twisted dual. Export the precise conditional division-field obstruction to the Eisenstein-ideal roadmap.",
+      "requires": [
+        "CyclotomicClassGroupsAndStickelberger:C3",
+        "CyclotomicClassGroupsAndStickelberger:C5",
+        "CyclotomicClassGroupsAndStickelberger:C7",
+        "IntegralIwasawaTheory:L2",
+        "CyclotomicClassGroupsAndStickelberger:C0",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "Sharifi",
+      "title": "Iwasawa Theory",
+      "authors": "Romyar Sharifi",
+      "edition": "Author notes, 189-page PDF served on 19 October 2026",
+      "url": "https://www.math.ucla.edu/~sharifi/iwasawa.pdf",
+      "sha256": "e5308be4c3d9ded6002cefb50df64b31f62b584b6ff68be7f21dc939f2508c26",
+      "readSections": [
+        "§1.3, pp.14–24",
+        "§2.8, pp.69–74",
+        "§3.1–3.2, pp.75–83",
+        "§4.1, pp.97–100; §4.2, pp.101–108",
+        "§4.3–4.5, pp.108–117",
+        "§4.7, pp.120–124 (local and global Bernoulli congruences)"
+      ],
+      "read": "2026-10-19"
+    },
+    {
+      "id": "Hilbert1897",
+      "title": "Die Theorie der algebraischen Zahlkörper (Zahlbericht)",
+      "authors": "David Hilbert",
+      "edition": "Jahresbericht DMV 4 (1897), public-domain ETH scan and its OCR",
+      "url": "https://www.e-rara.ch/zut/content/titleinfo/2944458",
+      "doi": "10.3931/e-rara-10039",
+      "readSections": [
+        "§§54–58, Sätze 90–94, pp.271–279",
+        "§126, Satz 148, pp.393–397",
+        "§§139–141, Satz 156, pp.437–440"
+      ],
+      "read": "2026-10-19",
+      "textSha256": "e4d58252f805f00213729aee8231f51577eee03c676dc95058c6ee5e56efd519"
+    },
+    {
+      "id": "MilneCFT",
+      "title": "Class Field Theory",
+      "authors": "James S. Milne",
+      "edition": "Version 4.03, 6 August 2020",
+      "url": "https://jmilne.org/math/CourseNotes/CFT.pdf",
+      "sha256": "50d79af78250a9f1117ad9d337e0b231704a533fc707966ed1bfa52e13d498f5",
+      "readSections": [
+        "VII §2, pp.205–207; VII §3, Proposition 3.1 and Lemmas 3.2–3.5, pp.208–209"
+      ],
+      "read": "2026-10-19"
+    },
+    {
+      "id": "Ribet1976",
+      "title": "A modular construction of unramified p-extensions of Q(μ_p)",
+      "authors": "Kenneth A. Ribet",
+      "edition": "Inventiones Mathematicae 34 (1976), pp.151–162; author-hosted journal scan",
+      "url": "https://math.berkeley.edu/~ribet/Articles/invent_34.pdf",
+      "sha256": "6985813b4026bb0fd7098aed3f816262e0922f62a5d2dab22e29bcc2eb323471",
+      "readSections": [
+        "Entire paper, pp.151–162; especially Theorems 1.1–1.3, §3 and §4"
+      ],
+      "read": "2026-10-19"
+    },
+    {
+      "id": "Mazur1977",
+      "title": "Modular curves and the Eisenstein ideal",
+      "authors": "Barry Mazur",
+      "edition": "Publications Mathématiques IHÉS 47 (1977), pp.33–186, Numdam journal scan",
+      "url": "https://www.numdam.org/item/PMIHES_1977__47__33_0.pdf",
+      "sha256": "c20c7e73be20d6cc961127504b6be019f7707e0ee6154ba1fac0bbfd5973be8a",
+      "readSections": [
+        "I §2, pp.50–54; Proposition 2.8 and Corollaries 2.9–2.10 checked visually on pp.53–54"
+      ],
+      "read": "2026-10-19"
+    },
+    {
+      "id": "ConradKummer",
+      "title": "Kummer’s lemma",
+      "authors": "Keith Conrad",
+      "edition": "Author note, eight-page PDF served on 19 October 2026",
+      "url": "https://kconrad.math.uconn.edu/blurbs/gradnumthy/kummer.pdf",
+      "sha256": "4739a256159d1cf74184a34849d2ef3b6a5fd6dcb18ece90d02ea52bb99f1bc2",
+      "readSections": [
+        "Entire note, pp.1–8; Theorem 1 and the proof on pp.6–7"
+      ],
+      "read": "2026-10-19"
+    },
+    {
+      "id": "Soule1998",
+      "title": "Perfect forms and the Vandiver conjecture",
+      "authors": "Christophe Soulé",
+      "edition": "arXiv:math/9812171v1, 22 December 1998",
+      "url": "https://arxiv.org/pdf/math/9812171v1",
+      "sha256": "1e1acc3e9e375379fd863606a81943b616195cd6432081383826bf38c2ce57dd",
+      "readSections": [
+        "Introduction, p.1, statement of Vandiver and the even eigenspaces only"
+      ],
+      "read": "2026-10-19"
+    }
+  ],
+  "status": "draft",
+  "placement": {
+    "after": "tauceti:TauCetiRoadmap/ClassFieldTheory",
+    "before": [
+      "EisensteinIdealAndRationalTorsion",
+      "EulerSystemsCyclotomicMainConjecture",
+      "IntegralIwasawaTheory"
+    ],
+    "qualification": "The finite core precedes these consumers. C7 requires the two-roadmap bundle or application-layer placement recorded in G3; no total package order is claimed resolved."
+  }
+}
