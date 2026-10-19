@@ -1,0 +1,878 @@
+# Relative Jacobians and integral models of curves
+
+A curve over a number field or a local field is studied arithmetically through its models over the ring of integers: their points reduce modulo every prime, their Jacobians have Néron models whose special fibres can be computed from the geometry of the model, and torsion points survive reduction under explicit ramification bounds. This roadmap builds that theory as a general library over Dedekind bases, at every prime, good or bad. It follows Bosch–Lütkebohmert–Raynaud, *Néron Models*, Chapters 8 and 9, for the Picard functor of relative curves and Raynaud's construction of Néron models of Jacobians, and the Stacks Project for normalisation, curves and Čech cohomology.
+
+The motivating consumer is Mazur's study of J₀(N) (*Modular curves and the Eisenstein ideal*): the cuspidal class, a degree-zero divisor class supported on two rational cusps, lives in J₀(N)(ℚ); its reduction at the level prime lands in the component group of the Néron model, computed from the regular model of X₀(N); and rational torsion embeds into the points of the Jacobian over 𝔽_ℓ at odd primes ℓ. None of these statements is special to modular curves, and this roadmap proves them for every curve with a regular proper model over a Dedekind base. The modular inputs themselves (the Deligne–Rapoport model, the moduli interpretation of the cusps, Ogg's computation) belong to the modular-curve and Eisenstein-ideal roadmaps that consume this one.
+
+## Scope
+
+| Layer | Content |
+| --- | --- |
+| RJ.0 | Models of curves over Dedekind schemes; points of proper models and specialisation; the normalisation of ℙ¹ over the base in a function field; two-chart Čech cohomology; cohomology and cohomological flatness of the normalised model. |
+| RJ.1 | Relative curves with arbitrary fibres: degrees and multiplicities, the index, rigidificators and Raynaud's rigidified Picard space, universal rigidified bundles, relative effective Cartier divisors, Abel maps. |
+| RJ.2 | Pointed smooth curves: projectivity, the relative Jacobian as representing object of rigidified degree-zero bundles, its points as divisor classes (Galois-equivariantly), specialisation at good reduction. |
+| RJ.3 | Raynaud's theory: the separated quotient P/E, Raynaud's representability theorem, the Néron model of the Jacobian from a regular model, the rational-singularities criterion, global Néron models over Dedekind bases. |
+| RJ.4 | Reduction homomorphisms, injectivity of reduction on torsion at every prime, component groups by multidegrees. |
+| RJ.5 | Regular proper models over excellent Dedekind bases and the specialisation package for Jacobians. |
+
+## Boundaries
+
+- **Tau Ceti JacobianChallenge** owns line bundles, degrees, coherent cohomology and Riemann–Roch over a field, cohomology and base change, the Picard scheme and Jacobian of a curve over a field, and the Abel–Jacobi map with its universal property. This roadmap uses them and never restates them.
+- **JacobianChallengePartII** owns, for smooth projective curves with geometrically connected fibres over a noetherian base, the relative Picard scheme and its degree pieces (JC0), the relative Jacobian as an abelian scheme with base change and principal polarisation (JC1), section-free Abel maps and the degree-d Abel–Jacobi morphism (JC2), and the normalised Poincaré bundle on J × J (JC3). This roadmap imports JC0–JC2 and adds the pointed, rigidified and Dedekind-base statements.
+- **AlgebraicModuliForArithmeticGeometry (A0-extension)** owns the relative Picard sheaf, its base change, the rigidification along a section and the split exact sequence it gives, Artin's representability of the Picard sheaf as an algebraic space, the Picard–Brauer obstruction sequence, Raynaud's condition N* and the degree-one cohomological-flatness criterion, and the Hilbert scheme (R09.2).
+- **NeronModelsAndSemistableAbelianVarieties** owns Néron models (mapping property, uniqueness, group law, local existence, gluing over Dedekind schemes, étale base change), identity components and component groups, semistable reduction, and the semistable degeneration theory of Jacobians (R11.4). Its open gap on Raynaud's Picard-functor construction is planned here, in RJ.3, in full generality.
+- **FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1** owns finite flat group schemes, Deligne's theorem, schematic closures of generic subgroups and Raynaud's theorem for e < p − 1.
+- **Tau Ceti StableReduction** owns models over discrete valuation rings (`TauCeti.Model`), nodes and dual graphs, blow-ups and Lipman resolution in the scope of curves, regular and minimal models with multiplicities and intersection numbers. **Tau Ceti AlgebraicCurves** owns the normalisation of ℙ¹ over a field in a function field and its dictionary with places. **Tau Ceti ModularCurves** owns the modular curves X_H over ℤ[1/N] as normalisations of the j-line; they are instances of RJ.0's construction.
+- **SchemeAndStackFoundations** owns the general scheme foundations used here: flatness over Dedekind schemes, spreading out, henselian lifting, quasi-coherent cohomology on affines, group algebraic spaces, finiteness of normalisation over Nagata rings.
+
+## Conventions
+
+- A **Dedekind scheme** S is integral, noetherian, normal, of dimension at most one; η is its generic point, K = κ(η), and for a closed point s, O_{S,s} is a discrete valuation ring with residue field κ(s). Over S = Spec R, R is a Dedekind domain (Mathlib `IsDedekindDomain`).
+- A **model** of a K-scheme C over S is flat and of finite presentation with a fixed isomorphism of its generic fibre with C; properness, normality, regularity and smoothness are separate predicates. Morphisms of models respect the generic identification.
+- A **relative curve** is a flat proper morphism of finite presentation with fibres of dimension at most one. Degrees are deg L = χ(L) − χ(O) on fibres; multiplicities d_i, geometric multiplicities e_i and δ_i = d_i e_i are those of RJ.1/fibre-multiplicities.
+- The **relative Picard functor** is the fppf sheafification of T ↦ Pic(X_T) (AlgebraicModuliForArithmeticGeometry). With a section e and universal f_*O = O it equals rigidified line bundles. Pic⁰ is the fibrewise identity component; Pic^{[d]} is total degree d.
+- **Néron models** are in the sense of NeronModelsAndSemistableAbelianVarieties R11.1 (smooth separated finite type with the mapping property for smooth test schemes). N⁰ is the identity component and Φ = N_k/N⁰_k the component group.
+- The **reduction map** at a closed point is restriction of R-points of a group scheme to the special fibre; p is the characteristic exponent of the residue field and e = v(p) the absolute ramification index in mixed characteristic.
+
+## How to read the build
+
+RJ.0 and RJ.1 are independent foundations (models and cohomology; relative Picard functors of singular curves). RJ.2 needs both. RJ.3 needs RJ.1 and the Néron-model foundations. RJ.4 needs RJ.3 for component groups but its torsion theorem needs only the reduction map. RJ.5 assembles everything.
+
+## RJ.0. Integral models of curves over Dedekind bases
+
+This layer fixes the base and the models. Its two main constructions are the model of a curve over a Dedekind scheme, which localises to Tau Ceti's models over discrete valuation rings, and the normalisation of ℙ¹_S in a function field, which produces a normal proper flat model of every curve once the normalisation is finite. Points of proper models are the rational points of the generic fibre, and their specialisations land in the smooth locus when the model is regular. The two-chart Čech formulas compute the cohomology of the normalised model from its two affine charts.
+
+**Depends on:** SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.2, SchemeAndStackFoundations:SF.4, Tau Ceti AlgebraicCurves Layer 12, Tau Ceti JacobianChallenge Layer B, Tau Ceti JacobianChallenge Layer C, Tau Ceti ModularCurves Layer 10, Tau Ceti StableReduction Layer 0.
+
+### Models of a curve over a Dedekind base (`RJ.0/dedekind-model`, definition) — *Model of a curve over a Dedekind base*
+
+Let S be a Dedekind scheme: an integral, noetherian, normal scheme of dimension at most one, with generic point η and function field K = κ(η); its local rings at closed points s are discrete valuation rings O_{S,s} with residue fields κ(s). Let C be a K-scheme of finite type. A model of C over S is a triple (X, f, ι) of a scheme X, a morphism f : X → S that is flat and of finite presentation, and an isomorphism ι : X_η := X ×_S Spec K ≅ C of K-schemes. A morphism of models (X, f, ι) → (X′, f′, ι′) is an S-morphism φ : X → X′ with ι′ ∘ φ_η = ι. Properness, separatedness, normality, regularity and smoothness of f are separate predicates on a model; the fibre at a closed point s is X_s := X ×_S Spec κ(s). For S = Spec R the generic fibre is Tau Ceti's scalar-extension fibre along R → K.
+
+**Hypotheses.**
+- S is a Dedekind scheme with generic point η and function field K. When S = Spec R, R is a Dedekind domain with fraction field K that is not a field, or a field (then S is a point and every model is C itself).
+- Flatness and finite presentation are part of a model; properness is not.
+
+**Proof outline.**
+1. Define the structure on Mathlib's Scheme, Flat, LocallyOfFinitePresentation, QuasiCompact and QuasiSeparated, with ι an isomorphism in Over (Spec K) from Tau Ceti's genericFiber R K f (TauCeti/AlgebraicGeometry/Fibers.lean).
+2. Localisation at a closed point: base change along Spec O_{S,s} → S keeps flatness and finite presentation, and the generic fibre is unchanged because Frac O_{S,s} = K; with the same ι this is a TauCeti.Model over the discrete valuation ring O_{S,s}.
+3. Spreading out (finite presentation, EGA IV₃ 8.10.5 as used in BLR §1.4, p. 20): a model is proper (resp. smooth, separated) over S if and only if all its localisations at closed points are, since a property of a finitely presented morphism over Spec O_{S,s} spreads to a neighbourhood of s and S is noetherian of dimension at most one.
+4. Étale base change: for an étale morphism S′ → S of Dedekind schemes with function field K′, the base change is a model of C_{K′} over S′.
+
+**API.**
+- `DedekindModel.mk` (constructor): From f : X → S flat of finite presentation and ι : X_η ≅ C over K, a model of C over S.
+- `DedekindModel.IsProper` (other): Properness of the structure morphism, a separate predicate on a model.
+- `DedekindModel.genericFiberIso` (data): The identification ι of the generic fibre (Tau Ceti genericFiber R K f) with C over K.
+- `DedekindModel.fibre` (projection): For a closed point s, the fibre X_s over κ(s), with its closed immersion into X.
+- `DedekindModel.Hom.ext` (extensionality): Two morphisms of models agreeing as S-morphisms are equal; a morphism of models is determined by its generic fibre when the target is separated.
+- `DedekindModel.localize` (constructor): The localisation at a closed point s, a TauCeti.Model over O_{S,s}.
+- `DedekindModel.localize_genericIso` (compatibility): The generic identification of the localisation is ι, under Frac O_{S,s} = K.
+- `DedekindModel.isProper_iff_localize` (characterisation): X is proper over S iff X ×_S Spec O_{S,s} is proper over O_{S,s} for every closed point s.
+- `DedekindModel.baseChangeEtale` (functoriality): Base change along an étale morphism S′ → S of Dedekind schemes, with identity and composition laws up to the canonical isomorphisms.
+- `DedekindModel.ofModel` (equivalence): For S = Spec R with R a discrete valuation ring, a TauCeti.Model R K C is a model in this sense with the same total space, structure morphism and generic identification, and every model arises this way.
+
+**Unit tests.**
+- `DedekindModel.projectiveLine` (computation): For S = Spec ℤ, ℙ¹_ℤ with the identity of ℙ¹_ℚ is a proper smooth model of ℙ¹_ℚ; its fibre at p is ℙ¹_{𝔽_p}.
+- `DedekindModel.field_base` (degenerate): If S = Spec K is a field, every model of C is isomorphic to (C, id, id) by a unique isomorphism of models.
+- `DedekindModel.dvr_compatibility` (compatibility): For R a discrete valuation ring, the category of models over Spec R is equivalent to the category of TauCeti.Model R K C.
+- `DedekindModel.not_flat` (non-example): Spec ℤ[x]/(2x) → Spec ℤ has generic fibre Spec ℚ (the origin) but is not flat (x is 2-torsion), so it is not a model of Spec ℚ; its flat replacement is the schematic closure Spec ℤ of the generic fibre.
+
+**Checks.**
+- P¹_S with the identity of P¹_K is a proper smooth model of P¹_K.
+- Over S = Spec R with R a discrete valuation ring the structure is exactly TauCeti.Model R K C.
+
+**Used by.** Mazur, Modular curves and the Eisenstein ideal, as recorded in Tau Ceti ModularCurves, The Mazur interface: X₀(N) over ℤ is a proper normal model of the modular curve, and every argument about J₀(N) at the primes dividing N runs through this model; ModularCurvesPartII:R13.4a/integral-coarse-curves: the integral coarse modular curves X_H are proper normal models over ℤ of their generic fibres; RJ.3/raynaud-neron-model and RJ.5/specialisation-package: the Néron model of a Jacobian is computed from a regular proper model of the curve.
+
+**Prerequisites.** Tau Ceti StableReduction Layer 0; `TauCeti.Model` (Tau Ceti); `TauCeti.genericFiber` (Tau Ceti); `TauCeti.specialFiber` (Tau Ceti); `AlgebraicGeometry.Flat` (Mathlib); `IsDedekindDomain` (Mathlib); SchemeAndStackFoundations:SF.0.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §1.1, p. 6 (R-models of K-schemes); §1.2 Proposition 4, pp. 13–14 (localisation over Dedekind schemes): A model of a K-scheme over a Dedekind base is a flat finite-type S-scheme with a given identification of its generic fibre; Néron-model questions over a Dedekind scheme are local at its closed points. Stacks Project, Lemma 15.22.11 (0AUW): A module over a Dedekind domain is flat exactly when it is torsion free, which is how flatness of a model is checked.
+
+### Points of proper models and specialisation (`RJ.0/proper-model-points`, theorem) — *Specialisation of points*
+
+Let (X, f, ι) be a model of C over the Dedekind scheme S with f proper. (a) Restriction to the generic fibre gives a bijection X(S) → C(K); more generally, for every Dedekind scheme S′ with a dominant morphism S′ → S and function field K′, X(S′) → C(K′). (b) For a closed point s, define the specialisation map sp_s : C(K) → X_s(κ(s)) by extending a K-point to a section and restricting it to s; it is functorial in morphisms of models and compatible with étale base change. (c) If X is regular, every section S → X lands in the smooth locus of f, so sp_s takes values in the smooth locus of X_s.
+
+**Hypotheses.**
+- f is proper (for (a), separatedness gives injectivity and properness gives surjectivity).
+- For (c), X is regular; no regularity of the base change of X along S′ → S is assumed.
+
+**Proof outline.**
+1. Injectivity: two sections agreeing on the dense open generic fibre agree, since S is reduced and f separated (valuative criterion of separatedness, EGA II 7.2.3, as quoted in BLR §1.1, p. 7).
+2. Existence: for a K-point x and a closed point s, the valuative criterion of properness for the discrete valuation ring O_{S,s} (EGA II 7.3.8; Mathlib IsProper.eq_valuativeCriterion and ValuativeCriterion.Existence) extends x over Spec O_{S,s}; by finite presentation the extension spreads to an open neighbourhood of s; the finitely many local extensions glue by uniqueness.
+3. For (c): at a point of the section over s, the local ring of X is regular and the section gives a retraction onto the discrete valuation ring O_{S,s}; BLR 3.1/2 makes a uniformiser of O_{S,s} part of a regular system of parameters, so the fibre is regular at that point and f is smooth there (this is the argument quoted in the proof of BLR 9.4/3).
+
+**Checks.**
+- For X = ℙ¹_ℤ, ℙ¹(ℚ) = ℙ¹(ℤ): every rational point has a primitive integral representative, and sp_p reduces it modulo p.
+- Properness is needed: 1/2 ∈ 𝔸¹(ℚ) does not extend to a section of 𝔸¹_ℤ.
+- Regularity is needed in (c): on the normal non-regular model xy = p² of a conic over ℤ_p, the section x = y = p passes through the singular point of the special fibre.
+
+**Prerequisites.** RJ.0/dedekind-model; `AlgebraicGeometry.IsProper.eq_valuativeCriterion` (Mathlib); `AlgebraicGeometry.ValuativeCriterion.Existence` (Mathlib); `AlgebraicGeometry.Scheme.Hom.smoothLocus` (Mathlib); SchemeAndStackFoundations:SF.0.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §1.1, p. 7; §1.2 Proposition 8 proof, p. 15: The valuative criteria of separatedness and properness give injectivity and extension of points of the generic fibre over discrete valuation rings, applied locally on a Dedekind base. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §3.1, Proposition 2, p. 61; Corollary 9.4/3 and its proof, p. 260: A section of a regular scheme over a discrete valuation ring meets only points where the fibre is regular, so it factors through the smooth locus.
+
+### Normalisation of the projective line in a function field (`RJ.0/normalised-projective-line`, construction) — *Normalised projective line model*
+
+Let S be a Dedekind scheme with function field K, F/K a function field of one variable (finitely generated of transcendence degree one, Tau Ceti's IsFunctionField K F) and t ∈ F transcendental over K. The morphism Spec F → Spec K(t) → ℙ¹_S (the generic point of ℙ¹_S, with coordinate t) is quasi-compact and quasi-separated; X_{F,t} is its relative normalisation (Mathlib Scheme.Hom.normalization), with the integral morphism ν : X_{F,t} → ℙ¹_S and the dominant morphism Spec F → X_{F,t}. Over S = Spec R, X_{F,t} is glued from Spec A₀ and Spec A_∞, where A₀ and A_∞ are the integral closures of R[t] and R[t⁻¹] in F, along Spec A₀∞ with A₀∞ the integral closure of R[t, t⁻¹] (= A₀[t⁻¹] = A_∞[t]).
+
+**Hypotheses.**
+- S Dedekind with function field K; F/K a function field of one variable; t ∈ F transcendental over K. No finiteness of ν is assumed in the construction; RJ.0/normalised-model-properties gives it under Nagata or separability hypotheses.
+
+**Proof outline.**
+1. Apply Mathlib's relative normalisation to the composite Spec F → ℙ¹_S; on an affine open of ℙ¹_S it is Spec of the integral closure of the ring of sections in F (normalizationObjIso).
+2. The two standard charts of ℙ¹_R give the affine opens Spec A₀ and Spec A_∞, and their intersection Spec A₀∞, because integral closure commutes with localisation (inverting t).
+3. Over a field S = Spec K this is Tau Ceti AlgebraicCurves 12B's normalisation of ℙ¹_K in F; for the modular curves it is ModularCurves Layer 10's X_H, with t = j and S = Spec ℤ[1/N].
+
+**API.**
+- `normalisedProjectiveLine` (constructor): X_{F,t} := (Spec F → ℙ¹_S).normalization, with ν := fromNormalization and the generic morphism toNormalization.
+- `normalisedProjectiveLine.isIntegralHom` (instance): ν : X_{F,t} → ℙ¹_S is integral (Mathlib instance on fromNormalization).
+- `normalisedProjectiveLine.chartZero` (data): Over S = Spec R, the open ν⁻¹(𝔸¹_t) is Spec A₀ with A₀ = integralClosure R[t] F.
+- `normalisedProjectiveLine.chartInfty` (data): Over S = Spec R, the open ν⁻¹(𝔸¹_{t⁻¹}) is Spec A_∞ with A_∞ = integralClosure R[t⁻¹] F.
+- `normalisedProjectiveLine.chart_inter` (characterisation): The two charts cover X_{F,t} and meet in Spec A₀∞ with A₀∞ = A₀[t⁻¹] = A_∞[t].
+- `normalisedProjectiveLine.desc` (universal-property): For any integral morphism Z → ℙ¹_S through which Spec F → ℙ¹_S factors, a unique ℙ¹_S-morphism X_{F,t} → Z compatible with the factorisations (normalizationDesc, normalization.hom_ext).
+- `normalisedProjectiveLine.functionField` (characterisation): X_{F,t} is integral with function field F, the identification induced by Spec F → X_{F,t}.
+- `normalisedProjectiveLine.etaleBaseChange` (functoriality): For an étale S′ → S, X_{F,t} ×_S S′ ≅ X_{F ⊗ K′, t} (normalisation commutes with smooth base change, Mathlib normalizationPullback); for the localisation at a closed point, integral closure commutes with localisation of R.
+- `normalisedProjectiveLine.mobius` (functoriality): For γ ∈ GL₂(R) acting on t by a Möbius transformation, an isomorphism X_{F,t} ≅ X_{F,γt} of models, functorial in γ.
+- `normalisedProjectiveLine.fieldCase` (compatibility): For S = Spec K this is AlgebraicCurves 12B's normalisation of ℙ¹_K in F, the regular projective model of F/K.
+- `normalisedProjectiveLine.modularCurve` (compatibility): For S = Spec ℤ[1/N], F the function field of Y_H and t = j, X_{F,j} is Tau Ceti ModularCurves Layer 10's compactified coarse curve X_H.
+
+**Unit tests.**
+- `normalisedProjectiveLine.rational` (computation): For F = K(t), X_{F,t} ≅ ℙ¹_S as models of ℙ¹_K.
+- `normalisedProjectiveLine.field` (degenerate): For S = Spec K, X_{F,t} is the regular projective curve with function field F, independent of t up to unique isomorphism of models.
+- `normalisedProjectiveLine.compat_algebraicCurves` (compatibility): For S = Spec K, the chart Spec A₀ is the affine model of AlgebraicCurves Layer 2 (integral closure of K[t] in F) and its closed points are the places of F/K finite over t.
+- `normalisedProjectiveLine.depends_on_t` (non-example): For R a discrete valuation ring with uniformiser π and F = K(t), the models X_{F,t} and X_{F,πt} both have total space ℙ¹_R, but the identity of F extends to no isomorphism of models: on the special fibre the map t ↦ πt is not defined at t = ∞ and contracts the fibre to the point t′ = 0.
+
+**Checks.**
+- For F = K(t), A₀ = R[t] and A_∞ = R[t⁻¹], so X_{F,t} = ℙ¹_S.
+- Different choices of t give different models: see the non-example test.
+
+**Used by.** Tau Ceti ModularCurves, Layer 10: X_H over ℤ[1/N] is the normalisation of the j-line in the function field of Y_H; EisensteinIdealAndRationalTorsion (brief): X₀(p) over ℤ as a normalised j-line model, on which cusps and their specialisations are read; RJ.5/regular-model-existence: the normalised model is the starting normal proper model that is resolved into a regular one.
+
+**Prerequisites.** `AlgebraicGeometry.Scheme.Hom.normalization` (Mathlib); `AlgebraicGeometry.Scheme.Hom.fromNormalization` (Mathlib); `AlgebraicGeometry.Scheme.Hom.toNormalization` (Mathlib); `AlgebraicGeometry.Scheme.Hom.normalizationDesc` (Mathlib); `AlgebraicGeometry.Scheme.Hom.normalizationObjIso` (Mathlib); `integralClosure` (Mathlib); `TauCeti.IsFunctionField` (Tau Ceti); Tau Ceti AlgebraicCurves Layer 12; Tau Ceti ModularCurves Layer 10.
+
+**Source.** Stacks Project, Section 29.54 (0BAK), Definition 29.54.3 (035H), Lemma 29.54.4 (035I): The relative normalisation of a scheme in a quasi-compact quasi-separated morphism is the integral morphism characterised by its universal property among integral factorisations, computed affine-locally by integral closure. Stacks Project, Section 53.2 (0BXX), Theorem 53.2.6 (0BY1): Over a field, function fields of transcendence degree one correspond to regular (normal) projective curves; the normalisation of ℙ¹ in F realises the curve.
+
+### Integral models by normalisation (`RJ.0/normalised-model-properties`, theorem)
+
+In the setting of RJ.0/normalised-projective-line, assume ν : X_{F,t} → ℙ¹_S is finite; this holds if R is Nagata (for instance excellent: Dedekind domains of characteristic zero, rings of S-integers of number fields, finitely generated algebras over fields) or if F/K(t) is separable. Then: (a) X_{F,t} is integral, normal and noetherian, of dimension 1 + dim S, and separated; (b) X_{F,t} → S is proper, flat and of finite presentation, so (X_{F,t}, ι) is a proper normal model of C_F, the regular projective curve with function field F; (c) the generic fibre is AlgebraicCurves 12B's normalisation of ℙ¹_K in F, whose closed points are the places of F/K with matching residue fields and degrees, and whose K-rational points are the degree-one places; by RJ.0/proper-model-points these are the sections of X_{F,t} over S; (d) H⁰(X_{F,t}, O) is the integral closure of R in the constant field K′ of F (the algebraic closure of K in F); in particular f_*O_X = O_S when K is algebraically closed in F.
+
+**Hypotheses.**
+- S = Spec R Dedekind (the global statement is local on S); ν finite, by the Nagata or separability hypothesis.
+- In (d) the constant field K′ may be a nontrivial finite extension of K; no geometric connectedness is assumed.
+
+**Proof outline.**
+1. Finiteness: R[t] is noetherian and normal; its integral closure in the finite extension F of K(t) is finite when F/K(t) is separable (Stacks 032L) and when R[t] is Nagata, which holds when R is (Stacks 035S, 0C45).
+2. Integral, normal: the normalisation of an integral scheme in a field extension of its function field (Mathlib instance IsIntegral on normalization; integral closures are normal). Separated and proper: ν is finite hence proper and ℙ¹_S → S is proper.
+3. Flat: X_{F,t} is integral and dominates the Dedekind scheme S, so its local rings are torsion free over the discrete valuation rings O_{S,s} (Stacks 0AUW; upstream SchemeAndStackFoundations §0.8, flat_over_dedekind). Finite presentation: finite type over a noetherian base.
+4. Generic fibre: normalisation commutes with the localisation R → K, so X_η is the normalisation of ℙ¹_K in F; apply AlgebraicCurves 12B for points and places.
+5. H⁰: H⁰(X, O) is a finite R-algebra (properness) inside F, integrally closed (normality), hence contained in the integral closure of R in K′; conversely elements of that closure are integral over R[t] and R[t⁻¹], so lie in A₀ ∩ A_∞.
+
+**Checks.**
+- For F = ℚ(√2)(t) and S = Spec ℤ, H⁰(X_{F,t}, O) = ℤ[√2], so f_*O ≠ O_S and the fibres of X → Spec ℤ over primes split in ℚ(√2) are disconnected.
+- For F = K(t), the theorem returns ℙ¹_S with H⁰ = R.
+
+**Prerequisites.** RJ.0/normalised-projective-line; RJ.0/dedekind-model; RJ.0/proper-model-points; `AlgebraicGeometry.IsIntegralHom` (Mathlib); `TauCeti.Place` (Tau Ceti); `TauCeti.holomorphyRingHeightOneSpectrumEquiv` (Tau Ceti); Tau Ceti AlgebraicCurves Layer 12; SchemeAndStackFoundations:SF.0; SchemeAndStackFoundations:SF.4.
+
+**Source.** Stacks Project, Lemma 29.55.11 (035S); Lemma 33.41.1 (0C45): Normalisation is finite over Nagata (for instance excellent) noetherian schemes; in dimension one it produces a regular scheme. Stacks Project, Lemma 15.22.11 (0AUW); Section 53.2 (0BXX), Theorem 53.2.6 (0BY1): Torsion-free modules over Dedekind domains are flat; the generic fibre is the regular projective curve of F/K. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.5, Lemma 8 proof, pp. 269–270: For a normal proper flat curve over a discrete valuation ring with geometrically irreducible generic fibre, the Stein factorisation is the spectrum of the integral closure of R in the purely inseparable constant field.
+
+### Cohomology over a two-chart affine cover (`RJ.0/two-chart-cech`, theorem) — *Two-chart Čech computation*
+
+Let X be a scheme covered by two open subschemes U and V such that U, V and U ∩ V are affine (for instance X separated and U, V affine), and let F be a quasi-coherent O_X-module. Then H^q(X, F) = 0 for q ≥ 2, and the restriction maps give natural isomorphisms H⁰(X, F) ≅ ker(F(U) ⊕ F(V) → F(U ∩ V)) and H¹(X, F) ≅ coker(F(U) ⊕ F(V) → F(U ∩ V)), where the map is (a, b) ↦ a|_{U∩V} − b|_{U∩V}. The isomorphisms are Γ(X, O_X)-linear, natural in F, and, when X is a scheme over an affine S = Spec R, compatible with flat base change R → R′.
+
+**Hypotheses.**
+- U, V and U ∩ V affine; F quasi-coherent (needed for the vanishing of higher cohomology on the three affines).
+
+**Proof outline.**
+1. Tau Ceti's Mayer–Vietoris sequence for two opens (Scheme.Modules.mayerVietorisSequence_exact) gives the exact sequence 0 → H⁰(X) → H⁰(U) ⊕ H⁰(V) → H⁰(U ∩ V) → H¹(X) → H¹(U) ⊕ H¹(V).
+2. Higher cohomology of a quasi-coherent module on an affine scheme vanishes (JacobianChallenge Layer B; upstream SchemeAndStackFoundations §2.6, test_affine_vanishing), including on the open U ∩ V via the comparison of cohomology on an open with cohomology of the restricted sheaf.
+3. Hence H¹(X) is the cokernel, H⁰(X) the kernel (with Tau Ceti's cohomologyZeroEquiv), and H^q(X) = 0 for q ≥ 2 (Tau Ceti subsingleton_cohomology_of_two_le). This is the two-set case of Stacks 01XD.
+4. Flat base change: the Čech complex of a two-affine cover commutes with flat base change of the coefficient ring, since F(U) ⊗_R R′ = F′(U′) on affines.
+
+**Checks.**
+- On ℙ¹_R with U = Spec R[t], V = Spec R[t⁻¹] and F = O(n): trivialising O(n) by 1 on U and by tⁿ on V, H⁰ is spanned by the t^k with 0 ≤ k ≤ n and H¹ by the classes of the t^k with n < k < 0, of ranks max(n + 1, 0) and max(−n − 1, 0), as in JacobianChallenge Layer C's check.
+- The hypothesis on U ∩ V matters: the punctured plane 𝔸² ∖ {0} is covered by two affines with affine intersection, and the formula correctly gives H¹(𝔸² ∖ {0}, O) ≠ 0.
+
+**Prerequisites.** `TauCeti.AlgebraicGeometry.Scheme.Modules.mayerVietorisSequence_exact` (Tau Ceti); `TauCeti.AlgebraicGeometry.Scheme.Modules.subsingleton_cohomology_of_two_le` (Tau Ceti); `TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv` (Tau Ceti); `TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology` (Tau Ceti); `AlgebraicGeometry.IsAffineOpen` (Mathlib); Tau Ceti JacobianChallenge Layer B; SchemeAndStackFoundations:SF.2.
+
+**Source.** Stacks Project, Section 30.2 (01X8), Lemma 30.2.6 (01XD): For an open cover all of whose finite intersections are affine, Čech cohomology of a quasi-coherent module equals its sheaf cohomology. Stacks Project, Lemma 30.2.2 (01XB): Quasi-coherent modules on affine schemes have vanishing higher Čech cohomology for standard covers.
+
+### Cohomology of the normalised model (`RJ.0/normalised-model-cohomology`, theorem)
+
+In the setting of RJ.0/normalised-model-properties with S = Spec R and ν finite: H⁰(X_{F,t}, O) = A₀ ∩ A_∞ (inside F) and H¹(X_{F,t}, O) ≅ A₀∞/(A₀ + A_∞), a finitely generated R-module. Its rank equals dim_K H¹(C_F, O_{C_F}) (the genus of C_F over K when K is algebraically closed in F); for a closed point s, writing H¹(X_{F,t}, O)_s ≅ O_{S,s}^r ⊕ T_s with T_s of finite length, dim_{κ(s)} H¹(X_s, O_{X_s}) = r + dim_{κ(s)} (T_s ⊗ κ(s)), and X_{F,t} → S is cohomologically flat in dimension zero at s exactly when T_s = 0.
+
+**Hypotheses.**
+- S = Spec R Dedekind; ν finite, so X_{F,t} is proper and flat of relative dimension one over S.
+
+**Proof outline.**
+1. Apply RJ.0/two-chart-cech to the cover by Spec A₀ and Spec A_∞, whose intersection Spec A₀∞ is affine.
+2. H¹ is finite over R by properness (JacobianChallenge Layer C, coherence of higher direct images); its generic rank is computed after the flat base change R → K, where the cover is the corresponding cover of C_F.
+3. For a curve, H² of every fibre vanishes, so H¹ commutes with every base change; H⁰ commutes with base change at s exactly when H¹ is free near s (BLR 8.1/7 with the cohomology-and-base-change complex, and the discussion at the start of BLR §9.4).
+
+**Checks.**
+- F = K(t): A₀ + A_∞ = A₀∞, so H¹ = 0 (genus zero).
+- For F = ℚ(t)[y]/(y² − t³ + t) and R = ℤ[1/2], X_{F,t} is the smooth Weierstrass model, H¹ is free of rank one, and the model is cohomologically flat.
+
+**Prerequisites.** RJ.0/two-chart-cech; RJ.0/normalised-model-properties; Tau Ceti JacobianChallenge Layer C.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.1, Theorem 7, pp. 206–207; §9.4, opening discussion, p. 259: Cohomological flatness in dimension zero is governed by the cohomology-and-base-change complex, and for relative curves it is equivalent to local constancy of the arithmetic genus of the fibres over a reduced base. Stacks Project, Lemma 30.2.6 (01XD): Čech cohomology of the two-chart cover computes the sheaf cohomology of O_X.
+
+## RJ.1. Relative Picard functors of curves with arbitrary fibres
+
+This layer treats the relative Picard functor of a relative curve whose fibres may be reducible or non-reduced, which is what the special fibres of regular models look like. It records degrees and multiplicities, shows that the index of the special fibre kills the obstruction to representing Picard classes by line bundles, and introduces rigidificators, with Raynaud's theorem that rigidified Picard functors are algebraic spaces (smooth for curves). With a section, a represented Picard functor carries a universal rigidified bundle that restricts to every represented subfunctor. Relative effective Cartier divisors and Abel maps complete the layer.
+
+**Depends on:** AlgebraicModuliForArithmeticGeometry:A0-extension, AlgebraicModuliForArithmeticGeometry:R09.2, JacobianChallengePartII:JC2, Tau Ceti JacobianChallenge Layer A, Tau Ceti JacobianChallenge Layer C, Tau Ceti JacobianChallenge Layer D, Tau Ceti JacobianChallenge Layer F, Tau Ceti StableReduction Layer 5.
+
+### Degrees and multiplicities on fibres of relative curves (`RJ.1/fibre-multiplicities`, definition) — *Multiplicities of fibre components*
+
+Let f : X → S be a flat proper morphism of finite presentation whose fibres have dimension at most one (a relative curve). For a point s ∈ S and the reduced irreducible components X_{s,i} of X_s (finitely many), define: the multiplicity d_i := length of the artinian local ring of X_s at the generic point of X_{s,i}; the geometric multiplicity e_i := multiplicity of X_{s,i} itself after base change to an algebraic closure of κ(s) (a power of the characteristic exponent); δ_i := d_i e_i, the geometric multiplicity of X_{s,i} in X_s; and the index δ_s := gcd_i δ_i. For an invertible L on X_T, the total degree on the fibre over t is deg(L_t) := χ(L_t) − χ(O_{X_t}) and the partial degree on a component is the degree of the restriction. The degree-d part Pic^{[d]}_{X/S} is the subfunctor of the relative Picard sheaf of classes of total degree d on every fibre.
+
+**Hypotheses.**
+- f flat, proper, of finite presentation, with fibres of dimension ≤ 1. No reducedness, irreducibility or smoothness of fibres is assumed.
+- Degrees use JacobianChallenge Layer A's convention deg L = χ(L) − χ(O), which equals the divisor degree Σ ord_x · [κ(x) : κ(s)] for Cartier divisors.
+
+**Proof outline.**
+1. The total degree is locally constant on the base because the Euler characteristic of a flat family of coherent sheaves is locally constant (BLR 9.1/2).
+2. Total and partial degrees: deg L_s = Σ_i d_i · deg(L|_{X_{s,i}}) by the length formula of BLR 9.1/6 (BLR 9.1/5).
+3. Divisibility: e_i divides deg(L|_{X_{s,i}}), by computing the colength of a system of parameters on a geometrically non-reduced component over a separable closure (BLR 9.1/7–9.1/8).
+4. Pic^{[d]}_{X/S} is open and closed in the relative Picard sheaf by local constancy of the degree.
+
+**API.**
+- `RelativeCurve.totalDegree` (data): For L on X_T, the locally constant function t ↦ χ(L_t) − χ(O_{X_t}) on T.
+- `RelativeCurve.totalDegree_isLocallyConstant` (characterisation): The total degree is locally constant on T and invariant under extension of residue fields.
+- `RelativeCurve.partialDegree` (data): For a reduced irreducible component Y of a fibre, deg(L|_Y).
+- `RelativeCurve.multiplicity` (data): d_i, the length of the fibre at the generic point of its i-th reduced component.
+- `RelativeCurve.geometricMultiplicity` (data): e_i and δ_i = d_i e_i; e_i = 1 in characteristic zero and a power of the characteristic otherwise.
+- `RelativeCurve.index` (data): δ_s = gcd of the δ_i over the components of X_s.
+- `RelativeCurve.totalDegree_eq_sum` (relation): deg L_s = Σ_i d_i · deg(L|_{X_{s,i}}).
+- `RelativeCurve.geometricMultiplicity_dvd_partialDegree` (relation): e_i divides deg(L|_{X_{s,i}}).
+- `RelativeCurve.picDegree` (constructor): The open and closed subfunctor Pic^{[d]}_{X/S} of the relative Picard sheaf, with Pic^{[d]} ⊗ Pic^{[d′]} → Pic^{[d + d′]}.
+- `RelativeCurve.picDegree_smooth` (compatibility): For smooth projective X/S with geometrically connected fibres, Pic^{[d]}_{X/S} is JacobianChallengePartII's Picᵈ_{X/S}.
+- `RelativeCurve.multiplicity_regular` (compatibility): For a regular model over a discrete valuation ring, d_i is the coefficient m_i of X_{s,i} in div(π) of StableReduction Layer 5.
+
+**Unit tests.**
+- `RelativeCurve.index_smooth` (degenerate): If X → S is smooth with geometrically connected fibres, every fibre has one component and d = e = δ = 1.
+- `RelativeCurve.index_double_line` (computation): For X = V(x² − πyz) ⊂ ℙ²_R over a discrete valuation ring R (2 invertible), the special fibre is the double line x² = 0: one component with d = 2, e = 1, δ = 2, and deg O(1) = 2 = 2 · 1.
+- `RelativeCurve.totalDegree_compat` (compatibility): For X/S smooth projective with geometrically connected fibres, totalDegree agrees with the degree of JacobianChallengePartII:JC0/degree-locally-constant.
+- `RelativeCurve.partialDegree_ne_total` (non-example): On the special fibre X₁ ∪ X₂ (two lines meeting at a point) of a regular model, O_X(X₁) has total degree 0 but partial degrees (X₁·X₁, X₂·X₁) = (−1, 1); total degree zero does not mean degree zero on each component.
+
+**Checks.**
+- A smooth model with geometrically integral fibres has one component with d = e = δ = 1.
+- The total degree of O(1) on x² = πyz in ℙ²_R is 2 on both fibres, while the special fibre is a double line.
+
+**Used by.** BLR §9.5, Theorem 4(b): the hypothesis gcd δ_i = 1 makes Pic⁰ separated and equal to the Néron identity component; RJ.4/component-multidegree: partial degrees on the components of the special fibre compute the component group of the Néron model.
+
+**Prerequisites.** Tau Ceti JacobianChallenge Layer A; Tau Ceti JacobianChallenge Layer C; AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf; Tau Ceti StableReduction Layer 5.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.1, Proposition 2 (p. 238), Definition 3 and Lemma 4 (p. 239), Proposition 5 (pp. 239–240), Lemma 7 and Corollary 8 (pp. 240–242): Degree of a line bundle on a proper curve over a field, local constancy in flat families, multiplicities and geometric multiplicities of components, the total degree as a weighted sum of partial degrees, and divisibility of partial degrees by geometric multiplicities.
+
+### The index kills the Brauer obstruction (`RJ.1/index-representability`, theorem)
+
+Let S be the spectrum of a strictly henselian local ring with closed point s and f : X → S flat of finite presentation with f_*O_X = O_S and fibres of dimension ≤ 1. (a) For every irreducible component X₀ of X_s of geometric multiplicity δ in X_s there is a closed subscheme Z ⊂ X finite and flat of degree δ over S, meeting X_s at one point of X₀ that lies on no other component; if X is a curve, Z can be taken an effective relative Cartier divisor with partial degree e on X₀ (e the geometric multiplicity of X₀). (b) For every flat S-scheme T and ξ ∈ Pic_{X/S}(T), the multiple δ_s·ξ is the class of a line bundle on X_T. In particular, if some component has δ = 1 (for instance if X has a section through the smooth locus of f), every element of Pic_{X/S}(T) is a line bundle class.
+
+**Hypotheses.**
+- S strictly henselian local; T flat over S in (b); f_*O_X = O_S.
+
+**Proof outline.**
+1. (a): choose a closed point of X₀ off the other components and a system of parameters of the fibre with colength δ (BLR 9.1/7), lift it to X and take the local component of its zero locus, which is finite and flat by the local criterion (BLR 9.1/9–9.1/10).
+2. (b): for each Z_i → X finite flat of degree n_i, the pull-back of ξ to X ×_S Z_i is a line bundle because X ×_S Z_i → Z_i has a section (BLR 8.1/4, or AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split), and its norm down to X represents n_i·ξ (EGA IV 21.5.6); take an integer combination with gcd δ (BLR 9.1/11–9.1/12).
+3. Over a general base the obstruction lies in the Brauer group (AlgebraicModuliForArithmeticGeometry:A0-extension/picard-brauer-obstruction); this theorem bounds its exponent by the index after strict henselisation.
+
+**Checks.**
+- For a curve with a section through the smooth locus, δ_s = 1 and every relative Picard class is a line bundle (consistent with the split sequence of A0-extension/section-picard-split).
+- For the conic x² + y² + z² = 0 over ℝ (the fibre over a non-henselian point), the class of degree one is not a line bundle; after passing to a strictly henselian base the theorem applies.
+
+**Prerequisites.** RJ.1/fibre-multiplicities; AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-brauer-obstruction; AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.1, Lemma 7 (p. 240), Corollaries 9 and 10 (p. 242), Proposition 11 and Corollary 12 (pp. 242–243): Existence of finite flat quasi-sections of degree equal to the geometric multiplicity over a strictly henselian base, and the norm argument showing that the index kills the obstruction to representing relative Picard classes by line bundles.
+
+### Rigidificators and rigidified Picard functors (`RJ.1/rigidificator`, definition) — *Rigidificator*
+
+Let f : X → S be proper, flat and of finite presentation. A rigidificator of f is a closed subscheme Y ⊂ X, finite, flat and of finite presentation over S, such that Γ(X_T, O) → Γ(Y_T, O) is injective for every S-scheme T. A line bundle rigidified along Y is a pair (L, α) with L invertible on X_T and α : O_{Y_T} ≅ L|_{Y_T}; the functor (Pic_{X/S}, Y) sends T to isomorphism classes of such pairs. Rigidified bundles have no nontrivial automorphisms, (Pic_{X/S}, Y) is an fpqc sheaf and a group functor, and there is an exact sequence of étale sheaves 0 → V_X^× → V_Y^× → (Pic_{X/S}, Y) → Pic_{X/S} → 0, where V_X and V_Y represent T ↦ Γ(X_T, O) and T ↦ Γ(Y_T, O) and V^× are their unit group schemes.
+
+**Hypotheses.**
+- f proper, flat, finitely presented. For a section e with f_*O_X = O_S universally, Y = e(S) is a rigidificator and (Pic_{X/S}, Y) is AlgebraicModuliForArithmeticGeometry's section-rigidified Picard functor.
+
+**Proof outline.**
+1. By EGA III₂ 7.7.6 (BLR 8.1/7–8.1/8) the functor of global sections of a proper flat f is represented by the total space V_X of a coherent module; for finite Y this module is locally free.
+2. Y is a rigidificator iff V_X → V_Y is a closed immersion (BLR 8.1/9); the units are open subschemes V^× (BLR 8.1/10).
+3. Automorphisms of (L, α) are units of Γ(X_T, O) restricting to 1 on Y_T, hence trivial by injectivity; descent gives the fpqc sheaf property (BLR p. 205).
+4. The exact sequence (BLR 8.1/11) sends a unit of Y_T to the trivial bundle with that rigidification.
+5. Existence: over a discrete valuation ring every such f has a rigidificator, and étale-locally on S when the fibres have no embedded components (BLR 8.1/6, citing Raynaud).
+
+**API.**
+- `Rigidificator.mk` (constructor): From a closed subscheme Y ⊂ X finite flat of finite presentation over S with injective restriction of global sections after every base change.
+- `Rigidificator.ofSection` (constructor): If f_*O_X = O_S universally, the image of a section e : S → X is a rigidificator.
+- `Rigidificator.exists_dvr` (other): Over the spectrum of a discrete valuation ring every proper flat finitely presented f admits a rigidificator.
+- `Rigidificator.closedImmersion_iff` (characterisation): Y is a rigidificator iff V_X → V_Y is a closed immersion.
+- `RigidifiedPicard` (constructor): The functor (Pic_{X/S}, Y) of isomorphism classes of line bundles rigidified along Y, a sheaf of abelian groups under tensor product.
+- `RigidifiedPicard.aut_trivial` (characterisation): A rigidified line bundle has only the identity automorphism.
+- `RigidifiedPicard.exactSequence` (relation): 0 → V_X^× → V_Y^× → (Pic_{X/S}, Y) → Pic_{X/S} → 0 is exact as étale sheaves.
+- `RigidifiedPicard.ofSection_comparison` (compatibility): For Y = e(S) and f_*O_X = O_S universally, (Pic_{X/S}, Y) is AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard and maps isomorphically onto Pic_{X/S}.
+- `RigidifiedPicard.baseChange` (functoriality): Formation of Y and of (Pic_{X/S}, Y) commutes with base change S′ → S.
+
+**Unit tests.**
+- `Rigidificator.section_projectiveLine` (computation): For X = P¹_S and Y = ∞(S), V_X = V_Y = 𝔾_a and the exact sequence reduces to (Pic_{P¹/S}, Y) ≅ Pic_{P¹/S} ≅ ℤ.
+- `Rigidificator.field_point` (degenerate): For S = Spec k and a proper geometrically integral curve with a rational point y, Y = {y} is a rigidificator and V_Y^× = 𝔾_m = V_X^×.
+- `Rigidificator.not_disconnected` (non-example): For X = P¹_S ⊔ P¹_S and Y a section of the first copy, Γ(X, O) = R² → Γ(Y, O) = R is not injective, so Y is not a rigidificator.
+- `Rigidificator.two_points` (characterisation): For X = P¹_S and Y = 0(S) ⊔ ∞(S), Y is a rigidificator, V_Y^×/V_X^× = 𝔾_m, and (Pic, Y) is an extension of ℤ by 𝔾_m.
+
+**Checks.**
+- The image of a section of P¹_S is a rigidificator.
+- Two disjoint copies of P¹_S with Y one section in one copy: not a rigidificator.
+
+**Used by.** BLR 9.5/3, third case, p. 266: when the relative Picard functor is not known to be representable, the separated quotient P/E is constructed through (P, Y); BLR 9.6/1 proof, p. 275: R-points of the degree-zero Picard functor are lifted through the smooth algebraic space (P, Y).
+
+**Prerequisites.** AlgebraicModuliForArithmeticGeometry:A0-extension/section-rigidified-picard; AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid; AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf; Tau Ceti JacobianChallenge Layer C.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.1, Definition 5 and Proposition 6 (p. 205), Theorem 7 and Corollary 8 (pp. 206–207), Proposition 9 and Lemma 10 (p. 208), Proposition 11 (p. 209): Rigidificators of a proper flat morphism, their existence over a discrete valuation ring and étale-locally, the representing schemes of global sections and units, and the exact sequence relating the rigidified and the ordinary relative Picard functors.
+
+### Representability of the rigidified Picard functor (`RJ.1/rigidified-picard-representability`, theorem) — *Raynaud's rigidified Picard space*
+
+Let f : X → S be proper, flat and of finite presentation (a morphism of algebraic spaces is allowed) and Y a rigidificator. Then (Pic_{X/S}, Y) is an algebraic space locally of finite presentation over S. If f is a relative curve, (Pic_{X/S}, Y) is formally smooth, hence smooth, over S, and so is its open and closed subspace (P, Y) of total degree zero; Pic_{X/S} itself is formally smooth. If moreover f is cohomologically flat in dimension zero, Pic_{X/S} is an algebraic space and (Pic_{X/S}, Y) → Pic_{X/S} is smooth and surjective with fibres the torsors under V_Y^×/V_X^×.
+
+**Hypotheses.**
+- f proper flat of finite presentation with a rigidificator Y; for smoothness, fibres of dimension ≤ 1.
+
+**Proof outline.**
+1. Representability: Raynaud's theorem (BLR 8.3/3), proved through Artin's criteria, which are owned by AlgebraicModuliForArithmeticGeometry:A0-extension/artin-space-criterion.
+2. Formal smoothness for curves: obstructions to lifting line bundles along square-zero thickenings lie in H² of the fibres, which vanishes in relative dimension one, and rigidifications lift freely (BLR 8.4/2; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting).
+3. Under cohomological flatness, Pic_{X/S} is an algebraic space (Artin; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-space-representability), and the exact sequence of RJ.1/rigidificator presents the comparison map as a torsor under a smooth group.
+
+**Checks.**
+- If f_*O_X = O_S universally and Y is the disjoint union of n sections, V_Y^×/V_X^× = 𝔾_m^n/𝔾_m ≅ 𝔾_m^{n−1}, so (P, Y) → P is a 𝔾_m^{n−1}-torsor.
+- Smoothness fails above dimension one: for a family of surfaces H² of the fibres can obstruct lifting, and (Pic, Y) need not be smooth.
+
+**Prerequisites.** RJ.1/rigidificator; AlgebraicModuliForArithmeticGeometry:A0-extension/artin-space-criterion; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-space-representability.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.3, Theorem 3, p. 223; §8.4, Proposition 2, p. 232: Raynaud's theorem that the rigidified Picard functor of a proper flat finitely presented morphism with a rigidificator is an algebraic space, and formal smoothness of the Picard functor and its rigidified version for relative curves. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.3, Theorem 1 and Remark 2, p. 223: Artin's representability of the relative Picard functor as an algebraic space under cohomological flatness in dimension zero.
+
+### Universal rigidified line bundle and represented subfunctors (`RJ.1/universal-rigidified-bundle`, construction) — *Universal rigidified line bundle*
+
+Let f : X → S be flat of finite presentation with a section e and f_*O_X = O_S universally, and suppose Pic_{X/S} is represented by a scheme (or algebraic space) P. There is a line bundle 𝒫 on X ×_S P with a rigidification α_𝒫 : O_P ≅ (e × 1)^*𝒫 such that for every S-scheme T and every line bundle L on X_T rigidified along e_T there is a unique g : T → P with (1 × g)^*(𝒫, α_𝒫) ≅ (L, α) as rigidified bundles. For every subfunctor F ⊂ Pic_{X/S} represented by a subspace Z ⊂ P (open, closed or locally closed: a degree component, Pic⁰, a torsion subgroup, the identity component of a Néron model), the restriction 𝒫|_{X ×_S Z} is the universal rigidified bundle of F. Normalisations: 𝒫 is trivialised along e × P by α_𝒫 and along X × {0} (the unit section of P), compatibly at e × {0}.
+
+**Hypotheses.**
+- Section e and universal f_*O_X = O_S (so Pic_{X/S}(T) = Pic(X_T)/Pic(T), AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split); Pic_{X/S} represented.
+
+**Proof outline.**
+1. The identity of P is a P-point of Pic_{X/S} = (Pic, e); represent it by a rigidified bundle on X ×_S P (BLR 8.2/4); uniqueness of g is representability, uniqueness of the isomorphism is the absence of automorphisms of rigidified bundles.
+2. Restriction to Z: a T-point of F is a T-point of P factoring through Z, so pulling back 𝒫|_{X×Z} represents F.
+3. Normalisation along X × {0}: the unit section classifies the trivial rigidified bundle, so (1 × 0)^*𝒫 ≅ O_X with the canonical rigidification.
+
+**API.**
+- `universalRigidifiedBundle` (constructor): The pair (𝒫, α_𝒫) on X ×_S P.
+- `universalRigidifiedBundle.classify` (universal-property): For (L, α) rigidified on X_T, the unique g : T → P with (1 × g)^*(𝒫, α_𝒫) ≅ (L, α).
+- `universalRigidifiedBundle.classify_pullback` (functoriality): classify commutes with base change: classify((1 × h)^*(L, α)) = classify(L, α) ∘ h.
+- `universalRigidifiedBundle.classify_tensor` (simp): classify of a tensor product is the sum in the group P; classify of the trivial bundle is the unit section.
+- `universalRigidifiedBundle.restrict` (constructor): For a subfunctor represented by Z ⊂ P, the restricted universal bundle on X ×_S Z.
+- `universalRigidifiedBundle.restrict_universal` (universal-property): The restriction represents the subfunctor among rigidified bundles.
+- `universalRigidifiedBundle.zero_normalised` (characterisation): (1 × 0)^*𝒫 ≅ O_X with its canonical rigidification, and (e × 1)^*𝒫 ≅ O_P via α_𝒫, compatibly at (e, 0).
+- `universalRigidifiedBundle.unique` (extensionality): Any two universal rigidified bundles on X ×_S P are isomorphic by a unique rigidified isomorphism.
+- `universalRigidifiedBundle.fieldCompat` (compatibility): Over a field with a rational point, the universal bundle is JacobianChallenge Layer D's Poincaré bundle of the rigidified Picard functor.
+
+**Unit tests.**
+- `universalRigidifiedBundle.projectiveLine` (computation): For X = P¹_S, e = ∞, P = ⊔_{d ∈ ℤ} S, the restriction of 𝒫 to the d-th copy is O(d·[0]) with its canonical trivialisation at ∞.
+- `universalRigidifiedBundle.trivial_curve` (degenerate): If Pic_{X/S} = ℤ (genus zero), the restriction of 𝒫 to Pic⁰ = S is O_X.
+- `universalRigidifiedBundle.elliptic` (characterisation): For an elliptic curve E/S with origin e, the restriction to Pic⁰ ≅ E (via x ↦ O(x − e)) is O_{E×E}(Δ − e × E − E × e) with its rigidification along e × E.
+- `universalRigidifiedBundle.no_section` (non-example): For the pointless real conic X, Pic¹_{X/ℝ} = Spec ℝ but X has no line bundle of degree one, so no universal bundle exists on X × Pic¹; the section hypothesis cannot be dropped.
+
+**Checks.**
+- For P¹_S with e = ∞, P = ⊔_d S and 𝒫 restricted to the d-th copy is O(d·[0]) with its canonical trivialisation at ∞.
+- Without a section no universal bundle need exist: for a pointless conic over ℝ, Pic¹ = Spec ℝ carries no line bundle on X × Pic¹ of degree one.
+
+**Used by.** RJ.2/jacobian-rigidified-representability: the Poincaré bundle on X ×_S J normalised along e × J and X × 0; JacobianChallengePartII:JC3/jacobian-poincare: the normalised Poincaré bundle on J ×_S J is pulled back from the curve's universal bundle through autoduality.
+
+**Prerequisites.** AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split; AlgebraicModuliForArithmeticGeometry:A0-extension/rigidified-picard-setoid; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-zero-sheaf; Tau Ceti JacobianChallenge Layer D.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.2, Proposition 4, p. 211: With a section and universal f_*O_X = O_S, a representable relative Picard functor carries a universal line bundle rigidified along the section, characterised by its universal property on rigidified bundles.
+
+### Relative effective Cartier divisors of degree r (`RJ.1/relative-cartier-divisors`, definition) — *Relative effective Cartier divisors*
+
+Let f : X → S be flat and locally of finite presentation. An effective relative Cartier divisor of X/S is an effective Cartier divisor D ⊂ X that is flat over S; equivalently (BLR 8.2/6) a closed subscheme flat over S whose restriction to every fibre is an effective Cartier divisor of the fibre. For f proper with fibres of dimension ≤ 1, such a D is finite and locally free over S, of degree r = rank of f_*O_D (locally constant), and Div^r_{X/S}(T) is the set of effective relative Cartier divisors of X_T/T of degree r. The pair (O_X(D), s_D) of the associated line bundle and canonical section determines D, and D ↦ O(D) gives the Abel map of RJ.1/abel-map.
+
+**Hypotheses.**
+- f flat, locally of finite presentation; for degrees, f proper of relative dimension ≤ 1.
+
+**Proof outline.**
+1. Equivalence of the three characterisations by the local criterion of flatness and Nakayama (BLR 8.2/6).
+2. Div_{X/S} is an open subfunctor of the Hilbert functor of X/S (BLR p. 215); for X/S projective it is an open subscheme of the Hilbert scheme of AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme, and Div^r_{X/S} is the part with constant Hilbert polynomial r.
+3. For X → S smooth of relative dimension one and quasi-projective, Div^r_{X/S} = Hilb^r_{X/S} ≅ (X/S)^{(r)}, the r-th symmetric product (BLR 9.3/3, citing SGA 4 XVII 6.3.9); a section of X/S is a relative Cartier divisor of degree one (BLR p. 254).
+
+**API.**
+- `RelativeCartierDivisor.mk` (constructor): From an effective Cartier divisor D ⊂ X flat over S.
+- `RelativeCartierDivisor.iff_fibrewise` (characterisation): D ⊂ X closed, flat over S, with every fibre an effective Cartier divisor of the fibre.
+- `RelativeCartierDivisor.degree` (data): For f proper of relative dimension ≤ 1, the locally constant rank of f_*O_D.
+- `RelativeCartierDivisor.add` (constructor): Sum of divisors (product of ideal sheaves), with degree additive.
+- `RelativeCartierDivisor.pullback` (functoriality): Base change along T′ → T, compatible with sums and degrees.
+- `RelativeCartierDivisor.lineBundle` (projection): The pair (O_X(D), s_D), determining D up to the units of Γ(X, O).
+- `RelativeCartierDivisor.ofSection` (constructor): For X/S a smooth curve, a section σ gives the divisor σ(S) of degree one.
+- `Div` (constructor): The functor Div^r_{X/S}, open in the Hilbert functor.
+- `Div.symmetricPower` (equivalence): For X/S smooth quasi-projective of relative dimension one, Div^r_{X/S} ≅ (X/S)^{(r)}.
+- `Div.fieldCompat` (compatibility): Over a field, Div^r = JacobianChallenge Layer C's Symᵈ = Hilbᵈ of a smooth proper curve.
+
+**Unit tests.**
+- `Div.zero` (degenerate): Div⁰_{X/S} = S, the empty divisor.
+- `Div.one_smooth` (computation): For X/S a smooth curve, Div¹_{X/S} ≅ X, sending x to the graph of x.
+- `Div.projectiveLine` (compatibility): For X = P¹_S, Div^r_{X/S} ≅ P^r_S (binary forms of degree r up to units), agreeing with JacobianChallenge Layer C's Sym^r P¹ = P^r over a field.
+- `RelativeCartierDivisor.node_not_cartier` (non-example): On the nodal cubic y²z = x²(x + z) over a field, the reduced node is a closed point but not an effective Cartier divisor (its maximal ideal needs two generators), so the section through the node of a nodal family is not in Div¹.
+
+**Checks.**
+- The diagonal of X ×_S X over the first factor is an effective relative Cartier divisor of degree one when X/S is a smooth curve.
+- A section through a node of a fibre is not a relative Cartier divisor.
+
+**Used by.** JacobianChallengePartII:JC2/section-free-abel-map: the diagonal relative Cartier divisor defines the degree-one Abel map; BLR §8.2 Theorem 5, part III: Pic^Φ is a quotient of an open part of Div^Φ by a proper smooth equivalence relation.
+
+**Prerequisites.** `AlgebraicGeometry.Flat` (Mathlib); AlgebraicModuliForArithmeticGeometry:R09.2/hilbert-scheme; Tau Ceti JacobianChallenge Layer C; Tau Ceti JacobianChallenge Layer A.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.2, Lemma 6, p. 213, and the discussion of Div_{X/S}, pp. 212–215: Effective relative Cartier divisors, their fibrewise characterisation, and Div_{X/S} as an open subfunctor of the Hilbert functor. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.3, Proposition 3, p. 254: For a smooth quasi-projective relative curve, the Hilbert functor of degree-r subschemes is the r-th symmetric product.
+
+### Abel maps of relative curves (`RJ.1/abel-map`, construction) — *Abel map*
+
+Let f : X → S be a proper flat relative curve of finite presentation. The Abel map of degree r is AJ^r : Div^r_{X/S} → Pic^{[r]}_{X/S}, D ↦ [O_X(D)]. If X/S is projective with geometrically reduced and irreducible fibres (so Pic_{X/S} is a scheme), then for every T and line bundle L on X_T the fibre product Div_{X/S} ×_{Pic} T is represented by the projective bundle ℙ(𝒬_L) of a canonical finitely presented O_T-module, which is dual to f_*L when L is cohomologically flat in dimension zero; its points are the effective divisors in the linear system of L. With a section e and universal f_*O_X = O_S, the pointed Abel–Jacobi map of degree r is D ↦ (O(D − r·e), canonical rigidification), Div^r_{X/S} → Pic^{[0]}_{X/S}.
+
+**Hypotheses.**
+- f proper, flat, finitely presented, of relative dimension ≤ 1; for the projective-bundle description, f projective with geometrically reduced irreducible fibres.
+
+**Proof outline.**
+1. AJ^r is a morphism of functors because O(D) commutes with base change.
+2. Relative representability: the effective divisors with O(D) locally isomorphic to L correspond to sections of f_*L that are regular on every fibre, modulo units; under the cohomology-and-base-change module 𝒬_L these are the invertible quotients of 𝒬_L, i.e. the points of ℙ(𝒬_L) (BLR 8.2/7, using BLR 8.1/3 and 8.1/7).
+3. Pointed version: subtracting r·e and using the canonical trivialisation of O(e) along e (RJ.1/universal-rigidified-bundle).
+
+**API.**
+- `abelMap` (constructor): AJ^r : Div^r_{X/S} → Pic^{[r]}_{X/S}, D ↦ [O(D)].
+- `abelMap_add` (simp): AJ^{r+r′}(D + D′) = AJ^r(D) + AJ^{r′}(D′).
+- `abelMap_baseChange` (functoriality): Formation of AJ^r commutes with base change T′ → T.
+- `abelMap_fibre` (characterisation): For projective X/S with geometrically reduced irreducible fibres and L on X_T, Div ×_{Pic} T ≅ ℙ(𝒬_L); for L cohomologically flat, 𝒬_L ≅ (f_*L)^∨.
+- `abelMap_openImmersion_genus` (other): For a projective relative curve with geometrically reduced connected fibres of genus g, AJ^g restricted to the open set W of divisors supported in the smooth locus with H¹(X_t, O(D_t)) = 0 is an open immersion into Pic^{[g]}.
+- `pointedAbelJacobi` (constructor): With a section e and universal f_*O_X = O_S, D ↦ (O(D − r·e), canonical rigidification), Div^r_{X/S} → (Pic^{[0]}, e).
+- `pointedAbelJacobi_one` (compatibility): For X/S smooth projective with geometrically connected fibres, pointedAbelJacobi in degree one is JacobianChallengePartII:JC2/degree-abel-map for α = O(e), and over a field JacobianChallenge Layer F's abelJacobi.
+
+**Unit tests.**
+- `abelMap.projectiveLine` (computation): For X = P¹_S, AJ^r : P^r_S → Pic^r_{P¹/S} = S is the structure map, with fibre P^r = ℙ(H⁰(O(r))^∨).
+- `abelMap.degree_zero` (degenerate): AJ⁰ : S = Div⁰ → Pic⁰ is the unit section.
+- `pointedAbelJacobi.elliptic` (compatibility): For an elliptic curve E/S with origin e, pointedAbelJacobi in degree one is an isomorphism E ≅ Pic⁰_{E/S} sending e to 0, agreeing with JacobianChallenge Layer D's check.
+- `abelMap.not_surjective_low_degree` (non-example): For a smooth curve of genus g ≥ 2 over a field, AJ¹ is a closed immersion and is not surjective onto Pic¹ (dimension 1 < g).
+
+**Checks.**
+- For X = P¹_S, AJ^r : P^r_S → Pic^r = S is the projective bundle of binary forms of degree r.
+- For an elliptic curve E/S with origin e, the pointed degree-one map E → Pic⁰ = E is the identity under x ↦ O(x − e).
+
+**Used by.** RJ.2/good-reduction-specialisation: a degree-zero divisor supported on sections specialises through the Abel map; Mazur, as recorded in Tau Ceti ModularCurves, The Mazur interface: the cuspidal class (0) − (∞) of J₀(N) is the Abel–Jacobi image of a degree-zero divisor supported on two sections.
+
+**Prerequisites.** RJ.1/relative-cartier-divisors; RJ.1/fibre-multiplicities; RJ.1/universal-rigidified-bundle; JacobianChallengePartII:JC2/section-free-abel-map; Tau Ceti JacobianChallenge Layer D; Tau Ceti JacobianChallenge Layer F.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.2, Proposition 7 and its proof, pp. 214–215: The canonical morphism from relative Cartier divisors to the Picard functor is relatively representable by projective bundles of the cohomology-and-base-change module. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.3, Lemmas 4–5, pp. 255–256: On the open set of divisors of degree g with vanishing H¹, the Abel map of degree g is an open immersion into the degree-g Picard scheme.
+
+## RJ.2. Pointed smooth curves: relative Jacobians and their points
+
+For a smooth proper curve with a section, the relative Jacobian of JacobianChallengePartII represents line bundles of fibre degree zero rigidified along the section, with a Poincaré bundle normalised along the section and the unit. Its points over every field are degree-zero divisor classes, Galois-equivariantly, and at primes of good reduction reduction of points is reduction of divisors.
+
+**Depends on:** AlgebraicModuliForArithmeticGeometry:A0-extension, JacobianChallengePartII:JC0, JacobianChallengePartII:JC1, NeronModelsAndSemistableAbelianVarieties:R11.1, RJ.0, RJ.1, Tau Ceti JacobianChallenge Layer A, Tau Ceti JacobianChallenge Layer C, Tau Ceti JacobianChallenge Layer D.
+
+### Pointed smooth proper curves over a base (`RJ.2/pointed-smooth-curve`, definition) — *Pointed smooth proper curve*
+
+A pointed smooth proper curve over a scheme S is a pair (f : X → S, e) with f smooth, proper and of finite presentation, of relative dimension one, with geometrically connected fibres, and e : S → X a section. Its genus is the locally constant function s ↦ dim_{κ(s)} H¹(X_s, O). Then f_*O_X = O_S holds universally, e(S) is an effective relative Cartier divisor of degree one, O_X(e) is ample on every fibre, hence relatively ample over a neighbourhood of every point of S, and X is projective over every affine open of S (in particular over S = Spec R with R a Dedekind domain).
+
+**Hypotheses.**
+- f smooth proper of finite presentation, relative dimension one, geometrically connected fibres; a section e. No bound on the genus; genus zero is allowed.
+
+**Proof outline.**
+1. Universal f_*O_X = O_S: fibres are geometrically integral (smooth and geometrically connected), so H⁰(X_s, O) = κ(s) and cohomology and base change applies (JacobianChallenge Layer C; EGA III₂ 7.8.6 as quoted in BLR 8.1/7).
+2. e(S) is a relative Cartier divisor of degree one (RJ.1/relative-cartier-divisors).
+3. O(e) has degree one on each fibre, hence is ample on it (Stacks 0B5X); ampleness on the fibre spreads to a neighbourhood (Stacks 0D2S); a proper morphism with a relatively ample sheaf over an affine base is projective (Stacks 0B45).
+
+**API.**
+- `PointedSmoothCurve.mk` (constructor): From f smooth proper finitely presented of relative dimension one with geometrically connected fibres and a section e.
+- `PointedSmoothCurve.genus` (data): The locally constant genus s ↦ dim H¹(X_s, O).
+- `PointedSmoothCurve.pushforward_structureSheaf` (characterisation): f_*O_X = O_S, and this holds after every base change.
+- `PointedSmoothCurve.sectionDivisor` (constructor): e(S) as an effective relative Cartier divisor of degree one.
+- `PointedSmoothCurve.ample_section` (other): O_X(e) is relatively ample over every affine open of S.
+- `PointedSmoothCurve.isProjective_of_affine` (other): Over affine S, f is projective; hence the hypotheses of JacobianChallengePartII JC0–JC2 hold locally on S.
+- `PointedSmoothCurve.baseChange` (functoriality): Base change along T → S gives a pointed smooth proper curve over T, with the same genus function pulled back.
+- `PointedSmoothCurve.ofDedekindModel` (constructor): A smooth proper model over a Dedekind scheme of a geometrically connected smooth curve C with a K-point, together with the section extending that point (RJ.0/proper-model-points).
+
+**Unit tests.**
+- `PointedSmoothCurve.projectiveLine` (computation): (P¹_S, ∞) has genus 0 everywhere.
+- `PointedSmoothCurve.elliptic` (compatibility): A Weierstrass elliptic curve over S with its origin is a pointed smooth proper curve of genus 1 (Tau Ceti EllipticCurves and ModularCurves Layer 1).
+- `PointedSmoothCurve.field` (degenerate): Over S = Spec k this is JacobianChallenge's standing pointed curve: smooth proper geometrically connected with a rational point.
+- `PointedSmoothCurve.not_connected` (non-example): X = P¹_S ⊔ P¹_S with a section in one copy is smooth and proper, but f_*O_X = O_S × O_S ≠ O_S, so it is excluded.
+
+**Checks.**
+- P¹_S with e = ∞, of genus zero; an elliptic curve E/S with its origin, of genus one.
+
+**Used by.** RJ.2/jacobian-rigidified-representability: the standing hypotheses for the relative Jacobian with its rigidification; Mazur's setting for J₀(N), as recorded in Tau Ceti ModularCurves, The Mazur interface: X₀(N) over ℤ[1/N] with the cusp ∞ is a pointed smooth proper curve.
+
+**Prerequisites.** RJ.1/relative-cartier-divisors; `AlgebraicGeometry.Smooth` (Mathlib); `AlgebraicGeometry.IsProper` (Mathlib); Tau Ceti JacobianChallenge Layer C.
+
+**Source.** Stacks Project, Lemma 33.44.14 (0B5X); Lemma 37.50.3 (0D2S); Lemma 37.50.1 (0B45): A line bundle of positive degree on a proper curve over a field is ample; fibrewise ampleness spreads to a neighbourhood for proper morphisms; proper morphisms with a relatively ample sheaf over a base with an ample sheaf are projective. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.3, Remark 2, p. 252: Relative curves with geometrically reduced irreducible fibres are projective under conditions on the dualising sheaf or after étale base change with a section; a section supplies the relatively ample divisor.
+
+### The relative Jacobian represents the rigidified degree-zero Picard functor (`RJ.2/jacobian-rigidified-representability`, theorem) — *Relative Jacobian of a pointed curve*
+
+Let (X, e) be a pointed smooth proper curve of genus g over a noetherian scheme S (for instance a Dedekind scheme). Then J := Pic⁰_{X/S} is an abelian scheme of relative dimension g over S that represents the functor T ↦ {line bundles L on X_T of degree zero on every fibre, with α : O_T ≅ e_T^*L}/isomorphism. The restriction 𝒫_J of the universal rigidified bundle to X ×_S J is trivialised along e × J and along X × {0}, and every T-point of J is (1 × g)^*𝒫_J for a unique g : T → J. Formation of J and 𝒫_J commutes with every base change T → S. If S is a Dedekind scheme with function field K, J is the Néron model of the Jacobian of X_K.
+
+**Hypotheses.**
+- (X, e) pointed smooth proper of genus g over a noetherian S. For g = 0, J = S and 𝒫_J = O.
+
+**Proof outline.**
+1. Locally on S, X is projective (RJ.2/pointed-smooth-curve), so JacobianChallengePartII:JC0/picard-representability and JC1/relative-jacobian give Pic⁰_{X/S} as an abelian scheme of relative dimension g, and JC1/jacobian-base-change gives base change; the local schemes glue by uniqueness.
+2. With the section and universal f_*O_X = O_S, Pic_{X/S}(T) = Pic(X_T)/Pic(T) ≅ rigidified classes (AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split; BLR 8.1/4).
+3. The universal bundle and the normalisations come from RJ.1/universal-rigidified-bundle restricted to the subfunctor Pic⁰.
+4. Over a Dedekind scheme an abelian scheme is the Néron model of its generic fibre (NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model; BLR 1.2/8).
+
+**Checks.**
+- For (P¹_S, ∞), J = S.
+- For an elliptic curve E/S with origin e, J ≅ E by the pointed Abel–Jacobi map, and 𝒫_J = O(Δ − e × E − E × e).
+- Over S = Spec ℤ[1/11], for X₀(11) with the cusp ∞, J is an elliptic curve over ℤ[1/11] (the Néron model away from 11).
+
+**Prerequisites.** RJ.2/pointed-smooth-curve; RJ.1/universal-rigidified-bundle; JacobianChallengePartII:JC0/picard-representability; JacobianChallengePartII:JC1/relative-jacobian; JacobianChallengePartII:JC1/jacobian-base-change; AlgebraicModuliForArithmeticGeometry:A0-extension/section-picard-split; NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model; `TauCeti.AlgebraicGeometry.AbelianVariety` (Tau Ceti).
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.1, Proposition 4, p. 204; §8.2, Proposition 4, p. 211; §9.4, Proposition 4, p. 260: With a section the relative Picard functor is line bundles modulo base line bundles, it carries a universal rigidified bundle, and for a proper smooth curve with connected geometric fibres Pic⁰ is an abelian scheme. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §1.2, Proposition 8, p. 15: An abelian scheme over a Dedekind scheme is the Néron model of its generic fibre.
+
+### Points of the Jacobian as divisor classes, Galois-equivariantly (`RJ.2/jacobian-points-divisor-classes`, theorem) — *Jacobian points as divisor classes*
+
+Let C be a smooth proper geometrically connected curve over a field K with a rational point P₀, and J = Pic⁰_{C/K}. For every field extension L/K there are isomorphisms, natural in L, J(L) ≅ Pic⁰(C_L) ≅ Cl⁰(C_L), the last being the group of degree-zero Weil divisors on C_L modulo principal divisors. For a separable closure K^s, the absolute Galois group G_K acts on J(K^s) through its action on K^s-points and on Cl⁰(C_{K^s}) by transporting divisors, and the isomorphism J(K^s) ≅ Cl⁰(C_{K^s}) is G_K-equivariant; taking invariants, J(K) = J(K^s)^{G_K} ≅ Cl⁰(C_{K^s})^{G_K} = Cl⁰(C). Without a rational point, Pic⁰(C) → J(K) is injective with cokernel inside Br(K).
+
+**Hypotheses.**
+- C smooth proper geometrically connected over K; for the equalities with Pic⁰(C) and Cl⁰(C), a rational point (or any degree-one line bundle: then the Brauer obstruction vanishes).
+
+**Proof outline.**
+1. J(L) = rigidified degree-zero bundles on C_L (RJ.2/jacobian-rigidified-representability over S = Spec K) = Pic⁰(C_L) since the rigidification is unique up to L^× (BLR 8.1/4).
+2. Pic⁰(C_L) ≅ Cl⁰(C_L) on the regular curve C_L: JacobianChallenge Layer A's Cartier–Weil dictionary; at the pin Tau Ceti's WeilDivisor.OrderSystem.weightedDegreeZeroQuotientEquivPicZero.
+3. Naturality in L for the K-automorphisms σ of K^s gives G_K-equivariance; invariants commute with the identification; Hilbert 90 and the rational point give J(K) = Pic⁰(C) (AlgebraicModuliForArithmeticGeometry:A0-extension/picard-brauer-obstruction).
+4. On divisors, σ ∈ G_K sends Σ n_P [P] to Σ n_P [σ(P)], matching the action on J(K^s) under P ↦ [P − P₀].
+
+**Checks.**
+- For an elliptic curve E with origin O, E(L) ≅ Cl⁰(E_L) by P ↦ [P − O], the class-group construction of Mathlib's group law (Tau Ceti WeierstrassCurve.Affine.classGroupMk_pointPlace).
+- For C = X₀(N) over ℚ with P₀ = ∞, the cuspidal class [(0) − (∞)] lies in J₀(N)(ℚ) and is fixed by G_ℚ, both cusps being rational.
+- For a genus-one curve without a rational point the inclusion Pic⁰(C) ⊂ J(K) can be strict (NeronModelsAndSemistableAbelianVarieties:R11.4/bgw-brauer-descent records an instance).
+
+**Prerequisites.** RJ.2/jacobian-rigidified-representability; `TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.weightedDegreeZeroQuotientEquivPicZero` (Tau Ceti); `TauCeti.AlgebraicGeometry.LineBundleClass` (Tau Ceti); AlgebraicModuliForArithmeticGeometry:A0-extension/picard-brauer-obstruction; Tau Ceti JacobianChallenge Layer A; Tau Ceti JacobianChallenge Layer D.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.1, Proposition 4, p. 204; §9.2, discussion before Corollary 13, pp. 250–251: With a section, points of the Picard functor are line bundles modulo base bundles; for a smooth proper connected curve over an algebraically closed field the points of Pic⁰ are the degree-zero line bundles, i.e. degree-zero divisor classes.
+
+### Specialisation of divisor classes at good reduction (`RJ.2/good-reduction-specialisation`, theorem) — *Specialisation of divisor classes*
+
+Let S be a Dedekind scheme with function field K, (X, e) a pointed smooth proper curve over an open U ⊂ S (the good-reduction locus of its generic fibre C) and J = Pic⁰_{X/U}. For a closed point s ∈ U with fibre X_s: (a) restriction to the special fibre defines a group homomorphism red_s : J(K) = J(O_{S,s}) → J_s(κ(s)) = Pic⁰(X_s); (b) for a line bundle L on X_{O_{S,s}} of degree zero, red_s[L_K] = [L|_{X_s}]; (c) for a degree-zero divisor D = Σ n_i [P_i] on C with P_i ∈ C(K), red_s[D] is the class of the specialised divisor Σ n_i [sp_s(P_i)] on X_s; (d) for a finite extension K′/K and a place above s, the same holds for K′-points, compatibly with decomposition groups.
+
+**Hypotheses.**
+- (X, e) pointed smooth proper over U ⊂ S; s ∈ U closed. Bad points of S are treated in RJ.4 and RJ.5.
+
+**Proof outline.**
+1. J is an abelian scheme over U, so J(K) = J(O_{S,s}) by RJ.0/proper-model-points; restriction to the closed point is a homomorphism.
+2. J(O_{S,s}) is the group of rigidified degree-zero bundles on X_{O_{S,s}} (RJ.2/jacobian-rigidified-representability), and its image in J_s(κ(s)) is obtained by restricting the bundle to the fibre (base change of 𝒫_J).
+3. Each P_i extends to a section σ_i (RJ.0/proper-model-points), whose image is a relative Cartier divisor of degree one (RJ.1/relative-cartier-divisors); O(Σ n_i σ_i(S)) restricts to O_{X_K}(D) and to O_{X_s}(Σ n_i sp_s(P_i)).
+4. For K′-points use the base change to the localisation of the integral closure of O_{S,s} in K′ (étale or not), along which J commutes with base change.
+
+**Checks.**
+- For an elliptic curve with good reduction at p, red_p is the usual reduction E(ℚ) → E(𝔽_p) (Tau Ceti EllipticCurves Layer 4 reduction), sending [P − O] to [P̄ − Ō].
+- For X₀(N) and p ∤ N, the cuspidal class [(0) − (∞)] reduces to the class of the reductions of the two cusps on X₀(N)_{𝔽_p}.
+
+**Prerequisites.** RJ.2/jacobian-rigidified-representability; RJ.0/proper-model-points; RJ.1/relative-cartier-divisors; RJ.1/abel-map; JacobianChallengePartII:JC1/jacobian-base-change.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.5, opening discussion and Theorem 1, p. 264: For a regular model, line bundles on the generic fibre extend to the model, so Picard points of the generic fibre extend and restrict to the special fibre; with geometrically reduced irreducible fibres Pic⁰ is the Néron model of the Jacobian.
+
+## RJ.3. Raynaud's theory: Néron models of Jacobians from regular models
+
+Raynaud's theory computes the Néron model of the Jacobian of the generic fibre from a regular proper model: it is the quotient of the degree-zero Picard functor by the closure of the generic unit section, its identity component is Pic⁰ of the model when the gcd of the geometric multiplicities is one, and for normal models the identity components agree exactly when the singularities are rational. Over a Dedekind base the local models glue with the relative Jacobian over the smooth locus.
+
+**Depends on:** AlgebraicModuliForArithmeticGeometry:A0-extension, JacobianChallengePartII:JC1, NeronModelsAndSemistableAbelianVarieties:R11.1, NeronModelsAndSemistableAbelianVarieties:R11.2, NeronModelsAndSemistableAbelianVarieties:R11.3, RJ.0, RJ.1, RJ.2, SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.1, Tau Ceti JacobianChallenge Layer C, Tau Ceti StableReduction Layer 4.
+
+### The separated quotient P/E of the degree-zero Picard functor (`RJ.3/degree-zero-quotient`, construction) — *Separated quotient P/E*
+
+Let R be a discrete valuation ring with fraction field K and residue field k, S = Spec R, and f : X → S a flat proper curve with X_K normal and geometrically irreducible. Let P := Pic^{[0]}_{X/S} be the open and closed subfunctor of total degree zero (RJ.1/fibre-multiplicities), and E ⊂ P the schematic closure of the unit section of P_K: the subsheaf generated by the morphisms Z → P with Z flat over S whose generic fibre factors through the unit section. Then Q := P/E (quotient of fppf sheaves) is represented by a smooth separated S-group scheme, P → Q is an isomorphism on generic fibres (so Q_K = J_K := Pic⁰_{X_K/K}), and Q is the largest separated quotient of P. If R is strictly henselian and X is normal, E(S) is the group of Cartier divisors of X supported on the special fibre modulo principal ones.
+
+**Hypotheses.**
+- R a discrete valuation ring; X/S flat proper of relative dimension one; X_K normal and geometrically irreducible. No regularity of X, no section, no representability of Pic_{X/S} is assumed.
+
+**Proof outline.**
+1. If Pic_{X/S} is a scheme: the identity component of the smooth group P is separated, so E meets it trivially, E is étale, and P/E is a smooth scheme (BLR 9.5/3, first case).
+2. If Pic_{X/S} is an algebraic space: E is étale and P/E is a smooth separated algebraic group space, hence a scheme (BLR 6.6/3; second case).
+3. In general choose a rigidificator Y (RJ.1/rigidificator); (P, Y) is a smooth algebraic space (RJ.1/rigidified-picard-representability); the quotient of (P, Y) by the schematic closure H of the kernel of its generic map to P_K is a separated algebraic space identified with P/E, hence a smooth separated group scheme (third case).
+4. Vertical divisors: a class in E(S) is a line bundle trivial on X_K, hence O_X(Δ) for a Cartier divisor Δ supported on the special fibre (BLR 9.5/8, using the Stein factorisation and the strictly henselian purely inseparable constant field).
+
+**API.**
+- `degreeZeroQuotient` (constructor): Q := P/E as a smooth separated S-group scheme with the quotient map q : P → Q.
+- `degreeZeroQuotient.generic` (characterisation): q_K : P_K → Q_K is an isomorphism and Q_K = Pic⁰_{X_K/K}.
+- `degreeZeroQuotient.largest_separated` (universal-property): Every morphism from P to a separated S-scheme (or algebraic space) factors uniquely through q.
+- `degreeZeroQuotient.closure_points` (characterisation): For R strictly henselian and X normal, E(S) ≅ D/D₀, vertical Cartier divisors modulo principal divisors.
+- `degreeZeroQuotient.flatBaseChange` (functoriality): Formation of E and Q commutes with flat extensions of discrete valuation rings, in particular with henselisation, strict henselisation and completion.
+- `degreeZeroQuotient.smoothCase` (compatibility): For smooth X/S with geometrically integral fibres, Q = Pic⁰_{X/S}, the relative Jacobian of JacobianChallengePartII:JC1/relative-jacobian.
+
+**Unit tests.**
+- `degreeZeroQuotient.smooth` (degenerate): For X/S smooth with geometrically integral fibres, E is the unit section and Q = Pic⁰_{X/S}.
+- `degreeZeroQuotient.two_components` (computation): For the blow-up X of P¹_R at a k-rational point of the special fibre (special fibre X₁ + X₂ meeting transversally), E(R) = ℤ·[O_X(X₁)] (vertical divisors ℤX₁ ⊕ ℤX₂ modulo div(π) = X₁ + X₂) and Q = S, the Jacobian of P¹_K being trivial.
+- `degreeZeroQuotient.generic_iso` (characterisation): For any X as in the statement, Q(K) = J_K(K) = Pic⁰_{X_K/K}(K).
+- `degreeZeroQuotient.P_not_separated` (non-example): In the two-component example, P itself is not separated: the R-points O_X and O_X(X₁) of P agree generically and differ.
+
+**Checks.**
+- If X/S is smooth with geometrically integral fibres, E is the unit section and Q = P = Pic⁰_{X/S}.
+- If the special fibre has two components X₁, X₂ (a regular model), O_X(X₁) is a nontrivial R-point of P with trivial generic fibre, so P is not separated and E(R) ⊇ ℤ·[O_X(X₁)].
+
+**Used by.** BLR 9.5/4: Q is the Néron model of the Jacobian of X_K; NeronModelsAndSemistableAbelianVarieties:R11.4/picard-neron-identity: the semistable identity comparison quotients the relative Picard functor by the closure of the generic identity, recorded there as the open gap 'Picard Raynaud'.
+
+**Prerequisites.** RJ.1/fibre-multiplicities; RJ.1/rigidificator; RJ.1/rigidified-picard-representability; AlgebraicModuliForArithmeticGeometry:A0-extension/relative-picard-sheaf; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-space-representability; SchemeAndStackFoundations:SF.1.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.5, Proposition 3, pp. 266–267; Lemma 8, pp. 269–270: The quotient of the degree-zero Picard functor by the schematic closure of the generic unit section is a smooth separated group scheme with generic fibre the Jacobian, and over a strictly henselian base the closure consists of vertical Cartier divisors modulo principal ones.
+
+### Raynaud's representability theorem for relative curves (`RJ.3/raynaud-representability`, theorem) — *Raynaud's representability theorem*
+
+Let R be a discrete valuation ring, S = Spec R, and f : X → S a proper flat curve with f_*O_X = O_S and X normal. If the greatest common divisor of the geometric multiplicities δ_i of the components of the special fibre is one, then (a) Pic_{X/S} is an algebraic space over S, and (b) Pic⁰_{X/S} is represented by a separated smooth S-group scheme. In particular (Corollary) if X is regular, X_K is connected and has a K-rational point, the same conclusions hold.
+
+**Hypotheses.**
+- R discrete valuation ring; f proper flat of relative dimension one; f_*O_X = O_S; X normal; gcd of the δ_i equal to one.
+
+**Proof outline.**
+1. (a): the hypotheses give Raynaud's condition N* (AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-n-star) and a degree-one divisor after strict henselisation (RJ.1/index-representability), so f is cohomologically flat in dimension zero (A0-extension/raynaud-degree-one) and Pic_{X/S} is an algebraic space (A0-extension/picard-space-representability).
+2. (b): with a rigidificator Y, compare P with Q = P/E (RJ.3/degree-zero-quotient): over the strict henselisation there is a universal bundle on the generic fibre, and the normality of X lets a lift of it descend over (P, Y)⁰, giving a section of q over Q⁰; the kernel of q_s restricted to P_s⁰ has finitely generated group of points (vertical divisors), so q_s is quasi-finite on P_s⁰ and q : P⁰ → Q⁰ is an isomorphism (BLR 9.4/2 proof, pp. 262–263).
+3. Corollary: a K-point extends to a section, which lies in the smooth locus because X is regular (RJ.0/proper-model-points (c)), so some component has δ_i = 1 (BLR 9.4/3).
+
+**Checks.**
+- For a regular model of an elliptic curve with a rational point, Pic⁰_{X/S} is the identity component of the Néron model (RJ.3/raynaud-neron-model).
+- The hypothesis f_*O_X = O_S is needed for Pic_{X/S}(T) = Pic(X_T)/Pic(T) after a section exists; it fails for the normalised model of ℙ¹ over ℚ(√2) relative to ℤ (RJ.0/normalised-model-properties), where f_*O_X = ℤ[√2].
+
+**Prerequisites.** RJ.3/degree-zero-quotient; RJ.1/index-representability; RJ.0/proper-model-points; AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-n-star; AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-degree-one; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-space-representability.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.4, Theorem 2 and Corollary 3, pp. 259–260; proof of Theorem 2, pp. 262–264: Raynaud's theorem: for a proper flat normal curve over a discrete valuation ring with f_*O = O and geometric multiplicities of gcd one, the Picard functor is an algebraic space and its identity component a separated scheme; a regular model with a rational generic point satisfies the hypotheses.
+
+### Raynaud's theorem: the Néron model of a Jacobian from a regular model (`RJ.3/raynaud-neron-model`, theorem) — *Raynaud's theorem on Néron models of Jacobians*
+
+Let R be a discrete valuation ring with fraction field K and residue field k, and X a proper flat curve over S = Spec R with geometrically irreducible generic fibre, X regular, and either k perfect or X admitting an étale quasi-section. Then (a) Q = P/E (RJ.3/degree-zero-quotient) is a Néron model, of finite type, of the Jacobian J_K = Pic⁰_{X_K/K}; (b) if the gcd of the geometric multiplicities of the components of X_k is one (for instance if X has a section, or X_k has a component of geometric multiplicity one), Pic⁰_{X/S} is a separated S-scheme and P → Q induces an isomorphism Pic⁰_{X/S} ≅ Q⁰, the identity component of the Néron model; (c) if moreover X is projective and its fibres are geometrically reduced and irreducible, Pic⁰_{X/S} itself is the Néron model and its special fibre is connected.
+
+**Hypotheses.**
+- R a discrete valuation ring (no henselian or completeness hypothesis); X proper flat regular; X_K geometrically irreducible; k perfect or an étale quasi-section. 'Néron model' in the sense of NeronModelsAndSemistableAbelianVarieties:R11.1/marked-model, for the smooth group J_K (an abelian variety when X_K is smooth).
+
+**Proof outline.**
+1. Reduce to R strictly henselian: Q, regularity and the Néron property are compatible with étale base change and descend (BLR 6.5/3, 7.2/2; NeronModelsAndSemistableAbelianVarieties:R11.1/etale-basechange).
+2. Extension of points: over a strictly henselian R, every element of Pic_{X/S}(K) is a line bundle on X_K (Lang: Br of the fraction field and of its purely inseparable extension vanish), and line bundles extend over the regular X (BLR 9.5/2); so Q(R) → Q(K) is bijective.
+3. Finite type: the component group Q(R)/Q⁰(R) is a quotient of ker β/im α for the intersection complex of the special fibre, finite because the intersection form is negative semi-definite with kernel spanned by the fibre (BLR 9.5/9–9.5/11).
+4. A smooth separated group of finite type whose R^sh-points equal its K^sh-points is a Néron model (BLR 7.1/1); with gcd one, RJ.3/raynaud-representability makes Pic⁰ a separated scheme mapping isomorphically to Q⁰.
+5. (c) is BLR 9.5/1: Pic⁰ is then already a smooth separated scheme with the extension property (BLR 9.3/1).
+
+**Checks.**
+- For a smooth proper curve over R with geometrically connected fibres, the Néron model of its Jacobian is the relative Jacobian (consistent with RJ.2/jacobian-rigidified-representability).
+- For the minimal regular model of an elliptic curve E/K, Q is the Néron model of E, and with the origin's section Pic⁰_{X/S} is its identity component (compare NeronModelsAndSemistableAbelianVarieties:R11.2/minimal-regular-smooth-locus over a strictly henselian base).
+- For a regular semistable model over a strictly henselian R with algebraically closed residue field, (b) is NeronModelsAndSemistableAbelianVarieties:R11.4/picard-neron-identity.
+
+**Prerequisites.** RJ.3/degree-zero-quotient; RJ.3/raynaud-representability; RJ.1/fibre-multiplicities; NeronModelsAndSemistableAbelianVarieties:R11.1/mapping-property; NeronModelsAndSemistableAbelianVarieties:R11.1/marked-model; NeronModelsAndSemistableAbelianVarieties:R11.1/unique-iso; NeronModelsAndSemistableAbelianVarieties:R11.1/etale-basechange; NeronModelsAndSemistableAbelianVarieties:R11.1/weak-model; NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.5, Theorem 1 (p. 264), Lemma 2 (p. 265), Theorem 4 and Remark 5 (p. 267), Lemmas 7–11 (pp. 269–273): Raynaud's identification of the Néron model of the Jacobian of the generic fibre with P/E for a regular proper flat curve, the identity component with Pic⁰ under the gcd condition, and the finiteness of the component group through the intersection form. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §7.1, Theorem 1, p. 172: A smooth separated group scheme of finite type satisfying the extension property for étale points is a Néron model.
+
+### Rational singularities and the identity component (`RJ.3/rational-singularities-criterion`, theorem) — *Rational singularities criterion*
+
+Let R be a discrete valuation ring and X a flat proper normal curve over Spec R with geometrically irreducible generic fibre, admitting a desingularisation π : X′ → X (for instance R excellent), with k perfect or an étale quasi-section, and with gcd of the geometric multiplicities equal to one. Then the Jacobian J_K has a Néron model N of finite type, Pic⁰_{X/S} is a separated scheme, and the canonical morphism Pic⁰_{X/S} → N⁰ is an isomorphism if and only if X has rational singularities (R¹π_*O_{X′} = 0). In particular, for a normal semistable curve X (geometric fibres reduced, connected, with only ordinary double points), Pic⁰_{X/S} ≅ N⁰ and J_K has semi-abelian reduction.
+
+**Hypotheses.**
+- R discrete valuation ring; X normal, proper, flat, with geometrically irreducible generic fibre and a desingularisation; k perfect or an étale quasi-section; gcd one.
+
+**Proof outline.**
+1. The hypotheses pass to X′; by RJ.3/raynaud-neron-model, P′/E′ is the Néron model and Pic⁰_{X′/S} ≅ N⁰; by RJ.3/raynaud-representability, Pic⁰_{X/S} is a separated scheme.
+2. Pic⁰_{X/S} → Pic⁰_{X′/S} is an isomorphism of smooth groups with isomorphic generic fibres iff it is so on Lie algebras, i.e. iff H¹(X, O) → H¹(X′, O) is an isomorphism (Lie(Pic) = R¹f_*O, BLR 8.4/1; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting).
+3. The Leray sequence for π gives 0 → H¹(X, O) → H¹(X′, O) → H⁰(X, R¹π_*O) → 0, and R¹π_*O is supported at finitely many points; so the isomorphism holds iff R¹π_*O = 0 (BLR 9.7/1).
+4. Semistable normal curves satisfy the hypotheses and have rational singularities (their singular points are of type xy = π^n); Pic⁰ is semi-abelian (BLR 9.2/8, 9.4/1), giving BLR 9.7/2.
+
+**Checks.**
+- For a regular model (π = identity) the criterion holds trivially and recovers RJ.3/raynaud-neron-model (b).
+- For the Deligne–Rapoport model of X₀(p) over ℤ_p, which is normal and semistable but not regular at supersingular points with extra automorphisms, Pic⁰ is the identity component of the Néron model of J₀(p) over ℤ_p; its special fibre is a torus because both components of the special fibre are rational (BLR 9.2/8 and the description of X₀(N) on p. 288).
+
+**Prerequisites.** RJ.3/raynaud-neron-model; RJ.3/raynaud-representability; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting; NeronModelsAndSemistableAbelianVarieties:R11.3/semistable-reduction; Tau Ceti JacobianChallenge Layer C; Tau Ceti StableReduction Layer 4.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.7, Theorem 1 and Corollary 2, pp. 286–287; discussion and Proposition 3, p. 288: For a normal proper flat curve with a desingularisation, Pic⁰ equals the identity component of the Néron model exactly when the singularities are rational; normal semistable curves qualify, and the modular curves X₀(N) are the motivating example. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §8.4, Theorem 1, p. 231: The Lie algebra of the Picard functor of a cohomologically flat proper flat morphism is R¹f_*O.
+
+### Néron models of Jacobians over a Dedekind base (`RJ.3/global-neron-jacobian`, theorem) — *Global Néron model of a Jacobian*
+
+Let S be a Dedekind scheme with function field K, C/K a smooth proper geometrically connected curve with Jacobian J, and X/S a proper flat regular model of C. Assume that at every closed point s either κ(s) is perfect or X ×_S Spec O_{S,s} has an étale quasi-section. Then (a) X is smooth over a dense open U ⊂ S and J extends over U to the relative Jacobian of X_U/U; (b) the local quotients Q_s = P_s/E_s at the finitely many closed points outside U glue with this abelian scheme into the Néron model N of J over S, and Q_s = N ×_S Spec O_{S,s} for every closed point s; (c) if at every closed point the gcd of the geometric multiplicities of X_s is one (for instance if X has a section), the fibrewise identity component Pic⁰_{X/S} is represented by the open subgroup N⁰ of N, compatibly with base change to every O_{S,s}.
+
+**Hypotheses.**
+- S Dedekind; C smooth proper geometrically connected over K; X regular proper flat model; at each closed point, perfect residue field or an étale quasi-section.
+
+**Proof outline.**
+1. Spreading out: smoothness of X_K spreads to a dense open U (upstream SchemeAndStackFoundations §0.8, generic_fibre_spreading); on U, X_U is smooth proper with geometrically connected fibres and J(X_U/U) is an abelian scheme (JacobianChallengePartII:JC1/relative-jacobian, after the projectivity of RJ.2/pointed-smooth-curve étale-locally).
+2. Local Néron models at the remaining points: RJ.3/raynaud-neron-model; gluing: NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-gluing (BLR 1.4/3 with 1.2/4).
+3. Identity components: RJ.3/raynaud-neron-model (b) at each s and the fibrewise definition of Pic⁰ (AlgebraicModuliForArithmeticGeometry:A0-extension/picard-zero-sheaf).
+
+**Checks.**
+- For an elliptic curve E/ℚ and its minimal regular model over ℤ, N is the Néron model over ℤ and N⁰ = Pic⁰ of the model.
+- For C = X₀(11) and the minimal regular model over ℤ, U = Spec ℤ[1/11] and the fibre of N over 11 has component group ℤ/5ℤ.
+
+**Prerequisites.** RJ.3/raynaud-neron-model; RJ.2/pointed-smooth-curve; JacobianChallengePartII:JC1/relative-jacobian; NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-gluing; NeronModelsAndSemistableAbelianVarieties:R11.1/abelian-scheme-model; AlgebraicModuliForArithmeticGeometry:A0-extension/picard-zero-sheaf; SchemeAndStackFoundations:SF.0.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §1.2, Proposition 4 (pp. 13–14); §1.4, Proposition 1 and Theorem 3 (pp. 18–20); §9.5, Theorem 4 (p. 267): Néron models over a Dedekind scheme are local on the base and glue from a smooth proper model over a dense open and local models at the finitely many remaining points; locally they are Raynaud's quotients.
+
+## RJ.4. Reduction maps, torsion and component groups
+
+Reduction of points is a homomorphism for every separated group scheme over a discrete valuation ring. Torsion survives reduction when its order is prime to the residue characteristic, and all torsion survives when e < p − 1; the proof uses the schematic closure of the cyclic subgroup and Raynaud's lemma, so it needs no hypothesis on the reduction type. For Jacobians with regular models, the component of the reduction of a divisor class is the multidegree of its closure.
+
+**Depends on:** FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1, NeronModelsAndSemistableAbelianVarieties:R11.1, NeronModelsAndSemistableAbelianVarieties:R11.2, NeronModelsAndSemistableAbelianVarieties:R11.4, ReductiveGroupsPartII:RG2.3, RJ.0, RJ.1, RJ.3, SchemeAndStackFoundations:SF.0, Tau Ceti StableReduction Layer 5.
+
+### Reduction of points of a group scheme over a discrete valuation ring (`RJ.4/reduction-homomorphism`, construction) — *Reduction map*
+
+Let R be a discrete valuation ring with fraction field K and residue field k, and G a separated commutative group scheme locally of finite type over R. The reduction map red : G(R) → G_k(k), x ↦ x restricted to Spec k, is a group homomorphism; G(R) → G(K) is injective. If G is the Néron model N of a smooth commutative K-group A (for instance an abelian variety), the Néron property identifies A(K) = N(R), so red becomes red : A(K) → N_k(k); then red⁻¹(N⁰_k(k)) = N⁰(R), and A(K)/N⁰(R) embeds in Φ(k) := (N_k/N⁰_k)(k). If R is henselian, red is surjective onto N_k(k); if moreover k is finite, A(K)/N⁰(R) ≅ Φ(k).
+
+**Hypotheses.**
+- R a discrete valuation ring; G separated, commutative, locally of finite type. Surjectivity requires R henselian and G smooth; the identification with Φ(k) also requires H¹(k, N⁰_k) = 0, which holds for finite k (Lang).
+
+**Proof outline.**
+1. red is restriction along Spec k → Spec R, compatible with the group law because it is a morphism of group functors evaluated on a ring map.
+2. Injectivity of G(R) → G(K): valuative criterion of separatedness (BLR p. 7).
+3. Néron property with the smooth test scheme Spec R gives N(R) = A(K) (NeronModelsAndSemistableAbelianVarieties:R11.1/mapping-property).
+4. N⁰ is open in N with special fibre N⁰_k (R11.2/identity-component), so an R-point lies in N⁰(R) iff its reduction lies in N⁰_k(k); the component group Φ is R11.2/component-group.
+5. Henselian surjectivity: k-points of a smooth R-scheme lift to R-points (BLR 2.3/5); the last statement uses Lang's theorem H¹(k, N⁰_k) = 0 for connected smooth groups over finite fields.
+
+**API.**
+- `reductionHom` (constructor): red : G(R) →+ G_k(k), restriction to the closed point.
+- `reductionHom_injective_generic` (characterisation): G(R) → G(K) is injective for G separated.
+- `reductionHom.neron` (constructor): For a Néron model N of A, red : A(K) → N_k(k) through A(K) = N(R).
+- `reductionHom.ker` (data): The kernel G¹(R) of red, the points reducing to the unit.
+- `reductionHom.preimage_identityComponent` (characterisation): red⁻¹(N⁰_k(k)) = N⁰(R).
+- `reductionHom.componentMap` (constructor): The injection A(K)/N⁰(R) ↪ Φ(k), an isomorphism when R is henselian and k is finite.
+- `reductionHom.surjective_henselian` (other): For R henselian and G smooth, red is surjective.
+- `reductionHom.natural` (functoriality): red commutes with homomorphisms of group schemes over R and with unramified extensions R → R′ of discrete valuation rings.
+- `reductionHom.ellipticCompat` (compatibility): For an elliptic curve over a complete R with perfect residue field, red on the Néron model agrees with Tau Ceti EllipticCurves Layer 4's reduction map, E₀(K) = N⁰(R) and E₁(K) = ker red on N⁰ (NeronModelsAndSemistableAbelianVarieties:R11.2/elliptic-filtration).
+
+**Unit tests.**
+- `reductionHom.multiplicative` (computation): For G = 𝔾_m over ℤ_p, red is u ↦ u mod p and its kernel is 1 + pℤ_p.
+- `reductionHom.constant` (degenerate): For a finite constant group scheme H_R, red : H → H is the identity.
+- `reductionHom.abelianScheme` (compatibility): For an abelian scheme A/R, red is the restriction of A(R) = A_K(K) to the special fibre, as in HeightsRationalPointsAndObstructions:RP.1/reduction-torsion-injective.
+- `reductionHom.not_surjective` (non-example): Without henselianity red need not be surjective: for G = μ₃ over ℤ_(7), μ₃(ℤ_(7)) = {1} because ℚ contains no primitive cube root of unity, while μ₃(𝔽₇) has three elements; over the henselisation (inside ℤ₇) red becomes surjective.
+
+**Checks.**
+- For G = 𝔾_m over ℤ_p, red is reduction of units modulo p with kernel 1 + pℤ_p.
+- For the Néron model of a Tate curve with ord(q) = n over a complete R with finite k, A(K)/N⁰(R) ≅ ℤ/n (NeronModelsAndSemistableAbelianVarieties:R11.3/ramified-tate-counterexample).
+
+**Used by.** RJ.4/torsion-specialisation: torsion points are separated by their reductions; RJ.4/component-multidegree: the component of red of a divisor class in Φ(k).
+
+**Prerequisites.** NeronModelsAndSemistableAbelianVarieties:R11.1/mapping-property; NeronModelsAndSemistableAbelianVarieties:R11.1/marked-model; NeronModelsAndSemistableAbelianVarieties:R11.2/identity-component; NeronModelsAndSemistableAbelianVarieties:R11.2/component-group; ReductiveGroupsPartII:RG2.3/lang-theorem; `IsDiscreteValuationRing` (Mathlib); SchemeAndStackFoundations:SF.0.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §1.1, p. 7; §2.3, Proposition 5 (henselian lifting); §9.5, proof of Lemma 7, p. 269: Valuative separatedness gives injectivity of integral points; over a henselian base, rational points of the special fibre of a smooth scheme lift; the component group of the Néron model is read on R-points modulo identity-component points.
+
+### Injectivity of reduction on torsion (`RJ.4/torsion-specialisation`, theorem) — *Torsion injects under reduction*
+
+Let R be a discrete valuation ring with fraction field K and residue field k of characteristic exponent p, and G a separated commutative group scheme of finite type over R (for instance a Néron model or an abelian scheme). Let x ∈ G(R) be a torsion point of exact order n with red(x) = 0 in G_k(k). Then (a) n is a power of p (so n = 1 if char k = 0): red is injective on the prime-to-p torsion of G(R); (b) if K has characteristic zero and the absolute ramification index e = v(p) satisfies e < p − 1, then n = 1: red is injective on all torsion of G(R). The bound in (b) is sharp.
+
+**Hypotheses.**
+- G separated commutative of finite type over the discrete valuation ring R. No smoothness, properness or reduction-type hypothesis: bad reduction is allowed.
+
+**Proof outline.**
+1. Let C ⊂ G be the schematic image of the n sections x^i : Spec R → G (each a closed immersion as G is separated): a closed subgroup scheme, finite and flat over R, with generic fibre the constant group (ℤ/n)_K (x_K has exact order n by injectivity of G(R) → G(K)) (FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups).
+2. The homomorphism φ : (ℤ/n)_R → C, 1 ↦ x, is an isomorphism on generic fibres.
+3. (a) If n is invertible in R: C is finite flat of order n, killed by n (Deligne, R07.1/simple-finite-flat-groups (i)), hence étale (its invariant differentials are killed by the unit n); a morphism of finite étale R-schemes that is an isomorphism generically is an isomorphism. If n = p^a·m with m > 1 prime to p, then y := x^{p^a} has exact order m and red(y) = 0, which the invertible-order case excludes; so n is a power of p.
+4. (b) For n = p^a and e < p − 1, Raynaud's theorem (R07.1/raynaud-uniqueness; BLR 7.5/5) makes φ an isomorphism of finite flat groups.
+5. In both cases C_k ≅ (ℤ/n)_k is generated by red(x), so red(x) has order n; red(x) = 0 forces n = 1.
+6. Sharpness: over R = ℤ_p[ζ_p] (e = p − 1) the point ζ_p ∈ 𝔾_m(R) has order p and reduces to 1.
+
+**Checks.**
+- E = X₀(11) over ℚ has E(ℚ)_tors = ℤ/5ℤ; #E(𝔽₂) = #E(𝔽₃) = 5, so reduction at 2 (odd torsion) and at 3 (e = 1 < 2) maps the torsion isomorphically.
+- At the bad prime 11, E(ℚ)_tors injects into N_{𝔽_11}(𝔽_11), whose component group is ℤ/5ℤ (split I₅).
+- Over ℤ_p[ζ_p], ζ_p reduces to 1 in 𝔾_m: the bound e < p − 1 cannot be weakened to e ≤ p − 1.
+
+**Prerequisites.** RJ.4/reduction-homomorphism; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/raynaud-uniqueness; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/simple-finite-flat-groups; FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1/schematic-closure-of-generic-subgroups.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §7.5, Lemma 5 and Corollary 6, p. 187: Raynaud's lemma: over a discrete valuation ring of mixed characteristic with e < p − 1, a homomorphism of finite flat commutative group schemes that is an isomorphism on generic fibres is an isomorphism; a finite flat group with constant generic fibre is constant over a strictly henselian such base. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §7.5, Example 7, pp. 189–190: When e ≥ p − 1 the generic p-torsion can be rational and a constant group can map to μ_p non-injectively, so the bound is sharp.
+
+### Torsion injects into every fibre of the Néron model (`RJ.4/global-torsion-injection`, theorem) — *Global torsion injection*
+
+Let S be a Dedekind scheme with function field K, A/K an abelian variety and N its Néron model over S. For every closed point s with residue characteristic exponent p_s and absolute ramification index e_s (when char K = 0 and p_s > 1): the composite A(K)_tors = N(S)_tors → N(O_{S,s})_tors → N_s(κ(s)) is injective on prime-to-p_s torsion, and injective on all torsion when char K = 0 and e_s < p_s − 1. For K a number field this holds at every finite place, of good or bad reduction; for S = Spec ℤ, A(ℚ)_tors embeds in N_ℓ(𝔽_ℓ) for every odd prime ℓ, and its odd part embeds in N₂(𝔽₂); hence #A(ℚ)_tors divides #N_ℓ(𝔽_ℓ) for every odd ℓ.
+
+**Hypotheses.**
+- S Dedekind, A/K abelian variety with Néron model N over S (existence over excellent Dedekind bases: NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-gluing).
+
+**Proof outline.**
+1. N(S) = A(K) by the Néron property; localise at s and apply RJ.4/torsion-specialisation to the separated finite-type group N ×_S Spec O_{S,s}.
+2. For ℚ: e_ℓ = 1 < ℓ − 1 for ℓ ≥ 3; for ℓ = 2 only odd torsion is controlled; N_ℓ(𝔽_ℓ) is finite, so an injective homomorphism bounds the order.
+
+**Checks.**
+- For J₀(N) over ℚ and an odd prime ℓ ∤ N, #J₀(N)(ℚ)_tors divides #J₀(N)(𝔽_ℓ) (good reduction); at ℓ | N, it embeds in the special fibre of the Néron model.
+- The good-reduction case is HeightsRationalPointsAndObstructions:RP.1/reduction-torsion-injective.
+
+**Prerequisites.** RJ.4/torsion-specialisation; NeronModelsAndSemistableAbelianVarieties:R11.1/dedekind-gluing; NeronModelsAndSemistableAbelianVarieties:R11.1/mapping-property.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §1.2, Proposition 4, pp. 13–14; §7.5, Lemma 5, p. 187: Néron models over Dedekind schemes localise at closed points; Raynaud's lemma controls p-power torsion in small ramification.
+
+### Specialisation of divisor classes into the component group (`RJ.4/component-multidegree`, theorem) — *Component group via multidegrees*
+
+Let R be a discrete valuation ring, X/Spec R a regular proper flat model of a smooth proper geometrically connected curve C/K, with a section e (so the gcd of geometric multiplicities is one), and N the Néron model of J = Jac(C) (RJ.3/raynaud-neron-model). Let X_{k,1}, …, X_{k,r} be the components of the special fibre over a separable closure k^s (after strict henselisation), δ_i their geometric multiplicities, α : ℤ^r → ℤ^r the modified intersection matrix ((X_i · X_j)/e_i) and β(a) = Σ a_i δ_i. (a) There is a G_k-equivariant isomorphism Φ(k^s) ≅ ker β / im α, sending the class of a degree-zero line bundle L on X_{R^{sh}} to the class of its partial degrees (deg_{X_{k,i}} L)_i; hence Φ(k) ≅ (ker β/im α)^{G_k}. (b) For a degree-zero divisor D on C supported on K-points (or K′-points after an unramified extension), the image of red([D]) in Φ is the class of the multidegree of O_X(D̄), D̄ the sum of the closures of the points (sections in the smooth locus by RJ.0/proper-model-points); in particular [D] ∈ N⁰(R) iff that multidegree lies in im α. (c) The identity-component part of red([D]) is the class of O_X(D̄ − Σ c_i X_i)|_{X_k} for any vertical correction Σ c_i X_i making all partial degrees zero.
+
+**Hypotheses.**
+- X regular proper flat over R with smooth geometrically connected generic fibre; a section e; residue field arbitrary (Galois descent from k^s).
+
+**Proof outline.**
+1. Over R^{sh}: N = Q = P/E, N⁰ = Pic⁰_{X/S} (RJ.3/raynaud-neron-model); P(R^{sh}) = Pic(X) of total degree zero maps onto ker β by partial degrees, E(R^{sh}) = vertical divisors, whose image is im α (BLR 9.5/9); the geometric statement is NeronModelsAndSemistableAbelianVarieties:R11.4/intersection-component-quotient (BLR 9.6/1).
+2. G_k = Gal(k^s/k) acts on components and on Φ(k^s) compatibly with the partial-degree map; Φ(k) = Φ(k^s)^{G_k} (R11.2/component-group).
+3. For (b): [D] ∈ J(K) = N(R) is represented by the line bundle O_X(D̄) of total degree zero on X (line bundles on the generic fibre extend over the regular X), so its component is its multidegree class.
+4. For (c): twisting by a vertical divisor does not change the generic class; when all partial degrees vanish the bundle defines a point of Pic⁰_{X/S}(R) = N⁰(R), whose reduction is its restriction to X_k.
+
+**Checks.**
+- For an elliptic curve with split multiplicative reduction of type I_n and its regular model (a cycle of n rational curves), Φ = ℤ/nℤ, and [P − O] maps to i mod n when P specialises to the i-th component, O to the 0-th.
+- For X₀(11) at 11 (type I₅), the cusps 0 and ∞ specialise to different components of the regular model, so the cuspidal class, which generates the rational torsion, maps isomorphically onto Φ(𝔽₁₁) = ℤ/5ℤ.
+- If X is smooth over R (one component), Φ = 0 and (c) is RJ.2/good-reduction-specialisation.
+
+**Prerequisites.** RJ.3/raynaud-neron-model; RJ.4/reduction-homomorphism; RJ.0/proper-model-points; RJ.1/fibre-multiplicities; NeronModelsAndSemistableAbelianVarieties:R11.4/intersection-component-quotient; NeronModelsAndSemistableAbelianVarieties:R11.2/component-group; Tau Ceti StableReduction Layer 5.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.5, Lemmas 9–10, pp. 270–272; §9.6, Theorem 1, p. 274: The degree-zero Picard group of a regular model maps onto the kernel of the multiplicity-weighted sum of partial degrees, vertical divisors map onto the image of the modified intersection matrix, and the quotient is the component group of the Néron model of the Jacobian.
+
+## RJ.5. Specialisation of Jacobians over Dedekind bases
+
+Over excellent Dedekind bases every smooth proper curve has a regular proper model, obtained from the normalised model by finitely many normalised blow-ups. The specialisation package assembles the identity component, the relative Jacobian over the good locus, divisor classes, reduction maps with their component-group and identity-component parts, and torsion injectivity at every closed point.
+
+**Depends on:** NeronModelsAndSemistableAbelianVarieties:R11.1, RJ.0, RJ.2, RJ.3, RJ.4, SchemeAndStackFoundations:SF.4, Tau Ceti StableReduction Layer 4, Tau Ceti StableReduction Layer 5.
+
+### Existence of regular proper models over excellent Dedekind bases (`RJ.5/regular-model-existence`, theorem) — *Regular proper models*
+
+Let S be an excellent Dedekind scheme (for instance the spectrum of a ring of S-integers of a number field) with function field K, and C/K a smooth proper geometrically connected curve. Then C has a regular proper flat model X over S. One may take X to be obtained from a normalised projective-line model X_{F,t} (RJ.0/normalised-projective-line, F = K(C)) by finitely many normalised blow-ups at closed points of the finitely many non-regular fibres; X is smooth over a dense open U ⊂ S, and every K-point of C extends to a section of X through the smooth locus.
+
+**Hypotheses.**
+- S excellent Dedekind; C smooth proper geometrically connected over K.
+
+**Proof outline.**
+1. X_{F,t} is a normal proper flat model (RJ.0/normalised-model-properties; ν finite since S is excellent, hence Nagata).
+2. X_{F,t} is excellent of dimension two and normal, so its singular locus is a finite set of closed points lying in finitely many fibres; its generic fibre C is smooth.
+3. Lipman's theorem resolves a two-dimensional excellent normal scheme by finitely many normalised blow-ups at closed points (Stacks 0BGP; StableReduction Layer 4 in the scope of curves over a discrete valuation ring, applied at each of the finitely many bad points); the blow-ups are centred at closed points, so they glue to a global X.
+4. Smoothness over a dense open: spreading out of the smooth generic fibre; sections through the smooth locus by RJ.0/proper-model-points (c).
+
+**Checks.**
+- For C = ℙ¹_K the normalised model ℙ¹_S is already regular.
+- For an elliptic curve over ℚ the theorem gives a regular proper model over ℤ, which contracts to the minimal regular model of StableReduction Layer 5.
+
+**Prerequisites.** RJ.0/normalised-model-properties; RJ.0/proper-model-points; Tau Ceti StableReduction Layer 4; Tau Ceti StableReduction Layer 5; SchemeAndStackFoundations:SF.4.
+
+**Source.** Stacks Project, Theorem 54.14.5 (0BGP): A two-dimensional integral noetherian scheme with finite normalisation and good completed local rings at its finitely many singular points has a resolution by normalised blow-ups; excellence supplies these hypotheses. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.5, Remark 13, p. 273: Applying Raynaud's theorem to a smooth curve over an excellent discrete valuation ring first requires a regular proper model, obtained by desingularisation (Abhyankar, Lipman).
+
+### Specialisation of Jacobians at every prime (`RJ.5/specialisation-package`, theorem) — *Specialisation package for Jacobians*
+
+Let S be an excellent Dedekind scheme with function field K and perfect residue fields at closed points (for instance a ring of S-integers of a number field), C/K a smooth proper geometrically connected curve with a rational point P₀, J its Jacobian, X/S a regular proper flat model (RJ.5/regular-model-existence), e the section extending P₀, and N the Néron model of J over S. Then: (i) N⁰ = Pic⁰_{X/S}, compatibly with localisation at every closed point; (ii) over the open U where X is smooth, N|_U is the relative Jacobian of (X_U, e) and represents rigidified degree-zero bundles; (iii) J(K) = Cl⁰(C) and J(K^s) = Cl⁰(C_{K^s}) G_K-equivariantly; (iv) for every closed point s there is a reduction homomorphism red_s : Cl⁰(C) = J(K) → N_s(κ(s)), whose component in Φ_s(κ(s)) is the multidegree class of the closure of the divisor and whose identity-component part is the restriction of the corrected line bundle to X_s; at s ∈ U it is reduction of divisor classes; (v) red_s is injective on prime-to-char κ(s) torsion, and on all torsion when e_s < char κ(s) − 1; (vi) all these are compatible with étale (unramified) extensions of K and with the action of decomposition groups on K^s-points.
+
+**Hypotheses.**
+- S excellent Dedekind with perfect residue fields at closed points; C smooth proper geometrically connected with P₀ ∈ C(K). The perfect-residue hypothesis can be replaced by the section e, which gives étale quasi-sections at every point.
+
+**Proof outline.**
+1. (i) RJ.3/global-neron-jacobian with the section e (gcd one at every closed point).
+2. (ii) RJ.2/jacobian-rigidified-representability over U; (iii) RJ.2/jacobian-points-divisor-classes.
+3. (iv) RJ.4/reduction-homomorphism with RJ.4/component-multidegree at bad points and RJ.2/good-reduction-specialisation at good points.
+4. (v) RJ.4/global-torsion-injection; (vi) Néron models and Pic⁰ commute with étale base change (NeronModelsAndSemistableAbelianVarieties:R11.1/etale-basechange).
+
+**Checks.**
+- For C = X₀(11) over ℤ with P₀ = ∞: J(ℚ)_tors = ℤ/5ℤ, generated by the cuspidal class [(0) − (∞)]; it injects into J(𝔽_ℓ) for every odd ℓ ≠ 11 and maps isomorphically onto Φ₁₁(𝔽₁₁) = ℤ/5ℤ, the two cusps specialising to different components of the regular model at 11.
+- For an elliptic curve E/ℚ with origin, the package returns the reduction maps E(ℚ) → N_p(𝔽_p), an extension of Φ_p(𝔽_p) by Ẽ_ns(𝔽_p), and the bound of #E(ℚ)_tors by #N_p(𝔽_p) at every odd prime p.
+
+**Prerequisites.** RJ.5/regular-model-existence; RJ.3/global-neron-jacobian; RJ.2/jacobian-rigidified-representability; RJ.2/jacobian-points-divisor-classes; RJ.2/good-reduction-specialisation; RJ.4/component-multidegree; RJ.4/global-torsion-injection; NeronModelsAndSemistableAbelianVarieties:R11.1/etale-basechange.
+
+**Source.** Bosch–Lütkebohmert–Raynaud, *Néron Models*, §9.5, Theorem 4, p. 267; §9.6, Theorem 1, p. 274; §1.4, Theorem 3, p. 20: Raynaud's description of the Néron model of a Jacobian by the Picard functor of a regular model and of its component group by the intersection matrix, globalised over a Dedekind base. Bosch–Lütkebohmert–Raynaud, *Néron Models*, §7.5, Lemma 5, p. 187: Raynaud's lemma behind the injectivity of reduction on torsion in small ramification.
+
+## Worked examples
+
+- **The projective line.** For F = K(t), the normalised model is ℙ¹_S, its cohomology is H⁰ = R and H¹ = 0, its relative Picard scheme is ⊔_d S with universal rigidified bundles O(d·[0]), and its Jacobian is trivial.
+- **A non-geometrically-connected model.** For F = ℚ(√2)(t) over ℤ, H⁰ of the normalised model is ℤ[√2]; the hypothesis f_*O = O_S of the Picard statements fails.
+- **Two components.** Blowing up ℙ¹_R at a rational point of the special fibre gives a regular model with special fibre X₁ + X₂; O(X₁) is a nontrivial line bundle with trivial generic fibre, so the degree-zero Picard functor is not separated and its separated quotient is S.
+- **X₀(11).** The elliptic curve X₀(11) over ℚ has rational torsion ℤ/5ℤ, generated by the cuspidal class. Reduction is injective on it at 2 (odd torsion) and at 3 (e = 1 < 2), where #E(𝔽₂) = #E(𝔽₃) = 5; at 11 the Néron model has split multiplicative reduction of type I₅ and the torsion maps isomorphically onto the component group ℤ/5ℤ, the two cusps specialising to different components of the regular model.
+- **Sharpness of e < p − 1.** Over ℤ_p[ζ_p] (e = p − 1) the point ζ_p of 𝔾_m has order p and reduces to 1.
+
+## Acceptance tests
+
+1. ℙ¹_ℤ as a model of ℙ¹_ℚ: points extend (primitive representatives), sections reduce modulo p, H¹(ℙ¹_R, O(n)) has rank max(−n − 1, 0) by the two-chart formula.
+2. The normalised model of ℚ(t)[y]/(y² − t³ + t) over ℤ[1/2] is the smooth Weierstrass model, cohomologically flat with H¹ free of rank one.
+3. The rigidified Picard functor of ℙ¹_S along two sections is an extension of ℤ by 𝔾_m; a section in one copy of ℙ¹ ⊔ ℙ¹ is not a rigidificator.
+4. For an elliptic curve E/S with origin, the pointed Abel–Jacobi map E → Pic⁰_{E/S} is an isomorphism and the universal bundle is O(Δ − e × E − E × e).
+5. For the minimal regular model of an elliptic curve with I_n reduction, the component of [P − O] is the index of the component through which P specialises, modulo n.
+6. Torsion of X₀(11)(ℚ) injects at 2, 3 and 11 as in the worked example; the μ_p example shows the ramification bound is sharp.
+
+## References
+
+- S. Bosch, W. Lütkebohmert, M. Raynaud, *Néron Models*, Ergebnisse der Mathematik und ihrer Grenzgebiete (3) 21, Springer, 1990: §§1.1–1.4, 3.1, 7.1, 7.5, Chapters 8 and 9.
+- The Stacks Project, tags 01X8, 01XB, 01XD, 0BAK, 035H, 035I, 0BXX, 0BY1, 032L, 035S, 0C45, 0AUW, 0B5X, 0D2S, 0B45, 0BGP.
+- Tau Ceti roadmaps JacobianChallenge, AlgebraicCurves (Layer 12), StableReduction (Layers 0, 4, 5) and ModularCurves (Layer 10 and The Mazur interface).
