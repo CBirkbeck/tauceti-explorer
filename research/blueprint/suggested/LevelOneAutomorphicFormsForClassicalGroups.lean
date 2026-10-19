@@ -244,4 +244,12 @@ example : Module.rank ℂ (CuspForm 𝒮ℒ 24) = 2 := by
 example : Module.rank ℂ (CuspForm 𝒮ℒ 23) = 0 := by
   sorry
 
+-- E22: the full known classical set can have more than one eigenclass.
+example : Module.rank ℂ (CuspForm 𝒮ℒ 54) = 4 := by
+  sorry
+
+-- The compact rank-sixteen parameter includes two additional trivial strings.
+example : (2 * 4 + 7 + 1 : ℕ) = 16 := by
+  sorry
+
 end TauCeti.LevelOne.Suggested

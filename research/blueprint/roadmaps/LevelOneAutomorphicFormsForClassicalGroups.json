@@ -19,7 +19,8 @@
     "tauceti:Completed/IntegralLattices",
     "tauceti:TauCetiRoadmap/ModularForms",
     "tauceti:TauCetiRoadmap/ReductiveGroups",
-    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight"
+    "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight",
+    "tauceti:TauCetiRoadmap/AlgebraicCodingTheory"
   ],
   "stages": [
     {
@@ -42,7 +43,7 @@
     {
       "key": "LO.2",
       "title": "Rankin–Selberg positivity and certified exclusions",
-      "description": "This is the owner of the level-one Stark–Odlyzko argument. The starting theorem is an intrinsic bilinear explicit formula for completed Rankin–Selberg L-functions, with the Fourier convention fixed before positivity is asserted. Finite Satake terms are positive semidefinite, whereas the corrected zero contribution yields nonnegativity only on the cone of nonnegative coefficients. The admissible finite matrix retains A_F/m on its diagonal and checks that active epsilon factors are real signs. A local Rayleigh minimum must be proved to have the least eigenvalue; the existing Mathlib theorem supplies only the eigenvector assertion. Principal faces reduce discovery to finite spectral problems. CN supplies exact and interval certification, complete ellipsoid covers and the average multiplicity lift. This stage proves the comparison from those certificates to the intrinsic automorphic inequality. Unconditional F tests and GRH-dependent G tests have separate hypotheses. For POS(F), C^F(x,x)≥0 for every finite nonnegative automorphic vector x, and m distinct classes at U imply J_F(U²)≤A_F/m. The average lift proves strict-negativity equivalence for compressed blocks. The two Miller families vanish for n≤12 with the stated trivial exception.",
+      "description": "This is the owner of the level-one Stark–Odlyzko argument. The starting theorem is an intrinsic bilinear explicit formula for completed Rankin–Selberg L-functions, with the Fourier convention fixed before positivity is asserted. Finite Satake terms are positive semidefinite, whereas the corrected zero contribution yields nonnegativity only on the cone of nonnegative coefficients. The admissible finite matrix retains A_F/m on its diagonal and checks that active epsilon factors are real signs. A local Rayleigh minimum must be proved to have the least eigenvalue; the existing Mathlib theorem supplies only the eigenvector assertion. Principal faces reduce discovery to finite spectral problems. CN supplies exact and interval certification, complete ellipsoid covers and the average multiplicity lift. This stage proves the comparison from those certificates to the intrinsic automorphic inequality. Unconditional F tests and GRH-dependent G tests have separate hypotheses. For POS(F), C^F(x,x)≥0 for every finite nonnegative automorphic vector x, and m distinct classes at U imply J_F(U²)≤A_F/m. The average lift proves strict-negativity equivalence for compressed blocks. The two Miller families vanish for n≤12 with the stated trivial exception. For odd 1≤w≤53, exclude self-dual PGL₄ classes with infinity type 2I_w using the full classical GL₂ known set and certified ℓ=5 witnesses (CT20 §2.4.7 p.285, corrected E22). This target is distinct from the conditional GL₂ dimension comparison.",
       "requires": [
         "AnalyticNumberTheory:AN.3",
         "AutomorphicFormsOnReductiveGroups:AF.5",
@@ -133,7 +134,7 @@
     {
       "key": "LO.8",
       "title": "Harmonic theta realizations and stable scalar forms",
-      "description": "Use the cusp classification to prove theta spanning in weights 4, 8 and 12 by induction with the Siegel operator. For weight 13, the five meromorphic order checks identify harmonic theta images, while the Golay alternating forms provide explicit nonzero Leech Fourier coefficients. Rooted Niemeier lattices contribute no positive-degree alternating invariants. Exact group and code certificates support the one-dimensional Leech invariant lines and the coefficient counts; generic code, lattice and finite-group infrastructure stays with its owners. Finally the stable parameter remainder and character test are independent of genus at g≥2k. This proves stable dimensions and bijectivity of Φ at the boundary, then transports the known strict-range theta spanning theorem down to g=2k. The stable argument works in arbitrary weight and does not require unbounded-rank mass tables. Prove low-weight theta spanning for k=4,8,12 and the alternating rank-24 theta isomorphism onto S₁₃ in every genus. For every k,g≥0 with g≥2k prove dim M_k(Γ_g)=dim M_k(Γ_{2k}), vanishing unless 4|k, and bijectivity of Φ_{g+1}; for 4|k prove θ_g:ℂ[X_{2k}]→M_k(Γ_g) is an isomorphism.",
+      "description": "Use the cusp classification to prove theta spanning in weights 4, 8 and 12 by induction with the Siegel operator. For weight 13, the five meromorphic order checks identify harmonic theta images, while the Golay alternating forms provide explicit nonzero Leech Fourier coefficients. Rooted Niemeier lattices contribute no positive-degree alternating invariants. Exact group and code certificates support the one-dimensional Leech invariant lines and the coefficient counts; generic code, lattice and finite-group infrastructure stays with its owners. Finally the stable parameter remainder and character test are independent of genus at g≥2k. This proves stable dimensions and bijectivity of Φ at the boundary, then transports the known strict-range theta spanning theorem down to g=2k. The stable argument works in arbitrary weight and does not require unbounded-rank mass tables. Prove low-weight theta spanning for k=4,8,12 and the alternating rank-24 theta isomorphism onto S₁₃ in every genus. For every k,g≥0 with g≥2k prove dim M_k(Γ_g)=dim M_k(Γ_{2k}), vanishing unless 4|k, and bijectivity of Φ_{g+1}; for 4|k prove θ_g:ℂ[X_{2k}]→M_k(Γ_g) is an isomorphism. Current AlgebraicCodingTheory Layer 5 owns the extended binary Golay code; current Tau Ceti already proves its rank, Type II property, minimum distance and enumerator in `TauCeti/InformationTheory/Coding/Binary/Golay/Basic.lean`. Its Construction A lattice is available in `TauCeti/LinearAlgebra/IntegralLattice/ConstructionA/Golay.lean`. That lattice has roots (the vectors 2eᵢ have norm two for the halved dot product); the Leech comparison still requires the twisted construction. These current interfaces postdate the compilation pin. Only the extra Mathieu incidence/orientation and Leech comparison results are requested, with no new Golay code planned here.",
       "requires": [
         "AutomorphicBundles:B4",
         "AutomorphicBundles:B5",
@@ -145,7 +146,8 @@
         "LevelOneAutomorphicFormsForClassicalGroups:LO.6",
         "LevelOneAutomorphicFormsForClassicalGroups:LO.7",
         "MetaplecticAutomorphicForms:MP.5",
-        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas"
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieHighestWeight#layer-6-the-weyl-character-dimension-and-kostant-formulas",
+        "tauceti:TauCetiRoadmap/AlgebraicCodingTheory#layer-5-tetracode-hexacode-and-the-extended-golay-codes"
       ]
     }
   ],
@@ -183,7 +185,7 @@
       "sha256": "ee20dcf191d37290a74c79c4b15d9fbfe5c2b3673bd6c53283ff44d19762708d",
       "accessed": "2026-10-19",
       "readSections": [
-        "Introduction, Theorems E–F pp.11–14; V §1 pp.135–137 and §2 pp.137–140; V §4.1 and Proposition-Definition 4.4 pp.143–146; IX §3.16, Lemma 3.15 and Proposition 3.17 pp.303–305; IX Lemma 3.36 and Propositions 3.37–3.38 pp.321–323; IX §4.4 pp.326–327 and §5.2 pp.328–330; Table C.5 p.440. These are targeted readings, not a claim to have read the entire preprint."
+        "Introduction, Theorem E pp.12–14 and Theorem F p.15; V §1 pp.135–137 and §2 pp.137–140; V §4.1 and Proposition-Definition 4.4 pp.143–146; IX §3.16, Lemma 3.15 and Proposition 3.17 pp.303–305; IX Lemma 3.36 and Propositions 3.37–3.38 pp.321–323; IX §4.3, Theorem 4.4 p.326 and §5.2 pp.328–330; Table C.5 p.440. These are targeted readings, not a claim to have read the entire preprint."
       ]
     },
     {
