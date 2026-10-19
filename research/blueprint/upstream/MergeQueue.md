@@ -1,6 +1,6 @@
 # Merge queue, bottom up (all our open roadmap pull requests)
 
-Generated 2026-10-19T06:10Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
+Generated 2026-10-19T06:21Z from the README supplier graph of every open pull request of ours plus other authors' pull requests it cites. A wave can merge once every wave below it has merged; within a wave the pull requests are independent. States: draft = the latest deep review asks for changes; ready = the latest deep review approves; maintainer approved = approved by the maintainer. Roadmaps already on main are not listed. Items marked (other author) are external prerequisites, ranked by their own suppliers.
 
 ## Wave 1
 - #813 AdicSpacesPartIII — draft
@@ -20,7 +20,7 @@ Generated 2026-10-19T06:10Z from the README supplier graph of every open pull re
 - #973 TopologicalSheafCohomology (kim-em, other author)
 - #992 GlobalHolomorphicFunctions (kim-em, other author)
 - #1033 SubspaceTheorem (rwst, other author)
-- #1103 PurityOfBranchLocus (tdupu, other author)
+- #1102 LocalPurity (tdupu, other author)
 - #1142 AlgebraicKTheory (kim-em, other author)
 
 ## Wave 2
@@ -28,7 +28,7 @@ Generated 2026-10-19T06:10Z from the README supplier graph of every open pull re
 - #248 LFunctions (roed-math, other author)
 - #918 RealAnalyticGeometry (kim-em, other author)
 - #953 ComplexKahlerGeometry (kim-em, other author)
-- #1102 LocalPurity (tdupu, other author)
+- #1103 PurityOfBranchLocus (tdupu, other author)
 
 ## Wave 3
 - #818 PerfectoidSpaces — maintainer approved; waits on #813, #814
@@ -158,7 +158,7 @@ Generated 2026-10-19T06:10Z from the README supplier graph of every open pull re
 
 ## Wave 26
 - #1013 SerreWeightAndLevelOptimisation — ready; waits on #1005, #785, #852, #856, #858, #879, #913, #920, #923, #928, #931
-- #1017 HeightsRationalPointsAndObstructions — ready (approved at an earlier head); waits on #1000, #1171, #1173, #1174, #785, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #938, #1033
+- #1017 HeightsRationalPointsAndObstructions — draft; waits on #1000, #1171, #1173, #1174, #785, #792, #848, #849, #850, #851, #852, #853, #857, #858, #869, #879, #938, #1033
 - #1053 ShimuraCompactifications — draft; waits on #1000, #1002, #1005, #1038, #792, #813, #848, #849, #852, #853, #858, #879, #913, #933, #966
 - #1175 ArithmeticStatisticsPartV — draft; waits on #1126, #1154, #1167, #1171, #1172, #1173, #1174, #792, #850, #851
 
